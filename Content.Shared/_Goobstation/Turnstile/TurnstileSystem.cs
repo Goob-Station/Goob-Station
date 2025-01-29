@@ -103,9 +103,7 @@ public sealed class TurnstileSystem : EntitySystem
     private void AllowedPassage(EntityUid uid, TurnstileComponent comp, EntityUid otherEntity)
     {
         // Check access here.
-        _audioSystem.PlayPredicted(new SoundPathSpecifier("/Audio/_Goobstation/Machines/turnstile.ogg"),
-            uid,
-            otherEntity); // this audio ain't playing
+        _audioSystem.PlayPredicted(comp.AccessSound, uid, otherEntity);
         _appearanceSystem.SetData(uid, TurnstileVisuals.State, TurnstileVisualState.Allow);
 
         // Allowed passage

@@ -19,6 +19,7 @@ public sealed partial class TurnstileComponent : Component
     /// <summary>
     /// Sound to play if the turnstile access is accepted.
     /// </summary>
+    [DataField]
     public SoundSpecifier? AccessSound;
 
     /// <summary>
