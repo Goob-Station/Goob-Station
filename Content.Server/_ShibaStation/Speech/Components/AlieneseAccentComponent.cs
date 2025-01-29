@@ -41,6 +41,48 @@ public sealed partial class AlieneseAccentComponent : Component
         {"i", "zar"},
         {"you", "kor"},
         {"we", "zar'ka"},
-        {"they", "mor'ka"}
+        {"they", "mor'ka"},
+
+        // Abductor-specific medical terms
+        {"heart", "zx'kar"},
+        {"gland", "vex'nar"},
+        {"organ", "kth'rix"},
+        {"blood", "nex'ar"},
+        {"brain", "psy'kth"},
+        {"surgery", "kir'thex"},
+        {"implant", "zx'thor"},
+        {"specimen", "ter'kax"},
+        {"experiment", "vex'thor"},
+        {"sample", "kth'mar"},
+        {"harvest", "zx'krul"},
+        {"extract", "vex'trak"},
+        {"analyze", "psy'thex"},
+
+        // Abduction-related terms
+        {"ship", "vex'tel"},
+        {"beam", "zx'por"},
+        {"take", "kth'nar"},
+        {"grab", "vor'tak"},
+        {"scan", "psy'nar"},
+        {"probe", "zx'thex"},
+        {"study", "vex'mar"},
+        {"observe", "kth'zar"},
+        {"success", "zar'thex"},
+        {"failure", "nak'thex"},
+        {"ready", "kir'ta"},
+        {"begin", "vor'ka"},
+        {"complete", "zx'tha"},
+
+        // Scientific terms
+        {"research", "vex'sci"},
+        {"data", "psy'dat"},
+        {"result", "kth'zex"},
+        {"test", "vor'sci"},
+        {"subject", "ter'spec"},
+        {"control", "kir'trol"},
+        {"progress", "zx'prog"},
+        {"perfect", "vex'tha"},
+        {"improve", "kth'pro"},
+        {"enhance", "zx'han"}
     };
 }
