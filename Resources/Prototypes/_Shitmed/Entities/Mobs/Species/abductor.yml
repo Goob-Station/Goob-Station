@@ -49,6 +49,15 @@
   - type: SurgeryTarget
   - type: Bloodstream
     bloodReagent: AlienBlood
+  - type: Speech
+    speechSounds: Abductor
+    speechVerb: Abductor
+    allowedEmotes: ['Laugh', 'Scream']
+  - type: Vocal
+    sounds:
+      Male: AbductorSounds
+      Female: AbductorSounds
+      Unsexed: AbductorSounds
 
 - type: entity
   parent: BaseSpeciesDummy
