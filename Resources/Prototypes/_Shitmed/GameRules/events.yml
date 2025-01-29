@@ -35,6 +35,7 @@
         - names_abductor
       - type: AbductorScientist
       - type: SurgeryIgnoreClothing
+      - type: Sanitized # ShibaStation - Abductors are sterile creatures
       - type: SurgerySpeedModifier
         speedModifier: 1.5
       - type: ActionGrant
