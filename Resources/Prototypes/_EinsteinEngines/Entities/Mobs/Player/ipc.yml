@@ -36,19 +36,19 @@
     factions:
       - NanoTrasen
   - type: StandingState
+  - type: Damageable
+    damageContainer: Silicon
+    damageModifierSet: IPC
   - type: MobState
     allowedStates:
       - Alive
-      - Critical
       - Dead
   - type: MobThresholds
     thresholds:
       0: Alive
-      119.999: Critical # TO make it almost impossible
       120: Dead
     stateAlertDict:
       Alive: BorgHealth
-      Critical: BorgCrit
       Dead: BorgDead
   - type: TypingIndicator
     proto: robot
