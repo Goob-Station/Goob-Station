@@ -3,6 +3,9 @@
   parent: BaseMobAbductor
   id: MobAbductor
   components:
+  - type: RandomMetadata
+    nameSegments:
+      - names_abductor
   - type: Abductor
   - type: Tag
     tags:
