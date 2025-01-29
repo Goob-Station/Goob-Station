@@ -1,6 +1,5 @@
 using Content.Shared._NF.Interaction.Components;
 using Content.Shared._NF.Interaction.Systems;
-using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Whitelist;

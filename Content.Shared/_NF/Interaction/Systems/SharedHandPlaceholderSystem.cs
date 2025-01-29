@@ -2,8 +2,9 @@ using Content.Shared._NF.Interaction.Components;
 using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Whitelist;
+using Content.Shared.Item;
 using JetBrains.Annotations;
+using Robust.Shared.Containers;
 using Robust.Shared.Network;
 
 namespace Content.Shared._NF.Interaction.Systems;
@@ -16,11 +17,24 @@ public abstract class SharedHandPlaceholderSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedItemSystem _item = default!;
 
     public override void Initialize()
     {
+        SubscribeLocalEvent<HandPlaceholderComponent, AfterAutoHandleStateEvent>(OnAfterAutoHandleState);
+
         SubscribeLocalEvent<HandPlaceholderRemoveableComponent, GotUnequippedHandEvent>(OnUnequipHand);
         SubscribeLocalEvent<HandPlaceholderRemoveableComponent, DroppedEvent>(OnDropped);
+    }
+
+    /// <summary>
+    /// Updates the GUI buttons with the new entity.
+    /// </summary>
+    private void OnAfterAutoHandleState(Entity<HandPlaceholderComponent> ent, ref AfterAutoHandleStateEvent args)
+    {
+        if (_container.IsEntityInContainer(ent))
+            _item.VisualsChanged(ent);
     }
 
     private void OnUnequipHand(Entity<HandPlaceholderRemoveableComponent> ent, ref GotUnequippedHandEvent args)
