@@ -5,11 +5,9 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.PDA;
 using Content.Shared.Tag;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._Goobstation.Turnstile;
@@ -83,7 +81,7 @@ public sealed class TurnstileSystem : EntitySystem
             case Direction.NorthEast:
                 return new Vector2(0.707f, 0.707f);
             case Direction.SouthEast:
-                return new Vector2(0.707f, 0.707f);
+                return new Vector2(0.707f, -0.707f);
             case Direction.NorthWest:
                 return new Vector2(-0.707f, 0.707f);
             case Direction.SouthWest:
