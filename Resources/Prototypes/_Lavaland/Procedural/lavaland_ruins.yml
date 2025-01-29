@@ -98,7 +98,7 @@
   name: Miner Outpost
   path: Maps/_Lavaland/Lavaland/ruin_mining_outpost.yml
   
-#- type: lavalandRuin
-#  id: HierophantArena
-#  name: Hierophant
-#  path: Maps/_Lavaland/Lavaland/ruin_hierophant.yml
+- type: lavalandRuin
+  id: HierophantArena
+  name: Hierophant
+  path: Maps/_Lavaland/Lavaland/ruin_hierophant_arena.yml

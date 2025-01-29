@@ -1747,13 +1747,6 @@ entities:
     - type: Transform
       pos: 7.777771,5.569683
       parent: 2
-- proto: PlushieBlackburnPlyushkina
-  entities:
-  - uid: 225
-    components:
-    - type: Transform
-      pos: 7.527771,5.3925996
-      parent: 2
 - proto: PlushieCarp
   entities:
   - uid: 226
