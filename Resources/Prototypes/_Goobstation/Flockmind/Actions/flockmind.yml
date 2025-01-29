@@ -83,3 +83,12 @@
   id: LayEgg
   name: Lay egg
   description: Lays an egg which will hatch into a drone.
+  components:
+    - type: InstantAction
+      useDelay: 10
+      icon:
+        sprite: _Goobstation/Flockmind/actions.rsi
+        state: egg
+      event: !type:LayEggEvent
+    - type: FlockmindAction
+      resourceCost: 75

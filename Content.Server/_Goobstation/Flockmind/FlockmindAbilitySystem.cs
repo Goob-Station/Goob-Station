@@ -43,7 +43,7 @@ public sealed partial class FlockmindSystem : EntitySystem
         if (args.Handled)
             return;
         var transform = Transform(uid);
-        var rift = EntityManager.SpawnEntity("Rift", transform.Coordinates);
+        var rift = EntityManager.SpawnEntity("FlockRift", transform.Coordinates);
         var audioSystem = EntityManager.System<AudioSystem>();
         audioSystem.PlayPvs("/Audio/Effects/teleport_activate.ogg", rift);
     }
@@ -58,7 +58,7 @@ public sealed partial class FlockmindSystem : EntitySystem
         {
             if (_inventory.TryGetSlotEntity(entity, "headset", out _))
             {
-                _stun.TryStun(entity, TimeSpan.FromSeconds(5), true);
+                _stun.TryStun(entity, TimeSpan.FromSeconds(8), true);
             }
         }
     }
