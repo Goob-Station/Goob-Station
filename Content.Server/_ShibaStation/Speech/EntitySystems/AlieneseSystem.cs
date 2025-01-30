@@ -1,6 +1,7 @@
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Linq;
+using System.Security.Cryptography;
 using Content.Server._ShibaStation.Speech.Components;
 using Content.Server.Speech;
 using Robust.Shared.Random;
@@ -12,18 +13,21 @@ public sealed class AlieneseSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
 
-    private static readonly Regex WordSplitRegex = new(@"\b\w+\b", RegexOptions.Compiled);
-    private static readonly char[] Vowels = { 'a', 'e', 'i', 'o', 'u' };
-    private static readonly char[] Consonants = {
-        'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm',
-        'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'
+    private static readonly Regex WordSplitRegex = new(@"(\""[^\""]*\""|[\w]+)", RegexOptions.Compiled);
+
+    // Alien vowel substitutions - each vowel has two possible replacements for variety
+    private static readonly Dictionary<char, char[]> AlienVowels = new()
+    {
+        {'a', new[] {'æ', 'α'}},
+        {'e', new[] {'ε', 'э'}},
+        {'i', new[] {'ï', 'í'}},
+        {'o', new[] {'ø', 'δ'}},
+        {'u', new[] {'ü', 'μ'}}
     };
 
-    // Common alien syllables to make words feel more alien
+    // Reduced set of alien syllables for occasional use
     private static readonly string[] AlienSyllables = {
-        "zx", "kth", "rx", "vx", "xr", "kr", "zh", "kh",
-        "th", "rx", "vk", "xk", "sk", "tk", "nx", "px",
-        "xt", "zk", "kz", "xz", "vz", "gz", "mx", "tx"
+        "zx", "kth", "rx", "vx", "xr", "kr"
     };
 
     public override void Initialize()
@@ -47,25 +51,38 @@ public sealed class AlieneseSystem : EntitySystem
             // Add any non-word characters before this word
             result.Append(message.Substring(lastIndex, match.Index - lastIndex));
 
-            var word = match.Value.ToLower();
-            string alienWord;
+            var word = match.Value;
 
-            // Check if it's a common word with a predefined translation
-            if (component.CommonTranslations.TryGetValue(word, out var translation))
+            // Check if the word is wrapped in quotes
+            if (word.StartsWith("\"") && word.EndsWith("\""))
             {
-                alienWord = translation;
+                // Keep quoted text as-is
+                result.Append(word);
             }
             else
             {
-                // Generate a random alien word based on the original
-                alienWord = AlienizeWord(word);
+                var lowerWord = word.ToLower();
+                string alienWord;
+
+                // Check if it's a common word with a predefined translation
+                if (component.CommonTranslations.TryGetValue(lowerWord, out var translation))
+                {
+                    // Apply vowel substitution to the dictionary translation
+                    alienWord = SubstituteVowels(translation, translation.GetHashCode());
+                }
+                else
+                {
+                    // Generate an alien word based on the original
+                    alienWord = AlienizeWord(word);
+                }
+
+                // Preserve original capitalization
+                if (char.IsUpper(word[0]))
+                    alienWord = char.ToUpper(alienWord[0]) + alienWord.Substring(1);
+
+                result.Append(alienWord);
             }
 
-            // Preserve original capitalization
-            if (char.IsUpper(match.Value[0]))
-                alienWord = char.ToUpper(alienWord[0]) + alienWord.Substring(1);
-
-            result.Append(alienWord);
             lastIndex = match.Index + match.Length;
         }
 
@@ -77,55 +94,97 @@ public sealed class AlieneseSystem : EntitySystem
 
     private string AlienizeWord(string word)
     {
+        if (string.IsNullOrWhiteSpace(word))
+            return word;
+
+        // For very short words, use a simple vowel substitution
         if (word.Length <= 2)
         {
-            // For very short words, replace with a random alien syllable
-            return AlienSyllables[_random.Next(AlienSyllables.Length)];
+            return SubstituteVowels(word, word.GetHashCode());
+        }
+
+        // Generate a deterministic hash for this word
+        using var md5 = MD5.Create();
+        var inputBytes = System.Text.Encoding.UTF8.GetBytes(word);
+        var hashBytes = md5.ComputeHash(inputBytes);
+
+        // Convert word to char array for manipulation
+        var chars = word.ToCharArray();
+
+        // Deterministically scramble the middle letters of the word
+        // Keep first and last letters in place for some readability
+        for (int i = 1; i < chars.Length - 1; i++)
+        {
+            var j = 1 + (Math.Abs(hashBytes[i % hashBytes.Length]) % (chars.Length - 2));
+            if (i != j)
+            {
+                var temp = chars[i];
+                chars[i] = chars[j];
+                chars[j] = temp;
+            }
         }
 
         var alienWord = new StringBuilder();
 
-        // 50% chance to start with an alien syllable instead of the original word
-        if (_random.Prob(0.5f))
+        // 25% chance to start with an alien syllable based on hash
+        if (hashBytes[0] % 4 == 0)
         {
-            alienWord.Append(AlienSyllables[_random.Next(AlienSyllables.Length)]);
+            var syllableIndex = hashBytes[0] % AlienSyllables.Length;
+            alienWord.Append(AlienSyllables[syllableIndex]);
         }
 
-        // Convert the word to a char array and completely shuffle it
-        var chars = word.ToCharArray();
+        // Build the word with vowel substitutions and occasional punctuation
         for (int i = 0; i < chars.Length; i++)
         {
-            var j = _random.Next(chars.Length);
-            (chars[i], chars[j]) = (chars[j], chars[i]);
-        }
+            var currentChar = chars[i];
 
-        // Build the alien word with random insertions
-        for (int i = 0; i < chars.Length; i++)
-        {
-            alienWord.Append(chars[i]);
-
-            // Don't add punctuation or syllables at the end of the word
-            if (i < chars.Length - 1)
+            // Substitute vowels
+            if (char.IsLetter(currentChar))
             {
-                // 40% chance to insert an alien syllable
-                if (_random.Prob(0.4f))
+                var lowerChar = char.ToLower(currentChar);
+                if (AlienVowels.TryGetValue(lowerChar, out var alienVowels))
                 {
-                    alienWord.Append(AlienSyllables[_random.Next(AlienSyllables.Length)]);
+                    var vowelIndex = hashBytes[(i * 2) % hashBytes.Length] % 2;
+                    currentChar = alienVowels[vowelIndex];
                 }
-                // 30% chance to add punctuation after any character if we're not at the start or end
-                else if (i > 0 && _random.Prob(0.3f))
+            }
+
+            alienWord.Append(currentChar);
+
+            // Add occasional punctuation or syllable (but less frequently than before)
+            if (i < chars.Length - 1 && i > 0)
+            {
+                var hashByte = hashBytes[i % hashBytes.Length];
+                if (hashByte % 8 == 0) // Reduced frequency (was 4)
                 {
-                    alienWord.Append(_random.Prob(0.5f) ? '-' : '\'');
+                    alienWord.Append(hashByte % 2 == 0 ? '-' : '\'');
+                }
+                else if (hashByte % 12 == 0) // Even more reduced frequency for syllables
+                {
+                    var syllableIndex = hashByte % AlienSyllables.Length;
+                    alienWord.Append(AlienSyllables[syllableIndex]);
                 }
             }
         }
 
-        // 30% chance to append an alien syllable at the end
-        if (_random.Prob(0.3f))
-        {
-            alienWord.Append(AlienSyllables[_random.Next(AlienSyllables.Length)]);
-        }
-
         return alienWord.ToString();
+    }
+
+    private string SubstituteVowels(string word, int seed)
+    {
+        var result = new StringBuilder();
+        foreach (var c in word)
+        {
+            if (AlienVowels.TryGetValue(char.ToLower(c), out var alienVowels))
+            {
+                var vowelIndex = Math.Abs(seed) % 2;
+                result.Append(alienVowels[vowelIndex]);
+            }
+            else
+            {
+                result.Append(c);
+            }
+        }
+        return result.ToString();
     }
 }
