@@ -1,7 +1,7 @@
 using Content.Shared.Damage;
 using System;
 
-namespace Content.Server.Electrocution;
+namespace Content.Shared.Electrocution;
 
 [RegisterComponent]
 public sealed partial class ExplosiveShockComponent : Component
@@ -19,14 +19,14 @@ public sealed partial class ExplosiveShockComponent : Component
     public DamageSpecifier ArmsDamage = default!;
 
     /// <summary>
-    ///     How many seconds to wait after the shock before the explosion.
-    /// </summary>
-    [DataField]
-    public TimeSpan SizzleTime = TimeSpan.FromSeconds(1);
-
-    /// <summary>
     ///     How many seconds to knockdown the wearer for after the explosion.
     /// </summary>
     [DataField]
     public TimeSpan KnockdownTime = TimeSpan.FromSeconds(2);
+
+    /// <summary>
+    ///     How many seconds to wait after the shock before the explosion.
+    /// </summary>
+    [DataField]
+    public TimeSpan ExplosionDelay = TimeSpan.FromSeconds(1);
 }
