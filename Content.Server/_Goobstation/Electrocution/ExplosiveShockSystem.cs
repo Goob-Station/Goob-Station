@@ -38,7 +38,7 @@ public sealed class ExplosiveShockSystem : EntitySystem
 
         _popup.PopupEntity(Loc.GetString("explosive-shock-sizzle", ("item", uid)), uid);
         _adminLogger.Add(LogType.Electrocution, $"{ToPrettyString(args.Args.TargetUid):entity} triggered explosive shock item {ToPrettyString(uid):entity}");
-        Timer.Spawn(TimeSpan.FromSeconds(explosiveShock.SizzleTime), () => TimerEnd(uid, explosiveShock));
+        Timer.Spawn(explosiveShock.SizzleTime, () => TimerEnd(uid, explosiveShock));
     }
 
     private void TimerEnd(EntityUid uid, ExplosiveShockComponent explosiveShock) {
@@ -60,7 +60,7 @@ public sealed class ExplosiveShockSystem : EntitySystem
             foreach (var part in _body.GetBodyChildrenOfType(target.Value, BodyPartType.Arm))
                 _damageable.TryChangeDamage(part.Id, explosiveShock.ArmsDamage, true);
 
-            _stun.TryKnockdown(target.Value, TimeSpan.FromSeconds(explosiveShock.KnockdownTime), true);
+            _stun.TryKnockdown(target.Value, explosiveShock.KnockdownTime, true);
         }
     }
 }
