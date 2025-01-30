@@ -1,5 +1,6 @@
 using Content.Shared.Mobs;
 using Content.Shared.Weapons.Melee.Events;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Lavaland.Mobs;
 
@@ -35,6 +36,7 @@ public sealed class MegafaunaSystem : EntitySystem
             Spawn(comp.Loot, coords);
         }
 
-        Del(uid);
+        // Bruh.
+        Timer.Spawn(TimeSpan.FromSeconds(0.2), ( ) => Del(uid));
     }
 }

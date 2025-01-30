@@ -9,6 +9,7 @@ using System.Linq;
 using System.Numerics;
 using System.Threading.Tasks;
 using Content.Server._Lavaland.Mobs.Hierophant.Components;
+using Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Systems;
 using Content.Shared._Lavaland.Aggression;
 using Content.Shared.Mobs;
 
@@ -141,6 +142,9 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
             // todo spawn crosses
         };
 
+        if (TerminatingOrDeleted(ent))
+            return;
+
         _random.Pick(actions).Invoke();
     }
     public async void DoMinorAttack(Entity<HierophantBossComponent> ent)
@@ -159,12 +163,18 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
             // todo spawn crosses
         };
 
+        if (TerminatingOrDeleted(ent))
+            return;
+
         _random.Pick(actions).Invoke();
     }
 
     #region Patterns
     public async Task DamageArea(Entity<HierophantBossComponent> ent, EntityUid? target = null, int range = 1)
     {
+        if (TerminatingOrDeleted(ent))
+            return;
+
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Machines/airlock_ext_open.ogg"), ent, AudioParams.Default.WithMaxDistance(10f));
 
         target = target ?? PickTarget(ent);
@@ -176,6 +186,9 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
 
         for (int i = 0; i <= range; i++)
         {
+            if (TerminatingOrDeleted(ent))
+                return;
+
             SpawnDamageBox(beacon, range: i);
             await Task.Delay((int) GetDelay(ent, BaseActionDelay / 2.5f));
         }
@@ -187,6 +200,9 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
     {
         for (int i = 0; i < amount; i++)
         {
+            if (TerminatingOrDeleted(ent))
+                return;
+
             var chaser = Spawn(ChaserPrototype, Transform(ent).Coordinates);
             if (TryComp<HierophantChaserComponent>(chaser, out var chasercomp))
             {
@@ -203,6 +219,9 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
     {
         for (int i = 0; i < amount; i++)
         {
+            if (TerminatingOrDeleted(ent))
+                return;
+
             var entPos = relativePos ?? _xform.GetWorldPosition((EntityUid) ent);
             await Blink(ent, entPos);
             await Task.Delay((int) GetDelay(ent, BaseActionDelay));
@@ -261,6 +280,9 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
     }
     public async Task Blink(Entity<HierophantBossComponent> ent, Vector2 worldPos)
     {
+        if (TerminatingOrDeleted(ent))
+            return;
+
         var dummy = Spawn(null, new MapCoordinates(worldPos, Transform(ent).MapID));
 
         SpawnDamageBox(ent, 1, false);
@@ -307,7 +329,8 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
     {
         if (!ent.Comp.Aggressive
         || !TryComp<AggressiveComponent>(ent, out var aggressive)
-        || aggressive.Aggressors.Count == 0)
+        || aggressive.Aggressors.Count == 0
+        || TerminatingOrDeleted(ent))
             return null;
 
         return _random.Pick<EntityUid>(aggressive.Aggressors);
