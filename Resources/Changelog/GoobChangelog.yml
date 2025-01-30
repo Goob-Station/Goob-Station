@@ -4404,3 +4404,9 @@ Entries:
       message: Syndicate pocket dimension pot.
   id: 498
   time: '2025-01-27T13:06:13.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: Added the material silo to gate map
+  id: 499
+  time: '2025-01-30T18:33:26.0000000+00:00'
