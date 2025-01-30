@@ -119,7 +119,7 @@ public sealed partial class DockingConsoleWindow : FancyWindow
         }
 
         FTLButton.Disabled = state != MiningFtlState.Ready;
-        MapFTLMessage.Text = Loc.GetString($"shuttle-console-ftl-message-{state.ToString()}");
+        MapFTLMessage.Text = Loc.GetString($"docking-console-ftl-message-{state.ToString()}");
     }
 
     private bool HasAccess()
