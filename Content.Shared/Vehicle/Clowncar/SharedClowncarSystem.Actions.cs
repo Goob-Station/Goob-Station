@@ -34,7 +34,4 @@ public abstract partial class SharedClowncarSystem
         ToggleCannon(uid, component, args.Performer, true);//component.CannonEntity == null);
         args.Handled = true;
     }
-
-
-
 }

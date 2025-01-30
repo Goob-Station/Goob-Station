@@ -67,28 +67,33 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         if (HasComp<InstantActionComponent>(args.Entity))
             return;
 
-        component.EngineRunning = true;
-        _appearance.SetData(component.Owner, VehicleState.Animated, true);
+        if (args.Container.ID == component.KeySlot)
+        {
+            component.EngineRunning = true;
+            _appearance.SetData(uid, VehicleState.Animated, true);
 
-        _ambientSound.SetAmbience(component.Owner, true);
+            _ambientSound.SetAmbience(uid, true);
+        }
 
         if (component.Driver == null)
             return;
 
-        Mount(component.Driver.Value, component.Owner);
+        //Mount(component.Driver.Value, component.Owner);
     }
 
     private void OnEject(EntityUid uid, VehicleComponent component, ref EntRemovedFromContainerMessage args)
     {
-        component.EngineRunning = false;
-        _appearance.SetData(component.Owner, VehicleState.Animated, false);
+        if (args.Container.ID == component.KeySlot)
+        {
+            component.EngineRunning = false;
+            _appearance.SetData(uid, VehicleState.Animated, false);
 
-        _ambientSound.SetAmbience(component.Owner, false);
-
+            _ambientSound.SetAmbience(uid, false);
+        }
         if (component.Driver == null)
             return;
 
-        Dismount(component.Driver.Value, component.Owner);
+        // Dismount(component.Driver.Value, component.Owner);
     }
 
     private void OnHorn(EntityUid uid, VehicleComponent component, InstantActionEvent args)
@@ -192,8 +197,8 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         _buckle.TryUnbuckle(args.User, args.User);
 
-        Dismount(args.User, comp.Owner);
-        _appearance.SetData(comp.Owner, VehicleState.DrawOver, false);
+        Dismount(args.User, uid);
+        _appearance.SetData(uid, VehicleState.DrawOver, false);
     }
 
     private void AddHorns(EntityUid driver, EntityUid vehicle)

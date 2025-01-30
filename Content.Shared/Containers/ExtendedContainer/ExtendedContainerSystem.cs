@@ -33,7 +33,6 @@ public sealed partial class ExtendedContainerSystem : EntitySystem
 
     private void OnBreak(EntityUid uid, ExtendedContainerComponent component, EntityEventArgs args)
     {
-
         if (component.DeleteContentsOnBreak)
             return;
 
@@ -43,9 +42,7 @@ public sealed partial class ExtendedContainerSystem : EntitySystem
         foreach (var entity in component.Content.ContainedEntities.ToArray())
         {
             _containers.Remove(entity, component.Content);
-            //container.BaseContainer.Remove(entity);
         }
-
     }
 
     /// <summary>
@@ -53,8 +50,6 @@ public sealed partial class ExtendedContainerSystem : EntitySystem
     /// </summary>
     private void OnContainerIsRemovingAttempt(EntityUid uid, ExtendedContainerComponent component, ContainerIsRemovingAttemptEvent args)
     {
-        /*if (!component.Content.TryGetValue(args.Container.ID, out var container))
-            return;*/
         if (args.Container.ID != component.ContainerName)
             return;
 
@@ -76,8 +71,6 @@ public sealed partial class ExtendedContainerSystem : EntitySystem
     {
         if (args.Container.ID != component.ContainerName)
             return;
-        /*if (!component.Containers.TryGetValue(args.Container.ID, out var container))
-            return;*/
 
         var isContainerFull = component.Content?.ContainedEntities.Count >= component.Capacity;
 

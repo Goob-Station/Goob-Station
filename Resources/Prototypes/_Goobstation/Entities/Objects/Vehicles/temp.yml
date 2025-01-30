@@ -69,11 +69,13 @@
 
   - type: Strap
     maxBuckleDistance: 1
+    buckleOnInteractHand: false
+    addBuckleverb: false
     unbuckleSound:
       collection: ClowncarCrash
-  #  whitelist:
-  #    components:
-  #    - Clumsy
+    whitelist:
+      components:
+      - Clumsy
 
   - type: UnpoweredFlashlight
   - type: PointLight
@@ -90,6 +92,7 @@
 
   - type: ExtendedContainer
     containerName: clowncar_container
+    deleteContentsOnBreak: false
     capacity: 6
     insertSound:
       collection: ClowncarLoad
@@ -130,6 +133,7 @@
         - Body
 
   - type: Clowncar
+    container: clowncar_container
     cannonActivateSound:
       path: "/Audio/Effects/Vehicle/Clowncar/clowncar_activate_cannon.ogg"
       params:
@@ -199,6 +203,7 @@
         - ReagentId: SpaceLube
           Quantity: 30
 
+# based on inorganic
 - type: damageContainer
   id: ClowncarDamageContainer
   supportedGroups:
@@ -206,3 +211,14 @@
   supportedTypes:
     - Heat
     - Shock
+
+- type: entity
+  id: CrateFunClownCar
+  parent: CrateLivestock
+  name: clowncar crate
+  description: for the cursed clown
+  components:
+  - type: StorageFill
+    contents:
+      - id: TestlowncarBase
+      - id: BikeHorn

@@ -61,13 +61,12 @@ public abstract partial class SharedClowncarSystem : EntitySystem
         SubscribeLocalEvent<ClowncarComponent, ClowncarFireModeActionEvent>(OnClowncarFireModeAction);
         SubscribeLocalEvent<ClowncarComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
     }
-
     /// <summary>
     /// Handles adding the "thank rider" action to passengers
     /// </summary>
     private void OnEntInserted(EntityUid uid, ClowncarComponent component, EntInsertedIntoContainerMessage args)
     {
-        if (args.Container.ID != "clowncar_container")
+        if (args.Container.ID != component.Container)
             return;
 
         if (!TryComp<VehicleComponent>(uid, out var _))
@@ -75,7 +74,6 @@ public abstract partial class SharedClowncarSystem : EntitySystem
 
         _actionsSystem.AddAction(args.Entity, component.ThankRiderAction, uid);
     }
-
     /// <summary>
     /// Handles making the "toggle cannon" action available only when the car is emagged
     /// </summary>
@@ -204,7 +202,7 @@ public abstract partial class SharedClowncarSystem : EntitySystem
                 _factory.GetComponentName(typeof(ClimbableComponent)),
             }
         };*/
-        if (args.Container.ID != "clowncar_container")
+        if (args.Container.ID != component.Container)
             return;
         foreach (var action in _actionsSystem.GetActions(args.Entity))
         {
@@ -215,17 +213,13 @@ public abstract partial class SharedClowncarSystem : EntitySystem
 }
 
 [Serializable, NetSerializable]
-public sealed partial class ClownCarDoAfterEvent : SimpleDoAfterEvent
-{
-}
-
-public sealed partial class ThankRiderActionEvent : InstantActionEvent
-{
-}
-
-public sealed partial class ClowncarFireModeActionEvent : InstantActionEvent
-{
-}
+public sealed partial class ClownCarDoAfterEvent : SimpleDoAfterEvent { }
+[Serializable, NetSerializable]
+public sealed partial class ClownCarEnterDriverSeatDoAfterEvent : SimpleDoAfterEvent { }
+[Serializable, NetSerializable]
+public sealed partial class ClownCarOpenTrunkDoAfterEvent : SimpleDoAfterEvent { }
+public sealed partial class ThankRiderActionEvent : InstantActionEvent { }
+public sealed partial class ClowncarFireModeActionEvent : InstantActionEvent { }
 
 [Serializable, NetSerializable]
 public enum ClowncarVisuals : byte

@@ -50,6 +50,12 @@ public sealed partial class VehicleComponent : Component
     /// </summary>
     [DataField]
     public VehicleRenderOver RenderOver = VehicleRenderOver.None;
+
+    /// <summary>
+    /// name of the key container
+    /// </summary>
+    [DataField]
+    public string KeySlot = "key_slot";
 }
 [Serializable, NetSerializable]
 public enum VehicleState : byte

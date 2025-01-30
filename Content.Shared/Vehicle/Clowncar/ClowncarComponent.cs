@@ -11,14 +11,18 @@ namespace Content.Shared.Vehicle.Clowncar;
 [Access(typeof(SharedClowncarSystem))]
 public sealed partial class ClowncarComponent : Component
 {
-    [DataField("thankRiderAction")]
+    [DataField]
+    [ViewVariables]
+    public string Container = "clowncar_container";
+
+    [DataField]
     [ViewVariables]
     public string ThankRiderAction = "ActionThankDriver";
 
     [ViewVariables]
     public string CanonModeAction = "ActionCanonmode";
 
-    [DataField("thankCounter")]
+    [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
     public int ThankCounter;
 
@@ -26,7 +30,7 @@ public sealed partial class ClowncarComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public EntityUid? CannonEntity = default!;
 
-    [DataField("cannonPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     [ViewVariables(VVAccess.ReadWrite)]
     public string CannonPrototype = "ClowncarCannon";
 
@@ -34,11 +38,11 @@ public sealed partial class ClowncarComponent : Component
     [ViewVariables]
     public InstantAction? CannonAction;*/
 
-    [DataField("cannonSetupDelay")]
+    [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan CannonSetupDelay = TimeSpan.FromSeconds(2);
 
-    [DataField("cannonRange")]
+    [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
     public float CannonRange = 30; // seems to mutch
 
@@ -46,7 +50,7 @@ public sealed partial class ClowncarComponent : Component
     /// Time the people we shoot out of the cannon and the person they
     /// collide with get paralyzed for
     /// </summary>
-    [DataField("shootingParalyzeTime")]
+    [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan ShootingParalyzeTime = TimeSpan.FromSeconds(5);
 
@@ -54,15 +58,15 @@ public sealed partial class ClowncarComponent : Component
 
     #region Sound
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("cannonActivateSound")]
+    [DataField]
     public SoundSpecifier CannonActivateSound = new SoundPathSpecifier("/Audio/Effects/Vehicle/Clowncar/clowncar_activate_cannon.ogg");
 
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("cannonDeactivateSound")]
+    [DataField]
     public SoundSpecifier CannonDeactivateSound = new SoundPathSpecifier("/Audio/Effects/Vehicle/Clowncar/clowncar_deactivate_cannon.ogg");
 
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("fartSound")]
+    [DataField]
     public SoundSpecifier FartSound = new SoundPathSpecifier("/Audio/Effects/Vehicle/Clowncar/clowncar_fart.ogg");
 
     #endregion
