@@ -1,6 +1,42 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: If aliens were real, their language would be more consistent and easier
+      to study.
+    type: Fix
+  id: 141
+  time: '2025-01-30T07:45:24.890707'
+- author: AstroDogeDX
+  changes:
+  - message: Coat hoods and hardsuit helmets can now be applied while still wearing
+      headgear! No more hair flowers preventing you from hardsuiting up.
+    type: Tweak
+  id: 140
+  time: '2025-01-30T07:45:54.322524'
+- author: AstroDogeDX
+  changes:
+  - message: The magical generators have been removed from the Mining Shuttle and
+      replaced with a JRPACMAN and some fuel. Better get to work upgrading that, Salvage!
+    type: Remove
+  id: 139
+  time: '2025-01-30T07:46:23.928615'
+- author: AstroDogeDX
+  changes:
+  - message: Those who shout all the time will be forced to use their Inside Voice.
+      (Inside Voice component added for admeme usage).
+    type: Add
+  id: 138
+  time: '2025-01-30T07:46:47.802577'
+- author: AstroDogeDX
+  changes:
+  - message: If aliens were real, their scientists would be naturally sterile as not
+      to contaminate their patients. (Lone Abductors no longer require face masks
+      to do surgery safely).
+    type: Tweak
+  id: 137
+  time: '2025-01-30T07:47:39.786084'
+- author: AstroDogeDX
+  changes:
   - message: Alien sightings should be less frequent due to the administration of
       lobotomies on the panicked crew.
     type: Tweak
