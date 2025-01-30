@@ -2,7 +2,7 @@
   id: SheetSteel
   result: SheetSteel1
   completetime: 0
-  miningPoints: 1 # DeltaV
+  miningPoints: 2 # DeltaV
   materials:
     RawIron: 100
     Coal: 30
@@ -19,7 +19,7 @@
   id: SheetGlass1
   result: SheetGlass1
   completetime: 0
-  miningPoints: 1 # DeltaV
+  miningPoints: 2 # DeltaV
   materials:
     RawQuartz: 100
 
@@ -35,7 +35,7 @@
   id: SheetRGlass
   result: SheetRGlass1
   completetime: 0
-  miningPoints: 1 # DeltaV: not using float so unlucky, dont print this anyway
+  miningPoints: 3 # DeltaV: not using float so unlucky, dont print this anyway
   materials:
     Glass: 100
     Steel: 50
@@ -63,7 +63,7 @@
   id: SheetPGlass1
   result: SheetPGlass1
   completetime: 0
-  miningPoints: 16 # DeltaV
+  miningPoints: 9 # DeltaV
   materials:
     RawQuartz: 100
     RawPlasma: 100
@@ -80,7 +80,7 @@
   id: SheetRPGlass1
   result: SheetRPGlass1
   completetime: 0
-  miningPoints: 16 # DeltaV
+  miningPoints: 10 # DeltaV
   materials:
     RawQuartz: 100
     RawPlasma: 100
@@ -101,7 +101,7 @@
   id: SheetPlasma1
   result: SheetPlasma1
   completetime: 0
-  miningPoints: 15 # DeltaV
+  miningPoints: 7 # DeltaV
   materials:
     RawPlasma: 100
 
@@ -116,7 +116,7 @@
   id: SheetPlasteel1
   result: SheetPlasteel1
   completetime: 0
-  miningPoints: 17 # DeltaV
+  miningPoints: 10 # DeltaV
   materials:
     RawPlasma: 100
     RawIron: 200 #Twice as durable as steel, Twice the material cost
@@ -142,7 +142,7 @@
   id: SheetUGlass1
   result: SheetUGlass1
   completetime: 0
-  miningPoints: 31 # DeltaV
+  miningPoints: 9 # DeltaV
   materials:
     RawUranium: 100
     RawQuartz: 100
@@ -159,7 +159,7 @@
   id: SheetRUGlass1
   result: SheetRUGlass1
   completetime: 0
-  miningPoints: 31 # DeltaV
+  miningPoints: 10 # DeltaV
   materials:
     RawUranium: 100
     RawQuartz: 100
@@ -201,7 +201,7 @@
   id: MaterialDiamond
   result: MaterialDiamond1
   completetime: 0
-  miningPoints: 50 # DeltaV
+  miningPoints: 120 # DeltaV
   materials:
     RawDiamond: 100
 
@@ -209,7 +209,7 @@
   id: SheetUranium1
   result: SheetUranium1
   completetime: 0
-  miningPoints: 30 # DeltaV
+  miningPoints: 7 # DeltaV
   materials:
     RawUranium: 100
 
@@ -217,7 +217,7 @@
   id: IngotGold1
   result: IngotGold1
   completetime: 0
-  miningPoints: 18 # DeltaV
+  miningPoints: 7 # DeltaV
   materials:
     RawGold: 100
 
@@ -225,7 +225,7 @@
   id: IngotSilver1
   result: IngotSilver1
   completetime: 0
-  miningPoints: 16 # DeltaV
+  miningPoints: 5 # DeltaV
   materials:
     RawSilver: 100
 
@@ -241,7 +241,7 @@
   id: MaterialBananium1
   result: MaterialBananium1
   completetime: 0
-  miningPoints: 60 # DeltaV
+  miningPoints: 7 # DeltaV
   materials:
     RawBananium: 100
 
