@@ -86,4 +86,6 @@
     autoRecharge: true
     autoRechargeRate: 2
   - type: ThermalVision
+    isEquipment: true
   - type: NightVision
+    isEquipment: true
