@@ -4,6 +4,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using System.Linq;
 using Content.Server._Lavaland.Mobs.Hierophant.Components;
+using Robust.Shared.Player;
 
 namespace Content.Server._Lavaland.Mobs.Hierophant;
 
@@ -24,23 +25,28 @@ public sealed partial class HierophantDamageFieldSystem : EntitySystem
         var shitters = new List<(EntityUid, HierophantDamageFieldComponent)>();
         while (eqe.MoveNext(out var uid, out var comp))
         {
+            if (TerminatingOrDeleted(uid))
+                continue;
+
             shitters.Add((uid, comp));
         }
 
         foreach (var shitter in shitters)
         {
-            var lookup = _lookup.GetEntitiesInRange(shitter.Item1, .25f)
-                .Where(p => !HasComp<HierophantBossComponent>(p))
+            var lookup = _lookup.GetEntitiesInRange(shitter.Item1, .33f)
+                .Where(HasComp<ActorComponent>)
                 .ToList();
+
             foreach (var entity in lookup)
             {
-                if (TryComp<DamageableComponent>(entity, out var dmg))
-                {
-                    _dmg.TryChangeDamage(entity, shitter.Item2.Damage, damageable: dmg, targetPart: TargetBodyPart.Torso);
-                    if (shitter.Item2.Sound != null)
-                        _aud.PlayEntity(shitter.Item2.Sound, entity, entity, AudioParams.Default.WithVolume(-3f));
-                }
+                if (!TryComp<DamageableComponent>(entity, out var dmg))
+                    continue;
+
+                _dmg.TryChangeDamage(entity, shitter.Item2.Damage, damageable: dmg, targetPart: TargetBodyPart.Torso);
+                if (shitter.Item2.Sound != null)
+                    _aud.PlayEntity(shitter.Item2.Sound, entity, entity, AudioParams.Default.WithVolume(-3f));
             }
+
             RemComp(shitter.Item1, shitter.Item2);
         }
     }
