@@ -129,6 +129,7 @@
     - JaniDrobeInventory
     - LawDrobeInventory
     - MediDrobeInventory
+    - MiningDrobeInventory
     - RoboDrobeInventory
     - SciDrobeInventory
     - SecDrobeInventory
