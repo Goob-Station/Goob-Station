@@ -4416,3 +4416,13 @@ Entries:
       message: Added casual jumpsuits for command, engineering and centcom
   id: 500
   time: '2025-01-30T18:35:18.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: 'New traitor item: betrayal knife.'
+    - type: Tweak
+      message: >-
+        Blade mansus grasp now stuns for 1.5 seconds and deals 10 damage on
+        backstab.
+  id: 501
+  time: '2025-01-30T18:37:53.0000000+00:00'
