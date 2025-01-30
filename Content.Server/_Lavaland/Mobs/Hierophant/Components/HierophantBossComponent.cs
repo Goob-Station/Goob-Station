@@ -16,16 +16,16 @@ public sealed partial class HierophantBossComponent : MegafaunaComponent
     public float InterActionDelay = 0.5f;
 
     [DataField]
-    public float MajorAttackCooldown = 8f;
+    public float MajorAttackCooldown = 4f;
 
     [ViewVariables]
-    public float MajorAttackTimer = 8f;
+    public float MajorAttackTimer = 4f;
 
     [DataField]
-    public float AttackCooldown = 4f;
+    public float AttackCooldown = 3f;
 
     [ViewVariables]
-    public float AttackTimer = 4f;
+    public float AttackTimer = 3f;
 
     [DataField]
     public float MeleeReactionCooldown = 10f;

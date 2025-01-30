@@ -1,7 +1,3 @@
-using Content.Server._Lavaland.Aggression;
-using Content.Server.Audio;
-using Content.Server.Destructible;
-using Content.Shared.Audio;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -22,7 +18,6 @@ namespace Content.Server._Lavaland.Mobs.Hierophant;
 
 public sealed partial class HierophantBehaviorSystem : EntitySystem
 {
-    [Dependency] private readonly AmbientSoundSystem _ambient = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -121,25 +116,11 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
     private void InitBoss(Entity<HierophantBossComponent> ent)
     {
         ent.Comp.Aggressive = true;
-
-        if (TryComp<AmbientSoundComponent>(ent, out var ambient))
-        {
-            // Sneaky hack to start the music from 0 position
-            _ambient.SetSound(ent, ambient.Sound, ambient);
-            _ambient.SetAmbience(ent, true, ambient);
-        }
     }
 
     private void DeinitBoss(Entity<HierophantBossComponent> ent)
     {
         ent.Comp.Aggressive = false;
-
-        if (TryComp<AmbientSoundComponent>(ent, out var ambient))
-        {
-            _ambient.SetAmbience(ent, false, ambient);
-            // TODO epic hierophant death sound
-        }
-
         ent.Comp.CancelToken.Cancel(); // cancel all stuff
     }
 

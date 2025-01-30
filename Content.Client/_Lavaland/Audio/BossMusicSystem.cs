@@ -2,6 +2,7 @@
 using Content.Shared._Lavaland.Aggression;
 using Content.Shared._Lavaland.Audio;
 using Content.Shared.CCVar;
+using Content.Shared.GameTicking;
 using Content.Shared.Mobs;
 using Robust.Client.Audio;
 using Robust.Client.Player;
@@ -45,8 +46,11 @@ public sealed class BossMusicSystem : EntitySystem
         base.Initialize();
 
         Subs.CVar(_configManager, CCVars.LobbyMusicVolume, BossVolumeCVarChanged, true);
-        SubscribeLocalEvent<BossMusicComponent, AggressorAddedEvent>(StartBossMusic);
-        SubscribeLocalEvent<BossMusicComponent, MobStateChangedEvent>(EndBossMusic);
+        SubscribeLocalEvent<BossMusicComponent, AggressorAddedEvent>(OnBossInit);
+        SubscribeLocalEvent<BossMusicComponent, MobStateChangedEvent>(OnBossDefeated);
+
+        SubscribeLocalEvent<LocalPlayerDetachedEvent>(OnMindRemoved);
+        SubscribeLocalEvent<RoundEndMessageEvent>(OnRoundEnd);
     }
 
     public override void Shutdown()
@@ -75,7 +79,7 @@ public sealed class BossMusicSystem : EntitySystem
         }
     }
 
-    private void StartBossMusic(Entity<BossMusicComponent> ent, ref AggressorAddedEvent args)
+    private void OnBossInit(Entity<BossMusicComponent> ent, ref AggressorAddedEvent args)
     {
         var player = _player.LocalSession?.AttachedEntity;
         var agressor = GetEntity(args.Aggressor);
@@ -104,11 +108,29 @@ public sealed class BossMusicSystem : EntitySystem
         _bossMusicOrigin = ent;
     }
 
-    private void EndBossMusic(Entity<BossMusicComponent> ent, ref MobStateChangedEvent args)
+    private void OnBossDefeated(Entity<BossMusicComponent> ent, ref MobStateChangedEvent args)
     {
         var player = _player.LocalSession?.AttachedEntity;
 
-        if (args.NewMobState == MobState.Alive || player == null || _bossMusicOrigin != ent || _musicProto == null || _bossMusicStream == null)
+        if (args.NewMobState == MobState.Alive || player == null || _bossMusicOrigin != ent)
+            return;
+
+        EndAllMusic();
+    }
+
+    private void OnMindRemoved(LocalPlayerDetachedEvent args)
+    {
+        EndAllMusic();
+    }
+
+    private void OnRoundEnd(RoundEndMessageEvent args)
+    {
+        _bossMusicStream = _audio.Stop(_bossMusicStream);
+    }
+
+    private void EndAllMusic()
+    {
+        if (_musicProto == null || _bossMusicStream == null)
             return;
 
         if (_musicProto.FadeIn)
@@ -125,7 +147,7 @@ public sealed class BossMusicSystem : EntitySystem
         _bossMusicStream = null;
     }
 
-        #region Fades
+    #region Fades
 
     private void FadeOut(EntityUid? stream, AudioComponent? component = null, float duration = DefaultDuration)
     {

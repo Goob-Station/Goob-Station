@@ -32,7 +32,7 @@ public abstract class SharedAggressorsSystem : EntitySystem
 
     private void OnMobStateChange(Entity<AggressorComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState == MobState.Dead)
+        if (args.NewMobState != MobState.Alive)
             CleanAggressions(ent);
     }
 
