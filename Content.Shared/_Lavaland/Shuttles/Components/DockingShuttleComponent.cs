@@ -1,6 +1,8 @@
 using Content.Shared._Lavaland.Shuttles.Systems;
+using Content.Shared.Tag;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Lavaland.Shuttles.Components;
@@ -23,6 +25,12 @@ public sealed partial class DockingShuttleComponent : Component
     /// </summary>
     [DataField]
     public List<DockingDestination> Destinations = new();
+
+    /// <summary>
+    /// Airlock tag that it will prioritize docking to.
+    /// </summary>
+    [DataField]
+    public ProtoId<TagPrototype> DockTag = "DockMining";
 }
 
 /// <summary>

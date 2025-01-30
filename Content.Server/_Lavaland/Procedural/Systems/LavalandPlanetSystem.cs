@@ -6,9 +6,11 @@ using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.GameTicking;
 using Content.Server.Parallax;
+using Content.Server.Shuttles;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Shared._Lavaland.Shuttles.Components;
 using Content.Shared.Atmos;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
@@ -26,6 +28,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Utility;
 
 namespace Content.Server._Lavaland.Procedural.Systems;
 
@@ -60,7 +63,8 @@ public sealed class LavalandPlanetSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<PreGameMapLoad>(OnRoundStart);
+        SubscribeLocalEvent<PreGameMapLoad>(OnRreloadStart);
+        SubscribeLocalEvent<RoundStartAttemptEvent>(OnRoundStart);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnCleanup);
 
         _gridQuery = GetEntityQuery<MapGridComponent>();
@@ -68,7 +72,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
         _fixtureQuery = GetEntityQuery<FixturesComponent>();
     }
 
-    private void OnRoundStart(PreGameMapLoad ev)
+    private void OnRreloadStart(PreGameMapLoad ev)
     {
         if (!_config.GetCVar(CCVars.LavalandEnabled))
         {
@@ -77,6 +81,28 @@ public sealed class LavalandPlanetSystem : EntitySystem
 
         SetupPreloader();
         SetupLavaland(out _);
+    }
+
+    private void OnRoundStart(RoundStartAttemptEvent ev)
+    {
+        if (!_config.GetCVar(CCVars.LavalandEnabled))
+        {
+            return;
+        }
+
+        var lavalands = GetLavalands();
+        if (lavalands.Count == 0)
+            return;
+
+        var defaultStation = _station.GetStationInMap(_ticker.DefaultMap);
+        if (defaultStation == null)
+            return;
+
+        foreach (var lavaland in lavalands)
+        {
+            // Add all outposts as a new station grid member
+            _station.AddGridToStation(defaultStation.Value, lavaland.Comp.Outpost);
+        }
     }
 
     private void OnCleanup(RoundRestartCleanupEvent ev)
@@ -206,9 +232,9 @@ public sealed class LavalandPlanetSystem : EntitySystem
         // Align  outpost to planet
         _transform.SetCoordinates(outpost, new EntityCoordinates(lavaland, 0, 0));
 
-        // Add outpost as a new station grid member
+        // Add outpost as a new station grid member (if it's in round)
         var defaultStation = _station.GetStationInMap(_ticker.DefaultMap);
-        if (defaultStation != null)
+        if (defaultStation != null && _ticker.RunLevel == GameRunLevel.InRound)
             _station.AddGridToStation(defaultStation.Value, outpost);
 
         mapComp.Outpost = outpost;

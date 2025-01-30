@@ -21,12 +21,6 @@ public sealed partial class DockingConsoleComponent : Component
     public LocId WindowTitle;
 
     /// <summary>
-    /// Airlock tag that it will prioritize docking to.
-    /// </summary>
-    [DataField(required: true)]
-    public ProtoId<TagPrototype> DockTag;
-
-    /// <summary>
     /// A whitelist the shuttle has to match to be piloted.
     /// </summary>
     [DataField(required: true)]

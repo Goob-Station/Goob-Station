@@ -39,7 +39,6 @@
   components:
   - type: DockingConsole
     windowTitle: mining-console-window-title
-    dockTag: DockMining
     shuttleWhitelist:
       components:
       - MiningShuttle
