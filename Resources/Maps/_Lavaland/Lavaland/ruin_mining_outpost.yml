@@ -5,7 +5,7 @@ tilemap:
   0: Space
   71: FloorMining
   130: Lattice
-  131: LavalandFloorHierophantArena1
+  131: FloorBasalt
   132: Plating
 entities:
 - proto: ""

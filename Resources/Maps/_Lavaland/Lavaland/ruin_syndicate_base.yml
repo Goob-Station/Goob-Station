@@ -1361,7 +1361,8 @@ entities:
           5,-9:
             0: 65520
           5,-4:
-            0: 52991
+            0: 52479
+            2: 512
           6,-8:
             0: 65535
           6,-7:
@@ -1584,9 +1585,36 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           immutable: True
           moles:
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 20.078888
+          - 75.53487
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -1647,331 +1675,6 @@ entities:
     - type: ContainedSolution
       containerName: battery
       container: 8
-  - uid: 13
-    components:
-    - type: MetaData
-      name: solution - beaker
-    - type: Transform
-      parent: 12
-    - type: Solution
-      solution:
-        maxVol: 30
-        name: beaker
-        reagents: []
-    - type: ContainedSolution
-      containerName: beaker
-      container: 12
-  - uid: 15
-    components:
-    - type: MetaData
-      name: solution - beaker
-    - type: Transform
-      parent: 14
-    - type: Solution
-      solution:
-        maxVol: 30
-        name: beaker
-        reagents: []
-    - type: ContainedSolution
-      containerName: beaker
-      container: 14
-  - uid: 17
-    components:
-    - type: MetaData
-      name: solution - beaker
-    - type: Transform
-      parent: 16
-    - type: Solution
-      solution:
-        maxVol: 30
-        name: beaker
-        reagents: []
-    - type: ContainedSolution
-      containerName: beaker
-      container: 16
-  - uid: 19
-    components:
-    - type: MetaData
-      name: solution - beaker
-    - type: Transform
-      parent: 18
-    - type: Solution
-      solution:
-        maxVol: 30
-        name: beaker
-        reagents: []
-    - type: ContainedSolution
-      containerName: beaker
-      container: 18
-  - uid: 21
-    components:
-    - type: MetaData
-      name: solution - beaker
-    - type: Transform
-      parent: 20
-    - type: Solution
-      solution:
-        maxVol: 30
-        name: beaker
-        reagents: []
-    - type: ContainedSolution
-      containerName: beaker
-      container: 20
-  - uid: 23
-    components:
-    - type: MetaData
-      name: solution - beaker
-    - type: Transform
-      parent: 22
-    - type: Solution
-      solution:
-        maxVol: 30
-        name: beaker
-        reagents: []
-    - type: ContainedSolution
-      containerName: beaker
-      container: 22
-  - uid: 25
-    components:
-    - type: MetaData
-      name: solution - food
-    - type: Transform
-      parent: 24
-    - type: Solution
-      solution:
-        maxVol: 10
-        name: food
-        reagents:
-        - data: []
-          ReagentId: Fiber
-          Quantity: 10
-    - type: ContainedSolution
-      containerName: food
-      container: 24
-  - uid: 28
-    components:
-    - type: MetaData
-      name: solution - injector
-    - type: Transform
-      parent: 27
-    - type: Solution
-      solution:
-        maxVol: 15
-        name: injector
-        reagents: []
-    - type: ContainedSolution
-      containerName: injector
-      container: 27
-  - uid: 30
-    components:
-    - type: MetaData
-      name: solution - injector
-    - type: Transform
-      parent: 29
-    - type: Solution
-      solution:
-        maxVol: 15
-        name: injector
-        reagents: []
-    - type: ContainedSolution
-      containerName: injector
-      container: 29
-  - uid: 32
-    components:
-    - type: MetaData
-      name: solution - injector
-    - type: Transform
-      parent: 31
-    - type: Solution
-      solution:
-        maxVol: 15
-        name: injector
-        reagents: []
-    - type: ContainedSolution
-      containerName: injector
-      container: 31
-  - uid: 34
-    components:
-    - type: MetaData
-      name: solution - injector
-    - type: Transform
-      parent: 33
-    - type: Solution
-      solution:
-        maxVol: 15
-        name: injector
-        reagents: []
-    - type: ContainedSolution
-      containerName: injector
-      container: 33
-  - uid: 36
-    components:
-    - type: MetaData
-      name: solution - injector
-    - type: Transform
-      parent: 35
-    - type: Solution
-      solution:
-        maxVol: 15
-        name: injector
-        reagents: []
-    - type: ContainedSolution
-      containerName: injector
-      container: 35
-  - uid: 38
-    components:
-    - type: MetaData
-      name: solution - injector
-    - type: Transform
-      parent: 37
-    - type: Solution
-      solution:
-        maxVol: 15
-        name: injector
-        reagents: []
-    - type: ContainedSolution
-      containerName: injector
-      container: 37
-  - uid: 41
-    components:
-    - type: MetaData
-      name: solution - drink
-    - type: Transform
-      parent: 40
-    - type: Solution
-      solution:
-        maxVol: 30
-        name: drink
-        reagents: []
-    - type: ContainedSolution
-      containerName: drink
-      container: 40
-  - uid: 43
-    components:
-    - type: MetaData
-      name: solution - drink
-    - type: Transform
-      parent: 42
-    - type: Solution
-      solution:
-        maxVol: 30
-        name: drink
-        reagents: []
-    - type: ContainedSolution
-      containerName: drink
-      container: 42
-  - uid: 45
-    components:
-    - type: MetaData
-      name: solution - drink
-    - type: Transform
-      parent: 44
-    - type: Solution
-      solution:
-        maxVol: 30
-        name: drink
-        reagents: []
-    - type: ContainedSolution
-      containerName: drink
-      container: 44
-  - uid: 47
-    components:
-    - type: MetaData
-      name: solution - drink
-    - type: Transform
-      parent: 46
-    - type: Solution
-      solution:
-        maxVol: 30
-        name: drink
-        reagents: []
-    - type: ContainedSolution
-      containerName: drink
-      container: 46
-  - uid: 49
-    components:
-    - type: MetaData
-      name: solution - drink
-    - type: Transform
-      parent: 48
-    - type: Solution
-      solution:
-        maxVol: 30
-        name: drink
-        reagents: []
-    - type: ContainedSolution
-      containerName: drink
-      container: 48
-  - uid: 51
-    components:
-    - type: MetaData
-      name: solution - drink
-    - type: Transform
-      parent: 50
-    - type: Solution
-      solution:
-        maxVol: 30
-        name: drink
-        reagents: []
-    - type: ContainedSolution
-      containerName: drink
-      container: 50
-  - uid: 54
-    components:
-    - type: MetaData
-      name: solution - beaker
-    - type: Transform
-      parent: 53
-    - type: Solution
-      solution:
-        maxVol: 100
-        name: beaker
-        reagents: []
-    - type: ContainedSolution
-      containerName: beaker
-      container: 53
-  - uid: 56
-    components:
-    - type: MetaData
-      name: solution - beaker
-    - type: Transform
-      parent: 55
-    - type: Solution
-      solution:
-        maxVol: 100
-        name: beaker
-        reagents: []
-    - type: ContainedSolution
-      containerName: beaker
-      container: 55
-  - uid: 58
-    components:
-    - type: MetaData
-      name: solution - beaker
-    - type: Transform
-      parent: 57
-    - type: Solution
-      solution:
-        maxVol: 50
-        name: beaker
-        reagents: []
-    - type: ContainedSolution
-      containerName: beaker
-      container: 57
-  - uid: 60
-    components:
-    - type: MetaData
-      name: solution - beaker
-    - type: Transform
-      parent: 59
-    - type: Solution
-      solution:
-        maxVol: 50
-        name: beaker
-        reagents: []
-    - type: ContainedSolution
-      containerName: beaker
-      container: 59
 - proto: AdvancedRetractor
   entities:
   - uid: 74
@@ -2443,7 +2146,7 @@ entities:
       pos: 25.5,0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -9420.291
+      secondsUntilStateChange: -9718.281
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -2536,7 +2239,7 @@ entities:
       pos: 18.5,-3.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -23252.71
+      secondsUntilStateChange: -23550.703
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -2832,104 +2535,6 @@ entities:
     - type: Transform
       pos: 11.5,-18.5
       parent: 2
-- proto: BaseChemistryEmptyVial
-  entities:
-  - uid: 12
-    components:
-    - type: Transform
-      parent: 11
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - beaker
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@beaker: !type:ContainerSlot
-          ent: 13
-  - uid: 14
-    components:
-    - type: Transform
-      parent: 11
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - beaker
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@beaker: !type:ContainerSlot
-          ent: 15
-  - uid: 16
-    components:
-    - type: Transform
-      parent: 11
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - beaker
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@beaker: !type:ContainerSlot
-          ent: 17
-  - uid: 18
-    components:
-    - type: Transform
-      parent: 11
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - beaker
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@beaker: !type:ContainerSlot
-          ent: 19
-  - uid: 20
-    components:
-    - type: Transform
-      parent: 11
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - beaker
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@beaker: !type:ContainerSlot
-          ent: 21
-  - uid: 22
-    components:
-    - type: Transform
-      parent: 11
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - beaker
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@beaker: !type:ContainerSlot
-          ent: 23
 - proto: BaseComputer
   entities:
   - uid: 171
@@ -2960,38 +2565,6 @@ entities:
       parent: 2
 - proto: Beaker
   entities:
-  - uid: 57
-    components:
-    - type: Transform
-      parent: 52
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - beaker
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@beaker: !type:ContainerSlot
-          ent: 58
-  - uid: 59
-    components:
-    - type: Transform
-      parent: 52
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - beaker
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@beaker: !type:ContainerSlot
-          ent: 60
   - uid: 174
     components:
     - type: Transform
@@ -3092,16 +2665,6 @@ entities:
     - type: Transform
       pos: 10.598339,-15.530006
       parent: 2
-- proto: BookChemicalCompendium
-  entities:
-  - uid: 191
-    components:
-    - type: Transform
-      pos: 18.545965,5.644267
-      parent: 2
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
 - proto: BookshelfFilled
   entities:
   - uid: 192
@@ -3117,98 +2680,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 11.5,-17.5
       parent: 2
-- proto: BoxBeaker
-  entities:
-  - uid: 52
-    components:
-    - type: Transform
-      parent: 10
-    - type: Storage
-      storedItems:
-        53:
-          position: 0,0
-          _rotation: South
-        55:
-          position: 2,0
-          _rotation: South
-        57:
-          position: 0,2
-          _rotation: East
-        59:
-          position: 2,2
-          _rotation: East
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 53
-          - 55
-          - 57
-          - 59
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: UseDelay
-      delays:
-        default:
-          length: 1
-        quickInsert:
-          length: 0.5
-        storage: {}
-    - type: InsideEntityStorage
-- proto: BoxBottle
-  entities:
-  - uid: 39
-    components:
-    - type: Transform
-      parent: 10
-    - type: Storage
-      storedItems:
-        40:
-          position: 0,0
-          _rotation: South
-        42:
-          position: 1,0
-          _rotation: South
-        44:
-          position: 2,0
-          _rotation: South
-        46:
-          position: 0,1
-          _rotation: South
-        48:
-          position: 1,1
-          _rotation: South
-        50:
-          position: 2,1
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 40
-          - 42
-          - 44
-          - 46
-          - 48
-          - 50
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: UseDelay
-      delays:
-        default:
-          length: 1
-        quickInsert:
-          length: 0.5
-        storage: {}
-    - type: InsideEntityStorage
 - proto: BoxFolderRed
   entities:
   - uid: 194
@@ -3290,168 +2761,6 @@ entities:
       angularDamping: 0
       linearDamping: 0
       canCollide: False
-    - type: InsideEntityStorage
-- proto: BoxPillCanister
-  entities:
-  - uid: 61
-    components:
-    - type: Transform
-      parent: 10
-    - type: Storage
-      storedItems:
-        62:
-          position: 0,0
-          _rotation: South
-        63:
-          position: 1,0
-          _rotation: South
-        64:
-          position: 2,0
-          _rotation: South
-        65:
-          position: 0,1
-          _rotation: South
-        66:
-          position: 1,1
-          _rotation: South
-        67:
-          position: 2,1
-          _rotation: South
-        68:
-          position: 0,2
-          _rotation: South
-        69:
-          position: 1,2
-          _rotation: South
-        70:
-          position: 2,2
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 62
-          - 63
-          - 64
-          - 65
-          - 66
-          - 67
-          - 68
-          - 69
-          - 70
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: UseDelay
-      delays:
-        default:
-          length: 1
-        quickInsert:
-          length: 0.5
-        storage: {}
-    - type: InsideEntityStorage
-- proto: BoxSyringe
-  entities:
-  - uid: 26
-    components:
-    - type: Transform
-      parent: 10
-    - type: Storage
-      storedItems:
-        27:
-          position: 0,0
-          _rotation: South
-        29:
-          position: 1,0
-          _rotation: South
-        31:
-          position: 2,0
-          _rotation: South
-        33:
-          position: 0,1
-          _rotation: South
-        35:
-          position: 1,1
-          _rotation: South
-        37:
-          position: 2,1
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 27
-          - 29
-          - 31
-          - 33
-          - 35
-          - 37
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: UseDelay
-      delays:
-        default:
-          length: 1
-        quickInsert:
-          length: 0.5
-        storage: {}
-    - type: InsideEntityStorage
-- proto: BoxVial
-  entities:
-  - uid: 11
-    components:
-    - type: Transform
-      parent: 10
-    - type: Storage
-      storedItems:
-        12:
-          position: 0,0
-          _rotation: South
-        14:
-          position: 1,0
-          _rotation: South
-        16:
-          position: 2,0
-          _rotation: South
-        18:
-          position: 0,1
-          _rotation: South
-        20:
-          position: 1,1
-          _rotation: South
-        22:
-          position: 2,1
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 12
-          - 14
-          - 16
-          - 18
-          - 20
-          - 22
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: UseDelay
-      delays:
-        default:
-          length: 1
-        quickInsert:
-          length: 0.5
-        storage: {}
     - type: InsideEntityStorage
 - proto: C4
   entities:
@@ -6863,24 +6172,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 10.5,-9.5
       parent: 2
-- proto: ChemBag
-  entities:
-  - uid: 71
-    components:
-    - type: Transform
-      parent: 10
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: UseDelay
-      delays:
-        default:
-          length: 1
-        quickInsert:
-          length: 0.5
-        storage: {}
-    - type: InsideEntityStorage
 - proto: ChemDispenser
   entities:
   - uid: 883
@@ -6905,104 +6196,6 @@ entities:
     - type: Transform
       pos: 17.251839,-24.208683
       parent: 2
-- proto: ChemistryEmptyBottle01
-  entities:
-  - uid: 40
-    components:
-    - type: Transform
-      parent: 39
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - drink
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@drink: !type:ContainerSlot
-          ent: 41
-  - uid: 42
-    components:
-    - type: Transform
-      parent: 39
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - drink
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@drink: !type:ContainerSlot
-          ent: 43
-  - uid: 44
-    components:
-    - type: Transform
-      parent: 39
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - drink
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@drink: !type:ContainerSlot
-          ent: 45
-  - uid: 46
-    components:
-    - type: Transform
-      parent: 39
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - drink
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@drink: !type:ContainerSlot
-          ent: 47
-  - uid: 48
-    components:
-    - type: Transform
-      parent: 39
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - drink
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@drink: !type:ContainerSlot
-          ent: 49
-  - uid: 50
-    components:
-    - type: Transform
-      parent: 39
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - drink
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@drink: !type:ContainerSlot
-          ent: 51
 - proto: ChemistryEmptyBottle02
   entities:
   - uid: 888
@@ -7159,25 +6352,6 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingHandsGlovesLatex
-  entities:
-  - uid: 24
-    components:
-    - type: Transform
-      parent: 10
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - food
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 25
-    - type: InsideEntityStorage
 - proto: ClothingHandsGlovesNitrile
   entities:
   - uid: 910
@@ -7259,17 +6433,6 @@ entities:
     components:
     - type: Transform
       parent: 200
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: ClothingMaskSterile
-  entities:
-  - uid: 72
-    components:
-    - type: Transform
-      parent: 10
     - type: Physics
       angularDamping: 0
       linearDamping: 0
@@ -7523,6 +6686,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: CrateGenericSteel
   entities:
   - uid: 75
@@ -7536,8 +6703,12 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.7459903
-        - 6.568249
+        - 1.8856695
+        - 7.0937095
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -7554,9 +6725,9 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 77
-          - 76
           - 78
+          - 76
+          - 77
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -7572,8 +6743,12 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.7459903
-        - 6.568249
+        - 1.8856695
+        - 7.0937095
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -7590,11 +6765,11 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 209
-          - 208
-          - 207
-          - 206
           - 205
+          - 206
+          - 207
+          - 208
+          - 209
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -7612,6 +6787,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -7644,8 +6823,12 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.7459903
-        - 6.568249
+        - 1.8856695
+        - 7.0937095
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -7662,12 +6845,12 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 925
-          - 922
-          - 924
-          - 923
-          - 921
           - 920
+          - 921
+          - 923
+          - 924
+          - 922
+          - 925
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -7685,6 +6868,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -7720,6 +6907,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -7768,6 +6959,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -7793,6 +6988,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -7831,6 +7030,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -8093,7 +7296,7 @@ entities:
       pos: 16.5,-11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -29456.455
+      secondsUntilStateChange: -29754.447
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -18193,21 +17396,6 @@ entities:
       parent: 2
 - proto: HandLabeler
   entities:
-  - uid: 73
-    components:
-    - type: Transform
-      parent: 10
-    - type: UseDelay
-      delays:
-        default:
-          endTime: 0
-          startTime: 0
-          length: 2
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 1522
     components:
     - type: Transform
@@ -18252,40 +17440,6 @@ entities:
     - type: Transform
       pos: 15.658089,-22.771183
       parent: 2
-- proto: LargeBeaker
-  entities:
-  - uid: 53
-    components:
-    - type: Transform
-      parent: 52
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - beaker
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@beaker: !type:ContainerSlot
-          ent: 54
-  - uid: 55
-    components:
-    - type: Transform
-      parent: 52
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - beaker
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@beaker: !type:ContainerSlot
-          ent: 56
 - proto: LockerChemistryFilled
   entities:
   - uid: 10
@@ -18293,54 +17447,6 @@ entities:
     - type: Transform
       pos: 15.5,8.5
       parent: 2
-    - type: AccessReader
-      accessLog:
-      - accessor: Unknown
-        accessTime: 15912.4507542
-      - accessor: Unknown
-        accessTime: 15940.2173931
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 147.91457
-        moles:
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 72
-          - 11
-          - 71
-          - 24
-          - 26
-          - 39
-          - 61
-          - 52
-          - 73
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-    - type: Pullable
-      prevFixedRotation: True
 - proto: LockerFreezerBase
   entities:
   - uid: 962
@@ -18371,6 +17477,28 @@ entities:
     - type: Transform
       pos: 6.5,-0.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -18390,6 +17518,28 @@ entities:
     - type: Transform
       pos: 21.5,-13.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: LockerSteel
   entities:
   - uid: 196
@@ -18456,6 +17606,15 @@ entities:
       anchored: True
       pos: 27.5,-3.5
       parent: 2
+    - type: Destructible
+      thresholds:
+      - trigger: !type:DamageTrigger
+          damage: 500
+        triggersOnce: False
+        triggered: False
+        behaviors:
+        - !type:DoActsBehavior
+          acts: Destruction
     - type: AccessReader
       access:
       - - NuclearOperative
@@ -18471,6 +17630,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -18806,143 +17969,6 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
-- proto: PillCanister
-  entities:
-  - uid: 62
-    components:
-    - type: Transform
-      parent: 61
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: UseDelay
-      delays:
-        default:
-          length: 1
-        quickInsert:
-          length: 0.5
-        storage: {}
-  - uid: 63
-    components:
-    - type: Transform
-      parent: 61
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: UseDelay
-      delays:
-        default:
-          length: 1
-        quickInsert:
-          length: 0.5
-        storage: {}
-  - uid: 64
-    components:
-    - type: Transform
-      parent: 61
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: UseDelay
-      delays:
-        default:
-          length: 1
-        quickInsert:
-          length: 0.5
-        storage: {}
-  - uid: 65
-    components:
-    - type: Transform
-      parent: 61
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: UseDelay
-      delays:
-        default:
-          length: 1
-        quickInsert:
-          length: 0.5
-        storage: {}
-  - uid: 66
-    components:
-    - type: Transform
-      parent: 61
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: UseDelay
-      delays:
-        default:
-          length: 1
-        quickInsert:
-          length: 0.5
-        storage: {}
-  - uid: 67
-    components:
-    - type: Transform
-      parent: 61
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: UseDelay
-      delays:
-        default:
-          length: 1
-        quickInsert:
-          length: 0.5
-        storage: {}
-  - uid: 68
-    components:
-    - type: Transform
-      parent: 61
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: UseDelay
-      delays:
-        default:
-          length: 1
-        quickInsert:
-          length: 0.5
-        storage: {}
-  - uid: 69
-    components:
-    - type: Transform
-      parent: 61
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: UseDelay
-      delays:
-        default:
-          length: 1
-        quickInsert:
-          length: 0.5
-        storage: {}
-  - uid: 70
-    components:
-    - type: Transform
-      parent: 61
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: UseDelay
-      delays:
-        default:
-          length: 1
-        quickInsert:
-          length: 0.5
-        storage: {}
 - proto: PlasmaWindoorSyndicateLocked
   entities:
   - uid: 1563
@@ -20079,13 +19105,6 @@ entities:
     - type: Transform
       pos: 28.5,-16.5
       parent: 2
-- proto: SmokeImplanter
-  entities:
-  - uid: 1760
-    components:
-    - type: Transform
-      pos: 20.473547,-20.41162
-      parent: 2
 - proto: SodaDispenser
   entities:
   - uid: 1761
@@ -20298,102 +19317,6 @@ entities:
         solution@injector: !type:ContainerSlot
           ent: 7
     - type: InsideEntityStorage
-  - uid: 27
-    components:
-    - type: Transform
-      parent: 26
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - injector
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@injector: !type:ContainerSlot
-          ent: 28
-  - uid: 29
-    components:
-    - type: Transform
-      parent: 26
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - injector
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@injector: !type:ContainerSlot
-          ent: 30
-  - uid: 31
-    components:
-    - type: Transform
-      parent: 26
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - injector
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@injector: !type:ContainerSlot
-          ent: 32
-  - uid: 33
-    components:
-    - type: Transform
-      parent: 26
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - injector
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@injector: !type:ContainerSlot
-          ent: 34
-  - uid: 35
-    components:
-    - type: Transform
-      parent: 26
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - injector
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@injector: !type:ContainerSlot
-          ent: 36
-  - uid: 37
-    components:
-    - type: Transform
-      parent: 26
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - injector
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@injector: !type:ContainerSlot
-          ent: 38
 - proto: SyringeAmbuzol
   entities:
   - uid: 1531
@@ -22839,18 +21762,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 28.5,-5.5
-      parent: 2
-  - uid: 2240
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 28.5,-3.5
-      parent: 2
-  - uid: 2241
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 26.5,-3.5
       parent: 2
 - proto: WeldingFuelTankHighCapacity
   entities:

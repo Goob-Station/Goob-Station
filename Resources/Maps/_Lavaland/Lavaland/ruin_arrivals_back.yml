@@ -5,7 +5,7 @@ tilemap:
   0: Space
   105: FloorSteelDirty
   130: Lattice
-  131: LavalandFloorHierophantArena1
+  131: FloorBasalt
   132: Plating
   135: PlatingBurnt
 entities:

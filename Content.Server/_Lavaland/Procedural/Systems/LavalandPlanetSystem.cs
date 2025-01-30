@@ -8,6 +8,7 @@ using Content.Server.GameTicking;
 using Content.Server.Parallax;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Components;
+using Content.Server.Station.Systems;
 using Content.Shared.Atmos;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
@@ -47,7 +48,9 @@ public sealed class LavalandPlanetSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly ShuttleSystem _shuttle = default!; // used on NOT debug
+    [Dependency] private readonly ShuttleSystem _shuttle = default!;
+    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly GameTicker _ticker = default!;
 
     private EntityQuery<MapGridComponent> _gridQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -202,6 +205,11 @@ public sealed class LavalandPlanetSystem : EntitySystem
 
         // Align  outpost to planet
         _transform.SetCoordinates(outpost, new EntityCoordinates(lavaland, 0, 0));
+
+        // Add outpost as a new station grid member
+        var defaultStation = _station.GetStationInMap(_ticker.DefaultMap);
+        if (defaultStation != null)
+            _station.AddGridToStation(defaultStation.Value, outpost);
 
         mapComp.Outpost = outpost;
         mapComp.Seed = seed.Value;

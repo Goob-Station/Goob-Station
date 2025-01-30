@@ -6,7 +6,7 @@ tilemap:
   2: FloorDirt
   1: FloorSteelDirty
   130: Lattice
-  131: LavalandFloorHierophantArena1
+  131: FloorBasalt
   135: PlatingBurnt
 entities:
 - proto: ""

@@ -11,7 +11,7 @@ tilemap:
   105: FloorSteelDirty
   127: FloorWood
   128: FloorWoodLarge
-  131: LavalandFloorHierophantArena1
+  131: FloorBasalt
   132: Plating
 entities:
 - proto: ""
