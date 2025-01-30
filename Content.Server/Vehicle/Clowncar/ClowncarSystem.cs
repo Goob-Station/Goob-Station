@@ -1,7 +1,5 @@
 using System.Linq;
 using Content.Server.Chat.Systems;
-using Content.Shared.Buckle.Components;
-using Content.Shared.IdentityManagement;
 using Content.Shared.Vehicle.Clowncar;
 using Content.Shared.Vehicles;
 using Content.Shared.ActionBlocker;
@@ -26,8 +24,6 @@ public sealed class ClowncarSystem : SharedClowncarSystem
     public override void Initialize()
     {
         base.Initialize();
-
-        // TODO this is not in shared because we cant send IC message from there
         SubscribeLocalEvent<ClowncarComponent, ThankRiderActionEvent>(OnThankRider);
         SubscribeLocalEvent<ClowncarComponent, GetVerbsEvent<AlternativeVerb>>(AddVerbs);
         SubscribeLocalEvent<ClowncarComponent, ClownCarEnterDriverSeatDoAfterEvent>(OnEnterDriverSeat);
@@ -38,18 +34,20 @@ public sealed class ClowncarSystem : SharedClowncarSystem
         if (!TryComp<VehicleComponent>(uid, out var vehicle) || args.Handled)
             return;
 
-        if (vehicle.Driver == null){
-            //Todo make popup if no driver
+        component.ThankCounter++;
+
+        if (vehicle.Driver == null)
+        {
             args.Handled = true;
+            OpenTrunk(uid, component); // just added this, i donw want to be trapped inside it if there is no driver.
             return;
         }
 
-        component.ThankCounter++;
         var message = Loc.GetString("clowncar-thankrider", ("rider", vehicle.Driver));
         _chatSystem.TrySendInGameICMessage(args.Performer, message, InGameICChatType.Speak, false);
         args.Handled = true;
 
-        if (component.ThankCounter >= 5)
+        if (component.ThankCounter >= 5) //TODO add a compnent variable here
             OpenTrunk(uid, component);
     }
 
@@ -118,7 +116,7 @@ public sealed class ClowncarSystem : SharedClowncarSystem
             return;
         if (container.Contains(args.User))
             return;
-       OpenTrunk(uid,component);
+       OpenTrunk(uid, component);
     }
     private void OpenTrunk(EntityUid uid, ClowncarComponent component)
     {
