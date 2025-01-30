@@ -74,7 +74,7 @@ namespace Content.IntegrationTests.Tests
             "Submarine", // Goobstation - add Submarine
             "Lambda", // Goobstation - add Lambda
             "Amber",
-            "Gate",
+            "Gate", // Goobstation - goob changes
             "Loop"
         };
 
