@@ -1,4 +1,4 @@
-# Special thanks to all mappers from ss13 (Yogstation) for original ruins
+Special thanks to all mappers from ss13 (Yogstation) for original ruins
 
 - files: ["outpost_lavaland.yml", "ruin_lavalake.yml"]
   authors: mike32oz
