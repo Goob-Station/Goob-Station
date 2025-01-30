@@ -139,6 +139,25 @@
       params:
         volume: 5
 
+  - type: TriggerOnSolutionInsert
+    solutionName: IrishCarBomb
+    minAmount: 30
+  - type: Explosive # C4
+    explosionType: DemolitionCharge
+    totalIntensity: 60
+    intensitySlope: 5
+    maxIntensity: 30
+    canCreateVacuum: false
+  - type: ExplodeOnTrigger
+
+  - type: SpawnSolutionOnDamage
+    solution: PuddleSpaceLube
+    threshold: 5
+    probability: 33
+
+  - type: Damageable
+    damageContainer: ClowncarDamageContainer
+    damageModifierSet: Metallic
 
 - type: entity
   id: ClowncarCannon
@@ -167,15 +186,23 @@
   - type: Unremoveable
   - type: ClowncarCannon
 
-  - type: TriggerOnSolutionInsert
-    solutionName: "DrinkIrishCarBomb"
-    minAmount: 30
+- type: entity
+  id: PuddleSpaceLube
+  parent: PuddleTemporary
+  suffix: SpaceLube
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: SpaceLube
+          Quantity: 30
 
-  - type: Explosive # Powerful explosion in a very small radius. Doesn't break underplating.
-    explosionType: DemolitionCharge
-    totalIntensity: 60
-    intensitySlope: 5
-    maxIntensity: 30
-    canCreateVacuum: false
-
-  - type: ExplodeOnTrigger
+- type: damageContainer
+  id: ClowncarDamageContainer
+  supportedGroups:
+    - Brute
+  supportedTypes:
+    - Heat
+    - Shock

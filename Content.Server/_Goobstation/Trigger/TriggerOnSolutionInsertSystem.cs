@@ -12,11 +12,15 @@ public sealed class TriggerOnSolutionInsertSystem : EntitySystem
     [Dependency] private readonly TriggerSystem _triggersystem = default!;
     public override void Initialize()
     {
+        base.Initialize();
         SubscribeLocalEvent<TriggerOnSolutionInsertComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
     }
 
     private void OnEntInserted(EntityUid uid, TriggerOnSolutionInsertComponent component, EntInsertedIntoContainerMessage args)
     {
+        if (component.ContainerName != null && args.Container.ID != component.ContainerName)
+            return; // abort if only want insert into correnct container
+
         if (component.MinAmount == null && component.MaxAmount == null)
             return; // abort function, if no limit is set.
 

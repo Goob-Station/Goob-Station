@@ -24,14 +24,17 @@ namespace Content.Shared.Vehicle.Clowncar;
 /* TODO
  - Enter do after when entering the vehicle
  - Roll the dice action when emaged
- - Explode if someone that has drank more than 30u of irish car bomb enters the car
- - Spread space lube on damage with a prob of 33%
- - Repair with bananas
- - Sometimes the toggle cannon action repeats
- - Cannon fires weird in rotated grids
- - When shooting a second time the server crashes
+ - Explode if someone that has drank more than 30u of irish car bomb enters the car - done
+ - Spread space lube on damage with a prob of 33% - Done
+ - Repair with bananas         #done
  - You can buckle nonclowns as a third party
  - Player feedback like popups and chat messages for bumping, crashing, repairing, irish bomb, lubing, emag, squishing, dice roll, and all other features
+ - add a use of thank counter
+
+ no canon for now: coming in -vertion 2- one week away
+    - Sometimes the toggle cannon action repeats
+    - Cannon fires weird in rotated grids
+    - When shooting a second time the server crashes
  */
 public abstract partial class SharedClowncarSystem : EntitySystem
 {
@@ -67,19 +70,8 @@ public abstract partial class SharedClowncarSystem : EntitySystem
         if (args.Container.ID != "clowncar_container")
             return;
 
-        if (!TryComp<VehicleComponent>(uid, out var vehicle))
-           // || vehicle.Driver == null)
+        if (!TryComp<VehicleComponent>(uid, out var _))
             return;
-
-        /*
-        component.ThankRiderAction = new()// TODO Action sustem needs rework
-        {
-            Icon = new SpriteSpecifier.Texture(new ("Objects/Fun/bikehorn.rsi/icon.png")),
-            DisplayName = Loc.GetString("clowncar-action-name-thankrider"),
-            Description = Loc.GetString("clowncar-action-desc-thankrider"),
-            UseDelay = TimeSpan.FromSeconds(60),
-            Event = new ThankRiderActionEvent()
-        };*/
 
         _actionsSystem.AddAction(args.Entity, component.ThankRiderAction, uid);
     }
@@ -97,15 +89,6 @@ public abstract partial class SharedClowncarSystem : EntitySystem
         if (!TryComp<VehicleComponent>(uid, out var vehicle)
             || vehicle.Driver == null)
             return;
-
-       /* component.CannonAction = new()// TODO Action sustem needs rework
-        {
-            Icon = new SpriteSpecifier.Texture(new ("Objects/Weapons/Guns/Launchers/pirate_cannon.rsi/icon.png")),
-            DisplayName = Loc.GetString("clowncar-action-name-firemode"),
-            Description = Loc.GetString("clowncar-action-desc-firemode"),
-            UseDelay = component.CannonSetupDelay,
-            Event = new ClowncarFireModeActionEvent(),
-        };*/
 
         _actionsSystem.AddAction(vehicle.Driver.Value, component.CanonModeAction, uid);
         args.Handled = true;
@@ -137,6 +120,8 @@ public abstract partial class SharedClowncarSystem : EntitySystem
         }*/
         if (HasComp<EmaggedComponent>(uid))
             _actionsSystem.AddAction(args.Buckle.Owner, component.CanonModeAction, uid);
+
+        component.ThankCounter = 0;
     }
     private void OnUnBuckle(EntityUid uid, ClowncarComponent component, ref UnstrappedEvent args)
     {/*
@@ -159,46 +144,18 @@ public abstract partial class SharedClowncarSystem : EntitySystem
         }*/
         if (HasComp<EmaggedComponent>(uid)){
             foreach (var action in _actionsSystem.GetActions(args.Buckle.Owner))
+            {
                 if (Name(action.Id) == component.CanonModeAction)
                     _actionsSystem.RemoveAction(action.Id);
+            }
         }
         if (component.CannonEntity != null)
             ToggleCannon(uid, component, args.Buckle.Owner, true);
     }
 
-    /// <summary>
-    /// Handles activating/deactivating the cannon when requested
-    /// </summary>
-    private void OnClowncarFireModeAction(EntityUid uid, ClowncarComponent component, ClowncarFireModeActionEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        ToggleCannon(uid, component, args.Performer, true);//component.CannonEntity == null);
-        args.Handled = true;
-    }
-    /// <summary>
-    /// Handles making people knock down each other when fired
-    /// </summary>
-    private void OnEntRemoved(EntityUid uid, ClowncarComponent component, EntRemovedFromContainerMessage args)
-    {
-        /*_stunSystem.TryKnockdown(args.Entity, component.ShootingParalyzeTime, true);
-        var paralyzeComp = EnsureComp<ParalyzeOnCollideComponent>(args.Entity);
-        paralyzeComp.ParalyzeTime = component.ShootingParalyzeTime;
-        paralyzeComp.CollidableEntities = new EntityWhitelist
-        {
-            Entities = new List<EntityUid> { uid }, //only use of whitelist entities?
-            Components = new[]
-            {
-                _factory.GetComponentName(typeof(ItemComponent)),
-                _factory.GetComponentName(typeof(ClimbableComponent)),
-            }
-        };*/
-    }
-
     private void ToggleCannon(EntityUid uid, ClowncarComponent component, EntityUid user, bool activated)
     {
-        var ourTransform = Transform(uid);
+        /*var ourTransform = Transform(uid);
         var sound = activated ? component.CannonActivateSound : component.CannonDeactivateSound;
         _audioSystem.PlayPredicted(sound, ourTransform.Coordinates, uid);
 
@@ -228,6 +185,31 @@ public abstract partial class SharedClowncarSystem : EntitySystem
                     _transformSystem.Unanchor(uid, ourTransform);
                 _combatSystem.SetInCombatMode(user, false);
                 break;
+    }*/
+    }
+    /// <summary>
+    /// Handles making people knock down each other when fired
+    /// </summary>
+    private void OnEntRemoved(EntityUid uid, ClowncarComponent component, EntRemovedFromContainerMessage args)
+    {
+        /*_stunSystem.TryKnockdown(args.Entity, component.ShootingParalyzeTime, true);
+        var paralyzeComp = EnsureComp<ParalyzeOnCollideComponent>(args.Entity);
+        paralyzeComp.ParalyzeTime = component.ShootingParalyzeTime;
+        paralyzeComp.CollidableEntities = new EntityWhitelist
+        {
+            Entities = new List<EntityUid> { uid }, //only use of whitelist entities?
+            Components = new[]
+            {
+                _factory.GetComponentName(typeof(ItemComponent)),
+                _factory.GetComponentName(typeof(ClimbableComponent)),
+            }
+        };*/
+        if (args.Container.ID != "clowncar_container")
+            return;
+        foreach (var action in _actionsSystem.GetActions(args.Entity))
+        {
+            if (Name(action.Id) == component.ThankRiderAction)
+                _actionsSystem.RemoveAction(action.Id);
         }
     }
 }
