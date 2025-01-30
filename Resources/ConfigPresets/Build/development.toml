@@ -32,5 +32,5 @@ preload_grids = false
 [admin]
 see_own_notes = true
 
-#[lavaland]
-#enabled = false
+[lavaland] # Lavaland Change
+enabled = false

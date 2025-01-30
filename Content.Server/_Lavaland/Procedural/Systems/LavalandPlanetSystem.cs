@@ -6,11 +6,9 @@ using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.GameTicking;
 using Content.Server.Parallax;
-using Content.Server.Shuttles;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
-using Content.Shared._Lavaland.Shuttles.Components;
 using Content.Shared.Atmos;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
@@ -28,7 +26,6 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Utility;
 
 namespace Content.Server._Lavaland.Procedural.Systems;
 
