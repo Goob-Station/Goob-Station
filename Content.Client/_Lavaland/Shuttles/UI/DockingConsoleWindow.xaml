@@ -13,5 +13,6 @@
 	    <controls:StripeBack HorizontalExpand="True">
     	    <Button Name="FTLButton" Text="{Loc 'docking-console-ftl'}" Disabled="True" SetSize="128 48" Margin="5"/>
 		</controls:StripeBack>
+        <Label Name="MapFTLMessage" Text="{Loc 'shuttle-console-ftl-message-Unknown'}" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
 	</BoxContainer>
 </controls:FancyWindow>

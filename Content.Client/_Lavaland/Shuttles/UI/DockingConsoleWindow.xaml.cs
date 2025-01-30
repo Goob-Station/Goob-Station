@@ -101,7 +101,25 @@ public sealed partial class DockingConsoleWindow : FancyWindow
 
     private void UpdateButton()
     {
-        FTLButton.Disabled = _selected == null || _state != FTLState.Available || !HasAccess();
+        MiningFtlState state = MiningFtlState.Unknown;
+
+        if (!HasAccess())
+            state = MiningFtlState.NoAccess;
+        else if (_selected == null)
+            state = MiningFtlState.NoSelection;
+        else
+        {
+            state = _state switch
+            {
+                FTLState.Available => MiningFtlState.Ready,
+                FTLState.Cooldown => MiningFtlState.RechargingFtl,
+                FTLState.Starting or FTLState.Travelling or FTLState.Arriving => MiningFtlState.InFtl,
+                _ => state,
+            };
+        }
+
+        FTLButton.Disabled = state != MiningFtlState.Ready;
+        MapFTLMessage.Text = Loc.GetString($"shuttle-console-ftl-message-{state.ToString()}");
     }
 
     private bool HasAccess()
@@ -114,5 +132,15 @@ public sealed partial class DockingConsoleWindow : FancyWindow
         base.FrameUpdate(args);
         var progress = _ftlTime.ProgressAt(_timing.CurTime);
         FTLBar.Value = float.IsFinite(progress) ? progress : 1;
+    }
+
+    private enum MiningFtlState
+    {
+        Unknown,
+        Ready,
+        NoSelection,
+        NoAccess,
+        InFtl,
+        RechargingFtl,
     }
 }

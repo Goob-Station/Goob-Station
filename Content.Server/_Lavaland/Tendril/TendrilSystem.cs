@@ -83,7 +83,7 @@ public sealed class TendrilSystem : EntitySystem
         Spawn("FloorChasmEntity", coords);
         for (var i = 1; i <= radius; i++)
         {
-            // ЁБаный щиткод, но я не знаю, как иначе
+            // shitcode
             Spawn("FloorChasmEntity", new EntityCoordinates(coords.EntityId, coords.X + i, coords.Y));
             Spawn("FloorChasmEntity", new EntityCoordinates(coords.EntityId, coords.X - i, coords.Y));
             Spawn("FloorChasmEntity", new EntityCoordinates(coords.EntityId, coords.X, coords.Y + i));
