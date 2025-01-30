@@ -11,25 +11,13 @@ tilemap:
 entities:
 - proto: ""
   entities:
-  - uid: 134
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: PhysicsMap
-    - type: GridTree
-    - type: MovedGrids
-    - type: Broadphase
-    - type: OccluderTree
   - uid: 181
     components:
     - type: MetaData
       name: NT-Reclaimer
     - type: Transform
       pos: 2.2710133,-2.4148211
-      parent: 134
+      parent: invalid
     - type: MapGrid
       chunks:
         -1,0:
@@ -500,9 +488,17 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -776,11 +772,6 @@ entities:
     - type: Transform
       pos: -3.5,-6.5
       parent: 181
-  - uid: 58
-    components:
-    - type: Transform
-      pos: -1.5,-5.5
-      parent: 181
   - uid: 59
     components:
     - type: Transform
@@ -937,20 +928,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -3.5,-4.5
       parent: 181
-- proto: GeneratorBasic
-  entities:
-  - uid: 40
-    components:
-    - type: Transform
-      pos: -1.5,-5.5
-      parent: 181
-- proto: GeneratorBasic15kW
-  entities:
-  - uid: 67
-    components:
-    - type: Transform
-      pos: -1.5,-6.5
-      parent: 181
 - proto: GravityGeneratorMini
   entities:
   - uid: 39
@@ -1038,6 +1015,13 @@ entities:
     components:
     - type: Transform
       pos: -1.4453101,4.467156
+      parent: 181
+- proto: PortableGeneratorJrPacman
+  entities:
+  - uid: 58
+    components:
+    - type: Transform
+      pos: -1.5,-6.5
       parent: 181
 - proto: PoweredSmallLight
   entities:
@@ -1318,6 +1302,13 @@ entities:
     components:
     - type: Transform
       pos: -4.5,-5.5
+      parent: 181
+- proto: WeldingFuelTankFull
+  entities:
+  - uid: 40
+    components:
+    - type: Transform
+      pos: -2.5,-5.5
       parent: 181
 - proto: Window
   entities:
