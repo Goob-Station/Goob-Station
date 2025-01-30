@@ -302,7 +302,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
     {
         system.OnCharacterUpdate -= OnCharacterUpdated;
     }
-    }
+    
      private void OnChatWindowOpacityChanged(float opacity)
     {
         SetChatWindowOpacity(opacity);
