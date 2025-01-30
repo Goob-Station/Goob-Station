@@ -4292,3 +4292,118 @@ Entries:
       message: Fixed ritual of knowledge stealing your clothes and organs.
   id: 482
   time: '2025-01-20T17:12:41.0000000+00:00'
+<<<<<<< HEAD
+=======
+- author: ARMOKS
+  changes:
+    - type: Add
+      message: Ratking has Nightvision
+    - type: Tweak
+      message: >-
+        Ratking's and their servants' thick fur are now (mostly) insulated
+        against electricity
+  id: 483
+  time: '2025-01-23T03:50:45.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: SM no longer removes gases for no reason during normal operation
+  id: 484
+  time: '2025-01-23T04:09:44.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Tweak
+      message: Increased speed of elite syndicate suit by 11%
+  id: 485
+  time: '2025-01-25T12:14:18.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Abductors now have a unique bloodtype.
+  id: 486
+  time: '2025-01-26T19:30:52.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Add
+      message: Preferred borg name is now applied to Station AIs.
+  id: 487
+  time: '2025-01-26T19:33:23.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Spacelaw finally updated to reflect the docs in game
+  id: 488
+  time: '2025-01-26T19:36:18.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: 'Frezon sell price has been reverted to its old value: 0.3->3$/mol.'
+  id: 489
+  time: '2025-01-26T19:39:44.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Tweak
+      message: Yowie livers now perform chem processing instead of hearts.
+  id: 490
+  time: '2025-01-26T19:42:46.0000000+00:00'
+- author: McBosserson
+  changes:
+    - type: Fix
+      message: Adv. SMES capacity buffed (2x)
+    - type: Tweak
+      message: Increased sell price of filled SMES
+  id: 491
+  time: '2025-01-26T20:04:51.0000000+00:00'
+- author: Koi
+  changes:
+    - type: Fix
+      message: Fixed Glorp Accent not being applied to event Abductor. Varple Zip!
+  id: 492
+  time: '2025-01-26T20:05:46.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: All stealth items are now capable of full stealth while stationary.
+  id: 493
+  time: '2025-01-26T20:14:31.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed macrobomb implant needing a restock time in nukie uplinks.
+  id: 494
+  time: '2025-01-26T20:15:42.0000000+00:00'
+- author: Koi
+  changes:
+    - type: Add
+      message: >-
+        Added Wizard Skates: a rare alternative to Skates that doesn't harm the
+        user! Can be found rarely playing the lottery or searching maints.
+    - type: Tweak
+      message: Adjusted normal Skates to spawn more frequently in maints lockers.
+  id: 495
+  time: '2025-01-26T20:46:41.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Ghouls can wear heretic medallion.
+    - type: Tweak
+      message: >-
+        Everyone can wear heretic gear once again with an exception of eldritch
+        medallion.
+  id: 496
+  time: '2025-01-27T10:21:11.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Wonderprod can no longer be disarmed.
+  id: 497
+  time: '2025-01-27T10:21:43.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added fun!
+    - type: Add
+      message: Syndicate pocket dimension pot.
+  id: 498
+  time: '2025-01-27T13:06:13.0000000+00:00'
+>>>>>>> 9124b14909ac5c9114f8428b7aa7ef0882056b87

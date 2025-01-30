@@ -198,7 +198,12 @@
   - type: AntagLoadProfileRule
     # Goobstation start
     speciesOverride: Human
-    alwaysUseSpeciesOverride: true
+    speciesOverrideBlacklist:
+    - Yowie
+    - IPC
+    - Diona
+    - Abductor
+    - Harpy
     # Goobstation end
   - type: AntagObjectives
     objectives:
