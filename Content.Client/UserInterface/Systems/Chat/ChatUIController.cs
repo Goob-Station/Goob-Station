@@ -291,6 +291,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
     public void OnScreenUnload()
     {
         SetMainChat(false);
+    }
 
     public void OnSystemLoaded(CharacterInfoSystem system)
     {
