@@ -12,6 +12,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
+using Content.Shared.Containers.ItemSlots;
 
 namespace Content.Shared.Vehicles;
 
@@ -44,6 +45,9 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         SubscribeLocalEvent<VehicleComponent, HornActionEvent>(OnHorn);
         SubscribeLocalEvent<VehicleComponent, SirenActionEvent>(OnSiren);
+        SubscribeLocalEvent<VehicleComponent, ItemSlotEjectAttemptEvent>(OnItemSlotEject);
+
+
     }
 
     private void OnInit(EntityUid uid, VehicleComponent component, ComponentInit args)
@@ -73,12 +77,13 @@ public abstract partial class SharedVehicleSystem : EntitySystem
             _appearance.SetData(uid, VehicleState.Animated, true);
 
             _ambientSound.SetAmbience(uid, true);
+
+
+            if (component.Driver == null)
+                return;
+
+            Mount(component.Driver.Value, component.Owner);
         }
-
-        if (component.Driver == null)
-            return;
-
-        //Mount(component.Driver.Value, component.Owner);
     }
 
     private void OnEject(EntityUid uid, VehicleComponent component, ref EntRemovedFromContainerMessage args)
@@ -89,11 +94,12 @@ public abstract partial class SharedVehicleSystem : EntitySystem
             _appearance.SetData(uid, VehicleState.Animated, false);
 
             _ambientSound.SetAmbience(uid, false);
-        }
-        if (component.Driver == null)
-            return;
 
-        // Dismount(component.Driver.Value, component.Owner);
+            if (component.Driver == null)
+                return;
+
+            Dismount(component.Driver.Value, component.Owner);
+        }
     }
 
     private void OnHorn(EntityUid uid, VehicleComponent component, InstantActionEvent args)
@@ -107,7 +113,7 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         if (component.HornSound == null)
             return;
 
-        _audio.PlayPvs(component.HornSound, component.Owner);
+        _audio.PlayPvs(component.HornSound, uid);
         args.Handled = true;
     }
 
@@ -251,6 +257,19 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         if (TryComp<AccessComponent>(vehicle, out var accessComp))
             accessComp.Tags.Clear();
+    }
+    private void OnItemSlotEject(EntityUid uid, VehicleComponent comp, ref ItemSlotEjectAttemptEvent args)
+    {
+        if (!comp.PreventEjectOfKey)
+            return;
+        if (comp.Driver == null)
+            return;
+        if (args.Slot.ID != comp.KeySlot)
+            return;
+        if (args.User == comp.Driver)
+            return;
+
+        args.Cancelled = true;
     }
 }
 

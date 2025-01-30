@@ -56,6 +56,12 @@ public sealed partial class VehicleComponent : Component
     /// </summary>
     [DataField]
     public string KeySlot = "key_slot";
+
+    /// <summary>
+    /// prevent removal of the key when there is a driver
+    /// </summary>
+    [DataField]
+    public bool PreventEjectOfKey  = true;
 }
 [Serializable, NetSerializable]
 public enum VehicleState : byte
