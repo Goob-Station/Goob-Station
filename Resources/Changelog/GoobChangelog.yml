@@ -4410,3 +4410,9 @@ Entries:
       message: Added the material silo to gate map
   id: 499
   time: '2025-01-30T18:33:26.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: Added casual jumpsuits for command, engineering and centcom
+  id: 500
+  time: '2025-01-30T18:35:18.0000000+00:00'
