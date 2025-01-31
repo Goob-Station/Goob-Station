@@ -1,7 +1,7 @@
 - type: job # goob edit
   id: Passenger
-  name: job-name-tider
-  description: job-description-tider
+  name: job-name-passenger
+  description: job-description-passenger
   playTimeTracker: JobPassenger
   startingGear: PassengerGear
   icon: "JobIconPassenger"
