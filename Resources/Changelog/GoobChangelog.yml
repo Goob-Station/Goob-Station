@@ -4314,3 +4314,266 @@ Entries:
       message: Increased speed of elite syndicate suit by 11%
   id: 485
   time: '2025-01-25T12:14:18.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Abductors now have a unique bloodtype.
+  id: 486
+  time: '2025-01-26T19:30:52.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Add
+      message: Preferred borg name is now applied to Station AIs.
+  id: 487
+  time: '2025-01-26T19:33:23.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Spacelaw finally updated to reflect the docs in game
+  id: 488
+  time: '2025-01-26T19:36:18.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: 'Frezon sell price has been reverted to its old value: 0.3->3$/mol.'
+  id: 489
+  time: '2025-01-26T19:39:44.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Tweak
+      message: Yowie livers now perform chem processing instead of hearts.
+  id: 490
+  time: '2025-01-26T19:42:46.0000000+00:00'
+- author: McBosserson
+  changes:
+    - type: Fix
+      message: Adv. SMES capacity buffed (2x)
+    - type: Tweak
+      message: Increased sell price of filled SMES
+  id: 491
+  time: '2025-01-26T20:04:51.0000000+00:00'
+- author: Koi
+  changes:
+    - type: Fix
+      message: Fixed Glorp Accent not being applied to event Abductor. Varple Zip!
+  id: 492
+  time: '2025-01-26T20:05:46.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: All stealth items are now capable of full stealth while stationary.
+  id: 493
+  time: '2025-01-26T20:14:31.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed macrobomb implant needing a restock time in nukie uplinks.
+  id: 494
+  time: '2025-01-26T20:15:42.0000000+00:00'
+- author: Koi
+  changes:
+    - type: Add
+      message: >-
+        Added Wizard Skates: a rare alternative to Skates that doesn't harm the
+        user! Can be found rarely playing the lottery or searching maints.
+    - type: Tweak
+      message: Adjusted normal Skates to spawn more frequently in maints lockers.
+  id: 495
+  time: '2025-01-26T20:46:41.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Ghouls can wear heretic medallion.
+    - type: Tweak
+      message: >-
+        Everyone can wear heretic gear once again with an exception of eldritch
+        medallion.
+  id: 496
+  time: '2025-01-27T10:21:11.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Wonderprod can no longer be disarmed.
+  id: 497
+  time: '2025-01-27T10:21:43.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added fun!
+    - type: Add
+      message: Syndicate pocket dimension pot.
+  id: 498
+  time: '2025-01-27T13:06:13.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: Added the material silo to gate map
+  id: 499
+  time: '2025-01-30T18:33:26.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: Added casual jumpsuits for command, engineering and centcom
+  id: 500
+  time: '2025-01-30T18:35:18.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: 'New traitor item: betrayal knife.'
+    - type: Tweak
+      message: >-
+        Blade mansus grasp now stuns for 1.5 seconds and deals 10 damage on
+        backstab.
+  id: 501
+  time: '2025-01-30T18:37:53.0000000+00:00'
+- author: Yakub, starch
+  changes:
+    - type: Add
+      message: its returned
+  id: 502
+  time: '2025-01-31T01:55:39.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Add
+      message: Mimes have a 25% chance to be funny when they break their vow
+  id: 503
+  time: '2025-01-31T17:19:34.0000000+00:00'
+- author: Foralemes
+  changes:
+    - type: Tweak
+      message: Gave the uplink thieving gloves chameleon technology.
+  id: 504
+  time: '2025-01-31T17:24:54.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Add
+      message: Added Craftable voice changer
+  id: 505
+  time: '2025-01-31T17:28:51.0000000+00:00'
+- author: Mocho, Rinary, Darkrell
+  changes:
+    - type: Add
+      message: >-
+        Added the abductor agent/scientist from SL and their gamerule
+        (LoneAbductorSpawn is still intact)
+    - type: Add
+      message: Added the abductor armor and its controls on the console
+    - type: Add
+      message: >-
+        Ported over the Decloner and Silencer, along with their weird toggleable
+        Decloner+ thingy for the agent, it has disabler mode and cheaper bolts.
+    - type: Add
+      message: >-
+        Added the telepathy power from EE, and gave abductors the ability to use
+        it by default.
+    - type: Add
+      message: >-
+        Added the ability for the abductor multitool to check cable functions on
+        use
+    - type: Fix
+      message: Fixed a bug where heretics could see abductor eye (thanks john shitcode)
+    - type: Fix
+      message: Fixed the undeleteable wonderprod cuffs bug
+    - type: Fix
+      message: Fixed a bug where abductors could gizmo each other for free implants lol
+    - type: Tweak
+      message: >-
+        Added a check on WorldTargetAction so that Send Yourself tells you when
+        you are not on the same map as the station.
+    - type: Tweak
+      message: Xip norp glee flop “nocturine spam skill issue” parloop
+    - type: Tweak
+      message: >-
+        The Wonderprod now has a cap of 20u of Nocturine on its victim's system,
+        and 10u of Mute Toxin for the Silencer
+  id: 506
+  time: '2025-01-31T17:37:02.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Syndicate C-4 is now AI-powered.
+  id: 507
+  time: '2025-01-31T17:39:15.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Tweak
+      message: replaced Felinid with Tajara
+  id: 508
+  time: '2025-01-31T17:45:36.0000000+00:00'
+- author: ARMOKS
+  changes:
+    - type: Tweak
+      message: Syndicate night vision goggles come with medihud and are now contraband.
+    - type: Tweak
+      message: Syndicate infrared goggles are no longer a pulse and are now contraband.
+  id: 509
+  time: '2025-01-31T17:47:21.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Borgs can now pilot mechs.
+  id: 510
+  time: '2025-01-31T17:50:31.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Spin emote is back. Though it's not available in the emote wheel, you
+        have to bind it or type it manually.
+  id: 511
+  time: '2025-01-31T17:54:59.0000000+00:00'
+- author: Quantus
+  changes:
+    - type: Add
+      message: Flatpacker 1001 can now be linked to a Material Silo
+  id: 512
+  time: '2025-01-31T17:58:24.0000000+00:00'
+- author: Verbalase
+  changes:
+    - type: Tweak
+      message: >-
+        Rule 15 has been changed to disallow contraband for command and security
+        entirely and another prohibited example of what not to do.
+  id: 513
+  time: '2025-01-31T18:02:17.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Flesh ascension no longer takes temperature damage, slows down on a
+        small amount of damage, or gibs on 400 blunt.
+    - type: Tweak
+      message: >-
+        Flesh ascension now attacks slightly faster, recovers quickly from
+        bleed, and is huggable
+  id: 514
+  time: '2025-01-31T18:10:47.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: You can now print pens at an autolathe.
+  id: 515
+  time: '2025-01-31T18:12:07.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Tweak
+      message: >-
+        Added disablers to security belts by default. Anywhere you could find a
+        disabler and a belt the disabler was removed (because its in the belt
+        now).
+  id: 516
+  time: '2025-01-31T18:15:54.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Remove
+      message: Removed fun!
+    - type: Add
+      message: >-
+        Explosive insulated gloves that explode and disable your hands after a
+        second if you get shocked with them.
+    - type: Tweak
+      message: >-
+        Uplink conductive insulated gloves have been replaced with explosive
+        insulated gloves.
+  id: 517
+  time: '2025-01-31T19:18:21.0000000+00:00'
