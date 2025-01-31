@@ -28,6 +28,7 @@
   parent: BaseVehicle
   id: TestlowncarBase
   name: testclowncar
+  description: Clowncar description
   components:
 
   - type: Sprite

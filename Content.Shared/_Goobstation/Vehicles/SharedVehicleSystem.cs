@@ -46,8 +46,6 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         SubscribeLocalEvent<VehicleComponent, HornActionEvent>(OnHorn);
         SubscribeLocalEvent<VehicleComponent, SirenActionEvent>(OnSiren);
         SubscribeLocalEvent<VehicleComponent, ItemSlotEjectAttemptEvent>(OnItemSlotEject);
-
-
     }
 
     private void OnInit(EntityUid uid, VehicleComponent component, ComponentInit args)
@@ -55,7 +53,6 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         _appearance.SetData(uid, VehicleState.Animated, component.EngineRunning);
         _appearance.SetData(uid, VehicleState.DrawOver, false);
     }
-
     private void OnRemove(EntityUid uid, VehicleComponent component, ComponentRemove args)
     {
         if (component.Driver == null)
@@ -65,7 +62,6 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         Dismount(component.Driver.Value, uid);
         _appearance.SetData(uid, VehicleState.DrawOver, false);
     }
-
     private void OnInsert(EntityUid uid, VehicleComponent component, ref EntInsertedIntoContainerMessage args)
     {
         if (HasComp<InstantActionComponent>(args.Entity))
@@ -82,10 +78,9 @@ public abstract partial class SharedVehicleSystem : EntitySystem
             if (component.Driver == null)
                 return;
 
-            Mount(component.Driver.Value, component.Owner);
+            Mount(component.Driver.Value, uid);
         }
     }
-
     private void OnEject(EntityUid uid, VehicleComponent component, ref EntRemovedFromContainerMessage args)
     {
         if (args.Container.ID == component.KeySlot)
@@ -98,10 +93,9 @@ public abstract partial class SharedVehicleSystem : EntitySystem
             if (component.Driver == null)
                 return;
 
-            Dismount(component.Driver.Value, component.Owner);
+            Dismount(component.Driver.Value, uid);
         }
     }
-
     private void OnHorn(EntityUid uid, VehicleComponent component, InstantActionEvent args)
     {
         if (args.Handled == true)
@@ -116,7 +110,6 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         _audio.PlayPvs(component.HornSound, uid);
         args.Handled = true;
     }
-
     private void OnSiren(EntityUid uid, VehicleComponent component, InstantActionEvent args)
     {
         if (args.Handled == true)
@@ -140,8 +133,6 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         component.SirenEnabled = !component.SirenEnabled;
         args.Handled = true;
     }
-
-
     private void OnStrapAttempt(Entity<VehicleComponent> ent, ref StrapAttemptEvent args)
     {
         var driver = args.Buckle.Owner; // i dont want to re write this shit 100 fucking times
@@ -167,7 +158,6 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         AddHorns(driver, ent);
     }
-
     private void OnStrapped(Entity<VehicleComponent> ent, ref StrappedEvent args)
     {
         var driver = args.Buckle.Owner;
@@ -186,7 +176,6 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         Mount(driver, ent.Owner);
     }
-
     private void OnUnstrapped(Entity<VehicleComponent> ent, ref UnstrappedEvent args)
     {
         if (ent.Comp.Driver != args.Buckle.Owner)
@@ -195,7 +184,6 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         Dismount(args.Buckle.Owner, ent);
         _appearance.SetData(ent.Owner, VehicleState.DrawOver, false);
     }
-
     private void OnDropped(EntityUid uid, VehicleComponent comp, VirtualItemDeletedEvent args)
     {
         if (comp.Driver != args.User)

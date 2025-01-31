@@ -7,7 +7,7 @@ using Content.Shared.Verbs;
 using Content.Shared.DoAfter;
 using Robust.Shared.Containers;
 using Content.Shared.Buckle;
-
+using Content.Shared.Examine;
 
 namespace Content.Server.Vehicle.Clowncar;
 
@@ -28,6 +28,7 @@ public sealed class ClowncarSystem : SharedClowncarSystem
         SubscribeLocalEvent<ClowncarComponent, GetVerbsEvent<AlternativeVerb>>(AddVerbs);
         SubscribeLocalEvent<ClowncarComponent, ClownCarEnterDriverSeatDoAfterEvent>(OnEnterDriverSeat);
         SubscribeLocalEvent<ClowncarComponent, ClownCarOpenTrunkDoAfterEvent>(OnOpenTrunk);
+        SubscribeLocalEvent<ClowncarComponent, ExaminedEvent>(OnExamined);
     }
     private void OnThankRider(EntityUid uid, ClowncarComponent component, ThankRiderActionEvent args)
     {
@@ -130,5 +131,12 @@ public sealed class ClowncarSystem : SharedClowncarSystem
             _container.Remove(entity, container);
         }
     }
+    private void OnExamined(EntityUid uid, ClowncarComponent component, ref ExaminedEvent args)
+    {
+        if (!_container.TryGetContainer(uid, component.Container, out var container))
+            return;
 
+        if (args.IsInDetailsRange && (container.Count > 0) )
+            args.PushMarkup("Contains: " + container.Count + " Happy Passangers");
+    }
 }

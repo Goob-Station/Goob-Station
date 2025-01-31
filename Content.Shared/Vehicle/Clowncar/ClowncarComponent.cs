@@ -12,15 +12,15 @@ namespace Content.Shared.Vehicle.Clowncar;
 public sealed partial class ClowncarComponent : Component
 {
     [DataField]
-    [ViewVariables]
+    [ViewVariables] //EntProtoId
     public string Container = "clowncar_container";
 
     [DataField]
     [ViewVariables]
-    public string ThankRiderAction = "ActionThankDriver";
+    public EntProtoId ThankRiderAction = "ActionThankDriver";
 
     [ViewVariables]
-    public string CanonModeAction = "ActionCanonmode";
+    public EntProtoId CanonModeAction = "ActionCanonmode";
 
     [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
@@ -30,9 +30,9 @@ public sealed partial class ClowncarComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public EntityUid? CannonEntity = default!;
 
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    [ViewVariables(VVAccess.ReadWrite)]
-    public string CannonPrototype = "ClowncarCannon";
+    [DataField]
+    [ViewVariables]
+    public EntProtoId CannonPrototype = "ClowncarCannon";
 
     /*[DataField("cannonAction")]
     [ViewVariables]

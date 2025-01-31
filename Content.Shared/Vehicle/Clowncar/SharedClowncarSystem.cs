@@ -22,14 +22,26 @@ using Content.Shared.Emag.Components;
 namespace Content.Shared.Vehicle.Clowncar;
 
 /* TODO
- - Enter do after when entering the vehicle
- - Roll the dice action when emaged
- - Explode if someone that has drank more than 30u of irish car bomb enters the car - done
- - Spread space lube on damage with a prob of 33% - Done
- - Repair with bananas         #done
- - You can buckle nonclowns as a third party
- - Player feedback like popups and chat messages for bumping, crashing, repairing, irish bomb, lubing, emag, squishing, dice roll, and all other features
- - add a use of thank counter
+ - Enter do after when entering the vehicle         //Done
+ - Roll the dice action when emaged //not sure what to do whit this one
+ - Explode if someone that has drank more than 30u of irish car bomb enters the car //done
+ - Spread space lube on damage with a prob of 33% - //Done
+ - Repair with bananas                              //Done
+ - You can buckle nonclowns as a third party        //Done
+
+ - Player feedback like popups  //
+    and chat messages
+    for bumping,
+    crashing,
+    repairing,
+    irish bomb,
+    lubing,
+    emag,
+    squishing,
+    dice roll,
+    and all other features
+
+ - add a use of thank counter                       //Done
 
  no canon for now: coming in -vertion 2- one week away
     - Sometimes the toggle cannon action repeats
@@ -79,9 +91,6 @@ public abstract partial class SharedClowncarSystem : EntitySystem
     /// </summary>
     private void OnGotEmagged(EntityUid uid, ClowncarComponent component, ref GotEmaggedEvent args)
     {
-        //if (HasComp<EmaggedComponent>(uid))
-          //  return;
-
         EnsureComp<EmaggedComponent>(uid);
 
         if (!TryComp<VehicleComponent>(uid, out var vehicle)
@@ -202,12 +211,16 @@ public abstract partial class SharedClowncarSystem : EntitySystem
                 _factory.GetComponentName(typeof(ClimbableComponent)),
             }
         };*/
+
         if (args.Container.ID != component.Container)
             return;
-        foreach (var action in _actionsSystem.GetActions(args.Entity))
+
+        foreach (var ( actionId, comp ) in _actionsSystem.GetActions(args.Entity))
         {
-            if (Name(action.Id) == component.ThankRiderAction)
-                _actionsSystem.RemoveAction(action.Id);
+            if (!TryComp(actionId, out MetaDataComponent? metaData))
+                continue;
+            if (metaData.EntityPrototype != null && metaData.EntityPrototype == component.ThankRiderAction)
+                _actionsSystem.RemoveAction(actionId);
         }
     }
 }
