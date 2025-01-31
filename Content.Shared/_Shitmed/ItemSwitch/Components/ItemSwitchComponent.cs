@@ -66,6 +66,9 @@ public sealed partial class ItemSwitchState : BoundUserInterfaceMessage
 
     [DataField]
     public SpriteSpecifier? Sprite;
+
+    [DataField]
+    public bool Hidden;
 }
 
 /// <summary>

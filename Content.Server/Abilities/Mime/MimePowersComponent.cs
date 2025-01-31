@@ -55,5 +55,8 @@ namespace Content.Server.Abilities.Mime
         [DataField]
         public ProtoId<AlertPrototype> VowBrokenAlert = "VowBroken";
 
+        [DataField]
+        public float PunishmentChance = 0.25f;
+
     }
 }

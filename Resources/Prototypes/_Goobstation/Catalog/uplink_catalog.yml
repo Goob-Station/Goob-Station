@@ -365,6 +365,8 @@
   categories:
     - UplinkImplants
 
+# Deception
+
 - type: listing
   id: UplinkSmugglerSatchel
   name: smuggler's satchel
@@ -373,6 +375,16 @@
   productEntity: ClothingSatchelSmuggler
   cost:
     Telecrystal: 15
+  categories:
+  - UplinkDeception
+
+- type: listing
+  id: UplinkClothingExplosiveGloves
+  name: uplink-clothing-explosive-gloves-name
+  description: uplink-clothing-explosive-gloves-desc
+  productEntity: ClothingHandsGlovesExplosiveShock
+  cost:
+    Telecrystal: 10 # goob
   categories:
   - UplinkDeception
 
@@ -544,3 +556,15 @@
     whitelist:
       tags:
       - NukeOpsUplink
+
+# Misc
+
+- type: listing
+  id: UplinkDimensionPot
+  name: uplink-dimension-pot-name
+  description: uplink-dimension-pot-desc
+  productEntity: DimensionPot
+  cost:
+    Telecrystal: 70
+  categories:
+  - UplinkDeception
