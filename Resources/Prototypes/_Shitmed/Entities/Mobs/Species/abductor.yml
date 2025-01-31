@@ -9,6 +9,7 @@
   abstract: true
   components:
   - type: Absorbable # BLOOD FOR THE BLOOD GOD
+  - type: Telepathy # Ayy lmao
   - type: GlorpAccent # GoobStation - Glorpshit
   - type: HumanoidAppearance
     species: Abductor
@@ -47,6 +48,8 @@
         Brute: -0.14
   - type: Targeting
   - type: SurgeryTarget
+  - type: Bloodstream
+    bloodReagent: AlienBlood
 
 - type: entity
   parent: BaseSpeciesDummy
