@@ -508,13 +508,13 @@
   description: Advanced weapon that exhausts organic targets, weakening them until they collapse.
   components:
   - type: Item
-    size: Normal
+    size: Normal #Goobstation
     shape:
-    - 0,0,2,1
+    - 0,0,2,1 #Goobstation
   - type: Tag
     tags:
       - Taser
-      - SecBeltEquip
+      - SecBeltEquip #Goobstation
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/disabler_smg.rsi
     layers:
