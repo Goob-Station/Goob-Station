@@ -415,6 +415,3 @@ accent-ohio-words-replace-131 = yeet
 
 accent-ohio-words-132 = gay
 accent-ohio-words-replace-132 = zesty
-
-accent-ohio-words-133 = tajaran
-accent-ohio-words-replace-133 = hecking chonker
