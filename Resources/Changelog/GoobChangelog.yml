@@ -4563,3 +4563,17 @@ Entries:
         now).
   id: 516
   time: '2025-01-31T18:15:54.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Remove
+      message: Removed fun!
+    - type: Add
+      message: >-
+        Explosive insulated gloves that explode and disable your hands after a
+        second if you get shocked with them.
+    - type: Tweak
+      message: >-
+        Uplink conductive insulated gloves have been replaced with explosive
+        insulated gloves.
+  id: 517
+  time: '2025-01-31T19:18:21.0000000+00:00'
