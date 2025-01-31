@@ -1,24 +1,13 @@
 - type: job # goob edit
   id: Passenger
-  name: job-name-tider
-  description: job-description-tider
+  name: job-name-passenger
+  description: job-description-passenger
   playTimeTracker: JobPassenger
   startingGear: PassengerGear
   icon: "JobIconPassenger"
   supervisors: job-supervisors-everyone
   access:
   - Maintenance
-  # goob tider hivemind
-  special:
-  - !type:AddComponentSpecial
-    components:
-      - type: IntrinsicRadioReceiver
-      - type: IntrinsicRadioTransmitter
-        channels:
-        - TideHivemind
-      - type: ActiveRadio
-        channels:
-        - TideHivemind
 
 - type: startingGear
   id: PassengerGear
