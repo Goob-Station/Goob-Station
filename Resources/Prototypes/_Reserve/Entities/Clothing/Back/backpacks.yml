@@ -1,0 +1,12 @@
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingDeathSquadronBackpack
+  name: рюкзак эскадрона смерти
+  description: Просторный рюкзак с использованием технологии блю спейс.
+  components:
+  - type: Sprite
+    sprite: _Reserve/Back/Backpacks/deathsquad-backpack.rsi
+  - type: Storage
+    grid:
+    - 0,0,13,7
+    maxItemSize: Huge
