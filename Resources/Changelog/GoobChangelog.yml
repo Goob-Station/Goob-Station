@@ -4488,3 +4488,9 @@ Entries:
         and 10u of Mute Toxin for the Silencer
   id: 506
   time: '2025-01-31T17:37:02.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Syndicate C-4 is now AI-powered.
+  id: 507
+  time: '2025-01-31T17:39:15.0000000+00:00'
