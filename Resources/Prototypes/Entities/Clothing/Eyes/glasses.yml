@@ -204,6 +204,7 @@
   - type: IdentityBlocker
     coverage: EYES
   - type: ShowJobIcons
+  - type: ShowMindShieldIcons # Goobstation
 
 - type: entity
   parent: ClothingEyesBase
