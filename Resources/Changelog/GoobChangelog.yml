@@ -4508,3 +4508,9 @@ Entries:
       message: Syndicate infrared goggles are no longer a pulse and are now contraband.
   id: 509
   time: '2025-01-31T17:47:21.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Borgs can now pilot mechs.
+  id: 510
+  time: '2025-01-31T17:50:31.0000000+00:00'
