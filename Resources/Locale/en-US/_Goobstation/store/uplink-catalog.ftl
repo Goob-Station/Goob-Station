@@ -123,14 +123,10 @@ uplink-smoke-implant-desc = Releases a cloud of smoke when activated.
 
 # Wearables
 
-uplink-helmet-swat-name = Шлем спецназа Синдиката
-uplink-helmet-swat-desc = Прочный шлем, который обеспечивает хорошую защиту, а также в некоторой степени подавляет звуки светошумовых гранат.
-
-uplink-helmet-swat-name = Шлем SWAT Синдиката
-uplink-helmet-swat-desc = Прочный шлем, обеспечивающий хорошую защиту и в некоторой степени подавляющий звуки взрывов.
+uplink-helmet-swat-name = Syndicate SWAT Helmet
+uplink-helmet-swat-desc = Robust helmet that offers good protection and also suppresses flashbang sounds to some extent.
 
 # Misc
 
-uplink-dimension-pot-name = Размерный горшок
-uplink-dimension-pot-desc = Портал в ваше собственное карманное измерение, замаскированный под комнатное растение, когда одного предмета в тайнике недостаточно.
-
+uplink-dimension-pot-name = Dimension Pot
+uplink-dimension-pot-desc = A portal to your own pocket dimension disguised in the form of a potted plant, for when stashing one item isn't quite enough.

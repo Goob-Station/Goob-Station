@@ -5,3 +5,11 @@
   frequency: 9999
   color: "#91E8E5"
   longRange: true
+
+- type: radioChannel
+  id: TideHivemind
+  name: chat-radio-tider
+  keycode: 'p' # if i use i again it will break my fork of this smh
+  frequency: 8008 # definitely random number
+  color: "#8C8C8C"
+  longRange: true

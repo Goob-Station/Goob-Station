@@ -4054,7 +4054,7 @@ Entries:
         Ashen passage now deals heat damage to the user on activation. Ashen
         path heretics receive less damage from this, the higher their path stage
         is, the lower the damage will be. Flesh stalkers and raw prophets will
-        not take damage when jaunting 
+        not take damage when jaunting
   id: 455
   time: '2025-01-11T14:09:57.0000000+00:00'
 - author: Piras314
@@ -4080,7 +4080,7 @@ Entries:
     - type: Tweak
       message: >-
         Lethargic sting doesn't inject mute toxin but slowly drains victim's
-        stamina. 
+        stamina.
     - type: Tweak
       message: Toggling of ling equipment doesn't cost any chemicals anymore.
   id: 457
@@ -4292,8 +4292,6 @@ Entries:
       message: Fixed ritual of knowledge stealing your clothes and organs.
   id: 482
   time: '2025-01-20T17:12:41.0000000+00:00'
-<<<<<<< HEAD
-=======
 - author: ARMOKS
   changes:
     - type: Add
@@ -4406,4 +4404,31 @@ Entries:
       message: Syndicate pocket dimension pot.
   id: 498
   time: '2025-01-27T13:06:13.0000000+00:00'
->>>>>>> 9124b14909ac5c9114f8428b7aa7ef0882056b87
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: Added the material silo to gate map
+  id: 499
+  time: '2025-01-30T18:33:26.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: Added casual jumpsuits for command, engineering and centcom
+  id: 500
+  time: '2025-01-30T18:35:18.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: 'New traitor item: betrayal knife.'
+    - type: Tweak
+      message: >-
+        Blade mansus grasp now stuns for 1.5 seconds and deals 10 damage on
+        backstab.
+  id: 501
+  time: '2025-01-30T18:37:53.0000000+00:00'
+- author: Yakub, starch
+  changes:
+    - type: Add
+      message: its returned
+  id: 502
+  time: '2025-01-31T01:55:39.0000000+00:00'

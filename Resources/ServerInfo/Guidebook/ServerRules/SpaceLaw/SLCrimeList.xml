@@ -70,7 +70,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        00
+        I
       </Box>
     </ColorBox>
     <ColorBox Color="#65b36c">
@@ -89,15 +89,17 @@
     </ColorBox>
     <ColorBox Color="#bf4c4c">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Unlawful Control/Kidnapping/Hostage Taking
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#2f3832">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Prevention of Revival
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        01
+        II
       </Box>
     </ColorBox>
     <ColorBox Color="#65b36c">
@@ -120,14 +122,14 @@
         Покушение на убийство
       </Box>
     </ColorBox>
-    <ColorBox>
+    <ColorBox Color="#2e422e">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Убийство
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        02
+        III
       </Box>
     </ColorBox>
     <ColorBox Color="#65b36c">
@@ -152,7 +154,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        03
+        IV
       </Box>
     </ColorBox>
     <ColorBox Color="#65b36c">
@@ -180,7 +182,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        04
+        V
       </Box>
     </ColorBox>
     <ColorBox Color="#65b36c">
@@ -203,13 +205,14 @@
       </Box>
     </ColorBox>
     <ColorBox>
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Мятеж
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        05
+        VI
       </Box>
     </ColorBox>
     <ColorBox Color="#65b36c">
@@ -232,12 +235,13 @@
       </Box>
     </ColorBox>
     <ColorBox>
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        06
+        VII
       </Box>
     </ColorBox>
     <ColorBox Color="#65b36c">
@@ -266,7 +270,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        07
+        VIII
       </Box>
     </ColorBox>
     <ColorBox Color="#65b36c">
@@ -291,7 +295,7 @@
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
-    <ColorBox>
+    <ColorBox Color="#2f3832">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         08
       </Box>
@@ -331,7 +335,7 @@
         Побег
       </Box>
     </ColorBox>
-    <ColorBox>
+    <ColorBox Color="#593a4e">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Тюремное заключение
       </Box>
@@ -411,7 +415,7 @@
         Явка с повинной
       </Box>
     </ColorBox>
-    <ColorBox>
+    <ColorBox Color="#2f3832">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Сокращение наказания на 50%
       </Box>
