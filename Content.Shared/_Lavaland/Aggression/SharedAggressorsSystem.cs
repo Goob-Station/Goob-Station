@@ -32,7 +32,7 @@ public abstract class SharedAggressorsSystem : EntitySystem
 
     private void OnMobStateChange(Entity<AggressorComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState != MobState.Alive)
+        if (args.NewMobState == MobState.Dead)
             CleanAggressions(ent);
     }
 
@@ -48,7 +48,7 @@ public abstract class SharedAggressorsSystem : EntitySystem
 
     #region api
 
-    public List<EntityUid>? GetAggressors(EntityUid uid)
+    public HashSet<EntityUid>? GetAggressors(EntityUid uid)
     {
         TryComp<AggressiveComponent>(uid, out var aggro);
         return aggro?.Aggressors ?? null;
@@ -77,8 +77,7 @@ public abstract class SharedAggressorsSystem : EntitySystem
         var aggcomp = EnsureComp<AggressorComponent>(aggressor);
         RaiseLocalEvent(ent, new AggressorAddedEvent(GetNetEntity(aggressor)));
 
-        if (!aggcomp.Aggressives.Contains(ent))
-            aggcomp.Aggressives.Add(ent);
+        aggcomp.Aggressives.Add(ent);
     }
 
     public void CleanAggressions(EntityUid aggressor)

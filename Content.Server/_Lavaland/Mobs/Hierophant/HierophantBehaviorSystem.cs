@@ -11,7 +11,9 @@ using System.Threading.Tasks;
 using Content.Server._Lavaland.Mobs.Hierophant.Components;
 using Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Systems;
 using Content.Shared._Lavaland.Aggression;
+using Content.Shared._Lavaland.Audio;
 using Content.Shared.Mobs;
+using Robust.Shared.Player;
 
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
 
@@ -117,12 +119,29 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
     private void InitBoss(Entity<HierophantBossComponent> ent)
     {
         ent.Comp.Aggressive = true;
+
+        RaiseLocalEvent(ent, new MegafaunaStartupEvent());
+
+        if (TryComp<BossMusicComponent>(ent, out var boss) &&
+            TryComp<AggressiveComponent>(ent, out var aggresive))
+        {
+            var msg = new BossMusicStartupEvent(boss.SoundId);
+            foreach (var aggressor in aggresive.Aggressors)
+            {
+                if (!TryComp<ActorComponent>(aggressor, out var actor))
+                    return;
+
+                RaiseNetworkEvent(msg, actor.PlayerSession.Channel);
+            }
+        }
     }
 
     private void DeinitBoss(Entity<HierophantBossComponent> ent)
     {
         ent.Comp.Aggressive = false;
         ent.Comp.CancelToken.Cancel(); // cancel all stuff
+
+        RaiseLocalEvent(ent, new MegafaunaDeinitEvent());
     }
 
     public async void DoMajorAttack(Entity<HierophantBossComponent> ent)

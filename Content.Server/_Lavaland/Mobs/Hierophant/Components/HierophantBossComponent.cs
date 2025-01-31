@@ -44,4 +44,7 @@ public sealed partial class HierophantBossComponent : MegafaunaComponent
 
     [ViewVariables]
     public bool IsAttacking = false;
+
+    [ViewVariables]
+    public Entity<HierophantFieldGeneratorComponent>? ConnectedFieldGenerator;
 }

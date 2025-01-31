@@ -4,5 +4,5 @@ namespace Content.Shared._Lavaland.Aggression;
 public sealed partial class AggressorComponent : Component
 {
     [AutoNetworkedField]
-    [ViewVariables(VVAccess.ReadOnly)] public List<EntityUid> Aggressives = new();
+    [ViewVariables(VVAccess.ReadOnly)] public HashSet<EntityUid> Aggressives = new();
 }

@@ -7,7 +7,7 @@ namespace Content.Shared._Lavaland.Aggression;
 public sealed partial class AggressiveComponent : Component
 {
     [AutoNetworkedField]
-    [ViewVariables(VVAccess.ReadOnly)] public List<EntityUid> Aggressors = new();
+    [ViewVariables(VVAccess.ReadOnly)] public HashSet<EntityUid> Aggressors = new();
 
     [AutoNetworkedField]
     [DataField] public float ForgiveTime = 10f;

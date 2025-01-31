@@ -1,6 +1,8 @@
+using Content.Shared._Lavaland.Aggression;
+using Content.Shared._Lavaland.Audio;
 using Content.Shared.Mobs;
 using Content.Shared.Weapons.Melee.Events;
-using Robust.Shared.Timing;
+using Robust.Shared.Player;
 
 namespace Content.Server._Lavaland.Mobs;
 
@@ -25,7 +27,21 @@ public sealed class MegafaunaSystem : EntitySystem
         var coords = Transform(uid).Coordinates;
 
         comp.CancelToken.Cancel();
-        RaiseLocalEvent(uid, new MegafaunaShutdownEvent());
+
+        RaiseLocalEvent(uid, new MegafaunaKilledEvent());
+
+        if (TryComp<BossMusicComponent>(uid, out var boss) &&
+            TryComp<AggressiveComponent>(uid, out var aggresive))
+        {
+            var msg = new BossMusicStopEvent();
+            foreach (var aggressor in aggresive.Aggressors)
+            {
+                if (!TryComp<ActorComponent>(aggressor, out var actor))
+                    return;
+
+                RaiseNetworkEvent(msg, actor.PlayerSession.Channel);
+            }
+        }
 
         if (comp.CrusherOnly && comp.CrusherLoot != null)
         {
@@ -36,7 +52,6 @@ public sealed class MegafaunaSystem : EntitySystem
             Spawn(comp.Loot, coords);
         }
 
-        // Bruh.
-        Timer.Spawn(TimeSpan.FromSeconds(0.2), ( ) => Del(uid));
+        QueueDel(uid);
     }
 }

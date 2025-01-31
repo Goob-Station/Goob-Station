@@ -58,6 +58,13 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+- proto: LavalandHierophantTelepad
+  entities:
+  - uid: 90
+    components:
+    - type: Transform
+      pos: 0.5,2.5
+      parent: 1
 - proto: WallHierophantArena
   entities:
   - uid: 2

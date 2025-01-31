@@ -1,5 +1,4 @@
 ﻿using Content.Client.Audio;
-using Content.Shared._Lavaland.Aggression;
 using Content.Shared._Lavaland.Audio;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
@@ -27,7 +26,6 @@ public sealed class BossMusicSystem : EntitySystem
 
     private static float _volumeSlider;
     private Entity<AudioComponent?>? _bossMusicStream;
-    private Entity<BossMusicComponent>? _bossMusicOrigin;
     private BossMusicPrototype? _musicProto;
 
     // Need how much volume to change per tick and just remove it when it drops below "0"
@@ -46,10 +44,13 @@ public sealed class BossMusicSystem : EntitySystem
         base.Initialize();
 
         Subs.CVar(_configManager, CCVars.LobbyMusicVolume, BossVolumeCVarChanged, true);
-        SubscribeLocalEvent<BossMusicComponent, AggressorAddedEvent>(OnBossInit);
-        SubscribeLocalEvent<BossMusicComponent, MobStateChangedEvent>(OnBossDefeated);
+
+        SubscribeNetworkEvent<BossMusicStartupEvent>(OnBossInit);
+        SubscribeNetworkEvent<BossMusicStopEvent>(OnBossDefeated);
 
         SubscribeLocalEvent<LocalPlayerDetachedEvent>(OnMindRemoved);
+        SubscribeLocalEvent<ActorComponent, MobStateChangedEvent>(OnPlayerDeath);
+        SubscribeLocalEvent<ActorComponent, EntParentChangedMessage>(OnPlayerParentChange);
         SubscribeLocalEvent<RoundEndMessageEvent>(OnRoundEnd);
     }
 
@@ -79,17 +80,14 @@ public sealed class BossMusicSystem : EntitySystem
         }
     }
 
-    private void OnBossInit(Entity<BossMusicComponent> ent, ref AggressorAddedEvent args)
+    private void OnBossInit(BossMusicStartupEvent args)
     {
-        var player = _player.LocalSession?.AttachedEntity;
-        var agressor = GetEntity(args.Aggressor);
-
-        if (agressor != player || _musicProto != null || _bossMusicStream != null)
+        if (_musicProto != null || _bossMusicStream != null)
             return;
 
         _audioContent.DisableAmbientMusic();
 
-        var sound = _proto.Index(ent.Comp.SoundId);
+        var sound = _proto.Index(args.MusicId);
         _musicProto = sound;
 
         var strim = _audio.PlayGlobal(
@@ -104,23 +102,33 @@ public sealed class BossMusicSystem : EntitySystem
             _bossMusicStream = (strim.Value.Entity, strim.Value.Component);
             FadeIn(_bossMusicStream, strim.Value.Component, sound.FadeInTime);
         }
-
-        _bossMusicOrigin = ent;
     }
 
-    private void OnBossDefeated(Entity<BossMusicComponent> ent, ref MobStateChangedEvent args)
+    private void OnBossDefeated(BossMusicStopEvent args)
     {
-        var player = _player.LocalSession?.AttachedEntity;
-
-        if (args.NewMobState == MobState.Alive || player == null || _bossMusicOrigin != ent)
-            return;
-
         EndAllMusic();
     }
 
     private void OnMindRemoved(LocalPlayerDetachedEvent args)
     {
         EndAllMusic();
+    }
+
+    private void OnPlayerDeath(Entity<ActorComponent> ent, ref MobStateChangedEvent args)
+    {
+        if (ent.Comp.PlayerSession == _player.LocalSession &&
+            args.NewMobState == MobState.Dead)
+            EndAllMusic();
+    }
+
+    /// <summary>
+    /// Raised when salvager escapes from lavaland (ohio reference)
+    /// </summary>
+    private void OnPlayerParentChange(Entity<ActorComponent> ent, ref EntParentChangedMessage args)
+    {
+        if (ent == _player.LocalSession!.AttachedEntity &&
+            args.OldMapId != null)
+            EndAllMusic();
     }
 
     private void OnRoundEnd(RoundEndMessageEvent args)
