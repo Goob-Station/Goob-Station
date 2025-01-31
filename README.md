@@ -1,4 +1,4 @@
-<p align="center"> <img alt="Space Station 14" width="1280" height="300" src="https://media.discordapp.net/attachments/1286566179015626782/1318623527099957309/image.png?ex=679c589b&is=679b071b&hm=f724857b95e15a6fc843dab0596973d850fbefa574f34f160105ed92d3f066b5&=&format=webp&quality=lossless&width=1440&height=450" /></p>
+<p align="center"> <img alt="Space Station 14" width="1280" height="300" src="https://i.imgur.com/2nqz4IN.jpeg" /></p>
 
 Это форк из репозитория Goob Station под названием Reserve Station. Чтобы предотвратить форк RobustToolbox, клиент и сервер загружают пакет «content». Этот контент-пак содержит все необходимое для игры на одном конкретном сервере - это контент-пак для Goob Station.
 
