@@ -4536,3 +4536,15 @@ Entries:
         entirely and another prohibited example of what not to do.
   id: 513
   time: '2025-01-31T18:02:17.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Flesh ascension no longer takes temperature damage, slows down on a
+        small amount of damage, or gibs on 400 blunt.
+    - type: Tweak
+      message: >-
+        Flesh ascension now attacks slightly faster, recovers quickly from
+        bleed, and is huggable
+  id: 514
+  time: '2025-01-31T18:10:47.0000000+00:00'
