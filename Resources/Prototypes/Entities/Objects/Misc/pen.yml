@@ -17,7 +17,7 @@
     - Pen
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 12
+      Steel: 25
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Items/pen_click.ogg
