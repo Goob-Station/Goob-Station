@@ -11,11 +11,6 @@ namespace Content.Shared._Goobstation.Turnstile;
 public sealed partial class TurnstileComponent : Component
 {
     /// <summary>
-    /// Direction that's allowed for entity passthrough.
-    /// </summary>
-    public Vector2 AllowedDirection = new Vector2(0, 1); // North
-
-    /// <summary>
     /// Sound to play if the turnstile access is accepted.
     /// </summary>
     [DataField]
