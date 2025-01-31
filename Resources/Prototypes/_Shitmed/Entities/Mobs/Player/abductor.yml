@@ -1,3 +1,5 @@
+# Entity Prototypes
+
 - type: entity
   name: lone abductor
   parent: BaseMobAbductor
@@ -34,6 +36,52 @@
     prototypes:
       - LoneAbductorGear
 
+- type: entity
+  name: abductor scientist
+  parent: MobAbductor
+  id: MobAbductorScientist
+  components:
+  - type: AntagObjectives
+    objectives:
+    - StealResearchObjective
+  - type: GhostRole
+    name: abductors-ghost-role-name
+    description: abductors-ghost-role-desc
+    rules: abductors-ghost-role-rules
+    raffle:
+      settings: default
+  - type: AbductorScientist
+  - type: ActionGrant
+    actions:
+    - ActionReturnToShip
+  - type: Loadout
+    prototypes:
+      - AbductorScientistGear
+
+- type: entity
+  name: abductor agent
+  parent: MobAbductor
+  id: MobAbductorAgent
+  components:
+  - type: AntagObjectives
+    objectives:
+    - StealResearchObjective
+  - type: GhostRole
+    name: abductors-ghost-role-name
+    description: abductors-ghost-role-desc
+    rules: abductors-ghost-role-rules
+    raffle:
+      settings: default
+  - type: AbductorScientist
+  - type: ActionGrant
+    actions:
+    - ActionReturnToShip
+  - type: Loadout
+    prototypes:
+      - AbductorAgentGear
+
+# Gearsets
+
 - type: startingGear
   id: LoneAbductorGear
   equipment:
@@ -43,7 +91,31 @@
     gloves: ClothingHandsGlovesCombat
     shoes: ClothingShoesBootsCombat
     pocket1: AbductorGizmo
+    pocket2: WeaponAlien
     belt: ClothingAbductorBeltFilled
+    back: Wonderprod
+
+- type: startingGear
+  id: AbductorScientistGear
+  equipment:
+    ears: ClothingHeadsetAltAbductor
+    jumpsuit: ClothingUniformJumpsuitAbductor
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesBootsCombat
+    pocket1: AbductorGizmo
+
+- type: startingGear
+  id: AbductorAgentGear
+  equipment:
+    head: ClothingHeadHelmetAbductor
+    ears: ClothingHeadsetAltAbductor
+    jumpsuit: ClothingUniformJumpsuitAbductor
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesBootsCombat
+    pocket1: Silencer
+    pocket2: WeaponAlien
+    belt: ClothingAbductorBeltFilled
+    outerClothing: ClothingOuterArmorAbductor
     back: Wonderprod
 
 - type: entity
@@ -63,6 +135,64 @@
   categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner
   id: LoneAbductorSpawner
+  components:
+  - type: GhostRole
+    name: abductors-ghost-role-name
+    description: abductors-ghost-role-desc
+    rules: abductors-ghost-role-rules
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/signs.rsi
+        state: radiation
+
+- type: entity
+  name: abductor agent spawner
+  id: SpawnPointAbductorAgent
+  parent: MarkerBase
+  components:
+  - type: SpawnPoint
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/signs.rsi
+        state: radiation
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: AbductorAgentSpawner
+  components:
+  - type: GhostRole
+    name: abductors-ghost-role-name
+    description: abductors-ghost-role-desc
+    rules: abductors-ghost-role-rules
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/signs.rsi
+        state: radiation
+
+- type: entity
+  name: abductor scientist spawner
+  id: SpawnPointAbductorScientist
+  parent: MarkerBase
+  components:
+  - type: SpawnPoint
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/signs.rsi
+        state: radiation
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: AbductorScientistSpawner
   components:
   - type: GhostRole
     name: abductors-ghost-role-name

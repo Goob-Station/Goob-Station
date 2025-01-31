@@ -499,7 +499,7 @@
   - type: ContainerFill
     containers:
       borg_brain:
-        - MMIFilled
+        - PositronicBrain # Goobstation - Borg positronic brain
   - type: ItemSlots
     slots:
       cell_slot:
