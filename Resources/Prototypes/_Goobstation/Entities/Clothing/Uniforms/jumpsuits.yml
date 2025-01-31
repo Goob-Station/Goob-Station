@@ -39,6 +39,39 @@
 
 - type: entity
   parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCasualCentcom
+  name: casual centcom jumpsuit
+  description: Paperwork's tough.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualcentcom.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualcentcom.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCasualCommand
+  name: casual command jumpsuit
+  description: Wait, where's my PDA?.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualcommand.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualcommand.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCasualEngineer
+  name: casual engineering jumpsuit
+  description: Sparks? Fiberglass? What about 'em?
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualengineer.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualengineer.rsi
+
+- type: entity
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitBlueshieldOfficer
   name: blueshield officer jumpsuit
   description: A short-sleeved grey and blue jumpsuit, made out of a sturdy material. Blueshield standard issue.

@@ -1,0 +1,65 @@
+- type: entity
+  id: BaseBulletStarlight
+  name: BaseBullet
+  description: If you can see this you're probably dead!
+  abstract: true
+  components:
+  - type: Reflective
+  - type: FlyBySound
+  - type: Clickable
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: bullet
+      shader: unshaded
+  - type: Physics
+    bodyType: Dynamic
+    linearDamping: 0
+    angularDamping: 0
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+      fly-by: &flybyfixture
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: False
+  - type: Projectile
+    impactEffect: BulletImpactEffect
+    damage:
+      types:
+        Piercing: 14
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
+  - type: TimedDespawn
+    lifetime: 10
+
+- type: entity
+  id: BulletDeclone
+  name: decloner bolt
+  parent: BaseBulletStarlight
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    layers:
+    - state: declone
+  - type: Projectile
+    damage:
+      types:
+        Radiation: 10
+        Cellular: 20
+    soundHit:
+      collection: MeatLaserImpact
