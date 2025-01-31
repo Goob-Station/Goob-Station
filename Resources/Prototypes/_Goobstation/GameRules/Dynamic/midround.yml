@@ -205,8 +205,15 @@
     minimumPlayers: 30
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
+    # Goobstation start
     speciesOverride: Human
-    alwaysUseSpeciesOverride: true
+    speciesOverrideBlacklist:
+    - Yowie
+    - IPC
+    - Diona
+    - Abductor
+    - Harpy
+    # Goobstation end
   - type: AntagObjectives
     objectives:
     - StealResearchObjective
@@ -343,8 +350,15 @@
       mindRoles:
       - MindRoleNukeops
   - type: AntagLoadProfileRule
+    # Goobstation start
     speciesOverride: Human
-    alwaysUseSpeciesOverride: true
+    speciesOverrideBlacklist:
+    - Yowie
+    - IPC
+    - Diona
+    - Abductor
+    - Harpy
+    # Goobstation end
 
 # Rat King Spawn
 - type: entity
