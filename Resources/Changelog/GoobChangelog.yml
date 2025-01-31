@@ -4554,3 +4554,12 @@ Entries:
       message: You can now print pens at an autolathe.
   id: 515
   time: '2025-01-31T18:12:07.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Tweak
+      message: >-
+        Added disablers to security belts by default. Anywhere you could find a
+        disabler and a belt the disabler was removed (because its in the belt
+        now).
+  id: 516
+  time: '2025-01-31T18:15:54.0000000+00:00'
