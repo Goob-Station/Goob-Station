@@ -369,10 +369,11 @@
   category: Vocal
   icon: Interface/Emotes/beep.png
   chatMessages: ["chat-emote-msg-beep"]
-  whitelist: #Goobstation - IPCs
+  whitelist: #Goobstation - IPCs, C4 sentience
     components:
     - Silicon
     - BorgChassis
+    - Explosive
   chatTriggers:
     - beep
     - beeps
