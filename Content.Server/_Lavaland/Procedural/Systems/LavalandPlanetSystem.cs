@@ -141,8 +141,11 @@ public sealed class LavalandPlanetSystem : EntitySystem
         return lavalands;
     }
 
-    public bool SetupLavaland(out Entity<LavalandMapComponent> lavaland, int? seed = null, LavalandMapPrototype? prototype = null)
+    public bool SetupLavaland(out Entity<LavalandMapComponent>? lavaland, int? seed = null, LavalandMapPrototype? prototype = null)
     {
+        if (_lavalandPreloader == null)
+            SetupPreloader();
+        
         // Basic setup.
         var lavalandMap = _map.CreateMap(out var lavalandMapId, runMapInit: false);
         var mapComp = EnsureComp<LavalandMapComponent>(lavalandMap);
@@ -215,7 +218,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
 
             outpost = grid;
             var member = EnsureComp<LavalandMemberComponent>(outpost);
-            member.LavalandMap = lavaland;
+            member.LavalandMap = lavaland.Value;
             member.SignalName = prototype.OutpostName;
             break;
         }
@@ -227,7 +230,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
         }
 
         // Align  outpost to planet
-        _transform.SetCoordinates(outpost, new EntityCoordinates(lavaland, 0, 0));
+        _transform.SetCoordinates(outpost, new EntityCoordinates(lavaland.Value, 0, 0));
 
         // Add outpost as a new station grid member (if it's in round)
         var defaultStation = _station.GetStationInMap(_ticker.DefaultMap);
@@ -241,7 +244,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
 
         // Setup Ruins.
         var pool = _proto.Index(prototype.RuinPool);
-        SetupRuins(pool, lavaland);
+        SetupRuins(pool, lavaland.Value);
 
         // Hide all grids from the mass scanner.
         foreach (var grid in _mapManager.GetAllGrids(lavalandMapId))
@@ -506,12 +509,18 @@ public sealed class LavalandPlanetSystem : EntitySystem
     {
         var ruinBounds = new Dictionary<ProtoId<LavalandRuinPrototype>, List<Box2>>();
 
+        if (_lavalandPreloader == null)
+        {
+            Log.Error("Tried to calculate ruin bounds, but Lavaland Preloader Map still doesn't exist!");
+            return ruinBounds;
+        }
+
         // All possible ruins for this pool
         var ruins = pool.SmallRuins.Keys.ToList().Concat(pool.HugeRuins.Keys).ToHashSet();
 
         foreach (var id in ruins)
         {
-            var mapId = _lavalandPreloader!.Value.Id;
+            var mapId = _lavalandPreloader.Value.Id;
             var mapUid = _lavalandPreloader.Value.Uid;
             var dummyMapXform = Transform(mapUid);
 

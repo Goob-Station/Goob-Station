@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Content.Server._Lavaland.Procedural.Components;
 using Content.Server._Lavaland.Procedural.Prototypes;
 using Content.Server._Lavaland.Procedural.Systems;
 using Content.Server.GameTicking;
@@ -15,7 +16,7 @@ public sealed class LavalandGenerationTest
     [Test]
     public async Task LavalandPlanetGenerationTest()
     {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings { DummyTicker = true, Dirty = true });
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { DummyTicker = false, Dirty = true });
         var server = pair.Server;
         var entMan = server.EntMan;
         var protoMan = server.ProtoMan;
@@ -41,23 +42,28 @@ public sealed class LavalandGenerationTest
         {
             const int seed = 1;
 
+            var attempt = false;
+            Entity<LavalandMapComponent>? lavaland = null;
+
             // Seed is always the same to reduce randomness
-            var attempt = lavaSystem.SetupLavaland(out var lavaland, seed, planet);
+            await server.WaitPost(() => attempt = lavaSystem.SetupLavaland(out lavaland, seed, planet));
             await pair.RunTicksSync(30);
 
-            var mapId = lavaland.Comp.MapId;
+            Assert.That(lavaland, Is.Not.Null);
+
+            var mapId = lavaland.Value.Comp.MapId;
 
             // Now check the basics
             Assert.That(attempt, Is.True);
             Assert.That(mapMan.MapExists(mapId));
-            Assert.That(entMan.EntityExists(lavaland.Owner));
-            Assert.That(entMan.EntityExists(lavaland.Comp.Outpost));
+            Assert.That(entMan.EntityExists(lavaland.Value.Owner));
+            Assert.That(entMan.EntityExists(lavaland.Value.Comp.Outpost));
             Assert.That(mapMan.GetAllGrids(mapId).ToList(), Is.Not.Empty);
             Assert.That(mapSystem.IsInitialized(mapId));
             Assert.That(mapSystem.IsPaused(mapId), Is.False);
 
             // Test that the biome setup is right
-            var biome = entMan.GetComponent<BiomeComponent>(lavaland);
+            var biome = entMan.GetComponent<BiomeComponent>(lavaland.Value);
             Assert.That(biome.Enabled, Is.True);
             Assert.That(biome.Seed, Is.EqualTo(seed));
             Assert.That(biome.Template, Is.Not.Null);
