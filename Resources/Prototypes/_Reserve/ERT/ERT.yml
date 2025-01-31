@@ -759,9 +759,9 @@
   description: Продвинутая версия сумки для материалов, используемая инженерами ОБР.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Mining/ore_bag_holding.rsi
+    sprite: Clothing/Belt/waistbag_leather.rsi
   - type: Clothing
-    sprite: Objects/Specific/Mining/ore_bag_holding.rsi
+    sprite: Clothing/Belt/waistbag_leather.rsi
   - type: Storage
     grid:
     - 0,0,19,9
@@ -771,6 +771,7 @@
     - id: Multitool
     - id: WelderExperimental
     - id: HolofanProjector
+    - id: GasAnalyzer
     - id: GasAnalyzer
     - id: trayScanner
     - id: RCDExperimental
@@ -837,4 +838,8 @@
   - type: Clothing
     slots:
     - Back
+<<<<<<< HEAD
     - suitStorage
+=======
+    - suitStorage
+>>>>>>> 3ee9550b89eb5a9dd2f0bff61cab144c6e8e7f59

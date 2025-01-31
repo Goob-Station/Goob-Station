@@ -110,18 +110,27 @@ uplink-highcap-pistol-mag-desc = High capacity pistol magazine holds 4 extra bul
 
 # Mechs
 
-uplink-mech-teleporter-heavy-name = Тяжелый Мех
-uplink-mech-teleporter-heavy-desc = Содержит тяжелобронированного робота Cybersun со встроенным цепным мечом, Ultra AC-2, LBX AC 10 «Scattershot», ракетной стойкой BRM-6 и пушкой P-X Tesla.
+uplink-mech-teleporter-heavy-name = Heavy Mech teleporter
+uplink-mech-teleporter-heavy-desc = Contains a heavily armored Cybersun mech with an integrated chainsword, Ultra AC-2, LBX AC 10 "Scattershot", BRM-6 Missile Rack and P-X Tesla Cannon.
 
-uplink-mech-teleporter-assault-name = Штурмовой Мех
-uplink-mech-teleporter-assault-desc = Содержит легкобронированный робот Cybersun со встроенным цепным мечом, дробовиком LBX AC 10, Ракетомет SRM-8 и пушку Tesla P-X..
+uplink-mech-teleporter-assault-name = Assault Mech teleporter
+uplink-mech-teleporter-assault-desc = Contains a lightly armored Cybersun mech with an integrated chainsword, LBX AC 10 "Scattershot", SRM-8 Light Missile Rack and P-X Tesla Cannon.
 
 # Implants
 
-uplink-smoke-implant-name = Дымовой имплант
-uplink-smoke-implant-desc = Выпускает облако дыма при активации.
+uplink-smoke-implant-name = Smoke Implant
+uplink-smoke-implant-desc = Releases a cloud of smoke when activated.
 
 # Wearables
 
 uplink-helmet-swat-name = Шлем спецназа Синдиката
 uplink-helmet-swat-desc = Прочный шлем, который обеспечивает хорошую защиту, а также в некоторой степени подавляет звуки светошумовых гранат.
+
+uplink-helmet-swat-name = Шлем SWAT Синдиката
+uplink-helmet-swat-desc = Прочный шлем, обеспечивающий хорошую защиту и в некоторой степени подавляющий звуки взрывов.
+
+# Misc
+
+uplink-dimension-pot-name = Размерный горшок
+uplink-dimension-pot-desc = Портал в ваше собственное карманное измерение, замаскированный под комнатное растение, когда одного предмета в тайнике недостаточно.
+
