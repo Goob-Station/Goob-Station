@@ -66,12 +66,26 @@
   id: MobFelinidRandom
   name: Urist McFelinid
   suffix: Random Appearance
+  abstract: true # No more felinids, even through admemes
   components:
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
     - names_first
     - names_last
+
+- type: entity
+  parent: MobTajaran
+  id: MobTajaranRandom
+  name: Urist McTajaran
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - names_tajaran_first
+    - names_tajaran_last
+
 
 - type: entity
   parent: MobGingerbread

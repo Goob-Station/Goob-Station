@@ -11,6 +11,15 @@ public sealed partial class InjectOnHitComponent : Component
 
     [DataField("sound")]
     public SoundSpecifier? Sound;
+
+    [DataField("limit")]
+    public float? ReagentLimit;
+
+    [DataField]
+    public bool NeedsRestrain;
+
+    [DataField]
+    public int InjectionDelay = 10000;
 }
 [ByRefEvent]
 public record struct InjectOnHitAttemptEvent(bool Cancelled);
