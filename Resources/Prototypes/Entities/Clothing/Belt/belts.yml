@@ -194,6 +194,7 @@
         - DoorRemote
         - Whistle
         - BalloonPopper
+        - Ammo
   - type: ItemMapper
     mapLayers:
       flashbang:
