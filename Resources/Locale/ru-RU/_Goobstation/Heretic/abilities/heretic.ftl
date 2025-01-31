@@ -2,11 +2,11 @@ heretic-ability-fail = Не удалось кастовать
 heretic-ability-fail-magicitem = Вы не можете кастовать это заклинание без фокуса!
 heretic-ability-fail-notarget = Не удалось найти подходящую цель!
 heretic-ability-fail-lowhealth = Это заклинание наносит { $damage } урона, и если вы его произнесете, то окажетесь в критическом состоянии!
-heretic-magicitem-examine =  [color=yellow]Позволяет использовать продвинутые заклинания, находясь в руках или снаряжении[/color].
+heretic-magicitem-examine = [color=yellow]Позволяет использовать продвинутые заклинания, находясь в руках или снаряжении[/color].
 
 ## blade
 
-heretic-blade-examine =  [color=yellow]Если использовать его, пока он в руке, то клинок сломается и телепортирует вас подальше от опасности[/color].
+heretic-blade-examine = [color=yellow]Если использовать его, пока он в руке, то клинок сломается и телепортирует вас подальше от опасности[/color].
 heretic-blade-use = Клинок разлетается на куски, и вы чувствуете, как голоса уводят вас прочь.
 heretic-riposte-used = Ответный удар использован!
 heretic-riposte-available = Доступен ответный удар!
@@ -15,8 +15,8 @@ heretic-cant-shoot = Я не могу использовать { THE($entity) } 
 ## paths exclusive
 
 heretic-rust-mark-itembreak = { $name } разбивается в пыль!
-heretic-blade-void-examine =  [color=cyan]Пока в непосредственной близости находится хотя бы один отмеченный язычник, телепортируйтесь ему за спину, не сломав клинок[/color].
-mansus-infused-item-examine =  [color=purple]От одного только вида этого предмета вас бросает в дрожь. Стоит ли брать его в руки?[/color]
+heretic-blade-void-examine = [color=cyan]Пока в непосредственной близости находится хотя бы один отмеченный язычник, телепортируйтесь ему за спину, не сломав клинок[/color].
+mansus-infused-item-examine = [color=purple]От одного только вида этого предмета вас бросает в дрожь. Стоит ли брать его в руки?[/color]
 
 ## mansus link
 

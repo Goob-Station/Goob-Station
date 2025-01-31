@@ -57,7 +57,7 @@ reagent-effect-condition-guidebook-has-tag =
     } метку { $tag }
 reagent-effect-condition-guidebook-blood-reagent-threshold =
     { $max ->
-        [2147483648] есть по крайней мере { NATURALFIXED($min, 2)}u из { $reagent }
+        [2147483648] есть по крайней мере { NATURALFIXED($min, 2) }u из { $reagent }
        *[other]
             { $min ->
                 [0] существует не более { NATURALFIXED($max, 2) }u из { $reagent }

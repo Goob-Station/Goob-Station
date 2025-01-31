@@ -10,7 +10,7 @@ changeling-absorb-fail-unabsorbable = Цель не может быть погл
 changeling-absorb-end-self = Еще одно поглощение. Вы эволюционируете.
 changeling-absorb-end-self-ling = Поглощен еще один генокрад. Вы развиваетесь быстрее.
 changeling-absorb-onexamine = [color=red]Тело кажется полым[/color].
-changeling-absorbbiomatter-start = { THE($user)} начинает поглощать пищу!
+changeling-absorbbiomatter-start = { THE($user) } начинает поглощать пищу!
 changeling-absorbbiomatter-bad-food = Эта пища не усваивается.
 changeling-transform-cycle = Выбран ДНК { $target }.
 changeling-transform-cycle-empty = У вас нет ни одного ДНК!
