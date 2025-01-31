@@ -1,6 +1,28 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Subtle Emotes are now formatted as '* Urist does a thing' in the chat.
+      The prefix to trigger it is still a minus (-), but now you don't need to adjust
+      your emote to fit with the 'subtly' adverb.
+    type: Tweak
+  id: 144
+  time: '2025-01-31T15:28:37.599593'
+- author: AstroDogeDX
+  changes:
+  - message: Salvage Shuttle now has a regular PACMAN instead of a JRPACMAN. My bad,
+      Salvagers.
+    type: Tweak
+  id: 143
+  time: '2025-01-31T15:27:35.251866'
+- author: AstroDogeDX
+  changes:
+  - message: The first word in an emote or subtle emote is now properly lower-cased,
+      for consistency.
+    type: Tweak
+  id: 142
+  time: '2025-01-31T15:29:02.975560'
+- author: AstroDogeDX
+  changes:
   - message: If aliens were real, their language would be more consistent and easier
       to study.
     type: Fix
