@@ -4444,3 +4444,9 @@ Entries:
       message: Gave the uplink thieving gloves chameleon technology.
   id: 504
   time: '2025-01-31T17:24:54.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Add
+      message: Added Craftable voice changer
+  id: 505
+  time: '2025-01-31T17:28:51.0000000+00:00'
