@@ -4514,3 +4514,11 @@ Entries:
       message: Borgs can now pilot mechs.
   id: 510
   time: '2025-01-31T17:50:31.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Spin emote is back. Though it's not available in the emote wheel, you
+        have to bind it or type it manually.
+  id: 511
+  time: '2025-01-31T17:54:59.0000000+00:00'
