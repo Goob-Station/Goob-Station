@@ -4432,3 +4432,9 @@ Entries:
       message: its returned
   id: 502
   time: '2025-01-31T01:55:39.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Add
+      message: Mimes have a 25% chance to be funny when they break their vow
+  id: 503
+  time: '2025-01-31T17:19:34.0000000+00:00'
