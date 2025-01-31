@@ -838,8 +838,4 @@
   - type: Clothing
     slots:
     - Back
-<<<<<<< HEAD
     - suitStorage
-=======
-    - suitStorage
->>>>>>> 3ee9550b89eb5a9dd2f0bff61cab144c6e8e7f59
