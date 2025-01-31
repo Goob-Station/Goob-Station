@@ -91,13 +91,12 @@
     state: wide_inner
 
 # Felinid Tails
-# Goobstation - Tajaran since they're fully compatible
 
 - type: marking
   id: FelinidTailBasic
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid, Tajaran] # Goobstation - Tajaran
+  speciesRestriction: [Felinid]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
     state: basic_tail_tip
@@ -110,7 +109,7 @@
   id: FelinidTailBasicWithBow
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid, Tajaran] # Goobstation - Tajaran
+  speciesRestriction: [Felinid]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
     state: basic_tail_tip
@@ -125,7 +124,7 @@
   id: FelinidTailBasicWithBell
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid, Tajaran] # Goobstation - Tajaran
+  speciesRestriction: [Felinid]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
     state: basic_tail_tip
@@ -140,7 +139,7 @@
   id: FelinidTailBasicWithBowAndBell
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid, Tajaran] # Goobstation - Tajaran
+  speciesRestriction: [Felinid]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
     state: basic_tail_tip
