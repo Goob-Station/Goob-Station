@@ -10,6 +10,7 @@
     - id: HandheldFaxNanorep
     - id: RubberStampNanorep
     - id: Paper
+    - id: ClothingEyesHudCommand
       amount: !type:ConstantNumberSelector
         value: 5
 

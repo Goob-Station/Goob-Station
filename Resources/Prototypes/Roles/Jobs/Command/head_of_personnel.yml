@@ -58,7 +58,7 @@
 - type: startingGear
   id: HoPGear
   equipment:
-    eyes: ClothingEyesHudCommand
+    eyes: ClothingEyesHudCommand # Goobstation
     shoes: ClothingShoesColorBrown
     id: HoPPDA
     gloves: ClothingHandsGlovesHop
