@@ -37,6 +37,7 @@
 - type: startingGear
   id: NanotrasenRepresentativeGear
   equipment:
+    eyes: ClothingEyesHudCommand
     id: CentcomPDA
     ears: ClothingHeadsetAltCentCom
     pocket1: UniqueNanorepLockerTeleporter
