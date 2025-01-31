@@ -9,13 +9,13 @@
   #- Cog # Goobstation - cog is broken
   - Core
   - Fland
-  #- Gate TODO: goob gate
+  - Gate
   - Loop
   - Marathon
   - Meta
   - Oasis
   - Omega
-  #- Origin # Goobstation - its broke
+  - Origin
   - Saltern
   - Packed
   - Reach
