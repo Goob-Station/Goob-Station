@@ -26,7 +26,7 @@
 
 - type: entity
   parent: BaseVehicle
-  id: TestlowncarBase
+  id: TestCowncarBase
   name: testclowncar
   description: Clowncar description
   components:
@@ -147,12 +147,16 @@
   - type: TriggerOnSolutionInsert
     solutionName: IrishCarBomb
     minAmount: 30
-  - type: Explosive # C4
-    explosionType: DemolitionCharge
-    totalIntensity: 60
-    intensitySlope: 5
-    maxIntensity: 30
+
+  - type: Explosive # Explosive banana peel
+    explosionType: Default
+    maxIntensity: 3.4
+    intensitySlope: 3
+    totalIntensity: 20
     canCreateVacuum: false
+    deleteAfterExplosion: false
+    repeatable: true # if it managed to survuve.
+
   - type: ExplodeOnTrigger
 
   - type: SpawnSolutionOnDamage
@@ -221,5 +225,5 @@
   components:
   - type: StorageFill
     contents:
-      - id: TestlowncarBase
+      - id: TestCowncarBase
       - id: BikeHorn
