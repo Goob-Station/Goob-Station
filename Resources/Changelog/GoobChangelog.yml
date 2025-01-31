@@ -4548,3 +4548,9 @@ Entries:
         bleed, and is huggable
   id: 514
   time: '2025-01-31T18:10:47.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: You can now print pens at an autolathe.
+  id: 515
+  time: '2025-01-31T18:12:07.0000000+00:00'
