@@ -3,6 +3,10 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 
+// Shitmed Change
+using Content.Shared._Shitmed.Antags.Abductor;
+using Content.Shared.Silicons.StationAi;
+
 namespace Content.Shared.DoAfter;
 
 public abstract partial class SharedDoAfterSystem : EntitySystem
@@ -235,7 +239,8 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
                 return true;
         }
 
-        if (args.RequireCanInteract && !_actionBlocker.CanInteract(args.User, args.Target))
+        var hasNoSpecificComponents = !HasComp<StationAiOverlayComponent>(args.User) && !HasComp<AbductorScientistComponent>(args.User); // Shitmed Change
+        if (args.RequireCanInteract && !_actionBlocker.CanInteract(args.User, args.Target) && hasNoSpecificComponents) // Shitmed Change
             return true;
 
 
