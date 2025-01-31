@@ -4450,3 +4450,41 @@ Entries:
       message: Added Craftable voice changer
   id: 505
   time: '2025-01-31T17:28:51.0000000+00:00'
+- author: Mocho, Rinary, Darkrell
+  changes:
+    - type: Add
+      message: >-
+        Added the abductor agent/scientist from SL and their gamerule
+        (LoneAbductorSpawn is still intact)
+    - type: Add
+      message: Added the abductor armor and its controls on the console
+    - type: Add
+      message: >-
+        Ported over the Decloner and Silencer, along with their weird toggleable
+        Decloner+ thingy for the agent, it has disabler mode and cheaper bolts.
+    - type: Add
+      message: >-
+        Added the telepathy power from EE, and gave abductors the ability to use
+        it by default.
+    - type: Add
+      message: >-
+        Added the ability for the abductor multitool to check cable functions on
+        use
+    - type: Fix
+      message: Fixed a bug where heretics could see abductor eye (thanks john shitcode)
+    - type: Fix
+      message: Fixed the undeleteable wonderprod cuffs bug
+    - type: Fix
+      message: Fixed a bug where abductors could gizmo each other for free implants lol
+    - type: Tweak
+      message: >-
+        Added a check on WorldTargetAction so that Send Yourself tells you when
+        you are not on the same map as the station.
+    - type: Tweak
+      message: Xip norp glee flop “nocturine spam skill issue” parloop
+    - type: Tweak
+      message: >-
+        The Wonderprod now has a cap of 20u of Nocturine on its victim's system,
+        and 10u of Mute Toxin for the Silencer
+  id: 506
+  time: '2025-01-31T17:37:02.0000000+00:00'
