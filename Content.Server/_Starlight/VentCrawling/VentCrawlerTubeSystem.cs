@@ -36,7 +36,7 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
 
         SubscribeLocalEvent<VentCrawlerTubeComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<VentCrawlerTubeComponent, ComponentRemove>(OnComponentRemove);
-
+        SubscribeLocalEvent<VentCrawlerTubeComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<VentCrawlerTubeComponent, AnchorStateChangedEvent>(OnAnchorChange);
         SubscribeLocalEvent<VentCrawlerTubeComponent, BreakageEventArgs>(OnBreak);
         SubscribeLocalEvent<VentCrawlerTubeComponent, ComponentShutdown>(OnShutdown);
@@ -170,6 +170,10 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
     }
 
     private void OnStartup(EntityUid uid, VentCrawlerTubeComponent component, ComponentStartup args)
+    {
+        //UpdateAnchored(uid, component, Transform(uid).Anchored);
+    }
+    private void OnMapInit(EntityUid uid, VentCrawlerTubeComponent component, MapInitEvent args)
     {
         UpdateAnchored(uid, component, Transform(uid).Anchored);
     }
