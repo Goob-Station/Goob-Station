@@ -1,6 +1,6 @@
 - type: body
-  id: SpaceDragon
-  name: "space dragon"
+  id: SpaceKangaroo
+  name: "space kangaroo"
   root: torso
   slots:
     torso:
@@ -8,7 +8,7 @@
       connections:
       - legs
       organs:
-        lungs: OrganDragonLungs # Fire breathing
+        lungs: OrganSpaceAnimalLungs # Immunity to airloss
         stomach: OrganAnimalStomach
         liver: OrganAnimalLiver
         heart: OrganSpaceAnimalHeart # Immunity to pressure
