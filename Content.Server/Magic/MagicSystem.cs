@@ -80,4 +80,17 @@ public sealed class MagicSystem : SharedMagicSystem
         if (!_gameTicker.IsGameRuleActive<SurvivorRuleComponent>())
             _gameTicker.StartGameRule(survivorRule);
     }
+
+    public override void OnVoidApplause(VoidApplauseSpellEvent ev)
+    {
+        base.OnVoidApplause(ev);
+
+        _chat.TryEmoteWithChat(ev.Performer, ev.Emote);
+
+        var perfXForm = Transform(ev.Performer);
+        var targetXForm = Transform(ev.Target);
+
+        Spawn(ev.Effect, perfXForm.Coordinates);
+        Spawn(ev.Effect, targetXForm.Coordinates);
+    }
 }
