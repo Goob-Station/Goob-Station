@@ -192,7 +192,6 @@
   - type: RandomMetadata
     nameSegments:
     - names_yowie_male
-    - names_yowie_last
 
 - type: entity
   parent: MobVox
