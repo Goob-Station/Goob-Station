@@ -4500,3 +4500,11 @@ Entries:
       message: replaced Felinid with Tajara
   id: 508
   time: '2025-01-31T17:45:36.0000000+00:00'
+- author: ARMOKS
+  changes:
+    - type: Tweak
+      message: Syndicate night vision goggles come with medihud and are now contraband.
+    - type: Tweak
+      message: Syndicate infrared goggles are no longer a pulse and are now contraband.
+  id: 509
+  time: '2025-01-31T17:47:21.0000000+00:00'
