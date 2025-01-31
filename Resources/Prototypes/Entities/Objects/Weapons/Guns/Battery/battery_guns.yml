@@ -508,10 +508,13 @@
   description: Advanced weapon that exhausts organic targets, weakening them until they collapse.
   components:
   - type: Item
-    size: Large
+    size: Normal
+    shape:
+    - 0,0,2,1
   - type: Tag
     tags:
       - Taser
+      - SecBeltEquip
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/disabler_smg.rsi
     layers:
