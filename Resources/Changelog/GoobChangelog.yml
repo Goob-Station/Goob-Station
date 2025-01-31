@@ -4494,3 +4494,9 @@ Entries:
       message: Syndicate C-4 is now AI-powered.
   id: 507
   time: '2025-01-31T17:39:15.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Tweak
+      message: replaced Felinid with Tajara
+  id: 508
+  time: '2025-01-31T17:45:36.0000000+00:00'
