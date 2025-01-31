@@ -39,8 +39,12 @@ public sealed class ClowncarSystem : SharedClowncarSystem
 
         if (vehicle.Driver == null)
         {
+            _chatSystem.TrySendInGameICMessage(args.Performer, Loc.GetString("clowncar-thankrider-no-driver"), InGameICChatType.Speak, false);
             args.Handled = true;
-            OpenTrunk(uid, component); // just added this, i donw want to be trapped inside it if there is no driver.
+
+                if (_container.TryGetContainer(uid, component.Container, out var container))
+                    _container.Remove(args.Performer, container);
+
             return;
         }
 

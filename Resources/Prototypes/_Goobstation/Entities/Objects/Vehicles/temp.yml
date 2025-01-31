@@ -6,10 +6,23 @@
   - type: InstantAction
     itemIconStyle: NoItem
     icon:
-      sprite: Objects/Fun/bikehorn.rsi
+      sprite: Objects/Fun/bikehorn.rsi #replace whit car
       state: icon
     event: !type:ThankRiderActionEvent
     useDelay: 60
+
+- type: entity
+  id: ActionQuietBackThere
+  name: Quiet back there
+  description: tell the passangers to be quiet
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: Objects/Fun/bikehorn.rsi #replace whit mime mask
+      state: icon
+    #event: !type:QuietBackThereActionEvent
+    useDelay: 30
 
 - type: entity
   id: ActionCanonmode
