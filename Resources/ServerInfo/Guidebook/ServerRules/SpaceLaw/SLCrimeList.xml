@@ -28,7 +28,7 @@
     <ColorBox Color="#bf2626">
       <Box>
         4XX
-        Сверхтяжкоеццц
+        Сверхтяжкое
         (От 40 минут до пермабрига либо изгнание)
       </Box>
     </ColorBox>
@@ -41,7 +41,7 @@
     </ColorBox>
     <ColorBox>
       <Box>
-         Код
+        Код
       </Box>
     </ColorBox>
     <ColorBox Color="#65b36c">
@@ -70,7 +70,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        I
+        00
       </Box>
     </ColorBox>
     <ColorBox Color="#65b36c">
@@ -89,17 +89,15 @@
     </ColorBox>
     <ColorBox Color="#bf4c4c">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Unlawful Control/Kidnapping/Hostage Taking
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#2f3832">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Prevention of Revival
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        II
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        01
       </Box>
     </ColorBox>
     <ColorBox Color="#65b36c">
@@ -122,14 +120,14 @@
         Покушение на убийство
       </Box>
     </ColorBox>
-    <ColorBox Color="#2e422e">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Убийство
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        III
+        02
       </Box>
     </ColorBox>
     <ColorBox Color="#65b36c">
@@ -154,7 +152,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        IV
+        03
       </Box>
     </ColorBox>
     <ColorBox Color="#65b36c">
@@ -182,7 +180,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        V
+        04
       </Box>
     </ColorBox>
     <ColorBox Color="#65b36c">
@@ -205,14 +203,13 @@
       </Box>
     </ColorBox>
     <ColorBox>
-    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Мятеж
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        VI
+        05
       </Box>
     </ColorBox>
     <ColorBox Color="#65b36c">
@@ -235,13 +232,12 @@
       </Box>
     </ColorBox>
     <ColorBox>
-    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        VII
+        06
       </Box>
     </ColorBox>
     <ColorBox Color="#65b36c">
@@ -270,7 +266,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        VIII
+        07
       </Box>
     </ColorBox>
     <ColorBox Color="#65b36c">
@@ -295,7 +291,7 @@
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
-    <ColorBox Color="#2f3832">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         08
       </Box>
@@ -335,7 +331,7 @@
         Побег
       </Box>
     </ColorBox>
-    <ColorBox Color="#593a4e">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Тюремное заключение
       </Box>
@@ -377,7 +373,7 @@
     </ColorBox>
   </Table>
 
-# Краткая справка по модификаторам наказания:
+  # Краткая справка по модификаторам наказания:
 
   <Table Columns="2">
     <ColorBox Color="#2c4c7b">
@@ -415,7 +411,7 @@
         Явка с повинной
       </Box>
     </ColorBox>
-    <ColorBox Color="#2f3832">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Сокращение наказания на 50%
       </Box>
