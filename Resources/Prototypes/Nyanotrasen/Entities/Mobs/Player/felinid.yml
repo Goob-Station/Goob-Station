@@ -3,7 +3,6 @@
   name: Urist McFelinid
   parent: MobFelinidBase
   id: MobFelinid
-  abstract: true # Goobstation change, no felinids even through admemes
   components:
   - type: CombatMode
   - type: InteractionPopup
