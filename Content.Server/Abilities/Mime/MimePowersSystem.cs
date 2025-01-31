@@ -145,7 +145,7 @@ namespace Content.Server.Abilities.Mime
             _alertsSystem.ClearAlert(uid, mimePowers.VowAlert);
             _alertsSystem.ShowAlert(uid, mimePowers.VowBrokenAlert);
             _actionsSystem.RemoveAction(uid, mimePowers.InvisibleWallActionEntity);
-            if (_rand.Next(2) == 0) {Punish(uid);} // Goobstation - Mime Enforcement
+            if (_rand.Prob(0.25)) {Punish(uid);} // Goobstation - Mime Enforcement
         }
 
         private void Punish(EntityUid ent) // Goobstation - Mime Enforcement
