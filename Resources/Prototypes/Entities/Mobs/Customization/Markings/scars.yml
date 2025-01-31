@@ -2,7 +2,7 @@
   id: ScarEyeRight
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Rodentia, Tajaran] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran
+  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Rodentia] # Delta V - Felinid, Harpy, Rodentia
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -12,7 +12,7 @@
   id: ScarEyeLeft
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Rodentia, Tajaran] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran
+  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Rodentia] # Delta V - Felinid, Harpy, Rodentia
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi

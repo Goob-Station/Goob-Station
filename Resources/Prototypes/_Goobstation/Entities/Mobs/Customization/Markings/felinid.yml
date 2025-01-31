@@ -2,7 +2,7 @@
   id: FelinidTailFoxtail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid, Tajaran] # Goobstation - Tajaran
+  speciesRestriction: [Felinid]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Felinid/foxtail.rsi
     state: base_fox_tail

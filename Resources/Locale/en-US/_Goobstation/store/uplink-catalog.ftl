@@ -126,6 +126,11 @@ uplink-smoke-implant-desc = Releases a cloud of smoke when activated.
 uplink-helmet-swat-name = Syndicate SWAT Helmet
 uplink-helmet-swat-desc = Robust helmet that offers good protection and also suppresses flashbang sounds to some extent.
 
+# Deception
+
+uplink-clothing-explosive-gloves-name = Explosive Insulated Gloves
+uplink-clothing-explosive-gloves-desc = Gloves that look just like normal insulated gloves, but explode a second after being shocked, disabling the user's hands.
+
 # Misc
 
 uplink-dimension-pot-name = Dimension Pot
