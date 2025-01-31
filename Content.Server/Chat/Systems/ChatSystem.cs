@@ -225,7 +225,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         // Was there an emote in the message? If so, send it.
         if (player != null && emoteStr != message && emoteStr != null)
         {
-            SendEntityEmote(source, emoteStr, range, nameOverride, ignoreActionBlocker);
+            SendEntityEmote(source, emoteStr, range, nameOverride, hideLog, true, ignoreActionBlocker);
         }
 
         // This can happen if the entire string is sanitized out.
@@ -589,6 +589,14 @@ public sealed partial class ChatSystem : SharedChatSystem
         var ent = Identity.Entity(source, EntityManager);
         string name = FormattedMessage.EscapeText(nameOverride ?? Name(ent));
 
+        // Force first word of action to lowercase
+        var words = action.Split(new[] { ' ' }, 2);
+        if (words.Length > 0)
+        {
+            words[0] = words[0].ToLowerInvariant();
+            action = string.Join(" ", words);
+        }
+
         // Emotes use Identity.Name, since it doesn't actually involve your voice at all.
         var wrappedMessage = Loc.GetString("chat-manager-entity-me-wrap-message",
             ("entityName", name),
@@ -621,6 +629,14 @@ public sealed partial class ChatSystem : SharedChatSystem
         // get the entity's apparent name (if no override provided).
         var ent = Identity.Entity(source, EntityManager);
         string name = FormattedMessage.EscapeText(nameOverride ?? Name(ent));
+
+        // Force first word of action to lowercase
+        var words = action.Split(new[] { ' ' }, 2);
+        if (words.Length > 0)
+        {
+            words[0] = words[0].ToLowerInvariant();
+            action = string.Join(" ", words);
+        }
 
         // Emotes use Identity.Name, since it doesn't actually involve your voice at all.
         var wrappedMessage = Loc.GetString("chat-manager-entity-subtle-wrap-message",
