@@ -12,7 +12,7 @@ public sealed partial class VentCrawlerTubeComponent : Component
     public string ContainerId { get; set; } = "VentCrawlerTube";
 
     [DataField]
-    public bool Connected = false;
+    public bool Connected = true;
 
     [ViewVariables]
     public Container Contents { get; set; } = null!;
