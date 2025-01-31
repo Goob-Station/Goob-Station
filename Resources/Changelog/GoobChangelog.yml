@@ -4528,3 +4528,11 @@ Entries:
       message: Flatpacker 1001 can now be linked to a Material Silo
   id: 512
   time: '2025-01-31T17:58:24.0000000+00:00'
+- author: Verbalase
+  changes:
+    - type: Tweak
+      message: >-
+        Rule 15 has been changed to disallow contraband for command and security
+        entirely and another prohibited example of what not to do.
+  id: 513
+  time: '2025-01-31T18:02:17.0000000+00:00'
