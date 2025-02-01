@@ -4591,3 +4591,11 @@ Entries:
       message: Yowie's can wear more outerslot clothing with less slowdown and damage!
   id: 519
   time: '2025-02-01T20:54:07.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Add
+      message: >-
+        Added examples to silicon rule 8 to make blatantly clear who is and
+        isn't crew.
+  id: 520
+  time: '2025-02-01T20:54:58.0000000+00:00'
