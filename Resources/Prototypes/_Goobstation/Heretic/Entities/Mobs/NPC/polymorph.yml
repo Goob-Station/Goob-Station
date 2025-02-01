@@ -74,6 +74,15 @@
   components:
   - type: Bloodstream
     bloodMaxVolume: 1984
+    bleedReductionAmount: 2
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 3000 # no gibbing at 400
+      behaviors:
+      - !type:GibBehavior
   - type: NpcFactionMember
     factions:
     - Heretic
@@ -118,17 +127,19 @@
     thresholds:
       0: Alive
       1500: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      0: 1.0 # it's an unstoppable flesh abomination
   - type: Damageable
     damageContainer: Biological
   - type: StatusEffects
     allowed:
-    - SlowedDown
     - RadiationProtection
   - type: MeleeWeapon
     hidden: false
     altDisarm: false
     autoAttack: true
-    attackRate: 2.5
+    attackRate: 3
     damage:
       types:
        Blunt: 20
@@ -181,5 +192,12 @@
   - type: Flammable
     damage:
       types: {}
+  - type: Temperature
+    damageCap: 0 # immune to temperature damage
   - type: Puller
     needsHands: false
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: hugging-success-generic
+    interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+    messagePerceivedByOthers: hugging-success-generic-others

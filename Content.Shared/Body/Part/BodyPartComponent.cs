@@ -31,11 +31,11 @@ public sealed partial class BodyPartComponent : Component, ISurgeryToolComponent
     public BodyPartSlot? ParentSlot;
 
     /// <summary>
-    ///     Shitmed Change: Amount of damage to deal when the part gets removed.
-    ///     Only works if IsVital is true.
+    /// Shitmed Change: Bleeding stacks to give when this body part is severed.
+    /// Doubled for <see cref="IsVital"/>. parts.
     /// </summary>
-    [DataField, AutoNetworkedField]
-    public FixedPoint2 VitalDamage = 100;
+    [DataField]
+    public float SeverBleeding = 4f;
 
     [DataField, AlwaysPushInheritance]
     public string ToolName { get; set; } = "A body part";
