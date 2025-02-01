@@ -5,7 +5,7 @@
   - type: Disease
     infectionRate: 0.05
     effects:
-    - DiseaseEffectCancer
+      - DiseaseEffectCancer
 
 - type: entity
   id: DiseaseEffectBase
@@ -22,3 +22,19 @@
     damage:
       types:
         Genetic: 1
+
+- type: entity
+  name: cancer stick
+  description: still kills you, but slowly
+  parent: MeleeDebugGib
+  id: MeleeDebug100
+  components:
+  - type: Tag
+    tags:
+      - Debug
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+  - type: DiseaseOnHit
+    disease: DiseaseCancer
