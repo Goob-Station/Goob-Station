@@ -4585,3 +4585,9 @@ Entries:
       message: Removed Limer__treats
   id: 518
   time: '2025-02-01T19:57:54.0000000+00:00'
+- author: AW-FulCode
+  changes:
+    - type: Tweak
+      message: Yowie's can wear more outerslot clothing with less slowdown and damage!
+  id: 519
+  time: '2025-02-01T20:54:07.0000000+00:00'
