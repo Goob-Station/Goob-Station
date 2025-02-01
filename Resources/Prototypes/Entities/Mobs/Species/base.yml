@@ -297,6 +297,8 @@
   - type: FireVisuals
     alternateState: Standing
   - type: Carriable # Goobstation
+  - type: DiseaseCarrier # Goobstation
+  - type: Immunity # Goobstation
 
 - type: entity
   save: false
