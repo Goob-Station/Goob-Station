@@ -40,7 +40,7 @@
   - type: Carriable 
     freeHandsRequired: 4 # easiest way to make them uncarriable without removing carriable from base mob
   - type: NoWieldNeeded
-  - type: OuterSlotPenalty # Due to whitelist, it'll only be applied on softsuits
+  - type: OuterSlotPenalty
     equippedSpeedMultiplier: 0.8
     damage:
       types:
