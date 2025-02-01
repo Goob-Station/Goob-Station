@@ -8,3 +8,14 @@
   description: A cloak made from the hide of resilient fauna from a distant planet.
   icon: { sprite: Clothing/Neck/Cloaks/goliathcloak.rsi, state: icon }
   objectType: Item
+
+- type: construction
+  name: voice modulator
+  id: makeshiftvoicechanger
+  graph: VoiceMaskCraftable
+  startNode: start
+  targetNode: end
+  category: construction-category-clothing
+  description: A poorly constructed voice modulator made of a gasmask and voice trigger.
+  icon: { sprite: Clothing/Mask/gas.rsi, state: icon }
+  objectType: Item

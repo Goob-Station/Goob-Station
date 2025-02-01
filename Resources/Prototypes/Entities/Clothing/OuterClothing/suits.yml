@@ -156,9 +156,15 @@
   - type: ComponentToggler
     parent: true
     components:
+    # Goobstation - Proper invisibility
     - type: Stealth
-      minVisibility: 0.1
-      lastVisibility: 0.1
+      maxVisibility: 0.1
+      hadOutline: true
+    - type: StealthOnMove
+      invisibilityPenalty: 3
+      maxInvisibilityPenalty: 1.6
+      passiveVisibilityRate: -1 # cloak very fast
+      movementVisibilityRate: 0.15 # only some cloak if moving
   - type: PowerCellDraw
     drawRate: 1.8 # 200 seconds on the default cell
   - type: ToggleCellDraw
@@ -236,7 +242,7 @@
     sprite: Clothing/OuterClothing/Suits/monkey.rsi
   - type: ContainerContainer
     containers:
-      toggleable-clothing: !type:ContainerSlot {}
+      toggleable-clothing: !type:Container {}
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
 
