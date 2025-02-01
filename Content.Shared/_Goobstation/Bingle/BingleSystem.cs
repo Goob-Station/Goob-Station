@@ -23,14 +23,9 @@ public sealed class BingleSystem : EntitySystem
         if (component.Prime)
             component.MyPit = Spawn("BinglePit", cords);
         else
-        {
-            var query = EntityQueryEnumerator<BinglePitComponent>();
-            while (query.MoveNext(out var queryUid, out var _))
-            {
+            while (EntityQueryEnumerator<BinglePitComponent>().MoveNext(out var queryUid, out var _))
                 if (cords == Transform(queryUid).Coordinates )
                     component.MyPit = queryUid;
-            }
-        }
 
     }
     //ran by the pit to upgrade bingle damage

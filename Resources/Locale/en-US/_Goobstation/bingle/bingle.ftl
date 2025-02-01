@@ -4,8 +4,6 @@ bingle-accent-2 = Bing
 bingle-accent-3 = Bongle
 bingle-accent-4 = Bong
 bingle-accent-5 = BINGLE
-bingle-accent-6 = I need it
-bingle-accent-7 = The Pit must grow
 
 chat-speech-verb-name-bingle = Bingle
 bingle-verb-1 = Croaks

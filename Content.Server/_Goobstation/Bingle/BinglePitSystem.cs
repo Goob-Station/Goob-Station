@@ -56,9 +56,7 @@ public sealed class BinglePitSystem : EntitySystem
         }
     }
     private void OnInit(EntityUid uid, BinglePitComponent component, MapInitEvent args)
-    {
-        component.Pit = _containerSystem.EnsureContainer<Container>(uid, "pit");
-    }
+        => component.Pit = _containerSystem.EnsureContainer<Container>(uid, "pit");
     private void OnStepTriggered(EntityUid uid, BinglePitComponent component, ref StepTriggeredOffEvent args)
     {
         // dont swallow bingles
@@ -75,19 +73,14 @@ public sealed class BinglePitSystem : EntitySystem
         if (component.BinglePoints >= component.SpawnNewAt)
         {
             SpawnBingle(uid, component);
-            component.BinglePoints = component.BinglePoints - component.SpawnNewAt;
+            component.BinglePoints -= component.SpawnNewAt;
         }
     }
     public void StartFalling(EntityUid uid, BinglePitComponent component, EntityUid tripper, bool playSound = true)
     {
-        if (HasComp<MobStateComponent>(tripper))
-        {
-            component.BinglePoints = component.BinglePoints + component.PointsForAlive;
-            if (HasComp<HumanoidAppearanceComponent>(tripper))
-                component.BinglePoints = component.BinglePoints + component.AdditionalPointsForHuman;
-        }
-        else
-            component.BinglePoints++;
+        component.BinglePoints += HasComp<MobStateComponent>(tripper) 
+              ? component.PointsForAlive + (HasComp<HumanoidAppearanceComponent>(tripper) 
+              ? component.AdditionalPointsForHuman : 0) : 1;
 
         if (TryComp<PullableComponent>(tripper, out var pullable) && pullable.BeingPulled)
             _pulling.TryStopPull(tripper, pullable);
@@ -102,9 +95,7 @@ public sealed class BinglePitSystem : EntitySystem
 
     }
     private void OnStepTriggerAttempt(EntityUid uid, BinglePitComponent component, ref StepTriggerAttemptEvent args)
-    {
-        args.Continue = true;
-    }
+        => args.Continue = true;
     public void SpawnBingle(EntityUid uid, BinglePitComponent component)
     {
         Spawn(component.GhostRoleToSpawn, Transform(uid).Coordinates);
@@ -121,10 +112,8 @@ public sealed class BinglePitSystem : EntitySystem
     {
         var query = EntityQueryEnumerator<BingleComponent>();
         while (query.MoveNext(out var queryUid, out var queryBingleComp))
-        {
-            if (queryBingleComp.MyPit != null && queryBingleComp.MyPit.Value == uid)
+            if (queryBingleComp.MyPit?.Value == uid) 
                 _bingleSystem.UpgradeBingle(queryUid, queryBingleComp);
-        }
         if (component.Level <= component.MaxSize)
             ScaleUpPit(uid, component);
 
@@ -133,15 +122,11 @@ public sealed class BinglePitSystem : EntitySystem
     private void OnDestruction(EntityUid uid, BinglePitComponent component, DestructionEventArgs args)
     {
         if (component.Pit != null)
-        {
-            var list = _containerSystem.EmptyContainer(component.Pit);
-
-            foreach (var pitUid in list)
+            foreach (var pitUid in _containerSystem.EmptyContainer(component.Pit))
             {
                 RemComp<StunnedComponent>(pitUid);
                 _stun.TryKnockdown(pitUid, TimeSpan.FromSeconds(2), false);
             }
-        }
 
         RemoveAllBingleGhosroles(uid, component);//remove all unclaimed ghostroles when pit is destroyed
 
@@ -169,9 +154,7 @@ public sealed class BinglePitSystem : EntitySystem
             EnsureComp<StunnedComponent>(args.User);
     }
     private void OnUpdateCanMove(EntityUid uid, BinglePitFallingComponent component, UpdateCanMoveEvent args)
-    {
-        args.Cancel();
-    }
+        => args.Cancel();
     private void ScaleUpPit(EntityUid uid, BinglePitComponent component)
     {
         if (!TryComp<AppearanceComponent>(uid, out var appearanceComponent))
