@@ -175,7 +175,7 @@
       - ReagentId: WeldingFuel
         Quantity: 10
   - type: Tool
-    speedModifier: 2.5
+    speedModifier: 2.0
     useSound:
       collection: Welder
     qualities: Welding
