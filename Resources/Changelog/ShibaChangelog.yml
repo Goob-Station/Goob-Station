@@ -1,6 +1,20 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: More maps have been added to the map pool!
+    type: Add
+  id: 146
+  time: '2025-02-01T17:37:08.134294'
+- author: AstroDogeDX
+  changes:
+  - message: NT Rep and BSO are now part of the External Affairs department; have
+      had their IDs and PDAs updated and show now be able to have their permissions
+      changed by Central Command and Admin IDs. NT Rep and BSO are NOT Central Command.
+    type: Tweak
+  id: 145
+  time: '2025-02-01T17:34:33.660298'
+- author: AstroDogeDX
+  changes:
   - message: Subtle Emotes are now formatted as '* Urist does a thing' in the chat.
       The prefix to trigger it is still a minus (-), but now you don't need to adjust
       your emote to fit with the 'subtly' adverb.
