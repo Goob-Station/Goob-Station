@@ -1,4 +1,5 @@
 using Content.Shared.Disease;
+using Content.Shared.Mobs.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using System;
@@ -7,6 +8,8 @@ namespace Content.Shared.Disease;
 
 public sealed partial class DiseaseSystem : EntitySystem
 {
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+
     private TimeSpan _accumulator = TimeSpan.FromSeconds(0);
     private TimeSpan _updateInterval = TimeSpan.FromSeconds(0.5f); // update every half-second to not lag the game
 
@@ -18,6 +21,9 @@ public sealed partial class DiseaseSystem : EntitySystem
         SubscribeLocalEvent<DiseaseCarrierComponent, DiseaseCuredEvent>(OnDiseaseCured);
         SubscribeLocalEvent<DiseaseComponent, ComponentStartup>(OnDiseaseAdded);
         SubscribeLocalEvent<DiseaseComponent, DiseaseUpdateEvent>(OnUpdateDisease);
+        SubscribeLocalEvent<ImmunityComponent, GetImmunityEvent>(OnGetImmunity);
+
+        InitializeEffects();
     }
 
     public override void Update(float frameTime)
@@ -70,24 +76,34 @@ public sealed partial class DiseaseSystem : EntitySystem
     private void OnUpdateDisease(EntityUid uid, DiseaseComponent disease, DiseaseUpdateEvent args)
     {
         var timeDelta = (float)_updateInterval.TotalSeconds;
+        var alive = !_mobState.IsDead(args.Ent) || disease.AffectsDead;
 
-        foreach (var effectUid in disease.Effects)
+        if (alive)
         {
-            if (!TryComp<DiseaseEffectComponent>(effectUid, out var effect))
-                return;
+            foreach (var effectUid in disease.Effects)
+            {
+                if (!TryComp<DiseaseEffectComponent>(effectUid, out var effect))
+                    return;
 
-            var effectEv = new DiseaseEffectEvent(args.Ent, timeDelta * disease.InfectionProgress * effect.Severity);
-            RaiseLocalEvent(effectUid, effectEv);
+                var effectEv = new DiseaseEffectEvent(args.Ent, (uid, disease), timeDelta * disease.InfectionProgress * effect.Severity);
+                RaiseLocalEvent(effectUid, effectEv);
+            }
         }
 
         var ev = new GetImmunityEvent();
         RaiseLocalEvent(args.Ent, ref ev);
 
-        disease.InfectionProgress += disease.InfectionRate - ev.ImmunityStrength * disease.ImmunityProgress;
-        disease.InfectionProgress = Math.Clamp(disease.InfectionProgress, 0f, 1f);
+        var immunityStrength = ev.ImmunityStrength * disease.ImmunityProgress;
 
-        disease.ImmunityProgress += ev.ImmunityGainRate;
-        disease.ImmunityProgress = Math.Clamp(disease.ImmunityProgress, 0f, 1f);
+        // infection progression
+        if (alive)
+            ChangeInfectionProgress(uid, timeDelta * disease.InfectionRate, disease);
+        else
+            ChangeInfectionProgress(uid, timeDelta * disease.DeadInfectionRate, disease);
+
+        // immunity
+        ChangeInfectionProgress(uid, -timeDelta * ev.ImmunityStrength * disease.ImmunityProgress, disease);
+        ChangeImmunityProgress(uid, timeDelta * (ev.ImmunityGainRate * disease.ImmunityGainRate), disease);
 
         if (disease.InfectionProgress == 0f)
         {
@@ -96,9 +112,34 @@ public sealed partial class DiseaseSystem : EntitySystem
         }
     }
 
-    public bool TryInfect(EntityUid uid, EntProtoId diseaseId, DiseaseCarrierComponent? comp = null)
+    private void OnGetImmunity(EntityUid uid, ImmunityComponent immunity, ref GetImmunityEvent args)
+    {
+        if (!_mobState.IsDead(uid) || immunity.InDead)
+        {
+            args.ImmunityGainRate += immunity.ImmunityGainRate;
+            args.ImmunityStrength += immunity.ImmunityStrength;
+        }
+    }
+
+    public void ChangeInfectionProgress(EntityUid uid, float amount, DiseaseComponent? comp = null)
     {
         if (!Resolve(uid, ref comp))
+            return;
+
+        comp.InfectionProgress = Math.Clamp(comp.InfectionProgress + amount, 0f, 1f);
+    }
+
+    public void ChangeImmunityProgress(EntityUid uid, float amount, DiseaseComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp))
+            return;
+
+        comp.ImmunityProgress = Math.Clamp(comp.ImmunityProgress + amount, 0f, 1f);
+    }
+
+    public bool TryInfect(EntityUid uid, EntProtoId diseaseId, DiseaseCarrierComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp, false))
             return false;
 
         var disease = Spawn(diseaseId);
@@ -108,7 +149,7 @@ public sealed partial class DiseaseSystem : EntitySystem
 
     public bool TryAddEffect(EntityUid uid, EntProtoId effectId, DiseaseComponent? comp = null)
     {
-        if (!Resolve(uid, ref comp))
+        if (!Resolve(uid, ref comp, false))
             return false;
 
         var effect = Spawn(effectId);
