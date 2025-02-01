@@ -11789,7 +11789,7 @@ entities:
       pos: 39.5,-20.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -8081.2876
+      secondsUntilStateChange: -8285.516
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13542,7 +13542,7 @@ entities:
       pos: 46.5,-40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -444635.6
+      secondsUntilStateChange: -444839.8
       state: Opening
   - uid: 309
     components:
@@ -13972,7 +13972,7 @@ entities:
       pos: -3.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -560803.1
+      secondsUntilStateChange: -561007.4
       state: Opening
   - uid: 376
     components:
@@ -118240,6 +118240,22 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0335FCFF'
+  - uid: 13855
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -23.5,33.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#FF1212FF'
+  - uid: 13856
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -23.5,32.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#0335FCFF'
   - uid: 27032
     components:
     - type: Transform
@@ -122546,26 +122562,6 @@ entities:
       open: False
     - type: AtmosPipeColor
       color: '#00FFEEFF'
-  - uid: 13855
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -23.5,32.5
-      parent: 2
-    - type: GasValve
-      open: False
-    - type: AtmosPipeColor
-      color: '#0335FCFF'
-  - uid: 13856
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -23.5,33.5
-      parent: 2
-    - type: GasValve
-      open: False
-    - type: AtmosPipeColor
-      color: '#FF0000FF'
   - uid: 13857
     components:
     - type: Transform
@@ -181719,7 +181715,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -8075.1543
+      secondsUntilStateChange: -8279.383
       state: Opening
     - type: Airlock
       autoClose: False
@@ -183396,7 +183392,7 @@ entities:
       pos: 24.5,2.5
       parent: 22429
     - type: Door
-      secondsUntilStateChange: -338934.84
+      secondsUntilStateChange: -339139.06
       state: Opening
 - proto: WoodenBench
   entities:
