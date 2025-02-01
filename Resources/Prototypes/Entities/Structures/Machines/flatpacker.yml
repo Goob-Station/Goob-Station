@@ -1,6 +1,6 @@
 ﻿- type: entity
   id: MachineFlatpacker
-  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  parent: [ BaseMachinePowered, ConstructibleMachine, BaseSiloUtilizer ] # Goob edit
   name: Flatpacker 1001
   description: An industrial machine used for expediting machine construction across the station.
   components:
