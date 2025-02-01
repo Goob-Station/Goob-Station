@@ -70,7 +70,7 @@
   parent: ClothingEyesBase
   id: ClothingEyesGlasses
   name: glasses
-  description: These lenses are... made of plastic. # Goobstation
+  description: Upon closer inspection, you realize these lenses are infact made of plastic. # Goobstation
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/glasses.rsi
