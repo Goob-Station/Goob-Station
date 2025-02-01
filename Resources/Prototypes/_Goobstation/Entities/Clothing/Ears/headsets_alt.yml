@@ -36,3 +36,18 @@
     sprite: _Goobstation/Clothing/Ears/Headsets/warden.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Ears/Headsets/warden.rsi
+
+- type: entity
+  parent: [ClothingHeadsetAlt, BaseCentcommContraband]
+  id: ClothingHeadsetAltBSO
+  name: blueshield officer's over-ear headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCentCom
+      - EncryptionKeyStationMaster
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/command.rsi
+  - type: Clothing
+    sprite: Clothing/Ears/Headsets/command.rsi
