@@ -34,15 +34,43 @@ public sealed class DiseaseEffectEvent : EntityEventArgs
 }
 
 /// <summary>
-/// This event is raised on a diseased entity to get its immune resistance.
+/// This event is raised on entities that got a new disease.
+/// </summary>
+public sealed class DiseaseGainedEvent : EntityEventArgs
+{
+    public Entity<DiseaseComponent> DiseaseGained;
+
+    public DiseaseGainedEvent(Entity<DiseaseComponent> ent)
+    {
+        DiseaseGained = ent;
+    }
+}
+
+/// <summary>
+/// This event is raised on entities which just lost a disease.
 /// </summary>
 public sealed class DiseaseCuredEvent : EntityEventArgs
 {
-    public EntityUid DiseaseCured;
+    public Entity<DiseaseComponent> DiseaseCured;
 
-    public DiseaseCuredEvent (EntityUid ent)
+    public DiseaseCuredEvent(Entity<DiseaseComponent> ent)
     {
         DiseaseCured = ent;
+    }
+}
+
+/// <summary>
+/// This event is raised on an entity just before it's infected. Set <see cref="CanInfect"/> to false to prevent the infection.
+/// </summary>
+[ByRefEvent]
+public sealed class DiseaseInfectAttemptEvent : EntityEventArgs
+{
+    public Entity<DiseaseComponent> Disease;
+    public bool CanInfect = true;
+
+    public DiseaseInfectAttemptEvent(Entity<DiseaseComponent> ent)
+    {
+        Disease = ent;
     }
 }
 

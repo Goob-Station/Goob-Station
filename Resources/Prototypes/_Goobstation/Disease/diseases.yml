@@ -1,29 +1,43 @@
 - type: entity
+  id: DiseaseBase
+  categories: [ HideSpawnMenu ]
+  abstract: true
+  components:
+  - type: Disease
+
+- type: entity
   id: DiseaseEffectBase
+  categories: [ HideSpawnMenu ]
   abstract: true
   components:
   - type: DiseaseEffect
 
 - type: entity
   id: DiseaseCancer
+  parent: DiseaseBase
+  categories: [ HideSpawnMenu ]
   name: cancer
   description: Deals genetic damage to the infected. Doesn't go away by itself.
   components:
   - type: Disease
     infectionRate: 0.005 # slow
     immunityGainRate: 0.5 # immunity against it also slow
+    genotype: 1111
     effects:
       - DiseaseEffectCancer
       - DiseaseEffectFightImmunity # won't let you cure it
 
 - type: entity
   id: DiseaseTurboCancer
+  parent: DiseaseBase
+  categories: [ HideSpawnMenu ]
   name: cancer
   description: Deals lots of genetic damage to the infected. Better prepare the funeral.
   components:
   - type: Disease
     infectionRate: 0.05
     affectsDead: true
+    genotype: 42069
     effects:
       - DiseaseEffectTurboCancer
       - DiseaseEffectFightImmunity
@@ -31,6 +45,7 @@
 - type: entity
   id: DiseaseEffectCancer
   parent: DiseaseEffectBase
+  categories: [ HideSpawnMenu ]
   name: cancer
   description: Deals genetic damage over time.
   components:
@@ -42,6 +57,7 @@
 - type: entity
   id: DiseaseEffectTurboCancer
   parent: DiseaseEffectBase
+  categories: [ HideSpawnMenu ]
   name: cancer
   description: Deals genetic damage over time. A short time.
   components:
@@ -53,6 +69,7 @@
 - type: entity
   id: DiseaseEffectFightImmunity
   parent: DiseaseEffectBase
+  categories: [ HideSpawnMenu ]
   name: immune resistance
   description: Makes the disease resist immunity once developed.
   components:
