@@ -5,6 +5,7 @@ using System;
 namespace Content.Shared.Disease;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[Access(typeof(DiseaseSystem), Other = AccessPermissions.ReadExecute)] // if the system's methods don't let you do something you want, add a method for it
 public sealed partial class DiseaseComponent : Component
 {
     // <state>
@@ -97,6 +98,13 @@ public sealed partial class DiseaseComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public int Genotype = 0;
+
+    /// <summary>
+    /// Whether you can gain immunity to this genotype, set to false for cancer and similar
+    /// Prevents the entity from obtaining immunity to this genotype, does nothing if said immunity already exists
+    /// </summary>
+    [DataField]
+    public bool CanGainImmunity = true;
 
     /// <summary>
     /// Whether to, instead of normal growth, use <see cref="DeadInfectionRate"/> in dead entities

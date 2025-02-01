@@ -20,6 +20,12 @@ public sealed partial class ImmunityComponent : Component
     public float ImmunityStrength = 0.02f;
 
     /// <summary>
+    /// Genotypes we have gained immunity against from getting sick by them or having taken a vaccine for
+    /// </summary>
+    [DataField]
+    public List<int> ImmuneTo = new();
+
+    /// <summary>
     /// Whether to still work while dead
     /// </summary>
     [DataField]
