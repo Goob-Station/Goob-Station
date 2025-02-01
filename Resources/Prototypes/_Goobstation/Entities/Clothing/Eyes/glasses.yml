@@ -65,4 +65,5 @@
       - Trash
   - type: PhysicalComposition
     materialComposition:
-      Glass: 25
+      Glass: 125
+      Steel: 125
