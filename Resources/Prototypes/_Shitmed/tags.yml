@@ -1,0 +1,11 @@
+- type: Tag
+  id: Abductor
+
+- type: Tag
+  id: AbductorScientist
+
+- type: Tag
+  id: CantInteract
+
+- type: Tag
+  id: ShowWires

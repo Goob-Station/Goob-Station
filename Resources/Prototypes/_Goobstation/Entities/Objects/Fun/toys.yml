@@ -113,13 +113,13 @@
 
 - type: entity
   parent: PlushieBlackburn
-  id: PlushieBlackburnPlyushkina
-  name: Plyushkina plushie
-  description: A slimmer Blackburn designed to clear out fox holes and trenches; scientists debate the maximum lifetime of "Plyushkinas" as they are the Insurgency's first self-designed subspecies.
+  id: PlushieBlackburnKobliska
+  name: Kobliska plushie
+  description: A slimmer Blackburn designed to clear out fox holes and trenches; scientists debate the maximum lifetime of "Kobliskins" as they are the Insurgency's first self-designed subspecies.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
-    state: plushie_plyushkina
+    state: plushie_kobliska
 
 - type: entity
   parent: PlushieBlackburn

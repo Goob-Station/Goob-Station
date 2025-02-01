@@ -1,0 +1,33 @@
+- type: entity
+  parent: BaseItem
+  id: ArmHammerChangeling
+  name: arm hammer
+  description: A hammer made out of flesh and bone, heavy enough to smash through structures and people alike.
+  suffix: Unremoveable
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Changeling/hammer.rsi
+    state: icon
+  - type: MeleeWeapon
+    angle: 0
+    wideAnimationRotation: -90
+    attackRate: 0.75
+    damage:
+      types:
+        Blunt: 30
+        Structural: 60
+    heavyStaminaCost: 12
+    soundHit:
+      collection: MetalThud
+  - type: Item
+    size: Ginormous
+    sprite: _Goobstation/Changeling/hammer.rsi
+  - type: Unremoveable
+  - type: DisarmMalus
+    malus: 0
+  - type: MeleeThrowOnHit
+    speed: 5
+    lifetime: 0.5
+  - type: KnockdownOnHit
+    duration: 0
+    knockdownOnHeavyAttack: false
