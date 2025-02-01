@@ -4577,3 +4577,11 @@ Entries:
         insulated gloves.
   id: 517
   time: '2025-01-31T19:18:21.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Add
+      message: Added Personal grudge wepon
+    - type: Remove
+      message: Removed Limer__treats
+  id: 518
+  time: '2025-02-01T19:57:54.0000000+00:00'
