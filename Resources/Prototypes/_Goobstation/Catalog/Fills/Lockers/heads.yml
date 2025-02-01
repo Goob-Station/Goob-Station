@@ -27,7 +27,6 @@
   id: LockerFillBlueshieldOfficer
   table: !type:AllSelector
     children:
-    - id: WeaponDisabler
     - id: ClothingHeadHelmetSwat
     - id: Flash
     - id: FlashlightSeclite

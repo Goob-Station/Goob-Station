@@ -40,6 +40,11 @@
   components:
   - type: Body # Shitmed Change
     prototype: Goliath
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: Sprite
     sprite: Mobs/Aliens/Asteroid/goliath.rsi
     layers:
