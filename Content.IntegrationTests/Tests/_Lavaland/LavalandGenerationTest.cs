@@ -16,7 +16,7 @@ public sealed class LavalandGenerationTest
     [Test]
     public async Task LavalandPlanetGenerationTest()
     {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings { DummyTicker = false, Dirty = true });
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { DummyTicker = false, Dirty = true, Fresh = true});
         var server = pair.Server;
         var entMan = server.EntMan;
         var protoMan = server.ProtoMan;
@@ -76,6 +76,8 @@ public sealed class LavalandGenerationTest
         Assert.That(planets, Has.Count.EqualTo(lavalands.Count));
 
         pair.Server.CfgMan.SetCVar(CCVars.GameMap, gameMap);
+
+        pair.ClearModifiedCvars();
         await pair.CleanReturnAsync();
     }
 }
