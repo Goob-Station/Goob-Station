@@ -1,5 +1,6 @@
 using Content.Shared.Disease;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Prototypes;
 using System;
 
 namespace Content.Shared.Disease;
@@ -13,8 +14,10 @@ public sealed partial class DiseaseSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<DiseaseComponent, DiseaseUpdateEvent>(OnUpdateDisease);
+        SubscribeLocalEvent<DiseaseCarrierComponent, ComponentStartup>(OnDiseaseCarrierAdded);
         SubscribeLocalEvent<DiseaseCarrierComponent, DiseaseCuredEvent>(OnDiseaseCured);
+        SubscribeLocalEvent<DiseaseComponent, ComponentStartup>(OnDiseaseAdded);
+        SubscribeLocalEvent<DiseaseComponent, DiseaseUpdateEvent>(OnUpdateDisease);
     }
 
     public override void Update(float frameTime)
@@ -39,6 +42,28 @@ public sealed partial class DiseaseSystem : EntitySystem
         {
             var ev = new DiseaseUpdateEvent(uid);
             RaiseLocalEvent(diseaseUid, ev);
+        }
+    }
+
+    private void OnDiseaseCarrierAdded(EntityUid uid, DiseaseCarrierComponent diseaseCarrier, ComponentStartup args)
+    {
+        foreach (var diseaseId in diseaseCarrier.StartingDiseases)
+        {
+            TryInfect(uid, diseaseId, diseaseCarrier);
+        }
+    }
+
+    private void OnDiseaseCured(EntityUid uid, DiseaseCarrierComponent diseaseCarrier, DiseaseCuredEvent args)
+    {
+        diseaseCarrier.Diseases.Remove(args.DiseaseCured);
+        QueueDel(args.DiseaseCured);
+    }
+
+    private void OnDiseaseAdded(EntityUid uid, DiseaseComponent disease, ComponentStartup args)
+    {
+        foreach (var effectId in disease.StartingEffects)
+        {
+            TryAddEffect(uid, effectId, disease);
         }
     }
 
@@ -71,9 +96,23 @@ public sealed partial class DiseaseSystem : EntitySystem
         }
     }
 
-    private void OnDiseaseCured(EntityUid uid, DiseaseCarrierComponent diseaseCarrier, DiseaseCuredEvent args)
+    public bool TryInfect(EntityUid uid, EntProtoId diseaseId, DiseaseCarrierComponent? comp = null)
     {
-        diseaseCarrier.Diseases.Remove(args.DiseaseCured);
-        QueueDel(args.DiseaseCured);
+        if (!Resolve(uid, ref comp))
+            return false;
+
+        var disease = Spawn(diseaseId);
+        comp.Diseases.Add(disease);
+        return true;
+    }
+
+    public bool TryAddEffect(EntityUid uid, EntProtoId effectId, DiseaseComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp))
+            return false;
+
+        var effect = Spawn(effectId);
+        comp.Effects.Add(effect);
+        return true;
     }
 }
