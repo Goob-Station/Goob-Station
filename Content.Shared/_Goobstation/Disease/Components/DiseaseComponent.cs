@@ -12,6 +12,7 @@ public sealed partial class DiseaseComponent : Component
     /// <summary>
     /// The effects this disease has
     /// </summary>
+    [ViewVariables, AutoNetworkedField]
     public List<EntityUid> Effects = new();
 
     /// <summary>
@@ -32,6 +33,12 @@ public sealed partial class DiseaseComponent : Component
     // </state>
 
     // <parameters>
+
+    /// <summary>
+    /// Effects to add on component startup
+    /// </summary>
+    [DataField("effects")]
+    public List<EntProtoId> StartingEffects = new();
 
     /// <summary>
     /// After how much time to activate the disease effects.
