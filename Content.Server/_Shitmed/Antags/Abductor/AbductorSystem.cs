@@ -35,30 +35,27 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
 
-    private EntityUid? console = null;
-
     public override void Initialize()
     {
         SubscribeLocalEvent<AbductorHumanObservationConsoleComponent, BeforeActivatableUIOpenEvent>(OnBeforeActivatableUIOpen);
-
+        SubscribeLocalEvent<AbductorHumanObservationConsoleComponent, ActivatableUIOpenAttemptEvent>(OnActivatableUIOpenAttempt);
         Subs.BuiEvents<AbductorHumanObservationConsoleComponent>(AbductorCameraConsoleUIKey.Key, subs => subs.Event<AbductorBeaconChosenBuiMsg>(OnAbductorBeaconChosenBuiMsg));
         InitializeActions();
         InitializeGizmo();
         InitializeConsole();
+        InitializeVest();
         InitializeVictim();
         base.Initialize();
     }
 
     private void OnAbductorBeaconChosenBuiMsg(Entity<AbductorHumanObservationConsoleComponent> ent, ref AbductorBeaconChosenBuiMsg args)
     {
-        OnCameraExit(ent.Owner);
+        OnCameraExit(args.Actor);
         if (ent.Comp.RemoteEntityProto != null)
         {
             var beacon = _entityManager.GetEntity(args.Beacon.NetEnt);
             var eye = SpawnAtPosition(ent.Comp.RemoteEntityProto, Transform(beacon).Coordinates);
             ent.Comp.RemoteEntity = GetNetEntity(eye);
-
-            console = ent.Owner;
 
             if (TryComp<HandsComponent>(args.Actor, out var handsComponent))
             {
@@ -115,13 +112,14 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
 
     private void OnCameraExit(EntityUid actor)
     {
-        if (TryComp<RelayInputMoverComponent>(actor, out var comp))
+        if (TryComp<RelayInputMoverComponent>(actor, out var comp)
+            && TryComp<AbductorScientistComponent>(actor, out var abductorComp))
         {
             var relay = comp.RelayEntity;
             RemComp(actor, comp);
 
-            if (console != null)
-                _virtualItem.DeleteInHandsMatching(actor, console.Value);
+            if (abductorComp.Console != null)
+                _virtualItem.DeleteInHandsMatching(actor, abductorComp.Console.Value);
 
             if (TryComp(actor, out EyeComponent? eyeComp))
             {
@@ -139,6 +137,11 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
 
     private void OnBeforeActivatableUIOpen(Entity<AbductorHumanObservationConsoleComponent> ent, ref BeforeActivatableUIOpenEvent args)
     {
+        if (!TryComp<AbductorScientistComponent>(args.User, out var abductorComp))
+            return;
+
+
+        abductorComp.Console = ent.Owner;
         var stations = _stationSystem.GetStations();
         var result = new Dictionary<int, StationBeacons>();
 
@@ -163,4 +166,11 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
 
         _uiSystem.SetUiState(ent.Owner, AbductorCameraConsoleUIKey.Key, new AbductorCameraConsoleBuiState() { Stations = result });
     }
+
+    private void OnActivatableUIOpenAttempt(Entity<AbductorHumanObservationConsoleComponent> ent, ref ActivatableUIOpenAttemptEvent args)
+    {
+        if (!HasComp<AbductorScientistComponent>(args.User))
+            args.Cancel();
+    }
+
 }

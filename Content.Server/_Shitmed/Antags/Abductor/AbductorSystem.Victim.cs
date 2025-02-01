@@ -27,6 +27,7 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
     {
         if (!HasComp<SurgeryAddOrganStepComponent>(args.Step)
             || !args.Complete
+            || HasComp<AbductorComponent>(args.Body)
             || !TryComp<AbductorVictimComponent>(args.Body, out var victimComp)
             || victimComp.Implanted
             || !HasComp<HumanoidAppearanceComponent>(args.Body)
