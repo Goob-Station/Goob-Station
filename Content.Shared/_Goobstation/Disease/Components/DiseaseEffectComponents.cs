@@ -30,5 +30,5 @@ public sealed partial class DiseaseDamageEffectComponent : Component
 public sealed partial class DiseaseFightImmunityEffectComponent : Component
 {
     [DataField]
-    public float Amount = 0.04f;
+    public float Amount = -0.04f;
 }
