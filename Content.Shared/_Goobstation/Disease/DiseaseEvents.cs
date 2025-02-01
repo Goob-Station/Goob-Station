@@ -18,12 +18,17 @@ public sealed class DiseaseUpdateEvent : EntityEventArgs
 /// </summary>
 public sealed class DiseaseEffectEvent : EntityEventArgs
 {
+    /// <summary>
+    /// The entity this effect should affect.
+    /// </summary>
     public EntityUid Ent;
+    public Entity<DiseaseComponent> Disease;
     public float EffectScale;
 
-    public DiseaseEffectEvent(EntityUid ent, float scale)
+    public DiseaseEffectEvent(EntityUid ent, Entity<DiseaseComponent> disease, float scale)
     {
         Ent = ent;
+        Disease = disease;
         EffectScale = scale;
     }
 }

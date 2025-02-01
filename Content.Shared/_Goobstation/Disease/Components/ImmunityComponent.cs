@@ -4,18 +4,24 @@ using System;
 
 namespace Content.Shared.Disease;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent]
 public sealed partial class ImmunityComponent : Component
 {
     /// <summary>
     /// How fast this organism increases immune progress on diseases, per second
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float ImmunityGainRate = 0.003f;
 
     /// <summary>
     /// How fast this organism decreases infection progress at full immunity progress
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float ImmunityStrength = 0.02f;
+
+    /// <summary>
+    /// Whether to still work while dead
+    /// </summary>
+    [DataField]
+    public bool InDead = false;
 }

@@ -1,33 +1,68 @@
 - type: entity
-  id: DiseaseCancer
-  name: cancer
-  components:
-  - type: Disease
-    infectionRate: 0.05
-    effects:
-      - DiseaseEffectCancer
-
-- type: entity
   id: DiseaseEffectBase
   abstract: true
   components:
   - type: DiseaseEffect
 
 - type: entity
+  id: DiseaseCancer
+  name: cancer
+  description: Deals genetic damage to the infected. Doesn't go away by itself.
+  components:
+  - type: Disease
+    infectionRate: 0.005 # slow
+    immunityGainRate: 0.5 # immunity against it also slow
+    effects:
+      - DiseaseEffectCancer
+      - DiseaseEffectFightImmunity # won't let you cure it
+
+- type: entity
+  id: DiseaseTurboCancer
+  name: cancer
+  description: Deals lots of genetic damage to the infected. Better prepare the funeral.
+  components:
+  - type: Disease
+    infectionRate: 0.05
+    affectsDead: true
+    effects:
+      - DiseaseEffectTurboCancer
+      - DiseaseEffectFightImmunity
+
+- type: entity
   id: DiseaseEffectCancer
   parent: DiseaseEffectBase
   name: cancer
+  description: Deals genetic damage over time.
   components:
   - type: DiseaseDamageEffect
     damage:
       types:
-        Genetic: 1
+        Cellular: 1
 
 - type: entity
-  name: cancer stick
-  description: still kills you, but slowly
+  id: DiseaseEffectTurboCancer
+  parent: DiseaseEffectBase
+  name: cancer
+  description: Deals genetic damage over time. A short time.
+  components:
+  - type: DiseaseDamageEffect
+    damage:
+      types:
+        Cellular: 10
+
+- type: entity
+  id: DiseaseEffectFightImmunity
+  parent: DiseaseEffectBase
+  name: immune resistance
+  description: Makes the disease resist immunity once developed.
+  components:
+  - type: DiseaseFightImmunityEffect
+
+- type: entity
+  name: turbocancer stick
+  description: need a taste of Chernobyl?
   parent: MeleeDebugGib
-  id: MeleeDebug100
+  id: MeleeDebugTurboCancer
   components:
   - type: Tag
     tags:
@@ -37,4 +72,4 @@
       types:
         Blunt: 5
   - type: DiseaseOnHit
-    disease: DiseaseCancer
+    disease: DiseaseTurboCancer

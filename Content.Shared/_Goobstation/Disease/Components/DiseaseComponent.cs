@@ -41,12 +41,6 @@ public sealed partial class DiseaseComponent : Component
     public List<EntProtoId> StartingEffects = new();
 
     /// <summary>
-    /// After how much time to activate the disease effects.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public TimeSpan IncubationTime = TimeSpan.FromSeconds(30);
-
-    /// <summary>
     /// How much to increase <see cref="InfectionProgress"/> per second
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -58,6 +52,12 @@ public sealed partial class DiseaseComponent : Component
     [DataField, AutoNetworkedField]
     public float MutationRate = 0.2f;
 
+    /// <summary>
+    /// Immunity gained against this disease is multiplied by this number
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float ImmunityGainRate = 1f;
+
     // NO magic constants, not allowed
 
     /// <summary>
@@ -67,10 +67,10 @@ public sealed partial class DiseaseComponent : Component
     public float MutationMutationCoefficient = 1f;
 
     /// <summary>
-    /// Affects mutation of immune resistance
+    /// Affects mutation of immunity gain
     /// </summary>
     [DataField]
-    public float ImmuneResistanceMutationCoefficient = 1f;
+    public float ImmunityGainMutationCoefficient = 1f;
 
     /// <summary>
     /// On mutation, infection rate may go up or down by <see cref="BaseMutationRate"/> multiplied by this
@@ -97,6 +97,18 @@ public sealed partial class DiseaseComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public int Genotype = 0;
+
+    /// <summary>
+    /// Whether to, instead of normal growth, use <see cref="DeadInfectionRate"/> in dead entities
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool AffectsDead = false;
+
+    /// <summary>
+    /// If <see cref="AffectsDead"/> is true, how to change infection progress per second in dead entities
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float DeadInfectionRate = -0.01f;
 
     // </parameters>
 }
