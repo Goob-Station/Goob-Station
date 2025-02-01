@@ -3,7 +3,7 @@
   parent: BaseCrowbar
   id: CrowbarAbductor
   name: abductor's crowbar
-  description: A multipurpose tool to pry open doors and fight interdimensional invaders.
+  description: Made out of metal more durable than anything Nanotrasen could dream of.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Abductor/crowbar.rsi
@@ -22,6 +22,7 @@
   name: abductor's wirecutter
   parent: BaseItem
   id: WirecutterAbductor
+  description: Cuts through wires like a hot knife through butter.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Abductor/wirecutters.rsi
@@ -76,6 +77,7 @@
   name: abductor's screwdriver
   parent: BaseItem
   id: ScrewdriverAbductor
+  description: More efficient than anything Nanotrasen could dream of. Not to be confused with a sonic screwdriver.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Abductor/screwdriver.rsi
@@ -124,6 +126,7 @@
   name: abductor's wrench
   parent: Wrench
   id: WrenchAbductor
+  description: Can take a bolt off in a single turn. Not intended for melee combat.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Abductor/wrench.rsi
@@ -149,7 +152,7 @@
   name: abductor's welding tool
   parent: Welder
   id: WelderAbductor
-  description: "An experimental welder capable of self-fuel generation and less harmful to the eyes."
+  description: "A highly advanced welder capable of producing infinite fuel."
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Abductor/welder.rsi
@@ -172,7 +175,7 @@
       - ReagentId: WeldingFuel
         Quantity: 10
   - type: Tool
-    speedModifier: 2.0
+    speedModifier: 2.5
     useSound:
       collection: Welder
     qualities: Welding
@@ -184,7 +187,7 @@
   name: abductor's multitool
   parent: [BaseItem, BaseRestrictedContraband]
   id: MultitoolAbductor
-  description: An advanced tool to copy, store, and send electrical pulses and signals through wires and machines.
+  description: A highly advanced hacking tool capable of viewing wire functionality. Can be used as Cryoptographic sequencer in its alternate mode.
   components:
   - type: EmitSoundOnLand
     sound:

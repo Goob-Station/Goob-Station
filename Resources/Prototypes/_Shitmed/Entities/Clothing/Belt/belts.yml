@@ -2,7 +2,7 @@
   parent: ClothingBeltStorageBase
   id: ClothingAbductorBelt
   name: abductor belt
-  description: Can hold various OUR things.
+  description: Can hold various OUR things. # I was going to change this, but it's funny so it stays.
   components:
   - type: Sprite
     sprite: _Shitmed/Clothing/Belt/abductor.rsi

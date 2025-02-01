@@ -113,6 +113,7 @@
 - type: entity
   name: abductor's bone manipulator
   id: BoneManipulatorAbductor
+  description: A highly advanced tool, capable of mending bones.
   parent: [BaseToolSurgery, BaseMedicalScienceContraband]
   components:
     - type: Sprite

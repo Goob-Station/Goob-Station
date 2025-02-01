@@ -3,6 +3,7 @@
   parent: ClothingHeadHelmetBase
   id: ClothingHeadHelmetAbductor
   name: helmet
+  description: Zeep Glorp!
   components:
   - type: Armor
     modifiers:
