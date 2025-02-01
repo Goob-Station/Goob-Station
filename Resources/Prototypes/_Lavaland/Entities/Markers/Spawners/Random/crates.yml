@@ -14,7 +14,6 @@
     prototypes:
     - LavalandCrateNecropolisCultRobe
     - LavalandCrateNecropolisCultArmor
-    rarePrototypes:
     - LavalandCrateNecropolisHeart
     - LavalandCrateNecropolisVampirismCrystal
     chance: 1

@@ -29,8 +29,6 @@
     cost: 600
   - id: MedkitBurnFilled
     cost: 600
-  - id: LavalandEquipmentExplorerSuit
-    cost: 650
   - id: LavalandJaunter
     cost: 700
   - id: PKAUpgradeFireRate
@@ -55,6 +53,8 @@
   - id: Fulton
     cost: 1000
   - id: PKAUpgradeDamage
+    cost: 1200
+  - id: LavalandEquipmentExplorerSuit
     cost: 1200
   # TODO: lazarus injector for 1k
   - id: ClothingBackpackDuffelSalvageConscription

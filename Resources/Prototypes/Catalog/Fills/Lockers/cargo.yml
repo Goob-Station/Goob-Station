@@ -55,5 +55,6 @@
       - id: OreBag
       - id: Pickaxe
       - id: LavalandEquipmentExplorerSuit
+      - id: ClothingMaskGasExplorer
       # TODO: bluespace shelter capsule
       # Lavaland Change End
