@@ -51,7 +51,17 @@
   - DeathSquad
   - HecuOperative
   editorHidden: true
-  weight: 120
+  weight: 140
+
+- type: department
+  id: ExternalAffairs
+  name: department-ExternalAffairs
+  description: department-ExternalAffairs-description
+  color: "#0c344d"
+  roles:
+  - BlueshieldOfficer
+  - NanotrasenRepresentative
+  weight: 90
 
 - type: department
   id: Command
@@ -66,8 +76,6 @@
   - HeadOfSecurity
   - ResearchDirector
   - Quartermaster
-  - BlueshieldOfficer # Goobstation
-  - NanotrasenRepresentative # Goobstation
   - CentralCommandOfficial
   - CBURN
   - ERTLeader
