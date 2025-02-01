@@ -16,7 +16,7 @@ public sealed partial class DiseaseSystem
 
     private void OnDamageEffect(EntityUid uid, DiseaseDamageEffectComponent effect, DiseaseEffectEvent args)
     {
-        _damageable.TryChangeDamage(args.Ent, effect.Damage * args.EffectScale);
+        _damageable.TryChangeDamage(args.Ent, effect.Damage * args.EffectScale, true, false);
     }
 
     private void OnFightImmunityEffect(EntityUid uid, DiseaseFightImmunityEffectComponent effect, DiseaseEffectEvent args)
