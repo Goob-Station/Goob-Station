@@ -2,7 +2,7 @@
   id: DefaultMapPool
   maps:
   - Atlas
-  - Amber # TODO: pirasmas amber
+  - Amber
   - Bagel
   - Box
   - Cluster
@@ -13,7 +13,7 @@
   # - Loop # ShibaStation - Loop is cringe
   - Marathon
   - Meta
-  - Oasis
+  # - Oasis # ShibaStation - Oasis is broken sad face
   - Omega
   - Origin
   - Saltern
@@ -24,3 +24,5 @@
   - OasisHighPop
   - Barratry # Goobstation - Re-add barratry
   - Kettle # Goobstation - Re-add kettle (before it was gemini!)
+  - Submarine
+  - Lambda

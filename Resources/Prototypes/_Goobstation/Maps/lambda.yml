@@ -2,7 +2,7 @@
   id: Lambda
   mapName: 'Lambda'
   mapPath: /Maps/_Goobstation/lambda.yml
-  minPlayers: 35
+  minPlayers: 25
   maxPlayers: 70
   fallback: true
   stations:
