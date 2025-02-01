@@ -22,7 +22,7 @@ public sealed partial class DiseaseOnHitSystem : EntitySystem
 
         foreach (var target in args.HitEntities)
         {
-            _disease.TryInfect(target, diseaseOnHit.Disease);
+            _disease.TryInfect(target, diseaseOnHit.Disease, out _);
         }
     }
 }
