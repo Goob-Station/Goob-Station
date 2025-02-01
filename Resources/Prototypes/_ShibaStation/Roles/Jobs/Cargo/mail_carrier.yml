@@ -1,7 +1,7 @@
 - type: job
   id: MailCarrier
   name: Mail Carrier
-  description: "Shake the packages. Check if there's money inside. Demand a tip on delivery. The mail always comes through."
+  description: "Shake the packages, check if there's money insided, demand a tip on delivery, the mail always comes through."
   playTimeTracker: JobMailCarrier
   startingGear: MailCarrierGear
   icon: "JobIconMailCarrier"

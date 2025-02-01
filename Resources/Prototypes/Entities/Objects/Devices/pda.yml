@@ -778,7 +778,7 @@
       - NewsReaderCartridge
       - MailMetricsCartridge
       - MedTekCartridge
-      - SciScanCartridge # Shibastation - adding SciScan cartridge to CentCom PDA to compliment the Admin one.
+      - SciScanCartridge # Shibastation - adding SciScan cartridge to CentComm PDA to compliment the Admin one.
       - WantedListCartridge
       - LogProbeCartridge
       - AstroNavCartridge
