@@ -37,3 +37,33 @@
   name: unremoveable banana clown wig and mask
   components:
   - type: Unremoveable
+
+- type: entity
+  parent: [ClothingMaskBase, BaseMinorContraband]
+  id: ClothingMaskGasVoiceCraftable
+  suffix: Voice Mask, Craftable
+  name: Voice Modulator Mask
+  description: A poorly constructed voice modulator made of a gasmask and voice trigger.
+  components:
+    - type: Sprite
+      sprite: Clothing/Mask/gas.rsi
+    - type: Clothing
+      sprite: Clothing/Mask/gas.rsi
+    - type: BreathMask
+    - type: IdentityBlocker
+    - type: VoiceMask
+      voiceMaskSpeechVerb: VoiceModulator
+      enableAction: false
+    - type: HideLayerClothing
+      slots:
+      - Snout
+    - type: UserInterface
+      interfaces:
+        enum.VoiceMaskUIKey.Key:
+          type: VoiceModulatorBoundUserInterface
+    - type: Tag
+      tags:
+      - IPCMaskWearable # EE - IPCs
+    - type: Construction
+      graph: VoiceMaskCraftable
+      node: end

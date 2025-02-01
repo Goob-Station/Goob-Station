@@ -1,0 +1,53 @@
+- type: entity
+  parent: [BaseWeaponBattery, BaseRestrictedContraband]
+  id: WeaponAlien
+  name: alien pistol
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Weapons/Guns/Battery/alien.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Item
+    size: Small
+    shape:
+    - 0, 0, 1, 1
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 100
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: BulletDisabler
+      fireCost: 100
+    - proto: BulletDeclone
+      fireCost: 100
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+
+- type: entity
+  parent: [BaseWeaponBattery, BaseRestrictedContraband]
+  id: WeaponDecloner
+  name: decloner
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Weapons/Guns/Battery/alien.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDeclone
+    fireCost: 200
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
