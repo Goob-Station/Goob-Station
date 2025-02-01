@@ -5,7 +5,7 @@
   name: research-technology-prescription-lenses
   icon:
     sprite: Clothing/Eyes/Glasses/glasses.rsi
-    state: Icon
+    state: icon
   discipline: CivilianServices
   tier: 1
   cost: 2500
