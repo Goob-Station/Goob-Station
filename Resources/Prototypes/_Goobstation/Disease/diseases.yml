@@ -22,6 +22,7 @@
   - type: Disease
     infectionRate: 0.005 # slow
     immunityGainRate: 0.5 # immunity against it also slow
+    canGainImmunity: false
     genotype: 1111
     effects:
       - DiseaseEffectCancer
@@ -37,6 +38,7 @@
   - type: Disease
     infectionRate: 0.05
     affectsDead: true
+    canGainImmunity: false
     genotype: 42069
     effects:
       - DiseaseEffectTurboCancer
