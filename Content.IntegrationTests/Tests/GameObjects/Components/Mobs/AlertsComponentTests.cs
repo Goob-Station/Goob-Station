@@ -87,8 +87,12 @@ namespace Content.IntegrationTests.Tests.GameObjects.Components.Mobs
                 Assert.That(clientAlertsUI.AlertContainer.ChildCount, Is.GreaterThanOrEqualTo(3));
                 var alertControls = clientAlertsUI.AlertContainer.Children.Select(c => (AlertControl) c);
                 var alertIDs = alertControls.Select(ac => ac.Alert.ID).ToArray();
-                var expectedIDs = new[] { "HumanHealth", "Debug1", "Debug2" };
-                Assert.That(alertIDs, Is.SupersetOf(expectedIDs));
+                // Goobstation - IPC have BorgHealth instead of HumanHealth
+                var expectedDebugIDs = new[] { "Debug1", "Debug2" };
+                var expectedHealthIDs = new[] { "BorgHealth", "HumanHealth" };
+
+                Assert.That(alertIDs, Is.SupersetOf(expectedDebugIDs));
+                Assert.That(alertIDs, Has.Some.Matches<string>(item => expectedHealthIDs.Contains(item)));
             });
 
             await server.WaitAssertion(() =>
@@ -104,8 +108,12 @@ namespace Content.IntegrationTests.Tests.GameObjects.Components.Mobs
                 Assert.That(clientAlertsUI.AlertContainer.ChildCount, Is.GreaterThanOrEqualTo(2));
                 var alertControls = clientAlertsUI.AlertContainer.Children.Select(c => (AlertControl) c);
                 var alertIDs = alertControls.Select(ac => ac.Alert.ID).ToArray();
-                var expectedIDs = new[] { "HumanHealth", "Debug2" };
-                Assert.That(alertIDs, Is.SupersetOf(expectedIDs));
+                // Goobstation - IPC have BorgHealth instead of HumanHealth
+                var expectedDebugIDs = new[] { "Debug2" };
+                var expectedHealthIDs = new[] { "BorgHealth", "HumanHealth" };
+
+                Assert.That(alertIDs, Is.SupersetOf(expectedDebugIDs));
+                Assert.That(alertIDs, Has.Some.Matches<string>(item => expectedHealthIDs.Contains(item)));
             });
 
             await pair.CleanReturnAsync();
