@@ -4,6 +4,10 @@ using System;
 
 namespace Content.Shared.Disease;
 
+/// <summary>
+/// For entities that have the ability to naturally fight back diseases
+/// If you want to make some sort of alternate immunity of your own, copypaste and adjust DiseaseSystem.Immunity.cs
+/// </summary>
 [RegisterComponent]
 public sealed partial class ImmunityComponent : Component
 {
@@ -11,7 +15,7 @@ public sealed partial class ImmunityComponent : Component
     /// How fast this organism increases immune progress on diseases, per second
     /// </summary>
     [DataField]
-    public float ImmunityGainRate = 0.003f;
+    public float ImmunityGainRate = 0.002f;
 
     /// <summary>
     /// How fast this organism decreases infection progress at full immunity progress
