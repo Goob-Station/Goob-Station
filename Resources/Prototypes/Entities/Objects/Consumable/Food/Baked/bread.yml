@@ -703,7 +703,7 @@
   - type: Tag #Goobstation
     tags:
     - BreadEmergency
-  - type: GibThisGuy
+  - type: GibThisGuy  #Goobstation
     ocNames:
       - Limer__treats
 

@@ -5,7 +5,7 @@ using Robust.Shared.Player;
 namespace Content.Server._Goobstation.Weapon;
 
 /// <summary>
-///
+/// Gib this Person
 /// </summary>
 public sealed class GibThisGuySystem : EntitySystem
 {
@@ -20,18 +20,12 @@ public sealed class GibThisGuySystem : EntitySystem
     {
         foreach (var hit in args.HitEntities)
         {
-            if (IsInList(uid, Name(hit), component.IcNames))
+            if (component.IcNames.Contains(Name(hit)))
                 _bodySystem.GibBody(hit);
 
-            if (TryComp<ActorComponent>(hit, out var actor) && IsInList(uid, actor.PlayerSession.Name, component.OcNames))
+            if (TryComp<ActorComponent>(hit, out var actor) &&
+                component.OcNames.Contains(actor.PlayerSession.Name))
                 _bodySystem.GibBody(hit);
         }
-    }
-    private bool IsInList(EntityUid uid, string target, List<string> names)
-    {
-        foreach (var name in names)
-            if (name == target)
-                return true;
-        return false;
     }
 }
