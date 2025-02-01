@@ -21,7 +21,8 @@
   - type: ExplosionResistance
     damageCoefficient: 0.50
   - type: ToggleableClothing
-    clothingPrototype: LavalandEquipmentExplorerHood
+    clothingPrototypes:
+      head: LavalandEquipmentExplorerHood
 
 - type: entity
   parent: ClothingHeadBase

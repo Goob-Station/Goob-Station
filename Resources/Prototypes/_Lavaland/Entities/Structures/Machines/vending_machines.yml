@@ -39,4 +39,11 @@
 - type: vendingMachineInventory
   id: MiningDrobeInventory
   startingInventory:
+    ClothingUniformJumpsuitSalvageSpecialist: 3
+    ClothingShoesBootsSalvage: 3
+    ClothingHandsGlovesColorBlack: 3
+    ClothingBackpackSalvage: 2
+    ClothingBackpackSatchelSalvage: 2
+    ClothingBackpackDuffelSalvage: 2
+    ClothingHeadsetMining: 2
     ClothingOuterWinterMiner: 2

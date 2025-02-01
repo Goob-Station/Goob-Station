@@ -53,5 +53,7 @@
       - id: WeaponProtoKineticAccelerator
       - id: JetpackMiniFilled
       - id: OreBag
+      - id: Pickaxe
+      - id: LavalandEquipmentExplorerSuit
       # TODO: bluespace shelter capsule
       # Lavaland Change End
