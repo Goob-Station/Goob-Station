@@ -58,7 +58,7 @@
     capacity: 1
     count: 1
   - type: MeleeWeapon
-    attackRate: 1
+    attackRate: 1.2
     wideAnimationRotation: -135
     damage:
       types:
@@ -98,7 +98,7 @@
   - type: UseDelay
     delay: 1
   - type: MeleeWeapon
-    attackRate: 1
+    attackRate: 1.2
     wideAnimationRotation: -135
     damage:
       types:
@@ -178,7 +178,7 @@
     attackRate: 1.5
     damage:
       types:
-        Slash: 10
+        Slash: 15
     soundHit:
       collection: MetalThud
     angle: 0
