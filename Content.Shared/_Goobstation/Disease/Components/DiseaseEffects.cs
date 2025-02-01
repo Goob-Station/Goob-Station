@@ -7,14 +7,19 @@ namespace Content.Shared.Disease;
 /// <summary>
 /// Base class for all disease effects
 /// </summary>
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public abstract partial class DiseaseEffectComponent : Component
 {
     [DataField, AutoNetworkedField]
     public float Severity = 1f;
+
+    [DataField]
+    public float Complexity = 4f;
 }
 
-public sealed partial class DiseaseDamageEffectComponent : DiseaseEffectComponent
+[RegisterComponent]
+public sealed partial class DiseaseDamageEffectComponent : Component
 {
-    [DataField, AutoNetworkedField]
-    public DamageSpecifier damage;
+    [DataField]
+    public DamageSpecifier Damage = default!;
 }

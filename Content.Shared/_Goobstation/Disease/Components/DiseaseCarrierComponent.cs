@@ -11,10 +11,4 @@ public sealed partial class DiseaseCarrierComponent : Component
     /// </summary>
     [ViewVariables, AutoNetworkedField]
     public List<EntityUid> Diseases = new();
-
-    /// <summary>
-    /// Diseases to add upon startup
-    /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public List<EntProtoId>? StartingDiseases;
 }

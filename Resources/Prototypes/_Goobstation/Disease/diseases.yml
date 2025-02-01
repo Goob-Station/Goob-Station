@@ -1,0 +1,24 @@
+- type: entity
+  id: DiseaseCancer
+  name: cancer
+  components:
+  - type: Disease
+    infectionRate: 0.05
+    effects:
+    - DiseaseEffectCancer
+
+- type: entity
+  id: DiseaseEffectBase
+  abstract: true
+  components:
+  - type: DiseaseEffect
+
+- type: entity
+  id: DiseaseEffectCancer
+  parent: DiseaseEffectBase
+  name: cancer
+  components:
+  - type: DiseaseDamageEffect
+    damage:
+      types:
+        Genetic: 1
