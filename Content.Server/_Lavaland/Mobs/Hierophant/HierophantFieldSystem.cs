@@ -52,9 +52,9 @@ public sealed class HierophantFieldSystem : EntitySystem
         var field = ent.Comp.ConnectedFieldGenerator.Value;
         DeactivateField(field);
 
-        // After 5 seconds, hierophant teleports back to it's original place
+        // After 10 seconds, hierophant teleports back to it's original place
         var position = _transform.GetMapCoordinates(field);
-        Timer.Spawn(TimeSpan.FromSeconds(5), () => _transform.SetMapCoordinates(ent, position));
+        Timer.Spawn(TimeSpan.FromSeconds(10), () => _transform.SetMapCoordinates(ent, position));
     }
 
     private void OnHierophantKilled(Entity<HierophantBossComponent> ent, ref MegafaunaKilledEvent args)

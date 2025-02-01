@@ -10,22 +10,38 @@ public sealed partial class HierophantBossComponent : MegafaunaComponent
     ///     Is responsive for how fast the hierophant attacks.
     /// </summary>
     [ViewVariables]
-    public float Anger = 0f;
+    public float CurrentAnger = 1f;
 
-    [ViewVariables]
-    public float InterActionDelay = 0.5f;
+    /// <summary>
+    /// Minimal amount of anger that Hierophant can have.
+    /// Tends to 2 when health tends to 0.
+    /// </summary>
+    [DataField]
+    public float MinAnger = 1f;
 
     [DataField]
-    public float MajorAttackCooldown = 4f;
-
-    [ViewVariables]
-    public float MajorAttackTimer = 4f;
+    public float MaxAnger = 3f;
 
     [DataField]
-    public float AttackCooldown = 3f;
+    public float InterActionDelay = 1.5f * 1000f;
+
+    [DataField]
+    public float MajorAttackCooldown = 5f;
 
     [ViewVariables]
-    public float AttackTimer = 3f;
+    public float MajorAttackTimer = 5f;
+
+    [DataField]
+    public float AttackCooldown = 4f;
+
+    [ViewVariables]
+    public float AttackTimer = 2f;
+
+    [DataField]
+    public float MinAttackCooldown = 2f;
+
+    [DataField]
+    public float MinMajorAttackCooldown = 3f;
 
     [DataField]
     public float MeleeReactionCooldown = 10f;

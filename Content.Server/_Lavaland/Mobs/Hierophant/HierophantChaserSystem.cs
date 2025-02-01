@@ -73,7 +73,18 @@ public sealed partial class HierophantChaserSystem : EntitySystem
         // if there is a target get it's position delta instead
         if (ent.Comp1.Target != null)
         {
-            deltaPos = _xform.GetWorldPosition((EntityUid) ent.Comp1.Target) - pos;
+            var entPos = _xform.GetWorldPosition(ent.Comp1.Target.Value);
+
+            // At first, chaser will try to catch the target on X axis
+            if (Math.Abs(Math.Round(entPos.X) - Math.Round(pos.X)) > 0.5)
+            {
+                deltaPos = new Vector2(entPos.X, pos.Y) - pos;
+            }
+            // Else we just try to catch the target by attacking from Y axis
+            else
+            {
+                deltaPos = entPos - pos;
+            }
         }
 
         // if the target is still missing we'll just pick a random tile

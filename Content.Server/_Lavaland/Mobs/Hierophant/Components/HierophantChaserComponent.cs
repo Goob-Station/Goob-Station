@@ -12,7 +12,7 @@ public sealed partial class HierophantChaserComponent : Component
     /// </summary>
     [DataField] public float Speed = 5f;
 
-    [DataField] public float MaxSteps = 50f;
+    [DataField] public float MaxSteps = 20f;
     [ViewVariables(VVAccess.ReadWrite)] public float Steps = 0f;
 
     [DataField] public float BaseCooldown = 1f;

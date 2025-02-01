@@ -9,17 +9,20 @@ using System.Linq;
 using System.Numerics;
 using System.Threading.Tasks;
 using Content.Server._Lavaland.Mobs.Hierophant.Components;
-using Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Systems;
 using Content.Shared._Lavaland.Aggression;
 using Content.Shared._Lavaland.Audio;
+using Content.Shared.Damage;
+using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
 using Robust.Shared.Player;
+// ReSharper disable AccessToModifiedClosure
+// ReSharper disable BadListLineBreaks
 
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
 
 namespace Content.Server._Lavaland.Mobs.Hierophant;
 
-public sealed partial class HierophantBehaviorSystem : EntitySystem
+public sealed class HierophantBehaviorSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
@@ -30,8 +33,8 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
     [ValidatePrototypeId<EntityPrototype>] private const string DamageBoxPrototype = "LavalandHierophantSquare";
     [ValidatePrototypeId<EntityPrototype>] private const string ChaserPrototype = "LavalandHierophantChaser";
 
-    // used in case of spawning multiple chasers, for example
-    private const float BaseActionDelay = 1f * 1000f;
+    // Im too lazy to deal with MobThreshholds.
+    private readonly FixedPoint2 _hierophantHp = 2500;
 
     public override void Initialize()
     {
@@ -48,19 +51,18 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
         if (!ent.Comp.Meleed)
         {
             ent.Comp.Meleed = true;
-            DamageArea(ent, ent, 5);
-            SpawnChasers(ent, 2);
+            SpawnChasers(ent);
         }
 
-        AdjustAnger(ent, .1f);
+        AdjustAnger(ent, .2f);
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        var eqe = EntityQueryEnumerator<HierophantBossComponent>();
-        while (eqe.MoveNext(out var uid, out var comp))
+        var eqe = EntityQueryEnumerator<HierophantBossComponent, DamageableComponent>();
+        while (eqe.MoveNext(out var uid, out var comp, out var damage))
         {
             Entity<HierophantBossComponent> ent = (uid, comp);
 
@@ -79,14 +81,14 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
                 TickTimer(ent, ref comp.AttackTimer, frameTime, () =>
                 {
                     DoMinorAttack(ent);
-                    comp.AttackTimer = Math.Max(comp.AttackCooldown - comp.Anger, 1f);
+                    comp.AttackTimer = Math.Max(comp.AttackCooldown / comp.CurrentAnger * 0.8f, comp.MinAttackCooldown);
                     AdjustAnger(ent, -.15f);
                 });
 
                 TickTimer(ent, ref comp.MajorAttackTimer, frameTime, () =>
                 {
                     DoMajorAttack(ent);
-                    comp.MajorAttackTimer = Math.Max(comp.MajorAttackCooldown - comp.Anger, 2f);
+                    comp.MajorAttackTimer = Math.Max(comp.MajorAttackCooldown / comp.CurrentAnger * 0.8f, comp.MinMajorAttackCooldown);
                     AdjustAnger(ent, -.25f);
                 });
 
@@ -98,6 +100,10 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
                         comp.MeleeReactionTimer = comp.MeleeReactionCooldown;
                     });
                 }
+
+                var newMinAnger = Math.Max((float)(damage.TotalDamage / _hierophantHp) * 3, 0f) + 1f;
+                ent.Comp.MinAnger = newMinAnger;
+                AdjustAnger(ent, 0); // Update anger
             }
         }
     }
@@ -150,13 +156,13 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
         if (target == null)
             target = ent;
 
-        var attackPower = _random.Next(3, 5);
-        var attackPowerAngered = (int) (attackPower + ent.Comp.Anger);
+        var attackPower = _random.Next(1, 2);
+        var attackPowerAngered = (int) (attackPower * ent.Comp.CurrentAnger);
 
         var actions = new List<Action>()
         {
             //() => { BlinkRandom(ent, _xform.GetWorldPosition((EntityUid) target), (int) (attackPower / 2)); },
-            () => { DamageArea(ent, target, attackPowerAngered); },
+            () => { DamageArea(ent, target, attackPowerAngered + 2); },
             () => { SpawnCrosses(ent, target, attackPowerAngered); }
             // todo spawn crosses
         };
@@ -209,7 +215,7 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
                 return;
 
             SpawnDamageBox(beacon, range: i);
-            await Task.Delay((int) GetDelay(ent, BaseActionDelay / 2.5f));
+            await Task.Delay((int) GetDelay(ent, ent.Comp.InterActionDelay / 2.5f));
         }
 
         EntityManager.DeleteEntity(beacon); // cleanup
@@ -226,8 +232,8 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
             if (TryComp<HierophantChaserComponent>(chaser, out var chasercomp))
             {
                 chasercomp.Target = PickTarget(ent);
-                chasercomp.Speed *= ent.Comp.Anger;
-                chasercomp.MaxSteps *= ent.Comp.Anger;
+                chasercomp.MaxSteps *= ent.Comp.CurrentAnger;
+                chasercomp.Speed += ent.Comp.CurrentAnger * 0.5f;
             }
 
             await Task.Delay(1000);
@@ -241,9 +247,9 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
             if (TerminatingOrDeleted(ent))
                 return;
 
-            var entPos = relativePos ?? _xform.GetWorldPosition((EntityUid) ent);
+            var entPos = relativePos ?? _xform.GetWorldPosition(ent);
             await Blink(ent, entPos);
-            await Task.Delay((int) GetDelay(ent, BaseActionDelay));
+            await Task.Delay((int) GetDelay(ent, ent.Comp.InterActionDelay));
         }
     }
 
@@ -253,7 +259,7 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
         {
             target = target ?? ent;
             SpawnCross(ent, (EntityUid) target);
-            await Task.Delay((int) GetDelay(ent, BaseActionDelay));
+            await Task.Delay((int) GetDelay(ent, ent.Comp.InterActionDelay));
         }
     }
     #endregion
@@ -339,7 +345,9 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
         else tiles = _random.Pick(types);
 
         foreach (var tile in tiles!)
+        {
             Spawn(DamageBoxPrototype, _map.GridTileToWorld((EntityUid) xform.GridUid, grid, tile));
+        }
     }
     #endregion
 
@@ -352,18 +360,20 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
         || TerminatingOrDeleted(ent))
             return null;
 
-        return _random.Pick<EntityUid>(aggressive.Aggressors);
+        return _random.Pick(aggressive.Aggressors);
     }
 
     public float GetDelay(Entity<HierophantBossComponent> ent, float baseDelay)
     {
         var minDelay = Math.Max(baseDelay / 2.5f, .1f);
 
-        return Math.Max(baseDelay - (baseDelay * ent.Comp.Anger), minDelay);
+        return Math.Max(baseDelay - (baseDelay * ent.Comp.CurrentAnger), minDelay);
     }
     public void AdjustAnger(Entity<HierophantBossComponent> ent, float anger)
     {
-        ent.Comp.Anger = Math.Clamp(ent.Comp.Anger + anger, 0, 3);
+        ent.Comp.CurrentAnger = Math.Clamp(ent.Comp.CurrentAnger + anger, 0, ent.Comp.MaxAnger);
+        if (ent.Comp.CurrentAnger < ent.Comp.MinAnger)
+            ent.Comp.CurrentAnger = ent.Comp.MinAnger;
     }
 
     private float Normalize(float cur, float min, float max)
