@@ -210,15 +210,15 @@
   - UplinkWearables
 
   - type: listing
-  id: UplinkClothingDuffelbagSyndicateYukon
-  name: uplink-YukonDuffel-name
-  description: uplink-YukonDuffel-desc
-  icon: { sprite: /Textures/_Goobstation/Clothing/Back/Duffels/Yukon.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelYukon
-  cost:
-    Telecrystal: 10
-  categories:
-  - UplinkWearables
+    id: UplinkClothingDuffelbagSyndicateYukon
+    name: uplink-YukonDuffel-name
+    description: uplink-YukonDuffel-desc
+    icon: { sprite: /Textures/_Goobstation/Clothing/Back/Duffels/Yukon.rsi, state: icon }
+    productEntity: ClothingBackpackDuffelYukon
+    cost:
+      Telecrystal: 10
+    categories:
+    - UplinkWearables
 
 - type: listing
   id: UplinkHardsuitSyndieMedic
