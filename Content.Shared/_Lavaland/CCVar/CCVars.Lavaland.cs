@@ -9,5 +9,5 @@ public sealed partial class CCVars
     ///     Should the Lavaland roundstart generation be enabled.
     /// </summary>
     public static readonly CVarDef<bool> LavalandEnabled =
-        CVarDef.Create("lavaland.enabled", true, CVar.SERVERONLY);
+        CVarDef.Create("lavaland.enabled", false, CVar.SERVERONLY);
 }
