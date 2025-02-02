@@ -1,43 +1,30 @@
-<Document>
-  # Abductors
-
-  <Box>
-    <GuideEntityEmbed Entity="MobLoneAbductor"/>
+<Документ>
+  # Абдукторы
+  <Бокс>
+    <GuideEntityEmbed Entity=«MobLoneAbductor»/>
   </Box>
-  Abductors are an alien society set on cataloging and experimenting on the sectors personnel.
-  Its important to note: Abductors, unlike most antagonists are [color=red]NOT set on killing people[/color] and are rather purely interested in completing their experiments.
-
-  Abductors do not possess the ability to speak and therefore communicate through more... mime-like methods.
-
-  ##Abduction
-  Abductors begin on their ship somewhere near the station. Using the [color=#a149bf]"Human Observation Console"[/color] you can seek out victims who are alone and [color=lightblue]warp[/color] near them to begin abduction.
-
-  The wonderprod is the primary tool of an Abductor. It has four modes you will use for abduction:
-  - [color=yellow]{Stun}[/color] Stuns the victim for roughly 5 seconds.
-  - [color=pink]{Restrain}[/color] binds the victims hands in weak cables.
-  - [color=blue]{Sleep}[/color] Induces a sleep-like state in the victim.
-  - [color=red]{Harm}[/color] Burns the target, dealing damage. [bold]ONLY USE IF YOU MUST.[/bold]
-
-  Once a target is immobilized you can use the [italic]gizmo[/italic] to implant them with a nano tracker, return to your ship using the [color=lightblue]return action[/color], then use the gizmo on your [color=#a149bf]Abductor Console[/color].
-
-  ##Experimentation
-  Once you have linked the most recent nano tracker to the console, select [bold]{ATTRACT}[/bold] to warp your victim to your ship.
-
-  Now that you have your victim aboard, its recommended you:
-  - Buckle them to your surgical table.
-  - Change out their cuffs for a higher grade of handcuffs provided on the ship.
-  - Remove any of their belongings that could damage you or the secrecy of the experiment.
-  - Use your vast surgical knowledge to replace their heart with a gland. You don't need to remove their clothes to do surgery, unlike normal surgeons.
-  - Optionally: Give them back their primitive technology.
-
-  Finally, drag the victim whom you have completed your experiment on into the [color=#a149bf]Experimentator[/color] to confirm the results of the experiment on the [color=#a149bf]Abductor Console[/color] and send them back where you found them.
-
-  ## Abductor Tools
-
-  Abductors have access to more advanced tools than normal surgeons or engineers. Their surgical tools are faster than advanced surgical tools, and from their normal tools, the multitool's alternative mode is able to be used to hijack doors.
-
-  ##Getting rid of an Abductor
-  Like [textlink="Changelings" link="Changelings"], Abductors are not protected by [textlink="space law" link="SpaceLaw"] and are able to be executed freely.
-
-  Also, an abductor's ship is a physical object in the world, anyone with access to a space-faring ship such as [textlink="salvage" link="Salvage"] can bump into them in space and dismantle their ship.
+  Абдукторы - это инопланетное общество, целью которого является каталогизация и эксперименты над персоналом секторов.
+  Важно отметить: абдукторы, в отличие от большинства антагонистов, [color=red]НЕ ставят своей целью убийство людей[/color] и скорее заинтересованы в завершении своих экспериментов.
+  Абдукторы не обладают способностью говорить и поэтому общаются с помощью более... мимических методов.
+  ##Похищение
+  Абдукторы начинают свой путь на корабле, находящемся неподалеку от станции. Используя [color=#a149bf]"Консоль наблюдения за людьми"[/color], вы можете найти одиноких жертв и [color=lightblue]варп[/color] рядом с ними, чтобы начать похищение.
+  Чудо-прибор - основной инструмент похитителя. У него есть четыре режима, которые вы будете использовать для похищения:
+  - [color=yellow]{Stun}[/color] Оглушает жертву примерно на 5 секунд.
+  - [color=pink]{Restrain}[/color] связывает кисти рук жертвы слабыми тросами.
+  - [color=blue]{Sleep}[/color] Вызывает у жертвы состояние, похожее на сон.
+  - [color=red]{Harm}[/color] Поджигает цель, нанося урон. [bold]ИСПОЛЬЗУЙТЕ ТОЛЬКО В СЛУЧАЕ НЕОБХОДИМОСТИ[/bold].
+  Когда цель обездвижена, вы можете использовать [italic]гизмо[/italic], чтобы вживить ей нано-трекер, вернуться на корабль, используя [color=lightblue]действие возврата[/color], а затем использовать гизмо на [color=#a149bf]консоли похитителя[/color].
+  ##Эксперимент
+  После того как вы подключили к консоли самый последний нано-трекер, выберите [bold]{ATTRACT}[/bold], чтобы перенести жертву на свой корабль.
+  Теперь, когда жертва находится на борту корабля, рекомендуем вам:
+  - Пристегнуть их к хирургическому столу.
+  - Замените наручники на более качественные, имеющиеся на корабле.
+  - Уберите все их вещи, которые могут повредить вам или тайне эксперимента.
+  - Используя свои обширные хирургические знания, замените их сердце на железу. В отличие от обычных хирургов, вам не нужно снимать с них одежду, чтобы провести операцию.
+  Наконец, перетащите жертву, над которой вы завершили эксперимент, в [color=#a149bf]Экспериментатор[/color], чтобы подтвердить результаты эксперимента на [color=#a149bf]Консоли Похитителя[/color] и отправить их обратно туда, где вы их нашли.
+  ## Инструменты абдуктора
+  Похитители имеют доступ к более совершенным инструментам, чем обычные хирурги или инженеры. Их хирургические инструменты быстрее, чем продвинутые хирургические инструменты, а из обычных инструментов можно использовать альтернативный режим мультиинструмента для взлома дверей.
+  ##Избавление от абдукторов
+  Как и [textlink="генокрады" link="Changelings"], похитители не защищены [textlink="космическим законом" link="SpaceLaw"] и могут быть свободно казнены.
+  Кроме того, корабль похитителя - это физический объект в мире, и любой, у кого есть доступ к космическому кораблю, например [textlink="salvage" link="Salvage"], может столкнуться с ним в космосе и уничтожить его корабль.
 </Document>

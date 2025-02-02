@@ -4,6 +4,12 @@ abductors-ui-attract = Привлечь
 abductors-ui-experiment = Эксперимент
 abductors-ui-complete-experiment = Завершить эксперимент
 abductors-ui-gizmo-transferred = Передача информации о цели
+abductors-ui-armor-control = Управление броней
+abductors-ui-combat-mode = Боевой режим
+abductors-ui-stealth-mode = Режим невидимости
+abductors-ui-lock-armor = Заблокировать броню
+abductors-ui-unlock-armor = Разблокировать броню
+abductors-ui-vest-linked = Жилет связан
 abductors-title = Абдуктор
 abductors-description = Абдукторы нацелились на станцию. Избегайте их похищения!
 abductors-ghost-role-name = Одинокий абдуктор
@@ -13,7 +19,7 @@ abductors-ghost-role-rules =
     Ваши намерения - похищать людей со станции и заменять их органы различными экспериментальными устройствами,
     после чего вы возвращаете их обратно. Вам не разрешается разрушать станцию или намеренно убивать людей.
     В ваших интересах вернуть подопытных живыми и здоровыми для чистоты эксперимента.
-    
+
     Вы не помните ничего из своей предыдущей жизни и не помните ничего из того, чему научились, будучи призраком.
     Вам разрешено помнить знания об игре в целом, например, как готовить, как пользоваться предметами и т.д.
     Вам абсолютно [color=red]НЕ[/color] разрешено помнить, скажем, имя, внешность и т. д. вашего предыдущего персонажа.
@@ -27,3 +33,12 @@ abductor-victim-role-greeting = Вы видели то, чего не должн
 abductor-victim-role-name = Похищенный
 abductor-victim-role-desc = Вы видели то, чего не должны были видеть. Мир должен узнать правду.
 objective-issuer-voices = [color=#FD0098]Голоса[/color]
+abductor-ui-pad-found = pad: [color=green]подключен[/color]
+abductor-ui-pad-not-found = pad: [color=red]не найден[/color]
+abductor-ui-target-none = цель: [color=red]НЕ ВЫБРАНА[/color]
+abductor-ui-target-found = цель: [color=green]{ $target }[/color]
+abductor-ui-experimentator-connected = экспериментатор: [color=green]подключён[/color]
+abductor-ui-experimentator-not-found = экспериментатор: [color=red]не найден[/color]
+abductor-ui-victim-none = жертва: [color=red]НЕ ВЫБРАНА[/color]
+abductor-ui-victim-found = жертва: [color=green]{ $victim }[/color]
+abductor-ui-armor-plug-in = [color=red][font size=16]Вам нужно подключить броню похитителя![/font][/color]

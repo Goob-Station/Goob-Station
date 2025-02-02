@@ -1,4 +1,9 @@
-uplink-night-vision-name = Night Vision Goggles
-uplink-night-vision-desc = They allow you to see in the dark, while looking like normal sunglasses!
-uplink-thermal-vision-name = Thermal Vision Goggles
-uplink-thermal-vision-desc = They allow you to see living creatures regardless of obstacles, while looking like normal sunglasses!
+uplink-night-vision-name = Очки ночного видения
+uplink-night-vision-desc = Они позволяют видеть в темноте и при этом выглядят как обычные солнцезащитные очки!
+uplink-thermal-vision-name = Очки теплового видения
+uplink-thermal-vision-desc = Они позволяют видеть живых существ вне зависимости от препятствий, при этом выглядят как обычные солнцезащитные очки!
+uplink-betrayal-knife-name = Предательский нож
+uplink-betrayal-knife-desc =
+    Предательский нож позволяет пользователю моргать на короткое расстояние, сбивая с ног людей в небольшом радиусе вокруг позиции моргания.
+    Наносит значительный урон, если цель лежит или обращена в сторону от вас.
+    Используйте его в своей кисти руки, чтобы переключить режим мерцания.

@@ -28,9 +28,11 @@
         sound: /Audio/_Shitmed/Misc/abductor.ogg
       components:
       - type: Abductor
+      - type: Telepathy # Ayy lmao
       - type: GlorpAccent #Gloob - Glorpfix
       - type: AbductorScientist
       - type: SurgeryIgnoreClothing
+      - type: Sanitized
       - type: SurgerySpeedModifier
         speedModifier: 1.5
       - type: ActionGrant
@@ -67,3 +69,85 @@
     sets:
     - maxPicks: 1
       groups: AbductorVictimObjectiveGroups
+
+- type: entity
+  parent: BaseGameRule
+  id: DuoAbductorSpawn
+  components:
+  - type: StationEvent
+    earliestStart: 15
+    weight: 7.5
+    minimumPlayers: 20
+    duration: 1
+  - type: RuleGrids
+  - type: LoadMapRule
+    mapPath: /Maps/_Shitmed/Shuttles/ShuttleEvent/duo_abductor_shuttle.yml
+  - type: AntagObjectives
+    objectives:
+    - AbductObjective
+  - type: AntagLoadProfileRule
+    speciesHardOverride: Abductor
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: AbductorScientistSpawner
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: AbductorScientistGear
+      briefing:
+        text: abductor-role-greeting
+        color: Green
+        sound: /Audio/_Shitmed/Misc/abductor.ogg
+      components:
+      - type: Abductor
+      - type: GlorpAccent # GoobStation - Glorpshit
+      - type: Telepathy # Ayy lmao
+      - type: AbductorScientist
+      - type: SurgeryIgnoreClothing
+      - type: Sanitized
+      - type: SurgerySpeedModifier
+        speedModifier: 1.5
+      - type: ActionGrant
+        actions:
+        - ActionReturnToShip
+      - type: Tag
+        tags:
+          - Abductor
+          - AbductorScientist
+          - CanPilot
+          - FootstepSound
+          - DoorBumpOpener
+      - type: NpcFactionMember
+        factions:
+        - SimpleHostile
+      mindRoles:
+      - MindRoleLoneAbductor
+    - spawnerPrototype: AbductorAgentSpawner
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: AbductorAgentGear
+      briefing:
+        text: abductor-role-greeting
+        color: Green
+        sound: /Audio/_Shitmed/Misc/abductor.ogg
+      components:
+      - type: Abductor
+      - type: GlorpAccent # GoobStation - Glorpshit
+      - type: Telepathy # Ayy lmao
+      - type: AbductorScientist
+      - type: Sanitized
+      - type: ActionGrant
+        actions:
+        - ActionReturnToShip
+      - type: Tag
+        tags:
+          - Abductor
+          - CanPilot
+          - FootstepSound
+          - DoorBumpOpener
+      - type: NpcFactionMember
+        factions:
+        - SimpleHostile
+      mindRoles:
+      - MindRoleLoneAbductor

@@ -42,7 +42,7 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
         if (TryComp<AbductorConsoleComponent>(args.Target, out var console))
         {
             console.Target = ent.Comp.Target;
-            _popup.PopupClient(Loc.GetString("abductors-ui-gizmo-transferred"), args.User);
+            _popup.PopupEntity(Loc.GetString("abductors-ui-gizmo-transferred"), args.User);
             _color.RaiseEffect(Color.FromHex("#00BA00"), new List<EntityUid>(2) { ent.Owner, args.Target.Value }, Filter.Pvs(args.User, entityManager: EntityManager));
             UpdateGui(console.Target, (args.Target.Value, console));
             return;
@@ -54,6 +54,9 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
 
     private void GizmoUse(Entity<AbductorGizmoComponent> ent, EntityUid target, EntityUid user)
     {
+        if (HasComp<AbductorComponent>(target))
+            return;
+
         var time = TimeSpan.FromSeconds(6);
         if (_tags.HasTag(target, Abductor))
             time = TimeSpan.FromSeconds(0.5);

@@ -1,3 +1,5 @@
+
+
 objective-issuer-blob = Блоб
 ghost-role-information-blobbernaut-name = Блоббернаут
 ghost-role-information-blobbernaut-description = Вы - Блоббернаут. Вы должны защищать ядро блоба.

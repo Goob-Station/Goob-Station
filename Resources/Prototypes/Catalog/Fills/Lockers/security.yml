@@ -7,7 +7,7 @@
     contents:
       - id: FlashlightSeclite
       - id: WeaponEnergyShotgun
-      - id: WeaponDisabler
+      #- id: WeaponDisabler #Goobstation (Disablers in belts)
       - id: ClothingBeltSecurityFilled
       - id: Flash
       - id: ClothingEyesGlassesSecurity
@@ -37,7 +37,7 @@
     contents:
       - id: FlashlightSeclite
       - id: WeaponEnergyShotgun # Goobstation
-      - id: WeaponDisabler
+      #- id: WeaponDisabler #Goobstation (Disablers in belts)
       - id: ClothingBeltSecurityFilled
       - id: Flash
       - id: ClothingEyesGlassesSecurity
@@ -65,7 +65,7 @@
     contents:
       - id: FlashlightSeclite
         prob: 0.8
-      - id: WeaponDisabler
+      #- id: WeaponDisabler #Goobstation (Disablers in belts)
       - id: ClothingUniformJumpsuitSecGrey
         prob: 0.3
       - id: ClothingHeadHelmetBasic

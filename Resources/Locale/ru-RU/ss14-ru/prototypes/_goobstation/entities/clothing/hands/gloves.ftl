@@ -3,3 +3,6 @@ ent-ClothingHandsGlovesChronoLegioneer = футуристические перч
 ent-ClothingHandsGlovesChronoLegioneerUnremoveable = { ent-ClothingHandsGlovesChronoLegioneer }
     .suffix = Unremoveable
     .desc = { ent-ClothingHandsGlovesChronoLegioneer.desc }
+ent-ClothingHandsGlovesExplosiveShock = { ent-ClothingHandsGlovesColorYellow }
+    .suffix = Exploding
+    .desc = { ent-ClothingHandsGlovesColorYellow.desc }

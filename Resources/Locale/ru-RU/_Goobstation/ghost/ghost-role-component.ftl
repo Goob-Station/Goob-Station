@@ -12,3 +12,5 @@ ghost-role-information-Hecu-description = Центральному команд�
 ghost-role-information-Hecu-rules = Вы обязаны подчиняться приказам своего начальника, вы фактически являетесь его [color=#6495ed][bold]Агент[/bold][/color].
 ghost-role-information-lootbug-name = Лут-Жук
 ghost-role-information-lootbug-description = Постарайтесь не быть зарезанным тайдерами.
+ghost-role-information-c4-name = Состав C-4
+ghost-role-information-c4-description = Помочь пользователю с бомбометанием.

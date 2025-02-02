@@ -8,6 +8,11 @@
   components:
   - type: Body # Shitmed
     prototype: SpaceDragon
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: Bloodstream
     bloodMaxVolume: 650
   - type: GhostRole

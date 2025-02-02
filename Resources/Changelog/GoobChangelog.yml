@@ -4432,3 +4432,180 @@ Entries:
       message: its returned
   id: 502
   time: '2025-01-31T01:55:39.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Add
+      message: Mimes have a 25% chance to be funny when they break their vow
+  id: 503
+  time: '2025-01-31T17:19:34.0000000+00:00'
+- author: Foralemes
+  changes:
+    - type: Tweak
+      message: Gave the uplink thieving gloves chameleon technology.
+  id: 504
+  time: '2025-01-31T17:24:54.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Add
+      message: Added Craftable voice changer
+  id: 505
+  time: '2025-01-31T17:28:51.0000000+00:00'
+- author: Mocho, Rinary, Darkrell
+  changes:
+    - type: Add
+      message: >-
+        Added the abductor agent/scientist from SL and their gamerule
+        (LoneAbductorSpawn is still intact)
+    - type: Add
+      message: Added the abductor armor and its controls on the console
+    - type: Add
+      message: >-
+        Ported over the Decloner and Silencer, along with their weird toggleable
+        Decloner+ thingy for the agent, it has disabler mode and cheaper bolts.
+    - type: Add
+      message: >-
+        Added the telepathy power from EE, and gave abductors the ability to use
+        it by default.
+    - type: Add
+      message: >-
+        Added the ability for the abductor multitool to check cable functions on
+        use
+    - type: Fix
+      message: Fixed a bug where heretics could see abductor eye (thanks john shitcode)
+    - type: Fix
+      message: Fixed the undeleteable wonderprod cuffs bug
+    - type: Fix
+      message: Fixed a bug where abductors could gizmo each other for free implants lol
+    - type: Tweak
+      message: >-
+        Added a check on WorldTargetAction so that Send Yourself tells you when
+        you are not on the same map as the station.
+    - type: Tweak
+      message: Xip norp glee flop “nocturine spam skill issue” parloop
+    - type: Tweak
+      message: >-
+        The Wonderprod now has a cap of 20u of Nocturine on its victim's system,
+        and 10u of Mute Toxin for the Silencer
+  id: 506
+  time: '2025-01-31T17:37:02.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Syndicate C-4 is now AI-powered.
+  id: 507
+  time: '2025-01-31T17:39:15.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Tweak
+      message: replaced Felinid with Tajara
+  id: 508
+  time: '2025-01-31T17:45:36.0000000+00:00'
+- author: ARMOKS
+  changes:
+    - type: Tweak
+      message: Syndicate night vision goggles come with medihud and are now contraband.
+    - type: Tweak
+      message: Syndicate infrared goggles are no longer a pulse and are now contraband.
+  id: 509
+  time: '2025-01-31T17:47:21.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Borgs can now pilot mechs.
+  id: 510
+  time: '2025-01-31T17:50:31.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Spin emote is back. Though it's not available in the emote wheel, you
+        have to bind it or type it manually.
+  id: 511
+  time: '2025-01-31T17:54:59.0000000+00:00'
+- author: Quantus
+  changes:
+    - type: Add
+      message: Flatpacker 1001 can now be linked to a Material Silo
+  id: 512
+  time: '2025-01-31T17:58:24.0000000+00:00'
+- author: Verbalase
+  changes:
+    - type: Tweak
+      message: >-
+        Rule 15 has been changed to disallow contraband for command and security
+        entirely and another prohibited example of what not to do.
+  id: 513
+  time: '2025-01-31T18:02:17.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Flesh ascension no longer takes temperature damage, slows down on a
+        small amount of damage, or gibs on 400 blunt.
+    - type: Tweak
+      message: >-
+        Flesh ascension now attacks slightly faster, recovers quickly from
+        bleed, and is huggable
+  id: 514
+  time: '2025-01-31T18:10:47.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: You can now print pens at an autolathe.
+  id: 515
+  time: '2025-01-31T18:12:07.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Tweak
+      message: >-
+        Added disablers to security belts by default. Anywhere you could find a
+        disabler and a belt the disabler was removed (because its in the belt
+        now).
+  id: 516
+  time: '2025-01-31T18:15:54.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Remove
+      message: Removed fun!
+    - type: Add
+      message: >-
+        Explosive insulated gloves that explode and disable your hands after a
+        second if you get shocked with them.
+    - type: Tweak
+      message: >-
+        Uplink conductive insulated gloves have been replaced with explosive
+        insulated gloves.
+  id: 517
+  time: '2025-01-31T19:18:21.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Add
+      message: Added Personal grudge wepon
+    - type: Remove
+      message: Removed Limer__treats
+  id: 518
+  time: '2025-02-01T19:57:54.0000000+00:00'
+- author: AW-FulCode
+  changes:
+    - type: Tweak
+      message: Yowie's can wear more outerslot clothing with less slowdown and damage!
+  id: 519
+  time: '2025-02-01T20:54:07.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Add
+      message: >-
+        Added examples to silicon rule 8 to make blatantly clear who is and
+        isn't crew.
+  id: 520
+  time: '2025-02-01T20:54:58.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: >-
+        Hardlight bow rebalanced. Regular and x-ray arrow are slightly weaker,
+        other types of arrows are stronger, explosive unchanged.
+    - type: Add
+      message: Hardlight bow is now clumsy proof.
+  id: 521
+  time: '2025-02-02T05:18:12.0000000+00:00'
