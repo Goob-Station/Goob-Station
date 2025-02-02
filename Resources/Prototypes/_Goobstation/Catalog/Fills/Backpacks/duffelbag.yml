@@ -62,3 +62,15 @@
       - id: WeaponRifleWSPR
       - id: MagazineLightRifleSubsonic
         amount: 2
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateYukonBundle
+  id: ClothingBackpackDuffelSyndicateYukonFilledVOK
+  name: VOK-87 bundle
+  description: "A duffelbag containing two VOK-87s, it has the canadian flag sewed into it."
+  components:
+  - type: StorageFill
+    contents:
+      - id: PlushieBlackburnMatryoskya
+      - id: WeaponRevolverVok87
+        amount: 2

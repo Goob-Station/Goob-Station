@@ -110,6 +110,33 @@
       - NukeOpsUplink
 
 - type: listing
+  id: UplinkVOK87
+  name: uplink-VOK87-kit-name
+  description: uplink-VOK87-kit-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Pistols/VOK87.rsi, state: icon }
+  productEntity: WeaponRevolverVok87
+  cost:
+    Telecrystal: 40
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkVOK87Bundle
+  name: uplink-VOK87Bundle-kit-name
+  description: uplink-VOK87Bundle-kit-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Pistols/VOK87.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateYukonFilledVOK
+  cost:
+    Telecrystal: 70
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
   id: UplinkWSPR
   name: uplink-WSPR-name
   description: uplink-WSPR-desc
@@ -177,6 +204,17 @@
   description: uplink-helmet-swat-desc
   icon: { sprite: /Textures/Clothing/Head/Helmets/swat_syndicate.rsi, state: icon }
   productEntity: ClothingHeadHelmetSwatSyndicate
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWearables
+
+  - type: listing
+  id: UplinkClothingDuffelbagSyndicateYukon
+  name: uplink-YukonDuffel-name
+  description: uplink-YukonDuffel-desc
+  icon: { sprite: /Textures/_Goobstation/Clothing/Back/Duffels/Yukon.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelYukon
   cost:
     Telecrystal: 10
   categories:

@@ -1,0 +1,27 @@
+- type: entity
+  name: VOK-87 "Titka"
+  parent: [BaseWeaponRevolver, BaseSyndicateContraband]
+  id: WeaponRevolverVok87
+  description: A Blackburnian hunting revolver based on a Soviet cosmonaut defense prototype. Uses .50 shells.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Pistols/VOK87.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Pistols/VOK87.rsi
+  - type: Gun
+    fireRate: 1.2
+  - type: RevolverAmmoProvider
+    capacity: 3
+    chambers: [ True, True, True ]
+    ammoSlots: [ null, null, null ]
+    whitelist:
+      tags:
+        - ShellShotgun
+    proto: ShellShotgun
+  - type: Appearance
+  - type: Multishot # Goobstation, got get up close
+    spreadMultiplier: 2
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,2,1

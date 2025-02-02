@@ -49,6 +49,12 @@ uplink-smugglers-satchel-desc = A rugged satchel that can be hidden under floor 
 uplink-dualetta-kit-name = Dualetta kit
 uplink-dualetta-kit-desc = Two dualettas for a cheap price.
 
+uplink-VOK87-kit-name = VOK-87 "Titka"
+uplink-VOK87-kit-desc = A Blackburnian hunting revolver used for hunting big game and matryoskyas.
+
+uplink-VOK87Bundle-kit-name = VOK-87 "Titka" bundle
+uplink-VOK87Bundle-kit-desc = Two Blackburnian hunting revolvers for your big game needs.
+
 uplink-contractor-baton-name = Contractor Baton
 uplink-contractor-baton-desc = A compact, specialised baton assigned to Syndicate contractors. Applies light electrical shocks to targets. These shocks are capable of affecting the inner circuitry of most robots as well, applying a short stun.
 
@@ -125,6 +131,9 @@ uplink-smoke-implant-desc = Releases a cloud of smoke when activated.
 
 uplink-helmet-swat-name = Syndicate SWAT Helmet
 uplink-helmet-swat-desc = Robust helmet that offers good protection and also suppresses flashbang sounds to some extent.
+
+uplink-YukonDuffel-name = Yukon Genetics duffelbag
+uplink-YukonDuffel-desc = A very small duffelbag, it has the canadian flag sewed into it.
 
 # Deception
 

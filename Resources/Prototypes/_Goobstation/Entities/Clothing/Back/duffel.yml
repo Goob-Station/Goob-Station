@@ -6,3 +6,31 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Duffels/blueshield.rsi
+
+- type: entity
+  parent: [ClothingBackpackDuffel, BaseSyndicateContraband]
+  id: ClothingBackpackDuffelYukon
+  name: Yukon Genetics duffel bag
+  description: A very small duffelbag, it has the canadian flag sewed into it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Back/Duffels/Yukon.rsi
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,3,3
+  - type: ExplosionResistance
+    damageCoefficient: 0.05
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+
+#not sure where to put this
+
+- type: entity
+  parent: ClothingBackpackDuffelYukon
+  id: ClothingBackpackDuffelSyndicateYukonBundle
+  abstract: true
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
