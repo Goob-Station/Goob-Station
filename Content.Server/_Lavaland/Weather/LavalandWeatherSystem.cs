@@ -13,7 +13,6 @@ using Robust.Shared.CPUJob.JobQueues;
 using Robust.Shared.CPUJob.JobQueues.Queues;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Server._Lavaland.Weather;
 
@@ -24,45 +23,23 @@ public sealed class LavalandWeatherSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly WeatherSystem _weather = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly TemperatureSystem _temperature = default!;
 
     private const double LavalandWeatherJobTime = 0.005;
     private readonly JobQueue _lavalandWeatherJobQueue = new(LavalandWeatherJobTime);
 
-    private sealed class LavalandWeatherJob : Job<object>
+    private sealed class LavalandWeatherJob(
+        LavalandWeatherSystem self,
+        Entity<DamageableComponent> ent,
+        Entity<LavalandStormedMapComponent> parent,
+        double maxTime,
+        CancellationToken cancellation = default)
+        : Job<object>(maxTime, cancellation)
     {
-        private readonly LavalandWeatherSystem _self;
-        private readonly Entity<DamageableComponent> _ent;
-        private readonly Entity<LavalandStormedMapComponent> _parent;
-
-        public LavalandWeatherJob(LavalandWeatherSystem self,
-            Entity<DamageableComponent> ent,
-            Entity<LavalandStormedMapComponent> parent,
-            double maxTime,
-            CancellationToken cancellation = default) : base(maxTime, cancellation)
-        {
-            _self = self;
-            _ent = ent;
-            _parent = parent;
-        }
-
-        public LavalandWeatherJob(LavalandWeatherSystem self,
-            Entity<DamageableComponent> ent,
-            Entity<LavalandStormedMapComponent> parent,
-            double maxTime,
-            IStopwatch stopwatch,
-            CancellationToken cancellation = default) : base(maxTime, stopwatch, cancellation)
-        {
-            _self = self;
-            _ent = ent;
-            _parent = parent;
-        }
-
         protected override Task<object?> Process()
         {
-            _self.ProcessLavalandDamage(_ent, _parent);
+            self.ProcessLavalandDamage(ent, parent);
 
             return Task.FromResult<object?>(null);
         }

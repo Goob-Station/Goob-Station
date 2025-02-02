@@ -2,7 +2,7 @@
   parent: BaseItem
   id: LavalandJaunter
   name: jaunter
-  description: Undertale cancelled.
+  description: A complex device running on bluespace technology, that can teleport you out of danger spaces. You should have this on you when walking near a chasm.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Specific/Salvage/jaunter.rsi

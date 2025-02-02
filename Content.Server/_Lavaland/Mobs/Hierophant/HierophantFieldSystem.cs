@@ -18,6 +18,7 @@ public sealed class HierophantFieldSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<HierophantFieldGeneratorComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<HierophantFieldGeneratorComponent, EntityTerminatingEvent>(OnTerminating);
 
         SubscribeLocalEvent<HierophantBossComponent, MegafaunaStartupEvent>(OnHierophantInit);
         SubscribeLocalEvent<HierophantBossComponent, MegafaunaDeinitEvent>(OnHierophantDeinit);
@@ -36,6 +37,14 @@ public sealed class HierophantFieldSystem : EntitySystem
 
         ent.Comp.ConnectedHierophant = (hierophant, hieroComp);
         hieroComp.ConnectedFieldGenerator = ent;
+    }
+
+    private void OnTerminating(Entity<HierophantFieldGeneratorComponent> ent, ref EntityTerminatingEvent args)
+    {
+        if (ent.Comp.ConnectedHierophant != null)
+            ent.Comp.ConnectedHierophant.Value.Comp.ConnectedFieldGenerator = null;
+
+        DeleteHierophantFieldImmediatly(ent);
     }
 
     private void OnHierophantInit(Entity<HierophantBossComponent> ent, ref MegafaunaStartupEvent args)
@@ -115,6 +124,15 @@ public sealed class HierophantFieldSystem : EntitySystem
     }
 
     private async Task DeleteHierophantField(Entity<HierophantFieldGeneratorComponent> ent)
+    {
+        var walls = ent.Comp.Walls.Where(x => !TerminatingOrDeleted(x));
+        foreach (var wall in walls)
+        {
+            QueueDel(wall);
+        }
+    }
+
+    private void DeleteHierophantFieldImmediatly(Entity<HierophantFieldGeneratorComponent> ent)
     {
         var walls = ent.Comp.Walls.Where(x => !TerminatingOrDeleted(x));
         foreach (var wall in walls)

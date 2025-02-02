@@ -9,10 +9,10 @@ public sealed class LavalandWeatherPrototype : IPrototype
     [IdDataField] public string ID { get; } = default!;
 
     [DataField]
-    public float Duration = 300; // 5 minutes
+    public float Duration = 120;
 
     [DataField]
-    public float Variety = 120; // +-2 minutes
+    public float Variety = 30;
 
     [DataField]
     public ProtoId<WeatherPrototype> WeatherType;
@@ -28,5 +28,5 @@ public sealed class LavalandWeatherPrototype : IPrototype
     /// Be careful changing this number.
     /// </summary>
     [DataField]
-    public float TemperatureChange = 18000f;
+    public float TemperatureChange = 20000f;
 }

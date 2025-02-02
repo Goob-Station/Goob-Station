@@ -126,7 +126,7 @@ public sealed class BossMusicSystem : EntitySystem
     /// </summary>
     private void OnPlayerParentChange(Entity<ActorComponent> ent, ref EntParentChangedMessage args)
     {
-        if (ent == _player.LocalSession!.AttachedEntity &&
+        if (ent.Comp.PlayerSession == _player.LocalSession &&
             args.OldMapId != null)
             EndAllMusic();
     }
