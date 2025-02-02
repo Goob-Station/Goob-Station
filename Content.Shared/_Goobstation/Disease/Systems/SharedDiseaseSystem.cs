@@ -102,12 +102,11 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
                 if (!TryComp<DiseaseEffectComponent>(effectUid, out var effect))
                     return;
 
-                var strength = disease.InfectionProgress * effect.Severity;
-                var conditionsEv = new DiseaseCheckConditionsEvent(strength, UpdateInterval);
+                var conditionsEv = new DiseaseCheckConditionsEvent(args.Ent, (uid, disease), effect.Severity, disease.InfectionProgress, UpdateInterval);
                 RaiseLocalEvent(effectUid, ref conditionsEv);
                 if (conditionsEv.DoEffect)
                 {
-                    var effectEv = new DiseaseEffectEvent(args.Ent, (uid, disease), strength, UpdateInterval);
+                    var effectEv = new DiseaseEffectEvent(args.Ent, (uid, disease), effect.Severity, disease.InfectionProgress, UpdateInterval);
                     RaiseLocalEvent(effectUid, effectEv);
                 }
             }

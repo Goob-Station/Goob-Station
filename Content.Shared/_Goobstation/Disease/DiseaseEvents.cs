@@ -26,22 +26,34 @@ public sealed class DiseaseEffectEvent : EntityEventArgs
     /// Use for effects that set state.
     /// </summary>
     public float Severity;
+
+    /// <summary>
+    /// The progress of the host disease.
+    /// </summary>
+    public readonly float DiseaseProgress;
+
     /// <summary>
     /// The severity of the effect adjusted for update interval. Is effectively seconds.
     /// Use for effects that adjust (over time) state.
     /// </summary>
     public TimeSpan TimeDelta;
+
     /// <summary>
     /// The entity this effect should affect.
     /// </summary>
     public EntityUid Ent;
+
+    /// <summary>
+    /// The host disease of this effect.
+    /// </summary>
     public Entity<DiseaseComponent> Disease;
 
-    public DiseaseEffectEvent(EntityUid ent, Entity<DiseaseComponent> disease, float severity, TimeSpan delta)
+    public DiseaseEffectEvent(EntityUid ent, Entity<DiseaseComponent> disease, float severity, float progress, TimeSpan delta)
     {
         Ent = ent;
         Disease = disease;
         Severity = severity;
+        DiseaseProgress = progress;
         TimeDelta = delta;
     }
 }
@@ -97,15 +109,38 @@ public sealed class DiseaseCheckConditionsEvent : EntityEventArgs
     /// The severity of the effect.
     /// </summary>
     public readonly float Severity;
+
+    /// <summary>
+    /// The progress of the host disease.
+    /// </summary>
+    public readonly float DiseaseProgress;
+
     /// <summary>
     /// The update interval of the effect.
     /// </summary>
     public readonly TimeSpan TimeDelta;
+
+    /// <summary>
+    /// The entity this effect should affect.
+    /// </summary>
+    public readonly EntityUid Ent;
+
+    /// <summary>
+    /// The host disease of this effect.
+    /// </summary>
+    public readonly Entity<DiseaseComponent> Disease;
+
+    /// <summary>
+    /// Whether this effect should fire.
+    /// </summary>
     public bool DoEffect = true;
 
-    public DiseaseCheckConditionsEvent(float severity, TimeSpan delta)
+    public DiseaseCheckConditionsEvent(EntityUid ent, Entity<DiseaseComponent> disease, float severity, float progress, TimeSpan delta)
     {
+        Ent = ent;
+        Disease = disease;
         Severity = severity;
+        DiseaseProgress = progress;
         TimeDelta = delta;
     }
 }

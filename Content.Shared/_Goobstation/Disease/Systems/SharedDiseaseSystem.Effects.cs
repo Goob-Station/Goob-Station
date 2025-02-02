@@ -1,4 +1,5 @@
 using Content.Shared.Damage;
+using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using System.Diagnostics.CodeAnalysis;
 
@@ -7,11 +8,13 @@ namespace Content.Shared.Disease;
 public partial class SharedDiseaseSystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     protected virtual void InitializeEffects()
     {
         SubscribeLocalEvent<DiseaseDamageEffectComponent, DiseaseEffectEvent>(OnDamageEffect);
         SubscribeLocalEvent<DiseaseFightImmunityEffectComponent, DiseaseEffectEvent>(OnFightImmunityEffect);
+        SubscribeLocalEvent<DiseasePopupEffectComponent, DiseaseEffectEvent>(OnPopupEffect);
     }
 
     private void OnDamageEffect(EntityUid uid, DiseaseDamageEffectComponent effect, DiseaseEffectEvent args)
@@ -24,9 +27,16 @@ public partial class SharedDiseaseSystem
         ChangeImmunityProgress(args.Disease.Owner, effect.Amount * GetScale(args, effect), args.Disease.Comp);
     }
 
-    protected float GetScale(DiseaseEffectEvent args, BaseDiseaseEffect effect)
+    private void OnPopupEffect(EntityUid uid, DiseasePopupEffectComponent effect, DiseaseEffectEvent args)
     {
-        return (effect.SeverityScale ? args.Severity : 1f) * (effect.TimeScale ? (float)args.TimeDelta.TotalSeconds : 1f);
+        _popup.PopupEntity(Loc.GetString(effect.String), args.Ent, args.Ent, effect.Type);
+    }
+
+    protected float GetScale(DiseaseEffectEvent args, ScalingDiseaseEffect effect)
+    {
+        return (effect.SeverityScale ? args.Severity : 1f)
+            * (effect.TimeScale ? (float)args.TimeDelta.TotalSeconds : 1f)
+            * (effect.ProgressScale ? args.DiseaseProgress : 1f);
     }
 
     #region public API

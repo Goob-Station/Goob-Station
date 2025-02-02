@@ -9,7 +9,7 @@
   id: DiseaseFlu
   parent: DiseaseBase
   name: flu
-  description: Mildly annoying and mildly dangerous.
+  description: Highly annoying and mildly dangerous.
   categories: [ HideSpawnMenu ]
   components:
   - type: Disease
@@ -18,6 +18,8 @@
     effects:
       DiseaseBehaviorPoison: 0.4
       DiseaseBehaviorVomit: 0.6
+      DiseaseBehaviorFeelUnwell: 1
+      DiseaseBehaviorHeadache: 1
 
 - type: entity
   id: DiseaseCancer
