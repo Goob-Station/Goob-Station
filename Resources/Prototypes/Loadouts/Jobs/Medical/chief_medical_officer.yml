@@ -29,6 +29,11 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtCMOTurtle
 
+- type: loadout # goob
+  id: CMOMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryCMO
+
 # Head
 - type: loadout
   id: ChiefMedicalOfficerBeret

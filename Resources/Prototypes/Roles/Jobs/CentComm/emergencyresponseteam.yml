@@ -13,6 +13,9 @@
   - AllAccess
   access:
   - CentralCommand
+  # Goobstation
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
 
 - type: startingGear
   id: ERTLeaderGear
@@ -103,6 +106,9 @@
   - AllAccess
   access:
   - CentralCommand
+  # Goobstation
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
   special:
   - !type:AddComponentSpecial
     components:
@@ -185,6 +191,9 @@
   - AllAccess
   access:
   - CentralCommand
+  # Goobstation
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
 
 - type: startingGear
   id: ERTEngineerGear
@@ -257,6 +266,9 @@
   - AllAccess
   access:
   - CentralCommand
+  # Goobstation
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
 
 - type: startingGear
   id: ERTSecurityGear
@@ -347,6 +359,9 @@
   - AllAccess
   access:
   - CentralCommand
+  # Goobstation
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
 
 - type: startingGear
   id: ERTMedicalGear
@@ -409,6 +424,9 @@
   - AllAccess
   access:
   - CentralCommand
+  # Goobstation
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
 
 - type: startingGear
   id: ERTJanitorGear

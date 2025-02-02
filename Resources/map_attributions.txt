@@ -60,3 +60,6 @@
 
 - files: ["submarine.yml"]
   authors: Piras314, UnicornOnLSD, IamVelcroboy, deltanedas, rosieposieeee, Peptide90, SimpleStation14, VMSolidus, DEATHB4DEFEAT
+
+- files: ["lambda.yml"]
+  authors: Ichai, Dapnee, Oraclestation's players
