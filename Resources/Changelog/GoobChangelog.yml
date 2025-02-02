@@ -4577,3 +4577,35 @@ Entries:
         insulated gloves.
   id: 517
   time: '2025-01-31T19:18:21.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Add
+      message: Added Personal grudge wepon
+    - type: Remove
+      message: Removed Limer__treats
+  id: 518
+  time: '2025-02-01T19:57:54.0000000+00:00'
+- author: AW-FulCode
+  changes:
+    - type: Tweak
+      message: Yowie's can wear more outerslot clothing with less slowdown and damage!
+  id: 519
+  time: '2025-02-01T20:54:07.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Add
+      message: >-
+        Added examples to silicon rule 8 to make blatantly clear who is and
+        isn't crew.
+  id: 520
+  time: '2025-02-01T20:54:58.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: >-
+        Hardlight bow rebalanced. Regular and x-ray arrow are slightly weaker,
+        other types of arrows are stronger, explosive unchanged.
+    - type: Add
+      message: Hardlight bow is now clumsy proof.
+  id: 521
+  time: '2025-02-02T05:18:12.0000000+00:00'
