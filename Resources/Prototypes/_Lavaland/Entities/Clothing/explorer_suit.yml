@@ -20,9 +20,14 @@
         Caustic: 0.50
   - type: ExplosionResistance
     damageCoefficient: 0.50
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:Container {}
   - type: ToggleableClothing
     clothingPrototypes:
       head: LavalandEquipmentExplorerHood
+    requiredSlot:
+      - head
 
 - type: entity
   parent: ClothingHeadBase
