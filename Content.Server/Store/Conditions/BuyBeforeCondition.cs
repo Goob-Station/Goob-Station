@@ -60,8 +60,14 @@ public sealed partial class BuyBeforeCondition : ListingCondition
                 {
                     purchasesFound = listing.PurchaseAmount > 0;
 
-                    if (purchasesFound && !WhitelistRequireAll) // Goobstation
-                        return true;
+                    // Goobstation
+                    switch (purchasesFound)
+                    {
+                        case true when !WhitelistRequireAll:
+                            return true;
+                        case false when WhitelistRequireAll:
+                            return false;
+                    }
 
                     break;
                 }

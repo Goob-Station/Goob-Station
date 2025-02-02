@@ -35,7 +35,7 @@ spellbook-wand-desc =
 spellbook-apprentice-name = Contract of Apprenticeship
 spellbook-apprentice-desc =
     A magical contract binding an apprentice wizard to your service, using it will summon them to your side.
-    Can be purchased up to 3 times.
+    Can only be purchased once.
 
     You can choose between 8 set of spells for your apprentice to learn:
     Destruction: Fireball and Mutate.

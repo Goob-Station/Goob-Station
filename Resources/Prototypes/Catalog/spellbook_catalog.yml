@@ -12,6 +12,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition # Goobstation
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookRodForm
@@ -26,6 +30,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition # Goobstation
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 # Defensive
 - type: listing
@@ -41,6 +49,10 @@
   conditions: # Goobstation
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition # Goobstation
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 # Utility
 # Goob edit
@@ -70,6 +82,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition # Goobstation
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookCharge
@@ -84,6 +100,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition # Goobstation
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookJaunt
@@ -98,6 +118,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition # Goobstation
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookMindSwap
@@ -112,6 +136,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition # Goobstation
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 # Equipment
 - type: listing
@@ -208,6 +236,9 @@
   - !type:BuyBeforeCondition
     whitelist:
       - SpellbookFireball
+    blacklist: # Goobstation
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
   # manual for now
   - !type:ListingLimitedStockCondition
     stock: 2
@@ -228,5 +259,8 @@
   - !type:BuyBeforeCondition
     whitelist:
     - SpellbookJaunt
+    blacklist: # Goobstation
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 2

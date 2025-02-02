@@ -319,6 +319,9 @@
   - !type:BuyBeforeCondition
     whitelist:
     - SpellbookSpellCards
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 2
 
@@ -340,6 +343,9 @@
   - !type:BuyBeforeCondition
     whitelist:
     - SpellbookSummonSimians
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 4
 
@@ -360,6 +366,9 @@
   - !type:BuyBeforeCondition
     whitelist:
     - SpellbookMagicMissile
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 2
 
@@ -379,6 +388,9 @@
   - !type:BuyBeforeCondition
     whitelist:
     - SpellbookDisableTech
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 4
 
@@ -398,6 +410,9 @@
   - !type:BuyBeforeCondition
     whitelist:
     - SpellbookSmoke
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 2
 
@@ -417,6 +432,9 @@
   - !type:BuyBeforeCondition
     whitelist:
     - SpellbookRepulse
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 4
 
@@ -436,6 +454,9 @@
   - !type:BuyBeforeCondition
     whitelist:
     - SpellbookStopTime
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 2
 
@@ -455,6 +476,9 @@
   - !type:BuyBeforeCondition
     whitelist:
     - SpellbookTraps
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 4
 
@@ -474,6 +498,9 @@
   - !type:BuyBeforeCondition
     whitelist:
     - SpellbookForceWall
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 4
 
@@ -494,6 +521,9 @@
   - !type:BuyBeforeCondition
     whitelist:
     - SpellbookTeleport
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 2
 
@@ -513,6 +543,9 @@
   - !type:BuyBeforeCondition
     whitelist:
     - SpellbookSwap
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 2
 
@@ -532,6 +565,9 @@
   - !type:BuyBeforeCondition
     whitelist:
     - SpellbookBlink
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 4
 
@@ -551,6 +587,9 @@
   - !type:BuyBeforeCondition
     whitelist:
     - SpellbookCharge
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 4
 
@@ -570,6 +609,9 @@
   - !type:BuyBeforeCondition
     whitelist:
     - SpellbookMindSwap
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 2
 
@@ -589,5 +631,8 @@
   - !type:BuyBeforeCondition
     whitelist:
     - SpellbookKnock
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 2

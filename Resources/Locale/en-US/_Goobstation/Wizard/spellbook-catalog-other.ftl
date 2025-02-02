@@ -23,3 +23,13 @@ spellbook-tider-bundle-desc =
     Contains an ancient jumpsuit, a pair of insulated gloves, a gas mask, gray winter coat and mantle as well as assistant PDA.
     Cannot be refunded.
     Warning: Purchasing this blocks the refund of Homing Toolbox spell!
+
+spellbook-full-random-name = Full Random
+spellbook-full-random-desc =
+    Get 15 WizCoins worth of completely random spells. There's no going back.
+    Not recommended for newer wizards.
+
+spellbook-semi-random-name = Semi-Random
+spellbook-semi-random-desc =
+    Get 12 WizCoins worth of random spells. You are guaranteed to get at least some mobility and lethal spells though. There's no going back.
+    Not recommended for newer wizards.

@@ -542,3 +542,13 @@ public sealed partial class SummonSimiansMaxedOutEvent : EntityEventArgs
     [DataField]
     public Color MessageColor = Color.FromHex("#EDC349");
 }
+
+[DataDefinition]
+public sealed partial class RandomizeSpellsEvent : EntityEventArgs
+{
+    [DataField]
+    public float TotalBalance = 10;
+
+    [DataField(required: true)]
+    public Dictionary<ProtoId<WeightedRandomEntityPrototype>, int?> SpellsDict;
+}

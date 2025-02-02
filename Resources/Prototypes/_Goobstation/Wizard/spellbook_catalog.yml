@@ -12,6 +12,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookBananaTouch
@@ -26,6 +30,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookCluwneCurse
@@ -40,6 +48,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookCorpseExplosion
@@ -53,6 +65,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookBlind
@@ -67,6 +83,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookMutate
@@ -81,6 +101,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookTeslaBlast
@@ -95,6 +119,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookLightningBolt
@@ -109,6 +137,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookHomingToolbox
@@ -123,6 +155,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookSpellCards
@@ -137,6 +173,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookArcaneBarrage
@@ -154,6 +194,8 @@
   - !type:BuyBeforeCondition
     blacklist:
     - SpellbookLesserSummonGuns
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookLesserSummonGuns
@@ -171,6 +213,8 @@
   - !type:BuyBeforeCondition
     blacklist:
     - SpellbookArcaneBarrage
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookBarnyardCurse
@@ -185,6 +229,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookScreamForMe
@@ -199,6 +247,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookLesserSummonBees
@@ -213,6 +265,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookSummonSimians
@@ -227,6 +283,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookSanguineStrike
@@ -241,6 +301,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookSmite
@@ -255,6 +319,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 # Defensive
 - type: listing
@@ -270,6 +338,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookDisableTech
@@ -284,6 +356,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookSmoke
@@ -298,6 +374,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookRepulse
@@ -312,6 +392,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookStopTime
@@ -326,6 +410,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookBindSoul
@@ -339,6 +427,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
   disableRefund: true
 
 - type: listing
@@ -354,6 +446,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookChuuni
@@ -367,6 +463,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
   disableRefund: true
 
 - type: listing
@@ -381,6 +481,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 # Utility
 - type: listing
@@ -395,6 +499,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookTeleport
@@ -409,6 +517,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookSwap
@@ -423,6 +535,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookSoulTap
@@ -436,6 +552,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 - type: listing
   id: SpellbookKnock
@@ -450,6 +570,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
 
 # Equipment
 - type: listing
@@ -529,9 +653,60 @@
   - SpellbookEquipment
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 3
+    stock: 1
 
 # Special
+- type: listing
+  id: SpellbookFullRandom
+  name: spellbook-full-random-name
+  description: spellbook-full-random-desc
+  productEvent: !type:RandomizeSpellsEvent
+    totalBalance: 15
+    spellsDict:
+      FullRandomSpellTable: null
+  raiseProductEventOnUser: true
+  icon:
+    sprite: Objects/Fun/dice.rsi
+    state: d20_20
+  cost:
+    WizCoin: 10
+  categories:
+  - SpellbookSpecial
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookSemiRandom
+  disableRefund: true
+
+- type: listing
+  id: SpellbookSemiRandom
+  name: spellbook-semi-random-name
+  description: spellbook-semi-random-desc
+  productEvent: !type:RandomizeSpellsEvent
+    totalBalance: 12
+    spellsDict:
+      LethalSpellTable: 1
+      MobilitySpellTable: 1
+      FullRandomSpellTable: null
+  raiseProductEventOnUser: true
+  icon:
+    sprite: Objects/Fun/dice.rsi
+    state: d6_6
+  cost:
+    WizCoin: 10
+  categories:
+  - SpellbookSpecial
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+  disableRefund: true
+
+# Bundles
 - type: listing
   id: SpellMimeBundle
   name: spellbook-mime-bundle-name
@@ -540,7 +715,7 @@
   cost:
     WizCoin: 0
   categories:
-  - SpellbookSpecial
+  - SpellbookBundles
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -559,7 +734,7 @@
   cost:
     WizCoin: 0
   categories:
-  - SpellbookSpecial
+  - SpellbookBundles
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -581,7 +756,7 @@
   cost:
     WizCoin: 0
   categories:
-  - SpellbookSpecial
+  - SpellbookBundles
   conditions:
   - !type:ListingRelativeLimitedStockCondition
     relativeListing: SpellbookSmHalberd
@@ -597,7 +772,7 @@
   cost:
     WizCoin: 0
   categories:
-  - SpellbookSpecial
+  - SpellbookBundles
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1

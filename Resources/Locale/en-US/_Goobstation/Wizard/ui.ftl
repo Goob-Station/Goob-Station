@@ -6,3 +6,4 @@ store-refund-window-refund-disabled = Refunds have been disabled.
 store-refund-window-nothing-to-refund = Nothing to refund.
 
 store-caregory-spellbook-special = Special
+store-caregory-spellbook-bundles = Bundles

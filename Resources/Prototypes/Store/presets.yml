@@ -42,5 +42,6 @@
     - SpellbookEquipment    #Battlemage Robes, Staff of Locker
     - SpellbookEvents       #Summon Weapons, Summon Ghosts
     - SpellbookSpecial      #Goobstation
+    - SpellbookBundles      #Goobstation
     currencyWhitelist:
     - WizCoin
