@@ -62,7 +62,6 @@
     progressScale: false
     timeScale: false
   - type: DiseasePeriodicCondition
-    timeScale: false
     delayMin: 10
     delayMax: 60
 

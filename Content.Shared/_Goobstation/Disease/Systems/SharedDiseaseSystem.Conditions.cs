@@ -20,7 +20,10 @@ public partial class SharedDiseaseSystem
         if (condition.CurrentDelay == null)
         {
             if (_net.IsClient)
+            {
+                args.DoEffect = false;
                 return;
+            }
             condition.CurrentDelay = TimeSpan.FromSeconds(_random.NextDouble(condition.DelayMin.TotalSeconds, condition.DelayMax.TotalSeconds));
         }
 
