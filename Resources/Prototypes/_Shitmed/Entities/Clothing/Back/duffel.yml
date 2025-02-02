@@ -1,7 +1,7 @@
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelAbductor
-  name: abductor's surgery duffel bag
+  name: alien surgery duffel bag
   description: An ordinary surgical duffel bag woven from a durable fiber.
   components:
   - type: Sprite
