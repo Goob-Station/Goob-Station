@@ -12,6 +12,7 @@ public partial class SharedDiseaseSystem
     protected virtual void InitializeConditions()
     {
         SubscribeLocalEvent<DiseasePeriodicConditionComponent, DiseaseCheckConditionsEvent>(CheckPeriodicCondition);
+        SubscribeLocalEvent<DiseaseProgressConditionComponent, DiseaseCheckConditionsEvent>(CheckSeverityCondition);
     }
 
     private void CheckPeriodicCondition(EntityUid uid, DiseasePeriodicConditionComponent condition, DiseaseCheckConditionsEvent args)
@@ -36,8 +37,17 @@ public partial class SharedDiseaseSystem
         Dirty(uid, condition);
     }
 
-    protected float GetScale(DiseaseCheckConditionsEvent args, BaseDiseaseEffect condition)
+    private void CheckSeverityCondition(EntityUid uid, DiseaseProgressConditionComponent condition, DiseaseCheckConditionsEvent args)
     {
-        return (condition.SeverityScale ? args.Severity : 1f) * (condition.TimeScale ? (float)args.TimeDelta.TotalSeconds : 1f);
+        args.DoEffect = args.DoEffect
+            && (condition.MinProgress == null || args.DiseaseProgress > condition.MinProgress)
+            && (condition.MaxProgress == null || args.DiseaseProgress > condition.MaxProgress);
+    }
+
+    protected float GetScale(DiseaseCheckConditionsEvent args, ScalingDiseaseEffect effect)
+    {
+        return (effect.SeverityScale ? args.Severity : 1f)
+            * (effect.TimeScale ? (float)args.TimeDelta.TotalSeconds : 1f)
+            * (effect.ProgressScale ? args.DiseaseProgress : 1f);
     }
 }

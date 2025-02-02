@@ -59,11 +59,46 @@
     complexity: 12 # can make you constantly hungry
   - type: DiseaseVomitEffect
     severityScale: false
+    progressScale: false
     timeScale: false
   - type: DiseasePeriodicCondition
     timeScale: false
     delayMin: 10
     delayMax: 60
+
+- type: entity
+  id: DiseaseBehaviorFeelUnwell
+  parent: DiseaseBehaviorBase
+  name: feeling unwell
+  description: Makes you feel unwell.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: DiseaseEffect
+    complexity: 4 # just an annoyance
+  - type: DiseasePopupEffect
+    string: disease-effect-popup-default
+  - type: DiseasePeriodicCondition
+    delayMin: 30
+    delayMax: 60
+  - type: DiseaseProgressCondition
+    minProgress: 0.4
+
+- type: entity
+  id: DiseaseBehaviorHeadache
+  parent: DiseaseBehaviorBase
+  name: headache
+  description: Gives you headaches, which may make working more difficult.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: DiseaseEffect
+    complexity: 8 # very annoying
+  - type: DiseasePopupEffect
+    string: disease-effect-popup-headache
+  - type: DiseasePeriodicCondition
+    delayMin: 3
+    delayMax: 12
+  - type: DiseaseFlashEffect
+    timeScale: false
 
 - type: entity
   id: DiseaseBehaviorFightImmunity
