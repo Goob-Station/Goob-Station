@@ -637,8 +637,7 @@ entities:
       spriteMap: {}
     - type: GravityShake
       shakeTimes: 10
-    - type: BecomesStation
-      id: lavaland
+    - type: LavalandStation
 - proto: AirAlarm
   entities:
   - uid: 3

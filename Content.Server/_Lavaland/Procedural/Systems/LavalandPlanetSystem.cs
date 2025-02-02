@@ -145,7 +145,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
     {
         if (_lavalandPreloader == null)
             SetupPreloader();
-        
+
         // Basic setup.
         var lavalandMap = _map.CreateMap(out var lavalandMapId, runMapInit: false);
         var mapComp = EnsureComp<LavalandMapComponent>(lavalandMap);
@@ -213,7 +213,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
         var outpost = EntityUid.Invalid;
         foreach (var grid in _mapManager.GetAllGrids(lavalandMapId))
         {
-            if (!HasComp<BecomesStationComponent>(grid))
+            if (!HasComp<LavalandStationComponent>(grid))
                 continue;
 
             outpost = grid;
@@ -225,7 +225,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
 
         if (TerminatingOrDeleted(outpost))
         {
-            Log.Error("Lavaland outpost was loaded, but doesn't exist! (Maybe you forgot to add BecomesStationComponent?)");
+            Log.Error("Lavaland outpost was loaded, but doesn't exist! (Maybe you forgot to add LavalandStationComponent?)");
             return false;
         }
 
