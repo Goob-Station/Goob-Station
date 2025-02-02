@@ -2,7 +2,7 @@
 - type: entity
   parent: BaseCrowbar
   id: CrowbarAbductor
-  name: abductor's crowbar
+  name: high-technology crowbar
   description: Made out of metal more durable than anything Nanotrasen could dream of.
   components:
   - type: Sprite
@@ -19,7 +19,7 @@
     - Abductors
 
 - type: entity
-  name: abductor's wirecutter
+  name: high-technology wirecutter
   parent: BaseItem
   id: WirecutterAbductor
   description: Cuts through wires like a hot knife through butter.
@@ -74,7 +74,7 @@
     - Abductors
 
 - type: entity
-  name: abductor's screwdriver
+  name: high-technology screwdriver
   parent: BaseItem
   id: ScrewdriverAbductor
   description: More efficient than anything Nanotrasen could dream of. Not to be confused with a sonic screwdriver.
@@ -123,7 +123,7 @@
     - Abductors
 
 - type: entity
-  name: abductor's wrench
+  name: high-technology wrench
   parent: Wrench
   id: WrenchAbductor
   description: Can take a bolt off in a single turn. Not intended for melee combat.
@@ -149,7 +149,7 @@
     - Abductors
 
 - type: entity
-  name: abductor's welding tool
+  name: high-technology welding tool
   parent: Welder
   id: WelderAbductor
   description: "A highly advanced welder capable of producing infinite fuel."
@@ -184,10 +184,10 @@
     - Abductors
 
 - type: entity
-  name: abductor's multitool
+  name: high-technology multitool
   parent: [BaseItem, BaseRestrictedContraband]
   id: MultitoolAbductor
-  description: A highly advanced hacking tool capable of viewing wire functionality. Can be used as Cryoptographic sequencer in its alternate mode.
+  description: A highly advanced hacking tool capable of viewing wire functionality. Can be used as Cryptographic sequencer in its alternate mode.
   components:
   - type: EmitSoundOnLand
     sound:
