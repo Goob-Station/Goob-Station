@@ -1,4 +1,5 @@
 using Content.Shared.Damage;
+using Content.Shared.Popups;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using System;
@@ -18,17 +19,21 @@ public sealed partial class DiseaseEffectComponent : Component
     [DataField]
     public float Severity = 1f;
 
+    /// <summary>
+    /// Contribution of this effect to disease complexity
+    /// Actual impact scales with severity
+    /// </summary>
     [DataField]
-    public float Complexity = 4f;
+    public float Complexity = 10f;
 }
 
 /// <summary>
-/// Base component for disease effects and conditions
+/// Base component for disease effects and conditions for which it makes sense to choose scaling off severity, time, or progress
 /// </summary>
-public abstract partial class BaseDiseaseEffect : Component
+public abstract partial class ScalingDiseaseEffect : Component
 {
     /// <summary>
-    /// Whether this effect or condition should scale from disease severity
+    /// Whether this effect or condition should scale from effect severity
     /// </summary>
     [DataField]
     public bool SeverityScale = true;
@@ -39,13 +44,19 @@ public abstract partial class BaseDiseaseEffect : Component
     /// </summary>
     [DataField]
     public bool TimeScale = true;
+
+    /// <summary>
+    /// Whether this effect or condition should scale from the progress of the host disease
+    /// </summary>
+    [DataField]
+    public bool ProgressScale = true;
 }
 
 /// <summary>
 /// Deals damage over time to host
 /// </summary>
 [RegisterComponent]
-public sealed partial class DiseaseDamageEffectComponent : BaseDiseaseEffect
+public sealed partial class DiseaseDamageEffectComponent : ScalingDiseaseEffect
 {
     [DataField]
     public DamageSpecifier Damage = default!;
@@ -55,7 +66,7 @@ public sealed partial class DiseaseDamageEffectComponent : BaseDiseaseEffect
 /// Decrease immunity progress on disease, use for incurable-once-developed diseases
 /// </summary>
 [RegisterComponent]
-public sealed partial class DiseaseFightImmunityEffectComponent : BaseDiseaseEffect
+public sealed partial class DiseaseFightImmunityEffectComponent : ScalingDiseaseEffect
 {
     [DataField]
     public float Amount = -0.04f;
@@ -63,9 +74,10 @@ public sealed partial class DiseaseFightImmunityEffectComponent : BaseDiseaseEff
 
 /// <summary>
 /// Causes the host to vomit
+/// For use with conditions
 /// </summary>
 [RegisterComponent]
-public sealed partial class DiseaseVomitEffectComponent : BaseDiseaseEffect
+public sealed partial class DiseaseVomitEffectComponent : ScalingDiseaseEffect
 {
     [DataField]
     public float ThirstChange = -40f;
@@ -75,28 +87,41 @@ public sealed partial class DiseaseVomitEffectComponent : BaseDiseaseEffect
 }
 
 /// <summary>
-/// Causes this effect to only trigger ocassionally
+/// Causes the host to get flashed
+/// For use with conditions
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class DiseasePeriodicConditionComponent : BaseDiseaseEffect
+[RegisterComponent]
+public sealed partial class DiseaseFlashEffectComponent : ScalingDiseaseEffect
 {
     /// <summary>
-    /// Minimum delay between passes, increases inversely proportional to severity
+    /// The duration to flash for
     /// </summary>
     [DataField]
-    public TimeSpan DelayMin = TimeSpan.FromSeconds(10);
+    public float Duration = 2f;
 
     /// <summary>
-    /// Maximum delay between passes, increases inversely proportional to severity
+    /// How much to slow the host down during the flash
     /// </summary>
     [DataField]
-    public TimeSpan DelayMax = TimeSpan.FromSeconds(30);
+    public float SlowTo = 0.8f;
 
-    // state: time since last passed
-    [ViewVariables, AutoNetworkedField]
-    public TimeSpan TimeSinceLast = TimeSpan.FromSeconds(0);
+    /// <summary>
+    /// For how much to stun the host, if not null
+    /// </summary>
+    [DataField]
+    public TimeSpan? StunDuration;
+}
 
-    // state: delay until next pass
-    [ViewVariables, AutoNetworkedField]
-    public TimeSpan? CurrentDelay;
+/// <summary>
+/// Causes the host to see a popup
+/// For use with conditions
+/// </summary>
+[RegisterComponent]
+public sealed partial class DiseasePopupEffectComponent : Component
+{
+    [DataField]
+    public string String = "disease-effect-popup-default";
+
+    [DataField]
+    public PopupType Type = PopupType.SmallCaution;
 }
