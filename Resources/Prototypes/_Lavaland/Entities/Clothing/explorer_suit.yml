@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ ClothingOuterBaseMedium ]
+  parent: [ ClothingOuterBaseMedium, AllowSuitStorageClothing ]
   id: LavalandEquipmentExplorerSuit
   suffix: Lava
   name: explorer suit
@@ -26,8 +26,6 @@
   - type: ToggleableClothing
     clothingPrototypes:
       head: LavalandEquipmentExplorerHood
-    requiredSlot:
-      - head
 
 - type: entity
   parent: ClothingHeadBase

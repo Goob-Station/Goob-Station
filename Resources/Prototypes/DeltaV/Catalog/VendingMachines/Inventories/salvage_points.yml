@@ -25,6 +25,8 @@
     cost: 500
   - id: ClothingBeltSalvageWebbing
     cost: 500
+  - id: ClothingShoesBootsJack
+    cost: 550
   - id: MedkitBruteFilled
     cost: 600
   - id: MedkitBurnFilled
@@ -45,20 +47,21 @@
     cost: 750
   - id: WeaponProtoKineticAccelerator
     cost: 750
-  - id: AdvancedMineralScanner
-    cost: 800
   - id: PKAUpgradeRange
     cost: 850
-  # TODO: resonator for 800
   - id: Fulton
     cost: 1000
+  - id: AdvancedMineralScanner
+    cost: 1100
   - id: PKAUpgradeDamage
     cost: 1200
   - id: LavalandEquipmentExplorerSuit
     cost: 1200
   # TODO: lazarus injector for 1k
   - id: ClothingBackpackDuffelSalvageConscription
-    cost: 1500
+    cost: 1250
+  - id: WeaponPlasmaCutter
+    cost: 1600
   - id: SpaceCash1000
     cost: 2000
   # TODO: super resonator for 2500

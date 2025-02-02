@@ -24,9 +24,12 @@
         prob: 0.3
       # Lavaland Change Start
       - id: WeaponProtoKineticAccelerator
-      - id: JetpackMiniFilled
       - id: OreBag
-      # TODO: bluespace shelter capsule
+      - id: Pickaxe
+      - id: LavalandEquipmentExplorerSuit
+      - id: ClothingMaskGasExplorer
+      - id: MineralScanner
+    # TODO: bluespace shelter capsule
       # Lavaland Change End
 
 - type: entity
@@ -51,10 +54,10 @@
         prob: 0.3
       # Lavaland Change Start
       - id: WeaponProtoKineticAccelerator
-      - id: JetpackMiniFilled
       - id: OreBag
       - id: Pickaxe
       - id: LavalandEquipmentExplorerSuit
       - id: ClothingMaskGasExplorer
+      - id: MineralScanner
       # TODO: bluespace shelter capsule
       # Lavaland Change End

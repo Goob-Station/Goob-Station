@@ -46,8 +46,8 @@ public sealed partial class LavalandMapPrototype : IPrototype
     public ProtoId<BiomeTemplatePrototype> BiomePrototype = "Lava";
 
     [DataField("ore")]
-    public List<ProtoId<BiomeMarkerLayerPrototype>> OreLayers = new()
-    {
+    public List<ProtoId<BiomeMarkerLayerPrototype>> OreLayers =
+    [
         "OreIron",
         "OreCoal",
         "OreQuartz",
@@ -56,8 +56,9 @@ public sealed partial class LavalandMapPrototype : IPrototype
         "OrePlasma",
         "OreUranium",
         "OreArtifactFragment",
+        "OreDiamond",
         "BSCrystal",
-    };
+    ];
 
     [DataField("mobs")]
     public List<ProtoId<BiomeMarkerLayerPrototype>> MobLayers = [];
