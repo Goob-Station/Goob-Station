@@ -97,7 +97,7 @@ public sealed partial class DiseaseFlashEffectComponent : ScalingDiseaseEffect
     /// The duration to flash for
     /// </summary>
     [DataField]
-    public float Duration = 2f;
+    public TimeSpan Duration = TimeSpan.FromSeconds(2f);
 
     /// <summary>
     /// How much to slow the host down during the flash

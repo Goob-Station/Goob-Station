@@ -1,4 +1,3 @@
-using Content.Server.Flash;
 using Content.Server.Medical;
 using Content.Shared.Disease;
 using Robust.Shared.Map;
@@ -13,25 +12,17 @@ namespace Content.Server.Disease;
 public sealed partial class DiseaseSystem
 {
     [Dependency] private readonly VomitSystem _vomit = default!;
-    [Dependency] private readonly FlashSystem _flash = default!;
 
     protected override void InitializeEffects()
     {
         base.InitializeEffects();
 
         SubscribeLocalEvent<DiseaseVomitEffectComponent, DiseaseEffectEvent>(OnVomitEffect);
-        SubscribeLocalEvent<DiseaseFlashEffectComponent, DiseaseEffectEvent>(OnFlashEffect);
     }
 
     private void OnVomitEffect(EntityUid uid, DiseaseVomitEffectComponent effect, DiseaseEffectEvent args)
     {
         _vomit.Vomit(args.Ent, effect.ThirstChange * GetScale(args, effect), effect.FoodChange * GetScale(args, effect));
-    }
-
-    private void OnFlashEffect(EntityUid uid, DiseaseFlashEffectComponent effect, DiseaseEffectEvent args)
-    {
-        TimeSpan? stunDuration = effect.StunDuration == null ? null : (effect.StunDuration * GetScale(args, effect));
-        _flash.Flash(args.Ent, null, null, effect.Duration * GetScale(args, effect), effect.SlowTo, stunDuration: stunDuration);
     }
 
     #region public API

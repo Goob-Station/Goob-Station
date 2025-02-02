@@ -1,5 +1,9 @@
 using Content.Shared.Damage;
+using Content.Shared.Flash;
+using Content.Shared.Flash.Components;
 using Content.Shared.Popups;
+using Content.Shared.StatusEffect;
+using Content.Shared.Stunnable;
 using Robust.Shared.Prototypes;
 using System.Diagnostics.CodeAnalysis;
 
@@ -8,13 +12,17 @@ namespace Content.Shared.Disease;
 public partial class SharedDiseaseSystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly SharedFlashSystem _flash = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
 
     protected virtual void InitializeEffects()
     {
         SubscribeLocalEvent<DiseaseDamageEffectComponent, DiseaseEffectEvent>(OnDamageEffect);
         SubscribeLocalEvent<DiseaseFightImmunityEffectComponent, DiseaseEffectEvent>(OnFightImmunityEffect);
         SubscribeLocalEvent<DiseasePopupEffectComponent, DiseaseEffectEvent>(OnPopupEffect);
+        SubscribeLocalEvent<DiseaseFlashEffectComponent, DiseaseEffectEvent>(OnFlashEffect);
     }
 
     private void OnDamageEffect(EntityUid uid, DiseaseDamageEffectComponent effect, DiseaseEffectEvent args)
@@ -30,6 +38,15 @@ public partial class SharedDiseaseSystem
     private void OnPopupEffect(EntityUid uid, DiseasePopupEffectComponent effect, DiseaseEffectEvent args)
     {
         _popup.PopupEntity(Loc.GetString(effect.String), args.Ent, args.Ent, effect.Type);
+    }
+
+    private void OnFlashEffect(EntityUid uid, DiseaseFlashEffectComponent effect, DiseaseEffectEvent args)
+    {
+        _status.TryAddStatusEffect<FlashedComponent>(args.Ent, _flash.FlashedKey, effect.Duration * GetScale(args, effect), true);
+        _stun.TrySlowdown(args.Ent, effect.Duration * GetScale(args, effect), true, effect.SlowTo, effect.SlowTo);
+
+        if (effect.StunDuration != null)
+            _stun.TryKnockdown(args.Ent, effect.StunDuration.Value * GetScale(args, effect), true);
     }
 
     protected float GetScale(DiseaseEffectEvent args, ScalingDiseaseEffect effect)
