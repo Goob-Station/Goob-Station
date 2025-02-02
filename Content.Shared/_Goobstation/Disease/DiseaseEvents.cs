@@ -1,7 +1,10 @@
+using System;
+using System.Runtime.CompilerServices;
+
 namespace Content.Shared.Disease;
 
 /// <summary>
-/// This event is raised when a DiseaseComponent is updated.
+/// This event is raised on diseases on update.
 /// </summary>
 public sealed class DiseaseUpdateEvent : EntityEventArgs
 {
@@ -14,22 +17,32 @@ public sealed class DiseaseUpdateEvent : EntityEventArgs
 }
 
 /// <summary>
-/// This event is raised on each disease effect entity on disease update.
+/// This event is raised on disease effects on update.
 /// </summary>
 public sealed class DiseaseEffectEvent : EntityEventArgs
 {
+    /// <summary>
+    /// The severity of the effect.
+    /// Use for effects that set state.
+    /// </summary>
+    public float Severity;
+    /// <summary>
+    /// The severity of the effect adjusted for update interval. Is effectively seconds.
+    /// Use for effects that adjust (over time) state.
+    /// </summary>
+    public TimeSpan TimeDelta;
     /// <summary>
     /// The entity this effect should affect.
     /// </summary>
     public EntityUid Ent;
     public Entity<DiseaseComponent> Disease;
-    public float EffectScale;
 
-    public DiseaseEffectEvent(EntityUid ent, Entity<DiseaseComponent> disease, float scale)
+    public DiseaseEffectEvent(EntityUid ent, Entity<DiseaseComponent> disease, float severity, TimeSpan delta)
     {
         Ent = ent;
         Disease = disease;
-        EffectScale = scale;
+        Severity = severity;
+        TimeDelta = delta;
     }
 }
 
@@ -65,12 +78,35 @@ public sealed class DiseaseCuredEvent : EntityEventArgs
 [ByRefEvent]
 public sealed class DiseaseInfectAttemptEvent : EntityEventArgs
 {
-    public Entity<DiseaseComponent> Disease;
+    public readonly Entity<DiseaseComponent> Disease;
     public bool CanInfect = true;
 
     public DiseaseInfectAttemptEvent(Entity<DiseaseComponent> ent)
     {
         Disease = ent;
+    }
+}
+
+/// <summary>
+/// This event is raised on a disease effect just before it's triggered to check whether the effect should be triggered.
+/// </summary>
+[ByRefEvent]
+public sealed class DiseaseCheckConditionsEvent : EntityEventArgs
+{
+    /// <summary>
+    /// The severity of the effect.
+    /// </summary>
+    public readonly float Severity;
+    /// <summary>
+    /// The update interval of the effect.
+    /// </summary>
+    public readonly TimeSpan TimeDelta;
+    public bool DoEffect = true;
+
+    public DiseaseCheckConditionsEvent(float severity, TimeSpan delta)
+    {
+        Severity = severity;
+        TimeDelta = delta;
     }
 }
 

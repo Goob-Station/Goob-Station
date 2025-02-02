@@ -6,7 +6,7 @@ namespace Content.Shared.Disease;
 
 /// <summary>
 /// For entities that have the ability to naturally fight back diseases
-/// If you want to make some sort of alternate immunity of your own, copypaste and adjust DiseaseSystem.Immunity.cs
+/// If you want to make some sort of alternate immunity of your own, copypaste and adjust SharedDiseaseSystem.Immunity.cs
 /// </summary>
 [RegisterComponent]
 public sealed partial class ImmunityComponent : Component

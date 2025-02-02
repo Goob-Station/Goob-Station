@@ -1,0 +1,31 @@
+- type: entity
+  id: MeleeDebugInfectTurboCancer
+  parent: MeleeDebugGib
+  name: turbocancer stick
+  description: Need a taste of Chernobyl?
+  components:
+  - type: Tag
+    tags:
+      - Debug
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+  - type: DiseaseOnHit
+    disease: DiseaseTurboCancer
+
+- type: entity
+  id: MeleeDebugInfectFlu
+  parent: MeleeDebugGib
+  name: flu stick
+  description: Gives you the flu. And people wonder where it comes from.
+  components:
+  - type: Tag
+    tags:
+      - Debug
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+  - type: DiseaseOnHit
+    disease: DiseaseFlu
