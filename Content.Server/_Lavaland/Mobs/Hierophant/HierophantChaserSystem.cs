@@ -88,16 +88,7 @@ public sealed class HierophantChaserSystem : EntitySystem
                 return;
             }
 
-            // Try to align chaser with the target by Y axis. before making it the target.
-            // If we're not at the required Y, choose our current X and its Y as the target
-            if (tileTargetPos.Y == tilePos.Y)
-            {
-                deltaPos = tileTargetPos;
-            }
-            else
-            {
-                deltaPos = new Vector2i(tilePos.X, tileTargetPos.Y);
-            }
+            deltaPos = tileTargetPos;
         }
 
         var directions = new List<Vector2i>

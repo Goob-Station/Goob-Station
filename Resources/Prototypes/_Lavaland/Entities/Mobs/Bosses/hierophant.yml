@@ -136,4 +136,4 @@
   id: Hierophant
   coefficients:
     Piercing: 0.1 # No bullets
-    Burn: 0.5 # No lasers
+    Heat: 0.5 # No lasers
