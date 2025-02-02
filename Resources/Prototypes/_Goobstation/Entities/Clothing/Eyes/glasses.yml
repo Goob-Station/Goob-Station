@@ -37,6 +37,8 @@
     materialComposition:
       Glass: 125
       Steel: 125
+    - type: StaticPrice
+      price: 37.5
     - type: Destructible
       thresholds:
         - trigger:
@@ -71,3 +73,5 @@
     materialComposition:
       Glass: 125
       Steel: 125
+  - type: StaticPrice
+      price: 37.5
