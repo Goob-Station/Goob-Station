@@ -33,6 +33,10 @@
     - type: Tag
       tags:
       - WhitelistChameleon
+    - type: PhysicalComposition
+    materialComposition:
+      Glass: 125
+      Steel: 125
     - type: Destructible
       thresholds:
         - trigger:
