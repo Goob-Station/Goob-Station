@@ -1,0 +1,47 @@
+- type: entity
+  name: super stun baton
+  parent: Stunbaton
+  id: SuperStunbaton
+  description: RUN AWAY FROM ME, I'M CRAZY!!!
+  components:
+  - type: Sprite
+    sprite: _Reserve/Objects/Weapons/Melee/superstunbaton.rsi
+    layers:
+    - state: stunbaton_off
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: Stunbaton
+    energyPerUse: 1
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Blunt: 0
+  - type: MeleeWeapon
+    angle: 0
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 20
+    bluntStaminaDamageFactor: 100.0
+    animation: WeaponArcSlash
+  - type: StaminaDamageOnHit
+    damage: 150
+    overtime: 60
+    sound: /Audio/Weapons/egloves.ogg
+  - type: StaminaDamageOnCollide
+    damage: 150
+    overtime: 60
+    sound: /Audio/Weapons/egloves.ogg
+  - type: LandAtCursor
+  - type: Battery
+    maxCharge: 100000
+    startingCharge: 100000
+  - type: Clothing
+    sprite: _Reserve/Objects/Weapons/Melee/superstunbaton.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 5000
+      Plastic: 5000
+      Gold: 1500
