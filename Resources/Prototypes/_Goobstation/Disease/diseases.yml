@@ -6,18 +6,25 @@
   - type: Disease
 
 - type: entity
-  id: DiseaseEffectBase
+  id: DiseaseFlu
+  parent: DiseaseBase
+  name: flu
+  description: Mildly annoying and mildly dangerous.
   categories: [ HideSpawnMenu ]
-  abstract: true
   components:
-  - type: DiseaseEffect
+  - type: Disease
+    infectionRate: 0.01 # 100 seconds
+    genotype: 1234
+    effects:
+      DiseaseBehaviorPoison: 0.4
+      DiseaseBehaviorVomit: 0.6
 
 - type: entity
   id: DiseaseCancer
   parent: DiseaseBase
-  categories: [ HideSpawnMenu ]
   name: cancer
   description: Deals genetic damage to the infected. Doesn't go away by itself.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Disease
     infectionRate: 0.005 # slow
@@ -25,15 +32,15 @@
     canGainImmunity: false
     genotype: 1111
     effects:
-      - DiseaseEffectCancer
-      - DiseaseEffectFightImmunity # won't let you cure it
+      DiseaseBehaviorCancer: 0.5
+      DiseaseBehaviorFightImmunity: 1 # won't let you cure it
 
 - type: entity
   id: DiseaseTurboCancer
   parent: DiseaseBase
-  categories: [ HideSpawnMenu ]
   name: cancer
   description: Deals lots of genetic damage to the infected. Better prepare the funeral.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Disease
     infectionRate: 0.1
@@ -41,55 +48,5 @@
     canGainImmunity: false
     genotype: 42069
     effects:
-      - DiseaseEffectTurboCancer
-      - DiseaseEffectFightImmunity
-
-- type: entity
-  id: DiseaseEffectCancer
-  parent: DiseaseEffectBase
-  categories: [ HideSpawnMenu ]
-  name: cancer
-  description: Deals genetic damage over time.
-  components:
-  - type: DiseaseDamageEffect
-    damage:
-      types:
-        Cellular: 1
-
-- type: entity
-  id: DiseaseEffectTurboCancer
-  parent: DiseaseEffectBase
-  categories: [ HideSpawnMenu ]
-  name: cancer
-  description: Deals genetic damage over time. A short time.
-  components:
-  - type: DiseaseDamageEffect
-    damage:
-      types:
-        Cellular: 50
-        Blunt: 50
-
-- type: entity
-  id: DiseaseEffectFightImmunity
-  parent: DiseaseEffectBase
-  categories: [ HideSpawnMenu ]
-  name: immune resistance
-  description: Makes the disease resist immunity once developed.
-  components:
-  - type: DiseaseFightImmunityEffect
-
-- type: entity
-  name: turbocancer stick
-  description: need a taste of Chernobyl?
-  parent: MeleeDebugGib
-  id: MeleeDebugTurboCancer
-  components:
-  - type: Tag
-    tags:
-      - Debug
-  - type: MeleeWeapon
-    damage:
-      types:
-        Blunt: 5
-  - type: DiseaseOnHit
-    disease: DiseaseTurboCancer
+      DiseaseBehaviorTurboCancer: 5
+      DiseaseBehaviorFightImmunity: 5

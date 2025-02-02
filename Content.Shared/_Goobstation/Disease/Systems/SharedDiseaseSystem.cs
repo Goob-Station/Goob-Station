@@ -1,31 +1,35 @@
 using Content.Shared.Disease;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.GameObjects;
-using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using System;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared.Disease;
 
-public sealed partial class DiseaseSystem : EntitySystem
+public abstract partial class SharedDiseaseSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
 
     private TimeSpan _accumulator = TimeSpan.FromSeconds(0);
-    private TimeSpan _updateInterval = TimeSpan.FromSeconds(0.5f); // update every half-second to not lag the game
+
+    /// <summary>
+    /// The interval between updates of disease and disease effect entities
+    /// </summary>
+    public TimeSpan UpdateInterval = TimeSpan.FromSeconds(0.5f); // update every half-second to not lag the game
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<DiseaseCarrierComponent, ComponentStartup>(OnDiseaseCarrierAdded);
+        SubscribeLocalEvent<DiseaseCarrierComponent, MapInitEvent>(OnDiseaseCarrierInit);
         SubscribeLocalEvent<DiseaseCarrierComponent, DiseaseCuredEvent>(OnDiseaseCured);
-        SubscribeLocalEvent<DiseaseComponent, ComponentStartup>(OnDiseaseAdded);
+
+        SubscribeLocalEvent<DiseaseComponent, MapInitEvent>(OnDiseaseInit);
         SubscribeLocalEvent<DiseaseComponent, DiseaseUpdateEvent>(OnUpdateDisease);
 
+        InitializeConditions();
         InitializeEffects();
         InitializeImmunity();
     }
@@ -35,9 +39,9 @@ public sealed partial class DiseaseSystem : EntitySystem
         base.Update(frameTime);
 
         _accumulator += TimeSpan.FromSeconds(frameTime);
-        if (_accumulator < _updateInterval)
+        if (_accumulator < UpdateInterval)
             return;
-        _accumulator -= _updateInterval;
+        _accumulator -= UpdateInterval;
 
         var diseaseCarriers = EntityQueryEnumerator<DiseaseCarrierComponent>();
         while (diseaseCarriers.MoveNext(out var uid, out var diseaseCarrier))
@@ -55,7 +59,7 @@ public sealed partial class DiseaseSystem : EntitySystem
         }
     }
 
-    private void OnDiseaseCarrierAdded(EntityUid uid, DiseaseCarrierComponent diseaseCarrier, ComponentStartup args)
+    private void OnDiseaseCarrierInit(EntityUid uid, DiseaseCarrierComponent diseaseCarrier, MapInitEvent args)
     {
         foreach (var diseaseId in diseaseCarrier.StartingDiseases)
         {
@@ -63,22 +67,32 @@ public sealed partial class DiseaseSystem : EntitySystem
         }
     }
 
+    private void OnDiseaseInit(EntityUid uid, DiseaseComponent disease, MapInitEvent args)
+    {
+        // check if disease is a preset
+        if (disease.StartingEffects.Count == 0)
+            return;
+
+        float complexity = 0f;
+        foreach (var effectSpecifier in disease.StartingEffects)
+        {
+            if (TryAdjustEffect(uid, effectSpecifier.Key, out var effect, effectSpecifier.Value, disease))
+                complexity += effect.Value.Comp.Severity * effect.Value.Comp.Complexity;
+        }
+        // disease is a preset so set the complexity
+        disease.Complexity = complexity;
+
+        Dirty(uid, disease);
+    }
+
     private void OnDiseaseCured(EntityUid uid, DiseaseCarrierComponent diseaseCarrier, DiseaseCuredEvent args)
     {
         TryCure(uid, args.DiseaseCured.Owner, diseaseCarrier);
     }
 
-    private void OnDiseaseAdded(EntityUid uid, DiseaseComponent disease, ComponentStartup args)
-    {
-        foreach (var effectId in disease.StartingEffects)
-        {
-            TryAddEffect(uid, effectId, out _, disease);
-        }
-    }
-
     private void OnUpdateDisease(EntityUid uid, DiseaseComponent disease, DiseaseUpdateEvent args)
     {
-        var timeDelta = (float)_updateInterval.TotalSeconds;
+        var timeDelta = (float)UpdateInterval.TotalSeconds;
         var alive = !_mobState.IsDead(args.Ent) || disease.AffectsDead;
 
         if (alive)
@@ -88,8 +102,14 @@ public sealed partial class DiseaseSystem : EntitySystem
                 if (!TryComp<DiseaseEffectComponent>(effectUid, out var effect))
                     return;
 
-                var effectEv = new DiseaseEffectEvent(args.Ent, (uid, disease), timeDelta * disease.InfectionProgress * effect.Severity);
-                RaiseLocalEvent(effectUid, effectEv);
+                var strength = disease.InfectionProgress * effect.Severity;
+                var conditionsEv = new DiseaseCheckConditionsEvent(strength, UpdateInterval);
+                RaiseLocalEvent(effectUid, ref conditionsEv);
+                if (conditionsEv.DoEffect)
+                {
+                    var effectEv = new DiseaseEffectEvent(args.Ent, (uid, disease), strength, UpdateInterval);
+                    RaiseLocalEvent(effectUid, effectEv);
+                }
             }
         }
 
@@ -113,8 +133,6 @@ public sealed partial class DiseaseSystem : EntitySystem
             var curedEv = new DiseaseCuredEvent((uid, disease));
             RaiseLocalEvent(args.Ent, curedEv);
         }
-
-        Dirty(uid, disease);
     }
 
     #region public API
@@ -130,6 +148,7 @@ public sealed partial class DiseaseSystem : EntitySystem
             return;
 
         comp.InfectionProgress = Math.Clamp(comp.InfectionProgress + amount, 0f, 1f);
+        Dirty(uid, comp);
     }
 
     /// <summary>
@@ -141,6 +160,7 @@ public sealed partial class DiseaseSystem : EntitySystem
             return;
 
         comp.ImmunityProgress = Math.Clamp(comp.ImmunityProgress + amount, 0f, 1f);
+        Dirty(uid, comp);
     }
 
     #endregion
@@ -181,18 +201,10 @@ public sealed partial class DiseaseSystem : EntitySystem
     /// <summary>
     /// Tries to cure the entity of the given disease entity
     /// </summary>
-    public bool TryCure(EntityUid uid, EntityUid disease, DiseaseCarrierComponent? comp = null)
+    public virtual bool TryCure(EntityUid uid, EntityUid disease, DiseaseCarrierComponent? comp = null)
     {
-        if (_net.IsClient || !Resolve(uid, ref comp))
-            return false;
-
-        if (comp.Diseases.Remove(disease))
-            QueueDel(disease);
-        else
-            return false;
-
-        Dirty(uid, comp);
-        return true;
+        // does nothing on client
+        return false;
     }
 
     /// <summary>
@@ -226,20 +238,11 @@ public sealed partial class DiseaseSystem : EntitySystem
     /// <summary>
     /// Tries to infect the entity with a given disease prototype
     /// </summary>
-    public bool TryInfect(EntityUid uid, EntProtoId diseaseId, [NotNullWhen(true)] out EntityUid? disease, DiseaseCarrierComponent? comp = null, bool force = false)
+    public virtual bool TryInfect(EntityUid uid, EntProtoId diseaseId, [NotNullWhen(true)] out EntityUid? disease, DiseaseCarrierComponent? comp = null, bool force = false)
     {
+        // does nothing on client
         disease = null;
-        if (_net.IsClient || !Resolve(uid, ref comp, false))
-            return false;
-
-        var spawned = Spawn(diseaseId);
-        if (!TryInfect(uid, spawned, comp, force))
-        {
-            QueueDel(spawned);
-            return false;
-        }
-        disease = spawned;
-        return true;
+        return false;
     }
 
     #endregion
