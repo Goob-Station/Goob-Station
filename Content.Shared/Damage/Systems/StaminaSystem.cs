@@ -223,6 +223,7 @@ public sealed partial class StaminaSystem : EntitySystem
         damage += hitEvent.FlatModifier;
 
         TakeStaminaDamage(target, damage, source: uid, sound: component.Sound);
+        TakeOvertimeStaminaDamage(target, component.Overtime); // Goobstation
     }
 
     private void SetStaminaAlert(EntityUid uid, StaminaComponent? component = null)
