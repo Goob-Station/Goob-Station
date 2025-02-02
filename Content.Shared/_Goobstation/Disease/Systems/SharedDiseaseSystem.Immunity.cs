@@ -1,6 +1,6 @@
 namespace Content.Shared.Disease;
 
-public sealed partial class DiseaseSystem
+public partial class SharedDiseaseSystem
 {
     private void InitializeImmunity()
     {

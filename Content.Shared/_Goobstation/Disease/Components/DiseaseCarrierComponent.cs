@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Disease;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(DiseaseSystem))] // add/remove diseases using the system's methods
+[Access(typeof(SharedDiseaseSystem))] // add/remove diseases using the system's methods
 public sealed partial class DiseaseCarrierComponent : Component
 {
     /// <summary>

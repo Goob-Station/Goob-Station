@@ -5,7 +5,7 @@ using System;
 namespace Content.Shared.Disease;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(DiseaseSystem), Other = AccessPermissions.ReadExecute)] // if the system's methods don't let you do something you want, add a method for it
+[Access(typeof(SharedDiseaseSystem), Other = AccessPermissions.ReadExecute)] // if the system's methods don't let you do something you want, add a method for it
 public sealed partial class DiseaseComponent : Component
 {
     // <state>
@@ -36,10 +36,10 @@ public sealed partial class DiseaseComponent : Component
     // <parameters>
 
     /// <summary>
-    /// Effects to add on component startup
+    /// Dictionary of effects to add on component startup to their respective severities
     /// </summary>
     [DataField("effects")]
-    public List<EntProtoId> StartingEffects = new();
+    public Dictionary<EntProtoId, float> StartingEffects = new();
 
     /// <summary>
     /// How much to increase <see cref="InfectionProgress"/> per second

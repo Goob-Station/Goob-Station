@@ -6,7 +6,7 @@ namespace Content.Shared.Disease;
 
 public sealed partial class DiseaseOnHitSystem : EntitySystem
 {
-    [Dependency] private readonly DiseaseSystem _disease = default!;
+    [Dependency] private readonly SharedDiseaseSystem _disease = default!;
 
     public override void Initialize()
     {
