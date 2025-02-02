@@ -96,7 +96,7 @@
   id: Nukeops
   components:
   - type: GameRule
-    minPlayers: 20
+    minPlayers: 30
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml # goob edit
   - type: AntagSelection
@@ -176,13 +176,13 @@
   id: Traitor
   components:
   - type: GameRule
-    minPlayers: 5
+    minPlayers: 9 # Reserve edit, min 9 playes for traitors 
   - type: AntagSelection
     selectionTime: BeforeJobs # Goobstation
     definitions:
     - prefRoles: [ Traitor ]
       max: 8
-      playerRatio: 10
+      playerRatio: 12 # Reserve edit, 12 crews to 1 traitor
       blacklist:
         components:
         - AntagImmune

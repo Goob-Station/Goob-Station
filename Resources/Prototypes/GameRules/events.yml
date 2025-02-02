@@ -499,7 +499,7 @@
   components:
   - type: StationEvent
     earliestStart: 30
-    weight: 8
+    weight: 4 # Reserve edit, 2x times less
     minimumPlayers: 15
     maxOccurrences: 1 # can only happen once per round
     startAnnouncement: station-event-communication-interception
