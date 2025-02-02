@@ -68,10 +68,10 @@
     sprite: _Goobstation/Clothing/Eyes/Glasses/brokenglasses.rsi
   - type: Tag
     tags:
-      - Trash
+    - Trash
   - type: PhysicalComposition
     materialComposition:
       Glass: 125
       Steel: 125
   - type: StaticPrice
-      price: 38
+    price: 38
