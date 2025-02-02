@@ -3,6 +3,11 @@ namespace Content.Server._Lavaland.Mobs.Hierophant.Components;
 [RegisterComponent]
 public sealed partial class HierophantBossComponent : MegafaunaComponent
 {
+    /// <summary>
+    /// Amount of time for one damaging tile to charge up and deal the damage to anyone above it.
+    /// </summary>
+    public const float TileDamageDelay = 0.6f;
+
     // FYI don't use these delays as they are, better use the GetDelay() system method since it accounts for anger.
 
     /// <summary>
@@ -23,25 +28,25 @@ public sealed partial class HierophantBossComponent : MegafaunaComponent
     public float MaxAnger = 3f;
 
     [DataField]
-    public float InterActionDelay = 1.5f * 1000f;
+    public float InterActionDelay = 3 * TileDamageDelay * 1000f;
 
     [DataField]
-    public float MajorAttackCooldown = 5f;
+    public float MajorAttackCooldown = 12f * TileDamageDelay;
 
     [ViewVariables]
-    public float MajorAttackTimer = 5f;
+    public float MajorAttackTimer = 12f * TileDamageDelay;
 
     [DataField]
-    public float AttackCooldown = 4f;
+    public float AttackCooldown = 8f * TileDamageDelay;
 
     [ViewVariables]
-    public float AttackTimer = 2f;
+    public float AttackTimer = 4f * TileDamageDelay;
 
     [DataField]
-    public float MinAttackCooldown = 2f;
+    public float MinAttackCooldown = 3f * TileDamageDelay;
 
     [DataField]
-    public float MinMajorAttackCooldown = 3f;
+    public float MinMajorAttackCooldown = 6f * TileDamageDelay;
 
     [DataField]
     public float MeleeReactionCooldown = 10f;

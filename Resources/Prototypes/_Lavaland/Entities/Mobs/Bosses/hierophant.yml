@@ -1,9 +1,46 @@
 - type: entity
-  parent: [ LavalandMobBase ]
   id: LavalandBossHierophant
   name: hierophant
   description: A massive metal club that hangs in the air as though waiting. It'll make you dance to its beat.
   components:
+  # Basic stuff
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.6,0.35,0.6"
+        density: 50
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Clickable
+  - type: InteractionOutline
+  - type: InputMover
+  - type: Input
+    context: "human"
+  - type: LagCompensation
+  - type: MobMover
+  - type: Actions
+  - type: Appearance
+  - type: RotationVisuals
+    defaultRotation: 0
+    horizontalRotation: 0
+  - type: DoAfter
+  - type: Examiner
+  - type: Eye
+  - type: ContentEye
+  - type: RequireProjectileTarget
+    active: False
+  - type: CombatMode
+  - type: MobState
+  # Actual boss from here
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Hierophant
   - type: Sprite
     noRot: true
     drawdepth: Mobs
@@ -20,16 +57,6 @@
     tags:
     - CannotSuicide
   - type: NoSlip
-  # insert npc combat stuff here
-  - type: MeleeWeapon
-    soundHit:
-      path: "/Audio/Weapons/smash.ogg"
-    angle: 0
-    attackRate: 0.5
-    animation: WeaponArcPunch
-    damage:
-      types:
-        Blunt: 20
   - type: HierophantBoss # boss specific component. defines pattern/scripted attacks and other stuff
     loot: BikeHorn
     crusherLoot: GoldenBikeHorn
@@ -104,3 +131,9 @@
     anchored: true
   - type: HierophantChaser
     spawnPrototype: LavalandHierophantSquare
+
+- type: damageModifierSet
+  id: Hierophant
+  coefficients:
+    Piercing: 0.1 # No bullets
+    Burn: 0.5 # No lasers

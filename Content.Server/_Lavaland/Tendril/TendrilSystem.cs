@@ -1,6 +1,8 @@
 using System.Linq;
 using Content.Server._Lavaland.Tendril.Components;
+using Content.Shared.Damage;
 using Content.Shared.Destructible;
+using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
@@ -12,6 +14,7 @@ namespace Content.Server._Lavaland.Tendril;
 public sealed class TendrilSystem : EntitySystem
 {
     [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IGameTiming _time = default!;
@@ -60,18 +63,31 @@ public sealed class TendrilSystem : EntitySystem
 
     private void OnTendrilStartup(EntityUid uid, TendrilComponent comp, ComponentStartup args)
     {
-        comp.LastSpawn = _time.CurTime;
+        comp.LastSpawn = _time.CurTime + TimeSpan.FromSeconds(5);
     }
 
     private void OnTendrilMobDeath(EntityUid uid, TendrilComponent comp, ref TendrilMobDeadEvent args)
     {
         comp.Mobs.Remove(args.Entity);
+        comp.DefeatedMobs++;
+
+        // John Shitcode
+        if (comp.DefeatedMobs >= comp.MobsToDefeat)
+        {
+            comp.DestroyedWithMobs = true;
+            _damage.TryChangeDamage(uid, new DamageSpecifier { DamageDict = new Dictionary<string, FixedPoint2> {{ "Blunt", 1000 }} });
+        }
     }
 
     private void OnTendrilDestruction(EntityUid uid, TendrilComponent comp, DestructionEventArgs args)
     {
         var coords = Transform(uid).Coordinates;
-        Timer.Spawn(TimeSpan.FromSeconds(comp.ChasmDelay),
+        var delay = comp.ChasmDelay;
+
+        if (comp.DestroyedWithMobs)
+            delay = comp.ChasmDelayOnMobsDefeat;
+
+        Timer.Spawn(TimeSpan.FromSeconds(delay),
             () =>
         {
             SpawnChasm(coords, comp.ChasmRadius);
@@ -99,8 +115,10 @@ public sealed class TendrilSystem : EntitySystem
     {
         if (args.NewMobState != MobState.Dead)
             return;
+
         if (!comp.Tendril.HasValue)
             return;
+
         var ev = new TendrilMobDeadEvent(uid);
         RaiseLocalEvent(comp.Tendril.Value, ref ev);
     }

@@ -1,6 +1,5 @@
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
-using System.Linq;
 using System.Numerics;
 using Content.Server._Lavaland.Mobs.Hierophant.Components;
 
@@ -11,7 +10,7 @@ namespace Content.Server._Lavaland.Mobs.Hierophant;
 ///     It searches for the player, picks a neat position and spawns itself with something else
 ///     (in our case hierophant damaging square).
 /// </summary>
-public sealed partial class HierophantChaserSystem : EntitySystem
+public sealed class HierophantChaserSystem : EntitySystem
 {
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -25,6 +24,9 @@ public sealed partial class HierophantChaserSystem : EntitySystem
         var chasers = new List<(EntityUid, HierophantChaserComponent)>();
         while (eqe.MoveNext(out var uid, out var comp))
         {
+            if (TerminatingOrDeleted(uid))
+                continue;
+
             var delta = frameTime * comp.Speed;
             comp.CooldownTimer -= delta;
 
@@ -56,47 +58,69 @@ public sealed partial class HierophantChaserSystem : EntitySystem
             return;
 
         var xform = Transform(ent);
-
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
+        {
             return;
+        }
 
-        var gridEnt = ((EntityUid) xform.GridUid!, grid);
+        var gridEnt = (xform.GridUid.Value, grid);
 
-        // get it's own map position
-        var pos = _xform.GetWorldPosition(ent.Owner);
-        var confines = new Box2(pos - Vector2.One, pos + Vector2.One);
+        // get tile position of the chaser
+        if (!_xform.TryGetGridTilePosition((ent.Owner, ent.Comp2), out var tilePos, grid))
+        {
+            QueueDel(ent);
+            return;
+        }
 
-        // get random position tiles pool
-        var randomPos = _map.GetLocalTilesIntersecting(ent, grid, confines).ToList();
-        var deltaPos = Vector2.Zero;
+        var deltaPos = Vector2i.Zero;
 
         // if there is a target get it's position delta instead
-        if (ent.Comp1.Target != null)
+        if (ent.Comp1.Target != null &&
+            !TerminatingOrDeleted(ent.Comp1.Target))
         {
-            var entPos = _xform.GetWorldPosition(ent.Comp1.Target.Value);
+            var target = ent.Comp1.Target.Value;
 
-            // At first, chaser will try to catch the target on X axis
-            if (Math.Abs(Math.Round(entPos.X) - Math.Round(pos.X)) > 0.5)
+            // get tile position of the target
+            if (!_xform.TryGetGridTilePosition((target, Transform(target)), out var tileTargetPos, grid))
             {
-                deltaPos = new Vector2(entPos.X, pos.Y) - pos;
+                // If not on our grid that is equal to no target
+                QueueDel(ent);
+                return;
             }
-            // Else we just try to catch the target by attacking from Y axis
+
+            // Try to align chaser with the target by Y axis. before making it the target.
+            // If we're not at the required Y, choose our current X and its Y as the target
+            if (tileTargetPos.Y == tilePos.Y)
+            {
+                deltaPos = tileTargetPos;
+            }
             else
             {
-                deltaPos = entPos - pos;
+                deltaPos = new Vector2i(tilePos.X, tileTargetPos.Y);
             }
         }
 
-        // if the target is still missing we'll just pick a random tile
-        if (deltaPos == Vector2.Zero && randomPos.Count > 0)
-            deltaPos = _random.Pick(randomPos).GridIndices;
+        var directions = new List<Vector2i>
+        {
+            new(1, 0),
+            new(0, 1),
+            new(-1, 0),
+            new(0, -0),
+        };
+
+        // if the target is still missing we move randomly
+        if (deltaPos == Vector2.Zero)
+        {
+            deltaPos = _random.Pick(directions);
+        }
 
         // translate it
         deltaPos = TranslateDelta(deltaPos);
 
         // spawn damaging square and set new position
-        Spawn(ent.Comp1.SpawnPrototype, xform.Coordinates);
-        _xform.SetWorldPosition(ent.Owner, pos + deltaPos);
+        var newPos = _map.GridTileToWorld(xform.GridUid.Value, grid, tilePos + deltaPos);
+        Spawn(ent.Comp1.SpawnPrototype, newPos);
+        _xform.SetMapCoordinates(ent, newPos);
 
         // handle steps
         ent.Comp1.Steps += 1;
@@ -106,14 +130,16 @@ public sealed partial class HierophantChaserSystem : EntitySystem
 
     private Vector2i TranslateDelta(Vector2 delta)
     {
-        int x = 0, y = 0;
+        int x, y;
 
         x = (int) Math.Clamp(MathF.Round(delta.X, 0), -1, 1);
         y = (int) Math.Clamp(MathF.Round(delta.Y, 0), -1, 1);
 
         // made for square-like movement
-        if (Math.Abs(x) >= Math.Abs(y)) y = 0;
-        else x = 0;
+        if (Math.Abs(x) >= Math.Abs(y))
+            y = 0;
+        else
+            x = 0;
 
         var translated = new Vector2i(x, y);
 

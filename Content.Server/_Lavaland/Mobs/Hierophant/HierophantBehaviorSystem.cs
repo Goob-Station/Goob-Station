@@ -54,7 +54,7 @@ public sealed class HierophantBehaviorSystem : EntitySystem
             SpawnChasers(ent);
         }
 
-        AdjustAnger(ent, .2f);
+        AdjustAnger(ent, .1f);
     }
 
     public override void Update(float frameTime)
@@ -83,6 +83,8 @@ public sealed class HierophantBehaviorSystem : EntitySystem
                     DoMinorAttack(ent);
                     comp.AttackTimer = Math.Max(comp.AttackCooldown / comp.CurrentAnger * 0.8f, comp.MinAttackCooldown);
                     AdjustAnger(ent, -.15f);
+
+                    comp.MajorAttackTimer += HierophantBossComponent.TileDamageDelay;
                 });
 
                 TickTimer(ent, ref comp.MajorAttackTimer, frameTime, () =>
@@ -90,6 +92,8 @@ public sealed class HierophantBehaviorSystem : EntitySystem
                     DoMajorAttack(ent);
                     comp.MajorAttackTimer = Math.Max(comp.MajorAttackCooldown / comp.CurrentAnger * 0.8f, comp.MinMajorAttackCooldown);
                     AdjustAnger(ent, -.25f);
+
+                    comp.AttackTimer += HierophantBossComponent.TileDamageDelay;
                 });
 
                 if (comp.Meleed)
@@ -153,19 +157,21 @@ public sealed class HierophantBehaviorSystem : EntitySystem
     public async void DoMajorAttack(Entity<HierophantBossComponent> ent)
     {
         var target = PickTarget(ent);
-        if (target == null)
-            target = ent;
 
-        var attackPower = _random.Next(1, 2);
-        var attackPowerAngered = (int) (attackPower * ent.Comp.CurrentAnger);
+        // Major attacks are always strong
+        var rounding = MidpointRounding.AwayFromZero;
 
-        var actions = new List<Action>()
+        // Attack amount is just rounded up anger
+        var attackPower = (int) Math.Round(ent.Comp.CurrentAnger, rounding);
+        var actions = new List<Action>
         {
-            //() => { BlinkRandom(ent, _xform.GetWorldPosition((EntityUid) target), (int) (attackPower / 2)); },
-            () => { DamageArea(ent, target, attackPowerAngered + 2); },
-            () => { SpawnCrosses(ent, target, attackPowerAngered); }
-            // todo spawn crosses
+            () => { DamageArea(ent, target, attackPower * 2 + 1); },
+            () => { SpawnCrosses(ent, target, attackPower); },
         };
+
+        // Add blink action if there's a target to teleport
+        if (target != null)
+            actions.Add( () => { BlinkRandom(ent, _xform.GetWorldPosition(target.Value), attackPower); } );
 
         if (TerminatingOrDeleted(ent))
             return;
@@ -175,17 +181,18 @@ public sealed class HierophantBehaviorSystem : EntitySystem
     public async void DoMinorAttack(Entity<HierophantBossComponent> ent)
     {
         var target = PickTarget(ent);
-        if (target == null)
-            target = ent;
 
-        var attackPower = _random.Next(1, 3);
+        // How we round up our anger level, to bigger value or the lower.
+        var rounding = _random.Next(0, 1) == 1 ? MidpointRounding.AwayFromZero : MidpointRounding.ToZero;
+
+        // Attack amount is just rounded up anger
+        var attackPower = (int) Math.Round(ent.Comp.CurrentAnger, rounding);
 
         var actions = new List<Action>()
         {
-            () => { BlinkRandom(ent, _xform.GetWorldPosition((EntityUid) target)); },
-            () => { SpawnChasers(ent, attackPower); },
-            () => { SpawnCrosses(ent, target, attackPower); }
-            // todo spawn crosses
+            () => { SpawnChasers(ent); },
+            () => { SpawnCrosses(ent, target, attackPower); },
+            () => { DamageArea(ent, target, attackPower + 1); },
         };
 
         if (TerminatingOrDeleted(ent))
@@ -202,9 +209,7 @@ public sealed class HierophantBehaviorSystem : EntitySystem
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Machines/airlock_ext_open.ogg"), ent, AudioParams.Default.WithMaxDistance(10f));
 
-        target = target ?? PickTarget(ent);
-        if (target == null)
-            target = ent;
+        target = (target ?? PickTarget(ent)) ?? ent;
 
         // we need this beacon in order for damage box to not break apart
         var beacon = Spawn(null, _xform.GetMapCoordinates((EntityUid) target));
@@ -247,8 +252,10 @@ public sealed class HierophantBehaviorSystem : EntitySystem
             if (TerminatingOrDeleted(ent))
                 return;
 
-            var entPos = relativePos ?? _xform.GetWorldPosition(ent);
-            await Blink(ent, entPos);
+            if (relativePos == null)
+                return;
+
+            await Blink(ent, relativePos.Value);
             await Task.Delay((int) GetDelay(ent, ent.Comp.InterActionDelay));
         }
     }
@@ -313,7 +320,7 @@ public sealed class HierophantBehaviorSystem : EntitySystem
         SpawnDamageBox(ent, 1, false);
         SpawnDamageBox(dummy, 1, false);
 
-        await Task.Delay(600); // 600ms according to the chargeup of hiero damage square
+        await Task.Delay((int)(HierophantBossComponent.TileDamageDelay * 1000));
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), Transform(ent).Coordinates, AudioParams.Default.WithMaxDistance(10f));
 
@@ -365,7 +372,7 @@ public sealed class HierophantBehaviorSystem : EntitySystem
 
     public float GetDelay(Entity<HierophantBossComponent> ent, float baseDelay)
     {
-        var minDelay = Math.Max(baseDelay / 2.5f, .1f);
+        var minDelay = Math.Max(baseDelay / 2.5f, HierophantBossComponent.TileDamageDelay);
 
         return Math.Max(baseDelay - (baseDelay * ent.Comp.CurrentAnger), minDelay);
     }
