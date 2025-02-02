@@ -3,7 +3,7 @@
   id: WallAbductorDiagonal
   name: shuttle wall
   suffix: Diagonal
-  description: Keeps the air in and the bloodthirsy salvagers out.
+  description: Keeps the air in and the bloodthirsty salvagers out.
   placement:
     mode: SnapgridCenter
     snap:
