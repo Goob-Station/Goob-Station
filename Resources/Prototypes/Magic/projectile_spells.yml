@@ -6,6 +6,9 @@
   - type: Magic
     requiresSpeech: true # Goobstation
     school: Evocation # Goobstation
+  - type: Sprite # Goobstation - for apprentices
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: fireball
   - type: EntityWorldTargetAction # Goob edit
     useDelay: 6 # Goob edit
     checkCanInteract: false # Goobstation

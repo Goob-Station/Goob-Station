@@ -669,6 +669,7 @@ public abstract class SharedMagicSystem : EntitySystem
             typeof(RevolutionaryComponent),
             typeof(HeadRevolutionaryComponent),
             typeof(WizardComponent),
+            typeof(ApprenticeComponent),
         };
 
         foreach (var component in components)

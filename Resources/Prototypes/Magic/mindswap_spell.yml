@@ -23,6 +23,9 @@
         path: /Audio/_Goobstation/Wizard/mandswap.ogg
       performerStunDuration: 5 # Goobstation
       targetStunDuration: 5 # Goobstation
+  - type: Sprite # Goobstation - for apprentices
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: mindswap
   - type: Magic # Goobstation
     requiresSpeech: true
     school: Transmutation

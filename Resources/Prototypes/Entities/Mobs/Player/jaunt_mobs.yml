@@ -40,3 +40,5 @@
     baseSprintSpeed: 3 # Goob edit
     baseWalkSpeed: 3 # Goob edit
   - type: WizardJaunt # Goobstation
+  - type: IsDeadIC # Goobstation
+    dead: false

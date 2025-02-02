@@ -69,6 +69,7 @@ public sealed class WizardMirrorSystem : SharedWizardMirrorSystem
                 ComponentsToTransfer = new()
                 {
                     "Wizard",
+                    "Apprentice",
                     "NpcFactionMember",
                 },
             };

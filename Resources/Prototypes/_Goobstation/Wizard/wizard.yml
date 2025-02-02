@@ -8,6 +8,16 @@
     exclusiveAntag: true
   - type: WizardRole
 
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleApprentice
+  name: Apprentice Role
+  components:
+  - type: MindRole
+    antagPrototype: Apprentice
+    exclusiveAntag: true
+  - type: ApprenticeRole
+
 - type: antag
   id: Wizard
   name: roles-antag-wizard-name
@@ -18,6 +28,13 @@
   - !type:OverallPlaytimeRequirement
     time: 54000 # 15h
   # guides: [ Wizard ]
+
+- type: antag
+  id: Apprentice
+  name: roles-antag-apprentice-name
+  antagonist: true
+  setPreference: false
+  objective: roles-antag-apprentice-description
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
@@ -52,15 +69,29 @@
 
 - type: factionIcon
   id: WizardFaction
-  isShaded: true
+  isShaded: false
   priority: 11
   showTo:
     components:
       - ShowAntagIcons
       - Wizard
+      - Apprentice
   icon:
     sprite: /Textures/_Goobstation/Wizard/StatusIcons/10x10.rsi
     state: wizard
+
+- type: factionIcon
+  id: ApprenticeFaction
+  isShaded: false
+  priority: 11
+  showTo:
+    components:
+      - ShowAntagIcons
+      - Wizard
+      - Apprentice
+  icon:
+    sprite: /Textures/_Goobstation/Wizard/StatusIcons/10x10.rsi
+    state: apprentice
 
 - type: entity
   id: BaseStationWizardTarget

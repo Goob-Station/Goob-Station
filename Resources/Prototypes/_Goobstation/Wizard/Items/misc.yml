@@ -42,7 +42,17 @@
     key: enum.WizardTeleportUiKey.Key
   - type: TeleportScroll
   - type: StaticPrice
-    price: 5000
+    price: 1000
+
+- type: entity
+  name: scroll of teleportation
+  description: This scroll can teleport you anywhere on the station. Only has one use.
+  parent: ScrollTeleport
+  id: ScrollTeleportApprentice
+  suffix: Apprentice
+  components:
+  - type: TeleportScroll
+    usesLeft: 1
 
 - type: entity
   name: lightning bolt spell packet
@@ -81,3 +91,46 @@
   - type: EmbeddableProjectile
     deleteOnRemove: true
     offset: 0.0,-0.5
+
+- type: entity
+  name: contract of apprenticeship
+  description: A magic contract previously signed by an apprentice. In exchange for instruction in the magical arts, they are bound to answer your call for aid.
+  parent: [BaseItem, BaseMagicContraband]
+  id: ContractApprenticeship
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    state: scroll2
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    slots:
+      - Belt
+  - type: Item
+    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+  - type: UserInterface
+    interfaces:
+      enum.GhostRoleRadioUiKey.Key:
+        type: GhostRoleRadioBoundUserInterface
+  - type: ActivatableUI
+    key: enum.GhostRoleRadioUiKey.Key
+  - type: GhostRole
+    name: ghost-role-information-apprentice-destruction-name
+    description: ghost-role-information-apprentice-destruction-desc
+    rules: ghost-role-information-apprentice-rules
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanApprenticeDestruction
+    selectablePrototypes:
+    - ApprenticeDestruction
+    - ApprenticeEthereal
+    - ApprenticeSummon
+    - ApprenticeGun
+    - ApprenticeArcane
+    - ApprenticeSanguine
+    - ApprenticeRobeless
+    - ApprenticeChaos
+  - type: GrantTargetObjectiveOnGhostTakeover
+    objective: KeepWizardAliveObjective
+  - type: StaticPrice
+    price: 1000

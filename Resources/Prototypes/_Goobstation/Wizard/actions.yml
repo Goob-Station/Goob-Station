@@ -508,6 +508,9 @@
   name: Lesser Summon Guns
   description: Summon an unending stream of bolt action rifles.
   components:
+  - type: Sprite # For apprentices
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: bolt_action
   - type: InstantAction
     raiseOnUser: true
     useDelay: 60
@@ -576,6 +579,9 @@
   name: Scream For Me
   description: This wicked spell inflicts many severe wounds on your target, causing them to likely bleed to death unless they receive immediate medical attention.
   components:
+  - type: Sprite # For apprentices
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: scream_for_me
   - type: EntityTargetAction
     raiseOnUser: true
     useDelay: 60
@@ -682,6 +688,9 @@
   name: Lesser Summon Bees
   description: This spell magically kicks a transdimensional beehive, instantly summoning a swarm of bees to your location.
   components:
+  - type: Sprite # For apprentices
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: bee
   - type: InstantAction
     raiseOnUser: true
     checkCanIteract: false

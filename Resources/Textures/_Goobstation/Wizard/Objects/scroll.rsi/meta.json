@@ -11,6 +11,9 @@
       "name": "scroll"
     },
     {
+      "name": "scroll2"
+    },
+    {
       "name": "equipped-BELT",
       "directions": 4
     },

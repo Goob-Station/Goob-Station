@@ -73,5 +73,6 @@
     allowRepeatedMorphs: true
     componentsToTransfer:
     - Wizard
+    - Apprentice
     - TimedDespawn
     - FadingTimedDespawn

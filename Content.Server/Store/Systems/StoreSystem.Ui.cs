@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server._Goobstation.Wizard.Store;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
 using Content.Server.Heretic.EntitySystems;
@@ -202,6 +203,8 @@ public sealed partial class StoreSystem
         {
             var product = Spawn(listing.ProductEntity, Transform(buyer).Coordinates);
             _hands.PickupOrDrop(buyer, product);
+
+            RaiseLocalEvent(product, new ItemPurchasedEvent(buyer));
 
             HandleRefundComp(uid, component, product, listing.Cost, listing); // Goob edit
 

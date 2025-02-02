@@ -26,3 +26,72 @@
     mask: ClothingMaskGasOblivionEnforcer
     shoes: ClothingShoesColorWhite
     back: ClothingBackpack
+
+- type: startingGear
+  id: ApprenticeGearBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorDarkBlue
+    head: ClothingHeadHatWizardReal
+    outerClothing: ClothingOuterWizardReal
+    shoes: ClothingShoesWizard
+    back: ClothingBackpack
+    belt: ScrollTeleportApprentice
+
+- type: startingGear
+  id: ApprenticeGearRed
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorRed
+    head: ClothingHeadHatRedwizardReal
+    outerClothing: ClothingOuterWizardRedReal
+    shoes: ClothingShoesWizard
+    back: ClothingBackpack
+    belt: ScrollTeleportApprentice
+
+- type: startingGear
+  id: ApprenticeGearPurple
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorPurple
+    head: ClothingHeadHatVioletwizardReal
+    outerClothing: ClothingOuterWizardVioletReal
+    shoes: ClothingShoesWizard
+    back: ClothingBackpack
+    belt: ScrollTeleportApprentice
+
+- type: startingGear
+  id: ApprenticeGearBlack
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBlack
+    head: ClothingHeadHatBlackwizardReal
+    outerClothing: ClothingOuterWizardBlackReal
+    shoes: ClothingShoesWizard
+    back: ClothingBackpack
+    belt: ScrollTeleportApprentice
+
+- type: startingGear
+  id: ApprenticeGearYellow
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorYellow
+    head: ClothingHeadHatYellowwizardReal
+    outerClothing: ClothingOuterWizardYellowReal
+    shoes: ClothingShoesWizard
+    back: ClothingBackpack
+    belt: ScrollTeleportApprentice
+
+- type: startingGear
+  id: ApprenticeGearRobeless
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorDarkBlue
+    outerClothing: ClothingOuterVestTank
+    shoes: ClothingShoesWizard
+    back: ClothingBackpack
+    belt: ScrollTeleportApprentice
+
+- type: startingGear
+  id: ApprenticeGearPsy
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorPurple
+    head: ClothingHeadHatPsyReal
+    outerClothing: ClothingOuterWizardPsyReal
+    shoes: ClothingShoesWizard
+    back: ClothingBackpack
+    belt: ScrollTeleportApprentice

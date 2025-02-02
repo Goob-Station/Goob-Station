@@ -62,6 +62,9 @@
   - type: Magic
     requiresClothes: true # Goobstation
     school: Translocation # Goobstation
+  - type: Sprite # Goobstation - for apprentices
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: jaunt
   - type: InstantAction
     useDelay: 30
     raiseOnUser: true # Goobstation

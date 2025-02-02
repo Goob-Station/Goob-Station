@@ -14,6 +14,9 @@
       state: charge # Goob edit
     event: !type:ChargeMagicEvent # Goob edit
       speech: action-speech-spell-charge # Goob edit
+  - type: Sprite # Goobstation - for apprentices
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: charge
   - type: Magic # Goobstation
     requiresSpeech: true
     school: Transmutation

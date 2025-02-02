@@ -101,4 +101,5 @@
     whitelist:
       components:
       - Wizard
+      - Apprentice
       - Ghost

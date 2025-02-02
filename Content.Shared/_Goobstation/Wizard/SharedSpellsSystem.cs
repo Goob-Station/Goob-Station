@@ -210,7 +210,7 @@ public abstract class SharedSpellsSystem : EntitySystem
             _stutter.DoStutter(ev.Target, ev.JitterStutterDuration, true, status);
         }
 
-        var targetWizard = HasComp<WizardComponent>(ev.Target);
+        var targetWizard = HasComp<WizardComponent>(ev.Target) || HasComp<ApprenticeComponent>(ev.Target);
 
         if (!targetWizard)
             EnsureComp<ClumsyComponent>(ev.Target);
@@ -231,7 +231,7 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         Stun.TryParalyze(ev.Target, ev.ParalyzeDuration, true, status);
 
-        var targetWizard = HasComp<WizardComponent>(ev.Target);
+        var targetWizard = HasComp<WizardComponent>(ev.Target) || HasComp<ApprenticeComponent>(ev.Target);
 
         SetGear(ev.Target, ev.Gear, !targetWizard);
 
@@ -1011,7 +1011,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         _magic.Speak(ev);
         ev.Handled = true;
-        return;
     }
 
     private void OnSoulTap(SoulTapEvent ev)

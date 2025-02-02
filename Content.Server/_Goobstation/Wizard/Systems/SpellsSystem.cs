@@ -335,8 +335,13 @@ public sealed class SpellsSystem : SharedSpellsSystem
         if (newEnt == null)
             return false;
 
-        if (ev.MakeWizard && HasComp<WizardComponent>(ev.Performer))
-            EnsureComp<WizardComponent>(newEnt.Value);
+        if (ev.MakeWizard)
+        {
+            if (HasComp<WizardComponent>(ev.Performer))
+                EnsureComp<WizardComponent>(newEnt.Value);
+            if (HasComp<ApprenticeComponent>(ev.Performer))
+                EnsureComp<ApprenticeComponent>(newEnt.Value);
+        }
 
         Audio.PlayPvs(ev.Sound, newEnt.Value);
 

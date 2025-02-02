@@ -515,6 +515,22 @@
   categories:
   - SpellbookEquipment
 
+- type: listing
+  id: SpellbookContractApprenticeship
+  name: spellbook-apprentice-name
+  description: spellbook-apprentice-desc
+  productEntity: ContractApprenticeship
+  icon:
+    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    state: scroll2
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
+
 # Special
 - type: listing
   id: SpellMimeBundle
