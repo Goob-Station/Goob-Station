@@ -1,5 +1,18 @@
 - type: entity
   id: SpawnPointPirates
+  parent: MarkerBase
+  name: pirates
+  components:
+  - type: SpawnPoint
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Clothing/Head/Hats/pirate.rsi
+      state: icon
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  id: SpawnPointPirateCaptain
   parent: BaseAntagSpawner
   name: Pirate spawn point
   components:
