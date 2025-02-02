@@ -40,6 +40,7 @@ public sealed class BinglePitSystem : EntitySystem
         SubscribeLocalEvent<BinglePitComponent, AttackedEvent>(OnAttacked);
         SubscribeLocalEvent<BinglePitFallingComponent, UpdateCanMoveEvent>(OnUpdateCanMove);
     }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -55,8 +56,10 @@ public sealed class BinglePitSystem : EntitySystem
             RemCompDeferred(uid, falling);
         }
     }
+
     private void OnInit(EntityUid uid, BinglePitComponent component, MapInitEvent args)
         => component.Pit = _containerSystem.EnsureContainer<Container>(uid, "pit");
+
     private void OnStepTriggered(EntityUid uid, BinglePitComponent component, ref StepTriggeredOffEvent args)
     {
         // dont swallow bingles
@@ -76,10 +79,11 @@ public sealed class BinglePitSystem : EntitySystem
             component.BinglePoints -= component.SpawnNewAt;
         }
     }
+
     public void StartFalling(EntityUid uid, BinglePitComponent component, EntityUid tripper, bool playSound = true)
     {
-        component.BinglePoints += HasComp<MobStateComponent>(tripper) 
-              ? component.PointsForAlive + (HasComp<HumanoidAppearanceComponent>(tripper) 
+        component.BinglePoints += HasComp<MobStateComponent>(tripper)
+              ? component.PointsForAlive + (HasComp<HumanoidAppearanceComponent>(tripper)
               ? component.AdditionalPointsForHuman : 0) : 1;
 
         if (TryComp<PullableComponent>(tripper, out var pullable) && pullable.BeingPulled)
@@ -94,8 +98,10 @@ public sealed class BinglePitSystem : EntitySystem
             _audio.PlayPvs(component.FallingSound, uid);
 
     }
+
     private void OnStepTriggerAttempt(EntityUid uid, BinglePitComponent component, ref StepTriggerAttemptEvent args)
         => args.Continue = true;
+
     public void SpawnBingle(EntityUid uid, BinglePitComponent component)
     {
         Spawn(component.GhostRoleToSpawn, Transform(uid).Coordinates);
@@ -108,17 +114,19 @@ public sealed class BinglePitSystem : EntitySystem
             UpgradeBingles(uid, component);
         }
     }
+
     public void UpgradeBingles(EntityUid uid, BinglePitComponent component)
     {
         var query = EntityQueryEnumerator<BingleComponent>();
         while (query.MoveNext(out var queryUid, out var queryBingleComp))
-            if (queryBingleComp.MyPit?.Value == uid) 
+            if (queryBingleComp.MyPit != null && queryBingleComp.MyPit.Value == uid)
                 _bingleSystem.UpgradeBingle(queryUid, queryBingleComp);
         if (component.Level <= component.MaxSize)
             ScaleUpPit(uid, component);
 
         _popup.PopupEntity(Loc.GetString("bingle-pit-grow"), uid);
     }
+
     private void OnDestruction(EntityUid uid, BinglePitComponent component, DestructionEventArgs args)
     {
         if (component.Pit != null)
@@ -128,33 +136,31 @@ public sealed class BinglePitSystem : EntitySystem
                 _stun.TryKnockdown(pitUid, TimeSpan.FromSeconds(2), false);
             }
 
-        RemoveAllBingleGhosroles(uid, component);//remove all unclaimed ghostroles when pit is destroyed
+        RemoveAllBingleGhostRoles(uid, component);//remove all unclaimed ghostroles when pit is destroyed
 
         //Remove all falling when pit is destroyed, in the small chance somone is inbetween start and insert
         var query = EntityQueryEnumerator<BinglePitFallingComponent>();
-        while (query.MoveNext(out var fallingUid, out var _))
-        {
-            RemComp<BinglePitFallingComponent>(fallingUid);
-        }
+        while (query.MoveNext(out var fallingUid, out var fallingComp))
+            RemCompDeferred(fallingUid, fallingComp);
     }
-    public void RemoveAllBingleGhosroles(EntityUid uid, BinglePitComponent component)
+
+    public void RemoveAllBingleGhostRoles(EntityUid uid, BinglePitComponent component)
     {
         var query = EntityQueryEnumerator<GhostRoleMobSpawnerComponent>();
-
         while (query.MoveNext(out var queryGRMSUid, out var queryGRMScomp))
-        {
             if (queryGRMScomp.Prototype == "MobBingle")
                 if (Transform(uid).Coordinates == Transform(queryGRMSUid).Coordinates)
-                    QueueDel(queryGRMSUid); // riemove any unspawned bngle when pit is destroyed
-        }
+                    QueueDel(queryGRMSUid); // remove any unspawned bngle when pit is destroyed
     }
     private void OnAttacked(EntityUid uid, BinglePitComponent component, AttackedEvent args)
     {
         if (_containerSystem.ContainsEntity(uid, args.User))
             EnsureComp<StunnedComponent>(args.User);
     }
+
     private void OnUpdateCanMove(EntityUid uid, BinglePitFallingComponent component, UpdateCanMoveEvent args)
         => args.Cancel();
+
     private void ScaleUpPit(EntityUid uid, BinglePitComponent component)
     {
         if (!TryComp<AppearanceComponent>(uid, out var appearanceComponent))
