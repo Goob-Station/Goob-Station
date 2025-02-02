@@ -4,6 +4,7 @@ using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
+using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
@@ -16,6 +17,7 @@ public sealed class TendrilSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IGameTiming _time = default!;
 
@@ -87,6 +89,8 @@ public sealed class TendrilSystem : EntitySystem
         if (comp.DestroyedWithMobs)
             delay = comp.ChasmDelayOnMobsDefeat;
 
+        _popup.PopupCoordinates(Loc.GetString("tendril-destroyed-warning-message"), coords, PopupType.LargeCaution);
+
         Timer.Spawn(TimeSpan.FromSeconds(delay),
             () =>
         {
@@ -109,7 +113,6 @@ public sealed class TendrilSystem : EntitySystem
             Spawn("FloorChasmEntity", new EntityCoordinates(coords.EntityId, coords.X + i, coords.Y - i));
             Spawn("FloorChasmEntity", new EntityCoordinates(coords.EntityId, coords.X - i, coords.Y - i));
         }
-
     }
     private void OnMobState(EntityUid uid, TendrilMobComponent comp, MobStateChangedEvent args)
     {

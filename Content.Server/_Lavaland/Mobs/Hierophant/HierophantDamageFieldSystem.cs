@@ -33,7 +33,7 @@ public sealed partial class HierophantDamageFieldSystem : EntitySystem
 
         foreach (var shitter in shitters)
         {
-            var lookup = _lookup.GetEntitiesInRange(shitter.Item1, .33f)
+            var lookup = _lookup.GetEntitiesInRange(shitter.Item1, .3f)
                 .Where(HasComp<ActorComponent>)
                 .ToList();
 

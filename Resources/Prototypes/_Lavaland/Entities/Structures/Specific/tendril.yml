@@ -52,6 +52,7 @@
   components:
   - type: Tendril
     maxSpawns: 2
+    mobsToDefeat: 3
     spawns:
     - MobGoliath
 
@@ -74,7 +75,8 @@
   suffix: Watcher
   components:
   - type: Tendril
-    maxSpawns: 2
+    maxSpawns: 3
+    mobsToDefeat: 5
     spawns:
     - MobWatcherLavaland
 
@@ -86,6 +88,8 @@
   suffix: Ice Watcher
   components:
   - type: Tendril
+    maxSpawns: 3
+    mobsToDefeat: 5
     spawns:
     - MobWatcherIcewing
 
@@ -97,7 +101,8 @@
   suffix: Magma Watcher
   components:
   - type: Tendril
-    maxSpawns: 2
+    maxSpawns: 3
+    mobsToDefeat: 5
     spawns:
     - MobWatcherMagmawing
 
@@ -110,6 +115,8 @@
   components:
   - type: Tendril
     maxSpawns: 4
+    mobsToDefeat: 8
+    spawnDelay: 6.0
     spawns:
     - MobCarpDungeon
 
