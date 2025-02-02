@@ -34,9 +34,9 @@
       tags:
       - WhitelistChameleon
     - type: PhysicalComposition
-    materialComposition:
-      Glass: 125
-      Steel: 125
+      materialComposition:
+        Glass: 125
+        Steel: 125
     - type: StaticPrice
       price: 38
     - type: Destructible
