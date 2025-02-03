@@ -7,9 +7,9 @@
     - type: ItemToggle
       predictable: false
       soundActivate:
-        path: /Audio/Weapons/ebladeon.ogg
+        path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
       soundDeactivate:
-        path: /Audio/Weapons/ebladeoff.ogg
+        path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyoff.ogg
       soundFailToActivate:
         path: /Audio/Machines/button.ogg
         params:
