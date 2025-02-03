@@ -20,7 +20,7 @@
     - Back
     - Belt
   - type: ChangeTemperatureOnHit
-    heat: -300000
+    heat: -150000
   - type: MeleeDash
   - type: UseDelay
     delay: 1.5
