@@ -55,6 +55,17 @@
 #   - UplinkWeaponry
 
 - type: listing
+  id: UplinkCryoKatana
+  name: uplink-cryo-katana-name
+  description: uplink-cryo-katana-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Melee/cryokatana.rsi, state: icon }
+  productEntity: CryoKatana
+  cost:
+    Telecrystal: 50
+  categories:
+  - UplinkWeaponry
+
+- type: listing
   id: UplinkContractorBaton
   name: uplink-contractor-baton-name
   description: uplink-contractor-baton-desc
