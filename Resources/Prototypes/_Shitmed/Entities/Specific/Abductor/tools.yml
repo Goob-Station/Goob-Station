@@ -123,7 +123,7 @@
     - Abductors
 
 - type: entity
-  name: high-technology wrench
+  name: high-tech wrench
   parent: Wrench
   id: WrenchAbductor
   description: Can take a bolt off in a single turn. Not intended for melee combat.
