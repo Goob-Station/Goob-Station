@@ -29,7 +29,7 @@ Stunbaton operates differently depending on attack type. On light attack ([color
 It is worth noting that flashes can be both used in a large area ([color=yellow]Z[/color] hotkey) and if you attack somebody with it while [color=red]harm mode[/color] is active. Important to note that localized flashes last [color=yellow]2.5[/color] times as long as large area ones.
 [color=#cb0000]Security[/color] and [color=#a4885c]some[/color] other members of staff have eye protection from flashbangs and flashes.
 
-Flashbangs emit loud noise on trigger, knocking down everyone in large area, knockdown duration scales with the distance to the epicenter. Ear protection in a form of over-ear headsets and as well as some helmets that [color=#cb0000]Security[/color] and [color=#a4885c]all[/color] command staff has suppresses flashbang noise to some extent, allowing you to use flashbangs safely at range but at the same time preventing you from exploding them in your hands.
+Flashbangs emit loud noise on trigger, knocking down everyone in large area, knockdown duration scales with the distance to the epicenter. Ear protection in a form of some helmets and over-ear headsets that [color=#cb0000]Security[/color] and [color=#a4885c]all[/color] command staff has suppresses flashbang noise to some extent, allowing you to use flashbangs safely at range but at the same time preventing you from blowing them up in your hands.
   <Box>
     <GuideEntityEmbed Entity="Flash"/>
     <GuideEntityEmbed Entity="ClothingEyesGlassesSecurity"/>
