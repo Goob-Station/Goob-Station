@@ -1,0 +1,29 @@
+- type: parallax
+  id: SillyIsland
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/_Reserve/Parallax/SillyOcean.png"
+      slowness: 0.5
+      scale: "1, 1"
+      scrolling: "0, -0.05"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/_Reserve/Parallax/SillyOcean_Overlay2.png"
+      slowness: 0.3
+      scale: "0.5, 0.5"
+      scrolling: "0.08, 0.08"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/_Reserve/Parallax/SillyOcean_Overlay.png"
+      slowness: 0.05
+      scale: "0.4, 0.4"
+      scrolling: "-0.1, -0.1"
+  layersLQ:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/_Reserve/Parallax/SillyOcean.png"
+      slowness: 0.5
+      scale: "1, 1"
+      scrolling: "0, -0.05"
+  layersLQUseHQ: false

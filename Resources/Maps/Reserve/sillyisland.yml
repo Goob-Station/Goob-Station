@@ -100,12 +100,7 @@ entities:
     - type: Parallax
       parallax: SillyIsland
     - type: MapLight
-      ambientLightColor: '#668ED1FF'
-    - type: Weather
-      weather:
-        Storm:
-          endTime: 0
-        Rain: {}
+      ambientLightColor: '#98C0FFFF'
   - uid: 2
     components:
     - type: MetaData
@@ -1902,8 +1897,9 @@ entities:
           5,-1:
             0: 65535
           6,-2:
-            0: 65407
-            2: 128
+            0: 65405
+            2: 2
+            3: 128
           6,-1:
             0: 65535
           4,0:
@@ -1919,20 +1915,21 @@ entities:
           5,1:
             0: 65535
           5,2:
-            0: 65535
+            0: 65471
+            2: 64
           5,3:
             0: 65535
           6,0:
             0: 65535
           6,1:
             0: 30591
-            2: 34944
+            3: 34944
           6,2:
             0: 30583
-            2: 34952
+            3: 34952
           6,3:
             0: 30583
-            2: 34952
+            3: 34952
           -3,4:
             0: 65535
           -3,5:
@@ -1963,7 +1960,7 @@ entities:
             0: 65535
           -5,3:
             0: 65531
-            3: 4
+            2: 4
           -7,-3:
             0: 65280
           -7,-2:
@@ -1990,10 +1987,10 @@ entities:
             0: 65535
           7,-4:
             0: 29491
-            2: 35908
+            3: 35908
           7,-3:
             0: 30583
-            2: 34952
+            3: 34952
           7,-2:
             0: 65535
           7,-1:
@@ -2055,7 +2052,7 @@ entities:
             0: 30719
           6,4:
             0: 65527
-            2: 8
+            3: 8
           6,5:
             0: 255
           0,-5:
@@ -2122,7 +2119,7 @@ entities:
             0: 4369
           8,0:
             0: 30579
-            2: 34956
+            3: 34956
           0,-7:
             0: 12288
           -4,-7:
@@ -2143,12 +2140,12 @@ entities:
             0: 65535
           7,1:
             0: 1
-            2: 65534
+            3: 65534
           5,6:
             0: 30583
           7,4:
             0: 29440
-            2: 1279
+            3: 1279
           -4,7:
             0: 255
           -3,7:
@@ -2187,10 +2184,10 @@ entities:
             0: 65535
           7,-6:
             0: 4352
-            2: 8192
+            3: 8192
           7,-5:
             0: 13073
-            2: 17506
+            3: 17506
           -8,7:
             0: 65535
           -6,6:
@@ -2239,7 +2236,7 @@ entities:
             0: 65535
           -12,5:
             0: 65519
-            3: 16
+            2: 16
           -12,6:
             0: 4095
           -11,4:
@@ -2290,7 +2287,7 @@ entities:
             0: 65535
           2,10:
             0: 65023
-            3: 512
+            2: 512
           2,11:
             0: 4095
           3,9:
@@ -2308,21 +2305,21 @@ entities:
           -1,11:
             0: 140
           7,2:
-            2: 65535
+            3: 65535
           7,3:
-            2: 65535
+            3: 65535
           8,1:
-            2: 4479
+            3: 4479
           8,2:
-            2: 13105
+            3: 13105
           8,3:
-            2: 307
+            3: 307
           8,-3:
-            2: 13073
+            3: 13073
           8,-2:
-            2: 30583
+            3: 30583
           8,-1:
-            2: 30583
+            3: 30583
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
@@ -2363,10 +2360,10 @@ entities:
           - 0
           - 0
         - volume: 2500
-          temperature: 293.15
+          temperature: 293.14975
           moles:
-          - 0
-          - 0
+          - 20.078888
+          - 75.53487
           - 0
           - 0
           - 0
@@ -2382,10 +2379,10 @@ entities:
           - 0
           - 0
         - volume: 2500
-          temperature: 293.14975
+          temperature: 293.15
           moles:
-          - 20.078888
-          - 75.53487
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -4495,7 +4492,7 @@ entities:
       pos: -23.5,3.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5571.4844
+      secondsUntilStateChange: -6508.0503
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4775,6 +4772,12 @@ entities:
     - type: Transform
       pos: -1.5,8.5
       parent: 2
+    - type: Door
+      secondsUntilStateChange: -818.66626
+      state: Opening
+    - type: DeviceLinkSource
+      lastSignals:
+        DoorStatus: True
   - uid: 7
     components:
     - type: Transform
@@ -5270,6 +5273,8 @@ entities:
     - type: Transform
       pos: 14.5,-6.5
       parent: 2
+    - type: SiloUtilizer
+      silo: 39
 - proto: Barricade
   entities:
   - uid: 5043
@@ -15141,6 +15146,8 @@ entities:
     - type: Transform
       pos: 16.5,-6.5
       parent: 2
+    - type: SiloUtilizer
+      silo: 39
 - proto: CleanerDispenser
   entities:
   - uid: 3561
@@ -16353,6 +16360,28 @@ entities:
     - type: Transform
       pos: 25.5,-7.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
   - uid: 1564
     components:
     - type: Transform
@@ -16380,6 +16409,28 @@ entities:
     - type: Transform
       pos: 22.5,9.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
   - uid: 6211
     components:
     - type: MetaData
@@ -16538,7 +16589,7 @@ entities:
       pos: -20.5,9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -4594.8345
+      secondsUntilStateChange: -5531.4004
       state: Opening
 - proto: CurtainsBlueOpen
   entities:
@@ -16854,12 +16905,6 @@ entities:
       parent: 1748
     - type: Physics
       canCollide: False
-  - uid: 1751
-    components:
-    - type: Transform
-      parent: 1750
-    - type: Physics
-      canCollide: False
 - proto: DefibrillatorCabinetFilled
   entities:
   - uid: 1748
@@ -16880,12 +16925,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 12.5,12.5
       parent: 2
-    - type: ContainerContainer
-      containers:
-        ItemCabinet: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: 1751
 - proto: DeskBell
   entities:
   - uid: 1752
@@ -18306,14 +18345,6 @@ entities:
     - type: FaxMachine
       name: Мостик
       receiveNukeCodes: True
-- proto: FenceMetalBroken
-  entities:
-  - uid: 3017
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 12.5,23.5
-      parent: 2
 - proto: FenceMetalCorner
   entities:
   - uid: 517
@@ -18349,6 +18380,12 @@ entities:
       parent: 2
 - proto: FenceMetalStraight
   entities:
+  - uid: 38
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 12.5,23.5
+      parent: 2
   - uid: 55
     components:
     - type: Transform
@@ -20460,6 +20497,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 22.5,2.5
       parent: 2
+    - type: GasMixer
+      inletTwoConcentration: 0.78
+      inletOneConcentration: 0.22
+      targetPressure: 4500
+      enabled: True
     - type: AtmosPipeColor
       color: '#0000FFFF'
 - proto: GasPassiveVent
@@ -24572,6 +24614,7 @@ entities:
       parent: 2
     - type: GasPressurePump
       targetPressure: 300
+      enabled: True
     - type: AtmosPipeColor
       color: '#0000FFFF'
   - uid: 2595
@@ -24582,6 +24625,7 @@ entities:
       parent: 2
     - type: GasPressurePump
       targetPressure: 4500
+      enabled: True
     - type: AtmosPipeColor
       color: '#FF0000FF'
   - uid: 2966
@@ -26395,11 +26439,6 @@ entities:
     - type: Transform
       pos: 11.5,-8.5
       parent: 2
-  - uid: 2945
-    components:
-    - type: Transform
-      pos: 16.5,-3.5
-      parent: 2
 - proto: KitchenSpike
   entities:
   - uid: 2828
@@ -27213,6 +27252,21 @@ entities:
     - type: Transform
       pos: 3.2464519,-4.6204143
       parent: 2
+- proto: MaterialSilo
+  entities:
+  - uid: 39
+    components:
+    - type: Transform
+      pos: 16.5,-3.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        3099:
+        - MaterialSilo: MaterialSiloUtilizer
+        1952:
+        - MaterialSilo: MaterialSiloUtilizer
+        169:
+        - MaterialSilo: MaterialSiloUtilizer
 - proto: MaterialWoodPlank1
   entities:
   - uid: 4650
@@ -27516,6 +27570,70 @@ entities:
       parent: 2
 - proto: Paper
   entities:
+  - uid: 1646
+    components:
+    - type: Transform
+      pos: 0.8696659,15.229616
+      parent: 2
+    - type: Paper
+      stampState: paper_stamp-ok
+      stampedBy:
+      - stampedColor: '#00BE00FF'
+        stampedName: stamp-component-stamped-name-approved
+      content: >-
+        │█║▌▌│█║▌▌▌│║█│▌
+
+
+        Билет на перевозку домашнего животного
+
+
+        ▌▌▌│║█││█║▌▌│║▌▌▌
+
+
+        Вид животного: Felis catus
+
+
+        Кличка: Рантайм
+
+
+        Возраст: 2 года, 1 месяц и 3 дня
+
+
+        │║█││█║▌▌▌▌│█║▌▌
+
+
+        Дата перевозки:  03.02.3025
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+  - uid: 2791
+    components:
+    - type: Transform
+      pos: 10.322081,22.21411
+      parent: 2
+    - type: Paper
+      stampState: paper_stamp-ok
+      stampedBy:
+      - stampedColor: '#00BE00FF'
+        stampedName: stamp-component-stamped-name-approved
+      content: >-
+        Правила кладбища:
+
+
+        Когда кого-то хороните, кладите на могилу цветы.
+
+        Провожайте людей с почестью.
+
+        Следить за растущем маком.
+
+        Не хроните людей которых ещё можно спасти.
+
+        Проявляйте уважение к мёртвым.
+
+        Для избежания неприятного запаха хороните в мешках.
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 2840
     components:
     - type: Transform
@@ -27558,39 +27676,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 2919
-    components:
-    - type: Transform
-      pos: 0.8010769,15.100104
-      parent: 2
-    - type: Paper
-      stampState: paper_stamp-approve
-      stampedBy:
-      - stampedColor: '#00BE00FF'
-        stampedName: stamp-component-stamped-name-approved
-      content: >-
-        │█║▌▌│█║▌▌▌│║█│▌
-
-
-        Билет на перевозку домашнего животного
-
-
-        ▌▌▌│║█││█║▌▌│║▌▌▌
-
-
-        Вид животного: Felis catus
-
-
-        Кличка: Рантайм
-
-
-        Возраст: 2 года, 1 месяц и 3 дня
-
-
-        │║█││█║▌▌▌▌│█║▌▌
-
-
-        Дата перевозки:  09.04.3024
   - uid: 4494
     components:
     - type: Transform
@@ -27637,34 +27722,6 @@ entities:
 
         =============================================
                                     [italic]Место для печатей[/italic]
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-  - uid: 4586
-    components:
-    - type: Transform
-      pos: 10.414865,22.224865
-      parent: 2
-    - type: Paper
-      stampState: paper_stamp-approve
-      stampedBy:
-      - stampedColor: '#00BE00FF'
-        stampedName: stamp-component-stamped-name-approved
-      content: >-
-        Правила кладбища:
-
-
-        Когда кого-то хороните, кладите на могилу цветы.
-
-        Провожайте людей с почестью.
-
-        Следить за растущем маком.
-
-        Не хроните людей которых ещё можно спасти.
-
-        Проявляйте уважение к мёртвым.
-
-        Для избежания неприятного запаха хороните в мешках.
     - type: Physics
       angularDamping: 0
       linearDamping: 0
@@ -27913,18 +27970,7 @@ entities:
   - uid: 1594
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -20.670576,5.632808
-      parent: 2
-    - type: MeleeWeapon
-      attackRate: 5
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-  - uid: 1646
-    components:
-    - type: Transform
-      pos: -20.473919,5.614977
+      pos: -20.690891,5.7546687
       parent: 2
     - type: MeleeWeapon
       attackRate: 5
@@ -29014,6 +29060,8 @@ entities:
     - type: Transform
       pos: 15.5,-6.5
       parent: 2
+    - type: SiloUtilizer
+      silo: 39
 - proto: Rack
   entities:
   - uid: 142
@@ -30495,12 +30543,6 @@ entities:
     - type: Transform
       pos: 14.5,-5.5
       parent: 2
-  - uid: 3201
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 16.5,-2.5
-      parent: 2
   - uid: 3202
     components:
     - type: Transform
@@ -31354,8 +31396,11 @@ entities:
   - uid: 3412
     components:
     - type: Transform
-      pos: 16.524984,-2.3874707
+      pos: 16.526121,-2.3063693
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: SheetPlasteel
   entities:
   - uid: 3320
@@ -31930,6 +31975,14 @@ entities:
       rot: 3.141592653589793 rad
       pos: 4.5,-14.5
       parent: 2
+- proto: SolidSecretDoor
+  entities:
+  - uid: 2039
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -21.5,5.5
+      parent: 2
 - proto: SpaceCash1000
   entities:
   - uid: 215
@@ -32296,6 +32349,13 @@ entities:
     components:
     - type: Transform
       pos: -12.5,9.5
+      parent: 2
+- proto: SpawnPointLibrarian
+  entities:
+  - uid: 1751
+    components:
+    - type: Transform
+      pos: -10.5,-1.5
       parent: 2
 - proto: SpawnPointMedicalDoctor
   entities:
@@ -33900,6 +33960,11 @@ entities:
     - type: Transform
       pos: 23.5,-7.5
       parent: 2
+  - uid: 2038
+    components:
+    - type: Transform
+      pos: 16.5,-2.5
+      parent: 2
   - uid: 2087
     components:
     - type: Transform
@@ -33922,18 +33987,6 @@ entities:
     components:
     - type: Transform
       pos: 7.5,-17.5
-      parent: 2
-  - uid: 3357
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 16.5,-2.5
-      parent: 2
-  - uid: 3366
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 16.5,-3.5
       parent: 2
   - uid: 3500
     components:
@@ -39302,7 +39355,8 @@ entities:
   - uid: 1894
     components:
     - type: Transform
-      pos: -21.5,5.5
+      rot: -1.5707963267948966 rad
+      pos: -20.5,6.5
       parent: 2
   - uid: 1895
     components:
@@ -42097,7 +42151,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -6178.885
+      secondsUntilStateChange: -7115.4507
       state: Opening
     - type: Airlock
       autoClose: False

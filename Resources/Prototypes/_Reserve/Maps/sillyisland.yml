@@ -38,6 +38,8 @@
             ChiefMedicalOfficer: [ 1, 1 ]
             MedicalDoctor: [ 2, 2 ]
             MedicalIntern: [ 2, 2 ]
+            Psychologist: [ 1, 1 ]
+            Paramedic: [ 1, 1 ]
             Chemist: [ 1, 1 ]
             # science
             ResearchDirector: [ 1, 1 ]
@@ -57,6 +59,7 @@
             Chef: [ 1, 1 ]
             Clown: [ 1, 1 ]
             Janitor: [ 1, 1 ]
+            Librarian: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             Reporter: [ 1, 1 ]
