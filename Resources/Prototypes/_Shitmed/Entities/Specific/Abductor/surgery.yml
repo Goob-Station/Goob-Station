@@ -111,7 +111,7 @@
     - Abductors
 
 - type: entity
-  name: high-technology bone manipulator
+  name: high-tech bone manipulator
   id: BoneManipulatorAbductor
   description: A highly advanced tool, capable of mending bones.
   parent: [BaseToolSurgery, BaseMedicalScienceContraband]
