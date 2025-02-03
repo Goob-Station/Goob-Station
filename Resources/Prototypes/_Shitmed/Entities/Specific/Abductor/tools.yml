@@ -19,7 +19,7 @@
     - Abductors
 
 - type: entity
-  name: high-technology wirecutter
+  name: high-tech wirecutter
   parent: BaseItem
   id: WirecutterAbductor
   description: Cuts through wires like a hot knife through butter.
