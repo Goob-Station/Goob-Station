@@ -28,7 +28,7 @@
       path: /Audio/_ShibaStation/Announcements/vent-1-safe.ogg
     earliestStart: 15
     weight: 6
-    duration: 30 # DeltaV: was 50, used as a delay now
+    duration: 50
   - type: VentCrittersRule
     entries:
     - id: MobMouse
@@ -51,7 +51,7 @@
       path: /Audio/_ShibaStation/Announcements/vent-5-danger.ogg
     earliestStart: 15
     weight: 6
-    duration: 30 # DeltaV: was 50, used as a delay now
+    duration: 50
     minimumPlayers: 30 # Hopefully this is enough for the Rat King's potential Army (it was not, raised from 15 -> 30)
   - type: VentCrittersRule
     entries:
@@ -78,7 +78,7 @@
     startAudio:
       path: /Audio/_ShibaStation/Announcements/vent-1-safe.ogg
     weight: 6
-    duration: 30 # DeltaV: was 50, used as a delay now
+    duration: 50
   - type: VentCrittersRule
     entries:
     - id: MobCockroach
@@ -97,7 +97,7 @@
     startAudio:
       path: /Audio/_ShibaStation/Announcements/vent-1-safe.ogg
     weight: 6
-    duration: 30 # DeltaV: was 50, used as a delay now
+    duration: 50
   - type: VentCrittersRule
     entries:
     - id: MobSnail
@@ -117,7 +117,7 @@
       path: /Audio/_ShibaStation/Announcements/vent-1-safe.ogg
     earliestStart: 15
     weight: 6
-    duration: 30 # DeltaV: was 50, used as a delay now
+    duration: 50
     minimumPlayers: 30
   - type: VentCrittersRule
     entries:
