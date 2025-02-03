@@ -4,7 +4,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using System.Linq;
 using Content.Server._Lavaland.Mobs.Hierophant.Components;
-using Robust.Shared.Player;
+using Content.Shared.Mobs.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Lavaland.Mobs.Hierophant;
@@ -38,7 +38,7 @@ public sealed class HierophantDamageFieldSystem : EntitySystem
         foreach (var shitter in shitters)
         {
             var lookup = _lookup.GetEntitiesInRange(shitter.Item1, .3f)
-                .Where(HasComp<ActorComponent>)
+                .Where(HasComp<MobStateComponent>)
                 .ToList();
 
             foreach (var entity in lookup)

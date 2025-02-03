@@ -10,11 +10,9 @@ using System.Numerics;
 using System.Threading.Tasks;
 using Content.Server._Lavaland.Mobs.Hierophant.Components;
 using Content.Shared._Lavaland.Aggression;
-using Content.Shared._Lavaland.Audio;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
-using Robust.Shared.Player;
 // ReSharper disable AccessToModifiedClosure
 // ReSharper disable BadListLineBreaks
 
@@ -296,7 +294,7 @@ public sealed class HierophantBehaviorSystem : EntitySystem
             Spawn(DamageBoxPrototype, _map.GridTileToWorld((EntityUid) xform.GridUid, grid, tile.GridIndices));
         }
     }
-    public async Task Blink(Entity<HierophantBossComponent> ent, Vector2 worldPos)
+    public async Task Blink(EntityUid ent, Vector2 worldPos)
     {
         if (TerminatingOrDeleted(ent))
             return;
@@ -313,7 +311,17 @@ public sealed class HierophantBehaviorSystem : EntitySystem
         _xform.SetWorldPosition(ent, worldPos);
         EntityManager.DeleteEntity(dummy);
     }
-    public void SpawnCross(Entity<HierophantBossComponent> ent, EntityUid target, float range = 10)
+
+    public async Task Blink(EntityUid ent, EntityUid? marker = null)
+    {
+        if (marker == null)
+            return;
+
+        Blink(ent, _xform.GetWorldPosition(marker.Value));
+        QueueDel(marker);
+    }
+
+    public void SpawnCross(EntityUid ent, EntityUid target, float range = 10, float bothChance = 0.1f)
     {
         var xform = Transform(target);
 
@@ -333,7 +341,7 @@ public sealed class HierophantBehaviorSystem : EntitySystem
 
 
         var tiles = new List<Vector2i>();
-        if (_random.Prob(.1f)) // 10%
+        if (_random.Prob(bothChance))
             tiles = both;
         else tiles = _random.Pick(types);
 
@@ -368,9 +376,6 @@ public sealed class HierophantBehaviorSystem : EntitySystem
         if (ent.Comp.CurrentAnger < ent.Comp.MinAnger)
             ent.Comp.CurrentAnger = ent.Comp.MinAnger;
     }
-
-    private float Normalize(float cur, float min, float max)
-        => Math.Clamp((cur - min) / (max - min), min, max);
 
     private List<Vector2i>? MakeCross(EntityUid relative, float range)
     {
