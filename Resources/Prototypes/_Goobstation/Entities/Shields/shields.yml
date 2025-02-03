@@ -1,8 +1,8 @@
 - type: entity
-  name: elite shield "Jackie"
+  name: blueshield
   parent: [BaseItem, BaseCentcommContraband]
   id: BlueshieldShield
-  description: You're up against the wall, and I'm the fucking wall!
+  description: An incredibly durable shield constructed from a classified material. Capable of performing self-repairs over time.
   components:
     - type: ComponentToggler
       components:
@@ -29,18 +29,18 @@
           Blunt: 0.7
           Slash: 0.7
           Pierce: 0.7
-          Heat: 0.7
+          Heat: 0.8
       activeBlockModifier:
         coefficients:
           Blunt: 0.6
           Slash: 0.6
           Pierce: 0.6
-          Heat: 0.6
+          Heat: 0.7
         flatReductions:
-          Blunt: 1
-          Slash: 1
-          Pierce: 1
-          Heat: 1
+          Blunt: 5
+          Slash: 5
+          Pierce: 5
+          Heat: 5
     - type: Reflect
       reflectProb: 0.2
       damageOnReflectModifier: 0.2

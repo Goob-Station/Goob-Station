@@ -1,0 +1,75 @@
+- type: entity
+  name: deterrent tool "Atrocity"
+  parent: [BaseItem, BaseCentcommContraband]
+  id: BlueshieldMace
+  description: Crush all those who oppose your leaders. Functions as a stun baton in its powered state.
+  components:
+  - type: Tag
+    tags:
+    - Stunbaton
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/mlueshield_mace.rsi
+    layers:
+    - state: stunprod_off
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: ItemToggle
+    soundActivate:
+      collection: sparks
+      params:
+        variation: 0.250
+    soundDeactivate:
+      collection: sparks
+      params:
+        variation: 0.250
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.250
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Shock: 5
+  - type: Stunbaton
+    energyPerUse: 120
+  - type: MeleeWeapon 
+    angle: 0
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 15 # STOP RESISTING !!
+        Slash: 10 # STOP RESISTING x2 !!
+    animation: WeaponArcThrust
+  - type: StaminaDamageOnHit
+    damage: 55
+    sound: /Audio/Weapons/egloves.ogg
+  - type: StaminaDamageOnCollide
+    damage: 15
+    overtime: 40
+    sound: /Audio/Weapons/egloves.ogg
+  - type: LandAtCursor
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 40
+  - type: UseDelay
+  - type: Item
+    heldPrefix: off
+    size: Normal
+  - type: Clothing
+    sprite: Objects/Weapons/Melee/stunprod.rsi
+    quickEquip: false
+    slots:
+    - back
+  - type: DisarmMalus
+    malus: 0.225
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: {state: stunprod_on}
+          False: {state: stunprod_off}
+  - type: StaticPrice
+    price: 1000
