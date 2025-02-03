@@ -4609,3 +4609,11 @@ Entries:
       message: Hardlight bow is now clumsy proof.
   id: 521
   time: '2025-02-02T05:18:12.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added a new civ t1 research to make prescription glasses.
+    - type: Tweak
+      message: Nearsighted trait now requires special prescription glasses to see.
+  id: 522
+  time: '2025-02-03T03:07:54.0000000+00:00'
