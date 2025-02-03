@@ -75,7 +75,7 @@
     - Abductors
 
 - type: entity
-  name: high-technology energy scalpel
+  name: high-tech energy scalpel
   description: A scalpel which uses an energy blade, it seems to also work as a saw.
   id: EnergyScalpelAbductor
   parent: [BaseToolSurgery, BaseMedicalScienceContraband]
