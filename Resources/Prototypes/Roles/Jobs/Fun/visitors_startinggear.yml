@@ -541,7 +541,7 @@
     shoes: ClothingShoesColorOrange
     gloves: ClothingHandsGlovesLatex
     id: VisitorPDA
-    belt: ChemBag
+    belt: ChemBagFilled # Goobstation
     back: ClothingBackpackChemistry
     ears: ClothingHeadsetMedical
     eyes: ClothingEyesGlassesChemical

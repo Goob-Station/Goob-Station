@@ -18,3 +18,18 @@
       - id: BurnAutoInjector
       - id: EmergencyMedipen
         amount: 3
+
+- type: entity
+  id: ChemBagFilled
+  parent: ChemBag
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: Beaker
+      - id: LargeBeaker
+      - id: Syringe
+      - id: PillCanisterDexalin
+      - id: PillCanister
+      - id: BaseChemistryEmptyVial
+        amount: 2
