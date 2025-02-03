@@ -188,7 +188,7 @@
     weight: 7 # ShibaStation - reduce the weight of blob spawns to ideally make them less frequent. In theory.
     duration: 1
     earliestStart: 160 # ShibaStation - Only after the first recall now
-    minimumPlayers: 25 # ShibaStation - up the min player requirement too, so less chance for nukies x blob simultaneously (but honestly that's just shitsec's problem)
+    minimumPlayers: 30 # ShibaStation - up the min player requirement too, so less chance for nukies x blob simultaneously (but honestly that's just shitsec's problem)
     maxOccurrences: 1
   - type: BlobSpawnRule
     carrierBlobProtos:

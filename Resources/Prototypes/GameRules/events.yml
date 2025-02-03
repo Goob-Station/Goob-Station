@@ -477,7 +477,7 @@
   - type: StationEvent
     earliestStart: 35
     weight: 5.5
-    minimumPlayers: 20
+    minimumPlayers: 25
     duration: 1
   - type: RuleGrids
   - type: LoadMapRule
@@ -515,7 +515,7 @@
   - type: StationEvent
     earliestStart: 30
     weight: 8
-    minimumPlayers: 15
+    minimumPlayers: 20
     maxOccurrences: 1 # can only happen once per round
     startAnnouncement: station-event-communication-interception
     startAudio:
