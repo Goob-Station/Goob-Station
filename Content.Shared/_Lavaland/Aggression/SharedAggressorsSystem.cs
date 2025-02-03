@@ -1,12 +1,16 @@
-﻿using Content.Shared.Damage;
+﻿using Content.Shared._Lavaland.Audio;
+using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Mobs;
+using Robust.Shared.Network;
 using Robust.Shared.Player;
 
 namespace Content.Shared._Lavaland.Aggression;
 
 public abstract class SharedAggressorsSystem : EntitySystem
 {
+    [Dependency] private readonly INetManager _net = default!;
+
     // TODO: make cooldowns for all individual aggressors that fall out of vision range
 
     public override void Initialize()
@@ -78,6 +82,20 @@ public abstract class SharedAggressorsSystem : EntitySystem
         RaiseLocalEvent(ent, new AggressorAddedEvent(GetNetEntity(aggressor)));
 
         aggcomp.Aggressives.Add(ent);
+
+        if (!_net.IsServer ||
+            !TryComp<BossMusicComponent>(ent, out var boss) ||
+            !TryComp<AggressiveComponent>(ent, out var aggresive))
+            return;
+
+        var msg = new BossMusicStartupEvent(boss.SoundId);
+        foreach (var aggress in aggresive.Aggressors)
+        {
+            if (!TryComp<ActorComponent>(aggress, out var actor))
+                continue;
+
+            RaiseNetworkEvent(msg, actor.PlayerSession.Channel);
+        }
     }
 
     public void CleanAggressions(EntityUid aggressor)

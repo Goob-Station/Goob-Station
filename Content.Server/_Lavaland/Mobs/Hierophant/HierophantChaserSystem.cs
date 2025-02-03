@@ -21,7 +21,6 @@ public sealed class HierophantChaserSystem : EntitySystem
         base.Update(frameTime);
 
         var eqe = EntityQueryEnumerator<HierophantChaserComponent>();
-        var chasers = new List<(EntityUid, HierophantChaserComponent)>();
         while (eqe.MoveNext(out var uid, out var comp))
         {
             if (TerminatingOrDeleted(uid))
@@ -32,18 +31,9 @@ public sealed class HierophantChaserSystem : EntitySystem
 
             if (comp.CooldownTimer <= 0)
             {
-                // if i do it here i will get an exception so i'll just add them to a list.
-                chasers.Add((uid, comp));
+                Cycle((uid, comp));
+                comp.CooldownTimer = comp.BaseCooldown;
             }
-        }
-
-        if (chasers.Count == 0)
-            return;
-
-        foreach (var chaser in chasers)
-        {
-            chaser.Item2.CooldownTimer = chaser.Item2.BaseCooldown;
-            Cycle((chaser.Item1, chaser.Item2));
         }
     }
 

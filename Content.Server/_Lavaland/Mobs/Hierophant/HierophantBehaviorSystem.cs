@@ -129,21 +129,7 @@ public sealed class HierophantBehaviorSystem : EntitySystem
     private void InitBoss(Entity<HierophantBossComponent> ent)
     {
         ent.Comp.Aggressive = true;
-
         RaiseLocalEvent(ent, new MegafaunaStartupEvent());
-
-        if (TryComp<BossMusicComponent>(ent, out var boss) &&
-            TryComp<AggressiveComponent>(ent, out var aggresive))
-        {
-            var msg = new BossMusicStartupEvent(boss.SoundId);
-            foreach (var aggressor in aggresive.Aggressors)
-            {
-                if (!TryComp<ActorComponent>(aggressor, out var actor))
-                    return;
-
-                RaiseNetworkEvent(msg, actor.PlayerSession.Channel);
-            }
-        }
     }
 
     private void DeinitBoss(Entity<HierophantBossComponent> ent)

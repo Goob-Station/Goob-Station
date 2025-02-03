@@ -80,7 +80,7 @@
   - type: Transform
     anchored: true
   - type: TimedDespawn
-    lifetime: 0.6  
+    lifetime: 0.6
   - type: SpawnOnDespawn
     prototypes:
     - LavalandHierophantDamageField
