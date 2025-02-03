@@ -169,6 +169,16 @@
   categories:
   - UplinkWeaponry
 
+- type: listing
+  id: UplinkPistolAnaconda
+  name: uplink-anaconda-name
+  description: uplink-anaconda-desc
+  productEntity: WeaponPistolAnaconda
+  cost:
+    Telecrystal: 40
+  categories:
+  - UplinkWeaponry
+
 # Wearables
 
 - type: listing
