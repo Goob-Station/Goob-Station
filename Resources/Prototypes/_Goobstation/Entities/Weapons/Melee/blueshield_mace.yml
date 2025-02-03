@@ -1,5 +1,5 @@
 - type: entity
-  name: deterrent tool "Atrocity"
+  name: DT-3 "Atrocity"
   parent: [BaseItem, BaseCentcommContraband]
   id: BlueshieldMace
   description: Crush all those who oppose your leaders. Functions as a stun baton in its powered state.
