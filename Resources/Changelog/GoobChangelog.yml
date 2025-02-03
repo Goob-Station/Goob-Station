@@ -4623,3 +4623,9 @@ Entries:
       message: Changed descriptions of Abductor items
   id: 523
   time: '2025-02-03T13:43:12.0000000+00:00'
+- author: CBozo
+  changes:
+    - type: Add
+      message: 'Added new lobby art: "Dare to Be Spaced"'
+  id: 524
+  time: '2025-02-03T19:07:11.0000000+00:00'
