@@ -4617,3 +4617,9 @@ Entries:
       message: Nearsighted trait now requires special prescription glasses to see.
   id: 522
   time: '2025-02-03T03:07:54.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Changed descriptions of Abductor items
+  id: 523
+  time: '2025-02-03T13:43:12.0000000+00:00'
