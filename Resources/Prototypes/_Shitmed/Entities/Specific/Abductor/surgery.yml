@@ -39,7 +39,7 @@
     - Abductors
 
 - type: entity
-  name: high-technology searing tool
+  name: high-tech searing tool
   description: A highly advanced cautery with an energy tip, it seems to also work as a drill.
   id: SearingToolAbductor
   parent: [BaseToolSurgery, BaseMedicalScienceContraband]
