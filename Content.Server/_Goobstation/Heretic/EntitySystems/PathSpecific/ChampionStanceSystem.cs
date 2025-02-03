@@ -1,3 +1,4 @@
+using Content.Server._Goobstation.Weapons.DelayedKnockdown;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared.Body.Part;
@@ -14,10 +15,19 @@ public sealed partial class ChampionStanceSystem : EntitySystem
 
         SubscribeLocalEvent<ChampionStanceComponent, DamageModifyEvent>(OnDamageModify);
         SubscribeLocalEvent<ChampionStanceComponent, TakeStaminaDamageEvent>(OnTakeStaminaDamage);
+        SubscribeLocalEvent<ChampionStanceComponent, DelayedKnockdownAttemptEvent>(OnDelayedKnockdownAttempt);
 
         // if anyone is reading through and does not have EE newmed you can remove these handlers
         SubscribeLocalEvent<ChampionStanceComponent, BodyPartAttachedEvent>(OnBodyPartAttached);
         SubscribeLocalEvent<ChampionStanceComponent, BodyPartRemovedEvent>(OnBodyPartRemoved);
+    }
+
+    private void OnDelayedKnockdownAttempt(Entity<ChampionStanceComponent> ent, ref DelayedKnockdownAttemptEvent args)
+    {
+        if (!Condition(ent))
+            return;
+
+        args.Cancel();
     }
 
     private bool Condition(Entity<ChampionStanceComponent> ent)
