@@ -28,7 +28,7 @@
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types:
-        Shock: 5
+        Heat: 5
   - type: Stunbaton
     energyPerUse: 120
   - type: MeleeWeapon 
@@ -36,11 +36,11 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 15 # STOP RESISTING !!
-        Slash: 10 # STOP RESISTING x2 !!
+        Blunt: 13 # STOP RESISTING !!
+        Slash: 7 # STOP RESISTING x2 !!
     animation: WeaponArcThrust
   - type: StaminaDamageOnHit
-    damage: 55
+    damage: 40
     sound: /Audio/Weapons/egloves.ogg
   - type: StaminaDamageOnCollide
     damage: 15
