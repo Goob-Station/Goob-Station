@@ -74,7 +74,7 @@
     - Abductors
 
 - type: entity
-  name: high-technology screwdriver
+  name: high-tech screwdriver
   parent: BaseItem
   id: ScrewdriverAbductor
   description: More efficient than anything Nanotrasen could dream of. Not to be confused with a sonic screwdriver.
