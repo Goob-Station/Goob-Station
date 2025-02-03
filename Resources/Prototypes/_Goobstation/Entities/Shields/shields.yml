@@ -99,4 +99,4 @@
         ejectSound: /Audio/Items/unsheath.ogg
         whitelist:
           tags:
-          - StunBaton
+          - BlueshieldMace

@@ -6,7 +6,7 @@
   components:
   - type: Tag
     tags:
-    - Stunbaton
+    - BlueshieldMace
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/mlueshield_mace.rsi
     layers:
