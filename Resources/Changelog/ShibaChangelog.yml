@@ -1,6 +1,27 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Population requirements for some midround antagonist events have been
+      adjusted... again...
+    type: Tweak
+  id: 149
+  time: '2025-02-03T12:36:24.462474'
+- author: AstroDogeDX
+  changes:
+  - message: Added an admin command (RemoveGridsByValue) to find and purge empty grids
+      to help reduce server lag!
+    type: Add
+  id: 148
+  time: '2025-02-03T12:35:59.369171'
+- author: AstroDogeDX
+  changes:
+  - message: Reverted vent spawn changes that basically broke the events. Beware,
+      the beasties are BACK!
+    type: Fix
+  id: 147
+  time: '2025-02-03T12:35:02.824807'
+- author: AstroDogeDX
+  changes:
   - message: More maps have been added to the map pool!
     type: Add
   id: 146
