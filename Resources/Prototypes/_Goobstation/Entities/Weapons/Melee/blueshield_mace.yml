@@ -52,16 +52,11 @@
     startingCharge: 1000
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 40
+    autoRechargeRate: 20
   - type: UseDelay
   - type: Item
     heldPrefix: off
     size: Normal
-  - type: Clothing
-    sprite: Objects/Weapons/Melee/stunprod.rsi
-    quickEquip: false
-    slots:
-    - back
   - type: DisarmMalus
     malus: 0.225
   - type: Appearance

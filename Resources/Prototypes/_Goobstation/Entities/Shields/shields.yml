@@ -7,16 +7,16 @@
     - type: ItemToggle
       predictable: false
       soundActivate:
-        path: /Audio/Weapons/ebladeon.ogg # todo : change this
+        path: /Audio/Weapons/ebladeon.ogg
       soundDeactivate:
-        path: /Audio/Weapons/ebladeoff.ogg # todo : change this
+        path: /Audio/Weapons/ebladeoff.ogg
       soundFailToActivate:
-        path: /Audio/Machines/button.ogg # todo : change this
+        path: /Audio/Machines/button.ogg
         params:
           variation: 0.250
     - type: ItemToggleActiveSound
       activeSound:
-        path: /Audio/Weapons/ebladehum.ogg # todo : change this
+        path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyhum.ogg
     - type: ItemToggleSize
       activatedSize: Huge
     - type: Clothing
