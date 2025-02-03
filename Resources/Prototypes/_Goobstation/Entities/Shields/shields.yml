@@ -7,24 +7,30 @@
     - type: ItemToggle
       predictable: false
       soundActivate:
-        path: /Audio/Weapons/ebladeon.ogg
+        path: /Audio/Weapons/ebladeon.ogg # todo : change this
       soundDeactivate:
-        path: /Audio/Weapons/ebladeoff.ogg
+        path: /Audio/Weapons/ebladeoff.ogg # todo : change this
       soundFailToActivate:
-        path: /Audio/Machines/button.ogg
+        path: /Audio/Machines/button.ogg # todo : change this
         params:
           variation: 0.250
     - type: ItemToggleActiveSound
       activeSound:
-        path: /Audio/Weapons/ebladehum.ogg
+        path: /Audio/Weapons/ebladehum.ogg # todo : change this
     - type: ItemToggleSize
       activatedSize: Huge
+    - type: Clothing
+      sprite: Objects/Weapons/Guns/SMGs/atreides.rsi # todo : change this
+      quickEquip: false
+      slots:
+      - Back
+      - suitStorage
     - type: ComponentToggler
       components:
       - type: DisarmMalus
         malus: 1
     - type: Sprite
-      sprite: Objects/Weapons/Melee/e_shield.rsi
+      sprite: Objects/Weapons/Melee/e_shield.rsi # todo : change this
       layers:
         - state: eshield-icon
         - state: eshield-on
@@ -34,7 +40,7 @@
           map: [ "shield" ]
     - type: Item
       size: Small
-      sprite: Objects/Weapons/Melee/e_shield.rsi
+      sprite: Objects/Weapons/Melee/e_shield.rsi # todo : change this
       heldPrefix: eshield
     - type: UseDelay
       delay: 0.5
@@ -95,8 +101,8 @@
         name: BlueshieldMace
         insertVerbText: sheath-insert-verb
         ejectVerbText: sheath-eject-verb
-        insertSound: /Audio/Items/sheath.ogg
-        ejectSound: /Audio/Items/unsheath.ogg
+        insertSound: /Audio/Items/sheath.ogg # todo : change this
+        ejectSound: /Audio/Items/unsheath.ogg # todo : change this
         whitelist:
           tags:
           - Stunbaton
