@@ -22,7 +22,7 @@
     - type: ComponentToggler
       components:
       - type: DisarmMalus
-        malus: 0.6
+        malus: 1
     - type: Sprite
       sprite: Objects/Weapons/Melee/e_shield.rsi
       layers:
@@ -51,27 +51,27 @@
       netsync: false
       enabled: false
       radius: 1.5
-      energy: 0.7 # WD EDIT
-      color: "#678AD9" # WD EDIT
+      energy: 0.7
+      color: "#678AD9"
     - type: ItemTogglePointLight
     - type: Reflect
-      reflectProb: 1 # WD EDIT
-      damageOnReflectModifier: 1 # Goob edit
+      reflectProb: 0.2
+      damageOnReflectModifier: 0.7
       reflects:
         - Energy
     - type: Blocking
       passiveBlockModifier:
         coefficients:
-          Blunt: 1.0
-          Slash: 0.9
-          Piercing: 0.85
-          Heat: 0.5 # WD EDIT
-      activeBlockModifier:
-        coefficients:
           Blunt: 0.7
           Slash: 0.7
           Piercing: 0.7
-          Heat: 0.9
+          Heat: 0.6
+      activeBlockModifier:
+        coefficients:
+          Blunt: 0.8
+          Slash: 0.8
+          Piercing: 0.8
+          Heat: 0.7
         flatReductions:
           Heat: 5
           Blunt: 5
@@ -83,9 +83,20 @@
     - type: StaticPrice
       price: 350
     - type: Battery
-      maxCharge: 20
-      startingCharge: 20
+      maxCharge: 60
+      startingCharge: 60
     - type: BatterySelfRecharger
       autoRecharge: true
       autoRechargeRate: 2
     - type: RechargeableBlocking
+    - type: ItemSlots
+      slots:
+       item:
+        name: BlueshieldMace
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - StunBaton
