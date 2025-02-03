@@ -149,7 +149,7 @@
     - Abductors
 
 - type: entity
-  name: high-technology welding tool
+  name: high-tech welding tool
   parent: Welder
   id: WelderAbductor
   description: "A highly advanced welder capable of producing infinite fuel."
