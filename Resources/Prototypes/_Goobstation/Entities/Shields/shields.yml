@@ -1,13 +1,30 @@
 - type: entity
-  name: blueshield
+  name: greatshield
   parent: [BaseItem, BaseCentcommContraband]
-  id: BlueshieldShield
-  description: An incredibly durable shield constructed from a classified material. Capable of performing self-repairs over time.
+  id: BlueShieldShield
+  description: The iconic namesake of these soldiers, the Blueshield. Known to take shots meant for high-ranking officials.
   components:
+    - type: ItemToggle
+      predictable: false # WD EDIT
+      soundActivate:
+        path: /Audio/Weapons/ebladeon.ogg
+      soundDeactivate:
+        path: /Audio/Weapons/ebladeoff.ogg
+      # WD EDIT START
+      soundFailToActivate:
+        path: /Audio/Machines/button.ogg
+        params:
+          variation: 0.250
+      # WD EDIT END
+    - type: ItemToggleActiveSound
+      activeSound:
+        path: /Audio/Weapons/ebladehum.ogg
+    - type: ItemToggleSize
+      activatedSize: Huge
     - type: ComponentToggler
       components:
       - type: DisarmMalus
-        malus: 1
+        malus: 0.6
     - type: Sprite
       sprite: Objects/Weapons/Melee/e_shield.rsi
       layers:
@@ -23,34 +40,49 @@
       heldPrefix: eshield
     - type: UseDelay
       delay: 0.5
+    - type: ToggleableLightVisuals
+      spriteLayer: shield
+      inhandVisuals:
+        left:
+          - state: inhand-left-shield
+            shader: unshaded
+        right:
+          - state: inhand-right-shield
+            shader: unshaded
+    - type: PointLight
+      netsync: false
+      enabled: false
+      radius: 1.5
+      energy: 0.7 # WD EDIT
+      color: "#678AD9" # WD EDIT
+    - type: ItemTogglePointLight
+    - type: Reflect
+      reflectProb: 1 # WD EDIT
+      damageOnReflectModifier: 1 # Goob edit
+      reflects:
+        - Energy
     - type: Blocking
       passiveBlockModifier:
         coefficients:
-          Blunt: 0.7
-          Slash: 0.7
-          Pierce: 0.7
-          Heat: 0.8
+          Blunt: 1.0
+          Slash: 0.9
+          Piercing: 0.85
+          Heat: 0.5 # WD EDIT
       activeBlockModifier:
         coefficients:
-          Blunt: 0.6
-          Slash: 0.6
-          Pierce: 0.6
-          Heat: 0.7
+          Blunt: 1.2
+          Slash: 0.85
+          Piercing: 0.5
+          Heat: 0.4
         flatReductions:
-          Blunt: 5
-          Slash: 5
-          Pierce: 5
-          Heat: 5
-    - type: Reflect
-      reflectProb: 0.2
-      damageOnReflectModifier: 0.2
-      reflects:
-        - Energy
+          Heat: 1
+          Piercing: 1
     - type: Appearance
     - type: Damageable
       damageContainer: Shield
     - type: StaticPrice
-      price: 1850
+      price: 350
+      # WD EDIT START
     - type: Battery
       maxCharge: 20
       startingCharge: 20
@@ -58,3 +90,4 @@
       autoRecharge: true
       autoRechargeRate: 2
     - type: RechargeableBlocking
+      # WD EDIT END
