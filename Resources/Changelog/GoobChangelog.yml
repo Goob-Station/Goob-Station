@@ -4643,3 +4643,9 @@ Entries:
       message: Security Cadets now start with Security Glasses
   id: 526
   time: '2025-02-04T09:51:00.0000000+00:00'
+- author: McBosserson
+  changes:
+    - type: Add
+      message: Added air to Oasis
+  id: 527
+  time: '2025-02-04T18:05:13.0000000+00:00'
