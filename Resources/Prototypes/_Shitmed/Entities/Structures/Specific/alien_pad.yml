@@ -1,8 +1,8 @@
-﻿- type: entity
+- type: entity
   id: AbductorAlienPad
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   name: alien pad
-  description: Beam in the pizzas and dig in.
+  description: Beam in the inferior lifeforms and dig in.
   components:
   - type: AbductorAlienPad
   - type: InteractionOutline
