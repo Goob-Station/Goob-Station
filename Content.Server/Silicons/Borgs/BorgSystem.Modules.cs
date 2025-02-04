@@ -250,9 +250,7 @@ public sealed partial class BorgSystem
                 }
 
                 // Just in case, make sure the borg can't drop the placeholder.
-                if (HasComp<HandPlaceholderComponent>(item))
-                    EnsureComp<UnremoveableComponent>(item);
-                else
+                if (!HasComp<HandPlaceholderComponent>(item))
                 {
                     var placeComp = EnsureComp<HandPlaceholderRemoveableComponent>(item);
                     placeComp.Whitelist = itemProto.Whitelist;
@@ -271,6 +269,16 @@ public sealed partial class BorgSystem
             component.HandCounter++;
             _hands.AddHand(chassis, handId, HandLocation.Middle, hands);
             _hands.DoPickup(chassis, hands.Hands[handId], item, hands);
+            if (hands.Hands[handId].HeldEntity != item)
+            {
+                // If we didn't pick up our expected item, delete the hand.  No free hands!
+                _hands.RemoveHand(chassis, handId);
+            }
+            else if (HasComp<HandPlaceholderComponent>(item))
+            {
+                // Placeholders can't be put down, must be changed after picked up (otherwise it'll fail to pick up)
+                EnsureComp<UnremoveableComponent>(item);
+            }
             component.DroppableProvidedItems.Add(handId, (item, itemProto));
         }
         // End Frontier: droppable cyborg items
