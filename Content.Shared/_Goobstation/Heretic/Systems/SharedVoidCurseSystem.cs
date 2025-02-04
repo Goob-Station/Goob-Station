@@ -22,7 +22,7 @@ public partial class SharedVoidCurseSystem : EntitySystem
 
         if (TryComp<VoidCurseComponent>(uid, out var curse))
         {
-            curse.Lifetime += 5f;
+            curse.Lifetime += 10f;
             curse.Stacks = Math.Clamp(curse.Stacks + 1, 0, curse.MaxStacks + 1);
             Dirty<VoidCurseComponent>((uid, curse));
         }
