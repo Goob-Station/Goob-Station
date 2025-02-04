@@ -58,8 +58,7 @@
     - CannotSuicide
   - type: NoSlip
   - type: HierophantBoss # boss specific component. defines pattern/scripted attacks and other stuff
-    loot: BikeHorn
-    crusherLoot: GoldenBikeHorn
+    loot: LavalandHierophantClub
   - type: Aggressive # also required component for aggro checking
   - type: BossMusic
     soundId: Hierophant

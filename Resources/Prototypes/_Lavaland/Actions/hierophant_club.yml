@@ -38,7 +38,7 @@
     icon:
       sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
       state: icon
-    #itemIconStyle: NoItem
+    itemIconStyle: NoItem
     event: !type:HierophantClubActivateCrossEvent
     checkCanAccess: true
     range: 8

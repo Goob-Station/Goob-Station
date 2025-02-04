@@ -9,6 +9,7 @@
     state: icon
   - type: Item
     size: Normal
+    sprite: _Lavaland/Objects/Weapons/hierophant_club-inhands.rsi
   - type: StaticPrice
     price: 5000
   - type: MeleeWeapon
