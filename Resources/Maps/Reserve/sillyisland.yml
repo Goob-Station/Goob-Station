@@ -4264,13 +4264,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 10.5,-8.5
       parent: 5016
-- proto: AirlockBlueshieldOfficerCommandLocked
-  entities:
-  - uid: 1404
-    components:
-    - type: Transform
-      pos: -22.5,12.5
-      parent: 2
 - proto: AirlockBrigLocked
   entities:
   - uid: 265
@@ -4315,6 +4308,13 @@ entities:
     components:
     - type: Transform
       pos: 12.5,10.5
+      parent: 2
+- proto: AirlockCentralCommandCommandLocked
+  entities:
+  - uid: 1404
+    components:
+    - type: Transform
+      pos: -22.5,12.5
       parent: 2
 - proto: AirlockChapelLocked
   entities:
@@ -4539,7 +4539,7 @@ entities:
       pos: -23.5,3.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -9414.528
+      secondsUntilStateChange: -9724.994
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4820,7 +4820,7 @@ entities:
       pos: -1.5,8.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -3725.1436
+      secondsUntilStateChange: -4035.6099
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
