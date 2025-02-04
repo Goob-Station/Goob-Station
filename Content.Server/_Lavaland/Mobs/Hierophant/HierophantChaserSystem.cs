@@ -38,7 +38,7 @@ public sealed class HierophantChaserSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Crawl one tile away from it's initial position.
+    ///     Crawl one tile away from its initial position.
     ///     Replicate itself and the prototype designated.
     ///     Delete itself afterwards.
     /// </summary>
@@ -49,13 +49,10 @@ public sealed class HierophantChaserSystem : EntitySystem
 
         var xform = Transform(ent);
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
-        {
             return;
-        }
 
-        var gridEnt = (xform.GridUid.Value, grid);
 
-        // get tile position of the chaser
+        // Get the chaser’s current tile position.
         if (!_xform.TryGetGridTilePosition((ent.Owner, ent.Comp2), out var tilePos, grid))
         {
             QueueDel(ent);
@@ -64,66 +61,64 @@ public sealed class HierophantChaserSystem : EntitySystem
 
         var deltaPos = Vector2i.Zero;
 
-        // if there is a target get it's position delta instead
-        if (ent.Comp1.Target != null &&
-            !TerminatingOrDeleted(ent.Comp1.Target))
+        // If there is a valid target, calculate the delta toward the target.
+        if (ent.Comp1.Target != null && !TerminatingOrDeleted(ent.Comp1.Target))
         {
             var target = ent.Comp1.Target.Value;
 
-            // get tile position of the target
+            // Attempt to get the target’s tile position.
             if (!_xform.TryGetGridTilePosition((target, Transform(target)), out var tileTargetPos, grid))
             {
-                // If not on our grid that is equal to no target
+                // If target is not on the same grid, schedule deletion.
                 QueueDel(ent);
                 return;
             }
 
-            deltaPos = tileTargetPos;
+            // Don't forget kids, a DELTA is a difference between two things.
+            deltaPos = tileTargetPos - tilePos;
         }
 
         var directions = new List<Vector2i>
         {
-            new(1, 0),
-            new(0, 1),
-            new(-1, 0),
-            new(0, -0),
+            new Vector2i(1, 0),
+            new Vector2i(0, 1),
+            new Vector2i(-1, 0),
+            new Vector2i(0, -1)
         };
 
-        // if the target is still missing we move randomly
-        if (deltaPos == Vector2.Zero)
-        {
+        // If no target delta was set (remains zero), pick a random movement direction.
+        if (deltaPos == Vector2i.Zero)
             deltaPos = _random.Pick(directions);
-        }
 
-        // translate it
+        // Translate the delta to ensure single-tile, axis-aligned movement.
         deltaPos = TranslateDelta(deltaPos);
 
-        // spawn damaging square and set new position
+        // Calculate the new world position based on grid coordinates.
         var newPos = _map.GridTileToWorld(xform.GridUid.Value, grid, tilePos + deltaPos);
+
         Spawn(ent.Comp1.SpawnPrototype, newPos);
         _xform.SetMapCoordinates(ent, newPos);
 
-        // handle steps
+        // Increment steps and delete the entity if the maximum is reached.
         ent.Comp1.Steps += 1;
         if (ent.Comp1.Steps >= ent.Comp1.MaxSteps)
             QueueDel(ent);
     }
 
+    /// <summary>
+    /// Clamps and adjusts the delta to enforce square-like (axis-aligned) movement.
+    /// </summary>
     private Vector2i TranslateDelta(Vector2 delta)
     {
-        int x, y;
+        int x = (int)Math.Clamp(MathF.Round(delta.X, 0), -1, 1);
+        int y = (int)Math.Clamp(MathF.Round(delta.Y, 0), -1, 1);
 
-        x = (int) Math.Clamp(MathF.Round(delta.X, 0), -1, 1);
-        y = (int) Math.Clamp(MathF.Round(delta.Y, 0), -1, 1);
-
-        // made for square-like movement
+        // Prefer movement along the dominant axis.
         if (Math.Abs(x) >= Math.Abs(y))
             y = 0;
         else
             x = 0;
 
-        var translated = new Vector2i(x, y);
-
-        return translated;
+        return new Vector2i(x, y);
     }
 }
