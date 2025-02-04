@@ -73,6 +73,9 @@ uplink-m90-desc = An M-90 combat rifle.
 uplink-dualetta-bundle-name = Dualetta Bundle
 uplink-dualetta-bundle-desc = Comes with 2 Dualetta pistols, 2 machine pistol magazines, combat gloves, noir suit, detectives trenchcoat, and laceup shoes.
 
+uplink-anaconda-name = Anaconda
+uplink-anaconda-desc = The pride of the Cybersun arms concern, this heavy pistol is designed to feed itself with the built-in fabricator.
+
 # Ammo
 
 uplink-blast-grenade-name = Blast Grenade

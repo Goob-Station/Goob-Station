@@ -4629,3 +4629,11 @@ Entries:
       message: 'Added new lobby art: "Dare to Be Spaced"'
   id: 524
   time: '2025-02-03T19:07:11.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Syndicate agents and operatives can now purchase the Anaconda, 40 TC
+        self-ammo-printing pistol.
+  id: 525
+  time: '2025-02-04T05:43:43.0000000+00:00'
