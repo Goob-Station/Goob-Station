@@ -105,8 +105,8 @@ public sealed class HierophantChaserSystem : EntitySystem
     /// </summary>
     private Vector2i TranslateDelta(Vector2 delta)
     {
-        int x = Math.Clamp(MathF.Round(delta.X, 0), -1, 1);
-        int y = Math.Clamp(MathF.Round(delta.Y, 0), -1, 1);
+        var x = (int) Math.Clamp(MathF.Round(delta.X, 0), -1, 1);
+        var y = (int) Math.Clamp(MathF.Round(delta.Y, 0), -1, 1);
 
         // Prefer movement along the dominant axis.
         if (Math.Abs(x) >= Math.Abs(y))
