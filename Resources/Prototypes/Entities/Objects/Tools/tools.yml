@@ -310,7 +310,7 @@
   - type: Tending # Shitmed
     speed: 0.75
   - type: Drill # Shitmed
-    speed: 0.75
+    speed: 1
   - type: SurgeryTool # Shitmed
     startSound: /Audio/Items/drill_use.ogg
 
