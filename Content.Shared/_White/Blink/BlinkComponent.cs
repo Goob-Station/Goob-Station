@@ -18,7 +18,7 @@ public sealed partial class BlinkComponent : Component
     public string BlinkDelay = "blink";
 
     [DataField]
-    public TimeSpan KnockdownTime = TimeSpan.FromSeconds(0.1);
+    public TimeSpan KnockdownTime = TimeSpan.Zero;
 
     [DataField]
     public SoundSpecifier BlinkSound = new SoundPathSpecifier("/Audio/Magic/blink.ogg");
