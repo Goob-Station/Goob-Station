@@ -702,7 +702,10 @@
         Blunt: 1 # bonk
   - type: Tag #Goobstation
     tags:
-    - BreadEmergency 
+    - BreadEmergency
+  - type: GibThisGuy  #Goobstation
+    ocNames:
+      - Limer__treats
 
 # Tastes like France.
 

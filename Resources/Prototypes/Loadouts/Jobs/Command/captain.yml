@@ -29,6 +29,11 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtCapFormalDress
 
+- type: loadout # goob
+  id: CaptainJumpsuitMilitary
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryCaptain
+
 # Head
 - type: loadout
   id: CaptainHead
