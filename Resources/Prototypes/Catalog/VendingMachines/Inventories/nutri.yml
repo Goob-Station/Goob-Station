@@ -6,6 +6,7 @@
     HydroponicsToolClippers: 4
     HydroponicsToolScythe: 4
     HydroponicsToolHatchet: 4
+    PlantAnalyzer: 4
     Dropper: 4
     PlantBag: 3
     PlantBGoneSpray: 20
@@ -17,7 +18,5 @@
     Bucket: 3
     DiseaseSwab: 20
     BoxAgrichem: 1
-    #TO DO:
-    #plant analyzer
   emaggedInventory:
     Left4ZedChemistryBottle: 1

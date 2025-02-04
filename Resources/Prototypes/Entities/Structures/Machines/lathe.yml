@@ -391,6 +391,7 @@
       - ClothingEyesNightVisionGoggles
       - ClothingEyesThermalVisionGoggles
       # WD EDIT END
+      - PlantAnalyzer # Frontier
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag

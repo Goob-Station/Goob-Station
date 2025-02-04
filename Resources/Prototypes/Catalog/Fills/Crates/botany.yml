@@ -59,6 +59,7 @@
       - id: ClothingOuterApronBotanist
       - id: ClothingHandsGlovesLeather
       - id: EZNutrientChemistryBottle
+      - id: PlantAnalyzer
         amount: 2
 
 - type: entity
