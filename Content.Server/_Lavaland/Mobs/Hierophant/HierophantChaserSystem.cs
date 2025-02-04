@@ -51,7 +51,6 @@ public sealed class HierophantChaserSystem : EntitySystem
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
             return;
 
-
         // Get the chaser’s current tile position.
         if (!_xform.TryGetGridTilePosition((ent.Owner, ent.Comp2), out var tilePos, grid))
         {
@@ -59,7 +58,15 @@ public sealed class HierophantChaserSystem : EntitySystem
             return;
         }
 
-        var deltaPos = Vector2i.Zero;
+        var directions = new List<Vector2i>
+        {
+            new Vector2i(1, 0),
+            new Vector2i(0, 1),
+            new Vector2i(-1, 0),
+            new Vector2i(0, -1)
+        };
+
+        var deltaPos = _random.Pick(directions);
 
         // If there is a valid target, calculate the delta toward the target.
         if (ent.Comp1.Target != null && !TerminatingOrDeleted(ent.Comp1.Target))
@@ -77,18 +84,6 @@ public sealed class HierophantChaserSystem : EntitySystem
             // Don't forget kids, a DELTA is a difference between two things.
             deltaPos = tileTargetPos - tilePos;
         }
-
-        var directions = new List<Vector2i>
-        {
-            new Vector2i(1, 0),
-            new Vector2i(0, 1),
-            new Vector2i(-1, 0),
-            new Vector2i(0, -1)
-        };
-
-        // If no target delta was set (remains zero), pick a random movement direction.
-        if (deltaPos == Vector2i.Zero)
-            deltaPos = _random.Pick(directions);
 
         // Translate the delta to ensure single-tile, axis-aligned movement.
         deltaPos = TranslateDelta(deltaPos);
@@ -110,8 +105,8 @@ public sealed class HierophantChaserSystem : EntitySystem
     /// </summary>
     private Vector2i TranslateDelta(Vector2 delta)
     {
-        int x = (int)Math.Clamp(MathF.Round(delta.X, 0), -1, 1);
-        int y = (int)Math.Clamp(MathF.Round(delta.Y, 0), -1, 1);
+        int x = Math.Clamp(MathF.Round(delta.X, 0), -1, 1);
+        int y = Math.Clamp(MathF.Round(delta.Y, 0), -1, 1);
 
         // Prefer movement along the dominant axis.
         if (Math.Abs(x) >= Math.Abs(y))
