@@ -378,7 +378,7 @@
     unlistedNumber: true
     requiresPower: false
   - type: Holopad
-  - type: StationAiWhitelist  
+  - type: StationAiWhitelist
   - type: UserInterface
     interfaces:
         enum.HolopadUiKey.AiRequestWindow:
@@ -415,7 +415,7 @@
   - type: BlockMovement
     blockInteraction: false
   - type: SiliconLawProvider
-    laws: NTDefault # Goobstation - AI/borg law changes - set AI to NTDefault
+    laws: Crewsimov # Reserve-Crewsimov-StationAI
   - type: IonStormTarget # Goobstation - AI/borg law changes - ion stormable AI
   - type: SiliconLawBound
   - type: ActionGrant
