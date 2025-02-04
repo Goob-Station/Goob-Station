@@ -16,6 +16,13 @@ public sealed class HierophantChaserSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
 
+    private static readonly Vector2i[] Directions = {
+        new Vector2i( 1,  0),
+        new Vector2i( 0,  1),
+        new Vector2i(-1,  0),
+        new Vector2i( 0, -1)
+    };
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -58,15 +65,7 @@ public sealed class HierophantChaserSystem : EntitySystem
             return;
         }
 
-        var directions = new List<Vector2i>
-        {
-            new Vector2i(1, 0),
-            new Vector2i(0, 1),
-            new Vector2i(-1, 0),
-            new Vector2i(0, -1)
-        };
-
-        var deltaPos = _random.Pick(directions);
+        var deltaPos = _random.Pick(Directions);
 
         // If there is a valid target, calculate the delta toward the target.
         if (ent.Comp1.Target != null && !TerminatingOrDeleted(ent.Comp1.Target))
