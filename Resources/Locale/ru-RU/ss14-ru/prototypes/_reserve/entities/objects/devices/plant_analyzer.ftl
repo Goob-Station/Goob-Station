@@ -1,0 +1,10 @@
+ent-BasePlantAnalyzer = анализатор растений
+    .desc = Портативный прибор, позволяющий сканировать семена и растения для получения подробной информации об их генах.
+ent-PlantAnalyzer = { ent-BasePlantAnalyzer }
+    .desc = { ent-BasePlantAnalyzer.desc }
+ent-PlantAnalyzerEmpty = { ent-BasePlantAnalyzer }
+    .desc = { ent-BasePlantAnalyzer.desc }
+    .suffix = Пустой
+ent-PlantAnalyzerDebug = { ent-BasePlantAnalyzer }
+    .desc = { ent-BasePlantAnalyzer.desc }
+    .suffix = DEBUG

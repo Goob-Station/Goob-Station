@@ -17,6 +17,7 @@
     Bucket: 3
     DiseaseSwab: 20
     BoxAgrichem: 1
+    PlantAnalyzer: 1 # Corvax-Next-PlantAnalyzer
     #TO DO:
     #plant analyzer
   emaggedInventory:

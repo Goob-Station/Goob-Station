@@ -209,6 +209,7 @@
       - FreezerElectronics
       - ToolboxMechanical # Goobstation - Recycle update
       - Pen # Goobstation - Allow pen printing
+      - PlantAnalyzer # Corvax-Next-PlantAnalyzer
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - BoxLethalshot
