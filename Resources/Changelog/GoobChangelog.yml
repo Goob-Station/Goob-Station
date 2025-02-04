@@ -4637,3 +4637,9 @@ Entries:
         self-ammo-printing pistol.
   id: 525
   time: '2025-02-04T05:43:43.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Tweak
+      message: Security Cadets now start with Security Glasses
+  id: 526
+  time: '2025-02-04T09:51:00.0000000+00:00'
