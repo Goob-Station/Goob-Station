@@ -1,5 +1,4 @@
 using Content.Shared.Actions;
-using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Inventory;
 using Robust.Shared.GameStates;
