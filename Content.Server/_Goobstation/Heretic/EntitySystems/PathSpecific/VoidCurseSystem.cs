@@ -25,7 +25,7 @@ public sealed partial class VoidCurseSystem : SharedVoidCurseSystem
 
             comp.Timer -= frameTime;
             if (comp.Timer > 0)
-                return;
+                continue;
 
             comp.Timer = 1f;
             comp.Lifetime -= 1f;

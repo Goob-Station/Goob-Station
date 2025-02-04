@@ -119,7 +119,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         foreach (var pookie in midPriority)
         {
             _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(2.5f), true);
-            _voidcurse.DoCurse(pookie);
+            if (ent.Comp.CurrentPath == "Void") _voidcurse.DoCurse(pookie);
         }
 
         // pull in farthest ones
