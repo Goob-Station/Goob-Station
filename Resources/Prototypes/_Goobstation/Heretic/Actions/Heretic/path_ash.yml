@@ -37,7 +37,7 @@
 - type: entity
   id: ActionHereticNightwatcherRebirth
   name: Nightwatcher's Rebirth
-  description: A spell that extinguishes you and drains nearby heathens engulfed in flames of their life force.
+  description: Drains nearby heathens engulfed in flames of their life force.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -55,7 +55,7 @@
 - type: entity
   id: ActionHereticAscension1
   name: Oath of Flame
-  description: For a minute, you will passively create a ring of fire around you.
+  description: Create a ring of fire around you.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -73,7 +73,7 @@
 - type: entity
   id: ActionHereticAscension2
   name: Fire Cascade
-  description: Heats the air around you.
+  description: Burn everything in a large distance.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction

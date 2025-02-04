@@ -1,3 +1,4 @@
+using Content.Server._Goobstation.Heretic.Components.PathSpecific;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Temperature.Components;
@@ -51,29 +52,34 @@ public sealed partial class AristocratSystem : EntitySystem
 
     private void Cycle(Entity<AristocratComponent> ent)
     {
-        SpawnTiles(ent);
+        var lookup = _lookup.GetEntitiesInRange(Transform(ent).Coordinates, ent.Comp.Range);
 
+        FreezeAtmos(ent);
+
+        DoChristmas(ent, lookup);
+
+        FreezeNoobs(ent, lookup);
+    }
+
+    private void FreezeAtmos(Entity<AristocratComponent> ent)
+    {
         var mix = _atmos.GetTileMixture((ent, Transform(ent)));
         if (mix != null)
             mix.Temperature -= 50f;
+    }
 
-        // replace certain things with their winter analogue
-        var lookup = _lookup.GetEntitiesInRange(Transform(ent).Coordinates, ent.Comp.Range);
+    // replaces certain things with their winter analogue
+    private void DoChristmas(Entity<AristocratComponent> ent, HashSet<EntityUid> lookup)
+    {
+        SpawnTiles(ent);
+
         foreach (var look in lookup)
         {
-            if (HasComp<HereticComponent>(look) || HasComp<GhoulComponent>(look))
-                continue;
-
-            if (TryComp<TemperatureComponent>(look, out var temp))
-                _temp.ChangeHeat(look, -200f, true, temp);
-
-            _statusEffect.TryAddStatusEffect<MutedComponent>(look, "Muted", TimeSpan.FromSeconds(5), true);
-
             if (TryComp<TagComponent>(look, out var tag))
             {
                 var tags = tag.Tags;
 
-                // replace walls with snow ones
+                // walls
                 if (_rand.Prob(.45f) && tags.Contains("Wall")
                 && Prototype(look) != null && Prototype(look)!.ID != _snowWallPrototype)
                 {
@@ -81,6 +87,23 @@ public sealed partial class AristocratSystem : EntitySystem
                     QueueDel(look);
                 }
             }
+        }
+    }
+
+    private void FreezeNoobs(Entity<AristocratComponent> ent, HashSet<EntityUid> lookup)
+    {
+        foreach (var look in lookup)
+        {
+            // ignore same path heretics and ghouls
+            if (HasComp<HereticComponent>(look) || HasComp<GhoulComponent>(look))
+                continue;
+
+            if (TryComp<TemperatureComponent>(look, out var temp))
+                _temp.ChangeHeat(look, -200f, true, temp); // TODO move to VoidFrozenSystem
+
+            _statusEffect.TryAddStatusEffect<MutedComponent>(look, "Muted", TimeSpan.FromSeconds(5), true);
+
+            EnsureComp<VoidFrozenComponent>(look);
         }
     }
 

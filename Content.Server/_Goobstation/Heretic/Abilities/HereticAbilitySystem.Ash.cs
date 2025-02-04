@@ -163,7 +163,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
     #region Helper methods
 
-    [ValidatePrototypeId<EntityPrototype>] private const string FirePrototype = "LavalandHierophantSquare";
+    [ValidatePrototypeId<EntityPrototype>] private const string FirePrototype = "HereticFireAA";
 
     public async Task CombustArea(EntityUid ent, int range = 1, bool hollow = true)
     {
@@ -173,7 +173,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         for (int i = 0; i <= range; i++)
         {
             SpawnFireBox(beacon, range: i, hollow);
-            await Task.Delay((int) .5f);
+            await Task.Delay((int) 500f);
         }
 
         EntityManager.DeleteEntity(beacon); // cleanup

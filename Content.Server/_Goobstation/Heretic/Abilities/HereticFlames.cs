@@ -6,10 +6,10 @@ namespace Content.Server.Heretic.Abilities;
 [RegisterComponent]
 public sealed partial class HereticFlamesComponent : Component
 {
-    public float Timer = 0f;
-    public float TimerSeconds = 0f;
-    public float UpdateDuration = .2f;
-    [DataField] public float Duration = 60f;
+    public float UpdateTimer = 0f;
+    public float LifetimeTimer = 0f;
+    [DataField] public float UpdateDuration = .2f;
+    [DataField] public float LifetimeDuration = 60f;
 }
 
 public sealed partial class HereticFlamesSystem : EntitySystem
@@ -23,17 +23,18 @@ public sealed partial class HereticFlamesSystem : EntitySystem
         var eqe = EntityQueryEnumerator<HereticFlamesComponent>();
         while (eqe.MoveNext(out var uid, out var hfc))
         {
-            hfc.Timer += frameTime;
-            if (hfc.Timer < hfc.UpdateDuration)
-                continue;
-
-            hfc.Timer = 0f;
-            hfc.TimerSeconds += 1f;
-
-            if (hfc.TimerSeconds >= hfc.Duration)
+            // remove it after ~60 seconds
+            hfc.LifetimeTimer += frameTime;
+            if (hfc.LifetimeTimer >= hfc.LifetimeDuration)
                 RemComp(uid, hfc);
 
-            _has.SpawnDamageBox(uid, 1, false);
+            // spawn fire box every .2 seconds
+            hfc.UpdateTimer += frameTime;
+            if (hfc.UpdateTimer >= hfc.UpdateDuration)
+            {
+                hfc.UpdateTimer = 0f;
+                _has.SpawnFireBox(uid, 1, false);
+            }
         }
     }
 }
