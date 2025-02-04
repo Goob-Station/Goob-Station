@@ -41,10 +41,14 @@ public sealed class PlantAnalyzerBoundUserInterface : BoundUserInterface
 
     protected override void Dispose(bool disposing)
     {
-        base.Dispose(disposing);
         if (!disposing)
             return;
 
+        if (_window != null)
+            _window.OnClose -= Close;
+
+        _window?.Dispose();
+        base.Dispose(disposing);
         if (_window != null)
             _window.OnClose -= Close;
 
