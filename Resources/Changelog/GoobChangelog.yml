@@ -4585,3 +4585,47 @@ Entries:
       message: Removed Limer__treats
   id: 518
   time: '2025-02-01T19:57:54.0000000+00:00'
+- author: AW-FulCode
+  changes:
+    - type: Tweak
+      message: Yowie's can wear more outerslot clothing with less slowdown and damage!
+  id: 519
+  time: '2025-02-01T20:54:07.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Add
+      message: >-
+        Added examples to silicon rule 8 to make blatantly clear who is and
+        isn't crew.
+  id: 520
+  time: '2025-02-01T20:54:58.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: >-
+        Hardlight bow rebalanced. Regular and x-ray arrow are slightly weaker,
+        other types of arrows are stronger, explosive unchanged.
+    - type: Add
+      message: Hardlight bow is now clumsy proof.
+  id: 521
+  time: '2025-02-02T05:18:12.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added a new civ t1 research to make prescription glasses.
+    - type: Tweak
+      message: Nearsighted trait now requires special prescription glasses to see.
+  id: 522
+  time: '2025-02-03T03:07:54.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Changed descriptions of Abductor items
+  id: 523
+  time: '2025-02-03T13:43:12.0000000+00:00'
+- author: CBozo
+  changes:
+    - type: Add
+      message: 'Added new lobby art: "Dare to Be Spaced"'
+  id: 524
+  time: '2025-02-03T19:07:11.0000000+00:00'
