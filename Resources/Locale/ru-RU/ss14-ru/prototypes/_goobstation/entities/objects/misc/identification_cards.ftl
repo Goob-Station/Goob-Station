@@ -6,3 +6,5 @@ ent-HecuIDCard = ID карта HECU
     .desc = { ent-IDCardStandard.desc }
 ent-BlueshieldIDCard = ID карта синего щита
     .desc = { ent-IDCardStandard.desc }
+ent-NTRIDCard = ID карта представителя НТ
+    .desc = { ent-IDCardStandard.desc }

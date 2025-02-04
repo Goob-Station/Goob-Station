@@ -1,0 +1,13 @@
+- type: entity
+  parent: IDCardStandard
+  id: NTRIDCard
+  name: Nanotrasen Representative ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+    - state: idcentcom
+  - type: Item
+    heldPrefix: blue
+  - type: PresetIdCard
+    job: NanotrasenRepresentative

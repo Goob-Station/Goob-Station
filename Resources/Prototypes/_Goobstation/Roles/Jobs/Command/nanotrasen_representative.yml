@@ -1,7 +1,7 @@
 - type: job
   id: NanotrasenRepresentative
-  name: Nanotrasen Representative
-  description: "Represent NT, Send reports back to them on the station's situation, Inform the heads of anything CentCom orders them to do."
+  name: job-name-ntr
+  description: job-description-ntr
   playTimeTracker: JobNanotrasenRepresentative
   requirements:
     - !type:DepartmentTimeRequirement
@@ -19,12 +19,17 @@
   access:
   - CentralCommand
   - Brig
+  - Security
   - External
   - Cryogenics
   - Maintenance
   - Engineering
+  - Atmospherics
   - Medical
+  - Chemistry
   - Research
+  - Cargo
+  - Salvage
   - Command
   - NanotrasenRepresentative
   special:
@@ -37,8 +42,8 @@
 - type: startingGear
   id: NanotrasenRepresentativeGear
   equipment:
-    id: CentcomPDA
-    ears: ClothingHeadsetAltCentCom
+    id: NTRPDA
+    ears: ClothingHeadsetAltCommand
     pocket1: UniqueNanorepLockerTeleporter
   storage:
     back:

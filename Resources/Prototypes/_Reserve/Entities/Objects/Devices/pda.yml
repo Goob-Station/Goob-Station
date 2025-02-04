@@ -1,0 +1,25 @@
+- type: entity
+  parent: BaseSecurityPDA
+  id: NTRPDA
+  name: NTR PDA
+  description: Light green sign of walking bureaucracy.
+  components:
+  - type: Pda
+    id: NTRIDCard
+    state: pda-centcom
+    penSlot:
+      startingItem: PenCentcom
+      whitelist:
+        tags:
+        - Write
+  - type: PdaBorderColor
+    borderColor: "#00842e"
+  - type: Icon
+    state: pda-centcom
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - NanoChatCartridge # DeltaV
