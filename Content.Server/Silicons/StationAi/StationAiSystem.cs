@@ -163,6 +163,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
     /// </summary>
     public void SendBorgOrder(string order, PopupType popupType = PopupType.Small)
     {
+        Log.Debug("1");
         var message = Loc.GetString("ai-borg-order-popup-text", ("message", order));
         var borg = AllEntityQuery<BorgChassisComponent, SiliconLawBoundComponent, MindContainerComponent>();
         while (borg.MoveNext(out var uid, out _, out var slb, out var mc))
@@ -171,10 +172,12 @@ public sealed class StationAiSystem : SharedStationAiSystem
                 HasComp<MindContainerComponent>(uid) ||
                 HasComp<SiliconLawBoundComponent>(uid))
                 continue;
+            Log.Debug("2");
 
             var laws = _law.GetLaws(uid, slb).Laws;
             if (_law.HasLawLocale(laws, "law-obeyai"))
                 continue; // theres no way to verify a law prototype in this shit
+            Log.Debug("3");
 
             _popup.PopupEntity(message, uid, popupType);
         }

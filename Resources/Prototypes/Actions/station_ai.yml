@@ -63,6 +63,6 @@
     itemIconStyle: NoItem
     icon:
       sprite: Interface/Actions/actions_ai.rsi
-      state: state_laws
+      state: borg_order
     event: !type:SiliconAnnounceEvent
-    useDelay: 0.5
+    useDelay: 300.0 # 5 minutes delay
