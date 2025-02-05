@@ -34,6 +34,8 @@ air-alarm-ui-mode-wide-filtering = Filtering (wide)
 air-alarm-ui-mode-fill = Fill
 air-alarm-ui-mode-panic = Panic
 air-alarm-ui-mode-none = None
+air-alarm-ui-mode-cycling = Cycling
+air-alarm-ui-mode-wide-cycling = Cycling (wide)
 
 ## Widgets
 
