@@ -39,7 +39,7 @@
           shader: unshaded
           map: [ "shield" ]
     - type: Item
-      size: Normal
+      size: Large
     - type: UseDelay
       delay: 0.5
     - type: ToggleableLightVisuals
