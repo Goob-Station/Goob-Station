@@ -36,8 +36,8 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 13 # STOP RESISTING !!
-        Slash: 7 # STOP RESISTING x2 !!
+        Blunt: 13 # Unlucky number
+        Slash: 7 # Lucky number
     animation: WeaponArcThrust
   - type: StaminaDamageOnHit
     damage: 40
