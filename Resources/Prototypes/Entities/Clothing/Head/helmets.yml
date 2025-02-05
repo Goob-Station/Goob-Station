@@ -36,6 +36,15 @@
     tags:
     - WhitelistChameleon
     - SecurityHelmet
+  - type: SecurityHelmet
+  - type: ItemSlots
+    slots:
+      item:
+        name: Seclite
+        occludesLight: false
+        whitelist:
+          components:
+          - Seclite
 
 #Mercenary Helmet
 - type: entity
