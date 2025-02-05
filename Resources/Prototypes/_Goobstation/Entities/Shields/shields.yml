@@ -21,7 +21,6 @@
       activatedSize: Ginormous
     - type: Clothing
       sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
-      state: icon
       quickEquip: false
       slots:
       - Belt
