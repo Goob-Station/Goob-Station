@@ -1,0 +1,80 @@
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckEnsembleCaptain
+  name: captain's ensemble
+  description: 
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Ensembles/captain.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Ensembles/captain.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckEnsembleCaptain
+  name: captain's ensemble
+  description: 
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Ensembles/captain.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Ensembles/captain.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckEnsembleCaptain
+  name: captain's ensemble
+  description: 
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Ensembles/captain.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Ensembles/captain.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckEnsembleCaptain
+  name: captain's ensemble
+  description: 
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Ensembles/captain.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Ensembles/captain.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckEnsembleCaptain
+  name: captain's ensemble
+  description: 
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Ensembles/captain.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Ensembles/captain.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckEnsembleCaptain
+  name: captain's ensemble
+  description: 
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Ensembles/captain.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Ensembles/captain.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+
+
