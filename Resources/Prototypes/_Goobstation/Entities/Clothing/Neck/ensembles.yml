@@ -4,7 +4,7 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleCaptain
   name: captain's ensemble
-  description: For when you aren't just the captain, you're the damn LEADER of this station. Everyone will respect you, or they will learn to.
+  description: You're a hardened veteran, and you rule this station with an iron fist. That chess match? Never happened.
   suffix: DO NOT MAP
   components:
   - type: Sprite
@@ -18,7 +18,7 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleChiefEngineer
   name: chief engineer's ensemble
-  description: They call you the Chief Engineer for a reason. They who control the power, control the station; and you'll be damned if you don't control the power.
+  description: In the event of a delamination, this won't protect you from the radiation. With how long you've been doing this, that wouldn't happen. Right?
   suffix: DO NOT MAP
   components:
   - type: Sprite
@@ -46,7 +46,7 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleHeadOfSecurity
   name: head of security's ensemble
-  description: Stained with the blood of tiders, and the tears of cadets. You are the law, and everyone will know it.
+  description: Stained with the blood of tiders, and the tears of cadets. The word "shitsec" brings you joy, a tear to your eye.
   suffix: DO NOT MAP
   components:
   - type: Sprite
@@ -102,7 +102,7 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleBlueshield
   name: blueshield officer's ensemble
-  description: Strikes fear into the heart of any would-be assassins. It smells strongly of bluespace.
+  description: It smells strongly of bluespace. With all this expensive gear, there's no way you can lose to a single tider. Right?
   suffix: DO NOT MAP
   components:
   - type: Sprite
