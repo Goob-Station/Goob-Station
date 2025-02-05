@@ -294,6 +294,7 @@
   components:
   - type: Stealth
     hadOutline: true
+    minVisibility: -1 # Goobstation - Proper invisibility
   - type: StealthOnMove
     passiveVisibilityRate: -0.10
     movementVisibilityRate: 0.10

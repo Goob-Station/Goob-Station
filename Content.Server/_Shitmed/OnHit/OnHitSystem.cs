@@ -29,7 +29,7 @@ public sealed partial class OnHitSystem : SharedOnHitSystem
 
         args.Handled = true;
 
-        var handcuffs = SpawnNextToOrDrop(ent.Comp.HandcuffProtorype, args.User);
+        var handcuffs = SpawnNextToOrDrop(ent.Comp.HandcuffPrototype, args.User);
 
         if (!_cuffs.TryAddNewCuffs(target, user, handcuffs, cuffable))
             QueueDel(handcuffs);
