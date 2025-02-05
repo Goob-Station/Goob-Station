@@ -56,7 +56,7 @@
   - type: UseDelay
   - type: Item
     heldPrefix: off
-    size: Normal
+    size: Large
   - type: DisarmMalus
     malus: 0.225
   - type: Appearance
