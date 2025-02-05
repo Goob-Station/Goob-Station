@@ -154,7 +154,7 @@
   loadouts:
   - HoPCloak
   - HoPMantle
-  - HoPEnsemble
+  - HeadOfPersonnelEnsemble
 
 - type: loadoutGroup
   id: HoPBackpack
