@@ -2,7 +2,8 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleCaptain
   name: captain's ensemble
-  description: 
+  description:
+  suffix: DO NOT MAP
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Ensembles/captain.rsi
@@ -15,7 +16,8 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleChiefEngineer
   name: chief engineer's ensemble
-  description: 
+  description:
+  suffix: DO NOT MAP
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Ensembles/ce.rsi
@@ -28,7 +30,8 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleChiefMedicalOfficer
   name: chief medical officer's ensemble
-  description: 
+  description:
+  suffix: DO NOT MAP
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Ensembles/cmo.rsi
@@ -41,7 +44,8 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleHeadOfSecurity
   name: head of security's ensemble
-  description: 
+  description:
+  suffix: DO NOT MAP
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Ensembles/hos.rsi
@@ -54,7 +58,8 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleResearchDirector
   name: research director's ensemble
-  description: 
+  description:
+  suffix: DO NOT MAP
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Ensembles/rd.rsi
@@ -67,7 +72,8 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleQuarterMaster
   name: quartermaster's ensemble
-  description: 
+  description:
+  suffix: DO NOT MAP
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Ensembles/qm.rsi
@@ -80,7 +86,8 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleHeadOfPersonnel
   name: head of personnel's ensemble
-  description: 
+  description:
+  suffix: DO NOT MAP
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Ensembles/hop.rsi
@@ -93,7 +100,8 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleBlueshield
   name: blueshield officer's ensemble
-  description: 
+  description:
+  suffix: DO NOT MAP
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Ensembles/bso.rsi
