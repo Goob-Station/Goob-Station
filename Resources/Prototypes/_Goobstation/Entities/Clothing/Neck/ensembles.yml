@@ -72,7 +72,7 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleQuarterMaster
   name: quartermaster's ensemble
-  description: Woven from the blood, sweat, and tears of salvage specialists. Anyone wearing this cape, whilst wielding an enforcer should be feared.
+  description: Woven from the blood, sweat, and tears of those who fought against Cargonia. Remember, money printing is your God given right.
   suffix: DO NOT MAP
   components:
   - type: Sprite
