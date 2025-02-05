@@ -7,13 +7,13 @@
   license: "CC-BY-SA-3.0"
   copyright: "Taken from freesound.org, and edited by SolsticeOfTheWinter"
   source: "https://freesound.org/people/Za-Games/sounds/540214/"
-  
-  - files: ["nanotrasenenergyon.ogg"]
+
+- files: ["nanotrasenenergyon.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from freesound.org, and edited by SolsticeOfTheWinter"
   source: "https://freesound.org/people/pip_/sounds/557194/"
-  
-  - files: ["nanotrasenenergyoff.ogg"]
+
+- files: ["nanotrasenenergyoff.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from freesound.org, and reversed by SolsticeOfTheWinter"
   source: "https://freesound.org/people/pip_/sounds/557194/"
