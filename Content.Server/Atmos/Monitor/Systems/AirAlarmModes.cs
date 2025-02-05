@@ -59,9 +59,9 @@ public sealed class AirAlarmModeFactory
     private static IAirAlarmMode _fillMode = new AirAlarmFillMode();
     private static IAirAlarmMode _panicMode = new AirAlarmPanicMode();
     private static IAirAlarmMode _noneMode = new AirAlarmNoneMode();
+    private static IAirAlarmMode _cyclingMode = new AirAlarmCyclingMode();
+    private static IAirAlarmMode _wideCyclingMode = new AirAlarmWideCyclingMode();
 
-    // still not a fan since ReplaceMode must have an allocation
-    // but it's whatever
     public static IAirAlarmMode? ModeToExecutor(AirAlarmMode mode)
     {
         return mode switch
@@ -71,6 +71,8 @@ public sealed class AirAlarmModeFactory
             AirAlarmMode.Fill => _fillMode,
             AirAlarmMode.Panic => _panicMode,
             AirAlarmMode.None => _noneMode,
+            AirAlarmMode.Cycling => _cyclingMode,
+            AirAlarmMode.WideCycling => _wideCyclingMode,
             _ => null
         };
     }
@@ -187,6 +189,48 @@ public sealed class AirAlarmFillMode : AirAlarmModeExecutor
         foreach (var (addr, device) in alarm.ScrubberData)
         {
             AirAlarmSystem.SetData(uid, addr, GasVentScrubberData.FillModePreset);
+        }
+    }
+}
+
+public sealed class AirAlarmCyclingMode : AirAlarmModeExecutor
+{
+    public override void Execute(EntityUid uid)
+    {
+        if (!EntityManager.TryGetComponent(uid, out AirAlarmComponent? alarm))
+            return;
+
+        foreach (var (addr, device) in alarm.VentData)
+        {
+            AirAlarmSystem.SetData(uid, addr, GasVentPumpData.FilterModePreset);
+        }
+
+        foreach (var (addr, device) in alarm.ScrubberData)
+        {
+            var data = GasVentScrubberData.PanicModePreset;
+            data.WideNet = false;
+            AirAlarmSystem.SetData(uid, addr, data);
+        }
+    }
+}
+
+public sealed class AirAlarmWideCyclingMode : AirAlarmModeExecutor
+{
+    public override void Execute(EntityUid uid)
+    {
+        if (!EntityManager.TryGetComponent(uid, out AirAlarmComponent? alarm))
+            return;
+
+        foreach (var (addr, device) in alarm.VentData)
+        {
+            AirAlarmSystem.SetData(uid, addr, GasVentPumpData.FilterModePreset);
+        }
+
+        foreach (var (addr, device) in alarm.ScrubberData)
+        {
+            var data = GasVentScrubberData.PanicModePreset;
+            data.WideNet = true;
+            AirAlarmSystem.SetData(uid, addr, data);
         }
     }
 }
