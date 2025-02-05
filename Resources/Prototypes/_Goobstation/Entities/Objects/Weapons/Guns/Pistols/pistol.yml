@@ -53,3 +53,48 @@
     whitelist:
       tags:
       - WeaponPistolDualetta
+
+- type: entity
+  parent: [ BaseItem, BaseSyndicateContraband ]
+  id: WeaponPistolAnaconda
+  name: Anaconda
+  description: A heavy pistol capable of supplying itself with the ammo on the way using a built-in fabricator.
+  components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  - type: Tag
+    tags:
+    - Sidearm
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Pistols/anaconda.rsi
+    layers:
+    - state: icon
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Pistols/anaconda.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+  - type: Gun
+    fireRate: 3
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/hpistol.ogg
+  - type: BasicEntityAmmoProvider
+    proto: BulletAnaconda
+    capacity: 7
+    count: 7
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 4
+    rechargeSound:
+      path: /Audio/Weapons/Guns/Cock/shotgun_close.ogg
+  - type: AmmoCounter
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Multishot

@@ -67,6 +67,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: LoadedMap
   - uid: 2
     components:
@@ -725,6 +729,10 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           immutable: True
           temperature: 248.15
@@ -741,11 +749,19 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.14365
           moles:
           - 21.711672
           - 81.677246
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -1308,6 +1324,13 @@ entities:
     components:
     - type: Transform
       pos: -6.5,-10.5
+      parent: 2
+- proto: BiomassReclaimer
+  entities:
+  - uid: 2399
+    components:
+    - type: Transform
+      pos: -8.5,-10.5
       parent: 2
 - proto: BlastDoor
   entities:
@@ -4641,7 +4664,7 @@ entities:
     - type: Transform
       pos: 24.5,-15.5
       parent: 2
-- proto: FloraTreeConifer01
+- proto: FloraTreeConifer
   entities:
   - uid: 716
     components:
@@ -4743,15 +4766,11 @@ entities:
     - type: Transform
       pos: 31.977348,-23.940697
       parent: 2
-- proto: FloraTreeConifer02
-  entities:
   - uid: 733
     components:
     - type: Transform
       pos: 10.992382,-20.738451
       parent: 2
-- proto: FloraTreeConifer03
-  entities:
   - uid: 734
     components:
     - type: Transform
@@ -4767,7 +4786,7 @@ entities:
     - type: Transform
       pos: 26.703283,-24.807884
       parent: 2
-- proto: FloraTreeSnow01
+- proto: FloraTreeSnow
   entities:
   - uid: 737
     components:
@@ -4835,8 +4854,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 8.884738,9.986916
       parent: 2
-- proto: FloraTreeSnow02
-  entities:
   - uid: 748
     components:
     - type: Transform
@@ -4880,8 +4897,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 20.93752,-1.8255849
       parent: 2
-- proto: FloraTreeSnow03
-  entities:
   - uid: 756
     components:
     - type: Transform
@@ -4912,8 +4927,6 @@ entities:
     - type: Transform
       pos: 18.031408,-23.565697
       parent: 2
-- proto: FloraTreeSnow04
-  entities:
   - uid: 762
     components:
     - type: Transform
@@ -4924,8 +4937,6 @@ entities:
     - type: Transform
       pos: 17.833273,-21.095894
       parent: 2
-- proto: FloraTreeSnow06
-  entities:
   - uid: 764
     components:
     - type: Transform
@@ -5396,6 +5407,18 @@ entities:
       rot: 3.141592653589793 rad
       pos: -3.5,-19.5
       parent: 2
+- proto: GeneratorBasic
+  entities:
+  - uid: 2402
+    components:
+    - type: Transform
+      pos: 30.5,-8.5
+      parent: 2
+  - uid: 2403
+    components:
+    - type: Transform
+      pos: 31.5,-8.5
+      parent: 2
 - proto: GeneratorBasic15kW
   entities:
   - uid: 837
@@ -5403,27 +5426,35 @@ entities:
     - type: Transform
       pos: 31.5,-10.5
       parent: 2
-- proto: GeneratorRTG
-  entities:
   - uid: 838
     components:
     - type: Transform
-      pos: 30.5,-10.5
+      pos: 29.5,-8.5
       parent: 2
   - uid: 839
     components:
     - type: Transform
-      pos: 32.5,-9.5
+      pos: 32.5,-8.5
       parent: 2
   - uid: 840
     components:
     - type: Transform
-      pos: 32.5,-8.5
+      pos: 32.5,-9.5
       parent: 2
   - uid: 841
     components:
     - type: Transform
-      pos: 29.5,-8.5
+      pos: 30.5,-10.5
+      parent: 2
+  - uid: 2400
+    components:
+    - type: Transform
+      pos: 31.5,-9.5
+      parent: 2
+  - uid: 2401
+    components:
+    - type: Transform
+      pos: 30.5,-9.5
       parent: 2
 - proto: GravityGeneratorMini
   entities:
@@ -6069,7 +6100,7 @@ entities:
       angularDamping: 0
       linearDamping: 0
       canCollide: False
-- proto: HydroponicsTrayEmpty
+- proto: hydroponicsTray
   entities:
   - uid: 964
     components:
@@ -6392,7 +6423,7 @@ entities:
   - uid: 1013
     components:
     - type: Transform
-      pos: -3.8367076,-14.575489
+      pos: -3.5601501,-14.375952
       parent: 2
     - type: Physics
       angularDamping: 0
@@ -8988,6 +9019,11 @@ entities:
     - type: Transform
       pos: -7.5,-1.5
       parent: 2
+  - uid: 2397
+    components:
+    - type: Transform
+      pos: -10.5,-10.5
+      parent: 2
 - proto: TableReinforced
   entities:
   - uid: 1456
@@ -9246,6 +9282,19 @@ entities:
     - type: Transform
       pos: 28.515644,-30.613081
       parent: 2
+- proto: TwoWayLever
+  entities:
+  - uid: 2398
+    components:
+    - type: Transform
+      pos: -7.5,-13.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        1242:
+        - Left: Forward
+        - Right: Reverse
+        - Middle: Off
 - proto: VendingMachineBooze
   entities:
   - uid: 1501
