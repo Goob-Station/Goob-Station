@@ -34,7 +34,7 @@
       sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
       layers:
         - state: icon-off
-        - state: icon-on
+        - state: icon
           color: "#FFFFFF"
           visible: false
           shader: unshaded
