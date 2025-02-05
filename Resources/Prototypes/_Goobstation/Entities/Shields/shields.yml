@@ -20,7 +20,8 @@
     - type: ItemToggleSize
       activatedSize: Huge
     - type: Clothing
-      sprite: Objects/Weapons/Guns/SMGs/atreides.rsi # todo : change this
+      sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
+      state: icon-off
       quickEquip: false
       slots:
       - Back
