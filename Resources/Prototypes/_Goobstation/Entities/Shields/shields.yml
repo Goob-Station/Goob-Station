@@ -42,7 +42,6 @@
     - type: Item
       size: Small
       sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
-      heldprefix: blueshield
     - type: UseDelay
       delay: 0.5
     - type: ToggleableLightVisuals
