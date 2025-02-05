@@ -2,7 +2,7 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleCaptain
   name: captain's ensemble
-  description:
+  description: For when you aren't just the captain, you're the damn LEADER of this station. Everyone will respect you, or they will learn to.
   suffix: DO NOT MAP
   components:
   - type: Sprite
@@ -16,7 +16,7 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleChiefEngineer
   name: chief engineer's ensemble
-  description:
+  description: They don't call you the Chief Engineer for no reason. He who controls the power, controls the station; and you'll be damned if you don't control the power.
   suffix: DO NOT MAP
   components:
   - type: Sprite
@@ -30,7 +30,7 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleChiefMedicalOfficer
   name: chief medical officer's ensemble
-  description:
+  description: You're here to save lives, but that doesn't mean you can't enjoy taking them. For when you can save the captain with nothing but a welding tool and a shirt; and for when you can kill a nukie with just a syringe.
   suffix: DO NOT MAP
   components:
   - type: Sprite
@@ -44,7 +44,7 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleHeadOfSecurity
   name: head of security's ensemble
-  description:
+  description: These people have no idea who they are messing with... WE ARE THE LAW!
   suffix: DO NOT MAP
   components:
   - type: Sprite
@@ -58,7 +58,7 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleResearchDirector
   name: research director's ensemble
-  description:
+  description: The endpoint of all science reaches here. You are truly the pinnacle of science, a monument to Nanotrasens accomplishments.
   suffix: DO NOT MAP
   components:
   - type: Sprite
@@ -72,7 +72,7 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleQuarterMaster
   name: quartermaster's ensemble
-  description:
+  description: Woven from the blood, sweat, and tears of salvage specialists. Anyone wearing this cape, whilst wielding an enforcer should be feared.
   suffix: DO NOT MAP
   components:
   - type: Sprite
@@ -86,7 +86,7 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleHeadOfPersonnel
   name: head of personnel's ensemble
-  description:
+  description: There's nothing sweeter in this world than the tears of someone that was made to fill out five paragraphs of paperwork. You denied them after, of course.
   suffix: DO NOT MAP
   components:
   - type: Sprite
@@ -100,12 +100,24 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleBlueshield
   name: blueshield officer's ensemble
-  description:
+  description: You strike fear into the heart of any would-be assassins. Most would drop their weapons and cower upon even THINKING about this cape. It smells strongly of bluespace.
   suffix: DO NOT MAP
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Ensembles/bso.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Neck/Ensembles/bso.rsi
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckEnsembleNanotrasenRepresentative
+  name: nanotrasen representative's ensemble
+  description: Directly from N.I.A.D, the Nanotrasen Internal Affairs Department. You're here to fire people and do paperwork, and you are all out of paper.
+  suffix: DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Ensembles/ntr.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Ensembles/ntr.rsi
 
 
