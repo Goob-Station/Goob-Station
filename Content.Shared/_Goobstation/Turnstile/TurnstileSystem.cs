@@ -34,6 +34,17 @@ public sealed class TurnstileSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<TurnstileComponent, StartCollideEvent>(OnStartCollide);
         SubscribeLocalEvent<TurnstileComponent, PreventCollideEvent>(OnPreventCollide);
+        SubscribeLocalEvent<TurnstileComponent, EndCollideEvent>(OnEndCollide);
+    }
+
+    private void OnEndCollide(EntityUid uid, TurnstileComponent comp, ref EndCollideEvent args)
+    {
+        if (comp.PassingThrough != args.OtherEntity)
+            return;
+
+        comp.PassingThrough = null;
+        StartPrisonerTime(args.OtherEntity);
+        _appearanceSystem.SetData(uid,TurnstileVisuals.State, TurnstileVisualState.Base);
     }
 
     //really need to think about this
@@ -63,13 +74,6 @@ public sealed class TurnstileSystem : EntitySystem
 
         // Allowed passage
         comp.PassingThrough = otherEntity;
-        Timer.Spawn(1000,
-            () =>
-            {
-                StartPrisonerTime(otherEntity);
-                comp.PassingThrough = null;
-                _appearanceSystem.SetData(uid, TurnstileVisuals.State, TurnstileVisualState.Base);
-            });
     }
 
     private void StartPrisonerTime(EntityUid ent)
