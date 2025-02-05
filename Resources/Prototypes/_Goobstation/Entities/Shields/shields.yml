@@ -14,8 +14,6 @@
         path: /Audio/Machines/button.ogg
         params:
           variation: 0.250
-    - type: Item
-      heldPrefix: icon
     - type: ItemToggleActiveSound
       activeSound:
         path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyhum.ogg
@@ -43,6 +41,7 @@
     - type: Item
       size: Small
       sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
+      heldprefix: icon
     - type: UseDelay
       delay: 0.5
     - type: ToggleableLightVisuals
