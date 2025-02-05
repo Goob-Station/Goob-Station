@@ -7,7 +7,7 @@
     - type: ItemToggle
       predictable: false
       soundActivate:
-        path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg #todo : make all sounds here mono or game bitches
+        path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
       soundDeactivate:
         path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyoff.ogg
       soundFailToActivate:
@@ -40,9 +40,9 @@
           shader: unshaded
           map: [ "shield" ]
     - type: Item
-      size: Large
+      size: Small
       sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
-      heldPrefix: bss
+      heldprefix: icon-off
     - type: UseDelay
       delay: 0.5
     - type: ToggleableLightVisuals
