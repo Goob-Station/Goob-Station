@@ -53,10 +53,6 @@
           paths:
             - /Maps/Shuttles/trading_outpost.yml
           nameDataset: TradeStationNames
-        mining: !type:GridSpawnGroup
-          paths:
-          - /Maps/Shuttles/mining.yml
-          nameDataset: MiningShuttleNames
         # Spawn last
         ruins: !type:GridSpawnGroup
           hide: true
@@ -75,17 +71,18 @@
           - /Maps/Ruins/syndicate_dropship.yml
           - /Maps/Ruins/whiteship_ancient.yml
           - /Maps/Ruins/whiteship_bluespacejumper.yml
-        vgroid: !type:DungeonSpawnGroup
-          minimumDistance: 300
-          maximumDistance: 350
-          nameDataset: NamesBorer
-          stationGrid: false
-          addComponents:
-          - type: Gravity
-            enabled: true
-            inherent: true
-          protos:
-          - VGRoid
+# Lavaland Change: no vgroid
+#        vgroid: !type:DungeonSpawnGroup
+#          minimumDistance: 300
+#          maximumDistance: 350
+#          nameDataset: NamesBorer
+#          stationGrid: false
+#          addComponents:
+#          - type: Gravity
+#            enabled: true
+#            inherent: true
+#          protos:
+#          - VGRoid
 
 - type: entity
   id: BaseStationCentcomm

@@ -113,6 +113,7 @@
     color: "#ffeead"
     enabled: false
     radius: 4
+  - type: PressureBuffed # Lavaland Change: Pressure buffs for crushers
 
 - type: entity
   parent: [BaseWeaponCrusher, BaseSecurityCargoContraband]
@@ -131,7 +132,7 @@
   - type: LeechOnMarker
     leech:
       groups:
-        Brute: -10
+        Brute: -7 # Lavaland Change: lower crusher healing
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
@@ -145,7 +146,7 @@
     capacity: 1
     count: 1
   - type: MeleeWeapon
-    attackRate: 1.5
+    attackRate: 1.2 # Lavaland Change
     wideAnimationRotation: -135
     damage:
       types:
@@ -201,7 +202,7 @@
   - type: LeechOnMarker
     leech:
       groups:
-        Brute: -21
+        Brute: -10 # Lavaland Change: lower crusher healing
   - type: MeleeWeapon
   - type: Tag
     tags:
