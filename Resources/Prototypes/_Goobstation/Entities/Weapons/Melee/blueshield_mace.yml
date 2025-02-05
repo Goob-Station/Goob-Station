@@ -10,7 +10,7 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/blueshield_mace.rsi
     layers:
-    - state: stunprod_off
+    - state: icon_off
       map: [ "enum.ToggleVisuals.Layer" ]
   - type: ItemToggle
     soundActivate:
