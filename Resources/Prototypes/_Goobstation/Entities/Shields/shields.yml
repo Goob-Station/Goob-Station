@@ -42,7 +42,7 @@
     - type: Item
       size: Small
     - type: UseDelay
-      delay: 0.5
+      delay: 1
     - type: ToggleableLightVisuals
       spriteLayer: shield
       inhandVisuals:

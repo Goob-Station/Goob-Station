@@ -15,7 +15,7 @@
     },
     {
         "name": "inhand-left",
-        "directions": 4
+        "directions": 2
     },
     {
         "name": "inhand-left-on",
@@ -27,7 +27,7 @@
     },
     {
         "name": "inhand-right",
-        "directions": 4
+        "directions": 2
     }
   ]
 }
