@@ -1,5 +1,5 @@
 - type: entity
-  name: abductor's mechanical pinches
+  name: high-tech mechanical pinches
   id: MechanicalPinchesAbductor
   description: A highly advanced set of mechanical pinches, they seem to work like a hemostat and retractor.
   parent: [BaseToolSurgery, BaseMedicalScienceContraband]
@@ -39,7 +39,7 @@
     - Abductors
 
 - type: entity
-  name: abductor's searing tool
+  name: high-tech searing tool
   description: A highly advanced cautery with an energy tip, it seems to also work as a drill.
   id: SearingToolAbductor
   parent: [BaseToolSurgery, BaseMedicalScienceContraband]
@@ -75,7 +75,7 @@
     - Abductors
 
 - type: entity
-  name: abductor's energy scalpel
+  name: high-tech energy scalpel
   description: A scalpel which uses an energy blade, it seems to also work as a saw.
   id: EnergyScalpelAbductor
   parent: [BaseToolSurgery, BaseMedicalScienceContraband]
@@ -111,8 +111,9 @@
     - Abductors
 
 - type: entity
-  name: abductor's bone manipulator
+  name: high-tech bone manipulator
   id: BoneManipulatorAbductor
+  description: A highly advanced tool, capable of mending bones.
   parent: [BaseToolSurgery, BaseMedicalScienceContraband]
   components:
     - type: Sprite

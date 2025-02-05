@@ -9,3 +9,5 @@ trait-bogan-desc = You learned this from a mythical creature.
 
 trait-maoist-accent-name = Maoist accent
 trait-maoist-accent-desc = SShit$$eKKK mu$$t be de$$troyed. Death to KKKommand.
+
+poor-vision-trait-examined = [color=lightblue]{CAPITALIZE(POSS-ADJ($target))} eyes are unfocused. It doesn't seem like {SUBJECT($target)} can see you very well without glasses..[/color]
