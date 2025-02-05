@@ -30,7 +30,7 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleChiefMedicalOfficer
   name: chief medical officer's ensemble
-  description: You're here to save lives, but that doesn't mean you can't enjoy taking them. May God save you if you touch the chems.
+  description: You're here to save lives, but that doesn't mean you can't enjoy taking them. It's stained with various chemicals, blame the mice.
   suffix: DO NOT MAP
   components:
   - type: Sprite
