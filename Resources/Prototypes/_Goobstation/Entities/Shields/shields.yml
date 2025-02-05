@@ -30,28 +30,27 @@
       - type: DisarmMalus
         malus: 1
     - type: Sprite
-      sprite: Objects/Weapons/Melee/e_shield.rsi # todo : change this
+      sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
       layers:
-        - state: eshield-icon
-        - state: eshield-on
+        - state: icon
+        - state: icon-on
           color: "#FFFFFF"
           visible: false
           shader: unshaded
           map: [ "shield" ]
     - type: Item
       size: Small
-      sprite: Objects/Weapons/Melee/e_shield.rsi # todo : change this
-      heldPrefix: eshield
+      sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
     - type: UseDelay
       delay: 0.5
     - type: ToggleableLightVisuals
       spriteLayer: shield
       inhandVisuals:
         left:
-          - state: inhand-left-shield
+          - state: inhand-left-on
             shader: unshaded
         right:
-          - state: inhand-right-shield
+          - state: inhand-right-on
             shader: unshaded
     - type: PointLight
       netsync: false
