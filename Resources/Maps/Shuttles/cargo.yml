@@ -18,7 +18,7 @@ entities:
       name: Cargo Shuttle
     - type: Transform
       pos: 2.2710133,-2.4148211
-
+      parent: invalid
     - type: MapGrid
       chunks:
         -1,0:
@@ -145,6 +145,10 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         chunkSize: 4
     - type: OccluderTree
     - type: Shuttle
@@ -154,6 +158,18 @@ entities:
     - type: GravityShake
       shakeTimes: 10
     - type: GasTileOverlay
+- proto: AirAlarm
+  entities:
+  - uid: 194
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -4.5,6.5
+      parent: 173
+    - type: DeviceList
+      devices:
+      - 86
+      - 84
 - proto: AirCanister
   entities:
   - uid: 172
@@ -443,28 +459,23 @@ entities:
       parent: 173
 - proto: CableHV
   entities:
-  - uid: 80
+  - uid: 64
     components:
     - type: Transform
-      pos: -1.5,-2.5
+      pos: -2.5,-1.5
       parent: 173
   - uid: 81
     components:
     - type: Transform
       pos: -2.5,-2.5
       parent: 173
-  - uid: 86
+  - uid: 82
     components:
     - type: Transform
-      pos: -2.5,-3.5
+      pos: -1.5,-1.5
       parent: 173
 - proto: CableMV
   entities:
-  - uid: 87
-    components:
-    - type: Transform
-      pos: -1.5,-2.5
-      parent: 173
   - uid: 88
     components:
     - type: Transform
@@ -527,14 +538,20 @@ entities:
       parent: 173
 - proto: CableTerminal
   entities:
-  - uid: 82
+  - uid: 80
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -2.5,-3.5
+      pos: -2.5,-2.5
       parent: 173
 - proto: CargoPallet
   entities:
+  - uid: 146
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -2.5,-4.5
+      parent: 173
   - uid: 151
     components:
     - type: Transform
@@ -726,27 +743,35 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 0.5,0.5
       parent: 173
-- proto: GasPipeBend
+- proto: GasPassiveVent
   entities:
-  - uid: 134
+  - uid: 191
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -2.5,-1.5
+      rot: 3.141592653589793 rad
+      pos: -2.5,-4.5
+      parent: 173
+- proto: GasPipeBend
+  entities:
+  - uid: 187
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -3.5,2.5
       parent: 173
 - proto: GasPipeStraight
   entities:
+  - uid: 87
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -2.5,-1.5
+      parent: 173
   - uid: 136
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -2.5,0.5
-      parent: 173
-  - uid: 137
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -2.5,1.5
       parent: 173
   - uid: 140
     components:
@@ -754,34 +779,79 @@ entities:
       rot: 3.141592653589793 rad
       pos: -2.5,-0.5
       parent: 173
-- proto: GasPort
-  entities:
-  - uid: 135
+  - uid: 188
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
+      pos: -3.5,-0.5
+      parent: 173
+  - uid: 189
+    components:
+    - type: Transform
+      pos: -3.5,0.5
+      parent: 173
+  - uid: 190
+    components:
+    - type: Transform
+      pos: -3.5,1.5
+      parent: 173
+  - uid: 192
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -2.5,-2.5
+      parent: 173
+  - uid: 193
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -2.5,-3.5
+      parent: 173
+- proto: GasPort
+  entities:
+  - uid: 85
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
       pos: -3.5,-1.5
       parent: 173
 - proto: GasVentPump
   entities:
-  - uid: 138
+  - uid: 84
     components:
     - type: Transform
+      rot: -1.5707963267948966 rad
       pos: -2.5,2.5
       parent: 173
-- proto: GeneratorBasic15kW
+    - type: DeviceNetwork
+      configurators:
+      - invalid
+      deviceLists:
+      - 194
+- proto: GasVentScrubber
   entities:
-  - uid: 83
+  - uid: 86
     components:
     - type: Transform
-      pos: -2.5,-3.5
+      pos: -2.5,1.5
+      parent: 173
+    - type: DeviceNetwork
+      configurators:
+      - invalid
+      deviceLists:
+      - 194
+- proto: GeneratorBasic15kW
+  entities:
+  - uid: 135
+    components:
+    - type: Transform
+      pos: -2.5,-2.5
       parent: 173
 - proto: GravityGeneratorMini
   entities:
-  - uid: 146
+  - uid: 138
     components:
     - type: Transform
-      pos: -1.5,-1.5
+      pos: -1.5,-2.5
       parent: 173
 - proto: Grille
   entities:
@@ -951,17 +1021,17 @@ entities:
       parent: 173
 - proto: SMESBasic
   entities:
-  - uid: 84
+  - uid: 83
     components:
     - type: Transform
-      pos: -2.5,-2.5
+      pos: -2.5,-1.5
       parent: 173
 - proto: SubstationBasic
   entities:
-  - uid: 85
+  - uid: 134
     components:
     - type: Transform
-      pos: -1.5,-2.5
+      pos: -1.5,-1.5
       parent: 173
 - proto: TableReinforced
   entities:
@@ -1238,11 +1308,6 @@ entities:
     - type: Transform
       pos: -3.5,-4.5
       parent: 173
-  - uid: 64
-    components:
-    - type: Transform
-      pos: -2.5,-4.5
-      parent: 173
   - uid: 65
     components:
     - type: Transform
@@ -1258,6 +1323,12 @@ entities:
     components:
     - type: Transform
       pos: -1.5,-3.5
+      parent: 173
+  - uid: 137
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -2.5,-3.5
       parent: 173
 - proto: WindoorCargoLocked
   entities:
