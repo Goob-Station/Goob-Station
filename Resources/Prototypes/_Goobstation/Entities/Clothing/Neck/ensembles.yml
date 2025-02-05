@@ -44,7 +44,7 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleHeadOfSecurity
   name: head of security's ensemble
-  description: These people have no idea who they are messing with... WE ARE THE LAW!
+  description: Stained with the blood of tiders, and the tears of cadets. You are the law, and everyone will know it.
   suffix: DO NOT MAP
   components:
   - type: Sprite
