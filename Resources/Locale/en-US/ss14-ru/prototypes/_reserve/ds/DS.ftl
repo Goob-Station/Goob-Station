@@ -29,9 +29,6 @@ ent-ClothingEyesGlassesDS = специальные очки
 ent-ClothingHandsGlovesPowergloveDS = силовые перчатки
     .desc = Настоящие силовые перчатки, благодаря которым даже неподготовленный боец способен крушить стены.
     .suffix = резерв
-ent-WeaponArcSparksрезерв = { ent-WeaponArcStatic }
-
-  .desc = { ent-WeaponArcStatic.desc }
 ent-EnergyShieldDS = энергощит
     .desc = Экзотический энергетический щит, в сложенном состоянии может поместиться даже в кармане.
     .suffix = резерв
