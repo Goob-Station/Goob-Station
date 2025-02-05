@@ -33,8 +33,8 @@
     - type: Sprite
       sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
       layers:
-        - state: blueshield-icon
-        - state: blueshield-icon-on
+        - state: icon-off
+        - state: icon
           color: "#FFFFFF"
           visible: false
           shader: unshaded
@@ -42,16 +42,17 @@
     - type: Item
       size: Small
       sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
+      heldprefix: icon-off
     - type: UseDelay
       delay: 0.5
     - type: ToggleableLightVisuals
       spriteLayer: shield
       inhandVisuals:
         left:
-          - state: blueshield-inhand-left-on
+          - state: inhand-left-on
             shader: unshaded
         right:
-          - state: blueshield-inhand-right-on
+          - state: inhand-right-on
             shader: unshaded
     - type: PointLight
       netsync: false
