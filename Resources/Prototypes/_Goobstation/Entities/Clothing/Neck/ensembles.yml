@@ -32,7 +32,7 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleChiefMedicalOfficer
   name: chief medical officer's ensemble
-  description: You're here to save lives, but that doesn't mean you can't enjoy taking them. It's stained with various chemicals, blame the mice.
+  description: With how many medbays you've seen, you're a real poly math-- unpacking people like packages, and mulching bodies like it's nothing. You WILL set up cloning, right?
   suffix: DO NOT MAP
   components:
   - type: Sprite
@@ -102,7 +102,7 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleBlueshield
   name: blueshield officer's ensemble
-  description: It smells strongly of bluespace. With all this expensive gear, there's no way you can lose to a single tider. Right?
+  description: After fending off countless tiders in defense of command, Nanotrasen has finally granted you the ability to die in style. Now get out there and protect the NTR soldier!
   suffix: DO NOT MAP
   components:
   - type: Sprite
@@ -114,7 +114,7 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleNanotrasenRepresentative
   name: nanotrasen representative's ensemble
-  description: Directly from N.I.A.D, the Nanotrasen Internal Affairs Department. You're here to look pretty and do paperwork, and you're all out of paper.
+  description: After years of doing practically nothing, Central Command has gifted you this cloak. Now you can do nothing, while looking pretty!
   suffix: DO NOT MAP
   components:
   - type: Sprite
