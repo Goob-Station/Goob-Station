@@ -871,6 +871,16 @@ entities:
     - type: Transform
       pos: -1.5,-5.5
       parent: 181
+  - uid: 159
+    components:
+    - type: Transform
+      pos: -1.5,-6.5
+      parent: 181
+  - uid: 160
+    components:
+    - type: Transform
+      pos: -2.5,-6.5
+      parent: 181
 - proto: CableTerminal
   entities:
   - uid: 33
@@ -1134,7 +1144,6 @@ entities:
       linearDamping: 0
       bodyType: Static
     - type: InsertingMaterialStorage
-      endTime: 0
 - proto: PoweredSmallLight
   entities:
   - uid: 138
