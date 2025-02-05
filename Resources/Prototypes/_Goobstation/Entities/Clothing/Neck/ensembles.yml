@@ -16,7 +16,7 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleChiefEngineer
   name: chief engineer's ensemble
-  description: They don't call you the Chief Engineer for no reason. He who controls the power, controls the station; and you'll be damned if you don't control the power.
+  description: They call you the Chief Engineer for a reason. They who control the power, control the station; and you'll be damned if you don't control the power.
   suffix: DO NOT MAP
   components:
   - type: Sprite
