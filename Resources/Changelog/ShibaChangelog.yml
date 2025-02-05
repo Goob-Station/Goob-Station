@@ -1,6 +1,27 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Air alarms have a new mode; Cycling! It puts the scrubbers into siphoning
+      while keeping the air vents pumping, allowing for a maintained pressure 'cycle'
+      of all gasses in a room, making it simplier to fix temperature issues!
+    type: Add
+  id: 152
+  time: '2025-02-05T18:52:34.254340'
+- author: AstroDogeDX
+  changes:
+  - message: The Cargo and Salvage Shuttles have had a tiny redesign to add air scrubbers
+      and air alarms!
+    type: Add
+  id: 151
+  time: '2025-02-05T18:53:04.657540'
+- author: AstroDogeDX
+  changes:
+  - message: Admin ghosts can now be hidden from regular ghosts!
+    type: Add
+  id: 150
+  time: '2025-02-05T18:53:32.200300'
+- author: AstroDogeDX
+  changes:
   - message: Population requirements for some midround antagonist events have been
       adjusted... again...
     type: Tweak
