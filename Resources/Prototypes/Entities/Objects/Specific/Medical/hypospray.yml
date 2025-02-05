@@ -413,7 +413,40 @@
   - type: Tag
     tags:
     - SpaceMedipen
-
+    
+- type: entity
+  name: survival medipen
+  parent: ChemicalMedipen
+  id: SurvivalMedipen
+  description: A cocktail of powerful healing chemicals. Contains Leporazine, and Miner's Salve. Slowly heals damage and stabilizes body temperature. You can overdose on these if you use more than one in quick succession.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: survivalpen
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: survivalpen_empty
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 40
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 40
+        reagents:
+          - ReagentId: MinersSalve
+            Quantity: 20
+          - ReagentId: Leporazine
+            Quantity: 20
+  - type: Tag
+    tags: []
+    
 - type: entity
   name: hyperzine injector
   parent: [ChemicalMedipen, BaseSyndicateContraband]

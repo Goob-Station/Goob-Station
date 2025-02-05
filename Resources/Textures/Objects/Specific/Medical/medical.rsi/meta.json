@@ -1,93 +1,131 @@
 {
-	"version": 1,
-	"license": "CC-BY-SA-3.0",
-  "copyright": "Taken from cev-eris at https://github.com/discordia-space/CEV-Eris/commit/740ff31a81313086cf16761f3677cf1e2ab46c93 and Taken from tgstation at https://github.com/tgstation/tgstation/blob/623290915c2292b56da11048deb62d758e1e3fb4/icons/obj/bloodpack.dmi, Blood pack redone by Ubaser",
-  "copyright": "Taken from https://github.com/tgstation/tgstation/blob/a3568da5634e756d0849480104afda402c6f1c3c/icons/obj/medical/stack_medical.dmi",
-  "copyright": "Tourniquet Sprite by PoorMansDreams, bruise pack and ointment recolor by InfinityPandaRed",
-	"size": {
-		"x": 32,
-		"y": 32
-	},
-	"states": [
-		{
-			"name": "brutepack"
-		},
-		{
-			"name": "brutepack-inhand-left",
-			"directions": 4
-		},
-		{
-			"name": "brutepack-inhand-right",
-			"directions": 4
-		},
-		{
-			"name": "cast"
-		},
-		{
-			"name": "gauze"
-		},
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "tgstation at 986af32e22a88dae14fd147d812a5a4d27c1bc30 | stimpen sprites made by PuroSlavKing (Github) for Space Station 14. Nearly all resprited by joshepvodka",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+    "states": [
         {
-            "name": "tourniquet"
+            "name": "medipen"
         },
-		{
-			"name": "morphine"
-		},
-		{
-			"name": "ointment"
-		},
-		{
-			"name": "ointment-inhand-left",
-			"directions": 4
-		},
-		{
-			"name": "ointment-inhand-right",
-			"directions": 4
-		},
-		{
-			"name": "bloodpack"
-		},
-		{
-			"name": "medicated-suture"
-		},
-		{
-			"name": "medicated-suture-inhand-left",
-			"directions": 4
-		},
-		{
-			"name": "medicated-suture-inhand-right",
-			"directions": 4
-		},
-		{
-			"name": "regenerative-mesh"
-		},
-                {
-			"name": "regenerative-mesh-inhand-right",
-			"directions": 4
-		},
-                {
-			"name": "regenerative-mesh-inhand-left",
-			"directions": 4
-		},
-		{
-			"name": "bloodpack-empty"
-		},
-		{
-			"name": "bloodpack-liquid-1"
-		},
-                {
-			"name": "bloodpack-liquid-2"
-		},
-		{
-			"name": "bloodpack-liquid-3"
-		},
-		{
-			"name": "bloodpack-liquid-4"
-		},
-		{
-			"name": "bloodpack-liquid-5"
-		},
         {
-			"name": "bloodpack-blue"
-		}
-	]
+            "name": "medipen_empty"
+        },
+        {
+            "name": "firstaid"
+        },
+        {
+            "name": "firstaid_empty"
+        },
+        {
+            "name": "hypovolemic"
+        },
+        {
+            "name": "hypovolemic_empty"
+        },
+        {
+            "name": "stimpen"
+        },
+        {
+            "name": "stimpen_empty"
+        },
+        {
+            "name": "microstimpen"
+        },
+        {
+            "name": "microstimpen_empty"
+        },
+        {
+            "name": "morphen"
+        },
+        {
+            "name": "morphen_empty"
+        },
+        {
+            "name": "oxapen"
+        },
+        {
+            "name": "oxapen_empty"
+        },
+        {
+            "name": "penacid"
+        },
+        {
+            "name": "penacid_empty"
+        },
+        {
+            "name": "salacid"
+        },
+        {
+            "name": "bicpen"
+        },
+        {
+            "name": "bicpen_empty"
+        },
+        {
+            "name": "dermpen"
+        },
+        {
+            "name": "dermpen_empty"
+        },
+        {
+            "name": "salacid_empty"
+        },
+        {
+            "name": "salpen"
+        },
+        {
+            "name": "salpen_empty"
+        },
+        {
+            "name": "atropen"
+        },
+        {
+            "name": "atropen_empty"
+        },
+        {
+            "name": "arithpen"
+        },
+        {
+            "name": "arithpen_empty"
+        },
+        {
+            "name": "medipen-inhand-left"
+        },
+        {
+            "name": "medipen-inhand-right"
+        },
+        {
+            "name": "advcombatpen"
+        },
+        {
+            "name": "advcombatpen_empty"
+        },
+        {
+            "name": "punctpen"
+        },
+        {
+            "name": "punctpen_empty"
+        },
+        {
+            "name": "pyrapen"
+        },
+        {
+            "name": "pyrapen_empty"
+        },
+        {
+            "name": "dexpen"
+        },
+        {
+            "name": "dexpen_empty"
+        },
+        {
+            "name": "survivalpen"
+        },
+        {
+            "name": "survivalpen_empty"
+        }
+    ]
 }
