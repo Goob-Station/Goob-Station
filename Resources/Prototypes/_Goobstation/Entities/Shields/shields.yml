@@ -21,11 +21,10 @@
       activatedSize: Huge
     - type: Clothing
       sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
-      state: icon-off
+      state: icon
       quickEquip: false
       slots:
-      - Back
-      - suitStorage
+      - Belt
     - type: ComponentToggler
       components:
       - type: DisarmMalus
