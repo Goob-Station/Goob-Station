@@ -30,7 +30,7 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleChiefMedicalOfficer
   name: chief medical officer's ensemble
-  description: You're here to save lives, but that doesn't mean you can't enjoy taking them. The medbay is your domain, and no one will mess with it.
+  description: You're here to save lives, but that doesn't mean you can't enjoy taking them. May God save you if you touch the chems.
   suffix: DO NOT MAP
   components:
   - type: Sprite
