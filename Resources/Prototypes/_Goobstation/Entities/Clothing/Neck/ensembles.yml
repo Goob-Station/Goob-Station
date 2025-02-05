@@ -89,4 +89,15 @@
   - type: StealTarget
     stealGroup: HeadCloak
 
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckEnsembleBlueshield
+  name: blueshield officer's ensemble
+  description: 
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Ensembles/bso.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Ensembles/bso.rsi
+
 
