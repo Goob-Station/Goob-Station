@@ -13,68 +13,80 @@
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
-  id: ClothingNeckEnsembleCaptain
-  name: captain's ensemble
+  id: ClothingNeckEnsembleChiefEngineer
+  name: chief engineer's ensemble
   description: 
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Neck/Ensembles/captain.rsi
+    sprite: _Goobstation/Clothing/Neck/Ensembles/ce.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Neck/Ensembles/captain.rsi
+    sprite: _Goobstation/Clothing/Neck/Ensembles/ce.rsi
   - type: StealTarget
     stealGroup: HeadCloak
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
-  id: ClothingNeckEnsembleCaptain
-  name: captain's ensemble
+  id: ClothingNeckEnsembleChiefMedicalOfficer
+  name: chief medical officer's ensemble
   description: 
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Neck/Ensembles/captain.rsi
+    sprite: _Goobstation/Clothing/Neck/Ensembles/cmo.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Neck/Ensembles/captain.rsi
+    sprite: _Goobstation/Clothing/Neck/Ensembles/cmo.rsi
   - type: StealTarget
     stealGroup: HeadCloak
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
-  id: ClothingNeckEnsembleCaptain
-  name: captain's ensemble
+  id: ClothingNeckEnsembleHeadOfSecurity
+  name: head of security's ensemble
   description: 
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Neck/Ensembles/captain.rsi
+    sprite: _Goobstation/Clothing/Neck/Ensembles/hos.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Neck/Ensembles/captain.rsi
+    sprite: _Goobstation/Clothing/Neck/Ensembles/hos.rsi
   - type: StealTarget
     stealGroup: HeadCloak
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
-  id: ClothingNeckEnsembleCaptain
-  name: captain's ensemble
+  id: ClothingNeckEnsembleResearchDirector
+  name: research director's ensemble
   description: 
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Neck/Ensembles/captain.rsi
+    sprite: _Goobstation/Clothing/Neck/Ensembles/rd.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Neck/Ensembles/captain.rsi
+    sprite: _Goobstation/Clothing/Neck/Ensembles/rd.rsi
   - type: StealTarget
     stealGroup: HeadCloak
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
-  id: ClothingNeckEnsembleCaptain
-  name: captain's ensemble
+  id: ClothingNeckEnsembleQuarterMaster
+  name: quartermaster's ensemble
   description: 
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Neck/Ensembles/captain.rsi
+    sprite: _Goobstation/Clothing/Neck/Ensembles/qm.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Neck/Ensembles/captain.rsi
+    sprite: _Goobstation/Clothing/Neck/Ensembles/qm.rsi
   - type: StealTarget
     stealGroup: HeadCloak
 
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckEnsembleHeadOfPersonnel
+  name: head of personnel's ensemble
+  description: 
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Ensembles/hop.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Ensembles/hop.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
 
 
