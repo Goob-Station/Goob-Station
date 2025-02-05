@@ -20,6 +20,14 @@
   - NanotrasenRepresentativeDuffel
 
 - type: loadoutGroup
+  id: NanotrasenRepresentativeNeck
+  name: loadout-group-ntr-neck
+  minLimit: 0
+  loadouts:
+  - NanotrasenRepresentativeScarf
+  - NanotrasenRepresentativeEnsemble
+
+- type: loadoutGroup
   id: NanotrasenRepresentativeJumpsuit
   name: loadout-group-ntr-jumpsuit
   loadouts:

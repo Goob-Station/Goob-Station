@@ -1,3 +1,12 @@
+- type: loadoutEffectGroup
+  id: GrandMasterNTR
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobNanotrasenRepresentative
+      time: 540000 # 150 hrs - We are BETTER. We are SUPERIOR.
+
 #hat
 - type: loadout
   id: NanotrasenRepresentativeBowler
@@ -61,6 +70,25 @@
   id: NanotrasenRepresentativeWaistbag
   equipment:
     belt: ClothingBeltStorageWaistbag
+
+# Neck 
+- type: loadout
+  id: NanotrasenRepresentativeScarf
+  equipment:
+    neck: ClothingNeckScarfStripedCentcom
+
+- type: loadout
+  id: NanotrasenRepresentativeEnsemble
+  equipment: 
+    neck: ClothingNeckEnsembleNanotrasenRepresentative
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GrandMasterNTR
+
+- type: startingGear
+  id: NanotrasenRepresentativeEnsemble
+  equipment:
+    neck: ClothingNeckEnsembleNanotrasenRepresentative
 
 # Shoes
 - type: loadout
