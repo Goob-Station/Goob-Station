@@ -31,6 +31,7 @@
         Shock: 5
   - type: Stunbaton
     energyPerUse: 120
+    lightAttackEnergyMultiplier: 1.5 # Goob edit
   - type: MeleeWeapon # goob edited
     angle: 0
     wideAnimationRotation: -135

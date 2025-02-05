@@ -14,6 +14,7 @@
       map: [ "enum.ToggleVisuals.Layer" ]
   - type: Stunbaton
     energyPerUse: 50
+    lightAttackEnergyMultiplier: 2 # Goob edit
   - type: ItemToggle
     predictable: false
     soundActivate:

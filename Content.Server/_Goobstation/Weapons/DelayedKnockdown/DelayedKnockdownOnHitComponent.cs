@@ -7,7 +7,7 @@ public sealed partial class DelayedKnockdownOnHitComponent : Component
     public float Delay = 2f;
 
     [DataField]
-    public float KnockdownTime = 5f;
+    public float KnockdownTime = 4f;
 
     [DataField]
     public bool Refresh = true;
@@ -18,5 +18,3 @@ public sealed partial class DelayedKnockdownOnHitComponent : Component
     [DataField]
     public string UseDelay = "default";
 }
-
-public sealed class DelayedKnockdownAttemptEvent : CancellableEntityEventArgs;

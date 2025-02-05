@@ -1,5 +1,5 @@
-using Content.Server._Goobstation.Weapons.DelayedKnockdown;
 using Content.Server.Heretic.Components.PathSpecific;
+using Content.Shared._Goobstation.Clothing;
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared.Body.Part;
 using Content.Shared.Damage;

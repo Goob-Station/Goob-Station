@@ -1,5 +1,8 @@
 using Content.Server.Stunnable;
+using Content.Shared._Goobstation.Clothing;
+using Content.Shared.Armor;
 using Content.Shared.Damage.Events;
+using Content.Shared.Inventory;
 using Content.Shared.StatusEffect;
 using Content.Shared.Timing;
 
@@ -16,6 +19,59 @@ public sealed class DelayedKnockdownOnHitSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<DelayedKnockdownOnHitComponent, StaminaDamageMeleeHitEvent>(OnHit);
+
+        SubscribeLocalEvent<ModifyDelayedKnockdownComponent, DelayedKnockdownAttemptEvent>(OnAttempt);
+        SubscribeLocalEvent<ModifyDelayedKnockdownComponent, InventoryRelayedEvent<DelayedKnockdownAttemptEvent>>(
+            OnInventoryAttempt);
+        SubscribeLocalEvent<ModifyDelayedKnockdownComponent, ArmorExamineEvent>(OnExamine);
+    }
+
+    private void OnExamine(Entity<ModifyDelayedKnockdownComponent> ent, ref ArmorExamineEvent args)
+    {
+        var comp = ent.Comp;
+
+        if (comp.Cancel)
+        {
+            args.Msg.PushNewline();
+            args.Msg.AddMarkupOrThrow(Loc.GetString("armor-examine-cancel-delayed-knockdown"));
+            return;
+        }
+
+        if (comp.DelayDelta != 0f)
+        {
+            args.Msg.PushNewline();
+            args.Msg.AddMarkupOrThrow(Loc.GetString("armor-examine-modify-delayed-knockdown-delay",
+                ("amount", MathF.Abs(comp.DelayDelta)),
+                ("deltasign", MathF.Sign(comp.DelayDelta))));
+        }
+
+        if (comp.KnockdownTimeDelta != 0f)
+        {
+            args.Msg.PushNewline();
+            args.Msg.AddMarkupOrThrow(Loc.GetString("armor-examine-modify-delayed-knockdown-time",
+                ("amount", MathF.Abs(comp.KnockdownTimeDelta)),
+                ("deltasign", MathF.Sign(comp.KnockdownTimeDelta))));
+        }
+    }
+
+    private void OnInventoryAttempt(Entity<ModifyDelayedKnockdownComponent> ent,
+        ref InventoryRelayedEvent<DelayedKnockdownAttemptEvent> args)
+    {
+        OnAttempt(ent, ref args.Args);
+    }
+
+    private void OnAttempt(Entity<ModifyDelayedKnockdownComponent> ent, ref DelayedKnockdownAttemptEvent args)
+    {
+        var comp = ent.Comp;
+
+        if (comp.Cancel)
+        {
+            args.Cancel();
+            return;
+        }
+
+        args.DelayDelta += comp.DelayDelta;
+        args.KnockdownTimeDelta += comp.KnockdownTimeDelta;
     }
 
     public override void Update(float frameTime)
@@ -51,9 +107,7 @@ public sealed class DelayedKnockdownOnHitSystem : EntitySystem
 
         foreach (var (hit, _) in args.HitEntities)
         {
-            if (!TryComp(hit, out StatusEffectsComponent? status) ||
-                !_status.CanApplyEffect(hit, "KnockedDown", status) ||
-                _status.HasStatusEffect(hit, "KnockedDown", status))
+            if (!_status.CanApplyEffect(hit, "KnockedDown"))
                 continue;
 
             var ev = new DelayedKnockdownAttemptEvent();
@@ -62,8 +116,9 @@ public sealed class DelayedKnockdownOnHitSystem : EntitySystem
                 continue;
 
             var delayedKnockdown = EnsureComp<DelayedKnockdownComponent>(hit);
-            delayedKnockdown.Time = MathF.Min(comp.Delay, delayedKnockdown.Time);
-            delayedKnockdown.KnockdownTime = MathF.Max(comp.KnockdownTime, delayedKnockdown.KnockdownTime);
+            delayedKnockdown.Time = MathF.Min(comp.Delay + ev.DelayDelta, delayedKnockdown.Time);
+            delayedKnockdown.KnockdownTime =
+                MathF.Max(comp.KnockdownTime + ev.KnockdownTimeDelta, delayedKnockdown.KnockdownTime);
             delayedKnockdown.Refresh &= comp.Refresh;
         }
     }
