@@ -86,7 +86,7 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleHeadOfPersonnel
   name: head of personnel's ensemble
-  description: There's nothing sweeter in this world than the tears of someone that was made to fill out five paragraphs of paperwork. You denied them after, of course.
+  description: There's nothing sweeter in this world than the tears of someone who was made to fill out five paragraphs of paperwork. You denied them after, of course.
   suffix: DO NOT MAP
   components:
   - type: Sprite
