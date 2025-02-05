@@ -1,3 +1,5 @@
+# Map ANY of these, and I will FUCKING kill you. - sol
+
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleCaptain
@@ -58,7 +60,7 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleResearchDirector
   name: research director's ensemble
-  description: The endpoint of all science reaches here. You are truly the pinnacle of science, a monument to Nanotrasens accomplishments.
+  description: The endpoint of all research leads here. You truly are the pinnacle of science, a monument to Nanotrasens accomplishments and ability to glue you back together, must you explode so often?
   suffix: DO NOT MAP
   components:
   - type: Sprite
@@ -72,7 +74,7 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleQuarterMaster
   name: quartermaster's ensemble
-  description: Woven from the blood, sweat, and tears of those who fought against Cargonia. Remember, money printing is your God given right.
+  description: Delicately crafted with the most premium materials purchaseable with spesos; a cloak that truly represents the Spirit of Cargonia... and your bank account.
   suffix: DO NOT MAP
   components:
   - type: Sprite
@@ -80,7 +82,7 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Neck/Ensembles/qm.rsi
   - type: StealTarget
-    stealGroup: HeadCloak
+    stealGroup: HeadCloakD
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
@@ -100,7 +102,7 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleBlueshield
   name: blueshield officer's ensemble
-  description: You strike fear into the heart of any would-be assassins. Most would drop their weapons and cower upon even THINKING about this cape. It smells strongly of bluespace.
+  description: Strikes fear into the heart of any would-be assassins. It smells strongly of bluespace.
   suffix: DO NOT MAP
   components:
   - type: Sprite
@@ -112,7 +114,7 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleNanotrasenRepresentative
   name: nanotrasen representative's ensemble
-  description: Directly from N.I.A.D, the Nanotrasen Internal Affairs Department. You're here to fire people and do paperwork, and you are all out of paper.
+  description: Directly from N.I.A.D, the Nanotrasen Internal Affairs Department. You're here to look pretty and do paperwork, and you're all out of paper.
   suffix: DO NOT MAP
   components:
   - type: Sprite

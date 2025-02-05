@@ -16,7 +16,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobCaptain
-      time: 540000 # 150 hrs - We are BETTER. We are SUPERIOR.
+      time: 360000 # 100 hrs - We are BETTER. We are SUPERIOR.
 
 # Jumpsuit
 - type: loadout
