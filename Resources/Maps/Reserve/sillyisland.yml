@@ -4419,7 +4419,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -11.5,-22.5
       parent: 2
-- proto: AirlockExternalGlassShuttleEscape
+- proto: AirlockExternalGlassShuttleEmergencyLocked
   entities:
   - uid: 46
     components:
@@ -4534,7 +4534,7 @@ entities:
       pos: -23.5,3.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -14970.277
+      secondsUntilStateChange: -15008.177
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4815,7 +4815,7 @@ entities:
       pos: -1.5,8.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -9280.894
+      secondsUntilStateChange: -9318.793
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
