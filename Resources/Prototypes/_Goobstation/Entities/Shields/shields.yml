@@ -33,16 +33,14 @@
     - type: Sprite
       sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
       layers:
-        - state: icon-off
         - state: icon
+        - state: icon-on
           color: "#FFFFFF"
           visible: false
           shader: unshaded
           map: [ "shield" ]
     - type: Item
       size: Small
-      sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
-      heldprefix: icon-off
     - type: UseDelay
       delay: 0.5
     - type: ToggleableLightVisuals

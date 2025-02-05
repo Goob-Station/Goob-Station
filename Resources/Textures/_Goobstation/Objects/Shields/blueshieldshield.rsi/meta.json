@@ -11,10 +11,10 @@
         "name": "icon"
     },
     {
-         "name": "icon-off"
+         "name": "icon-on"
     },
     {
-        "name": "inhand-left-off",
+        "name": "inhand-left",
         "directions": 4
     },
     {
@@ -26,7 +26,7 @@
         "directions": 4
     },
     {
-        "name": "inhand-right-off",
+        "name": "inhand-right",
         "directions": 4
     }
   ]
