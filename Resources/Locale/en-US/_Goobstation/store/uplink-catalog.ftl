@@ -49,9 +49,6 @@ uplink-smugglers-satchel-desc = A rugged satchel that can be hidden under floor 
 uplink-dualetta-kit-name = Dualetta kit
 uplink-dualetta-kit-desc = Two dualettas for a cheap price.
 
-uplink-cryo-katana-name = Cryo Katana
-uplink-cryo-katana-desc = Deadly and elegant melee weapon that freezes your enemies on hit, slowing them down. Able to dash a short distance, dashing into people will stab them. Can't dash while lying down.
-
 uplink-contractor-baton-name = Contractor Baton
 uplink-contractor-baton-desc = A compact, specialised baton assigned to Syndicate contractors. Applies light electrical shocks to targets. These shocks are capable of affecting the inner circuitry of most robots as well, applying a short stun.
 
