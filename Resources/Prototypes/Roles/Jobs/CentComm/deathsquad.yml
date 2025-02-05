@@ -33,7 +33,6 @@
     belt: ClothingBeltMilitaryWebbingMedFilled
   storage:
     back:
-    - WeaponPulsePistol
     - WeaponRevolverMateba
     - SpeedLoaderMagnumAP
     - SpeedLoaderMagnumAP
@@ -41,7 +40,7 @@
     - ToolDebug # spanish army knife
     - WelderExperimental
     - Hypospray
-    - DeathAcidifierImplanter # crew will try to steal their amazing hardsuits
-    - FreedomImplanter
+    - BluespaceLifelineImplanter # Goobstation - CentComm doesn't use syndicate tech.
+    - CentcommFreedomImplanter # Goobstation - CentComm doesn't use syndicate tech.
   inhand:
   - WeaponPulseRifle
