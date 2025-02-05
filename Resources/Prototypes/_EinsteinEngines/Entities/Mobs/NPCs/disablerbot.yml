@@ -20,6 +20,10 @@
     factions:
     - NanoTrasen
   - type: CombatMode
+  - type: EmagReplaceFactions
+    factions:
+    - Syndicate
+  - type: Anchorable
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 300
@@ -29,7 +33,7 @@
   - type: Gun
     fireRate: 1
     minAngle: 2
-    maxAngle: 10
+    maxAngle: 7
     angleIncrease: 2
     angleDecay: 5
     soundGunshot:
@@ -40,17 +44,17 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      60: Dead
+      70: Dead
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 70
       behaviors:
       - !type:TriggerBehavior
     - trigger:
         !type:DamageTrigger
-        damage: 60
+        damage: 80
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
