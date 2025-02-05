@@ -2,6 +2,7 @@
   parent: [BaseWeaponBattery, BaseRestrictedContraband]
   id: WeaponAlien
   name: alien pistol
+  description: Is this a warcrime? Probably.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Weapons/Guns/Battery/alien.rsi
@@ -34,6 +35,7 @@
   parent: [BaseWeaponBattery, BaseRestrictedContraband]
   id: WeaponDecloner
   name: decloner
+  description: Is this a warcrime? Probably.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Weapons/Guns/Battery/alien.rsi
