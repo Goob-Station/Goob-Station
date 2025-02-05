@@ -31,5 +31,13 @@
             <OptionButton Name="JobPresetOptionButton" />
         </GridContainer>
         <Control Name="AccessLevelControlContainer" />
+        <!-- Reserve-IDConsoleActions-Start -->
+        <Control MinSize="0 8" />
+        <Label Text="{Loc 'id-card-console-window-actions'}" />
+        <GridContainer Columns="2">
+            <Button Name="ActionGiveFullAccessButton" Access="Public" Text="{Loc 'id-card-console-window-give-full-access'}" />
+            <Button Name="ActionGiveExtendedAccessButton" Access="Public" Text="{Loc 'id-card-console-window-give-extended-access'}" />
+        </GridContainer>
+        <!-- Reserve-IDConsoleActions-End -->
     </BoxContainer>
 </DefaultWindow>

@@ -1,0 +1,23 @@
+- type: accessGroup
+  id: ExtendedAccess
+  tags:
+  - Security
+  - Detective
+  - Brig
+  - Lawyer
+  - Engineering
+  - Medical
+  - Salvage
+  - Cargo
+  - Research
+  - Service
+  - Maintenance
+  - External
+  - Janitor
+  - Theatre
+  - Bar
+  - Chemistry
+  - Kitchen
+  - Chapel
+  - Hydroponics
+  - Atmospherics
