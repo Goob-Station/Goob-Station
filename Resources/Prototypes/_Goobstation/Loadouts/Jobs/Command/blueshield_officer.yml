@@ -7,6 +7,16 @@
       role: JobBlueshieldOfficer
       time: 187200
 
+# Goobstation - For Ensembles
+- type: loadoutEffectGroup
+  id: GrandMasterBSO
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBlueshieldOfficer
+      time: 540000 # 150 hrs - We are BETTER. We are SUPERIOR.
+
 # Hats
 - type: loadout
   id: BlueshieldOfficerHeadSwatHelmet
@@ -68,6 +78,19 @@
     proto: SeniorBlueshieldOfficer
   equipment:
     neck: ClothingNeckMantleBlueshield
+
+- type: loadout
+  id: BlueshieldOfficerEnsemble
+  equipment: 
+    neck: ClothingNeckEnsembleBlueshieldOfficer
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GrandMasterBSO
+
+- type: startingGear
+  id: BlueshieldOfficerEnsemble
+  equipment:
+    neck: ClothingNeckEnsembleBlueshieldOfficer
 
 # Back
 - type: loadout

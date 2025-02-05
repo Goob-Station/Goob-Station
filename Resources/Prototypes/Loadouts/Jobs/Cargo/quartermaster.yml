@@ -8,6 +8,16 @@
       role: JobQuartermaster
       time: 72000 #20 hrs
 
+# Goobstation - For Ensembles
+- type: loadoutEffectGroup
+  id: GrandMasterQM
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobQuartermaster
+      time: 540000 # 150 hrs - We are BETTER. We are SUPERIOR.
+
 # Jumpsuit
 - type: loadout
   id: QuartermasterJumpsuit
@@ -63,6 +73,19 @@
   id: QuartermasterMantle
   equipment:
     neck: ClothingNeckMantleQM
+
+- type: loadout # Goobstation - Ensembles
+  id: QuartermasterEnsemble
+  equipment: 
+    neck: ClothingNeckEnsembleQuarterMaster
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GrandMasterQM
+
+- type: startingGear # Goobstation - Ensembles
+  id: QuartermasterEnsemble
+  equipment:
+    neck: ClothingNeckEnsembleQuarterMaster
 
 # OuterClothing
 - type: loadout

@@ -18,6 +18,16 @@
       role: JobHeadOfPersonnel
       time: 54000 #15 hrs, special reward for HoP mains
 
+# Goobstation - For Ensembles
+- type: loadoutEffectGroup
+  id: GrandMasterHoP
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobHeadOfPersonnel
+      time: 540000 # 150 hrs - We are BETTER. We are SUPERIOR.
+
 # Jumpsuit
 - type: loadout
   id: HoPJumpsuit
@@ -53,6 +63,19 @@
   id: HoPMantle
   equipment:
     neck: ClothingNeckMantleHOP
+
+- type: loadout # Goobstation - Ensembles
+  id: HeadOfPersonnelEnsemble
+  equipment: 
+    neck: ClothingNeckEnsembleHeadOfPersonnel
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GrandMasterHoP
+
+- type: startingGear # Goobstation - Ensembles
+  id: HeadOfPersonnelEnsemble
+  equipment:
+    neck: ClothingNeckEnsembleHeadOfPersonnel
 
 # Back
 - type: loadout

@@ -8,6 +8,16 @@
       role: JobCaptain
       time: 72000 #20 hrs
 
+# Goobstation - For Ensembles
+- type: loadoutEffectGroup
+  id: GrandMasterCap
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 540000 # 150 hrs - We are BETTER. We are SUPERIOR.
+
 # Jumpsuit
 - type: loadout
   id: CaptainJumpsuit
@@ -63,6 +73,19 @@
   id: CaptainMantle
   equipment:
     neck: ClothingNeckMantleCap
+
+- type: loadout # Goobstation - Ensembles
+  id: CaptainEnsemble
+  equipment: 
+    neck: ClothingNeckEnsembleCaptain
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GrandMasterCap
+
+- type: startingGear # Goobstation - Ensembles
+  id: CaptainEnsemble
+  equipment:
+    neck: ClothingNeckEnsembleCaptain
 
 # Back
 - type: loadout

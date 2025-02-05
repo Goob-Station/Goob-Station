@@ -8,6 +8,16 @@
       role: JobResearchDirector
       time: 72000 #20 hrs
 
+# Goobstation - For Ensembles
+- type: loadoutEffectGroup
+  id: GrandMasterRD
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobResearchDirector
+      time: 540000 # 150 hrs - We are BETTER. We are SUPERIOR.
+
 # Head
 - type: loadout
   id: ResearchDirectorBeret
@@ -31,6 +41,19 @@
   id: ResearchDirectorCloak
   equipment:
     neck: ClothingNeckCloakRd
+
+- type: loadout # Goobstation - Ensembles
+  id: ResearchDirectorEnsemble
+  equipment: 
+    neck: ClothingNeckEnsembleResearchDirector
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GrandMasterRD
+
+- type: startingGear # Goobstation - Ensembles
+  id: ResearchDirectorEnsemble
+  equipment:
+    neck: ClothingNeckEnsembleResearchDirector
 
 # Jumpsuit
 - type: loadout
