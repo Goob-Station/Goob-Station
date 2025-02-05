@@ -8,25 +8,25 @@
   },
   "states": [
     {
-        "name": "icon"
+        "name": "blueshield-icon"
     },
     {
-         "name": "icon-off"
+         "name": "blueshield-icon-off"
     },
     {
-        "name": "inhand-left-off",
+        "name": "blueshield-inhand-left-off",
         "directions": 4
     },
     {
-        "name": "inhand-left-on",
+        "name": "blueshield-inhand-left-on",
         "directions": 4
     },
     {
-        "name": "inhand-right-on",
+        "name": "blueshield-inhand-right-on",
         "directions": 4
     },
     {
-        "name": "inhand-right-off",
+        "name": "blueshield-inhand-right-off",
         "directions": 4
     }
   ]
