@@ -46,7 +46,9 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
-  - type: MeleeWeapon # Goob edit start
+  - type: Item  # Goob edit start
+    size: Large
+  - type: MeleeWeapon
     damage:
       types:
        Slash: 6
