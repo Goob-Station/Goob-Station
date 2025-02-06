@@ -342,9 +342,9 @@
   # Goob edit start
   - type: AmmoSelector
     prototypes:
-      - BulletLaserSpread
-      - BulletLaserSpreadNarrow
-      - BulletDisablerSmgSpread
+      - Pulse
+      - PulseHeavy
+      - BulletDisablerSmg
   - type: UserInterface
     interfaces:
       enum.AmmoSelectorUiKey.Key:
