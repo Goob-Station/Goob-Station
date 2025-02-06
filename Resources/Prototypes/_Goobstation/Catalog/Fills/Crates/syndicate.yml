@@ -28,3 +28,15 @@
       - id: DoubleEmergencyNitrogenTankFilled
       - id: ToolboxSyndicateFilled
       - id: PlushieNuke
+
+- type: entity
+  id: CrateSyndicateBulkMosin
+  suffix: Filled
+  parent: CrateSyndicate
+  name: Syndicate bulk rifle crate
+  description: Contains cheap rifles. A lot of cheap rifles.
+  components:
+    - type: StorageFill
+      contents:
+        - id: WeaponSniperMosin
+          amount: 10
