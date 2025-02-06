@@ -336,24 +336,20 @@
     fireRate: 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: Pulse
     fireCost: 100
-  # Goob edit start
-  - type: AmmoSelector
-    prototypes:
-      - Pulse
-      - PulseHeavy
-      - BulletDisablerSmg
-  - type: UserInterface
-    interfaces:
-      enum.AmmoSelectorUiKey.Key:
-        type: AmmoSelectorMenuBoundUserInterface
-  - type: ActivatableUI
-    altVerb: true
-    verbText: mode-select-verb-text
-    key: enum.AmmoSelectorUiKey.Key
-  # Goob edit end
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: Pulse
+      fireCost: 100
+    - proto: HeavyPulse
+      fireCost: 100
+    - proto: BulletDisablerSMG
+      fireCost: 20
+  - type: Battery
+    maxCharge: 40000
+    startingCharge: 40000
 
 - type: entity
   name: laser cannon
