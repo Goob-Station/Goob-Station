@@ -20,7 +20,7 @@
         amount: 3
 
 - type: entity
-  parent: [ ClothingBeltDeathsquadWebbing, CentcommContraband ]
+  parent: [ ClothingBeltDeathsquadWebbing, BaseCentcommContraband ]
   suffix: Filled
   id: ClothingBeltDeathsquadWebbingFilled
   name: deathsquad operative chestrig
