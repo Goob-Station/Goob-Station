@@ -262,6 +262,32 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.Underwear" ]
+    - map: [ "enum.HumanoidVisualLayers.Undershirt" ]
+      # its fine, but its still very stupid that it has to be done like this instead of allowing sprites to just directly insert a stencil clear.
+      # sprite refactor when
+      state: l_leg
+    - shader: StencilMask
+      map: ["enum.HumanoidVisualLayers.StencilMask"]
+      sprite: Mobs/Customization/masking_helpers.rsi
+      state: unisex_full
+      visible: false
+      # its fine, but its still very stupid that it has to be done like this instead of allowing sprites to just directly insert a stencil clear.
+      # sprite refactor when
+      state: l_leg
+    - shader: StencilMask
+      map: ["enum.HumanoidVisualLayers.StencilMask"]
+      sprite: Mobs/Customization/masking_helpers.rsi
+      state: unisex_full
+      visible: false
+      # its fine, but its still very stupid that it has to be done like this instead of allowing sprites to just directly insert a stencil clear.
+      # sprite refactor when
+      state: l_leg
+    - shader: StencilMask
+      map: ["enum.HumanoidVisualLayers.StencilMask"]
+      sprite: Mobs/Customization/masking_helpers.rsi
+      state: unisex_full
+      visible: false
     - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LFoot"]
     - map: ["enum.HumanoidVisualLayers.RFoot"]
@@ -567,22 +593,34 @@
   - type: ComplexInteraction
   - type: ContainerContainer
   - type: Icon
-    sprite: Mobs/Species/Human/parts.rsi
-    state: full
   - type: Sprite
     drawdepth: Mobs
     noRot: true
     # TODO BODY Turn these into individual body parts?
     layers:
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
-    - map: [ "enum.HumanoidVisualLayers.Groin" ]
-    - map: [ "enum.HumanoidVisualLayers.Head" ]
+    - shader: StencilClear
+      sprite: Mobs/Species/Human/parts.rsi
+      state: l_leg
+    - shader: StencilMask
+      map: ["enum.HumanoidVisualLayers.StencilMask"]
+      sprite: Mobs/Customization/masking_helpers.rsi
+      state: unisex_full
+      visible: false
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
     - map: [ "enum.HumanoidVisualLayers.RArm" ]
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - shader: StencilClear
+      sprite: Mobs/Species/Human/parts.rsi
+      state: l_leg
+    - shader: StencilMask
+      map: ["enum.HumanoidVisualLayers.StencilMask"]
+      sprite: Mobs/Customization/masking_helpers.rsi
+      state: unisex_full
+      visible: false
     - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LFoot"]
     - map: ["enum.HumanoidVisualLayers.RFoot"]
