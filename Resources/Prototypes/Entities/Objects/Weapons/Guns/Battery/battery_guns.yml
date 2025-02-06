@@ -342,6 +342,18 @@
   - type: Battery
     maxCharge: 40000
     startingCharge: 40000
+  - type: AmmoSelector
+    prototypes:
+      - BulletDisabler
+      - Pulse
+      - HeavyPulse
+  - type: UserInterface
+    interfaces:
+      enum.AmmoSelectorUiKey.Key:
+        type: AmmoSelectorMenuBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.AmmoSelectorUiKey.Key
 
 - type: entity
   name: laser cannon
