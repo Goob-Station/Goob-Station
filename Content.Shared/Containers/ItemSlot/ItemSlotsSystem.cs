@@ -88,6 +88,7 @@ namespace Content.Shared.Containers.ItemSlots
             foreach (var (id, slot) in itemSlots.Slots)
             {
                 slot.ContainerSlot = _containers.EnsureContainer<ContainerSlot>(uid, id);
+                // Goobstation.
                 slot.ContainerSlot.OccludesLight = slot.OccludesLight;
             }
         }

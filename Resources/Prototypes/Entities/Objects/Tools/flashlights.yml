@@ -87,7 +87,8 @@
   components:
   - type: Tag
     tags:
-      - SecBeltEquip
+    - SecBeltEquip
+    - LightItemSlot
   - type: ItemSlots
     slots:
       cell_slot:
@@ -128,7 +129,6 @@
     quickEquip: false
     slots:
       - Belt
-  - type: Seclite
 
 - type: entity
   parent: FlashlightLantern

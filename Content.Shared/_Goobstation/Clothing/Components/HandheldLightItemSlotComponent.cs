@@ -6,10 +6,10 @@ namespace Content.Shared.Clothing;
 [RegisterComponent]
 [NetworkedComponent]
 [AutoGenerateComponentState]
-public sealed partial class SecurityHelmetComponent : Component
+public sealed partial class HandheldLightItemSlotComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public EntityUid? SecliteEntity;
+    public EntityUid? LightEntity;
 
     [DataField, AutoNetworkedField]
     public EntityUid? Wearer;
