@@ -28,10 +28,12 @@ namespace Content.Shared.Humanoid
         Face,
         Special, // for the cat ears
         Tail,
-        Wings, // For IPC wings porting from SimpleStation
+        Wings,
         Hair,
         FacialHair,
         Chest,
+        Underwear,
+        Undershirt,
         Groin,
         Head,
         Snout,

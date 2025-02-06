@@ -497,7 +497,7 @@
 
 # Rainbow Jumpsuit
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
   id: ClothingUniformColorRainbow
   name: rainbow jumpsuit
   description: A multi-colored jumpsuit!
