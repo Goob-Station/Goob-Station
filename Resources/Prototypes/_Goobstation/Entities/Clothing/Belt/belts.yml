@@ -14,3 +14,15 @@
     maxItemSize: Normal
     grid:
       - 0,0,6,2
+
+
+- type: entity
+  parent: [ ClothingBeltStorageBase, BaseCentcommContraband ]
+  id: ClothingBeltDeathsquadWebbing
+  name: deathsquad operative chestrig
+  description: A veriative swiss-army-knife of equipment. Contains everything you need to disassemble a station.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Belt/cmowebbing.rsi # Todo : Change this
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Belt/cmowebbing.rsi # Todo : Change this

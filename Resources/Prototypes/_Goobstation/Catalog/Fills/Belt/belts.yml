@@ -18,3 +18,23 @@
       - id: BurnAutoInjector
       - id: EmergencyMedipen
         amount: 3
+
+- type: entity
+  parent: [ ClothingBeltDeathsquadWebbing, CentcommContraband ]
+  suffix: Filled
+  id: ClothingBeltDeathsquadWebbingFilled
+  name: deathsquad operative chestrig
+  description: "A well stocked chestrig. Contains everything you need for a sustained fight."
+  components:
+  - type: StorageFill
+    contents:
+      - id: MedkitCombatFilled
+        amount: 1
+      - id: CombatMedipen
+        amount: 2
+      - id: PunctAutoInjector
+        amount: 2
+      - id: PyraAutoInjector
+        amount: 2
+      - id: AirlossAutoInjector
+        amount: 2

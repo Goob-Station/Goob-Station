@@ -16,6 +16,8 @@
   - NanotrasenRepresentative
   - BlueshieldOfficer
 
+  # Goobstation Start - I basically re-did all of deathsquads stuff so.
+
 - type: startingGear
   id: DeathSquadGear
   equipment:
@@ -26,21 +28,23 @@
     ears: ClothingHeadsetAltCentCom
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitDeathsquad
-    shoes: ClothingShoesBootsMagDeathsquad
+    shoes: ClothingShoesBootsMagDeathsquad # These boots are cooler. TODO : Replace textures
     id: DeathsquadPDA
-    pocket1: EnergySabre # Goobstation
-    pocket2: EnergyShield
-    belt: ClothingBeltMilitaryWebbingMedFilled
+    pocket1: EnergySabre # Goobstation - TODO Replace Texture
+    pocket2: EnergyShield # TODO : Replace with BSO shield
+    belt: ClothingBeltDeathsquadWebbingFilled # centcomm Doesn't use syndicate tech.
   storage:
     back:
     - WeaponRevolverMateba
     - SpeedLoaderMatebaAP # Goobstation - 7 rounds
     - SpeedLoaderMatebaAP # Goobstation - 7 rounds
-    - BoxFlashbang
-    - ToolDebug # spanish army knife
+    # - BoxFlashbang - Useless
+    - ToolDebug # Spanish Army Knife - TODO Replace
     - WelderExperimental
-    - Hypospray
-    - BluespaceLifelineImplanter # Goobstation - CentComm doesn't use syndicate tech.
-    - CentcommFreedomImplanter # Goobstation - CentComm doesn't use syndicate tech.
+    - Hypospray # TODO : Replace
+    - BluespaceLifelineImplanter # CentComm doesn't use syndicate tech.
+    - CentcommFreedomImplanter # CentComm doesn't use syndicate tech.
   inhand:
   - WeaponPulseRifle
+
+    # Goobstation End
