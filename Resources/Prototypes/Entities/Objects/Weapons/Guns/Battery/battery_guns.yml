@@ -336,22 +336,9 @@
     fireRate: 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: HeavyPulse
+  - type: HitscanBatteryAmmoProvider 
+    proto: HeavyPulse # Goobstation
     fireCost: 100
-    # Goobstation Start
-  - type: BatteryWeaponFireModes
-    fireModes:
-    - proto: BulletDisablerSmg
-      fireCost: 50
-      name: disable
-    - proto: Pulse
-      fireCost: 125
-      name: kill
-    - proto: HeavyPulse
-      fireCost: 125
-      name: annihilate
-    # Goobstation End
   - type: Battery
     maxCharge: 40000
     startingCharge: 40000

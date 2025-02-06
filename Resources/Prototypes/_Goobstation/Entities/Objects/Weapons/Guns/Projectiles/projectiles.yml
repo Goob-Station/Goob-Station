@@ -141,7 +141,7 @@
   id: HeavyPulse
   damage:
     types:
-      Heat: 60
+      Heat: 50
       Structural: 120
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
