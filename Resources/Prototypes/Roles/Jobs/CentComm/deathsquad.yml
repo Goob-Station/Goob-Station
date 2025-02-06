@@ -34,8 +34,8 @@
   storage:
     back:
     - WeaponRevolverMateba
-    - SpeedLoaderMagnumAP
-    - SpeedLoaderMagnumAP
+    - SpeedLoaderMatebaAP # Goobstation - 7 rounds
+    - SpeedLoaderMatebaAP # Goobstation - 7 rounds
     - BoxFlashbang
     - ToolDebug # spanish army knife
     - WelderExperimental
