@@ -110,7 +110,7 @@
 #Vulpkanin
 - type: emote
   id: Bark
-  name: Bark
+  name: chat-emote-name-bark
   category: Vocal
   icon: _Goobstation/Interface/Emotes/bark.png
   whitelist:
@@ -120,7 +120,7 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [barks.]
+  chatMessages: ["chat-emote-msg-bark"]
   chatTriggers:
     - bark
     - barks
@@ -129,7 +129,7 @@
 
 - type: emote
   id: Snarl
-  name: Snarl
+  name: chat-emote-name-snarl
   category: Vocal
   icon: _Goobstation/Interface/Emotes/snarl.png
   whitelist:
@@ -139,7 +139,7 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [snarls.]
+  chatMessages: ["chat-emote-msg-snarl"]
   chatTriggers:
     - snarl
     - snarls
@@ -148,7 +148,7 @@
 
 - type: emote
   id: Whine
-  name: Whine
+  name: chat-emote-name-whine
   category: Vocal
   icon: _Goobstation/Interface/Emotes/whine.png
   whitelist:
@@ -158,7 +158,7 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [whines.]
+  chatMessages: ["chat-emote-msg-whine"]
   chatTriggers:
     - whine
     - whines
@@ -166,27 +166,8 @@
     - whining
 
 - type: emote
-  id: Howl
-  name: Howl
-  category: Vocal
-  icon: _Goobstation/Interface/Emotes/howl.png
-  whitelist:
-    tags:
-    - VulpEmotes
-    - HarpyEmotes
-  blacklist:
-    components:
-    - BorgChassis
-  chatMessages: [howls.]
-  chatTriggers:
-    - howl
-    - howls
-    - howling
-    - howled
-
-- type: emote
   id: Awoo
-  name: Awoo
+  name: chat-emote-name-awoo
   category: Vocal
   icon: _Goobstation/Interface/Emotes/awoo.png
   whitelist:
@@ -196,7 +177,7 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [awoos.]
+  chatMessages: ["chat-emote-msg-awoo"]
   chatTriggers:
     - awoo
     - awoos
