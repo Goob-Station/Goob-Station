@@ -26,7 +26,7 @@
     ears: ClothingHeadsetAltCentCom
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitDeathsquad
-    shoes: ClothingShoesBootsMagAdv
+    shoes: ClothingShoesBootsMagDeathsquad
     id: DeathsquadPDA
     pocket1: EnergySabre # Goobstation
     pocket2: EnergyShield

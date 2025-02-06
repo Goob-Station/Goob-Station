@@ -1,4 +1,4 @@
-﻿- type: dataset
+- type: dataset
   id: NamesFirstMilitaryLeader
   values:
   - Colonel
@@ -56,5 +56,6 @@
   - Taurus
   - Ukdah
   - Vega
+  - Voltaire # Goobstation - I spent a lot of time on this PR, I might as well add myself to it :godo:
   - Yildun
   - Zosma
