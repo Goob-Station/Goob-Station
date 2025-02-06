@@ -134,3 +134,19 @@
     objective: KeepWizardAliveObjective
   - type: StaticPrice
     price: 1000
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkMugwortTeaGlass
+  suffix: mugwort tea
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Mugwort
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/glass_green.rsi #Placeholder
+    state: icon

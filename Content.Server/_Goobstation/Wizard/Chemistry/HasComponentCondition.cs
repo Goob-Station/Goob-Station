@@ -8,7 +8,7 @@ namespace Content.Server._Goobstation.Wizard.Chemistry;
 public sealed partial class HasComponentCondition : EntityEffectCondition
 {
     [DataField(required: true)]
-    public string Component = default!;
+    public HashSet<string> Components = new();
 
     [DataField(required: true)]
     public string GuidebookComponentName = default!;
@@ -18,8 +18,15 @@ public sealed partial class HasComponentCondition : EntityEffectCondition
 
     public override bool Condition(EntityEffectBaseArgs args)
     {
-        var hasComp = args.EntityManager.HasComponent(args.TargetEntity,
-            args.EntityManager.ComponentFactory.GetRegistration(Component).Type);
+        var hasComp = false;
+        foreach (var component in Components)
+        {
+            hasComp = args.EntityManager.HasComponent(args.TargetEntity,
+                args.EntityManager.ComponentFactory.GetRegistration(component).Type);
+
+            if (hasComp)
+                break;
+        }
 
         return hasComp ^ Invert;
     }

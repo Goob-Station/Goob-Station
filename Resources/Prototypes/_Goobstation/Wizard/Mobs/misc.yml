@@ -1,0 +1,43 @@
+- type: entity
+  name: creature
+  id: MobCreature
+  parent: MobSpaceBasic
+  description: A sanity-destroying otherthing from the netherworld.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wizard/Mobs/otherthing.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: otherthing
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: otherthing
+      Critical:
+        Base: otherthing-dead
+      Dead:
+        Base: otherthing-dead
+  - type: ReplacementAccent
+    accent: genericAggressive
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Slash: 15
+        Piercing: 15
+  - type: Bloodstream
+    bloodReagent: Blood
+
+- type: entity
+  name: Simmons
+  id: MobCreatureWizard
+  parent: MobCreature
+  description: He is hungry.
+  components:
+  - type: NpcFactionMember
+    factions:
+    - Wizard
