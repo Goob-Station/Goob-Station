@@ -171,3 +171,9 @@
   name: Jonathan Coulton - The Future Soon
   path:
     path: /Audio/Lobby/the_future_soon.ogg
+    
+- type: jukebox
+  id: dagothwave
+  name: DAGOTHWAVE - Young Scrolls
+  path:
+    path: /Audio/Lobby/dagothwave.ogg
