@@ -5,7 +5,7 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Containers;
 
-namespace Content.Server.GameObjects.Systems
+namespace Content.Shared._Goobstation.Clothing.Systems
 {
 
     public sealed class HandheldLightItemSlotSystem : EntitySystem
