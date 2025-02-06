@@ -16,7 +16,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobChiefEngineer
-      360000 # 100 hrs - We are BETTER. We are SUPERIOR.
+      time: 252000 # 70 hrs - We are BETTER. We are SUPERIOR.
 
 # Jumpsuit
 - type: loadout
