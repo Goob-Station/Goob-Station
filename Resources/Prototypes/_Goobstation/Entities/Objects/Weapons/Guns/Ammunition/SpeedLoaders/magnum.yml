@@ -1,7 +1,7 @@
 - type: entity
   id: SpeedLoaderMatebaAP
   name: "centcomm speed loader (.45 magnum armor-piercing)"
-  parent: SpeedLoaderMagnumAP
+  parent: [SpeedLoaderMagnumAP, BaseCentCommContraband]
   components:
   - type: BallisticAmmoProvider
     whitelist:
