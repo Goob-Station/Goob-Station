@@ -44,3 +44,5 @@ markings-category-LeftLeg = Left Leg
 markings-category-LeftFoot = Left Foot
 markings-category-Tail = Tail
 markings-category-Overlay = Overlay
+markings-category-Undershirt = Undershirt
+markings-category-Underwear = Underwear

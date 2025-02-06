@@ -69,6 +69,12 @@
       points: 1
       required: true
       defaultMarkings: [ HarpyChestDefault ]
+    Underwear:
+      points: 1
+      required: false
+    Undershirt:
+      points: 1
+      required: false
     RightLeg:
       points: 2
       required: false
