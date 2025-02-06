@@ -1,0 +1,10 @@
+- type: entity
+  id: SpeedLoaderMatebaAP
+  name: "centcomm speed loader (.45 magnum armor-piercing)"
+  parent: SpeedLoaderMagnumAP
+  components:
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeMagnumAP
+    capacity: 7

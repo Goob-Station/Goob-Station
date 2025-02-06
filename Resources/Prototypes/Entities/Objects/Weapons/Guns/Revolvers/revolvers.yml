@@ -109,6 +109,19 @@
     fireRate: 4 # Goob edit
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeMagnum
+        - SpeedLoaderMagnum
+    proto: CartridgeMagnum
+    capacity: 7 # Goobstation
+    chambers: [ True, True, True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null, null, null ]
+    soundEject:
+      path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
 
 - type: entity
   name: Python
