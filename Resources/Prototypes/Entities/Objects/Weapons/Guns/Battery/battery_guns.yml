@@ -340,7 +340,7 @@
     proto: HeavyPulse
     fireCost: 100
     # Goobstation Start
-  - type: EnergyGun
+  - type: BatteryWeaponFireModes
     fireModes:
     - proto: BulletDisablerSmg
       fireCost: 50
