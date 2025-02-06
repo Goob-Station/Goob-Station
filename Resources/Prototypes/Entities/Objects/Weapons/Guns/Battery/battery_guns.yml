@@ -337,16 +337,8 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   - type: HitscanBatteryAmmoProvider
-    proto: Pulse
+    proto: HeavyPulse
     fireCost: 100
-  - type: BatteryWeaponFireModes
-    fireModes:
-    - proto: Pulse
-      fireCost: 100
-    - proto: HeavyPulse
-      fireCost: 100
-    - proto: BulletDisablerSMG
-      fireCost: 20
   - type: Battery
     maxCharge: 40000
     startingCharge: 40000
