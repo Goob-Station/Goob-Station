@@ -28,7 +28,7 @@
     outerClothing: ClothingOuterHardsuitDeathsquad
     shoes: ClothingShoesBootsMagAdv
     id: DeathsquadPDA
-    pocket1: EnergySword
+    pocket1: EnergySabre # Goobstation
     pocket2: EnergyShield
     belt: ClothingBeltMilitaryWebbingMedFilled
   storage:

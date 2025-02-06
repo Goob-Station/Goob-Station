@@ -318,7 +318,7 @@
 
 - type: entity
   name: pulse rifle
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseCentcommContraband] # Goobstation - Deathsquad revamp
   id: WeaponPulseRifle
   description: A weapon that is almost as infamous as its users.
   components:
@@ -337,7 +337,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   - type: HitscanBatteryAmmoProvider 
-    proto: HeavyPulse # Goobstation
+    proto: HeavyPulse # Goobstation - Deathsquad revamp
     fireCost: 100
   - type: Battery
     maxCharge: 40000

@@ -1,0 +1,53 @@
+- type: entity
+  name: energy sabre
+  parent: [BaseMeleeWeaponEnergy, BaseCentcommContraband]
+  id: EnergySabre
+  description: The signature weapon of the dreaded deathsquads. Cuts through armored & and un-armored targets easily.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/e_sword.rsi
+    layers:
+    - state: e_sword
+    - state: e_sword_blade
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
+
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedSoundOnSwing:
+      path: /Audio/Weapons/eblademiss.ogg
+      params:
+        variation: 0.125
+    activatedDamage:
+      types:
+        Slash: 30
+        Heat: 35
+        Structural: 80
+    ignoreResistances: true
+
+  - type: Item
+    sprite: Objects/Weapons/Melee/e_sword-inhands.rsi
+  - type: Reflect # Goob edit
+    reflectProb: 1
+    otherTypeReflectProb: 1
+    reflects:
+      - Energy
+  - type: Tag
+    tags:
+    - EnergySword
+  - type: ThrowableBlocker
+    blockSound:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -2
