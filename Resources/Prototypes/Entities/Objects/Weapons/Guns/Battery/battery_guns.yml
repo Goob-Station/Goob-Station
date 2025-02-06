@@ -339,6 +339,19 @@
   - type: HitscanBatteryAmmoProvider
     proto: HeavyPulse
     fireCost: 100
+    # Goobstation Start
+  - type: EnergyGun
+    fireModes:
+    - proto: BulletDisablerSmg
+      fireCost: 50
+      name: disable
+    - proto: Pulse
+      fireCost: 125
+      name: kill
+    - proto: HeavyPulse
+      fireCost: 125
+      name: annihilate
+    # Goobstation End
   - type: Battery
     maxCharge: 40000
     startingCharge: 40000
