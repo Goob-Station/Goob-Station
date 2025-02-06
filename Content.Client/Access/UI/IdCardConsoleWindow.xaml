@@ -41,6 +41,5 @@
         </GridContainer>
         <Control Name="AccessLevelControlContainer" />
         <!-- Goobstation End -->
-
     </BoxContainer>
 </DefaultWindow>
