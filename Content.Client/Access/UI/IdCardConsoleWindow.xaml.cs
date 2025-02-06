@@ -56,14 +56,14 @@ namespace Content.Client.Access.UI
             SearchLineEdit.OnTextChanged += args =>
             {
                 var query = args.Text.Trim();
-                var thingToModify = AccessLevelControlContainer.GetChild(0);
-                thingToModify.RemoveAllChildren();
+                var containerChild = AccessLevelControlContainer.GetChild(0);
+                containerChild.RemoveAllChildren();
 
                 if (string.IsNullOrEmpty(query))
                 {
                     foreach (var button in _accessButtons.ButtonsList.Values)
                     {
-                        thingToModify.AddChild(button);
+                        containerChild.AddChild(button);
                     }
                     return;
                 }
@@ -72,7 +72,7 @@ namespace Content.Client.Access.UI
                 {
                     if (id.Id.Contains(query, StringComparison.CurrentCultureIgnoreCase))
                     {
-                        thingToModify.AddChild(button);
+                        containerChild.AddChild(button);
                     }
                 }
             };
