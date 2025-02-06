@@ -151,6 +151,7 @@
         - id: ClothingNeckNonBinaryPin
         - id: ClothingNeckPansexualPin
         - id: ClothingNeckOmnisexualPin
+        - id: ClothingNeckGenderqueerPin
         - id: ClothingNeckTransPin
         - id: ClothingNeckAutismPin
     # Rare Group
