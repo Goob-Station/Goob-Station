@@ -148,7 +148,7 @@
     state: muzzle_blue
   travelFlash:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/heavy_pulse.rsi
-    state: blue_beam_heavy
+    state: beam_blue_heavy
   impactFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: impact_blue
