@@ -4,8 +4,7 @@ using Content.Shared.Mobs.Components;
 
 namespace Content.Shared._Goobstation.Heretic.Systems;
 
-[Virtual]
-public partial class SharedVoidCurseSystem : EntitySystem
+public abstract partial class SharedVoidCurseSystem : EntitySystem
 {
     protected virtual void Cycle(Entity<VoidCurseComponent> ent)
     {
@@ -22,9 +21,17 @@ public partial class SharedVoidCurseSystem : EntitySystem
 
         if (TryComp<VoidCurseComponent>(uid, out var curse))
         {
-            curse.Lifetime += 10f;
+            if (!curse.Drain)
+            {
+                // we keep adding curse time until we reach ~1 minute
+                // when the time is reached it can't add any more time to the curse and just locks itself out until it's gone
+                // which is very balanced :+1:
+                curse.Lifetime = Math.Clamp(curse.Lifetime + 10f, 0f, curse.MaxLifetime);
+                if (curse.Lifetime >= curse.MaxLifetime)
+                    curse.Drain = true;
+            }
             curse.Stacks = Math.Clamp(curse.Stacks + 1, 0, curse.MaxStacks + 1);
-            Dirty<VoidCurseComponent>((uid, curse));
+            Dirty(uid, curse);
         }
         else EnsureComp<VoidCurseComponent>(uid);
     }

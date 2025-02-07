@@ -93,9 +93,9 @@ public sealed partial class AristocratSystem : EntitySystem
 
                 // walls
                 if (_rand.Prob(.45f) && tags.Contains("Wall")
-                && Prototype(look) != null && Prototype(look)!.ID != _snowWallPrototype)
+                && Prototype(look) != null && Prototype(look)!.ID != SnowWallPrototype)
                 {
-                    Spawn(_snowWallPrototype, Transform(look).Coordinates);
+                    Spawn(SnowWallPrototype, Transform(look).Coordinates);
                     QueueDel(look);
                 }
             }
@@ -115,9 +115,11 @@ public sealed partial class AristocratSystem : EntitySystem
         }
     }
 
-    private readonly string _snowTile = "FloorAstroSnow",
-                            _snowWallPrototype = "WallSnowCobblebrick",
-                            _boobyTrapTile = "TileHereticVoid";
+    private static readonly EntProtoId
+        SnowTilePrototype = "FloorAstroSnow",
+        SnowWallPrototype = "WallSnowCobblebrick",
+        BoobyTrapTile = "TileHereticVoid";
+
     private void SpawnTiles(Entity<AristocratComponent> ent)
     {
         var xform = Transform(ent);
@@ -146,7 +148,7 @@ public sealed partial class AristocratSystem : EntitySystem
         // it's christmas!!
         foreach (var tileref in tiles)
         {
-            var tile = _prot.Index<ContentTileDefinition>(_snowTile);
+            var tile = _prot.Index<ContentTileDefinition>(SnowTilePrototype);
             _tile.ReplaceTile(tileref, tile);
         }
 
@@ -156,9 +158,9 @@ public sealed partial class AristocratSystem : EntitySystem
             var tpos = _map.GridTileToWorld((EntityUid) xform.GridUid, grid, tileref.GridIndices);
 
             // this shit is for checking if there is a void trap already on that tile or not.
-            var el = _lookup.GetEntitiesInRange(tpos, .25f).Where(e => Prototype(e)?.ID == _boobyTrapTile).ToList();
+            var el = _lookup.GetEntitiesInRange(tpos, .25f).Where(e => Prototype(e)?.ID == BoobyTrapTile.Id).ToList();
             if (el.Count == 0)
-                Spawn(_boobyTrapTile, tpos);
+                Spawn(BoobyTrapTile, tpos);
         }
     }
 }

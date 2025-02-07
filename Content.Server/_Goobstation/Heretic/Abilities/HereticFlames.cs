@@ -26,7 +26,7 @@ public sealed partial class HereticFlamesSystem : EntitySystem
             // remove it after ~60 seconds
             hfc.LifetimeTimer += frameTime;
             if (hfc.LifetimeTimer >= hfc.LifetimeDuration)
-                RemComp(uid, hfc);
+                RemCompDeferred(uid, hfc);
 
             // spawn fire box every .2 seconds
             hfc.UpdateTimer += frameTime;

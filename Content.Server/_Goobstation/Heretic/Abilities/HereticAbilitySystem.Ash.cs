@@ -163,7 +163,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
     #region Helper methods
 
-    [ValidatePrototypeId<EntityPrototype>] private const string FirePrototype = "HereticFireAA";
+    [ValidatePrototypeId<EntityPrototype>] private static readonly EntProtoId FirePrototype = "HereticFireAA";
 
     public async Task CombustArea(EntityUid ent, int range = 1, bool hollow = true)
     {
