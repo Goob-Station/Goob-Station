@@ -20,7 +20,7 @@
         doAfter: 2
       - tag: SecurityHelmet
         icon:
-          sprite: DeltaV/Clothing/Head/Helmets/security.rsi
+          sprite: Clothing/Head/Helmets/security.rsi
           state: icon
         name: Security Helmet
         doAfter: 2

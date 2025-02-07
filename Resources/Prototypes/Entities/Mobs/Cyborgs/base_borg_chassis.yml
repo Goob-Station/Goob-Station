@@ -404,6 +404,7 @@
     - FootstepSound
     - CanPilot
     - Unimplantable
+    - SiliconMob
   - type: Emoting
   - type: GuideHelp
     guides:

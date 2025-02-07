@@ -1,5 +1,5 @@
 - type: constructionGraph
-  id: BatonBot
+  id: WeldBot
   start: start
   graph:
   - node: start
@@ -12,17 +12,17 @@
           state: icon
         name: proximity sensor
         doAfter: 2
-      - tag: Stunbaton
+      - tag: WeldingMask
         icon:
-          sprite: Objects/Weapons/Melee/stunbaton.rsi
-          state: stunbaton_on
-        name: stunbaton
-        doAfter: 2
-      - tag: SecurityHelmet
-        icon:
-          sprite: Clothing/Head/Helmets/security.rsi
+          sprite: Clothing/Head/Welding/welding.rsi
           state: icon
-        name: Security Helmet
+        name: welding mask
+        doAfter: 2
+      - tag: WeldingTool
+        icon:
+          sprite: Objects/Tools/welder.rsi
+          state: icon
+        name: welding tool
         doAfter: 2
   - node: bot
-    entity: MobBatonBot
+    entity: MobWeldbot

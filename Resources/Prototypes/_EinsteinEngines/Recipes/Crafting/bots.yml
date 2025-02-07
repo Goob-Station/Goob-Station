@@ -23,3 +23,16 @@
   icon:
     sprite: _EinsteinEngines/Mobs/Silicon/Bots/disablerbot.rsi
     state: disablerbot
+
+- type: construction
+  name: weldbot
+  id: weldbot
+  graph: WeldBot
+  startNode: start
+  targetNode: bot
+  category: construction-category-utilities
+  objectType: Item
+  description: Repairs the inorganic crew.
+  icon:
+    sprite: _EinsteinEngines/Mobs/Silicon/Bots/weldbot.rsi
+    state: weldbot

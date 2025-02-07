@@ -225,6 +225,7 @@
     - DoorBumpOpener
     - Bot
     - Unimplantable
+    - SiliconMob
   - type: MobState
     allowedStates:
       - Alive

@@ -408,6 +408,9 @@
   id: ShowWizardIcons
 
 - type: Tag
+  id: SiliconMob
+
+- type: Tag
   id: SnapPop
 
 - type: Tag
@@ -502,6 +505,9 @@
 
 - type: Tag
   id: WeaponPistolJackal
+
+- type: Tag
+  id: WeldingTool
 
 - type: Tag
   id: WinterCoat
