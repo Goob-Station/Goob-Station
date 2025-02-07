@@ -3,6 +3,7 @@
 light_mode unshaded;
 
 uniform mediump vec2 reference;
+uniform bool use_reference = true;
 
 const lowp float visibility = 0.1;
 const lowp float time_scale = 1.0;
@@ -22,8 +23,14 @@ void fragment() {
         discard;
     }
 
-    highp vec2 coords = (FRAGCOORD.xy + reference) * distance_scale;
-    coords *= rotate(length(reference - FRAGCOORD.xy) * distance_scale);
+    mediump vec2 center = reference;
+
+    if (use_reference == false) {
+        center = 1.0 / SCREEN_PIXEL_SIZE * 0.5;
+    }
+
+    highp vec2 coords = (FRAGCOORD.xy + center) * distance_scale;
+    coords *= rotate(length(center - FRAGCOORD.xy) * distance_scale);
     highp float w = sin(TIME + (coords.x + coords.y + 2.0*sin(TIME*time_scale) * sin(TIME*time_scale + coords.x - coords.y)) );
 
     w = mix(w, sin(TIME * blink_rate), 0.5);
