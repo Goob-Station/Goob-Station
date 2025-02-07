@@ -45,6 +45,7 @@
 - type: entity
   parent: [ClothingHandsGlovesCombat, BaseCentcommContraband]
   id: ClothingHandsGlovesDeathsquad
+  suffix: DO NOT MAP
   name: deathsquad power claws
   description: Highly-advanced gauntlets capable of ripping people & structures to shreds. Can pry open bolted doors when equipped.
   components:

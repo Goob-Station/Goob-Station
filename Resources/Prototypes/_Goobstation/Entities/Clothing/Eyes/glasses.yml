@@ -85,9 +85,9 @@
   description: It's impossible to comprehend the animosity behind these glasses.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Eyes/Glasses/medglasses.rsi
+    sprite: _Goobstation/Clothing/Eyes/Glasses/deathsquad.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Eyes/Glasses/medglasses.rsi
+    sprite: _Goobstation/Clothing/Eyes/Glasses/deathsquad.rsi
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5

@@ -10,15 +10,12 @@
     {
       "name": "icon"
     },
-	{
-      "name": "icon-on"
-    },
     {
-      "name": "equipped-HAND",
+      "name": "equipped-EYES",
       "directions": 4
     },
-	{
-      "name": "equipped-HAND-on",
+    {
+      "name": "equipped-EYES-hamster",
       "directions": 4
     },
     {

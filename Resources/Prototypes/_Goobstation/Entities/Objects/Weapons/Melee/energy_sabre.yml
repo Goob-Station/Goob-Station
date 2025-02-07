@@ -2,6 +2,7 @@
   name: energy sabre
   parent: [BaseMeleeWeaponEnergy, BaseCentcommContraband]
   id: EnergySabre
+  suffix: DO NOT MAP
   description: The signature weapon of the dreaded deathsquads. Cuts through armored & and un-armored targets easily.
   components:
   - type: Sprite
