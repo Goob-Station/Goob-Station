@@ -41,3 +41,27 @@
     canCreateVacuum: false
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: ClothingHandsGlovesCombat
+  id: ClothingHandsGlovesDeathsquad
+  name: deathsquad's operatives power claws
+  description: Highly-advanced gauntlets capable of ripping people & structures to shreds. Can pry open bolted doors when equipped.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/chronolegioneer.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/Gloves/chronolegioneer.rsi
+  - type: ClothingGrantComponent
+    component:
+    - type: Prying
+      pryPowered: true
+      force: true
+      speedModifier: 2.5
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 25
+        Structural: 60
+    mustBeEquippedToUse: true
