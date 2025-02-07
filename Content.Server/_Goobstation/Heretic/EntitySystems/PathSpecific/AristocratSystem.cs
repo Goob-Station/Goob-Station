@@ -115,7 +115,7 @@ public sealed partial class AristocratSystem : EntitySystem
         }
     }
 
-    [ValidatePrototypeId<EntityPrototype>] private static readonly EntProtoId SnowTilePrototype = "FloorAstroSnow";
+    private static readonly string SnowTilePrototype = "FloorAstroSnow";
     [ValidatePrototypeId<EntityPrototype>] private static readonly EntProtoId SnowWallPrototype = "WallSnowCobblebrick";
     [ValidatePrototypeId<EntityPrototype>] private static readonly EntProtoId BoobyTrapTile = "TileHereticVoid";
 
