@@ -181,8 +181,6 @@
           shouldHave: false
         amount: -100 # power nap
         immediate: true
-  Food:
-    effects:
       - !type:AdjustReagent
         reagent: Mitogen
         amount: 0.125 # 1.25 per 5u
@@ -194,40 +192,40 @@
   desc: reagent-desc-mitogen
   physicalDesc: reagent-physical-desc-thick
   flavor: syrupy
-  color: "#ffff64"
+  color: "#ffc41a"
   metabolisms: # handled through here instead of reagents to prevent reaction noise spam/obtaining peptides
-    Food:
+    Medicine:
       metabolismRate: 0.05
       effects:
       - !type:AdjustReagent
         conditions:
         - !type:ReagentThreshold
           min: 0.5 # no microdosing
-        reagent: Nutriment
-        amount: -0.1
-      - !type:AdjustReagent
-        - !type:ReagentThreshold
-          min: 0.5 # no microdosing
         - !type:ReagentThreshold
           reagent: Nutriment
-          min: 0.1
+          min: 0.5
         reagent: Peptides
-        amount: 0.1 # 1:1
+        amount: 0.5 # 1:1
       - !type:AdjustReagent
+        conditions:
+        - !type:ReagentThreshold
+          min: 0.5 # no microdosing
+        reagent: Nutriment
+        amount: -0.5
+      - !type:AdjustReagent
+        reagent: Mitogen
+        amount: -1.5 # flushing it when overdose
+        conditions:
         - !type:ReagentThreshold
           min: 10
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
-        amount: -1.5 # flushing it when overdose
       - !type:ChemVomit
+        conditions:
         - !type:ReagentThreshold
           min: 10
         - !type:OrganType
           type: Yowie
           shouldHave: false
         probability: 0.13
-
 
 - type: reagent
   id: Peptides
@@ -236,18 +234,16 @@
   desc: reagent-desc-peptides
   physicalDesc: reagent-physical-desc-thick
   flavor: syrupy
-  color: "#ffff64"
+  color: "#cc9c14"
   metabolisms:
     Medicine:
       effects:
       - !type:HealthChange
         damage:
           groups:
-            Brute: 3 # plenty good
-            Burn: 1
-    Food:
-      effects:
-      - !type:SatiateHunger 
+            Brute: -3 # plenty good
+            Burn: -1
+      - !type:SatiateHunger
         factor: 0.5 # worse than nutriment, nothing is free
 
 - type: reagent
@@ -257,7 +253,7 @@
   desc: reagent-desc-tirimol
   physicalDesc: reagent-physical-desc-thick
   flavor: syrupy
-  color: "#ffff64"
+  color: "#ff6060"
   metabolisms:
     Medicine:
       effects:
@@ -280,30 +276,31 @@
   desc: reagent-desc-syriniver
   physicalDesc: reagent-physical-desc-thick
   flavor: syrupy
-  color: "#ffff64"
+  color: "#97e239"
   metabolisms:
-    medicine:
-      metabolismRate: 4 # basically we're using the "undermetabolism" system that scales down effects, so that even syringes waste some effectivness
+    Medicine:
+      metabolismRate: 3 # basically we're using the "undermetabolism" system that scales down effects, so that even syringes waste some effectivness
       effects:
       - !type:HealthChange
         damage:
           types:
-            Poison: -8
-      - !type:AdjustReagent
-        amount: -20
+            Poison: -12
       - !type:AdjustReagent
         reagent: Musiver # Since we don't have purity, we're assuming 100% purity
-        amount: 4
+        amount: 3 # in total it rounds out to 8/u, as long as you use patches; syringes get 4.8/u, worse than dip (6/u)
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 6 # seriously, don't try to use syringes for this
+          min: 6 # seriously, don't use syringes for this
         - !type:OrganType
           type: Yowie
           shouldHave: false
         damage:
           types:
-            Bruise: 20
+            Blunt: 20
+      - !type:AdjustReagent
+        amount: -20
+        reagent: Syriniver
 
 - type: reagent
   id: Musiver
@@ -312,9 +309,9 @@
   desc: reagent-desc-musiver
   physicalDesc: reagent-physical-desc-thick
   flavor: syrupy
-  color: "#ffff64"
+  color: "#e1d758"
   metabolisms:
-    medicine:
+    Medicine:
       metabolismRate: 0.25 # note this, should make it possible to OD
       effects:
       - !type:HealthChange
@@ -340,7 +337,7 @@
           shouldHave: false
         damage:
           types:
-            Bruise: 5
+            Blunt: 5
 
 - type: reagent
   id: Multiver
@@ -349,21 +346,21 @@
   desc: reagent-desc-multiver
   physicalDesc: reagent-physical-desc-thick
   flavor: syrupy
-  color: "#ffff64"
+  color: "#e8e6e3"
   metabolisms:
-    medicine:
+    Medicine:
       effects:
       - !type:AdjustReagent
-        group: medicine
+        group: Medicine
         amount: -3
         conditions:
         - !type:UniqueBloodstreamChemThreshold
           max: 3 # the gist is, 2 and below this sucks, 3 and above it's great
       - !type:AdjustReagent
-        group: poison
+        group: Poison
         amount: -3
       - !type:AdjustReagent
-        group: narcotic
+        group: Narcotic
         amount: -3
       - !type:HealthChange
         damage:
@@ -392,9 +389,9 @@
   desc: reagent-desc-monover
   physicalDesc: reagent-physical-desc-thick
   flavor: syrupy
-  color: "#ffff64"
+  color: "#e8e6e3"
   metabolisms:
-    medicine:
+    Medicine:
       effects:
       - !type:HealthChange
         conditions:
@@ -421,7 +418,8 @@
   desc: reagent-desc-synthcells
   physicalDesc: reagent-physical-desc-thick
   flavor: syrupy
-  color: "#ffff64"
+  color: "#ffbebe"
+  worksOnDead: true
   reactiveEffects:
     Acidic:
       methods: [ Touch ]
@@ -434,7 +432,7 @@
             Brute: 1
             Toxin: -1
   metabolisms:
-    medicine:
+    Medicine:
       effects:
       - !type:HealthChange
         damage:
@@ -458,9 +456,9 @@
   desc: reagent-desc-salicylic-acid
   physicalDesc: reagent-physical-desc-thick
   flavor: syrupy
-  color: "#ffff64"
+  color: "#e8cb4e"
   metabolisms:
-    medicine:
+    Medicine:
       effects:
       - !type:HealthChange
         damage:
@@ -495,9 +493,9 @@
   desc: reagent-desc-oxandrolone
   physicalDesc: reagent-physical-desc-thick
   flavor: syrupy
-  color: "#ffff64"
+  color: "#cac6bf"
   metabolisms:
-    medicine:
+    Medicine:
       effects:
       - !type:HealthChange
         damage:
@@ -532,9 +530,9 @@
   desc: reagent-desc-pentenic-acid
   physicalDesc: reagent-physical-desc-thick
   flavor: syrupy
-  color: "#ffff64"
+  color: "#22ff1a"
   metabolisms:
-    medicine:
+    Medicine:
       effects:
       - !type:ChemCleanBloodstream
       - !type:HealthChange
@@ -556,12 +554,12 @@
   desc: reagent-desc-pendetide
   physicalDesc: reagent-physical-desc-thick
   flavor: syrupy
-  color: "#ffff64"
+  color: "#22ff1a"
   metabolisms:
-    poison:
+    Poison:
       effects:
       - !type:AdjustReagent
-        group: medicine
+        group: Medicine
         amount: -5
       - !type:HealthChange
         damage:
@@ -587,9 +585,9 @@
   desc: reagent-desc-atropine
   physicalDesc: reagent-physical-desc-thick
   flavor: syrupy
-  color: "#ffff64"
+  color: "#ccc7c0"
   metabolisms:
-    medicine:
+    Medicine:
       metabolismRate: 0.25
       effects:
       - !type:HealthChange
@@ -637,7 +635,7 @@
       - !type:HealthChange
         damage:
           types:
-            poison: 2
+            Poison: 2
         conditions:
         - !type:ReagentThreshold
           min: 35
@@ -652,9 +650,9 @@
   desc: reagent-desc-calomel
   physicalDesc: reagent-physical-desc-thick
   flavor: syrupy
-  color: "#ffff64"
+  color: "#baffd6"
   metabolisms:
-    medicine:
+    Medicine:
       metabolismRate: 1
       effects:
       - !type:ChemCleanBloodstream
@@ -662,14 +660,14 @@
       - !type:HealthChange
         damage:
           types:
-            poison: -3
+            Poison: -3
         conditions:
         - !type:MobStateCondition
           mobstate: Critical
       - !type:HealthChange
         damage:
           types:
-            poison: 3
+            Poison: 3
         conditions:
         - !type:MobStateCondition
           mobstate: Alive
@@ -679,7 +677,7 @@
       - !type:HealthChange
         damage:
           types:
-            poison: 3
+            Poison: 3
         conditions:
         - !type:ReagentThreshold
           min: 20
@@ -687,6 +685,7 @@
           type: Yowie
           shouldHave: false
       - !type:AdjustReagent
+        reagent: Calomel
         amount: -5
         conditions:
         - !type:ReagentThreshold
@@ -699,18 +698,18 @@
   desc: reagent-desc-ammoniated-mercury
   physicalDesc: reagent-physical-desc-thick
   flavor: syrupy
-  color: "#ffff64"
+  color: "#bad2ff"
   metabolisms:
-    medicine:
+    Medicine:
       metabolismRate: 0.1
       effects:
       - !type:AdjustReagent
-        group: poison
+        group: Poison
         amount: -6
       - !type:HealthChange
         damage:
           types:
-            poison: 3
+            Poison: 3
         conditions:
         - !type:ReagentThreshold
           min: 10
@@ -720,7 +719,7 @@
       - !type:HealthChange
         damage:
           types:
-            poison: -3
+            Poison: -3
         conditions:
         - !type:TypedDamageThreshold
           damage:
@@ -731,7 +730,7 @@
       - !type:HealthChange # I'm not messing with yaml parser to make this work like it's "supposed to"
         damage:
           types:
-            poison: 1
+            Poison: 1
         conditions:
         - !type:TypedDamageThreshold
           damage:
@@ -743,7 +742,7 @@
       - !type:HealthChange 
         damage:
           types:
-            poison: 1
+            Poison: 1
         conditions:
         - !type:TypedDamageThreshold
           damage:
@@ -755,7 +754,7 @@
       - !type:HealthChange 
         damage:
           types:
-            poison: 2
+            Poison: 2
         conditions:
         - !type:TypedDamageThreshold
           damage:
@@ -767,7 +766,7 @@
       - !type:HealthChange 
         damage:
           types:
-            poison: 2
+            Poison: 2
         conditions:
         - !type:TypedDamageThreshold
           damage:
@@ -777,7 +776,6 @@
           type: Yowie
           shouldHave: false
 
-
 - type: reagent # TODO: move this to toxins
   id: Anacea
   name: reagent-name-anacea
@@ -785,13 +783,13 @@
   desc: reagent-desc-anacea
   physicalDesc: reagent-physical-desc-thick
   flavor: syrupy
-  color: "#ffff64"
+  color: "#beb9b0"
   metabolisms:
-    poison:
+    Poison:
       metabolismRate: 0.05
       effects:
       - !type:AdjustReagent
-        group: medicine
+        group: Medicine
         amount: -4.5
         conditions: # higher quality anti-poisons, save for calomel
         - !type:BloodReagentThreshold
@@ -804,12 +802,12 @@
           reagent: Diphenhydramine
           max: 0.1
       - !type:AdjustReagent
-        group: medicine
+        group: Medicine
         amount: -0.5
       - !type:HealthChange 
         damage:
           types:
-            poison: 0.2 # this works out to 20 per 5u
+            Poison: 0.2 # this works out to 20 per 5u
         conditions:
         - !type:OrganType
           type: Yowie
@@ -822,16 +820,16 @@
   desc: reagent-desc-cyanide
   physicalDesc: reagent-physical-desc-thick
   flavor: syrupy
-  color: "#ffff64"
+  color: "#1abcff"
   metabolisms:
-    poison:
+    Poison:
       metabolismRate: 0.1
       effects:
-      - !type:HealthChange 
+      - !type:HealthChange
         damage:
           types:
-            poison: 1 # 50 per 5u
-            asphyxation: 0.25
+            Poison: 1 # 50 per 5u
+            Asphyxiation: 0.25
         conditions:
         - !type:OrganType
           type: Yowie
@@ -854,9 +852,9 @@
   desc: reagent-desc-aranesp
   physicalDesc: reagent-physical-desc-thick
   flavor: syrupy
-  color: "#ffff64"
+  color: "#6effef"
   metabolisms:
-    narcotic:
+    Narcotic:
       effects:
       - !type:GenericStatusEffect
         key: Stun
@@ -880,9 +878,21 @@
       - !type:HealthChange 
         damage:
           types:
-            poison: 0.5
-            asphyxation: 0.5
+            Poison: 0.5
+            Asphyxiation: 0.5
         conditions:
         - !type:OrganType
           type: Yowie
           shouldHave: false
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Yowie
+        damage:
+          groups:
+            Brute: -1
+          types:
+            Heat: -0.5
+            Shock: -0.5
+            Cold: -0.5
+            Radiation: -0.5

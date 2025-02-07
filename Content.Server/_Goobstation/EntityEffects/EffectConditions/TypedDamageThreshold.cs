@@ -29,6 +29,6 @@ public sealed partial class TypedDamageThreshold : EntityEffectCondition
 
     public override string GuidebookExplanation(IPrototypeManager prototype)
     {
-        throw new NotImplementedException();
+        return "";
     }
 }
