@@ -17,7 +17,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazineMagnumLeverRifle
+        startingItem: MagazineShotgunLeverRifle
         insertSound: /Audio/Weapons/Guns/MagIn/rifle_load.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
         priority: 2
