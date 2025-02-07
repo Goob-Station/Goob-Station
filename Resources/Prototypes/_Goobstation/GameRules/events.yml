@@ -3,6 +3,18 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    weight: 6
+    weight: 10
     duration: 1
-  - type: TidemindDevelopRule
+    # no occurences limit so newly arriving tiders can also get it
+  - type: JobAddComponentsRule
+    message: station-event-tidemind-message
+    affected:
+      - Passenger
+    components:
+    - type: IntrinsicRadioReceiver
+    - type: IntrinsicRadioTransmitter
+      channels:
+      - TideHivemind
+    - type: ActiveRadio
+      channels:
+      - TideHivemind
