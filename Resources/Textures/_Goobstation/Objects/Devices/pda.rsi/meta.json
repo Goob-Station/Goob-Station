@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by BombasterDS - https://github.com/MetalSage/space-stories-archive/commit/26812e79c19c5f998bcbc445afbdceea625bc887, PDA-Blueshield drawn by SolsticeOfTheWinter",
+  "copyright": "Made by BombasterDS - https://github.com/MetalSage/space-stories-archive/commit/26812e79c19c5f998bcbc445afbdceea625bc887, PDA-Blueshield drawn by SolsticeOfTheWinter, pda-deathsquad sprited by BoxManLivesInABox",
   "size": {
     "x": 32,
     "y": 32
@@ -21,6 +21,9 @@
     },
 	{
       "name": "pda-blueshield"
-    }
+    },
+	{
+	  "name": "pda-deathsquad"
+	}
   ]
 }
