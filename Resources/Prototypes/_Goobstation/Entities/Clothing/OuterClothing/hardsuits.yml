@@ -48,7 +48,7 @@
 #bso hardsuit
 
 - type: entity
-  parent: [ClothingOuterHardsuitBase, BaseCentCommContraband]
+  parent: [ClothingOuterHardsuitBase, BaseCentcommContraband]
   id: ClothingOuterHardsuitBlueshield
   name: blueshield hardsuit
   description: A hardsuit for protecting command staff.
