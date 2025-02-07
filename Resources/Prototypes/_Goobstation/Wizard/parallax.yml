@@ -13,8 +13,3 @@
       slowness: 1
       scale: "1, 1"
       tiled: false
-    - texture:
-        !type:ImageParallaxTextureSource
-        path: "/Textures/_Goobstation/Wizard/Tiles/magicglass.png"
-      slowness: 0
-      scale: "1, 1"

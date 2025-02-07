@@ -149,7 +149,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 15
+        Blunt: 18
   - type: Item
     size: Normal
 
@@ -166,7 +166,7 @@
     wideAnimationRotation: 30
     damage:
       types:
-        Blunt: 15
+        Blunt: 18
   - type: Item
     size: Normal
     sprite: _Goobstation/Wizard/Objects/Weapons/broom.rsi
@@ -184,7 +184,7 @@
     wideAnimationRotation: -150
     damage:
       types:
-        Blunt: 15
+        Blunt: 18
   - type: Item
     size: Normal
     sprite: _Goobstation/Wizard/Objects/Weapons/tapestaff.rsi

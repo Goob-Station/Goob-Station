@@ -41,3 +41,26 @@
   - type: NpcFactionMember
     factions:
     - Wizard
+
+- type: entity
+  name: Creature Spawner
+  id: SpawnMobCreature
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: otherthing
+      sprite: _Goobstation/Wizard/Mobs/otherthing.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobCreature
+
+- type: entity
+  name: WIzard Creature Spawner
+  id: SpawnMobCreatureWizard
+  parent: SpawnMobCreature
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - MobCreatureWizard
