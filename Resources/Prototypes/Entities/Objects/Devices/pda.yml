@@ -796,12 +796,13 @@
   parent: CentcomPDA
   id: DeathsquadPDA
   suffix: Death Squad
+  description: Holding it fills you with a sense of anger. Rip & tear until it is done.
   components:
   - type: Pda
     id: CentcomIDCardDeathsquad # Goobstation Start
   - type: Icon
-    state: pda-deathsquad
     sprite: _Goobstation/Objects/Devices/pda.rsi
+    state: pda-deathsquad
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/pda.rsi
     # Goobstation End
