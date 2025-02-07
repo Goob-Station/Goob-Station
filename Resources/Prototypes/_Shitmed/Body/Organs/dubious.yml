@@ -1,6 +1,6 @@
 - type: entity
   id: OrganDubiousBase
-  parent: OrganHumanHeart
+  parent: [ OrganHumanHeart, BaseMajorContraband ]
   name: mysterious gland
   categories: [ HideSpawnMenu ]
   abstract: true
