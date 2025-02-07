@@ -75,3 +75,27 @@
       Steel: 125
   - type: StaticPrice
     price: 38
+
+
+- type: entity
+  parent: [ClothingEyesHudOmni, BaseCentcommContraband]
+  id: ClothingEyesGlassesDeathsquad
+  suffix: DO NOT MAP
+  name: deathsquad glasses
+  description: It's impossible to comprehend the animosity behind these glasses.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Eyes/Glasses/medglasses.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Eyes/Glasses/medglasses.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: IdentityBlocker
+    coverage: EYES
+
+
+
