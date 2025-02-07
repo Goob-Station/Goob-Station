@@ -73,7 +73,7 @@
       gauntlet: !type:ItemSwitchState
         verb: gauntlet
         sprite:
-          sprite: _Goobstation/Clothing/Hands/Gloves/chronolegioneer.rsi
+          sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
           state: icon
         components:
           - type: MeleeWeapon
@@ -83,6 +83,9 @@
                 Blunt: 30
                 Structural: 80
             mustBeEquippedToUse: true
+          - type: Clothing
+            sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
+            state: equipped-HAND
         soundStateActivate:
           collection: sparks
           params:
@@ -92,8 +95,8 @@
       claws: !type:ItemSwitchState
         verb: claws
         sprite:
-          sprite: _Goobstation/Clothing/Hands/Gloves/chronolegioneer.rsi
-          state: icon
+          sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
+          state: icon-on
         components:
           - type: MeleeWeapon
             attackRate: 1.5
@@ -102,6 +105,9 @@
                 Slash: 25
                 Structural: 25
             mustBeEquippedToUse: true
+          - type: Clothing
+            sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
+            state: equipped-HAND-on
         soundStateActivate:
           collection: sparks
           params:
