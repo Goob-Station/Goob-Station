@@ -36,7 +36,7 @@
 - type: entity
   id: MagazineShotgunLeverRifle
   name: "lever rifle magazine (.50)"
-  parent: BaseMagazineMagnumLeverRifle
+  parent: BaseMagazineShotgunLeverRifle
   components:
   - type: Tag
     tags:
