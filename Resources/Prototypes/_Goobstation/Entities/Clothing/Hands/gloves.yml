@@ -83,9 +83,6 @@
                 Blunt: 30
                 Structural: 80
             mustBeEquippedToUse: true
-          - type: Clothing
-            sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
-            state: equipped-HAND
         soundStateActivate:
           collection: sparks
           params:
@@ -105,9 +102,6 @@
                 Slash: 25
                 Structural: 25
             mustBeEquippedToUse: true
-          - type: Clothing
-            sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
-            state: equipped-HAND-on
         soundStateActivate:
           collection: sparks
           params:
