@@ -49,5 +49,7 @@
       - EncryptionKeyStationMaster
   - type: Sprite
     sprite: _Goobstation/Clothing/Ears/Headsets/deathsquad.rsi
+    state: icon
   - type: Clothing
     sprite: _Goobstation/Clothing/Ears/Headsets/deathsquad.rsi
+    state: equipped-ears
