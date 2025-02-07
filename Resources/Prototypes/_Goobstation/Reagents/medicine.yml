@@ -874,7 +874,7 @@
         sprintSpeedModifier: 1.1
       - !type:TakeStaminaDamage
         conditions:
-        amount: -10
+        amount: -20
         immediate: false
       - !type:HealthChange 
         damage:
