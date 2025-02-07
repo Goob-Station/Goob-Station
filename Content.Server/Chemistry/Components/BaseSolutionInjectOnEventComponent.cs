@@ -1,4 +1,5 @@
-﻿using Content.Shared.FixedPoint;
+﻿using Content.Shared.Damage; // Goobstation - Armor resisting syringe gun
+using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
 
 namespace Content.Server.Chemistry.Components;
@@ -37,10 +38,17 @@ public abstract partial class BaseSolutionInjectOnEventComponent : Component
     public string Solution = "default";
 
     /// <summary>
-    /// Whether this will inject through hardsuits or not.
+    /// Whether this will inject through armor or not. // Goobstation - Armor resisting syringe gun
     /// </summary>
     [DataField]
     public bool PierceArmor = true;
+
+    // Goobstation - Armor resisting syringe gun
+    /// <summary>
+    /// The maximum armor resistance values this can penetrate through
+    /// </summary>
+    [DataField]
+    public DamageModifierSet MaxArmorResistances = new() {Coefficients = new() {["Piercing"] = 0.9f}};
 
     /// <summary>
     /// Contents of popup message to display to the attacker when injection
@@ -50,7 +58,7 @@ public abstract partial class BaseSolutionInjectOnEventComponent : Component
     /// Passed values: $weapon and $target
     /// </remarks>
     [DataField]
-    public LocId BlockedByHardsuitPopupMessage = "melee-inject-failed-hardsuit";
+    public LocId BlockedByArmorPopupMessage = "melee-inject-failed-armor"; // Goobstation - Armor resisting syringe gun
 
     /// <summary>
     /// If anything covers any of these slots then the injection fails.

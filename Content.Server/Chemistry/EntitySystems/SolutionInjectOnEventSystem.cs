@@ -1,3 +1,4 @@
+using Content.Shared.Armor; // Goobstation - Armor resisting syringe gun
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chemistry.Components;
@@ -97,16 +98,34 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
             if (Deleted(target))
                 continue;
 
+            // Goobstation - Armor resisting syringe gun
             // Yuck, this is way to hardcodey for my tastes
             // TODO blocking injection with a hardsuit should probably done with a cancellable event or something
-            if (!injector.Comp.PierceArmor && _inventory.TryGetSlotEntity(target, "outerClothing", out var suit) && _tag.HasTag(suit.Value, "Hardsuit"))
+            if (!injector.Comp.PierceArmor && _inventory.TryGetSlotEntity(target, "outerClothing", out var suit)) // no penetrating armor with at least some percentage of piercing resist
             {
-                injector.Comp.Shot = false;
-                // Only show popup to attacker
-                if (source != null)
-                    _popup.PopupEntity(Loc.GetString(injector.Comp.BlockedByHardsuitPopupMessage, ("weapon", injector.Owner), ("target", target)), target, source.Value, PopupType.SmallCaution);
+                var blocked = false;
+                if (TryComp<ArmorComponent>(suit, out var armor))
+                {
+                    var maxResistances = injector.Comp.MaxArmorResistances;
+                    var armorCoefficients = armor.Modifiers.Coefficients;
+                    foreach (var coefficient in maxResistances.Coefficients)
+                    {
+                        if (armorCoefficients.ContainsKey(coefficient.Key) && armorCoefficients[coefficient.Key] < coefficient.Value)
+                        {
+                            blocked = true;
+                            break;
+                        }
+                    }
+                }
+                if (blocked)
+                {
+                    injector.Comp.Shot = false;
+                    // Only show popup to attacker
+                    if (source != null)
+                        _popup.PopupEntity(Loc.GetString(injector.Comp.BlockedByArmorPopupMessage, ("weapon", injector.Owner), ("target", target)), target, source.Value, PopupType.SmallCaution);
 
-                continue;
+                    continue;
+                }
             }
 
             // Check if the target has anything equipped in a slot that would block injection
