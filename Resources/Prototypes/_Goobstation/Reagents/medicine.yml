@@ -355,7 +355,7 @@
         amount: -3
         conditions:
         - !type:UniqueBloodstreamChemThreshold
-          max: 3 # the gist is, 2 and below this sucks, 3 and above it's great
+          max: 3 # the gist is, 2 and below this sucks, 3 and above it's great; mix with water etc for good results
       - !type:AdjustReagent
         group: Poison
         amount: -3
@@ -372,7 +372,7 @@
           min: 2
         damage:
           types:
-            Poison: -1
+            Poison: -2
       - !type:HealthChange
         damage:
           groups:
@@ -399,7 +399,7 @@
           max: 2
         damage:
           types:
-            Poison: -2 # slightly better than dylo, but the side effect is easy to fall into
+            Poison: -3 # slightly better than dylo, but the side effect is easy to fall into
       - !type:HealthChange
         damage:
           groups:
@@ -428,16 +428,17 @@
         scaleByQuantity: true
         ignoreResistances: false # theoretically allows for degenerate behaviour, in practice should be unlikely; also low healing amount
         damage:
+          types:
+            Blunt: 1
           groups:
-            Brute: 1
-            Toxin: -1
+            Toxin: -2
   metabolisms:
     Medicine:
       effects:
       - !type:HealthChange
         damage:
           groups:
-            Toxin: -1
+            Toxin: -2
       - !type:HealthChange
         damage:
           groups:
@@ -524,7 +525,7 @@
           shouldHave: false
 
 - type: reagent
-  id: Pentenic Acid # Potassium Iodine but stronger
+  id: PentenicAcid # Potassium Iodine but stronger
   name: reagent-name-pentenic-acid
   group: Medicine
   desc: reagent-desc-pentenic-acid
@@ -739,7 +740,7 @@
         - !type:OrganType
           type: Yowie
           shouldHave: false
-      - !type:HealthChange 
+      - !type:HealthChange
         damage:
           types:
             Poison: 1
@@ -751,7 +752,7 @@
         - !type:OrganType
           type: Yowie
           shouldHave: false
-      - !type:HealthChange 
+      - !type:HealthChange
         damage:
           types:
             Poison: 2
@@ -763,7 +764,7 @@
         - !type:OrganType
           type: Yowie
           shouldHave: false
-      - !type:HealthChange 
+      - !type:HealthChange
         damage:
           types:
             Poison: 2
@@ -843,7 +844,7 @@
         paralyzeTime: 4
       - !type:Emote
         emote: Gasp
-        probability: 0.05
+        probability: 0.1
 
 - type: reagent # TODO: move this to narcotis
   id: Aranesp # epi but drug
@@ -873,7 +874,7 @@
         sprintSpeedModifier: 1.1
       - !type:TakeStaminaDamage
         conditions:
-        amount: -5
+        amount: -10
         immediate: false
       - !type:HealthChange 
         damage:
