@@ -1714,7 +1714,7 @@
   productPrototypes:
     - FoodBerries
   mutationPrototypes:
-    - strangeberries #goobstation
+    - strangeBerries #goobstation
   harvestRepeat: Repeat
   lifespan: 50
   maturation: 6

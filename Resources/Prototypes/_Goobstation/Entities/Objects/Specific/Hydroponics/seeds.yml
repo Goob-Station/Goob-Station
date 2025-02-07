@@ -4,6 +4,6 @@
   id: StrangeBerrySeeds
   components:
     - type: Seed
-      seedId: strangeberries
+      seedId: strangeBerries
     - type: Sprite
       sprite: _Goobstation/Objects/Specific/Hydroponics/strange_berries.rsi
