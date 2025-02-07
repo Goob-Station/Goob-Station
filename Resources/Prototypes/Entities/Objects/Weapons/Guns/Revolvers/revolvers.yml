@@ -114,10 +114,10 @@
       tags:
         - CartridgeMagnum
         - SpeedLoaderMagnum
-    proto: CartridgeMagnum
-    capacity: 7 # Goobstation
-    chambers: [ True, True, True, True, True, True, True ]
-    ammoSlots: [ null, null, null, null, null, null, null ]
+    proto: CartridgeMagnumAP # Goobstation - Deathsquad revamp
+    capacity: 7 # Goobstation - Deathsquad revamp
+    chambers: [ True, True, True, True, True, True, True ] # Goobstation - Deathsquad revamp
+    ammoSlots: [ null, null, null, null, null, null, null ] # Goobstation - Deathsquad revamp
     soundEject:
       path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
     soundInsert:

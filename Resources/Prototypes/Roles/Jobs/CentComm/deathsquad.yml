@@ -28,11 +28,11 @@
     ears: ClothingHeadsetAltCentCom
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitDeathsquad
-    shoes: ClothingShoesBootsMagDeathsquad # These boots are cooler. TODO : Replace textures
+    shoes: ClothingShoesBootsMagDeathsquad # These boots are cooler.
     id: DeathsquadPDA
     pocket1: EnergySabre # Goobstation - TODO Replace Texture
     pocket2: EnergyShield # TODO : Replace with BSO shield
-    belt: ClothingBeltDeathsquadWebbingFilled # centcomm Doesn't use syndicate tech.
+    belt: ClothingBeltDeathsquadWebbingFilled # Centcomm Doesn't use syndicate tech.
   storage:
     back:
     - WeaponRevolverMateba
