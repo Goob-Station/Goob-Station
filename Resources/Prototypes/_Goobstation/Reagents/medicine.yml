@@ -112,3 +112,777 @@
             type: Local
             messages: [ "reagent-popup-fleshmend" ]
             probability: 0.2
+
+- type: reagent
+  id: Probital
+  name: reagent-name-probital
+  group: Medicine
+  desc: reagent-desc-probital
+  physicalDesc: reagent-physical-desc-thick
+  flavor: syrupy
+  color: "#ffff64"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -1.5 # Lower than Bicardine due to easier recipe, offloading healing onto peptides
+      - !type:TakeStaminaDamage
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        amount: 5 # effectively 3 "sleeps" per 20OD, but only 1 on 10 (like with 2 syringes)
+        immediate: false
+      - !type:MovespeedModifier # kinda sleepiness
+        conditions:
+        - !type:StaminaDamageThreshold
+          min: 80
+        - !type:ReagentThreshold
+          min: 20
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        walkSpeedModifier: 0.8
+        sprintSpeedModifier: 0.8
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:StaminaDamageThreshold
+          min: 80
+        - !type:ReagentThreshold
+          min: 20
+        key: Stutter
+        component: StutteringAccent
+      - !type:GenericStatusEffect # go to sleep once cycle elapses
+        conditions:
+        - !type:StaminaDamageThreshold
+          min: 100
+        - !type:ReagentThreshold
+          min: 20
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        key: ForcedSleep
+        component: ForcedSleeping
+        refresh: false
+        type: Add
+        time: 10
+      - !type:TakeStaminaDamage
+        conditions:
+        - !type:StaminaDamageThreshold
+          min: 100
+        - !type:ReagentThreshold
+          min: 20
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        amount: -100 # power nap
+        immediate: true
+  Food:
+    effects:
+      - !type:AdjustReagent
+        reagent: Mitogen
+        amount: 0.125 # 1.25 per 5u
+
+- type: reagent
+  id: Mitogen
+  name: reagent-name-mitogen
+  group: Medicine
+  desc: reagent-desc-mitogen
+  physicalDesc: reagent-physical-desc-thick
+  flavor: syrupy
+  color: "#ffff64"
+  metabolisms: # handled through here instead of reagents to prevent reaction noise spam/obtaining peptides
+    Food:
+      metabolismRate: 0.05
+      effects:
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentThreshold
+          min: 0.5 # no microdosing
+        reagent: Nutriment
+        amount: -0.1
+      - !type:AdjustReagent
+        - !type:ReagentThreshold
+          min: 0.5 # no microdosing
+        - !type:ReagentThreshold
+          reagent: Nutriment
+          min: 0.1
+        reagent: Peptides
+        amount: 0.1 # 1:1
+      - !type:AdjustReagent
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        amount: -1.5 # flushing it when overdose
+      - !type:ChemVomit
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        probability: 0.13
+
+
+- type: reagent
+  id: Peptides
+  name: reagent-name-peptides
+  group: Food
+  desc: reagent-desc-peptides
+  physicalDesc: reagent-physical-desc-thick
+  flavor: syrupy
+  color: "#ffff64"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: 3 # plenty good
+            Burn: 1
+    Food:
+      effects:
+      - !type:SatiateHunger 
+        factor: 0.5 # worse than nutriment, nothing is free
+
+- type: reagent
+  id: Tirimol
+  name: reagent-name-tirimol
+  group: Medicine
+  desc: reagent-desc-tirimol
+  physicalDesc: reagent-physical-desc-thick
+  flavor: syrupy
+  color: "#ffff64"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Asphyxiation: -4.5 # intended to be stronger, but more annoying than dexP/inapr
+      - !type:TakeStaminaDamage
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        amount: 3 # full syringe doesn't stamcrit (maybe it should?)
+        immediate: false
+
+- type: reagent
+  id: Syriniver # I think it's only useful for pills, patches, and hypo spam, and as such it's made really good for these cases
+  name: reagent-name-syriniver
+  group: Medicine
+  desc: reagent-desc-syriniver
+  physicalDesc: reagent-physical-desc-thick
+  flavor: syrupy
+  color: "#ffff64"
+  metabolisms:
+    medicine:
+      metabolismRate: 4 # basically we're using the "undermetabolism" system that scales down effects, so that even syringes waste some effectivness
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -8
+      - !type:AdjustReagent
+        amount: -20
+      - !type:AdjustReagent
+        reagent: Musiver # Since we don't have purity, we're assuming 100% purity
+        amount: 4
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 6 # seriously, don't try to use syringes for this
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        damage:
+          types:
+            Bruise: 20
+
+- type: reagent
+  id: Musiver
+  name: reagent-name-musiver
+  group: Medicine
+  desc: reagent-desc-musiver
+  physicalDesc: reagent-physical-desc-thick
+  flavor: syrupy
+  color: "#ffff64"
+  metabolisms:
+    medicine:
+      metabolismRate: 0.25 # note this, should make it possible to OD
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -1 # On its own, somewhere in between dylo and dip, but together with syri it's better than dip; it's painful to make and use to balance it
+      - !type:ChemCleanBloodstream
+        cleanseRate: 0.5
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: 0.1 # very slight side effect
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        damage:
+          types:
+            Bruise: 5
+
+- type: reagent
+  id: Multiver
+  name: reagent-name-multiver
+  group: Medicine
+  desc: reagent-desc-multiver
+  physicalDesc: reagent-physical-desc-thick
+  flavor: syrupy
+  color: "#ffff64"
+  metabolisms:
+    medicine:
+      effects:
+      - !type:AdjustReagent
+        group: medicine
+        amount: -3
+        conditions:
+        - !type:UniqueBloodstreamChemThreshold
+          max: 3 # the gist is, 2 and below this sucks, 3 and above it's great
+      - !type:AdjustReagent
+        group: poison
+        amount: -3
+      - !type:AdjustReagent
+        group: narcotic
+        amount: -3
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -1
+      - !type:HealthChange
+        conditions:
+        - !type:UniqueBloodstreamChemThreshold
+          min: 2
+        damage:
+          types:
+            Poison: -1
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: 0.5
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+
+- type: reagent
+  id: Monover
+  name: reagent-name-monover
+  group: Medicine
+  desc: reagent-desc-monover
+  physicalDesc: reagent-physical-desc-thick
+  flavor: syrupy
+  color: "#ffff64"
+  metabolisms:
+    medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:UniqueBloodstreamChemThreshold
+          max: 2
+        damage:
+          types:
+            Poison: -2 # slightly better than dylo, but the side effect is easy to fall into
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: 1
+        conditions:
+        - !type:UniqueBloodstreamChemThreshold
+          min: 1 # potential use for checking bloodstream cleanliness?
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+
+- type: reagent
+  id: Synthcells # synthflesh is pointless in SS14 due to topicals, this work in an inverse way to it, providing way to heal poison in addition to liver transplants
+  name: reagent-name-synthcells
+  group: Medicine
+  desc: reagent-desc-synthcells
+  physicalDesc: reagent-physical-desc-thick
+  flavor: syrupy
+  color: "#ffff64"
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false # theoretically allows for degenerate behaviour, in practice should be unlikely; also low healing amount
+        damage:
+          groups:
+            Brute: 1
+            Toxin: -1
+  metabolisms:
+    medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Toxin: -1
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: 1
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+
+# These are supposed to be really good, but their recipes/yields are horrendous to counterbalance it
+
+- type: reagent
+  id: SalicylicAcid
+  name: reagent-name-salicylic-acid
+  group: Medicine
+  desc: reagent-desc-salicylic-acid
+  physicalDesc: reagent-physical-desc-thick
+  flavor: syrupy
+  color: "#ffff64"
+  metabolisms:
+    medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -5 # Seems strong, but actually still worse than any dedicated chem
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Brute: 25
+        - !type:ReagentThreshold
+          max: 25
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -1
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: 3 # Should outdamage base heal
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+
+- type: reagent
+  id: Oxandrolone # Salicylic but for burns
+  name: reagent-name-oxandrolone
+  group: Medicine
+  desc: reagent-desc-oxandrolone
+  physicalDesc: reagent-physical-desc-thick
+  flavor: syrupy
+  color: "#ffff64"
+  metabolisms:
+    medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: -5
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Burn: 25
+        - !type:ReagentThreshold
+          max: 25
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: -1
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: 3
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+
+- type: reagent
+  id: Pentenic Acid # Potassium Iodine but stronger
+  name: reagent-name-pentenic-acid
+  group: Medicine
+  desc: reagent-desc-pentenic-acid
+  physicalDesc: reagent-physical-desc-thick
+  flavor: syrupy
+  color: "#ffff64"
+  metabolisms:
+    medicine:
+      effects:
+      - !type:ChemCleanBloodstream
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -3
+            Radiation: -1 # grants 100% protection from rads until higher rad values
+      - !type:GenericStatusEffect
+        key: RadiationProtection
+        component: RadiationProtection
+        time: 2
+        type: Add
+        refresh: false
+
+- type: reagent # TODO: move this to toxins
+  id: Pendetide
+  name: reagent-name-pendetide
+  group: Toxins
+  desc: reagent-desc-pendetide
+  physicalDesc: reagent-physical-desc-thick
+  flavor: syrupy
+  color: "#ffff64"
+  metabolisms:
+    poison:
+      effects:
+      - !type:AdjustReagent
+        group: medicine
+        amount: -5
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: 2
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            types:
+              Radiation: 2 # kinda arbitrary, it'll trigger after some rads
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+      - !type:Jitter
+
+- type: reagent
+  id: Atropine # this is really good epi, but only for medbay use
+  name: reagent-name-atropine
+  group: Medicine
+  desc: reagent-desc-atropine
+  physicalDesc: reagent-physical-desc-thick
+  flavor: syrupy
+  color: "#ffff64"
+  metabolisms:
+    medicine:
+      metabolismRate: 0.25
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Airloss: -4
+            Brute: -2
+            Burn: -2
+            Toxin: -2
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Critical
+        - !type:ReagentThreshold
+          min: 0
+          max: 35
+      - !type:MovespeedModifier # and basically every visual/combat side effect that can be reasonably put
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        walkSpeedModifier: 0.8
+        sprintSpeedModifier: 0.8
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+      - !type:Jitter
+      - !type:Paralyze
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        probability: 0.1
+        paralyzeTime: 2
+      - !type:Paralyze # more severe effect when overdosing
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 35
+        probability: 0.2
+        paralyzeTime: 4
+      - !type:Drunk
+        boozePower: 5
+      - !type:HealthChange
+        damage:
+          types:
+            poison: 2
+        conditions:
+        - !type:ReagentThreshold
+          min: 35
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+
+- type: reagent
+  id: Calomel # intended to be a cheap, strong, but dangerous and finnicky supplement to other anti-poisons in near-death scenarios
+  name: reagent-name-calomel
+  group: Medicine
+  desc: reagent-desc-calomel
+  physicalDesc: reagent-physical-desc-thick
+  flavor: syrupy
+  color: "#ffff64"
+  metabolisms:
+    medicine:
+      metabolismRate: 1
+      effects:
+      - !type:ChemCleanBloodstream
+        cleanseRate: 4.5 # better than charcoal
+      - !type:HealthChange
+        damage:
+          types:
+            poison: -3
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Critical
+      - !type:HealthChange
+        damage:
+          types:
+            poison: 3
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Alive
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+      - !type:HealthChange
+        damage:
+          types:
+            poison: 3
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+      - !type:AdjustReagent
+        amount: -5
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+
+- type: reagent
+  id: AmmoniatedMercury # Another strong but unwieldy chem, but by virtue of easy OD, slow metabolisation rate, and any damage potentially spiraling into poison death
+  name: reagent-name-ammoniated-mercury
+  group: Medicine
+  desc: reagent-desc-ammoniated-mercury
+  physicalDesc: reagent-physical-desc-thick
+  flavor: syrupy
+  color: "#ffff64"
+  metabolisms:
+    medicine:
+      metabolismRate: 0.1
+      effects:
+      - !type:AdjustReagent
+        group: poison
+        amount: -6
+      - !type:HealthChange
+        damage:
+          types:
+            poison: 3
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+      - !type:HealthChange
+        damage:
+          types:
+            poison: -3
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Brute: 1
+              Burn: 1
+          inverse: true
+      - !type:HealthChange # I'm not messing with yaml parser to make this work like it's "supposed to"
+        damage:
+          types:
+            poison: 1
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Burn: 30
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+      - !type:HealthChange 
+        damage:
+          types:
+            poison: 1
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Burn: 60
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+      - !type:HealthChange 
+        damage:
+          types:
+            poison: 2
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Brute: 30
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+      - !type:HealthChange 
+        damage:
+          types:
+            poison: 2
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Brute: 60
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+
+
+- type: reagent # TODO: move this to toxins
+  id: Anacea
+  name: reagent-name-anacea
+  group: Toxins
+  desc: reagent-desc-anacea
+  physicalDesc: reagent-physical-desc-thick
+  flavor: syrupy
+  color: "#ffff64"
+  metabolisms:
+    poison:
+      metabolismRate: 0.05
+      effects:
+      - !type:AdjustReagent
+        group: medicine
+        amount: -4.5
+        conditions: # higher quality anti-poisons, save for calomel
+        - !type:BloodReagentThreshold
+          reagent: PentenicAcid
+          max: 0.1
+        - !type:BloodReagentThreshold
+          reagent: Calomel
+          max: 0.1
+        - !type:BloodReagentThreshold
+          reagent: Diphenhydramine
+          max: 0.1
+      - !type:AdjustReagent
+        group: medicine
+        amount: -0.5
+      - !type:HealthChange 
+        damage:
+          types:
+            poison: 0.2 # this works out to 20 per 5u
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+
+- type: reagent # TODO: move this to toxins
+  id: Cyanide
+  name: reagent-name-cyanide
+  group: Toxins
+  desc: reagent-desc-cyanide
+  physicalDesc: reagent-physical-desc-thick
+  flavor: syrupy
+  color: "#ffff64"
+  metabolisms:
+    poison:
+      metabolismRate: 0.1
+      effects:
+      - !type:HealthChange 
+        damage:
+          types:
+            poison: 1 # 50 per 5u
+            asphyxation: 0.25
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+      - !type:Paralyze
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        probability: 0.05
+        paralyzeTime: 4
+      - !type:Emote
+        emote: Gasp
+        probability: 0.05
+
+- type: reagent # TODO: move this to narcotis
+  id: Aranesp # epi but drug
+  name: reagent-name-aranesp
+  group: Narcotics
+  desc: reagent-desc-aranesp
+  physicalDesc: reagent-physical-desc-thick
+  flavor: syrupy
+  color: "#ffff64"
+  metabolisms:
+    narcotic:
+      effects:
+      - !type:GenericStatusEffect
+        key: Stun
+        time: 0.75
+        type: Remove
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        time: 0.75
+        type: Remove
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 5
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.1
+        sprintSpeedModifier: 1.1
+      - !type:TakeStaminaDamage
+        conditions:
+        amount: -5
+        immediate: false
+      - !type:HealthChange 
+        damage:
+          types:
+            poison: 0.5
+            asphyxation: 0.5
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
