@@ -2,9 +2,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.EntityEffects;
 using Content.Shared.FixedPoint;
-using Robust.Shared.Profiling;
 using Robust.Shared.Prototypes;
-using System.Linq;
 
 namespace Content.Server._Goobstation.EntityEffects.EffectConditions;
 
