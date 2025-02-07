@@ -46,6 +46,17 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
+  - type: MeleeWeapon # Goob edit start
+    damage:
+      types:
+       Slash: 6
+       Piercing: 7
+    angle: 0
+    wideAnimationRotation: -135
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: MeleeRequiresWield # Goob edit end
 
 - type: entity
   name: Hristov
