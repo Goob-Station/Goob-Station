@@ -26,6 +26,9 @@
     {
       "name": "icon"
     },
+	{
+      "name": "icon-on"
+    },
     {
       "name": "inhand-left",
       "directions": 4
