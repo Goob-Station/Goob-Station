@@ -20,9 +20,9 @@
   parent: [ ClothingBeltStorageBase, BaseCentcommContraband ]
   id: ClothingBeltDeathsquadWebbing
   name: deathsquad operative chestrig
-  description: A veriative swiss-army-knife of equipment. Contains everything you need to disassemble a station.
+  description: A robust and durable chestrig, containing everything you need to keep you in the fight. You probably won't need to use it.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Belt/cmowebbing.rsi # Todo : Change this
+    sprite: _Goobstation/Clothing/Belt/deathsquadwebbing.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Belt/cmowebbing.rsi # Todo : Change this
+    sprite: _Goobstation/Clothing/Belt/deathsquadwebbing.rsi
