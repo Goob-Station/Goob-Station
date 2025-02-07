@@ -728,7 +728,7 @@
               Brute: 1
               Burn: 1
           inverse: true
-      - !type:HealthChange # I'm not messing with yaml parser to make this work like it's "supposed to"
+      - !type:HealthChange # Ideally it'd be a slope, but that's TBD together with cryox scaling with temps
         damage:
           types:
             Poison: 1
