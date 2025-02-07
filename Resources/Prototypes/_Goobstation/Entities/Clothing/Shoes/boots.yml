@@ -36,10 +36,10 @@
   description: The sound of these boots are iconic; the sound of terror.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Shoes/Boots/chronolegioneer.rsi # Todo - Change this
+    sprite: _Goobstation/Clothing/Shoes/Boots/deathsquad.rsi
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Clothing/Shoes/Boots/chronolegioneer.rsi # Todo - Change this
+    sprite: _Goobstation/Clothing/Shoes/Boots/deathsquad.rsi
   - type: Magboots
   - type: ClothingSpeedModifier
     walkModifier: 1.10
