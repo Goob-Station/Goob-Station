@@ -176,3 +176,36 @@
         Quantity: 7
       - ReagentId: TranexamicAcid
         Quantity: 3
+
+
+- type: entity
+  name: centcomm advanced stimulant
+  parent: [ChemicalMedipen, BaseCentcommContraband]
+  id: CentcommStimpack
+  description: According to a Nanotrasen funded study, it has zero addictive properties.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: stimpen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 50
+        reagents:
+        - ReagentId: Stimulants
+          Quantity: 50
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: stimpen_empty
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 50
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: StaticPrice
+    price: 500
+  - type: Tag
+    tags: []
