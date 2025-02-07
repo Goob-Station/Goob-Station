@@ -4,7 +4,7 @@
   graph:
     - node: start
       edges:
-        - to: glassesMed
+        - to: glassesMedSec
           steps:
             - tag: Sunglasses
               name: sun glasses
@@ -21,5 +21,5 @@
             - material: Cable
               amount: 5
               doAfter: 5
-    - node: glassesMed
-      entity: ClothingEyesGlassesMed
+    - node: glassesMedSec
+      entity: ClothingEyesGlassesMedSec

@@ -16,6 +16,9 @@
     - WhitelistChameleon
   - type: IdentityBlocker
     coverage: EYES
+  - type: Construction
+    graph: GlassesMedSecHUD
+    node: glassesMedSec
 
 - type: entity
   parent: ClothingEyesBase
