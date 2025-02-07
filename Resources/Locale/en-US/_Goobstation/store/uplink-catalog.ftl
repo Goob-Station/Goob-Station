@@ -76,6 +76,9 @@ uplink-dualetta-bundle-desc = Comes with 2 Dualetta pistols, 2 machine pistol ma
 uplink-anaconda-name = Anaconda
 uplink-anaconda-desc = The pride of the Cybersun arms concern, this heavy pistol is designed to feed itself with the built-in fabricator.
 
+uplink-bulk-mosin-name = Syndicate bulk rifle crate
+uplink-bulk-mosin-desc = 10 WW4-era rifles to arm you, your friends, and your cat. Saves 40% on shipping costs by buying in bulk.
+
 # Ammo
 
 uplink-blast-grenade-name = Blast Grenade
