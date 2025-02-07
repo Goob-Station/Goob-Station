@@ -15,7 +15,7 @@
             - tag: HudMedical
               name: medical hud
               icon:
-                sprite: Clothing/Eyes/Hud/sec.rsi
+                sprite: Clothing/Eyes/Hud/med.rsi
                 state: icon
               doAfter: 5
             - material: Cable

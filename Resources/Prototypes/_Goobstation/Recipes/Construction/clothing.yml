@@ -36,7 +36,7 @@
   id: MedicalSecurityGlasses
   graph: GlassesMedSecHUD
   startNode: start
-  targetNode: glassesMed
+  targetNode: glassesMedSec
   category: construction-category-clothing
   description: Sunglasses with a medical and security hud.
   icon: { sprite: _Goobstation/Clothing/Eyes/Glasses/medglasses.rsi, state: icon }
