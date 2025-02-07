@@ -1,0 +1,8 @@
+- type: entity
+  id: TidemindDevelop
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 6
+    duration: 1
+  - type: TidemindDevelopRule
