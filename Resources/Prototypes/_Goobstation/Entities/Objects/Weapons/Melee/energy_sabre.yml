@@ -1,4 +1,4 @@
-- type: entity
+- type: entity # To-do - Replace all sounds with Nanotrasen energy sounds once blueshield shield PR is merged.
   name: energy sabre
   parent: [BaseMeleeWeaponEnergy, BaseCentcommContraband]
   id: EnergySabre
@@ -6,7 +6,7 @@
   description: The signature weapon of the dreaded deathsquads. Cuts through armored & and un-armored targets easily.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Melee/e_sword.rsi
+    sprite: Objects/Weapons/Melee/e_sword.rsi # To-do - Replace with sabre sprites
     layers:
     - state: e_sword
     - state: e_sword_blade
