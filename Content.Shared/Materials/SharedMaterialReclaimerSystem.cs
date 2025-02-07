@@ -215,8 +215,8 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
         return component.Powered &&
                component.Enabled &&
                !component.Broken &&
-               HasComp<BodyComponent>(victim) &&
-               HasComp<EmaggedComponent>(uid);
+               HasComp<BodyComponent>(victim);
+        //&& HasComp<EmaggedComponent>(uid); #Goob removed
     }
 
     /// <summary>
