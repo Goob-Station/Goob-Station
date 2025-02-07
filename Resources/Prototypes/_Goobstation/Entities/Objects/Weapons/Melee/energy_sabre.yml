@@ -39,7 +39,7 @@
     sprite: Objects/Weapons/Melee/e_sword-inhands.rsi
   - type: Reflect # Goob edit
     reflectProb: 1
-    otherTypeReflectProb: 1
+    otherTypeReflectProb: 0.4
     reflects:
       - Energy
   - type: Tag

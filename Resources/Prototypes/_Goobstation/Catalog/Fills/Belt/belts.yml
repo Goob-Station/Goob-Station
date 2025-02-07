@@ -24,7 +24,7 @@
   suffix: Filled
   id: ClothingBeltDeathsquadWebbingFilled
   name: deathsquad operative chestrig
-  description: "A well stocked chestrig. Contains everything you need for a sustained fight."
+  description: "A robust and durable chestrig, containing everything you need to keep you in the fight. You probably won't need to use it."
   components:
   - type: StorageFill
     contents:
