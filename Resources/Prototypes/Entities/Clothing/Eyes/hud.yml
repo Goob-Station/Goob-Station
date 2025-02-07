@@ -160,6 +160,9 @@
   - type: Construction
     graph: HudMedSec
     node: medsecHud
+  - type: Tag
+    tags:
+    - HudMedicalSecurity
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons]
