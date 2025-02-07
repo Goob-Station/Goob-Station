@@ -36,3 +36,18 @@
     sprite: _Goobstation/Clothing/Ears/Headsets/warden.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Ears/Headsets/warden.rsi
+
+- type: entity
+  parent: [ClothingHeadsetAlt, BaseCentcommContraband]
+  id: ClothingHeadsetDeathsquad
+  name: deathsquad over-ear headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCentCom
+      - EncryptionKeyStationMaster
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Ears/Headsets/deathsquad.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Ears/Headsets/deathsquad.rsi
