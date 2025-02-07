@@ -61,7 +61,7 @@
 
 - type: entity
   name: dart syringe gun
-  parent: [ SyringeGun, BaseSyndicateContraband ]
+  parent: [ BaseSyndicateContraband, SyringeGun ]
   id: DartSyringeGun
   description: An illegally modified version of the syringe gun that allows projectiles to pierce through armor.
   components:
