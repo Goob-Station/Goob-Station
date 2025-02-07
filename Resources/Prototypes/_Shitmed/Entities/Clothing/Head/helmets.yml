@@ -2,7 +2,8 @@
 - type: entity
   parent: ClothingHeadHelmetBase
   id: ClothingHeadHelmetAbductor
-  name: helmet
+  name: alien helmet
+  description: Zeep Glorp!
   components:
   - type: Armor
     modifiers:

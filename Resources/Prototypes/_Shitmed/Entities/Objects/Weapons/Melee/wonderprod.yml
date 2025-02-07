@@ -20,14 +20,14 @@
   - type: GuideHelp
     guides:
     - Abductors
-  - type: RestrictByUserTag
-    contains:
-    - Abductor
-    messages:
-    - abductors-weapon-restricted-1
-    - abductors-weapon-restricted-2
-    - abductors-weapon-restricted-3
-    - abductors-weapon-restricted-4
+#  - type: RestrictByUserTag
+#    contains:
+#    - Abductor
+#    messages:
+#    - abductors-weapon-restricted-1
+#    - abductors-weapon-restricted-2
+#    - abductors-weapon-restricted-3
+#    - abductors-weapon-restricted-4
   - type: DisarmMalus
   - type: ItemSwitch
     state: stun
@@ -90,6 +90,8 @@
           reagents:
           - ReagentId: Nocturine
             Quantity: 5
+          limit: 20
+          needsRestrain: true
 
       damage: !type:ItemSwitchState
         verb: damage
