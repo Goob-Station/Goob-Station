@@ -53,12 +53,15 @@
     sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
+  - type: Fiber
+    fiberMaterial: fibers-classified
+    fiberColor: fibers-pitch-black
   - type: ClothingGrantComponent
     component:
     - type: Prying
       pryPowered: true
       force: true
-      speedModifier: 2.5
+      speedModifier: 4.5
   - type: MeleeWeapon
     attackRate: 1.5
     damage:
