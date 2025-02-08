@@ -2,6 +2,7 @@ using Content.Shared.Weapons.Melee;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Content.Shared._Goobstation.Bingle;
+using Robust.Shared.Map;
 
 namespace Content.Server._Goobstation.Bingle;
 
@@ -21,7 +22,8 @@ public sealed class BingleSystem : EntitySystem
         var cords = Transform(uid).Coordinates;
         if (!cords.IsValid(EntityManager))
             return;
-
+        if (MapId.Nullspace == Transform(uid).MapID) // aborts if spawns in nullspace
+            return;
         if (component.Prime)
             component.MyPit = Spawn("BinglePit", cords);
         else
@@ -31,7 +33,6 @@ public sealed class BingleSystem : EntitySystem
                 if (cords == Transform(queryUid).Coordinates)
                     component.MyPit = queryUid;
         }
-
     }
 
     //ran by the pit to upgrade bingle damage
