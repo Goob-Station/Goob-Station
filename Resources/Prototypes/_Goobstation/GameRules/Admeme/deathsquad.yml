@@ -2,7 +2,6 @@
   parent: BaseGameRule
   id: DeathsquadSpawn
   components:
-  - type: RuleGrids
   - type: LoadMapRule
     preloadedgrid: DeathsquadAmbassador
   - type: AntagSelection
