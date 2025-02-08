@@ -19,9 +19,6 @@
       - type: RandomMetadata
         nameSegments:
         - NamesFirstMilitaryLeader
-        - NamesLastMilitary
-      mindRoles:
-      - MindRoleDeathsquad
   - type: AntagLoadProfileRule
     speciesOverride: Human
     alwaysUseSpeciesOverride: true
