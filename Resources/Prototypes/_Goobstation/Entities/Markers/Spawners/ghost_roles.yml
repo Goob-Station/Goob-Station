@@ -11,3 +11,20 @@
         state: icon
     state: observer
   - type: GhostBarSpawn
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  suffix: DO NOT MAP!!
+  id: SpawnPointDeathsquadOperative
+  components:
+  - type: GhostRole
+    name: ghost-role-information-Death-Squad-name
+    description: ghost-role-information-Death-Squad-description
+    rules: ghost-role-information-Death-Squad-rules
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/signs.rsi
+        state: radiation
