@@ -2,6 +2,7 @@ using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Goobstation.Heretic.Systems;
+using Content.Shared.Atmos;
 using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
 
@@ -40,7 +41,11 @@ public sealed partial class VoidCurseSystem : SharedVoidCurseSystem
     protected override void Cycle(Entity<VoidCurseComponent> ent)
     {
         if (TryComp<TemperatureComponent>(ent, out var temp))
-            _temp.ForceChangeTemperature(ent, -2f * ent.Comp.Stacks, temp);
+        {
+            // temperaturesystem is not idiotproof :(
+            var t = temp.CurrentTemperature - (2f * ent.Comp.Stacks);
+            _temp.ForceChangeTemperature(ent, Math.Clamp(t, Atmospherics.T0C, float.PositiveInfinity), temp);
+        }
 
         _statusEffect.TryAddStatusEffect<MutedComponent>(ent, "Muted", TimeSpan.FromSeconds(5), true);
     }
