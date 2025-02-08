@@ -7,7 +7,7 @@
     mapPath: /Maps/_Goobstation/Shuttles/ambassador.yml
   - type: AntagSelection
     definitions:
-    - spawnerPrototype: SpawnPointDeathsquadOperative
+    - spawnerPrototype: SpawnPointGhostNukeOperative
       min: 3
       max: 6
       pickPlayer: false
@@ -15,10 +15,10 @@
       roleLoadout:
       - RoleSurvivalSecurity
       components:
-      - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
         - NamesFirstMilitaryLeader
+        - NamesLastMilitary
   - type: AntagLoadProfileRule
     speciesOverride: Human
     alwaysUseSpeciesOverride: true

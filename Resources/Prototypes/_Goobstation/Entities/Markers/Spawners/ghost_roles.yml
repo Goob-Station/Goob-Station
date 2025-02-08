@@ -23,7 +23,7 @@
     description: ghost-role-information-Death-Squad-description
     rules: ghost-role-information-Death-Squad-rules
   - type: GhostRoleMobSpawner
-    prototype: MobHumanNukeOp
+    prototype: DeathSquad
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
