@@ -70,13 +70,13 @@
   parent: ClothingEyesBase
   id: ClothingEyesGlasses
   name: glasses
-  description: A pair of spectacular spectacles with prescription lenses.
+  description: Upon closer inspection, you realize these lenses are infact made of plastic. # Goobstation
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/glasses.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/glasses.rsi
-  - type: VisionCorrection
+ # - type: VisionCorrection - Goobstation
   - type: Tag
     tags:
     - HamsterWearable

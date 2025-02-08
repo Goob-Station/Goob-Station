@@ -47,8 +47,8 @@ public sealed class SelectableAmmoSystem : EntitySystem
 
         var name = GetProviderProtoName(ent);
         if (name != null)
-            _popup.PopupEntity(Loc.GetString("mode-selected", ("mode", name)), ent, args.Actor);
-        _audio.PlayPvs(ent.Comp.SoundSelect, ent);
+            _popup.PopupClient(Loc.GetString("mode-selected", ("mode", name)), ent, args.Actor);
+        _audio.PlayPredicted(ent.Comp.SoundSelect, ent, args.Actor);
     }
 
     public bool TrySetProto(Entity<AmmoSelectorComponent> ent, ProtoId<SelectableAmmoPrototype> proto)
