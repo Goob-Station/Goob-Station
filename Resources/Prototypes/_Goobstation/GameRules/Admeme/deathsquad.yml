@@ -10,7 +10,7 @@
     - spawnerPrototype: SpawnPointGhostNukeOperative
       min: 3
       max: 6
-      pickPlayer: false
+      pickPlayer: true
       startingGear: DeathSquadGear
       roleLoadout:
       - RoleSurvivalSecurity
