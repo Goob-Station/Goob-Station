@@ -25,7 +25,7 @@
           - ReagentId: OleoresinCapsaicin
             Quantity: 100
     - type: Spray
-      transferAmount: 10
+      transferAmount: 12.5
       sprayedPrototype: BigVapor
       sprayVelocity: 3
       sprayDistance: 2.5

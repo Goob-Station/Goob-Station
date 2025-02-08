@@ -189,10 +189,9 @@
       - !type:GenericStatusEffect
         key: TemporaryBlindness
         component: TemporaryBlindness
-        force: true
         time: 3.5
         probability: 1
       - !type:Jitter
-      - !type:Paralyze # loss of muscle control
-        probability: 1
-        paralyzeTime: 2
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.3
+        sprintSpeedModifier: 0.3
