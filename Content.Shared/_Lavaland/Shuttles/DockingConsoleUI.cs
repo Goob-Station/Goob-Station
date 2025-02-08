@@ -24,3 +24,6 @@ public sealed class DockingConsoleFTLMessage(int index) : BoundUserInterfaceMess
 {
     public int Index = index;
 }
+
+[Serializable, NetSerializable]
+public sealed class DockingConsoleShuttleCheckMessage : BoundUserInterfaceMessage;

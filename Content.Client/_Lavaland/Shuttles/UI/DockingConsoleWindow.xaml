@@ -11,7 +11,8 @@
 	    <Label Name="MapFTLState" Text="{Loc 'shuttle-console-ftl-state-Available'}" VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
     	<ProgressBar Name="FTLBar" HorizontalExpand="True" Margin="5" MinValue="0.0" MaxValue="1.0" Value="1.0" SetHeight="32"/>
 	    <controls:StripeBack HorizontalExpand="True">
-    	    <Button Name="FTLButton" Text="{Loc 'docking-console-ftl'}" Disabled="True" SetSize="128 48" Margin="5"/>
+    	    <Button Name="FTLButton" Text="{Loc 'docking-console-ftl'}" Disabled="False" SetSize="128 48" Margin="5" HorizontalAlignment="Left"/>
+            <Button Name="ShuttleCallButton" Text="{Loc 'docking-console-call'}" Disabled="False" SetSize="128 48" Margin="5" HorizontalAlignment="Right"/>
 		</controls:StripeBack>
         <Label Name="MapFTLMessage" Text="{Loc 'docking-console-ftl-message-Unknown'}" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
 	</BoxContainer>

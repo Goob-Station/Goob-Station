@@ -7,14 +7,19 @@ using Content.Shared.Shuttles.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Map.Components;
 using System.Linq;
+using Content.Server.GameTicking;
+using Robust.Server.GameObjects;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Lavaland.Shuttles.Systems;
 
 public sealed class DockingShuttleSystem : SharedDockingShuttleSystem
 {
+    [Dependency] private readonly MapSystem _mapSystem = default!;
     [Dependency] private readonly DockingConsoleSystem _console = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly GameTicker _ticker = default!;
 
     public override void Initialize()
     {
@@ -42,6 +47,28 @@ public sealed class DockingShuttleSystem : SharedDockingShuttleSystem
                 Name = Name(mapUid),
                 Map = map.MapId
             });
+        }
+
+        // Ensure that the default map is here
+        var mainMapId = _ticker.DefaultMap;
+        _mapSystem.TryGetMap(mainMapId, out var mainMap);
+        if (mainMap != null)
+        {
+            ent.Comp.Destinations.Add(new DockingDestination()
+            {
+                Name = Name(mainMap.Value),
+                Map = mainMapId
+            });
+        }
+
+        // Also update all consoles
+        var consoleQuery = EntityQueryEnumerator<DockingConsoleComponent>();
+        while (consoleQuery.MoveNext(out var uid, out var dest))
+        {
+            if (TerminatingOrDeleted(uid))
+                continue;
+
+            _console.UpdateShuttle((uid, dest));
         }
     }
 

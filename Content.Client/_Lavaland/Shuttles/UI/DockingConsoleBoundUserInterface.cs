@@ -17,6 +17,7 @@ public sealed class DockingConsoleBoundUserInterface : BoundUserInterface
 
         _window = new DockingConsoleWindow(Owner);
         _window.OnFTL += index => SendMessage(new DockingConsoleFTLMessage(index));
+        _window.OnShuttleCall += args => SendMessage(new DockingConsoleShuttleCheckMessage());
         _window.OnClose += Close;
         _window.OpenCentered();
     }

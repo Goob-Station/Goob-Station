@@ -1,5 +1,6 @@
 docking-console-no-shuttle = No Shuttle Detected
 docking-console-ftl = FTL
+docking-console-call = Call shuttle
 
 mining-console-window-title = Mining Shuttle Console
 

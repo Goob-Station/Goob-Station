@@ -21,6 +21,7 @@ public sealed partial class DockingConsoleWindow : FancyWindow
     private readonly AccessReaderSystem _access;
 
     public event Action<int>? OnFTL;
+    public event Action<bool>? OnShuttleCall;
 
     private readonly EntityUid _owner;
     private readonly StyleBoxFlat _ftlStyle;
@@ -35,8 +36,10 @@ public sealed partial class DockingConsoleWindow : FancyWindow
         IoCManager.InjectDependencies(this);
 
         _access = _entMan.System<AccessReaderSystem>();
-
         _owner = owner;
+
+        FTLButton.Disabled = false;
+        ShuttleCallButton.Disabled = true;
 
         _ftlStyle = new StyleBoxFlat(Color.LimeGreen);
         FTLBar.ForegroundStyleBoxOverride = _ftlStyle;
@@ -50,6 +53,15 @@ public sealed partial class DockingConsoleWindow : FancyWindow
         {
             MapFTLState.Text = Loc.GetString("docking-console-no-shuttle");
             _ftlStyle.BackgroundColor = Color.FromHex("#B02E26");
+
+            FTLButton.Disabled = true;
+            ShuttleCallButton.Disabled = false;
+
+            ShuttleCallButton.OnPressed += _ =>
+            {
+                OnShuttleCall?.Invoke(true);
+            };
+
             return;
         }
 
