@@ -2,8 +2,8 @@
 - type: entity
   parent: BaseCrowbar
   id: CrowbarAbductor
-  name: abductor's crowbar
-  description: A multipurpose tool to pry open doors and fight interdimensional invaders.
+  name: high-tech crowbar
+  description: Made out of metal more durable than anything Nanotrasen could dream of.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Abductor/crowbar.rsi
@@ -19,9 +19,10 @@
     - Abductors
 
 - type: entity
-  name: abductor's wirecutter
+  name: high-tech wirecutter
   parent: BaseItem
   id: WirecutterAbductor
+  description: Cuts through wires like a hot knife through butter.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Abductor/wirecutters.rsi
@@ -73,9 +74,10 @@
     - Abductors
 
 - type: entity
-  name: abductor's screwdriver
+  name: high-tech screwdriver
   parent: BaseItem
   id: ScrewdriverAbductor
+  description: More efficient than anything Nanotrasen could dream of. Not to be confused with a sonic screwdriver.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Abductor/screwdriver.rsi
@@ -121,9 +123,10 @@
     - Abductors
 
 - type: entity
-  name: abductor's wrench
+  name: high-tech wrench
   parent: Wrench
   id: WrenchAbductor
+  description: Can take a bolt off in a single turn. Not intended for melee combat.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Abductor/wrench.rsi
@@ -146,10 +149,10 @@
     - Abductors
 
 - type: entity
-  name: abductor's welding tool
+  name: high-tech welding tool
   parent: Welder
   id: WelderAbductor
-  description: "An experimental welder capable of self-fuel generation and less harmful to the eyes."
+  description: "A highly advanced welder capable of producing infinite fuel."
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Abductor/welder.rsi
@@ -181,10 +184,10 @@
     - Abductors
 
 - type: entity
-  name: abductor's multitool
+  name: high-tech multitool
   parent: [BaseItem, BaseRestrictedContraband]
   id: MultitoolAbductor
-  description: An advanced tool to copy, store, and send electrical pulses and signals through wires and machines.
+  description: A highly advanced hacking tool capable of viewing wire functionality. Can be used as Cryptographic sequencer in its alternate mode.
   components:
   - type: EmitSoundOnLand
     sound:
