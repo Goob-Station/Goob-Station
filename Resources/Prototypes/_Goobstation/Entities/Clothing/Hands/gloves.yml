@@ -50,9 +50,9 @@
   description: Highly-advanced gauntlets capable of ripping people & structures to shreds. Can pry open bolted doors when equipped.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Hands/Gloves/chronolegioneer.rsi
+    sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Hands/Gloves/chronolegioneer.rsi
+    sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
   - type: ClothingGrantComponent
     component:
     - type: Prying
