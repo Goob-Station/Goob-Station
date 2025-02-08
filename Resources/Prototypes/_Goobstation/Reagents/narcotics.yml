@@ -151,11 +151,11 @@
         refresh: false
         
 - type: reagent
-  id: SuperCapsaicin
-  name: reagent-name-supercapsaicin
+  id: OleoresinCapsaicin
+  name: reagent-name-oleoresin-capsaicin
   group: Toxins
   slippery: true
-  desc: reagent-desc-supercapsaicin
+  desc: reagent-desc-oleoresin-capsaicin
   physicalDesc: reagent-physical-desc-reflective
   flavor: sharp
   color: "#e32227"
@@ -177,7 +177,7 @@
       - !type:PopupMessage
         type: Local
         visualType: MediumCaution
-        probability: 1
+        probability: 0.7
         messages:
         - norepinephricacid-effect-eye-disconnect
         - norepinephricacid-effect-eye-pain
@@ -185,18 +185,14 @@
         - norepinephricacid-effect-blindness
       - !type:Emote
         emote: Scream
-        probability: 0.4
+        probability: 0.2
       - !type:GenericStatusEffect
         key: TemporaryBlindness
         component: TemporaryBlindness
         force: true
         time: 3.5
         probability: 1
-      - !type:GenericStatusEffect
-        key: KnockedDown
-        force: true
-        time: 0.5
-      - !type:GenericStatusEffect
-        key: Stun
-        force: true
-        time: 0.5
+      - !type:Jitter
+      - !type:Paralyze # loss of muscle control
+        probability: 1
+        paralyzeTime: 2

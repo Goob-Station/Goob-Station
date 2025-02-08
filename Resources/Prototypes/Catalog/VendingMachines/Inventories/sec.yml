@@ -21,6 +21,7 @@
     RiotBulletShield: 2
     RadioHandheldSecurity: 5
     BolaEnergy: 5 # Goobstation
+    PepperSpray: 6 # Goobstation
   # security officers need to follow a diet regimen!
   contrabandInventory:
     FoodDonutHomer: 12

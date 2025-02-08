@@ -483,6 +483,7 @@
         - CombatKnife
         - Truncheon
         - BolaEnergy # Goobstation
+        - PepperSpray # Goobstation
       components:
         - Stunbaton
         - FlashOnTrigger

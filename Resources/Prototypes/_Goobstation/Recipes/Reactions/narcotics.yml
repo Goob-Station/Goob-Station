@@ -15,3 +15,13 @@
     Fentanyl: 1
     VentCrud: 1
     SpaceGlue: 2
+    
+- type: reaction
+  id: OleoresinCapsaicin
+  reactants:
+    CapsaicinOil:
+      amount: 1
+    Acetone:
+      amount: 2
+  products:
+    OleoresinCapsaicin: 1

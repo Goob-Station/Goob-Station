@@ -54,7 +54,10 @@
 
 - type: Tag
   id: BolaEnergy
-
+  
+- type: Tag
+  id: PepperSpray
+  
 - type: Tag
   id: AutoinjectorCartridge
 

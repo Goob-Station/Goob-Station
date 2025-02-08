@@ -3,29 +3,34 @@
   id: PepperSpray
   parent: [BaseItem, BaseSecurityScienceCommandContraband]
   suffix: Filled
-  description: A small 100u canister of Nanotrasen's own SuperCapsaicin! Capable of blinding and stunning targets who aren't wearing protective gear.
+  description: A small 100u canister of Oleoresin Capsaicin! Capable of blinding and stunning targets who aren't wearing protective gear.
   components:
+    - type: Tag
+      tags:
+      - PepperSpray  
     - type: Sprite
       sprite: /Textures/_Goobstation/Objects/Specific/Security/pepper_spray.rsi
       layers:
-      - state: pepper_spray
+      - state: icon
+    - type: Item
+      size: Small
+      sprite: /Textures/_Goobstation/Objects/Specific/Security/pepper_spray.rsi
+    - type: RefillableSolution
+      solution: spray
     - type: SolutionContainerManager
       solutions:
         spray:
           maxVol: 100
           reagents:
-          - ReagentId: SuperCapsaicin
+          - ReagentId: OleoresinCapsaicin
             Quantity: 100
     - type: Spray
-      transferAmount: 5
+      transferAmount: 10
       sprayedPrototype: BigVapor
       sprayVelocity: 3
       sprayDistance: 2.5
       spraySound:
         path: /Audio/Effects/spray2.ogg
-    - type: Item
-      size: Small
-      sprite: /Textures/_Goobstation/Objects/Specific/Security/pepper_spray.rsi
     - type: UseDelay
     - type: StaticPrice
       price: 25
