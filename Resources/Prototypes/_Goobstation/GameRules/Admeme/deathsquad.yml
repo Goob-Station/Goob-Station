@@ -1,20 +1,9 @@
 - type: entity
-  parent: BaseGameRule
+  parent: BaseUnknownShuttleRule
   id: DeathsquadSpawn
   components:
+  - type: StationEvent
+    startAnnouncment: station-event-deathsquad-enroute
+    maxoccurances: 1
   - type: LoadMapRule
     preloadedgrid: AmbassadorShuttle
-  - type: AntagSelection
-    definitions:
-    - spawnerPrototype: SpawnPointGhostRatKing # Placeholder, since the actual spawner is borked.
-      min: 3
-      max: 6
-      pickPlayer: false
-      startingGear: DeathSquadGear
-      roleLoadout:
-      - RoleSurvivalSecurity
-      components:
-      - type: RandomMetadata
-        nameSegments:
-        - NamesFirstMilitaryLeader
-        - NamesLastMilitary
