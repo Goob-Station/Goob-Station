@@ -1,3 +1,8 @@
+spellbook-high-freq-name = High Frequency Blade
+spellbook-high-freq-desc =
+    An incredibly swift enchanted blade resonating at a frequency high enough to be able to slice through anything.
+    Deals triple damage on light attack. Reflects lasers and bullets. Easily delimbs. Blocks thrown projectiles and bolas.
+
 spellbook-sm-halberd-name = Supermatter Halberd
 spellbook-sm-halberd-desc =
     Powerful two-handed halberd, used by Oblivion Enforcers, able to knockdown targets on light attack as well as easily ash walls, windows, doors and fallen enemies.

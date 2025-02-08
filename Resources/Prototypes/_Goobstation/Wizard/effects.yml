@@ -369,3 +369,17 @@
       - HideContextMenu
   - type: TimedDespawn
     lifetime: 3
+
+- type: entity
+  id: WeaponArcHighFreq
+  parent: WeaponArcStatic
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: RandomRotation
+  - type: Sprite
+    layers:
+      - shader: unshaded
+        sprite: _Goobstation/Wizard/Effects/effects.rsi
+        state: highfreq_slash

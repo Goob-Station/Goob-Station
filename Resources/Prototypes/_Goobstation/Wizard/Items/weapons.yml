@@ -188,3 +188,56 @@
   - type: Item
     size: Normal
     sprite: _Goobstation/Wizard/Objects/Weapons/tapestaff.rsi
+
+- type: entity
+  name: high frequency blade
+  parent: [BaseSword, BaseMagicContraband]
+  id: HighFrequencyBlade
+  description: A sword reinforced by a powerful alternating current and resonating at extremely high vibration frequencies. This oscillation weakens the molecular bonds of anything it cuts, thereby increasing its cutting ability.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/Weapons/hfrequency.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 8
+    autoAttack: true
+    heavyStaminaCost: 0
+    damage:
+      types:
+        Slash: 5
+        Structural: 10
+    clickPartDamageMultiplier: 2
+    heavyPartDamageMultiplier: 1.5
+    soundHit:
+      path: "/Audio/Weapons/bladeslice.ogg"
+    animation: WeaponArcHighFreq
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Objects/Weapons/hfrequency.rsi
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK
+      suitstorage:
+      - state: equipped-BACKPACK
+  - type: Reflect
+    reflectProb: .3
+    slotFlags:
+      - NONE
+  - type: LightAttackDamageMultiplier
+    multiplier: 3
+    extraSound:
+      path: /Audio/_Goobstation/Wizard/zapbang.ogg
+      params:
+        variation: 0.250
+        volume: -5
+  - type: ThrowableBlocker
+    blockSound:
+      path: /Audio/_Goobstation/Wizard/zapbang.ogg
+      params:
+        variation: 0.250
+  - type: StaticPrice
+    price: 50000
