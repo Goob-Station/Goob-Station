@@ -45,8 +45,19 @@ public sealed class SolutionInjectWhileEmbeddedSystem : EntitySystem
 
             injectComponent.NextUpdate += injectComponent.UpdateInterval;
 
+            // <Goobstation> Goobstation - Shot syringes injecting over time
             if(projectileComponent.EmbeddedIntoUid == null)
+            {
+                injectComponent.Injections = 0; // we're embedded into nothing so reset it
                 continue;
+            }
+
+            if ((injectComponent.Injections ?? 0) >= injectComponent.MaxInjections)
+                continue;
+
+            if (injectComponent.Injections != null)
+                injectComponent.Injections += 1;
+            // </Goobstation>
 
             var ev = new InjectOverTimeEvent(projectileComponent.EmbeddedIntoUid.Value);
             RaiseLocalEvent(uid, ref ev);

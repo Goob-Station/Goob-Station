@@ -110,7 +110,7 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
                     var armorCoefficients = armor.Modifiers.Coefficients;
                     foreach (var coefficient in maxResistances.Coefficients)
                     {
-                        if (armorCoefficients.ContainsKey(coefficient.Key) && armorCoefficients[coefficient.Key] < coefficient.Value)
+                        if (armorCoefficients.ContainsKey(coefficient.Key) && armorCoefficients[coefficient.Key] <= coefficient.Value)
                         {
                             blocked = true;
                             break;
@@ -158,16 +158,8 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
         if (targetBloodstreams.Count == 0)
             return false;
 
-        // GoobStation Change Start
-        Solution removedSolution;
-        if (injector.Comp.Shot)
-        {
-            removedSolution = _solutionContainer.SplitSolution(injectorSolution.Value, injectorSolution.Value.Comp.Solution.Volume);
-            injector.Comp.Shot = false; // Prevent them from abusing this.
-        }
-        else
-            removedSolution = _solutionContainer.SplitSolution(injectorSolution.Value, injector.Comp.TransferAmount * targetBloodstreams.Count);
-        // GoobStation Change End
+        Solution removedSolution = _solutionContainer.SplitSolution(injectorSolution.Value, injector.Comp.TransferAmount * targetBloodstreams.Count);
+
         // Adjust solution amount based on transfer efficiency
         var solutionToInject = removedSolution.SplitSolution(removedSolution.Volume * injector.Comp.TransferEfficiency);
         // Calculate how much of the adjusted solution each target will get
