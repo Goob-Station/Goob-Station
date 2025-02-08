@@ -20,5 +20,5 @@ public sealed partial class JobAddComponentsRuleComponent : Component
     /// Message to send in the affected person's chat window.
     /// </summary>
     [DataField]
-    public string? Message;
+    public LocId? Message;
 }
