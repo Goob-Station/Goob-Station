@@ -67,7 +67,6 @@
     damage:
       types:
         Slash: 25
-        Poison: 15
         Structural: 60
     mustBeEquippedToUse: true
 
@@ -103,11 +102,12 @@
           state: icon-on
         components:
           - type: MeleeWeapon
-            attackRate: 1.5
+            attackRate: 2
             damage:
               types:
                 Slash: 25
-                Structural: 25
+                Structural: 50
+                Cellular: 15 # Rip and tear until it is done.
             mustBeEquippedToUse: true
         soundStateActivate:
           collection: sparks

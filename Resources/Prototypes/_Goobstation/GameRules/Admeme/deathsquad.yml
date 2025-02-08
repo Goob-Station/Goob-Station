@@ -7,7 +7,7 @@
     mapPath: /Maps/_Goobstation/Shuttles/ambassador.yml
   - type: AntagSelection
     definitions:
-    - spawnerPrototype: SpawnPointGhostNukeOperative
+    - spawnerPrototype: SpawnPointGhostNukeOperative # Placeholder, since the actual spawner is borked.
       min: 3
       max: 6
       pickPlayer: true
