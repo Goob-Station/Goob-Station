@@ -13,7 +13,7 @@
   - type: GhostBarSpawn
 
 - type: entity
-  categories: [ HideSpawnMenu, Spawner ]
+  categories: Spawner
   parent: BaseAntagSpawner
   suffix: DO NOT MAP!!
   id: SpawnPointDeathsquadOperative
