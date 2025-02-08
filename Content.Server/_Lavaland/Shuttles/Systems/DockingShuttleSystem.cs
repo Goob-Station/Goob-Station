@@ -49,18 +49,6 @@ public sealed class DockingShuttleSystem : SharedDockingShuttleSystem
             });
         }
 
-        // Ensure that the default map is here
-        var mainMapId = _ticker.DefaultMap;
-        _mapSystem.TryGetMap(mainMapId, out var mainMap);
-        if (mainMap != null)
-        {
-            ent.Comp.Destinations.Add(new DockingDestination()
-            {
-                Name = Name(mainMap.Value),
-                Map = mainMapId
-            });
-        }
-
         // Also update all consoles
         var consoleQuery = EntityQueryEnumerator<DockingConsoleComponent>();
         while (consoleQuery.MoveNext(out var uid, out var dest))
@@ -100,7 +88,7 @@ public sealed class DockingShuttleSystem : SharedDockingShuttleSystem
         comp.Destinations.Add(new DockingDestination()
         {
             Name = Name(station),
-            Map = Transform(data.Grids.First()).MapID
+            Map = Transform(uid).MapID
         });
     }
 }

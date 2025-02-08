@@ -6,6 +6,7 @@ using Content.Shared._Lavaland.Shuttles;
 using Content.Shared._Lavaland.Shuttles.Components;
 using Content.Shared._Lavaland.Shuttles.Systems;
 using Content.Server.Station.Components;
+using Content.Server.Station.Systems;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
 using Content.Shared.Timing;
@@ -26,6 +27,7 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly MapSystem _mapSystem = default!;
+    [Dependency] private readonly StationSystem _station = default!;
 
     public override void Initialize()
     {
@@ -175,6 +177,13 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
         {
             Log.Error("Failed to call Mining shuttle since it failed to load.");
             return;
+        }
+
+        // Add the station of the calling console
+        var station = _station.GetOwningStation(grid);
+        if (station != null)
+        {
+            _station.AddGridToStation(station.Value, shuttle.Value);
         }
 
         // Finally FTL
