@@ -64,6 +64,7 @@
       speedModifier: 4.5
   - type: MeleeWeapon
     attackRate: 2
+    autoAttack: true
     damage:
       types:
         Slash: 25
@@ -84,7 +85,7 @@
             attackRate: 1.2
             damage:
               types:
-                Blunt: 30
+                Blunt: 32
                 Structural: 80
           - type: StaminaDamageOnHit
             damage: 45
@@ -103,6 +104,7 @@
         components:
           - type: MeleeWeapon
             attackRate: 2
+            autoAttack: true
             damage:
               types:
                 Slash: 25
