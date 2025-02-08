@@ -211,4 +211,14 @@
     antagPrototype: Mindcontrolled
     exclusiveAntag: true
   - type: MindcontrolledRole
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleDeathsquad
+  name: Deathsquad Role
+  components:
+  - type: MindRole
+    antagPrototype: Deathsquad
+    exclusiveAntag: true
+  - type: DeathsquadRole
 # goob edit end
