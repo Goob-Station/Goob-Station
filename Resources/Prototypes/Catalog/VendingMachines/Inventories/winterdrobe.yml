@@ -9,21 +9,21 @@
     ClothingNeckScarfStripedLightBlue: 3
     ClothingNeckScarfStripedOrange: 3
     ClothingNeckScarfStripedPurple: 3
-    ClothingOuterCoatGentle: 3 #goob
-    ClothingOuterCoatJensen: 3 #goob
-    ClothingOuterCoatTrench: 4 #goob
-    ClothingOuterWinterCoat: 4 #goob
-    ClothingOuterWinterColorRed: 2 #goob
-    ClothingOuterWinterColorOrange: 2 #goob
-    ClothingOuterWinterColorYellow: 2 #goob
-    ClothingOuterWinterColorGreen: 2 #goob
-    ClothingOuterWinterColorBlue: 2  #goob
-    ClothingOuterWinterColorPurple: 2  #goob
-    ClothingOuterWinterColorLightBrown: 2  #goob
-    ClothingOuterWinterColorBrown: 2  #goob
-    ClothingOuterWinterColorBlack: 2  #goob
-    ClothingOuterWinterColorGray: 2  #goob
-    ClothingOuterWinterColorWhite: 2 #goob 
+    ClothingOuterCoatGentle: 3 #goob start
+    ClothingOuterCoatJensen: 3
+    ClothingOuterCoatTrench: 4
+    ClothingOuterWinterCoat: 4
+    ClothingOuterWinterColorRed: 2
+    ClothingOuterWinterColorOrange: 2
+    ClothingOuterWinterColorYellow: 2
+    ClothingOuterWinterColorGreen: 2
+    ClothingOuterWinterColorBlue: 2
+    ClothingOuterWinterColorPurple: 2
+    ClothingOuterWinterColorLightBrown: 2
+    ClothingOuterWinterColorBrown: 2
+    ClothingOuterWinterColorBlack: 2
+    ClothingOuterWinterColorGray: 2
+    ClothingOuterWinterColorWhite: 2 #goob end
     ClothingShoesBootsWinter: 6
     ClothingOuterFlannelRed: 2
     ClothingOuterFlannelBlue: 2
