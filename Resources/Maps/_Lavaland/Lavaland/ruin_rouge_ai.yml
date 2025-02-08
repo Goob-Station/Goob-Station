@@ -329,6 +329,10 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
@@ -2628,11 +2632,6 @@ entities:
       parent: 1
 - proto: LandMineExplosive
   entities:
-  - uid: 314
-    components:
-    - type: Transform
-      pos: 20.41268,14.98086
-      parent: 1
   - uid: 912
     components:
     - type: Transform
