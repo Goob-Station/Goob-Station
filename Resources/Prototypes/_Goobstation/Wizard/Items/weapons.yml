@@ -224,7 +224,7 @@
       suitstorage:
       - state: equipped-BACKPACK
   - type: Reflect
-    reflectProb: .3
+    reflectProb: .5
     slotFlags:
       - NONE
   - type: LightAttackDamageMultiplier
