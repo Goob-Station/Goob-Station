@@ -19,6 +19,3 @@
         nameSegments:
         - NamesFirstMilitaryLeader
         - NamesLastMilitary
-  - type: AntagLoadProfileRule
-    speciesOverride: Human
-    alwaysUseSpeciesOverride: true
