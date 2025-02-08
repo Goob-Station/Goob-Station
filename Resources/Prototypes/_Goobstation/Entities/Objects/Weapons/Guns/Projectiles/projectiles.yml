@@ -143,7 +143,7 @@
     types:
       Heat: 35 # Damage nerfed slightly to give you a BIT of a chance. You're still fucked though.
       Blunt: 10
-      Structural: 120
+      Structural: 80
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_blue

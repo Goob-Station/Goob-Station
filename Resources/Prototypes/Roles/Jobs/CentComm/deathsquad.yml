@@ -43,6 +43,10 @@
     - WelderExperimental
     - BluespaceLifelineImplanter # CentComm doesn't use syndicate tech.
     - CentcommFreedomImplanter # CentComm doesn't use syndicate tech.
+    - id: GrenadeFrag
+      amount: 2
+    - id: GrenadeEMP
+      amount: 2
   inhand:
   - WeaponPulseRifle
 
