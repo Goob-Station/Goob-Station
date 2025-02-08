@@ -45,7 +45,7 @@
 - type: entity
   parent: [ClothingHandsGlovesCombat, BaseCentcommContraband]
   id: ClothingHandsGlovesDeathsquad
-  suffix: DO NOT MAP
+  suffix: DO NOT MAP # do fucking NOT let a tider get these. May be made un-removable if the lore is cool enough.
   name: deathsquad power claws
   description: A pair of highly-advanced gauntlets capable of ripping open doors. It's retractable claws are laced with a potent neurotoxin.
   components:

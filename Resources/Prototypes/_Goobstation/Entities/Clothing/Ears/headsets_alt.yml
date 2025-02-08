@@ -52,4 +52,4 @@
     state: icon
   - type: Clothing
     sprite: _Goobstation/Clothing/Ears/Headsets/deathsquad.rsi
-    state: equipped-ears
+    state: equipped-EARS
