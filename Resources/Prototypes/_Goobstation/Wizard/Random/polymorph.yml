@@ -177,3 +177,5 @@
     MobLuminousEntity: 0.33
     MobPurpleSnake: 0.5
     MobSmallPurpleSnake: 0.5
+    MobStickman: 1
+    MobCreature: 1

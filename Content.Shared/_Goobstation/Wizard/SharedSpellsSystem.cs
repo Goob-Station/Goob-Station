@@ -154,7 +154,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<InstantSummonsEvent>(OnInstantSummons);
         SubscribeLocalEvent<WizardTeleportEvent>(OnTeleport);
         SubscribeLocalEvent<TrapsSpellEvent>(OnTraps);
-        SubscribeLocalEvent<LesserSummonBeesEvent>(OnBees);
+        SubscribeLocalEvent<SummonMobsEvent>(OnSummonMobs);
         SubscribeLocalEvent<SummonSimiansEvent>(OnSimians);
         SubscribeLocalEvent<ExsanguinatingStrikeEvent>(OnExsangunatingStrike);
         SubscribeLocalEvent<ChuuniInvocationsEvent>(OnChuuniInvocations);
@@ -887,12 +887,12 @@ public abstract class SharedSpellsSystem : EntitySystem
         ev.Handled = true;
     }
 
-    private void OnBees(LesserSummonBeesEvent ev)
+    private void OnSummonMobs(SummonMobsEvent ev)
     {
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        SpawnBees(ev);
+        SpawnMobs(ev);
 
         _magic.Speak(ev);
         ev.Handled = true;
@@ -1437,7 +1437,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         return true;
     }
 
-    protected virtual void SpawnBees(LesserSummonBeesEvent ev) { }
+    protected virtual void SpawnMobs(SummonMobsEvent ev) { }
 
     protected virtual void SpawnMonkeys(SummonSimiansEvent ev) { }
 

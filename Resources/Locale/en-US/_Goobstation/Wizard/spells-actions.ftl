@@ -25,3 +25,4 @@ action-speech-spell-thrown-lightning = LIGHTNINGBOLT!!
 action-speech-spell-rod-form = CLANG!
 action-speech-spell-charge = DI'RI CEL
 action-speech-spell-gorilla-form = B'NA NAH-SLEMA!
+action-speech-spell-summon-stick-minions = Rise, my creations! Off your page into this realm!

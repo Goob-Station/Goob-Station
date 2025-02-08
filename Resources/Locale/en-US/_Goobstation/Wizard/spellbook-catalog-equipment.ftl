@@ -1,3 +1,7 @@
+spellbook-paper-robe-name = Papier-Mâché Robes
+spellbook-paper-robe-desc =
+    Special wizard robes that allow the user to summon angry stick minions to aid them in battle
+
 spellbook-high-freq-name = High Frequency Blade
 spellbook-high-freq-desc =
     An incredibly swift enchanted blade resonating at a frequency high enough to be able to slice through anything.

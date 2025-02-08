@@ -701,8 +701,10 @@
     icon:
       sprite: _Goobstation/Wizard/actions.rsi
       state: bee
-    event: !type:LesserSummonBeesEvent
+    event: !type:SummonMobsEvent
       speech: action-speech-spell-bees
+      mobMask:
+      - FlyingMobMask
       mobs:
       - BeeLicoxide
       - BeeAmatoxin
@@ -924,3 +926,29 @@
       3: ActionBlinkIII
       4: ActionBlinkIV
       5: ActionBlinkV
+
+- type: entity
+  id: ActionSummonStickmen
+  name: Summon Stick Minions
+  description: Allows you to summon faithful stickmen allies to aide you in battle.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanIteract: false
+    useDelay: 3
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/summon_magic.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: art_summon
+    event: !type:SummonMobsEvent
+      speech: action-speech-spell-summon-stick-minions
+      factionIgnoreSummoner: true
+      amount: 3
+      spawnAngle: 40
+      mobs:
+      - MobStickmanTemp
+  - type: Magic
+    requiresSpeech: true
+    school: Conjuration

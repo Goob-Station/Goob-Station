@@ -7,13 +7,16 @@ using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Explosion;
 using Content.Shared.FixedPoint;
 using Content.Shared.Magic;
+using Content.Shared.Physics;
 using Content.Shared.Polymorph;
 using Content.Shared.Random;
 using Content.Shared.Tag;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Maths;
+using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._Goobstation.Wizard;
 
@@ -403,7 +406,7 @@ public sealed partial class TrapsSpellEvent : InstantActionEvent, ISpeakSpell
     public int Amount = 5;
 }
 
-public sealed partial class LesserSummonBeesEvent : InstantActionEvent, ISpeakSpell
+public sealed partial class SummonMobsEvent : InstantActionEvent, ISpeakSpell
 {
     [DataField]
     public string? Speech { get; private set; }
@@ -419,6 +422,12 @@ public sealed partial class LesserSummonBeesEvent : InstantActionEvent, ISpeakSp
 
     [DataField]
     public Angle SpawnAngle = Angle.FromDegrees(160);
+
+    [DataField(customTypeSerializer: typeof(FlagSerializer<CollisionMask>))]
+    public int CollisionMask = (int) CollisionGroup.MobMask;
+
+    [DataField]
+    public bool FactionIgnoreSummoner;
 }
 
 public sealed partial class SummonSimiansEvent : InstantActionEvent, ISpeakSpell

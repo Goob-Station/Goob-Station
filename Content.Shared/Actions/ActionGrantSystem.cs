@@ -20,6 +20,10 @@ public sealed class ActionGrantSystem : EntitySystem
         if (!TryComp(ent.Owner, out ActionGrantComponent? grant))
             return;
 
+        // Goobstation
+        if (ent.Comp.RestrictSlots && ent.Comp.RestrictedSlots != args.SlotFlags)
+            return;
+
         foreach (var action in grant.ActionEntities)
         {
             args.AddAction(action);

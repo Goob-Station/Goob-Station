@@ -156,14 +156,27 @@
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
   id: ClothingOuterWizardPaperReal
-  name: papier-mache robes
+  name: papier-mâché robes
   description: A robe held together by various bits of clear-tape and paste.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/OuterClothing/paperwizard.rsi
   - type: Clothing
     sprite: _Goobstation/Wizard/Clothing/OuterClothing/paperwizard.rsi
-  # TODO: Stickman ability
+  - type: ActionGrant
+    actions:
+    - ActionSummonStickmen
+  - type: ItemActionGrant
+    restrictSlots: true
+    restrictedSlots:
+    - OUTERCLOTHING
+    actions:
+    - ActionSummonStickmen
+
+- type: entity
+  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor, ClothingHeadHatPaper]
+  id: ClothingHeadHatPaperWizard
+  name: paper magic hat
 
 # Mime
 - type: entity

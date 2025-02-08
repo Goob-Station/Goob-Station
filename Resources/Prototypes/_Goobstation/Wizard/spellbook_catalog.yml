@@ -577,6 +577,16 @@
 
 # Equipment
 - type: listing
+  id: SpellbookPaperRobe
+  name: spellbook-paper-robe-name
+  description: spellbook-paper-robe-desc
+  productEntity: ClothingOuterWizardPaperReal
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookEquipment
+
+- type: listing
   id: SpellbookHighFrequencyBlade
   name: spellbook-high-freq-name
   description: spellbook-high-freq-desc

@@ -41,6 +41,8 @@ using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
+using Content.Shared.NPC.Components;
+using Content.Shared.NPC.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Speech.Components;
@@ -76,6 +78,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly IdentitySystem _identity = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly TeleportSystem _teleport = default!;
+    [Dependency] private readonly NpcFactionSystem _faction = default!;
 
     public override void Initialize()
     {
@@ -470,21 +473,21 @@ public sealed class SpellsSystem : SharedSpellsSystem
         }
     }
 
-    protected override void SpawnBees(LesserSummonBeesEvent ev)
+    protected override void SpawnMobs(SummonMobsEvent ev)
     {
-        base.SpawnBees(ev);
+        base.SpawnMobs(ev);
 
         if (ev.Mobs.Count == 0)
             return;
 
-        var positions = GetSpawnCoordinatesAroundPerformer(ev.Performer,
-            ev.Range,
-            ev.Amount,
-            ev.SpawnAngle,
-            (int) CollisionGroup.FlyingMobMask);
+        var positions =
+            GetSpawnCoordinatesAroundPerformer(ev.Performer, ev.Range, ev.Amount, ev.SpawnAngle, ev.CollisionMask);
         foreach (var pos in positions)
         {
-            Spawn(Random.Pick(ev.Mobs), pos);
+            var mob = Spawn(Random.Pick(ev.Mobs), pos);
+
+            if (ev.FactionIgnoreSummoner)
+                _faction.IgnoreEntities(mob, [ev.Performer]);
         }
     }
 

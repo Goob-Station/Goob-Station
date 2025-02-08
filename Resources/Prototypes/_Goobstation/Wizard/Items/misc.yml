@@ -150,3 +150,12 @@
   - type: Icon
     sprite: Objects/Consumable/Drinks/glass_green.rsi #Placeholder
     state: icon
+
+- type: entity
+  name: wizard's rubber stamp
+  parent: RubberStampCMO
+  id: RubberStampWizard
+  suffix: DO NOT MAP
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-wizard
