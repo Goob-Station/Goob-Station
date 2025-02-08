@@ -59,6 +59,8 @@
   - type: NoSlip
   - type: HierophantBoss # boss specific component. defines pattern/scripted attacks and other stuff
     loot: LavalandHierophantClub
+  - type: HierophantImmunity
+    isImmune: true
   - type: Aggressive # also required component for aggro checking
   - type: BossMusic
     soundId: Hierophant
@@ -112,8 +114,8 @@
   - type: HierophantDamageField
     damage:
       types:
-        Blunt: 2.5
-        Heat: 2.5
+        Blunt: 3
+        Heat: 3
     sound:
       path: /Audio/_Lavaland/Mobs/Bosses/hiero_blast.ogg
 

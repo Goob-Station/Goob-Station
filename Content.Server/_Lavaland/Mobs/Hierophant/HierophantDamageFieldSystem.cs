@@ -48,7 +48,7 @@ public sealed class HierophantDamageFieldSystem : EntitySystem
 
                 if (TryComp<HierophantImmunityComponent>(entity, out var immunity))
                 {
-                    if (immunity.HasImmunityUntil > _timing.CurTime)
+                    if (immunity.HasImmunityUntil > _timing.CurTime || immunity.IsImmune)
                         continue;
 
                     RemComp(entity, immunity);

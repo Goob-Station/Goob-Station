@@ -47,6 +47,8 @@
     cost: 750
   - id: WeaponProtoKineticAccelerator
     cost: 750
+  - id: SurvivalMedipen
+    cost: 800
   - id: PKAUpgradeRange
     cost: 850
   - id: Fulton
