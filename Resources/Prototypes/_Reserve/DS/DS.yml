@@ -238,12 +238,12 @@
     sprite: Clothing/Eyes/Glasses/sunglasses.rsi
   - type: SolutionScanner
   - type: ShowHealthBars
-    damageContainers: 
+    damageContainers:
     - Biological
     - Inorganic
     - Silicon
   - type: ShowHealthIcons
-    damageContainers: 
+    damageContainers:
     - Biological
 #СИЛОВЫЕ ПЕРЧАТКИ
 - type: entity
@@ -266,7 +266,7 @@
   - type: MeleeWeapon
     hidden: false
     altDisarm: false
-    animation: WeaponArcSparksрезерв
+    animation: WeaponArcSparksreserve
     soundHit:
       path: /Audio/Effects/metal_break2.ogg
     damage:
@@ -276,7 +276,7 @@
         Structural: 50
 #ВСПЫШКА ПЕРЧАТОК
 - type: entity
-  id: WeaponArcSparksрезерв
+  id: WeaponArcSparksreserve
   parent: WeaponArcStatic
   noSpawn: true
   components:
@@ -1328,7 +1328,7 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
       params:
         volume: 7
-#СНАРЯД   
+#СНАРЯД
 - type: entity
   id: BulletPlasma
   name: заряд плазмы
