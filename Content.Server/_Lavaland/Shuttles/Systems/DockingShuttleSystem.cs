@@ -15,11 +15,9 @@ namespace Content.Server._Lavaland.Shuttles.Systems;
 
 public sealed class DockingShuttleSystem : SharedDockingShuttleSystem
 {
-    [Dependency] private readonly MapSystem _mapSystem = default!;
     [Dependency] private readonly DockingConsoleSystem _console = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly GameTicker _ticker = default!;
 
     public override void Initialize()
     {

@@ -14,7 +14,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/cargodrobe.rsi
+    sprite: _Lavaland/Structures/VendingMachines/minerdrobe.rsi
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
