@@ -2,9 +2,3 @@
   id: FrontierProspector
   path: /Maps/_Goobstation/Shuttles/ShuttleEvent/prospector.yml
   copies: 1
-
-
-- type: preloadedGrid
-  id: DeathsquadAmbassador
-  path: /Maps/_Goobstation/Shuttles/Ambassador.yml
-  copies: 1
