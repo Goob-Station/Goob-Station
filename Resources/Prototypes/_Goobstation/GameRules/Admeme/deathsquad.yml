@@ -3,7 +3,7 @@
   id: DeathsquadSpawn
   components:
   - type: LoadMapRule
-    preloadedgrid: DeathsquadAmbassador
+    preloadedgrid: AmbassadorShuttle
   - type: AntagSelection
     definitions:
     - spawnerPrototype: SpawnPointGhostRatKing # Placeholder, since the actual spawner is borked.

@@ -1,4 +1,4 @@
 - type: preloadedGrid
-  id: DeathsquadAmbassador
+  id: AmbassadorShuttle
   path: /Maps/_Goobstation/Shuttles/ambassador.yml
   copies: 1
