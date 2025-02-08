@@ -119,7 +119,7 @@
   group: Medicine
   desc: reagent-desc-probital
   physicalDesc: reagent-physical-desc-soothing
-  flavor: syrupy
+  flavor: medicine
   color: "#ffff64"
   metabolisms:
     Medicine:
@@ -191,7 +191,7 @@
   group: Medicine
   desc: reagent-desc-mitogen
   physicalDesc: reagent-physical-desc-nondescript
-  flavor: syrupy
+  flavor: medicine
   color: "#ffc41a"
   metabolisms: # handled through here instead of reagents to prevent reaction noise spam/obtaining peptides
     Medicine:
@@ -212,12 +212,6 @@
           min: 0.5 # no microdosing
         reagent: Nutriment
         amount: -0.5
-      - !type:AdjustReagent
-        reagent: Mitogen
-        amount: -1.5 # flushing it when overdose
-        conditions:
-        - !type:ReagentThreshold
-          min: 10
       - !type:ChemVomit
         conditions:
         - !type:ReagentThreshold
@@ -225,7 +219,7 @@
         - !type:OrganType
           type: Yowie
           shouldHave: false
-        probability: 0.13
+        probability: 0.15
 
 - type: reagent
   id: Peptides
@@ -233,7 +227,7 @@
   group: Food
   desc: reagent-desc-peptides
   physicalDesc: reagent-physical-desc-nondescript
-  flavor: syrupy
+  flavor: terrible
   color: "#cc9c14"
   metabolisms:
     Medicine:
@@ -252,7 +246,7 @@
   group: Medicine
   desc: reagent-desc-tirimol
   physicalDesc: reagent-physical-desc-milky
-  flavor: syrupy
+  flavor: medicine
   color: "#ff6060"
   metabolisms:
     Medicine:
@@ -268,6 +262,13 @@
           shouldHave: false
         amount: 3 # full syringe doesn't stamcrit (maybe it should?)
         immediate: false
+      - !type:MovespeedModifier
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        walkSpeedModifier: 0.9
+        sprintSpeedModifier: 0.9
 
 - type: reagent
   id: Syriniver # I think it's only useful for pills, patches, and hypo spam, and as such it's made really good for these cases
@@ -275,7 +276,7 @@
   group: Medicine
   desc: reagent-desc-syriniver
   physicalDesc: reagent-physical-desc-alkaline
-  flavor: syrupy
+  flavor: medicine
   color: "#97e239"
   metabolisms:
     Medicine:
@@ -308,7 +309,7 @@
   group: Medicine
   desc: reagent-desc-musiver
   physicalDesc: reagent-physical-desc-nondescript
-  flavor: syrupy
+  flavor: medicine
   color: "#e1d758"
   metabolisms:
     Medicine:
@@ -345,7 +346,7 @@
   group: Medicine
   desc: reagent-desc-multiver
   physicalDesc: reagent-physical-desc-foamy
-  flavor: syrupy
+  flavor: medicine
   color: "#e8e6e3"
   metabolisms:
     Medicine:
@@ -388,7 +389,7 @@
   group: Medicine
   desc: reagent-desc-monover
   physicalDesc: reagent-physical-desc-clumpy
-  flavor: syrupy
+  flavor: medicine
   color: "#e8e6e3"
   metabolisms:
     Medicine:
@@ -417,7 +418,7 @@
   group: Medicine
   desc: reagent-desc-synthcells
   physicalDesc: reagent-physical-desc-bubbly
-  flavor: syrupy
+  flavor: strange
   color: "#ffbebe"
   worksOnTheDead: true
   reactiveEffects:
@@ -454,7 +455,7 @@
   group: Medicine
   desc: reagent-desc-salicylic-acid
   physicalDesc: reagent-physical-desc-pungent
-  flavor: syrupy
+  flavor: medicine
   color: "#e8cb4e"
   metabolisms:
     Medicine:
@@ -486,12 +487,12 @@
           shouldHave: false
 
 - type: reagent
-  id: Oxandrolone # Salicylic but for burns
+  id: Oxandrolone
   name: reagent-name-oxandrolone
   group: Medicine
   desc: reagent-desc-oxandrolone
   physicalDesc: reagent-physical-desc-sticky
-  flavor: syrupy
+  flavor: medicine
   color: "#cac6bf"
   metabolisms:
     Medicine:
@@ -523,12 +524,12 @@
           shouldHave: false
 
 - type: reagent
-  id: PentenicAcid # Potassium Iodine but stronger
+  id: PentenicAcid
   name: reagent-name-pentenic-acid
   group: Medicine
   desc: reagent-desc-pentenic-acid
   physicalDesc: reagent-physical-desc-acidic
-  flavor: syrupy
+  flavor: medicine
   color: "#22ff1a"
   metabolisms:
     Medicine:
@@ -547,12 +548,12 @@
         refresh: false
 
 - type: reagent
-  id: Atropine # this is really good epi, but only for medbay use
+  id: Atropine
   name: reagent-name-atropine
   group: Medicine
   desc: reagent-desc-atropine
   physicalDesc: reagent-physical-desc-oily
-  flavor: syrupy
+  flavor: medicine
   color: "#ccc7c0"
   metabolisms:
     Medicine:
@@ -612,12 +613,12 @@
           shouldHave: false
 
 - type: reagent
-  id: Calomel # intended to be a cheap, strong, but dangerous and finnicky supplement to other anti-poisons in near-death scenarios
+  id: Calomel
   name: reagent-name-calomel
   group: Medicine
   desc: reagent-desc-calomel
   physicalDesc: reagent-physical-desc-coarse
-  flavor: syrupy
+  flavor: medicine
   color: "#baffd6"
   metabolisms:
     Medicine:
@@ -654,18 +655,18 @@
           shouldHave: false
       - !type:AdjustReagent
         reagent: Calomel
-        amount: -5
+        amount: -2
         conditions:
         - !type:ReagentThreshold
           min: 20
 
 - type: reagent
-  id: AmmoniatedMercury # Another strong but unwieldy chem, but by virtue of easy OD, slow metabolisation rate, and any damage potentially spiraling into poison death
+  id: AmmoniatedMercury
   name: reagent-name-ammoniated-mercury
   group: Medicine
   desc: reagent-desc-ammoniated-mercury
   physicalDesc: reagent-physical-desc-shiny
-  flavor: syrupy
+  flavor: medicine
   color: "#bad2ff"
   metabolisms:
     Medicine:
@@ -750,7 +751,7 @@
   group: Medicine
   desc: reagent-desc-antihol
   physicalDesc: reagent-physical-desc-syrupy
-  flavor: syrupy
+  flavor: medicine
   color: "#40ffec"
   metabolisms:
     Medicine:
@@ -767,12 +768,12 @@
         amount: -4
 
 - type: reagent
-  id: Ibuprofen # goonstation version of salicylic acid
+  id: Ibuprofen
   name: reagent-name-ibuprofen
   group: Medicine
   desc: reagent-desc-ibuprofen
   physicalDesc: reagent-physical-desc-thick
-  flavor: syrupy
+  flavor: medicine
   color: "#be5c5c"
   metabolisms:
     Medicine:
@@ -805,12 +806,12 @@
           min: 20
 
 - type: reagent
-  id: SilverSulfadiazine # Synthcells but burn, less side effects since topicals are readily availible
+  id: SilverSulfadiazine
   name: reagent-name-silver-sulfadiazine
   group: Medicine
   desc: reagent-desc-silver-sulfadiazine
   physicalDesc: reagent-physical-desc-viscous
-  flavor: syrupy
+  flavor: bitter
   color: "#ffed24"
   worksOnTheDead: true
   reactiveEffects:
@@ -843,12 +844,12 @@
           shouldHave: false
 
 - type: reagent
-  id: StypticPowder # SilverSulfadiazine for brutes
+  id: StypticPowder
   name: reagent-name-styptic-powder
   group: Medicine
   desc: reagent-desc-styptic-powder
   physicalDesc: reagent-physical-desc-powdery
-  flavor: syrupy
+  flavor: bitter
   color: "#ff9b83"
   worksOnTheDead: true
   reactiveEffects:
@@ -886,11 +887,12 @@
   group: Medicine
   desc: reagent-desc-formaldehyde
   physicalDesc: reagent-physical-desc-odorless
-  flavor: syrupy
+  flavor: terrible
   color: "#ff984e"
   worksOnTheDead: true
   metabolisms:
     Medicine:
+      metabolismRate: 1
       effects:
       - !type:ReduceRotting # dead effects
         conditions:
@@ -904,7 +906,7 @@
         - !type:MobStateCondition
           mobstate: Dead
         reagent: Formaldehyde
-        amount: 0.5
+        amount: 1
       - !type:HealthChange # alive effects
         conditions:
         - !type:MobStateCondition

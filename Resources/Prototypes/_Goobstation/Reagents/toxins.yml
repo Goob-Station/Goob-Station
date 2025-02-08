@@ -4,11 +4,15 @@
   group: Toxins
   desc: reagent-desc-triclor
   physicalDesc: reagent-physical-desc-pungent
-  flavor: syrupy
+  flavor: terrible
   color: "#d8d4cf"
   metabolisms:
     Poison:
-      effects:
+      effects: # considering vomiting and re-add the metabolism rate works out to ~2.5/s
+      - !type:HealthChange
+        damage:
+          types:
+            Blunt: 4
       - !type:HealthChange
         conditions:
         - !type:OrganType
@@ -16,12 +20,12 @@
           shouldHave: false
         damage:
           types:
-            Poison: 4 # not exact math, but 10u ~ 4 poison ticks, scales almost linearly
+            Poison: 4
       - !type:AdjustReagent
         reagent: Triclor
         amount: 0.5 # counteracts some loss from vomiting
       - !type:AdjustReagent
-        conditions: # Vomiting tends to behave weirdly and might leave unmetabolisable 0.1 at 40u (floating point errors?)
+        conditions: # Vomiting behaves weirdly and might leave unmetabolisable 0.1 at 40u (floating point errors?)
         - !type:ReagentThreshold
           max: 1
         reagent: Triclor
@@ -34,7 +38,7 @@
   group: Toxins
   desc: reagent-desc-cyanide
   physicalDesc: reagent-physical-desc-powdery
-  flavor: syrupy
+  flavor: bitter
   color: "#1abcff"
   metabolisms:
     Poison:
@@ -43,7 +47,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 1 # 50 per 5u but slow
+            Poison: 0.75 # 37.5 per 5u but pretty slow
             Asphyxiation: 0.25
         conditions:
         - !type:OrganType
@@ -66,7 +70,7 @@
   group: Toxins
   desc: reagent-desc-anacea
   physicalDesc: reagent-physical-desc-creamy
-  flavor: syrupy
+  flavor: bitter
   color: "#beb9b0"
   metabolisms:
     Poison:
@@ -88,7 +92,7 @@
       - !type:AdjustReagent
         group: Medicine
         amount: -0.5
-      - !type:HealthChange 
+      - !type:HealthChange
         damage:
           types:
             Poison: 0.2 # this works out to 20 per 5u
@@ -103,7 +107,7 @@
   group: Toxins
   desc: reagent-desc-pendetide
   physicalDesc: reagent-physical-desc-viscous
-  flavor: syrupy
+  flavor: bitter
   color: "#22ff1a"
   metabolisms:
     Poison:

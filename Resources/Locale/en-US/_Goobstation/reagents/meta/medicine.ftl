@@ -8,3 +8,63 @@ reagent-popup-fleshmend = Your body twists and contorts into shape.
 reagent-name-panacea = Changeling Panacea
 reagent-desc-panacea = Tons of singlecell organisms focused soley on purging the changeling of toxic chemicals.
 reagent-popup-panacea = Poison drains out of you onto the floor.
+
+reagent-name-probital = probital
+reagent-desc-probital = Forces patient's body to spend its energy creating more healing compounds. Overdose exhausts body, causing sleepiness.
+
+reagent-name-mitogen = mitogen
+reagent-desc-mitogen = Converts nutrients into peptides for highly efficient healing. Can be accidentally overdosed on, resulting in vomiting.
+
+reagent-name-peptides = peptides
+reagent-desc-peptides = Healing compound that's difficult to procure in laboratory enviroment.
+
+reagent-name-tirimol = tirimol
+reagent-desc-tirimol = Strong depressant used in healing asphyxiation damage. Vastly decreases oxygen consumption at the cost of weakened muscles.
+
+reagent-name-syriniver = syriniver
+reagent-desc-syriniver = Experimental drug, carries another medicine within and quickly dissolves upon injection. Best applied through healing patches or pills. Overdose causes organ rupture from overpressurization.
+
+reagent-name-musiver = musiver
+reagent-desc-musiver = Slower acting anti-poison medicine with uniquely tiny molecular footprint.
+
+reagent-name-multiver = multiver
+reagent-desc-multiver = Drug purpose-built to cleanse dangerous chemical mixes. Can be used against simple poisonings, but it's recommended to mix it with other chemicals for higher efficiency.
+
+reagent-name-monover = monover
+reagent-desc-monover = Relatively low complexity anti-poison drug that stops working in impure enviroments. It's side effects can be potentially used to quickly verify whether bloodstream is clean of chemicals.
+
+reagent-name-synthcells = synthcells
+reagent-desc-synthcells = Synthetically produced "cells" that quickly destroy and replace any dysfunctional cells. Works both through external and internal application.
+
+reagent-name-salicylic-acid = salicylic acid
+reagent-desc-salicylic-acid = Poweful healing agent, excelling at restoring most mangled of corpses. Difficult to overdose.
+
+reagent-name-oxandrolone = oxandrolone
+reagent-desc-oxandrolone = Gelatinous chemical that heals burn damage faster the more burnt patient's body is. Difficult to overdose.
+
+reagent-name-pentenic-acid = pentenic acid
+reagent-desc-pentenic-acid = Multipurpose drug, works against poisons and prevents radiation damage from all but strongest sources.
+
+reagent-name-atropine = atropine
+reagent-desc-atropine = Shuts down many body functions to safely heal any damage to patients in critical condition. Best used outside of combat situations due to severe mental impairment it causes.
+
+reagent-name-calomel = calomel
+reagent-desc-calomel = Quickly binds with chemicals and removes them from bloodstream. Keeps patients in near-death state, and as such should only be used as a supplement.
+
+reagent-name-ammoniated-mercury = ammoniated mercury
+reagent-desc-ammoniated-mercury = Difficult to use but potentially powerful drug with a niche specifically in fighting toxins. Flushes poisons, and will quickly heal any poison damage if patient is not damaged externally. Using it on injured patients is ill-advised, though the drug will retain its toxin-flushing capabilities.
+
+reagent-name-antihol = antihol
+reagent-desc-antihol = Quickly neutralises any ethanol in the solution, while healing most prolific drunkards.
+
+reagent-name-ibuprofen = ibuprofen
+reagent-desc-ibuprofen = Weak drug that helps with headaches and returning to medical bay after a bad day.
+
+reagent-name-silver-sulfadiazine = silver sulfadiazine
+reagent-desc-silver-sulfadiazine = Soothing liquid that can be applied externally to quickly treat mild burns. Toxic when in bloodstream.
+
+reagent-name-styptic-powder = styptic powder
+reagent-desc-styptic-powder = Vibrant powder that can be applied externally to quickly treat mild bruises. Toxic when in bloodstream.
+
+reagent-name-formaldehyde = formaldehyde
+reagent-desc-formaldehyde = Stops bodies from rotting when injected in high amounts. Revived patients will likely receive high poison damage, as such make sure to remove it from bloodstream.

@@ -60,7 +60,7 @@
   group: Toxins
   desc: reagent-desc-cat-drugs
   physicalDesc: reagent-physical-desc-fuzzy
-  flavor: syrupy
+  flavor: fizzy
   color: "#ffff40"
   metabolisms:
     Poison:

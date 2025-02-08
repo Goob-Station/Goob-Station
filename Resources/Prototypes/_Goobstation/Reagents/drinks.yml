@@ -4,7 +4,7 @@
   parent: BaseDrink
   desc: reagent-desc-triple-citrus
   physicalDesc: reagent-physical-desc-lemony-fresh
-  flavor: sweet
+  flavor: sour
   color: "#d9f929"
   metabolisms:
     Medicine:

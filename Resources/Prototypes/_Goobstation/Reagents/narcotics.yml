@@ -151,12 +151,12 @@
         refresh: false
 
 - type: reagent
-  id: Aranesp # epi but drug
+  id: Aranesp
   name: reagent-name-aranesp
   group: Narcotics
   desc: reagent-desc-aranesp
   physicalDesc: reagent-physical-desc-oily
-  flavor: syrupy
+  flavor: oily
   color: "#6effef"
   metabolisms:
     Narcotic:
