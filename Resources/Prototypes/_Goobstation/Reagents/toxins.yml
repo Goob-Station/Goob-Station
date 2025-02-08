@@ -59,7 +59,7 @@
           type: Yowie
           shouldHave: false
         probability: 0.05
-        paralyzeTime: 4
+        paralyzeTime: 2
       - !type:Emote
         emote: Gasp
         probability: 0.1

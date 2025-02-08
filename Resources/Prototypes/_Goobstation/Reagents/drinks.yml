@@ -9,6 +9,7 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:SatiateThirst
       - !type:HealthChange
         damage:
           types:

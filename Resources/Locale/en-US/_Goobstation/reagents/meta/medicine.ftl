@@ -34,7 +34,7 @@ reagent-name-monover = monover
 reagent-desc-monover = Relatively low complexity anti-poison drug that stops working in impure enviroments. It's side effects can be potentially used to quickly verify whether bloodstream is clean of chemicals.
 
 reagent-name-synthcells = synthcells
-reagent-desc-synthcells = Synthetically produced "cells" that quickly destroy and replace any dysfunctional cells. Works both through external and internal application.
+reagent-desc-synthcells = Artificially produced "cells" that quickly destroy and replace any dysfunctional cells. Works both through external and internal application. Works on dead.
 
 reagent-name-salicylic-acid = salicylic acid
 reagent-desc-salicylic-acid = Poweful healing agent, excelling at restoring most mangled of corpses. Difficult to overdose.
@@ -61,10 +61,10 @@ reagent-name-ibuprofen = ibuprofen
 reagent-desc-ibuprofen = Weak drug that helps with headaches and returning to medical bay after a bad day.
 
 reagent-name-silver-sulfadiazine = silver sulfadiazine
-reagent-desc-silver-sulfadiazine = Soothing liquid that can be applied externally to quickly treat mild burns. Toxic when in bloodstream.
+reagent-desc-silver-sulfadiazine = Soothing liquid that can be applied externally to quickly treat mild burns. Toxic when in bloodstream. Works on dead.
 
 reagent-name-styptic-powder = styptic powder
-reagent-desc-styptic-powder = Vibrant powder that can be applied externally to quickly treat mild bruises. Toxic when in bloodstream.
+reagent-desc-styptic-powder = Vibrant powder that can be applied externally to quickly treat mild bruises. Toxic when in bloodstream. Works on dead.
 
 reagent-name-formaldehyde = formaldehyde
 reagent-desc-formaldehyde = Stops bodies from rotting when injected in high amounts. Revived patients will likely receive high poison damage, as such make sure to remove it from bloodstream.
