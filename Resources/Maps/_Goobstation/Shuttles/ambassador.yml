@@ -15,13 +15,26 @@ tilemap:
 entities:
 - proto: ""
   entities:
+  - uid: 1
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: PhysicsMap
+    - type: GridTree
+    - type: MovedGrids
+    - type: Broadphase
+    - type: OccluderTree
+    - type: LoadedMap
   - uid: 2
     components:
     - type: MetaData
-      name: grid
+      name: Infiltrator
     - type: Transform
-      pos: -5.131453,-11.311694
-      parent: invalid
+      pos: -0.51388806,-0.5416667
+      parent: 1
     - type: MapGrid
       chunks:
         0,0:
