@@ -4,7 +4,7 @@
   components:
   - type: RuleGrids
   - type: LoadMapRule
-    mapPath: /Maps/_Goobstation/Shuttles/ambassador.yml
+    preloadedgrid: DeathsquadAmbassador
   - type: AntagSelection
     definitions:
     - spawnerPrototype: SpawnPointGhostRatKing # Placeholder, since the actual spawner is borked.
