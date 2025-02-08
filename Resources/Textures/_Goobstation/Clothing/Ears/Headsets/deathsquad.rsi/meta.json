@@ -8,10 +8,10 @@
   },
   "states": [
     {
-      "name": "icon"
+      "name": "icon_alt"
     },
     {
-      "name": "equipped-EARS",
+      "name": "alt-equipped-EARS",
       "directions": 4
     }
   ]
