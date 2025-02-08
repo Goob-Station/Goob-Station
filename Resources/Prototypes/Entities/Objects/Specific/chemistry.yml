@@ -388,7 +388,7 @@
     embedOnThrow: true
   - type: SolutionInjectWhileEmbedded
     transferAmount: 1
-    updateInterval: 0.6 # done in 9 seconds
+    updateInterval: 0.5 # done in 7.5 seconds
     maxInjections: 2 # only inject 2u if thrown
     solution: injector
   - type: Fixtures

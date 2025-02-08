@@ -45,10 +45,10 @@ public abstract partial class BaseSolutionInjectOnEventComponent : Component
 
     // Goobstation - Armor resisting syringe gun
     /// <summary>
-    /// The maximum armor resistance values this can penetrate through, having equal to or more than *any of* those resistances means it won't get through
+    /// By how much to downscale the transfer amount by in respect to damage types
     /// </summary>
     [DataField]
-    public DamageModifierSet MaxArmorResistances = new() {Coefficients = new() {["Piercing"] = 0.65f}}; // 35% or more pierce resist = won't go through
+    public Dictionary<string, float> DamageModifierResistances = new() {["Piercing"] = 1f}; // lower transfer amount by 1% per 1% piercing resist
 
     /// <summary>
     /// Contents of popup message to display to the attacker when injection

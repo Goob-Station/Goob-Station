@@ -91,8 +91,8 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
         if (!_solutionContainer.TryGetSolution(injector.Owner, injector.Comp.Solution, out var injectorSolution))
             return false;
 
-        // Build a list of bloodstreams to inject into
-        var targetBloodstreams = new ValueList<Entity<BloodstreamComponent>>();
+        bool anySuccess = false;
+
         foreach (var target in targets)
         {
             if (Deleted(target))
@@ -101,21 +101,23 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
             // Goobstation - Armor resisting syringe gun
             // Yuck, this is way to hardcodey for my tastes
             // TODO blocking injection with a hardsuit should probably done with a cancellable event or something
+            var mult = 1f; // multiplier of how much to actually inject
             if (!injector.Comp.PierceArmor && _inventory.TryGetSlotEntity(target, "outerClothing", out var suit)) // no penetrating armor with at least some percentage of piercing resist
             {
                 var blocked = false;
                 if (TryComp<ArmorComponent>(suit, out var armor))
                 {
-                    var maxResistances = injector.Comp.MaxArmorResistances;
+                    var modifierDict = injector.Comp.DamageModifierResistances;
                     var armorCoefficients = armor.Modifiers.Coefficients;
-                    foreach (var coefficient in maxResistances.Coefficients)
+                    foreach (var coefficient in modifierDict)
                     {
-                        if (armorCoefficients.ContainsKey(coefficient.Key) && armorCoefficients[coefficient.Key] <= coefficient.Value)
+                        if (armorCoefficients.ContainsKey(coefficient.Key))
                         {
-                            blocked = true;
-                            break;
+                            mult *= 1f - (1f - armorCoefficients[coefficient.Key]) * coefficient.Value;
                         }
                     }
+                    if (mult <= 0f)
+                        blocked = true;
                 }
                 if (blocked)
                 {
@@ -149,31 +151,15 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
             if (!TryComp<BloodstreamComponent>(target, out var bloodstream))
                 continue;
 
-
-            // Checks passed; add this target's bloodstream to the list
-            targetBloodstreams.Add((target, bloodstream));
-        }
-
-        // Make sure we got at least one bloodstream
-        if (targetBloodstreams.Count == 0)
-            return false;
-
-        Solution removedSolution = _solutionContainer.SplitSolution(injectorSolution.Value, injector.Comp.TransferAmount * targetBloodstreams.Count);
-
-        // Adjust solution amount based on transfer efficiency
-        var solutionToInject = removedSolution.SplitSolution(removedSolution.Volume * injector.Comp.TransferEfficiency);
-        // Calculate how much of the adjusted solution each target will get
-        var volumePerBloodstream = solutionToInject.Volume * (1f / targetBloodstreams.Count);
-
-        var anySuccess = false;
-        foreach (var targetBloodstream in targetBloodstreams)
-        {
-            // Take our portion of the adjusted solution for this target
-            var individualInjection = solutionToInject.SplitSolution(volumePerBloodstream);
+            Solution removedSolution = _solutionContainer.SplitSolution(injectorSolution.Value, injector.Comp.TransferAmount * mult);
+            // Adjust solution amount based on transfer efficiency
+            var solutionToInject = removedSolution.SplitSolution(removedSolution.Volume * injector.Comp.TransferEfficiency);
             // Inject our portion into the target's bloodstream
-            if (_bloodstream.TryAddToChemicals(targetBloodstream.Owner, individualInjection, targetBloodstream.Comp))
+            if (_bloodstream.TryAddToChemicals(target, solutionToInject, bloodstream))
                 anySuccess = true;
         }
+        // Goobstation - Armor resisting syringe gun
+        // on upstream there would be code here but it migrates north in the goobstation season
 
         // Huzzah!
         return anySuccess;
