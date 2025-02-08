@@ -448,8 +448,6 @@
           type: Yowie
           shouldHave: false
 
-# These are supposed to be really good, but their recipes/yields are horrendous to counterbalance it
-
 - type: reagent
   id: SalicylicAcid
   name: reagent-name-salicylic-acid
@@ -547,37 +545,6 @@
         time: 2
         type: Add
         refresh: false
-
-- type: reagent # TODO: move this to toxins
-  id: Pendetide
-  name: reagent-name-pendetide
-  group: Toxins
-  desc: reagent-desc-pendetide
-  physicalDesc: reagent-physical-desc-thick
-  flavor: syrupy
-  color: "#22ff1a"
-  metabolisms:
-    Poison:
-      effects:
-      - !type:AdjustReagent
-        group: Medicine
-        amount: -5
-      - !type:HealthChange
-        damage:
-          types:
-            Radiation: 2
-        conditions:
-        - !type:TypedDamageThreshold
-          damage:
-            types:
-              Radiation: 2 # kinda arbitrary, it'll trigger after some rads
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
-      - !type:GenericStatusEffect
-        key: Stutter
-        component: StutteringAccent
-      - !type:Jitter
 
 - type: reagent
   id: Atropine # this is really good epi, but only for medbay use
@@ -777,127 +744,6 @@
           type: Yowie
           shouldHave: false
 
-- type: reagent # TODO: move this to toxins
-  id: Anacea
-  name: reagent-name-anacea
-  group: Toxins
-  desc: reagent-desc-anacea
-  physicalDesc: reagent-physical-desc-thick
-  flavor: syrupy
-  color: "#beb9b0"
-  metabolisms:
-    Poison:
-      metabolismRate: 0.05
-      effects:
-      - !type:AdjustReagent
-        group: Medicine
-        amount: -4.5
-        conditions: # higher quality anti-poisons, save for calomel
-        - !type:BloodReagentThreshold
-          reagent: PentenicAcid
-          max: 0.1
-        - !type:BloodReagentThreshold
-          reagent: Calomel
-          max: 0.1
-        - !type:BloodReagentThreshold
-          reagent: Diphenhydramine
-          max: 0.1
-      - !type:AdjustReagent
-        group: Medicine
-        amount: -0.5
-      - !type:HealthChange 
-        damage:
-          types:
-            Poison: 0.2 # this works out to 20 per 5u
-        conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
-
-- type: reagent # TODO: move this to toxins
-  id: Cyanide
-  name: reagent-name-cyanide
-  group: Toxins
-  desc: reagent-desc-cyanide
-  physicalDesc: reagent-physical-desc-thick
-  flavor: syrupy
-  color: "#1abcff"
-  metabolisms:
-    Poison:
-      metabolismRate: 0.1
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: 1 # 50 per 5u
-            Asphyxiation: 0.25
-        conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
-      - !type:Paralyze
-        conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
-        probability: 0.05
-        paralyzeTime: 4
-      - !type:Emote
-        emote: Gasp
-        probability: 0.1
-
-- type: reagent # TODO: move this to narcotis
-  id: Aranesp # epi but drug
-  name: reagent-name-aranesp
-  group: Narcotics
-  desc: reagent-desc-aranesp
-  physicalDesc: reagent-physical-desc-thick
-  flavor: syrupy
-  color: "#6effef"
-  metabolisms:
-    Narcotic:
-      effects:
-      - !type:GenericStatusEffect
-        key: Stun
-        time: 0.75
-        type: Remove
-      - !type:GenericStatusEffect
-        key: KnockedDown
-        time: 0.75
-        type: Remove
-      - !type:GenericStatusEffect
-        key: Adrenaline
-        component: IgnoreSlowOnDamage
-        time: 5
-      - !type:MovespeedModifier
-        walkSpeedModifier: 1.1
-        sprintSpeedModifier: 1.1
-      - !type:TakeStaminaDamage
-        conditions:
-        amount: -20
-        immediate: false
-      - !type:HealthChange 
-        damage:
-          types:
-            Poison: 0.5
-            Asphyxiation: 0.5
-        conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
-      - !type:HealthChange
-        conditions:
-        - !type:OrganType
-          type: Yowie
-        damage:
-          groups:
-            Brute: -1
-          types:
-            Heat: -0.5
-            Shock: -0.5
-            Cold: -0.5
-            Radiation: -0.5
-
 - type: reagent
   id: Antihol # Charcoal hog more than anything
   name: reagent-name-antihol
@@ -905,7 +751,7 @@
   desc: reagent-desc-antihol
   physicalDesc: reagent-physical-desc-thick
   flavor: syrupy
-  color: "#6effef"
+  color: "#40ffec"
   metabolisms:
     Medicine:
       effects:
@@ -927,7 +773,7 @@
   desc: reagent-desc-ibuprofen
   physicalDesc: reagent-physical-desc-thick
   flavor: syrupy
-  color: "#6effef"
+  color: "#be5c5c"
   metabolisms:
     Medicine:
       metabolismRate: 0.1
@@ -965,7 +811,7 @@
   desc: reagent-desc-silver-sulfadiazine
   physicalDesc: reagent-physical-desc-thick
   flavor: syrupy
-  color: "#ffbebe"
+  color: "#ffed24"
   worksOnTheDead: true
   reactiveEffects:
     Acidic:
@@ -1003,7 +849,7 @@
   desc: reagent-desc-styptic-powder
   physicalDesc: reagent-physical-desc-thick
   flavor: syrupy
-  color: "#ffbebe"
+  color: "#ff9b83"
   worksOnTheDead: true
   reactiveEffects:
     Acidic:
@@ -1033,68 +879,15 @@
         - !type:OrganType
           type: Yowie
           shouldHave: false
-
-- type: reagent # TODO: move this to drinks
-  id: TripleCitrus
-  name: reagent-name-triple-citrus
-  parent: BaseDrink
-  desc: reagent-desc-triple-citrus
-  physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: sweet
-  color: "#485000"
-  #metamorphicSprite:
-  #  sprite: Objects/Consumable/Drinks/beerstein.rsi # replace this with goon's 3 citrus sprite
-  #  state: icon_empty
-  #metamorphicMaxFillLevels: 5
-  #metamorphicFillBaseName: fill-
-  #metamorphicChangeColor: true
-  #fizziness: 0.3
-  metabolisms:
-    Medicine:
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: -1
-
-- type: reagent
-  id: Triclor # TODO move this to poisons
-  name: reagent-name-triclor
-  group: Poisons
-  desc: reagent-desc-triclor
-  physicalDesc: reagent-physical-desc-thick
-  flavor: syrupy
-  color: "#ffbebe"
-  metabolisms:
-    Poison:
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
-        damage:
-          types:
-            Poison: 4 # not exact math, but 10u ~ 4 poison ticks, scales almost linearly
-      - !type:AdjustReagent
-        reagent: Triclor
-        amount: 0.5 # counteracts some loss from vomiting
-      - !type:AdjustReagent
-        conditions: # Vomiting tends to behave weirdly and might leave unmetabolisable 0.1 at 40u (floating point errors?)
-        - !type:ReagentThreshold
-          max: 1
-        reagent: Triclor
-        amount: -0.5
-      - !type:ChemVomit
       
 - type: reagent
   id: Formaldehyde # keep in mind that bleeding people will lose formaldehyde
   name: reagent-name-formaldehyde
-  group: Other
+  group: Medicine
   desc: reagent-desc-formaldehyde
   physicalDesc: reagent-physical-desc-thick
   flavor: syrupy
-  color: "#ffbebe"
+  color: "#ff984e"
   worksOnTheDead: true
   metabolisms:
     Medicine:
@@ -1122,21 +915,3 @@
         damage:
           types:
             Poison: 1
-      
-
-- type: reagent
-  id: CatDrugs
-  name: reagent-name-cat-drugs
-  group: Narcotic
-  desc: reagent-desc-cat-drugs
-  physicalDesc: reagent-physical-desc-thick
-  flavor: syrupy
-  color: "#ffbebe"
-  metabolisms:
-    Narcotic:
-      effects:
-      - !type:Emote
-        emote: CatMeow
-        showInChat: true
-        force: true
-        probability: 0.5

@@ -1,0 +1,129 @@
+- type: reagent
+  id: Triclor
+  name: reagent-name-triclor
+  group: Toxins
+  desc: reagent-desc-triclor
+  physicalDesc: reagent-physical-desc-thick
+  flavor: syrupy
+  color: "#d8d4cf"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        damage:
+          types:
+            Poison: 4 # not exact math, but 10u ~ 4 poison ticks, scales almost linearly
+      - !type:AdjustReagent
+        reagent: Triclor
+        amount: 0.5 # counteracts some loss from vomiting
+      - !type:AdjustReagent
+        conditions: # Vomiting tends to behave weirdly and might leave unmetabolisable 0.1 at 40u (floating point errors?)
+        - !type:ReagentThreshold
+          max: 1
+        reagent: Triclor
+        amount: -0.5
+      - !type:ChemVomit
+
+- type: reagent
+  id: Cyanide
+  name: reagent-name-cyanide
+  group: Toxins
+  desc: reagent-desc-cyanide
+  physicalDesc: reagent-physical-desc-thick
+  flavor: syrupy
+  color: "#1abcff"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.1
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1 # 50 per 5u but slow
+            Asphyxiation: 0.25
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+      - !type:Paralyze
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        probability: 0.05
+        paralyzeTime: 4
+      - !type:Emote
+        emote: Gasp
+        probability: 0.1
+
+- type: reagent
+  id: Anacea
+  name: reagent-name-anacea
+  group: Toxins
+  desc: reagent-desc-anacea
+  physicalDesc: reagent-physical-desc-thick
+  flavor: syrupy
+  color: "#beb9b0"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.05
+      effects:
+      - !type:AdjustReagent
+        group: Medicine
+        amount: -4.5
+        conditions: # higher quality anti-poisons, save for calomel which is low effort but high risk
+        - !type:BloodReagentThreshold
+          reagent: PentenicAcid
+          max: 0.1
+        - !type:BloodReagentThreshold
+          reagent: Calomel
+          max: 0.1
+        - !type:BloodReagentThreshold
+          reagent: Diphenhydramine
+          max: 0.1
+      - !type:AdjustReagent
+        group: Medicine
+        amount: -0.5
+      - !type:HealthChange 
+        damage:
+          types:
+            Poison: 0.2 # this works out to 20 per 5u
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+
+- type: reagent
+  id: Pendetide
+  name: reagent-name-pendetide
+  group: Toxins
+  desc: reagent-desc-pendetide
+  physicalDesc: reagent-physical-desc-thick
+  flavor: syrupy
+  color: "#22ff1a"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:AdjustReagent
+        group: Medicine
+        amount: -5
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: 2
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            types:
+              Radiation: 2 # kinda arbitrary, it'll trigger after some rads
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+      - !type:Jitter
