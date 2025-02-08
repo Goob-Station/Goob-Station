@@ -47,7 +47,7 @@
   id: ClothingHandsGlovesDeathsquad
   suffix: DO NOT MAP
   name: deathsquad power claws
-  description: Highly-advanced gauntlets capable of ripping people & structures to shreds. Can pry open bolted doors when equipped.
+  description: A pair of highly-advanced gauntlets capable of ripping open doors. It's retractable claws are laced with a potent neurotoxin.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
@@ -63,10 +63,11 @@
       force: true
       speedModifier: 4.5
   - type: MeleeWeapon
-    attackRate: 1.5
+    attackRate: 2
     damage:
       types:
         Slash: 25
+        Poison: 15
         Structural: 60
     mustBeEquippedToUse: true
 
@@ -81,11 +82,13 @@
           state: icon
         components:
           - type: MeleeWeapon
-            attackRate: 0.8
+            attackRate: 1.2
             damage:
               types:
                 Blunt: 30
                 Structural: 80
+          - type: StaminaDamageOnHit
+            damage: 45
             mustBeEquippedToUse: true
         soundStateActivate:
           collection: sparks
