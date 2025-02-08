@@ -155,7 +155,7 @@
   name: reagent-name-aranesp
   group: Narcotics
   desc: reagent-desc-aranesp
-  physicalDesc: reagent-physical-desc-thick
+  physicalDesc: reagent-physical-desc-oily
   flavor: syrupy
   color: "#6effef"
   metabolisms:

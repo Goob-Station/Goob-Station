@@ -3,7 +3,7 @@
   name: reagent-name-triclor
   group: Toxins
   desc: reagent-desc-triclor
-  physicalDesc: reagent-physical-desc-thick
+  physicalDesc: reagent-physical-desc-pungent
   flavor: syrupy
   color: "#d8d4cf"
   metabolisms:
@@ -33,7 +33,7 @@
   name: reagent-name-cyanide
   group: Toxins
   desc: reagent-desc-cyanide
-  physicalDesc: reagent-physical-desc-thick
+  physicalDesc: reagent-physical-desc-powdery
   flavor: syrupy
   color: "#1abcff"
   metabolisms:
@@ -65,7 +65,7 @@
   name: reagent-name-anacea
   group: Toxins
   desc: reagent-desc-anacea
-  physicalDesc: reagent-physical-desc-thick
+  physicalDesc: reagent-physical-desc-creamy
   flavor: syrupy
   color: "#beb9b0"
   metabolisms:
@@ -102,7 +102,7 @@
   name: reagent-name-pendetide
   group: Toxins
   desc: reagent-desc-pendetide
-  physicalDesc: reagent-physical-desc-thick
+  physicalDesc: reagent-physical-desc-viscous
   flavor: syrupy
   color: "#22ff1a"
   metabolisms:

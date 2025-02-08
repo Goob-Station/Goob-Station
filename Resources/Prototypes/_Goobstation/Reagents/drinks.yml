@@ -3,7 +3,7 @@
   name: reagent-name-triple-citrus
   parent: BaseDrink
   desc: reagent-desc-triple-citrus
-  physicalDesc: reagent-physical-desc-strong-smelling
+  physicalDesc: reagent-physical-desc-lemony-fresh
   flavor: sweet
   color: "#d9f929"
   metabolisms:

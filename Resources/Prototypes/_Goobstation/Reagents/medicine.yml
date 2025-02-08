@@ -118,7 +118,7 @@
   name: reagent-name-probital
   group: Medicine
   desc: reagent-desc-probital
-  physicalDesc: reagent-physical-desc-thick
+  physicalDesc: reagent-physical-desc-soothing
   flavor: syrupy
   color: "#ffff64"
   metabolisms:
@@ -190,7 +190,7 @@
   name: reagent-name-mitogen
   group: Medicine
   desc: reagent-desc-mitogen
-  physicalDesc: reagent-physical-desc-thick
+  physicalDesc: reagent-physical-desc-nondescript
   flavor: syrupy
   color: "#ffc41a"
   metabolisms: # handled through here instead of reagents to prevent reaction noise spam/obtaining peptides
@@ -232,7 +232,7 @@
   name: reagent-name-peptides
   group: Food
   desc: reagent-desc-peptides
-  physicalDesc: reagent-physical-desc-thick
+  physicalDesc: reagent-physical-desc-nondescript
   flavor: syrupy
   color: "#cc9c14"
   metabolisms:
@@ -251,7 +251,7 @@
   name: reagent-name-tirimol
   group: Medicine
   desc: reagent-desc-tirimol
-  physicalDesc: reagent-physical-desc-thick
+  physicalDesc: reagent-physical-desc-milky
   flavor: syrupy
   color: "#ff6060"
   metabolisms:
@@ -274,7 +274,7 @@
   name: reagent-name-syriniver
   group: Medicine
   desc: reagent-desc-syriniver
-  physicalDesc: reagent-physical-desc-thick
+  physicalDesc: reagent-physical-desc-alkaline
   flavor: syrupy
   color: "#97e239"
   metabolisms:
@@ -307,7 +307,7 @@
   name: reagent-name-musiver
   group: Medicine
   desc: reagent-desc-musiver
-  physicalDesc: reagent-physical-desc-thick
+  physicalDesc: reagent-physical-desc-nondescript
   flavor: syrupy
   color: "#e1d758"
   metabolisms:
@@ -344,7 +344,7 @@
   name: reagent-name-multiver
   group: Medicine
   desc: reagent-desc-multiver
-  physicalDesc: reagent-physical-desc-thick
+  physicalDesc: reagent-physical-desc-foamy
   flavor: syrupy
   color: "#e8e6e3"
   metabolisms:
@@ -387,7 +387,7 @@
   name: reagent-name-monover
   group: Medicine
   desc: reagent-desc-monover
-  physicalDesc: reagent-physical-desc-thick
+  physicalDesc: reagent-physical-desc-clumpy
   flavor: syrupy
   color: "#e8e6e3"
   metabolisms:
@@ -416,7 +416,7 @@
   name: reagent-name-synthcells
   group: Medicine
   desc: reagent-desc-synthcells
-  physicalDesc: reagent-physical-desc-thick
+  physicalDesc: reagent-physical-desc-bubbly
   flavor: syrupy
   color: "#ffbebe"
   worksOnTheDead: true
@@ -453,7 +453,7 @@
   name: reagent-name-salicylic-acid
   group: Medicine
   desc: reagent-desc-salicylic-acid
-  physicalDesc: reagent-physical-desc-thick
+  physicalDesc: reagent-physical-desc-pungent
   flavor: syrupy
   color: "#e8cb4e"
   metabolisms:
@@ -490,7 +490,7 @@
   name: reagent-name-oxandrolone
   group: Medicine
   desc: reagent-desc-oxandrolone
-  physicalDesc: reagent-physical-desc-thick
+  physicalDesc: reagent-physical-desc-sticky
   flavor: syrupy
   color: "#cac6bf"
   metabolisms:
@@ -527,7 +527,7 @@
   name: reagent-name-pentenic-acid
   group: Medicine
   desc: reagent-desc-pentenic-acid
-  physicalDesc: reagent-physical-desc-thick
+  physicalDesc: reagent-physical-desc-acidic
   flavor: syrupy
   color: "#22ff1a"
   metabolisms:
@@ -551,7 +551,7 @@
   name: reagent-name-atropine
   group: Medicine
   desc: reagent-desc-atropine
-  physicalDesc: reagent-physical-desc-thick
+  physicalDesc: reagent-physical-desc-oily
   flavor: syrupy
   color: "#ccc7c0"
   metabolisms:
@@ -616,7 +616,7 @@
   name: reagent-name-calomel
   group: Medicine
   desc: reagent-desc-calomel
-  physicalDesc: reagent-physical-desc-thick
+  physicalDesc: reagent-physical-desc-coarse
   flavor: syrupy
   color: "#baffd6"
   metabolisms:
@@ -664,7 +664,7 @@
   name: reagent-name-ammoniated-mercury
   group: Medicine
   desc: reagent-desc-ammoniated-mercury
-  physicalDesc: reagent-physical-desc-thick
+  physicalDesc: reagent-physical-desc-shiny
   flavor: syrupy
   color: "#bad2ff"
   metabolisms:
@@ -749,7 +749,7 @@
   name: reagent-name-antihol
   group: Medicine
   desc: reagent-desc-antihol
-  physicalDesc: reagent-physical-desc-thick
+  physicalDesc: reagent-physical-desc-syrupy
   flavor: syrupy
   color: "#40ffec"
   metabolisms:
@@ -809,7 +809,7 @@
   name: reagent-name-silver-sulfadiazine
   group: Medicine
   desc: reagent-desc-silver-sulfadiazine
-  physicalDesc: reagent-physical-desc-thick
+  physicalDesc: reagent-physical-desc-viscous
   flavor: syrupy
   color: "#ffed24"
   worksOnTheDead: true
@@ -847,7 +847,7 @@
   name: reagent-name-styptic-powder
   group: Medicine
   desc: reagent-desc-styptic-powder
-  physicalDesc: reagent-physical-desc-thick
+  physicalDesc: reagent-physical-desc-powdery
   flavor: syrupy
   color: "#ff9b83"
   worksOnTheDead: true
@@ -885,7 +885,7 @@
   name: reagent-name-formaldehyde
   group: Medicine
   desc: reagent-desc-formaldehyde
-  physicalDesc: reagent-physical-desc-thick
+  physicalDesc: reagent-physical-desc-odorless
   flavor: syrupy
   color: "#ff984e"
   worksOnTheDead: true

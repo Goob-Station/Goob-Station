@@ -59,7 +59,7 @@
   name: reagent-name-cat-drugs
   group: Toxins
   desc: reagent-desc-cat-drugs
-  physicalDesc: reagent-physical-desc-thick
+  physicalDesc: reagent-physical-desc-fuzzy
   flavor: syrupy
   color: "#ffff40"
   metabolisms:
