@@ -10,7 +10,7 @@ reagent-desc-panacea = Tons of singlecell organisms focused soley on purging the
 reagent-popup-panacea = Poison drains out of you onto the floor.
 
 reagent-name-probital = probital
-reagent-desc-probital = Forces patient's body to spend its energy creating more healing compounds. Overdose exhausts body, causing sleepiness.
+reagent-desc-probital = Forces patient's body to spend its energy creating more healing compounds. Overdose exhausts body, forcing what effectively amounts to power naps.
 
 reagent-name-mitogen = mitogen
 reagent-desc-mitogen = Converts nutrients into peptides for highly efficient healing. Can be accidentally overdosed on, resulting in vomiting.

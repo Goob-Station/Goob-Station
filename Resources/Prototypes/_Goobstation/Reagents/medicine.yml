@@ -462,7 +462,7 @@
         damage:
           types:
             Blunt: -2
-            Pierce: -2
+            Piercing: -2
             Slash: -2
         conditions:
         - !type:TypedDamageThreshold
@@ -883,7 +883,7 @@
         damage:
           types:
             Blunt: -2
-            Pierce: -1 # limits combat effectivness
+            Piercing: -1 # limits combat effectivness
             Slash: -2
   metabolisms:
     Medicine:
