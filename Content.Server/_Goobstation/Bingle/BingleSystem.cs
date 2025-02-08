@@ -1,8 +1,9 @@
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
+using Content.Shared._Goobstation.Bingle;
 
-namespace Content.Shared._Goobstation.Bingle;
+namespace Content.Server._Goobstation.Bingle;
 
 public sealed class BingleSystem : EntitySystem
 {
@@ -14,6 +15,7 @@ public sealed class BingleSystem : EntitySystem
         SubscribeLocalEvent<BingleComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BingleComponent, AttackAttemptEvent>(OnAttackAttempt);
     }
+
     private void OnMapInit(EntityUid uid, BingleComponent component, MapInitEvent args)
     {
         var cords = Transform(uid).Coordinates;
@@ -26,7 +28,7 @@ public sealed class BingleSystem : EntitySystem
         {
             var query = EntityQueryEnumerator<BinglePitComponent>();
             while (query.MoveNext(out var queryUid, out var _))
-                if (cords == Transform(queryUid).Coordinates )
+                if (cords == Transform(queryUid).Coordinates)
                     component.MyPit = queryUid;
         }
 
@@ -45,6 +47,8 @@ public sealed class BingleSystem : EntitySystem
         Dirty(uid, weponComp);
 
         _popup.PopupEntity(Loc.GetString("bingle-upgrade-success"), uid, uid);
+
+        RaiseNetworkEvent(new BingleUpgradeEntityMessage(GetNetEntity(uid)));
     }
 
     private void OnAttackAttempt(EntityUid uid, BingleComponent component, AttackAttemptEvent args)
@@ -54,3 +58,4 @@ public sealed class BingleSystem : EntitySystem
             args.Cancel();
     }
 }
+

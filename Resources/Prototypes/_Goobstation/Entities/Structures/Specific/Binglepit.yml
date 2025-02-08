@@ -18,7 +18,7 @@
   - type: Transform
     anchored: true
   - type: Physics
-    bodyType: Dynamic
+    bodyType: Static
   - type: Fixtures
     fixtures:
       fix1:
@@ -53,3 +53,10 @@
     sound:
       path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
   - type: RequireProjectileTarget
+  - type: SolutionContainerManager
+    solutions:
+      drainBuffer:
+        maxVol: 1000
+  - type: Drain
+    unitsPerSecond: 10
+    unitsDestroyedPerSecond: 10

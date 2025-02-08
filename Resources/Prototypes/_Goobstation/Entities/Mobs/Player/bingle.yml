@@ -18,10 +18,16 @@
       settings: short
   - type: Sprite
     drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Bingle/bingle.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: alive
-      sprite: _Goobstation/Mobs/Bingle/bingle.rsi
+    - map: ["enum.BingleVisual.Upgraded"]
+      state: Upgraded
+      visible: false
+    - map: ["enum.BingleVisual.Combat"]
+      state: combat
+      visible: false
   - type: MobThresholds
     thresholds:
       0: Alive

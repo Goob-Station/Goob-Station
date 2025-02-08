@@ -19,6 +19,14 @@
     },
     {
         "name": "dead"
+    },
+    {
+        "name": "Upgraded",
+        "directions": 4
+    },
+    {
+        "name": "combat",
+        "directions": 4
     }
   ]
 }
