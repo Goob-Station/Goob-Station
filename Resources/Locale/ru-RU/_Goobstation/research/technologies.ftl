@@ -7,3 +7,4 @@ research-technology-durand = Дюранд
 research-technology-explosive-mech-ammunition = Взрывные боеприпасы для мехов
 research-technology-honk-weapons = Бананиевое оружие
 research-technology-modsuits = Модульные технологии
+research-technology-prescription-lenses = Линзы, отпускаемые по рецепту

@@ -1,2 +1,2 @@
-ent-ClothingAbductorBelt = abductor belt
+ent-ClothingAbductorBelt = alien belt
     .desc = Can hold various OUR things.

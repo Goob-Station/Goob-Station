@@ -1,4 +1,4 @@
 ent-WeaponAlien = alien pistol
-    .desc = { ent-BaseWeaponBattery.desc }
+    .desc = Is this a warcrime? Probably.
 ent-WeaponDecloner = decloner
-    .desc = { ent-BaseWeaponBattery.desc }
+    .desc = Is this a warcrime? Probably.

@@ -1,2 +1,2 @@
-ent-AbductorHandcuffs = handcuffs
-    .desc = Used to detain criminals and other assholes.
+ent-AbductorHandcuffs = wondercuffs
+    .desc = Made out of a metal more durable than anything Nanotrasen could dream of.

@@ -4,3 +4,6 @@ ent-CrateCybersunDarkGygaxBundle = набор Cybersun Гигакс
 ent-CrateCybersunMaulerBundle = набор Cybersun Маулер
     .desc = Содержит набор тяжелого бронированного меха Cybersun Маулер.
     .suffix = Filled
+ent-CrateSyndicateBulkMosin = Ящик с винтовкой Синдиката
+    .desc = Просто используйте больше винтовок, товарищ.
+    .suffix = Filled

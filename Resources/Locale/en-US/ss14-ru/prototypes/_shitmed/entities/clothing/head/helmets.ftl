@@ -1,2 +1,2 @@
-ent-ClothingHeadHelmetAbductor = helmet
-    .desc = { ent-ClothingHeadHelmetBase.desc }
+ent-ClothingHeadHelmetAbductor = alien helmet
+    .desc = Zeep Glorp!
