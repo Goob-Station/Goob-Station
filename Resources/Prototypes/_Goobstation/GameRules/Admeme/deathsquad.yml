@@ -10,7 +10,7 @@
     - spawnerPrototype: SpawnPointGhostRatKing # Placeholder, since the actual spawner is borked.
       min: 3
       max: 6
-      pickPlayer: true
+      pickPlayer: false
       startingGear: DeathSquadGear
       roleLoadout:
       - RoleSurvivalSecurity
