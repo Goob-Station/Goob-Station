@@ -320,7 +320,7 @@
       params:
         variation: 0.250
         volume: -2
-
+    
 - type: entity
   name: double-bladed energy sword
   parent: [BaseMeleeWeaponEnergy, BaseSyndicateContraband]
