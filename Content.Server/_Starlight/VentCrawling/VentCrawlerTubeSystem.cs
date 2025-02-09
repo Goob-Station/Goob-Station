@@ -60,7 +60,7 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
         AlternativeVerb verb = new()
         {
             Act = () => TryEnter(uid, args.User, ventCrawlerComponent),
-            Text = Loc.GetString("cventcrawling-enter-pipe-network")
+            Text = Loc.GetString("ventcrawling-enter-pipe-network")
         };
         args.Verbs.Add(verb);
     }
