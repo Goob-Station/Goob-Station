@@ -1,5 +1,5 @@
 reagent-name-triclor = triclor
-reagent-desc-triclor = Causes the metabolizer to constantly vomit, quickly emptying their stomachs. Because of that it actually has relatively low potency, and needs high doses to kill.
+reagent-desc-triclor = Replicates itself upon contact with blood, and causes the metabolizer to constantly vomit, quickly emptying their stomachs and more. Has relatively low potency, and needs high doses to kill. Ineffective in trace amounts.
 
 reagent-name-cyanide = cyanide
 reagent-desc-cyanide = Suprisingly easy to make by accident, and with deadly potential at average doses. However constant difficulties with breathing will quickly alert any potential victim.

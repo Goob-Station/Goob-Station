@@ -5,11 +5,11 @@
   desc: reagent-desc-triclor
   physicalDesc: reagent-physical-desc-pungent
   flavor: terrible
-  color: "#d8d4cf"
+  color: "#174f17"
   metabolisms:
     Poison:
       effects: # considering vomiting and re-add the metabolism rate works out to ~2.5/s
-      - !type:HealthChange
+      - !type:HealthChange # ~20/20 damage per 15u, inconsistent
         damage:
           types:
             Blunt: 4
@@ -23,7 +23,7 @@
             Poison: 4
       - !type:AdjustReagent
         reagent: Triclor
-        amount: 0.5 # counteracts some loss from vomiting
+        amount: 0.5 # Counteracts some loss from vomiting, makes effects more linear
       - !type:AdjustReagent
         conditions: # Vomiting behaves weirdly and might leave unmetabolisable 0.1 at 40u (floating point errors?)
         - !type:ReagentThreshold
@@ -31,6 +31,18 @@
         reagent: Triclor
         amount: -0.5
       - !type:ChemVomit
+      - !type:ModifyBloodLevel
+        amount: -5
+      - !type:ModifyBleedAmount
+        amount: 0.5
+      - !type:MovespeedModifier # primairly to decrease speed for a while longer after finishing vomiting
+        walkSpeedModifier: 0.8
+        sprintSpeedModifier: 0.8
+        statusLifetime: 6
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+      - !type:Jitter
 
 - type: reagent
   id: Cyanide
@@ -63,6 +75,10 @@
       - !type:Emote
         emote: Gasp
         probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
 
 - type: reagent
   id: Anacea
@@ -71,7 +87,7 @@
   desc: reagent-desc-anacea
   physicalDesc: reagent-physical-desc-creamy
   flavor: bitter
-  color: "#beb9b0"
+  color: "#819cb5"
   metabolisms:
     Poison:
       metabolismRate: 0.05
@@ -150,7 +166,16 @@
           min: 6
         damage:
           types:
-            Blunt: 20
+            Blunt: 15
+      - !type:AdjustReagent
+        amount: -25
+        reagent: Syriniver
+      - !type:AdjustReagent
+        amount: -50
+        reagent: Ebifin
+      - !type:AdjustReagent
+        amount: -25
+        reagent: ProcenylLazide
       - !type:AdjustReagent
         amount: -25
         reagent: Aluite

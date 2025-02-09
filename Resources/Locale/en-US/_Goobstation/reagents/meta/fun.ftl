@@ -11,4 +11,4 @@ reagent-desc-profanol = A chemical compound known to make people compulsively sw
 # END OF MIT-LICENSED CODE
 
 reagent-name-cat-drugs = cat drugs
-reagent-desc-cat-drugs = Cat drugs? Drugs for cats? Drugs from cats? Better not ask.
+reagent-desc-cat-drugs = Cat drugs? Drugs for cats? Drugs from cats? Better not to ask.

@@ -301,6 +301,15 @@
       - !type:AdjustReagent
         amount: -25
         reagent: Syriniver
+      - !type:AdjustReagent
+        amount: -50
+        reagent: Ebifin
+      - !type:AdjustReagent
+        amount: -25
+        reagent: ProcenylLazide
+      - !type:AdjustReagent
+        amount: -25
+        reagent: Aluite
 
 - type: reagent
   id: Musiver
@@ -366,8 +375,17 @@
           types:
             Blunt: 30
       - !type:AdjustReagent
+        amount: -25
+        reagent: Syriniver
+      - !type:AdjustReagent
         amount: -50
         reagent: Ebifin
+      - !type:AdjustReagent
+        amount: -25
+        reagent: ProcenylLazide
+      - !type:AdjustReagent
+        amount: -25
+        reagent: Aluite
 
 - type: reagent
   id: Tehifin
@@ -434,7 +452,18 @@
             Blunt: 15
       - !type:AdjustReagent
         amount: -25
-        reagent: ProcenylLazide 
+        reagent: Syriniver
+      - !type:AdjustReagent
+        amount: -50
+        reagent: Ebifin
+      - !type:AdjustReagent
+        amount: -25
+        reagent: ProcenylLazide
+      - !type:AdjustReagent
+        amount: -25
+        reagent: Aluite
+      
+      
 
 - type: reagent
   id: Bozaide
@@ -465,7 +494,7 @@
             Radiation: 5
       
 
-# Weird poison stuffs
+# Poison related meds
 
 - type: reagent
   id: Multiver
@@ -736,7 +765,7 @@
         - !type:ReagentThreshold
           min: 20
 
-# externally applied meds
+# Externally applied meds
 
 - type: reagent
   id: SilverSulfadiazine
@@ -1037,7 +1066,7 @@
           type: Yowie
           shouldHave: false
 
-# "Crazy" meds
+# Niche/crazy/experimental meds
 
 - type: reagent
   id: Genecide

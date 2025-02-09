@@ -71,3 +71,17 @@
         showInChat: true
         force: true
         probability: 0.5
+      - !type:Polymorph
+        prototype: Cat
+        conditions:
+        - !type:OrganType
+          type: Animal
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 50
+      - !type:AdjustReagent
+        reagent: CatDrugs
+        amount: -20
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
