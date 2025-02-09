@@ -16,7 +16,6 @@
     tags:
     - Trash
   - type: PhysicalComposition #Goobstation - Recycle update
-    price: 5
     materialComposition:
       Steel: 62
       Glass: 25

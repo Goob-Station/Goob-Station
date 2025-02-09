@@ -17,6 +17,8 @@
   components:
   - type: Sprite
     state: torso
+  - type: Icon
+    state: torso
   - type: Extractable
     juiceSolution:
       reagents:
@@ -31,6 +33,8 @@
   name: "abductor head"
   components:
   - type: Sprite
+    state: head
+  - type: Icon
     state: head
 
 - type: entity
