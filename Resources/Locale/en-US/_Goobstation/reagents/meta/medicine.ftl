@@ -65,6 +65,3 @@ reagent-desc-silver-sulfadiazine = Soothing liquid that can be applied externall
 
 reagent-name-styptic-powder = styptic powder
 reagent-desc-styptic-powder = Vibrant powder that can be applied externally to quickly treat mild bruises. Toxic when in bloodstream. Works on dead.
-
-reagent-name-formaldehyde = formaldehyde
-reagent-desc-formaldehyde = Stops bodies from rotting when injected in high amounts. Revived patients will likely receive high poison damage, as such make sure to remove it from bloodstream.
