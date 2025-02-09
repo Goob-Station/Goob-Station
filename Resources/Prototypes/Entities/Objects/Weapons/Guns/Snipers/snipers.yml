@@ -46,6 +46,8 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
+  - type: Item # Goobstation - Bulk mosin crate
+    size: Large
 
 - type: entity
   name: Hristov

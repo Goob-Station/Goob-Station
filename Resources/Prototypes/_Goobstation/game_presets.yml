@@ -119,17 +119,3 @@
   #  - MeteorSwarmScheduler Goobstation - nuh uh
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-
-- type: gamePreset
-  id: Abductor
-  alias:
-    - abductor
-  name: abductor-title
-  description: abductor-description
-  showInVote: false
-  rules:
-    - LoneAbductorSpawn
-    - SubGamemodesRule
-    - BasicStationEventScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation

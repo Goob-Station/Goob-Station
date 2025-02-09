@@ -1,5 +1,8 @@
 using System.Linq;
+using System.Numerics;
 using Content.Client.Gameplay;
+using Content.Shared._Goobstation.Weapons.MeleeDash;
+using Content.Shared._White.Blink;
 using Content.Shared.CombatMode;
 using Content.Shared.Effects;
 using Content.Shared.Hands.Components;
@@ -29,6 +32,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     [Dependency] private readonly InputSystem _inputSystem = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly MapSystem _map = default!;
+    [Dependency] private readonly TransformSystem _transform = default!; // Goobstation
 
     private EntityQuery<TransformComponent> _xformQuery;
 
@@ -134,8 +138,42 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 return;
             }
 
+            // WD EDIT START
+            if (TryComp(weaponUid, out BlinkComponent? blink) && blink.IsActive)
+            {
+                var direction = GetDirection();
+                if (direction != Vector2.Zero)
+                    RaisePredictiveEvent(new BlinkEvent(GetNetEntity(weaponUid), direction));
+                return;
+            }
+            // WD EDIT END
+
+            // Goobstation
+            if (TryComp(weaponUid, out MeleeDashComponent? dash))
+            {
+                var direction = GetDirection();
+                if (direction != Vector2.Zero)
+                    RaisePredictiveEvent(new MeleeDashEvent(GetNetEntity(weaponUid), direction));
+                return;
+            }
+
             ClientHeavyAttack(entity, coordinates, weaponUid, weapon);
             return;
+
+            // Goobstation
+            Vector2 GetDirection()
+            {
+                if (!_xformQuery.TryGetComponent(entity, out var userXform))
+                    return Vector2.Zero;
+
+                var targetMap = _transform.ToMapCoordinates(coordinates);
+
+                if (targetMap.MapId != userXform.MapID)
+                    return Vector2.Zero;
+
+                var userPos = TransformSystem.GetWorldPosition(userXform);
+                return targetMap.Position - userPos;
+            }
         }
 
         // Light attack

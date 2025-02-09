@@ -14,31 +14,32 @@
     flashDurationMultiplier: 2
     isEquipment: true
   - type: IdentityBlocker
-    coverage: EYES
 
 - type: entity
-  parent: ClothingEyesNightVisionGoggles
+  parent: [ClothingEyesBase,BaseSyndicateContraband]
   id: ClothingEyesNightVisionGogglesSyndie
-  suffix: "Chameleon"
+  name: syndicate night vision goggles
+  description: A high-tech pair of night vision goggles. Has medical analysis technology.
   components:
-  - type: Tag
-    tags: [] # ignore "WhitelistChameleon" tag
-  - type: ChameleonClothing
-    slot: [eyes]
-    default: ClothingEyesGlassesSunglasses
-  - type: UserInterface
-    interfaces:
-      enum.ChameleonUiKey.Key:
-        type: ChameleonBoundUserInterface
+  - type: Sprite
+    sprite: _White/Clothing/Eyes/Goggles/snightvision.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Eyes/Goggles/snightvision.rsi
+  - type: NightVision
+    flashDurationMultiplier: 2
+    isEquipment: true
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
 
 - type: entity
   parent: ClothingEyesNightVisionGogglesSyndie
   id: ClothingEyesNightVisionGogglesNukie
-  suffix: "Chameleon, NukeOps"
+  suffix: "NukeOps"
   components:
   - type: ShowSyndicateIcons
-  - type: ShowJobIcons
-  - type: ShowMindShieldIcons
 
 # Thermal Vision Goggles
 
@@ -61,24 +62,26 @@
     coverage: EYES
 
 - type: entity
-  parent: ClothingEyesThermalVisionGoggles
+  parent: [ClothingEyesBase, BaseSyndicateContraband]
   id: ClothingEyesThermalVisionGogglesSyndie
-  suffix: "Chameleon"
+  name: thermal vision goggles
+  description: A high-tech pair of thermal goggles.
   components:
-  - type: Tag
-    tags: [] # ignore "WhitelistChameleon" tag
-  - type: ChameleonClothing
-    slot: [eyes]
-    default: ClothingEyesGlassesSunglasses
-  - type: UserInterface
-    interfaces:
-      enum.ChameleonUiKey.Key:
-        type: ChameleonBoundUserInterface
+  - type: Sprite
+    sprite: _White/Clothing/Eyes/Goggles/sthermals.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Eyes/Goggles/sthermals.rsi
+  - type: ThermalVision
+    flashDurationMultiplier: 2
+    isEquipment: true
+    toggleAction: ToggleThermalVision
+  - type: IdentityBlocker
+    coverage: EYES
 
 - type: entity
   parent: ClothingEyesThermalVisionGogglesSyndie
   id: ClothingEyesThermalVisionGogglesNukie
-  suffix: "Chameleon, NukeOps"
+  suffix: "NukeOps"
   components:
   - type: ShowSyndicateIcons
   - type: ShowJobIcons

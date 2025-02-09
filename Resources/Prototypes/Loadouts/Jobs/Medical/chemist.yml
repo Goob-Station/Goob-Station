@@ -9,6 +9,11 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtChemistry
 
+- type: loadout # goob
+  id: ChemistMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryChemistry
+
 # Back
 - type: loadout
   id: ChemistBackpack

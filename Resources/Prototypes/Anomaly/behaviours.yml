@@ -161,6 +161,7 @@
   description: anomaly-behavior-invisibility
   components:
   - type: Stealth
+    minVisibility: -1 # Goobstation - Proper invisibility
     maxVisibility: 1.2
   - type: StealthOnMove
     passiveVisibilityRate: -0.37
@@ -217,6 +218,7 @@
     rangeMax: 1
     effect: PuddleSparkle
   - type: Stealth
+    minVisibility: -1 # Goobstation - Proper invisibility
     maxVisibility: 1.2
   - type: StealthOnMove
     passiveVisibilityRate: -0.37

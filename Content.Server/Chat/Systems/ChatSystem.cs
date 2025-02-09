@@ -59,6 +59,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly ReplacementAccentSystem _wordreplacement = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
+    [Dependency] private readonly TelepathicChatSystem _telepath = default!; // Goobstation Change
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
@@ -253,6 +254,9 @@ public sealed partial class ChatSystem : SharedChatSystem
                 break;
             case InGameICChatType.Emote:
                 SendEntityEmote(source, message, range, nameOverride, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker);
+                break;
+            case InGameICChatType.Telepathic:
+                _telepath.SendTelepathicChat(source, message, range == ChatTransmitRange.HideChat);
                 break;
         }
     }
@@ -973,7 +977,8 @@ public enum InGameICChatType : byte
 {
     Speak,
     Emote,
-    Whisper
+    Whisper,
+    Telepathic // Goobstation Change
 }
 
 /// <summary>
