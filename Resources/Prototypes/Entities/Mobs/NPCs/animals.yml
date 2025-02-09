@@ -100,7 +100,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      10: Dead
+      5: Dead # Goob edit
   - type: Stamina
     critThreshold: 10
   - type: DamageStateVisuals
