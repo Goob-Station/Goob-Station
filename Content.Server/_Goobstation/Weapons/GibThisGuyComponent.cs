@@ -8,5 +8,5 @@ public sealed partial class GibThisGuyComponent : Component
     [DataField]
     public List<string> IcNames = new();
     [DataField]
-    public bool RequireBouth = false;
+    public bool Requirebouth = false;
 }

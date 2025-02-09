@@ -18,7 +18,7 @@ public sealed class GibThisGuySystem : EntitySystem
 
     public void OnMeleeHit(EntityUid uid, GibThisGuyComponent component, MeleeHitEvent args)
     {
-        if (component.RequireBouth)
+        if (component.Requirebouth)
         {
             foreach (var hit in args.HitEntities)
                 if (component.IcNames.Contains(Name(hit)) &&
