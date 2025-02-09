@@ -3,6 +3,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Content.Shared._Goobstation.Bingle;
 using Robust.Shared.Map;
+using System.Numerics;
 
 namespace Content.Server._Goobstation.Bingle;
 
@@ -20,7 +21,7 @@ public sealed class BingleSystem : EntitySystem
     private void OnMapInit(EntityUid uid, BingleComponent component, MapInitEvent args)
     {
         var cords = Transform(uid).Coordinates;
-        if (!cords.IsValid(EntityManager))
+        if (!cords.IsValid(EntityManager) || cords.Position == Vector2.Zero)
             return;
         if (MapId.Nullspace == Transform(uid).MapID)
             return;
