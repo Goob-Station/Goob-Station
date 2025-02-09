@@ -15,7 +15,7 @@ public sealed partial class LavalandStormedMapComponent : Component
     public float Duration;
 
     [DataField]
-    public float NextDamage = 10f;
+    public float NextDamage = 1f;
 
     [DataField]
     public float DamageAccumulator;

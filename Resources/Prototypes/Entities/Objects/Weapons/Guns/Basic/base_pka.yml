@@ -11,13 +11,10 @@
     shape:
     - 0,0,2,1
   # Lavaland Change start
-  - type: UpgradeableGun 
+  - type: UpgradeableGun
     whitelist:
       tags:
       - PKAUpgrade
-  - type: ContainerContainer
-    containers:
-      upgrades: !type:Container
   #- type: GunWieldBonus
   #  minAngle: -43
   #  maxAngle: -43
