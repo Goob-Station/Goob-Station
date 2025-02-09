@@ -369,7 +369,9 @@ public sealed partial class BorgSystem
                     continue;
 
                 if (containedItemModuleComp.Items.Count == itemModuleComp.Items.Count &&
-                    containedItemModuleComp.Items.All(itemModuleComp.Items.Contains))
+                    containedItemModuleComp.DroppableItems.Count == itemModuleComp.DroppableItems.Count && // Frontier
+                    containedItemModuleComp.Items.All(itemModuleComp.Items.Contains) &&
+                    containedItemModuleComp.DroppableItems.All(x => itemModuleComp.DroppableItems.Contains(x, new DroppableBorgItemComparer()))) // Frontier
                 {
                     if (user != null)
                         Popup.PopupEntity(Loc.GetString("borg-module-duplicate"), uid, user.Value);
@@ -380,6 +382,29 @@ public sealed partial class BorgSystem
 
         return true;
     }
+
+    // Frontier: droppable borg item comparator
+    private sealed class DroppableBorgItemComparer : IEqualityComparer<DroppableBorgItem>
+    {
+        public bool Equals(DroppableBorgItem? x, DroppableBorgItem? y)
+        {
+            // Same object
+            if (ReferenceEquals(x, y))
+                return true;
+            // Comparisons vs. null
+            if (x is null || y is null)
+                return false;
+            // Otherwise, use EntProtoId of item to keep
+            return x.ID == y.ID;
+        }
+
+        public int GetHashCode(DroppableBorgItem obj)
+        {
+            if (obj is null) return 0;
+            return obj.ID.GetHashCode();
+        }
+    }
+    // End Frontier
 
     /// <summary>
     /// Check if a module can be removed from a borg.
