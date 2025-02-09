@@ -1,3 +1,7 @@
+spellbook-cryo-katana-name = Cryo Katana
+spellbook-cryo-katana-desc =
+    Modified Spider Clan energy katana, imbued with frost magic. Freezes the targets on hit, slowing them down. Able to dash a short distance, slicing anyone on your path. Can't dash while lying down.
+
 spellbook-skates-name = Wizard Skates
 spellbook-skates-desc =
     A pair of roller skates that greatly increase your movement speed.

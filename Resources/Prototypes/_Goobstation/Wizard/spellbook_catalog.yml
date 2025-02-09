@@ -577,6 +577,16 @@
 
 # Equipment
 - type: listing
+  id: SpellbookCryoKatana
+  name: spellbook-cryo-katana-name
+  description: spellbook-cryo-katana-desc
+  productEntity: CryoKatana
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEquipment
+
+- type: listing
   id: SpellbookSkates
   name: spellbook-skates-name
   description: spellbook-skates-desc
