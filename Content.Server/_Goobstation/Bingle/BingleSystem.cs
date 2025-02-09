@@ -22,8 +22,9 @@ public sealed class BingleSystem : EntitySystem
         var cords = Transform(uid).Coordinates;
         if (!cords.IsValid(EntityManager))
             return;
-        if (MapId.Nullspace == Transform(uid).MapID) // aborts if spawns in nullspace
+        if (MapId.Nullspace == Transform(uid).MapID)
             return;
+
         if (component.Prime)
             component.MyPit = Spawn("BinglePit", cords);
         else

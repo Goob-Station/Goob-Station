@@ -58,7 +58,11 @@ public sealed class BinglePitSystem : EntitySystem
     }
 
     private void OnInit(EntityUid uid, BinglePitComponent component, MapInitEvent args)
-        => component.Pit = _containerSystem.EnsureContainer<Container>(uid, "pit");
+    {
+        if (!Transform(uid).Coordinates.IsValid(EntityManager))
+            QueueDel(uid);
+        component.Pit = _containerSystem.EnsureContainer<Container>(uid, "pit");
+    }
 
     private void OnStepTriggered(EntityUid uid, BinglePitComponent component, ref StepTriggeredOffEvent args)
     {
