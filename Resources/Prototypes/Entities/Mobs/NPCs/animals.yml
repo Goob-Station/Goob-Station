@@ -1251,6 +1251,7 @@
   abstract: true
   components:
   - type: VentCrawler # goobstation - Ventcrawl
+    allowInventory: false
   - type: CombatMode
   # Shitmed Change Start
   - type: SurgeryTarget
