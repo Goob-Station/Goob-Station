@@ -4663,3 +4663,9 @@ Entries:
       message: Swords are now larger.
   id: 529
   time: '2025-02-09T16:23:42.0000000+00:00'
+- author: Aineias1
+  changes:
+    - type: Add
+      message: Added more wintercoats
+  id: 530
+  time: '2025-02-09T19:14:19.0000000+00:00'
