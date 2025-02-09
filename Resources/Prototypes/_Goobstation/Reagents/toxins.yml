@@ -166,7 +166,7 @@
           min: 6
         damage:
           types:
-            Blunt: 15
+            Blunt: 10
       - !type:AdjustReagent
         amount: -25
         reagent: Syriniver

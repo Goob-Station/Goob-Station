@@ -254,7 +254,7 @@
       - !type:HealthChange
         damage:
           types:
-            Asphyxiation: -4.5 # intended to be stronger, but more annoying than dexP/inapr
+            Asphyxiation: -5 # intended to be stronger, but more annoying than dexP/inapr
       - !type:TakeStaminaDamage
         conditions:
         - !type:OrganType
@@ -267,8 +267,17 @@
         - !type:OrganType
           type: Yowie
           shouldHave: false
-        walkSpeedModifier: 0.9
-        sprintSpeedModifier: 0.9
+        walkSpeedModifier: 0.8
+        sprintSpeedModifier: 0.8
+      - !type:Paralyze # more severe effect when overdosing, doesn't matter since you want to use it on crit ppl
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 15
+        probability: 0.2
+        paralyzeTime: 4
 
 # Patch/microdose meds
 
@@ -298,6 +307,11 @@
         damage:
           types:
             Blunt: 15
+      - !type:ModifyBleedAmount
+        amount: 1 # On hit: Inflict bleed for 8 seconds
+        conditions:
+        - !type:ReagentThreshold
+          min: 6
       - !type:AdjustReagent
         amount: -25
         reagent: Syriniver
@@ -340,7 +354,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 25
+          min: 20
         - !type:OrganType
           type: Yowie
           shouldHave: false
@@ -374,6 +388,11 @@
         damage:
           types:
             Blunt: 30
+      - !type:ModifyBleedAmount
+        amount: 2
+        conditions:
+        - !type:ReagentThreshold
+          min: 4
       - !type:AdjustReagent
         amount: -25
         reagent: Syriniver
@@ -450,6 +469,11 @@
         damage:
           types:
             Blunt: 15
+      - !type:ModifyBleedAmount
+        amount: 1
+        conditions:
+        - !type:ReagentThreshold
+          min: 6
       - !type:AdjustReagent
         amount: -25
         reagent: Syriniver
@@ -463,8 +487,6 @@
         amount: -25
         reagent: Aluite
       
-      
-
 - type: reagent
   id: Bozaide
   name: reagent-name-bozaide
@@ -488,7 +510,10 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 25
+          min: 20
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Radiation: 5
@@ -605,7 +630,7 @@
             Poison: 6
         conditions:
         - !type:ReagentThreshold
-          min: 20
+          min: 15
         - !type:OrganType
           type: Yowie
           shouldHave: false
@@ -614,7 +639,7 @@
         amount: -2
         conditions:
         - !type:ReagentThreshold
-          min: 20
+          min: 15
 
 - type: reagent
   id: AmmoniatedMercury
@@ -719,7 +744,7 @@
       - !type:HealthChange
         conditions:
         - !type:TotalDamage
-          min: 75 
+          min: 50
         damage:
           types:
             Poison: -1
@@ -785,8 +810,10 @@
         ignoreResistances: false
         damage:
           types:
-            Heat: -2
-            Cold: -2
+            Heat: -1.5
+            Cold: -1.5
+            Shock: -1
+            Caustic: -1
   metabolisms:
     Medicine:
       metabolismRate: 3
@@ -799,7 +826,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 1
+            Poison: 2
         conditions:
         - !type:OrganType
           type: Yowie
@@ -833,11 +860,11 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -2 # effectively useless
+            Brute: -2
       - !type:HealthChange
         damage:
           types:
-            Poison: 1
+            Poison: 2
         conditions:
         - !type:OrganType
           type: Yowie
@@ -862,8 +889,8 @@
         damage:
           types:
             Blunt: 1
-          groups:
-            Toxin: -2
+            Poison: -2
+            Radiation: -1
   metabolisms:
     Medicine:
       effects:
@@ -873,12 +900,8 @@
             Toxin: -2
       - !type:HealthChange
         damage:
-          groups:
-            Brute: 1
-        conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
+          types:
+            Blunt: 2
 
 # Strong meds
 
@@ -1008,7 +1031,7 @@
   desc: reagent-desc-atropine
   physicalDesc: reagent-physical-desc-volatile
   flavor: medicine
-  color: "#ccc7c0"
+  color: "#572757"
   metabolisms:
     Medicine:
       metabolismRate: 0.25
@@ -1031,8 +1054,8 @@
         - !type:OrganType
           type: Yowie
           shouldHave: false
-        walkSpeedModifier: 0.8
-        sprintSpeedModifier: 0.8
+        walkSpeedModifier: 0.7
+        sprintSpeedModifier: 0.7
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
@@ -1065,6 +1088,10 @@
         - !type:OrganType
           type: Yowie
           shouldHave: false
+      - !type:ModifyBloodLevel
+        amount: 5
+      - !type:ModifyBleedAmount
+        amount: -1
 
 # Niche/crazy/experimental meds
 
