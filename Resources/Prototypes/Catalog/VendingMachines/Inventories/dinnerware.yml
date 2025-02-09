@@ -27,3 +27,6 @@
     DrinkMugOne: 1
     DrinkMugRainbow: 2
     DrinkMugRed: 2
+    FryingPan: 2 # Goobstation
+  contrabandInventory: # Goob
+    FryingPanTungsten: 1

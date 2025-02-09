@@ -1,0 +1,26 @@
+{
+    "version": 1,
+    "license": "Texture made by lucifermkshelter",
+    "copyright": "made for goobstation",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "equipped-SUITSTORAGE",
+            "directions": 4
+        }
+    ]
+}

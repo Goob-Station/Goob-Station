@@ -1,0 +1,104 @@
+- type: entity
+  name: frying pan
+  parent: BaseItem
+  id: FryingPan
+  description: A simple steel pan for cooking, and robusting secoffs.
+  components:
+  - type: Sprite
+    sprite: _Goobstation\Objects\Weapons\Melee\pans\steelpan.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: 65
+    attackRate: 0.7
+    damage:
+      types:
+        Blunt: 16
+        Structural: 15
+    soundHit:
+      path: /Audio/_Goobstation/Weapons/Melee/Pan/panhit.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Weapons/Melee/Pan/metalpipe.ogg # lol
+      params:
+        volume: 1
+  - type: Item
+    size: Normal
+  - type: Reflect # subject to change
+    reflectProb: 0.05
+    otherTypeReflectProb: .2
+    spread: 75
+  - type: Clothing
+    sprite: _Goobstation\Objects\Weapons\Melee\pans\steelpan.rsi
+    slots:
+    - suitstorage
+
+- type: entity
+  name: tungsten frying pan
+  suffix: Do not map
+  parent: BaseItem
+  id: FryingPanTungsten
+  description: A heavy tungsten frying pan that was made by some masachist, good luck cooking with this.
+  components:
+  - type: Sprite
+    sprite: _Goobstation\Objects\Weapons\Melee\pans\tungstenpan.rsi # if u want to make it more stealthy, just use non-tungsten version
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: 65
+    attackRate: 0.7
+    damage:
+      types:
+        Blunt: 30
+        Structural: 45
+    soundHit:
+      path: /Audio/_Goobstation/Weapons/Melee/Pan/panhit.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Weapons/Melee/Pan/metalpipe.ogg
+      params:
+        volume: 1
+  - type: Item
+    size: Normal
+  - type: Reflect
+    reflectProb: 0.25
+    otherTypeReflectProb: .3 # subject to change
+    spread: 75
+  - type: Clothing
+    sprite: _Goobstation\Objects\Weapons\Melee\pans\tungstenpan.rsi
+    slots:
+    - suitstorage
+
+- type: entity
+  name: respan
+  suffix: Admeme, 100 heal
+  parent: BaseItem
+  id: FryingPanHeal
+  description: Violent way of healing tiders.
+  components:
+  - type: Sprite
+    sprite: _Goobstation\Objects\Weapons\Melee\pans\respan.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: 65
+    attackRate: 1
+    damage:
+      groups:
+        Brute: -300
+        Burn: -400
+        Airloss: -200
+        Toxin: -200
+        Genetic: -100
+        Metaphysical: -100
+    soundHit:
+      path: /Audio/_Goobstation/Weapons/Melee/Pan/panhit.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Weapons/Melee/Pan/metalpipe.ogg
+      params:
+        volume: 1
+  - type: Item
+    size: Normal
+  - type: Clothing
+    sprite: _Goobstation\Objects\Weapons\Melee\pans\tungstenpan.rsi
+    slots:
+    - suitstorage
+
