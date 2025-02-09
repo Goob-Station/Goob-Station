@@ -8,6 +8,7 @@ using Content.Shared.Fluids.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee;
+using Content.Shared._White.FootPrint;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
@@ -28,6 +29,7 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
     [Dependency] private readonly MapSystem _mapSystem = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     public override void Initialize()
     {
@@ -111,13 +113,126 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
             && _useDelay.IsDelayed((used, useDelay)))
             return;
 
+        var cleanedFootprints = false;
+        var footprintCount = 0;
+
+        // First try to clean footprints if target is a footprint
+        if (TryComp<FootPrintComponent>(target, out var targetFootprint))
+        {
+            if (TryCleanFootprint(user, used, target, targetFootprint, component, absorberSoln.Value))
+            {
+                cleanedFootprints = true;
+                footprintCount = 1;
+            }
+        }
+
+        // If we're mopping a puddle or footprint, clean nearby footprints
+        if (TryComp<PuddleComponent>(target, out _) || cleanedFootprints)
+        {
+            if (TryComp<TransformComponent>(target, out var transform))
+            {
+                var range = component.FootprintCleaningRange;
+                var maxClean = component.MaxCleanedFootprints;
+
+                // Get all entities in range that have a FootPrintComponent
+                var nearbyEntities = _lookup.GetEntitiesInRange(transform.MapPosition, range);
+                foreach (var entity in nearbyEntities)
+                {
+                    if (entity == target) // Skip the target as we already handled it
+                        continue;
+
+                    if (footprintCount >= maxClean)
+                        break;
+
+                    if (!TryComp<FootPrintComponent>(entity, out var footprint))
+                        continue;
+
+                    if (TryCleanFootprint(user, used, entity, footprint, component, absorberSoln.Value))
+                    {
+                        footprintCount++;
+                        cleanedFootprints = true;
+                    }
+                }
+            }
+        }
+
+        // Play sound if we cleaned any footprints
+        if (cleanedFootprints)
+        {
+            _audio.PlayPvs(component.PickupSound, target);
+        }
+
         // If it's a puddle try to grab from
         if (!TryPuddleInteract(user, used, target, component, useDelay, absorberSoln.Value))
         {
             // If it's refillable try to transfer
             if (!TryRefillableInteract(user, used, target, component, useDelay, absorberSoln.Value))
-                return;
+            {
+                // If we didn't clean any footprints and didn't interact with anything else, return
+                if (!cleanedFootprints)
+                    return;
+            }
         }
+
+        // Apply use delay if we did anything (cleaned footprints, mopped puddle, or interacted with refillable)
+        if (useDelay != null)
+            _useDelay.TryResetDelay((used, useDelay));
+    }
+
+    /// <summary>
+    /// Attempts to clean a footprint by absorbing its solution and replacing it with water.
+    /// Returns false if the footprint is just water (will evaporate on its own).
+    /// </summary>
+    private bool TryCleanFootprint(
+        EntityUid user,
+        EntityUid used,
+        EntityUid target,
+        FootPrintComponent footprint,
+        AbsorbentComponent absorber,
+        Entity<SolutionComponent> absorberSoln)
+    {
+        // Check if we have any evaporative reagents (water) on our absorber to transfer
+        var absorberSolution = absorberSoln.Comp.Solution;
+        var available = absorberSolution.GetTotalPrototypeQuantity(PuddleSystem.EvaporationReagents);
+
+        // No material
+        if (available == FixedPoint2.Zero)
+        {
+            _popups.PopupEntity(Loc.GetString("mopping-system-no-water", ("used", used)), user, user);
+            return false;
+        }
+
+        if (!_solutionContainerSystem.TryGetSolution(target, footprint.SolutionName, out var footprintSoln))
+            return false;
+
+        var footprintSolution = footprintSoln.Value.Comp.Solution;
+
+        // Check if the footprint has any non-evaporative reagents
+        if (_puddleSystem.CanFullyEvaporate(footprintSolution))
+        {
+            _popups.PopupEntity(Loc.GetString("mopping-system-puddle-evaporate", ("target", target)), user, user);
+            return false;
+        }
+
+        // Similar to puddle logic: take the non-water solution and replace with water
+        var transferAmount = absorber.PickupAmount;
+        var footprintSplit = footprintSolution.SplitSolutionWithout(transferAmount, PuddleSystem.EvaporationReagents);
+        var absorberSplit = absorberSolution.SplitSolutionWithOnly(footprintSplit.Volume, PuddleSystem.EvaporationReagents);
+
+        // Do tile reactions first, just like puddles
+        var transform = Transform(target);
+        var gridUid = transform.GridUid;
+        if (TryComp(gridUid, out MapGridComponent? mapGrid))
+        {
+            var tileRef = _mapSystem.GetTileRef(gridUid.Value, mapGrid, transform.Coordinates);
+            _puddleSystem.DoTileReactions(tileRef, absorberSplit);
+        }
+
+        _solutionContainerSystem.AddSolution(footprintSoln.Value, absorberSplit);
+        _solutionContainerSystem.AddSolution(absorberSoln, footprintSplit);
+
+        // Don't delete the footprint - it will evaporate naturally if it only contains water
+        return true;
     }
 
     /// <summary>

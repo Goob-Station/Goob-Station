@@ -37,5 +37,15 @@
     - type: Appearance
     - type: SpawnOnDespawn
       prototype: PuddleSparkle
-    - type: TimedDespawn
-      lifetime: 60
+    # - type: TimedDespawn # ShibaStation - footprints are now permanent until cleaned, with AOE cleaning!
+    #   lifetime: 240
+    - type: Drink
+      delay: 3
+      transferAmount: 1
+      solution: step
+      examinable: false
+    - type: ExaminableSolution
+      solution: step
+    - type: DrawableSolution
+      solution: step
+    - type: BadDrink
