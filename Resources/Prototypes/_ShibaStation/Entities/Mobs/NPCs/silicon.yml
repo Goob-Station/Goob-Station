@@ -24,6 +24,7 @@
         - ReagentId: Water
           Quantity: 10
   - type: SolutionPurge
+    duration: 0
     solution: absorbed
     preserve:
       - Water
