@@ -92,7 +92,7 @@
     node: crategenericsteel
     containers:
       - entity_storage
-  - type: RequireProjectileTarget
+  - type: Buckle # Goobstation
 
 - type: entity
   parent: CrateGeneric

@@ -1,0 +1,16 @@
+- type: entity
+  parent:
+  - MobSiliconBase
+  id: MobMULE
+  name: MULEbot
+  description: Multiple Utility Load Effector Mk. V. MOVE CRATES.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Silicon/Bots/mule.rsi
+    layers:
+    - state: mulebot0
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+  - type: Strap
+    buckleOffset: "0,0.25"
+  - type: Mule
+  - type: ShowOnBuckle

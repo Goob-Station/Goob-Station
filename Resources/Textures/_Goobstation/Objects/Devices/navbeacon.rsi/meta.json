@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/bd91a1b962fe9bd38e346e9fafd4ebb10784fcb3/icons/obj/objects.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "navbeacon0"
+    },
+    {
+      "name": "navbeacon0-f"
+    },
+    {
+      "name": "navbeacon1"
+    },
+    {
+      "name": "navbeacon1-f"
+    }
+  ]
+}

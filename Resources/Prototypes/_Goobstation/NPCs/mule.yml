@@ -1,0 +1,35 @@
+- type: htnCompound
+  id: MuleTransportCompound
+  branches:
+  - tasks:
+    # TODO: Kill this shit
+    - !type:HTNPrimitiveTask
+      operator: !type:SetDropoffAsOperator
+        targetKey: DropOffTarget
+        targetMoveKey: TargetCoordinates
+
+    - !type:HTNPrimitiveTask
+      operator: !type:MoveToOperator
+        pathfindInPlanning: false
+
+- type: htnCompound
+  id: MULECompound
+  branches:
+  - preconditions:
+    - !type:HasOrdersPrecondition
+      orders: MuleOrderType.Idle
+    tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound
+  - preconditions:
+    - !type:HasOrdersPrecondition
+      orders: MuleOrderType.Transport
+    tasks:
+    - !type:HTNCompoundTask
+      task: MuleTransportCompound
+  - preconditions:
+    - !type:HasOrdersPrecondition
+      orders: MuleOrderType.Return
+    tasks:
+    - !type:HTNCompoundTask
+      task: MuleTransportHomeCompound
