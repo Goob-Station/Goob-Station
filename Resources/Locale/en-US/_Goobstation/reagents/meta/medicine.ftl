@@ -65,3 +65,18 @@ reagent-desc-silver-sulfadiazine = Soothing liquid that can be applied externall
 
 reagent-name-styptic-powder = styptic powder
 reagent-desc-styptic-powder = Vibrant powder that can be applied externally to quickly treat mild bruises. Toxic when in bloodstream. Works on dead.
+
+reagent-name-tehifin = tehifin
+reagent-desc-tehifin = Low potency burn medicine of questionable safety.
+
+reagent-name-ebifin = ebifin
+reagent-desc-ebifin = Extremely strong burn compound with cripplingly low overdose threshold. Reacts violently in bloodstream, quickly healing most burn injuries when used in low amounts.
+
+reagent-name-procenyl-lazide = procenyl lazide
+reagent-desc-procenyl-lazide = Somewhat strong brute medicine with low overdose threshold, heals piercing wounds at a lower rate than its contemporaries.
+
+reagent-name-bozaide = bozaide
+reagent-desc-bozaide = Slow acting brute medicine, deals low amounts of radiation damage.
+
+reagent-name-genecide = genecide
+reagent-desc-genecide = Blows genetic damage away, literally. Make sure to monitor patients taking it.

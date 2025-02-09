@@ -131,3 +131,26 @@
         key: Stutter
         component: StutteringAccent
       - !type:Jitter
+
+- type: reagent
+  id: Aluite
+  name: reagent-name-aluite
+  group: Toxins
+  desc: reagent-desc-aluite
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: bitter
+  color: "#8e8e8e"
+  metabolisms:
+    Poison:
+      metabolismRate: 3
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 6
+        damage:
+          types:
+            Blunt: 20
+      - !type:AdjustReagent
+        amount: -25
+        reagent: Aluite

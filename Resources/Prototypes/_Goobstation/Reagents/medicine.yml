@@ -113,6 +113,8 @@
             messages: [ "reagent-popup-fleshmend" ]
             probability: 0.2
 
+# Normal, but little gimmicky meds
+
 - type: reagent
   id: Probital
   name: reagent-name-probital
@@ -268,8 +270,10 @@
         walkSpeedModifier: 0.9
         sprintSpeedModifier: 0.9
 
+# Patch/microdose meds
+
 - type: reagent
-  id: Syriniver # I think it's only useful for pills, patches, and hypo spam, and as such it's made really good for these cases
+  id: Syriniver
   name: reagent-name-syriniver
   group: Medicine
   desc: reagent-desc-syriniver
@@ -285,20 +289,17 @@
           types:
             Poison: -12
       - !type:AdjustReagent
-        reagent: Musiver # Since we don't have purity, we're assuming 100% purity
+        reagent: Musiver
         amount: 3 # in total it rounds out to 8/u, as long as you use patches; syringes get 4.8/u, worse than dip (6/u)
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 6 # seriously, don't use syringes for this
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
+          min: 6
         damage:
           types:
-            Blunt: 20
+            Blunt: 15
       - !type:AdjustReagent
-        amount: -20
+        amount: -25
         reagent: Syriniver
 
 - type: reagent
@@ -311,18 +312,18 @@
   color: "#e1d758"
   metabolisms:
     Medicine:
-      metabolismRate: 0.25 # note this, should make it possible to OD
+      metabolismRate: 0.25
       effects:
       - !type:HealthChange
         damage:
           types:
-            Poison: -1 # On its own, somewhere in between dylo and dip, but together with syri it's better than dip; it's painful to make and use to balance it
+            Poison: -1
       - !type:ChemCleanBloodstream
         cleanseRate: 0.5
       - !type:HealthChange
         damage:
           groups:
-            Brute: 0.1 # very slight side effect
+            Brute: 0.1
         conditions:
         - !type:OrganType
           type: Yowie
@@ -337,6 +338,134 @@
         damage:
           types:
             Blunt: 5
+
+- type: reagent
+  id: Ebifin
+  name: reagent-name-ebifin
+  group: Medicine
+  desc: reagent-desc-ebifin
+  physicalDesc: reagent-physical-desc-alkaline
+  flavor: medicine
+  color: "#996fcc"
+  metabolisms:
+    Medicine:
+      metabolismRate: 3
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: -24 # seems insane, in practice it's 6 per type, and in result only 2 per u; also no net gain when used with syringes
+      - !type:AdjustReagent
+        reagent: Tehifin
+        amount: 3
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 4
+        damage:
+          types:
+            Blunt: 30
+      - !type:AdjustReagent
+        amount: -50
+        reagent: Ebifin
+
+- type: reagent
+  id: Tehifin
+  name: reagent-name-tehifin
+  group: Medicine
+  desc: reagent-desc-tehifin
+  physicalDesc: reagent-physical-desc-nondescript
+  flavor: medicine
+  color: "#ff8af3"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.5
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: -4
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: 0.1
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        damage:
+          types:
+            Blunt: 5
+
+- type: reagent
+  id: ProcenylLazide
+  name: reagent-name-procenyl-lazide
+  group: Medicine
+  desc: reagent-desc-procenyl-lazide
+  physicalDesc: reagent-physical-desc-alkaline
+  flavor: medicine
+  color: "#ffdf97"
+  metabolisms:
+    Medicine:
+      metabolismRate: 3
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Slash: -6
+            Blunt: -6
+            Piercing: -3 # you don't get to instaheal in a firefight
+      - !type:AdjustReagent
+        reagent: Bozaide
+        amount: 3
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 6
+        damage:
+          types:
+            Blunt: 15
+      - !type:AdjustReagent
+        amount: -25
+        reagent: ProcenylLazide 
+
+- type: reagent
+  id: Bozaide
+  name: reagent-name-bozaide
+  group: Medicine
+  desc: reagent-desc-bozaide
+  physicalDesc: reagent-physical-desc-nondescript
+  flavor: medicine
+  color: "#65583b"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -0.5 # intentionally slow
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: 0.1 # very slight side effect
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+        damage:
+          types:
+            Radiation: 5
+      
+
+# Weird poison stuffs
 
 - type: reagent
   id: Multiver
@@ -406,227 +535,6 @@
         conditions:
         - !type:UniqueBloodstreamChemThreshold
           min: 1 # potential use for checking bloodstream cleanliness?
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
-
-- type: reagent
-  id: Synthcells # synthflesh is pointless in SS14 due to topicals, this work in an inverse way to it, providing way to heal poison in addition to liver transplants
-  name: reagent-name-synthcells
-  group: Medicine
-  desc: reagent-desc-synthcells
-  physicalDesc: reagent-physical-desc-bubbly
-  flavor: strange
-  color: "#ffbebe"
-  worksOnTheDead: true
-  reactiveEffects:
-    Acidic:
-      methods: [ Touch ]
-      effects:
-      - !type:HealthChange
-        scaleByQuantity: true
-        ignoreResistances: false # theoretically allows for degenerate behaviour, in practice should be unlikely; also low healing amount
-        damage:
-          types:
-            Blunt: 1
-          groups:
-            Toxin: -2
-  metabolisms:
-    Medicine:
-      effects:
-      - !type:HealthChange
-        damage:
-          groups:
-            Toxin: -2
-      - !type:HealthChange
-        damage:
-          groups:
-            Brute: 1
-        conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
-
-- type: reagent
-  id: SalicylicAcid
-  name: reagent-name-salicylic-acid
-  group: Medicine
-  desc: reagent-desc-salicylic-acid
-  physicalDesc: reagent-physical-desc-pungent
-  flavor: medicine
-  color: "#e8cb4e"
-  metabolisms:
-    Medicine:
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Blunt: -2
-            Piercing: -2
-            Slash: -2
-        conditions:
-        - !type:TypedDamageThreshold
-          damage:
-            groups:
-              Brute: 25
-        - !type:ReagentThreshold
-          max: 25
-      - !type:HealthChange
-        damage:
-          groups:
-            Brute: -1
-        conditions:
-        - !type:TypedDamageThreshold
-          damage:
-            groups:
-              Brute: 25
-          inverse: true
-        - !type:ReagentThreshold
-          max: 25
-      - !type:HealthChange
-        damage:
-          groups:
-            Brute: 3
-        conditions:
-        - !type:ReagentThreshold
-          min: 25
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
-
-- type: reagent
-  id: Oxandrolone
-  name: reagent-name-oxandrolone
-  group: Medicine
-  desc: reagent-desc-oxandrolone
-  physicalDesc: reagent-physical-desc-sticky
-  flavor: medicine
-  color: "#cac6bf"
-  metabolisms:
-    Medicine:
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Heat: -2
-            Shock: -2
-            Cold: -2
-            Caustic: -1
-        conditions:
-        - !type:TypedDamageThreshold
-          damage:
-            groups:
-              Burn: 25
-        - !type:ReagentThreshold
-          max: 25
-      - !type:HealthChange
-        damage:
-          groups:
-            Burn: -1
-        conditions:
-        - !type:TypedDamageThreshold
-          damage:
-            groups:
-              Burn: 25
-          inverse: true
-        - !type:ReagentThreshold
-          max: 25
-      - !type:HealthChange
-        damage:
-          groups:
-            Burn: 3
-        conditions:
-        - !type:ReagentThreshold
-          min: 25
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
-
-- type: reagent
-  id: PentenicAcid
-  name: reagent-name-pentenic-acid
-  group: Medicine
-  desc: reagent-desc-pentenic-acid
-  physicalDesc: reagent-physical-desc-acidic
-  flavor: medicine
-  color: "#22ff1a"
-  metabolisms:
-    Medicine:
-      effects:
-      - !type:ChemCleanBloodstream
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: -3
-            Radiation: -1 # grants 100% protection from rads until higher rad values
-      - !type:GenericStatusEffect
-        key: RadiationProtection
-        component: RadiationProtection
-        time: 2
-        type: Add
-        refresh: false
-
-- type: reagent
-  id: Atropine
-  name: reagent-name-atropine
-  group: Medicine
-  desc: reagent-desc-atropine
-  physicalDesc: reagent-physical-desc-oily
-  flavor: medicine
-  color: "#ccc7c0"
-  metabolisms:
-    Medicine:
-      metabolismRate: 0.25
-      effects:
-      - !type:HealthChange
-        damage:
-          groups:
-            Airloss: -4
-            Brute: -2
-            Burn: -2
-            Toxin: -2
-        conditions:
-        - !type:MobStateCondition
-          mobstate: Critical
-        - !type:ReagentThreshold
-          min: 0
-          max: 35
-      - !type:MovespeedModifier # and basically every visual/combat side effect that can be reasonably put
-        conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
-        walkSpeedModifier: 0.8
-        sprintSpeedModifier: 0.8
-      - !type:GenericStatusEffect
-        key: Stutter
-        component: StutteringAccent
-      - !type:Jitter
-      - !type:Paralyze
-        conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
-        probability: 0.1
-        paralyzeTime: 2
-      - !type:Paralyze # more severe effect when overdosing
-        conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
-          min: 35
-        probability: 0.2
-        paralyzeTime: 4
-      - !type:Drunk
-        boozePower: 5
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: 2
-        conditions:
-        - !type:ReagentThreshold
-          min: 35
         - !type:OrganType
           type: Yowie
           shouldHave: false
@@ -766,6 +674,8 @@
           type: Yowie
           shouldHave: false
 
+# Low-effect meds
+
 - type: reagent
   id: Antihol # Charcoal hog more than anything
   name: reagent-name-antihol
@@ -825,6 +735,8 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
+
+# externally applied meds
 
 - type: reagent
   id: SilverSulfadiazine
@@ -901,3 +813,254 @@
         - !type:OrganType
           type: Yowie
           shouldHave: false
+
+- type: reagent
+  id: Synthcells # synthflesh is pointless in SS14 due to topicals, this work in an inverse way to it, providing way to heal poison in addition to liver transplants
+  name: reagent-name-synthcells
+  group: Medicine
+  desc: reagent-desc-synthcells
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: strange
+  color: "#ffbebe"
+  worksOnTheDead: true
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false # theoretically allows for degenerate behaviour, in practice should be unlikely; also low healing amount
+        damage:
+          types:
+            Blunt: 1
+          groups:
+            Toxin: -2
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Toxin: -2
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: 1
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+
+# Strong meds
+
+- type: reagent
+  id: SalicylicAcid
+  name: reagent-name-salicylic-acid
+  group: Medicine
+  desc: reagent-desc-salicylic-acid
+  physicalDesc: reagent-physical-desc-pungent
+  flavor: medicine
+  color: "#e8cb4e"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Blunt: -2
+            Piercing: -2
+            Slash: -2
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Brute: 25
+        - !type:ReagentThreshold
+          max: 25
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -1
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Brute: 25
+          inverse: true
+        - !type:ReagentThreshold
+          max: 25
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: 3
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+
+- type: reagent
+  id: Oxandrolone
+  name: reagent-name-oxandrolone
+  group: Medicine
+  desc: reagent-desc-oxandrolone
+  physicalDesc: reagent-physical-desc-sticky
+  flavor: medicine
+  color: "#cac6bf"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: -2
+            Shock: -2
+            Cold: -2
+            Caustic: -1
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Burn: 25
+        - !type:ReagentThreshold
+          max: 25
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: -1
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Burn: 25
+          inverse: true
+        - !type:ReagentThreshold
+          max: 25
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: 3
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+
+- type: reagent
+  id: PentenicAcid
+  name: reagent-name-pentenic-acid
+  group: Medicine
+  desc: reagent-desc-pentenic-acid
+  physicalDesc: reagent-physical-desc-acidic
+  flavor: medicine
+  color: "#22ff1a"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:ChemCleanBloodstream
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -3
+            Radiation: -1 # grants 100% protection from rads until higher rad values
+      - !type:GenericStatusEffect
+        key: RadiationProtection
+        component: RadiationProtection
+        time: 2
+        type: Add
+        refresh: false
+
+- type: reagent
+  id: Atropine
+  name: reagent-name-atropine
+  group: Medicine
+  desc: reagent-desc-atropine
+  physicalDesc: reagent-physical-desc-volatile
+  flavor: medicine
+  color: "#ccc7c0"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.25
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Airloss: -4
+            Brute: -2
+            Burn: -2
+            Toxin: -2
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Critical
+        - !type:ReagentThreshold
+          min: 0
+          max: 35
+      - !type:MovespeedModifier # and basically every visual/combat side effect that can be reasonably put
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        walkSpeedModifier: 0.8
+        sprintSpeedModifier: 0.8
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+      - !type:Jitter
+      - !type:Paralyze
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        probability: 0.1
+        paralyzeTime: 2
+      - !type:Paralyze # more severe effect when overdosing
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 35
+        probability: 0.2
+        paralyzeTime: 4
+      - !type:Drunk
+        boozePower: 5
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 2
+        conditions:
+        - !type:ReagentThreshold
+          min: 35
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+
+# "Crazy" meds
+
+- type: reagent
+  id: Genecide
+  name: reagent-name-genecide
+  group: Medicine
+  desc: reagent-desc-genecide
+  physicalDesc: reagent-physical-desc-oily
+  flavor: medicine
+  color: "#ff5936"
+  metabolisms:
+    Medicine:
+      metabolismRate: 1
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Genetic: -3
+      - !type:ExplosionReactionEffect
+        explosionType: Default
+        maxIntensity: 1
+        intensityPerUnit: 0.5
+        intensitySlope: 1
+        maxTotalIntensity: 1
+        canCreateVacuum: false
+        tileBreakChance: 0
+

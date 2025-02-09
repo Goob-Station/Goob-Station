@@ -9,3 +9,6 @@ reagent-desc-anacea = Quickly flushes most medicines from bloodstream, making it
 
 reagent-name-pendetide = pendetide
 reagent-desc-pendetide = Sometimes made accidentally, amplifies any existing radiation damage. Additionally flushes medicines from bloodstream, making healing difficult.
+
+reagent-name-aluite = aluite
+reagent-desc-aluite = Non-reactive molecule that binds with other drugs to transport them and boost their efficiency. Bursts when in bloodstream, with overdoses causing organ ruptures.
