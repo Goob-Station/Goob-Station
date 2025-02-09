@@ -1,6 +1,8 @@
 - type: accessGroup
   id: ExtendedAccess
   tags:
+  - Command
+  - Cryogenics
   - Security
   - Detective
   - Brig
@@ -21,3 +23,23 @@
   - Chapel
   - Hydroponics
   - Atmospherics
+
+- type: accessGroup
+  id: GeneralAccess
+  tags:
+  - Security
+  - Brig
+  - Lawyer
+  - Engineering
+  - Medical
+  - Cargo
+  - Research
+  - Service
+  - Maintenance
+  - External
+  - Janitor
+  - Theatre
+  - Bar
+  - Kitchen
+  - Chapel
+  - Hydroponics

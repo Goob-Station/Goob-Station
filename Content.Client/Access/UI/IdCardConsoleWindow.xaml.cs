@@ -19,13 +19,17 @@ namespace Content.Client.Access.UI
         [Dependency] private readonly ILogManager _logManager = default!;
         private readonly ISawmill _logMill = default!;
 
-        private static ProtoId<AccessGroupPrototype> ExtendedAccessGroupId = "ExtendedAccess"; // Reserve-IDConsoleActions
+        // Reserve-IDConsoleActions-Start
+        private static ProtoId<AccessGroupPrototype> ExtendedAccessGroupId = "ExtendedAccess";
+        private static ProtoId<AccessGroupPrototype> GeneralAccessGroupId = "GeneralAccess";
+        private readonly AccessGroupPrototype? _extendedAccessGroup;
+        private readonly AccessGroupPrototype? _generalAccessGroup;
+        // Reserve-IDConsoleActions-End
 
         private readonly IdCardConsoleBoundUserInterface _owner;
 
         private AccessLevelControl _accessButtons = new();
         private readonly List<string> _jobPrototypeIds = new();
-        private readonly AccessGroupPrototype? _extendedAccessGroup; // Reserve-IDConsoleActions
 
         private string? _lastFullName;
         private string? _lastJobTitle;
@@ -72,14 +76,24 @@ namespace Content.Client.Access.UI
             }
 
             // Reserve-IDConsoleActions-Start
-            if (_prototypeManager.TryIndex<AccessGroupPrototype>(ExtendedAccessGroupId, out var extendedAccess))
+            if (_prototypeManager.TryIndex(ExtendedAccessGroupId, out var extendedAccess))
             {
                 _extendedAccessGroup = extendedAccess;
             }
             else
             {
                 _logMill.Error($"Unable to find AccessGroup prototype with ID '{ExtendedAccessGroupId}'");
-                ActionGiveExtendedAccessButton.Disabled = true;
+                //ActionGiveExtendedAccessButton.Disabled = true;
+            }
+
+            if (_prototypeManager.TryIndex(GeneralAccessGroupId, out var generalAccess))
+            {
+                _generalAccessGroup = generalAccess;
+            }
+            else
+            {
+                _logMill.Error($"Unable to find AccessGroup prototype with ID '{GeneralAccessGroupId}'");
+                //ActionGiveGeneralAccessButton.Disabled = true;
             }
             // Reserve-IDConsoleActions-End
 
@@ -95,6 +109,13 @@ namespace Content.Client.Access.UI
             // Reserve-IDConsoleActions-Start
             ActionGiveFullAccessButton.OnPressed += _ => ActionGiveAllAccess();
             ActionGiveExtendedAccessButton.OnPressed += _ => AddAccessGroup(_extendedAccessGroup);
+            ActionGiveGeneralAccessButton.OnPressed += _ => AddAccessGroup(_generalAccessGroup);
+            ActionClearAccessButton.OnPressed += _ =>
+            {
+                ClearAllAccess();
+                SubmitData();
+            };
+            ActionSetJobAccessButton.OnPressed += _ => ResetToDefaultJobAccess();
             // Reserve-IDConsoleActions-End
         }
 
@@ -119,6 +140,11 @@ namespace Content.Client.Access.UI
             JobTitleLineEdit.Text = Loc.GetString(job.Name);
             args.Button.SelectId(args.Id);
 
+            // Reserve-IDConsoleActions-Start
+            SetJobAccess(job);
+
+            // If related code below was changed, then you should also put these changes in SetJobAccess(job).
+            /*
             ClearAllAccess();
 
             // this is a sussy way to do this
@@ -145,6 +171,8 @@ namespace Content.Client.Access.UI
                     }
                 }
             }
+            */
+            // Reserve-IDConsoleActions-End
 
             SubmitData();
         }
@@ -188,6 +216,14 @@ namespace Content.Client.Access.UI
             JobTitleSaveButton.Disabled = !interfaceEnabled || !jobTitleDirty;
 
             JobPresetOptionButton.Disabled = !interfaceEnabled;
+
+            // Reserve-IDConsoleActions-Start
+            ActionGiveFullAccessButton.Disabled = !interfaceEnabled;
+            ActionGiveGeneralAccessButton.Disabled = !interfaceEnabled;
+            ActionGiveExtendedAccessButton.Disabled = !interfaceEnabled;
+            ActionClearAccessButton.Disabled = !interfaceEnabled;
+            ActionSetJobAccessButton.Disabled = !interfaceEnabled;
+            // Reserve-IDConsoleActions-End
 
             _accessButtons.UpdateState(state.TargetIdAccessList?.ToList() ??
                                        new List<ProtoId<AccessLevelPrototype>>(),
@@ -257,6 +293,59 @@ namespace Content.Client.Access.UI
             }
             SubmitData();
         }
+
+        public void SetJobAccess(JobPrototype job)
+        {
+            ClearAllAccess();
+
+            // this is a sussy way to do this
+            foreach (var access in job.Access)
+            {
+                if (_accessButtons.ButtonsList.TryGetValue(access, out var button) && !button.Disabled)
+                {
+                    button.Pressed = true;
+                }
+            }
+
+            foreach (var group in job.AccessGroups)
+            {
+                if (!_prototypeManager.TryIndex(group, out AccessGroupPrototype? groupPrototype))
+                {
+                    continue;
+                }
+
+                foreach (var access in groupPrototype.Tags)
+                {
+                    if (_accessButtons.ButtonsList.TryGetValue(access, out var button) && !button.Disabled)
+                    {
+                        button.Pressed = true;
+                    }
+                }
+            }
+
+            SubmitData();
+        }
+
+        public void ResetToDefaultJobAccess()
+        {
+            JobPrototype job;
+            if (_lastJobProto != null && _prototypeManager.TryIndex<JobPrototype>(_lastJobProto, out var nullableJob))
+            {
+                job = nullableJob;
+            }
+            else
+            {
+                if (!_prototypeManager.TryIndex(_defaultJob, out var defaultJob))
+                {
+                    _logMill.Error($"Couldn't assign default job access, because default job not found");
+                    return;
+                }
+                job = defaultJob;
+            }
+
+            SetJobAccess(job);
+        }
+
         // Reserve-IDConsoleActions-End
     }
 }

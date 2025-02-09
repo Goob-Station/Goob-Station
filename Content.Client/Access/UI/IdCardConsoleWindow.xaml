@@ -34,9 +34,12 @@
         <!-- Reserve-IDConsoleActions-Start -->
         <Control MinSize="0 8" />
         <Label Text="{Loc 'id-card-console-window-actions'}" />
-        <GridContainer Columns="2">
+        <GridContainer Columns="3">
             <Button Name="ActionGiveFullAccessButton" Access="Public" Text="{Loc 'id-card-console-window-give-full-access'}" />
             <Button Name="ActionGiveExtendedAccessButton" Access="Public" Text="{Loc 'id-card-console-window-give-extended-access'}" />
+            <Button Name="ActionGiveGeneralAccessButton" Access="Public" Text="{Loc 'id-card-console-window-give-general-access'}" />
+            <Button Name="ActionClearAccessButton" Access="Public" Text="{Loc 'id-card-console-window-clear-access'}" />
+            <Button Name="ActionSetJobAccessButton" Access="Public" Text="{Loc 'id-card-console-window-set-job-access'}" />
         </GridContainer>
         <!-- Reserve-IDConsoleActions-End -->
     </BoxContainer>
