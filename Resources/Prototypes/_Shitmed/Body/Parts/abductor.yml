@@ -29,6 +29,9 @@
   parent: [ PartAbductorBase, BaseHead ]
   id: HeadAbductor
   name: "abductor head"
+  components:
+  - type: Sprite
+    state: head
 
 - type: entity
   parent: [ PartAbductorBase, BaseLeftArm ]
