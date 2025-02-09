@@ -11,6 +11,7 @@
       components:
       - MobState # Goobstation
       - Body
+      - MindContainer
     raiseOnUser: true # Goobstation
     canTargetSelf: false
     interactOnMiss: false

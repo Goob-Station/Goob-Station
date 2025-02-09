@@ -316,6 +316,7 @@
     - ClothingEyesGlassesChemical
     - MaterialBSCrystal
     dynamicRecipes:
+      - PrescriptionGlasses # Goobstation
       - PowerDrill
       - MiningDrill
       - MiningDrillDiamond
@@ -1094,6 +1095,7 @@
       - CartridgeDermaline # Goobstation - ParamedHypo
       - ParamedHypo # Goobstation - ParamedHypo
     dynamicRecipes:
+      - PrescriptionGlasses # Goobstation
       - ChemicalPayload
       - CryostasisBeaker
       - BluespaceBeaker
