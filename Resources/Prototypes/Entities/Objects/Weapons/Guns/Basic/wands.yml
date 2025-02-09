@@ -109,9 +109,9 @@
       map: ["effect"]
   - type: Gun
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/mateba.ogg # PUNCH
+      path: /Audio/_Goobstation/Wizard/wandodeath.ogg # Goob edit
   - type: BasicEntityAmmoProvider
-    proto: BulletInstakillMagic
+    proto: ProjectileDeathBolt # Goob edit
     capacity: 3
     count: 3
 

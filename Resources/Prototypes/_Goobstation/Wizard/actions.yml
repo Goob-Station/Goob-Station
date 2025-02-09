@@ -323,6 +323,7 @@
         - Godmode
         - DeleteOnDropAttempt
         - EnchantedBoltActionRifle
+        - Phylactery
   - type: Magic
     requiresSpeech: true
     school: Necromancy
@@ -792,7 +793,7 @@
   components:
   - type: InstantAction
     raiseOnUser: true
-    useDelay: 30
+    useDelay: 15
     itemIconStyle: BigAction
     icon:
       sprite: _Goobstation/Wizard/actions.rsi
@@ -909,7 +910,7 @@
   - type: InstantAction
     raiseOnUser: true
     checkCanInteract: false
-    useDelay: 2
+    useDelay: 3
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/blink.ogg

@@ -567,6 +567,19 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             return;
 
         args.Minds = ent.Comp.SelectedMinds;
+
+        if (ent.Comp.UseCharacterNames) // Goobstation
+        {
+            args.Minds = args.Minds.Select(x =>
+            {
+                if (!TryComp(x.Item1, out MindComponent? mind) || mind.CharacterName == null)
+                    return x;
+
+                return (x.Item1, mind.CharacterName);
+            })
+            .ToList();
+        }
+
         args.AgentName = Loc.GetString(name);
     }
 }

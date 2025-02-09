@@ -115,7 +115,7 @@
         color: gold
     - type: Spellbook
       spellActions:
-        ActionBlink: -1
+        ActionBlinkSpell: -1 # Goob edit
 
 - type: entity
   id: SmiteBook
@@ -188,7 +188,7 @@
 
 - type: entity
   id: ScrollRunes
-  name: scroll of runes
+  name: scroll of traps # Goob edit
   parent: BaseSpellbook
   components:
   - type: Item
@@ -199,7 +199,4 @@
     - state: spell_default
   - type: Spellbook
     spellActions:
-      ActionFlashRune: -1
-      ActionExplosionRune: -1
-      ActionIgniteRune: -1
-      ActionStunRune: -1
+      ActionTrapsSpell: -1 # Goob edit

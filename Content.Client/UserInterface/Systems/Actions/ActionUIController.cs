@@ -15,6 +15,7 @@ using Content.Client.UserInterface.Systems.Gameplay;
 using Content.Shared._Goobstation.Wizard.Components;
 using Content.Shared._Goobstation.Wizard.SpellCards;
 using Content.Shared.Actions;
+using Content.Shared.Damage;
 using Content.Shared.Input;
 using Content.Shared.Mobs.Components;
 using Robust.Client.GameObjects;
@@ -1051,10 +1052,14 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         var targets =
             _lookup.GetEntitiesInRange<MobStateComponent>(coords, lockOnMark.LockOnRadius, LookupFlags.Dynamic);
         var xformQuery = _entMan.GetEntityQuery<TransformComponent>();
+        var damageableQuery = _entMan.GetEntityQuery<DamageableComponent>();
         List<(float range, EntityUid target)> selectedTargets = new();
         foreach (var (target, _) in targets)
         {
             if (target == _playerManager.LocalEntity)
+                continue;
+
+            if (!damageableQuery.HasComp(target))
                 continue;
 
             if (!xformQuery.TryGetComponent(target, out var targetXform))

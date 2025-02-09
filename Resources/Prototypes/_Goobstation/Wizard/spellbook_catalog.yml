@@ -577,6 +577,26 @@
 
 # Equipment
 - type: listing
+  id: SpellbookSkates
+  name: spellbook-skates-name
+  description: spellbook-skates-desc
+  productEntity: ClothingShoesWizardSkates
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookEquipment
+
+- type: listing
+  id: SpellbookHardsuit
+  name: spellbook-hardsuit-name
+  description: spellbook-hardsuit-desc
+  productEntity: ClothingOuterHardsuitWizard
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEquipment
+
+- type: listing
   id: SpellbookPaperRobe
   name: spellbook-paper-robe-name
   description: spellbook-paper-robe-desc
@@ -659,6 +679,7 @@
   categories:
   - SpellbookEquipment
 
+# Summons
 - type: listing
   id: SpellbookContractApprenticeship
   name: spellbook-apprentice-name
@@ -670,7 +691,7 @@
   cost:
     WizCoin: 2
   categories:
-  - SpellbookEquipment
+  - SpellbookSummons
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1

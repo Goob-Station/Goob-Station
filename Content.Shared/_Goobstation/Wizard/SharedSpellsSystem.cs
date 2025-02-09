@@ -105,6 +105,7 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
     [Dependency] protected readonly ActionContainerSystem ActionContainer = default!;
     [Dependency] protected readonly TagSystem Tag = default!;
+    [Dependency] protected readonly SharedActionsSystem Actions = default!;
     [Dependency] private   readonly INetManager _net = default!;
     [Dependency] private   readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private   readonly InventorySystem _inventory = default!;
@@ -117,7 +118,6 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] private   readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private   readonly SharedBindSoulSystem _bindSoul = default!;
     [Dependency] private   readonly SharedTeslaBlastSystem _teslaBlast = default!;
-    [Dependency] private   readonly SharedActionsSystem _actions = default!;
     [Dependency] private   readonly ExamineSystemShared _examine = default!;
     [Dependency] private   readonly ConfirmableActionSystem _confirmableAction = default!;
     [Dependency] private   readonly SharedWizardTeleportSystem _teleport = default!;
@@ -622,10 +622,10 @@ public abstract class SharedSpellsSystem : EntitySystem
             return;
         spellCardsAction.UsesLeft--;
         if (spellCardsAction.UsesLeft > 0)
-            _actions.SetUseDelay(ev.Action, TimeSpan.FromSeconds(0.5));
+            Actions.SetUseDelay(ev.Action, TimeSpan.FromSeconds(0.5));
         else
         {
-            _actions.SetUseDelay(ev.Action, spellCardsAction.UseDelay);
+            Actions.SetUseDelay(ev.Action, spellCardsAction.UseDelay);
             spellCardsAction.UsesLeft = spellCardsAction.CastAmount;
             RaiseNetworkEvent(new StopTargetingEvent(), ev.Performer);
         }
@@ -1025,7 +1025,7 @@ public abstract class SharedSpellsSystem : EntitySystem
             return;
         }
 
-        if (!TryComp(mind, out ActionsContainerComponent? container) || !RechargeAllSpells(container, ev.Action.Owner))
+        if (!RechargeAllSpells(ev.Performer, ev.Action.Owner))
         {
             Popup(ev.Performer, "spell-fail-no-spells");
             return;
@@ -1139,8 +1139,7 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         bool RechargePerson(EntityUid uid)
         {
-            if (Mind.TryGetMind(uid, out var mind, out _) &&
-                TryComp(mind, out ActionsContainerComponent? container) && RechargeAllSpells(container))
+            if (RechargeAllSpells(uid))
             {
                 PopupCharged(uid, ev.Performer, false);
                 _popup.PopupEntity(Loc.GetString("spell-charge-spells-charged-pulled"), uid, uid, PopupType.Medium);
@@ -1217,17 +1216,17 @@ public abstract class SharedSpellsSystem : EntitySystem
             _popup.PopupEntity(message, performer, performer, PopupType.Medium);
     }
 
-    private bool RechargeAllSpells(ActionsContainerComponent container, EntityUid? except = null)
+    private bool RechargeAllSpells(EntityUid uid, EntityUid? except = null)
     {
         var magicQuery = GetEntityQuery<MagicComponent>();
         var ents = except != null
-            ? container.Container.ContainedEntities.Where(x => x != except.Value && magicQuery.HasComp(x))
-            : container.Container.ContainedEntities.Where(magicQuery.HasComp);
+            ? Actions.GetActions(uid).Where(x => x.Id != except.Value && magicQuery.HasComp(x.Id))
+            : Actions.GetActions(uid).Where(x => magicQuery.HasComp(x.Id));
         var hasSpells = false;
-        foreach (var ent in ents)
+        foreach (var (ent, _) in ents)
         {
             hasSpells = true;
-            _actions.SetCooldown(ent, TimeSpan.Zero);
+            Actions.SetCooldown(ent, TimeSpan.Zero);
         }
 
         return hasSpells;
@@ -1290,7 +1289,7 @@ public abstract class SharedSpellsSystem : EntitySystem
             return item;
 
         QueueDel(item);
-        _actions.SetCooldown(action, TimeSpan.FromSeconds(0.5));
+        Actions.SetCooldown(action, TimeSpan.FromSeconds(0.5));
         return null;
     }
 
@@ -1304,6 +1303,9 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         if (!TryComp(ev.Entity, out TransformComponent? xform))
             return true;
+
+        if (!HasComp<MobStateComponent>(ev.Entity.Value) || !HasComp<DamageableComponent>(ev.Entity.Value))
+            return false;
 
         return TransformSystem.InRange(ev.Coords.Value, xform.Coordinates, lockOnMark.LockOnRadius + 1f);
     }

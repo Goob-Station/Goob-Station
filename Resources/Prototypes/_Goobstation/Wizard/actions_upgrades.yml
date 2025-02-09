@@ -497,7 +497,7 @@
   name: Sanguine Strike II
   components:
   - type: ActionUseDelayModifier
-    useDelay: 20
+    useDelay: 10
 
 - type: entity
   parent: ActionSanguineStrike
@@ -505,7 +505,7 @@
   name: Sanguine Strike III
   components:
   - type: ActionUseDelayModifier
-    useDelay: 10
+    useDelay: 5
 
 # Swap
 - type: entity
@@ -531,7 +531,7 @@
   name: Blink II
   components:
   - type: ActionUseDelayModifier
-    useDelay: 1.6
+    useDelay: 2.4
 
 - type: entity
   parent: ActionBlinkSpell
@@ -539,7 +539,7 @@
   name: Blink III
   components:
   - type: ActionUseDelayModifier
-    useDelay: 1.2
+    useDelay: 1.8
 
 - type: entity
   parent: ActionBlinkSpell
@@ -547,7 +547,7 @@
   name: Blink IV
   components:
   - type: ActionUseDelayModifier
-    useDelay: 0.8
+    useDelay: 1.2
 
 - type: entity
   parent: ActionBlinkSpell
@@ -555,7 +555,7 @@
   name: Blink V
   components:
   - type: ActionUseDelayModifier
-    useDelay: 0.4
+    useDelay: 0.6
 
 # Force Wall
 - type: entity

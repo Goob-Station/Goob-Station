@@ -383,3 +383,39 @@
       - shader: unshaded
         sprite: _Goobstation/Wizard/Effects/effects.rsi
         state: highfreq_slash
+
+- type: entity
+  id: BindSoulParticle
+  name: unholy energy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: Effects
+    noRot: false
+    sprite: _Goobstation/Wizard/Projectiles/lichparticle.rsi
+    layers:
+    - state: icon
+  - type: TimedDespawn
+  - type: Trail
+    frequency: 0.3
+    lifetime: 4
+    lerpTime: 0,1
+    alphaLerpAmount: 0.6
+    shader: unshaded
+    sprite:
+      sprite: /Textures/_Goobstation/Wizard/Projectiles/lichparticle.rsi
+      state: icon
+  - type: Physics
+    bodyStatus: InAir
+    bodyType: Dynamic
+    linearDamping: 0
+    angularDamping: 0
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.1
+        hard: false
+  - type: HomingProjectile
+    homingSpeed: null

@@ -9,7 +9,7 @@ namespace Content.Shared._Goobstation.Wizard.SanguineStrike;
 public sealed partial class SanguineStrikeComponent : Component
 {
     [DataField]
-    public float Lifetime = 60f;
+    public float Lifetime = 15f;
 
     [DataField]
     public float DamageMultiplier = 2f;

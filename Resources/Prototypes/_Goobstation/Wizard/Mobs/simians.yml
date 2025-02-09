@@ -45,10 +45,14 @@
     damage:
       types:
         Blunt: 50
+        Structural: 80
   - type: SlowOnDamage
     speedModifierThresholds:
       210: 0.7
       230: 0.5
+  - type: Insulated
+    coefficient: 0.5
+  - type: FlashImmunity
 
 - type: entity
   name: monkey

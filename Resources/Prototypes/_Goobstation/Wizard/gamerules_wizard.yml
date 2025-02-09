@@ -10,6 +10,7 @@
     objectives:
     - WizardSurviveObjective
   - type: AntagSelection
+    useCharacterNames: true
     selectionTime: BeforeJobs
     agentName: wizard-roundend-name
     definitions:
@@ -65,6 +66,7 @@
     minimumPlayers: 20
     duration: 1
   - type: AntagSelection
+    useCharacterNames: true
     selectionTime: PostPlayerSpawn
     definitions:
     - spawnerPrototype: SpawnPointWizard
@@ -94,6 +96,7 @@
   components:
   - type: GameRule
   - type: AntagSelection
+    useCharacterNames: true
     selectionTime: PostPlayerSpawn
     agentName: apprentice-roundend-name
     definitions:

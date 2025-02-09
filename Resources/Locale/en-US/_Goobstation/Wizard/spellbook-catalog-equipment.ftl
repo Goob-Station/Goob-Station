@@ -1,3 +1,13 @@
+spellbook-skates-name = Wizard Skates
+spellbook-skates-desc =
+    A pair of roller skates that greatly increase your movement speed.
+    These skates are imbued with collision protection magic so you don't have to worry about hitting obstacles.
+
+spellbook-hardsuit-name = Mastercrafted Armor Set
+spellbook-hardsuit-desc =
+    An artefact suit of armor that allows you to cast spells while providing more protection against attacks and the void of space.
+    Cannot be refunded.
+
 spellbook-paper-robe-name = Papier-Mâché Robes
 spellbook-paper-robe-desc =
     Special wizard robes that allow the user to summon angry stick minions to aid them in battle

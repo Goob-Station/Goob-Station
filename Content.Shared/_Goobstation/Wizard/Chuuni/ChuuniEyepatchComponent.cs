@@ -9,7 +9,7 @@ namespace Content.Shared._Goobstation.Wizard.Chuuni;
 public sealed partial class ChuuniEyepatchComponent : Component
 {
     [DataField]
-    public FixedPoint2 HealAmount = 6;
+    public FixedPoint2 HealAmount = 10;
 
     [DataField]
     public string FlippedPrefix = "flipped";

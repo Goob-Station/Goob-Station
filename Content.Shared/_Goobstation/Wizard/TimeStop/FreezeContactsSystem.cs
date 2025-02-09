@@ -6,7 +6,6 @@ using Content.Shared.Actions;
 using Content.Shared.Emoting;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
-using Content.Shared.Mind;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Speech;
@@ -27,7 +26,7 @@ public sealed class FreezeContactsSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
     [Dependency] private readonly TagSystem _tag = default!;
 
@@ -219,9 +218,7 @@ public sealed class FreezeContactsSystem : EntitySystem
             return;
         }
 
-        if (_mind.TryGetMind(otherUid, out var mindId, out _) &&
-            TryComp(mindId, out ActionsContainerComponent? container) &&
-            container.Container.ContainedEntities.Any(e => _tag.HasTag(e, FrozenIgnoreMindActionTag)))
+        if (_actions.GetActions(otherUid).Any(e => _tag.HasTag(e.Id, FrozenIgnoreMindActionTag)))
             return;
 
         EnsureComp<FrozenComponent>(otherUid).FreezeTime = despawn.Lifetime;

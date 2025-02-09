@@ -41,6 +41,7 @@
     - SpellbookUtility      #Body Swap, Lich, Teleport, Knock, Polymorph
     - SpellbookEquipment    #Battlemage Robes, Staff of Locker
     - SpellbookEvents       #Summon Weapons, Summon Ghosts
+    - SpellbookSummons      #Goobstation
     - SpellbookSpecial      #Goobstation
     - SpellbookBundles      #Goobstation
     currencyWhitelist:

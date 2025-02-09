@@ -94,14 +94,14 @@ public sealed class SpellsSystem : SharedSpellsSystem
 
     private void OnMonkeyAscension(Entity<MindContainerComponent> ent, ref SummonSimiansMaxedOutEvent args)
     {
-        var (_, comp) = ent;
+        var (uid, comp) = ent;
         if (!TryComp(comp.Mind, out MindComponent? mindComp) ||
             !TryComp(comp.Mind.Value, out ActionsContainerComponent? container))
             return;
 
         var hasMaxLevelSimians = false;
         var hasGorillaForm = false;
-        foreach (var action in container.Container.ContainedEntities)
+        foreach (var (action, _) in Actions.GetActions(uid))
         {
             if (!hasGorillaForm && Tag.HasTag(action, args.GorillaFormTag))
                 hasGorillaForm = true;
