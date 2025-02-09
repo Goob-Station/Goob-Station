@@ -148,7 +148,7 @@
         - ReagentId: Mugwort
           Quantity: 30
   - type: Icon
-    sprite: Objects/Consumable/Drinks/glass_green.rsi #Placeholder
+    sprite: Objects/Consumable/Drinks/greenteaglass.rsi
     state: icon
 
 - type: entity

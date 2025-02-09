@@ -27,7 +27,7 @@
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 54000 # 15h
-  # guides: [ Wizard ]
+  guides: [ Wizard ]
 
 - type: antag
   id: Apprentice

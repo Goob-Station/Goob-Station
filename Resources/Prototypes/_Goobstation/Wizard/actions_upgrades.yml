@@ -397,7 +397,7 @@
   name: Scream For Me II
   components:
   - type: ActionUseDelayModifier
-    useDelay: 50
+    useDelay: 40
 
 - type: entity
   parent: ActionScreamForMe
@@ -405,7 +405,7 @@
   name: Scream For Me III
   components:
   - type: ActionUseDelayModifier
-    useDelay: 40
+    useDelay: 20
 
 - type: entity
   parent: ActionScreamForMe
@@ -681,7 +681,7 @@
   name: Spell Cards II
   components:
   - type: SpellCardsAction
-    useDelay: 6
+    useDelay: 4
 
 - type: entity
   parent: ActionSpellCards
