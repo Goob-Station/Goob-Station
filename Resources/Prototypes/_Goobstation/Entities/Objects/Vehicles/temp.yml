@@ -21,7 +21,7 @@
     icon:
       sprite: Objects/Fun/bikehorn.rsi #replace whit mime mask
       state: icon
-    #event: !type:QuietBackThereActionEvent
+    event: !type:QuietBackThereActionEvent
     useDelay: 30
 
 - type: entity
@@ -163,8 +163,8 @@
 
   - type: Explosive # Explosive banana peel
     explosionType: Default
-    maxIntensity: 3.4
-    intensitySlope: 3
+    maxIntensity: 3.5
+    intensitySlope: 10
     totalIntensity: 20
     canCreateVacuum: false
     deleteAfterExplosion: false
@@ -240,3 +240,4 @@
     contents:
       - id: TestCowncarBase
       - id: BikeHorn
+      - id: DrinkIrishCarBomb

@@ -233,6 +233,7 @@ public sealed partial class ClownCarEnterDriverSeatDoAfterEvent : SimpleDoAfterE
 public sealed partial class ClownCarOpenTrunkDoAfterEvent : SimpleDoAfterEvent { }
 public sealed partial class ThankRiderActionEvent : InstantActionEvent { }
 public sealed partial class ClowncarFireModeActionEvent : InstantActionEvent { }
+public sealed partial class QuietBackThereActionEvent : InstantActionEvent { }
 
 [Serializable, NetSerializable]
 public enum ClowncarVisuals : byte
