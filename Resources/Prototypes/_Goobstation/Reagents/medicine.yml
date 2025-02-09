@@ -254,7 +254,7 @@
       - !type:HealthChange
         damage:
           types:
-            Asphyxiation: -5 # intended to be stronger, but more annoying than dexP/inapr
+            Asphyxiation: -6 # intended to be stronger, but more annoying than inapr, 
       - !type:TakeStaminaDamage
         conditions:
         - !type:OrganType
@@ -278,8 +278,10 @@
           min: 15
         probability: 0.2
         paralyzeTime: 4
+      - !type:ModifyBleedAmount
+        amount: -0.25
 
-# Patch/microdose meds
+# Patch/microdose meds, hilariously strong due to difficulties in making and using them
 
 - type: reagent
   id: Syriniver
@@ -291,7 +293,7 @@
   color: "#97e239"
   metabolisms:
     Medicine:
-      metabolismRate: 3 # basically we're using the "undermetabolism" system that scales down effects, so that even syringes waste some effectivness
+      metabolismRate: 3
       effects:
       - !type:HealthChange
         damage:
@@ -299,7 +301,7 @@
             Poison: -12
       - !type:AdjustReagent
         reagent: Musiver
-        amount: 3 # in total it rounds out to 8/u, as long as you use patches; syringes get 4.8/u, worse than dip (6/u)
+        amount: 3
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -458,7 +460,7 @@
           types:
             Slash: -6
             Blunt: -6
-            Piercing: -3 # you don't get to instaheal in a firefight
+            Piercing: -6
       - !type:AdjustReagent
         reagent: Bozaide
         amount: 3

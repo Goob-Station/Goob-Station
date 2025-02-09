@@ -11,3 +11,245 @@
       amount: 1
   products:
     Barozine: 1
+
+- type: reaction
+  id: Probital
+  reactants:
+    Acetone:
+      amount: 2
+    Copper:
+      amount: 1
+    Phosphorus:
+      amount: 1
+  products:
+    Probital: 4
+
+- type: reaction
+  id: Tirimol
+  reactants:
+    Acetone:
+      amount: 2
+    Nitrogen:
+      amount: 3
+    SulfuricAcid:
+      amount: 1
+      catalyst: true
+    Oxygen:
+      amount: 1
+      catalyst: true
+  products:
+    Tirimol: 5
+
+# have fun making these once in never and then dying to OD :gocoin:
+
+- type: reaction
+  id: Syriniver
+  maximumTemperature: 200
+  reactants:
+    NitrousOxide:
+      amount: 2
+    Toxin:
+      amount: 1
+    Fluorine:
+      amount: 1
+    Sulfur:
+      amount: 1
+    Aluite:
+      amount: 5
+  products:
+    Syriniver: 5
+
+- type: reaction
+  id: Ebifin
+  minimumTemperature: 800 # actually hotbeakerable
+  reactants:
+    Fresium:
+      amount: 2
+    PolytrinicAcid:
+      amount: 1
+    Licoxide:
+      amount: 1
+    ChlorineTrifluoride:
+      amount: 1
+    Aluite:
+      amount: 5
+  products:
+    Ebifin: 5
+
+- type: reaction
+  id: ProcenylLazide
+  maximumTemperature: 200
+  reactants:
+    Healium:
+      amount: 2
+    Razorium:
+      amount: 1
+    Plasma:
+      amount: 1
+    Phlogiston:
+      amount: 1
+    Aluite:
+      amount: 5
+  products:
+    ProcenylLazide: 5
+
+- type: reaction
+  id: Multiver
+  maximumTemperature: 320 # cool your beaker!
+  reactants:
+    Charcoal:
+      amount: 1
+    TableSalt:
+      amount: 1
+  products:
+    Multiver: 2
+
+- type: reaction
+  id: Monover
+  minimumTemperature: 330 # or suffer the consequences
+  reactants:
+    Charcoal:
+      amount: 1
+    TableSalt:
+      amount: 1
+  products:
+    Monover: 2
+
+- type: reaction
+  id: Calomel
+  minimumTemperature: 370
+  reactants:
+    Mercury:
+      amount: 1
+    Lithium:
+      amount: 1
+  products:
+    Calomel: 2
+
+- type: reaction
+  id: AmmoniatedMercury
+  reactants:
+    Calomel:
+      amount: 1
+    Ammonia:
+      amount: 1
+  products:
+    AmmoniatedMercury: 2
+
+- type: reaction
+  id: Antihol
+  reactants:
+    Charcoal:
+      amount: 2
+    Ethanol:
+      amount: 1
+  products:
+    Antihol: 3
+
+- type: reaction # This will do until we get molecular chemistry in
+  id: Ibuprofen 
+  reactants:
+    Charcoal:
+      amount: 1
+    Benzene:
+      amount: 1
+    Fluoride:
+      amount: 1
+      catalyst: true
+  products:
+    Ibuprofen: 2
+
+- type: reaction
+  id: SilverSulfadiazine
+  reactants:
+    Silver: # actually using silver cuz it's just strong
+      amount: 1
+    Chlorine:
+      amount: 1
+    Ammonia:
+      amount: 1
+    Oxygen:
+      amount: 1
+    Sulfur:
+      amount: 1
+  products:
+    SilverSulfadiazine: 5
+
+- type: reaction
+  id: StypticPowder
+  reactants:
+    Aluminium:
+      amount: 1
+    Hydrogen:
+      amount: 1
+    SulfuricAcid:
+      amount: 1
+    Oxygen:
+      amount: 1
+      catalyst: true
+  products:
+    StypticPowder: 3  
+
+- type: reaction
+  id: Synthcells
+  reactants:
+    SodiumPolyacrylate:
+      amount: 1
+    Phenol:
+      amount: 1
+    Blood:
+      amount: 1
+    Carbon:
+      amount: 1
+  products:
+    Synthcells: 4
+
+- type: reaction
+  id: SalicylicAcid
+  reactants:
+    Omnizine:
+      amount: 1
+    Bicaridine:
+      amount: 1
+  products:
+    SalicylicAcid: 2
+
+- type: reaction
+  id: Oxandrolone
+  reactants:
+    Omnizine:
+      amount: 1
+    Dermaline:
+      amount: 1
+  products:
+    Oxandrolone: 2
+
+- type: reaction
+  id: PentenicAcid
+  reactants:
+    Omnizine:
+      amount: 1
+    PotassiumIodine:
+      amount: 1
+  products:
+    PentenicAcid: 2
+
+- type: reaction
+  id: Atropine
+  reactants:
+    Omnizine:
+      amount: 1
+    Epinephrine:
+      amount: 1
+  products:
+    Atropine: 2
+
+- type: reaction
+  id: Genecide
+  reactants:
+    Phalanximine:
+      amount: 1
+    ChlorineTrifluoride:
+      amount: 1
+  products:
+    Genecide: 2
