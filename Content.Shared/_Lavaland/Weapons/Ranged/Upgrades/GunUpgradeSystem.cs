@@ -1,18 +1,21 @@
+using Content.Shared._Lavaland.Weapons.Ranged.Upgrades.Components;
+using Content.Shared.CCVar;
+using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Tag;
 using Content.Shared.Weapons.Ranged.Events;
-using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Weapons.Ranged.Systems;
-using Content.Shared._Lavaland.Weapons.Ranged.Upgrades.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
-using Content.Shared.Damage;
-using Content.Shared.Mobs.Components;
+using Robust.Shared.Configuration;
+using System.Linq;
 
 namespace Content.Shared._Lavaland.Weapons.Ranged.Upgrades;
 
@@ -25,6 +28,7 @@ public sealed class GunUpgradeSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private readonly IConfigurationManager _config = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -36,8 +40,9 @@ public sealed class GunUpgradeSystem : EntitySystem
         SubscribeLocalEvent<UpgradeableGunComponent, GunRefreshModifiersEvent>(RelayEvent);
         SubscribeLocalEvent<UpgradeableGunComponent, GunShotEvent>(RelayEvent);
 
+        SubscribeLocalEvent<GunUpgradeComponent, ExaminedEvent>(OnUpgradeExamine);
         SubscribeLocalEvent<GunUpgradeFireRateComponent, GunRefreshModifiersEvent>(OnFireRateRefresh);
-        SubscribeLocalEvent<GunComponentUpgrateComponent, GunRefreshModifiersEvent>(OnCompsRefresh);
+        SubscribeLocalEvent<GunComponentUpgradeComponent, GunRefreshModifiersEvent>(OnCompsRefresh);
         SubscribeLocalEvent<GunUpgradeSpeedComponent, GunRefreshModifiersEvent>(OnSpeedRefresh);
         SubscribeLocalEvent<GunUpgradeDamageComponent, GunShotEvent>(OnDamageGunShot);
         SubscribeLocalEvent<GunUpgradeComponentsComponent, GunShotEvent>(OnDamageGunShotComps);
@@ -47,20 +52,26 @@ public sealed class GunUpgradeSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, UpgradeableGunComponent component, MapInitEvent args)
     {
-        // Create item slots for each possible upgrade slot
-        for (var i = 0; i < component.MaxUpgradeCount; i++)
-        {
-            var slotId = $"{component.UpgradesContainerId}-{i}";
-            var slot = new ItemSlot
-            {
-                Whitelist = component.Whitelist,
-                Swap = false,
-                EjectOnBreak = true,
-                Name = Loc.GetString("upgradeable-gun-slot-name", ("value", i + 1))
-            };
+        var itemSlots = EnsureComp<ItemSlotsComponent>(uid);
+        CreateNewSlot(uid, component, itemSlots);
+    }
 
-            _itemSlots.AddItemSlot(uid, slotId, slot);
-        }
+    private void CreateNewSlot(EntityUid uid, UpgradeableGunComponent component, ItemSlotsComponent? slotComp = null)
+    {
+        if (!Resolve(uid, ref slotComp))
+            return;
+
+        var slotCount = slotComp.Slots.Count;
+        var slotId = $"{component.UpgradesContainerId}-{slotCount + 1}";
+        var slot = new ItemSlot
+        {
+            Whitelist = component.Whitelist,
+            Swap = false,
+            EjectOnBreak = true,
+            Name = Loc.GetString("upgradeable-gun-slot-name", ("value", slotCount + 1))
+        };
+
+        _itemSlots.AddItemSlot(uid, slotId, slot, slotComp);
     }
 
     private void RelayEvent<T>(Entity<UpgradeableGunComponent> ent, ref T args) where T : notnull
@@ -73,13 +84,22 @@ public sealed class GunUpgradeSystem : EntitySystem
 
     private void OnExamine(Entity<UpgradeableGunComponent> ent, ref ExaminedEvent args)
     {
+        int usedCapacity = 0;
         using (args.PushGroup(nameof(UpgradeableGunComponent)))
         {
             foreach (var upgrade in GetCurrentUpgrades(ent))
             {
                 args.PushMarkup(Loc.GetString(upgrade.Comp.ExamineText));
+                usedCapacity += upgrade.Comp.CapacityCost;
             }
+            args.PushMarkup(Loc.GetString("upgradeable-gun-total-remaining-capacity", ("value", ent.Comp.MaxUpgradeCapacity - usedCapacity)));
         }
+    }
+
+    private void OnUpgradeExamine(Entity<GunUpgradeComponent> ent, ref ExaminedEvent args)
+    {
+        args.PushMarkup(Loc.GetString(ent.Comp.ExamineText));
+        args.PushMarkup(Loc.GetString("gun-upgrade-examine-text-capacity-cost", ("value", ent.Comp.CapacityCost)));
     }
 
     private void OnInteractUsing(Entity<UpgradeableGunComponent> ent, ref InteractUsingEvent args)
@@ -90,11 +110,11 @@ public sealed class GunUpgradeSystem : EntitySystem
             || _entityWhitelist.IsWhitelistFail(ent.Comp.Whitelist, args.Used))
             return;
 
-        if (GetCurrentUpgrades(ent).Count >= ent.Comp.MaxUpgradeCount)
-        {
-            _popup.PopupPredicted(Loc.GetString("upgradeable-gun-popup-upgrade-limit"), ent, args.User);
-            return;
-        }
+        var currentUpgrades = GetCurrentUpgrades(ent, itemSlots);
+
+        // Create a new slot if all current slots are filled
+        if (currentUpgrades.Count + 1 > itemSlots.Slots.Count)
+            CreateNewSlot(ent, ent.Comp);
 
         if (_itemSlots.TryInsertEmpty((ent.Owner, itemSlots), args.Used, args.User, true))
             _gun.RefreshModifiers(ent.Owner);
@@ -104,13 +124,30 @@ public sealed class GunUpgradeSystem : EntitySystem
 
     private void OnItemSlotInsertAttemptEvent(Entity<UpgradeableGunComponent> ent, ref ItemSlotInsertAttemptEvent args)
     {
-        var itemProto = MetaData(args.Item).EntityPrototype?.ID;
-        for (var i = 0; i < ent.Comp.MaxUpgradeCount; i++)
-        {
-            var slotId = $"{ent.Comp.UpgradesContainerId}-{i}";
+        // TODO: Figure out how to kill the interaction verbs bypassing checks, yet also allowing
+        // for non-duplicate popups to the user when they interact without having to do all of this crap twice.
 
-            if (_itemSlots.GetItemOrNull(ent, slotId) is { } existingItem
-                && MetaData(existingItem).EntityPrototype?.ID == itemProto)
+        if (!TryComp<GunUpgradeComponent>(args.Item, out var upgradeComp)
+            || !TryComp<ItemSlotsComponent>(ent, out var itemSlots))
+            return;
+
+        var currentUpgrades = GetCurrentUpgrades(ent, itemSlots);
+        var totalCapacityCost = currentUpgrades.Sum(upgrade => upgrade.Comp.CapacityCost);
+        if (totalCapacityCost + upgradeComp.CapacityCost > ent.Comp.MaxUpgradeCapacity)
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        var allowDupes = _config.GetCVar(CCVars.AllowDuplicatePkaModules);
+        var itemProto = MetaData(args.Item).EntityPrototype?.ID;
+        foreach (var itemSlot in itemSlots.Slots.Values)
+
+        {
+            if (itemSlot.HasItem
+                && itemSlot.Item is { } existingItem
+                && MetaData(existingItem).EntityPrototype?.ID == itemProto
+                && !allowDupes)
             {
                 args.Cancelled = true;
                 break;
@@ -123,7 +160,7 @@ public sealed class GunUpgradeSystem : EntitySystem
         args.FireRate *= ent.Comp.Coefficient;
     }
 
-    private void OnCompsRefresh(Entity<GunComponentUpgrateComponent> ent, ref GunRefreshModifiersEvent args)
+    private void OnCompsRefresh(Entity<GunComponentUpgradeComponent> ent, ref GunRefreshModifiersEvent args)
     {
         EntityManager.AddComponents(args.Gun, ent.Comp.Components);
     }
@@ -169,18 +206,19 @@ public sealed class GunUpgradeSystem : EntitySystem
         _damage.TryChangeDamage(args.Shooter, ent.Comp.DamageOnHit);
     }
 
-    public HashSet<Entity<GunUpgradeComponent>> GetCurrentUpgrades(Entity<UpgradeableGunComponent> ent)
+    public HashSet<Entity<GunUpgradeComponent>> GetCurrentUpgrades(Entity<UpgradeableGunComponent> ent, ItemSlotsComponent? itemSlots = null)
     {
+        if (!Resolve(ent, ref itemSlots))
+            return new HashSet<Entity<GunUpgradeComponent>>();
+
         var upgrades = new HashSet<Entity<GunUpgradeComponent>>();
 
-        for (var i = 0; i < ent.Comp.MaxUpgradeCount; i++)
+        foreach (var itemSlot in itemSlots.Slots.Values)
         {
-            var slotId = $"{ent.Comp.UpgradesContainerId}-{i}";
-            if (_itemSlots.GetItemOrNull(ent, slotId) is { } item &&
-                TryComp<GunUpgradeComponent>(item, out var upgradeComp))
-            {
+            if (itemSlot.HasItem
+                && itemSlot.Item is { } item
+                && TryComp<GunUpgradeComponent>(item, out var upgradeComp))
                 upgrades.Add((item, upgradeComp));
-            }
         }
 
         return upgrades;

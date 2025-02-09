@@ -14,5 +14,8 @@ public sealed partial class UpgradeableGunComponent : Component
     public EntityWhitelist Whitelist = new();
 
     [DataField]
-    public int MaxUpgradeCount = 3;
+    public int? MaxUpgradeCount;
+
+    [DataField]
+    public int MaxUpgradeCapacity = 100;
 }
