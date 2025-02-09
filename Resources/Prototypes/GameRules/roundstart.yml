@@ -176,7 +176,7 @@
   id: Traitor
   components:
   - type: GameRule
-    minPlayers: 9 # Reserve edit, min 9 playes for traitors 
+    minPlayers: 5 # Reserve edit, min 5 playes for traitors 
   - type: AntagSelection
     selectionTime: BeforeJobs # Goobstation
     definitions:

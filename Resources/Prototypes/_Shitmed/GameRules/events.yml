@@ -28,6 +28,7 @@
         sound: /Audio/_Shitmed/Misc/abductor.ogg
       components:
       - type: Abductor
+      - type: Telepathy # Ayy lmao
       - type: GlorpAccent #Gloob - Glorpfix
       - type: AbductorScientist
       - type: SurgeryIgnoreClothing
