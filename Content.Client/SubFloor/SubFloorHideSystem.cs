@@ -31,7 +31,8 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
         get => _showVentPipe;
         set
         {
-            if (_showVentPipe == value) return;
+            if (_showVentPipe == value)
+                return;
             _showVentPipe = value;
 
             UpdateAll();
@@ -55,12 +56,7 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
 
         scannerRevealed &= !ShowAll; // no transparency for show-subfloor mode.
 
-        var showVentPipe = false;    //Goobstation - Ventcrawler
-        if (HasComp<PipeAppearanceComponent>(uid))   //Goobstation - Ventcrawler
-        {
-            showVentPipe = ShowVentPipe;
-        }
-
+        var showVentPipe = HasComp<PipeAppearanceComponent>(uid) && ShowVentPipe;    //Goobstation - Ventcrawler
         var revealed = !covered || ShowAll || scannerRevealed || showVentPipe;   //Goobstation - Ventcrawler
 
         // set visibility & color of each layer

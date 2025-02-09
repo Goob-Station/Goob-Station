@@ -40,9 +40,7 @@ public sealed class SharedVentTubeSystem : EntitySystem
     private bool CanConnect(EntityUid tubeId, VentCrawlerTubeComponent tube, Direction direction)
     {
         if (!tube.Connected)
-        {
             return false;
-        }
 
         var ev = new GetVentCrawlingsConnectableDirectionsEvent();
         RaiseLocalEvent(tubeId, ref ev);

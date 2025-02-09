@@ -65,9 +65,7 @@ public sealed class VentCrawableSystem : EntitySystem
             }
 
             if (EntityManager.TryGetComponent(entity, out PhysicsComponent? physics))
-            {
                 _physicsSystem.WakeBody(entity, body: physics);
-            }
         }
 
         EntityManager.DeleteEntity(uid);

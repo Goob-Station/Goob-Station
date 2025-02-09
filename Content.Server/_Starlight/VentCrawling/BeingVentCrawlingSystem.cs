@@ -50,6 +50,7 @@ public sealed class BeingVentCrawSystem : EntitySystem
 
         if (!TryComp(holder.CurrentTube.Value, out NodeContainerComponent? nodeContainer))
             return;
+
         foreach (var nodeContainerNode in nodeContainer.Nodes)
         {
             if (!_nodeContainer.TryGetNode(nodeContainer, nodeContainerNode.Key, out PipeNode? pipe))
@@ -69,6 +70,7 @@ public sealed class BeingVentCrawSystem : EntitySystem
 
         if (!TryComp(holder.CurrentTube.Value, out NodeContainerComponent? nodeContainer))
             return;
+
         foreach (var nodeContainerNode in nodeContainer.Nodes)
         {
             if (!_nodeContainer.TryGetNode(nodeContainer, nodeContainerNode.Key, out PipeNode? pipe))

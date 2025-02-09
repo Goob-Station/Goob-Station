@@ -40,7 +40,6 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
         SubscribeLocalEvent<VentCrawlerTubeComponent, AnchorStateChangedEvent>(OnAnchorChange);
         SubscribeLocalEvent<VentCrawlerTubeComponent, BreakageEventArgs>(OnBreak);
         SubscribeLocalEvent<VentCrawlerTubeComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<VentCrawlerTubeComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<VentCrawlerTubeComponent, ConstructionBeforeDeleteEvent>(OnDeconstruct);
         SubscribeLocalEvent<VentCrawlerBendComponent, GetVentCrawlingsConnectableDirectionsEvent>(OnGetBendConnectableDirections);
         SubscribeLocalEvent<VentCrawlerEntryComponent, GetVentCrawlingsConnectableDirectionsEvent>(OnGetEntryConnectableDirections);
@@ -120,19 +119,13 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
     }
 
     private void OnComponentInit(EntityUid uid, VentCrawlerTubeComponent tube, ComponentInit args)
-    {
-        tube.Contents = _containerSystem.EnsureContainer<Container>(uid, tube.ContainerId);
-    }
+        => tube.Contents = _containerSystem.EnsureContainer<Container>(uid, tube.ContainerId);
 
     private void OnComponentRemove(EntityUid uid, VentCrawlerTubeComponent tube, ComponentRemove args)
-    {
-        DisconnectTube(uid, tube);
-    }
+        => DisconnectTube(uid, tube);
 
     private void OnShutdown(EntityUid uid, VentCrawlerTubeComponent tube, ComponentShutdown args)
-    {
-        DisconnectTube(uid, tube);
-    }
+        => DisconnectTube(uid, tube);
 
     private void OnGetBendConnectableDirections(EntityUid uid, VentCrawlerBendComponent component, ref GetVentCrawlingsConnectableDirectionsEvent args)
     {
@@ -165,47 +158,29 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
     }
 
     private void OnDeconstruct(EntityUid uid, VentCrawlerTubeComponent component, ConstructionBeforeDeleteEvent args)
-    {
-        DisconnectTube(uid, component);
-    }
+        => DisconnectTube(uid, component);
 
-    private void OnStartup(EntityUid uid, VentCrawlerTubeComponent component, ComponentStartup args)
-    {
-        //UpdateAnchored(uid, component, Transform(uid).Anchored);
-    }
     private void OnMapInit(EntityUid uid, VentCrawlerTubeComponent component, MapInitEvent args)
-    {
-        UpdateAnchored(uid, component, Transform(uid).Anchored);
-    }
+        => UpdateAnchored(uid, component, Transform(uid).Anchored);
 
     private void OnBreak(EntityUid uid, VentCrawlerTubeComponent component, BreakageEventArgs args)
-    {
-        DisconnectTube(uid, component);
-    }
+        => DisconnectTube(uid, component);
 
     private void OnAnchorChange(EntityUid uid, VentCrawlerTubeComponent component, ref AnchorStateChangedEvent args)
-    {
-        UpdateAnchored(uid, component, args.Anchored);
-    }
+        => UpdateAnchored(uid, component, args.Anchored);
 
     private void UpdateAnchored(EntityUid uid, VentCrawlerTubeComponent component, bool anchored)
     {
         if (anchored)
-        {
             ConnectTube(uid, component);
-        }
         else
-        {
             DisconnectTube(uid, component);
-        }
     }
 
     private static void ConnectTube(EntityUid _, VentCrawlerTubeComponent tube)
     {
         if (tube.Connected)
-        {
             return;
-        }
 
         tube.Connected = true;
     }
@@ -214,9 +189,7 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
     private void DisconnectTube(EntityUid _, VentCrawlerTubeComponent tube)
     {
         if (!tube.Connected)
-        {
             return;
-        }
 
         tube.Connected = false;
 

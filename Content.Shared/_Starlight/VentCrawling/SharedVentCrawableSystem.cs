@@ -120,11 +120,13 @@ public sealed class SharedVentCrawableSystem : EntitySystem
     {
         if (!Resolve(holderUid, ref holder, ref holderTransform))
             return false;
+
         if (holder.IsExitingVentCraws)
         {
             Log.Error("Tried entering tube after exiting VentCraws. This should never happen.");
             return false;
         }
+
         if (!Resolve(toUid, ref to, ref toTransform))
         {
             var ev = new VentCrawlingExitEvent();
@@ -144,6 +146,7 @@ public sealed class SharedVentCrawableSystem : EntitySystem
             RaiseLocalEvent(holderUid, ref ev);
             return false;
         }
+
         if (TryComp<PhysicsComponent>(holderUid, out var physBody))
             _physicsSystem.SetCanCollide(holderUid, false, body: physBody);
 
@@ -152,6 +155,7 @@ public sealed class SharedVentCrawableSystem : EntitySystem
             holder.PreviousTube = holder.CurrentTube;
             holder.PreviousDirection = holder.CurrentDirection;
         }
+
         holder.CurrentTube = toUid;
 
         return true;
@@ -204,9 +208,7 @@ public sealed class SharedVentCrawableSystem : EntitySystem
             {
                 var time = frameTime;
                 if (time > holder.TimeLeft)
-                {
                     time = holder.TimeLeft;
-                }
 
                 var progress = 1 - holder.TimeLeft / holder.StartingTime;
                 var origin = Transform(currentTube).Coordinates;
@@ -221,8 +223,10 @@ public sealed class SharedVentCrawableSystem : EntitySystem
             else if (holder.NextTube != null && holder.TimeLeft == 0)
             {
                 var welded = false;
+
                 if (TryComp<WeldableComponent>(holder.NextTube.Value, out var weldableComponent))
                     welded = weldableComponent.IsWelded;
+
                 if (HasComp<VentCrawlerEntryComponent>(holder.NextTube.Value) && !holder.FirstEntry && !welded)
                 {
                     var ev = new VentCrawlingExitEvent();
