@@ -1,6 +1,6 @@
 - type: entity
   name: cryo katana
-  parent: [Katana, BaseSyndicateContraband]
+  parent: [Katana, BaseMagicContraband]
   id: CryoKatana
   description: Freeze your enemies.
   components:
@@ -26,3 +26,5 @@
   - type: MeleeDash
   - type: UseDelay
     delay: 1.5
+  - type: StaticPrice
+    price: 50000
