@@ -98,7 +98,7 @@
   - type: Item
     size: Normal
   - type: Clothing
-    sprite: _Goobstation\Objects\Weapons\Melee\pans\tungstenpan.rsi
+    sprite: _Goobstation\Objects\Weapons\Melee\pans\respan.rsi
     slots:
     - suitstorage
 
