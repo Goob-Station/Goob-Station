@@ -59,9 +59,7 @@ public sealed class SharedVentCrawableSystem : EntitySystem
     /// <param name="holder">The VentCrawlerHolderComponent instance.</param>
     /// <param name="args">The ComponentStartup arguments.</param>
     private void OnComponentStartup(EntityUid uid, VentCrawlerHolderComponent holder, ComponentStartup args)
-    {
-        holder.Container = _containerSystem.EnsureContainer<Container>(uid, nameof(VentCrawlerHolderComponent));
-    }
+        => holder.Container = _containerSystem.EnsureContainer<Container>(uid, nameof(VentCrawlerHolderComponent));
 
     /// <summary>
     /// Tries to insert an entity into the VentCrawlerHolderComponent container.

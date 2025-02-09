@@ -60,7 +60,7 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
         AlternativeVerb verb = new()
         {
             Act = () => TryEnter(uid, args.User, ventCrawlerComponent),
-            Text = "Enter Pipe Network"//Loc.GetString("comp-climbable-verb-climb")
+            Text = Loc.GetString("cventcrawling-enter-pipe-network")
         };
         args.Verbs.Add(verb);
     }
@@ -77,35 +77,27 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
 
     private void TryEnter(EntityUid uid, EntityUid user, VentCrawlerComponent crawler)
     {
-        if (TryComp<WeldableComponent>(uid, out var weldableComponent))
-        {
-            if (weldableComponent.IsWelded)
+        if (TryComp<WeldableComponent>(uid, out var weldableComponent) && weldableComponent.IsWelded)
             {
                 _popup.PopupEntity(Loc.GetString("entity-storage-component-welded-shut-message"), user);
                 return;
             }
-        }
+
         if (!crawler.AllowInventory){
             if (_inventory.TryGetSlotEntity(user, "outerClothing", out var suit) || _inventory.TryGetSlotEntity(user, "back", out var backpack))
             {
-                _popup.PopupEntity("your equiptment is blocking you from entering the pipe network", user);
+                _popup.PopupEntity(Loc.GetString("ventcrawling-block-enter-reson-equiptment"), user);
                 return;
             }
-            if (_hands.TryGetHand(user, "body_part_slot_right hand", out var rhand))
+            if (_hands.TryGetHand(user, "body_part_slot_right hand", out var rhand) && !rhand.IsEmpty)
             {
-                if (!rhand.IsEmpty)
-                {
-                    _popup.PopupEntity("need my hands free to enter the pipe network", user);
-                    return;
-                }
+                _popup.PopupEntity(Loc.GetString("ventcrawling-block-enter-reson-hand"), user);
+                return;
             }
-            if (_hands.TryGetHand(user, "body_part_slot_left hand", out var lhand))
+            if (_hands.TryGetHand(user, "body_part_slot_left hand", out var lhand) && !lhand.IsEmpty)
             {
-                if (!lhand.IsEmpty)
-                {
-                    _popup.PopupEntity("need my hands free to enter the pipe network", user);
-                    return;
-                }
+                _popup.PopupEntity(Loc.GetString("ventcrawling-block-enter-reson-hand"), user);
+                return;
             }
         }
 
@@ -136,9 +128,7 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
     }
 
     private void OnGetEntryConnectableDirections(EntityUid uid, VentCrawlerEntryComponent component, ref GetVentCrawlingsConnectableDirectionsEvent args)
-    {
-        args.Connectable = new[] { Transform(uid).LocalRotation.GetDir() };
-    }
+        => args.Connectable = new[] { Transform(uid).LocalRotation.GetDir() };
 
     private void OnGetJunctionConnectableDirections(EntityUid uid, VentCrawlerJunctionComponent component, ref GetVentCrawlingsConnectableDirectionsEvent args)
     {
