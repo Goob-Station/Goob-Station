@@ -245,7 +245,6 @@ namespace Content.IntegrationTests.Tests
 
                 // makes an announcement on mapInit.
                 "AnnounceOnSpawn",
-                "Bingle", //Goobstation - temp added for check testing
             };
 
             Assert.That(server.CfgMan.GetCVar(CVars.NetPVS), Is.False);
