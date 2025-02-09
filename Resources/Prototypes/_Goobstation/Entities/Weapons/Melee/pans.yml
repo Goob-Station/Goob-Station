@@ -40,7 +40,7 @@
   description: A heavy tungsten frying pan that was made by some masachist, good luck cooking with this.
   components:
   - type: Sprite
-    sprite: _Goobstation\Objects\Weapons\Melee\pans\tungstenpan.rsi # if u want to make it more stealthy, just use non-tungsten version
+    sprite: _Goobstation\Objects\Weapons\Melee\pans\tungstenpan.rsi
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: 65
@@ -72,7 +72,7 @@
   suffix: Admeme, 100 heal
   parent: BaseItem
   id: FryingPanHeal
-  description: Violent way of healing tiders.
+  description: bonk, u r alive now
   components:
   - type: Sprite
     sprite: _Goobstation\Objects\Weapons\Melee\pans\respan.rsi
