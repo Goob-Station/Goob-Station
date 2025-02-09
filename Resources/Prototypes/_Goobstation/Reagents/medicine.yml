@@ -1054,13 +1054,17 @@
       - !type:HealthChange
         damage:
           groups:
-            Genetic: -3
+            Genetic: -6
+      - !type:HealthChange # this + explosion rounds out to ~90dmg/15u
+        damage:
+          types:
+            Heat: 1
+            Blunt: 1
+            Piercing: 1
       - !type:ExplosionReactionEffect
         explosionType: Default
-        maxIntensity: 1
-        intensityPerUnit: 0.5
+        maxIntensity: 0.4
+        intensityPerUnit: 0.2
         intensitySlope: 1
-        maxTotalIntensity: 1
-        canCreateVacuum: false
-        tileBreakChance: 0
+        maxTotalIntensity: 0.4
 
