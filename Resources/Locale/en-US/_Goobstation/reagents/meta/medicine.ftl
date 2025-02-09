@@ -16,7 +16,7 @@ reagent-name-mitogen = mitogen
 reagent-desc-mitogen = Converts nutrients into peptides for highly efficient healing. Can be accidentally overdosed on, resulting in vomiting.
 
 reagent-name-peptides = peptides
-reagent-desc-peptides = Healing compound that's difficult to procure in laboratory enviroment.
+reagent-desc-peptides = Healing compound that's created from chemicals commonly found in food.
 
 reagent-name-tirimol = tirimol
 reagent-desc-tirimol = Strong depressant used in healing asphyxiation damage. Vastly decreases oxygen consumption at the cost of weakened muscles.

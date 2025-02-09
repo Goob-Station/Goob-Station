@@ -25,34 +25,76 @@
     Probital: 4
 
 - type: reaction
+  id: PeptidesNutriment
+  sound:
+    path: /Audio/Effects/Chemistry/bubbles.ogg # non nullable, sadly
+    params:
+      volume: -30
+      maxDistance: 1
+  reactants:
+    Mitogen:
+      amount: 1
+      catalyst: true
+    Nutriment:
+      amount: 1
+  products:
+    Peptides: 1
+
+- type: reaction
+  id: PeptidesProtein
+  sound:
+    path: /Audio/Effects/Chemistry/bubbles.ogg
+    params:
+      volume: -30
+      maxDistance: 1
+  reactants:
+    Mitogen:
+      amount: 1
+      catalyst: true
+    Protein:
+      amount: 2
+  products:
+    Peptides: 3
+
+
+- type: reaction
+  id: PeptidesVitamin
+  sound:
+    path: /Audio/Effects/Chemistry/bubbles.ogg
+    params:
+      volume: -30
+      maxDistance: 1
+  reactants:
+    Mitogen:
+      amount: 1
+      catalyst: true
+    Vitamin:
+      amount: 1
+  products:
+    Peptides: 2
+
+
+- type: reaction
   id: Tirimol
   reactants:
     Acetone:
       amount: 2
-    Nitrogen:
-      amount: 3
+    SodiumPolyacrylate:
+      amount: 1
     SulfuricAcid:
       amount: 1
-      catalyst: true
-    Oxygen:
-      amount: 1
-      catalyst: true
   products:
-    Tirimol: 5
-
-# have fun making these once in never and then dying to OD :gocoin:
+    Tirimol: 4
 
 - type: reaction
   id: Syriniver
   maxTemp: 200
   reactants:
-    NitrousOxide:
+    Silver: # the item check
       amount: 2
-    Toxin:
-      amount: 1
+    Diphenhydramine: # the skill check
+      amount: 2
     Fluorine:
-      amount: 1
-    Sulfur:
       amount: 1
     Aluite:
       amount: 5
@@ -61,15 +103,14 @@
 
 - type: reaction
   id: Ebifin
+  impact: Medium # more dangerous OD than its contemporaries also clf3
   minTemp: 800 # actually hotbeakerable
   reactants:
-    Fresium:
+    Gold: # the item check
       amount: 2
-    PolytrinicAcid:
-      amount: 1
-    Licoxide:
-      amount: 1
-    ChlorineTrifluoride:
+    Sigynate: # kinda skill check too
+      amount: 2
+    ChlorineTrifluoride: # the skill check
       amount: 1
     Aluite:
       amount: 5
@@ -80,14 +121,12 @@
   id: ProcenylLazide
   maxTemp: 200
   reactants:
-    Healium:
+    Uranium: # the item check
       amount: 2
-    Razorium:
+    Fentanyl: # Placeholder (maybe?). Alternatively create a chem with dangerous effect like clf3 and use that
       amount: 1
-    Plasma:
-      amount: 1
-    Phlogiston:
-      amount: 1
+    Phlogiston: # kinda skill check, just don't be dumb?
+      amount: 2
     Aluite:
       amount: 5
   products:
@@ -246,6 +285,7 @@
 
 - type: reaction
   id: Genecide
+  impact: Medium # even if it's not very dangerous
   reactants:
     Phalanximine:
       amount: 1

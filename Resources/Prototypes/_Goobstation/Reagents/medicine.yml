@@ -129,7 +129,7 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -1.5 # Lower than Bicardine due to easier recipe, offloading healing onto peptides
+            Brute: -1.5 # Lower than Bicardine, offloading healing onto peptides
       - !type:TakeStaminaDamage
         conditions:
         - !type:ReagentThreshold
@@ -195,25 +195,10 @@
   physicalDesc: reagent-physical-desc-nondescript
   flavor: medicine
   color: "#ffc41a"
-  metabolisms: # handled through here instead of reagents to prevent reaction noise spam/obtaining peptides
+  metabolisms:
     Medicine:
       metabolismRate: 0.05
       effects:
-      - !type:AdjustReagent
-        conditions:
-        - !type:ReagentThreshold
-          min: 0.5 # no microdosing
-        - !type:ReagentThreshold
-          reagent: Nutriment
-          min: 0.5
-        reagent: Peptides
-        amount: 0.5 # 1:1
-      - !type:AdjustReagent
-        conditions:
-        - !type:ReagentThreshold
-          min: 0.5 # no microdosing
-        reagent: Nutriment
-        amount: -0.5
       - !type:ChemVomit
         conditions:
         - !type:ReagentThreshold
@@ -226,19 +211,27 @@
 - type: reagent
   id: Peptides
   name: reagent-name-peptides
-  group: Food
+  group: Foods
   desc: reagent-desc-peptides
   physicalDesc: reagent-physical-desc-nondescript
   flavor: terrible
   color: "#cc9c14"
   metabolisms:
     Medicine:
-      effects: # no food restoring since mitogen converts 50% of nutriment, effectively
+      effects:
       - !type:HealthChange
         damage:
-          groups:
-            Brute: -6
+          groups: # powerful due to abundance of food, but very inconvienient to use
+            Brute: -4
             Burn: -2
+      - !type:ModifyBleedAmount
+        amount: -0.5
+      - !type:ModifyBloodLevel
+        amount: 3
+    Food:
+      effects:
+      - !type:SatiateHunger
+        factor: 1.5 # 50% less
 
 - type: reagent
   id: Tirimol
@@ -267,8 +260,8 @@
         - !type:OrganType
           type: Yowie
           shouldHave: false
-        walkSpeedModifier: 0.8
-        sprintSpeedModifier: 0.8
+        walkSpeedModifier: 0.75
+        sprintSpeedModifier: 0.75
       - !type:Paralyze # more severe effect when overdosing, doesn't matter since you want to use it on crit ppl
         conditions:
         - !type:OrganType
@@ -298,7 +291,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: -12
+            Poison: -15
       - !type:AdjustReagent
         reagent: Musiver
         amount: 3
@@ -310,7 +303,7 @@
           types:
             Blunt: 15
       - !type:ModifyBleedAmount
-        amount: 1 # On hit: Inflict bleed for 8 seconds
+        amount: 1
         conditions:
         - !type:ReagentThreshold
           min: 6
@@ -344,7 +337,7 @@
           types:
             Poison: -1
       - !type:ChemCleanBloodstream
-        cleanseRate: 0.5
+        cleanseRate: 1
       - !type:HealthChange
         damage:
           groups:
@@ -379,7 +372,7 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: -24 # seems insane, in practice it's 6 per type, and in result only 2 per u; also no net gain when used with syringes
+            Burn: -48 # in practice it's only 2+4/u per type on an insanely unwieldy chem; shock and caustic are very rare
       - !type:AdjustReagent
         reagent: Tehifin
         amount: 3
@@ -423,7 +416,7 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: -4
+            Burn: -16
       - !type:HealthChange
         damage:
           groups:
@@ -530,7 +523,7 @@
   desc: reagent-desc-multiver
   physicalDesc: reagent-physical-desc-foamy
   flavor: medicine
-  color: "#e8e6e3"
+  color: "#363b42"
   metabolisms:
     Medicine:
       effects:
