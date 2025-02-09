@@ -42,14 +42,18 @@
         !type:DamageTrigger
         damage: 100
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
     - trigger:
         !type:DamageTrigger
         damage: 50
       behaviors:
       - !type:DoActsBehavior
-        acts: ["Destruction"]
+        #acts: ["Destruction"]
+        acts: ["Breakage"]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
