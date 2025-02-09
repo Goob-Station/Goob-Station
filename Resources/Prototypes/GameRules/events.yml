@@ -463,7 +463,7 @@
   - type: StationEvent
     earliestStart: 35
     weight: 5.5
-    minimumPlayers: 20
+    minimumPlayers: 25 # Reserve edit, need 1.25x more players
     duration: 1
   - type: RuleGrids
   - type: LoadMapRule

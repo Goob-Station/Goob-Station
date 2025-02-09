@@ -28,7 +28,6 @@
         sound: /Audio/_Shitmed/Misc/abductor.ogg
       components:
       - type: Abductor
-      - type: Telepathy # Ayy lmao
       - type: GlorpAccent #Gloob - Glorpfix
       - type: AbductorScientist
       - type: SurgeryIgnoreClothing
@@ -76,8 +75,8 @@
   components:
   - type: StationEvent
     earliestStart: 15
-    weight: 7.5
-    minimumPlayers: 20
+    weight: 3.75 # Reserve edit, 2x times less
+    minimumPlayers: 25 # Reserve edit, need 1.25x more players
     duration: 1
   - type: RuleGrids
   - type: LoadMapRule
