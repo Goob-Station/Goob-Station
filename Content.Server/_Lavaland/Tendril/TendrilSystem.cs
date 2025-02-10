@@ -46,7 +46,7 @@ public sealed class TendrilSystem : EntitySystem
             var xform = Transform(uid);
             var coords = xform.Coordinates;
             var newCoords = coords.Offset(_random.NextVector2(4));
-            for (var i = 0; i < 20; i++)
+            for (var i = 0; i < 100; i++)
             {
                 var randVector = _random.NextVector2(4);
                 newCoords = coords.Offset(randVector);
