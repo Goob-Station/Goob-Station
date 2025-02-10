@@ -13,5 +13,5 @@
   - type: LoadMapRule
     preloadedGrid: AmbassadorShuttle
   - type: AlertLevelInterceptionRule
-    AlertLevel: epsilon
+    AlertLevel: red
 
