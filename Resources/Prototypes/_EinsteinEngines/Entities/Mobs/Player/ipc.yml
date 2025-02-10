@@ -4,6 +4,24 @@
   name: Urist McPositronic
   description: A positronic brain in a metal body.
   components:
+  - type: HarpySinger
+  - type: Instrument
+    allowPercussion: true
+    allowProgramChange: true
+    program: 52
+  - type: SwappableInstrument
+    instrumentList:
+      "DaW": { 0: 0 }
+  - type: UserInterface
+    interfaces:
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+      enum.VoiceMaskUIKey.Key:
+        type: VoiceMaskBoundUserInterface
+      enum.HumanoidMarkingModifierKey.Key:
+        type: HumanoidMarkingModifierBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: true
