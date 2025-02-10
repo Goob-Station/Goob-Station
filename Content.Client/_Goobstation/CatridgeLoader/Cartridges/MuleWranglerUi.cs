@@ -1,12 +1,13 @@
 ﻿using Content.Client.UserInterface.Fragments;
+using Content.Client.UserInterface;
 using Content.Shared.CartridgeLoader.Cartridges;
 using Robust.Client.UserInterface;
 
-namespace Content.Client.CartridgeLoader.Cartridges;
+namespace Content.Client._Goobstation.CatridgeLoader.Cartridges;
 
-public sealed partial class LogProbeUi : UIFragment
+public sealed partial class MuleWranglerUi : UIFragment
 {
-    private LogProbeUiFragment? _fragment;
+    private MuleWranglerUiFragment? _fragment;
 
     public override Control GetUIFragmentRoot()
     {
@@ -15,14 +16,14 @@ public sealed partial class LogProbeUi : UIFragment
 
     public override void Setup(BoundUserInterface userInterface, EntityUid? fragmentOwner)
     {
-        _fragment = new LogProbeUiFragment();
+        _fragment = new MuleWranglerUiFragment();
     }
 
     public override void UpdateState(BoundUserInterfaceState state)
     {
-        if (state is not LogProbeUiState logProbeUiState)
+        if (state is not MuleWranglerUiState muleWranglerUiState)
             return;
 
-        _fragment?.UpdateState(logProbeUiState); // DeltaV - just take the state
+        _fragment?.UpdateState(muleWranglerUiState);
     }
 }
