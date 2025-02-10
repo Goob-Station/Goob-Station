@@ -29,6 +29,12 @@
     path: /Audio/Lobby/honk.ogg
 
 - type: jukebox
+  id: horn
+  name: Scruq - Horn!
+  path:
+    path: /Audio/Lobby/horn.ogg
+
+- type: jukebox
   id: thewizard
   name: Chris Remo - The Wizard
   path:
