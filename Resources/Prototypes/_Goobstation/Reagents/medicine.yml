@@ -925,7 +925,7 @@
           types:
             Blunt: 2
 
-# Strong meds
+# Strong general meds
 
 - type: reagent
   id: SalicylicAcid

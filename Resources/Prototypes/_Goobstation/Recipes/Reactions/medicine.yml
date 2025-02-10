@@ -291,43 +291,60 @@
 
 - type: reaction
   id: SalicylicAcid
+  minTemp: 370
   reactants:
-    Omnizine:
+    TranexamicAcid:
+      amount: 1
+    FluorosulfuricAcid:
+      amount: 1
+    SodiumHydroxide:
       amount: 1
     Bicaridine:
       amount: 1
   products:
-    SalicylicAcid: 2
+    SalicylicAcid: 4
 
 - type: reaction
   id: Oxandrolone
   reactants:
-    Omnizine:
+    SodiumCarbonate:
       amount: 1
     Dermaline:
       amount: 1
+    Phenol:
+      amount: 1
+    Leporazine:
+      amount: 1
   products:
-    Oxandrolone: 2
+    Oxandrolone: 4
 
 - type: reaction
   id: PentenicAcid
   reactants:
-    Omnizine:
+    PolytrinicAcid:
       amount: 1
     PotassiumIodide:
       amount: 1
+    Haloperidol:
+      amount: 1
+    Cyanide:
+      amount: 1
   products:
-    PentenicAcid: 2
+    PentenicAcid: 4
 
 - type: reaction
   id: Atropine
   reactants:
-    Omnizine:
+    Acetone:
       amount: 1
-    Epinephrine:
+    Diethylamine:
+      amount: 1
+    Phenol:
+      amount: 1
+    Ethanol:
       amount: 1
   products:
-    Atropine: 2
+    Atropine: 4
 
 - type: reaction
   id: Genecide
@@ -337,5 +354,7 @@
       amount: 1
     ChlorineTrifluoride:
       amount: 1 # funny
+    Benzene:
+      amount: 1
   products:
-    Genecide: 2
+    Genecide: 3
