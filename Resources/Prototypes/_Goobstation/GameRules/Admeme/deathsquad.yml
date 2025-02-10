@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseUnknownShuttleRule
-  id: UnknownShuttleFrontierProspector
+  id: DeathSquadSpawn
   components:
   - type: StationEvent
     weight: 2
