@@ -514,6 +514,10 @@
         damage:
           types:
             Radiation: 0.1 # very slight side effect
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -835,6 +839,9 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
 
 # Externally applied meds
 
