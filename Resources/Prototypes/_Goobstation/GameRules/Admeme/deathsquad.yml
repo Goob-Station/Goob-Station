@@ -8,10 +8,10 @@
       path: /Audio/Announcements/attention.ogg
     weight: 10
     reoccurrenceDelay: 30
-    duration: 1
+    duration: null # the rule has to last the whole round not 1 second
     maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: AmbassadorShuttle
   - type: AlertLevelInterceptionRule
-    AlertLevel: Epsilon
+    AlertLevel: epsilon
 
