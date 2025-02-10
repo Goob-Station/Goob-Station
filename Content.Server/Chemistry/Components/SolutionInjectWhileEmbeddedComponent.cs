@@ -32,9 +32,18 @@ public sealed partial class SolutionInjectWhileEmbeddedComponent : BaseSolutionI
         /// <summary>
         /// State: injections done on this entity so far.
         /// Set to null to uncap for this embed.
+        /// Will be reset while not flying and not stuck in anything.
         /// </summary>
         [ViewVariables]
         public int? Injections = 0;
+
+        /// <summary>
+        /// State: how much to multiply injection amount during next embed.
+        /// To be set by other code, say, syringe gun.
+        /// Will be reset while not flying and not stuck in anything.
+        /// </summary>
+        [ViewVariables]
+        public float SpeedMultiplier = 1f;
         // </Goobstation>
 }
 

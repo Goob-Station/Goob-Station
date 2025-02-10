@@ -42,11 +42,6 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
 
     private void HandleEmbed(Entity<SolutionInjectOnEmbedComponent> entity, ref EmbedEvent args)
     {
-        // GoobStation Change Start
-        if (_tag.HasTag(entity, "Syringe") && !entity.Comp.Shot)
-            entity.Comp.PierceArmor = false; // This way syringes that are thrown still inject but do not pierce armor.
-        // GoobStation Change End
-
         DoInjection((entity.Owner, entity.Comp), args.Embedded, args.Shooter);
     }
 
@@ -60,12 +55,12 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
 
     private void OnInjectOverTime(Entity<SolutionInjectWhileEmbeddedComponent> entity, ref InjectOverTimeEvent args)
     {
-        DoInjection((entity.Owner, entity.Comp), args.EmbeddedIntoUid);
+        DoInjection((entity.Owner, entity.Comp), args.EmbeddedIntoUid, amountMultiplier: entity.Comp.SpeedMultiplier);
     }
 
-    private void DoInjection(Entity<BaseSolutionInjectOnEventComponent> injectorEntity, EntityUid target, EntityUid? source = null)
+    private void DoInjection(Entity<BaseSolutionInjectOnEventComponent> injectorEntity, EntityUid target, EntityUid? source = null, float amountMultiplier = 1f)
     {
-        TryInjectTargets(injectorEntity, [target], source);
+        TryInjectTargets(injectorEntity, [target], source, amountMultiplier);
     }
 
     /// <summary>
@@ -81,7 +76,7 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
     /// </list>
     /// </remarks>
     /// <returns>true if at least one target was successfully injected, otherwise false</returns>
-    private bool TryInjectTargets(Entity<BaseSolutionInjectOnEventComponent> injector, IReadOnlyList<EntityUid> targets, EntityUid? source = null)
+    private bool TryInjectTargets(Entity<BaseSolutionInjectOnEventComponent> injector, IReadOnlyList<EntityUid> targets, EntityUid? source = null, float amountMultiplier = 1f) // Goobstation
     {
         // Make sure we have at least one target
         if (targets.Count == 0)
@@ -101,7 +96,7 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
             // Goobstation - Armor resisting syringe gun
             // Yuck, this is way to hardcodey for my tastes
             // TODO blocking injection with a hardsuit should probably done with a cancellable event or something
-            var mult = 1f; // multiplier of how much to actually inject
+            var mult = amountMultiplier; // multiplier of how much to actually inject
             if (!injector.Comp.PierceArmor && _inventory.TryGetSlotEntity(target, "outerClothing", out var suit)) // no penetrating armor with at least some percentage of piercing resist
             {
                 var blocked = false;
@@ -121,7 +116,6 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
                 }
                 if (blocked)
                 {
-                    injector.Comp.Shot = false;
                     // Only show popup to attacker
                     if (source != null)
                         _popup.PopupEntity(Loc.GetString(injector.Comp.BlockedByArmorPopupMessage, ("weapon", injector.Owner), ("target", target)), target, source.Value, PopupType.SmallCaution);
