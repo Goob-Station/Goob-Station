@@ -115,3 +115,12 @@
           collection: sparks
           params:
             variation: 0.125
+
+
+
+- type: entity
+  parent: ClothingHandsGlovesDeathsquad
+  id: ClothingHandsGlovesDeathsquadUnremovable
+  suffix: Unremovable
+  components:
+  - type: Unremoveable

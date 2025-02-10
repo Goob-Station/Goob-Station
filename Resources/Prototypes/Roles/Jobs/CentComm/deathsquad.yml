@@ -16,7 +16,7 @@
   - NanotrasenRepresentative
   - BlueshieldOfficer
 
-  # Goobstation Start - I basically re-did all of deathsquads stuff so.
+  # Goobstation Start - I basically re-did all of deathsquads stuff so. - Sol
 
 - type: startingGear
   id: DeathSquadGear
@@ -25,8 +25,8 @@
     back: ClothingBackpackDeathSquad
     mask: ClothingMaskGasDeathSquad
     eyes: ClothingEyesGlassesDeathsquad # Goobstation
-    ears: ClothingHeadsetDeathsquad
-    gloves: ClothingHandsGlovesDeathsquad # Rip and TEAR
+    ears: ClothingHeadsetDeathsquad # Goobstation
+    gloves: ClothingHandsGlovesDeathsquadUnremovable # Rip and TEAR
     outerClothing: ClothingOuterHardsuitDeathsquad
     shoes: ClothingShoesBootsMagDeathsquad # These boots are cooler.
     id: DeathsquadPDA
