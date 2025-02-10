@@ -74,7 +74,7 @@ namespace Content.Shared.Verbs
         /// <summary>
         ///     Event output. Set of verbs that can be executed.
         /// </summary>
-        public readonly SortedSet<Verb> Verbs = new();
+        public readonly SortedSet<TVerb> Verbs = new();
 
         /// <summary>
         /// Additional verb categories to show in the pop-up menu, even if there are no verbs currently associated
