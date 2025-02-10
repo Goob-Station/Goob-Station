@@ -11,7 +11,7 @@
   - type: Sprite
     state: icon
   - type: Item
-    size: Normal
+    size: Large # Goob edit
   - type: Utensil
     types:
       - Knife
