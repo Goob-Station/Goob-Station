@@ -93,6 +93,7 @@
     containers:
       - entity_storage
   - type: Buckle # Goobstation
+  - type: BlockOnBuckle # Goobstation
 
 - type: entity
   parent: CrateGeneric

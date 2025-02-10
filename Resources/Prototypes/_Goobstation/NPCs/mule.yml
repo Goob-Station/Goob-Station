@@ -2,12 +2,10 @@
   id: MuleTransportCompound
   branches:
   - tasks:
-    # TODO: Kill this shit
     - !type:HTNPrimitiveTask
       operator: !type:SetDropoffAsOperator
         targetKey: DropOffTarget
         targetMoveKey: TargetCoordinates
-
     - !type:HTNPrimitiveTask
       operator: !type:MoveToOperator
         pathfindInPlanning: false
@@ -17,19 +15,13 @@
   branches:
   - preconditions:
     - !type:HasOrdersPrecondition
-      orders: MuleOrderType.Idle
+      orders: enum.MuleOrderType.Idle
     tasks:
     - !type:HTNCompoundTask
       task: IdleCompound
   - preconditions:
     - !type:HasOrdersPrecondition
-      orders: MuleOrderType.Transport
+      orders: enum.MuleOrderType.Transport
     tasks:
     - !type:HTNCompoundTask
       task: MuleTransportCompound
-  - preconditions:
-    - !type:HasOrdersPrecondition
-      orders: MuleOrderType.Return
-    tasks:
-    - !type:HTNCompoundTask
-      task: MuleTransportHomeCompound

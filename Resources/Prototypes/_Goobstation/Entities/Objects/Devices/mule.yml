@@ -14,3 +14,6 @@
     buckleOffset: "0,0.25"
   - type: Mule
   - type: ShowOnBuckle
+  - type: HTN
+    rootTask:
+      task: MULECompound

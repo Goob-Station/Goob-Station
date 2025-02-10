@@ -41,17 +41,19 @@ public sealed partial class SetDropoffAsOperator : HTNOperator
         if (!_entManager.TryGetComponent<MuleComponent>(owner, out var mule))
             return (false, null);
 
-        //Needed to make sure it doesn't sometimes stop right outside it's interaction range
+        if(mule.CurrentTarget == EntityUid.Invalid)
+            return (false, null);
+
         var pathRange = SharedInteractionSystem.InteractionRange - 1f;
-        var path = await _pathfinding.GetPath(owner, entity, pathRange, cancelToken);
+        var path = await _pathfinding.GetPath(owner, mule.CurrentTarget, pathRange, cancelToken);
 
         if (path.Result == PathResult.NoPath)
             return (false, null);
 
         return (true, new Dictionary<string, object>()
         {
-            {TargetKey, entity},
-            {TargetMoveKey, _entManager.GetComponent<TransformComponent>(entity).Coordinates},
+            {TargetKey, mule.CurrentTarget},
+            {TargetMoveKey, _entManager.GetComponent<TransformComponent>(mule.CurrentTarget).Coordinates},
             {NPCBlackboard.PathfindKey, path},
         });
     }

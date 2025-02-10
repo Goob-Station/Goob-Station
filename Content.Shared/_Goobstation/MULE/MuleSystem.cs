@@ -1,5 +1,6 @@
 using Content.Shared._Goobstation.MULE.Components;
 using Content.Shared.Buckle.Components;
+using Content.Shared.Interaction;
 using Robust.Shared.Physics.Systems;
 
 namespace Content.Shared._Goobstation.MULE;
@@ -10,6 +11,8 @@ namespace Content.Shared._Goobstation.MULE;
 public sealed class MuleSystem : EntitySystem
 {
     [Dependency] public required SharedPhysicsSystem _physicsSystem = default!;
+    [Dependency] public required EntityManager _entityManager = default!;
+    [Dependency] public required SharedInteractionSystem _interactionSystem = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<MuleComponent,StrappedEvent>(OnStrap);

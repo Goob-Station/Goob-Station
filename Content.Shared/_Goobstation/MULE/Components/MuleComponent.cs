@@ -15,7 +15,7 @@ public sealed partial class MuleComponent : Component
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
-    public DropLocation CurrentDropTarget = DropLocation.None;
+    public EntityUid CurrentTarget = EntityUid.Invalid;
 }
 
 public enum MuleOrderType
@@ -24,15 +24,4 @@ public enum MuleOrderType
     Transport,
     Idle,
     Blocked,
-}
-
-public enum DropLocation
-{
-    Security,
-    Science,
-    Medical,
-    Bridge,
-    Service,
-    Engineering,
-    None,
 }
