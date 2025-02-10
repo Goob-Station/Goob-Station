@@ -3,6 +3,12 @@
   id: DeathSquadSpawn
   components:
   - type: StationEvent
-    weight: 2
+    startAnnouncement: station-event-deathsquad-enroute
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    weight: 10
+    reoccurrenceDelay: 30
+    duration: 1
+    maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: AmbassadorShuttle
