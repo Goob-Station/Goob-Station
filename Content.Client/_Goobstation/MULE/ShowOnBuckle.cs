@@ -3,6 +3,7 @@ using Content.Client.Interactable.Components;
 using Content.Shared._Goobstation.MULE;
 using Content.Shared._Goobstation.MULE.Components;
 using Content.Shared.Buckle.Components;
+using Content.Shared.Tag;
 using Content.Shared.Verbs;
 using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
 using Robust.Client.GameObjects;
@@ -15,6 +16,7 @@ namespace Content.Client._Goobstation.MULE;
 public sealed class ShowOnBuckle : EntitySystem
 {
     [Dependency] public required EntityManager _entityManager = default!;
+
     private DrawDepth _drawDepth;
     /// <inheritdoc/>
     public override void Initialize()

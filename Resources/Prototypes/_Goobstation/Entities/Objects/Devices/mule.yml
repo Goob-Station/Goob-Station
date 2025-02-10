@@ -12,6 +12,8 @@
       map: [ "enum.DamageStateVisualLayers.Base" ]
   - type: Strap
     buckleOffset: "0,0.25"
+    blacklist:
+      components: [ Fingerprint ]
   - type: Mule
   - type: ShowOnBuckle
   - type: HTN

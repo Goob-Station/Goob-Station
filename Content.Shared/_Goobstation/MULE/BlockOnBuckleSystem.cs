@@ -18,6 +18,7 @@ public sealed class BlockOnBuckleSystem : EntitySystem
     }
 
 
+
     private void OnActivate(EntityUid uid, BlockOnBuckleComponent component, ActivateInWorldEvent args)
     {
         if(!TryComp<BuckleComponent>(uid, out var buckleComponent))
@@ -28,5 +29,6 @@ public sealed class BlockOnBuckleSystem : EntitySystem
 
         args.Handled = true;
     }
+
 
 }

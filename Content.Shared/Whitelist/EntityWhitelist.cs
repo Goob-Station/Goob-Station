@@ -33,7 +33,7 @@ public sealed partial class EntityWhitelist
     // TODO yaml validation
 
     /// <summary>
-    ///     Mind Role Prototype names that are allowed in the whitelist.
+    ///     Mind Role PrototypeMind Role Prototype names that are allowed in the whitelist.
     /// </summary>
     [DataField] public string[]? MindRoles;
     // TODO yaml validation
