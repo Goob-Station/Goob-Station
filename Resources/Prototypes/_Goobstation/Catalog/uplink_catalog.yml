@@ -251,6 +251,17 @@
   categories:
   - UplinkWearables
 
+- type: listing
+  id: UplinkReverseBearTrap
+  name: Reverse bear trap
+  description: An ingenious execution device worn on (or forced onto) the head. Arming it starts a 1-minute kitchen timer mounted on the bear trap. When it goes off, the trap's jaws will violently open, instantly killing anyone wearing it by tearing their jaws in half. To arm, attack someone with it while they're not wearing headgear
+  icon: { sprite: /Textures/_Goobstation/Clothing/Head/Helmets/reverse_bear_trap.rsi, state: icon }
+  productEntity: ReverseBearTrap
+  cost:
+    Telecrystal: 15 # novelty item for rp
+  categories:
+  - UplinkWearables
+
 # Job specific
 - type: listing
   id: UplinkPieCannon
