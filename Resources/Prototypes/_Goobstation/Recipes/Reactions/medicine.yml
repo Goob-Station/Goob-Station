@@ -358,7 +358,7 @@
 
 - type: reaction
   id: Hercuri
-  tempMax: 100
+  maxTemp: 100
   reactants:
     Cryostylane:
       amount: 3
@@ -372,7 +372,7 @@
 - type: reaction
   id: Herignis
   impact: Medium # potentially dangerous ingredient
-  tempMin: 600
+  minTemp: 600
   reactants:
     Hercuri:
       amount: 3
