@@ -1,4 +1,5 @@
-﻿using Content.Shared.Weather;
+﻿using Content.Shared.Damage;
+using Content.Shared.Weather;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Lavaland.Weather;
@@ -9,10 +10,10 @@ public sealed class LavalandWeatherPrototype : IPrototype
     [IdDataField] public string ID { get; } = default!;
 
     [DataField]
-    public float Duration = 120;
+    public float Duration = 150;
 
     [DataField]
-    public float Variety = 30;
+    public float Variety = 20;
 
     [DataField]
     public ProtoId<WeatherPrototype> WeatherType;
@@ -28,5 +29,14 @@ public sealed class LavalandWeatherPrototype : IPrototype
     /// Be careful changing this number.
     /// </summary>
     [DataField]
-    public float TemperatureChange = 20000f;
+    public float TemperatureChange = 3000f;
+
+    [DataField]
+    public DamageSpecifier Damage = new();
+
+    /// <summary>
+    /// How many seconds the weather goes without doing any damage
+    /// </summary>
+    [DataField]
+    public int WeatherDelay = 30;
 }
