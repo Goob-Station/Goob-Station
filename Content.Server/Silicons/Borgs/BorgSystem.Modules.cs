@@ -363,6 +363,7 @@ public sealed partial class BorgSystem
 
         if (TryComp<ItemBorgModuleComponent>(module, out var itemModuleComp))
         {
+            var droppableComparer = new DroppableBorgItemComparer(); // Frontier: cached comparer
             foreach (var containedModuleUid in component.ModuleContainer.ContainedEntities)
             {
                 if (!TryComp<ItemBorgModuleComponent>(containedModuleUid, out var containedItemModuleComp))
@@ -371,7 +372,7 @@ public sealed partial class BorgSystem
                 if (containedItemModuleComp.Items.Count == itemModuleComp.Items.Count &&
                     containedItemModuleComp.DroppableItems.Count == itemModuleComp.DroppableItems.Count && // Frontier
                     containedItemModuleComp.Items.All(itemModuleComp.Items.Contains) &&
-                    containedItemModuleComp.DroppableItems.All(x => itemModuleComp.DroppableItems.Contains(x, new DroppableBorgItemComparer()))) // Frontier
+                    containedItemModuleComp.DroppableItems.All(x => itemModuleComp.DroppableItems.Contains(x, droppableComparer))) // Frontier
                 {
                     if (user != null)
                         Popup.PopupEntity(Loc.GetString("borg-module-duplicate"), uid, user.Value);
@@ -388,19 +389,20 @@ public sealed partial class BorgSystem
     {
         public bool Equals(DroppableBorgItem? x, DroppableBorgItem? y)
         {
-            // Same object
+            // Same object (or both null)
             if (ReferenceEquals(x, y))
                 return true;
-            // Comparisons vs. null
-            if (x is null || y is null)
+            // One-side null
+            if (x == null || y == null)
                 return false;
-            // Otherwise, use EntProtoId of item to keep
+            // Otherwise, use EntProtoId of item
             return x.ID == y.ID;
         }
 
         public int GetHashCode(DroppableBorgItem obj)
         {
-            if (obj is null) return 0;
+            if (obj is null)
+                return 0;
             return obj.ID.GetHashCode();
         }
     }
