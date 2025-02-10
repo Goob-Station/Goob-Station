@@ -12,3 +12,6 @@
     maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: AmbassadorShuttle
+  - type: AlertLevelInterceptionRule
+    AlertLevel: Epsilon
+
