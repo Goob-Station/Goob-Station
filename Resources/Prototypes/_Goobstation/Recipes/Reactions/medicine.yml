@@ -211,7 +211,7 @@
       amount: 1
       # catalyst: true # Technically could be catalyst, but fluorine catalyst feels weird
   products:
-    Ibuprofen: 2
+    Ibuprofen: 3
 
 - type: reaction
   id: SilverSulfadiazine
@@ -287,7 +287,6 @@
   products:
     Synthcells: 4
     Carbon: 1
-  
 
 - type: reaction
   id: SalicylicAcid

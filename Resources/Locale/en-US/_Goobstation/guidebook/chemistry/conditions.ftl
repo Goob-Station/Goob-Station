@@ -18,7 +18,7 @@ reagent-effect-condition-guidebook-unique-bloodstream-chem-threshold =
                *[other] there's between {$min} and {$max} reagents
             }
         *[other] { $min ->
-                    [0] there's at most {$max} reagents
+                    [-1] there's at most {$max} reagents
                     *[other] there's between {$min} and {$max} reagents
                  }
     }
