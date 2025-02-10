@@ -3,7 +3,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    weight: 10
+    weight: 3 # rare
     duration: 1
     # no occurences limit so newly arriving tiders can also get it
   - type: JobAddComponentsRule
