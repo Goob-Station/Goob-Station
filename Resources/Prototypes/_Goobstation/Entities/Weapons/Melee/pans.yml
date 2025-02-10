@@ -9,23 +9,22 @@
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: 65
-    attackRate: 0.7
+    attackRate: 0.75
     damage:
       types:
         Blunt: 16
-        Structural: 15
     soundHit:
       path: /Audio/_Goobstation/Weapons/Melee/Pan/panhit.ogg
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/_Goobstation/Weapons/Melee/Pan/metalpipe.ogg # lol
+      path: /Audio/_Goobstation/Weapons/Melee/Pan/metalpipe.ogg
       params:
         volume: 1
   - type: Item
     size: Normal
-  - type: Reflect # subject to change
+  - type: Reflect
     reflectProb: 0.05
-    otherTypeReflectProb: .2
+    nonEnergy: .2
     spread: 75
   - type: Clothing
     sprite: _Goobstation\Objects\Weapons\Melee\pans\steelpan.rsi
@@ -34,7 +33,6 @@
 
 - type: entity
   name: tungsten frying pan
-  suffix: Do not map
   parent: BaseItem
   id: FryingPanTungsten
   description: A heavy tungsten frying pan that was made by some masachist, good luck cooking with this.
@@ -44,11 +42,10 @@
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: 65
-    attackRate: 0.7
+    attackRate: 0.75
     damage:
       types:
-        Blunt: 30
-        Structural: 45
+        Blunt: 25
     soundHit:
       path: /Audio/_Goobstation/Weapons/Melee/Pan/panhit.ogg
   - type: EmitSoundOnLand
@@ -60,7 +57,7 @@
     size: Normal
   - type: Reflect
     reflectProb: 0.25
-    otherTypeReflectProb: .3 # subject to change
+    nonEnergy: .3
     spread: 75
   - type: Clothing
     sprite: _Goobstation\Objects\Weapons\Melee\pans\tungstenpan.rsi
