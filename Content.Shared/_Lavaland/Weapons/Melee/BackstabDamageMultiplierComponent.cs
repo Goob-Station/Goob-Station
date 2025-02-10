@@ -7,7 +7,7 @@ namespace Content.Shared._Lavaland.Weapons.Melee.Backstab;
 
 [RegisterComponent]
 
-public sealed partial class BackstabDamageMultipilierComponent : Component
+public sealed partial class BackstabDamageMultiplierComponent : Component
 {
     [DataField]
     public DamageSpecifier BonusDamage = new();

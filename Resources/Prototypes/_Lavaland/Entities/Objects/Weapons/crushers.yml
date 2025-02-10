@@ -81,7 +81,7 @@
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_spear-inhands.rsi
   - type: DisarmMalus
   - type: Wieldable
-  - type: BackstabDamageMultipilier
+  - type: BackstabDamageMultiplier
     bonusDamage:
       types:
         Slash: 5
@@ -153,7 +153,7 @@
         Blunt: 2.5
         Slash: 2.5
         Structural: 30
-  - type: BackstabDamageMultipilier
+  - type: BackstabDamageMultiplier
     bonusDamage:
       types:
         Slash: 7
@@ -187,7 +187,7 @@
   - type: Item
     size: Ginormous
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_machete-inhands.rsi
-  - type: BackstabDamageMultipilier
+  - type: BackstabDamageMultiplier
     bonusDamage:
       types:
         Slash: 5

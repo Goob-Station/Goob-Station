@@ -13,6 +13,7 @@ using Robust.Shared.CPUJob.JobQueues;
 using Robust.Shared.CPUJob.JobQueues.Queues;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server._Lavaland.Weather;
 
@@ -25,6 +26,7 @@ public sealed class LavalandWeatherSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly TemperatureSystem _temperature = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!;
 
     private const double LavalandWeatherJobTime = 0.005;
     private readonly JobQueue _lavalandWeatherJobQueue = new(LavalandWeatherJobTime);
@@ -53,7 +55,8 @@ public sealed class LavalandWeatherSystem : EntitySystem
             return;
 
         var proto = _proto.Index(lavaland.Comp.CurrentWeather);
-        _temperature.ChangeHeat(entity, proto.TemperatureChange);
+        _temperature.ChangeHeat(entity, proto.TemperatureChange, ignoreHeatResistance: true);
+        _damage.TryChangeDamage(entity, proto.Damage, ignoreResistances: true);
     }
 
     public override void Initialize()
@@ -109,9 +112,15 @@ public sealed class LavalandWeatherSystem : EntitySystem
 
         _weather.SetWeather(map.Comp.MapId, _proto.Index(proto.WeatherType), null);
 
-        var comp = EnsureComp<LavalandStormedMapComponent>(map);
-        comp.CurrentWeather = proto.ID;
-        comp.Duration = proto.Duration + _random.NextFloat(-proto.Variety, proto.Variety);
+        var damageDelay = proto.WeatherDelay;
+
+        Timer.Spawn(TimeSpan.FromSeconds(damageDelay),
+            () =>
+            {
+                var comp = EnsureComp<LavalandStormedMapComponent>(map);
+                comp.CurrentWeather = proto.ID;
+                comp.Duration = proto.Duration + _random.NextFloat(-proto.Variety, proto.Variety);
+            });
 
         var humans = EntityQueryEnumerator<HumanoidAppearanceComponent, DamageableComponent>();
         while (humans.MoveNext(out var human, out _, out _))

@@ -17,11 +17,18 @@ public abstract class SharedAggressorsSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<AggressiveComponent, BeforeDamageChangedEvent>(OnBeforeDamageChanged);
         SubscribeLocalEvent<AggressiveComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<AggressiveComponent, EntityTerminatingEvent>(OnDeleted);
         SubscribeLocalEvent<AggressiveComponent, DestructionEventArgs>(OnDestroyed);
 
         SubscribeLocalEvent<AggressorComponent, MobStateChangedEvent>(OnMobStateChange);
+    }
+
+    private void OnBeforeDamageChanged(Entity<AggressiveComponent> ent, ref BeforeDamageChangedEvent args)
+    {
+        if (args.Origin == null)
+            args.Cancelled = true;
     }
 
     private void OnDamageChanged(Entity<AggressiveComponent> ent, ref DamageChangedEvent args)
