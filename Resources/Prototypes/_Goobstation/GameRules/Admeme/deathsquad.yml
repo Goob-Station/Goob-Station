@@ -5,4 +5,4 @@
   - type: StationEvent
     weight: 2
   - type: LoadMapRule
-    preloadedGrid: FrontierProspector
+    preloadedGrid: AmbassadorShuttle
