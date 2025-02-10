@@ -1,6 +1,9 @@
+using Content.Client.Clickable;
+using Content.Client.Interactable.Components;
 using Content.Shared._Goobstation.MULE;
 using Content.Shared._Goobstation.MULE.Components;
 using Content.Shared.Buckle.Components;
+using Content.Shared.Verbs;
 using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
 using Robust.Client.GameObjects;
 
@@ -23,15 +26,22 @@ public sealed class ShowOnBuckle : EntitySystem
     private void OnUnstrap(EntityUid uid, ShowOnBuckleComponent component, ref UnstrappedEvent args)
     {
         var spriteComponent = _entityManager.GetComponent<SpriteComponent>(args.Buckle.Owner);
+        if(!_entityManager.HasComponent<ClickableComponent>(args.Buckle.Owner))
+            _entityManager.AddComponent<ClickableComponent>(args.Buckle.Owner);
+        if(!_entityManager.HasComponent<InteractionOutlineComponent>(args.Buckle.Owner))
+            _entityManager.AddComponent<InteractionOutlineComponent>(args.Buckle.Owner);
+
         spriteComponent.DrawDepth = (int) _drawDepth;
         _drawDepth = default;
     }
-
     private void OnStrap(EntityUid uid, ShowOnBuckleComponent component, ref StrappedEvent args)
     {
         var spriteComponent = _entityManager.GetComponent<SpriteComponent>(args.Buckle.Owner);
+        if (_entityManager.HasComponent<ClickableComponent>(args.Buckle.Owner))
+            _entityManager.RemoveComponent<ClickableComponent>(args.Buckle.Owner);
+        if(_entityManager.HasComponent<InteractionOutlineComponent>(args.Buckle.Owner))
+            _entityManager.RemoveComponent<InteractionOutlineComponent>(args.Buckle.Owner);
         _drawDepth = (DrawDepth) spriteComponent.DrawDepth;
         spriteComponent.DrawDepth = (int) DrawDepth.OverMobs;
     }
-
 }

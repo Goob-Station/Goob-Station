@@ -16,7 +16,9 @@ public sealed class BlockOnBuckleSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<BlockOnBuckleComponent, ActivateInWorldEvent>(OnActivate);
     }
-    private void OnActivate(EntityUid uid, BlockOnBuckleComponent component, ref ActivateInWorldEvent args)
+
+
+    private void OnActivate(EntityUid uid, BlockOnBuckleComponent component, ActivateInWorldEvent args)
     {
         if(!TryComp<BuckleComponent>(uid, out var buckleComponent))
             return;
@@ -26,4 +28,5 @@ public sealed class BlockOnBuckleSystem : EntitySystem
 
         args.Handled = true;
     }
+
 }
