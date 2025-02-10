@@ -47,13 +47,10 @@ public sealed class SolutionInjectWhileEmbeddedSystem : EntitySystem
             injectComponent.NextUpdate += injectComponent.UpdateInterval;
 
             // <Goobstation> Goobstation - Shot syringes injecting over time
-            if(projectileComponent.EmbeddedIntoUid == null) // check if we should reset state, TODO: should probably listen for an event instead
+            if(projectileComponent.EmbeddedIntoUid == null) // check if we should reset state,
             {
                 if (TryComp<PhysicsComponent>(uid, out var physics) && physics.BodyStatus != BodyStatus.InAir) // don't reset in-flight things
-                {
                     injectComponent.Injections = 0;
-                    injectComponent.SpeedMultiplier = 1f;
-                }
                 continue;
             }
 

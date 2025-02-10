@@ -36,14 +36,6 @@ public sealed partial class SolutionInjectWhileEmbeddedComponent : BaseSolutionI
         /// </summary>
         [ViewVariables]
         public int? Injections = 0;
-
-        /// <summary>
-        /// State: how much to multiply injection amount during next embed.
-        /// To be set by other code, say, syringe gun.
-        /// Will be reset while not flying and not stuck in anything.
-        /// </summary>
-        [ViewVariables]
-        public float SpeedMultiplier = 1f;
         // </Goobstation>
 }
 

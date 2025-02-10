@@ -9,6 +9,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Tag;
+using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Collections;
 
@@ -33,7 +34,11 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
         SubscribeLocalEvent<SolutionInjectOnEmbedComponent, EmbedEvent>(HandleEmbed);
         SubscribeLocalEvent<MeleeChemicalInjectorComponent, MeleeHitEvent>(HandleMeleeHit);
         SubscribeLocalEvent<SolutionInjectWhileEmbeddedComponent, InjectOverTimeEvent>(OnInjectOverTime);
+
+        SubscribeLocalEvent<SolutionInjectOnEmbedComponent, LandEvent>(OnEmbedLand);
+        SubscribeLocalEvent<SolutionInjectWhileEmbeddedComponent, LandEvent>(OnWhileEmbeddedLand);
     }
+
 
     private void HandleProjectileHit(Entity<SolutionInjectOnProjectileHitComponent> entity, ref ProjectileHitEvent args)
     {
@@ -55,12 +60,28 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
 
     private void OnInjectOverTime(Entity<SolutionInjectWhileEmbeddedComponent> entity, ref InjectOverTimeEvent args)
     {
-        DoInjection((entity.Owner, entity.Comp), args.EmbeddedIntoUid, amountMultiplier: entity.Comp.SpeedMultiplier);
+        DoInjection((entity.Owner, entity.Comp), args.EmbeddedIntoUid);
     }
 
-    private void DoInjection(Entity<BaseSolutionInjectOnEventComponent> injectorEntity, EntityUid target, EntityUid? source = null, float amountMultiplier = 1f)
+    private void OnEmbedLand(Entity<SolutionInjectOnEmbedComponent> entity, ref LandEvent args)
     {
-        TryInjectTargets(injectorEntity, [target], source, amountMultiplier);
+        ResetState(entity.Comp);
+    }
+
+    private void OnWhileEmbeddedLand(Entity<SolutionInjectWhileEmbeddedComponent> entity, ref LandEvent args)
+    {
+        ResetState(entity.Comp);
+    }
+
+    private void ResetState(BaseSolutionInjectOnEventComponent comp)
+    {
+        comp.PierceArmorOverride = null;
+        comp.AmountMultiplier = 1f;
+    }
+
+    private void DoInjection(Entity<BaseSolutionInjectOnEventComponent> injectorEntity, EntityUid target, EntityUid? source = null)
+    {
+        TryInjectTargets(injectorEntity, [target], source);
     }
 
     /// <summary>
@@ -76,7 +97,7 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
     /// </list>
     /// </remarks>
     /// <returns>true if at least one target was successfully injected, otherwise false</returns>
-    private bool TryInjectTargets(Entity<BaseSolutionInjectOnEventComponent> injector, IReadOnlyList<EntityUid> targets, EntityUid? source = null, float amountMultiplier = 1f) // Goobstation
+    private bool TryInjectTargets(Entity<BaseSolutionInjectOnEventComponent> injector, IReadOnlyList<EntityUid> targets, EntityUid? source = null)
     {
         // Make sure we have at least one target
         if (targets.Count == 0)
@@ -96,8 +117,9 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
             // Goobstation - Armor resisting syringe gun
             // Yuck, this is way to hardcodey for my tastes
             // TODO blocking injection with a hardsuit should probably done with a cancellable event or something
-            var mult = amountMultiplier; // multiplier of how much to actually inject
-            if (!injector.Comp.PierceArmor && _inventory.TryGetSlotEntity(target, "outerClothing", out var suit)) // no penetrating armor with at least some percentage of piercing resist
+            var mult = injector.Comp.AmountMultiplier; // multiplier of how much to actually inject
+            var pierce = injector.Comp.PierceArmorOverride ?? injector.Comp.PierceArmor;
+            if (!pierce && _inventory.TryGetSlotEntity(target, "outerClothing", out var suit)) // no penetrating armor with at least some percentage of piercing resist
             {
                 var blocked = false;
                 if (TryComp<ArmorComponent>(suit, out var armor))
