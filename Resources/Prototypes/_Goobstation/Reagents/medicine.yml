@@ -872,6 +872,11 @@
             Cold: -1.5
             Shock: -1
             Caustic: -1
+        conditions:
+        - !type:HasComponentOnEquipmentCondition
+          components:
+          - type: PressureProtection # can't get through this to reach the bodyparts!
+          invert: true
   metabolisms:
     Medicine:
       metabolismRate: 3
@@ -930,6 +935,18 @@
             Blunt: -2
             Piercing: -1 # limits combat effectivness
             Slash: -2
+        conditions:
+        - !type:HasComponentOnEquipmentCondition
+          components:
+          - type: PressureProtection # can't get through this to reach the bodyparts!
+          invert: true
+      - !type:ModifyBleedAmount
+        amount: -2
+        conditions:
+        - !type:HasComponentOnEquipmentCondition
+          components:
+          - type: PressureProtection
+          invert: true
   metabolisms:
     Medicine:
       metabolismRate: 3
@@ -986,6 +1003,11 @@
             Blunt: 1
             Poison: -2
             Radiation: -1
+        conditions:
+        - !type:HasComponentOnEquipmentCondition
+          components:
+          - type: PressureProtection # can't get through this to reach the bodyparts!
+          invert: true
   metabolisms:
     Medicine:
       effects:
