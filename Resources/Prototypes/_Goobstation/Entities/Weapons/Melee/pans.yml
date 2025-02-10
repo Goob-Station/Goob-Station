@@ -24,7 +24,8 @@
     size: Normal
   - type: Reflect
     reflectProb: 0.05
-    nonEnergy: .2
+    reflects:
+    - nonEnergy
     spread: 75
   - type: Clothing
     sprite: _Goobstation\Objects\Weapons\Melee\pans\steelpan.rsi
@@ -46,7 +47,8 @@
         Blunt: 25
   - type: Reflect
     reflectProb: 0.25
-    nonEnergy: .3
+    reflects:
+    - nonEnergy
   - type: Clothing
     sprite: _Goobstation\Objects\Weapons\Melee\pans\tungstenpan.rsi
     slots:
