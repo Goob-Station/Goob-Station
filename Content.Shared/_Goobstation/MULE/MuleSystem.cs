@@ -13,10 +13,8 @@ namespace Content.Shared._Goobstation.MULE;
 public sealed class MuleSystem : EntitySystem
 {
     [Dependency] public required SharedPhysicsSystem _physicsSystem = default!;
-    [Dependency] public required EntityManager _entityManager = default!;
-    [Dependency] public required SharedInteractionSystem _interactionSystem = default!;
     [Dependency] public required TagSystem _tagSystem = default!;
-    [Dependency] public required SharedBuckleSystem _buckleSystem = default!;
+    [Dependency] public required SharedBuckleSystem _buckleSystem = default!; // Later for unbuckling shit
 
     public override void Initialize()
     {
