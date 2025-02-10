@@ -355,3 +355,28 @@
       amount: 1
   products:
     Genecide: 3
+
+- type: reaction
+  id: Hercuri
+  tempMax: 100
+  reactants:
+    Cryostylane:
+      amount: 3
+    SodiumHydroxide:
+      amount: 1
+    PotassiumIodide:
+      amount: 1
+  products:
+    Hercuri: 5  
+
+- type: reaction
+  id: Herignis
+  impact: Medium # potentially dangerous ingredient
+  tempMin: 600
+  reactants:
+    Hercuri:
+      amount: 3
+    Phlogiston:
+      amount: 2
+  products:
+    Herignis: 5  

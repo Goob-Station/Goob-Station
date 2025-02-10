@@ -1144,3 +1144,107 @@
         intensitySlope: 1
         maxTotalIntensity: 0.4
 
+- type: reagent
+  id: Hercuri
+  name: reagent-name-hercuri
+  group: Medicine
+  desc: reagent-desc-hercuri
+  physicalDesc: reagent-physical-desc-thick-and-grainy
+  flavor: medicine
+  color: "#f5ff8d"
+  reactiveEffects:
+    Extinguish:
+      methods: [ Touch ]
+      effects:
+      - !type:ExtinguishReaction
+      #- !type:FlammableReaction # Guidebook text is wrong, and that's a small effect so w/e
+      #  multiplier: -0.2
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Cold: 0.05
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 160.15
+        amount: -10000
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: -3
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: -3
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            types:
+              Heat: 40
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 160.15 # entire syringe lands you at -20 degrees celcius, not incredibly dangerous
+        amount: -10000
+      - !type:AdjustSolutionThermalEnergyEffect
+        delta: -150
+
+- type: reagent
+  id: Herignis
+  name: reagent-name-herignis
+  group: Medicine
+  desc: reagent-desc-herignis
+  physicalDesc: reagent-physical-desc-oily
+  flavor: medicine
+  color: "#ff2a2a"
+  reactiveEffects:
+    Flammable:
+      methods: [ Touch ]
+      effects:
+      - !type:FlammableReaction
+        multiplier: 0.2
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Heat: 0.05
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 420
+        amount: 10000
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cold: -3
+      - !type:HealthChange
+        damage:
+          types:
+            Cold: -3
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            types:
+              Cold: 40
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 420 # ends at 70 degrees, but just in case
+        amount: 10000
+      - !type:AdjustSolutionThermalEnergyEffect
+        delta: 150

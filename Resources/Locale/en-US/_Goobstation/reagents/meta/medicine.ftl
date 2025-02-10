@@ -89,3 +89,9 @@ reagent-desc-styptic-crystal-catalyst = Staple of any school chemistry lab, this
 
 reagent-name-synthflesh = synthflesh
 reagent-desc-synthflesh = Whilst it's just seemingly uninteresting ground up synthmeat, cells with great healing potential can be seperated from it. Synthmeat can be created from a somewhat complex reaction with hydroxide byproduct.
+
+reagent-name-hercuri = hercuri
+reagent-desc-hercuri = Strong coolant, both servicable for internal and external application, though care must be taken not to freeze the patients too much.
+
+reagent-name-herignis = herignis
+reagent-desc-herignis = Can thaw out most chilled of lizardmen, recommended to only use in small doses, as it can quickly heat up its metaboliser to dangerous levels.
