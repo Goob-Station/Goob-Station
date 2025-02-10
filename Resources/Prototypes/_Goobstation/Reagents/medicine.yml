@@ -129,7 +129,7 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -1.5 # Lower than Bicardine, offloading healing onto peptides
+            Brute: -1.5 # Lower than Bicardine, offloading healing onto mitotrophin
       - !type:TakeStaminaDamage
         conditions:
         - !type:ReagentThreshold
@@ -209,10 +209,10 @@
         probability: 0.15
 
 - type: reagent
-  id: Peptides
-  name: reagent-name-peptides
+  id: Mitotrophin
+  name: reagent-name-mitotrophin
   group: Foods
-  desc: reagent-desc-peptides
+  desc: reagent-desc-mitotrophin
   physicalDesc: reagent-physical-desc-nondescript
   flavor: terrible
   color: "#cc9c14"
@@ -522,7 +522,6 @@
           types:
             Radiation: 5
       
-
 # Poison related meds
 
 - type: reagent
@@ -844,7 +843,6 @@
   physicalDesc: reagent-physical-desc-shiny
   flavor: bitter
   color: "#ed603e"
-
 
 - type: reagent
   id: StypticPowder

@@ -13,10 +13,10 @@ reagent-name-probital = probital
 reagent-desc-probital = Forces patient's body to spend its energy creating more healing compounds. Overdose exhausts body, forcing what effectively amounts to power naps.
 
 reagent-name-mitogen = mitogen
-reagent-desc-mitogen = Converts nutrients into peptides for highly efficient healing. Can be accidentally overdosed on, resulting in vomiting.
+reagent-desc-mitogen = Converts nutrients into mitotrophin for highly efficient healing. Can be accidentally overdosed on, resulting in vomiting.
 
-reagent-name-peptides = peptides
-reagent-desc-peptides = Healing compound that's created from chemicals commonly found in food.
+reagent-name-mitotrophin = mitotrophin
+reagent-desc-mitotrophin = Healing compound that's created from chemicals commonly found in food.
 
 reagent-name-tirimol = tirimol
 reagent-desc-tirimol = Strong depressant used in healing asphyxiation damage. Vastly decreases oxygen consumption at the cost of weakened muscles.

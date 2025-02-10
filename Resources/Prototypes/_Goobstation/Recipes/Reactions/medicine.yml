@@ -25,7 +25,7 @@
     Probital: 4
 
 - type: reaction
-  id: PeptidesNutriment
+  id: MitotrophinNutriment
   sound:
     path: /Audio/Effects/Chemistry/bubbles.ogg # non nullable, sadly
     params:
@@ -38,10 +38,10 @@
     Nutriment:
       amount: 1
   products:
-    Peptides: 1
+    Mitotrophin: 1
 
 - type: reaction
-  id: PeptidesProtein
+  id: MitotrophinProtein
   sound:
     path: /Audio/Effects/Chemistry/bubbles.ogg
     params:
@@ -54,11 +54,10 @@
     Protein:
       amount: 2
   products:
-    Peptides: 3
-
+    Mitotrophin: 3
 
 - type: reaction
-  id: PeptidesVitamin
+  id: MitotrophinVitamin
   sound:
     path: /Audio/Effects/Chemistry/bubbles.ogg
     params:
@@ -71,8 +70,7 @@
     Vitamin:
       amount: 1
   products:
-    Peptides: 2
-
+    Mitotrophin: 2
 
 - type: reaction
   id: Tirimol
@@ -103,14 +101,14 @@
 
 - type: reaction
   id: Ebifin
-  impact: Medium # more dangerous OD than its contemporaries also clf3
+  impact: Medium # more dangerous OD than its contemporaries
   minTemp: 500 # actually hotbeakerable
   reactants:
-    Silicon:
+    Gold: # check 1
       amount: 2
-    Sigynate: # check 1
+    Sigynate: # check 2
       amount: 2
-    ChlorineTrifluoride: # check 2
+    Silicon: 
       amount: 1
     Aluite:
       amount: 5
