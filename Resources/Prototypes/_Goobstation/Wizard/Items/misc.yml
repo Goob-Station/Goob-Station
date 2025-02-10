@@ -159,3 +159,29 @@
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-wizard
+
+- type: entity
+  parent: [DrinkBase, BaseMagicContraband]
+  id: EverfullMug
+  name: everfull mug
+  description: An enchanted mug which refills omnizine automatically.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/evermug.rsi
+    state: icon
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Omnizine
+          Quantity: 30
+  - type: SolutionRegeneration
+    solution: drink
+    duration: 10
+    generated:
+      reagents:
+      - ReagentId: Omnizine
+        Quantity: 5
+  - type: StaticPrice
+    price: 25000

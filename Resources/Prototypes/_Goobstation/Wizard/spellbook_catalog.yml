@@ -577,6 +577,16 @@
 
 # Equipment
 - type: listing
+  id: SpellbookEverfullMug
+  name: spellbook-everfull-mug-name
+  description: spellbook-everfull-mug-desc
+  productEntity: EverfullMug
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookEquipment
+
+- type: listing
   id: SpellbookCryoKatana
   name: spellbook-cryo-katana-name
   description: spellbook-cryo-katana-desc
