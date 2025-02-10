@@ -30,6 +30,17 @@
     Gold: 50
 
 - type: latheRecipe
+  id: PowerCellMicrortg
+  result: PowerCellMicrortgPrinted
+  category: Parts
+  completetime: 10
+  materials:
+    Steel: 400
+    Glass: 300
+    Uranium: 300
+    Gold: 100
+
+- type: latheRecipe
   id: PowerCellMicroreactor
   result: PowerCellMicroreactorPrinted
   category: Parts
