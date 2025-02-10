@@ -12,4 +12,7 @@ public sealed partial class GunUpgradeComponent : Component
 
     [DataField]
     public LocId ExamineText;
+
+    [DataField]
+    public int CapacityCost = 30; // By default drains 30% of the capacity.
 }

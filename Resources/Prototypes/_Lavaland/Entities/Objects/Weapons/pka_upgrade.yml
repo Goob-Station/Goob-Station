@@ -31,6 +31,7 @@
     - state: overlay-3
       color: "#eb4c13"
   - type: GunUpgrade
+    capacityCost: 40
     tags: [ GunUpgradeDamage ]
     examineText: gun-upgrade-examine-text-damage
   - type: GunUpgradeDamage
@@ -75,6 +76,7 @@
       color: "#9bf134"
   - type: GunUpgrade
     tags: [ GunUpgradeReloadSpeed ]
+    capacityCost: 20
     examineText: gun-upgrade-examine-text-reload
   - type: GunUpgradeFireRate
     coefficient: 1.5
@@ -96,7 +98,8 @@
   - type: GunUpgrade
     tags: [ GunUpgradeReloadSpeed ]
     examineText: gun-upgrade-examine-text-light
-  - type: GunComponentUpgrate
+    capacityCost: 10
+  - type: GunComponentUpgrade
     components:
     - type: UnpoweredFlashlight
     - type: PointLight
