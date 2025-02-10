@@ -1,9 +1,16 @@
 - type: entity
-  parent: BaseUnknownShuttleRule
+  parent: BaseGameRule
   id: DeathsquadSpawn
   components:
   - type: StationEvent
-    startAnnouncment: station-event-deathsquad-enroute
-    maxoccurances: 1
+    startAnnouncement: station-event-unknown-shuttle-incoming
+    # startAnnouncment: station-event-deathsquad-enroute
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    weight: 10 # 10 default
+    reoccurrenceDelay: 30
+    duration: 1
+    maxOccurrences: 1 # should be the same as [copies] in shuttle_incoming_event.yml
   - type: LoadMapRule
     preloadedgrid: AmbassadorShuttle
+  - type: RuleGrids
