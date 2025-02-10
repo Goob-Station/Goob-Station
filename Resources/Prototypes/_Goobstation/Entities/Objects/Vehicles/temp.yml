@@ -6,7 +6,7 @@
   - type: InstantAction
     itemIconStyle: NoItem
     icon:
-      sprite: Objects/Fun/bikehorn.rsi #replace whit car
+      sprite: Objects/Vehicles/clowncar.rsi
       state: icon
     event: !type:ThankRiderActionEvent
     useDelay: 60
@@ -87,9 +87,9 @@
     addBuckleverb: false
     unbuckleSound:
       collection: ClowncarCrash
-    whitelist:
-      components:
-      - Clumsy
+   # whitelist:
+   #   components:
+   #   - Clumsy
 
   - type: UnpoweredFlashlight
   - type: PointLight
@@ -163,9 +163,9 @@
 
   - type: Explosive # Explosive banana peel
     explosionType: Default
-    maxIntensity: 3.5
-    intensitySlope: 10
-    totalIntensity: 20
+    totalIntensity: 25
+    intensitySlope: 5
+    maxIntensity: 3
     canCreateVacuum: false
     deleteAfterExplosion: false
     repeatable: true # if it managed to survuve.
