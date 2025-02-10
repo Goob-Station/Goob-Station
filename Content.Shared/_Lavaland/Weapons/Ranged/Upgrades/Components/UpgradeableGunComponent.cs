@@ -14,8 +14,8 @@ public sealed partial class UpgradeableGunComponent : Component
     public EntityWhitelist Whitelist = new();
 
     [DataField]
-    public SoundSpecifier? InsertSound = new SoundPathSpecifier("/Audio/Effects/thunk.ogg");
+    public int? MaxUpgradeCount;
 
     [DataField]
-    public int MaxUpgradeCount = 3;
+    public int MaxUpgradeCapacity = 100;
 }

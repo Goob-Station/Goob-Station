@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._Lavaland.Weapons.Ranged.Upgrades.Components;
 
 [RegisterComponent, NetworkedComponent, Access(typeof(GunUpgradeSystem))]
-public sealed partial class GunComponentUpgrateComponent : Component
+public sealed partial class GunComponentUpgradeComponent : Component
 {
     [DataField]
     public ComponentRegistry Components = new();
