@@ -436,6 +436,15 @@
           types:
             Blunt: 5
 
+- type: reagent # in medicine.yml since it's a direct precursor/step
+  id: ProcenylLazideSludge
+  name: reagent-name-procenyl-lazide-sludge
+  group: Medicine
+  desc: reagent-desc-procenyl-lazide-sludge
+  physicalDesc: reagent-physical-desc-reflective
+  flavor: bitter
+  color: "#939393"
+
 - type: reagent
   id: ProcenylLazide
   name: reagent-name-procenyl-lazide
@@ -828,6 +837,16 @@
           shouldHave: false
 
 - type: reagent
+  id: StypticCrystalCatalyst
+  name: reagent-name-styptic-crystal-catalyst
+  group: Medicine
+  desc: reagent-desc-styptic-crystal-catalyst
+  physicalDesc: reagent-physical-desc-shiny
+  flavor: bitter
+  color: "#ed603e"
+
+
+- type: reagent
   id: StypticPowder
   name: reagent-name-styptic-powder
   group: Medicine
@@ -866,7 +885,15 @@
           shouldHave: false
 
 - type: reagent
-  id: Synthcells # synthflesh is pointless in SS14 due to topicals, this work in an inverse way to it, providing way to heal poison in addition to liver transplants
+  id: Synthflesh # synthflesh is somewhat mid in SS14 due to topicals, so it's mostly a reference here
+  name: reagent-name-synthflesh
+  desc: reagent-desc-synthflesh
+  physicalDesc: reagent-physical-desc-pulpy
+  flavor: strange
+  color: "#ffbebe"
+
+- type: reagent
+  id: Synthcells
   name: reagent-name-synthcells
   group: Medicine
   desc: reagent-desc-synthcells

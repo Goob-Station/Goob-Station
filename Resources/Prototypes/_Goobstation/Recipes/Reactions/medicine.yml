@@ -90,9 +90,9 @@
   id: Syriniver
   maxTemp: 200
   reactants:
-    Silver: # the item check
+    Silver: # check 1
       amount: 2
-    Diphenhydramine: # the skill check
+    Diphenhydramine: # check 2
       amount: 2
     Fluorine:
       amount: 1
@@ -104,13 +104,13 @@
 - type: reaction
   id: Ebifin
   impact: Medium # more dangerous OD than its contemporaries also clf3
-  minTemp: 800 # actually hotbeakerable
+  minTemp: 500 # actually hotbeakerable
   reactants:
-    Gold: # the item check
+    Silicon:
       amount: 2
-    Sigynate: # kinda skill check too
+    Sigynate: # check 1
       amount: 2
-    ChlorineTrifluoride: # the skill check
+    ChlorineTrifluoride: # check 2
       amount: 1
     Aluite:
       amount: 5
@@ -118,19 +118,34 @@
     Ebifin: 5
 
 - type: reaction
-  id: ProcenylLazide
-  maxTemp: 200
+  id: ProcenylLazideSludge
+  minTemp: 400
   reactants:
-    Uranium: # the item check
+    Uranium: # check 1
       amount: 2
-    Fentanyl: # Placeholder (maybe?). Alternatively create a chem with dangerous effect like clf3 and use that
+    Phenol:
       amount: 1
-    Phlogiston: # kinda skill check, just don't be dumb?
+    SodiumCarbonate:
       amount: 2
     Aluite:
       amount: 5
   products:
+    ProcenylLazideSludge: 10 # check 2
+
+- type: reaction
+  id: ProcenylLazide
+  maxTemp: 200
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    ProcenylLazideSludge:
+      amount: 10
+  products:
     ProcenylLazide: 5
+    Aluite: 2
+    Uranium: 1
+    SodiumCarbonate: 1
+    Aluminium: 1
 
 - type: reaction
   id: Multiver
@@ -194,12 +209,13 @@
       amount: 1
     Fluorine:
       amount: 1
-      catalyst: true
+      # catalyst: true # Technically could be catalyst, but fluorine catalyst feels weird
   products:
     Ibuprofen: 2
 
 - type: reaction
   id: SilverSulfadiazine
+  minTemp: 500
   reactants:
     Silver: # actually using silver cuz it's just strong
       amount: 1
@@ -212,36 +228,66 @@
     Sulfur:
       amount: 1
   products:
-    SilverSulfadiazine: 5
+    SilverSulfadiazine: 5 # might need to be lowered
 
 - type: reaction
-  id: StypticPowder
+  id: StypticCrystalCatalyst
   reactants:
     Aluminium:
       amount: 1
-    Hydrogen:
+    Hydroxide:
       amount: 1
     SulfuricAcid:
       amount: 1
-    Oxygen:
+    Silicon:
       amount: 1
-      catalyst: true
   products:
-    StypticPowder: 3  
+    StypticCrystalCatalyst: 2
+
+- type: reaction
+  id: StypticCrystalCreation
+  quantized: true
+  conserveEnergy: false
+  reactants:
+    StypticCrystalCatalyst:
+      amount: 5
+    Blood:
+      amount: 10
+    Sodium:
+      amount: 10
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: ShardCrystalStyptic
+
+- type: reaction
+  id: MeatSynth
+  quantized: true
+  reactants:
+    SodiumPolyacrylate:
+      amount: 15
+    Phenol:
+      amount: 15
+    Blood:
+      amount: 15
+    Carbon:
+      amount: 15
+  products:
+    Hydroxide: 5 # frankly it's there so that this recipe appears in the guidebook at all
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: FoodMeatSynth
 
 - type: reaction
   id: Synthcells
+  requiredMixerCategories:
+  - Centrifuge
   reactants:
-    SodiumPolyacrylate:
-      amount: 1
-    Phenol:
-      amount: 1
-    Blood:
-      amount: 1
-    Carbon:
-      amount: 1
+    Synthflesh:
+      amount: 5
   products:
     Synthcells: 4
+    Carbon: 1
+  
 
 - type: reaction
   id: SalicylicAcid
@@ -290,6 +336,6 @@
     Phalanximine:
       amount: 1
     ChlorineTrifluoride:
-      amount: 1
+      amount: 1 # funny
   products:
     Genecide: 2

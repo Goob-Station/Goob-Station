@@ -73,10 +73,19 @@ reagent-name-ebifin = ebifin
 reagent-desc-ebifin = Extremely strong burn compound with cripplingly low overdose threshold. Reacts violently in bloodstream, quickly healing most burn injuries when used in low amounts.
 
 reagent-name-procenyl-lazide = procenyl lazide
-reagent-desc-procenyl-lazide = Somewhat strong brute medicine with low overdose threshold, heals piercing wounds at a lower rate than its contemporaries.
+reagent-desc-procenyl-lazide = Somewhat strong brute medicine with low overdose threshold, needs to be crystalized at low temperatures and seperated out from its precursor solution.
 
 reagent-name-bozaide = bozaide
 reagent-desc-bozaide = Slow acting brute medicine, deals low amounts of radiation damage.
 
 reagent-name-genecide = genecide
 reagent-desc-genecide = Blows genetic damage away, literally. Make sure to monitor patients taking it.
+
+reagent-name-procenyl-lazide-sludge = procenyl lazide sludge
+reagent-desc-procenyl-lazide-sludge = Relatively easy to create solution, needs heating to bind properly in a notoriously inefficient reaction.
+
+reagent-name-styptic-crystal-catalyst = styptic crystal catalyst
+reagent-desc-styptic-crystal-catalyst = Staple of any school chemistry lab, this ususually non-reactive liquid can mix with blood and sodium to produce beautiful crystals with healing potential.
+
+reagent-name-synthflesh = synthflesh
+reagent-desc-synthflesh = Whilst it's just seemingly uninteresting ground up synthmeat, cells with great healing potential can be seperated from it. Synthmeat can be created from a somewhat complex reaction with hydroxide byproduct.
