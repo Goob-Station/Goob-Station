@@ -113,6 +113,12 @@
         factions:
         - Wizard
 
+- type: entity
+  parent: BaseGameRule
+  id: EndRoundOnWizardDeath
+  components:
+  - type: EndRoundOnWizardDeathRule
+
 - type: gamePreset
   id: Wizard
   alias:
@@ -122,7 +128,8 @@
   showInVote: false
   rules:
     - Wizard
-    - SubGamemodesRule
+    - EndRoundOnWizardDeath
     - BasicStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
+    # - SubGamemodesRule

@@ -1,12 +1,20 @@
 using System.Linq;
 using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Antag;
+using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
+using Content.Server.Mind;
 using Content.Server.Roles;
+using Content.Server.RoundEnd;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Shared._Goobstation.Wizard;
+using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
+using Content.Shared.Mind;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.NPC.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -17,6 +25,10 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
 {
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly RoleSystem _role = default!;
+    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
     public static readonly ProtoId<NpcFactionPrototype> Faction = "Wizard";
@@ -31,6 +43,88 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
 
         SubscribeLocalEvent<WizardRoleComponent, GetBriefingEvent>(OnWizardGetBriefing);
         SubscribeLocalEvent<ApprenticeRoleComponent, GetBriefingEvent>(OnApprenticeGetBriefing);
+
+        SubscribeLocalEvent<WizardComponent, MobStateChangedEvent>(OnStateChanged);
+        SubscribeLocalEvent<WizardComponent, ComponentRemove>(OnRemove);
+        SubscribeLocalEvent<ApprenticeComponent, MobStateChangedEvent>(OnStateChanged);
+        SubscribeLocalEvent<ApprenticeComponent, ComponentRemove>(OnRemove);
+        SubscribeLocalEvent<PhylacteryComponent, ComponentRemove>(OnRemove);
+        SubscribeLocalEvent<EntParentChangedMessage>(OnParentChanged);
+    }
+
+    private void OnParentChanged(ref EntParentChangedMessage args)
+    {
+        if (args.OldMapId != args.Transform.MapUid && RecursivePhylacteryCheck(args.Entity, args.Transform))
+            CheckRoundShouldEnd();
+    }
+
+    private bool RecursivePhylacteryCheck(EntityUid entity, TransformComponent? xform = null)
+    {
+        if (HasComp<PhylacteryComponent>(entity))
+            return true;
+
+        if (!Resolve(entity, ref xform, false))
+            return false;
+
+        var enumerator = xform.ChildEnumerator;
+        while (enumerator.MoveNext(out var child))
+        {
+            if (RecursivePhylacteryCheck(child))
+                return true;
+        }
+
+        return false;
+    }
+
+    private void OnRemove(EntityUid uid, Component component, ComponentRemove args)
+    {
+        CheckRoundShouldEnd();
+    }
+
+    private void OnStateChanged(EntityUid uid, Component component, MobStateChangedEvent args)
+    {
+        if (args.NewMobState == MobState.Dead)
+            CheckRoundShouldEnd();
+    }
+
+    private void CheckRoundShouldEnd()
+    {
+        if (!_gameTicker.IsGameRuleActive<EndRoundOnWizardDeathRuleComponent>() ||
+            !_gameTicker.IsGameRuleActive<WizardRuleComponent>())
+            return;
+
+        var endRound = false;
+        var query = EntityQueryEnumerator<MindComponent>();
+        while (query.MoveNext(out var mind, out var mindComp))
+        {
+            if (!_role.MindHasRole<WizardRoleComponent>(mind) && !_role.MindHasRole<ApprenticeRoleComponent>(mind))
+                continue;
+
+            if (!_mind.IsCharacterDeadIc(mindComp))
+                return;
+
+            if (TryComp(mindComp.OwnedEntity, out MobStateComponent? mobState) &&
+                mobState.CurrentState != MobState.Dead)
+                return;
+
+            if (TryComp(mind, out SoulBoundComponent? soulBound) && Exists(soulBound.Item) &&
+                HasComp<PhylacteryComponent>(soulBound.Item.Value) &&
+                TryComp(soulBound.Item.Value, out TransformComponent? xform) && xform.MapUid != null &&
+                xform.MapUid == soulBound.MapId)
+                return;
+
+            endRound = true;
+        }
+
+        if (!endRound)
+            return;
+
+        var endQuery = EntityQueryEnumerator<EndRoundOnWizardDeathRuleComponent, GameRuleComponent>();
+        while (endQuery.MoveNext(out var uid, out _, out var gameRule))
+        {
+            _gameTicker.EndGameRule(uid, gameRule);
+        }
+        _roundEnd.EndRound();
     }
 
     public IEnumerable<Entity<StationDataComponent>> GetWizardTargetStations()
