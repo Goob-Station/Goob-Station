@@ -76,6 +76,8 @@ public sealed class ReverseBearTrapSystem : EntitySystem
         if (_net.IsServer)
         {
             _popup.PopupEntity("A trap is being forced onto your head!", target, target, PopupType.Large);
+
+            _audio.PlayPredicted(trap.StartCuffSound, target, null);
         }
 
         var doAfterArgs = new DoAfterArgs(EntityManager, args.User, 3f,

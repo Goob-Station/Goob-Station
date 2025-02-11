@@ -37,6 +37,9 @@ public sealed partial class ReverseBearTrapComponent : Component
     public SoundSpecifier SnapSound { get; set; } = new SoundPathSpecifier("/Audio/_Goobstation/Effects/snap.ogg");
 
     [DataField]
+    public SoundSpecifier StartCuffSound = new SoundPathSpecifier("/Audio/Items/Handcuffs/cuff_start.ogg");
+
+    [DataField]
     public List<float>? DelayOptions = null;
 
     [DataField]

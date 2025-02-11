@@ -258,7 +258,7 @@
   icon: { sprite: /Textures/_Goobstation/Clothing/Head/Helmets/reverse_bear_trap.rsi, state: icon }
   productEntity: ReverseBearTrap
   cost:
-    Telecrystal: 15 # novelty item for rp
+    Telecrystal: 23 # novelty item for rp
   categories:
   - UplinkWearables
 
