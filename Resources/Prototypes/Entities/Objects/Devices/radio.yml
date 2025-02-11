@@ -7,9 +7,11 @@
   - type: TelecomExempt
   - type: RadioMicrophone
     broadcastChannel: Handheld
+    toggleOnInteract: false # Goob
   - type: RadioSpeaker
     channels:
     - Handheld
+    toggleOnInteract: false # Goob
   - type: Speech
     speechVerb: Robotic
   - type: Sprite
@@ -24,6 +26,14 @@
   - type: Tag
     tags:
     - Radio
+  # Goob-Start
+  - type: ActivatableUI
+    key: enum.HandheldRadioUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.HandheldRadioUiKey.Key:
+        type: HandheldRadioBoundUserInterface
+  # Goob-End
 
 - type: entity
   name: security radio
