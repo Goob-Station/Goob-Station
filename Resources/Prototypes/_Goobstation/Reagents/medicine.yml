@@ -504,16 +504,16 @@
   color: "#65583b"
   metabolisms:
     Medicine:
-      metabolismRate: 0.1
+      metabolismRate: 0.05
       effects:
       - !type:HealthChange
         damage:
           groups:
-            Brute: -0.6 # intentionally slow
+            Brute: -1 # intentionally slow
       - !type:HealthChange
         damage:
           types:
-            Radiation: 0.1 # very slight side effect
+            Radiation: 0.05 # very slight side effect
         conditions:
         - !type:OrganType
           type: Yowie
