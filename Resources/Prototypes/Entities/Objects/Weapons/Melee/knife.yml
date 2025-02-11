@@ -218,6 +218,7 @@
     sprite: Objects/Weapons/Melee/shiv.rsi
   - type: DisarmMalus
     malus: 0.225
+  - type: UndetectableContraband
 
 - type: entity
   name: reinforced shiv

@@ -46,3 +46,5 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: HideContrabandContent
+  - type: UndetectableContraband
