@@ -4663,3 +4663,21 @@ Entries:
       message: Swords are now larger.
   id: 529
   time: '2025-02-09T16:23:42.0000000+00:00'
+- author: Aineias1
+  changes:
+    - type: Add
+      message: Added more wintercoats
+  id: 530
+  time: '2025-02-09T19:14:19.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: Fixed IPC reboot.
+  id: 531
+  time: '2025-02-10T10:28:52.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Tidemind is back as a midround event.
+  id: 532
+  time: '2025-02-11T20:11:11.0000000+00:00'
