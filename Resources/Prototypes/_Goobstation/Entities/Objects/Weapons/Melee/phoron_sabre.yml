@@ -6,7 +6,7 @@
   description: The signature weapon of the dreaded deathsquads. Cuts through armored & and un-armored targets easily.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Melee/p_sword.rsi
+    sprite: _Goobstation/Objects/Weapons/Melee/phoron_sabre.rsi
     layers:
     - state: p_sword
     - state: p_sword_blade
@@ -37,7 +37,7 @@
     ignoreResistances: true
 
   - type: Item
-    sprite: _Goobstation/Objects/Weapons/Melee/p_sword-inhands.rsi
+    sprite: _Goobstation/Objects/Weapons/Melee/phoron_sabre_inhands.rsi
   - type: Reflect
     reflectProb: 1
     otherTypeReflectProb: 0.4
