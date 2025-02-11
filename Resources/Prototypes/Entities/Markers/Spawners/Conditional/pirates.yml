@@ -23,8 +23,8 @@
     - sprite: Mobs/Species/Skeleton/parts.rsi
       state: skull_icon
   - type: GhostRole
-    name: ghost-role-information-pirate-irs-captain-name
-    description: ghost-role-information-pirate-irs-captain-description
+    name: ghost-role-information-pirate-irs-name # leaving it like that because i'm too lazy to redo it
+    description: ghost-role-information-pirate-irs-description
     rules: ghost-role-information-pirate-irs-rules
     raffle:
       settings: default
