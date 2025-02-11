@@ -5,9 +5,8 @@
   components:
   - type: Clickable
   - type: InteractionOutline
-  - type: Anchorable
   - type: Transform
-    anchored: True
+    anchored: false
   - type: Pullable
   - type: MovedByPressure
   - type: Physics
@@ -50,9 +49,22 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 600
       behaviors:
-      - !type:TriggerBehavior
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel:
+            min: 5
+            max: 5
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: StepTrigger
@@ -78,3 +90,12 @@
     rotateWhileAnchored: false
     rotateWhilePulling: true
   - type: Repairable
+  - type: DeployableBarrier
+    fixture: ""
+  - type: AccessReader
+    access: [["Security"]]
+  - type: Lock
+    locked: false
+    lockOnClick: true # toggle lock just by clicking on detector
+    lockTime: 2
+    unlockTime: 2
