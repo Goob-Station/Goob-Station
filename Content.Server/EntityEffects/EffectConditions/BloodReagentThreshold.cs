@@ -33,6 +33,7 @@ public sealed partial class BloodReagentThreshold : EntityEffectCondition
             }
             return true;
         }
+
         throw new NotImplementedException();
     }
 
