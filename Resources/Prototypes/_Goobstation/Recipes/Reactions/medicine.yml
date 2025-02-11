@@ -262,13 +262,13 @@
   quantized: true
   reactants:
     SodiumPolyacrylate:
-      amount: 15
+      amount: 10
     Phenol:
-      amount: 15
+      amount: 10
     Blood:
-      amount: 15
+      amount: 10
     Carbon:
-      amount: 15
+      amount: 10
   products:
     Hydroxide: 5 # frankly it's there so that this recipe appears in the guidebook at all
   effects:
@@ -281,9 +281,10 @@
   - Centrifuge
   reactants:
     Synthflesh:
-      amount: 5
+      amount: 6
   products:
     Synthcells: 4
+    Sodium: 1
     Carbon: 1
 
 - type: reaction
