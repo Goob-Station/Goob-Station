@@ -33,6 +33,7 @@
       types:
         Slash: 30
         Heat: 35
+        Radiation: 10
         Structural: 80
     ignoreResistances: true
 
@@ -52,3 +53,7 @@
       params:
         variation: 0.250
         volume: -2
+
+  - type: Sharp
+  - type: Execution # Off with his head!
+    doAfterDuration: 4.0
