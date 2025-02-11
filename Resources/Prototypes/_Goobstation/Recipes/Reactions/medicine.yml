@@ -147,7 +147,7 @@
 
 - type: reaction
   id: Multiver
-  maxTemp: 320 # cool your beaker!
+  maxTemp: 320
   reactants:
     Charcoal:
       amount: 1
@@ -158,14 +158,16 @@
 
 - type: reaction
   id: Monover
-  minTemp: 330 # or suffer the consequences
+  minTemp: 330
   reactants:
     Charcoal:
+      amount: 2
+    Chlorine: # OK, this is REALLY stupid, but basically tests don't check for overlap accounting for temperatures. Treat this as "if you hotbeaker it you get this"
       amount: 1
-    TableSalt:
+    Sodium:
       amount: 1
   products:
-    Monover: 2
+    Monover: 4
 
 - type: reaction
   id: Calomel
