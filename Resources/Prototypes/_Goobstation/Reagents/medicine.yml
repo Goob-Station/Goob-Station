@@ -1041,7 +1041,7 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -8
+            Brute: -9
         conditions:
         - !type:TypedDamageThreshold
           damage:
