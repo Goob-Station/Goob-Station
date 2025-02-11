@@ -1143,7 +1143,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: -3
+            Poison: -2
             Radiation: -1 # grants 100% protection from rads until higher rad values
       - !type:GenericStatusEffect
         key: RadiationProtection
