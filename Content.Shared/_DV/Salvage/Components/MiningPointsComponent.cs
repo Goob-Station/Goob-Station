@@ -17,10 +17,4 @@ public sealed partial class MiningPointsComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public uint Points;
-
-    /// <summary>
-    /// Sound played when successfully transferring points to another holder.
-    /// </summary>
-    [DataField]
-    public SoundSpecifier? TransferSound;
 }

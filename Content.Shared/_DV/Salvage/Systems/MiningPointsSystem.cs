@@ -1,14 +1,16 @@
-using Content.Shared.Access.Systems;
 using Content.Shared._DV.Salvage.Components;
+using Content.Shared._Lavaland.UnclaimedOre;
+using Content.Shared.Access.Systems;
 using Content.Shared.Lathe;
-using Robust.Shared.Audio.Systems;
+using Content.Shared.Materials;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._DV.Salvage.Systems;
 
 public sealed class MiningPointsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedIdCardSystem _idCard = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     private EntityQuery<MiningPointsComponent> _query;
 
@@ -18,7 +20,7 @@ public sealed class MiningPointsSystem : EntitySystem
 
         _query = GetEntityQuery<MiningPointsComponent>();
 
-        SubscribeLocalEvent<MiningPointsLatheComponent, LatheStartPrintingEvent>(OnStartPrinting);
+        SubscribeLocalEvent<MiningPointsLatheComponent, MaterialEntityInsertedEvent>(OnMaterialEntityInserted);
         Subs.BuiEvents<MiningPointsLatheComponent>(LatheUiKey.Key, subs =>
         {
             subs.Event<LatheClaimMiningPointsMessage>(OnClaimMiningPoints);
@@ -27,11 +29,17 @@ public sealed class MiningPointsSystem : EntitySystem
 
     #region Event Handlers
 
-    private void OnStartPrinting(Entity<MiningPointsLatheComponent> ent, ref LatheStartPrintingEvent args)
+    private void OnMaterialEntityInserted(Entity<MiningPointsLatheComponent> ent, ref MaterialEntityInsertedEvent args)
     {
-        var points = args.Recipe.MiningPoints;
+        if (!TryComp<UnclaimedOreComponent>(args.Inserted, out var unclaimedOre) || !_timing.IsFirstTimePredicted)
+            return;
+
+        var points = unclaimedOre.MiningPoints * args.Count;
         if (points > 0)
-            AddPoints(ent.Owner, points);
+            AddPoints(ent.Owner, (uint) points);
+
+        if (TryFindIdCard(args.User) is {} dest)
+            TransferAll(ent.Owner, dest);
     }
 
     private void OnClaimMiningPoints(Entity<MiningPointsLatheComponent> ent, ref LatheClaimMiningPointsMessage args)
@@ -115,7 +123,6 @@ public sealed class MiningPointsSystem : EntitySystem
             return false;
 
         AddPoints(dest, amount);
-        _audio.PlayPvs(src.Comp.TransferSound, src);
         return true;
     }
 
