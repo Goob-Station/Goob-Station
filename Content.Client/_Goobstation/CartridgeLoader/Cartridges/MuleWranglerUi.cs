@@ -1,5 +1,5 @@
-﻿using Content.Client._Goobstation.CatridgeLoader.Cartridges;
-using Content.Client.UserInterface.Fragments;
+﻿using Content.Client.UserInterface.Fragments;
+using Content.Shared._Goobstation.CartridgeLoader.Cartridges;
 using Robust.Client.UserInterface;
 
 namespace Content.Client._Goobstation.CartridgeLoader.Cartridges;
