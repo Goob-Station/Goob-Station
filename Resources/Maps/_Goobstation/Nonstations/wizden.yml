@@ -841,6 +841,8 @@ entities:
     - type: Transform
       pos: -1.5,-5.5
       parent: 2
+    - type: StorageFill
+      contents: []
     - type: Storage
       storedItems:
         34:

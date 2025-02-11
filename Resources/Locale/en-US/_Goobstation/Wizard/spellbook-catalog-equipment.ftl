@@ -1,3 +1,13 @@
+spellbook-spellblade-name = Spellblade
+spellbook-spellblade-desc =
+    A magical sword that can be enchanted by using it in hand to have a unique on-hit effect.
+
+    Lighting: arcs electricity between nearby targets, stunning and damaging them.
+    Fire: ignites nearby targets on hit, and makes the wielder immune to fire.
+    Bluespace: allows you to teleport a long distance, knocking down targets in a small radius around teleport location.
+    Forceshield: on hit, makes you stun immune for 5 seconds and reduces brute and heat damage by half.
+    Spacetime: will slice faster but weaker and will curse the target, slashing them a few seconds after they have not been swung at for each hit.
+
 spellbook-everfull-mug-name = Everfull Mug
 spellbook-everfull-mug-desc =
     A magical mug that can be filled with omnizine at will. Great source of healing.

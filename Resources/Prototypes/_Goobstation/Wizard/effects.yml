@@ -120,6 +120,14 @@
 
 - type: entity
   parent: BaseFlashEffect
+  id: FireFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    color: orange
+
+- type: entity
+  parent: BaseFlashEffect
   id: EmpFlashEffect
   categories: [ HideSpawnMenu ]
   components:
@@ -383,6 +391,24 @@
       - shader: unshaded
         sprite: _Goobstation/Wizard/Effects/effects.rsi
         state: highfreq_slash
+
+- type: entity
+  id: WeaponArcTempSlash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: FadingTimedDespawn
+    fadeOutTime: 0.5
+    lifetime: 0
+  - type: RandomRotation
+  - type: Sprite
+    drawdepth: Effects
+    layers:
+      - shader: unshaded
+        sprite: _Goobstation/Wizard/Effects/effects.rsi
+        state: temporal_slash
+  - type: Tag
+    tags:
+      - HideContextMenu
 
 - type: entity
   id: BindSoulParticle

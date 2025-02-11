@@ -25,7 +25,7 @@ public sealed class IceCubeSystem : SharedIceCubeSystem
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        if (sprite.LayerMapTryGet(IceCubeKey.Key, out var _))
+        if (sprite.LayerMapTryGet(IceCubeKey.Key, out _))
             return;
 
         var layer = sprite.AddLayer(comp.Sprite);

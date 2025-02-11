@@ -224,7 +224,7 @@
       suitstorage:
       - state: equipped-BACKPACK
   - type: Reflect
-    reflectProb: .5
+    reflectProb: .3
     slotFlags:
       - NONE
   - type: LightAttackDamageMultiplier
@@ -239,5 +239,51 @@
       path: /Audio/_Goobstation/Wizard/zapbang.ogg
       params:
         variation: 0.250
+  - type: StaticPrice
+    price: 50000
+
+- type: entity
+  name: spellblade
+  parent: [BaseSword, BaseMagicContraband]
+  id: Spellblade
+  description: An enchanted blade with a series of runes along the side.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/Weapons/spellblade.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Slash: 30
+    clickPartDamageMultiplier: 3
+    heavyPartDamageMultiplier: 2
+    soundHit:
+      path: "/Audio/Weapons/bladeslice.ogg"
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Objects/Weapons/spellblade.rsi
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK
+      suitstorage:
+      - state: equipped-BACKPACK
+  - type: Spellblade
+    prototypes:
+    - EnchantmentLightning
+    - EnchantmentFire
+    - EnchantmentBluespace
+    - EnchantmentSpacetime
+    - EnchantmentForceshield
+  - type: UserInterface
+    interfaces:
+      enum.SpellbladeUiKey.Key:
+        type: SpellbladeBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.SpellbladeUiKey.Key
   - type: StaticPrice
     price: 50000

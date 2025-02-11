@@ -577,6 +577,16 @@
 
 # Equipment
 - type: listing
+  id: SpellbookSpellblade
+  name: spellbook-spellblade-name
+  description: spellbook-spellblade-desc
+  productEntity: Spellblade
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEquipment
+
+- type: listing
   id: SpellbookEverfullMug
   name: spellbook-everfull-mug-name
   description: spellbook-everfull-mug-desc
