@@ -1089,9 +1089,9 @@
       - !type:HealthChange
         damage:
           types:
-            Heat: -4
-            Shock: -3
-            Cold: -4
+            Heat: -3
+            Shock: -2
+            Cold: -3
             Caustic: -2
         conditions:
         - !type:TypedDamageThreshold
@@ -1103,7 +1103,7 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: -1
+            Burn: -2
         conditions:
         - !type:TypedDamageThreshold
           damage:
