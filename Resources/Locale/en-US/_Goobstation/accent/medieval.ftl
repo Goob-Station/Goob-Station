@@ -708,3 +708,15 @@ accent-medieval-words-replace-223 = do a jig
 
 accent-medieval-words-224 = danced
 accent-medieval-words-replace-224 = did a jig
+
+accent-medieval-words-225 = tider
+accent-medieval-words-replace-225 = blackguard
+
+accent-medieval-words-226 = tiders
+accent-medieval-words-replace-226 = blackguards
+
+accent-medieval-words-227 = assistant
+accent-medieval-words-replace-227 = blacksguard
+
+accent-medieval-words-228 = assistants
+accent-medieval-words-replace-228 = blacksguards
