@@ -30,7 +30,7 @@ public sealed class JobAddComponentsRule : StationEventSystem<JobAddComponentsRu
                     EntityManager.AddComponents(target, component.Components, component.RemoveExisting);
                     if (component.Message != null && _mind.TryGetSession(mindContainer.Mind.Value, out var session))
                     {
-                        var message = Loc.GetString(component.Message);
+                        var message = Loc.GetString("chat-manager-server-wrap-message", ("message", Loc.GetString(component.Message)));
                         _chat.ChatMessageToOne(ChatChannel.Local, message, message, EntityUid.Invalid, false, session.Channel);
                     }
                     break;
