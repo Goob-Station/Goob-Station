@@ -1,9 +1,8 @@
-﻿using Content.Client.UserInterface.Fragments;
-using Content.Client.UserInterface;
-using Content.Shared.CartridgeLoader.Cartridges;
+﻿using Content.Client._Goobstation.CatridgeLoader.Cartridges;
+using Content.Client.UserInterface.Fragments;
 using Robust.Client.UserInterface;
 
-namespace Content.Client._Goobstation.CatridgeLoader.Cartridges;
+namespace Content.Client._Goobstation.CartridgeLoader.Cartridges;
 
 public sealed partial class MuleWranglerUi : UIFragment
 {

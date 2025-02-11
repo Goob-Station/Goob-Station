@@ -9,8 +9,14 @@
     sprite: _Goobstation/Mobs/Silicon/Bots/mule.rsi
     layers:
     - state: mulebot0 # idle layer
-      map: [ "enum.DamageStateVisualLayers.Base" ]
-    - state: mulebot1 # movement layer
+      map: [ "enum.DamageStateVisualLayers.Base", "movement" ]
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: mulebot1
+    noMovementLayers:
+      movement:
+        state: mulebot0
   - type: Strap
     buckleOffset: "0,0.25"
   - type: Mule

@@ -1,0 +1,26 @@
+﻿ <cartridges:MuleWranglerUiFragment xmlns="https://spacestation14.io"
+                                xmlns:cartridges="clr-namespace:Content.Client._Goobstation.CartridgeLoader.Cartridges"
+                                xmlns:pda="clr-namespace:Content.Client.PDA"
+                                Orientation="Vertical"
+                                VerticalExpand="True">
+    <PanelContainer>
+        <GridContainer Name="MainContainer" Columns="2">
+                <GridContainer Name="ButtonContainer" SetWidth="250">
+                </GridContainer>
+            <BoxContainer>
+                <GridContainer Rows="2">
+                    <Label Name="MuleStatusLabel"
+                        Text="Mule Wrangler Status"/>
+                    <GridContainer Columns="2">
+                        <Label Name="SelectedMuleLabel"
+                               Text="Selected Mule: "/>
+                        <Label Name="IdentifyMuleLabel"
+                               Text="None"/>
+                    </GridContainer>
+                </GridContainer>
+            </BoxContainer>
+        </GridContainer>
+        <GridContainer Name="MuleListContainer" Visible="False">
+        </GridContainer>
+    </PanelContainer>
+</cartridges:MuleWranglerUiFragment>
