@@ -126,7 +126,7 @@
     groups:
       Acidic: [ Touch ]
     reactions:
-    - reagents: [ Dylovene, Diphenhydramine, Arithrazine, Bicaridine, Dermaline, Dexalin, DexalinPlus, Tricordrazine, Leporazine, Bruizine, Lacerinol, Puncturase, Pyrazine, Insuzine, Kelotane, Hyronalin, Inaprovaline, Epinephrine ]
+    - reagents: [ Dylovene, Diphenhydramine, Arithrazine, Bicaridine, Dermaline, Dexalin, DexalinPlus, Tricordrazine, Leporazine, Bruizine, Lacerinol, Puncturase, Pyrazine, Insuzine, Kelotane, Hyronalin, Inaprovaline, Epinephrine, Probital, Tirimol, Syriniver, Ebifin, ProcenylLazide, Multiver, Monover, Calomel, AmmoniatedMercury, SilverSulfadiazine, StypticPowder, Synthcells, SalicylicAcid, Oxandrolone, PentenicAcid, Atropine ] # Goobstation - Probital and above
       methods: [ Touch ]
       effects:
       - !type:ActivateArtifact
