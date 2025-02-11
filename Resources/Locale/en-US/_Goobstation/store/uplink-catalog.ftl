@@ -132,6 +132,9 @@ uplink-smoke-implant-desc = Releases a cloud of smoke when activated.
 uplink-helmet-swat-name = Syndicate SWAT Helmet
 uplink-helmet-swat-desc = Robust helmet that offers good protection and also suppresses flashbang sounds to some extent.
 
+uplink-reverse-bear-trap-name = Reverse bear trap
+uplink-reverse-bear-trap-desc = An ingenious execution device worn on (or forced onto) the head. Arming it starts a 1-minute kitchen timer mounted on the bear trap. When it goes off, the trap's jaws will violently open, instantly killing anyone wearing it by tearing their jaws in half. To arm, attack someone with it while they're not wearing headgear.
+
 # Deception
 
 uplink-clothing-explosive-gloves-name = Explosive Insulated Gloves
