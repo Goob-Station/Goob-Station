@@ -59,8 +59,11 @@ public abstract class SharedBlinkSystem : EntitySystem
             return;
 
         var coords = _transform.GetWorldPosition(xform);
+        var length = msg.Direction.Length();
+        if (length <= 0f)
+            return;
         var dir = msg.Direction.Normalized();
-        var range = MathF.Min(blink.Distance, msg.Direction.Length());
+        var range = MathF.Min(blink.Distance, length);
 
         var ray = new CollisionRay(coords, dir, (int) (CollisionGroup.Impassable | CollisionGroup.InteractImpassable));
         var rayResults = _physics.IntersectRay(xform.MapID, ray, range, user, false).ToList();
