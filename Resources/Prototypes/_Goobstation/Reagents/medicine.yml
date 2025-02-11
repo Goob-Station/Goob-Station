@@ -1040,10 +1040,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Blunt: -2
-            Piercing: -2
-            Slash: -2
+          groups:
+            Brute: -8
         conditions:
         - !type:TypedDamageThreshold
           damage:
