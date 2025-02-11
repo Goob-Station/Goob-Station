@@ -1,6 +1,8 @@
 # Accents that work off of word replacements.
+-
 # this is kind of dumb but localization demands it.
 # i guess you could just specify the prefix ('mobster') and count and let the system fill it
+
 - type: accent
   id: mobster
   wordReplacements:
@@ -21,6 +23,7 @@
     accent-mobster-words-15: accent-mobster-words-replace-15
     accent-mobster-words-16: accent-mobster-words-replace-16
     accent-mobster-words-17: accent-mobster-words-replace-17
+
 
 - type: accent
   id: italian
@@ -74,6 +77,7 @@
     accent-italian-words-47: accent-italian-words-replace-47
     accent-italian-words-48: accent-italian-words-replace-48
     accent-italian-words-49: accent-italian-words-replace-49
+
 
 - type: accent
   id: dwarf
@@ -264,6 +268,7 @@
     accent-pirate-replaced-31: accent-pirate-replacement-31
     accent-pirate-replaced-32: accent-pirate-replacement-32
 
+
 - type: accent
   id: cowboy
   wordReplacements:
@@ -377,6 +382,7 @@
   accent-southern-words-4: accent-southern-words-replace-4
   accent-southern-words-5: accent-southern-words-replace-5
   accent-southern-words-6: accent-southern-words-replace-6
+
 
 # For the chat sanitization system
 - type: accent
@@ -497,6 +503,7 @@
   liar-word-41: liar-word-replacement-41
   liar-word-42: liar-word-replacement-42
 
+
 - type: accent
   id: german
   wordReplacements:
@@ -576,6 +583,7 @@
     accent-german-words-61-4: accent-german-words-replace-61
     accent-german-words-62: accent-german-words-replace-62
 
+
 - type: accent
   id: russian
   wordReplacements:
@@ -587,6 +595,7 @@
     accent-russian-words-4: accent-russian-words-replace-4
     accent-russian-words-5: accent-russian-words-replace-5
     accent-russian-words-6: accent-russian-words-replace-6
+
 
 - type: accent
   id: skeleton
