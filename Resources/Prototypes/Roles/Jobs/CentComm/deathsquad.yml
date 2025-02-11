@@ -30,7 +30,7 @@
     outerClothing: ClothingOuterHardsuitDeathsquad
     shoes: ClothingShoesBootsMagDeathsquad # These boots are cooler.
     id: DeathsquadPDA
-    pocket1: EnergySabre # Goobstation - TODO Replace Texture
+    pocket1: PhoronSabre # Goobstation
     pocket2: EnergyShield # TODO : Replace with BSO shield
     belt: ClothingBeltDeathsquadWebbingFilled # Centcomm Doesn't use syndicate tech.
   storage:
