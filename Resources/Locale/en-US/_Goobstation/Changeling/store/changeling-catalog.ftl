@@ -3,8 +3,25 @@
 
 evolutionmenu-combat-armblade-name = Arm Blade
 evolutionmenu-combat-armblade-desc =
-    Reform one of your arms into a grotesque blade, composed of bone and flesh, able to pry open airlocks and cut through your foes like butter.
+    Reform one of your arms into a grotesque blade, composed of bone and flesh, able to pry open airlocks and cut through your foes like butter. Easily delimbs.
     Costs 15 chemicals.
+
+evolutionmenu-combat-armhammer-name = Arm Hammer
+evolutionmenu-combat-armhammer-desc =
+    Reform one of your arms into a grotesque hammer, composed of bone and flesh, able to smash your opponents, knocking them down and sending them flying. Will only knock down on light attack.
+    Costs 15 chemicals.
+
+evolutionmenu-combat-armclaw-name = Arm Claw
+evolutionmenu-combat-armclaw-desc =
+    Reform one of your arms into a grotesque claw, composed of bone and flesh, able to grab your opponents, immobilizing them.
+    Costs 15 chemicals.
+
+evolutionmenu-combat-dartgun-name = Dart Gun
+evolutionmenu-combat-dartgun-desc =
+    Reform one of your arms into a stinger, able to shoot darts, applying half of the effect of one of your evolved reagent stings.
+    Available modes: blind sting, mute sting, cryogenic sting, lethargic sting
+    Costs 15 chemicals.
+    Each shot costs about 1/3 the chemical cost of the selected sting.
 
 evolutionmenu-combat-boneshard-name = Bone Shard
 evolutionmenu-combat-boneshard-desc =
@@ -51,27 +68,27 @@ evolutionmenu-combat-strainedmuscles-desc =
 
 evolutionmenu-sting-blind-name = Blind Sting
 evolutionmenu-sting-blind-desc =
-    Silently sting an organic target, completely blinding them for a short time, and rendering them near-sighted until oculine is applied.
+    Silently sting an organic target, completely blinding them for a short time.
     May be used while under the effects of Lesser Form.
-    Costs 35 chemicals.
+    Costs 20 chemicals.
 
 evolutionmenu-sting-cryo-name = Cryogenic Sting
 evolutionmenu-sting-cryo-desc =
     Inject an organic target with a cocktail of chemicals that chills the blood.
     May be used while under the effects of Lesser Form.
-    Costs 35 chemicals.
+    Costs 20 chemicals.
 
 evolutionmenu-sting-lethargic-name = Lethargic Sting
 evolutionmenu-sting-lethargic-desc =
-    Inject an organic target with a cocktail of anesthetics, slowing the victim down for a decent amount of time.
+    Inject an organic target with a cocktail of anesthetics, slowing the victim down and dealing stamina damage for a decent amount of time.
     May be used while under the effects of Lesser Form.
-    Costs 35 chemicals.
+    Costs 30 chemicals.
 
 evolutionmenu-sting-mute-name = Mute Sting
 evolutionmenu-sting-mute-desc =
     Inject mute toxin into an organic target, completely silencing them for a while.
     May be used while under the effects of Lesser Form.
-    Costs 35 chemicals.
+    Costs 20 chemicals.
 
 evolutionmenu-sting-transform-name = Transformation Sting
 evolutionmenu-sting-transform-desc =
@@ -137,3 +154,8 @@ evolutionmenu-utility-hivemindaccess-name = Hivemind Access
 evolutionmenu-utility-hivemindaccess-desc =
     Tunes our chemical receptors for hivemind communication, allowing us to recognize and communicate with other changelings who have also evolved this ability.
     Default radio key is :g
+
+evolutionmenu-utility-absorbbiomatter-name = Absorb Biomatter
+evolutionmenu-utility-absorbbiomatter-desc =
+    Absorbs an organic food item, letting you regain chemicals depending on its contents.
+    Can absorb nutriment, cooked and uncooked proteins, and fat.

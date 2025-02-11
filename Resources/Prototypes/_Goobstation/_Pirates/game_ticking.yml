@@ -24,7 +24,7 @@
     alwaysUseSpeciesOverride: true
   - type: AntagSelection
     definitions:
-    - spawnerPrototype: SpawnPointPirates
+    - spawnerPrototype: SpawnPointPirateCaptain
       pickPlayer: false
       min: 5
       max: 5

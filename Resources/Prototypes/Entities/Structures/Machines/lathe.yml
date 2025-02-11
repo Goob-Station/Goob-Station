@@ -208,6 +208,7 @@
       - ClothingHeadHatCone
       - FreezerElectronics
       - ToolboxMechanical # Goobstation - Recycle update
+      - Pen # Goobstation - Allow pen printing
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - BoxLethalshot
@@ -315,6 +316,7 @@
     - ClothingEyesGlassesChemical
     - MaterialBSCrystal
     dynamicRecipes:
+      - PrescriptionGlasses # Goobstation
       - PowerDrill
       - MiningDrill
       - MiningDrillDiamond
@@ -1093,6 +1095,7 @@
       - CartridgeDermaline # Goobstation - ParamedHypo
       - ParamedHypo # Goobstation - ParamedHypo
     dynamicRecipes:
+      - PrescriptionGlasses # Goobstation
       - ChemicalPayload
       - CryostasisBeaker
       - BluespaceBeaker
@@ -1141,6 +1144,7 @@
       - ClothingUniformJumpskirtCaptain
       - ClothingUniformJumpsuitCapFormal
       - ClothingUniformJumpskirtCapFormalDress
+      - ClothingUniformJumpsuitCasualCommand # Goobstation
       - ClothingUniformJumpsuitCargo
       - ClothingUniformJumpskirtCargo
       - ClothingUniformJumpsuitSalvageSpecialist
@@ -1167,6 +1171,7 @@
       - ClothingUniformJumpskirtEngineering
       - ClothingUniformJumpsuitSeniorEngineer
       - ClothingUniformJumpskirtSeniorEngineer
+      - ClothingUniformJumpsuitCasualEngineer # Goobstation
       - ClothingHeadHatHopcap
       - ClothingUniformJumpsuitHoP
       - ClothingUniformJumpskirtHoP
@@ -1289,12 +1294,14 @@
       - ClothingUniformJumpskirtCentcomFormalDress
       - ClothingUniformJumpsuitCentcomOfficer
       - ClothingUniformJumpsuitCentcomOfficial
+      - ClothingUniformJumpsuitCasualCentcom # Goobstation
       - ClothingHeadHatSyndieMAA
       - ClothingHeadHatSyndie
       - ClothingUniformJumpsuitOperative
       - ClothingUniformJumpskirtOperative
       - ClothingUniformJumpsuitSyndieFormal
       - ClothingUniformJumpskirtSyndieFormalDress
+      - ClothingUniformJumpsuitCasualSyndicate # Goobstation
       - ClothingHeadPyjamaSyndicateBlack
       - ClothingUniformJumpsuitPyjamaSyndicateBlack
       - ClothingHeadPyjamaSyndicatePink

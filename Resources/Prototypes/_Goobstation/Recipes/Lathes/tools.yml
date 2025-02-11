@@ -14,3 +14,10 @@
     Plastic: 500
     Cloth: 200
     Steel: 100
+
+- type: latheRecipe
+  id: Pen
+  result: Pen
+  completetime: 1
+  materials:
+    Steel: 25 # should probably cost less than matter bins or whatever

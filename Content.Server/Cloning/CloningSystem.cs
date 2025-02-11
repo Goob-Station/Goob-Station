@@ -84,17 +84,27 @@ namespace Content.Server.Cloning
             _signalSystem.EnsureSinkPorts(uid, CloningPodComponent.PodPort);
         }
 
+        // GoobStation: rewrite so it uses BeingClonedComponent instead of a dictionary
         internal void TransferMindToClone(EntityUid mindId, MindComponent mind)
         {
-            if (!ClonesWaitingForMind.TryGetValue(mind, out var entity) ||
-                !EntityManager.EntityExists(entity) ||
-                !TryComp<MindContainerComponent>(entity, out var mindComp) ||
-                mindComp.Mind != null)
+            // find first mob this player is meant to use and doesn't already have a mind via alternate means
+            var query = EntityQueryEnumerator<BeingClonedComponent, MindContainerComponent>();
+            var found = false;
+            EntityUid mob;
+            while (query.MoveNext(out mob, out var cloned, out var mc))
+            {
+                if (cloned.Mind == mind && mc.Mind == null)
+                {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
                 return;
 
-            _mindSystem.TransferTo(mindId, entity, ghostCheckOverride: true, mind: mind);
+            _mindSystem.TransferTo(mindId, mob, ghostCheckOverride: true, mind: mind);
             _mindSystem.UnVisit(mindId, mind);
-            ClonesWaitingForMind.Remove(mind);
         }
 
         private void HandleMindAdded(EntityUid uid, BeingClonedComponent clonedComponent, MindAddedMessage message)
@@ -229,7 +239,7 @@ namespace Content.Server.Cloning
             cloneMindReturn.Mind = mind;
             cloneMindReturn.Parent = uid;
             _containerSystem.Insert(mob, clonePod.BodyContainer);
-            //ClonesWaitingForMind.Add(mind, mob); // GoobStation
+            //ClonesWaitingForMind.Add(mind, mob); // GoobStation: Use mindId
             UpdateStatus(uid, CloningPodStatus.NoMind, clonePod);
             _euiManager.OpenEui(new AcceptCloningEui(mindEnt, mind, this), client);
 
