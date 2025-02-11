@@ -20,8 +20,6 @@
       path: /Audio/_Goobstation/Weapons/Melee/Pan/metalpipe.ogg
       params:
         volume: 1
-  - type: Item
-    size: Normal
   - type: Reflect
     reflectProb: 0.05
     reflects:
