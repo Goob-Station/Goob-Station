@@ -463,9 +463,9 @@
       - !type:HealthChange
         damage:
           types:
-            Slash: -6
-            Blunt: -6
-            Piercing: -6
+            Slash: -8
+            Blunt: -8
+            Piercing: -8
       - !type:AdjustReagent
         reagent: Bozaide
         amount: 3
@@ -509,7 +509,7 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -0.5 # intentionally slow
+            Brute: -0.6 # intentionally slow
       - !type:HealthChange
         damage:
           types:
