@@ -31,7 +31,7 @@ reagent-name-multiver = multiver
 reagent-desc-multiver = Drug purpose-built to cleanse dangerous chemical mixes. Can be used against simple poisonings, but it's recommended to mix it with other chemicals for higher efficiency.
 
 reagent-name-monover = monover
-reagent-desc-monover = Relatively low complexity anti-poison drug that stops working in impure enviroments. It's side effects can be potentially used to quickly verify whether bloodstream is clean of chemicals.
+reagent-desc-monover = Relatively low complexity anti-poison drug that stops working in impure environments. It's side effects can be potentially used to quickly verify whether bloodstream is clean of chemicals.
 
 reagent-name-synthcells = synthcells
 reagent-desc-synthcells = Artificially produced "cells" that quickly destroy and replace any dysfunctional cells. Works both through external and internal application. Works on dead.
@@ -73,7 +73,7 @@ reagent-name-ebifin = ebifin
 reagent-desc-ebifin = Extremely strong burn compound with cripplingly low overdose threshold. Reacts violently in bloodstream, quickly healing most burn injuries when used in low amounts.
 
 reagent-name-procenyl-lazide = procenyl lazide
-reagent-desc-procenyl-lazide = Somewhat strong brute medicine with low overdose threshold, needs to be crystalized at low temperatures and seperated out from its precursor solution.
+reagent-desc-procenyl-lazide = Somewhat strong brute medicine with low overdose threshold, needs to be crystalized at low temperatures and separated out from its precursor solution.
 
 reagent-name-bozaide = bozaide
 reagent-desc-bozaide = Slow acting brute medicine, deals low amounts of radiation damage.
@@ -85,10 +85,10 @@ reagent-name-procenyl-lazide-sludge = procenyl lazide sludge
 reagent-desc-procenyl-lazide-sludge = Relatively easy to create solution, needs heating to bind properly in a notoriously inefficient reaction.
 
 reagent-name-styptic-crystal-catalyst = styptic crystal catalyst
-reagent-desc-styptic-crystal-catalyst = Staple of any school chemistry lab, this ususually non-reactive liquid can mix with blood and sodium to produce beautiful crystals with healing potential.
+reagent-desc-styptic-crystal-catalyst = Staple of any school chemistry lab, this usually non-reactive liquid can mix with blood and sodium to produce beautiful crystals with healing potential.
 
 reagent-name-synthflesh = synthflesh
-reagent-desc-synthflesh = Whilst it's just seemingly uninteresting ground up synthmeat, cells with great healing potential can be seperated from it. Synthmeat can be created from a somewhat complex reaction with hydroxide byproduct.
+reagent-desc-synthflesh = Whilst it's just seemingly uninteresting ground up synthmeat, cells with great healing potential can be separated from it. Synthmeat can be created from a somewhat complex reaction with hydroxide byproduct.
 
 reagent-name-hercuri = hercuri
 reagent-desc-hercuri = Strong coolant, both servicable for internal and external application, though care must be taken not to freeze the patients too much.

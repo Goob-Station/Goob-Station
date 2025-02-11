@@ -24,6 +24,9 @@
       - !type:AdjustReagent
         reagent: Triclor
         amount: 0.5 # Counteracts some loss from vomiting, makes effects more linear
+        conditions:
+        - !type:ReagentThreshold
+          max: 15 # Limit self-replication to prevent infinite accumulation
       - !type:AdjustReagent
         conditions: # Vomiting behaves weirdly and might leave unmetabolisable 0.1 at 40u (floating point errors?)
         - !type:ReagentThreshold

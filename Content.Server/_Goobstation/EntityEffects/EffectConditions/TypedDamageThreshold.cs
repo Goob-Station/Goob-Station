@@ -9,7 +9,7 @@ namespace Content.Server._Goobstation.EntityEffects.EffectConditions;
 
 /// <summary>
 /// Checking for at least this amount of damage, but only for specified types/groups
-/// If we have less, this condition is false, unless Inverse is true
+/// If we have less, this condition is false. Inverse flips the output boolean
 /// </summary>
 /// <remarks>
 /// DamageSpecifier splits damage groups across types, we greedily revert that split to create
@@ -61,9 +61,9 @@ public sealed partial class TypedDamageThreshold : EntityEffectCondition
                         - MathF.Round(comparison.DamageDict[damageType].Float()))
                         < 0.02)
                         comparison.DamageDict[damageType] = MathF.Round(comparison.DamageDict[damageType].Float());
-                    comparison.ClampMin(0);
-                    comparison.TrimZeros();
                 }
+                comparison.ClampMin(0);
+                comparison.TrimZeros();
             }
             comparison.ExclusiveAdd(-damage.Damage);
             comparison = -comparison;
@@ -110,11 +110,9 @@ public sealed partial class TypedDamageThreshold : EntityEffectCondition
                         - MathF.Round(comparison.DamageDict[damageType].Float()))
                         < 0.02)
                     comparison.DamageDict[damageType] = MathF.Round(comparison.DamageDict[damageType].Float());
-                comparison.ClampMin(0);
-                comparison.TrimZeros();
-                comparison.ClampMin(0);
-                comparison.TrimZeros();
             }
+            comparison.ClampMin(0);
+            comparison.TrimZeros();
         }
 
         foreach (var (kind, amount) in comparison.DamageDict)

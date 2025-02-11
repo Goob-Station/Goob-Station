@@ -37,6 +37,9 @@ public sealed partial class HasComponentOnEquipmentCondition : EntityEffectCondi
 
     public override string GuidebookExplanation(IPrototypeManager prototype)
     {
-        return "TODO"; // Yeah have fun with that, keep this mostly on reactive things
+        // This condition should be only used on reactive things and not on metabolisable chemicals
+        // since equipment doesn't affect your internal metabolism. Additionally, components don't have
+        // user-friendly, or even user-understandable names.
+        return "TODO";
     }
 }

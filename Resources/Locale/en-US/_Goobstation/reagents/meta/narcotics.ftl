@@ -8,4 +8,4 @@ reagent-name-tirizene = tirizene
 reagent-desc-tirizene = A nonlethal poison that causes extreme fatigue and weakness in its victim.
 
 reagent-name-aranesp = aranesp
-reagent-desc-aranesp = A difficult to synthesize performance enchancer, most famous for strong energy restoration capabilities.
+reagent-desc-aranesp = A difficult to synthesize performance enhancer, most famous for strong energy restoration capabilities.

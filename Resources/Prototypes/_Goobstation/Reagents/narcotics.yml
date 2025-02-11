@@ -179,7 +179,7 @@
       - !type:TakeStaminaDamage
         conditions:
         amount: -20
-      - !type:HealthChange 
+      - !type:HealthChange
         damage:
           types:
             Poison: 0.25

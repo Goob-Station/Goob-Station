@@ -247,7 +247,7 @@
       - !type:HealthChange
         damage:
           types:
-            Asphyxiation: -6 # intended to be stronger, but more annoying than inapr, 
+            Asphyxiation: -6 # intended to be stronger, but more annoying than inapr
       - !type:TakeStaminaDamage
         conditions:
         - !type:OrganType
@@ -493,7 +493,7 @@
       - !type:AdjustReagent
         amount: -25
         reagent: Aluite
-      
+
 - type: reagent
   id: Bozaide
   name: reagent-name-bozaide
@@ -528,7 +528,7 @@
         damage:
           types:
             Radiation: 5
-      
+
 # Poison related meds
 
 - type: reagent
@@ -823,7 +823,7 @@
         component: IgnoreSlowOnDamage
         time: 5
       - !type:AdjustTemperature # 1/10 of lepo
-        conditions: 
+        conditions:
         - !type:Temperature
           max: 293.15
         amount: 10000
