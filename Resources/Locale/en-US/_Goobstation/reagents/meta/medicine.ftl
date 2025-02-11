@@ -31,7 +31,7 @@ reagent-name-multiver = multiver
 reagent-desc-multiver = Drug purpose-built to cleanse dangerous chemical mixes. Can be used against simple poisonings, but it's recommended to mix it with other chemicals for higher efficiency.
 
 reagent-name-monover = monover
-reagent-desc-monover = Relatively low complexity anti-poison drug that stops working in impure environments. It's side effects can be potentially used to quickly verify whether bloodstream is clean of chemicals.
+reagent-desc-monover = Relatively low complexity anti-poison drug that stops working in impure environments. Its side effects can be potentially used to quickly verify whether bloodstream is clean of chemicals.
 
 reagent-name-synthcells = synthcells
 reagent-desc-synthcells = Artificially produced "cells" that quickly destroy and replace any dysfunctional cells. Works both through external and internal application. Works on dead.
@@ -91,7 +91,7 @@ reagent-name-synthflesh = synthflesh
 reagent-desc-synthflesh = Whilst it's just seemingly uninteresting ground up synthmeat, cells with great healing potential can be separated from it. Synthmeat can be created from a somewhat complex reaction with hydroxide byproduct.
 
 reagent-name-hercuri = hercuri
-reagent-desc-hercuri = Strong coolant, both servicable for internal and external application, though care must be taken not to freeze the patients too much.
+reagent-desc-hercuri = Strong coolant, both serviceable for internal and external application, though care must be taken not to freeze the patients too much.
 
 reagent-name-herignis = herignis
 reagent-desc-herignis = Can thaw out most chilled of lizardmen, recommended to only use in small doses, as it can quickly heat up its metaboliser to dangerous levels.
