@@ -81,10 +81,10 @@
   parent: [ClothingEyesHudOmni, BaseCentcommContraband]
   id: ClothingEyesGlassesDeathsquad
   suffix: DO NOT MAP
-  name: deathsquad glasses
-  description: It's impossible to comprehend the animosity behind these glasses.
+  name: central commander shades
+  description: Pride. Hubris. Wrath. It's not a sin if you're right.
   components:
-  - type: Sprite
+  - type: Sprite+
     sprite: _Goobstation/Clothing/Eyes/Glasses/deathsquad.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Eyes/Glasses/deathsquad.rsi
