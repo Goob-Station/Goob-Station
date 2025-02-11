@@ -36,7 +36,14 @@ public sealed partial class PendingPirateRuleSystem : GameRuleSystem<PendingPira
             pending.PirateSpawnTimer += frameTime;
             if (pending.PirateSpawnTimer >= pending.PirateSpawnTime)
             {
-                // TODO remove ransom
+                // remove spawned order.
+                AllEntityQuery<BecomesStationComponent, StationMemberComponent>().MoveNext(out var eqData, out _, out _);
+                var station = _station.GetOwningStation(eqData);
+                if (station != null && _cargo.TryGetOrderDatabase(station, out var cargoDb) && pending.Order != null)
+                {
+                    _cargo.RemoveOrder(station.Value, pending.Order.OrderId, cargoDb);
+                }
+
                 SendAnnouncement((uid, pending), AnnouncementType.Arrival);
                 _gt.StartGameRule(_PirateSpawnRule);
                 _gt.EndGameRule(uid, gamerule);
@@ -69,6 +76,9 @@ public sealed partial class PendingPirateRuleSystem : GameRuleSystem<PendingPira
             var requester = Loc.GetString($"pirates-announcer-{announcer}");
 
             var ransom = new CargoOrderData(orderId, component.RansomPrototype, name, price, 1, requester, reason, 30);
+
+            component.Order = ransom;
+
             _cargo.TryAddOrder(station.Value, ransom, cargoDb);
         }
 

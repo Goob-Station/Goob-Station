@@ -1,3 +1,4 @@
+using Content.Shared.Cargo;
 using Content.Shared.Dataset;
 using Robust.Shared.Prototypes;
 
@@ -17,4 +18,6 @@ public sealed partial class PendingPirateRuleComponent : Component
     [DataField] public ProtoId<DatasetPrototype>? LocAnnouncers = null;
 
     [DataField] public float Ransom = 25000f;
+
+    public CargoOrderData? Order;
 }
