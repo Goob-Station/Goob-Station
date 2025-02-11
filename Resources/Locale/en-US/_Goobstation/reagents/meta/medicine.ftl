@@ -37,8 +37,7 @@ reagent-name-synthcells = synthcells
 reagent-desc-synthcells = Artificially produced "cells" that quickly destroy and replace any dysfunctional cells. Works both through external and internal application. Works on dead.
 
 reagent-name-salicylic-acid = salicylic acid
-reagent-desc-salicylic-acid = Poweful healing agent, excelling at restoring most mangled of corpses. Difficult to overdose.
-
+reagent-desc-salicylic-acid = Powerful healing agent, excelling at restoring most mangled of corpses. Difficult to overdose.
 reagent-name-oxandrolone = oxandrolone
 reagent-desc-oxandrolone = Gelatinous chemical that heals burn damage faster the more burnt patient's body is. Difficult to overdose.
 
