@@ -15,7 +15,7 @@
                         <Label Name="SelectedMuleLabel"
                                Text="Selected Mule: "/>
                         <Label Name="IdentifyMuleLabel"
-                               Text="None"/>
+                               Text=""/>
                     </GridContainer>
                 </GridContainer>
             </BoxContainer>

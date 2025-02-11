@@ -1,12 +1,7 @@
 using Content.Server.CartridgeLoader;
-using Content.Server.CartridgeLoader.Cartridges;
 using Content.Shared._Goobstation.CartridgeLoader.Cartridges;
 using Content.Shared._Goobstation.MULE.Components;
 using Content.Shared.CartridgeLoader;
-using Content.Shared.CartridgeLoader.Cartridges;
-using Content.Shared.Popups;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Random;
 
 namespace Content.Server._Goobstation.CartridgeLoader.Cartridges;
 
@@ -19,6 +14,12 @@ public sealed partial class MuleWranglerCartridgeSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<MuleWranglerCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
+        SubscribeLocalEvent<MuleWranglerCartridgeComponent, CartridgeMessageEvent>(OnMessage);
+    }
+
+    private void OnMessage(Entity<MuleWranglerCartridgeComponent> ent, ref CartridgeMessageEvent args)
+    {
+        UpdateUiState(ent, GetEntity(args.LoaderUid));
     }
 
     private void OnUiReady(Entity<MuleWranglerCartridgeComponent> ent, ref CartridgeUiReadyEvent args)
@@ -30,8 +31,9 @@ public sealed partial class MuleWranglerCartridgeSystem : EntitySystem
     {
         var query = _entityManager.EntityQueryEnumerator<MuleComponent>();
         List<NetEntity> list = new();
-        while(query.MoveNext(out var uid,  out var comp))
+        while(query.MoveNext(out var uid,  out var _))
         {
+            Logger.Debug(uid.ToString());
             var netEntity = GetNetEntity(uid);
             if(netEntity.Id is not 0)
                 list.Add(netEntity);

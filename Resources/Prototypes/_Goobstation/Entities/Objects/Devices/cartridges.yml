@@ -17,3 +17,4 @@
     icon:
       sprite: _Goobstation/Mobs/Silicon/Bots/mule.rsi
       state: mulebot0
+  - type: MuleWranglerCartridge

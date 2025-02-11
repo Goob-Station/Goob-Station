@@ -13,7 +13,8 @@ namespace Content.Client._Goobstation.CartridgeLoader.Cartridges;
 public sealed partial class MuleWranglerUiFragment : BoxContainer
 {
     [Dependency] private readonly EntityManager _entityManager = default!;
-    private List<NetEntity> muleList = new();
+    public List<NetEntity> MuleList = new();
+    public NetEntity SelectedMule = NetEntity.Invalid;
     public MuleWranglerUiFragment()
     {
         RobustXamlLoader.Load(this);
@@ -23,7 +24,7 @@ public sealed partial class MuleWranglerUiFragment : BoxContainer
 
     public void UpdateState(MuleWranglerUiState state)
     {
-        muleList = state.Mules;
+        MuleList = state.Mules;
     }
 
     public void Populate()
@@ -33,19 +34,28 @@ public sealed partial class MuleWranglerUiFragment : BoxContainer
             ButtonContainer.RemoveAllChildren();
         }
 
-
-        foreach (var uid in muleList)
+        foreach (var uid in MuleList)
         {
             Logger.Debug(uid.ToString());
             var newButton = new PdaSettingsButton();
-            newButton.Text = "MuleBot " + uid.Id;
+            newButton.Text = $"MuleBot {uid}";
             ButtonContainer.AddChild(newButton);
         }
 
-        foreach(var control in ButtonContainer.Children)
+        var i = 0;
+        foreach (var control in ButtonContainer.Children)
         {
-            if(control is PdaSettingsButton pdaButton)
-                pdaButton.OnPressed += _ => Setup();
+            if(control is not PdaSettingsButton pdaButton)
+                continue;
+
+            pdaButton.OnPressed += _ =>
+            {
+                Logger.Debug(i.ToString());
+                SelectedMule = MuleList[i - 1];
+                Setup();
+            };
+
+            i++;
         }
     }
 
@@ -54,7 +64,7 @@ public sealed partial class MuleWranglerUiFragment : BoxContainer
         if (ButtonContainer.Children.Count() > 0)
         {
             ButtonContainer.RemoveAllChildren();
-        }
+        }   
         var selectButton = new PdaSettingsButton();
         var orderButton = new PdaSettingsButton();
         var destinationButton = new PdaSettingsButton(); // localize below
@@ -64,6 +74,14 @@ public sealed partial class MuleWranglerUiFragment : BoxContainer
         orderButton.Description = "Give MULE an order.";
         destinationButton.Text = "Destination";
         destinationButton.Description = "Set MULE's Destination";
+        if (SelectedMule == NetEntity.Invalid)
+        {
+            IdentifyMuleLabel.Text = "None";
+        }
+        else
+        {
+            IdentifyMuleLabel.Text = $"MULEBot {SelectedMule}";
+        }
         ButtonContainer.AddChild(selectButton);
         ButtonContainer.AddChild(orderButton);
         ButtonContainer.AddChild(destinationButton);
