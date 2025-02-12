@@ -217,14 +217,9 @@
   description: Delivers a healthy dose of completely safe amnestics. Prevents the target from remembering anything.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/stasipen.rsi # Todo : Change This
-    layers:
-    - state: stasipen
-      map: ["enum.SolutionContainerLayers.Fill"]
-  - type: SolutionContainerVisuals
-    maxFillLevels: 1
-    changeColor: false
-    emptySpriteName: stasipen_empty
+    sprite: _Goobstation/Objects/Specific/Medical/amnestic_hypo.rsi
+  - type: item
+    size: normal
   - type: Hypospray
     solutionName: pen
     transferAmount: 10
