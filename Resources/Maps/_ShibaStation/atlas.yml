@@ -2620,12 +2620,12 @@ entities:
             0: 65391
           -13,-2:
             0: 34943
-            6: 12288
+            3: 12288
           -12,-1:
             0: 65535
           -13,-1:
             0: 34952
-            3: 12336
+            4: 12336
           -12,0:
             0: 65535
           -12,-5:
@@ -2661,7 +2661,7 @@ entities:
           -13,-6:
             2: 61680
           -13,-5:
-            3: 61152
+            4: 61152
           -11,-6:
             2: 49
             0: 56320
@@ -2689,8 +2689,8 @@ entities:
             0: 305
           -13,0:
             0: 34952
-            4: 48
-            5: 12288
+            5: 48
+            6: 12288
           -12,1:
             1: 30576
           -13,1:
@@ -2769,8 +2769,8 @@ entities:
             2: 119
           -14,0:
             0: 13107
-            4: 128
-            5: 32768
+            5: 128
+            6: 32768
           -14,1:
             0: 32947
           -14,2:
@@ -2782,7 +2782,7 @@ entities:
             2: 34952
           -14,-1:
             0: 13107
-            3: 32896
+            4: 32896
           -14,4:
             0: 8
             2: 63552
@@ -2805,7 +2805,7 @@ entities:
             0: 2184
           -14,-2:
             0: 13311
-            6: 32768
+            3: 32768
           -14,-4:
             2: 4573
             0: 32768
@@ -2917,6 +2917,25 @@ entities:
           - 0
           - 0
           - 0
+          - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -2956,25 +2975,6 @@ entities:
           - 6666.982
           - 0
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 0
-          - 0
-          - 6666.982
           - 0
           - 0
           - 0
@@ -3914,7 +3914,7 @@ entities:
       pos: -24.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -3187.8887
+      secondsUntilStateChange: -3353.7217
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5168,6 +5168,18 @@ entities:
     components:
     - type: Transform
       pos: -23.512388,14.364456
+      parent: 2
+- proto: ArrivalsShuttleTimer
+  entities:
+  - uid: 9367
+    components:
+    - type: Transform
+      pos: 16.5,32.5
+      parent: 2
+  - uid: 9368
+    components:
+    - type: Transform
+      pos: 21.5,32.5
       parent: 2
 - proto: ArtistCircuitBoard
   entities:
@@ -47988,6 +48000,58 @@ entities:
       rot: 3.141592653589793 rad
       pos: -41.5,20.5
       parent: 2
+- proto: Screen
+  entities:
+  - uid: 9317
+    components:
+    - type: Transform
+      pos: -26.5,5.5
+      parent: 2
+  - uid: 9358
+    components:
+    - type: Transform
+      pos: -13.5,-7.5
+      parent: 2
+  - uid: 9359
+    components:
+    - type: Transform
+      pos: -34.5,-16.5
+      parent: 2
+  - uid: 9360
+    components:
+    - type: Transform
+      pos: -32.5,12.5
+      parent: 2
+  - uid: 9361
+    components:
+    - type: Transform
+      pos: -14.5,12.5
+      parent: 2
+  - uid: 9362
+    components:
+    - type: Transform
+      pos: 4.5,4.5
+      parent: 2
+  - uid: 9363
+    components:
+    - type: Transform
+      pos: 20.5,6.5
+      parent: 2
+  - uid: 9364
+    components:
+    - type: Transform
+      pos: 16.5,-17.5
+      parent: 2
+  - uid: 9365
+    components:
+    - type: Transform
+      pos: 21.5,-17.5
+      parent: 2
+  - uid: 9366
+    components:
+    - type: Transform
+      pos: -23.5,-7.5
+      parent: 2
 - proto: SecurityTechFab
   entities:
   - uid: 7158
@@ -50092,13 +50156,6 @@ entities:
     components:
     - type: Transform
       pos: -10.5,-9.5
-      parent: 2
-- proto: SpawnPointMailCarrier
-  entities:
-  - uid: 9317
-    components:
-    - type: Transform
-      pos: -16.5,14.5
       parent: 2
 - proto: SpawnPointMedicalDoctor
   entities:
