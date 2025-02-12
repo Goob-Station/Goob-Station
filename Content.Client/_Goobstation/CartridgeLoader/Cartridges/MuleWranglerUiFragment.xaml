@@ -10,10 +10,10 @@
             <BoxContainer>
                 <GridContainer Rows="2">
                     <Label Name="MuleStatusLabel"
-                        Text="Mule Wrangler Status"/>
+                        Text="MULE Wrangler Status"/>
                     <GridContainer Columns="2">
                         <Label Name="SelectedMuleLabel"
-                               Text="Selected Mule: "/>
+                               Text="Selected MULEBot: "/>
                         <Label Name="IdentifyMuleLabel"
                                Text=""/>
                     </GridContainer>

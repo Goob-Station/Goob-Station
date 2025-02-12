@@ -18,3 +18,7 @@
   parent: NavBeacon
   id: NavBeaconEngineering
   suffix: Engineering
+  components:
+  - type: MuleDropOff
+    tag: Engineering
+
