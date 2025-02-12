@@ -5,6 +5,9 @@ handheld-radio-component-off-state = off
 handheld-radio-component-channel-set = Channel set to {$channel}
 handheld-radio-component-chennel-examine = The current channel is {$channel}.
 
+# Frontier
+handheld-radio-component-toggle = Toggle Mic
+
 # Goob-Start
 handheld-radio-menu-title = Handheld radio
 handheld-radio-button-text-mic = Mic.
