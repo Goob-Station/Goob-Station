@@ -8,7 +8,7 @@
   targetNode: BenchSofaMiddleNode
   category: construction-category-furniture
   icon:
-    sprite: SimpleStation14/Structures/Furniture/Benches/sofa.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/sofa.rsi
     state: middle
   objectType: Structure
   placementMode: SnapgridCenter
@@ -25,7 +25,7 @@
   targetNode: BenchSofaLeftNode
   category: construction-category-furniture
   icon:
-    sprite: SimpleStation14/Structures/Furniture/Benches/sofa.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/sofa.rsi
     state: left
   objectType: Structure
   placementMode: SnapgridCenter
@@ -42,7 +42,7 @@
   targetNode: BenchSofaRightNode
   category: construction-category-furniture
   icon:
-    sprite: SimpleStation14/Structures/Furniture/Benches/sofa.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/sofa.rsi
     state: right
   objectType: Structure
   placementMode: SnapgridCenter
@@ -59,7 +59,7 @@
   targetNode: BenchSofaCornerNode
   category: construction-category-furniture
   icon:
-    sprite: SimpleStation14/Structures/Furniture/Benches/sofa.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/sofa.rsi
     state: corner
   objectType: Structure
   placementMode: SnapgridCenter
@@ -76,7 +76,7 @@
   targetNode: BenchSofaCorpMiddleNode
   category: construction-category-furniture
   icon:
-    sprite: SimpleStation14/Structures/Furniture/Benches/sofa_corp.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/sofa_corp.rsi
     state: middle
   objectType: Structure
   placementMode: SnapgridCenter
@@ -93,7 +93,7 @@
   targetNode: BenchSofaCorpLeftNode
   category: construction-category-furniture
   icon:
-    sprite: SimpleStation14/Structures/Furniture/Benches/sofa_corp.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/sofa_corp.rsi
     state: left
   objectType: Structure
   placementMode: SnapgridCenter
@@ -110,7 +110,7 @@
   targetNode: BenchSofaCorpRightNode
   category: construction-category-furniture
   icon:
-    sprite: SimpleStation14/Structures/Furniture/Benches/sofa_corp.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/sofa_corp.rsi
     state: right
   objectType: Structure
   placementMode: SnapgridCenter
@@ -127,7 +127,7 @@
   targetNode: BenchSofaCorpCornerNode
   category: construction-category-furniture
   icon:
-    sprite: SimpleStation14/Structures/Furniture/Benches/sofa_corp.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/sofa_corp.rsi
     state: corner
   objectType: Structure
   placementMode: SnapgridCenter
@@ -144,7 +144,7 @@
   targetNode: BenchSteelMiddleNode
   category: construction-category-furniture
   icon:
-    sprite: SimpleStation14/Structures/Furniture/Benches/steel_bench.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/steel_bench.rsi
     state: middle
   objectType: Structure
   placementMode: SnapgridCenter
@@ -161,7 +161,7 @@
   targetNode: BenchSteelRightNode
   category: construction-category-furniture
   icon:
-    sprite: SimpleStation14/Structures/Furniture/Benches/steel_bench.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/steel_bench.rsi
     state: right
   objectType: Structure
   placementMode: SnapgridCenter
@@ -178,7 +178,7 @@
   targetNode: BenchSteelLeftNode
   category: construction-category-furniture
   icon:
-    sprite: SimpleStation14/Structures/Furniture/Benches/steel_bench.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/steel_bench.rsi
     state: left
   objectType: Structure
   placementMode: SnapgridCenter
@@ -195,7 +195,7 @@
   targetNode: BenchPewMiddleNode
   category: construction-category-furniture
   icon:
-    sprite: SimpleStation14/Structures/Furniture/Benches/pews.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/pews.rsi
     state: middle
   objectType: Structure
   placementMode: SnapgridCenter
@@ -212,7 +212,7 @@
   targetNode: BenchPewRightNode
   category: construction-category-furniture
   icon:
-    sprite: SimpleStation14/Structures/Furniture/Benches/pews.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/pews.rsi
     state: right
   objectType: Structure
   placementMode: SnapgridCenter
@@ -229,7 +229,7 @@
   targetNode: BenchPewLeftNode
   category: construction-category-furniture
   icon:
-    sprite: SimpleStation14/Structures/Furniture/Benches/pews.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/pews.rsi
     state: left
   objectType: Structure
   placementMode: SnapgridCenter
@@ -246,7 +246,7 @@
   targetNode: BenchParkMiddleNode
   category: construction-category-furniture
   icon:
-    sprite: SimpleStation14/Structures/Furniture/Benches/parkbench_wooden.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/parkbench_wooden.rsi
     state: middle
   objectType: Structure
   placementMode: SnapgridCenter
@@ -263,7 +263,7 @@
   targetNode: BenchParkRightNode
   category: construction-category-furniture
   icon:
-    sprite: SimpleStation14/Structures/Furniture/Benches/parkbench_wooden.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/parkbench_wooden.rsi
     state: right
   objectType: Structure
   placementMode: SnapgridCenter
@@ -280,7 +280,7 @@
   targetNode: BenchParkLeftNode
   category: construction-category-furniture
   icon:
-    sprite: SimpleStation14/Structures/Furniture/Benches/parkbench_wooden.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/parkbench_wooden.rsi
     state: left
   objectType: Structure
   placementMode: SnapgridCenter
@@ -297,7 +297,7 @@
   targetNode: BenchSteelWhiteMiddleNode
   category: construction-category-furniture
   icon:
-    sprite: SimpleStation14/Structures/Furniture/Benches/steel_bench_white.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/steel_bench_white.rsi
     state: middle
   objectType: Structure
   placementMode: SnapgridCenter
@@ -314,7 +314,7 @@
   targetNode: BenchSteelWhiteRightNode
   category: construction-category-furniture
   icon:
-    sprite: SimpleStation14/Structures/Furniture/Benches/steel_bench_white.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/steel_bench_white.rsi
     state: right
   objectType: Structure
   placementMode: SnapgridCenter
@@ -331,7 +331,7 @@
   targetNode: BenchSteelWhiteLeftNode
   category: construction-category-furniture
   icon:
-    sprite: SimpleStation14/Structures/Furniture/Benches/steel_bench_white.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/steel_bench_white.rsi
     state: left
   objectType: Structure
   placementMode: SnapgridCenter
@@ -348,7 +348,7 @@
   targetNode: BenchParkBambooMiddleNode
   category: construction-category-furniture
   icon:
-    sprite: SimpleStation14/Structures/Furniture/Benches/parkbench_bamboo.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/parkbench_bamboo.rsi
     state: middle
   objectType: Structure
   placementMode: SnapgridCenter
@@ -365,7 +365,7 @@
   targetNode: BenchParkBambooRightNode
   category: construction-category-furniture
   icon:
-    sprite: SimpleStation14/Structures/Furniture/Benches/parkbench_bamboo.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/parkbench_bamboo.rsi
     state: right
   objectType: Structure
   placementMode: SnapgridCenter
@@ -382,26 +382,8 @@
   targetNode: BenchParkBambooLeftNode
   category: construction-category-furniture
   icon:
-    sprite: SimpleStation14/Structures/Furniture/Benches/parkbench_bamboo.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/parkbench_bamboo.rsi
     state: left
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  conditions:
-    - !type:TileNotBlocked
-
-# Storage
-- type: construction
-  id: LockerWoodenGeneric
-  name: wooden cabinet
-  description: Dusty old wooden cabinet.
-  graph: StorageFurnitureGraph
-  startNode: start
-  targetNode: LockerWoodenGenericNode
-  category: construction-category-furniture
-  icon:
-    sprite: _NF/Structures/Storage/closet.rsi
-    state: wooden_cabinet_icon
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -453,7 +435,7 @@
   targetNode: BannerNanotrasenNode
   category: construction-category-furniture
   icon:
-    sprite: _NF/Structures/Decoration/banner.rsi
+    sprite: Textures/Structures/Decoration/banner.rsi
     state: banner
   objectType: Structure
   placementMode: SnapgridCenter
@@ -470,7 +452,7 @@
   targetNode: BannerCargoNode
   category: construction-category-furniture
   icon:
-    sprite: _NF/Structures/Decoration/banner.rsi
+    sprite: Textures/Structures/Decoration/banner.rsi
     state: banner_cargo
   objectType: Structure
   placementMode: SnapgridCenter
@@ -487,7 +469,7 @@
   targetNode: BannerEngineeringNode
   category: construction-category-furniture
   icon:
-    sprite: _NF/Structures/Decoration/banner.rsi
+    sprite: Textures/Structures/Decoration/banner.rsi
     state: banner_engineering
   objectType: Structure
   placementMode: SnapgridCenter
@@ -504,7 +486,7 @@
   targetNode: BannerMedicalNode
   category: construction-category-furniture
   icon:
-    sprite: _NF/Structures/Decoration/banner.rsi
+    sprite: Textures/Structures/Decoration/banner.rsi
     state: banner_medical
   objectType: Structure
   placementMode: SnapgridCenter
@@ -521,7 +503,7 @@
   targetNode: BannerScienceNode
   category: construction-category-furniture
   icon:
-    sprite: _NF/Structures/Decoration/banner.rsi
+    sprite: Textures/Structures/Decoration/banner.rsi
     state: banner_science
   objectType: Structure
   placementMode: SnapgridCenter
@@ -538,7 +520,7 @@
   targetNode: BannerSecurityNode
   category: construction-category-furniture
   icon:
-    sprite: _NF/Structures/Decoration/banner.rsi
+    sprite: Textures/Structures/Decoration/banner.rsi
     state: banner_security
   objectType: Structure
   placementMode: SnapgridCenter
@@ -555,7 +537,7 @@
   targetNode: BannerBlueNode
   category: construction-category-furniture
   icon:
-    sprite: _NF/Structures/Decoration/banner.rsi
+    sprite: Textures/Structures/Decoration/banner.rsi
     state: banner-blue
   objectType: Structure
   placementMode: SnapgridCenter
@@ -572,7 +554,7 @@
   targetNode: BannerRedNode
   category: construction-category-furniture
   icon:
-    sprite: _NF/Structures/Decoration/banner.rsi
+    sprite: Textures/Structures/Decoration/banner.rsi
     state: banner-red
   objectType: Structure
   placementMode: SnapgridCenter
@@ -589,7 +571,7 @@
   targetNode: BannerYellowNode
   category: construction-category-furniture
   icon:
-    sprite: _NF/Structures/Decoration/banner.rsi
+    sprite: Textures/Structures/Decoration/banner.rsi
     state: banner-yellow
   objectType: Structure
   placementMode: SnapgridCenter
@@ -606,7 +588,7 @@
   targetNode: BannerGreenNode
   category: construction-category-furniture
   icon:
-    sprite: _NF/Structures/Decoration/banner.rsi
+    sprite: Textures/Structures/Decoration/banner.rsi
     state: banner-green
   objectType: Structure
   placementMode: SnapgridCenter
@@ -623,7 +605,7 @@
   targetNode: BannerRevolutionNode
   category: construction-category-furniture
   icon:
-    sprite: _NF/Structures/Decoration/banner.rsi
+    sprite: Textures/Structures/Decoration/banner.rsi
     state: banner_revolution
   objectType: Structure
   placementMode: SnapgridCenter
@@ -640,7 +622,7 @@
   targetNode: BannerSyndicateNode
   category: construction-category-furniture
   icon:
-    sprite: _NF/Structures/Decoration/banner.rsi
+    sprite: Textures/Structures/Decoration/banner.rsi
     state: banner_syndicate
   objectType: Structure
   placementMode: SnapgridCenter

@@ -24,7 +24,7 @@
   parent: BenchBaseMiddle
   components:
   - type: Sprite
-    sprite: SimpleStation14/Structures/Furniture/Benches/parkbench_wooden.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/parkbench_wooden.rsi
   - type: Construction # Frontier
     graph: BenchesGraph # Frontier
     node: BenchParkMiddleNode # Frontier
@@ -60,7 +60,7 @@
   parent: BenchBaseMiddle
   components:
   - type: Sprite
-    sprite: SimpleStation14/Structures/Furniture/Benches/parkbench_bamboo.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/parkbench_bamboo.rsi
   - type: Construction # Frontier
     graph: BenchesGraph # Frontier
     node: BenchParkBambooMiddleNode # Frontier
@@ -96,7 +96,7 @@
   parent: BenchBaseMiddle
   components:
   - type: Sprite
-    sprite: SimpleStation14/Structures/Furniture/Benches/pews.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/pews.rsi
   - type: Construction # Frontier
     graph: BenchesGraph # Frontier
     node: BenchPewMiddleNode # Frontier
@@ -132,7 +132,7 @@
   parent: BenchBaseMiddle
   components:
   - type: Sprite
-    sprite: SimpleStation14/Structures/Furniture/Benches/steel_bench.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/steel_bench.rsi
   - type: Construction # Frontier
     graph: BenchesGraph # Frontier
     node: BenchSteelMiddleNode # Frontier
@@ -166,7 +166,7 @@
   parent: BenchBaseMiddle
   components:
   - type: Sprite
-    sprite: SimpleStation14/Structures/Furniture/Benches/steel_bench_white.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/steel_bench_white.rsi
   - type: Construction # Frontier
     graph: BenchesGraph # Frontier
     node: BenchSteelWhiteMiddleNode # Frontier
@@ -200,7 +200,7 @@
   parent: BenchBaseMiddle
   components:
   - type: Sprite
-    sprite: SimpleStation14/Structures/Furniture/Benches/sofa.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/sofa.rsi
   - type: Construction # Frontier
     graph: SofasGraph # Frontier
     node: BenchSofaMiddleNode # Frontier
@@ -241,7 +241,7 @@
     anchored: true
   - type: Rotatable
   - type: Sprite
-    sprite: SimpleStation14/Structures/Furniture/Benches/sofa.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/sofa.rsi
     state: corner
   - type: Clickable
   - type: InteractionOutline
@@ -271,7 +271,7 @@
   parent: BenchBaseMiddle
   components:
   - type: Sprite
-    sprite: SimpleStation14/Structures/Furniture/Benches/sofa_corp.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/sofa_corp.rsi
   - type: Construction # Frontier
     graph: SofasGraph # Frontier
     node: BenchSofaCorpMiddleNode # Frontier
@@ -312,7 +312,7 @@
     anchored: true
   - type: Rotatable
   - type: Sprite
-    sprite: SimpleStation14/Structures/Furniture/Benches/sofa_corp.rsi
+    sprite: _SimpleStation/Structures/Furniture/Benches/sofa_corp.rsi
     state: corner
   - type: Clickable
   - type: InteractionOutline
