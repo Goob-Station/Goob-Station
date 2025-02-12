@@ -60,7 +60,7 @@ public abstract class SharedIceCubeSystem : EntitySystem
 
     private void OnStartCollide(Entity<IceCubeComponent> ent, ref StartCollideEvent args)
     {
-        if (args.OtherBody.LinearVelocity.LengthSquared() < 0.0001f)
+        if (args.OtherBody.LinearVelocity.LengthSquared() < 0.01f)
             return;
 
         var xform = Transform(args.OtherEntity);

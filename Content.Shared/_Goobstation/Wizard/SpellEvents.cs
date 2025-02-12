@@ -121,9 +121,6 @@ public sealed partial class SmokeSpellEvent : InstantActionEvent, ISpeakSpell
 
     [DataField]
     public int SpreadAmount = 30;
-
-    [DataField]
-    public Solution Solution = new("ThickSmoke", 50);
 }
 
 public sealed partial class RepulseEvent : InstantActionEvent, ISpeakSpell

@@ -196,7 +196,7 @@
 - files: ["JackalCurse.ogg"]
   license: "CC-BY-NC-4.0"
   copyright: "Jackals howling in the mountains by Babadeda (CC0-1.0) https://freesound.org/s/737879/. dog_breathing 1.wav by 15GPanskaBokstefflova_Nicola (CC0-1.0) https://freesound.org/s/461513/. gg o2 b2 14 blasts 2f.wav by ERH (CC-BY-NC-4.0) https://freesound.org/s/49001/. JackalCurse.ogg by Armok."
-  source: ""
+  source: "https://github.com/Goob-Station/Goob-Station/pull/1292"
 
 - files: ["BatCurse.ogg"]
   license: "CC-BY-NC-4.0"

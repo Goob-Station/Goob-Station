@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared._Goobstation.Wizard;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions.Events;
 using Content.Shared.Administration.Logs;
@@ -248,10 +249,15 @@ public abstract class SharedActionsSystem : EntitySystem
         if (actionId == null)
             return;
 
-        if (!TryGetActionData(actionId, out var action) || action.UseDelay == null)
+        // Goob edit start
+        if (!TryGetActionData(actionId, out var action))
             return;
+        var realDelay = CompOrNull<ActionUseDelayModifierComponent>(actionId.Value)?.UseDelay ?? action.UseDelay;
+        if (realDelay == null)
+            return;
+        // Goob edit end
 
-        action.Cooldown = (GameTiming.CurTime, GameTiming.CurTime + action.UseDelay.Value);
+        action.Cooldown = (GameTiming.CurTime, GameTiming.CurTime + realDelay.Value); // Goob edit
         Dirty(actionId.Value, action);
     }
 

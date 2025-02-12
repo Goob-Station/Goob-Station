@@ -31,6 +31,7 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
 using Content.Shared.Chat;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.FixedPoint;
 using Content.Shared.Gibbing.Events;
@@ -80,6 +81,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly TeleportSystem _teleport = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
 
     public override void Initialize()
     {
@@ -180,7 +182,11 @@ public sealed class SpellsSystem : SharedSpellsSystem
             return;
         }
 
-        _smoke.StartSmoke(ent, new Solution(ev.Solution), ev.Duration, ev.SpreadAmount, smoke);
+        var solution = _solution.TryGetSolution(ev.Action.Owner, "smoke", out var solEnt)
+            ? new Solution(solEnt.Value.Comp.Solution)
+            : new Solution();
+
+        _smoke.StartSmoke(ent, solution, ev.Duration, ev.SpreadAmount, smoke);
     }
 
     protected override void Repulse(RepulseEvent ev)

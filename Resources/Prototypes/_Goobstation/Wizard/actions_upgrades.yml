@@ -3,7 +3,6 @@
   parent: ActionMimeMalaise
   id: ActionMimeMalaiseII
   name: Mime Malaise II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 25
@@ -12,7 +11,6 @@
   parent: ActionMimeMalaise
   id: ActionMimeMalaiseIII
   name: Mime Malaise III
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 20
@@ -21,7 +19,6 @@
   parent: ActionMimeMalaise
   id: ActionMimeMalaiseIV
   name: Mime Malaise IV
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 15
@@ -30,7 +27,6 @@
   parent: ActionMimeMalaise
   id: ActionMimeMalaiseV
   name: Mime Malaise V
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 10
@@ -40,7 +36,6 @@
   parent: ActionCluwneCurse
   id: ActionCluwneCurseII
   name: Curse of the Cluwne II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 40
@@ -49,7 +44,6 @@
   parent: ActionCluwneCurse
   id: ActionCluwneCurseIII
   name: Curse of the Cluwne III
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 20
@@ -59,7 +53,6 @@
   parent: ActionBananaTouch
   id: ActionBananaTouchII
   name: Banana Touch II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 25
@@ -68,7 +61,6 @@
   parent: ActionBananaTouch
   id: ActionBananaTouchIII
   name: Banana Touch III
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 20
@@ -77,7 +69,6 @@
   parent: ActionBananaTouch
   id: ActionBananaTouchIV
   name: Banana Touch IV
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 15
@@ -86,7 +77,6 @@
   parent: ActionBananaTouch
   id: ActionBananaTouchV
   name: Banana Touch V
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 10
@@ -96,7 +86,6 @@
   parent: ActionMagicMissile
   id: ActionMagicMissileII
   name: Magic Missile II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 13
@@ -105,7 +94,6 @@
   parent: ActionMagicMissile
   id: ActionMagicMissileIII
   name: Magic Missile III
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 6
@@ -115,7 +103,6 @@
   parent: ActionDisableTech
   id: ActionDisableTechII
   name: Disable Technology II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 16
@@ -124,7 +111,6 @@
   parent: ActionDisableTech
   id: ActionDisableTechIII
   name: Disable Technology III
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 12
@@ -133,7 +119,6 @@
   parent: ActionDisableTech
   id: ActionDisableTechIV
   name: Disable Technology IV
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 8
@@ -142,7 +127,6 @@
   parent: ActionDisableTech
   id: ActionDisableTechV
   name: Disable Technology V
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 4
@@ -152,7 +136,6 @@
   parent: ActionSmoke
   id: ActionSmokeII
   name: Smoke II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 7
@@ -161,7 +144,6 @@
   parent: ActionSmoke
   id: ActionSmokeIII
   name: Smoke III
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 2
@@ -171,7 +153,6 @@
   parent: ActionRepulse
   id: ActionRepulseII
   name: Repulse II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 33.75
@@ -180,7 +161,6 @@
   parent: ActionRepulse
   id: ActionRepulseIII
   name: Repulse III
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 27.5
@@ -189,7 +169,6 @@
   parent: ActionRepulse
   id: ActionRepulseIV
   name: Repulse IV
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 21.25
@@ -198,7 +177,6 @@
   parent: ActionRepulse
   id: ActionRepulseV
   name: Repulse V
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 15
@@ -208,7 +186,6 @@
   parent: ActionStopTime
   id: ActionStopTimeII
   name: Stop Time II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 35
@@ -217,7 +194,6 @@
   parent: ActionStopTime
   id: ActionStopTimeIII
   name: Stop Time III
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 20
@@ -227,7 +203,6 @@
   parent: ActionBlindSpell
   id: ActionBlindII
   name: Blind II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 12
@@ -236,7 +211,6 @@
   parent: ActionBlindSpell
   id: ActionBlindIII
   name: Blind III
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 9
@@ -245,7 +219,6 @@
   parent: ActionBlindSpell
   id: ActionBlindIV
   name: Blind IV
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 6
@@ -254,7 +227,6 @@
   parent: ActionBlindSpell
   id: ActionBlindV
   name: Blind V
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 3
@@ -264,7 +236,6 @@
   parent: ActionMutateSpell
   id: ActionMutateII
   name: Mutate II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 30
@@ -274,7 +245,6 @@
   parent: ActionTeslaBlast
   id: ActionTeslaBlastII
   name: Tesla Blast II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 23.25
@@ -283,7 +253,6 @@
   parent: ActionTeslaBlast
   id: ActionTeslaBlastIII
   name: Tesla Blast III
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 16.5
@@ -292,7 +261,6 @@
   parent: ActionTeslaBlast
   id: ActionTeslaBlastIV
   name: Tesla Blast IV
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 9.75
@@ -301,7 +269,6 @@
   parent: ActionTeslaBlast
   id: ActionTeslaBlastV
   name: Tesla Blast V
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 3
@@ -311,7 +278,6 @@
   parent: ActionLightningBolt
   id: ActionLightningBoltII
   name: Lightning Bolt II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 8.25
@@ -320,7 +286,6 @@
   parent: ActionLightningBolt
   id: ActionLightningBoltIII
   name: Lightning Bolt III
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 6.5
@@ -329,7 +294,6 @@
   parent: ActionLightningBolt
   id: ActionLightningBoltIV
   name: Lightning Bolt IV
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 4.75
@@ -338,7 +302,6 @@
   parent: ActionLightningBolt
   id: ActionLightningBoltV
   name: Lightning Bolt V
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 3
@@ -348,7 +311,6 @@
   parent: ActionHomingToolbox
   id: ActionHomingToolboxII
   name: Homing Toolbox II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 5
@@ -357,7 +319,6 @@
   parent: ActionHomingToolbox
   id: ActionHomingToolboxIII
   name: Homing Toolbox III
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 4
@@ -366,7 +327,6 @@
   parent: ActionHomingToolbox
   id: ActionHomingToolboxIV
   name: Homing Toolbox IV
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 3
@@ -375,7 +335,6 @@
   parent: ActionHomingToolbox
   id: ActionHomingToolboxV
   name: Homing Toolbox V
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 2
@@ -385,7 +344,6 @@
   parent: ActionArcaneBarrage
   id: ActionArcaneBarrageII
   name: Arcane Barrage II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 40
@@ -394,7 +352,6 @@
   parent: ActionArcaneBarrage
   id: ActionArcaneBarrageIII
   name: Arcane Barrage III
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 20
@@ -404,7 +361,6 @@
   parent: ActionLesserSummonGuns
   id: ActionLesserSummonGunsII
   name: Lesser Summon Guns II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 40
@@ -413,7 +369,6 @@
   parent: ActionLesserSummonGuns
   id: ActionLesserSummonGunsIII
   name: Lesser Summon Guns III
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 20
@@ -423,7 +378,6 @@
   parent: ActionBarnyardCurse
   id: ActionBarnyardCurseII
   name: Curse of the Barnyard II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 9
@@ -432,7 +386,6 @@
   parent: ActionBarnyardCurse
   id: ActionBarnyardCurseIII
   name: Curse of the Barnyard III
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 3
@@ -442,7 +395,6 @@
   parent: ActionScreamForMe
   id: ActionScreamForMeII
   name: Scream For Me II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 40
@@ -451,7 +403,6 @@
   parent: ActionScreamForMe
   id: ActionScreamForMeIII
   name: Scream For Me III
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 20
@@ -460,7 +411,6 @@
   parent: ActionScreamForMe
   id: ActionScreamForMeIV
   name: Scream For Me IV
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 30
@@ -469,7 +419,6 @@
   parent: ActionScreamForMe
   id: ActionScreamForMeV
   name: Scream For Me V
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 20
@@ -479,7 +428,6 @@
   parent: ActionTeleportWizard
   id: ActionTeleportII
   name: Teleport II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 40
@@ -488,7 +436,6 @@
   parent: ActionTeleportWizard
   id: ActionTeleportIII
   name: Teleport III
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 20
@@ -498,7 +445,6 @@
   parent: ActionTrapsSpell
   id: ActionTrapsII
   name: The Traps! II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 20
@@ -507,7 +453,6 @@
   parent: ActionTrapsSpell
   id: ActionTrapsIII
   name: The Traps! III
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 15
@@ -516,7 +461,6 @@
   parent: ActionTrapsSpell
   id: ActionTrapsIV
   name: The Traps! IV
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 10
@@ -525,7 +469,6 @@
   parent: ActionTrapsSpell
   id: ActionTrapsV
   name: The Traps! V
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 5
@@ -535,7 +478,6 @@
   parent: ActionLesserSummonBees
   id: ActionLesserSummonBeesII
   name: Lesser Summon Bees II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 40
@@ -544,7 +486,6 @@
   parent: ActionLesserSummonBees
   id: ActionLesserSummonBeesIII
   name: Lesser Summon Bees III
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 20
@@ -554,7 +495,6 @@
   parent: ActionSanguineStrike
   id: ActionSanguineStrikeII
   name: Sanguine Strike II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 10
@@ -563,7 +503,6 @@
   parent: ActionSanguineStrike
   id: ActionSanguineStrikeIII
   name: Sanguine Strike III
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 5
@@ -573,7 +512,6 @@
   parent: ActionSwapSpell
   id: ActionSwapII
   name: Swap II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 15
@@ -582,7 +520,6 @@
   parent: ActionSwapSpell
   id: ActionSwapIII
   name: Swap III
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 5
@@ -592,7 +529,6 @@
   parent: ActionBlinkSpell
   id: ActionBlinkII
   name: Blink II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 2.4
@@ -601,7 +537,6 @@
   parent: ActionBlinkSpell
   id: ActionBlinkIII
   name: Blink III
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 1.8
@@ -610,7 +545,6 @@
   parent: ActionBlinkSpell
   id: ActionBlinkIV
   name: Blink IV
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 1.2
@@ -619,7 +553,6 @@
   parent: ActionBlinkSpell
   id: ActionBlinkV
   name: Blink V
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 0.6
@@ -629,7 +562,6 @@
   parent: ActionForceWall
   id: ActionForceWallII
   name: Force Wall II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 8.75
@@ -638,7 +570,6 @@
   parent: ActionForceWall
   id: ActionForceWallIII
   name: Force Wall III
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 7.5
@@ -647,7 +578,6 @@
   parent: ActionForceWall
   id: ActionForceWallIV
   name: Force Wall IV
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 6.25
@@ -656,7 +586,6 @@
   parent: ActionForceWall
   id: ActionForceWallV
   name: Force Wall V
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 5
@@ -666,7 +595,6 @@
   parent: ActionChargeSpell
   id: ActionChargeII
   name: Charge II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 50
@@ -675,7 +603,6 @@
   parent: ActionChargeSpell
   id: ActionChargeIII
   name: Charge III
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 40
@@ -684,7 +611,6 @@
   parent: ActionChargeSpell
   id: ActionChargeIV
   name: Charge IV
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 30
@@ -693,7 +619,6 @@
   parent: ActionChargeSpell
   id: ActionChargeV
   name: Charge V
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 20
@@ -703,7 +628,6 @@
   parent: ActionMindSwap
   id: ActionMindSwapII
   name: Mind Swap II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 40
@@ -712,7 +636,6 @@
   parent: ActionMindSwap
   id: ActionMindSwapIII
   name: Mind Swap III
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 20
@@ -722,7 +645,6 @@
   parent: ActionSmite
   id: ActionSmiteII
   name: Smite II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 40
@@ -731,7 +653,6 @@
   parent: ActionSmite
   id: ActionSmiteIII
   name: Smite III
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 20
@@ -741,7 +662,6 @@
   parent: ActionKnock
   id: ActionKnockII
   name: Knock II
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 6
@@ -750,7 +670,6 @@
   parent: ActionKnock
   id: ActionKnockIII
   name: Knock III
-  save: false
   components:
   - type: ActionUseDelayModifier
     useDelay: 2
@@ -760,7 +679,6 @@
   parent: ActionSpellCards
   id: ActionSpellCardsII
   name: Spell Cards II
-  save: false
   components:
   - type: SpellCardsAction
     useDelay: 4
@@ -769,7 +687,6 @@
   parent: ActionSpellCards
   id: ActionSpellCardsIII
   name: Spell Cards III
-  save: false
   components:
   - type: SpellCardsAction
     useDelay: 2
