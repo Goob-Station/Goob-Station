@@ -49,8 +49,8 @@
   components:
   - type: StorageFill
     contents:
-    - id: BaseMagazineMagnum
-    - id: BaseMagazineMagnum
+    - id: MagazineMagnum
+    - id: MagazineMagnum
   - type: ContainerFill
     containers:
       item:
