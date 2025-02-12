@@ -159,3 +159,22 @@
       map: [ "enum.FaxMachineVisuals.VisualState" ]
     - state: scanner
       shader: unshaded
+
+- type: entity
+  name: CentComm official handheld fax
+  parent: HandheldFax
+  id: HandheldFaxOfficial
+  suffix: CentComm Official
+  components:
+  - type: FaxMachine
+    name: "CentComm Official"
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: _Goobstation/Objects/Tools/official_fax.rsi
+    drawdepth: SmallObjects
+    layers:
+    - state: icon
+      map: [ "enum.FaxMachineVisuals.VisualState" ]
+    - state: scanner
+      shader: unshaded

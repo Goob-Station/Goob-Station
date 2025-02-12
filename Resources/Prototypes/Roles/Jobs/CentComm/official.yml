@@ -19,23 +19,24 @@
   - NanotrasenRepresentative
   - BlueshieldOfficer
 
-- type: startingGear # Goobstation - Start
+- type: startingGear # Goobstation - Start - SolsticeOfTheWinter
   id: CentcomGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitCentcomOfficial
-    shoes: ClothingShoesBootsCombatFilled
+    shoes: ClothingShoesBootsLaceup # Goobstation - Fancier
     head: ClothingHeadHatCentcomcap # Goobstation - Fancier
     eyes: ClothingEyesGlassesCommand # Goobstation - Can change to Central Commander shades if wanted, but probably save for a new role entirely.
-    gloves: ClothingHandsGlovesColorBlack
+    gloves: ClothingHandsGlovesCombat # Goobstation - Replace with goldtrims when merged.
     back: ClothingBackpackSatchelLeather # Goobstation - Officials need bags too!
     outerClothing: ClothingOuterArmourDurathread # Goobstation
+    neck: ExecutiveIDCard # Executive Access! - Todo: Add more to this card.
     id: CentcomPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltHolsterFilledCentComm # Goobstation - Shoulder Holsters are COOL
     pocket1: BoxFolderCentCom # Why does a CentComm official not have a CentComm folder? Fixing that.
-    pocket2: ExecutiveIDCard # Executive Access! - Todo: Add more to this card.
     # pocket2: PenCentcom - Already has one in the PDA. This is redundant.
   storage:
     back:
     - AmnestizineHypospray # Goobstation - CentComm Revamp
+    - HandheldFaxOfficial # Goobstation - CentComm Revamp
 # Goobstation - End
