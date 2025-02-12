@@ -203,5 +203,5 @@
         refresh: false
       - !type:GenericStatusEffect
         key: Dementia
-        component: dementia
+        component: DementiaAccent
 
