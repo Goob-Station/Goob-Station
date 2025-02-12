@@ -155,13 +155,13 @@
   name: reagent-name-amnestizine
   group: Narcotics
   desc: reagent-desc-amnestizine
-  physicalDesc: reagent-physical-desc-syrupy
-  color: "#000000"
+  physicalDesc: reagent-physical-desc-milky
+  color: "#FFF1DE"
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:
     Narcotic:
-      metabolismRate: 0.1
+      metabolismRate: 0.05
       effects:
       - !type:PopupMessage
         visualType: MediumCaution
@@ -171,11 +171,11 @@
         - amnestizine-effect-hole
         - amnestizine-effect-blank
         - amnestizine-effect-distracted
-        - amnestizine-effect-propaganda
+        - amnestizine-effect-widen
         conditions:
         - !type:ReagentThreshold
           min: 5
-        probability: 0.5
+        probability: 0.2
       - !type:GenericStatusEffect
         key: Pacified
         component: Pacified
@@ -191,4 +191,14 @@
           min: 4
         walkSpeedModifier: 0.4
         sprintSpeedModifier: 0.4
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        key: TemporaryBlindness
+        component: TemporaryBlindness
+        type: Add
+        time: 3
+        refresh: false
 
