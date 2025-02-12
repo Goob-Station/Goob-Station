@@ -504,7 +504,6 @@
     mode: Diagonal
     key: walls
     base: state
-  - type: Occluder
   - type: Icon
     sprite: Structures/Walls/plastitanium_diagonal.rsi
     state: state0
