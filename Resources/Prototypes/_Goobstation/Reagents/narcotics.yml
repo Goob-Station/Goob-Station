@@ -173,5 +173,5 @@
         conditions:
         - !type:ReagentThreshold
           min: 5
-        probability: 0.03
+        probability: 1
 
