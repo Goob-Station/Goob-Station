@@ -29,7 +29,7 @@
     gloves: ClothingHandsGlovesDeathsquadUnremovable # Rip and TEAR
     outerClothing: ClothingOuterHardsuitDeathsquad
     shoes: ClothingShoesBootsMagDeathsquad # These boots are cooler.
-    id: DeathsquadPDA
+    id: DeathsquadPDA # New PDA!
     pocket1: PhoronSabre # Goobstation
     pocket2: EnergyShield # TODO : Replace with BSO shield
     belt: ClothingBeltDeathsquadWebbingFilled # Centcomm Doesn't use syndicate tech.
@@ -41,7 +41,7 @@
     # - BoxFlashbang - Useless
     - ToolDebug # Spanish Army Knife - TODO Replace
     - WelderExperimental
-    - AmnestizineHypospray # Huh? Who am I?
+    - AmnestizineHypospray # SCP Foundation type shit.
     - BluespaceLifelineImplanter # CentComm doesn't use syndicate tech.
     - CentcommFreedomImplanter # CentComm doesn't use syndicate tech.
   inhand:
