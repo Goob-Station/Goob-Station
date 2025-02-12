@@ -1,0 +1,49 @@
+- type: entity
+  name: snouse
+  parent: MobMouse
+  id: MobSnouse
+  description: An abominable merge of the chef's two greatest enemies.
+  components:
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: _ShibaStation/Mobs/Animals/snouse.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: snouse
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: snouse
+      Critical:
+        Base: dead
+      Dead:
+        Base: splat
+  - type: SpriteMovement
+    noMovementLayers:
+      movement:
+        state: snouse
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2
+    baseSprintSpeed : 3
+  - type: Item
+    size: Tiny
+  - type: Clothing
+    quickEquip: false
+    sprite: _ShibaStation/Mobs/Animals/snouse.rsi
+    slots:
+    - HEAD
+  - type: Reactive
+    reactions:
+    - reagents: [TableSalt, Saline]
+      methods: [Touch, Ingestion, Injection]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        damage:
+          types:
+            Caustic: 1
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages: [ "snail-hurt-by-salt-popup" ]
+        probability: 0.66
