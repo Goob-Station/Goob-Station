@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelAbductor
-  name: abductor's surgery duffel bag
-  description: A large duffel bag for holding various surgery goods.
+  name: alien surgery duffel bag
+  description: An ordinary surgical duffel bag woven from a durable fiber.
   components:
   - type: Sprite
     sprite: _Shitmed/Clothing/Back/Duffels/abductor.rsi
