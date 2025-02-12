@@ -4695,3 +4695,11 @@ Entries:
       message: Fixed bonfires,fireplaces,banners not beign buildable
   id: 534
   time: '2025-02-12T15:37:06.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added submarine to the map pool.
+    - type: Remove
+      message: Removed Piras314.
+  id: 535
+  time: '2025-02-12T15:44:44.0000000+00:00'
