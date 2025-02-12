@@ -590,7 +590,7 @@
     sprite: Clothing/Belt/holster.rsi
   - type: Storage
     grid:
-    - 0,0,4,1
+    - 0,0,4,1 # Goobstation - Start
   - type: ItemSlots
     slots:
       item:
@@ -601,7 +601,7 @@
         ejectSound: /Audio/Items/belt_equip.ogg
         whitelist:
           tags:
-          - Sidearm
+          - Sidearm # Goobstation - End
 
 - type: entity
   parent: [ClothingBeltStorageBase, BaseSyndicateContraband]
@@ -624,6 +624,17 @@
         - Gun
         - BallisticAmmoProvider
         - CartridgeAmmo
+  - type: ItemSlots # Goobstation - Start
+    slots:
+      item:
+        name: Sidearm
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/belt_equip.ogg
+        ejectSound: /Audio/Items/belt_equip.ogg
+        whitelist:
+          tags:
+          - Sidearm # Goobstation - End
 
 - type: entity
   parent: ClothingBeltSecurity

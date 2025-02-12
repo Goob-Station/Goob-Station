@@ -24,7 +24,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitCentcomOfficial
     shoes: ClothingShoesBootsCombatFilled
-    head: ClothingHeadHatCentcom
+    head: ClothingHeadHatCentcomcap # Goobstation - Fancier
     eyes: ClothingEyesGlassesCommand # Goobstation - Can change to Central Commander shades if wanted, but probably save for a new role entirely.
     gloves: ClothingHandsGlovesColorBlack
     back: ClothingBackpackSatchelLeather # Goobstation - Officials need bags too!
