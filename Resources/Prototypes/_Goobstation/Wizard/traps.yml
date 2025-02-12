@@ -13,7 +13,6 @@
     state: icon
     color: '#FFFFFF05'
   - type: Fixtures
-    bodyType: Static
     fixtures:
       fix1:
         shape:
@@ -25,6 +24,7 @@
         layer:
           - SlipLayer
   - type: Physics
+    bodyType: Static
   - type: Appearance
   - type: AnimationPlayer
   - type: TimedDespawn

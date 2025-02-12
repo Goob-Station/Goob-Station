@@ -20,6 +20,8 @@
     node: airlock
     containers:
     - board
+  - type: StaticPrice
+    price: 600
 
 - type: entity
   parent: AirlockGlass
@@ -34,7 +36,7 @@
     containers:
     - board
   - type: StaticPrice
-    price: 165
+    price: 600
 
 # Access
 - type: entity

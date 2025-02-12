@@ -4,6 +4,7 @@
   name: medical eyepatch
   description: Used by space weeaboos to pretend their eye isn't there, and crewmembers who actually lost their eye to pretend their eye is there.
   suffix: DO NOT MAP
+  save: false
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Eyes/eyepatch.rsi
@@ -267,7 +268,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
+  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor, ClothingOuterStorageToggleableBase]
   id: ClothingOuterOblivionEnforcer
   name: oblivion enforcer's robes
   description: A set of armored, radiation-proof robes worn by Oblivion Enforcers.

@@ -56,6 +56,7 @@ public sealed partial class SelectableAmmoPrototype : IPrototype, ICloneable
 
 public sealed class SelectableAmmoWeaponFlags;
 
+[Serializable, NetSerializable]
 [Flags, FlagsFor(typeof(SelectableAmmoWeaponFlags))]
 public enum SelectableAmmoFlags
 {
@@ -63,5 +64,5 @@ public enum SelectableAmmoFlags
     ChangeWeaponFireCost = 1 << 0,
     ChangeWeaponFireSound = 1 << 1,
     ChangeWeaponFireRate = 1 << 2,
-    All = int.MaxValue,
+    All = ~None,
 }

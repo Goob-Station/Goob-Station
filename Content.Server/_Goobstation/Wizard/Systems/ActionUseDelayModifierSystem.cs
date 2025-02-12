@@ -16,6 +16,6 @@ public sealed class ActionUseDelayModifierSystem : EntitySystem
 
     private void OnMapInit(Entity<ActionUseDelayModifierComponent> ent, ref MapInitEvent args)
     {
-        _actions.SetUseDelay(ent.Owner, ent.Comp.UseDelay);
+        _actions.SetUseDelay(ent.Owner, ent.Comp.UseDelay, false);
     }
 }

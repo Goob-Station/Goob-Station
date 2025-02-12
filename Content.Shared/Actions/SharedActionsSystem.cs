@@ -255,9 +255,9 @@ public abstract class SharedActionsSystem : EntitySystem
         Dirty(actionId.Value, action);
     }
 
-    public void SetUseDelay(EntityUid? actionId, TimeSpan? delay)
+    public void SetUseDelay(EntityUid? actionId, TimeSpan? delay, bool logError = true) // Goob edit
     {
-        if (!TryGetActionData(actionId, out var action) || action.UseDelay == delay)
+        if (!TryGetActionData(actionId, out var action, logError) || action.UseDelay == delay) // Goob edit
             return;
 
         action.UseDelay = delay;

@@ -649,7 +649,7 @@
   components:
   - type: InstantAction
     raiseOnUser: true
-    checkCanIteract: false
+    checkCanInteract: false
     useDelay: 60
     itemIconStyle: BigAction
     icon:
@@ -671,7 +671,7 @@
   components:
   - type: InstantAction
     raiseOnUser: true
-    checkCanIteract: false
+    checkCanInteract: false
     useDelay: 25
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
@@ -702,7 +702,7 @@
     state: bee
   - type: InstantAction
     raiseOnUser: true
-    checkCanIteract: false
+    checkCanInteract: false
     useDelay: 60
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
@@ -712,7 +712,7 @@
       state: bee
     event: !type:SummonMobsEvent
       speech: action-speech-spell-bees
-      mobMask:
+      collisionMask:
       - FlyingMobMask
       mobs:
       - BeeLicoxide
@@ -746,7 +746,7 @@
   components:
   - type: InstantAction
     raiseOnUser: true
-    checkCanIteract: false
+    checkCanInteract: false
     useDelay: 90
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
@@ -776,7 +776,7 @@
   components:
   - type: InstantAction
     raiseOnUser: true
-    checkCanIteract: false
+    checkCanInteract: false
     useDelay: 1
     itemIconStyle: BigAction
     icon:
@@ -824,7 +824,7 @@
   components:
   - type: InstantAction
     raiseOnUser: true
-    checkCanIteract: false
+    checkCanInteract: false
     useDelay: 1
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
@@ -880,7 +880,7 @@
   components:
   - type: InstantAction
     raiseOnUser: true
-    checkCanIteract: false
+    checkCanInteract: false
     useDelay: 1
     itemIconStyle: BigAction
     icon:
@@ -944,7 +944,7 @@
   components:
   - type: InstantAction
     raiseOnUser: true
-    checkCanIteract: false
+    checkCanInteract: false
     useDelay: 3
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
