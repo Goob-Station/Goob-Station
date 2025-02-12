@@ -15,7 +15,7 @@
   - type: Sprite
     state: middle
   - type: StaticPrice # Frontier
-    price: 20 # Frontier: 20
+    price: 50 # Frontier: 20
 
 # Park benches
 - type: entity
@@ -29,7 +29,7 @@
     graph: BenchesGraph # Frontier
     node: BenchParkMiddleNode # Frontier
   - type: StaticPrice # Frontier
-    price: 30 # Frontier: 30
+    price: 50 # Frontier: 30
 
 - type: entity
   id: BenchParkLeft
@@ -65,7 +65,7 @@
     graph: BenchesGraph # Frontier
     node: BenchParkBambooMiddleNode # Frontier
   - type: StaticPrice # Frontier
-    price: 30 # Frontier: 30
+    price: 50 # Frontier: 30
 
 - type: entity
   id: BenchParkBambooLeft
@@ -101,7 +101,7 @@
     graph: BenchesGraph # Frontier
     node: BenchPewMiddleNode # Frontier
   - type: StaticPrice # Frontier
-    price: 30 # Frontier: 30
+    price: 50 # Frontier: 30
 
 - type: entity
   id: BenchPewLeft
@@ -205,7 +205,7 @@
     graph: SofasGraph # Frontier
     node: BenchSofaMiddleNode # Frontier
   - type: StaticPrice # Frontier
-    price: 25 # Frontier: 25
+    price: 50 # Frontier: 25
 
 - type: entity
   id: BenchSofaLeft
@@ -276,7 +276,7 @@
     graph: SofasGraph # Frontier
     node: BenchSofaCorpMiddleNode # Frontier
   - type: StaticPrice # Frontier
-    price: 25 # Frontier: 25
+    price: 50 # Frontier: 25
 
 - type: entity
   id: BenchSofaCorpLeft
