@@ -594,11 +594,11 @@
   - type: ItemSlots
     slots:
       item:
-        name: Gun
+        name: Sidearm
         insertVerbText: sheath-insert-verb
         ejectVerbText: sheath-eject-verb
-        insertSound: /Audio/Items/unbuckle.ogg
-        ejectSound: /Audio/Items/unbuckle.ogg
+        insertSound: /Audio/Items/belt_equip.ogg
+        ejectSound: /Audio/Items/belt_equip.ogg
         whitelist:
           tags:
           - Sidearm
