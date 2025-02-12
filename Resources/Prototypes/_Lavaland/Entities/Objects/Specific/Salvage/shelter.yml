@@ -22,7 +22,7 @@
     deployTime: 5.0
     preloadedGrid: ShelterCapsule5x5
     boxSize: 5,5
-    offset: 0,1
+    offset: -2.5,-2.5
 
 - type: entity
   parent: BaseShelterCapsule
@@ -34,7 +34,7 @@
     deployTime: 8.0
     preloadedGrid: ShelterCapsule7x7
     boxSize: 7,7
-    offset: 0,2
+    offset: -3.5,-3.5
 
 # Grids
 - type: preloadedGrid

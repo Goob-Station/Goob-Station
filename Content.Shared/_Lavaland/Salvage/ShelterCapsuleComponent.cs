@@ -16,6 +16,10 @@ public sealed partial class ShelterCapsuleComponent : Component
     [DataField(required: true)]
     public Vector2 BoxSize;
 
+    /// <remarks>
+    /// This is needed only to fix the grid. Capsule always should spawn
+    /// at the center, and this vector is required to ensure that.
+    /// </remarks>>
     [DataField]
     public Vector2 Offset;
 }
