@@ -38,7 +38,7 @@ accent-medieval-prefix-38 = There is much in what you say, and yet,
 accent-medieval-prefix-39 = What hey,
 accent-medieval-prefix-40 = What ho,
 accent-medieval-prefix-41 = Z'wounds,
-accent-medieval-words-42 = Zounds,
+accent-medieval-prefix-42 = Zounds,
 
 accent-medieval-words-1 = My milkshake bring all the boys to the yard, and they're like, "it's better than yours." Damn right it's better than yours. I can teach you, but I have to charge!
 accent-medieval-words-replace-1 = Mine milkshake bringeth all yon gentlefolk to mine yard, and lo they reply, "Tis better than thine." Verily, tis better than thine! I couldst apprentice thee, but I wouldst levy a fee!

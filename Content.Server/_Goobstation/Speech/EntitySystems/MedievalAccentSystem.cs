@@ -21,7 +21,7 @@ public sealed class MedievalAccentSystem : EntitySystem
         message = _replacement.ApplyReplacements(message, "medieval");
 
         // Prefix
-        if (_random.Prob(0.35f))
+        if (_random.Prob(0.40f))
         {
             var pick = _random.Next(1, 42);
 
