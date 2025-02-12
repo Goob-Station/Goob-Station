@@ -141,7 +141,6 @@
   - type: ContainerContainer
     containers:
       Paper: !type:ContainerSlot
-  - type: MultiHandedItem
 
 - type: entity
   name: nanotrasen representative handheld fax
@@ -159,6 +158,11 @@
       map: [ "enum.FaxMachineVisuals.VisualState" ]
     - state: scanner
       shader: unshaded
+  - type: Prayable
+    sentMessage: prayer-popup-notify-centcom-sent
+    notificationPrefix: prayer-chat-notify-centcom
+    verb: prayer-verbs-call
+    verbImage: null
 
 - type: entity
   name: CentComm official handheld fax
@@ -170,6 +174,11 @@
     name: "CentComm Official"
   - type: Item
     size: Normal
+  - type: Prayable
+    sentMessage: prayer-popup-notify-centcom-sent
+    notificationPrefix: prayer-chat-notify-centcom
+    verb: prayer-verbs-call
+    verbImage: null
   - type: Sprite
     sprite: _Goobstation/Objects/Tools/official_fax.rsi
     drawdepth: SmallObjects
