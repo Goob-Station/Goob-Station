@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseItem, BaseMagicContraband ]
+  parent: BaseItem # not BaseMagicContraband since metashield and all, and so no arresting heretics in random searches roundstart due to blue because tider broke a window
   id: CodexCicatrix
   name: codex cicatrix
   description: An ominous book you've never seen before. The letters seem to be contantly rearranging themselves.
