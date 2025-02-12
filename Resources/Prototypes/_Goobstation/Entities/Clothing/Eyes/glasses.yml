@@ -96,6 +96,17 @@
     - WhitelistChameleon
   - type: IdentityBlocker
     coverage: EYES
+  - type: ThermalVision
+    isEquipment: true
+    color: "#98EEFB"
+    lightRadius: 15
+  - type: ChameleonClothing
+    slot: [ eyes ]
+    default: ClothingEyesGlassesDeathsquad
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
 
 
 
