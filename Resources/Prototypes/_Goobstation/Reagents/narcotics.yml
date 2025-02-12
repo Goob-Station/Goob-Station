@@ -202,5 +202,5 @@
         key: TemporaryBlindness
         component: TemporaryBlindness
         type: Add
-        time: 1
+        time: 3
         refresh: false
