@@ -4,7 +4,7 @@
   description: job-description-centcomoff
   playTimeTracker: JobCentralCommandOfficial
   setPreference: false
-  startingGear: CentcommGear # Goobstation
+  startingGear: CentcomGear
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom # Goobstation
   canBeAntag: false
@@ -20,7 +20,7 @@
   - BlueshieldOfficer
 
 - type: startingGear
-  id: CentcommGear # Goobstation
+  id: CentcomGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitCentcomOfficial
     shoes: ClothingShoesBootsCombatFilled
