@@ -166,7 +166,7 @@
       - !type:PopupMessage
         visualType: MediumCaution
         type: Local
-        messages:
+        messages: # Flavor text, you're supposed to forget what's happening.
         - amnestizine-effect-forget
         - amnestizine-effect-hole
         - amnestizine-effect-blank
@@ -178,14 +178,14 @@
         - amnestizine-effect-listen
         conditions:
         - !type:ReagentThreshold
-          min: 5
-        probability: 0.3
-      - !type:GenericStatusEffect
+          min: 1
+        probability: 0.35
+      - !type:GenericStatusEffect # You can't remember how to fire a gun, or swing a sword.
         key: Pacified
         component: Pacified
         type: Add
         time: 4
-      - !type:MovespeedModifier
+      - !type:MovespeedModifier # You can't quite remember how to walk properly.
         conditions:
         - !type:OrganType
           type: Yowie
@@ -195,7 +195,7 @@
           min: 4
         walkSpeedModifier: 0.4
         sprintSpeedModifier: 0.4
-      - !type:GenericStatusEffect
+      - !type:GenericStatusEffect # It's all... blurry...
         conditions:
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
@@ -203,5 +203,19 @@
         key: TemporaryBlindness
         component: TemporaryBlindness
         type: Add
-        time: 3
+        time: 2
         refresh: false
+      - !type:HealthChange # OD Causes HEINOUS amounts of DNA damage. Your body forgets how to function, and your DNA forgets what shape it's supposed to be.
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 20
+        damage:
+          types:
+            Cellular: 15
+      - !type:Jitter
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
