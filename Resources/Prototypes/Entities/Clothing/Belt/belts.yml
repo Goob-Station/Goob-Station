@@ -590,7 +590,18 @@
     sprite: Clothing/Belt/holster.rsi
   - type: Storage
     grid:
-    - 0,0,3,1
+    - 0,0,4,1
+  - type: ItemSlots
+    slots:
+      item:
+        name: Gun
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/unbuckle.ogg
+        ejectSound: /Audio/Items/unbuckle.ogg
+        whitelist:
+          tags:
+          - Sidearm
 
 - type: entity
   parent: [ClothingBeltStorageBase, BaseSyndicateContraband]
