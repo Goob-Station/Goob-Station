@@ -5,7 +5,7 @@
   components:
   - type: WizardRule
   - type: GameRule
-    minPlayers: 20
+    minPlayers: 30
   - type: AntagObjectives
     objectives:
     - WizardSurviveObjective

@@ -8,7 +8,9 @@
     back: ClothingBackpack
     belt: ScrollTeleport
     gloves: ClothingHandsGlovesWizard
-    pocket1: WizardsGrimoire
+    id: WizardIDCard
+    pocket1: CrowbarWizard
+    pocket2: WizardsGrimoire
 
 - type: startingGear
   id: LichGear
@@ -19,6 +21,7 @@
     shoes: ClothingShoesWizard
     gloves: ClothingHandsGlovesWizard
     back: ClothingBackpack
+    pocket1: CrowbarWizard
 
 - type: startingGear
   id: OblivionEnforcerGear
@@ -28,7 +31,6 @@
     mask: ClothingMaskGasOblivionEnforcer
     shoes: ClothingShoesColorWhite
     back: ClothingBackpack
-    gloves: ClothingHandsGlovesWizard
 
 - type: startingGear
   id: ApprenticeGearBlue
@@ -40,6 +42,8 @@
     back: ClothingBackpack
     belt: ScrollTeleportApprentice
     gloves: ClothingHandsGlovesWizard
+    id: WizardIDCard
+    pocket1: CrowbarWizard
 
 - type: startingGear
   id: ApprenticeGearRed
@@ -51,6 +55,8 @@
     back: ClothingBackpack
     belt: ScrollTeleportApprentice
     gloves: ClothingHandsGlovesWizard
+    id: WizardIDCard
+    pocket1: CrowbarWizard
 
 - type: startingGear
   id: ApprenticeGearPurple
@@ -62,6 +68,8 @@
     back: ClothingBackpack
     belt: ScrollTeleportApprentice
     gloves: ClothingHandsGlovesWizard
+    id: WizardIDCard
+    pocket1: CrowbarWizard
 
 - type: startingGear
   id: ApprenticeGearBlack
@@ -73,6 +81,8 @@
     back: ClothingBackpack
     belt: ScrollTeleportApprentice
     gloves: ClothingHandsGlovesWizard
+    id: WizardIDCard
+    pocket1: CrowbarWizard
 
 - type: startingGear
   id: ApprenticeGearYellow
@@ -84,6 +94,8 @@
     back: ClothingBackpack
     belt: ScrollTeleportApprentice
     gloves: ClothingHandsGlovesWizard
+    id: WizardIDCard
+    pocket1: CrowbarWizard
 
 - type: startingGear
   id: ApprenticeGearRobeless
@@ -94,6 +106,8 @@
     back: ClothingBackpack
     belt: ScrollTeleportApprentice
     gloves: ClothingHandsGlovesWizard
+    id: WizardIDCard
+    pocket1: CrowbarWizard
 
 - type: startingGear
   id: ApprenticeGearPsy
@@ -105,3 +119,5 @@
     back: ClothingBackpack
     belt: ScrollTeleportApprentice
     gloves: ClothingHandsGlovesWizard
+    id: WizardIDCard
+    pocket1: CrowbarWizard

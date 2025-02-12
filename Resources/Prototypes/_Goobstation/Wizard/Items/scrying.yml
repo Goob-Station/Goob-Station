@@ -19,6 +19,8 @@
     bodyType: Static
   - type: Transform
     noRot: true
+  - type: Sprite
+    drawdepth: SmallObjects
   - type: Fixtures
     fixtures:
       fix1:
