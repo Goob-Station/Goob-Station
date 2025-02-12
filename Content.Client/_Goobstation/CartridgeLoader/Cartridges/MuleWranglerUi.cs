@@ -16,9 +16,9 @@ public sealed partial class MuleWranglerUi : UIFragment
     public override void Setup(BoundUserInterface userInterface, EntityUid? fragmentOwner)
     {
         _fragment = new MuleWranglerUiFragment();
-        _fragment.OnMessageSent += (type, uid) =>
+        _fragment.OnMessageSent += (type, uid, dropOffUid) =>
         {
-            SendMuleWranglerMessage(type, uid, userInterface);
+            SendMuleWranglerMessage(type, uid, dropOffUid, userInterface);
         };
 
     }
@@ -31,9 +31,9 @@ public sealed partial class MuleWranglerUi : UIFragment
         _fragment?.UpdateState(muleWranglerUiState);
     }
 
-    public void SendMuleWranglerMessage(MuleWranglerMessageType type, NetEntity uid, BoundUserInterface userInterface)
+    public void SendMuleWranglerMessage(MuleWranglerMessageType type, NetEntity uid, NetEntity? dropOffUid, BoundUserInterface userInterface)
     {
-        var muleWranglerMessage = new MuleWranglerUiMessageEvent(type, uid);
+        var muleWranglerMessage = new MuleWranglerUiMessageEvent(type, uid, dropOffUid);
         userInterface.SendMessage(new CartridgeUiMessage(muleWranglerMessage));
     }
 }

@@ -7,4 +7,8 @@ public sealed class MuleWranglerUiState(List<NetEntity> mules, List<NetEntity> b
 {
     public List<NetEntity> Mules = mules;
     public List<NetEntity> Beacons = beacons;
+    /*
+    public NetEntity SelectedMule = beacons;
+    public NetEntity SelectedBeacon = beacons; saveState
+    */
 }

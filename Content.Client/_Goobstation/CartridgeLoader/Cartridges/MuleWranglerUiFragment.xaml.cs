@@ -13,6 +13,7 @@ namespace Content.Client._Goobstation.CartridgeLoader.Cartridges;
 public sealed partial class MuleWranglerUiFragment : BoxContainer
 {
     [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private ILocalizationManager _localizationManager = default!;
 
     public List<NetEntity> MuleList = new();
     public List<NetEntity> BeaconList = new();
@@ -20,12 +21,12 @@ public sealed partial class MuleWranglerUiFragment : BoxContainer
     public NetEntity SelectedMule = NetEntity.Invalid;
     public NetEntity SelectedBeacon = NetEntity.Invalid;
 
-    public event Action<MuleWranglerMessageType, NetEntity>? OnMessageSent;
+    public event Action<MuleWranglerMessageType, NetEntity, NetEntity?>? OnMessageSent;
 
     public MuleWranglerUiFragment()
     {
-        RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
+        RobustXamlLoader.Load(this);
         Home();
     }
 
@@ -76,10 +77,17 @@ public sealed partial class MuleWranglerUiFragment : BoxContainer
         foreach (var uid in BeaconList)
         {
             var newButton = new PdaSettingsButton();
-            var nnUid = _entityManager.GetEntity(uid);
-            if(!_entityManager.TryGetComponent<MuleDropOffComponent>(nnUid,out var dropOffComponent))
+
+            if (!_entityManager.TryGetEntity(uid, out var nnUid))
                 continue;
-            newButton.Text = dropOffComponent.Tag;
+            if(!_entityManager.TryGetComponent<MetaDataComponent>(nnUid,out var metaData))
+                continue;
+            if (metaData.EntityPrototype == null)
+                continue;
+            var suffix = _localizationManager.GetEntityData(metaData.EntityPrototype.ID).Suffix;
+            if (string.IsNullOrEmpty(suffix))
+                continue;
+            newButton.Text = suffix;
             ButtonContainer.AddChild(newButton);
         }
 
@@ -92,6 +100,7 @@ public sealed partial class MuleWranglerUiFragment : BoxContainer
             pdaButton.OnPressed += _ =>
             {
                 SelectedBeacon = BeaconList[i - 1];
+                OnMessageSent?.Invoke(MuleWranglerMessageType.SetDestination, SelectedMule, SelectedBeacon);
                 Home();
             };
             i++;
@@ -115,7 +124,7 @@ public sealed partial class MuleWranglerUiFragment : BoxContainer
     {
         if (SelectedBeacon != NetEntity.Invalid && SelectedMule != NetEntity.Invalid)
         {
-            OnMessageSent?.Invoke(MuleWranglerMessageType.Transport, SelectedMule);
+            OnMessageSent?.Invoke(MuleWranglerMessageType.Transport, SelectedMule, null);
         }
         Home();
     }

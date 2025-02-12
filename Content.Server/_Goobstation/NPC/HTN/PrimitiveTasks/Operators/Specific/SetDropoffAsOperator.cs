@@ -44,17 +44,13 @@ public sealed partial class SetDropoffAsOperator : HTNOperator
         if(mule.CurrentTarget == EntityUid.Invalid)
             return (false, null);
 
-        var pathRange = SharedInteractionSystem.InteractionRange - 1f;
-        var path = await _pathfinding.GetPath(owner, mule.CurrentTarget, pathRange, cancelToken);
-
-        if (path.Result == PathResult.NoPath)
-            return (false, null);
+        var navb = _entManager.GetEntityData(_entManager.GetNetEntity(mule.CurrentTarget));
+        Logger.Debug(navb.Item2.EntityName);
 
         return (true, new Dictionary<string, object>()
         {
             {TargetKey, mule.CurrentTarget},
             {TargetMoveKey, _entManager.GetComponent<TransformComponent>(mule.CurrentTarget).Coordinates},
-            {NPCBlackboard.PathfindKey, path},
         });
     }
 }

@@ -8,7 +8,6 @@
         targetMoveKey: TargetCoordinates
     - !type:HTNPrimitiveTask
       operator: !type:MoveToOperator
-        pathfindInPlanning: false
 
 - type: htnCompound
   id: MULECompound

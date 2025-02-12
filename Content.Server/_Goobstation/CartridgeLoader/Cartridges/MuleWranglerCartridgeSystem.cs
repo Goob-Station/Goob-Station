@@ -1,7 +1,11 @@
 using Content.Server.CartridgeLoader;
+using Content.Server.NPC;
+using Content.Server.NPC.HTN;
+using Content.Server.NPC.Systems;
 using Content.Shared._Goobstation.CartridgeLoader.Cartridges;
 using Content.Shared._Goobstation.MULE.Components;
 using Content.Shared.CartridgeLoader;
+using Content.Shared.NPC.Systems;
 
 namespace Content.Server._Goobstation.CartridgeLoader.Cartridges;
 
@@ -9,6 +13,8 @@ public sealed class MuleWranglerCartridgeSystem : EntitySystem
 {
     [Dependency] private readonly CartridgeLoaderSystem? _cartridgeLoaderSystem = default!;
     [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private readonly HTNSystem _htn = default!;
+    [Dependency] private readonly NPCSystem _npc = default!;
 
     public override void Initialize()
     {
@@ -23,12 +29,22 @@ public sealed class MuleWranglerCartridgeSystem : EntitySystem
             return;
 
         var uid = GetEntity(msg.MuleEntity);
+        if(!TryComp<MuleComponent>(uid, out var muleComponent))
+            return;
         switch (msg.Type)
         {
             case MuleWranglerMessageType.Transport:
-                if(!TryComp<MuleComponent>(uid, out var comp))
+                muleComponent.CurrentOrder = MuleOrderType.Transport;
+                UpdateMuleBlackboard(uid, MuleOrderType.Transport);
+                break;
+            case MuleWranglerMessageType.SetDestination:
+                if (msg.DropOffEntity is null)
                     return;
-                comp.CurrentOrder = MuleOrderType.Transport;
+                if (!TryGetEntity(msg.DropOffEntity, out var entity))
+                    return;
+                if (entity is not { } realEntity)
+                    return;
+                muleComponent.CurrentTarget = realEntity;
                 break;
         }
 
@@ -38,6 +54,18 @@ public sealed class MuleWranglerCartridgeSystem : EntitySystem
     private void OnUiReady(Entity<MuleWranglerCartridgeComponent> ent, ref CartridgeUiReadyEvent args)
     {
         UpdateUiState(ent, args.Loader);
+    }
+
+    public void UpdateMuleBlackboard(EntityUid uid, MuleOrderType orderType)
+    {
+        if (!TryComp<HTNComponent>(uid, out var htn))
+            return;
+
+        if (htn.Plan != null)
+            _htn.ShutdownPlan(htn);
+
+        _npc.SetBlackboard(uid, NPCBlackboard.CurrentOrders, orderType);
+        _htn.Replan(htn);
     }
 
     private void UpdateUiState(Entity<MuleWranglerCartridgeComponent> ent, EntityUid loaderUid)
