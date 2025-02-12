@@ -10,7 +10,7 @@
     damageCoefficient: 0.50
   - type: AntiRottingContainer
   - type: Sprite
-    sprite: _NF/Structures/Storage/Shelfs/Departments/Service/wall_fridge.rsi
+    sprite: _NF/Structures/Shelfs/Departments/Service/wall_fridge.rsi
     layers:
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
