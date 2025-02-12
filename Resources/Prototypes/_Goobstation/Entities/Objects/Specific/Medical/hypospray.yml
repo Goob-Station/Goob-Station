@@ -212,7 +212,7 @@
 
 - type: entity
   name: amnestic spray
-  parent: [ChemicalMedipen, BaseCentcommContraband]
+  parent: [SecHypo, BaseCentcommContraband]
   id: AmnestizineHypospray
   description: Prevents the subject from remembering anything prior or during the injection. Don't use too much.
   components:
@@ -220,15 +220,21 @@
     sprite: _Goobstation/Objects/Specific/Medical/amnestic_hypo.rsi
   - type: Item
     size: Normal
-  - type: Hypospray
-    solutionName: pen
-    transferAmount: 5
+    sprite: _Goobstation/Objects/Specific/Medical/amnestic_hypo.rsi
   - type: SolutionContainerManager
     solutions:
-      pen:
-        maxVol: 80
+      hypospray:
+        maxVol: 100
         reagents:
         - ReagentId: Amnestizine
           Quantity: 100
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Hypospray
+    solutionName: hypospray
+    transferAmount: 5
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: HyposprayBlockNonMobInjection
   - type: Tag
     tags: []
