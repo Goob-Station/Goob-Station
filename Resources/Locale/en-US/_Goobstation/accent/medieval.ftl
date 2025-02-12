@@ -728,16 +728,16 @@ accent-medieval-words-230 = bartenders
 accent-medieval-words-replace-230 = pubkeepers
 
 accent-medieval-words-231 = dorms 4
-accent-medieval-words-replace-228 = unspeakable fifth pit
+accent-medieval-words-replace-231 = unspeakable fifth pit
 
 accent-medieval-words-232 = dorms four
-accent-medieval-words-replace-228 = unspeakable filth pit
+accent-medieval-words-replace-232 = unspeakable filth pit
 
 accent-medieval-words-233 = room 4
-accent-medieval-words-replace-228 = unspeakable filth pit
+accent-medieval-words-replace-233 = unspeakable filth pit
 
 accent-medieval-words-234 = dorms4
-accent-medieval-words-replace-228 = unspeakable filth pit
+accent-medieval-words-replace-234 = unspeakable filth pit
 
 accent-medieval-words-235 = room4
 accent-medieval-words-replace-235 = unspeakable filth pit
