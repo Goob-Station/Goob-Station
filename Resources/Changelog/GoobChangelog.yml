@@ -4649,3 +4649,57 @@ Entries:
       message: Added air to Oasis
   id: 527
   time: '2025-02-04T18:05:13.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Syndicate bulk mosin crate.
+    - type: Tweak
+      message: Mosins are now 4x2.
+  id: 528
+  time: '2025-02-06T14:48:25.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: Swords are now larger.
+  id: 529
+  time: '2025-02-09T16:23:42.0000000+00:00'
+- author: Aineias1
+  changes:
+    - type: Add
+      message: Added more wintercoats
+  id: 530
+  time: '2025-02-09T19:14:19.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: Fixed IPC reboot.
+  id: 531
+  time: '2025-02-10T10:28:52.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Tidemind is back as a midround event.
+  id: 532
+  time: '2025-02-11T20:11:11.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: Added a built-in DaW in IPCs.
+  id: 533
+  time: '2025-02-12T14:48:12.0000000+00:00'
+- author: Aineias1
+  changes:
+    - type: Add
+      message: Added Sofas and Benches
+    - type: Fix
+      message: Fixed bonfires,fireplaces,banners not beign buildable
+  id: 534
+  time: '2025-02-12T15:37:06.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added submarine to the map pool.
+    - type: Remove
+      message: Removed Piras314.
+  id: 535
+  time: '2025-02-12T15:44:44.0000000+00:00'
