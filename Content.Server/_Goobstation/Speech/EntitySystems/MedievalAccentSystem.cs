@@ -21,9 +21,9 @@ public sealed class MedievalAccentSystem : EntitySystem
         message = _replacement.ApplyReplacements(message, "medieval");
 
         // Prefix
-        if (_random.Prob(0.25f))
+        if (_random.Prob(0.35f))
         {
-            var pick = _random.Next(1, 41);
+            var pick = _random.Next(1, 42);
 
             // Reverse sanitize capital
             message = message[0].ToString().ToLower() + message.Remove(0, 1);
