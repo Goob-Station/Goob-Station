@@ -371,3 +371,19 @@
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor, ClothingOuterSuitShrineMaiden]
   id: ClothingOuterSuitShrineMaidenReal
   name: shrine maiden outfit
+
+# Gloves
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesWizard
+  name: wizard gloves
+  description: A magnificent pair of blue gem-lined gloves that seem to be insulated.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/Hands/wizgloves.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/Hands/wizgloves.rsi
+  - type: Insulated
+  - type: FingerprintMask
+  - type: StaticPrice
+    price: 1000

@@ -7,6 +7,7 @@
     shoes: ClothingShoesWizard
     back: ClothingBackpack
     belt: ScrollTeleport
+    gloves: ClothingHandsGlovesWizard
     pocket1: WizardsGrimoire
 
 - type: startingGear
@@ -16,6 +17,7 @@
     head: ClothingHeadHatBlackwizardReal
     outerClothing: ClothingOuterWizardBlackReal
     shoes: ClothingShoesWizard
+    gloves: ClothingHandsGlovesWizard
     back: ClothingBackpack
 
 - type: startingGear
@@ -26,6 +28,7 @@
     mask: ClothingMaskGasOblivionEnforcer
     shoes: ClothingShoesColorWhite
     back: ClothingBackpack
+    gloves: ClothingHandsGlovesWizard
 
 - type: startingGear
   id: ApprenticeGearBlue
@@ -36,6 +39,7 @@
     shoes: ClothingShoesWizard
     back: ClothingBackpack
     belt: ScrollTeleportApprentice
+    gloves: ClothingHandsGlovesWizard
 
 - type: startingGear
   id: ApprenticeGearRed
@@ -46,6 +50,7 @@
     shoes: ClothingShoesWizard
     back: ClothingBackpack
     belt: ScrollTeleportApprentice
+    gloves: ClothingHandsGlovesWizard
 
 - type: startingGear
   id: ApprenticeGearPurple
@@ -56,6 +61,7 @@
     shoes: ClothingShoesWizard
     back: ClothingBackpack
     belt: ScrollTeleportApprentice
+    gloves: ClothingHandsGlovesWizard
 
 - type: startingGear
   id: ApprenticeGearBlack
@@ -66,6 +72,7 @@
     shoes: ClothingShoesWizard
     back: ClothingBackpack
     belt: ScrollTeleportApprentice
+    gloves: ClothingHandsGlovesWizard
 
 - type: startingGear
   id: ApprenticeGearYellow
@@ -76,6 +83,7 @@
     shoes: ClothingShoesWizard
     back: ClothingBackpack
     belt: ScrollTeleportApprentice
+    gloves: ClothingHandsGlovesWizard
 
 - type: startingGear
   id: ApprenticeGearRobeless
@@ -85,6 +93,7 @@
     shoes: ClothingShoesWizard
     back: ClothingBackpack
     belt: ScrollTeleportApprentice
+    gloves: ClothingHandsGlovesWizard
 
 - type: startingGear
   id: ApprenticeGearPsy
@@ -95,3 +104,4 @@
     shoes: ClothingShoesWizard
     back: ClothingBackpack
     belt: ScrollTeleportApprentice
+    gloves: ClothingHandsGlovesWizard

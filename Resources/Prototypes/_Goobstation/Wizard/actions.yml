@@ -554,19 +554,27 @@
       speech: action-speech-spell-barnyard
       masks:
         ClothingMaskPig:
-          path: /Audio/_Goobstation/Wizard/pighead_curse.ogg
-        ClothingMaskFrog: null
+          path: /Audio/_Goobstation/Wizard/PigCurse.ogg
+        ClothingMaskFrog:
+          path: /Audio/_Goobstation/Wizard/FrogCurse.ogg
         ClothingMaskCow:
-          path: /Audio/_Goobstation/Wizard/cowhead_curse.ogg
+          path: /Audio/_Goobstation/Wizard/CowCurse.ogg
         ClothingMaskHorse:
-          path: /Audio/_Goobstation/Wizard/horsehead_curse.ogg
-        ClothingMaskRat: null
-        ClothingMaskFox: null
-        ClothingMaskBee: null
-        ClothingMaskBear: null
-        ClothingMaskRaven: null
-        ClothingMaskJackal: null
-        ClothingMaskBat: null
+          path: /Audio/_Goobstation/Wizard/HorseCurse.ogg
+        ClothingMaskRat:
+          path: /Audio/_Goobstation/Wizard/RatCurse.ogg
+        ClothingMaskFox:
+          path: /Audio/_Goobstation/Wizard/FoxCurse.ogg
+        ClothingMaskBee:
+          path: /Audio/_Goobstation/Wizard/BeeCurse.ogg
+        ClothingMaskBear:
+          path: /Audio/_Goobstation/Wizard/BearCurse.ogg
+        ClothingMaskRaven:
+          path: /Audio/_Goobstation/Wizard/RavenCurse.ogg
+        ClothingMaskJackal:
+          path: /Audio/_Goobstation/Wizard/JackalCurse.ogg
+        ClothingMaskBat:
+          path: /Audio/_Goobstation/Wizard/BatCurse.ogg
   - type: Magic
     requiresSpeech: true
     school: Transmutation

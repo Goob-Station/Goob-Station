@@ -48,21 +48,6 @@
   copyright: "Taken from tgstation."
   source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/smoke.ogg"
 
-- files: ["horsehead_curse.ogg"]
-  license: "CC-BY-SA-3.0"
-  copyright: "Taken from tgstation."
-  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/horsehead_curse.ogg"
-
-- files: ["cowhead_curse.ogg"]
-  license: "CC-BY-SA-3.0"
-  copyright: "Taken from tgstation."
-  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/cowhead_curse.ogg"
-
-- files: ["pighead_curse.ogg"]
-  license: "CC-BY-SA-3.0"
-  copyright: "Taken from tgstation."
-  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/pighead_curse.ogg"
-
 - files: ["summonitems_generic.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from tgstation."
@@ -162,3 +147,58 @@
   license: "CC-BY-SA-3.0"
   copyright: "Taken from tgstation."
   source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/ghost.ogg"
+
+- files: ["HorseCurse.ogg"]
+  license: "CC-BY-NC-SA-4.0"
+  copyright: "Breaking Bones.wav by batman6661 (CC0-1.0). gg o2 b2 14 blasts f.wav by ERH (CC-BY-NC-SA-4.0)."
+  source: "https://freesound.org/s/181133/ https://freesound.org/s/43456/"
+
+- files: ["PigCurse.ogg"]
+  license: "CC-BY-NC-SA-4.0"
+  copyright: "Pig Oink by qubodup (CC0-1.0). Angry Pig Oinking by Jofae (CC0-1.0). gg o2 b2 14 blasts 2f.wav by ERH (CC-BY-NC-SA-4.0)."
+  source: "https://freesound.org/s/442906/ https://freesound.org/s/352698/ https://freesound.org/s/49001/"
+
+- files: ["FrogCurse.ogg"]
+  license: "CC-BY-NC-SA-4.0"
+  copyright: "200703101950PacificChorusFrogsSoloNR.wav by daveincamas (CC-BY-SA-4.0). boat motor.wav by pawsound (CC0-1.0). gg o2 b2 14 blasts 2f.wav by ERH (CC-BY-NC-SA-4.0)."
+  source: "https://freesound.org/s/32807/ https://freesound.org/s/154833/ https://freesound.org/s/49001/"
+
+- files: ["CowCurse.ogg"]
+  license: "CC-BY-NC-SA-4.0"
+  copyright: "Cow moo #2 by spurioustransients (CC0-1.0). Barn Door creek.aif by MAJ061785 (CC-BY-SA-3.0). Bones and flesh tearing 1 by studiobonk (CC-BY-SA-4.0). gg o2 b2 14 blasts 2f.wav by ERH (CC-BY-NC-SA-4.0)."
+  source: "https://freesound.org/s/513558/ https://freesound.org/s/85509/ https://freesound.org/s/649123/ https://freesound.org/s/49001/"
+
+- files: ["RatCurse.ogg"]
+  license: "CC-BY-NC-SA-4.0"
+  copyright: "rat noises.m4a by BurgerBoys (CC-BY-SA-3.0). Dry cough.wav by Fedor_Ogon (CC0-1.0). Firefight by TheBuilder15 (CC0-1.0). gg o2 b2 14 blasts 2f.wav by ERH (CC-BY-NC-SA-4.0)."
+  source: "https://freesound.org/s/482678/ https://freesound.org/s/432380/ https://freesound.org/s/404334/ https://freesound.org/s/49001/"
+
+- files: ["FoxCurse.ogg"]
+  license: "CC-BY-NC-SA-4.0"
+  copyright: "wind in the autumn forest - front by CRAFTCREST.com (CC-BY-SA-4.0). red fox screeching.mp3 by craigsays (CC0-1.0). gg o2 b2 14 blasts 2f.wav by ERH (CC-BY-NC-SA-4.0)."
+  source: "https://freesound.org/s/333097/ https://freesound.org/s/537587/ https://freesound.org/s/49001/"
+
+- files: ["BeeCurse.ogg"]
+  license: "CC-BY-NC-SA-4.0"
+  copyright: "Bees.wav by Benboncan (CC-BY-SA-4.0). Fast Crawling Bu by dasrealized (CC0-1.0). gg o2 b2 14 blasts 2f.wav by ERH (CC-BY-NC-SA-4.0)."
+  source: "https://freesound.org/s/73370/ https://freesound.org/s/266014/ https://freesound.org/s/49001/"
+
+- files: ["BearCurse.ogg"]
+  license: "CC-BY-NC-SA-4.0"
+  copyright: "Breaking Bones.wav by batman6661 (CC0-1.0). gg o2 b2 14 blasts 2f.wav by ERH (CC-BY-NC-SA-4.0)."
+  source: "https://freesound.org/s/181133/ https://freesound.org/s/49001/"
+
+- files: ["RavenCurse.ogg"]
+  license: "CC-BY-NC-SA-4.0"
+  copyright: "high thunder suburb 06.wav by klankbeeld (CC-BY-SA-4.0). Ravens.mp3 by kentdavies959 (CC-BY-SA-4.0). gg o2 b2 14 blasts 2f.wav by ERH (CC-BY-NC-SA-4.0)."
+  source: "https://freesound.org/s/169257/ https://freesound.org/s/466666/ https://freesound.org/s/49001/"
+
+- files: ["JackalCurse.ogg"]
+  license: "CC-BY-NC-SA-4.0"
+  copyright: "Jackals howling in the mountains by Babadeda (CC0-1.0). dog_breathing 1.wav by 15GPanskaBokstefflova_Nicola (CC0-1.0). gg o2 b2 14 blasts 2f.wav by ERH (CC-BY-NC-SA-4.0)."
+  source: "https://freesound.org/s/737879/ https://freesound.org/s/461513/ https://freesound.org/s/49001/"
+
+- files: ["BatCurse.ogg"]
+  license: "CC-BY-NC-SA-4.0"
+  copyright: "Breaking Bones.wav by batman6661 (CC0-1.0). gg o2 b2 14 blasts 2f.wav by ERH (CC-BY-NC-SA-4.0)."
+  source: "https://freesound.org/s/181133/ https://freesound.org/s/49001/"

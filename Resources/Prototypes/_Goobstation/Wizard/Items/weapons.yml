@@ -114,6 +114,11 @@
     slots:
     - back
     - suitStorage
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK
+      suitstorage:
+      - state: equipped-BACKPACK
   - type: UseDelay
     delay: 1
     delays:
