@@ -214,7 +214,7 @@
   name: amnestic spray
   parent: [ChemicalMedipen, BaseCentcommContraband]
   id: AmnestizineHypospray
-  description: Delivers a healthy dose of completely safe amnestics. Prevents the target from remembering anything.
+  description: Prevents the subject from remembering anything prior or during the injection. Don't use too much.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/amnestic_hypo.rsi
@@ -222,13 +222,13 @@
     size: normal
   - type: Hypospray
     solutionName: pen
-    transferAmount: 10
+    transferAmount: 5
   - type: SolutionContainerManager
     solutions:
       pen:
         maxVol: 80
         reagents:
         - ReagentId: Amnestizine
-          Quantity: 80
+          Quantity: 100
   - type: Tag
     tags: []
