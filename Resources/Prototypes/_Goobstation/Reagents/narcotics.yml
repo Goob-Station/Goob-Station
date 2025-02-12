@@ -175,6 +175,7 @@
         - amnestizine-effect-soul
         - amnestizine-effect-peaceful
         - amnestizine-effect-leave
+        - amnestizine-effect-listen
         conditions:
         - !type:ReagentThreshold
           min: 5
