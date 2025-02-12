@@ -95,7 +95,7 @@
     - neck
     - idcard
   - type: Item
-    heldPrefix: blue
+    heldPrefix: executive
   - type: IdCard
     jobTitle: job-name-exec
     jobIcon: JobIconNanotrasen

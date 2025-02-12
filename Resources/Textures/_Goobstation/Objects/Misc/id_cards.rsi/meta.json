@@ -17,6 +17,15 @@
       "name": "executive"
     },
 	{
+      "name": "executive-inhand-right"
+    },
+	{
+      "name": "executive-inhand-left"
+    },
+	{
+      "name": "executive-equipped-NECK"
+    },
+	{
       "name": "idchrono"
     }
   ]
