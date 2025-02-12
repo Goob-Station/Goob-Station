@@ -68,18 +68,3 @@ spellbook-wand-desc =
     Only wizards and their apprentices can change wand firing mode.
     Can be used on yourself.
     Wand is more compact compared to staves but doesn't recharge automatically.
-
-spellbook-apprentice-name = Contract of Apprenticeship
-spellbook-apprentice-desc =
-    A magical contract binding an apprentice wizard to your service, using it will summon them to your side.
-    Can only be purchased once.
-
-    You can choose between 8 set of spells for your apprentice to learn:
-    Destruction: Fireball and Mutate.
-    Ethereal: Ethereal Jaunt and Teleport.
-    Summoning: Lesser Summon Bees and Summon Simians.
-    Gunslinger: Lesser Summon Guns, Smoke and Blink.
-    Arcane: Arcane Barrage, Charge and Instant Summons.
-    Sanguine: Scream For Me, Exsanguinating Strike and Instant Summons.
-    Robeless: Mind Swap, Force Wall and Knock.
-    Chaos: 6 WizCoins worth of random spells, except for Bind Soul and Soul Tap.

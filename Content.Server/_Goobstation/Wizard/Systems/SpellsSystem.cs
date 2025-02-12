@@ -487,7 +487,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
             var mob = Spawn(Random.Pick(ev.Mobs), pos);
 
             if (ev.FactionIgnoreSummoner)
-                _faction.IgnoreEntities(mob, [ev.Performer]);
+                _faction.IgnoreEntity(mob, ev.Performer);
         }
     }
 

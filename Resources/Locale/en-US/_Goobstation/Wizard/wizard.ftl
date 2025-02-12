@@ -10,9 +10,9 @@ apprentice-roundend-name = apprentice
 roles-wizard-name = Wizard
 roles-wizard-objective = Cause havoc and destruction to the station.
 
-dynamic-gamerule-wizard-title = [color=lightblue]Wizard[/color]
+dynamic-gamerule-wizard-title = [color=cyan]Wizard[/color]
 
-objective-issuer-wizard-federation = [color=lightblue]Space Wizard Federation[/color]
+objective-issuer-wizard-federation = [color=cyan]Space Wizard Federation[/color]
 
 wizard-role-greeting =
     You are a powerful space wizard. Your goal is to cause as much chaos as possible on {$station}, and survive. Space Wizard Federation provided you with magical wizard grimoire which you can use to learn devastating spells.

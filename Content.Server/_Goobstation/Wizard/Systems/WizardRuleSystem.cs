@@ -1,6 +1,9 @@
 using System.Linq;
 using Content.Server._Goobstation.Wizard.Components;
+using Content.Server.Administration.Logs;
 using Content.Server.Antag;
+using Content.Server.Atmos.EntitySystems;
+using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;
@@ -10,14 +13,21 @@ using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
+using Content.Shared.Atmos;
+using Content.Shared.Chat;
+using Content.Shared.Database;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.NPC.Prototypes;
+using Content.Shared.Parallax;
+using Robust.Server.Audio;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Utility;
 
 namespace Content.Server._Goobstation.Wizard.Systems;
 
@@ -30,6 +40,10 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly AtmosphereSystem _atmos = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly IAdminLogManager _log = default!;
+    [Dependency] private readonly IChatManager _chatManager = default!;
 
     public static readonly ProtoId<NpcFactionPrototype> Faction = "Wizard";
 
@@ -50,6 +64,61 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         SubscribeLocalEvent<ApprenticeComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<PhylacteryComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<EntParentChangedMessage>(OnParentChanged);
+
+        SubscribeLocalEvent<DimensionShiftEvent>(OnDimensionShift);
+    }
+
+    private void OnDimensionShift(DimensionShiftEvent ev)
+    {
+        var rule = GameTicker.GetActiveGameRules().Where(HasComp<WizardRuleComponent>).FirstOrNull();
+        EntityUid? map;
+        if (rule != null)
+        {
+            var ruleComp = Comp<WizardRuleComponent>(rule.Value);
+            if (ruleComp.TargetStation == null)
+                map = GetRandomTargetMap();
+            else
+            {
+                var stationGrid = _station.GetLargestGrid(Comp<StationDataComponent>(ruleComp.TargetStation.Value));
+                map = stationGrid == null ? GetRandomTargetMap() : Transform(stationGrid.Value).MapUid;
+            }
+        }
+        else
+            map = GetRandomTargetMap();
+
+        if (map == null)
+            return;
+
+        if (ev.Parallax != null)
+        {
+            var parallax = EnsureComp<ParallaxComponent>(map.Value);
+            parallax.Parallax = ev.Parallax;
+            Dirty(map.Value, parallax);
+        }
+
+        var moles = new float[Atmospherics.AdjustedNumberOfGases];
+        moles[(int) Gas.Oxygen] = ev.OxygenMoles;
+        moles[(int) Gas.Nitrogen] = ev.NitrogenMoles;
+        moles[(int) Gas.CarbonDioxide] = ev.CarbonDioxideMoles;
+
+        var mixture = new GasMixture(moles, ev.Temperature);
+
+        _atmos.SetMapAtmosphere(map.Value, false, mixture);
+
+        var message = Loc.GetString("dimension-shift-message");
+        var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+        _chatManager.ChatMessageToAll(ChatChannel.Radio, message, wrappedMessage, default, false, true, Color.Red);
+        _audio.PlayGlobal(ev.Sound, Filter.Broadcast(), true);
+
+        _log.Add(LogType.EventRan, LogImpact.Extreme, $"Station map changed via wizard spellbook dimension shift.");
+
+        return;
+
+        EntityUid? GetRandomTargetMap()
+        {
+            var grid = GetWizardTargetRandomStationGrid();
+            return grid == null ? null : Transform(grid.Value).MapUid;
+        }
     }
 
     private void OnParentChanged(ref EntParentChangedMessage args)
@@ -177,7 +246,7 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
     {
         var station = (rule.TargetStation is not null) ? Name(rule.TargetStation.Value) : "the station";
 
-        _antag.SendBriefing(target, Loc.GetString("wizard-role-greeting", ("station", station)), Color.LightBlue, null);
+        _antag.SendBriefing(target, Loc.GetString("wizard-role-greeting", ("station", station)), Color.Cyan, null);
 
         if (!TryComp(target, out HumanoidAppearanceComponent? humanoid) || humanoid.Age >= 60)
             return true;

@@ -40,7 +40,7 @@ spellbook-repulse-desc =
 
 spellbook-stop-time-name = Stop Time
 spellbook-stop-time-desc =
-    This spell stops time for everyone except for you and whoever learned this spell, allowing you to move freely while your enemies and even projectiles are frozen.
+    This spell stops time for everyone except for you and whoever learned this spell, allowing you and your guardian to move freely while your enemies and even projectiles are frozen.
     Requires wizard's robe and hat to cast.
 
 spellbook-corpse-explosion-name = Corpse Explosion

@@ -177,21 +177,25 @@
   - SpellbookEquipment
 
 # Event
+- type: listing
+  id: SpellbookEventSummonGhosts
+  name: spellbook-event-summon-ghosts-name
+  description: spellbook-event-summon-ghosts-description
+  productEvent: !type:SummonGhostsEvent # Goobstation
+  icon: # Goobstation
+    sprite: Mobs/Ghosts/ghost_human.rsi
+    state: icon
+  # productAction: ActionSummonGhosts # Goobstation
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookEvents
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  disableRefund: true # Goobstation
+
 # Goob edit - disable events pending revork
-#- type: listing
-#  id: SpellbookEventSummonGhosts
-#  name: spellbook-event-summon-ghosts-name
-#  description: spellbook-event-summon-ghosts-description
-#  productAction: ActionSummonGhosts
-#  cost:
-#    WizCoin: 0
-#  categories:
-#  - SpellbookEvents
-#  conditions:
-#  - !type:ListingLimitedStockCondition
-#    stock: 1
-#  disableRefund: true # Goobstation
-#
 #- type: listing
 #  id: SpellbookEventSummonGuns
 #  name: spellbook-event-summon-guns-name

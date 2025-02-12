@@ -56,7 +56,10 @@ spellbook-wand-locker-description =
 # Events
 
 spellbook-event-summon-ghosts-name = Summon Ghosts
-spellbook-event-summon-ghosts-description = Who ya gonna call?
+spellbook-event-summon-ghosts-description =
+    Spook the crew out by making them see dead people. Be warned, ghosts are capricious and occasionally vindicative, and some will use their incredibly minor abilities to frustrate you.
+    This spell goes into effect immediately the moment you buy it.
+    Cannot be refunded.
 
 spellbook-event-summon-guns-name = Summon Guns
 spellbook-event-summon-guns-description = AK47s for everyone! Places a random gun in front of everybody. Disables refunds when bought!
