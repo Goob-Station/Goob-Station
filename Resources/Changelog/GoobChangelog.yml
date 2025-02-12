@@ -4681,3 +4681,9 @@ Entries:
       message: Tidemind is back as a midround event.
   id: 532
   time: '2025-02-11T20:11:11.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: Added a built-in DaW in IPCs.
+  id: 533
+  time: '2025-02-12T14:48:12.0000000+00:00'
