@@ -149,3 +149,29 @@
         type: Add
         time: 3
         refresh: false
+
+- type: reagent
+  id: Amnestizine
+  name: reagent-name-amnestizine
+  group: Narcotics
+  desc: reagent-desc-amnestizine
+  physicalDesc: reagent-physical-desc-syrupy
+  color: "#000000"
+  boilingPoint: 255.0
+  meltingPoint: 36.0
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:PopupMessage
+        visualType: MediumCaution
+        type: Local
+        messages:
+        - amnestizine-effect-forget
+        - amnestizine-effect-hole
+        - amnestizine-effect-blank
+        - amnestizine-effect-distracted
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+        probability: 0.03
+
