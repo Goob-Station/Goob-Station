@@ -1,0 +1,141 @@
+<Document>
+# Код станции
+Коды станции - это публичные уровни угрозы на станции.
+Ниже приведены всплывающие окна для каждого уровня тревоги и связанные с ними цвета.
+
+<ColorBox>
+  <Box>
+    Желтый код - это синий код, если до неё был синяя код. Аналогично с другими цветами. Кроме того, рассматривайте дельту, гамму, эпсилон и фиолетовый код как красную тревогу, но с поправкой на ситуацию.
+  </Box>
+</ColorBox>
+<Table Columns="1">
+  <ColorBox Color="#388c34">
+    <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="10">
+      [bold][color=#ffffff][head=1]Зелёный код[/head][/color][/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox>
+    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+      Внимание! Уровень тревоги на станции стал зеленым! Теперь можно вернуться на свое рабочее место!
+    </Box>
+  </ColorBox>
+</Table>
+
+[color=#388c34]Зелёный код[/color] всегда появляется в начале смены и является кодом станции по умолчанию.
+
+<Table Columns="1">
+  <ColorBox Color="#1b67a5">
+    <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="10">
+      [bold][color=#ffffff][head=1]Синий код[/head][/color][/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox>
+    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+      Внимание! Уровень тревоги станции теперь синий! Существует подтвержденная угроза станции. Служба безопасности должна провести выборочные проверки. Членам экипажа рекомендуется быть бдительными и сообщать о подозрительной активности службе безопасности.
+    </Box>
+  </ColorBox>
+</Table>
+
+[color=#1b67a5]Синий код[/color] появляется, когда поступает сообщение об возможной угрозе станции. Часто оно сохраняется в течение некоторого времени.
+
+<Table Columns="1">
+  <ColorBox Color="#c8a404">
+    <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="10">
+      [bold][color=#ffffff][head=1]Жёлтый код[/head][/color][/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox>
+    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+      Внимание! Уровень тревоги на станции теперь желтый! На станции существует структурная или атмосферная угроза. Инженерному отделу рекомендуется немедленно отреагировать и принять меры безопасности. Членам экипажа рекомендуется держаться подальше от угрозы и при необходимости оставаться на своих рабочих местах.
+    </Box>
+  </ColorBox>
+</Table>
+
+[color=#c8a404]Жёлтый код[/color] появляется в случае масштабных повреждений станции или утечки газа.
+
+<Table Columns="1">
+  <ColorBox Color="#ba292c">
+    <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="10">
+      [bold][color=#ffffff][head=1]Красный код[/head][/color][/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox>
+    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+      Внимание! Уровень тревоги станции теперь красный! Существует непосредственная угроза для станции. Службе Безопасности следует приготовиться к применению летальной силы, если это потребуется. Членам экипажа следует найти безопасное место, где можно укрыться, и следовать указаниям командования.
+    </Box>
+  </ColorBox>
+</Table>
+
+[color=#ba292c]Красный код[/color] появляется в случае серьезных враждебных действий и/или угроз для станции.
+
+<Table Columns="1">
+  <ColorBox Color="#8b0000">
+    <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="10">
+      [bold][color=#ffffff][head=1]Код Дельта[/head][/color][/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox>
+    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+      Внимание! Уровень тревоги станции теперь дельта! В настоящее время станция находится под угрозой неминуемого уничтожения. Членам экипажа рекомендуется обратиться к командованию для получения дополнительной информации.
+    </Box>
+  </ColorBox>
+</Table>
+
+[color=#8b0000]Код Дельта[/color] появляется в ситуациях, когда станция активно собирается самоуничтожиться или быть уничтоженной другими способами.
+
+<Table Columns="1">
+  <ColorBox Color="#9400d3">
+    <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="10">
+      [bold][color=#ffffff][head=1]Код Эпсилон[/head][/color][/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox>
+    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+      Внимание! Уровень тревоги на станции теперь эпсилон! Центральное Командование приказало ввести на станции код "Эпсилон". Все контракты расторгнуты.
+    </Box>
+  </ColorBox>
+</Table>
+
+Вы ничего не знаете о [color=#9400d3]Коде Эпсилон[/color], даже об его существовании.
+
+<Table Columns="1">
+  <ColorBox Color="#db7093">
+    <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="10">
+      [bold][color=#ffffff][head=1]Гамма Код[/head][/color][/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox>
+    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+      Внимание! Уровень тревоги на станции теперь гамма! Центральное командование приказало ввести на станции уровень безопасности "Гамма". Служба Безопасности должна постоянно иметь при себе оружие, а все гражданские лица должны немедленно обратиться к командованию для получения инструкций.
+    </Box>
+  </ColorBox>
+</Table>
+
+[color=#db7093]Код Гамма[/color] встречается редко и используется только в крайних случаях, когда на станции большая угроза.
+
+<Table Columns="1">
+  <ColorBox Color="#cc74fc">
+    <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="10">
+      [bold][color=#ffffff][head=1]Фиолетовый код[/head][/color][/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox>
+    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+      Внимание! Уровень тревоги на станции теперь фиолетовый! На станции существует вирусная угроза. Медицинскому персоналу рекомендуется изолировать членов экипажа с любыми симптомами. Членам экипажа рекомендуется дистанцироваться от окружающих и соблюдать меры безопасности, чтобы предотвратить дальнейшее распространение вируса.
+    </Box>
+  </ColorBox>
+</Table>
+
+[color=#cc74fc]Фиолетовый код[/color] устанавливается из-за вирусных вспышек, когда возникает зомби-инфекция или другая болезнь.
+
+These alerts can be found in entries listed below:
+- [textlink="Зелёный код" link="GreenAlert SOP"]
+- [textlink="Синий код" link="BlueAlert SOP"]
+- [textlink="Жёлтый код" link="YellowAlert SOP"]
+- [textlink="Красный код" link="RedAlert SOP"]
+- [textlink="Дельта код" link="DeltaAlert SOP"]
+- [textlink="Код Эпсилон" link="EpsilonAlert SOP"]
+- [textlink="Гамма код" link="GammaAlert SOP"]
+- [textlink="Фиолетовый код" link="VioletAlert SOP"]
+
+</Document>

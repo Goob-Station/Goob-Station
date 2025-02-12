@@ -1,10 +1,10 @@
-guide-entry-space-law = Космо-закон
+guide-entry-space-law = Космический закон
 guide-entry-medpatches = Медицинские пластыри
 guide-entry-rules-nrp = НРП правила
 # Goob SOP
 # - Основные справочники
 guide-entry-sop = СРП
-guide-entry-sop-alert-levels = _Уровни тревоги
+guide-entry-sop-alert-levels = _Коды станции
 guide-entry-sop-emergencies = _Чрезвычайные ситуации
 guide-entry-sop-jobs = Профессии
 guide-entry-sop-legal = Закон
@@ -28,9 +28,9 @@ guide-entry-sop-gammaalert = Код гамма
 guide-entry-sop-violetalert = Фиолетовый код
 # - Стандартные процедуры
 guide-entry-sop-demoting = Увольнение/понижение
-guide-entry-sop-evacuation = Ранняя эвакуация
-guide-entry-sop-hiring = Наем/Перевод
-guide-entry-sop-succession = Иерархия  командования
+guide-entry-sop-evacuation = Эвакуация
+guide-entry-sop-hiring = Трудоустройство/Перевод
+guide-entry-sop-succession = Иерархия командования
 # - Чрезвычайные ситуации
 guide-entry-sop-confirmedrevs = Революция
 guide-entry-sop-containmentfail = Неудачное сдерживание
@@ -49,13 +49,13 @@ guide-entry-sop-searches = Обыски
 guide-entry-sop-cargotech = Грузчик
 guide-entry-sop-salvage = Утилизатор
 # - Командование
-guide-entry-sop-ntr = ПНТ.
+guide-entry-sop-ntr = ПНТ
 guide-entry-sop-bso = Офицер синего щита
 guide-entry-sop-captain = Капитан
 guide-entry-sop-hop = ГП
 guide-entry-sop-hos = ГСБ
 guide-entry-sop-rd = НР
-guide-entry-sop-cmo = ГВ.
+guide-entry-sop-cmo = ГВ
 guide-entry-sop-ce = СИ
 guide-entry-sop-qm = КМ
 # - Инженерный
