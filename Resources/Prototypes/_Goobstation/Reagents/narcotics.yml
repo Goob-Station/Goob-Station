@@ -161,6 +161,7 @@
   meltingPoint: 36.0
   metabolisms:
     Narcotic:
+      metabolismRate: 0.1
       effects:
       - !type:PopupMessage
         visualType: MediumCaution
@@ -170,8 +171,24 @@
         - amnestizine-effect-hole
         - amnestizine-effect-blank
         - amnestizine-effect-distracted
+        - amnestizine-effect-propaganda
         conditions:
         - !type:ReagentThreshold
           min: 5
-        probability: 1
+        probability: 0.5
+      - !type:GenericStatusEffect
+        key: Pacified
+        component: Pacified
+        type: Add
+        time: 4
+      - !type:MovespeedModifier
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
+          reagent: Amnestizine
+          min: 4
+        walkSpeedModifier: 0.4
+        sprintSpeedModifier: 0.4
 
