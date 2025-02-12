@@ -1,0 +1,26 @@
+- type: entity
+  name: cryo katana
+  parent: [Katana, BaseSyndicateContraband]
+  id: CryoKatana
+  description: Freeze your enemies.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/cryokatana.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: -60
+    damage:
+      types:
+        Slash: 20
+        Cold: 10
+  - type: Item
+    sprite: _Goobstation/Objects/Weapons/Melee/cryokatana.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Melee/cryokatana.rsi
+    slots:
+    - Back
+    - Belt
+  - type: ChangeTemperatureOnHit
+    heat: -150000
+  - type: MeleeDash
+  - type: UseDelay
+    delay: 1.5
