@@ -76,7 +76,7 @@
   - type: WizardTrap
     effect: DamageTrapFlashEffect
   - type: DamageTrap
-    spawnedEntity: LargeRockFading
+    spawnedEntity: FloraRockSolidFading
     damage:
       types:
         Blunt: 50

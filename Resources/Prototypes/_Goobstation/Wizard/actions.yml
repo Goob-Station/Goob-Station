@@ -777,6 +777,7 @@
     event: !type:PolymorphSpellEvent
       speech: action-speech-spell-gorilla-form
       protoId: WizardGorilla
+      loadActions: true
       sound: !type:SoundPathSpecifier
         path: /Audio/_Goobstation/Wizard/gorilla.ogg
   - type: Magic

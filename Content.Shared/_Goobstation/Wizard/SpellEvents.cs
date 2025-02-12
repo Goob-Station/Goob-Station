@@ -236,6 +236,9 @@ public sealed partial class PolymorphSpellEvent : InstantActionEvent, ISpeakSpel
 
     [DataField]
     public SoundSpecifier? Sound;
+
+    [DataField]
+    public bool LoadActions;
 }
 
 public sealed partial class MutateSpellEvent : InstantActionEvent, ISpeakSpell

@@ -21,6 +21,7 @@ using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
 using Content.Server.Teleportation;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared._Goobstation.Actions;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.Chuuni;
@@ -354,6 +355,9 @@ public sealed class SpellsSystem : SharedSpellsSystem
 
         DelayedSpeech(ev.Speech, newEnt.Value, ev.Performer, school);
 
+        if (ev.LoadActions)
+            RaiseNetworkEvent(new LoadActionsEvent(GetNetEntity(ev.Performer)), newEnt.Value);
+
         return true;
     }
 
@@ -362,6 +366,9 @@ public sealed class SpellsSystem : SharedSpellsSystem
         Timer.Spawn(200,
             () =>
             {
+                if (!Exists(speaker) || !Exists(caster))
+                    return;
+
                 var toSpeak = speech == null ? string.Empty : Loc.GetString(speech);
                 SpeakSpell(speaker, caster, toSpeak, school);
             });
