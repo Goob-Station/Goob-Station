@@ -163,6 +163,7 @@
     notificationPrefix: prayer-chat-notify-centcom
     verb: prayer-verbs-call
     verbImage: null
+  - type: MultiHandedItem
 
 - type: entity
   name: CentComm official handheld fax
