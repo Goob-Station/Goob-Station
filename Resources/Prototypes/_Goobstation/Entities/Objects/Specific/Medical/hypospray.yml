@@ -219,7 +219,6 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/amnestic_hypo.rsi
   - type: Item
-    size: Normal
     sprite: _Goobstation/Objects/Specific/Medical/amnestic_hypo.rsi
   - type: SolutionContainerManager
     solutions:
@@ -236,5 +235,7 @@
     onlyAffectsMobs: false
     injectOnly: true
   - type: HyposprayBlockNonMobInjection
+  - type: UseDelay
+    delay: 0.1 # UseDelays are for LOSERs
   - type: Tag
     tags: []

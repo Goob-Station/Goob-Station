@@ -172,10 +172,13 @@
         - amnestizine-effect-blank
         - amnestizine-effect-distracted
         - amnestizine-effect-widen
+        - amnestizine-effect-soul
+        - amnestizine-effect-peaceful
+        - amnestizine-effect-leave
         conditions:
         - !type:ReagentThreshold
           min: 5
-        probability: 0.2
+        probability: 0.3
       - !type:GenericStatusEffect
         key: Pacified
         component: Pacified
@@ -199,5 +202,5 @@
         key: TemporaryBlindness
         component: TemporaryBlindness
         type: Add
-        time: 3
+        time: 1
         refresh: false
