@@ -201,7 +201,3 @@
         type: Add
         time: 3
         refresh: false
-      - !type:GenericStatusEffect
-        key: Brainrotted
-        component: OhioAccent
-

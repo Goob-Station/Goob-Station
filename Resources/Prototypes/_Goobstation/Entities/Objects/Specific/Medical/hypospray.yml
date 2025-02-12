@@ -209,3 +209,31 @@
     price: 500
   - type: Tag
     tags: []
+
+- type: entity
+  name: amnestic spray
+  parent: [ChemicalMedipen, BaseCentcommContraband]
+  id: AmnestizineHypospray
+  description: Delivers a healthy dose of completely safe amnestics. Prevents the target from remembering anything.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/stasipen.rsi # Todo : Change This
+    layers:
+    - state: stasipen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: stasipen_empty
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 10
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 80
+        reagents:
+        - ReagentId: Amnestizine
+          Quantity: 80
+  - type: Tag
+    tags: []
