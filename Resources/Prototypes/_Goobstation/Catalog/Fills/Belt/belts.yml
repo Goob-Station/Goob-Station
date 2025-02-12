@@ -41,3 +41,17 @@
       - id: CentcommStimpack
         amount: 2
       - id: OmnimedTool
+
+- type: entity
+  id: ClothingBeltHolsterFilledCentComm
+  parent: ClothingBeltHolster
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: BaseMagazineMagnum
+    - id: BaseMagazineMagnum
+  - type: ContainerFill
+    containers:
+      item:
+      - WeaponPistolN1984

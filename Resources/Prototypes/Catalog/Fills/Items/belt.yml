@@ -197,8 +197,12 @@
   components:
   - type: StorageFill
     contents:
-        - id: WeaponRevolverInspector
+        - id: SpeedLoaderMagnum # Goobstation - Extra Ammo
         - id: SpeedLoaderMagnum
+  - type: ContainerFill
+    containers:
+      item:
+      - WeaponRevolverInspector # Goobstation - Put that new slot to use.
 
 - type: entity
   id: ClothingBeltChefFilled
