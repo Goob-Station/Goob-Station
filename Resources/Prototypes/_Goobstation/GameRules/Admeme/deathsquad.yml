@@ -11,7 +11,5 @@
     duration: null # the rule has to last the whole round not 1 second
     maxOccurrences: 1
   - type: LoadMapRule
-    preloadedGrid: AmbassadorShuttle
-  - type: AlertLevelInterceptionRule
-    AlertLevel: red
+    preloadedGrid: ConsulShuttle
 

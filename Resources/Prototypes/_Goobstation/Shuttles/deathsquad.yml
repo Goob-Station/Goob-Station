@@ -1,4 +1,4 @@
 - type: preloadedGrid
-  id: AmbassadorShuttle
-  path: /Maps/_Goobstation/Shuttles/ambassador.yml
+  id: ConsulShuttle
+  path: /Maps/_Goobstation/Shuttles/consul.yml
   copies: 1
