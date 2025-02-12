@@ -17,10 +17,12 @@
       "name": "executive"
     },
 	{
-      "name": "executive-inhand-right"
+      "name": "executive-inhand-right",
+        "directions": 4
     },
 	{
-      "name": "executive-inhand-left"
+      "name": "executive-inhand-left",
+        "directions": 4
     },
 	{
       "name": "executive-equipped-NECK"
