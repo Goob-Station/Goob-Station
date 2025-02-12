@@ -727,11 +727,14 @@ public abstract class SharedActionsSystem : EntitySystem
         }
 
         action.Cooldown = null;
-        if (action is { UseDelay: not null, Charges: null or < 1 })
+        // Goob edit start
+        var realDelay = CompOrNull<ActionUseDelayModifierComponent>(actionId)?.UseDelay ?? action.UseDelay;
+        if (action is { Charges: null or < 1 } && realDelay != null)
         {
             dirty = true;
-            action.Cooldown = (curTime, curTime + action.UseDelay.Value);
+            action.Cooldown = (curTime, curTime + realDelay.Value);
         }
+        // Goob edit end
 
         if (dirty)
         {
