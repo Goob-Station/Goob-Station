@@ -83,12 +83,17 @@
   parent: IDCardStandard
   id: ExecutiveIDCard
   name: executive access card
-  description: Capable of opening any Nanotrasen owned lock.
+  description: Flash this, and any Nanotrasen employee is legally obligated to listen to you.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/id_cards.rsi
     layers:
     - state: executive
+  - type: Clothing
+    quickEquip: true
+    slots:
+    - neck
+    - idcard
   - type: Item
     heldPrefix: blue
   - type: IdCard
