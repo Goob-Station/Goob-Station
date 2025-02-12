@@ -1,3 +1,8 @@
+spellbook-scrying-orb-name = Scrying Orb
+spellbook-scrying-orb-desc =
+    An incandescent orb of crackling energy, using it will allow you to ghost while alive, allowing you to spy upon the station with ease. In addition, holding it in your hand or in your pocket will grant you x-ray vision.
+    Cannot be refunded.
+
 spellbook-spellblade-name = Spellblade
 spellbook-spellblade-desc =
     A magical sword that can be enchanted by using it in hand to have a unique on-hit effect.

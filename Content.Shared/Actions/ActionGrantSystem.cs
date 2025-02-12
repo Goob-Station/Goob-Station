@@ -40,6 +40,8 @@ public sealed class ActionGrantSystem : EntitySystem
             if (actionEnt != null)
                 ent.Comp.ActionEntities.Add(actionEnt.Value);
         }
+
+        Dirty(ent); // Goobstation
     }
 
     private void OnShutdown(Entity<ActionGrantComponent> ent, ref ComponentShutdown args)

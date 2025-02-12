@@ -10,3 +10,6 @@ teleport-scroll-no-charges = The scroll runs out of uses and crumbles to dust!
 
 sanguine-strike-end = {CAPITALIZE($item)} seems to lose its red glow.
 sanguine-strike-examine = [color=#c41515]This weapon is empowered by sanguine magic.[/color]
+
+scrying-orb-verb-message = Enter the realm of the dead
+scrying-orb-verb-text = Activate the orb

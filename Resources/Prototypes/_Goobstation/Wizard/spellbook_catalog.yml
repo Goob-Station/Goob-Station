@@ -577,6 +577,16 @@
 
 # Equipment
 - type: listing
+  id: SpellbookScryingOrb
+  name: spellbook-scrying-orb-name
+  description: spellbook-scrying-orb-desc
+  productEntity: ScryingOrbWizard
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEquipment
+
+- type: listing
   id: SpellbookSpellblade
   name: spellbook-spellblade-name
   description: spellbook-spellblade-desc

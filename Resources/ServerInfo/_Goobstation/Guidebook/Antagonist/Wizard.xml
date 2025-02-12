@@ -17,12 +17,14 @@
   - [bold]Scroll of Teleportation[/bold]: A [color=yellow]4-use[/color] (1-use if you’re an apprentice) magical scroll that will let you teleport to most locations on the station. You’ll need this to actually board it in the first place (unless you have the teleport spell), but the remaining uses can come in handy if you’re in a bind and need to wait for your spells to cool down. Do note that you cannot teleport back to the wizard's den once you leave it.
   - [bold]Magic Mirror[/bold]: If you wish to rename yourself or change what species you are, you may use the magic mirror in the main room. It'll let you customize nearly everything about your appearance.
   - [bold]Mugwort Tea[/bold]: A cup of mugwort rests on your table in the library of the den. Mugwort will slowly heal wizards and apprentices of [color=lightgreen]all damage types[/color] over time, so be sure to grab it if you need to heal up later on.
+  - [bold]Pondering Orb[/bold]: A stationary [color=cyan]pondering orb[/color] that allows you to scout the station before your destructive arrival. While functionally similar to the [color=cyan]scrying orb[/color], you cannot bring it on station.
 
   <Box>
     <GuideEntityEmbed Entity="WizardsGrimoire"/>
     <GuideEntityEmbed Entity="ClothingOuterWizardReal"/>
     <GuideEntityEmbed Entity="ScrollTeleport"/>
     <GuideEntityEmbed Entity="WizardMirror"/>
+    <GuideEntityEmbed Entity="PonderingOrbWizard"/>
   </Box>
 
   ## You Are the Wizard, the Wizard Is You
