@@ -4687,3 +4687,11 @@ Entries:
       message: Added a built-in DaW in IPCs.
   id: 533
   time: '2025-02-12T14:48:12.0000000+00:00'
+- author: Aineias1
+  changes:
+    - type: Add
+      message: Added Sofas and Benches
+    - type: Fix
+      message: Fixed bonfires,fireplaces,banners not beign buildable
+  id: 534
+  time: '2025-02-12T15:37:06.0000000+00:00'
