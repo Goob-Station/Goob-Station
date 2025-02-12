@@ -15,5 +15,6 @@ public enum MuleWranglerMessageType
 {
     Return,
     Transport,
+    SetDestination,
     Unload,
 }

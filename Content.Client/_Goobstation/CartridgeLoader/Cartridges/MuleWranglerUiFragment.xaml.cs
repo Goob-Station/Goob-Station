@@ -145,5 +145,6 @@ public sealed partial class MuleWranglerUiFragment : BoxContainer
         ButtonContainer.AddChild(destinationButton);
         selectButton.OnPressed += _ => PopulateMules();
         orderButton.OnPressed += _ => SetupOrders();
+        destinationButton.OnPressed += _ => PopulateBeacon();
     }
 }
