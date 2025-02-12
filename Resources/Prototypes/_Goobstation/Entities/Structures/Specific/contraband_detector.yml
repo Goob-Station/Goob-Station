@@ -70,10 +70,10 @@
   - type: StepTrigger
     requiredTriggeredSpeed: 0
     stepOn: true
-    #todo add works in gravirty
+    ignoreWeightless: true
     triggerGroups: # Goobstation
       types:
-      - Landmine
+      - ContrabandDetector
   - type: ContrabandDetector
     noDetect:
         path: /Audio/Effects/beep_landmine.ogg

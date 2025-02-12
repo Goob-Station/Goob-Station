@@ -10,10 +10,6 @@
     {
       "name": "detector",
       "directions": 4
-    },
-    {
-      "name": "light",
-      "directions": 4
     }
   ]
 }

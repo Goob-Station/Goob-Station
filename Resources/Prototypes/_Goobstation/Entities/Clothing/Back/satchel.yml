@@ -46,5 +46,5 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: HideContrabandContent
-  - type: UndetectableContraband
+  - type: HideContrabandContent #Goobstation Contraband detector
+  - type: UndetectableContraband #Goobstation Contraband detector
