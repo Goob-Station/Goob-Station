@@ -77,3 +77,26 @@
     tags:
     - CentralCommand
     - BlueshieldOfficer
+
+# Executive Access
+- type: entity
+  parent: IDCardStandard
+  id: ExecutiveIDCard
+  name: executive access card
+  description: Capable of opening any Nanotrasen owned lock.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/id_cards.rsi
+    layers:
+    - state: executive
+  - type: Item
+    heldPrefix: blue
+  - type: PresetIdCard
+    job: CentralCommandOfficial
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
