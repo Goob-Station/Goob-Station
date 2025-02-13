@@ -4711,3 +4711,11 @@ Entries:
         in their lockers!
   id: 536
   time: '2025-02-13T02:31:26.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: >-
+        Secway, syndie segway, miniature energy crossbow, N1984 and various
+        abductor stuff all now have correct contraband status.
+  id: 537
+  time: '2025-02-13T03:22:06.0000000+00:00'
