@@ -140,12 +140,9 @@ namespace Content.Shared.StatusEffect
                 || !TryAddStatusEffect(uid, key, time, refresh, status))
                 return false;
 
-            // If they already have the comp, we just won't bother updating anything.
-            if (!EntityManager.HasComponent(uid, component.GetType()))
-            {
-                EntityManager.AddComponent(uid, component);
-                status.ActiveEffects[key].RelevantComponent = _componentFactory.GetComponentName(component.GetType());
-            }
+            // If we already have this component, overwrite it, since new component could have diffrent data
+            EntityManager.AddComponent(uid, component, true);
+            status.ActiveEffects[key].RelevantComponent = _componentFactory.GetComponentName(component.GetType());
 
             return true;
         }
@@ -365,16 +362,22 @@ namespace Content.Shared.StatusEffect
         /// <param name="uid">The entity to check on.</param>
         /// <param name="key">The status effect ID to check for</param>
         /// <param name="status">The status effect component, should you already have it.</param>
-        public bool CanApplyEffect(EntityUid uid, string key, StatusEffectsComponent? status = null)
+        /// <param name="raiseEvent">Goobstation. Whether to raise BeforeStatusEffectAddedEvent</param>
+        public bool CanApplyEffect(EntityUid uid, string key, StatusEffectsComponent? status = null, bool raiseEvent = true) // Goob edit
         {
             // don't log since stuff calling this prolly doesn't care if we don't actually have it
             if (!Resolve(uid, ref status, false))
                 return false;
 
-            var ev = new BeforeStatusEffectAddedEvent(key);
-            RaiseLocalEvent(uid, ref ev);
-            if (ev.Cancelled)
-                return false;
+            // Goob edit start
+            if (raiseEvent)
+            {
+                var ev = new BeforeStatusEffectAddedEvent(key);
+                RaiseLocalEvent(uid, ref ev);
+                if (ev.Cancelled)
+                    return false;
+            }
+            // Goob edit end
 
             if (!_prototypeManager.TryIndex<StatusEffectPrototype>(key, out var proto))
                 return false;

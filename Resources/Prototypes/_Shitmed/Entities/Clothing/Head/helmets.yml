@@ -1,8 +1,9 @@
 #Basic Helmet (Security Helmet)
 - type: entity
-  parent: ClothingHeadHelmetBase
+  parent: [ ClothingHeadHelmetBase, BaseMajorContraband ]
   id: ClothingHeadHelmetAbductor
-  name: helmet
+  name: alien helmet
+  description: Zeep Glorp!
   components:
   - type: Armor
     modifiers:
