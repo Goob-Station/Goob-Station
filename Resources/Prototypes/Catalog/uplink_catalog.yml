@@ -1797,20 +1797,6 @@
     whitelist:
     - Clown
 
-- type: listing
-  id: uplinkBananiumSword
-  name: Bananium Energy Sword 
-  description: A very slippery and not all that dangerous sword of almost unrivalled slipping power.
-  icon: { sprite: /Textures/Objects/Weapons/Melee/e_sword_bananium.rsi, state: icon } 
-  productEntity: BananiumSword
-  cost:
-    Telecrystal: 10 # goob
-  categories:
-  - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Clown
 
 - type: listing
   id: UplinkClusterBananaPeel
