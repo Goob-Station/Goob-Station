@@ -1,1 +1,1 @@
-station-event-deathsquad-enroute = A deathsquad is enroute. Please lay down your arms and await execution. Thank you for complying.
+station-event-deathsquad-enroute = [color=red][bold]ALERT!![/color][/bold] Unidentified ship approaching sector. Message recieved : "Consider all contracts terminated."

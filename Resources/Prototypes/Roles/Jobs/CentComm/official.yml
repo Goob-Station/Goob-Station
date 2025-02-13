@@ -23,7 +23,7 @@
   id: CentcomGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitCentcomOfficial
-    shoes: ClothingShoesBootsLaceup # Goobstation - Fancier
+    shoes: ClothingShoesBootsJackFilled
     head: ClothingHeadHatCentcomcap # Goobstation - Fancier
     eyes: ClothingEyesGlassesCommand # Goobstation - Can change to Central Commander shades if wanted, but probably save for a new role entirely.
     gloves: ClothingHandsGlovesCombat # Goobstation - Replace with goldtrims when merged.
