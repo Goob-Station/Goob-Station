@@ -95,7 +95,7 @@
     - type: ItemSlots
       slots:
         item:
-          name: BlueshieldMace
+          name: Mace
           insertVerbText: sheath-insert-verb
           ejectVerbText: sheath-eject-verb
           insertSound: /Audio/Items/sheath.ogg
