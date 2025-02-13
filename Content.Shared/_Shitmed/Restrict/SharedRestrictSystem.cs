@@ -5,7 +5,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Random;
 
 namespace Content.Shared._Shitmed.Restrict;
-public abstract partial class SharedRestrictSystem : EntitySystem
+public sealed partial class SharedRestrictSystem : EntitySystem
 {
     [Dependency] private readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;

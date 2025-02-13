@@ -6,7 +6,6 @@
   suffix: MagicItem
   components:
     - type: HereticMagicItem
-    - type: HereticClothing
     - type: Sprite
       sprite: _Goobstation/Heretic/amber_focus.rsi
       state: icon
@@ -31,3 +30,4 @@
       drawOverlay: false
       lightRadius: 0
       toggleAction: null
+    - type: HereticClothing

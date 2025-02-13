@@ -34,6 +34,11 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitQMFormal
 
+- type: loadout # goob
+  id: QuartermasterMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryQM
+
 # Head
 - type: loadout
   id: QuartermasterHead

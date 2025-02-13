@@ -1,0 +1,112 @@
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleWizard
+  name: Wizard Role
+  components:
+  - type: MindRole
+    antagPrototype: Wizard
+    exclusiveAntag: true
+  - type: WizardRole
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleApprentice
+  name: Apprentice Role
+  components:
+  - type: MindRole
+    antagPrototype: Apprentice
+    exclusiveAntag: true
+  - type: ApprenticeRole
+
+- type: antag
+  id: Wizard
+  name: roles-antag-wizard-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-wizard-description
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 54000 # 15h
+  guides: [ Wizard ]
+
+- type: antag
+  id: Apprentice
+  name: roles-antag-apprentice-name
+  antagonist: true
+  setPreference: false
+  objective: roles-antag-apprentice-description
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointWizard
+  components:
+  - type: GhostRole
+    name: roles-wizard-name
+    description: roles-wizard-objective
+    rules: ghost-role-information-antagonist-rules
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Clothing/Head/Hats/wizardhat.rsi
+        state: icon
+
+- type: entity
+  id: SpawnPointMarkerWizard
+  parent: MarkerBase
+  name: wizard
+  components:
+  - type: SpawnPoint
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Objects/Fun/figurines.rsi
+      state: wizard
+
+- type: npcFaction
+  id: Wizard # Not hostile to angry mobs
+  hostile:
+    - NanoTrasen
+    - Syndicate
+    - Zombie
+    - Revolutionary
+    - Changeling
+    - Heretic
+    - Blob
+  friendly:
+    - Dragon
+    - SimpleHostile
+    - Xeno
+
+- type: factionIcon
+  id: WizardFaction
+  isShaded: false
+  priority: 11
+  showTo:
+    components:
+      - ShowAntagIcons
+      - Wizard
+      - Apprentice
+  icon:
+    sprite: /Textures/_Goobstation/Wizard/StatusIcons/10x10.rsi
+    state: wizard
+
+- type: factionIcon
+  id: ApprenticeFaction
+  isShaded: false
+  priority: 11
+  showTo:
+    components:
+      - ShowAntagIcons
+      - Wizard
+      - Apprentice
+  icon:
+    sprite: /Textures/_Goobstation/Wizard/StatusIcons/10x10.rsi
+    state: apprentice
+
+- type: entity
+  id: BaseStationWizardTarget
+  abstract: true
+  components:
+    - type: StationWizardTarget
