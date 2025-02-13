@@ -18,19 +18,11 @@ public sealed partial class HasComponentOnEquipmentCondition : EntityEffectCondi
             return Invert;
 
         if (args.EntityManager.TryGetComponent<InventoryComponent>(args.TargetEntity, out var inv))
-        {
             if (args.EntityManager.System<InventorySystem>().TryGetContainerSlotEnumerator(args.TargetEntity, out var containerSlotEnumerator, SlotFlags.WITHOUT_POCKET))
-            {
                 while (containerSlotEnumerator.NextItem(out var item))
-                {
                     foreach (var comp in Components)
-                    {
                         if (args.EntityManager.HasComponent(item, comp.Value.Component.GetType()))
                             return !Invert;
-                    }
-                }
-            }
-        }
 
         return Invert;
     }
