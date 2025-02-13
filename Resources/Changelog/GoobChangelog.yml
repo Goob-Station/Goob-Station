@@ -4725,3 +4725,9 @@ Entries:
       message: ID card computer access list is now filterable. HOP mains rejoice!
   id: 538
   time: '2025-02-13T03:27:38.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Add
+      message: Added strange berries botany can mutate to grow artifexium.
+  id: 539
+  time: '2025-02-13T03:28:45.0000000+00:00'
