@@ -4773,3 +4773,11 @@ Entries:
         defibbing.
   id: 544
   time: '2025-02-13T12:46:21.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: You can now wear syringe guns in your suit storage slot.
+    - type: Fix
+      message: Dart syringe gun is now correctly displayed as a syndicate contraband.
+  id: 545
+  time: '2025-02-13T14:00:23.0000000+00:00'
