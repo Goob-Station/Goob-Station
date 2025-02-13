@@ -1,0 +1,211 @@
+# This is kinda shitty, but the other choice is fucking with StackSystem to allow it to track entities so I can keep tabs on which ore specifically has been clained.
+# Or cook some nasty shitcode to split the unclaimed value across all of the entities in the stack if there is any. But that feels fairly wonky.
+# Enjoy having to shove any new ores here.
+
+- type: entity
+  parent: GoldOre
+  id: GoldOreUnprocessed
+  name: unprocessed gold ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: GoldOreUnprocessed
+  - type: UnclaimedOre
+    miningPoints: 3.5
+
+- type: entity
+  parent: GoldOreUnprocessed
+  id: GoldOre1Unprocessed
+  name: unprocessed gold ore
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: DiamondOre
+  id: DiamondOreUnprocessed
+  name: unprocessed diamond ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: DiamondOreUnprocessed
+  - type: UnclaimedOre
+    miningPoints: 120
+
+- type: entity
+  parent: DiamondOreUnprocessed
+  id: DiamondOre1Unprocessed
+  name: unprocessed diamond ore
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: SteelOre
+  id: SteelOreUnprocessed
+  name: unprocessed iron ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: SteelOreUnprocessed
+  - type: UnclaimedOre
+    miningPoints: 0.5
+
+- type: entity
+  id: SteelOre1Unprocessed
+  parent: SteelOreUnprocessed
+  name: unprocessed iron ore
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: PlasmaOre
+  id: PlasmaOreUnprocessed
+  name: unprocessed plasma ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: PlasmaOreUnprocessed
+  - type: UnclaimedOre
+    miningPoints: 3.5
+
+- type: entity
+  parent: PlasmaOreUnprocessed
+  id: PlasmaOre1Unprocessed
+  name: unprocessed plasma ore
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: SilverOre
+  id: SilverOreUnprocessed
+  name: unprocessed silver ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: SilverOreUnprocessed
+  - type: UnclaimedOre
+    miningPoints: 2.5
+
+- type: entity
+  parent: SilverOreUnprocessed
+  id: SilverOre1Unprocessed
+  name: unprocessed silver ore
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: SpaceQuartz
+  id: SpaceQuartzUnprocessed
+  name: unprocessed space quartz
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: SpaceQuartzUnprocessed
+  - type: UnclaimedOre
+    miningPoints: 0.66
+
+- type: entity
+  parent: SpaceQuartzUnprocessed
+  id: SpaceQuartz1Unprocessed
+  name: unprocessed space quartz
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: UraniumOre
+  id: UraniumOreUnprocessed
+  name: unprocessed uranium ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: UraniumOreUnprocessed
+  - type: UnclaimedOre
+    miningPoints: 3.5
+
+- type: entity
+  parent: UraniumOreUnprocessed
+  id: UraniumOre1Unprocessed
+  name: unprocessed uranium ore
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: BananiumOre
+  id: BananiumOreUnprocessed
+  name: unprocessed bananium ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: BananiumOreUnprocessed
+  - type: UnclaimedOre
+    miningPoints: 2.33
+
+- type: entity
+  parent: BananiumOreUnprocessed
+  id: BananiumOre1Unprocessed
+  name: unprocessed bananium ore
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: Coal
+  id: CoalUnprocessed
+  name: unprocessed coal
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: CoalUnprocessed
+  - type: UnclaimedOre
+    miningPoints: 0.5
+
+- type: entity
+  parent: CoalUnprocessed
+  id: Coal1Unprocessed
+  name: unprocessed coal
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: CoalUnprocessed
+  id: Coal5Unprocessed
+  name: unprocessed coal
+  suffix: Five
+  components:
+  - type: Stack
+    count: 5
+
+- type: entity
+  parent: CoalUnprocessed
+  id: Coal10Unprocessed
+  name: unprocessed coal
+  suffix: Ten
+  components:
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: CoalUnprocessed
+  id: Coal15Unprocessed
+  name: unprocessed coal
+  suffix: Fifteen
+  components:
+  - type: Stack
+    count: 15
+

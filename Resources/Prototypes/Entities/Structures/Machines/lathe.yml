@@ -1431,8 +1431,6 @@
     #  magnetEnabled: True
     #  range: 0.30 # Delta V - End Magnet Pull
     - type: MiningPoints # DeltaV - Source of mining points for miners
-      transferSound:
-        path: /Audio/Effects/Cargo/ping.ogg
     - type: MiningPointsLathe # DeltaV
 
 - type: entity

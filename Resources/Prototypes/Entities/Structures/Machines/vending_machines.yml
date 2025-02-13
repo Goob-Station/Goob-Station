@@ -1591,6 +1591,16 @@
         type: ShopVendorBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVendor # Lavaland Change
+    kits:
+    - MiningCrusher
+    - MiningExtraction
+    #- MiningResonator
+    #- MiningSurvival
+    #- MiningDrone
+    - MiningConscription
   - type: Wires # DeltaV: Use shop vendor wires layout
     layoutId: ShopVendor
   - type: AccessReader

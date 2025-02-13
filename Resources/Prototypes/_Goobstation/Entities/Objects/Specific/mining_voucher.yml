@@ -9,20 +9,7 @@
     state: icon
   - type: Item
     size: Tiny
-  - type: ActivatableUI
-    key: enum.MiningVoucherUiKey.Key
-  - type: UserInterface
-    interfaces:
-      enum.MiningVoucherUiKey.Key:
-        type: MiningVoucherBoundUserInterface
   - type: MiningVoucher
     vendorWhitelist: # it's the only mining points vendor :)
      components:
      - PointsVendor
-    kits:
-    - MiningCrusher
-    - MiningExtraction
-    #- MiningResonator
-    #- MiningSurvival
-    #- MiningDrone
-    - MiningConscription

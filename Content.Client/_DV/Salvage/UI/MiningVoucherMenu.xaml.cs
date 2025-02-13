@@ -30,7 +30,7 @@ public sealed partial class MiningVoucherMenu : RadialMenu
 
     public void SetEntity(EntityUid owner)
     {
-        if (!_entMan.TryGetComponent<MiningVoucherComponent>(owner, out var comp))
+        if (!_entMan.TryGetComponent<MiningVendorComponent>(owner, out var comp))
             return;
 
         for (int i = 0; i < comp.Kits.Count; i++)

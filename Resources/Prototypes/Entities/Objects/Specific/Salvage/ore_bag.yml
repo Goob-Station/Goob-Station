@@ -46,3 +46,4 @@
           True: { state: orebag_on }
           False: { state: orebag_off }
   # WHITE EDIT END
+  - type: OreBag # Lavaland Change
