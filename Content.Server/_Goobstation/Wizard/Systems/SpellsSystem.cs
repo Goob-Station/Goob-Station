@@ -182,11 +182,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
             return;
         }
 
-        var solution = _solution.TryGetSolution(ev.Action.Owner, "smoke", out var solEnt)
-            ? new Solution(solEnt.Value.Comp.Solution)
-            : new Solution();
-
-        _smoke.StartSmoke(ent, solution, ev.Duration, ev.SpreadAmount, smoke);
+        _smoke.StartSmoke(ent, new Solution("ThickSmoke", 50), ev.Duration, ev.SpreadAmount, smoke);
     }
 
     protected override void Repulse(RepulseEvent ev)

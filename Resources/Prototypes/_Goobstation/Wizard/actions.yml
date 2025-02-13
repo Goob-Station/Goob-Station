@@ -169,13 +169,6 @@
     effectedLevels:
       2: ActionSmokeII
       3: ActionSmokeIII
-  - type: SolutionContainerManager
-    solutions:
-      smoke:
-        maxVol: 50
-        reagents:
-        - ReagentId: ThickSmoke
-          Quantity: 50
 
 - type: entity
   id: ActionRepulse

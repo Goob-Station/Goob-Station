@@ -32,7 +32,6 @@ spellbook-smoke-name = Smoke
 spellbook-smoke-desc =
     This spell spawns a cloud of smoke at your location. People within will begin to choke and drop their items.
     Doesn't require wizard's robe and hat to cast.
-    Cannot be refunded.
 
 spellbook-repulse-name = Repulse
 spellbook-repulse-desc =
