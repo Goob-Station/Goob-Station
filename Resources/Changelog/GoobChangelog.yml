@@ -4657,3 +4657,111 @@ Entries:
       message: Mosins are now 4x2.
   id: 528
   time: '2025-02-06T14:48:25.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: Swords are now larger.
+  id: 529
+  time: '2025-02-09T16:23:42.0000000+00:00'
+- author: Aineias1
+  changes:
+    - type: Add
+      message: Added more wintercoats
+  id: 530
+  time: '2025-02-09T19:14:19.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: Fixed IPC reboot.
+  id: 531
+  time: '2025-02-10T10:28:52.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Tidemind is back as a midround event.
+  id: 532
+  time: '2025-02-11T20:11:11.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: Added a built-in DaW in IPCs.
+  id: 533
+  time: '2025-02-12T14:48:12.0000000+00:00'
+- author: Aineias1
+  changes:
+    - type: Add
+      message: Added Sofas and Benches
+    - type: Fix
+      message: Fixed bonfires,fireplaces,banners not beign buildable
+  id: 534
+  time: '2025-02-12T15:37:06.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added submarine to the map pool.
+    - type: Remove
+      message: Removed Piras314.
+  id: 535
+  time: '2025-02-12T15:44:44.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Atmospheric Technicians now have a unique pair of blue insulated gloves
+        in their lockers!
+  id: 536
+  time: '2025-02-13T02:31:26.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: >-
+        Secway, syndie segway, miniature energy crossbow, N1984 and various
+        abductor stuff all now have correct contraband status.
+  id: 537
+  time: '2025-02-13T03:22:06.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: ID card computer access list is now filterable. HOP mains rejoice!
+  id: 538
+  time: '2025-02-13T03:27:38.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Add
+      message: Added strange berries botany can mutate to grow artifexium.
+  id: 539
+  time: '2025-02-13T03:28:45.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Magic is real, wizards are here!
+  id: 540
+  time: '2025-02-13T05:08:06.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Add
+      message: 'New disposal pipe type: Disposal blocker.'
+  id: 541
+  time: '2025-02-13T05:24:33.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Syringe embedding now doesn't care about hardsuits.
+    - type: Tweak
+      message: Embedded syringes now inject over time.
+    - type: Tweak
+      message: Dart syringe gun gets an 1.5x injection speed multiplier.
+    - type: Add
+      message: >-
+        Embedded syringes now embed the slower the more pierce resistance you
+        have on your outerwear.
+  id: 542
+  time: '2025-02-13T10:45:08.0000000+00:00'
+- author: sowelipililimute
+  changes:
+    - type: Tweak
+      message: >-
+        Autodoc only lists surgeries relevant to the given part, e.g. it won't
+        suggest that you can lobotomise a left leg
+  id: 543
+  time: '2025-02-13T12:28:10.0000000+00:00'
