@@ -1,0 +1,236 @@
+- type: entity
+  id: CartridgeMagicBullet
+  name: magic bullet cartridge
+  parent: [ BaseCartridge, BaseRestrictedContraband ]
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - CartridgeMagicBullet
+  - type: CartridgeAmmo
+    proto: BulletMagic
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  name: scroll of teleportation
+  description: This scroll can teleport you anywhere on the station.
+  parent: [BaseItem, BaseMagicContraband]
+  id: ScrollTeleport
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    state: scroll
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    slots:
+      - Belt
+  - type: Item
+    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+  - type: UserInterface
+    interfaces:
+      enum.WizardTeleportUiKey.Key:
+        type: WizardTeleportBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    singleUser: true
+    key: enum.WizardTeleportUiKey.Key
+  - type: TeleportScroll
+  - type: StaticPrice
+    price: 1000
+
+- type: entity
+  name: scroll of teleportation
+  description: This scroll can teleport you anywhere on the station. Only has one use.
+  parent: ScrollTeleport
+  id: ScrollTeleportApprentice
+  suffix: Apprentice
+  components:
+  - type: TeleportScroll
+    usesLeft: 1
+
+- type: entity
+  name: lightning bolt spell packet
+  description: Some birdseed wrapped in cloth that crackles with electricity.
+  parent: BaseItem
+  id: ThrownLightning
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/Weapons/thrown_lightning.rsi
+    state: icon
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 4
+    color: "#FAA019"
+    netsync: false
+  - type: LightFade
+    duration: 5
+  - type: Trail
+    scale: 0.8
+    frequency: 0.046
+    lifetime: 1
+    lerpTime: 0.03
+    particleAmount: 0
+    shader: unshaded
+    sprite:
+      sprite: /Textures/Effects/lightning.rsi
+      state: yellow_lightning
+  - type: ThrownLightning
+  - type: FadingTimedDespawn
+    lifetime: 0
+    fadeOutTime: 5
+  - type: ThrowingAngle
+    angle: 180
+  - type: EmbeddableProjectile
+    deleteOnRemove: true
+    offset: 0.0,-0.5
+
+- type: entity
+  name: contract of apprenticeship
+  description: A magic contract previously signed by an apprentice. In exchange for instruction in the magical arts, they are bound to answer your call for aid.
+  parent: [BaseItem, BaseMagicContraband]
+  id: ContractApprenticeship
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    state: scroll2
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    slots:
+      - Belt
+  - type: Item
+    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+  - type: UserInterface
+    interfaces:
+      enum.GhostRoleRadioUiKey.Key:
+        type: GhostRoleRadioBoundUserInterface
+  - type: ActivatableUI
+    key: enum.GhostRoleRadioUiKey.Key
+  - type: GhostRole
+    name: ghost-role-information-apprentice-destruction-name
+    description: ghost-role-information-apprentice-destruction-desc
+    rules: ghost-role-information-apprentice-rules
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanApprenticeDestruction
+    selectablePrototypes:
+    - ApprenticeDestruction
+    - ApprenticeEthereal
+    - ApprenticeSummon
+    - ApprenticeGun
+    - ApprenticeArcane
+    - ApprenticeSanguine
+    - ApprenticeRobeless
+    - ApprenticeChaos
+  - type: GrantTargetObjectiveOnGhostTakeover
+    objective: KeepWizardAliveObjective
+  - type: StaticPrice
+    price: 1000
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkMugwortTeaGlass
+  suffix: mugwort tea
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Mugwort
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/greenteaglass.rsi
+    state: icon
+
+- type: entity
+  name: wizard's rubber stamp
+  parent: RubberStampCMO
+  id: RubberStampWizard
+  suffix: DO NOT MAP
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-wizard
+
+- type: entity
+  parent: [DrinkBase, BaseMagicContraband]
+  id: EverfullMug
+  name: everfull mug
+  description: An enchanted mug which refills omnizine automatically.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/evermug.rsi
+    state: icon
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Omnizine
+          Quantity: 30
+  - type: SolutionRegeneration
+    solution: drink
+    duration: 10
+    generated:
+      reagents:
+      - ReagentId: Omnizine
+        Quantity: 5
+  - type: StaticPrice
+    price: 25000
+
+- type: entity
+  name: passenger ID card
+  parent: AgentIDCard
+  id: WizardIDCard
+  suffix: Wizard
+  components:
+  - type: Access
+    tags:
+    - Wizard
+
+- type: entity
+  parent: BaseCrowbar
+  id: CrowbarWizard
+  description: A compact multipurpose tool to pry open doors and destroy stations.
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 12
+  - type: StaticPrice
+    price: 200
+  - type: Prying
+    speedModifier: 1.5
+    pryPowered: true
+  - type: Sprite
+    layers:
+    - state: icon
+    - state: cover-icon
+      color: "#007FFF"
+  - type: Item
+    size: Small
+    storedSprite:
+      state: blue-storage
+      sprite: Objects/Tools/crowbar.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      - state: cover-inhand-left
+        color: "#007FFF"
+      right:
+      - state: inhand-right
+      - state: cover-inhand-right
+        color: "#007FFF"
+  - type: Clothing
+    clothingVisuals:
+      belt:
+      - state: equipped-BELT
+      - state: cover-equipped-BELT
+        color: "#007FFF"

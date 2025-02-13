@@ -1,0 +1,43 @@
+- type: entity
+  parent: ImmovableRodWizard
+  id: ImmovableRodWizardII
+  components:
+  - type: ImmovableRod
+    minSpeed: 7.5
+    maxSpeed: 7.5
+    damage:
+      types:
+        Blunt: 90
+
+- type: entity
+  parent: ImmovableRodWizard
+  id: ImmovableRodWizardIII
+  components:
+  - type: ImmovableRod
+    minSpeed: 9
+    maxSpeed: 9
+    damage:
+      types:
+        Blunt: 110
+
+- type: entity
+  parent: ImmovableRodWizard
+  id: ImmovableRodWizardIV
+  components:
+  - type: ImmovableRod
+    minSpeed: 10.5
+    maxSpeed: 10.5
+    damage:
+      types:
+        Blunt: 130
+
+- type: entity
+  parent: ImmovableRodWizard
+  id: ImmovableRodWizardV
+  components:
+  - type: ImmovableRod
+    minSpeed: 12
+    maxSpeed: 12
+    damage:
+      types:
+        Blunt: 150
