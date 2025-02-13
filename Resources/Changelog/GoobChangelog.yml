@@ -4765,3 +4765,11 @@ Entries:
         suggest that you can lobotomise a left leg
   id: 543
   time: '2025-02-13T12:28:10.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: >-
+        Missing a heart or brain no longer deals bloodloss damage, but prevents
+        defibbing.
+  id: 544
+  time: '2025-02-13T12:46:21.0000000+00:00'
