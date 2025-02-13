@@ -77,7 +77,7 @@ public sealed class ContrabandDetectorSystem : EntitySystem
         return listOfContraband;
     }
 
-    private List<EntityUid> RemovePermitedItems(EntityUid target, ref List<EntityUid> theList)
+    private List<EntityUid> RemovePermitedItems(EntityUid target, ref List<EntityUid> listOfFoundContraband)
     {
         List<EntityUid> nonApprovedlist = new();
         List<ProtoId<DepartmentPrototype>>? departments = null;
@@ -85,7 +85,7 @@ public sealed class ContrabandDetectorSystem : EntitySystem
         if (_id.TryFindIdCard(target, out var id))
             departments = id.Comp.JobDepartments;
 
-        foreach (var uid in theList)
+        foreach (var uid in listOfFoundContraband)
         {
             if (!uid.IsValid() ||
                 !TryComp<ContrabandComponent>(uid, out var contraband))
