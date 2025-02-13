@@ -8,7 +8,7 @@ namespace Content.Shared._White.Blink;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class BlinkComponent : Component
 {
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float Distance = 5f;
 
     [DataField, AutoNetworkedField]
@@ -17,8 +17,11 @@ public sealed partial class BlinkComponent : Component
     [DataField]
     public string BlinkDelay = "blink";
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public TimeSpan KnockdownTime = TimeSpan.FromSeconds(0.1);
+
+    [DataField, AutoNetworkedField]
+    public float KnockdownRadius = 0.3f;
 
     [DataField]
     public SoundSpecifier BlinkSound = new SoundPathSpecifier("/Audio/Magic/blink.ogg");

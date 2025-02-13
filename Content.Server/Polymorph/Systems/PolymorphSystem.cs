@@ -3,25 +3,33 @@ using Content.Server.Humanoid;
 using Content.Server.Inventory;
 using Content.Server.Mind.Commands;
 using Content.Server.Polymorph.Components;
+using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared.Actions;
 using Content.Shared.Buckle;
+using Content.Shared.Buckle.Components;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Follower;
 using Content.Shared.Follower.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Inventory;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.NameModifier.Components;
 using Content.Shared.Nutrition;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
+using Content.Shared.Random.Helpers;
+using Content.Shared.Tag;
 using Robust.Server.Audio;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -29,6 +37,8 @@ namespace Content.Server.Polymorph.Systems;
 
 public sealed partial class PolymorphSystem : EntitySystem
 {
+    [Dependency] private readonly IRobustRandom _random = default!; // Goobstation
+    [Dependency] private readonly ISerializationManager _serialization = default!; // Goobstation
     [Dependency] private readonly IComponentFactory _compFact = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
@@ -48,6 +58,9 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly FollowerSystem _follow = default!; // goob edit
+    [Dependency] private readonly TagSystem _tag = default!; // goob edit
+
+    private ISawmill _sawMill = default!; // Goobstation
 
     private const string RevertPolymorphId = "ActionRevertPolymorph";
 
@@ -65,6 +78,8 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         InitializeCollide();
         InitializeMap();
+
+        _sawMill = Logger.GetSawmill("polymorph"); // Goobstation
     }
 
     public override void Update(float frameTime)
@@ -198,16 +213,34 @@ public sealed partial class PolymorphSystem : EntitySystem
             return null;
 
         // mostly just for vehicles
-        _buckle.TryUnbuckle(uid, uid, true);
+        if (TryComp(uid, out BuckleComponent? buckle)) // Goob edit
+            _buckle.TryUnbuckle((uid, buckle), uid, true);
 
         var targetTransformComp = Transform(uid);
 
         if (configuration.PolymorphSound != null)
             _audio.PlayPvs(configuration.PolymorphSound, targetTransformComp.Coordinates);
 
-        var child = Spawn(configuration.Entity, _transform.GetMapCoordinates(uid, targetTransformComp), rotation: _transform.GetWorldRotation(uid));
+        // Goob edit start
+        var proto = configuration.Entity;
+        if (proto == null)
+        {
+            if (!_proto.TryIndex(configuration.Entities, out var entities) || entities.Weights.Count == 0)
+            {
+                if (!_proto.TryIndex(configuration.Groups, out var groups) || groups.Weights.Count == 0)
+                    return null;
 
-        MakeSentientCommand.MakeSentient(child, EntityManager);
+                var weightedEntityRandom = groups.Pick(_random);
+                if (!_proto.TryIndex(weightedEntityRandom, out entities) || entities.Weights.Count == 0)
+                    return null;
+            }
+
+            proto = entities.Pick(_random);
+        }
+        var child = Spawn(proto, _transform.GetMapCoordinates(uid, targetTransformComp), rotation: _transform.GetWorldRotation(uid));
+
+        MakeSentientCommand.MakeSentient(child, EntityManager, configuration.AllowMovement);
+        // Goob edit end
 
         var polymorphedComp = _compFact.GetComponent<PolymorphedEntityComponent>();
         polymorphedComp.Parent = uid;
@@ -231,12 +264,35 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         if (configuration.Inventory == PolymorphInventoryChange.Transfer)
         {
-            _inventory.TransferEntityInventories(uid, child);
-            foreach (var hand in _hands.EnumerateHeld(uid))
+            // Goob edit start
+            if (TryComp(uid, out InventoryComponent? inventory1))
             {
-                _hands.TryDrop(uid, hand, checkActionBlocker: false);
-                _hands.TryPickupAnyHand(child, hand);
+                if (TryComp(child, out InventoryComponent? inventory2))
+                {
+                    _inventory.TransferEntityInventories((uid, inventory1), (child, inventory2), false);
+                    foreach (var hand in _hands.EnumerateHeld(uid))
+                    {
+                        _hands.TryDrop(uid, hand, checkActionBlocker: false);
+                        _hands.TryPickupAnyHand(child, hand);
+                    }
+                }
+                else
+                {
+                    if (_inventory.TryGetContainerSlotEnumerator((uid, inventory1), out var enumerator))
+                    {
+                        while (enumerator.MoveNext(out var slot))
+                        {
+                            _inventory.TryUnequip(uid, slot.ID, true, true);
+                        }
+                    }
+
+                    foreach (var held in _hands.EnumerateHeld(uid))
+                    {
+                        _hands.TryDrop(uid, held);
+                    }
+                }
             }
+            // Goob edit end
         }
         else if (configuration.Inventory == PolymorphInventoryChange.Drop)
         {
@@ -255,15 +311,51 @@ public sealed partial class PolymorphSystem : EntitySystem
         }
 
         if (configuration.TransferName && TryComp(uid, out MetaDataComponent? targetMeta))
-            _metaData.SetEntityName(child, targetMeta.EntityName);
+        {
+            // Goob edit start
+            _metaData.SetEntityName(child,
+                TryComp(uid, out NameModifierComponent? modifier) ? modifier.BaseName : targetMeta.EntityName);
+            // Goob edit end
+        }
 
         if (configuration.TransferHumanoidAppearance)
         {
             _humanoid.CloneAppearance(uid, child);
         }
 
+        if (configuration.ComponentsToTransfer.Count > 0) // Goobstation
+        {
+            foreach (var comp in configuration.ComponentsToTransfer)
+            {
+                Type type;
+                try
+                {
+                    type = _compFact.GetRegistration(comp).Type;
+                }
+                catch (UnknownComponentException e)
+                {
+                    _sawMill.Error(e.Message);
+                    continue;
+                }
+
+                if (!EntityManager.TryGetComponent(uid, type, out var component))
+                    continue;
+
+                var newComp = (Component) _compFact.GetComponent(type);
+                object? temp = newComp;
+                _serialization.CopyTo(component, ref temp, notNullableOverride: true);
+                EntityManager.AddComponent(child, (Component) temp!, true);
+            }
+        }
+
+        _tag.AddTag(uid, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+
         if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))
             _mindSystem.TransferTo(mindId, child, mind: mind);
+
+        _tag.RemoveTag(uid, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+
+        RaiseLocalEvent(child, new PolymorphedIntoEvent(uid)); // Goobstation
 
         //Ensures a map to banish the entity to
         EnsurePausedMap();
@@ -342,8 +434,12 @@ public sealed partial class PolymorphSystem : EntitySystem
             }
         }
 
+        _tag.AddTag(uid, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+
         if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))
             _mindSystem.TransferTo(mindId, parent, mind: mind);
+
+        _tag.RemoveTag(uid, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
 
         if (TryComp<PolymorphableComponent>(parent, out var polymorphableComponent))
             polymorphableComponent.LastPolymorphEnd = _gameTiming.CurTime;
@@ -351,10 +447,15 @@ public sealed partial class PolymorphSystem : EntitySystem
         // if an item polymorph was picked up, put it back down after reverting
         _transform.AttachToGridOrMap(parent, parentXform);
 
-        _popup.PopupEntity(Loc.GetString("polymorph-revert-popup-generic",
-                ("parent", Identity.Entity(uid, EntityManager)),
-                ("child", Identity.Entity(parent, EntityManager))),
-            parent);
+        RaiseLocalEvent(uid, new PolymorphedIntoEvent(parent, true)); // Goobstation
+
+        if (component.Configuration.ShowPopup) // Goob edit
+        {
+            _popup.PopupEntity(Loc.GetString("polymorph-revert-popup-generic",
+                    ("parent", Identity.Entity(uid, EntityManager)),
+                    ("child", Identity.Entity(parent, EntityManager))),
+                parent);
+        }
         QueueDel(uid);
 
         // goob edit
@@ -383,7 +484,12 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (!_proto.TryIndex(id, out var polyProto))
             return;
 
-        var entProto = _proto.Index(polyProto.Configuration.Entity);
+        // Goob edit start
+        if (polyProto.Configuration.Entity == null)
+            return;
+
+        var entProto = _proto.Index(polyProto.Configuration.Entity.Value);
+        // Goob edit end
 
         EntityUid? actionId = default!;
         if (!_actions.AddAction(target, ref actionId, RevertPolymorphId, target))
@@ -398,7 +504,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (!_actions.TryGetActionData(actionId, out var baseAction))
             return;
 
-        baseAction.Icon = new SpriteSpecifier.EntityPrototype(polyProto.Configuration.Entity);
+        baseAction.Icon = new SpriteSpecifier.EntityPrototype(polyProto.Configuration.Entity.Value); // Goob edit
         if (baseAction is InstantActionComponent action)
             action.Event = new PolymorphActionEvent(id);
     }
@@ -411,4 +517,17 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (target.Comp.PolymorphActions.TryGetValue(id, out var val))
             _actions.RemoveAction(target, val);
     }
+}
+
+/// <summary>
+/// Goobstation.
+/// Raised on polymorphed entity after polymorph.
+/// </summary>
+/// <param name="parent">Entity before polymorph.</param>
+/// <param name="reverted">Wheter entity polymorphed or reverted.</param>
+public sealed class PolymorphedIntoEvent(EntityUid parent, bool reverted = false) : EntityEventArgs
+{
+    public EntityUid Parent = parent;
+
+    public bool Reverted = reverted;
 }
