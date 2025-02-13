@@ -24,8 +24,8 @@ public sealed partial class CanWieldPrecondition : HTNPrecondition
         if (!wieldableSystem.CanWield(item.Value, wieldable, owner, true))
             return false ^ Invert;
 
-        var beforeWieldEv = new BeforeWieldEvent();
-        _entManager.EventBus.RaiseLocalEvent(item.Value, beforeWieldEv);
+        var beforeWieldEv = new WieldAttemptEvent();
+        _entManager.EventBus.RaiseLocalEvent(item.Value, ref beforeWieldEv);
 
         return !beforeWieldEv.Cancelled ^ Invert;
     }

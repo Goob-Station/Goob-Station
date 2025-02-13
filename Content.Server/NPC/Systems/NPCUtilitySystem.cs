@@ -293,8 +293,8 @@ public sealed class NPCUtilitySystem : EntitySystem
                 if (!_wieldable.CanWield(targetUid, wieldable, owner, true, false))
                     return 0f;
 
-                var beforeWieldEv = new BeforeWieldEvent();
-                RaiseLocalEvent(targetUid, beforeWieldEv);
+                var beforeWieldEv = new WieldAttemptEvent();
+                RaiseLocalEvent(targetUid, ref beforeWieldEv);
 
                 return beforeWieldEv.Cancelled ? 0f : 1f;
             }

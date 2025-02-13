@@ -17,7 +17,7 @@ public sealed class FoldingWeaponSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<FoldingWeaponComponent, BeforeWieldEvent>(OnBeforeWield);
+        SubscribeLocalEvent<FoldingWeaponComponent, WieldAttemptEvent>(OnBeforeWield);
         SubscribeLocalEvent<FoldingWeaponComponent, ItemToggledEvent>(OnToggle);
         SubscribeLocalEvent<FoldingWeaponComponent, AttemptShootEvent>(OnShootAttempt);
     }
@@ -39,7 +39,7 @@ public sealed class FoldingWeaponSystem : EntitySystem
         _clothing.SetEquippedPrefix(ent, prefix);
     }
 
-    private void OnBeforeWield(Entity<FoldingWeaponComponent> ent, ref BeforeWieldEvent args)
+    private void OnBeforeWield(Entity<FoldingWeaponComponent> ent, ref WieldAttemptEvent args)
     {
         if (!CanShoot(ent))
             args.Cancel();
