@@ -8,6 +8,12 @@ using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 using Content.Shared.Access.Systems;
 using Content.Shared.Power;
+using Content.Server.DeviceLinking.Systems;
+using Content.Shared.DeviceLinking;
+using Content.Shared.DeviceNetwork;
+using Content.Shared.DeviceNetwork.Systems;
+using Content.Server.DeviceNetwork.Components;
+using Content.Server.DeviceNetwork.Systems;
 
 namespace Content.Server._Goobstation.Contraband;
 
@@ -16,6 +22,7 @@ public sealed class ContrabandDetectorSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedIdCardSystem _id = default!;
+    [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
 
     public override void Initialize()
     {
@@ -31,17 +38,23 @@ public sealed class ContrabandDetectorSystem : EntitySystem
         var list = RecursiveFindContraband(args.Tripper, 0);
         list = RemovePermitedItems(args.Tripper, ref list);
 
-        if (list.Count > 0)
+        if (list.Count > 0 ||
+            FalseDetection(5) &&    //false positive
+            FalseDetection(95))     //false negative
         {
             _popupSystem.PopupCoordinates(
-                "Contraband found",
+                "Contraband found", // add localisation
                 Transform(uid).Coordinates,
                 PopupType.LargeCaution);
 
             _audioSystem.PlayPvs(component.Detect, uid);
+            _deviceLink.SendSignal(uid, "SignalContrabandDetector", true);
         }
         else
-             _audioSystem.PlayPvs(component.NoDetect, uid);
+        {
+            _audioSystem.PlayPvs(component.NoDetect, uid);
+            _deviceLink.SendSignal(uid, "SignalContrabandDetector", false);
+        }
     }
 
     private static void HandleStepTriggerAttempt(EntityUid uid, ContrabandDetectorComponent component, ref StepTriggerAttemptEvent args)
@@ -51,17 +64,17 @@ public sealed class ContrabandDetectorSystem : EntitySystem
 
     private List<EntityUid> RecursiveFindContraband(EntityUid uid, int depth)
     {
-        List<EntityUid> theList = new();
+        List<EntityUid> listOfContraband = new();
         if (TryComp<ContainerManagerComponent>(uid, out var containerManager) && depth < 10)// added dept tracker to break infinite loop
-            foreach (var (id, container) in containerManager.Containers)
+            foreach (var (_, container) in containerManager.Containers)
                 foreach (var ent in container.ContainedEntities)
                     if (!HasComp<HideContrabandContentComponent>(ent)&& ent != null)
-                        theList.AddRange(RecursiveFindContraband(ent, depth+1));
+                        listOfContraband.AddRange(RecursiveFindContraband(ent, depth+1));
 
         if (HasComp<ContrabandComponent>(uid) && !HasComp<UndetectableContrabandComponent>(uid))
-            theList.Add(uid);
+            listOfContraband.Add(uid);
 
-        return theList;
+        return listOfContraband;
     }
 
     private List<EntityUid> RemovePermitedItems(EntityUid target, ref List<EntityUid> theList)
@@ -92,4 +105,8 @@ public sealed class ContrabandDetectorSystem : EntitySystem
     private void OnPowerchange(EntityUid uid, ContrabandDetectorComponent component, PowerChangedEvent args)
         => component.IsPowered = args.Powered;
 
+    private bool FalseDetection(int chance)
+    {
+        return chance > new Random().Next(0, 100);
+    }
 }

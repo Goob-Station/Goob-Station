@@ -1,6 +1,6 @@
 - type: entity
   name: contraband detector
-  description: This finds any contraband you migth hide
+  description: Walk in with confidence, walk out with security chasing you.
   id: ContrabandDetector
   components:
   - type: Clickable
@@ -29,7 +29,7 @@
         mask:
         - FullTileMask
         layer:
-        - GlassLayer
+        - WallLayer
       fix2:
         shape:
           !type:PhysShapeAabb
@@ -38,7 +38,7 @@
         mask:
         - FullTileMask
         layer:
-        - GlassLayer
+        - WallLayer
   - type: Sprite
     drawdepth: OverMobs
     sprite: _Goobstation/Structures/Machines/contraband_detector.rsi
@@ -49,13 +49,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
+        damage: 400
       behaviors:
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 300
+        damage: 200
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
@@ -99,3 +99,12 @@
     lockOnClick: true # toggle lock just by clicking on detector
     lockTime: 2
     unlockTime: 2
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+  - type: WirelessNetworkConnection
+    range: 1000
+  - type: DeviceLinkSource
+    range: 1000
+    ports:
+      - SignalContrabandDetected
+      - SignalContrabandNotDetected
