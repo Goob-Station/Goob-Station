@@ -103,3 +103,4 @@
           whitelist:
             tags:
             - Stunbaton
+    - type: ContainerContainer
