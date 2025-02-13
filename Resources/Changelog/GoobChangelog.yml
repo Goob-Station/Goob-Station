@@ -4703,3 +4703,11 @@ Entries:
       message: Removed Piras314.
   id: 535
   time: '2025-02-12T15:44:44.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Atmospheric Technicians now have a unique pair of blue insulated gloves
+        in their lockers!
+  id: 536
+  time: '2025-02-13T02:31:26.0000000+00:00'
