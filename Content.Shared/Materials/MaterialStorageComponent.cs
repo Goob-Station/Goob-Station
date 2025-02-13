@@ -80,7 +80,7 @@ public enum MaterialStorageVisuals : byte
 }
 
 /// <summary>
-/// event raised on the materialStorage when a material entity is inserted into it.
+/// Lavaland Change: Event raised on the materialStorage when a material entity is inserted into it.
 /// </summary>
 [ByRefEvent]
 public readonly record struct MaterialEntityInsertedEvent(EntityUid User, EntityUid Inserted, MaterialComponent MaterialComp, int Count)

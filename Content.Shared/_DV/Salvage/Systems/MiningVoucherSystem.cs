@@ -1,4 +1,5 @@
 using Content.Shared._DV.Salvage.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Power.EntitySystems;
@@ -7,7 +8,6 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-
 namespace Content.Shared._DV.Salvage.Systems;
 
 public sealed class MiningVoucherSystem : EntitySystem
@@ -15,17 +15,19 @@ public sealed class MiningVoucherSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<MiningVoucherComponent, AfterInteractEvent>(OnAfterInteract);
-        Subs.BuiEvents<MiningVoucherComponent>(MiningVoucherUiKey.Key, subs =>
+        Subs.BuiEvents<MiningVendorComponent>(MiningVoucherUiKey.Key, subs =>
         {
             subs.Event<MiningVoucherSelectMessage>(OnSelect);
         });
@@ -42,26 +44,17 @@ public sealed class MiningVoucherSystem : EntitySystem
         var user = args.User;
         args.Handled = true;
 
-        if (ent.Comp.Selected is not {} index)
-        {
-            _popup.PopupClient(Loc.GetString("mining-voucher-select-first"), target, user);
-            return;
-        }
-
         if (!_power.IsPowered(target))
         {
             _popup.PopupClient(Loc.GetString("mining-voucher-vendor-unpowered", ("vendor", target)), target, user);
             return;
         }
 
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
-        _audio.PlayPredicted(ent.Comp.RedeemSound, target, user);
-        Redeem(ent, index, user);
+        // Instead of handling UI here, we'll tell the vendor to open its voucher UI
+        _ui.TryOpenUi(target, MiningVoucherUiKey.Key, user);
     }
 
-    private void OnSelect(Entity<MiningVoucherComponent> ent, ref MiningVoucherSelectMessage args)
+    private void OnSelect(Entity<MiningVendorComponent> ent, ref MiningVoucherSelectMessage args)
     {
         var index = args.Index;
         if (index < 0 || index >= ent.Comp.Kits.Count)
@@ -72,13 +65,24 @@ public sealed class MiningVoucherSystem : EntitySystem
         var name = Loc.GetString(kit.Name);
         _popup.PopupEntity(Loc.GetString("mining-voucher-selected", ("kit", name)), user, user);
 
-        ent.Comp.Selected = index;
-        Dirty(ent);
+        EntityUid? voucher = null;
+        if (_hands.EnumerateHeld(user) is { } items)
+        {
+            foreach (var item in items)
+            {
+                if (TryComp<MiningVoucherComponent>(item, out var voucherComp))
+                {
+                    voucher = item;
+                    Redeem(ent, (voucher.Value, voucherComp), index, args.Actor);
+                    break;
+                }
+            }
+        }
     }
 
-    public void Redeem(Entity<MiningVoucherComponent> ent, int index, EntityUid user)
+    public void Redeem(Entity<MiningVendorComponent> ent, Entity<MiningVoucherComponent> voucher, int index, EntityUid user)
     {
-        if (_net.IsClient)
+        if (_net.IsClient) // wut da hell
             return;
 
         var kit = _proto.Index(ent.Comp.Kits[index]);
@@ -88,6 +92,7 @@ public sealed class MiningVoucherSystem : EntitySystem
             SpawnNextToOrDrop(id, ent, xform);
         }
 
-        QueueDel(ent);
+        _audio.PlayPredicted(voucher.Comp.RedeemSound, ent, user);
+        QueueDel(voucher);
     }
 }
