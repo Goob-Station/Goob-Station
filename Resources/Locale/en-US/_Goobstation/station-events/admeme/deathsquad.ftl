@@ -1,1 +1,1 @@
-station-event-deathsquad-enroute = [color=red][bold]ALERT!![/color][/bold] Unidentified ship approaching sector. Message recieved : "Consider all contracts terminated."
+station-event-deathsquad-enroute = Deathsquad IFF signature detected in proximity of sector. Arrival in T-10 minutes.
