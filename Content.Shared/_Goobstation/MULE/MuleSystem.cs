@@ -2,6 +2,7 @@ using Content.Shared._Goobstation.MULE.Components;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Interaction;
+using Content.Shared.Storage.Components;
 using Content.Shared.Tag;
 using Robust.Shared.Physics.Systems;
 
@@ -22,9 +23,7 @@ public sealed class MuleSystem : EntitySystem
         SubscribeLocalEvent<MuleComponent,UnstrappedEvent>(OnUnstrap);
         SubscribeLocalEvent<MuleComponent,StrapAttemptEvent>(OnStrapAttempt);
         SubscribeLocalEvent<MuleComponent, InteractHandEvent>(OnActivate);
-
     }
-
     private void OnActivate(EntityUid uid, MuleComponent component, InteractHandEvent args)
     {
         if(!TryComp<StrapComponent>(uid, out var strapComponent))

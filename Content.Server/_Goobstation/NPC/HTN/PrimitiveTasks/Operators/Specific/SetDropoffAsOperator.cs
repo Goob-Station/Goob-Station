@@ -26,6 +26,9 @@ public sealed partial class SetDropoffAsOperator : HTNOperator
     [DataField("targetMoveKey", required: true)]
     public string TargetMoveKey = string.Empty;
 
+    [DataField("rangeKey")]
+    public string RangeKey = String.Empty;
+
     public override void Initialize(IEntitySystemManager sysManager)
     {
         base.Initialize(sysManager);
@@ -43,9 +46,6 @@ public sealed partial class SetDropoffAsOperator : HTNOperator
 
         if(mule.CurrentTarget == EntityUid.Invalid)
             return (false, null);
-
-        var navb = _entManager.GetEntityData(_entManager.GetNetEntity(mule.CurrentTarget));
-        Logger.Debug(navb.Item2.EntityName);
 
         return (true, new Dictionary<string, object>()
         {
