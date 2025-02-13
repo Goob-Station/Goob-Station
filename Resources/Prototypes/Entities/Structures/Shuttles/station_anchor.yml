@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: StationAnchorBase
   abstract: true
   name: station anchor
@@ -45,6 +45,9 @@
         - LargeMobMask
         layer:
         - WallLayer
+  - type: Tag # Goobstation
+    tags:
+    - IgnoreImmovableRod
 
 - type: entity
   id: StationAnchorIndestructible
@@ -109,6 +112,10 @@
       interfaces:
         enum.PowerChargeUiKey.Key:
           type: PowerChargeBoundUserInterface
+    - type: Tag # Goobstation
+      tags:
+      - Structure
+      - IgnoreImmovableRod
 
 - type: entity
   parent: StationAnchor
