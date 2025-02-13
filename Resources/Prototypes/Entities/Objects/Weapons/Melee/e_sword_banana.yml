@@ -1,3 +1,4 @@
+# Goobstation
 - type: entity
   parent: [BaseItem, BaseSyndicateContraband]
   id: BananiumSword
