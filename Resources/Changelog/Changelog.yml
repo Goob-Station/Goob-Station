@@ -3938,3 +3938,26 @@
   id: 7799
   time: '2025-01-11T20:03:04.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/34251
+- author: Errant
+  changes:
+  - message: Players are now informed in chat every time their role type changes,
+      and can also see their current role type on the character window. ALREADY
+      APPLIED ON GOOB IN PR#827
+    type: Add
+  id: 7800
+  time: '2025-01-11T21:17:26.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/33420
+- author: Kontinentaldrift
+  changes:
+  - message: EOD locker always spawns with tools.
+    type: Tweak
+  id: 7801
+  time: '2025-01-12T16:38:41.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/34394
+- author: SlimSlam
+  changes:
+  - message: News Room
+    type: Add
+  id: 7802
+  time: '2025-01-12T23:32:51.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/34408

@@ -154,7 +154,6 @@
     contents:
       - id: ClothingHeadHelmetBombSuit
       - id: ClothingOuterSuitBomb
-      # NT is cheap, what can you do...
       - id: Wirecutter
       - id: Screwdriver
       - id: Multitool
