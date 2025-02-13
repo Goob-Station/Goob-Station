@@ -92,6 +92,7 @@
       autoRecharge: true
       autoRechargeRate: 3.5
     - type: RechargeableBlocking
+    - type: ContainerContainer
     - type: ItemSlots
       slots:
         item:
@@ -103,4 +104,3 @@
           whitelist:
             tags:
             - Stunbaton
-    - type: ContainerContainer
