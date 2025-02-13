@@ -98,8 +98,8 @@
         name: BlueshieldMace
         insertVerbText: sheath-insert-verb
         ejectVerbText: sheath-eject-verb
-        insertSound: /Audio/Items/sheath.ogg # todo : change this
-        ejectSound: /Audio/Items/unsheath.ogg # todo : change this
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
         whitelist:
           tags:
           - Stunbaton
