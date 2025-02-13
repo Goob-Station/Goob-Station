@@ -99,7 +99,7 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
 
             // Yuck, this is way to hardcodey for my tastes
             // TODO blocking injection with a hardsuit should probably done with a cancellable event or something
-            if (!injector.Comp.PierceArmor && _inventory.TryGetSlotEntity(target, "outerClothing", out var suit) && _tag.HasTag(suit.Value, "Hardsuit"))
+            if (!injector.Comp.PierceArmor && _inventory.TryGetSlotEntity(target, "outerClothing", out var suit) && (_tag.HasTag(suit.Value, "Hardsuit") || _tag.HasTag(suit.Value, "SyringeArmor"))) // Goob edit
             {
                 injector.Comp.Shot = false;
                 // Only show popup to attacker
