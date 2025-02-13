@@ -1,6 +1,12 @@
-# Alphabetical order people!!
+# Alphabetical order people!
 - type: Tag
   id: AutoinjectorCartridge
+
+- type: Tag
+  id: BindSoulAction
+
+- type: Tag
+  id: BlockLightning
 
 - type: Tag
   id: BlueprintMedicalFabricator
@@ -19,6 +25,9 @@
 
 - type: Tag
   id: CartridgeLightRifleSubsonic
+
+- type: Tag
+  id: CartridgeMagicBullet
 
 - type: Tag
   id: Clarke
@@ -46,6 +55,9 @@
 
 - type: Tag
   id: CombatMech
+
+- type: Tag
+  id: CursedAnimalMask
 
 - type: Tag
   id: Durand
@@ -96,7 +108,13 @@
   id: FelinidEmotes
 
 - type: Tag
+  id: FrozenIgnoreMindAction
+
+- type: Tag
   id: GasMask
+
+- type: Tag
+  id: GorillaFormAction
 
 - type: Tag
   id: Gygax
@@ -129,6 +147,9 @@
   id: GygaxTargetingControlModule
 
 - type: Tag
+  id: GunCanAimShooter
+
+- type: Tag
   id: HarpyEmotes
 
 - type: Tag
@@ -136,6 +157,12 @@
 
 - type: Tag
   id: HEVSuit
+
+- type: Tag
+  id: IgnoreBindSoul
+
+- type: Tag
+  id: IgnoreImmovableRod
 
 - type: Tag
   id: IndustrialMech
@@ -225,6 +252,9 @@
   id: SnapPop
 
 - type: Tag
+  id: SoulTapped
+
+- type: Tag
   id: SpaceMedipen
 
 - type: Tag
@@ -240,7 +270,13 @@
   id: Stomach
 
 - type: Tag
+  id: SummonSimiansMaxLevelAction
+
+- type: Tag
   id: SyndicateBreathMask
+
+- type: Tag
+  id: SyringeArmor
 
 - type: Tag
   id: Table
@@ -250,6 +286,9 @@
 
 - type: Tag
   id: Tourniquet
+
+- type: Tag
+  id: Undead
 
 - type: Tag
   id: VehicleKey
@@ -262,3 +301,6 @@
 
 - type: Tag
   id: WeaponPistolDualetta
+
+- type: Tag
+  id: WizardHat
