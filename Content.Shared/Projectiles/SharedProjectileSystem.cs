@@ -88,7 +88,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         }
 
         // Land it just coz uhhh yeah
-        var landEv = new LandEvent(args.User, true);
+        var landEv = new LandEvent(args.User, true); // note from goobstation: if this line is removed, syringe gun will break, LOOK AT THIS IF YOU ARE SEEING THIS IN A MERGE CONFLICT
         RaiseLocalEvent(uid, ref landEv);
         _physics.WakeBody(uid, body: physics);
 
