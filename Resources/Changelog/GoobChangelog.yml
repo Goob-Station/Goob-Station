@@ -4757,3 +4757,11 @@ Entries:
         have on your outerwear.
   id: 542
   time: '2025-02-13T10:45:08.0000000+00:00'
+- author: sowelipililimute
+  changes:
+    - type: Tweak
+      message: >-
+        Autodoc only lists surgeries relevant to the given part, e.g. it won't
+        suggest that you can lobotomise a left leg
+  id: 543
+  time: '2025-02-13T12:28:10.0000000+00:00'
