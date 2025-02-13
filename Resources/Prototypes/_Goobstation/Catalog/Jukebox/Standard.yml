@@ -23,12 +23,6 @@
     path: /Audio/Lobby/clownalwayswins.ogg
 
 - type: jukebox
-  id: honk
-  name: SlendyMawn - Honk!
-  path:
-    path: /Audio/Lobby/honk.ogg
-
-- type: jukebox
   id: horn
   name: Scruq - Horn!
   path:
