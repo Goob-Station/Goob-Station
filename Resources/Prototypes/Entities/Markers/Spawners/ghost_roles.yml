@@ -102,8 +102,9 @@
     description: ghost-role-information-loneop-description
     rules: ghost-role-information-loneop-rules
     requirements: # Goobstation - ghost roles requirements
-    - !type:OverallPlaytimeRequirement
-      time: 54000 #15 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 18000 #5 hours
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -152,7 +153,7 @@
     rules: ghost-role-information-space-dragon-rules
     requirements: # Goobstation - ghost roles requirements
     - !type:OverallPlaytimeRequirement
-      time: 36000 #10 hours
+      time: 18000 #5 hours
   - type: Sprite
     layers:
     - state: green
@@ -172,7 +173,7 @@
       settings: default
     requirements: # Goobstation - ghost roles requirements
     - !type:OverallPlaytimeRequirement
-      time: 54000 #15 hours
+      time: 18000 #5 hours
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -194,7 +195,7 @@
     requirements: # Goobstation - ghost roles requirements
     - !type:RoleTimeRequirement
       role: JobBorg
-      time: 9000 #2.5 hours
+      time: 3600 #1 hour
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
