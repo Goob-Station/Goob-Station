@@ -1,13 +1,13 @@
 <Document>
-# Engineering Department SOP
-These are the list of SOPs that Engineering Personnel should follow. These are, as stated before, [bold]not checklists[/bold] and should be treated as guidelines.
+# СРП Инженерного отдела
+Это список стандартных операционных процедур (СРП), которым должен следовать инженерный персонал. Как уже упоминалось ранее, это [bold]не контрольные списки[/bold], и их следует рассматривать как руководящие принципы.
 
-For clarification, [color=#c8a404][bold]Station Engineer[/bold][/color] and [color=#c8a404][bold]Technical Assistant[/bold][/color] are combined into the same entry, and should be followed as such.
+Для уточнения, [color=#c8a404][bold]Инженер[/bold][/color] и [color=#c8a404][bold]Технический Ассистент[/bold][/color] объединены в одну запись, и их правила должны соблюдаться соответственно.
 
-The following jobs have entries in this Department, with [color=#1b67a5][bold]Chief Engineer[/bold][/color] being the Head of Staff:
-- [textlink="Chief Engineer" link="ChiefEngineer SOP"]
-- [textlink="Atmospheric Technician" link="AtmosTech SOP"]
-- [textlink="Station Engineer" link="StationEngineer SOP"]
-- [textlink="Technical Assistant" link="StationEngineer SOP"]
+Следующие должности включены в этот отдел, где [color=#1b67a5][bold]Старший Инженер[/bold][/color] является Главой Отдела:
+- [textlink="Старший Инженер" link="ChiefEngineer SOP"]
+- [textlink="Атмосферный Техник" link="AtmosTech SOP"]
+- [textlink="Инженер" link="StationEngineer SOP"]
+- [textlink="Технический Ассистент" link="StationEngineer SOP"]
 
 </Document>

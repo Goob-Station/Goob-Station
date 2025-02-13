@@ -1,15 +1,15 @@
 <Document>
-# Structural Damage Procedures
-In the event of massive structural damage to the station, Command should set the alert to [color=#c8a404]Yellow Alert[/color] and notify Engineering of the location of the damage.
+# Процедуры при структурных повреждениях
+В случае серьезных структурных повреждений станции, Командование должно установить тревогу на [color=#c8a404]Жёлтый сигнал тревоги[/color] и уведомить Инженерный отдел о месте повреждения.
 
-1. Engineering personnel should be allowed access to the damage site (in the event of the location being in a different department and inaccessible).
+1. Инженерному персоналу должен быть предоставлен доступ к месту повреждения (если оно находится в другом отделе и недоступно).
 
-2. Engineering should be given priority for materials to rebuild the section for a safe state.
+2. Инженерный отдел должен получить приоритет на материалы для восстановления поврежденного участка до безопасного состояния.
 
-3. Engineering should repressurize the area to prevent pressure lockout.
+3. Инженерный отдел должен восстановить давление в зоне, чтобы предотвратить блокировку из-за перепада давления.
 
-4. All secure areas that are affected should be completely sealed off and returned to a secure state, confirmed by Security/Command.
+4. Все затронутые защищенные зоны должны быть полностью изолированы и возвращены в безопасное состояние, что должно быть подтверждено Службой безопасности/Командованием.
 
-5. Once all damage has been dealt with, Engineering is to give the all clear with confirmation from Command, and the alert should be set to a safe alert.
+5. После устранения всех повреждений Инженерный отдел должен сообщить об отсутствии угрозы с подтверждением от Командования, и тревога должна быть переведена на безопасный уровень.
 
 </Document>

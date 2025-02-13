@@ -1,62 +1,62 @@
 <Document>
-# Officer/Cadet SOP
-This is the list of procedures, responsibilities, and duties of the [color=#ba292c][bold]Security Officer[/bold][/color] and [color=#ba292c][bold]Security Cadet[/bold][/color] of this station.
+# СРП Офицера Безопасности/Кадета Безопасности
+Это список процедур, обязанностей и ответственности [color=#ba292c][bold]Офицера Безопасности[/bold][/color] и [color=#ba292c][bold]Кадета Безопасности[/bold][/color] данной станции.
 
 <ColorBox>
   <Box>
-    For the purposes of Alert Escalation: Treat higher alerts as if they are still on the previous alert level. (Yellow Alert is Blue Alert if it was Blue Alert prior.) Furthermore, treat Delta, Gamma, Epsilon, and Violet Alert as Red Alert.
+    Для целей эскалации тревог: рассматривайте более высокие уровни тревог так, как если бы они оставались на предыдущем уровне. (Жёлтый код, считается Синим, если до этого был Синий.) Кроме того, рассматривайте уровни Дельта, Гамма, Эпсилон и Фиолетовый как Красный код.
   </Box>
 </ColorBox>
 
 [color=#ba292c][bold]Security Officer[/bold][/color]s are permitted to carry their shift-start pistols, but should follow escalation laws and leave them holstered on Green Alert.
 
-## Green Alert
-1. Security Officers are required to state the reasons behind an arrest before any further action is taken.
-<Box>Exception is made if the suspect refuses to stop.</Box>
+## Зелёный код
+1. Офицеры Безопасности обязаны объяснить причины ареста до совершения любых дальнейших действий.
+<Box>Исключение делается, если подозреваемый отказывается остановиться.</Box>
 
-2. Security Officers must attempt to bring all suspects or witnesses to the Brig without handcuffing or incapacitating them. Should the suspect not cooperate, the officer may proceed as usual.
+2. Офицеры Безопасности должны попытаться доставить всех подозреваемых или свидетелей в КПЗ без использования наручников или обездвиживания. Если подозреваемый не сотрудничает, офицер может действовать по стандартной процедуре.
 
-3. No lethal weaponry is to be unholstered unless the suspect attempts to run away or becomes actively hostile.
+3. Смертоносное оружие нельзя извлекать из кобуры, если подозреваемый не пытается убежать или не становится активно враждебным.
 
-4. Security Officers are permitted to carry a standard disabler, a flashbang, a stunbaton, and a combat knife (which should be in their jackboots in their lockers).
+4. Офицерам Безопасности разрешено носить стандартный парализатор, светошумовую гранату, электро-дубинку и боевой нож (который должен храниться в ботинках в шкафчике).
 
-5. Security Officers may not demand access to the interior of other Departments during regular patrols. However, asking for access from the Head of Personnel is still acceptable.
-<Box>Exceptions apply when a hostile suspect is within an inaccessible area.</Box>
+5. Офицеры Безопасности не могут требовать доступа внутрь других Отделов во время регулярных патрулей. Однако запрос доступа у Главы Персонала остается приемлемым.
+<Box>Исключения применяются, если враждебный подозреваемый находится в недоступной зоне.</Box>
 
-6. Security officers are not permitted to have weapons drawn during regular patrols.
-<Box>Refer to escalation rules for necessary use of duty-start pistols.</Box>
+6. Офицеры Безопасности не имеют права держать оружие наготове во время регулярных патрулей.
+<Box>См. правила эскалации для необходимого использования пистолетов, выдаваемых в начале смены.</Box>
 
-7. Security officers are permitted to conduct searches, provided there is reasonable evidence/suspicion that the person in question has committed a crime.
-<Box>Any further searches require a warrant from the Captain and/or Head of Security.</Box>
+7. Офицеры Безопасности имеют право проводить обыски при наличии разумных доказательств/подозрений, что человек совершил преступление.
+<Box>Любые дополнительные обыски требуют ордера от Капитана и/или Главы Службы Безопасности (ГСБ).</Box>
 
-8. Security Officers are required to wear at least one (1) identifiable and visible piece of security equipment on their person at all times.
-<Box>Acceptable items are: any security jumpsuit, any security armor, any security jacket or security winter coat, any security helmet or headwear.</Box>
+8. Офицеры Безопасности обязаны носить хотя бы один (1) видимый и легко идентифицируемый предмет экипировки службы безопасности.
+<Box>Допустимые предметы: любой комбинезон службы безопасности, любая броня службы безопасности, любая куртка или зимнее пальто службы безопасности, любой шлем или головной убор службы безопасности.</Box>
 
-## Blue Alert
-1. Guidelines 1, 2, 4 and 8 are carried over from [color=#388c34]Green Alert[/color].
+## Синий код
+1. Правила 1, 2, 4 и 8 из [color=#388c34]Зелёного кода[/color] остаются в силе.
 
-2. Security Officers are permitted to carry around any weapons or equipment available in the Armory, at the Warden's discretion, but never more than one at a time.
-<Box>Exception is made for extreme emergencies, such as Nuclear Operatives, Blob, and/or Delta Alert.</Box>
+2. Офицерам Безопасности разрешено носить любое оружие или оборудование из Арсенала по усмотрению Начальника Тюрьмы, но не более одного предмета одновременно.
+<Box>Исключение делается для чрезвычайных ситуаций, таких как Ядерные Оперативники, Блоб и/или Код Дельта.</Box>
 
-3. Security Officers are permitted to carry weapons in hand during regular patrols, although this is not advised.
+3. Офицерам Безопасности разрешено держать оружие в руках во время регулярных патрулей, хотя это не рекомендуется.
 
-4. Security Officers are permitted to present weapons during arrests.
-<Box>Security Officers must priorize non-lethal takedowns unless the suspect/wanted personnel is hostile and/or continuously evading arrest (over extended periods of time).</Box>
+4. Офицеры Безопасности могут показывать оружие во время арестов.
+<Box>Офицеры должны отдавать приоритет нелетальным методам задержания, если только подозреваемый/разыскиваемый не является враждебным и/или постоянно уклоняется от ареста (на протяжении длительного времени).</Box>
 
-5. Security Officers may demand entry to specific Departments during regular patrols.
+5. Офицеры Безопасности могут требовать доступ в определенные Отделы во время регулярных патрулей.
 
-6. Security Officers may randomly search crewmembers, but are not allowed to apply any degree of force unless said crewmember acts overtly hostile.
-<Box>Station Personnel who refuse to be searched may be stunned and cuffed for the search.</Box>
+6. Офицеры Безопасности могут проводить случайные обыски членов экипажа, но не имеют права применять силу, если член экипажа не проявляет явной враждебности.
+<Box>Члены экипажа, отказывающиеся подвергнуться обыску, могут быть оглушены и закованы в наручники для проведения обыска.</Box>
 
-7. Security Officers are permitted to leave prisoners bucklecuffed should they act hostile.
+7. Офицеры Безопасности могут оставлять заключенных в наручниках, если те проявляют враждебность.
 
-## Red Alert
-1. Guidelines 2, 3, 4, 5, 6, and 7 are carried over from [color=#1b67a5]Blue Alert[/color].
+## Красный код
+1. Правила 2, 3, 4, 5, 6 и 7 из [color=#1b67a5]Синего кода[/color] остаются в силе.
 
-2. Guideline 8 is carried over from [color=#388c34]Green Alert[/color].
+2. Правило 8 из [color=#388c34]Зелёного кода[/color] остается в силе.
 
-3. Security Officers may arrest crewmembers with no stated reason if there is evidence they are involved in criminal activities.
+3. Офицеры Безопасности могут арестовывать членов экипажа без объяснения причин, если есть доказательства их участия в преступной деятельности.
 
-4. Security Officers may forcefully relocate crewmembers to their respective Departments if necessary.
+4. Офицеры Безопасности могут принудительно перемещать членов экипажа в соответствующие Отделы при необходимости.
 
 </Document>

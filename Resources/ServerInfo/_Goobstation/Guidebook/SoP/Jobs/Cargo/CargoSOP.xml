@@ -1,10 +1,10 @@
 <Document>
-# Cargo Department SOP
-These are the list of SOPs that Cargo Personnel should follow. These are, as stated before, [bold]not checklists[/bold] and should be treated as guidelines.
+# СРП Отдела снабжения
+Это список стандартных операционных процедур (SOP), которым должен следовать персонал Отдела снабжения. Как уже упоминалось ранее, это [bold]не контрольные списки[/bold], и их следует рассматривать как руководящие принципы.
 
-The following jobs have entries in this Department, the [color=#1b67a5][bold]Quartermaster[/bold][/color] being the Head of Staff:
-- [textlink="Quartermaster" link="Quartermaster SOP"]
-- [textlink="Cargo Technician" link="CargoTech SOP"]
-- [textlink="Salvage Specialist" link="SalvageSpecialist SOP"]
+В данном отделе представлены следующие должности, где [color=#1b67a5][bold]Квартирмейстер[/bold][/color] является главой отдела:
+- [textlink="Квартирмейстер" link="Quartermaster SOP"]
+- [textlink="Техник снабжения" link="CargoTech SOP"]
+- [textlink="Специалист по утилизации" link="SalvageSpecialist SOP"]
 
 </Document>

@@ -1,18 +1,18 @@
 <Document>
-# Jobs SOP
-Attached below this are several different categories for Job-Specific Standard Operating Procedures (SOP). These are here to help clarify different goals in your job or department.
+# СРП Рабочих должностей
+Ниже приведены различные категории для Стандартных Рабочих Процедур (СРП), специфичных для должностей. Они предназначены для того, чтобы помочь уточнить различные цели в вашей работе или отделе.
 
 <Box>
-[bold][color=#f0e4b4]To be clear:[/color][/bold] these are not a [italic]checklist[/italic] for you to follow. They can be used as such, but should be used more as guidelines.
+[bold][color=#f0e4b4]Для ясности:[/color][/bold] это не [italic]контрольный список[/italic], который вы должны строго соблюдать. Их можно использовать как таковой, но они скорее являются руководящими принципами.
 </Box>
 
-The following folders are listed underneath this folder:
-- [textlink="Cargo Department" link="Cargo SOP"]
-- [textlink="Command Department" link="Command SOP"]
-- [textlink="Engineering Department" link="Engineering SOP"]
-- [textlink="Medical Department" link="Medical SOP"]
-- [textlink="Science Department" link="Science SOP"]
-- [textlink="Security Department" link="Security SOP"]
-- [textlink="Service Department" link="Service SOP"]
+Следующие папки перечислены в этой папке:
+- [textlink="Отдел Снабжения" link="Cargo SOP"]
+- [textlink="Командный Отдел" link="Command SOP"]
+- [textlink="Инженерный Отдел" link="Engineering SOP"]
+- [textlink="Медицинский Отдел" link="Medical SOP"]
+- [textlink="Научный Отдел" link="Science SOP"]
+- [textlink="Отдел Безопасности" link="Security SOP"]
+- [textlink="Сервисный Отдел" link="Service SOP"]
 
 </Document>

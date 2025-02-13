@@ -1,31 +1,31 @@
 <Document>
-# Scientist SOP
-This is the list of procedures, responsibilities, and duties of the [color=#cc74fc]Scientist[/color] of this station.
+# СРП Учённого
+Это список процедур, обязанностей и ответственности [color=#cc74fc]Ученого[/color] данной станции.
 
 <ColorBox>
   <Box>
-    For the purposes of Alert Escalation: Treat higher alerts as if they are still on the previous alert level. (Yellow Alert is Blue Alert if it was Blue Alert prior.) Furthermore, treat Delta, Gamma, Epsilon, and Violet Alert as Red Alert.
+    Для целей эскалации тревог: рассматривайте более высокие уровни тревог так, как если бы они оставались на предыдущем уровне. (Жёлтый код, считается Синим, если до этого был Синий.) Кроме того, рассматривайте уровни Дельта, Гамма, Эпсилон и Фиолетовый как Красный код.
   </Box>
 </ColorBox>
 
-## Green Alert
-1. Scientists are not permitted to bring grenades, harmful chemicals, nor Toxin bombs outside of the Science Department.
-<Box>[bullet/]Exceptions for the Toxin bombs if being handed over to the Cargo Department for Salvaging operations.</Box>
+## Зелёный код
+1. Ученым запрещено выносить гранаты, вредоносные химикаты или токсиновые бомбы за пределы Научного Отдела.
+<Box>[bullet/]Исключение для токсиновых бомб, если они передаются в Грузовой Отдел для операций по спасению.</Box>
 
-2. Scientists should give a warning over the Commons Channel and Science Channel before generating an anomaly.
+2. Ученые должны предупреждать через Общий Канал и Канал Научного Отдела перед созданием аномалии.
 
-3. Scientists are not permitted to create AI Console Boards nor AI Control Boards without permission from Research Director and/or Captain.
+3. Ученым запрещено создавать консольные панели ИИ или панели управления ИИ без разрешения Научного Руководителя и/или Капитана.
 
-## Blue Alert
-1. Scientists are not permitted to bring harmful chemicals outside of the Science Department.
+## Синий код
+1. Ученым запрещено выносить вредоносные химикаты за пределы Научного Отдела.
 
-2. Scientists should give a warning over the Commons Channel and Science Channel before generating an anomaly.
+2. Ученые должны предупреждать через Общий Канал и Канал Научного Отдела перед созданием аномалии.
 
-3. Scientists are permitted to bring grenades outside of the Science Department, but must justify their uses.
+3. Ученым разрешено выносить гранаты за пределы Научного Отдела, но только при наличии обоснования их использования.
 
-4. Scientists are permitted to bring Toxin bombs outside of the Science Department, but only to deliver to Armory and/or Cargo Department for Salvage operations.
+4. Ученым разрешено выносить токсиновые бомбы за пределы Научного Отдела, но только для доставки в Оружейную или Грузовой Отдел для операций по спасению.
 
-## Red Alert
-1. All Guidelines from [color=#388c34]Green Alert[/color] and [color=#1b67a5]Blue Alert[/color] carry over. No special guidelines in [color=#ba292c]Red Alert[/color].
+## Красный код
+1. Все правила из [color=#388c34]Зелёного[/color] и [color=#1b67a5]Синего кода[/color] остаются в силе. В рамках [color=#ba292c]Красного кода[/color] нет особых дополнительных правил.
 
 </Document>

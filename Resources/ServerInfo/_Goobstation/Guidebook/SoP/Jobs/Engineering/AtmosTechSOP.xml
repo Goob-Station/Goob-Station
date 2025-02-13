@@ -1,26 +1,26 @@
 <Document>
-# Atmospheric Technician SOP
-This is the list of procedures, responsibilities, and duties of the [color=#c8a404][bold]Atmospheric Technician[/bold][/color] of this station.
+# СРП Атмосферного техника
+Это список процедур, обязанностей и ответственности [color=#c8a404][bold]Атмосферного Техника[/bold][/color] на данной станции.
 
-1. Atmospheric Technicians are permitted to re-pipe their region to suit their needs but must maintain life support to distro.
+1. Атмосферным Техникам разрешено изменять трубопроводы в своей зоне в соответствии с их потребностями, но они должны поддерживать систему жизнеобеспечения для распределения воздуха.
 
-2. Atmospheric Technicians are permitted to make mixtures, but they must have a use and must be beneficial to the station and/or its engines.
-<Box>Failure to follow this may result in Termination or in severe cases Contract Nullification.</Box>
+2. Атмосферным Техникам разрешено создавать смеси газов, но они должны иметь практическое применение и быть полезными для станции и/или ее двигателей.
+<Box>Несоблюдение этого правила может привести к увольнению или, в тяжелых случаях, к аннулированию контракта.</Box>
 
-3. Atmospheric Technicians are permitted to cool Plasma and store it for later use in Radiation Collectors. Likewise, they are permitted to cool Nitrogen or Carbon Dioxide and store it for use as coolant for the Supermatter Engine;
+3. Атмосферным Техникам разрешено охлаждать плазму и хранить ее для последующего использования в радиационных коллекторах. Аналогично, им разрешено охлаждать азот или углекислый газ и использовать их в качестве охлаждающего вещества для реактора Суперматерии.
 
-4. Atmospheric Technicians are not permitted to take the axe out of its case unless there is an immediate and urgent threat to their life or urgent access to crisis locations is necessary.
-<Box>The axe must be returned to the case afterwards, and the case locked.</Box>
+4. Атмосферным Техникам запрещено извлекать топор из его кейса, если нет непосредственной и срочной угрозы их жизни или если не требуется срочный доступ к местам кризиса.
+<Box>После использования топор должен быть возвращен в кейс, а кейс — заперт.</Box>
 
-5. Atmospheric Technicians are not permitted to tamper with the default values on Air Alarms, but must fix them and/or change their values for emergency situations. [bold]This does not include isolated sections for burn chambers, mixture chambers, et cetera.[/bold]
-<Box>They are, however, permitted to create small, acclimatized rooms for species that require special atmospheric conditions (such as Vox), provided they receive express permission from the Chief Engineer.</Box>
+5. Атмосферным Техникам запрещено изменять стандартные значения на воздушных сигнализациях, но они должны исправлять их и/или изменять значения в чрезвычайных ситуациях. [bold]Это не касается изолированных секций, таких как камеры сгорания, смесительные камеры и т.д.[/bold]
+<Box>Однако им разрешено создавать небольшие акклиматизированные помещения для видов, требующих особых атмосферных условий (например, Воксов), при условии получения явного разрешения от Старшего Инженера.</Box>
 
-6. Atmospheric Technicians must periodically check on the Central Alarms Computer, in periods of, at most, thirty (30) minutes.
+6. Атмосферные Техники должны периодически проверять центральный компьютер сигнализаций с интервалом не более тридцати (30) минут.
 
-7. Atmospheric Technicians must respond promptly to piping and station breaches.
-<Box>Failure to report within fifteen (15) minutes will be considered a breach of Standard Operating Procedure, unless there are no spare Atmospheric Technicians to report, or an Engineer has arrived on scene first.</Box>
-<Box>All Hazard Zones must be cordoned off with Engineering Tape or holobarriers, for the sake of everyone else.</Box>
+7. Атмосферные Техники должны оперативно реагировать на повреждения трубопроводов и разгерметизацию станции.
+<Box>Несообщение о повреждении в течение пятнадцати (15) минут будет считаться нарушением Стандартных Рабочих Процедур, если только нет свободных Атмосферных Техников для сообщения или если на месте уже присутствует инженер.</Box>
+<Box>Все опасные зоны должны быть огорожены инженерной лентой или голобарьерами для безопасности всех.</Box>
 
-8. Atmospheric Technicians are held to the same guidelines and standards as [color=#c8a404][bold]Station Engineer[/bold][/color]s but have elevated access and their own rules for Atmospherics.
+8. Атмосферные Техники обязаны соблюдать те же правила и стандарты, что и [color=#c8a404][bold]Инженеры Станции[/bold][/color], но имеют расширенный доступ и свои собственные правила для работы с атмосферой.
 
 </Document>

@@ -1,31 +1,30 @@
 <Document>
-# Nanotrasen Representative (NTR) SOP
-This is the list of procedures, responsibilities, and duties of the [color=#1b67a5][bold]Nanotrasen Representative[/bold][/color] of this station.
+# СРП Представителя Нанотрейзен (ПНТ)
+Это список процедур, обязанностей и ответственности [color=#1b67a5][bold]Представителя Нанотразен[/bold][/color] на данной станции.
 
-<ColorBox><Box HorizontalAlignment="Center" Margin="10">The [color=#1b67a5][bold]Nanotrasen Representative[/bold][/color] should never be Captain nor Head of Staff.</Box></ColorBox>
+<ColorBox><Box HorizontalAlignment="Center" Margin="10">Представитель Нанотразен[/bold][/color] никогда не должен быть Капитаном или Главой Отдела.</Box></ColorBox>
 
-The [bold][color=#fcd12a]most important[/color][/bold] rule of the Nanotrasen Representative is to assist Command Personnel and ensure they are following SOP.
-<Box>Command personnel are personnel hired by Nanotrasen (confirmed personnel in command) and any Central Command officials (including NTR).</Box>
-<Box>The Nanotrasen Representative is basically an OSHA Worker. Act like one and ensure departments are following the SOP and being Safe.</Box>
+[bold][color=#fcd12a]Самое важное[/color][/bold] правило для Представителя Нанотразен — помогать персоналу Командования и следить за тем, чтобы они следовали СРП.
+<Box>Персонал Командования — это сотрудники, нанятые Нанотразен (подтвержденный персонал в командовании), а также любые представители Центрального Командования (включая ПНТ).</Box>
+<Box>Представитель Нанотразен, по сути, является инспектором по безопасности. Действуйте как таковой и следите за тем, чтобы отделы следовали СРП и соблюдали безопасность.</Box>
+## Ресурсы
+1. Представитель Нанотразен имеет доступ к факс-аппарату для прямой связи с Центральным Командованием (с уведомлением представителей Центрального Командования).
 
-## Resources
-1. The Nanotrasen Representative posesses a FAX machine to directly fax to Central Command (with notification to Central Command Officials).
+2. В случае чрезвычайной ситуации на станции установлен как минимум один красный телефон, который напрямую уведомляет Центральное Командование.
 
-2. In the event of an emergency, the station is equipped with a minimum of one Red Phone which directly notifies Central Command.
+3. В случае чрезвычайной ситуации Представитель Нанотразен имеет ключ шифрования Центрального Командования в своей гарнитуре для прямой связи с Центральным Командованием.
 
-3. In the event of an emergency, the Nanotrasen Representative possesses a Central Command Encryption Key in their headset for direct communications with Central Command.
+## Полномочия
+1. Представитель Нанотразен должен следить за тем, чтобы каждый отдел следовал Стандартным Рабочим Процедурам, включая персонал Командования.
+<Box>Если в отделе нет соответствующего Главы Отдела, ПНТ должен убедиться, что Капитан назначает Временного Главу Отдела, и помочь в этом, чтобы направлять их.</Box>
 
-## Rulings
-1. The Nanotrasen Representative is to ensure that every Department is following Standard Operating Procedure, including Command personnel.
-<Box>If a Department does not have a corresponding Head of Staff, NTR must ensure the Captain appoints an Acting Head of Staff and assist in such endeavors to guide them.</Box>
+2. Представитель Нанотразен должен попытаться устранить любое [bold]крупное[/bold] нарушение СРП перед тем, как связаться с Центральным Командованием. Это важно.
+<Box>Стандартные Рабочие Процедуры должны соблюдаться, а их игнорирование должно быть обосновано.</Box>
 
-2. The Nanotrasen Representative must attempt to resolve any [bold]major[/bold] breach of SOP before contacting Central Command. This is an imperative.
-<Box>Standard Operating Procedure must generally be followed with reasonable justifications when it is ignored.</Box>
+3. Представитель Нанотразен должен вместе с Капитаном, Главой Службы Безопасности и Надзирателем следить за тем, чтобы Космический Закон соблюдался и применялся правильно.
+<Box>Это не дает ПНТ права отменять сроки заключения, наказания или любые другие действия Службы Безопасности, если только Центральное Командование не прикажет иначе.</Box>
 
-3. The Nanotrasen Representative is to ensure, along with Captain, Head of Security, and Warden, that Space Law is followed and being applied correctly.
-<Box>This does not permit NTR to override brig timers, punishments, or any other Security endeavor unless Central Command orders as such.</Box>
-
-4. The Nanotrasen Representative is not to use their direct connection to Central Command for leverage over other crew members.
-<Box>In addition, they may not threaten to fire anyone (nor contact Central Command to do so) unless a justification for demotion exists.</Box>
+4. Представитель Нанотразен не должен использовать свою прямую связь с Центральным Командованием для давления на других членов экипажа.
+<Box>Кроме того, он не может угрожать увольнением (или связываться с Центральным Командованием для этого), если нет оснований для понижения в должности.</Box>
 
 </Document>

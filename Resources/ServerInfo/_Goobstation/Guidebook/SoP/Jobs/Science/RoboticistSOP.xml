@@ -1,33 +1,33 @@
 <Document>
-# Roboticist SOP
-This is the list of procedures, responsibilities, and duties of the [color=#cc74fc]Roboticist[/color] of this station.
-<Box>For clarification, 'Scientist' and 'Roboticist' are both referred to as 'Scientist' in this SOP.</Box>
+# СРП Роботехника
+Это список процедур, обязанностей и ответственности [color=#cc74fc]Роботехника[/color] данной станции.
+<Box>Для уточнения: 'Ученый' и 'Роботехник' в рамках данной СРП обозначаются как 'Ученый'.</Box>
 
 <ColorBox>
   <Box>
-    For the purposes of Alert Escalation: Treat higher alerts as if they are still on the previous alert level. (Yellow Alert is Blue Alert if it was Blue Alert prior.) Furthermore, treat Delta, Gamma, Epsilon, and Violet Alert as Red Alert.
+    Для целей эскалации тревог: рассматривайте более высокие уровни тревог так, как если бы они оставались на предыдущем уровне. (Жёлтый код, считается Синим, если до этого был Синий.) Кроме того, рассматривайте уровни Дельта, Гамма, Эпсилон и Фиолетовый как Красный код.
   </Box>
 </ColorBox>
 
-## Green Alert
-1. The Scientist is not permitted to construct any Combat Mechs without express permission from the Captain and/or Head of Security.
-<Box>The [color=#1b67a5][bold]Research Director[/bold][/color] is placed under these same restrictions.</Box>
+## Зелёный код
+1. Ученому запрещено создавать Боевых Мехов без явного разрешения от Капитана и/или Главы Службы Безопасности (ГСБ).
+<Box>[color=#1b67a5][bold]Директор Исследовательского Отдела[/bold][/color] также подчиняется этим ограничениям.</Box>
 
-2. The Scientist is freely permitted to construct Utility Mechs, along with Utility Equipment. This refers to Ripleys.
+2. Ученому разрешено свободно создавать Утилитарных Мехов и сопутствующее оборудование (например, Рипли).
 
-3. The Scientist is freely permitted to construct Cyborgs and all assorted equipment (modules and more).
+3. Ученому разрешено свободно создавать Киборгов и все связанные с ними модули и оборудование.
 
-4. The Scientist is not permitted to transfer personnel MMIs into Cyborgs without express written or verbal consent from the person in question.
-<Box>The consent form should be kept safe.</Box>
+4. Ученому запрещено переносить личные MMI сотрудников в Киборгов без явного письменного или устного согласия соответствующего лица.
+<Box>Форму согласия следует хранить в безопасном месте.</Box>
 
-## Blue Alert
-1. Guidelines 2, 3, and 4 carry over from [color=#388c34]Green Alert[/color].
+## Синий код
+1. Пункты 2, 3 и 4 из [color=#388c34]Зеленой Тревоги[/color] остаются в силе.
 
-2. The Scientist is permitted to construct Combat Mechs, but [bold]must deliver them to Armory[/bold] for Storage. Failure to do so will result in the Combat Mech being destroyed.
-<Box>The only exception to this policy is for extreme emergencies, such as Delta Alert, Nuclear Operatives, Blob, et cetera.</Box>
-<Box>The [color=#1b67a5][bold]Research Director[/bold][/color] is placed under these same restrictions.</Box>
+2. Ученому разрешено создавать Боевых Мехов, но [bold]он обязан доставить их в Оружейную[/bold] для хранения. Невыполнение этого требования приведет к уничтожению Боевого Меха.
+<Box>Единственным исключением из этой политики являются чрезвычайные ситуации, такие как Дельта Тревога, Ядерные Оперативники, Блоб и т. д.</Box>
+<Box>[color=#1b67a5][bold]Директор Исследовательского Отдела[/bold][/color] также подчиняется этим ограничениям.</Box>
 
-## Red Alert
-1. All guidelines from [color=#388c34]Green Alert[/color] and [color=#1b67a5]Blue Alert[/color] carry over. No special guidelines in [color=#ba292c]Red Alert[/color].
+## Красный код
+1. Все правила из [color=#388c34]Зеленой Тревоги[/color] и [color=#1b67a5]Синей Тревоги[/color] остаются в силе. В рамках [color=#ba292c]Красной Тревоги[/color] нет особых дополнительных правил.
 
 </Document>
