@@ -82,9 +82,7 @@ public sealed partial class TypedDamageThreshold : EntityEffectCondition
             foreach (var damageType in group.DamageTypes)
             {
                 if (comparison.DamageDict.TryGetValue(damageType, out var value))
-                {
                     lowestDamage = value < lowestDamage ? value : lowestDamage;
-                }
                 else
                 {
                     lowestDamage = FixedPoint2.Zero;
