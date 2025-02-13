@@ -44,6 +44,8 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -99,6 +101,7 @@ public abstract class SharedMagicSystem : EntitySystem
         SubscribeLocalEvent<ChargeSpellEvent>(OnChargeSpell);
         SubscribeLocalEvent<RandomGlobalSpawnSpellEvent>(OnRandomGlobalSpawnSpell);
         SubscribeLocalEvent<MindSwapSpellEvent>(OnMindSwapSpell);
+        SubscribeLocalEvent<AnimateSpellEvent>(OnAnimateSpell);
 
         // Spell wishlist
         //  A wishlish of spells that I'd like to implement or planning on implementing in a future PR
@@ -432,22 +435,8 @@ public abstract class SharedMagicSystem : EntitySystem
         ev.Handled = true;
         Speak(ev);
 
-        foreach (var toRemove in ev.ToRemove)
-        {
-            if (_compFact.TryGetRegistration(toRemove, out var registration))
-                RemComp(ev.Target, registration.Type);
-        }
-
-        foreach (var (name, data) in ev.ToAdd)
-        {
-            if (HasComp(ev.Target, data.Component.GetType()))
-                continue;
-
-            var component = (Component)_compFact.GetComponent(name);
-            var temp = (object)component;
-            _seriMan.CopyTo(data.Component, ref temp);
-            EntityManager.AddComponent(ev.Target, (Component)temp!);
-        }
+        RemoveComponents(ev.Target, ev.ToRemove);
+        AddComponents(ev.Target, ev.ToAdd);
     }
     // End Change Component Spells
     #endregion
@@ -492,6 +481,29 @@ public abstract class SharedMagicSystem : EntitySystem
         {
             var comp = EnsureComp<PreventCollideComponent>(ent);
             comp.Uid = performer;
+        }
+    }
+
+    private void AddComponents(EntityUid target, ComponentRegistry comps)
+    {
+        foreach (var (name, data) in comps)
+        {
+            if (HasComp(target, data.Component.GetType()))
+                continue;
+
+            var component = (Component)_compFact.GetComponent(name);
+            var temp = (object)component;
+            _seriMan.CopyTo(data.Component, ref temp);
+            EntityManager.AddComponent(target, (Component)temp!);
+        }
+    }
+
+    private void RemoveComponents(EntityUid target, HashSet<string> comps)
+    {
+        foreach (var toRemove in comps)
+        {
+            if (_compFact.TryGetRegistration(toRemove, out var registration))
+                RemComp(target, registration.Type);
         }
     }
     // End Spell Helpers
@@ -799,6 +811,33 @@ public abstract class SharedMagicSystem : EntitySystem
             AddComp(a, comp);
             RemCompDeferred(b, type);
         }
+    }
+
+    #endregion
+    #region Animation Spells
+
+    private void OnAnimateSpell(AnimateSpellEvent ev)
+    {
+        if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer) || !TryComp<FixturesComponent>(ev.Target, out var fixtures) ||
+            !TryComp<PhysicsComponent>(ev.Target, out var physics))
+            return;
+
+        ev.Handled = true;
+        //Speak(ev);
+
+        RemoveComponents(ev.Target, ev.RemoveComponents);
+        AddComponents(ev.Target, ev.AddComponents);
+
+        var xform = Transform(ev.Target);
+        var fixture = fixtures.Fixtures.First();
+
+        _transform.Unanchor(ev.Target);
+        _physics.SetCanCollide(ev.Target, true, true, false, fixtures, physics);
+        _physics.SetCollisionMask(ev.Target, fixture.Key, fixture.Value, (int)CollisionGroup.FlyingMobMask, fixtures, physics);
+        _physics.SetCollisionLayer(ev.Target, fixture.Key, fixture.Value, (int)CollisionGroup.FlyingMobLayer, fixtures, physics);
+        _physics.SetBodyType(ev.Target, BodyType.KinematicController, fixtures, physics, xform);
+        _physics.SetBodyStatus(ev.Target, physics, BodyStatus.InAir, true);
+        _physics.SetFixedRotation(ev.Target, false, true, fixtures, physics);
     }
 
     #endregion
