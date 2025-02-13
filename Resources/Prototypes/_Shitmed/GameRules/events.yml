@@ -4,8 +4,8 @@
   components:
   - type: StationEvent
     earliestStart: 15
-    weight: 4
-    minimumPlayers: 15
+    weight: 7.5
+    minimumPlayers: 10
     duration: 1
   - type: RuleGrids
   - type: LoadMapRule
@@ -76,7 +76,7 @@
   components:
   - type: StationEvent
     earliestStart: 15
-    weight: 4
+    weight: 7.5
     minimumPlayers: 20
     duration: 1
   - type: RuleGrids
