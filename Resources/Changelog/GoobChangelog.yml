@@ -4743,3 +4743,17 @@ Entries:
       message: 'New disposal pipe type: Disposal blocker.'
   id: 541
   time: '2025-02-13T05:24:33.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Syringe embedding now doesn't care about hardsuits.
+    - type: Tweak
+      message: Embedded syringes now inject over time.
+    - type: Tweak
+      message: Dart syringe gun gets an 1.5x injection speed multiplier.
+    - type: Add
+      message: >-
+        Embedded syringes now embed the slower the more pierce resistance you
+        have on your outerwear.
+  id: 542
+  time: '2025-02-13T10:45:08.0000000+00:00'
