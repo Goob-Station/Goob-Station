@@ -4719,3 +4719,9 @@ Entries:
         abductor stuff all now have correct contraband status.
   id: 537
   time: '2025-02-13T03:22:06.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: ID card computer access list is now filterable. HOP mains rejoice!
+  id: 538
+  time: '2025-02-13T03:27:38.0000000+00:00'
