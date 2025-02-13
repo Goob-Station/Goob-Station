@@ -4,6 +4,7 @@
   id: BlueShieldShield
   description: The iconic namesake of these soldiers, the Blueshield. Known to take shots meant for high-ranking officials.
   components:
+    - type: ContainerContainer
     - type: ItemToggle
       predictable: false
       soundActivate:
@@ -92,7 +93,6 @@
       autoRecharge: true
       autoRechargeRate: 3.5
     - type: RechargeableBlocking
-    - type: ContainerContainer
     - type: ItemSlots
       slots:
         item:
