@@ -93,14 +93,3 @@
       autoRecharge: true
       autoRechargeRate: 3.5
     - type: RechargeableBlocking
-    - type: ItemSlots
-      slots:
-        item:
-          name: Mace
-          insertVerbText: sheath-insert-verb
-          ejectVerbText: sheath-eject-verb
-          insertSound: /Audio/Items/sheath.ogg
-          ejectSound: /Audio/Items/unsheath.ogg
-          whitelist:
-            tags:
-            - Stunbaton

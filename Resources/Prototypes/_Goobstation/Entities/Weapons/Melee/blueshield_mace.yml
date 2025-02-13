@@ -31,7 +31,7 @@
         Heat: 5
   - type: Stunbaton
     energyPerUse: 120
-  - type: MeleeWeapon 
+  - type: MeleeWeapon
     angle: 0
     wideAnimationRotation: -135
     damage:
@@ -56,7 +56,7 @@
   - type: UseDelay
   - type: Item
     heldPrefix: off
-    size: Large
+    size: Normal
   - type: DisarmMalus
     malus: 0.225
   - type: Appearance
