@@ -1,0 +1,81 @@
+# Wall freezers
+- type: entity
+  id: ShelfWallFreezerWhite
+  parent: ShelfBaseReinforced
+  name: wall freezer
+  description: A convenient place to store perishables.
+  suffix: Frontier, White
+  components:
+  - type: ExplosionResistance
+    damageCoefficient: 0.50
+  - type: AntiRottingContainer
+  - type: Sprite
+    sprite: _NF/Structures/Shelfs/Departments/Service/wall_fridge.rsi
+    layers:
+    - state: base
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: food-0
+      map: ["enum.StorageFillLayers.Fill"]
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+  - type: StorageFillVisualizer
+    maxFillLevels: 10
+    fillBaseName: food
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 330
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetPlasteel1:
+            min: 0
+            max: 3
+          SheetPlastic1:
+            min: 0
+            max: 3
+          ShardGlass:
+            min: 0
+            max: 3
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Storage
+    grid:
+    - 0,0,5,1
+    - 0,3,5,4
+    - 0,6,5,6
+    maxItemSize: Normal
+  - type: Construction
+    graph: WallFreezer
+    node: ShelfWallFreezerWhite
+
+- type: entity
+  id: ShelfWallFreezerDark
+  parent: ShelfWallFreezerWhite
+  name: wall freezer
+  suffix: Frontier, Dark
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.StorageVisualLayers.Base"]
+      color: "#909090"
+    - state: food-0
+      map: ["enum.StorageFillLayers.Fill"]
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+      color: "#909090"
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+  - type: Construction
+    graph: WallFreezer
+    node: ShelfWallFreezerDark
+

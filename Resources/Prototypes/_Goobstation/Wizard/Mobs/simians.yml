@@ -1,0 +1,94 @@
+- type: entity
+  parent: MobGorilla
+  id: MobGorillaAngry
+  suffix: Angry
+  components:
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+
+- type: entity
+  parent: MobGorillaAngry
+  id: MobGorillaAngryTemp
+  suffix: Angry, Lesser, Temporary
+  components:
+  - type: FadingTimedDespawn
+    lifetime: 120
+    fadeOutTime: 4
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      80: Critical
+      100: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      60: 0.7
+      70: 0.5
+
+- type: entity
+  parent: MobGorillaAngry
+  id: MobGorillaWizard
+  suffix: Wizard
+  components:
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+    - Wizard
+  - type: Speech
+    speechVerb: LargeMob
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      250: Critical
+      350: Dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 50
+        Structural: 80
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      210: 0.7
+      230: 0.5
+  - type: Insulated
+    coefficient: 0.5
+  - type: FlashImmunity
+
+- type: entity
+  name: monkey
+  id: MobMonkeyAngry
+  parent: MobBaseAncestor
+  suffix: Angry
+  description: New church of neo-darwinists actually believe that EVERY animal evolved from a monkey. Tastes like pork, and killing them is both fun and relaxing.
+  components:
+  - type: NameIdentifier
+    group: Monkey
+  - type: Speech
+    speechSounds: Monkey
+    speechVerb: Monkey
+  - type: MonkeyAccent
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHumanoidHostileCompound
+
+- type: entity
+  parent: MobMonkeyAngry
+  id: MobMonkeyAngryTemp
+  suffix: Angry, Lesser, Temporary
+  components:
+  - type: FadingTimedDespawn
+    lifetime: 120
+    fadeOutTime: 4
+  - type: DropItemsOnTimedDespawn
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Critical
+      100: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      30: 0.7
+      40: 0.5

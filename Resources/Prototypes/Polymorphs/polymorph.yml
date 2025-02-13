@@ -57,13 +57,14 @@
 - type: polymorph
   id: WizardWallDoor
   configuration:
-    entity: WoodDoor
+    entities: WizardWallDoor # Goob edit
     forced: true
     inventory: None
     transferName: false
     transferDamage: false
     revertOnCrit: false
     revertOnDeath: false
+    allowMovement: false # Goobstation
 
 - type: polymorph
   id: WizardForcedCluwne
@@ -182,7 +183,8 @@
     transferName: true
     transferDamage: false
     inventory: None
-    duration: 1
+    duration: 2 # Goob edit
+    allowMovement: false # Goobstation
     forced: true
     revertOnCrit: false
     revertOnDeath: false
@@ -199,6 +201,7 @@
     revertOnDeath: true
     revertOnCrit: true
     allowRepeatedMorphs: false
-    polymorphSound: /Audio/Magic/ethereal_enter.ogg
-    exitPolymorphSound: /Audio/Magic/ethereal_exit.ogg
-    duration: 3
+    # polymorphSound: /Audio/Magic/ethereal_enter.ogg # Goob edit
+    # exitPolymorphSound: /Audio/Magic/ethereal_exit.ogg # Goob edit
+    duration: 5 # Gppb edot
+    showPopup: false # Goobstation

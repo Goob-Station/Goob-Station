@@ -12,7 +12,7 @@ public sealed class TelefragSystem : EntitySystem
     [Dependency] private readonly SharedLayingDownSystem _layingDown = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
 
-    public void DoTelefrag(EntityUid uid, EntityCoordinates coords, TimeSpan knockdownTime, float range = 0.4f)
+    public void DoTelefrag(EntityUid uid, EntityCoordinates coords, TimeSpan knockdownTime, float range = 0.3f)
     {
         if (range <= 0f)
             return;
