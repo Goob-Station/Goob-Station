@@ -1,3 +1,4 @@
+using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
@@ -6,7 +7,9 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
+using Content.Shared.Tools.Systems;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
@@ -30,6 +33,9 @@ public sealed class ReverseBearTrapSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private readonly SharedToolSystem _toolSystem = default!;
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+    [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
 
     public override void Initialize()
     {
@@ -42,6 +48,7 @@ public sealed class ReverseBearTrapSystem : EntitySystem
         // DoAfter event handlers
         SubscribeLocalEvent<ReverseBearTrapComponent, BearTrapEscapeDoAfterEvent>(OnBearTrapEscape);
         SubscribeLocalEvent<ReverseBearTrapComponent, BearTrapApplyDoAfterEvent>(OnBearTrapApply);
+        SubscribeLocalEvent<ReverseBearTrapComponent, WeldFinishedEvent>(OnWeldFinished);
     }
 
     private void OnEquipped(EntityUid uid, ReverseBearTrapComponent trap, GotEquippedEvent args)
@@ -93,19 +100,46 @@ public sealed class ReverseBearTrapSystem : EntitySystem
 
     private void OnVerbAdd(EntityUid uid, ReverseBearTrapComponent trap, GetVerbsEvent<Verb> args)
     {
-        if (!args.CanAccess)
+        if (!_actionBlockerSystem.CanComplexInteract(args.User))
         {
             return;
         }
 
         if (trap.Ticking)
         {
-            args.Verbs.Add(new Verb()
+            if (args.User == trap.Wearer)
             {
-                Act = () => AttemptEscape(uid, trap, args.User),
-                DoContactInteraction = true,
-                Text = "Attempt escape"
-            });
+                args.Verbs.Add(new Verb()
+                {
+                    Act = () => AttemptEscape(uid, trap, args.User),
+                    DoContactInteraction = true,
+                    Text = "Attempt escape"
+                });
+            }
+            else
+            {
+                var tool = _handsSystem.GetActiveItem(args.User);
+
+                args.Verbs.Add(new Verb()
+                {
+                    DoContactInteraction = true,
+                    Text = "Remove trap",
+                    Disabled = !tool.HasValue || !_toolSystem.HasQuality(tool.Value, "Welding"),
+                    Act = () =>
+                    {
+                        if (!tool.HasValue)
+                        {
+                            return;
+                        }
+
+                        if (!_toolSystem.UseTool(tool.Value, args.User, uid, 5f, "Welding", new WeldFinishedEvent(), 3f))
+                        {
+                            return;
+                        }
+
+                    }
+                });
+            }
         }
         else
         {
@@ -166,7 +200,7 @@ public sealed class ReverseBearTrapSystem : EntitySystem
         {
             _popup.PopupEntity("You fail to unlock the trap!", trap.Wearer.Value, trap.Wearer.Value);
 
-            trap.CurrentEscapeChance += 1;
+            trap.CurrentEscapeChance += 0.25f;
         }
     }
 
@@ -184,6 +218,20 @@ public sealed class ReverseBearTrapSystem : EntitySystem
                 ArmTrap(used, trap, target);
             }
         }
+    }
+
+    private void OnWeldFinished(EntityUid uid, ReverseBearTrapComponent trap, WeldFinishedEvent args)
+    {
+        if (args.Cancelled || args.Used == null)
+        {
+            return;
+        }
+
+        var damage = new DamageSpecifier();
+        damage.DamageDict.Add("Heat", 50);
+        _damageable.TryChangeDamage(trap.Wearer, damage, true, origin: args.Used, targetPart: _Shitmed.Targeting.TargetBodyPart.Head);
+
+        ResetTrap(uid, trap);
     }
 
     private void ArmTrap(EntityUid uid, ReverseBearTrapComponent trap, EntityUid wearer)
@@ -214,7 +262,9 @@ public sealed class ReverseBearTrapSystem : EntitySystem
     private void ResetTrap(EntityUid? uid, ReverseBearTrapComponent trap)
     {
         if (!trap.Ticking || !uid.HasValue)
+        {
             return;
+        }
 
         var oldWearer = trap.Wearer;
 
@@ -227,7 +277,9 @@ public sealed class ReverseBearTrapSystem : EntitySystem
         Dirty(uid.Value, trap);
 
         if (oldWearer != null && TryComp<ItemComponent>(uid, out var _))
+        {
             _inventory.TryUnequip(oldWearer.Value, "head", true, true);
+        }
     }
 
     public override void Update(float frameTime)
@@ -238,7 +290,9 @@ public sealed class ReverseBearTrapSystem : EntitySystem
         while (query.MoveNext(out var uid, out var trap))
         {
             if (!trap.Ticking || trap.Wearer == null)
+            {
                 continue;
+            }
 
             var remaining = trap.CountdownDuration - (float) (_gameTiming.CurTime - trap.ActivateTime).TotalSeconds;
             if (remaining <= 0)
