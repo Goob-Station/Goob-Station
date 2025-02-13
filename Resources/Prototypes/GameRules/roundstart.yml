@@ -96,7 +96,7 @@
   id: Nukeops
   components:
   - type: GameRule
-    minPlayers: 20
+    minPlayers: 30
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml # goob edit
   - type: AntagSelection
