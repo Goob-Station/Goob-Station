@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingBackpackDuffel
+  parent: [ ClothingBackpackDuffel, BaseMajorContraband ]
   id: ClothingBackpackDuffelAbductor
   name: alien surgery duffel bag
   description: An ordinary surgical duffel bag woven from a durable fiber.

@@ -1,0 +1,15 @@
+- type: parallax
+  id: Wizard
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/Parallaxes/layer1.png"
+      slowness: 1
+      scale: "1, 1"
+      shader: WizardParallax
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/_Goobstation/Wizard/Parallax/icemoon.png"
+      slowness: 1
+      scale: "1, 1"
+      tiled: false
