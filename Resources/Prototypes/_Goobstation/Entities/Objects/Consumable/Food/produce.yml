@@ -1,0 +1,28 @@
+- type: entity
+  name: strange berries
+  parent: FoodProduceBase
+  id: FoodStrangeBerries
+  description: A handful of strange berries.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - metallic
+      - berry
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 11
+        reagents:
+        - ReagentId: Artifexium
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Hydroponics/strange_berries.rsi
+  - type: Produce
+    seedId: strangeBerries
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Artifexium
+        Quantity: 5

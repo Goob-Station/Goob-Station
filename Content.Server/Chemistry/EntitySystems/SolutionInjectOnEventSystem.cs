@@ -115,14 +115,15 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
                 continue;
 
             // Goobstation - Armor resisting syringe gun
-            // Yuck, this is way to hardcodey for my tastes
-            // TODO blocking injection with a hardsuit should probably done with a cancellable event or something
             var mult = injector.Comp.AmountMultiplier; // multiplier of how much to actually inject
             var pierce = injector.Comp.PierceArmorOverride ?? injector.Comp.PierceArmor;
-            if (!pierce && _inventory.TryGetSlotEntity(target, "outerClothing", out var suit)) // no penetrating armor with at least some percentage of piercing resist
+            if (_inventory.TryGetSlotEntity(target, "outerClothing", out var suit)) // attempt to apply armor injection speed multiplier or block the syringe
             {
-                var blocked = false;
-                if (TryComp<ArmorComponent>(suit, out var armor))
+                bool syringeArmor = _tag.HasTag(suit.Value, "SyringeArmor");
+                bool blocked = syringeArmor && !pierce; // if we have syringe armor and it's not piercing just block it outright
+                pierce = pierce && !syringeArmor; // if we have syringe armor and it IS piercing, downgrade it
+
+                if (!blocked && !pierce && TryComp<ArmorComponent>(suit, out var armor)) // don't bother checking if we already blocked
                 {
                     var modifierDict = injector.Comp.DamageModifierResistances;
                     var armorCoefficients = armor.Modifiers.Coefficients;

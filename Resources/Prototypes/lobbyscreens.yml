@@ -117,10 +117,3 @@
   background: /Textures/LobbyScreens/tideractivities.webp
   name: Tider Activities
   artist: asardonicsailor
-  
-- type: lobbyBackground
-  id: DareToBeSpaced
-  background: /Textures/LobbyScreens/daretobespaced.webp
-  name: Dare to Be Spaced
-  artist: CBozo
-

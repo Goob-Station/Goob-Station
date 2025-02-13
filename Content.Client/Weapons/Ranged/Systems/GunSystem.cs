@@ -319,6 +319,9 @@ public sealed partial class GunSystem : SharedGunSystem
         if (tracked != null)
         {
             var track = EnsureComp<TrackUserComponent>(ent);
+            if (TryComp(gunUid, out GunComponent? gun))
+                track.RotationOffset = gun.MuzzleFlashRotationOffset;
+            track.TrackRotation = true; // Goobstation
             track.User = tracked;
             track.Offset = Vector2.UnitX / 2f;
         }
