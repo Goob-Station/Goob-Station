@@ -63,7 +63,7 @@
   name: dart syringe gun
   parent: [ SyringeGun, BaseSyndicateContraband ]
   id: DartSyringeGun
-  description: An illegally modified version of the syringe gun that allows projectiles to pierce through armor.
+  description: An illegally modified version of the syringe gun that allows projectiles to pierce through armor. Also piereces skin better, resulting in faster injection.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
@@ -84,6 +84,7 @@
     - 0,0,1,0
   - type: SyringeGun
     pierceArmor: true
+    injectionSpeedMultiplier: 1.5
   - type: PacifismAllowedGun
 
 
