@@ -58,9 +58,8 @@ public sealed class ContrabandDetectorSystem : EntitySystem
     }
 
     private static void HandleStepTriggerAttempt(EntityUid uid, ContrabandDetectorComponent component, ref StepTriggerAttemptEvent args)
-    {
-        args.Continue = component.IsPowered;
-    }
+        => args.Continue = component.IsPowered;
+
 
     private List<EntityUid> RecursiveFindContraband(EntityUid uid, int depth)
     {
