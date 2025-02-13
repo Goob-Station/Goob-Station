@@ -463,7 +463,7 @@
   - type: StationEvent
     earliestStart: 35
     weight: 5.5
-    minimumPlayers: 25 # Reserve edit, need 1.25x more players
+    minimumPlayers: 20
     duration: 1
   - type: RuleGrids
   - type: LoadMapRule
@@ -500,7 +500,7 @@
   components:
   - type: StationEvent
     earliestStart: 30
-    weight: 4 # Reserve edit, 2x times less
+    weight: 8
     minimumPlayers: 15
     maxOccurrences: 1 # can only happen once per round
     startAnnouncement: station-event-communication-interception

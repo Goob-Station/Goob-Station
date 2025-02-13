@@ -180,7 +180,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: StationEvent
-    weight: 5 # Reserve edit, 3x times less
+    weight: 15
     duration: 1
     earliestStart: 50
     minimumPlayers: 20
