@@ -16,6 +16,9 @@
       rules: ghost-role-information-familiar-rules
       raffle:
         settings: default
+      requirements: # Goobstation - ghost roles requirements
+      - !type:OverallPlaytimeRequirement
+        time: 36000 #10 hours
     - type: GhostTakeoverAvailable
     - type: Input
       context: "human"

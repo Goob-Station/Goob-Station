@@ -28,6 +28,15 @@
     rules: abductors-ghost-role-rules
     raffle:
       settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 36000 #10 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 7200 #2 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 7200 #2 hours
   - type: AbductorScientist
   - type: ActionGrant
     actions:
@@ -50,6 +59,12 @@
     rules: abductors-ghost-role-rules
     raffle:
       settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 36000 #10 hours
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 10800 #3 hours
   - type: AbductorScientist
   - type: ActionGrant
     actions:
@@ -72,6 +87,12 @@
     rules: abductors-ghost-role-rules
     raffle:
       settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 36000 #10 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 10800 #3 hours
   - type: AbductorScientist
   - type: ActionGrant
     actions:

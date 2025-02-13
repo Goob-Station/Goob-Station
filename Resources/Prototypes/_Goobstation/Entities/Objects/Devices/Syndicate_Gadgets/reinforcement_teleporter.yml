@@ -10,6 +10,9 @@
     rules: ghost-role-information-SyndiRoach-rules
     raffle:
       settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 36000 #10 hours
   - type: GhostRoleMobSpawner
     prototype: MobMothSyndy
   - type: EmitSoundOnUse
