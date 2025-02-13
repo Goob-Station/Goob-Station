@@ -529,11 +529,11 @@ accent-medieval-words-replace-163 = Arch Wizard
 accent-medieval-words-164 = chief engineer
 accent-medieval-words-replace-164 = Arch Wizard
 
-accent-medieval-words-165 = atmos
-accent-medieval-words-replace-165 = Witches
+accent-medieval-words-165 = atmos tech
+accent-medieval-words-replace-165 = Witch
 
-accent-medieval-words-166 = atmos tech
-accent-medieval-words-replace-166 = Witch
+accent-medieval-words-166 = atmos
+accent-medieval-words-replace-166 = Witches
 
 accent-medieval-words-167 = departments
 accent-medieval-words-replace-167 = wards
@@ -741,3 +741,6 @@ accent-medieval-words-replace-234 = unspeakable filth pit
 
 accent-medieval-words-235 = room4
 accent-medieval-words-replace-235 = unspeakable filth pit
+
+accent-medieval-prefix-236 = atmospherics
+accent-medieval-words-replace-236 = Witches
