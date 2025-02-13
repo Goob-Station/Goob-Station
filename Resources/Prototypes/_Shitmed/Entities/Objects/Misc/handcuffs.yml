@@ -2,7 +2,7 @@
   name: wondercuffs
   description: Made out of a metal more durable than anything Nanotrasen could dream of.
   id: AbductorHandcuffs
-  parent: [Handcuffs, BaseRestrictedContraband]
+  parent: [BaseMajorContraband, Handcuffs]
   components:
   - type: Handcuff
     cuffTime: 1.5
