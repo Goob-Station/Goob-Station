@@ -62,19 +62,13 @@ namespace Content.Client.Access.UI
                 if (string.IsNullOrEmpty(query))
                 {
                     foreach (var button in _accessButtons.ButtonsList.Values)
-                    {
                         containerChild.AddChild(button);
-                    }
                     return;
                 }
 
                 foreach (var (id, button) in _accessButtons.ButtonsList)
-                {
                     if (id.Id.Contains(query, StringComparison.CurrentCultureIgnoreCase))
-                    {
                         containerChild.AddChild(button);
-                    }
-                }
             };
             // Goobstation End
 
