@@ -43,7 +43,7 @@ public sealed class ContrabandDetectorSystem : EntitySystem
             FalseDetection(95))     //false negative
         {
             _popupSystem.PopupCoordinates(
-                "Contraband found", // add localisation
+                Loc.GetString("contraband-detector-popup-detected"),
                 Transform(uid).Coordinates,
                 PopupType.LargeCaution);
 
