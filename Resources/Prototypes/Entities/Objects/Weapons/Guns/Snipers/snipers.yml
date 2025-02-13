@@ -93,16 +93,16 @@
       - CartridgeAntiMateriel
     capacity: 1
     proto: CartridgeAntiMateriel
-  - type: MeleeWeapon
-    wideAnimationRotation: -135
-    damage:
-      types:
-        Piercing: 15 #you fucking stab em
-        Bloodloss: 2 #no way to apply bleed, triangular bayonet wounds are hard to fix(source:that one copypasta)
-    angle: 0
-    animation: WeaponArcThrust
-    soundHit:
-      path: /Audio/Weapons/bladeslice.ogg
+  #- type: MeleeWeapon # Goobstation - commented this out cause it breaks NPCs and it doesn't work anyway lol
+  #  wideAnimationRotation: -135
+  #  damage:
+  #    types:
+  #      Piercing: 15 #you fucking stab em
+  #      Bloodloss: 2 #no way to apply bleed, triangular bayonet wounds are hard to fix(source:that one copypasta)
+  # angle: 0
+  # animation: WeaponArcThrust
+  # soundHit:
+  #   path: /Audio/Weapons/bladeslice.ogg
 
 - type: entity
   name: flintlock pistol
