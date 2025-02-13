@@ -32,7 +32,7 @@
     - !type:OverallPlaytimeRequirement
       time: 36000 #10 hours
     - !type:DepartmentTimeRequirement
-      department: Security
+      department: Medical
       time: 7200 #2 hours
     - !type:DepartmentTimeRequirement
       department: Security
