@@ -158,6 +158,11 @@
     Telecrystal: 60 # goob
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 
 - type: listing
