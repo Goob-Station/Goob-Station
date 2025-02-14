@@ -1,0 +1,14 @@
+- type: entity
+  name: reverse bear trap pack
+  parent: BoxCardboard
+  id: BoxReverseBearTrap
+  description: A box full of completely legal stuff.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ReverseBearTrap
+        amount: 1
+      - id: ReverseBearTrapKey
+        amount: 1
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/boxes.rsi

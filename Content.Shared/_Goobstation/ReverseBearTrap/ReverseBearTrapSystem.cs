@@ -19,6 +19,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using System.Linq;
+using Content.Shared.Tag;
 
 namespace Content.Shared.ReverseBearTrap;
 
@@ -36,6 +37,7 @@ public sealed class ReverseBearTrapSystem : EntitySystem
     [Dependency] private readonly SharedToolSystem _toolSystem = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     public override void Initialize()
     {
@@ -49,16 +51,16 @@ public sealed class ReverseBearTrapSystem : EntitySystem
         SubscribeLocalEvent<ReverseBearTrapComponent, BearTrapEscapeDoAfterEvent>(OnBearTrapEscape);
         SubscribeLocalEvent<ReverseBearTrapComponent, BearTrapApplyDoAfterEvent>(OnBearTrapApply);
         SubscribeLocalEvent<ReverseBearTrapComponent, WeldFinishedEvent>(OnWeldFinished);
+        SubscribeLocalEvent<ReverseBearTrapComponent, BearTrapUnlockDoAfterEvent>(OnBearTrapUnlock);
     }
 
     private void OnEquipped(EntityUid uid, ReverseBearTrapComponent trap, GotEquippedEvent args)
     {
-        if (trap.Ticking || args.Equipee == trap.Wearer)
+        if (args.Slot != "head")
         {
             return;
         }
 
-        trap.CurrentEscapeChance = trap.BaseEscapeChance;
         ArmTrap(uid, trap, args.Equipee);
     }
 
@@ -107,6 +109,7 @@ public sealed class ReverseBearTrapSystem : EntitySystem
 
         if (trap.Ticking)
         {
+            var activeItem = _handsSystem.GetActiveItem(args.User);
             if (args.User == trap.Wearer)
             {
                 args.Verbs.Add(new Verb()
@@ -118,25 +121,37 @@ public sealed class ReverseBearTrapSystem : EntitySystem
             }
             else
             {
-                var tool = _handsSystem.GetActiveItem(args.User);
-
                 args.Verbs.Add(new Verb()
                 {
                     DoContactInteraction = true,
                     Text = "Remove trap",
-                    Disabled = !tool.HasValue || !_toolSystem.HasQuality(tool.Value, "Welding"),
+                    Disabled = !activeItem.HasValue || !_toolSystem.HasQuality(activeItem.Value, "Welding"),
                     Act = () =>
                     {
-                        if (!tool.HasValue)
-                        {
-                            return;
-                        }
+                        _toolSystem.UseTool(activeItem!.Value, args.User, uid, 5f, "Welding", new WeldFinishedEvent(), 3f);
+                    }
+                });
+            }
 
-                        if (!_toolSystem.UseTool(tool.Value, args.User, uid, 5f, "Welding", new WeldFinishedEvent(), 3f))
+            if (activeItem.HasValue
+                && TryComp<TagComponent>(activeItem, out var tagComponent)
+                && _tag.HasTag(tagComponent, "ReverseBearTrapKey"))
+            {
+                args.Verbs.Add(new Verb()
+                {
+                    DoContactInteraction = true,
+                    Text = "Unlock trap",
+                    Act = () =>
+                    {
+                        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, 1.5f,
+                            new BearTrapUnlockDoAfterEvent(), uid, uid)
                         {
-                            return;
-                        }
+                            BreakOnDamage = true,
+                            BreakOnMove = true,
+                            AttemptFrequency = AttemptFrequency.EveryTick
+                        };
 
+                        _doAfter.TryStartDoAfter(doAfterArgs);
                     }
                 });
             }
@@ -154,7 +169,7 @@ public sealed class ReverseBearTrapSystem : EntitySystem
                 {
                     args.Verbs.Add(new Verb()
                     {
-                        Category = _timerOptions,
+                        Category = TimerOptions,
                         Text = Loc.GetString("verb-trigger-timer-set-current", ("time", option)),
                         Disabled = true,
                         Priority = (int) (-100 * option)
@@ -164,7 +179,7 @@ public sealed class ReverseBearTrapSystem : EntitySystem
 
                 args.Verbs.Add(new Verb()
                 {
-                    Category = _timerOptions,
+                    Category = TimerOptions,
                     Text = Loc.GetString("verb-trigger-timer-set", ("time", option)),
                     Priority = (int) (-100 * option),
 
@@ -234,6 +249,23 @@ public sealed class ReverseBearTrapSystem : EntitySystem
         ResetTrap(uid, trap);
     }
 
+    private void OnBearTrapUnlock(EntityUid uid, ReverseBearTrapComponent trap, BearTrapUnlockDoAfterEvent args)
+    {
+        if (args.Cancelled || !trap.Wearer.HasValue)
+        {
+            return;
+        }
+
+        if (_net.IsServer)
+        {
+            _audio.PlayPredicted(trap.StartCuffSound, trap.Wearer.Value, null);
+
+            _popup.PopupEntity("The trap falls off.", trap.Wearer.Value);
+        }
+
+        ResetTrap(uid, trap);
+    }
+
     private void ArmTrap(EntityUid uid, ReverseBearTrapComponent trap, EntityUid wearer)
     {
         if (trap.Ticking || !EntityManager.EntityExists(wearer) || !_interaction.InRangeUnobstructed(uid, wearer))
@@ -244,8 +276,10 @@ public sealed class ReverseBearTrapSystem : EntitySystem
         trap.Ticking = true;
         trap.ActivateTime = _gameTiming.CurTime;
         trap.Wearer = wearer;
-
+        trap.CurrentEscapeChance = trap.BaseEscapeChance;
         EnsureComp<UnremoveableComponent>(uid);
+
+        Dirty(uid, trap);
 
         if (_net.IsServer)
         {
@@ -274,6 +308,7 @@ public sealed class ReverseBearTrapSystem : EntitySystem
         trap.Struggling = false;
         trap.CurrentEscapeChance = trap.BaseEscapeChance;
         RemComp<UnremoveableComponent>(uid.Value);
+
         Dirty(uid.Value, trap);
 
         if (oldWearer != null && TryComp<ItemComponent>(uid, out var _))
@@ -341,7 +376,7 @@ public sealed class ReverseBearTrapSystem : EntitySystem
         {
             BreakOnDamage = true,
             BreakOnMove = true,
-            AttemptFrequency = AttemptFrequency.EveryTick
+            AttemptFrequency = AttemptFrequency.StartAndEnd
         };
 
         _doAfter.TryStartDoAfter(doAfterArgs);
@@ -351,6 +386,8 @@ public sealed class ReverseBearTrapSystem : EntitySystem
     private sealed partial class BearTrapEscapeDoAfterEvent : SimpleDoAfterEvent { }
     [Serializable, NetSerializable]
     private sealed partial class BearTrapApplyDoAfterEvent : SimpleDoAfterEvent { }
+    [Serializable, NetSerializable]
+    private sealed partial class BearTrapUnlockDoAfterEvent : SimpleDoAfterEvent { }
 
-    private static readonly VerbCategory _timerOptions = new("verb-categories-timer", "/Textures/Interface/VerbIcons/clock.svg.192dpi.png");
+    private static readonly VerbCategory TimerOptions = new("verb-categories-timer", "/Textures/Interface/VerbIcons/clock.svg.192dpi.png");
 }

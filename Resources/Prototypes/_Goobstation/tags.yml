@@ -211,3 +211,5 @@
 - type: Tag
   id: WeaponPistolDualetta
 
+- type: Tag
+  id: ReverseBearTrapKey
