@@ -153,6 +153,7 @@
     - type: CanEnterCryostorage # Goobstation
     - type: StatusIcon # Goobstation
       bounds: -0.5,-0.5,0.5,0.5
+    - type: HasJobIcons # Goobstation
     #- type: Bloodstream This is left commented out because it's not necessary for a robot, but you may want it.
     #  damageBleedModifiers: BloodlossIPC
     #  bloodReagent: Oil
@@ -223,6 +224,8 @@
           type: StoreBoundUserInterface
         enum.HereticLivingHeartKey.Key: # goob edit - heretics
           type: LivingHeartMenuBoundUserInterface
+        enum.WizardTeleportUiKey.Key: # Goobstation - wizard
+          type: WizardTeleportBoundUserInterface
         enum.SurgeryUIKey.Key: # Shitmed
           type: SurgeryBui
     - type: Emoting
@@ -311,7 +314,7 @@
     - type: FireVisuals
       alternateState: Standing
     - type: LightningTarget
-      priority: 1
+      priority: 2 # Goobstation
       lightningExplode: false
     - type: ComplexInteraction
     - type: FootPrints

@@ -1,0 +1,46 @@
+- type: entity
+  parent: BaseLathe
+  id: MedicalBiofabricator
+  name: medical biofabricator
+  description: Produces organs and other organic matter that can be surgically grafted onto patients with biomass.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Structures/Machines/limbgrower.rsi
+    snapCardinals: true
+    layers:
+    - state: limbgrower_idleoff
+      map: ["enum.LatheVisualLayers.IsRunning"]
+#    - state: limbgrower_idleoff
+#      shader: unshaded
+#      map: ["enum.PowerDeviceVisualLayers.Powered"]
+#    - state: inserting
+#      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+#    - state: panel
+#      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: MedicalBiofabMachineBoard
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+  - type: Lathe
+    idleState: limbgrower_idleoff
+    runningState: limbgrower_idleon
+    staticRecipes:
+    - SynthLiver
+    - SynthHeart
+    - SynthLungs
+    - SynthEyes
+    - SynthLeftLeg
+    - SynthRightLeg
+    - SynthLeftFoot
+    - SynthRightFoot
+    - SynthLeftArm
+    - SynthRightArm
+    - SynthLeftHand
+    - SynthRightHand
+  - type: EmagLatheRecipes
+    emagStaticRecipes:
+    - PizzaLeftArm
+    - PizzaRightArm
