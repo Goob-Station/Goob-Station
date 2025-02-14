@@ -138,15 +138,15 @@
       roleLoadout: [ RoleSurvivalEVA ]
 
 - type: entity
-  id: RandomHumanoidSpawnerERTLeaderEVALecter
+  id: RandomHumanoidSpawnerERTLeaderEVAAnnie
   parent: RandomHumanoidSpawnerERTLeaderEVA
-  suffix: ERTRole, Lecter, EVA
+  suffix: ERTRole, Annie, EVA
   components:
     - type: RandomHumanoidSpawner
-      settings: ERTLeaderEVALecter
+      settings: ERTLeaderEVAAnnie
 
 - type: randomHumanoidSettings
-  id: ERTLeaderEVALecter
+  id: ERTLeaderEVAAnnie
   parent: ERTLeaderEVA
   components:
     - type: GhostRole
@@ -157,7 +157,7 @@
         settings: short
       job: ERTLeader
     - type: Loadout
-      prototypes: [ ERTLeaderGearEVALecter ]
+      prototypes: [ ERTLeaderGearEVAAnnie ]
       roleLoadout: [ RoleSurvivalEVA ]
 
 ## ERT Chaplain
