@@ -66,10 +66,13 @@
     cost: 1600
   - id: SpaceCash1000
     cost: 2000
+  - id: ShelterCapsule
+    cost: 2700
   # TODO: super resonator for 2500
   # TODO: jump boots for 2500
   - id: ClothingOuterHardsuitSalvage
     cost: 3000
-  # TODO: luxury shelter capsule for 3k
+  - id: ShelterCapsuleLuxury
+    cost: 4000
   # TODO: luxury elite bar capsule for 10k
   # TODO: mining drone stuff

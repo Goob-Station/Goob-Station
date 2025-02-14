@@ -27,9 +27,9 @@
       - id: OreBag
       - id: Pickaxe
       - id: LavalandEquipmentExplorerSuit
+      - id: ShelterCapsule
       - id: ClothingMaskGasExplorer
       - id: MineralScanner
-    # TODO: bluespace shelter capsule
       # Lavaland Change End
 
 - type: entity
@@ -57,6 +57,7 @@
       - id: OreBag
       - id: Pickaxe
       - id: LavalandEquipmentExplorerSuit
+      - id: ShelterCapsule
       - id: ClothingMaskGasExplorer
       - id: MineralScanner
       # TODO: bluespace shelter capsule
