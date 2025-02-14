@@ -1,0 +1,11 @@
+- type: shader
+  id: EtherealJaunt
+  kind: source
+  path: "/Textures/_Goobstation/Wizard/Shaders/ethereal_jaunt.swsl"
+
+- type: shader
+  id: WizardParallax
+  kind: source
+  path: "/Textures/_Goobstation/Wizard/Shaders/ethereal_jaunt.swsl"
+  params:
+    use_reference: false

@@ -112,6 +112,13 @@
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
   - type: FootPrints # WD EDIT
+  - type: Tag # Goobstation
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - Undead
 
 - type: entity
   parent: BaseSpeciesDummy
