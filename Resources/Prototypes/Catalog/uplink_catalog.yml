@@ -786,6 +786,7 @@
   id: UplinkEmag
   name: uplink-emag-name
   description: uplink-emag-desc
+  productEntity: Emag
   cost:
     Telecrystal: 15 # goob - I'm tempted to set it to 10, since it's pretty bad unless you have a good plan, but we'll keep it at 15 and see
   categories:
