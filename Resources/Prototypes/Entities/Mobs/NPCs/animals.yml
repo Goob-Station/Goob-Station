@@ -1593,7 +1593,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Critical # Goob edit
+      100: Critical
       200: Dead
   - type: NpcFactionMember
     factions:

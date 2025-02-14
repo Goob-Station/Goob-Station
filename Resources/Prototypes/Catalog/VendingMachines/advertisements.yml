@@ -280,3 +280,9 @@
     prefix: advertisement-medibot-
     # Goobstation - Medibot AM advertisement; originally 17
     count: 18
+
+- type: localizedDataset
+  id: PrideDrobeAds
+  values:
+    prefix: advertisement-pride-
+    count: 4
