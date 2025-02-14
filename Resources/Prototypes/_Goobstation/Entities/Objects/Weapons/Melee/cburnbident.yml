@@ -20,8 +20,6 @@
     animation: WeaponArcThrust
   - type: IgniteOnMeleeHit
     fireStacks: 4
-  - type: ThrowingAngle
-    angle: 315
   - type: LandAtCursor
   - type: DamageOtherOnHit # Let the spears SOAR!!
     damage:
