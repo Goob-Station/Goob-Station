@@ -13774,6 +13774,35 @@ entities:
       rot: 3.141592653589793 rad
       pos: 5.5,7.5
       parent: 2
+- proto: RandomHumanoidSpawnerCentcomOfficial
+  entities:
+  - uid: 1353
+    components:
+    - type: Transform
+      pos: 0.52234834,5.554349
+      parent: 2
+- proto: RandomHumanoidSpawnerDeathSquad
+  entities:
+  - uid: 1354
+    components:
+    - type: Transform
+      pos: -6.391657,12.484411
+      parent: 2
+  - uid: 1355
+    components:
+    - type: Transform
+      pos: 7.618166,13.489984
+      parent: 2
+  - uid: 1356
+    components:
+    - type: Transform
+      pos: -0.38201576,4.505081
+      parent: 2
+  - uid: 1357
+    components:
+    - type: Transform
+      pos: 1.5242343,4.4842477
+      parent: 2
 - proto: RegenerativeMesh
   entities:
   - uid: 234
