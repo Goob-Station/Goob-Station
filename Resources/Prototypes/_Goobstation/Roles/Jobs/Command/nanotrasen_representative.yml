@@ -6,7 +6,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 180000  #50 hours
+      time: 72000  #10 hours
     - !type:AgeRequirement
       requiredAge: 21
   weight: 20

@@ -5,7 +5,7 @@
   playTimeTracker: JobBartender
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 1800 # 30 Minutes
+      time: 0 # 0 Minutes
   startingGear: BartenderGear
   icon: "JobIconBartender"
   supervisors: job-supervisors-hop

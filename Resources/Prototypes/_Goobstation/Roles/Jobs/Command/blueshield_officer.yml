@@ -6,13 +6,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 90000 # 25 hours
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 54000 # 15 hours
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 90000 # 25 hours
+      time: 36000 # 10 hours
     - !type:AgeRequirement
       requiredAge: 21
   weight: 20

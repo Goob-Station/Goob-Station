@@ -7,4 +7,4 @@
   guides: [ Blob ]
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 18000 # 5h # Goobstation-RoleTime
+    time: 11200 # 3h # Goobstation-RoleTime
