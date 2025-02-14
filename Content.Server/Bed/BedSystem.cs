@@ -126,6 +126,7 @@ namespace Content.Server.Bed
             UpdateMetabolisms(uid, component, false);
             component.Multiplier = 1 / component.Multiplier;
             UpdateMetabolisms(uid, component, true);
+            args.Repeatable = true; // Goobstation edit
             args.Handled = true;
         }
 
