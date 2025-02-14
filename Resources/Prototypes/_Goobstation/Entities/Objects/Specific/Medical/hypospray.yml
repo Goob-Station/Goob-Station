@@ -214,7 +214,7 @@
   name: amnestic spray
   parent: [SecHypo, BaseCentcommContraband]
   id: AmnestizineHypospray
-  description: Prevents the subject from remembering anything prior or during the injection. Don't use too much.
+  description: Prevents the subject from remembering anything prior or during the injection.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/amnestic_hypo.rsi

@@ -205,16 +205,6 @@
         type: Add
         time: 2
         refresh: false
-      - !type:HealthChange # OD Causes HEINOUS amounts of DNA damage. Your body forgets how to function, and your DNA forgets what shape it's supposed to be.
-        conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
-          min: 20
-        damage:
-          types:
-            Cellular: 15
       - !type:Jitter
         conditions:
         - !type:ReagentThreshold
