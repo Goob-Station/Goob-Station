@@ -31,7 +31,7 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Pierce: 15
+        Puncture: 15
     animation: WeaponArcThrust
   - type: LandAtCursor
   - type: Battery
