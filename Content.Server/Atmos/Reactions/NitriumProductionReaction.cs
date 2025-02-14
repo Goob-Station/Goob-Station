@@ -7,7 +7,7 @@ namespace Content.Server.Atmos.Reactions;
 
 /// <summary>
 ///     Assmos - /tg/ gases
-///     Produces Nitrium by mixing Tritium, Nitrogen and BZ at temperatures above 1500K. 
+///     Produces Nitrium by mixing Tritium, Nitrogen and BZ at temperatures above 1500K.
 /// </summary>
 [UsedImplicitly]
 public sealed partial class NitriumProductionReaction : IGasReactionEffect
@@ -17,8 +17,9 @@ public sealed partial class NitriumProductionReaction : IGasReactionEffect
         var initTritium = mixture.GetMoles(Gas.Tritium);
         var initNitrogen = mixture.GetMoles(Gas.Nitrogen);
         var initBZ = mixture.GetMoles(Gas.BZ);
+        var initHealium = mixture.GetMoles(Gas.Healium);
 
-        if (initTritium<20||initNitrogen<10||initBZ<5||mixture.Temperature<1500)
+        if (initTritium<30||initNitrogen<20||initBZ<15||initHealium<10||mixture.Temperature<1550)
             return ReactionResult.NoReaction;
 
         var efficiency = Math.Min(mixture.Temperature / 2984f, Math.Min(initBZ * 20f, Math.Min(initTritium, initNitrogen)));
@@ -27,8 +28,9 @@ public sealed partial class NitriumProductionReaction : IGasReactionEffect
         var nitrogenRemoved = efficiency;
         var bzRemoved = efficiency * 0.05f;
         var nitriumProduced = efficiency;
+        var healiumRemoved = efficiency;
 
-        if (efficiency <= 0 || initTritium - tritiumRemoved < 0 || initNitrogen - nitrogenRemoved < 0 || initBZ - bzRemoved < 0)
+        if (efficiency <= 0 || initTritium - tritiumRemoved < 0 || initNitrogen - nitrogenRemoved < 0 || initBZ - bzRemoved < 0 || initHealium - healiumRemoved < 0)
             return ReactionResult.NoReaction;
 
         mixture.AdjustMoles(Gas.Tritium, -tritiumRemoved);

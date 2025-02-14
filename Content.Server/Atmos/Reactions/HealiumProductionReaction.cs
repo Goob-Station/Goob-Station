@@ -7,14 +7,14 @@ namespace Content.Server.Atmos.Reactions;
 
 /// <summary>
 ///     Assmos - /tg/ gases
-///     Produces Healium by mixing BZ and Frezon at temperatures between 23K and 293K. Efficiency increases in colder temperatures.  
+///     Produces Healium by mixing BZ and Frezon at temperatures between 23K and 293K. Efficiency increases in colder temperatures.
 /// </summary>
 [UsedImplicitly]
 public sealed partial class HealiumProductionReaction : IGasReactionEffect
 {
     public ReactionResult React(GasMixture mixture, IGasMixtureHolder? holder, AtmosphereSystem atmosphereSystem, float heatScale)
     {
-        if (mixture.Temperature > 300f || mixture.Temperature < 22f)
+        if (mixture.Temperature > 300f || mixture.Temperature < 250f)
             return ReactionResult.NoReaction;
 
         var initBZ = mixture.GetMoles(Gas.BZ);

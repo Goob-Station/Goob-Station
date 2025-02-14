@@ -135,7 +135,7 @@
   molarMass: 8
   color: a52a2a
   reagent: Nitrium
-  pricePerMole: 3
+  pricePerMole: 5
 
 - type: gas
   id: 12

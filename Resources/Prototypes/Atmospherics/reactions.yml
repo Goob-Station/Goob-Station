@@ -113,7 +113,7 @@
   id: HealiumProduction
   priority: 2
   maximumTemperature: 300.0
-  minimumTemperature: 22.0
+  minimumTemperature: 250.0
   minimumRequirements:
   - 0     # oxygen
   - 0     # nitrogen
@@ -131,18 +131,19 @@
 - type: gasReaction
   id: NitriumProduction
   priority: 2
-  minimumTemperature: 1500.0
+  minimumTemperature: 1550.0
   minimumRequirements:
   - 0     # oxygen
-  - 10    # nitrogen
+  - 20    # nitrogen
   - 0     # carbon dioxide
   - 0     # plasma
-  - 20    # tritium
+  - 30    # tritium
   - 0     # vapor
   - 0     # miasma
   - 0     # n2o
   - 0     # frezon
-  - 5     # bz
+  - 15    # bz
+  - 10   # healium
   effects:
   - !type:NitriumProductionReaction {}
 
