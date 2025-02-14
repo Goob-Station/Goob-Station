@@ -8,6 +8,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Serialization;
 using Content.Shared.Whitelist; // Shitmed - Starlight Abductors
 
 namespace Content.Shared.Emag.Systems;
@@ -135,6 +136,7 @@ public sealed class EmagSystem : EntitySystem
 
 
 [Flags]
+[Serializable, NetSerializable]
 public enum EmagType : byte
 {
     None = 0,
