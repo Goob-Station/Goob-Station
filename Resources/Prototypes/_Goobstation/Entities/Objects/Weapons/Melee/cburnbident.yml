@@ -19,12 +19,12 @@
         Piercing: 5
     animation: WeaponArcThrust
   - type: IgniteOnMeleeHit
-    fireStacks: 4
+    fireStacks: 2
   - type: LandAtCursor
   - type: DamageOtherOnHit # Let the spears SOAR!!
     damage:
       types:
-        Piercing: 45
+        Piercing: 30
         Heat: 15
   - type: UseDelay
   - type: Item
