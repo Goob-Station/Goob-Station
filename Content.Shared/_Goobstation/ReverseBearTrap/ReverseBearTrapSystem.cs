@@ -211,7 +211,7 @@ public sealed class ReverseBearTrapSystem : EntitySystem
             return;
         }
 
-        if (!_inventory.TryGetSlotEntity(target, "head", out var headItem) && headItem == null)
+        if (!_inventory.TryGetSlotEntity(target, "head", out var _))
         {
             if (_inventory.TryEquip(target, used, "head", true, true))
             {
@@ -352,5 +352,5 @@ public sealed class ReverseBearTrapSystem : EntitySystem
     [Serializable, NetSerializable]
     private sealed partial class BearTrapApplyDoAfterEvent : SimpleDoAfterEvent { }
 
-    private static VerbCategory _timerOptions = new("verb-categories-timer", "/Textures/Interface/VerbIcons/clock.svg.192dpi.png");
+    private static readonly VerbCategory _timerOptions = new("verb-categories-timer", "/Textures/Interface/VerbIcons/clock.svg.192dpi.png");
 }
