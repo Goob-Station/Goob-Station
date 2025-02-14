@@ -1,3 +1,4 @@
+using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
@@ -22,10 +23,12 @@ public sealed partial class Ignite : EntityEffect
         var flamSys = args.EntityManager.System<FlammableSystem>();
         if (args is EntityEffectReagentArgs reagentArgs)
         {
-            flamSys.Ignite(reagentArgs.TargetEntity, reagentArgs.OrganEntity ?? reagentArgs.TargetEntity);
+            if (args.EntityManager.TryGetComponent(reagentArgs.TargetEntity, out FlammableComponent? flammable)) // Goobstation
+                flamSys.Ignite(reagentArgs.TargetEntity, reagentArgs.OrganEntity ?? reagentArgs.TargetEntity, flammable); // Goob edit
         } else
         {
-            flamSys.Ignite(args.TargetEntity, args.TargetEntity);
+            if (args.EntityManager.TryGetComponent(args.TargetEntity, out FlammableComponent? flammable)) // Goobstation
+                flamSys.Ignite(args.TargetEntity, args.TargetEntity, flammable); // Goob edit
         }
     }
 }

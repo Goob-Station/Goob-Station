@@ -51,6 +51,13 @@ public sealed partial class AntagSelectionComponent : Component
     /// </summary>
     [DataField]
     public LocId? AgentName;
+
+    /// <summary>
+    /// Goobstation.
+    /// Whether the round end text should show original entity name or mind character name.
+    /// </summary>
+    [DataField]
+    public bool UseCharacterNames;
 }
 
 [DataDefinition]
@@ -195,6 +202,13 @@ public partial struct AntagSelectionDefinition()
     /// </summary>
     [DataField]
     public bool RollBeforeJob = true;
+
+    /// <summary>
+    /// Goobstation
+    /// Unequip all gear before making antag
+    /// </summary>
+    [DataField]
+    public bool UnequipOldGear;
 }
 
 /// <summary>

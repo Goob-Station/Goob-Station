@@ -67,6 +67,48 @@
 - type: Tag
   id: NukeOpsReinforcementUplink
 
+- type: Tag
+  id: FrozenIgnoreMindAction
+
+- type: Tag
+  id: BindSoulAction
+
+- type: Tag
+  id: IgnoreBindSoul
+
+- type: Tag
+  id: CartridgeMagicBullet
+
+- type: Tag
+  id: CursedAnimalMask
+
+- type: Tag
+  id: WizardHat
+
+- type: Tag
+  id: SoulTapped
+
+- type: Tag
+  id: SyringeArmor
+
+- type: Tag
+  id: IgnoreImmovableRod
+
+- type: Tag
+  id: BlockLightning
+
+- type: Tag
+  id: SummonSimiansMaxLevelAction
+
+- type: Tag
+  id: GorillaFormAction
+
+- type: Tag
+  id: Undead
+
+- type: Tag
+  id: GunCanAimShooter
+
 # Mechs
 
 - type: Tag
@@ -177,7 +219,7 @@
 
 - type: Tag
   id: MagazineMagnumLeverRifle
-  
+
 - type: Tag
   id: ModsuitPart
 
@@ -201,13 +243,13 @@
 
 - type: Tag
   id: ModsuitPlatingExternal
-  
+
 - type: Tag
   id: MagazineLightRifleSubsonic
 
 - type: Tag
   id: CartridgeLightRifleSubsonic
-  
+
 - type: Tag
   id: WeaponPistolDualetta
 
