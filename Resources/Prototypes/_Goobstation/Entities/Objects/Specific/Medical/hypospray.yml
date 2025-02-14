@@ -239,3 +239,60 @@
     delay: 0.1 # UseDelays are for LOSERs
   - type: Tag
     tags: []
+
+- type: entity
+  name: biohazard medipen
+  parent: ChemicalMedipen
+  id: AmbuzolMedipen
+  description: A safe and effective way to treat infections. Does not prevent re-infection.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medipen.rsi # Todo - Add new sprites
+    layers:
+    - state: medipen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: medipen_empty
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 10
+        reagents:
+        - ReagentId: Ambuzol
+          Quantity: 10
+        - ReagentId: Ultravasculine
+          Quantity: 5
+  - type: Tag
+    tags:
+    - EmergencyMedipen
+
+- type: entity
+  name: advanced biohazard medipen
+  parent: ChemicalMedipen
+  id: AmbuzolPlusMedipen
+  description: A safer and extremely effective way to treat any infections. Prevents re-infection.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medipen.rsi # Todo - Add new sprites
+    layers:
+    - state: medipen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: medipen_empty
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 10
+        reagents:
+        - ReagentId: AmbuzolPlus
+          Quantity: 5
+        - ReagentId: Diphenhydramine
+          Quantity: 15
+  - type: Tag
+    tags:
+    - EmergencyMedipen
+
