@@ -1,4 +1,5 @@
 using Content.Shared.Atmos;
+using Content.Shared.Guidebook;
 
 namespace Content.Server.Atmos.Portable
 {
@@ -48,5 +49,12 @@ namespace Content.Server.Atmos.Portable
         /// </summary>
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public float TransferRate = 800;
+
+        #region GuidebookData
+
+        [GuidebookData]
+        public float Volume => Air.Volume;
+
+        #endregion
     }
 }

@@ -381,6 +381,7 @@
     pack: MedibotAds
   - type: Inventory
     templateId: medibot
+  - type: DoAfter
   - type: StationAiVision # Goobstation - AI can see through NT silicon
     range: 1
 

@@ -19,7 +19,7 @@ public sealed partial class CanWieldPrecondition : HTNPrecondition
             !_entManager.TryGetComponent(item, out WieldableComponent? wieldable))
             return false ^ Invert;
 
-        var wieldableSystem = _entManager.System<WieldableSystem>();
+        var wieldableSystem = _entManager.System<SharedWieldableSystem>();
 
         if (!wieldableSystem.CanWield(item.Value, wieldable, owner, true))
             return false ^ Invert;

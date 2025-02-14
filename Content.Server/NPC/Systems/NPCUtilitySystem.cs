@@ -55,7 +55,7 @@ public sealed class NPCUtilitySystem : EntitySystem
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly MobThresholdSystem _thresholdSystem = default!;
-    [Dependency] private readonly WieldableSystem _wieldable = default!; // Goobstation
+    [Dependency] private readonly SharedWieldableSystem _wieldable = default!; // Goobstation
 
     private EntityQuery<PuddleComponent> _puddleQuery;
     private EntityQuery<TransformComponent> _xformQuery;

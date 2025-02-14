@@ -9,7 +9,7 @@ namespace Content.Shared._Goobstation.Weapons.FoldingWeapon;
 
 public sealed class FoldingWeaponSystem : EntitySystem
 {
-    [Dependency] private readonly WieldableSystem _wieldable = default!;
+    [Dependency] private readonly SharedWieldableSystem _wieldable = default!;
     [Dependency] private readonly ClothingSystem _clothing = default!;
     [Dependency] private readonly SharedItemSystem _item = default!;
 
