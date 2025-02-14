@@ -1,5 +1,5 @@
 - type: entity
-  name: bident
+  name: superheated bident
   parent: [BaseItem, BaseCentcommContraband]
   id: CburnBident
   description: A bident used by Nanotrasen's CBURN agents. Is capable of incinerating targets when switched on.
@@ -40,7 +40,7 @@
   - type: UseDelay
   - type: Item
     heldPrefix: off
-    size: Normal
+    size: Large
   - type: Clothing
     sprite: Objects/Weapons/Melee/stunprod.rsi # Todo - Change This
     quickEquip: false
@@ -57,3 +57,6 @@
           False: {state: stunprod_off} # Todo - Change This
   - type: StaticPrice
     price: 800
+  - type: Tool
+    qualities:
+    - Prying
