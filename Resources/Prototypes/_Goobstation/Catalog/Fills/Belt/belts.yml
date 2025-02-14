@@ -59,7 +59,7 @@
 - type: entity
   id: ClothingBeltSecurityWebbingFilledMedical
   parent: ClothingBeltSecurityWebbing
-  suffix: [Filled, Medical]
+  suffix: Filled
   components:
   - type: StorageFill
     contents:
