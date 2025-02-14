@@ -99,7 +99,7 @@
   - type: AccessReader
     access:
     - [ Command ]
-    breakOnEmag: false # Goobstation
+    breakOnAccessBreaker: false # Goobstation
   - type: EmergencyShuttleConsole
   - type: ActivatableUI
     key: enum.EmergencyConsoleUiKey.Key
@@ -662,7 +662,7 @@
     color: "#3c5eb5"
   - type: Tag
     tags:
-    - EmagImmune
+    - AccessBreakerImmune
   - type: ItemSlots
   - type: ContainerContainer
     containers:

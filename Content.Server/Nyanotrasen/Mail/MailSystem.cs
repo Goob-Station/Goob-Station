@@ -71,6 +71,7 @@ namespace Content.Server.Mail
         [Dependency] private readonly ItemSystem _itemSystem = default!;
         [Dependency] private readonly MindSystem _mindSystem = default!;
         [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
+        [Dependency] private readonly EmagSystem _emag = default!;
 
         // DeltaV - system that keeps track of mail and cargo stats
         [Dependency] private readonly LogisticStatsSystem _logisticsStatsSystem = default!;
@@ -204,7 +205,7 @@ namespace Content.Server.Mail
             if (idCard == null) /// Return if we still haven't found an id card.
                 return;
 
-            if (!HasComp<EmaggedComponent>(uid))
+            if (!_emag.CheckFlag(uid, EmagType.Interaction))
             {
                 if (idCard.FullName != component.Recipient || idCard.LocalizedJobTitle != component.RecipientJob)
                 {
