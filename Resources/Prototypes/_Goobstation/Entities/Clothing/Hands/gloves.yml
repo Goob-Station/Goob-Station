@@ -122,7 +122,8 @@
   suffix: Unremovable
   components:
   - type: Unremoveable
-  
+
+- type: entity
   parent: ClothingHandsGlovesColorYellow
   id: ClothingHandsGlovesAtmosInsulated
   name: insulated atmos gloves
