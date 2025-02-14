@@ -293,7 +293,7 @@ public sealed partial class StationJobsSystem
             var profile = profiles[player];
             if (profile.PreferenceUnavailable != PreferenceUnavailableMode.SpawnAsOverflow)
             {
-                _pendingAntag.PendingAntags.Remove(player);
+                _pendingAntag.PendingAntags.Remove(player); // Goobstation
                 assignedJobs.Add(player, (null, EntityUid.Invalid));
                 continue;
             }
