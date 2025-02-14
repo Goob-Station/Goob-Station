@@ -63,14 +63,14 @@ public sealed partial class GoobCVars
     ///     Used for dynamic gamemode.
     /// </summary>
     public static readonly CVarDef<float> LowpopThreshold =
-        CVarDef.Create("game.players.lowpop_threshold", 15f, CVar.SERVERONLY);
+        CVarDef.Create("game.players.lowpop_threshold", 7f, CVar.SERVERONLY);
 
     /// <summary>
     ///     Indicates how much players are required for the round to be considered highpop.
     ///     Used for dynamic gamemode.
     /// </summary>
     public static readonly CVarDef<float> HighpopThreshold =
-        CVarDef.Create("game.players.highpop_threshold", 50f, CVar.SERVERONLY);
+        CVarDef.Create("game.players.highpop_threshold", 35f, CVar.SERVERONLY);
 
     /// <summary>
     ///     Is ore silo enabled.
@@ -195,7 +195,7 @@ public sealed partial class GoobCVars
         CVarDef.Create("blob.max", 3, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> BlobPlayersPer =
-        CVarDef.Create("blob.players_per", 20, CVar.SERVERONLY);
+        CVarDef.Create("blob.players_per", 12, CVar.SERVERONLY);
 
     public static readonly CVarDef<bool> BlobCanGrowInSpace =
         CVarDef.Create("blob.grow_space", true, CVar.SERVER);

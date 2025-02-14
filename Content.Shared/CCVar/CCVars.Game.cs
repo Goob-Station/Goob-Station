@@ -1,4 +1,4 @@
-﻿using Content.Shared.Roles;
+using Content.Shared.Roles;
 using Robust.Shared.Configuration;
 
 namespace Content.Shared.CCVar;
@@ -131,7 +131,7 @@ public sealed partial class CCVars
             CVarDef.Create("game.diagonalmovement", true, CVar.ARCHIVE);
 
         public static readonly CVarDef<int> SoftMaxPlayers =
-            CVarDef.Create("game.soft_max_players", 30, CVar.SERVERONLY | CVar.ARCHIVE);
+            CVarDef.Create("game.soft_max_players", 70, CVar.SERVERONLY | CVar.ARCHIVE);
 
         /// <summary>
         ///     If a player gets denied connection to the server,
