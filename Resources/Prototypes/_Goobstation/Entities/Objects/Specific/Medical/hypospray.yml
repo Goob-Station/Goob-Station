@@ -296,3 +296,25 @@
     tags:
     - EmergencyMedipen
 
+- type: entity
+  name: centcomm hypospray
+  parent: [BaseItem, BaseCentcommContraband]
+  description: Reserved for Nanotrasen's top doctors. It utilizes experimental bluespace technology.
+  id: CentCommHypo
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/centcomm_hypo.rsi
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Medical/centcomm_hypo.rsi
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 50
+  - type: RefillableSolution
+    solution: hypospray
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Hypospray
+    onlyAffectsMobs: false
+  - type: UseDelay
+    delay: 0.2

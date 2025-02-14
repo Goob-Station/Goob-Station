@@ -383,11 +383,11 @@
     outerClothing: ClothingOuterArmourDurathread # Durathread armor is cooler.
     id: ERTMedicPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltMedicalFilled
+    belt: ClothingBeltSecurityWebbingFilledMedical # Fancier
     pocket1: Flare
   storage:
     back:
-    - Hypospray
+    - CentCommHypo
     - MedkitAdvancedFilled
     - CrowbarRed
     - OmnizineChemistryBottle
@@ -407,11 +407,11 @@
     outerClothing: ClothingOuterHardsuitERTMedical
     id: ERTMedicPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltMedicalFilled
+    belt: ClothingBeltSecurityWebbingFilledMedical # Fancier
     pocket1: Flare
   storage:
     back:
-    - Hypospray
+    - CentCommHypo
     - MedkitAdvancedFilled
     - CrowbarRed
     - OmnizineChemistryBottle

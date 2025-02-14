@@ -55,3 +55,22 @@
     containers:
       item:
       - WeaponPistolN1984
+
+- type: entity
+  id: ClothingBeltSecurityWebbingFilledMedical
+  parent: ClothingBeltSecurityWebbing
+  suffix: [Filled, Medical]
+  components:
+  - type: StorageFill
+    contents:
+    - id: EnergyCautery
+    - id: EnergyScalpel
+    - id: AdvancedRetractor
+    - id: BoneGel
+    - id: MedicatedSuture
+    - id: RegenerativeMesh
+    - id: Bloodpack
+    - id: BruteAutoInjector
+    - id: BurnAutoInjector
+    - id: EmergencyMedipen
+      amount: 3
