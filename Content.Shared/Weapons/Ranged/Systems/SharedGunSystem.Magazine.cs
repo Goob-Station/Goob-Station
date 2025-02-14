@@ -102,7 +102,7 @@ public abstract partial class SharedGunSystem
         return (count, capacity);
     }
 
-    protected EntityUid? GetMagazineEntity(EntityUid uid)
+    public EntityUid? GetMagazineEntity(EntityUid uid) // Goob edit
     {
         if (!Containers.TryGetContainer(uid, MagazineSlot, out var container) ||
             container is not ContainerSlot slot)
