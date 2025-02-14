@@ -247,7 +247,7 @@
   description: A safe and effective way to treat infections. Does not prevent re-infection.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/medipen.rsi # Todo - Add new sprites
+    sprite: _Goobstation/Objects/Specific/Medical/medipen.rsi
     layers:
     - state: ambuzolpen
       map: ["enum.SolutionContainerLayers.Fill"]
@@ -275,9 +275,9 @@
   description: A safer and extremely effective way to treat any infections. Prevents re-infection.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/medipen.rsi # Todo - Add new sprites
+    sprite: _Goobstation/Objects/Specific/Medical/medipen.rsi
     layers:
-    - state: ambuzolpen
+    - state: ambuzolpluspen
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
     maxFillLevels: 1
