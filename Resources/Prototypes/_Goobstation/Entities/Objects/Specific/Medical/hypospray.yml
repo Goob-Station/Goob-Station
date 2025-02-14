@@ -185,9 +185,9 @@
   description: According to a Nanotrasen funded study, it has zero addictive properties.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/medipen.rsi
+    sprite: _Goobstation/Objects/Specific/Medical/medipen.rsi
     layers:
-    - state: stimpen
+    - state: ntstimpen
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerManager
     solutions:
@@ -199,7 +199,7 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     changeColor: false
-    emptySpriteName: stimpen_empty
+    emptySpriteName: ntstimpen_empty
   - type: Hypospray
     solutionName: pen
     transferAmount: 50
@@ -247,18 +247,18 @@
   description: A safe and effective way to treat infections. Does not prevent re-infection.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/medipen.rsi # Todo - Add new sprites
+    sprite: _Goobstation/Objects/Specific/Medical/medipen.rsi # Todo - Add new sprites
     layers:
-    - state: medipen
+    - state: ambuzolpen
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     changeColor: false
-    emptySpriteName: medipen_empty
+    emptySpriteName: ambuzolpen_empty
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 10
+        maxVol: 15
         reagents:
         - ReagentId: Ambuzol
           Quantity: 10
@@ -277,12 +277,12 @@
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi # Todo - Add new sprites
     layers:
-    - state: medipen
+    - state: ambuzolpen
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     changeColor: false
-    emptySpriteName: medipen_empty
+    emptySpriteName: ambuzolpen_empty
   - type: SolutionContainerManager
     solutions:
       pen:
