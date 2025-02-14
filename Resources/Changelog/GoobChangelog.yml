@@ -4781,3 +4781,11 @@ Entries:
       message: Dart syringe gun is now correctly displayed as a syndicate contraband.
   id: 545
   time: '2025-02-13T14:00:23.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        The Jaws of Life and the Power Drill can now be used to do ghetto
+        surgery.
+  id: 546
+  time: '2025-02-14T06:21:45.0000000+00:00'
