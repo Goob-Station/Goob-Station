@@ -11,3 +11,24 @@
 
 - type: Tag
   id: PreventLabel
+
+- type: Tag
+  id: BorgModuleSecurity
+
+- type: Tag
+  id: BorgSecurityHead
+
+- type: Tag
+  id: BorgSecurityTorso
+
+- type: Tag
+  id: BorgSecurityRLeg
+
+- type: Tag
+  id: BorgSecurityLLeg
+
+- type: Tag
+  id: BorgSecurityRArm
+
+- type: Tag
+  id: BorgSecurityLArm

@@ -723,6 +723,13 @@
     - ModsuitShell
     - ModsuitPlatingExternal
     - PowerCageHigh # Goobstation - Powercell to exosuit fab
+    # Delta-V : Start
+    - BorgModuleSecurityPeacekeeper
+    - BorgModuleSecurityPatrol
+    - BorgModuleSecurityBastion
+    - BorgModuleSecurityDeescalate
+    - BorgModuleSecurityChase
+    # Delta-V : End
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - WeaponMechCombatImmolationGun

@@ -1,0 +1,105 @@
+- type: latheRecipe
+  id: BorgModuleSecurityPeacekeeper
+  result: BorgModuleSecurityPeacekeeper
+  category: Robotics
+  completetime: 3
+  materials:
+    Steel: 250
+    Glass: 250
+    Plastic: 250
+
+- type: latheRecipe
+  id: BorgModuleSecurityPatrol
+  result: BorgModuleSecurityPatrol
+  completetime: 3
+  category: Robotics
+  materials:
+    Steel: 250
+    Glass: 250
+    Plastic: 250
+
+- type: latheRecipe
+  id: BorgModuleSecurityBastion
+  result: BorgModuleSecurityBastion
+  completetime: 3
+  category: Robotics
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+
+- type: latheRecipe
+  id: BorgModuleSecurityDeescalate
+  result: BorgModuleSecurityDeescalate
+  completetime: 3
+  category: Robotics
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Gold: 50
+
+- type: latheRecipe
+  id: BorgModuleSecurityChase
+  result: BorgModuleSecurityChase
+  completetime: 3
+  category: Robotics
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Gold: 50
+
+- type: latheRecipe
+  id: LeftArmBorgSecurity
+  result: LeftArmBorgSecurity
+  category: Robotics
+  completetime: 2
+  materials:
+    Steel: 250
+    Glass: 100
+
+- type: latheRecipe
+  id: RightArmBorgSecurity
+  result: RightArmBorgSecurity
+  category: Robotics
+  completetime: 2
+  materials:
+    Steel: 250
+    Glass: 100
+
+- type: latheRecipe
+  id: LeftLegBorgSecurity
+  result: LeftLegBorgSecurity
+  category: Robotics
+  completetime: 2
+  materials:
+    Steel: 250
+    Glass: 100
+
+- type: latheRecipe
+  id: RightLegBorgSecurity
+  result: RightLegBorgSecurity
+  category: Robotics
+  completetime: 2
+  materials:
+    Steel: 250
+    Glass: 100
+
+- type: latheRecipe
+  id: HeadBorgSecurity
+  result: HeadBorgSecurity
+  category: Robotics
+  completetime: 2
+  materials:
+    Steel: 250
+    Glass: 100
+
+- type: latheRecipe
+  id: TorsoBorgSecurity
+  result: TorsoBorgSecurity
+  category: Robotics
+  completetime: 2
+  materials:
+    Steel: 250
+    Glass: 100

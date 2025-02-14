@@ -1,0 +1,87 @@
+- type: entity
+  parent: Stunbaton
+  id: StunbatonSelfCharging # Someone not capitalising the B in Stun`B`aton has wasted over an hour of my life trying to fix the error.
+  suffix: Do Not Map, Recharging, Cyborg
+  noSpawn: true
+  components:
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 12
+  - type: GuideHelp
+    guides:
+    - Security
+
+- type: entity
+  parent: Flash
+  id: FlashRecharging
+  suffix: Do Not Map , Recharging , Cyborg
+  noSpawn: true
+  components:
+  - type: AutoRecharge
+    rechargeDuration: 120
+  - type: GuideHelp
+    guides:
+    - Security
+
+- type: entity
+  name: seclite
+  parent: FlashlightSeclite
+  id: FlashlightSecliteRecharging
+  description: A robust flashlight used by security.
+  suffix: Do Not Map , Recharging
+  noSpawn: true
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMicroreactor
+        disableEject: true
+  - type: GuideHelp
+    guides:
+    - Security
+
+- type: entity
+  name: non-lethal wooden baton
+  parent: BaseItem
+  id: WoodBaton
+  description: First, do no crime.
+  noSpawn: true
+  components:
+    - type: MeleeWeapon
+      wideAnimationRotation: -135
+      damage:
+        types:
+          Blunt: 0
+    - type: StaminaDamageOnHit
+      damage: 20 # Stuns in 5
+      sound: /Audio/Nyanotrasen/Weapons/club.ogg # TODO: Find a free-to-use thwacking sound effect. This isn't perfect but this works.
+    - type: Sprite
+      sprite: _DV/Objects/Weapons/Melee/wood_baton.rsi
+      state: icon
+    - type: GuideHelp
+      guides:
+      - Security
+
+- type: entity
+  parent: WeaponEnergyGunMini
+  id: WeaponEnergyGunMiniRecharging
+  suffix: Recharging, Do Not Map
+  noSpawn: true
+  components:
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 12
+
+- type: entity
+  parent: HoloprojectorSecurity
+  id: HoloprojectorSecurityRecharging
+  suffix: Recharging, Do Not Map
+  noSpawn: true
+  components:
+    - type: ItemSlots
+      slots:
+        cell_slot:
+          name: power-cell-slot-component-slot-name-default
+          startingItem: PowerCellMicroreactor
+          disableEject: true

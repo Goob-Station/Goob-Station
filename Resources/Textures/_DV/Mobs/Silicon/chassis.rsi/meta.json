@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Resprited by DangerRevolution (GitHub), with great help from jimbobbythe19th (Discord) and noctrnal (GitHub), from Peacekeeper Borg taken from tgstation at https://github.com/tgstation/tgstation/commit/faf6db214927874c19b8fa8585d26b5d40de1acc",
+  "states": [
+    {
+      "name": "security",
+      "directions": 4
+    },
+    {
+      "name": "security_e",
+      "directions": 4
+    },
+    {
+      "name": "security_e_r",
+      "directions": 4
+    },
+    {
+      "name": "security_l",
+      "directions": 4
+    }
+
+  ]
+}

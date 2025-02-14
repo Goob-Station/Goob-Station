@@ -48,6 +48,7 @@
   recipeUnlocks:
   - WeaponLaserCarbine
   - WeaponMechCombatFiredartLaser # Goobstation
+  - BorgModuleSecurityChase # DeltaV SecBorg research
 
 - type: technology
   id: NonlethalAmmunition
@@ -99,6 +100,7 @@
   - TelescopicShield
   - HoloprojectorSecurity
   - WeaponDisablerSMG
+  - BorgModuleSecurityDeescalate # DeltaV SecBorg Research
 
 - type: technology
   id: ExplosiveTechnology
