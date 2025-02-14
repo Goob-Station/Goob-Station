@@ -9,6 +9,13 @@ namespace Content.Shared.Ghost;
 public sealed partial class GhostComponent : Component
 {
     // Actions
+
+    [DataField]
+    public EntProtoId ToggleGhostSecHudAction = "ActionToggleGhostSecHud"; // goobstation
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? ToggleGhostSecHudActionEntity; // goobstation
+
     [DataField]
     public EntProtoId ToggleLightingAction = "ActionToggleLighting";
 
@@ -104,3 +111,6 @@ public sealed partial class ToggleGhostHearingActionEvent : InstantActionEvent {
 public sealed partial class ToggleGhostVisibilityToAllEvent : InstantActionEvent { }
 
 public sealed partial class BooActionEvent : InstantActionEvent { }
+
+//goob stuff below
+public sealed partial class ToggleGhostSecHudActionEvent : InstantActionEvent { }
