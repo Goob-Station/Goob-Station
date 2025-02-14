@@ -1,6 +1,6 @@
 - type: entity
   name: bident
-  parent: [BaseItem, BaseCentCommContraband]
+  parent: [BaseItem, BaseCentcommContraband]
   id: CburnBident
   description: A bident used by Nanotrasen's CBURN agents. Is capable of incinerating targets when switched on.
   components:
