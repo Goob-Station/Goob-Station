@@ -304,6 +304,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/centcomm_hypo.rsi
+    state: hypo
   - type: Item
     sprite: _Goobstation/Objects/Specific/Medical/centcomm_hypo.rsi
   - type: SolutionContainerManager
