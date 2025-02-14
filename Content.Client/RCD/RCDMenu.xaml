@@ -36,9 +36,9 @@
         <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-pumpsvalves'}" TargetLayer="PumpsValves" Visible="False">
             <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RPD/pump_volume.png"/>
         </ui:RadialMenuTextureButtonWithSector>
-        <ui:RadialMenuTextureButton SetSize="64 64" ToolTip="{Loc 'rcd-component-vents'}" TargetLayer="Vents" Visible="False">
+        <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-vents'}" TargetLayer="Vents" Visible="False">
             <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RPD/vent_passive.png"/>
-            </ui:RadialMenuTextureButtonWithSector>
+        </ui:RadialMenuTextureButtonWithSector>
     </ui:RadialContainer>
 
     <!-- Walls and flooring -->
@@ -52,7 +52,7 @@
 
     <!-- Computer and machine frames -->
     <ui:RadialContainer Name="Electrical"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="100"/>
-       
+
     <!-- Lighting -->
     <ui:RadialContainer Name="Lighting"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="100"/>
 
