@@ -27,6 +27,8 @@
     cost: 500
   - id: ClothingShoesBootsJack
     cost: 550
+  - id: MineralScanner
+    cost: 550
   - id: MedkitBruteFilled
     cost: 600
   - id: MedkitBurnFilled
@@ -53,8 +55,6 @@
     cost: 850
   - id: Fulton
     cost: 1000
-  - id: AdvancedMineralScanner
-    cost: 1100
   - id: PKAUpgradeDamage
     cost: 1200
   - id: LavalandEquipmentExplorerSuit
@@ -62,17 +62,19 @@
   # TODO: lazarus injector for 1k
   - id: ClothingBackpackDuffelSalvageConscription
     cost: 1250
+  - id: AdvancedMineralScanner
+    cost: 1550
   - id: WeaponPlasmaCutter
-    cost: 1600
+    cost: 1700
   - id: SpaceCash1000
     cost: 2000
   - id: ShelterCapsule
-    cost: 2700
+    cost: 2000
   # TODO: super resonator for 2500
   # TODO: jump boots for 2500
   - id: ClothingOuterHardsuitSalvage
     cost: 3000
   - id: ShelterCapsuleLuxury
-    cost: 4000
+    cost: 3000
   # TODO: luxury elite bar capsule for 10k
   # TODO: mining drone stuff

@@ -15,7 +15,7 @@ entities:
     - type: MetaData
       name: grid
     - type: Transform
-      pos: -2.5,-2.5
+      pos: -0.5,-0.5
       parent: invalid
     - type: MapGrid
       chunks:
@@ -72,11 +72,19 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
           - 21.824879
           - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -98,6 +106,10 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,1.5
       parent: 1
+    - type: DeviceList
+      devices:
+      - 24
+      - 25
 - proto: AirlockMiningGlass
   entities:
   - uid: 42
@@ -122,6 +134,13 @@ entities:
 - proto: Bed
   entities:
   - uid: 20
+    components:
+    - type: Transform
+      pos: 3.5,2.5
+      parent: 1
+- proto: BedsheetBrown
+  entities:
+  - uid: 45
     components:
     - type: Transform
       pos: 3.5,2.5
@@ -189,6 +208,13 @@ entities:
     - type: Transform
       pos: 3.5,3.5
       parent: 1
+- proto: ExtendedEmergencyOxygenTankFilled
+  entities:
+  - uid: 50
+    components:
+    - type: Transform
+      pos: 1.6876874,1.4972172
+      parent: 1
 - proto: GasMixer
   entities:
   - uid: 23
@@ -196,6 +222,10 @@ entities:
     - type: Transform
       pos: 2.5,2.5
       parent: 1
+    - type: GasMixer
+      inletTwoConcentration: 0.22000003
+      inletOneConcentration: 0.78
+      targetPressure: 250
 - proto: GasPipeBend
   entities:
   - uid: 22
@@ -224,6 +254,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 2.5,1.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 27
 - proto: GasVentScrubber
   entities:
   - uid: 25
@@ -231,12 +264,46 @@ entities:
     - type: Transform
       pos: 3.5,1.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 27
 - proto: GeneratorWallmountBasic
   entities:
   - uid: 34
     components:
     - type: Transform
       pos: 0.5,3.5
+      parent: 1
+- proto: Grille
+  entities:
+  - uid: 6
+    components:
+    - type: Transform
+      pos: 4.5,2.5
+      parent: 1
+  - uid: 11
+    components:
+    - type: Transform
+      pos: 0.5,2.5
+      parent: 1
+- proto: MedkitOxygenFilled
+  entities:
+  - uid: 51
+    components:
+    - type: Transform
+      pos: 1.4220624,1.7159672
+      parent: 1
+- proto: MiningWindow
+  entities:
+  - uid: 46
+    components:
+    - type: Transform
+      pos: 0.5,2.5
+      parent: 1
+  - uid: 47
+    components:
+    - type: Transform
+      pos: 4.5,2.5
       parent: 1
 - proto: NitrogenCanister
   entities:
@@ -252,6 +319,20 @@ entities:
     - type: Transform
       pos: 1.5,3.5
       parent: 1
+- proto: Poweredlight
+  entities:
+  - uid: 48
+    components:
+    - type: Transform
+      pos: 2.5,3.5
+      parent: 1
+- proto: SignSurvival
+  entities:
+  - uid: 49
+    components:
+    - type: Transform
+      pos: 2.5,4.5
+      parent: 1
 - proto: StasisBed
   entities:
   - uid: 21
@@ -265,6 +346,13 @@ entities:
     components:
     - type: Transform
       pos: 1.5,4.5
+      parent: 1
+- proto: Table
+  entities:
+  - uid: 44
+    components:
+    - type: Transform
+      pos: 1.5,1.5
       parent: 1
 - proto: WallMining
   entities:
@@ -288,11 +376,6 @@ entities:
     - type: Transform
       pos: 4.5,3.5
       parent: 1
-  - uid: 6
-    components:
-    - type: Transform
-      pos: 4.5,2.5
-      parent: 1
   - uid: 7
     components:
     - type: Transform
@@ -312,11 +395,6 @@ entities:
     components:
     - type: Transform
       pos: 0.5,1.5
-      parent: 1
-  - uid: 11
-    components:
-    - type: Transform
-      pos: 0.5,2.5
       parent: 1
   - uid: 12
     components:
