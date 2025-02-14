@@ -142,7 +142,6 @@
     pack: CondimentVendAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
-  - type: Speech
   - type: Transform
     noRot: false
 
@@ -161,7 +160,6 @@
     pack: AmmoVendAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
-  - type: Speech
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/ammo.rsi
     layers:
@@ -190,7 +188,6 @@
     pack: BoozeOMatAds
   - type: SpeakOnUIClosed
     pack: BoozeOMatGoodbyes
-  - type: Speech
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/boozeomat.rsi
     layers:
@@ -225,7 +222,6 @@
     pack: BruiseOMatAds
   - type: SpeakOnUIClosed
     pack: BruiseOMatGoodbyes
-  - type: Speech
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/bruiseomat.rsi
     layers:
@@ -335,7 +331,6 @@
     pack: CigaretteMachineAds
   - type: SpeakOnUIClosed
     pack: CigaretteMachineGoodbyes
-  - type: Speech
   - type: Sprite
     noRot: true
     sprite: Structures/Machines/VendingMachines/cigs.rsi
@@ -369,7 +364,6 @@
     pack: ClothesMateAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
-  - type: Speech
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/clothing.rsi
     layers:
@@ -403,7 +397,6 @@
     pack: ClothesMateAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
-  - type: Speech
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/winterdrobe.rsi
     layers:
@@ -444,7 +437,6 @@
     pack: HotDrinksMachineAds
   - type: SpeakOnUIClosed
     pack: HotDrinksMachineGoodbyes
-  - type: Speech
   - type: Sprite
     noRot: true
     sprite: Structures/Machines/VendingMachines/coffee.rsi
@@ -492,7 +484,6 @@
     pack: RobustSoftdrinksAds
   - type: SpeakOnUIClosed
     pack: RobustSoftdrinksGoodbyes
-  - type: Speech
   - type: Sprite
     noRot: true
     sprite: Structures/Machines/VendingMachines/cola.rsi
@@ -670,7 +661,6 @@
     initialStockQuality: 0.33
   - type: Advertise
     pack: RobustSoftdrinksAds
-  - type: Speech
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/shamblersjuice.rsi
     layers:
@@ -709,7 +699,6 @@
     pack: RobustSoftdrinksAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
-  - type: Speech
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/pwrgame.rsi
     layers:
@@ -748,7 +737,6 @@
     pack: DrGibbAds
   - type: SpeakOnUIClosed
     pack: DrGibbGoodbyes
-  - type: Speech
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/gib.rsi
     layers:
@@ -765,6 +753,42 @@
     color: "#D82929"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
+
+- type: entity
+  parent: VendingMachine
+  id: VendingMachineSmite
+  name: Smite Vendor
+  description: Popular with the administration.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/smite.rsi
+    layers:
+    - state: "off"
+      map: [ "enum.VendingMachineVisualLayers.Base" ]
+    - state: "off"
+      map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
+      shader: unshaded
+    - state: panel
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+  - type: VendingMachine
+    pack: SmiteInventory
+    dispenseOnHitChance: 0.25
+    dispenseOnHitThreshold: 2
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
+    ejectDelay: 1.9
+    initialStockQuality: 0.33
+  - type: Advertise
+    pack: SmiteAds
+  - type: SpeakOnUIClosed
+    pack: SmiteGoodbyes
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#00E645"
 
 - type: entity
   parent: VendingMachine
@@ -866,7 +890,6 @@
     pack: DiscountDansAds
   - type: SpeakOnUIClosed
     pack: DiscountDansGoodbyes
-  - type: Speech
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/discount.rsi
     layers:
@@ -1114,7 +1137,6 @@
     pack: GetmoreChocolateCorpAds
   - type: SpeakOnUIClosed
     pack: GetmoreChocolateCorpGoodbyes
-  - type: Speech
   - type: Sprite
     noRot: true
     sprite: Structures/Machines/VendingMachines/snack.rsi
@@ -1278,7 +1300,6 @@
     pack: BodaAds
   - type: SpeakOnUIClosed
     pack: BodaGoodbyes
-  - type: Speech
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/sodasoviet.rsi
     noRot: true
@@ -1320,7 +1341,6 @@
     pack: AutoDrobeAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
-  - type: Speech
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/theater.rsi
     noRot: true
@@ -1364,7 +1384,6 @@
     pack: VendomatAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
-  - type: Speech
   - type: Sprite
     noRot: true
     sprite: Structures/Machines/VendingMachines/vendomat.rsi
@@ -1405,7 +1424,6 @@
     pack: VendomatAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
-  - type: Speech
   - type: Sprite
     noRot: true
     sprite: Structures/Machines/VendingMachines/robotics.rsi
@@ -1530,7 +1548,6 @@
     pack: ChangAds
   - type: SpeakOnUIClosed
     pack: ChangGoodbyes
-  - type: Speech
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/snix.rsi
     layers:
@@ -1605,7 +1622,6 @@
     pack: DonutAds
   - type: SpeakOnUIClosed
     pack: DonutGoodbyes
-  - type: Speech
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/donut.rsi
     layers:
