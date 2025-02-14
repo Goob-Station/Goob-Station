@@ -739,3 +739,32 @@
   - type: Tag
     tags:
     - IPCMaskWearable # EE - IPCs
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskWeldingGas
+  name: welding gas mask
+  description: A gas mask with built in welding goggles and face shield. Looks like a skull, clearly designed by a nerd.
+  components:
+  - type: Sprite
+    sprite: Clothing/Mask/welding-gas.rsi
+    state: icon
+  - type: Clothing
+    sprite: Clothing/Mask/welding-gas.rsi
+  - type: BreathMask
+  - type: IngestionBlocker
+  - type: IdentityBlocker
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 150
+      Glass: 50
+  - type: StaticPrice
+    price: 100
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    slots:
+    - Snout
