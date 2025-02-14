@@ -1,0 +1,31 @@
+
+- type: entity
+  name: clown cuffs
+  description: To be used for good or evil? The honkmother will decide. Honk.
+  id: ClownCuffs
+  parent: Handcuffs
+  components:
+  - type: Item
+    size: Normal
+    storedRotation: 90
+  - type: Handcuff
+    breakoutTime: 1
+    cuffedRSI: _Goobstation/Objects/Fun/clowncuffs.rsi
+    bodyIconState: body-overlay
+    startCuffSound:
+      path: /Audio/_Goobstation/Misc/honkalarm.ogg
+      params:
+        volume: -50
+    endCuffSound:
+      path: /Audio/Items/bikehorn.ogg
+    startUncuffSound:
+      path: /Audio/_Goobstation/Misc/ducky.ogg
+    endUncuffSound:
+      path: /Audio/Items/bikehorn.ogg
+    startBreakoutSound:
+      path: /Audio/_Goobstation/Misc/ducky.ogg
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/clowncuffs.rsi
+    state: icon
+  - type: UseDelay
+    delay: 2
