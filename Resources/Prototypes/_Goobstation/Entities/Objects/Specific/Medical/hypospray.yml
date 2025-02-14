@@ -275,7 +275,7 @@
   description: A safer and extremely effective way to treat any infections. Prevents re-infection.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/medipen.rsi # Todo - Add new sprites
+    sprite: _Goobstation/Objects/Specific/Medical/medipen.rsi # Todo - Add new sprites
     layers:
     - state: ambuzolpen
       map: ["enum.SolutionContainerLayers.Fill"]
