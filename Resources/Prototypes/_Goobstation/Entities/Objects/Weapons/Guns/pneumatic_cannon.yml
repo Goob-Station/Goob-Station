@@ -8,6 +8,12 @@
     sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
     layers:
     - state: syringe-gun
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+    slots:
+    - back
+    - suitStorage
+    quickEquip: false
   - type: Storage
     maxItemSize: Tiny
     grid:
@@ -35,8 +41,6 @@
   - type: SyringeGun
   - type: PacifismAllowedGun
 
-
-
 - type: entity
   name: rapid syringe gun
   parent: SyringeGun
@@ -58,12 +62,11 @@
     fireRate: 1.5
   - type: PacifismAllowedGun
 
-
 - type: entity
   name: dart syringe gun
-  parent: [ SyringeGun, BaseSyndicateContraband ]
+  parent: [ BaseSyndicateContraband, SyringeGun ]
   id: DartSyringeGun
-  description: An illegally modified version of the syringe gun that allows projectiles to pierce through armor.
+  description: An illegally modified version of the syringe gun that allows projectiles to pierce through armor. Also piereces skin better, resulting in faster injection.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
@@ -84,7 +87,7 @@
     - 0,0,1,0
   - type: SyringeGun
     pierceArmor: true
+    injectionSpeedMultiplier: 1.5
   - type: PacifismAllowedGun
-
 
 # TODO: Add the proper dart gun that regenerates every 25s, and draws from a 100u reservoir
