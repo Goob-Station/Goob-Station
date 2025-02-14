@@ -24,7 +24,7 @@
   parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing]
   id: ClothingOuterArmourDurathread
   name: durathread armor
-  description: An armored vest created from plasteel plates weaved together with durathread. It's surprisingly flexible and light, despite formidable armor plating.
+  description: An armored vest created from plasteel plates woven with durathread. It's surprisingly flexible and light, despite formidable armor plating.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Armor/durathread_armour.rsi
