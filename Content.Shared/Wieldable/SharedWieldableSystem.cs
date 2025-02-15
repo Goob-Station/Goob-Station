@@ -23,7 +23,9 @@ using Content.Shared.Wieldable.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
-using Content.Shared._Goobstation.Weapons.Ranged; // GoobStation - NoWieldNeeded
+using Content.Shared._Goobstation.Weapons.Ranged;
+using Content.Shared.Item.ItemToggle;
+using Content.Shared._Goobstation.Weapons.FoldingWeapon; // GoobStation - NoWieldNeeded
 
 namespace Content.Shared.Wieldable;
 
@@ -45,7 +47,8 @@ public abstract class SharedWieldableSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<WieldableComponent, UseInHandEvent>(OnUseInHand, before: [typeof(SharedGunSystem)]);
+        SubscribeLocalEvent<WieldableComponent, UseInHandEvent>(OnUseInHand,
+            before: [typeof(SharedGunSystem), typeof(ItemToggleSystem)]); // Goob - before item toogle for hardlight bow
         SubscribeLocalEvent<WieldableComponent, ItemUnwieldedEvent>(OnItemUnwielded);
         SubscribeLocalEvent<WieldableComponent, GotUnequippedHandEvent>(OnItemLeaveHand);
         SubscribeLocalEvent<WieldableComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
