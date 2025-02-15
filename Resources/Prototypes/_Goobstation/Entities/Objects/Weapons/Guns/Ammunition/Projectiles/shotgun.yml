@@ -1,6 +1,6 @@
 - type: entity
   id: BulletSlugEnsnaring
-  name: bullet (.775 caliber ensnaring slug)
+  name: bullet (.75 caliber ensnaring slug)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -24,7 +24,7 @@
 
 - type: entity
   id: BulletSlugEMP
-  name: bullet (.775 caliber EMP slug)
+  name: bullet (.75 caliber EMP slug)
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -51,7 +51,7 @@
 
 - type: entity
   id: BulletSlugFlash
-  name: bullet (.775 caliber flash slug)
+  name: bullet (.75 caliber flash slug)
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -78,7 +78,7 @@
 
 - type: entity
   id: BigPelletShotgun
-  name: pellet (.775)
+  name: pellet (.75)
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -88,7 +88,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 16
+        Piercing: 15
 
 - type: entity
   id: BigPelletShotgunSpread
