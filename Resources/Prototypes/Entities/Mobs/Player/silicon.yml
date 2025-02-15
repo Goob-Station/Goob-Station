@@ -603,7 +603,6 @@
     drawFov: false
   - type: Examiner
   - type: InputMover
-  - type: IonStormTarget
   - type: Speech
     speechVerb: Robotic
     speechSounds: Borg

@@ -1,5 +1,5 @@
 - type: gameMap
-  id: Omega
+  id: ReserveOmega
   mapName: 'Omega'
   mapPath: /Maps/Reserve/omega.yml
   minPlayers: 7
