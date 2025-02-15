@@ -1,7 +1,7 @@
 - type: gameMap
   id: ReserveSaltern
   mapName: 'Saltern'
-  mapPath: /Maps/_Reserve/saltern.yml
+  mapPath: /Maps/Reserve/saltern.yml
   minPlayers: 0
   maxPlayers: 35
   fallback: true
