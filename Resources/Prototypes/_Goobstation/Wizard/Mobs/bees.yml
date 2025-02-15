@@ -1,0 +1,141 @@
+- type: entity
+  parent: MobAngryBee
+  id: MobAngryBeeWizard
+  abstract: true
+  components:
+  - type: TimedDespawn
+    lifetime: 50
+  - type: Bloodstream
+    bloodReagent: Water
+    chemicalMaxVolume: 12.5
+    bloodMaxVolume: 12.5
+  - type: InjectableSolution
+    solution: bloodstream
+  - type: MeleeChemicalInjector
+    solution: bloodstream
+    transferAmount: 0.25
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 1
+
+# I intentionally don't use suffixes so it's funnier
+- type: entity
+  parent: MobAngryBeeWizard
+  id: BeeLicoxide
+  name: bee (licoxide)
+  components:
+  - type: Bloodstream
+    bloodReagent: Licoxide
+
+- type: entity
+  parent: MobAngryBeeWizard
+  id: BeeAmatoxin
+  name: bee (amatoxin)
+  components:
+  - type: Bloodstream
+    bloodReagent: Amatoxin
+
+- type: entity
+  parent: MobAngryBeeWizard
+  id: BeeLexorin
+  name: bee (lexorin)
+  components:
+  - type: Bloodstream
+    bloodReagent: Lexorin
+
+- type: entity
+  parent: MobAngryBeeWizard
+  id: BeeChloralHydrate
+  name: bee (chloral hydrate)
+  components:
+  - type: Bloodstream
+    bloodReagent: ChloralHydrate
+
+- type: entity
+  parent: MobAngryBeeWizard
+  id: BeeUnstableMutagen
+  name: bee (unstable mutagen)
+  components:
+  - type: Bloodstream
+    bloodReagent: UnstableMutagen
+
+- type: entity
+  parent: MobAngryBeeWizard
+  id: BeeMindbreakerToxin
+  name: bee (mindbreaker toxin)
+  components:
+  - type: Bloodstream
+    bloodReagent: MindbreakerToxin
+
+- type: entity
+  parent: MobAngryBeeWizard
+  id: BeePax
+  name: bee (pax)
+  components:
+  - type: Bloodstream
+    bloodReagent: Pax
+
+- type: entity
+  parent: MobAngryBeeWizard
+  id: BeeLead
+  name: bee (lead)
+  components:
+  - type: Bloodstream
+    bloodReagent: Lead
+
+- type: entity
+  parent: MobAngryBeeWizard
+  id: BeeLipolicide
+  name: bee (lipolicide)
+  components:
+  - type: Bloodstream
+    bloodReagent: Lipolicide
+
+- type: entity
+  parent: MobAngryBeeWizard
+  id: BeeImpedrezene
+  name: bee (impedrezene)
+  components:
+  - type: Bloodstream
+    bloodReagent: Impedrezene
+
+- type: entity
+  parent: MobAngryBeeWizard
+  id: BeeRazorium
+  name: bee (razorium)
+  components:
+  - type: Bloodstream
+    bloodReagent: Razorium
+
+- type: entity
+  parent: MobAngryBeeWizard
+  id: BeeMuteToxin
+  name: bee (mute toxin)
+  components:
+  - type: Bloodstream
+    bloodReagent: MuteToxin
+
+- type: entity
+  parent: MobAngryBeeWizard
+  id: BeeBuzzochloricBees # Bees bees
+  name: bee (buzzochloric bees)
+  components:
+  - type: Bloodstream
+    bloodReagent: BuzzochloricBees
+
+- type: entity
+  parent: MobAngryBeeWizard
+  id: BeeLaughter
+  name: bee (laughter)
+  components:
+  - type: Bloodstream
+    bloodReagent: Laughter
+
+- type: entity
+  parent: MobAngryBeeWizard
+  id: BeeToxin
+  name: bee (toxin)
+  components:
+  - type: Bloodstream
+    bloodReagent: Toxin
