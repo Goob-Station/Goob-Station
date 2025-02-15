@@ -27,8 +27,6 @@
     ignorePaused: true
     bodyType: KinematicController
     canCollide: false
-    collisionMask: 0
-    collisionLayer: 0
   - type: Body
     prototype: Aghost
     thermalVisibility: false # WD EDIT
