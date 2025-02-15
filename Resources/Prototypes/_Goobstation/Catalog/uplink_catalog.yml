@@ -251,6 +251,17 @@
   categories:
   - UplinkWearables
 
+- type: listing
+  id: UplinkSoftsuitTrappedEva
+  name: Springlocked EVA suit
+  description: A heavily modified EVA suit turned into a gruesome trap. Multiple sharp mechanisms are embedded into the fabric, causing continuous damage to the wearer.
+  icon: { sprite: Clothing/OuterClothing/Suits/eva_emergency.rsi, state: icon }
+  productEntity: ClothingOuterSoftsuitTrappedEva
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkWearables
+
 # Job specific
 - type: listing
   id: UplinkPieCannon

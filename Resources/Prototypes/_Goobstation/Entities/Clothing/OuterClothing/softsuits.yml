@@ -25,3 +25,19 @@
     - MonkeyWearable
     - WhitelistChameleon
     - Softsuit # Yowie
+
+- type: entity
+  parent: ClothingOuterSuitEmergency
+  id: ClothingOuterSoftsuitTrappedEva 
+  name: emergency EVA suit
+  description: An emergency EVA suit with a built-in helmet. It's horribly slow and lacking in temperature protection, but enough to buy you time from the harsh vacuum of space.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpringlockedEVASuit
+  # - type: Sprite
+  #   sprite: _Goobstation/Clothing/OuterClothing/Suits/springlocked_eva.rsi
+  #   layers:
+  #   - state: equipped-OUTERCLOTHING
+  #   - state: equipped-OUTERCLOTHING-springed
+      # visible: false
+  - type: ToggleableClothing
