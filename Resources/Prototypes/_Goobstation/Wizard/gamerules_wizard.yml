@@ -11,7 +11,7 @@
     - WizardSurviveObjective
   - type: AntagSelection
     useCharacterNames: true
-    selectionTime: BeforeJobs
+    selectionTime: PrePlayerSpawn
     agentName: wizard-roundend-name
     definitions:
     - spawnerPrototype: SpawnPointWizard
