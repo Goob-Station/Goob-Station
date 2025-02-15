@@ -94,7 +94,8 @@ public abstract class EquipmentHudSystem<T> : EntitySystem where T : IComponent
 
     protected virtual void OnRefreshEquipmentHud(Entity<T> ent, ref InventoryRelayedEvent<RefreshEquipmentHudEvent<T>> args)
     {
-        OnRefreshComponentHud(ent, ref args.Args);
+        args.Args.Active = true;
+        args.Args.Components.Add(ent.Comp);
     }
 
     protected virtual void OnRefreshComponentHud(Entity<T> ent, ref RefreshEquipmentHudEvent<T> args)
