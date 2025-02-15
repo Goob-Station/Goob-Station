@@ -1,4 +1,4 @@
-﻿using Content.Shared._Lavaland.Mobs;
+﻿using Content.Shared._Lavaland.Damage;
 
 namespace Content.Client._Lavaland.Mobs;
 

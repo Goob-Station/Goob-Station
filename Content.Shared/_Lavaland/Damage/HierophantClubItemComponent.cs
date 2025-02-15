@@ -1,6 +1,6 @@
 ﻿using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Lavaland.Mobs.Hierophant.Components;
+namespace Content.Shared._Lavaland.Damage;
 
 [RegisterComponent]
 public sealed partial class HierophantClubItemComponent : Component

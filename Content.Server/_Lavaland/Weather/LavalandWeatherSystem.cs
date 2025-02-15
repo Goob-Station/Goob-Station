@@ -4,6 +4,7 @@ using Content.Server._Lavaland.Procedural.Components;
 using Content.Server.GameTicking;
 using Content.Server.Temperature.Systems;
 using Content.Server.Weather;
+using Content.Shared._Lavaland.Weather;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
 using Content.Shared.Humanoid;
@@ -13,7 +14,6 @@ using Robust.Shared.CPUJob.JobQueues;
 using Robust.Shared.CPUJob.JobQueues.Queues;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server._Lavaland.Weather;
 
@@ -54,7 +54,7 @@ public sealed class LavalandWeatherSystem : EntitySystem
         if (xform.MapUid != lavaland.Owner || HasComp<LavalandMemberComponent>(xform.ParentUid))
             return;
 
-        var proto = _proto.Index(lavaland.Comp.CurrentWeather);
+        var proto = _proto.Index<LavalandWeatherPrototype>(lavaland.Comp.CurrentWeather);
         _temperature.ChangeHeat(entity, proto.TemperatureChange, ignoreHeatResistance: true);
         _damage.TryChangeDamage(entity, proto.Damage, ignoreResistances: true);
     }
@@ -134,7 +134,7 @@ public sealed class LavalandWeatherSystem : EntitySystem
         if (!TryComp<LavalandStormedMapComponent>(map, out var comp))
             return;
 
-        var popup = _proto.Index(comp.CurrentWeather).PopupEndMessage;
+        var popup = _proto.Index<LavalandWeatherPrototype>(comp.CurrentWeather).PopupEndMessage;
         RemComp<LavalandStormedMapComponent>(map);
 
         var humans = EntityQueryEnumerator<HumanoidAppearanceComponent, DamageableComponent>();

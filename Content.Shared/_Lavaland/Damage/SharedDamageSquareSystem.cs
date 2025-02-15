@@ -7,7 +7,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._Lavaland.Mobs;
+namespace Content.Shared._Lavaland.Damage;
 
 /// <summary>
 ///     We have to use it's own system even for the damage field because WIZDEN SYSTEMS FUCKING SUUUUUUUUUUUCKKKKKKKKKKKKKKK
@@ -32,10 +32,11 @@ public abstract class SharedDamageSquareSystem : EntitySystem
     private void OnMapInit(Entity<DamageFieldComponent> ent, ref MapInitEvent args)
     {
         Timer.Spawn((int) ent.Comp.DamageDelay * 1000,
-            (() =>
+            () =>
             {
-                Damage(ent);
-            }));
+                if (!TerminatingOrDeleted(ent))
+                    Damage(ent);
+            });
     }
 
     private void Damage(Entity<DamageFieldComponent> field)
@@ -50,7 +51,7 @@ public abstract class SharedDamageSquareSystem : EntitySystem
         var lookup = _lookup.GetLocalEntitiesIntersecting(tile, 0f, LookupFlags.Uncontained)
             .Where(HasComp<MobStateComponent>)
             .ToList();
-        
+
         foreach (var entity in lookup)
         {
             if (!TryComp<DamageableComponent>(entity, out var dmg))

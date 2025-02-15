@@ -3,9 +3,9 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Weather;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Lavaland.Weather;
+namespace Content.Shared._Lavaland.Weather;
 
-[Prototype]
+[Prototype("lavalandWeather")]
 public sealed class LavalandWeatherPrototype : IPrototype
 {
     [IdDataField] public string ID { get; } = default!;
@@ -34,10 +34,4 @@ public sealed class LavalandWeatherPrototype : IPrototype
 
     [DataField]
     public DamageSpecifier Damage = new() {DamageDict = new Dictionary<string, FixedPoint2>() {{ "Heat", 4 }}};
-
-    /// <summary>
-    /// How many seconds the weather goes without doing any damage
-    /// </summary>
-    [DataField]
-    public int WeatherDelay = 30;
 }

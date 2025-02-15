@@ -1,4 +1,4 @@
-﻿using Content.Server._Lavaland.Procedural.Prototypes;
+﻿using Content.Shared._Lavaland.Procedural.Prototypes;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 

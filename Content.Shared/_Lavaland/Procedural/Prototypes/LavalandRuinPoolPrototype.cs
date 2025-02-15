@@ -1,6 +1,6 @@
 ﻿using Robust.Shared.Prototypes;
 
-namespace Content.Server._Lavaland.Procedural.Prototypes;
+namespace Content.Shared._Lavaland.Procedural.Prototypes;
 
 [Prototype]
 public sealed partial class LavalandRuinPoolPrototype : IPrototype
@@ -24,12 +24,12 @@ public sealed partial class LavalandRuinPoolPrototype : IPrototype
     /// important and big ruins, that have the highest priority.
     /// </summary>
     [DataField]
-    public Dictionary<ProtoId<LavalandRuinPrototype>, ushort> HugeRuins = [];
+    public Dictionary<ProtoId<LavalandRuinPrototype>, ushort> HugeRuins = new();
 
     /// <summary>
     /// List of all huge ruins and their count. Contains ruins
     /// that aren't that important and can be easily skipped.
     /// </summary>
     [DataField]
-    public Dictionary<ProtoId<LavalandRuinPrototype>, ushort> SmallRuins = [];
+    public Dictionary<ProtoId<LavalandRuinPrototype>, ushort> SmallRuins = new();
 }

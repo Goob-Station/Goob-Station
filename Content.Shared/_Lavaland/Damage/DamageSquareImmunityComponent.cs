@@ -1,4 +1,4 @@
-﻿namespace Content.Shared._Lavaland.Mobs;
+﻿namespace Content.Shared._Lavaland.Damage;
 
 /// <summary>
 /// Actor having this component will not get damaged by damage squares.

@@ -1,6 +1,6 @@
 ﻿using Content.Shared.Actions;
 
-namespace Content.Shared._Lavaland.Mobs.Hierophant;
+namespace Content.Shared._Lavaland.Damage;
 
 public sealed partial class HierophantClubActivateCrossEvent : WorldTargetActionEvent;
 

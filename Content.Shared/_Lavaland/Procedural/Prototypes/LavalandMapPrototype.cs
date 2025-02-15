@@ -1,10 +1,10 @@
-﻿using Content.Server._Lavaland.Weather;
+﻿using Content.Shared._Lavaland.Weather;
 using Content.Shared.Atmos;
 using Content.Shared.Parallax.Biomes;
 using Content.Shared.Parallax.Biomes.Markers;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Lavaland.Procedural.Prototypes;
+namespace Content.Shared._Lavaland.Procedural.Prototypes;
 
 /// <summary>
 /// Contains information about Lavaland planet configuration.
@@ -46,8 +46,8 @@ public sealed partial class LavalandMapPrototype : IPrototype
     public ProtoId<BiomeTemplatePrototype> BiomePrototype = "Lava";
 
     [DataField("ore")]
-    public List<ProtoId<BiomeMarkerLayerPrototype>> OreLayers =
-    [
+    public List<ProtoId<BiomeMarkerLayerPrototype>> OreLayers = new List<ProtoId<BiomeMarkerLayerPrototype>>()
+    {
         "OreIron",
         "OreCoal",
         "OreQuartz",
@@ -58,10 +58,10 @@ public sealed partial class LavalandMapPrototype : IPrototype
         "OreArtifactFragment",
         "OreDiamond",
         "BSCrystal",
-    ];
+    };
 
     [DataField("mobs")]
-    public List<ProtoId<BiomeMarkerLayerPrototype>> MobLayers = [];
+    public List<ProtoId<BiomeMarkerLayerPrototype>> MobLayers = new();
 
     [DataField("weather")]
     public List<ProtoId<LavalandWeatherPrototype>>? AvailableWeather;

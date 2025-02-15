@@ -1,7 +1,7 @@
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
 
-namespace Content.Shared._Lavaland.Mobs;
+namespace Content.Shared._Lavaland.Damage;
 
 [RegisterComponent]
 public sealed partial class DamageFieldComponent : Component

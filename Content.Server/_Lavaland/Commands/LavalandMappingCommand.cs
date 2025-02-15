@@ -1,6 +1,6 @@
-﻿using Content.Server._Lavaland.Procedural.Prototypes;
-using Content.Server._Lavaland.Procedural.Systems;
+﻿using Content.Server._Lavaland.Procedural.Systems;
 using Content.Server.Administration;
+using Content.Shared._Lavaland.Procedural.Prototypes;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 using Robust.Shared.Prototypes;
@@ -47,7 +47,7 @@ public sealed class LavalandMappingCommand : IConsoleCommand
         }
 
         if (!_entityManager.System<LavalandPlanetSystem>().SetupLavaland(out var lavaland, lavalandSeed, lavalandProto))
-            shell.WriteLine("Lavaland map already exists.");
+            shell.WriteLine("Failed to load lavaland due to an exception!");
 
         shell.WriteLine($"Successfully created new lavaland map: {_entityManager.ToPrettyString(lavaland)}");
     }

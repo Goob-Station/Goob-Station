@@ -1,15 +1,15 @@
 ﻿using System.Linq;
-using Content.Server._Lavaland.Procedural.Prototypes;
 using Content.Server._Lavaland.Procedural.Systems;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking.Rules;
+using Content.Shared._Lavaland.Procedural.Prototypes;
 using Content.Shared.GameTicking.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server._Lavaland.Weather.Gamerule;
 
-public sealed partial class LavalandStormSchedulerRule : GameRuleSystem<LavalandStormSchedulerRuleComponent>
+public sealed class LavalandStormSchedulerRule : GameRuleSystem<LavalandStormSchedulerRuleComponent>
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -22,7 +22,7 @@ public sealed partial class LavalandStormSchedulerRule : GameRuleSystem<Lavaland
         base.Update(frameTime);
 
         var query = EntityQueryEnumerator<LavalandStormSchedulerRuleComponent, GameRuleComponent>();
-        while (query.MoveNext(out var uid, out var lavaland, out var gamerule))
+        while (query.MoveNext(out _, out var lavaland, out _))
         {
             lavaland.EventClock -= frameTime;
             if (lavaland.EventClock <= 0)

@@ -2,7 +2,7 @@
 using Content.Shared.GridPreloader.Prototypes;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Lavaland.Salvage;
+namespace Content.Shared._Lavaland.Shelter;
 
 [RegisterComponent]
 public sealed partial class ShelterCapsuleComponent : Component

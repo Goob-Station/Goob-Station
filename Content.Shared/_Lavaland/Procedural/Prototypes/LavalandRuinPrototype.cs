@@ -1,6 +1,6 @@
 ﻿using Robust.Shared.Prototypes;
 
-namespace Content.Server._Lavaland.Procedural.Prototypes;
+namespace Content.Shared._Lavaland.Procedural.Prototypes;
 
 /// <summary>
 /// Contains information about Lavaland ruin configuration.

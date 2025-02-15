@@ -1,13 +1,9 @@
-﻿using Content.Server._Lavaland.Mobs.Hierophant.Components;
-using Content.Server.Actions;
+﻿using Content.Server.Actions;
 using Content.Server.Hands.Systems;
-using Content.Shared._Lavaland.Mobs;
-using Content.Shared._Lavaland.Mobs.Hierophant;
-using Content.Shared._Lavaland.Mobs.Hierophant.Components;
+using Content.Shared._Lavaland.Damage;
 using Content.Shared.Actions;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Popups;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
