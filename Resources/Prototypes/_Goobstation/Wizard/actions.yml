@@ -392,7 +392,7 @@
   - type: EntityTargetAction
     checkCanAccess: false
     raiseOnUser: true
-    useDelay: 10
+    useDelay: 8
     itemIconStyle: BigAction
     whitelist:
       components:
@@ -423,7 +423,7 @@
   - type: EntityWorldTargetAction
     checkCanAccess: false
     raiseOnUser: true
-    useDelay: 6
+    useDelay: 8
     itemIconStyle: BigAction
     whitelist:
       components:
@@ -658,6 +658,7 @@
     event: !type:WizardTeleportEvent
   - type: Magic
     requiresSpeech: true
+    requiresClothes: true
     school: Translocation
   - type: ActionUpgrade
     effectedLevels:
@@ -811,6 +812,7 @@
       speech: action-speech-spell-sanguine-strike
   - type: Magic
     requiresSpeech: true
+    requiresClothes: true
     school: Sanguine
   - type: ActionUpgrade
     effectedLevels:

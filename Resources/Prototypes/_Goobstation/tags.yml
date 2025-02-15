@@ -109,6 +109,9 @@
 - type: Tag
   id: GunCanAimShooter
 
+- type: Tag
+  id: FlashIgnoreResistances
+
 # Mechs
 
 - type: Tag

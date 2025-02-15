@@ -280,7 +280,7 @@
   name: Lightning Bolt II
   components:
   - type: ActionUseDelayModifier
-    useDelay: 8.25
+    useDelay: 6.75
 
 - type: entity
   parent: ActionLightningBolt
@@ -288,7 +288,7 @@
   name: Lightning Bolt III
   components:
   - type: ActionUseDelayModifier
-    useDelay: 6.5
+    useDelay: 5.5
 
 - type: entity
   parent: ActionLightningBolt
@@ -296,7 +296,7 @@
   name: Lightning Bolt IV
   components:
   - type: ActionUseDelayModifier
-    useDelay: 4.75
+    useDelay: 4.25
 
 - type: entity
   parent: ActionLightningBolt
@@ -313,7 +313,7 @@
   name: Homing Toolbox II
   components:
   - type: ActionUseDelayModifier
-    useDelay: 5
+    useDelay: 6.75
 
 - type: entity
   parent: ActionHomingToolbox
@@ -321,7 +321,7 @@
   name: Homing Toolbox III
   components:
   - type: ActionUseDelayModifier
-    useDelay: 4
+    useDelay: 5.5
 
 - type: entity
   parent: ActionHomingToolbox
@@ -329,7 +329,7 @@
   name: Homing Toolbox IV
   components:
   - type: ActionUseDelayModifier
-    useDelay: 3
+    useDelay: 4.25
 
 - type: entity
   parent: ActionHomingToolbox
@@ -337,7 +337,7 @@
   name: Homing Toolbox V
   components:
   - type: ActionUseDelayModifier
-    useDelay: 2
+    useDelay: 3
 
 # Arcane Barrage
 - type: entity
