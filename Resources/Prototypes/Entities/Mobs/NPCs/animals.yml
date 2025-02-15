@@ -1464,6 +1464,9 @@
     rules: ghost-role-information-syndicate-reinforcement-rules
     raffle:
       settings: default
+    requirements: # ShibaStation - Antag Playtime Requirements
+    - !type:OverallPlaytimeRequirement
+      time: 72000 # 20 hours
   - type: GhostTakeoverAvailable
   - type: Loadout
     prototypes: [SyndicateOperativeGearMonkey]
@@ -2493,6 +2496,12 @@
     rules: ghost-role-information-giant-spider-rules
     raffle:
       settings: short
+    requirements: # ShibaStation - Antag Playtime Requirements
+    - !type:OverallPlaytimeRequirement
+      time: 72000 # 20 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 # 10 hours
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -3021,6 +3030,9 @@
     rules: ghost-role-information-SyndiCat-rules
     raffle:
       settings: default
+    requirements: # ShibaStation - Antag Playtime Requirements
+    - !type:OverallPlaytimeRequirement
+      time: 36000 # 10 hours
   - type: GhostTakeoverAvailable
   - type: AutoImplant
     implants:

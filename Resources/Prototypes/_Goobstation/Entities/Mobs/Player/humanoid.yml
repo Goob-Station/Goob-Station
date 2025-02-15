@@ -208,6 +208,12 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 72000 # 20 hours
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 36000 # 10 hours
       job: ERTSecurity
     - type: Loadout
       prototypes: [ ERTSecurityGearEVAAnnie ]

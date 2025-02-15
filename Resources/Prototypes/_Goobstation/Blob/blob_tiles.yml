@@ -12,6 +12,12 @@
       rules: You are an antagonist, destroy the station!
       raffle:
         settings: default
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50 hours
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 72000 # 20 hours
     - type: Sprite
       sprite: Markers/jobs.rsi
       layers:
@@ -96,6 +102,12 @@
     reregister: false
     raffle:
       settings: default
+    requirements: # ShibaStation - Antag Playtime Requirements
+    - !type:OverallPlaytimeRequirement
+      time: 180000 # 50 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 72000 # 20 hours
   - type: GhostTakeoverAvailable
 
 - type: entity

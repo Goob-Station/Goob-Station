@@ -20,6 +20,12 @@
     rules: ghost-role-information-freeagent-rules
     raffle:
       settings: default
+    requirements: # ShibaStation - Antag Playtime Requirements
+    - !type:OverallPlaytimeRequirement
+      time: 72000 # 20 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 # 10 hours
   - type: GhostTakeoverAvailable
   - type: Loadout
     prototypes: [PirateGear]
@@ -37,6 +43,12 @@
     rules: ghost-role-information-freeagent-rules
     raffle:
       settings: default
+    requirements: # ShibaStation - Antag Playtime Requirements
+    - !type:OverallPlaytimeRequirement
+      time: 72000 # 20 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 # 10 hours
   - type: GhostTakeoverAvailable
   - type: Loadout
     prototypes: [SkeletonBiker]
@@ -53,6 +65,9 @@
     rules: ghost-role-information-nonantagonist-rules
     raffle:
       settings: default
+    requirements: # ShibaStation - Antag Playtime Requirements
+    - !type:OverallPlaytimeRequirement
+      time: 36000 # 10 hours
   - type: GhostTakeoverAvailable
   - type: Loadout
     prototypes: [LimitedPassengerGear]
