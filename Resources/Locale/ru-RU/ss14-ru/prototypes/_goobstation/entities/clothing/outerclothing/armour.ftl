@@ -8,5 +8,5 @@ ent-ClothingBlueshieldArmourVest = бронежелет офицера сине�
     .desc = Бронежелет с символикой Синего Щита.
 ent-ClothingBlueshieldArmoredJacket = бронекуртка офицера синего щита
     .desc = Куртка с вшитыми слоями брони.
-ent-ClothingBlueshieldArmoredCowboyJacket = blueshield's armored cowboy jacket
-    .desc = A jacket to protect important people in wild areas.
+ent-ClothingBlueshieldArmoredCowboyJacket = Бронированная ковбойская куртка Blueshield
+    .desc = Куртка для защиты важных персон в диких местах.

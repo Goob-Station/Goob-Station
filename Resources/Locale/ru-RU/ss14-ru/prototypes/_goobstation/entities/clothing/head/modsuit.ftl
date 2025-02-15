@@ -1,6 +1,6 @@
-ent-BaseClothingModsuitHelmet = base modsuit helmet
+ent-BaseClothingModsuitHelmet = базовый модулярный шлем
     .desc = { "" }
-ent-BaseClothingModsuitHelmetHideIdentity = base modsuit helmet
+ent-BaseClothingModsuitHelmetHideIdentity = базовый модулярный шлем
     .desc = { ent-BaseClothingModsuitHelmet.desc }
-ent-ClothingModsuitHelmetStandard = standard modsuit hemlet
-    .desc = A special modular suit spaceproof helmet designed for compact folding inside modular suit control.
+ent-ClothingModsuitHelmetStandard = стандартный шлем модульного костюма
+    .desc = Специальный космический шлем модульного скафандра, предназначенный для компактного складывания внутри модульного скафандра.

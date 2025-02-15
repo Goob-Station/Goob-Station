@@ -3,5 +3,5 @@ ent-ClothingHeadsetChronolegioneer = футуристическая полнор
 ent-ClothingHeadsetChronolegioneerUnremoveable = { ent-ClothingHeadsetChronolegioneer }
     .suffix = Unremoveable
     .desc = { ent-ClothingHeadsetChronolegioneer.desc }
-ent-ClothingHeadsetAltWarden = warden's over-ear headset
-    .desc = An updated, modular intercom, allowing for rapid communication with command personnel.
+ent-ClothingHeadsetAltWarden = гарнитура смотрителя с накладными ушами
+    .desc = Обновленное модульное переговорное устройство, обеспечивающее быструю связь с командным составом.

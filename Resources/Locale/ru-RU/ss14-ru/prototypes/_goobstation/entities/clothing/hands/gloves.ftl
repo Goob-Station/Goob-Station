@@ -6,5 +6,5 @@ ent-ClothingHandsGlovesChronoLegioneerUnremoveable = { ent-ClothingHandsGlovesCh
 ent-ClothingHandsGlovesExplosiveShock = { ent-ClothingHandsGlovesColorYellow }
     .suffix = Exploding
     .desc = { ent-ClothingHandsGlovesColorYellow.desc }
-ent-ClothingHandsGlovesAtmosInsulated = insulated atmos gloves
-    .desc = Like normal insulated gloves, but simply better by virtue of being from the Atmospherics department.
+ent-ClothingHandsGlovesAtmosInsulated = утепленные перчатки атмоса
+    .desc = Как обычные утепленные перчатки, но просто лучше за счет того, что они из отдела Атмосферики.

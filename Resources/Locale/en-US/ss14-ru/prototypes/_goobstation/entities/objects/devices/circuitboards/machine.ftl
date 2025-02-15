@@ -1,2 +1,2 @@
-ent-MaterialSiloCircuitboard = material silo machine board
-    .desc = A machine printed circuit board for a material silo.
+ent-MaterialSiloCircuitboard = Печатная плата машины для бункера материалов
+    .desc = Машинная печатная плата для бункера материалов.

@@ -1,8 +1,8 @@
-ent-ChronoIDCard = futuristic ID card
-    .desc = The card that originally accessed everything in this universe
-ent-HelldiverIDCard = salvage diver ID card
+ent-ChronoIDCard = футуристическая ID-карта
+    .desc = Карта, с помощью которой изначально был получен доступ ко всему в этой вселенной
+ent-HelldiverIDCard = ID-карта хеллдайвера
     .desc = { ent-SalvageIDCard.desc }
-ent-HecuIDCard = HECU ID card
+ent-HecuIDCard = ID-карта HECU
     .desc = { ent-IDCardStandard.desc }
-ent-BlueshieldIDCard = blueshield officer ID card
+ent-BlueshieldIDCard = ID-карта синего щита
     .desc = { ent-IDCardStandard.desc }

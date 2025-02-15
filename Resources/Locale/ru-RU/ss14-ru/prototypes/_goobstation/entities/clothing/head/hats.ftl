@@ -5,4 +5,4 @@ ent-ClothingHeadHatBeretOfficer = берет офицера
 ent-ClothingHeadMailCarrier = кепка почтальона
     .desc = Пахнет хорошей пенсией.
 ent-ClothingHeadHatCowboyBlueshield = blueshield cowboy hat
-    .desc = Sheriff's back in town, kids
+    .desc = Шериф вернулся в город, детки.

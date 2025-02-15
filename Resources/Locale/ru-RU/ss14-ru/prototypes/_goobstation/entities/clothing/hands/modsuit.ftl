@@ -1,2 +1,2 @@
-ent-ClothingModsuitGauntletsStandard = standard modsuit gauntlets
-    .desc = A special modular suit gloves that protect wearer from electric shock.
+ent-ClothingModsuitGauntletsStandard = стандартные перчатки модульного костюма
+    .desc = Специальные перчатки модульного костюма, защищающие владельца от поражения электрическим током.

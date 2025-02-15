@@ -1,2 +1,2 @@
-ent-ClothingModsuitChestplateStandard = standard modsuit chestplate
-    .desc = A special modular suit spaceproof cover designed for compact folding inside modular suit control.
+ent-ClothingModsuitChestplateStandard = стандартный нагрудный щиток модульного костюма
+    .desc = Специальная пространственная защита модульного костюма, предназначенная для компактного складывания внутри модульного костюма.
