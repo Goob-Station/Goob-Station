@@ -26,6 +26,7 @@
     - id: VentClog
     - id: Category1VentSpawn # ShibaStation - Rolled into 'Category1VentSpawn' event.
     - id: Category3VentSpawn # ShibaStation - Rolled into 'Category3VentSpawn' event.
+    # - id: TidemindDevelop # Goobstation - Tidemind # ShibaStation - Disabled, we don't need this.
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -42,6 +43,7 @@
     - id: DerelictCyborgSpawn
     - id: BlobSpawn # Goobstation - Blob
     - id: LoneAbductorSpawn # Shitmed - Starlight Abductors
+    - id: DuoAbductorSpawn # Shitmed - Starlight Abductors
 
 - type: entity
   id: BaseStationEvent
@@ -490,6 +492,7 @@
       max: 1
       pickPlayer: false
       startingGear: SyndicateLoneOperativeGearFull
+      unequipOldGear: true
       roleLoadout:
       - RoleSurvivalNukie
       components:

@@ -1,0 +1,135 @@
+- type: entity
+  abstract: true
+  parent: BaseGameRule
+  id: BaseWizardRule
+  components:
+  - type: WizardRule
+  - type: GameRule
+    minPlayers: 30
+  - type: AntagObjectives
+    objectives:
+    - WizardSurviveObjective
+  - type: AntagSelection
+    useCharacterNames: true
+    selectionTime: PrePlayerSpawn
+    agentName: wizard-roundend-name
+    definitions:
+    - spawnerPrototype: SpawnPointWizard
+      prefRoles: [ Wizard ]
+      playerRatio: 20
+      min: 1
+      max: 1
+      mindRoles:
+      - MindRoleWizard
+      startingGear: WizardGear
+      unequipOldGear: true
+      roleLoadout:
+      - RoleSurvivalEVA
+      components:
+      - type: Wizard
+      - type: RandomMetadata
+        nameSegments:
+        - wizard_first
+        - wizard_last
+      - type: NpcFactionMember
+        factions:
+        - Wizard
+  - type: AntagLoadProfileRule
+    speciesOverride: Human
+    speciesOverrideBlacklist:
+    - Yowie # Penalized by wearing robes, still should be possible to select them in magic mirror.
+  - type: RuleGrids
+  - type: LoadMapRule
+    mapPath: /Maps/_Goobstation/Nonstations/wizden.yml
+
+- type: entity
+  parent: BaseWizardRule
+  id: Wizard
+
+- type: entity
+  parent: BaseWizardRule
+  id: WizardDynamic
+  components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-wizard-title
+    weight: 3
+    cost: 20
+    highImpact: true
+
+- type: entity
+  parent: WizardDynamic
+  id: WizardDynamicMidround
+  components:
+  - type: StationEvent
+    earliestStart: 35
+    weight: 5.5
+    minimumPlayers: 20
+    duration: 1
+  - type: AntagSelection
+    useCharacterNames: true
+    selectionTime: PostPlayerSpawn
+    definitions:
+    - spawnerPrototype: SpawnPointWizard
+      playerRatio: 20
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleWizard
+      startingGear: WizardGear
+      unequipOldGear: true
+      roleLoadout:
+      - RoleSurvivalEVA
+      components:
+      - type: Wizard
+      - type: RandomMetadata
+        nameSegments:
+        - wizard_first
+        - wizard_last
+      - type: NpcFactionMember
+        factions:
+        - Wizard
+
+- type: entity
+  parent: BaseGameRule
+  id: ApprenticeRule
+  components:
+  - type: GameRule
+  - type: AntagSelection
+    useCharacterNames: true
+    selectionTime: PostPlayerSpawn
+    agentName: apprentice-roundend-name
+    definitions:
+    - prefRoles: [ Apprentice ]
+      playerRatio: 1
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleApprentice
+      components:
+      - type: Apprentice
+      - type: NpcFactionMember
+        factions:
+        - Wizard
+
+- type: entity
+  parent: BaseGameRule
+  id: EndRoundOnWizardDeath
+  components:
+  - type: EndRoundOnWizardDeathRule
+
+- type: gamePreset
+  id: Wizard
+  alias:
+    - wiz
+  name: wizard-title
+  description: wizard-description
+  showInVote: false
+  rules:
+    - Wizard
+    - EndRoundOnWizardDeath
+    - BasicStationEventScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+    # - SubGamemodesRule

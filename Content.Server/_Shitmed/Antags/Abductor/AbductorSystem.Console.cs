@@ -1,21 +1,24 @@
 using Content.Shared._Shitmed.Antags.Abductor;
-using Content.Shared.UserInterface;
-using System.Linq;
-using Content.Shared.DoAfter;
+using Content.Shared._Shitmed.ItemSwitch;
+using Content.Shared._Shitmed.ItemSwitch.Components;
 using Content.Shared._Shitmed.Medical.Surgery;
-using Robust.Shared.Spawners;
-using Content.Shared.Objectives.Components;
-using Content.Server.Objectives.Systems;
+using Content.Shared.DoAfter;
+using Content.Shared.Interaction.Components;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mind;
 using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Objectives.Components;
+using Content.Server.Objectives.Systems;
+using Content.Shared.UserInterface;
+using Robust.Shared.Spawners;
+using System.Linq;
 
 namespace Content.Server._Shitmed.Antags.Abductor;
 
 public sealed partial class AbductorSystem : SharedAbductorSystem
 {
     [Dependency] private readonly NumberObjectiveSystem _number = default!;
-
+    [Dependency] private readonly SharedItemSwitchSystem _itemSwitch = default!;
     public void InitializeConsole()
     {
         SubscribeLocalEvent<AbductorConsoleComponent, BeforeActivatableUIOpenEvent>(OnBeforeActivatableUIOpen);
@@ -23,6 +26,8 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
 
         Subs.BuiEvents<AbductorConsoleComponent>(AbductorConsoleUIKey.Key, subs => subs.Event<AbductorAttractBuiMsg>(OnAttractBuiMsg));
         Subs.BuiEvents<AbductorConsoleComponent>(AbductorConsoleUIKey.Key, subs => subs.Event<AbductorCompleteExperimentBuiMsg>(OnCompleteExperimentBuiMsg));
+        Subs.BuiEvents<AbductorConsoleComponent>(AbductorConsoleUIKey.Key, subs => subs.Event<AbductorVestModeChangeBuiMsg>(OnVestModeChangeBuiMsg));
+        Subs.BuiEvents<AbductorConsoleComponent>(AbductorConsoleUIKey.Key, subs => subs.Event<AbductorLockBuiMsg>(OnVestLockBuiMsg));
         SubscribeLocalEvent<AbductorComponent, AbductorAttractDoAfterEvent>(OnDoAfterAttract);
     }
     private void OnAbductGetProgress(Entity<AbductConditionComponent> ent, ref ObjectiveGetProgressEvent args)
@@ -30,6 +35,21 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
 
     private float AbductProgress(AbductConditionComponent comp, int target)
         => target == 0 ? 1f : MathF.Min(comp.Abducted / (float) target, 1f);
+
+    private void OnVestModeChangeBuiMsg(EntityUid uid, AbductorConsoleComponent component, AbductorVestModeChangeBuiMsg args)
+    {
+        if (component.Armor != null)
+            _itemSwitch.Switch(GetEntity(component.Armor.Value), args.Mode.ToString());
+    }
+
+    private void OnVestLockBuiMsg(Entity<AbductorConsoleComponent> ent, ref AbductorLockBuiMsg args)
+    {
+        if (ent.Comp.Armor != null && GetEntity(ent.Comp.Armor.Value) is EntityUid armor)
+            if (TryComp<UnremoveableComponent>(armor, out var unremoveable))
+                RemComp(armor, unremoveable);
+            else
+                AddComp<UnremoveableComponent>(armor);
+    }
 
     private void OnCompleteExperimentBuiMsg(EntityUid uid, AbductorConsoleComponent component, AbductorCompleteExperimentBuiMsg args)
     {
@@ -119,6 +139,17 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
         if (target.HasValue && TryComp(GetEntity(target.Value), out MetaDataComponent? metadata))
             targetName = metadata?.EntityName;
 
+        var armorLock = false;
+        var armorMode = AbductorArmorModeType.Stealth;
+
+        if (computer.Comp.Armor != null)
+        {
+            if (HasComp<UnremoveableComponent>(GetEntity(computer.Comp.Armor.Value)))
+                armorLock = true;
+            if (TryComp<ItemSwitchComponent>(GetEntity(computer.Comp.Armor.Value), out var switchVest) && Enum.TryParse<AbductorArmorModeType>(switchVest.State, ignoreCase: true, out var State))
+                armorMode = State;
+        }
+
         if (computer.Comp.AlienPod == null)
         {
             var xform = EnsureComp<TransformComponent>(computer.Owner);
@@ -153,7 +184,10 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
             TargetName = targetName,
             VictimName = victimName,
             AlienPadFound = computer.Comp.AlienPod != default,
-            ExperimentatorFound = computer.Comp.Experimentator != default
+            ExperimentatorFound = computer.Comp.Experimentator != default,
+            ArmorFound = computer.Comp.Armor != default,
+            ArmorLocked = armorLock,
+            CurrentArmorMode = armorMode
         });
     }
 }

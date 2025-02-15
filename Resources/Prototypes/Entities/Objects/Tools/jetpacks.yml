@@ -2,8 +2,9 @@
   id: JetpackEffect
   categories: [ HideSpawnMenu ]
   components:
-  - type: TimedDespawn
+  - type: FadingTimedDespawn # Goobstation
     lifetime: 2
+    fadeOutTime: 1
   - type: Sprite
     drawdepth: SmallMobs
     noRot: true
@@ -12,7 +13,7 @@
       map: ["enum.EffectLayers.Unshaded"]
       sprite: Effects/atmospherics.rsi
       state: frezon_old
-  - type: EffectVisuals
+  # - type: EffectVisuals
   - type: Tag
     tags:
       - HideContextMenu

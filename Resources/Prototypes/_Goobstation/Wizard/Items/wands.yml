@@ -1,0 +1,105 @@
+- type: entity
+  id: MultiWand
+  name: wizard wand
+  description: Apparently a wand used by the wizard.
+  parent: [BaseItem, BaseMagicContraband]
+  suffix: DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/Weapons/Wands/wand.rsi
+    layers:
+    - state: basic
+    - state: mode
+      color: orange
+      shader: unshaded
+      map: [ "Firemode" ]
+  - type: Item
+    sprite: _Goobstation/Wizard/Objects/Weapons/Wands/wand.rsi
+    heldPrefix: basic
+    size: Normal
+  - type: AmmoCounter
+  - type: Gun
+    soundEmpty: null
+    soundMode: null
+    clumsyProof: true
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/Magic/staff_healing.ogg
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: ProjectileBatteryAmmoProvider
+    proto: ProjectileFireball
+    fireCost: 250
+  - type: Appearance
+  - type: AmmoSelector
+    soundSelect:
+      path: /Audio/Magic/forcewall.ogg
+      params:
+        volume: -5
+    prototypes:
+    - ProjectileFireball
+    - ProjectileHealingBolt
+    - ProjectileSpellCardPurpleSpread
+    - ProjectileTeleBolt
+    - ProjectileFieryBolt
+    - ProjectileDeathBolt
+    - ProjectileIceCubeBolt
+    - ProjectileSwapBolt
+    - ProjectileBeeBolt
+    - ProjectileXRayBolt
+    - ProjectileEmpBolt
+    - ProjectileSmokeBolt
+    - ProjectileBlindingBolt
+    - ProjectileVampiricBolt
+    - ProjectileMagicMissileLesser
+  - type: UserInterface
+    interfaces:
+      enum.AmmoSelectorUiKey.Key:
+        type: AmmoSelectorMenuBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.AmmoSelectorUiKey.Key
+  - type: ToggleableLightVisuals
+    spriteLayer: Firemode
+    inhandVisuals:
+      left:
+      - state: mode-inhand-left
+        shader: unshaded
+      right:
+      - state: mode-inhand-right
+        shader: unshaded
+  - type: ItemToggle
+    activated: true
+    onActivate: false
+    onUse: false
+    wieldToggle: false
+  - type: ItemToggleColor
+  - type: PointLight
+    enabled: true
+    radius: 1.5
+    energy: 1
+    color: orange
+    netsync: false
+  - type: EmpImmune
+  - type: StaticPrice
+    price: 30000
+  - type: Tag
+    tags:
+    - WizardWand
+    - GunCanAimShooter
+
+- type: entity
+  id: MultiWandWizard
+  parent: MultiWand
+  suffix: Wizard, DO NOT MAP
+  components:
+  - type: ActivatableUiUserWhitelist
+    whitelist:
+      components:
+      - Wizard
+      - Apprentice
+      - Ghost

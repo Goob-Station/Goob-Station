@@ -1321,6 +1321,13 @@ entities:
     - type: Transform
       pos: -6.5,-10.5
       parent: 2
+- proto: BiomassReclaimer
+  entities:
+  - uid: 2448
+    components:
+    - type: Transform
+      pos: -8.5,-10.5
+      parent: 2
 - proto: BlastDoor
   entities:
   - uid: 94
@@ -5616,6 +5623,18 @@ entities:
       rot: 3.141592653589793 rad
       pos: -3.5,-19.5
       parent: 2
+- proto: GeneratorBasic
+  entities:
+  - uid: 2449
+    components:
+    - type: Transform
+      pos: 31.5,-8.5
+      parent: 2
+  - uid: 2450
+    components:
+    - type: Transform
+      pos: 30.5,-8.5
+      parent: 2
 - proto: GeneratorBasic15kW
   entities:
   - uid: 837
@@ -5623,12 +5642,10 @@ entities:
     - type: Transform
       pos: 31.5,-10.5
       parent: 2
-- proto: GeneratorRTG
-  entities:
   - uid: 838
     components:
     - type: Transform
-      pos: 30.5,-10.5
+      pos: 29.5,-8.5
       parent: 2
   - uid: 839
     components:
@@ -5643,7 +5660,17 @@ entities:
   - uid: 841
     components:
     - type: Transform
-      pos: 29.5,-8.5
+      pos: 30.5,-10.5
+      parent: 2
+  - uid: 2451
+    components:
+    - type: Transform
+      pos: 31.5,-9.5
+      parent: 2
+  - uid: 2452
+    components:
+    - type: Transform
+      pos: 30.5,-9.5
       parent: 2
 - proto: GravityGeneratorMini
   entities:
@@ -6289,7 +6316,7 @@ entities:
       angularDamping: 0
       linearDamping: 0
       canCollide: False
-- proto: HydroponicsTrayEmpty
+- proto: hydroponicsTray
   entities:
   - uid: 964
     components:
@@ -9256,6 +9283,11 @@ entities:
     - type: Transform
       pos: -7.5,-1.5
       parent: 2
+  - uid: 2446
+    components:
+    - type: Transform
+      pos: -10.5,-10.5
+      parent: 2
 - proto: TableReinforced
   entities:
   - uid: 1456
@@ -9514,6 +9546,19 @@ entities:
     - type: Transform
       pos: 28.515644,-30.613081
       parent: 2
+- proto: TwoWayLever
+  entities:
+  - uid: 2447
+    components:
+    - type: Transform
+      pos: -7.5,-13.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        1242:
+        - Left: Forward
+        - Right: Reverse
+        - Middle: Off
 - proto: VendingMachineBooze
   entities:
   - uid: 1501

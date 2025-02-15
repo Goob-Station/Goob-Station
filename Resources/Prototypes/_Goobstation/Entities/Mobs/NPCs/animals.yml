@@ -165,11 +165,18 @@
   parent: MobAngryBee
   components:
   - type: MeleeWeapon
+    attackRate: 2
     damage:
       types:
-        Piercing: 1.5
+        Piercing: 1
   - type: TimedDespawn
-    lifetime: 5
+    lifetime: 7
+  - type: HTN
+    blackboard:
+      VisionRadius: !type:Single
+        3
+      AggroVisionRadius: !type:Single
+        3
 
 - type: entity
   name: lootbug

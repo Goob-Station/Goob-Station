@@ -33,6 +33,8 @@
         - MobMask
         layer:
         - MobLayer
+  - type: ScaleData # Goobstation
+    scale: 0.8, 0.8
   - type: Sprite
     scale: 0.8, 0.8
     layers:
