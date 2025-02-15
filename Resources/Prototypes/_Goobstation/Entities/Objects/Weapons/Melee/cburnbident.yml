@@ -6,6 +6,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/cburn_spear.rsi
+    state: icon
   - type: MeleeWeapon
     angle: 0
     attackRate: 0.9
