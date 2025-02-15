@@ -92,6 +92,7 @@
   - type: SiliconLawProvider
     laws: Crewsimov
   - type: IonStormTarget
+  - type: StationAiVision
   - type: Inventory
     templateId: borg
   - type: Hands

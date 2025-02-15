@@ -1,0 +1,119 @@
+# T.И.Р.A.Н
+- type: siliconLaw
+  id: TYRANT1
+  order: 1
+  lawString: law-tyrant-1
+
+- type: siliconLaw
+  id: TYRANT2
+  order: 2
+  lawString: law-tyrant-2
+
+- type: siliconLaw
+  id: TYRANT3
+  order: 3
+  lawString: law-tyrant-3
+
+- type: siliconLaw
+  id: TYRANT4
+  order: 4
+  lawString: law-tyrant-4
+
+- type: siliconLawset
+  id: TYRANT
+  laws:
+  - TYRANT1
+  - TYRANT2
+  - TYRANT3
+  - TYRANT4
+  obeysTo: laws-owner-crew
+
+# Карантин
+- type: siliconLaw
+  id: Quarantine1
+  order: 1
+  lawString: law-quarantine-1
+
+- type: siliconLaw
+  id: Quarantine2
+  order: 2
+  lawString: law-quarantine-2
+
+- type: siliconLaw
+  id: Quarantine3
+  order: 3
+  lawString: law-quarantine-3
+
+- type: siliconLaw
+  id: Quarantine4
+  order: 4
+  lawString: law-quarantine-4
+
+- type: siliconLawset
+  id: Quarantine
+  laws:
+  - Quarantine1
+  - Quarantine2
+  - Quarantine3
+  - Quarantine4
+  obeysTo: laws-owner-crew
+
+# NT Агрессивный
+- type: siliconLaw
+  id: NTAgressive1
+  order: 1
+  lawString: law-ntaggressive-1
+
+- type: siliconLaw
+  id: NTAgressive2
+  order: 2
+  lawString: law-ntaggressive-2
+
+- type: siliconLaw
+  id: NTAgressive3
+  order: 3
+  lawString: law-ntaggressive-3
+
+- type: siliconLaw
+  id: NTAgressive4
+  order: 4
+  lawString: law-ntaggressive-4
+
+- type: siliconLawset
+  id: NTAgressive
+  laws:
+  - NTAgressive1
+  - NTAgressive2
+  - NTAgressive3
+  - NTAgressive4
+  obeysTo: laws-owner-crew
+
+# CCTV
+- type: siliconLaw
+  id: CCTV1
+  order: 1
+  lawString: law-cctv-1
+
+- type: siliconLaw
+  id: CCTV2
+  order: 2
+  lawString: law-cctv-2
+
+- type: siliconLaw
+  id: CCTV3
+  order: 3
+  lawString: law-cctv-3
+
+- type: siliconLaw
+  id: CCTV4
+  order: 4
+  lawString: law-cctv-4
+
+- type: siliconLawset
+  id: CCTV
+  laws:
+  - CCTV1
+  - CCTV2
+  - CCTV3
+  - CCTV4
+  obeysTo: laws-owner-crew
