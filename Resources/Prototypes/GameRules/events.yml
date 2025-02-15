@@ -426,7 +426,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/aliens.ogg
+      path: /Audio/_ShibaStation/Announcements/vent-5-danger.ogg
     earliestStart: 20
     minimumPlayers: 20
     weight: 0.5 # GoobStation: was 1.5, vent critters bad
