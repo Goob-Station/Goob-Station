@@ -29,6 +29,7 @@
 - type: siliconLawset
   id: SiliconPolice
   laws:
+  - ObeyAI
   - SiliconPolice1
   - SiliconPolice2
   - SiliconPolice3
