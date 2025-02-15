@@ -19,10 +19,6 @@ public sealed class HierophantFieldSystem : EntitySystem
 
         SubscribeLocalEvent<HierophantFieldGeneratorComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<HierophantFieldGeneratorComponent, EntityTerminatingEvent>(OnTerminating);
-
-        SubscribeLocalEvent<HierophantBossComponent, MegafaunaStartupEvent>(OnHierophantInit);
-        SubscribeLocalEvent<HierophantBossComponent, MegafaunaDeinitEvent>(OnHierophantDeinit);
-        SubscribeLocalEvent<HierophantBossComponent, MegafaunaKilledEvent>(OnHierophantKilled);
     }
 
     #region Event Handling
@@ -35,46 +31,22 @@ public sealed class HierophantFieldSystem : EntitySystem
         if (!TryComp<HierophantBossComponent>(hierophant, out var hieroComp))
             return;
 
-        ent.Comp.ConnectedHierophant = (hierophant, hieroComp);
+        ent.Comp.ConnectedHierophant = hierophant;
         hieroComp.ConnectedFieldGenerator = ent;
     }
 
     private void OnTerminating(Entity<HierophantFieldGeneratorComponent> ent, ref EntityTerminatingEvent args)
     {
-        if (ent.Comp.ConnectedHierophant != null)
-            ent.Comp.ConnectedHierophant.Value.Comp.ConnectedFieldGenerator = null;
+        if (ent.Comp.ConnectedHierophant != null &&
+            TryComp<HierophantBossComponent>(ent.Comp.ConnectedHierophant.Value, out var hieroComp))
+            hieroComp.ConnectedFieldGenerator = null;
 
         DeleteHierophantFieldImmediatly(ent);
     }
 
-    private void OnHierophantInit(Entity<HierophantBossComponent> ent, ref MegafaunaStartupEvent args)
-    {
-        if (ent.Comp.ConnectedFieldGenerator != null)
-            ActivateField(ent.Comp.ConnectedFieldGenerator.Value);
-    }
-
-    private void OnHierophantDeinit(Entity<HierophantBossComponent> ent, ref MegafaunaDeinitEvent args)
-    {
-        if (ent.Comp.ConnectedFieldGenerator == null)
-            return;
-
-        var field = ent.Comp.ConnectedFieldGenerator.Value;
-        DeactivateField(field);
-
-        // After 10 seconds, hierophant teleports back to it's original place
-        var position = _transform.GetMapCoordinates(field);
-        Timer.Spawn(TimeSpan.FromSeconds(10), () => _transform.SetMapCoordinates(ent, position));
-    }
-
-    private void OnHierophantKilled(Entity<HierophantBossComponent> ent, ref MegafaunaKilledEvent args)
-    {
-        if (ent.Comp.ConnectedFieldGenerator != null)
-            DeactivateField(ent.Comp.ConnectedFieldGenerator.Value);
-    }
-
     #endregion
 
-    private void ActivateField(Entity<HierophantFieldGeneratorComponent> ent)
+    public void ActivateField(Entity<HierophantFieldGeneratorComponent> ent)
     {
         if (ent.Comp.Enabled)
             return; // how?
@@ -83,7 +55,7 @@ public sealed class HierophantFieldSystem : EntitySystem
         ent.Comp.Enabled = true;
     }
 
-    private void DeactivateField(Entity<HierophantFieldGeneratorComponent> ent)
+    public void DeactivateField(Entity<HierophantFieldGeneratorComponent> ent)
     {
         if (!ent.Comp.Enabled)
             return; // how?
@@ -92,7 +64,16 @@ public sealed class HierophantFieldSystem : EntitySystem
         ent.Comp.Enabled = false;
     }
 
-    public async Task SpawnHierophantField(Entity<HierophantFieldGeneratorComponent> ent)
+    public void DeleteHierophantFieldImmediatly(Entity<HierophantFieldGeneratorComponent> ent)
+    {
+        var walls = ent.Comp.Walls.Where(x => !TerminatingOrDeleted(x));
+        foreach (var wall in walls)
+        {
+            QueueDel(wall);
+        }
+    }
+
+    private async Task SpawnHierophantField(Entity<HierophantFieldGeneratorComponent> ent)
     {
         var xform = Transform(ent);
 
@@ -124,15 +105,6 @@ public sealed class HierophantFieldSystem : EntitySystem
     }
 
     private async Task DeleteHierophantField(Entity<HierophantFieldGeneratorComponent> ent)
-    {
-        var walls = ent.Comp.Walls.Where(x => !TerminatingOrDeleted(x));
-        foreach (var wall in walls)
-        {
-            QueueDel(wall);
-        }
-    }
-
-    private void DeleteHierophantFieldImmediatly(Entity<HierophantFieldGeneratorComponent> ent)
     {
         var walls = ent.Comp.Walls.Where(x => !TerminatingOrDeleted(x));
         foreach (var wall in walls)

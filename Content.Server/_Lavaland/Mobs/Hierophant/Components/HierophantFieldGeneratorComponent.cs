@@ -9,7 +9,7 @@ public sealed partial class HierophantFieldGeneratorComponent : Component
     public bool Enabled;
 
     [ViewVariables]
-    public List<EntityUid> Walls = [];
+    public List<EntityUid> Walls = new();
 
     [DataField]
     public int Radius;
@@ -21,5 +21,5 @@ public sealed partial class HierophantFieldGeneratorComponent : Component
     public EntProtoId WallPrototype = "WallHierophantArenaTemporary";
 
     [DataField]
-    public Entity<HierophantBossComponent>? ConnectedHierophant;
+    public EntityUid? ConnectedHierophant;
 }

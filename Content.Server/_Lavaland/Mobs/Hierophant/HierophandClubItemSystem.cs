@@ -17,7 +17,7 @@ public sealed class HierophandClubItemSystem : EntitySystem
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly HierophantBehaviorSystem _hierophant = default!;
+    [Dependency] private readonly HierophantSystem _hierophant = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
@@ -114,7 +114,7 @@ public sealed class HierophandClubItemSystem : EntitySystem
 
         // shitcode because i dont want to rewrite and break the code again
         var dummy = Spawn(null, coords);
-        _hierophant.SpawnCross(owner, dummy, 5f, 0f);
+        _hierophant.SpawnCross(dummy, 5f, 0f);
         QueueDel(dummy);
     }
 

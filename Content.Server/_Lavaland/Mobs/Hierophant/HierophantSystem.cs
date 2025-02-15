@@ -13,6 +13,8 @@ using Content.Shared._Lavaland.Aggression;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
+using Robust.Shared.Timing;
+
 // ReSharper disable AccessToModifiedClosure
 // ReSharper disable BadListLineBreaks
 
@@ -20,16 +22,17 @@ using Content.Shared.Mobs;
 
 namespace Content.Server._Lavaland.Mobs.Hierophant;
 
-public sealed class HierophantBehaviorSystem : EntitySystem
+public sealed class HierophantSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MegafaunaSystem _megafauna = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly HierophantFieldSystem _hierophantField = default!;
 
-    [ValidatePrototypeId<EntityPrototype>] private const string DamageBoxPrototype = "LavalandHierophantSquare";
-    [ValidatePrototypeId<EntityPrototype>] private const string ChaserPrototype = "LavalandHierophantChaser";
+    private readonly EntProtoId _damageBoxPrototype = "LavalandHierophantSquare";
+    private readonly EntProtoId _chaserPrototype = "LavalandHierophantChaser";
 
     // Im too lazy to deal with MobThreshholds.
     private readonly FixedPoint2 _hierophantHp = 2500;
@@ -40,6 +43,39 @@ public sealed class HierophantBehaviorSystem : EntitySystem
 
         SubscribeLocalEvent<HierophantBossComponent, AttackedEvent>(OnAttacked);
         SubscribeLocalEvent<HierophantBossComponent, MobStateChangedEvent>(_megafauna.OnDeath);
+
+        SubscribeLocalEvent<HierophantBossComponent, MegafaunaStartupEvent>(OnHierophantInit);
+        SubscribeLocalEvent<HierophantBossComponent, MegafaunaDeinitEvent>(OnHierophantDeinit);
+        SubscribeLocalEvent<HierophantBossComponent, MegafaunaKilledEvent>(OnHierophantKilled);
+    }
+
+
+    private void OnHierophantInit(Entity<HierophantBossComponent> ent, ref MegafaunaStartupEvent args)
+    {
+        if (ent.Comp.ConnectedFieldGenerator != null &&
+            TryComp<HierophantFieldGeneratorComponent>(ent.Comp.ConnectedFieldGenerator.Value, out var fieldComp))
+            _hierophantField.ActivateField((ent.Comp.ConnectedFieldGenerator.Value, fieldComp));
+    }
+
+    private void OnHierophantDeinit(Entity<HierophantBossComponent> ent, ref MegafaunaDeinitEvent args)
+    {
+        if (ent.Comp.ConnectedFieldGenerator == null ||
+            !TryComp<HierophantFieldGeneratorComponent>(ent.Comp.ConnectedFieldGenerator.Value, out var fieldComp))
+            return;
+
+        var field = ent.Comp.ConnectedFieldGenerator.Value;
+        _hierophantField.DeactivateField((field, fieldComp));
+
+        // After 10 seconds, hierophant teleports back to it's original place
+        var position = _xform.GetMapCoordinates(field);
+        Timer.Spawn(TimeSpan.FromSeconds(10), () => _xform.SetMapCoordinates(ent, position));
+    }
+
+    private void OnHierophantKilled(Entity<HierophantBossComponent> ent, ref MegafaunaKilledEvent args)
+    {
+        if (ent.Comp.ConnectedFieldGenerator != null &&
+            TryComp<HierophantFieldGeneratorComponent>(ent.Comp.ConnectedFieldGenerator.Value, out var fieldComp))
+            _hierophantField.DeactivateField((ent.Comp.ConnectedFieldGenerator.Value, fieldComp));
     }
 
     private void OnAttacked(Entity<HierophantBossComponent> ent, ref AttackedEvent args)
@@ -186,7 +222,8 @@ public sealed class HierophantBehaviorSystem : EntitySystem
     }
 
     #region Patterns
-    public async Task DamageArea(Entity<HierophantBossComponent> ent, EntityUid? target = null, int range = 1)
+
+    private async Task DamageArea(Entity<HierophantBossComponent> ent, EntityUid? target = null, int range = 1)
     {
         if (TerminatingOrDeleted(ent))
             return;
@@ -210,14 +247,14 @@ public sealed class HierophantBehaviorSystem : EntitySystem
         EntityManager.DeleteEntity(beacon); // cleanup
     }
 
-    public async Task SpawnChasers(Entity<HierophantBossComponent> ent, int amount = 1)
+    private async Task SpawnChasers(Entity<HierophantBossComponent> ent, int amount = 1)
     {
         for (int i = 0; i < amount; i++)
         {
             if (TerminatingOrDeleted(ent))
                 return;
 
-            var chaser = Spawn(ChaserPrototype, Transform(ent).Coordinates);
+            var chaser = Spawn(_chaserPrototype, Transform(ent).Coordinates);
             if (TryComp<HierophantChaserComponent>(chaser, out var chasercomp))
             {
                 chasercomp.Target = PickTarget(ent);
@@ -229,7 +266,7 @@ public sealed class HierophantBehaviorSystem : EntitySystem
         }
     }
 
-    public async Task BlinkRandom(Entity<HierophantBossComponent> ent, Vector2? relativePos, int amount = 1)
+    private async Task BlinkRandom(Entity<HierophantBossComponent> ent, Vector2? relativePos, int amount = 1)
     {
         for (int i = 0; i < amount; i++)
         {
@@ -244,23 +281,32 @@ public sealed class HierophantBehaviorSystem : EntitySystem
         }
     }
 
-    public async Task SpawnCrosses(Entity<HierophantBossComponent> ent, EntityUid? target, int amount = 1)
+    private async Task SpawnCrosses(Entity<HierophantBossComponent> ent, EntityUid? target, int amount = 1)
     {
-        for (int i = 0; i < amount; i++)
+        for (var i = 0; i < amount; i++)
         {
-            target = target ?? ent;
-            SpawnCross(ent, (EntityUid) target);
-            await Task.Delay((int) GetDelay(ent, ent.Comp.InterActionDelay));
+            if (TerminatingOrDeleted(ent))
+                return;
+
+            var delay = (int) GetDelay(ent, ent.Comp.InterActionDelay) * i;
+            Timer.Spawn(delay,
+                () =>
+                {
+                    target ??= ent;
+                    SpawnCross(target.Value);
+                });
         }
     }
+
     #endregion
 
     #region Attacks
+
     public void SpawnDamageBox(EntityUid relative, int range = 0, bool hollow = true)
     {
         if (range == 0)
         {
-            Spawn(DamageBoxPrototype, Transform(relative).Coordinates);
+            Spawn(_damageBoxPrototype, Transform(relative).Coordinates);
             return;
         }
 
@@ -291,10 +337,11 @@ public sealed class HierophantBehaviorSystem : EntitySystem
         // fill the box
         foreach (var tile in box)
         {
-            Spawn(DamageBoxPrototype, _map.GridTileToWorld((EntityUid) xform.GridUid, grid, tile.GridIndices));
+            Spawn(_damageBoxPrototype, _map.GridTileToWorld((EntityUid) xform.GridUid, grid, tile.GridIndices));
         }
     }
-    public async Task Blink(EntityUid ent, Vector2 worldPos)
+
+    private async Task Blink(EntityUid ent, Vector2 worldPos)
     {
         if (TerminatingOrDeleted(ent))
             return;
@@ -304,12 +351,13 @@ public sealed class HierophantBehaviorSystem : EntitySystem
         SpawnDamageBox(ent, 1, false);
         SpawnDamageBox(dummy, 1, false);
 
-        await Task.Delay((int)(HierophantBossComponent.TileDamageDelay * 1000));
-
-        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), Transform(ent).Coordinates, AudioParams.Default.WithMaxDistance(10f));
-
-        _xform.SetWorldPosition(ent, worldPos);
-        EntityManager.DeleteEntity(dummy);
+        Timer.Spawn((int)(HierophantBossComponent.TileDamageDelay * 1000),
+            () =>
+            {
+                _audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), Transform(ent).Coordinates, AudioParams.Default.WithMaxDistance(10f));
+                _xform.SetWorldPosition(ent, worldPos);
+                QueueDel(dummy);
+            });
     }
 
     public async Task Blink(EntityUid ent, EntityUid? marker = null)
@@ -321,39 +369,34 @@ public sealed class HierophantBehaviorSystem : EntitySystem
         QueueDel(marker);
     }
 
-    public void SpawnCross(EntityUid ent, EntityUid target, float range = 10, float bothChance = 0.1f)
+    public void SpawnCross(EntityUid target, float range = 10, float bothChance = 0.1f)
     {
         var xform = Transform(target);
 
-        if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
+        if (!TryComp<MapGridComponent>(xform.GridUid, out var grid) ||
+            !_xform.TryGetGridTilePosition(target, out var tilePos))
             return;
 
-        var cross = MakeCross(target, range);
-        var diagcross = MakeCrossDiagonal(target, range);
+        var cross = MakeCross(tilePos, range);
+        var diagcross = MakeCrossDiagonal(tilePos, range);
 
-        if (cross == null || diagcross == null)
-            return;
-
-        var types = new List<List<Vector2i>?>() { cross, diagcross };
+        var types = new List<List<Vector2i>?> { cross, diagcross };
         var both = new List<Vector2i>();
         both.AddRange(cross);
         both.AddRange(diagcross);
 
-
-        var tiles = new List<Vector2i>();
-        if (_random.Prob(bothChance))
-            tiles = both;
-        else tiles = _random.Pick(types);
+        var tiles = _random.Prob(bothChance) ? both : _random.Pick(types);
 
         foreach (var tile in tiles!)
         {
-            Spawn(DamageBoxPrototype, _map.GridTileToWorld((EntityUid) xform.GridUid, grid, tile));
+            Spawn(_damageBoxPrototype, _map.GridTileToWorld((EntityUid) xform.GridUid, grid, tile));
         }
     }
     #endregion
 
     #region Helper methods
-    public EntityUid? PickTarget(Entity<HierophantBossComponent> ent)
+
+    private EntityUid? PickTarget(Entity<HierophantBossComponent> ent)
     {
         if (!ent.Comp.Aggressive
         || !TryComp<AggressiveComponent>(ent, out var aggressive)
@@ -364,32 +407,22 @@ public sealed class HierophantBehaviorSystem : EntitySystem
         return _random.Pick(aggressive.Aggressors);
     }
 
-    public float GetDelay(Entity<HierophantBossComponent> ent, float baseDelay)
+    private float GetDelay(Entity<HierophantBossComponent> ent, float baseDelay)
     {
         var minDelay = Math.Max(baseDelay / 2.5f, HierophantBossComponent.TileDamageDelay);
 
         return Math.Max(baseDelay - (baseDelay * ent.Comp.CurrentAnger), minDelay);
     }
-    public void AdjustAnger(Entity<HierophantBossComponent> ent, float anger)
+
+    private void AdjustAnger(Entity<HierophantBossComponent> ent, float anger)
     {
         ent.Comp.CurrentAnger = Math.Clamp(ent.Comp.CurrentAnger + anger, 0, ent.Comp.MaxAnger);
         if (ent.Comp.CurrentAnger < ent.Comp.MinAnger)
             ent.Comp.CurrentAnger = ent.Comp.MinAnger;
     }
 
-    private List<Vector2i>? MakeCross(EntityUid relative, float range)
+    private List<Vector2i> MakeCross(Vector2i tilePos, float range)
     {
-        var xform = Transform(relative);
-
-        if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
-            return null;
-
-        var gridEnt = ((EntityUid) xform.GridUid, grid);
-
-        // get tile position of our entity
-        if (!_xform.TryGetGridTilePosition(relative, out var tilePos))
-            return null;
-
         var refs = new List<Vector2i>();
         var center = tilePos;
 
@@ -407,26 +440,15 @@ public sealed class HierophantBehaviorSystem : EntitySystem
 
         return refs;
     }
-    private List<Vector2i>? MakeCrossDiagonal(EntityUid relative, float range)
+    private List<Vector2i> MakeCrossDiagonal(Vector2i tilePos, float range)
     {
-        var xform = Transform(relative);
-
-        if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
-            return null;
-
-        var gridEnt = ((EntityUid) xform.GridUid, grid);
-
-        // get tile position of our entity
-        if (!_xform.TryGetGridTilePosition(relative, out var tilePos))
-            return null;
-
         var refs = new List<Vector2i>();
         var center = tilePos;
 
         refs.Add(center);
 
         // we go thru all directions and fill the array up
-        for (int i = 1; i < range; i++)
+        for (var i = 1; i < range; i++)
         {
             // this should make a neat diagonal cross
             refs.Add(new Vector2i(center.X + i, center.Y + i));

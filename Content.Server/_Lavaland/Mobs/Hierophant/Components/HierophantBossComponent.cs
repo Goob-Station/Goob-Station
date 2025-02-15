@@ -11,7 +11,7 @@ public sealed partial class HierophantBossComponent : MegafaunaComponent
     // FYI don't use these delays as they are, better use the GetDelay() system method since it accounts for anger.
 
     /// <summary>
-    ///     Gets calculated automatically in the <see cref="HierophantBehaviorSystem"/>.
+    ///     Gets calculated automatically in the <see cref="HierophantSystem"/>.
     ///     Is responsive for how fast the hierophant attacks.
     /// </summary>
     [ViewVariables]
@@ -67,5 +67,5 @@ public sealed partial class HierophantBossComponent : MegafaunaComponent
     public bool IsAttacking = false;
 
     [ViewVariables]
-    public Entity<HierophantFieldGeneratorComponent>? ConnectedFieldGenerator;
+    public EntityUid? ConnectedFieldGenerator;
 }
