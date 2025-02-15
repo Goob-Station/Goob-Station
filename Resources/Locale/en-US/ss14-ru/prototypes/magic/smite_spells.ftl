@@ -1,2 +1,2 @@
 ent-ActionSmite = Smite
-    .desc = Instantly gibs a target.
+    .desc = Charge your hand with an unholy energy that can be used to cause a touched victim to violently explode.

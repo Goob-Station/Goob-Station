@@ -18,5 +18,5 @@ ent-KnockSpellbook = knock spellbook
     .desc = { ent-BaseSpellbook.desc }
 ent-FireballSpellbook = fireball spellbook
     .desc = { ent-BaseSpellbook.desc }
-ent-ScrollRunes = scroll of runes
+ent-ScrollRunes = scroll of traps
     .desc = { ent-BaseSpellbook.desc }

@@ -1,0 +1,12 @@
+ent-MobArachnidRandom = Urist McWeb
+    .suffix = Random Appearance
+    .desc = { ent-MobArachnid.desc }
+ent-MobIPCRandom = Urist McPositronic
+    .suffix = Random Appearance
+    .desc = { ent-MobIPC.desc }
+ent-MobOniRandom = Urist McOni
+    .suffix = Random Appearance
+    .desc = { ent-MobOni.desc }
+ent-MobCluwneRandom = { ent-MobCluwne }
+    .suffix = Random Appearance
+    .desc = { ent-MobCluwne.desc }

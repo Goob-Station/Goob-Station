@@ -38,5 +38,3 @@ ent-Sheetifier = sheet-meister 2000
     .desc = A very sheety machine.
 ent-CutterMachine = cutter machine
     .desc = This is a cutter. It cuts. Add variety to your station floor with eye-pleasing patterns! Don't stick your fingers in.
-ent-MedicalBiofabricator = medical biofabricator
-    .desc = Produces organs and other organic matter that can be surgically grafted onto patients with biomass.
