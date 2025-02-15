@@ -1,7 +1,7 @@
 - type: entity
   parent: Stunbaton
   id: StunbatonSelfCharging # Someone not capitalising the B in Stun`B`aton has wasted over an hour of my life trying to fix the error.
-  suffix: Do Not Map, Recharging, Cyborg
+  categories: [hideSpawnMenu]
   noSpawn: true
   components:
   - type: BatterySelfRecharger
@@ -28,7 +28,7 @@
   parent: FlashlightSeclite
   id: FlashlightSecliteRecharging
   description: A robust flashlight used by security.
-  suffix: Do Not Map , Recharging
+  categories: [hideSpawnMenu]
   noSpawn: true
   components:
   - type: ItemSlots
@@ -46,6 +46,7 @@
   parent: BaseItem
   id: WoodBaton
   description: First, do no crime.
+  categories: [hideSpawnMenu]
   noSpawn: true
   components:
     - type: MeleeWeapon
@@ -66,7 +67,7 @@
 - type: entity
   parent: HoloprojectorSecurity
   id: HoloprojectorSecurityRecharging
-  suffix: Recharging, Do Not Map
+  categories: [hideSpawnMenu]
   noSpawn: true
   components:
     - type: ItemSlots

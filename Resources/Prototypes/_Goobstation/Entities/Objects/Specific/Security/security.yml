@@ -1,7 +1,7 @@
 - type: entity
   parent: WeaponLaserCarbine
   id: WeaponLaserCarbineRecharging
-  suffix: Recharging, Do Not Map
+  categories: [hideSpawnMenu]
   noSpawn: true
   components:
     - type: BatterySelfRecharger
@@ -13,7 +13,7 @@
 - type: entity
   parent: WeaponDisabler
   id: WeaponDisablerRecharging
-  suffix: Recharging, Do Not Map
+  categories: [hideSpawnMenu]
   noSpawn: true
   components:
     - type: BatterySelfRecharger
