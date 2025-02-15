@@ -1,0 +1,21 @@
+- type: entity
+  parent: WeaponLaserCarbine
+  id: WeaponLaserCarbineRecharging
+  suffix: Recharging, Do Not Map
+  noSpawn: true
+  components:
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 15
+      autoRechargePause: true
+      autoRechargePauseTime: 30
+
+- type: entity
+  parent: WeaponDisabler
+  id: WeaponDisablerRecharging
+  suffix: Recharging, Do Not Map
+  noSpawn: true
+  components:
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 24
