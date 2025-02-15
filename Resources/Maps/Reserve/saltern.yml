@@ -59,7 +59,7 @@ entities:
           version: 6
         -1,0:
           ind: -1,0
-          tiles: PAAAAAAAPAAAAAAAPAAAAAAAPAAAAAAAPAAAAAAAWQAAAAAAdgAAAAAAdgAAAAAAdgAAAAADdgAAAAADdgAAAAABdgAAAAAAdgAAAAABdgAAAAAAdgAAAAADdgAAAAADPAAAAAAAPAAAAAAAPAAAAAAAPAAAAAAAPAAAAAAAWQAAAAADdgAAAAADdgAAAAAAdgAAAAACdgAAAAABdgAAAAAAdgAAAAADdgAAAAACdgAAAAAAdgAAAAADdgAAAAABeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAZAAAAAABZAAAAAADZAAAAAABeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAWQAAAAACWQAAAAABWQAAAAADWQAAAAABWQAAAAABWQAAAAACWQAAAAAAWQAAAAABWQAAAAACWQAAAAABWQAAAAACWQAAAAACWQAAAAABWQAAAAABWQAAAAABWQAAAAAAWQAAAAACWQAAAAADWQAAAAAAWQAAAAACWQAAAAAAWQAAAAAAWQAAAAABWQAAAAAAWQAAAAADWQAAAAAAWQAAAAADWQAAAAADWQAAAAADWQAAAAADWQAAAAADWQAAAAADWQAAAAACWQAAAAAAWQAAAAACWQAAAAABWQAAAAADWQAAAAABWQAAAAAAWQAAAAABWQAAAAABWQAAAAAAWQAAAAABWQAAAAABWQAAAAABWQAAAAAAWQAAAAACWQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAWQAAAAAAWQAAAAAAeQAAAAAAeQAAAAAAWQAAAAAAeQAAAAAAYAAAAAAAeQAAAAAAWQAAAAAAWQAAAAADWQAAAAAAWQAAAAABWQAAAAAAWQAAAAACWQAAAAADeQAAAAAAWQAAAAABWQAAAAACeQAAAAAAHQAAAAAAHQAAAAACHQAAAAACYAAAAAAAeQAAAAAAWQAAAAADWQAAAAABWQAAAAAAWQAAAAACWQAAAAAAWQAAAAABWQAAAAABeQAAAAAAWQAAAAACWQAAAAABeQAAAAAAHQAAAAABHQAAAAABHQAAAAAAYAAAAAAAeQAAAAAAeQAAAAAAWQAAAAAAWQAAAAAAWQAAAAACWQAAAAAAWQAAAAAAeQAAAAAAeQAAAAAAWQAAAAAAWQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAYAAAAAAAYAAAAAAAWQAAAAAAWQAAAAACWQAAAAADWQAAAAACWQAAAAABWQAAAAADWQAAAAABWQAAAAADWQAAAAABWQAAAAADWQAAAAAAWQAAAAACWQAAAAAAWQAAAAACYAAAAAAAeQAAAAAAWQAAAAADWQAAAAAAWQAAAAABWQAAAAADWQAAAAAAWQAAAAADWQAAAAABWQAAAAACWQAAAAADWQAAAAAAWQAAAAACWQAAAAABWQAAAAACWQAAAAADeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAWQAAAAADLQAAAAAAWQAAAAADLQAAAAAAWQAAAAACWQAAAAAAWQAAAAADWQAAAAABeQAAAAAAbAAAAAAALAAAAAAAUAAAAAAAUAAAAAAAUAAAAAAAUAAAAAAAeQAAAAAAWQAAAAADWQAAAAACWQAAAAAAWQAAAAAAWQAAAAADWQAAAAABWQAAAAADWQAAAAADeQAAAAAAbAAAAAAALAAAAAAAUAAAAAAAUAAAAAAAUAAAAAAAUAAAAAAAeQAAAAAAWQAAAAACLQAAAAAAWQAAAAACLQAAAAAAWQAAAAACWQAAAAAAWQAAAAABWQAAAAADeQAAAAAAbAAAAAAAeQAAAAAALAAAAAAAUAAAAAAAUAAAAAAAUAAAAAAAUAAAAAAAWQAAAAAAWQAAAAACWQAAAAABWQAAAAADWQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAA
+          tiles: PAAAAAAAPAAAAAAAPAAAAAAAPAAAAAAAPAAAAAAAWQAAAAAAdgAAAAAAdgAAAAAAdgAAAAADdgAAAAADdgAAAAABdgAAAAAAdgAAAAABdgAAAAAAdgAAAAADdgAAAAADPAAAAAAAPAAAAAAAPAAAAAAAPAAAAAAAPAAAAAAAWQAAAAADdgAAAAADdgAAAAAAdgAAAAACdgAAAAABdgAAAAAAdgAAAAADdgAAAAACdgAAAAAAdgAAAAADdgAAAAABeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAZAAAAAABZAAAAAADZAAAAAABeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAWQAAAAACWQAAAAABWQAAAAADWQAAAAABWQAAAAABWQAAAAACWQAAAAAAWQAAAAABWQAAAAACWQAAAAABWQAAAAACWQAAAAACWQAAAAABWQAAAAABWQAAAAABWQAAAAAAWQAAAAACWQAAAAADWQAAAAAAWQAAAAACWQAAAAAAWQAAAAAAWQAAAAABWQAAAAAAWQAAAAADWQAAAAAAWQAAAAADWQAAAAADWQAAAAADWQAAAAADWQAAAAADWQAAAAADWQAAAAACWQAAAAAAWQAAAAACWQAAAAABWQAAAAADWQAAAAABWQAAAAAAWQAAAAABWQAAAAABWQAAAAAAWQAAAAABWQAAAAABWQAAAAABWQAAAAAAWQAAAAACWQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAWQAAAAAAWQAAAAAAeQAAAAAAeQAAAAAAWQAAAAAAeQAAAAAAYAAAAAAAeQAAAAAAYAAAAAAAYAAAAAAAYAAAAAAAYAAAAAAAYAAAAAAAYAAAAAAAYAAAAAAAeQAAAAAAWQAAAAABWQAAAAACeQAAAAAAHQAAAAAAHQAAAAACHQAAAAACYAAAAAAAYAAAAAAAYAAAAAAAYAAAAAAAYAAAAAAAYAAAAAAAYAAAAAAAYAAAAAAAYAAAAAAAeQAAAAAAWQAAAAACWQAAAAABeQAAAAAAHQAAAAABHQAAAAABHQAAAAAAYAAAAAAAeQAAAAAAeQAAAAAAWQAAAAAAWQAAAAAAWQAAAAACWQAAAAAAWQAAAAAAeQAAAAAAeQAAAAAAWQAAAAAAWQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAYAAAAAAAYAAAAAAAWQAAAAAAWQAAAAACWQAAAAADWQAAAAACWQAAAAABWQAAAAADWQAAAAABWQAAAAADWQAAAAABWQAAAAADWQAAAAAAWQAAAAACWQAAAAAAWQAAAAACYAAAAAAAeQAAAAAAWQAAAAADWQAAAAAAWQAAAAABWQAAAAADWQAAAAAAWQAAAAADWQAAAAABWQAAAAACWQAAAAADWQAAAAAAWQAAAAACWQAAAAABWQAAAAACWQAAAAADeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAWQAAAAADLQAAAAAAWQAAAAADLQAAAAAAWQAAAAACWQAAAAAAWQAAAAADWQAAAAABeQAAAAAAbAAAAAAALAAAAAAAUAAAAAAAUAAAAAAAUAAAAAAAUAAAAAAAeQAAAAAAWQAAAAADWQAAAAACWQAAAAAAWQAAAAAAWQAAAAADWQAAAAABWQAAAAADWQAAAAADeQAAAAAAbAAAAAAALAAAAAAAUAAAAAAAUAAAAAAAUAAAAAAAUAAAAAAAeQAAAAAAWQAAAAACLQAAAAAAWQAAAAACLQAAAAAAWQAAAAACWQAAAAAAWQAAAAABWQAAAAADeQAAAAAAbAAAAAAAeQAAAAAALAAAAAAAUAAAAAAAUAAAAAAAUAAAAAAAUAAAAAAAWQAAAAAAWQAAAAACWQAAAAABWQAAAAADWQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAA
           version: 6
         0,-1:
           ind: 0,-1
@@ -3848,7 +3848,6 @@ entities:
     - type: DeviceList
       devices:
       - 3117
-      - 6262
       - 5479
       - 5478
       - 3116
@@ -4857,6 +4856,11 @@ entities:
     - type: Transform
       pos: -33.5,-30.5
       parent: 31
+  - uid: 8766
+    components:
+    - type: Transform
+      pos: -14.5,8.5
+      parent: 31
   - uid: 8910
     components:
     - type: Transform
@@ -5526,11 +5530,6 @@ entities:
       angularDamping: 0
       linearDamping: 0
       bodyType: Static
-  - uid: 12258
-    components:
-    - type: Transform
-      pos: 63.5,-3.5
-      parent: 31
 - proto: AmmoTechFabCircuitboard
   entities:
   - uid: 12575
@@ -6454,11 +6453,6 @@ entities:
     - type: Transform
       pos: -7.5,22.5
       parent: 31
-  - uid: 704
-    components:
-    - type: Transform
-      pos: -15.5,8.5
-      parent: 31
   - uid: 938
     components:
     - type: Transform
@@ -6743,11 +6737,6 @@ entities:
     components:
     - type: Transform
       pos: -27.5,-1.5
-      parent: 31
-  - uid: 5629
-    components:
-    - type: Transform
-      pos: -15.5,8.5
       parent: 31
 - proto: BikeHornInstrument
   entities:
@@ -23166,77 +23155,6 @@ entities:
     components:
     - type: Transform
       pos: 36.5,12.5
-      parent: 31
-- proto: CargoPalletBuy
-  entities:
-  - uid: 12155
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 22.5,10.5
-      parent: 31
-  - uid: 12156
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 22.5,11.5
-      parent: 31
-  - uid: 12157
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 23.5,11.5
-      parent: 31
-  - uid: 12158
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 23.5,10.5
-      parent: 31
-  - uid: 12159
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 22.5,9.5
-      parent: 31
-- proto: CargoPalletSell
-  entities:
-  - uid: 12160
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 20.5,9.5
-      parent: 31
-  - uid: 12161
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 20.5,10.5
-      parent: 31
-  - uid: 12162
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 20.5,11.5
-      parent: 31
-  - uid: 12163
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 19.5,11.5
-      parent: 31
-  - uid: 12164
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 19.5,10.5
-      parent: 31
-- proto: CargoTelepad
-  entities:
-  - uid: 12165
-    components:
-    - type: Transform
-      pos: 21.5,10.5
       parent: 31
 - proto: Carpet
   entities:
@@ -48516,8 +48434,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 20.5,9.5
       parent: 31
-    - type: AtmosPipeColor
-      color: '#0055CCFF'
   - uid: 6268
     components:
     - type: Transform
@@ -50003,11 +49919,6 @@ entities:
     components:
     - type: Transform
       pos: 9.5,31.5
-      parent: 31
-  - uid: 1877
-    components:
-    - type: Transform
-      pos: -14.5,8.5
       parent: 31
   - uid: 1879
     components:
@@ -51687,6 +51598,11 @@ entities:
       rot: 3.141592653589793 rad
       pos: -29.5,-32.5
       parent: 31
+  - uid: 8774
+    components:
+    - type: Transform
+      pos: -10.5,6.5
+      parent: 31
   - uid: 8819
     components:
     - type: Transform
@@ -52755,6 +52671,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 63.5,15.5
       parent: 12098
+  - uid: 12158
+    components:
+    - type: Transform
+      pos: -11.5,6.5
+      parent: 31
   - uid: 12296
     components:
     - type: Transform
@@ -55544,13 +55465,6 @@ entities:
     - type: Transform
       pos: -1.5,-27.5
       parent: 31
-- proto: HolopadSecurityArmory
-  entities:
-  - uid: 11665
-    components:
-    - type: Transform
-      pos: -12.5,18.5
-      parent: 31
 - proto: HolopadSecurityBrig
   entities:
   - uid: 7344
@@ -56885,6 +56799,25 @@ entities:
     - type: Transform
       pos: -8.471462,20.4352
       parent: 31
+- proto: MailMetricsCartridge
+  entities:
+  - uid: 1877
+    components:
+    - type: Transform
+      pos: 22.260887,13.139941
+      parent: 31
+  - uid: 1953
+    components:
+    - type: Transform
+      pos: 22.260887,13.327441
+      parent: 31
+- proto: MailTeleporter
+  entities:
+  - uid: 704
+    components:
+    - type: Transform
+      pos: 21.5,10.5
+      parent: 31
 - proto: MaintenanceFluffSpawner
   entities:
   - uid: 113
@@ -57402,11 +57335,6 @@ entities:
       angularDamping: 0
       linearDamping: 0
       bodyType: Static
-  - uid: 12259
-    components:
-    - type: Transform
-      pos: 62.5,-3.5
-      parent: 31
 - proto: NitrousOxideTankFilled
   entities:
   - uid: 10028
@@ -57534,6 +57462,13 @@ entities:
     - type: Transform
       pos: 5.4546466,-33.710297
       parent: 31
+- proto: PaintingBlunt
+  entities:
+  - uid: 5629
+    components:
+    - type: Transform
+      pos: 18.5,14.5
+      parent: 31
 - proto: PaintingCafeTerraceAtNight
   entities:
   - uid: 7804
@@ -57601,7 +57536,7 @@ entities:
       stampedBy:
       - stampedColor: '#006600FF'
         stampedName: stamp-component-stamped-name-centcom
-      content: "[color=#1b487e]███░███░░░░██░░░░[/color]\r\n[color=#1b487e]░██░████░░░██░░░░[/color]\r\n[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]\r\n[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]           NTSS-38a Saltern[/bold]\r\n[color=#1b487e]░░░░██░░░████░███[/color]\r\n=============================================\r\n                     NOTICE TO ENGINEERING STAFF\r\n=============================================\r\nDue to corporate restructuring, and the presence of an updated Mk8 Supermatter engine, we have decided to reduce operational costs on our newest model of \"Saltern\" class stations. This state of the art Supermatter engine costs 450 million Spesos to design, produce, and implement on our stations. We have opted to save on operational costs by not supplying this station with an Antimatter Engine, which we should remind you, costs 150 Million Spesos to produce. \n\nIf you are lacking in qualified and trained engineering personnel to operate the Supermatter engine, consider using these generators in combination with station Solar Arrays. Additional fuel may be obtained from the Logistics department.\n=============================================\r\n                            "
+      content: "[color=#1b487e]███░███░░░░██░░░░[/color]\r\n[color=#1b487e]░██░████░░░██░░░░[/color]\r\n[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]\r\n[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]           NTSS-38a Saltern[/bold]\r\n[color=#1b487e]░░░░██░░░████░███[/color]\r\n=============================================\r\n                     ИНЖЕНЕРАМ\r\n=============================================\r\nВ связи с реструктуризацией компании и наличием обновленного двигателя Mk8 Supermatter мы решили сократить эксплуатационные расходы на нашу новейшую модель станций класса «Салтерн». Разработка, производство и установка этого современного двигателя Supermatter обошлась в 450 миллионов кредитов. Мы решили сэкономить на эксплуатационных расходах, не оснащая эту станцию двигателем на антиматерии, производство которого, напомним, стоит 150 миллионов кредитов. \r\n\r\nЕсли у вас не хватает квалифицированного и обученного инженерного персонала для работы с двигателем сверхматерии, рассмотрите возможность использования этих генераторов в сочетании с солнечными батареями станции. Дополнительное топливо можно получить в отделе карго.\n=============================================\r\n                            "
     - type: Physics
       angularDamping: 0
       linearDamping: 0
@@ -57659,43 +57594,6 @@ entities:
         Зарплата для станции.
 
         Выдавайте на свое усмотрение.
-  - uid: 12253
-    components:
-    - type: Transform
-      pos: 59.767834,2.5585926
-      parent: 31
-    - type: Paper
-      stampState: paper_stamp-centcom
-      stampedBy:
-      - stampedColor: '#006600FF'
-        stampedName: stamp-component-stamped-name-centcom
-      content: >-
-        Удачи разобраться :)
-
-
-
-        ПОСКОЛЬКУ МНОГИЕ НАШИ ИНЖЕНЕРЫ ПОСТОЯННО ЗАВАЛИВАЮТ ЭТУ «ПРОСТУЮ» КОНСТРУКЦИЮ ДВИГАТЕЛЯ, ВОТ ЧТО ВАМ НУЖНО ЗНАТЬ:
-
-
-        НА САМОМ ДЕЛЕ СУЩЕСТВУЕТ ДВА КОНТУРА ОХЛАЖДАЮЩЕЙ ЖИДКОСТИ. ОДИН «ПАССИВНЫЙ» КОНТУР, КОТОРЫЙ ИМЕЕТ РАЗЪЕМЫ НА ЗАПАДНОЙ СТОРОНЕ ДВИГАТЕЛЯ. ПОМЕСТИТЕ АЗОТ В ЗАПАДНЫЕ РАЗЪЕМЫ.
-
-
-        ОДИН «АКТИВНЫЙ» КОНТУР, КОТОРЫЙ ИМЕЕТ РАЗЪЕМЫ НА ЮЖНОЙ СТОРОНЕ ДВИГАТЕЛЯ. ПОМЕСТИТЕ НАСТОЯЩУЮ ОХЛАЖДАЮЩУЮ ЖИДКОСТЬ В **ЮЖНЫЕ** РАЗЪЕМЫ. НЕ ЗАЛИВАЙТЕ ТУДА ЧИСТЫЙ АЗОТ. НЕ ЗАЛИВАЙТЕ ТУДА ЧИСТЫЙ КИСЛОРОД, ЕСЛИ ВЫ НЕ ЗНАЕТЕ, ЧТО ДЕЛАЕТЕ.
-
-
-        НЕ ТРОГАЙТЕ И НЕ СНИМАЙТЕ БЕЛЫЙ ВОЗДУШНЫЙ БАЛЛОН. ЭТО ВАШ ЗАЩИТНЫЙ МЕХАНИЗМ.
-
-
-        ВКЛЮЧИТЕ ВСЕ ОБЪЕМНЫЕ НАСОСЫ, ВКЛЮЧИТЕ ВСЕ МОРОЗИЛЬНЫЕ КАМЕРЫ. ВСЕГО ЕСТЬ ТРИ МОРОЗИЛЬНЫХ КАМЕРЫ. ЕСЛИ ВЫ НЕ ВКЛЮЧИЛИ ТРИ МОРОЗИЛЬНЫХ КАМЕРЫ, ЗНАЧИТ, ВЫ НЕ ВКЛЮЧИЛИ ВСЕ МОРОЗИЛЬНЫЕ КАМЕРЫ. 
-
-
-        ЕСТЬ 10 ОБЪЕМНЫХ НАСОСОВ. ЕСЛИ ВЫ НЕ ВКЛЮЧИЛИ 10 ОБЪЕМНЫХ НАСОСОВ, ВЫ НЕ ВКЛЮЧИЛИ СИСТЕМЫ ОХЛАЖДЕНИЯ.
-
-
-        КОГДА ДВИГАТЕЛЬ АКТИВИРОВАН, ВЫ ЕЩЕ НЕ ЗАКОНЧИЛИ. ВАМ НУЖНО ЗАЙТИ В ATMOSPHERICS И НАСТРОИТЬ ATMOС СТАНЦИИ. В АТМОСФЕРИКЕ ЕСТЬ ДВА НАСОСА, КОТОРЫЕ ЧЕТКО ОБОЗНАЧЕНЫ ДЛЯ ДВИГАТЕЛЯ СУПЕРМАТЕРИИ.
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
 - proto: PaperBin10
   entities:
   - uid: 7324
@@ -57951,6 +57849,11 @@ entities:
       parent: 31
 - proto: PlasmaCanister
   entities:
+  - uid: 219
+    components:
+    - type: Transform
+      pos: 62.5,-3.5
+      parent: 31
   - uid: 7313
     components:
     - type: Transform
@@ -57976,6 +57879,11 @@ entities:
       angularDamping: 0
       linearDamping: 0
       bodyType: Static
+  - uid: 11665
+    components:
+    - type: Transform
+      pos: 63.5,-3.5
+      parent: 31
 - proto: PlasmaReinforcedWindowDirectional
   entities:
   - uid: 12044
@@ -62511,11 +62419,6 @@ entities:
     - type: Transform
       pos: 37.5,1.5
       parent: 31
-  - uid: 1953
-    components:
-    - type: Transform
-      pos: -12.5,6.5
-      parent: 31
   - uid: 1954
     components:
     - type: Transform
@@ -63843,6 +63746,21 @@ entities:
     - type: Transform
       pos: -21.5,26.5
       parent: 31
+  - uid: 12155
+    components:
+    - type: Transform
+      pos: -12.5,6.5
+      parent: 31
+  - uid: 12159
+    components:
+    - type: Transform
+      pos: -11.5,6.5
+      parent: 31
+  - uid: 12160
+    components:
+    - type: Transform
+      pos: -10.5,6.5
+      parent: 31
   - uid: 12166
     components:
     - type: Transform
@@ -64462,6 +64380,16 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 5.5,-7.5
       parent: 31
+  - uid: 12156
+    components:
+    - type: Transform
+      pos: -11.5,6.5
+      parent: 31
+  - uid: 12157
+    components:
+    - type: Transform
+      pos: -10.5,6.5
+      parent: 31
 - proto: ShuttersRadiationOpen
   entities:
   - uid: 4854
@@ -64596,32 +64524,6 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         260:
-        - Pressed: Toggle
-  - uid: 8766
-    components:
-    - type: Transform
-      pos: -13.5,12.5
-      parent: 31
-    - type: DeviceLinkSource
-      linkedPorts:
-        8767:
-        - Pressed: Toggle
-        8768:
-        - Pressed: Toggle
-  - uid: 8774
-    components:
-    - type: Transform
-      pos: -11.5,12.5
-      parent: 31
-    - type: DeviceLinkSource
-      linkedPorts:
-        8772:
-        - Pressed: Toggle
-        8773:
-        - Pressed: Toggle
-        8771:
-        - Pressed: Toggle
-        8770:
         - Pressed: Toggle
   - uid: 10325
     components:
@@ -70078,6 +69980,13 @@ entities:
     - type: Transform
       pos: -19.5,-10.5
       parent: 31
+- proto: VendingMachineMailDrobe
+  entities:
+  - uid: 1955
+    components:
+    - type: Transform
+      pos: 19.5,13.5
+      parent: 31
 - proto: VendingMachineMedical
   entities:
   - uid: 1148
@@ -70419,11 +70328,6 @@ entities:
     components:
     - type: Transform
       pos: -16.5,-28.5
-      parent: 31
-  - uid: 219
-    components:
-    - type: Transform
-      pos: -10.5,6.5
       parent: 31
   - uid: 247
     components:
@@ -71751,11 +71655,6 @@ entities:
     components:
     - type: Transform
       pos: -14.5,6.5
-      parent: 31
-  - uid: 1955
-    components:
-    - type: Transform
-      pos: -11.5,6.5
       parent: 31
   - uid: 1960
     components:
