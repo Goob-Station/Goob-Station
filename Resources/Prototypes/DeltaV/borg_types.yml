@@ -29,8 +29,23 @@
   - Science
   - Security
   # Visual
+  clientComponents:
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    sprite: _DV/Mobs/Silicon/chassis.rsi
+    layers:
+    - state: security
+      map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: security_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: security_l
+      shader: unshaded
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
+      visible: false
   inventoryTemplateId: borgShort
-  spritePath: _DV/Mobs/Silicon/chassis.rsi
   spriteBodyState: security
   spriteHasMindState: security_e
   spriteNoMindState: security_e_r
