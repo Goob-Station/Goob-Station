@@ -21,6 +21,18 @@ public sealed partial class AbsorbentComponent : Component
     [DataField("pickupAmount")]
     public FixedPoint2 PickupAmount = FixedPoint2.New(100);
 
+    /// <summary>
+    /// The range at which footprints can be cleaned in a single action.
+    /// </summary>
+    [DataField("footprintCleaningRange")]
+    public float FootprintCleaningRange = 0.2f;
+
+    /// <summary>
+    /// The maximum number of footprints that can be cleaned in a single action.
+    /// </summary>
+    [DataField("maxCleanedFootprints")]
+    public int MaxCleanedFootprints = 5;
+
     [DataField("pickupSound")]
     public SoundSpecifier PickupSound = new SoundPathSpecifier("/Audio/Effects/Fluids/watersplash.ogg")
     {

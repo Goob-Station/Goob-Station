@@ -11,7 +11,11 @@
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-mechanical
   - type: Absorbent
-    pickupAmount: 10
+    pickupAmount: 100
+    footprintCleaningRange: 0.75
+    maxCleanedFootprints: 25
+  - type: UseDelay
+    delay: 0
   - type: SolutionRegeneration
     duration: 0
     solution: absorbed
@@ -20,6 +24,7 @@
         - ReagentId: Water
           Quantity: 10
   - type: SolutionPurge
+    duration: 0
     solution: absorbed
     preserve:
       - Water
