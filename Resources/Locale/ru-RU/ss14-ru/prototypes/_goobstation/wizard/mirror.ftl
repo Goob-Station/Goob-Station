@@ -1,3 +1,3 @@
-ent-WizardMirror = magic mirror
-    .desc = Mirror mirror on the wall , who's the most robust of them all?
-    .suffix = Wizard
+ent-WizardMirror = магическое зеркало
+    .desc = Зеркало на стене, кто из них самый крепкий?
+    .suffix = Маг
