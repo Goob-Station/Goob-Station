@@ -42,7 +42,7 @@ public sealed partial class EmergencyShuttleSystem
 
     private void OnEmagged(EntityUid uid, EmergencyShuttleConsoleComponent component, ref GotEmaggedEvent args)
     {
-        if (EarlyLaunchAuthorized || !EmergencyShuttleArrived || _consoleAccumulator <= _authorizeTime ||)
+        if (EarlyLaunchAuthorized || !EmergencyShuttleArrived || _consoleAccumulator <= _authorizeTime)
             return;
 
         if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
