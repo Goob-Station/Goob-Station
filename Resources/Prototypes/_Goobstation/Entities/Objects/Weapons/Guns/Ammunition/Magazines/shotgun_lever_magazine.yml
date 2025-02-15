@@ -13,7 +13,7 @@
     whitelist:
       tags:
         - ShellShotgun
-    proto: BigShellShotgun
+    proto: CartridgeShellHighCaliber
     capacity: 8
   - type: Item
     size: Small

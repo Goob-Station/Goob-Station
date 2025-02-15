@@ -35,8 +35,8 @@
       map: [ "enum.AmmoVisualLayers.Base" ]
 
 - type: entity
-  id: BigShellShotgun
-  name: shell (.75)
+  id: CartridgeShellHighCaliber
+  name: shell (.75 carpshot)
   parent: BaseShellShotgun
   components:
 - type: Sprite
@@ -44,4 +44,4 @@
   - state: base
     map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
-    proto: BigPelletShotgunSpread
+    proto: HighCaliberPelletShotgunSpread

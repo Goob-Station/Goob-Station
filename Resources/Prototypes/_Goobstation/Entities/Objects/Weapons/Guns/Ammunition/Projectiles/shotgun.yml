@@ -77,8 +77,8 @@
         Piercing: 20
 
 - type: entity
-  id: BigPelletShotgun
-  name: pellet (.75)
+  id: HighCaliberPelletShotgun
+  name: pellet (.75 carpshot)
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -91,9 +91,9 @@
         Piercing: 15
 
 - type: entity
-  id: BigPelletShotgunSpread
+  id: HighCaliberPelletShotgunSpread
   categories: [ HideSpawnMenu ]
-  parent: BigPelletShotgun
+  parent: HighCaliberPelletShotgun
   components:
   - type: ProjectileSpread
     proto: BigPelletShotgun
