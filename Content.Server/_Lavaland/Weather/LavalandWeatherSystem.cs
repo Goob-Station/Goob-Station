@@ -112,15 +112,10 @@ public sealed class LavalandWeatherSystem : EntitySystem
 
         _weather.SetWeather(map.Comp.MapId, _proto.Index(proto.WeatherType), null);
 
-        var damageDelay = proto.WeatherDelay;
-
-        Timer.Spawn(TimeSpan.FromSeconds(damageDelay),
-            () =>
-            {
-                var comp = EnsureComp<LavalandStormedMapComponent>(map);
-                comp.CurrentWeather = proto.ID;
-                comp.Duration = proto.Duration + _random.NextFloat(-proto.Variety, proto.Variety);
-            });
+        Log.Debug($"Starting dealing weather damage on lavaland map {ToPrettyString(map)}");
+        var comp = EnsureComp<LavalandStormedMapComponent>(map);
+        comp.CurrentWeather = proto.ID;
+        comp.Duration = proto.Duration + _random.NextFloat(-proto.Variety, proto.Variety);
 
         var humans = EntityQueryEnumerator<HumanoidAppearanceComponent, DamageableComponent>();
         while (humans.MoveNext(out var human, out _, out _))

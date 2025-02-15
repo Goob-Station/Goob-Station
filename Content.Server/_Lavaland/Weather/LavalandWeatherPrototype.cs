@@ -1,4 +1,5 @@
 ﻿using Content.Shared.Damage;
+using Content.Shared.FixedPoint;
 using Content.Shared.Weather;
 using Robust.Shared.Prototypes;
 
@@ -29,10 +30,10 @@ public sealed class LavalandWeatherPrototype : IPrototype
     /// Be careful changing this number.
     /// </summary>
     [DataField]
-    public float TemperatureChange = 3000f;
+    public float TemperatureChange = 30000f;
 
     [DataField]
-    public DamageSpecifier Damage = new();
+    public DamageSpecifier Damage = new() {DamageDict = new Dictionary<string, FixedPoint2>() {{ "Heat", 4 }}};
 
     /// <summary>
     /// How many seconds the weather goes without doing any damage

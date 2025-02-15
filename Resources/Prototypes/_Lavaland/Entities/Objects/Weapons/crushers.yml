@@ -33,7 +33,7 @@
   parent: [LavalandWeaponKineticBase, BaseSecurityCargoContraband]
   id: LavalandWeaponKineticSpear
   name: kinetic spear
-  description: A long-ranged melee weapon which trades damage for a two-tile reach, similar to reagent/bone spears.
+  description: A long-ranged melee weapon. Deals less damage than a normal crusher, but has longer attack range.
   components:
   - type: Tag
     tags:
@@ -62,13 +62,13 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 10
+        Blunt: 9
         Slash: 5
     soundHit:
       collection: MetalThud
     angle: 0
     animation: WeaponArcThrust
-    range: 2.6
+    range: 2.1
   - type: IncreaseDamageOnWield
     damage:
       types:
@@ -90,7 +90,7 @@
   parent: LavalandWeaponKineticBase
   id: LavalandWeaponKineticHammer
   name: kinetic hammer
-  description: A beefy, two-handed weapon that inflicts knockback and heavier damage than a crusher, but cannot backstab.
+  description: A beefy, two-handed weapon that inflicts knockback and heavier damage than a crusher.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_hammer.rsi
@@ -102,8 +102,8 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 10
-        Slash: 5
+        Blunt: 12
+        Slash: 6
     soundHit:
       collection: MetalThud
     angle: 0
@@ -129,7 +129,7 @@
   parent: LavalandWeaponKineticBase
   id: LavalandWeaponKineticClaws
   name: kinetic claws
-  description: Unleash your inner edgelord with this two-handed claw small enough to fit in your backpack. Deals a paltry 45 damage on mark detonation, but sports a massive 120 damage backstab bonus.
+  description: Unleash your inner edgelord with this two-handed claw small enough to fit in your backpack. Deals bonus damage if you make a hit from behind.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_claws.rsi
@@ -167,7 +167,7 @@
   parent: LavalandWeaponKineticBase
   id: LavalandWeaponKineticMachete
   name: kinetic machete
-  description: A smaller, one-handed variant of the crusher. Deals about 40 less damage than the PKC, but has a 15% melee block chance.
+  description: A smaller, one-handed variant of the crusher. Deals bonus damage if you make a hit from behind.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_machete.rsi
