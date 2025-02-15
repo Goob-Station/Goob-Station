@@ -55,12 +55,12 @@ public abstract class SharedDamageSquareSystem : EntitySystem
         foreach (var entity in lookup)
         {
             if (!TryComp<DamageableComponent>(entity, out var dmg))
-                return;
+                continue;
 
             if (TryComp<DamageSquareImmunityComponent>(entity, out var immunity))
             {
                 if (immunity.HasImmunityUntil > _timing.CurTime || immunity.IsImmune)
-                    return;
+                    continue;
 
                 RemComp(entity, immunity);
             }
