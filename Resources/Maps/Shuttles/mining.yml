@@ -532,6 +532,13 @@ entities:
       - 116
       - 134
       - 26
+- proto: AirCanister
+  entities:
+  - uid: 161
+    components:
+    - type: Transform
+      pos: -4.5,-4.5
+      parent: 181
 - proto: AirlockCargoGlass
   entities:
   - uid: 29
@@ -788,6 +795,11 @@ entities:
     components:
     - type: Transform
       pos: -4.5,-5.5
+      parent: 181
+  - uid: 162
+    components:
+    - type: Transform
+      pos: -1.5,-5.5
       parent: 181
 - proto: CableMV
   entities:
