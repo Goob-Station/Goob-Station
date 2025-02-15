@@ -1,4 +1,4 @@
-﻿<Document>
+<Document>
   # Gasses
   Gasses are a critical part of the station's operation.
   You may know them as the stuff you breathe, but they are also used in many other ways.
@@ -80,9 +80,17 @@
   </Box>
   An extremely flammable radioactive gas that is used in the creation of frezon.
 
-  Tritium is produced when burning plasma in a burn chamber, and can be used to create frezon gas in a complicated mixing process.
+  It can be made by burning 1% Plasma and 96% or more Oxygen in the Burn Chamber (Ideal ratio is 3% Plasma to 97% Oxygen). You can extract this gas through scrubbers.
 
-  The efficiency of tritium fusion depends on various factors such as burn richness and temperature.
+  It can be used to create frezon gas in a complicated mixing process.
+
+  ## Pluoxium
+  <Box>
+    <GuideEntityEmbed Entity="PluoxiumCanister" Caption=""/>
+  </Box>
+  Pluoxium is a non-reactive Oxygen substitute that delivers eight times as much O2 to the bloodstream, with as little 3 kPa minimum pressure required for internals.
+
+  Pluoxium may be created by exposing O2, CO2 and Tritium together in an exothermic reaction between 50 K and 273 K. Furthermore, Pluoxium is also created by the Supermatter, when Oxygen and CO2 are present.
 
   ## Frezon
   <Box>
@@ -111,12 +119,29 @@
   </Box>
   A recreational and waste gas, produced by slimes and the combination of frezon and nitrogen.
 
+  ## BZ
+  <Box>
+    <GuideEntityEmbed Entity="BZCanister" Caption=""/>
+  </Box>
+  BZ gas is a potent hallucinogenic, as well as a sleeping agent for slimes. It's made from Plasma and Nitroux Oxide. It is toxic to breathe and causes respiratory irritation and coughing. BZ sees frequent use as an ingredient in more complex gas reactions.
+
+  ## Healium
+  <Box>
+    <GuideEntityEmbed Entity="HealiumCanister" Caption=""/>
+  </Box>
+  Healium is a red gas, formed by BZ and Frezon in cold environments, which acts as a strong sleeping agent, while healing burns, bruises, and toxin damage. Excessive use will lead to inebriation.
+
   ## Ammonia
   <Box>
     <GuideEntityEmbed Entity="AmmoniaCanister" Caption=""/>
   </Box>
-  A gas produced by the decomposition of bodies.
+  A gas produced by the decomposition of bodies. Can be condensed to create ammonia, which can be used to make space cleaner.
 
-  Can be condensed to create ammonia, which can be used to make space cleaner.
+  ## Nitrium
+  <Box>
+    <GuideEntityEmbed Entity="NitriumCanister" Caption=""/>
+  </Box>
+  Made from Tritium, Nitrogen and BZ, Nitrium is a gaseous stimulant that when inhaled can enhance speed and endurance. At lower concentrations Nitrium will increase your top running speed while healthy and unimpaired. Additionally, at slightly higher concentrations, breathing Nitrium will prevent drowsiness. At high concentrations breathing it will begin to shut down a person's lungs, causing asphyxiation.
+  Nitrium degrades into nitrogen and water vapor on contact with room temperature oxygen. This reaction can produce a good deal of heat, making the station uncomfortably warm in the event of a leak.
 
 </Document>
