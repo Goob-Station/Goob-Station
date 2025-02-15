@@ -77,4 +77,5 @@
     - state: icon-chase
   - type: ItemBorgModule
     items:
-    - WeaponEnergyGunMiniRecharging
+    - WeaponLaserCarbineRecharging # Goob edit
+    - WeaponDisablerRecharging # Goob edit

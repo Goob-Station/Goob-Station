@@ -1,0 +1,38 @@
+# Delta-V Laws
+# Job-Based LawSets
+
+- type: siliconLaw
+  id: SiliconPolice1
+  order: 1
+  lawString: law-silicon-police-1
+- type: siliconLaw
+  id: SiliconPolice2
+  order: 2
+  lawString: law-silicon-police-2
+- type: siliconLaw
+  id: SiliconPolice3
+  order: 3
+  lawString: law-silicon-police-3
+- type: siliconLaw
+  id: SiliconPolice4
+  order: 4
+  lawString: law-silicon-police-4
+- type: siliconLaw
+  id: SiliconPolice5
+  order: 5
+  lawString: law-silicon-police-5
+- type: siliconLaw
+  id: SiliconPolice6
+  order: 6
+  lawString: law-silicon-police-6
+
+- type: siliconLawset
+  id: SiliconPolice
+  laws:
+  - SiliconPolice1
+  - SiliconPolice2
+  - SiliconPolice3
+  - SiliconPolice4
+  - SiliconPolice5
+  - SiliconPolice6
+  obeysTo: laws-owner-crew

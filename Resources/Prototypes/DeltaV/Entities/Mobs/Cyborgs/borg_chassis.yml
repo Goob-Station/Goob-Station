@@ -1,60 +1,7 @@
 - type: entity
   id: BorgChassisSecurity
-  parent: BaseBorgChassisNT
+  parent: BorgChassisSelectable
   name: security cyborg
   components:
-  - type: Sprite
-    sprite: _DV/Mobs/Silicon/chassis.rsi
-    layers:
-    - state: security
-    - state: security_e_r
-      map: ["enum.BorgVisualLayers.Light"]
-      shader: unshaded
-      visible: false
-    - state: security_l
-      shader: unshaded
-      map: ["light"]
-      visible: false
-  - type: BorgChassis
-    maxModules: 4
-    moduleWhitelist:
-      tags:
-      - BorgModuleGeneric
-      - BorgModuleSecurity
-    hasMindState: security_e
-    noMindState: security_e_r
-  - type: Construction
-    node: security
-  - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Binary
-    - Common
-    - Science
-    - Security
-  - type: ActiveRadio
-    channels:
-    - Binary
-    - Common
-    - Science
-    - Security
-  - type: AccessReader
-    access: [["Security"], ["Command"], ["Research"]]
-  - type: ShowJobIcons
-  - type: ShowMindShieldIcons
-  - type: ShowCriminalRecordIcons
-  - type: SiliconLawProvider
-    laws: SiliconPolice
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      80: Critical # -20 to Crit Threshold
-      200: Dead
-  - type: FlashImmunity
-  - type: Speech
-    speechVerb: Robotic
-  - type: BorgTransponder
-    sprite:
-      sprite: Mobs/Silicon/chassis.rsi
-      state: peace
-    name: Security Cyborg
+  - type: BorgSwitchableType
+    selectedBorgType: security
