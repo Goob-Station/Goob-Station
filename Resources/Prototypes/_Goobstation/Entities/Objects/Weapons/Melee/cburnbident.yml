@@ -1,14 +1,11 @@
 - type: entity
-  name: superheated bident
+  name: dispatch spear
   parent: [BaseItem, BaseCentcommContraband]
-  id: CburnBident
-  description: A bident used by Nanotrasen's CBURN agents. Effective at incinerating organic targets.
+  id: CburnSpear
+  description: A spear used by Nanotrasen's CBURN agents. Effective at incinerating organic targets.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Melee/stunprod.rsi # Todo - Change This
-    layers:
-    - state: stunprod_off # Todo - Change This
-      map: [ "enum.ToggleVisuals.Layer" ]
+    sprite: _Goobstation/Objects/Weapons/Melee/cburn_spear.rsi
   - type: MeleeWeapon
     angle: 0
     attackRate: 0.9
@@ -28,10 +25,14 @@
         Heat: 15
   - type: UseDelay
   - type: Item
-    heldPrefix: off
     size: Large
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Heat: 5
   - type: Clothing
-    sprite: Objects/Weapons/Melee/stunprod.rsi # Todo - Change This
+    sprite: _Goobstation/Objects/Weapons/Melee/cburn_spear.rsi
     quickEquip: false
     slots:
     - back

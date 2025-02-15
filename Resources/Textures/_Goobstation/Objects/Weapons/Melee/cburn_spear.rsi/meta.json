@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprited by Taro Varne",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "inhand-right"
+    },
+	{
+      "name": "inhand-left"
+    },
+	{
+      "name": "wielded-inhand-right"
+    },
+	{
+      "name": "wielded-inhand-left"
+    },
+	{
+      "name": "equipped-SUITSTORAGE"
+    }
+  ]
+}
