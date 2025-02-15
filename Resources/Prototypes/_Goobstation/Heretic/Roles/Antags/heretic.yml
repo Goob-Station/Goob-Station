@@ -4,9 +4,12 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-heretic-description
-  requirements:
+  requirements: # ShibaStation - Antag Playtime Requirements
   - !type:OverallPlaytimeRequirement
-    time: 54000 # 15h
+    time: 72000 # 20 hours
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 36000 # 10 hours
   guides: [ Heretics ]
 
 - type: startingGear

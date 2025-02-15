@@ -5,6 +5,12 @@
   setPreference: true
   objective: roles-antag-syndicate-agent-objective
   guides: [ Traitors ]
+  requirements: # ShibaStation - Antag Playtime Requirements
+  - !type:OverallPlaytimeRequirement
+    time: 72000 # 20 hours
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 36000 # 10 hours
 
 - type: antag
   id: TraitorSleeper
@@ -13,6 +19,12 @@
   setPreference: true
   objective: roles-antag-syndicate-agent-sleeper-objective
   guides: [ Traitors ]
+  requirements: # ShibaStation - Antag Playtime Requirements
+  - !type:OverallPlaytimeRequirement
+    time: 72000 # 20 hours
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 36000 # 10 hours
 
 # Syndicate Operative Outfit - Monkey
 - type: startingGear

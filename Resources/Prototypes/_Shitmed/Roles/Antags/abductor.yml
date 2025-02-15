@@ -3,6 +3,12 @@
   name: abductors-ghost-role-name
   antagonist: true
   objective: roles-antag-abductor-objective
+  requirements: # ShibaStation - Antag Playtime Requirements
+  - !type:OverallPlaytimeRequirement
+    time: 72000 # 20 hours
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 36000 # 10 hours
 
 - type: antag
   id: AbductorVictimAntag

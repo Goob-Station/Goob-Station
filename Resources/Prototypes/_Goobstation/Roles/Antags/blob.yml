@@ -7,4 +7,7 @@
   guides: [ Blob ]
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 18000 # 5h # Goobstation-RoleTime
+    time: 180000 # 50 hours
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 72000 # 20 hours
