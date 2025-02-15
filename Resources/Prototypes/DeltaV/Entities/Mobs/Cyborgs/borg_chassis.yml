@@ -3,5 +3,18 @@
   parent: BorgChassisSelectable
   name: security cyborg
   components:
+  - type: Sprite
+    sprite: _DV/Mobs/Silicon/chassis.rsi
+    layers:
+    - state: security
+      map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: security_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: security_l
+      shader: unshaded
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
+      visible: false
   - type: BorgSwitchableType
     selectedBorgType: security
