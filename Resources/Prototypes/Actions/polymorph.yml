@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: ActionRevertPolymorph
   name: Revert
   description: Revert back into your original form.
@@ -30,16 +30,29 @@
 - type: entity
   id: ActionPolymorphWizardRod
   name: Rod Form
-  description: CLANG!
+  description: Take on the form of an immovable rod, destroying everything in your path.
   components:
   - type: InstantAction
-    useDelay: 60
-    event: !type:PolymorphActionEvent
+    raiseOnUser: true # Goobstation
+    checkCanInteract: false # Goobstation
+    useDelay: 25 # Goob edit
+    event: !type:PolymorphSpellEvent # Goob edit
+      speech: action-speech-spell-rod-form # Goobstation
       protoId: WizardRod
     itemIconStyle: NoItem
     icon:
-      sprite: Objects/Fun/immovable_rod.rsi
-      state: icon
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      state: immrod # Goob edit
+  - type: Magic # Goobstation
+    requiresClothes: true
+    requiresSpeech: true
+    school: Transmutation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionPolymorphWizardRodII
+      3: ActionPolymorphWizardRodIII
+      4: ActionPolymorphWizardRodIV
+      5: ActionPolymorphWizardRodV
 
 - type: entity
   id: ActionPolymorphJaunt
@@ -47,13 +60,21 @@
   description: Melt into the Ethereal Plane for a quick getaway!
   components:
   - type: Magic
+    requiresClothes: true # Goobstation
+    school: Translocation # Goobstation
+  - type: Sprite # Goobstation - for apprentices
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: jaunt
   - type: InstantAction
     useDelay: 30
-    event: !type:PolymorphActionEvent
+    raiseOnUser: true # Goobstation
+    checkCanInteract: false # Goobstation
+    event: !type:PolymorphSpellEvent # Goob edit
       protoId: Jaunt
+      makeWizard: false # Goobstation
     itemIconStyle: NoItem
     icon:
-      sprite: Objects/Magic/magicactions.rsi
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
       state: jaunt
     # TODO: Effect ECS (from cardboard box)
   - type: ActionUpgrade
@@ -68,12 +89,15 @@
   description: Melt into the Ethereal Plane for an even quicker getaway!
   components:
   - type: InstantAction
-    useDelay: 25
-    event: !type:PolymorphActionEvent
+    useDelay: 22 # Goob edit
+    raiseOnUser: true # Goobstation
+    checkCanInteract: false # Goobstation
+    event: !type:PolymorphSpellEvent # Goob edit
       protoId: Jaunt
+      makeWizard: false # Goobstation
     itemIconStyle: NoItem
     icon:
-      sprite: Objects/Magic/magicactions.rsi
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
       state: jaunt
 
 - type: entity
@@ -83,10 +107,13 @@
   description: Are you even tangible anymore?
   components:
   - type: InstantAction
-    useDelay: 20
-    event: !type:PolymorphActionEvent
+    useDelay: 14 # Goob edit
+    raiseOnUser: true # Goobstation
+    checkCanInteract: false # Goobstation
+    event: !type:PolymorphSpellEvent # Goob edit
       protoId: Jaunt
+      makeWizard: false # Goobstation
     itemIconStyle: NoItem
     icon:
-      sprite: Objects/Magic/magicactions.rsi
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
       state: jaunt

@@ -1,6 +1,6 @@
 - type: entity
   name: cryo katana
-  parent: [Katana, BaseSyndicateContraband]
+  parent: [Katana, BaseMagicContraband]
   id: CryoKatana
   description: Freeze your enemies.
   components:
@@ -12,6 +12,8 @@
       types:
         Slash: 20
         Cold: 10
+    clickPartDamageMultiplier: 1.5
+    heavyPartDamageMultiplier: 1
   - type: Item
     sprite: _Goobstation/Objects/Weapons/Melee/cryokatana.rsi
   - type: Clothing
@@ -24,3 +26,5 @@
   - type: MeleeDash
   - type: UseDelay
     delay: 1.5
+  - type: StaticPrice
+    price: 50000

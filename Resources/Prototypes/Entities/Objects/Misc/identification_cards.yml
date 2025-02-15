@@ -581,8 +581,9 @@
   id: AgentIDCard
   suffix: Agent
   components:
-  - type: PresetIdCard
-    job: Passenger
+  # Goob edit
+  #- type: PresetIdCard
+  #  job: Passenger
   - type: Access
     tags:
     - Maintenance

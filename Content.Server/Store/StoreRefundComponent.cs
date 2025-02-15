@@ -1,4 +1,7 @@
 ﻿using Content.Server.Store.Systems;
+using Content.Shared.FixedPoint;
+using Content.Shared.Store;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Store.Components;
 
@@ -10,4 +13,12 @@ public sealed partial class StoreRefundComponent : Component
 {
     [ViewVariables, DataField]
     public EntityUid? StoreEntity;
+
+    // Goobstation start
+    [ViewVariables, DataField]
+    public ListingData? Data;
+
+    [ViewVariables, DataField]
+    public Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> BalanceSpent = new();
+    // Goobstation end
 }
