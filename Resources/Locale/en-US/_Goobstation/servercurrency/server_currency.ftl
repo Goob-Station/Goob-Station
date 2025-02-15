@@ -1,5 +1,5 @@
-server-currency-name-singular = Goob Coin
-server-currency-name-plural = Goob Coins
+server-currency-name-singular = Reputation
+server-currency-name-plural = Reputation
 
 ## Commands
 
