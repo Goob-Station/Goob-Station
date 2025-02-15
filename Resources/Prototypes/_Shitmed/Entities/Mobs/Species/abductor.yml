@@ -9,6 +9,7 @@
   abstract: true
   components:
   - type: Absorbable # BLOOD FOR THE BLOOD GOD
+  - type: Telepathy # Ayy lmao
   - type: AlieneseAccent # ShibaStation - Intelligently incomprehensible alienese
   - type: HumanoidAppearance
     species: Abductor

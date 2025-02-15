@@ -1,0 +1,44 @@
+- type: spellbladeEnchantment
+  id: EnchantmentLightning
+  name: spellblade-enchantment-lightning-name
+  desc: spellblade-enchantment-lightning-desc
+  icon:
+    sprite: _Goobstation/Wizard/Icons/spellblade.rsi
+    state: chain_lightning
+  event: !type:LightningSpellbladeEnchantmentEvent
+
+- type: spellbladeEnchantment
+  id: EnchantmentFire
+  name: spellblade-enchantment-fire-name
+  desc: spellblade-enchantment-fire-desc
+  icon:
+    sprite: _Goobstation/Wizard/Icons/spellblade.rsi
+    state: fire
+  event: !type:FireSpellbladeEnchantmentEvent
+
+- type: spellbladeEnchantment
+  id: EnchantmentBluespace
+  name: spellblade-enchantment-bluespace-name
+  desc: spellblade-enchantment-bluespace-desc
+  icon:
+    sprite: _Goobstation/Wizard/Icons/spellblade.rsi
+    state: blink
+  event: !type:BluespaceSpellbladeEnchantmentEvent
+
+- type: spellbladeEnchantment
+  id: EnchantmentSpacetime
+  name: spellblade-enchantment-spacetime-name
+  desc: spellblade-enchantment-spacetime-desc
+  icon:
+    sprite: _Goobstation/Wizard/Icons/spellblade.rsi
+    state: spacetime
+  event: !type:SpacetimeSpellbladeEnchantmentEvent
+
+- type: spellbladeEnchantment
+  id: EnchantmentForceshield
+  name: spellblade-enchantment-forceshield-name
+  desc: spellblade-enchantment-forceshield-desc
+  icon:
+    sprite: _Goobstation/Wizard/Icons/spellblade.rsi
+    state: shield
+  event: !type:ForceshieldSpellbladeEnchantmentEvent

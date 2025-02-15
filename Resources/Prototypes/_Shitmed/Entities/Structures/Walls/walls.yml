@@ -3,7 +3,7 @@
   id: WallAbductorDiagonal
   name: shuttle wall
   suffix: Diagonal
-  description: Keeps the air in and the greytide out.
+  description: Keeps the air in and the bloodthirsty salvagers out.
   placement:
     mode: SnapgridCenter
     snap:
@@ -61,6 +61,7 @@
   id: WallAbductor
   name: shuttle wall
   suffix: Reinforced, Exterior
+  description: Keeps the air in and the bloodthirsty salvagers out.
   components:
   - type: Damageable
     damageContainer: StructuralInorganic

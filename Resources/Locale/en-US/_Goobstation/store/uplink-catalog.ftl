@@ -73,6 +73,12 @@ uplink-m90-desc = An M-90 combat rifle.
 uplink-dualetta-bundle-name = Dualetta Bundle
 uplink-dualetta-bundle-desc = Comes with 2 Dualetta pistols, 2 machine pistol magazines, combat gloves, noir suit, detectives trenchcoat, and laceup shoes.
 
+uplink-anaconda-name = Anaconda
+uplink-anaconda-desc = The pride of the Cybersun arms concern, this heavy pistol is designed to feed itself with the built-in fabricator.
+
+uplink-bulk-mosin-name = Syndicate bulk rifle crate
+uplink-bulk-mosin-desc = 10 WW4-era rifles to arm you, your friends, and your cat. Saves 40% on shipping costs by buying in bulk.
+
 # Ammo
 
 uplink-blast-grenade-name = Blast Grenade
@@ -125,6 +131,11 @@ uplink-smoke-implant-desc = Releases a cloud of smoke when activated.
 
 uplink-helmet-swat-name = Syndicate SWAT Helmet
 uplink-helmet-swat-desc = Robust helmet that offers good protection and also suppresses flashbang sounds to some extent.
+
+# Deception
+
+uplink-clothing-explosive-gloves-name = Explosive Insulated Gloves
+uplink-clothing-explosive-gloves-desc = Gloves that look just like normal insulated gloves, but explode a second after being shocked, disabling the user's hands.
 
 # Misc
 

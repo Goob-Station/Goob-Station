@@ -307,6 +307,12 @@
         Piercing: 10
     soundHit:
       path: "/Audio/Items/drill_hit.ogg"
+  - type: Tending # Shitmed
+    speed: 0.75
+  - type: Drill # Shitmed
+    speed: 1
+  - type: SurgeryTool # Shitmed
+    startSound: /Audio/Items/drill_use.ogg
 
 - type: entity
   id: RCD
