@@ -88,6 +88,7 @@
     - preconditions:
         - !type:GunAmmoPrecondition
           minPercent: 0.001
+        - !type:GunCanFirePrecondition # Goobstation
       tasks:
         - !type:HTNCompoundTask
           task: GunCombatCompound
@@ -96,6 +97,91 @@
 - type: htnCompound
   id: RangedCombatCompound
   branches:
+    # Goobstation - drop a gun if it can't be wielded and wielding is required
+    - preconditions:
+        - !type:ActiveHandComponentPrecondition
+          components:
+          - type: Gun
+          - type: GunRequiresWield
+        - !type:UnwieldedEntityInHandsPrecondition
+        - !type:CanWieldPrecondition
+          invert: true
+      tasks:
+        - !type:HTNPrimitiveTask
+          preconditions:
+          - !type:ActiveHandEntityPrecondition
+          operator: !type:DropOperator
+
+    # Goobstation - wield an item if it's wieldable
+    - preconditions:
+        - !type:ActiveHandComponentPrecondition
+          components:
+          - type: Gun
+          - type: Wieldable
+      tasks:
+        - !type:HTNPrimitiveTask
+          preconditions:
+          - !type:UnwieldedEntityInHandsPrecondition
+          operator: !type:WieldOperator
+
+    # Goobstation start - Cycle/Rack/Empty a gun if it can't shoot
+    - preconditions:
+        - !type:ActiveHandComponentPrecondition
+          components:
+            - type: Gun
+            - type: BallisticAmmoProvider
+        - !type:GunCanFirePrecondition
+          invert: true
+      tasks:
+        - !type:HTNPrimitiveTask
+          preconditions:
+            - !type:ActiveHandEntityPrecondition
+          operator: !type:InteractWithOperator
+            targetKey: ActiveHandEntity
+
+    - preconditions:
+        - !type:ActiveHandComponentPrecondition
+          components:
+            - type: Gun
+            - type: MagazineAmmoProvider
+        - !type:GunCanFirePrecondition
+          invert: true
+      tasks:
+        - !type:HTNPrimitiveTask
+          preconditions:
+            - !type:ActiveHandEntityPrecondition
+          operator: !type:InteractWithOperator
+            targetKey: ActiveHandEntity
+
+    - preconditions:
+        - !type:ActiveHandComponentPrecondition
+          components:
+            - type: Gun
+            - type: ChamberMagazineAmmoProvider
+        - !type:GunCanFirePrecondition
+          invert: true
+      tasks:
+        - !type:HTNPrimitiveTask
+          preconditions:
+            - !type:ActiveHandEntityPrecondition
+          operator: !type:InteractWithOperator
+            targetKey: ActiveHandEntity
+
+    - preconditions:
+        - !type:ActiveHandComponentPrecondition
+          components:
+            - type: Gun
+            - type: RevolverAmmoProvider
+        - !type:GunCanFirePrecondition
+          invert: true
+      tasks:
+        - !type:HTNPrimitiveTask
+          preconditions:
+            - !type:ActiveHandEntityPrecondition
+          operator: !type:AltInteractOperator
+            targetKey: ActiveHandEntity
+    # Goobstation end
+
     # Move to target and shoot them if ammo
     - preconditions:
         - !type:GunAmmoPrecondition
