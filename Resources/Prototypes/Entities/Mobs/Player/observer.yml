@@ -58,6 +58,8 @@
   - type: ShowJobIcons # Goobstation
   - type: ShowMindShieldIcons #Goobstation
   - type: ShowCriminalRecordIcons #Goobstation
+  - type: ShowHealthBars #Goobstation
+  - type: ShowHealthIcons #Goobstation
   - type: ShowElectrocutionHUD
   - type: IntrinsicRadioReceiver
   - type: ActiveRadio

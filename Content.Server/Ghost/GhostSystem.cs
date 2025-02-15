@@ -108,6 +108,8 @@ namespace Content.Server.Ghost
                 RemComp<ShowJobIconsComponent>(uid);
                 RemComp<ShowMindShieldIconsComponent>(uid);
                 RemComp<ShowCriminalRecordIconsComponent>(uid);
+                RemComp<ShowHealthBarsComponent>(uid);
+                RemComp<ShowHealthIconsComponent>(uid);
                 _actions.SetToggled(component.ToggleGhostSecHudActionEntity, true);
             }
             else
@@ -115,6 +117,8 @@ namespace Content.Server.Ghost
                 AddComp<ShowJobIconsComponent>(uid);
                 AddComp<ShowMindShieldIconsComponent>(uid);
                 AddComp<ShowCriminalRecordIconsComponent>(uid);
+                AddComp<ShowHealthBarsComponent>(uid);
+                AddComp<ShowHealthIconsComponent>(uid);
                 _actions.SetToggled(component.ToggleGhostSecHudActionEntity, false);
             }
 
