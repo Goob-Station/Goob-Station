@@ -12,14 +12,14 @@
     deleteOnCollide: false
     damage:
       types:
-        Piercing: 15 #Low damage, but ensnaring
+        Piercing: 16 #Low damage, but ensnaring
   - type: Ensnaring
     canThrowTrigger: true
     destroyOnRemove: true
-    breakoutTime: 2
-    freeTime: 2
-    sprintSpeed: 0.7
-    walkSpeed: 0.7
+    breakoutTime: 3
+    freeTime: 3
+    sprintSpeed: 0.6
+    walkSpeed: 0.6
     staminaDamage: 10
 
 - type: entity
@@ -46,7 +46,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 10
+        Piercing: 12
         Ion: 20
 
 - type: entity
@@ -74,7 +74,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 18
+        Piercing: 20
 
 - type: entity
   id: BigPelletShotgun

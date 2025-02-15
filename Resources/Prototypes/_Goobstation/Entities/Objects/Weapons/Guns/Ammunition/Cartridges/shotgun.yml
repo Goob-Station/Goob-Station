@@ -9,9 +9,6 @@
     layers:
     - state: base
       map: [ "enum.AmmoVisualLayers.Base" ]
-    - state: tip
-      map: [ "enum.AmmoVisualLayers.Tip" ]
-      color: "#cfff77"
 
 - type: entity
   id: CartridgeSlugEMP
@@ -24,9 +21,6 @@
     layers:
     - state: base
       map: [ "enum.AmmoVisualLayers.Base" ]
-    - state: tip
-      map: [ "enum.AmmoVisualLayers.Tip" ]
-      color: "#009eff"
 
 - type: entity
   id: CartridgeSlugFlash
@@ -39,18 +33,15 @@
     layers:
     - state: base
       map: [ "enum.AmmoVisualLayers.Base" ]
-    - state: tip
-      map: [ "enum.AmmoVisualLayers.Tip" ]
-      color: "#fff94d"
 
 - type: entity
   id: BigShellShotgun
   name: shell (.75)
   parent: BaseShellShotgun
   components:
-  - type: Sprite
-    layers:
-    - state: base
-      map: [ "enum.AmmoVisualLayers.Base" ]
+- type: Sprite
+  layers:
+  - state: base
+    map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
     proto: BigPelletShotgunSpread
