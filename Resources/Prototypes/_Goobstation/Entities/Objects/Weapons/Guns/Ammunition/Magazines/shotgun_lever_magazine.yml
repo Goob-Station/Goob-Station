@@ -1,7 +1,7 @@
 # Empty mags
 - type: entity
   id: BaseMagazineShotgunLeverRifle
-  name: "magazine (.775 caliber)"
+  name: "magazine (.75 caliber)"
   parent: [ BaseItem, BaseRestrictedContraband ]
   abstract: true
   components:
@@ -13,7 +13,7 @@
     whitelist:
       tags:
         - ShellShotgun
-    proto: ShellShotgun
+    proto: BigShellShotgun
     capacity: 8
   - type: Item
     size: Small
@@ -35,7 +35,7 @@
 
 - type: entity
   id: MagazineShotgunLeverRifle
-  name: "lever rifle magazine (.775 caliber)"
+  name: "lever rifle magazine (.75 caliber)"
   parent: BaseMagazineShotgunLeverRifle
   components:
   - type: Tag

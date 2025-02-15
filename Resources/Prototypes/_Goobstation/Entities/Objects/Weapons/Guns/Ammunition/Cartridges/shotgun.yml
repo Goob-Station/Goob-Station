@@ -1,7 +1,7 @@
 - type: entity
-  id: CartridgeMagnumEnsnaring
-  name: cartridge (.775 caliber ensnaring slug)
-  parent: BaseCartridgeMagnum
+  id: CartridgeSlugEnsnaring
+  name: cartridge (.75 caliber ensnaring slug)
+  parent: ShellShotgunSlug
   components:
   - type: CartridgeAmmo
     proto: BulletSlugEnsnaring
@@ -14,9 +14,9 @@
       color: "#cfff77"
 
 - type: entity
-  id: CartridgeMagnumEMP
-  name: cartridge (.775 caliber EMP slug)
-  parent: BaseSlugMagnum
+  id: CartridgeSlugEMP
+  name: cartridge (.75 caliber EMP slug)
+  parent: ShellShotgunSlug
   components:
   - type: CartridgeAmmo
     proto: BulletMagnumEMP
@@ -29,9 +29,9 @@
       color: "#009eff"
 
 - type: entity
-  id: CartridgeMagnumFlash
-  name: cartridge (.775 caliber flash slug)
-  parent: BaseCartridgeMagnum
+  id: CartridgeSlugFlash
+  name: cartridge (.75 caliber flash slug)
+  parent: ShellShotgunSlug
   components:
   - type: CartridgeAmmo
     proto: BulletSlugFlash
@@ -45,14 +45,10 @@
 
 - type: entity
   id: BigShellShotgun
-  name: shell (.775 carpshot)
-  parent: [ BaseCartridge, BaseRestrictedContraband ]
+  name: shell (.75 carpshot)
+  parent: [ BaseShellShotgun, BaseRestrictedContraband ]
   abstract: true
   components:
-  - type: Tag
-    tags:
-    - Cartridge
-    - ShellShotgun
   - type: CartridgeAmmo
     proto: BigPelletShotgunSpread
     soundEject:
@@ -64,3 +60,4 @@
       map: [ "enum.AmmoVisualLayers.Base" ]
   - type: Appearance
   - type: SpentAmmoVisuals
+    # state: "carpshot"
