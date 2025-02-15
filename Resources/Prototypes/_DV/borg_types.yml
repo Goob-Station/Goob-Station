@@ -11,7 +11,7 @@
     - BorgModuleSecurity
   # TODO: change these when reworking secborg modules to have the equivalent of roundstart gear
   defaultModules:
-  - BorgModuleSecurityDeescalate
+  - BorgModuleSecurityPeacekeeper
   - BorgModuleSecurityPatrol
   - BorgModuleSecurityBastion
   addComponents:
