@@ -1,18 +1,11 @@
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
 
-namespace Content.Server._Lavaland.Mobs.Hierophant.Components;
+namespace Content.Shared._Lavaland.Mobs;
 
 [RegisterComponent]
-public sealed partial class HierophantDamageFieldComponent : Component
+public sealed partial class DamageFieldComponent : Component
 {
-    /// <summary>
-    /// Setting this to false will ignore damaging and sound logic.
-    /// Used on LavalandHierophantSquare prototype to pass it's owner to the damage square.
-    /// </summary>
-    [DataField]
-    public bool Enabled = true;
-
     /// <summary>
     /// Entity that caused this damaging square to spawn.
     /// It will be ignored by this square.
@@ -25,4 +18,10 @@ public sealed partial class HierophantDamageFieldComponent : Component
 
     [DataField]
     public SoundPathSpecifier? Sound;
+
+    /// <summary>
+    /// After how many seconds we should deal the damage to all entities above
+    /// </summary>
+    [DataField]
+    public float DamageDelay;
 }

@@ -1,6 +1,7 @@
 ﻿using Content.Server._Lavaland.Mobs.Hierophant.Components;
 using Content.Server.Actions;
 using Content.Server.Hands.Systems;
+using Content.Shared._Lavaland.Mobs;
 using Content.Shared._Lavaland.Mobs.Hierophant;
 using Content.Shared._Lavaland.Mobs.Hierophant.Components;
 using Content.Shared.Actions;
@@ -123,6 +124,6 @@ public sealed class HierophandClubItemSystem : EntitySystem
 
     private void AddImmunity(EntityUid uid, float time = 3f)
     {
-        EnsureComp<HierophantImmunityComponent>(uid).HasImmunityUntil = _timing.CurTime + TimeSpan.FromSeconds(time);
+        EnsureComp<DamageSquareImmunityComponent>(uid).HasImmunityUntil = _timing.CurTime + TimeSpan.FromSeconds(time);
     }
 }
