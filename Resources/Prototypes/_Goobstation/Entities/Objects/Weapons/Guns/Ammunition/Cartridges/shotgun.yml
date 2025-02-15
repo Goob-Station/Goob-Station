@@ -1,0 +1,66 @@
+- type: entity
+  id: CartridgeMagnumEnsnaring
+  name: cartridge (.775 caliber ensnaring slug)
+  parent: BaseCartridgeMagnum
+  components:
+  - type: CartridgeAmmo
+    proto: BulletSlugEnsnaring
+  - type: Sprite
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#cfff77"
+
+- type: entity
+  id: CartridgeMagnumEMP
+  name: cartridge (.775 caliber EMP slug)
+  parent: BaseSlugMagnum
+  components:
+  - type: CartridgeAmmo
+    proto: BulletMagnumEMP
+  - type: Sprite
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#009eff"
+
+- type: entity
+  id: CartridgeMagnumFlash
+  name: cartridge (.775 caliber flash slug)
+  parent: BaseCartridgeMagnum
+  components:
+  - type: CartridgeAmmo
+    proto: BulletSlugFlash
+  - type: Sprite
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#fff94d"
+
+- type: entity
+  id: BigShellShotgun
+  name: shell (.775 carpshot)
+  parent: [ BaseCartridge, BaseRestrictedContraband ]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - ShellShotgun
+  - type: CartridgeAmmo
+    proto: BigPelletShotgunSpread
+    soundEject:
+      collection: ShellEject
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi # Todo - Change This
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: Appearance
+  - type: SpentAmmoVisuals

@@ -1,6 +1,6 @@
 - type: entity
-  id: BulletMagnumEnsnaring
-  name: bullet (.45 magnum ensnaring)
+  id: BulletSlugEnsnaring
+  name: bullet (.775 caliber ensnaring slug)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -23,8 +23,8 @@
     staminaDamage: 10
 
 - type: entity
-  id: BulletMagnumEMP
-  name: bullet (.45 magnum EMP)
+  id: BulletSlugEMP
+  name: bullet (.775 caliber EMP slug)
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -50,8 +50,8 @@
         Ion: 20
 
 - type: entity
-  id: BulletMagnumFlash
-  name: bullet (.45 magnum flash)
+  id: BulletSlugFlash
+  name: bullet (.775 caliber flash slug)
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -75,3 +75,27 @@
     damage:
       types:
         Piercing: 18
+
+- type: entity
+  id: BigPelletShotgun
+  name: pellet (.775)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 16
+
+- type: entity
+  id: BigPelletShotgunSpread
+  categories: [ HideSpawnMenu ]
+  parent: BigPelletShotgun
+  components:
+  - type: ProjectileSpread
+    proto: BigPelletShotgun
+    count: 6
+    spread: 15
