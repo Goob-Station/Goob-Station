@@ -4789,3 +4789,13 @@ Entries:
         surgery.
   id: 546
   time: '2025-02-14T06:21:45.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: >-
+        Added the Great shield (Self Explanatory) and Atrocity (Melee Weapon) to
+        Blueshield spawn.
+    - type: Remove
+      message: Removed the secbelt and Chester from Blueshield spawn.
+  id: 547
+  time: '2025-02-15T09:02:59.0000000+00:00'
