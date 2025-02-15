@@ -45,19 +45,12 @@
 
 - type: entity
   id: BigShellShotgun
-  name: shell (.75 carpshot)
-  parent: [ BaseShellShotgun, BaseRestrictedContraband ]
-  abstract: true
+  name: shell (.75)
+  parent: BaseShellShotgun
   components:
-  - type: CartridgeAmmo
-    proto: BigPelletShotgunSpread
-    soundEject:
-      collection: ShellEject
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi # Todo - Change This
     layers:
     - state: base
       map: [ "enum.AmmoVisualLayers.Base" ]
-  - type: Appearance
-  - type: SpentAmmoVisuals
-    # state: "carpshot"
+  - type: CartridgeAmmo
+    proto: BigPelletShotgunSpread
