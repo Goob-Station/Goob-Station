@@ -1,4 +1,16 @@
 - type: lobbyBackground
+  id: Revenant
+  background: /Textures/_ShibaStation/LobbyScreens/revenant.webp
+  name: Revenant of Safety Violations
+  artist: Wolfio
+
+- type: lobbyBackground
+  id: Singuloose
+  background: /Textures/_ShibaStation/LobbyScreens/singuloose.webp
+  name: Singuloose
+  artist: Wolfio
+
+- type: lobbyBackground
   id: Shiba1
   background: /Textures/_ShibaStation/LobbyScreens/shiba1.webp
   name: AI Slop
