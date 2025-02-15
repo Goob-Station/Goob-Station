@@ -1,8 +1,8 @@
-# Goobstation - Armor resisting syringe gun
-melee-inject-failed-armor = Your {$weapon} cannot inject through armor!
+# Goobstation - шприц-пистолет с сопротивлением броне
+melee-inject-failed-armor = {$weapon} не может пробить броню!
 
-melee-balloon-pop = {CAPITALIZE(THE($balloon))} popped!
+melee-balloon-pop = {CAPITALIZE(THE($balloon))} выскочил!
 
 
 # BatteryComponent
-melee-battery-examine = It has enough charge for [color={$color}]{$count}[/color] hits.
+melee-battery-examine = У него достаточно заряда для [color={$color}]{$count}[/color] попаданий.

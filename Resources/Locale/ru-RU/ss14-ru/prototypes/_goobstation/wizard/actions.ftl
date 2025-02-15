@@ -1,7 +1,7 @@
 ent-ActionMimeMalaise = Недомогание мима
     .desc = ...
 ent-ActionCluwneCurse = Проклятие клувня
-    .desc = Пришло время начать клувняду.
+    .desc = Пришло время начать клувненаду.
 ent-ActionBananaTouch = Прикосновение банана
     .desc = Пришло время начать клоунаду.
 ent-ActionMagicMissile = Волшебная ракета
