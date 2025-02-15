@@ -67,7 +67,7 @@
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml
   - type: AntagSelection
-    selectionTime: BeforeJobs
+    selectionTime: PrePlayerSpawn
     definitions:
     - prefRoles: [ NukeopsCommander ]
       fallbackRoles: [ Nukeops, NukeopsMedic ]
@@ -207,7 +207,7 @@
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet-honkops.yml
   - type: AntagSelection
-    selectionTime: BeforeJobs
+    selectionTime: PrePlayerSpawn
     definitions:
     - prefRoles: [ NukeopsCommander ]
       fallbackRoles: [ Nukeops, NukeopsMedic ]
