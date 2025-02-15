@@ -111,6 +111,14 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             component.ProjectileSpent = true;
         }
 
+        // Goobstation start
+        if (component.Penetrate)
+        {
+            component.IgnoredEntities.Add(target);
+            component.ProjectileSpent = false; // Hardlight bow should be able to deal damage while piercing, no?
+        }
+        // Goobstation end
+
         if (!deleted)
         {
             _guns.PlayImpactSound(target, modifiedDamage, component.SoundHit, component.ForceSound);
@@ -118,13 +126,6 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             if (!args.OurBody.LinearVelocity.IsLengthZero())
                 _sharedCameraRecoil.KickCamera(target, args.OurBody.LinearVelocity.Normalized());
         }
-
-        // Goobstation start
-        if (component.Penetrate)
-            component.IgnoredEntities.Add(target);
-        else
-            component.ProjectileSpent = true;
-        // Goobstation end
 
         if ((component.DeleteOnCollide && component.ProjectileSpent) || (component.NoPenetrateMask & args.OtherFixture.CollisionLayer) != 0) // Goobstation - Make x-ray arrows not penetrate blob
             QueueDel(uid);
