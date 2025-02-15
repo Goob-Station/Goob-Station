@@ -1,0 +1,204 @@
+- files: ["mm_hit.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/mm_hit.ogg"
+
+- files: ["magic_missile.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/magic_missile.ogg"
+
+- files: ["disable_tech.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/disable_tech.ogg"
+
+- files: ["repulse.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/repulse.ogg"
+
+- files: ["timeparadox2.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/timeparadox2.ogg"
+
+- files: ["blind.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/blind.ogg"
+
+- files: ["pope_entry.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/pope_entry.ogg"
+
+- files: ["mutate.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/mutate.ogg"
+
+- files: ["lightning_chargeup.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/lightning_chargeup.ogg"
+
+- files: ["smoke.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/smoke.ogg"
+
+- files: ["summonitems_generic.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/summonitems_generic.ogg"
+
+- files: ["teleport_app.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/teleport_app.ogg"
+
+- files: ["teleport_diss.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/teleport_diss.ogg"
+
+- files: ["bee.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/mobs/non-humanoids/bee/bee.ogg"
+
+- files: ["monkey.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/music/antag/monkey.ogg"
+
+- files: ["charge.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/charge.ogg"
+
+- files: ["crackandbleed.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/wounds/crackandbleed.ogg"
+
+- files: ["exit_blood.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/exit_blood.ogg"
+
+- files: ["bamf.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/bamf.ogg"
+
+- files: ["swap.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/swap.ogg"
+
+- files: ["phasein.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/phasein.ogg"
+
+- files: ["mandswap.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/mandswap.ogg"
+
+- files: ["gorilla.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/mobs/non-humanoids/gorilla/gorilla.ogg"
+
+- files: ["supermatter.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/supermatter.ogg"
+
+- files: ["wandodeath.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/wandodeath.ogg"
+
+- files: ["wand_teleport.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/wand_teleport.ogg"
+
+- files: ["zapbang.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/items/weapons/zapbang.ogg"
+
+- files: ["summon_magic.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/summon_magic.ogg"
+
+- files: ["ghost2.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/ghost2.ogg"
+
+- files: ["ghost.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/ghost.ogg"
+
+- files: ["HorseCurse.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Breaking Bones.wav by batman6661 (CC0-1.0) https://freesound.org/s/181133/. gg o2 b2 14 blasts f.wav by ERH (CC-BY-NC-4.0) https://freesound.org/s/43456/. HorseCurse.ogg by Armok."
+  source: "https://github.com/Goob-Station/Goob-Station/pull/1292"
+
+- files: ["PigCurse.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Pig Oink by qubodup (CC0-1.0) https://freesound.org/s/442906/. Angry Pig Oinking by Jofae (CC0-1.0) https://freesound.org/s/352698/. gg o2 b2 14 blasts 2f.wav by ERH (CC-BY-NC-4.0) https://freesound.org/s/49001/. PigCurse.ogg by Armok."
+  source: "https://github.com/Goob-Station/Goob-Station/pull/1292"
+
+- files: ["FrogCurse.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "200703101950PacificChorusFrogsSoloNR.wav by daveincamas (CC-BY-4.0) https://freesound.org/s/32807/. boat motor.wav by pawsound (CC0-1.0) https://freesound.org/s/154833/. gg o2 b2 14 blasts 2f.wav by ERH (CC-BY-NC-4.0) https://freesound.org/s/49001/. FrogCurse.ogg by Armok."
+  source: "https://github.com/Goob-Station/Goob-Station/pull/1292"
+
+- files: ["CowCurse.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Cow moo #2 by spurioustransients (CC0-1.0) https://freesound.org/s/513558/. Barn Door creek.aif by MAJ061785 (CC-BY-3.0) https://freesound.org/s/85509/. Bones and flesh tearing 1 by studiobonk (CC-BY-4.0) https://freesound.org/s/649123/. gg o2 b2 14 blasts 2f.wav by ERH (CC-BY-NC-4.0) https://freesound.org/s/49001/. CowCurse.ogg by Armok."
+  source: "https://github.com/Goob-Station/Goob-Station/pull/1292"
+
+- files: ["RatCurse.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "rat noises.m4a by BurgerBoys (CC-BY-3.0) https://freesound.org/s/482678/. Dry cough.wav by Fedor_Ogon (CC0-1.0) https://freesound.org/s/432380/. Firefight by TheBuilder15 (CC0-1.0) https://freesound.org/s/404334/. gg o2 b2 14 blasts 2f.wav by ERH (CC-BY-NC-4.0) https://freesound.org/s/49001/. RatCurse.ogg by Armok."
+  source: "https://github.com/Goob-Station/Goob-Station/pull/1292"
+
+- files: ["FoxCurse.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "wind in the autumn forest - front by CRAFTCREST.com (CC-BY-4.0) https://freesound.org/s/333097/. red fox screeching.mp3 by craigsays (CC0-1.0) https://freesound.org/s/537587/. gg o2 b2 14 blasts 2f.wav by ERH (CC-BY-NC-4.0) https://freesound.org/s/49001/. FoxCurse.ogg by Armok."
+  source: "https://github.com/Goob-Station/Goob-Station/pull/1292"
+
+- files: ["BeeCurse.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Bees.wav by Benboncan (CC-BY-4.0) https://freesound.org/s/73370/. Fast Crawling Bu by dasrealized (CC0-1.0) https://freesound.org/s/266014/. gg o2 b2 14 blasts 2f.wav by ERH (CC-BY-NC-4.0) https://freesound.org/s/49001/. BeeCurse.ogg by Armok."
+  source: "https://github.com/Goob-Station/Goob-Station/pull/1292"
+
+- files: ["BearCurse.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Breaking Bones.wav by batman6661 (CC0-1.0) https://freesound.org/s/181133/. gg o2 b2 14 blasts 2f.wav by ERH (CC-BY-NC-4.0) https://freesound.org/s/49001/. BearCurse.ogg by Armok."
+  source: "https://github.com/Goob-Station/Goob-Station/pull/1292"
+
+- files: ["RavenCurse.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "high thunder suburb 06.wav by klankbeeld (CC-BY-4.0) https://freesound.org/s/169257/. Ravens.mp3 by kentdavies959 (CC-BY-4.0) https://freesound.org/s/466666/. gg o2 b2 14 blasts 2f.wav by ERH (CC-BY-NC-4.0) https://freesound.org/s/49001/. RavenCurse.ogg by Armok."
+  source: "https://github.com/Goob-Station/Goob-Station/pull/1292"
+
+- files: ["JackalCurse.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Jackals howling in the mountains by Babadeda (CC0-1.0) https://freesound.org/s/737879/. dog_breathing 1.wav by 15GPanskaBokstefflova_Nicola (CC0-1.0) https://freesound.org/s/461513/. gg o2 b2 14 blasts 2f.wav by ERH (CC-BY-NC-4.0) https://freesound.org/s/49001/. JackalCurse.ogg by Armok."
+  source: "https://github.com/Goob-Station/Goob-Station/pull/1292"
+
+- files: ["BatCurse.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Breaking Bones.wav by batman6661 (CC0-1.0) https://freesound.org/s/181133/. gg o2 b2 14 blasts 2f.wav by ERH (CC-BY-NC-4.0) https://freesound.org/s/49001/. BatCurse.ogg by Armok."
+  source: "https://github.com/Goob-Station/Goob-Station/pull/1292"

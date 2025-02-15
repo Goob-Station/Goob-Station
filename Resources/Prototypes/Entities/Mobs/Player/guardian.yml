@@ -172,6 +172,12 @@
           map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
           color: "#40a7d7"
           shader: unshaded
+    - type: NpcFactionMember # Goobstation
+      factions:
+        - Wizard
+    - type: HTN # Goobstation
+      rootTask:
+        task: SimpleHumanoidHostileCompound
 
 - type: entity
   name: HoloClown

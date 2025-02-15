@@ -386,9 +386,12 @@
     minimumSpeed: 3
     removalTime: 0.25
     embedOnThrow: true
-  - type: SolutionInjectOnEmbed
-    transferAmount: 2
+  - type: SolutionInjectWhileEmbedded
+    transferAmount: 1
+    updateInterval: 0.5 # done in 7.5 seconds
+    maxInjections: 2 # only inject 2u if thrown
     solution: injector
+    pierceArmor: false # 1984
   - type: Fixtures
     fixtures:
       fix1:
@@ -474,9 +477,11 @@
     transferAmount: 1
     solution: injector
     updateInterval: 2
+    pierceArmor: false # Goobstation
   - type: SolutionInjectOnEmbed
     transferAmount: 2
     solution: injector
+    pierceArmor: false # Goobstation
   - type: Fixtures
     fixtures:
       fix1:

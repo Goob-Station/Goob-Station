@@ -1133,7 +1133,7 @@
       collection: Punch
     damage:
       types:
-        Blunt: 20
+        Blunt: 30 # Goob edit
     animation: WeaponArcFist
   - type: NPCRetaliation
   - type: FactionException
@@ -1143,6 +1143,15 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
+  - type: MobThresholds # Goobstation
+    thresholds:
+      0: Alive
+      120: Critical
+      220: Dead
+  - type: SlowOnDamage # Goobstation
+    speedModifierThresholds:
+      80: 0.7
+      100: 0.5
 
 - type: entity
   name: kangaroo
@@ -1389,6 +1398,7 @@
       methods: [ Touch ]
       effects:
       - !type:WashCreamPieReaction
+  - type: LayingDown # Goobstation
 
 
 
@@ -1515,8 +1525,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      60: Critical
-      125: Dead
+      100: Critical # Goob edit
+      200: Dead # Goob edit
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.5
     baseSprintSpeed: 5
@@ -1574,7 +1584,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      75: Critical
+      100: Critical # Goob edit
       200: Dead
   - type: NpcFactionMember
     factions:

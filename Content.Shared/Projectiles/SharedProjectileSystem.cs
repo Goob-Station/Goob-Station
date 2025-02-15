@@ -4,7 +4,9 @@ using Content.Shared.Damage.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
+using Content.Shared.Tag;
 using Content.Shared.Throwing;
+using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
@@ -12,6 +14,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Projectiles;
@@ -26,6 +29,9 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
+
+    private static readonly ProtoId<TagPrototype> GunCanAimShooterTag = "GunCanAimShooter";
 
     public override void Initialize()
     {
@@ -82,7 +88,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         }
 
         // Land it just coz uhhh yeah
-        var landEv = new LandEvent(args.User, true);
+        var landEv = new LandEvent(args.User, true); // note from goobstation: if this line is removed, syringe gun will break, LOOK AT THIS IF YOU ARE SEEING THIS IN A MERGE CONFLICT
         RaiseLocalEvent(uid, ref landEv);
         _physics.WakeBody(uid, body: physics);
 
@@ -141,7 +147,15 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             return;
 
         if (component.IgnoredEntities.Contains(args.OtherEntity)) // Goobstation
+        {
             args.Cancelled = true;
+            return;
+        }
+
+        if ((component.Shooter == args.OtherEntity || component.Weapon == args.OtherEntity) &&
+            component.Weapon != null && _tag.HasTag(component.Weapon.Value, GunCanAimShooterTag) &&
+            TryComp(uid, out TargetedProjectileComponent? targeted) && targeted.Target == args.OtherEntity)
+            return;
 
         if (component.IgnoreShooter && (args.OtherEntity == component.Shooter || args.OtherEntity == component.Weapon))
         {
