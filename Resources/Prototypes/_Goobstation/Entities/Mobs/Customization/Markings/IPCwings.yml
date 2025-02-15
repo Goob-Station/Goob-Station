@@ -1,0 +1,8 @@
+- type: marking
+  id: WingsRoboticMerciful
+  bodyPart: Wings
+  markingCategory: Wings
+  speciesRestriction: [IPC]
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/IPCwings.rsi
+      state: merciful
