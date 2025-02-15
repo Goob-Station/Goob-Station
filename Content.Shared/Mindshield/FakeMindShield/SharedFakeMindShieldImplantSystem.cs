@@ -13,7 +13,7 @@ public sealed class SharedFakeMindShieldImplantSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<SubdermalImplantComponent, FakeMindShieldToggleEvent>(OnFakeMindShieldToggle);
         SubscribeLocalEvent<FakeMindShieldImplantComponent, ImplantImplantedEvent>(ImplantCheck);
-        SubscribeLocalEvent<FakeMindShieldImplantComponent, ImplantRemovedFromEvent>(ImplantRemove); // Goob fix
+        SubscribeLocalEvent<FakeMindShieldComponent, ImplantRemovedFromEvent>(ImplantRemove); // Goob fix
     }
     /// <summary>
     /// Raise the Action of a Implanted user toggling their implant to the FakeMindshieldComponent on their entity
@@ -35,8 +35,10 @@ public sealed class SharedFakeMindShieldImplantSystem : EntitySystem
             EnsureComp<FakeMindShieldComponent>(ev.Implanted.Value);
     }
 
-    private void ImplantRemove(EntityUid uid, FakeMindShieldImplantComponent component, ref ImplantRemovedFromEvent ev)
+    // Goob edit - removable mindshields, parity/anti-metagame fix. FakeMindShield instead of FakeMindShieldImplant since the latter doesn't trigger
+    private void ImplantRemove(EntityUid uid, FakeMindShieldComponent component, ref ImplantRemovedFromEvent ev)
     {
-        RemCompDeferred<FakeMindShieldComponent>(ev.Implanted);
+        if (HasComp<FakeMindShieldImplantComponent>(ev.Implant))
+            RemComp<FakeMindShieldComponent>(ev.Implanted);
     }
 }
