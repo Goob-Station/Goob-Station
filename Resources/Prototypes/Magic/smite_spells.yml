@@ -4,13 +4,13 @@
   description: Charge your hand with an unholy energy that can be used to cause a touched victim to violently explode.
   components:
   - type: EntityTargetAction
-    useDelay: 60
+    useDelay: 240
     itemIconStyle: BigAction
     whitelist:
       components:
       - Body
     canTargetSelf: false
-    interactOnMiss: false
+    interactOnMiss: true
     raiseOnUser: true # Goobstation
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/disintegrate.ogg
