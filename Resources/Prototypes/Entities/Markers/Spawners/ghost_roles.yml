@@ -24,6 +24,9 @@
     requirements: # ShibaStation - Antag Playtime Requirements
     - !type:OverallPlaytimeRequirement
       time: 72000 # 20 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 # 10 hours
   - type: GhostRoleMobSpawner
     prototype: MobRatKing
   - type: Sprite
@@ -72,6 +75,9 @@
     requirements: # ShibaStation - Antag Playtime Requirements
     - !type:OverallPlaytimeRequirement
       time: 72000 # 20 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 # 10 hours
   - type: GhostRoleMobSpawner
     prototype: MobCorgiCerberus
   - type: Sprite
@@ -98,6 +104,9 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 72000 # 20 hours
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 36000 # 10 hours
   - type: GhostRoleMobSpawner
     prototype: MobHumanNukeOp
   - type: Sprite
@@ -122,6 +131,9 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 72000 # 20 hours
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 36000 # 10 hours
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -144,6 +156,9 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 72000 # 20 hours
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 36000 # 10 hours
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
@@ -160,6 +175,9 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 72000 # 20 hours
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 36000 # 10 hours
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
@@ -176,6 +194,9 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 72000 # 20 hours
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 36000 # 10 hours
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
@@ -188,10 +209,10 @@
     rules: ghost-role-information-space-dragon-rules
     requirements: # ShibaStation - Antag Playtime Requirements
     - !type:OverallPlaytimeRequirement
-      time: 180000 # 50 hours
+      time: 72000 # 20 hours
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 72000 # 20 hours
+      time: 36000 # 10 hours
   - type: Sprite
     layers:
     - state: green
@@ -209,10 +230,10 @@
     rules: ghost-role-information-antagonist-rules
     requirements: # ShibaStation - Antag Playtime Requirements
     - !type:OverallPlaytimeRequirement
-      time: 180000 # 50 hours
+      time: 72000 # 20 hours
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 72000 # 20 hours
+      time: 36000 # 10 hours
     raffle:
       settings: default
   - type: Sprite
@@ -235,10 +256,10 @@
       settings: default
     requirements: # ShibaStation - Antag Playtime Requirements
     - !type:OverallPlaytimeRequirement
-      time: 180000 # 50 hours
+      time: 72000 # 20 hours
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 72000 # 20 hours
+      time: 36000 # 10 hours
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:

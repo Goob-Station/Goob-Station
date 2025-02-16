@@ -30,6 +30,9 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 180000 # 50 hours
+  - !type:DepartmentTimeRequirement
+    department: Command
+    time: 72000 # 20 hours
   guides: [ Wizard ]
 
 
