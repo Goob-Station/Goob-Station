@@ -219,6 +219,7 @@ public sealed class HierophantSystem : EntitySystem
 
         // we need this beacon in order for damage box to not break apart
         var beacon = Spawn(null, _xform.GetMapCoordinates((EntityUid) target));
+        var token = ent.Comp.CancelToken.Token;
 
         var delay = 0;
         for (var i = 0; i <= range; i++)
@@ -232,14 +233,14 @@ public sealed class HierophantSystem : EntitySystem
                 () =>
                 {
                     SpawnDamageBox(beacon, rangeCopy);
-                });
+                }, token);
         }
 
         Timer.Spawn(delay + 1000,
             () =>
             {
                 QueueDel(beacon); // cleanup after attack is done
-            });
+            }, token);
     }
 
     private void SpawnChasers(Entity<HierophantBossComponent> ent, int amount = 1)
@@ -250,6 +251,8 @@ public sealed class HierophantSystem : EntitySystem
                 return;
 
             var delay = (int) GetDelay(ent, ent.Comp.InterActionDelay) * i;
+            var token = ent.Comp.CancelToken.Token;
+
             Timer.Spawn(delay,
                 () =>
                 {
@@ -260,12 +263,13 @@ public sealed class HierophantSystem : EntitySystem
                         chasercomp.MaxSteps *= ent.Comp.CurrentAnger;
                         chasercomp.Speed += ent.Comp.CurrentAnger * 0.5f;
                     }
-                });
+                }, token);
         }
     }
 
     private void SpawnCrosses(Entity<HierophantBossComponent> ent, EntityUid? target, int amount = 1)
     {
+        var token = ent.Comp.CancelToken.Token;
         for (var i = 0; i < amount; i++)
         {
             if (TerminatingOrDeleted(ent) ||
@@ -278,7 +282,7 @@ public sealed class HierophantSystem : EntitySystem
                 {
                     target ??= ent;
                     SpawnCross(target.Value);
-                });
+                }, token);
         }
     }
 
