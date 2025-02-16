@@ -69,7 +69,7 @@ public sealed partial class ChangelingInfectionSystem : EntitySystem
             if (!EntityManager.TryGetComponent(uid, out AbsorbableComponent? absorbable))
             {
                 EntityManager.RemoveComponent<ChangelingInfectionComponent>(uid);
-                return;
+                break;
             }
 
             if (!comp.NeedsInitialization)
