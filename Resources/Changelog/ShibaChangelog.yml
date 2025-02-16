@@ -1,4 +1,118 @@
 Entries:
+- author: bodenpflanze
+  changes:
+  - message: Cluster has had substantial changes to medical and atmos - surgery is
+      now more integral to the medbay and atmos is wider AND HAS A TEG! WOO! CLUSTER
+      IS PLAYABLE!
+    type: Tweak
+  id: 169
+  time: '2025-02-16T00:36:27.485081'
+- author: AstroDogeDX
+  changes:
+  - message: Wondercuffs have been readded to the wonderprod as they are apparently
+      working again!
+    type: Fix
+  id: 168
+  time: '2025-02-16T00:40:44.111863'
+- author: AstroDogeDX
+  changes:
+  - message: Aliens aren't real but if they were and there was more types of them,
+      they'd also speak a real language.
+    type: Tweak
+  id: 167
+  time: '2025-02-16T00:40:27.800459'
+- author: AstroDogeDX
+  changes:
+  - message: aghosts no longer collide with revenants.
+    type: Fix
+  id: 166
+  time: '2025-02-16T00:38:47.244762'
+- author: AstroDogeDX
+  changes:
+  - message: Antag and ghost role playtime and department requirements have been greatly
+      adjusted or outright added. Most players are unaffected, new players need to
+      put the work in now.
+    type: Tweak
+  id: 165
+  time: '2025-02-16T00:38:16.513265'
+- author: AstroDogeDX & Gtheglorious
+  changes:
+  - message: Snouses.
+    type: Add
+  id: 164
+  time: '2025-02-16T00:39:57.929513'
+- author: MillieAmp
+  changes:
+  - message: A chill remix of Tintin on the Moon has been added to the lobby soundtrack!
+    type: Add
+  id: 163
+  time: '2025-02-16T00:37:39.342925'
+- author: Wolfio
+  changes:
+  - message: Two new lobby backgrounds have been added! Real human art!
+    type: Add
+  id: 162
+  time: '2025-02-16T00:37:17.800291'
+- author: AstroDogeDX
+  changes:
+  - message: Atlas has had several changes including a new newsroom and reporter slot,
+      lawyer slots added, improvements to nothern solars, fixes to atmos, and other
+      little tweaks and changes here and there!
+    type: Tweak
+  id: 161
+  time: '2025-02-16T00:36:59.340722'
+- author: AstroDogeDX
+  changes:
+  - message: Air alarms should be less sensitive to harmless situations like too much
+      oxygen or pressures that are low but not dangerous.
+    type: Tweak
+  id: 160
+  time: '2025-02-16T00:44:06.929886'
+- author: AstroDogeDX
+  changes:
+  - message: Removed Reach.
+    type: Remove
+  id: 159
+  time: '2025-02-16T00:43:16.568885'
+- author: AstroDogeDX
+  changes:
+  - message: Fixed missing voice line for Category 5 vent spawns. Oopsie.
+    type: Fix
+  id: 158
+  time: '2025-02-16T00:43:02.903521'
+- author: AstroDogeDX
+  changes:
+  - message: Fixed the mining shuttle generator this time I swear please don't send
+      me a pipebomb in the mail.
+    type: Fix
+  id: 157
+  time: '2025-02-16T00:42:37.817240'
+- author: AstroDogeDX
+  changes:
+  - message: Tile cleaning methods like cleanade foam and space cleaner spray now
+      clean everything on a tile, not just the top-most entity!
+    type: Tweak
+  id: 156
+  time: '2025-02-16T00:42:20.510625'
+- author: AstroDogeDX
+  changes:
+  - message: Footprints are now permanent (they no longer dissolve over time).
+    type: Tweak
+  id: 155
+  time: '2025-02-16T00:41:58.189755'
+- author: AstroDogeDX
+  changes:
+  - message: Footprints are now AOE cleanable; whenever you clean a footprint or a
+      puddle, footprints within a radius will also be cleaned simultaneously!
+    type: Add
+  id: 154
+  time: '2025-02-16T00:41:43.389304'
+- author: AstroDogeDX
+  changes:
+  - message: Footprints are now inspectable and drainable of their solutions.
+    type: Fix
+  id: 153
+  time: '2025-02-16T00:41:10.540037'
 - author: AstroDogeDX
   changes:
   - message: Air alarms have a new mode; Cycling! It puts the scrubbers into siphoning
