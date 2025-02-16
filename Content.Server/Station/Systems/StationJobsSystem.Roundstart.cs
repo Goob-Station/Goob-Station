@@ -291,9 +291,9 @@ public sealed partial class StationJobsSystem
             }
 
             var profile = profiles[player];
-            if (profile.PreferenceUnavailable != PreferenceUnavailableMode.SpawnAsOverflow &&
-                !_pendingAntag.PendingAntags.ContainsKey(player)) // Goob edit - spawn as overflow if rolled antag
+            if (profile.PreferenceUnavailable != PreferenceUnavailableMode.SpawnAsOverflow)
             {
+                _pendingAntag.PendingAntags.Remove(player); // Goobstation
                 assignedJobs.Add(player, (null, EntityUid.Invalid));
                 continue;
             }
