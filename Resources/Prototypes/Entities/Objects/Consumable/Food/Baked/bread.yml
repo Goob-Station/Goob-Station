@@ -704,7 +704,7 @@
     tags:
     - BreadEmergency
   - type: GibThisGuy  #Goobstation
-    requirebouth: true
+    requireBoth: true
     icNames:
       - Haleigh Pryocraft
     ocNames:
