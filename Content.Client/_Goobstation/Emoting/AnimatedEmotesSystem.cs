@@ -6,6 +6,9 @@ using Content.Shared.Emoting;
 using System.Numerics;
 using Robust.Shared.Prototypes;
 using Content.Shared.Chat.Prototypes;
+using Robust.Client.Graphics;
+using Content.Client.DamageState;
+using System.Linq;
 
 namespace Content.Client.Emoting;
 
@@ -23,6 +26,7 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
         SubscribeLocalEvent<AnimatedEmotesComponent, AnimationFlipEmoteEvent>(OnFlip);
         SubscribeLocalEvent<AnimatedEmotesComponent, AnimationSpinEmoteEvent>(OnSpin);
         SubscribeLocalEvent<AnimatedEmotesComponent, AnimationJumpEmoteEvent>(OnJump);
+        SubscribeLocalEvent<AnimatedEmotesComponent, AnimationTweakEmoteEvent>(OnTweak);
     }
 
     public void PlayEmote(EntityUid uid, Animation anim, string animationKey = "emoteAnimKeyId")
@@ -117,5 +121,29 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
             }
         };
         PlayEmote(ent, a);
+    }
+    private void OnTweak(Entity<AnimatedEmotesComponent> ent, ref AnimationTweakEmoteEvent args)
+    {
+        if (ent.Owner.Prototype != null)
+        {
+            // this part here extract the mouse protptype number since there is mouse 0, 1, 2
+            var stateNumber = string.Concat(ent.Owner.Prototype.ID.Where(Char.IsDigit)) == "" ? "0" : string.Concat(ent.Owner.Prototype.ID.Where(Char.IsDigit));
+            var a = new Animation
+            {
+                Length = TimeSpan.FromMilliseconds(1100),  // Each Frame is 0.1 sec and there is 11 for the tweaking emote.
+                AnimationTracks =
+            {
+                new AnimationTrackSpriteFlick
+                {
+                    LayerKey = DamageStateVisualLayers.Base,
+                    KeyFrames =
+                    {
+                        new AnimationTrackSpriteFlick.KeyFrame(new RSI.StateId($"mouse-tweaking-{stateNumber}"), 0f)
+                    }
+                }
+            }
+            };
+            PlayEmote(ent, a);
+        }
     }
 }
