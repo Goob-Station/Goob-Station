@@ -41,3 +41,16 @@
     canCreateVacuum: false
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: ClothingHandsGlovesColorYellow
+  id: ClothingHandsGlovesAtmosInsulated
+  name: insulated atmos gloves
+  description: Like normal insulated gloves, but simply better by virtue of being from the Atmospherics department.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/atmos.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/Gloves/atmos.rsi
+  - type: Fiber
+    fiberColor: fibers-blue

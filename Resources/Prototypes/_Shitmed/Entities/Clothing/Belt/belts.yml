@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: [ ClothingBeltStorageBase, BaseMajorContraband ]
   id: ClothingAbductorBelt
   name: alien belt
   description: Can hold various OUR things. # I was going to change this, but it's funny so it stays.

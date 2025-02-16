@@ -237,21 +237,37 @@
     sprite: Clothing/OuterClothing/Armor/heavyred.rsi
 
 - type: entity
-  parent: ClothingOuterArmorHeavy
+  parent: [ClothingOuterArmorHeavy, ClothingOuterWizardBaseArmor, BaseMagicContraband] # Goob edit
   id: ClothingOuterArmorMagusblue
   name: blue magus armor
-  description: An blue armored suit that provides good protection.
+  description: An blue armored suit that provides good protection. Doesn't count as wizard robes. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Armor/magusblue.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/magusblue.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0.1
+        Caustic: 0.1
+  - type: ClothingSpeedModifier # Goobstation
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: Tag # Goobstation
+    tags:
+      - WhitelistChameleon
+      - SyringeArmor
 
 - type: entity
-  parent: ClothingOuterArmorHeavy
+  parent: ClothingOuterArmorMagusblue # Goob edit
   id: ClothingOuterArmorMagusred
   name: red magus armor
-  description: A red armored suit that provides good protection.
+  description: A red armored suit that provides good protection. Doesn't count as wizard robes. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Armor/magusred.rsi

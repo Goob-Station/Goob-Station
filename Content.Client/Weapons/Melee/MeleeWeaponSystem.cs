@@ -11,6 +11,7 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
+using Content.Shared.Wieldable.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
@@ -98,10 +99,29 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         // it's kinda tricky.
         // I think as long as we make secondaries their own component it's probably fine
         // as long as guncomp has an alt-use key then it shouldn't be too much of a PITA to deal with.
-        if (TryComp<GunComponent>(weaponUid, out var gun) && gun.UseKey)
+
+        //Frontier: better support melee vs. ranged checks
+        /*if (TryComp<GunComponent>(weaponUid, out var gun) && gun.UseKey)
         {
             return;
+        }*/
+
+        // Ranged component has priority over melee if both are supported.
+        bool gunBoundToUse = false;
+        bool gunBoundToAlt = false;
+        if (TryComp<GunComponent>(weaponUid, out var gun)) {
+            gunBoundToUse = gun.UseKey;
+            gunBoundToAlt = !gun.UseKey; //Bound to alt-use when false
+
+            // If ranged mode only works when wielded, do not block melee attacks when unwielded
+            // (e.g. crusher & crusher glaive)
+            if (TryComp<GunRequiresWieldComponent>(weaponUid, out var _) &&
+                    TryComp<WieldableComponent>(weaponUid, out var wield)) {
+                gunBoundToUse &= wield.Wielded;
+                gunBoundToAlt &= wield.Wielded;
+            }
         }
+        //End Frontier
 
         var mousePos = _eyeManager.PixelToMap(_inputManager.MouseScreenPosition);
 
@@ -122,7 +142,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         }
 
         // Heavy attack.
-        if (altDown == BoundKeyState.Down)
+        if (altDown == BoundKeyState.Down && !gunBoundToAlt) //Frontier: add !gunBoundToAlt condition
         {
             // If it's an unarmed attack then do a disarm
             if (weapon.AltDisarm && weaponUid == entity)
@@ -177,7 +197,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         }
 
         // Light attack
-        if (useDown == BoundKeyState.Down)
+        if (useDown == BoundKeyState.Down && !gunBoundToUse) //Frontier: add !gunBoundToUse condition
         {
             var attackerPos = TransformSystem.GetMapCoordinates(entity);
 
