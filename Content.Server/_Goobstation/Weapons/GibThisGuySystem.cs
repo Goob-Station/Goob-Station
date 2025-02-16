@@ -18,6 +18,15 @@ public sealed class GibThisGuySystem : EntitySystem
 
     public void OnMeleeHit(EntityUid uid, GibThisGuyComponent component, MeleeHitEvent args)
     {
+        if (component.RequireBoth)
+        {
+            foreach (var hit in args.HitEntities)
+                if (component.IcNames.Contains(Name(hit)) &&
+                    TryComp<ActorComponent>(hit, out var actor) &&
+                    component.OcNames.Contains(actor.PlayerSession.Name))
+                    _bodySystem.GibBody(hit);
+            return;
+        }
         foreach (var hit in args.HitEntities)
         {
             if (component.IcNames.Contains(Name(hit)))
