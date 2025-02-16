@@ -4805,3 +4805,11 @@ Entries:
       message: Added a wrench to the wardens locker.
   id: 548
   time: '2025-02-16T13:06:19.0000000+00:00'
+- author: ColonicAcid
+  changes:
+    - type: Tweak
+      message: >-
+        Syndicate surgical duffel bags are now cheaper, and contain better
+        tools!
+  id: 549
+  time: '2025-02-16T16:25:04.0000000+00:00'
