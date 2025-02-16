@@ -797,6 +797,9 @@
     name: ghost-role-information-punpun-name
     description: ghost-role-information-punpun-description
     rules: ghost-role-information-nonantagonist-rules
+    requirements: # ShibaStation - Antag Playtime Requirements
+    - !type:OverallPlaytimeRequirement
+      time: 36000 # 10 hours
   - type: GhostTakeoverAvailable
   - type: Butcherable
     butcheringType: Spike

@@ -24,10 +24,14 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-wizard-description
-  requirements:
+  requirements: # ShibaStation - Antag Playtime Requirements
   - !type:OverallPlaytimeRequirement
-    time: 54000 # 15h
+    time: 360000 # 100 hours
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 180000 # 50 hours
   guides: [ Wizard ]
+
 
 - type: antag
   id: Apprentice
@@ -35,6 +39,12 @@
   antagonist: true
   setPreference: false
   objective: roles-antag-apprentice-description
+  requirements: # ShibaStation - Antag Playtime Requirements
+  - !type:OverallPlaytimeRequirement
+    time: 180000 # 50 hours
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 72000 # 20 hours
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
@@ -45,6 +55,12 @@
     name: roles-wizard-name
     description: roles-wizard-objective
     rules: ghost-role-information-antagonist-rules
+    requirements: # ShibaStation - Antag Playtime Requirements
+    - !type:OverallPlaytimeRequirement
+      time: 360000 # 100 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 180000 # 50 hours
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:

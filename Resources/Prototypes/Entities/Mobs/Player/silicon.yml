@@ -378,7 +378,7 @@
     unlistedNumber: true
     requiresPower: false
   - type: Holopad
-  - type: StationAiWhitelist  
+  - type: StationAiWhitelist
   - type: UserInterface
     interfaces:
         enum.HolopadUiKey.AiRequestWindow:
@@ -537,6 +537,12 @@
       rules: ghost-role-information-silicon-rules
       raffle:
         settings: default
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50 hours
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 72000 # 20 hours
     - type: GhostTakeoverAvailable
 
 - type: entity
@@ -570,6 +576,12 @@
       rules: ghost-role-information-silicon-rules
       raffle:
         settings: default
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50 hours
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 72000 # 20 hours
     - type: GhostTakeoverAvailable
 
 - type: entity
@@ -620,4 +632,10 @@
       rules: ghost-role-information-silicon-rules
       raffle:
         settings: default
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50 hours
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 72000 # 20 hours
     - type: GhostTakeoverAvailable

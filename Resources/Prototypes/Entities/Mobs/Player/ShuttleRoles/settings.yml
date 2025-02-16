@@ -426,7 +426,7 @@
     - type: RandomMetadata
       nameSegments:
       - names_clown
-      
+
 - type: randomHumanoidSettings
   id: VisitorJanitor
   parent: VisitorCivilian
@@ -742,6 +742,12 @@
       rules: ghost-role-information-rules-team-antagonist
       raffle:
         settings: default
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 72000 # 20 hours
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 36000 # 10 hours
     - type: Loadout
       prototypes: [ SyndicateFootsoldierTeamLeaderGear ]
       roleLoadout: [ RoleSurvivalSyndicate ]
@@ -760,6 +766,12 @@
       rules: ghost-role-information-rules-team-antagonist
       raffle:
         settings: default
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50 hours
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 36000 # 20 hours
     - type: Loadout
       prototypes: [ SyndicateFootsoldierGear ]
       roleLoadout: [ RoleSurvivalSyndicate ]
@@ -777,6 +789,12 @@
       rules: ghost-role-information-freeagent-rules
       raffle:
         settings: short
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 72000 # 20 hours
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 36000 # 10 hours
     - type: Loadout
       prototypes: [ SyndicateOperativeGearCivilian ]
       roleLoadout: [ RoleSurvivalSyndicate ]
@@ -794,6 +812,12 @@
       rules: ghost-role-information-rules-team-antagonist
       raffle:
         settings: default
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 72000 # 20 hours
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 36000 # 10 hours
     - type: Loadout
       prototypes: [ PirateScoonerAltA, PirateScoonerAltB, PirateScoonerAltC, PirateScoonerAltD ]
       roleLoadout: [ RoleSurvivalEVA ]
@@ -811,6 +835,12 @@
       rules: ghost-role-information-rules-team-antagonist
       raffle:
         settings: default
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 72000 # 20 hours
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 36000 # 10 hours
     - type: Loadout
       prototypes: [ PirateCaptainScooner ]
       roleLoadout: [ RoleSurvivalEVA ]
@@ -827,6 +857,12 @@
       rules: ghost-role-information-freeagent-rules
       raffle:
         settings: default
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 72000 # 20 hours
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 36000 # 10 hours
     - type: Loadout
       prototypes: [ VisitorBlackmarketeer, VisitorBlackmarketeer ]
       roleLoadout: [ RoleSurvivalStandard ]
@@ -845,6 +881,12 @@
       rules: ghost-role-information-freeagent-rules
       raffle:
         settings: default
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 72000 # 20 hours
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 36000 # 10 hours
     - type: Loadout
       prototypes: [ CossackGear ]
       roleLoadout: [ RoleSurvivalEVA ]

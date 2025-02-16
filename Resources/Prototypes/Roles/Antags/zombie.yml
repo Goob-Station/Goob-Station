@@ -9,6 +9,11 @@
     inverted: true
     species:
     - IPC
+  - !type:OverallPlaytimeRequirement
+    time: 72000 # 20 hours
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 36000 # 10 hours
   guides: [ Zombies ]
 
 - type: antag

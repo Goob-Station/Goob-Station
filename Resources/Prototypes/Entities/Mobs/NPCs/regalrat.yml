@@ -98,6 +98,9 @@
     rules: ghost-role-information-freeagent-rules
     raffle:
       settings: default
+    requirements: # ShibaStation - Antag Playtime Requirements
+    - !type:OverallPlaytimeRequirement
+      time: 72000 # 20 hours
   - type: GhostTakeoverAvailable
   - type: Tag
     tags:

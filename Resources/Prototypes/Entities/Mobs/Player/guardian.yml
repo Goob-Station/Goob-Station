@@ -16,6 +16,9 @@
       rules: ghost-role-information-familiar-rules
       raffle:
         settings: default
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 36000 # 10 hours
     - type: GhostTakeoverAvailable
     - type: Input
       context: "human"
@@ -126,6 +129,9 @@
       rules: ghost-role-information-familiar-rules
       raffle:
         settings: default
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 36000 # 10 hours
     - type: GhostTakeoverAvailable
     - type: NameIdentifier
       group: Holoparasite
@@ -159,6 +165,9 @@
       rules: ghost-role-information-familiar-rules
       raffle:
         settings: default
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 36000 # 10 hours
     - type: GhostTakeoverAvailable
     - type: RandomSprite
       available:
@@ -194,6 +203,9 @@
       rules: ghost-role-information-familiar-rules
       raffle:
         settings: default
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 36000 # 10 hours
     - type: GhostTakeoverAvailable
     - type: NameIdentifier
       group: Holoparasite

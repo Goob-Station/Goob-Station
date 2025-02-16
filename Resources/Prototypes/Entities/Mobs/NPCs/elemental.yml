@@ -234,6 +234,9 @@
     rules: ghost-role-information-angry-slimes-rules
     raffle:
       settings: short
+    requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 72000 # 20 hours
   - type: NpcFactionMember
     factions:
     - SimpleHostile
