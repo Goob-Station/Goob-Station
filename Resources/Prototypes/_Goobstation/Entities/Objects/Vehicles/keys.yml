@@ -11,7 +11,7 @@
     - VehicleKey
 
 - type: entity
-  parent: BaseKey
+  parent: [ BaseKey, BaseRestrictedContraband ]
   id: VehicleKeySecway
   name: secway keys
   description: The keys to the future.
@@ -23,9 +23,9 @@
     tags:
     - VehicleKey
     - SecwayKeys
-    
+
 - type: entity
-  parent: BaseKey
+  parent: [ BaseKey, BaseSyndicateContraband ]
   id: VehicleKeySyndicateSegway
   name: syndicate segway keys
   description: Patterned after the iconic EMAG design.
@@ -51,7 +51,7 @@
     tags:
     - VehicleKey
     - ATVKeys
-    
+
 - type: entity
   parent: BaseKey
   id: VehicleKeyJanicart

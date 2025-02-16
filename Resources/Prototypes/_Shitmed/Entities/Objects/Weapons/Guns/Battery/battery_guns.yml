@@ -1,7 +1,8 @@
 - type: entity
-  parent: [BaseWeaponBattery, BaseRestrictedContraband]
+  parent: [BaseWeaponBattery, BaseMajorContraband]
   id: WeaponAlien
   name: alien pistol
+  description: Is this a warcrime? Probably.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Weapons/Guns/Battery/alien.rsi
@@ -31,9 +32,10 @@
   - type: Appearance
 
 - type: entity
-  parent: [BaseWeaponBattery, BaseRestrictedContraband]
+  parent: [BaseWeaponBattery, BaseMajorContraband]
   id: WeaponDecloner
   name: decloner
+  description: Is this a warcrime? Probably.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Weapons/Guns/Battery/alien.rsi
