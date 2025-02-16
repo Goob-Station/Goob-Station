@@ -1,15 +1,12 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using Content.Server._Lavaland.Procedural.Components;
-using Content.Server.GameTicking;
 using Content.Server.Temperature.Systems;
 using Content.Server.Weather;
 using Content.Shared._Lavaland.Weather;
-using Content.Shared.CCVar;
 using Content.Shared.Damage;
 using Content.Shared.Humanoid;
 using Content.Shared.Popups;
-using Robust.Shared.Configuration;
 using Robust.Shared.CPUJob.JobQueues;
 using Robust.Shared.CPUJob.JobQueues.Queues;
 using Robust.Shared.Prototypes;
@@ -19,8 +16,6 @@ namespace Content.Server._Lavaland.Weather;
 
 public sealed class LavalandWeatherSystem : EntitySystem
 {
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly WeatherSystem _weather = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -57,19 +52,6 @@ public sealed class LavalandWeatherSystem : EntitySystem
         var proto = _proto.Index<LavalandWeatherPrototype>(lavaland.Comp.CurrentWeather);
         _temperature.ChangeHeat(entity, proto.TemperatureChange, ignoreHeatResistance: true);
         _damage.TryChangeDamage(entity, proto.Damage, ignoreResistances: true);
-    }
-
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<RoundStartAttemptEvent>(StartStorm);
-    }
-
-    private void StartStorm(RoundStartAttemptEvent ev)
-    {
-        if (_cfg.GetCVar(CCVars.LavalandEnabled))
-            _gameTicker.StartGameRule("LavalandStormScheduler");
     }
 
     public override void Update(float frameTime)
