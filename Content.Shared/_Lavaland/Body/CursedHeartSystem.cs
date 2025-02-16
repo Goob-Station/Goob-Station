@@ -87,9 +87,17 @@ public sealed class CursedHeartSystem : EntitySystem
 
     private void OnUseInHand(EntityUid uid, CursedHeartGrantComponent comp, UseInHandEvent args)
     {
+        if (HasComp<CursedHeartComponent>(args.User))
+        {
+            _popup.PopupEntity(Loc.GetString("popup-cursed-heart-already-cursed"), args.User, args.User, PopupType.MediumCaution);
+            args.Handled = true;
+            return;
+        }
+
         _audio.PlayGlobal(new SoundPathSpecifier("/Audio/_Lavaland/heartbeat.ogg"), args.User);
         var heart = EnsureComp<CursedHeartComponent>(args.User);
         heart.LastPump = _timing.CurTime;
         QueueDel(uid);
+        args.Handled = true;
     }
 }

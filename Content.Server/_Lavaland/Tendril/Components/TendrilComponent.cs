@@ -2,10 +2,6 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Lavaland.Tendril.Components;
 
-/// <summary>
-/// Предназначение понятно по названию
-/// Чисто серверный компонент. Нам не нужен предикт спавна npc
-/// </summary>
 [RegisterComponent]
 public sealed partial class TendrilComponent : Component
 {

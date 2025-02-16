@@ -31,8 +31,14 @@ public sealed class PreventChasmFallingSystem : EntitySystem
         var coordsValid = false;
         var coords = Transform(args.Entity).Coordinates;
 
+        const int attemps = 20;
+        var curAttemps = 0;
         while (!coordsValid)
         {
+            curAttemps++;
+            if (curAttemps > attemps)
+                return; // Just to be safe from stack overflow
+            
             var newCoords = new EntityCoordinates(Transform(args.Entity).ParentUid, coords.X + _random.NextFloat(-5f, 5f), coords.Y + _random.NextFloat(-5f, 5f));
             if (!_interaction.InRangeUnobstructed(args.Entity, newCoords, -1f) ||
                 _lookup.GetEntitiesInRange<ChasmComponent>(newCoords, 1f).Count > 0)
