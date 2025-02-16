@@ -57,6 +57,9 @@
   id: CombatMech
 
 - type: Tag
+  id: ContrabandDetectorCircuitboard
+
+- type: Tag
   id: CursedAnimalMask
 
 - type: Tag
@@ -300,10 +303,7 @@
   id: WaterTank
 
 - type: Tag
-  id: CartridgeLightRifleSubsonic
-
-- type: Tag
   id: WeaponPistolDualetta
 
 - type: Tag
-  id: ContrabandDetectorCircuitboard
+  id: WizardHat
