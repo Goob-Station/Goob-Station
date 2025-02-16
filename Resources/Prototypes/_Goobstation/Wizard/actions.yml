@@ -294,7 +294,7 @@
 - type: entity
   id: ActionBindSoul
   name: Bind Soul
-  description: Bind your soul to an item to ressurrect after death. If your soul it already bound to an item and you are dead, attempt resurrecton.
+  description: Bind your soul to an item to resurrect after death. If your soul is already bound to an item and you are dead, attempt resurrecion.
   components:
   - type: InstantAction
     raiseOnUser: true
