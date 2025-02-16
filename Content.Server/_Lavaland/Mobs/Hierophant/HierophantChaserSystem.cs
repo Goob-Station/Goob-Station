@@ -80,6 +80,20 @@ public sealed class HierophantChaserSystem : EntitySystem
                 return;
             }
 
+            // This monstrosity is to make snake-like movement
+            if (tileTargetPos.Y != tilePos.Y)
+            {
+                tileTargetPos.X = tilePos.X;
+            }
+            else if (tileTargetPos.Y != tilePos.Y)
+            {
+                tileTargetPos.X = tilePos.X;
+            }
+            else
+            {
+                tileTargetPos += _random.Pick(Directions);
+            }
+
             // Don't forget kids, a DELTA is a difference between two things.
             deltaPos = tileTargetPos - tilePos;
         }
