@@ -27,7 +27,7 @@ changeling-convert-warning-3 = Your blood feels like it's boiling!
 changeling-convert-warning-collapse = You collapse, unable to stand due to the pain!
 changeling-convert-warning-shake = You begin shaking from the pain!
 
-changeling-convert-eeped = You collaspe unconscious!
+changeling-convert-eeped = You collapse unconscious!
 
 changeling-convert-eeped-1 = Your head hurts...
 changeling-convert-eeped-2 = We can't think of anything...
