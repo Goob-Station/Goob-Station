@@ -1334,10 +1334,11 @@
   name: force wall
   components:
     - type: TimedDespawn
-      lifetime: 12
+      lifetime: 30 # Goob edit
     - type: Tag
       tags:
         - Wall
+        - BlockLightning # Goobstation
     - type: Physics
       bodyType: Static
     - type: Fixtures
@@ -1353,10 +1354,23 @@
     - type: Airtight
     - type: Sprite
       sprite: Structures/Magic/forcewall.rsi
-      state: forcewall
+      layers:
+      - state: forcewall
+        map: [ "base" ]
     - type: Icon
       sprite: Structures/Magic/forcewall.rsi
-      state: forcewall
+      state: forcewallspawn
+    # Goobstation start
+    - type: SpawnAnimation
+      animationLength: 1
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.SpawnAnimationVisuals.Spawned:
+          base:
+            True: { state: forcewall }
+            False: { state: forcewallspawn }
+    # Goobstation end
 
 - type: entity
   parent: BaseWall

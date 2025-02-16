@@ -29,9 +29,20 @@ public sealed class BlurOnCollideSystem : EntitySystem
 
     private void ApplyEffects(EntityUid target, BlurOnCollideComponent component)
     {
-        _statusEffects.TryAddStatusEffect<BlurryVisionComponent>(target,
-            "BlurryVision",
-            TimeSpan.FromSeconds(component.BlurTime),
-            true);
+        if (component.BlurTime > TimeSpan.Zero)
+        {
+            _statusEffects.TryAddStatusEffect<BlurryVisionComponent>(target,
+                "BlurryVision",
+                component.BlurTime,
+                true);
+        }
+
+        if (component.BlindTime > TimeSpan.Zero)
+        {
+            _statusEffects.TryAddStatusEffect<TemporaryBlindnessComponent>(target,
+                "TemporaryBlindness",
+                component.BlindTime,
+                true);
+        }
     }
 }
