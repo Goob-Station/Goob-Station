@@ -31,12 +31,12 @@ public sealed class PreventChasmFallingSystem : EntitySystem
         var coordsValid = false;
         var coords = Transform(args.Entity).Coordinates;
 
-        const int attemps = 20;
-        var curAttemps = 0;
+        const int attempts = 20;
+        var curAttempts = 0;
         while (!coordsValid)
         {
-            curAttemps++;
-            if (curAttemps > attemps)
+            curAttempts++;
+            if (curAttempts > attempts)
                 return; // Just to be safe from stack overflow
             
             var newCoords = new EntityCoordinates(Transform(args.Entity).ParentUid, coords.X + _random.NextFloat(-5f, 5f), coords.Y + _random.NextFloat(-5f, 5f));
