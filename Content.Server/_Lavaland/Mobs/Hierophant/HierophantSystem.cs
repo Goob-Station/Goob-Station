@@ -7,7 +7,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Numerics;
-using System.Threading.Tasks;
 using Content.Server._Lavaland.Mobs.Hierophant.Components;
 using Content.Shared._Lavaland.Aggression;
 using Content.Shared.Damage;
@@ -185,7 +184,7 @@ public sealed class HierophantSystem : EntitySystem
         var attackPower = (int) Math.Round(ent.Comp.CurrentAnger, rounding);
         var actions = new List<Action>
         {
-            () => { DamageArea(ent, target, attackPower * 2 + 1); },
+            () => { DamageArea(ent, target, attackPower * 2); },
             () => { SpawnCrosses(ent, target, attackPower); },
         };
 
@@ -198,6 +197,7 @@ public sealed class HierophantSystem : EntitySystem
 
         _random.Pick(actions).Invoke();
     }
+
     public async void DoMinorAttack(Entity<HierophantBossComponent> ent)
     {
         var target = PickTarget(ent);
@@ -223,7 +223,7 @@ public sealed class HierophantSystem : EntitySystem
 
     #region Patterns
 
-    private async Task DamageArea(Entity<HierophantBossComponent> ent, EntityUid? target = null, int range = 1)
+    private void DamageArea(Entity<HierophantBossComponent> ent, EntityUid? target = null, int range = 1)
     {
         if (TerminatingOrDeleted(ent))
             return;
@@ -235,40 +235,47 @@ public sealed class HierophantSystem : EntitySystem
         // we need this beacon in order for damage box to not break apart
         var beacon = Spawn(null, _xform.GetMapCoordinates((EntityUid) target));
 
-        for (int i = 0; i <= range; i++)
+        for (var i = 0; i <= range; i++)
         {
             if (TerminatingOrDeleted(ent))
                 return;
 
-            SpawnDamageBox(beacon, range: i);
-            await Task.Delay((int) GetDelay(ent, ent.Comp.InterActionDelay / 2.5f));
+            var delay = (int) GetDelay(ent, ent.Comp.InterActionDelay / 2.5f) * i;
+            Timer.Spawn(delay,
+                () =>
+                {
+                    SpawnDamageBox(beacon, range: i);
+                });
         }
 
         EntityManager.DeleteEntity(beacon); // cleanup
     }
 
-    private async Task SpawnChasers(Entity<HierophantBossComponent> ent, int amount = 1)
+    private void SpawnChasers(Entity<HierophantBossComponent> ent, int amount = 1)
     {
-        for (int i = 0; i < amount; i++)
+        for (var i = 0; i < amount; i++)
         {
             if (TerminatingOrDeleted(ent))
                 return;
 
-            var chaser = Spawn(_chaserPrototype, Transform(ent).Coordinates);
-            if (TryComp<HierophantChaserComponent>(chaser, out var chasercomp))
-            {
-                chasercomp.Target = PickTarget(ent);
-                chasercomp.MaxSteps *= ent.Comp.CurrentAnger;
-                chasercomp.Speed += ent.Comp.CurrentAnger * 0.5f;
-            }
-
-            await Task.Delay(1000);
+            var delay = (int) GetDelay(ent, ent.Comp.InterActionDelay) * i;
+            Timer.Spawn(delay,
+                () =>
+                {
+                    var chaser = Spawn(_chaserPrototype, Transform(ent).Coordinates);
+                    if (TryComp<HierophantChaserComponent>(chaser, out var chasercomp))
+                    {
+                        chasercomp.Target = PickTarget(ent);
+                        chasercomp.MaxSteps *= ent.Comp.CurrentAnger;
+                        chasercomp.Speed += ent.Comp.CurrentAnger * 0.5f;
+                    }
+                });
         }
     }
 
-    private async Task BlinkRandom(Entity<HierophantBossComponent> ent, Vector2? relativePos, int amount = 1)
+    private void BlinkRandom(Entity<HierophantBossComponent> ent, Vector2? relativePos, int amount = 1)
     {
-        for (int i = 0; i < amount; i++)
+        for (var i = 0; i < amount; i++)
         {
             if (TerminatingOrDeleted(ent))
                 return;
@@ -276,12 +283,16 @@ public sealed class HierophantSystem : EntitySystem
             if (relativePos == null)
                 return;
 
-            await Blink(ent, relativePos.Value);
-            await Task.Delay((int) GetDelay(ent, ent.Comp.InterActionDelay));
+            var delay = (int) GetDelay(ent, ent.Comp.InterActionDelay) * i;
+            Timer.Spawn(delay,
+                () =>
+                {
+                    Blink(ent, relativePos.Value);
+                });
         }
     }
 
-    private async Task SpawnCrosses(Entity<HierophantBossComponent> ent, EntityUid? target, int amount = 1)
+    private void SpawnCrosses(Entity<HierophantBossComponent> ent, EntityUid? target, int amount = 1)
     {
         for (var i = 0; i < amount; i++)
         {
@@ -341,7 +352,7 @@ public sealed class HierophantSystem : EntitySystem
         }
     }
 
-    private async Task Blink(EntityUid ent, Vector2 worldPos)
+    private void Blink(EntityUid ent, Vector2 worldPos)
     {
         if (TerminatingOrDeleted(ent))
             return;
@@ -360,7 +371,7 @@ public sealed class HierophantSystem : EntitySystem
             });
     }
 
-    public async Task Blink(EntityUid ent, EntityUid? marker = null)
+    public void Blink(EntityUid ent, EntityUid? marker = null)
     {
         if (marker == null)
             return;
