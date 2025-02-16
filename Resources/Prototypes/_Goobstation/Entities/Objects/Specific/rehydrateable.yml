@@ -30,7 +30,6 @@
   parent: MonkeyCube
   id: FelinidCube
   name: felinid cube
-  abstract: true # No more
   components:
   - type: Rehydratable
     possibleSpawns:

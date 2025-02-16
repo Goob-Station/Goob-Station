@@ -787,7 +787,7 @@
     - CockroachCube
     - HumanCube # Goobstation - Start
     - DionaCube
-    - FelinidCube
+    #- FelinidCube
     - GingerbreadCube
     - MothCube
     - DwarfCube
