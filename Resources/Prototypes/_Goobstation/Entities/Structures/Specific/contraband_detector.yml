@@ -119,7 +119,7 @@
     node: complete
 
 - type: entity
-  parant: ContrabandDetector
+  parent: ContrabandDetector
   id: ContrabandDetectorAnchored
   components:
   - type: Transform
