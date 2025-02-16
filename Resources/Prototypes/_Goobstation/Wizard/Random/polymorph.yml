@@ -1,0 +1,181 @@
+- type: weightedRandomEntity
+  id: WizardWallDoor
+  weights:
+    MetalDoor: 1
+    WoodDoor: 1
+    PlasmaDoor: 1
+    GoldDoor: 1
+    SilverDoor: 1
+    PaperDoor: 1
+    BananiumDoor: 1
+
+- type: weightedRandom
+  id: WabbajackGroups
+  weights:
+    WabbajackMonkey: 1
+    WabbajackCluwne: 1
+    WabbajackRobot: 1
+    WabbajackSlime: 1
+    WabbajackXeno: 1
+    WabbajackSpecies: 1
+    WabbajackAnimal: 1
+
+- type: weightedRandomEntity
+  id: WabbajackMonkey
+  weights:
+    MobMonkey: 1
+    MobKobold: 1
+
+- type: weightedRandomEntity
+  id: WabbajackCluwne
+  weights:
+    MobCluwneRandom: 1
+
+- type: weightedRandomEntity
+  id: WabbajackRobot
+  weights:
+    BorgChassisGeneric: 30
+    BorgChassisMining: 30
+    BorgChassisEngineer: 30
+    BorgChassisJanitor: 30
+    BorgChassisMedical: 30
+    BorgChassisService: 30
+    MobFireBot: 20
+    MobHonkBot: 20
+    MobJonkBot: 20
+    MobCleanBot: 20
+    MobMedibot: 20
+    MobMimeBot: 20
+    MobSupplyBot: 20
+    BorgChassisDerelict: 10
+    BorgChassisSyndicateAssault: 1
+    BorgChassisSyndicateMedical: 1
+    BorgChassisSyndicateSaboteur: 1
+
+- type: weightedRandomEntity
+  id: WabbajackSlime
+  weights:
+    MobAdultSlimesBlueAngry: 1
+    MobAdultSlimesGreenAngry: 1
+    MobAdultSlimesYellowAngry: 1
+
+- type: weightedRandomEntity
+  id: WabbajackXeno
+  weights:
+    MobXeno: 10
+    MobXenoDrone: 8
+    MobXenoRunner: 8
+    MobXenoPraetorian: 5
+    MobXenoRavager: 4
+    MobXenoRouny: 2
+    MobXenoSpitter: 2
+    MobXenoQueen: 1
+
+- type: weightedRandomEntity
+  id: WabbajackSpecies
+  weights:
+    MobHumanRandom: 1
+    MobArachnidRandom: 1
+    MobSlimePersonRandom: 1
+    MobSkeletonPerson: 1
+    MobDionaRandom: 1
+    MobReptilianRandom: 1
+    MobMothRandom: 1
+    MobGingerbreadRandom: 1
+    MobVoxRandom: 1
+    MobDwarfRandom: 1
+    MobBananaMen: 1
+    MobYowieRandom: 1
+    MobHarpyRandom: 1
+    MobRodentiaRandom: 1
+    MobVulpkaninRandom: 1
+    MobIPCRandom: 1
+    MobFelinidRandom: 1
+    MobOniRandom: 1
+
+- type: weightedRandomEntity
+  id: WabbajackAnimal
+  weights:
+    MobBat: 1
+    MobBee: 1
+    MobChicken: 0.33
+    MobChicken1: 0.33
+    MobChicken2: 0.33
+    MobCockroach: 1
+    MobMothroach: 1
+    MobDuckMallard: 0.33
+    MobDuckWhite: 0.33
+    MobDuckBrown: 0.33
+    MobButterfly: 1
+    # MobCow: 1 # UdderSystem throws debug assert on client
+    MobCrab: 1
+    # MobGoat: 1 # UdderSystem throws debug assert on client
+    MobGoose: 1
+    MobGorilla: 1
+    MobKangaroo: 1
+    MobMouse: 0.25
+    MobMouse1: 0.25
+    MobMouse2: 0.25
+    MobMouseCancer: 0.25
+    MobLizard: 1
+    MobSlug: 1
+    MobFrog: 1
+    MobParrot: 1
+    MobPenguin: 1
+    MobSnake: 1
+    MobGiantSpider: 0.5
+    MobClownSpider: 0.5
+    MobPossum: 0.5
+    MobPossumOld: 0.5
+    MobRaccoon: 1
+    MobFox: 1
+    MobCorgi: 0.33
+    MobCorgiNarsi: 0.33
+    MobCorgiPuppy: 0.33
+    MobCat: 0.15
+    MobCatCalico: 0.15
+    MobCatSyndy: 0.15
+    MobCatSpace: 0.15
+    MobCatCaracal: 0.15
+    MobCatKitten: 0.15
+    MobCatShadow: 0.15
+    MobSloth: 1
+    MobFerret: 1
+    MobHamster: 1
+    MobPig: 1
+    MobReindeerBuck: 0.5
+    MobReindeerDoe: 0.5
+    MobCarp: 0.2
+    MobCarpMagic: 0.2
+    MobCarpHolo: 0.2
+    MobCarpRainbow: 0.2
+    MobShark: 0.2
+    MobBearSpace: 1
+    MobKangarooSpace: 1
+    MobSpiderSpace: 1
+    MobCobraSpace: 1
+    MobSnail: 0.33
+    MobSnailSpeed: 0.33
+    MobSnailMoth: 0.33
+    MobWatcherLavaland: 0.25
+    MobWatcherIcewing: 0.25
+    MobWatcherMagmawing: 0.25
+    MobWatcherPride: 0.25
+    MobDragonDungeon: 0.1
+    MobHellspawn: 0.01
+    MobBehonkerElectrical: 0.0025
+    MobBehonkerPyro: 0.0025
+    MobBehonkerGrav: 0.0025
+    MobBehonkerIce: 0.0025
+    MobRatKing: 0.1
+    MobRatKingBuff: 0.01
+    MobTick: 1
+    MobLaserRaptor: 1
+    MobMimic: 1
+    MobLuminousPerson: 0.33
+    MobLuminousObject: 0.33
+    MobLuminousEntity: 0.33
+    MobPurpleSnake: 0.5
+    MobSmallPurpleSnake: 0.5
+    MobStickman: 1
+    MobCreature: 1

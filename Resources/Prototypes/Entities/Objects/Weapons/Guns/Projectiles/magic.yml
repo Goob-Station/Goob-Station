@@ -20,15 +20,17 @@
       shader: unshaded
   - type: Explosive
     explosionType: Default
-    maxIntensity: 40
-    intensitySlope: 6
-    totalIntensity: 200
+    maxIntensity: 6 # Goob edit
+    intensitySlope: 5 # Goob edit
+    totalIntensity: 50 # Gobo edit
     maxTileBreak: 0
   - type: IgnitionSource
     temperature: 400
     ignited: true
   - type: IgniteOnCollide
     fireStacks: 0.35
+  - type: Ammo # Goobstation
+    muzzleFlash: null
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -87,10 +89,16 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: ResistLocker
-    resistTime: 30
+    resistTime: 60 # Goob edit
+  - type: Ammo # Goobstation
+    muzzleFlash: null
+  - type: FadingTimedDespawn # Goobstation
+    lifetime: 120
+    fadeOutTime: 5
   - type: StoreOnCollide
     lockOnCollide: true
     disableWhenFirstOpened: true
+    disableOnSleep: true # Goobstation
     whitelist:
       components:
         - Body
@@ -167,12 +175,25 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
-    - state: spell
-      color: '#00FF00'
+    - state: magicm_green # Goob edit
+      shader: unshaded
   - type: Projectile
     damage:
       types:
-        Poison: 5
+        Poison: 0 # Goob edit
+  - type: Reflective # Goobstation
+    reflective: None
+  - type: Ammo # Goobstation
+    muzzleFlash: null
+  - type: Trail # Goobstation
+    lerpTime: 0.05
+    frequency: 0.02
+    lifetime: 1
+    alphaLerpAmount: 0.4
+    shader: unshaded
+    sprite:
+      sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
+      state: magicm_green
 
 - type: entity
   id: ProjectilePolyboltCarp
@@ -231,16 +252,34 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
-    - state: spell
-      color: white
+    - state: magicm_yellow # Goob edit
+      shader: unshaded
   - type: Projectile
     damage:
-      groups: # good enough. Maybe make it call the rejuvenate command later.
-        Brute: -900
-        Burn: -900
-        Airloss: -600
-        Toxin: -600
-    ignoreResistances: true
+      types:
+        Heat: 0 # Goob edit
+  - type: RejuvenateOnProjectileHit # Goobstation
+    undeadList:
+      components:
+      - Zombie
+      tags:
+      - Undead
+    damage:
+      types:
+        Heat: 600
+  - type: Reflective # Goobstation
+    reflective: None
+  - type: Ammo # Goobstation
+    muzzleFlash: null
+  - type: Trail # Goobstation
+    lerpTime: 0.05
+    frequency: 0.02
+    lifetime: 1
+    alphaLerpAmount: 0.4
+    shader: unshaded
+    sprite:
+      sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
+      state: magicm_yellow
 
 - type: entity
   id: BulletInstakillMagic

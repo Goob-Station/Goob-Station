@@ -1,7 +1,7 @@
-﻿- type: entity
+- type: entity
   id: WeaponWandBase
   abstract: true
-  parent: BaseItem
+  parent: [BaseItem, BaseMagicContraband] # Goob edit
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Basic/wands.rsi
@@ -9,6 +9,9 @@
     heldPrefix: wand
     size: Normal
   - type: Gun
+    soundEmpty: null # Goobstation
+    soundMode: null # Goobstation
+    clumsyProof: true # Goobstation
     fireRate: 0.5
     selectedMode: SemiAuto
     availableModes:
