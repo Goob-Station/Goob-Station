@@ -4835,3 +4835,9 @@ Entries:
         standing up time by 50%.
   id: 551
   time: '2025-02-16T18:19:36.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: You can now actually use Mosin's bayonet in melee combat with the RMB!
+  id: 552
+  time: '2025-02-16T18:20:14.0000000+00:00'
