@@ -1230,13 +1230,6 @@
 - type: Tag
   id: TabletopPiece
 
-#Goobstation
-
-- type: Tag
-  id: ToySword
-
-#Goobstation  
-
 - type: Tag
   id: Taser
 
