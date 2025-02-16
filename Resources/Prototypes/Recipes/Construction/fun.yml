@@ -8,15 +8,3 @@
   description: An air horn made from bananium.
   icon: { sprite: Objects/Fun/bananiumhorn.rsi, state: icon }
   objectType: Item
-
-  # Goobstation
-- type: construction
-  name: bananium sword
-  id: BananiumSword
-  graph: BananiumSword
-  startNode: start
-  targetNode: bananiumSword
-  category: construction-category-weapons
-  description: An extremely slippery toy sword made from bananium.
-  icon: { sprite: Objects/Weapons/Melee/e_sword_bananium.rsi, state: icon }
-  objectType: Item
