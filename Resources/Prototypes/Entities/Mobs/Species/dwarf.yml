@@ -21,6 +21,8 @@
     noRot: true
     drawdepth: Mobs
     scale: 1.15, 0.8
+  - type: ScaleData # Goobstation
+    scale: 1.15, 0.8
   - type: Body
     prototype: Dwarf
     requiredLegs: 2
