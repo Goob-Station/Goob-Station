@@ -106,6 +106,7 @@ public abstract class SharedIceCubeSystem : EntitySystem
             Hidden = true,
             RequireCanInteract = false,
             MultiplyDelay = false,
+            CancelDuplicate = false,
         };
 
         if (_doAfter.TryStartDoAfter(doArgs) && _net.IsServer)
