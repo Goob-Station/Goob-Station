@@ -15,7 +15,7 @@
 - type: reaction
   id: Deunomia
   reactants:
-    Amatoxin:
+    Razorium:
       amount: 1
     HeartbreakerToxin:
       amount: 1
