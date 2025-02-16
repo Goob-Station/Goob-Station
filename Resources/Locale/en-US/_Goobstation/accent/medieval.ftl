@@ -749,4 +749,4 @@ accent-medieval-prefix-237 = do
 accent-medieval-words-replace-237 = dost
 
 accent-medieval-prefix-238 = know
-accent-medieval-words-replace-237 = knoweth
+accent-medieval-words-replace-238 = knoweth
