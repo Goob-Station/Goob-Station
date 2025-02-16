@@ -22,6 +22,8 @@
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+      enum.SurgeryUIKey.Key: # Shitmed
+        type: SurgeryBui
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: true

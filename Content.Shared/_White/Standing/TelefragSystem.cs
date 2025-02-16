@@ -12,7 +12,12 @@ public sealed class TelefragSystem : EntitySystem
     [Dependency] private readonly SharedLayingDownSystem _layingDown = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
 
-    public void DoTelefrag(EntityUid uid, EntityCoordinates coords, TimeSpan knockdownTime, float range = 0.3f)
+    public void DoTelefrag(EntityUid uid,
+        EntityCoordinates coords,
+        TimeSpan knockdownTime,
+        float range = 0.3f,
+        DropHeldItemsBehavior behavior = DropHeldItemsBehavior.NoDrop,
+        bool autoStandUp = false)
     {
         if (range <= 0f)
             return;
@@ -20,10 +25,11 @@ public sealed class TelefragSystem : EntitySystem
         var entities = _lookup.GetEntitiesInRange(coords, range, LookupFlags.Dynamic);
         foreach (var ent in entities.Where(ent => ent != uid && !_standing.IsDown(ent)))
         {
-            if (knockdownTime > TimeSpan.Zero && _stun.TryKnockdown(ent, knockdownTime, true))
+            if (knockdownTime > TimeSpan.Zero && _stun.TryKnockdown(ent, knockdownTime, true, behavior))
                 continue;
 
-            _layingDown.TryLieDown(ent, behavior: DropHeldItemsBehavior.DropIfStanding);
+            if (_layingDown.TryLieDown(ent, behavior: behavior) && autoStandUp)
+                _layingDown.TryStandUp(ent);
         }
     }
 }
