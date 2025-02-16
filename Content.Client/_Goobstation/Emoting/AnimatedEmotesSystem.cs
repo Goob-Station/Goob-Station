@@ -124,14 +124,22 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
     }
     private void OnTweak(Entity<AnimatedEmotesComponent> ent, ref AnimationTweakEmoteEvent args)
     {
-        if (ent.Owner.Prototype != null)
+        if (ent.Owner.Prototype?.ID != null)
         {
-            // this part here extract the mouse protptype number since there is mouse 0, 1, 2
-            var stateNumber = string.Concat(ent.Owner.Prototype.ID.Where(Char.IsDigit)) == "" ? "0" : string.Concat(ent.Owner.Prototype.ID.Where(Char.IsDigit));
-            var a = new Animation
-            {
-                Length = TimeSpan.FromMilliseconds(1100),  // Each Frame is 0.1 sec and there is 11 for the tweaking emote.
-                AnimationTracks =
+            Logger.Warning($"Attempted to cast tweak animation on entity without prototype: {ent.Owner}");
+            return;
+        }
+
+        var stateNumber = string.Concat(ent.Owner.Prototype.ID.Where(Char.IsDigit));
+        if (string.IsNullOrEmpty(stateNumber))
+        {
+            stateNumber = "0";
+        }
+
+        var a = new Animation
+        {
+            Length = TimeSpan.FromMilliseconds(1100),  // Each Frame is 0.1 sec and there is 11 for the tweaking emote.
+            AnimationTracks =
             {
                 new AnimationTrackSpriteFlick
                 {
@@ -142,8 +150,7 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
                     }
                 }
             }
-            };
-            PlayEmote(ent, a);
-        }
+        };
+        PlayEmote(ent, a);
     }
 }
