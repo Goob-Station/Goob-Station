@@ -24,6 +24,7 @@
     - id: SpiderClownSpawn
     - id: SpiderSpawn
     - id: VentClog
+    - id: TidemindDevelop # Goobstation - Tidemind
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -40,6 +41,7 @@
     - id: DerelictCyborgSpawn
     - id: BlobSpawn # Goobstation - Blob
     - id: LoneAbductorSpawn # Shitmed - Starlight Abductors
+    - id: DuoAbductorSpawn # Shitmed - Starlight Abductors
 
 - type: entity
   id: BaseStationEvent
@@ -198,7 +200,12 @@
   - type: AntagLoadProfileRule
     # Goobstation start
     speciesOverride: Human
-    alwaysUseSpeciesOverride: true
+    speciesOverrideBlacklist:
+    - Yowie
+    - IPC
+    - Diona
+    - Abductor
+    - Harpy
     # Goobstation end
   - type: AntagObjectives
     objectives:
@@ -471,6 +478,7 @@
       max: 1
       pickPlayer: false
       startingGear: SyndicateLoneOperativeGearFull
+      unequipOldGear: true
       roleLoadout:
       - RoleSurvivalNukie
       components:

@@ -7,3 +7,4 @@ research-technology-durand = Durand
 research-technology-explosive-mech-ammunition = Explosive Mech Ammunition
 research-technology-honk-weapons = Bananium Weapons
 research-technology-modsuits = Modular Technologies
+research-technology-prescription-lenses = Prescription Lenses

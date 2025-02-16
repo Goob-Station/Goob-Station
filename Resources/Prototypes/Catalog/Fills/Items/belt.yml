@@ -53,6 +53,7 @@
     - id: Handcuffs
     - id: HoloprojectorSecurity
     - id: RadioHandheldSecurity
+    - id: WeaponDisabler #Goobstation
 
 - type: entity
   id: ClothingBeltSecurityFilled

@@ -1,12 +1,13 @@
-﻿# To be implemented: see #9072
+# To be implemented: see #9072
 
 - type: entity
   name: staff of healing
   parent: WeaponStaffBase
   id: WeaponStaffHealing
-  description: You don't foresee having to use this in your quest for carnage too often.
+  description: An artefact that spits bolts of restoring magic which can remove ailments of all kinds and even raise the dead. Effects are reversed on the undead. # Goobstation
   components:
   - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/Weapons/Staves/healing.rsi # Goobstation
     layers:
     - state: healing
   - type: Item
@@ -16,16 +17,19 @@
       path: /Audio/Weapons/Guns/Gunshots/Magic/staff_healing.ogg
   - type: BasicEntityAmmoProvider
     proto: ProjectileHealingBolt
-    capacity: 10
-    count: 10
+    capacity: 6 # Goob edit
+    count: 6 # Goob edit
+  - type: RechargeBasicEntityAmmo # Goobstation
+    rechargeCooldown: 8
 
 - type: entity
-  name: staff of entrance
+  name: staff of door creation
   parent: WeaponStaffBase
   id: WeaponStaffPolymorphDoor
-  description: For when you need a get-away route.
+  description: An artefact that spits bolts of transformative magic that can create doors in walls. # Goob station
   components:
   - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/Weapons/Staves/door.rsi # Goobstation
     layers:
     - state: door
   - type: Item
@@ -37,3 +41,5 @@
     proto: ProjectilePolyboltDoor
     capacity: 10
     count: 10
+  - type: RechargeBasicEntityAmmo # Goobstation
+    rechargeCooldown: 2

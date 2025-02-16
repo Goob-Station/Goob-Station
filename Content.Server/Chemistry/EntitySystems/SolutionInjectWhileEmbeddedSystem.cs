@@ -6,6 +6,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Tag;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Chemistry.EntitySystems;
@@ -45,8 +46,20 @@ public sealed class SolutionInjectWhileEmbeddedSystem : EntitySystem
 
             injectComponent.NextUpdate += injectComponent.UpdateInterval;
 
-            if(projectileComponent.EmbeddedIntoUid == null)
+            // <Goobstation> Goobstation - Shot syringes injecting over time
+            if(projectileComponent.EmbeddedIntoUid == null) // check if we should reset state,
+            {
+                if (TryComp<PhysicsComponent>(uid, out var physics) && physics.BodyStatus != BodyStatus.InAir) // don't reset in-flight things
+                    injectComponent.Injections = 0;
                 continue;
+            }
+
+            if ((injectComponent.Injections ?? 0) >= injectComponent.MaxInjections)
+                continue;
+
+            if (injectComponent.Injections != null)
+                injectComponent.Injections += 1;
+            // </Goobstation>
 
             var ev = new InjectOverTimeEvent(projectileComponent.EmbeddedIntoUid.Value);
             RaiseLocalEvent(uid, ref ev);

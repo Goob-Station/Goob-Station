@@ -346,7 +346,7 @@
     - id: HoloprojectorSecurity
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
-    - id: WeaponDisabler
+    #- id: WeaponDisabler #Goobstation (Disablers in belts)
     - id: WantedListCartridge
 # Hardsuit table, used for suit storage as well
 - type: entityTable
