@@ -1,0 +1,43 @@
+- type: entity
+  id: WizardMirror
+  name: magic mirror
+  description: 'Mirror mirror on the wall , who''s the most robust of them all?'
+  suffix: Wizard
+  components:
+  - type: WallMount
+  - type: Sprite
+    sprite: Structures/Wallmounts/mirror.rsi
+    state: mirror
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Transform
+    anchored: true
+  - type: WizardMirror
+    allowedSpecies:
+    - Human
+    - Reptilian
+    - SlimePerson
+    - Diona
+    - Vulpkanin
+    - Felinid
+    - Harpy
+    - Rodentia
+    - Oni
+    - Yowie
+    - Arachnid
+    - Moth
+    - Gingerbread
+    - Vox
+    - Dwarf
+    - Resomi
+    - IPC
+    - BananaMen
+    - Kobold
+    - Monkey
+  - type: ActivatableUI
+    key: enum.WizardMirrorUiKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.WizardMirrorUiKey.Key:
+        type: WizardMirrorBoundUserInterface

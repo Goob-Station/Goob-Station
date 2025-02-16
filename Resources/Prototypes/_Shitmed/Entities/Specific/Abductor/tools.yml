@@ -1,6 +1,6 @@
 # Abductor's Crowbar
 - type: entity
-  parent: BaseCrowbar
+  parent: [ BaseCrowbar, BaseMajorContraband ]
   id: CrowbarAbductor
   name: high-tech crowbar
   description: Made out of metal more durable than anything Nanotrasen could dream of.
@@ -20,7 +20,7 @@
 
 - type: entity
   name: high-tech wirecutter
-  parent: BaseItem
+  parent: [ BaseItem, BaseMajorContraband]
   id: WirecutterAbductor
   description: Cuts through wires like a hot knife through butter.
   components:
@@ -75,7 +75,7 @@
 
 - type: entity
   name: high-tech screwdriver
-  parent: BaseItem
+  parent: [ BaseItem, BaseMajorContraband ]
   id: ScrewdriverAbductor
   description: More efficient than anything Nanotrasen could dream of. Not to be confused with a sonic screwdriver.
   components:
@@ -124,7 +124,7 @@
 
 - type: entity
   name: high-tech wrench
-  parent: Wrench
+  parent: [ Wrench, BaseMajorContraband ]
   id: WrenchAbductor
   description: Can take a bolt off in a single turn. Not intended for melee combat.
   components:
@@ -150,7 +150,7 @@
 
 - type: entity
   name: high-tech welding tool
-  parent: Welder
+  parent: [ Welder, BaseMajorContraband ]
   id: WelderAbductor
   description: "A highly advanced welder capable of producing infinite fuel."
   components:
@@ -185,7 +185,7 @@
 
 - type: entity
   name: high-tech multitool
-  parent: [BaseItem, BaseRestrictedContraband]
+  parent: [BaseItem, BaseMajorContraband]
   id: MultitoolAbductor
   description: A highly advanced hacking tool capable of viewing wire functionality. Can be used as Cryptographic sequencer in its alternate mode.
   components:
