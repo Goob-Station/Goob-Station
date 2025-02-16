@@ -43,6 +43,9 @@
 - type: Tag
   id: Tongue
 
+- type: Tag  
+  id: ToySword
+  
 - type: Tag
   id: VehicleKey
 
