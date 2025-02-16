@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: WeaponWandBase
   id: WeaponWandPolymorphBase
   abstract: true
@@ -58,12 +58,13 @@
     count: 5
 
 - type: entity
-  name: wand of the locker
-  description: Stuff nerds at a distance!
-  parent: WeaponWandBase
+  name: staff of the locker # Goob edit
+  description: An artefact that expells encapsulating bolts, for incapacitating thy enemy. # Goob edit
+  parent: WeaponStaffBase # Goob edit
   id: WeaponWandLocker
   components:
   - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/Weapons/Staves/locker.rsi # Goobstation
     layers:
     - state: locker
       map: ["base"]
@@ -74,15 +75,15 @@
       path: /Audio/Weapons/Guns/Gunshots/Magic/staff_animation.ogg
   - type: BasicEntityAmmoProvider
     proto: ProjectileLocker
-    capacity: 5
-    count: 5
+    capacity: 6 # Goob edit
+    count: 6 # Goob edit
   - type: Item
-    size: Normal
     inhandVisuals:
       left:
       - state: locker-inhand-left
       right:
       - state: locker-inhand-right
+  - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.AmmoVisuals.HasAmmo:
@@ -92,6 +93,8 @@
         base:
           True: { visible: True }
           False: { visible: False }
+  - type: RechargeBasicEntityAmmo # Goobstation
+    rechargeCooldown: 4
 
 - type: entity
   name: magical wand of instant death
@@ -106,9 +109,9 @@
       map: ["effect"]
   - type: Gun
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/mateba.ogg # PUNCH
+      path: /Audio/_Goobstation/Wizard/wandodeath.ogg # Goob edit
   - type: BasicEntityAmmoProvider
-    proto: BulletInstakillMagic
+    proto: ProjectileDeathBolt # Goob edit
     capacity: 3
     count: 3
 

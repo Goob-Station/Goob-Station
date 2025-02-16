@@ -1,0 +1,20 @@
+- type: entity
+  id: TidemindDevelop
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 3 # rare
+    duration: 1
+    # no occurences limit so newly arriving tiders can also get it
+  - type: JobAddComponentsRule
+    message: station-event-tidemind-message
+    affected:
+      - Passenger
+    components:
+    - type: IntrinsicRadioReceiver
+    - type: IntrinsicRadioTransmitter
+      channels:
+      - TideHivemind
+    - type: ActiveRadio
+      channels:
+      - TideHivemind
