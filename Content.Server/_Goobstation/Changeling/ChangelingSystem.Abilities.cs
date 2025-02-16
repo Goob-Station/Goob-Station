@@ -32,6 +32,8 @@ public sealed partial class ChangelingSystem
         SubscribeLocalEvent<ChangelingComponent, OpenEvolutionMenuEvent>(OnOpenEvolutionMenu);
         SubscribeLocalEvent<ChangelingComponent, AbsorbDNAEvent>(OnAbsorb);
         SubscribeLocalEvent<ChangelingComponent, AbsorbDNADoAfterEvent>(OnAbsorbDoAfter);
+        SubscribeLocalEvent<ChangelingComponent, ChangelingInfectTargetEvent>(OnInfect);
+        SubscribeLocalEvent<ChangelingComponent, ChangelingInfectTargetDoAfterEvent>(OnInfectDoAfter);
         SubscribeLocalEvent<ChangelingComponent, StingExtractDNAEvent>(OnStingExtractDNA);
         SubscribeLocalEvent<ChangelingComponent, ChangelingTransformCycleEvent>(OnTransformCycle);
         SubscribeLocalEvent<ChangelingComponent, ChangelingTransformEvent>(OnTransform);
@@ -240,6 +242,71 @@ public sealed partial class ChangelingSystem
         UpdateChemicals(uid, comp, totalFood.Float() * 2); // 36 for raw meat
 
         QueueDel(target); // eaten
+    }
+
+    private void OnInfect(EntityUid uid, ChangelingComponent comp, ref ChangelingInfectTargetEvent args)
+    {
+        var target = args.Target;
+
+        if (!IsIncapacitated(target))
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-convert-fail-incapacitated"), uid, uid);
+            return;
+        }
+        if (HasComp<ChangelingInfectionComponent>(target))
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-convert-fail-already"), uid, uid);
+            return;
+        }
+        if (!HasComp<AbsorbableComponent>(target))
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-convert-fail-incompatible"), uid, uid);
+            return;
+        }
+
+        if (!TryUseAbility(uid, comp, args))
+            return;
+
+        var popupOthers = Loc.GetString("changeling-convert-start", ("user", Identity.Entity(uid, EntityManager)), ("target", Identity.Entity(target, EntityManager)));
+        _popup.PopupEntity(popupOthers, uid, PopupType.LargeCaution);
+        PlayMeatySound(uid, comp);
+        var dargs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(30), new ChangelingInfectTargetDoAfterEvent(), uid, target)
+        {
+            DistanceThreshold = 1.5f,
+            BreakOnDamage = true,
+            BreakOnHandChange = false,
+            BreakOnMove = true,
+            BreakOnWeightlessMove = true,
+            AttemptFrequency = AttemptFrequency.StartAndEnd
+        };
+        _doAfter.TryStartDoAfter(dargs);
+    }
+    private void OnInfectDoAfter(EntityUid uid, ChangelingComponent comp, ref ChangelingInfectTargetDoAfterEvent args)
+    {
+        if (args.Args.Target == null)
+            return;
+
+        var target = args.Args.Target.Value;
+
+        if (args.Cancelled || !IsIncapacitated(target) || HasComp<ChangelingInfectionComponent>(target))
+            return;
+
+        if (TryComp<ChangelingComponent>(target, out var targetComp))
+        {
+            var popupOther = Loc.GetString("changeling-convert-end-immune", ("target", Identity.Entity(target, EntityManager)));
+            _popup.PopupEntity(popupOther, args.User, args.User, PopupType.LargeCaution);
+            return;
+        }
+
+        PlayMeatySound(args.User, comp);
+
+        EnsureComp<ChangelingInfectionComponent>(target);
+
+        var popup = Loc.GetString("changeling-convert-end", ("target", Identity.Entity(target, EntityManager)));
+        _popup.PopupEntity(popup, args.User, args.User, PopupType.Medium);
+
+        var popupTwo = Loc.GetString("changeling-convert-end-warning", ("user", Identity.Entity(uid, EntityManager)));
+        _popup.PopupEntity(popupTwo, target, target, PopupType.LargeCaution);
     }
 
     private void OnStingExtractDNA(EntityUid uid, ChangelingComponent comp, ref StingExtractDNAEvent args)

@@ -7,3 +7,6 @@ namespace Content.Shared.Changeling;
 public sealed partial class AbsorbDNADoAfterEvent : SimpleDoAfterEvent { }
 [Serializable, NetSerializable]
 public sealed partial class AbsorbBiomatterDoAfterEvent : SimpleDoAfterEvent { }
+
+[Serializable, NetSerializable]
+public sealed partial class ChangelingInfectTargetDoAfterEvent : SimpleDoAfterEvent { }
