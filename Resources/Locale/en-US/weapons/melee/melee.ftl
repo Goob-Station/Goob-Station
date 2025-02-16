@@ -1,4 +1,5 @@
-melee-inject-failed-hardsuit = Your {$weapon} cannot inject through hardsuits!
+# Goobstation - Armor resisting syringe gun
+melee-inject-failed-armor = Your {$weapon} cannot inject through armor!
 
 melee-balloon-pop = {CAPITALIZE(THE($balloon))} popped!
 

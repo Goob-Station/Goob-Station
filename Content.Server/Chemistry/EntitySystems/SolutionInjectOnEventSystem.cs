@@ -1,3 +1,4 @@
+using Content.Shared.Armor; // Goobstation - Armor resisting syringe gun
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chemistry.Components;
@@ -8,6 +9,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Tag;
+using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Collections;
 
@@ -32,7 +34,11 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
         SubscribeLocalEvent<SolutionInjectOnEmbedComponent, EmbedEvent>(HandleEmbed);
         SubscribeLocalEvent<MeleeChemicalInjectorComponent, MeleeHitEvent>(HandleMeleeHit);
         SubscribeLocalEvent<SolutionInjectWhileEmbeddedComponent, InjectOverTimeEvent>(OnInjectOverTime);
+
+        SubscribeLocalEvent<SolutionInjectOnEmbedComponent, LandEvent>(OnEmbedLand);
+        SubscribeLocalEvent<SolutionInjectWhileEmbeddedComponent, LandEvent>(OnWhileEmbeddedLand);
     }
+
 
     private void HandleProjectileHit(Entity<SolutionInjectOnProjectileHitComponent> entity, ref ProjectileHitEvent args)
     {
@@ -41,11 +47,6 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
 
     private void HandleEmbed(Entity<SolutionInjectOnEmbedComponent> entity, ref EmbedEvent args)
     {
-        // GoobStation Change Start
-        if (_tag.HasTag(entity, "Syringe") && !entity.Comp.Shot)
-            entity.Comp.PierceArmor = false; // This way syringes that are thrown still inject but do not pierce armor.
-        // GoobStation Change End
-
         DoInjection((entity.Owner, entity.Comp), args.Embedded, args.Shooter);
     }
 
@@ -60,6 +61,22 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
     private void OnInjectOverTime(Entity<SolutionInjectWhileEmbeddedComponent> entity, ref InjectOverTimeEvent args)
     {
         DoInjection((entity.Owner, entity.Comp), args.EmbeddedIntoUid);
+    }
+
+    private void OnEmbedLand(Entity<SolutionInjectOnEmbedComponent> entity, ref LandEvent args)
+    {
+        ResetState(entity.Comp);
+    }
+
+    private void OnWhileEmbeddedLand(Entity<SolutionInjectWhileEmbeddedComponent> entity, ref LandEvent args)
+    {
+        ResetState(entity.Comp);
+    }
+
+    private void ResetState(BaseSolutionInjectOnEventComponent comp)
+    {
+        comp.PierceArmorOverride = null;
+        comp.AmountMultiplier = 1f;
     }
 
     private void DoInjection(Entity<BaseSolutionInjectOnEventComponent> injectorEntity, EntityUid target, EntityUid? source = null)
@@ -90,23 +107,44 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
         if (!_solutionContainer.TryGetSolution(injector.Owner, injector.Comp.Solution, out var injectorSolution))
             return false;
 
-        // Build a list of bloodstreams to inject into
-        var targetBloodstreams = new ValueList<Entity<BloodstreamComponent>>();
+        bool anySuccess = false;
+
         foreach (var target in targets)
         {
             if (Deleted(target))
                 continue;
 
-            // Yuck, this is way to hardcodey for my tastes
-            // TODO blocking injection with a hardsuit should probably done with a cancellable event or something
-            if (!injector.Comp.PierceArmor && _inventory.TryGetSlotEntity(target, "outerClothing", out var suit) && _tag.HasTag(suit.Value, "Hardsuit"))
+            // Goobstation - Armor resisting syringe gun
+            var mult = injector.Comp.AmountMultiplier; // multiplier of how much to actually inject
+            var pierce = injector.Comp.PierceArmorOverride ?? injector.Comp.PierceArmor;
+            if (_inventory.TryGetSlotEntity(target, "outerClothing", out var suit)) // attempt to apply armor injection speed multiplier or block the syringe
             {
-                injector.Comp.Shot = false;
-                // Only show popup to attacker
-                if (source != null)
-                    _popup.PopupEntity(Loc.GetString(injector.Comp.BlockedByHardsuitPopupMessage, ("weapon", injector.Owner), ("target", target)), target, source.Value, PopupType.SmallCaution);
+                bool syringeArmor = _tag.HasTag(suit.Value, "SyringeArmor");
+                bool blocked = syringeArmor && !pierce; // if we have syringe armor and it's not piercing just block it outright
+                pierce = pierce && !syringeArmor; // if we have syringe armor and it IS piercing, downgrade it
 
-                continue;
+                if (!blocked && !pierce && TryComp<ArmorComponent>(suit, out var armor)) // don't bother checking if we already blocked
+                {
+                    var modifierDict = injector.Comp.DamageModifierResistances;
+                    var armorCoefficients = armor.Modifiers.Coefficients;
+                    foreach (var coefficient in modifierDict)
+                    {
+                        if (armorCoefficients.ContainsKey(coefficient.Key))
+                        {
+                            mult *= 1f - (1f - armorCoefficients[coefficient.Key]) * coefficient.Value;
+                        }
+                    }
+                    if (mult <= 0f)
+                        blocked = true;
+                }
+                if (blocked)
+                {
+                    // Only show popup to attacker
+                    if (source != null)
+                        _popup.PopupEntity(Loc.GetString(injector.Comp.BlockedByArmorPopupMessage, ("weapon", injector.Owner), ("target", target)), target, source.Value, PopupType.SmallCaution);
+
+                    continue;
+                }
             }
 
             // Check if the target has anything equipped in a slot that would block injection
@@ -130,39 +168,15 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
             if (!TryComp<BloodstreamComponent>(target, out var bloodstream))
                 continue;
 
-
-            // Checks passed; add this target's bloodstream to the list
-            targetBloodstreams.Add((target, bloodstream));
-        }
-
-        // Make sure we got at least one bloodstream
-        if (targetBloodstreams.Count == 0)
-            return false;
-
-        // GoobStation Change Start
-        Solution removedSolution;
-        if (injector.Comp.Shot)
-        {
-            removedSolution = _solutionContainer.SplitSolution(injectorSolution.Value, injectorSolution.Value.Comp.Solution.Volume);
-            injector.Comp.Shot = false; // Prevent them from abusing this.
-        }
-        else
-            removedSolution = _solutionContainer.SplitSolution(injectorSolution.Value, injector.Comp.TransferAmount * targetBloodstreams.Count);
-        // GoobStation Change End
-        // Adjust solution amount based on transfer efficiency
-        var solutionToInject = removedSolution.SplitSolution(removedSolution.Volume * injector.Comp.TransferEfficiency);
-        // Calculate how much of the adjusted solution each target will get
-        var volumePerBloodstream = solutionToInject.Volume * (1f / targetBloodstreams.Count);
-
-        var anySuccess = false;
-        foreach (var targetBloodstream in targetBloodstreams)
-        {
-            // Take our portion of the adjusted solution for this target
-            var individualInjection = solutionToInject.SplitSolution(volumePerBloodstream);
+            Solution removedSolution = _solutionContainer.SplitSolution(injectorSolution.Value, injector.Comp.TransferAmount * mult);
+            // Adjust solution amount based on transfer efficiency
+            var solutionToInject = removedSolution.SplitSolution(removedSolution.Volume * injector.Comp.TransferEfficiency);
             // Inject our portion into the target's bloodstream
-            if (_bloodstream.TryAddToChemicals(targetBloodstream.Owner, individualInjection, targetBloodstream.Comp))
+            if (_bloodstream.TryAddToChemicals(target, solutionToInject, bloodstream))
                 anySuccess = true;
         }
+        // Goobstation - Armor resisting syringe gun
+        // on upstream there would be code here but it migrates north in the goobstation season
 
         // Huzzah!
         return anySuccess;
