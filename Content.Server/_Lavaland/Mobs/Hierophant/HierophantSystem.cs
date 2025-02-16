@@ -108,7 +108,7 @@ public sealed class HierophantSystem : EntitySystem
                 continue;
 
             // tick attack timer
-            TickTimer(ent, ref comp.AttackTimer, frameTime, () =>
+            TickTimer(ref comp.AttackTimer, frameTime, () =>
             {
                 DoRandomAttack(ent);
                 comp.AttackTimer = Math.Max(comp.AttackCooldown / comp.CurrentAnger, comp.MinAttackCooldown);
@@ -120,17 +120,13 @@ public sealed class HierophantSystem : EntitySystem
         }
     }
 
-    private void TickTimer(Entity<HierophantBossComponent> ent, ref float timer, float frameTime, Action onFired)
+    private void TickTimer(ref float timer, float frameTime, Action onFired)
     {
         timer -= frameTime;
 
-        if (timer <= 0 && !ent.Comp.IsAttacking) // check if he is currently attacking just in case
+        if (timer <= 0)
         {
-            ent.Comp.IsAttacking = true;
-
             onFired.Invoke();
-
-            ent.Comp.IsAttacking = false;
         }
     }
 
