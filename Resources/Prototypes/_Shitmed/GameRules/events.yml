@@ -79,9 +79,9 @@
   id: DuoAbductorSpawn
   components:
   - type: StationEvent
-    earliestStart: 15
-    weight: 7.5
-    minimumPlayers: 20
+    earliestStart: 35 # ShibaStation - later start time
+    weight: 1.5 # ShibaStation - make them way less common
+    minimumPlayers: 25 # ShibaStation - increased pop requirement. it's fun to have them around and they aren't a *threat* but they can seriously disrupt a low pop station in a negative way (unintentionally, it's just a symptom of low pop)
     duration: 1
   - type: RuleGrids
   - type: LoadMapRule
@@ -104,7 +104,7 @@
         sound: /Audio/_Shitmed/Misc/abductor.ogg
       components:
       - type: Abductor
-      - type: GlorpAccent # GoobStation - Glorpshit
+      - type: AlieneseAccent # ShibaStation - Intelligently incomprehensible alienese
       - type: Telepathy # Ayy lmao
       - type: AbductorScientist
       - type: SurgeryIgnoreClothing
@@ -137,7 +137,7 @@
         sound: /Audio/_Shitmed/Misc/abductor.ogg
       components:
       - type: Abductor
-      - type: GlorpAccent # GoobStation - Glorpshit
+      - type: AlieneseAccent # ShibaStation - Intelligently incomprehensible alienese
       - type: Telepathy # Ayy lmao
       - type: AbductorScientist
       - type: Sanitized
