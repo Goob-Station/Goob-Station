@@ -1,4 +1,5 @@
-﻿using Robust.Shared.Prototypes;
+﻿using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Lavaland.Damage;
 
@@ -25,4 +26,13 @@ public sealed partial class HierophantClubItemComponent : Component
 
     [DataField]
     public EntityUid? TeleportMarker;
+
+    [DataField]
+    public float CrossRange = 5f;
+
+    [DataField]
+    public SoundSpecifier DamageSound = new SoundPathSpecifier("/Audio/_Lavaland/Mobs/Bosses/hiero_blast.ogg");
+
+    [DataField]
+    public SoundSpecifier TeleportSound = new SoundPathSpecifier("/Audio/Magic/blink.ogg");
 }
