@@ -11789,7 +11789,7 @@ entities:
       pos: 39.5,-20.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -8285.516
+      secondsUntilStateChange: -9283.255
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13542,7 +13542,7 @@ entities:
       pos: 46.5,-40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -444839.8
+      secondsUntilStateChange: -445837.56
       state: Opening
   - uid: 309
     components:
@@ -13972,7 +13972,7 @@ entities:
       pos: -3.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -561007.4
+      secondsUntilStateChange: -562005.1
       state: Opening
   - uid: 376
     components:
@@ -35745,6 +35745,13 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: Biogenerator
+  entities:
+  - uid: 28779
+    components:
+    - type: Transform
+      pos: 10.5,20.5
+      parent: 2
 - proto: BlastDoor
   entities:
   - uid: 931
@@ -74360,6 +74367,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 25.5,-4.5
       parent: 2
+- proto: CloningPod
+  entities:
+  - uid: 28702
+    components:
+    - type: Transform
+      pos: -24.5,-49.5
+      parent: 2
 - proto: ClosetBombFilled
   entities:
   - uid: 7678
@@ -76462,6 +76476,22 @@ entities:
     - type: Transform
       pos: -48.5,1.5
       parent: 2
+- proto: ComputerCloningConsole
+  entities:
+  - uid: 7983
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -26.5,-49.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        28702:
+        - MedicalScannerSender: CloningPodReceiver
+        - CloningPodSender: CloningPodReceiver
+        19259:
+        - CloningPodSender: MedicalScannerReceiver
+        - MedicalScannerSender: MedicalScannerReceiver
 - proto: ComputerComms
   entities:
   - uid: 7975
@@ -76513,14 +76543,6 @@ entities:
     components:
     - type: Transform
       pos: 39.5,-10.5
-      parent: 2
-- proto: ComputerFrame
-  entities:
-  - uid: 7983
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -26.5,-49.5
       parent: 2
 - proto: ComputerId
   entities:
@@ -78908,6 +78930,13 @@ entities:
     components:
     - type: Transform
       pos: -45.5,-21.5
+      parent: 2
+- proto: DefaultStationBeaconTEG
+  entities:
+  - uid: 28804
+    components:
+    - type: Transform
+      pos: -10.5,42.5
       parent: 2
 - proto: DefaultStationBeaconTelecoms
   entities:
@@ -134823,6 +134852,412 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 26.553406,0.6529236
       parent: 22429
+- proto: HolopadAiCore
+  entities:
+  - uid: 28819
+    components:
+    - type: Transform
+      pos: 53.5,16.5
+      parent: 2
+- proto: HolopadAiEntrance
+  entities:
+  - uid: 28820
+    components:
+    - type: Transform
+      pos: 61.5,8.5
+      parent: 2
+- proto: HolopadAiUpload
+  entities:
+  - uid: 28818
+    components:
+    - type: Transform
+      pos: 59.5,17.5
+      parent: 2
+- proto: HolopadCargoBay
+  entities:
+  - uid: 28798
+    components:
+    - type: Transform
+      pos: -54.5,-11.5
+      parent: 2
+- proto: HolopadCargoFront
+  entities:
+  - uid: 28800
+    components:
+    - type: Transform
+      pos: -49.5,1.5
+      parent: 2
+- proto: HolopadCargoSalvageBay
+  entities:
+  - uid: 28797
+    components:
+    - type: Transform
+      pos: -55.5,-18.5
+      parent: 2
+- proto: HolopadCommandBridge
+  entities:
+  - uid: 28815
+    components:
+    - type: Transform
+      pos: 25.5,6.5
+      parent: 2
+- proto: HolopadCommandBridgeLongRange
+  entities:
+  - uid: 28814
+    components:
+    - type: Transform
+      pos: 22.5,6.5
+      parent: 2
+- proto: HolopadCommandCaptain
+  entities:
+  - uid: 28812
+    components:
+    - type: Transform
+      pos: 36.5,13.5
+      parent: 2
+- proto: HolopadCommandCe
+  entities:
+  - uid: 28805
+    components:
+    - type: Transform
+      pos: 5.5,43.5
+      parent: 2
+- proto: HolopadCommandCmo
+  entities:
+  - uid: 28787
+    components:
+    - type: Transform
+      pos: -25.5,-34.5
+      parent: 2
+- proto: HolopadCommandHop
+  entities:
+  - uid: 28827
+    components:
+    - type: Transform
+      pos: 42.5,-5.5
+      parent: 2
+- proto: HolopadCommandHos
+  entities:
+  - uid: 28826
+    components:
+    - type: Transform
+      pos: 41.5,-38.5
+      parent: 2
+- proto: HolopadCommandMeetingRoom
+  entities:
+  - uid: 28811
+    components:
+    - type: Transform
+      pos: 22.5,13.5
+      parent: 2
+- proto: HolopadCommandQm
+  entities:
+  - uid: 28799
+    components:
+    - type: Transform
+      pos: -53.5,6.5
+      parent: 2
+- proto: HolopadCommandRd
+  entities:
+  - uid: 28794
+    components:
+    - type: Transform
+      pos: 16.5,-30.5
+      parent: 2
+- proto: HolopadCommandVault
+  entities:
+  - uid: 19256
+    components:
+    - type: Transform
+      pos: -48.5,-9.5
+      parent: 2
+- proto: HolopadEngineeringAME
+  entities:
+  - uid: 28810
+    components:
+    - type: Transform
+      pos: 25.5,22.5
+      parent: 2
+- proto: HolopadEngineeringAtmosFront
+  entities:
+  - uid: 28801
+    components:
+    - type: Transform
+      pos: -40.5,4.5
+      parent: 2
+- proto: HolopadEngineeringAtmosMain
+  entities:
+  - uid: 28802
+    components:
+    - type: Transform
+      pos: -32.5,15.5
+      parent: 2
+- proto: HolopadEngineeringAtmosTeg
+  entities:
+  - uid: 28803
+    components:
+    - type: Transform
+      pos: -10.5,42.5
+      parent: 2
+- proto: HolopadEngineeringBreakroom
+  entities:
+  - uid: 28808
+    components:
+    - type: Transform
+      pos: 24.5,38.5
+      parent: 2
+- proto: HolopadEngineeringFront
+  entities:
+  - uid: 28809
+    components:
+    - type: Transform
+      pos: 5.5,34.5
+      parent: 2
+- proto: HolopadEngineeringPower
+  entities:
+  - uid: 28806
+    components:
+    - type: Transform
+      pos: 13.5,40.5
+      parent: 2
+- proto: HolopadEngineeringStorage
+  entities:
+  - uid: 28807
+    components:
+    - type: Transform
+      pos: 21.5,48.5
+      parent: 2
+- proto: HolopadEngineeringTechVault
+  entities:
+  - uid: 28834
+    components:
+    - type: Transform
+      pos: -45.5,-21.5
+      parent: 2
+- proto: HolopadGeneralArrivals
+  entities:
+  - uid: 28832
+    components:
+    - type: Transform
+      pos: -2.5,-59.5
+      parent: 2
+- proto: HolopadGeneralCryosleep
+  entities:
+  - uid: 28833
+    components:
+    - type: Transform
+      pos: -46.5,-31.5
+      parent: 2
+- proto: HolopadGeneralDisposals
+  entities:
+  - uid: 28796
+    components:
+    - type: Transform
+      pos: -55.5,-28.5
+      parent: 2
+- proto: HolopadGeneralEvac
+  entities:
+  - uid: 28821
+    components:
+    - type: Transform
+      pos: 60.5,0.5
+      parent: 2
+- proto: HolopadGeneralEVAStorage
+  entities:
+  - uid: 28817
+    components:
+    - type: Transform
+      pos: 47.5,5.5
+      parent: 2
+- proto: HolopadGeneralTools
+  entities:
+  - uid: 28836
+    components:
+    - type: Transform
+      pos: -31.5,4.5
+      parent: 2
+- proto: HolopadMedicalBreakroom
+  entities:
+  - uid: 28786
+    components:
+    - type: Transform
+      pos: -29.5,-28.5
+      parent: 2
+- proto: HolopadMedicalChemistry
+  entities:
+  - uid: 28789
+    components:
+    - type: Transform
+      pos: -14.5,-39.5
+      parent: 2
+- proto: HolopadMedicalFront
+  entities:
+  - uid: 28785
+    components:
+    - type: Transform
+      pos: -7.5,-33.5
+      parent: 2
+- proto: HolopadMedicalSurgery
+  entities:
+  - uid: 28788
+    components:
+    - type: Transform
+      pos: -24.5,-39.5
+      parent: 2
+- proto: HolopadMedicalVirology
+  entities:
+  - uid: 28784
+    components:
+    - type: Transform
+      pos: -29.5,-18.5
+      parent: 2
+- proto: HolopadScienceAnomaly
+  entities:
+  - uid: 28793
+    components:
+    - type: Transform
+      pos: 17.5,-39.5
+      parent: 2
+- proto: HolopadScienceArtifact
+  entities:
+  - uid: 28792
+    components:
+    - type: Transform
+      pos: 7.5,-38.5
+      parent: 2
+- proto: HolopadScienceRnd
+  entities:
+  - uid: 28791
+    components:
+    - type: Transform
+      pos: 8.5,-43.5
+      parent: 2
+- proto: HolopadScienceRobotics
+  entities:
+  - uid: 28790
+    components:
+    - type: Transform
+      pos: -5.5,-51.5
+      parent: 2
+- proto: HolopadSecurityArmory
+  entities:
+  - uid: 28824
+    components:
+    - type: Transform
+      pos: 34.5,-22.5
+      parent: 2
+- proto: HolopadSecurityCourtroom
+  entities:
+  - uid: 28828
+    components:
+    - type: Transform
+      pos: 35.5,-5.5
+      parent: 2
+- proto: HolopadSecurityDetective
+  entities:
+  - uid: 28813
+    components:
+    - type: Transform
+      pos: 40.5,19.5
+      parent: 2
+- proto: HolopadSecurityFront
+  entities:
+  - uid: 28822
+    components:
+    - type: Transform
+      pos: 55.5,-10.5
+      parent: 2
+- proto: HolopadSecurityInterrogation
+  entities:
+  - uid: 28830
+    components:
+    - type: Transform
+      pos: 31.5,-14.5
+      parent: 2
+- proto: HolopadSecurityLawyer
+  entities:
+  - uid: 28816
+    components:
+    - type: Transform
+      pos: 40.5,4.5
+      parent: 2
+- proto: HolopadSecurityLockerRoom
+  entities:
+  - uid: 28825
+    components:
+    - type: Transform
+      pos: 34.5,-33.5
+      parent: 2
+- proto: HolopadSecurityWarden
+  entities:
+  - uid: 28823
+    components:
+    - type: Transform
+      pos: 50.5,-11.5
+      parent: 2
+- proto: HolopadServiceBar
+  entities:
+  - uid: 28782
+    components:
+    - type: Transform
+      pos: -19.5,7.5
+      parent: 2
+- proto: HolopadServiceBotany
+  entities:
+  - uid: 28780
+    components:
+    - type: Transform
+      pos: 5.5,20.5
+      parent: 2
+- proto: HolopadServiceChapel
+  entities:
+  - uid: 28831
+    components:
+    - type: Transform
+      pos: 19.5,-18.5
+      parent: 2
+- proto: HolopadServiceClownMime
+  entities:
+  - uid: 28795
+    components:
+    - type: Transform
+      pos: -30.5,-45.5
+      parent: 2
+- proto: HolopadServiceJanitor
+  entities:
+  - uid: 28829
+    components:
+    - type: Transform
+      pos: 24.5,-3.5
+      parent: 2
+- proto: HolopadServiceKitchen
+  entities:
+  - uid: 28781
+    components:
+    - type: Transform
+      pos: -6.5,21.5
+      parent: 2
+- proto: HolopadServiceLibrary
+  entities:
+  - uid: 28837
+    components:
+    - type: Transform
+      pos: -7.5,37.5
+      parent: 2
+- proto: HolopadServiceNewsroom
+  entities:
+  - uid: 19258
+    components:
+    - type: Transform
+      pos: -46.5,-25.5
+      parent: 2
+- proto: HolopadServiceZookeeper
+  entities:
+  - uid: 28783
+    components:
+    - type: Transform
+      pos: -20.5,-3.5
+      parent: 2
 - proto: HoloprojectorSecurity
   entities:
   - uid: 15339
@@ -137022,10 +137457,10 @@ entities:
       parent: 2
 - proto: MaterialSilo
   entities:
-  - uid: 28702
+  - uid: 28835
     components:
     - type: Transform
-      pos: -31.5,-8.5
+      pos: -46.5,-9.5
       parent: 2
 - proto: MatterBinStockPart
   entities:
@@ -137080,6 +137515,13 @@ entities:
     components:
     - type: Transform
       pos: -31.5,-36.5
+      parent: 2
+- proto: MedicalScanner
+  entities:
+  - uid: 19259
+    components:
+    - type: Transform
+      pos: -23.5,-49.5
       parent: 2
 - proto: MedicalTechFab
   entities:
@@ -162575,11 +163017,6 @@ entities:
         - Left: Forward
         - Right: Reverse
         - Middle: Off
-  - uid: 19256
-    components:
-    - type: Transform
-      pos: -56.5,-27.5
-      parent: 2
   - uid: 19257
     components:
     - type: Transform
@@ -162591,20 +163028,6 @@ entities:
         - Left: Forward
         - Right: Reverse
         - Middle: Off
-- proto: UnfinishedMachineFrame
-  entities:
-  - uid: 19258
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -24.5,-49.5
-      parent: 2
-  - uid: 19259
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -23.5,-49.5
-      parent: 2
 - proto: UniformPrinter
   entities:
   - uid: 19260
@@ -181715,7 +182138,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -8279.383
+      secondsUntilStateChange: -9277.122
       state: Opening
     - type: Airlock
       autoClose: False
@@ -183392,7 +183815,7 @@ entities:
       pos: 24.5,2.5
       parent: 22429
     - type: Door
-      secondsUntilStateChange: -339139.06
+      secondsUntilStateChange: -340136.8
       state: Opening
 - proto: WoodenBench
   entities:
