@@ -13,8 +13,8 @@ public sealed partial class DamageSquareComponent : Component
     [DataField]
     public EntityUid OwnerEntity;
 
-    [DataField]
-    public DamageSpecifier Damage = default!;
+    [DataField(required: true)]
+    public DamageSpecifier Damage = new();
 
     [DataField]
     public SoundPathSpecifier? Sound;

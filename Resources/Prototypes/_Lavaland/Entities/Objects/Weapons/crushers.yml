@@ -81,10 +81,8 @@
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_spear-inhands.rsi
   - type: DisarmMalus
   - type: Wieldable
-  - type: BackstabDamageMultiplier
-    bonusDamage:
-      types:
-        Slash: 5
+  - type: BackStab
+    damageMultiplier: 1.5
 
 - type: entity
   parent: LavalandWeaponKineticBase
@@ -153,10 +151,8 @@
         Blunt: 2.5
         Slash: 2.5
         Structural: 30
-  - type: BackstabDamageMultiplier
-    bonusDamage:
-      types:
-        Slash: 7
+  - type: BackStab
+    damageMultiplier: 1.5
   - type: GunRequiresWield
   - type: Wieldable
   - type: Item
@@ -187,7 +183,5 @@
   - type: Item
     size: Ginormous
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_machete-inhands.rsi
-  - type: BackstabDamageMultiplier
-    bonusDamage:
-      types:
-        Slash: 5
+  - type: BackStab
+    damageMultiplier: 1.5
