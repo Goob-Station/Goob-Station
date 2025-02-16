@@ -111,7 +111,7 @@
           - ItemMask
         density: 1000
         hard: false
-  - type: DamageField
+  - type: DamageSquare
     damage:
       types:
         Blunt: 3

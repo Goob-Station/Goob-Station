@@ -7,6 +7,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Numerics;
+using System.Threading.Tasks;
 using Content.Server._Lavaland.Mobs.Hierophant.Components;
 using Content.Shared._Lavaland.Aggression;
 using Content.Shared.Damage;
@@ -138,7 +139,7 @@ public sealed class HierophantSystem : EntitySystem
                     });
                 }
 
-                var newMinAnger = Math.Max((float)(damage.TotalDamage / _hierophantHp) * 3, 0f) + 1f;
+                var newMinAnger = Math.Max((float)(damage.TotalDamage / _hierophantHp) * 2, 0f) + 1f;
                 ent.Comp.MinAnger = newMinAnger;
                 AdjustAnger(ent, 0); // Update anger
             }
@@ -235,20 +236,26 @@ public sealed class HierophantSystem : EntitySystem
         // we need this beacon in order for damage box to not break apart
         var beacon = Spawn(null, _xform.GetMapCoordinates((EntityUid) target));
 
+        var delay = 0;
         for (var i = 0; i <= range; i++)
         {
             if (TerminatingOrDeleted(ent))
                 return;
 
-            var delay = (int) GetDelay(ent, ent.Comp.InterActionDelay / 2.5f) * i;
+            delay = (int) GetDelay(ent, ent.Comp.InterActionDelay / 3f) * i;
+            var rangeCopy = i; // funny timer things require us to copy the variable
             Timer.Spawn(delay,
                 () =>
                 {
-                    SpawnDamageBox(beacon, range: i);
+                    SpawnDamageBox(beacon, rangeCopy);
                 });
         }
 
-        EntityManager.DeleteEntity(beacon); // cleanup
+        Timer.Spawn(delay + 1000,
+            () =>
+            {
+                QueueDel(beacon); // cleanup after attack is done
+            });
     }
 
     private void SpawnChasers(Entity<HierophantBossComponent> ent, int amount = 1)
@@ -313,7 +320,7 @@ public sealed class HierophantSystem : EntitySystem
 
     #region Attacks
 
-    public void SpawnDamageBox(EntityUid relative, int range = 0, bool hollow = true)
+    public async Task SpawnDamageBox(EntityUid relative, int range = 0, bool hollow = true)
     {
         if (range == 0)
         {

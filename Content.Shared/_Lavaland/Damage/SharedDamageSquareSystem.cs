@@ -26,10 +26,10 @@ public abstract class SharedDamageSquareSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<DamageFieldComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<DamageSquareComponent, MapInitEvent>(OnMapInit);
     }
 
-    private void OnMapInit(Entity<DamageFieldComponent> ent, ref MapInitEvent args)
+    private void OnMapInit(Entity<DamageSquareComponent> ent, ref MapInitEvent args)
     {
         Timer.Spawn((int) ent.Comp.DamageDelay * 1000,
             () =>
@@ -39,7 +39,7 @@ public abstract class SharedDamageSquareSystem : EntitySystem
             });
     }
 
-    private void Damage(Entity<DamageFieldComponent> field)
+    private void Damage(Entity<DamageSquareComponent> field)
     {
         var xform = Transform(field);
         if (xform.GridUid == null)
