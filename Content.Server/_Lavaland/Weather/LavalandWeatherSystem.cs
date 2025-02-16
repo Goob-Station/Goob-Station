@@ -78,29 +78,36 @@ public sealed class LavalandWeatherSystem : EntitySystem
         _lavalandWeatherJobQueue.Process();
 
         var maps = EntityQueryEnumerator<LavalandMapComponent, LavalandStormedMapComponent>();
-        while(maps.MoveNext(out var map,out var lavaland, out var comp))
+        while(maps.MoveNext(out var map, out var lavaland, out var comp))
         {
-            comp.Accumulator += frameTime;
-
-            // End the weather when it's time
-            if (comp.Accumulator >= comp.Duration)
-            {
-                EndWeather((map, lavaland));
-            }
-
-            comp.DamageAccumulator += frameTime;
-
-            if (comp.DamageAccumulator <= comp.NextDamage)
-                continue;
-
-            var humans = EntityQueryEnumerator<HumanoidAppearanceComponent, DamageableComponent>();
-            while (humans.MoveNext(out var human, out _, out var damageable))
-            {
-                _lavalandWeatherJobQueue.EnqueueJob(new LavalandWeatherJob(this, (human, damageable), (map, comp),  LavalandWeatherJobTime));
-            }
-
-            comp.DamageAccumulator = 0;
+            UpdateWeatherDuration(frameTime, (map, lavaland), comp);
+            UpdateWeatherDamage(frameTime, (map, comp));
         }
+    }
+    private void UpdateWeatherDuration(float frameTime, Entity<LavalandMapComponent> map, LavalandStormedMapComponent comp)
+    {
+        comp.Accumulator += frameTime;
+        if (comp.Accumulator >= comp.Duration)
+        {
+            EndWeather(map);
+        }
+    }
+    private void UpdateWeatherDamage(float frameTime, Entity<LavalandStormedMapComponent> stormedMap)
+    {
+        var comp = stormedMap.Comp;
+        comp.DamageAccumulator += frameTime;
+
+        if (comp.DamageAccumulator <= comp.NextDamage)
+            return;
+
+        var humans = EntityQueryEnumerator<HumanoidAppearanceComponent, DamageableComponent>();
+
+        while (humans.MoveNext(out var human, out _, out var damageable))
+        {
+            _lavalandWeatherJobQueue.EnqueueJob(new LavalandWeatherJob(this, (human, damageable), stormedMap, LavalandWeatherJobTime));
+        }
+
+        comp.DamageAccumulator = 0;
     }
 
     public void StartWeather(Entity<LavalandMapComponent> map, ProtoId<LavalandWeatherPrototype> weather)
