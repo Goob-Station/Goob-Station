@@ -4821,3 +4821,17 @@ Entries:
         Biogenerator
   id: 550
   time: '2025-02-16T17:54:58.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: Betrayal knife blink nerfed.
+    - type: Tweak
+      message: >-
+        Ling arm hammer damage reduced: 30 -> 20. Use armblade and armclaw or
+        something.
+    - type: Tweak
+      message: >-
+        Jackboots are now sec restricted contra again, also they now reduce
+        standing up time by 50%.
+  id: 551
+  time: '2025-02-16T18:19:36.0000000+00:00'
