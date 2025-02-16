@@ -3913,3 +3913,12 @@
   id: 7964
   time: '2025-02-16T18:47:41.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/35218
+- author: PicklOH
+  changes:
+  - message: Added a lethals drum to the Bulldog bundle.
+    type: Add
+  - message: Removed a beanbag drum from the Bulldog bundle.
+    type: Remove
+  id: 7965
+  time: '2025-02-16T22:30:46.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/34945
