@@ -881,6 +881,7 @@
       - MagazineMagnum # Goobstation
       - MagazineMagnumLeverRifle # Goobstation
       - MagazineMagnumLeverRifleEmpty # Goobstation
+      - ContrabandDetectorCircuitboard # Goobstation
     dynamicRecipes:
       - BoxBeanbag
       - BoxShotgunIncendiary

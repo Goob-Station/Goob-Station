@@ -207,7 +207,9 @@
 
 - type: Tag
   id: CartridgeLightRifleSubsonic
-  
+
 - type: Tag
   id: WeaponPistolDualetta
 
+- type: Tag
+  id: ContrabandDetectorCircuitboard
