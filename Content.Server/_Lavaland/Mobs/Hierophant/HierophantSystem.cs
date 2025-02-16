@@ -49,6 +49,7 @@ public sealed class HierophantSystem : EntitySystem
         SubscribeLocalEvent<HierophantBossComponent, MegafaunaKilledEvent>(OnHierophantKilled);
     }
 
+    #region Event Handling
 
     private void OnHierophantInit(Entity<HierophantBossComponent> ent, ref MegafaunaStartupEvent args)
     {
@@ -81,15 +82,10 @@ public sealed class HierophantSystem : EntitySystem
     private void OnAttacked(Entity<HierophantBossComponent> ent, ref AttackedEvent args)
     {
         _megafauna.OnAttacked(ent, ent.Comp, ref args); // invoke base
-
-        if (!ent.Comp.Meleed)
-        {
-            ent.Comp.Meleed = true;
-            SpawnChasers(ent);
-        }
-
-        AdjustAnger(ent, .1f);
+        AdjustAnger(ent, ent.Comp.AdjustAngerOnAttack);
     }
+
+    #endregion
 
     public override void Update(float frameTime)
     {
@@ -108,41 +104,19 @@ public sealed class HierophantSystem : EntitySystem
                     DeinitBoss(ent);
             }
 
-            if (comp.Aggressive)
+            if (!comp.Aggressive)
+                continue;
+
+            // tick attack timer
+            TickTimer(ent, ref comp.AttackTimer, frameTime, () =>
             {
-                // tick all timers
+                DoRandomAttack(ent);
+                comp.AttackTimer = Math.Max(comp.AttackCooldown / comp.CurrentAnger, comp.MinAttackCooldown);
+            });
 
-                TickTimer(ent, ref comp.AttackTimer, frameTime, () =>
-                {
-                    DoMinorAttack(ent);
-                    comp.AttackTimer = Math.Max(comp.AttackCooldown / comp.CurrentAnger * 0.8f, comp.MinAttackCooldown);
-                    AdjustAnger(ent, -.15f);
-
-                    comp.MajorAttackTimer += HierophantBossComponent.TileDamageDelay;
-                });
-
-                TickTimer(ent, ref comp.MajorAttackTimer, frameTime, () =>
-                {
-                    DoMajorAttack(ent);
-                    comp.MajorAttackTimer = Math.Max(comp.MajorAttackCooldown / comp.CurrentAnger * 0.8f, comp.MinMajorAttackCooldown);
-                    AdjustAnger(ent, -.25f);
-
-                    comp.AttackTimer += HierophantBossComponent.TileDamageDelay;
-                });
-
-                if (comp.Meleed)
-                {
-                    TickTimer(ent, ref comp.MeleeReactionTimer, frameTime, () =>
-                    {
-                        comp.Meleed = false; // reset it. check OnAttack event
-                        comp.MeleeReactionTimer = comp.MeleeReactionCooldown;
-                    });
-                }
-
-                var newMinAnger = Math.Max((float)(damage.TotalDamage / _hierophantHp) * 2, 0f) + 1f;
-                ent.Comp.MinAnger = newMinAnger;
-                AdjustAnger(ent, 0); // Update anger
-            }
+            var newMinAnger = Math.Max((float)(damage.TotalDamage / _hierophantHp) * 2, 0f) + 1f;
+            ent.Comp.MinAnger = newMinAnger;
+            AdjustAnger(ent, 0); // Update anger
         }
     }
 
@@ -160,6 +134,8 @@ public sealed class HierophantSystem : EntitySystem
         }
     }
 
+    #region Boss Initializing
+
     private void InitBoss(Entity<HierophantBossComponent> ent)
     {
         ent.Comp.Aggressive = true;
@@ -174,33 +150,46 @@ public sealed class HierophantSystem : EntitySystem
         RaiseLocalEvent(ent, new MegafaunaDeinitEvent());
     }
 
-    public async void DoMajorAttack(Entity<HierophantBossComponent> ent)
+    #endregion
+
+    #region Attack Calculation
+
+    private async Task DoAttack(Entity<HierophantBossComponent> ent, EntityUid? target, HierophantAttackType attackType, int attackPower)
     {
-        var target = PickTarget(ent);
-
-        // Major attacks are always strong
-        var rounding = MidpointRounding.AwayFromZero;
-
-        // Attack amount is just rounded up anger
-        var attackPower = (int) Math.Round(ent.Comp.CurrentAnger, rounding);
-        var actions = new List<Action>
+        switch (attackType)
         {
-            () => { DamageArea(ent, target, attackPower * 2); },
-            () => { SpawnCrosses(ent, target, attackPower); },
-        };
+            case HierophantAttackType.Invalid:
+                return;
+            case HierophantAttackType.Chasers:
+                SpawnChasers(ent);
+                break;
+            case HierophantAttackType.Crosses:
+                SpawnCrosses(ent, target, attackPower);
+                break;
+            case HierophantAttackType.DamageArea:
+                if (_random.Next(0, 1) == 1)
+                    DamageArea(ent, target, attackPower + 1);
+                else
+                    DamageArea(ent, target, attackPower * 2); // bad luck
+                break;
+            case HierophantAttackType.Blink:
+                if (target != null && !TerminatingOrDeleted(target))
+                    Blink(ent, _xform.GetWorldPosition(target.Value));
+                else
+                    BlinkRandom(ent);
+                break;
+        }
 
-        // Add blink action if there's a target to teleport
-        if (target != null)
-            actions.Add( () => { BlinkRandom(ent, _xform.GetWorldPosition(target.Value), attackPower); } );
+        ent.Comp.PreviousAttack = attackType;
+        var minusAnger = -ent.Comp.Attacks[attackType];
+        AdjustAnger(ent, minusAnger);
+    }
 
+    private void DoRandomAttack(Entity<HierophantBossComponent> ent)
+    {
         if (TerminatingOrDeleted(ent))
             return;
 
-        _random.Pick(actions).Invoke();
-    }
-
-    public async void DoMinorAttack(Entity<HierophantBossComponent> ent)
-    {
         var target = PickTarget(ent);
 
         // How we round up our anger level, to bigger value or the lower.
@@ -208,19 +197,14 @@ public sealed class HierophantSystem : EntitySystem
 
         // Attack amount is just rounded up anger
         var attackPower = (int) Math.Round(ent.Comp.CurrentAnger, rounding);
+        // Pick random attack, but not a previous one
+        var attacks = ent.Comp.Attacks.Keys.Where(x => x != ent.Comp.PreviousAttack).ToList();
+        var attackType = _random.Pick(attacks);
 
-        var actions = new List<Action>()
-        {
-            () => { SpawnChasers(ent); },
-            () => { SpawnCrosses(ent, target, attackPower); },
-            () => { DamageArea(ent, target, attackPower + 1); },
-        };
-
-        if (TerminatingOrDeleted(ent))
-            return;
-
-        _random.Pick(actions).Invoke();
+        DoAttack(ent, target, attackType, attackPower);
     }
+
+    #endregion
 
     #region Patterns
 
@@ -280,33 +264,15 @@ public sealed class HierophantSystem : EntitySystem
         }
     }
 
-    private void BlinkRandom(Entity<HierophantBossComponent> ent, Vector2? relativePos, int amount = 1)
-    {
-        for (var i = 0; i < amount; i++)
-        {
-            if (TerminatingOrDeleted(ent))
-                return;
-
-            if (relativePos == null)
-                return;
-
-            var delay = (int) GetDelay(ent, ent.Comp.InterActionDelay) * i;
-            Timer.Spawn(delay,
-                () =>
-                {
-                    Blink(ent, relativePos.Value);
-                });
-        }
-    }
-
     private void SpawnCrosses(Entity<HierophantBossComponent> ent, EntityUid? target, int amount = 1)
     {
         for (var i = 0; i < amount; i++)
         {
-            if (TerminatingOrDeleted(ent))
+            if (TerminatingOrDeleted(ent) ||
+                TerminatingOrDeleted(target))
                 return;
 
-            var delay = (int) GetDelay(ent, ent.Comp.InterActionDelay) * i;
+            var delay = (int) GetDelay(ent, ent.Comp.InterActionDelay * 1.5f) * i;
             Timer.Spawn(delay,
                 () =>
                 {
@@ -316,11 +282,35 @@ public sealed class HierophantSystem : EntitySystem
         }
     }
 
+    private void BlinkRandom(EntityUid uid)
+    {
+        var vector = new Vector2();
+
+        var grid = _xform.GetGrid(uid);
+        if (grid == null)
+            return;
+
+        for (var i = 0; i < 20; i++)
+        {
+            var randomVector = _random.NextVector2(4f, 4f);
+            var position = _xform.GetWorldPosition(uid) + randomVector;
+            var checkBox = Box2.CenteredAround(position, new Vector2i(2, 2));
+
+            var ents = _map.GetAnchoredEntities(grid.Value, Comp<MapGridComponent>(grid.Value), checkBox);
+            if (!ents.Any())
+            {
+                vector = position;
+            }
+        }
+
+        Blink(uid, vector);
+    }
+
     #endregion
 
     #region Attacks
 
-    public async Task SpawnDamageBox(EntityUid relative, int range = 0, bool hollow = true)
+    public void SpawnDamageBox(EntityUid relative, int range = 0, bool hollow = true)
     {
         if (range == 0)
         {
@@ -359,7 +349,7 @@ public sealed class HierophantSystem : EntitySystem
         }
     }
 
-    private void Blink(EntityUid ent, Vector2 worldPos)
+    public void Blink(EntityUid ent, Vector2 worldPos)
     {
         if (TerminatingOrDeleted(ent))
             return;
@@ -410,6 +400,7 @@ public sealed class HierophantSystem : EntitySystem
             Spawn(_damageBoxPrototype, _map.GridTileToWorld((EntityUid) xform.GridUid, grid, tile));
         }
     }
+
     #endregion
 
     #region Helper methods
@@ -477,5 +468,6 @@ public sealed class HierophantSystem : EntitySystem
 
         return refs;
     }
+
     #endregion
 }

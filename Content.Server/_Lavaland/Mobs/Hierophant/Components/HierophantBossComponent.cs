@@ -8,33 +8,28 @@ public sealed partial class HierophantBossComponent : MegafaunaComponent
     /// </summary>
     public const float TileDamageDelay = 0.6f;
 
-    // FYI don't use these delays as they are, better use the GetDelay() system method since it accounts for anger.
-
     /// <summary>
     ///     Gets calculated automatically in the <see cref="HierophantSystem"/>.
-    ///     Is responsive for how fast the hierophant attacks.
+    ///     Is responsive for how fast and strong hierophant attacks.
     /// </summary>
     [ViewVariables]
     public float CurrentAnger = 1f;
 
     /// <summary>
     /// Minimal amount of anger that Hierophant can have.
-    /// Tends to 2 when health tends to 0.
+    /// Tends to 3 when health tends to 0.
     /// </summary>
     [DataField]
     public float MinAnger = 1f;
 
+    /// <summary>
+    /// Max cap for anger.
+    /// </summary>
     [DataField]
     public float MaxAnger = 3f;
 
     [DataField]
     public float InterActionDelay = 3 * TileDamageDelay * 1000f;
-
-    [DataField]
-    public float MajorAttackCooldown = 12f * TileDamageDelay;
-
-    [ViewVariables]
-    public float MajorAttackTimer = 12f * TileDamageDelay;
 
     [DataField]
     public float AttackCooldown = 8f * TileDamageDelay;
@@ -43,29 +38,47 @@ public sealed partial class HierophantBossComponent : MegafaunaComponent
     public float AttackTimer = 4f * TileDamageDelay;
 
     [DataField]
-    public float MinAttackCooldown = 3f * TileDamageDelay;
-
-    [DataField]
-    public float MinMajorAttackCooldown = 6f * TileDamageDelay;
-
-    [DataField]
-    public float MeleeReactionCooldown = 10f;
-
-    [ViewVariables]
-    public float MeleeReactionTimer = 10f;
-
-    [ViewVariables]
-    public bool Meleed = false;
-
-    /// <summary>
-    ///     Spawns an AoE attack if being melee'd.
-    /// </summary>
-    [ViewVariables]
-    public bool ReactOnMelee = true;
+    public float MinAttackCooldown = 2f * TileDamageDelay;
 
     [ViewVariables]
     public bool IsAttacking = false;
 
+    /// <summary>
+    /// Amount of anger to adjust on a hit.
+    /// </summary>
+    [DataField]
+    public float AdjustAngerOnAttack = 0.1f;
+
+    /// <summary>
+    /// Connected field generator, will try to teleport here when it's inactive.
+    /// </summary>
     [ViewVariables]
     public EntityUid? ConnectedFieldGenerator;
+
+    /// <summary>
+    /// Controls
+    /// </summary>
+    [DataField]
+    public Dictionary<HierophantAttackType, float> Attacks = new()
+    {
+        { HierophantAttackType.Chasers, 0.1f },
+        { HierophantAttackType.Crosses, 0.1f },
+        { HierophantAttackType.DamageArea, 0.2f },
+        { HierophantAttackType.Blink, 0.2f },
+    };
+
+    /// <summary>
+    /// Attack that was done previously, so we don't repeat it over and over.
+    /// </summary>
+    [DataField]
+    public HierophantAttackType PreviousAttack;
+}
+
+public enum HierophantAttackType
+{
+    Invalid,
+    Chasers,
+    Crosses,
+    DamageArea,
+    Blink,
 }
