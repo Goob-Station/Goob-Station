@@ -805,7 +805,7 @@
     rules: ghost-role-information-nonantagonist-rules
     requirements: # ShibaStation - Antag Playtime Requirements
     - !type:OverallPlaytimeRequirement
-      time: 36000 # 10 hours
+      time: 18000 # 5 hours
   - type: GhostTakeoverAvailable
   - type: Butcherable
     butcheringType: Spike
