@@ -692,19 +692,21 @@
     - type: SoundOnGather
     - type: Gatherable
       toolWhitelist:
-        tags:
-          - Pickaxe
+        tags: [] # Lavaland Change
+        #- Pickaxe
     - type: Damageable
       damageContainer: StructuralInorganic
-      damageModifierSet: Metallic
+      damageModifierSet: Rock # Lavaland Change
     - type: Destructible
       thresholds:
-        - trigger:
-            !type:DamageTrigger
-            damage: 150
-          behaviors:
-            - !type:DoActsBehavior
-              acts: ["Destruction"]
+      # Lavaland Change start
+      - trigger:
+          !type:DamageTrigger
+          damage: 120
+        behaviors:
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+      # Lavaland Change end
     - type: IconSmooth
       key: walls
       mode: NoSprite
