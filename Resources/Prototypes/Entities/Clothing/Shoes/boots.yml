@@ -11,7 +11,7 @@
   - type: Matchbox
 
 - type: entity
-  parent: ClothingShoesMilitaryBase # goobstation - not contra!!! just fucking shoes!!
+  parent: [ClothingShoesMilitaryBase, BaseRestrictedContraband]
   id: ClothingShoesBootsJack
   name: jackboots
   description: Nanotrasen-issue Security combat boots for combat scenarios or combat situations. All combat, all the time.
@@ -24,6 +24,8 @@
     modifier: 0.5
   - type: ClothingModifyStunTime # Goobstation
     modifier: 0.8
+  - type: ModifyStandingUpTime # Goobstation
+    multiplier: 0.5
 
 - type: entity
   parent: ClothingShoesBaseButcherable
@@ -49,7 +51,7 @@
     sprite: Clothing/Shoes/Boots/performer.rsi
 
 - type: entity
-  parent: ClothingShoesMilitaryBase # goobstation - not contra!!! just normal fucking shoes!!
+  parent: [ClothingShoesMilitaryBase, BaseRestrictedContraband]
   id: ClothingShoesBootsCombat
   name: combat boots
   description: Robust combat boots for combat scenarios or combat situations. All combat, all the time.
@@ -62,6 +64,8 @@
     modifier: 0.5
   - type: ClothingModifyStunTime # Goobstation
     modifier: 0.8
+  - type: ModifyStandingUpTime # Goobstation
+    multiplier: 0.5
 
 - type: entity
   parent: ClothingShoesMilitaryBase
@@ -79,7 +83,7 @@
     sprite: Clothing/Shoes/Boots/highheelboots.rsi
 
 - type: entity
-  parent: [ ClothingShoesMilitaryBase ]
+  parent: [ClothingShoesMilitaryBase, BaseRestrictedContraband]
   id: ClothingShoesBootsMerc
   name: mercenary boots
   description: Boots that have gone through many conflicts and that have proven their combat reliability.
@@ -92,6 +96,8 @@
     modifier: 0.5
   - type: ClothingModifyStunTime # Goobstation
     modifier: 0.8
+  - type: ModifyStandingUpTime # Goobstation
+    multiplier: 0.5
 
 - type: entity
   parent: ClothingShoesBaseButcherable

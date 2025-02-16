@@ -28,12 +28,13 @@
 - type: startingGear
   id: SecurityCadetGear
   equipment:
+    eyes: ClothingEyesGlassesSecurity #Goobstation
     shoes: ClothingShoesBootsJackFilled
     outerClothing: ClothingOuterArmorBasic
     id: SecurityCadetPDA
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     belt: ClothingBeltSecurityFilled
-    pocket1: WeaponDisabler
+    #pocket1: WeaponDisabler #Goobstation (Disablers in belts)
     pocket2: BookSecurity
   storage:
     back:
