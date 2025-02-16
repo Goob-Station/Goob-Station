@@ -100,3 +100,11 @@
   components:
   - type: Implanter
     implant: SmokeImplant
+
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: ChangelingInfectionImplanter
+  suffix: changeling infection
+  components:
+  - type: Implanter
+    implant: ChangelingInfectionImplant

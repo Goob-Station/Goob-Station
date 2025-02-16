@@ -588,3 +588,17 @@
     Telecrystal: 70
   categories:
   - UplinkDeception
+
+# Changeling Infections
+
+- type: listing
+  id: UplinkChangelingInfectImplanter
+  name: uplink-changelinginfect-implant-name
+  description: uplink-changelinginfect-implant-desc
+  icon: { sprite: /Textures/Objects/Specific/Medical/syndi_implanter.rsi, state: implanter0 }
+  productEntity: ChangelingInfectionImplanter
+  cost:
+    Telecrystal: 75 # Over half the budget
+  categories:
+    - UplinkImplants
+

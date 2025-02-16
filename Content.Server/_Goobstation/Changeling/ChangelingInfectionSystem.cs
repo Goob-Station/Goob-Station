@@ -42,6 +42,23 @@ public sealed partial class ChangelingInfectionSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ChangelingInfectionComponent, MindAddedMessage>(OnMindAdded);
+        SubscribeLocalEvent<ChangelingInfectionImplantComponent, ImplantImplantedEvent>(OnImplanterInjected);
+    }
+
+    private void OnImplanterInjected(EntityUid uid, ChangelingInfectionImplantComponent comp, ImplantImplantedEvent ev)
+    {
+        if (!_tag.HasTag(ev.Implant, "ChangelingInfectionImplant") || ev.Implanted == null)
+            return;
+
+        if (!EntityManager.TryGetComponent(ev.Implanted.Value, out AbsorbableComponent? absorbable))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("changeling-convert-implant-fail"), ev.Implanted.Value, ev.Implanted.Value, PopupType.MediumCaution);
+            return;
+        }
+
+        EnsureComp<ChangelingInfectionComponent>(ev.Implanted.Value);
+
+        _popupSystem.PopupEntity(Loc.GetString("changeling-convert-implant"), ev.Implanted.Value, ev.Implanted.Value, PopupType.LargeCaution);
     }
 
     public void OnMindAdded(EntityUid uid, ChangelingInfectionComponent comp, MindAddedMessage args)
