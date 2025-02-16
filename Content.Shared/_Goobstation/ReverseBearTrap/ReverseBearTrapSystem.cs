@@ -57,9 +57,7 @@ public sealed class ReverseBearTrapSystem : EntitySystem
     private void OnEquipped(EntityUid uid, ReverseBearTrapComponent trap, GotEquippedEvent args)
     {
         if (args.Slot != "head")
-        {
             return;
-        }
 
         ArmTrap(uid, trap, args.Equipee);
     }
@@ -67,17 +65,13 @@ public sealed class ReverseBearTrapSystem : EntitySystem
     private void OnMeleeHit(EntityUid uid, ReverseBearTrapComponent trap, MeleeHitEvent args)
     {
         if (args.Handled)
-        {
             return;
-        }
 
         // Ensure we're actually hitting a valid target
         if (args.HitEntities.Count == 0 ||
             !HasComp<HumanoidAppearanceComponent>(args.HitEntities.First()) ||
             _inventory.TryGetSlotEntity(args.HitEntities.First(), "head", out _))
-        {
             return;
-        }
 
         args.Handled = true;
         var target = args.HitEntities[0];
@@ -103,9 +97,7 @@ public sealed class ReverseBearTrapSystem : EntitySystem
     private void OnVerbAdd(EntityUid uid, ReverseBearTrapComponent trap, GetVerbsEvent<Verb> args)
     {
         if (!_actionBlockerSystem.CanComplexInteract(args.User))
-        {
             return;
-        }
 
         if (trap.Ticking)
         {
@@ -159,9 +151,7 @@ public sealed class ReverseBearTrapSystem : EntitySystem
         else
         {
             if (trap.DelayOptions == null || trap.DelayOptions.Count == 1)
-            {
                 return;
-            }
 
             foreach (var option in trap.DelayOptions)
             {
@@ -187,9 +177,7 @@ public sealed class ReverseBearTrapSystem : EntitySystem
                     {
                         trap.CountdownDuration = option;
                         if (_net.IsServer)
-                        {
                             _popup.PopupEntity(Loc.GetString("popup-trigger-timer-set", ("time", option)), args.User, args.User);
-                        }
                     },
                 });
             }
@@ -199,9 +187,7 @@ public sealed class ReverseBearTrapSystem : EntitySystem
     private void OnBearTrapEscape(EntityUid uid, ReverseBearTrapComponent trap, BearTrapEscapeDoAfterEvent args)
     {
         if (_net.IsClient || args.Cancelled || trap.Wearer == null)
-        {
             return;
-        }
 
         trap.Struggling = false;
 
@@ -222,25 +208,17 @@ public sealed class ReverseBearTrapSystem : EntitySystem
     private void OnBearTrapApply(EntityUid uid, ReverseBearTrapComponent trap, BearTrapApplyDoAfterEvent args)
     {
         if (args.Cancelled || args.Target is not { } target || args.Used is not { } used)
-        {
             return;
-        }
 
-        if (!_inventory.TryGetSlotEntity(target, "head", out var _))
-        {
-            if (_inventory.TryEquip(target, used, "head", true, true))
-            {
-                ArmTrap(used, trap, target);
-            }
-        }
+        if (!_inventory.TryGetSlotEntity(target, "head", out var _)
+            && _inventory.TryEquip(target, used, "head", true, true))
+            ArmTrap(used, trap, target);
     }
 
     private void OnWeldFinished(EntityUid uid, ReverseBearTrapComponent trap, WeldFinishedEvent args)
     {
         if (args.Cancelled || args.Used == null)
-        {
             return;
-        }
 
         var damage = new DamageSpecifier();
         damage.DamageDict.Add("Heat", 50);
@@ -252,9 +230,7 @@ public sealed class ReverseBearTrapSystem : EntitySystem
     private void OnBearTrapUnlock(EntityUid uid, ReverseBearTrapComponent trap, BearTrapUnlockDoAfterEvent args)
     {
         if (args.Cancelled || !trap.Wearer.HasValue)
-        {
             return;
-        }
 
         if (_net.IsServer)
         {
@@ -269,9 +245,7 @@ public sealed class ReverseBearTrapSystem : EntitySystem
     private void ArmTrap(EntityUid uid, ReverseBearTrapComponent trap, EntityUid wearer)
     {
         if (trap.Ticking || !EntityManager.EntityExists(wearer) || !_interaction.InRangeUnobstructed(uid, wearer))
-        {
             return;
-        }
 
         trap.Ticking = true;
         trap.ActivateTime = _gameTiming.CurTime;
@@ -296,9 +270,7 @@ public sealed class ReverseBearTrapSystem : EntitySystem
     private void ResetTrap(EntityUid? uid, ReverseBearTrapComponent trap)
     {
         if (!trap.Ticking || !uid.HasValue)
-        {
             return;
-        }
 
         var oldWearer = trap.Wearer;
 
@@ -312,9 +284,7 @@ public sealed class ReverseBearTrapSystem : EntitySystem
         Dirty(uid.Value, trap);
 
         if (oldWearer != null && TryComp<ItemComponent>(uid, out var _))
-        {
             _inventory.TryUnequip(oldWearer.Value, "head", true, true);
-        }
     }
 
     public override void Update(float frameTime)
@@ -325,9 +295,7 @@ public sealed class ReverseBearTrapSystem : EntitySystem
         while (query.MoveNext(out var uid, out var trap))
         {
             if (!trap.Ticking || trap.Wearer == null)
-            {
                 continue;
-            }
 
             var remaining = trap.CountdownDuration - (float) (_gameTiming.CurTime - trap.ActivateTime).TotalSeconds;
             if (remaining <= 0)
@@ -341,9 +309,7 @@ public sealed class ReverseBearTrapSystem : EntitySystem
     private void SnapTrap(EntityUid uid, ReverseBearTrapComponent? trap)
     {
         if (!Resolve(uid, ref trap) || trap.Wearer == null)
-        {
             return;
-        }
 
         if (_net.IsServer)
         {
@@ -365,9 +331,7 @@ public sealed class ReverseBearTrapSystem : EntitySystem
     private void AttemptEscape(EntityUid uid, ReverseBearTrapComponent trap, EntityUid user)
     {
         if (trap.Struggling)
-        {
             return;
-        }
 
         trap.Struggling = true;
 
