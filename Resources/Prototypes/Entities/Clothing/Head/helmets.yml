@@ -36,6 +36,15 @@
     tags:
     - WhitelistChameleon
     - SecurityHelmet
+  - type: HandheldLightItemSlot
+  - type: ItemSlots
+    slots:
+      light:
+        name: Light
+        occludesLight: false
+        whitelist:
+          tags:
+          - LightItemSlot
 
 #Mercenary Helmet
 - type: entity
