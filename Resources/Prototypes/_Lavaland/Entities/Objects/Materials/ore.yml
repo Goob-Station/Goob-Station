@@ -11,7 +11,7 @@
   - type: Stack
     stackType: GoldOreUnprocessed
   - type: UnclaimedOre
-    miningPoints: 3.5
+    miningPoints: 7
 
 - type: entity
   parent: GoldOreUnprocessed
@@ -51,7 +51,7 @@
   - type: Stack
     stackType: SteelOreUnprocessed
   - type: UnclaimedOre
-    miningPoints: 0.5
+    miningPoints: 1
 
 - type: entity
   id: SteelOre1Unprocessed
@@ -71,7 +71,7 @@
   - type: Stack
     stackType: PlasmaOreUnprocessed
   - type: UnclaimedOre
-    miningPoints: 3.5
+    miningPoints: 6
 
 - type: entity
   parent: PlasmaOreUnprocessed
@@ -91,7 +91,7 @@
   - type: Stack
     stackType: SilverOreUnprocessed
   - type: UnclaimedOre
-    miningPoints: 2.5
+    miningPoints: 5
 
 - type: entity
   parent: SilverOreUnprocessed
@@ -111,7 +111,7 @@
   - type: Stack
     stackType: SpaceQuartzUnprocessed
   - type: UnclaimedOre
-    miningPoints: 0.66
+    miningPoints: 1.35
 
 - type: entity
   parent: SpaceQuartzUnprocessed
@@ -131,7 +131,7 @@
   - type: Stack
     stackType: UraniumOreUnprocessed
   - type: UnclaimedOre
-    miningPoints: 3.5
+    miningPoints: 6
 
 - type: entity
   parent: UraniumOreUnprocessed
@@ -151,7 +151,7 @@
   - type: Stack
     stackType: BananiumOreUnprocessed
   - type: UnclaimedOre
-    miningPoints: 2.33
+    miningPoints: 3
 
 - type: entity
   parent: BananiumOreUnprocessed
