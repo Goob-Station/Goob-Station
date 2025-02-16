@@ -4813,3 +4813,11 @@ Entries:
         tools!
   id: 549
   time: '2025-02-16T16:25:04.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Tweak
+      message: >-
+        Updated Reach with newer mechanics like Material Silo, Surgery, and
+        Biogenerator
+  id: 550
+  time: '2025-02-16T17:54:58.0000000+00:00'
