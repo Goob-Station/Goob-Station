@@ -1,0 +1,209 @@
+- type: selectableAmmo
+  id: ProjectileFireball
+  desc: Fireball. Fires exploding fireball.
+  icon:
+    sprite: Objects/Magic/magicactions.rsi
+    state: fireball
+  color: darkorange
+  soundGunshot:
+    path: /Audio/Magic/fireball.ogg
+  fireRate: 1
+  fireCost: 250
+  flags: All
+  protoId: ProjectileFireball
+
+- type: selectableAmmo
+  id: ProjectileHealingBolt
+  desc: Healing. Heals the living, kills undead.
+  icon:
+    sprite: _Goobstation/Wizard/Objects/Weapons/Staves/healing.rsi
+    state: healing
+  color: lightgreen
+  soundGunshot:
+    path: /Audio/Weapons/Guns/Gunshots/Magic/staff_healing.ogg
+  fireCost: 500
+  fireRate: 1
+  flags: All
+  protoId: ProjectileHealingBolt
+
+- type: selectableAmmo
+  id: ProjectileSpellCardPurpleSpread
+  desc: Spell Cards. Fires a burst of spell cards.
+  icon:
+    sprite: _Goobstation/Wizard/Projectiles/spellcard.rsi
+    state: purple
+  color: fuchsia
+  soundGunshot:
+    path: /Audio/Weapons/Guns/Gunshots/Magic/staff_healing.ogg
+  fireRate: 4
+  fireCost: 50
+  flags: All
+  protoId: ProjectileSpellCardPurpleSpread
+
+- type: selectableAmmo
+  id: ProjectileTeleBolt
+  desc: Teleportation. Teleports the target randomly.
+  icon:
+    sprite: Objects/Magic/magicactions.rsi
+    state: blink
+  color: lightblue
+  soundGunshot:
+    path: /Audio/_Goobstation/Wizard/wand_teleport.ogg
+  fireRate: 1.5
+  fireCost: 100
+  flags: All
+  protoId: ProjectileTeleBolt
+
+- type: selectableAmmo
+  id: ProjectileFieryBolt
+  desc: Fiery. Ignites the target.
+  icon:
+    sprite: _Goobstation/Wizard/Icons/ammo_selector.rsi
+    state: sacredflame
+  color: "#F8B068"
+  soundGunshot:
+    path: /Audio/Magic/fireball.ogg
+  fireRate: 1.5
+  fireCost: 150
+  flags: All
+  protoId: ProjectileFieryBolt
+
+- type: selectableAmmo
+  id: ProjectileSwapBolt
+  desc: Swap. Swap positions with the target. Penetrates walls.
+  icon:
+    sprite: _Goobstation/Wizard/Icons/ammo_selector.rsi
+    state: voidblink
+  color: black
+  soundGunshot:
+    path: /Audio/Weapons/Guns/Gunshots/Magic/staff_healing.ogg
+  fireRate: 1.5
+  fireCost: 200
+  flags: All
+  protoId: ProjectileSwapBolt
+
+- type: selectableAmmo
+  id: ProjectileBeeBolt
+  desc: Bee. Unleashes a swarm of angry bees.
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Grenades/beenades.rsi
+    state: icon
+  color: yellow
+  soundGunshot:
+    path: /Audio/Weapons/Guns/Gunshots/Magic/staff_healing.ogg
+  fireRate: 1.5
+  fireCost: 150
+  flags: All
+  protoId: ProjectileBeeBolt
+
+- type: selectableAmmo
+  id: ProjectileDeathBolt
+  desc: Death. Kills the living, heals undead.
+  icon:
+    sprite: _Goobstation/Wizard/Icons/ammo_selector.rsi
+    state: skeleton
+  color: darkred
+  soundGunshot:
+    path: /Audio/_Goobstation/Wizard/wandodeath.ogg
+  fireRate: 1
+  fireCost: 500
+  flags: All
+  protoId: ProjectileDeathBolt
+
+- type: selectableAmmo
+  id: ProjectileIceCubeBolt
+  desc: Ice. Freezes the target into an ice cube.
+  icon:
+    sprite: _Goobstation/Wizard/Effects/effects.rsi
+    state: ice_cube
+  color: blue
+  soundGunshot:
+    path: /Audio/Weapons/Guns/Gunshots/Magic/staff_healing.ogg
+  fireRate: 1.5
+  fireCost: 200
+  flags: All
+  protoId: ProjectileIceCubeBolt
+
+- type: selectableAmmo
+  id: ProjectileXRayBolt
+  desc: X-Ray. Pierces through anything.
+  icon:
+    sprite: Objects/Weapons/Guns/Battery/xray.rsi
+    state: icon
+  color: "#1AE51A"
+  soundGunshot:
+    path: /Audio/Weapons/Guns/Gunshots/Magic/staff_healing.ogg
+  fireRate: 2.5
+  fireCost: 100
+  flags: All
+  protoId: ProjectileXRayBolt
+
+- type: selectableAmmo
+  id: ProjectileEmpBolt
+  desc: Emp. Disables technology.
+  icon:
+    sprite: _Goobstation/Wizard/Icons/ammo_selector.rsi
+    state: emp
+  color: cyan
+  soundGunshot:
+    path: /Audio/Weapons/Guns/Gunshots/Magic/staff_healing.ogg
+  fireRate: 1.5
+  fireCost: 150
+  flags: All
+  protoId: ProjectileEmpBolt
+
+- type: selectableAmmo
+  id: ProjectileSmokeBolt
+  desc: Smoke. Releases a cloud of choking smoke.
+  icon:
+    sprite: _Goobstation/Wizard/Icons/ammo_selector.rsi
+    state: smoke
+  color: "#28005B"
+  soundGunshot:
+    path: /Audio/_Goobstation/Wizard/smoke.ogg
+  fireRate: 1
+  fireCost: 100
+  flags: All
+  protoId: ProjectileSmokeBolt
+
+- type: selectableAmmo
+  id: ProjectileBlindingBolt
+  desc: Blinding. Blinds the target temporarily.
+  icon:
+    sprite: _Goobstation/Wizard/Icons/ammo_selector.rsi
+    state: eye
+  color: white
+  soundGunshot:
+    path: /Audio/Weapons/Guns/Gunshots/Magic/staff_healing.ogg
+  fireRate: 1.5
+  fireCost: 100
+  flags: All
+  protoId: ProjectileBlindingBolt
+
+- type: selectableAmmo
+  id: ProjectileVampiricBolt
+  desc: Vampiric. Steals health and blood.
+  icon:
+    sprite: _Goobstation/Wizard/Icons/ammo_selector.rsi
+    state: blood_siphon
+  color: red
+  soundGunshot:
+    path: /Audio/_Goobstation/Wizard/crackandbleed.ogg
+  fireRate: 2
+  fireCost: 100
+  flags: All
+  protoId: ProjectileVampiricBolt
+
+- type: selectableAmmo
+  id: ProjectileMagicMissileLesser
+  desc: Lesser Magic Missile. Stuns in two hits.
+  icon:
+    sprite: _Goobstation/Wizard/Icons/ammo_selector.rsi
+    state: magicm
+  color: "#FF87FF"
+  soundGunshot:
+    path: /Audio/_Goobstation/Wizard/magic_missile.ogg
+  fireRate: 2
+  fireCost: 100
+  flags: All
+  protoId: ProjectileMagicMissileLesser

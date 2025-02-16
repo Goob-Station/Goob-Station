@@ -1,0 +1,897 @@
+# Offensive
+- type: listing
+  id: SpellbookMimeMalaise
+  productUpgradeId: SpellbookMimeMalaiseUpgrade
+  name: spellbook-mime-malaise-name
+  description: spellbook-mime-malaise-desc
+  productAction: ActionMimeMalaise
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookBananaTouch
+  productUpgradeId: SpellbookBananaTouchUpgrade
+  name: spellbook-banana-touch-name
+  description: spellbook-banana-touch-desc
+  productAction: ActionBananaTouch
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookCluwneCurse
+  productUpgradeId: SpellbookCluwneCurseUpgrade
+  name: spellbook-cluwne-curse-name
+  description: spellbook-cluwne-curse-desc
+  productAction: ActionCluwneCurse
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookCorpseExplosion
+  name: spellbook-corpse-explosion-name
+  description: spellbook-corpse-explosion-desc
+  productAction: ActionCorpseExplosion
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookBlind
+  productUpgradeId: SpellbookBlindUpgrade
+  name: spellbook-blind-name
+  description: spellbook-blind-desc
+  productAction: ActionBlindSpell
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookMutate
+  productUpgradeId: SpellbookMutateUpgrade
+  name: spellbook-mutate-name
+  description: spellbook-mutate-desc
+  productAction: ActionMutateSpell
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookTeslaBlast
+  productUpgradeId: SpellbookTeslaBlastUpgrade
+  name: spellbook-tesla-blast-name
+  description: spellbook-tesla-blast-desc
+  productAction: ActionTeslaBlast
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookLightningBolt
+  productUpgradeId: SpellbookLightningBoltUpgrade
+  name: spellbook-lightning-bolt-name
+  description: spellbook-lightning-bolt-desc
+  productAction: ActionLightningBolt
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookHomingToolbox
+  productUpgradeId: SpellbookHomingToolboxUpgrade
+  name: spellbook-homing-toolbox-name
+  description: spellbook-homing-toolbox-desc
+  productAction: ActionHomingToolbox
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookSpellCards
+  productUpgradeId: SpellbookSpellCardsUpgrade
+  name: spellbook-spell-cards-name
+  description: spellbook-spell-cards-desc
+  productAction: ActionSpellCards
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookArcaneBarrage
+  productUpgradeId: SpellbookArcaneBarrageUpgrade
+  name: spellbook-arcane-barrage-name
+  description: spellbook-arcane-barrage-desc
+  productAction: ActionArcaneBarrage
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookLesserSummonGuns
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookLesserSummonGuns
+  productUpgradeId: SpellbookLesserSummonGunsUpgrade
+  name: spellbook-lesser-summon-guns-name
+  description: spellbook-lesser-summon-guns-desc
+  productAction: ActionLesserSummonGuns
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookArcaneBarrage
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookBarnyardCurse
+  productUpgradeId: SpellbookBarnyardCurseUpgrade
+  name: spellbook-barnyard-name
+  description: spellbook-barnyard-desc
+  productAction: ActionBarnyardCurse
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookScreamForMe
+  productUpgradeId: SpellbookScreamForMeUpgrade
+  name: spellbook-scream-for-me-name
+  description: spellbook-scream-for-me-desc
+  productAction: ActionScreamForMe
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookLesserSummonBees
+  productUpgradeId: SpellbookLesserSummonBeesUpgrade
+  name: spellbook-bees-name
+  description: spellbook-bees-desc
+  productAction: ActionLesserSummonBees
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookSummonSimians
+  productUpgradeId: SpellbookSummonSimiansUpgrade
+  name: spellbook-simians-name
+  description: spellbook-simians-desc
+  productAction: ActionSummonSimians
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookSanguineStrike
+  productUpgradeId: SpellbookSanguineStrikeUpgrade
+  name: spellbook-sanguine-strike-name
+  description: spellbook-sanguine-strike-desc
+  productAction: ActionSanguineStrike
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookSmite
+  productUpgradeId: SpellbookSmiteUpgrade
+  name: spellbook-smite-name
+  description: spellbook-smite-desc
+  productAction: ActionSmite
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+# Defensive
+- type: listing
+  id: SpellbookMagicMissile
+  productUpgradeId: SpellbookMagicMissileUpgrade
+  name: spellbook-magic-missile-name
+  description: spellbook-magic-missile-desc
+  productAction: ActionMagicMissile
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookDisableTech
+  productUpgradeId: SpellbookDisableTechUpgrade
+  name: spellbook-disable-tech-name
+  description: spellbook-disable-tech-desc
+  productAction: ActionDisableTech
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookSmoke
+  productUpgradeId: SpellbookSmokeUpgrade
+  name: spellbook-smoke-name
+  description: spellbook-smoke-desc
+  productAction: ActionSmoke
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookRepulse
+  productUpgradeId: SpellbookRepulseUpgrade
+  name: spellbook-repulse-name
+  description: spellbook-repulse-desc
+  productAction: ActionRepulse
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookStopTime
+  productUpgradeId: SpellbookStopTimeUpgrade
+  name: spellbook-stop-time-name
+  description: spellbook-stop-time-desc
+  productAction: ActionStopTime
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookBindSoul
+  name: spellbook-bind-soul-name
+  description: spellbook-bind-soul-desc
+  productAction: ActionBindSoul
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+  disableRefund: true
+
+- type: listing
+  id: SpellbookTraps
+  productUpgradeId: SpellbookTrapsUpgrade
+  name: spellbook-the-traps-name
+  description: spellbook-the-traps-desc
+  productAction: ActionTrapsSpell
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookChuuni
+  name: spellbook-chuuni-name
+  description: spellbook-chuuni-desc
+  productAction: ActionChuuniInvocations
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+  disableRefund: true
+
+- type: listing
+  id: SpellbookThrownLightning
+  name: spellbook-thrown-lightning-name
+  description: spellbook-thrown-lightning-desc
+  productAction: ActionThrownLightning
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+# Utility
+- type: listing
+  id: SpellbookInstantSummons
+  name: spellbook-instant-summons-name
+  description: spellbook-instant-summons-desc
+  productAction: ActionInstantSummons
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookTeleport
+  productUpgradeId: SpellbookTeleportUpgrade
+  name: spellbook-teleport-name
+  description: spellbook-teleport-desc
+  productAction: ActionTeleportWizard
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookSwap
+  productUpgradeId: SpellbookSwapUpgrade
+  name: spellbook-swap-name
+  description: spellbook-swap-desc
+  productAction: ActionSwapSpell
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookSoulTap
+  name: spellbook-soul-tap-name
+  description: spellbook-soul-tap-desc
+  productAction: ActionSoulTap
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookKnock
+  productUpgradeId: SpellbookKnockUpgrade
+  name: spellbook-knock-name
+  description: spellbook-knock-desc
+  productAction: ActionKnock
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+# Equipment
+- type: listing
+  id: SpellbookScryingOrb
+  name: spellbook-scrying-orb-name
+  description: spellbook-scrying-orb-desc
+  productEntity: ScryingOrbWizard
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEquipment
+
+- type: listing
+  id: SpellbookSpellblade
+  name: spellbook-spellblade-name
+  description: spellbook-spellblade-desc
+  productEntity: Spellblade
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEquipment
+
+- type: listing
+  id: SpellbookEverfullMug
+  name: spellbook-everfull-mug-name
+  description: spellbook-everfull-mug-desc
+  productEntity: EverfullMug
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookEquipment
+
+- type: listing
+  id: SpellbookCryoKatana
+  name: spellbook-cryo-katana-name
+  description: spellbook-cryo-katana-desc
+  productEntity: CryoKatana
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEquipment
+
+- type: listing
+  id: SpellbookSkates
+  name: spellbook-skates-name
+  description: spellbook-skates-desc
+  productEntity: ClothingShoesWizardSkates
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookEquipment
+
+- type: listing
+  id: SpellbookHardsuit
+  name: spellbook-hardsuit-name
+  description: spellbook-hardsuit-desc
+  productEntity: ClothingOuterHardsuitWizard
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEquipment
+
+- type: listing
+  id: SpellbookPaperRobe
+  name: spellbook-paper-robe-name
+  description: spellbook-paper-robe-desc
+  productEntity: ClothingOuterWizardPaperReal
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookEquipment
+
+- type: listing
+  id: SpellbookHighFrequencyBlade
+  name: spellbook-high-freq-name
+  description: spellbook-high-freq-desc
+  productEntity: HighFrequencyBlade
+  cost:
+    WizCoin: 3
+  categories:
+  - SpellbookEquipment
+
+- type: listing
+  id: SpellbookSmHalberd
+  name: spellbook-sm-halberd-name
+  description: spellbook-sm-halberd-desc
+  productEntity: SupermatterHalberd
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEquipment
+
+- type: listing
+  id: SpellbookStaffHealing
+  name: spellbook-staff-healing-name
+  description: spellbook-staff-healing-desc
+  productEntity: WeaponStaffHealing
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookEquipment
+
+- type: listing
+  id: SpellbookStaffChange
+  name: spellbook-staff-change-name
+  description: spellbook-staff-change-desc
+  productEntity: WeaponStaffChange
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEquipment
+
+- type: listing
+  id: SpellbookStaffChaos
+  name: spellbook-staff-chaos-name
+  description: spellbook-staff-chaos-desc
+  productEntity: WeaponStaffChaos
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEquipment
+
+- type: listing
+  id: SpellbookStaffSlipping
+  name: spellbook-staff-slipping-name
+  description: spellbook-staff-slipping-desc
+  productEntity: WeaponStaffSlipping
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookEquipment
+
+- type: listing
+  id: SpellbookMagicWand
+  name: spellbook-wand-name
+  description: spellbook-wand-desc
+  productEntity: MultiWandWizard
+  icon:
+    sprite: _Goobstation/Wizard/Objects/Weapons/Wands/wand.rsi
+    state: icon
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEquipment
+
+# Summons
+- type: listing
+  id: SpellbookMagicalLamp
+  name: spellbook-magical-lamp-name
+  description: spellbook-magical-lamp-desc
+  productEntity: MagicalLamp
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookSummons
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  disableRefund: true
+
+- type: listing
+  id: SpellbookContractApprenticeship
+  name: spellbook-apprentice-name
+  description: spellbook-apprentice-desc
+  productEntity: ContractApprenticeship
+  icon:
+    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    state: scroll2
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookSummons
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+# Event
+- type: listing
+  id: SpellbookEventDimensionShift
+  name: spellbook-event-dimension-shift-name
+  description: spellbook-event-dimension-shift-desc
+  productEvent: !type:DimensionShiftEvent
+  icon:
+    sprite: _Goobstation/Wizard/Icons/spellbook.rsi
+    state: icemoon
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookEvents
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  disableRefund: true
+
+# Special
+- type: listing
+  id: SpellbookFullRandom
+  name: spellbook-full-random-name
+  description: spellbook-full-random-desc
+  productEvent: !type:RandomizeSpellsEvent
+    totalBalance: 15
+    spellsDict:
+      FullRandomSpellTable: null
+  raiseProductEventOnUser: true
+  icon:
+    sprite: Objects/Fun/dice.rsi
+    state: d20_20
+  cost:
+    WizCoin: 10
+  categories:
+  - SpellbookSpecial
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookSemiRandom
+  disableRefund: true
+
+- type: listing
+  id: SpellbookSemiRandom
+  name: spellbook-semi-random-name
+  description: spellbook-semi-random-desc
+  productEvent: !type:RandomizeSpellsEvent
+    totalBalance: 12
+    spellsDict:
+      LethalSpellTable: 1
+      MobilitySpellTable: 1
+      FullRandomSpellTable: null
+  raiseProductEventOnUser: true
+  icon:
+    sprite: Objects/Fun/dice.rsi
+    state: d6_6
+  cost:
+    WizCoin: 10
+  categories:
+  - SpellbookSpecial
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+  disableRefund: true
+
+# Bundles
+- type: listing
+  id: SpellMimeBundle
+  name: spellbook-mime-bundle-name
+  description: spellbook-mime-bundle-desc
+  productEntity: ClothingBackpackWizardMimeBundle
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookBundles
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookMimeMalaise
+  disableRefund: true
+  blockRefundListings:
+  - SpellbookMimeMalaise
+
+- type: listing
+  id: SpellClownBundle
+  name: spellbook-clown-bundle-name
+  description: spellbook-clown-bundle-desc
+  productEntity: ClothingBackpackWizardClownBundle
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookBundles
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    whitelistRequireAll: false
+    whitelist:
+    - SpellbookBananaTouch
+    - SpellbookCluwneCurse
+  disableRefund: true
+  blockRefundListings:
+  - SpellbookBananaTouch
+  - SpellbookCluwneCurse
+
+- type: listing
+  id: SpellOblivionEnforcerBundle
+  name: spellbook-oblivion-enforcer-name
+  description: spellbook-oblivion-enforcer-desc
+  productEntity: ClothingBackpackOblivionEnforcerBundle
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookBundles
+  conditions:
+  - !type:ListingRelativeLimitedStockCondition
+    relativeListing: SpellbookSmHalberd
+  disableRefund: true
+  blockRefundListings:
+  - SpellbookSmHalberd
+
+- type: listing
+  id: SpellTiderBundle
+  name: spellbook-tider-bundle-name
+  description: spellbook-tider-bundle-desc
+  productEntity: ToolboxTiderFilled
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookBundles
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookHomingToolbox
+  disableRefund: true
+  blockRefundListings:
+  - SpellbookHomingToolbox
