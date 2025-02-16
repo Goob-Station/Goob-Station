@@ -139,7 +139,8 @@ public sealed class ImmovableRodSystem : EntitySystem
 
                 component.DamagedEntities.Add(ent); // Goobstation
                 _damageable.TryChangeDamage(ent, component.Damage, component.IgnoreResistances, origin: uid, partMultiplier: component.PartDamageMultiplier); // Goob edit
-                _stun.KnockdownOrStun(ent, component.KnockdownTime, true); // Goobstation
+                if (component.KnockdownTime > TimeSpan.Zero) // Goobstation
+                    _stun.KnockdownOrStun(ent, component.KnockdownTime, true);
                 return;
             }
 
