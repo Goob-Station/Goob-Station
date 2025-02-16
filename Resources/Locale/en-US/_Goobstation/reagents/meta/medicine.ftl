@@ -8,3 +8,7 @@ reagent-popup-fleshmend = Your body twists and contorts into shape.
 reagent-name-panacea = Changeling Panacea
 reagent-desc-panacea = Tons of singlecell organisms focused soley on purging the changeling of toxic chemicals.
 reagent-popup-panacea = Poison drains out of you onto the floor.
+
+reagent-name-deunomia = deunomia
+reagent-desc-deunomia = A highly potent mixture of chemicals used before newer therapies to destroy cancerous cells. It may hold use against any parasitic infections.
+
