@@ -244,6 +244,57 @@
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
+# Tricordazine
+
+- type: entity
+  parent: FoodSnackLollypopWrappedBase
+  id: FoodSnackLollypopWrappedTricordrazine
+  name: wrapped Tricordrazine lollypop
+  description: A Tricordrazine filled lollypop. It's still in a wrapper.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapped
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopTricordrazine
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBase
+  id: FoodSnackLollypopTricordrazine
+  name: Tricordrazine lollypop
+  description: A Tricordrazine filled lollypop. 99.9% sugar.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: color
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#00e5ff"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Tricordrazine
+          Quantity: 10
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    size: Tiny
+
 # Dylovene
 
 - type: entity
@@ -367,6 +418,8 @@
       orGroup: LollypopMystery
     - id: FoodSnackLollypopBicaridine
       orGroup: LollypopMystery
+    - id: FoodSnackLollypopTricordrazine
+      orGroup: LollypopMystery
     - id: FoodSnackLollypopDylovene
       orGroup: LollypopMystery
     - id: FoodSnackLollypopOmnizine
@@ -394,7 +447,10 @@
     - id: FoodSnackLollypopTrashSyndicate
     - id: FoodSnackLollypop
       orGroup: LollypopMystery
+      prob: 0.20
     - id: FoodSnackLollypopDermaline
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopTricordrazine
       orGroup: LollypopMystery
     - id: FoodSnackLollypopBicaridine
       orGroup: LollypopMystery

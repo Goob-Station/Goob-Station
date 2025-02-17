@@ -385,6 +385,7 @@
     - Gauze10Lingering
     - Bloodpack10Lingering
     - Syringe
+    - LauncherLollypopRegenerating # Goobstation
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: treatment-module }
 
