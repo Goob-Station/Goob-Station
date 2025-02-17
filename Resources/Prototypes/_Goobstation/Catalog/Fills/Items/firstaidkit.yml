@@ -3,7 +3,7 @@
   name: futuristic medkit
   description: Medkit filled with medicines of the future
   suffix: Stazisium
-  parent: MedkitCombat
+  parent: Medkit
   components:
   - type: StorageFill
     contents:
