@@ -1,7 +1,7 @@
 - type: entity
   parent: WeaponLaserCarbine
   id: WeaponLaserCarbineRecharging
-  categories: [hideSpawnMenu]
+  categories: [HideSpawnMenu]
   noSpawn: true
   components:
     - type: BatterySelfRecharger
@@ -13,7 +13,7 @@
 - type: entity
   parent: WeaponDisabler
   id: WeaponDisablerRecharging
-  categories: [hideSpawnMenu]
+  categories: [HideSpawnMenu]
   noSpawn: true
   components:
     - type: BatterySelfRecharger
