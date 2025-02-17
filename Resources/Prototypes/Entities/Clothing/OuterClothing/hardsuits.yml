@@ -907,7 +907,7 @@
   - type: FireProtection
     reduction: 0.8
   - type: StaminaDamageResistance # Goobstation - Deathsquad Revamp
-    coefficient: 0
+    coefficient: 0.01 # 0 doesn't work for whatever reason.
   - type: Armor
     modifiers:
       coefficients:
