@@ -584,7 +584,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20 # Room for extra chems
+        maxVol: 30 # Syndi lollypops hold more
         reagents:
         - ReagentId: Sugar
           Quantity: 5
