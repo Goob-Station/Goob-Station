@@ -397,6 +397,57 @@
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
+# Dexalin Plus
+
+- type: entity
+  parent: FoodSnackLollypopWrappedBase
+  id: FoodSnackLollypopWrappedDexalinPlus
+  name: wrapped dexalin plus lollypop
+  description: A dexalin plus filled lollypop. It's still in a wrapper.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapped
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopDexalinPlus
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBase
+  id: FoodSnackLollypopDexalinPlus
+  name: dexalin plus lollypop
+  description: A dexalin plus filled lollypop. 99.9% sugar.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: color
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#4da0bd"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: DexalinPlus
+          Quantity: 10
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    size: Tiny
+
 # Random Lollypops
 
 - type: entity
@@ -419,6 +470,8 @@
     - id: FoodSnackLollypopBicaridine
       orGroup: LollypopMystery
     - id: FoodSnackLollypopTricordrazine
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopDexalinPlus
       orGroup: LollypopMystery
     - id: FoodSnackLollypopDylovene
       orGroup: LollypopMystery
@@ -450,13 +503,9 @@
     - id: FoodSnackLollypop
       orGroup: LollypopMystery
       prob: 0.20
-    - id: FoodSnackLollypopDermaline
-      orGroup: LollypopMystery
-    - id: FoodSnackLollypopTricordrazine
-      orGroup: LollypopMystery
-    - id: FoodSnackLollypopBicaridine
-      orGroup: LollypopMystery
     - id: FoodSnackLollypopDylovene
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopDexalinPlus
       orGroup: LollypopMystery
     - id: FoodSnackLollypopOmnizine
       orGroup: LollypopMystery
@@ -465,6 +514,9 @@
       orGroup: LollypopMystery
       prob: 0.35
     - id: FoodSnackLollypopCognizine
+      orGroup: LollypopMystery
+      prob: 0.20
+    - id: FoodSnackLollypopSynaptizine
       orGroup: LollypopMystery
       prob: 0.35
     - id: FoodSnackLollypopNocturine
@@ -537,7 +589,7 @@
   parent: FoodSnackLollypopWrappedSyndicate
   id: FoodSnackLollypopWrappedLexorin
   name: wrapped syndicate lollypop
-  description: A poisoned lollypop. Appears completely ordinary when unwrapped.
+  description: A lollypop containing lexorin. Appears completely ordinary when unwrapped.
   components:
   - type: Tag
     tags:
@@ -568,7 +620,7 @@
         - ReagentId: Lexorin
           Quantity: 10
 
-# Romerol Lollypop - Only obtainable via salvage right now.
+# Romerol Lollypop - Very Rare
 
 - type: entity
   parent: FoodSnackLollypopWrappedSyndicate
@@ -611,7 +663,7 @@
   parent: FoodSnackLollypopWrappedSyndicate
   id: FoodSnackLollypopWrappedNocturine
   name: wrapped syndicate lollypop
-  description: A nocturine filled lollypop. It's still in a wrapper.
+  description: A nocturine filled lollypop. Appears completely ordinary when unwrapped.
   components:
   - type: Tag
     tags:
@@ -630,6 +682,7 @@
   parent: FoodSnackLollypopBaseSyndicate
   id: FoodSnackLollypopNocturine
   name: lollypop
+  suffix: Nocturine
   components:
   - type: Tag
     tags:
@@ -653,7 +706,7 @@
   parent: FoodSnackLollypopWrappedSyndicate
   id: FoodSnackLollypopWrappedHyperzine
   name: wrapped syndicate lollypop
-  description: A stimunlant-filled lollypop. Appears completely ordinary when unwrapped.
+  description: A hyperzine filled lollypop. Appears completely ordinary when unwrapped.
   components:
   - type: Tag
     tags:
@@ -682,6 +735,43 @@
         - ReagentId: Sugar
           Quantity: 5
         - ReagentId: Stimulants
+          Quantity: 10
+
+# Synaptizine
+
+- type: entity
+  parent: FoodSnackLollypopWrappedSyndicate
+  id: FoodSnackLollypopWrappedSynaptizine
+  name: wrapped syndicate lollypop
+  description: A synaptizine lollypop. Appears completely ordinary when unwrapped.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrashSyndicate
+    - id: FoodSnackLollypopSynaptizine
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBaseSyndicate
+  id: FoodSnackLollypopSynaptizine
+  name: lollypop
+  suffix: Synaptizine
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Synaptizine
           Quantity: 10
 
 # Non-medication Lollypops
