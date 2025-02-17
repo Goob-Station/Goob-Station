@@ -16,7 +16,6 @@
     state: lollypop-wrapped
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
-    state: lollypop-wrapped
     size: Tiny
   - type: SpawnItemsOnUse
     items:
@@ -40,7 +39,6 @@
   - type: Clothing
     quickEquip: false # You want to eat it, not stick it in your mouth.
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
-    state: equipped-MASK
     slots: [ mask ]
   - type: Sprite # I kinda hope this... doesn't work?
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
