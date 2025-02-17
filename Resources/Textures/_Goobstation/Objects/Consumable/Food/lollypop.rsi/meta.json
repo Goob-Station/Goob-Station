@@ -19,6 +19,10 @@
     {
       "name": "lollypop-wrapped"
     },
+	{
+      "name": "lollypop-mouth",
+	  "directions": 4 
+    },
     {
       "name": "color"
     }

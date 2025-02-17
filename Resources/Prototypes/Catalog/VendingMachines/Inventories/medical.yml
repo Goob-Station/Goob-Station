@@ -15,5 +15,6 @@
     MedicalPatchPrefilledDermaline: 3   #Goobstation - MedicalPatches
     ParamedHypo: 2 #Goobstation - ParamedHypo
     VehicleWheelchairFolded: 3 # Goobstation - Vehicles
-    FoodSnackLollypopWrappedDermaline: 6 # Goobstation - Lollypops
-    FoodSnackLollypopWrappedBicaridine: 6 # Goobstation - Lollypops
+    FoodSnackLollypopWrappedDermaline: 4 # Goobstation - Lollypops
+    FoodSnackLollypopWrappedBicaridine: 4 # Goobstation - Lollypops
+    FoodSnackLollypopWrapped: 6 Goobstation - Lollypops
