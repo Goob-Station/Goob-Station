@@ -26,7 +26,7 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  parent: []FoodBase, FoodInjectableBase]
+  parent: [FoodBase, FoodInjectableBase]
   id: FoodSnackLollypopBase
   abstract: true
   description: A plain old lollypop. 99.9% sugar.
