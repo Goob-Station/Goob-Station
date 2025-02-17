@@ -249,6 +249,35 @@
 
 # Silly Lollypops
 
+# Mystery Lollypop!
+
+- type: entity
+  parent: FoodSnackLollypopWrappedBase
+  id: FoodSnackLollypopWrappedMystery
+  name: wrapped syndicate lollypop
+  description: A mysterious lollypop. It could be any one of them!
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopDermaline
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopBicaridine
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopOmnizine
+      orGroup: LollypopMystery
+      prob: 0.20
+    - id: FoodSnackLollypopLexorin
+      orGroup: LollypopMystery
+      prob: 0.50
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+# Lexorin Lollypop
+
 - type: entity
   parent: FoodSnackLollypopWrappedBase
   id: FoodSnackLollypopWrappedLexorin
