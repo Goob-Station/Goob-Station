@@ -206,7 +206,6 @@
       weight: 0.5
     - id: OxygenTankFilled
     - id: WelderIndustrial
-    - id: FoodSnackLollypopWrappedBicaridine # Goobstation
     - id: FoodSnackLollypopWrappedMystery # Goobstation
     - id: WeaponGrapplingGun
     - !type:GroupSelector

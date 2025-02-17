@@ -422,6 +422,8 @@
       orGroup: LollypopMystery
     - id: FoodSnackLollypopDylovene
       orGroup: LollypopMystery
+    - id: FoodSnackLollypopWeh
+      orGroup: LollypopMystery
     - id: FoodSnackLollypopOmnizine
       orGroup: LollypopMystery
       prob: 0.2
@@ -458,19 +460,19 @@
       orGroup: LollypopMystery
     - id: FoodSnackLollypopOmnizine
       orGroup: LollypopMystery
-      prob: 0.30
+      prob: 0.35
     - id: FoodSnackLollypopLexorin
       orGroup: LollypopMystery
-      prob: 0.30
+      prob: 0.35
     - id: FoodSnackLollypopCognizine
       orGroup: LollypopMystery
-      prob: 0.30
+      prob: 0.35
     - id: FoodSnackLollypopNocturine
       orGroup: LollypopMystery
-      prob: 0.30
+      prob: 0.35
     - id: FoodSnackLollypopHyperzine
       orGroup: LollypopMystery
-      prob: 0.30
+      prob: 0.35
     - id: FoodSnackLollypopRomerol
       orGroup: LollypopMystery
       prob: 0.05
