@@ -22,7 +22,7 @@ public sealed partial class NitriumMovespeedModifier : EntityEffect
     /// How much the entities' run speed is multiplied by.
     /// </summary>
     [DataField]
-    public float SprintSpeedModifier { get; set; } = 2;
+    public float SprintSpeedModifier { get; set; } = 1;
 
     /// <summary>
     /// How long the modifier applies (in seconds).
