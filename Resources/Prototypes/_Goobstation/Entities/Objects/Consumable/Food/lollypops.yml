@@ -58,6 +58,8 @@
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
+  - type: Extractable
+    grindableSolutionName: lollypop
 
 # Lollypops
 
