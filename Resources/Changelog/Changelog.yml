@@ -1,25 +1,4 @@
 ﻿Entries:
-- author: BackeTako
-  changes:
-  - message: Reinforced walls sprite see throu top
-    type: Fix
-  id: 7467
-  time: '2024-10-01T21:44:47.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/32578
-- author: Zylo
-  changes:
-  - message: Seismic charges being uncraftable
-    type: Fix
-  id: 7468
-  time: '2024-10-02T02:56:49.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/32459
-- author: slarticodefast
-  changes:
-  - message: Fixed the chameleon settings menu not showing up for the voice mask.
-    type: Fix
-  id: 7469
-  time: '2024-10-02T03:22:09.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/32546
 - author: metalgearsloth
   changes:
   - message: Fix physics sensors (e.g. proximity triggers) being able to block doors.
@@ -3907,3 +3886,17 @@
   id: 7967
   time: '2025-02-17T08:51:45.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/35240
+- author: Sparlight
+  changes:
+  - message: Space debris has returned to Wizden servers.
+    type: Add
+  id: 7968
+  time: '2025-02-17T12:56:48.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/34795
+- author: Kickguy223
+  changes:
+  - message: Cleaning up a puddle properly changes its slippery properties.
+    type: Fix
+  id: 7969
+  time: '2025-02-17T20:53:23.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/34525
