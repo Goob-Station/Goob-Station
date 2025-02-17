@@ -100,7 +100,7 @@
   - type: Tag
     tags:
     - FoodSnack
-  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+  - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped
   - type: SpawnItemsOnUse
@@ -119,7 +119,7 @@
   - type: Tag
     tags:
     - FoodSnack
-  - type: Sprite # I kinda hope this... doesn't work?
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop
@@ -151,7 +151,7 @@
   - type: Tag
     tags:
     - FoodSnack
-  - type: Sprite #Don't think about it. Don't think about it. Don't think about it.
+  - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped
   - type: SpawnItemsOnUse
@@ -202,7 +202,7 @@
   - type: Tag
     tags:
     - FoodSnack
-  - type: Sprite #Don't think about it. Don't think about it. Don't think about it.
+  - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped
   - type: SpawnItemsOnUse
@@ -237,7 +237,7 @@
         - ReagentId: Sugar
           Quantity: 5
         - ReagentId: Omnizine
-          Quantity: 5 # No 10u for you.
+          Quantity: 10
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
