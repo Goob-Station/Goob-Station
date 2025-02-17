@@ -32,19 +32,19 @@
     shoes: ClothingShoesBootsMagDeathsquad # These boots are cooler.
     id: DeathsquadPDA # New PDA!
     pocket1: PhoronSabre # Goobstation
-    pocket2: BlueShieldShieldEvil # Goobstation
+    pocket2: WeaponRevolverMateba # Goobstation
     belt: ClothingBeltDeathsquadWebbingFilled # Centcomm Doesn't use syndicate tech.
   storage:
     back:
-    - WeaponRevolverMateba
     - SpeedLoaderMatebaAP # Goobstation - 7 rounds
     - SpeedLoaderMatebaAP # Goobstation - 7 rounds
-    # - BoxFlashbang - Useless
+    # - BoxFlashbang - WAY too big
     - ToolDebug # Spanish Army Knife - TODO Replace
     - WelderExperimental
     - AmnestizineHypospray # SCP Foundation type shit.
     - BluespaceLifelineImplanter # CentComm doesn't use syndicate tech.
     - CentcommFreedomImplanter # CentComm doesn't use syndicate tech.
+    - BlueShieldShieldEvil # Goobstation
   inhand:
   - WeaponPulseRifle
 

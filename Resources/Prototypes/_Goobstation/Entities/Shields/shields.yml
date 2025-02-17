@@ -108,3 +108,5 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 100
+  - type: Item
+    size: Normal

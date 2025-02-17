@@ -90,6 +90,7 @@
             mustBeEquippedToUse: true
           - type: StaminaDamageOnHit
             damage: 45
+            overtime: 80
         soundStateActivate:
           collection: sparks
           params:
