@@ -44,8 +44,8 @@
         - WallLayer
   - type: Sprite
     drawdepth: OverMobs
-    sprite: _Goobstation/Structures/Machines/contraband_detector.rsi
-    state: detector
+    sprite: "_Goobstation/Structures/Machines/contraband_detector.rsi"
+    state: "detector"
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
