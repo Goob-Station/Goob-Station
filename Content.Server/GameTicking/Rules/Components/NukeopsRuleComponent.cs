@@ -121,10 +121,6 @@ public sealed partial class NukeopsRuleComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier GreetSoundNotification = new SoundPathSpecifier("/Audio/Ambience/Antag/nukeops_start.ogg");
-
-    // Goobstation - Honkops
-    [DataField]
-    public string LocalePrefix = "nukeops-";
 }
 
 public enum WinType : byte
