@@ -46,7 +46,6 @@
   - type: Clothing
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop_mouth # Todo - Actually make this
-  - type: Clothing
     slots: [ mask ]
   - type: Sprite # I kinda hope this... doesn't work?
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
