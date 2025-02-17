@@ -230,6 +230,7 @@
     - id: MedTekCartridge
     - id: RapidSyringeGun
     - id: BoxSyringePax
+    - id: FoodLollypopWrappedOmnizine
     # Shitmed
     - id: MedicalBiofabMachineBoard
 

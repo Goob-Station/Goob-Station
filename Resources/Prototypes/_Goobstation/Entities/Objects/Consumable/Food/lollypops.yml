@@ -1,4 +1,5 @@
-# Wrapped - These are meant to hold chems.
+# Base Prototypes
+# Lollypops are meant to hold chems. If you can implement them injecting chems while on the mask slot, that'd be cool.
 
 - type: entity
   parent: FoodBase
@@ -10,14 +11,9 @@
   - type: Tag
     tags:
     - FoodSnack
-  - type: Sprite # I kinda hope this... doesn't work?
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
-    layers:
-    - state: lollypop
-      map: [ "enum.AmmoVisualLayers.Base" ]
-    - state: color
-      map: [ "enum.AmmoVisualLayers.Tip" ]
-      color: "#ffaa00" # Change this to the chems color. Default is Bicaridine.
+    state: lollypop-wrapped
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped
@@ -28,32 +24,6 @@
     - id: FoodSnackLollypopBase # Change this to effect what lollypop it spawns.
     sound:
       path: /Audio/Effects/unwrap.ogg
-
-
-- type: entity
-  parent: FoodLollypopWrappedBase
-  id: FoodLollypopWrappedBicaridine
-  description: A bicaridine filled lollypop. It's still in a wrapper.
-  components:
-  - type: Tag
-    tags:
-    - FoodSnack
-  - type: Sprite # I kinda hope this... doesn't work?
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
-    layers:
-    - state: lollypop
-      map: [ "enum.AmmoVisualLayers.Base" ]
-    - state: color
-      map: [ "enum.AmmoVisualLayers.Tip" ]
-      color: "#ffaa00"
-  - type: SpawnItemsOnUse
-    items:
-    - id: FoodPacketLollypopTrash
-    - id: FoodSnackLollypopBicaridine
-    sound:
-      path: /Audio/Effects/unwrap.ogg
-
-# Unwrapped
 
 - type: entity
   parent: FoodBase
@@ -68,6 +38,7 @@
     tags:
     - FoodSnack
   - type: Clothing
+    quickEquip: false # You want to eat it, not stick it in your mouth.
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop_mouth # Todo - Actually make this
     slots: [ mask ]
@@ -78,7 +49,7 @@
       map: [ "enum.AmmoVisualLayers.Base" ]
     - state: color
       map: [ "enum.AmmoVisualLayers.Tip" ]
-      color: "#ffaa00"
+      color: "#ffaa00" # Change this to change the lollypop color. Default is bicaridine.
   - type: SolutionContainerManager
     solutions:
       food:
@@ -89,6 +60,63 @@
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
+
+# Lollypops
+
+- type: entity
+  parent: FoodBase
+  id: FoodLollypop
+  description: A plain old lollypop. 99.9% sugar.
+  components:
+  - type: Food
+    trash:
+    - FoodPacketLollypopTrash
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Clothing
+    quickEquip: false # You want to eat it, not stick it in your mouth.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop_mouth # Todo - Actually make this
+    slots: [ mask ]
+  - type: Sprite # I kinda hope this... doesn't work?
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: color
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#FFC0CB" # Default is pink. Usually, you want this to match the chemical color.
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    size: Tiny
+
+# Bicaridine
+
+- type: entity
+  parent: FoodLollypopWrappedBase
+  id: FoodLollypopWrappedBicaridine
+  description: A bicaridine filled lollypop. It's still in a wrapper.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapped
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodPacketLollypopTrash
+    - id: FoodSnackLollypopBicaridine
+    sound:
+      path: /Audio/Effects/unwrap.ogg
 
 - type: entity
   parent: FoodLollypopBase
@@ -115,6 +143,104 @@
           Quantity: 5
         - ReagentId: Bicaridine
           Quantity: 10
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    size: Tiny
+
+# Dermaline
+
+- type: entity
+  parent: FoodLollypopWrappedBase
+  id: FoodLollypopWrappedDermaline
+  description: A dermaline filled lollypop. It's still in a wrapper.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite #Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapped
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodPacketLollypopTrash
+    - id: FoodSnackLollypopDermaline
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodLollypopBase
+  id: FoodLollypopDermaline
+  description: A dermaline filled lollypop. 99.9% sugar.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: color
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#215263"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Dermaline
+          Quantity: 10
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    size: Tiny
+
+# Omnizine
+
+- type: entity
+  parent: FoodLollypopWrappedBase
+  id: FoodLollypopWrappedOmnizine
+  description: An omnizine filled lollypop. It's still in a wrapper.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite #Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapped
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodPacketLollypopTrash
+    - id: FoodSnackLollypopOmnizine
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodLollypopBase
+  id: FoodLollypopOmnizine
+  description: An omnizine filled lollypop. Reserved for the best of patients.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: color
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#215263"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Omnizine
+          Quantity: 5 # No 10u for you.
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
