@@ -4847,3 +4847,9 @@ Entries:
       message: Honkops masks now have flash and welding protection.
   id: 553
   time: '2025-02-16T18:46:13.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Fix
+      message: Fixed IPCs not being able to open antag UIs.
+  id: 554
+  time: '2025-02-17T02:12:19.0000000+00:00'
