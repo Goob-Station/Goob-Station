@@ -22,7 +22,7 @@ public sealed class HealthAnalyzerSystem : AbstractAnalyzerSystem<HealthAnalyzer
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly BodySystem _bodySystem = default!;
-    public override void UpdateScannedUser(EntityUid healthAnalyzer, EntityUid target, bool scanMode) //, EntityUid? part = null
+    public override void UpdateScannedUser(EntityUid healthAnalyzer, EntityUid target, bool scanMode)
     {
         if (!_uiSystem.HasUi(healthAnalyzer, HealthAnalyzerUiKey.Key))
             return;
@@ -55,6 +55,8 @@ public sealed class HealthAnalyzerSystem : AbstractAnalyzerSystem<HealthAnalyzer
         if (HasComp<UnrevivableComponent>(target))
             unrevivable = true;
 
+
+
         _uiSystem.ServerSendUiMessage(healthAnalyzer, HealthAnalyzerUiKey.Key, new HealthAnalyzerScannedUserMessage(
             GetNetEntity(target),
             bodyTemperature,
@@ -63,6 +65,7 @@ public sealed class HealthAnalyzerSystem : AbstractAnalyzerSystem<HealthAnalyzer
             bleeding,
             unrevivable,
             // Shitmed Change
+
             body,
             part != null ? GetNetEntity(part) : null
         ));
