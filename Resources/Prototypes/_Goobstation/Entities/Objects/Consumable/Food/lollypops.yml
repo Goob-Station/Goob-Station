@@ -254,6 +254,9 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-trash
+  - type: Clothing
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    slots: [ mask ]
 
 - type: entity
   categories: [ HideSpawnMenu ]
