@@ -47,7 +47,7 @@
   id: ClothingHandsGlovesDeathsquad
   suffix: DO NOT MAP # Just don't...
   name: deathsquad power claws
-  description: A pair of highly-advanced gauntlets capable of ripping open doors. It's retractable claws are laced with a potent neurotoxin.
+  description: A pair of highly-advanced gauntlets capable of ripping open doors. Its retractable claws are laced with a potent neurotoxin.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
