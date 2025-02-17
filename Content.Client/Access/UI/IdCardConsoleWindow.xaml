@@ -30,17 +30,7 @@
             <Label Text="{Loc 'id-card-console-window-job-selection-label'}" />
             <OptionButton Name="JobPresetOptionButton" />
         </GridContainer>
-        <!-- Goobstation Start -->
-        <GridContainer Columns="3">
-            <Label Text="{Loc 'id-card-console-window-job-search-label'}" />
-            <TextureRect SetSize="16 16"
-                         Stretch="KeepAspectCentered"
-                         TexturePath="/Textures/Interface/VerbIcons/examine.svg.192dpi.png">
-            </TextureRect>
-            <LineEdit Name="SearchLineEdit" HorizontalExpand="True" />
-        </GridContainer>
         <Control Name="AccessLevelControlContainer" />
-        <!-- Goobstation End -->
         <!-- Reserve-IDConsoleActions-Start -->
         <Control MinSize="0 8" />
         <Label Text="{Loc 'id-card-console-window-actions'}" />
