@@ -87,7 +87,7 @@
     tags:
     - FoodSnack
 
-# Bicaridine
+# Medical Lollypops - Bicaridine
 
 - type: entity
   parent: FoodSnackLollypopWrappedBase
@@ -239,6 +239,45 @@
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
+
+
+# Silly Lollypops
+
+- type: entity
+  parent: FoodSnackLollypopWrappedBase
+  id: FoodSnackLollypopWrappedLexorin
+  name: wrapped syndicate lollypop
+  description: A poisoned lollypop. Appears completely ordinary when unwrapped.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopLexorin
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBase
+  id: FoodSnackLollypopLexorin
+  name: lollypop
+  suffix: lexorin
+  description: A plain old lollypop. 99.9% sugar.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Lexorin
+          Quantity: 10
 
 # Trash
 
