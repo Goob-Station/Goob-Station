@@ -4799,3 +4799,51 @@ Entries:
       message: Removed the secbelt and Chester from Blueshield spawn.
   id: 547
   time: '2025-02-15T09:02:59.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added a wrench to the wardens locker.
+  id: 548
+  time: '2025-02-16T13:06:19.0000000+00:00'
+- author: ColonicAcid
+  changes:
+    - type: Tweak
+      message: >-
+        Syndicate surgical duffel bags are now cheaper, and contain better
+        tools!
+  id: 549
+  time: '2025-02-16T16:25:04.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Tweak
+      message: >-
+        Updated Reach with newer mechanics like Material Silo, Surgery, and
+        Biogenerator
+  id: 550
+  time: '2025-02-16T17:54:58.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: Betrayal knife blink nerfed.
+    - type: Tweak
+      message: >-
+        Ling arm hammer damage reduced: 30 -> 20. Use armblade and armclaw or
+        something.
+    - type: Tweak
+      message: >-
+        Jackboots are now sec restricted contra again, also they now reduce
+        standing up time by 50%.
+  id: 551
+  time: '2025-02-16T18:19:36.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: You can now actually use Mosin's bayonet in melee combat with the RMB!
+  id: 552
+  time: '2025-02-16T18:20:14.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Tweak
+      message: Honkops masks now have flash and welding protection.
+  id: 553
+  time: '2025-02-16T18:46:13.0000000+00:00'
