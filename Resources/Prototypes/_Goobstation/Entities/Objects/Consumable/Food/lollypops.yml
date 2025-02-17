@@ -503,6 +503,12 @@
     - id: FoodSnackLollypop
       orGroup: LollypopMystery
       prob: 0.20
+    - id: FoodSnackLollypopDermaline
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopTricordrazine
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopBicaridine
+      orGroup: LollypopMystery
     - id: FoodSnackLollypopDylovene
       orGroup: LollypopMystery
     - id: FoodSnackLollypopDexalinPlus
