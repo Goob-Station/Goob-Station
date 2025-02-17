@@ -17,7 +17,7 @@
       activeSound:
         path: /Audio/Weapons/ebladehum.ogg
     - type: Sprite
-      sprite: /Objects/Weapons/Melee/e_sword_bananium.rsi
+      sprite: Objects/Weapons/Melee/e_sword_bananium.rsi
       layers:
       - state: e_sword
       - state: e_sword_blade
