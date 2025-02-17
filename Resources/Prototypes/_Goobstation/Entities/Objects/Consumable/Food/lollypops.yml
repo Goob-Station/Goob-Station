@@ -548,7 +548,7 @@
   parent: FoodSnackLollypopWrappedBaseSyndicate
   id: FoodSnackLollypopWrappedSyndicate
   name: wrapped syndicate lollypop
-  description: Manufactured by Donk co. It's still in a wrapper.
+  description: Manufactured by Donk co, and perfect for storing chems discreetly.
   components:
   - type: Tag
     tags:
@@ -559,14 +559,13 @@
   - type: SpawnItemsOnUse
     items:
     - id: FoodSnackLollypopTrashSyndicate
-    - id: FoodSnackLollypopBaseSyndicate
+    - id: FoodSnackLollypopSyndicate
     sound:
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
   parent: FoodSnackLollypopBaseSyndicate
   id: FoodSnackLollypopSyndicate
-  abstract: true
   name: lollypop
   description: A plain old lollypop. This one gives you a bad feeling. # Only way to tell them apart. Read your descriptions.
   components:
