@@ -10,8 +10,14 @@
   - type: Tag
     tags:
     - FoodSnack
-  - type: Sprite
-    sprite: Objects/Consumable/Food/snacks.rsi
+  - type: Sprite # I kinda hope this... doesn't work?
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: color
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#ffaa00"
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped
@@ -43,6 +49,7 @@
   - type: Clothing
     slots: [ mask ]
   - type: Sprite # I kinda hope this... doesn't work?
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -69,12 +76,11 @@
   name: lollypop stick
   description: It's lightly chewed on.
   components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
-    heldPrefix: packet
+    state: lollypop-trash
   - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-trash
 
 - type: entity
@@ -84,4 +90,6 @@
   name: lollypop wrapper
   components:
   - type: Sprite
+    state: lollypop-wrapper
+  - type: Item
     state: lollypop-wrapper
