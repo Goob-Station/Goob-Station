@@ -22,7 +22,7 @@
   - type: StorageFill
     contents:
     - id: FoodSnackLollypopWrappedMysteryEvil
-      amount: 8
+      amount: 9
   - type: Sprite
     layers:
     - state: box

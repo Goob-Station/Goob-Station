@@ -125,7 +125,7 @@ uplink-mech-teleporter-assault-desc = Contains a lightly armored Cybersun mech w
 # Chemicals
 
 uplink-lollypop-bundle-name = Syndicate Lollypop Bundle
-uplink-lollypop-bundle-desc = Contains 8 completely random lollypops. What could they contain?
+uplink-lollypop-bundle-desc = Contains 9 completely random lollypops. What could they contain?
 
 # Implants
 
