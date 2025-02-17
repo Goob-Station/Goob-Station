@@ -89,6 +89,8 @@
   name: lollypop wrapper
   components:
   - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapper
   - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapper
