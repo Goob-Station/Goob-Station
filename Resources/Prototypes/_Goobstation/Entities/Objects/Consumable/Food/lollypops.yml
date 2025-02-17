@@ -1,0 +1,87 @@
+# Wrapped - These are meant to hold chems.
+
+- type: entity
+  parent: FoodBase
+  id: FoodLollypopWrappedBase
+  description: A plain old lollypop. It's still in a wrapper.
+  abstract: true
+  components:
+  - type: Food
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite
+    sprite: Objects/Consumable/Food/snacks.rsi
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapped
+    size: Tiny
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodPacketLollypopTrash
+    - id: FoodSnackLollypopBase
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+# Unwrapped
+
+- type: entity
+  parent: FoodBase
+  id: FoodLollypopBase
+  abstract: true
+  description: A plain old lollypop. 99.9% sugar.
+  components:
+  - type: Food
+    trash:
+    - FoodPacketLollypopTrash
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Clothing
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop_mouth # Todo - Actually make this
+  - type: Clothing
+    slots: [ mask ]
+  - type: Sprite # I kinda hope this... doesn't work?
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: color
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#ffaa00"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    size: Tiny
+
+# Trash
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodPacketTrash
+  id: FoodPacketLollypopTrash
+  name: lollypop stick
+  description: It's lightly chewed on.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    heldPrefix: packet
+  - type: Sprite
+    state: lollypop-trash
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodPacketTrash
+  id: FoodSnackLollypopTrash
+  name: lollypop wrapper
+  components:
+  - type: Sprite
+    state: lollypop-wrapper
