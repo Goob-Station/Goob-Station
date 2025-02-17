@@ -906,10 +906,12 @@
     damageCoefficient: 0.2
   - type: FireProtection
     reduction: 0.8
+  - type: StaminaDamageResistance # Goobstation - Deathsquad Revamp
+    coefficient: 0
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.1 #best armor in the game
+        Blunt: 0.1 # Best armor in the game - Yeah no shit.
         Slash: 0.1
         Piercing: 0.1
         Heat: 0.1
