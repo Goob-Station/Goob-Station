@@ -707,7 +707,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: [FoodPacketTrash, BaseSyndicateContrabamd]
+  parent: [FoodPacketTrash, BaseSyndicateContraband]
   id: FoodSnackLollypopTrashSyndicate
   name: syndicate lollypop wrapper
   description: Someone's been naughty...
