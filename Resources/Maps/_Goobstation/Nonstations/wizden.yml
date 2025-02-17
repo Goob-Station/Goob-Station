@@ -2382,7 +2382,7 @@ entities:
       name: Wizard's Den
       responsePings: false
       notifyAdmins: true
-- proto: FelinidCube
+- proto: TajaranCube
   entities:
   - uid: 306
     components:
