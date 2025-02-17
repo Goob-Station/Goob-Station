@@ -24,5 +24,5 @@ public sealed partial class DamageSquareComponent : Component
     /// 0.1 by default because ping will make it unfair
     /// </summary>
     [DataField]
-    public float DamageDelay = 0.1f;
+    public float DamageDelay = 0.2f;
 }
