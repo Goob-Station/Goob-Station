@@ -29,13 +29,6 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: snouse
-  - type: SpriteMovement
-    movementLayers:
-      movement:
-        state: snouse
-    noMovementLayers:
-      movement:
-        state: snouse
   - type: Item
     size: Tiny
   - type: Clothing
