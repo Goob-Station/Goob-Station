@@ -93,3 +93,18 @@
       autoRecharge: true
       autoRechargeRate: 3.5
     - type: RechargeableBlocking
+
+
+- type: entity
+  name: greatshield
+  parent: BlueShieldShield
+  id: BlueShieldShieldEvil
+  suffix: Deathsquad
+  description: The identification number on this shield has been scratched off. Something feels wrong.
+  components:
+  - type: Battery
+    maxCharge: 600
+    startingCharge: 600
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 100

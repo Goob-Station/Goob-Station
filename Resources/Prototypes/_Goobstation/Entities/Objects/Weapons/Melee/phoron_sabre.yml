@@ -5,6 +5,20 @@
   suffix: DO NOT MAP
   description: The signature weapon of the dreaded deathsquads. Cuts through armored & and un-armored targets easily.
   components:
+  - type: ItemToggle
+    # Goobstation start
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.250
+    # Goobstation end
+    soundActivate:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+    soundDeactivate:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyoff.ogg
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyhum.ogg
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/phoron_sabre.rsi
     layers:

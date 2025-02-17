@@ -32,7 +32,7 @@
     shoes: ClothingShoesBootsMagDeathsquad # These boots are cooler.
     id: DeathsquadPDA # New PDA!
     pocket1: PhoronSabre # Goobstation
-    pocket2: EnergyShield # TODO : Replace with BSO shield
+    pocket2: BlueShieldShieldEvil # Goobstation
     belt: ClothingBeltDeathsquadWebbingFilled # Centcomm Doesn't use syndicate tech.
   storage:
     back:
