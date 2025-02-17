@@ -66,6 +66,7 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBase
   id: FoodLollypopWrappedBase
+  name: wrapped lollypop
   description: A plain old lollypop. It's still in a wrapper.
   components:
   - type: Tag
@@ -86,7 +87,7 @@
 
 - type: entity
   parent: FoodSnackLollypopWrappedBase
-  id: FoodLollypopWrappedBicaridine
+  id: FoodSnackLollypopWrappedBicaridine
   name: wrapped bicaridine lollypop
   description: A bicaridine filled lollypop. It's still in a wrapper.
   components:
@@ -105,7 +106,7 @@
 
 - type: entity
   parent: FoodSnackLollypopBase
-  id: FoodLollypopBicaridine
+  id: FoodSnackLollypopBicaridine
   name: bicaridine lollypop
   description: A bicaridine filled lollypop. 99.9% sugar.
   components:
@@ -137,7 +138,7 @@
 
 - type: entity
   parent: FoodSnackLollypopWrappedBase
-  id: FoodLollypopWrappedDermaline
+  id: FoodSnackLollypopWrappedDermaline
   name: wrapped dermaline lollypop
   description: A dermaline filled lollypop. It's still in a wrapper.
   components:
@@ -156,7 +157,7 @@
 
 - type: entity
   parent: FoodSnackLollypopBase
-  id: FoodLollypopDermaline
+  id: FoodSnackLollypopDermaline
   name: dermaline lollypop
   description: A dermaline filled lollypop. 99.9% sugar.
   components:
@@ -188,7 +189,7 @@
 
 - type: entity
   parent: FoodSnackLollypopWrappedBase
-  id: FoodLollypopWrappedOmnizine
+  id: FoodSnackLollypopWrappedOmnizine
   name: wrapped omnizine lollypop
   description: An omnizine filled lollypop. It's still in a wrapper.
   components:
@@ -207,7 +208,7 @@
 
 - type: entity
   parent: FoodSnackLollypopBase
-  id: FoodLollypopOmnizine
+  id: FoodSnackLollypopOmnizine
   name: omnizine lollypop
   description: An omnizine filled lollypop. Reserved for the best of patients.
   components:
