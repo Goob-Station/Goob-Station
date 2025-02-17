@@ -59,7 +59,11 @@
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
   - type: Extractable
-    grindableSolutionName: lollypop
+    grindableSolutionName: food
+    juiceSolution:
+      reagents:
+      - ReagentId: Sugar
+        Quantity: 5
 
 # Lollypops
 
