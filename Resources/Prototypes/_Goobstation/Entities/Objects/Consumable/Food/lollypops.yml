@@ -525,6 +525,9 @@
     - id: FoodSnackLollypopSynaptizine
       orGroup: LollypopMystery
       prob: 0.35
+    - id: FoodSnackLollypopCarpoToxin
+      orGroup: LollypopMystery
+      prob: 0.35
     - id: FoodSnackLollypopNocturine
       orGroup: LollypopMystery
       prob: 0.35
@@ -595,6 +598,7 @@
   parent: FoodSnackLollypopWrappedSyndicate
   id: FoodSnackLollypopWrappedLexorin
   name: wrapped syndicate lollypop
+  suffix: lexorin
   description: A lollypop containing lexorin. Appears completely ordinary when unwrapped.
   components:
   - type: Tag
@@ -632,6 +636,7 @@
   parent: FoodSnackLollypopWrappedSyndicate
   id: FoodSnackLollypopWrappedRomerol
   name: wrapped syndicate lollypop
+  suffix: romerol
   description: A lollypop containing romerol. Appears completely ordinary when unwrapped.
   components:
   - type: Tag
@@ -669,6 +674,7 @@
   parent: FoodSnackLollypopWrappedSyndicate
   id: FoodSnackLollypopWrappedNocturine
   name: wrapped syndicate lollypop
+  suffix: nocturine
   description: A nocturine filled lollypop. Appears completely ordinary when unwrapped.
   components:
   - type: Tag
@@ -712,6 +718,7 @@
   parent: FoodSnackLollypopWrappedSyndicate
   id: FoodSnackLollypopWrappedHyperzine
   name: wrapped syndicate lollypop
+  suffix: hyperzine
   description: A hyperzine filled lollypop. Appears completely ordinary when unwrapped.
   components:
   - type: Tag
@@ -749,6 +756,7 @@
   parent: FoodSnackLollypopWrappedSyndicate
   id: FoodSnackLollypopWrappedSynaptizine
   name: wrapped syndicate lollypop
+  suffix: synaptizine
   description: A synaptizine lollypop. Appears completely ordinary when unwrapped.
   components:
   - type: Tag
@@ -780,6 +788,45 @@
         - ReagentId: Synaptizine
           Quantity: 10
 
+# Carpotoxin
+
+- type: entity
+  parent: FoodSnackLollypopWrappedSyndicate
+  id: FoodSnackLollypopWrappedCarpoToxin
+  name: wrapped syndicate lollypop
+  suffix: CarpoToxin
+  description: Who the hell is Audrey White?
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrashSyndicate
+    - id: FoodSnackLollypopCarpoToxin
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBaseSyndicate
+  id: FoodSnackLollypopCarpoToxin
+  name: lollypop
+  suffix: CarpoToxin
+  description: Who the hell is Audrey White?
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: CarpoToxin
+          Quantity: 10
+
 # Non-medication Lollypops
 # Cognizine
 
@@ -787,6 +834,7 @@
   parent: FoodSnackLollypopWrappedBase
   id: FoodSnackLollypopWrappedCognizine
   name: wrapped cognizine lollypop
+  suffix: cognizine
   description: A cognizine filled lollypop. It's still in a wrapper.
   components:
   - type: Tag
