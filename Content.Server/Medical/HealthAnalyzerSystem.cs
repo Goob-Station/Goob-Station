@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.AbstractAnalyzer;
 using Content.Server.Body.Components;
+using Content.Server.Body.Systems;
 using Content.Server.Medical.Components;
 using Content.Server.Temperature.Components;
 using Content.Server.Traits.Assorted;
@@ -12,17 +13,16 @@ using Content.Shared.MedicalScanner;
 using Content.Shared.Mobs.Components;
 using Robust.Server.GameObjects;
 
+// Goob Shitmed targeting compatibility
 using Content.Shared._Shitmed.Targeting;
 
 namespace Content.Server.Medical;
-
 public sealed class HealthAnalyzerSystem : AbstractAnalyzerSystem<HealthAnalyzerComponent, HealthAnalyzerDoAfterEvent>
 {
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-
-    /// <inheritdoc/>
-    public override void UpdateScannedUser(EntityUid healthAnalyzer, EntityUid target, bool scanMode)
+    [Dependency] private readonly BodySystem _bodySystem = default!;
+    public override void UpdateScannedUser(EntityUid healthAnalyzer, EntityUid target, bool scanMode) //, EntityUid? part = null
     {
         if (!_uiSystem.HasUi(healthAnalyzer, HealthAnalyzerUiKey.Key))
             return;
