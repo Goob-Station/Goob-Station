@@ -49,7 +49,7 @@
       map: [ "enum.AmmoVisualLayers.Base" ]
     - state: color
       map: [ "enum.AmmoVisualLayers.Tip" ]
-      color: "#ffaa00" # Change this to change the lollypop color. Default is bicaridine.
+      color: "#FFC0CB" # Change this to change the lollypop color. Default is pink.
   - type: SolutionContainerManager
     solutions:
       food:
