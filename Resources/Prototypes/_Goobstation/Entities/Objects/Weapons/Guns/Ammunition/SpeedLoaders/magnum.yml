@@ -4,7 +4,4 @@
   parent: [SpeedLoaderMagnumAP, BaseCentcommContraband]
   components:
   - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-        - CartridgeMagnumAP
     capacity: 7

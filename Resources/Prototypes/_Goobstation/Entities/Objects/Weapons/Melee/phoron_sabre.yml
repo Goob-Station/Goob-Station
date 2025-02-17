@@ -49,7 +49,6 @@
         Heat: 35
         Radiation: 10
         Structural: 80
-    ignoreResistances: true
 
   - type: Item
     sprite: _Goobstation/Objects/Weapons/Melee/phoron_sabre_inhands.rsi

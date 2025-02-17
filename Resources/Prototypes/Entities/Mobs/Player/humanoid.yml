@@ -418,28 +418,29 @@
       prototypes: [ ERTSecurityGearEVA ]
       roleLoadout: [ RoleSurvivalEVA ]
 
-- type: entity
-  id: RandomHumanoidSpawnerERTSecurityEVALecter
-  parent: RandomHumanoidSpawnerERTSecurityEVA
-  suffix: ERTRole, Lecter, EVA
-  components:
-    - type: RandomHumanoidSpawner
-      settings: ERTSecurityEVALecter
-
-- type: randomHumanoidSettings
-  id: ERTSecurityEVALecter
-  parent: ERTSecurityEVA
-  components:
-    - type: GhostRole
-      name: ghost-role-information-ert-security-name
-      description: ghost-role-information-ert-security-description
-      rules: ghost-role-information-nonantagonist-rules
-      raffle:
-        settings: short
-      job: ERTSecurity
-    - type: Loadout
-      prototypes: [ ERTSecurityGearEVALecter ]
-      roleLoadout: [ RoleSurvivalEVA ]
+# ERT Lecter is dead, and I have killed it. - Sol
+#- type: entity
+#  id: RandomHumanoidSpawnerERTSecurityEVALecter
+#  parent: RandomHumanoidSpawnerERTSecurityEVA
+#  suffix: ERTRole, Lecter, EVA
+#  components:
+#    - type: RandomHumanoidSpawner
+#      settings: ERTSecurityEVALecter
+#
+#- type: randomHumanoidSettings
+#  id: ERTSecurityEVALecter
+#  parent: ERTSecurityEVA
+#  components:
+#    - type: GhostRole
+#      name: ghost-role-information-ert-security-name
+#      description: ghost-role-information-ert-security-description
+#      rules: ghost-role-information-nonantagonist-rules
+#      raffle:
+#        settings: short
+#      job: ERTSecurity
+#    - type: Loadout
+#      prototypes: [ ERTSecurityGearEVALecter ]
+#      roleLoadout: [ RoleSurvivalEVA ]
 
 ## ERT Medic
 
