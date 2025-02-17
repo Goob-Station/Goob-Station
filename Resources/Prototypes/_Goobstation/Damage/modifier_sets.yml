@@ -32,6 +32,15 @@
     Poison: 0.0 # Yea, heroin is heaps good for ya
     Radiation : 0.7 # Engie yowies need some help against anti-rads
 
+- type: damageModifierSet
+  id: Tajaran
+  coefficients: # Literally the same as felinids, but heat and cold cuz fur
+    Blunt: 1.15
+    Slash: 1.15
+    Piercing: 1.15
+    Heat: 1.20
+    Cold: 0.80
+
 # Mech armor
 - type: damageModifierSet
   id: ThinArmor

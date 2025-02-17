@@ -90,7 +90,8 @@
     MobRodentiaRandom: 1
     MobVulpkaninRandom: 1
     MobIPCRandom: 1
-    MobFelinidRandom: 1
+    MobFelinidRandom: 1 # le funny
+    MobTajaranRandom: 1
     MobOniRandom: 1
 
 - type: weightedRandomEntity
