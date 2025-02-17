@@ -1,8 +1,8 @@
 - type: microwaveMealRecipe
   id: RecipeLollypop
   name: lollypop recipe
-  result: FoodLollypop
-  time: 15
+  result: FoodSnackLollypop
+  time: 5
   solids:
     Paper: 1
   reagents:
