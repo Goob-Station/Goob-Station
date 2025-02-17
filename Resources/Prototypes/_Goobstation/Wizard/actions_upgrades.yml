@@ -397,7 +397,7 @@
   name: Scream For Me II
   components:
   - type: ActionUseDelayModifier
-    useDelay: 40
+    useDelay: 50
 
 - type: entity
   parent: ActionScreamForMe
@@ -405,7 +405,7 @@
   name: Scream For Me III
   components:
   - type: ActionUseDelayModifier
-    useDelay: 20
+    useDelay: 40
 
 - type: entity
   parent: ActionScreamForMe
@@ -778,7 +778,7 @@
       state: monkey
     event: !type:SummonSimiansEvent
       speech: action-speech-spell-simians
-      mobs: SummonSimiansMobTable
+      mobs: SummonSimiansMobTableII
       weapons: SummonSimiansWeaponTableII
 
 - type: entity
@@ -798,9 +798,9 @@
       state: monkey
     event: !type:SummonSimiansEvent
       speech: action-speech-spell-simians
-      mobs: SummonSimiansMobTable
+      mobs: SummonSimiansMobTableIII
       weapons: SummonSimiansWeaponTableIII
-      amount: 5
+      amount: 4
       range: 1.25
       spawnAngle: 50
 
@@ -821,9 +821,9 @@
       state: monkey
     event: !type:SummonSimiansEvent
       speech: action-speech-spell-simians
-      mobs: SummonSimiansMobTable
+      mobs: SummonSimiansMobTableIV
       weapons: SummonSimiansWeaponTableIV
-      amount: 5
+      amount: 4
       range: 1.25
       spawnAngle: 50
 
@@ -844,9 +844,9 @@
       state: monkey
     event: !type:SummonSimiansEvent
       speech: action-speech-spell-simians
-      mobs: SummonSimiansMobTable
+      mobs: SummonSimiansMobTableV
       weapons: SummonSimiansWeaponTableV
-      amount: 6
+      amount: 5
       range: 1.5
       spawnAngle: 60
   - type: Magic

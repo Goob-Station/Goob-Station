@@ -288,7 +288,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        5
+        10
       </Box>
     </ColorBox>
     <ColorBox>
@@ -618,7 +618,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        60/40/20
+        60/50/40/30/20
       </Box>
     </ColorBox>
     <ColorBox>

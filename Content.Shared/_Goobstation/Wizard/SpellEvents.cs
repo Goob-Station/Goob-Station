@@ -446,7 +446,7 @@ public sealed partial class SummonSimiansEvent : InstantActionEvent, ISpeakSpell
     public float Range = 1f;
 
     [DataField]
-    public int Amount = 4;
+    public int Amount = 3;
 
     [DataField]
     public Angle SpawnAngle = Angle.FromDegrees(40);

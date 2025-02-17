@@ -235,7 +235,7 @@
   - type: EntityTargetAction
     checkCanAccess: false
     raiseOnUser: true
-    useDelay: 5
+    useDelay: 10
     itemIconStyle: BigAction
     whitelist:
       requireAll: true
@@ -947,7 +947,7 @@
   - type: InstantAction
     raiseOnUser: true
     checkCanInteract: false
-    useDelay: 3
+    useDelay: 4
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/_Goobstation/Wizard/summon_magic.ogg

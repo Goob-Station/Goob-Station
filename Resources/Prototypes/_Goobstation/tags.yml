@@ -252,6 +252,9 @@
   id: SecurityBreathMask
 
 - type: Tag
+  id: ShowWizardIcons
+
+- type: Tag
   id: SnapPop
 
 - type: Tag
