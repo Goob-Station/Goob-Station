@@ -5,4 +5,7 @@
   speciesRestriction: [IPC]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/IPCwings.rsi
-      state: merciful
+      state: merciful_base
+    - sprite: _Goobstation/Mobs/Customization/IPCwings.rsi
+      state: merciful_light
+

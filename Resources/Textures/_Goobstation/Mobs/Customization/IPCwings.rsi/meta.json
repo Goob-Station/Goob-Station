@@ -5,7 +5,11 @@
     "copyright": "Created by JORJ949 for Goobstation",
     "states": [
         {
-            "name": "merciful",
+            "name": "merciful_base",
+            "directions": 4
+        },
+        {
+            "name": "merciful_light",
             "directions": 4
         }
     ]
