@@ -17,7 +17,7 @@
       map: [ "enum.AmmoVisualLayers.Base" ]
     - state: color
       map: [ "enum.AmmoVisualLayers.Tip" ]
-      color: "#ffaa00"
+      color: "#ffaa00" # Change this to the chems color. Default is Bicaridine.
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped
@@ -25,7 +25,31 @@
   - type: SpawnItemsOnUse
     items:
     - id: FoodPacketLollypopTrash
-    - id: FoodSnackLollypopBase
+    - id: FoodSnackLollypopBase # Change this to effect what lollypop it spawns.
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+
+- type: entity
+  parent: FoodLollypopWrappedBase
+  id: FoodLollypopWrappedBicaridine
+  description: A bicaridine filled lollypop. It's still in a wrapper.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite # I kinda hope this... doesn't work?
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: color
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#ffaa00"
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodPacketLollypopTrash
+    - id: FoodSnackLollypopBicaridine
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -62,6 +86,35 @@
         reagents:
         - ReagentId: Sugar
           Quantity: 5
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    size: Tiny
+
+- type: entity
+  parent: FoodLollypopBase
+  id: FoodLollypopBicaridine
+  description: A bicaridine filled lollypop. 99.9% sugar.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite # I kinda hope this... doesn't work?
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: color
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#ffaa00"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Bicaridine
+          Quantity: 10
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
