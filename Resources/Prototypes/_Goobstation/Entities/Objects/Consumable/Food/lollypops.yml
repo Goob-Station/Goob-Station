@@ -20,7 +20,7 @@
     size: Tiny
   - type: SpawnItemsOnUse
     items:
-    - id: FoodPacketLollypopTrash
+    - id: FoodSnackLollypopTrash
     - id: FoodSnackLollypopBase # Change this to effect what lollypop it spawns.
     sound:
       path: /Audio/Effects/unwrap.ogg
@@ -66,6 +66,7 @@
 - type: entity
   parent: FoodBase
   id: FoodLollypop
+  name: lollypop
   description: A plain old lollypop. 99.9% sugar.
   components:
   - type: Food
@@ -103,6 +104,7 @@
 - type: entity
   parent: FoodLollypopWrappedBase
   id: FoodLollypopWrappedBicaridine
+  name: wrapped bicaridine lollypop
   description: A bicaridine filled lollypop. It's still in a wrapper.
   components:
   - type: Tag
@@ -113,7 +115,7 @@
     state: lollypop-wrapped
   - type: SpawnItemsOnUse
     items:
-    - id: FoodPacketLollypopTrash
+    - id: FoodSnackLollypopTrash
     - id: FoodSnackLollypopBicaridine
     sound:
       path: /Audio/Effects/unwrap.ogg
@@ -121,6 +123,7 @@
 - type: entity
   parent: FoodLollypopBase
   id: FoodLollypopBicaridine
+  name: bicaridine lollypop
   description: A bicaridine filled lollypop. 99.9% sugar.
   components:
   - type: Tag
@@ -152,6 +155,7 @@
 - type: entity
   parent: FoodLollypopWrappedBase
   id: FoodLollypopWrappedDermaline
+  name: wrapped dermaline lollypop
   description: A dermaline filled lollypop. It's still in a wrapper.
   components:
   - type: Tag
@@ -162,7 +166,7 @@
     state: lollypop-wrapped
   - type: SpawnItemsOnUse
     items:
-    - id: FoodPacketLollypopTrash
+    - id: FoodSnackLollypopTrash
     - id: FoodSnackLollypopDermaline
     sound:
       path: /Audio/Effects/unwrap.ogg
@@ -170,6 +174,7 @@
 - type: entity
   parent: FoodLollypopBase
   id: FoodLollypopDermaline
+  name: dermaline lollypop
   description: A dermaline filled lollypop. 99.9% sugar.
   components:
   - type: Tag
@@ -201,6 +206,7 @@
 - type: entity
   parent: FoodLollypopWrappedBase
   id: FoodLollypopWrappedOmnizine
+  name: wrapped omnizine lollypop
   description: An omnizine filled lollypop. It's still in a wrapper.
   components:
   - type: Tag
@@ -211,7 +217,7 @@
     state: lollypop-wrapped
   - type: SpawnItemsOnUse
     items:
-    - id: FoodPacketLollypopTrash
+    - id: FoodSnackLollypopTrash
     - id: FoodSnackLollypopOmnizine
     sound:
       path: /Audio/Effects/unwrap.ogg
@@ -219,6 +225,7 @@
 - type: entity
   parent: FoodLollypopBase
   id: FoodLollypopOmnizine
+  name: omnizine lollypop
   description: An omnizine filled lollypop. Reserved for the best of patients.
   components:
   - type: Tag
@@ -231,7 +238,7 @@
       map: [ "enum.AmmoVisualLayers.Base" ]
     - state: color
       map: [ "enum.AmmoVisualLayers.Tip" ]
-      color: "#215263"
+      color: "#fcf7f9"
   - type: SolutionContainerManager
     solutions:
       food:
