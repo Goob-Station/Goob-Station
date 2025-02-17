@@ -2,7 +2,7 @@
   name: lollypop dispenser
   parent: BaseStorageItem
   id: LauncherLollypopRegenerating
-  description: A self-regenerating lollypop dispenser.
+  description: Utilizes a in-built fabricator to generate tricordrazine lollypops from energy.
   suffix: Regenerating
   components:
   - type: PacifismAllowedGun
@@ -26,8 +26,8 @@
       path: /Audio/Items/pen_click.ogg
   - type: BasicEntityAmmoProvider
     proto: FoodSnackLollypopWrappedTricordrazine
-    capacity: 2
-    count: 2
+    capacity: 3
+    count: 3
   - type: Item
     size: Large
   - type: ContainerContainer
