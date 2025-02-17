@@ -249,7 +249,7 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBase
   id: FoodSnackLollypopWrappedTricordrazine
-  name: wrapped Tricordrazine lollypop
+  name: wrapped tricordrazine lollypop
   description: A Tricordrazine filled lollypop. It's still in a wrapper.
   components:
   - type: Tag
@@ -794,7 +794,7 @@
   parent: FoodSnackLollypopWrappedSyndicate
   id: FoodSnackLollypopWrappedCarpoToxin
   name: wrapped syndicate lollypop
-  suffix: CarpoToxin
+  suffix: carpotoxin
   description: Who the hell is Audrey White?
   components:
   - type: Tag
