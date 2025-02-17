@@ -704,8 +704,11 @@
     tags:
     - BreadEmergency
   - type: GibThisGuy  #Goobstation
+    requireBoth: true
+    icNames:
+      - Haleigh Pryocraft
     ocNames:
-      - Limer__treats
+      - limer__treats
 
 # Tastes like France.
 

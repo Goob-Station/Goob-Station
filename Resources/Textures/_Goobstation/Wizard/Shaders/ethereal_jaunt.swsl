@@ -3,7 +3,7 @@
 light_mode unshaded;
 
 uniform mediump vec2 reference;
-uniform bool use_reference = true;
+uniform bool use_reference;
 
 const lowp float visibility = 0.1;
 const lowp float time_scale = 1.0;

@@ -1,0 +1,76 @@
+# Goobstation
+- type: entity
+  parent: [BaseItem, BaseMinorContraband]
+  id: BananiumSword
+  name: bananium energy sword
+  description: A very loud & slippery sword with a beam made of pure, concentrated bananium. Slips un-galoshed targets like butter.
+  components:
+    - type: EnergySword
+      colorOptions:
+        - Yellow
+    - type: ItemToggle
+      soundActivate:
+        path: /Audio/_Goobstation/Weapons/Banana/bananaebladeon.ogg
+      soundDeactivate:
+        path: /Audio/_Goobstation/Weapons/Banana/bananaebladeoff.ogg
+    - type: ItemToggleActiveSound
+      activeSound:
+        path: /Audio/Weapons/ebladehum.ogg
+    - type: Sprite
+      sprite: _Goobstation/Objects/Weapons/Melee/e_sword_bananium.rsi
+      layers:
+      - state: e_sword
+      - state: e_sword_blade
+        color: "#FFFF00"
+        visible: false
+        shader: unshaded
+        map: [ "blade" ]
+    - type: Item
+      size: Small
+      sprite: Objects/Weapons/Melee/e_sword-inhands.rsi
+    - type: UseDelay
+      delay: 1.0
+    - type: PointLight
+      enabled: false
+      radius: 2
+      energy: 2
+      color: white
+      netsync: false
+    - type: Appearance
+    - type: ToggleableLightVisuals
+      spriteLayer: blade
+      inhandVisuals:
+        left:
+          - state: inhand-left-blade
+            shader: unshaded
+        right:
+          - state: inhand-right-blade
+            shader: unshaded
+    - type: ItemTogglePointLight
+    - type: DisarmMalus
+      malus: 0
+    - type: KnockdownOnHit
+      duration: 0.2
+      dropHeldItemsBehavior: DropIfStanding # Goob edit
+    - type: TelescopicBaton
+    - type: MeleeWeapon
+      wideAnimationRotation: -135
+      damage:
+        types:
+          Blunt: 0
+    - type: ItemToggleMeleeWeapon
+      activatedSoundOnHit:
+        path: /Audio/_Goobstation/Weapons/Banana/bananaeblade1.ogg
+        params:
+          variation: 0.250
+      activatedSoundOnHitNoDamage:
+        path: /Audio/_Goobstation/Weapons/Banana/bananaeblade1.ogg
+        params:
+          variation: 0.250
+      activatedSoundOnSwing:
+        path: /Audio/Weapons/eblademiss.ogg
+        params:
+          variation: 0.125
+    - type: Construction
+      graph: BananiumSword
+      node: bananiumSword
