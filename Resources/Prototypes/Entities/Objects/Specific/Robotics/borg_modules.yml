@@ -385,7 +385,7 @@
     - Gauze10Lingering
     - Bloodpack10Lingering
     - Syringe
-    - LauncherLollypopRegenerating # Goobstation
+    - LauncherLollypopRegeneratingTricordazine # Goobstation
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: treatment-module }
 
@@ -420,6 +420,7 @@
     - Beaker
     - BorgDropper
     - BorgHypo
+    - LauncherLollypopRegeneratingOmnizine # Goobstation
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-diagnosis-module }
 
@@ -477,6 +478,7 @@
     - Lighter
     - DrinkShaker
     - BorgDropper
+    - LauncherLollypopRegenerating # Goobstation
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: service-module }
 
@@ -546,6 +548,7 @@
     - BikeHorn
     - ClownRecorder
     - BikeHornInstrument
+    - LauncherLollypopRegeneratingWeh # Goobstation - Weh!
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: clowning-module }
 
