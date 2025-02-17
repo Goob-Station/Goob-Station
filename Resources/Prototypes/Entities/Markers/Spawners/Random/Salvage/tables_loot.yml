@@ -207,7 +207,7 @@
     - id: OxygenTankFilled
     - id: WelderIndustrial
     - id: FoodSnackLollypopWrappedBicaridine # Goobstation
-    - id: FoodSnackLollypopWrappedDermaline # Goobstation
+    - id: FoodSnackLollypopWrappedMystery # Goobstation
     - id: WeaponGrapplingGun
     - !type:GroupSelector
       children:
@@ -234,6 +234,7 @@
     - id: ClothingBeltSalvageWebbing
     - id: SeismicCharge
     - id: MineralScanner
+    - id: FoodSnackLollypopWrappedMysteryEvil # Goobstation
     - id: FoodSnackLollypopWrappedOmnizine # Goobstation
       weight: 0.5
     - id: WeaponCrusher

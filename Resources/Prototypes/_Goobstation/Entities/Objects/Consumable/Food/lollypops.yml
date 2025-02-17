@@ -254,8 +254,32 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBase
   id: FoodSnackLollypopWrappedMystery
-  name: wrapped syndicate lollypop
+  name: wrapped mystery lollypop
+  suffix: good
   description: A mysterious lollypop. It could be any one of them!
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopDermaline
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopBicaridine
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopOmnizine
+      orGroup: LollypopMystery
+      prob: 0.10
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopWrappedBase
+  id: FoodSnackLollypopWrappedMysteryEvil
+  name: wrapped mystery lollypop
+  suffix: evil
+  description: A mysterious lollypop. This one gives you a bad feeling.
   components:
   - type: Tag
     tags:
@@ -273,6 +297,9 @@
     - id: FoodSnackLollypopLexorin
       orGroup: LollypopMystery
       prob: 0.50
+    - id: FoodSnackLollypopRomerol
+      orGroup: LollypopMystery
+      prob: 0.05
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -312,6 +339,44 @@
         - ReagentId: Sugar
           Quantity: 5
         - ReagentId: Lexorin
+          Quantity: 10
+
+# Romerol Lollypop - Only obtainable via salvage right now.
+
+- type: entity
+  parent: FoodSnackLollypopWrappedBase
+  id: FoodSnackLollypopWrappedRomerol
+  name: wrapped syndicate lollypop
+  description: A lollypop containing romerol. Appears completely ordinary when unwrapped.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopRomerol
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBase
+  id: FoodSnackLollypopRomerol
+  name: lollypop
+  suffix: romerol
+  description: A plain old lollypop. 99.9% sugar.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Romerol
           Quantity: 10
 
 # Trash
