@@ -13,11 +13,17 @@
     {
       "name": "lollypop-wrapper"
     },
+	{
+      "name": "lollypop-wrapped-syndicate"
+    },
     {
       "name": "lollypop"
     },
     {
       "name": "lollypop-wrapped"
+    },
+	{
+      "name": "lollypop-wrapped-syndicate"
     },
 	{
       "name": "equipped-MASK",

@@ -80,7 +80,7 @@
     state: lollypop-wrapped-syndicate
   - type: SpawnItemsOnUse
     items:
-    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopTrashSyndicate
     - id: FoodSnackLollypopBaseSyndicate
     sound:
       path: /Audio/Effects/unwrap.ogg
@@ -409,6 +409,9 @@
     - id: FoodSnackLollypopNocturine
       orGroup: LollypopMystery
       prob: 0.30
+    - id: FoodSnackLollypopHyperzine
+      orGroup: LollypopMystery
+      prob: 0.30
     - id: FoodSnackLollypopRomerol
       orGroup: LollypopMystery
       prob: 0.05
@@ -433,7 +436,7 @@
     state: lollypop-wrapped-syndicate
   - type: SpawnItemsOnUse
     items:
-    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopTrashSyndicate
     - id: FoodSnackLollypopBaseSyndicate
     sound:
       path: /Audio/Effects/unwrap.ogg
@@ -480,7 +483,7 @@
     - FoodSnack
   - type: SpawnItemsOnUse
     items:
-    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopTrashSyndicate
     - id: FoodSnackLollypopLexorin
     sound:
       path: /Audio/Effects/unwrap.ogg
@@ -517,7 +520,7 @@
     - FoodSnack
   - type: SpawnItemsOnUse
     items:
-    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopTrashSyndicate
     - id: FoodSnackLollypopRomerol
     sound:
       path: /Audio/Effects/unwrap.ogg
@@ -557,7 +560,7 @@
     state: lollypop-wrapped
   - type: SpawnItemsOnUse
     items:
-    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopTrashSyndicate
     - id: FoodSnackLollypopNocturine
     sound:
       path: /Audio/Effects/unwrap.ogg
@@ -582,6 +585,43 @@
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
+
+# Hyperzine
+
+- type: entity
+  parent: FoodSnackLollypopWrappedSyndicate
+  id: FoodSnackLollypopWrappedHyperzine
+  name: wrapped syndicate lollypop
+  description: A stimunlant-filled lollypop. Appears completely ordinary when unwrapped.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrashSyndicate
+    - id: FoodSnackLollypopHyperzine
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBaseSyndicate
+  id: FoodSnackLollypopHyperzine
+  name: lollypop
+  suffix: hyperzine
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Stimulants
+          Quantity: 10
 
 # Non-medication Lollypops
 # Cognizine
@@ -662,5 +702,18 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapper
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: [FoodPacketTrash, BaseSyndicateContrabamd]
+  id: FoodSnackLollypopTrashSyndicate
+  name: syndicate lollypop wrapper
+  description: Someone's been naughty...
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapper-syndicate
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
