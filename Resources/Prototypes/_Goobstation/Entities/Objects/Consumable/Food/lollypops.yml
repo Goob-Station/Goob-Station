@@ -65,17 +65,23 @@
 
 - type: entity
   parent: FoodSnackLollypopWrappedBase
-  id: FoodLollypopWrappedBase
+  id: FoodSnackLollypopWrappedBase
   name: wrapped lollypop
   description: A plain old lollypop. It's still in a wrapper.
   components:
   - type: Tag
     tags:
     - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypop
+    sound:
+      path: /Audio/Effects/unwrap.ogg
 
 - type: entity
   parent: FoodSnackLollypopBase
-  id: FoodLollypop
+  id: FoodSnackLollypop
   name: lollypop
   description: A plain old lollypop. 99.9% sugar.
   components:
