@@ -40,7 +40,7 @@
   - type: Clothing
     quickEquip: false # You want to eat it, not stick it in your mouth.
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
-    state: lollypop-mouth # Todo - Actually make this
+    state: equipped-MASK
     slots: [ mask ]
   - type: Sprite # I kinda hope this... doesn't work?
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
