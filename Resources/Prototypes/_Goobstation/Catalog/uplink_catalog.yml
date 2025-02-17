@@ -355,6 +355,16 @@
   categories:
   - UplinkChemicals
 
+- type: listing
+  id: UplinkSyndicateLollypopBundle
+  name: uplink-lollypop-bundle-name
+  description: uplink-lollypop-bundle-desc
+  productEntity: SyndicateLollypopBundle
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkChemicals
+
 
 # Implants
 
