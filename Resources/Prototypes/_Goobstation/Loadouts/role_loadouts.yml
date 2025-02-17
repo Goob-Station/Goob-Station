@@ -24,3 +24,10 @@
   - Trinkets
   - GroupSpeciesBreathTool
   - SurvivalSecurity
+
+- type: roleLoadout
+  id: RoleSurvivalNukieHonkops
+  groups:
+  - SurvivalSyndicate
+  - GroupHonkopsMask
+  - GroupPocketTankDouble

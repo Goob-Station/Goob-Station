@@ -30,7 +30,6 @@
   - type: InstantAction
     icon: { sprite: Clothing/Mask/gassecurity.rsi, state: icon }
     event: !type:HailerActionEvent
-<<<<<<< HEAD
 
 - type: entity
   parent: ClothingMaskClown
@@ -68,5 +67,3 @@
     - type: Construction
       graph: VoiceMaskCraftable
       node: end
-=======
->>>>>>> parent of 4585b2387e (Honkops (#1430))

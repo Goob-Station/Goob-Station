@@ -193,7 +193,6 @@
     - SpawnPointGhostBlobRat
     playersPerCarrierBlob: 30
     maxCarrierBlob: 1
-<<<<<<< HEAD
 
 - type: entity
   parent: BaseNukeopsRule
@@ -263,5 +262,3 @@
         - Syndicate
       mindRoles:
       - MindRoleNukeops
-=======
->>>>>>> parent of 4585b2387e (Honkops (#1430))
