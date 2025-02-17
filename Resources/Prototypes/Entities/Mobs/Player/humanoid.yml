@@ -40,7 +40,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerDeathSquad
-  name: Death Squad Agent
+  name: Death Squad Operative # Goobstation
   suffix: ERTRole, Death Squad
   components:
     - type: Sprite
