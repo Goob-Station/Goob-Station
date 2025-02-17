@@ -3,7 +3,7 @@
 
 - type: entity
   parent: FoodBase
-  id: FoodLollypopWrappedBase
+  id: FoodSnackLollypopWrappedBase
   description: A plain old lollypop. It's still in a wrapper.
   abstract: true
   components:
@@ -27,7 +27,7 @@
 
 - type: entity
   parent: FoodBase
-  id: FoodLollypopBase
+  id: FoodSnackLollypopBase
   abstract: true
   description: A plain old lollypop. 99.9% sugar.
   components:
@@ -64,45 +64,28 @@
 # Lollypops
 
 - type: entity
-  parent: FoodBase
+  parent: FoodSnackLollypopWrappedBase
+  id: FoodLollypopWrappedBase
+  description: A plain old lollypop. It's still in a wrapper.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+
+- type: entity
+  parent: FoodSnackLollypopBase
   id: FoodLollypop
   name: lollypop
   description: A plain old lollypop. 99.9% sugar.
   components:
-  - type: Food
-    trash:
-    - FoodPacketLollypopTrash
   - type: Tag
     tags:
     - FoodSnack
-  - type: Clothing
-    quickEquip: false # You want to eat it, not stick it in your mouth.
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
-    state: lollypop_mouth # Todo - Actually make this
-    slots: [ mask ]
-  - type: Sprite # I kinda hope this... doesn't work?
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
-    layers:
-    - state: lollypop
-      map: [ "enum.AmmoVisualLayers.Base" ]
-    - state: color
-      map: [ "enum.AmmoVisualLayers.Tip" ]
-      color: "#FFC0CB" # Default is pink. Usually, you want this to match the chemical color.
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20 # Room for extra chems
-        reagents:
-        - ReagentId: Sugar
-          Quantity: 5
-  - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
-    size: Tiny
 
 # Bicaridine
 
 - type: entity
-  parent: FoodLollypopWrappedBase
+  parent: FoodSnackLollypopWrappedBase
   id: FoodLollypopWrappedBicaridine
   name: wrapped bicaridine lollypop
   description: A bicaridine filled lollypop. It's still in a wrapper.
@@ -121,7 +104,7 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  parent: FoodLollypopBase
+  parent: FoodSnackLollypopBase
   id: FoodLollypopBicaridine
   name: bicaridine lollypop
   description: A bicaridine filled lollypop. 99.9% sugar.
@@ -153,7 +136,7 @@
 # Dermaline
 
 - type: entity
-  parent: FoodLollypopWrappedBase
+  parent: FoodSnackLollypopWrappedBase
   id: FoodLollypopWrappedDermaline
   name: wrapped dermaline lollypop
   description: A dermaline filled lollypop. It's still in a wrapper.
@@ -172,7 +155,7 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  parent: FoodLollypopBase
+  parent: FoodSnackLollypopBase
   id: FoodLollypopDermaline
   name: dermaline lollypop
   description: A dermaline filled lollypop. 99.9% sugar.
@@ -204,7 +187,7 @@
 # Omnizine
 
 - type: entity
-  parent: FoodLollypopWrappedBase
+  parent: FoodSnackLollypopWrappedBase
   id: FoodLollypopWrappedOmnizine
   name: wrapped omnizine lollypop
   description: An omnizine filled lollypop. It's still in a wrapper.
@@ -223,7 +206,7 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  parent: FoodLollypopBase
+  parent: FoodSnackLollypopBase
   id: FoodLollypopOmnizine
   name: omnizine lollypop
   description: An omnizine filled lollypop. Reserved for the best of patients.
