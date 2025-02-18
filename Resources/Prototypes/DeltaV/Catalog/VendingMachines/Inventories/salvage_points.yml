@@ -64,6 +64,12 @@
     cost: 1250
   - id: LavalandWeaponKineticClaws
     cost: 1250
+  - id: WeaponProtoKineticShotgun
+    cost: 1250
+  - id: WeaponProtoKineticRepeater
+    cost: 1250
+  - id: WeaponProtoKineticPistol
+    cost: 1250
   - id: ClothingBackpackDuffelSalvageConscription
     cost: 1250
   - id: AdvancedMineralScanner
