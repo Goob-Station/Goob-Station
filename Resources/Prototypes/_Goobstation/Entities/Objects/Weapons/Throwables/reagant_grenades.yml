@@ -40,11 +40,11 @@
   components:
   - type: StorageFill
     contents:
-      - id: LubeGrenade
-        amount: 2
-      - id: GlueGrenade
-        amount: 2
+    - id: LubeGrenade
+      amount: 2
+    - id: GlueGrenade
+      amount: 2
   - type: Sprite
     layers:
-      - state: box
-      - state: flashbang
+    - state: box
+    - state: flashbang

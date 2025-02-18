@@ -1,6 +1,6 @@
 - type: entity
   name: greatshield
-  parent: [BaseItem, BaseCentcommContraband]
+  parent: [BaseItem, ClothingSlotBase, BaseCentcommContraband]
   id: BlueShieldShield
   description: The iconic namesake of these soldiers, the Blueshield. Known to take shots meant for high-ranking officials.
   components:
@@ -93,6 +93,17 @@
       autoRecharge: true
       autoRechargeRate: 3.5
     - type: RechargeableBlocking
+    - type: ItemSlots
+      slots:
+        item:
+          name: Baton
+          insertVerbText: sheath-insert-verb
+          ejectVerbText: sheath-eject-verb
+          insertSound: /Audio/Items/sheath.ogg
+          ejectSound: /Audio/Items/unsheath.ogg
+          whitelist:
+            tags:
+            - Stunbaton
 
 
 - type: entity
