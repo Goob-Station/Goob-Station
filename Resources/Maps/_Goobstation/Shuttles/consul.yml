@@ -5550,49 +5550,6 @@ entities:
           endTime: 0
           startTime: 0
           length: 0
-- proto: ClothingBackpackElectropack
-  entities:
-  - uid: 1334
-    components:
-    - type: Transform
-      pos: -4.442711,0.58668166
-      parent: 2
-    - type: Storage
-      storedItems:
-        1335:
-          position: 0,0
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 1335
-    - type: UserInterface
-      actors:
-        enum.StorageUiKey.Key:
-        - invalid
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-    - type: GroupExamine
-      group:
-      - hoverMessage: ""
-        contextText: verb-examine-group-other
-        icon: /Textures/Interface/examine-star.png
-        components:
-        - Armor
-        - ClothingSpeedModifier
-        entries:
-        - message: >-
-            It provides the following protection:
-
-            - [color=orange]Explosion[/color] damage [color=white]to contents[/color] reduced by [color=lightblue]10%[/color].
-          priority: 0
-          component: Armor
-        title: null
-    - type: ActiveUserInterface
 - proto: ClothingBeltDeathsquadWebbingFilled
   entities:
   - uid: 424
@@ -7233,8 +7190,6 @@ entities:
       pos: 7.5,-6.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 1329
       address: VNT-07B7-3D03
@@ -7971,8 +7926,6 @@ entities:
       pos: 4.5,-6.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 1329
       address: SCR-1827-30D4
@@ -9629,45 +9582,6 @@ entities:
       angularDamping: 0
       linearDamping: 0
       canCollide: False
-- proto: MedkitCombat
-  entities:
-  - uid: 284
-    components:
-    - type: MetaData
-      desc: A kit containing 8 Ambuzol plus pills.
-      name: Ambuzol Kit
-    - type: Transform
-      parent: 282
-    - type: Storage
-      storedItems:
-        366:
-          position: 0,0
-          _rotation: South
-        367:
-          position: 0,1
-          _rotation: South
-        369:
-          position: 1,0
-          _rotation: South
-        370:
-          position: 1,1
-          _rotation: South
-        1290:
-          position: 2,0
-          _rotation: South
-        1291:
-          position: 2,1
-          _rotation: South
-        1292:
-          position: 3,1
-          _rotation: South
-        1293:
-          position: 3,0
-          _rotation: South
-    - type: UserInterface
-      actors:
-        enum.StorageUiKey.Key:
-        - invalid
     - type: ContainerContainer
       containers:
         storagebase: !type:Container
