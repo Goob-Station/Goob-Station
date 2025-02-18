@@ -83,13 +83,13 @@ public sealed partial class GoobCVars
     ///     Ceiling for a dice roll will always be twice this value.
     /// </summary>
     public static readonly CVarDef<float> RangedParryStamDmgValueBase =
-        CVarDef.Create("goob.rangedparry_stam_damage_value_base", 11f, CVar.SERVERONLY);
+        CVarDef.Create("goob.rangedparry_stam_damage_value_base", 15f, CVar.SERVERONLY);
 
     /// <summary>
     ///     Ranged parry stam damage lower bound
     /// </summary>
     public static readonly CVarDef<float> RangedParryStamDmgValueLower =
-        CVarDef.Create("goob.rangedparry_stam_damage_lower_bound", 2f, CVar.SERVERONLY);
+        CVarDef.Create("goob.rangedparry_stam_damage_lower_bound", 4f, CVar.SERVERONLY);
 
     #region Player Listener
 

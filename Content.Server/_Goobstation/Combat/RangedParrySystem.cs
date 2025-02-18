@@ -3,22 +3,16 @@ using Content.Server.Hands.Systems;
 using Content.Server.Popups;
 using Content.Shared._Goobstation.CCVar;
 using Content.Shared._Goobstation.Combat;
-using Content.Shared.Audio;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.Components;
 using Content.Shared.Movement.Components;
-using Content.Shared.Movement.Systems;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Wieldable.Components;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
-using Robust.Shared.Player;
 using Robust.Shared.Configuration;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server._Goobstation.Combat;
@@ -50,9 +44,9 @@ public sealed class RangedParrySystem : EntitySystem
     ////    If rolls against the melee user - hit.
     //// !WARNING ////
 
-    private float _stamDamageValueBase = 11f;
-    private float _stamDamageLowerBound = 2f;
-    private float _parryRandomThreshold = 22.0f;
+    private float _stamDamageValueBase;
+    private float _stamDamageLowerBound;
+    private float _parryRandomThreshold;
     private float _baseMovementSpeed = MovementSpeedModifierComponent.DefaultBaseSprintSpeed;
 
     private SoundPathSpecifier _parrySound = new ("/Audio/Weapons/block_metal1.ogg");
@@ -173,12 +167,9 @@ public sealed class RangedParrySystem : EntitySystem
 
     private bool CastDie(float damage, float speed)
     {
-        //                      22          -    12
         var odds = _parryRandomThreshold - damage * 2;
         odds += odds * (speed - _baseMovementSpeed) / _baseMovementSpeed;
         odds = Math.Clamp(odds / _parryRandomThreshold, 0.0f, 1.0f);
-
-        Console.WriteLine($"Odds {odds}, speed modifier {(speed - _baseMovementSpeed) / _baseMovementSpeed}, damage modifier {_parryRandomThreshold - damage * 2}");
 
         return _rand.Prob(odds);
     }
