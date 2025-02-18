@@ -23,20 +23,21 @@
   id: CentcomGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitCentcomOfficial
-    shoes: ClothingShoesBootsJackFilled
-    head: ClothingHeadHatCentcomcap # Goobstation - Fancier
+    shoes: ClothingShoesBootsJackFilled # Change this if you want, I don't really care.
+    head: ClothingHeadHatCentcomcap # Lets be real, the other hat looks like steaming ASS.
     eyes: ClothingEyesGlassesCommand # Goobstation - Can change to Central Commander shades if wanted, but probably save for a new role entirely.
-    gloves: ClothingHandsGlovesCombat # Goobstation - Replace with goldtrims when merged.
+    gloves: ClothingHandsGlovesCombat # Goobstation - Replace with goldtrims when made.
     back: ClothingBackpackSatchelLeather # Goobstation - Officials need bags too!
-    outerClothing: ClothingOuterArmourDurathread # Goobstation
-    neck: ExecutiveIDCard # Executive Access! - Todo: Add more to this card.
+    outerClothing: ClothingOuterArmourDurathread # Officials shouldn't use shitty armor, Nanotrasen is richer than that.
+    neck: ExecutiveIDCard # Executive Access!
     id: CentcomPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltHolsterFilledCentComm # Goobstation - Shoulder Holsters are COOL
+    belt: ClothingBeltHolsterFilledCentComm # Death to secbelts
     pocket1: BoxFolderCentCom # Why does a CentComm official not have a CentComm folder? Fixing that.
+    pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
     # pocket2: PenCentcom - Already has one in the PDA. This is redundant.
   storage:
     back:
-    - AmnestizineHypospray # Goobstation - CentComm Revamp
-    - HandheldFaxOfficial # Goobstation - CentComm Revamp
+    - HandheldFaxOfficial # NTRs fax is huge, do you expect me to use some POOR person fax?
+    - BoxFolderCentComClipboard # Solely for holding and looking menacing.
 # Goobstation - End
