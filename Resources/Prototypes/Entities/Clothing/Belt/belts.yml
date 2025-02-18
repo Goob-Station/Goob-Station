@@ -555,19 +555,14 @@
     sprite: Clothing/Belt/holster.rsi
   - type: Item
     size: Ginormous
-  - type: Storage
-    maxItemSize: Normal
-    defaultStorageOrientation: Vertical
-    grid:
-    - 0,0,4,1
   - type: ItemSlots
     slots:
       item:
-        name: Sabre
-        insertVerbText: sheath-insert-verb
-        ejectVerbText: sheath-eject-verb
-        insertSound: /Audio/Items/sheath.ogg
-        ejectSound: /Audio/Items/unsheath.ogg
+        name: Pistol
+        insertVerbText: holster-insert-verb
+        ejectVerbText: holster-eject-verb
+        insertSound: /Audio/Items/belt_equip.ogg
+        ejectSound: /Audio/Items/belt_equip.ogg
         whitelist:
           tags:
           - Sidearm
