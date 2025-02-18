@@ -45,7 +45,7 @@
 - type: entity
   id: ClothingBeltHolsterFilledCentComm
   parent: ClothingBeltHolster
-  suffix: Filled
+  suffix: Filled, N1984
   components:
   - type: StorageFill
     contents:

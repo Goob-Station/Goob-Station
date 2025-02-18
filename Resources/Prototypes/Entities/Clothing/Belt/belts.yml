@@ -545,7 +545,7 @@
 
 
 - type: entity
-  parent: [ClothingBeltStorageBase, ClothingSlotBase] # Goobstation
+  parent: [ClothingBeltStorageBase, BaseSecurityContraband, ClothingSlotBase] # Goobstation
   id: ClothingBeltHolster
   name: shoulder holster
   description: 'A holster to carry a handgun and ammo. WARNING: Badasses only.'
@@ -577,7 +577,7 @@
   - type: Appearance # Goobstation - End
 
 - type: entity
-  parent: [ClothingBeltStorageBase, BaseSyndicateContraband]
+  parent: [ClothingBeltStorageBase, BaseSyndicateContraband, ClothingSlotBase] # Goobstation
   id: ClothingBeltSyndieHolster
   name: syndicate shoulder holster
   description: A deep shoulder holster capable of holding many types of ballistics.

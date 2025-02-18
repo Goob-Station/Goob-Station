@@ -193,7 +193,7 @@
 - type: entity
   id: ClothingBeltHolsterFilled
   parent: ClothingBeltHolster
-  suffix: Filled
+  suffix: Filled, Inspector
   components:
   - type: StorageFill
     contents:
