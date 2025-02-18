@@ -1,0 +1,856 @@
+# Mime Malaise
+- type: entity
+  parent: ActionMimeMalaise
+  id: ActionMimeMalaiseII
+  name: Mime Malaise II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 25
+
+- type: entity
+  parent: ActionMimeMalaise
+  id: ActionMimeMalaiseIII
+  name: Mime Malaise III
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 20
+
+- type: entity
+  parent: ActionMimeMalaise
+  id: ActionMimeMalaiseIV
+  name: Mime Malaise IV
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 15
+
+- type: entity
+  parent: ActionMimeMalaise
+  id: ActionMimeMalaiseV
+  name: Mime Malaise V
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 10
+
+# Curse of the Cluwne
+- type: entity
+  parent: ActionCluwneCurse
+  id: ActionCluwneCurseII
+  name: Curse of the Cluwne II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 40
+
+- type: entity
+  parent: ActionCluwneCurse
+  id: ActionCluwneCurseIII
+  name: Curse of the Cluwne III
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 20
+
+# Banana Touch
+- type: entity
+  parent: ActionBananaTouch
+  id: ActionBananaTouchII
+  name: Banana Touch II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 25
+
+- type: entity
+  parent: ActionBananaTouch
+  id: ActionBananaTouchIII
+  name: Banana Touch III
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 20
+
+- type: entity
+  parent: ActionBananaTouch
+  id: ActionBananaTouchIV
+  name: Banana Touch IV
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 15
+
+- type: entity
+  parent: ActionBananaTouch
+  id: ActionBananaTouchV
+  name: Banana Touch V
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 10
+
+# Magic Missile
+- type: entity
+  parent: ActionMagicMissile
+  id: ActionMagicMissileII
+  name: Magic Missile II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 13
+
+- type: entity
+  parent: ActionMagicMissile
+  id: ActionMagicMissileIII
+  name: Magic Missile III
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 6
+
+# Disable Technology
+- type: entity
+  parent: ActionDisableTech
+  id: ActionDisableTechII
+  name: Disable Technology II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 16
+
+- type: entity
+  parent: ActionDisableTech
+  id: ActionDisableTechIII
+  name: Disable Technology III
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 12
+
+- type: entity
+  parent: ActionDisableTech
+  id: ActionDisableTechIV
+  name: Disable Technology IV
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 8
+
+- type: entity
+  parent: ActionDisableTech
+  id: ActionDisableTechV
+  name: Disable Technology V
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 4
+
+# Smoke
+- type: entity
+  parent: ActionSmoke
+  id: ActionSmokeII
+  name: Smoke II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 7
+
+- type: entity
+  parent: ActionSmoke
+  id: ActionSmokeIII
+  name: Smoke III
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 2
+
+# Repulse
+- type: entity
+  parent: ActionRepulse
+  id: ActionRepulseII
+  name: Repulse II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 33.75
+
+- type: entity
+  parent: ActionRepulse
+  id: ActionRepulseIII
+  name: Repulse III
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 27.5
+
+- type: entity
+  parent: ActionRepulse
+  id: ActionRepulseIV
+  name: Repulse IV
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 21.25
+
+- type: entity
+  parent: ActionRepulse
+  id: ActionRepulseV
+  name: Repulse V
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 15
+
+# Stop Time
+- type: entity
+  parent: ActionStopTime
+  id: ActionStopTimeII
+  name: Stop Time II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 35
+
+- type: entity
+  parent: ActionStopTime
+  id: ActionStopTimeIII
+  name: Stop Time III
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 20
+
+# Blind
+- type: entity
+  parent: ActionBlindSpell
+  id: ActionBlindII
+  name: Blind II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 12
+
+- type: entity
+  parent: ActionBlindSpell
+  id: ActionBlindIII
+  name: Blind III
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 9
+
+- type: entity
+  parent: ActionBlindSpell
+  id: ActionBlindIV
+  name: Blind IV
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 6
+
+- type: entity
+  parent: ActionBlindSpell
+  id: ActionBlindV
+  name: Blind V
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 3
+
+# Mutate
+- type: entity
+  parent: ActionMutateSpell
+  id: ActionMutateII
+  name: Mutate II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 30
+
+# Tesla Blast
+- type: entity
+  parent: ActionTeslaBlast
+  id: ActionTeslaBlastII
+  name: Tesla Blast II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 23.25
+
+- type: entity
+  parent: ActionTeslaBlast
+  id: ActionTeslaBlastIII
+  name: Tesla Blast III
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 16.5
+
+- type: entity
+  parent: ActionTeslaBlast
+  id: ActionTeslaBlastIV
+  name: Tesla Blast IV
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 9.75
+
+- type: entity
+  parent: ActionTeslaBlast
+  id: ActionTeslaBlastV
+  name: Tesla Blast V
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 3
+
+# Lightning Bolt
+- type: entity
+  parent: ActionLightningBolt
+  id: ActionLightningBoltII
+  name: Lightning Bolt II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 8.25
+
+- type: entity
+  parent: ActionLightningBolt
+  id: ActionLightningBoltIII
+  name: Lightning Bolt III
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 6.5
+
+- type: entity
+  parent: ActionLightningBolt
+  id: ActionLightningBoltIV
+  name: Lightning Bolt IV
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 4.75
+
+- type: entity
+  parent: ActionLightningBolt
+  id: ActionLightningBoltV
+  name: Lightning Bolt V
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 3
+
+# Homing Toolbox
+- type: entity
+  parent: ActionHomingToolbox
+  id: ActionHomingToolboxII
+  name: Homing Toolbox II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 5
+
+- type: entity
+  parent: ActionHomingToolbox
+  id: ActionHomingToolboxIII
+  name: Homing Toolbox III
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 4
+
+- type: entity
+  parent: ActionHomingToolbox
+  id: ActionHomingToolboxIV
+  name: Homing Toolbox IV
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 3
+
+- type: entity
+  parent: ActionHomingToolbox
+  id: ActionHomingToolboxV
+  name: Homing Toolbox V
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 2
+
+# Arcane Barrage
+- type: entity
+  parent: ActionArcaneBarrage
+  id: ActionArcaneBarrageII
+  name: Arcane Barrage II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 40
+
+- type: entity
+  parent: ActionArcaneBarrage
+  id: ActionArcaneBarrageIII
+  name: Arcane Barrage III
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 20
+
+# Lesser Summon Guns
+- type: entity
+  parent: ActionLesserSummonGuns
+  id: ActionLesserSummonGunsII
+  name: Lesser Summon Guns II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 40
+
+- type: entity
+  parent: ActionLesserSummonGuns
+  id: ActionLesserSummonGunsIII
+  name: Lesser Summon Guns III
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 20
+
+# Curse of the Barnyard
+- type: entity
+  parent: ActionBarnyardCurse
+  id: ActionBarnyardCurseII
+  name: Curse of the Barnyard II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 9
+
+- type: entity
+  parent: ActionBarnyardCurse
+  id: ActionBarnyardCurseIII
+  name: Curse of the Barnyard III
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 3
+
+# Scream For Me
+- type: entity
+  parent: ActionScreamForMe
+  id: ActionScreamForMeII
+  name: Scream For Me II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 40
+
+- type: entity
+  parent: ActionScreamForMe
+  id: ActionScreamForMeIII
+  name: Scream For Me III
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 20
+
+- type: entity
+  parent: ActionScreamForMe
+  id: ActionScreamForMeIV
+  name: Scream For Me IV
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 30
+
+- type: entity
+  parent: ActionScreamForMe
+  id: ActionScreamForMeV
+  name: Scream For Me V
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 20
+
+# Teleport
+- type: entity
+  parent: ActionTeleportWizard
+  id: ActionTeleportII
+  name: Teleport II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 40
+
+- type: entity
+  parent: ActionTeleportWizard
+  id: ActionTeleportIII
+  name: Teleport III
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 20
+
+# Traps
+- type: entity
+  parent: ActionTrapsSpell
+  id: ActionTrapsII
+  name: The Traps! II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 20
+
+- type: entity
+  parent: ActionTrapsSpell
+  id: ActionTrapsIII
+  name: The Traps! III
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 15
+
+- type: entity
+  parent: ActionTrapsSpell
+  id: ActionTrapsIV
+  name: The Traps! IV
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 10
+
+- type: entity
+  parent: ActionTrapsSpell
+  id: ActionTrapsV
+  name: The Traps! V
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 5
+
+# Lesser Summon Bees
+- type: entity
+  parent: ActionLesserSummonBees
+  id: ActionLesserSummonBeesII
+  name: Lesser Summon Bees II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 40
+
+- type: entity
+  parent: ActionLesserSummonBees
+  id: ActionLesserSummonBeesIII
+  name: Lesser Summon Bees III
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 20
+
+# Sanguine Strike
+- type: entity
+  parent: ActionSanguineStrike
+  id: ActionSanguineStrikeII
+  name: Sanguine Strike II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 10
+
+- type: entity
+  parent: ActionSanguineStrike
+  id: ActionSanguineStrikeIII
+  name: Sanguine Strike III
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 5
+
+# Swap
+- type: entity
+  parent: ActionSwapSpell
+  id: ActionSwapII
+  name: Swap II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 15
+
+- type: entity
+  parent: ActionSwapSpell
+  id: ActionSwapIII
+  name: Swap III
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 5
+
+# Blink
+- type: entity
+  parent: ActionBlinkSpell
+  id: ActionBlinkII
+  name: Blink II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 2.4
+
+- type: entity
+  parent: ActionBlinkSpell
+  id: ActionBlinkIII
+  name: Blink III
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 1.8
+
+- type: entity
+  parent: ActionBlinkSpell
+  id: ActionBlinkIV
+  name: Blink IV
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 1.2
+
+- type: entity
+  parent: ActionBlinkSpell
+  id: ActionBlinkV
+  name: Blink V
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 0.6
+
+# Force Wall
+- type: entity
+  parent: ActionForceWall
+  id: ActionForceWallII
+  name: Force Wall II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 8.75
+
+- type: entity
+  parent: ActionForceWall
+  id: ActionForceWallIII
+  name: Force Wall III
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 7.5
+
+- type: entity
+  parent: ActionForceWall
+  id: ActionForceWallIV
+  name: Force Wall IV
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 6.25
+
+- type: entity
+  parent: ActionForceWall
+  id: ActionForceWallV
+  name: Force Wall V
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 5
+
+# Charge
+- type: entity
+  parent: ActionChargeSpell
+  id: ActionChargeII
+  name: Charge II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 50
+
+- type: entity
+  parent: ActionChargeSpell
+  id: ActionChargeIII
+  name: Charge III
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 40
+
+- type: entity
+  parent: ActionChargeSpell
+  id: ActionChargeIV
+  name: Charge IV
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 30
+
+- type: entity
+  parent: ActionChargeSpell
+  id: ActionChargeV
+  name: Charge V
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 20
+
+# Mind Swap
+- type: entity
+  parent: ActionMindSwap
+  id: ActionMindSwapII
+  name: Mind Swap II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 40
+
+- type: entity
+  parent: ActionMindSwap
+  id: ActionMindSwapIII
+  name: Mind Swap III
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 20
+
+# Smite
+- type: entity
+  parent: ActionSmite
+  id: ActionSmiteII
+  name: Smite II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 40
+
+- type: entity
+  parent: ActionSmite
+  id: ActionSmiteIII
+  name: Smite III
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 20
+
+# Knock
+- type: entity
+  parent: ActionKnock
+  id: ActionKnockII
+  name: Knock II
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 6
+
+- type: entity
+  parent: ActionKnock
+  id: ActionKnockIII
+  name: Knock III
+  components:
+  - type: ActionUseDelayModifier
+    useDelay: 2
+
+# Spell Cards
+- type: entity
+  parent: ActionSpellCards
+  id: ActionSpellCardsII
+  name: Spell Cards II
+  components:
+  - type: SpellCardsAction
+    useDelay: 4
+
+- type: entity
+  parent: ActionSpellCards
+  id: ActionSpellCardsIII
+  name: Spell Cards III
+  components:
+  - type: SpellCardsAction
+    useDelay: 2
+
+# Rod Form
+- type: entity
+  parent: ActionPolymorphWizardRod
+  id: ActionPolymorphWizardRodII
+  name: Rod Form II
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 21.25
+    event: !type:PolymorphSpellEvent
+      speech: action-speech-spell-rod-form
+      protoId: WizardRodII
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: immrod
+
+- type: entity
+  parent: ActionPolymorphWizardRod
+  id: ActionPolymorphWizardRodIII
+  name: Rod Form III
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 17.5
+    event: !type:PolymorphSpellEvent
+      speech: action-speech-spell-rod-form
+      protoId: WizardRodIII
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: immrod
+
+- type: entity
+  parent: ActionPolymorphWizardRod
+  id: ActionPolymorphWizardRodIV
+  name: Rod Form IV
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 13.75
+    event: !type:PolymorphSpellEvent
+      speech: action-speech-spell-rod-form
+      protoId: WizardRodIV
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: immrod
+
+- type: entity
+  parent: ActionPolymorphWizardRod
+  id: ActionPolymorphWizardRodV
+  name: Rod Form V
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 10
+    event: !type:PolymorphSpellEvent
+      speech: action-speech-spell-rod-form
+      protoId: WizardRodV
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: immrod
+
+# Summon Simians
+- type: entity
+  parent: ActionSummonSimians
+  id: ActionSummonSimiansII
+  name: Summon Simians II
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 80
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/monkey.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: monkey
+    event: !type:SummonSimiansEvent
+      speech: action-speech-spell-simians
+      mobs: SummonSimiansMobTable
+      weapons: SummonSimiansWeaponTableII
+
+- type: entity
+  parent: ActionSummonSimians
+  id: ActionSummonSimiansIII
+  name: Summon Simians III
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 70
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/monkey.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: monkey
+    event: !type:SummonSimiansEvent
+      speech: action-speech-spell-simians
+      mobs: SummonSimiansMobTable
+      weapons: SummonSimiansWeaponTableIII
+      amount: 5
+      range: 1.25
+      spawnAngle: 50
+
+- type: entity
+  parent: ActionSummonSimians
+  id: ActionSummonSimiansIV
+  name: Summon Simians IV
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 60
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/monkey.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: monkey
+    event: !type:SummonSimiansEvent
+      speech: action-speech-spell-simians
+      mobs: SummonSimiansMobTable
+      weapons: SummonSimiansWeaponTableIV
+      amount: 5
+      range: 1.25
+      spawnAngle: 50
+
+- type: entity
+  parent: ActionSummonSimians
+  id: ActionSummonSimiansV
+  name: Summon Simians V
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 50
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/monkey.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: monkey
+    event: !type:SummonSimiansEvent
+      speech: action-speech-spell-simians
+      mobs: SummonSimiansMobTable
+      weapons: SummonSimiansWeaponTableV
+      amount: 6
+      range: 1.5
+      spawnAngle: 60
+  - type: Magic
+    requiresClothes: false
+  - type: Tag
+    tags:
+      - SummonSimiansMaxLevelAction
