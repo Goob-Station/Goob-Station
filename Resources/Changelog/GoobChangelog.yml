@@ -4859,3 +4859,11 @@ Entries:
       message: The bananium sword is now a craftable item
   id: 555
   time: '2025-02-17T03:58:23.0000000+00:00'
+- author: Aineias1
+  changes:
+    - type: Tweak
+      message: >-
+        Increased comms console character limit form 256 to 512. Shitposters,
+        rejoice!
+  id: 556
+  time: '2025-02-17T20:02:01.0000000+00:00'
