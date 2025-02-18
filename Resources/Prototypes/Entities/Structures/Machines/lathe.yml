@@ -790,7 +790,6 @@
     - CockroachCube
     - HumanCube # Goobstation - Start
     - DionaCube
-    - FelinidCube
     - GingerbreadCube
     - MothCube
     - DwarfCube
@@ -799,6 +798,7 @@
     - ReptilianCube
     - VulpkaninCube
     - SlimePersonCube
+    - TajaranCube
     - VoxCube
     - YowieCube # Goobstation - End
   - type: EmagLatheRecipes
@@ -807,6 +807,7 @@
     - SpaceCarpCube
     - SpaceTickCube
     - SkibidiCube # Goobstation
+    - FelinidCube
 
 - type: entity
   id: SecurityTechFab

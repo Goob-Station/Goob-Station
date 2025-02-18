@@ -43,7 +43,7 @@
 
 - type: Tag
   id: ClarkePeripheralsControlModule
-
+  
 - type: Tag
   id: ClarkeRArm
 
@@ -286,6 +286,9 @@
 
 - type: Tag
   id: Tourniquet
+
+- type: Tag  
+  id: ToySword
 
 - type: Tag
   id: Undead

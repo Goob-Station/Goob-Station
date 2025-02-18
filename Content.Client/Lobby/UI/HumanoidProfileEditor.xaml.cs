@@ -1157,6 +1157,22 @@ namespace Content.Client.Lobby.UI
                         Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
                         break;
                     }
+                // Goobstation Section Start - Tajaran
+                case HumanoidSkinColor.AnimalFur: // Goobstation - Tajaran
+                    {
+                        if (!RgbSkinColorContainer.Visible)
+                        {
+                            Skin.Visible = false;
+                            RgbSkinColorContainer.Visible = true;
+                        }
+
+                        var color = SkinColor.ClosestAnimalFurColor(_rgbSkinColorSelector.Color);
+
+                        Markings.CurrentSkinColor = color;
+                        Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
+                        break;
+                    }
+                // Goobstation Section End - Tajaran
             }
 
             ReloadProfilePreview();
@@ -1412,6 +1428,19 @@ namespace Content.Client.Lobby.UI
 
                         break;
                     }
+                // Goobstation Section Start - Tajaran
+                case HumanoidSkinColor.AnimalFur: // Goobstation - Tajaran
+                    {
+                        if (!RgbSkinColorContainer.Visible)
+                        {
+                            Skin.Visible = false;
+                            RgbSkinColorContainer.Visible = true;
+                        }
+
+                        _rgbSkinColorSelector.Color = SkinColor.ClosestAnimalFurColor(Profile.Appearance.SkinColor);
+                        break;
+                    }
+                // Goobstation Section End - Tajaran
             }
 
         }
