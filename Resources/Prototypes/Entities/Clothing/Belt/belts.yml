@@ -548,7 +548,7 @@
   parent: [ClothingBeltStorageBase, BaseSecurityContraband, ClothingSlotBase] # Goobstation
   id: ClothingBeltHolster
   name: shoulder holster
-  description: 'A holster to carry a handgun and ammo. WARNING: Badasses only.'
+  description: 'A holster to carry a sidearm and ammunition. WARNING: Badasses only.'
   components:
   - type: Sprite
     sprite: Clothing/Belt/holster.rsi
@@ -561,8 +561,8 @@
     slots:
       item:
         name: Sidearm
-        insertVerbText: sheath-insert-verb
-        ejectVerbText: sheath-eject-verb
+        insertVerbText: holster-insert-verb
+        ejectVerbText: holster-eject-verb
         insertSound: /Audio/Items/belt_equip.ogg
         ejectSound: /Audio/Items/belt_equip.ogg
         whitelist:
@@ -601,8 +601,8 @@
     slots:
       item:
         name: Sidearm
-        insertVerbText: sheath-insert-verb
-        ejectVerbText: sheath-eject-verb
+        insertVerbText: holster-insert-verb
+        ejectVerbText: holster-eject-verb
         insertSound: /Audio/Items/belt_equip.ogg
         ejectSound: /Audio/Items/belt_equip.ogg
         whitelist:
