@@ -4873,3 +4873,9 @@ Entries:
       message: Killer tomatoes no longer take damage over time.
   id: 557
   time: '2025-02-18T16:35:46.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Remove
+      message: Removed lag.
+  id: 558
+  time: '2025-02-18T23:21:08.0000000+00:00'
