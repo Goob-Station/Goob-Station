@@ -22,15 +22,15 @@
   - type: Contraband
     severity: Major
 
-# minor contraband by default restricted to security only
+# base department restricted contraband, this should only be used as a parent for other contraband prototypes, not the restricted items themselves.
 - type: entity
   id: BaseRestrictedContraband
   abstract: true
   components:
   - type: Contraband
     severity: Restricted
-    allowedDepartments: [ Security ]
-    allowedJobs: [ BlueshieldOfficer ] # Goob - effectively almost a sec member
+    allowedDepartments: [  ]
+    allowedJobs: [  ]
 
 # one department restricted contraband
 - type: entity
@@ -56,6 +56,7 @@
   components:
   - type: Contraband
     allowedDepartments: [ Security ]
+    allowedJobs: [ BlueshieldOfficer ] # Goob - effectively almost a sec member
 
 - type: entity
   id: BaseEngineeringContraband

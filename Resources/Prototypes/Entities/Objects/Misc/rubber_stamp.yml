@@ -224,7 +224,7 @@
 
 - type: entity
   name: warden's rubber stamp
-  parent: [RubberStampBase, BaseRestrictedContraband]
+  parent: [RubberStampBase, BaseSecurityContraband]
   id: RubberStampWarden
   suffix: DO NOT MAP
   components:
@@ -261,7 +261,7 @@
 
 - type: entity
   name: detective's rubber stamp
-  parent: [RubberStampBase, BaseRestrictedContraband]
+  parent: [RubberStampBase, BaseSecurityContraband]
   id: RubberStampDetective
   suffix: DO NOT MAP
   components:
