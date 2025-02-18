@@ -44,8 +44,18 @@ public sealed class MuleWranglerCartridgeSystem : EntitySystem
                     return;
                 if (entity is not { } realEntity)
                     return;
+                ent.Comp.SelectedBeacon = (NetEntity) msg.DropOffEntity;
                 muleComponent.CurrentTarget = realEntity;
                 break;
+            case MuleWranglerMessageType.Return:
+                break;
+            case MuleWranglerMessageType.SetMule:
+                ent.Comp.SelectedMule = msg.MuleEntity;
+                break;
+            case MuleWranglerMessageType.Unload:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
 
         UpdateUiState(ent, GetEntity(args.LoaderUid));
@@ -74,6 +84,8 @@ public sealed class MuleWranglerCartridgeSystem : EntitySystem
         var queryBeacon = _entityManager.EntityQueryEnumerator<MuleDropOffComponent>();
         List<NetEntity> list = new();
         List<NetEntity> listBeacon = new();
+        var selectedMule = NetEntity.Invalid;
+        var selectedBeacon = NetEntity.Invalid;
 
         while(query.MoveNext(out var uid,  out var _))
         {
@@ -90,7 +102,17 @@ public sealed class MuleWranglerCartridgeSystem : EntitySystem
                 listBeacon.Add(netEntity);
         }
 
-        var state = new MuleWranglerUiState(list,listBeacon);
+        if (ent.Comp.SelectedMule.Id is not 0)
+        {
+            selectedMule = ent.Comp.SelectedMule;
+        }
+
+        if (ent.Comp.SelectedBeacon.Id is not 0)
+        {
+            selectedBeacon = ent.Comp.SelectedMule;
+        }
+
+        var state = new MuleWranglerUiState(list,listBeacon, selectedMule, selectedBeacon);
         _cartridgeLoaderSystem?.UpdateCartridgeUiState(loaderUid, state);
     }
 }

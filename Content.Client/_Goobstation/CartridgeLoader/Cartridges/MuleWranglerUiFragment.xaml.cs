@@ -33,8 +33,18 @@ public sealed partial class MuleWranglerUiFragment : BoxContainer
 
     public void UpdateState(MuleWranglerUiState state)
     {
+        Logger.Debug(state.SelectedMule.ToString());
         MuleList = state.Mules;
         BeaconList = state.Beacons;
+        if (state.SelectedMule != NetEntity.Invalid)
+        {
+            SelectedMule = state.SelectedMule;
+            SetMuleText();
+        }
+        if (state.SelectedBeacon != NetEntity.Invalid)
+        {
+            SelectedBeacon = state.SelectedBeacon;
+        }
     }
 
     private void ClearButtons()
@@ -68,6 +78,7 @@ public sealed partial class MuleWranglerUiFragment : BoxContainer
             pdaButton.OnPressed += _ =>
             {
                 SelectedMule = MuleList[i - 1];
+                OnMessageSent?.Invoke(MuleWranglerMessageType.SetMule, SelectedMule, null);
                 Home();
             };
             i++;
@@ -133,6 +144,24 @@ public sealed partial class MuleWranglerUiFragment : BoxContainer
         Home();
     }
 
+
+    private void SetMuleText()
+    {
+        if (SelectedMule == NetEntity.Invalid)
+        {
+            IdentifyMuleLabel.Text = "None";
+        }
+        else
+        {
+            if(!_entityManager.TryGetComponent<NameIdentifierComponent>(
+                   _entityManager.GetEntity(SelectedMule),
+                   out var nameIdentifierComponent))
+                return;
+            IdentifyMuleLabel.Text = $"MULEBot {nameIdentifierComponent.Identifier}";
+        }
+    }
+
+
     private void Home()
     {
         ClearButtons();
@@ -145,16 +174,7 @@ public sealed partial class MuleWranglerUiFragment : BoxContainer
         orderButton.Description = "Give MULEBot an order.";
         destinationButton.Text = "Destination";
         destinationButton.Description = "Set MULEBot's Destination";
-        if (SelectedMule == NetEntity.Invalid)
-        {
-            IdentifyMuleLabel.Text = "None";
-        }
-        else
-        {
-            if(!_entityManager.TryGetComponent<NameIdentifierComponent>(_entityManager.GetEntity(SelectedMule), out var nameIdentifierComponent))
-                return;
-            IdentifyMuleLabel.Text = $"MULEBot {nameIdentifierComponent.Identifier}";
-        }
+        SetMuleText();
         ButtonContainer.AddChild(selectButton);
         ButtonContainer.AddChild(orderButton);
         ButtonContainer.AddChild(destinationButton);

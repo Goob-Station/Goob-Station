@@ -16,6 +16,10 @@ public sealed partial class MuleComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
     public EntityUid CurrentTarget = EntityUid.Invalid;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [AutoNetworkedField]
+    public EntityUid CurrentObject = EntityUid.Invalid;
 }
 
 public enum MuleOrderType

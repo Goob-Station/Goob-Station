@@ -33,6 +33,6 @@
           bounds: "-0.25,-0.48,0.25,0.48"
         density: 500
         mask:
-        - FlyingMobMask
+        - MobMask
         layer:
-        - FlyingMobLayer
+        - MobLayer

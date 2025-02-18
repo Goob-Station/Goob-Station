@@ -15,7 +15,6 @@ public sealed class MuleSystem : EntitySystem
 {
     [Dependency] public required SharedPhysicsSystem _physicsSystem = default!;
     [Dependency] public required TagSystem _tagSystem = default!;
-    [Dependency] public required SharedBuckleSystem _buckleSystem = default!; // Later for unbuckling shit
 
     public override void Initialize()
     {
@@ -38,15 +37,21 @@ public sealed class MuleSystem : EntitySystem
     {
         if (args.Strap.Comp.BuckledEntities.Count <= 0)
             args.Cancelled = true;
+
         if(!_tagSystem.HasTag(args.Buckle.Owner, "HideContextMenu"))
             _tagSystem.AddTag(args.Buckle.Owner, "HideContextMenu");
+
+        component.CurrentTarget = args.Buckle.Owner;
     }
 
     private void OnUnstrap(EntityUid uid, MuleComponent component, ref UnstrappedEvent args)
     {
         _physicsSystem.SetCanCollide(args.Buckle.Owner, true);
+
         if(_tagSystem.HasTag(args.Buckle.Owner, "HideContextMenu"))
             _tagSystem.RemoveTag(args.Buckle.Owner, "HideContextMenu");
+
+        component.CurrentTarget = EntityUid.Invalid;
     }
 
     // prevent the mule from fucking flying
