@@ -4867,3 +4867,9 @@ Entries:
         rejoice!
   id: 556
   time: '2025-02-17T20:02:01.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Killer tomatoes no longer take damage over time.
+  id: 557
+  time: '2025-02-18T16:35:46.0000000+00:00'
