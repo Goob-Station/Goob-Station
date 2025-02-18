@@ -12,17 +12,3 @@
     layers:
       - state: box
       - state: syringe
-
-- type: entity
-  name: box of lollypops
-  parent: [BoxCardboard, BaseSyndicateContraband]
-  id: SyndicateLollypopBundle
-  description: A box full of mysterious lollypops
-  components:
-  - type: StorageFill
-    contents:
-    - id: FoodSnackLollypopWrappedMysteryEvil
-      amount: 9
-  - type: Sprite
-    layers:
-    - state: box
