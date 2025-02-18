@@ -545,11 +545,13 @@
 
 
 - type: entity
-  parent: [ClothingBeltStorageBase, BaseSecurityContraband, ClothingSlotBase] # Goobstation
+  parent: [ClothingBeltBase, ClothingSlotBase, BaseSecurityContraband] # Goobstation
   id: ClothingBeltHolster
   name: shoulder holster
   description: 'A holster to carry a sidearm and ammunition. WARNING: Badasses only.'
   components:
+  - type: Item
+    size: Ginormous
   - type: Sprite
     sprite: Clothing/Belt/holster.rsi
   - type: Clothing
@@ -575,13 +577,19 @@
           tags:
           - Sidearm
   - type: Appearance # Goobstation - End
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
 
 - type: entity
-  parent: [ClothingBeltStorageBase, BaseSyndicateContraband, ClothingSlotBase] # Goobstation
+  parent: [ClothingBeltBase, BaseSyndicateContraband, ClothingSlotBase] # Goobstation
   id: ClothingBeltSyndieHolster
   name: syndicate shoulder holster
   description: A deep shoulder holster capable of holding many types of ballistics.
   components:
+  - type: Item
+    size: Ginormous
   - type: Sprite
     sprite: Clothing/Belt/syndieholster.rsi
   - type: Clothing
@@ -615,6 +623,10 @@
           tags:
           - Sidearm
   - type: Appearance # Goobstation - End
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
 
 # Belts without visualizers
 
