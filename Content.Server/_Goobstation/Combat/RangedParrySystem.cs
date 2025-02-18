@@ -13,6 +13,7 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Melee;
+using Content.Shared.Wieldable.Components;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
@@ -108,7 +109,7 @@ public sealed class RangedParrySystem : EntitySystem
         }
     }
 
-    private bool TryGetMeleeSummation(EntityUid target, [NotNullWhen(true)] out int? summation)
+    private bool TryGetMeleeSummation(EntityUid target, [NotNullWhen(true)] out float? summation)
     {
         summation = null;
 
@@ -125,8 +126,19 @@ public sealed class RangedParrySystem : EntitySystem
         if (!TryComp(activeItem, out MeleeWeaponComponent? meleeComp))
             return false;
 
-        summation = GetTotalDamage(meleeComp.Damage.DamageDict);
+        summation = GetTotalDamage(meleeComp.Damage.DamageDict) + CalculateBonusDamage(activeItem);
         return true;
+    }
+
+    private float CalculateBonusDamage(EntityUid? activeItem)
+    {
+        if (TryComp(activeItem, out WieldableComponent? wield) && wield.Wielded &&
+            TryComp(activeItem, out IncreaseDamageOnWieldComponent? incrDamage))
+        {
+            return GetTotalDamage(incrDamage.BonusDamage.DamageDict);
+        }
+
+        return 0;
     }
 
     private int GetTotalDamage(Dictionary<string, FixedPoint2> damage, bool includeStructural = false)
@@ -143,7 +155,7 @@ public sealed class RangedParrySystem : EntitySystem
     }
 
     // Gain stamina damage inverse proportional to the difference between melee and ranged summation.
-    private float CalculateParryStamDamage(int meleeSummation, int rangedSummation)
+    private float CalculateParryStamDamage(float meleeSummation, float rangedSummation)
     {
         var difference = Math.Abs(meleeSummation - rangedSummation);
 
