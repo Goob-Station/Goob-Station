@@ -38,7 +38,6 @@
     damage:
       types:
         Blunt: 10
-        Structural: 15
 
 - type: entity
   id: PKAUpgradeRange

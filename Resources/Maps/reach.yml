@@ -1632,19 +1632,19 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 13.5,12.5
       parent: 2
-- proto: AirlockExternalGlassShuttleLocked
+- proto: AirlockExternalGlassShuttleMiningFilled
   entities:
   - uid: 34
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -0.5,17.5
+      pos: -2.5,17.5
       parent: 2
   - uid: 35
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -2.5,17.5
+      pos: -0.5,17.5
       parent: 2
 - proto: AirlockExternalShuttleLocked
   entities:
@@ -6599,14 +6599,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -4.5,10.5
       parent: 2
-- proto: ComputerSalvageExpedition
-  entities:
-  - uid: 950
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 2.5,15.5
-      parent: 2
 - proto: ComputerShuttle
   entities:
   - uid: 951
@@ -6621,6 +6613,14 @@ entities:
     components:
     - type: Transform
       pos: 2.5,11.5
+      parent: 2
+- proto: ComputerShuttleMiningLavaland
+  entities:
+  - uid: 950
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,15.5
       parent: 2
 - proto: ComputerStationRecords
   entities:

@@ -53,7 +53,6 @@
 - type: entity
   id: AsteroidRockCoal
   parent: AsteroidRock
-  description: An ore vein rich with coal.
   suffix: Coal
   components:
     - type: OreVein
@@ -77,7 +76,6 @@
 - type: entity
   id: AsteroidRockGold
   parent: AsteroidRock
-  description: An ore vein rich with gold.
   suffix: Gold
   components:
     - type: OreVein
@@ -101,7 +99,6 @@
 - type: entity
   id: AsteroidRockDiamond
   parent: AsteroidRock
-  description: An ore vein rich with diamonds.
   suffix: Diamond
   components:
     - type: OreVein
@@ -125,7 +122,6 @@
 - type: entity
   id: AsteroidRockPlasma
   parent: AsteroidRock
-  description: An ore vein rich with plasma.
   suffix: Plasma
   components:
     - type: OreVein
@@ -149,7 +145,6 @@
 - type: entity
   id: AsteroidRockQuartz
   parent: AsteroidRock
-  description: An ore vein rich with quartz.
   suffix: Quartz
   components:
     - type: OreVein
@@ -173,7 +168,6 @@
 - type: entity
   id: AsteroidRockQuartzCrab
   parent: AsteroidRock
-  description: An ore vein rich with quartz.
   suffix: Quartz Crab
   components:
     - type: OreVein
@@ -197,7 +191,6 @@
 - type: entity
   id: AsteroidRockSilver
   parent: AsteroidRock
-  description: An ore vein rich with silver.
   suffix: Silver
   components:
     - type: OreVein
@@ -231,7 +224,6 @@
 - type: entity
   id: AsteroidRockTin
   parent: AsteroidRock
-  description: An ore vein rich with iron.
   suffix: Iron
   components:
     - type: OreVein
@@ -264,7 +256,6 @@
 - type: entity
   id: AsteroidRockUranium
   parent: AsteroidRock
-  description: An ore vein rich with uranium.
   suffix: Uranium
   components:
     - type: OreVein
@@ -297,7 +288,6 @@
 - type: entity
   id: AsteroidRockBananium
   parent: AsteroidRock
-  description: An ore vein rich with bananium.
   suffix: Bananium
   components:
     - type: OreVein
@@ -321,7 +311,6 @@
 - type: entity
   id: AsteroidRockSalt
   parent: AsteroidRock
-  description: An ore vein rich with salt.
   suffix: Salt
   components:
     - type: OreVein
@@ -419,7 +408,6 @@
 - type: entity
   id: IronRockCoal
   parent: IronRock
-  description: An ore vein rich with coal.
   suffix: Coal
   components:
     - type: OreVein
@@ -443,7 +431,6 @@
 - type: entity
   id: IronRockGold
   parent: IronRock
-  description: An ore vein rich with gold.
   suffix: Gold
   components:
     - type: OreVein
@@ -467,7 +454,6 @@
 - type: entity
   id: IronRockPlasma
   parent: IronRock
-  description: An ore vein rich with plasma.
   suffix: Plasma
   components:
     - type: OreVein
@@ -491,7 +477,6 @@
 - type: entity
   id: IronRockQuartz
   parent: IronRock
-  description: An ore vein rich with quartz.
   suffix: Quartz
   components:
     - type: OreVein
@@ -515,7 +500,6 @@
 - type: entity
   id: IronRockSilver
   parent: IronRock
-  description: An ore vein rich with silver.
   suffix: Silver
   components:
     - type: OreVein
@@ -539,7 +523,6 @@
 - type: entity
   id: IronRockIron
   parent: IronRock
-  description: An ore vein rich with iron.
   suffix: Iron
   components:
     - type: OreVein
@@ -563,7 +546,6 @@
 - type: entity
   id: IronRockUranium
   parent: IronRock
-  description: An ore vein rich with uranium.
   suffix: Uranium
   components:
     - type: OreVein
@@ -587,7 +569,6 @@
 - type: entity
   id: IronRockBananium
   parent: IronRock
-  description: An ore vein rich with bananium.
   suffix: Bananium
   components:
     - type: OreVein
@@ -611,7 +592,6 @@
 - type: entity
   id: IronRockSalt
   parent: IronRock
-  description: An ore vein rich with salt.
   suffix: Salt
   components:
     - type: OreVein
@@ -659,7 +639,6 @@
 - type: entity
   id: IronRockDiamond
   parent: IronRock
-  description: An ore vein rich with diamonds.
   suffix: Diamond
   components:
     - type: OreVein
@@ -732,7 +711,6 @@
 - type: entity
   id: WallRockCoal
   parent: WallRock
-  description: An ore vein rich with coal.
   suffix: Coal
   components:
   - type: EntityRemap
@@ -763,7 +741,6 @@
 - type: entity
   id: WallRockGold
   parent: WallRock
-  description: An ore vein rich with gold.
   suffix: Gold
   components:
   - type: EntityRemap
@@ -794,7 +771,6 @@
 - type: entity
   id: WallRockDiamond
   parent: WallRock
-  description: An ore vein rich with diamonds.
   suffix: Diamond
   components:
     - type: OreVein
@@ -818,7 +794,6 @@
 - type: entity
   id: WallRockPlasma
   parent: WallRock
-  description: An ore vein rich with plasma.
   suffix: Plasma
   components:
   - type: EntityRemap
@@ -849,7 +824,6 @@
 - type: entity
   id: WallRockQuartz
   parent: WallRock
-  description: An ore vein rich with quartz.
   suffix: Quartz
   components:
   - type: EntityRemap
@@ -880,7 +854,6 @@
 - type: entity
   id: WallRockSilver
   parent: WallRock
-  description: An ore vein rich with silver.
   suffix: Silver
   components:
   - type: EntityRemap
@@ -912,7 +885,6 @@
 - type: entity
   id: WallRockTin
   parent: WallRock
-  description: An ore vein rich with iron.
   suffix: Iron
   components:
     - type: EntityRemap
@@ -943,7 +915,6 @@
 - type: entity
   id: WallRockUranium
   parent: WallRock
-  description: An ore vein rich with uranium.
   suffix: Uranium
   components:
   - type: EntityRemap
@@ -975,7 +946,6 @@
 - type: entity
   id: WallRockBananium
   parent: WallRock
-  description: An ore vein rich with bananium.
   suffix: Bananium
   components:
   - type: EntityRemap
@@ -1037,7 +1007,6 @@
 - type: entity
   id: WallRockSalt
   parent: WallRock
-  description: An ore vein rich with salt.
   suffix: Salt
   components:
   - type: EntityRemap
@@ -1090,7 +1059,6 @@
 - type: entity
   id: WallRockBasaltCoal
   parent: WallRockBasalt
-  description: An ore vein rich with coal.
   suffix: Coal
   components:
     - type: OreVein
@@ -1114,7 +1082,6 @@
 - type: entity
   id: WallRockBasaltGold
   parent: WallRockBasalt
-  description: An ore vein rich with gold.
   suffix: Gold
   components:
     - type: OreVein
@@ -1138,7 +1105,6 @@
 - type: entity
   id: WallRockBasaltDiamond
   parent: WallRockBasalt
-  description: An ore vein rich with diamonds.
   suffix: Diamond
   components:
     - type: OreVein
@@ -1162,7 +1128,6 @@
 - type: entity
   id: WallRockBasaltPlasma
   parent: WallRockBasalt
-  description: An ore vein rich with plasma.
   suffix: Plasma
   components:
     - type: OreVein
@@ -1186,7 +1151,6 @@
 - type: entity
   id: WallRockBasaltQuartz
   parent: WallRockBasalt
-  description: An ore vein rich with quartz.
   suffix: Quartz
   components:
     - type: OreVein
@@ -1210,7 +1174,6 @@
 - type: entity
   id: WallRockBasaltSilver
   parent: WallRockBasalt
-  description: An ore vein rich with silver.
   suffix: Silver
   components:
     - type: OreVein
@@ -1234,7 +1197,6 @@
 - type: entity
   id: WallRockBasaltTin
   parent: WallRockBasalt
-  description: An ore vein rich with iron.
   suffix: Iron
   components:
     - type: OreVein
@@ -1258,7 +1220,6 @@
 - type: entity
   id: WallRockBasaltUranium
   parent: WallRockBasalt
-  description: An ore vein rich with uranium.
   suffix: Uranium
   components:
     - type: OreVein
@@ -1283,7 +1244,6 @@
 - type: entity
   id: WallRockBasaltBananium
   parent: WallRockBasalt
-  description: An ore vein rich with bananium.
   suffix: Bananium
   components:
     - type: OreVein
@@ -1331,7 +1291,6 @@
 - type: entity
   id: WallRockBasaltSalt
   parent: WallRockBasalt
-  description: An ore vein rich with salt.
   suffix: Salt
   components:
     - type: OreVein
@@ -1377,7 +1336,6 @@
 - type: entity
   id: WallRockSnowCoal
   parent: WallRockSnow
-  description: An ore vein rich with coal.
   suffix: Coal
   components:
     - type: OreVein
@@ -1401,7 +1359,6 @@
 - type: entity
   id: WallRockSnowGold
   parent: WallRockSnow
-  description: An ore vein rich with gold.
   suffix: Gold
   components:
     - type: OreVein
@@ -1425,7 +1382,6 @@
 - type: entity
   id: WallRockSnowDiamond
   parent: WallRockSnow
-  description: An ore vein rich with diamonds.
   suffix: Diamond
   components:
     - type: OreVein
@@ -1449,7 +1405,6 @@
 - type: entity
   id: WallRockSnowPlasma
   parent: WallRockSnow
-  description: An ore vein rich with plasma.
   suffix: Plasma
   components:
     - type: OreVein
@@ -1473,7 +1428,6 @@
 - type: entity
   id: WallRockSnowQuartz
   parent: WallRockSnow
-  description: An ore vein rich with quartz.
   suffix: Quartz
   components:
     - type: OreVein
@@ -1497,7 +1451,6 @@
 - type: entity
   id: WallRockSnowSilver
   parent: WallRockSnow
-  description: An ore vein rich with silver.
   suffix: Silver
   components:
     - type: OreVein
@@ -1521,7 +1474,6 @@
 - type: entity
   id: WallRockSnowTin
   parent: WallRockSnow
-  description: An ore vein rich with iron.
   suffix: Iron
   components:
     - type: OreVein
@@ -1545,7 +1497,6 @@
 - type: entity
   id: WallRockSnowUranium
   parent: WallRockSnow
-  description: An ore vein rich with uranium.
   suffix: Uranium
   components:
     - type: OreVein
@@ -1570,7 +1521,6 @@
 - type: entity
   id: WallRockSnowBananium
   parent: WallRockSnow
-  description: An ore vein rich with bananium.
   suffix: Bananium
   components:
     - type: OreVein
@@ -1618,7 +1568,6 @@
 - type: entity
   id: WallRockSnowSalt
   parent: WallRockSnow
-  description: An ore vein rich with salt.
   suffix: Salt
   components:
     - type: OreVein
@@ -1664,7 +1613,6 @@
 - type: entity
   id: WallRockSandCoal
   parent: WallRockSand
-  description: An ore vein rich with coal.
   suffix: Coal
   components:
     - type: OreVein
@@ -1688,7 +1636,6 @@
 - type: entity
   id: WallRockSandGold
   parent: WallRockSand
-  description: An ore vein rich with gold.
   suffix: Gold
   components:
     - type: OreVein
@@ -1712,7 +1659,6 @@
 - type: entity
   id: WallRockSandDiamond
   parent: WallRockSand
-  description: An ore vein rich with diamonds.
   suffix: Diamond
   components:
     - type: OreVein
@@ -1736,7 +1682,6 @@
 - type: entity
   id: WallRockSandPlasma
   parent: WallRockSand
-  description: An ore vein rich with plasma.
   suffix: Plasma
   components:
     - type: OreVein
@@ -1760,7 +1705,6 @@
 - type: entity
   id: WallRockSandQuartz
   parent: WallRockSand
-  description: An ore vein rich with quartz.
   suffix: Quartz
   components:
     - type: OreVein
@@ -1784,7 +1728,6 @@
 - type: entity
   id: WallRockSandSilver
   parent: WallRockSand
-  description: An ore vein rich with silver.
   suffix: Silver
   components:
     - type: OreVein
@@ -1808,7 +1751,6 @@
 - type: entity
   id: WallRockSandTin
   parent: WallRockSand
-  description: An ore vein rich with iron.
   suffix: Iron
   components:
     - type: OreVein
@@ -1832,7 +1774,6 @@
 - type: entity
   id: WallRockSandUranium
   parent: WallRockSand
-  description: An ore vein rich with uranium.
   suffix: Uranium
   components:
     - type: OreVein
@@ -1856,7 +1797,6 @@
 - type: entity
   id: WallRockSandBananium
   parent: WallRockSand
-  description: An ore vein rich with bananium.
   suffix: Bananium
   components:
     - type: OreVein
@@ -1904,7 +1844,6 @@
 - type: entity
   id: WallRockSandSalt
   parent: WallRockSand
-  description: An ore vein rich with salt.
   suffix: Salt
   components:
     - type: OreVein
@@ -1950,7 +1889,6 @@
 - type: entity
   id: WallRockChromiteCoal
   parent: WallRockChromite
-  description: An ore vein rich with coal.
   suffix: Coal
   components:
     - type: OreVein
@@ -1974,7 +1912,6 @@
 - type: entity
   id: WallRockChromiteGold
   parent: WallRockChromite
-  description: An ore vein rich with gold.
   suffix: Gold
   components:
     - type: OreVein
@@ -1998,7 +1935,6 @@
 - type: entity
   id: WallRockChromiteDiamond
   parent: WallRockChromite
-  description: An ore vein rich with diamonds.
   suffix: Diamond
   components:
     - type: OreVein
@@ -2022,7 +1958,6 @@
 - type: entity
   id: WallRockChromitePlasma
   parent: WallRockChromite
-  description: An ore vein rich with plasma.
   suffix: Plasma
   components:
     - type: OreVein
@@ -2046,7 +1981,6 @@
 - type: entity
   id: WallRockChromiteQuartz
   parent: WallRockChromite
-  description: An ore vein rich with quartz.
   suffix: Quartz
   components:
     - type: OreVein
@@ -2070,7 +2004,6 @@
 - type: entity
   id: WallRockChromiteSilver
   parent: WallRockChromite
-  description: An ore vein rich with silver.
   suffix: Silver
   components:
     - type: OreVein
@@ -2094,7 +2027,6 @@
 - type: entity
   id: WallRockChromiteTin
   parent: WallRockChromite
-  description: An ore vein rich with iron.
   suffix: Iron
   components:
     - type: OreVein
@@ -2118,7 +2050,6 @@
 - type: entity
   id: WallRockChromiteUranium
   parent: WallRockChromite
-  description: An ore vein rich with uranium.
   suffix: Uranium
   components:
     - type: OreVein
@@ -2143,7 +2074,6 @@
 - type: entity
   id: WallRockChromiteBananium
   parent: WallRockChromite
-  description: An ore vein rich with bananium.
   suffix: Bananium
   components:
     - type: OreVein
@@ -2191,7 +2121,6 @@
 - type: entity
   id: WallRockChromiteSalt
   parent: WallRockChromite
-  description: An ore vein rich with salt.
   suffix: Salt
   components:
     - type: OreVein
@@ -2237,7 +2166,6 @@
 - type: entity
   id: WallRockAndesiteCoal
   parent: WallRockAndesite
-  description: An ore vein rich with coal.
   suffix: Coal
   components:
     - type: OreVein
@@ -2261,7 +2189,6 @@
 - type: entity
   id: WallRockAndesiteGold
   parent: WallRockAndesite
-  description: An ore vein rich with gold.
   suffix: Gold
   components:
     - type: OreVein
@@ -2285,7 +2212,6 @@
 - type: entity
   id: WallRockAndesiteDiamond
   parent: WallRockAndesite
-  description: An ore vein rich with diamonds.
   suffix: Diamond
   components:
     - type: OreVein
@@ -2309,7 +2235,6 @@
 - type: entity
   id: WallRockAndesitePlasma
   parent: WallRockAndesite
-  description: An ore vein rich with plasma.
   suffix: Plasma
   components:
     - type: OreVein
@@ -2333,7 +2258,6 @@
 - type: entity
   id: WallRockAndesiteQuartz
   parent: WallRockAndesite
-  description: An ore vein rich with quartz.
   suffix: Quartz
   components:
     - type: OreVein
@@ -2357,7 +2281,6 @@
 - type: entity
   id: WallRockAndesiteSilver
   parent: WallRockAndesite
-  description: An ore vein rich with silver.
   suffix: Silver
   components:
     - type: OreVein
@@ -2381,7 +2304,6 @@
 - type: entity
   id: WallRockAndesiteTin
   parent: WallRockAndesite
-  description: An ore vein rich with iron.
   suffix: Iron
   components:
     - type: OreVein
@@ -2405,7 +2327,6 @@
 - type: entity
   id: WallRockAndesiteUranium
   parent: WallRockAndesite
-  description: An ore vein rich with uranium.
   suffix: Uranium
   components:
     - type: OreVein
@@ -2430,7 +2351,6 @@
 - type: entity
   id: WallRockAndesiteBananium
   parent: WallRockAndesite
-  description: An ore vein rich with bananium.
   suffix: Bananium
   components:
     - type: OreVein
@@ -2478,7 +2398,6 @@
 - type: entity
   id: WallRockAndesiteSalt
   parent: WallRockAndesite
-  description: An ore vein rich with salt.
   suffix: Salt
   components:
     - type: OreVein

@@ -11,6 +11,10 @@
     shape:
     - 0,0,2,1
   # Lavaland Change start
+  - type: WeaponAttachment
+    lightActionPrototype: ActionTogglePKALight
+  - type: PressureDamageChange
+  - type: Multishot
   - type: UpgradeableGun
     whitelist:
       tags:
@@ -60,3 +64,11 @@
       Steel: 250
       Glass: 125
       Silver: 25
+  - type: MeleeWeapon
+    wideAnimationRotation: 270
+    attackRate: 1
+    angle: 0
+    range: 1.1
+    damage:
+      types:
+        Blunt: 5

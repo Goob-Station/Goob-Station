@@ -52,6 +52,7 @@
       interactFailureString: petting-failure-generic
       interactSuccessSound:
         path: /Audio/Animals/lizard_happy.ogg
+    - type: Fauna # Lavaland Change
 
 - type: entity
   id: MobTomatoKiller
@@ -207,3 +208,4 @@
         Blunt: 0.11
   - type: StaticPrice
     price: 400
+  - type: Fauna # Lavaland Change

@@ -4,7 +4,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared._Lavaland.Weapons.Ranged.Upgrades.Components;
 
-[RegisterComponent, NetworkedComponent, Access(typeof(GunUpgradeSystem))]
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedGunUpgradeSystem))]
 public sealed partial class UpgradeableGunComponent : Component
 {
     [DataField]

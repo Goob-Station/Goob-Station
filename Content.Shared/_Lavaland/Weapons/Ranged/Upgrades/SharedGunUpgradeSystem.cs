@@ -1,4 +1,5 @@
 using Content.Shared._Lavaland.Weapons.Ranged.Upgrades.Components;
+using Content.Shared._Lavaland.Weapons.Ranged.Events;
 using Content.Shared.CCVar;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
@@ -19,7 +20,7 @@ using System.Linq;
 
 namespace Content.Shared._Lavaland.Weapons.Ranged.Upgrades;
 
-public sealed class GunUpgradeSystem : EntitySystem
+public abstract partial class SharedGunUpgradeSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -39,12 +40,11 @@ public sealed class GunUpgradeSystem : EntitySystem
         SubscribeLocalEvent<UpgradeableGunComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<UpgradeableGunComponent, GunRefreshModifiersEvent>(RelayEvent);
         SubscribeLocalEvent<UpgradeableGunComponent, GunShotEvent>(RelayEvent);
-
+        SubscribeLocalEvent<UpgradeableGunComponent, ProjectileShotEvent>(RelayEvent);
         SubscribeLocalEvent<GunUpgradeComponent, ExaminedEvent>(OnUpgradeExamine);
         SubscribeLocalEvent<GunUpgradeFireRateComponent, GunRefreshModifiersEvent>(OnFireRateRefresh);
         SubscribeLocalEvent<GunComponentUpgradeComponent, GunRefreshModifiersEvent>(OnCompsRefresh);
         SubscribeLocalEvent<GunUpgradeSpeedComponent, GunRefreshModifiersEvent>(OnSpeedRefresh);
-        SubscribeLocalEvent<GunUpgradeDamageComponent, GunShotEvent>(OnDamageGunShot);
         SubscribeLocalEvent<GunUpgradeComponentsComponent, GunShotEvent>(OnDamageGunShotComps);
         SubscribeLocalEvent<GunUpgradeVampirismComponent, GunShotEvent>(OnVampirismGunShot);
         SubscribeLocalEvent<ProjectileVampirismComponent, ProjectileHitEvent>(OnVampirismProjectileHit);
@@ -61,7 +61,7 @@ public sealed class GunUpgradeSystem : EntitySystem
         if (!Resolve(uid, ref slotComp))
             return;
 
-        var slotCount = slotComp.Slots.Count;
+        var slotCount = slotComp.Slots.Keys.Count(slotId => slotId.StartsWith(component.UpgradesContainerId));
         var slotId = $"{component.UpgradesContainerId}-{slotCount + 1}";
         var slot = new ItemSlot
         {
@@ -113,7 +113,8 @@ public sealed class GunUpgradeSystem : EntitySystem
         var currentUpgrades = GetCurrentUpgrades(ent, itemSlots);
 
         // Create a new slot if all current slots are filled
-        if (currentUpgrades.Count + 1 > itemSlots.Slots.Count)
+        if (currentUpgrades.Count + 1 > itemSlots.Slots.Keys.Count(slotId =>
+            slotId.StartsWith(ent.Comp.UpgradesContainerId)))
             CreateNewSlot(ent, ent.Comp);
 
         if (_itemSlots.TryInsertEmpty((ent.Owner, itemSlots), args.Used, args.User, true))
@@ -126,7 +127,6 @@ public sealed class GunUpgradeSystem : EntitySystem
     {
         // TODO: Figure out how to kill the interaction verbs bypassing checks, yet also allowing
         // for non-duplicate popups to the user when they interact without having to do all of this crap twice.
-
         if (!TryComp<GunUpgradeComponent>(args.Item, out var upgradeComp)
             || !TryComp<ItemSlotsComponent>(ent, out var itemSlots))
             return;
@@ -142,7 +142,6 @@ public sealed class GunUpgradeSystem : EntitySystem
         var allowDupes = _config.GetCVar(CCVars.AllowDuplicatePkaModules);
         var itemProto = MetaData(args.Item).EntityPrototype?.ID;
         foreach (var itemSlot in itemSlots.Slots.Values)
-
         {
             if (itemSlot.HasItem
                 && itemSlot.Item is { } existingItem
@@ -170,14 +169,6 @@ public sealed class GunUpgradeSystem : EntitySystem
         args.ProjectileSpeed *= ent.Comp.Coefficient;
     }
 
-    private void OnDamageGunShot(Entity<GunUpgradeDamageComponent> ent, ref GunShotEvent args)
-    {
-        foreach (var (ammo, _) in args.Ammo)
-        {
-            if (TryComp<ProjectileComponent>(ammo, out var proj))
-                proj.Damage += ent.Comp.Damage;
-        }
-    }
     private void OnDamageGunShotComps(Entity<GunUpgradeComponentsComponent> ent, ref GunShotEvent args)
     {
         foreach (var (ammo, _) in args.Ammo)

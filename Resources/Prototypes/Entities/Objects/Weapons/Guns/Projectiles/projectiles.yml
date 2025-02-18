@@ -398,8 +398,8 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 25
-        Structural: 30
+        Blunt: 40 # Lavaland Change - TOTAL PKA VICTORY
+#        Structural: 30 Lavaland Change - No easy break-ins :)
   # Short lifespan
   - type: TimedDespawn
     lifetime: 0.170 # Lavaland Change
@@ -450,6 +450,7 @@
         shader: unshaded
   - type: GatheringProjectile
   - type: DamageMarkerOnCollide
+    onlyWorkOnFauna: true # Lavaland Change
     whitelist:
       components:
         - MobState

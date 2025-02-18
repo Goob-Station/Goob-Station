@@ -6,12 +6,14 @@
     cost: 100
   - id: DrinkAbsintheBottleFull
     cost: 100
+  - id: LavalandEquipmentExplorerSuit
+    cost: 100
   - id: CigarGold
     cost: 150
   - id: Soap
     cost: 200
   - id: PKAUpgradeLight
-    cost: 250
+    cost: 500
   - id: SeismicCharge
     cost: 250
   - id: WeaponGrapplingGun
@@ -34,32 +36,34 @@
   - id: MedkitBurnFilled
     cost: 600
   - id: LavalandJaunter
-    cost: 700
-  - id: PKAUpgradeFireRate
-    cost: 700
+    cost: 750
   - id: WeaponCrusher
-    cost: 750
-  - id: LavalandWeaponKineticHammer
-    cost: 750
-  - id: LavalandWeaponKineticMachete
-    cost: 750
-  - id: LavalandWeaponKineticSpear
-    cost: 750
-  - id: LavalandWeaponKineticClaws
     cost: 750
   - id: WeaponProtoKineticAccelerator
     cost: 750
   - id: SurvivalMedipen
     cost: 800
-  - id: PKAUpgradeRange
-    cost: 850
   - id: Fulton
     cost: 1000
+  - id: PKAUpgradeRange
+    cost: 1000
+  - id: PKAUpgradeFireRate
+    cost: 1000
+  - id: AdvancedMineralScanner
+    cost: 1100
   - id: PKAUpgradeDamage
     cost: 1200
   - id: LavalandEquipmentExplorerSuit
     cost: 1200
   # TODO: lazarus injector for 1k
+  - id: LavalandWeaponKineticHammer
+    cost: 1250
+  - id: LavalandWeaponKineticMachete
+    cost: 1250
+  - id: LavalandWeaponKineticSpear
+    cost: 1250
+  - id: LavalandWeaponKineticClaws
+    cost: 1250
   - id: ClothingBackpackDuffelSalvageConscription
     cost: 1250
   - id: AdvancedMineralScanner

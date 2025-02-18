@@ -30,6 +30,7 @@ public sealed class HierophantSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MegafaunaSystem _megafauna = default!;
     [Dependency] private readonly HierophantFieldSystem _hierophantField = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!;
 
     private readonly EntProtoId _damageBoxPrototype = "LavalandHierophantSquare";
     private readonly EntProtoId _chaserPrototype = "LavalandHierophantChaser";
@@ -61,14 +62,15 @@ public sealed class HierophantSystem : EntitySystem
     private void OnHierophantDeinit(Entity<HierophantBossComponent> ent, ref MegafaunaDeinitEvent args)
     {
         if (ent.Comp.ConnectedFieldGenerator == null ||
+            !TryComp<DamageableComponent>(ent, out var damageable) ||
             !TryComp<HierophantFieldGeneratorComponent>(ent.Comp.ConnectedFieldGenerator.Value, out var fieldComp))
             return;
 
         var field = ent.Comp.ConnectedFieldGenerator.Value;
         _hierophantField.DeactivateField((field, fieldComp));
-
         // After 10 seconds, hierophant teleports back to it's original place
         var position = _xform.GetMapCoordinates(field);
+        _damage.SetAllDamage(ent, damageable, 0);
         Timer.Spawn(TimeSpan.FromSeconds(10), () => _xform.SetMapCoordinates(ent, position));
     }
 
@@ -209,7 +211,7 @@ public sealed class HierophantSystem : EntitySystem
         if (TerminatingOrDeleted(ent))
             return;
 
-        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Machines/airlock_ext_open.ogg"), ent, AudioParams.Default.WithMaxDistance(10f));
+        //_audio.PlayPvs(new SoundPathSpecifier("/Audio/Machines/airlock_ext_open.ogg"), ent, AudioParams.Default.WithMaxDistance(10f)); KILL
 
         target = (target ?? PickTarget(ent)) ?? ent;
 

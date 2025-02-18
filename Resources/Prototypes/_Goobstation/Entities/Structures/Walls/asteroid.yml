@@ -1,7 +1,6 @@
 - type: entity
   id: MeteorRockBSCrystal
   parent: AsteroidRock
-  description: An ore vein rich with bluespace crystals.
   suffix: bluespace crystal
   components:
     - type: OreVein
@@ -25,7 +24,6 @@
 - type: entity
   id: IronRockBSCrystal
   parent: IronRock
-  description: An ore vein rich with bluespace crystals.
   suffix: bluespace crystal
   components:
     - type: OreVein
@@ -49,7 +47,6 @@
 - type: entity
   id: WallRockBSCrystal
   parent: WallRock
-  description: An ore vein rich with bluespace crystals.
   suffix: bluespace crystal
   components:
     - type: OreVein
@@ -73,7 +70,6 @@
 - type: entity
   id: WallRockBasaltBSCrystal
   parent: WallRockBasalt
-  description: An ore vein rich with bluespace crystals.
   suffix: bluespace crystal
   components:
     - type: OreVein
@@ -97,7 +93,6 @@
 - type: entity
   id: WallRockSnowBSCrystal
   parent: WallRockSnow
-  description: An ore vein rich with bluespace crystals.
   suffix: bluespace crystal
   components:
     - type: OreVein
@@ -121,7 +116,6 @@
 - type: entity
   id: WallRockSandBSCrystal
   parent: WallRockSand
-  description: An ore vein rich with bluespace crystals.
   suffix: bluespace crystal
   components:
     - type: OreVein
@@ -145,7 +139,6 @@
 - type: entity
   id: WallRockChromiteBSCrystal
   parent: WallRockChromite
-  description: An ore vein rich with bluespace crystals.
   suffix: bluespace crystal
   components:
     - type: OreVein
@@ -169,7 +162,6 @@
 - type: entity
   id: WallRockAndesiteBSCrystal
   parent: WallRockAndesite
-  description: An ore vein rich with bluespace crystals.
   suffix: bluespace crystal
   components:
     - type: OreVein

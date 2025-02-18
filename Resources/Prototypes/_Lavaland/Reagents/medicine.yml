@@ -11,14 +11,33 @@
     Medicine:
       effects:
       - !type:ModifyBloodLevel
-        amount: 3
+        amount: 1.5
       - !type:HealthChange
         damage:
           groups:
-            Burn: -7.5
-            Brute: -2.5
+            Burn: -3.75
+            Brute: -1.25
           types:
-            Bloodloss: -2.5
+            Bloodloss: -1.25
+      - !type:ModifyBloodLevel
+        amount: 1.5
+        conditions:
+        - !type:PressureThreshold
+          min: 0
+          max: 50
+          worksOnLavaland: true
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: -3.75
+            Brute: -1.25
+          types:
+            Bloodloss: -1.25
+        conditions:
+        - !type:PressureThreshold
+          min: 0
+          max: 50
+          worksOnLavaland: true
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold

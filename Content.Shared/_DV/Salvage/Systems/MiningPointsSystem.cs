@@ -3,6 +3,8 @@ using Content.Shared._Lavaland.UnclaimedOre;
 using Content.Shared.Access.Systems;
 using Content.Shared.Lathe;
 using Content.Shared.Materials;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._DV.Salvage.Systems;
@@ -11,6 +13,7 @@ public sealed class MiningPointsSystem : EntitySystem
 {
     [Dependency] private readonly SharedIdCardSystem _idCard = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     private EntityQuery<MiningPointsComponent> _query;
 
@@ -37,9 +40,6 @@ public sealed class MiningPointsSystem : EntitySystem
         var points = unclaimedOre.MiningPoints * args.Count;
         if (points > 0)
             AddPoints(ent.Owner, (uint) points);
-
-        if (TryFindIdCard(args.User) is {} dest)
-            TransferAll(ent.Owner, dest);
     }
 
     private void OnClaimMiningPoints(Entity<MiningPointsLatheComponent> ent, ref LatheClaimMiningPointsMessage args)
@@ -123,6 +123,7 @@ public sealed class MiningPointsSystem : EntitySystem
             return false;
 
         AddPoints(dest, amount);
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/Cargo/ping.ogg"), src.Owner);
         return true;
     }
 

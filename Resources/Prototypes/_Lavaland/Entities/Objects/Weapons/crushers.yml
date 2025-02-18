@@ -26,7 +26,7 @@
     capacity: 1
     count: 1
   - type: DisarmMalus
-  - type: PressureBuffed
+  - type: PressureDamageChange
   - type: MegafaunaWeaponLooter
 
 - type: entity
@@ -58,7 +58,7 @@
     capacity: 1
     count: 1
   - type: MeleeWeapon
-    attackRate: 1.2
+    attackRate: 0.8
     wideAnimationRotation: -135
     damage:
       types:
@@ -68,21 +68,25 @@
       collection: MetalThud
     angle: 0
     animation: WeaponArcThrust
-    range: 2.1
-  - type: IncreaseDamageOnWield
-    damage:
-      types:
-        Blunt: 3
-        Slash: 1.5
-        Structural: 30
+    range: 2.2
   - type: GunRequiresWield
   - type: Item
     size: Ginormous
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_spear-inhands.rsi
   - type: DisarmMalus
   - type: Wieldable
-  - type: BackStab
-    damageMultiplier: 1.5
+  - type: Sharp
+  - type: MeleeRequiresWield
+    fumbleOnAttempt: true
+  - type: DamageBoostOnMarker
+    boost:
+      types: # Totals to 60 damage when hitting marked targets
+        Blunt: 31
+        Slash: 14
+    backstabBoost: # And 20 extra for a backstab. Adding up to 80
+      types:
+        Blunt: 11
+        Slash: 9
 
 - type: entity
   parent: LavalandWeaponKineticBase
@@ -100,19 +104,12 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 12
-        Slash: 6
+        Blunt: 15
     soundHit:
       collection: MetalThud
     angle: 0
     animation: WeaponArcThrust
     range: 1.6
-  - type: IncreaseDamageOnWield
-    damage:
-      types:
-        Blunt: 2.5
-        Slash: 2.5
-        Structural: 30
   - type: Item
     size: Ginormous
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_hammer-inhands.rsi
@@ -122,12 +119,19 @@
   - type: FlipOnHit
   - type: GunRequiresWield
   - type: Wieldable
+  - type: MeleeRequiresWield
+    fumbleOnAttempt: true
+  - type: DamageBoostOnMarker
+    boost:
+      types: # BLOOD FOR THE BLOOD GOD ITS A FUCKING HAMMER
+        Blunt: 75
+
 
 - type: entity
   parent: LavalandWeaponKineticBase
   id: LavalandWeaponKineticClaws
   name: kinetic claws
-  description: Unleash your inner edgelord with this two-handed claw small enough to fit in your backpack. Deals bonus damage if you make a hit from behind.
+  description: Unleash your inner edgelord with this one-handed claw small enough to fit in your backpack. Deals a lot more damage when backstabbing marked targets.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_claws.rsi
@@ -139,31 +143,31 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Slash: 7.5
+        Slash: 5
     soundHit:
       collection: MetalThud
     angle: 0
     animation: WeaponArcThrust
     range: 1.6
-  - type: IncreaseDamageOnWield
-    damage:
-      types:
-        Blunt: 2.5
-        Slash: 2.5
-        Structural: 30
-  - type: BackStab
-    damageMultiplier: 1.5
-  - type: GunRequiresWield
-  - type: Wieldable
   - type: Item
     size: Normal
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_claws-inhands.rsi
+  - type: Sharp
+  - type: DamageBoostOnMarker
+    boost:
+      types: # Totals to 45 damage when hitting marked targets
+        Slash: 25
+        Blunt: 15
+    backstabBoost: # And 120 extra for a backstab. Adding up to 165!!!
+      types:
+        Slash: 75
+        Blunt: 45
 
 - type: entity
   parent: LavalandWeaponKineticBase
   id: LavalandWeaponKineticMachete
   name: kinetic machete
-  description: A smaller, one-handed variant of the crusher. Deals bonus damage if you make a hit from behind.
+  description: A smaller, one-handed variant of the crusher which allows you to block attacks.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_machete.rsi
@@ -183,5 +187,17 @@
   - type: Item
     size: Ginormous
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_machete-inhands.rsi
-  - type: BackStab
-    damageMultiplier: 1.5
+  # too lazy to port parrying and risk a [redacted] lmao
+  - type: Sharp
+  - type: DamageBoostOnMarker
+    boost:
+      types: # Totals to 50 damage when hitting marked targets
+        Slash: 25
+        Blunt: 10
+    backstabBoost: # And 20 extra for a backstab
+      types:
+        Slash: 15
+        Blunt: 5
+  - type: BlockCharge
+    rechargeTime: 120
+    markerReductionTime: 20

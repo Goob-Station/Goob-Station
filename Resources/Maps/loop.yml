@@ -7296,7 +7296,7 @@ entities:
       pos: -30.5,13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -57446.277
+      secondsUntilStateChange: -57498.277
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7919,20 +7919,22 @@ entities:
       rot: 3.141592653589793 rad
       pos: 15.5,86.5
       parent: 2
-- proto: AirlockExternalShuttleLocked
+- proto: AirlockExternalGlassShuttleMiningFilled
   entities:
+  - uid: 1735
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 17.5,57.5
+      parent: 2
   - uid: 3545
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 17.5,56.5
       parent: 2
-  - uid: 14715
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 17.5,57.5
-      parent: 2
+- proto: AirlockExternalShuttleLocked
+  entities:
   - uid: 15471
     components:
     - type: Transform
@@ -10727,17 +10729,17 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 29.5,40.5
       parent: 2
+  - uid: 16370
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 17.5,57.5
+      parent: 2
   - uid: 17843
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
+      rot: 1.5707963267948966 rad
       pos: 17.5,56.5
-      parent: 2
-  - uid: 17844
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 17.5,57.5
       parent: 2
   - uid: 17845
     components:
@@ -42457,14 +42459,6 @@ entities:
     - type: Transform
       pos: 18.5,33.5
       parent: 2
-- proto: ComputerSalvageExpedition
-  entities:
-  - uid: 16370
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 7.5,62.5
-      parent: 2
 - proto: ComputerShuttleCargo
   entities:
   - uid: 16433
@@ -42473,9 +42467,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 14.5,76.5
       parent: 2
-- proto: ComputerShuttleSalvage
+- proto: ComputerShuttleMiningLavaland
   entities:
-  - uid: 1735
+  - uid: 14715
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -43932,7 +43926,7 @@ entities:
       pos: -9.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -305201.8
+      secondsUntilStateChange: -305253.8
       state: Opening
   - uid: 6747
     components:
@@ -43940,7 +43934,7 @@ entities:
       pos: -8.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -305202.53
+      secondsUntilStateChange: -305254.53
       state: Opening
   - uid: 6749
     components:
@@ -43948,7 +43942,7 @@ entities:
       pos: -6.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -305201.1
+      secondsUntilStateChange: -305253.1
       state: Opening
   - uid: 6750
     components:
@@ -43956,7 +43950,7 @@ entities:
       pos: -5.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -305200.47
+      secondsUntilStateChange: -305252.47
       state: Opening
 - proto: CyberPen
   entities:

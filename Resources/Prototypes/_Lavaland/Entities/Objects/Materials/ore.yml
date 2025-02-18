@@ -2,6 +2,9 @@
 # Or cook some nasty shitcode to split the unclaimed value across all of the entities in the stack if there is any. But that feels fairly wonky.
 # Enjoy having to shove any new ores here.
 
+# The mining point values are a bit of a hodgepodge between 13s, and some small considerations taken here as well.
+# Iron, Quartz, Coal and Bananium are all analogues to their 13 values, while Gold, Plasma, Uranium and Silver are all cut by 1/4.
+# And since Diamond should be fairly rare, its value is still left on 100. Bananium was modified as a test :) All values are subject to adjustment.
 - type: entity
   parent: GoldOre
   id: GoldOreUnprocessed
@@ -31,7 +34,7 @@
   - type: Stack
     stackType: DiamondOreUnprocessed
   - type: UnclaimedOre
-    miningPoints: 120
+    miningPoints: 100
 
 - type: entity
   parent: DiamondOreUnprocessed
@@ -151,7 +154,7 @@
   - type: Stack
     stackType: BananiumOreUnprocessed
   - type: UnclaimedOre
-    miningPoints: 3
+    miningPoints: 30 # We might as well give bananium a purpose no?
 
 - type: entity
   parent: BananiumOreUnprocessed
@@ -171,7 +174,7 @@
   - type: Stack
     stackType: CoalUnprocessed
   - type: UnclaimedOre
-    miningPoints: 0.5
+    miningPoints: 1
 
 - type: entity
   parent: CoalUnprocessed
