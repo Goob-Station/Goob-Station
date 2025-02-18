@@ -543,9 +543,8 @@
           - CaptainSabre
   - type: Appearance
 
-
 - type: entity
-  parent: [ClothingBeltBase, BaseSecurityContraband] # Goobstation - Start
+  parent: [ClothingBeltBase, ClothingSlotBase, BaseCommandContraband]
   id: ClothingBeltHolster
   name: shoulder holster
   description: 'A holster to carry a sidearm and ammunition. WARNING: Badasses only.'
@@ -557,21 +556,18 @@
   - type: Item
     size: Ginormous
   - type: Storage
+    maxItemSize: Normal
+    defaultStorageOrientation: Vertical
     grid:
     - 0,0,4,1
-    whitelist:
-      components:
-      - Gun
-      - BallisticAmmoProvider
-      - CartridgeAmmo
   - type: ItemSlots
     slots:
       item:
-        name: Sidearm
-        insertVerbText: holster-insert-verb
-        ejectVerbText: holster-eject-verb
-        insertSound: /Audio/Items/belt_equip.ogg
-        ejectSound: /Audio/Items/belt_equip.ogg
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
         whitelist:
           tags:
           - Sidearm
@@ -581,14 +577,7 @@
         whitelist:
           tags:
           - Sidearm
-  - type: Appearance # Goobstation - End
-  - type: UserInterface
-    interfaces:
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
-  - type: ContainerContainer
-    containers:
-      item: !type:ContainerSlot
+  - type: Appearance
 
 - type: entity
   parent: [ClothingBeltBase, BaseSyndicateContraband] # Goobstation
