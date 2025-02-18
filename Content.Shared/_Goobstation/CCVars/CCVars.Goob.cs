@@ -78,6 +78,19 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> SiloEnabled =
         CVarDef.Create("goob.silo_enabled", true, CVar.SERVER | CVar.REPLICATED);
 
+    /// <summary>
+    ///     Base stam damage dealt on closest parry damage-wise, will always be -1 due to melee having to be above ranged.
+    ///     Ceiling for a dice roll will always be twice this value.
+    /// </summary>
+    public static readonly CVarDef<float> RangedParryStamDmgValueBase =
+        CVarDef.Create("goob.rangedparry_stam_damage_value_base", 11f, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     Ranged parry stam damage lower bound
+    /// </summary>
+    public static readonly CVarDef<float> RangedParryStamDmgValueLower =
+        CVarDef.Create("goob.rangedparry_stam_damage_lower_bound", 2f, CVar.SERVERONLY);
+
     #region Player Listener
 
     /// <summary>

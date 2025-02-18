@@ -1,6 +1,7 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Effects;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared._Goobstation.Combat;
 using Content.Shared.Camera;
 using Content.Shared.Damage;
 using Content.Shared.Database;
@@ -32,16 +33,29 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             return;
 
         var target = args.OtherEntity;
+
+        // Goob edit from here
         // it's here so this check is only done once before possible hit
-        var attemptEv = new ProjectileReflectAttemptEvent(uid, component, false);
-        RaiseLocalEvent(target, ref attemptEv);
-        if (attemptEv.Cancelled)
+        var attemptReflectEv = new ProjectileReflectAttemptEvent(uid, component, false);
+        RaiseLocalEvent(target, ref attemptReflectEv);
+        if (attemptReflectEv.Cancelled)
         {
             SetShooter(uid, component, target);
             _guns.SetTarget(uid, null, out _); // Goobstation
             component.IgnoredEntities.Clear(); // Goobstation
             return;
         }
+
+        var attemptParryEv = new ProjectileParryAttemptEvent(uid, target, component, false);
+
+        RaiseLocalEvent(uid, ref attemptParryEv);
+        if (attemptParryEv.Cancelled)
+        {
+            Del(uid);
+            return;
+        }
+
+        // Goob edit to here
 
         var ev = new ProjectileHitEvent(component.Damage, target, component.Shooter);
         RaiseLocalEvent(uid, ref ev);
