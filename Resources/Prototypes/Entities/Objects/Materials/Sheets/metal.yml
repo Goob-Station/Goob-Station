@@ -222,13 +222,6 @@
         - ReagentId: Carbon
           Quantity: 1
         canReact: false
-  - type: Healing # Goobstation - Make IPCs take radiation
-    delay: 1.0
-    damageContainers:
-    - SiliconRadiation
-    damage:
-      types:
-        Radiation: -5.0
 
 - type: entity
   parent: SheetPlasteel
