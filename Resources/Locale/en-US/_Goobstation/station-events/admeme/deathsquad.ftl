@@ -1,1 +1,1 @@
-station-event-deathsquad-enroute = Deathsquad IFF signature detected in proximity of sector. Are you sure whatever you are doing is worth it?
+station-event-deathsquad-enroute = Deathsquad enroute. Central Command sends their regards.
