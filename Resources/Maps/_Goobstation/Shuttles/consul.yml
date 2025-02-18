@@ -154,7 +154,8 @@ entities:
             0: 65534
           1,2:
             0: 62981
-            2: 266
+            2: 264
+            3: 2
           0,3:
             1: 128
           1,0:
@@ -201,7 +202,7 @@ entities:
             0: 4354
           2,-2:
             0: 4353
-            3: 16
+            4: 16
           2,-4:
             0: 8192
           -3,-4:
@@ -285,6 +286,25 @@ entities:
           moles:
           - 20.078888
           - 75.53487
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 14.384373
+          - 54.11265
           - 0
           - 0
           - 0
@@ -1874,6 +1894,44 @@ entities:
       angularDamping: 0
       linearDamping: 0
       canCollide: False
+- proto: AmbuzolPlusMedipen
+  entities:
+  - uid: 284
+    components:
+    - type: Transform
+      parent: 282
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 366
+    components:
+    - type: Transform
+      parent: 282
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 367
+    components:
+    - type: Transform
+      parent: 282
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 369
+    components:
+    - type: Transform
+      parent: 282
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: AmmoTechFab
   entities:
   - uid: 1262
@@ -5314,8 +5372,8 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.7459903
-        - 6.568249
+        - 7.4405036
+        - 27.99047
         - 0
         - 0
         - 0
@@ -5336,15 +5394,18 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 1300
-          - 1299
-          - 1298
-          - 1297
-          - 1296
-          - 1295
-          - 1294
-          - 284
           - 283
+          - 1294
+          - 1295
+          - 1296
+          - 1297
+          - 1298
+          - 1299
+          - 1300
+          - 284
+          - 366
+          - 367
+          - 369
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -9582,24 +9643,6 @@ entities:
       angularDamping: 0
       linearDamping: 0
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 366
-          - 367
-          - 369
-          - 370
-          - 1290
-          - 1291
-          - 1292
-          - 1293
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
     - type: ActiveUserInterface
     - type: InsideEntityStorage
 - proto: MedkitCombatFilled
@@ -9729,72 +9772,6 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-- proto: PillAmbuzolPlus
-  entities:
-  - uid: 366
-    components:
-    - type: Transform
-      parent: 284
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 367
-    components:
-    - type: Transform
-      parent: 284
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 369
-    components:
-    - type: Transform
-      parent: 284
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 370
-    components:
-    - type: Transform
-      parent: 284
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 1290
-    components:
-    - type: Transform
-      parent: 284
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 1291
-    components:
-    - type: Transform
-      parent: 284
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 1292
-    components:
-    - type: Transform
-      parent: 284
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 1293
-    components:
-    - type: Transform
-      parent: 284
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
 - proto: PillCanisterIron
   entities:
   - uid: 599
@@ -10480,20 +10457,6 @@ entities:
     components:
     - type: Transform
       parent: 37
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-- proto: RemoteSignallerAdvanced
-  entities:
-  - uid: 1335
-    components:
-    - type: Transform
-      parent: 1334
-    - type: DeviceLinkSource
-      linkedPorts:
-        1334:
-        - Pressed: Trigger
     - type: Physics
       angularDamping: 0
       linearDamping: 0
