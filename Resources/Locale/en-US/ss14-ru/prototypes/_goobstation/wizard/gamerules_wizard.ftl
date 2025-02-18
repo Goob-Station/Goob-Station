@@ -1,0 +1,12 @@
+ent-BaseWizardRule = { ent-BaseGameRule }
+    .desc = { ent-BaseGameRule.desc }
+ent-Wizard = { ent-BaseWizardRule }
+    .desc = { ent-BaseWizardRule.desc }
+ent-WizardDynamic = { ent-BaseWizardRule }
+    .desc = { ent-BaseWizardRule.desc }
+ent-WizardDynamicMidround = { ent-WizardDynamic }
+    .desc = { ent-WizardDynamic.desc }
+ent-ApprenticeRule = { ent-BaseGameRule }
+    .desc = { ent-BaseGameRule.desc }
+ent-EndRoundOnWizardDeath = { ent-BaseGameRule }
+    .desc = { ent-BaseGameRule.desc }

@@ -1,0 +1,9 @@
+ent-CrateCybersunDarkGygaxBundle = Cybersun gygax bundle
+    .desc = Contains a set of Cybersan light armored mechs.
+    .suffix = Filled
+ent-CrateCybersunMaulerBundle = Cybersun mauler bundle
+    .desc = Contains a set of Cybersan heavy armored mechs.
+    .suffix = Filled
+ent-CrateSyndicateBulkMosin = Syndicate bulk rifle crate
+    .desc = Just use more rifles, comrade.
+    .suffix = Filled
