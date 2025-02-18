@@ -787,7 +787,6 @@
     - CockroachCube
     - HumanCube # Goobstation - Start
     - DionaCube
-    - FelinidCube
     - GingerbreadCube
     - MothCube
     - DwarfCube
@@ -805,6 +804,7 @@
     - SpaceCarpCube
     - SpaceTickCube
     - SkibidiCube # Goobstation
+    - FelinidCube
 
 - type: entity
   id: SecurityTechFab
