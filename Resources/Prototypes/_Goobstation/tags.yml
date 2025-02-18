@@ -43,7 +43,7 @@
 
 - type: Tag
   id: ClarkePeripheralsControlModule
-  
+
 - type: Tag
   id: ClarkeRArm
 
@@ -340,7 +340,7 @@
 - type: Tag
   id: Tourniquet
 
-- type: Tag  
+- type: Tag
   id: ToySword
 
 - type: Tag
@@ -354,14 +354,12 @@
 
 - type: Tag
   id: WaterTank
->>>>>>> upstream/master
 
 - type: Tag
   id: WeaponPistolDualetta
 
 - type: Tag
-<<<<<<< HEAD
-  id: HudMedicalSecurity
-=======
   id: WizardHat
->>>>>>> upstream/master
+
+- type: Tag
+  id: HudMedicalSecurity
