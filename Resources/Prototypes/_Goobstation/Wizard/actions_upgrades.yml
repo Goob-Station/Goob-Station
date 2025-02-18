@@ -800,7 +800,7 @@
       speech: action-speech-spell-simians
       mobs: SummonSimiansMobTableIII
       weapons: SummonSimiansWeaponTableIII
-      amount: 4
+      amount: 5
       range: 1.25
       spawnAngle: 50
 
@@ -823,7 +823,7 @@
       speech: action-speech-spell-simians
       mobs: SummonSimiansMobTableIV
       weapons: SummonSimiansWeaponTableIV
-      amount: 4
+      amount: 5
       range: 1.25
       spawnAngle: 50
 
@@ -846,7 +846,7 @@
       speech: action-speech-spell-simians
       mobs: SummonSimiansMobTableV
       weapons: SummonSimiansWeaponTableV
-      amount: 5
+      amount: 6
       range: 1.5
       spawnAngle: 60
   - type: Magic
