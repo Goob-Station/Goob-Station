@@ -58,7 +58,7 @@
       path: /Audio/Items/hiss.ogg
     clumsyProof: true
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 60
+    rechargeCooldown: 90 # You CAN just endlessly print then grind these. The cooldown is being made so long it'd be faster to just grow it.
     rechargeSound:
       path: /Audio/Items/pen_click.ogg
   - type: BasicEntityAmmoProvider
