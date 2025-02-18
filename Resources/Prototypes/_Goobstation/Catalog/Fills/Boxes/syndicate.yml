@@ -13,7 +13,7 @@
   name: box of lollypops
   parent: [BoxCardboard, BaseSyndicateContraband]
   id: SyndicateLollypopBundle
-  description: A box full of Donk co. candy.
+  description: A box full of Donk co. candy. What could be inside?
   components:
   - type: StorageFill
     contents:
@@ -21,4 +21,5 @@
       amount: 9
   - type: Sprite
     layers:
+    - state: box
     - state: candy
