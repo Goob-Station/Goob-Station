@@ -89,18 +89,18 @@ public sealed class RangedParrySystem : EntitySystem
         if (TryComp(ev.Target, out MovementSpeedModifierComponent? movement))
             speed = movement.CurrentSprintSpeed;
 
-        if (meleeSummation > rangedSummation && CastDie(damage, speed))
-        {
-            var auParams = AudioParams.Default;
-            auParams.Pitch += damage * 3;
+        if (!(meleeSummation > rangedSummation) || !CastDie(damage, speed))
+            return;
 
-            _popupSystem.PopupEntity($"Parried! Took {damage} damage!", ev.Target);
-            _audio.PlayPvs(_parrySound, ev.Target, auParams);
+        var auParams = AudioParams.Default;
+        auParams.Pitch += damage * 3;
 
-            _stam.TakeStaminaDamage(ev.Target, value: damage);
+        _popupSystem.PopupEntity($"Parried!", ev.Target);
+        _audio.PlayPvs(_parrySound, ev.Target, auParams);
 
-            ev.Cancelled = true;
-        }
+        _stam.TakeStaminaDamage(ev.Target, value: damage);
+
+        ev.Cancelled = true;
     }
 
     private bool TryGetMeleeSummation(EntityUid target, [NotNullWhen(true)] out float? summation)
@@ -137,7 +137,7 @@ public sealed class RangedParrySystem : EntitySystem
 
     private int GetTotalDamage(Dictionary<string, FixedPoint2> damage, bool includeStructural = false)
     {
-        int dmg = 0;
+        var dmg = 0;
 
         foreach (var kvp in damage)
         {
