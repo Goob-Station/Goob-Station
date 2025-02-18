@@ -30,6 +30,9 @@
   id: CartridgeMagicBullet
 
 - type: Tag
+  id: CartridgeSmart
+
+- type: Tag
   id: Clarke
 
 - type: Tag
@@ -43,7 +46,7 @@
 
 - type: Tag
   id: ClarkePeripheralsControlModule
-  
+
 - type: Tag
   id: ClarkeRArm
 
@@ -189,6 +192,9 @@
   id: MagazineMagnumLeverRifle
 
 - type: Tag
+  id: MagazineSmart
+
+- type: Tag
   id: Mask
 
 - type: Tag
@@ -287,7 +293,7 @@
 - type: Tag
   id: Tourniquet
 
-- type: Tag  
+- type: Tag
   id: ToySword
 
 - type: Tag
