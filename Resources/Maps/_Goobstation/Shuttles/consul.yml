@@ -94,6 +94,12 @@ entities:
           decals:
             14: -8,-7
         - node:
+            color: '#DE3A3A96'
+            id: HalfTileOverlayGreyscale
+          decals:
+            65: 7,16
+            66: 8,16
+        - node:
             color: '#B1FFBDFF'
             id: OldConcreteTrimLineN
           decals:
@@ -1823,7 +1829,7 @@ entities:
       access:
       - - CentralCommand
     - type: DeviceLinkSink
-      invokeCounter: 2
+      invokeCounter: 3
     - type: DeviceLinkSource
       linkedPorts:
         4:
@@ -1839,7 +1845,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         441:
-        - DoorStatus: DoorBolt
+        - DockStatus: Open
+        - DockStatus: AutoClose
     - type: AccessReader
       access:
       - - CentralCommand
@@ -1854,7 +1861,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         416:
-        - DoorStatus: DoorBolt
+        - DockStatus: Open
+        - DockStatus: AutoClose
     - type: AccessReader
       access:
       - - CentralCommand
@@ -2031,6 +2039,20 @@ entities:
           length: 0.5
         storage:
           endTime: 19.7425155
+- proto: AtmosDeviceFanDirectional
+  entities:
+  - uid: 523
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -8.5,4.5
+      parent: 2
+  - uid: 524
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -8.5,2.5
+      parent: 2
 - proto: Autolathe
   entities:
   - uid: 749
@@ -2383,6 +2405,11 @@ entities:
     - type: Transform
       pos: 3.5,-6.5
       parent: 2
+  - uid: 370
+    components:
+    - type: Transform
+      pos: -5.5,4.5
+      parent: 2
   - uid: 379
     components:
     - type: Transform
@@ -2502,6 +2529,16 @@ entities:
     components:
     - type: Transform
       pos: -4.5,15.5
+      parent: 2
+  - uid: 521
+    components:
+    - type: Transform
+      pos: -6.5,4.5
+      parent: 2
+  - uid: 522
+    components:
+    - type: Transform
+      pos: -7.5,4.5
       parent: 2
   - uid: 632
     components:
@@ -3765,6 +3802,46 @@ entities:
       linearDamping: 0
     - type: Pullable
       prevFixedRotation: True
+- proto: Carpet
+  entities:
+  - uid: 530
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.5,-0.5
+      parent: 2
+  - uid: 531
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.5,-1.5
+      parent: 2
+  - uid: 532
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.5,-3.5
+      parent: 2
+  - uid: 533
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.5,-2.5
+      parent: 2
+- proto: CarpetBlack
+  entities:
+  - uid: 525
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 7.5,16.5
+      parent: 2
+  - uid: 526
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 8.5,16.5
+      parent: 2
 - proto: CarpetGreen
   entities:
   - uid: 1049
@@ -3941,6 +4018,26 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 8.5,-4.5
+      parent: 2
+- proto: CarpetPink
+  entities:
+  - uid: 527
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.5,-4.5
+      parent: 2
+  - uid: 528
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -6.5,-4.5
+      parent: 2
+  - uid: 529
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -5.5,-4.5
       parent: 2
 - proto: CartridgeLightRifle
   entities:
@@ -5629,6 +5726,12 @@ entities:
     - type: Transform
       pos: -4.8356514,0.47601348
       parent: 2
+  - uid: 534
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -4.4479523,0.5474829
+      parent: 2
 - proto: ClothingEyesGlassesDeathsquad
   entities:
   - uid: 422
@@ -5667,8 +5770,11 @@ entities:
   - uid: 267
     components:
     - type: Transform
-      pos: -4.6689844,0.40309685
+      pos: -4.5901184,0.49294347
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: ClothingOuterHardsuitCarp
   entities:
   - uid: 26
