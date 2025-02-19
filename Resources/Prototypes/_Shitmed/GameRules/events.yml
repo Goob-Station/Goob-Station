@@ -174,5 +174,6 @@
           - CanPilot
           - FootstepSound
           - DoorBumpOpener
+      - type: AbductorScientist # Should be removed when we have proper teleportation system
       mindRoles:
       - MindRoleLoneAbductor
