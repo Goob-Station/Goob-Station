@@ -182,6 +182,19 @@
     back:
     - CardBoxNanotrasen
 
+# Candy!
+
+- type: loadout
+  id: FoodSnackLollypopWrapped
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:OverallPlaytimeRequirement
+      time: 36000 # 10hr
+  storage:
+    back:
+    - FoodSnackLollypopWrapped
+
 # End GoobStation
 
 # Towels
