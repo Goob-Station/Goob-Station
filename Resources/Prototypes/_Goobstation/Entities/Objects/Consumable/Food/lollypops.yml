@@ -546,68 +546,6 @@
     sound:
       path: /Audio/Effects/unwrap.ogg
 
-- type: entity
-  parent: [FoodSnackLollypopWrappedBase, BaseSyndicateContraband]
-  id: FoodSnackLollypopWrappedMysteryEvil
-  name: wrapped mystery lollypop
-  suffix: evil
-  description: A mysterious lollypop. This one gives you a bad feeling.
-  components:
-  - type: Tag
-    tags:
-    - FoodSnack
-  - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
-    state: lollypop-wrapped-syndicate
-  - type: SpawnItemsOnUse
-    items:
-    - id: FoodSnackLollypopTrashSyndicate
-    - id: FoodSnackLollypop
-      orGroup: LollypopMystery
-      prob: 0.20
-    - id: FoodSnackLollypopDermaline
-      orGroup: LollypopMystery
-    - id: FoodSnackLollypopTricordrazine
-      orGroup: LollypopMystery
-    - id: FoodSnackLollypopBicaridine
-      orGroup: LollypopMystery
-    - id: FoodSnackLollypopDylovene
-      orGroup: LollypopMystery
-    - id: FoodSnackLollypopDexalinPlus
-      orGroup: LollypopMystery
-    - id: FoodSnackLollypopOmnizine
-      orGroup: LollypopMystery
-      prob: 0.35
-    - id: FoodSnackLollypopLexorin
-      orGroup: LollypopMystery
-      prob: 0.35
-    - id: FoodSnackLollypopCognizine
-      orGroup: LollypopMystery
-      prob: 0.20
-    - id: FoodSnackLollypopSynaptizine
-      orGroup: LollypopMystery
-      prob: 0.35
-    - id: FoodSnackLollypopCarpoToxin
-      orGroup: LollypopMystery
-      prob: 0.35
-    - id: FoodSnackLollypopNocturine
-      orGroup: LollypopMystery
-      prob: 0.35
-    - id: FoodSnackLollypopHyperzine
-      orGroup: LollypopMystery
-      prob: 0.35
-    - id: FoodSnackLollypopPhlogiston
-      orGroup: LollypopMystery
-      prob: 0.20
-    - id: FoodSnackLollypopFentanyl
-      orGroup: LollypopMystery
-      prob: 0.20
-    - id: FoodSnackLollypopRomerol
-      orGroup: LollypopMystery
-      prob: 0.05
-    sound:
-      path: /Audio/Effects/unwrap.ogg
-
 # Syndicate Lollypops
 
 # Normal
