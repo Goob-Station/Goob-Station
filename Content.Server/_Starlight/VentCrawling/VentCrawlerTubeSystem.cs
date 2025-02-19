@@ -202,8 +202,7 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
         if (!TryComp<VentCrawlerComponent>(entity, out var ventCrawlerComponent))
             return false;
 
-        var xform = Transform(uid);
-        var holder = Spawn(VentCrawlerEntryComponent.HolderPrototypeId, xform.MapPosition);
+        var holder = Spawn(entry.HolderPrototypeId, Transform(uid).Coordinates);
         var holderComponent = Comp<VentCrawlerHolderComponent>(holder);
 
         _ventCrawableSystem.TryInsert(holder, entity, holderComponent);
