@@ -534,6 +534,74 @@
     - id: FoodSnackLollypopHyperzine
       orGroup: LollypopMystery
       prob: 0.35
+    - id: FoodSnackLollypopPhlogiston
+      orGroup: LollypopMystery
+      prob: 0.20
+    - id: FoodSnackLollypopFentanyl
+      orGroup: LollypopMystery
+      prob: 0.20
+    - id: FoodSnackLollypopRomerol
+      orGroup: LollypopMystery
+      prob: 0.05
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: [FoodSnackLollypopWrappedBase, BaseSyndicateContraband]
+  id: FoodSnackLollypopWrappedMysteryEvil
+  name: wrapped mystery lollypop
+  suffix: evil
+  description: A mysterious lollypop. This one gives you a bad feeling.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapped-syndicate
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrashSyndicate
+    - id: FoodSnackLollypop
+      orGroup: LollypopMystery
+      prob: 0.20
+    - id: FoodSnackLollypopDermaline
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopTricordrazine
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopBicaridine
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopDylovene
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopDexalinPlus
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopOmnizine
+      orGroup: LollypopMystery
+      prob: 0.35
+    - id: FoodSnackLollypopLexorin
+      orGroup: LollypopMystery
+      prob: 0.35
+    - id: FoodSnackLollypopCognizine
+      orGroup: LollypopMystery
+      prob: 0.20
+    - id: FoodSnackLollypopSynaptizine
+      orGroup: LollypopMystery
+      prob: 0.35
+    - id: FoodSnackLollypopCarpoToxin
+      orGroup: LollypopMystery
+      prob: 0.35
+    - id: FoodSnackLollypopNocturine
+      orGroup: LollypopMystery
+      prob: 0.35
+    - id: FoodSnackLollypopHyperzine
+      orGroup: LollypopMystery
+      prob: 0.35
+    - id: FoodSnackLollypopPhlogiston
+      orGroup: LollypopMystery
+      prob: 0.20
+    - id: FoodSnackLollypopFentanyl
+      orGroup: LollypopMystery
+      prob: 0.20
     - id: FoodSnackLollypopRomerol
       orGroup: LollypopMystery
       prob: 0.05
@@ -824,6 +892,84 @@
         - ReagentId: Sugar
           Quantity: 5
         - ReagentId: CarpoToxin
+          Quantity: 10
+
+# Fentanyl
+
+- type: entity
+  parent: FoodSnackLollypopWrappedBase
+  id: FoodSnackLollypopWrappedFentanyl
+  name: wrapped fentanyl lollypop
+  suffix: fentanyl
+  description: This is why your parents warned you about taking candy from strangers. Appears ordinary when unwrapped.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapped
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrashSyndicate
+    - id: FoodSnackLollypopFentanyl
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBaseSyndicate
+  id: FoodSnackLollypopFentanyl
+  name: lollypop
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Fentanyl # We do a little bit of trolling.
+          Quantity: 10
+
+# Phlogiston
+
+- type: entity
+  parent: FoodSnackLollypopWrappedSyndicate
+  id: FoodSnackLollypopWrappedPhlogiston
+  name: wrapped syndicate lollypop
+  suffix: phlogiston
+  description: A lollypop containing phlogiston. Appears completely ordinary when unwrapped.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrashSyndicate
+    - id: FoodSnackLollypopPhlogiston
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBaseSyndicate
+  id: FoodSnackLollypopPhlogiston
+  name: lollypop
+  suffix: phlogiston
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Phlogiston
           Quantity: 10
 
 # Non-medication Lollypops
