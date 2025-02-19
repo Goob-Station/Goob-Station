@@ -1058,6 +1058,7 @@
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-trash
   - type: Clothing
+    quickEquip: false # You want to eat it, not stick it in your mouth.
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     slots: [ mask ]
 
