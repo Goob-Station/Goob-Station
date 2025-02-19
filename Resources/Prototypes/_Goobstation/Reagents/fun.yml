@@ -45,7 +45,7 @@
       metabolismRate: 0.05
       effects:
       - !type:Polymorph
-        prototype: MobCarp
+        prototype: WizardForcedCarp # If it works, it works.
         conditions:
         - !type:ReagentThreshold
           min: 10
