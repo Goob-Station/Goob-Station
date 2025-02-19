@@ -15,3 +15,10 @@ hand-labeler-has-label = This object has a label on it, which reads '{$label}'
 # Verb text
 hand-labeler-remove-label-text = Remove label
 hand-labeler-add-label-text = Apply label
+
+# Goobstation - Hand Renamer
+hand-renamer-ui-header = Hand Renamer
+hand-renamer-current-text-label = New name:
+hand-renamer-empty-name = Has no name!
+hand-renamer-successfully-renamed = Applied new name successfully
+hand-renamer-rename-text = Rename
