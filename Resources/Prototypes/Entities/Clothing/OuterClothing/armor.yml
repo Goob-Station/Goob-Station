@@ -301,7 +301,7 @@
   - type: GroupExamine
 
 - type: entity # This is from upstream, so it goes in wizden code.
-  parent: [ClothingOuterArmorBaseCarapace, BaseCentcommContraband]
+  parent: [ClothingOuterArmorCaptainCarapace, BaseCentcommContraband]
   id: ClothingOuterArmorCentcommCarapace
   name: centcomm carapace
   description: 'An armored chestpiece that provides protection whilst still offering maximum mobility and flexibility. Issued only to centcomm officials and agents.'
