@@ -940,6 +940,13 @@
     - id: FoodSnackLollypopCarpoToxin
     sound:
       path: /Audio/Effects/unwrap.ogg
+  - type: Sprite # I kinda hope this... doesn't work?
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop-trash
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: carp
+      map: [ "enum.AmmoVisualLayers.Tip" ]
 
 - type: entity
   parent: FoodSnackLollypopBaseSyndicate
@@ -960,7 +967,7 @@
         - ReagentId: Sugar
           Quantity: 5
         - ReagentId: CarpoToxin
-          Quantity: 10
+          Quantity: 15
 
 # Fentanyl
 
@@ -1172,6 +1179,7 @@
   id: FoodSnackLollypopCarpEvil
   name: carp lollypop
   description: Who the hell is Aubrey White?
+  suffix: EVIL
   components:
   - type: Tag
     tags:
