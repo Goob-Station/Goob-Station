@@ -1,5 +1,17 @@
 # Tier 1
 
+- type: technology
+  id: PrescriptionLenses
+  name: research-technology-prescription-lenses
+  icon:
+    sprite: Clothing/Eyes/Glasses/glasses.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 1
+  cost: 2500
+  recipeUnlocks: # In the future, this can allow for prescription versions of sec glasses/med glasses
+  - PrescriptionGlasses
+
 # Tier 2
 
 - type: technology

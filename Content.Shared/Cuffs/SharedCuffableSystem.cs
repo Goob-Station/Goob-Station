@@ -6,7 +6,8 @@ using Content.Shared.Alert;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Database;
-using Content.Shared._EinsteinEngines.Flight; // Goobstation
+using Content.Shared._EinsteinEngines.Flight;
+using Content.Shared._Goobstation.Wizard.Mutate; // Goobstation
 using Content.Shared.DoAfter;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
@@ -54,6 +55,7 @@ namespace Content.Shared.Cuffs
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
         [Dependency] private readonly UseDelaySystem _delay = default!;
+        [Dependency] private readonly SharedHulkSystem _hulk = default!;
 
         public override void Initialize()
         {
@@ -150,6 +152,8 @@ namespace Content.Shared.Cuffs
 
         private void OnRejuvenate(EntityUid uid, CuffableComponent component, RejuvenateEvent args)
         {
+            if (!args.Uncuff) // Goobstation
+                return;
             _container.EmptyContainer(component.Container, true);
         }
 
@@ -638,6 +642,13 @@ namespace Content.Shared.Cuffs
 
                 if (!_delay.TryResetDelay((cuffsToRemove.Value, useDelay), true))
                 {
+                    return;
+                }
+
+                if (TryComp(user, out HulkComponent? hulk)) // Goobstation
+                {
+                    _hulk.Roar((user, hulk));
+                    Uncuff(user, user, cuffsToRemove.Value, cuffable);
                     return;
                 }
             }

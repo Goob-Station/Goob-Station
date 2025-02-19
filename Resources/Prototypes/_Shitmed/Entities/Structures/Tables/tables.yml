@@ -2,7 +2,7 @@
   id: TableAbductor
   parent: TableBase
   name: alien table
-  description: Literally the sturdiest thing you have ever seen.
+  description: Literally the sturdiest thing you have ever seen. # Peak. No changes needed.
   components:
   - type: Sprite
     sprite: _Shitmed/Structures/Tables/abductor_table.rsi

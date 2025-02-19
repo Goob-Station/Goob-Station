@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingOuterArmorBasic
+  parent: [ BaseMajorContraband, ClothingOuterArmorBasic ]
   id: ClothingOuterArmorAbductor
   name: agent vest
   components:
