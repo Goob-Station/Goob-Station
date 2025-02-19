@@ -432,6 +432,8 @@
       - WeaponLaserCannon
       - WeaponLaserCarbine
       - WeaponXrayCannon
+      - WeaponSubMachineSmart # Goobstation
+      - MagazineSmart # Goobstation
 
 - type: entity
   id: ProtolatheHyperConvection
