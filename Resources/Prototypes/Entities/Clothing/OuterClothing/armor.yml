@@ -416,6 +416,7 @@
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
 
+
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowSuitStorageClothing ]
   id: ClothingOuterArmorPodWars
