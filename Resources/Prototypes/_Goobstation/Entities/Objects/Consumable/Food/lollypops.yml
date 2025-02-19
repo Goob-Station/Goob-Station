@@ -873,6 +873,7 @@
   parent: FoodSnackLollypopBaseSyndicate
   id: FoodSnackLollypopFentanyl
   name: lollypop
+  suffix: fentanyl
   components:
   - type: Tag
     tags:

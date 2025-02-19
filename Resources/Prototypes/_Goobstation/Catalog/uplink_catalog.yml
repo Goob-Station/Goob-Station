@@ -365,6 +365,16 @@
   categories:
   - UplinkChemicals
 
+- type: listing
+  id: UplinkSyndicateLollypopBundleBig
+  name: uplink-lollypop-bundle-big-name
+  description: uplink-lollypop-bundle-big-desc
+  productEntity: ClothingBackpackDuffelSyndicateFilledCandy
+  cost:
+    Telecrystal: 100
+  categories:
+  - UplinkChemicals
+
 
 # Implants
 
