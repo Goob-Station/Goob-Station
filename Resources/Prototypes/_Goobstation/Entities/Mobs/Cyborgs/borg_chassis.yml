@@ -1,7 +1,7 @@
 - type: entity
   id: BorgChassisDerelictSyndicateAssault
   parent: BaseBorgChassisDerelict
-  name: derelict cyborg
+  name: derelict syndicate assasult cyborg
   description: A lean, mean killing machine with access to a variety of deadly modules. This one is in a state of great disrepair.
   components:
   - type: Sprite
