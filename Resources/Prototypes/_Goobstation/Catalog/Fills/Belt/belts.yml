@@ -51,10 +51,7 @@
     contents:
     - id: MagazineMagnum
     - id: MagazineMagnum
-  - type: ContainerFill
-    containers:
-      item:
-      - WeaponPistolN1984
+    - id: WeaponPistolN1984
 
 - type: entity
   id: ClothingBeltSecurityWebbingFilledMedical
