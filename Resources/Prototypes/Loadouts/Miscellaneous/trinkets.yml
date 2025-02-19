@@ -206,6 +206,18 @@
     back:
     - FoodSnackLollypopWrappedRainbow
 
+- type: loadout
+  id: FoodSnackLollypopWrappedCarp
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: SalvageSpecialist
+      time: 360000 # 100hr
+  storage:
+    back:
+    - FoodSnackLollypopWrappedCarp
+
 # End GoobStation
 
 # Towels

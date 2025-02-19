@@ -214,13 +214,9 @@
   - type: FlavorProfile
     flavors:
     - exotic
-  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+  - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
-    layers:
-    - state: lollypop
-      map: [ "enum.AmmoVisualLayers.Base" ]
-    - state: carp
-      map: [ "enum.AmmoVisualLayers.Tip" ]
+    state: carp
 
 # Chempops - Bicaridine
 
