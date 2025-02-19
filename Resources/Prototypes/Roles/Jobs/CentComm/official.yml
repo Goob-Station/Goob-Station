@@ -28,7 +28,7 @@
     eyes: ClothingEyesGlassesCommand # Goobstation - Can change to Central Commander shades if wanted, but probably save for a new role entirely.
     gloves: ClothingHandsGlovesCombat # Goobstation - Replace with goldtrims when made.
     back: ClothingBackpackSatchelLeather # Goobstation - Officials need bags too!
-    outerClothing: ClothingOuterArmourCentcommCarapace # Officials shouldn't use shitty armor, Nanotrasen is richer than that.
+    outerClothing: ClothingOuterArmorCentcommCarapace # Officials shouldn't use shitty armor, Nanotrasen is richer than that.
     neck: ExecutiveIDCard # Executive Access!
     id: CentcomPDA
     ears: ClothingHeadsetAltCentCom
