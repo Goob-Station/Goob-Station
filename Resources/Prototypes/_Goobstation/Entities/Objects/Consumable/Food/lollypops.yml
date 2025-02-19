@@ -211,13 +211,12 @@
     tags:
     - FoodSnack
     - ClothMade
-  - type: Sprite
+  - type: Sprite # This section is badly made. Bite me.
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
-    layers:
-    - state: lollypop_trash # This section is badly made. Bite me.
-      map: [ "enum.AmmoVisualLayers.Base" ]
-    - state: carp
-      map: [ "enum.AmmoVisualLayers.Tip" ]
+    state: carp
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: carp
 
 # Blueshield
 
