@@ -34,9 +34,10 @@
       - PositronicBrain
       borg_module:
       - BorgModuleOperative
-      - BorgModuleSyndicateWeapon
+      - BorgModuleSyndicateWeaponImproved
       # - BorgModuleL6C - No L6 for the derelicts
-      - BorgModuleEsword
+      # - BorgModuleEsword - Replaced
+      - BorgModuleTool
       - BorgModuleFireExtinguisher
       - BorgModuleGPS
   - type: ItemSlots
