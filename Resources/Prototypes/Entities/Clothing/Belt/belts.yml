@@ -543,55 +543,22 @@
           - CaptainSabre
   - type: Appearance
 
-- type: entity # Goobstation - Start
-  parent: [ClothingBeltBase, BaseCommandContraband]
+- type: entity
+  parent: ClothingBeltStorageBase
   id: ClothingBeltHolster
   name: shoulder holster
-  description: 'A holster to carry a sidearm and ammunition. WARNING: Badasses only.'
+  description: 'A holster to carry a handgun and ammo. WARNING: Badasses only.'
   components:
   - type: Sprite
     sprite: Clothing/Belt/holster.rsi
   - type: Clothing
     sprite: Clothing/Belt/holster.rsi
-  - type: Item
-    size: Ginormous
   - type: Storage
-    maxItemSize: Huge
     grid:
-    - 0,0,4,1
-    whitelist:
-      components:
-      - Gun
-      - BallisticAmmoProvider
-      - CartridgeAmmo
-  - type: ItemSlots
-    slots:
-      item:
-        name: Sidearm
-        insertVerbText: holster-insert-verb
-        ejectVerbText: holster-eject-verb
-        insertSound: /Audio/Items/belt_equip.ogg
-        ejectSound: /Audio/Items/belt_equip.ogg
-        whitelist:
-          tags:
-          - Sidearm
-  - type: ItemMapper
-    mapLayers:
-      icon-filled:
-        whitelist:
-          tags:
-          - Sidearm
-  - type: Appearance
-  - type: UserInterface
-    interfaces:
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
-  - type: ContainerContainer
-    containers:
-      item: !type:ContainerSlot
+    - 0,0,4,1 # Goobstation
 
 - type: entity
-  parent: [ClothingBeltBase, BaseSyndicateContraband] # Goobstation
+  parent: [ClothingBeltStorageBase, BaseSyndicateContraband]
   id: ClothingBeltSyndieHolster
   name: syndicate shoulder holster
   description: A deep shoulder holster capable of holding many types of ballistics.
@@ -611,32 +578,6 @@
       - Gun
       - BallisticAmmoProvider
       - CartridgeAmmo
-  - type: ItemSlots
-    slots:
-      item:
-        name: Sidearm
-        insertVerbText: holster-insert-verb
-        ejectVerbText: holster-eject-verb
-        insertSound: /Audio/Items/belt_equip.ogg
-        ejectSound: /Audio/Items/belt_equip.ogg
-        whitelist:
-          tags:
-          - Sidearm
-  - type: ItemMapper
-    mapLayers:
-      icon-filled:
-        whitelist:
-          tags:
-          - Sidearm
-  - type: Appearance
-  - type: UserInterface
-    interfaces:
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
-  - type: ContainerContainer
-    containers:
-      item: !type:ContainerSlot
-        # Goobstation - End
 
 # Belts without visualizers
 
