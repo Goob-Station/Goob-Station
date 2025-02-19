@@ -36,6 +36,7 @@
   - type: Tag
     tags:
     - FoodSnack
+    - ClothMade
   - type: Clothing
     quickEquip: false # You want to eat it, not stick it in your mouth.
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
@@ -102,7 +103,7 @@
       map: [ "enum.AmmoVisualLayers.Base" ]
     - state: color
       map: [ "enum.AmmoVisualLayers.Tip" ]
-      color: "#3a1d8a" # Color can change later if you want to be able to tell it apart.
+      color: "#FFC0CB" # Color can change later if you want to be able to tell it apart.
   - type: SolutionContainerManager
     solutions:
       food:
@@ -141,6 +142,7 @@
   - type: Tag
     tags:
     - FoodSnack
+    - ClothMade
 
 # Medical Lollypops - Bicaridine
 
@@ -172,6 +174,7 @@
   - type: Tag
     tags:
     - FoodSnack
+    - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     layers:
@@ -223,6 +226,7 @@
   - type: Tag
     tags:
     - FoodSnack
+    - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     layers:
@@ -274,6 +278,7 @@
   - type: Tag
     tags:
     - FoodSnack
+    - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     layers:
@@ -325,6 +330,7 @@
   - type: Tag
     tags:
     - FoodSnack
+    - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     layers:
@@ -376,6 +382,7 @@
   - type: Tag
     tags:
     - FoodSnack
+    - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     layers:
@@ -427,6 +434,7 @@
   - type: Tag
     tags:
     - FoodSnack
+    - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     layers:
@@ -578,6 +586,7 @@
   - type: Tag
     tags:
     - FoodSnack
+    - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     layers:
@@ -625,6 +634,7 @@
   - type: Tag
     tags:
     - FoodSnack
+    - ClothMade
   - type: SolutionContainerManager
     solutions:
       food:
@@ -663,6 +673,7 @@
   - type: Tag
     tags:
     - FoodSnack
+    - ClothMade
   - type: SolutionContainerManager
     solutions:
       food:
@@ -704,6 +715,7 @@
   - type: Tag
     tags:
     - FoodSnack
+    - ClothMade
   - type: SolutionContainerManager
     solutions:
       food:
@@ -745,6 +757,7 @@
   - type: Tag
     tags:
     - FoodSnack
+    - ClothMade
   - type: SolutionContainerManager
     solutions:
       food:
@@ -783,6 +796,7 @@
   - type: Tag
     tags:
     - FoodSnack
+    - ClothMade
   - type: SolutionContainerManager
     solutions:
       food:
@@ -822,6 +836,7 @@
   - type: Tag
     tags:
     - FoodSnack
+    - ClothMade
   - type: SolutionContainerManager
     solutions:
       food:
@@ -862,6 +877,7 @@
   - type: Tag
     tags:
     - FoodSnack
+    - ClothMade
   - type: SolutionContainerManager
     solutions:
       food:
@@ -900,6 +916,7 @@
   - type: Tag
     tags:
     - FoodSnack
+    - ClothMade
   - type: SolutionContainerManager
     solutions:
       food:
@@ -942,6 +959,7 @@
   - type: Tag
     tags:
     - FoodSnack
+    - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     layers:
@@ -993,6 +1011,7 @@
   - type: Tag
     tags:
     - FoodSnack
+    - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     layers:
