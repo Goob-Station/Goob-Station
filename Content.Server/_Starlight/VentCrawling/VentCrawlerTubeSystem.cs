@@ -207,6 +207,7 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
 
         _ventCrawableSystem.TryInsert(holder, entity, holderComponent);
 
+        _mover.ResetCamera(entity);
         _mover.SetRelay(entity, holder);
         ventCrawlerComponent.InTube = true;
         Dirty(entity, ventCrawlerComponent);

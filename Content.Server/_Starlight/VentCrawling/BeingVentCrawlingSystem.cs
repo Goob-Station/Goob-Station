@@ -4,6 +4,10 @@ using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.Nodes;
 using Content.Shared._Starlight.VentCrawling.Components;
+using Content.Shared.Actions.Events;
+using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.Hands;
 
 namespace Content.Server._Starlight.VentCrawling;
 
@@ -18,6 +22,14 @@ public sealed class BeingVentCrawSystem : EntitySystem
         SubscribeLocalEvent<BeingVentCrawlerComponent, InhaleLocationEvent>(OnInhaleLocation);
         SubscribeLocalEvent<BeingVentCrawlerComponent, ExhaleLocationEvent>(OnExhaleLocation);
         SubscribeLocalEvent<BeingVentCrawlerComponent, AtmosExposedGetAirEvent>(OnGetAir);
+
+        SubscribeLocalEvent<BeingVentCrawlerComponent, ActionAttemptEvent>(OnActionAttempt);
+        SubscribeLocalEvent<BeingVentCrawlerComponent, AttemptMeleeEvent>(OnMeleeAttempt);
+        SubscribeLocalEvent<BeingVentCrawlerComponent, ShotAttemptedEvent>(OnShootAttempt);
+
+        SubscribeLocalEvent<BeingVentCrawlerComponent, DropAttemptEvent>(OnDropAttempt);
+
+
     }
 
     private void OnGetAir(EntityUid uid, BeingVentCrawlerComponent component, ref AtmosExposedGetAirEvent args)
@@ -80,4 +92,17 @@ public sealed class BeingVentCrawSystem : EntitySystem
             return;
         }
     }
+
+    private void OnActionAttempt(EntityUid uid, BeingVentCrawlerComponent component, ref ActionAttemptEvent args)
+        => args.Cancelled = true;
+
+    private void OnMeleeAttempt(EntityUid uid, BeingVentCrawlerComponent component, ref AttemptMeleeEvent args)
+        => args.Cancelled = true;
+
+    private void OnShootAttempt(EntityUid uid, BeingVentCrawlerComponent component, ref ShotAttemptedEvent args)
+        => args.Cancel();
+
+    private void OnDropAttempt(EntityUid uid, BeingVentCrawlerComponent component, ref DropAttemptEvent args)
+        => args.Cancel();
+
 }
