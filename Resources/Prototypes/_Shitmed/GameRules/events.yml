@@ -28,16 +28,23 @@
         sound: /Audio/_Shitmed/Misc/abductor.ogg
       components:
       - type: Abductor
-      - type: Telepathy # Ayy lmao
-      - type: GlorpAccent #Gloob - Glorpfix
-      - type: AbductorScientist
-      - type: SurgeryIgnoreClothing
-      - type: Sanitized
-      - type: SurgerySpeedModifier
-        speedModifier: 1.5
       - type: ActionGrant
         actions:
-        - ActionReturnToShip
+          - ActionReturnToShip
+      - type: GhostRole
+        name: abductor-lone-ghost-role-name
+        description: abductor-lone-ghost-role-desc
+        rules: abductors-ghost-role-rules
+        raffle:
+          settings: default
+      - type: GhostTakeoverAvailable
+      - type: NpcFactionMember
+        factions:
+          - SimpleHostile
+      - type: RandomMetadata
+        nameSegments:
+          - AbductorScientistPrefix
+          - AbductorNames
       - type: Tag
         tags:
           - Abductor
@@ -45,9 +52,11 @@
           - CanPilot
           - FootstepSound
           - DoorBumpOpener
-      - type: NpcFactionMember
-        factions:
-        - SimpleHostile
+      - type: AbductorScientist
+      - type: SurgeryIgnoreClothing
+      - type: Sanitized
+      - type: SurgerySpeedModifier
+        speedModifier: 1.5
       mindRoles:
       - MindRoleLoneAbductor
 
@@ -100,16 +109,23 @@
         sound: /Audio/_Shitmed/Misc/abductor.ogg
       components:
       - type: Abductor
-      - type: GlorpAccent # GoobStation - Glorpshit
-      - type: Telepathy # Ayy lmao
-      - type: AbductorScientist
-      - type: SurgeryIgnoreClothing
-      - type: Sanitized
-      - type: SurgerySpeedModifier
-        speedModifier: 1.5
       - type: ActionGrant
         actions:
-        - ActionReturnToShip
+          - ActionReturnToShip
+      - type: GhostRole
+        name: abductor-scientist-ghost-role-name
+        description: abductor-scientist-ghost-role-desc
+        rules: abductors-ghost-role-rules
+        raffle:
+          settings: default
+      - type: GhostTakeoverAvailable
+      - type: NpcFactionMember
+        factions:
+          - SimpleHostile
+      - type: RandomMetadata
+        nameSegments:
+          - AbductorScientistPrefix
+          - AbductorNames
       - type: Tag
         tags:
           - Abductor
@@ -117,9 +133,11 @@
           - CanPilot
           - FootstepSound
           - DoorBumpOpener
-      - type: NpcFactionMember
-        factions:
-        - SimpleHostile
+      - type: AbductorScientist
+      - type: SurgeryIgnoreClothing
+      - type: Sanitized
+      - type: SurgerySpeedModifier
+        speedModifier: 1.5
       mindRoles:
       - MindRoleLoneAbductor
     - spawnerPrototype: AbductorAgentSpawner
@@ -133,21 +151,28 @@
         sound: /Audio/_Shitmed/Misc/abductor.ogg
       components:
       - type: Abductor
-      - type: GlorpAccent # GoobStation - Glorpshit
-      - type: Telepathy # Ayy lmao
-      - type: AbductorScientist
-      - type: Sanitized
       - type: ActionGrant
         actions:
-        - ActionReturnToShip
+          - ActionReturnToShip
+      - type: GhostRole
+        name: abductor-agent-ghost-role-name
+        description: abductor-agent-ghost-role-desc
+        rules: abductors-ghost-role-rules
+        raffle:
+          settings: default
+      - type: GhostTakeoverAvailable
+      - type: NpcFactionMember
+        factions:
+          - SimpleHostile
+      - type: RandomMetadata
+        nameSegments:
+          - AbductorAgentPrefix
+          - AbductorNames
       - type: Tag
         tags:
           - Abductor
           - CanPilot
           - FootstepSound
           - DoorBumpOpener
-      - type: NpcFactionMember
-        factions:
-        - SimpleHostile
       mindRoles:
       - MindRoleLoneAbductor
