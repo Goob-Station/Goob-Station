@@ -212,7 +212,7 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
-      role: SalvageSpecialist
+      role: JobSalvageSpecialist
       time: 360000 # 100hr
   storage:
     back:
