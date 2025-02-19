@@ -211,12 +211,50 @@
     tags:
     - FoodSnack
     - ClothMade
-  - type: FlavorProfile
-    flavors:
-    - exotic
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
-    state: carp
+    layers:
+    - state: lollypop_trash # This section is badly made. Bite me.
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: carp
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+
+# Blueshield
+
+- type: entity
+  parent: FoodSnackLollypopWrappedBase
+  id: FoodSnackLollypopWrappedBlueshield
+  name: wrapped blueshield lollypop
+  description: A deep blue lollypop. It's still in the wrapper
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopBlueshield
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBase
+  id: FoodSnackLollypopBlueshield
+  name: deep blue lollypop
+  description: A deep blue lollypop. You feel a sense of pride.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: color
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#040273"
 
 # Chempops - Bicaridine
 
