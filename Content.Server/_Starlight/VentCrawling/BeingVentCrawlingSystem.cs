@@ -8,6 +8,7 @@ using Content.Shared.Actions.Events;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Hands;
+using Content.Shared.Inventory.Events;
 
 namespace Content.Server._Starlight.VentCrawling;
 
@@ -26,9 +27,9 @@ public sealed class BeingVentCrawSystem : EntitySystem
         SubscribeLocalEvent<BeingVentCrawlerComponent, ActionAttemptEvent>(OnActionAttempt);
         SubscribeLocalEvent<BeingVentCrawlerComponent, AttemptMeleeEvent>(OnMeleeAttempt);
         SubscribeLocalEvent<BeingVentCrawlerComponent, ShotAttemptedEvent>(OnShootAttempt);
-
         SubscribeLocalEvent<BeingVentCrawlerComponent, DropAttemptEvent>(OnDropAttempt);
-
+        SubscribeLocalEvent<BeingVentCrawlerComponent, IsUnequippingAttemptEvent>(OnUnequiptAttempt);
+        SubscribeLocalEvent<BeingVentCrawlerComponent, IsEquippingAttemptEvent>(OnEquiptAttempt);
 
     }
 
@@ -105,4 +106,9 @@ public sealed class BeingVentCrawSystem : EntitySystem
     private void OnDropAttempt(EntityUid uid, BeingVentCrawlerComponent component, ref DropAttemptEvent args)
         => args.Cancel();
 
+    private void OnUnequiptAttempt(EntityUid uid, BeingVentCrawlerComponent component, ref IsUnequippingAttemptEvent args)
+        => args.Cancel();
+
+    private void OnEquiptAttempt(EntityUid uid, BeingVentCrawlerComponent component, ref IsEquippingAttemptEvent args)
+        => args.Cancel();
 }
