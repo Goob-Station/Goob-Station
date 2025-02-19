@@ -8272,19 +8272,11 @@ entities:
           - 0
           - 0
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
         - volume: 2500
           temperature: 293.15
           moles:
           - 0
           - 103.92799
-          - 0
-          - 0
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -8310,19 +8302,11 @@ entities:
           - 0
           - 0
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
         - volume: 2500
           temperature: 293.15
           moles:
           - 21.813705
           - 82.06108
-          - 0
-          - 0
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -8348,17 +8332,9 @@ entities:
           - 0
           - 0
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
         - volume: 2500
           immutable: True
           moles:
-          - 0
-          - 0
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -8386,17 +8362,9 @@ entities:
           - 0
           - 0
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
         - volume: 2500
           temperature: 293.15
           moles:
-          - 0
-          - 0
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -8424,18 +8392,10 @@ entities:
           - 0
           - 0
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
         - volume: 2500
           temperature: 293.15
           moles:
           - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -8454,10 +8414,6 @@ entities:
           - 0
           - 0
           - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -9678,17 +9634,9 @@ entities:
           - 0
           - 0
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
         - volume: 2500
           immutable: True
           moles:
-          - 0
-          - 0
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -13260,20 +13208,42 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -2.5,0.5
       parent: 21002
-- proto: AirlockExternalGlassShuttleMiningFilled
-  entities:
-  - uid: 29530
+  - uid: 24126
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -61.5,-19.5
       parent: 2
-  - uid: 29792
+    - type: DeviceLinkSource
+      linkedPorts:
+        277:
+        - DoorStatus: InputA
+        - DockStatus: InputA
+        - DockStatus: InputB
+        29540:
+        - DockStatus: InputA
+        29535:
+        - DockStatus: InputA
+    - type: DeviceLinkSink
+      invokeCounter: 1
+  - uid: 29530
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -61.5,-17.5
       parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        10843:
+        - DoorStatus: InputA
+        - DockStatus: InputA
+        - DockStatus: InputB
+        29533:
+        - DockStatus: InputA
+        29537:
+        - DockStatus: InputA
+    - type: DeviceLinkSink
+      invokeCounter: 1
 - proto: AirlockExternalLocked
   entities:
   - uid: 24601
@@ -14708,7 +14678,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -111767.2
+      secondsUntilStateChange: -111701.01
       state: Opening
   - uid: 6934
     components:
@@ -14720,7 +14690,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -111769.836
+      secondsUntilStateChange: -111703.64
       state: Opening
   - uid: 6935
     components:
@@ -14732,7 +14702,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -111768.69
+      secondsUntilStateChange: -111702.49
       state: Opening
   - uid: 6936
     components:
@@ -14743,7 +14713,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -111767.91
+      secondsUntilStateChange: -111701.71
       state: Opening
 - proto: AirlockTheatreLocked
   entities:
@@ -34875,18 +34845,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 2.5,-68.5
-      parent: 2
-  - uid: 24126
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -61.5,-19.5
-      parent: 2
-  - uid: 28413
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -61.5,-17.5
       parent: 2
 - proto: AtmosDeviceFanTiny
   entities:
@@ -76957,10 +76915,6 @@ entities:
         - 0
         - 0
         - 0
-        - 0
-        - 0
-        - 0
-        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -77284,10 +77238,6 @@ entities:
         moles:
         - 1.8968438
         - 7.1357465
-        - 0
-        - 0
-        - 0
-        - 0
         - 0
         - 0
         - 0
@@ -79424,6 +79374,14 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -2.5,-50.5
       parent: 2
+- proto: ComputerSalvageExpedition
+  entities:
+  - uid: 24215
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -57.5,-20.5
+      parent: 2
 - proto: ComputerShuttleCargo
   entities:
   - uid: 11278
@@ -79437,14 +79395,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -57.5,-3.5
-      parent: 2
-- proto: ComputerShuttleMiningLavaland
-  entities:
-  - uid: 24215
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -57.5,-20.5
       parent: 2
 - proto: ComputerSolarControl
   entities:
@@ -80044,10 +79994,6 @@ entities:
         - 0
         - 0
         - 0
-        - 0
-        - 0
-        - 0
-        - 0
   - uid: 1009
     components:
     - type: Transform
@@ -80059,10 +80005,6 @@ entities:
         immutable: False
         temperature: 93.465614
         moles:
-        - 0
-        - 0
-        - 0
-        - 0
         - 0
         - 0
         - 0
@@ -80098,10 +80040,6 @@ entities:
         - 0
         - 0
         - 0
-        - 0
-        - 0
-        - 0
-        - 0
   - uid: 1011
     components:
     - type: Transform
@@ -80113,10 +80051,6 @@ entities:
         immutable: False
         temperature: 93.465614
         moles:
-        - 0
-        - 0
-        - 0
-        - 0
         - 0
         - 0
         - 0
@@ -80152,10 +80086,6 @@ entities:
         - 0
         - 0
         - 0
-        - 0
-        - 0
-        - 0
-        - 0
   - uid: 1013
     components:
     - type: Transform
@@ -80167,10 +80097,6 @@ entities:
         immutable: False
         temperature: 93.465614
         moles:
-        - 0
-        - 0
-        - 0
-        - 0
         - 0
         - 0
         - 0
@@ -80210,10 +80136,6 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
         - 0
         - 0
         - 0
@@ -80348,10 +80270,6 @@ entities:
         - 0
         - 0
         - 0
-        - 0
-        - 0
-        - 0
-        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -80391,10 +80309,6 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
         - 0
         - 0
         - 0
@@ -80464,10 +80378,6 @@ entities:
         - 0
         - 0
         - 0
-        - 0
-        - 0
-        - 0
-        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -80509,10 +80419,6 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
         - 0
         - 0
         - 0
@@ -80939,10 +80845,6 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
         - 0
         - 0
         - 0
@@ -91201,6 +91103,13 @@ entities:
     - type: Transform
       pos: 38.25496,16.711338
       parent: 2
+- proto: DungeonMasterCircuitBoard
+  entities:
+  - uid: 29445
+    components:
+    - type: Transform
+      pos: 61.47509,21.65281
+      parent: 2
 - proto: Eggshells
   entities:
   - uid: 19085
@@ -94996,7 +94905,7 @@ entities:
       pos: -13.5,-1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -103091.19
+      secondsUntilStateChange: -103024.99
     - type: DeviceNetwork
       deviceLists:
       - 18275
@@ -97788,13 +97697,8 @@ entities:
           friction: 0.4
     - type: ScaleVisuals
     - type: Appearance
-- proto: FloraTreeConifer
+- proto: FloraTreeConifer01
   entities:
-  - uid: 19176
-    components:
-    - type: Transform
-      pos: 7.0421615,14.648008
-      parent: 2
   - uid: 19177
     components:
     - type: Transform
@@ -97810,6 +97714,8 @@ entities:
     - type: Transform
       pos: 7.4194474,6.70954
       parent: 2
+- proto: FloraTreeConifer02
+  entities:
   - uid: 19180
     components:
     - type: Transform
@@ -97820,22 +97726,29 @@ entities:
     - type: Transform
       pos: 14.398615,8.594956
       parent: 2
-  - uid: 26508
-    components:
-    - type: Transform
-      pos: 8.48288,-5.3548317
-      parent: 21002
   - uid: 26509
     components:
     - type: Transform
       pos: 7.439621,3.8400307
+      parent: 21002
+- proto: FloraTreeConifer03
+  entities:
+  - uid: 19176
+    components:
+    - type: Transform
+      pos: 7.0421615,14.648008
+      parent: 2
+  - uid: 26508
+    components:
+    - type: Transform
+      pos: 8.48288,-5.3548317
       parent: 21002
   - uid: 26513
     components:
     - type: Transform
       pos: 22.109192,5.674118
       parent: 21002
-- proto: FloraTreeSnow
+- proto: FloraTreeSnow02
   entities:
   - uid: 19171
     components:
@@ -97843,11 +97756,8 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -5.5474405,-12.275735
       parent: 2
-  - uid: 19172
-    components:
-    - type: Transform
-      pos: -4.1702504,-6.317836
-      parent: 2
+- proto: FloraTreeSnow03
+  entities:
   - uid: 19173
     components:
     - type: Transform
@@ -97858,21 +97768,30 @@ entities:
     - type: Transform
       pos: -6.2223334,-4.161586
       parent: 2
+- proto: FloraTreeSnow04
+  entities:
   - uid: 19175
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -13.004216,-6.7445054
       parent: 2
-  - uid: 26506
-    components:
-    - type: Transform
-      pos: 26.667542,-6.5239983
-      parent: 21002
   - uid: 26507
     components:
     - type: Transform
       pos: 24.552963,-6.4198303
+      parent: 21002
+- proto: FloraTreeSnow05
+  entities:
+  - uid: 19172
+    components:
+    - type: Transform
+      pos: -4.1702504,-6.317836
+      parent: 2
+  - uid: 26506
+    components:
+    - type: Transform
+      pos: 26.667542,-6.5239983
       parent: 21002
 - proto: FloraTreeStumpConifer
   entities:
@@ -98486,13 +98405,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 9.5,31.5
-      parent: 2
-- proto: GameMasterCircuitBoard
-  entities:
-  - uid: 29445
-    components:
-    - type: Transform
-      pos: 61.47509,21.65281
       parent: 2
 - proto: GasAnalyzer
   entities:
@@ -139711,7 +139623,7 @@ entities:
       pos: 36.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -139923.05
+      secondsUntilStateChange: -139856.84
       state: Opening
   - uid: 5211
     components:
@@ -140936,10 +140848,6 @@ entities:
         - 0
         - 0
         - 0
-        - 0
-        - 0
-        - 0
-        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -140982,10 +140890,6 @@ entities:
         moles:
         - 1.8968438
         - 7.1357465
-        - 0
-        - 0
-        - 0
-        - 0
         - 0
         - 0
         - 0
@@ -141170,10 +141074,6 @@ entities:
         - 0
         - 0
         - 0
-        - 0
-        - 0
-        - 0
-        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -141209,10 +141109,6 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
         - 0
         - 0
         - 0
@@ -141262,10 +141158,6 @@ entities:
         - 0
         - 0
         - 0
-        - 0
-        - 0
-        - 0
-        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -141293,10 +141185,6 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
         - 0
         - 0
         - 0
@@ -141336,10 +141224,6 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
         - 0
         - 0
         - 0
@@ -141396,10 +141280,6 @@ entities:
         - 0
         - 0
         - 0
-        - 0
-        - 0
-        - 0
-        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -141427,10 +141307,6 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
         - 0
         - 0
         - 0
@@ -141518,10 +141394,6 @@ entities:
         moles:
         - 1.8856695
         - 7.0937095
-        - 0
-        - 0
-        - 0
-        - 0
         - 0
         - 0
         - 0
@@ -141641,10 +141513,6 @@ entities:
         - 0
         - 0
         - 0
-        - 0
-        - 0
-        - 0
-        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -141672,10 +141540,6 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
         - 0
         - 0
         - 0
@@ -141721,10 +141585,6 @@ entities:
         - 0
         - 0
         - 0
-        - 0
-        - 0
-        - 0
-        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -141750,10 +141610,6 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
         - 0
         - 0
         - 0
@@ -141799,10 +141655,6 @@ entities:
         - 0
         - 0
         - 0
-        - 0
-        - 0
-        - 0
-        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -141828,10 +141680,6 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
         - 0
         - 0
         - 0
@@ -141877,10 +141725,6 @@ entities:
         - 0
         - 0
         - 0
-        - 0
-        - 0
-        - 0
-        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -141908,10 +141752,6 @@ entities:
         moles:
         - 1.8856695
         - 7.0937095
-        - 0
-        - 0
-        - 0
-        - 0
         - 0
         - 0
         - 0
@@ -142234,6 +142074,8 @@ entities:
       linkedPorts:
         29507:
         - Output: InputA
+        24126:
+        - Output: DoorBolt
     - type: Physics
       canCollide: False
       bodyType: Static
@@ -142250,6 +142092,8 @@ entities:
       linkedPorts:
         28494:
         - Output: InputA
+        29530:
+        - Output: DoorBolt
     - type: Physics
       canCollide: False
       bodyType: Static
@@ -160853,10 +160697,6 @@ entities:
         - 0
         - 0
         - 0
-        - 0
-        - 0
-        - 0
-        - 0
   - uid: 1648
     components:
     - type: Transform
@@ -163375,6 +163215,11 @@ entities:
     - type: Transform
       pos: -3.5,-43.5
       parent: 2
+  - uid: 55551
+    components:
+    - type: Transform
+      pos: -7.5,-52.5
+      parent: 2
   - uid: 23594
     components:
     - type: Transform
@@ -163401,11 +163246,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 59.5,18.5
-      parent: 2
-  - uid: 55551
-    components:
-    - type: Transform
-      pos: -7.5,-52.5
       parent: 2
 - proto: SpawnPointBotanist
   entities:
@@ -189717,10 +189557,6 @@ entities:
         - 0
         - 0
         - 0
-        - 0
-        - 0
-        - 0
-        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -192128,7 +191964,7 @@ entities:
       pos: 24.5,2.5
       parent: 21002
     - type: Door
-      secondsUntilStateChange: -485127.72
+      secondsUntilStateChange: -485061.53
       state: Opening
   - uid: 28863
     components:
