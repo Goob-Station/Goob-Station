@@ -1042,6 +1042,16 @@
   name: lollypop stick
   description: It's lightly chewed on.
   components:
+  - type: Tag
+    tags:
+    - ClothMade
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5 # Dude, it's a stick.
+        reagents:
+        - ReagentId: Cellulose
+          Quantity: 5
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
   - type: Sprite
