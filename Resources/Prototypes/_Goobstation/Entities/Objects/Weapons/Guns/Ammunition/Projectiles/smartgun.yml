@@ -14,4 +14,4 @@
     - state: smartgun
       shader: unshaded
   - type: HomingProjectile
-    homingSpeed: 180
+    homingSpeed: 540

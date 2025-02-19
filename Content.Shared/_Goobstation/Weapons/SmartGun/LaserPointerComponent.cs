@@ -10,17 +10,11 @@ namespace Content.Shared._Goobstation.Weapons.SmartGun;
 /// <summary>
 /// Activates a laser pointer when wielding an item
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class LaserPointerComponent : Component
 {
     [DataField]
     public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goobstation/Weapons/Effects/laserpointer.ogg");
-
-    [DataField, AutoNetworkedField]
-    public EntityUid? TargetedEntity;
-
-    [DataField, AutoNetworkedField]
-    public Vector2? Direction;
 
     [DataField(customTypeSerializer: typeof(FlagSerializer<CollisionMask>))]
     public int CollisionMask = (int) CollisionGroup.BulletImpassable;

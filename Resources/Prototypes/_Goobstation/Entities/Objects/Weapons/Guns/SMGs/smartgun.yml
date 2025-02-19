@@ -19,6 +19,11 @@
       shader: unshaded
   - type: Clothing
     sprite: _Goobstation/Objects/Weapons/Guns/SMGs/smartgun.rsi
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK
+      suitstorage:
+      - state: equipped-BACKPACK
   - type: Wieldable
     unwieldOnUse: false
   - type: GunWieldBonus
@@ -29,11 +34,12 @@
     minAngle: 42
     maxAngle: 64
     fireRate: 10
-    burstFireRate: 20
+    burstFireRate: 40
     shotsPerBurst: 5
-    burstCooldown: 0.25
+    burstCooldown: 0.5
+    lockOnTargetBurst: true
     cameraRecoilScalar: 0
-    selectedMode: FullAuto
+    selectedMode: Burst
     soundGunshot:
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/smartgun_shoot.ogg
     availableModes:
