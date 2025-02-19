@@ -543,8 +543,8 @@
           - CaptainSabre
   - type: Appearance
 
-- type: entity
-  parent: [ClothingBeltBase, ClothingSlotBase, BaseCommandContraband]
+- type: entity # Goobstation - Start
+  parent: [ClothingBeltBase, BaseCommandContraband]
   id: ClothingBeltHolster
   name: shoulder holster
   description: 'A holster to carry a sidearm and ammunition. WARNING: Badasses only.'
@@ -555,10 +555,19 @@
     sprite: Clothing/Belt/holster.rsi
   - type: Item
     size: Ginormous
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,4,1
+    whitelist:
+      components:
+      - Gun
+      - BallisticAmmoProvider
+      - CartridgeAmmo
   - type: ItemSlots
     slots:
       item:
-        name: Pistol
+        name: Sidearm
         insertVerbText: holster-insert-verb
         ejectVerbText: holster-eject-verb
         insertSound: /Audio/Items/belt_equip.ogg
@@ -573,6 +582,13 @@
           tags:
           - Sidearm
   - type: Appearance
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
 
 - type: entity
   parent: [ClothingBeltBase, BaseSyndicateContraband] # Goobstation
@@ -595,7 +611,7 @@
       - Gun
       - BallisticAmmoProvider
       - CartridgeAmmo
-  - type: ItemSlots # Goobstation - Start
+  - type: ItemSlots
     slots:
       item:
         name: Sidearm
