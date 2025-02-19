@@ -1146,6 +1146,51 @@
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
+# Carpolin
+
+- type: entity
+  parent: FoodSnackLollypopWrappedBase
+  id: FoodSnackLollypopWrappedCarpEvil
+  name: wrapped carp lollypop
+  description: A carp shaped lollypop. How silly!
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopCarpEvil
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBase
+  id: FoodSnackLollypopCarpEvil
+  name: carp lollypop
+  description: Who the hell is Aubrey White?
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+  - type: Sprite # I kinda hope this... doesn't work?
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop-trash
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: carp
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Carpolin
+          Quantity: 10
+
 # Trash
 
 - type: entity

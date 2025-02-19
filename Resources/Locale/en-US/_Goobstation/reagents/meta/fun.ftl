@@ -2,6 +2,10 @@ reagent-name-tranquility = tranquility
 reagent-desc-tranquility = You feel oddly calm...
 reagent-popup-tranquility = You feel oddly calm...
 
+reagent-name-carpolin = carpolin
+reagent-desc-carpolin = Causes the metabolizer to transform into a superior lifeform.
+reagent-popup-carpolin = You feel... strange.
+
 # CREATED BY Goldminermac
 # https://github.com/space-wizards/space-station-14/pull/31149
 # LICENSED UNDER THE MIT LICENSE
