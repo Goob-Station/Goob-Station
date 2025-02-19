@@ -195,6 +195,17 @@
     back:
     - FoodSnackLollypopWrapped
 
+- type: loadout
+  id: FoodSnackLollypopWrappedRainbow
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:OverallPlaytimeRequirement
+      time: 1800000 # 500hr
+  storage:
+    back:
+    - FoodSnackLollypopWrappedRainbow
+
 # End GoobStation
 
 # Towels
