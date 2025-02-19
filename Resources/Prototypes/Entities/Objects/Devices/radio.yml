@@ -64,7 +64,19 @@
     channels:
     - Security
   - type: Sprite
-    sprite: Objects/Devices/securityhandy.rsi
+    # Goob-Start
+    sprite: _NF/Objects/Devices/communication.rsi
+    layers:
+    - state: sec-walkietalkie
+    - state: broadcasting
+      map: ["enum.RadioDeviceVisualLayers.Broadcasting"]
+      shader: unshaded
+      visible: false
+    - state: speaker
+      map: ["enum.RadioDeviceVisualLayers.Speaker"]
+      shader: unshaded
+      visible: false
+    # Goob-End
   - type: Item
-    sprite: Objects/Devices/securityhandy.rsi
-    heldPrefix: walkietalkie
+    sprite: _NF/Objects/Devices/communication.rsi # Goob
+    heldPrefix: sec-walkietalkie

@@ -24,6 +24,17 @@
     {
       "name": "walkietalkie-inhand-left",
       "directions": 4
+    },
+    {
+      "name": "sec-walkietalkie"
+    },
+    {
+      "name": "sec-walkietalkie-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "sec-walkietalkie-inhand-left",
+      "directions": 4
     }
   ]
 }
