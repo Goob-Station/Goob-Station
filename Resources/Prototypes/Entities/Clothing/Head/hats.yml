@@ -367,7 +367,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatWitch1
   name: witch hat
-  description: A witch hat.
+  description: Strange-looking hat-wear. Makes you want to cast fireballs. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/witchhat.rsi
@@ -417,7 +417,7 @@
     - HeadSide
 
 - type: entity
-  parent: ClothingHeadHatWizardBase
+  parent: ClothingHeadBase # Goob edit
   id: ClothingHeadHatRedwizard
   name: red wizard hat
   description: Strange-looking red hat-wear that most certainly belongs to a real magic user.
@@ -532,7 +532,7 @@
 
 
 - type: entity
-  parent: ClothingHeadHatWizardBase
+  parent: ClothingHeadBase # Goob edit
   id: ClothingHeadHatVioletwizard
   name: violet wizard hat
   description: "Strange-looking violet hat-wear that most certainly belongs to a real magic user."
@@ -559,9 +559,8 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatWitch
   name: witch hat
-  description: A witch hat.
+  description: Strange-looking hat-wear. Makes you want to cast fireballs. # Goob edit
   components:
-  - type: WizardClothes #Yes this will count
   - type: Sprite
     sprite: Clothing/Head/Hats/witch.rsi
   - type: Clothing
@@ -587,13 +586,19 @@
 
 - type: entity
   abstract: true
-  parent: ClothingHeadBase
+  parent: [ClothingHeadBase, BaseMagicContraband]
   id: ClothingHeadHatWizardBase
+  suffix: Wizard Clothes # Goobstation
   components:
   - type: WizardClothes
+  - type: Tag # Goobstation
+    tags:
+    - WizardHat
+    - ClothMade
+    - WhitelistChameleon
 
 - type: entity
-  parent: ClothingHeadHatWizardBase
+  parent: ClothingHeadBase # Goob edit
   id: ClothingHeadHatWizard
   name: wizard hat
   description: Strange-looking blue hat-wear that most certainly belongs to a powerful magic user.

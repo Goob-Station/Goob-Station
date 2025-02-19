@@ -211,7 +211,7 @@
     minimumPlayers: 25
   - type: ImmovableRodRule
     rodPrototypes:
-    - id: ImmovableRodKeepTilesStill
+    - id: ImmovableRodKeepTiles # Goob edit
       prob: 0.94
       orGroup: rodProto
     - id: ImmovableRodMop

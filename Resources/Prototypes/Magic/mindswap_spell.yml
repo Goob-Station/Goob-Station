@@ -4,18 +4,33 @@
   description: Exchange bodies with another person!
   components:
   - type: EntityTargetAction
-    useDelay: 300
+    useDelay: 60 # Goob edit
     itemIconStyle: BigAction
     whitelist:
+      requireAll: true # Goobstation
       components:
+      - MobState # Goobstation
       - Body
       - MindContainer
+    raiseOnUser: true # Goobstation
     canTargetSelf: false
     interactOnMiss: false
-    sound: !type:SoundPathSpecifier
-      path: /Audio/Magic/staff_animation.ogg
     icon:
-      sprite: Mobs/Species/Human/organs.rsi
-      state: brain
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      state: mindswap # Goob edit
     event: !type:MindSwapSpellEvent
       speech: action-speech-spell-mind-swap
+      sound: # Goobstation
+        path: /Audio/_Goobstation/Wizard/mandswap.ogg
+      performerStunDuration: 5 # Goobstation
+      targetStunDuration: 5 # Goobstation
+  - type: Sprite # Goobstation - for apprentices
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: mindswap
+  - type: Magic # Goobstation
+    requiresSpeech: true
+    school: Transmutation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionMindSwapII
+      3: ActionMindSwapIII
