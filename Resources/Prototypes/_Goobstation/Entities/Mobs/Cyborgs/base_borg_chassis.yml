@@ -6,6 +6,8 @@
   - type: NpcFactionMember
     factions:
     - Syndicate
+  - type: SiliconLawProvider
+    laws: SyndicateStatic
   - type: Access
     enabled: false
     groups:
