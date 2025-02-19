@@ -21,5 +21,5 @@
       amount: 9
   - type: Sprite
     layers:
-    - state: box
+    - state: box_of_doom
     - state: candy
