@@ -660,6 +660,9 @@
     - id: FoodSnackLollypopFentanyl
       orGroup: LollypopMystery
       prob: 0.20
+    - id: FoodSnackLollypopCarpEvil
+      orGroup: LollypopMystery
+      prob: 0.20
     - id: FoodSnackLollypopRomerol
       orGroup: LollypopMystery
       prob: 0.05
