@@ -14,25 +14,42 @@
     toggleOnInteract: false # Goob
   - type: Speech
     speechVerb: Robotic
-  - type: Sprite
-    sprite: Objects/Devices/communication.rsi
-    layers:
-    - state: walkietalkie
-    - state: walkietalkie-on
-    state: walkietalkie
   - type: Item
-    sprite: Objects/Devices/communication.rsi
+    sprite: _NF/Objects/Devices/communication.rsi # Goob
     heldPrefix: walkietalkie
   - type: Tag
     tags:
     - Radio
-  # Goob-Start
+  - type: Sprite
+    # Goob-Start
+    sprite: _NF/Objects/Devices/communication.rsi
+    layers:
+    - state: base
+    - state: broadcasting
+      map: ["enum.RadioDeviceVisualLayers.Broadcasting"]
+      shader: unshaded
+      visible: false
+    - state: speaker
+      map: ["enum.RadioDeviceVisualLayers.Speaker"]
+      shader: unshaded
+      visible: false
   - type: ActivatableUI
     key: enum.HandheldRadioUiKey.Key
   - type: UserInterface
     interfaces:
       enum.HandheldRadioUiKey.Key:
         type: HandheldRadioBoundUserInterface
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.RadioDeviceVisuals.Broadcasting:
+        enum.RadioDeviceVisualLayers.Broadcasting:
+          True: { visible: true }
+          False: { visible: false }
+      enum.RadioDeviceVisuals.Speaker:
+        enum.RadioDeviceVisualLayers.Speaker:
+          True: { visible: true }
+          False: { visible: false }
   # Goob-End
 
 - type: entity

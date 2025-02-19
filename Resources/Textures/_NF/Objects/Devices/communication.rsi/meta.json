@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Inhand sprites taken from cev-eris and modified by Swept and dvir01 at https://github.com/discordia-space/CEV-Eris/commit/efce5b6c3be75458ce238dcc01510e8f8a653ca6",
+  "copyright": "Other sprites taken from paradise at https://github.com/ParadiseSS13/Paradise/commit/494704e323de19a4432fcbf5a27064b11a6e0b97",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "base"
+    },
+    {
+      "name": "broadcasting"
+    },
+    {
+      "name": "speaker"
+    },
+    {
+      "name": "walkietalkie-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "walkietalkie-inhand-left",
+      "directions": 4
+    }
+  ]
+}
