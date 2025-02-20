@@ -46,7 +46,7 @@
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtReporter
   name: reporter's dress
-  description: A black dress to stand out on television.
+  description: An extravagant black dress designed to catch the attention of as many people as possible.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/reporter_dress.rsi
