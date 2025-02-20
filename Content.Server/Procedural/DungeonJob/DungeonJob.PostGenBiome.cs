@@ -58,7 +58,7 @@ public sealed partial class DungeonJob
 
                 if (!xform.Comp.Anchored)
                 {
-                    _transform.AnchorEntity(ent, xform);
+                    _transform.AnchorEntity((ent, xform));
                 }
 
                 // TODO: Engine bug with SpawnAtPosition
