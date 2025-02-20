@@ -14,6 +14,7 @@ using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Stacks;
 using Robust.Server.GameObjects;
+using System.Numerics;
 
 namespace Content.Server._Goobstation._Pirates.Pirates.Siphon;
 
@@ -83,7 +84,7 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
         var funds = bank.Comp.Balance - ent.Comp.DrainRate;
         if (funds > 0)
         {
-            _cargo.DeductFunds(bank.Comp, (int) ent.Comp.DrainRate);
+            _cargo.DeductFunds(bank.Comp, (int) ent.Comp.DrainRate, forced: true);
             UpdateCredits(ent, ent.Comp.DrainRate);
         }
     }
@@ -98,9 +99,20 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
     {
         if (ent.Comp.Active) return;
 
-        if (!GetBank(ent, out _))
+        // no station = bad
+        if (!GetBank(ent, out var bank))
         {
-            _popup.PopupEntity(Loc.GetString("pirate-siphon-activate-fail"), ent, args.User, Shared.Popups.PopupType.Medium);
+            var loc = Loc.GetString("pirate-siphon-nosignal");
+            _chat.TrySendInGameICMessage(ent, loc, InGameICChatType.Speak, false);
+            return;
+        }
+
+        // very far away from station = bad
+        var dist = Vector2.Distance(_xform.GetWorldPosition(bank!.Value), _xform.GetWorldPosition(ent));
+        if (dist > ent.Comp.MaxSignalRange)
+        {
+            var loc = Loc.GetString("pirate-siphon-weaksignal");
+            _chat.TrySendInGameICMessage(ent, loc, InGameICChatType.Speak, false);
             return;
         }
 
@@ -108,7 +120,7 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
         if (ent.Comp.ActivationPhase < 3)
         {
             var loc = Loc.GetString($"pirate-siphon-activate-{ent.Comp.ActivationPhase}");
-            _popup.PopupEntity(loc, ent, args.User, Shared.Popups.PopupType.LargeCaution);
+            _chat.TrySendInGameICMessage(ent, loc, InGameICChatType.Speak, false);
         }
         else ActivateSiphon(ent);
     }
@@ -129,11 +141,13 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
 
     private void OnExamine(Entity<ResourceSiphonComponent> ent, ref ExaminedEvent args)
     {
-        args.PushMarkup(Loc.GetString("pirate-siphon-examine", ("num", ent.Comp.Credits)));
+        args.PushMarkup(Loc.GetString("pirate-siphon-examine", ("num", ent.Comp.Credits), ("max_num", ent.Comp.CreditsThreshold)));
     }
 
     private void OnDestruction(Entity<ResourceSiphonComponent> ent, ref DestructionEventArgs args)
     {
+        DeactivateSiphon(ent, "broken");
+
         var speso = Spawn("SpaceCash", Transform(ent).Coordinates);
         if (TryComp<StackComponent>(speso, out var stack))
             stack.Count = (int) ent.Comp.Credits;
@@ -148,10 +162,22 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
             _anchor.SetStatus((ent, anchor), true);
 
         var coords = _xform.GetWorldPosition(Transform(ent));
-        _popup.PopupCoordinates(Loc.GetString("data-siphon-activated"), Transform(ent).Coordinates, Shared.Popups.PopupType.Medium);
+        _chat.TrySendInGameICMessage(ent, Loc.GetString("data-siphon-activated"), InGameICChatType.Speak, false);
 
         var anloc = Loc.GetString("data-siphon-activated-announcement", ("pos", $"X: {coords.X}; Y: {coords.Y}"));
         _chat.DispatchGlobalAnnouncement(anloc, "Priority", colorOverride: Color.Red);
+    }
+    public void DeactivateSiphon(Entity<ResourceSiphonComponent> ent, string reason = "none")
+    {
+        if (!ent.Comp.Active) return;
+
+        ent.Comp.Active = false;
+        if (TryComp<StationAnchorComponent>(ent, out var anchor))
+            _anchor.SetStatus((ent, anchor), false);
+
+        _chat.TrySendInGameICMessage(ent, Loc.GetString($"data-siphon-deactivated-{reason}"), InGameICChatType.Speak, false);
+
+        _chat.DispatchGlobalAnnouncement(Loc.GetString("pirate-siphon-deactivated-announcement"), "Priority", colorOverride: Color.Green);
     }
 
     public bool TryBindRule(Entity<ResourceSiphonComponent> ent)
@@ -202,10 +228,7 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
         ent.Comp.Credits = Math.Min(ent.Comp.CreditsThreshold, newAmount);
 
         if (newAmount > ent.Comp.CreditsThreshold)
-        {
-            if (ent.Comp.Active)
-                ent.Comp.Active = false; // stop siphoning
-        }
+            DeactivateSiphon(ent, "full");
     }
 
     private bool GetBank(Entity<ResourceSiphonComponent> ent, out Entity<StationBankAccountComponent>? bank)
@@ -213,9 +236,11 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
         bank = null;
         var stationent = _station.GetStationInMap(Transform(ent).MapID);
 
+        // no station
         if (stationent == null)
             return false;
 
+        // no bank account
         if (!TryComp<StationBankAccountComponent>(stationent, out var bankaccount))
             return false;
 

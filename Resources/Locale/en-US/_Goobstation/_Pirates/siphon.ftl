@@ -1,10 +1,16 @@
-pirate-siphon-activated = The siphon winds up and starts draining data from all possible sources!
-pirate-siphon-activated-announcement = Attention! Data theft signal detected! Traced source position is {$pos}! Stop it at all costs!
-pirate-siphon-full = The siphon pings as it reaches capacity threshold!
+pirate-siphon-activated = RESOURCE SIPHON HAS BEEN ACTIVATED. Please ensure it's operating at full capacity, meaning prevention of external damage and power loss.
+pirate-siphon-activated-announcement = Attention! Data theft signal detected! Traced source position is {$pos}! Secure our assets no matter what!
 
-pirate-siphon-examine = The siphon has [color=yellow]{$num} spesos[/color] stored.
+pirate-siphon-deactivated-full = RESOURCE CAPACITY FULL. Unable to siphon any more resources. Mechanism has been stopped. Thank you for using Donk. Co. branded RS!
+pirate-siphon-deactivated-broken = CRITICAL DAMAGE THRESHOLD REACHED. Forced resource disposal imminent, please step aside from the emergency disposal mechanism.
+pirate-siphon-deactivated-announcement = Data theft signal source has been lost! Please ensure station systems are operating in normal mode. And do not let any more such signals show up on our radars!
 
-pirate-siphon-activate-1 = Your shuttle will be anchored!! Activate?
-pirate-siphon-activate-2 = THE ENTIRE CREW WILL BE ALERTED!! Activate?
+pirate-siphon-examine = The siphon has [color=yellow]{$num}[/color] / [color=yellow]{$max_num} spesos[/color] stored.
 
-pirate-siphon-activate-fail = The siphon is unable to find any data sources in this sector.
+pirate-siphon-activate-1 = SHUTTLE WILL BE ANCHORED! Confirm action.
+pirate-siphon-activate-2 = THE ENTIRE SECTOR WILL BE ALERTED!! Confirm action.
+
+pirate-siphon-nosignal = No signals detected.
+pirate-siphon-weaksignal = Weak signal found. Approach signal source.
+
+console-block-something = Something is stopping the console from working properly.

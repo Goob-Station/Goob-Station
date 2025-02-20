@@ -14,6 +14,9 @@ public sealed partial class PirateObjectiveSystem : EntitySystem
         SubscribeLocalEvent<ObjectivePlunderComponent, ObjectiveGetProgressEvent>(GetPlunderProgress);
     }
 
+    /// <summary>
+    ///     Objective gets updated in <see cref=""/>
+    /// </summary>
     private void GetPlunderProgress(Entity<ObjectivePlunderComponent> ent, ref ObjectiveGetProgressEvent args)
     {
         var tgt = _number.GetTarget(ent);

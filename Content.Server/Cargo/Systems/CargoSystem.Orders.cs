@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Server._Goobstation._Pirates.Pirates.Siphon;
 using Content.Server.Cargo.Components;
 using Content.Server.Labels.Components;
 using Content.Server.Station.Components;
@@ -114,6 +115,20 @@ namespace Content.Server.Cargo.Systems
                 PlayDenySound(uid, component);
                 return;
             }
+
+            // goob edit - resource siphon blocking access
+            var eqe = EntityQueryEnumerator<ResourceSiphonComponent>();
+            while (eqe.MoveNext(out var sip))
+            {
+                // it's over. the crew won't know what hit em.
+                if (sip.Active)
+                {
+                    ConsolePopup(args.Actor, Loc.GetString("console-block-something"));
+                    PlayDenySound(uid, component);
+                    return;
+                }
+            }
+            // goob edit end
 
             var station = _station.GetOwningStation(uid);
 
@@ -563,9 +578,12 @@ namespace Content.Server.Cargo.Systems
 
         }
 
-        public void DeductFunds(StationBankAccountComponent component, int amount)
+        // Goob edit - negative cargo balance (mortgage is real...)
+        public void DeductFunds(StationBankAccountComponent component, int amount, bool forced = false)
         {
-            component.Balance = Math.Max(0, component.Balance - amount);
+            var bal = component.Balance - amount;
+            bal = forced ? Math.Max(0, bal) : bal;
+            component.Balance = bal;
         }
 
         #region Station

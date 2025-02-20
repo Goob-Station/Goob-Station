@@ -26,8 +26,13 @@ public sealed partial class ResearchSystem
         // goob edit - spirates
         var eqe = EntityQueryEnumerator<ResourceSiphonComponent>();
         while (eqe.MoveNext(out var siphon))
+        {
             if (siphon.Active)
+            {
+                _popup.PopupEntity(Loc.GetString("console-block-something"), args.Actor);
                 return;
+            }
+        }
         // goob edit end
 
         var act = args.Actor;

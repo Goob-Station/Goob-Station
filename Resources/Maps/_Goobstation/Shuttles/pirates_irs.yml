@@ -4832,7 +4832,7 @@ entities:
     - type: Transform
       pos: -4.5,-13.5
       parent: 2
-- proto: SuitStorageBasic
+- proto: GoobSuitStorageSpirate
   entities:
   - uid: 645
     components:
