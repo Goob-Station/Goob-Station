@@ -9,7 +9,7 @@
     - state: icon-syndicate
   - type: ItemBorgModule
     items:
-    - WeaponPistolEchis
+    - WeaponPistolAnaconda
     - EnergySword
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
