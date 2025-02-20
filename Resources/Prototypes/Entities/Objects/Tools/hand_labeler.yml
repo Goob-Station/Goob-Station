@@ -31,7 +31,7 @@
 
 #Goobstation
 - type: entity
-  parent: BaseItem
+  parent: [BaseItem, BaseSyndicateContraband]
   id: HandRenamer
   name: blood red hand labeler
   description: A fancy looking blood red hand labeler, capable of renaming things at will.
