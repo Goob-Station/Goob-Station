@@ -5,7 +5,7 @@
   graph: ContrabandDetector
   category: construction-category-machines
   icon:
-    sprite: _Goobstation/Structures/Machines/Contraband_Detector.rsi
+    sprite: _Goobstation/Structures/Machines/contraband_detector.rsi
     state: base
   objectType: Structure
   placementMode: SnapgridCenter
