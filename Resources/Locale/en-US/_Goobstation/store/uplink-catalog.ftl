@@ -139,7 +139,7 @@ uplink-clothing-explosive-gloves-desc = Gloves that look just like normal insula
 
 # Disruption
 
-uplink-syndicate-weapon-module-advanced-name = syndicate advanced weapons module
+uplink-syndicate-weapon-module-advanced-name = advanced weapons module
 uplink-syndicate-weapon-module-advanced-desc = Upgrades a cyborg with an energy sword and an anaconda pistol.
 
 # Misc
