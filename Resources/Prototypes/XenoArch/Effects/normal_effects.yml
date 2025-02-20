@@ -666,9 +666,11 @@
   components:
   - type: PortalArtifact
 
+# Goobstation: lame roundenders. virtually unspawnable via 10,000 depth
+
 - type: artifactEffect
   id: EffectSingulo
-  targetDepth: 10
+  targetDepth: 10000
   effectHint: artifact-effect-hint-destruction
   components:
   - type: SpawnArtifact
@@ -678,7 +680,7 @@
 
 - type: artifactEffect
   id: EffectTesla
-  targetDepth: 10
+  targetDepth: 10000
   effectHint: artifact-effect-hint-destruction
   components:
   - type: SpawnArtifact
