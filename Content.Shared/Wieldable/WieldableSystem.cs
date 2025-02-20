@@ -92,7 +92,7 @@ public sealed class WieldableSystem : EntitySystem
                 var message = Loc.GetString("wieldable-component-requires", ("item", uid));
                 _popupSystem.PopupClient(message, args.Used, args.User);
             }
-        } 
+        }
     }
 
     private void OnItemInHand(EntityUid uid, GunWieldBonusComponent component, GotEquippedHandEvent args)  // GoobStation change - OnItemInHand for NoWieldNeeded
@@ -122,7 +122,7 @@ public sealed class WieldableSystem : EntitySystem
     private void OnGunRefreshModifiers(Entity<GunWieldBonusComponent> bonus, ref GunRefreshModifiersEvent args)
     {
         if (TryComp(bonus, out WieldableComponent? wield) &&
-            (wield.Wielded) || 
+            (wield.Wielded) ||
             (args.User != null && TryComp<NoWieldNeededComponent>(args.User.Value, out var noWieldNeeded) &&  // GoobStation change - Check for NoWieldNeeded and GetBonus
             noWieldNeeded.GetBonus)
             )
@@ -183,7 +183,7 @@ public sealed class WieldableSystem : EntitySystem
             args.Handled = TryUnwield(uid, component, args.User);
     }
 
-    public bool CanWield(EntityUid uid, WieldableComponent component, EntityUid user, bool quiet = false)
+    public bool CanWield(EntityUid uid, WieldableComponent component, EntityUid user, bool quiet = false, bool checkHolding = true) // Goob edit
     {
         // Do they have enough hands free?
         if (!EntityManager.TryGetComponent<HandsComponent>(user, out var hands))
@@ -194,14 +194,14 @@ public sealed class WieldableSystem : EntitySystem
         }
 
         // Is it.. actually in one of their hands?
-        if (!_handsSystem.IsHolding(user, uid, out _, hands))
+        if (checkHolding && !_handsSystem.IsHolding(user, uid, out _, hands))
         {
             if (!quiet)
                 _popupSystem.PopupClient(Loc.GetString("wieldable-component-not-in-hands", ("item", uid)), user, user);
             return false;
         }
 
-        if (_handsSystem.CountFreeableHands((user, hands)) < component.FreeHandsRequired)
+        if (_handsSystem.CountFreeableHands((user, hands), true) < component.FreeHandsRequired) // Goob edit
         {
             if (!quiet)
             {
@@ -220,7 +220,7 @@ public sealed class WieldableSystem : EntitySystem
     ///     Attempts to wield an item, starting a UseDelay after.
     /// </summary>
     /// <returns>True if the attempt wasn't blocked.</returns>
-    public bool TryWield(EntityUid used, WieldableComponent component, EntityUid user)
+    public bool TryWield(EntityUid used, WieldableComponent component, EntityUid user, bool showMessage = true) // Goob edit
     {
         if (!CanWield(used, component, user))
             return false;
@@ -271,7 +271,8 @@ public sealed class WieldableSystem : EntitySystem
 
         var selfMessage = Loc.GetString("wieldable-component-successful-wield", ("item", used));
         var othersMessage = Loc.GetString("wieldable-component-successful-wield-other", ("user", Identity.Entity(user, EntityManager)), ("item", used));
-        _popupSystem.PopupPredicted(selfMessage, othersMessage, user, user);
+        if (showMessage) // Goob edit
+            _popupSystem.PopupPredicted(selfMessage, othersMessage, user, user);
 
         _appearance.SetData(used, WieldableVisuals.Wielded, true); // Goobstation
 

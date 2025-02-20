@@ -1,0 +1,759 @@
+- type: entity
+  id: ProjectileMagicMissile
+  parent: BaseBullet
+  name: magic missile
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: magicm
+      shader: unshaded
+  - type: StunOnCollide
+    stunAmount: 6
+    knockdownAmount: 6
+  - type: Reflective
+    reflective: None
+  - type: PointLight
+    enabled: true
+    color: "#FF87FF"
+    radius: 1.5
+    energy: 5.0
+  - type: Projectile
+    soundHit:
+      path: /Audio/_Goobstation/Wizard/mm_hit.ogg
+      params:
+        volume: -3
+    damage:
+      types:
+        Heat: 0
+  - type: TimedDespawn
+    lifetime: 2
+  - type: Trail
+    endAngle: 320
+    particleAmount: 9
+    velocity: 0.1
+    lerpTime: 0.05
+    frequency: 0.1
+    lifetime: 1
+    alphaLerpAmount: 0.4
+    shader: unshaded
+    sprite:
+      sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
+      state: magicm
+  - type: HomingProjectile
+    homingSpeed: 540
+  - type: Ammo
+    muzzleFlash: null
+
+- type: entity
+  id: ProjectileToolboxHoming
+  parent: BaseBullet
+  name: homing toolbox
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/Toolboxes/toolbox_blue.rsi
+    layers:
+    - state: icon
+  - type: Reflective
+    reflective: None
+  - type: Projectile
+    soundHit:
+      path: /Audio/Weapons/smash.ogg
+    forceSound: true
+    damage:
+      types:
+        Blunt: 30
+  - type: Trail
+    lerpTime: 0.05
+    frequency: 0.02
+    lifetime: 1
+    alphaLerpAmount: 0.4
+    sprite:
+      sprite: /Textures/Objects/Tools/Toolboxes/toolbox_blue.rsi
+      state: icon
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: HomingProjectile
+    homingSpeed: 1080
+  - type: KnockdownOnCollide
+    behavior: DropIfStanding
+  - type: Ammo
+    muzzleFlash: null
+
+- type: entity
+  id: ProjectileSpellCardRedNoHoming
+  parent: BaseBullet
+  name: enchanted card
+  description: A piece of paper enchanted to give it extreme durability and stiffness, along with a very hot burn to anyone unfortunate enough to get hit by a charged one.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Projectiles/spellcard.rsi
+    layers:
+    - state: red
+      shader: unshaded
+      map: [ "base" ]
+  - type: Reflective
+    reflective: None
+  - type: Projectile
+    damage:
+      types:
+        Heat: 3
+  - type: Trail
+    color: "#FF0033DD"
+    scale: 0.08
+    frequency: 0.02
+    lifetime: 0.3
+    lerpTime: 0.005
+    alphaLerpAmount: 0.1
+    scaleLerpAmount: 0.08
+    shader: unshaded
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: Ammo
+    muzzleFlash: null
+
+- type: entity
+  id: ProjectileSpellCardRed
+  parent: ProjectileSpellCardRedNoHoming
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpellCard
+    rotateTime: 0.2
+    flippedTrailColor: "#AA00FFDD"
+  - type: HomingProjectile
+    homingTime: 0.2
+    homingSpeed: 2160
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.SpellCardVisuals.State:
+        base:
+          0: { state: red }
+          1: { state: red_to_purple }
+          2: { state: purple }
+
+- type: entity
+  id: ProjectileSpellCardPurple
+  parent: ProjectileSpellCardRed
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: purple
+      shader: unshaded
+      map: [ "base" ]
+  - type: Trail
+    color: "#AA00FFDD"
+  - type: SpellCard
+    flippedTrailColor: "#FF0033DD"
+  - type: GenericVisualizer
+    visuals:
+      enum.SpellCardVisuals.State:
+        base:
+          0: { state: purple }
+          1: { state: purple_to_red }
+          2: { state: red }
+
+- type: entity
+  id: ProjectileSpellCardPurpleNoHoming
+  parent: ProjectileSpellCardRedNoHoming
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: purple
+      shader: unshaded
+      map: [ "base" ]
+  - type: Trail
+    color: "#AA00FFDD"
+
+- type: entity
+  name: red card spread
+  id: ProjectileSpellCardRedSpread
+  categories: [ HideSpawnMenu ]
+  parent: ProjectileSpellCardRedNoHoming
+  components:
+  - type: ProjectileSpread
+    proto: ProjectileSpellCardRedNoHoming
+    count: 5
+    spread: 10
+
+- type: entity
+  name: purple card spread
+  id: ProjectileSpellCardPurpleSpread
+  categories: [ HideSpawnMenu ]
+  parent: ProjectileSpellCardPurpleNoHoming
+  components:
+  - type: ProjectileSpread
+    proto: ProjectileSpellCardPurpleNoHoming
+    count: 5
+    spread: 10
+
+- type: entity
+  id: ProjectileArcaneBarrage
+  parent: BaseBullet
+  name: arcane bolt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: arcane_barrage
+      shader: unshaded
+  - type: Reflective
+    reflective: None
+  - type: Projectile
+    damage:
+      types:
+        Heat: 20
+  - type: Trail
+    color: "#FF0BC255"
+    scale: 0.08
+    frequency: 0.02
+    lifetime: 0.3
+    lerpTime: 0.0001
+    alphaLerpAmount: 0.2
+    scaleLerpAmount: 0.08
+    shader: unshaded
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.2,0.1,0.2"
+        hard: false
+        mask:
+        - Opaque
+  - type: Ammo
+    muzzleFlash: null
+  - type: PointLight
+    enabled: true
+    radius: 1.5
+    energy: 1
+    color: "#FF0BC2"
+
+- type: entity
+  id: BulletMagic
+  name: magic bullet
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+  - type: StaminaDamageOnCollide
+    damage: 80
+
+- type: entity
+  parent: BulletMagic
+  id: BulletMagicNoMuzzleFlash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Ammo
+    muzzleFlash: null
+
+- type: entity
+  id: ProjectileWabbajack
+  name: bolt of change
+  description: Wabbajack, Wabbajack!
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: magicm_cyan
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 0
+  - type: PolymorphOnCollide
+    polymorph: WizardWabbajack
+    whitelist:
+      components:
+      - Body
+  - type: Reflective
+    reflective: None
+  - type: Ammo
+    muzzleFlash: null
+  - type: Trail
+    lerpTime: 0.05
+    frequency: 0.02
+    lifetime: 1
+    alphaLerpAmount: 0.4
+    shader: unshaded
+    sprite:
+      sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
+      state: magicm_cyan
+
+- type: entity
+  id: ProjectileDeathBolt
+  name: bolt of death
+  description: You are already dead, you just don't know it yet.
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: magicm_red
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 0
+  - type: RejuvenateOnProjectileHit
+    reverseEffects: true
+    undeadList:
+      components:
+      - Zombie
+      tags:
+      - Undead
+    damage:
+      types:
+        Heat: 600
+  - type: Reflective
+    reflective: None
+  - type: Ammo
+    muzzleFlash: null
+  - type: Trail
+    lerpTime: 0.05
+    frequency: 0.02
+    lifetime: 1
+    alphaLerpAmount: 0.4
+    shader: unshaded
+    sprite:
+      sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
+      state: magicm_red
+
+- type: entity
+  id: ProjectileTeleBolt
+  name: bolt of teleportation
+  description: Don't blink or you'll miss yourself teleporting away.
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: bluespace
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 0
+  - type: RandomTeleportOnProjectileHit
+    whitelist:
+      components:
+      - Body
+  - type: RandomTeleport
+    radius:
+      min: 0
+      max: 6
+    teleportAttempts: 1
+    forceSafeTeleport: false
+  - type: Reflective
+    reflective: None
+  - type: Ammo
+    muzzleFlash: null
+
+- type: entity
+  id: ProjectileFieryBolt
+  name: fiery bolt
+  description: Stop drop and roll.
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: blastwave
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 25
+  - type: IgniteOnCollide
+    fireStacks: 10
+  - type: Reflective
+    reflective: None
+  - type: Ammo
+    muzzleFlash: null
+  - type: PointLight
+    color: "#F8B068"
+    radius: 2.0
+    energy: 5.0
+
+- type: entity
+  id: ProjectileIceCubeBolt
+  name: ice bolt
+  description: It will let you slide.
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Structures/Specific/Anomalies/ice_anom.rsi
+    layers:
+    - state: bullet
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Cold: 20
+  - type: IceCubeOnProjectileHit
+    whitelist:
+      requireAll: true
+      components:
+      - Temperature
+      - Body
+  - type: Reflective
+    reflective: None
+  - type: Ammo
+    muzzleFlash: null
+
+- type: entity
+  id: ProjectileSwapBolt
+  name: swapping bolt
+  description: Let us dance.
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: chronobolt
+      color: black
+      shader: unshaded
+  - type: Projectile
+    deleteOnCollide: false
+    penetrate: true
+    damage:
+      types:
+        Heat: 0
+  - type: SwapOnProjectileHit
+    deleteProjectileOnSwap: true
+    sound:
+      path: /Audio/_Goobstation/Wizard/swap.ogg
+    whitelist:
+      requireAll: true
+      components:
+      - Transform
+      - Body
+  - type: Reflective
+    reflective: None
+  - type: Ammo
+    muzzleFlash: null
+  - type: Trail
+    lerpTime: 0.05
+    frequency: 0.01
+    lifetime: 1
+    alphaLerpAmount: 0.4
+    shader: unshaded
+    color: black
+    sprite:
+      sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
+      state: chronobolt
+
+- type: entity
+  id: ProjectileBeeBolt
+  name: bee bolt
+  description: NOT THE BEES!
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Grenades/beenades.rsi
+    layers:
+    - state: icon
+  - type: Projectile
+    damage:
+      types:
+        Heat: 0
+  - type: Reflective
+    reflective: None
+  - type: Ammo
+    muzzleFlash: null
+  - type: SpawnEntitiesOnHit
+    spawnOnlyIfHitMob: false
+    proto: MobAngryBeeWeak
+    amount: 8
+    collideIgnoreEntities:
+    - MobBee
+    - MobAngryBee
+    - MobSyndieAngryBee
+    - MobAngryBeeWeak
+
+- type: entity
+  id: ProjectileXRayBolt
+  name: x-ray bolt
+  description: Walls are not an obstacle.
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: declone
+      shader: unshaded
+  - type: Projectile
+    deleteOnCollide: false
+    penetrate: true
+    damage:
+      types:
+        Radiation: 20
+  - type: Reflective
+    reflective: None
+  - type: Ammo
+    muzzleFlash: null
+
+- type: entity
+  id: ProjectileEmpBolt
+  name: electromagnetic bolt
+  description: Energy low!!!
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: ice
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Ion: 30
+  - type: Reflective
+    reflective: None
+  - type: Ammo
+    muzzleFlash: null
+  - type: EmpOnTrigger
+    range: 3
+    energyConsumption: 50000
+    disableDuration: 15
+
+- type: entity
+  id: ProjectileSmokeBolt
+  name: smoke bolt
+  description: Don't inhale it.
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Effects/chemsmoke.rsi
+    layers:
+    - state: chemsmoke
+      color: "#28005B"
+  - type: Projectile
+    damage:
+      types:
+        Heat: 0
+  - type: Reflective
+    reflective: None
+  - type: Ammo
+    muzzleFlash: null
+  - type: SmokeOnTrigger
+    duration: 5
+    spreadAmount: 15
+    solution:
+      reagents:
+      - ReagentId: ThickSmoke
+        Quantity: 25
+  - type: Trail
+    lerpTime: 0.05
+    frequency: 0.05
+    lifetime: 5
+    alphaLerpAmount: 0
+    color: "#28005B"
+    sprite:
+      sprite: /Textures/Effects/chemsmoke.rsi
+      state: chemsmoke
+
+- type: entity
+  id: ProjectileBlindingBolt
+  name: blinding bolt
+  description: Just follow the smells.
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Projectiles/magic.rsi
+    layers:
+    - state: solarflare
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 0
+  - type: Reflective
+    reflective: None
+  - type: Ammo
+    muzzleFlash: null
+  - type: SpawnOnTrigger
+    proto: BlindingTrapFlashEffect
+  - type: BlurOnCollide
+    blurTime: 15
+    blindTime: 10
+  - type: PointLight
+    color: white
+    radius: 2.0
+    energy: 5.0
+
+- type: entity
+  id: ProjectileVampiricBolt
+  name: bolt of vampirism
+  description: Looks like it's going to be a long night.
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Projectiles/magic.rsi
+    layers:
+    - state: soulslash
+      shader: unshaded
+  - type: Projectile
+    soundHit:
+      path: /Audio/_Goobstation/Wizard/crackandbleed.ogg
+    forceSound: true
+    damage:
+      types:
+        Slash: 20
+  - type: Reflective
+    reflective: None
+  - type: LifeStealOnProjectileHit
+    whitelist:
+      requireAll: true
+      components:
+      - Body
+      - MobState
+      - Damageable
+  - type: Ammo
+    muzzleFlash: null
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.3,0.3"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+
+- type: entity
+  id: ProjectileMagicMissileLesser
+  parent: BaseBullet
+  name: lesser magic missile
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: magicm
+      shader: unshaded
+  - type: Reflective
+    reflective: None
+  - type: PointLight
+    enabled: true
+    color: "#FF87FF"
+    radius: 1.5
+    energy: 5.0
+  - type: Projectile
+    soundHit:
+      path: /Audio/_Goobstation/Wizard/mm_hit.ogg
+      params:
+        volume: -3
+    damage:
+      types:
+        Heat: 0
+  - type: StaminaDamageOnCollide
+    damage: 60
+  - type: Trail
+    lerpTime: 0.05
+    frequency: 0.02
+    lifetime: 1
+    alphaLerpAmount: 0.4
+    shader: unshaded
+    sprite:
+      sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
+      state: magicm
+  - type: Ammo
+    muzzleFlash: null
+
+- type: entity
+  id: ProjectileBananaPeel
+  parent: BaseItem
+  name: magical banana peel
+  description: Step on me.
+  components:
+  - type: InteractionOutline
+  - type: MovedByPressure
+  - type: Clickable
+  - type: Pullable
+  - type: Physics
+    bodyType: Dynamic
+    linearDamping: 0
+    angularDamping: 0
+  - type: TimedDespawn
+    lifetime: 10
+  - type: Sprite
+    drawdepth: Items
+    noRot: true
+    sprite: _Goobstation/Wizard/Projectiles/banana.rsi
+    layers:
+    - state: icon
+  - type: SlipOnCollide
+  - type: Slippery
+    slipOnStep: false
+    paralyzeTime: 10
+    launchForwardsMultiplier: 1
+  - type: ProjectileHitShooterAfterDelay
+    delay: 0.5
+  - type: TileFrictionModifier
+    modifier: 0.9
+  - type: Projectile
+    deleteOnCollide: false
+    soundHit: null
+    damage:
+      types:
+        Heat: 0
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.5
+        friction: 0.2
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        layer:
+        - SlipLayer
+  - type: Ammo
+    muzzleFlash: null

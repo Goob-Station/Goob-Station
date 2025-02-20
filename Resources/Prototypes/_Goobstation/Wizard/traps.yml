@@ -1,0 +1,109 @@
+- type: entity
+  id: BaseTrap
+  name: IT'S A TRAP
+  description: Stepping on me is a guaranteed bad day.
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: Sprite
+    drawdepth: FloorEffects
+    sprite: _Goobstation/Wizard/Objects/trap.rsi
+    state: icon
+    color: '#FFFFFF05'
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        hard: false
+        mask:
+          - ItemMask
+        layer:
+          - SlipLayer
+  - type: Physics
+    bodyType: Static
+  - type: Appearance
+  - type: AnimationPlayer
+  - type: TimedDespawn
+    lifetime: 300
+  - type: WizardTrap
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  parent: BaseTrap
+  id: TrapShock
+  name: shock trap
+  description: A trap that will shock and render you immobile. You'd better avoid it.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    color: '#FFFF0005'
+  - type: WizardTrap
+    stunTime: 0
+    effect: StunTrapFlashEffect
+  - type: StunTrap
+
+- type: entity
+  parent: BaseTrap
+  id: TrapFlame
+  name: flame trap
+  description: A trap that will set you ablaze. You'd better avoid it.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    color: '#FF000005'
+  - type: WizardTrap
+    effect: FlameTrapFlashEffect
+  - type: FlameTrap
+
+- type: entity
+  parent: BaseTrap
+  id: TrapDamage
+  name: earth trap
+  description: A trap that will summon a small earthquake, just for you. You'd better avoid it.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    color: '#00FF0005'
+  - type: WizardTrap
+    effect: DamageTrapFlashEffect
+  - type: DamageTrap
+    spawnedEntity: FloraRockSolidFading
+    damage:
+      types:
+        Blunt: 50
+
+- type: entity
+  parent: BaseTrap
+  id: TrapChill
+  name: frost trap
+  description: A trap that will chill you to the bone. You'd better avoid it.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    color: '#00FFFF05'
+  - type: WizardTrap
+    stunTime: 0
+    effect: ChillTrapFlashEffect
+  - type: ChillTrap
+
+- type: entity
+  parent: BaseTrap
+  id: TrapBlind
+  name: blinding trap
+  description: A trap that will blind you temporarily. You'd better avoid it.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: WizardTrap
+    effect: BlindingTrapFlashEffect
+  - type: BlindingTrap
