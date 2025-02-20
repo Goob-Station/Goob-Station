@@ -1,9 +1,11 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared._Goobstation.Wizard;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions.Events;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
+using Content.Shared.Ghost;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory.Events;
@@ -16,8 +18,12 @@ using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-
 namespace Content.Shared.Actions;
+
+// Shitmed Change
+using Content.Shared._Shitmed.Antags.Abductor;
+using Content.Shared.Silicons.StationAi;
+using Content.Shared.Popups;
 
 public abstract class SharedActionsSystem : EntitySystem
 {
@@ -31,6 +37,7 @@ public abstract class SharedActionsSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!; // Shitmed Change
 
     public override void Initialize()
     {
@@ -242,16 +249,21 @@ public abstract class SharedActionsSystem : EntitySystem
         if (actionId == null)
             return;
 
-        if (!TryGetActionData(actionId, out var action) || action.UseDelay == null)
+        // Goob edit start
+        if (!TryGetActionData(actionId, out var action))
             return;
+        var realDelay = CompOrNull<ActionUseDelayModifierComponent>(actionId.Value)?.UseDelay ?? action.UseDelay;
+        if (realDelay == null)
+            return;
+        // Goob edit end
 
-        action.Cooldown = (GameTiming.CurTime, GameTiming.CurTime + action.UseDelay.Value);
+        action.Cooldown = (GameTiming.CurTime, GameTiming.CurTime + realDelay.Value); // Goob edit
         Dirty(actionId.Value, action);
     }
 
-    public void SetUseDelay(EntityUid? actionId, TimeSpan? delay)
+    public void SetUseDelay(EntityUid? actionId, TimeSpan? delay, bool logError = true) // Goob edit
     {
-        if (!TryGetActionData(actionId, out var action) || action.UseDelay == delay)
+        if (!TryGetActionData(actionId, out var action, logError) || action.UseDelay == delay) // Goob edit
             return;
 
         action.UseDelay = delay;
@@ -276,6 +288,9 @@ public abstract class SharedActionsSystem : EntitySystem
 
     private void OnRejuventate(EntityUid uid, ActionsComponent component, RejuvenateEvent args)
     {
+        if (!args.ResetActions) // Goobstation
+            return;
+
         foreach (var act in component.Actions)
         {
             ClearCooldown(act);
@@ -520,7 +535,8 @@ public abstract class SharedActionsSystem : EntitySystem
                 break;
             }
             case InstantActionComponent instantAction:
-                if (action.CheckCanInteract && !_actionBlockerSystem.CanInteract(user, null))
+                var hasNoSpecificComponents = !HasComp<StationAiOverlayComponent>(user) && !HasComp<AbductorScientistComponent>(user); // Shitmed Change
+                if (action.CheckCanInteract && !_actionBlockerSystem.CanInteract(user, null) && hasNoSpecificComponents) // Shitmed Change
                     return;
 
                 _adminLogger.Add(LogType.Action,
@@ -610,7 +626,8 @@ public abstract class SharedActionsSystem : EntitySystem
         if (entityCoordinates is not { } coords)
             return false;
 
-        if (checkCanInteract && !_actionBlockerSystem.CanInteract(user, null))
+        var hasNoSpecificComponents = !HasComp<StationAiOverlayComponent>(user) && !HasComp<AbductorScientistComponent>(user); // Shitmed Change
+        if (checkCanInteract && !_actionBlockerSystem.CanInteract(user, null) && hasNoSpecificComponents) // Shitmed Change
             return false;
 
         if (!checkCanAccess)
@@ -619,7 +636,10 @@ public abstract class SharedActionsSystem : EntitySystem
             var xform = Transform(user);
 
             if (xform.MapID != coords.GetMapId(EntityManager))
+            {
+                _popup.PopupCursor(Loc.GetString("world-target-out-of-range"), user); // Goobstation Change
                 return false;
+            }
 
             if (range <= 0)
                 return true;
@@ -707,11 +727,14 @@ public abstract class SharedActionsSystem : EntitySystem
         }
 
         action.Cooldown = null;
-        if (action is { UseDelay: not null, Charges: null or < 1 })
+        // Goob edit start
+        var realDelay = CompOrNull<ActionUseDelayModifierComponent>(actionId)?.UseDelay ?? action.UseDelay;
+        if (action is { Charges: null or < 1 } && realDelay != null)
         {
             dirty = true;
-            action.Cooldown = (curTime, curTime + action.UseDelay.Value);
+            action.Cooldown = (curTime, curTime + realDelay.Value);
         }
+        // Goob edit end
 
         if (dirty)
         {
@@ -869,9 +892,11 @@ public abstract class SharedActionsSystem : EntitySystem
 
         performer.Comp ??= EnsureComp<ActionsComponent>(performer);
 
+        var ghost = HasComp<GhostComponent>(performer); // Goobstation
+
         foreach (var actionId in container.Comp.Container.ContainedEntities)
         {
-            if (TryGetActionData(actionId, out var action))
+            if (TryGetActionData(actionId, out var action) && (!ghost || action.AllowGhostAction)) // Goob edit
                 AddActionDirect(performer, actionId, performer.Comp, action);
         }
     }
@@ -1165,4 +1190,27 @@ public abstract class SharedActionsSystem : EntitySystem
     {
         return action is { Charges: < 1, RenewCharges: true };
     }
+
+    // Shitmed Change Start - Starlight Abductors
+    public EntityUid[] HideActions(EntityUid performer, ActionsComponent? comp = null)
+    {
+        if (!Resolve(performer, ref comp, false))
+            return [];
+
+        var actions = comp.Actions.ToArray();
+        comp.Actions.Clear();
+        Dirty(performer, comp);
+        return actions;
+    }
+
+    public void UnHideActions(EntityUid performer, EntityUid[] actions, ActionsComponent? comp = null)
+    {
+        if (!Resolve(performer, ref comp, false))
+            return;
+
+        foreach (var action in actions)
+            comp.Actions.Add(action);
+        Dirty(performer, comp);
+    }
+    // Shitmed Change End
 }

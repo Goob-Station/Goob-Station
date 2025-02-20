@@ -105,7 +105,7 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/chaplain_hoodie.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ClothingHeadHatHoodChaplainHood
 
 - type: entity
@@ -169,14 +169,19 @@
 
 - type: entity
   abstract: true
-  parent: ClothingOuterBase
+  parent: [ClothingOuterBase, BaseMagicContraband, AllowSuitStorageClothing] # Goob edit
   id: ClothingOuterWizardBase
+  suffix: Wizard Clothes # Goobstation
   components:
   - type: WizardClothes
+  - type: Tag # Goobstation
+    tags:
+      - WhitelistChameleon
+      - SyringeArmor
 
 # Is this wizard wearing a fanny pack???
 - type: entity
-  parent: ClothingOuterWizardBase
+  parent: ClothingOuterBase # Goob edit
   id: ClothingOuterWizardViolet
   name: violet wizard robes
   description: A bizarre gem-encrusted violet robe that radiates magical energies.
@@ -187,7 +192,7 @@
     sprite: Clothing/OuterClothing/Misc/violetwizard.rsi
 
 - type: entity
-  parent: ClothingOuterWizardBase
+  parent: ClothingOuterBase # Goob edit
   id: ClothingOuterWizard
   name: wizard robes
   description: A bizarre gem-encrusted blue robe that radiates magical energies.
@@ -198,10 +203,10 @@
     sprite: Clothing/OuterClothing/Misc/wizard.rsi
 
 - type: entity
-  parent: ClothingOuterWizardBase
+  parent: ClothingOuterBase # Goob edit
   id: ClothingOuterWizardRed
   name: red wizard robes
-  description: Strange-looking, red, hat-wear that most certainly belongs to a real magic user.
+  description: A bizarre gem-encrusted red robe that radiates magical energies. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Misc/redwizard.rsi

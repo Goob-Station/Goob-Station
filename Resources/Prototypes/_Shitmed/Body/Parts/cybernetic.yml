@@ -1,6 +1,6 @@
 - type: entity
   id: LeftArmCybernetic
-  parent: LeftArmHuman
+  parent: [PartIPC, BaseLeftArm]
   abstract: true
   components:
   - type: Damageable
@@ -16,7 +16,7 @@
 
 - type: entity
   id: RightArmCybernetic
-  parent: RightArmHuman
+  parent: [PartIPC, BaseRightArm]
   abstract: true
   components:
   - type: Damageable
@@ -32,7 +32,7 @@
 
 - type: entity
   id: LeftLegCybernetic
-  parent: LeftLegHuman
+  parent: [PartIPC, BaseLeftLeg]
   abstract: true
   components:
   - type: Damageable
@@ -48,7 +48,7 @@
 
 - type: entity
   id: RightLegCybernetic
-  parent: RightLegHuman
+  parent: [PartIPC, BaseRightLeg]
   abstract: true
   components:
   - type: Damageable
@@ -64,7 +64,7 @@
 
 - type: entity
   id: LeftHandCybernetic
-  parent: [PartHuman, BaseLeftHand]
+  parent: [PartIPC, BaseLeftHand]
   name: cybernetic left hand
   components:
   - type: Damageable
@@ -92,7 +92,7 @@
 
 - type: entity
   id: LeftFootCybernetic
-  parent: LeftFootHuman
+  parent: [PartIPC, BaseLeftFoot]
   name: cybernetic left foot
   components:
   - type: Damageable
@@ -106,7 +106,7 @@
 
 - type: entity
   id: RightFootCybernetic
-  parent: RightFootHuman
+  parent: [PartIPC, BaseRightFoot]
   name: cybernetic right foot
   components:
   - type: Damageable

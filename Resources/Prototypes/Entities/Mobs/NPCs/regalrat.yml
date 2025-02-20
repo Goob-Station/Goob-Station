@@ -129,10 +129,11 @@
       gender: male
   - type: Sharp
   - type: NightVision # Goobstation - Nigthvision
-    toggleAction: null
-    color: "#808080"
+    color: "#d14343"
     activateSound: null
     deactivateSound: null
+  - type: Insulated # Goobstation
+    coefficient: 0.5
 
 - type: entity
   id: MobRatKingBuff
@@ -210,6 +211,7 @@
     - map: [ "enum.DamageStateVisualLayers.BaseUnshaded"]
       state: eyes
       shader: unshaded
+  - type: Insulated # Goobstation
 
   - type: SpriteMovement
     movementLayers:

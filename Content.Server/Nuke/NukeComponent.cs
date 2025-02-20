@@ -181,5 +181,10 @@ namespace Content.Server.Nuke
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("requiredFloorRadius")]
         public float RequiredFloorRadius = 5;
+
+        // Goobstation start
+        [DataField("honkopsArmMusic")]
+        public SoundSpecifier HonkopsArmMusic = new SoundCollectionSpecifier("HonkopsNukeMusic");
+        // Goobstation end
     }
 }

@@ -38,7 +38,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         if (attemptEv.Cancelled)
         {
             SetShooter(uid, component, target);
-            _guns.SetTarget(uid, null); // Goobstation
+            _guns.SetTarget(uid, null, out _); // Goobstation
             component.IgnoredEntities.Clear(); // Goobstation
             return;
         }
@@ -77,7 +77,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             component.DamagedEntity = true;
         // Goobstation end
 
-        if (component.DeleteOnCollide)
+        if (component.DeleteOnCollide || (component.NoPenetrateMask & args.OtherFixture.CollisionLayer) != 0) // Goobstation - Make x-ray arrows not penetrate blob
             QueueDel(uid);
 
         if (component.ImpactEffect != null && TryComp(uid, out TransformComponent? xform))

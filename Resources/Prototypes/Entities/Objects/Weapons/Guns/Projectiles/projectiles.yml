@@ -301,6 +301,9 @@
         mask:
         - Opaque
       fly-by: *flybyfixture
+  - type: Reflective # Goobstation - Make emitter bolts reflect as energy
+    reflective:
+    - Energy
   - type: Projectile
 #   soundHit:  Waiting on serv3
     damage:
@@ -978,6 +981,8 @@
   - type: Tag
     tags:
       - HideContextMenu
+  - type: Ammo # Goobstation
+    muzzleFlash: null
 
 - type: entity
   name: laser bolt

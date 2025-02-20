@@ -38,7 +38,7 @@
 - type: entity
   id: LeftHandResomi
   name: "left resomi hand"
-  parent: LeftHandHuman
+  parent: [PartHuman, BaseLeftHand] # Goob edit
   components:
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
@@ -47,7 +47,7 @@
 - type: entity
   id: RightHandResomi
   name: "right resomi hand"
-  parent: RightHandHuman
+  parent: [PartHuman, BaseRightHand] # Goob edit
   components:
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi

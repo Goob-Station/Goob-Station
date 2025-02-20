@@ -81,6 +81,14 @@
     Plasma: 250
 
 - type: latheRecipe
+  id: TajaranCube
+  result: TajaranCube
+  completetime: 30
+  materials:
+    Biomass: 70
+    Plasma: 250
+
+- type: latheRecipe
   id: VulpkaninCube
   result: VulpkaninCube
   completetime: 30

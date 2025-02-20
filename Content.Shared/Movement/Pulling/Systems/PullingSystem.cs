@@ -1,3 +1,4 @@
+using Content.Shared._Goobstation.Grab;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
@@ -47,6 +48,7 @@ public sealed class PullingSystem : EntitySystem
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly HeldSpeedModifierSystem _clothingMoveSpeed = default!;
+    [Dependency] private readonly GrabbingItemSystem _grabbingItem = default!; // Goobstation
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
@@ -368,7 +370,8 @@ public sealed class PullingSystem : EntitySystem
             && !_handsSystem.TryGetEmptyHand(puller, out _)
             && pullerComp.Pulling == null)
         {
-            return false;
+            if (!_grabbingItem.TryGetGrabbingItem(puller, out _)) // Goobstation
+                return false;
         }
 
         if (!_blocker.CanInteract(puller, pullableUid))
@@ -535,12 +538,22 @@ public sealed class PullingSystem : EntitySystem
             return false;
 
         var msg = new AttemptStopPullingEvent(user);
-        RaiseLocalEvent(pullableUid, msg, true);
+        RaiseLocalEvent(pullableUid, ref msg, true); // Goob edit
 
         if (msg.Cancelled)
             return false;
 
         StopPulling(pullableUid, pullable);
         return true;
+    }
+
+    public void StopAllPulls(EntityUid uid) // Goobstation
+    {
+        if (TryComp<PullableComponent>(uid, out var pullable) && IsPulled(uid, pullable))
+            TryStopPull(uid, pullable);
+
+        if (TryComp<PullerComponent>(uid, out var puller) &&
+            TryComp(puller.Pulling, out PullableComponent? pullableEnt))
+            TryStopPull(puller.Pulling.Value, pullableEnt);
     }
 }

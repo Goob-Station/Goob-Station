@@ -1,0 +1,27 @@
+- type: entity
+  id: DisposalBlocker
+  parent: DisposalPipeBase
+  name: disposal pipe blocker
+  description: A pipe that allows movement of objects on one side and blocks it on the other.
+  components:
+  - type: Sprite
+    drawdepth: ThickPipe
+    sprite: _Goobstation/Structures/Piping/disposal.rsi
+    layers:
+    - map: [ "pipe" ]
+      state: conpipe-blocker
+  - type: DisposalTube
+    containerId: DisposalBlocker
+  - type: DisposalBlocker
+  - type: ContainerContainer
+    containers:
+      DisposalBlocker: !type:Container
+  - type: GenericVisualizer
+    visuals:
+      enum.DisposalTubeVisuals.VisualState:
+        pipe:
+          Free: { state: conpipe-blocker }
+          Anchored: { state: pipe-blocker }
+  - type: Construction
+    graph: DisposalPipe
+    node: blocker
