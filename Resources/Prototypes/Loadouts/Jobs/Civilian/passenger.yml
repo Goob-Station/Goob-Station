@@ -82,11 +82,6 @@
   equipment:
     back: ClothingBackpackSatchel
 
-- type: loadout # Goobstation
-  id: CommonSatchelLeather
-  equipment:
-    back: ClothingBackpackSatchelLeather
-
 - type: loadout
   id: CommonDuffel
   equipment:
