@@ -5,10 +5,10 @@
   description: A modified suit to allow space pirates to board shuttles and stations while avoiding the maw of the void. Comes with additional protection and is lighter to move in.
   components:
   - type: Sprite
-    sprite: _Goobstation/_Pirates/spirate_suit.rsi
+    sprite: Clothing/OuterClothing/Hardsuits/piratecaptain.rsi
     state: icon
   - type: Clothing
-    sprite: _Goobstation/_Pirates/spirate_suit.rsi
+    sprite: Clothing/OuterClothing/Hardsuits/piratecaptain.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.7
   - type: Armor
@@ -27,7 +27,7 @@
       head: GoobClothingHeadHelmetHardsuitSpirate
 
 - type: entity
-  parent: ClothingHeadHardsuitBasic
+  parent: ClothingHeadHelmetHardsuitBasic
   id: GoobClothingHeadHelmetHardsuitSpirate
   name: modified EVA helmet
   description: A modified helmet to allow space pirates to intimidate their customers whilst staying safe from the void. Comes with some additional protection.
