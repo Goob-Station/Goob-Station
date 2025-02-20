@@ -6,7 +6,7 @@
   category: construction-category-machines
   icon:
     sprite: _Goobstation/Structures/Machines/Contraband_Detector.rsi
-    state: detector
+    state: base
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false

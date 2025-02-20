@@ -9,7 +9,6 @@
   - type: Clickable
   - type: InteractionOutline
   - type: Transform
-    anchored: false
   - type: Pullable
   - type: MovedByPressure
   - type: Physics
@@ -44,8 +43,8 @@
         - WallLayer
   - type: Sprite
     drawdepth: OverMobs
-    sprite: "_Goobstation/Structures/Machines/contraband_detector.rsi"
-    state: "detector"
+    sprite: _Goobstation/Structures/Machines/contraband_detector.rsi
+    state: base
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
@@ -121,11 +120,15 @@
 - type: entity
   parent: ContrabandDetector
   id: ContrabandDetectorAnchored
+  suffix: Anchored
   components:
   - type: Transform
-    anchored: true
+    anchored: false
   - type: Lock
     locked: true
+    lockOnClick: true
+    lockTime: 2
+    unlockTime: 2
 
 - type: entity
   id: ContrabandDetectorFrame
@@ -138,7 +141,7 @@
   - type: Sprite
     drawdepth: OverMobs
     sprite: _Goobstation/Structures/Machines/contraband_detector.rsi
-    state: detector
+    state: base
   - type: Physics
     bodyType: Static
     fixedRotation: true
