@@ -68,6 +68,6 @@
       effects:
       - !type:PopupMessage
         type: Local
-        visualType: LargeCaution
+        visualType: Large
         messages: [ "reagent-popup-copium-1", "reagent-popup-copium-2", "reagent-popup-copium-3", "reagent-popup-copium-4", "reagent-popup-copium-5", "reagent-popup-copium-6", "reagent-popup-copium-7", "reagent-popup-copium-8", "reagent-popup-copium-9", "reagent-popup-copium-10", "reagent-popup-copium-11", "reagent-popup-copium-12" ]
         probability: 0.2
