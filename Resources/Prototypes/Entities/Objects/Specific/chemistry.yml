@@ -93,6 +93,11 @@
   - type: StaticPrice
     price: 30
   - type: DnaSubstanceTrace
+  - type: ThrowableBlocked # Goobstation
+    behavior: Damage
+    damage:
+      types:
+        Blunt: 10
 
 - type: entity
   parent: BaseItem
@@ -295,6 +300,7 @@
   - type: Injector
     injectOnly: false
     ignoreMobs: true
+    ignoreClosed: false
     minTransferAmount: 1
     maxTransferAmount: 5
     transferAmount: 1
@@ -380,9 +386,12 @@
     minimumSpeed: 3
     removalTime: 0.25
     embedOnThrow: true
-  - type: SolutionInjectOnEmbed
-    transferAmount: 2
+  - type: SolutionInjectWhileEmbedded
+    transferAmount: 1
+    updateInterval: 0.5 # done in 7.5 seconds
+    maxInjections: 2 # only inject 2u if thrown
     solution: injector
+    pierceArmor: false # 1984
   - type: Fixtures
     fixtures:
       fix1:
@@ -401,12 +410,15 @@
         mask:
         - Impassable
         - BulletImpassable
-  - type: Projectile
-    deleteOnCollide: false
-    onlyCollideWhenShot: true
+  - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 5
+        Piercing: 3
+  - type: ThrowingAngle
+    angle: 45
+  - type: ThrowableBlocked
+  - type: Ammo
+    muzzleFlash: null
     # GoobStation End
   - type: ExaminableSolution
     solution: injector
@@ -465,9 +477,11 @@
     transferAmount: 1
     solution: injector
     updateInterval: 2
+    pierceArmor: false # Goobstation
   - type: SolutionInjectOnEmbed
     transferAmount: 2
     solution: injector
+    pierceArmor: false # Goobstation
   - type: Fixtures
     fixtures:
       fix1:

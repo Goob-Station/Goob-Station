@@ -28,7 +28,10 @@ namespace Content.Server.Atmos.Portable
             Gas.WaterVapor,
             Gas.Ammonia,
             Gas.NitrousOxide,
-            Gas.Frezon
+            Gas.Frezon,
+            Gas.BZ, // Assmos - /tg/ gases
+            Gas.Healium, // Assmos - /tg/ gases
+            Gas.Nitrium, // Assmos - /tg/ gases
         };
 
         [ViewVariables(VVAccess.ReadWrite)]

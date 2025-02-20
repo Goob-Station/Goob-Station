@@ -1,4 +1,4 @@
-﻿- type: body
+- type: body
   id: Dwarf
   name: "dwarf"
   root: torso
@@ -33,9 +33,9 @@
       connections:
       - left hand
     right hand:
-      part: RightHandHuman
+      part: RightHandDwarf # Goob edit
     left hand:
-      part: LeftHandHuman
+      part: LeftHandDwarf # Goob edit
     right leg:
       part: RightLegHuman
       connections:

@@ -1,30 +1,25 @@
 using Robust.Shared.Timing;
-using Robust.Server.GameObjects;
 using Content.Shared.Changeling;
 using Content.Shared.Mind;
 using Content.Server.Body.Systems;
-using Content.Shared.Store.Components;
+using Content.Shared.Mind.Components;
 
 namespace Content.Server.Changeling;
 
-public sealed partial class ChangelingEggSystem : EntitySystem
+public sealed class ChangelingEggSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-
+    [Dependency] private readonly ChangelingSystem _changeling = default!;
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
-        foreach (var comp in EntityManager.EntityQuery<ChangelingEggComponent>())
+        var query = EntityQueryEnumerator<ChangelingEggComponent>();
+        while (query.MoveNext(out var uid, out var comp))
         {
-            var uid = comp.Owner;
-
             if (_timing.CurTime < comp.UpdateTimer)
                 continue;
 
@@ -33,6 +28,7 @@ public sealed partial class ChangelingEggSystem : EntitySystem
             Cycle(uid, comp);
         }
     }
+
     public void Cycle(EntityUid uid, ChangelingEggComponent comp)
     {
         if (comp.active == false)
@@ -41,16 +37,24 @@ public sealed partial class ChangelingEggSystem : EntitySystem
             return;
         }
 
+        if (TerminatingOrDeleted(comp.lingMind))
+        {
+            _bodySystem.GibBody(uid);
+            return;
+        }
+
         var newUid = Spawn("MobMonkey", Transform(uid).Coordinates);
-        
-        var mind = EnsureComp<MindComponent>(newUid);
+
+        EnsureComp<MindContainerComponent>(newUid);
         _mind.TransferTo(comp.lingMind, newUid);
 
-        var ling = EnsureComp<ChangelingComponent>(newUid);
-        ling = comp.lingComp;
-        
+        EnsureComp<ChangelingComponent>(newUid);
+
         EntityManager.AddComponent(newUid, comp.lingStore);
 
-        _bodySystem.GibBody((EntityUid) uid);
+        if (comp.AugmentedEyesightPurchased)
+            _changeling.InitializeAugmentedEyesight(newUid);
+
+        _bodySystem.GibBody(uid);
     }
 }

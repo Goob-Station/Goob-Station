@@ -51,6 +51,7 @@
   - BlueshieldOfficerHeadSwatHelmet
   - BlueshieldOfficerHeadBeretNavy
   - BlueshieldOfficerHeadBeretBlack
+  - BlueshieldOfficerHeadCowboy
 
 - type: loadoutGroup
   id: BlueshieldOfficerBackpack
@@ -74,6 +75,7 @@
   loadouts:
   - BlueshieldOfficerOuterBlueshieldArmorVest
   - BlueshieldOfficerOuterBlueshieldArmoredJacket
+  - BlueshieldOfficerOuterBlueshieldCowboyVest
 
 - type: loadoutGroup
   id: BlueshieldOfficerNeck
@@ -81,6 +83,14 @@
   minLimit: 0
   loadouts:
   - BlueshieldOfficerOuterBlueshieldMantle
+
+- type: loadoutGroup
+  id: BlueshieldOfficerShoes
+  name: loadout-group-bso-shoes
+  minLimit: 0
+  loadouts:
+  - JackBoots
+  - BlackCowboyBoots
 
 # Reporter
 
@@ -99,3 +109,13 @@
   loadouts:
   - Bodycam # Goobstation - Body cameras
 
+#honkops
+
+- type: loadoutGroup
+  id: GroupHonkopsMask
+  name: loadout-group-honkops-mask
+  minLimit: 1
+  maxLimit: 1
+  hidden: true
+  loadouts:
+  - LoadoutHonkopsMask

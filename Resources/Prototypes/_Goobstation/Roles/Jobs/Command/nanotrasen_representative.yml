@@ -9,10 +9,6 @@
       time: 180000  #50 hours
     - !type:AgeRequirement
       requiredAge: 21
-    - !type:SpeciesRequirement
-      inverted: true
-      species:
-      - Felinid
   weight: 20
   startingGear: NanotrasenRepresentativeGear
   icon: "JobIconNanotrasenRepresentative"
@@ -47,3 +43,4 @@
   storage:
     back:
     - Flash
+    - TelescopicBaton # Goobstation

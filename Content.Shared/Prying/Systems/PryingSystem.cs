@@ -6,6 +6,7 @@ using Content.Shared.Doors.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Prying.Components;
+using Content.Shared.Timing;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Serialization;
@@ -22,6 +23,7 @@ public sealed class PryingSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly UseDelaySystem _delay = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -64,6 +66,9 @@ public sealed class PryingSystem : EntitySystem
     {
         id = null;
 
+        if (TryComp(tool, out UseDelayComponent? delay) && _delay.IsDelayed((tool, delay))) // Goobstation
+            return false;
+
         PryingComponent? comp = null;
         if (!Resolve(tool, ref comp, false))
             return false;
@@ -92,6 +97,9 @@ public sealed class PryingSystem : EntitySystem
     {
         id = null;
 
+        if (TryComp(user, out UseDelayComponent? delay) && _delay.IsDelayed((user, delay))) // Goobstation
+            return false;
+
         // We don't care about displaying a message if no tool was used.
         if (!TryComp<PryUnpoweredComponent>(target, out var unpoweredComp) || !CanPry(target, user, out _, unpoweredComp: unpoweredComp))
             // If we have reached this point we want the event that caused this
@@ -100,7 +108,7 @@ public sealed class PryingSystem : EntitySystem
 
         // hand-prying is much slower
         var modifier = CompOrNull<PryingComponent>(user)?.SpeedModifier ?? unpoweredComp.PryModifier;
-        return StartPry(target, user, null, modifier, out id);
+        return StartPry(target, user, user, modifier, out id); // Goob edit
     }
 
     private bool CanPry(EntityUid target, EntityUid user, out string? message, PryingComponent? comp = null, PryUnpoweredComponent? unpoweredComp = null)
@@ -131,7 +139,9 @@ public sealed class PryingSystem : EntitySystem
 
     private bool StartPry(EntityUid target, EntityUid user, EntityUid? tool, float toolModifier, [NotNullWhen(true)] out DoAfterId? id)
     {
-        var modEv = new GetPryTimeModifierEvent(user);
+        var instaPry = TryComp(tool, out PryingComponent? prying) && prying.InstaPry; // Goobstation
+
+        var modEv = new GetPryTimeModifierEvent(user, instaPry); // Goob edit
 
         RaiseLocalEvent(target, ref modEv);
         var doAfterArgs = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(modEv.BaseTime * modEv.PryTimeModifier / toolModifier), new DoorPryDoAfterEvent(), target, target, tool)
@@ -175,6 +185,9 @@ public sealed class PryingSystem : EntitySystem
 
         var ev = new PriedEvent(args.User);
         RaiseLocalEvent(uid, ref ev);
+
+        if (TryComp(args.Used, out UseDelayComponent? delay)) // Goobstation
+            _delay.TryResetDelay((args.Used.Value, delay));
     }
 }
 

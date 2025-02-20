@@ -1,7 +1,6 @@
 using System.Numerics;
 using Content.Server.Singularity.Components;
 using Content.Shared.Atmos.Components;
-using Content.Shared.Ghost;
 using Content.Shared.Physics;
 using Content.Shared.Singularity.EntitySystems;
 using Robust.Shared.Map;
@@ -119,7 +118,7 @@ public sealed class GravityWellSystem : SharedGravityWellSystem
     /// TODO: Make this an event or such.
     /// </summary>
     /// <param name="entity">The entity to check.</param>
-    private bool CanGravPulseAffect(EntityUid entity)
+    public bool CanGravPulseAffect(EntityUid entity) // Goob edit
     {
         if (_physicsQuery.TryComp(entity, out var physics))
         {

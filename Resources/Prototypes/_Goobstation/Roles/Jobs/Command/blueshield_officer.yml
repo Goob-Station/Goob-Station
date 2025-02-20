@@ -15,13 +15,9 @@
       time: 90000 # 25 hours
     - !type:AgeRequirement
       requiredAge: 21
-    - !type:SpeciesRequirement
-      inverted: true
-      species:
-      - Felinid
   weight: 20
   startingGear: BlueshieldOfficerGear
-  icon: "JobIconNanotrasen"
+  icon: "JobIconBlueshield"
   requireAdminNotify: true
   joinNotifyCrew: true
   supervisors: job-supervisors-ntr-centcom
@@ -48,16 +44,17 @@
 - type: startingGear
   id: BlueshieldOfficerGear
   equipment:
-    shoes: ClothingShoesBootsJackFilled
     eyes: ClothingEyesGlassesMedSec
     gloves: ClothingHandsGlovesCombat
-    id: ERTSecurityPDA
+    id: BlueshieldPDA
     ears: ClothingHeadsetAltCommand
-    belt: ClothingBeltSecurityFilled
     pocket1: UniqueBlueshieldOfficerLockerTeleporter
+    pocket2: PinpointerNuclear
+    belt: BlueShieldShield
   storage:
     back:
-    - BoxSurvivalSlots
     - Flash
     - BluespaceLifelineImplanter
+    - WeaponEnergyRevolver
     - SecHypo
+    - BlueshieldMace

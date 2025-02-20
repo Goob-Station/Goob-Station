@@ -1,47 +1,47 @@
 - type: humanoidBaseSprite
   id: MobCyberneticBishopLArm
   baseSprite:
-    sprite: _Shitmed/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: "l_arm-combined"
 
 - type: humanoidBaseSprite
   id: MobCyberneticBishopRArm
   baseSprite:
-    sprite: _Shitmed/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: "r_arm-combined"
 
 - type: humanoidBaseSprite
   id: MobCyberneticBishopLLeg
   baseSprite:
-    sprite: _Shitmed/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: "l_leg-combined"
 
 - type: humanoidBaseSprite
   id: MobCyberneticBishopRLeg
   baseSprite:
-    sprite: _Shitmed/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: "r_leg-combined"
 
 - type: humanoidBaseSprite
   id: MobCyberneticBishopLHand
   baseSprite:
-    sprite: _Shitmed/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: "l_hand"
 
 - type: humanoidBaseSprite
   id: MobCyberneticBishopRHand
   baseSprite:
-    sprite: _Shitmed/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: "r_hand"
 
 - type: humanoidBaseSprite
   id: MobCyberneticBishopLFoot
   baseSprite:
-    sprite: _Shitmed/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: "l_foot"
 
 - type: humanoidBaseSprite
   id: MobCyberneticBishopRFoot
   baseSprite:
-    sprite: _Shitmed/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: "r_foot"

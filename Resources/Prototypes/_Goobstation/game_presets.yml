@@ -90,3 +90,32 @@
     #- MeteorSwarmScheduler Goobstation - nuh uh
     - BasicRoundstartVariation
     - BasicRoundstartVariation
+
+- type: gamePreset
+  id: Blob
+  alias:
+  - blab
+  name: blob-title
+  description: blob-description
+  showInVote: false
+  rules:
+  - BlobGameMode
+  - BasicStationEventScheduler
+  - AntagStationEventScheduler
+  - BasicRoundstartVariation
+  - SubGamemodesRule
+
+- type: gamePreset
+  id: Honkops
+  alias:
+    - honkops
+  name: honkops-title
+  description: honkops-description
+  showInVote: false
+  rules:
+    - Honkops
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+  #  - MeteorSwarmScheduler Goobstation - nuh uh
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation

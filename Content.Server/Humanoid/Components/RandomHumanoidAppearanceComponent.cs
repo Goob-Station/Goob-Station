@@ -1,6 +1,3 @@
-using Content.Shared.Humanoid.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
-
 namespace Content.Server.CharacterAppearance.Components;
 
 [RegisterComponent]

@@ -2,7 +2,6 @@ using System.Numerics;
 using Content.Shared.Weather;
 using Robust.Client.Graphics;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Physics.Components;
 
 namespace Content.Client.Overlays;
 
@@ -35,7 +34,7 @@ public sealed partial class StencilOverlay
                 var matty =  Matrix3x2.Multiply(matrix, invMatrix);
                 worldHandle.SetTransform(matty);
 
-                foreach (var tile in grid.Comp.GetTilesIntersecting(worldAABB))
+                foreach (var tile in _map.GetTilesIntersecting(grid.Owner, grid, worldAABB))
                 {
                     // Ignored tiles for stencil
                     if (_weather.CanWeatherAffect(grid.Owner, grid, tile))

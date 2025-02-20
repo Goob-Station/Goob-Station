@@ -2,6 +2,16 @@
 
 - type: randomHumanoidSettings
   id: EventHumanoid
+  # Shitmed Change Start
+  speciesBlacklist:
+  - Monkey
+  - Kobold
+  - Abductor
+  # Shitmed Change End
+  - Yowie # Goobstation - No hardsuit
+  - IPC # Goobstation - Your EMP (when you're nukie, DS or ninja) can easily kill you. TODO: Make EMPImmune component for these roles?
+  - Diona # Goobstation - Lack of legs makes it weaker than other species in combat
+  - Harpy # Goobstation - Same with Diona
   components:
     - type: RandomHumanoidAppearance
       randomizeName: false
@@ -13,6 +23,18 @@
   components:
     - type: MindShield
     - type: AntagImmune
+
+# Goobstation start
+- type: randomHumanoidSettings
+  id: EventHuman
+  parent: EventHumanoid
+  speciesWhitelist: Human
+
+- type: randomHumanoidSettings
+  id: EventHumanMindShielded
+  parent: EventHumanoidMindShielded
+  speciesWhitelist: Human
+# Goobstation end
 
 ## Death Squad
 
@@ -555,6 +577,7 @@
       settings: SyndicateAgent
 
 - type: randomHumanoidSettings
+  parent: EventHumanoid # Goobstation
   id: SyndicateAgent
   components:
     - type: RandomHumanoidAppearance
@@ -574,6 +597,7 @@
       settings: NukeOp
 
 - type: randomHumanoidSettings
+  parent: EventHumanoid # Goobstation
   id: NukeOp
   components:
     - type: RandomHumanoidAppearance

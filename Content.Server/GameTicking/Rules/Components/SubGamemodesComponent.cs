@@ -1,4 +1,3 @@
-using Content.Server.GameTicking.Rules;
 using Content.Shared.Storage;
 
 namespace Content.Server.GameTicking.Rules.Components;

@@ -5,12 +5,8 @@
   setPreference: true
   objective: roles-antag-heretic-description
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 18000 # 5h
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 18000 # 5h
+  - !type:OverallPlaytimeRequirement
+    time: 54000 # 15h
   guides: [ Heretics ]
 
 - type: startingGear

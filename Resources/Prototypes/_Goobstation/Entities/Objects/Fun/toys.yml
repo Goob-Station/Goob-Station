@@ -90,7 +90,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
-    state: plushie_blackburnxmas
+    state: plushie_blackburn
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Animals/fox1.ogg
@@ -113,13 +113,13 @@
 
 - type: entity
   parent: PlushieBlackburn
-  id: PlushieBlackburnPlyushkina
-  name: Plyushkina plushie
-  description: A slimmer Blackburn designed to clear out fox holes and trenches; scientists debate the maximum lifetime of "Plyushkinas" as they are the Insurgency's first self-designed subspecies.
+  id: PlushieBlackburnKobliska
+  name: Kobliska plushie
+  description: A slimmer Blackburn designed to clear out fox holes and trenches; scientists debate the maximum lifetime of "Kobliskins" as they are the Insurgency's first self-designed subspecies.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
-    state: plushie_plyushkinaxmas
+    state: plushie_kobliska
 
 - type: entity
   parent: PlushieBlackburn
@@ -129,7 +129,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
-    state: plushie_matryoskyaxmas
+    state: plushie_matryoskya
 
 - type: entity
   parent: PlushieBlackburn
@@ -143,7 +143,7 @@
     minSpeed: 2
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
-    state: plushie_desislavaxmas
+    state: plushie_desislava
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Machines/generator-tug-1.ogg

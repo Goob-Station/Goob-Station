@@ -3,7 +3,6 @@ using Content.Server.Administration.Logs;
 using Content.Server.Singularity.Events;
 using Content.Server.Station.Components;
 using Content.Shared.Database;
-using Content.Shared.Ghost;
 using Content.Shared.Mind.Components;
 using Content.Shared.Singularity.Components;
 using Content.Shared.Singularity.EntitySystems;
@@ -308,7 +307,7 @@ public sealed class EventHorizonSystem : SharedEventHorizonSystem
         foreach (var grid in grids)
         {
             // TODO: Remover grid.Owner when this iterator returns entityuids as well.
-            AttemptConsumeTiles(uid, grid.Comp.GetTilesIntersecting(circle), grid, grid, eventHorizon);
+            AttemptConsumeTiles(uid, _mapSystem.GetTilesIntersecting(grid.Owner, grid.Comp, circle), grid, grid, eventHorizon);
         }
     }
 

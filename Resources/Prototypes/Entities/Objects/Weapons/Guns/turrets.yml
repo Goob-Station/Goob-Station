@@ -147,20 +147,20 @@
               acts: [ "Destruction" ]
         - trigger:
             !type:DamageTrigger
-            damage: 100
+            damage: 300
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
             - !type:TriggerBehavior
     - type: Gun
-      fireRate: 2
+      fireRate: 6
       selectedMode: FullAuto
       availableModes:
         - FullAuto
       soundGunshot: /Audio/Weapons/Guns/Gunshots/gun_sentry.ogg
     - type: BallisticAmmoProvider
       proto: CartridgePistol
-      capacity: 50
+      capacity: 25
     - type: Construction
       deconstructionTarget: null
       graph: WeaponTurretSyndicateDisposable

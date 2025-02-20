@@ -142,6 +142,13 @@
     sprite: Objects/Tools/lantern.rsi
     state: lantern
 
+- type: stealTargetGroup #Goobstation
+  id: Battery
+  name: steal-target-groups-battery
+  sprite:
+    sprite: Objects/Power/power_cells.rsi
+    state: medium
+
 # Thief single item
 
 - type: stealTargetGroup

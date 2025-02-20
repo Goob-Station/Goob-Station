@@ -1,7 +1,6 @@
 using System.Linq;
 using Content.Server._Goobstation.PendingAntag;
 using Content.Server.Administration.Managers;
-using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Station.Components;
 using Content.Server.Station.Events;
 using Content.Shared.Preferences;
@@ -292,9 +291,9 @@ public sealed partial class StationJobsSystem
             }
 
             var profile = profiles[player];
-            if (profile.PreferenceUnavailable != PreferenceUnavailableMode.SpawnAsOverflow &&
-                !_pendingAntag.PendingAntags.ContainsKey(player)) // Goob edit - spawn as overflow if rolled antag
+            if (profile.PreferenceUnavailable != PreferenceUnavailableMode.SpawnAsOverflow)
             {
+                _pendingAntag.PendingAntags.Remove(player); // Goobstation
                 assignedJobs.Add(player, (null, EntityUid.Invalid));
                 continue;
             }

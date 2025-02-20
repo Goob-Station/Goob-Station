@@ -1,3 +1,4 @@
+using Content.Client._White.Animations;
 using Content.Shared._White.Standing;
 using Content.Shared.Buckle;
 using Content.Shared.Rotation;
@@ -21,8 +22,6 @@ public sealed class LayingDownSystem : SharedLayingDownSystem
         base.Initialize();
 
         SubscribeLocalEvent<LayingDownComponent, MoveEvent>(OnMovementInput);
-
-        SubscribeNetworkEvent<CheckAutoGetUpEvent>(OnCheckAutoGetUp);
     }
 
     private void OnMovementInput(EntityUid uid, LayingDownComponent component, MoveEvent args)
@@ -59,15 +58,19 @@ public sealed class LayingDownSystem : SharedLayingDownSystem
         sprite.Rotation = Angle.FromDegrees(90);
     }
 
-    private void OnCheckAutoGetUp(CheckAutoGetUpEvent ev, EntitySessionEventArgs args)
+    public override void UpdateSpriteRotation(EntityUid uid)
     {
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        var uid = GetEntity(ev.User);
-
         if (!TryComp<TransformComponent>(uid, out var transform) || !TryComp<RotationVisualsComponent>(uid, out var rotationVisuals))
             return;
+
+        if (_animation.HasRunningAnimation(uid, FlippingComponent.AnimationKey))
+        {
+            RemComp<FlippingComponent>(uid);
+            _animation.Stop(uid, FlippingComponent.AnimationKey);
+        }
 
         var rotation = transform.LocalRotation + (_eyeManager.CurrentEye.Rotation - (transform.LocalRotation - transform.WorldRotation));
 

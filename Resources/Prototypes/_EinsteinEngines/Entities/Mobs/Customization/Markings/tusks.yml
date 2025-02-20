@@ -1,0 +1,27 @@
+- type: marking
+  id: GoblinTusksSmall
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#d9d9d9"
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/goblin_tusks.rsi
+    state: goblin_tusks_small
+
+- type: marking
+  id: GoblinTusksBig
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#d9d9d9"
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/goblin_tusks.rsi
+    state: goblin_tusks_big

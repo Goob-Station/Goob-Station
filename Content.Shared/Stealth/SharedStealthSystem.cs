@@ -1,7 +1,7 @@
 using Content.Shared.Examine;
 using Content.Shared.Mobs;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Stealth.Components;
+using Robust.Shared.Physics.Components; // Goobstation
 using Robust.Shared.GameStates;
 using Robust.Shared.Timing;
 
@@ -15,8 +15,6 @@ public abstract class SharedStealthSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<StealthComponent, ComponentGetState>(OnStealthGetState);
-        SubscribeLocalEvent<StealthComponent, ComponentHandleState>(OnStealthHandleState);
         SubscribeLocalEvent<StealthOnMoveComponent, MoveEvent>(OnMove);
         SubscribeLocalEvent<StealthOnMoveComponent, GetVisibilityModifiersEvent>(OnGetVisibilityModifiers);
         SubscribeLocalEvent<StealthComponent, EntityPausedEvent>(OnPaused);
@@ -61,17 +59,21 @@ public abstract class SharedStealthSystem : EntitySystem
         Dirty(uid, component);
     }
 
-    private void OnMobStateChanged(EntityUid uid, StealthComponent component, MobStateChangedEvent args)
+
+    private void OnMobStateChanged(EntityUid uid, StealthComponent component, MobStateChangedEvent args)// Goobstation - Stealth change
     {
-        if (args.NewMobState == MobState.Dead)
+        if (args.NewMobState == MobState.Dead || args.NewMobState == MobState.Critical)
         {
-            component.Enabled = component.EnabledOnDeath;
+            if (args.NewMobState == MobState.Dead)
+                component.Enabled = component.EnabledOnDeath;
+            else
+                component.Enabled = component.EnabledOnCrit;
         }
         else
         {
             component.Enabled = true;
         }
-
+        SetEnabled(uid, component.Enabled, component);// to update the sprite;
         Dirty(uid, component);
     }
 
@@ -96,21 +98,6 @@ public abstract class SharedStealthSystem : EntitySystem
         component.LastUpdated = _timing.CurTime;
     }
 
-    private void OnStealthGetState(EntityUid uid, StealthComponent component, ref ComponentGetState args)
-    {
-        args.State = new StealthComponentState(component.LastVisibility, component.LastUpdated, component.Enabled);
-    }
-
-    private void OnStealthHandleState(EntityUid uid, StealthComponent component, ref ComponentHandleState args)
-    {
-        if (args.Current is not StealthComponentState cast)
-            return;
-
-        SetEnabled(uid, cast.Enabled, component);
-        component.LastVisibility = cast.Visibility;
-        component.LastUpdated = cast.LastUpdated;
-    }
-
     private void OnMove(EntityUid uid, StealthOnMoveComponent component, ref MoveEvent args)
     {
         if (_timing.ApplyingState)
@@ -123,10 +110,15 @@ public abstract class SharedStealthSystem : EntitySystem
         ModifyVisibility(uid, delta);
     }
 
+    // Goobstation - Proper invisibility
     private void OnGetVisibilityModifiers(EntityUid uid, StealthOnMoveComponent component, GetVisibilityModifiersEvent args)
     {
-        var mod = args.SecondsSinceUpdate * component.PassiveVisibilityRate;
-        args.FlatModifier += mod;
+        var limit = args.Stealth.MinVisibility;
+        if (TryComp<PhysicsComponent>(uid, out var phys))
+            limit += Math.Min(component.MaxInvisibilityPenalty, phys.LinearVelocity.Length() * component.InvisibilityPenalty);
+
+        if (args.Stealth.LastVisibility > limit)
+            args.FlatModifier += args.SecondsSinceUpdate * component.PassiveVisibilityRate;
     }
 
     /// <summary>

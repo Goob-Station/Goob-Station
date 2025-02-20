@@ -10880,7 +10880,7 @@ entities:
       pos: -42.5,29.5
       parent: 5350
     - type: Door
-      secondsUntilStateChange: -7125.0015
+      secondsUntilStateChange: -7191.1094
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -118351,6 +118351,20 @@ entities:
       parent: 5350
     - type: BallisticAmmoProvider
       unspawnedCount: 30
+- proto: MailMetricsCartridge
+  entities:
+  - uid: 26995
+    components:
+    - type: Transform
+      pos: -40.474518,6.004814
+      parent: 5350
+- proto: MailTeleporter
+  entities:
+  - uid: 26994
+    components:
+    - type: Transform
+      pos: -40.5,4.5
+      parent: 5350
 - proto: MaintenanceFluffSpawner
   entities:
   - uid: 2082
@@ -145999,6 +146013,13 @@ entities:
     components:
     - type: Transform
       pos: 14.5,17.5
+      parent: 5350
+- proto: VendingMachineMailDrobe
+  entities:
+  - uid: 26993
+    components:
+    - type: Transform
+      pos: -38.5,2.5
       parent: 5350
 - proto: VendingMachineMedical
   entities:

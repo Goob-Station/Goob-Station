@@ -7,7 +7,7 @@ using Content.Shared.Silicons.Borgs.Components;
 using Content.Server.DeviceNetwork;
 using Content.Server.DeviceNetwork.Components;
 using Content.Server.DeviceNetwork.Systems;
-using Content.Server.Explosion.Components;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Silicons.Borgs;
 
@@ -133,5 +133,21 @@ public sealed partial class BorgSystem
         }
 
         return false;
+    }
+
+    /// <summary>
+    /// Sets <see cref="BorgTransponderComponent.Sprite"/>.
+    /// </summary>
+    public void SetTransponderSprite(Entity<BorgTransponderComponent> ent, SpriteSpecifier sprite)
+    {
+        ent.Comp.Sprite = sprite;
+    }
+
+    /// <summary>
+    /// Sets <see cref="BorgTransponderComponent.Name"/>.
+    /// </summary>
+    public void SetTransponderName(Entity<BorgTransponderComponent> ent, string name)
+    {
+        ent.Comp.Name = name;
     }
 }

@@ -20,4 +20,17 @@ public sealed partial class AntagLoadProfileRuleComponent : Component
     /// </summary>
     [DataField]
     public HashSet<ProtoId<SpeciesPrototype>>? SpeciesOverrideBlacklist;
+
+    /// <summary>
+    /// Goobstation
+    /// If true, then SpeciesOverride will always be used
+    /// </summary>
+    [DataField]
+    public bool AlwaysUseSpeciesOverride;
+
+    /// <summary>
+    ///     Shitmed - Starlight Abductors: Species valid for the rule.
+    /// </summary>
+    [DataField]
+    public ProtoId<SpeciesPrototype>? SpeciesHardOverride;
 }

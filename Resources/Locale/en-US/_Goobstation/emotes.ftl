@@ -1,3 +1,5 @@
+emote-menu-category-farts = Farts
+
 chat-emote-name-flip = Do a flip
 chat-emote-name-spin = Spin
 chat-emote-name-jump = Jump

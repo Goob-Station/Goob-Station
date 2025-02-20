@@ -8,7 +8,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Fland Christmastation {1}'
+          mapNameTemplate: '{0} Fland Installation {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'B'
@@ -64,3 +64,10 @@
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 4, 4 ]
+
+        # Goobstation blob-config-start HUGE
+        - type: StationBlobConfig
+          stageBegin: 40
+          stageCritical: 450
+          stageTheEnd: 900
+        # backmen blob-config-end

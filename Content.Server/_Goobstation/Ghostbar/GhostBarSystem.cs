@@ -12,7 +12,6 @@ using Content.Server.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Roles;
 using Content.Server.Antag.Components;
-using Content.Shared.Mind;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Players;
 
@@ -60,9 +59,15 @@ public sealed class GhostBarSystem : EntitySystem
             return;
         }
 
-        if (!_entityManager.HasComponent<GhostComponent>(player.AttachedEntity))
+        if (!_entityManager.TryGetComponent<GhostComponent>(player.AttachedEntity, out var ghost))
         {
             Log.Warning($"User {player.Name} tried to spawn at ghost bar without being a ghost.");
+            return;
+        }
+
+        if (!ghost.CanEnterGhostBar)
+        {
+            Log.Warning($"User {player.Name} tried to enter ghost bar while they cannot enter it.");
             return;
         }
 

@@ -3,7 +3,6 @@ using Content.Server.Shuttles.Components;
 using Content.Server.Station.Components;
 using Content.Server.Station.Events;
 using Content.Shared.CCVar;
-using Content.Shared.Salvage;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Station.Components;
 using Robust.Shared.Collections;
@@ -208,7 +207,7 @@ public sealed partial class ShuttleSystem
 
                 if (_protoManager.TryIndex(group.NameDataset, out var dataset))
                 {
-                    _metadata.SetEntityName(spawned, SharedSalvageSystem.GetFTLName(dataset, _random.Next()));
+                    _metadata.SetEntityName(spawned, _salvage.GetFTLName(dataset, _random.Next()));
                 }
 
                 if (group.Hide)

@@ -4,3 +4,10 @@
   sprite:
     sprite: _Goobstation/Supermatter/supermatter_sliver.rsi
     state: icon
+
+- type: stealTargetGroup
+  id: WeaponEnergyGunMultiphase
+  name: steal-target-groups-weapon-multiphase
+  sprite:
+    sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
+    state: base

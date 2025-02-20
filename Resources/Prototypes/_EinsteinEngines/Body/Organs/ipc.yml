@@ -1,0 +1,76 @@
+- type: entity
+  id: BaseIPCOrgan
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _EinsteinEngines/Mobs/Species/IPC/organs.rsi
+  - type: Organ
+  # - type: Food
+  # - type: Extractable
+  #   grindableSolutionName: organ
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Oil
+          Quantity: 10
+
+- type: entity
+  id: OrganIPCEyes
+  parent: BaseIPCOrgan
+  name: robotic eyes
+  description: "01001001 00100000 01110011 01100101 01100101 00100000 01111001 01101111 01110101 00100001"
+  components:
+  - type: Sprite
+    layers:
+      - state: eyeball-l
+      - state: eyeball-r
+  - type: Organ
+    slotId: eyes
+  - type: Eyes
+
+- type: entity
+  id: OrganIPCTongue
+  parent: BaseIPCOrgan
+  name: vocal modulator
+  description: "A vocal modulator, used to produce speech."
+  components:
+  - type: Sprite
+    state: tongue
+  - type: Organ
+
+- type: entity
+  id: OrganIPCEars
+  parent: BaseIPCOrgan
+  name: "sonic receptors"
+  description:
+  components:
+  - type: Sprite
+    state: ears
+  - type: Organ
+
+- type: entity
+  id: OrganIPCPump
+  parent: BaseIPCOrgan
+  name: micro pump
+  description: "A micro pump, used to circulate coolant."
+  components:
+  - type: Sprite
+    state: heart-on
+  - type: Organ
+    slotId: pump
+  - type: Heart
+  # The heart 'metabolizes' medicines and poisons that aren't filtered out by other organs.
+  # This is done because these chemicals need to have some effect even if they aren't being filtered out of your body.
+  # You're technically 'immune to poison' without a heart, but.. uhh, you'll have bigger problems on your hands.
+
+  # This is fine?
+  # - type: Metabolizer
+  #   maxReagents: 2
+  #   metabolizerTypes: [Human]
+  #   groups:
+  #   - id: Medicine
+  #   - id: Poison
+  #   - id: Narcotic

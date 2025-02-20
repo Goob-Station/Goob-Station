@@ -1,6 +1,7 @@
 heretic-ability-fail = Failed to cast
 heretic-ability-fail-magicitem = You cannot cast it without a focus!
 heretic-ability-fail-notarget = Couldn't find a valid target!
+heretic-ability-fail-lowhealth = This spell deals {$damage} damage, it would put you in critical condition if you casted it!
 
 heretic-magicitem-examine = [color=yellow]Allows you to use advanced spells while held or equipped.[/color]
 
@@ -9,6 +10,7 @@ heretic-blade-examine = [color=yellow]Using it while it's in your hand will brea
 heretic-blade-use = The blade shatters, and you feel the voices pulling you away.
 heretic-riposte-used = Riposte used!
 heretic-riposte-available = Riposte available!
+heretic-cant-shoot = I can't use { THE($entity) } because of my sacred pledge to the path of the blade.
 
 ## paths exclusive
 heretic-rust-mark-itembreak = {$name} shatters into dust!

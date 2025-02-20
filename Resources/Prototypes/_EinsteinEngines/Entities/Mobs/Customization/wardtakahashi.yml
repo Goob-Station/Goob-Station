@@ -1,0 +1,112 @@
+- type: marking
+  id: CyberLimbsMarkingWardtakahashiHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_monitor.rsi
+    state: head
+
+- type: marking
+  id: CyberLimbsMarkingWardtakahashiHeadAlt
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_main.rsi
+    state: head
+
+- type: marking
+  id: CyberLimbsMarkingWardtakahashiHeadAlt1
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_alt1.rsi
+    state: head
+
+- type: marking
+  id: CyberLimbsMarkingWardtakahashiChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_main.rsi
+    state: torso
+
+- type: marking
+  id: CyberLimbsMarkingWardtakahashiLArm
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_main.rsi
+    state: l_arm
+
+- type: marking
+  id: CyberLimbsMarkingWardtakahashiLHand
+  bodyPart: LHand
+  markingCategory: Arms
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_main.rsi
+    state: l_hand
+
+- type: marking
+  id: CyberLimbsMarkingWardtakahashiLLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_main.rsi
+    state: l_leg
+
+
+- type: marking
+  id: CyberLimbsMarkingWardtakahashiLFoot
+  bodyPart: LFoot
+  markingCategory: Legs
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_main.rsi
+    state: l_foot
+
+
+
+- type: marking
+  id: CyberLimbsMarkingWardtakahashiRArm
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_main.rsi
+    state: r_arm
+
+
+- type: marking
+  id: CyberLimbsMarkingWardtakahashiRHand
+  bodyPart: RHand
+  markingCategory: Arms
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_main.rsi
+    state: r_hand
+
+- type: marking
+  id: CyberLimbsMarkingWardtakahashiRLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_main.rsi
+    state: r_leg
+
+
+- type: marking
+  id: CyberLimbsMarkingWardtakahashiRFoot
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_main.rsi
+    state: r_foot

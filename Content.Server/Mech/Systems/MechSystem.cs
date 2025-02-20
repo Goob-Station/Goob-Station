@@ -23,6 +23,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Content.Shared.Whitelist;
+using Content.Server.Emp; // Goobstation
 
 namespace Content.Server.Mech.Systems;
 
@@ -53,6 +54,8 @@ public sealed partial class MechSystem : SharedMechSystem
         SubscribeLocalEvent<MechComponent, RemoveBatteryEvent>(OnRemoveBattery);
         SubscribeLocalEvent<MechComponent, MechEntryEvent>(OnMechEntry);
         SubscribeLocalEvent<MechComponent, MechExitEvent>(OnMechExit);
+        SubscribeLocalEvent<MechComponent, EmpPulseEvent>(OnEmpPulse); // Goobstation
+
 
         SubscribeLocalEvent<MechComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<MechComponent, MechEquipmentRemoveMessage>(OnRemoveEquipmentMessage);
@@ -184,6 +187,7 @@ public sealed partial class MechSystem : SharedMechSystem
                     var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, component.EntryDelay, new MechEntryEvent(), uid, target: uid)
                     {
                         BreakOnMove = true,
+                        MultiplyDelay = false, // Goobstation
                     };
 
                     _doAfter.TryStartDoAfter(doAfterEventArgs);
@@ -237,7 +241,6 @@ public sealed partial class MechSystem : SharedMechSystem
 
         TryInsert(uid, args.Args.User, component);
         _actionBlocker.UpdateCanMove(uid);
-
         args.Handled = true;
     }
 
@@ -247,8 +250,19 @@ public sealed partial class MechSystem : SharedMechSystem
             return;
 
         TryEject(uid, component);
-
         args.Handled = true;
+    }
+    //goobstation
+    private void OnEmpPulse(EntityUid uid, MechComponent component, EmpPulseEvent args)
+    {
+        args.Affected = true;
+        args.Disabled = true;
+        component.Energy -= args.EnergyConsumption;
+        if (component.Energy < 0)
+            component.Energy = 0;
+        Dirty(uid, component);
+        UpdateUserInterface(uid, component);
+        _actionBlocker.UpdateCanMove(uid);
     }
 
     private void OnDamageChanged(EntityUid uid, MechComponent component, DamageChangedEvent args)

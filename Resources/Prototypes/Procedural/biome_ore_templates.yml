@@ -51,7 +51,7 @@
     WallRockSnow: WallRockSnowSalt
   maxCount: 30
   minGroupSize: 8
-  maxGroupSize: 20
+  maxGroupSize: 12
   radius: 4
 
 # Medium value

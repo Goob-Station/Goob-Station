@@ -252,6 +252,8 @@
       shoes:
       - state: equipped-FEET
         offset: "0, -0.02"
+      - state: equipped-FEET-reptilian # WWDP
+        offset: "0, -0.02"
   - type: Item
     size: Small
     sprite: Clothing/Shoes/Specific/large_clown.rsi
@@ -273,11 +275,13 @@
       shoes:
       - state: equipped-FEET
         offset: "0, -0.04"
+      - state: equipped-FEET-reptilian # WWDP
+        offset: "0, -0.04"
   - type: Item
     sprite: Clothing/Shoes/Specific/skates.rsi
   - type: ClothingSpeedModifier
-    walkModifier: 1.1
-    sprintModifier: 1.1
+    walkModifier: 1.2 # Goob edit
+    sprintModifier: 1.2 # Goob edit
   - type: Skates
   - type: FootstepModifier
     footstepSoundCollection:

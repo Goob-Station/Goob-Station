@@ -1,4 +1,6 @@
+using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Administration.Logs;
+using Content.Server.Beam.Components;
 using Content.Server.Light.Components;
 using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.EntitySystems;
@@ -30,6 +32,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Spawners;
 using PullableComponent = Content.Shared.Movement.Pulling.Components.PullableComponent;
 using PullerComponent = Content.Shared.Movement.Pulling.Components.PullerComponent;
 
@@ -62,7 +65,8 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
     [ValidatePrototypeId<DamageTypePrototype>]
     private const string DamageType = "Shock";
 
-    // Multiply and shift the log scale for shock damage.
+    // Yes, this is absurdly small for a reason.
+    public const float ElectrifiedDamagePerWatt = 0.0015f; // Goobstation - This information is allowed to be public, and was needed in BatteryElectrocuteChargeSystem.cs
     private const float RecursiveDamageMultiplier = 0.75f;
     private const float RecursiveTimeMultiplier = 0.8f;
 
@@ -121,7 +125,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
             activated.TimeLeft -= frameTime;
             if (activated.TimeLeft <= 0 || !IsPowered(uid, electrified, transform))
             {
-                _appearance.SetData(uid, ElectrifiedVisuals.IsPowered, false);
+                _appearance.SetData(uid, ElectrifiedVisuals.ShowSparks, false);
                 RemComp<ActivatedElectrifiedComponent>(uid);
             }
         }
@@ -157,8 +161,19 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
 
     private void OnElectrifiedStartCollide(EntityUid uid, ElectrifiedComponent electrified, ref StartCollideEvent args)
     {
-        if (electrified.OnBump)
-            TryDoElectrifiedAct(uid, args.OtherEntity, 1, electrified);
+        // Goob edit start
+        if (!electrified.OnBump)
+            return;
+        if (TryComp(uid, out BeamComponent? beam))
+        {
+            var struck = EnsureComp<StruckByLightningComponent>(args.OtherEntity);
+            if (!struck.BeamIndices.Add(beam.BeamIndex))
+                return;
+            if (TryComp(uid, out TimedDespawnComponent? despawn))
+                struck.Lifetime = MathF.Max(struck.Lifetime, despawn.Lifetime + 1f);
+        }
+        TryDoElectrifiedAct(uid, args.OtherEntity, 1, electrified);
+        // Goob edit end
     }
 
     private void OnElectrifiedAttacked(EntityUid uid, ElectrifiedComponent electrified, AttackedEvent args)
@@ -217,10 +232,10 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
             return false;
 
         EnsureComp<ActivatedElectrifiedComponent>(uid);
-        _appearance.SetData(uid, ElectrifiedVisuals.IsPowered, true);
+        _appearance.SetData(uid, ElectrifiedVisuals.ShowSparks, true);
 
         siemens *= electrified.SiemensCoefficient;
-        if (!DoCommonElectrocutionAttempt(targetUid, uid, ref siemens) || siemens <= 0)
+        if (!DoCommonElectrocutionAttempt(targetUid, uid, ref siemens, electrified.IgnoreInsulation) || siemens <= 0) // Goob edit
             return false; // If electrocution would fail, do nothing.
 
         var targets = new List<(EntityUid entity, int depth)>();
@@ -231,13 +246,18 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
             for (var i = targets.Count - 1; i >= 0; i--)
             {
                 var (entity, depth) = targets[i];
+
+                if (entity == electrified.IgnoredEntity) // Goobstation
+                    continue;
+
                 lastRet = TryDoElectrocution(
                     entity,
                     uid,
                     (int) (electrified.ShockDamage * MathF.Pow(RecursiveDamageMultiplier, depth)),
                     TimeSpan.FromSeconds(electrified.ShockTime * MathF.Pow(RecursiveTimeMultiplier, depth)),
                     true,
-                    electrified.SiemensCoefficient
+                    electrified.SiemensCoefficient,
+                    ignoreInsulation: electrified.IgnoreInsulation // Goobstation
                 );
             }
             return lastRet;
@@ -259,6 +279,10 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
             for (var i = targets.Count - 1; i >= 0; i--)
             {
                 var (entity, depth) = targets[i];
+
+                if (entity == electrified.IgnoredEntity) // Goobstation
+                    continue;
+
                 lastRet = TryDoElectrocutionPowered(
                     entity,
                     uid,
@@ -266,7 +290,8 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
                     (int) (electrified.ShockDamage * MathF.Pow(RecursiveDamageMultiplier, depth) * damageScalar),
                     TimeSpan.FromSeconds(electrified.ShockTime * MathF.Pow(RecursiveTimeMultiplier, depth) * timeScalar),
                     true,
-                    electrified.SiemensCoefficient);
+                    electrified.SiemensCoefficient,
+                    electrified.IgnoreInsulation); // Goob edit
             }
             return lastRet;
         }
@@ -300,7 +325,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
             || !DoCommonElectrocution(uid, sourceUid, shockDamage, time, refresh, siemensCoefficient, statusEffects))
             return false;
 
-        RaiseLocalEvent(uid, new ElectrocutedEvent(uid, sourceUid, siemensCoefficient), true);
+        RaiseLocalEvent(uid, new ElectrocutedEvent(uid, sourceUid, siemensCoefficient, shockDamage), true); // Goobstation
         return true;
     }
 
@@ -312,10 +337,11 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         TimeSpan time,
         bool refresh,
         float siemensCoefficient = 1f,
+        bool ignoreInsulation = false, // Goobstation
         StatusEffectsComponent? statusEffects = null,
         TransformComponent? sourceTransform = null)
     {
-        if (!DoCommonElectrocutionAttempt(uid, sourceUid, ref siemensCoefficient))
+        if (!DoCommonElectrocutionAttempt(uid, sourceUid, ref siemensCoefficient, ignoreInsulation)) // Goob edit
             return false;
 
         if (!DoCommonElectrocution(uid, sourceUid, shockDamage, time, refresh, siemensCoefficient, statusEffects))
@@ -350,7 +376,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         electrocutionComponent.Electrocuting = uid;
         electrocutionComponent.Source = sourceUid;
 
-        RaiseLocalEvent(uid, new ElectrocutedEvent(uid, sourceUid, siemensCoefficient), true);
+        RaiseLocalEvent(uid, new ElectrocutedEvent(uid, sourceUid, siemensCoefficient, shockDamage), true); // Goobstation
 
         return true;
     }
@@ -441,7 +467,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
     {
         var visited = new HashSet<EntityUid>();
 
-        GetChainedElectrocutionTargetsRecurse(source, 1, visited, all);
+        GetChainedElectrocutionTargetsRecurse(source, 0, visited, all); // Goob edit
     }
 
     private void GetChainedElectrocutionTargetsRecurse(
@@ -487,16 +513,5 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
             return;
         }
         _audio.PlayPvs(electrified.ShockNoises, targetUid, AudioParams.Default.WithVolume(electrified.ShockVolume));
-    }
-
-    public void SetElectrifiedWireCut(Entity<ElectrifiedComponent> ent, bool value)
-    {
-        if (ent.Comp.IsWireCut == value)
-        {
-            return;
-        }
-
-        ent.Comp.IsWireCut = value;
-        Dirty(ent);
     }
 }

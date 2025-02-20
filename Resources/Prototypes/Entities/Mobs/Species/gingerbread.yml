@@ -46,7 +46,7 @@
         scaleByQuantity: true
         damage:
           types:
-            Genetic: 0.3
+            Heat: 0.3
       - !type:PopupMessage
         type: Local
         visualType: Large

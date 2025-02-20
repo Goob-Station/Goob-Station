@@ -8,7 +8,8 @@
     xmlns:style="clr-namespace:Content.Client.Stylesheets"
     xmlns:lobbyUi="clr-namespace:Content.Client.Lobby.UI"
     xmlns:info="clr-namespace:Content.Client.Info"
-    xmlns:widgets="clr-namespace:Content.Client.UserInterface.Systems.Chat.Widgets">
+    xmlns:widgets="clr-namespace:Content.Client.UserInterface.Systems.Chat.Widgets"
+    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
     <!-- Background -->
     <TextureRect Access="Public" VerticalExpand="True" HorizontalExpand="True" Name="Background"
                  Stretch="KeepAspectCovered" />
@@ -22,7 +23,7 @@
                         <!-- Left Top Panel -->
                         <PanelContainer StyleClasses="AngleRect" HorizontalAlignment="Left" Name="LeftSideTop"
                                         VerticalAlignment="Top">
-                            <BoxContainer Orientation="Vertical" HorizontalAlignment="Center" MaxWidth="800">
+                            <BoxContainer Orientation="Vertical" HorizontalAlignment="Center" MaxWidth="1200">
                                 <info:LinkBanner Name="LinkBanner" VerticalExpand="false" HorizontalAlignment="Center"
                                                  Margin="3 3 3 3" />
                                 <controls:StripeBack>
@@ -47,15 +48,23 @@
                         <BoxContainer Orientation="Vertical" SeparationOverride="4" Name="VoteContainer"
                                       Access="Public" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0 8" />
                     </BoxContainer>
-                    <TextureRect Access="Public" Name="FUCKINGMARIAH" MaxHeight="25" />
                     <!-- Vertical Padding-->
                     <Control VerticalExpand="True" />
                     <!-- Left Bot Panel -->
-                    <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                    <PanelContainer VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                                    Margin="0 75" StyleClasses="AngleRect">
+                        <RichTextLabel Name="LobbyMessageLabel" Access="Public" Margin="5" />
+                    </PanelContainer>
+                    <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" SeparationOverride="4"> <!-- Goobstation - Lobby Background Credits -->
                         <info:DevInfoBanner Name="DevInfoBanner" VerticalExpand="false" Margin="3 3 3 3" />
                         <PanelContainer StyleClasses="AngleRect">
                             <RichTextLabel Name="LobbySong" Access="Public" HorizontalAlignment="Center" />
                         </PanelContainer>
+                        <!-- Goobstation start -->
+                        <PanelContainer StyleClasses="AngleRect">
+                            <RichTextLabel Name="LobbyBackground" Access="Public" HorizontalAlignment="Center" />
+                        </PanelContainer>
+                        <!-- Goobstation end -->
                     </BoxContainer>
                 </Control>
                 <!-- Character setup state -->

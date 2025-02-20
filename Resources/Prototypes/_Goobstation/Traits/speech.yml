@@ -17,3 +17,22 @@
   components:
   - type: ReplacementAccent
     accent: scottish
+
+- type: trait
+  id: Bogan
+  name: trait-bogan-name
+  description: trait-bogan-desc
+  category: SpeechTraits
+  cost: 1
+  components:
+  - type: ReplacementAccent
+    accent: bogan
+
+- type: trait
+  id: MaoistAccent
+  name: trait-maoist-accent-name
+  description: trait-maoist-accent-desc
+  category: SpeechTraits
+  cost: 1
+  components:
+  - type: MaoistAccent

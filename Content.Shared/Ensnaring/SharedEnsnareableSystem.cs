@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._Goobstation.Wizard.Mutate;
 using Content.Shared.Alert;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
@@ -11,6 +12,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Projectiles;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Strip.Components;
 using Content.Shared.Throwing;
@@ -29,6 +31,7 @@ public sealed partial class EnsnareableDoAfterEvent : SimpleDoAfterEvent
 public abstract class SharedEnsnareableSystem : EntitySystem
 {
     [Dependency] private   readonly INetManager _net = default!; // Goobstation
+    [Dependency] private   readonly SharedHulkSystem _hulk = default!; // Goobstation
     [Dependency] private   readonly AlertsSystem _alerts = default!;
     [Dependency] private   readonly MovementSpeedModifierSystem _speedModifier = default!;
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
@@ -58,6 +61,7 @@ public abstract class SharedEnsnareableSystem : EntitySystem
         SubscribeLocalEvent<EnsnaringComponent, StepTriggerAttemptEvent>(AttemptStepTrigger);
         SubscribeLocalEvent<EnsnaringComponent, StepTriggeredOffEvent>(OnStepTrigger);
         SubscribeLocalEvent<EnsnaringComponent, ThrowDoHitEvent>(OnThrowHit);
+        SubscribeLocalEvent<EnsnaringComponent, ProjectileHitEvent>(OnProjectileHit); // Goobstation
         SubscribeLocalEvent<EnsnaringComponent, AttemptPacifiedThrowEvent>(OnAttemptPacifiedThrow);
     }
 
@@ -101,6 +105,9 @@ public abstract class SharedEnsnareableSystem : EntitySystem
         }
         else
             _hands.PickupOrDrop(args.Args.User, args.Args.Used.Value);
+
+        if (args.User == args.Target && TryComp(args.User, out HulkComponent? hulk))
+            _hulk.Roar((args.User, hulk));
         // Goobstation end
 
         if (args.User == args.Target)
@@ -172,6 +179,9 @@ public abstract class SharedEnsnareableSystem : EntitySystem
         var freeTime = user == target ? component.BreakoutTime : component.FreeTime;
         var breakOnMove = !component.CanMoveBreakout;
 
+        if (user == target && HasComp<HulkComponent>(user)) // Goobstation
+            freeTime = 0f;
+
         var doAfterEventArgs = new DoAfterArgs(EntityManager, user, freeTime, new EnsnareableDoAfterEvent(), target, target: target, used: ensnare)
         {
             BreakOnMove = breakOnMove,
@@ -181,6 +191,9 @@ public abstract class SharedEnsnareableSystem : EntitySystem
         };
 
         if (!_doAfter.TryStartDoAfter(doAfterEventArgs))
+            return;
+
+        if (freeTime == 0f) // Goobstation
             return;
 
         if (user == target)
@@ -254,6 +267,18 @@ public abstract class SharedEnsnareableSystem : EntitySystem
         }
     }
 
+    // Goobstation
+    private void OnProjectileHit(EntityUid uid, EnsnaringComponent component, ProjectileHitEvent args)
+    {
+        if (!component.CanThrowTrigger)
+            return;
+
+        if (TryEnsnare(args.Target, uid, component))
+        {
+            _audio.PlayPvs(component.EnsnareSound, uid);
+        }
+    }
+
     /// <summary>
     /// Used where you want to try to ensnare an entity with the <see cref="EnsnareableComponent"/>
     /// </summary>
@@ -308,14 +333,14 @@ public abstract class SharedEnsnareableSystem : EntitySystem
 
         var target = component.Ensnared.Value;
 
-        Container.Remove(ensnare, ensnareable.Container, force: true);
+        Container.TryRemoveFromContainer(ensnare, force: true); // Goobstation - fix on ensnare entity remove
         ensnareable.IsEnsnared = ensnareable.Container.ContainedEntities.Count > 0;
         Dirty(component.Ensnared.Value, ensnareable);
         component.Ensnared = null;
 
         UpdateAlert(target, ensnareable);
         var ev = new EnsnareRemoveEvent(component.WalkSpeed, component.SprintSpeed);
-        RaiseLocalEvent(ensnare, ev);
+        RaiseLocalEvent(target, ev);
     }
 
     /// <summary>

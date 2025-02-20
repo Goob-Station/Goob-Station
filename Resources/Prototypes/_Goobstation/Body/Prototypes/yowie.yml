@@ -4,27 +4,30 @@
   root: torso
   slots:
     head:
-      part: HeadYowie
+      part: HeadHuman
       connections:
       - torso
       organs:
         brain: OrganHumanBrain
     torso:
-      part: TorsoYowie
+      part: TorsoHuman
       connections:
       - right arm
       - left arm
       - right leg
       - left leg
       organs:
-        stomach: OrganHumanStomach
-        lungs: OrganHumanLungs
+        heart: OrganYowieHeart
+        lungs: OrganYowieLungs
+        stomach: OrganYowieStomach
+        liver: OrganYowieLiver
+        kidneys: OrganHumanKidneys
     right arm:
-      part: RightArmYowie
+      part: RightArmHuman
       connections:
       - right hand
     left arm:
-      part: LeftArmYowie
+      part: LeftArmHuman
       connections:
       - left hand
     right hand:
@@ -32,14 +35,14 @@
     left hand:
       part: LeftHandYowie
     right leg:
-      part: RightLegYowie
+      part: RightLegHuman
       connections:
       - right foot
     left leg:
-      part: LeftLegYowie
+      part: LeftLegHuman
       connections:
       - left foot
     right foot:
-      part: RightFootYowie
+      part: RightFootHuman
     left foot:
-      part: LeftFootYowie
+      part: LeftFootHuman

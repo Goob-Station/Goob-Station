@@ -15,6 +15,10 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Poison: 4
@@ -36,10 +40,18 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Poison: 4
       - !type:PopupMessage
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-burning-insides" ]
@@ -61,9 +73,17 @@
         showInChat: true
         probability: 0.1
       - !type:MovespeedModifier
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:GenericStatusEffect
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         key: Drowsiness
         component: Drowsiness
         time: 4
@@ -71,6 +91,9 @@
         refresh: false
       - !type:HealthChange
         conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         - !type:ReagentThreshold
           reagent: ChloralHydrate
           min: 20
@@ -90,11 +113,18 @@
     Poison:
       effects:
         - !type:HealthChange
+          conditions:
+          - !type:OrganType # Goobstation - Yowie
+            type: Yowie
+            shouldHave: false
           damage:
             types:
               Poison: 2
         - !type:ChemVomit
           conditions:
+          - !type:OrganType # Goobstation - Yowie
+            type: Yowie
+            shouldHave: false
           - !type:ReagentThreshold
             min: 2
           probability: 0.2
@@ -112,6 +142,10 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Poison: 1
@@ -305,6 +339,10 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Asphyxiation: 5
@@ -367,6 +405,9 @@
       # todo: cough, sneeze
       - !type:HealthChange
         conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         - !type:ReagentThreshold
           min: 45
         damage:
@@ -425,6 +466,10 @@
       metabolismRate: 0.2
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Poison: 3
@@ -441,6 +486,10 @@
     Poison:
       effects:
         - !type:HealthChange
+          conditions:
+          - !type:OrganType # Goobstation - Yowie
+            type: Yowie
+            shouldHave: false
           damage:
             types:
               Poison: 2
@@ -478,6 +527,9 @@
           - !type:OrganType
             type: Animal
             shouldHave: false
+          - !type:OrganType # Goobstation - Yowie
+            type: Yowie
+            shouldHave: false
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
@@ -488,10 +540,16 @@
           - !type:OrganType
             type: Animal
             shouldHave: false
+          - !type:OrganType # Goobstation - Yowie
+            type: Yowie
+            shouldHave: false
       - !type:HealthChange
         conditions:
         - !type:OrganType
           type: Animal
+          shouldHave: false
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
           shouldHave: false
         damage:
           types:
@@ -554,6 +612,11 @@
     Poison:
       metabolismRate: 0.05
       effects:
+      - !type:Polymorph
+        prototype: Bananamen
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
       - !type:Emote
         emote: Honk
         showInChat: true
@@ -582,6 +645,10 @@
       metabolismRate: 0.03 # Effectively once every 30 seconds.
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Poison: 0.6 # Makes it 20 damage per unit.
@@ -598,6 +665,10 @@
       metabolismRate: 0.2
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Poison: 1.8
@@ -621,6 +692,10 @@
         walkSpeedModifier: 0.8
         sprintSpeedModifier: 0.8
       - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           groups:
             Airloss: 2
@@ -652,6 +727,9 @@
       effects:
       - !type:HealthChange
         conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         - !type:Hunger
           max: 50
         damage:
@@ -676,6 +754,9 @@
       effects:
       - !type:HealthChange
         conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         - !type:OrganType
           type: Arachnid
           shouldHave: false
@@ -684,6 +765,9 @@
             Poison: 1.6
       - !type:MovespeedModifier
         conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         - !type:ReagentThreshold
           reagent: Mechanotoxin
           min: 2
@@ -694,6 +778,9 @@
         sprintSpeedModifier: 0.8
       - !type:MovespeedModifier
         conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         - !type:ReagentThreshold
           reagent: Mechanotoxin
           min: 4

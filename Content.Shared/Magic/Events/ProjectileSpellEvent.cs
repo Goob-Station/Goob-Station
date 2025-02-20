@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Magic.Events;
 
-public sealed partial class ProjectileSpellEvent : WorldTargetActionEvent, ISpeakSpell
+public sealed partial class ProjectileSpellEvent : EntityWorldTargetActionEvent, ISpeakSpell // Goob edit
 {
     /// <summary>
     /// What entity should be spawned.

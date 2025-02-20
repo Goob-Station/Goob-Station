@@ -5,6 +5,12 @@
   components:
   - type: EnergySword
   - type: ItemToggle
+    # Goobstation start
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.250
+    # Goobstation end
     soundActivate:
       path: /Audio/Weapons/ebladeon.ogg
     soundDeactivate:
@@ -19,6 +25,17 @@
       malus: 0.6
     - type: Execution
       doAfterDuration: 4.0
+    - type: Scalpel # Shitmed
+      speed: 0.75
+    - type: Cautery # Shitmed: you have to be very, very careful to cauterize with it
+      speed: 0.2
+    - type: SurgeryTool # Shitmed
+      startSound:
+        path: /Audio/Weapons/ebladehum.ogg
+      endSound:
+        path: /Audio/Weapons/eblade1.ogg
+        params:
+          variation: 0.250
   - type: ItemToggleHot
   - type: ItemToggleSize
     activatedSize: Huge
@@ -49,6 +66,7 @@
     damage:
       types:
         Blunt: 4.5
+    clickPartDamageMultiplier: 4 #goob content
   - type: Item
     size: Small
   - type: UseDelay
@@ -69,20 +87,13 @@
       right:
       - state: inhand-right-blade
         shader: unshaded
-  - type: Reflect
+  - type: Reflect # Goob edit
+    reflectProb: .5
+    otherTypeReflectProb: .1
+    reflects:
+      - Energy
   - type: IgnitionSource
     temperature: 700
-  - type: Scalpel # Shitmed
-    speed: 0.75
-  - type: Cautery # Shitmed: you have to be very, very careful to cauterize with it
-    speed: 0.2
-  - type: SurgeryTool # Shitmed
-    startSound:
-      path: /Audio/Weapons/ebladehum.ogg
-    endSound:
-      path: /Audio/Weapons/eblade1.ogg
-      params:
-        variation: 0.250
 
 - type: entity
   name: energy sword
@@ -101,6 +112,19 @@
       map: [ "blade" ]
   - type: Item
     sprite: Objects/Weapons/Melee/e_sword-inhands.rsi
+  - type: Construction # WD EDIT
+    deconstructionTarget: null
+    graph: EnergyDoubleSwordGraph
+    node: esword
+  - type: Tag # WD EDIT
+    tags:
+    - EnergySword
+  - type: ThrowableBlocker # Goobstation
+    blockSound:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -2
 
 - type: entity
   name: energy dagger
@@ -157,6 +181,7 @@
     damage:
       types:
         Blunt: 1
+    clickPartDamageMultiplier: 1 #goob content
   - type: Item
     size: Tiny
     sprite: Objects/Weapons/Melee/e_dagger_loud.rsi
@@ -166,6 +191,9 @@
     energy: 1.5
     color: white
     netsync: false
+  - type: Reflect # Goob edit
+    reflectProb: .25
+    otherTypeReflectProb: 0
 
 - type: entity
   name: pen
@@ -178,21 +206,21 @@
     soundActivate:
       path: /Audio/Weapons/ebladeon.ogg
       params:
-        volume: -6
+        volume: -12
     soundDeactivate:
       path: /Audio/Weapons/ebladeoff.ogg
       params:
-        volume: -6
+        volume: -12
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg
       params:
-        volume: -6
+        volume: -12
   - type: ItemToggleMeleeWeapon
     activatedSoundOnSwing:
       path: /Audio/Weapons/eblademiss.ogg
       params:
-        volume: -3
+        volume: -12
         variation: 0.250
     activatedDamage:
       types:
@@ -234,9 +262,16 @@
     damage:
       types:
         Blunt: 1
+    clickPartDamageMultiplier: 1 #goob content
   - type: Tag
     tags:
     - Write
+  - type: Reflect
+    reflectProb: 0.25 #Goob rebalace
+    reflects: #Goob rebalance
+      - Energy
+    otherTypeReflectProb: 0
+    spread: 30
 
 - type: entity
   parent: [BaseItem, BaseSyndicateContraband]
@@ -279,15 +314,24 @@
         map: [ "blade" ]
   - type: Item
     sprite: Objects/Weapons/Melee/e_cutlass.rsi
+  - type: ThrowableBlocker # Goobstation
+    blockSound:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -2
 
 - type: entity
   name: double-bladed energy sword
   parent: [BaseMeleeWeaponEnergy, BaseSyndicateContraband]
-  id: EnergySwordDouble
+  id: EnergySwordDoubleBase # Goob edit
+  abstract: true # Goob edit
   description: Syndicate Command Interns thought that having one blade on the energy sword was not enough. This can be stored in pockets.
   components:
   - type: ItemToggle
+    predictable: false # Goobstation - wielded weapons sound prediction is broken
     onUse: false # wielding events control it instead
+    onActivate: false # prevents the weapon from being able to be turned on when it is on the ground
     soundActivate:
       path: /Audio/Weapons/ebladeon.ogg
       params:
@@ -306,7 +350,7 @@
         types:
             Slash: 17   #Goob Station rebalance, was originally 12
             Heat: 17    #Goob Station rebalance, was originally 12
-            Structural: 15
+            Structural: 40 # Goob edit
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg
@@ -329,6 +373,7 @@
     damage:
       types:
         Blunt: 4.5
+    clickPartDamageMultiplier: 4
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_sword_double.rsi
     layers:
@@ -341,13 +386,30 @@
   - type: Item
     size: Small
     sprite: Objects/Weapons/Melee/e_sword_double-inhands.rsi
-  - type: Reflect
-    reflectProb: .75
+  - type: Reflect # Goob edit
+    reflectProb: 1
+    otherTypeReflectProb: .2
     spread: 75
+  - type: FlipOnHit # WD EDIT
+  - type: ThrowableBlocker # Goobstation
+    blockSound:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -2
+
+- type: entity # Goobstation
+  parent: EnergySwordDoubleBase
+  id: EnergySwordDouble
+  components:
+  - type: Construction # WD EDIT
+    deconstructionTarget: null
+    graph: EnergyDoubleSwordGraph
+    node: desword
 
 - type: entity
   suffix: One-Handed, For Borgs
-  parent: EnergySwordDouble
+  parent: EnergySwordDoubleBase # Goob edit
   id: CyborgEnergySwordDouble # why is this invalid if ID is BorgEnergySwordDouble
   description: Syndicate Command Interns thought that having one blade on the energy sword was not enough. Specially designed for syndicate cyborgs.
   components: # could add energy-draining like the L6C

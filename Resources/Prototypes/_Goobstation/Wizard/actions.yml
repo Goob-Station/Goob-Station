@@ -1,0 +1,964 @@
+- type: entity
+  id: ActionMimeMalaise
+  name: Mime Malaise
+  description: ...
+  components:
+  - type: EntityTargetAction
+    raiseOnUser: true
+    useDelay: 30
+    itemIconStyle: BigAction
+    whitelist:
+      requireAll: true
+      components:
+      - HumanoidAppearance
+      - Inventory
+    canTargetSelf: false
+    interactOnMiss: false
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: mime
+    event: !type:MimeMalaiseEvent
+  - type: Magic
+    requiresClothes: true
+    school: Mime
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionMimeMalaiseII
+      3: ActionMimeMalaiseIII
+      4: ActionMimeMalaiseIV
+      5: ActionMimeMalaiseV
+
+- type: entity
+  id: ActionCluwneCurse
+  name: Curse of the Cluwne
+  description: It's time to start cluwning around.
+  components:
+  - type: EntityTargetAction
+    raiseOnUser: true
+    useDelay: 60
+    itemIconStyle: BigAction
+    whitelist:
+      requireAll: true
+      components:
+      - HumanoidAppearance
+      - Inventory
+    canTargetSelf: false
+    interactOnMiss: false
+    sound: !type:SoundCollectionSpecifier
+      collection: CluwneHorn
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: cluwne
+    event: !type:CluwneCurseEvent
+      speech: action-speech-spell-cluwne
+  - type: Magic
+    requiresClothes: true
+    requiresSpeech: true
+    school: Transmutation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionCluwneCurseII
+      3: ActionCluwneCurseIII
+
+- type: entity
+  id: ActionBananaTouch
+  name: Banana Touch
+  description: It's time to start clowning around.
+  components:
+  - type: EntityTargetAction
+    raiseOnUser: true
+    useDelay: 30
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - HumanoidAppearance
+      - Inventory
+    canTargetSelf: false
+    interactOnMiss: false
+    sound: !type:SoundCollectionSpecifier
+      collection: BikeHorn
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: clown
+    event: !type:BananaTouchEvent
+      speech: action-speech-spell-clown
+  - type: Magic
+    requiresClothes: true
+    requiresSpeech: true
+    school: Transmutation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionBananaTouchII
+      3: ActionBananaTouchIII
+      4: ActionBananaTouchIV
+      5: ActionBananaTouchV
+
+- type: entity
+  id: ActionMagicMissile
+  name: Magic Missile
+  description: Fires several stunning, slow moving, homing magic projectiles at nearby targets.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 20
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/magic_missile.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: missile
+    event: !type:MagicMissileEvent
+      speech: action-speech-spell-magic-missile
+  - type: Magic
+    requiresClothes: true
+    requiresSpeech: true
+    school: Evocation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionMagicMissileII
+      3: ActionMagicMissileIII
+
+- type: entity
+  id: ActionDisableTech
+  name: Disable Technology
+  description: Disables all weapons, cameras and most other technology in range.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 20
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/disable_tech.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: emp
+    event: !type:DisableTechEvent
+      speech: action-speech-spell-emp
+  - type: Magic
+    requiresClothes: true
+    requiresSpeech: true
+    school: Evocation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionDisableTechII
+      3: ActionDisableTechIII
+      4: ActionDisableTechIV
+      5: ActionDisableTechV
+
+- type: entity
+  id: ActionSmoke
+  name: Smoke
+  description: Spawns a cloud of choking smoke at your location.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 12
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/smoke.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: smoke
+    event: !type:SmokeSpellEvent
+  - type: Magic
+    school: Conjuration
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionSmokeII
+      3: ActionSmokeIII
+
+- type: entity
+  id: ActionRepulse
+  name: Repulse
+  description: Throws everything around the user away.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 40
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/repulse.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: repulse
+    event: !type:RepulseEvent
+      speech: action-speech-spell-repulse
+  - type: Magic
+    requiresClothes: true
+    requiresSpeech: true
+    school: Evocation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionRepulseII
+      3: ActionRepulseIII
+      4: ActionRepulseIV
+      5: ActionRepulseV
+
+- type: entity
+  id: ActionStopTime
+  name: Stop Time
+  description: Stops time around you.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 50
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/timeparadox2.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: time
+    event: !type:StopTimeEvent
+      speech: action-speech-spell-stop-time
+  - type: Magic
+    requiresClothes: true
+    requiresSpeech: true
+    school: Forbidden
+  - type: Tag
+    tags:
+      - FrozenIgnoreMindAction
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionStopTimeII
+      3: ActionStopTimeIII
+
+- type: entity
+  id: ActionCorpseExplosion
+  name: Corpse Explosion
+  description: Fills a corpse with energy, causing it to explode violently.
+  components:
+  - type: EntityTargetAction
+    checkCanAccess: false
+    raiseOnUser: true
+    useDelay: 5
+    itemIconStyle: BigAction
+    whitelist:
+      requireAll: true
+      components:
+      - MobState
+      - Body
+    canTargetSelf: false
+    interactOnMiss: false
+    range: 15
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: corpse_explosion
+    event: !type:CorpseExplosionEvent
+      speech: action-speech-spell-corpse-explosion
+      damage:
+        groups:
+          Brute: 100
+  - type: Magic
+    requiresSpeech: true
+    school: Evocation
+
+- type: entity
+  id: ActionBlindSpell
+  name: Blind
+  description: Temporarily blinds a single target.
+  components:
+  - type: EntityTargetAction
+    checkCanAccess: false
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 15
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - StatusEffects
+    canTargetSelf: false
+    interactOnMiss: false
+    range: 15
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/blind.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: blind
+    event: !type:BlindSpellEvent
+      speech: action-speech-spell-blind
+  - type: Magic
+    requiresSpeech: true
+    school: Transmutation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionBlindII
+      3: ActionBlindIII
+      4: ActionBlindIV
+      5: ActionBlindV
+
+- type: entity
+  id: ActionBindSoul
+  name: Bind Soul
+  description: Bind your soul to an item to ressurrect after death. If your soul it already bound to an item and you are dead, attempt resurrecton.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    checkConsciousness: false
+    allowGhostAction: true
+    useDelay: 1
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: skeleton
+    event: !type:BindSoulEvent
+      speech: action-speech-spell-bind-soul
+      sound: !type:SoundPathSpecifier
+        path: /Audio/_Goobstation/Wizard/pope_entry.ogg
+      blacklist:
+        components:
+        - MobState
+        - NukeDisk
+        - VirtualItem
+        - Body
+        - BodyPart
+        - Organ
+        - TimedDespawn
+        - FadingTimedDespawn
+        - Godmode
+        - DeleteOnDropAttempt
+        - EnchantedBoltActionRifle
+        - Phylactery
+  - type: Magic
+    requiresSpeech: true
+    school: Necromancy
+  - type: Tag
+    tags:
+      - BindSoulAction
+
+- type: entity
+  id: ActionMutateSpell
+  name: Mutate
+  description: Causes you to turn into a hulk and gain laser vision for a short while.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 40
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/mutate.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: mutate
+    event: !type:MutateSpellEvent
+      speech: action-speech-spell-mutate
+  - type: Magic
+    requiresClothes: true
+    requiresSpeech: true
+    school: Transmutation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionMutateII
+
+- type: entity
+  id: ActionTeslaBlast
+  name: Tesla Blast
+  description: Charge up a tesla arc and release it at random nearby targets.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 30
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: tesla
+    event: !type:TeslaBlastEvent
+      speech: action-speech-spell-tesla-blast
+      sound: !type:SoundPathSpecifier
+        path: /Audio/_Goobstation/Wizard/lightning_chargeup.ogg
+  - type: Magic
+    requiresClothes: true
+    requiresSpeech: true
+    school: Evocation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionTeslaBlastII
+      3: ActionTeslaBlastIII
+      4: ActionTeslaBlastIV
+      5: ActionTeslaBlastV
+
+- type: entity
+  id: ActionLightningBolt
+  name: Lightning Bolt
+  description: Fire a lightning bolt at your foes.
+  components:
+  - type: EntityTargetAction
+    checkCanAccess: false
+    raiseOnUser: true
+    useDelay: 10
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - MobState
+    canTargetSelf: false
+    interactOnMiss: false
+    range: 15
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: lightning
+    event: !type:LightningBoltEvent
+      speech: action-speech-spell-lightning-bolt
+  - type: Magic
+    requiresSpeech: true
+    school: Evocation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionLightningBoltII
+      3: ActionLightningBoltIII
+      4: ActionLightningBoltIV
+      5: ActionLightningBoltV
+
+- type: entity
+  id: ActionHomingToolbox
+  name: Homing Toolbox
+  description: Fires a magical homing toolbox at your opponent.
+  components:
+  - type: EntityWorldTargetAction
+    checkCanAccess: false
+    raiseOnUser: true
+    useDelay: 6
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - MobState
+    canTargetSelf: false
+    interactOnMiss: false
+    range: 15
+    sound:
+      path: /Audio/Weapons/smash.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: toolbox
+    event: !type:HomingToolboxEvent
+      speech: action-speech-spell-homing-toolbox
+  - type: Magic
+    requiresSpeech: true
+    school: Evocation
+  - type: LockOnMarkAction
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionHomingToolboxII
+      3: ActionHomingToolboxIII
+      4: ActionHomingToolboxIV
+      5: ActionHomingToolboxV
+
+- type: entity
+  id: ActionSpellCards
+  name: Spell Cards
+  description: Fire up to five bursts of homing spell cards.
+  components:
+  - type: EntityWorldTargetAction
+    checkCanAccess: false
+    raiseOnUser: true
+    repeat: true
+    useDelay: 0.5 # SpellCardsEvent handles use delay
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - MobState
+    canTargetSelf: false
+    interactOnMiss: false
+    range: 15
+    sound:
+      path: /Audio/Magic/staff_healing.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: spellcard
+    event: !type:SpellCardsEvent
+      speech: action-speech-spell-spell-cards
+  - type: Magic
+    requiresSpeech: true
+    school: Evocation
+  - type: SpellCardsAction
+  - type: LockOnMarkAction
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionSpellCardsII
+      3: ActionSpellCardsIII
+
+- type: entity
+  id: ActionArcaneBarrage
+  name: Arcane Barrage
+  description: Fire a torrent of arcane energy at your foes.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    useDelay: 60
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: arcane_barrage
+    event: !type:ArcaneBarrageEvent
+  - type: Magic
+    requiresClothes: true
+    school: Conjuration
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionArcaneBarrageII
+      3: ActionArcaneBarrageIII
+
+- type: entity
+  id: ActionLesserSummonGuns
+  name: Lesser Summon Guns
+  description: Summon an unending stream of bolt action rifles.
+  components:
+  - type: Sprite # For apprentices
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: bolt_action
+  - type: InstantAction
+    raiseOnUser: true
+    useDelay: 60
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: bolt_action
+    event: !type:LesserSummonGunsEvent
+  - type: Magic
+    requiresClothes: true
+    school: Conjuration
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionLesserSummonGunsII
+      3: ActionLesserSummonGunsIII
+
+- type: entity
+  id: ActionBarnyardCurse
+  name: Curse of the Barnyard
+  description: Dooms an unlucky soul to possess the speech and facial attributes of a barnyard animal.
+  components:
+  - type: EntityTargetAction
+    checkCanAccess: false
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 15
+    itemIconStyle: BigAction
+    whitelist:
+      requireAll: true
+      components:
+      - Inventory
+      - HumanoidAppearance
+    canTargetSelf: false
+    interactOnMiss: false
+    range: 15
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: barn
+    event: !type:BarnyardCurseEvent
+      speech: action-speech-spell-barnyard
+      masks:
+        ClothingMaskPig:
+          path: /Audio/_Goobstation/Wizard/PigCurse.ogg
+        ClothingMaskFrog:
+          path: /Audio/_Goobstation/Wizard/FrogCurse.ogg
+        ClothingMaskCow:
+          path: /Audio/_Goobstation/Wizard/CowCurse.ogg
+        ClothingMaskHorse:
+          path: /Audio/_Goobstation/Wizard/HorseCurse.ogg
+        ClothingMaskRat:
+          path: /Audio/_Goobstation/Wizard/RatCurse.ogg
+        ClothingMaskFox:
+          path: /Audio/_Goobstation/Wizard/FoxCurse.ogg
+        ClothingMaskBee:
+          path: /Audio/_Goobstation/Wizard/BeeCurse.ogg
+        ClothingMaskBear:
+          path: /Audio/_Goobstation/Wizard/BearCurse.ogg
+        ClothingMaskRaven:
+          path: /Audio/_Goobstation/Wizard/RavenCurse.ogg
+        ClothingMaskJackal:
+          path: /Audio/_Goobstation/Wizard/JackalCurse.ogg
+        ClothingMaskBat:
+          path: /Audio/_Goobstation/Wizard/BatCurse.ogg
+  - type: Magic
+    requiresSpeech: true
+    school: Transmutation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionBarnyardCurseII
+      3: ActionBarnyardCurseIII
+
+- type: entity
+  id: ActionScreamForMe
+  name: Scream For Me
+  description: This wicked spell inflicts many severe wounds on your target, causing them to likely bleed to death unless they receive immediate medical attention.
+  components:
+  - type: Sprite # For apprentices
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: scream_for_me
+  - type: EntityTargetAction
+    raiseOnUser: true
+    useDelay: 60
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - MobState
+    canTargetSelf: false
+    interactOnMiss: false
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/exit_blood.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: scream_for_me
+    event: !type:ScreamForMeEvent
+      speech: action-speech-spell-scream-for-me
+  - type: Magic
+    requiresSpeech: true
+    requiresClothes: true
+    school: Sanguine
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionScreamForMeII
+      3: ActionScreamForMeIII
+      4: ActionScreamForMeIV
+      5: ActionScreamForMeV
+
+- type: entity
+  id: ActionInstantSummons
+  name: Instant Summons
+  description: Recalls a previously marked item to your hand from anywhere in the universe.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    useDelay: 10
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: summons
+    event: !type:InstantSummonsEvent
+      speech: action-speech-spell-instant-summons
+      summonSound:
+        path: /Audio/_Goobstation/Wizard/summonitems_generic.ogg
+  - type: Magic
+    requiresSpeech: true
+    school: Transmutation
+  - type: InstantSummonsAction
+  - type: ConfirmableAction
+    popup: instant-summons-confirm-popup
+    shouldCancel: false
+
+- type: entity
+  id: ActionTeleportWizard
+  name: Teleport
+  description: This spell teleports you to an area of your selection.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 60
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: teleport
+    event: !type:WizardTeleportEvent
+  - type: Magic
+    requiresSpeech: true
+    school: Translocation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionTeleportII
+      3: ActionTeleportIII
+
+- type: entity
+  id: ActionTrapsSpell
+  name: The Traps!
+  description: Summon a number of traps around you.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 25
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Items/welder.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: the_traps
+    event: !type:TrapsSpellEvent
+      speech: action-speech-spell-the-traps
+  - type: Magic
+    requiresSpeech: true
+    requiresClothes: true
+    school: Conjuration
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionTrapsII
+      3: ActionTrapsIII
+      4: ActionTrapsIV
+      5: ActionTrapsV
+
+- type: entity
+  id: ActionLesserSummonBees
+  name: Lesser Summon Bees
+  description: This spell magically kicks a transdimensional beehive, instantly summoning a swarm of bees to your location.
+  components:
+  - type: Sprite # For apprentices
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: bee
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 60
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/bee.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: bee
+    event: !type:SummonMobsEvent
+      speech: action-speech-spell-bees
+      collisionMask:
+      - FlyingMobMask
+      mobs:
+      - BeeLicoxide
+      - BeeAmatoxin
+      - BeeLexorin
+      - BeeChloralHydrate
+      - BeeUnstableMutagen
+      - BeeMindbreakerToxin
+      - BeePax
+      - BeeLead
+      - BeeLipolicide
+      - BeeImpedrezene
+      - BeeRazorium
+      - BeeMuteToxin
+      - BeeBuzzochloricBees
+      - BeeLaughter
+      - BeeToxin
+  - type: Magic
+    requiresSpeech: true
+    requiresClothes: true
+    school: Conjuration
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionLesserSummonBeesII
+      3: ActionLesserSummonBeesIII
+
+- type: entity
+  id: ActionSummonSimians
+  name: Summon Simians
+  description: This spell reaches deep into the elemental plane of bananas (the monkey one, not the clown one), and summons lesser monkeys and gorillas in front of you that will promptly flip out and attack everything in sight. Fun!
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 90
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/monkey.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: monkey
+    event: !type:SummonSimiansEvent
+      speech: action-speech-spell-simians
+      mobs: SummonSimiansMobTable
+      weapons: SummonSimiansWeaponTable
+  - type: Magic
+    requiresSpeech: true
+    requiresClothes: true
+    school: Conjuration
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionSummonSimiansII
+      3: ActionSummonSimiansIII
+      4: ActionSummonSimiansIV
+      5: ActionSummonSimiansV
+
+- type: entity
+  id: ActionGorillaForm
+  name: Gorilla Form
+  description: Take on the shape of a powerful gorilla.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 1
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: return_to_monkey
+    event: !type:PolymorphSpellEvent
+      speech: action-speech-spell-gorilla-form
+      protoId: WizardGorilla
+      loadActions: true
+      sound: !type:SoundPathSpecifier
+        path: /Audio/_Goobstation/Wizard/gorilla.ogg
+  - type: Magic
+    requiresSpeech: true
+    school: Transmutation
+  - type: Tag
+    tags:
+      - GorillaFormAction
+
+- type: entity
+  id: ActionSanguineStrike
+  name: Sanguine Strike
+  description: Enchants your next weapon strike to deal more damage, heal you for damage dealt, and refill blood.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    useDelay: 15
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: exsanguinating_strike
+    event: !type:ExsanguinatingStrikeEvent
+      speech: action-speech-spell-sanguine-strike
+  - type: Magic
+    requiresSpeech: true
+    school: Sanguine
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionSanguineStrikeII
+      3: ActionSanguineStrikeIII
+
+- type: entity
+  id: ActionChuuniInvocations
+  name: Chuuni Invocations
+  description: Makes all your spells shout invocations, and the invocations become... stupid. You heal slightly after casting a spell.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 1
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/bamf.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: chuuni
+    event: !type:ChuuniInvocationsEvent
+      speech: chuuni-invocation-chuuni
+  - type: Magic
+    requiresSpeech: true
+    school: Chuuni
+  - type: ConfirmableAction
+    popup: chuuni-invocation-confirm-popup
+
+- type: entity
+  id: ActionSwapSpell
+  name: Swap
+  description: Allows you to swap locations with any living being.
+  components:
+  - type: EntityTargetAction
+    checkCanAccess: false
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 25
+    itemIconStyle: BigAction
+    whitelist:
+      requireAll: true
+      components:
+      - Transform
+      - MobState
+    canTargetSelf: true # Required for secondary target deselecting
+    interactOnMiss: false
+    range: 15
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: swap
+    event: !type:SwapSpellEvent
+      sound:
+        path: /Audio/_Goobstation/Wizard/swap.ogg
+  - type: Magic
+    school: Translocation
+  - type: SwapSpell
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionSwapII
+      3: ActionSwapIII
+
+- type: entity
+  id: ActionSoulTap
+  name: Soul Tap
+  description: Fuel your spells using your own soul!
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 1
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: soultap
+    event: !type:SoulTapEvent
+      speech: action-speech-spell-soul-tap
+  - type: Magic
+    requiresSpeech: true
+    requiresClothes: true
+    school: Necromancy
+
+- type: entity
+  id: ActionThrownLightning
+  name: Thrown Lightning
+  description: Forged from eldritch energies, a packet of pure power, known as a spell packet will appear in your hand, that when thrown will deal a lot of stamina damage to your target.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    useDelay: 1
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: thrown_lightning
+    event: !type:ThrownLightningEvent
+      sound:
+        path: /Audio/_Goobstation/Wizard/phasein.ogg
+  - type: Magic
+    school: Conjuration
+
+- type: entity
+  id: ActionBlinkSpell
+  name: Blink
+  description: Randomly teleport a short distance.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 3
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/blink.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: blink
+    event: !type:BlinkSpellEvent
+  - type: Magic
+    requiresClothes: true
+    school: Translocation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionBlinkII
+      3: ActionBlinkIII
+      4: ActionBlinkIV
+      5: ActionBlinkV
+
+- type: entity
+  id: ActionSummonStickmen
+  name: Summon Stick Minions
+  description: Allows you to summon faithful stickmen allies to aide you in battle.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 3
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/summon_magic.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: art_summon
+    event: !type:SummonMobsEvent
+      speech: action-speech-spell-summon-stick-minions
+      factionIgnoreSummoner: true
+      amount: 3
+      spawnAngle: 40
+      mobs:
+      - MobStickmanTemp
+  - type: Magic
+    requiresSpeech: true
+    school: Conjuration

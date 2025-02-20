@@ -1,5 +1,7 @@
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Utility;
 
 namespace Content.Shared._Goobstation.Weapons.AmmoSelector;
@@ -23,6 +25,18 @@ public sealed partial class SelectableAmmoPrototype : IPrototype, ICloneable
     [DataField]
     public Color? Color;
 
+    [DataField]
+    public float FireCost = 100f;
+
+    [DataField]
+    public SoundSpecifier? SoundGunshot;
+
+    [DataField]
+    public float FireRate = 8f;
+
+    [DataField(customTypeSerializer: typeof(FlagSerializer<SelectableAmmoWeaponFlags>))]
+    public int Flags = (int) SelectableAmmoFlags.ChangeWeaponFireCost;
+
     public object Clone()
     {
         return new SelectableAmmoPrototype
@@ -32,6 +46,23 @@ public sealed partial class SelectableAmmoPrototype : IPrototype, ICloneable
             Desc = Desc,
             ProtoId = ProtoId,
             Color = Color,
+            FireCost = FireCost,
+            Flags = Flags,
+            FireRate = FireRate,
+            SoundGunshot = SoundGunshot,
         };
     }
+}
+
+public sealed class SelectableAmmoWeaponFlags;
+
+[Serializable, NetSerializable]
+[Flags, FlagsFor(typeof(SelectableAmmoWeaponFlags))]
+public enum SelectableAmmoFlags
+{
+    None = 0,
+    ChangeWeaponFireCost = 1 << 0,
+    ChangeWeaponFireSound = 1 << 1,
+    ChangeWeaponFireRate = 1 << 2,
+    All = ~None,
 }

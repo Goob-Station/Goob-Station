@@ -5,6 +5,8 @@ namespace Content.Server.Discord;
 // https://discord.com/developers/docs/resources/channel#message-object-message-structure
 public struct WebhookPayload
 {
+    // Why is this here?
+    // Why not make WebhookPayloadExtensions like a proper human being instead of shitting up what's not yours
     [JsonPropertyName("UserID")] // Frontier, this is used to identify the players in the webhook
     public Guid? UserID { get; set; }
     /// <summary>

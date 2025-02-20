@@ -6,6 +6,8 @@ using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Hands.Controls;
 using Content.Client.Verbs.UI;
+using Content.Shared._EstacaoPirata.Cards.Card;
+using Content.Shared._EstacaoPirata.Cards.Hand;
 using Content.Shared.Cuffs;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Ensnaring.Components;
@@ -17,6 +19,7 @@ using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Strip.Components;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
+using Robust.Client.Player;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Input;
@@ -29,10 +32,13 @@ namespace Content.Client.Inventory
     [UsedImplicitly]
     public sealed class StrippableBoundUserInterface : BoundUserInterface
     {
+        [Dependency] private readonly IPlayerManager _player = default!;
         [Dependency] private readonly IUserInterfaceManager _ui = default!;
+
         private readonly ExamineSystem _examine;
         private readonly InventorySystem _inv;
         private readonly SharedCuffableSystem _cuffable;
+        private readonly StrippableSystem _strippable;
 
         [ViewVariables]
         private const int ButtonSeparation = 4;
@@ -51,6 +57,8 @@ namespace Content.Client.Inventory
             _examine = EntMan.System<ExamineSystem>();
             _inv = EntMan.System<InventorySystem>();
             _cuffable = EntMan.System<SharedCuffableSystem>();
+            _strippable = EntMan.System<StrippableSystem>();
+
             _virtualHiddenEntity = EntMan.SpawnEntity(HiddenPocketEntityId, MapCoordinates.Nullspace);
         }
 
@@ -165,8 +173,10 @@ namespace Content.Client.Inventory
                 if (EntMan.TryGetComponent<CuffableComponent>(Owner, out var cuff) && _cuffable.GetAllCuffs(cuff).Contains(virt.BlockingEntity))
                     button.BlockedRect.MouseFilter = MouseFilterMode.Ignore;
             }
-
-            UpdateEntityIcon(button, hand.HeldEntity);
+            //Goobstation: Cards are always hidden. NO CHEATING FOR U.
+            var isCard = EntMan.HasComponent<CardComponent>(hand.HeldEntity) ||
+                         EntMan.HasComponent<CardHandComponent>(hand.HeldEntity);
+            UpdateEntityIcon(button, isCard ? _virtualHiddenEntity : hand.HeldEntity);
             _strippingMenu!.HandsContainer.AddChild(button);
         }
 
@@ -185,9 +195,15 @@ namespace Content.Client.Inventory
                 return;
 
             if (ev.Function == ContentKeyFunctions.ExamineEntity)
+            {
                 _examine.DoExamine(slot.Entity.Value);
+                ev.Handle();
+            }
             else if (ev.Function == EngineKeyFunctions.UseSecondary)
+            {
                 _ui.GetUIController<VerbMenuUIController>().OpenVerbMenu(slot.Entity.Value);
+                ev.Handle();
+            }
         }
 
         private void AddInventoryButton(EntityUid invUid, string slotId, InventoryComponent inv)
@@ -198,8 +214,18 @@ namespace Content.Client.Inventory
             var entity = container.ContainedEntity;
 
             // If this is a full pocket, obscure the real entity
-            if (entity != null && slotDef.StripHidden)
+            // this does not work for modified clients because they are still sent the real entity
+            if (entity != null && _strippable.IsStripHidden(slotDef, _player.LocalEntity))
                 entity = _virtualHiddenEntity;
+
+            // Goobstation: Playing Cards are always obscured in strip menu.
+            // I wanted to make the cards themselves appear hidden but this is simpler
+            var isCard = EntMan.HasComponent<CardComponent>(entity) ||
+                         EntMan.HasComponent<CardHandComponent>(entity);
+            if (entity != null && isCard)
+            {
+                entity = _virtualHiddenEntity;
+            }
 
             var button = new SlotButton(new SlotData(slotDef, container));
             button.Pressed += SlotPressed;

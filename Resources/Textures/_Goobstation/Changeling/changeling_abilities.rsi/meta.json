@@ -1,12 +1,15 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken and edited from Paradise Station wiki https://paradisestation.org/wiki/index.php/Changeling , sting_transform and sting_armblade retextures made by whateverusername0",
+    "copyright": "Taken and edited from Paradise Station wiki https://paradisestation.org/wiki/index.php/Changeling , sting_transform and sting_armblade retextures made by whateverusername0, absorb_biomatter made by Ilya246 using elements from absorb_dna and chitinous_armor. dartgun, claw and hammer taken from baystation12 at https://github.com/Baystation12/Baystation12 at commit 869b8c5383f45d3ca64ccc17a80609f794bc64db and resprited by Aviu.",
     "size": {
         "x": 32,
         "y": 32
     },
     "states": [
+        {
+            "name": "absorb_biomatter"
+        },
         {
             "name": "absorb_dna"
         },
@@ -26,8 +29,7 @@
             "name": "bone_shard"
         },
         {
-            "name": "chameleon_skin",
-            "delays": [ [ 0.1, 0.1, 0.1, 0.1 ] ]
+            "name": "chameleon_skin"
         },
         {
             "name": "chitinous_armor"
@@ -69,8 +71,7 @@
             "name": "stasis_enter"
         },
         {
-            "name": "stasis_exit",
-            "delays": [ [ 0.5, 0.5 ] ]
+            "name": "stasis_exit"
         },
         {
             "name": "sting_armblade"
@@ -97,13 +98,22 @@
             "name": "strained_muscles"
         },
         {
-            "name": "tentacle"
+            "name": "regrow"
         },
         {
             "name": "transform"
         },
         {
             "name": "transform_cycle"
+        },
+        {
+            "name": "dartgun"
+        },
+        {
+            "name": "claw"
+        },
+        {
+            "name": "hammer"
         }
     ]
 }

@@ -20,15 +20,17 @@
       shader: unshaded
   - type: Explosive
     explosionType: Default
-    maxIntensity: 40
-    intensitySlope: 6
-    totalIntensity: 200
+    maxIntensity: 6 # Goob edit
+    intensitySlope: 5 # Goob edit
+    totalIntensity: 50 # Gobo edit
     maxTileBreak: 0
   - type: IgnitionSource
     temperature: 400
     ignited: true
   - type: IgniteOnCollide
     fireStacks: 0.35
+  - type: Ammo # Goobstation
+    muzzleFlash: null
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -80,6 +82,92 @@
     maxTileBreak: 0
 
 - type: entity
+  id: ProjectileLocker
+  name: cursed locker
+  description: A cursed magical locker! Can you resist?
+  parent: ClosetSteelBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ResistLocker
+    resistTime: 60 # Goob edit
+  - type: Ammo # Goobstation
+    muzzleFlash: null
+  - type: FadingTimedDespawn # Goobstation
+    lifetime: 120
+    fadeOutTime: 5
+  - type: StoreOnCollide
+    lockOnCollide: true
+    disableWhenFirstOpened: true
+    disableOnSleep: true # Goobstation
+    whitelist:
+      components:
+        - Body
+  - type: LockVisuals
+    stateLocked: cursed_door
+    stateUnlocked: decursed_door
+  - type: Lock
+    breakOnEmag: false
+  - type: AccessReader
+    access: [["Wizard"]]
+    breakOnEmag: false
+  - type: Projectile
+    deleteOnCollide: false
+    onlyCollideWhenShot: true
+    damage:
+      types:
+        Brute: 0
+  - type: Sprite
+    noRot: true
+    sprite: Structures/Storage/closet.rsi
+    layers:
+    - state: cursed
+      map: [ "enum.StorageVisualLayers.Base" ]
+    - state: decursed_door
+      map: [ "enum.StorageVisualLayers.Door" ]
+    - state: paper
+      visible: false
+      sprite: Structures/Storage/closet_labels.rsi
+      map: [ "enum.PaperLabelVisuals.Layer" ]
+    - state: cursed_door
+      map: [ "enum.LockVisualLayers.Lock" ]
+    - state: welded
+      visible: false
+      map: [ "enum.WeldableLayers.BaseWelded" ]
+  #TODO: Will have to eventually make a custom visualizer for cursed lockers
+  - type: EntityStorageVisuals
+    stateBaseClosed: decursed
+    stateDoorOpen: decursed_open
+    stateDoorClosed: decursed_door
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        density: 75
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.45,0.15,0.15"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+      fly-by: &flybyfixture
+        shape: !type:PhysShapeCircle
+          radius: 0.6
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: false
+
+- type: entity
   id: ProjectilePolyboltBase
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -87,12 +175,25 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
-    - state: spell
-      color: '#00FF00'
+    - state: magicm_green # Goob edit
+      shader: unshaded
   - type: Projectile
     damage:
       types:
-        Poison: 5
+        Poison: 0 # Goob edit
+  - type: Reflective # Goobstation
+    reflective: None
+  - type: Ammo # Goobstation
+    muzzleFlash: null
+  - type: Trail # Goobstation
+    lerpTime: 0.05
+    frequency: 0.02
+    lifetime: 1
+    alphaLerpAmount: 0.4
+    shader: unshaded
+    sprite:
+      sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
+      state: magicm_green
 
 - type: entity
   id: ProjectilePolyboltCarp
@@ -151,16 +252,34 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
-    - state: spell
-      color: white
+    - state: magicm_yellow # Goob edit
+      shader: unshaded
   - type: Projectile
     damage:
-      groups: # good enough. Maybe make it call the rejuvenate command later.
-        Brute: -900
-        Burn: -900
-        Airloss: -600
-        Toxin: -600
-    ignoreResistances: true
+      types:
+        Heat: 0 # Goob edit
+  - type: RejuvenateOnProjectileHit # Goobstation
+    undeadList:
+      components:
+      - Zombie
+      tags:
+      - Undead
+    damage:
+      types:
+        Heat: 600
+  - type: Reflective # Goobstation
+    reflective: None
+  - type: Ammo # Goobstation
+    muzzleFlash: null
+  - type: Trail # Goobstation
+    lerpTime: 0.05
+    frequency: 0.02
+    lifetime: 1
+    alphaLerpAmount: 0.4
+    shader: unshaded
+    sprite:
+      sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
+      state: magicm_yellow
 
 - type: entity
   id: BulletInstakillMagic

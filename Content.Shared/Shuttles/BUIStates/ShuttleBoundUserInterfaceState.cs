@@ -1,4 +1,3 @@
-using Content.Shared.Shuttles.UI.MapObjects;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Shuttles.BUIStates;

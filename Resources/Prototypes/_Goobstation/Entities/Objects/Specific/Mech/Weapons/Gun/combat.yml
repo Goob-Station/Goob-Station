@@ -32,7 +32,7 @@
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_laser
   - type: Gun
-    fireRate: 0.6
+    fireRate: 1.5
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
@@ -40,14 +40,14 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanBatteryAmmoProvider
     proto: RedHeavyLaser
-    fireCost: 99
+    fireCost: 30
   - type: Appearance
   - type: AmmoCounter
 
 - type: entity
   id: WeaponMechCombatSolarisLaser
   name: CH-LC "Solaris" laser cannon
-  description: An experimental combat mounted laser cannon that causes more damage, but also has a greater cooldown than a "Firedart".
+  description: An experimental combat mounted laser beam that fires far faster than the "Firedart" but at a much higer cost.
   suffix: Mech Weapon, Gun, Combat, Laser
   parent: [ BaseMechWeaponRange, CombatMechEquipment ]
   components:
@@ -55,15 +55,15 @@
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_laser
   - type: Gun
-    fireRate: 1
-    selectedMode: SemiAuto
+    fireRate: 3
+    selectedMode: FullAuto
     availableModes:
-      - SemiAuto
+      - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
-    fireCost: 59
+    fireCost: 30
   - type: Appearance
   - type: AmmoCounter
 
@@ -78,7 +78,7 @@
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_laser
   - type: Gun
-    fireRate: 0.8
+    fireRate: 1
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
@@ -86,7 +86,7 @@
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
   - type: HitscanBatteryAmmoProvider
     proto: RedLaser
-    fireCost: 39
+    fireCost: 10
   - type: Appearance
   - type: AmmoCounter
 
@@ -101,7 +101,7 @@
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_wholegen
   - type: Gun
-    projectileSpeed: 3
+    projectileSpeed: 6
     fireRate: 0.4
     selectedMode: SemiAuto
     availableModes:
@@ -127,15 +127,15 @@
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_disabler
   - type: Gun
-    fireRate: 1
-    selectedMode: SemiAuto
+    fireRate: 5
+    selectedMode: FullAuto
     availableModes:
-      - SemiAuto
+      - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 29
+    fireCost: 10
   - type: Appearance
   - type: AmmoCounter
 
@@ -173,15 +173,15 @@
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_scatter
   - type: Gun
-    fireRate: 0.5
-    selectedMode: SemiAuto
+    fireRate: 1.5
+    selectedMode: FullAuto
     availableModes:
-      - SemiAuto
+      - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: ShellShotgun
-    fireCost: 99
+    fireCost: 30
   - type: Appearance
   - type: AmmoCounter
 
@@ -197,14 +197,14 @@
     state: mecha_carbine
   - type: Gun
     fireRate: 1.2
-    selectedMode: SemiAuto
+    selectedMode: FullAuto
     availableModes:
-      - SemiAuto
+      - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: ShellShotgunIncendiary
-    fireCost: 99
+    fireCost: 40
   - type: Appearance
   - type: AmmoCounter
 
@@ -219,7 +219,7 @@
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_uac2
   - type: Gun
-    fireRate: 3
+    fireRate: 6
     selectedMode: FullAuto
     availableModes:
       - FullAuto
@@ -227,7 +227,7 @@
       path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: CartridgeLightRifle
-    fireCost: 15
+    fireCost: 5
   - type: Appearance
   - type: AmmoCounter
 
@@ -265,7 +265,7 @@
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_missilerack_six
   - type: Gun
-    fireRate: 1
+    fireRate: 0.5
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
@@ -273,7 +273,10 @@
       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: GrenadeBlast
-    fireCost: 100
+    fireCost: 300
+  - type: Battery
+    maxCharge: 300 # Battery is charged by mech
+    startingCharge: 300
   - type: Appearance
   - type: AmmoCounter
 

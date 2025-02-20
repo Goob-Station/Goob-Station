@@ -97,6 +97,8 @@
   - type: ClothingGrantComponent
     component:
     - type: Stealth
+      enabledOnDeath: false
+      enabledOnCrit: false
   - type: FlashImmunity
   - type: FlashSoundSuppression
 
