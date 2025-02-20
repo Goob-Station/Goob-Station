@@ -33,12 +33,12 @@
 - type: entity
   parent: BaseItem
   id: HandRenamer
-  name: blood red hand laberer
-  description: A fancy looking blood red hand laberer, capable of renaming things at will.
+  name: blood red hand labeler
+  description: A fancy looking blood red hand labeler, capable of renaming things at will.
   components:
   - type: Sprite
     sprite: Objects/Tools/hand_renamer.rsi
-    state: hand_labeler
+    state: hand_renamer
   - type: Item
     sprite: Objects/Tools/hand_renamer.rsi
     storedRotation: -90
@@ -49,7 +49,7 @@
     inHandsOnly: true
   - type: UserInterface
     interfaces:
-      enum.HandLabelerUiKey.Key:
+      enum.HandRenamerUiKey.Key:
         type: HandRenamerBoundUserInterface
   - type: HandRenamer
     whitelist:

@@ -300,6 +300,8 @@ uplink-disposable-turret-desc = Looks and functions like a normal electrical too
 uplink-cluster-banana-peel-name = Cluster Banana
 uplink-cluster-banana-peel-desc = Splits into 6 explosive banana peels after being thrown, the peels detonate automatically after 20 seconds if nobody slips on them.
 
+uplink-hand-renamer-name = Hand Renamer
+uplink-hand-renamer-desc = A small and stylish hand renamer, capable of renaming items at will.
 uplink-cane-blade-name = Cane Blade
 uplink-cane-blade-desc = A cane that has a hidden, strange blade that can be unsheathed. Stolen from a curator's personal museum. Lights people on fire via an ancient enchantment.
 # Armor

@@ -1966,3 +1966,18 @@
   - !type:BuyerDepartmentCondition
     whitelist:
     - Medical
+
+- type: listing
+  id: UplinkHandRenamer
+  name: uplink-hand-renamer-name
+  description: uplink-hand-renamer-desc
+  icon: { sprite:  Objects/Tools/hand_renamer.rsi/hand_renamer.png }
+  productEntity: HandRenamer
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Librarian
