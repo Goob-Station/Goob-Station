@@ -22,6 +22,9 @@
   - type: InteractionOutline
   - type: Physics
   - type: MultiHandedItem
+  - type: Tag #goob content
+    tags:
+    - FoodSequenceBlacklist
   - type: Fixtures
     fixtures:
       fix1:

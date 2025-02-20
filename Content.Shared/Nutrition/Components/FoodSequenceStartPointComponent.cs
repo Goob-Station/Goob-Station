@@ -1,6 +1,8 @@
 using System.Numerics;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
+
 
 namespace Content.Shared.Nutrition.Components;
 
@@ -21,6 +23,12 @@ public sealed partial class FoodSequenceStartPointComponent : Component
     /// </summary>
     [DataField]
     public bool AcceptAll = false; // Goobstation - anythingburgers
+
+    /// <summary>
+    /// Food blacklist
+    /// </summary>
+    [DataField]
+    public EntityWhitelist BlacklistedFood = new(); // Goobstation - anythingburgers
 
     /// <summary>
     /// The maximum number of layers of food that can be placed on this item.

@@ -30,6 +30,10 @@
     delay: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  - type: Tag #goobcontent
+    tags:
+      - WhitelistChameleon
+      - FoodSequenceBlacklist
 
 - type: entity
   parent: ClothingBackpack

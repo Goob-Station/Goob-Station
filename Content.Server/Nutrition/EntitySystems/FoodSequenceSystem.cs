@@ -11,6 +11,7 @@ using Content.Shared.Tag;
 using Robust.Shared.Random;
 using Content.Shared.Item; // Goobstation - anythingburgers
 using Content.Shared.Chemistry.Components.SolutionManager; // Goobstation - anythingburgers
+using Content.Shared.Whitelist; //Goobstaion -anythingburgers
 using Content.Server.Singularity.Components; // Goobstation - anythingburgers
 
 namespace Content.Server.Nutrition.EntitySystems;
@@ -25,6 +26,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedItemSystem _item = default!; // Goobstation - anythingburgers
     [Dependency] private readonly SharedTransformSystem _transform = default!; // Goobstation - anythingburgers
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!; // Goobstation - anythingburgers
 
     public override void Initialize()
     {
@@ -35,6 +37,10 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
 
     private void OnInteractUsing(Entity<FoodSequenceStartPointComponent> ent, ref InteractUsingEvent args)
     {
+        if (_whitelistSystem.IsBlacklistPass(ent.Comp.BlacklistedFood, args.Used)) //Goob
+            return;
+        args.Handled = true; //Goob
+
         if (ent.Comp.AcceptAll) // Goobstation - anythingburgers
             EnsureComp<FoodSequenceElementComponent>(args.Used);
 
