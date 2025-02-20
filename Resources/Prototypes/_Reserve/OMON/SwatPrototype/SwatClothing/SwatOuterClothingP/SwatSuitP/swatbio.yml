@@ -1,0 +1,21 @@
+- type: entity
+  parent: ClothingOuterBioGeneral
+  id: ClothingOuterBioSwat
+  name: костюм биологической защиты ОКГ
+  description: Универсальный костюм биологической защиты, данная вариация имеет опознавательные знаки ОКГ.
+  suffix: Резерв
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/swatbio.rsi
+  - type: Clothing
+    sprite: _Reserve/OMON/swatbio.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.7
+        Heat: 0.75
+        Caustic: 0.3
+  - type: ExplosionResistance
+    damageCoefficient: 0.8

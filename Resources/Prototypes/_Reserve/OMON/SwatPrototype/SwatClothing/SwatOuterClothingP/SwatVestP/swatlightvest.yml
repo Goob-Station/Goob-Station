@@ -1,0 +1,20 @@
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterLightVestSwat
+  name: лёгкий бронежилет спецназа
+  description: Облегчённый тактический бронежилет для ОКГ, применяется в основном командирами отряда.
+  suffix: Резерв, 2-го типа
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/Vests/swatlightvest.rsi
+  - type: Clothing
+    sprite: _Reserve/OMON/Vests/swatlightvest.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7 #ballistic plates = better protection
+        Slash: 0.7
+        Piercing: 0.65
+        Heat: 0.8
+  - type: ExplosionResistance
+    damageCoefficient: 0.7

@@ -1,0 +1,14 @@
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSwatSatchel
+  name: сумка спецназа
+  description: Сумка оперативника контрреволюционной группы, используется чтобы переносить боекомплект и личные вещи спецназовца.
+  suffix: Резерв
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/swatsatchelbag.rsi
+    state: icon
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,6,8

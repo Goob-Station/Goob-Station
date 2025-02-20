@@ -1,0 +1,25 @@
+- type: entity
+  name: медипен дексалина+
+  parent: ChemicalMedipen
+  id: MedipenDexalinePlus
+  description: Специальный медипен для ОКГ, содержит дексалин плюс, лечит удушение.
+  suffix: Резерв
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/medipen.rsi
+    layers:
+    - state: medipenDexalinPlus
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 20
+        reagents:
+        - ReagentId: DexalinPlus
+          Quantity: 20
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: medipenDexalinPlus_empty
+  - type: Tag
+    tags: []

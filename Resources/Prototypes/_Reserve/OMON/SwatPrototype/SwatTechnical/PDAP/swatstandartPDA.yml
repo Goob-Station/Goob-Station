@@ -1,0 +1,12 @@
+- type: entity
+  parent: BasePDA
+  id: SwatStandartPDA
+  name: КПК ОКГ
+  description: Пахнет пиздюлями.
+  suffix: Резерв
+  components:
+  - type: Pda
+    id: SwatStandartIDCard
+    state: pda-swatstandart
+  - type: Icon
+    state: pda-swatstandart

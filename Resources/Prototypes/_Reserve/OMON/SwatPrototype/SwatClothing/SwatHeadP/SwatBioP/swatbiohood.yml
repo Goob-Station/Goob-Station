@@ -1,0 +1,22 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatHoodBioSwat
+  name: капюшон биологической защиты ОКГ
+  description: Капюшон биологической защиты ОКГ. И что?
+  suffix: Резерв
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/swatbiohood.rsi
+  - type: Clothing
+    sprite: _Reserve/OMON/swatbiohood.rsi
+  - type: Tag
+    tags:
+    - HidesHair
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+        Caustic: 0.7

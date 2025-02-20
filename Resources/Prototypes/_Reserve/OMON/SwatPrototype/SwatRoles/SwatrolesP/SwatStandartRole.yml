@@ -1,0 +1,39 @@
+## SPBsT Standart
+
+- type: entity
+  id: RandomHumanoidSpawnerSwatStandart
+  name: Оперативник ОКГ
+  suffix: Роль ОБР, Резерв
+  components:
+    - type: Sprite
+      sprite: _Reserve/OMON/Markers/jobs.rsi
+      state: SwatStandart
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstPoliceSwat
+      - NamesLastPSWCallsign
+    - type: RandomHumanoidSpawner
+      settings: SwatStandartSettings
+
+- type: randomHumanoidSettings
+  id: SwatStandartSettings
+  randomizeName: false
+  speciesBlacklist:
+  - Diona
+  - Dwarf
+  - SlimePerson
+  components:
+    - type: GhostRole
+      name: Оперативник ОКГ
+      description: Вы - оперативник группы которая занимается подавлением мятежей.
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ SwatStandartGear ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstPoliceSwat
+      - NamesLastPSWCallsign
+    - type: AutoImplant
+      implants:
+      - MindShieldImplant
+      - TrackingImplanter

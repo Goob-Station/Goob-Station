@@ -1,0 +1,17 @@
+- type: startingGear
+  id: SwatLeaderGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSwat
+    back: ClothingBackpackSwatLeaderSatchelFilled
+    shoes: ClothingShoesSwatBoots
+    head: ClothingHeadHatBeretLeaderSwat
+    eyes: ClothingEyesGlassesDS
+    mask: ClothingSwatGasMask
+    gloves: ClothingHandsGlovesCombatSwat
+    outerClothing: ClothingOuterMediumVestSwat
+    id: SwatLeaderPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSwatLeaderWeddingFilled
+    pocket1: ClothingHeadHelmetHeavySwat
+    pocket2: WeaponFlareGun
+  innerclothingskirt: ClothingUniformJumpskirtSwat

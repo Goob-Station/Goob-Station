@@ -1,0 +1,22 @@
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterHeavyVestSwat
+  name: улучшенный бронежилет ОКГ
+  description: По настоящему тяжелый бронежилет ОКГ, дающий значительную защиту в совокупности с бронёй на голову, обладает защитой 4-ого класса, используется щитовиками.
+  suffix: Резерв, 4-го типа
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/Vests/swatheavyvest.rsi
+  - type: Clothing
+    sprite: _Reserve/OMON/Vests/swatheavyvest.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.45
+  - type: ExplosionResistance
+    damageCoefficient: 0.45
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75

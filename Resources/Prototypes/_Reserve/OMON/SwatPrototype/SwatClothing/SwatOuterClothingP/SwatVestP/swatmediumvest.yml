@@ -1,0 +1,23 @@
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterMediumVestSwat
+  name: бронежилет спецназа
+  description: Бронежилет спецназа, используемый почти всеми оперативниками ОКГ.
+  suffix: Резерв, 3-го типа
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/Vests/swatmediumvest.rsi
+  - type: Clothing
+    sprite: _Reserve/OMON/Vests/swatmediumvest.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65 #ballistic plates = better protection
+        Slash: 0.65
+        Piercing: 0.45
+        Heat: 0.65
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85

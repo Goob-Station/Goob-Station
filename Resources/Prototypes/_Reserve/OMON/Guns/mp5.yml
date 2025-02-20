@@ -1,0 +1,49 @@
+- type: entity
+  name: NTCA MP5
+  parent: BaseWeaponSubMachineGun
+  id: WeaponSubmachineGunMP5
+  description: Пистолет-пулемет используемый элитными частями спецназа всего мира, использует 25. безгильзовые.
+  suffix: Пистолет-Пулемёт
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/mp5.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Reserve/OMON/mp5.rsi
+  - type: Gun
+    minAngle: 2
+    maxAngle: 6
+    fireRate: 6
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/silenced.ogg
+      params:
+        volume: -3
+    availableModes:
+    - SemiAuto
+    - FullAuto
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineCaselessRifle
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineCaselessRifle
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeCaselessRifle
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeCaselessRifle
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot

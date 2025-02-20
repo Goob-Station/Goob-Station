@@ -1,0 +1,21 @@
+- type: entity
+  noSpawn: false
+  parent: ClothingBackpackSwatDuffel
+  id: ClothingBackpackSwatMedicDuffelFilled
+  suffix: Резерв, Заполненный, Медик
+  components:
+  - type: StorageFill
+    contents:
+      - id: Truncheon
+      - id: Defibrillator
+      - id: CombatMedipen
+      - id: CombatMedipen
+      - id: CombatMedipen
+      - id: CombatMedipen
+      - id: EmergencyMedipen
+      - id: EmergencyMedipen
+      - id: WeaponDisabler
+      - id: Crowbar
+      - id: MedkitCombatSwatFilled
+      - id: Flare
+      - id: Flash

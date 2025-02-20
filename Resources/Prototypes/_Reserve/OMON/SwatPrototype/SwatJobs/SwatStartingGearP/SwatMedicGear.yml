@@ -1,0 +1,19 @@
+- type: startingGear
+  id: SwatMedicGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMedicSwat
+    back: ClothingBackpackSwatMedicSatchelFilled
+    shoes: ClothingShoesSwatBoots
+    head: ClothingHeadHatBeretMedicSwat
+    eyes: ClothingEyesGlassesDS
+    mask: ClothingSwatGasMask
+    gloves: ClothingHandsGlovesCombatSwat
+    outerClothing: ClothingOuterLightVestSwat
+    id: SwatMedicPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSwatMedicWeddingFilled
+    pocket1: ClothingHeadHelmetHeavySwat
+    pocket2: WeaponFlareGun
+  inhand:
+    - MedkitCombatSwatFilled
+  innerclothingskirt: ClothingUniformJumpskirtMedicSwat

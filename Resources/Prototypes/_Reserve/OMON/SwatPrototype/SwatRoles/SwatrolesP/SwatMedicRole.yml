@@ -1,0 +1,39 @@
+## OCG Medic
+
+- type: entity
+  id: RandomHumanoidSpawnerSwatMedic
+  name: Медик ОКГ
+  suffix: Роль ОБР, Резерв
+  components:
+    - type: Sprite
+      sprite: _Reserve/OMON/Markers/jobs.rsi
+      state: SwatMedic
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstPoliceSwatLeader
+      - NamesLastPSWCallsign
+    - type: RandomHumanoidSpawner
+      settings: SwatMedicSettings
+
+- type: randomHumanoidSettings
+  id: SwatMedicSettings
+  randomizeName: false
+  speciesBlacklist:
+  - Diona
+  - Dwarf
+  - SlimePerson
+  components:
+    - type: GhostRole
+      name: Медик ОКГ
+      description: Вы - медик группы которая занимается подавлением мятежей.
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ SwatMedicGear ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstPoliceSwat
+      - NamesLastPSWCallsign
+    - type: AutoImplant
+      implants:
+      - MindShieldImplant
+      - TrackingImplanter

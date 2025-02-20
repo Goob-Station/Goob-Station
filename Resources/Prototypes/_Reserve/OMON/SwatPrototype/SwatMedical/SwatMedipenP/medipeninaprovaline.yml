@@ -1,0 +1,25 @@
+- type: entity
+  name: медипен инапровалина
+  parent: ChemicalMedipen
+  id: MedipenInaprovaline
+  description: Специальный медипен для ОКГ, содержит инапровалин, не дает задохнуться насмерть.
+  suffix: Резерв
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/medipen.rsi
+    layers:
+    - state: medipenInaprovaline
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: Inaprovaline
+          Quantity: 15
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: medipenInaprovaline_empty
+  - type: Tag
+    tags: []

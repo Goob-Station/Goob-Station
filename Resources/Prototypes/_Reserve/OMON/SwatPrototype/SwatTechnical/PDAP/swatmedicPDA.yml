@@ -1,0 +1,16 @@
+- type: entity
+  parent: BasePDA
+  id: SwatMedicPDA
+  name: КПК Медика ОКГ
+  description: Пахнет больницей.
+  suffix: ОКГ
+  components:
+  - type: Pda
+    id: SwatMedicIDCard
+    state: pda-swatmedic
+  - type: Icon
+    state: pda-swatmedic
+  - type: HealthAnalyzer
+    scanDelay: 0.7
+    scanningEndSound:
+      path: "/Audio/Items/Medical/healthscanner.ogg"
