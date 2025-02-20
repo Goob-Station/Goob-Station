@@ -198,7 +198,6 @@
   id: MechThruster
 
 - type: Tag
-<<<<<<< HEAD
   id: RipleyMKIIUpgradeKit
 
 - type: Tag
@@ -240,9 +239,6 @@
 
 - type: Tag
   id: ModsuitHelmet
-=======
-  id: MedicalPatch
->>>>>>> upstream/master
 
 - type: Tag
   id: ModsuitBoots
@@ -254,7 +250,6 @@
   id: ModsuitCore
 
 - type: Tag
-<<<<<<< HEAD
   id: ModsuitPlatingExternal
 
 - type: Tag
@@ -262,7 +257,8 @@
 
 - type: Tag
   id: CartridgeLightRifleSubsonic
-=======
+
+- type: Tag
   id: ModsuitGauntlets
 
 - type: Tag
