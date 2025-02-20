@@ -220,6 +220,7 @@
   - CommonBackpack
   - CommonSatchel
   - CommonDuffel
+  - ClothingBackpackSatchelLeather # Goobstation
 
 - type: loadoutGroup
   id: PassengerNeck

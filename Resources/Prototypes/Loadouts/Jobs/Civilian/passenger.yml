@@ -82,6 +82,11 @@
   equipment:
     back: ClothingBackpackSatchel
 
+- type: loadout # Goobstation
+  id: CommonSatchelLeather
+  equipment:
+    back: ClothingBackpackSatchelLeather
+
 - type: loadout
   id: CommonDuffel
   equipment:
@@ -188,7 +193,7 @@
 - type: loadout
   id: MaroonMJ
   equipment:
-    jumpsuit: ClothingUniformJumpsuitMilitaryColorMaroon 
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorMaroon
 
 
 # service jumpsuit - putting it here because frontier's only service jumpsuits are hydroponics and general lmao # goob change btw
@@ -196,4 +201,4 @@
 - type: loadout
   id: ServiceMJ
   equipment:
-    jumpsuit: ClothingUniformJumpsuitMilitaryService 
+    jumpsuit: ClothingUniformJumpsuitMilitaryService
