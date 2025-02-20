@@ -5,6 +5,8 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using System.Linq;
+using Content.Shared.Climbing.Components;
+using Content.Shared.Interaction;
 
 namespace Content.Shared.Magic.Systems;
 
@@ -17,6 +19,13 @@ public sealed class AnimateSpellSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<AnimateComponent, MapInitEvent>(OnAnimate);
+        SubscribeLocalEvent<AnimateComponent, UserActivateInWorldEvent>(AnimateActivate);
+    }
+
+    private void AnimateActivate(Entity<AnimateComponent> ent, ref UserActivateInWorldEvent args)
+    {
+        if(HasComp<BonkableComponent>(args.Target))
+            args.Handled = true;
     }
 
     private void OnAnimate(Entity<AnimateComponent> ent, ref MapInitEvent args)
