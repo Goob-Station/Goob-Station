@@ -1971,7 +1971,7 @@
   id: UplinkHandRenamer
   name: uplink-hand-renamer-name
   description: uplink-hand-renamer-desc
-  icon: { sprite:  Objects/Tools/hand_renamer.rsi/hand_renamer.png }
+  icon: { sprite:  Objects/Tools/hand_renamer.rsi, state: icon }
   productEntity: HandRenamer
   cost:
     Telecrystal: 6
@@ -1981,3 +1981,5 @@
   - !type:BuyerJobCondition
     whitelist:
     - Librarian
+    - Medical
+    - Clown

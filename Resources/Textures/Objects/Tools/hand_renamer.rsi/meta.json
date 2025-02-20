@@ -17,6 +17,9 @@
         },
         {
             "name": "hand_renamer"
+        },
+        {
+            "name": "icon"
         }
     ]
 }
