@@ -40,6 +40,16 @@
   categories:
     - UplinkDisruption
 
+- type: listing
+  id: UplinkHandRenamer
+  name: uplink-hand-renamer-name
+  description: uplink-hand-renamer-desc
+  icon: { sprite:  Objects/Tools/hand_renamer.rsi, state: icon }
+  productEntity: HandRenamer
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkDisruption
 
 # Weaponry
 
