@@ -51,9 +51,10 @@
     interfaces:
       enum.HandRenamerUiKey.Key:
         type: HandRenamerBoundUserInterface
-  - type: HandRenamer
+  - type: HandLabeler
     whitelist:
       components:
       - Item
       tags:
       - Structure
+    renameMode: true

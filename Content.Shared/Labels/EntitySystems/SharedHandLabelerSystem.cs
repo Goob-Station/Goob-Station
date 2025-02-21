@@ -18,6 +18,7 @@ public abstract class SharedHandLabelerSystem : EntitySystem
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly MetaDataSystem _metaSystem = default!;
 
     public override void Initialize()
     {
@@ -106,15 +107,23 @@ public abstract class SharedHandLabelerSystem : EntitySystem
 
     private void Labeling(EntityUid uid, EntityUid target, EntityUid User, HandLabelerComponent handLabeler)
     {
-        AddLabelTo(uid, handLabeler, target, out var result);
-        if (result == null)
-            return;
+        string? result;
+        if (handLabeler.RenameMode)
+        {
+            // Goobstation - HandRenamer - checks for the RenameMode
+            if (_netManager.IsServer)
+                _metaSystem.SetEntityName(target, handLabeler.AssignedLabel);
+            result = Loc.GetString("hand-renamer-successfully-renamed");
+        }
+        else
+        {
+            AddLabelTo(uid, handLabeler, target, out result);
+        }
 
-        _popupSystem.PopupClient(result, User, User);
-
-        // Log labeling
-        _adminLogger.Add(LogType.Action, LogImpact.Low,
-            $"{ToPrettyString(User):user} labeled {ToPrettyString(target):target} with {ToPrettyString(uid):labeler}");
+        if (result != null)
+        {
+            _popupSystem.PopupClient(result, User, User);
+        }
     }
 
     private void OnHandLabelerLabelChanged(EntityUid uid, HandLabelerComponent handLabeler, HandLabelerLabelChangedMessage args)
