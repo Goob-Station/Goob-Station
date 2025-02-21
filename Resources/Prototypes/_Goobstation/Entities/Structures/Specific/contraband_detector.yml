@@ -27,6 +27,8 @@
           bounds: "-0.2,-0.2,0.2,0.2"
         hard: false
         layer:
+          - Impassable
+          - MidImpassable
           - LowImpassable
       fix1:
         shape:
