@@ -226,11 +226,21 @@
         ExpelGas: ExpelGas
 
 - type: entity
-  id: OrganDubiousHideContraband
+  id: OrganDubiousSteptriggerImmune
   parent: OrganDubiousBase
   components:
   - type: Sprite
     state: viral
   - type: Organ
     onAdd:
-    - type: HideContrabandContent
+    - type: StepTriggerImmune
+      whitelist:
+        types:
+        - Shard
+        - Landmine
+        - Mousetrap
+        - Lava
+        - Chasm
+        - SlipTile
+        - SlipEntity
+        - ContrabandDetector
