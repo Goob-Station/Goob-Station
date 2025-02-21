@@ -10,11 +10,6 @@ using Content.Shared.Access.Systems;
 using Content.Shared.Power;
 using Content.Server.DeviceLinking.Systems;
 using Robust.Server.GameObjects;
-using Content.Shared.DeviceLinking;
-using Content.Shared.DeviceNetwork;
-using Content.Shared.DeviceNetwork.Systems;
-using Content.Server.DeviceNetwork.Components;
-using Content.Server.DeviceNetwork.Systems;
 
 namespace Content.Server._Goobstation.Contraband;
 
@@ -41,8 +36,8 @@ public sealed class ContrabandDetectorSystem : EntitySystem
         list = RemovePermitedItems(args.Tripper, ref list);
 
         if (list.Count > 0 ||
-            FalseDetection(5) &&    //false positive
-            FalseDetection(95))     //false negative
+            FalseDetection(component.FalseDetectingChance) &&    //false positive
+            FalseDetection(100 - component.FalseDetectingChance))     //false negative
         {
             _popupSystem.PopupCoordinates(
                 Loc.GetString("contraband-detector-popup-detected"),
@@ -50,14 +45,13 @@ public sealed class ContrabandDetectorSystem : EntitySystem
                 PopupType.SmallCaution);
 
             _audioSystem.PlayPvs(component.Detect, uid);
-            _deviceLink.SendSignal(uid, "SignalContrabandDetector", true);
+            _deviceLink.SendSignal(uid, "SignalContrabandDetected", true);
             _pointLight.SetEnabled(uid, true);
         }
         else
         {
             _audioSystem.PlayPvs(component.NoDetect, uid);
-            _deviceLink.SendSignal(uid, "SignalContrabandDetector", false);
-
+            _deviceLink.SendSignal(uid, "SignalContrabandDetected", false);
             _pointLight.SetEnabled(uid, false);
         }
     }

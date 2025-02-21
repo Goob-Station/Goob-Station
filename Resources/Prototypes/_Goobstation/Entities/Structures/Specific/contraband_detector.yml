@@ -1,7 +1,7 @@
 - type: entity
   name: contraband detector
   description: Walk in with confidence, walk out with security chasing you.
-  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  parent: BaseMachinePowered
   id: ContrabandDetector
   placement:
     mode: SnapgridCenter
@@ -9,6 +9,7 @@
   - type: Clickable
   - type: InteractionOutline
   - type: Transform
+    noRot: false
   - type: Pullable
   - type: MovedByPressure
   - type: Physics
@@ -42,6 +43,7 @@
         layer:
         - WallLayer
   - type: Sprite
+    noRot: true
     drawdepth: OverMobs
     sprite: _Goobstation/Structures/Machines/contraband_detector.rsi
     state: base
@@ -89,9 +91,6 @@
         path: /Audio/Effects/chime.ogg
         params:
             maxDistance: 10
-  - type: ApcPowerReceiver
-    powerLoad: 250
-  - type: ExtensionCableReceiver
   - type: Rotatable
     rotateWhileAnchored: false
     rotateWhilePulling: true
