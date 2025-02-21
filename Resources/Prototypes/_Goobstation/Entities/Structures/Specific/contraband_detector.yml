@@ -116,6 +116,11 @@
   - type: Construction
     graph: ContrabandDetector
     node: complete
+  - type: PointLight
+    color: red
+    enabled: false
+    energy: 5
+    radius: 1.5
 
 - type: entity
   parent: ContrabandDetector

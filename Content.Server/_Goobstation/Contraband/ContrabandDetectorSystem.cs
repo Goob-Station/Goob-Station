@@ -9,6 +9,7 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Access.Systems;
 using Content.Shared.Power;
 using Content.Server.DeviceLinking.Systems;
+using Robust.Server.GameObjects;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceNetwork.Systems;
@@ -23,6 +24,7 @@ public sealed class ContrabandDetectorSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedIdCardSystem _id = default!;
     [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
+    [Dependency] private readonly PointLightSystem _pointLight = default!;
 
     public override void Initialize()
     {
@@ -45,15 +47,18 @@ public sealed class ContrabandDetectorSystem : EntitySystem
             _popupSystem.PopupCoordinates(
                 Loc.GetString("contraband-detector-popup-detected"),
                 Transform(uid).Coordinates,
-                PopupType.LargeCaution);
+                PopupType.SmallCaution);
 
             _audioSystem.PlayPvs(component.Detect, uid);
             _deviceLink.SendSignal(uid, "SignalContrabandDetector", true);
+            _pointLight.SetEnabled(uid, true);
         }
         else
         {
             _audioSystem.PlayPvs(component.NoDetect, uid);
             _deviceLink.SendSignal(uid, "SignalContrabandDetector", false);
+
+            _pointLight.SetEnabled(uid, false);
         }
     }
 
@@ -102,7 +107,10 @@ public sealed class ContrabandDetectorSystem : EntitySystem
     }
 
     private void OnPowerchange(EntityUid uid, ContrabandDetectorComponent component, PowerChangedEvent args)
-        => component.IsPowered = args.Powered;
+    {
+        component.IsPowered = args.Powered;
+        _pointLight.SetEnabled(uid, false);
+    }
 
     private bool FalseDetection(int chance)
     {
