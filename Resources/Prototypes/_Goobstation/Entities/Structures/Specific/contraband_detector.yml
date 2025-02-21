@@ -3,13 +3,17 @@
   description: Walk in with confidence, walk out with security chasing you.
   parent: BaseMachinePowered
   id: ContrabandDetector
+  suffix: unlocked
   placement:
     mode: SnapgridCenter
   components:
   - type: Clickable
   - type: InteractionOutline
   - type: Transform
+    anchored: true
     noRot: false
+  - type: Anchorable
+    delay: 2
   - type: Pullable
   - type: MovedByPressure
   - type: Physics
@@ -95,15 +99,11 @@
     rotateWhileAnchored: false
     rotateWhilePulling: true
   - type: Repairable
-  - type: DeployableBarrier
-    fixture: ""
+  - type: LockedAnchorable
   - type: AccessReader
     access: [["Security"]]
   - type: Lock
     locked: false
-    lockOnClick: true # toggle lock just by clicking on detector
-    lockTime: 2
-    unlockTime: 2
   - type: DeviceNetwork
     deviceNetId: Wireless
   - type: WirelessNetworkConnection
@@ -124,15 +124,14 @@
 - type: entity
   parent: ContrabandDetector
   id: ContrabandDetectorAnchored
-  suffix: Anchored
+  suffix: locked
   components:
   - type: Transform
-    anchored: false
+    anchored: true
+    noRot: false
   - type: Lock
     locked: true
-    lockOnClick: true
-    lockTime: 2
-    unlockTime: 2
+
 
 - type: entity
   id: ContrabandDetectorFrame
