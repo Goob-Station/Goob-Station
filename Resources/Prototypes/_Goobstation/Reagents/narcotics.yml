@@ -163,6 +163,9 @@
     Narcotic:
       metabolismRate: 0.05
       effects:
+      - !type:GenericStatusEffect
+        key: Dementia
+        component: DementiaAccent
       - !type:PopupMessage
         visualType: MediumCaution
         type: Local
@@ -209,6 +212,3 @@
         conditions:
         - !type:ReagentThreshold
           min: 15
-      - !type:GenericStatusEffect
-        key: Dementia
-        component: DementiaAccent
