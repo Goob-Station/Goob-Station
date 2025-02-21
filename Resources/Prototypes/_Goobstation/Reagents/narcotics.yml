@@ -209,3 +209,6 @@
         conditions:
         - !type:ReagentThreshold
           min: 15
+      - !type:GenericStatusEffect
+        key: Dementia
+        component: DementiaAccent
