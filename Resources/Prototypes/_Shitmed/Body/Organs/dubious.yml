@@ -224,3 +224,14 @@
     - type: RandomStatusActivation
       statusEffects:
         ExpelGas: ExpelGas
+
+- type: entity
+  id: OrganDubiousVentcrawler
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: viral
+  - type: Organ
+    onAdd:
+    - type: VentCrawler
+      allowInventory: false
