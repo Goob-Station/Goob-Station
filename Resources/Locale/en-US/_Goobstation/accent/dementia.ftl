@@ -1,12 +1,15 @@
 accent-dementia-prefix-1 = Now I’m not sure but,
 accent-dementia-prefix-2 = Hey-… shit, I forgot… Oh, right!
 accent-dementia-prefix-3 = What was it again… Ah!
+accent-dementia-prefix-4 = Guh,
+accent-dementia-prefix-5 = Gah,
 
 accent-dementia-suffix-1 = , wait, what was I saying again?
 accent-dementia-suffix-2 = , or something…
 accent-dementia-suffix-3 = , you- wait who are you again.
 accent-dementia-suffix-4 = , I think.
 accent-dementia-suffix-5 = . Oh, by the way have you seen my pills?
+accent-dementia-suffix-6 = . Guh, where am I?
 
 accent-dementia-words-1 = security
 accent-dementia-words-replace-1 = some department
@@ -58,9 +61,23 @@ accent-dementia-words-replace-23 = some sort of bad guys, forgot which
 accent-dementia-words-24 = ninja
 accent-dementia-words-replace-24 = some sort of bad guy, forgot which
 accent-dementia-words-25 = deathsquad
-accent-dementia-words-replace-25 = some sort of bad guy, forgot which
+accent-dementia-words-replace-25 = some sort of fairy tale, forgot which
 accent-dementia-words-26 = thief
 accent-dementia-words-replace-26 = some sort of bad guy, forgot which
 
 accent-dementia-words-27 = bridge
 accent-dementia-words-replace-27 = some department
+accent-dementia-words-28 = syndi
+accent-dementia-words-replace-28 = some sort of bad guy, forgot which
+accent-dementia-words-29 = changeling
+accent-dementia-words-replace-29 = some sort of bad guy, forgot which
+accent-dementia-words-30 = abductor
+accent-dementia-words-replace-30 = some sort of bad guy, forgot which
+accent-dementia-words-31 = alien
+accent-dementia-words-replace-31 = some sort of bad guy, forgot which
+accent-dementia-words-32 = blob
+accent-dementia-words-replace-32 = some sort of bad guy, forgot which
+accent-dementia-words-33 = wizard
+accent-dementia-words-replace-33 = some sort of bad guy, forgot which
+accent-dementia-words-34 = wiz
+accent-dementia-words-replace-34 = some sort of bad guy, forgot which
