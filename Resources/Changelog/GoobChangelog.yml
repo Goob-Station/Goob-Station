@@ -4879,3 +4879,11 @@ Entries:
       message: Removed lag.
   id: 558
   time: '2025-02-18T23:21:08.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: New vulp scream sounds from MRP.
+    - type: Fix
+      message: Vulps now correctly have their innate temperature protection.
+  id: 559
+  time: '2025-02-21T16:09:44.0000000+00:00'
