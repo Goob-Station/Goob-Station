@@ -45,7 +45,7 @@
       GoldRingDiamond: 0.001
       GoldRingGem: 0.001
       # fun
-      WizardsGrimoire: 0.000001
+      WizardsGrimoireNoRefund: 0.000001
       WeaponPistolDebug: 0.000001
       MeleeDebugGib: 0.000001
 
