@@ -224,3 +224,13 @@
     - type: RandomStatusActivation
       statusEffects:
         ExpelGas: ExpelGas
+
+- type: entity
+  id: OrganDubiousHideContraband
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: viral
+  - type: Organ
+    onAdd:
+    - type: HideContrabandContent
