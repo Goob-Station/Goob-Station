@@ -55,6 +55,7 @@
   - type: Tag
     tags:
     - PlantSampleTaker
+    - HydroponicsToolClippers # Einstein Engines
   - type: Sprite
     sprite: Objects/Tools/Hydroponics/clippers.rsi
     state: icon

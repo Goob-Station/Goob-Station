@@ -1,0 +1,54 @@
+- type: entity
+  parent: MobSiliconBase
+  id: MobPlantbot
+  name: plantbot
+  description: A botanist's best friend!.
+  components:
+  - type: Plantbot
+  - type: Sprite
+    sprite: Mobs/Silicon/Bots/plantbot.rsi
+    state: plantbot
+  - type: HTN
+    rootTask:
+      task: PlantbotCompound
+  - type: Construction
+    graph: PlantBot
+    node: bot
+  - type: NoSlip
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 110
+      behaviors:
+      - !type:TriggerBehavior
+    - trigger:
+        !type:DamageTrigger
+        damage: 120
+      behaviors:
+      - !type:SpillBehavior
+        solution: tank
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: Water
+          Quantity: 100
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-mechanical
+  - type: Anchorable
+  - type: InteractionPopup
+    interactSuccessString: petting-success-plantbot
+    interactFailureString: petting-failure-plantbot
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: ShowHealthBars
+    damageContainers:
+    - Inorganic
+    - Silicon
+  - type: ShowHealthIcons
+    damageContainers:
+    - Inorganic
+    - Silicon

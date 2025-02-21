@@ -25,3 +25,17 @@
   - type: ConditionalSpawner
     prototypes:
       - MobBatonBot
+
+- type: entity
+  name: plantbot spawner
+  id: SpawnMobPlantbot
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Mobs/Silicon/Bots/plantbot.rsi
+        state: plantbot
+  - type: ConditionalSpawner
+    prototypes:
+      - MobPlantbot

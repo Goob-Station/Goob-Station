@@ -36,3 +36,16 @@
   icon:
     sprite: _EinsteinEngines/Mobs/Silicon/Bots/weldbot.rsi
     state: weldbot
+
+- type: construction
+  name: plantbot
+  id: plantbot
+  graph: PlantBot
+  startNode: start
+  targetNode: bot
+  category: construction-category-utilities
+  objectType: Item
+  description: This bot takes care of the plants.
+  icon:
+    sprite: _EinsteinEngines/Mobs/Silicon/Bots/plantbot.rsi
+    state: plantbot
