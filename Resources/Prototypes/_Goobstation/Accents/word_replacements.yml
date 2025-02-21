@@ -6,8 +6,8 @@
     accent-bogan-words-2: accent-bogan-words-replace-2
     accent-bogan-words-3: accent-bogan-words-replace-3
     accent-bogan-words-4: accent-bogan-words-replace-4
-    accent-bogan-words-5: accent-bogan-words-replace-5    
-    accent-bogan-words-6: accent-bogan-words-replace-6 
+    accent-bogan-words-5: accent-bogan-words-replace-5
+    accent-bogan-words-6: accent-bogan-words-replace-6
     accent-bogan-words-7: accent-bogan-words-replace-7
     accent-bogan-words-8: accent-bogan-words-replace-8
     accent-bogan-words-9: accent-bogan-words-replace-9
@@ -112,6 +112,13 @@
     accent-dementia-words-25: accent-dementia-words-replace-25
     accent-dementia-words-26: accent-dementia-words-replace-26
     accent-dementia-words-27: accent-dementia-words-replace-27
+    accent-dementia-words-28: accent-dementia-words-replace-28
+    accent-dementia-words-29: accent-dementia-words-replace-29
+    accent-dementia-words-30: accent-dementia-words-replace-30
+    accent-dementia-words-31: accent-dementia-words-replace-31
+    accent-dementia-words-32: accent-dementia-words-replace-32
+    accent-dementia-words-33: accent-dementia-words-replace-33
+    accent-dementia-words-34: accent-dementia-words-replace-34
 
 - type: accent
   id: ohio
