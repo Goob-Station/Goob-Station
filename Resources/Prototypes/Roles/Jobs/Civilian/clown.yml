@@ -6,6 +6,7 @@
   startingGear: ClownGear
   icon: "JobIconClown"
   supervisors: job-supervisors-hop
+  canBeAntag: true # Goobstation - Fix the game
   access:
   - Theatre
   - Maintenance

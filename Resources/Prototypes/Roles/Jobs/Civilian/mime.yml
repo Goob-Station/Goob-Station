@@ -6,6 +6,7 @@
   startingGear: MimeGear
   icon: "JobIconMime"
   supervisors: job-supervisors-hop
+  canBeAntag: true # Goobstation - Fix the game
   access:
   - Theatre
   - Maintenance
