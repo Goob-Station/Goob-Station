@@ -1,3 +1,7 @@
+## Buckshot
+
+# Carpshot
+
 - type: entity
   id: HighCaliberPelletShotgun
   name: pellet (.75 carpshot)
@@ -21,6 +25,90 @@
     proto: HighCaliberPelletShotgun
     count: 6
     spread: 15
+
+# Incendiary
+
+- type: entity
+  id: HighCaliberPelletShotgunIncendiary
+  name: pellet (.75 incendiary)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBulletIncendiary
+  components:
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+      state: buckshot-flare
+    - type: Projectile
+      damage:
+        types:
+          Blunt: 6
+          Heat: 6
+    - type: IgnitionSource
+      ignited: true
+
+- type: entity
+  id: HighCaliberPelletShotgunIncendiarySpread
+  categories: [ HideSpawnMenu ]
+  parent: PelletShotgunIncendiary
+  components:
+    - type: ProjectileSpread
+      proto: HighCaliberPelletShotgunIncendiary
+      count: 6
+      spread: 15
+
+# Practice
+
+- type: entity
+  id: HighCaliberPelletShotgunPractice
+  name: pellet (.75 practice)
+  categories: [ HideSpawnMenu ]
+  parent: HighCaliberBaseBulletPractice
+  components:
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+      state: buckshot
+    - type: Projectile
+      damage:
+        types:
+          Blunt: 2
+
+- type: entity
+  id: HighCaliberPelletShotgunPracticeSpread
+  categories: [ HideSpawnMenu ]
+  parent: HighCaliberPelletShotgunPractice
+  components:
+    - type: ProjectileSpread
+      proto: HighCaliberPelletShotgunPractice
+      count: 8
+      spread: 15
+
+# Depleted Uranium
+
+- type: entity
+  id: HighCaliberPelletShotgunUranium
+  name: pellet (.75 uranium)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+      state: depleted-uranium
+    - type: Projectile
+      damage:
+        types:
+          Radiation: 8
+          Piercing: 8
+
+- type: entity
+  id: HighCaliberPelletShotgunUraniumSpread
+  categories: [ HideSpawnMenu ]
+  parent: HighCaliberPelletShotgunUranium
+  components:
+    - type: ProjectileSpread
+      proto: HighCaliberPelletShotgunUranium
+      count: 6
+      spread: 6
+
+## Slugs
 
 - type: entity
   id: BulletSlugEnsnaring
@@ -114,4 +202,5 @@
       types:
         Blunt: 20 # ye-OUCH
   - type: StaminaDamageOnCollide
-    damage: 60 # 2 hits to stun
+    damage: 65 # ye-OW
+
