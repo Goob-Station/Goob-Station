@@ -108,6 +108,7 @@
   - type: WeldingHealing # EE IPCs
     damageContainers:
       - Silicon
+      - SiliconRadiation # Goobstation - Make IPCs take radiation
     fuelCost: 5
     damage:
       types:

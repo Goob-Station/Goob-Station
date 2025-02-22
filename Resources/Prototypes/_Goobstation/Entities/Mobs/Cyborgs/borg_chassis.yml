@@ -1,0 +1,34 @@
+- type: entity
+  id: BorgChassisDerelictSyndicateAssault
+  parent: BaseBorgChassisDerelict
+  name: derelict syndicate assasult cyborg
+  description: A lean, mean killing machine with access to a variety of deadly modules. This one is in a state of great disrepair.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Silicon/chassis.rsi
+    layers:
+    - state: synd_sec
+    - state: synd_sec_e
+      map: [ "enum.BorgVisualLayers.Light" ]
+      shader: unshaded
+      visible: false
+    - state: synd_sec_l
+      shader: unshaded
+      map: [ "light" ]
+      visible: false
+  - type: BorgChassis
+    maxModules: 5
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - BorgModuleSyndicate
+      - BorgModuleSyndicateAssault
+    hasMindState: synd_sec_e
+    noMindState: synd_sec
+  - type: Construction
+    node: derelictcyborg
+  - type: InteractionPopup
+    interactSuccessString: petting-success-derelict-cyborg
+    interactFailureString: petting-failure-derelict-cyborg
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg

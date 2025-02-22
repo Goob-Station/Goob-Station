@@ -257,6 +257,7 @@
         - type: AutoRecharge
           rechargeDuration: 15
         - type: Emag
+          emagType: Access
           validTargets:
             components:
             - Airlock

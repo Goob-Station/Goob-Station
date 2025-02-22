@@ -72,7 +72,20 @@
         path: /Audio/Ambience/Objects/gas_hiss.ogg
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasFlowRegulator
-      
+    - type: GuideHelp
+      guides:
+      - MixingAndFiltering
+    - type: VentCrawlerTube # Goobstation - ventcrawl
+      containerId: VentCrawlerTube
+    - type: VentCrawlerJunction # Goobstation - ventcrawl
+      degrees:
+        - 0
+        - -90
+        - 180
+    - type: ContainerContainer # Goobstation - ventcrawl
+      containers:
+        VentCrawlerTube: !type:Container
+
 - type: entity
   parent: GasFilter
   id: GasFilterFlipped
@@ -116,6 +129,16 @@
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: North
+  - type: VentCrawlerTube # Goobstation - ventcrawl
+    containerId: VentCrawlerTube
+  - type: VentCrawlerJunction # Goobstation - ventcrawl
+    degrees:
+      - 0
+      - -90
+      - 180
+  - type: ContainerContainer # Goobstation - ventcrawl
+    containers:
+      VentCrawlerTube: !type:Container
 
 - type: entity
   parent: GasTrinaryBase
@@ -162,7 +185,20 @@
         path: /Audio/Ambience/Objects/gas_hiss.ogg
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasFlowRegulator
-      
+    - type: GuideHelp
+      guides:
+      - MixingAndFiltering
+    - type: VentCrawlerTube # Goobstation - ventcrawl
+      containerId: VentCrawlerTube
+    - type: VentCrawlerJunction # Goobstation - ventcrawl
+      degrees:
+        - 0
+        - -90
+        - 180
+    - type: ContainerContainer # Goobstation - ventcrawl
+      containers:
+        VentCrawlerTube: !type:Container
+
 - type: entity
   parent: GasMixer
   id: GasMixerFlipped
@@ -205,12 +241,22 @@
         pipeDirection: North
   - type: Construction
     node: mixerflipped
+  - type: VentCrawlerTube # Goobstation - ventcrawl
+    containerId: VentCrawlerTube
+  - type: VentCrawlerJunction # Goobstation - ventcrawl
+    degrees:
+      - 0
+      - -90
+      - 180
+  - type: ContainerContainer # Goobstation - ventcrawl
+    containers:
+      VentCrawlerTube: !type:Container
 
 - type: entity
   parent: GasPipeBase
   id: PressureControlledValve
   name: pneumatic valve
-  description: Valve controlled by pressure.
+  description: A bidirectional valve controlled by pressure. Opens if the output pipe is lower than the pressure of the control pipe by 101.325 kPa.
   placement:
     mode: SnapgridCenter
   components:
@@ -263,3 +309,18 @@
       node: pneumaticvalve
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasFlowRegulator
+    - type: GuideHelp
+      guides:
+      - PneumaticValve
+      - Pumps
+      - Valves
+    - type: VentCrawlerTube # Goobstation - ventcrawl
+      containerId: VentCrawlerTube
+    - type: VentCrawlerJunction # Goobstation - ventcrawl
+      degrees:
+        - 0
+        - -90
+        - 180
+    - type: ContainerContainer # Goobstation - ventcrawl
+      containers:
+        VentCrawlerTube: !type:Container

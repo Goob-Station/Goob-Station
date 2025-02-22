@@ -5,6 +5,7 @@
   abstract: true
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
+  - type: VentCrawler # goobstation - Ventcrawl
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Aliens/slimes.rsi
@@ -117,6 +118,7 @@
     speechSounds: Slime
   - type: TypingIndicator
     proto: slime
+  - type: Fauna # Lavaland Change
 
 - type: entity
   name: basic slime
