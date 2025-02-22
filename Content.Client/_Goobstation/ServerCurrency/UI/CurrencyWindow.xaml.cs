@@ -44,6 +44,7 @@ namespace Content.Client._Goobstation.ServerCurrency.UI
             _serverCur.BalanceChange += UpdatePlayerBalance;
 
             PopulateTokenButtons();
+            UpdateButtonStates();
         }
 
         private void PopulateTokenButtons()
@@ -59,13 +60,8 @@ namespace Content.Client._Goobstation.ServerCurrency.UI
                 var button = new Button
                 {
                     Text = Loc.GetString(listing.Name, ("price", listing.Price)),
-                    MinHeight = 40
-                };
-
-                var panel = new PanelContainer
-                {
-                    ToolTip = Loc.GetString(listing.Description),
-                    Children = { button }
+                    MinHeight = 40,
+                    ToolTip = Loc.GetString(listing.Description)
                 };
 
                 button.OnPressed += _ =>
@@ -79,6 +75,7 @@ namespace Content.Client._Goobstation.ServerCurrency.UI
                             OnBuy?.Invoke(listing.ID);
                             ShowConfirmation(Loc.GetString(listing.Label));
                             _buttonClickTimes.Remove(button);
+                            button.Text = Loc.GetString(listing.Name, ("price", listing.Price));
                             return;
                         }
                     }
@@ -94,11 +91,12 @@ namespace Content.Client._Goobstation.ServerCurrency.UI
                         {
                             button.Text = Loc.GetString(listing.Name, ("price", listing.Price));
                             _buttonClickTimes.Remove(button);
+                            UpdateButtonStates();
                         }
                     });
                 };
 
-                TokenListingsContainer.AddChild(panel);
+                TokenListingsContainer.AddChild(button);
                 TokenListingsContainer.AddChild(new Control { MinSize = new Vector2(0, 5) });
             }
         }
@@ -135,13 +133,15 @@ namespace Content.Client._Goobstation.ServerCurrency.UI
             if (balance == null)
                 balance = _serverCur.GetBalance();
 
+            Header.Text = _serverCur.Stringify(balance.Value);
             foreach (var child in TokenListingsContainer.Children)
             {
-                if (child is not Button button) 
+                if (child is not Button button)
                     continue;
 
                 var listing = _protoManager.EnumeratePrototypes<TokenListingPrototype>()
-                    .FirstOrDefault(x => Loc.GetString(x.Name) == button.Text);
+                    .FirstOrDefault(x => Loc.GetString(x.Name, ("price", x.Price)) == button.Text);
+
 
                 if (listing != null)
                     button.Disabled = balance < listing.Price;
@@ -152,7 +152,11 @@ namespace Content.Client._Goobstation.ServerCurrency.UI
         {
             ConfirmationMessage.Text = Loc.GetString("gs-balanceui-shop-purchased", ("item", message));
             ConfirmationMessage.Visible = true;
-            Timer.Spawn(TimeSpan.FromSeconds(3), () => ConfirmationMessage.Visible = false);
+            Timer.Spawn(TimeSpan.FromSeconds(3), () =>
+            {
+                ConfirmationMessage.Visible = false;
+                UpdateButtonStates();
+            });
         }
     }
 }
