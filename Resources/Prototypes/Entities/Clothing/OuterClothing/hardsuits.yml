@@ -128,6 +128,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitSpatio
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1
+    knockdownTimeDelta: -1
 
 #Salvage Hardsuit
 - type: entity
@@ -160,6 +163,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitSalvage
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1.5
+    knockdownTimeDelta: -1.5
 
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCargoContraband]
@@ -193,6 +199,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitMaxim
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2
 
 #Security Hardsuit
 - type: entity
@@ -225,6 +234,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitSecurity
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2
 
 #Brigmedic Hardsuit
 - type: entity
@@ -254,6 +266,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitBrigmedic
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2
 
 #Warden's Hardsuit
 - type: entity
@@ -286,6 +301,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitWarden
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2
 
 #Captain's Hardsuit
 - type: entity
@@ -319,6 +337,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitCap
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2
 
 #Chief Engineer's Hardsuit
 - type: entity
@@ -428,6 +449,9 @@
     price: 750
   - type: StealTarget
     stealGroup: ClothingOuterHardsuitRd
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 3
+    knockdownTimeDelta: -3
 
 #Head of Security's Hardsuit
 - type: entity
@@ -461,6 +485,9 @@
   - type: ToggleableClothing
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitSecurityRed
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2
 
 #Luxury Mining Hardsuit
 - type: entity
@@ -534,6 +561,9 @@
     - MonkeyWearable
     - Hardsuit
     - WhitelistChameleon
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2
 
 # Syndicate Medic Hardsuit
 - type: entity
@@ -553,6 +583,9 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2
 
 #Syndicate Elite Hardsuit
 - type: entity
@@ -593,6 +626,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitSyndieElite
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2
 
 #Syndicate Commander Hardsuit
 - type: entity
@@ -626,6 +662,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitSyndieCommander
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
@@ -659,6 +698,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitCybersun
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 3
+    knockdownTimeDelta: -3
 
 #Wizard Hardsuit
 - type: entity
@@ -691,6 +733,14 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitWizard
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: Tag # Goobstation
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+    - SyringeArmor
 
 #Ling Space Suit
 - type: entity
@@ -722,6 +772,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitLing
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2
 
 #Pirate EVA Suit (Deep Space EVA Suit)
 #Despite visually appearing like a softsuit, it functions exactly like a hardsuit would (parents off of base hardsuit, has resistances and toggleable clothing, etc.) so it goes here.
@@ -755,6 +808,9 @@
       head: ClothingHeadHelmetHardsuitPirateEVA
   - type: StaticPrice
     price: 0
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1
+    knockdownTimeDelta: -1
 
 #Pirate Captain Hardsuit
 - type: entity
@@ -789,6 +845,9 @@
       head: ClothingHeadHelmetHardsuitPirateCap
   - type: StaticPrice
     price: 0
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1.5
+    knockdownTimeDelta: -1.5
 
 #CENTCOMM / ERT HARDSUITS
 #ERT Leader Hardsuit
@@ -922,6 +981,8 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitDeathsquad
+  - type: ModifyDelayedKnockdown # Goobstation
+    cancel: true
 
 #CBURN Hardsuit
 - type: entity
@@ -960,6 +1021,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetCBURN
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2
 
 #MISC. HARDSUITS
 #Clown Hardsuit
@@ -995,6 +1059,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitClown
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: -1
+    knockdownTimeDelta: 1
 
 #Mime Hardsuit
 - type: entity

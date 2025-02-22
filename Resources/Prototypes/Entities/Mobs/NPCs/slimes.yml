@@ -118,6 +118,7 @@
     speechSounds: Slime
   - type: TypingIndicator
     proto: slime
+  - type: Fauna # Lavaland Change
 
 - type: entity
   name: basic slime

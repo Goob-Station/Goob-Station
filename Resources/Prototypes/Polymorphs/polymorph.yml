@@ -32,6 +32,17 @@
     revertOnCrit: false
     revertOnDeath: true
 
+- type: polymorph # For Carpolin
+  id: ForcedCarpSentient
+  configuration:
+    entity: MobCarpSentient
+    forced: true
+    inventory: transfer
+    transferName: true
+    transferDamage: true
+    revertOnCrit: false
+    revertOnDeath: true
+
 - type: polymorph
   id: WizardForcedSkeleton
   configuration:
