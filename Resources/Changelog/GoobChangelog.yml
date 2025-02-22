@@ -5146,3 +5146,9 @@ Entries:
       message: You can now teleport into the microwave normally using a QSI again.
   id: 589
   time: '2025-02-22T07:48:52.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Antagonist ghost roles now require some playtime in order to be taken.
+  id: 590
+  time: '2025-02-22T07:52:12.0000000+00:00'
