@@ -71,6 +71,9 @@
         key: Adrenaline
         component: IgnoreSlowOnDamage
         time: 5
+      - !type:RemoveComponentEffect # goob edit
+        component: DelayedKnockdown
+        locale: reagent-effect-guidebook-remove-delayed-knockdown
     Medicine:
       effects:
       - !type:ResetNarcolepsy
@@ -143,6 +146,9 @@
         key: Adrenaline
         component: IgnoreSlowOnDamage
         time: 5
+      - !type:RemoveComponentEffect # goob edit
+        component: DelayedKnockdown
+        locale: reagent-effect-guidebook-remove-delayed-knockdown
     Medicine:
       effects:
       - !type:ResetNarcolepsy
@@ -225,6 +231,9 @@
         key: Adrenaline
         component: IgnoreSlowOnDamage
         time: 5
+      - !type:RemoveComponentEffect # goob edit
+        component: DelayedKnockdown
+        locale: reagent-effect-guidebook-remove-delayed-knockdown
     Medicine:
       metabolismRate: 1.0
       effects:
@@ -648,6 +657,9 @@
         damage:
           types:
             Poison: 0.1
+      - !type:RemoveComponentEffect
+        component: DelayedKnockdown
+        locale: reagent-effect-guidebook-remove-delayed-knockdown
     Medicine:
       effects:
       - !type:ResetNarcolepsy
