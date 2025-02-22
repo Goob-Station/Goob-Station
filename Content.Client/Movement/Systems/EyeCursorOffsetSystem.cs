@@ -49,7 +49,6 @@ public partial class EyeCursorOffsetSystem : EntitySystem
         var localPlayer = _player.LocalPlayer?.ControlledEntity;
         var mousePos = _inputManager.MouseScreenPosition;
         var screenSize = mainViewport.Size; // Goob - grabbed wizden PR #35087
-        Logger.Log(LogLevel.Warning,"'{0}'",screenSize);
         var minValue = MathF.Min(screenSize.X / 2, screenSize.Y / 2) * _edgeOffset;
 
         var mouseNormalizedPos = new Vector2(-(mousePos.X - screenSize.X / 2) / minValue, (mousePos.Y - screenSize.Y / 2) / minValue); // X needs to be inverted here for some reason, otherwise it ends up flipped.
