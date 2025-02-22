@@ -73143,8 +73143,6 @@ entities:
       pos: 34.5,-21.5
       parent: 60
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 5209
 - proto: Fireplace
