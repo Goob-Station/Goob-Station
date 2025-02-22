@@ -316,3 +316,7 @@
 
 - type: Tag
   id: WizardHat
+
+- type: Tag
+  id: HudMedicalSecurity
+

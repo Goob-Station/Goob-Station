@@ -160,6 +160,9 @@
   - type: Construction
     graph: HudMedSec
     node: medsecHud
+  - type: Tag # Goobstation
+    tags: # Goobstation
+    - HudMedicalSecurity # Goobstation
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons]
