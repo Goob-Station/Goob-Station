@@ -1,3 +1,5 @@
+using Content.Server.GameTicking;
+
 namespace Content.Server._Goobstation.StationEvents.Metric;
 
 /// <summary>
@@ -8,6 +10,7 @@ namespace Content.Server._Goobstation.StationEvents.Metric;
 /// </summary>
 public abstract class ChaosMetricSystem<T> : EntitySystem where T : Component
 {
+    [Dependency] private readonly GameTicker _gameTicker = default!;
     public abstract ChaosMetrics CalculateChaos(EntityUid uid, T component, CalculateChaosEvent args);
 
     public override void Initialize()
@@ -19,6 +22,10 @@ public abstract class ChaosMetricSystem<T> : EntitySystem where T : Component
 
     private void OnCalculateChaos(EntityUid uid, T component, ref CalculateChaosEvent args)
     {
+        if (_gameTicker.RunLevel != GameRunLevel.InRound)
+        {
+            return;
+        }
         var ourChaos = CalculateChaos(uid, component, args);
 
         args.Metrics += ourChaos;

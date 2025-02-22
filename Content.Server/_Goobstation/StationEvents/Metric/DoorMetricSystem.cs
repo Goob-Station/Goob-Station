@@ -1,6 +1,7 @@
 ﻿using Content.Server.Power.Components;
 using Content.Server.Station.Systems;
 using Content.Server._Goobstation.StationEvents.Metric.Components;
+using Content.Server.GameTicking;
 using Content.Shared.Doors.Components;
 using Content.Shared.FixedPoint;
 
@@ -76,8 +77,16 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
         }
 
         // Calculate each stat as a fraction of all doors in the station.
-        //   That way the metrics do not "scale up" on large stations.
+        //   That way the metrics do not "scale up"  on large stations.
+        Logger.Debug(emagCount.ToString());
+        Logger.Debug(fireCount.ToString());
+        Logger.Debug(firelockCounter.ToString());
+        Logger.Debug(pressureCount.ToString());
+        Logger.Debug(powerCount.ToString());
+        Logger.Debug(doorCounter.ToString());
+
         var emagChaos = (emagCount / airlockCounter) * component.EmagCost;
+
         var atmosChaos = (fireCount / firelockCounter) * component.FireCost +
                          (pressureCount / firelockCounter) * component.PressureCost;
         var powerChaos = (powerCount / doorCounter) * component.PowerCost;

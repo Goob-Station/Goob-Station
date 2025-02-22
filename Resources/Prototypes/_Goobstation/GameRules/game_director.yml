@@ -2,11 +2,10 @@
 - type: entity
   id: GameDirector
   parent: BaseGameRule
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   # not abstract so that we can spawn an empty game director to just measure metrics
   components:
     - type: GameDirector
-      storyBeats:
     - type: AnomalyMetric
     - type: CombatMetric
     - type: DoorMetric
@@ -16,7 +15,7 @@
 - type: entity
   id: CombatDynamic
   parent: GameDirector
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: GameDirector
       stories:
@@ -27,7 +26,7 @@
 - type: entity
   id: CalmDynamic
   parent: GameDirector
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: GameDirector
       stories:
