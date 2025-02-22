@@ -5,9 +5,9 @@
   id: MobAbductorAntag
   abstract: true
   components:
-  - type: RandomMetadata
-    nameSegments:
-      - names_abductor
+  # - type: RandomMetadata
+  #   nameSegments:
+  #     - names_abductor
   - type: Abductor
   - type: ActionGrant
     actions:
