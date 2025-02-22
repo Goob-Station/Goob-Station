@@ -4903,3 +4903,9 @@ Entries:
         Lavaland and Mining shuttle
   id: 560
   time: '2025-02-22T04:43:27.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Captains sabre can reflect again.
+  id: 561
+  time: '2025-02-22T04:48:01.0000000+00:00'
