@@ -5071,3 +5071,72 @@ Entries:
       message: Bingle
   id: 582
   time: '2025-02-22T06:33:06.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Added copium!
+  id: 583
+  time: '2025-02-22T06:51:18.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: New smart weaponry t3 arsenal research.
+  id: 584
+  time: '2025-02-22T06:53:37.0000000+00:00'
+- author: Gallagin
+  changes:
+    - type: Add
+      message: Added Leonid Station
+  id: 585
+  time: '2025-02-22T06:53:47.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: >-
+        Added lollypops! They spawn in the nanomed plus, the CMOs locker, can be
+        made in a microwave, etcetera. The recipe is 5 sugar, one paper, and
+        five seconds.
+    - type: Add
+      message: >-
+        Mysterious lollypops containing funky chemicals can be found on
+        expeditions.
+    - type: Add
+      message: 'Added a new uplink item: the Donk Co. Lollypop bundle for 15tc.'
+    - type: Add
+      message: 'Added a new uplink item: the Donk Co. Candy Kit for 100tc.'
+    - type: Add
+      message: Added a new chemical, Carpolin, which can polymorph people into carps.
+    - type: Add
+      message: Added new trinkets (They're all lollypops) for various playtimes.
+  id: 586
+  time: '2025-02-22T06:58:44.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: IPCs now take (half) radiation damage. Cable can be used to repair it.
+  id: 587
+  time: '2025-02-22T07:01:09.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Abductors now have names.
+    - type: Add
+      message: >-
+        Scientist abductors now has a new lab coat, Agent has a new backpack,
+        and the Lone Abductor has both.
+    - type: Tweak
+      message: >-
+        Abductor gear got some changes. In short, agent no longer possesses all
+        the stuff, scientist gets some too, including new rebalanced decloner.
+    - type: Tweak
+      message: IPCs bewail, decloner bolt now deals Ion damage.
+    - type: Tweak
+      message: >-
+        Lone, agent and scientist abductors are now different ghost roles, and a
+        ghosted abductor now will become a ghost role too.
+    - type: Fix
+      message: Abductor Agent's vest is now visible on your character.
+    - type: Remove
+      message: Abductor Agent now does not have any special abilities in surgery.
+  id: 588
+  time: '2025-02-22T07:28:26.0000000+00:00'

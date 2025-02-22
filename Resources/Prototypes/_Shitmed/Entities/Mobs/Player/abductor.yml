@@ -1,11 +1,28 @@
 # Entity Prototypes
 
 - type: entity
-  name: lone abductor
-  parent: BaseMobAbductor
-  id: MobAbductor
+  parent: MobAbductor
+  id: MobAbductorAntag
+  abstract: true
   components:
   - type: Abductor
+  - type: ActionGrant
+    actions:
+      - ActionReturnToShip
+  - type: GhostRole
+    name: abductor-lone-ghost-role-name
+    description: abductor-lone-ghost-role-desc
+    rules: abductors-ghost-role-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: NpcFactionMember
+    factions:
+      - SimpleHostile
+  - type: RandomMetadata
+    nameSegments:
+      - AbductorScientistPrefix
+      - AbductorNames
   - type: Tag
     tags:
       - Abductor
@@ -16,66 +33,54 @@
 
 - type: entity
   name: lone abductor
-  parent: MobAbductor
+  parent: MobAbductorAntag
   id: MobLoneAbductor
   components:
-  - type: AntagObjectives
-    objectives:
-    - StealResearchObjective
-  - type: GhostRole
-    name: abductors-ghost-role-name
-    description: abductors-ghost-role-desc
-    rules: abductors-ghost-role-rules
-    raffle:
-      settings: default
   - type: AbductorScientist
-  - type: ActionGrant
-    actions:
-    - ActionReturnToShip
+  - type: SurgeryIgnoreClothing
+  - type: Sanitized
+  - type: SurgerySpeedModifier
+    speedModifier: 1.5
   - type: Loadout
     prototypes:
       - LoneAbductorGear
 
 - type: entity
   name: abductor scientist
-  parent: MobAbductor
+  parent: MobAbductorAntag
   id: MobAbductorScientist
   components:
-  - type: AntagObjectives
-    objectives:
-    - StealResearchObjective
   - type: GhostRole
-    name: abductors-ghost-role-name
-    description: abductors-ghost-role-desc
-    rules: abductors-ghost-role-rules
-    raffle:
-      settings: default
+    name: abductor-scientist-ghost-role-name
+    description: abductor-scientist-ghost-role-desc
   - type: AbductorScientist
-  - type: ActionGrant
-    actions:
-    - ActionReturnToShip
+  - type: SurgeryIgnoreClothing
+  - type: Sanitized
+  - type: SurgerySpeedModifier
+    speedModifier: 1.5
   - type: Loadout
     prototypes:
       - AbductorScientistGear
 
 - type: entity
   name: abductor agent
-  parent: MobAbductor
+  parent: MobAbductorAntag
   id: MobAbductorAgent
   components:
-  - type: AntagObjectives
-    objectives:
-    - StealResearchObjective
   - type: GhostRole
-    name: abductors-ghost-role-name
-    description: abductors-ghost-role-desc
-    rules: abductors-ghost-role-rules
-    raffle:
-      settings: default
-  - type: AbductorScientist
-  - type: ActionGrant
-    actions:
-    - ActionReturnToShip
+    name: abductor-agent-ghost-role-name
+    description: abductor-agent-ghost-role-desc
+  - type: RandomMetadata
+    nameSegments:
+      - AbductorAgentPrefix
+      - AbductorNames
+  - type: Tag # Ignore AbductorScientist tag
+    tags:
+      - Abductor
+      - CanPilot
+      - FootstepSound
+      - DoorBumpOpener
+  - type: AbductorScientist # Should be removed when we have proper teleportation system
   - type: Loadout
     prototypes:
       - AbductorAgentGear
@@ -85,38 +90,45 @@
 - type: startingGear
   id: LoneAbductorGear
   equipment:
-    head: ClothingHeadHelmetAbductor
-    ears: ClothingHeadsetAltAbductor
     jumpsuit: ClothingUniformJumpsuitAbductor
-    gloves: ClothingHandsGlovesCombat
+    ears: ClothingHeadsetAltAbductor
     shoes: ClothingShoesBootsCombat
+    gloves: ClothingHandsGlovesCombat
+    head: ClothingHeadHelmetAbductor
+    outerClothing: ClothingOuterCoatAbductor
+    back: ClothingBackpackAbductor
     pocket1: AbductorGizmo
     pocket2: WeaponAlien
-    belt: ClothingAbductorBeltFilled
-    back: Wonderprod
+    suitstorage: Wonderprod
 
 - type: startingGear
   id: AbductorScientistGear
   equipment:
-    ears: ClothingHeadsetAltAbductor
     jumpsuit: ClothingUniformJumpsuitAbductor
-    gloves: ClothingHandsGlovesCombat
+    ears: ClothingHeadsetAltAbductor
     shoes: ClothingShoesBootsCombat
+    gloves: ClothingHandsGlovesCombat
+    head: ClothingHeadMirror
+    outerClothing: ClothingOuterCoatAbductor
+    back: ClothingBackpackDuffelAbductor
     pocket1: AbductorGizmo
+    suitstorage: WeaponDecloner
 
 - type: startingGear
   id: AbductorAgentGear
   equipment:
-    head: ClothingHeadHelmetAbductor
-    ears: ClothingHeadsetAltAbductor
     jumpsuit: ClothingUniformJumpsuitAbductor
-    gloves: ClothingHandsGlovesCombat
+    ears: ClothingHeadsetAltAbductor
     shoes: ClothingShoesBootsCombat
+    gloves: ClothingHandsGlovesCombat
+    head: ClothingHeadHelmetAbductor
+    outerClothing: ClothingOuterArmorAbductor
+    back: ClothingBackpackAbductor
     pocket1: Silencer
     pocket2: WeaponAlien
-    belt: ClothingAbductorBeltFilled
-    outerClothing: ClothingOuterArmorAbductor
-    back: Wonderprod
+    suitstorage: Wonderprod
+
+# Spawners
 
 - type: entity
   name: lone abductor spawner
@@ -137,8 +149,8 @@
   id: LoneAbductorSpawner
   components:
   - type: GhostRole
-    name: abductors-ghost-role-name
-    description: abductors-ghost-role-desc
+    name: abductor-lone-ghost-role-name
+    description: abductor-lone-ghost-role-desc
     rules: abductors-ghost-role-rules
   - type: Sprite
     sprite: Markers/jobs.rsi
@@ -166,8 +178,8 @@
   id: AbductorAgentSpawner
   components:
   - type: GhostRole
-    name: abductors-ghost-role-name
-    description: abductors-ghost-role-desc
+    name: abductor-agent-ghost-role-name
+    description: abductor-agent-ghost-role-desc
     rules: abductors-ghost-role-rules
   - type: Sprite
     sprite: Markers/jobs.rsi
@@ -195,8 +207,8 @@
   id: AbductorScientistSpawner
   components:
   - type: GhostRole
-    name: abductors-ghost-role-name
-    description: abductors-ghost-role-desc
+    name: abductor-scientist-ghost-role-name
+    description: abductor-scientist-ghost-role-desc
     rules: abductors-ghost-role-rules
   - type: Sprite
     sprite: Markers/jobs.rsi
