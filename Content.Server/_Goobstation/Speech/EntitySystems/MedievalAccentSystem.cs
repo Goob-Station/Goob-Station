@@ -23,7 +23,7 @@ public sealed class MedievalAccentSystem : EntitySystem
         // Prefix
         if (_random.Prob(0.40f))
         {
-            var pick = _random.Next(1, 41);
+            var pick = _random.Next(1, 42);
 
             // Reverse sanitize capital
             message = message[0].ToString().ToLower() + message.Remove(0, 1);
