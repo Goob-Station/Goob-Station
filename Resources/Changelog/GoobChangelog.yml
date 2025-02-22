@@ -5023,3 +5023,9 @@ Entries:
       message: 'Added my dream of being a airport security guard to the game. '
   id: 575
   time: '2025-02-22T05:51:40.0000000+00:00'
+- author: Scruq445
+  changes:
+    - type: Add
+      message: Added a remaster to Honk! to the lobby and jukebox
+  id: 576
+  time: '2025-02-22T05:59:28.0000000+00:00'
