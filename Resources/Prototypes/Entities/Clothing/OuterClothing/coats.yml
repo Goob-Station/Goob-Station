@@ -73,6 +73,9 @@
         Caustic: 0.75 # not the full 90% from ss13 because of the head
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1
+    knockdownTimeDelta: -1
 
 - type: entity
   abstract: true
@@ -88,6 +91,9 @@
         Heat: 0.7
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1
+    knockdownTimeDelta: -1
 
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]
@@ -111,7 +117,7 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/jensencoat.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ClothingHeadHatHoodChaplainHood
 
 - type: entity
@@ -364,6 +370,9 @@
         Blunt: 0.8
         Slash: 0.65
         Piercing: 0.85
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1
+    knockdownTimeDelta: -1
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -416,6 +425,9 @@
         Piercing: 0.65
         Heat: 0.85
         Caustic: 0.75
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1
+    knockdownTimeDelta: -1
 
 - type: entity
   parent: ClothingOuterStorageBase

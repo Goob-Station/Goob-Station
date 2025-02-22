@@ -12,9 +12,9 @@
     stickPopupSuccess: comp-sticky-success-stick-bomb
     unstickPopupStart: comp-sticky-start-unstick-bomb
     unstickPopupSuccess: comp-sticky-success-unstick-bomb
-    blacklist: # can't stick it to other items
-      components:
-      - Item
+#    blacklist: # can't stick it to other items # nuh uh # Goobstation - Remove C4 item blacklist
+#      components:
+#      - Item
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible

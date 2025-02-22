@@ -14,6 +14,7 @@
       map: [ "enum.ToggleVisuals.Layer" ]
   - type: Stunbaton
     energyPerUse: 50
+    lightAttackEnergyMultiplier: 2 # Goob edit
   - type: ItemToggle
     predictable: false
     soundActivate:
@@ -44,16 +45,26 @@
   - type: StaminaDamageOnHit # goob edited
     damage: 15
     overtime: 40
+    lightAttackDamageMultiplier: 4
+    lightAttackOvertimeDamageMultiplier: 0
     sound: /Audio/Weapons/egloves.ogg
   - type: StaminaDamageOnCollide # goob edited
     damage: 15
     overtime: 40
     sound: /Audio/Weapons/egloves.ogg
+  - type: DelayedKnockdownOnHit # Goobstation
+    useDelay: stunbaton
+  - type: UseDelayBlockMelee # Goobstation
+    delays:
+    - stunbaton
   - type: LandAtCursor # it deals stamina damage when thrown
   - type: Battery
     maxCharge: 1000
     startingCharge: 1000
   - type: UseDelay
+    delays: # Goobstation
+      stunbaton:
+        length: 2.5
   - type: Item
     heldPrefix: off
     size: Normal

@@ -885,10 +885,11 @@
   conditions:
     - !type:TileNotBlocked
       failIfSpace: false
-    - !type:TileType
-      targets:
-        - Lattice
-        - Plating
+# Lavaland Change: add ability to build catwalks on any tiles    
+#    - !type:TileType
+#      targets:
+#        - Lattice
+#        - Plating
   icon:
     sprite: Structures/catwalk.rsi
     state: catwalk_preview

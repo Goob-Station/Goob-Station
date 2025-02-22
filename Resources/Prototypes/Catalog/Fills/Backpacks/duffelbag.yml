@@ -22,11 +22,10 @@
   components:
   - type: StorageFill
     contents:
-      - id: Hemostat
+      - id: DefibrillatorSyndicate
       - id: SawAdvanced
-      - id: Drill
-      - id: Cautery
-      - id: Retractor
+      - id: EnergyCautery
+      - id: AdvancedRetractor
       - id: ScalpelAdvanced
       - id: ClothingHandsGlovesNitrile
       - id: EmergencyRollerBedSpawnFolded

@@ -50,6 +50,7 @@
   - type: Climbing
   - type: NameIdentifier
     group: GenericNumber
+  - type: Fauna # Lavaland Change
 
 - type: entity
   parent: BaseMobArgocyte

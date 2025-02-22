@@ -37,6 +37,8 @@
   name: unremoveable banana clown wig and mask
   components:
   - type: Unremoveable
+  - type: FlashImmunity
+  - type: EyeProtection
 
 - type: entity
   parent: [ClothingMaskBase, BaseMinorContraband]

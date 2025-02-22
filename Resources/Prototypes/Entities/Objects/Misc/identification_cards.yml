@@ -25,6 +25,7 @@
     - WhitelistChameleonIdCard
   - type: StealTarget
     stealGroup: IDCard
+  - type: MiningPoints # DeltaV
   - type: NanoChatCard # DeltaV
 
 #IDs with layers

@@ -5672,6 +5672,13 @@ entities:
     - type: Transform
       pos: 30.5,-9.5
       parent: 2
+- proto: GoldChemistryVial
+  entities:
+  - uid: 2453
+    components:
+    - type: Transform
+      pos: -13.629032,-0.7190852
+      parent: 2
 - proto: GravityGeneratorMini
   entities:
   - uid: 842
@@ -8845,6 +8852,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -8.5,-9.5
       parent: 2
+- proto: SilverChemistryVial
+  entities:
+  - uid: 2454
+    components:
+    - type: Transform
+      pos: -13.770803,-0.65708303
+      parent: 2
 - proto: SinkWide
   entities:
   - uid: 1387
@@ -9559,6 +9573,13 @@ entities:
         - Left: Forward
         - Right: Reverse
         - Middle: Off
+- proto: UraniumChemistryVial
+  entities:
+  - uid: 2455
+    components:
+    - type: Transform
+      pos: -13.487259,-0.78994465
+      parent: 2
 - proto: VendingMachineBooze
   entities:
   - uid: 1501

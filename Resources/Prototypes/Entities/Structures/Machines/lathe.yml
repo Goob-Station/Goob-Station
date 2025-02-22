@@ -385,6 +385,9 @@
       - DeviceQuantumSpinInverter
       - WeaponPlasmaCutter # Goobstation
       - WeaponPlasmaRifle # Goobstation
+      - PKAUpgradeDamage # Lavaland Change
+      - PKAUpgradeRange # Lavaland Change
+      - PKAUpgradeFireRate # Lavaland Change
       - EnergyScalpel # Shitmed Change
       - EnergyCautery # Shitmed Change
       - AdvancedRetractor # Shitmed Change
@@ -433,6 +436,8 @@
       - WeaponLaserCannon
       - WeaponLaserCarbine
       - WeaponXrayCannon
+      - WeaponSubMachineSmart # Goobstation
+      - MagazineSmart # Goobstation
 
 - type: entity
   id: ProtolatheHyperConvection
@@ -788,7 +793,6 @@
     - CockroachCube
     - HumanCube # Goobstation - Start
     - DionaCube
-    - FelinidCube
     - GingerbreadCube
     - MothCube
     - DwarfCube
@@ -797,6 +801,7 @@
     - ReptilianCube
     - VulpkaninCube
     - SlimePersonCube
+    - TajaranCube
     - VoxCube
     - YowieCube # Goobstation - End
   - type: EmagLatheRecipes
@@ -805,6 +810,7 @@
     - SpaceCarpCube
     - SpaceTickCube
     - SkibidiCube # Goobstation
+    - FelinidCube
 
 - type: entity
   id: SecurityTechFab
@@ -882,6 +888,7 @@
       - MagazineMagnum # Goobstation
       - MagazineMagnumLeverRifle # Goobstation
       - MagazineMagnumLeverRifleEmpty # Goobstation
+      - ContrabandDetectorCircuitboard # Goobstation
     dynamicRecipes:
       - BoxBeanbag
       - BoxShotgunIncendiary
@@ -936,6 +943,8 @@
       - RapidSyringeGun # Goobstation
       - SecurityCyberneticEyes # Shitmed Change
       - MedicalCyberneticEyes # Shitmed Change
+      - WeaponSubMachineSmart # Goobstation
+      - MagazineSmart # Goobstation
       # Goobstation - Mechs
       - WeaponMechCombatImmolationGun
       - WeaponMechCombatSolarisLaser
@@ -1447,7 +1456,11 @@
         - IngotSilver1
         - MaterialBananium1
         - MaterialDiamond
-
+    #- type: MaterialStorageMagnetPickup # Delta V - Summary: Adds magnet pull from Frontier
+    #  magnetEnabled: True
+    #  range: 0.30 # Delta V - End Magnet Pull
+    - type: MiningPoints # DeltaV - Source of mining points for miners
+    - type: MiningPointsLathe # DeltaV
 
 - type: entity
   parent: OreProcessor

@@ -18,6 +18,9 @@
         Heat: 0.8 # Goob edit - match regular vest
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1.5
+    knockdownTimeDelta: -1.5
 
 #Mercenary web vest
 - type: entity
@@ -39,6 +42,9 @@
         Heat: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1.5
+    knockdownTimeDelta: -1.5
 
 #Detective's vest
 - type: entity
