@@ -15,6 +15,7 @@ using Content.Shared.Wieldable;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
 using System.Numerics;
+using Content.Shared.RepulseAttract.Events;
 using Content.Shared.Weapons.Melee;
 
 namespace Content.Shared.RepulseAttract;
@@ -38,6 +39,7 @@ public sealed class RepulseAttractSystem : EntitySystem
         SubscribeLocalEvent<RepulseAttractComponent, MeleeHitEvent>(OnMeleeAttempt, before: [typeof(UseDelayOnMeleeHitSystem)], after: [typeof(SharedWieldableSystem)]);
         SubscribeLocalEvent<RepulseAttractComponent, RepulseAttractActionEvent>(OnRepulseAttractAction);
     }
+
     private void OnMeleeAttempt(Entity<RepulseAttractComponent> ent, ref MeleeHitEvent args)
     {
         if (_delay.IsDelayed(ent.Owner))

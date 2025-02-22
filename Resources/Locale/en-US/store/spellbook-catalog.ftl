@@ -26,7 +26,10 @@ spellbook-force-wall-desc =
     Make three walls of pure force that you can pass through, but others can't.
     Doesn't require wizard's robe and hat to cast.
 
-spellbook-polymoprh-spider-name = Spider Polymoprh
+spellbook-repulse-name = Repulse
+spellbook-repulse-desc = Tell people to GITTAH`WEIGH and push 'em away from you.
+
+spellbook-polymorph-spider-name = Spider Polymorph
 spellbook-polymorph-spider-desc = Transforms you into a spider, man!
 
 spellbook-polymorph-rod-name = Rod Form
