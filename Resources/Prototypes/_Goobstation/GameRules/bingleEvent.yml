@@ -1,0 +1,14 @@
+- type: entity
+  id: BingleSpawn
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: bingle-station-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 20
+    weight: 6
+    duration: 50
+    minimumPlayers: 15
+  - type: RandomSpawnRule
+    prototype: SpawnPointGhostBinglePrime
