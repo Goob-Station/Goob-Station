@@ -72,7 +72,17 @@
         path: /Audio/Ambience/Objects/gas_hiss.ogg
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasFlowRegulator
-      
+    - type: VentCrawlerTube # Goobstation - ventcrawl
+      containerId: VentCrawlerTube
+    - type: VentCrawlerJunction # Goobstation - ventcrawl
+      degrees:
+        - 0
+        - -90
+        - 180
+    - type: ContainerContainer # Goobstation - ventcrawl
+      containers:
+        VentCrawlerTube: !type:Container
+
 - type: entity
   parent: GasFilter
   id: GasFilterFlipped
@@ -116,6 +126,16 @@
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: North
+  - type: VentCrawlerTube # Goobstation - ventcrawl
+    containerId: VentCrawlerTube
+  - type: VentCrawlerJunction # Goobstation - ventcrawl
+    degrees:
+      - 0
+      - -90
+      - 180
+  - type: ContainerContainer # Goobstation - ventcrawl
+    containers:
+      VentCrawlerTube: !type:Container
 
 - type: entity
   parent: GasTrinaryBase
@@ -162,7 +182,17 @@
         path: /Audio/Ambience/Objects/gas_hiss.ogg
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasFlowRegulator
-      
+    - type: VentCrawlerTube # Goobstation - ventcrawl
+      containerId: VentCrawlerTube
+    - type: VentCrawlerJunction # Goobstation - ventcrawl
+      degrees:
+        - 0
+        - -90
+        - 180
+    - type: ContainerContainer # Goobstation - ventcrawl
+      containers:
+        VentCrawlerTube: !type:Container
+
 - type: entity
   parent: GasMixer
   id: GasMixerFlipped
@@ -205,6 +235,16 @@
         pipeDirection: North
   - type: Construction
     node: mixerflipped
+  - type: VentCrawlerTube # Goobstation - ventcrawl
+    containerId: VentCrawlerTube
+  - type: VentCrawlerJunction # Goobstation - ventcrawl
+    degrees:
+      - 0
+      - -90
+      - 180
+  - type: ContainerContainer # Goobstation - ventcrawl
+    containers:
+      VentCrawlerTube: !type:Container
 
 - type: entity
   parent: GasPipeBase
@@ -263,3 +303,13 @@
       node: pneumaticvalve
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasFlowRegulator
+    - type: VentCrawlerTube # Goobstation - ventcrawl
+      containerId: VentCrawlerTube
+    - type: VentCrawlerJunction # Goobstation - ventcrawl
+      degrees:
+        - 0
+        - -90
+        - 180
+    - type: ContainerContainer # Goobstation - ventcrawl
+      containers:
+        VentCrawlerTube: !type:Container
