@@ -2,7 +2,7 @@
   parent: BaseHealingItem
   id: BaseMedicalPatch
   name: base patch
-  description: put this on your boo boo
+  description: A patch for applying medicine over time to patients.
   abstract: true
   components:
   - type: Sprite
@@ -37,7 +37,7 @@
   parent: BaseMedicalPatch
   id: MedicalPatchBasic
   name: patch
-  description: put this on your boo boo
+  description: A basic patch for applying medicine over time to patients.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
@@ -63,8 +63,8 @@
 - type: entity
   parent: BaseHealingItem
   id: UsedMedicalPatch
-  name: patch used
-  description: EEEEWWWWWWW
+  name: used patch
+  description: ...ew.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
@@ -80,8 +80,7 @@
 - type: entity
   parent: UsedMedicalPatch
   id: UsedMedicalPatchMakeshift
-  name: patch used
-  description: EEEEWWWWWWW
+  name: used patch
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
@@ -91,7 +90,7 @@
   parent: MedicalPatchBasic
   id: MedicalPatchRapid
   name: rapid patch
-  description:  has racing cars drawn on
+  description: A patch used for more rapid application of medicine. It has race cars drawn on it.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
@@ -109,7 +108,7 @@
   parent: MedicalPatchBasic
   id: MedicalPatchTherapeutic
   name: therapeutic patch
-  description:  used to apply small doses over a long time
+  description: A patch that applies a dose over a longer period of time than other patches.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
@@ -127,7 +126,7 @@
   parent: MedicalPatchBasic
   id: MedicalPatchLarge
   name: large patch
-  description: put this on your Big boo boo
+  description: A larger, higher-capacity patch, used for the really big boo-boos. Not recommended with easily-overdosed chemicals.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
@@ -150,7 +149,7 @@
   parent: BaseMedicalPatch
   id: MedicalPatchMakeshift
   name: makeshift patch
-  description: does not look hygienic
+  description: This doesn't look hygienic. Hopefully it does the job.
   components:
   - type: Sprite
     state: MakeshiftPatch
@@ -215,14 +214,14 @@
     entity: MedicalPatchMakeshift
 
 - type: construction
-  name: Makeshift Patch
+  name: makeshift patch
   id: MedicalPatchMakeshift
   graph: MedicalPatchMakeshift
   startNode: start
   targetNode: medicalPatchMakeshift
   category: construction-category-tools
   objectType: Item
-  description: a little better then nothing
+  description: A little better then nothing. Apply a chemical to it and wear it for treatment over time.
   icon:
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
     state: MakeshiftPatch
@@ -242,14 +241,14 @@
     entity: MedicalPatchMakeshift
 
 - type: construction
-  name: Silk Makeshift Patch
+  name: silk makeshift patch
   id: SilkPatchMakeshift
   graph: SilkPatchMakeshift
   startNode: start
   targetNode: silkPatchMakeshift
   category: construction-category-tools
   objectType: Item
-  description: a little better then nothing
+  description: A little better then nothing. Apply a chemical to it and wear it for treatment over time.
   icon:
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
     state: MakeshiftPatch

@@ -2,7 +2,7 @@
   name: high-tech mechanical pinches
   id: MechanicalPinchesAbductor
   description: A highly advanced set of mechanical pinches, they seem to work like a hemostat and retractor.
-  parent: [BaseToolSurgery, BaseMedicalScienceContraband]
+  parent: [BaseToolSurgery, BaseMajorContraband]
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/cautery.rsi
@@ -42,7 +42,7 @@
   name: high-tech searing tool
   description: A highly advanced cautery with an energy tip, it seems to also work as a drill.
   id: SearingToolAbductor
-  parent: [BaseToolSurgery, BaseMedicalScienceContraband]
+  parent: [BaseToolSurgery, BaseMajorContraband]
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/drill.rsi
@@ -78,7 +78,7 @@
   name: high-tech energy scalpel
   description: A scalpel which uses an energy blade, it seems to also work as a saw.
   id: EnergyScalpelAbductor
-  parent: [BaseToolSurgery, BaseMedicalScienceContraband]
+  parent: [BaseToolSurgery, BaseMajorContraband]
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/scalpel.rsi
@@ -114,7 +114,7 @@
   name: high-tech bone manipulator
   id: BoneManipulatorAbductor
   description: A highly advanced tool, capable of mending bones.
-  parent: [BaseToolSurgery, BaseMedicalScienceContraband]
+  parent: [BaseToolSurgery, BaseMajorContraband]
   components:
     - type: Sprite
       sprite: _Shitmed/Objects/Specific/Medical/Surgery/bonesetter.rsi

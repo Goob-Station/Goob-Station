@@ -32,3 +32,18 @@
   products:
     Profanol: 10
 # END OF MIT-LICENSED CODE
+
+- type: reaction
+  id: CatDrugs
+  minTemp: 370
+  reactants:
+    SpaceDrugs:
+      amount: 1
+    THC:
+      amount: 1
+    Fluorine:
+      amount: 1
+    Mercury:
+      amount: 1
+  products:
+    CatDrugs: 4

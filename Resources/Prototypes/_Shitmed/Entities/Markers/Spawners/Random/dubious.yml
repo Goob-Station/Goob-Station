@@ -12,6 +12,7 @@
       - id: OrganDubiousScrambleDna
       - id: OrganDubiousScrambleLocation
       - id: OrganDubiousArtifact
+      - id: OrganDubiousSteptriggerImmune
     # Annoying/Disruptive Organs Group - 35% chance
     - !type:GroupSelector
       weight: 35

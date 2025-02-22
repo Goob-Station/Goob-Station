@@ -23,7 +23,7 @@ public sealed partial class TakeStaminaDamage : EntityEffect
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("reagent-effect-guidebook-deal-stamina-damage",
             ("immediate", Immediate),
-            ("amount", Amount),
+            ("amount", MathF.Abs(Amount)),
             ("chance", Probability),
             ("deltasign", MathF.Sign(Amount)));
 

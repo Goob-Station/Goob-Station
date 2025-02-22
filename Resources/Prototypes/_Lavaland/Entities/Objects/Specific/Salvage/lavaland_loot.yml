@@ -1,0 +1,30 @@
+- type: entity
+  id: LavalandCursedHeart
+  parent: BaseHumanOrgan
+  name: heart
+  description: "I feel bad for the heartless bastard who lost this."
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
+    state: cursed_heart
+  - type: Item
+    size: Small
+  - type: CursedHeartGrant
+
+- type: entity
+  id: LavalandVampirismCrystal
+  parent: BasePKAUpgrade
+  name: a red crystal
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
+    state: crystal
+  - type: GunUpgrade
+    tags: [ GunUpgradeReloadSpeed ]
+    examineText: gun-upgrade-examine-text-vampirism
+  - type: GunUpgradeVampirism
+    damageOnHit:
+      types:
+        Slash: -1.5
+        Piercing: -1.5
+        Blunt: -1.5
