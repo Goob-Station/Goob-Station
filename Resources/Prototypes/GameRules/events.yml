@@ -42,6 +42,7 @@
     - id: BlobSpawn # Goobstation - Blob
     - id: LoneAbductorSpawn # Shitmed - Starlight Abductors
     - id: DuoAbductorSpawn # Shitmed - Starlight Abductors
+    - id: BingleSpawn #Goobstation - Bingle
 
 - type: entity
   id: BaseStationEvent

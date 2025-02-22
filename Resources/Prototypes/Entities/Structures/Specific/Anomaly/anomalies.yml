@@ -769,6 +769,10 @@
     - FoamingAgent
     - BuzzochloricBees
     - RobustHarvest
+    # Goobstation - Start
+    - Triclor 
+    - Cyanide
+    - Genecide
     usefulChemicals:
     - Cryptobiolin
     - Dylovene
@@ -784,6 +788,10 @@
     - Tricordrazine
     - Artifexium
     - Ethylredoxrazine
+    # Goobstation - Start
+    - Probital
+    - Tirimol
+    - Multiver
     funChemicals:
     - Desoxyephedrine
     - Ephedrine
@@ -802,6 +810,8 @@
     - Honk
     - Carpetium
     - JuiceThatMakesYouWeh
+    # Goobstation - Start
+    - CatDrugs
   - type: Drink
     solution: anomaly
   - type: DrainableSolution

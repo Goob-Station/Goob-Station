@@ -5,19 +5,20 @@
   description: You wear this on your back and put items into it.
   suffix: Chameleon
   components:
-    - type: Tag
-      tags: [] # ignore "WhitelistChameleon" tag
-    - type: Sprite
-      sprite: Clothing/Back/Backpacks/backpack.rsi
-    - type: ChameleonClothing
-      slot: [back]
-      default: ClothingBackpack
-    - type: UserInterface
-      interfaces:
-        enum.StorageUiKey.Key:
-          type: StorageBoundUserInterface
-        enum.ChameleonUiKey.Key:
-          type: ChameleonBoundUserInterface
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/backpack.rsi
+  - type: ChameleonClothing
+    slot: [back]
+    default: ClothingBackpack
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: HideContrabandContent #Goobstation-Contraband detector
 
 - type: entity
   parent: Clothing

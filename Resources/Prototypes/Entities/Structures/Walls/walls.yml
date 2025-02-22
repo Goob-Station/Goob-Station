@@ -1349,8 +1349,12 @@
             bounds: "-0.5,-0.5,0.5,0.5"
           mask:
             - FullTileMask
-          layer:
-            - WallLayer
+          layer: # Goob edit
+            - Opaque
+            - HighImpassable
+            - MidImpassable
+            - LowImpassable
+            - BulletImpassable
     - type: Airtight
     - type: Sprite
       sprite: Structures/Magic/forcewall.rsi

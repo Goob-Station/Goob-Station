@@ -182,6 +182,42 @@
     back:
     - CardBoxNanotrasen
 
+# Candy!
+
+- type: loadout
+  id: FoodSnackLollypopWrapped
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:OverallPlaytimeRequirement
+      time: 36000 # 10hr
+  storage:
+    back:
+    - FoodSnackLollypopWrapped
+
+- type: loadout
+  id: FoodSnackLollypopWrappedRainbow
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:OverallPlaytimeRequirement
+      time: 1800000 # 500hr
+  storage:
+    back:
+    - FoodSnackLollypopWrappedRainbow
+
+- type: loadout
+  id: FoodSnackLollypopWrappedCarp
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSalvageSpecialist
+      time: 360000 # 100hr
+  storage:
+    back:
+    - FoodSnackLollypopWrappedCarp
+
 # End GoobStation
 
 # Towels
