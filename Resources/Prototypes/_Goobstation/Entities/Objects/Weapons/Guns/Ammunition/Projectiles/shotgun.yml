@@ -96,6 +96,6 @@
   parent: HighCaliberPelletShotgun
   components:
   - type: ProjectileSpread
-    proto: BigPelletShotgun
+    proto: HighCaliberPelletShotgun
     count: 6
     spread: 15
