@@ -13,7 +13,7 @@
   supervisors: job-supervisors-medicine
   access:
   - Medical
-  - Maintenance
+  # - Maintenance # Goobstation - Realism Update
   special: # Shitmed change
   - !type:AddComponentSpecial
     components:

@@ -8,7 +8,7 @@
   supervisors: job-supervisors-everyone
   canBeAntag: false # GOOBSTATION: THE RECKONING COMES
   access:
-  - Maintenance
+  # - Maintenance # Goobstation - Realism Update
 
 - type: startingGear
   id: PassengerGear

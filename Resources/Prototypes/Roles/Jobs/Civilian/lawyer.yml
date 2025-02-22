@@ -13,7 +13,7 @@
   - Service
   - Lawyer
   - Brig
-  - Maintenance
+  # - Maintenance # Goobstation - Realism Update
 
 - type: startingGear
   id: LawyerGear

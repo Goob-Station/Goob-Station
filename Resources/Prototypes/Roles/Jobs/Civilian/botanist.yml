@@ -8,7 +8,7 @@
   supervisors: job-supervisors-hop
   access:
   - Service
-  - Maintenance
+  # - Maintenance # Goobstation - Realism Update
   - Hydroponics
   extendedAccess:
   - Kitchen

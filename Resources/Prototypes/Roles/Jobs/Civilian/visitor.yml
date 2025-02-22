@@ -8,6 +8,6 @@
   setPreference: false
   overrideConsoleVisibility: true
   access:
-  - Maintenance
+  # - Maintenance # Goobstation - Realism Update
   extendedAccess:
   - External

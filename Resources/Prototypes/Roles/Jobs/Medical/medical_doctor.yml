@@ -12,7 +12,7 @@
   supervisors: job-supervisors-cmo
   access:
   - Medical
-  - Maintenance
+  # - Maintenance # Goobstation - Realism Update
   extendedAccess:
   - Chemistry
   special: # Shitmed change

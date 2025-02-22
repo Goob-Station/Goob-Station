@@ -7,7 +7,7 @@
   icon: "JobIconMusician"
   supervisors: job-supervisors-hire
   access:
-  - Maintenance # TODO Remove maint access for all gimmick jobs once access work is completed
+  # - Maintenance # TODO Remove maint access for all gimmick jobs once access work is completed # Goobstation - Realism Update
   - Theatre
   special:
   - !type:GiveItemOnHolidaySpecial

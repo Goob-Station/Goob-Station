@@ -13,7 +13,7 @@
   access:
   - Medical
   - Chemistry
-  - Maintenance
+  # - Maintenance # Goobstation - Realism Update
   # Shitmed Change
   special:
   - !type:AddComponentSpecial

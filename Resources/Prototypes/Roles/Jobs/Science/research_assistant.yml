@@ -13,7 +13,7 @@
   supervisors: job-supervisors-science
   access:
   - Research
-  - Maintenance
+  # - Maintenance # Goobstation - Realism Update
 
 - type: startingGear
   id: ResearchAssistantGear

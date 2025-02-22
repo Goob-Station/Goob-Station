@@ -9,7 +9,7 @@
   access:
   - Service
   - Janitor
-  - Maintenance
+  # - Maintenance # Goobstation - Realism Update
   special:
   - !type:GiveItemOnHolidaySpecial
     holiday: GarbageDay
