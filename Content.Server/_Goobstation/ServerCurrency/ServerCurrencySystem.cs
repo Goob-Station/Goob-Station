@@ -78,8 +78,12 @@ namespace Content.Server._Goobstation.ServerCurrency
                     {
                         int money = _goobcoinsPerPlayer;
                         var session = mind.Session;
-                        if (session is not null && !_jobs.CanBeAntag(session))
-                            money *= _goobcoinsNonAntagMultiplier;
+                        if (session is not null)
+                        {
+                            money += _jobs.GetJobGoobcoins(session);
+                            if (!_jobs.CanBeAntag(session))
+                                money *= _goobcoinsNonAntagMultiplier;
+                        }
 
                         if (_goobcoinsServerMultiplier != 1)
                             money *= _goobcoinsServerMultiplier;
