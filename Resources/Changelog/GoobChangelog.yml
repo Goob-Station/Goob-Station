@@ -5057,3 +5057,11 @@ Entries:
       message: Medical security sun glasses are able to be constructed.
   id: 580
   time: '2025-02-22T06:20:34.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Stunbaton/stunprod light attack buffed, read security guidebook for more
+        details.
+  id: 581
+  time: '2025-02-22T06:25:32.0000000+00:00'
