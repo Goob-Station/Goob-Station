@@ -6,6 +6,10 @@
   name: shell (.75 carpshot)
   parent: BaseShellShotgun
   components:
+  - type: Tag
+    tags:
+     - Cartridge
+     - ShellShotgunHeavy
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Cartridges/highcaliber-shell.rsi
     layers:
@@ -21,6 +25,10 @@
   name: shell (.75 dragons breath)
   parent: ShellShotgunHighCaliber
   components:
+    - type: Tag
+      tags:
+        - Cartridge
+        - ShellShotgunHeavy
     - type: Sprite
       layers:
         - state: incendiary
@@ -35,6 +43,10 @@
   name: shell (.75 practice)
   parent: ShellShotgunHighCaliber
   components:
+    - type: Tag
+      tags:
+        - Cartridge
+        - ShellShotgunHeavy
     - type: Sprite
       layers:
         - state: practice
@@ -49,6 +61,10 @@
   name: shell (.75 depleted uranium)
   parent: ShellShotgunHighCaliber
   components:
+    - type: Tag
+      tags:
+        - Cartridge
+        - ShellShotgunHeavy
     - type: Sprite
       layers:
         - state: depleted-uranium
@@ -86,6 +102,10 @@
   name: cartridge (.75 caliber ensnaring slug)
   parent: ShellShotgunSlugHighCaliber
   components:
+  - type: Tag
+    tags:
+      - Cartridge
+      - ShellShotgunHeavy
   - type: CartridgeAmmo
     proto: BulletSlugEnsnaring
   - type: Sprite
@@ -101,6 +121,10 @@
   name: cartridge (.75 caliber EMP slug)
   parent: ShellShotgunSlugHighCaliber
   components:
+  - type: Tag
+    tags:
+     - Cartridge
+     - ShellShotgunHeavy
   - type: CartridgeAmmo
     proto: BulletMagnumEMP
   - type: Sprite
@@ -116,6 +140,10 @@
   name: cartridge (.75 caliber flash slug)
   parent: ShellShotgunSlugHighCaliber
   components:
+  - type: Tag
+    tags:
+     - Cartridge
+     - ShellShotgunHeavy
   - type: CartridgeAmmo
     proto: BulletSlugFlash
   - type: Sprite
@@ -131,6 +159,10 @@
   name: shell (.75 beanbag)
   parent: ShellShotgunSlugHighCaliber
   components:
+  - type: Tag
+    tags:
+     - Cartridge
+     - ShellShotgunHeavy
   - type: Tag
     tags:
     - Cartridge
