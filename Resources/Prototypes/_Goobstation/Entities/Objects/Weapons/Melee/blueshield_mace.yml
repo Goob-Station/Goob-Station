@@ -29,6 +29,8 @@
     activatedDamage:
       types:
         Heat: 5
+    soundHit:
+      collection: MetalThud
   - type: Stunbaton
     energyPerUse: 80
     lightAttackEnergyMultiplier: 2 # Goob edit
@@ -47,7 +49,7 @@
     damage: 40
     overtime: 40
     lightAttackDamageMultiplier: 2
-    lightAttackOvertimeDamageMultiplier: 0
+    lightAttackOvertimeDamageMultiplier: 0.5
     sound: /Audio/Weapons/egloves.ogg
   - type: StaminaDamageOnCollide
     damage: 15
