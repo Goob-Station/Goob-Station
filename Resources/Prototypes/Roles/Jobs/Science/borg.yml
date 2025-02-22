@@ -13,7 +13,7 @@
   supervisors: job-supervisors-rd
   jobEntity: StationAiBrain
   jobPreviewEntity: PlayerStationAiPreview
-  applyTraits: false
+  applyTraits: true
 
 - type: job
   id: Borg
@@ -27,4 +27,4 @@
   icon: JobIconBorg
   supervisors: job-supervisors-rd
   jobEntity: PlayerBorgBattery
-  applyTraits: false
+  applyTraits: true
