@@ -30,6 +30,9 @@
   id: CartridgeMagicBullet
 
 - type: Tag
+  id: CartridgeSmart
+
+- type: Tag
   id: Clarke
 
 - type: Tag
@@ -195,6 +198,9 @@
   id: MagazineMagnumLeverRifle
 
 - type: Tag
+  id: MagazineSmart
+
+- type: Tag
   id: Mask
 
 - type: Tag
@@ -316,3 +322,7 @@
 
 - type: Tag
   id: WizardHat
+
+- type: Tag
+  id: HudMedicalSecurity
+
