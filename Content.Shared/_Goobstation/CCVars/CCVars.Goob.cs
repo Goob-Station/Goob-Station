@@ -240,7 +240,7 @@ public sealed partial class GoobCVars
         CVarDef.Create("goob.coins_server_multiplier", 1, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> GoobcoinMinPlayers =
-        CVarDef.Create("goob.coins_min_players", 0, CVar.SERVERONLY);
+        CVarDef.Create("goob.coins_min_players", 5, CVar.SERVERONLY);
 
     #endregion
 }
