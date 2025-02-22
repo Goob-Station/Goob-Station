@@ -110,7 +110,7 @@
   - type: Speech
     speechVerb: Slime
     speechSounds: Slime
-    allowedEmotes: ['Squish']
+    allowedEmotes: ['Squish', 'Bubble', 'Pop'] # Imp: add Bubble, Pop
   - type: TypingIndicator
     proto: slime
   - type: Vocal
