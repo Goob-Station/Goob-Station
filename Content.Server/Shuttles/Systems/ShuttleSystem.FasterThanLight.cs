@@ -4,6 +4,7 @@ using System.Numerics;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Station.Events;
+using Content.Shared._Lavaland.Shuttles;
 using Content.Shared.Body.Components;
 using Content.Shared.Buckle.Components;
 using Content.Shared.CCVar;
@@ -631,7 +632,7 @@ public sealed partial class ShuttleSystem
                     continue;
 
                 // goob edit - stunmeta
-                _stuns.TryKnockdown(child, _hyperspaceKnockdownTime, true, status);
+                _stuns.KnockdownOrStun(child, _hyperspaceKnockdownTime, true, status);
 
                 // If the guy we knocked down is on a spaced tile, throw them too
                 if (grid != null)

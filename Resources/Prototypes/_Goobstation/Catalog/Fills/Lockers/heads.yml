@@ -30,11 +30,11 @@
     - id: ClothingHeadHelmetSwat
     - id: Flash
     - id: FlashlightSeclite
-    - id: ClothingBeltSecurityFilled
     - id: ClothingBlueshieldArmourVest
     - id: ClothingEyesGlassesMedSec
     - id: ClothingHandsGlovesCombat
     - id: ClothingOuterHardsuitBlueshield
+    - id: BoxZiptie
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
 

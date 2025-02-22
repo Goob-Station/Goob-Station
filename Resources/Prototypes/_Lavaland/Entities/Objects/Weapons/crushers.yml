@@ -1,0 +1,203 @@
+- type: entity
+  parent: [BaseItem, BaseSecurityCargoContraband]
+  id: LavalandWeaponKineticBase
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - Pickaxe
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_spear.rsi
+    state: icon
+  - type: AmmoCounter
+  - type: UseDelayOnShoot
+  - type: UseDelay
+    delay: 0.9
+  - type: Gun
+    soundGunshot: /Audio/Weapons/plasma_cutter.ogg
+    fireRate: 1
+    useKey: false
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 0.5
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+  - type: BasicEntityAmmoProvider
+    proto: BulletCharge
+    capacity: 1
+    count: 1
+  - type: DisarmMalus
+  - type: PressureDamageChange
+  - type: MegafaunaWeaponLooter
+
+- type: entity
+  parent: [LavalandWeaponKineticBase, BaseSecurityCargoContraband]
+  id: LavalandWeaponKineticSpear
+  name: kinetic spear
+  description: A long-ranged melee weapon. Deals less damage than a normal crusher, but has longer attack range.
+  components:
+  - type: Tag
+    tags:
+      - Pickaxe
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_spear.rsi
+    state: icon
+  - type: AmmoCounter
+  - type: UseDelayOnShoot
+  - type: UseDelay
+    delay: 0.9
+  - type: Gun
+    soundGunshot: /Audio/Weapons/plasma_cutter.ogg
+    fireRate: 1
+    useKey: false
+  - type: RechargeBasicEntityAmmo
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+    rechargeCooldown: 0.5
+  - type: BasicEntityAmmoProvider
+    proto: BulletCharge
+    capacity: 1
+    count: 1
+  - type: MeleeWeapon
+    attackRate: 0.8
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 9
+        Slash: 5
+    soundHit:
+      collection: MetalThud
+    angle: 0
+    animation: WeaponArcThrust
+    range: 2.2
+  - type: GunRequiresWield
+  - type: Item
+    size: Ginormous
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_spear-inhands.rsi
+  - type: DisarmMalus
+  - type: Wieldable
+  - type: Sharp
+  - type: MeleeRequiresWield
+    fumbleOnAttempt: true
+  - type: DamageBoostOnMarker
+    boost:
+      types: # Totals to 60 damage when hitting marked targets
+        Blunt: 31
+        Slash: 14
+    backstabBoost: # And 20 extra for a backstab. Adding up to 80
+      types:
+        Blunt: 11
+        Slash: 9
+
+- type: entity
+  parent: LavalandWeaponKineticBase
+  id: LavalandWeaponKineticHammer
+  name: kinetic hammer
+  description: A beefy, two-handed weapon that inflicts knockback and heavier damage than a crusher.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_hammer.rsi
+    state: icon
+  - type: UseDelay
+    delay: 1
+  - type: MeleeWeapon
+    attackRate: 1.2
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 15
+    soundHit:
+      collection: MetalThud
+    angle: 0
+    animation: WeaponArcThrust
+    range: 1.6
+  - type: Item
+    size: Ginormous
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_hammer-inhands.rsi
+  - type: MeleeThrowOnHit
+    speed: 5
+    lifetime: 0.5
+  - type: FlipOnHit
+  - type: GunRequiresWield
+  - type: Wieldable
+  - type: MeleeRequiresWield
+    fumbleOnAttempt: true
+  - type: DamageBoostOnMarker
+    boost:
+      types: # BLOOD FOR THE BLOOD GOD ITS A FUCKING HAMMER
+        Blunt: 75
+
+
+- type: entity
+  parent: LavalandWeaponKineticBase
+  id: LavalandWeaponKineticClaws
+  name: kinetic claws
+  description: Unleash your inner edgelord with this one-handed claw small enough to fit in your backpack. Deals a lot more damage when backstabbing marked targets.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_claws.rsi
+    state: icon
+  - type: UseDelay
+    delay: 1
+  - type: MeleeWeapon
+    attackRate: 1.5
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Slash: 5
+    soundHit:
+      collection: MetalThud
+    angle: 0
+    animation: WeaponArcThrust
+    range: 1.6
+  - type: Item
+    size: Normal
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_claws-inhands.rsi
+  - type: Sharp
+  - type: DamageBoostOnMarker
+    boost:
+      types: # Totals to 45 damage when hitting marked targets
+        Slash: 25
+        Blunt: 15
+    backstabBoost: # And 120 extra for a backstab. Adding up to 165!!!
+      types:
+        Slash: 75
+        Blunt: 45
+
+- type: entity
+  parent: LavalandWeaponKineticBase
+  id: LavalandWeaponKineticMachete
+  name: kinetic machete
+  description: A smaller, one-handed variant of the crusher which allows you to block attacks.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_machete.rsi
+    state: icon
+  - type: UseDelay
+    delay: 1
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 15
+    soundHit:
+      collection: MetalThud
+    angle: 0
+    animation: WeaponArcThrust
+    range: 1.6
+  - type: Item
+    size: Ginormous
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_machete-inhands.rsi
+  # too lazy to port parrying and risk a [redacted] lmao
+  - type: Sharp
+  - type: DamageBoostOnMarker
+    boost:
+      types: # Totals to 50 damage when hitting marked targets
+        Slash: 25
+        Blunt: 10
+    backstabBoost: # And 20 extra for a backstab
+      types:
+        Slash: 15
+        Blunt: 5
+  - type: BlockCharge
+    rechargeTime: 120
+    markerReductionTime: 20

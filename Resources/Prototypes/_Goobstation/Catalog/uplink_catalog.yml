@@ -548,6 +548,16 @@
       components:
       - SurplusBundle
 
+- type: listing
+  id: UplinkSyndicateWeaponModuleAdvanced
+  name: uplink-syndicate-weapon-module-advanced-name
+  description: uplink-syndicate-weapon-module-advanced-desc
+  productEntity: BorgModuleSyndicateWeaponAdvanced
+  cost:
+    Telecrystal: 40 # goob
+  categories:
+  - UplinkDisruption
+
 # Mechs
 
 - type: listing

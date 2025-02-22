@@ -38,3 +38,11 @@ public sealed partial class DamageMarkerComponent : Component
     [AutoPausedField]
     public TimeSpan EndTime;
 }
+
+/// <summary>
+///     Lavaland Change: We raise this event so that the server can determine how much extra damage to apply to an entity.
+/// </summary>
+/// <remarks>
+///     I hate having to deal with only serverside for this, but atmos is not predicted lmao.
+/// </remarks>
+public record struct ApplyMarkerBonusEvent(EntityUid Weapon, EntityUid User);

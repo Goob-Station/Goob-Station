@@ -13,6 +13,9 @@ public sealed partial class StunbatonComponent : Component
     [AutoNetworkedField]
     public float EnergyPerUse = 350;
 
+    [DataField, AutoNetworkedField]
+    public float LightAttackEnergyMultiplier = 1f;
+
     [DataField("sparksSound")]
     public SoundSpecifier SparksSound = new SoundCollectionSpecifier("sparks");
 }

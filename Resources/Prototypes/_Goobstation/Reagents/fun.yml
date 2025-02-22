@@ -53,3 +53,35 @@
         key: Vulgarity
         component: VulgarAccent
 # END OF MIT-LICENSED CODE
+
+- type: reagent
+  id: CatDrugs
+  name: reagent-name-cat-drugs
+  group: Toxins
+  desc: reagent-desc-cat-drugs
+  physicalDesc: reagent-physical-desc-fuzzy
+  flavor: fizzy
+  color: "#ffff40"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.1
+      effects:
+      - !type:Emote
+        emote: CatMeow
+        showInChat: true
+        force: true
+        probability: 0.5
+      - !type:Polymorph
+        prototype: Cat
+        conditions:
+        - !type:OrganType
+          type: Animal
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 50
+      - !type:AdjustReagent
+        reagent: CatDrugs
+        amount: -20
+        conditions:
+        - !type:ReagentThreshold
+          min: 50

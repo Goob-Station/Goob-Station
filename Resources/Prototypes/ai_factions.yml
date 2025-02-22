@@ -9,6 +9,8 @@
     - Revolutionary
     - Heretic # goob edit - heretics
     - Blob # Goobstation - Blob
+  friendly: # Goobstation
+    - Wizard
 
 - type: npcFaction
   id: NanoTrasen
@@ -21,6 +23,7 @@
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - Wizard # goob edit - wizard
 
 - type: npcFaction
   id: Mouse
@@ -50,6 +53,8 @@
   - Revolutionary
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  friendly: # Goobstation
+    - Wizard
 
 - type: npcFaction
   id: SimpleNeutral
@@ -65,6 +70,7 @@
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - Wizard # goob edit - wizard
 
 - type: npcFaction
   id: Xeno
@@ -77,6 +83,8 @@
   - Revolutionary
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  friendly: # Goobstation
+    - Wizard
 
 - type: npcFaction
   id: Zombie
@@ -91,6 +99,7 @@
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - Wizard # goob edit - wizard
 
 - type: npcFaction
   id: Revolutionary
@@ -100,3 +109,4 @@
   - SimpleHostile
   - Dragon
   - Blob # Goobstation - Blob
+  - Wizard # Goobstation - wizard

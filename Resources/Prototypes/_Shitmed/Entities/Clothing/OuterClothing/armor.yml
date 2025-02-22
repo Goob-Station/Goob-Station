@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingOuterArmorBasic
+  parent: [ BaseMajorContraband, ClothingOuterArmorBasic ]
   id: ClothingOuterArmorAbductor
   name: agent vest
   components:
@@ -11,6 +11,9 @@
   - type: Item
     size: Normal
   - type: AbductorVest
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2
   - type: ItemSwitch
     state: stealth
     states:
