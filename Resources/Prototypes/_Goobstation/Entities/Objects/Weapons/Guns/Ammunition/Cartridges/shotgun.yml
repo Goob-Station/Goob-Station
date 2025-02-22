@@ -163,10 +163,6 @@
     tags:
      - Cartridge
      - ShellShotgunHeavy
-  - type: Tag
-    tags:
-    - Cartridge
-    - ShellShotgunHeavy
   - type: Sprite
     layers:
     - state: beanbag
