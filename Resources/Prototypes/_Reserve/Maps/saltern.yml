@@ -17,7 +17,6 @@
       - type: StationJobs
         availableJobs:
           #command
-          StationAi: [ 1, 1 ]
           NanotrasenRepresentative: [ 1, 1 ]
           BlueshieldOfficer: [ 1, 1 ]
           Captain: [ 1, 1 ]
