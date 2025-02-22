@@ -59430,11 +59430,6 @@ entities:
         - 0
         - 0
         - 0
-  - uid: 2758
-    components:
-    - type: Transform
-      pos: -19.5,-2.5
-      parent: 60
 - proto: ClosetL3VirologyFilled
   entities:
   - uid: 2962
