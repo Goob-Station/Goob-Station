@@ -1,0 +1,80 @@
+# Lava, but Land
+- type: biomeTemplate
+  id: LavaLand
+  layers:
+    - !type:BiomeEntityLayer
+      threshold: 1
+      noise:
+        frequency: 1
+        seed: 15
+      allowedTiles:
+        - FloorBasalt
+      entities:
+        - BasaltOne
+        - BasaltTwo
+        - BasaltThree
+        - BasaltFour
+        - BasaltFive
+    - !type:BiomeDecalLayer
+      allowedTiles:
+        - FloorBasalt
+      threshold: 0.95
+      divisions: 1
+      noise:
+        seed: 25
+        frequency: 1
+      decals:
+        - Basalt1
+        - Basalt2
+        - Basalt3
+        - Basalt4
+        - Basalt5
+        - Basalt6
+        - Basalt7
+        - Basalt8
+        - Basalt9
+    - !type:BiomeEntityLayer
+      threshold: 0.95
+      noise:
+        seed: 0
+        noiseType: OpenSimplex2
+        frequency: 2
+      allowedTiles:
+        - FloorBasalt
+      entities:
+        - FloraRockSolid
+    - !type:BiomeEntityLayer
+      threshold: 0.2
+      noise:
+        seed: 10
+        frequency: 0.025
+        fractalType: FBm
+        octaves: 5
+        lacunarity: 2
+        gain: 0.4
+      allowedTiles:
+        - FloorBasalt
+      entities:
+        - FloorLavaEntity
+    # Rock formations
+    - !type:BiomeEntityLayer
+      allowedTiles:
+        - FloorBasalt
+      threshold: -0.25
+      noise:
+        seed: 5
+        noiseType: Cellular
+        frequency: 0.05
+        lacunarity: 2
+        fractalType: FBm
+        octaves: 5
+        cellularDistanceFunction: Euclidean
+        cellularReturnType: Distance2
+      entities:
+        - WallRockBasalt
+    - !type:BiomeDummyLayer
+      id: Loot
+    # Fill basalt
+    - !type:BiomeTileLayer
+      threshold: -1
+      tile: FloorBasalt

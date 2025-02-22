@@ -17,6 +17,15 @@ public sealed partial class NPCMeleeCombatComponent : Component
 
     [ViewVariables]
     public CombatStatus Status = CombatStatus.Normal;
+
+    /// <summary>
+    ///     Lava edit - how much seconds does it take for a mob to begin attacking once in range.
+    ///     This is to prevent instant attacks and give more time to dodge.
+    /// </summary>
+    // Lavaland Change Start
+    [ViewVariables] public float ChargeupDelay = 1f;
+    [ViewVariables] public float ChargeupTimer = 0f;
+    // Lavaland Change end
 }
 
 public enum CombatStatus : byte
