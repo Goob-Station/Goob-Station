@@ -5164,3 +5164,11 @@ Entries:
       message: Tiders can no longer roll antag, get a job you bum.
   id: 592
   time: '2025-02-22T08:39:30.0000000+00:00'
+- author: Cerise-Cattowo
+  changes:
+    - type: Add
+      message: >-
+        Forsooth I say, thy manner o' speech hath been given a new enchantment!
+        [Medieval accent]
+  id: 593
+  time: '2025-02-22T15:04:19.0000000+00:00'
