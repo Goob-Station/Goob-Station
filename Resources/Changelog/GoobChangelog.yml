@@ -4909,3 +4909,9 @@ Entries:
       message: Captains sabre can reflect again.
   id: 561
   time: '2025-02-22T04:48:01.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Tweak
+      message: Allows cyborgs to have traits, like accents.
+  id: 562
+  time: '2025-02-22T04:49:01.0000000+00:00'
