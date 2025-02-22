@@ -1,0 +1,25 @@
+- type: entity
+  name: dualetta kit
+  parent: BoxCardboard
+  id: BoxDualettaKit
+  description: A box full of completely legal stuff.
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponPistolDualetta
+      amount: 2
+
+- type: entity
+  name: box of lollypops
+  parent: [BoxCardboard, BaseSyndicateContraband]
+  id: SyndicateLollypopBundle
+  description: A box full of Donk co. candy. What could be inside?
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodSnackLollypopWrappedMysteryEvil
+      amount: 9
+  - type: Sprite
+    layers:
+    - state: box_of_doom
+    - state: candy

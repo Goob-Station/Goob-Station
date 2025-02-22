@@ -6,6 +6,10 @@
   name: "reptilian body part"
   abstract: true
   components:
+  - type: Icon # Shitmed Change
+    sprite: Mobs/Species/Reptilian/parts.rsi
+  - type: BodyPart # Shitmed Change
+    species: Reptilian
   - type: Extractable
     juiceSolution:
       reagents:

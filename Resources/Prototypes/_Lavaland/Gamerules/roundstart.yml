@@ -1,0 +1,5 @@
+- type: entity
+  id: LavalandStormScheduler
+  parent: BaseGameRule
+  components:
+  - type: LavalandStormSchedulerRule

@@ -191,6 +191,7 @@
     state: wide_inner
 
 # Felinid Tails
+# Goobstation - Tajaran since they're fully compatible
 
 - type: marking
   id: FelinidTailBasic

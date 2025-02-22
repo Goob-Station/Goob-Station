@@ -1,8 +1,8 @@
 - type: entity
   parent: [ ClothingBackpackDuffel, BaseMajorContraband ]
   id: ClothingBackpackDuffelAbductor
-  name: alien surgery duffel bag
-  description: An ordinary surgical duffel bag woven from a durable fiber.
+  name: alien duffel bag
+  description: An ordinary duffel bag woven from a durable fiber.
   components:
   - type: Sprite
     sprite: _Shitmed/Clothing/Back/Duffels/abductor.rsi
@@ -11,11 +11,3 @@
   - type: Storage
     grid:
     - 0,0,8,4
-
-- type: entity
-  parent: ClothingBackpackDuffelAbductor
-  id: ClothingBackpackDuffelAbductorBundle
-  abstract: true
-  components:
-  - type: Tag
-    tags: []

@@ -18,7 +18,6 @@
     # Goobstation - Custom lobby music
     - /Audio/Lobby/skubstep.ogg
     - /Audio/Lobby/sneedsfeedandseed.ogg
-    - /Audio/Lobby/honk.ogg
     - /Audio/Lobby/clownalwayswins.ogg
     - /Audio/Lobby/clownwmv.ogg
     - /Audio/Lobby/dawsonschristian.ogg
@@ -30,5 +29,6 @@
     - /Audio/Lobby/monument.ogg
     - /Audio/Lobby/marhaba.ogg
     - /Audio/Lobby/the_future_soon.ogg
+    - /Audio/Lobby/horn.ogg
   # Reserve
     - /Audio/Lobby/retour.ogg

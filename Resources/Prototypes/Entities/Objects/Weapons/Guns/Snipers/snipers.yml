@@ -46,8 +46,19 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
-  - type: Item # Goobstation - Bulk mosin crate
+  - type: Item  # Goob edit start
     size: Large
+  - type: MeleeWeapon
+    damage:
+      types:
+       Slash: 6
+       Piercing: 7
+    angle: 0
+    wideAnimationRotation: -135
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: MeleeRequiresWield # Goob edit end
 
 - type: entity
   name: Hristov

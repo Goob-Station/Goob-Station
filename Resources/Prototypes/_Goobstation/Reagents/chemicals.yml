@@ -1,0 +1,7 @@
+- type: reagent
+  id: Cryostylane
+  name: reagent-name-cryostylane
+  desc: reagent-desc-cryostylane
+  physicalDesc: reagent-physical-desc-cold
+  flavor: cold
+  color: "#488bff" # potentially something more once we get reactions with things in air
