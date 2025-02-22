@@ -39,7 +39,7 @@ public sealed partial class MiningVoucherMenu : RadialMenu
             var kit = _proto.Index(comp.Kits[i]);
             var button = new RadialMenuTextureButton()
             {
-                StyleClasses = { "RadialMenuButton" },
+                StyleClasses = { "RadialMenuTextureButtonWithSector" },
                 SetSize = new Vector2(64f, 64f),
                 ToolTip = Loc.GetString(kit.Description)
             };
