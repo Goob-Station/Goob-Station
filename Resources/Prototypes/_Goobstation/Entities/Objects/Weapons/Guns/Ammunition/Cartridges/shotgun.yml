@@ -3,6 +3,10 @@
   name: shell (.75 slug)
   parent: BaseShellShotgun
   components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - ShellShotgunHeavy
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Cartridges/highcaliber-shell.rsi
     layers:
@@ -77,8 +81,7 @@
   - type: Tag
     tags:
     - Cartridge
-    - ShellShotgun
-    - ShellShotgunLight
+    - ShellShotgunHeavy
   - type: Sprite
     layers:
     - state: beanbag

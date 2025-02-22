@@ -12,7 +12,7 @@
     mayTransfer: true
     whitelist:
       tags:
-        - ShellShotgun
+        - ShellShotgunHeavy
     proto: ShellShotgunHighCaliber
     capacity: 8
   - type: Item
