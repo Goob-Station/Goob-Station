@@ -1,0 +1,19 @@
+- type: entity
+  parent: MarkerBase
+  id: LavalandCrateNecropolisRandom
+  name: random necropolis chest spawner
+  suffix: Lavaland
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: _Lavaland/Structures/Storage/Crates/necropolechest.rsi
+        state: icon
+  - type: RandomSpawner
+    offset: 0
+    prototypes:
+    - LavalandCrateNecropolisCultRobe
+    - LavalandCrateNecropolisCultArmor
+    - LavalandCrateNecropolisHeart
+    - LavalandCrateNecropolisVampirismCrystal
+    chance: 1

@@ -1,0 +1,9 @@
+- files: ["hiero_blast.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/blob/master"
+
+- files: ["hiero_bgm.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Yogstation, made by @Hey-Holokin (Github)"
+  source: "https://github.com/yogstation13/Yogstation/commit/04f271c80f2df96c8120052362efb6a3e28dd0d0"

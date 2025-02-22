@@ -242,6 +242,14 @@ namespace Content.Shared.Containers.ItemSlots
         [NonSerialized]
         public bool Local = true;
 
+        /// <summary>
+        ///     Lavaland Change: Can light go through the container of this ItemSlot?
+        /// </summary>
+
+        [DataField]
+        [Access(typeof(ItemSlotsSystem), Other = AccessPermissions.ReadWriteExecute)]
+        public bool OccludesLight = true;
+
         public void CopyFrom(ItemSlot other)
         {
             // These fields are mutable reference types. But they generally don't get modified, so this should be fine.
@@ -261,6 +269,7 @@ namespace Content.Shared.Containers.ItemSlots
             InsertSuccessPopup = other.InsertSuccessPopup;
             Swap = other.Swap;
             Priority = other.Priority;
+            OccludesLight = other.OccludesLight; // Lavaland Change
         }
     }
 

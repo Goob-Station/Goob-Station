@@ -117,6 +117,7 @@
     interactFailureString: petting-failure-bear
     interactSuccessSound:
       path: /Audio/Animals/sloth_squeak.ogg
+  - type: Fauna # Lavaland Change
 
 - type: entity
   id: MobBearSpaceSalvage
@@ -181,6 +182,7 @@
       collection: FootstepBounce
   - type: ReplacementAccent
     accent: kangaroo
+  - type: Fauna # Lavaland Change
 
 - type: entity
   id: MobKangarooSpaceSalvage
@@ -286,6 +288,7 @@
       Unsexed: UnisexArachnid
   - type: TypingIndicator
     proto: spider
+  - type: Fauna # Lavaland Change
 
 - type: entity
   id: MobSpiderSpaceSalvage
@@ -384,6 +387,7 @@
       radius: 1.1
       energy: 1.5
       color: "#4faffb"
+    - type: Fauna # Lavaland Change
 
 - type: entity
   id: MobCobraSpaceSalvage
