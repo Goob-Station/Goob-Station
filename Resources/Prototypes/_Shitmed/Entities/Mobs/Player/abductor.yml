@@ -36,6 +36,21 @@
   parent: MobAbductorAntag
   id: MobLoneAbductor
   components:
+  - type: GhostRole
+    name: abductors-ghost-role-name
+    description: abductors-ghost-role-desc
+    rules: abductors-ghost-role-rules
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 7200 #2 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 7200 #2 hours
   - type: AbductorScientist
   - type: SurgeryIgnoreClothing
   - type: Sanitized
@@ -53,6 +68,15 @@
   - type: GhostRole
     name: abductor-scientist-ghost-role-name
     description: abductor-scientist-ghost-role-desc
+    rules: abductors-ghost-role-rules
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 10800 #3 hours
   - type: AbductorScientist
   - type: SurgeryIgnoreClothing
   - type: Sanitized
@@ -70,6 +94,15 @@
   - type: GhostRole
     name: abductor-agent-ghost-role-name
     description: abductor-agent-ghost-role-desc
+    rules: abductors-ghost-role-rules
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 10800 #3 hours
   - type: RandomMetadata
     nameSegments:
       - AbductorAgentPrefix
