@@ -5210,3 +5210,9 @@ Entries:
       message: The lack of festivity means that the present anomaly is rarer.
   id: 596
   time: '2025-02-22T17:35:50.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added medical sunglasses to CMOs loadout on spawn.
+  id: 597
+  time: '2025-02-22T17:37:29.0000000+00:00'

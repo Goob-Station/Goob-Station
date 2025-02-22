@@ -197,6 +197,7 @@
   parent: MobSpaceBasic
   description: It's so glowing, it looks dangerous.
   components:
+  - type: VentCrawler # goobstation - Ventcrawl
   - type: Body # Shitmed Change
     prototype: SpaceSpider
   - type: SurgeryTarget # Shitmed
