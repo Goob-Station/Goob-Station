@@ -5164,3 +5164,49 @@ Entries:
       message: Tiders can no longer roll antag, get a job you bum.
   id: 592
   time: '2025-02-22T08:39:30.0000000+00:00'
+- author: Cerise-Cattowo
+  changes:
+    - type: Add
+      message: >-
+        Forsooth I say, thy manner o' speech hath been given a new enchantment!
+        [Medieval accent]
+  id: 593
+  time: '2025-02-22T15:04:19.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Gas canisters, some guns and some materials are now cheaper to buy.
+    - type: Add
+      message: You can now buy water vapour canisters.
+  id: 594
+  time: '2025-02-22T17:28:55.0000000+00:00'
+- author: John Shitcode
+  changes:
+    - type: Tweak
+      message: >-
+        Heretic influences give exclusively 1 point. Using the book shortens
+        collection time but makes it obvious.
+    - type: Tweak
+      message: Sacrificing people gives 2 points, heads of staff gives 3.
+    - type: Tweak
+      message: You will see less heretic influences now.
+    - type: Tweak
+      message: >-
+        Heretic side knowledge costs 1 point and path specific costs 2.
+        Asecnsions cost 3 points everywhere.
+    - type: Tweak
+      message: Ash jaunt does not deal damage but is only 3 seconds long now.
+    - type: Add
+      message: Reworked ash ascension. Ascend to find out.
+    - type: Add
+      message: Reworked void path. Get it to find out.
+    - type: Fix
+      message: Fixed dynamic.
+  id: 595
+  time: '2025-02-22T17:33:44.0000000+00:00'
+- author: botanySupremist
+  changes:
+    - type: Tweak
+      message: The lack of festivity means that the present anomaly is rarer.
+  id: 596
+  time: '2025-02-22T17:35:50.0000000+00:00'
