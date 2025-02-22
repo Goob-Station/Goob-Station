@@ -1,0 +1,28 @@
+- type: entity
+  id: SpawnPointGhostBingle
+  name: ghost role spawn point
+  suffix: Bingle
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-bingle-name
+    description: ghost-role-information-bingle-description
+    rules: ghost-role-information-freeagent-rules
+    raffle:
+      settings: short
+  - type: GhostRoleMobSpawner
+    prototype: MobBingle
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: _Goobstation/Mobs/Bingle/bingle.rsi
+        state: icon
+
+- type: entity
+  id: SpawnPointGhostBinglePrime
+  parent: SpawnPointGhostBingle
+  suffix: Prime
+  components:
+  - type: GhostRoleMobSpawner
+    prototype: MobBinglePrime

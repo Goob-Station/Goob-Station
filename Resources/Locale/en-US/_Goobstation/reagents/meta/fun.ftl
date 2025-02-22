@@ -24,3 +24,7 @@ reagent-popup-copium-9 = You should be the captain.
 reagent-popup-copium-10 = You run this station.
 reagent-popup-copium-11 = You know what's best.
 reagent-popup-copium-12 = You could take him.
+
+reagent-name-cat-drugs = cat drugs
+reagent-desc-cat-drugs = Cat drugs? Drugs for cats? Drugs from cats? Better not to ask.
+
