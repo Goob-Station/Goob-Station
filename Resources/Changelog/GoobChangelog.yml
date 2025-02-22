@@ -5116,3 +5116,27 @@ Entries:
       message: IPCs now take (half) radiation damage. Cable can be used to repair it.
   id: 587
   time: '2025-02-22T07:01:09.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Abductors now have names.
+    - type: Add
+      message: >-
+        Scientist abductors now has a new lab coat, Agent has a new backpack,
+        and the Lone Abductor has both.
+    - type: Tweak
+      message: >-
+        Abductor gear got some changes. In short, agent no longer possesses all
+        the stuff, scientist gets some too, including new rebalanced decloner.
+    - type: Tweak
+      message: IPCs bewail, decloner bolt now deals Ion damage.
+    - type: Tweak
+      message: >-
+        Lone, agent and scientist abductors are now different ghost roles, and a
+        ghosted abductor now will become a ghost role too.
+    - type: Fix
+      message: Abductor Agent's vest is now visible on your character.
+    - type: Remove
+      message: Abductor Agent now does not have any special abilities in surgery.
+  id: 588
+  time: '2025-02-22T07:28:26.0000000+00:00'
