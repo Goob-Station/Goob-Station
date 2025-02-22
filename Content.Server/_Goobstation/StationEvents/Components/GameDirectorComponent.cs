@@ -1,5 +1,6 @@
 ﻿using System.Runtime.Serialization;
 using Content.Server._Goobstation.StationEvents;
+using Content.Server._Goobstation.StationEvents.Metric;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
