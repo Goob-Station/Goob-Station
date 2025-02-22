@@ -41,6 +41,8 @@
         Slash: 7 # Lucky number
     bluntStaminaDamageFactor: 2.0
     animation: WeaponArcThrust
+    soundHit:
+      collection: MetalThud
   - type: StaminaDamageOnHit
     damage: 40
     overtime: 40

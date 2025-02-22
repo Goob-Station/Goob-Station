@@ -87,11 +87,11 @@
     - type: StaticPrice
       price: 350
     - type: Battery
-      maxCharge: 90
-      startingCharge: 90
+      maxCharge: 100
+      startingCharge: 100
     - type: BatterySelfRecharger
       autoRecharge: true
-      autoRechargeRate: 3.5
+      autoRechargeRate: 7
     - type: RechargeableBlocking
     - type: ItemSlots
       slots:
