@@ -1,0 +1,88 @@
+# vocal emotes
+- type: emote
+  id: Bubble
+  name: chat-emote-name-bubble
+  category: Vocal
+  available: false
+  icon: Interface/Emotes/squish.png
+  whitelist:
+    components:
+    - Vocal
+    - Slime
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-bubble"]
+  chatTriggers:
+    # Frontier: emote consistency
+    - bubble
+    - bubbles
+    - bubbling
+    - bubbled
+    # End Frontier: emote consistency
+
+- type: emote
+  id: Pop
+  name: chat-emote-name-pop
+  category: Vocal
+  available: false
+  icon: Interface/Emotes/squish.png
+  whitelist:
+    components:
+    - Vocal
+    - Slime
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-pop"]
+  chatTriggers:
+    # Frontier: emote consistency
+    - pop
+    - pops
+    - popping
+    - popped
+    # End Frontier: emote consistency
+
+- type: emote
+  id: ReptilianHiss
+  name: chat-emote-name-reptilian-hiss
+  category: Vocal
+  available: false
+  icon: _Impstation/Interface/Emotes/hiss.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-reptilian-hiss"]
+  chatTriggers:
+    # Frontier: emote consistency
+    - hiss
+    - hisses
+    - hissing
+    - hissed
+    # End Frontier: emote consistency
+
+# hand emotes
+- type: emote
+  id: Crack
+  name: chat-emote-name-crack
+  category: Hands
+  icon: _Impstation/Interface/Emotes/crack.png
+  whitelist:
+    components:
+    - Hands
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-crack"]
+  chatTriggers:
+    - crack knuckles
+    - cracks knuckles
+    - cracking knuckles
+    - cracked knuckles
+    - cracks their knuckles
+    - cracks her knuckles
+    - cracks his knuckles
+    - cracks its knuckles
