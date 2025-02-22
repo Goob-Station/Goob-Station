@@ -52,20 +52,33 @@ gs-balanceui-gift-value-tooltip = Amount of money to transfer
 gs-balanceui-shop-label = Tokens Store
 gs-balanceui-shop-empty = Out of stock!
 gs-balanceui-shop-buy = Buy
-gs-balanceui-shop-footer = ⚠ Contact an administrator to use your purchase, 
-limited use to 1 per day.
+gs-balanceui-shop-footer = ⚠ Ahelp to use your token. Only 1 use per day.
 
 gs-balanceui-shop-token-label = Tokens
 gs-balanceui-shop-tittle-label = Titles
 
-gs-balanceui-shop-buy-token-antag = Buy antag token - 250 Goob Coins
-gs-balanceui-shop-buy-token-ghost = Buy ghost role token - 350 Goob Coins
-gs-balanceui-shop-buy-token-event = Buy event token - 100 Goob Coins
+gs-balanceui-shop-buy-token-hightier-antag = Buy high tier antag token - {$price} Goob Coins
+gs-balanceui-shop-buy-token-midtier-antag = Buy mid tier antag token - {$price} Goob Coins
+gs-balanceui-shop-buy-token-lowtier-antag = Buy low tier antag token - {$price} Goob Coins
+gs-balanceui-shop-buy-token-ghost = Buy ghost role token - {$price} Goob Coins
+
+gs-balanceui-shop-token-hightier-antag = High tier antag token
+gs-balanceui-shop-token-midtier-antag = Mid tier antag token
+gs-balanceui-shop-token-lowtier-antag = Low tier antag token
+gs-balanceui-shop-token-ghost = Ghost role token
+
+gs-balanceui-shop-buy-token-hightier-antag-desc = Allows you become a Headrev, Nukie, Wizard, Initial Infected, or any antagonist from a lower tier.
+gs-balanceui-shop-buy-token-midtier-antag-desc = Allows you become a Traitor, Changeling, Heretic, or any antagonist from a lower tier.
+gs-balanceui-shop-buy-token-lowtier-antag-desc = Allows you become a Thief or Blob.
+gs-balanceui-shop-buy-token-ghost-desc = Allows you request a ghost role antagonist to be spawned.
 
 gs-balanceui-admin-add-label = Add (or subtract) money:
 gs-balanceui-admin-add-player = Player name
 gs-balanceui-admin-add-value = Value
 
-gs-balanceui-remark-token-antag = Bought an antag token [Valid only for the antagonist of the round (in case of more than one, can be chosen)]
-gs-balanceui-remark-token-ghost = Bought a ghost role token [Valid for any standard ghost role (by gamerule)]
-gs-balanceui-remark-token-event = Bought an event token [EXCLUSIVE FOR LOW DESTRUCTION EVENTS]
+gs-balanceui-remark-token-hightier-antag = Bought a high tier antag token.
+gs-balanceui-remark-token-midtier-antag = Bought a mid tier antag token.
+gs-balanceui-remark-token-lowtier-antag = Bought a low tier antag token.
+gs-balanceui-remark-token-ghost = Bought a ghost role token.
+gs-balanceui-shop-click-confirm = Click again to confirm
+gs-balanceui-shop-purchased = Purchased {$item}
