@@ -57,6 +57,9 @@
   id: CombatMech
 
 - type: Tag
+  id: ContrabandDetectorCircuitboard
+
+- type: Tag
   id: CursedAnimalMask
 
 - type: Tag
