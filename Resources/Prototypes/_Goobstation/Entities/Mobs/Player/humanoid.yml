@@ -74,6 +74,19 @@
     - names_last
 
 - type: entity
+  parent: MobTajaran
+  id: MobTajaranRandom
+  name: Urist McTajaran
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - names_tajaran_first
+    - names_tajaran_last
+
+
+- type: entity
   parent: MobGingerbread
   id: MobGingerbreadRandom
   name: Urist McCookie
@@ -178,7 +191,6 @@
   - type: RandomMetadata
     nameSegments:
     - names_yowie_male
-    - names_yowie_last
 
 - type: entity
   parent: MobVox

@@ -6,11 +6,14 @@ using Content.Shared.Cuffs;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Effects;
+using Content.Shared.FixedPoint;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
-
+using Robust.Shared.Timing;
 namespace Content.Shared._Shitmed.OnHit;
 
 public abstract class SharedOnHitSystem : EntitySystem
@@ -22,6 +25,9 @@ public abstract class SharedOnHitSystem : EntitySystem
     [Dependency] protected readonly SharedSolutionContainerSystem _solutionContainers = default!;
     [Dependency] protected readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] protected readonly SharedCuffableSystem _cuffs = default!;
+
+    [Dependency] protected readonly MobStateSystem _mobState = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<InjectOnHitComponent, MeleeHitEvent>(OnInjectOnMeleeHit);
@@ -76,8 +82,28 @@ public abstract class SharedOnHitSystem : EntitySystem
             if (_solutionContainers.TryGetInjectableSolution(target, out var targetSoln, out var targetSolution))
             {
                 var solution = new Solution(ent.Comp.Reagents);
-                _reactiveSystem.DoEntityReaction(target, solution, ReactionMethod.Injection);
-                _solutionContainers.TryAddSolution(targetSoln.Value, solution);
+                foreach (var reagent in ent.Comp.Reagents)
+                    if (ent.Comp.ReagentLimit != null && _solutionContainers.GetTotalPrototypeQuantity(target, reagent.Reagent.ToString()) >= FixedPoint2.New(ent.Comp.ReagentLimit.Value))
+                        return;
+
+                if (!ent.Comp.NeedsRestrain
+                    || _mobState.IsIncapacitated(target)
+                    || HasComp<StunnedComponent>(target)
+                    || HasComp<KnockedDownComponent>(target)
+                    || TryComp<CuffableComponent>(target, out var cuffable)
+                    && _cuffs.IsCuffed((target, cuffable)))
+                {
+                    _reactiveSystem.DoEntityReaction(target, solution, ReactionMethod.Injection);
+                    _solutionContainers.TryAddSolution(targetSoln.Value, solution);
+                }
+                else
+                {
+                    Timer.Spawn(ent.Comp.InjectionDelay, () =>
+                    {
+                        _reactiveSystem.DoEntityReaction(target, solution, ReactionMethod.Injection);
+                        _solutionContainers.TryAddSolution(targetSoln.Value, solution);
+                    });
+                }
                 _color.RaiseEffect(Color.FromHex("#0000FF"), new List<EntityUid>(1) { target }, Filter.Pvs(target, entityManager: EntityManager));
             }
             if (ent.Comp.Sound is not null && _net.IsServer)

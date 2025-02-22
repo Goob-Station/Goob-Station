@@ -17,3 +17,40 @@
   suffix: Unremoveable
   components:
   - type: Unremoveable
+
+- type: entity
+  parent: ClothingHandsGlovesColorYellow
+  id: ClothingHandsGlovesExplosiveShock
+  suffix: Exploding
+  components:
+  - type: ExplosiveShock
+    handsDamage:
+      types:
+        Blunt: 40
+        Heat: 40
+    armsDamage:
+      types:
+        Blunt: 10
+        Heat: 10
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 5
+    intensitySlope: 5
+    totalIntensity: 25
+    maxTileBreak: 1
+    canCreateVacuum: false
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: ClothingHandsGlovesColorYellow
+  id: ClothingHandsGlovesAtmosInsulated
+  name: insulated atmos gloves
+  description: Like normal insulated gloves, but simply better by virtue of being from the Atmospherics department.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/atmos.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/Gloves/atmos.rsi
+  - type: Fiber
+    fiberColor: fibers-blue

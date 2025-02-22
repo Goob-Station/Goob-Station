@@ -12,9 +12,9 @@
     stickPopupSuccess: comp-sticky-success-stick-bomb
     unstickPopupStart: comp-sticky-start-unstick-bomb
     unstickPopupSuccess: comp-sticky-success-unstick-bomb
-    blacklist: # can't stick it to other items
-      components:
-      - Item
+#    blacklist: # can't stick it to other items # nuh uh # Goobstation - Remove C4 item blacklist
+#      components:
+#      - Item
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -65,6 +65,30 @@
     maxIntensity: 30
     canCreateVacuum: false
   - type: ExplodeOnTrigger
+  # <Goobstation> - C4 sentience
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Pai
+  - type: GhostRole
+    prob: 0.05 
+    name: ghost-role-information-c4-name
+    description: ghost-role-information-c4-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostTakeoverAvailable
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Syndicate
+  - type: ActiveRadio
+    channels:
+    - Syndicate
+  - type: Vocal
+    sounds:
+      Unsexed: EmoteC4
+  - type: Emoting
+  # </Goobstation>
   - type: HolidayVisuals
     holidays:
       festive:

@@ -8,6 +8,16 @@
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
     layers:
     - state: icon
+      map: [ "enum.WeaponVisualLayers.Base" ]
+    - state: bayonet
+      map: [ "enum.WeaponVisualLayers.Bayonet" ]
+      visible: false
+    - state: flight
+      map: [ "enum.WeaponVisualLayers.FlightOff" ]
+      visible: false
+    - state: flight-on
+      map: [ "enum.WeaponVisualLayers.FlightOn" ]
+      visible: false
     - state: animation-icon
       visible: false
       map: [ "empty-icon" ]

@@ -16,7 +16,7 @@ public sealed class FireVisualizerSystem : VisualizerSystem<FireVisualsComponent
     {
         base.Initialize();
 
-        SubscribeLocalEvent<FireVisualsComponent, ComponentInit>(OnComponentInit);
+        SubscribeLocalEvent<FireVisualsComponent, ComponentStartup>(OnComponentStartup); // Goob edit
         SubscribeLocalEvent<FireVisualsComponent, ComponentShutdown>(OnShutdown);
     }
 
@@ -37,7 +37,7 @@ public sealed class FireVisualizerSystem : VisualizerSystem<FireVisualsComponent
         }
     }
 
-    private void OnComponentInit(EntityUid uid, FireVisualsComponent component, ComponentInit args)
+    private void OnComponentStartup(EntityUid uid, FireVisualsComponent component, ComponentStartup args) // Goob edit
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite) || !TryComp(uid, out AppearanceComponent? appearance))
             return;

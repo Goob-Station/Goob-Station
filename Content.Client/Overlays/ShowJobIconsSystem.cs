@@ -1,3 +1,4 @@
+using Content.Shared._Goobstation.Wizard.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Overlays;
@@ -20,10 +21,10 @@ public sealed class ShowJobIconsSystem : EquipmentHudSystem<ShowJobIconsComponen
     {
         base.Initialize();
 
-        SubscribeLocalEvent<StatusIconComponent, GetStatusIconsEvent>(OnGetStatusIconsEvent);
+        SubscribeLocalEvent<HasJobIconsComponent, GetStatusIconsEvent>(OnGetStatusIconsEvent); // Goob edit
     }
 
-    private void OnGetStatusIconsEvent(EntityUid uid, StatusIconComponent _, ref GetStatusIconsEvent ev)
+    private void OnGetStatusIconsEvent(EntityUid uid, HasJobIconsComponent _, ref GetStatusIconsEvent ev) // Goob edit
     {
         if (!IsActive)
             return;
