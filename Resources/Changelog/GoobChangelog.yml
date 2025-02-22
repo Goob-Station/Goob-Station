@@ -4887,3 +4887,19 @@ Entries:
       message: Vulps now correctly have their innate temperature protection.
   id: 559
   time: '2025-02-21T16:09:44.0000000+00:00'
+- author: Rouden, whateverusername0, deltanedas, Aineias1, Mocho
+  changes:
+    - type: Add
+      message: Lavaland is here.
+    - type: Fix
+      message: IPCs will shutdown when stepping on lava.
+    - type: Fix
+      message: >-
+        You can now place catwalks everywhere you want, not just on lattice or
+        plating. (Pro tip: build them over the lava)
+    - type: Remove
+      message: >-
+        Deleted VGRoid, Expeditions, and salvage shuttle, they got replaced by
+        Lavaland and Mining shuttle
+  id: 560
+  time: '2025-02-22T04:43:27.0000000+00:00'
