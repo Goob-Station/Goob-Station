@@ -139,13 +139,3 @@
       state: icon
     iconOn: Interface/Actions/ghostHearingToggled.png
     event: !type:ToggleGhostHearingActionEvent
-
-- type: entity #Goobstation - ghost sec hud
-  id: ActionToggleGhostSecHud
-  name: Toggle SecHud
-  description: Toggle between seeing job icons, mindshield and wanted list.
-  components:
-  - type: InstantAction
-    checkCanInteract: false
-    icon: Interface/Misc/security_icons.rsi/hud_wanted.png
-    event: !type:ToggleGhostSecHudActionEvent
