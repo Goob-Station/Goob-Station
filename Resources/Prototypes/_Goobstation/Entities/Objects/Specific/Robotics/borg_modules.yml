@@ -1,0 +1,34 @@
+- type: entity
+  id: BorgModuleSyndicateWeaponAdvanced
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ]
+  name: advanced weapon cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    items:
+    - WeaponPistolAnaconda
+    - EnergySword
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
+
+- type: entity
+  id: BorgModuleOperativeUniversal
+  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
+  name: operative cyborg module
+  description: A module that comes with a crowbar, an Emag and a syndicate pinpointer.
+  suffix: Universal Pinpointer
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    items:
+    - Crowbar
+    - Emag
+    - PinpointerSyndicateNuclearUniversal
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-operative-module }

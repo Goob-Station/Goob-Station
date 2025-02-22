@@ -247,3 +247,9 @@
   result: MagazineMagnumLeverRifle
   materials:
     Steel: 185
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: ContrabandDetectorCircuitboard
+  result: ContrabandDetectorCircuitboard
+  completetime: 4

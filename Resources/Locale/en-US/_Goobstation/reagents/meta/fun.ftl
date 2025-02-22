@@ -9,3 +9,6 @@ reagent-popup-tranquility = You feel oddly calm...
 reagent-name-profanol = profanol
 reagent-desc-profanol = A chemical compound known to make people compulsively swear. A ruiner of countless family reunions and funerals.
 # END OF MIT-LICENSED CODE
+
+reagent-name-cat-drugs = cat drugs
+reagent-desc-cat-drugs = Cat drugs? Drugs for cats? Drugs from cats? Better not to ask.
