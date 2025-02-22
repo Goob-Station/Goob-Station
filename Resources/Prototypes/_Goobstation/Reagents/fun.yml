@@ -32,6 +32,37 @@
         - !type:ReagentThreshold
           min: 25
 
+- type: reagent
+  id: Carpolin
+  name: reagent-name-carpolin
+  group: Toxins
+  desc: reagent-desc-carpolin
+  physicalDesc: reagent-physical-desc-exotic-smelling
+  flavor: bitter
+  color: "#bb26f9"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.05
+      effects:
+      - !type:Polymorph
+        prototype: ForcedCarpSentient
+        conditions:
+        - !type:ReagentThreshold
+          min: 9
+      - !type:PopupMessage
+        type: Local
+        messages: [ "reagent-popup-carpolin" ]
+        probability: 0.3
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
+        - !type:OrganType
+          type: Animal
+        damage:
+          types:
+            Poison: 0.06
+
 # CREATED BY Goldminermac
 # https://github.com/space-wizards/space-station-14/pull/31149
 # LICENSED UNDER THE MIT LICENSE
