@@ -4965,3 +4965,9 @@ Entries:
       message: Upped wizard chance, reduced abductor and blob chance.
   id: 570
   time: '2025-02-22T05:36:20.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Add
+      message: Added bike horns to bike horn implant crate
+  id: 571
+  time: '2025-02-22T05:37:56.0000000+00:00'
