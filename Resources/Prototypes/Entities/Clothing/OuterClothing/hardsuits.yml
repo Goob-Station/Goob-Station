@@ -691,6 +691,11 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitWizard
+  - type: Tag # Goobstation
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+    - SyringeArmor
 
 #Ling Space Suit
 - type: entity
