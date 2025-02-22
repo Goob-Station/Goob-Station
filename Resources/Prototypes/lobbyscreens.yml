@@ -117,6 +117,12 @@
   background: /Textures/LobbyScreens/tideractivities.webp
   name: Tider Activities
   artist: asardonicsailor
+
+- type: lobbyBackground
+  id: lostpai
+  background: /Textures/LobbyScreens/lostpai.webp
+  name: Lost pAI
+  artist: Cattom
   
 - type: lobbyBackground
   id: stargoob

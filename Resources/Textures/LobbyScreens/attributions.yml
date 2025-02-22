@@ -97,6 +97,11 @@
   license: "CC-BY-SA-3.0"
   copyright: "asardonicsailor"
   source: "https://x.com/ASardonicSailor"
+
+- files: ["lostpai.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: Cattom
+  source: "https://discord.gg/goobstation"
   
 - files: ["StarGoob.webp"]
   license: "CC-BY-NC-SA-3.0"
