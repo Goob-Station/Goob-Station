@@ -230,7 +230,6 @@
     - id: MedTekCartridge
     - id: RapidSyringeGun
     - id: BoxSyringePax
-    - id: FoodSnackLollypopWrappedOmnizine # Goobstation - Lollypops
     # Shitmed
     - id: MedicalBiofabMachineBoard
 
