@@ -13,9 +13,9 @@
   - HereticDynamic # heretics
   - RevolutionDynamic # revs (M)
   - NukeopsDynamic # nukies (M)
+  - WizardDynamic # wizard (M)
   # cult wyci (M)
   # clock cult wyci (M)
-  # wizard wyci (M)
 
 # add all antag related events here
 - type: dataset
@@ -33,6 +33,7 @@
   - RevenantDynamicMidround # revenant spawn (M)
   - ZombiesDynamicMidround # zombie outbreak (M)
   - BlobDynamicMidround # blob mouse spawn(M)
+  # - WizardDynamicMidround # wizard spawn (M)
   # spider infestation todo (M)
   # xenos todo (M)
   # improved kudzu todo (M)
@@ -80,6 +81,7 @@
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
+    - LavalandStormScheduler # Lavaland Change
 
 - type: gamePreset
   id: DynamicUnforgiving
@@ -98,3 +100,4 @@
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
+    - LavalandStormScheduler # Lavaland Change

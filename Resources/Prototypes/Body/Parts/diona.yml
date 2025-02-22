@@ -6,6 +6,10 @@
   components:
   - type: Sprite
     sprite: Mobs/Species/Diona/parts.rsi
+  - type: Icon # Shitmed Change
+    sprite: Mobs/Species/Diona/parts.rsi
+  - type: BodyPart # Shitmed Change
+    species: Diona
 
 - type: entity
   id: TorsoDiona

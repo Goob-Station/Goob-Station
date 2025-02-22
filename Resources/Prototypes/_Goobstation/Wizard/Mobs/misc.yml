@@ -1,0 +1,192 @@
+- type: entity
+  name: creature
+  id: MobCreature
+  parent: MobSpaceBasic
+  description: A sanity-destroying otherthing from the netherworld.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wizard/Mobs/otherthing.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: otherthing
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: otherthing
+      Critical:
+        Base: otherthing-dead
+      Dead:
+        Base: otherthing-dead
+  - type: ReplacementAccent
+    accent: genericAggressive
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Slash: 15
+        Piercing: 15
+  - type: Bloodstream
+    bloodReagent: Blood
+
+- type: entity
+  name: Simmons
+  id: MobCreatureWizard
+  parent: MobCreature
+  description: He is hungry.
+  components:
+  - type: NpcFactionMember
+    factions:
+    - Wizard
+
+- type: entity
+  name: Creature Spawner
+  id: SpawnMobCreature
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: otherthing
+      sprite: _Goobstation/Wizard/Mobs/otherthing.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobCreature
+
+- type: entity
+  name: WIzard Creature Spawner
+  id: SpawnMobCreatureWizard
+  parent: SpawnMobCreature
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - MobCreatureWizard
+
+- type: entity
+  parent:
+  - BaseMob
+  - MobCombat
+  - MobFlammable
+  - MobAtmosExposed
+  - MobPolymorphable
+  id: MobStickman
+  name: angry stick man
+  description: A being from a realm with only 2 dimensions. At least it's trying to stay faced towards you.
+  suffix: AI
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wizard/Mobs/stickman.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: stickman
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 5
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: CombatMode
+  - type: MobState
+  - type: Pullable
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      25: Dead
+  - type: Speech
+  - type: TypingIndicator
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+  - type: FactionException
+  - type: NpcFactionMember
+    factions:
+      - Wizard
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        damage:
+          types:
+            Cellular: 1
+  - type: LayingDown
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: PaperCreature
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: stickman
+      Critical:
+        Base: stickman_dead
+      Dead:
+        Base: stickman_dead
+  - type: IgniteOnHeatDamage
+    fireStacks: 1
+    threshold: 5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 50
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawnInContainer: true
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:BurnBodyBehavior { }
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MeatLaserImpact
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 4
+    baseSprintSpeed : 4
+  - type: StatusEffects
+    allowed:
+    - KnockedDown
+    - SlowedDown
+    - Stutter
+    - Flashed
+  - type: FloatingVisuals
+  - type: Buckle
+  - type: StandingState
+  - type: Body
+  - type: StatusIcon
+    bounds: -0.5,-0.5,0.5,0.5
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 10
+    animation: WeaponArcFist
+
+- type: entity
+  parent: MobStickman
+  id: MobStickmanTemp
+  suffix: Temporary
+  components:
+  - type: FadingTimedDespawn
+    lifetime: 12
+    fadeOutTime: 3

@@ -35,8 +35,10 @@
   - type: StasisProtection
   - type: StasisBlinkProvider
   - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ClothingHeadHelmetHardsuitChronolegioneer
+  - type: ModifyDelayedKnockdown # Goobstation
+    cancel: true
 
 - type: entity
   parent: ClothingOuterHardsuitChronolegioneer
@@ -77,8 +79,11 @@
     sprintModifier: 0.75
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ClothingHeadHelmetHardsuitBlueshield
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2
 
 # cybersun stealth
 
@@ -114,7 +119,7 @@
     sprintModifier: 0.85
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ClothingHeadHelmetHardsuitCybersunStealth
   - type: Tag
     tags:
@@ -125,3 +130,6 @@
     - type: StealthOnMove
       passiveVisibilityRate: -0.5
       movementVisibilityRate: 0.6
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2

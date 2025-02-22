@@ -27,7 +27,7 @@ public sealed partial class StaminaComponent : Component
     /// How much time after receiving damage until stamina starts decreasing.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
-    public float Cooldown = 3f;
+    public float Cooldown = 5f; // goob edit
 
     /// <summary>
     /// How much stamina damage this entity has taken.

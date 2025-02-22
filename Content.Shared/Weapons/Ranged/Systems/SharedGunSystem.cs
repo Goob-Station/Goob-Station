@@ -93,6 +93,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         InitializeContainer();
         InitializeSolution();
         // Goobstation
+        InitializeBasicHitScan();
         InitializeChangeling();
 
         // Interactions
@@ -146,7 +147,11 @@ public abstract partial class SharedGunSystem : EntitySystem
             return;
 
         gun.ShootCoordinates = GetCoordinates(msg.Coordinates);
-        gun.Target = GetEntity(msg.Target);
+        // Goob edit start
+        var potentialTarget = GetEntity(msg.Target);
+        if (gun.Target == null || !gun.BurstActivated || !gun.LockOnTargetBurst)
+            gun.Target = potentialTarget;
+        // Goob edit end
         AttemptShoot(user.Value, ent, gun);
     }
 
@@ -220,7 +225,8 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         gun.ShotCounter = 0;
         gun.ShootCoordinates = null;
-        gun.Target = null;
+        if (!gun.LockOnTargetBurst || !gun.BurstActivated) // Goob edit
+            gun.Target = null;
         Dirty(uid, gun);
     }
 
@@ -340,6 +346,9 @@ public abstract partial class SharedGunSystem : EntitySystem
             {
                 PopupSystem.PopupClient(attemptEv.Message, gunUid, user);
             }
+
+            if (!gun.LockOnTargetBurst || gun.ShootCoordinates == null) // Goobstation
+                gun.Target = null;
             gun.BurstActivated = false;
             gun.BurstShotsCount = 0;
             gun.NextFire = TimeSpan.FromSeconds(Math.Max(lastFire.TotalSeconds + SafetyNextFire, gun.NextFire.TotalSeconds));
@@ -368,6 +377,8 @@ public abstract partial class SharedGunSystem : EntitySystem
             var emptyGunShotEvent = new OnEmptyGunShotEvent();
             RaiseLocalEvent(gunUid, ref emptyGunShotEvent);
 
+            if (!gun.LockOnTargetBurst || gun.ShootCoordinates == null) // Goobstation
+                gun.Target = null;
             gun.BurstActivated = false;
             gun.BurstShotsCount = 0;
             gun.NextFire += TimeSpan.FromSeconds(gun.BurstCooldown);
@@ -402,6 +413,8 @@ public abstract partial class SharedGunSystem : EntitySystem
             if (gun.BurstShotsCount >= gun.ShotsPerBurstModified)
             {
                 gun.NextFire += TimeSpan.FromSeconds(gun.BurstCooldown);
+                if (!gun.LockOnTargetBurst || gun.ShootCoordinates == null) // Goobstation
+                    gun.Target = null;
                 gun.BurstActivated = false;
                 gun.BurstShotsCount = 0;
             }
@@ -584,6 +597,38 @@ public abstract partial class SharedGunSystem : EntitySystem
         comp.ProjectileSpeedModified = ev.ProjectileSpeed;
 
         Dirty(gun);
+    }
+
+     // Goobstation
+    public void SetTarget(EntityUid projectile,
+        EntityUid? target,
+        out TargetedProjectileComponent targeted,
+        bool dirty = true)
+    {
+        targeted = EnsureComp<TargetedProjectileComponent>(projectile);
+        targeted.Target = target;
+        if (dirty)
+            Dirty(projectile, targeted);
+    }
+
+    public void SetFireRate(GunComponent component, float fireRate) // Goobstation
+    {
+        component.FireRate = fireRate;
+    }
+
+    public void SetUseKey(GunComponent component, bool useKey) // Goobstation
+    {
+        component.UseKey = useKey;
+    }
+
+    public void SetSoundGunshot(GunComponent component, SoundSpecifier? sound) // Goobstation
+    {
+        component.SoundGunshot = sound;
+    }
+
+    public void SetClumsyProof(GunComponent component, bool clumsyProof) // Goobstation
+    {
+        component.ClumsyProof = clumsyProof;
     }
 
     protected abstract void CreateEffect(EntityUid gunUid, MuzzleFlashEvent message, EntityUid? user = null);

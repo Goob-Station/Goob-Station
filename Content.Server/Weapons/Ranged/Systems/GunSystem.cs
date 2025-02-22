@@ -22,6 +22,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.Containers;
+using Content.Shared._Lavaland.Weapons.Ranged.Events; // Lavaland Change
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
@@ -274,6 +275,11 @@ public sealed partial class GunSystem : SharedGunSystem
                 for (var i = 1; i < ammoSpreadComp.Count; i++)
                 {
                     var newuid = Spawn(ammoSpreadComp.Proto, fromEnt);
+                    // Lavaland Change: Raise event when a projectile/pellet is fired from a gun.
+                    RaiseLocalEvent(gunUid, new ProjectileShotEvent()
+                    {
+                        FiredProjectile = newuid
+                    });
                     ShootOrThrow(newuid, angles[i].ToVec(), gunVelocity, gun, gunUid, user);
                     shotProjectiles.Add(newuid);
                 }
@@ -287,13 +293,6 @@ public sealed partial class GunSystem : SharedGunSystem
             MuzzleFlash(gunUid, ammoComp, mapDirection.ToAngle(), user);
             Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
         }
-    }
-
-    public void SetTarget(EntityUid projectile, EntityUid? target) // Goobstation
-    {
-        var targeted = EnsureComp<TargetedProjectileComponent>(projectile);
-        targeted.Target = target;
-        Dirty(projectile, targeted);
     }
 
     private void ShootOrThrow(EntityUid uid, Vector2 mapDirection, Vector2 gunVelocity, GunComponent gun, EntityUid gunUid, EntityUid? user)
@@ -323,7 +322,7 @@ public sealed partial class GunSystem : SharedGunSystem
     /// <param name="start">Start angle in degrees</param>
     /// <param name="end">End angle in degrees</param>
     /// <param name="intervals">How many shots there are</param>
-    private Angle[] LinearSpread(Angle start, Angle end, int intervals)
+    public Angle[] LinearSpread(Angle start, Angle end, int intervals) // Goob edit
     {
         var angles = new Angle[intervals];
         DebugTools.Assert(intervals > 1);

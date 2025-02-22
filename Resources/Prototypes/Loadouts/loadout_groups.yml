@@ -30,6 +30,9 @@
   - ClothingNeckAutismPin
   - CardBoxBlack # GoobStation
   - CardBoxNanotrasen # GoobStation
+  - FoodSnackLollypopWrapped # Goobstation
+  - FoodSnackLollypopWrappedRainbow # Goobstation
+  - FoodSnackLollypopWrappedCarp # Goobstation
   - TowelColorBlack
   - TowelColorDarkBlue
   - TowelColorDarkGreen
@@ -1349,6 +1352,7 @@
   loadouts:
   - ReporterJumpsuit
   - JournalistJumpsuit
+  - ReporterDress
 
 - type: loadoutGroup
   id: PsychologistJumpsuit
