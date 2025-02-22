@@ -37,3 +37,35 @@ server-currency-command-completion-2 = Value
 server-currency-command-error-1 = Unable to find a player by that name.
 server-currency-command-error-2 = Value must be an integer.
 server-currency-command-return = {$player} has {$balance}.
+
+# 65% Update
+
+gs-balanceui-title = Store
+gs-balanceui-confirm = Confirm
+
+gs-balanceui-gift-label = Transfer:
+gs-balanceui-gift-player = Player
+gs-balanceui-gift-player-tooltip = Insert the name of the player you want to send the money to
+gs-balanceui-gift-value = Value
+gs-balanceui-gift-value-tooltip = Amount of money to transfer
+
+gs-balanceui-shop-label = Tokens Store
+gs-balanceui-shop-empty = Out of stock!
+gs-balanceui-shop-buy = Buy
+gs-balanceui-shop-footer = ⚠ Contact an administrator to use your purchase, 
+limited use to 1 per day.
+
+gs-balanceui-shop-token-label = Tokens
+gs-balanceui-shop-tittle-label = Titles
+
+gs-balanceui-shop-buy-token-antag = Buy antag token - 250 Goob Coins
+gs-balanceui-shop-buy-token-ghost = Buy ghost role token - 350 Goob Coins
+gs-balanceui-shop-buy-token-event = Buy event token - 100 Goob Coins
+
+gs-balanceui-admin-add-label = Add (or subtract) money:
+gs-balanceui-admin-add-player = Player name
+gs-balanceui-admin-add-value = Value
+
+gs-balanceui-remark-token-antag = Bought an antag token [Valid only for the antagonist of the round (in case of more than one, can be chosen)]
+gs-balanceui-remark-token-ghost = Bought a ghost role token [Valid for any standard ghost role (by gamerule)]
+gs-balanceui-remark-token-event = Bought an event token [EXCLUSIVE FOR LOW DESTRUCTION EVENTS]
