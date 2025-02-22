@@ -1,4 +1,4 @@
-﻿# non-stealth syndicate stuff
+# non-stealth syndicate stuff
 - type: entity
   id: BaseSyndicateContraband
   abstract: true
@@ -30,6 +30,7 @@
   - type: Contraband
     severity: Restricted
     allowedDepartments: [ Security ]
+    allowedJobs: [ BlueshieldOfficer ] # Goob - effectively almost a sec member
 
 # one department restricted contraband
 - type: entity
