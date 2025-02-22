@@ -109,6 +109,15 @@
 
 - type: entity
   parent: MonkeyCube
+  id: TajaranCube
+  name: tajaran cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobTajaranRandom
+
+- type: entity
+  parent: MonkeyCube
   id: YowieCube
   name: yowie cube
   components:

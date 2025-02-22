@@ -549,6 +549,7 @@
     tags:
     - Syringe
     - Trash
+    - SyringeGunAmmo # Goobstation - This should be fine, given that PR #1626 caused syringes to inject over time
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 25
