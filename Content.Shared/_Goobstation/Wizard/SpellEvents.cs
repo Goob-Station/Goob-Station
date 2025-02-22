@@ -521,6 +521,18 @@ public sealed partial class ChargeMagicEvent : InstantActionEvent, ISpeakSpell
     public string? Speech { get; private set; }
 
     [DataField]
+    public ProtoId<TagPrototype> WandTag = "WizardWand";
+
+    [DataField]
+    public float WandChargeRate = 1000f;
+
+    [DataField]
+    public float MinWandDegradeCharge = 500f;
+
+    [DataField]
+    public float WandDegradePercentagePerCharge = 0.5f;
+
+    [DataField]
     public List<ProtoId<TagPrototype>> RechargeTags = new()
     {
         "WizardWand",

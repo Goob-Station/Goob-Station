@@ -29,6 +29,9 @@
         amount: 2
       - id: Multitool # Goobstation
       - id: Wrench # Goobstation
+      - id: ContrabandDetectorFlatpack # Goobstation
+        amount: 2
+
 - type: entity
   id: LockerWardenFilled
   suffix: Filled
@@ -57,6 +60,8 @@
         amount: 2
       - id: Multitool # Goobstation
       - id: Wrench # Goobstation
+      - id: ContrabandDetectorFlatpack # Goobstation
+        amount: 2
 
 - type: entity
   id: LockerSecurityFilled

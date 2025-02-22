@@ -48,6 +48,7 @@
     container: projectiles
   - type: UnwieldOnShoot # Goobstation
   - type: UseDelayBlockShoot # Goobstation
+  - type: UndetectableContraband #Goobstation-Contraband detector
 
 - type: entity
   id: BowImprovised
