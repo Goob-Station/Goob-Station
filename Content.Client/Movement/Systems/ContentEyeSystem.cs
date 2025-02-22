@@ -63,4 +63,16 @@ public sealed class ContentEyeSystem : SharedContentEyeSystem
             UpdateEyeOffset((entity, eyeComponent));
         }
     }
+
+    // <Goob - grabbed wizden PR #35087> {please remove this when you merge stable}
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+        var eyeEntities = AllEntityQuery<ContentEyeComponent, EyeComponent>();
+        while (eyeEntities.MoveNext(out var entity, out ContentEyeComponent? contentComponent, out EyeComponent? eyeComponent))
+        {
+            UpdateEyeOffset((entity, eyeComponent));
+        }
+    }
+    // </Goob - grabbed wizden PR #35087>
 }
