@@ -1,5 +1,29 @@
 - type: weightedRandomEntity
   id: SummonSimiansMobTable
   weights:
-    MobMonkeyAngryTemp: 4
+    MobMonkeyAngryTemp: 11
+    MobGorillaAngryTemp: 1
+
+- type: weightedRandomEntity
+  id: SummonSimiansMobTableII
+  weights:
+    MobMonkeyAngryTemp: 9
+    MobGorillaAngryTemp: 1
+
+- type: weightedRandomEntity
+  id: SummonSimiansMobTableIII
+  weights:
+    MobMonkeyAngryTemp: 7
+    MobGorillaAngryTemp: 1
+
+- type: weightedRandomEntity
+  id: SummonSimiansMobTableIV
+  weights:
+    MobMonkeyAngryTemp: 5
+    MobGorillaAngryTemp: 1
+
+- type: weightedRandomEntity
+  id: SummonSimiansMobTableV
+  weights:
+    MobMonkeyAngryTemp: 3
     MobGorillaAngryTemp: 1

@@ -1352,6 +1352,7 @@
   loadouts:
   - ReporterJumpsuit
   - JournalistJumpsuit
+  - ReporterDress
 
 - type: loadoutGroup
   id: PsychologistJumpsuit
