@@ -439,6 +439,11 @@ public enum LogType
     /// A ghost warped to an entity through the ghost warp menu.
     /// </summary>
     GhostWarp = 95,
-
-    GameDirector = 96, // Goobstation
+    
+    /// <summary>
+    /// A player interacted with a PDA or its cartridge component
+    /// </summary>
+    PdaInteract = 96,
+    
+    GameDirector = 97, // Goobstation
 }
