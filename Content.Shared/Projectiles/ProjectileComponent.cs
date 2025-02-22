@@ -1,13 +1,21 @@
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.Projectiles;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ProjectileComponent : Component
 {
+    /// <summary>
+    ///     The angle of the fired projectile.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public Angle Angle;
+
     /// <summary>
     ///     The effect that appears when a projectile collides with an entity.
     /// </summary>
@@ -77,6 +85,12 @@ public sealed partial class ProjectileComponent : Component
     // Goobstation start
     [DataField]
     public bool Penetrate;
+
+    /// <summary>
+    ///     Collision mask of what not to penetrate if <see cref="Penetrate"/> is true.
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(FlagSerializer<CollisionMask>))]
+    public int NoPenetrateMask = 0;
 
     [NonSerialized]
     public List<EntityUid> IgnoredEntities = new();

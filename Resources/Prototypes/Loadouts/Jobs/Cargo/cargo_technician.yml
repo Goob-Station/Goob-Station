@@ -15,6 +15,11 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtCargo
 
+- type: loadout # goob
+  id: CargoTechMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryCargo
+
 # Back
 - type: loadout
   id: CargoTechnicianBackpack

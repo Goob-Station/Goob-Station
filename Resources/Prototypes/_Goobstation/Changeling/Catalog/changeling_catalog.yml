@@ -15,6 +15,48 @@
     stock: 1
 
 - type: listing
+  id: EvolutionMenuCombatArmClaw
+  name: evolutionmenu-combat-armclaw-name
+  description: evolutionmenu-combat-armclaw-desc
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: claw }
+  productAction: ActionToggleClaw
+  cost:
+    EvolutionPoint: 4
+  categories:
+  - ChangelingAbilityCombat
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: EvolutionMenuCombatArmHammer
+  name: evolutionmenu-combat-armhammer-name
+  description: evolutionmenu-combat-armhammer-desc
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: hammer }
+  productAction: ActionToggleHammer
+  cost:
+    EvolutionPoint: 4
+  categories:
+  - ChangelingAbilityCombat
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: EvolutionMenuCombatDartGun
+  name: evolutionmenu-combat-dartgun-name
+  description: evolutionmenu-combat-dartgun-desc
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: dartgun }
+  productAction: ActionToggleDartGun
+  cost:
+    EvolutionPoint: 3
+  categories:
+  - ChangelingAbilityCombat
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
   id: EvolutionMenuCombatBoneShard
   name: evolutionmenu-combat-boneshard-name
   description: evolutionmenu-combat-boneshard-desc
@@ -121,7 +163,7 @@
   icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: sting_blind }
   productAction: ActionStingBlind
   cost:
-    EvolutionPoint: 4
+    EvolutionPoint: 2
   categories:
   - ChangelingAbilitySting
   conditions:
@@ -135,7 +177,7 @@
   icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: sting_cryo }
   productAction: ActionStingCryo
   cost:
-    EvolutionPoint: 4
+    EvolutionPoint: 2
   categories:
   - ChangelingAbilitySting
   conditions:
@@ -149,7 +191,7 @@
   icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: sting_lethargic }
   productAction: ActionStingLethargic
   cost:
-    EvolutionPoint: 4
+    EvolutionPoint: 3
   categories:
   - ChangelingAbilitySting
   conditions:
@@ -163,7 +205,7 @@
   icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: sting_mute }
   productAction: ActionStingMute
   cost:
-    EvolutionPoint: 4
+    EvolutionPoint: 2
   categories:
   - ChangelingAbilitySting
   conditions:
@@ -177,7 +219,7 @@
   icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: sting_armblade }
   productAction: ActionStingFakeArmblade
   cost:
-    EvolutionPoint: 5
+    EvolutionPoint: 4
   categories:
   - ChangelingAbilitySting
   conditions:
@@ -220,6 +262,8 @@
   description: evolutionmenu-utility-eyesight-desc
   icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: augmented_eyesight }
   productAction: ActionAugmentedEyesight
+  productEvent: !type:AugmentedEyesightPurchasedEvent
+  raiseProductEventOnUser: true
   cost:
     EvolutionPoint: 4
   categories:
@@ -334,6 +378,20 @@
   productAction: ActionHivemindAccess
   cost:
     EvolutionPoint: 4
+  categories:
+  - ChangelingAbilityUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: EvolutionMenuUtilityAbsorbBiomatter
+  name: evolutionmenu-utility-absorbbiomatter-name
+  description: evolutionmenu-utility-absorbbiomatter-desc
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: absorb_biomatter }
+  productAction: ActionAbsorbBiomatter
+  cost:
+    EvolutionPoint: 3
   categories:
   - ChangelingAbilityUtility
   conditions:

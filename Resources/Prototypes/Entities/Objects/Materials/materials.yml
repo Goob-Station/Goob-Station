@@ -40,6 +40,11 @@
     - cardboard
     - cardboard_2
     - cardboard_3
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: cardboard_3
     layers:
@@ -54,6 +59,8 @@
         reagents:
         - ReagentId: Cellulose
           Quantity: 6
+  - type: Item
+    heldPrefix: cardboard
 
 - type: entity
   parent: MaterialCardboard
@@ -100,6 +107,11 @@
     - cloth
     - cloth_2
     - cloth_3
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Material
   - type: PhysicalComposition
     materialComposition:
@@ -135,6 +147,8 @@
   - type: Construction
     graph: WebObjects # not sure if I should either keep this here or just make another prototype. Will keep it here just in case.
     node: cloth
+  - type: Item
+    heldPrefix: cloth
 
 - type: entity
   parent: MaterialCloth
@@ -169,6 +183,11 @@
     - durathread
     - durathread_2
     - durathread_3
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Material
   - type: PhysicalComposition
     materialComposition:
@@ -195,6 +214,8 @@
     tags:
       - ClothMade
       - RawMaterial
+  - type: Item
+    heldPrefix: durathread
 
 - type: entity
   parent: MaterialDurathread
@@ -230,6 +251,11 @@
     - wood
     - wood_2
     - wood_3
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: wood
     layers:
@@ -280,6 +306,11 @@
   - type: Stack
     stackType: Biomass
     count: 100
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     sprite: /Textures/Objects/Misc/monkeycube.rsi
     state: cube
@@ -334,8 +365,7 @@
     sprite: Objects/Materials/materials.rsi
     state: corgihide
   - type: Item
-    sprite: Clothing/Head/Misc/hides.rsi
-    heldPrefix: corgi
+    heldPrefix: corgihide
   - type: Clothing
     sprite: Clothing/Head/Misc/hides.rsi
     equippedPrefix: corgi2
@@ -358,6 +388,11 @@
     - diamond
     - diamond_2
     - diamond_3
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: diamond
     layers:
@@ -400,6 +435,11 @@
     - cotton
     - cotton_2
     - cotton_3
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: cotton_3
     layers:
@@ -427,6 +467,8 @@
     tags:
       - ClothMade
       - RawMaterial
+  - type: Item
+    heldPrefix: cotton
 
 - type: entity
   parent: MaterialCotton
@@ -451,6 +493,11 @@
     - pyrotton
     - pyrotton_2
     - pyrotton_3
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: pyrotton_3
     layers:
@@ -479,6 +526,8 @@
     tags:
       - ClothMade
       - RawMaterial
+  - type: Item
+    heldPrefix: pyrotton
 
 - type: entity
   parent: MaterialPyrotton
@@ -512,6 +561,11 @@
     layerStates:
       - bananium
       - bananium_1
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: FlavorProfile
     flavors:
       - banana
@@ -538,6 +592,8 @@
       - ReagentId: Honk
         Quantity: 5
   - type: Appearance
+  - type: Item
+    heldPrefix: bananium
 
 - type: entity
   parent: MaterialBananium
@@ -565,6 +621,11 @@
   - type: Stack
     count: 50
     stackType: WebSilk
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Food
     requiresSpecialDigestion: true
   - type: FlavorProfile
@@ -588,6 +649,9 @@
     tags:
       - ClothMade
       - RawMaterial
+  - type: Item
+    sprite: Objects/Materials/silk.rsi
+    heldPrefix: silk
 
 - type: entity
   parent: MaterialWebSilk
@@ -629,6 +693,11 @@
     - tooth
     - tooth_2
     - tooth_3
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: StackPrice
     price: 50
   - type: Tag
@@ -667,6 +736,11 @@
     - tooth
     - tooth_2
     - tooth_3
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: StackPrice
     price: 150
   - type: Tag
@@ -695,6 +769,11 @@
     - bones
     - bones_2
     - bones_3
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: cotton_3
     layers:
@@ -710,6 +789,8 @@
         reagents:
         - ReagentId: Vitamin
           Quantity: 3
+  - type: Item
+    heldPrefix: bones
 
 - type: entity
   parent: MaterialBones
@@ -728,6 +809,11 @@
   - type: Stack
     stackType: Gunpowder
     count: 1
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     sprite: Objects/Misc/reagent_fillings.rsi
     state: powderpile
@@ -762,8 +848,15 @@
     - goliath_hide
     - goliath_hide_2
     - goliath_hide_3
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Item
     size: Large
+    heldPrefix: goliathhide
+    sprite: Objects/Materials/hide.rsi
     shape:
     - 0,0,2,2
 

@@ -38,6 +38,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         if (attemptEv.Cancelled)
         {
             SetShooter(uid, component, target);
+            _guns.SetTarget(uid, null, out _); // Goobstation
             component.IgnoredEntities.Clear(); // Goobstation
             return;
         }
@@ -46,7 +47,6 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         RaiseLocalEvent(uid, ref ev);
 
         var otherName = ToPrettyString(target);
-        var direction = args.OurBody.LinearVelocity.Normalized();
         var modifiedDamage = _damageableSystem.TryChangeDamage(target, ev.Damage, component.IgnoreResistances, origin: component.Shooter);
         var deleted = Deleted(target);
 
@@ -65,7 +65,9 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         if (!deleted)
         {
             _guns.PlayImpactSound(target, modifiedDamage, component.SoundHit, component.ForceSound);
-            _sharedCameraRecoil.KickCamera(target, direction);
+
+            if (!args.OurBody.LinearVelocity.IsLengthZero())
+                _sharedCameraRecoil.KickCamera(target, args.OurBody.LinearVelocity.Normalized());
         }
 
         // Goobstation start
@@ -75,7 +77,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             component.DamagedEntity = true;
         // Goobstation end
 
-        if (component.DeleteOnCollide)
+        if (component.DeleteOnCollide || (component.NoPenetrateMask & args.OtherFixture.CollisionLayer) != 0) // Goobstation - Make x-ray arrows not penetrate blob
             QueueDel(uid);
 
         if (component.ImpactEffect != null && TryComp(uid, out TransformComponent? xform))

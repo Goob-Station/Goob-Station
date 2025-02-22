@@ -45,6 +45,13 @@ namespace Content.Shared.Maps
         [DataField]
         public PrototypeFlags<ToolQualityPrototype> DeconstructTools { get; set; } = new();
 
+        /// <summary>
+        /// Goobstation
+        /// Tile deconstruct do-after time multiplier
+        /// </summary>
+        [DataField]
+        public float DeconstructTimeMultiplier { get; private set; }
+
         /// <remarks>
         /// Legacy AF but nice to have.
         /// </remarks>

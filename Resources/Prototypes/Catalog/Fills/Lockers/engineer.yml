@@ -96,9 +96,11 @@
       - id: GasAnalyzer
       - id: MedkitOxygenFilled
       - id: HolofanProjector
+      - id: RPD #funkystation
       - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
       - id: RCD
       - id: RCDAmmo
+      - id: ClothingHandsGlovesAtmosInsulated # Goobstation - insulated atmos gloves
 
 - type: entity
   id: LockerAtmosphericsFilled
@@ -113,9 +115,11 @@
       - id: GasAnalyzer
       - id: MedkitOxygenFilled
       - id: HolofanProjector
+      - id: RPD #funkystation
       - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
       - id: RCD
       - id: RCDAmmo
+      - id: ClothingHandsGlovesAtmosInsulated # Goobstation - insulated atmos gloves
 
 - type: entity
   id: LockerEngineerFilledHardsuit

@@ -1,11 +1,13 @@
 - type: entity
   save: false
-  name: Urist McGremlin
+  name: Urist McFelinid
   parent: BaseMobHuman
   id: MobFelinidBase
   abstract: true
   components:
   - type: Sprite
+    scale: 0.8, 0.8
+  - type: ScaleData # Goobstation
     scale: 0.8, 0.8
   - type: HumanoidAppearance
     species: Felinid

@@ -1,4 +1,5 @@
 using Content.Shared.Actions;
+using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Inventory;
 using Robust.Shared.GameStates;
@@ -85,7 +86,11 @@ public sealed partial class EventHereticLivingHeart : InstantActionEvent { } // 
 public sealed partial class EventHereticMansusLink : EntityTargetActionEvent { }
 
 // ash
-public sealed partial class EventHereticAshenShift : InstantActionEvent { }
+public sealed partial class EventHereticAshenShift : InstantActionEvent
+{
+    [DataField]
+    public DamageSpecifier? Damage;
+}
 public sealed partial class EventHereticVolcanoBlast : InstantActionEvent { }
 public sealed partial class EventHereticNightwatcherRebirth : InstantActionEvent { }
 public sealed partial class EventHereticFlames : InstantActionEvent { }
@@ -101,6 +106,7 @@ public sealed partial class HereticVoidBlinkEvent : WorldTargetActionEvent { }
 public sealed partial class HereticVoidPullEvent : InstantActionEvent { }
 
 // blade (+ upgrades)
+[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticCuttingEdgeEvent : EntityEventArgs { }
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticDanceOfTheBrandEvent : EntityEventArgs { }
 public sealed partial class EventHereticRealignment : InstantActionEvent { }
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticChampionStanceEvent : EntityEventArgs { }

@@ -38,7 +38,7 @@
       board: [ DoorElectronicsChapel ]
 
 - type: entity
-  parent: AirlockServiceLocked
+  parent: AirlockJanitor # Goobstation - Sweet new jani door
   id: AirlockJanitorLocked
   suffix: Janitor, Locked
   components:
@@ -103,6 +103,28 @@
       board: [ DoorElectronicsEngineering ]
   - type: Wires
     layoutId: AirlockEngineering
+
+- type: entity
+  parent: AirlockExternal
+  id: AirlockExternalCommandLocked
+  suffix: External, Command, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCommand ]
+  - type: Wires
+    layoutId: AirlockCommand
+
+- type: entity
+  parent: AirlockExternalGlass
+  id: AirlockExternalGlassCommandLocked
+  suffix: External, Glass, Command, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCommand ]
+  - type: Wires
+    layoutId: AirlockCommand
 
 - type: entity
   parent: AirlockExternal
@@ -522,7 +544,7 @@
       board: [ DoorElectronicsKitchen ]
 
 - type: entity
-  parent: AirlockServiceGlassLocked
+  parent: AirlockJanitorGlass # Goobstation - Sweet new jani door
   id: AirlockJanitorGlassLocked
   suffix: Janitor, Locked
   components:
@@ -966,6 +988,15 @@
       board: [ DoorElectronicsMedical ]
   - type: Wires
     layoutId: AirlockMedical
+
+- type: entity
+  parent: AirlockMaintMedLocked
+  id: AirlockMedicalMorgueMaintLocked
+  suffix: Morgue, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMorgue ]
 
 - type: entity
   parent: AirlockMaintMedLocked

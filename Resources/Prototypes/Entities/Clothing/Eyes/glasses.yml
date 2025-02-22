@@ -53,9 +53,9 @@
         Blunt: 10
 
 - type: entity
-  parent: [ClothingEyesBase, BaseEngineeringContraband]
+  parent: ClothingEyesBase # goobstation - tider nation - no longer contra
   id: ClothingEyesGlassesMeson
-  name: engineering goggles #less confusion
+  name: meson goggles # goobstation - they're called MESONS!!!!
   description: Green-tinted goggles using a proprietary polymer that provides protection from eye damage of all types.
   components:
   - type: Sprite
@@ -70,13 +70,13 @@
   parent: ClothingEyesBase
   id: ClothingEyesGlasses
   name: glasses
-  description: A pair of spectacular spectacles with prescription lenses.
+  description: Upon closer inspection, you realize these lenses are infact made of plastic. # Goobstation
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/glasses.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/glasses.rsi
-  - type: VisionCorrection
+ # - type: VisionCorrection - Goobstation
   - type: Tag
     tags:
     - HamsterWearable
@@ -188,7 +188,7 @@
   parent: [ClothingEyesBase, BaseCommandContraband]
   id: ClothingEyesGlassesCommand
   name: administration glasses
-  description: Upgraded sunglasses that provide flash immunity and show ID card status. 
+  description: Upgraded sunglasses that provide flash immunity and show ID card status.
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/commandglasses.rsi
@@ -272,3 +272,5 @@
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
   - type: FlashImmunity
+  - type: NightVision
+    isEquipment: true

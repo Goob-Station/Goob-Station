@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Created by discord:SOL(Артур)#8162, reptilian made by hqlle(444118014024220672). Vox sprite made by Flareguy, Harpy Variant By Adeinitas",
+  "copyright": "Created by discord:SOL(Артур)#8162, reptilian made by hqlle(444118014024220672). Vox sprite made by Flareguy, Harpy Variant By Adeinitas, equipped-OUTERCLOTHING-resomi made by svarshiksatanist (Discord), reptilian made by kuro(388673708753027083)",
   "size": {
     "x": 32,
     "y": 32
@@ -19,11 +19,19 @@
       "directions": 4
     },
     {
+      "name": "equipped-OUTERCLOTHING-reptilian",
+      "directions": 4
+    },
+    {
       "name": "inhand-left",
       "directions": 4
     },
     {
       "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-resomi",
       "directions": 4
     }
   ]

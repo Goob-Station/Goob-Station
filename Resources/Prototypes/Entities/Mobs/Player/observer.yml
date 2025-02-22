@@ -55,6 +55,7 @@
     skipChecks: true
   - type: Ghost
   - type: GhostHearing
+  - type: ShowElectrocutionHUD
   - type: IntrinsicRadioReceiver
   - type: ActiveRadio
     receiveAllChannels: true
@@ -62,6 +63,9 @@
   - type: Tag
     tags:
     - BypassInteractionRangeChecks
+  - type: Speech #Goobstation - Dead chat verbs
+    speechVerb: Dead
+  - type: GhostColor
 
 # proto for player ghosts specifically
 - type: entity
@@ -91,6 +95,7 @@
     icon: Interface/VerbIcons/light.svg.192dpi.png
     clientExclusive: true
     checkCanInteract: false
+    raiseOnUser: true # Goobstation
     event: !type:ToggleLightingActionEvent
 
 - type: entity
@@ -102,6 +107,7 @@
     icon: Interface/VerbIcons/vv.svg.192dpi.png
     clientExclusive: true
     checkCanInteract: false
+    raiseOnUser: true # Goobstation
     event: !type:ToggleFoVActionEvent
 
 - type: entity
@@ -113,6 +119,7 @@
     icon: { sprite: Mobs/Ghosts/ghost_human.rsi, state: icon }
     clientExclusive: true
     checkCanInteract: false
+    raiseOnUser: true # Goobstation
     event: !type:ToggleGhostsActionEvent
 
 - type: entity

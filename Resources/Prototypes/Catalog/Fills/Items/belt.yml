@@ -53,6 +53,7 @@
     - id: Handcuffs
     - id: HoloprojectorSecurity
     - id: RadioHandheldSecurity
+    - id: WeaponDisabler #Goobstation
 
 - type: entity
   id: ClothingBeltSecurityFilled
@@ -117,6 +118,8 @@
       - id: Gauze
       - id: EmergencyMedipen #You never know what people are going to latejoin into
         amount: 3
+      - id: ParamedHypo #Goobstation - ParamedHypo
+      - id: Tourniquet #Goobstation - ParamedHypo
 
 - type: entity
   id: ClothingBeltPlantFilled

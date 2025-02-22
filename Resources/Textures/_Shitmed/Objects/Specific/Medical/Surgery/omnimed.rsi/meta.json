@@ -17,6 +17,17 @@
 		{
 			"name": "inhand-right",
 			"directions": 4
+		},
+                {
+			"name": "evil"
+		},
+		{
+			"name": "evil-inhand-left",
+			"directions": 4
+		},
+		{
+			"name": "evil-inhand-right",
+			"directions": 4
 		}
 	]
 }

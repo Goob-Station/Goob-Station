@@ -1,0 +1,43 @@
+- type: species
+  id: Oni
+  name: species-name-oni
+  roundStart: true
+  prototype: MobOni
+  dollPrototype: MobOniDummy
+  markingLimits: MobOniMarkingLimits
+  sprites: MobHumanSprites
+  skinColoration: Hues
+  maleFirstNames: names_oni_male
+  femaleFirstNames: names_oni_female
+  lastNames: names_oni_location
+  naming: LastNoFirst
+
+- type: markingPoints
+  id: MobOniMarkingLimits
+  points:
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 1
+      required: false
+    HeadTop:
+      points: 1
+      required: true
+      defaultMarkings: [ OniHornDoubleCurved ]
+    HeadSide:
+      points: 1
+      required: false
+      defaultMarkings: [ PointyEarsUpwards ]
+    Snout:
+      points: 2
+      required: false
+    Chest:
+      points: 1
+      required: false
+    Legs:
+      points: 6
+      required: false
+    Arms:
+      points: 6
+      required: false

@@ -1,8 +1,6 @@
 using Content.Server.Antag;
-using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Spawners.Components;
 using Content.Shared.Whitelist;
-using Robust.Server.Physics;
 using Robust.Shared.Map;
 
 namespace Content.Server.GameTicking.Rules;

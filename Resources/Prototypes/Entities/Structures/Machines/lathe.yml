@@ -141,6 +141,7 @@
       - UtilityBelt
       - Fulton
       - FultonBeacon
+      - OreBag # Goobstation
       - Pickaxe
       - ModularReceiver
       - AppraisalTool
@@ -154,6 +155,7 @@
       - ExteriorLightTube
       - LightBulb
       - LedLightBulb
+      - DimLightBulb
       - Bucket
       - DrinkMug
       - DrinkMugMetal
@@ -206,6 +208,7 @@
       - ClothingHeadHatCone
       - FreezerElectronics
       - ToolboxMechanical # Goobstation - Recycle update
+      - Pen # Goobstation - Allow pen printing
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - BoxLethalshot
@@ -237,8 +240,20 @@
       - CartridgeBicaridine # Goobstation
       - CartridgeDermaline # Goobstation
       - CartridgeEphedrine # Goobstation
-      - CartridgeIchor # Goobstation
+      - CartridgePuncturase # Goobstation
       - SecHypo # Goobstation
+      - ParamedHypo # Goobstation - ParamedHypo
+      - MagazinePistolCaselessRifle # Goobstation
+      - MagazineBoxCaselessRifle # Goobstation
+      - MagazineLightRifleBoxEmpty # Goobstation
+      - MagazineLightRifleBox # Goobstation
+      - MagazineHighCaliberEmpty # Goobstation
+      - MagazineHighCaliber # Goobstation
+      - MagazineBoxHighCaliber # Goobstation
+      - MagazineMagnumEmpty # Goobstation
+      - MagazineMagnum # Goobstation
+      - MagazineMagnumLeverRifleEmpty # Goobstation
+      - MagazineMagnumLeverRifle # Goobstation
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -299,8 +314,9 @@
     - LargeBeaker
     - Dropper
     - ClothingEyesGlassesChemical
-    - MaterialBSCrystal # Goobstation
+    - MaterialBSCrystal
     dynamicRecipes:
+      - PrescriptionGlasses # Goobstation
       - PowerDrill
       - MiningDrill
       - MiningDrillDiamond
@@ -371,6 +387,10 @@
       - EnergyScalpel # Shitmed Change
       - EnergyCautery # Shitmed Change
       - AdvancedRetractor # Shitmed Change
+      # WD EDIT START
+      - ClothingEyesNightVisionGoggles
+      - ClothingEyesThermalVisionGoggles
+      # WD EDIT END
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag
@@ -550,6 +570,7 @@
       - MassMediaCircuitboard
       - ReagentGrinderIndustrialMachineCircuitboard
       - JukeboxCircuitBoard
+      - SMESAdvancedMachineCircuitboard
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - ShuttleGunDusterCircuitboard
@@ -603,11 +624,6 @@
     - BorgModuleFireExtinguisher
     - BorgModuleRadiationDetection
     - BorgModuleTool
-    - BorgModuleAppraisal
-    - BorgModuleConstruction
-    - BorgModuleService
-    - BorgModuleTreatment
-    - BorgModuleCleaning
     - CyborgEndoskeleton
     - LeftArmBorg
     - RightArmBorg
@@ -615,53 +631,33 @@
     - RightLegBorg
     - LightHeadBorg
     - TorsoBorg
-    - LeftArmBorgEngineer
-    - RightArmBorgEngineer
-    - LeftLegBorgEngineer
-    - RightLegBorgEngineer
-    - HeadBorgEngineer
-    - TorsoBorgEngineer
-    - LeftLegBorgJanitor
-    - RightLegBorgJanitor
-    - HeadBorgJanitor
-    - TorsoBorgJanitor
-    - LeftArmBorgMedical
-    - RightArmBorgMedical
-    - LeftLegBorgMedical
-    - RightLegBorgMedical
-    - HeadBorgMedical
-    - TorsoBorgMedical
-    - LeftArmBorgMining
-    - RightArmBorgMining
-    - LeftLegBorgMining
-    - RightLegBorgMining
-    - HeadBorgMining
-    - TorsoBorgMining
-    - LeftArmBorgService
-    - RightArmBorgService
-    - LeftLegBorgService
-    - RightLegBorgService
-    - HeadBorgService
-    - TorsoBorgService
-    - BorgModuleSurgery # Shitmed Change
     - MechAirTank # Goobstation
     - MechThruster # Goobstation
+    # Shitmed Change
+    - BorgModuleSurgery
+    - TorsoIPC
+    - LeftArmIPC
+    - RightArmIPC
+    - LeftLegIPC
+    - RightLegIPC
+    - HeadIPC
+    - LeftHandIPC
+    - RightHandIPC
+    - LeftFootIPC
+    - RightFootIPC
+    - OrganIPCEyes
+    - OrganIPCPump
+    - PowerCageMedium # Goobstation - Powercell to exosuit fab
+    - PowerCageSmall # Goobstation - Powercell to exosuit fab
     dynamicRecipes:
     - ProximitySensor
-    - BorgModuleLightReplacer
     - BorgModuleAdvancedCleaning
-    - BorgModuleMining
-    - BorgModuleGrapplingGun
     - BorgModuleAdvancedTool
     - BorgModuleGPS
-    - BorgModuleRCD
     - BorgModuleArtifact
     - BorgModuleAnomaly
     - BorgModuleGardening
     - BorgModuleHarvesting
-    - BorgModuleMusique
-    - BorgModuleClowning
-    - BorgModuleDiagnosis
     - BorgModuleDefibrillator
     - BorgModuleAdvancedTreatment
     - RipleyHarness
@@ -691,6 +687,8 @@
     - JawsOfLifeRightArm
     - SpeedLeftLeg
     - SpeedRightLeg
+    - DexLeftHand
+    - DexRightHand
     - BasicCyberneticEyes
     # Goobstation - Mechs
     - ClarkeHarness
@@ -717,6 +715,14 @@
     - MechEquipmentKineticAccelerator
     - MechEquipmentHonkerBananaMortar
     - MechEquipmentHonkerMousetrapMortar
+    # Goobstation - Modsuits
+    - ModsuitChestplate
+    - ModsuitBoots
+    - ModsuitHelmet
+    - ModsuitGauntlets
+    - ModsuitShell
+    - ModsuitPlatingExternal
+    - PowerCageHigh # Goobstation - Powercell to exosuit fab
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - WeaponMechCombatImmolationGun
@@ -781,7 +787,6 @@
     - CockroachCube
     - HumanCube # Goobstation - Start
     - DionaCube
-    - FelinidCube
     - GingerbreadCube
     - MothCube
     - DwarfCube
@@ -790,6 +795,7 @@
     - ReptilianCube
     - VulpkaninCube
     - SlimePersonCube
+    - TajaranCube
     - VoxCube
     - YowieCube # Goobstation - End
   - type: EmagLatheRecipes
@@ -798,6 +804,7 @@
     - SpaceCarpCube
     - SpaceTickCube
     - SkibidiCube # Goobstation
+    - FelinidCube
 
 - type: entity
   id: SecurityTechFab
@@ -870,7 +877,11 @@
       - CartridgeBicaridine # Goobstation
       - CartridgeDermaline # Goobstation
       - SecHypo # Goobstation
-      - SyringeGun # Goobstation  
+      - SyringeGun # Goobstation
+      - MagazineMagnumEmpty # Goobstation
+      - MagazineMagnum # Goobstation
+      - MagazineMagnumLeverRifle # Goobstation
+      - MagazineMagnumLeverRifleEmpty # Goobstation
     dynamicRecipes:
       - BoxBeanbag
       - BoxShotgunIncendiary
@@ -935,6 +946,15 @@
       - WeaponMechCombatDisabler
       - WeaponMechCombatFlashbangLauncher
       - WeaponMechCombatMissileRack8
+  - type: EmagLatheRecipes # Goobstation
+    emagStaticRecipes:
+    - MagazinePistolCaselessRifle # Goobstation
+    - MagazineBoxCaselessRifle # Goobstation
+    - MagazineLightRifleBoxEmpty # Goobstation
+    - MagazineLightRifleBox # Goobstation
+    - MagazineHighCaliberEmpty # Goobstation
+    - MagazineHighCaliber # Goobstation
+    - MagazineBoxHighCaliber # Goobstation
   - type: MaterialStorage
     whitelist:
       tags:
@@ -985,6 +1005,17 @@
         - MagazineShotgunSlug
         - SpeedLoaderMagnum
         - SpeedLoaderMagnumEmpty
+        - MagazineMagnumEmpty # Goobstation
+        - MagazineMagnum # Goobstation
+    - type: EmagLatheRecipes # Goobstation
+      emagStaticRecipes:
+      - MagazinePistolCaselessRifle # Goobstation
+      - MagazineBoxCaselessRifle # Goobstation
+      - MagazineLightRifleBoxEmpty # Goobstation
+      - MagazineLightRifleBox # Goobstation
+      - MagazineHighCaliberEmpty # Goobstation
+      - MagazineHighCaliber # Goobstation
+      - MagazineBoxHighCaliber # Goobstation
     - type: MaterialStorage
       whitelist:
         tags:
@@ -1056,10 +1087,16 @@
       - SyringeGun #Goobstation
       - MedicalPatchBasic  #Goobstation - MedicalPatch
       - MedicalPatchRapid #Goobstation - MedicalPatch
+      - MedicalPatchTherapeutic #Goobstation - MedicalPatch
       - MedicalPatchLarge #Goobstation - MedicalPatch
       - BoneGel # Shitmed Change
       - VehicleWheelchairFolded # Goobstation - Vehicles
+      - CartridgeEpinephrine # Goobstation - ParamedHypo
+      - CartridgeBicaridine # Goobstation - ParamedHypo
+      - CartridgeDermaline # Goobstation - ParamedHypo
+      - ParamedHypo # Goobstation - ParamedHypo
     dynamicRecipes:
+      - PrescriptionGlasses # Goobstation
       - ChemicalPayload
       - CryostasisBeaker
       - BluespaceBeaker
@@ -1108,6 +1145,7 @@
       - ClothingUniformJumpskirtCaptain
       - ClothingUniformJumpsuitCapFormal
       - ClothingUniformJumpskirtCapFormalDress
+      - ClothingUniformJumpsuitCasualCommand # Goobstation
       - ClothingUniformJumpsuitCargo
       - ClothingUniformJumpskirtCargo
       - ClothingUniformJumpsuitSalvageSpecialist
@@ -1134,6 +1172,7 @@
       - ClothingUniformJumpskirtEngineering
       - ClothingUniformJumpsuitSeniorEngineer
       - ClothingUniformJumpskirtSeniorEngineer
+      - ClothingUniformJumpsuitCasualEngineer # Goobstation
       - ClothingHeadHatHopcap
       - ClothingUniformJumpsuitHoP
       - ClothingUniformJumpskirtHoP
@@ -1256,12 +1295,14 @@
       - ClothingUniformJumpskirtCentcomFormalDress
       - ClothingUniformJumpsuitCentcomOfficer
       - ClothingUniformJumpsuitCentcomOfficial
+      - ClothingUniformJumpsuitCasualCentcom # Goobstation
       - ClothingHeadHatSyndieMAA
       - ClothingHeadHatSyndie
       - ClothingUniformJumpsuitOperative
       - ClothingUniformJumpskirtOperative
       - ClothingUniformJumpsuitSyndieFormal
       - ClothingUniformJumpskirtSyndieFormalDress
+      - ClothingUniformJumpsuitCasualSyndicate # Goobstation
       - ClothingHeadPyjamaSyndicateBlack
       - ClothingUniformJumpsuitPyjamaSyndicateBlack
       - ClothingHeadPyjamaSyndicatePink
@@ -1375,7 +1416,7 @@
       staticRecipes:
         - SheetSteel
         - SheetGlass1
-        - SheetRGlass
+        - SheetRGlassRaw
         - SheetPlasma1
         - SheetPGlass1
         - SheetRPGlass1
@@ -1384,6 +1425,7 @@
         - IngotSilver1
         - MaterialBananium1
         - MaterialDiamond
+
 
 - type: entity
   parent: OreProcessor
@@ -1401,7 +1443,7 @@
     staticRecipes:
       - SheetSteel
       - SheetGlass1
-      - SheetRGlass
+      - SheetRGlassRaw
       - SheetPlasma1
       - SheetPGlass1
       - SheetRPGlass1
@@ -1523,52 +1565,3 @@
         - Wooden
         - RawMaterial
         - Plastic
-
-# Shitmed Change Start
-- type: entity
-  id: MedicalBiofabricator
-  parent: BaseLathe
-  name: medical biofabricator
-  description: Produces organs and other organic matter that can be surgically grafted onto patients with biomass.
-  components:
-  - type: Sprite
-    sprite: _Shitmed/Structures/Machines/limbgrower.rsi
-    snapCardinals: true
-    layers:
-    - state: limbgrower_idleoff
-      map: ["enum.LatheVisualLayers.IsRunning"]
-#    - state: limbgrower_idleoff
-#      shader: unshaded
-#      map: ["enum.PowerDeviceVisualLayers.Powered"]
-#    - state: inserting
-#      map: ["enum.MaterialStorageVisualLayers.Inserting"]
-#    - state: panel
-#      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: Machine
-    board: MedicalBiofabMachineBoard
-  - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - RawMaterial
-  - type: Lathe
-    idleState: limbgrower_idleoff
-    runningState: limbgrower_idleon
-    staticRecipes:
-    - SynthLiver
-    - SynthHeart
-    - SynthLungs
-    - SynthEyes
-    - SynthLeftLeg
-    - SynthRightLeg
-    - SynthLeftFoot
-    - SynthRightFoot
-    - SynthLeftArm
-    - SynthRightArm
-    - SynthLeftHand
-    - SynthRightHand
-  - type: EmagLatheRecipes
-    emagStaticRecipes:
-      - PizzaLeftArm
-      - PizzaRightArm
-# Shitmed Change End

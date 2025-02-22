@@ -15,7 +15,7 @@ public sealed partial class FartComponent : Component
     [DataField] public bool FartTimeout = false;
     [DataField] public bool FartInhale = false;
     [DataField] public bool SuperFarted = false;
-    [DataField] public const float MolesAmmoniaPerFart = 5f;
+    [DataField] public float MolesAmmoniaPerFart = 5f;
 }
 
 [Serializable, NetSerializable]

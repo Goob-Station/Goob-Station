@@ -47,12 +47,6 @@
       maxGroupSize: 30
     - !type:OreDunGen
       replacement: IronRock
-      entity: IronRockSalt
-      count: 50
-      minGroupSize: 20
-      maxGroupSize: 30
-    - !type:OreDunGen
-      replacement: IronRock
       entity: IronRockGold
       count: 50
       minGroupSize: 10
@@ -96,9 +90,9 @@
     - !type:OreDunGen # Goobstation
       replacement: IronRock
       entity: IronRockBSCrystal
-      count: 10
-      minGroupSize: 1
-      maxGroupSize: 2
+      count: 40
+      minGroupSize: 2
+      maxGroupSize: 5
 
 # Configs
 - type: dungeonConfig

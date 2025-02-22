@@ -13,6 +13,11 @@ using Content.Shared.Weapons.Melee;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
 
+// Shitmed Change
+using Content.Shared._Shitmed.Antags.Abductor;
+using Content.Shared.Silicons.StationAi;
+using Content.Shared.Body.Events;
+
 namespace Content.Shared.ActionBlocker
 {
     /// <summary>
@@ -82,6 +87,10 @@ namespace Content.Shared.ActionBlocker
         public bool CanInteract(EntityUid user, EntityUid? target)
         {
             if (!CanConsciouslyPerformAction(user))
+                return false;
+
+            // Shitmed Change
+            if (HasComp<StationAiOverlayComponent>(user) && HasComp<AbductorScientistComponent>(user))
                 return false;
 
             var ev = new InteractionAttemptEvent(user, target);
@@ -204,6 +213,8 @@ namespace Content.Shared.ActionBlocker
 
             var ev = new AttackAttemptEvent(uid, target, weapon, disarm);
             RaiseLocalEvent(uid, ev);
+            if (weapon != null) // Goobstation
+                RaiseLocalEvent(weapon.Value, ev);
 
             if (ev.Cancelled)
                 return false;
@@ -239,5 +250,15 @@ namespace Content.Shared.ActionBlocker
 
             return !ev.Cancelled;
         }
+
+        // Shitmed Change Start - Starlight Abductors
+        public bool CanInstrumentInteract(EntityUid user, EntityUid used, EntityUid? target)
+        {
+            var ev = new InteractionAttemptEvent(user, target);
+            RaiseLocalEvent(used, ref ev);
+
+            return !ev.Cancelled;
+        }
+        // Shitmed Change End - Starlight Abductors
     }
 }

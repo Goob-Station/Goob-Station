@@ -1,5 +1,4 @@
 ﻿using Robust.Shared.Serialization;
-using ConsoleUIState = Content.Shared.SensorMonitoring.SensorMonitoringConsoleBoundInterfaceState;
 
 namespace Content.Shared.SensorMonitoring;
 

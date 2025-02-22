@@ -32,6 +32,19 @@
   - type: RuleGrids
   - type: AntagSelection
   - type: AntagLoadProfileRule
+    # Goobstation start
     speciesOverride: Human
     speciesOverrideBlacklist:
-    - Vox # lol loser
+    - Yowie
+    - IPC
+    - Diona
+    - Abductor
+    - Harpy
+    # Goobstation end
+
+- type: entity
+  abstract: true
+  parent: BaseGameRuleDynamic
+  id: BaseBlobRuleDynamic
+  components:
+  - type: BlobRule

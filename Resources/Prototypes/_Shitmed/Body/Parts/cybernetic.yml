@@ -1,6 +1,6 @@
 - type: entity
   id: LeftArmCybernetic
-  parent: LeftArmHuman
+  parent: [PartIPC, BaseLeftArm]
   abstract: true
   components:
   - type: Damageable
@@ -11,12 +11,12 @@
     id: LeftHandCybernetic
   - type: Cybernetics
   - type: Sprite
-    sprite: _Shitmed/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: "l_arm-combined"
 
 - type: entity
   id: RightArmCybernetic
-  parent: RightArmHuman
+  parent: [PartIPC, BaseRightArm]
   abstract: true
   components:
   - type: Damageable
@@ -27,12 +27,12 @@
     id: RightHandCybernetic
   - type: Cybernetics
   - type: Sprite
-    sprite: _Shitmed/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: "r_arm-combined"
 
 - type: entity
   id: LeftLegCybernetic
-  parent: LeftLegHuman
+  parent: [PartIPC, BaseLeftLeg]
   abstract: true
   components:
   - type: Damageable
@@ -43,12 +43,12 @@
     id: LeftFootCybernetic
   - type: Cybernetics
   - type: Sprite
-    sprite: _Shitmed/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: "l_leg-combined"
 
 - type: entity
   id: RightLegCybernetic
-  parent: RightLegHuman
+  parent: [PartIPC, BaseRightLeg]
   abstract: true
   components:
   - type: Damageable
@@ -59,12 +59,12 @@
     id: RightFootCybernetic
   - type: Cybernetics
   - type: Sprite
-    sprite: _Shitmed/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: "r_leg-combined"
 
 - type: entity
   id: LeftHandCybernetic
-  parent: LeftHandHuman
+  parent: [PartIPC, BaseLeftHand]
   name: cybernetic left hand
   components:
   - type: Damageable
@@ -73,12 +73,12 @@
     baseLayerId: MobCyberneticBishopLHand
   - type: Cybernetics
   - type: Sprite
-    sprite: _Shitmed/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: "l_hand"
 
 - type: entity
   id: RightHandCybernetic
-  parent: RightHandHuman
+  parent: [PartHuman, BaseRightHand]
   name: cybernetic right hand
   components:
   - type: Damageable
@@ -87,12 +87,12 @@
     baseLayerId: MobCyberneticBishopRHand
   - type: Cybernetics
   - type: Sprite
-    sprite: _Shitmed/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: "r_hand"
 
 - type: entity
   id: LeftFootCybernetic
-  parent: LeftFootHuman
+  parent: [PartIPC, BaseLeftFoot]
   name: cybernetic left foot
   components:
   - type: Damageable
@@ -101,12 +101,12 @@
     baseLayerId: MobCyberneticBishopLFoot
   - type: Cybernetics
   - type: Sprite
-    sprite: _Shitmed/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: "l_foot"
 
 - type: entity
   id: RightFootCybernetic
-  parent: RightFootHuman
+  parent: [PartIPC, BaseRightFoot]
   name: cybernetic right foot
   components:
   - type: Damageable
@@ -115,7 +115,7 @@
     baseLayerId: MobCyberneticBishopRFoot
   - type: Cybernetics
   - type: Sprite
-    sprite: _Shitmed/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: "r_foot"
 
 - type: entity
@@ -129,6 +129,8 @@
     - type: Prying
       speedModifier: 1.5
       pryPowered: true
+    - type: UseDelay # For insta prying
+      delay: 1
 
 - type: entity
   parent: RightArmCybernetic
@@ -141,6 +143,8 @@
     - type: Prying
       speedModifier: 1.5
       pryPowered: true
+    - type: UseDelay # For insta prying
+      delay: 1
 
 - type: entity
   parent: LeftLegCybernetic
@@ -169,3 +173,21 @@
     onAdd:
     - type: NoSlip
     - type: ProtectedFromStepTriggers
+
+- type: entity
+  id: DexLeftHand
+  parent: LeftHandCybernetic
+  name: D.E.X left hand
+  description: A cybernetic left hand that allows its wearer to interact faster.
+  components:
+  - type: DoAfterDelayMultiplier
+    multiplier: 0.8
+
+- type: entity
+  id: DexRightHand
+  parent: RightHandCybernetic
+  name: D.E.X right hand
+  description: A cybernetic right hand that allows its wearer to interact faster.
+  components:
+  - type: DoAfterDelayMultiplier
+    multiplier: 0.8

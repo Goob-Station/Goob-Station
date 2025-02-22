@@ -15,6 +15,7 @@
 - type: emote
   id: Spin
   name: chat-emote-name-spin
+  category: Invalid # Don't show in the emote wheel
   chatMessages: ["chat-emote-msg-spin"]
   chatTriggers:
   - spin

@@ -134,7 +134,7 @@
     ears: ClothingHeadsetAltSecurity
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterCoatHoSTrench
-    pocket1: WeaponDisabler
+    #pocket1: WeaponDisabler #Goobstation (Disablers in belts)
     pocket2: MagazinePistolSubMachineGunTopMounted
   inhand:
   - WeaponSubMachineGunWt550
@@ -152,7 +152,7 @@
     back: ClothingBackpackSatchelLeather
     ears: ClothingHeadsetAltSecurity
     eyes: ClothingEyesGlassesSecurity
-    pocket1: WeaponDisabler
+    #pocket1: WeaponDisabler #Goobstation (Disablers in belts)
     pocket2: MagazinePistolSubMachineGunTopMounted
   inhand:
   - WeaponSubMachineGunWt550
@@ -354,7 +354,7 @@
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterWinterWarden
-    pocket1: WeaponDisabler
+    #pocket1: WeaponDisabler #Goobstation (Disablers in belts)
     pocket2: Zipties
   inhand:
   - FlashlightSeclite

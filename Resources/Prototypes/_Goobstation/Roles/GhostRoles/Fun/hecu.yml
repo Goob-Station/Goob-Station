@@ -12,6 +12,8 @@
   - AllAccess
   access:
   - CentralCommand
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
 
 - type: startingGear
   id: HECUOperativeGear

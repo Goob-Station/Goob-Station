@@ -1,0 +1,21 @@
+- type: entity
+  name: wondercuffs
+  description: Made out of a metal more durable than anything Nanotrasen could dream of.
+  id: AbductorHandcuffs
+  parent: [BaseMajorContraband, Handcuffs]
+  components:
+  - type: Handcuff
+    cuffTime: 1.5
+    uncuffTime: 4.5
+    breakoutTime: 30
+    stunBonus: 1.0
+    cuffedRSI: _Shitmed/Objects/Misc/handcuffs.rsi
+    bodyIconState: body-overlay
+  - type: Sprite
+    sprite: _Shitmed/Objects/Misc/handcuffs.rsi
+    state: handcuff
+  - type: GuideHelp
+    guides:
+    - Abductors
+  - type: UseDelay
+    delay: 1.5

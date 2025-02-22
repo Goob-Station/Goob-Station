@@ -307,6 +307,12 @@
         Piercing: 10
     soundHit:
       path: "/Audio/Items/drill_hit.ogg"
+  - type: Tending # Shitmed
+    speed: 0.75
+  - type: Drill # Shitmed
+    speed: 1
+  - type: SurgeryTool # Shitmed
+    startSound: /Audio/Items/drill_use.ogg
 
 - type: entity
   id: RCD
@@ -362,6 +368,41 @@
   - type: ActivatableUI
     inHandsOnly: true
     key: enum.RcdUiKey.Key
+
+- type: entity
+  id: RPD
+  parent: RCD
+  name: RPD
+  description: A device used to rapidly pipe things.
+  components:
+  - type: RCD
+    isRpd: true
+    availablePrototypes:
+    - PipeFourway
+    - PipeStraight
+    - PipeBend
+    - PipeTJunction
+    - OutletInjector
+    - ManualValve
+    - VolumetricPump
+    - PressurePump
+    - VentScrubber
+    - PressureValve
+    - DualPortVent
+    - VentGas
+    - VentPassive
+    - MixerGas
+    - Radiator
+    - SignalValve
+    - CanisterPort
+    - FilterGas
+    - Deconstruct
+  - type: LimitedCharges
+    maxCharges: 45
+    charges: 45
+  - type: Sprite
+    sprite: Objects/Tools/rpd.rsi
+
 
 - type: entity
   id: RCDEmpty
@@ -431,6 +472,8 @@
     - Multitool
   - type: Prying
     enabled: false
+  - type: UseDelay # Goobstation - For insta prying
+    delay: 1
   - type: Tool
     qualities:
       - Screwing

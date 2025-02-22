@@ -12,13 +12,13 @@ using Content.Server.Discord;
 using Content.Server.GameTicking;
 using Content.Server.Players.RateLimiting;
 using Content.Server.Preferences.Managers;
+using Content.Shared._Goobstation.CCVar;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Players.RateLimiting;
 using JetBrains.Annotations;
-using Pidgin.Configuration;
 using Robust.Server.Player;
 using Robust.Shared;
 using Robust.Shared.Configuration;
@@ -175,7 +175,7 @@ namespace Content.Server.Administration.Systems
                 }
 
                 // Check if the user has been banned
-                var ban = await _dbManager.GetServerBanAsync(null, e.Session.UserId, null);
+                var ban = await _dbManager.GetServerBanAsync(null, e.Session.UserId, null, null);
                 if (ban != null)
                 {
                     var banMessage = Loc.GetString("bwoink-system-player-banned", ("banReason", ban.Reason));
@@ -693,7 +693,7 @@ namespace Content.Server.Administration.Systems
             _activeConversations[bwoinkParams.Message.UserId] = DateTime.Now;
 
             var escapedText = FormattedMessage.EscapeText(bwoinkParams.Message.Text);
-            var adminColor = _config.GetCVar(CCVars.AdminBwoinkColor);
+            var adminColor = _config.GetCVar(GoobCVars.AdminBwoinkColor);
             var adminPrefix = "";
             var bwoinkText = $"{bwoinkParams.SenderName}";
 
@@ -703,19 +703,19 @@ namespace Content.Server.Administration.Systems
                 if (bwoinkParams.SenderAdmin is not null && bwoinkParams.SenderAdmin.Title is not null)
                     adminPrefix = $"[bold]\\[{bwoinkParams.SenderAdmin.Title}\\][/bold] ";
 
-                if (_config.GetCVar(CCVars.UseDiscordRoleName) && bwoinkParams.RoleName is not null)
+                if (_config.GetCVar(GoobCVars.UseDiscordRoleName) && bwoinkParams.RoleName is not null)
                     adminPrefix = $"[bold]\\[{bwoinkParams.RoleName}\\][/bold] ";
             }
 
             // If role color is enabled and exists, use it, otherwise use the discord reply color
-            if (_config.GetCVar(CCVars.DiscordReplyColor) != string.Empty && bwoinkParams.FromWebhook)
-                adminColor = _config.GetCVar(CCVars.DiscordReplyColor);
+            if (_config.GetCVar(GoobCVars.DiscordReplyColor) != string.Empty && bwoinkParams.FromWebhook)
+                adminColor = _config.GetCVar(GoobCVars.DiscordReplyColor);
 
-            if (_config.GetCVar(CCVars.UseDiscordRoleColor) && bwoinkParams.RoleColor is not null)
+            if (_config.GetCVar(GoobCVars.UseDiscordRoleColor) && bwoinkParams.RoleColor is not null)
                 adminColor = bwoinkParams.RoleColor;
 
             if (!bwoinkParams.FromWebhook
-                && _config.GetCVar(CCVars.UseAdminOOCColorInBwoinks)
+                && _config.GetCVar(GoobCVars.UseAdminOOCColorInBwoinks)
                 && bwoinkParams.SenderAdmin is not null)
             {
                 var prefs = _preferencesManager.GetPreferences(bwoinkParams.SenderId);
@@ -732,7 +732,7 @@ namespace Content.Server.Administration.Systems
             }
 
             if (bwoinkParams.FromWebhook)
-                bwoinkText = $"{_config.GetCVar(CCVars.DiscordReplyPrefix)}{bwoinkText}";
+                bwoinkText = $"{_config.GetCVar(GoobCVars.DiscordReplyPrefix)}{bwoinkText}";
 
             bwoinkText = $"{(bwoinkParams.Message.PlaySound ? "" : "(S) ")}{bwoinkText}: {escapedText}";
 
@@ -780,7 +780,7 @@ namespace Content.Server.Administration.Systems
                             overrideMsgText = $"{bwoinkParams.SenderName}"; // Not an admin, name is not overridden.
 
                         if (bwoinkParams.FromWebhook)
-                            overrideMsgText = $"{_config.GetCVar(CCVars.DiscordReplyPrefix)}{overrideMsgText}";
+                            overrideMsgText = $"{_config.GetCVar(GoobCVars.DiscordReplyPrefix)}{overrideMsgText}";
 
                         overrideMsgText = $"{(bwoinkParams.Message.PlaySound ? "" : "(S) ")}{overrideMsgText}: {escapedText}";
 
@@ -873,7 +873,7 @@ namespace Content.Server.Administration.Systems
                 stringbuilder.Append(" **(S)**");
 
             if (parameters.IsDiscord) // Frontier - Discord Indicator
-                stringbuilder.Append($" **{config.GetCVar(CCVars.DiscordReplyPrefix)}**");
+                stringbuilder.Append($" **{config.GetCVar(GoobCVars.DiscordReplyPrefix)}**");
 
             if (parameters.Icon == null)
                 stringbuilder.Append($" **{parameters.Username}:** ");

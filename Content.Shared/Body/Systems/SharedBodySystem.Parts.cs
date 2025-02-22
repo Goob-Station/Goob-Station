@@ -14,7 +14,6 @@ using Robust.Shared.Utility;
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Body.Part;
 using Content.Shared._Shitmed.BodyEffects;
-using Content.Shared._Shitmed.Targeting.Events;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Random;
@@ -383,19 +382,9 @@ public partial class SharedBodySystem
         }
     }
 
-    private void PartRemoveDamage(Entity<BodyComponent?> bodyEnt, Entity<BodyPartComponent> partEnt)
+    // Shitmed Change: made virtual, bleeding damage is done on server
+    protected virtual void PartRemoveDamage(Entity<BodyComponent?> bodyEnt, Entity<BodyPartComponent> partEnt)
     {
-        if (!Resolve(bodyEnt, ref bodyEnt.Comp, logMissing: false))
-            return;
-
-        if (!_timing.ApplyingState
-            && partEnt.Comp.IsVital
-            && !GetBodyChildrenOfType(bodyEnt, partEnt.Comp.PartType, bodyEnt.Comp).Any()
-        )
-        {
-            var damage = new DamageSpecifier(Prototypes.Index<DamageTypePrototype>("Bloodloss"), partEnt.Comp.VitalDamage); // Shitmed Change
-            Damageable.TryChangeDamage(bodyEnt, damage, partMultiplier: 0f); // Shitmed Change
-        }
     }
 
     /// <summary>
@@ -503,7 +492,8 @@ public partial class SharedBodySystem
         Containers.EnsureContainer<ContainerSlot>(partId.Value, GetPartSlotContainerId(slotId));
         slot = new BodyPartSlot(slotId, partType);
 
-        if (!part.Children.TryAdd(slotId, slot.Value))
+        if (!part.Children.ContainsKey(slotId) // Shitmed Change
+            && !part.Children.TryAdd(slotId, slot.Value))
             return false;
 
         Dirty(partId.Value, part);

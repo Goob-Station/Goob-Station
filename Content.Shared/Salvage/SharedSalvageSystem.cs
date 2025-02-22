@@ -3,15 +3,11 @@ using Content.Shared.CCVar;
 using Content.Shared.Dataset;
 using Content.Shared.Procedural;
 using Content.Shared.Procedural.Loot;
-using Content.Shared.Random;
-using Content.Shared.Random.Helpers;
 using Content.Shared.Salvage.Expeditions;
 using Content.Shared.Salvage.Expeditions.Modifiers;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Serialization;
-using Robust.Shared.Utility;
 
 namespace Content.Shared.Salvage;
 
@@ -26,10 +22,10 @@ public abstract partial class SharedSalvageSystem : EntitySystem
     [ValidatePrototypeId<SalvageLootPrototype>]
     public const string ExpeditionsLootProto = "SalvageLoot";
 
-    public static string GetFTLName(DatasetPrototype dataset, int seed)
+    public string GetFTLName(LocalizedDatasetPrototype dataset, int seed)
     {
         var random = new System.Random(seed);
-        return $"{dataset.Values[random.Next(dataset.Values.Count)]}-{random.Next(10, 100)}-{(char) (65 + random.Next(26))}";
+        return $"{Loc.GetString(dataset.Values[random.Next(dataset.Values.Count)])}-{random.Next(10, 100)}-{(char) (65 + random.Next(26))}";
     }
 
     public SalvageMission GetMission(SalvageDifficultyPrototype difficulty, int seed)

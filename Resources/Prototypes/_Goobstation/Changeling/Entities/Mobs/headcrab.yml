@@ -1,11 +1,11 @@
 - type: entity
   name: head slug
-  parent: [SimpleMobBase]
+  parent: [SimpleSpaceMobBase] # no dying in space
   id: MobHeadcrab
   description: You don't want to touch it.
   components:
   - type: Sprite
-    drawdepth: Mobs
+    drawdepth: SmallMobs
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: headcrab
@@ -29,3 +29,17 @@
     baseSprintSpeed: 7
   - type: ExplosionResistance
     damageCoefficient: 0
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 15
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: Tag # Removes DoorBumpOpener
+    tags:
+      []

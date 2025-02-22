@@ -33,3 +33,17 @@
     useDelay: 1
     icon: { sprite: Objects/Fun/bikehorn.rsi, state: icon }
     event: !type:SirenActionEvent
+
+- type: entity
+  id: ActivateSmokeImplant
+  name: Release a cloud of smoke
+  description: Releases a cloud of smoke around you.
+  components:
+  - type: InstantAction
+    useDelay: 20
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: Objects/Weapons/Grenades/smoke.rsi
+      state: icon
+    event: !type:ActivateImplantEvent

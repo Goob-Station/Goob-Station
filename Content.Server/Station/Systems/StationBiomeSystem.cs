@@ -1,7 +1,6 @@
 using Content.Server.Parallax;
 using Content.Server.Station.Components;
 using Content.Server.Station.Events;
-using Content.Server.Station.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 

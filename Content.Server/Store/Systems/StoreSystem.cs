@@ -6,11 +6,11 @@ using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Content.Shared.Store.Components;
-using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
 using Content.Server._White.StoreDiscount;
+using Content.Shared.Mind;
 
 namespace Content.Server.Store.Systems;
 
@@ -73,10 +73,13 @@ public sealed partial class StoreSystem : EntitySystem
         if (!component.OwnerOnly)
             return;
 
-        component.AccountOwner ??= args.User;
+        if (!_mind.TryGetMind(args.User, out var mind, out _))
+            return;
+
+        component.AccountOwner ??= mind;
         DebugTools.Assert(component.AccountOwner != null);
 
-        if (component.AccountOwner == args.User)
+        if (component.AccountOwner == mind)
             return;
 
         _popup.PopupEntity(Loc.GetString("store-not-account-owner", ("store", uid)), uid, args.User);

@@ -231,8 +231,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
+        Blunt: 0.8
+        Slash: 0.8
         Piercing: 0.9
         Heat: 0.9
   - type: FlashImmunity # Goobstation
@@ -488,7 +488,7 @@
 
 #Wizard Hardsuit
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase
+  parent: [ClothingHeadHardsuitWithLightBase, ClothingHeadHatWizardBaseArmor] # Goob edit
   id: ClothingHeadHelmetHardsuitWizard
   name: wizard hardsuit helmet
   description: A bizarre gem-encrusted helmet that radiates magical energies.
@@ -497,20 +497,25 @@
     sprite: Clothing/Head/Hardsuits/wizard.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/wizard.rsi
-  - type: PointLight
-    color: "#ffadfb"
+  - type: PointLight # Goob edit
+    color: "#4d7ae3"
+    energy: 10
+    radius: 5
   - type: PressureProtection
     highPressureMultiplier: 0.27
     lowPressureMultiplier: 1000
-  - type: Armor
+  - type: Armor # Goob edit
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.85
+        Caustic: 0.9
+        Radiation: 0.9
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: WizardClothes # Goobstation
 
 #Organic Space Suit
 - type: entity
@@ -710,7 +715,7 @@
 
 #Deathsquad Hardsuit
 - type: entity
-  parent: [ BaseCentcommContraband, ClothingHeadHardsuitBase ]
+  parent: [ BaseCentcommContraband, ClothingHeadHardsuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitDeathsquad
   name: deathsquad hardsuit helmet
   description: A robust helmet for special operations.
@@ -737,6 +742,18 @@
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
     protectionRange: 0
+  - type: PointLight # Goobstation - Light to deathsquad hardsuit
+    color: "#567fc4"
+    rotation: 30
+    energy: 10
+    radius: 5
+  # WD EDIT START
+  - type: ThermalVision
+    isEquipment: true
+    color: "#98EEFB"
+    lightRadius: 15
+  # WD EDIT END
+
 
 #MISC. HARDSUITS
 #Clown Hardsuit

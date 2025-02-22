@@ -92,6 +92,9 @@ public abstract partial class SharedGunSystem : EntitySystem
         InitializeClothing();
         InitializeContainer();
         InitializeSolution();
+        // Goobstation
+        InitializeBasicHitScan();
+        InitializeChangeling();
 
         // Interactions
         SubscribeLocalEvent<GunComponent, GetVerbsEvent<AlternativeVerb>>(OnAltVerb);
@@ -458,7 +461,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         Projectiles.SetShooter(uid, projectile, user ?? gunUid);
         projectile.Weapon = gunUid;
 
-        TransformSystem.SetWorldRotation(uid, direction.ToWorldAngle());
+        TransformSystem.SetWorldRotation(uid, direction.ToWorldAngle() + projectile.Angle);
     }
 
     protected abstract void Popup(string message, EntityUid? uid, EntityUid? user);
@@ -549,7 +552,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         Physics.ApplyLinearImpulse(user, -impulseVector, body: userPhysics);
     }
 
-    public void RefreshModifiers(Entity<GunComponent?> gun)
+    public void RefreshModifiers(Entity<GunComponent?> gun, EntityUid? User = null) // GoobStation change - User for NoWieldNeeded
     {
         if (!Resolve(gun, ref gun.Comp))
             return;
@@ -565,7 +568,8 @@ public abstract partial class SharedGunSystem : EntitySystem
             comp.MinAngle,
             comp.ShotsPerBurst,
             comp.FireRate,
-            comp.ProjectileSpeed
+            comp.ProjectileSpeed,
+            User // GoobStation change - User for NoWieldNeeded
         );
 
         RaiseLocalEvent(gun, ref ev);
@@ -581,6 +585,38 @@ public abstract partial class SharedGunSystem : EntitySystem
         comp.ProjectileSpeedModified = ev.ProjectileSpeed;
 
         Dirty(gun);
+    }
+
+     // Goobstation
+    public void SetTarget(EntityUid projectile,
+        EntityUid? target,
+        out TargetedProjectileComponent targeted,
+        bool dirty = true)
+    {
+        targeted = EnsureComp<TargetedProjectileComponent>(projectile);
+        targeted.Target = target;
+        if (dirty)
+            Dirty(projectile, targeted);
+    }
+
+    public void SetFireRate(GunComponent component, float fireRate) // Goobstation
+    {
+        component.FireRate = fireRate;
+    }
+
+    public void SetUseKey(GunComponent component, bool useKey) // Goobstation
+    {
+        component.UseKey = useKey;
+    }
+
+    public void SetSoundGunshot(GunComponent component, SoundSpecifier? sound) // Goobstation
+    {
+        component.SoundGunshot = sound;
+    }
+
+    public void SetClumsyProof(GunComponent component, bool clumsyProof) // Goobstation
+    {
+        component.ClumsyProof = clumsyProof;
     }
 
     protected abstract void CreateEffect(EntityUid gunUid, MuzzleFlashEvent message, EntityUid? user = null);
