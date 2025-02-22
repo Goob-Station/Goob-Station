@@ -40,7 +40,7 @@
 - type: trait
   id: MedievalAccent
   name: trait-medieval-accent-name
-  description: trait-medieval-desc
+  description: trait-medieval-accent-desc
   category: SpeechTraits
   cost: 1
   components:
