@@ -10,16 +10,26 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
     - name: Install dependencies
       run: sudo apt-get install -y python3-paramiko python3-lxml
+      
+    - name: Check .NET Installation
+      id: check-dotnet
+      run: |
+        if dotnet --info > /dev/null 2>&1; then
+          echo "skip=true" >> $GITHUB_ENV
+        else
+          echo "skip=false" >> $GITHUB_ENV
+        fi
 
     - uses: actions/checkout@v3.6.0
       with:
         submodules: 'recursive'
     - name: Setup .NET Core
+      if: env.skip == 'false'
       uses: actions/setup-dotnet@v3.2.0
       with:
         dotnet-version: 9.0.x
