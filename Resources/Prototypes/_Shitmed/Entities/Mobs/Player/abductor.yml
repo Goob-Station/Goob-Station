@@ -121,10 +121,7 @@
     back: ClothingBackpackAbductor
     pocket1: AbductorGizmo
     pocket2: WeaponAlien
-    belt: ClothingAbductorBeltFilled
-    back:
-    - Wonderprod
-    - DeathAcidifierImplanter
+    suitstorage: Wonderprod
 
 - type: startingGear
   id: AbductorScientistGear
@@ -151,11 +148,9 @@
     back: ClothingBackpackAbductor
     pocket1: Silencer
     pocket2: WeaponAlien
-    belt: ClothingAbductorBeltFilled
-    outerClothing: ClothingOuterArmorAbductor
-    back:
-    - Wonderprod
-    - DeathAcidifierImplanter
+    suitstorage: Wonderprod
+
+# Spawners
 
 - type: entity
   name: lone abductor spawner
