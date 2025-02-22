@@ -43,7 +43,7 @@
   layers:
   - state: base
     map: [ "enum.AmmoVisualLayers.Base" ]
-  - type: CartridgeAmmo
-    proto: PelletShotgunSpread
+- type: CartridgeAmmo
+  proto: PelletShotgunSpread
 
 
