@@ -5180,3 +5180,27 @@ Entries:
       message: You can now buy water vapour canisters.
   id: 594
   time: '2025-02-22T17:28:55.0000000+00:00'
+- author: John Shitcode
+  changes:
+    - type: Tweak
+      message: >-
+        Heretic influences give exclusively 1 point. Using the book shortens
+        collection time but makes it obvious.
+    - type: Tweak
+      message: Sacrificing people gives 2 points, heads of staff gives 3.
+    - type: Tweak
+      message: You will see less heretic influences now.
+    - type: Tweak
+      message: >-
+        Heretic side knowledge costs 1 point and path specific costs 2.
+        Asecnsions cost 3 points everywhere.
+    - type: Tweak
+      message: Ash jaunt does not deal damage but is only 3 seconds long now.
+    - type: Add
+      message: Reworked ash ascension. Ascend to find out.
+    - type: Add
+      message: Reworked void path. Get it to find out.
+    - type: Fix
+      message: Fixed dynamic.
+  id: 595
+  time: '2025-02-22T17:33:44.0000000+00:00'
