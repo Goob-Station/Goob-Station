@@ -4941,3 +4941,9 @@ Entries:
       message: 'Added a new syndicate uplink item: The advanced weapons module for 40tc.'
   id: 566
   time: '2025-02-22T05:25:11.0000000+00:00'
+- author: botanySupremist
+  changes:
+    - type: Tweak
+      message: Bluespace syringes are now valid ammo for syringe guns.
+  id: 567
+  time: '2025-02-22T05:25:56.0000000+00:00'
