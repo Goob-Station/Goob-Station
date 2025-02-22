@@ -32,3 +32,32 @@
   products:
     Profanol: 10
 # END OF MIT-LICENSED CODE
+
+- type: reaction
+  id: Copium
+  impact: Low
+  quantized: true
+  reactants:
+    Water:
+      amount: 1
+    Sugar:
+      amount: 1
+    TableSalt:
+      amount: 1
+  products:
+    Copium: 3
+    
+- type: reaction
+  id: CatDrugs
+  minTemp: 370
+  reactants:
+    SpaceDrugs:
+      amount: 1
+    THC:
+      amount: 1
+    Fluorine:
+      amount: 1
+    Mercury:
+      amount: 1
+  products:
+    CatDrugs: 4

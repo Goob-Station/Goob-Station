@@ -1,16 +1,14 @@
 - type: entity
-  parent: [ BaseMajorContraband, ClothingOuterArmorBasic ]
+  parent: [ ClothingOuterBase, AllowSuitStorageClothing, BaseMajorContraband ]
   id: ClothingOuterArmorAbductor
   name: agent vest
   components:
   - type: Sprite
     sprite: _Shitmed/Clothing/OuterClothing/Armor/abductor.rsi
-  - type: Clothing
-    sprite: _Shitmed/Clothing/OuterClothing/Armor/abductor.rsi
-    equippedPrefix: stealth
-  - type: Item
-    size: Normal
   - type: AbductorVest
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2
   - type: ItemSwitch
     state: stealth
     states:
@@ -32,6 +30,10 @@
               Caustic: 0.25
         - type: ExplosionResistance
           damageCoefficient: 0.85
+        - type: Clothing
+          sprite: _Shitmed/Clothing/OuterClothing/Armor/abductor.rsi
+          slots:
+          - outerClothing
 
       Combat: !type:ItemSwitchState
         verb: Combat
@@ -53,3 +55,30 @@
           coefficient: 0.25
         - type: ExplosionResistance
           damageCoefficient: 0.5
+        - type: Clothing
+          sprite: _Shitmed/Clothing/OuterClothing/Armor/abductor.rsi
+          slots:
+          - outerClothing
+          equippedPrefix: combat
+
+- type: entity
+  parent: [ ClothingOuterStorageBase, AllowSuitStorageClothing, BaseMajorContraband]
+  id: ClothingOuterCoatAbductor
+  name: alien lab coat
+  description: A suit of alien origin that protects from various injuries, as well as from chemical spills.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Clothing/OuterClothing/Coats/abductor.rsi
+  - type: Clothing
+    sprite: _Shitmed/Clothing/OuterClothing/Coats/abductor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Heat: 0.85
+        Piercing: 0.85
+        Radiation: 0.85
+        Caustic: 0.25
+  - type: ExplosionResistance
+    damageCoefficient: 0.85

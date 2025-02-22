@@ -101,6 +101,10 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
@@ -125,13 +129,6 @@ entities:
     - type: Transform
       pos: -0.5,2.5
       parent: 1
-- proto: AbductorGizmo
-  entities:
-  - uid: 207
-    components:
-    - type: Transform
-      pos: -1.4933486,0.52918124
-      parent: 1
 - proto: AbductorHandcuffs
   entities:
   - uid: 196
@@ -145,41 +142,6 @@ entities:
       pos: 4.4806957,2.7953928
       parent: 1
   - uid: 198
-    components:
-    - type: Transform
-      pos: 4.4806957,2.7953928
-      parent: 1
-  - uid: 199
-    components:
-    - type: Transform
-      pos: 4.4806957,2.7953928
-      parent: 1
-  - uid: 200
-    components:
-    - type: Transform
-      pos: 4.4806957,2.7953928
-      parent: 1
-  - uid: 201
-    components:
-    - type: Transform
-      pos: 4.4806957,2.7953928
-      parent: 1
-  - uid: 202
-    components:
-    - type: Transform
-      pos: 4.4806957,2.7953928
-      parent: 1
-  - uid: 203
-    components:
-    - type: Transform
-      pos: 4.4806957,2.7953928
-      parent: 1
-  - uid: 204
-    components:
-    - type: Transform
-      pos: 4.4806957,2.7953928
-      parent: 1
-  - uid: 205
     components:
     - type: Transform
       pos: 4.4806957,2.7953928
@@ -613,19 +575,19 @@ entities:
     - type: Transform
       pos: 0.5,6.5
       parent: 1
-- proto: ClothingBackpackDuffelAbductor
+- proto: ClothingAbductorBeltFilled
   entities:
-  - uid: 208
+  - uid: 12
     components:
     - type: Transform
-      pos: -1.5044186,0.16459793
+      pos: -1.4820733,0.17776257
       parent: 1
-- proto: ClothingHeadHelmetAbductor
+- proto: ClothingBackpackDuffelAbductorFilled
   entities:
-  - uid: 206
+  - uid: 202
     components:
     - type: Transform
-      pos: 4.4633284,3.5539389
+      pos: -1.4716566,0.75067925
       parent: 1
 - proto: ComputerIFF
   entities:
@@ -647,10 +609,38 @@ entities:
   - uid: 231
     components:
     - type: Transform
-      pos: 1.167351,-1.4260883
+      pos: 0.13108987,-1.5783088
       parent: 1
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: DubiousOrganSpawner
   entities:
+  - uid: 83
+    components:
+    - type: Transform
+      pos: -0.5,-1.5
+      parent: 1
+  - uid: 199
+    components:
+    - type: Transform
+      pos: -0.5,-1.5
+      parent: 1
+  - uid: 200
+    components:
+    - type: Transform
+      pos: -0.5,-1.5
+      parent: 1
+  - uid: 201
+    components:
+    - type: Transform
+      pos: -0.5,-1.5
+      parent: 1
+  - uid: 208
+    components:
+    - type: Transform
+      pos: -0.5,-1.5
+      parent: 1
   - uid: 209
     components:
     - type: Transform
@@ -675,31 +665,6 @@ entities:
     components:
     - type: Transform
       pos: -0.5,-1.5
-      parent: 1
-  - uid: 214
-    components:
-    - type: Transform
-      pos: 0.5,-1.5
-      parent: 1
-  - uid: 215
-    components:
-    - type: Transform
-      pos: 0.5,-1.5
-      parent: 1
-  - uid: 216
-    components:
-    - type: Transform
-      pos: 0.5,-1.5
-      parent: 1
-  - uid: 217
-    components:
-    - type: Transform
-      pos: 0.5,-1.5
-      parent: 1
-  - uid: 218
-    components:
-    - type: Transform
-      pos: 0.5,-1.5
       parent: 1
 - proto: GasMinerNitrogen
   entities:
@@ -838,8 +803,11 @@ entities:
   - uid: 232
     components:
     - type: Transform
-      pos: 1.136101,-1.4417133
+      pos: 0.14034912,-1.240346
       parent: 1
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: MedicalCyberneticEyes
   entities:
   - uid: 219
@@ -857,23 +825,56 @@ entities:
     - type: Transform
       pos: 2.4815433,0.5442808
       parent: 1
-- proto: MedkitAdvancedFilled
+- proto: MedkitBruteFilled
   entities:
-  - uid: 228
+  - uid: 204
     components:
     - type: Transform
-      pos: 1.5938609,-1.179152
+      pos: 0.8669682,-1.2758512
       parent: 1
-  - uid: 229
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+- proto: MedkitBurnFilled
+  entities:
+  - uid: 207
     components:
     - type: Transform
-      pos: 1.6042776,-1.3458188
+      pos: 1.5799313,-1.2527032
       parent: 1
-  - uid: 230
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+- proto: MedkitCombatFilled
+  entities:
+  - uid: 206
     components:
     - type: Transform
-      pos: 1.6355276,-1.5437355
+      pos: 1.1879536,-1.3730736
       parent: 1
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+- proto: MedkitRadiationFilled
+  entities:
+  - uid: 205
+    components:
+    - type: Transform
+      pos: 0.8391905,-1.5489993
+      parent: 1
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+- proto: MedkitToxinFilled
+  entities:
+  - uid: 215
+    components:
+    - type: Transform
+      pos: 1.5861018,-1.6045549
+      parent: 1
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: Poweredlight
   entities:
   - uid: 237
@@ -928,7 +929,7 @@ entities:
       parent: 1
 - proto: SpawnPointLoneAbductor
   entities:
-  - uid: 255
+  - uid: 203
     components:
     - type: Transform
       pos: 0.5,1.5
@@ -977,12 +978,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,3.5
       parent: 1
-  - uid: 83
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 0.5,-1.5
-      parent: 1
   - uid: 192
     components:
     - type: Transform
@@ -1000,6 +995,11 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 1.5,-1.5
+      parent: 1
+  - uid: 214
+    components:
+    - type: Transform
+      pos: 0.5,-1.5
       parent: 1
 - proto: Thruster
   entities:

@@ -33,13 +33,13 @@ thief-backpack-category-chemistry-name = anatomy kit
 thief-backpack-category-chemistry-description =
     You've reached peak physical performance... with a little help.
     Includes: Storage implanter, DNA scrambler implanter,
-    ephedrine bottle, syringe, empty shaker, and omega soap
+    ephedrine bottle, syringe, empty shaker, Donk co. lollypop, and omega soap
 
 thief-backpack-category-syndie-name = syndie kit
 thief-backpack-category-syndie-description =
     Trinkets from a disavowed past, or stolen from a careless agent?
     You've made some connections. Whiskey, echo...
-    Includes: An Emag, Interdyne cigs, a Syndicate codeword,
+    Includes: An Emag, Access Breaker, Interdyne cigs, a Syndicate codeword,
     a Radio Jammer, a lighter and some strange red crystals.
 
 thief-backpack-category-sleeper-name = sleeper kit

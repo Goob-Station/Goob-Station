@@ -35,3 +35,4 @@
   components:
   - type: Item
     size: Huge
+  - type: HideContrabandContent #Goobstation-Contraband detector

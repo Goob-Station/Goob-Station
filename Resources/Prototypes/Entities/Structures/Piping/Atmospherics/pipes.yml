@@ -69,6 +69,21 @@
     bodyType: static
   - type: StaticPrice
     price: 30
+  - type: ContainerContainer # Goobstation - ventcrawl
+    containers:
+      VentCrawlerTube: !type:Container
+
+- type: entity  # Goobstation - ventcrawl
+  id: VentCrawlerHolder
+  categories: [ HideSpawnMenu ]
+  name: vent craw holder
+  components:
+    - type: VentCrawlerHolder
+    - type: InputMover
+    - type: ContainerContainer
+      containers:
+        VentCrawlerHolderComponent: !type:Container
+
 
 # Goobstation - Allow device-on-pipe stacking
 - type: entity
@@ -99,6 +114,10 @@
   - type: Construction
     graph: GasPipe
     node: half
+  - type: GuideHelp
+    guides:
+    - Pipes
+    - PipeNetworks
 
 - type: entity
   # Goobstation - Allow device-on-pipe stacking
@@ -112,6 +131,12 @@
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: Longitudinal
+  - type: VentCrawlerTube # Goobstation - ventcrawl
+    containerId: VentCrawlerTube
+  - type: VentCrawlerTransit # Goobstation - ventcrawl
+  - type: ContainerContainer # Goobstation - ventcrawl
+    containers:
+      VentCrawlerTube: !type:Container
   - type: Sprite
     layers:
       - state: pipeStraight
@@ -133,6 +158,10 @@
         Blunt: 8
     soundHit:
       collection: MetalThud # this NEEDS to changed to the metal pipe falling sound effect on april first every year
+  - type: GuideHelp
+    guides:
+    - Pipes
+    - PipeNetworks
 
 - type: entity
   # Goobstation - Allow device-on-pipe stacking
@@ -146,6 +175,12 @@
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: SWBend
+  - type: VentCrawlerTube # Goobstation - ventcrawl
+    containerId: VentCrawlerTube
+  - type: VentCrawlerBend # Goobstation - ventcrawl
+  - type: ContainerContainer # Goobstation - ventcrawl
+    containers:
+      VentCrawlerTube: !type:Container
   - type: Sprite
     layers:
       - state: pipeBend
@@ -179,6 +214,10 @@
     damage:
       types:
         Blunt: 100
+  - type: GuideHelp
+    guides:
+    - Pipes
+    - PipeNetworks
 
 - type: entity
   # Goobstation - Allow device-on-pipe stacking
@@ -216,6 +255,20 @@
         Blunt: 10
     soundHit:
       collection: MetalThud
+  - type: GuideHelp
+    guides:
+    - Pipes
+    - PipeNetworks
+  - type: VentCrawlerTube # Goobstation - ventcrawl
+    containerId: VentCrawlerTube
+  - type: VentCrawlerJunction # Goobstation - ventcrawl
+    degrees:
+      - 0
+      - 90
+      - -90
+  - type: ContainerContainer # Goobstation - ventcrawl
+    containers:
+      VentCrawlerTube: !type:Container
 
 - type: entity
   # Goobstation - Allow device-on-pipe stacking
@@ -238,6 +291,17 @@
   - type: Construction
     graph: GasPipe
     node: fourway
+  - type: VentCrawlerTube # Goobstation - ventcrawl
+    containerId: VentCrawlerTube
+  - type: VentCrawlerJunction # Goobstation - ventcrawl
+    degrees:
+      - 0
+      - 90
+      - -90
+      - 180
+  - type: ContainerContainer # Goobstation - ventcrawl
+    containers:
+      VentCrawlerTube: !type:Container
   - type: Item
     size: Normal
     shape:
@@ -252,6 +316,10 @@
         Blunt: 10
     soundHit:
       collection: MetalThud
+  - type: GuideHelp
+    guides:
+    - Pipes
+    - PipeNetworks
 
 - type: entity
   id: GasPipeBroken
@@ -278,3 +346,7 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: GuideHelp
+    guides:
+    - Pipes
+    - PipeNetworks

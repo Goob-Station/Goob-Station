@@ -1,0 +1,21 @@
+- type: entity
+  id: LavalandHierophantClub
+  parent: BaseItem
+  name: hierophant club
+  description: Get item'ed lol
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    sprite: _Lavaland/Objects/Weapons/hierophant_club-inhands.rsi
+  - type: StaticPrice
+    price: 5000
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    attackRate: 0.75
+    damage:
+      types:
+        Blunt: 10
+  - type: HierophantClubItem
