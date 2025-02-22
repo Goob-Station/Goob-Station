@@ -55,6 +55,23 @@
 # END OF MIT-LICENSED CODE
 
 - type: reagent
+  id: Copium
+  name: reagent-name-copium
+  group: Special
+  desc: reagent-desc-copium
+  physicalDesc: reagent-physical-desc-comforting
+  flavor: tears
+  color: "#fcb8f5"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages: [ "reagent-popup-copium-1", "reagent-popup-copium-2", "reagent-popup-copium-3", "reagent-popup-copium-4", "reagent-popup-copium-5", "reagent-popup-copium-6", "reagent-popup-copium-7", "reagent-popup-copium-8", "reagent-popup-copium-9", "reagent-popup-copium-10", "reagent-popup-copium-11", "reagent-popup-copium-12" ]
+        probability: 0.2
+
+- type: reagent
   id: CatDrugs
   name: reagent-name-cat-drugs
   group: Toxins

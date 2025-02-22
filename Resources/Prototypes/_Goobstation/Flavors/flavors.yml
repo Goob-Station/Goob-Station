@@ -24,6 +24,11 @@
   description: flavor-complex-fentanyl
 
 - type: flavor
+  id: tears
+  flavorType: Base
+  description: flavor-base-tears
+  
+- type: flavor
   id: alienblood
   flavorType: Base
   description: flavor-base-alienblood
