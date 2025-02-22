@@ -134,6 +134,8 @@
     deactivateSound: null
   - type: Insulated # Goobstation
     coefficient: 0.5
+  - type: CombatPower # Goobstation
+    factor: 2
 
 - type: entity
   id: MobRatKingBuff
@@ -172,6 +174,8 @@
     guides:
     - MinorAntagonists
   - type: Fauna # Lavaland Change
+  - type: CombatPower # Goobstation
+    factor: 0.25
 
 - type: entity
   name: rat servant

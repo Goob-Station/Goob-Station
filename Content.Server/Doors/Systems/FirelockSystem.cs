@@ -76,6 +76,10 @@ namespace Content.Server.Doors.Systems
                     firelock.Pressure = pressure;
                     Dirty(uid, firelock);
 
+                    // Update stats for game director - Goobstation
+                    firelock.DangerFire = fire; // Goobstation
+                    firelock.DangerPressure = pressure; // Goobstation
+
                     if (pointLightQuery.TryComp(uid, out var pointLight))
                     {
                         _pointLight.SetEnabled(uid, fire | pressure, pointLight);

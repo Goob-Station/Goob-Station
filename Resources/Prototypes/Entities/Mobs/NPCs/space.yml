@@ -183,6 +183,8 @@
   - type: ReplacementAccent
     accent: kangaroo
   - type: Fauna # Lavaland Change
+  - type: CombatPower # Goobstation
+    factor: 1 # times more dangerous than a crew-member
 
 - type: entity
   id: MobKangarooSpaceSalvage
@@ -289,6 +291,8 @@
   - type: TypingIndicator
     proto: spider
   - type: Fauna # Lavaland Change
+  - type: CombatPower # Goobstation
+    factor: 1.5 # times more dangerous than a crew-member
 
 - type: entity
   id: MobSpiderSpaceSalvage
