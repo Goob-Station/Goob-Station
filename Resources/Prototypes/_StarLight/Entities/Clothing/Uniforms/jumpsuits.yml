@@ -1,0 +1,19 @@
+- type: entity
+  parent: ClothingUniformJumpsuitAtmos
+  id: ClothingUniformJumpsuitAtmosSyndie
+  name: Contortionist's Jumpsuit
+  components:
+  - type: ClothingGrantComponent #Goobstation edit
+    component:
+    - type: VentCrawler
+      allowInventory: false
+
+- type: entity  # Goobstation original
+  parent: ClothingUniformJumpsuitAtmosSyndie
+  id: ClothingUniformJumpsuitAtmosSyndieAdmin
+  suffix: Admin
+  components:
+  - type: ClothingGrantComponent
+    component:
+    - type: VentCrawler
+      allowInventory: true

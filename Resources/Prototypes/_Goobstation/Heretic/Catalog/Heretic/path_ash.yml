@@ -28,7 +28,7 @@
   icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
   productHereticKnowledge: GraspOfAsh
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathAsh
   conditions:
@@ -47,7 +47,7 @@
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: ashen_shift }
   productHereticKnowledge: AshenShift
   cost:
-    KnowledgePoint: 2
+    KnowledgePoint: 1
   categories:
   - HereticPathAsh
   conditions:
@@ -63,7 +63,7 @@
   icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
   productHereticKnowledge: MarkOfAsh
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathAsh
   conditions:
@@ -81,7 +81,7 @@
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: volcano_blast }
   productHereticKnowledge: VolcanicBlast
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathAsh
   conditions:
@@ -100,7 +100,7 @@
   icon: { sprite: _Goobstation/Heretic/mad_mask.rsi, state: icon }
   productHereticKnowledge: MaskOfMadness
   cost:
-    KnowledgePoint: 2
+    KnowledgePoint: 1
   categories:
   - HereticPathAsh
   conditions:
@@ -116,7 +116,7 @@
   icon: { sprite: _Goobstation/Heretic/Blades/blade_ash.rsi, state: icon }
   productHereticKnowledge: FieryBlade
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathAsh
   conditions:
@@ -135,7 +135,7 @@
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: nightwatcher_rebirth }
   productHereticKnowledge: NightwatcherRebirth
   cost:
-    KnowledgePoint: 2
+    KnowledgePoint: 1
   categories:
   - HereticPathAsh
   conditions:
@@ -151,7 +151,7 @@
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: ashlord_rite1 }
   productHereticKnowledge: AscensionAsh
   cost:
-    KnowledgePoint: 2
+    KnowledgePoint: 3
   categories:
   - HereticPathAsh
   conditions:

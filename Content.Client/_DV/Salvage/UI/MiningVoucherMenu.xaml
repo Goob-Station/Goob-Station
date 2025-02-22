@@ -6,5 +6,5 @@
         HorizontalExpand="True"
         MinSize="450 450">
     <!-- Populated in SetEntity -->
-    <ui:RadialContainer Name="Main" VerticalExpand="True" HorizontalExpand="True" Radius="64"/>
+    <ui:RadialContainer Name="Main" VerticalExpand="True" HorizontalExpand="True" InitialRadius="100"/>
 </ui:RadialMenu>

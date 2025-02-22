@@ -93,6 +93,11 @@
       sendBroadcastAttemptEvent: true
       examinableAddress: true
     - type: WiredNetworkConnection
+    - type: GuideHelp
+      guides:
+      - PowerStorage
+      - VoltageNetworks
+      - Power
 
 # SMES' in use
 

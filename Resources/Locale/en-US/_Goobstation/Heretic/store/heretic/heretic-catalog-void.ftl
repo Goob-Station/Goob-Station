@@ -26,7 +26,7 @@ knowledge-path-void-s4-desc =
     A gust of wind? A shimmer in the air? The presence is overwhelming, my senses began to betray me. My mind is my own enemy.
 
     Your Mansus Grasp now applies the Mark of Void. The mark is triggered from an attack with your Void Blade.
-    When triggered, further silences the victim and swiftly lowers the temperature of their body and the air around them.
+    When triggered, gives the victim the Curse of Void, which will mute and slowly freeze them to death.
 
 knowledge-path-void-s5-name = Void Blast
 knowledge-path-void-s5-desc =
@@ -34,7 +34,7 @@ knowledge-path-void-s5-desc =
     and my legs start to drag. Is that... snow?
 
     Grants you Void Blast, a spell that shoots out a freezing blast in a cone in front of you,
-    freezing the ground and any victims within.
+    freezing the ground and cursing any victims within.
 
 knowledge-path-void-s6-name = Void Phase
 knowledge-path-void-s6-desc =
