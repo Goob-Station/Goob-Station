@@ -4,6 +4,9 @@ trait-scottish-desc = Your scottish pride is as strong as your accent!
 trait-wheelchair-bound-name = Wheelchair Bound
 trait-wheelchair-bound-desc = You cannot move without your wheelchair. Wheelchair included.
 
+trait-volatile-name = Volatile
+trait-volatile-desc = You have an extremely rare disease that makes you gib at random, at any time.
+
 trait-bogan-name = Bogan accent
 trait-bogan-desc = You learned this from a mythical creature.
 

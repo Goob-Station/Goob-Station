@@ -10,3 +10,11 @@
     - type: BuckleOnMapInit
       prototype: VehicleWheelchair
     - type: LegsStartParalyzed
+
+- type: trait
+  id: Volatile
+  name: trait-volatile-name
+  description: trait-volatile-desc
+  category: Disabilities
+  components:
+    - type: RandomGib
