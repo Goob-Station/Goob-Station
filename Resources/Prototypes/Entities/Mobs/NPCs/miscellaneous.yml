@@ -52,6 +52,7 @@
       interactFailureString: petting-failure-generic
       interactSuccessSound:
         path: /Audio/Animals/lizard_happy.ogg
+    - type: Fauna # Lavaland Change
 
 - type: entity
   id: MobTomatoKiller
@@ -197,13 +198,16 @@
   - type: Appearance
   - type: Produce
     seedId: killerTomato
-  - type: PassiveDamage # Slight passive damage. 35 hp \ 5 min \ 60 sec = 0.08
-    allowedStates:
-    - Alive
-    - Dead
-    damageCap: 50
-    damage:
-      types:
-        Blunt: 0.11
+  # Goobstation - Remove killer tomato timed live
+  # billions must die
+  #- type: PassiveDamage # Slight passive damage. 35 hp \ 5 min \ 60 sec = 0.08
+  #  allowedStates:
+  #  - Alive
+  #  - Dead
+  #  damageCap: 50
+  #  damage:
+  #    types:
+  #      Blunt: 0.11
   - type: StaticPrice
     price: 400
+  - type: Fauna # Lavaland Change

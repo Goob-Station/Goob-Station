@@ -384,6 +384,9 @@
       - DeviceQuantumSpinInverter
       - WeaponPlasmaCutter # Goobstation
       - WeaponPlasmaRifle # Goobstation
+      - PKAUpgradeDamage # Lavaland Change
+      - PKAUpgradeRange # Lavaland Change
+      - PKAUpgradeFireRate # Lavaland Change
       - EnergyScalpel # Shitmed Change
       - EnergyCautery # Shitmed Change
       - AdvancedRetractor # Shitmed Change
@@ -1425,7 +1428,11 @@
         - IngotSilver1
         - MaterialBananium1
         - MaterialDiamond
-
+    #- type: MaterialStorageMagnetPickup # Delta V - Summary: Adds magnet pull from Frontier
+    #  magnetEnabled: True
+    #  range: 0.30 # Delta V - End Magnet Pull
+    - type: MiningPoints # DeltaV - Source of mining points for miners
+    - type: MiningPointsLathe # DeltaV
 
 - type: entity
   parent: OreProcessor

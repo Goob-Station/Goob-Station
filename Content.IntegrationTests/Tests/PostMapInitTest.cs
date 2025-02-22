@@ -76,6 +76,7 @@ namespace Content.IntegrationTests.Tests
             "Leonid", // Goobstation - add Leonid
             "Amber",
             "Gate", // Goobstation - goob changes
+            "Lavatest", // Lavaland Change
             "Loop"
         };
 
