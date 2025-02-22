@@ -5029,3 +5029,9 @@ Entries:
       message: Added a remaster to Honk! to the lobby and jukebox
   id: 576
   time: '2025-02-22T05:59:28.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Add
+      message: New lobby art. StarGoob
+  id: 577
+  time: '2025-02-22T06:00:27.0000000+00:00'
