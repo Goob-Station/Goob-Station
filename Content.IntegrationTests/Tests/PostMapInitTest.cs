@@ -73,6 +73,7 @@ namespace Content.IntegrationTests.Tests
             "Kettle", // Goobstation - add Kettle
             "Submarine", // Goobstation - add Submarine
             "Lambda", // Goobstation - add Lambda
+            "Leonid", // Goobstation - add Leonid
             "Amber",
             "Gate", // Goobstation - goob changes
             "Lavatest", // Lavaland Change

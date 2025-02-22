@@ -1,0 +1,9 @@
+- type: microwaveMealRecipe
+  id: RecipeLollypop
+  name: lollypop recipe
+  result: FoodSnackLollypop
+  time: 5
+  solids:
+    Paper: 1
+  reagents:
+    Sugar: 5
