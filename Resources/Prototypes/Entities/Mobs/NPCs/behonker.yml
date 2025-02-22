@@ -115,6 +115,7 @@
     - type: Bloodstream
       bloodMaxVolume: 300
       bloodReagent: Laughter
+    - type: Fauna # Lavaland Change
 
 - type: entity
   name: behonker

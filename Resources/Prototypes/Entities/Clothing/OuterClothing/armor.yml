@@ -21,6 +21,9 @@
         Heat: 0.80
   - type: ExplosionResistance
     damageCoefficient: 0.90
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1
+    knockdownTimeDelta: -1
 
 #Alternate / slim basic armor vest
 - type: entity
@@ -56,6 +59,9 @@
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: GroupExamine
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1.5
+    knockdownTimeDelta: -1.5
 
 - type: entity
   parent: ClothingOuterArmorBasic
@@ -171,6 +177,9 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 2
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowSuitStorageClothing ]
@@ -190,6 +199,9 @@
         Piercing: 0.6
         Heat: 0.5
   - type: GroupExamine
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1.5
+    knockdownTimeDelta: -1.5
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
@@ -213,6 +225,9 @@
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 3
+    knockdownTimeDelta: -3
 
 - type: entity
   parent: ClothingOuterArmorHeavy
@@ -251,7 +266,7 @@
       coefficients:
         Blunt: 0.5
         Slash: 0.5
-        Piercing: 0.5
+        Piercing: 0.6
         Heat: 0.5
         Radiation: 0.1
         Caustic: 0.1
@@ -299,6 +314,9 @@
   - type: ExplosionResistance
     damageCoefficient: 0.65
   - type: GroupExamine
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1.5
+    knockdownTimeDelta: -1.5
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowSuitStorageClothing ]
@@ -327,6 +345,9 @@
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowSuitStorageClothing ]
@@ -355,6 +376,9 @@
     node: armor
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1.5
+    knockdownTimeDelta: -1.5
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowSuitStorageClothing ]
@@ -376,4 +400,6 @@
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
-
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1.5
+    knockdownTimeDelta: -1.5

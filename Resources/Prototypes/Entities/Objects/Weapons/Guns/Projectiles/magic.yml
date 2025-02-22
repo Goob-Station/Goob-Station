@@ -20,9 +20,9 @@
       shader: unshaded
   - type: Explosive
     explosionType: Default
-    maxIntensity: 6 # Goob edit
-    intensitySlope: 5 # Goob edit
-    totalIntensity: 50 # Gobo edit
+    maxIntensity: 3.5 # Goob edit
+    intensitySlope: 3 # Goob edit
+    totalIntensity: 28 # Gobo edit
     maxTileBreak: 0
   - type: IgnitionSource
     temperature: 400
@@ -31,6 +31,15 @@
     fireStacks: 0.35
   - type: Ammo # Goobstation
     muzzleFlash: null
+  - type: FlashOnTrigger # Goobstation
+    duration: 4
+    range: 2
+  - type: Flashbang # Goobstation
+    stunTime: 1
+    knockdownTime: 6
+  - type: Tag # Goobstation
+    tags:
+      - FlashIgnoreResistances
 
 - type: entity
   categories: [ HideSpawnMenu ]
