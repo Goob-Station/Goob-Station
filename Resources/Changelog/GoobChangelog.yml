@@ -4971,3 +4971,9 @@ Entries:
       message: Added bike horns to bike horn implant crate
   id: 571
   time: '2025-02-22T05:37:56.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added new items to the reporter loadout.
+  id: 572
+  time: '2025-02-22T05:38:52.0000000+00:00'
