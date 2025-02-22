@@ -278,6 +278,7 @@
 - type: Tag
   id: CartridgeLightRifleSubsonic
 
+- type: Tag
   id: StasisBattery
 
 - type: Tag
