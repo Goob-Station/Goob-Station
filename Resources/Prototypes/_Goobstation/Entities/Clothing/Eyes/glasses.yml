@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons, BaseSecurityContraband]
+  parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons, BaseSecurityContraband, ClothingEyesGlassesSunglasses]
   id: ClothingEyesGlassesMedSec
   name: medical security glasses
   description: Sunglasses with a medical and security hud
@@ -8,14 +8,9 @@
     sprite: _Goobstation/Clothing/Eyes/Glasses/medglasses.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Eyes/Glasses/medglasses.rsi
-  - type: FlashImmunity
-  - type: EyeProtection
-    protectionTime: 5
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-  - type: IdentityBlocker
-    coverage: EYES
+  - type: Construction
+    graph: GlassesMedSecHUD
+    node: glassesMedSec
 
 - type: entity
   parent: ClothingEyesBase
@@ -75,3 +70,17 @@
       Steel: 125
   - type: StaticPrice
     price: 38
+
+- type: entity
+  parent: [ClothingEyesBase, ShowMedicalIcons, ClothingEyesGlassesSunglasses]
+  id: ClothingEyesGlassesMed
+  name: medical glasses
+  description: Sunglasses with a medical hud.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Eyes/Glasses/medglasses.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Eyes/Glasses/medglasses.rsi
+  - type: Construction
+    graph: GlassesMedHUD
+    node: glassesMed

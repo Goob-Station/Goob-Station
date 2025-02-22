@@ -119,9 +119,10 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
             var pierce = injector.Comp.PierceArmorOverride ?? injector.Comp.PierceArmor;
             if (_inventory.TryGetSlotEntity(target, "outerClothing", out var suit)) // attempt to apply armor injection speed multiplier or block the syringe
             {
-                bool syringeArmor = _tag.HasTag(suit.Value, "SyringeArmor");
-                bool blocked = syringeArmor && !pierce; // if we have syringe armor and it's not piercing just block it outright
-                pierce = pierce && !syringeArmor; // if we have syringe armor and it IS piercing, downgrade it
+                var blocked = _tag.HasTag(suit.Value, "SyringeArmor");
+                // bool syringeArmor = _tag.HasTag(suit.Value, "SyringeArmor");
+                // bool blocked = syringeArmor && !pierce; // if we have syringe armor and it's not piercing just block it outright
+                // pierce = pierce && !syringeArmor; // if we have syringe armor and it IS piercing, downgrade it
 
                 if (!blocked && !pierce && TryComp<ArmorComponent>(suit, out var armor)) // don't bother checking if we already blocked
                 {

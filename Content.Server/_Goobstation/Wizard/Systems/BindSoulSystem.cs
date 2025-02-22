@@ -61,7 +61,9 @@ public sealed class BindSoulSystem : SharedBindSoulSystem
 
         _identity.QueueIdentityUpdate(ent);
 
-        Stun.TryKnockdown(ent, TimeSpan.FromSeconds(20) + TimeSpan.FromSeconds(5) * soulBound.ResurrectionsCount, true);
+        Stun.TryKnockdown(ent,
+            TimeSpan.FromSeconds(20) + TimeSpan.FromSeconds(10) * soulBound.ResurrectionsCount,
+            true);
         soulBound.ResurrectionsCount++;
         Dirty(mind, soulBound);
     }

@@ -252,6 +252,7 @@
       BSCrystal: 50
   - type: StaticPrice #Goobstation - Recycle update
     price: 1850
+  - type: HideContrabandContent #Goobstation Contraband detector
 
 - type: entity
   parent: [ ClothingBackpackDuffel, BaseCentcommContraband ]
