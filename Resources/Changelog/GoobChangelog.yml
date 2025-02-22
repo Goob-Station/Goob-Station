@@ -5158,3 +5158,9 @@ Entries:
       message: Abductors can no longer instantly gizmo their targets.
   id: 591
   time: '2025-02-22T07:54:51.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Tweak
+      message: Tiders can no longer roll antag, get a job you bum.
+  id: 592
+  time: '2025-02-22T08:39:30.0000000+00:00'
