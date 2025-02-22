@@ -39,14 +39,14 @@
       types:
         Blunt: 13 # Unlucky number
         Slash: 7 # Lucky number
-    bluntStaminaDamageFactor: 2.0
+    bluntStaminaDamageFactor: 0.5
     animation: WeaponArcThrust
     soundHit:
       collection: MetalThud
   - type: StaminaDamageOnHit
     damage: 40
     overtime: 40
-    lightAttackDamageMultiplier: 4
+    lightAttackDamageMultiplier: 2
     lightAttackOvertimeDamageMultiplier: 0
     sound: /Audio/Weapons/egloves.ogg
   - type: StaminaDamageOnCollide
