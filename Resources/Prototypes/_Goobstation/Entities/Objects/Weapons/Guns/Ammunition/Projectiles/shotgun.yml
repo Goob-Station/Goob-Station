@@ -61,7 +61,7 @@
   id: HighCaliberPelletShotgunPractice
   name: pellet (.75 practice)
   categories: [ HideSpawnMenu ]
-  parent: HighCaliberBaseBulletPractice
+  parent: BaseBulletPractice
   components:
     - type: Sprite
       sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
