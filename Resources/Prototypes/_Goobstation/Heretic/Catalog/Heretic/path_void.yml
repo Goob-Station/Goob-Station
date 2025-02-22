@@ -28,7 +28,7 @@
   icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
   productHereticKnowledge: GraspOfVoid
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathVoid
   conditions:
@@ -46,7 +46,7 @@
   icon: { sprite: Interface/Alerts/temperature.rsi, state: cold1 }
   productHereticKnowledge: AristocratWay
   cost:
-    KnowledgePoint: 2
+    KnowledgePoint: 1
   categories:
   - HereticPathVoid
   conditions:
@@ -62,7 +62,7 @@
   icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
   productHereticKnowledge: MarkOfVoid
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathVoid
   conditions:
@@ -80,7 +80,7 @@
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: void_blast }
   productHereticKnowledge: VoidBlast
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathVoid
   conditions:
@@ -98,7 +98,7 @@
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: void_phase }
   productHereticKnowledge: VoidPhase
   cost:
-    KnowledgePoint: 2
+    KnowledgePoint: 1
   categories:
   - HereticPathVoid
   conditions:
@@ -114,7 +114,7 @@
   icon: { sprite: _Goobstation/Heretic/Blades/blade_void.rsi, state: icon }
   productHereticKnowledge: SeekingBlade
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathVoid
   conditions:
@@ -132,7 +132,7 @@
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: void_pull }
   productHereticKnowledge: VoidPull
   cost:
-    KnowledgePoint: 2
+    KnowledgePoint: 1
   categories:
   - HereticPathVoid
   conditions:
@@ -148,7 +148,7 @@
   icon: { sprite: Interface/Alerts/temperature.rsi, state: cold3 }
   productHereticKnowledge: AscensionVoid
   cost:
-    KnowledgePoint: 2
+    KnowledgePoint: 3
   categories:
   - HereticPathVoid
   conditions:
