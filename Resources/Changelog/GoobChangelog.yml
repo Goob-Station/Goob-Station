@@ -4933,3 +4933,11 @@ Entries:
       message: Lambda is actually in map pool now. Oops!
   id: 565
   time: '2025-02-22T05:21:34.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: 'Added a new midround event: The derelict syndicate assault cyborg.'
+    - type: Add
+      message: 'Added a new syndicate uplink item: The advanced weapons module for 40tc.'
+  id: 566
+  time: '2025-02-22T05:25:11.0000000+00:00'
