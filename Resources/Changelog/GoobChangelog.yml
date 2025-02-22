@@ -5216,3 +5216,11 @@ Entries:
       message: Added medical sunglasses to CMOs loadout on spawn.
   id: 597
   time: '2025-02-22T17:37:29.0000000+00:00'
+- author: VigersRay, Rinary
+  changes:
+    - type: Add
+      message: Added Ventcrawling
+    - type: Tweak
+      message: contortionist uniform nerfed
+  id: 598
+  time: '2025-02-22T17:38:20.0000000+00:00'
