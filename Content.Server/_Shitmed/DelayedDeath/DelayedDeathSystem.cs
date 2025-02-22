@@ -1,3 +1,4 @@
+using Content.Server.Chat.Systems;
 using Content.Shared.Medical;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -7,6 +8,7 @@ namespace Content.Server._Shitmed.DelayedDeath;
 
 public partial class DelayedDeathSystem : EntitySystem
 {
+    [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public override void Initialize()
@@ -38,5 +40,8 @@ public partial class DelayedDeathSystem : EntitySystem
     {
         // can't defib someone without a heart or brain pal
         args.Cancel();
+
+        _chat.TrySendInGameICMessage(args.Defib, Loc.GetString("defibrillator-missing-organs"),
+            InGameICChatType.Speak, true);
     }
 }
