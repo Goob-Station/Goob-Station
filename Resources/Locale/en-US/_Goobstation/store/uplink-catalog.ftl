@@ -137,6 +137,11 @@ uplink-helmet-swat-desc = Robust helmet that offers good protection and also sup
 uplink-clothing-explosive-gloves-name = Explosive Insulated Gloves
 uplink-clothing-explosive-gloves-desc = Gloves that look just like normal insulated gloves, but explode a second after being shocked, disabling the user's hands.
 
+# Disruption
+
+uplink-syndicate-weapon-module-advanced-name = advanced weapons module
+uplink-syndicate-weapon-module-advanced-desc = Upgrades a cyborg with an energy sword and an anaconda pistol.
+
 # Misc
 
 uplink-dimension-pot-name = Dimension Pot

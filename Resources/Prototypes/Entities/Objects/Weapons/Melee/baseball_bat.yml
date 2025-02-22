@@ -43,6 +43,7 @@
   - type: Tag
     tags:
     - BaseballBat
+  - type: UndetectableContraband #Goobstation-Contraband detector
 
 - type: entity
   name: incomplete baseball bat

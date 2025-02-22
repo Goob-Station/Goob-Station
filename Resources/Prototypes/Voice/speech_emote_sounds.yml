@@ -102,6 +102,8 @@
       collection: Weh
     Hew:
       collection: Hew
+    CatMeow:
+      collection: CatMeows # Goobstation - effect standardization
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -126,6 +128,8 @@
       collection: Weh
     Hew:
       collection: Hew
+    CatMeow:
+      collection: CatMeows # Goobstation - effect standardization
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
@@ -226,6 +230,8 @@
       path: /Audio/Voice/Vox/shriek1.ogg
     Laugh:
       path: /Audio/Voice/Vox/vox_laugh.ogg
+    CatMeow:
+      collection: CatMeows # Goobstation - effect standardization
   params:
     variation: 0.125
     # We need vox sounds for the other emotes
@@ -243,6 +249,8 @@
       collection: Weh
     Hew:
       collection: Hew
+    CatMeow:
+      collection: CatMeows # Goobstation - effect standardization
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -267,6 +275,8 @@
       collection: Weh
     Hew:
       collection: Hew
+    CatMeow:
+      collection: CatMeows # Goobstation - effect standardization
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -377,6 +387,8 @@
       collection: Weh
     Hew:
       collection: Hew
+    CatMeow:
+      collection: CatMeows # Goobstation - effect standardization
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
