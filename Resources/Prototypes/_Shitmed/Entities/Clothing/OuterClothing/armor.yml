@@ -11,6 +11,9 @@
   - type: Item
     size: Normal
   - type: AbductorVest
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2
   - type: ItemSwitch
     state: stealth
     states:
