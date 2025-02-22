@@ -4921,3 +4921,9 @@ Entries:
       message: Improved the description and guidebook entry of medical patches.
   id: 563
   time: '2025-02-22T04:52:59.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Blueshield & NTR have extended access.
+  id: 564
+  time: '2025-02-22T05:12:31.0000000+00:00'
