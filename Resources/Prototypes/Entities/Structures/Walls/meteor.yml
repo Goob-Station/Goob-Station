@@ -23,7 +23,6 @@
 - type: entity
   id: MeteorRockCoal
   parent: MeteorRock
-  description: An ore vein rich with coal.
   suffix: Coal
   components:
     - type: OreVein
@@ -45,7 +44,6 @@
 - type: entity
   id: MeteorRockGold
   parent: MeteorRock
-  description: An ore vein rich with gold.
   suffix: Gold
   components:
     - type: OreVein
@@ -67,7 +65,6 @@
 - type: entity
   id: MeteorRockDiamond
   parent: MeteorRock
-  description: An ore vein rich with diamonds.
   suffix: Diamond
   components:
     - type: OreVein
@@ -89,7 +86,6 @@
 - type: entity
   id: MeteorRockPlasma
   parent: MeteorRock
-  description: An ore vein rich with plasma.
   suffix: Plasma
   components:
     - type: OreVein
@@ -111,7 +107,6 @@
 - type: entity
   id: MeteorRockQuartz
   parent: MeteorRock
-  description: An ore vein rich with quartz.
   suffix: Quartz
   components:
     - type: OreVein
@@ -133,7 +128,6 @@
 - type: entity
   id: MeteorRockSilver
   parent: MeteorRock
-  description: An ore vein rich with silver.
   suffix: Silver
   components:
     - type: OreVein
@@ -155,7 +149,6 @@
 - type: entity
   id: MeteorRockTin
   parent: MeteorRock
-  description: An ore vein rich with iron.
   suffix: Iron
   components:
     - type: OreVein
@@ -177,7 +170,6 @@
 - type: entity
   id: MeteorRockUranium
   parent: MeteorRock
-  description: An ore vein rich with uranium.
   suffix: Uranium
   components:
     - type: OreVein
@@ -199,7 +191,6 @@
 - type: entity
   id: MeteorRockBananium
   parent: MeteorRock
-  description: An ore vein rich with bananium.
   suffix: Bananium
   components:
     - type: OreVein

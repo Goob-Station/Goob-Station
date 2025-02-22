@@ -288,7 +288,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        5
+        10
       </Box>
     </ColorBox>
     <ColorBox>
@@ -438,7 +438,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        10/8.25/6.5/4.75/3
+        8/6.75/5.5/4.25/3
       </Box>
     </ColorBox>
     <ColorBox>
@@ -468,7 +468,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        6/5/4/3/2
+        8/6.75/5.5/4.25/3
       </Box>
     </ColorBox>
     <ColorBox>
@@ -618,7 +618,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        60/40/20
+        60/50/40/30/20
       </Box>
     </ColorBox>
     <ColorBox>
@@ -671,9 +671,9 @@
         2
       </Box>
     </ColorBox>
-    <ColorBox Color="#2e422e">
+    <ColorBox Color="#4d2e2e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        No
+        Yes
       </Box>
     </ColorBox>
     <ColorBox>
@@ -791,9 +791,9 @@
         2
       </Box>
     </ColorBox>
-    <ColorBox Color="#2e422e">
+    <ColorBox Color="#4d2e2e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        No
+        Yes
       </Box>
     </ColorBox>
     <ColorBox>
