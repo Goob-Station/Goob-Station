@@ -48,14 +48,13 @@
     gloves: ClothingHandsGlovesCombat
     id: BlueshieldPDA
     ears: ClothingHeadsetAltCommand
-    belt: ClothingBeltSecurityFilled
     pocket1: UniqueBlueshieldOfficerLockerTeleporter
     pocket2: PinpointerNuclear
-    suitstorage: WeaponLeverChester
+    belt: BlueShieldShield
   storage:
     back:
     - Flash
-    - BlueshieldAmmunitionBoxFilled
     - BluespaceLifelineImplanter
     - WeaponEnergyRevolver
     - SecHypo
+    - BlueshieldMace
