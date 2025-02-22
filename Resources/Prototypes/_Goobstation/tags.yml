@@ -43,7 +43,7 @@
 
 - type: Tag
   id: ClarkePeripheralsControlModule
-  
+
 - type: Tag
   id: ClarkeRArm
 
@@ -106,6 +106,9 @@
 
 - type: Tag
   id: FelinidEmotes
+
+- type: Tag
+  id: FlashIgnoreResistances
 
 - type: Tag
   id: FrozenIgnoreMindAction
@@ -249,6 +252,9 @@
   id: SecurityBreathMask
 
 - type: Tag
+  id: ShowWizardIcons
+
+- type: Tag
   id: SnapPop
 
 - type: Tag
@@ -287,7 +293,7 @@
 - type: Tag
   id: Tourniquet
 
-- type: Tag  
+- type: Tag
   id: ToySword
 
 - type: Tag
