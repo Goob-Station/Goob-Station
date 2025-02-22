@@ -7,7 +7,7 @@
   icon: "JobIconPassenger"
   supervisors: job-supervisors-everyone
   canBeAntag: false # GOOBSTATION: THE RECKONING COMES
-  access:
+  # access:
   # - Maintenance # Goobstation - Realism Update
 
 - type: startingGear
