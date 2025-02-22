@@ -39,11 +39,12 @@
   name: shell (.75 carpshot)
   parent: BaseShellShotgun
   components:
-- type: Sprite
-  layers:
-  - state: base
-    map: [ "enum.AmmoVisualLayers.Base" ]
-- type: CartridgeAmmo
-  proto: PelletShotgunSpread
+  - type: Sprite
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: PelletShotgunSpread
+
 
 
