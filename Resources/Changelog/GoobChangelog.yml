@@ -5110,3 +5110,9 @@ Entries:
       message: Added new trinkets (They're all lollypops) for various playtimes.
   id: 586
   time: '2025-02-22T06:58:44.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: IPCs now take (half) radiation damage. Cable can be used to repair it.
+  id: 587
+  time: '2025-02-22T07:01:09.0000000+00:00'
