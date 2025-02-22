@@ -5140,3 +5140,27 @@ Entries:
       message: Abductor Agent now does not have any special abilities in surgery.
   id: 588
   time: '2025-02-22T07:28:26.0000000+00:00'
+- author: Scruq445
+  changes:
+    - type: Tweak
+      message: You can now teleport into the microwave normally using a QSI again.
+  id: 589
+  time: '2025-02-22T07:48:52.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Antagonist ghost roles now require some playtime in order to be taken.
+  id: 590
+  time: '2025-02-22T07:52:12.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Fix
+      message: Abductors can no longer instantly gizmo their targets.
+  id: 591
+  time: '2025-02-22T07:54:51.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Tweak
+      message: Tiders can no longer roll antag, get a job you bum.
+  id: 592
+  time: '2025-02-22T08:39:30.0000000+00:00'
