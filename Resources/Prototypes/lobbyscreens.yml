@@ -117,6 +117,12 @@
   background: /Textures/LobbyScreens/tideractivities.webp
   name: Tider Activities
   artist: asardonicsailor
+  
+- type: lobbyBackground
+  id: stargoob
+  background: /Textures/LobbyScreens/StarGoob.webp
+  name: GoobWars
+  artist: Jvne
 
 - type: lobbyBackground
   id: enlist-lavaland
