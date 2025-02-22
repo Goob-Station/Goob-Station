@@ -1,125 +1,105 @@
 - type: entity
-  id: LeftArmCybernetic
-  parent: [PartIPC, BaseLeftArm]
   abstract: true
+  parent: BasePartInorganic
+  id: CyberneticPartBase
   components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+  - type: Icon
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
   - type: Damageable
     damageContainer: Silicon
+  - type: Cybernetics
+
+- type: entity
+  abstract: true
+  parent: [ CyberneticPartBase, BaseLeftArm ]
+  id: LeftArmCyberneticBase
+  components:
+  - type: Sprite
+    state: "l_arm-combined"
+  - type: Icon
+    state: "l_arm-combined"
   - type: BodyPart
     baseLayerId: MobCyberneticBishopLArm
   - type: GenerateChildPart
     id: LeftHandCybernetic
-  - type: Cybernetics
-  - type: Sprite
-    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
-    state: "l_arm-combined"
 
 - type: entity
-  id: RightArmCybernetic
-  parent: [PartIPC, BaseRightArm]
   abstract: true
+  parent: [ CyberneticPartBase, BaseRightArm ]
+  id: RightArmCyberneticBase
   components:
-  - type: Damageable
-    damageContainer: Silicon
+  - type: Sprite
+    state: "r_arm-combined"
+  - type: Icon
+    state: "r_arm-combined"
   - type: BodyPart
     baseLayerId: MobCyberneticBishopRArm
   - type: GenerateChildPart
     id: RightHandCybernetic
-  - type: Cybernetics
-  - type: Sprite
-    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
-    state: "r_arm-combined"
 
 - type: entity
-  id: LeftLegCybernetic
-  parent: [PartIPC, BaseLeftLeg]
   abstract: true
+  parent: [ CyberneticPartBase, BaseLeftLeg ]
+  id: LeftLegCyberneticBase
   components:
-  - type: Damageable
-    damageContainer: Silicon
+  - type: Sprite
+    state: "l_leg-combined"
+  - type: Icon
+    state: "l_leg-combined"
   - type: BodyPart
     baseLayerId: MobCyberneticBishopLLeg
   - type: GenerateChildPart
     id: LeftFootCybernetic
-  - type: Cybernetics
-  - type: Sprite
-    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
-    state: "l_leg-combined"
 
 - type: entity
-  id: RightLegCybernetic
-  parent: [PartIPC, BaseRightLeg]
   abstract: true
+  parent: [ CyberneticPartBase, BaseRightLeg ]
+  id: RightLegCyberneticBase
   components:
-  - type: Damageable
-    damageContainer: Silicon
+  - type: Sprite
+    state: "r_leg-combined"
+  - type: Icon
+    state: "r_leg-combined"
   - type: BodyPart
     baseLayerId: MobCyberneticBishopRLeg
   - type: GenerateChildPart
     id: RightFootCybernetic
-  - type: Cybernetics
-  - type: Sprite
-    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
-    state: "r_leg-combined"
 
 - type: entity
+  parent: [ CyberneticPartBase, BaseLeftHand ]
   id: LeftHandCybernetic
-  parent: [PartIPC, BaseLeftHand]
-  name: cybernetic left hand
   components:
-  - type: Damageable
-    damageContainer: Silicon
   - type: BodyPart
     baseLayerId: MobCyberneticBishopLHand
-  - type: Cybernetics
-  - type: Sprite
-    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
-    state: "l_hand"
 
 - type: entity
+  parent: [ CyberneticPartBase, BaseRightHand ]
   id: RightHandCybernetic
-  parent: [PartHuman, BaseRightHand]
   name: cybernetic right hand
   components:
-  - type: Damageable
-    damageContainer: Silicon
   - type: BodyPart
     baseLayerId: MobCyberneticBishopRHand
-  - type: Cybernetics
-  - type: Sprite
-    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
-    state: "r_hand"
 
 - type: entity
+  parent: [ CyberneticPartBase, BaseLeftFoot ]
   id: LeftFootCybernetic
-  parent: [PartIPC, BaseLeftFoot]
   name: cybernetic left foot
   components:
-  - type: Damageable
-    damageContainer: Silicon
   - type: BodyPart
     baseLayerId: MobCyberneticBishopLFoot
-  - type: Cybernetics
-  - type: Sprite
-    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
-    state: "l_foot"
 
 - type: entity
+  parent: [ CyberneticPartBase, BaseRightFoot ]
   id: RightFootCybernetic
-  parent: [PartIPC, BaseRightFoot]
   name: cybernetic right foot
   components:
-  - type: Damageable
-    damageContainer: Silicon
   - type: BodyPart
     baseLayerId: MobCyberneticBishopRFoot
-  - type: Cybernetics
-  - type: Sprite
-    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
-    state: "r_foot"
 
 - type: entity
-  parent: LeftArmCybernetic
+  parent: LeftArmCyberneticBase
   id: JawsOfLifeLeftArm
   name: J.W.L left arm
   description: A cybernetic left arm with the ability to pry doors open.
@@ -133,7 +113,7 @@
       delay: 1
 
 - type: entity
-  parent: RightArmCybernetic
+  parent: RightArmCyberneticBase
   id: JawsOfLifeRightArm
   name: J.W.L right arm
   description: A cybernetic right arm with the ability to pry doors open.
@@ -147,7 +127,7 @@
       delay: 1
 
 - type: entity
-  parent: LeftLegCybernetic
+  parent: LeftLegCyberneticBase
   id: SpeedLeftLeg
   name: S.P.E.E.D left leg
   description: A cybernetic left leg that allows its wearer to run faster.
@@ -161,7 +141,7 @@
     - type: ProtectedFromStepTriggers
 
 - type: entity
-  parent: RightLegCybernetic
+  parent: RightLegCyberneticBase
   id: SpeedRightLeg
   name: S.P.E.E.D right leg
   description: A cybernetic left leg that allows its wearer to run faster.
