@@ -325,7 +325,7 @@
 
 - type: Tag
   id: HudMedicalSecurity
-
+  
 - type: Tag
   id: Bomb
 

@@ -122,6 +122,14 @@ uplink-mech-teleporter-heavy-desc = Contains a heavily armored Cybersun mech wit
 uplink-mech-teleporter-assault-name = Assault Mech teleporter
 uplink-mech-teleporter-assault-desc = Contains a lightly armored Cybersun mech with an integrated chainsword, LBX AC 10 "Scattershot", SRM-8 Light Missile Rack and P-X Tesla Cannon.
 
+# Chemicals
+
+uplink-lollypop-bundle-name = Donk Co. Lollypop Box
+uplink-lollypop-bundle-desc = Contains 9 completely random lollypops. What could they contain?
+
+uplink-lollypop-bundle-big-name = Donk Co. Candy Bundle
+uplink-lollypop-bundle-big-desc = Contains an ungodly amount of candy. What could they contain?
+
 # Implants
 
 uplink-smoke-implant-name = Smoke Implant
