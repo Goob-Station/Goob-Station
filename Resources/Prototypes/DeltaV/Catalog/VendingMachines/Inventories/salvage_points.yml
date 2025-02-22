@@ -1,0 +1,90 @@
+- type: shopInventory
+  id: SalvageVendorInventory
+  listings:
+  # TODO: marker beacons 1/10/30 for 10 each
+  - id: DrinkWhiskeyBottleFull
+    cost: 100
+  - id: DrinkAbsintheBottleFull
+    cost: 100
+  - id: LavalandEquipmentExplorerSuit
+    cost: 100
+  - id: CigarGold
+    cost: 150
+  - id: Soap
+    cost: 200
+  - id: PKAUpgradeLight
+    cost: 500
+  - id: SeismicCharge
+    cost: 250
+  - id: WeaponGrapplingGun
+    cost: 300
+  # TODO: laser pointer 300, toy facehugger 300
+  # TODO: stabilizing serum for 400
+  - id: FultonBeacon
+    cost: 400
+  # TODO: bluespace shelter capsule for 400
+  - id: ClothingEyesGlassesGarMeson
+    cost: 500
+  - id: ClothingBeltSalvageWebbing
+    cost: 500
+  - id: ClothingShoesBootsJack
+    cost: 550
+  - id: MineralScanner
+    cost: 550
+  - id: MedkitBruteFilled
+    cost: 600
+  - id: MedkitBurnFilled
+    cost: 600
+  - id: LavalandJaunter
+    cost: 750
+  - id: WeaponCrusher
+    cost: 750
+  - id: WeaponProtoKineticAccelerator
+    cost: 750
+  - id: SurvivalMedipen
+    cost: 800
+  - id: Fulton
+    cost: 1000
+  - id: PKAUpgradeRange
+    cost: 1000
+  - id: PKAUpgradeFireRate
+    cost: 1000
+  - id: AdvancedMineralScanner
+    cost: 1100
+  - id: PKAUpgradeDamage
+    cost: 1200
+  - id: LavalandEquipmentExplorerSuit
+    cost: 1200
+  # TODO: lazarus injector for 1k
+  - id: LavalandWeaponKineticHammer
+    cost: 1250
+  - id: LavalandWeaponKineticMachete
+    cost: 1250
+  - id: LavalandWeaponKineticSpear
+    cost: 1250
+  - id: LavalandWeaponKineticClaws
+    cost: 1250
+  - id: WeaponProtoKineticShotgun
+    cost: 1250
+  - id: WeaponProtoKineticRepeater
+    cost: 1250
+  - id: WeaponProtoKineticPistol
+    cost: 1250
+  - id: ClothingBackpackDuffelSalvageConscription
+    cost: 1250
+  - id: AdvancedMineralScanner
+    cost: 1550
+  - id: WeaponPlasmaCutter
+    cost: 1700
+  - id: SpaceCash1000
+    cost: 2000
+  - id: ShelterCapsule
+    cost: 2000
+  # TODO: super resonator for 2500
+  # TODO: jump boots for 2500
+  - id: ClothingOuterHardsuitSalvage
+    cost: 3000
+  - id: ShelterCapsuleLuxury
+    cost: 3000
+  # TODO: luxury elite bar capsule for 10k
+  # TODO: mining drone stuff
