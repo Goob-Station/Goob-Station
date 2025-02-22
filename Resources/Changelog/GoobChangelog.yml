@@ -5172,3 +5172,11 @@ Entries:
         [Medieval accent]
   id: 593
   time: '2025-02-22T15:04:19.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Gas canisters, some guns and some materials are now cheaper to buy.
+    - type: Add
+      message: You can now buy water vapour canisters.
+  id: 594
+  time: '2025-02-22T17:28:55.0000000+00:00'
