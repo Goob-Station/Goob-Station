@@ -76,20 +76,22 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
             doorCounter += 1;
         }
 
+        var emagChaos = FixedPoint2.Zero;
+        var atmosChaos = FixedPoint2.Zero;
+        var powerChaos = FixedPoint2.Zero;
         // Calculate each stat as a fraction of all doors in the station.
         //   That way the metrics do not "scale up"  on large stations.
-        Logger.Debug(emagCount.ToString());
-        Logger.Debug(fireCount.ToString());
-        Logger.Debug(firelockCounter.ToString());
-        Logger.Debug(pressureCount.ToString());
-        Logger.Debug(powerCount.ToString());
-        Logger.Debug(doorCounter.ToString());
 
-        var emagChaos = (emagCount / airlockCounter) * component.EmagCost;
+        if (airlockCounter > FixedPoint2.Zero)
+            emagChaos = (emagCount / airlockCounter) * component.EmagCost;
 
-        var atmosChaos = (fireCount / firelockCounter) * component.FireCost +
+        if (firelockCounter > FixedPoint2.Zero)
+            atmosChaos = (fireCount / firelockCounter) * component.FireCost +
                          (pressureCount / firelockCounter) * component.PressureCost;
-        var powerChaos = (powerCount / doorCounter) * component.PowerCost;
+
+        if (doorCounter > FixedPoint2.Zero)
+            powerChaos = (powerCount / doorCounter) * component.PowerCost;
+
 
         var chaos = new ChaosMetrics(new Dictionary<ChaosMetric, FixedPoint2>()
         {

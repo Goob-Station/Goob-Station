@@ -22,10 +22,6 @@ public abstract class ChaosMetricSystem<T> : EntitySystem where T : Component
 
     private void OnCalculateChaos(EntityUid uid, T component, ref CalculateChaosEvent args)
     {
-        if (_gameTicker.RunLevel != GameRunLevel.InRound)
-        {
-            return;
-        }
         var ourChaos = CalculateChaos(uid, component, args);
 
         args.Metrics += ourChaos;
