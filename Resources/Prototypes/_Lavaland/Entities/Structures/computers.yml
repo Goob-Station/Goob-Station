@@ -1,0 +1,49 @@
+- type: entity
+  abstract: true
+  parent: BaseComputer
+  id: BaseComputerDocking
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "computerLayerBody" ]
+      state: computer
+    - map: [ "computerLayerKeyboard" ]
+      state: generic_keyboard
+    - map: [ "computerLayerScreen" ]
+      state: shuttle
+    - map: ["computerLayerKeys" ]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: ActivatableUI
+    key: enum.DockingConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.DockingConsoleUiKey.Key:
+        type: DockingConsoleBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: WorldLoader
+    radius: 256
+  - type: DockingConsole
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#43ccb5"
+
+- type: entity
+  parent: BaseComputerDocking
+  id: ComputerShuttleMiningLavaland
+  name: mining shuttle console
+  description: Used to pilot the mining shuttle to and from the mining base.
+  components:
+  - type: DockingConsole
+    windowTitle: mining-console-window-title
+    shuttleWhitelist:
+      components:
+      - MiningShuttle
+  - type: Computer
+    board: LavalandShuttleConsoleCircuitboard
+  - type: AccessReader
+    access:
+    - [ Salvage ]

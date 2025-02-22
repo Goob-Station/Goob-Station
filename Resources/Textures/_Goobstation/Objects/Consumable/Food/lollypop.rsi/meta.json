@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprited by SolsticeOfTheWinter",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "lollypop-trash"
+    },
+    {
+      "name": "lollypop-wrapper"
+    },
+	{
+      "name": "lollypop-wrapper-syndicate"
+    },
+    {
+      "name": "lollypop"
+    },
+    {
+      "name": "lollypop-wrapped"
+    },
+	{
+      "name": "lollypop-wrapped-syndicate"
+    },
+	{
+      "name": "equipped-MASK",
+      "directions": 4
+    },
+	{
+      "name": "lollypop-dispenser"
+    },
+	{
+      "name": "rainbow"
+    },
+	{
+      "name": "carp"
+    },
+    {
+      "name": "color"
+    }
+  ]
+}

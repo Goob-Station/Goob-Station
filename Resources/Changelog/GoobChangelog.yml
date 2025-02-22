@@ -4879,3 +4879,348 @@ Entries:
       message: Removed lag.
   id: 558
   time: '2025-02-18T23:21:08.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: New vulp scream sounds from MRP.
+    - type: Fix
+      message: Vulps now correctly have their innate temperature protection.
+  id: 559
+  time: '2025-02-21T16:09:44.0000000+00:00'
+- author: Rouden, whateverusername0, deltanedas, Aineias1, Mocho
+  changes:
+    - type: Add
+      message: Lavaland is here.
+    - type: Fix
+      message: IPCs will shutdown when stepping on lava.
+    - type: Fix
+      message: >-
+        You can now place catwalks everywhere you want, not just on lattice or
+        plating. (Pro tip: build them over the lava)
+    - type: Remove
+      message: >-
+        Deleted VGRoid, Expeditions, and salvage shuttle, they got replaced by
+        Lavaland and Mining shuttle
+  id: 560
+  time: '2025-02-22T04:43:27.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Captains sabre can reflect again.
+  id: 561
+  time: '2025-02-22T04:48:01.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Tweak
+      message: Allows cyborgs to have traits, like accents.
+  id: 562
+  time: '2025-02-22T04:49:01.0000000+00:00'
+- author: botanySupremist
+  changes:
+    - type: Tweak
+      message: Improved the description and guidebook entry of medical patches.
+  id: 563
+  time: '2025-02-22T04:52:59.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Blueshield & NTR have extended access.
+  id: 564
+  time: '2025-02-22T05:12:31.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: Lambda is actually in map pool now. Oops!
+  id: 565
+  time: '2025-02-22T05:21:34.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: 'Added a new midround event: The derelict syndicate assault cyborg.'
+    - type: Add
+      message: 'Added a new syndicate uplink item: The advanced weapons module for 40tc.'
+  id: 566
+  time: '2025-02-22T05:25:11.0000000+00:00'
+- author: botanySupremist
+  changes:
+    - type: Tweak
+      message: Bluespace syringes are now valid ammo for syringe guns.
+  id: 567
+  time: '2025-02-22T05:25:56.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: C4 can now be planted on items, like mice or spears.
+  id: 568
+  time: '2025-02-22T05:27:40.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Add
+      message: Added "merciful" IPC wings!
+  id: 569
+  time: '2025-02-22T05:30:37.0000000+00:00'
+- author: ARMOKS
+  changes:
+    - type: Tweak
+      message: Upped wizard chance, reduced abductor and blob chance.
+  id: 570
+  time: '2025-02-22T05:36:20.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Add
+      message: Added bike horns to bike horn implant crate
+  id: 571
+  time: '2025-02-22T05:37:56.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added new items to the reporter loadout.
+  id: 572
+  time: '2025-02-22T05:38:52.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: >-
+        Fireball reworked. It is now weaker but acts like a flashbang that
+        ignores ear and eye protection.
+    - type: Tweak
+      message: Bind soul nerfed.
+    - type: Tweak
+      message: Teleport and sanguine strike spells now require robes to cast.
+    - type: Tweak
+      message: Homing toolbox cd increased 6 -> 8, lightning bolt cd reduced 10 -> 8.
+    - type: Tweak
+      message: >-
+        Rod form buffed, it now ignores resistances, knocks down and gibs at
+        lvl5.
+    - type: Tweak
+      message: >-
+        Summon simians now spawn more monkeys at lower levels and more gorillas
+        on higher.
+    - type: Tweak
+      message: Corpse explosion cooldown increased.
+    - type: Tweak
+      message: Spell cards damage increased.
+    - type: Tweak
+      message: Holopapra/Ifrit now ignore gravity.
+    - type: Fix
+      message: Wizard teleport now woks in cuffs.
+  id: 573
+  time: '2025-02-22T05:39:45.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: >-
+        Wizard wand now starts with 10x charge, but its max charge depletes
+        slowly when using charge spell.
+    - type: Remove
+      message: Removed x-ray projectile from wizard wand.
+  id: 574
+  time: '2025-02-22T05:48:45.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Add
+      message: 'Added my dream of being a airport security guard to the game. '
+  id: 575
+  time: '2025-02-22T05:51:40.0000000+00:00'
+- author: Scruq445
+  changes:
+    - type: Add
+      message: Added a remaster to Honk! to the lobby and jukebox
+  id: 576
+  time: '2025-02-22T05:59:28.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Add
+      message: New lobby art. StarGoob
+  id: 577
+  time: '2025-02-22T06:00:27.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Add
+      message: >-
+        Added three dozen new and "new" chemicals, mostly high-complexity
+        medicines
+  id: 578
+  time: '2025-02-22T06:07:41.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added a new lobby screen, "Lost pAI" drawn by "Cattom"
+  id: 579
+  time: '2025-02-22T06:15:18.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: Medical sun glasses.
+    - type: Tweak
+      message: Medical security sun glasses are able to be constructed.
+  id: 580
+  time: '2025-02-22T06:20:34.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Stunbaton/stunprod light attack buffed, read security guidebook for more
+        details.
+  id: 581
+  time: '2025-02-22T06:25:32.0000000+00:00'
+- author: fishbait
+  changes:
+    - type: Add
+      message: Bingle
+  id: 582
+  time: '2025-02-22T06:33:06.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Added copium!
+  id: 583
+  time: '2025-02-22T06:51:18.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: New smart weaponry t3 arsenal research.
+  id: 584
+  time: '2025-02-22T06:53:37.0000000+00:00'
+- author: Gallagin
+  changes:
+    - type: Add
+      message: Added Leonid Station
+  id: 585
+  time: '2025-02-22T06:53:47.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: >-
+        Added lollypops! They spawn in the nanomed plus, the CMOs locker, can be
+        made in a microwave, etcetera. The recipe is 5 sugar, one paper, and
+        five seconds.
+    - type: Add
+      message: >-
+        Mysterious lollypops containing funky chemicals can be found on
+        expeditions.
+    - type: Add
+      message: 'Added a new uplink item: the Donk Co. Lollypop bundle for 15tc.'
+    - type: Add
+      message: 'Added a new uplink item: the Donk Co. Candy Kit for 100tc.'
+    - type: Add
+      message: Added a new chemical, Carpolin, which can polymorph people into carps.
+    - type: Add
+      message: Added new trinkets (They're all lollypops) for various playtimes.
+  id: 586
+  time: '2025-02-22T06:58:44.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: IPCs now take (half) radiation damage. Cable can be used to repair it.
+  id: 587
+  time: '2025-02-22T07:01:09.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Abductors now have names.
+    - type: Add
+      message: >-
+        Scientist abductors now has a new lab coat, Agent has a new backpack,
+        and the Lone Abductor has both.
+    - type: Tweak
+      message: >-
+        Abductor gear got some changes. In short, agent no longer possesses all
+        the stuff, scientist gets some too, including new rebalanced decloner.
+    - type: Tweak
+      message: IPCs bewail, decloner bolt now deals Ion damage.
+    - type: Tweak
+      message: >-
+        Lone, agent and scientist abductors are now different ghost roles, and a
+        ghosted abductor now will become a ghost role too.
+    - type: Fix
+      message: Abductor Agent's vest is now visible on your character.
+    - type: Remove
+      message: Abductor Agent now does not have any special abilities in surgery.
+  id: 588
+  time: '2025-02-22T07:28:26.0000000+00:00'
+- author: Scruq445
+  changes:
+    - type: Tweak
+      message: You can now teleport into the microwave normally using a QSI again.
+  id: 589
+  time: '2025-02-22T07:48:52.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Antagonist ghost roles now require some playtime in order to be taken.
+  id: 590
+  time: '2025-02-22T07:52:12.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Fix
+      message: Abductors can no longer instantly gizmo their targets.
+  id: 591
+  time: '2025-02-22T07:54:51.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Tweak
+      message: Tiders can no longer roll antag, get a job you bum.
+  id: 592
+  time: '2025-02-22T08:39:30.0000000+00:00'
+- author: Cerise-Cattowo
+  changes:
+    - type: Add
+      message: >-
+        Forsooth I say, thy manner o' speech hath been given a new enchantment!
+        [Medieval accent]
+  id: 593
+  time: '2025-02-22T15:04:19.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Gas canisters, some guns and some materials are now cheaper to buy.
+    - type: Add
+      message: You can now buy water vapour canisters.
+  id: 594
+  time: '2025-02-22T17:28:55.0000000+00:00'
+- author: John Shitcode
+  changes:
+    - type: Tweak
+      message: >-
+        Heretic influences give exclusively 1 point. Using the book shortens
+        collection time but makes it obvious.
+    - type: Tweak
+      message: Sacrificing people gives 2 points, heads of staff gives 3.
+    - type: Tweak
+      message: You will see less heretic influences now.
+    - type: Tweak
+      message: >-
+        Heretic side knowledge costs 1 point and path specific costs 2.
+        Asecnsions cost 3 points everywhere.
+    - type: Tweak
+      message: Ash jaunt does not deal damage but is only 3 seconds long now.
+    - type: Add
+      message: Reworked ash ascension. Ascend to find out.
+    - type: Add
+      message: Reworked void path. Get it to find out.
+    - type: Fix
+      message: Fixed dynamic.
+  id: 595
+  time: '2025-02-22T17:33:44.0000000+00:00'
+- author: botanySupremist
+  changes:
+    - type: Tweak
+      message: The lack of festivity means that the present anomaly is rarer.
+  id: 596
+  time: '2025-02-22T17:35:50.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added medical sunglasses to CMOs loadout on spawn.
+  id: 597
+  time: '2025-02-22T17:37:29.0000000+00:00'
+- author: VigersRay, Rinary
+  changes:
+    - type: Add
+      message: Added Ventcrawling
+    - type: Tweak
+      message: contortionist uniform nerfed
+  id: 598
+  time: '2025-02-22T17:38:20.0000000+00:00'

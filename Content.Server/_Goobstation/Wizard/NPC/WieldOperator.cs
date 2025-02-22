@@ -21,7 +21,7 @@ public sealed partial class WieldOperator : HTNOperator
             return HTNOperatorStatus.Finished;
 
         var owner = blackboard.GetValueOrDefault<EntityUid>(NPCBlackboard.Owner, _entManager);
-        var wieldableSystem = _entManager.System<WieldableSystem>();
+        var wieldableSystem = _entManager.System<SharedWieldableSystem>();
 
         return wieldableSystem.TryWield(item.Value, wieldable, owner)
             ? HTNOperatorStatus.Finished

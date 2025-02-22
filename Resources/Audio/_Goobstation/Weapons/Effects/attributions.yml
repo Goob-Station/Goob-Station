@@ -17,9 +17,13 @@
   license: "CC-BY-SA-3.0"
   copyright: "Taken from freesound.org, and reversed by SolsticeOfTheWinter"
   source: "https://freesound.org/people/pip_/sounds/557194/"
-  
+
 - files: ["throwhard.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from tgstation."
   source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/items/weapons/throwhard.ogg"
 
+- files: ["laserpointer.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "night_vision.wav by Syna-Max"
+  source: "https://freesound.org/s/60345/"

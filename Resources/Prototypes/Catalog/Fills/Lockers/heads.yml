@@ -348,6 +348,8 @@
     - id: SecurityTechFabCircuitboard
     #- id: WeaponDisabler #Goobstation (Disablers in belts)
     - id: WantedListCartridge
+    - id: DrinkHosFlask
+
 # Hardsuit table, used for suit storage as well
 - type: entityTable
   id: FillHeadOfSecurityHardsuit

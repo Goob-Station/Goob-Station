@@ -34,6 +34,11 @@
   - Command
   - CentralCommand
   - BlueshieldOfficer
+  - Service
+  - Hydroponics
+  - Kitchen
+  - Cargo
+  - Theatre
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

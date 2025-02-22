@@ -18,6 +18,6 @@ public sealed partial class FootPrintComponent : Component
     [DataField]
     public string SolutionName = "step";
 
-    [DataField]
+    [ViewVariables]
     public Entity<SolutionComponent>? Solution;
 }
