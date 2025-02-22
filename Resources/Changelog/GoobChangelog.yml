@@ -5152,3 +5152,9 @@ Entries:
       message: Antagonist ghost roles now require some playtime in order to be taken.
   id: 590
   time: '2025-02-22T07:52:12.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Fix
+      message: Abductors can no longer instantly gizmo their targets.
+  id: 591
+  time: '2025-02-22T07:54:51.0000000+00:00'
