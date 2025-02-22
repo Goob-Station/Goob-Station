@@ -736,6 +736,11 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
+  - type: Tag # Goobstation
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+    - SyringeArmor
 
 #Ling Space Suit
 - type: entity
