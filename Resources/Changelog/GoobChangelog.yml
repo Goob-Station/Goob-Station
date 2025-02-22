@@ -5049,3 +5049,11 @@ Entries:
       message: Added a new lobby screen, "Lost pAI" drawn by "Cattom"
   id: 579
   time: '2025-02-22T06:15:18.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: Medical sun glasses.
+    - type: Tweak
+      message: Medical security sun glasses are able to be constructed.
+  id: 580
+  time: '2025-02-22T06:20:34.0000000+00:00'
