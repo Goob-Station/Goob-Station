@@ -402,9 +402,6 @@
     damage:
       types:
         Piercing: 0
-  - type: NpcFactionMember
-    factions:
-    - Mouse
 
 - type: entity
   name: glockroach
@@ -439,7 +436,6 @@
     - id: FoodMeatSlime
 
 - type: entity
-  name: mothroach
   name: mothroach
   parent: MobCockroach
   id: MobMothroach
@@ -550,7 +546,7 @@
   - type: CanEscapeInventory
   - type: NpcFactionMember
     factions:
-    - Passive # ShibaStation - makes the cute moffbugs non-targets to station pets. viva la mothroach!
+    - Mouse
   - type: Body
     prototype: Mothroach
   - type: SurgeryTarget # Shitmed
@@ -1478,9 +1474,6 @@
     rules: ghost-role-information-syndicate-reinforcement-rules
     raffle:
       settings: default
-    requirements: # ShibaStation - Antag Playtime Requirements
-    - !type:OverallPlaytimeRequirement
-      time: 72000 # 20 hours
   - type: GhostTakeoverAvailable
   - type: Loadout
     prototypes: [SyndicateOperativeGearMonkey]
@@ -2366,41 +2359,10 @@
 # Code unique spider prototypes or combine them all into one spider and get a
 # random sprite state when you spawn it.
 - type: entity
-  name: tarantula
   parent: [ SimpleMobBase, MobCombat ]
-  id: MobGiantSpider
-  description: Widely recognized to be the literal worst thing in existence.
+  id: MobSpiderBase
+  abstract: true
   components:
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
-      state: tarantula
-      sprite: Mobs/Animals/spider.rsi
-  - type: SpriteMovement
-    movementLayers:
-      movement:
-        state: tarantula-moving
-    noMovementLayers:
-      movement:
-        state: tarantula
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: tarantula
-      Critical:
-        Base: tarantula_dead
-      Dead:
-        Base: tarantula_dead
-  - type: MeleeWeapon
-    altDisarm: false
-    angle: 0
-    animation: WeaponArcBite
-    soundHit:
-      path: /Audio/Effects/bite.ogg
-    damage:
-      types:
-        Piercing: 6
   - type: VentCrawler # goobstation - Ventcrawl
   - type: Physics
   - type: Fixtures
@@ -2498,14 +2460,13 @@
   - type: Fauna # Lavaland Change
 
 - type: entity
-  name: tarantula
-  parent: MobGiantSpider
-  id: MobGiantSpiderAngry
-  suffix: Angry
+  parent: MobSpiderBase
+  id: MobSpiderAngryBase
+  abstract: true
   components:
   - type: NpcFactionMember
     factions:
-    - Xeno
+      - Xeno
   - type: InputMover
   - type: MobMover
   - type: HTN
@@ -2518,13 +2479,44 @@
     rules: ghost-role-information-giant-spider-rules
     raffle:
       settings: short
-    requirements: # ShibaStation - Antag Playtime Requirements
-    - !type:OverallPlaytimeRequirement
-      time: 72000 # 20 hours
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 36000 # 10 hours
   - type: GhostTakeoverAvailable
+
+- type: entity
+  name: tarantula
+  parent: MobSpiderBase
+  id: MobGiantSpider
+  description: Widely recognized to be the literal worst thing in existence.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: tarantula
+      sprite: Mobs/Animals/spider.rsi
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: tarantula-moving
+    noMovementLayers:
+      movement:
+        state: tarantula
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: tarantula
+      Critical:
+        Base: tarantula_dead
+      Dead:
+        Base: tarantula_dead
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 6
 
 - type: entity
   parent:
@@ -2534,7 +2526,7 @@
 
 - type: entity
   name: clown spider
-  parent: MobGiantSpiderAngry
+  parent: MobSpiderAngryBase
   id: MobClownSpider
   description: Combines the two most terrifying things in existence, spiders and clowns.
   components:
@@ -3059,9 +3051,6 @@
     rules: ghost-role-information-SyndiCat-rules
     raffle:
       settings: default
-    requirements: # ShibaStation - Antag Playtime Requirements
-    - !type:OverallPlaytimeRequirement
-      time: 36000 # 10 hours
   - type: GhostTakeoverAvailable
   - type: AutoImplant
     implants:
