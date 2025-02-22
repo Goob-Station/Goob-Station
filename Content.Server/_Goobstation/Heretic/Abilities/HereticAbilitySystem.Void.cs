@@ -3,6 +3,7 @@ using Content.Server.Body.Components;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Magic;
 using Content.Server.Temperature.Components;
+using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic;
@@ -82,7 +83,10 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), ent);
 
         foreach (var pookie in GetNearbyPeople(ent, power))
+        {
             _stun.KnockdownOrStun(pookie, TimeSpan.FromSeconds(power), true);
+            if (condition) _voidcurse.DoCurse(pookie);
+        }
 
         args.Handled = true;
     }
@@ -113,7 +117,10 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         // stun close-mid range
         foreach (var pookie in midPriority)
+        {
             _stun.KnockdownOrStun(pookie, TimeSpan.FromSeconds(2.5f), true);
+            if (ent.Comp.CurrentPath == "Void") _voidcurse.DoCurse(pookie);
+        }
 
         // pull in farthest ones
         foreach (var pookie in farPriority)

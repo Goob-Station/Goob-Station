@@ -68,12 +68,12 @@
   id: CrateMaterialPlasteel
   parent: CrateGenericSteel
   name: plasteel crate
-  description: 90 sheets of plasteel.
+  description: 30 sheets of plasteel. # Goobstation
   components:
   - type: StorageFill
     contents:
       - id: SheetPlasteel
-        amount: 3
+        #amount: 3 # Goobstation
 
 - type: entity
   id: CrateMaterialPlasma
