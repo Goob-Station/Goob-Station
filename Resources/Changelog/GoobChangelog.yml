@@ -5083,3 +5083,9 @@ Entries:
       message: New smart weaponry t3 arsenal research.
   id: 584
   time: '2025-02-22T06:53:37.0000000+00:00'
+- author: Gallagin
+  changes:
+    - type: Add
+      message: Added Leonid Station
+  id: 585
+  time: '2025-02-22T06:53:47.0000000+00:00'
