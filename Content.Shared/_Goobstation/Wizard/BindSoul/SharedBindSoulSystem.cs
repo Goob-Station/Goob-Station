@@ -124,7 +124,7 @@ public abstract class SharedBindSoulSystem : EntitySystem
         var particle = Spawn(ParticlePrototype, coords);
         var direction = itemCoords.Position - coords.Position;
         _physics.SetLinearVelocity(particle, direction.Normalized());
-        EnsureComp<TimedDespawnComponent>(particle).Lifetime = 5f * (1 + ent.Comp.ResurrectionsCount);
+        EnsureComp<TimedDespawnComponent>(particle).Lifetime = 15f * (1 + ent.Comp.ResurrectionsCount);
         var homing = EnsureComp<HomingProjectileComponent>(particle);
         homing.Target = item.Value;
         Dirty(particle, homing);
@@ -153,7 +153,7 @@ public abstract class SharedBindSoulSystem : EntitySystem
         if (!TryComp(uid, out ActionsContainerComponent? container))
             return;
 
-        var delay = TimeSpan.FromMinutes(1) + TimeSpan.FromSeconds(30) * comp.ResurrectionsCount;
+        var delay = TimeSpan.FromMinutes(1) * (1 + comp.ResurrectionsCount);
 
         var actions = container.Container.ContainedEntities.Where(x => _tag.HasTag(x, ActionTag));
         foreach (var action in actions)
