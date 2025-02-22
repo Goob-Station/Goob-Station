@@ -1,4 +1,28 @@
 - type: entity
+  id: HighCaliberPelletShotgun
+  name: pellet (.75 carpshot)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 15
+
+- type: entity
+  id: HighCaliberPelletShotgunSpread
+  categories: [ HideSpawnMenu ]
+  parent: HighCaliberPelletShotgun
+  components:
+  - type: ProjectileSpread
+    proto: HighCaliberPelletShotgun
+    count: 6
+    spread: 15
+
+- type: entity
   id: BulletSlugEnsnaring
   name: bullet (.75 caliber ensnaring slug)
   parent: BaseBullet
@@ -77,8 +101,8 @@
         Piercing: 20
 
 - type: entity
-  id: HighCaliberPelletShotgun
-  name: pellet (.75 carpshot)
+  id: BulletSlugBeanbagHighCaliber
+  name: beanbag (.75)
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -88,14 +112,6 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 15
-
-- type: entity
-  id: HighCaliberPelletShotgunSpread
-  categories: [ HideSpawnMenu ]
-  parent: HighCaliberPelletShotgun
-  components:
-  - type: ProjectileSpread
-    proto: HighCaliberPelletShotgun
-    count: 6
-    spread: 15
+        Blunt: 20 # ye-OUCH
+  - type: StaminaDamageOnCollide
+    damage: 60 # 2 hits to stun

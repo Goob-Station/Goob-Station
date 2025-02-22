@@ -1,41 +1,20 @@
 - type: entity
-  id: CartridgeSlugEnsnaring
-  name: cartridge (.75 caliber ensnaring slug)
-  parent: ShellShotgunSlug
+  id: ShellShotgunSlugHighCaliber
+  name: shell (.75 slug)
+  parent: BaseShellShotgun
   components:
-  - type: CartridgeAmmo
-    proto: BulletSlugEnsnaring
   - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Cartridges/highcaliber-shell.rsi
     layers:
-    - state: base
+    - state: slug
       map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: PelletShotgunSlug
+  - type: SpentAmmoVisuals
+    state: "slug"
 
 - type: entity
-  id: CartridgeSlugEMP
-  name: cartridge (.75 caliber EMP slug)
-  parent: ShellShotgunSlug
-  components:
-  - type: CartridgeAmmo
-    proto: BulletMagnumEMP
-  - type: Sprite
-    layers:
-    - state: base
-      map: [ "enum.AmmoVisualLayers.Base" ]
-
-- type: entity
-  id: CartridgeSlugFlash
-  name: cartridge (.75 caliber flash slug)
-  parent: ShellShotgunSlug
-  components:
-  - type: CartridgeAmmo
-    proto: BulletSlugFlash
-  - type: Sprite
-    layers:
-    - state: base
-      map: [ "enum.AmmoVisualLayers.Base" ]
-
-- type: entity
-  id: CartridgeShellHighCaliber
+  id: ShellShotgunHighCaliber
   name: shell (.75 carpshot)
   parent: BaseShellShotgun
   components:
@@ -45,6 +24,69 @@
       map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
     proto: PelletShotgunSpread
+  - type: SpentAmmoVisuals
+    state: "base"
+
+- type: entity
+  id: ShellShotgunSlugEnsnaring
+  name: cartridge (.75 caliber ensnaring slug)
+  parent: ShellShotgunSlugHighCaliber
+  components:
+  - type: CartridgeAmmo
+    proto: BulletSlugEnsnaring
+  - type: Sprite
+    layers:
+    - state: snare
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: SpentAmmoVisuals
+    state: "snare"
+
+- type: entity
+  id: ShellShotgunSlugEMP
+  name: cartridge (.75 caliber EMP slug)
+  parent: ShellShotgunSlugHighCaliber
+  components:
+  - type: CartridgeAmmo
+    proto: BulletMagnumEMP
+  - type: Sprite
+    layers:
+    - state: emp
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: SpentAmmoVisuals
+    state: "emp"
+
+- type: entity
+  id: ShellShotgunSlugFlash
+  name: cartridge (.75 caliber flash slug)
+  parent: ShellShotgunSlugHighCaliber
+  components:
+  - type: CartridgeAmmo
+    proto: BulletSlugFlash
+  - type: Sprite
+    layers:
+    - state: flash
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: SpentAmmoVisuals
+    state: "flash"
+
+- type: entity
+  id: ShellShotgunBeanbag
+  name: shell (.75 beanbag)
+  parent: ShellShotgunSlugHighCaliber
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - ShellShotgun
+    - ShellShotgunLight
+  - type: Sprite
+    layers:
+    - state: beanbag
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: BulletSlugBeanbagHighCaliber
+  - type: SpentAmmoVisuals
+    state: "beanbag"
 
 
 
