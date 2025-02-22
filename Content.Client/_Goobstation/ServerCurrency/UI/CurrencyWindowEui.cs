@@ -1,8 +1,10 @@
 using Content.Client.Eui;
 using Content.Shared.Administration;
 using Robust.Client.UserInterface.Controls;
+using Content.Shared._Goobstation.ServerCurrency;
 using Content.Shared._Goobstation.ServerCurrency.UI;
 using System.Diagnostics;
+using Robust.Shared.Prototypes;
 
 namespace Content.Client._Goobstation.ServerCurrency.UI
 {
@@ -16,11 +18,11 @@ namespace Content.Client._Goobstation.ServerCurrency.UI
             _window.OnBuy += OnBuyMsg;
         }
 
-        private void OnBuyMsg(Enum message)
+        private void OnBuyMsg(ProtoId<TokenListingPrototype> tokenId)
         {
             SendMessage(new CurrencyEuiMsg.Buy
             {
-                BuyId = (BuyIdList) message
+                TokenId = tokenId
             });
             SendMessage(new CurrencyEuiMsg.Close());
         }

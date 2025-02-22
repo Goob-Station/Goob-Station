@@ -21,7 +21,7 @@ namespace Content.Shared._Goobstation.ServerCurrency.UI
         [Serializable, NetSerializable]
         public sealed class Buy : EuiMessageBase
         {
-            public ProtoId<TokenListingPrototype> BuyId;
+            public ProtoId<TokenListingPrototype> TokenId;
         }
     }
 }

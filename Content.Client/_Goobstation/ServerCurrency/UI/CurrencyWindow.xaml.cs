@@ -7,6 +7,9 @@ using Content.Client.Administration.Managers;
 using Robust.Client.Console;
 using Content.Shared._Goobstation.ServerCurrency;
 using Robust.Shared.Prototypes;
+using System.Numerics;
+using System.Linq;
+using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Client._Goobstation.ServerCurrency.UI
 {
@@ -19,6 +22,8 @@ namespace Content.Client._Goobstation.ServerCurrency.UI
         [Dependency] private readonly IPrototypeManager _protoManager = default!;
         public event Action<ProtoId<TokenListingPrototype>>? OnBuy;
         private bool isAdmin = false;
+        private Dictionary<Button, (DateTime LastClick, TokenListingPrototype Listing)> _buttonClickTimes = new();
+        private const double DoubleClickTimeWindow = 1.5; // seconds
 
         public CurrencyWindow()
         {
@@ -44,14 +49,16 @@ namespace Content.Client._Goobstation.ServerCurrency.UI
         private void PopulateTokenButtons()
         {
             TokenListingsContainer.DisposeAllChildren();
+            _buttonClickTimes.Clear();
 
-            var tokenListings = _protoManager.EnumeratePrototypes<TokenListingPrototype>();
-            
+            var tokenListings = _protoManager.EnumeratePrototypes<TokenListingPrototype>()
+                .OrderByDescending(x => x.Price);
+
             foreach (var listing in tokenListings)
             {
                 var button = new Button
                 {
-                    Text = Loc.GetString(listing.Name),
+                    Text = Loc.GetString(listing.Name, ("price", listing.Price)),
                     MinHeight = 40
                 };
 
@@ -63,17 +70,36 @@ namespace Content.Client._Goobstation.ServerCurrency.UI
 
                 button.OnPressed += _ =>
                 {
-                    OnBuy?.Invoke(listing.ID);
-                    ShowConfirmation(Loc.GetString(listing.AdminNote));
+                    if (_buttonClickTimes.TryGetValue(button, out var clickData))
+                    {
+                        var timeSinceLastClick = (DateTime.Now - clickData.LastClick).TotalSeconds;
+                        if (timeSinceLastClick <= DoubleClickTimeWindow)
+                        {
+                            // Double click occurred
+                            OnBuy?.Invoke(listing.ID);
+                            ShowConfirmation(Loc.GetString(listing.Label));
+                            _buttonClickTimes.Remove(button);
+                            return;
+                        }
+                    }
+
+                    // First click
+                    _buttonClickTimes[button] = (DateTime.Now, listing);
+                    button.Text = Loc.GetString("gs-balanceui-shop-click-confirm");
+
+                    // Reset button text after delay
+                    Timer.Spawn(TimeSpan.FromSeconds(DoubleClickTimeWindow), () =>
+                    {
+                        if (_buttonClickTimes.ContainsKey(button))
+                        {
+                            button.Text = Loc.GetString(listing.Name, ("price", listing.Price));
+                            _buttonClickTimes.Remove(button);
+                        }
+                    });
                 };
 
                 TokenListingsContainer.AddChild(panel);
-                
-                // Add spacer between buttons
-                TokenListingsContainer.AddChild(new Control 
-                { 
-                    MinSize = (0, 5)
-                });
+                TokenListingsContainer.AddChild(new Control { MinSize = new Vector2(0, 5) });
             }
         }
 
@@ -101,7 +127,6 @@ namespace Content.Client._Goobstation.ServerCurrency.UI
         {
             var balance = _serverCur.GetBalance();
             Header.Text = _serverCur.Stringify(balance);
-            Logger.Info("Balance: " + balance);
             UpdateButtonStates(balance);
         }
 
@@ -110,14 +135,24 @@ namespace Content.Client._Goobstation.ServerCurrency.UI
             if (balance == null)
                 balance = _serverCur.GetBalance();
 
-            AntagTokenBuy.Disabled = balance < 325;
-            GhostRoleTokenBuy.Disabled = balance < 450;
-            EventTokenBuy.Disabled = balance < 150;
+            foreach (var child in TokenListingsContainer.Children)
+            {
+                if (child is not Button button) 
+                    continue;
+
+                var listing = _protoManager.EnumeratePrototypes<TokenListingPrototype>()
+                    .FirstOrDefault(x => Loc.GetString(x.Name) == button.Text);
+
+                if (listing != null)
+                    button.Disabled = balance < listing.Price;
+            }
         }
 
         private void ShowConfirmation(string message)
         {
-            ConfirmationMessage.Text = message;
+            ConfirmationMessage.Text = Loc.GetString("gs-balanceui-shop-purchased", ("item", message));
+            ConfirmationMessage.Visible = true;
+            Timer.Spawn(TimeSpan.FromSeconds(3), () => ConfirmationMessage.Visible = false);
         }
     }
 }

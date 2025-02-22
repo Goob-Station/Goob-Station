@@ -36,13 +36,13 @@ namespace Content.Server._Goobstation.ServerCurrency.UI
             {
                 case CurrencyEuiMsg.Buy Buy:
 
-                    BuyToken(Buy.BuyId, Player);
+                    BuyToken(Buy.TokenId, Player);
                     StateDirty();
                     break; //grrr fix formatting
             }
         }
 
-        private async void BuyToken(string tokenId, ICommonSession playerName)
+        private async void BuyToken(ProtoId<TokenListingPrototype> tokenId, ICommonSession playerName)
         {
             var balance = _currencyMan.GetBalance(Player.UserId);
 

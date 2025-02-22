@@ -11,6 +11,9 @@ public sealed class TokenListingPrototype : IPrototype
     [DataField("name", required: true)]
     public string Name { get; private set; } = string.Empty;
 
+    [DataField("label", required: true)]
+    public string Label { get; private set; } = string.Empty;
+
     [DataField("description")]
     public string Description { get; private set; } = string.Empty;
 

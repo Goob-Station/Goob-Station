@@ -68,12 +68,13 @@
                     </BoxContainer>
                 </ScrollContainer>
             </PanelContainer>
+            <Label Name="ConfirmationMessage" Text="" HorizontalAlignment="Center"/>
             <Label Text="{Loc gs-balanceui-shop-footer}" />
         </BoxContainer>
 
 
 
-        <!-- Painel de admin -->
+        <!-- Admin Panel -->
         <BoxContainer Name="Admin" Visible="True" Orientation="Vertical">
             <Label Text="Admin:" StyleClasses="LabelHeading" />
             <Label Text="{Loc gs-balanceui-admin-add-label}" />
