@@ -120,7 +120,7 @@
   soundGunshot:
     path: /Audio/Weapons/Guns/Gunshots/Magic/staff_healing.ogg
   fireRate: 1.5
-  fireCost: 200
+  fireCost: 250
   flags: All
   protoId: ProjectileIceCubeBolt
 

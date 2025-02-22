@@ -6,3 +6,6 @@ reagent-desc-saltpeter = A potent source of nutrition for plants, but also used 
 
 reagent-name-blackpowder = black powder
 reagent-desc-blackpowder = A primitive yet powerful explosive. Explodes when heated to 474K!
+
+reagent-name-cryostylane = cryostylane
+reagent-desc-cryostylane = A useful chemical, consumes oxygen or iodine to cool down the solution it's in.
