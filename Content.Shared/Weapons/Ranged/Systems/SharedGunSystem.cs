@@ -147,7 +147,11 @@ public abstract partial class SharedGunSystem : EntitySystem
             return;
 
         gun.ShootCoordinates = GetCoordinates(msg.Coordinates);
-        gun.Target = GetEntity(msg.Target);
+        // Goob edit start
+        var potentialTarget = GetEntity(msg.Target);
+        if (gun.Target == null || !gun.BurstActivated || !gun.LockOnTargetBurst)
+            gun.Target = potentialTarget;
+        // Goob edit end
         AttemptShoot(user.Value, ent, gun);
     }
 
@@ -221,7 +225,8 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         gun.ShotCounter = 0;
         gun.ShootCoordinates = null;
-        gun.Target = null;
+        if (!gun.LockOnTargetBurst || !gun.BurstActivated) // Goob edit
+            gun.Target = null;
         Dirty(uid, gun);
     }
 
@@ -341,6 +346,9 @@ public abstract partial class SharedGunSystem : EntitySystem
             {
                 PopupSystem.PopupClient(attemptEv.Message, gunUid, user);
             }
+
+            if (!gun.LockOnTargetBurst || gun.ShootCoordinates == null) // Goobstation
+                gun.Target = null;
             gun.BurstActivated = false;
             gun.BurstShotsCount = 0;
             gun.NextFire = TimeSpan.FromSeconds(Math.Max(lastFire.TotalSeconds + SafetyNextFire, gun.NextFire.TotalSeconds));
@@ -369,6 +377,8 @@ public abstract partial class SharedGunSystem : EntitySystem
             var emptyGunShotEvent = new OnEmptyGunShotEvent();
             RaiseLocalEvent(gunUid, ref emptyGunShotEvent);
 
+            if (!gun.LockOnTargetBurst || gun.ShootCoordinates == null) // Goobstation
+                gun.Target = null;
             gun.BurstActivated = false;
             gun.BurstShotsCount = 0;
             gun.NextFire += TimeSpan.FromSeconds(gun.BurstCooldown);
@@ -403,6 +413,8 @@ public abstract partial class SharedGunSystem : EntitySystem
             if (gun.BurstShotsCount >= gun.ShotsPerBurstModified)
             {
                 gun.NextFire += TimeSpan.FromSeconds(gun.BurstCooldown);
+                if (!gun.LockOnTargetBurst || gun.ShootCoordinates == null) // Goobstation
+                    gun.Target = null;
                 gun.BurstActivated = false;
                 gun.BurstShotsCount = 0;
             }
