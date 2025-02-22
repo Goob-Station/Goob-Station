@@ -5140,3 +5140,9 @@ Entries:
       message: Abductor Agent now does not have any special abilities in surgery.
   id: 588
   time: '2025-02-22T07:28:26.0000000+00:00'
+- author: Scruq445
+  changes:
+    - type: Tweak
+      message: You can now teleport into the microwave normally using a QSI again.
+  id: 589
+  time: '2025-02-22T07:48:52.0000000+00:00'
