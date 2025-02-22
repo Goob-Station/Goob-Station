@@ -1,7 +1,6 @@
 - type: entity
   parent: ClothingUniformJumpsuitAtmos
   id: ClothingUniformJumpsuitAtmosSyndie
-  name: Contortionist's Jumpsuit
   components:
   - type: ClothingGrantComponent #Goobstation edit
     component:
