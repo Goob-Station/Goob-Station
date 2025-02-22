@@ -4959,3 +4959,9 @@ Entries:
       message: Added "merciful" IPC wings!
   id: 569
   time: '2025-02-22T05:30:37.0000000+00:00'
+- author: ARMOKS
+  changes:
+    - type: Tweak
+      message: Upped wizard chance, reduced abductor and blob chance.
+  id: 570
+  time: '2025-02-22T05:36:20.0000000+00:00'
