@@ -7,6 +7,8 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Serialization;
 using Content.Shared.Whitelist; // Shitmed - Starlight Abductors
 
 namespace Content.Shared.Emag.Systems;
@@ -23,6 +25,7 @@ public sealed class EmagSystem : EntitySystem
     [Dependency] private readonly SharedChargesSystem _charges = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // DeltaV - Add a whitelist/blacklist to the Emag
 
     public override void Initialize()
@@ -30,90 +33,124 @@ public sealed class EmagSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<EmagComponent, AfterInteractEvent>(OnAfterInteract);
+        SubscribeLocalEvent<EmaggedComponent, OnAccessOverriderAccessUpdatedEvent>(OnAccessOverriderAccessUpdated);
     }
 
+    private void OnAccessOverriderAccessUpdated(Entity<EmaggedComponent> entity, ref OnAccessOverriderAccessUpdatedEvent args)
+    {
+        if (!CompareFlag(entity.Comp.EmagType, EmagType.Access))
+            return;
+
+        entity.Comp.EmagType &= ~EmagType.Access;
+        Dirty(entity);
+    }
     private void OnAfterInteract(EntityUid uid, EmagComponent comp, AfterInteractEvent args)
     {
         if (!args.CanReach || args.Target is not { } target)
             return;
 
-        args.Handled = TryUseEmag(uid, args.User, target, comp);
+        args.Handled = TryEmagEffect((uid, comp), args.User, target);
     }
 
     /// <summary>
-    /// Tries to use the emag on a target entity
+    /// Does the emag effect on a specified entity
     /// </summary>
-    public bool TryUseEmag(EntityUid uid, EntityUid user, EntityUid target, EmagComponent? comp = null)
+    public bool TryEmagEffect(Entity<EmagComponent?> ent, EntityUid user, EntityUid target)
     {
-        if (!Resolve(uid, ref comp, false))
+        if (!Resolve(ent, ref ent.Comp, false))
             return false;
 
-        if (_tag.HasTag(target, comp.EmagImmuneTag))
+        if (_tag.HasTag(target, ent.Comp.EmagImmuneTag))
             return false;
 
-        TryComp<LimitedChargesComponent>(uid, out var charges);
-        if (_charges.IsEmpty(uid, charges))
+        TryComp<LimitedChargesComponent>(ent, out var charges);
+        if (_charges.IsEmpty(ent, charges))
         {
             _popup.PopupClient(Loc.GetString("emag-no-charges"), user, user);
             return false;
         }
 
         // Shitmed - Starlight Abductors: Check if the target has a whitelist, and check if it passes
-        if (_whitelist.IsWhitelistFail(comp.ValidTargets, target))
+        if (_whitelist.IsWhitelistFail(ent.Comp.ValidTargets, target))
         {
-            _popup.PopupClient(Loc.GetString("emag-attempt-failed", ("tool", uid)), user, user);
+            _popup.PopupClient(Loc.GetString("emag-attempt-failed", ("tool", ent)), user, user);
             return false;
         }
 
-        var handled = DoEmagEffect(user, target, uid); // Goob edit
-        if (!handled)
+        var emaggedEvent = new GotEmaggedEvent(user, ent.Comp.EmagType, EmagUid: ent);
+        RaiseLocalEvent(target, ref emaggedEvent);
+        if (!emaggedEvent.Handled)
             return false;
 
-        _popup.PopupClient(Loc.GetString("emag-success", ("target", Identity.Entity(target, EntityManager))), user,
-            user, PopupType.Medium);
+        _popup.PopupPredicted(Loc.GetString("emag-success", ("target", Identity.Entity(target, EntityManager))), user, user, PopupType.Medium);
 
-        _adminLogger.Add(LogType.Emag, LogImpact.High, $"{ToPrettyString(user):player} emagged {ToPrettyString(target):target}");
+        _audio.PlayPredicted(ent.Comp.EmagSound, ent, ent);
 
-        if (charges != null)
-            _charges.UseCharge(uid, charges);
-        return true;
+        _adminLogger.Add(LogType.Emag, LogImpact.High, $"{ToPrettyString(user):player} emagged {ToPrettyString(target):target} with flag(s): {ent.Comp.EmagType}");
+
+        if (charges != null  && emaggedEvent.Handled)
+            _charges.UseCharge(ent, charges);
+
+        if (!emaggedEvent.Repeatable)
+        {
+            EnsureComp<EmaggedComponent>(target, out var emaggedComp);
+
+            emaggedComp.EmagType |= ent.Comp.EmagType;
+            Dirty(target, emaggedComp);
+        }
+
+        return emaggedEvent.Handled;
     }
 
     /// <summary>
-    /// Does the emag effect on a specified entity
+    /// Checks whether an entity has the EmaggedComponent with a set flag.
     /// </summary>
-    public bool DoEmagEffect(EntityUid user, EntityUid target, EntityUid? emag = null) // Goob edit
+    /// <param name="target">The target entity to check for the flag.</param>
+    /// <param name="flag">The EmagType flag to check for.</param>
+    /// <returns>True if entity has EmaggedComponent and the provided flag. False if the entity lacks EmaggedComponent or provided flag.</returns>
+    public bool CheckFlag(EntityUid target, EmagType flag)
     {
-        // prevent emagging twice
-        if (HasComp<EmaggedComponent>(target))
+        if (!TryComp<EmaggedComponent>(target, out var comp))
             return false;
 
-        var onAttemptEmagEvent = new OnAttemptEmagEvent(user);
-        RaiseLocalEvent(target, ref onAttemptEmagEvent);
+        if ((comp.EmagType & flag) == flag)
+            return true;
 
-        // prevent emagging if attempt fails
-        if (onAttemptEmagEvent.Handled)
-            return false;
+        return false;
+    }
 
-        var emaggedEvent = new GotEmaggedEvent(user, EmagUid: emag); // Goob edit
-        RaiseLocalEvent(target, ref emaggedEvent);
+    /// <summary>
+    /// Compares a flag to the target.
+    /// </summary>
+    /// <param name="target">The target flag to check.</param>
+    /// <param name="flag">The flag to check for within the target.</param>
+    /// <returns>True if target contains flag. Otherwise false.</returns>
+    public bool CompareFlag(EmagType target, EmagType flag)
+    {
+        if ((target & flag) == flag)
+            return true;
 
-        if (emaggedEvent.Handled && !emaggedEvent.Repeatable)
-            EnsureComp<EmaggedComponent>(target);
-        return emaggedEvent.Handled;
+        return false;
     }
 }
 
+
+[Flags]
+[Serializable, NetSerializable]
+public enum EmagType : byte
+{
+    None = 0,
+    Interaction = 1 << 1,
+    Access = 1 << 2
+}
 /// <summary>
 /// Shows a popup to emag user (client side only!) and adds <see cref="EmaggedComponent"/> to the entity when handled
 /// </summary>
 /// <param name="UserUid">Emag user</param>
+/// <param name="Type">The emag type to use</param>
 /// <param name="Handled">Did the emagging succeed? Causes a user-only popup to show on client side</param>
 /// <param name="Repeatable">Can the entity be emagged more than once? Prevents adding of <see cref="EmaggedComponent"/></param>
 /// <param name="EmagUid">Uid of emag entity, Goobstation</param>
 /// <remarks>Needs to be handled in shared/client, not just the server, to actually show the emagging popup</remarks>
 [ByRefEvent]
-public record struct GotEmaggedEvent(EntityUid UserUid, bool Handled = false, bool Repeatable = false, EntityUid? EmagUid = null); // Goob edit
-
-[ByRefEvent]
-public record struct OnAttemptEmagEvent(EntityUid UserUid, bool Handled = false);
+public record struct GotEmaggedEvent(EntityUid UserUid, EmagType Type, bool Handled = false, bool Repeatable = false, EntityUid? EmagUid = null); // Goob edit

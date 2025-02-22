@@ -1,15 +1,12 @@
-#- type: entity
-#  parent: ClothingBackpackDuffelAbductorBundle
-#  id: ClothingBackpackDuffelAbductorFilled
-#  suffix: Filled
-#  components:
-#  - type: StorageFill
-#    contents:
-#      - id: HemostatAbductor
-#      - id: SawAbductor
-#      - id: DrillAbductor
-#      - id: CauteryAbductor
-#      - id: RetractorAbductor
-#      - id: ScalpelAbductor
-#      - id: BoneGelAbductor
-#      - id: BoneSetterAbductor
+- type: entity
+  parent: ClothingBackpackDuffelAbductor
+  id: ClothingBackpackDuffelAbductorFilled
+  name: alien surgery duffel bag
+  description: An ordinary surgical duffel bag woven from a durable fiber.
+  components:
+  - type: StorageFill
+    contents:
+      - id: EnergyScalpelAbductor
+      - id: SearingToolAbductor
+      - id: MechanicalPinchesAbductor
+      - id: BoneManipulatorAbductor
