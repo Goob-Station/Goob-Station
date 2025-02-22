@@ -127,7 +127,7 @@
 
 # Beanbag
 - type: entity
-  id: ShellShotgunBeanbag
+  id: ShellShotgunBeanbagHighCaliber
   name: shell (.75 beanbag)
   parent: ShellShotgunSlugHighCaliber
   components:
