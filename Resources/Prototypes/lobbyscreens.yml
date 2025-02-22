@@ -117,3 +117,9 @@
   background: /Textures/LobbyScreens/tideractivities.webp
   name: Tider Activities
   artist: asardonicsailor
+
+- type: lobbyBackground
+  id: enlist-lavaland
+  background: /Textures/LobbyScreens/enlist.webp
+  name: Nanotrasen wants YOU.
+  artist: thebiggestbruh

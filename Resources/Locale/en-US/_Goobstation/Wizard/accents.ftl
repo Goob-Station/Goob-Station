@@ -53,7 +53,7 @@ accent-words-raven-1 = CAW!
 accent-words-raven-2 = C-CAWW!
 accent-words-raven-3 = Squawk!
 
-accent-words-alt-raven-3 = Nevermore...
+accent-words-alt-raven-1 = Nevermore...
 
 # Jackal
 accent-words-jackal-1 = YAP!
