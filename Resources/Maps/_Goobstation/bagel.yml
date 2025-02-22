@@ -8296,7 +8296,7 @@ entities:
             1: 39312
           -12,8:
             4: 12
-            6: 3072
+            5: 3072
           -11,5:
             0: 63351
           -11,6:
@@ -8305,7 +8305,7 @@ entities:
           -11,8:
             4: 1
             1: 17476
-            6: 256
+            5: 256
           -11,7:
             1: 17484
           -10,5:
@@ -8404,10 +8404,10 @@ entities:
             0: 255
             1: 57344
           -8,11:
-            5: 816
+            6: 816
             1: 34952
           -9,11:
-            5: 2176
+            6: 2176
             1: 8738
           -8,12:
             1: 34959
@@ -8523,7 +8523,7 @@ entities:
             1: 61713
           -12,9:
             0: 16
-            5: 3084
+            6: 3084
           -13,9:
             1: 39305
           -13,10:
@@ -8533,18 +8533,18 @@ entities:
             0: 12544
           -12,10:
             3: 12
-            5: 3072
+            6: 3072
           -12,11:
-            5: 12
+            6: 12
           -11,9:
-            5: 257
+            6: 257
             1: 17476
           -11,10:
             3: 1
-            5: 256
+            6: 256
             1: 17476
           -11,11:
-            5: 1
+            6: 1
             1: 17476
           -11,12:
             1: 17487
@@ -8598,7 +8598,7 @@ entities:
             1: 15
           -13,12:
             1: 34952
-            6: 48
+            5: 48
             4: 12288
           -12,13:
             1: 61455
@@ -8632,11 +8632,11 @@ entities:
             1: 64719
           -7,14:
             1: 252
-            5: 57344
+            6: 57344
             0: 1024
           -7,15:
             1: 61440
-            5: 238
+            6: 238
             0: 1024
           -7,16:
             1: 65524
@@ -8695,7 +8695,7 @@ entities:
           -14,12:
             0: 1
             1: 8738
-            6: 128
+            5: 128
             4: 32768
           -17,12:
             0: 52232
@@ -9240,7 +9240,7 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
-          - 0
+          - 6666.982
           - 0
           - 0
           - 0
@@ -9259,7 +9259,7 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
-          - 6666.982
+          - 0
           - 0
           - 0
           - 0
@@ -11138,7 +11138,7 @@ entities:
       pos: -29.5,37.5
       parent: 60
     - type: Door
-      secondsUntilStateChange: -19426.553
+      secondsUntilStateChange: -19712.828
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -17083,6 +17083,35 @@ entities:
     components:
     - type: Transform
       pos: -32.5,47.5
+      parent: 60
+  - uid: 24261
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -4.5,30.5
+      parent: 60
+  - uid: 24262
+    components:
+    - type: Transform
+      pos: -4.5,30.5
+      parent: 60
+  - uid: 24264
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -13.5,33.5
+      parent: 60
+  - uid: 24267
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -26.5,33.5
+      parent: 60
+  - uid: 24272
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -23.5,37.5
       parent: 60
   - uid: 24516
     components:
@@ -32268,6 +32297,36 @@ entities:
     components:
     - type: Transform
       pos: -14.5,43.5
+      parent: 60
+  - uid: 24273
+    components:
+    - type: Transform
+      pos: 5.5,36.5
+      parent: 60
+  - uid: 24278
+    components:
+    - type: Transform
+      pos: 6.5,36.5
+      parent: 60
+  - uid: 24280
+    components:
+    - type: Transform
+      pos: 6.5,37.5
+      parent: 60
+  - uid: 24281
+    components:
+    - type: Transform
+      pos: 7.5,37.5
+      parent: 60
+  - uid: 24282
+    components:
+    - type: Transform
+      pos: 8.5,37.5
+      parent: 60
+  - uid: 24287
+    components:
+    - type: Transform
+      pos: 8.5,38.5
       parent: 60
   - uid: 24381
     components:
@@ -119061,6 +119120,12 @@ entities:
       parent: 60
     - type: ApcPowerReceiver
       powerLoad: 0
+  - uid: 24295
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 9.5,38.5
+      parent: 60
   - uid: 24814
     components:
     - type: Transform
@@ -127149,48 +127214,6 @@ entities:
         - Pressed: Toggle
         25245:
         - Pressed: Toggle
-  - uid: 16418
-    components:
-    - type: MetaData
-      name: Window Shutter Button
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -20.5,-7.5
-      parent: 60
-    - type: DeviceLinkSource
-      linkedPorts:
-        188:
-        - Pressed: Toggle
-        148:
-        - Pressed: Toggle
-  - uid: 16419
-    components:
-    - type: MetaData
-      name: Window Shutter Button
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -20.5,-13.5
-      parent: 60
-    - type: DeviceLinkSource
-      linkedPorts:
-        552:
-        - Pressed: Toggle
-        8002:
-        - Pressed: Toggle
-  - uid: 16420
-    components:
-    - type: MetaData
-      name: Window Shutter Button
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -20.5,-10.5
-      parent: 60
-    - type: DeviceLinkSource
-      linkedPorts:
-        7032:
-        - Pressed: Toggle
-        6467:
-        - Pressed: Toggle
   - uid: 17876
     components:
     - type: Transform
@@ -127246,48 +127269,6 @@ entities:
         25013:
         - Pressed: Toggle
         25012:
-        - Pressed: Toggle
-  - uid: 25221
-    components:
-    - type: MetaData
-      name: Window Shutter Button
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -32.5,-7.5
-      parent: 60
-    - type: DeviceLinkSource
-      linkedPorts:
-        6203:
-        - Pressed: Toggle
-        6746:
-        - Pressed: Toggle
-  - uid: 25222
-    components:
-    - type: MetaData
-      name: Window Shutter Button
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -32.5,-10.5
-      parent: 60
-    - type: DeviceLinkSource
-      linkedPorts:
-        7045:
-        - Pressed: Toggle
-        6796:
-        - Pressed: Toggle
-  - uid: 25223
-    components:
-    - type: MetaData
-      name: Window Shutter Button
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -32.5,-13.5
-      parent: 60
-    - type: DeviceLinkSource
-      linkedPorts:
-        6733:
-        - Pressed: Toggle
-        6206:
         - Pressed: Toggle
 - proto: SignalButtonBridge
   entities:
@@ -127707,6 +127688,42 @@ entities:
         - Pressed: Toggle
         24372:
         - Pressed: Toggle
+  - uid: 16418
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -20.5,-7.5
+      parent: 60
+    - type: DeviceLinkSource
+      linkedPorts:
+        188:
+        - Pressed: Toggle
+        148:
+        - Pressed: Toggle
+  - uid: 16419
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -20.5,-13.5
+      parent: 60
+    - type: DeviceLinkSource
+      linkedPorts:
+        8002:
+        - Pressed: Toggle
+        552:
+        - Pressed: Toggle
+  - uid: 16420
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -20.5,-10.5
+      parent: 60
+    - type: DeviceLinkSource
+      linkedPorts:
+        6467:
+        - Pressed: Toggle
+        7032:
+        - Pressed: Toggle
   - uid: 18295
     components:
     - type: Transform
@@ -127741,6 +127758,42 @@ entities:
       linkedPorts:
         17448:
         - Pressed: DoorBolt
+  - uid: 23707
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -32.5,-7.5
+      parent: 60
+    - type: DeviceLinkSource
+      linkedPorts:
+        6203:
+        - Pressed: Toggle
+        6746:
+        - Pressed: Toggle
+  - uid: 24095
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -32.5,-10.5
+      parent: 60
+    - type: DeviceLinkSource
+      linkedPorts:
+        7045:
+        - Pressed: Toggle
+        6796:
+        - Pressed: Toggle
+  - uid: 24217
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -32.5,-13.5
+      parent: 60
+    - type: DeviceLinkSource
+      linkedPorts:
+        6733:
+        - Pressed: Toggle
+        6206:
+        - Pressed: Toggle
   - uid: 24334
     components:
     - type: MetaData
