@@ -5007,3 +5007,13 @@ Entries:
       message: Wizard teleport now woks in cuffs.
   id: 573
   time: '2025-02-22T05:39:45.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: >-
+        Wizard wand now starts with 10x charge, but its max charge depletes
+        slowly when using charge spell.
+    - type: Remove
+      message: Removed x-ray projectile from wizard wand.
+  id: 574
+  time: '2025-02-22T05:48:45.0000000+00:00'
