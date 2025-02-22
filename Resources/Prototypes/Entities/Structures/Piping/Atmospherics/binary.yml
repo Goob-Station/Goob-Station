@@ -75,6 +75,9 @@
       path: /Audio/Ambience/Objects/gas_pump.ogg
   - type: AtmosMonitoringConsoleDevice
     navMapBlip: GasFlowRegulator
+  - type: GuideHelp
+    guides:
+    - Pumps
   - type: VentCrawlerTube # Goobstation - ventcrawl
     containerId: VentCrawlerTube
   - type: VentCrawlerTransit # Goobstation - ventcrawl
@@ -140,6 +143,9 @@
     - type: WiredNetworkConnection
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasFlowRegulator
+    - type: GuideHelp
+      guides:
+      - Pumps
     - type: VentCrawlerTube # Goobstation - ventcrawl
       containerId: VentCrawlerTube
     - type: VentCrawlerTransit # Goobstation - ventcrawl
@@ -177,6 +183,9 @@
         path: /Audio/Ambience/Objects/gas_hiss.ogg
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasValve
+    - type: GuideHelp
+      guides:
+      - PassiveGate
     - type: VentCrawlerTube # Goobstation - ventcrawl
       containerId: VentCrawlerTube
     - type: VentCrawlerTransit # Goobstation - ventcrawl
@@ -233,6 +242,9 @@
         path: /Audio/Ambience/Objects/gas_hiss.ogg
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasValve
+    - type: GuideHelp
+      guides:
+      - ManualValve
     - type: VentCrawlerTube # Goobstation - ventcrawl
       containerId: VentCrawlerTube
     - type: VentCrawlerTransit # Goobstation - ventcrawl
@@ -300,6 +312,9 @@
       path: /Audio/Ambience/Objects/gas_hiss.ogg
   - type: AtmosMonitoringConsoleDevice
     navMapBlip: GasValve
+  - type: GuideHelp
+    guides:
+    - SignalValve
   - type: VentCrawlerTube # Goobstation - ventcrawl
     containerId: VentCrawlerTube
   - type: VentCrawlerTransit # Goobstation - ventcrawl
@@ -337,6 +352,9 @@
       node: port
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasVentOpening
+    - type: GuideHelp
+      guides:
+      - GasCanisters
     - type: VentCrawlerTube # Goobstation - ventcrawl
       containerId: VentCrawlerTube
     - type: VentCrawlerJunction # Goobstation - ventcrawl
@@ -403,6 +421,9 @@
       enabled: true
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasVentOpening
+    - type: GuideHelp
+      guides:
+      - AirVent
 
 - type: entity
   parent: [ BaseMachine, ConstructibleMachine ]
@@ -510,3 +531,32 @@
     node: radiator
   - type: AtmosMonitoringConsoleDevice
     navMapBlip: Thermoregulator
+  - type: GuideHelp
+    guides:
+    - Radiators
+
+- type: entity
+  parent: HeatExchanger
+  id: HeatExchangerBend
+  suffix: Bend
+  components:
+    - type: Sprite
+      layers:
+      - sprite: Structures/Piping/Atmospherics/pipe.rsi
+        state: pipeBend
+        map: [ "enum.PipeVisualLayers.Pipe" ]
+      - state: heBend
+        map: [ "enum.SubfloorLayers.FirstLayer" ]
+    - type: NodeContainer
+      nodes:
+        inlet:
+          !type:PipeNode
+          nodeGroupID: Pipe
+          pipeDirection: South
+        outlet:
+          !type:PipeNode
+          nodeGroupID: Pipe
+          pipeDirection: West
+    - type: Construction
+      graph: GasBinary
+      node: bendradiator
