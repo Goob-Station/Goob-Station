@@ -420,7 +420,6 @@
     - Beaker
     - BorgDropper
     - BorgHypo
-    - LauncherLollypopRegeneratingOmnizine # Goobstation
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-diagnosis-module }
 
