@@ -5089,3 +5089,24 @@ Entries:
       message: Added Leonid Station
   id: 585
   time: '2025-02-22T06:53:47.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: >-
+        Added lollypops! They spawn in the nanomed plus, the CMOs locker, can be
+        made in a microwave, etcetera. The recipe is 5 sugar, one paper, and
+        five seconds.
+    - type: Add
+      message: >-
+        Mysterious lollypops containing funky chemicals can be found on
+        expeditions.
+    - type: Add
+      message: 'Added a new uplink item: the Donk Co. Lollypop bundle for 15tc.'
+    - type: Add
+      message: 'Added a new uplink item: the Donk Co. Candy Kit for 100tc.'
+    - type: Add
+      message: Added a new chemical, Carpolin, which can polymorph people into carps.
+    - type: Add
+      message: Added new trinkets (They're all lollypops) for various playtimes.
+  id: 586
+  time: '2025-02-22T06:58:44.0000000+00:00'
