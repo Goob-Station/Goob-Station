@@ -4977,3 +4977,33 @@ Entries:
       message: Added new items to the reporter loadout.
   id: 572
   time: '2025-02-22T05:38:52.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: >-
+        Fireball reworked. It is now weaker but acts like a flashbang that
+        ignores ear and eye protection.
+    - type: Tweak
+      message: Bind soul nerfed.
+    - type: Tweak
+      message: Teleport and sanguine strike spells now require robes to cast.
+    - type: Tweak
+      message: Homing toolbox cd increased 6 -> 8, lightning bolt cd reduced 10 -> 8.
+    - type: Tweak
+      message: >-
+        Rod form buffed, it now ignores resistances, knocks down and gibs at
+        lvl5.
+    - type: Tweak
+      message: >-
+        Summon simians now spawn more monkeys at lower levels and more gorillas
+        on higher.
+    - type: Tweak
+      message: Corpse explosion cooldown increased.
+    - type: Tweak
+      message: Spell cards damage increased.
+    - type: Tweak
+      message: Holopapra/Ifrit now ignore gravity.
+    - type: Fix
+      message: Wizard teleport now woks in cuffs.
+  id: 573
+  time: '2025-02-22T05:39:45.0000000+00:00'
