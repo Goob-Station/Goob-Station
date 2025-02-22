@@ -5043,3 +5043,9 @@ Entries:
         medicines
   id: 578
   time: '2025-02-22T06:07:41.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added a new lobby screen, "Lost pAI" drawn by "Cattom"
+  id: 579
+  time: '2025-02-22T06:15:18.0000000+00:00'
