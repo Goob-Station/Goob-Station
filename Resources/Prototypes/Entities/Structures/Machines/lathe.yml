@@ -435,6 +435,8 @@
       - WeaponLaserCannon
       - WeaponLaserCarbine
       - WeaponXrayCannon
+      - WeaponSubMachineSmart # Goobstation
+      - MagazineSmart # Goobstation
 
 - type: entity
   id: ProtolatheHyperConvection
@@ -885,6 +887,7 @@
       - MagazineMagnum # Goobstation
       - MagazineMagnumLeverRifle # Goobstation
       - MagazineMagnumLeverRifleEmpty # Goobstation
+      - ContrabandDetectorCircuitboard # Goobstation
     dynamicRecipes:
       - BoxBeanbag
       - BoxShotgunIncendiary
@@ -939,6 +942,8 @@
       - RapidSyringeGun # Goobstation
       - SecurityCyberneticEyes # Shitmed Change
       - MedicalCyberneticEyes # Shitmed Change
+      - WeaponSubMachineSmart # Goobstation
+      - MagazineSmart # Goobstation
       # Goobstation - Mechs
       - WeaponMechCombatImmolationGun
       - WeaponMechCombatSolarisLaser

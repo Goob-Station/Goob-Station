@@ -25,3 +25,18 @@
     layers:
     - state: box
     - state: flashbang
+
+- type: entity
+  name: box of lollypops
+  parent: [BoxCardboard, BaseSyndicateContraband]
+  id: SyndicateLollypopBundle
+  description: A box full of Donk co. candy. What could be inside?
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodSnackLollypopWrappedMysteryEvil
+      amount: 9
+  - type: Sprite
+    layers:
+    - state: box_of_doom
+    - state: candy

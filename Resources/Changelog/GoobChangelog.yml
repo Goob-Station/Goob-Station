@@ -5007,3 +5007,160 @@ Entries:
       message: Wizard teleport now woks in cuffs.
   id: 573
   time: '2025-02-22T05:39:45.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: >-
+        Wizard wand now starts with 10x charge, but its max charge depletes
+        slowly when using charge spell.
+    - type: Remove
+      message: Removed x-ray projectile from wizard wand.
+  id: 574
+  time: '2025-02-22T05:48:45.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Add
+      message: 'Added my dream of being a airport security guard to the game. '
+  id: 575
+  time: '2025-02-22T05:51:40.0000000+00:00'
+- author: Scruq445
+  changes:
+    - type: Add
+      message: Added a remaster to Honk! to the lobby and jukebox
+  id: 576
+  time: '2025-02-22T05:59:28.0000000+00:00'
+- author: H2Owe
+  changes:
+    - type: Add
+      message: New lobby art. StarGoob
+  id: 577
+  time: '2025-02-22T06:00:27.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Add
+      message: >-
+        Added three dozen new and "new" chemicals, mostly high-complexity
+        medicines
+  id: 578
+  time: '2025-02-22T06:07:41.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added a new lobby screen, "Lost pAI" drawn by "Cattom"
+  id: 579
+  time: '2025-02-22T06:15:18.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: Medical sun glasses.
+    - type: Tweak
+      message: Medical security sun glasses are able to be constructed.
+  id: 580
+  time: '2025-02-22T06:20:34.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Stunbaton/stunprod light attack buffed, read security guidebook for more
+        details.
+  id: 581
+  time: '2025-02-22T06:25:32.0000000+00:00'
+- author: fishbait
+  changes:
+    - type: Add
+      message: Bingle
+  id: 582
+  time: '2025-02-22T06:33:06.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Added copium!
+  id: 583
+  time: '2025-02-22T06:51:18.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: New smart weaponry t3 arsenal research.
+  id: 584
+  time: '2025-02-22T06:53:37.0000000+00:00'
+- author: Gallagin
+  changes:
+    - type: Add
+      message: Added Leonid Station
+  id: 585
+  time: '2025-02-22T06:53:47.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: >-
+        Added lollypops! They spawn in the nanomed plus, the CMOs locker, can be
+        made in a microwave, etcetera. The recipe is 5 sugar, one paper, and
+        five seconds.
+    - type: Add
+      message: >-
+        Mysterious lollypops containing funky chemicals can be found on
+        expeditions.
+    - type: Add
+      message: 'Added a new uplink item: the Donk Co. Lollypop bundle for 15tc.'
+    - type: Add
+      message: 'Added a new uplink item: the Donk Co. Candy Kit for 100tc.'
+    - type: Add
+      message: Added a new chemical, Carpolin, which can polymorph people into carps.
+    - type: Add
+      message: Added new trinkets (They're all lollypops) for various playtimes.
+  id: 586
+  time: '2025-02-22T06:58:44.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: IPCs now take (half) radiation damage. Cable can be used to repair it.
+  id: 587
+  time: '2025-02-22T07:01:09.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Abductors now have names.
+    - type: Add
+      message: >-
+        Scientist abductors now has a new lab coat, Agent has a new backpack,
+        and the Lone Abductor has both.
+    - type: Tweak
+      message: >-
+        Abductor gear got some changes. In short, agent no longer possesses all
+        the stuff, scientist gets some too, including new rebalanced decloner.
+    - type: Tweak
+      message: IPCs bewail, decloner bolt now deals Ion damage.
+    - type: Tweak
+      message: >-
+        Lone, agent and scientist abductors are now different ghost roles, and a
+        ghosted abductor now will become a ghost role too.
+    - type: Fix
+      message: Abductor Agent's vest is now visible on your character.
+    - type: Remove
+      message: Abductor Agent now does not have any special abilities in surgery.
+  id: 588
+  time: '2025-02-22T07:28:26.0000000+00:00'
+- author: Scruq445
+  changes:
+    - type: Tweak
+      message: You can now teleport into the microwave normally using a QSI again.
+  id: 589
+  time: '2025-02-22T07:48:52.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Antagonist ghost roles now require some playtime in order to be taken.
+  id: 590
+  time: '2025-02-22T07:52:12.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Fix
+      message: Abductors can no longer instantly gizmo their targets.
+  id: 591
+  time: '2025-02-22T07:54:51.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Tweak
+      message: Tiders can no longer roll antag, get a job you bum.
+  id: 592
+  time: '2025-02-22T08:39:30.0000000+00:00'

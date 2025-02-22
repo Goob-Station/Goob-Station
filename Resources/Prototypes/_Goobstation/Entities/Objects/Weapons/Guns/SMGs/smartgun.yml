@@ -1,0 +1,81 @@
+- type: entity
+  name: Abielle Smart-SMG
+  parent: [BaseWeaponSubMachineGun, BaseRestrictedContraband]
+  id: WeaponSubMachineSmart
+  description: An experiment in smart-weapon technology that guides bullets towards the target the gun was aimed at when fired. While the tracking functions work fine, the gun is prone to insanely wide spread thanks to its practically non-existant barrel.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/SMGs/smartgun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: base-unshaded
+      map: ["enum.GunVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: mag-unshaded-0
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/SMGs/smartgun.rsi
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK
+      suitstorage:
+      - state: equipped-BACKPACK
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: GunWieldBonus
+    minAngle: -38
+    maxAngle: -32
+  - type: Gun
+    projectileSpeed: 15
+    minAngle: 42
+    maxAngle: 64
+    fireRate: 10
+    burstFireRate: 40
+    shotsPerBurst: 5
+    burstCooldown: 0.5
+    lockOnTargetBurst: true
+    cameraRecoilScalar: 0
+    selectedMode: Burst
+    soundGunshot:
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/smartgun_shoot.ogg
+    availableModes:
+    - FullAuto
+    - Burst
+    - SemiAuto
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineSmart
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineSmart
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeSmart
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeSmart
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: true
+    zeroNoAmmo: true
+  - type: Appearance
+  - type: SmartGun
+    requiresWield: true
+  - type: LaserPointer
+  - type: StaticPrice
+    price: 1000
+  - type: Item
+    shape:
+    - 0,0,2,1
