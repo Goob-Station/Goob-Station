@@ -4915,3 +4915,9 @@ Entries:
       message: Allows cyborgs to have traits, like accents.
   id: 562
   time: '2025-02-22T04:49:01.0000000+00:00'
+- author: botanySupremist
+  changes:
+    - type: Tweak
+      message: Improved the description and guidebook entry of medical patches.
+  id: 563
+  time: '2025-02-22T04:52:59.0000000+00:00'
