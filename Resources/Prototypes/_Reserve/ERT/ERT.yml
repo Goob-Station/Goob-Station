@@ -457,11 +457,11 @@
     proto: PulseERT
     fireCost: 100
   - type: Battery
-    maxCharge: 7500
-    startingCharge: 4500
+    maxCharge: 5000
+    startingCharge: 2500
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 75
+    autoRechargeRate: 125
 
 # Фикс пульса (ОБР).
 
@@ -550,7 +550,6 @@
     - id: RegenerativeMesh
     - id: BoxZiptie
     - id: BoxBurokratERT
-    - id: WeaponLightMachineGunL6ERT
     - id: SpaceMedipen
     - id: EmergencyMedipen
 
@@ -571,7 +570,6 @@
     - id: RegenerativeMesh
     - id: BoxZiptie
     - id: Cautery
-    - id: WeaponLightMachineGunL6ERT
     - id: SpaceMedipen
     - id: EmergencyMedipen
 
@@ -594,7 +592,6 @@
     - id: EpinephrineChemistryBottle
     - id: EpinephrineChemistryBottle
     - id: Cautery
-    - id: WeaponLightMachineGunL6ERT
     - id: SpaceMedipen
     - id: EmergencyMedipen
     - id: MedicatedSuture
@@ -617,7 +614,6 @@
     - id: RegenerativeMesh
     - id: BoxZiptie
     - id: Cautery
-    - id: WeaponLightMachineGunL6ERT
     - id: SpaceMedipen
     - id: EmergencyMedipen
 
@@ -791,51 +787,3 @@
     - id: SheetSteel
     - id: SheetGlass
 
-
-# Продвинутый L6ERT ROW.
-
-- type: entity
-  name: L6ERT ROW
-  id: WeaponLightMachineGunL6ERT
-  parent: BaseItem
-  description: Продвинутый пулемёт на основе L6C ROW, модифицированный на сверхбыструю самозарядку и на возможность держать любому гуманоиду в одной руке. Стоит на вооружении у элитных Отрядов Быстрого Реагирования, но иногда может попадать в руки разведчиков.
-  components:
-  - type: Gun
-    minAngle: 4
-    maxAngle: 25
-    angleIncrease: 4
-    angleDecay: 16
-    fireRate: 8
-    selectedMode: FullAuto
-    availableModes:
-      - FullAuto
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
-    soundEmpty:
-      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/LMGs/l6.rsi
-    layers:
-      - state: base
-        map: [ "enum.GunVisualLayers.Base" ]
-      - state: mag-3
-        map: [ "enum.GunVisualLayers.Mag" ]
-  - type: Item
-    size: Normal
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type:Container
-  - type: ProjectileBatteryAmmoProvider
-    proto: CartridgeLightRifle
-    fireCost: 100
-  - type: Battery
-    maxCharge: 10000
-    startingCharge: 10000
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 300
-  - type: AmmoCounter
-  - type: Clothing
-    slots:
-    - Back
-    - suitStorage

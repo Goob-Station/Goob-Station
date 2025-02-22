@@ -15,6 +15,13 @@
       forceEnableEmergencyLights: true
       emergencyLightColor: DodgerBlue
       shuttleTime: 600
+    grey:
+      announcement: alert-level-grey-announcement
+      sound: /Audio/Misc/gamma.ogg
+      color: SlateGray
+      forceEnableEmergencyLights: true
+      emergencyLightColor: SlateGray
+      shuttleTime: 120
     violet:
       announcement: alert-level-violet-announcement
       sound: /Audio/Misc/notice1.ogg

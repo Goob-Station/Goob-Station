@@ -1,0 +1,25 @@
+- type: entity
+  name: медипен дермалина
+  parent: ChemicalMedipen
+  id: MedipenDermaline
+  description: Специальный медипен для ОКГ, содержит дермалин, лечит от физических травм.
+  suffix: Резерв
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/medipen.rsi
+    layers:
+    - state: medipenDermaline
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 10
+        reagents:
+        - ReagentId: Dermaline
+          Quantity: 10
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: medipenDermaline_empty
+  - type: Tag
+    tags: []

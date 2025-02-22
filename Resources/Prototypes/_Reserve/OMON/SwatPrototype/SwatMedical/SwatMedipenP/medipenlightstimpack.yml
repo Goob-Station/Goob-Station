@@ -1,0 +1,25 @@
+- type: entity
+  name: медипен стимпак
+  parent: ChemicalMedipen
+  id: MedipenStimulants
+  description: Специальный медипен для ОКГ, содержит стимпак, даёт кратковременное усиление.
+  suffix: Резерв
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/medipen.rsi
+    layers:
+    - state: medipenLightStimpack
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 5
+        reagents:
+        - ReagentId: Stimulants
+          Quantity: 5
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: medipenLightStimpack_empty
+  - type: Tag
+    tags: []

@@ -1,0 +1,48 @@
+- type: entity
+  name: боевая аптечка ОКГ
+  description: Для боевых задач и наших жизней, очень тяжелое.
+  noSpawn: false
+  parent: MedkitCombat
+  id: MedkitCombatSwatFilled
+  suffix: Заполненная, Резерв
+  components:
+  - type: Sprite
+    state: blackkit
+  - type: Item
+    size: Large
+    heldPrefix: blackkit
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,7,4
+  - type:  StorageFill
+    contents:
+      - id: MedipenSwat
+      - id: MedipenSwat
+      - id: MedipenSwat
+      - id: MedipenSwat
+      - id: MedipenBicaridine
+      - id: MedipenBicaridine
+      - id: MedipenDermaline
+      - id: MedipenDermaline
+      - id: MedipenDexalinePlus
+      - id: MedipenDifengidramin
+      - id: MedipenDylovene
+      - id: MedipenEphedrine
+      - id: MedipenEpinephrine
+      - id: MedipenInaprovaline
+      - id: MedipenKelotane
+      - id: MedipenStimulants
+      - id: MedipenSigynate
+      - id: MedipenTranexamicAcid
+      - id: MedipenTricordrazine
+      - id: MedipenTricordrazine
+      - id: HandheldHealthAnalyzer
+      - id: MedicatedSuture
+      - id: RegenerativeMesh
+      - id: Bloodpack
+      - id: EpinephrineChemistryBottle
+      - id: EpinephrineChemistryBottle
+      - id: Syringe
+      - id: Syringe
+      - id: Syringe

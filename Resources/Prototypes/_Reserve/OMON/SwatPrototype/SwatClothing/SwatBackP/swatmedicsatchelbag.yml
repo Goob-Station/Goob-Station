@@ -1,0 +1,14 @@
+- type: entity
+  parent: Clothing
+  id: ClothingBackpackSwatMedicSatchel
+  name: сумка медика спецназа
+  description: Удобная и максимально компактная сумка медика оперативной контрреволюционной группы, которая способна вместить море медикаментов.
+  suffix: Резерв
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/swatmedicsatchelbag.rsi
+    state: icon
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,6,8

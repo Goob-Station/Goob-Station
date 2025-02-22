@@ -1,0 +1,40 @@
+## OCG Leader
+
+- type: entity
+  id: RandomHumanoidSpawnerSwatLeader
+  name: Лидер ОКГ
+  suffix: Роль ОБР, Резерв
+  components:
+    - type: Sprite
+      sprite: _Reserve/OMON/Markers/jobs.rsi
+      state: SwatLeader
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstPoliceSwatLeader
+      - NamesLastPSWCallsign
+    - type: RandomHumanoidSpawner
+      settings: SwatLeaderSettings
+
+- type: randomHumanoidSettings
+  id: SwatLeaderSettings
+  randomizeName: false
+  speciesBlacklist:
+  - Diona
+  - Dwarf
+  - SlimePerson
+  components:
+    - type: GhostRole
+      name: Лидер ОКГ
+      description: Вы - боец Полицейского Спецназа НаноТразен, командир отряда ОКГ.
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ SwatLeaderGear ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstPoliceSwatLeader
+      - NamesLastPSWCallsign
+    - type: AutoImplant
+      implants:
+      - MindShieldImplant
+      - TrackingImplanter
+

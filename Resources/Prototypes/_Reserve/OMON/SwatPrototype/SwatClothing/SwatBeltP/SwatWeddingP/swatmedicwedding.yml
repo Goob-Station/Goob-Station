@@ -1,0 +1,15 @@
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltSwatMedicWedding
+  name: РПС медика ОКГ
+  description: Увеличенная в объеме разгрузочно поясная система, для медиков ОКГ.
+  suffix: Резерв
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/swatmedicwedding.rsi
+  - type: Clothing
+    sprite: _Reserve/OMON/swatmedicwedding.rsi
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,7,4

@@ -1,0 +1,12 @@
+- type: entity
+  parent: BasePDA
+  id: SwatLeaderPDA
+  name: КПК Лидера ОКГ
+  description: Пахнет властью.
+  suffix: Резерв
+  components:
+  - type: Pda
+    id: SwatLeaderIDCard
+    state: pda-swatleader
+  - type: Icon
+    state: pda-swatleader

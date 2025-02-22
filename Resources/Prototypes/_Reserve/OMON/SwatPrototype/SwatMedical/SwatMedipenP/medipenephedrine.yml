@@ -1,0 +1,25 @@
+- type: entity
+  name: медипен эфедрина
+  parent: ChemicalMedipen
+  id: MedipenEphedrine
+  description: Специальный медипен для спецназа, содержит эфедрин, повышает скорость реакции.
+  suffix: Резерв
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/medipen.rsi
+    layers:
+    - state: medipenEphedrine
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 10
+        reagents:
+        - ReagentId: Ephedrine
+          Quantity: 10
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: medipenEphedrine_empty
+  - type: Tag
+    tags: []

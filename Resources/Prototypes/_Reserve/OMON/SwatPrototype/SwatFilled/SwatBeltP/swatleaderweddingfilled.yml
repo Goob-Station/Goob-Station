@@ -1,0 +1,17 @@
+- type: entity
+  noSpawn: false
+  parent: ClothingBeltSwatWedding
+  id: ClothingBeltSwatLeaderWeddingFilled
+  suffix: Резерв, Заполненный, Лидер
+  components:
+  - type:  StorageFill
+    contents:
+      - id: WeaponPistolCobra
+      - id: MagazinePistolCaselessRifle
+      - id: MagazinePistolCaselessRifle
+      - id: MagazineCaselessRifle
+      - id: MagazineCaselessRifle
+      - id: MagazineCaselessRifle
+      - id: MagazineCaselessRifle
+      - id: Stunbaton
+      - id: Handcuffs

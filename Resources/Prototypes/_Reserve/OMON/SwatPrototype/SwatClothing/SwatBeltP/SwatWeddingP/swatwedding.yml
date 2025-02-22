@@ -1,0 +1,15 @@
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltSwatWedding
+  name: РПС спецназа
+  description: Уникальная в своём роде РПС разработанная специально для элитных оперативников ОКГ, красиво окрашена в синий.
+  suffix: Резерв
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/swatwedding.rsi
+  - type: Clothing
+    sprite: _Reserve/OMON/swatwedding.rsi
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,7,4

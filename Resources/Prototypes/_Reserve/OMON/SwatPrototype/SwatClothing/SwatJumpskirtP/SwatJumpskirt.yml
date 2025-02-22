@@ -1,0 +1,18 @@
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtSwat
+  name: юбка-комбинезон ОКГ
+  description: Синие опознавательные знаки указывают на принадлежность к ОКГ. Эти люди приходят в самый напряженный момент с полным боекомплектом.
+  suffix: Резерв
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/swatj.rsi
+  - type: Clothing
+    sprite: _Reserve/OMON/swatj.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.9
+        Piercing: 0.95
+        Heat: 0.95

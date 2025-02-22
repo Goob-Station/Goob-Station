@@ -1,0 +1,14 @@
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackSwatDuffel
+  name: вещмешок ОКГ
+  description: Большой вещмешок используемый оперативной контрреволюционной группой для переноса боекомплекта или вооружения со снаряжением, очень большой.
+  suffix: Резерв
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/swatduffelbag.rsi
+    state: icon
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,8,8

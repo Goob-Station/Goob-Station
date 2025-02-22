@@ -1,0 +1,25 @@
+- type: entity
+  name: медипен транексамовой кислоты
+  parent: ChemicalMedipen
+  id: MedipenTranexamicAcid
+  description: Специальный медипен для ОКГ, содержит транексамовую кислоту, останавливает кровотечение.
+  suffix: Резерв
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/medipen.rsi
+    layers:
+    - state: medipenTranexamicAcid
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 7
+        reagents:
+        - ReagentId: TranexamicAcid
+          Quantity: 7
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: medipenTranexamicAcid_empty
+  - type: Tag
+    tags: []

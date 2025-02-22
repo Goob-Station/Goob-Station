@@ -1,0 +1,17 @@
+- type: entity
+  parent: CentcomIDCard
+  id: SwatLeaderIDCard
+  name: ID Карта ОКГ
+  suffix: Резерв
+  components:
+  - type: Sprite
+    layers:
+    - state: gold
+    - state: swat_leaderID
+  - type: Item
+    heldPrefix: gold
+  - type: IdCard
+    jobTitle: Командир ОКГ
+  - type: Access
+    groups:
+    - AllAccess

@@ -273,6 +273,15 @@
     {
       "name": "green-inhand-right",
       "directions": 4
-    }
+    },
+      {
+          "name": "swat_leaderID"
+      },
+      {
+          "name": "swat_medicID"
+      },
+      {
+          "name": "swat_standartID"
+      }
   ]
 }

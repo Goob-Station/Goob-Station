@@ -1,0 +1,25 @@
+- type: entity
+  name: медипен сигината
+  parent: ChemicalMedipen
+  id: MedipenSigynate
+  description: Специальный медипен для ОКГ, содержит сигинат, лечит кислотные повреждения.
+  suffix: Резерв
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/medipen.rsi
+    layers:
+    - state: medipenSigynate
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 8
+        reagents:
+        - ReagentId: Sigynate
+          Quantity: 8
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: medipenSigynate_empty
+  - type: Tag
+    tags: []

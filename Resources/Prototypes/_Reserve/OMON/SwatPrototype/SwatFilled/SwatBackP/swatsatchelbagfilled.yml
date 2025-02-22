@@ -1,0 +1,22 @@
+- type: entity
+  noSpawn: false
+  parent: ClothingBackpackSwatSatchel
+  id: ClothingBackpackSwatSatchelStandartFilled
+  suffix: Резерв, Заполненный, Стандарт
+  components:
+  - type: StorageFill
+    contents:
+      - id: Truncheon
+      - id: WeaponShotgunBulldog
+      - id: MagazineShotgunBeanbag
+      - id: MagazineShotgunBeanbag
+      - id: MagazineShotgun
+      - id: BoxMagazineShotgunBeanbag
+      - id: WeaponDisabler
+      - id: Crowbar
+      - id: BoxHandcuff
+      - id: Flare
+      - id: Flare
+      - id: Flare
+      - id: Flash
+      - id: Flash

@@ -1,0 +1,21 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHelmetHeavySwat
+  name: противоударный шлем ОКГ
+  description: Крепкий и тяжелый шлем специально разработанный для ОКГ, используемый в штурмовых операциях, хорошо защищает от ударов.
+  suffix: Резерв
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/swathelmet.rsi
+  - type: Clothing
+    sprite: _Reserve/OMON/swathelmet.rsi
+  - type: IngestionBlocker
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+  - type: IdentityBlocker

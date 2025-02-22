@@ -1,0 +1,17 @@
+- type: entity
+  name: боевая аптечка ОКГ
+  description: Для боевых задач и наших жизней, очень тяжелое.
+  noSpawn: false
+  parent: MedkitCombat
+  id: MedkitCombatSwat
+  suffix: Резерв
+  components:
+  - type: Sprite
+    state: blackkit
+  - type: Item
+    size: Large
+    heldPrefix: blackkit
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,7,4

@@ -1,0 +1,32 @@
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesCombatSwat
+  name: боевые перчатки ОКГ
+  description: Тактические улучшенные перчатки с кевларовыми вшивками которые позволят ломать лица ещё лучше, а так же защитят ваши пальцы от острых предметов.
+  suffix: Резерв
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/swatcombatgloves.rsi
+  - type: Clothing
+    sprite: _Reserve/OMON/swatcombatgloves.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.97
+        Slash: 0.97
+        Piercing: 0.98
+  - type: StaminaDamageOnHit
+    damage: 17
+  - type: MeleeWeapon
+    attackRate: 1.4
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-black
+  - type: FingerprintMask
