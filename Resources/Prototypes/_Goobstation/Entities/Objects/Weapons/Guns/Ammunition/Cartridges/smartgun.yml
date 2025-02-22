@@ -1,0 +1,22 @@
+- type: entity
+  parent: [ BaseCartridge, BaseRestrictedContraband ]
+  id: CartridgeSmart
+  name: cartridge (.160 smart)
+  description: A .160 smart bullet with a small charge of booster propellant at the bottom.
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - CartridgeSmart
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+    proto: BulletSmart
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Casings/smartgun.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 20

@@ -1961,12 +1961,8 @@
   cost:
     Telecrystal: 30 # goob
   categories:
-  - UplinkChemicals
+  - UplinkJob
   conditions:
-  - !type:BuyerJobCondition
+  - !type:BuyerDepartmentCondition
     whitelist:
-    - MedicalDoctor
-    - MedicalIntern
-    - Psychologist
-    - Chemist
-    - Paramedic
+    - Medical

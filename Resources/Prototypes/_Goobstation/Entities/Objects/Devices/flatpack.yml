@@ -11,3 +11,17 @@
     - state: fax-machine
   - type: StaticPrice
     price: 1500
+
+- type: entity
+  parent: BaseFlatpack
+  id: ContrabandDetectorFlatpack
+  name: contraband detector flatpack
+  description: A flatpack used for constructing a contraband detector.
+  components:
+  - type: Flatpack
+    entity: ContrabandDetectorAnchored
+  - type: Sprite
+    layers:
+    - state: fax-machine
+  - type: StaticPrice
+    price: 500
