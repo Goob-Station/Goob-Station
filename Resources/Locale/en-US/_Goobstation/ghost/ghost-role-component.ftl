@@ -31,6 +31,6 @@ ghost-role-information-navy-captain-name = Navy Captain
 ghost-role-information-navy-captain-description = Classified.
 ghost-role-information-navy-captain-rules = You are beholden to no rules.
 
-job-description-navy-officer-undercover-name = Undercover Navy officer
-job-description-navy-officer-undercover-description= Complete your assigned tasks, [color=red][bold]Terminate[/bold][/color] the given targets. Good luck.
-job-description-navy-officer-undercover-rules = Follow the orders of the [color=#yellow][bold]Navy Captain[/bold][/color], or other Central Command official.
+ghost-role-information-navy-officer-undercover-name = Undercover Navy officer
+ghost-role-information-navy-officer-undercover-description = Complete your assigned tasks, [color=red][bold]Terminate[/bold][/color] the given targets. Good luck.
+ghost-role-information-navy-officer-undercover-rules = Follow the orders of the [color=#yellow][bold]Navy Captain[/bold][/color], or other Central Command official.
