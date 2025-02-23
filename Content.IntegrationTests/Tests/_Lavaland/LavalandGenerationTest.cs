@@ -77,7 +77,16 @@ public sealed class LavalandGenerationTest
 
         pair.Server.CfgMan.SetCVar(CCVars.GameMap, gameMap);
 
+        // Cleanup everything
+        foreach (var lava in lavalands)
+        {
+            entMan.QueueDeleteEntity(lava);
+        }
+
         pair.ClearModifiedCvars();
+
+        await pair.RunTicksSync(10);
+
         await pair.CleanReturnAsync();
     }
 }
