@@ -1,7 +1,7 @@
 - type: job
   id: NavyOfficer
-  name: job-name-navyofficer
-  description: job-description-navyofficer
+  name: job-name-navy-officer
+  description: job-description-navy-officer
   playTimeTracker: JobNavyOfficer
   setPreference: false
   startingGear: NavyOfficerGear
@@ -46,8 +46,8 @@
 
 - type: job
   id: NavyCaptain
-  name: job-name-navycaptain
-  description: job-description-navycaptain
+  name: job-name-navy-captain
+  description: job-description-navy-captain
   playTimeTracker: JobNavyCaptain
   setPreference: false
   startingGear: NavyCaptainGear
@@ -92,8 +92,8 @@
 
 - type: job
   id: NavyOfficerUndercover
-  name: job-name-navyofficerundercover
-  description: job-description-navyofficerundercover
+  name: job-name-navy-officer-undercover
+  description: job-description-navy-officer-undercover
   playTimeTracker: JobNavyOfficerUndercover
   setPreference: false
   startingGear: NavyOfficerUndercoverGear

@@ -26,3 +26,11 @@ ghost-role-information-derelict-cyborg-syndicate-description = You were lost dur
 ghost-role-information-navy-officer-name = Navy Officer
 ghost-role-information-navy-officer-description = Answer faxes and radio communications directed at Central Command. Perform investigations on the station and it's crew.
 ghost-role-information-navy-officer-rules = Follow the orders of the [color=#yellow][bold]Navy Captain[/bold][/color]. In the absence of one, make your own judgements.
+
+ghost-role-information-navy-captain-name = Navy Captain
+ghost-role-information-navy-captain-description = Classified.
+ghost-role-information-navy-captain-rules = You are beholden to no rules.
+
+job-description-navy-officer-undercover-name = Undercover Navy officer
+job-description-navy-officer-undercover-description= Complete your assigned tasks, [color=red][bold]Terminate[/bold][/color] the given targets. Good luck.
+job-description-navy-officer-undercover-rules = Follow the orders of the [color=#yellow][bold]Navy Captain[/bold][/color], or other Central Command official.
