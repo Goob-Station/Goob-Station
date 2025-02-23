@@ -79,3 +79,7 @@
   - type: Item
     shape:
     - 0,0,2,1
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 1.5
+    pvsIncrease: 0.15
