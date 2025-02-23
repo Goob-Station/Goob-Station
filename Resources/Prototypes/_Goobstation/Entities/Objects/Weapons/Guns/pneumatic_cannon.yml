@@ -90,6 +90,34 @@
     injectionSpeedMultiplier: 1.5
   - type: PacifismAllowedGun
 
+- type: entity
+  name: centcomm dart syringe gun
+  parent: [ BaseCentcommContraband, SyringeGun ]
+  id: DartSyringeGunCentComm
+  description: Cutting edge technology allows this gun to fire straight through armor. Made for assassinations of frowned upon captains.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+    layers:
+    - state: dart-syringe-gun
+  - type: Storage
+    maxItemSize: Tiny
+    grid:
+    - 0,0,0,0
+    whitelist:
+      tags:
+      - SyringeGunAmmo
+  - type: Gun
+    fireRate: 1
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+  - type: SyringeGun
+    pierceArmor: true
+    injectionSpeedMultiplier: 3.0
+  - type: PacifismAllowedGun
+
 # TODO: Add the proper dart gun that regenerates every 25s, and draws from a 100u reservoir
 
 - type: entity

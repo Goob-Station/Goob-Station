@@ -40,6 +40,7 @@
     - WeaponPulsePistol
     - BluespaceLifelineImplanter
     - CentcommFreedomImplanter
+    - RadioImplanterCentcomm
 
 # Navy Captain
 
@@ -85,3 +86,56 @@
       - HandheldFaxOfficial
       - BluespaceLifelineImplanter
       - CentcommFreedomImplanter
+      - RadioImplanterCentcomm
+
+# Undercover Officer
+
+- type: job
+  id: NavyOfficerUndercover
+  name: job-name-navyofficerundercover
+  description: job-description-navyofficerundercover
+  playTimeTracker: JobNavyOfficerUndercover
+  setPreference: false
+  startingGear: NavyOfficerUndercoverGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-commander
+  canBeAntag: false
+  requirements:
+    - !type:AgeRequirement
+      requiredAge: 21
+  accessGroups:
+    - AllAccess
+  access:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
+
+- type: startingGear
+  id: NavyOfficerUndercoverGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitChameleon
+    shoes: ClothingShoesChameleon
+    head: ClothingHeadHatChameleon
+    eyes: ClothingEyesGlassesDeathsquad
+    gloves: ClothingHandsChameleon
+    back: ClothingBackpackChameleon
+    outerClothing: ClothingOuterArmourInvisible
+    neck: ClothingNeckChameleon
+    id: ChameleonPDA
+    ears: ClothingHeadsetChameleon
+    belt: ClothingBeltHolsterFilledCentComm
+    pocket1: WeaponPulsePistol
+    pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
+  storage:
+    back:
+      - HandheldFaxOfficial
+      - BluespaceLifelineImplanter
+      - CentcommFreedomImplanter
+      - RadioImplanterCentcomm
+      - CentcommStorageImplanter
+      - ClothingOuterChameleon
+      - ExecutiveIDCard
+      - DartSyringeGunCentComm
+    inhand:
+      - BoxSyringePoison
+
