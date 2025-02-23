@@ -29,6 +29,7 @@
     damageContainers:
     - Inorganic
     - Silicon
+    - SiliconRadiation # Goobstation - Make IPCs take radiation
 
 - type: entity
   parent: [ClothingEyesBase, ShowMedicalIcons]
@@ -160,6 +161,9 @@
   - type: Construction
     graph: HudMedSec
     node: medsecHud
+  - type: Tag # Goobstation
+    tags: # Goobstation
+    - HudMedicalSecurity # Goobstation
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons]

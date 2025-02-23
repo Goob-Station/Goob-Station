@@ -21,3 +21,42 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: ZooimovLawset
+
+- type: entity
+  id: PlayerBorgDerelictSyndicateAssaultBattery
+  parent: BorgChassisDerelictSyndicateAssault
+  suffix: Battery, Module, Operative, Derelict
+  components:
+  - type: NukeOperative
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - PositronicBrain
+      borg_module:
+      - BorgModuleOperativeUniversal
+      - BorgModuleSyndicateWeaponAdvanced
+      # - BorgModuleL6C - No L6 for the derelicts
+      # - BorgModuleEsword - Replaced
+      - BorgModuleTool
+      - BorgModuleFireExtinguisher
+      - BorgModuleGPS
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+  - type: RandomMetadata
+    nameSegments: [ names_borg ]
+
+- type: entity
+  id: PlayerBorgDerelictSyndicateAssaultGhostRole
+  parent: PlayerBorgDerelictSyndicateAssaultBattery
+  suffix: Ghost role, Derelict
+  components:
+  - type: GhostRole
+    name: ghost-role-information-derelict-cyborg-syndicate-name
+    description: ghost-role-information-derelict-cyborg-syndicate-description
+    rules: ghost-role-information-silicon-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable

@@ -35,8 +35,8 @@ uplink-hardlight-bow-desc = A modern bow that can fabricate hardlight arrows, de
 uplink-pie-cannon-name = Regenerating Pie Cannon
 uplink-pie-cannon-desc = A pie cannon that automatically regenerates pies, one every ten seconds.
 
-uplink-mobroach-microbomb-name = SyndiMaggot Teleporter
-uplink-mobroach-microbomb-desc = Call in a handy moth maggot equipped with a microbomb implant. Explodes when seriously injured.
+uplink-mobroach-microbomb-name = SyndiRoach Teleporter
+uplink-mobroach-microbomb-desc = Call in a handy mothroach equipped with a microbomb implant. Explodes when seriously injured.
 
 uplink-advanced-combat-medipen-name = Advanced Combat Medipen
 uplink-advanced-combat-medipen-desc = An advanced single-use medipen containing chemicals that will rapidly heal most types of damage taken in a fight.
@@ -122,6 +122,14 @@ uplink-mech-teleporter-heavy-desc = Contains a heavily armored Cybersun mech wit
 uplink-mech-teleporter-assault-name = Assault Mech teleporter
 uplink-mech-teleporter-assault-desc = Contains a lightly armored Cybersun mech with an integrated chainsword, LBX AC 10 "Scattershot", SRM-8 Light Missile Rack and P-X Tesla Cannon.
 
+# Chemicals
+
+uplink-lollypop-bundle-name = Donk Co. Lollypop Box
+uplink-lollypop-bundle-desc = Contains 9 completely random lollypops. What could they contain?
+
+uplink-lollypop-bundle-big-name = Donk Co. Candy Bundle
+uplink-lollypop-bundle-big-desc = Contains an ungodly amount of candy. What could they contain?
+
 # Implants
 
 uplink-smoke-implant-name = Smoke Implant
@@ -136,6 +144,11 @@ uplink-helmet-swat-desc = Robust helmet that offers good protection and also sup
 
 uplink-clothing-explosive-gloves-name = Explosive Insulated Gloves
 uplink-clothing-explosive-gloves-desc = Gloves that look just like normal insulated gloves, but explode a second after being shocked, disabling the user's hands.
+
+# Disruption
+
+uplink-syndicate-weapon-module-advanced-name = advanced weapons module
+uplink-syndicate-weapon-module-advanced-desc = Upgrades a cyborg with an energy sword and an anaconda pistol.
 
 # Misc
 

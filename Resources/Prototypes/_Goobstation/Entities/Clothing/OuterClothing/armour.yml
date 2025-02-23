@@ -18,6 +18,9 @@
         Heat: 0.50
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1
+    knockdownTimeDelta: -1
 
 # Durathread plated vest
 - type: entity
@@ -39,6 +42,9 @@
         Heat: 0.50
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1
+    knockdownTimeDelta: -1
 
 # Helldiver
 - type: entity
@@ -88,6 +94,9 @@
         Heat: 0.70
   - type: ExplosionResistance
     damageCoefficient: 0.8
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1
+    knockdownTimeDelta: -1
 
 - type: entity
   parent: ClothingBlueshieldArmourVest

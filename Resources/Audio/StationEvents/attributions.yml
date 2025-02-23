@@ -33,3 +33,8 @@
   license: "Custom"
   copyright: "Blatantly Nuclear by mrjajkes is licensed under the following terms: free use and modification with proper credit to the original creator, excluding usage by FulpStation, White Dream, Wizard's Den, and any ERP/sexually-oriented servers, or for commercial use unless granted permission by the author. For commercial use, please contact the author to discuss details."
   source: "https://www.youtube.com/watch?v=f5URIS00IIc"
+
+- files: ["countdown.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Created by qwertyquerty"
+  source: "https://github.com/BeeStation/BeeStation-Hornet/commit/7f48971438492805af286023a72e7609a729234a"
