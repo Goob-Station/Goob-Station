@@ -42,3 +42,26 @@
       - state: tip
         map: [ "enum.AmmoVisualLayers.Tip" ]
         color: "#fff94d"
+
+- type: entity
+  id: CartridgeMagnumNeurotoxin
+  name: shell (.45 subsonic neurotoxin)
+  parent: BaseCartridgeMagnum
+  components:
+  - type: Sprite
+    layers:
+    - state: tranquilizer
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: BulletMagnumNeurotoxin
+  - type: ChemicalAmmo
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        reagents:
+        - ReagentId: Amatoxin
+          Quantity: 10
+  - type: SolutionTransfer
+    maxTransferAmount: 10
+  - type: SpentAmmoVisuals # todo : sprites
+    state: "tranquilizer"
