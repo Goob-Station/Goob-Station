@@ -120,7 +120,7 @@
     gloves: ClothingHandsChameleon
     mask: ClothingMaskGasVoiceChameleon
     back: ClothingBackpackChameleon
-    outerClothing: ClothingOuterArmourInvisible
+    outerClothing: ClothingOuterArmourInvisibleChameleon
     neck: ClothingNeckChameleon
     id: ChameleonPDA
     ears: ClothingHeadsetChameleon
@@ -134,10 +134,9 @@
       - CentcommFreedomImplanter
       - RadioImplanterCentcomm
       - CentcommStorageImplanter
-      - ClothingOuterChameleon
       - ExecutiveIDCardChameleon
       - DartSyringeGunCentComm
-      - SyringePoisonCentcomm
+      - SyringePoisonCentcomm # Amatoxin. It's amatoxin.
       - SyringePoisonCentcomm
       - SyringePoisonCentcomm
       - SyringePoisonCentcomm

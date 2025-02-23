@@ -127,7 +127,7 @@
 # CentralCommand
 
 - type: entity
-  parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing]
+  parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseCentcommContrband]
   id: ClothingOuterArmourInvisible # I'll be real, this is just invisible armor so it doesn't ruin how fucking AWESOME navy officers look. Bite me.
   name: covert armor
   description: An armored vest that utilizes bluespace technology, bending light and becoming invisible to the naked eye when worn.
@@ -148,3 +148,18 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
+
+- type: entity
+  parent: ClothingOuterArmourInvisible
+  id: ClothingOuterArmourInvisibleChameleon
+  name: covert armor
+  description: An armored vest that utilizes bluespace technology. Capable of being completely invisible, or appearing as any other outer clothing.
+  components:
+  - type: ChameleonClothing
+    slot: [ outerClothing ]
+    default: ClothingOuterArmourInvisible
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+
