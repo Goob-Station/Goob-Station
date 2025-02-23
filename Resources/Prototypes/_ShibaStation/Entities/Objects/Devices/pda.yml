@@ -6,6 +6,7 @@
   components:
   - type: Sprite
     sprite: _ShibaStation/Objects/Devices/pda.rsi
+    state: pda-mail
   - type: Pda
     id: MailIDCard
     state: pda-mail
@@ -13,7 +14,7 @@
     borderColor: "#394DC6"
     accentHColor: "#DCDCDC"
   - type: Icon
-    state: pda-cargo
+    state: pda-mail
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
