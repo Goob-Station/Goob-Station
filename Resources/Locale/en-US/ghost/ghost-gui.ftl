@@ -9,6 +9,9 @@ ghost-gui-toggle-fov-popup = Toggled field-of-view.
 ghost-gui-toggle-hearing-popup-on = You can now hear all messages.
 ghost-gui-toggle-hearing-popup-off = You can now only hear radio and nearby messages.
 
+ghost-gui-toggle-sechud-popup-on = You can now see icons.
+ghost-gui-toggle-sechud-popup-off = You can no longer see icons.
+
 ghost-target-window-title = Ghost Warp
 ghost-target-window-current-button = Warp: {$name}
 ghost-target-window-warp-to-most-followed = Warp to Most Followed
