@@ -133,9 +133,9 @@
   description: An armored vest that utilizes bluespace technology, bending light and becoming invisible to the naked eye when worn.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Armor/durathread_armour.rsi
+    sprite: _Goobstation/Clothing/Armor/covert_armor.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Armor/durathread_armour.rsi
+    sprite: _Goobstation/Clothing/Armor/covert_armor.rsi
   - type: Armor
     modifiers:
       coefficients:
