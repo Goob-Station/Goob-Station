@@ -46,11 +46,11 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
 
             if (firelockQ.TryGetComponent(uid, out var firelock))
             {
-                if (firelock.DangerFire)
+                if (firelock.Temperature)
                 {
                     fireCount += 1;
                 }
-                else if (firelock.DangerPressure)
+                else if (firelock.Pressure)
                 {
                     pressureCount += 1;
                 }
