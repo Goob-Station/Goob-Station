@@ -1,0 +1,18 @@
+- type: entity
+  id: ActionSummonMouse
+  name: Multiply
+  description: Drains your hunger to infest the station with more mice.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 1
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Consumable/Food/ingredients.rsi
+      state: cheesewedge
+    event: !type:SummonMobsEvent
+      amount: 1
+      mobs:
+      - MobMouse
+  - hungerCost: 25

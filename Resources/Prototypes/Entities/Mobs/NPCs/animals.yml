@@ -1821,6 +1821,9 @@
     color: "#808080"
     activateSound: null
     deactivateSound: null
+  - type: ActionGrant #Goobstation
+    actions:
+    - ActionSummonMouse
 
 - type: entity
   parent: MobMouse
