@@ -126,7 +126,6 @@
     neck: ClothingNeckChameleon
     id: ChameleonPDA
     ears: ClothingHeadsetChameleon
-    belt: ClothingBeltHolsterFilledCentComm
     pocket1: WeaponPistolCentcommAgent
     pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
   storage:
