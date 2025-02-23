@@ -3,7 +3,7 @@
   configuration:
     entity: PolymorphAshJaunt
     forced: true
-    duration: 5
+    duration: 3
 
 - type: polymorph
   id: EldritchHorror

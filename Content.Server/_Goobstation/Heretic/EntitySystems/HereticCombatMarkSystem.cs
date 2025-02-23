@@ -15,6 +15,7 @@ using System.Linq;
 using Content.Shared.Humanoid;
 using Content.Server.Temperature.Components;
 using Content.Server.Body.Components;
+using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -30,6 +31,7 @@ public sealed partial class HereticCombatMarkSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly ProtectiveBladeSystem _pbs = default!;
+    [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
 
     public bool ApplyMarkEffect(EntityUid target, string? path, EntityUid user)
     {
@@ -89,8 +91,7 @@ public sealed partial class HereticCombatMarkSystem : EntitySystem
             case "Void":
                 // set target's temperature to -40C
                 // is really OP with the new temperature slowing thing :godo:
-                if (TryComp<TemperatureComponent>(target, out var temp))
-                    _temperature.ForceChangeTemperature(target, temp.CurrentTemperature - 100f, temp);
+                _voidcurse.DoCurse(target);
                 break;
 
             default:
@@ -98,7 +99,7 @@ public sealed partial class HereticCombatMarkSystem : EntitySystem
         }
 
         // transfers the mark to the next nearby person
-        var look = _lookup.GetEntitiesInRange(target, 2.5f);
+        var look = _lookup.GetEntitiesInRange(target, 5f);
         if (look.Count != 0)
         {
             var lookent = look.ToArray()[0];

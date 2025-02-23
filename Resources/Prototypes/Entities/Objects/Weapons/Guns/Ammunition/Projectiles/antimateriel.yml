@@ -5,8 +5,13 @@
   name: bullet (.60 anti-materiel)
   components:
   - type: Projectile
-    damage: # Goobstation
+    damage:
       types:
-        Piercing: 60
-        Structural: 90
-    ignoreResistances: true
+        Piercing: 75
+        Structural: 226
+    ignoreResistances: true # Goobstation
+    penetrationThreshold: 360
+    penetrationDamageTypeRequirement:
+    - Structural
+  - type: StaminaDamageOnCollide
+    damage: 60

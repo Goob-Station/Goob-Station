@@ -1,6 +1,5 @@
-#Basic Helmet (Security Helmet)
 - type: entity
-  parent: ClothingHeadHelmetBase
+  parent: [ ClothingHeadHelmetBase, BaseMajorContraband ]
   id: ClothingHeadHelmetAbductor
   name: alien helmet
   description: Zeep Glorp!
@@ -20,7 +19,4 @@
     sprite: _Shitmed/Clothing/Head/Helmets/abductor.rsi
   - type: Clothing
     sprite: _Shitmed/Clothing/Head/Helmets/abductor.rsi
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-    - SecurityHelmet
+  - type: EyeProtection

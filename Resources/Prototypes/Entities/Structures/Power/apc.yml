@@ -143,6 +143,10 @@
     priority: 1
   - type: StaticPrice
     price: 500
+  - type: GuideHelp
+    guides:
+    - VoltageNetworks
+    - Power
   - type: BatteryDrinkerSource # EE IPCs
     maxAmount: 10000
 

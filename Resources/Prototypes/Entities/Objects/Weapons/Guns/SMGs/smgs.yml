@@ -62,7 +62,7 @@
 
 - type: entity
   name: Atreides
-  parent: [BaseWeaponSubMachineGun, BaseRestrictedContraband]
+  parent: [BaseWeaponSubMachineGun, BaseSecurityContraband]
   id: WeaponSubMachineGunAtreides
   description: Pla-ket-ket-ket-ket! Uses .35 auto ammo.
   components:
@@ -108,9 +108,9 @@
     maxAngle: 32
     shotsPerBurst: 5
     availableModes:
-    - SemiAuto
     - Burst
     - FullAuto
+    - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/c-20r.ogg
   - type: ChamberMagazineAmmoProvider
@@ -123,7 +123,7 @@
 
 - type: entity
   name: Drozd
-  parent: [BaseWeaponSubMachineGun, BaseRestrictedContraband]
+  parent: [BaseWeaponSubMachineGun, BaseSecurityContraband]
   id: WeaponSubMachineGunDrozd
   description: An excellent fully automatic Heavy SMG.
   components:
@@ -144,13 +144,14 @@
     - type: Gun
       minAngle: 21
       maxAngle: 32
-      fireRate: 12
+      fireRate: 6
       burstFireRate: 12
-      selectedMode: Burst
       soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
       availableModes:
-        - Burst
+      - Burst
+      - FullAuto
+      - SemiAuto
       shotsPerBurst: 3
       burstCooldown: 0.25
     - type: ItemSlots
@@ -228,7 +229,7 @@
 
 - type: entity
   name: WT550
-  parent: [ BaseWeaponSubMachineGun, BaseRestrictedContraband ]
+  parent: [ BaseWeaponSubMachineGun, BaseSecurityContraband ]
   id: WeaponSubMachineGunWt550
   description: An excellent SMG, produced by NanoTrasen's Small Arms Division. Uses .35 auto ammo.
   components:
@@ -260,9 +261,9 @@
     burstCooldown: 0.2
     burstFireRate: 7
     availableModes:
-    - SemiAuto
     - Burst
     - FullAuto
+    - SemiAuto
   - type: ItemSlots
     slots:
       gun_magazine:

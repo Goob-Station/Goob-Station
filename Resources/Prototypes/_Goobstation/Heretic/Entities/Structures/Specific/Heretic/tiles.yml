@@ -1,0 +1,91 @@
+- type: entity
+  id: HereticFireAA # AA in ash ascension
+  name: fire
+  description: Damn that's hot.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: TimedDespawn
+    lifetime: 5
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.1
+    triggerGroups:
+      types:
+        - Lava
+  - type: Sprite
+    sprite: Effects/fire.rsi
+    drawdepth: Effects
+    layers:
+      - state: 1
+        shader: unshaded
+  - type: TileEntityEffect
+    effects:
+    - !type:FlammableReaction
+      multiplier: 3.75
+      multiplierOnExisting: 0.75
+    - !type:Ignite
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+          - SlipLayer
+        mask:
+          - ItemMask
+        density: 1000
+        hard: false
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: TileHereticVoid
+  name: void
+  description: Damn that's cold.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.1
+    triggerGroups:
+      types:
+        - Lava
+  - type: Sprite
+    sprite: _Goobstation/Heretic/void_overlay.rsi
+    layers:
+      - state: voidtile
+        shader: unshaded
+  - type: TileEntityEffect
+    effects:
+    - !type:VoidCurse
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+          - SlipLayer
+        mask:
+          - ItemMask
+        density: 1000
+        hard: false
+  - type: Tag
+    tags:
+      - HideContextMenu

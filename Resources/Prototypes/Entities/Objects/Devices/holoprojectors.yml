@@ -76,6 +76,11 @@
       Steel: 75
       Plastic: 12
       Glass: 12
+  - type: GuideHelp
+    guides:
+    - AtmosTools
+    - Fires
+    - Spacing
 
 - type: entity
   parent: HolofanProjector

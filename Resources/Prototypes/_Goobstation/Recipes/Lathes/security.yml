@@ -67,6 +67,25 @@
     Glass: 1200
     Gold: 500
 
+# Smartgun
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponSubMachineSmart
+  result: WeaponSubMachineSmart
+  materials:
+    Steel: 1800
+    Plastic: 750
+    Silver: 500
+    Gold: 500
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineSmart
+  result: MagazineSmart
+  materials:
+    Steel: 550
+
 # Mech Weapons
 - type: latheRecipe
   id: WeaponMechCombatImmolationGun
@@ -247,3 +266,9 @@
   result: MagazineMagnumLeverRifle
   materials:
     Steel: 185
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: ContrabandDetectorCircuitboard
+  result: ContrabandDetectorCircuitboard
+  completetime: 4

@@ -126,4 +126,13 @@
     - state: bullet
       shader: unshaded
 
-
+- type: entity
+  id: BulletAnaconda
+  name: bullet (.40 caseless)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 25

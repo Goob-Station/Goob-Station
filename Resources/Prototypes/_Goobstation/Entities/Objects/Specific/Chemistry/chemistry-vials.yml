@@ -1,0 +1,46 @@
+# T3 chems for mapping
+
+- type: entity
+  id: GoldChemistryVial
+  parent: BaseChemistryEmptyVial
+  suffix: gold
+  components:
+  - type: Label
+    currentLabel: reagent-name-gold
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 30
+        reagents:
+          - ReagentId: Gold
+            Quantity: 30
+
+- type: entity
+  id: SilverChemistryVial
+  parent: BaseChemistryEmptyVial
+  suffix: silver
+  components:
+  - type: Label
+    currentLabel: reagent-name-silver
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 30
+        reagents:
+          - ReagentId: Silver
+            Quantity: 30
+
+- type: entity
+  id: UraniumChemistryVial
+  parent: BaseChemistryEmptyVial
+  suffix: uranium
+  components:
+  - type: Label
+    currentLabel: reagent-name-uranium
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 30
+        reagents:
+          - ReagentId: Uranium
+            Quantity: 30
