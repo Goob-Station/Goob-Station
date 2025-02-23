@@ -121,6 +121,8 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("alertLevels");
             _prototypeManager.RegisterIgnore("nukeopsRole");
             _prototypeManager.RegisterIgnore("ghostRoleRaffleDecider");
+            _prototypeManager.RegisterIgnore("story"); // Goobstation
+            _prototypeManager.RegisterIgnore("storyBeat"); // Goobstation
 
             _componentFactory.GenerateNetIds();
             _adminManager.Initialize();
