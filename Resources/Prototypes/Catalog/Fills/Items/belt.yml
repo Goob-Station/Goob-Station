@@ -136,7 +136,7 @@
 - type: entity
   id: ClothingBeltSheathFilled
   parent: ClothingBeltSheath
-  suffix: Filled
+  suffix: Filled, Captain
   components:
   - type: ContainerFill
     containers:
