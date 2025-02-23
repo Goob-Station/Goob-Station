@@ -114,7 +114,6 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             // event to be ready to run again, we'll check CanRun again before we actually launch the event.
             if (!_event.CanRun(proto, stationEvent, count.Players, TimeSpan.MaxValue))
                 continue;
-            //LogMessage($"Possible event added: ${proto.ID}");
 
             scheduler.PossibleEvents.Add(new PossibleEvent(proto.ID, stationEvent.Chaos));
         }
@@ -128,9 +127,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
     {
         var currTime = _timing.CurTime;
         if (currTime < scheduler.TimeNextEvent)
-        {
             return;
-        }
 
         ChaosMetrics chaos = CalculateChaos(uid);
         scheduler.CurrentChaos = chaos;
@@ -208,15 +205,12 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
 
                 if (_tag.HasTag(tag, "RoundstartAntag"))
                 {
-                    LogMessage($"Roundstart antag choice added: {proto.ID}");
                     roundStartAntags.Add(proto);
                 }
                 else if (_tag.HasTag(tag, "CalmAntag"))
                 {
-                    LogMessage($"Calmstart antag choice added: {proto.ID}");
                     calmStartAntags.Add(proto);
                 }
-
             }
 
             if (!scheduler.DualAntags)
@@ -279,13 +273,9 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
                 // TODO: Consider a custom component here instead of HumanoidAppearanceComponent to represent
                 //        "significant enough to count as a whole player"
                 if (HasComp<HumanoidAppearanceComponent>(player.AttachedEntity))
-                {
                     count.Players += 1;
-                }
                 else if (HasComp<GhostComponent>(player.AttachedEntity))
-                {
                     count.Ghosts += 1;
-                }
             }
         }
 
@@ -318,9 +308,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
         // TODO: LogMessage strings all require localization.
         _adminLogger.Add(LogType.GameDirector, showChat?LogImpact.Medium:LogImpact.High, $"{message}");
         if (showChat)
-        {
             _chat.SendAdminAnnouncement("GameDirector " + message);
-        }
 
     }
     /// <summary>
@@ -392,15 +380,15 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             {
                 var story = _prototypeManager.Index<StoryPrototype>(storyName);
                 if (story.MinPlayers > count.Players || story.MaxPlayers < count.Players || story.Beats == null)
-                {
                     continue;
-                }
+
 
                 // A new story was picked. Copy the full list of beats (for us to pop beats from the front as we proceed)
                 foreach (var storyBeat in story.Beats)
                 {
                     scheduler.RemainingBeats.Add(storyBeat);
                 }
+
 
                 scheduler.CurrentStoryName = storyName;
                 SetupEvents(scheduler, count);
@@ -437,9 +425,8 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
         var result = FilterAndScore(scheduler, chaos, desiredChange, count);
 
         if (result.Count > 0)
-        {
             return result;
-        }
+
 
         // Fall back to improving all scores (not just the ones the beat is focused on)
         //   Generally this means reducing chaos (unspecified scores are desired to be 0).
