@@ -355,6 +355,26 @@
   categories:
   - UplinkChemicals
 
+- type: listing
+  id: UplinkSyndicateLollypopBundle
+  name: uplink-lollypop-bundle-name
+  description: uplink-lollypop-bundle-desc
+  productEntity: SyndicateLollypopBundle
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkChemicals
+
+- type: listing
+  id: UplinkSyndicateLollypopBundleBig
+  name: uplink-lollypop-bundle-big-name
+  description: uplink-lollypop-bundle-big-desc
+  productEntity: ClothingBackpackDuffelSyndicateFilledCandy
+  cost:
+    Telecrystal: 100
+  categories:
+  - UplinkChemicals
+
 
 # Implants
 
@@ -547,6 +567,16 @@
     blacklist:
       components:
       - SurplusBundle
+
+- type: listing
+  id: UplinkSyndicateWeaponModuleAdvanced
+  name: uplink-syndicate-weapon-module-advanced-name
+  description: uplink-syndicate-weapon-module-advanced-desc
+  productEntity: BorgModuleSyndicateWeaponAdvanced
+  cost:
+    Telecrystal: 40 # goob
+  categories:
+  - UplinkDisruption
 
 # Mechs
 

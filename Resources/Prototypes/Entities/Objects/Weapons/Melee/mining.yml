@@ -113,6 +113,7 @@
     color: "#ffeead"
     enabled: false
     radius: 4
+  - type: PressureDamageChange # Lavaland Change: Pressure damage change for kinetic weapons
 
 - type: entity
   parent: [BaseWeaponCrusher, BaseSecurityCargoContraband]
@@ -128,10 +129,6 @@
   - type: UseDelayOnShoot
   - type: UseDelay
     delay: 0.9
-  - type: LeechOnMarker
-    leech:
-      groups:
-        Brute: -10
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
@@ -145,27 +142,33 @@
     capacity: 1
     count: 1
   - type: MeleeWeapon
-    attackRate: 1.5
+    attackRate: 1.2 # Lavaland Change
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 10
-        Slash: 5
+        Blunt: 13 # Lavaland Change: no damage when unwielded
+        Slash: 7
     soundHit:
       collection: MetalThud
   - type: Wieldable
-  - type: IncreaseDamageOnWield
-    damage:
-      types:
-        Blunt: 2.5
-        Slash: 2.5
-        Structural: 30
   - type: GunRequiresWield
   - type: Item
     size: Ginormous
     sprite: Objects/Weapons/Melee/crusher-inhands.rsi
   - type: DisarmMalus
   - type: Prying
+  # Lavaland Change Start
+  - type: MeleeRequiresWield
+    fumbleOnAttempt: true
+  - type: DamageBoostOnMarker
+    boost:
+      types: # Totals to 70 damage when hitting marked targets
+        Blunt: 34
+        Slash: 16
+    backstabBoost: # And 30 extra for a backstab. Adding up to 100
+      types:
+        Blunt: 19
+        Slash: 11
 
 - type: entity
   parent: [ BaseWeaponCrusher, BaseSecurityCargoContraband]
@@ -201,7 +204,7 @@
   - type: LeechOnMarker
     leech:
       groups:
-        Brute: -21
+        Brute: -10 # Lavaland Change: lower crusher healing
   - type: MeleeWeapon
   - type: Tag
     tags:

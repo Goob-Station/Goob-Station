@@ -13,7 +13,6 @@ namespace Content.Shared.StepTrigger.Components;
 ///     Consider using a subscription to StepTriggerAttemptEvent if you wish to be more selective.
 /// </remarks>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class StepTriggerImmuneComponent : Component { }
 [Access(typeof(StepTriggerSystem))]
 public sealed partial class StepTriggerImmuneComponent : Component
 {

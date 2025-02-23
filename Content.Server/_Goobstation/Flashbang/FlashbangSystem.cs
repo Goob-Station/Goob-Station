@@ -1,13 +1,16 @@
+using Content.Server.Flash;
 using Content.Server.Stunnable;
 using Content.Shared._Goobstation.Flashbang;
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
+using Content.Shared.Tag;
 
 namespace Content.Server._Goobstation.Flashbang;
 
 public sealed class FlashbangSystem : EntitySystem
 {
     [Dependency] private readonly StunSystem _stun = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     public override void Initialize()
     {
@@ -48,10 +51,15 @@ public sealed class FlashbangSystem : EntitySystem
         if (comp is { KnockdownTime: <= 0, StunTime: <= 0 })
             return;
 
-        var ev = new GetFlashbangedEvent(args.Range);
-        RaiseLocalEvent(args.Target, ev);
+        var protectionRange = args.Range;
 
-        var protectionRange = ev.ProtectionRange;
+        if (!_tag.HasTag(ent, FlashSystem.IgnoreResistancesTag))
+        {
+            var ev = new GetFlashbangedEvent(args.Range);
+            RaiseLocalEvent(args.Target, ev);
+
+            protectionRange = ev.ProtectionRange;
+        }
 
         if (protectionRange <= 0f)
             return;

@@ -3,6 +3,7 @@
   id: ImmovableRodWizardII
   components:
   - type: ImmovableRod
+    knockdownTime: 4.5
     minSpeed: 7.5
     maxSpeed: 7.5
     damage:
@@ -14,6 +15,7 @@
   id: ImmovableRodWizardIII
   components:
   - type: ImmovableRod
+    knockdownTime: 5
     minSpeed: 9
     maxSpeed: 9
     damage:
@@ -25,6 +27,7 @@
   id: ImmovableRodWizardIV
   components:
   - type: ImmovableRod
+    knockdownTime: 5.5
     minSpeed: 10.5
     maxSpeed: 10.5
     damage:
@@ -36,6 +39,8 @@
   id: ImmovableRodWizardV
   components:
   - type: ImmovableRod
+    shouldGib: true
+    knockdownTime: 6
     minSpeed: 12
     maxSpeed: 12
     damage:

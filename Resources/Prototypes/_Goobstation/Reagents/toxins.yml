@@ -1,0 +1,184 @@
+- type: reagent
+  id: Triclor
+  name: reagent-name-triclor
+  group: Toxins
+  desc: reagent-desc-triclor
+  physicalDesc: reagent-physical-desc-pungent
+  flavor: terrible
+  color: "#174f17"
+  metabolisms:
+    Poison:
+      effects: # considering vomiting and re-add the metabolism rate works out to ~2.5/s
+      - !type:HealthChange # ~20/20 damage per 15u, inconsistent
+        damage:
+          types:
+            Blunt: 4
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        damage:
+          types:
+            Poison: 4
+      - !type:AdjustReagent
+        reagent: Triclor
+        amount: 0.5 # Counteracts some loss from vomiting, makes effects more linear
+        conditions:
+        - !type:ReagentThreshold
+          max: 15 # Limit self-replication to prevent infinite accumulation
+      - !type:AdjustReagent
+        conditions: # Vomiting behaves weirdly and might leave unmetabolisable 0.1 at 40u (floating point errors?)
+        - !type:ReagentThreshold
+          max: 1
+        reagent: Triclor
+        amount: -0.5
+      - !type:ChemVomit
+      - !type:ModifyBloodLevel
+        amount: -5
+      - !type:ModifyBleedAmount
+        amount: 0.5
+      - !type:MovespeedModifier # primairly to decrease speed for a while longer after finishing vomiting
+        walkSpeedModifier: 0.8
+        sprintSpeedModifier: 0.8
+        statusLifetime: 6
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+      - !type:Jitter
+
+- type: reagent
+  id: Cyanide
+  name: reagent-name-cyanide
+  group: Toxins
+  desc: reagent-desc-cyanide
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: bitter
+  color: "#1abcff"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.1
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.75 # 37.5 per 5u but pretty slow
+            Asphyxiation: 0.25
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+      - !type:Paralyze
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        probability: 0.05
+        paralyzeTime: 2
+      - !type:Emote
+        emote: Gasp
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+
+- type: reagent
+  id: Anacea
+  name: reagent-name-anacea
+  group: Toxins
+  desc: reagent-desc-anacea
+  physicalDesc: reagent-physical-desc-creamy
+  flavor: bitter
+  color: "#819cb5"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.05
+      effects:
+      - !type:AdjustReagent
+        group: Medicine
+        amount: -4.5
+        conditions: # higher quality anti-poisons, save for calomel which is low effort but high risk
+        - !type:BloodReagentThreshold
+          reagent: PentenicAcid
+          max: 0.1
+        - !type:BloodReagentThreshold
+          reagent: Calomel
+          max: 0.1
+        - !type:BloodReagentThreshold
+          reagent: Diphenhydramine
+          max: 0.1
+      - !type:AdjustReagent
+        group: Medicine
+        amount: -0.5
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.2 # this works out to 20 per 5u
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+
+- type: reagent
+  id: Pendetide
+  name: reagent-name-pendetide
+  group: Toxins
+  desc: reagent-desc-pendetide
+  physicalDesc: reagent-physical-desc-viscous
+  flavor: bitter
+  color: "#22ff1a"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:AdjustReagent
+        group: Medicine
+        amount: -5
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: 2
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            types:
+              Radiation: 2 # kinda arbitrary, it'll trigger after some rads
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+      - !type:Jitter
+
+- type: reagent
+  id: Aluite
+  name: reagent-name-aluite
+  group: Toxins
+  desc: reagent-desc-aluite
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: bitter
+  color: "#8e8e8e"
+  metabolisms:
+    Poison:
+      metabolismRate: 3
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 6
+        damage:
+          types:
+            Blunt: 10
+      - !type:AdjustReagent
+        amount: -25
+        reagent: Syriniver
+      - !type:AdjustReagent
+        amount: -50
+        reagent: Ebifin
+      - !type:AdjustReagent
+        amount: -25
+        reagent: ProcenylLazide
+      - !type:AdjustReagent
+        amount: -25
+        reagent: Aluite

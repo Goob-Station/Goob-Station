@@ -11,7 +11,3 @@
       - id: WirecutterAbductor
       - id: WelderAbductor
       - id: MultitoolAbductor
-      - id: EnergyScalpelAbductor
-      - id: SearingToolAbductor
-      - id: MechanicalPinchesAbductor
-      - id: BoneManipulatorAbductor
