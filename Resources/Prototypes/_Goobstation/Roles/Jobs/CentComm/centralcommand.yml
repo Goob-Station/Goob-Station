@@ -37,6 +37,9 @@
   storage:
     back:
     - HandheldFaxOfficial
+    - WeaponPulsePistol
+    - BluespaceLifelineImplanter
+    - CentcommFreedomImplanter
 
 # Navy Captain
 
@@ -66,7 +69,7 @@
     jumpsuit: ClothingUniformJumpsuitNavyGold
     shoes: ClothingShoesBootsJackFilled
     head: ClothingHeadHatBeretNavyCaptain
-    eyes: ClothingEyesGlassesCentComm
+    eyes: ClothingEyesGlassesDeathsquad
     gloves: ClothingHandsGlovesHeavyGoldenTrim
     back: ClothingBackpackSatchelLeather
     outerClothing: ClothingOuterArmourInvisible
@@ -78,4 +81,7 @@
     pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
   storage:
     back:
+      - WeaponPulsePistol
       - HandheldFaxOfficial
+      - BluespaceLifelineImplanter
+      - CentcommFreedomImplanter
