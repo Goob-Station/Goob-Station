@@ -103,6 +103,7 @@ using Content.Shared.Mech.Components;
 using Content.Shared.Rejuvenate; // Shitmed Change
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.Mech.EntitySystems; // Goobstation
+using Content.Shared.Tag;
 
 namespace Content.Server.Zombies;
 
@@ -125,8 +126,9 @@ public sealed partial class ZombieSystem
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly NameModifierSystem _nameMod = default!;
+    [Dependency] private readonly SharedRoleSystem _roles = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly NameModifierSystem _nameMod = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly SharedMechSystem _mech = default!; // Goobstation
 
@@ -352,5 +354,9 @@ public sealed partial class ZombieSystem
         _movementSpeedModifier.RefreshMovementSpeedModifiers(target);
         if (TryComp<MechPilotComponent>(target, out var mechPilotComponent)) // Goobstation - kick out zombies from mechs on conversion
             _mech.TryEject(mechPilotComponent.Mech, null, target);
+
+        //Need to prevent them from getting an item, they have no hands.
+        // Also prevents them from becoming a Survivor. They're undead.
+        _tag.AddTag(target, "InvalidForGlobalSpawnSpell");
     }
 }
