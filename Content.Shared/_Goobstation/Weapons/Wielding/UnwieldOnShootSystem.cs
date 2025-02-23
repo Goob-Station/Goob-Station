@@ -6,7 +6,7 @@ namespace Content.Shared._Goobstation.Weapons.Wielding;
 
 public sealed class UnwieldOnShootSystem : EntitySystem
 {
-    [Dependency] private readonly WieldableSystem _wieldable = default!;
+    [Dependency] private readonly SharedWieldableSystem _wieldable = default!;
 
     public override void Initialize()
     {

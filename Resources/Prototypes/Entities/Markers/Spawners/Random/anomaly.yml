@@ -8,28 +8,35 @@
     - state: red
     - sprite: Structures/Specific/anomaly.rsi
       state: anom1
-  - type: RandomSpawner
-    chance: 1
-    prototypes:
-    - AnomalyPyroclastic
-    - AnomalyGravity
-    - AnomalyElectricity
-    - AnomalyFlesh
-    - AnomalyBluespace
-    - AnomalyIce
-    - RandomRockAnomalySpawner
-    - AnomalyLiquid
-    - AnomalyFlora
-    - AnomalyShadow
-    - AnomalyTech
-    - AnomalySanta #Remove in 2025
-    rareChance: 0.3
-    rarePrototypes:
-    - RandomAnomalyInjectorSpawner
+  - type: EntityTableSpawner # Goobstation: adding individual anomaly weights
+    #chance: 1
+    table: !type:NestedSelector
+      tableId: RandomAnomalyTable
     offset: 0.15 # not to put it higher. The anomaly sychnronizer looks for anomalies within this radius, and if the radius is higher, the anomaly can be attracted from a neighboring tile.
+
+- type: entityTable
+  id: RandomAnomalyTable
+  table: !type:GroupSelector
+    children:
+    - id: AnomalyPyroclastic
+    - id: AnomalyGravity
+    - id: AnomalyElectricity
+    - id: AnomalyFlesh
+    - id: AnomalyBluespace
+    - id: AnomalyIce
+    - id: RandomRockAnomalySpawner
+    - id: AnomalyLiquid
+    - id: AnomalyFlora
+    - id: AnomalyShadow
+    - id: AnomalyTech
+    - id: AnomalySanta
+      weight: 0.4 # Make more common in December
+    - id: RandomAnomalyInjectorSpawner # formerly rareChance 0.3, 30% chance of spawning. keep similar
+      weight: 3.97 # (1/12*3.97)-(0.4/13) is very close to 30%
 
 - type: entity
   id: RandomRockAnomalySpawner
+  name: random anomaly spawner (rock)
   parent: MarkerBase
   components:
   - type: Sprite
@@ -48,6 +55,7 @@
 
 - type: entity
   id: RandomAnomalyInjectorSpawner
+  name: random anomaly spawner (injector)
   parent: MarkerBase
   components:
   - type: Sprite
@@ -55,18 +63,23 @@
     - state: red
     - sprite: Structures/Specific/Anomalies/tech_anom.rsi
       state: pulse
-  - type: RandomSpawner
-    prototypes:
-    - AnomalyTrapPyroclastic
-    - AnomalyTrapElectricity
-    - AnomalyTrapShadow
-    - AnomalyTrapIce
-    - AnomalyTrapFlora
-    - AnomalyTrapBluespace
-    - AnomalyTrapFlesh
-    - AnomalyTrapGravity
-    - AnomalyTrapTech
-    - AnomalyTrapRock
-    - AnomalyTrapSanta # Remove in 2025
-    chance: 1
-  
+  - type: EntityTableSpawner # Goobstation: adding individual anomaly weights
+    table: !type:NestedSelector
+      tableId: RandomAnomalyInjectorTable
+
+- type: entityTable
+  id: RandomAnomalyInjectorTable
+  table: !type:GroupSelector
+    children:
+    - id: AnomalyTrapPyroclastic
+    - id: AnomalyTrapElectricity
+    - id: AnomalyTrapShadow
+    - id: AnomalyTrapIce
+    - id: AnomalyTrapFlora
+    - id: AnomalyTrapBluespace
+    - id: AnomalyTrapFlesh
+    - id: AnomalyTrapGravity
+    - id: AnomalyTrapTech
+    - id: AnomalyTrapRock
+    - id: AnomalyTrapSanta # Make more common in December
+      weight: 0.4
