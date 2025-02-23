@@ -74,6 +74,12 @@
         Piercing: 0.70
         Heat: 0.75
         Caustic: 0.50
+  - type: Sprite
+    sprite: _Lavaland/Equipment/explorer_suit.rsi
+    state: reinforced1-icon
+  - type: Clothing
+    sprite: _Lavaland/Equipment/explorer_suit.rsi
+    equippedState: reinforced1-equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototypes:
       head: LavalandEquipmentExplorerHoodReinforced1
@@ -88,6 +94,12 @@
   name: reinforced explorer hood
   description: An armoured hood for exploring harsh environments. Lightly reinforced with goliath plates.
   components:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/explorer_suit.rsi
+    state: reinforced1-icon_head
+  - type: Clothing
+    sprite: _Lavaland/Equipment/explorer_suit.rsi
+    equippedState: reinforced1-equipped-HELMET
   - type: Armor
     modifiers:
       coefficients:
