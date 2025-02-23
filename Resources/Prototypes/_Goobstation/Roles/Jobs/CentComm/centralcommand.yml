@@ -1,0 +1,39 @@
+- type: job
+  id: NavyOfficer
+  name: job-name-navyofficer
+  description: job-description-navyofficer
+  playTimeTracker: JobNavyOfficer
+  setPreference: false
+  startingGear: NavyOfficerGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-commander
+  canBeAntag: false
+  requirements:
+  - !type:AgeRequirement
+    requiredAge: 21
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
+
+- type: startingGear
+  id: NavyOfficerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNavyGold
+    shoes: ClothingShoesBootsJackFilled
+    head: ClothingHeadHatBeretEliteNavyOfficer
+    eyes: ClothingEyesGlassesDeathsquad
+    gloves: ClothingHandsGlovesCombat
+    back: ClothingBackpackSatchelLeather
+    outerClothing: ClothingOuterArmorCentcommCarapace
+    neck: ExecutiveIDCard
+    id: CentcomPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltHolsterFilledCentComm
+    pocket1: BoxFolderCentCom
+    pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
+  storage:
+    back:
+    - HandheldFaxOfficial
