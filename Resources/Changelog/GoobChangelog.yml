@@ -5236,3 +5236,9 @@ Entries:
       message: IPC nukies now get their built-in syndicate encryption key.
   id: 600
   time: '2025-02-23T00:48:08.0000000+00:00'
+- author: Cerise-Cattowo
+  changes:
+    - type: Tweak
+      message: Fixed an error with the prefix selection of the medieval accent
+  id: 601
+  time: '2025-02-23T00:50:26.0000000+00:00'
