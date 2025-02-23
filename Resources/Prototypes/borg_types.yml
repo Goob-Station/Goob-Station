@@ -169,7 +169,7 @@
   - type: Sanitized # Shitmed
   - type: SurgeryIgnoreClothing
   - type: SurgerySpeedModifier
-    speedModifier: 1.75
+    speedModifier: 1.5
 
   # Visual
   inventoryTemplateId: borgDutch
