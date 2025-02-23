@@ -27,7 +27,7 @@
     eyes: ClothingEyesGlassesDeathsquad
     gloves: ClothingHandsGlovesCombat
     back: ClothingBackpackSatchelLeather
-    outerClothing: ClothingOuterArmorCentcommCarapace
+    outerClothing: ClothingOuterArmourInvisible
     neck: ExecutiveIDCard
     id: CentcomPDA
     ears: ClothingHeadsetAltCentCom
