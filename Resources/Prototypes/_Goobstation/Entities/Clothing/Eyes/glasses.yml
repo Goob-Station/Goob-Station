@@ -122,9 +122,9 @@
   description: A pair of shades designed for central command personnel. Comes with more features than you could imagine.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Eyes/Glasses/deathsquad.rsi
+    sprite: _Goobstation/Clothing/Eyes/Glasses/centcomm.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Eyes/Glasses/deathsquad.rsi
+    sprite: _Goobstation/Clothing/Eyes/Glasses/centcomm.rsi
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5

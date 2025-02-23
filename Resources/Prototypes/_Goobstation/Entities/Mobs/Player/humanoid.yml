@@ -228,6 +228,8 @@
 
 # Central Command!
 
+# Navy Officer
+
 - type: entity
   id: RandomHumanoidSpawnerNavyOfficer
   name: Navy Officer
@@ -256,6 +258,42 @@
       settings: short
   - type: Loadout
     prototypes: [ NavyOfficerGear ]
+    roleLoadout: [ RoleSurvivalEVA ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstMilitaryLeader
+    - NamesLastMilitary
+
+# Navy Captain
+
+- type: entity
+  id: RandomHumanoidSpawnerNavyCaptain
+  name: Navy Captain
+  suffix: ADMIN ONLY, DO FUCKING NOT
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
+    state: icon
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstMilitaryLeader
+    - NamesLastMilitary
+  - type: RandomHumanoidSpawner
+    settings: NavyCaptain
+
+- type: randomHumanoidSettings
+  id: NavyCaptain
+  parent: EventHumanoidMindShielded
+  randomizeName: false
+  components:
+  - type: GhostRole
+    name: ghost-role-information-navy-captain-name
+    description: ghost-role-information-navy-captain-description
+    rules: ghost-role-information-navy-captain-rules
+    raffle:
+      settings: short
+  - type: Loadout
+    prototypes: [ NavyCaptainGear ]
     roleLoadout: [ RoleSurvivalEVA ]
   - type: RandomMetadata
     nameSegments:
