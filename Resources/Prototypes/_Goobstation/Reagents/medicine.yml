@@ -294,7 +294,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: -15
+            Poison: -18
       - !type:AdjustReagent
         reagent: Musiver
         amount: 3
@@ -374,8 +374,11 @@
       effects:
       - !type:HealthChange
         damage:
-          groups:
-            Burn: -48 # in practice it's only 2+4/u per type on an insanely unwieldy chem; shock and caustic are very rare
+          types:
+            Heat: -30
+            Cold: -24
+            Shock: -24
+            Caustic: -18
       - !type:AdjustReagent
         reagent: Tehifin
         amount: 3
@@ -463,9 +466,9 @@
       - !type:HealthChange
         damage:
           types:
-            Slash: -8
-            Blunt: -8
-            Piercing: -8
+            Slash: -24
+            Blunt: -24
+            Piercing: -24
       - !type:AdjustReagent
         reagent: Bozaide
         amount: 3
@@ -504,7 +507,7 @@
   color: "#65583b"
   metabolisms:
     Medicine:
-      metabolismRate: 0.05
+      metabolismRate: 0.1
       effects:
       - !type:HealthChange
         damage:
@@ -1041,7 +1044,7 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -9
+            Brute: -12
         conditions:
         - !type:TypedDamageThreshold
           damage:
@@ -1052,7 +1055,7 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -1
+            Brute: -3
         conditions:
         - !type:TypedDamageThreshold
           damage:
@@ -1089,10 +1092,10 @@
       - !type:HealthChange
         damage:
           types:
-            Heat: -3
-            Shock: -2
-            Cold: -3
-            Caustic: -2
+            Heat: -4
+            Shock: -4
+            Cold: -4
+            Caustic: -3
         conditions:
         - !type:TypedDamageThreshold
           damage:
@@ -1103,7 +1106,7 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: -2
+            Burn: -4
         conditions:
         - !type:TypedDamageThreshold
           damage:
@@ -1115,7 +1118,7 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: 3
+            Burn: 4
         conditions:
         - !type:ReagentThreshold
           min: 25
@@ -1144,8 +1147,8 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: -1
-            Radiation: -1 # grants 100% protection from rads until higher rad values
+            Poison: -2
+            Radiation: -2 # grants 100% protection from rads until higher rad values
       - !type:GenericStatusEffect
         key: RadiationProtection
         component: RadiationProtection
