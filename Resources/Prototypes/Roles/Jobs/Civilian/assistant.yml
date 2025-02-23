@@ -8,11 +8,11 @@
   supervisors: job-supervisors-everyone
   canBeAntag: false # GOOBSTATION: THE RECKONING COMES
   access:
-  # - Maintenance # goobstation - welcome to rust
+   - Maintenance
 
 - type: startingGear
   id: PassengerGear
-  equipment:
+ # equipment: # goobstation - rust
     # id: PassengerPDA # goobstation - welcome to rust
     # ears: ClothingHeadsetGrey # goobstation - welcome to rust
   inhand:
