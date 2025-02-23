@@ -1041,7 +1041,7 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -9
+            Brute: -12
         conditions:
         - !type:TypedDamageThreshold
           damage:
@@ -1052,7 +1052,7 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -1
+            Brute: -3
         conditions:
         - !type:TypedDamageThreshold
           damage:
@@ -1089,10 +1089,10 @@
       - !type:HealthChange
         damage:
           types:
-            Heat: -3
-            Shock: -2
-            Cold: -3
-            Caustic: -2
+            Heat: -4
+            Shock: -4
+            Cold: -4
+            Caustic: -3
         conditions:
         - !type:TypedDamageThreshold
           damage:
@@ -1103,7 +1103,7 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: -2
+            Burn: -4
         conditions:
         - !type:TypedDamageThreshold
           damage:
@@ -1115,7 +1115,7 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: 3
+            Burn: 4
         conditions:
         - !type:ReagentThreshold
           min: 25
@@ -1144,8 +1144,8 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: -1
-            Radiation: -1 # grants 100% protection from rads until higher rad values
+            Poison: -2
+            Radiation: -2 # grants 100% protection from rads until higher rad values
       - !type:GenericStatusEffect
         key: RadiationProtection
         component: RadiationProtection
