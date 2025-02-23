@@ -16,7 +16,7 @@ public sealed class LavalandGenerationTest
     [Test]
     public async Task LavalandPlanetGenerationTest()
     {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings { DummyTicker = false, Dirty = true, Fresh = true});
+        await using var pair = await PoolManager.GetServerClient();
         var server = pair.Server;
         var entMan = server.EntMan;
         var protoMan = server.ProtoMan;
