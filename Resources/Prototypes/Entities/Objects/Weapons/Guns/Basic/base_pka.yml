@@ -9,7 +9,7 @@
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
     size: Large # Lavaland Change
     shape:
-    - 0,0,2,1
+    - 0,0,1,1
   # Lavaland Change start
   - type: WeaponAttachment
     lightActionPrototype: ActionTogglePKALight

@@ -52,7 +52,7 @@
       - id: MindShieldImplanter
       - id: RCDChrono
       - id: ChronoTeleporter
-      - id: HandHeldMassScanner
+      - id: HandheldGPSBasic # Mass Scanner Removed by Lavaland
       - id: Flash
       - id: TimelineDisruptorFlatpack
 

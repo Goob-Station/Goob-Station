@@ -34,7 +34,10 @@
     whitelist:
       tags:
       - PKAUpgrade
-
+  - type: Item
+    shape:
+    - 0,0,4,0
+  
 - type: entity
   name: proto-kinetic repeater
   id: WeaponProtoKineticRepeater
@@ -81,6 +84,9 @@
     whitelist:
       tags:
       - PKAUpgrade
+  - type: Item
+    shape:
+    - 0,0,2,1
 
 - type: entity
   name: proto-kinetic pistol
@@ -114,6 +120,11 @@
     whitelist:
       tags:
       - PKAUpgrade
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
 
 # Lavaland Change
 - type: entity

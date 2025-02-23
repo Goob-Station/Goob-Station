@@ -129,10 +129,10 @@
     Steel: 500
     Plastic: 250
 
-- type: latheRecipe
-  parent: BaseBigToolRecipe
-  id: HandHeldMassScanner
-  result: HandHeldMassScannerEmpty
+#- type: latheRecipe - Removed by Lavaland
+#  parent: BaseBigToolRecipe
+#  id: HandHeldMassScanner
+#  result: HandHeldMassScannerEmpty
 
 - type: latheRecipe
   parent: BaseBigToolRecipe

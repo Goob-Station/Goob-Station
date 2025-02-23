@@ -3142,13 +3142,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 37.5,20.5
       parent: 2
-- proto: HandHeldMassScanner
-  entities:
-  - uid: 729
-    components:
-    - type: Transform
-      pos: 43.573917,7.488577
-      parent: 2
 - proto: LeftLegBorgEngineer
   entities:
   - uid: 808

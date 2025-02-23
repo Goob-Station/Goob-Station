@@ -4,3 +4,11 @@
   icon: { sprite: /Textures/_Goobstation/Objects/Materials/materials.rsi, state: bluespace_crystal }
   spawn: MaterialBSCrystal1
   maxCount: 30
+
+- type: stack
+  id: BSCrystalUnprocessed
+  name: unprocessed bluespace crystal
+  icon: { sprite: /Textures/_Goobstation/Objects/Materials/materials.rsi, state: bluespace_crystal }
+  spawn: MaterialBSCrystal1Unprocessed
+  maxCount: 30
+

@@ -594,6 +594,8 @@
   - type: Appearance
   - type: Item
     heldPrefix: bananium
+  - type: RadiationSource # Goobstation - ITS BACK
+    intensity: 0.1
 
 - type: entity
   parent: MaterialBananium

@@ -19,3 +19,14 @@
   - type: Tag
     tags:
     - GPS
+  - type: RadarConsole
+    maxRange: 256
+    followEntity: true
+  - type: ActivatableUI
+    key: enum.RadarConsoleUiKey.Key
+    inHandsOnly: true
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface

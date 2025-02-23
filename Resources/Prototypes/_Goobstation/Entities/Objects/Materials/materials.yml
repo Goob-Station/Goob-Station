@@ -40,3 +40,23 @@
   components:
   - type: Stack
     count: 1
+
+- type: entity
+  parent: MaterialBSCrystal
+  id: MaterialBSCrystalUnprocessed
+  name: unprocessed bluespace crystal
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: BSCrystalUnprocessed
+  - type: UnclaimedOre
+    miningPoints: 100
+
+- type: entity
+  parent: MaterialBSCrystalUnprocessed
+  id: MaterialBSCrystal1Unprocessed
+  name: unprocessed bluespace crystal
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
