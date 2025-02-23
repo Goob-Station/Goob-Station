@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseCartridge, BaseRestrictedContraband ]
+  parent: [ BaseCartridge, BaseSecurityContraband ]
   id: CartridgeSmart
   name: cartridge (.160 smart)
   description: A .160 smart bullet with a small charge of booster propellant at the bottom.

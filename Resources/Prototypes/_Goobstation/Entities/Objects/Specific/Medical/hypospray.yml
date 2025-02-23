@@ -28,7 +28,7 @@
 
 - type: entity
   name: security cartridge autoinjector
-  parent: [BaseItem, BaseRestrictedContraband]
+  parent: [BaseItem, BaseSecurityContraband]
   description: Used for rapid administration of medicine. Uses cartridges printable at the medical and security techfab.
   id: SecHypo
   components:
@@ -71,7 +71,7 @@
 
 - type: entity
   name: autoinjector cartridge
-  parent: [BaseItem, BaseRestrictedContraband]
+  parent: [BaseItem, BaseSecurityContraband]
   description: Used in a cartridge autoinjector.
   id: BaseCartridgeAutoinjector
   components:

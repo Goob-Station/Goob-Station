@@ -1,7 +1,7 @@
 - type: entity
   id: CartridgeMagicBullet
   name: magic bullet cartridge
-  parent: [ BaseCartridge, BaseRestrictedContraband ]
+  parent: [ BaseCartridge, BaseSecurityContraband ]
   components:
   - type: Tag
     tags:

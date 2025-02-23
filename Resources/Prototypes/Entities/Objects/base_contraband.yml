@@ -1,4 +1,4 @@
-﻿# non-stealth syndicate stuff
+# non-stealth syndicate stuff
 - type: entity
   id: BaseSyndicateContraband
   abstract: true
@@ -22,14 +22,15 @@
   - type: Contraband
     severity: Major
 
-# minor contraband by default restricted to security only
+# base department restricted contraband, this should only be used as a parent for other contraband prototypes, not the restricted items themselves.
 - type: entity
   id: BaseRestrictedContraband
   abstract: true
   components:
   - type: Contraband
     severity: Restricted
-    allowedDepartments: [ Security ]
+    allowedDepartments: [  ]
+    allowedJobs: [  ]
 
 # one department restricted contraband
 - type: entity
@@ -55,6 +56,7 @@
   components:
   - type: Contraband
     allowedDepartments: [ Security ]
+    allowedJobs: [ BlueshieldOfficer ] # Goob - effectively almost a sec member
 
 - type: entity
   id: BaseEngineeringContraband
@@ -188,3 +190,4 @@
   - type: Contraband
     severity: GrandTheft
     allowedDepartments: [ Command ]
+    allowedJobs: [ Warden ] # Goob - energy shotgun
