@@ -23,7 +23,7 @@
       startingGear: HereticGear # see Roles/Antags/heretic.yml
   - type: Tag
     tags:
-    - RoundstartAntag
+      - RoundstartAntag
 
 - type: entity
   parent: BaseGameRule
@@ -50,5 +50,4 @@
       startingGear: HereticGear # see Roles/Antags/heretic.yml
   - type: Tag
     tags:
-    - RoundstartAntag
-    - CalmAntag
+      - CalmAntag

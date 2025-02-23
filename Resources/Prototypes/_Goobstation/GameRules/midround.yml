@@ -30,7 +30,7 @@
       - MindRoleTraitor
   - type: Tag
     tags:
-    - MidroundAntag
+      - MidroundAntag
 
 # Midround Changelings
 - type: entity
@@ -66,7 +66,7 @@
       - MindRoleChangeling
   - type: Tag
     tags:
-    - MidroundAntag
+      - MidroundAntag
 # Midround Heretics
 - type: entity
   parent: Heretic
@@ -102,7 +102,7 @@
       startingGear: HereticGear # see Roles/Antags/heretic.yml
   - type: Tag
     tags:
-    - MidroundAntag
+      - MidroundAntag
 # Midround Revolutionaries
 - type: entity
   parent: Revolutionary
@@ -139,8 +139,8 @@
       - type: HeadRevolutionary
       mindRoles:
       - MindRoleHeadRevolutionary
-    - type: Tag
-      tags:
+  - type: Tag
+    tags:
       - MidroundAntag
 # Skeleton Spawn
 - type: entity
@@ -159,7 +159,7 @@
     prototype: MobSkeletonCloset
   - type: Tag
     tags:
-    - MidroundAntag
+      - MidroundAntag
 # Blob Midround
 - type: entity
   parent: BaseGameRule

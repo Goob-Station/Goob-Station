@@ -114,7 +114,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             // event to be ready to run again, we'll check CanRun again before we actually launch the event.
             if (!_event.CanRun(proto, stationEvent, count.Players, TimeSpan.MaxValue))
                 continue;
-            LogMessage($"Possible event added: ${proto.ID}");
+            //LogMessage($"Possible event added: ${proto.ID}");
 
             scheduler.PossibleEvents.Add(new PossibleEvent(proto.ID, stationEvent.Chaos));
         }
@@ -181,12 +181,14 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
 
     /// <summary>
     /// Spawn roundstart antags at the beginning of the round
+    /// Checks gamedirectorcomp if DualAntags is true
+    /// If so selects two antags
     /// </summary>
     private void SpawnRoundstartAntags(GameDirectorComponent scheduler, PlayerCount count)
     {
         // Spawn antags based on GameDirectorComponent
             var roundStartAntags = new List<EntityPrototype>();
-
+            var calmStartAntags = new List<EntityPrototype>();
             foreach (var proto in GameTicker.GetAllGameRulePrototypes())
             {
                 if (!proto.TryGetComponent<TagComponent>(out var tag, _factory))
@@ -201,20 +203,24 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
                 if (proto.HasComponent<DynamicRulesetComponent>())
                     continue;
 
-                if (!_tag.HasTag(tag, "RoundstartAntag"))
-                    continue;
-
                 if (_tag.HasTag(tag, "MidroundAntag"))
                     continue;
-                roundStartAntags.Add(proto);
+
+                if (_tag.HasTag(tag, "RoundstartAntag"))
+                {
+                    LogMessage($"Roundstart antag choice added: {proto.ID}");
+                    roundStartAntags.Add(proto);
+                }
+                else if (_tag.HasTag(tag, "CalmAntag"))
+                {
+                    LogMessage($"Calmstart antag choice added: {proto.ID}");
+                    calmStartAntags.Add(proto);
+                }
+
             }
 
             if (!scheduler.DualAntags)
             {
-                roundStartAntags.RemoveAll(proto =>
-                    proto.TryGetComponent<TagComponent>(out var tag, _factory) &&
-                    _tag.HasTag(tag, "CalmAntag"));
-
                 if (roundStartAntags.Count == 0)
                 {
                     LogMessage("No valid roundstart antags found!");
@@ -231,9 +237,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             }
             else
             {
-                roundStartAntags.RemoveAll(proto => proto.TryGetComponent<TagComponent>(out var tag, _factory) && !_tag.HasTag(tag, "CalmAntag"));
-
-                if (roundStartAntags.Count < 2)
+                if (calmStartAntags.Count < 2)
                 {
                     LogMessage("Not enough valid roundstart antags found!");
                     return;
@@ -242,11 +246,11 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
                 LogMessage("Choosing multiple roundstart antags");
                 var random = new Random();
 
-                var firstIndex = random.Next(roundStartAntags.Count);
-                var randomAntagFirst = roundStartAntags[firstIndex];
-                roundStartAntags.RemoveAt(firstIndex);
+                var firstIndex = random.Next(calmStartAntags.Count);
+                var randomAntagFirst = calmStartAntags[firstIndex];
+                calmStartAntags.RemoveAt(firstIndex);
 
-                var randomAntagSecond = roundStartAntags[random.Next(roundStartAntags.Count)];
+                var randomAntagSecond = calmStartAntags[random.Next(calmStartAntags.Count)];
 
                 LogMessage($"Roundstart antags chosen: 1: {randomAntagFirst.ID} 2: {randomAntagSecond.ID}");
 

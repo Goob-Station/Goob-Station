@@ -23,7 +23,6 @@
   - type: Tag
     tags:
       - RoundstartAntag
-      - CalmAntag
 
 - type: entity
   parent: BaseTraitorRule
@@ -46,7 +45,6 @@
       - MindRoleTraitor
   - type: Tag
     tags:
-      - RoundstartAntag
       - CalmAntag
 
 - type: entity
@@ -67,8 +65,7 @@
       - MindRoleTraitor
   - type: Tag
     tags:
-    - RoundstartAntag
-    - CalmAntag
+      - CalmAntag
 
 - type: entity
   parent: BaseNukeopsRule
@@ -133,9 +130,8 @@
         - Syndicate
       mindRoles:
       - MindRoleNukeops
-    - type: Tag
-      tags:
-      - RoundstartAntag
+  - type: Tag
+    tags:
       - CalmAntag
 
 - type: entity
@@ -163,7 +159,6 @@
       - MindRoleHeadRevolutionary
   - type: Tag
     tags:
-      - RoundstartAntag
       - CalmAntag
 # Blob
 - type: entity

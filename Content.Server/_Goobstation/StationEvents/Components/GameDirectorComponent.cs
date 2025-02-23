@@ -45,8 +45,7 @@ public sealed partial class GameDirectorComponent : Component
     public List<ProtoId<StoryBeatPrototype>> RemainingBeats = new();
 
     /// <summary>
-    ///   Which stories the director can choose from (so we can change flavor of director by loading different stories)
-    ///   One of these get picked randomly each time the current story is exhausted.
+    /// Does this round start with multiple antags.
     /// </summary>
     [DataField]
     public bool DualAntags;

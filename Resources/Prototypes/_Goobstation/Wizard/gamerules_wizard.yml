@@ -44,6 +44,7 @@
   - type: Tag
     tags:
       - RoundstartAntag
+
 - type: entity
   parent: BaseWizardRule
   id: Wizard
@@ -96,9 +97,9 @@
       - type: NpcFactionMember
         factions:
         - Wizard
-    - type: Tag
-      tags:
-        MidroundAntag
+  - type: Tag
+    tags:
+      - MidroundAntag
 
 - type: entity
   parent: [ WizardDynamic, WizardMidround]
