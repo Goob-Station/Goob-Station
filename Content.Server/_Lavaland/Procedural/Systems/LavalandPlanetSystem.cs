@@ -260,6 +260,9 @@ public sealed class LavalandPlanetSystem : EntitySystem
         _mapManager.DoMapInitialize(lavalandMapId);
         _mapManager.SetMapPaused(lavalandMapId, false);
 
+        // also preload the planet itself
+        _biome.Preload(lavaland.Value, biome, Box2.CentredAroundZero(new Vector2(prototype.RestrictedRange, prototype.RestrictedRange)));
+
         // Finally add destination, only for Mining Shittles
         var dest = AddComp<FTLDestinationComponent>(lavalandMap);
         dest.Whitelist = new EntityWhitelist {Components = ["MiningShuttle"]};
