@@ -127,7 +127,7 @@
 # CentralCommand
 
 - type: entity
-  parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseCentcommContrband]
+  parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseCentcommContraband]
   id: ClothingOuterArmourInvisible # I'll be real, this is just invisible armor so it doesn't ruin how fucking AWESOME navy officers look. Bite me.
   name: covert armor
   description: An armored vest that utilizes bluespace technology, bending light and becoming invisible to the naked eye when worn.
