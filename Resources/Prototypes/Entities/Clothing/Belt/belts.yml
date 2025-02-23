@@ -660,7 +660,7 @@
   - type: Clothing
     sprite: Clothing/Belt/militarywebbing.rsi
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.05 #goobstation
 
 - type: entity
   parent: ClothingBeltMilitaryWebbing
