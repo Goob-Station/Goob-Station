@@ -803,6 +803,7 @@
         type: AmmoSelectorMenuBoundUserInterface
   - type: ActivatableUI
     altVerb: true
+    verbOnly: true
     verbText: mode-select-verb-text
     key: enum.AmmoSelectorUiKey.Key
   # Goob edit end
