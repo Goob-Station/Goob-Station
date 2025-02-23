@@ -190,3 +190,4 @@
   - type: Contraband
     severity: GrandTheft
     allowedDepartments: [ Command ]
+    allowedJobs: [ Warden ] # Goob - energy shotgun
