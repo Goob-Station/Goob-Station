@@ -106,6 +106,30 @@
     - NanotrasenRepresentative
     - BlueshieldOfficer
 
+- type: entity
+  parent: ExecutiveIDCard
+  id: ExecutiveIDCardChameleon
+  name: executive access card
+  description: Flash this, and any Nanotrasen employee is legally obligated to listen to you. Capable of changing appearance if you want to go incognito.
+  components:
+  - type: AgentIDCard
+  - type: ActivatableUI
+    key: enum.AgentIDCardUiKey.Key
+    inHandsOnly: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+  - type: ChameleonClothing
+    slot: [ idcard ]
+    default: ExecutiveIDCard
+  - type: UserInterface
+    interfaces:
+     enum.AgentIDCardUiKey.Key:
+        type: AgentIDCardBoundUserInterface
+     enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+
+
 # Navy Captain
 
 - type: entity

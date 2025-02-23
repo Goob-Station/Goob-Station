@@ -135,8 +135,10 @@
       - RadioImplanterCentcomm
       - CentcommStorageImplanter
       - ClothingOuterChameleon
-      - ExecutiveIDCard
+      - ExecutiveIDCardChameleon
       - DartSyringeGunCentComm
-    inhand:
-      - BoxSyringePoison
+      - SyringePoisonCentcomm
+      - SyringePoisonCentcomm
+      - SyringePoisonCentcomm
+      - SyringePoisonCentcomm
 
