@@ -6,7 +6,11 @@ using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Server.GameTicking;
 using Content.Shared.Humanoid;
-
+using Content.Shared.Roles.Jobs;
+using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared._Goobstation.CCVar;
+using Robust.Server.Player;
+using Robust.Shared.Configuration;
 namespace Content.Server._Goobstation.ServerCurrency
 {
     /// <summary>
@@ -17,6 +21,15 @@ namespace Content.Server._Goobstation.ServerCurrency
         [Dependency] private readonly ServerCurrencyManager _currencyMan = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly SharedMindSystem _mind = default!;
+        [Dependency] private readonly SharedJobSystem _jobs = default!;
+        [Dependency] private readonly IPlayerManager _players = default!;
+        [Dependency] private readonly IConfigurationManager _cfg = default!;
+
+        private int _goobcoinsPerPlayer = 10;
+        private int _goobcoinsNonAntagMultiplier = 3;
+        private int _goobcoinsServerMultiplier = 1;
+        private int _goobcoinsMinPlayers;
+
         public override void Initialize()
         {
             base.Initialize();
@@ -24,6 +37,10 @@ namespace Content.Server._Goobstation.ServerCurrency
             SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundEndCleanup);
             SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndText);
             SubscribeNetworkEvent<PlayerBalanceRequestEvent>(OnBalanceRequest);
+            Subs.CVar(_cfg, GoobCVars.GoobcoinsPerPlayer, value => _goobcoinsPerPlayer = value, true);
+            Subs.CVar(_cfg, GoobCVars.GoobcoinNonAntagMultiplier, value => _goobcoinsNonAntagMultiplier = value, true);
+            Subs.CVar(_cfg, GoobCVars.GoobcoinServerMultiplier, value => _goobcoinsServerMultiplier = value, true);
+            Subs.CVar(_cfg, GoobCVars.GoobcoinMinPlayers, value => _goobcoinsMinPlayers = value, true);
         }
 
         public override void Shutdown()
@@ -39,16 +56,40 @@ namespace Content.Server._Goobstation.ServerCurrency
 
         private void OnRoundEndText(RoundEndTextAppendEvent ev)
         {
-            var query = EntityQueryEnumerator<MindContainerComponent, HumanoidAppearanceComponent>();
+            if (_players.PlayerCount < _goobcoinsMinPlayers)
+                return;
 
-            while (query.MoveNext(out _, out var mindContainer, out _))
+            var query = EntityQueryEnumerator<MindContainerComponent>();
+
+            while (query.MoveNext(out var uid, out var mindContainer))
             {
+                var isBorg = HasComp<BorgChassisComponent>(uid);
+                if (!(HasComp<HumanoidAppearanceComponent>(uid)
+                    || HasComp<BorgBrainComponent>(uid)
+                    || isBorg))
+                    continue;
+
                 if (mindContainer.Mind.HasValue)
                 {
                     var mind = Comp<MindComponent>(mindContainer.Mind.Value);
-                    if (mind is not null && !_mind.IsCharacterDeadIc(mind))
-                        if (mind.OriginalOwnerUserId.HasValue)
-                            _currencyMan.AddCurrency(mind.OriginalOwnerUserId.Value, 10);
+                    if (mind is not null
+                        && (isBorg || !_mind.IsCharacterDeadIc(mind)) // Borgs count always as dead so I'll just throw them a bone and give them an exception.
+                        && mind.OriginalOwnerUserId.HasValue)
+                    {
+                        int money = _goobcoinsPerPlayer;
+                        var session = mind.Session;
+                        if (session is not null)
+                        {
+                            money += _jobs.GetJobGoobcoins(session);
+                            if (!_jobs.CanBeAntag(session))
+                                money *= _goobcoinsNonAntagMultiplier;
+                        }
+
+                        if (_goobcoinsServerMultiplier != 1)
+                            money *= _goobcoinsServerMultiplier;
+
+                        _currencyMan.AddCurrency(mind.OriginalOwnerUserId.Value, money);
+                    }
                 }
             }
         }
