@@ -100,7 +100,7 @@
   - type: Multishot
 
 - type: entity
-  name: Agent Pistol
+  name: contract terminator
   parent: [BaseWeaponPistol, BaseCentcommContraband]
   id: WeaponPistolCentcommAgent
   description: A pistol specifically designed to fire neurotoxin laced bullets. It's capable concealing itself via bluespace technology.
