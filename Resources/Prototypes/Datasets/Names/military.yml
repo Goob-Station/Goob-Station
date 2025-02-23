@@ -5,7 +5,7 @@
   - Commander
   - Lieutenant
   - Major
-  
+
 - type: dataset
   id: NamesFirstMilitary
   values:
@@ -20,13 +20,16 @@
   - Andromeda
   - Antares
   - Aquarius
+  - Ara
+  - Aries
   - Beid
   - Betelgeuse
   - Canopus
+  - Cetus
   - Capricorn
   - Celaeno
   - Centaur
-  - Chameleon
+  - Chamaeleon
   - Chau
   - Cygnus
   - Deneb
@@ -37,6 +40,8 @@
   - Hercules
   - Labr
   - Leonis
+  - Lupis
+  - Lepus
   - Matar
   - Microscopium
   - Nihal
@@ -46,6 +51,7 @@
   - Perseus
   - Phoenix
   - Procyon
+  - Pyxis
   - Regulus
   - Rigel
   - Sargas

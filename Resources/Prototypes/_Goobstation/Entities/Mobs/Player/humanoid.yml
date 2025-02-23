@@ -276,7 +276,7 @@
     state: icon
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitaryLeader
+    - NamesFirstMilitaryHighRank
     - NamesLastMilitary
   - type: RandomHumanoidSpawner
     settings: NavyCaptain
