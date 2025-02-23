@@ -106644,8 +106644,6 @@ entities:
     - type: Transform
       pos: 25.5,-7.5
       parent: 2
-    - type: PowerCharge
-      active: True
 - proto: Grille
   entities:
   - uid: 22
