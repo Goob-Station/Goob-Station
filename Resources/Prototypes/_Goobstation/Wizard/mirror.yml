@@ -35,6 +35,7 @@
     - Kobold
     - Monkey
     - Tajaran
+    - BananaMen
   - type: ActivatableUI
     key: enum.WizardMirrorUiKey.Key
     singleUser: true
