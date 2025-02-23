@@ -6,6 +6,9 @@ using Content.Shared.Emoting;
 using System.Numerics;
 using Robust.Shared.Prototypes;
 using Content.Shared.Chat.Prototypes;
+using Robust.Client.Graphics;
+using Content.Client.DamageState;
+using System.Linq;
 
 namespace Content.Client.Emoting;
 
@@ -23,6 +26,7 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
         SubscribeLocalEvent<AnimatedEmotesComponent, AnimationFlipEmoteEvent>(OnFlip);
         SubscribeLocalEvent<AnimatedEmotesComponent, AnimationSpinEmoteEvent>(OnSpin);
         SubscribeLocalEvent<AnimatedEmotesComponent, AnimationJumpEmoteEvent>(OnJump);
+        SubscribeLocalEvent<AnimatedEmotesComponent, AnimationTweakEmoteEvent>(OnTweak);
     }
 
     public void PlayEmote(EntityUid uid, Animation anim, string animationKey = "emoteAnimKeyId")
@@ -112,6 +116,37 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
                         new AnimationTrackProperty.KeyFrame(Vector2.Zero, 0f),
                         new AnimationTrackProperty.KeyFrame(new Vector2(0, .35f), 0.125f),
                         new AnimationTrackProperty.KeyFrame(Vector2.Zero, 0.125f),
+                    }
+                }
+            }
+        };
+        PlayEmote(ent, a);
+    }
+    private void OnTweak(Entity<AnimatedEmotesComponent> ent, ref AnimationTweakEmoteEvent args)
+    {
+        if (ent.Owner.Prototype?.ID != null)
+        {
+            Logger.Warning($"Attempted to cast tweak animation on entity without prototype: {ent.Owner}");
+            return;
+        }
+
+        var stateNumber = string.Concat(ent.Owner.Prototype.ID.Where(Char.IsDigit));
+        if (string.IsNullOrEmpty(stateNumber))
+        {
+            stateNumber = "0";
+        }
+
+        var a = new Animation
+        {
+            Length = TimeSpan.FromMilliseconds(1100),  // Each Frame is 0.1 sec and there is 11 for the tweaking emote.
+            AnimationTracks =
+            {
+                new AnimationTrackSpriteFlick
+                {
+                    LayerKey = DamageStateVisualLayers.Base,
+                    KeyFrames =
+                    {
+                        new AnimationTrackSpriteFlick.KeyFrame(new RSI.StateId($"mouse-tweaking-{stateNumber}"), 0f)
                     }
                 }
             }
