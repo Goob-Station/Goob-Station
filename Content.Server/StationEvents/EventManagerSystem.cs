@@ -32,7 +32,6 @@ public sealed class EventManagerSystem : EntitySystem
         Subs.CVar(_configurationManager, CCVars.EventsEnabled, SetEnabled, true);
     }
 
-    // Goobstation start
     /// <summary>
     /// Randomly runs a valid event.
     /// </summary>
@@ -43,13 +42,15 @@ public sealed class EventManagerSystem : EntitySystem
 
         if (randomEvent == null)
         {
-            Log.Error("No valid event was given");
+            var errStr = Loc.GetString("station-event-system-run-random-event-no-valid-events");
+            Log.Error(errStr);
             return;
         }
 
-        RunNamedEvent(randomEvent);
+        GameTicker.AddGameRule(randomEvent);
     }
 
+    // Goobstation start
     /// <summary>
     /// Runs a specific named event.
     /// </summary>
@@ -250,7 +251,7 @@ public sealed class EventManagerSystem : EntitySystem
         return TimeSpan.Zero;
     }
 
-    public bool CanRun(EntityPrototype prototype, StationEventComponent stationEvent, int playerCount, TimeSpan currentTime) // Goobstation
+    private bool CanRun(EntityPrototype prototype, StationEventComponent stationEvent, int playerCount, TimeSpan currentTime)
     {
         if (GameTicker.IsGameRuleActive(prototype.ID))
             return false;
