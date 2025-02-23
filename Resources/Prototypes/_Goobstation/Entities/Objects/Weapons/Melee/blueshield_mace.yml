@@ -32,8 +32,8 @@
     soundHit:
       collection: MetalThud
   - type: Stunbaton
-    energyPerUse: 80
-    lightAttackEnergyMultiplier: 2 # Goob edit
+    energyPerUse: 100
+    lightAttackEnergyMultiplier: 2
   - type: MeleeWeapon
     angle: 0
     wideAnimationRotation: -135
