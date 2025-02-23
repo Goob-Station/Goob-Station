@@ -6,9 +6,13 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/pda.rsi
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-chrono
   - type: Pda
     id: ChronoIDCard
-    state: pda-chrono
     penSlot:
       startingItem: PenFuture
       whitelist:
@@ -29,15 +33,22 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/pda.rsi
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-heccd
   - type: Pda
     id: HelldiverIDCard
-    state: pda-heccd
   - type: PdaBorderColor
     borderColor: "#272727"
     accentVColor: "#cec100"
   - type: Icon
     sprite: _Goobstation/Objects/Devices/pda.rsi
     state: pda-heccd
+  - type: Tag # Ignore Chameleon tags, this is too cool 4 u
+    tags:
+    - DoorBumpOpener
 
 - type: entity
   parent: CentcomPDA
@@ -45,9 +56,13 @@
   name: HECU PDA
   description: Smells of gunpowder.
   components:
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-centcom
   - type: Pda
     id: HecuIDCard
-    state: pda-centcom
     penSlot:
       startingItem: PenCentcom
       whitelist:
@@ -64,9 +79,13 @@
   name: Blueshield Officer PDA
   description: The silver shield of the Blueshield is engraved on the front.
   components:
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-blueshield
   - type: Pda
     id: BlueshieldIDCard
-    state: pda-blueshield
   - type: Icon
     sprite: _Goobstation/Objects/Devices/pda.rsi
     state: pda-blueshield
