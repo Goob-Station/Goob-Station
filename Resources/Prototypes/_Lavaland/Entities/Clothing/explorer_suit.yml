@@ -116,6 +116,12 @@
   name: reinforced explorer suit
   description: An armoured suit for exploring harsh environments. Mostly reinforced with goliath plates.
   components:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/explorer_suit.rsi
+    state: reinforced2-icon
+  - type: Clothing
+    sprite: _Lavaland/Equipment/explorer_suit.rsi
+    equippedState: reinforced2-equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
       coefficients:
@@ -138,6 +144,12 @@
   name: reinforced explorer hood
   description: An armoured hood for exploring harsh environments. Mostly reinforced with goliath plates.
   components:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/explorer_suit.rsi
+    state: reinforced2-icon_head
+  - type: Clothing
+    sprite: _Lavaland/Equipment/explorer_suit.rsi
+    equippedState: reinforced2-equipped-HELMET
   - type: Armor
     modifiers:
       coefficients:
@@ -154,6 +166,12 @@
   name: reinforced explorer suit
   description: An armoured suit for exploring harsh environments. Fully reinforced with goliath plates.
   components:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/explorer_suit.rsi
+    state: reinforced3-icon
+  - type: Clothing
+    sprite: _Lavaland/Equipment/explorer_suit.rsi
+    equippedState: reinforced3-equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
       coefficients:
@@ -176,6 +194,12 @@
   name: reinforced explorer hood
   description: An armoured hood for exploring harsh environments. Fully reinforced with goliath plates.
   components:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/explorer_suit.rsi
+    state: reinforced3-icon_head
+  - type: Clothing
+    sprite: _Lavaland/Equipment/explorer_suit.rsi
+    equippedState: reinforced3-equipped-HELMET
   - type: Armor
     modifiers:
       coefficients:

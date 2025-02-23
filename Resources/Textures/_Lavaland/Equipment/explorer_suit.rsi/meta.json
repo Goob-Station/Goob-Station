@@ -34,6 +34,34 @@
     },
     {
       "name": "reinforced1-icon_head"
+    },
+    {
+      "name": "reinforced2-equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "reinforced2-icon"
+    },
+    {
+      "name": "reinforced2-equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "reinforced2-icon_head"
+    },
+    {
+      "name": "reinforced3-equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "reinforced3-icon"
+    },
+    {
+      "name": "reinforced3-equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "reinforced3-icon_head"
     }
   ]
 }
