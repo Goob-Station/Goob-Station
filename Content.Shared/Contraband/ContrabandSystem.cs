@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Examine;
@@ -56,8 +56,8 @@ public sealed class ContrabandSystem : EntitySystem
         using (args.PushGroup(nameof(ContrabandComponent)))
         {
             var localizedDepartments = ent.Comp.AllowedDepartments.Select(p => Loc.GetString("contraband-department-plural", ("department", Loc.GetString(_proto.Index(p).Name))));
-            var localizedJobs = ent.Comp.AllowedJobs.Select(p => Loc.GetString("contraband-job-plural", ("job", _proto.Index(p).LocalizedName)));
-
+            var jobs = ent.Comp.AllowedJobs.Select(p => _proto.Index(p).LocalizedName).ToArray();
+            var localizedJobs = jobs.Select(p => Loc.GetString("contraband-job-plural", ("job", p)));
             var severity = _proto.Index(ent.Comp.Severity);
             if (severity.ShowDepartmentsAndJobs)
             {
@@ -87,7 +87,7 @@ public sealed class ContrabandSystem : EntitySystem
 
             // for the jobs we compare the localized string in case you use an agent ID or custom job name that is not a prototype
             if (departments.Intersect(ent.Comp.AllowedDepartments).Any()
-                || localizedJobs.Contains(jobId))
+                || jobs.Contains(jobId))
             {
                 // you are allowed to use this!
                 args.PushMarkup(Loc.GetString("contraband-examine-text-in-the-clear"));

@@ -8,6 +8,7 @@ using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared._EinsteinEngines.Silicon.IPC; // DeltaV
 
 namespace Content.Shared.Station;
 
@@ -20,7 +21,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metadata = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
     [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
-
+    [Dependency] private readonly InternalEncryptionKeySpawner _internalEncryption = default!; // DeltaV
     private EntityQuery<HandsComponent> _handsQuery;
     private EntityQuery<InventoryComponent> _inventoryQuery;
     private EntityQuery<StorageComponent> _storageQuery;
@@ -96,6 +97,12 @@ public abstract class SharedStationSpawningSystem : EntitySystem
     /// </summary>
     public void EquipStartingGear(EntityUid entity, StartingGearPrototype? startingGear, bool raiseEvent = true)
     {
+        // Begin DeltaV Additions: Fix nukie IPCs not having comms
+        if (startingGear is not {} proto)
+            return;
+
+        _internalEncryption.TryInsertEncryptionKey(entity, proto);
+        // End DeltaV Additions
         EquipStartingGear(entity, (IEquipmentLoadout?) startingGear, raiseEvent);
     }
 
