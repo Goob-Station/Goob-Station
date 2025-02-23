@@ -136,3 +136,18 @@
     sprite: _Goobstation/Clothing/Hands/Gloves/atmos.rsi
   - type: Fiber
     fiberColor: fibers-blue
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesGoldenTrim
+  name: gold-trimmed gloves
+  description: Comedically expensive? Check. Unwieldy? Check. Looks fancy? Check.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/whitetrim.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/Gloves/whitetrim.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-classified
+    fiberColor: fibers-white

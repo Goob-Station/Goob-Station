@@ -22,3 +22,7 @@ ghost-role-information-c4-description = Assist your user with bombing things.
 
 ghost-role-information-derelict-cyborg-syndicate-name = Derelict Syndicate Cyborg
 ghost-role-information-derelict-cyborg-syndicate-description = You were lost during an assault on a station. After years of exposure to ion storms you find yourself near a space station.
+
+ghost-role-information-navy-officer-name = Navy Officer
+ghost-role-information-navy-officer-description = Answer faxes and radio communications directed at Central Command. Perform investigations on the station and it's crew.
+ghost-role-information-navy-officer-rules = Follow the orders of the [color=#yellow][bold]Navy Captain[/bold][/color]. In the absence of one, make your own judgements.
