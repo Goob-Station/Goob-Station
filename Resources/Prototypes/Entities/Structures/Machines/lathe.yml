@@ -461,6 +461,7 @@
     - SecurityExplosives
     - SecurityAmmo
     - SecurityWeapons
+    - SecurityDisablers
     # Goobstation
     - SecurityWeaponsGoob
     - MechWeapons
