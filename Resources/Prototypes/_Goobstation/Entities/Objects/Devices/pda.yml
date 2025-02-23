@@ -103,7 +103,6 @@
   components:
   - type: Pda
     id: NTRepIDCard
-    state: pda-centcom
     penSlot:
       startingItem: PenCentcom
       whitelist:
