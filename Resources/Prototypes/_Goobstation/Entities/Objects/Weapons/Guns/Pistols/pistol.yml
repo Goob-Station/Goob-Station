@@ -103,7 +103,7 @@
   name: Agent Pistol
   parent: [BaseWeaponPistol, BaseCentcommContraband]
   id: WeaponPistolCentcommAgent
-  description: A pistol specifically designed to fire neurotoxin laced bullets. However, it can take any .45 caliber.
+  description: A pistol specifically designed to fire neurotoxin laced bullets. It's capable concealing itself via bluespace technology.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Pistols/agentpistol.rsi
@@ -130,7 +130,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: BaseMagazinePistolNeurotoxin
+        startingItem: MagazinePistolNeurotoxin
         insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
         priority: 2

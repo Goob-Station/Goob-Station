@@ -79,7 +79,7 @@
     neck: ExecutiveIDCard
     id: NavyCaptainPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltHolsterFilledCentComm # Todo - Give the officer a sabre
+    belt: ClothingBeltSheathFilledNavyOfficer
     pocket1: BoxFolderCentCom
     pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
   storage:
@@ -127,19 +127,18 @@
     id: ChameleonPDA
     ears: ClothingHeadsetChameleon
     belt: ClothingBeltHolsterFilledCentComm
-    pocket1: WeaponPulsePistol
+    pocket1: WeaponPistolCentcommAgent
     pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
   storage:
     back:
-      - HandheldFaxOfficial
       - BluespaceLifelineImplanter
       - CentcommFreedomImplanter
       - RadioImplanterCentcomm
       - CentcommStorageImplanter
       - ExecutiveIDCardChameleon
-      - DartSyringeGunCentComm
-      - SyringePoisonCentcomm # Amatoxin. It's amatoxin.
-      - SyringePoisonCentcomm
+      - WeaponPulsePistol
+      - MagazinePistolNeurotoxin
+      - MagazinePistolNeurotoxin
 
 # Special Operations Officer
 

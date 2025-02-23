@@ -1,5 +1,5 @@
 - type: entity
-  id: BaseMagazinePistolNeurotoxin
+  id: MagazinePistolNeurotoxin
   name: pistol magazine (.45 neurotoxin)
   parent: [BaseMagazineMagnum, BaseCentcommContraband]
   components:
