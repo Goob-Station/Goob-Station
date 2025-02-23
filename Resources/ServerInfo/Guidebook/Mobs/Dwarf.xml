@@ -5,7 +5,7 @@
     <GuideEntityEmbed Entity="MobDwarf" Caption=""/>
   </Box>
 
-  Dwarves are similar to humans in most respect, but tolerate alcohol better and are healed by it.
+  Dwarves are similar to humans in most respect, but tolerate alcohol better and are healed by it. They are also able to feel nearby ore in 3 tile radius.
 
 
 </Document>
