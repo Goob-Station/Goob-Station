@@ -4752,6 +4752,14 @@ entities:
       rot: 3.141592653589793 rad
       pos: 20.5,28.5
       parent: 31
+- proto: AirlockExternalGlassShuttleMining
+  entities:
+  - uid: 12463
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 33.5,28.5
+      parent: 31
 - proto: AirlockFreezer
   entities:
   - uid: 599
@@ -4951,7 +4959,7 @@ entities:
       pos: -36.5,-2.5
       parent: 31
     - type: Door
-      secondsUntilStateChange: -4480.808
+      secondsUntilStateChange: -4565.5454
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5439,7 +5447,7 @@ entities:
       pos: -5.5,9.5
       parent: 31
     - type: Door
-      secondsUntilStateChange: -6896.463
+      secondsUntilStateChange: -6981.2
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5468,20 +5476,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 10.5,-30.5
-      parent: 31
-- proto: AirlockShuttle
-  entities:
-  - uid: 12463
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 35.5,28.5
-      parent: 31
-  - uid: 12525
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 33.5,28.5
       parent: 31
 - proto: AirlockTheatreLocked
   entities:
@@ -30044,9 +30038,9 @@ entities:
     - type: Transform
       pos: 23.5,13.5
       parent: 31
-- proto: ComputerShuttleSalvage
+- proto: ComputerShuttleMiningLavaland
   entities:
-  - uid: 6644
+  - uid: 12525
     components:
     - type: Transform
       pos: 28.5,21.5
@@ -35179,7 +35173,7 @@ entities:
       pos: -18.5,17.5
       parent: 31
     - type: Door
-      secondsUntilStateChange: -3089.509
+      secondsUntilStateChange: -3174.2463
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 6663.0933389
@@ -50975,6 +50969,11 @@ entities:
     components:
     - type: Transform
       pos: -41.5,-8.5
+      parent: 31
+  - uid: 6644
+    components:
+    - type: Transform
+      pos: 35.5,28.5
       parent: 31
   - uid: 6645
     components:
@@ -80540,7 +80539,7 @@ entities:
       pos: -22.5,-24.5
       parent: 31
     - type: Door
-      secondsUntilStateChange: -9304.3545
+      secondsUntilStateChange: -9389.092
       state: Opening
 - proto: WoodenBench
   entities:
