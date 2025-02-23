@@ -110,9 +110,7 @@ public sealed partial class ChaosMetrics : IEquatable<ChaosMetrics>
         foreach (var (key, value) in ChaosDict)
         {
             if (value < minValue)
-            {
                 ChaosDict[key] = minValue;
-            }
         }
     }
 
@@ -125,9 +123,7 @@ public sealed partial class ChaosMetrics : IEquatable<ChaosMetrics>
         foreach (var (key, value) in ChaosDict)
         {
             if (value > maxValue)
-            {
                 ChaosDict[key] = maxValue;
-            }
         }
     }
 
@@ -142,9 +138,7 @@ public sealed partial class ChaosMetrics : IEquatable<ChaosMetrics>
         foreach (var (type, value) in other.ChaosDict)
         {
             if (newDamage.ChaosDict.ContainsKey(type))
-            {
                 newDamage.ChaosDict[type] -= value;
-            }
         }
 
         return newDamage;
@@ -159,10 +153,8 @@ public sealed partial class ChaosMetrics : IEquatable<ChaosMetrics>
         foreach (var entry in chaosB.ChaosDict)
         {
             if (!newDamage.ChaosDict.TryAdd(entry.Key, entry.Value))
-            {
                 // Key already exists, add values
                 newDamage.ChaosDict[entry.Key] += entry.Value;
-            }
         }
         return newDamage;
     }
@@ -176,9 +168,8 @@ public sealed partial class ChaosMetrics : IEquatable<ChaosMetrics>
         foreach (var entry in chaosB.ChaosDict)
         {
             if (!newDamage.ChaosDict.TryAdd(entry.Key, -entry.Value))
-            {
                 newDamage.ChaosDict[entry.Key] -= entry.Value;
-            }
+
         }
         return newDamage;
     }
