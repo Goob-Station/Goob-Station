@@ -5242,3 +5242,9 @@ Entries:
       message: Fixed an error with the prefix selection of the medieval accent
   id: 601
   time: '2025-02-23T00:50:26.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Tweaking blueshield hardsuit stats.
+  id: 602
+  time: '2025-02-23T00:51:15.0000000+00:00'
