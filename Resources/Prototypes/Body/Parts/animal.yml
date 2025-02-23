@@ -1,99 +1,76 @@
+# Shitmed Change: This file was mostly reorganized by shitmed to use composition
+
 # Just copypasta of some human basic body parts for interaction,
 # only differences for now is that limbs work in pairs,
-# they are unextractable and can't be spawned (no surgery on Animals!?).
 
 - type: entity
-  id: PartAnimal
-  parent: BaseItem
-  name: "animal body part"
   abstract: true
+  parent: BasePart
+  id: PartAnimalBase
   components:
   # yes these sprites dont make sense i dont care its better than them being invisible
   - type: Sprite
     sprite: Mobs/Species/Reptilian/parts.rsi
-  - type: Damageable
-    damageContainer: OrganicPart # Shitmed
-  - type: BodyPart
-  - type: ContainerContainer
-    containers:
-      bodypart: !type:Container
-        ents: []
+  - type: Icon
+    sprite: Mobs/Species/Reptilian/parts.rsi
   - type: StaticPrice
     price: 50
-  - type: Tag
-    tags:
-      - Trash
-  - type: Gibbable
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fat
-        Quantity: 3
-      - ReagentId: Blood
-        Quantity: 10
 
 - type: entity
+  parent: PartAnimalBase
   id: HandsAnimal
   name: animal hands
-  parent: PartAnimal
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
     - state: l_hand
     - state: r_hand
+  - type: Icon
+    state: l_hand # cba to make a state for it
   - type: BodyPart
     partType: Hand
     #symmetry: Left
     slotId: hands # Shitmed
 
 - type: entity
+  parent: PartAnimalBase
   id: LegsAnimal
   name: animal legs
-  parent: PartAnimal
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
     - state: l_leg
     - state: r_leg
+  - type: Icon
+    state: l_leg # cba to make a state for it
   - type: BodyPart
     partType: Leg
     slotId: legs # Shitmed
   - type: MovementBodyPart
 
 - type: entity
+  parent: PartAnimalBase
   id: FeetAnimal
   name: animal feet
-  parent: PartAnimal
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
     - state: r_foot
     - state: l_foot
+  - type: Icon
+    state: l_foot # cba to make a state for it
   - type: BodyPart
     partType: Foot
     slotId: feet # Shitmed
 
 - type: entity
+  parent: [ PartAnimalBase, BaseTorso ]
   id: TorsoAnimal
   name: animal torso
-  parent: PartAnimal
-  categories: [ HideSpawnMenu ]
   components:
-  - type: Sprite
-    layers:
-    - state: torso_m
   - type: BodyPart
-    partType: Torso
-  - type: Damageable
-    damageContainer: Biological
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fat
-        Quantity: 10
-      - ReagentId: Blood
-        Quantity: 20
-
+    # standard organs are good for most animals
+    children: # most animals have no hands (primate is unused) so just legs by default
+      legs:
+        id: legs
+        type: Leg

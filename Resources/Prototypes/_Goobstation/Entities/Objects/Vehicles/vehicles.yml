@@ -79,7 +79,7 @@
 
 - type: entity
   id: VehicleSecway
-  parent: [ BaseVehicle, BaseRestrictedContraband ]
+  parent: [ BaseVehicle, BaseSecurityContraband ]
   name: secway
   description: The future of transportation. Popularized by St. James, the patron saint of security officers and internet forum moderators.
   components:

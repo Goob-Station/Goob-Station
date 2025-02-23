@@ -119,7 +119,7 @@
   flatReductions:
     Blunt: 10
     Heat: 7
-    
+
 # Goobstation - Blob
 - type: damageModifierSet
   id: BaseBlob # ReactiveSpines
@@ -162,3 +162,13 @@
     Slash: 0.9
     Piercing: 0.9
     Heat: 1.5
+
+- type: damageModifierSet
+  id: Bingle
+  coefficients:
+    Blunt: 0.8  # 20% reduction to all
+    Slash: 0.8
+    Piercing: 0.8
+    Shock: 0.8
+    Heat: 0.8
+    Ion: 2.0 # double damage from ion
