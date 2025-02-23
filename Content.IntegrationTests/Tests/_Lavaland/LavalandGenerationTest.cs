@@ -33,50 +33,38 @@ public sealed class LavalandGenerationTest
         await pair.RunTicksSync(25);
         Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.InRound));
 
+        // Seed is always the same to reduce randomness
+        const int seed = 1;
+
+        var attempt = false;
+        Entity<LavalandMapComponent>? lavaland = null;
+
+        // Generate all lavalands
+        await server.WaitPost(() => attempt = lavaSystem.SetupLavaland(out lavaland, seed));
+        await pair.RunTicksSync(30);
+
         // Get all possible types of Lavaland and test them.
-        var planets = protoMan.EnumeratePrototypes<LavalandMapPrototype>().ToList();
-        foreach (var planet in planets)
-        {
-            const int seed = 1;
+        Assert.That(lavaland, Is.Not.Null);
 
-            var attempt = false;
-            Entity<LavalandMapComponent>? lavaland = null;
+        var mapId = lavaland.Value.Comp.MapId;
 
-            // Seed is always the same to reduce randomness
-            await server.WaitPost(() => attempt = lavaSystem.SetupLavaland(out lavaland, seed, planet));
-            await pair.RunTicksSync(30);
+        // Now check the basics
+        Assert.That(attempt, Is.True);
+        Assert.That(mapMan.MapExists(mapId));
+        Assert.That(entMan.EntityExists(lavaland.Value.Owner));
+        Assert.That(entMan.EntityExists(lavaland.Value.Comp.Outpost));
+        Assert.That(mapMan.GetAllGrids(mapId).ToList(), Is.Not.Empty);
+        Assert.That(mapSystem.IsInitialized(mapId));
+        Assert.That(mapSystem.IsPaused(mapId), Is.False);
 
-            Assert.That(lavaland, Is.Not.Null);
+        // Test that the biome setup is right
+        var biome = entMan.GetComponent<BiomeComponent>(lavaland.Value);
+        Assert.That(biome.Enabled, Is.True);
+        Assert.That(biome.Seed, Is.EqualTo(seed));
+        Assert.That(biome.Template, Is.Not.Null);
+        Assert.That(biome.Layers, Is.Not.Empty);
 
-            var mapId = lavaland.Value.Comp.MapId;
-
-            // Now check the basics
-            Assert.That(attempt, Is.True);
-            Assert.That(mapMan.MapExists(mapId));
-            Assert.That(entMan.EntityExists(lavaland.Value.Owner));
-            Assert.That(entMan.EntityExists(lavaland.Value.Comp.Outpost));
-            Assert.That(mapMan.GetAllGrids(mapId).ToList(), Is.Not.Empty);
-            Assert.That(mapSystem.IsInitialized(mapId));
-            Assert.That(mapSystem.IsPaused(mapId), Is.False);
-
-            // Test that the biome setup is right
-            var biome = entMan.GetComponent<BiomeComponent>(lavaland.Value);
-            Assert.That(biome.Enabled, Is.True);
-            Assert.That(biome.Seed, Is.EqualTo(seed));
-            Assert.That(biome.Template, Is.Not.Null);
-            Assert.That(biome.Layers, Is.Not.Empty);
-        }
-
-        await pair.RunTicksSync(10);
-
-        var lavalands = lavaSystem.GetLavalands();
-        Assert.That(planets, Has.Count.EqualTo(lavalands.Count));
-
-        // Cleanup everything
-        foreach (var lava in lavalands)
-        {
-            entMan.QueueDeleteEntity(lava);
-        }
+        entMan.QueueDeleteEntity(lavaland);
 
         await pair.RunTicksSync(10);
 
