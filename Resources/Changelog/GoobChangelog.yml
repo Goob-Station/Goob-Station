@@ -5263,3 +5263,9 @@ Entries:
       message: The contortionist's jumpsuit no longer outs itself by the name.
   id: 604
   time: '2025-02-23T00:54:51.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Tweak
+      message: Baseball bat is now more robust. Get that home run!
+  id: 605
+  time: '2025-02-23T00:57:51.0000000+00:00'
