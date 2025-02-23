@@ -167,6 +167,9 @@
     - Biological
   - type: SurgeryTarget # Shitmed
   - type: Sanitized # Shitmed
+  - type: SurgeryIgnoreClothing
+  - type: SurgerySpeedModifier
+    speedModifier: 1.5
 
   # Visual
   inventoryTemplateId: borgDutch
