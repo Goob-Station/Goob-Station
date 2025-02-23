@@ -24,12 +24,12 @@
     jumpsuit: ClothingUniformJumpsuitNavyGold
     shoes: ClothingShoesBootsJackFilled
     head: ClothingHeadHatBeretEliteNavyOfficer
-    eyes: ClothingEyesGlassesDeathsquad
+    eyes: ClothingEyesGlassesCentComm
     gloves: ClothingHandsGlovesHeavyGoldenTrim
     back: ClothingBackpackSatchelLeather
     outerClothing: ClothingOuterArmourInvisible
     neck: ExecutiveIDCard
-    id: CentcomPDA
+    id: NavyOfficerPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltHolsterFilledCentComm
     pocket1: BoxFolderCentCom
@@ -37,3 +37,45 @@
   storage:
     back:
     - HandheldFaxOfficial
+
+# Navy Captain
+
+- type: job
+  id: NavyCaptain
+  name: job-name-navycaptain
+  description: job-description-navycaptain
+  playTimeTracker: JobNavyCaptain
+  setPreference: false
+  startingGear: NavyCaptainGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-null
+  canBeAntag: false
+  requirements:
+    - !type:AgeRequirement
+      requiredAge: 21
+  accessGroups:
+    - AllAccess
+  access:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
+
+- type: startingGear
+  id: NavyCaptainGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNavyGold
+    shoes: ClothingShoesBootsJackFilled
+    head: ClothingHeadHatBeretNavyCaptain
+    eyes: ClothingEyesGlassesCentComm
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
+    back: ClothingBackpackSatchelLeather
+    outerClothing: ClothingOuterArmourInvisible
+    neck: ExecutiveIDCard
+    id: NavyCaptainPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltHolsterFilledCentComm
+    pocket1: BoxFolderCentCom
+    pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
+  storage:
+    back:
+      - HandheldFaxOfficial

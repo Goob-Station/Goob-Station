@@ -70,7 +70,6 @@
     - state: idcentcom
   - type: Item
     heldPrefix:
-
   - type: PresetIdCard
     job: BlueshieldOfficer
   - type: Access
@@ -98,6 +97,50 @@
     heldPrefix: executive
   - type: IdCard
     jobTitle: job-name-exec
+    jobIcon: JobIconNanotrasen
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
+
+# Navy Captain
+
+- type: entity
+  parent: IDCardStandard
+  id: CentcomIDCardNavyCaptain
+  name: Navy Captain's ID card
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    layers:
+    - state: ert_security
+  - type: IdCard
+    jobTitle: job-name-navycaptain
+    jobIcon: JobIconNanotrasen
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
+
+# Navy Officer
+
+- type: entity
+  parent: IDCardStandard
+  id: CentcomIDCardNavyOfficer
+  name: Navy Officer's ID card
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    layers:
+    - state: ert_security
+  - type: IdCard
+    jobTitle: job-name-navyofficer
     jobIcon: JobIconNanotrasen
   - type: Access
     groups:

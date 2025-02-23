@@ -25,7 +25,7 @@
     jumpsuit: ClothingUniformJumpsuitCentcomOfficial
     shoes: ClothingShoesBootsJackFilled # Change this if you want, I don't really care.
     head: ClothingHeadHatCentcomcap # Lets be real, the other hat looks like steaming ASS.
-    eyes: ClothingEyesGlassesCommand # Goobstation - Can change to Central Commander shades if wanted, but probably save for a new role entirely.
+    eyes: ClothingEyesGlassesCentComm # Goobstation
     gloves: ClothingHandsGlovesCombat # Goobstation - Replace with goldtrims when made.
     back: ClothingBackpackSatchelLeather # Goobstation - Officials need bags too!
     outerClothing: ClothingOuterArmorCentcommCarapace # Officials shouldn't use shitty armor, Nanotrasen is richer than that.

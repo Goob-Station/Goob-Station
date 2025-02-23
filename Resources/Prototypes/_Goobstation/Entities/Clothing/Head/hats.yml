@@ -29,6 +29,22 @@
     # - WhitelistChameleon
 
 - type: entity
+  parent: [ClothingHeadBase, BaseCentcommContraband]
+  id: ClothingHeadHatBeretNavyCaptain
+  name: navy captain's beret
+  description: A starch white beret.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/navy_captain_beret.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/navy_captain_beret.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    # - WhitelistChameleon
+
+
+- type: entity
   parent: ClothingHeadBase
   id: ClothingHeadMailCarrier
   name: mail carrier's hat
