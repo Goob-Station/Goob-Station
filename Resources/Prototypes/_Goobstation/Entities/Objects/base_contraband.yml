@@ -1,0 +1,8 @@
+- type: entity
+  id: BasePassengerContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedJobs: [ Passenger ]
+    allowedDepartments: []

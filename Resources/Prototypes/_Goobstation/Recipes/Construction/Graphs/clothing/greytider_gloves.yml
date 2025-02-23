@@ -1,0 +1,22 @@
+- type: constructionGraph
+  id: GreytiderGloves
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: end
+          steps:
+            - tag: GreyGloves
+              name: a pair of grey gloves
+              icon:
+                sprite: Clothing/Hands/Gloves/Color/black.rsi
+                state: icon
+              doAfter: 2
+            - tag: InsulatedGloves
+              name: insuls
+              icon:
+                sprite: Clothing/Hands/Gloves/Color/yellow.rsi
+                state: icon
+              doAfter: 2
+    - node: end
+      entity: ClothingHandsGlovesGreytider

@@ -41,3 +41,14 @@
   description: Sunglasses with a medical and security hud.
   icon: { sprite: _Goobstation/Clothing/Eyes/Glasses/medglasses.rsi, state: icon }
   objectType: Item
+
+- type: construction
+  name: greytider gloves
+  id: ClothingHandsGlovesGreytider
+  graph: GreytiderGloves
+  startNode: start
+  targetNode: end
+  category: construction-category-clothing
+  description: Insulated grey gloves that will keep you from frying. Are restricted to passengers.
+  icon: { sprite: Clothing/Hands/Gloves/Color/black.rsi, state: icon}
+  objectType: Item

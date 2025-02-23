@@ -254,6 +254,11 @@
     - objective: MassArrestObjective
       components:
       - type: CriminalRecordsHacker
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - InsulatedGloves # Goobstation
 
 - type: entity
   parent: ClothingHandsGlovesColorBlack # goobstation - no longer sec/engi contra its just reskinned insuls i can order this shit on amazon for 50 bucks
@@ -268,6 +273,11 @@
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-insulative
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - InsulatedGloves # Goobstation
 
 # can't parent combat gloves since they are butcherable
 - type: entity
@@ -283,6 +293,11 @@
   - type: Insulated
   - type: Fiber
     fiberColor: fibers-black
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - InsulatedGloves # Goobstation
 
 - type: entity
   parent: [ BaseSecurityCargoContraband, ClothingHandsGlovesCombat ]
@@ -301,6 +316,11 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-olive
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - InsulatedGloves # Goobstation
 
 - type: entity
   parent: ClothingHandsButcherable
