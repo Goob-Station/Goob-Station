@@ -6,7 +6,7 @@
   id: RodentiaHeadTopEarDefault
   markingCategory: HeadTop
   bodyPart: HeadTop
-  speciesRestriction: []
+  speciesRestriction: [Rodentia, Human]
   coloring:
     default:
       type: !type:TattooColoring
@@ -20,7 +20,7 @@
   id: RodentiaTailDefault
   markingCategory: Tail
   bodyPart: Tail
-  speciesRestriction: []
+  speciesRestriction: [Rodentia, Human]
   coloring:
     default:
       type: !type:TattooColoring
