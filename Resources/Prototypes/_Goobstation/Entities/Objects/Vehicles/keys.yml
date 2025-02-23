@@ -11,7 +11,7 @@
     - VehicleKey
 
 - type: entity
-  parent: [ BaseKey, BaseRestrictedContraband ]
+  parent: [ BaseKey, BaseSecurityContraband ]
   id: VehicleKeySecway
   name: secway keys
   description: The keys to the future.
