@@ -5230,3 +5230,9 @@ Entries:
       message: Added Mothroaches
   id: 599
   time: '2025-02-22T20:56:05.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: IPC nukies now get their built-in syndicate encryption key.
+  id: 600
+  time: '2025-02-23T00:48:08.0000000+00:00'
