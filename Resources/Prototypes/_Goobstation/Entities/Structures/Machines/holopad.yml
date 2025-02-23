@@ -1,0 +1,15 @@
+- type: entity
+  parent: Holopad
+  id: HolopadCommandNTR
+  suffix: NTR
+  components:
+  - type: Label
+    currentLabel: holopad-command-ntr
+
+- type: entity
+  parent: Holopad
+  id: HolopadCommandBSO
+  suffix: BSO
+  components:
+  - type: Label
+    currentLabel: holopad-command-bso
