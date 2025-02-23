@@ -50,8 +50,11 @@
   components:
   - type: Sprite
     layers:
-    - state: tranquilizer
+    - state: base
       map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#00FF00"
   - type: CartridgeAmmo
     proto: BulletMagnumNeurotoxin
   - type: ChemicalAmmo
@@ -60,8 +63,8 @@
       ammo:
         reagents:
         - ReagentId: Amatoxin
-          Quantity: 10
+          Quantity: 9
+        - ReagentId: Impedrezene
+          Quantity: 5
   - type: SolutionTransfer
-    maxTransferAmount: 10
-  - type: SpentAmmoVisuals # todo : sprites
-    state: "tranquilizer"
+    maxTransferAmount: 9
