@@ -155,21 +155,15 @@
 # Navy Officer
 
 - type: entity
-  parent: IDCardStandard
+  parent: CentcomIDCardNavyCaptain
   id: CentcomIDCardNavyOfficer
   name: Navy Officer's ID card
   components:
-  - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
-    layers:
-    - state: ert_security
-  - type: IdCard
-    jobTitle: job-name-navyofficer
-    jobIcon: JobIconNanotrasen
-  - type: Access
-    groups:
-    - AllAccess
-    tags:
-    - CentralCommand
-    - NanotrasenRepresentative
-    - BlueshieldOfficer
+
+# Special Operations Officer
+
+- type: entity
+  parent: CentcomIDCardNavyCaptain
+  id: CentcomIDCardSpecialOperationsOfficer
+  name: Special Operations Officer's ID card
+  components:

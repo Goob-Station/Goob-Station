@@ -166,9 +166,9 @@
 - type: startingGear
   id: SpecialOperationsOfficerGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitNavyGold # Todo - Replace This
+    jumpsuit: ClothingUniformJumpsuitSpecOps
     shoes: ClothingShoesBootsJackFilled
-    head: ClothingHeadHatBeretNavyCaptain
+    head: ClothingHeadHatBeretNavyOfficer
     eyes: ClothingEyesGlassesDeathsquad
     gloves: ClothingHandsGlovesCombat
     back: ClothingBackpackSatchelLeather

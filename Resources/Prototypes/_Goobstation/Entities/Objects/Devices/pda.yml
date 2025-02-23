@@ -113,31 +113,6 @@
 
 - type: entity
   parent: CentcomPDA
-  id: NavyOfficerPDA
-  name: Navy Officer's PDA
-  description: The devil's in the details.
-  components:
-  - type: Pda
-    id: CentcomIDCardNavyOfficer
-  - type: HealthAnalyzer
-    scanDelay: 0
-    silent: true
-  - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
-    notificationsEnabled: false
-    diskSpace: 10 # DeltaV
-    preinstalled:
-    - CrewManifestCartridge
-    - NotekeeperCartridge
-    - NewsReaderCartridge
-    - LogProbeCartridge
-    - WantedListCartridge
-    - MedTekCartridge
-    - AstroNavCartridge
-    - NanoChatCartridge # DeltaV
-
-- type: entity
-  parent: CentcomPDA
   id: NavyCaptainPDA
   name: Navy Captain's PDA
   description: The devil's in the details.
@@ -160,3 +135,20 @@
     - MedTekCartridge
     - AstroNavCartridge
     - NanoChatCartridge # DeltaV
+
+- type: entity
+  parent: NavyCaptainPDA
+  id: NavyOfficerPDA
+  name: Navy Officer's PDA
+  components:
+  - type: Pda
+    id: CentcomIDCardNavyOfficer
+
+- type: entity
+  parent: NavyCaptainPDA
+  id: SpecialOperationsOfficerPDA
+  name: Special Operations Officer's PDA
+  components:
+  - type: Pda
+    id: CentcomIDCardSpecialOperationsOfficer
+
