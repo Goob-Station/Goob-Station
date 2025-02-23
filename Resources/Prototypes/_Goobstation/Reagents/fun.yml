@@ -32,6 +32,37 @@
         - !type:ReagentThreshold
           min: 25
 
+- type: reagent
+  id: Carpolin
+  name: reagent-name-carpolin
+  group: Toxins
+  desc: reagent-desc-carpolin
+  physicalDesc: reagent-physical-desc-exotic-smelling
+  flavor: bitter
+  color: "#bb26f9"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.05
+      effects:
+      - !type:Polymorph
+        prototype: ForcedCarpSentient
+        conditions:
+        - !type:ReagentThreshold
+          min: 9
+      - !type:PopupMessage
+        type: Local
+        messages: [ "reagent-popup-carpolin" ]
+        probability: 0.3
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
+        - !type:OrganType
+          type: Animal
+        damage:
+          types:
+            Poison: 0.06
+
 # CREATED BY Goldminermac
 # https://github.com/space-wizards/space-station-14/pull/31149
 # LICENSED UNDER THE MIT LICENSE
@@ -53,3 +84,52 @@
         key: Vulgarity
         component: VulgarAccent
 # END OF MIT-LICENSED CODE
+
+- type: reagent
+  id: Copium
+  name: reagent-name-copium
+  group: Special
+  desc: reagent-desc-copium
+  physicalDesc: reagent-physical-desc-comforting
+  flavor: tears
+  color: "#fcb8f5"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages: [ "reagent-popup-copium-1", "reagent-popup-copium-2", "reagent-popup-copium-3", "reagent-popup-copium-4", "reagent-popup-copium-5", "reagent-popup-copium-6", "reagent-popup-copium-7", "reagent-popup-copium-8", "reagent-popup-copium-9", "reagent-popup-copium-10", "reagent-popup-copium-11", "reagent-popup-copium-12" ]
+        probability: 0.2
+
+- type: reagent
+  id: CatDrugs
+  name: reagent-name-cat-drugs
+  group: Toxins
+  desc: reagent-desc-cat-drugs
+  physicalDesc: reagent-physical-desc-fuzzy
+  flavor: fizzy
+  color: "#ffff40"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.1
+      effects:
+      - !type:Emote
+        emote: CatMeow
+        showInChat: true
+        force: true
+        probability: 0.5
+      - !type:Polymorph
+        prototype: Cat
+        conditions:
+        - !type:OrganType
+          type: Animal
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 50
+      - !type:AdjustReagent
+        reagent: CatDrugs
+        amount: -20
+        conditions:
+        - !type:ReagentThreshold
+          min: 50

@@ -1,0 +1,13 @@
+Special thanks to all mappers from ss13 (Yogstation) for original ruins
+
+files: "outpost_lavaland.yml", "ruin_lavalake.yml"
+authors: mike32oz
+
+files: "ruin_golem_shuttle.yml", "ruin_rouge_ai.yml", "ruin_seed_vault.yml"
+authors: nyawul
+
+files: "ruin_beach_biodome.yml", "ruin_syndicate_base.yml", "ruin_graveyard.yml", "ruin_chemistry.yml", "ruin_toyshop.yml", "ruin_vulp_lab.yml", "ruin_wafflecohouse.yml", "ruin_shelter.yml", "ruin_mining_outpost.yml", "ruin_felenid_lab.yml", "ruin_cargo_debris.yml", "ruin_arrivals_back.yml", "ruin_arrivals_front.yml"
+authors: aineias1
+
+files: "ruin_snow_biodome.yml", "ruin_hermit.yml"
+authors: rouden_

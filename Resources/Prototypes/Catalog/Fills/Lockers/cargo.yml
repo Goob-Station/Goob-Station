@@ -5,26 +5,34 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingOuterHardsuitSalvage #Goobstation
+      #- id: ClothingOuterHardsuitSalvage #Goobstation
       - id: OxygenTankFilled
       - id: NitrogenTankFilled
-      - id: ClothingShoesBootsMag
+      #- id: ClothingShoesBootsMag
       - id: ClothingMaskGasExplorer
-      - id: ClothingEyesGlassesMeson
       - id: ClothingBeltUtilityFilled
       - id: SurvivalKnife
       - id: HandheldGPSBasic
       - id: RadioHandheld
       - id: SeismicCharge
         amount: 2
+      - id: Flare
+        prob: 0.3
+      - id: Flare
+        prob: 0.3
+      - id: Flare
+        prob: 0.3
+      # Lavaland Change Start
+      - id: WeaponProtoKineticAccelerator
       - id: OreBag
-        prob: 0.5
-      - id: Flare
-        prob: 0.3
-      - id: Flare
-        prob: 0.3
-      - id: Flare
-        prob: 0.3
+      - id: Pickaxe
+      - id: LavalandEquipmentExplorerSuit
+      - id: ShelterCapsule
+      - id: ClothingMaskGasExplorer
+      - id: MineralScanner
+      - id: FlashlightSeclite
+      - id: ClothingEyesGlassesMeson
+      # Lavaland Change End
 
 - type: entity
   id: LockerSalvageSpecialistFilled
@@ -40,11 +48,20 @@
       - id: RadioHandheld
       - id: SeismicCharge
         amount: 2
+      - id: Flare
+        prob: 0.3
+      - id: Flare
+        prob: 0.3
+      - id: Flare
+        prob: 0.3
+      # Lavaland Change Start
+      - id: WeaponProtoKineticAccelerator
       - id: OreBag
-        prob: 0.5
-      - id: Flare
-        prob: 0.3
-      - id: Flare
-        prob: 0.3
-      - id: Flare
-        prob: 0.3
+      - id: Pickaxe
+      - id: LavalandEquipmentExplorerSuit
+      - id: ShelterCapsule
+      - id: ClothingMaskGasExplorer
+      - id: MineralScanner
+      - id: FlashlightSeclite
+      # TODO: bluespace shelter capsule
+      # Lavaland Change End

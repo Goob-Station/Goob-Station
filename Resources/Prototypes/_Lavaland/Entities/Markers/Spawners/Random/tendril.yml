@@ -1,0 +1,19 @@
+- type: entity
+  parent: MarkerBase
+  id: LavalandRandomTendrilSpawner
+  name: random tendril
+  suffix: Lavaland
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: _Lavaland/Structures/Specific/tendril.rsi
+        state: tendril
+  - type: RandomSpawner
+    offset: 0
+    prototypes:
+      - LavalandTendrilGoliath
+      - LavalandTendrilLegion
+      - LavalandTendrilLavaWatcher
+      - LavalandTendrilIcewingWatcher
+      - LavalandTendrilMagmawingWatcher

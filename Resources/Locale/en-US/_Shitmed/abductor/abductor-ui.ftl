@@ -17,8 +17,15 @@ abductors-ui-vest-linked = Vest linked
 abductors-title = Abductors
 abductors-description = Abductors have targeted the station. Avoid getting kidnapped by them!
 
-abductors-ghost-role-name = Abductor
-abductors-ghost-role-desc = Kidnap people, and stuff them with experimental organs of dubious origin.
+abductor-lone-ghost-role-name = Lone Abductor
+abductor-lone-ghost-role-desc = Kidnap people, and stuff them with experimental organs of dubious origin, all by yourself.
+
+abductor-scientist-ghost-role-name = Abductor Scientist
+abductor-scientist-ghost-role-desc = Teleport people your partner kidnapped onto your ship and stuff them with experimental organs of dubious origin.
+
+abductor-agent-ghost-role-name = Abductor Agent
+abductor-agent-ghost-role-desc = Kidnap people for your partner to stuff them with experimental organs of dubious origin.
+
 abductors-ghost-role-rules = You are an [color=red][bold]Abductor[/bold][/color].
                             Your intentions are to abduct people from the station and replace their organs with various experimental devices,
                             after which you return them back. You are not allowed to destroy the station or intentionally kill people.

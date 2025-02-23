@@ -404,8 +404,8 @@
     cost: 15
     highImpact: true
   - type: StationEvent
-    weight: 6.5
-    earliestStart: 50
+    weight: 2
+    earliestStart: 75
     minimumPlayers: 30 # how is that 20 people when rat king is 30??? changed.
     duration: null
     maxOccurrences: 2

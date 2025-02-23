@@ -44,8 +44,8 @@
       0: Alive
       50: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed: 5
-    baseSprintSpeed: 7
+    baseWalkSpeed: 4 # Lavaland change
+    baseSprintSpeed: 5 # Lavaland change
   - type: ProjectileBatteryAmmoProvider
     proto: WatcherBolt
     fireCost: 50
@@ -69,6 +69,7 @@
     interactFailureString: petting-failure-generic
     interactSuccessSound:
       path: /Audio/Animals/lizard_happy.ogg
+  - type: Fauna # Lavaland Change
 
 - type: entity
   id: MobWatcherLavaland
