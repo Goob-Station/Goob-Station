@@ -62,7 +62,7 @@ namespace Content.Client.Lobby
             var serverName = _baseClient.GameInfo?.ServerName ?? string.Empty;
 
             Lobby.ServerName.Text = string.IsNullOrEmpty(lobbyNameCvar)
-                ? Loc.GetString("ui-lobby-title", ("serverName", serverName))
+                ? Loc.GetString("ui-lobby-title", "ui-lobby-server-name")
                 : lobbyNameCvar;
 
             var width = _cfg.GetCVar(CCVars.ServerLobbyRightPanelWidth);
