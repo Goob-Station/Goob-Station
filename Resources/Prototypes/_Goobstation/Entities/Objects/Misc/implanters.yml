@@ -86,6 +86,22 @@
     implant: BluespaceLifelineImplant
 
 - type: entity
+  id: CentcommFreedomImplanter
+  suffix: freedom implant
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: FreedomImplant
+
+- type: entity
+  id: CentcommStorageImplanter
+  suffix: storage implant
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: StorageImplant
+
+- type: entity
   parent: BaseImplantOnlyImplanter
   id: PacifismImplanter
   suffix: pacifism

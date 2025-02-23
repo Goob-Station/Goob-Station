@@ -1,11 +1,11 @@
-﻿- type: dataset
+- type: dataset
   id: NamesFirstMilitaryLeader
   values:
   - Colonel
   - Commander
   - Lieutenant
   - Major
-  
+
 - type: dataset
   id: NamesFirstMilitary
   values:
@@ -20,13 +20,16 @@
   - Andromeda
   - Antares
   - Aquarius
+  - Ara
+  - Aries
   - Beid
   - Betelgeuse
   - Canopus
+  - Cetus
   - Capricorn
   - Celaeno
   - Centaur
-  - Chameleon
+  - Chamaeleon
   - Chau
   - Cygnus
   - Deneb
@@ -37,6 +40,8 @@
   - Hercules
   - Labr
   - Leonis
+  - Lupis
+  - Lepus
   - Matar
   - Microscopium
   - Nihal
@@ -46,6 +51,7 @@
   - Perseus
   - Phoenix
   - Procyon
+  - Pyxis
   - Regulus
   - Rigel
   - Sargas
@@ -56,5 +62,7 @@
   - Taurus
   - Ukdah
   - Vega
+  - Voltaire # Goobstation - I spent a lot of time on this PR, I might as well add myself to it :godo:
+  - Winterwing # Goobstation - Friend asked me to add this. :godo:
   - Yildun
   - Zosma
