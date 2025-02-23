@@ -1,2 +1,2 @@
-ent-FoodStrangeBerries = Странные ягоды
-    .desc = Горсть странных ягод.
+ent-FoodStrangeBerries = strange berries
+    .desc = A handful of strange berries.

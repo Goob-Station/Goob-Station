@@ -8,3 +8,5 @@ ent-ClothingBackpackDuffelSyndicateM90Bundle = M-90 bundle
     .desc = A bundle carrying the syndicate's M-90 assault rifle, packed with 2 spare magazines.
 ent-ClothingBackpackDuffelSyndicateFilledWSPR = WSPR bundle
     .desc = A bundle carrying the syndicate's WSPR assault rifle, packed with 2 spare magazines.
+ent-ClothingBackpackDuffelSyndicateFilledCandy = candy bundle
+    .desc = A bundle packed to the brim with candy. Someone's got a sweet tooth!

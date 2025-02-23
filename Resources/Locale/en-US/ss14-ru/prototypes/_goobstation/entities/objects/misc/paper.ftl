@@ -1,2 +1,2 @@
-ent-PenFuture = футуристическая ручка
-    .desc = Некоторые теории утверждают, что апокалипсис 3024 года произошел из-за ручек
+ent-PenFuture = futuristic pen
+    .desc = Some theories claim that the apocalypse of 3024 happened because of the pens

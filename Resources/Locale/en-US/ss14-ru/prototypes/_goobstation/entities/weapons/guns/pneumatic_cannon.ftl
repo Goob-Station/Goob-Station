@@ -1,3 +1,15 @@
+ent-LauncherLollypopRegeneratingTricordazine = tricordrazine lollypop dispenser
+    .desc = Utilizes a in-built fabricator to generate tricordrazine lollypops from energy.
+    .suffix = Regenerating, DO NOT MAP
+ent-LauncherLollypopRegeneratingOmnizine = omnizine lollypop dispenser
+    .desc = Utilizes a in-built fabricator to generate omnizine lollypops from energy.
+    .suffix = Regenerating, DO NOT MAP
+ent-LauncherLollypopRegeneratingWeh = weh! lollypop dispenser
+    .desc = Utilizes a in-built fabricator to generate Weh! lollypops from energy. Weh!
+    .suffix = Regenerating, DO NOT MAP
+ent-LauncherLollypopRegenerating = lollypop dispenser
+    .desc = Utilizes a in-built fabricator to generate lollypops from energy.
+    .suffix = Regenerating, DO NOT MAP
 ent-LauncherCreamPieRegenerating = regenerating pie cannon
     .desc = A self-regenerating pie cannon.
     .suffix = Regenerating

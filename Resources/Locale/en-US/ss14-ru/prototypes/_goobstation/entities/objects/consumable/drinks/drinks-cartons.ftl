@@ -1,6 +1,6 @@
 ent-DrinkCartonBaseSmallFull = { ent-DrinkCartonBaseFull }
     .desc = { ent-DrinkCartonBaseFull.desc }
-ent-DrinkMilkCartonMini = мини-молоко
-    .desc = Непрозрачная белая жидкость, вырабатываемая молочными железами млекопитающих.
-ent-DrinkMilkCartonMiniChocolate = мини-шоколадное молоко
-    .desc = Молочный напиток со вкусом шоколада.
+ent-DrinkMilkCartonMini = mini milk
+    .desc = An opaque white liquid produced by the mammary glands of mammals.
+ent-DrinkMilkCartonMiniChocolate = mini choco milk
+    .desc = A milk drink flavored with chocolate.

@@ -1,2 +1,2 @@
-ent-SoapHomemadeBanana = банановое мыло
-    .desc = Домашний брусок мыла. Пахнет бананом.
+ent-SoapHomemadeBanana = Banana soap
+    .desc = A homemade bar of soap. Smells of banana.

@@ -1,3 +1,5 @@
+ent-PartSkeletonBase = skeleton body part
+    .desc = { ent-BasePartInorganic.desc }
 ent-PartSkeleton = часть тела скелета
     .desc = { ent-BaseItem.desc }
 ent-TorsoSkeleton = туловище скелета

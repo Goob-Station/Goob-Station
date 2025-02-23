@@ -8,3 +8,4 @@ research-technology-explosive-mech-ammunition = Взрывные боеприп�
 research-technology-honk-weapons = Бананиевое оружие
 research-technology-modsuits = Модульные технологии
 research-technology-prescription-lenses = Линзы, отпускаемые по рецепту
+research-technology-smart-weaponry = Smart Weaponry

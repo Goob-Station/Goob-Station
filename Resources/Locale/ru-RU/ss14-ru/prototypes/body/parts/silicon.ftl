@@ -1,3 +1,5 @@
+ent-PartSiliconBase = { ent-BasePartInorganic }
+    .desc = { ent-BasePartInorganic.desc }
 ent-PartSilicon = { ent-BaseItem }
     .desc = { ent-BaseItem.desc }
 ent-LeftArmBorg = левая рука киборга

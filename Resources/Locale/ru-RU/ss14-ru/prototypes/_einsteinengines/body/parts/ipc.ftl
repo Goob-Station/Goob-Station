@@ -1,3 +1,5 @@
+ent-PartIPCBase = ipc body part
+    .desc = { ent-BasePartInorganic.desc }
 ent-PartIPC = ipc body part
     .desc = { ent-BaseItem.desc }
 ent-TorsoIPC = тело КПБ

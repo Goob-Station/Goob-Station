@@ -1,11 +1,11 @@
-ent-MobAbductor = lone abductor
-    .desc = { ent-BaseMobAbductor.desc }
+ent-MobAbductorAntag = { ent-MobAbductor }
+    .desc = { ent-MobAbductor.desc }
 ent-MobLoneAbductor = lone abductor
-    .desc = { ent-MobAbductor.desc }
+    .desc = { ent-MobAbductorAntag.desc }
 ent-MobAbductorScientist = abductor scientist
-    .desc = { ent-MobAbductor.desc }
+    .desc = { ent-MobAbductorAntag.desc }
 ent-MobAbductorAgent = abductor agent
-    .desc = { ent-MobAbductor.desc }
+    .desc = { ent-MobAbductorAntag.desc }
 ent-SpawnPointLoneAbductor = lone abductor spawner
     .desc = { ent-MarkerBase.desc }
 ent-LoneAbductorSpawner = { ent-BaseAntagSpawner }

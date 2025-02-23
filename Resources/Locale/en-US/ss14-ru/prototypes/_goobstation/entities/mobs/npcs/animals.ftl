@@ -10,3 +10,5 @@ ent-MobAngryBeeWeak = { ent-MobAngryBee }
     .desc = { ent-MobAngryBee.desc }
 ent-MobLootbug = lootbug
     .desc = It eats metal, maybe it's eaten something of value?
+ent-MobCarpSentient = space carp
+    .desc = It's a space carp. Used to be a person.

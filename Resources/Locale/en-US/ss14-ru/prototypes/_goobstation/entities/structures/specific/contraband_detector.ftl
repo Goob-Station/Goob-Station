@@ -1,0 +1,10 @@
+ent-ContrabandDetector = contraband detector
+    .desc = Walk in with confidence, walk out with security chasing you.
+    .suffix = unlocked
+ent-ContrabandDetectorAnchored = { ent-ContrabandDetector }
+    .suffix = locked
+    .desc = { ent-ContrabandDetector.desc }
+ent-ContrabandDetectorFrame = contraband detector frame
+    .desc = { "" }
+ent-ContrabandDetectorCircuitboard = contraband detector electronics
+    .desc = An electronics board used in contraband detector.

@@ -1,3 +1,5 @@
+ent-PartAnimalBase = { ent-BasePart }
+    .desc = { ent-BasePart.desc }
 ent-PartAnimal = часть тела животного
     .desc = { ent-BaseItem.desc }
 ent-HandsAnimal = лапы животного

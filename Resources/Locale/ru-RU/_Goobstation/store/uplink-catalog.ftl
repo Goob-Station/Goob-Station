@@ -94,6 +94,10 @@ uplink-highcap-pistol-mag-desc = Пистолетный магазин повы�
 
 uplink-mech-teleporter-heavy-name = Тяжелый Мех
 uplink-mech-teleporter-heavy-desc = Содержит тяжелобронированного робота Cybersun со встроенным цепным мечом, Ultra AC-2, LBX AC 10 «Scattershot», ракетной стойкой BRM-6 и пушкой P-X Tesla.
+uplink-lollypop-bundle-name = Donk Co. Lollypop Box
+uplink-lollypop-bundle-desc = Contains 9 completely random lollypops. What could they contain?
+uplink-lollypop-bundle-big-name = Donk Co. Candy Bundle
+uplink-lollypop-bundle-big-desc = Contains an ungodly amount of candy. What could they contain?
 uplink-mech-teleporter-assault-name = Штурмовой Мех
 uplink-mech-teleporter-assault-desc = Содержит легкобронированный робот Cybersun со встроенным цепным мечом, дробовиком LBX AC 10, Ракетомет SRM-8 и пушку Tesla P-X..
 
@@ -108,6 +112,8 @@ uplink-helmet-swat-name = Шлем спецназа Синдиката
 uplink-helmet-swat-desc = Прочный шлем, который обеспечивает хорошую защиту, а также в некоторой степени подавляет звуки светошумовых гранат.
 uplink-helmet-swat-name = Шлем SWAT Синдиката
 uplink-clothing-explosive-gloves-name = Взрывные изолированные перчатки
+uplink-syndicate-weapon-module-advanced-name = advanced weapons module
+uplink-syndicate-weapon-module-advanced-desc = Upgrades a cyborg with an energy sword and an anaconda pistol.
 uplink-clothing-explosive-gloves-desc = Перчатки, которые выглядят как обычные изолированные перчатки, но через секунду после удара током взрываются, выводя из строя кисти рук пользователя.
 uplink-helmet-swat-desc = Прочный шлем, обеспечивающий хорошую защиту и в некоторой степени подавляющий звуки взрывов.
 

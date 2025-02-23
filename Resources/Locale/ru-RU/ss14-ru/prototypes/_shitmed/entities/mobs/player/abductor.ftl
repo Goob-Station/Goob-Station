@@ -1,3 +1,5 @@
+ent-MobAbductorAntag = { ent-MobAbductor }
+    .desc = { ent-MobAbductor.desc }
 ent-MobAbductor = одинокий абдуктор
     .desc = { ent-BaseMobAbductor.desc }
 ent-MobLoneAbductor = одинокий абдуктор

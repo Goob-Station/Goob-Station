@@ -1,3 +1,5 @@
+ent-PartAbductorBase = { ent-BasePart }
+    .desc = { ent-BasePart.desc }
 ent-TorsoAbductor = торс абдуктора
     .desc = { ent-BaseTorso.desc }
 ent-HeadAbductor = голова абдуктора

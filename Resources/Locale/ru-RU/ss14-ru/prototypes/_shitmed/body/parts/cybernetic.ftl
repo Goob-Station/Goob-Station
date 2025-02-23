@@ -1,3 +1,13 @@
+ent-CyberneticPartBase = { ent-BasePartInorganic }
+    .desc = { ent-BasePartInorganic.desc }
+ent-LeftArmCyberneticBase = { ent-CyberneticPartBase }
+    .desc = { ent-CyberneticPartBase.desc }
+ent-RightArmCyberneticBase = { ent-CyberneticPartBase }
+    .desc = { ent-CyberneticPartBase.desc }
+ent-LeftLegCyberneticBase = { ent-CyberneticPartBase }
+    .desc = { ent-CyberneticPartBase.desc }
+ent-RightLegCyberneticBase = { ent-CyberneticPartBase }
+    .desc = { ent-CyberneticPartBase.desc }
 ent-LeftArmCybernetic = { ent-LeftArmHuman }
     .desc = { ent-LeftArmHuman.desc }
 ent-RightArmCybernetic = { ent-RightArmHuman }

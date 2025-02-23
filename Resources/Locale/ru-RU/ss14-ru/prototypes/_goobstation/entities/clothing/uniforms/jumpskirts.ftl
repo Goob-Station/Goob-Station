@@ -6,3 +6,5 @@ ent-ClothingUniformJumpskirtBlueshieldOfficer = юбка-комбинезон о
     .desc = Серо-синяя юбка с короткими рукавами из прочного материала.
 ent-ClothingUniformSkirtMailCarrier = юбка почтальона
     .desc = Враг собак - везде.
+ent-ClothingUniformJumpskirtReporter = платье репортёра
+    .desc = Экстравагантное черное платье, призванное привлечь внимание как можно большего количества людей.

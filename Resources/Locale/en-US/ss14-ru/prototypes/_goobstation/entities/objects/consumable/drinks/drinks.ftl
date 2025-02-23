@@ -1,7 +1,7 @@
 ent-DrinkBasePlastic = { ent-DrinkBase }
     .desc = { ent-DrinkBase.desc }
-ent-DrinkFitnessShakerBlack = шейкер для фитнеса
-    .desc = Достаточно большой, чтобы в нем было достаточно белка для идеального похудения. Не обращайте внимания на кусочки.
+ent-DrinkFitnessShakerBlack = fitness shaker
+    .desc = Big enough to contain enough protein to get perfectly swole. Don't mind the bits.
 ent-DrinkFitnessShakerRed = { ent-DrinkFitnessShakerBlack }
     .desc = { ent-DrinkFitnessShakerBlack.desc }
 ent-DrinkFitnessShakerBlue = { ent-DrinkFitnessShakerBlack }

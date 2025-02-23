@@ -8,3 +8,5 @@ ent-ClothingBackpackDuffelSyndicateM90Bundle = набор M-90
     .desc = Набор с автоматом синдиката М-90 и двумя запасными магазинами..
 ent-ClothingBackpackDuffelSyndicateFilledWSPR = WSPR bundle
     .desc = A bundle carrying the syndicate's WSPR assault rifle, packed with 2 spare magazines.
+ent-ClothingBackpackDuffelSyndicateFilledCandy = пачка конфет
+    .desc = Набор, доверху набитый конфетами. Кто-то очень любит сладкое!

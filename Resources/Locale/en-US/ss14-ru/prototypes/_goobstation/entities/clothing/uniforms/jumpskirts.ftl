@@ -6,3 +6,5 @@ ent-ClothingUniformJumpskirtBlueshieldOfficer = blueshield officer jumpskirt
     .desc = A short-sleeved grey and blue jumpskirt, made out of a sturdy material. Blueshield standard issue.
 ent-ClothingUniformSkirtMailCarrier = mail carrier's jumpskirt
     .desc = Enemy of dogs everywhere.
+ent-ClothingUniformJumpskirtReporter = reporter's dress
+    .desc = An extravagant black dress designed to catch the attention of as many people as possible.

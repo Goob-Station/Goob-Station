@@ -1,2 +1,2 @@
-ent-BaseHandheldStationMapPowerCe = портативная консоль питания
-    .desc = Изящная портативная консоль с картой электропитания для главных инженеров. Позволяет пользователю просматривать энергосистему.
+ent-BaseHandheldStationMapPowerCe = handheld power console
+    .desc = Fine-crafted handheld power map console for Chief Engineers. Allows the user to view the powergrid.

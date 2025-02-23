@@ -1,3 +1,5 @@
+ent-PartVoxBase = vox body part
+    .desc = { ent-BasePart.desc }
 ent-PartVox = часть тела вокса
     .desc = { ent-BaseItem.desc }
 ent-TorsoVox = туловище вокса

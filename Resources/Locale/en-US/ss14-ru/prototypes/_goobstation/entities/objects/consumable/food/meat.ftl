@@ -1,4 +1,4 @@
-ent-FoodMeatGondola = сырое мясо гондолы
-    .desc = Ты монстр.
-ent-FoodMeatGondolaCooked = стейк из гондолы
-    .desc = Приготовленное, жесткое мясо гондолы.
+ent-FoodMeatGondola = raw gondola meat
+    .desc = You monster.
+ent-FoodMeatGondolaCooked = gondola steak
+    .desc = Cooked, tough gondola meat.

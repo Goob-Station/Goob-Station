@@ -10,3 +10,5 @@ ent-MobAngryBeeWeak = { ent-MobAngryBee }
     .desc = { ent-MobAngryBee.desc }
 ent-MobLootbug = Лутбаг
     .desc = Оно ест метал, может быть, оно съело что-то ценное?
+ent-MobCarpSentient = космический карп
+    .desc = Это космический карп. Раньше был человеком.
