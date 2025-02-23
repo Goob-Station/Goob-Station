@@ -11,5 +11,5 @@ public sealed partial class LavalandMemberComponent : Component
     public EntityUid LavalandMap;
 
     [DataField]
-    public string SignalName;
+    public string SignalName = string.Empty;
 }

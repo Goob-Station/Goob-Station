@@ -28,9 +28,6 @@ public sealed class LavalandGenerationTest
 
         // Setup
         pair.Server.CfgMan.SetCVar(CCVars.LavalandEnabled, false);
-        pair.Server.CfgMan.SetCVar(CCVars.GameDummyTicker, false);
-        var gameMap = pair.Server.CfgMan.GetCVar(CCVars.GameMap);
-        pair.Server.CfgMan.SetCVar(CCVars.GameMap, "Saltern");
 
         await server.WaitPost(() => ticker.RestartRound());
         await pair.RunTicksSync(25);
@@ -75,15 +72,11 @@ public sealed class LavalandGenerationTest
         var lavalands = lavaSystem.GetLavalands();
         Assert.That(planets, Has.Count.EqualTo(lavalands.Count));
 
-        pair.Server.CfgMan.SetCVar(CCVars.GameMap, gameMap);
-
         // Cleanup everything
         foreach (var lava in lavalands)
         {
             entMan.QueueDeleteEntity(lava);
         }
-
-        pair.ClearModifiedCvars();
 
         await pair.RunTicksSync(10);
 
