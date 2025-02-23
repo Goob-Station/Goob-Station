@@ -151,29 +151,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
         {
             scheduler.TimeNextEvent = _timing.CurTime + TimeSpan.FromSeconds(GameDirectorComponent.MinimumTimeUntilFirstEvent);
             LogMessage($"Started, first event in {GameDirectorComponent.MinimumTimeUntilFirstEvent} seconds");
-            // Spawn antags based on GameDirectorComponent
-            var roundStartAntags = new List<EntityPrototype>();
-            foreach (var proto in GameTicker.GetAllGameRulePrototypes())
-            {
-                if(!proto.TryGetComponent<TagComponent>(out var tag, _factory))
-                    continue;
-
-                if (!_tag.HasTag(tag, "RoundstartAntag"))
-                    continue;
-                LogMessage($"Possible roundstart antag: ${proto.ID}");
-
-                roundStartAntags.Add(proto);
-            }
-
-            if (!scheduler.DualAntags)
-            {
-                LogMessage($"Choosing roundstart antags");
-                var randomAntag = roundStartAntags[new Random().Next(roundStartAntags.Count)];
-                LogMessage($"Roundstart antags chosen");
-                var ruleEnt = GameTicker.AddGameRule(randomAntag.ID);
-                GameTicker.StartGameRule(ruleEnt);
-            }
-
+            SpawnRoundstartAntags(scheduler, count);
             return;
         }
 
@@ -199,6 +177,85 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             LogMessage($"Chaos is: {chaos} (No events ran)", false);
             scheduler.TimeNextEvent = currTime + TimeSpan.FromSeconds(30f);
         }
+    }
+
+    /// <summary>
+    /// Spawn roundstart antags at the beginning of the round
+    /// </summary>
+    private void SpawnRoundstartAntags(GameDirectorComponent scheduler, PlayerCount count)
+    {
+        // Spawn antags based on GameDirectorComponent
+            var roundStartAntags = new List<EntityPrototype>();
+
+            foreach (var proto in GameTicker.GetAllGameRulePrototypes())
+            {
+                if (!proto.TryGetComponent<TagComponent>(out var tag, _factory))
+                    continue;
+
+                if (!proto.TryGetComponent<GameRuleComponent>(out var gameRuleComp, _factory))
+                    continue;
+
+                if (gameRuleComp.MinPlayers < count.Players)
+                    continue;
+
+                if (proto.HasComponent<DynamicRulesetComponent>())
+                    continue;
+
+                if (!_tag.HasTag(tag, "RoundstartAntag"))
+                    continue;
+
+                if (_tag.HasTag(tag, "MidroundAntag"))
+                    continue;
+                roundStartAntags.Add(proto);
+            }
+
+            if (!scheduler.DualAntags)
+            {
+                roundStartAntags.RemoveAll(proto =>
+                    proto.TryGetComponent<TagComponent>(out var tag, _factory) &&
+                    _tag.HasTag(tag, "CalmAntag"));
+
+                if (roundStartAntags.Count == 0)
+                {
+                    LogMessage("No valid roundstart antags found!");
+                    return;
+                }
+
+                LogMessage("Choosing roundstart antag");
+                var random = new Random();
+                var randomAntag = roundStartAntags[random.Next(roundStartAntags.Count)];
+                LogMessage($"Roundstart antag chosen: {randomAntag.ID}");
+
+                var ruleEnt = GameTicker.AddGameRule(randomAntag.ID);
+                GameTicker.StartGameRule(ruleEnt);
+            }
+            else
+            {
+                roundStartAntags.RemoveAll(proto => proto.TryGetComponent<TagComponent>(out var tag, _factory) && !_tag.HasTag(tag, "CalmAntag"));
+
+                if (roundStartAntags.Count < 2)
+                {
+                    LogMessage("Not enough valid roundstart antags found!");
+                    return;
+                }
+
+                LogMessage("Choosing multiple roundstart antags");
+                var random = new Random();
+
+                var firstIndex = random.Next(roundStartAntags.Count);
+                var randomAntagFirst = roundStartAntags[firstIndex];
+                roundStartAntags.RemoveAt(firstIndex);
+
+                var randomAntagSecond = roundStartAntags[random.Next(roundStartAntags.Count)];
+
+                LogMessage($"Roundstart antags chosen: 1: {randomAntagFirst.ID} 2: {randomAntagSecond.ID}");
+
+                var ruleFirstEnt = GameTicker.AddGameRule(randomAntagFirst.ID);
+                var ruleSecondEnt = GameTicker.AddGameRule(randomAntagSecond.ID);
+
+                GameTicker.StartGameRule(ruleFirstEnt);
+                GameTicker.StartGameRule(ruleSecondEnt);
+            }
     }
 
     /// <summary>

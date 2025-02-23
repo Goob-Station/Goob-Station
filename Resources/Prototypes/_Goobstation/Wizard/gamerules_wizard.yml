@@ -96,6 +96,9 @@
       - type: NpcFactionMember
         factions:
         - Wizard
+    - type: Tag
+      tags:
+        MidroundAntag
 
 - type: entity
   parent: [ WizardDynamic, WizardMidround]
