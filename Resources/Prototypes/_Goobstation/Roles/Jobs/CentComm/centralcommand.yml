@@ -168,7 +168,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitSpecOps
     shoes: ClothingShoesBootsJackFilled
-    head: ClothingHeadHatBeretNavyOfficer
+    head: ClothingHeadHatBeretSecurity
     eyes: ClothingEyesGlassesDeathsquad
     gloves: ClothingHandsGlovesCombat
     back: ClothingBackpackSatchelLeather
@@ -177,7 +177,8 @@
     id: SpecialOperationsOfficerPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltHolsterFilledCentComm
-    pocket1: BoxFolderCentCom
+    suitstorage: WeaponRifleAnnie
+    pocket1: WeaponRevolverMateba
     pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
   storage:
     back:
@@ -186,3 +187,6 @@
       - BluespaceLifelineImplanter
       - CentcommFreedomImplanter
       - RadioImplanterCentcomm
+      - BoxFolderNuclearCodes # ka-BOOM
+      - MagazineLightRifleUranium
+      - MagazineLightRifleUranium
