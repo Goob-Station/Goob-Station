@@ -5248,3 +5248,12 @@ Entries:
       message: Tweaking blueshield hardsuit stats.
   id: 602
   time: '2025-02-23T00:51:15.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Fixed alt-click actions not showing up while linking some devices, like
+        conveyor belts. You can now click a lever then alt-click conveyor belts
+        to link their default links quickly.
+  id: 603
+  time: '2025-02-23T00:53:30.0000000+00:00'
