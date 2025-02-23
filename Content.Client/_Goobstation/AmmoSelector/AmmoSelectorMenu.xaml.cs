@@ -51,7 +51,6 @@ public sealed partial class AmmoSelectorMenu : RadialMenu
 
             var button = new AmmoSelectorMenuButton
             {
-                StyleClasses = { "RadialMenuButton" },
                 SetSize = new Vector2(64, 64),
                 ToolTip = Loc.GetString(prototype.Desc),
                 ProtoId = prototype.ID
@@ -88,7 +87,7 @@ public sealed partial class AmmoSelectorMenu : RadialMenu
     }
 }
 
-public sealed class AmmoSelectorMenuButton : RadialMenuTextureButton
+public sealed class AmmoSelectorMenuButton : RadialMenuTextureButtonWithSector
 {
     public ProtoId<SelectableAmmoPrototype> ProtoId { get; set; }
 }

@@ -1,0 +1,48 @@
+- type: entity
+  id: RapidBulletKinetic
+  name: rapid kinetic bolt
+  parent: BulletKinetic
+  categories: [ HideSpawnMenu ]
+  description: Not too bad, but you still don't want to get hit by it.
+  components:
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 20
+  - type: TimedDespawn
+    lifetime: 0.100 # Lavaland Change
+
+- type: entity
+  id: WeakBulletKinetic
+  name: weak kinetic bolt
+  parent: BulletKinetic
+  categories: [ HideSpawnMenu ]
+  description: Not too bad, but you still don't want to get hit by it.
+  components:
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 10
+
+- type: entity
+  id: PelletKinetic
+  categories: [ HideSpawnMenu ]
+  parent: BulletKinetic
+  components:
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 15
+
+- type: entity
+  id: PelletKineticSpread
+  categories: [ HideSpawnMenu ]
+  parent: BulletKinetic
+  components:
+  - type: ProjectileSpread
+    proto: PelletKinetic
+    count: 4
+    spread: 40

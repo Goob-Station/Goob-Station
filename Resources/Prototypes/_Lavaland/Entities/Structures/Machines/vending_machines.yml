@@ -1,0 +1,49 @@
+- type: entity
+  parent: VendingMachine
+  id: VendingMachineMiningDrobe
+  name: MiningDrobe
+  description: A highly advanced vending machine for buying mining related clothing for free. Please do not mine Bitcoin with it.
+  components:
+  - type: VendingMachine
+    pack: MiningDrobeInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+  - type: Advertise
+    pack: MiningDrobeAds
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: _Lavaland/Structures/VendingMachines/minerdrobe.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#b89e2a"
+  - type: AccessReader
+    access: [["Salvage"]]
+
+- type: localizedDataset
+  id: MiningDrobeAds
+  values:
+    prefix: advertisement-miningdrobe-
+    count: 3
+
+- type: vendingMachineInventory
+  id: MiningDrobeInventory
+  startingInventory:
+    ClothingUniformJumpsuitSalvageSpecialist: 3
+    ClothingShoesBootsSalvage: 3
+    ClothingHandsGlovesColorBlack: 3
+    ClothingBackpackSalvage: 2
+    ClothingBackpackSatchelSalvage: 2
+    ClothingBackpackDuffelSalvage: 2
+    ClothingHeadsetMining: 2
+    ClothingOuterWinterMiner: 2

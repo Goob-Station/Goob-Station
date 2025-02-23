@@ -1,0 +1,29 @@
+- type: latheRecipe
+  id: PKAUpgradeDamage
+  result: PKAUpgradeDamage # Probably the strongest so might as well keep it under control.
+  category: Weapons
+  completetime: 5
+  materials:
+    Steel: 4500
+    Gold: 2500
+    Silver: 2500
+
+- type: latheRecipe
+  id: PKAUpgradeRange
+  result: PKAUpgradeRange
+  category: Weapons
+  completetime: 5
+  materials:
+    Steel: 1500
+    Gold: 500
+    Silver: 500
+
+- type: latheRecipe
+  id: PKAUpgradeFireRate
+  result: PKAUpgradeFireRate
+  category: Weapons
+  completetime: 5
+  materials:
+    Steel: 1500
+    Gold: 500
+    Silver: 500

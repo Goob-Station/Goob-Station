@@ -1,0 +1,140 @@
+- type: entity
+  id: LavalandBossHierophant
+  name: hierophant
+  description: A massive metal club that hangs in the air as though waiting. It'll make you dance to its beat.
+  components:
+  # Basic stuff
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.6,0.35,0.6"
+        density: 50
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Clickable
+  - type: InteractionOutline
+  - type: InputMover
+  - type: Input
+    context: "human"
+  - type: LagCompensation
+  - type: MobMover
+  - type: Actions
+  - type: Appearance
+  - type: RotationVisuals
+    defaultRotation: 0
+    horizontalRotation: 0
+  - type: DoAfter
+  - type: Examiner
+  - type: Eye
+  - type: ContentEye
+  - type: RequireProjectileTarget
+    active: False
+  - type: CombatMode
+  - type: MobState
+  # Actual boss from here
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Hierophant
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/hierophant.rsi
+    state: hierophant
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.5
+    baseSprintSpeed: 1.5
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      2500: Dead
+  - type: Tag
+    tags:
+    - CannotSuicide
+  - type: NoSlip
+  - type: HierophantBoss # boss specific component. defines pattern/scripted attacks and other stuff
+    loot: LavalandHierophantClub
+  - type: DamageSquareImmunity
+    isImmune: true
+  - type: Aggressive # also required component for aggro checking
+  - type: BossMusic
+    soundId: Hierophant
+
+# hierophant damaging thing
+- type: entity
+  id: LavalandHierophantSquare
+  suffix: DO NOT MAP
+  name: hierophant square
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Effects/mob_effects.rsi
+    state: hierophant_blast-begin
+  - type: Transform
+    anchored: true
+  - type: TimedDespawn
+    lifetime: 0.6
+  - type: SpawnOnDespawn
+    prototypes:
+    - LavalandHierophantDamageField
+
+- type: entity
+  id: LavalandHierophantDamageField
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Effects/mob_effects.rsi
+    state: hierophant_blast-end
+  - type: Transform
+    anchored: true
+  - type: TimedDespawn
+    lifetime: 0.325
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+          - SlipLayer
+        mask:
+          - ItemMask
+        density: 1000
+        hard: false
+  - type: DamageSquare
+    damage:
+      types:
+        Blunt: 3
+        Heat: 3
+    sound:
+      path: /Audio/_Lavaland/Mobs/Bosses/hiero_blast.ogg
+
+- type: entity
+  id: LavalandHierophantChaser
+  suffix: DO NOT MAP
+  name: hierophant chaser
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Transform
+    anchored: true
+  - type: HierophantChaser
+    spawnPrototype: LavalandHierophantSquare
+
+- type: damageModifierSet
+  id: Hierophant
+  coefficients:
+    Piercing: 0.1 # No bullets
+    Heat: 0.5 # No lasers

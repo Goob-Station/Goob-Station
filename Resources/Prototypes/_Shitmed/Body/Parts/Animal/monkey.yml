@@ -1,0 +1,110 @@
+# TODO: Add descriptions (many)
+
+- type: entity
+  abstract: true
+  parent: BasePart
+  id: PartMonkey
+  components:
+  - type: Sprite
+    sprite: Mobs/Animals/monkey.rsi
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  parent: [PartMonkey, BaseTorso]
+  id: TorsoMonkey
+  name: "monkey torso"
+  components:
+  - type: Sprite
+    state: "torso_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+- type: entity
+  parent: [PartMonkey, BaseHead]
+  id: HeadMonkey
+  name: "monkey head"
+  components:
+  - type: Sprite
+    state: "head_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  parent: [PartMonkey, BaseLeftArm]
+  id: LeftArmMonkey
+  name: "left monkey arm"
+  components:
+  - type: Sprite
+    state: "l_arm"
+
+- type: entity
+  parent: [PartMonkey, BaseRightArm]
+  id: RightArmMonkey
+  name: "right monkey arm"
+  components:
+  - type: Sprite
+    state: "r_arm"
+
+- type: entity
+  parent: [PartMonkey, BaseLeftHand]
+  id: LeftHandMonkey
+  name: "left monkey hand"
+  components:
+  - type: Sprite
+    state: "l_hand"
+
+- type: entity
+  parent: [PartMonkey, BaseRightHand]
+  id: RightHandMonkey
+  name: "right monkey hand"
+  components:
+  - type: Sprite
+    state: "r_hand"
+
+- type: entity
+  parent: [PartMonkey, BaseLeftLeg]
+  id: LeftLegMonkey
+  name: "left monkey leg"
+  components:
+  - type: Sprite
+    state: "l_leg"
+
+- type: entity
+  parent: [PartMonkey, BaseRightLeg]
+  id: RightLegMonkey
+  name: "right monkey leg"
+  components:
+  - type: Sprite
+    state: "r_leg"
+
+- type: entity
+  parent: [PartMonkey, BaseLeftFoot]
+  id: LeftFootMonkey
+  name: "left monkey foot"
+  components:
+  - type: Sprite
+    state: "l_foot"
+
+- type: entity
+  parent: [PartMonkey, BaseRightFoot]
+  id: RightFootMonkey
+  name: "right monkey foot"
+  components:
+  - type: Sprite
+    state: "r_foot"

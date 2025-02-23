@@ -1,0 +1,15 @@
+- type: gameMap
+  id: Lavatest
+  mapName: Lavaland Playtest
+  mapPath: /Maps/_Lavaland/lavaland_playtest.yml
+  minPlayers: 0
+  stations:
+    Lavatest:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "LavaTest"
+        - type: StationJobs
+          availableJobs:
+            Quartermaster: [ 1, 1 ]
+            SalvageSpecialist: [ -1, -1 ]
