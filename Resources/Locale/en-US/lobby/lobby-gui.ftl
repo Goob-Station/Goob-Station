@@ -1,5 +1,4 @@
 ui-lobby-title = Welcome to
-ui-lobby-server-name = 🐕 ~ ShibaStation ~ 🐕
 ui-lobby-ahelp-button = AHelp
 ui-lobby-options-button = Options
 ui-lobby-leave-button = Leave
