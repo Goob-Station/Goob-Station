@@ -1,20 +1,22 @@
 - type: job # goob edit
   id: Passenger
-  name: job-name-passenger
-  description: job-description-passenger
+  name: job-name-passenger # goobstation - welcome to rust
+  description: job-description-passenger # goobstation - welcome to rust
   playTimeTracker: JobPassenger
   startingGear: PassengerGear
   icon: "JobIconPassenger"
   supervisors: job-supervisors-everyone
   canBeAntag: false # GOOBSTATION: THE RECKONING COMES
   access:
-  - Maintenance
+  # - Maintenance # goobstation - welcome to rust
 
 - type: startingGear
   id: PassengerGear
   equipment:
-    id: PassengerPDA
-    ears: ClothingHeadsetGrey
+    # id: PassengerPDA # goobstation - welcome to rust
+    # ears: ClothingHeadsetGrey # goobstation - welcome to rust
+  inhand:
+    - TiderRock
   #storage:
     #back:
     #- Stuff

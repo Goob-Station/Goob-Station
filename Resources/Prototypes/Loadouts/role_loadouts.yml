@@ -35,16 +35,16 @@
   id: JobPassenger
   groups:
   - GroupTankHarness
-  - PassengerJumpsuit
-  - CommonBackpack
-  - PassengerNeck
-  - PassengerFace
-  - PassengerGloves
-  - PassengerOuterClothing
-  - PassengerShoes
-  - Glasses
-  - Survival
-  - Trinkets
+  #- PassengerJumpsuit # goobstation - rust
+  #- CommonBackpack # goobstation - rust
+  #- PassengerNeck # goobstation - rust
+  #- PassengerFace # goobstation - rust
+  #- PassengerGloves # goobstation - rust
+  #- PassengerOuterClothing # goobstation - rust
+  #- PassengerShoes # goobstation - rust
+  #- Glasses # goobstation - rust
+  #- Survival # goobstation - rust
+  #- Trinkets # goobstation - rust
   - GroupSpeciesBreathTool
 
 - type: roleLoadout

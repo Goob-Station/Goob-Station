@@ -1,0 +1,27 @@
+# _Goobstation/Entities/Weapons WILL DEAFEAT _Goobstation/Entities/Objects/Weapons!!!
+
+- type: entity
+  name: rock
+  parent: BaseItem
+  id: TiderRock
+  description: 'We raiding G8 guys, I got full stack of c4 and rockets.'
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/tider-rock.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Weapons/Melee/tider-rock.rsi
+    size: Large
+  - type: MeleeWeapon
+    wideAnimationRotation: 135
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 15
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+  - type: StaticPrice
+    price: 10

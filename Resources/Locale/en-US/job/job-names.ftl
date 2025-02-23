@@ -33,8 +33,8 @@ job-name-janitor = Janitor
 job-name-chaplain = Chaplain
 job-name-botanist = Botanist
 job-name-bartender = Bartender
-## goob edit - epic passengers
-job-name-passenger = Assistant
+## goob edit - rust passengers
+job-name-passenger = Naked
 job-name-salvagespec = Salvage Specialist
 job-name-station-ai = Station AI
 job-name-qm = Quartermaster
