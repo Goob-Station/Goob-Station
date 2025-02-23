@@ -1,6 +1,19 @@
 - type: entity
   id: SpawnPointPirates
   parent: MarkerBase
+  name: pirates
+  components:
+  - type: SpawnPoint
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Clothing/Head/Hats/pirate.rsi
+      state: icon
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  id: SpawnPointPirateCaptain
+  parent: BaseAntagSpawner
   name: Pirate spawn point
   components:
   - type: SpawnPoint
@@ -9,3 +22,9 @@
     - state: green
     - sprite: Mobs/Species/Skeleton/parts.rsi
       state: skull_icon
+  - type: GhostRole
+    name: ghost-role-information-pirate-irs-name # leaving it like that because i'm too lazy to redo it
+    description: ghost-role-information-pirate-irs-description
+    rules: ghost-role-information-pirate-irs-rules
+    raffle:
+      settings: default
