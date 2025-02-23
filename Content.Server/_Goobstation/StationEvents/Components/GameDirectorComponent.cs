@@ -48,6 +48,13 @@ public sealed partial class GameDirectorComponent : Component
     ///   Which stories the director can choose from (so we can change flavor of director by loading different stories)
     ///   One of these get picked randomly each time the current story is exhausted.
     /// </summary>
+    [DataField]
+    public bool DualAntags;
+
+    /// <summary>
+    ///   Which stories the director can choose from (so we can change flavor of director by loading different stories)
+    ///   One of these get picked randomly each time the current story is exhausted.
+    /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public ProtoId<StoryPrototype>[]? Stories;
 

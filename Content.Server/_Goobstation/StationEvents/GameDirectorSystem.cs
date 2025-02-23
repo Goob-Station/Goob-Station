@@ -4,17 +4,21 @@ using Content.Server._Goobstation.StationEvents.Metric;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking.Rules;
+using Content.Server.GameTicking.Rules.Components;
 using Content.Server.StationEvents;
 using Content.Server.StationEvents.Components;
 using Content.Shared.Database;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Ghost;
 using Content.Shared.Humanoid;
+using Content.Shared.Prototypes;
+using Content.Shared.Tag;
 using JetBrains.Annotations;
 using Robust.Server.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using YamlDotNet.Core.Tokens;
 
 namespace Content.Server._Goobstation.StationEvents;
 
@@ -69,6 +73,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ILogManager _log = default!;
     [Dependency] private readonly IChatManager _chat = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -102,13 +107,18 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             if (!proto.TryGetComponent<StationEventComponent>(out var stationEvent, _factory))
                 continue;
 
+            if (proto.HasComponent<DynamicRulesetComponent>()) // Block john shitcode moment
+                continue;
+
             // Gate here on players, but not on round runtime. The story will probably last long enough for the
             // event to be ready to run again, we'll check CanRun again before we actually launch the event.
             if (!_event.CanRun(proto, stationEvent, count.Players, TimeSpan.MaxValue))
                 continue;
+            LogMessage($"Possible event added: ${proto.ID}");
 
             scheduler.PossibleEvents.Add(new PossibleEvent(proto.ID, stationEvent.Chaos));
         }
+        LogMessage($"All possible events added");
     }
 
     /// <summary>
@@ -132,18 +142,40 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             GameTicker.EndGameRule(uid, gameRule);
             return;
         }
+        // Decide what story beat to work with (which sets chaos goals)
+        var count = CountActivePlayers();
+        var beat = DetermineNextBeat(scheduler, chaos, count);
 
         // This is the first event, add an automatic delay
         if (scheduler.TimeNextEvent == TimeSpan.Zero)
         {
             scheduler.TimeNextEvent = _timing.CurTime + TimeSpan.FromSeconds(GameDirectorComponent.MinimumTimeUntilFirstEvent);
             LogMessage($"Started, first event in {GameDirectorComponent.MinimumTimeUntilFirstEvent} seconds");
+            // Spawn antags based on GameDirectorComponent
+            var roundStartAntags = new List<EntityPrototype>();
+            foreach (var proto in GameTicker.GetAllGameRulePrototypes())
+            {
+                if(!proto.TryGetComponent<TagComponent>(out var tag, _factory))
+                    continue;
+
+                if (!_tag.HasTag(tag, "RoundstartAntag"))
+                    continue;
+                LogMessage($"Possible roundstart antag: ${proto.ID}");
+
+                roundStartAntags.Add(proto);
+            }
+
+            if (!scheduler.DualAntags)
+            {
+                LogMessage($"Choosing roundstart antags");
+                var randomAntag = roundStartAntags[new Random().Next(roundStartAntags.Count)];
+                LogMessage($"Roundstart antags chosen");
+                var ruleEnt = GameTicker.AddGameRule(randomAntag.ID);
+                GameTicker.StartGameRule(ruleEnt);
+            }
+
             return;
         }
-
-        // Decide what story beat to work with (which sets chaos goals)
-        var count = CountActivePlayers();
-        var beat = DetermineNextBeat(scheduler, chaos, count);
 
         // Pick the best events (which move the station towards the chaos desired by the beat)
         var bestEvents = ChooseEvents(scheduler, beat, chaos, count);

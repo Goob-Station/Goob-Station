@@ -150,14 +150,3 @@
   showInVote: false
   rules:
   - CombatDynamic
-
-- type: gamePreset
-  id: TraitorDynamic
-  alias:
-  - traitordynamic
-  name: traitor-title
-  description: traitor-description
-  showInVote: false
-  rules:
-  - Traitor
-  - CombatDynamic

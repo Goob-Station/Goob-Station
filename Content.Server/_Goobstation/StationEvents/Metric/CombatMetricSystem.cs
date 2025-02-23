@@ -44,7 +44,7 @@ public sealed class CombatMetricSystem : ChaosMetricSystem<CombatMetricComponent
 
         foreach (var item in _inventory.GetHandOrInventoryEntities(uid))
         {
-            if (tagsQ.TryGetComponent(uid, out var tags))
+            if (tagsQ.TryGetComponent(item, out var tags)) // thanks code rabbit
             {
                 allTags.UnionWith(tags.Tags);
             }
