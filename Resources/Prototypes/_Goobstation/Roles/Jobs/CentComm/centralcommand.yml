@@ -118,6 +118,7 @@
     head: ClothingHeadHatChameleon
     eyes: ClothingEyesGlassesDeathsquad
     gloves: ClothingHandsChameleon
+    mask: ClothingMaskGasVoiceChameleon
     back: ClothingBackpackChameleon
     outerClothing: ClothingOuterArmourInvisible
     neck: ClothingNeckChameleon

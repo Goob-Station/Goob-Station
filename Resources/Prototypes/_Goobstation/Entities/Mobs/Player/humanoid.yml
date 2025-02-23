@@ -299,3 +299,39 @@
     nameSegments:
     - NamesFirstMilitaryHighRank
     - NamesLastMilitary
+
+# Navy Undercover Officer
+
+- type: entity
+  id: RandomHumanoidSpawnerNavyOfficerUndercover
+  name: Undercover Navy Officer
+  suffix: CentComm
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
+    state: icon
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstMilitaryLeader
+    - NamesLastMilitary
+  - type: RandomHumanoidSpawner
+    settings: NavyOfficerUndercover
+
+- type: randomHumanoidSettings
+  id: NavyOfficerUndercover
+  parent: EventHumanoidMindShielded
+  randomizeName: false
+  components:
+  - type: GhostRole
+    name: ghost-role-information-navy-officer-undercover-name
+    description: ghost-role-information-navy-officer-undercover-description
+    rules: ghost-role-information-navy-officer-rules
+    raffle:
+      settings: short
+  - type: Loadout
+    prototypes: [  NavyOfficerUndercoverGear ]
+    roleLoadout: [ RoleSurvivalEVA ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstMilitaryLeader
+    - NamesLastMilitary
