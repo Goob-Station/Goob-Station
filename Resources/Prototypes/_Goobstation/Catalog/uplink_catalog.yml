@@ -615,6 +615,6 @@
   description: uplink-dimension-pot-desc
   productEntity: DimensionPot
   cost:
-    Telecrystal: 70
+    Telecrystal: 40
   categories:
   - UplinkDeception
