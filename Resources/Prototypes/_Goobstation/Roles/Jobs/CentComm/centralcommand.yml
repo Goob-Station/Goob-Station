@@ -1,3 +1,5 @@
+# Navy Officer
+
 - type: job
   id: NavyOfficer
   name: job-name-navy-officer
@@ -31,7 +33,7 @@
     neck: ExecutiveIDCard
     id: NavyOfficerPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltHolsterFilledCentComm
+    belt: ClothingBeltHolsterFilledCentComm # Todo - Give the officer a sabre
     pocket1: BoxFolderCentCom
     pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
   storage:
@@ -77,7 +79,7 @@
     neck: ExecutiveIDCard
     id: NavyCaptainPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltHolsterFilledCentComm
+    belt: ClothingBeltHolsterFilledCentComm # Todo - Give the officer a sabre
     pocket1: BoxFolderCentCom
     pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
   storage:
@@ -139,3 +141,48 @@
       - SyringePoisonCentcomm # Amatoxin. It's amatoxin.
       - SyringePoisonCentcomm
 
+# Special Operations Officer
+
+- type: job
+  id: SpecialOperationsOfficer
+  name: job-name-special-operations-officer
+  description: job-description-operations-officer
+  playTimeTracker: JobSpecialOperationsOfficer
+  setPreference: false
+  startingGear: SpecialOperationsOfficerGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-commander
+  canBeAntag: false
+  requirements:
+    - !type:AgeRequirement
+      requiredAge: 21
+  accessGroups:
+    - AllAccess
+  access:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
+
+- type: startingGear
+  id: SpecialOperationsOfficerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNavyGold # Todo - Replace This
+    shoes: ClothingShoesBootsJackFilled
+    head: ClothingHeadHatBeretNavyCaptain
+    eyes: ClothingEyesGlassesDeathsquad
+    gloves: ClothingHandsGlovesCombat
+    back: ClothingBackpackSatchelLeather
+    outerClothing: ClothingOuterArmourInvisible
+    neck: ExecutiveIDCard
+    id: SpecialOperationsOfficerPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltHolsterFilledCentComm
+    pocket1: BoxFolderCentCom
+    pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
+  storage:
+    back:
+      - WeaponPulsePistol
+      - HandheldFaxOfficial
+      - BluespaceLifelineImplanter
+      - CentcommFreedomImplanter
+      - RadioImplanterCentcomm

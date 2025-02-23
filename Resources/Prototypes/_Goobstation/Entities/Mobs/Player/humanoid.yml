@@ -335,3 +335,39 @@
     nameSegments:
     - NamesFirstMilitaryLeader
     - NamesLastMilitary
+
+# Special Operations Officer
+
+- type: entity
+  id: RandomHumanoidSpawnerSpecialOperationsOfficers
+  name: Special Operations Officer
+  suffix: CentComm
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
+    state: icon
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstMilitaryHighRank
+    - NamesLastMilitary
+  - type: RandomHumanoidSpawner
+    settings: SpecialOperationsOfficer
+
+- type: randomHumanoidSettings
+  id: SpecialOperationsOfficer
+  parent: EventHumanoidMindShielded
+  randomizeName: false
+  components:
+  - type: GhostRole
+    name: ghost-role-information-special-operations-officer-name
+    description: ghost-role-information-special-operations-officer-description
+    rules: ghost-role-information-special-operations-officer-rules
+    raffle:
+      settings: short
+  - type: Loadout
+    prototypes: [ SpecialOperationsOfficerGear ]
+    roleLoadout: [ RoleSurvivalEVA ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstMilitaryHighRank
+    - NamesLastMilitary
