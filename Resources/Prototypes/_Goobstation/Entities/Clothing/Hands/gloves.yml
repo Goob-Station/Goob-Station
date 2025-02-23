@@ -54,3 +54,16 @@
     sprite: _Goobstation/Clothing/Hands/Gloves/atmos.rsi
   - type: Fiber
     fiberColor: fibers-blue
+
+- type: entity
+  parent: [ClothingHandsGlovesColorGray , BasePassengerContraband ]
+  id: ClothingHandsGlovesGreytider
+  name: greytider gloves
+  description: Insulated grey gloves that will keep you from frying.
+  components:
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+  - type: Construction
+    graph: ClothingHandsGlovesGreytider
+    node: end

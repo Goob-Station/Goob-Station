@@ -126,6 +126,9 @@
   id: GorillaFormAction
 
 - type: Tag
+  id: GreyGloves
+
+- type: Tag
   id: Gygax
 
 - type: Tag
@@ -175,6 +178,9 @@
 
 - type: Tag
   id: IndustrialMech
+
+- type: Tag
+  id: InsulatedGloves
 
 - type: Tag
   id: JanicartKeys

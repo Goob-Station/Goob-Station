@@ -175,6 +175,11 @@
         color: "#999999"
   - type: Fiber
     fiberColor: fibers-grey
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - GreyGloves # Goobstation
 
 # Green Gloves
 - type: entity
@@ -340,6 +345,11 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-yellow
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - InsulatedGloves # Goobstation
 
 # Budget Insulated Gloves
 - type: entity
@@ -367,6 +377,10 @@
   - type: Fiber
     fiberMaterial: fibers-insulative-frayed
     fiberColor: fibers-yellow
+  - type: Tag # Goobstation - ignore InsulatedGloves tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
 
 # Conductive Insulated Gloves
 - type: entity
