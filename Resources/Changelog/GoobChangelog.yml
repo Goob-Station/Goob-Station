@@ -5257,3 +5257,9 @@ Entries:
         to link their default links quickly.
   id: 603
   time: '2025-02-23T00:53:30.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: The contortionist's jumpsuit no longer outs itself by the name.
+  id: 604
+  time: '2025-02-23T00:54:51.0000000+00:00'
