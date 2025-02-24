@@ -1,3 +1,4 @@
+# Carpshot
 - type: entity
   name: shell box (.75 carpshot)
   parent: AmmoProviderShotgunShell
@@ -13,6 +14,98 @@
       map: ["enum.GunVisualLayers.Mag"]
     - state: lethal
 
+# Normal Slug
+- type: entity
+  name: shell box (.75 slug)
+  parent: AmmoProviderShotgunShell
+  id: MagazineBoxShotgunSlugHighCaliber
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunSlugHighCaliber
+  - type: MagazineVisuals
+    magState: mag-alt
+    steps: 5
+    zeroVisible: false
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-alt-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: slug
+
+# Incendiary
+- type: entity
+  name: shell box (.75 incendiary)
+  parent: AmmoProviderShotgunShell
+  id: MagazineBoxShotgunIncendiaryHighCaliber
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunHighCaliberIncendiary
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: incendiary
+
+# Uranium
+- type: entity
+  name: shell box (uranium)
+  parent: AmmoProviderShotgunShell
+  id: MagazineBoxShotgunUraniumHighCaliber
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunHighCaliberUranium
+  - type: MagazineVisuals
+    magState: mag-alt
+    steps: 5
+    zeroVisible: false
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-alt-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: uranium
+
+# Beanbag
+
+- type: entity
+  parent: AmmoProviderShotgunShell
+  id: MagazineBoxShotgunBeanbagHighCaliber
+  name: shell box (.75 beanbag)
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunBeanbagHighCaliber
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: beanbag
+
+# Practice
+
+- type: entity
+  name: shell box (.75 practice)
+  parent: AmmoProviderShotgunShell
+  id: MagazineBoxShotgunPracticeHighCaliber
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunHighCaliberPractice
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: practice
+
+
+# Ensnaring
 - type: entity
   id: MagazineBoxShotgunHighCaliberEnsnaring
   parent: AmmoProviderShotgunShell
@@ -29,6 +122,7 @@
     - state: incendiary
       color: "#cfff77"
 
+# EMP
 - type: entity
   id: MagazineBoxShotgunHighCaliberEMP
   parent: AmmoProviderShotgunShell
@@ -45,6 +139,7 @@
     - state: incendiary
       color: "#009eff"
 
+# Flash
 - type: entity
   id: MagazineBoxShotgunHighCaliberFlash
   parent: AmmoProviderShotgunShell
