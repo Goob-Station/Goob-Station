@@ -1739,6 +1739,7 @@
       Dead: 0
     baseDecayRate: 0.04
   - type: Hunger
+    startingHunger: 15 # Goobstation change
     thresholds:
       Overfed: 35
       Okay: 25
@@ -1825,7 +1826,7 @@
   - type: EggLayer # Goobstation
     eggSpawn:
     - id: MobMouse
-    hungerUsage: 10
+    hungerUsage: 20
     eggLayAction: MouseMultiply
 
 - type: entity
