@@ -5329,3 +5329,9 @@ Entries:
       message: You can now zoom slightly when wielding smart smg.
   id: 615
   time: '2025-02-24T00:33:46.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Tweak
+      message: added vent crawl to more animals
+  id: 616
+  time: '2025-02-24T00:34:28.0000000+00:00'
