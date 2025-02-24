@@ -5347,3 +5347,9 @@ Entries:
       message: Dwarves now have innate mineral scanner. Rock and Stone!
   id: 618
   time: '2025-02-24T00:37:33.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Bingle is now slightly more frequent.
+  id: 619
+  time: '2025-02-24T00:38:37.0000000+00:00'
