@@ -29,6 +29,7 @@
       components:
       - type: DisarmMalus
         malus: 1
+      - type: Clothing
     - type: Sprite
       sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
       layers:
