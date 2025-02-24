@@ -350,7 +350,7 @@
       - SignalTrigger
       - VoiceTrigger
       - Igniter
-#      - HandHeldMassScanner - Removed by Lavaland
+      - HandHeldMassScanner
       - PowerCellMicroreactor
       - PowerCellHigh
       - WeaponPistolCHIMP
