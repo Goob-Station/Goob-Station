@@ -434,6 +434,7 @@
   - type: Butcherable
     spawned:
     - id: FoodMeatSlime
+  - type: VentCrawler # goobstation - Ventcrawl
 
 - type: entity
   name: mothroach
@@ -3010,6 +3011,7 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: VentCrawler # goobstation - Ventcrawl	
 
 - type: entity
   name: calico cat
