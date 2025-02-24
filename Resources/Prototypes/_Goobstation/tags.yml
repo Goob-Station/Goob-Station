@@ -326,3 +326,8 @@
 - type: Tag
   id: HudMedicalSecurity
 
+- type: Tag
+  id: HudDiagnostic
+
+- type: Tag
+  id: HudMedicalDiagnostic
