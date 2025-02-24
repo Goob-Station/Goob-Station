@@ -44,7 +44,7 @@ public sealed class HungerSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, HungerComponent component, MapInitEvent args)
     {
-        // <goobstation> Starting hunger overwrite
+        // <goobstation> Starting hunger override
         if (component.StartingHunger is not null)
         {
             SetHunger(uid, (float) component.StartingHunger, component);
