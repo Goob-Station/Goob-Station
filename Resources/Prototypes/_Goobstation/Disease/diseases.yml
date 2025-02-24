@@ -19,7 +19,7 @@
       DiseaseBehaviorPoison: 0.4
       DiseaseBehaviorVomit: 0.6
       DiseaseBehaviorFeelUnwell: 1
-      DiseaseBehaviorHeadache: 1
+      DiseaseBehaviorHeadache: 0.8
 
 - type: entity
   id: DiseaseCancer
