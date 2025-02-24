@@ -180,6 +180,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
         mapComp.Outpost = outpost;
         mapComp.Seed = seed.Value;
         mapComp.PrototypeId = lavalandPrototypeId;
+        mapComp.LoadArea = loadBox;
 
         // Setup Ruins.
         var pool = _proto.Index(prototype.RuinPool);
