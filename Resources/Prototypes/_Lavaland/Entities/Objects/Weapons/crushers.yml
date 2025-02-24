@@ -26,7 +26,6 @@
     capacity: 1
     count: 1
   - type: DisarmMalus
-  - type: PressureDamageChange
   - type: MegafaunaWeaponLooter
 
 - type: entity
@@ -58,11 +57,11 @@
     capacity: 1
     count: 1
   - type: MeleeWeapon
-    attackRate: 0.8
+    attackRate: 0.65 # insane reach
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 9
+        Blunt: 10
         Slash: 5
     soundHit:
       collection: MetalThud
@@ -81,8 +80,8 @@
   - type: DamageBoostOnMarker
     boost:
       types: # Totals to 60 damage when hitting marked targets
-        Blunt: 31
-        Slash: 14
+        Blunt: 30
+        Slash: 15
     backstabBoost: # And 20 extra for a backstab. Adding up to 80
       types:
         Blunt: 11
@@ -100,11 +99,11 @@
   - type: UseDelay
     delay: 1
   - type: MeleeWeapon
-    attackRate: 1.2
+    attackRate: 0.70 # slightly slower than the fireaxe
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 15
+        Blunt: 17.5
     soundHit:
       collection: MetalThud
     angle: 0
@@ -143,7 +142,7 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Slash: 5
+        Slash: 5 
     soundHit:
       collection: MetalThud
     angle: 0
@@ -175,10 +174,10 @@
   - type: UseDelay
     delay: 1
   - type: MeleeWeapon
-    attackRate: 1.5
+    attackRate: 1.0 # slightly slower than a combat/utility knife, but in return is slightly stronger than one
     damage:
       types:
-        Slash: 15
+        Slash: 12.5
     soundHit:
       collection: MetalThud
     angle: 0
@@ -192,7 +191,7 @@
   - type: DamageBoostOnMarker
     boost:
       types: # Totals to 50 damage when hitting marked targets
-        Slash: 25
+        Slash: 27.5
         Blunt: 10
     backstabBoost: # And 20 extra for a backstab
       types:
