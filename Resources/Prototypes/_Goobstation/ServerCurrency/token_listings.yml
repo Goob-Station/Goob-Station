@@ -35,5 +35,5 @@
   name: gs-balanceui-shop-buy-token-admin-abuse
   label: gs-balanceui-shop-token-admin-abuse
   description: gs-balanceui-shop-buy-token-admin-abuse-desc
-  price: 1000
+  price: 250
   adminNote: gs-balanceui-remark-token-admin-abuse
