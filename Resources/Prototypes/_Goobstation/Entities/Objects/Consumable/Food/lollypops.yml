@@ -1253,7 +1253,7 @@
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
   - type: Tag
-    tags: 
+    tags:
     - Trash
 
 - type: entity
@@ -1269,5 +1269,5 @@
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
   - type: Tag
-    tags: 
+    tags:
     - Trash
