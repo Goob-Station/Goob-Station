@@ -14,7 +14,7 @@ public sealed partial class PuddleMetricComponent : Component
     public Dictionary<string, FixedPoint2> Puddles =
         new()
         {
-            { "Water", 0.02 },
+            { "Water", 0.02f },
             { "SpaceCleaner", 0.02f },
 
             { "Nutriment", 0.1f },
@@ -25,8 +25,13 @@ public sealed partial class PuddleMetricComponent : Component
 
             { "Slime", 0.2f },
             { "Blood", 0.2f },
+            { "CopperBlood", 0.2f },
+            { "ZombieBlood", 0.2f },
+            { "AmmoniaBlood", 0.2f },
+            { "ChangelingBlood", 0.2f },
             { "SpaceDrugs", 0.3f },
             { "SpaceLube", 0.3f },
+            { "SpaceGlue", 0.3f}
         };
 
     [DataField("puddleDefault"), ViewVariables(VVAccess.ReadWrite)]
