@@ -224,7 +224,7 @@
   name: burn auto-injector
   parent: ChemicalMedipen
   id: BurnAutoInjector
-  description: A rapid dose of oxandrolone and leporazine, intended for combat applications.
+  description: A rapid dose of oxandrolone, leporazine, and dermaline, intended for combat applications.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi
@@ -246,7 +246,9 @@
         maxVol: 20
         reagents:
         - ReagentId: Oxandrolone # Goobstation
-          Quantity: 10
+          Quantity: 5
+        - ReagentId: Dermaline # Goobstation
+          Quantity: 5
         - ReagentId: Leporazine
           Quantity: 10
   - type: Tag
@@ -320,7 +322,7 @@
   name: pyrazine auto-injector
   parent: ChemicalMedipen
   id: PyraAutoInjector
-  description: A rapid dose of pyrazine and dermaline, intended for combat applications.
+  description: A rapid dose of pyrazine, oxandrolone, and dermaline, intended for combat applications.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi
@@ -343,8 +345,10 @@
         reagents:
         - ReagentId: Pyrazine
           Quantity: 10
+        - ReagentId: Oxandrolone # Goobstation
+          Quantity: 5
         - ReagentId: Dermaline
-          Quantity: 10
+          Quantity: 5
   - type: Tag
     tags: []
 
