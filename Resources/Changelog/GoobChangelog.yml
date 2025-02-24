@@ -5390,3 +5390,61 @@ Entries:
       message: Humans can now use tail and ear markings.
   id: 623
   time: '2025-02-24T00:44:55.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Add
+      message: >-
+        Now you can attach goliath plates to your explorer suits! Thanks to
+        thebiggestbruh for sprites!
+    - type: Tweak
+      message: Doubled hierophant square damage.
+    - type: Tweak
+      message: Crusher gloves now work like Gloves of the North Star.
+    - type: Tweak
+      message: Goliaths only drop one plate per kill now.
+    - type: Tweak
+      message: >-
+        Hierophant now gets more health and aggressiveness when theres more than
+        one fighter.
+    - type: Tweak
+      message: PKA sizes have been tweaked.
+    - type: Tweak
+      message: >-
+        Gave bananium ore some radioactivity, and its processed version is
+        radioactive once again!
+    - type: Tweak
+      message: >-
+        The miner jumpsuit now matches its /tg/ sprites (inhand resprites
+        pending, any help is appreciated!)
+    - type: Tweak
+      message: >-
+        Unprocessed Bluespace Crystals have been added, they give 100 mining
+        points, and can be sold for 2000 spesos per unit. These cannot be
+        fabricated, must be obtained from mining, and will lose their pricing as
+        soon as you put them in the ore processor.
+    - type: Tweak
+      message: >-
+        Now you can put in Sheets and other kinds of materials on the Ore
+        Processor.
+    - type: Tweak
+      message: >-
+        The ore processor will not give any points if you deposit unprocessed
+        ore in lavaland, you have been warned powergamers.
+    - type: Tweak
+      message: >-
+        The ore processor can now be linked to the silo. Starts out linked to
+        the one on station by default.
+    - type: Tweak
+      message: >-
+        Handheld Mass Scanners are no more, now GPS have all of their
+        functionality. Glory to 13 parity.
+    - type: Fix
+      message: >-
+        You can now hit Hierophant with destabilized shots from crushers
+        (sorry).
+    - type: Fix
+      message: >-
+        Removed duplicate explorer suit and advanced mineral scanners from the
+        salv vendor.
+  id: 624
+  time: '2025-02-24T00:51:35.0000000+00:00'
