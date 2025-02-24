@@ -1,13 +1,1 @@
-- type: entity
-  parent: BlueshieldAmmunitionBox
-  id: BlueshieldAmmunitionBoxFilled
-  suffix: Filled
-  components:
-  - type: StorageFill
-    contents:
-    - id: MagazineBoxShotgunHighCaliber
-    - id: MagazineBoxShotgunHighCaliberFlash
-    - id: MagazineBoxShotgunHighCaliberEnsnaring
-    - id: MagazineBoxShotgunHighCaliberEMP
-    - id: MagazineShotgunLeverRifleEmpty
-      amount: 2
+
