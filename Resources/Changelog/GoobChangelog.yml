@@ -5275,3 +5275,9 @@ Entries:
       message: Marked lollypop sticks and wrappers as trash
   id: 606
   time: '2025-02-24T00:27:01.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: HUD's are now removable from sunglasses.
+  id: 607
+  time: '2025-02-24T00:27:54.0000000+00:00'
