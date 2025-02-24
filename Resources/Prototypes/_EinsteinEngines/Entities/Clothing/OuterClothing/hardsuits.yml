@@ -27,11 +27,15 @@
     walkModifier: 0.75
     sprintModifier: 0.75
   - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHelmetHardsuitCombatStandard
+    clothingPrototype: #goobstation change
+      head: ClothingHeadHelmetHardsuitCombatStandard
   - type: AllowSuitStorage
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1
+    knockdownTimeDelta: -1
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: ClothingOuterHardsuitCombatStandard
   id: ClothingOuterHardsuitCombatOfficer
   name: security combat hardsuit
   description: A purpose-built combat suit designed to protect its user against all manner of enemy combatants in low pressure environments. This one has station security markings.
@@ -41,7 +45,8 @@
   - type: Clothing
     sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/officer.rsi
   - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHelmetHardsuitCombatOfficer
+    clothingPrototype:
+      head: ClothingHeadHelmetHardsuitCombatOfficer #goobstation change
 
 # Medical Combat Hardsuits
 - type: entity
@@ -72,8 +77,12 @@
     walkModifier: 0.85
     sprintModifier: 0.85
   - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHelmetHardsuitCombatMedical
+    clothingPrototype: #goobstation change
+      head: ClothingHeadHelmetHardsuitCombatMedical
   - type: AllowSuitStorage
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1
+    knockdownTimeDelta: -1
 
 # Riot Combat Hardsuits
 - type: entity
@@ -104,5 +113,6 @@
     walkModifier: 0.60
     sprintModifier: 0.60
   - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHelmetHardsuitCombatRiot
+    clothingPrototype: #goobstation change
+      head: ClothingHeadHelmetHardsuitCombatRiot
   - type: AllowSuitStorage
