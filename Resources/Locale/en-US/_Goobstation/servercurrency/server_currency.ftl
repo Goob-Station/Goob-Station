@@ -73,7 +73,7 @@ gs-balanceui-shop-buy-token-hightier-antag-desc = Allows you become a Headrev, N
 gs-balanceui-shop-buy-token-midtier-antag-desc = Allows you become a Traitor, Changeling, Heretic, or any antagonist from a lower tier.
 gs-balanceui-shop-buy-token-lowtier-antag-desc = Allows you become a Thief or Blob.
 gs-balanceui-shop-buy-token-ghost-desc = Allows you request a ghost role antagonist to be spawned.
-gs-balanceui-shop-buy-token-admin-abuse-desc = Allows you to request an admin to abuse you. Admins are encouraged to go wild.
+gs-balanceui-shop-buy-token-admin-abuse-desc = Allows you to request an admin to abuse their powers against you. Admins are encouraged to go wild.
 
 gs-balanceui-admin-add-label = Add (or subtract) money:
 gs-balanceui-admin-add-player = Player name
