@@ -63,6 +63,7 @@ public sealed partial class HungerComponent : Component
 
 
     /// <summary>
+    /// Goobstation
     /// Starting hunger value the entity should be at, if set then it overrides the default hunger value randomization behaviour.
     /// </summary>
     [DataField("startingHunger"), ViewVariables(VVAccess.ReadOnly)]
