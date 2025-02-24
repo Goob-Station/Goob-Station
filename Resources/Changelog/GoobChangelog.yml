@@ -5305,3 +5305,9 @@ Entries:
       message: Medical cyborgs can do surgery through clothing and do surgery faster.
   id: 611
   time: '2025-02-24T00:31:26.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Blueshield SOP tweak
+  id: 612
+  time: '2025-02-24T00:32:15.0000000+00:00'
