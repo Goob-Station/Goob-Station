@@ -5335,3 +5335,9 @@ Entries:
       message: added vent crawl to more animals
   id: 616
   time: '2025-02-24T00:34:28.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Tweak
+      message: Buffed T3 chems
+  id: 617
+  time: '2025-02-24T00:35:58.0000000+00:00'
