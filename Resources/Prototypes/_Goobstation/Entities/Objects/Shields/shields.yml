@@ -19,7 +19,7 @@
       activeSound:
         path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyhum.ogg
     - type: ItemToggleSize
-      activatedSize: Huge
+      activatedSize: Ginormous
     - type: Clothing
       sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
       quickEquip: false
