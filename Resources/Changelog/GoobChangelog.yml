@@ -5359,3 +5359,14 @@ Entries:
       message: Syndicate dimension pot 70 TC -> 40 TC.
   id: 620
   time: '2025-02-24T00:38:56.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Tweak
+      message: >-
+        The Kinetic Crushers' damage values are no longer affected by pressure.
+        (Nanotrasen misplaced their styrofoam display models with the
+        field-ready ones. oops.)
+    - type: Tweak
+      message: The Kinetic Crushers' damage and attack speed values were adjusted.
+  id: 621
+  time: '2025-02-24T00:41:10.0000000+00:00'
