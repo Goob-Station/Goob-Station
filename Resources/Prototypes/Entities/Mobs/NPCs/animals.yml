@@ -1413,6 +1413,12 @@
       effects:
       - !type:WashCreamPieReaction
   - type: LayingDown # Goobstation
+  - type: Vocal # Goobstation
+    sounds:
+      Male: MonkeyMode
+      Female: MonkeyMode
+      Unsexed: MonkeyMode
+    wilhelmProbability: 0.001
 
 
 
@@ -3012,7 +3018,7 @@
   - type: Tag
     tags:
     - VimPilot
-  - type: VentCrawler # goobstation - Ventcrawl	
+  - type: VentCrawler # goobstation - Ventcrawl
 
 - type: entity
   name: calico cat
