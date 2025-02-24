@@ -16,9 +16,7 @@ using Content.Shared.Prototypes;
 using Content.Shared.Roles.Jobs;
 using Robust.Server.Player;
 using Robust.Shared.Utility;
-using Content.Shared._Goobstation.CCVar;
 using Content.Server._Goobstation.ServerCurrency;
-using Robust.Shared.Configuration;
 
 namespace Content.Server.Objectives;
 
@@ -33,11 +31,9 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
     [Dependency] private readonly SharedJobSystem _job = default!;
     [Dependency] private readonly ServerCurrencyManager _currencyMan = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     private IEnumerable<string>? _objectives;
-    private int _goobcoinsPerGreentext = 5;
-    private int _goobcoinsServerMultiplier = 1;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -45,8 +41,6 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
         SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndText);
 
         _prototypeManager.PrototypesReloaded += CreateCompletions;
-        Subs.CVar(_cfg, GoobCVars.GoobcoinsPerGreentext, value => _goobcoinsPerGreentext = value, true);
-        Subs.CVar(_cfg, GoobCVars.GoobcoinServerMultiplier, value => _goobcoinsServerMultiplier = value, true);
     }
 
     public override void Shutdown()
@@ -191,7 +185,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
 
                          // Easiest place to give people points for completing objectives lol
                         if(userid.HasValue)
-                            _currencyMan.AddCurrency(userid.Value, _goobcoinsPerGreentext * _goobcoinsServerMultiplier);
+                            _currencyMan.AddCurrency(userid.Value, 5);
                     }
                     else
                     {
