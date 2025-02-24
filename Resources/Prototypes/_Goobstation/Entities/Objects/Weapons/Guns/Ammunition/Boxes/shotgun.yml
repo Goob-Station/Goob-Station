@@ -1,0 +1,62 @@
+- type: entity
+  name: shell box (.75 carpshot)
+  parent: AmmoProviderShotgunShell
+  id: MagazineBoxShotgunHighCaliber
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunHighCaliber
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: lethal
+
+- type: entity
+  id: MagazineBoxShotgunHighCaliberEnsnaring
+  parent: AmmoProviderShotgunShell
+  name: shell box (.75 slug ensnaring)
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunSlugEnsnaring
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: incendiary
+      color: "#cfff77"
+
+- type: entity
+  id: MagazineBoxShotgunHighCaliberEMP
+  parent: AmmoProviderShotgunShell
+  name: shell box (.75 slug EMP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunSlugEMP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: incendiary
+      color: "#009eff"
+
+- type: entity
+  id: MagazineBoxShotgunHighCaliberFlash
+  parent: AmmoProviderShotgunShell
+  name: shell box (.75 slug flash)
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunSlugFlash
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: incendiary
+      color: "#fff94d"
