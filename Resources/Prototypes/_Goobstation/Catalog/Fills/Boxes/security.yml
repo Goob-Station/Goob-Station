@@ -5,9 +5,9 @@
   components:
   - type: StorageFill
     contents:
-   # - id: MagazineBoxMagnum
-   # - id: MagazineBoxMagnumFlash
-   # - id: MagazineBoxMagnumEnsnaring
-   # - id: MagazineBoxMagnumEMP
+    - id: MagazineBoxShotgunHighCaliber
+    - id: MagazineBoxShotgunHighCaliberFlash
+    - id: MagazineBoxShotgunHighCaliberEnsnaring
+    - id: MagazineBoxShotgunHighCaliberEMP
     - id: MagazineShotgunLeverRifleEmpty
       amount: 2
