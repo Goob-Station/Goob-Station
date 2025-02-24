@@ -221,7 +221,7 @@
     back: ClothingBackpackSatchelLeather
     outerClothing: ClothingOuterArmourInvisible
     neck: ExecutiveIDCard
-    id: AmbassadorPDA
+    id: DiplomatPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltHolsterFilledCentComm
     pocket1: WeaponPulsePistol
