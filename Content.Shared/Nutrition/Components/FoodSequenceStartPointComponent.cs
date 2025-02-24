@@ -84,6 +84,21 @@ public sealed partial class FoodSequenceStartPointComponent : Component
     [DataField]
     public string Solution = "food";
 
+    [DataField]
+    public bool AllowHorizontalFlip = true;
+
+    public HashSet<string> RevealedLayers = new();
+
+    #endregion
+}
+
+/// <summary>
+/// class that synchronizes with the client
+/// Stores all the necessary information for rendering the FoodSequence element
+/// </summary>
+[DataRecord, Serializable, NetSerializable]
+public partial record struct FoodSequenceVisualLayer
+{
     /// <summary>
     /// LocId with a name generation pattern.
     /// </summary>
