@@ -39,7 +39,7 @@ public sealed class EggLayerSystem : EntitySystem
     {
         base.Update(frameTime);
         var query = EntityQueryEnumerator<EggLayerComponent>();
-        var eligibleEggLayers = new List<(EntityUid, EggLayerComponent)>(); // Goob - self-spawning
+        var eligibleEggLayers = new List<Entity<EggLayerComponent>>(); // Goob - self-spawning
         while (query.MoveNext(out var uid, out var eggLayer))
         {
             // Players should be using the action.
@@ -62,7 +62,7 @@ public sealed class EggLayerSystem : EntitySystem
         // Goob - self-spawning start
         foreach (var ent in eligibleEggLayers)
         {
-            TryLayEgg(ent.Item1, ent.Item2);
+            TryLayEgg(ent.Owner, ent.Comp);
         }
         // Goob - self-spawning end
     }
