@@ -29,7 +29,6 @@
       components:
       - type: DisarmMalus
         malus: 1
-      - type: Clothing
     - type: Sprite
       sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
       layers:
@@ -59,11 +58,6 @@
       energy: 0.7
       color: "#678AD9"
     - type: ItemTogglePointLight
-    - type: Reflect
-      reflectProb: 0.2
-      damageOnReflectModifier: 0.7
-      reflects:
-        - Energy
     - type: Blocking
       passiveBlockModifier:
         coefficients:
