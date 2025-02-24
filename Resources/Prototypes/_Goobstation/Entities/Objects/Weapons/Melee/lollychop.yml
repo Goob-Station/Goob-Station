@@ -2,7 +2,7 @@
   name: lollychop
   parent: [BaseItem, BaseSyndicateContraband]
   id: LollyChop
-  description: Fill (split) your buddies' tummies (skulls) with this delicious candy (cold steel). Brand new bungo-fruit flavoring!
+  description: Fill (split) your buddies' tummies (skulls) with this delicious candy (cold steel).
   components:
   - type: Tag
     tags:
@@ -20,8 +20,8 @@
     attackRate: 0.75
     damage:
       types:
-        Blunt: 5
-        Slash: 20
+        Blunt: 10
+        Slash: 5
         Structural: 10
     soundHit:
       collection: MetalThud
@@ -29,7 +29,7 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Slash: 10
+        Blunt: 10
         Structural: 40
   - type: Item
     size: Ginormous
@@ -64,7 +64,7 @@
     generated:
       reagents:
       - ReagentId: Amatoxin
-        Quantity: 1
+        Quantity: 5
   - type: MeleeChemicalInjector
-    transferAmount: 3
+    transferAmount: 5
     solution: melee
