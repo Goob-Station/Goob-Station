@@ -52,7 +52,7 @@
 
 # Uranium
 - type: entity
-  name: shell box (uranium)
+  name: shell box (.75 uranium)
   parent: AmmoProviderShotgunShell
   id: MagazineBoxShotgunUraniumHighCaliber
   components:
