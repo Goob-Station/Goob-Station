@@ -44,7 +44,7 @@
     - id: BlobSpawn # Goobstation - Blob
     - id: LoneAbductorSpawn # Shitmed - Starlight Abductors
     - id: DuoAbductorSpawn # Shitmed - Starlight Abductors
-    - id: BingleSpawn #Goobstation - Bingle
+    # - id: BingleSpawn #Goobstation - Bingle # ShibaStation - Pretty sure this is memeshit, so I'm disabling it for now.
 
 - type: entity
   id: BaseStationEvent
