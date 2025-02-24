@@ -216,7 +216,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitDiplomat
     shoes: ClothingShoesBootsLaceup
-    eyes: ClothingEyesGlassesCentcomm
+    eyes: ClothingEyesGlassesCentComm
     gloves: ClothingHandsGlovesHeavyGoldenTrim
     back: ClothingBackpackSatchelLeather
     outerClothing: ClothingOuterArmourInvisible
