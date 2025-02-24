@@ -11118,6 +11118,8 @@ entities:
       - Wood
       - Glass
       - Cloth
+    - type: SiloUtilizer
+      silo: 9888
   - uid: 6183
     components:
     - type: Transform
@@ -11130,6 +11132,8 @@ entities:
       - Wood
       - Glass
       - Cloth
+    - type: SiloUtilizer
+      silo: 9888
   - uid: 10700
     components:
     - type: Transform
@@ -11142,6 +11146,8 @@ entities:
       - Wood
       - Glass
       - Cloth
+    - type: SiloUtilizer
+      silo: 9888
 - proto: BananaPhoneInstrument
   entities:
   - uid: 12492
@@ -31105,6 +31111,8 @@ entities:
       - Steel
       - Glass
       - Gold
+    - type: SiloUtilizer
+      silo: 9888
   - uid: 6233
     components:
     - type: Transform
@@ -31115,6 +31123,8 @@ entities:
       - Steel
       - Glass
       - Gold
+    - type: SiloUtilizer
+      silo: 9888
 - proto: CleanerDispenser
   entities:
   - uid: 8493
@@ -38565,6 +38575,8 @@ entities:
     - type: Transform
       pos: 4.5,-28.5
       parent: 4812
+    - type: SiloUtilizer
+      silo: 9888
 - proto: ExplosivesSignMed
   entities:
   - uid: 10749
@@ -62955,6 +62967,30 @@ entities:
     - type: Transform
       pos: -47.5,-13.5
       parent: 4812
+    - type: DeviceLinkSource
+      linkedPorts:
+        2902:
+        - MaterialSilo: MaterialSiloUtilizer
+        3231:
+        - MaterialSilo: MaterialSiloUtilizer
+        10945:
+        - MaterialSilo: MaterialSiloUtilizer
+        10699:
+        - MaterialSilo: MaterialSiloUtilizer
+        10700:
+        - MaterialSilo: MaterialSiloUtilizer
+        6183:
+        - MaterialSilo: MaterialSiloUtilizer
+        6182:
+        - MaterialSilo: MaterialSiloUtilizer
+        6184:
+        - MaterialSilo: MaterialSiloUtilizer
+        12387:
+        - MaterialSilo: MaterialSiloUtilizer
+        3475:
+        - MaterialSilo: MaterialSiloUtilizer
+        6233:
+        - MaterialSilo: MaterialSiloUtilizer
 - proto: MatterBinStockPart
   entities:
   - uid: 6200
@@ -62998,6 +63034,8 @@ entities:
     - type: Transform
       pos: -16.5,-15.5
       parent: 4812
+    - type: SiloUtilizer
+      silo: 9888
 - proto: MedkitAdvancedFilled
   entities:
   - uid: 7460
@@ -63303,6 +63341,8 @@ entities:
       - Uranium
       - Gold
       - Silver
+    - type: SiloUtilizer
+      silo: 9888
 - proto: OrganHumanAppendix
   entities:
   - uid: 4596
@@ -67016,6 +67056,8 @@ entities:
       - Plastic
       - Wood
       - Gold
+    - type: SiloUtilizer
+      silo: 9888
   - uid: 10699
     components:
     - type: Transform
@@ -67028,6 +67070,8 @@ entities:
       - Plastic
       - Wood
       - Gold
+    - type: SiloUtilizer
+      silo: 9888
 - proto: ProtolatheMachineCircuitboard
   entities:
   - uid: 3951
@@ -70608,6 +70652,8 @@ entities:
     - type: Transform
       pos: -35.5,20.5
       parent: 4812
+    - type: SiloUtilizer
+      silo: 9888
 - proto: SeedExtractor
   entities:
   - uid: 1086

@@ -6364,6 +6364,8 @@ entities:
     - type: Transform
       pos: -17.5,-21.5
       parent: 31
+    - type: SiloUtilizer
+      silo: 10902
   - uid: 3904
     components:
     - type: Transform
@@ -6376,11 +6378,15 @@ entities:
       - Wood
       - Glass
       - Cloth
+    - type: SiloUtilizer
+      silo: 10902
   - uid: 4238
     components:
     - type: Transform
       pos: 47.5,5.5
       parent: 31
+    - type: SiloUtilizer
+      silo: 10902
 - proto: BannerNanotrasen
   entities:
   - uid: 3677
@@ -27087,6 +27093,8 @@ entities:
     - type: Transform
       pos: -13.5,-22.5
       parent: 31
+    - type: SiloUtilizer
+      silo: 10902
 - proto: CleanerDispenser
   entities:
   - uid: 554
@@ -33055,6 +33063,8 @@ entities:
     - type: Transform
       pos: -0.5,-24.5
       parent: 31
+    - type: SiloUtilizer
+      silo: 10902
 - proto: ExplosivesSignMed
   entities:
   - uid: 8897
@@ -51441,6 +51451,26 @@ entities:
     - type: Transform
       pos: 55.5,-11.5
       parent: 31
+    - type: DeviceLinkSource
+      linkedPorts:
+        4238:
+        - MaterialSilo: MaterialSiloUtilizer
+        7113:
+        - MaterialSilo: MaterialSiloUtilizer
+        9105:
+        - MaterialSilo: MaterialSiloUtilizer
+        3904:
+        - MaterialSilo: MaterialSiloUtilizer
+        7964:
+        - MaterialSilo: MaterialSiloUtilizer
+        9537:
+        - MaterialSilo: MaterialSiloUtilizer
+        1435:
+        - MaterialSilo: MaterialSiloUtilizer
+        2319:
+        - MaterialSilo: MaterialSiloUtilizer
+        821:
+        - MaterialSilo: MaterialSiloUtilizer
 - proto: MaterialWoodPlank1
   entities:
   - uid: 9680
@@ -51502,6 +51532,8 @@ entities:
       - Plastic
       - Durathread
       - Cloth
+    - type: SiloUtilizer
+      silo: 10902
 - proto: MedkitBruteFilled
   entities:
   - uid: 7283
@@ -51804,6 +51836,8 @@ entities:
     - type: Transform
       pos: 18.5,13.5
       parent: 31
+    - type: SiloUtilizer
+      silo: 10902
 - proto: OxygenCanister
   entities:
   - uid: 1089
@@ -54990,6 +55024,8 @@ entities:
     - type: Transform
       pos: -13.5,-21.5
       parent: 31
+    - type: SiloUtilizer
+      silo: 10902
 - proto: Rack
   entities:
   - uid: 117
@@ -58001,6 +58037,8 @@ entities:
     - type: Transform
       pos: -14.5,18.5
       parent: 31
+    - type: SiloUtilizer
+      silo: 10902
 - proto: SeedExtractor
   entities:
   - uid: 4125

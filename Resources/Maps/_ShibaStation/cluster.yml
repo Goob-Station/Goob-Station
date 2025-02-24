@@ -6139,7 +6139,7 @@ entities:
       pos: 30.5,-11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -3965.7908
+      secondsUntilStateChange: -4086.358
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -8164,11 +8164,15 @@ entities:
     - type: Transform
       pos: 13.5,-20.5
       parent: 2
+    - type: SiloUtilizer
+      silo: 12949
   - uid: 443
     components:
     - type: Transform
       pos: -8.5,-0.5
       parent: 2
+    - type: SiloUtilizer
+      silo: 12949
 - proto: BananaPhoneInstrument
   entities:
   - uid: 444
@@ -27763,6 +27767,8 @@ entities:
     - type: Transform
       pos: -9.5,-0.5
       parent: 2
+    - type: SiloUtilizer
+      silo: 12949
 - proto: CleanerDispenser
   entities:
   - uid: 4129
@@ -34288,6 +34294,8 @@ entities:
     - type: Transform
       pos: -7.5,-15.5
       parent: 2
+    - type: SiloUtilizer
+      silo: 12949
 - proto: ExtinguisherCabinetFilled
   entities:
   - uid: 5192
@@ -58695,6 +58703,24 @@ entities:
     - type: Transform
       pos: 1.5,49.5
       parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        8623:
+        - MaterialSilo: MaterialSiloUtilizer
+        9198:
+        - MaterialSilo: MaterialSiloUtilizer
+        4128:
+        - MaterialSilo: MaterialSiloUtilizer
+        443:
+        - MaterialSilo: MaterialSiloUtilizer
+        5191:
+        - MaterialSilo: MaterialSiloUtilizer
+        9955:
+        - MaterialSilo: MaterialSiloUtilizer
+        442:
+        - MaterialSilo: MaterialSiloUtilizer
+        8691:
+        - MaterialSilo: MaterialSiloUtilizer
 - proto: MaterialWoodPlank
   entities:
   - uid: 8614
@@ -58753,6 +58779,8 @@ entities:
     - type: Transform
       pos: -23.5,7.5
       parent: 2
+    - type: SiloUtilizer
+      silo: 12949
 - proto: MedkitAdvancedFilled
   entities:
   - uid: 8624
@@ -59165,6 +59193,8 @@ entities:
     - type: Transform
       pos: 17.5,-23.5
       parent: 2
+    - type: SiloUtilizer
+      silo: 12949
 - proto: OreProcessorMachineCircuitboard
   entities:
   - uid: 8692
@@ -62445,6 +62475,8 @@ entities:
     - type: Transform
       pos: -10.5,-0.5
       parent: 2
+    - type: SiloUtilizer
+      silo: 12949
 - proto: Rack
   entities:
   - uid: 9199
@@ -66605,6 +66637,8 @@ entities:
     - type: Transform
       pos: 36.5,10.5
       parent: 2
+    - type: SiloUtilizer
+      silo: 12949
 - proto: SeedExtractor
   entities:
   - uid: 9956

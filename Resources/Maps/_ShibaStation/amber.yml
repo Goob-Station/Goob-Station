@@ -17909,6 +17909,11 @@ entities:
       powered: True
     - type: DoorBolt
       powered: True
+  - uid: 137
+    components:
+    - type: Transform
+      pos: 9.5,-20.5
+      parent: 2
   - uid: 2755
     components:
     - type: Transform
@@ -17972,6 +17977,11 @@ entities:
       powered: True
     - type: DoorBolt
       powered: True
+  - uid: 10486
+    components:
+    - type: Transform
+      pos: 13.5,-15.5
+      parent: 2
   - uid: 12980
     components:
     - type: Transform
@@ -18038,15 +18048,6 @@ entities:
     components:
     - type: Transform
       pos: -11.5,23.5
-      parent: 2
-    - type: Airlock
-      powered: True
-    - type: DoorBolt
-      powered: True
-  - uid: 137
-    components:
-    - type: Transform
-      pos: 13.5,-15.5
       parent: 2
     - type: Airlock
       powered: True
@@ -18200,15 +18201,6 @@ entities:
     components:
     - type: Transform
       pos: -31.5,-19.5
-      parent: 2
-    - type: Airlock
-      powered: True
-    - type: DoorBolt
-      powered: True
-  - uid: 10486
-    components:
-    - type: Transform
-      pos: 9.5,-20.5
       parent: 2
     - type: Airlock
       powered: True
@@ -71664,6 +71656,11 @@ entities:
     - type: Transform
       pos: 4.5,18.5
       parent: 2
+  - uid: 15755
+    components:
+    - type: Transform
+      pos: 19.5,13.5
+      parent: 2
 - proto: DefaultStationBeaconCERoom
   entities:
   - uid: 15724
@@ -120601,6 +120598,8 @@ entities:
         - MaterialSilo: MaterialSiloUtilizer
         8462:
         - MaterialSilo: MaterialSiloUtilizer
+        1360:
+        - MaterialSilo: MaterialSiloUtilizer
 - proto: MaterialWoodPlank
   entities:
   - uid: 11828
@@ -121611,6 +121610,8 @@ entities:
     - type: Transform
       pos: 12.5,21.5
       parent: 2
+    - type: SiloUtilizer
+      silo: 13916
 - proto: OxygenCanister
   entities:
   - uid: 787
@@ -132324,11 +132325,6 @@ entities:
     - type: Transform
       pos: -1.5,-54.5
       parent: 2
-  - uid: 22696
-    components:
-    - type: Transform
-      pos: 7.5,-20.5
-      parent: 2
   - uid: 22697
     components:
     - type: Transform
@@ -139465,6 +139461,13 @@ entities:
     components:
     - type: Transform
       pos: -40.5,-19.5
+      parent: 2
+- proto: SignTelecomms
+  entities:
+  - uid: 13921
+    components:
+    - type: Transform
+      pos: 7.5,-20.5
       parent: 2
 - proto: SignToolStorage
   entities:
