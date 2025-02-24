@@ -5384,3 +5384,9 @@ Entries:
       message: Durk's steak and wine
   id: 622
   time: '2025-02-24T00:42:50.0000000+00:00'
+- author: Plyushsune
+  changes:
+    - type: Add
+      message: Humans can now use tail and ear markings.
+  id: 623
+  time: '2025-02-24T00:44:55.0000000+00:00'
