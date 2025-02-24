@@ -5474,3 +5474,9 @@ Entries:
       message: Bingles are no longer announced.
   id: 628
   time: '2025-02-24T20:31:26.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Fix
+      message: Fixed harpy shoulders showing through clothing.
+  id: 629
+  time: '2025-02-24T20:33:06.0000000+00:00'
