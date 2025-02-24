@@ -16,7 +16,7 @@
     - id: GiftsVendingRestock
 
 # Game Rules
-    
+
 - type: entity
   id: CargoGiftsBase
   parent: BaseGameRule
@@ -29,7 +29,7 @@
   - type: StationEvent
     startColor: "#18abf5"
     startAudio:
-      path: /Audio/Announcements/announce.ogg
+      path: /Audio/_Reserve/announcement/cargo-gifts-event-announcement.ogg # Reserve
   - type: CargoGiftsRule
     sender: cargo-gift-default-sender
 

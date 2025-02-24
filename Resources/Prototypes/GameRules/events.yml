@@ -81,7 +81,7 @@
   - type: StationEvent
     startAnnouncementColor: "#18abf5"
     startAudio:
-      path: /Audio/Announcements/announce.ogg
+      path: /Audio/_Reserve/announcement/flux.ogg # Reserve
     weight: 8
     duration: 35
   - type: AnomalySpawnRule
@@ -97,7 +97,7 @@
   - type: StationEvent
     startAnnouncementColor: "#18abf5"
     startAudio:
-      path: /Audio/Announcements/announce.ogg
+      path: /Audio/_Reserve/announcement/bluespace_artifact.ogg  # Reserve
     weight: 8
     duration: 35
   - type: BluespaceArtifactRule
@@ -274,7 +274,7 @@
   - type: StationEvent
     startAnnouncement: station-event-gas-leak-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_Reserve/announcement/gasleak_start.ogg # Reserve
     endAnnouncement: station-event-gas-leak-end-announcement
     weight: 8
   - type: GasLeakRule
@@ -299,7 +299,7 @@
     startAnnouncement: station-event-power-grid-check-start-announcement
     endAnnouncement: station-event-power-grid-check-end-announcement
     startAudio:
-      path: /Audio/Announcements/power_off.ogg
+      path: /Audio/_Reserve/announcement/power_off.ogg # Reserve
       params:
         volume: -4
     duration: 60
@@ -315,7 +315,7 @@
     startAnnouncement: station-event-solar-flare-start-announcement
     endAnnouncement: station-event-solar-flare-end-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_Reserve/announcement/solarflare.ogg # Reserve
     duration: 120
     maxDuration: 240
   - type: SolarFlareRule
@@ -341,7 +341,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-clog-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_Reserve/announcement/ventclog.ogg # Reserve
     earliestStart: 15
     minimumPlayers: 15
     weight: 5
@@ -355,7 +355,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/aliens.ogg
+      path: /Audio/_Reserve/announcement/aliens.ogg # Reserve
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -376,7 +376,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_Reserve/announcement/aliens.ogg # Reserve
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -397,7 +397,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/aliens.ogg
+      path: /Audio/_Reserve/announcement/aliens.ogg # Reserve
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -414,7 +414,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_Reserve/announcement/aliens.ogg # Reserve
     earliestStart: 45 # DeltaV - was 20
     minimumPlayers: 30 # DeltaV - was 20
     weight: 1 # DeltaV - was 1.5
@@ -508,7 +508,7 @@
     maxOccurrences: 1 # can only happen once per round
     startAnnouncement: station-event-communication-interception
     startAudio:
-      path: /Audio/Announcements/intercept.ogg
+      path: /Audio/_Reserve/announcement/intercept.ogg # Reserve
     duration: null # the rule has to last the whole round not 1 second
     occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule
@@ -568,7 +568,7 @@
   components:
   - type: StationEvent
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_Reserve/announcement/attention.ogg # Reserve
     weight: 5
     minimumPlayers: 25
     reoccurrenceDelay: 20
