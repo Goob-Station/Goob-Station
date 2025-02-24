@@ -5269,3 +5269,104 @@ Entries:
       message: Baseball bat is now more robust. Get that home run!
   id: 605
   time: '2025-02-23T00:57:51.0000000+00:00'
+- author: GMWQ
+  changes:
+    - type: Tweak
+      message: Marked lollypop sticks and wrappers as trash
+  id: 606
+  time: '2025-02-24T00:27:01.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: HUD's are now removable from sunglasses.
+  id: 607
+  time: '2025-02-24T00:27:54.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Abductor costume to costume vendor
+  id: 608
+  time: '2025-02-24T00:28:46.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Mice can now multiply
+  id: 609
+  time: '2025-02-24T00:29:56.0000000+00:00'
+- author: ARMOKS
+  changes:
+    - type: Tweak
+      message: Increased nukie explosion resist
+  id: 610
+  time: '2025-02-24T00:30:34.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Tweak
+      message: Medical cyborgs can do surgery through clothing and do surgery faster.
+  id: 611
+  time: '2025-02-24T00:31:26.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Blueshield SOP tweak
+  id: 612
+  time: '2025-02-24T00:32:15.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: NPCs are strong in melee combat again.
+  id: 613
+  time: '2025-02-24T00:32:50.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Stun batons no longer wide swing, instead they thrust on right click.
+  id: 614
+  time: '2025-02-24T00:33:22.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: You can now zoom slightly when wielding smart smg.
+  id: 615
+  time: '2025-02-24T00:33:46.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Tweak
+      message: added vent crawl to more animals
+  id: 616
+  time: '2025-02-24T00:34:28.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Tweak
+      message: Buffed T3 chems
+  id: 617
+  time: '2025-02-24T00:35:58.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Dwarves now have innate mineral scanner. Rock and Stone!
+  id: 618
+  time: '2025-02-24T00:37:33.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Bingle is now slightly more frequent.
+  id: 619
+  time: '2025-02-24T00:38:37.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Syndicate dimension pot 70 TC -> 40 TC.
+  id: 620
+  time: '2025-02-24T00:38:56.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Tweak
+      message: >-
+        The Kinetic Crushers' damage values are no longer affected by pressure.
+        (Nanotrasen misplaced their styrofoam display models with the
+        field-ready ones. oops.)
+    - type: Tweak
+      message: The Kinetic Crushers' damage and attack speed values were adjusted.
+  id: 621
+  time: '2025-02-24T00:41:10.0000000+00:00'

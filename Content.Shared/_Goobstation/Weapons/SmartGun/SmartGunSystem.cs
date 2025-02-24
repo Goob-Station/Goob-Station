@@ -24,6 +24,9 @@ public sealed class SmartGunSystem : EntitySystem
         if (comp.RequiresWield && !(TryComp(uid, out WieldableComponent? wieldable) && wieldable.Wielded))
             return;
 
+        if (gun.Target == Transform(uid).ParentUid)
+            return;
+
         foreach (var projectile in args.FiredProjectiles)
         {
             if (!TryComp(projectile, out HomingProjectileComponent? homing))
