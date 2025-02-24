@@ -168,6 +168,9 @@
   id: HEVSuit
 
 - type: Tag
+  id: HolyClaymore
+
+- type: Tag
   id: IgnoreBindSoul
 
 - type: Tag
@@ -244,6 +247,9 @@
 
 - type: Tag
   id: NukeOpsReinforcementUplink
+
+- type: Tag
+  id: Nullrod
 
 - type: Tag
   id: Organ

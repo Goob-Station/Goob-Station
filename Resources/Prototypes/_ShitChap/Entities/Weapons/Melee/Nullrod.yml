@@ -1,0 +1,81 @@
+- type: entity
+  name: Null Rod
+  parent: BaseItem
+  id: Nullrod
+  description: The old classic. Does nothing special, really.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Melee/nullrod.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: MeleeWeapon
+    heavyStaminaCost: 2.5
+    attackRate: 1.5
+    damage:
+      types:
+        Blunt: 10 #I'll balance this later :godo:
+        Holy: 20
+    soundHit:
+      collection: MetalThud
+  - type: DisarmMalus
+  - type: Tag
+    tags:
+    - Nullrod
+
+- type: entity
+  name: holy claymore
+  parent: BaseSword
+  id: HolyClaymore
+  description: A weapon fit for a crusade! A sword capable of stealing life from evil-doers.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/claymore.rsi
+  - type: AmmoCounter
+  - type: UseDelayOnShoot
+  - type: UseDelay
+    delay: 0.9
+  - type: Gun
+    soundGunshot: /Audio/Effects/hallelujah.ogg
+    fireRate: 1
+    useKey: false
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 0.5
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg #change sfx
+  - type: BasicEntityAmmoProvider
+    proto: HolyBulletCharge
+    capacity: 1
+    count: 1
+  - type: MeleeWeapon
+    attackRate: 0.75
+    damage:
+      types:
+        Slash: 20
+        Holy: 20
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+  - type: Clothing
+    sprite: Objects/Weapons/Melee/claymore.rsi
+    slots:
+    - back
+  - type: Wieldable
+  - type: GunRequiresWield
+  - type: DisarmMalus
+  - type: DamageBoostOnMarker
+    boost:
+      types:
+        Holy: 30
+  - type: LeechOnMarker
+    leech:
+      groups:
+        Brute: -10
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-inanimate
+    weight: 0.05 # 5,000 times less likely than 1 regular animal
+  - type: MedievalAccent
+  - type: Tag
+    tags:
+    - HolyClaymore
+
