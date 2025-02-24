@@ -1,7 +1,9 @@
-﻿using Content.Server.Power.Components;
+﻿using System.Linq;
+using Content.Server.Power.Components;
 using Content.Server.Station.Systems;
 using Content.Server._Goobstation.StationEvents.Metric.Components;
 using Content.Server.GameTicking;
+using Content.Shared.Access.Components;
 using Content.Shared.Doors.Components;
 using Content.Shared.FixedPoint;
 
@@ -62,7 +64,8 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
             {
                 if (door.State == DoorState.Emagging)
                 {
-                    emagCount += 1;
+                    var modifier = GetAccessLevelModifier(uid);
+                    emagCount += 1 + modifier;
                 }
 
                 airlockCounter += 1;
@@ -100,5 +103,33 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
             {ChaosMetric.Power, powerChaos},
         });
         return chaos;
+    }
+
+    private int GetAccessLevelModifier(EntityUid uid)
+    {
+        if (!TryComp<AccessReaderComponent>(uid, out var accessReaderComponent))
+            return 0;
+
+        var modifier = 0;
+        var accessSet = accessReaderComponent.AccessLists.ElementAt(0);
+        foreach (var accessPrototype in accessSet)
+        {
+            switch (accessPrototype.Id)
+            {
+                case "Security":
+                    modifier += 1;
+                    break;
+                case "Atmospherics":
+                    modifier += 1;
+                    break;
+                case "Armory":
+                    modifier += 3;
+                    break;
+                case "Command":
+                    modifier += 2;
+                    break;
+            }
+        }
+        return modifier;
     }
 }
