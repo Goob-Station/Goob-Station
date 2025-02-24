@@ -64,7 +64,7 @@
     generated:
       reagents:
       - ReagentId: Bungotoxin
-        Quantity: 1
+        Quantity: 5
   - type: MeleeChemicalInjector
     transferAmount: 3
     solution: melee
