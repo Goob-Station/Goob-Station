@@ -48,7 +48,7 @@
 - type: entity
   id: HighCaliberPelletShotgunIncendiarySpread
   categories: [ HideSpawnMenu ]
-  parent: PelletShotgunIncendiary
+  parent: HighCaliberPelletShotgunIncendiary
   components:
     - type: ProjectileSpread
       proto: HighCaliberPelletShotgunIncendiary
