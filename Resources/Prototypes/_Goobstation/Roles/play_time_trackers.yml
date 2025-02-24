@@ -6,3 +6,15 @@
 
 - type: playTimeTracker
   id: JobHecuOperative
+
+- type: playTimeTracker
+  id: JobNavyOfficer
+
+- type: playTimeTracker
+  id: JobNavyCaptain
+
+- type: playTimeTracker
+  id: JobNavyOfficerUndercover
+
+- type: playTimeTracker
+  id: SpecialOperationsOfficer

@@ -103,7 +103,6 @@
   components:
   - type: Pda
     id: CentcomIDCardDeathsquad
-    state: pda-deathsquad
   - type: Icon
     sprite: _Goobstation/Objects/Devices/pda.rsi
     state: pda-deathsquad

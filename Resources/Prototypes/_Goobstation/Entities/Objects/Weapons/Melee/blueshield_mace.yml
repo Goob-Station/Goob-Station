@@ -29,8 +29,6 @@
     activatedDamage:
       types:
         Heat: 5
-    soundHit:
-      collection: MetalThud
   - type: Stunbaton
     energyPerUse: 100
     lightAttackEnergyMultiplier: 2
