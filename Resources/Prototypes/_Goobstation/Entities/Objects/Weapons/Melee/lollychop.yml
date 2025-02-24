@@ -63,8 +63,8 @@
     solution: melee
     generated:
       reagents:
-      - ReagentId: Lipolicide
-        Quantity: 10
+      - ReagentId: Amatoxin
+        Quantity: 1
   - type: MeleeChemicalInjector
-    transferAmount: 10
+    transferAmount: 3
     solution: melee
