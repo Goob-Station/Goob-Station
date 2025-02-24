@@ -5281,3 +5281,9 @@ Entries:
       message: HUD's are now removable from sunglasses.
   id: 607
   time: '2025-02-24T00:27:54.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Abductor costume to costume vendor
+  id: 608
+  time: '2025-02-24T00:28:46.0000000+00:00'
