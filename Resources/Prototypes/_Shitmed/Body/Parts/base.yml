@@ -1,0 +1,88 @@
+# body part with regular organic destruction
+- type: entity
+  abstract: true
+  parent: BasePartInorganic
+  id: BasePart
+  components:
+  - type: Damageable
+    damageContainer: OrganicPart # Shitmed Change
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 110
+      behaviors:
+      - !type:GibPartBehavior { }
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Slash
+        damage: 150
+      behaviors:
+      - !type:GibPartBehavior { }
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 200
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawnInContainer: true
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:BurnBodyBehavior { }
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MeatLaserImpact
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+
+# organic torsos have higher health
+# this doesn't affect gibbing bodies as there is code to prevent torso gibbing while part of a body
+- type: entity
+  abstract: true
+  parent: BaseTorsoInorganic
+  id: BaseTorso
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 400
+      behaviors:
+      - !type:GibPartBehavior { }
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Slash
+        damage: 400
+      behaviors:
+      - !type:GibPartBehavior { }
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 400
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawnInContainer: true
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:BurnBodyBehavior { }
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MeatLaserImpact
+  - type: Extractable # torso is meatier
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20

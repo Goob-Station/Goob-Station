@@ -1,0 +1,48 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseShelterCapsule
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Specific/Salvage/capsule.rsi
+    state: capsule
+  - type: Item
+    size: Tiny
+  - type: UseDelay
+    delay: 5 # avoid spamming popups when you know it will fail to spawn a room
+  - type: ShelterCapsule
+
+- type: entity
+  parent: BaseShelterCapsule
+  id: ShelterCapsule
+  name: bluespace shelter capsule
+  description: An emergency shelter stored within a pocket of bluespace.
+  components:
+  - type: ShelterCapsule
+    deployTime: 5.0
+    preloadedGrid: ShelterCapsule5x5
+    boxSize: 5,5
+    offset: -2.5,-2.5
+
+- type: entity
+  parent: BaseShelterCapsule
+  id: ShelterCapsuleLuxury
+  name: luxury bluespace shelter capsule
+  description: An exorbitantly expensive luxury suite stored within a pocket of bluespace.
+  components:
+  - type: ShelterCapsule
+    deployTime: 8.0
+    preloadedGrid: ShelterCapsule7x7
+    boxSize: 7,7
+    offset: -3.5,-3.5
+
+# Grids
+- type: preloadedGrid
+  id: ShelterCapsule5x5
+  path: /Maps/_Lavaland/Shelters/shelter_5x5.yml
+  copies: 5
+
+- type: preloadedGrid
+  id: ShelterCapsule7x7
+  path: /Maps/_Lavaland/Shelters/shelter_7x7.yml
+  copies: 3

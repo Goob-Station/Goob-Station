@@ -12,6 +12,9 @@
       rules: You are an antagonist, destroy the station!
       raffle:
         settings: default
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 18000 #5 hours
     - type: Sprite
       sprite: Markers/jobs.rsi
       layers:
@@ -96,6 +99,9 @@
     reregister: false
     raffle:
       settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
   - type: GhostTakeoverAvailable
 
 - type: entity

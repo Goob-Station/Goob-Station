@@ -29,6 +29,7 @@
         type: LivingHeartMenuBoundUserInterface
       enum.WizardTeleportUiKey.Key: # Goobstation - wizard
         type: WizardTeleportBoundUserInterface
+        requireInputValidation: false
       enum.SurgeryUIKey.Key: # Shitmed
         type: SurgeryBui
   - type: PowerCellSlot
@@ -64,7 +65,7 @@
     - NanoTrasen
   - type: StandingState
   - type: Damageable
-    damageContainer: Silicon
+    damageContainer: SiliconRadiation
     damageModifierSet: IPC
   - type: MobState
     allowedStates:

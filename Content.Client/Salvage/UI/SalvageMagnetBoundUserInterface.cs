@@ -1,7 +1,9 @@
 using System.Linq;
 using Content.Client.Message;
+using Content.Shared._DV.Salvage.Systems; // DeltaV
 using Content.Shared.Salvage;
 using Content.Shared.Salvage.Magnet;
+using Robust.Client.Player; // DeltaV
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 
@@ -10,12 +12,16 @@ namespace Content.Client.Salvage.UI;
 public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private readonly IPlayerManager _player = default!; // DeltaV
+
+    private readonly MiningPointsSystem _points; // DeltaV
 
     private OfferingWindow? _window;
 
     public SalvageMagnetBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
         IoCManager.InjectDependencies(this);
+        _points = _entManager.System<MiningPointsSystem>(); // DeltaV
     }
 
     protected override void Open()
@@ -60,6 +66,21 @@ public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
                     Index = claimIndex
                 });
             };
+
+            // Begin DeltaV Additions: Mining points cost for wrecks
+            if (offer.Cost > 0)
+            {
+                if (_player.LocalSession?.AttachedEntity is not {} user || !_points.UserHasPoints(user, offer.Cost))
+                    option.Disabled = true;
+
+                var label = new Label
+                {
+                    Text = Loc.GetString("salvage-magnet-mining-points-cost", ("points", offer.Cost)),
+                    HorizontalAlignment = Control.HAlignment.Center
+                };
+                option.AddContent(label);
+            }
+            // End DeltaV Additions
 
             switch (offer)
             {

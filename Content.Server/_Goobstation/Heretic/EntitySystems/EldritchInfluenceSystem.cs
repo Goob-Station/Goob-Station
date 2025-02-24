@@ -33,7 +33,8 @@ public sealed partial class EldritchInfluenceSystem : EntitySystem
         {
             MagicItemActive = ev.Handled,
         };
-        var dargs = new DoAfterArgs(EntityManager, user, 10f, doAfter, influence, influence, used)
+        var time = doAfter.MagicItemActive ? 5f : 10f;
+        var dargs = new DoAfterArgs(EntityManager, user, time, doAfter, influence, influence, used)
         {
             NeedHand = true,
             BreakOnDropItem = true,
@@ -41,6 +42,7 @@ public sealed partial class EldritchInfluenceSystem : EntitySystem
             BreakOnMove = true,
             BreakOnWeightlessMove = false,
             MultiplyDelay = false,
+            Hidden = doAfter.MagicItemActive ? false : true,
         };
         _popup.PopupEntity(Loc.GetString("heretic-influence-start"), influence, user);
         return _doafter.TryStartDoAfter(dargs);
@@ -69,7 +71,7 @@ public sealed partial class EldritchInfluenceSystem : EntitySystem
         || !TryComp<HereticComponent>(args.User, out var heretic))
             return;
 
-        _heretic.UpdateKnowledge(args.User, heretic, args.MagicItemActive ? 2 : 1);
+        _heretic.UpdateKnowledge(args.User, heretic, 1);
 
         Spawn("EldritchInfluenceIntermediate", Transform((EntityUid) args.Target).Coordinates);
         QueueDel(args.Target);

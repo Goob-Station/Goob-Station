@@ -188,7 +188,7 @@
 - type: loadout
   id: MaroonMJ
   equipment:
-    jumpsuit: ClothingUniformJumpsuitMilitaryColorMaroon 
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorMaroon
 
 
 # service jumpsuit - putting it here because frontier's only service jumpsuits are hydroponics and general lmao # goob change btw
@@ -196,4 +196,4 @@
 - type: loadout
   id: ServiceMJ
   equipment:
-    jumpsuit: ClothingUniformJumpsuitMilitaryService 
+    jumpsuit: ClothingUniformJumpsuitMilitaryService

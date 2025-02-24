@@ -102,6 +102,8 @@
       collection: Weh
     Hew:
       collection: Hew
+    CatMeow:
+      collection: CatMeows # Goobstation - effect standardization
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -126,6 +128,8 @@
       collection: Weh
     Hew:
       collection: Hew
+    CatMeow:
+      collection: CatMeows # Goobstation - effect standardization
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
@@ -226,6 +230,14 @@
       path: /Audio/Voice/Vox/shriek1.ogg
     Laugh:
       path: /Audio/Voice/Vox/vox_laugh.ogg
+    Honk:
+      collection: BikeHorn
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    CatMeow:
+      collection: CatMeows # Goobstation - effect standardization
   params:
     variation: 0.125
     # We need vox sounds for the other emotes
@@ -237,12 +249,16 @@
       path: /Audio/Voice/Diona/diona_scream.ogg
     Laugh:
       collection: DionaLaugh
+    Chirp:
+      path: /Audio/Animals/nymph_chirp.ogg
     Honk:
       collection: BikeHorn
     Weh:
       collection: Weh
     Hew:
       collection: Hew
+    CatMeow:
+      collection: CatMeows # Goobstation - effect standardization
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -267,6 +283,10 @@
       collection: Weh
     Hew:
       collection: Hew
+    Honk:
+      collection: BikeHorn
+    CatMeow:
+      collection: CatMeows # Goobstation - effect standardization
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -377,6 +397,10 @@
       collection: Weh
     Hew:
       collection: Hew
+    Honk:
+      collection: BikeHorn
+    CatMeow:
+      collection: CatMeows # Goobstation - effect standardization
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -531,5 +555,12 @@
   id: Parrot
   sound:
     path: /Audio/Animals/parrot_raught.ogg
+    params:
+      variation: 0.125
+
+- type: emoteSounds
+  id: Goat
+  sound:
+    path: /Audio/Animals/goat_bah.ogg
     params:
       variation: 0.125

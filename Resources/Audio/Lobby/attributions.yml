@@ -89,10 +89,10 @@
   copyright: "Clown Always Wins by NИTRODE"
   source: "https://www.youtube.com/watch?v=UkN2DQYRooA"
 
-- files: ["honk.ogg"]
+- files: ["horn.ogg"]
   license: "CC-BY-NC-SA-3.0"
-  copyright: "Honk! by SlendyMawn"
-  source: "https://www.youtube.com/watch?v=DCy3TtYwaWc"
+  copyright: "Honk! by SlendyMawn, Remastered by Scruq"
+  source: "https://www.youtube.com/watch?v=ujY7djCJVwQ"
 
 - files: ["dawsonschristian.ogg"]
   license: "Custom"
