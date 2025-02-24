@@ -161,6 +161,7 @@
     weight: 5
     duration: 1
     minimumPlayers: 10
+    maxOccurrences: 2 # ShibaStation - Capped at 2, we get too many dang skeletons.
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
 
