@@ -47,7 +47,7 @@ public sealed class HungerSystem : EntitySystem
         // <goobstation> Starting hunger override
         if (component.StartingHunger is not null)
         {
-            SetHunger(uid, (float) component.StartingHunger, component);
+            SetHunger(uid, component.StartingHunger.Value, component);
             return;
         }
         // </goobstation>
