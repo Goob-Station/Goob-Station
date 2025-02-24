@@ -17,6 +17,8 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
     [Dependency] private readonly AnimationPlayerSystem _anim = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
 
+    private const int TweakAnimationDurationMs = 1100; // 11 frames * 100ms per frame
+
     public override void Initialize()
     {
         base.Initialize();
@@ -124,17 +126,23 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
     }
     private void OnTweak(Entity<AnimatedEmotesComponent> ent, ref AnimationTweakEmoteEvent args)
     {
-        NetEntity i = EntityManager.GetNetEntity(ent.Owner);
-        (EntityUid entityUid, MetaDataComponent metaData) data = EntityManager.GetEntityData(i);
+        NetEntity netEntity = EntityManager.GetNetEntity(ent.Owner);
 
-        if (data.metaData.EntityPrototype == null)
+        if (!EntityManager.TryGetEntityData(netEntity, out _, out var metaData))
         {
-            ISawmill sawmill = Logger.GetSawmill("tweak-emotes");
-            sawmill.Warning("EntityPrototype is null for entity {0}", i);
+            var sawmill = Logger.GetSawmill("tweak-emotes");
+            sawmill.Warning($"EntityPrototype is null for entity {netEntity}");
             return;
         }
 
-        var stateNumber = string.Concat(data.metaData.EntityPrototype.ID.Where(Char.IsDigit));
+        if (metaData.EntityPrototype == null)
+        {
+            var sawmill = Logger.GetSawmill("tweak-emotes");
+            sawmill.Warning($"EntityPrototype is null for entity {netEntity} (Type: {metaData.EntityName})");
+            return;
+        }
+
+        var stateNumber = string.Concat(metaData.EntityPrototype.ID.Where(Char.IsDigit));
         if (string.IsNullOrEmpty(stateNumber))
         {
             stateNumber = "0";
@@ -142,7 +150,7 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
 
         var a = new Animation
         {
-            Length = TimeSpan.FromMilliseconds(1100),  // Each Frame is 0.1 sec and there is 11 for the tweaking emote.
+            Length = TimeSpan.FromMilliseconds(TweakAnimationDurationMs),
             AnimationTracks =
             {
                 new AnimationTrackSpriteFlick
@@ -150,7 +158,7 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
                     LayerKey = DamageStateVisualLayers.Base,
                     KeyFrames =
                     {
-                        new AnimationTrackSpriteFlick.KeyFrame(new RSI.StateId($"mouse-tweaking-{stateNumber}"), 0f)
+                        new AnimationTrackSpriteFlick.KeyFrame(new RSI.StateId($"{metaData.EntityPrototype.SetName}-tweaking-{stateNumber}"), 0f)
                     }
                 }
             }
