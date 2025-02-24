@@ -524,10 +524,9 @@ public sealed class LavalandPlanetSystem : EntitySystem
     {
         var ruinBounds = new Dictionary<ProtoId<LavalandRuinPrototype>, List<Box2>>();
 
-        if (_lavalandPreloader == null)
+        if (_lavalandPreloader == null || TerminatingOrDeleted(_lavalandPreloader.Value.Uid))
         {
-            Log.Error("Tried to calculate ruin bounds, but Lavaland Preloader Map still doesn't exist!");
-            return ruinBounds;
+            SetupPreloader();
         }
 
         // All possible ruins for this pool
@@ -535,7 +534,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
 
         foreach (var id in ruins)
         {
-            var mapId = _lavalandPreloader.Value.Id;
+            var mapId = _lavalandPreloader!.Value.Id;
             var mapUid = _lavalandPreloader.Value.Uid;
             var dummyMapXform = Transform(mapUid);
 
