@@ -5353,3 +5353,9 @@ Entries:
       message: Bingle is now slightly more frequent.
   id: 619
   time: '2025-02-24T00:38:37.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Syndicate dimension pot 70 TC -> 40 TC.
+  id: 620
+  time: '2025-02-24T00:38:56.0000000+00:00'
