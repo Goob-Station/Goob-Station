@@ -195,3 +195,25 @@
     - CentralCommand
     - NanotrasenRepresentative
     - BlueshieldOfficer
+
+# Diplomat
+
+- type: entity
+  parent: CentcomIDCardNavyCaptain
+  id: CentcomIDCardDiplomat
+  name: Diplomat's ID card
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    layers:
+    - state: ert_security
+  - type: IdCard
+    jobTitle: job-name-diplomat
+    jobIcon: JobIconNanotrasen
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer

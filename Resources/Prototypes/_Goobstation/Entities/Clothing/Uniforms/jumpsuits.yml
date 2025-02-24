@@ -151,6 +151,24 @@
         Heat: 0.70
 
 - type: entity
+  parent: [ClothingUniformBase, BaseCentcommContraband]
+  id: ClothingUniformJumpsuitDiplomat
+  name: diplomat's jumpsuit
+  description: A suit worn by diplomacy focused Central Command workers.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/diplomat.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/diplomat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.70
+        Heat: 0.75
+
+- type: entity
   parent: ClothingUniformBase
   id: ClothingCostumeAbductor
   name: Alien Costume

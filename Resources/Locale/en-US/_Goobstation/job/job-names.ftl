@@ -17,3 +17,4 @@ JobHecuOperative = HECU Operative
 JobNavyOfficer = Navy Officer
 JobNavyOfficerUndercover = Undercover Navy Officer
 JobNavyCaptain = Navy Captain
+JobDiplomat = Diplomat

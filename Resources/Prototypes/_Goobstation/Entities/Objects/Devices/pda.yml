@@ -151,3 +151,11 @@
   - type: Pda
     id: CentcomIDCardSpecialOperationsOfficer
 
+- type: entity
+  parent: NavyCaptainPDA
+  id: DiplomatPDA
+  name: diplomat's PDA
+  components:
+  - type: Pda
+    id: CentcomIDCardDiplomat
+

@@ -188,3 +188,47 @@
       - BoxFolderNuclearCodes # ka-BOOM
       - MagazineLightRifleUranium
       - MagazineLightRifleUranium
+
+# Ambassador
+
+- type: job
+  id: Diplomat
+  name: job-name-diplomat
+  description: job-description-diplomat
+  playTimeTracker: JobDiplomat
+  setPreference: false
+  startingGear: DiplomatGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-commander
+  canBeAntag: false
+  requirements:
+  - !type:AgeRequirement
+    requiredAge: 21
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
+
+- type: startingGear
+  id: DiplomatGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitDiplomat
+    shoes: ClothingShoesBootsLaceup
+    eyes: ClothingEyesGlassesCentcomm
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
+    back: ClothingBackpackSatchelLeather
+    outerClothing: ClothingOuterArmourInvisible
+    neck: ExecutiveIDCard
+    id: AmbassadorPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltHolsterFilledCentComm
+    pocket1: WeaponPulsePistol
+    pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
+  storage:
+    back:
+    - HandheldFaxOfficial
+    - BluespaceLifelineImplanter
+    - CentcommFreedomImplanter
+    - RadioImplanterCentcomm
