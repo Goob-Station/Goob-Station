@@ -34,7 +34,7 @@
   - type: Item
     size: Ginormous
   - type: Clothing
-    sprite: Objects/Weapons/Melee/fireaxe.rsi
+    sprite: _Goobstation/Objects/Weapons/Melee/lollychop.rsi
     quickEquip: false
     slots:
     - back
@@ -63,8 +63,8 @@
     solution: melee
     generated:
       reagents:
-      - ReagentId: Bungotoxin
-        Quantity: 5
+      - ReagentId: Lipolicide
+        Quantity: 10
   - type: MeleeChemicalInjector
-    transferAmount: 3
+    transferAmount: 10
     solution: melee
