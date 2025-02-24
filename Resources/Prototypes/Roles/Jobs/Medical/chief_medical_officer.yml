@@ -46,6 +46,7 @@
   equipment:
     id: CMOPDA
     ears: ClothingHeadsetAltMedical # Goobstation
+    eyes: ClothingEyesGlassesMed # Goobstation
     belt: ClothingBeltMilitaryWebbingCMOFilled # Goobstation
   storage:
     back:

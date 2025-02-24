@@ -116,10 +116,10 @@
   - type: Perishable
 
 - type: entity
-  name: syndimaggot
+  name: syndiroach
   id: MobMothSyndy
   parent: MobMothroach
-  description: Explosive maggot.
+  description: Explosive moth.
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Animals/syndiroach.rsi
@@ -238,6 +238,7 @@
   - type: NpcFactionMember # they're pests, makes them the target of shiva and aves
     factions:
       - Mouse
+  - type: VentCrawler # goobstation - Ventcrawl
 
 - type: entity
   name: space carp

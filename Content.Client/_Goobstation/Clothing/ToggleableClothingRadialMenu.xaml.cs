@@ -50,7 +50,6 @@ public sealed partial class ToggleableClothingRadialMenu : RadialMenu
 
             var button = new ToggleableClothingRadialMenuButton()
             {
-                StyleClasses = { "RadialMenuButton" },
                 SetSize = new Vector2(64, 64),
                 ToolTip = tooltipText,
                 AttachedClothingId = attached.Key
@@ -87,7 +86,7 @@ public sealed partial class ToggleableClothingRadialMenu : RadialMenu
             if (castChild == null)
                 return;
 
-            castChild.OnButtonDown += _ =>
+            castChild.OnPressed += _ =>
             {
                 SendToggleClothingMessageAction?.Invoke(castChild.AttachedClothingId);
                 mainControl.DisposeAllChildren();
@@ -97,7 +96,7 @@ public sealed partial class ToggleableClothingRadialMenu : RadialMenu
     }
 }
 
-public sealed class ToggleableClothingRadialMenuButton : RadialMenuTextureButton
+public sealed class ToggleableClothingRadialMenuButton : RadialMenuTextureButtonWithSector
 {
     public EntityUid AttachedClothingId { get; set; }
 }
