@@ -271,8 +271,6 @@ public sealed class LavalandPlanetSystem : EntitySystem
                 continue;
 
             outpost = grid;
-            var member = EnsureComp<LavalandMemberComponent>(outpost);
-            member.SignalName = Loc.GetString("lavaland-planet-outpost");
             break;
         }
 
@@ -284,6 +282,11 @@ public sealed class LavalandPlanetSystem : EntitySystem
 
         // Align outpost to planet
         _transform.SetCoordinates(outpost, new EntityCoordinates(lavaland, 0, 0));
+        
+        // Name it
+        _metaData.SetEntityName(outpost, Loc.GetString("lavaland-planet-outpost"));
+        var member = EnsureComp<LavalandMemberComponent>(outpost);
+        member.SignalName = Loc.GetString("lavaland-planet-outpost");
 
         // Add outpost as a new station grid member (if it's in round)
         var defaultStation = _station.GetStationInMap(_ticker.DefaultMap);
@@ -508,7 +511,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
             var salvXForm = _xformQuery.GetComponent(mapChild);
             _transform.SetParent(mapChild, salvXForm, lavaland);
             _transform.SetCoordinates(mapChild, new EntityCoordinates(lavaland, salvXForm.Coordinates.Position.Rounded()));
-            _metaData.SetEntityName(mapChild, ruin.Name);
+            _metaData.SetEntityName(mapChild, Loc.GetString(ruin.Name));
             spawned = mapChild;
         }
 
