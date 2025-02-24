@@ -5269,3 +5269,9 @@ Entries:
       message: Baseball bat is now more robust. Get that home run!
   id: 605
   time: '2025-02-23T00:57:51.0000000+00:00'
+- author: GMWQ
+  changes:
+    - type: Tweak
+      message: Marked lollypop sticks and wrappers as trash
+  id: 606
+  time: '2025-02-24T00:27:01.0000000+00:00'
