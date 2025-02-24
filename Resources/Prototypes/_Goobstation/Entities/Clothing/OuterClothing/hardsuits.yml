@@ -67,13 +67,12 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.7
-        Piercing: 0.45
-        Heat: 0.9
-        Cold: 0.9
-        Radiation: 0.8
-        Caustic: 0.8
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Radiation: 0.5
+        Caustic: 0.6
+        Heat: 0.6
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75

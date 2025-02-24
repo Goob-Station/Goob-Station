@@ -342,7 +342,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeMothRoachburger
-  name: mothmaggotburger recipe
+  name: mothroachburger recipe
   result: FoodBurgerMothRoach
   solids:
     FoodBreadBun: 1

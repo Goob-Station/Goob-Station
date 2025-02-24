@@ -6,8 +6,6 @@
     cost: 100
   - id: DrinkAbsintheBottleFull
     cost: 100
-  - id: LavalandEquipmentExplorerSuit
-    cost: 100
   - id: CigarGold
     cost: 150
   - id: Soap
@@ -72,8 +70,6 @@
     cost: 1250
   - id: ClothingBackpackDuffelSalvageConscription
     cost: 1250
-  - id: AdvancedMineralScanner
-    cost: 1550
   - id: WeaponPlasmaCutter
     cost: 1700
   - id: SpaceCash1000
