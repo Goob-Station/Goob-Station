@@ -77,8 +77,10 @@
       amount: 5
     - id: FoodSnackLollypopWrappedOmnizine
       amount: 3
+    - id: FoodSnackLollypopWrapped
+      amount: 10
     - id: FoodSnackChocolate
-      amount: 1
+      amount: 3
     - id: PlushieCarp
     - id: CrayonRainbow
       amount: 3
