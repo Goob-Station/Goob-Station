@@ -61,6 +61,14 @@ public sealed partial class HungerComponent : Component
     [AutoNetworkedField]
     public HungerThreshold CurrentThreshold;
 
+
+    /// <summary>
+    /// Starting hunger value the entity should be at, if set then it overrides the default hunger value randomization behaviour.
+    /// </summary>
+    [DataField("startingHunger"), ViewVariables(VVAccess.ReadOnly)]
+    [AutoNetworkedField]
+    public float? StartingHunger = null;
+
     /// <summary>
     /// A dictionary relating HungerThreshold to the amount of <see cref="HungerSystem.GetHunger">current hunger</see> needed for each one
     /// </summary>
