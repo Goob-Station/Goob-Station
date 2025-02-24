@@ -1,33 +1,21 @@
+# This is such a fucking ass way to do this, but who cares.
 - type: entity
-  id: CandyBowlFilledLollypops
-  name: Candy Bowl
-  suffix: Basic
   parent: CandyBowl
-  components:
-  - type: StorageFill
-    contents:
-    - id: FoodSnackLollypopWrapped
-      amount: 8
-
-- type: entity
-  id: CandyBowlFilledLollypopsTric
-  name: Candy Bowl
-  suffix: Tricordrazine
-  parent: CandyBowl
-  components:
-  - type: StorageFill
-    contents:
-    - id: FoodSnackLollypopWrappedTricordrazine
-      amount: 8
-
-- type: entity
   id: CandyBowlFilledLollypopsMystery
-  name: Candy Bowl
-  suffix: Mystery
-  parent: CandyBowl
+  suffix: mystery
   components:
-  - type: ContainerFill
-    containers:
-      item:
-      - id: FoodSnackLollypopWrappedMystery
-        amount: 8
+  - type: Bin
+    initialContents:
+    - FoodSnackLollypopWrappedMystery
+    - FoodSnackLollypopWrappedMystery
+    - FoodSnackLollypopWrappedMystery
+    - FoodSnackLollypopWrappedMystery
+    - FoodSnackLollypopWrappedMystery
+    - FoodSnackLollypopWrappedMystery
+    - FoodSnackLollypopWrappedMystery
+    - FoodSnackLollypopWrappedMystery
+    - FoodSnackLollypopWrappedMystery
+    - FoodSnackLollypopWrappedMystery
+    whitelist:
+      tags:
+      - FoodSnack
