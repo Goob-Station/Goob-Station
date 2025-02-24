@@ -5311,3 +5311,9 @@ Entries:
       message: Blueshield SOP tweak
   id: 612
   time: '2025-02-24T00:32:15.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: NPCs are strong in melee combat again.
+  id: 613
+  time: '2025-02-24T00:32:50.0000000+00:00'
