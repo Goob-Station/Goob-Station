@@ -1213,6 +1213,7 @@
   components:
   - type: Tag
     tags:
+    - Trash
     - ClothMade
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
@@ -1251,6 +1252,9 @@
     state: lollypop-wrapper
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+  - type: Tag
+    tags:
+    - Trash
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1264,3 +1268,6 @@
     state: lollypop-wrapper-syndicate
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+  - type: Tag
+    tags:
+    - Trash

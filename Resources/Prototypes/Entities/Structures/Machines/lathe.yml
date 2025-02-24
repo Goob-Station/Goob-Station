@@ -350,7 +350,7 @@
       - SignalTrigger
       - VoiceTrigger
       - Igniter
-      - HandHeldMassScanner
+#      - HandHeldMassScanner - Removed by Lavaland
       - PowerCellMicroreactor
       - PowerCellHigh
       - WeaponPistolCHIMP
@@ -1416,7 +1416,7 @@
     - BioGenRobustHarvest
 
 - type: entity
-  parent: BaseLathe
+  parent: [BaseLathe, BaseSiloUtilizer] # Goob edit
   id: OreProcessor
   name: ore processor
   description: It produces sheets and ingots using ores.
@@ -1436,10 +1436,17 @@
     - type: Machine
       board: OreProcessorMachineCircuitboard
     - type: MaterialStorage
+      ignoreMaterialWhiteList: true # Goob edit
+      connectToSilo: true # Goob edit
+      disconnectSiloOffMap: true # Goob edit
+      disallowOreEjection: false # Goob edit
       ignoreColor: true
       whitelist:
         tags:
           - Ore
+          - Sheet
+          - RawMaterial
+          - Ingot
     - type: Lathe
       idleState: icon
       runningState: building
