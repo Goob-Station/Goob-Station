@@ -5299,3 +5299,9 @@ Entries:
       message: Increased nukie explosion resist
   id: 610
   time: '2025-02-24T00:30:34.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Tweak
+      message: Medical cyborgs can do surgery through clothing and do surgery faster.
+  id: 611
+  time: '2025-02-24T00:31:26.0000000+00:00'
