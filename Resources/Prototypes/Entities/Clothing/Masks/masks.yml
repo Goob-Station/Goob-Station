@@ -23,7 +23,7 @@
     hideOnToggle: true
 
 - type: entity
-  parent: [ClothingMaskGas, BaseRestrictedContraband]
+  parent: [ClothingMaskGas, BaseSecurityContraband]
   id: ClothingMaskGasSecurity
   name: security gas mask
   description: A standard issue Security gas mask.
@@ -253,7 +253,7 @@
     node: mask
 
 - type: entity
-  parent: [ClothingMaskClown, BaseRestrictedContraband]
+  parent: [ClothingMaskClown, BaseSecurityContraband]
   id: ClothingMaskClownSecurity
   name: security clown wig and mask
   description: A debatably oxymoronic but protective mask and wig.
@@ -345,8 +345,7 @@
     unequipDelay: 3
   - type: IngestionBlocker
   - type: AddAccentClothing
-    accent: ReplacementAccent
-    replacement: mumble
+    accent: MumbleAccent
   - type: Construction
     graph: Muzzle
     node: muzzle
@@ -385,7 +384,7 @@
     accent: StutteringAccent
 
 - type: entity
-  parent: [ ClothingMaskGas, BaseRestrictedContraband ]
+  parent: [ ClothingMaskGas, BaseSecurityContraband ]
   id: ClothingMaskGasSwat
   name: swat gas mask
   description: A elite issue Security gas mask.
@@ -740,3 +739,32 @@
   - type: Tag
     tags:
     - IPCMaskWearable # EE - IPCs
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskWeldingGas
+  name: welding gas mask
+  description: A gas mask with built in welding goggles and face shield. Looks like a skull, clearly designed by a nerd.
+  components:
+  - type: Sprite
+    sprite: Clothing/Mask/welding-gas.rsi
+    state: icon
+  - type: Clothing
+    sprite: Clothing/Mask/welding-gas.rsi
+  - type: BreathMask
+  - type: IngestionBlocker
+  - type: IdentityBlocker
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 150
+      Glass: 50
+  - type: StaticPrice
+    price: 100
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    slots:
+    - Snout
