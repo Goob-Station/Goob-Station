@@ -364,7 +364,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
                     continue;
 
                 var member = EnsureComp<LavalandMemberComponent>(spawned.Value);
-                member.SignalName = member.SignalName = Loc.GetString(ruin.Name);
+                member.SignalName = Loc.GetString(ruin.Name);
                 break;
             }
         }
