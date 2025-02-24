@@ -59,7 +59,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<PreGameMapLoad>(OnPreloadStart);
+        SubscribeLocalEvent<PostGameMapLoad>(OnPreloadStart);
         SubscribeLocalEvent<RoundStartAttemptEvent>(OnRoundStart);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnCleanup);
 
@@ -68,7 +68,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
         _fixtureQuery = GetEntityQuery<FixturesComponent>();
     }
 
-    private void OnPreloadStart(PreGameMapLoad ev)
+    private void OnPreloadStart(PostGameMapLoad ev)
     {
         if (!_config.GetCVar(CCVars.LavalandEnabled))
         {
