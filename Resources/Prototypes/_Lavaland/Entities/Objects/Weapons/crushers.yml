@@ -127,7 +127,7 @@
 
 
 - type: entity
-  parent: LavalandWeaponKineticBase
+  parent: [LavalandWeaponKineticBase, ClothingHandsBase]
   id: LavalandWeaponKineticClaws
   name: kinetic claws
   description: Unleash your inner edgelord with this one-handed claw small enough to fit in your backpack. Deals a lot more damage when backstabbing marked targets.
@@ -137,6 +137,11 @@
     state: icon
   - type: UseDelay
     delay: 1
+  - type: Clothing
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_claws-inhands.rsi
+  - type: Fiber
+    fiberMaterial: fibers-kinetic
+    fiberColor: fibers-purple
   - type: MeleeWeapon
     attackRate: 1.5
     wideAnimationRotation: -135
@@ -148,6 +153,7 @@
     angle: 0
     animation: WeaponArcThrust
     range: 1.6
+    mustBeEquippedToUse: true
   - type: Item
     size: Normal
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_claws-inhands.rsi

@@ -64,6 +64,7 @@
   - type: Aggressive # also required component for aggro checking
   - type: BossMusic
     soundId: Hierophant
+  - type: Fauna
 
 # hierophant damaging thing
 - type: entity
@@ -114,8 +115,8 @@
   - type: DamageSquare
     damage:
       types:
-        Blunt: 3
-        Heat: 3
+        Blunt: 6
+        Heat: 6
     sound:
       path: /Audio/_Lavaland/Mobs/Bosses/hiero_blast.ogg
 
