@@ -28,7 +28,7 @@
   icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
   productHereticKnowledge: GraspOfFlesh
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathFlesh
   conditions:
@@ -47,7 +47,7 @@
   icon: { sprite: Objects/Specific/Hydroponics/poppy.rsi, state: dead }
   productHereticKnowledge: ImperfectRitual
   cost:
-    KnowledgePoint: 2
+    KnowledgePoint: 1
   categories:
   - HereticPathFlesh
   conditions:
@@ -63,7 +63,7 @@
   icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
   productHereticKnowledge: MarkOfFlesh
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathFlesh
   conditions:
@@ -81,7 +81,7 @@
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: flesh_surgery }
   productHereticKnowledge: KnittingOfFlesh
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathFlesh
   conditions:
@@ -100,7 +100,7 @@
   icon: { sprite: _Goobstation/Heretic/eldritch_mobs.rsi, state: raw_prophet }
   productHereticKnowledge: RawRitual
   cost:
-    KnowledgePoint: 2
+    KnowledgePoint: 1
   categories:
   - HereticPathFlesh
   conditions:
@@ -116,7 +116,7 @@
   icon: { sprite: _Goobstation/Heretic/Blades/blade_flesh.rsi, state: icon }
   productHereticKnowledge: BleedingSteel
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathFlesh
   conditions:
@@ -135,7 +135,7 @@
   icon: { sprite: _Goobstation/Heretic/eldritch_mobs.rsi, state: stalker }
   productHereticKnowledge: LonelyRitual
   cost:
-    KnowledgePoint: 2
+    KnowledgePoint: 1
   categories:
   - HereticPathFlesh
   conditions:
@@ -151,7 +151,7 @@
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: final_hymn }
   productHereticKnowledge: AscensionFlesh
   cost:
-    KnowledgePoint: 2
+    KnowledgePoint: 3
   categories:
   - HereticPathFlesh
   conditions:

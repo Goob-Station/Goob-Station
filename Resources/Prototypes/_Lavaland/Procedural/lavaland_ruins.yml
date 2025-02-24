@@ -1,0 +1,104 @@
+- type: lavalandRuin
+  id: CommonRuin5x5 #Procgen via Room Marker
+  name: Unknown Building
+  path: Maps/_Lavaland/Lavaland/common_ruin_5x5.yml
+
+- type: lavalandRuin
+  id: Chemistry
+  name: Unknown Syndicate Laboratory
+  path: Maps/_Lavaland/Lavaland/ruin_chemistry.yml
+
+- type: lavalandRuin
+  id: Graveyard
+  name: Graveyard
+  path: Maps/_Lavaland/Lavaland/ruin_graveyard.yml
+
+- type: lavalandRuin
+  id: ToyShop
+  name: Toy Shop
+  path: Maps/_Lavaland/Lavaland/ruin_toyshop.yml
+
+- type: lavalandRuin
+  id: Hermit # Shelter
+  name: Makeshift Shelter
+  path: Maps/_Lavaland/Lavaland/ruin_hermit.yml
+
+- type: lavalandRuin
+  id: LavaLake
+  name: Lava Lake
+  path: Maps/_Lavaland/Lavaland/ruin_lavalake.yml
+
+- type: lavalandRuin
+  id: GolemShuttle
+  name: Unknown Shuttle
+  path: Maps/_Lavaland/Lavaland/ruin_golem_shuttle.yml
+
+- type: lavalandRuin
+  id: BiodomeSnow
+  name: Biodome
+  path: Maps/_Lavaland/Lavaland/ruin_snow_biodome.yml
+
+- type: lavalandRuin
+  id: BiodomeBeach
+  name: Biodome
+  path: Maps/_Lavaland/Lavaland/ruin_beach_biodome.yml
+
+- type: lavalandRuin
+  id: RougeAI
+  name: Old Research Station
+  path: Maps/_Lavaland/Lavaland/ruin_rouge_ai.yml
+
+- type: lavalandRuin
+  id: SeedVault
+  name: Seed Vault
+  path: Maps/_Lavaland/Lavaland/ruin_seed_vault.yml
+
+- type: lavalandRuin
+  id: SyndicateBase
+  name: Syndicate Base
+  path: Maps/_Lavaland/Lavaland/ruin_syndicate_base.yml
+
+- type: lavalandRuin
+  id: WaffleCo
+  name: Waffle House
+  path: Maps/_Lavaland/Lavaland/ruin_wafflecohouse.yml
+
+- type: lavalandRuin
+  id: ArrivalsBack
+  name: Arrivals Debris
+  path: Maps/_Lavaland/Lavaland/ruin_arrivals_back.yml
+
+- type: lavalandRuin
+  id: ArrivalsFront
+  name: Arrivals Debris
+  path: Maps/_Lavaland/Lavaland/ruin_arrivals_front.yml
+
+- type: lavalandRuin
+  id: CargoDebris
+  name: Cargo Debris
+  path: Maps/_Lavaland/Lavaland/ruin_cargo_debris.yml
+
+- type: lavalandRuin
+  id: VulpLab
+  name: Vulpkanin Laboratory
+  path: Maps/_Lavaland/Lavaland/ruin_vulp_lab.yml
+
+- type: lavalandRuin
+  id: Shelter
+  name: Shelter
+  path: Maps/_Lavaland/Lavaland/ruin_shelter.yml
+
+- type: lavalandRuin
+  id: OwOLab
+  name: Felenid Lab
+  path: Maps/_Lavaland/Lavaland/ruin_felenid_lab.yml
+
+- type: lavalandRuin
+  id: MiningPost
+  name: Miner Outpost
+  path: Maps/_Lavaland/Lavaland/ruin_mining_outpost.yml
+  
+- type: lavalandRuin
+  id: HierophantArena
+  name: Hierophant
+  path: Maps/_Lavaland/Lavaland/ruin_hierophant_arena.yml

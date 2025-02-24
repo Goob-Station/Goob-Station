@@ -318,7 +318,7 @@
 - type: entity
   name: advanced circular saw
   id: SawAdvanced
-  parent: [ SawElectric, BaseSyndicateContraband ]
+  parent: [ SawElectric ]
   description: You think you can cut anything with it.
   components:
   - type: Sprite

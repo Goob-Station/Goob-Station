@@ -35,6 +35,9 @@
         Slash: 19 #cmon, it has to be at least BETTER than the rest. # Goob edit
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
+  - type: Reflect # change this and i will fucking GUT YOU. YOU HEAR ME AVIU??
+    reflectProb: .3
+    spread: 90
   - type: Item
     sprite: Objects/Weapons/Melee/captain_sabre.rsi
   - type: Tag
@@ -46,6 +49,7 @@
     weight: 0.0002 # 5,000 times less likely than 1 regular animal
   - type: PirateAccent
     # not putting a BlockMovement component here cause that's funny.
+
 
 - type: entity
   name: katana

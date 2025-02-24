@@ -12,7 +12,7 @@ public sealed partial class EmergencyShuttleSystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedChargesSystem _charge = default!;
-
+    [Dependency] private readonly EmagSystem _emag = default!;
     private void InitializeEmag()
     {
         SubscribeLocalEvent<EmergencyShuttleConsoleComponent, GotEmaggedEvent>(OnEmagged);
@@ -43,6 +43,12 @@ public sealed partial class EmergencyShuttleSystem
     private void OnEmagged(EntityUid uid, EmergencyShuttleConsoleComponent component, ref GotEmaggedEvent args)
     {
         if (EarlyLaunchAuthorized || !EmergencyShuttleArrived || _consoleAccumulator <= _authorizeTime)
+            return;
+
+        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+            return;
+
+        if (_emag.CheckFlag(uid, EmagType.Interaction))
             return;
 
         args.Handled = false;

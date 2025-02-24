@@ -22,6 +22,16 @@
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+      # Goobstation - changelings (technically, IPCs cant be a ling, but whatever)
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+      enum.HereticLivingHeartKey.Key: # goob edit - heretics
+        type: LivingHeartMenuBoundUserInterface
+      enum.WizardTeleportUiKey.Key: # Goobstation - wizard
+        type: WizardTeleportBoundUserInterface
+        requireInputValidation: false
+      enum.SurgeryUIKey.Key: # Shitmed
+        type: SurgeryBui
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: true

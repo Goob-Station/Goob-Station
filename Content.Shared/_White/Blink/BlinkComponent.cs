@@ -18,7 +18,7 @@ public sealed partial class BlinkComponent : Component
     public string BlinkDelay = "blink";
 
     [DataField, AutoNetworkedField]
-    public TimeSpan KnockdownTime = TimeSpan.FromSeconds(0.1);
+    public TimeSpan KnockdownTime = TimeSpan.Zero;
 
     [DataField, AutoNetworkedField]
     public float KnockdownRadius = 0.3f;

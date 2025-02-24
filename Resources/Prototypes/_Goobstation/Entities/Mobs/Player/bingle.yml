@@ -1,0 +1,104 @@
+- type: entity
+  name: bingle
+  id: MobBingle
+  parent: MobSpaceBasic
+  description: bingle
+  components:
+  - type: Bingle
+    upgradeDamage:
+      types:
+        Blunt: 14
+        Structural: 28
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    name: ghost-role-information-bingle-name
+    description: ghost-role-information-bingle-description
+    rules: ghost-role-information-freeagent-rules
+    raffle:
+      settings: short
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Bingle/bingle.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: alive
+    - map: ["enum.BingleVisual.Upgraded"]
+      state: Upgraded
+      visible: false
+    - map: ["enum.BingleVisual.Combat"]
+      state: combat
+      visible: false
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      140: Dead # by request
+  - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: alive
+      Dead:
+        Base: dead
+  - type: Bloodstream
+    bloodMaxVolume: 100
+    bloodReagent: Nitrogen # by request
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    angle: 0
+    wideAnimationRotation: 0
+    animation: WeaponArcSlash
+    damage:
+      types:
+        Blunt: 7
+        Structural: 14 # breaks down the walls and airlocks in 10 hits
+    bluntStaminaDamageFactor: 2.0
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2 # same as slime
+    baseSprintSpeed : 4
+  - type: Stamina
+    critThreshold: 120
+  - type: StaminaDamageOnHit # from stunbaton
+    damage: 15
+    overtime: 40
+    sound: /Audio/Weapons/egloves.ogg
+  - type: Damageable
+    damageContainer: OrganicPart # unsure if this is the right type
+    damageModifierSet: Bingle
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Effects/Footsteps/slime1.ogg
+      params:
+        volume: 3
+  - type: TypingIndicator
+    proto: alien
+  - type: Speech
+    speechVerb: Bingle
+    speechSounds: Slime
+  - type: ReplacementAccent # prevent talking
+    accent: bingle
+  - type: PassiveDamage #passive Healing
+    allowedStates:
+    - Alive
+    damage:
+      types:
+        Poison: -0.1
+      groups:
+        Brute: -0.1
+        Burn: -0.1
+  - type: NightVision
+    color: "#008080"
+    activateSound: null
+    deactivateSound: null
+
+- type: entity
+  id: MobBinglePrime
+  parent: MobBingle
+  suffix: Prime
+  components:
+  - type: Bingle
+    prime: true

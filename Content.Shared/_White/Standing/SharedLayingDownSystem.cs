@@ -1,6 +1,7 @@
 using Content.Shared._Shitmed.Body.Organ; // Shitmed Change
 using Content.Shared.Body.Components;
-using Content.Shared._Goobstation.CCVar;
+using Content.Shared._Goobstation.CCVar; // Shitmed Change
+using Content.Shared._Goobstation.Clothing.Components;
 using Content.Shared._Goobstation.Wizard.TimeStop;
 using Content.Shared._Goobstation.Wizard.Traps;
 using Content.Shared.Administration; // Shitmed Change
@@ -117,7 +118,15 @@ public abstract class SharedLayingDownSystem : EntitySystem
             HasComp<DebrainedComponent>(uid))
             return false;
 
-        var args = new DoAfterArgs(EntityManager, uid, layingDown.StandingUpTime, new StandingUpDoAfterEvent(), uid)
+        // Goob edit start
+        var ev = new GetStandingUpTimeMultiplierEvent();
+        RaiseLocalEvent(uid, ev);
+
+        var args = new DoAfterArgs(EntityManager,
+            uid,
+            layingDown.StandingUpTime * ev.Multiplier,
+            new StandingUpDoAfterEvent(),
+            uid) // Goob edit end
         {
             BreakOnHandChange = false,
             RequireCanInteract = false,

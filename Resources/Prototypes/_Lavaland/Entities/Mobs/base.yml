@@ -1,0 +1,26 @@
+# todo: make it differ from baseasteroidmob... somehow???
+- type: entity
+  id: LavalandMobBase
+  parent:
+  - BaseMob
+  - MobDamageable
+  - MobAtmosExposed
+  - MobCombat
+  abstract: true
+  components:
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+      Acidic: [ Touch, Ingestion ]
+  - type: Climbing
+  - type: NameIdentifier
+    group: GenericNumber
+  - type: StatusEffects
+    allowed:
+    - SlowedDown
+    - TemporaryBlindness
+    - RadiationProtection
+  - type: Tag
+    tags:
+    - DoorBumpOpener

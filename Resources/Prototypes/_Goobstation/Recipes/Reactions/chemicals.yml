@@ -14,3 +14,43 @@
       intensityPerUnit: 0.5 # 50+50 reagent for maximum explosion
       intensitySlope: 4
       maxTotalIntensity: 100
+
+- type: reaction
+  id: Cryostylane
+  reactants:
+    Ice:
+      amount: 1
+    Plasma:
+      amount: 1
+    Nitrogen:
+      amount: 1
+  products:
+    Cryostylane: 1  
+
+- type: reaction
+  id: CryostylaneOxygenCooling
+  conserveEnergy: false # oxy is immediately removed, no point in keeping its energy
+  reactants:
+    Cryostylane:
+      amount: 1
+      catalyst: true
+    Oxygen:
+      amount: 1
+  effects:
+    - !type:AdjustSolutionThermalEnergyEffect
+      delta: -100 # I know noone will use this one since hotbeakering and second recipe, but one can dream
+      scaled: true
+
+- type: reaction
+  id: CryostylaneIodineCooling
+  conserveEnergy: false
+  reactants:
+    Cryostylane:
+      amount: 1
+      catalyst: true
+    Iodine:
+      amount: 1
+  effects:
+    - !type:AdjustSolutionThermalEnergyEffect
+      delta: -200
+      scaled: true

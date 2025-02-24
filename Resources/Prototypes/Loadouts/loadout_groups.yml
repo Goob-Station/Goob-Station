@@ -12,6 +12,7 @@
   - PlushieSpaceLizard
   - CardBoxBlack # GoobStation
   - CardBoxNanotrasen # GoobStation
+  - ThreeCandles
   - Lighter
   - FlippoLighter
   - CigPackGreen
@@ -19,6 +20,9 @@
   - CigPackBlue
   - CigPackBlack
   - CigarCase
+  - FoodSnackLollypopWrapped # Goobstation
+  - FoodSnackLollypopWrappedRainbow # Goobstation
+  - FoodSnackLollypopWrappedCarp # Goobstation
 
 - type: loadoutGroup
   id: Sharks
@@ -51,6 +55,7 @@
   - ClothingNeckLesbianPin
   - ClothingNeckNonBinaryPin
   - ClothingNeckPansexualPin
+  - ClothingNeckOmnisexualPin
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
 
@@ -1376,6 +1381,7 @@
   loadouts:
   - ReporterJumpsuit
   - JournalistJumpsuit
+  - ReporterDress
 
 - type: loadoutGroup
   id: PsychologistJumpsuit

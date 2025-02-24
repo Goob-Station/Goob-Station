@@ -15,6 +15,7 @@
   supervisors: job-supervisors-centcom
   canBeAntag: false
   access:
+  - Security
   - Brig
   - External
   - Cryogenics
@@ -23,6 +24,12 @@
   - Medical
   - Research
   - Command
+  - CentralCommand
+  - Service
+  - Hydroponics
+  - Kitchen
+  - Cargo
+  - Theatre
   - NanotrasenRepresentative
   - CentralCommand
   special:

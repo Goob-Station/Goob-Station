@@ -25,8 +25,7 @@
   - type: CombatMode
   - type: Physics
     ignorePaused: true
-    bodyType: KinematicController
-    canCollide: false
+    bodyType: Kinematic
   - type: Body
     prototype: Aghost
     thermalVisibility: false # WD EDIT

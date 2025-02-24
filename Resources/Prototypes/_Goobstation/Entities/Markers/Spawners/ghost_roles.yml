@@ -11,3 +11,21 @@
         state: icon
     state: observer
   - type: GhostBarSpawn
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostDerelictCyborgSyndicate
+  components:
+  - type: GhostRole
+    name: ghost-role-information-derelict-cyborg-syndicate-name
+    description: ghost-role-information-derelict-cyborg-syndicate-description
+    rules: ghost-role-information-silicon-rules
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: synd_sec
