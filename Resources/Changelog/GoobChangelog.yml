@@ -5293,3 +5293,9 @@ Entries:
       message: Mice can now multiply
   id: 609
   time: '2025-02-24T00:29:56.0000000+00:00'
+- author: ARMOKS
+  changes:
+    - type: Tweak
+      message: Increased nukie explosion resist
+  id: 610
+  time: '2025-02-24T00:30:34.0000000+00:00'
