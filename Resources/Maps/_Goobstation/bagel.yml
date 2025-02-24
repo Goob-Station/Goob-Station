@@ -11138,7 +11138,7 @@ entities:
       pos: -29.5,37.5
       parent: 60
     - type: Door
-      secondsUntilStateChange: -21308.646
+      secondsUntilStateChange: -21460.164
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -69290,33 +69290,6 @@ entities:
     - type: Transform
       pos: -8.400883,32.49239
       parent: 60
-- proto: DormNotifierMarker
-  entities:
-  - uid: 13484
-    components:
-    - type: Transform
-      pos: -54.5,24.5
-      parent: 60
-  - uid: 24657
-    components:
-    - type: Transform
-      pos: -54.5,20.5
-      parent: 60
-  - uid: 24666
-    components:
-    - type: Transform
-      pos: -46.5,24.5
-      parent: 60
-  - uid: 24671
-    components:
-    - type: Transform
-      pos: -46.5,20.5
-      parent: 60
-  - uid: 24680
-    components:
-    - type: Transform
-      pos: -35.5,20.5
-      parent: 60
 - proto: DoubleEmergencyOxygenTankFilled
   entities:
   - uid: 2069
@@ -114459,20 +114432,10 @@ entities:
       parent: 60
 - proto: PosterContrabandPunchShit
   entities:
-  - uid: 3331
-    components:
-    - type: Transform
-      pos: -61.5,-11.5
-      parent: 60
   - uid: 3413
     components:
     - type: Transform
       pos: -60.5,-11.5
-      parent: 60
-  - uid: 6590
-    components:
-    - type: Transform
-      pos: -61.5,-11.5
       parent: 60
   - uid: 18106
     components:
@@ -133033,6 +132996,11 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
+  - uid: 3331
+    components:
+    - type: Transform
+      pos: -39.5,20.5
+      parent: 60
   - uid: 3636
     components:
     - type: Transform
@@ -139140,13 +139108,6 @@ entities:
     components:
     - type: Transform
       pos: 33.5,-26.5
-      parent: 60
-- proto: VendingMachinePride
-  entities:
-  - uid: 21471
-    components:
-    - type: Transform
-      pos: -39.5,20.5
       parent: 60
 - proto: VendingMachineRestockDonut
   entities:
