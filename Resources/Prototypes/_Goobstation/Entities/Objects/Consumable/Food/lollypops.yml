@@ -1214,6 +1214,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - Trash
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
   - type: Sprite
@@ -1246,6 +1247,9 @@
   id: FoodSnackLollypopTrash
   name: lollypop wrapper
   components:
+  - type: Tag
+    tags:
+    - Trash
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapper
@@ -1259,6 +1263,9 @@
   name: syndicate lollypop wrapper
   description: Someone's been naughty...
   components:
+  - type: Tag
+    tags:
+    - Trash
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapper-syndicate
