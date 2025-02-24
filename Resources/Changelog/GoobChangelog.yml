@@ -5370,3 +5370,17 @@ Entries:
       message: The Kinetic Crushers' damage and attack speed values were adjusted.
   id: 621
   time: '2025-02-24T00:41:10.0000000+00:00'
+- author: Mocho, AgentePanela
+  changes:
+    - type: Add
+      message: Disasterous consequences for the Goobconomy.
+    - type: Tweak
+      message: >-
+        Added CVARs to modify the amount of goobcoins players get at round end,
+        multipliers based on whether or not they can be antags, Goobcoin bonus
+        values based on each job (can be added to each Job prototype),
+        server-specific multipliers and more!
+    - type: Remove
+      message: Durk's steak and wine
+  id: 622
+  time: '2025-02-24T00:42:50.0000000+00:00'
