@@ -5448,3 +5448,59 @@ Entries:
         salv vendor.
   id: 624
   time: '2025-02-24T00:51:35.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Bingles are now insulated.
+  id: 625
+  time: '2025-02-24T16:38:32.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Ripley punch damage increased 14 blunt -> 25 blunt + 30 structural.
+  id: 626
+  time: '2025-02-24T20:19:08.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Fix
+      message: Lavaland is now 100% Lag Free!
+    - type: Fix
+      message: Fixed lavaland ash storms dealing damage in cases when it shouldn't.
+  id: 627
+  time: '2025-02-24T20:28:57.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Bingles are no longer announced.
+  id: 628
+  time: '2025-02-24T20:31:26.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Fix
+      message: Fixed harpy shoulders showing through clothing.
+  id: 629
+  time: '2025-02-24T20:33:06.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Tweak
+      message: Added some extra slots for some jobs on Submarine
+    - type: Tweak
+      message: Mapped in some funny stuff here and there for Submarine.
+    - type: Fix
+      message: Added slots for BSO and NTR on Submarine.
+    - type: Fix
+      message: >-
+        Fixed submarine mining shuttle dock colliding with the cargo one
+        (whoops).
+  id: 630
+  time: '2025-02-24T20:33:43.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Nymph ventcrawl
+  id: 631
+  time: '2025-02-24T20:34:02.0000000+00:00'
+- author: Armok
+  changes: []
+  id: 632
+  time: '2025-02-24T20:43:38.0000000+00:00'

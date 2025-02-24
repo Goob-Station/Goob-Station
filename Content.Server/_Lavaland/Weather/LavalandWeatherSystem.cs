@@ -46,12 +46,12 @@ public sealed class LavalandWeatherSystem : EntitySystem
     {
         var xform = Transform(entity);
         // Do the damage to all poor people on lava that are not on outpost/big ruins
-        if (xform.MapUid != lavaland.Owner || HasComp<LavalandMemberComponent>(xform.ParentUid))
+        if (xform.GridUid != lavaland.Owner)
             return;
 
-        var proto = _proto.Index<LavalandWeatherPrototype>(lavaland.Comp.CurrentWeather);
+        var proto = _proto.Index(lavaland.Comp.CurrentWeather);
         _temperature.ChangeHeat(entity, proto.TemperatureChange, ignoreHeatResistance: true);
-        _damage.TryChangeDamage(entity, proto.Damage, ignoreResistances: true);
+        _damage.TryChangeDamage(entity, proto.Damage);
     }
 
     public override void Update(float frameTime)
@@ -99,7 +99,7 @@ public sealed class LavalandWeatherSystem : EntitySystem
 
         var proto = _proto.Index(weather);
 
-        _weather.SetWeather(map.Comp.MapId, _proto.Index(proto.WeatherType), null);
+        _weather.SetWeather(Transform(map).MapID, _proto.Index(proto.WeatherType), null);
 
         Log.Debug($"Starting dealing weather damage on lavaland map {ToPrettyString(map)}");
         var comp = EnsureComp<LavalandStormedMapComponent>(map);
@@ -119,11 +119,11 @@ public sealed class LavalandWeatherSystem : EntitySystem
 
     public void EndWeather(Entity<LavalandMapComponent> map)
     {
-        _weather.SetWeather(map.Comp.MapId, null, null);
+        _weather.SetWeather(Transform(map).MapID, null, null);
         if (!TryComp<LavalandStormedMapComponent>(map, out var comp))
             return;
 
-        var popup = _proto.Index<LavalandWeatherPrototype>(comp.CurrentWeather).PopupEndMessage;
+        var popup = _proto.Index(comp.CurrentWeather).PopupEndMessage;
         RemComp<LavalandStormedMapComponent>(map);
 
         var humans = EntityQueryEnumerator<HumanoidAppearanceComponent, DamageableComponent>();
