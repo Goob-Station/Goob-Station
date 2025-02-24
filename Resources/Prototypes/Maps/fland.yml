@@ -31,10 +31,11 @@
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 2, 2 ]
+            Reporter: [ 2, 2 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 3, 3 ]
-            StationEngineer: [ 5, 5 ]
+            StationEngineer: [ 6, 6 ]
             TechnicalAssistant: [ 4, 4 ]
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]
@@ -56,7 +57,7 @@
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
-            CargoTechnician: [ 4, 4 ]
+            CargoTechnician: [ 6, 6 ]
             #civilian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]
@@ -64,7 +65,7 @@
             Musician: [ 1, 1 ]
             #silicon
             StationAi: [ 1, 1 ]
-            Borg: [ 2, 2 ]
+            Borg: [ 5, 5 ]
         # Goobstation blob-config-start HUGE
         - type: StationBlobConfig
           stageBegin: 40
