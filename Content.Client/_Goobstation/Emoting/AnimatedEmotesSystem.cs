@@ -124,13 +124,17 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
     }
     private void OnTweak(Entity<AnimatedEmotesComponent> ent, ref AnimationTweakEmoteEvent args)
     {
-        if (ent.Owner.Prototype?.ID != null)
+        NetEntity i = EntityManager.GetNetEntity(ent.Owner);
+        (EntityUid entityUid, MetaDataComponent metaData) data = EntityManager.GetEntityData(i);
+
+        if (data.metaData.EntityPrototype == null)
         {
-            Logger.Warning($"Attempted to cast tweak animation on entity without prototype: {ent.Owner}");
+            ISawmill sawmill = Logger.GetSawmill("tweak-emotes");
+            sawmill.Warning("EntityPrototype is null for entity {0}", i);
             return;
         }
 
-        var stateNumber = string.Concat(ent.Owner.Prototype.ID.Where(Char.IsDigit));
+        var stateNumber = string.Concat(data.metaData.EntityPrototype.ID.Where(Char.IsDigit));
         if (string.IsNullOrEmpty(stateNumber))
         {
             stateNumber = "0";
