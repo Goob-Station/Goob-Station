@@ -17,3 +17,13 @@
   cost: 7500
   category: cargoproduct-category-name-armory
   group: market
+
+- type: cargoProduct
+  id: ArmoryHardsuit
+  icon:
+    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
+    state: icon
+  product: CrateArmoryHardsuit
+  cost: 12000
+  category: cargoproduct-category-name-armory
+  group: market

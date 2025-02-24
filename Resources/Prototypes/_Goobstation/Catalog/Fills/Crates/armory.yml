@@ -23,3 +23,14 @@
         amount: 2
       - id: MagazinePistolSubMachineGun
         amount: 4
+
+- type: entity
+  id: CrateArmoryHardsuit
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
+  name: Hardsuit crate
+  description: Contains a single standard issue security hardsuit. Requires Armory access to open.
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterHardsuitSecurity
+      amount: 1
