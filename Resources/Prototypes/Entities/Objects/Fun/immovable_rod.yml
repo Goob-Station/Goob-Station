@@ -106,6 +106,8 @@
     minSpeed: 6 # Goob edit
     maxSpeed: 6 # Goob edit
     hitSoundProbability: 1 # Goob edit
+    ignoreResistances: true # Goobstation
+    knockdownTime: 4 # Goobstation
     destroyTiles: false
     randomizeVelocity: false
     shouldGib: false

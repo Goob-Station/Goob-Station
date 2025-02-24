@@ -11,3 +11,6 @@ trait-maoist-accent-name = Maoist accent
 trait-maoist-accent-desc = SShit$$eKKK mu$$t be de$$troyed. Death to KKKommand.
 
 poor-vision-trait-examined = [color=lightblue]{CAPITALIZE(POSS-ADJ($target))} eyes are unfocused. It doesn't seem like {SUBJECT($target)} can see you very well without glasses..[/color]
+
+trait-medieval-accent-name = Medieval accent
+trait-medieval-accent-desc = Hark! Thy manner o' speech, 'tis most unusual!

@@ -199,6 +199,7 @@
         type: LivingHeartMenuBoundUserInterface
       enum.WizardTeleportUiKey.Key: # Goobstation - wizard
         type: WizardTeleportBoundUserInterface
+        requireInputValidation: false
       # Shitmed
       enum.SurgeryUIKey.Key:
         type: SurgeryBui

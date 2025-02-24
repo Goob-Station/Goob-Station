@@ -1,0 +1,138 @@
+- type: entity
+  name: proto-kinetic shotgun
+  id: WeaponProtoKineticShotgun
+  parent: [WeaponProtoKineticAcceleratorBase, BaseCargoContraband]
+  description: Fires a spread of low-damage kinetic bolts.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+    layers:
+    - state: shotgun
+      map: [ "enum.WeaponVisualLayers.Base" ]
+    - state: bayonet
+      map: [ "enum.WeaponVisualLayers.Bayonet" ]
+      visible: false
+    - state: flight
+      map: [ "enum.WeaponVisualLayers.FlightOff" ]
+      visible: false
+    - state: flight-on
+      map: [ "enum.WeaponVisualLayers.FlightOn" ]
+      visible: false
+    - state: animation-shotgun
+      visible: false
+      map: [ "empty-icon" ]
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 1.50
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+  - type: BasicEntityAmmoProvider
+    proto: PelletKineticSpread
+    capacity: 1
+    count: 1
+  - type: UpgradeableGun
+    maxUpgradeCapacity: 60
+    whitelist:
+      tags:
+      - PKAUpgrade
+  - type: Item
+    shape:
+    - 0,0,4,0
+  
+- type: entity
+  name: proto-kinetic repeater
+  id: WeaponProtoKineticRepeater
+  parent: [WeaponProtoKineticAcceleratorBase, BaseCargoContraband]
+  description: Fires a barrage of kinetic bolts at a short range.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+    layers:
+    - state: repeater
+      map: [ "enum.WeaponVisualLayers.Base" ]
+    - state: bayonet
+      map: [ "enum.WeaponVisualLayers.Bayonet" ]
+      visible: false
+    - state: flight
+      map: [ "enum.WeaponVisualLayers.FlightOff" ]
+      visible: false
+    - state: flight-on
+      map: [ "enum.WeaponVisualLayers.FlightOn" ]
+      visible: false
+    - state: animation-repeater
+      visible: false
+      map: [ "empty-icon" ]
+  - type: Gun
+    fireRate: 2.5
+    selectedMode: SemiAuto
+    minAngle: 10
+    maxAngle: 30
+    projectileSpeed: 30
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 2.5
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+  - type: BasicEntityAmmoProvider
+    proto: RapidBulletKinetic
+    capacity: 3
+    count: 3
+  - type: UpgradeableGun
+    maxUpgradeCapacity: 60
+    whitelist:
+      tags:
+      - PKAUpgrade
+  - type: Item
+    shape:
+    - 0,0,2,1
+
+- type: entity
+  name: proto-kinetic pistol
+  id: WeaponProtoKineticPistol
+  parent: [WeaponProtoKineticAcceleratorBase, BaseCargoContraband]
+  description: Fires low-damage kinetic bolts, has a higher mod capacity.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+    layers:
+    - state: pistol
+      map: [ "enum.WeaponVisualLayers.Base" ]
+    - state: bayonet
+      map: [ "enum.WeaponVisualLayers.Bayonet" ]
+      visible: false
+    - state: flight
+      map: [ "enum.WeaponVisualLayers.FlightOff" ]
+      visible: false
+    - state: flight-on
+      map: [ "enum.WeaponVisualLayers.FlightOn" ]
+      visible: false
+    - state: animation-pistol
+      visible: false
+      map: [ "empty-icon" ]
+  - type: BasicEntityAmmoProvider
+    proto: WeakBulletKinetic
+    capacity: 1
+    count: 1
+  - type: UpgradeableGun
+    maxUpgradeCapacity: 200
+    whitelist:
+      tags:
+      - PKAUpgrade
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+
+# Lavaland Change
+- type: entity
+  id: ActionTogglePKALight
+  name: action-name-toggle-pka-light
+  description: action-description-toggle-pka-light
+  components:
+  - type: InstantAction
+    useDelay: 0.5
+    icon: { sprite: Objects/Tools/seclite.rsi, state: seclite }
+    event: !type:ToggleActionEvent

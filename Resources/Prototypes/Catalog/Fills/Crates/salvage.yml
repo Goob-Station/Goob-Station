@@ -12,7 +12,7 @@
       - id: OxygenTankFilled
       - id: FireExtinguisher
       - id: ClothingShoesBootsMag
-      - id: HandHeldMassScanner
+      - id: HandheldGPSBasic # - Mass Scanner Removed by Lavaland
       - id: Pickaxe
       - id: Welder
       - id: Wrench

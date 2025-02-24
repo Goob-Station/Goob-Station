@@ -16,6 +16,9 @@
       rules: ghost-role-information-familiar-rules
       raffle:
         settings: default
+      requirements: # Goobstation - ghost roles requirements
+      - !type:OverallPlaytimeRequirement
+        time: 18000 #5 hours
     - type: GhostTakeoverAvailable
     - type: Input
       context: "human"
@@ -109,6 +112,7 @@
     - type: Tag
       tags:
         - CannotSuicide
+    - type: MovementIgnoreGravity # Goobstation
 
 # From the uplink injector
 - type: entity
@@ -178,6 +182,10 @@
     - type: HTN # Goobstation
       rootTask:
         task: SimpleHumanoidHostileCompound
+    - type: Tag # Goobstation
+      tags:
+        - CannotSuicide
+        - ShowWizardIcons
 
 - type: entity
   name: HoloClown

@@ -55,7 +55,7 @@ public sealed class NPCUtilitySystem : EntitySystem
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly MobThresholdSystem _thresholdSystem = default!;
-    [Dependency] private readonly WieldableSystem _wieldable = default!; // Goobstation
+    [Dependency] private readonly SharedWieldableSystem _wieldable = default!; // Goobstation
 
     private EntityQuery<PuddleComponent> _puddleQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -293,8 +293,8 @@ public sealed class NPCUtilitySystem : EntitySystem
                 if (!_wieldable.CanWield(targetUid, wieldable, owner, true, false))
                     return 0f;
 
-                var beforeWieldEv = new BeforeWieldEvent();
-                RaiseLocalEvent(targetUid, beforeWieldEv);
+                var beforeWieldEv = new WieldAttemptEvent();
+                RaiseLocalEvent(targetUid, ref beforeWieldEv);
 
                 return beforeWieldEv.Cancelled ? 0f : 1f;
             }
