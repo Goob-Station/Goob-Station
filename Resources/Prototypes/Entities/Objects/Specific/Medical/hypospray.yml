@@ -205,13 +205,13 @@
     emptySpriteName: bicpen_empty
   - type: Hypospray
     solutionName: pen
-    transferAmount: 25
+    transferAmount: 20
     onlyAffectsMobs: false
     injectOnly: true
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 25
+        maxVol: 20
         reagents:
         - ReagentId: Bicaridine
           Quantity: 15

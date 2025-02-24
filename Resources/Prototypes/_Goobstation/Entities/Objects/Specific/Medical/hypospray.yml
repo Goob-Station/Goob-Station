@@ -82,6 +82,23 @@
         Quantity: 10
 
 - type: entity
+  name: atropine autoinjector cartridge
+  parent: BaseCartridgeAutoinjector
+  description: Contains 10u of atropine, used in a cartridge autoinjector.
+  id: CartridgeAtropine
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
+    state: cartridge-epinephrine
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Atropine
+        Quantity: 10
+
+- type: entity
   name: brute autoinjector cartridge
   parent: BaseCartridgeAutoinjector
   description: Contains 7u of bicaridine and 3u of tranexamic acid, used in a cartridge autoinjector.
