@@ -5341,3 +5341,9 @@ Entries:
       message: Buffed T3 chems
   id: 617
   time: '2025-02-24T00:35:58.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Dwarves now have innate mineral scanner. Rock and Stone!
+  id: 618
+  time: '2025-02-24T00:37:33.0000000+00:00'
