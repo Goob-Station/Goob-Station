@@ -4,7 +4,7 @@
   id: FelinidEarsBasic
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Felinid]
+  speciesRestriction: [Felinid, Human]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
     state: basic_outer
@@ -97,7 +97,7 @@
   id: FelinidTailBasic
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid, Tajaran] # Goobstation - Tajaran
+  speciesRestriction: [Felinid, Tajaran, Human] # Goobstation - Tajaran
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
     state: basic_tail_tip

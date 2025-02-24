@@ -9,6 +9,7 @@
       types:
         Piercing: 75
         Structural: 226
+    ignoreResistances: true # Goobstation
     penetrationThreshold: 360
     penetrationDamageTypeRequirement:
     - Structural
