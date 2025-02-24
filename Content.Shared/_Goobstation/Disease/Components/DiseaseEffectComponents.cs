@@ -3,6 +3,7 @@ using Content.Shared.Popups;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using System;
+using System.Numerics;
 
 namespace Content.Shared.Disease;
 
@@ -40,7 +41,7 @@ public abstract partial class ScalingDiseaseEffect : Component
 
     /// <summary>
     /// Whether this effect or condition should scale from the update interval
-    /// Use for effects that happen based on time passage conditions
+    /// Use for effects that do their action over time as opposed to just setting something
     /// </summary>
     [DataField]
     public bool TimeScale = true;
@@ -73,12 +74,49 @@ public sealed partial class DiseaseFightImmunityEffectComponent : ScalingDisease
 }
 
 /// <summary>
+/// Causes a spread effect of specified shape and type
+/// For use with conditions
+/// Scaling affects infection chance
+/// </summary>
+[RegisterComponent]
+public sealed partial class DiseaseSpreadEffectComponent : ScalingDiseaseEffect
+{
+    [DataField]
+    public ProtoId<DiseaseSpreadPrototype> SpreadType;
+
+    /// <summary>
+    /// Angle in front of the entity to check for infectables
+    /// </summary>
+    [DataField]
+    public Angle Arc = Angle.FromDegrees(120);
+
+    /// <summary>
+    /// Up to how far away entities to check
+    /// </summary>
+    [DataField]
+    public float Range = 2f;
+
+    /// <summary>
+    /// Power of the infection attempt, determines how well it gets through infection protection
+    /// </summary>
+    [DataField]
+    public float InfectionPower = 1f;
+
+    /// <summary>
+    /// If the infection attempt gets through, chance for it to actually work
+    /// </summary>
+    [DataField]
+    public float InfectionChance = 0.2f;
+}
+
+/// <summary>
 /// Causes the host to vomit
 /// For use with conditions
 /// </summary>
 [RegisterComponent]
 public sealed partial class DiseaseVomitEffectComponent : ScalingDiseaseEffect
 {
+    // maybe split thirst/food decrease and actual vomiting into separate effects?
     [DataField]
     public float ThirstChange = -40f;
 

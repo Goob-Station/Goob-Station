@@ -62,7 +62,7 @@
     progressScale: false
     timeScale: false
   - type: DiseasePeriodicCondition
-    delayMin: 10
+    delayMin: 20
     delayMax: 60
 
 - type: entity
