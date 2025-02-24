@@ -37,8 +37,13 @@
     - id: BoxZiptie
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
-    - id: BlueshieldAmmunitionBoxFilled
+    - id: MagazineBoxShotgunHighCaliber # Yeah these aren't gonna fit in a box.
+    - id: MagazineBoxShotgunHighCaliberFlash
+    - id: MagazineBoxShotgunHighCaliberEnsnaring
+    - id: MagazineBoxShotgunHighCaliberEMP
     - id: WeaponLeverChester # I AM JOHN POWER CREEP
+    - id: MagazineShotgunLeverRifleEmpty
+      amount: 2
 
 - type: entity
   id: LockerBlueshieldOfficerFilled
