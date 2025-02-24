@@ -5480,3 +5480,17 @@ Entries:
       message: Fixed harpy shoulders showing through clothing.
   id: 629
   time: '2025-02-24T20:33:06.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Tweak
+      message: Added some extra slots for some jobs on Submarine
+    - type: Tweak
+      message: Mapped in some funny stuff here and there for Submarine.
+    - type: Fix
+      message: Added slots for BSO and NTR on Submarine.
+    - type: Fix
+      message: >-
+        Fixed submarine mining shuttle dock colliding with the cargo one
+        (whoops).
+  id: 630
+  time: '2025-02-24T20:33:43.0000000+00:00'
