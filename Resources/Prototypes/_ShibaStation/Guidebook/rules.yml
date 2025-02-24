@@ -1,5 +1,5 @@
 - type: guideEntry # Main page for the rules
-  id: ShibaRuleset
+  id: DefaultRuleset
   name: "ShibaStation Rules"
   priority: 1
   text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/ShibaRules.xml"
