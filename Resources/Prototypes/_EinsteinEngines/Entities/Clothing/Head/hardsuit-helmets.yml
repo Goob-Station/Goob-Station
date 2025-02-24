@@ -2,7 +2,6 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitCombatStandard
-  categories: [ HideSpawnMenu ]
   name: combat hardsuit helmet
   description: An armoured helmet with a yellow visor and dual head-mounted lights.
   components:
@@ -37,7 +36,6 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitCombatMedical
-  categories: [ HideSpawnMenu ]
   name: medical combat hardsuit helmet
   description: A lightweight armoured helmet with full-face blue visor and head-mounted light.
   components:
@@ -62,7 +60,6 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitCombatRiot
-  categories: [ HideSpawnMenu ]
   name: riot combat hardsuit helmet
   description: A heavy armoured helmet with a sealed visor with yellow slits and dual head-mounted lights.
   components:

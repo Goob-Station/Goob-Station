@@ -1,0 +1,29 @@
+- type: cargoProduct
+  id: ArmoryCombatHardsuit
+  icon:
+    sprite: _DV/Clohing/OuterClothing/Hardsuits/Combat/officer.rsi
+    state: icon
+  product: CrateArmoryCombatHardsuit
+  cost: 30000
+  category: cargoproduct-category-name-armory
+  group: market
+
+- type: cargoProduct
+  id: CrateArmoryCombatMedicalHardsuit
+  icon:
+    sprite: _DV/Clohing/OuterClothing/Hardsuits/Combat/medical.rsi
+    state: icon
+  product: CrateArmoryCombatMedicalHardsuit
+  cost: 35000
+  category: cargoproduct-category-name-armory
+  group: market
+
+- type: cargoProduct
+  id: CrateArmoryCombatRiotHardsuit
+  icon:
+    sprite: _DV/Clohing/OuterClothing/Hardsuits/Combat/riot.rsi
+    state: icon
+  product: CrateArmoryCombatRiotHardsuit
+  cost: 40000
+  category: cargoproduct-category-name-armory
+  group: market
