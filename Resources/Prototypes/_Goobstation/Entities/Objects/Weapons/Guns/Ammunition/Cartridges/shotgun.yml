@@ -92,7 +92,7 @@
         - state: slug
           map: [ "enum.AmmoVisualLayers.Base" ]
     - type: CartridgeAmmo
-      proto: PelletShotgunSlug
+      proto: PelletShotgunSlugHighCaliber
     - type: SpentAmmoVisuals
       state: "slug"
 
@@ -126,7 +126,7 @@
      - Cartridge
      - ShellShotgunHeavy
   - type: CartridgeAmmo
-    proto: BulletMagnumEMP
+    proto: BulletSlugEMP
   - type: Sprite
     layers:
     - state: emp

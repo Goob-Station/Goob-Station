@@ -111,6 +111,20 @@
 ## Slugs
 
 - type: entity
+  id: PelletShotgunSlugHighCaliber
+  name: pellet (.75 slug)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: slug
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 65
+
+- type: entity
   id: BulletSlugEnsnaring
   name: bullet (.75 caliber ensnaring slug)
   parent: BaseBullet
