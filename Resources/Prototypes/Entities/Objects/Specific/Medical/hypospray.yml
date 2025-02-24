@@ -205,16 +205,18 @@
     emptySpriteName: bicpen_empty
   - type: Hypospray
     solutionName: pen
-    transferAmount: 20
+    transferAmount: 25
     onlyAffectsMobs: false
     injectOnly: true
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 20
+        maxVol: 25
         reagents:
         - ReagentId: Bicaridine
           Quantity: 15
+        - ReagentId: Ibuprofen
+          Quantity: 5
         - ReagentId: TranexamicAcid
           Quantity: 5
   - type: Tag
