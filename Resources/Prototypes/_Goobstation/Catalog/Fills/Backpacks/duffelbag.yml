@@ -63,6 +63,21 @@
       - id: MagazineLightRifleSubsonic
         amount: 2
 
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledWhimsy
+  name: syndicate joy & whimsy bundle
+  description: "A bundle containing everything a syndicate needs to have a jolly good time."
+  components:
+  - type: StorageFill
+    contents:
+    - id: LollyChop
+    - id: ClothingHeadHatPropeller
+    - id: FoodSnackLollypopWrappedMysteryEvil
+      amount: 5
+    - id: FoodSnackChocolate
+      amount: 1
+
 - type: entity # GOD I FUCKING LOVE GAMBLING
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledCandy
