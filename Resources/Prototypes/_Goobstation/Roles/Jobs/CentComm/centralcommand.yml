@@ -224,7 +224,7 @@
     id: DiplomatPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltHolsterFilledCentComm
-    pocket1: WeaponPulsePistol
+    pocket1: TelescopicBaton
     pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
   storage:
     back:
@@ -232,3 +232,4 @@
     - BluespaceLifelineImplanter
     - CentcommFreedomImplanter
     - RadioImplanterCentcomm
+    - WeaponPulsePistol
