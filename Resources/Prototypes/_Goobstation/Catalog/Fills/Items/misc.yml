@@ -26,7 +26,8 @@
   suffix: Mystery
   parent: CandyBowl
   components:
-  - type: StorageFill
-    contents:
-    - id: FoodSnackLollypopWrappedMystery
-      amount: 8
+  - type: ContainerFill
+    containers:
+      item:
+      - id: FoodSnackLollypopWrappedMystery
+        amount: 8
