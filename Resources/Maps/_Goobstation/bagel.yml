@@ -8296,7 +8296,7 @@ entities:
             1: 39312
           -12,8:
             4: 12
-            6: 3072
+            5: 3072
           -11,5:
             0: 63351
           -11,6:
@@ -8305,7 +8305,7 @@ entities:
           -11,8:
             4: 1
             1: 17476
-            6: 256
+            5: 256
           -11,7:
             1: 17484
           -10,5:
@@ -8404,10 +8404,10 @@ entities:
             0: 255
             1: 57344
           -8,11:
-            5: 816
+            6: 816
             1: 34952
           -9,11:
-            5: 2176
+            6: 2176
             1: 8738
           -8,12:
             1: 34959
@@ -8523,7 +8523,7 @@ entities:
             1: 61713
           -12,9:
             0: 16
-            5: 3084
+            6: 3084
           -13,9:
             1: 39305
           -13,10:
@@ -8533,18 +8533,18 @@ entities:
             0: 12544
           -12,10:
             3: 12
-            5: 3072
+            6: 3072
           -12,11:
-            5: 12
+            6: 12
           -11,9:
-            5: 257
+            6: 257
             1: 17476
           -11,10:
             3: 1
-            5: 256
+            6: 256
             1: 17476
           -11,11:
-            5: 1
+            6: 1
             1: 17476
           -11,12:
             1: 17487
@@ -8598,7 +8598,7 @@ entities:
             1: 15
           -13,12:
             1: 34952
-            6: 48
+            5: 48
             4: 12288
           -12,13:
             1: 61455
@@ -8632,11 +8632,11 @@ entities:
             1: 64719
           -7,14:
             1: 252
-            5: 57344
+            6: 57344
             0: 1024
           -7,15:
             1: 61440
-            5: 238
+            6: 238
             0: 1024
           -7,16:
             1: 65524
@@ -8695,7 +8695,7 @@ entities:
           -14,12:
             0: 1
             1: 8738
-            6: 128
+            5: 128
             4: 32768
           -17,12:
             0: 52232
@@ -9240,7 +9240,7 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
-          - 0
+          - 6666.982
           - 0
           - 0
           - 0
@@ -9259,7 +9259,7 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
-          - 6666.982
+          - 0
           - 0
           - 0
           - 0
@@ -11138,7 +11138,7 @@ entities:
       pos: -29.5,37.5
       parent: 60
     - type: Door
-      secondsUntilStateChange: -21460.164
+      secondsUntilStateChange: -21778.342
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -17067,6 +17067,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -114.5,8.5
+      parent: 60
+  - uid: 18567
+    components:
+    - type: Transform
+      pos: -8.5,-2.5
       parent: 60
   - uid: 19108
     components:
@@ -49483,6 +49488,16 @@ entities:
     - type: Transform
       pos: 23.743336,21.526909
       parent: 60
+- proto: CaptainIDCard
+  entities:
+  - uid: 18565
+    components:
+    - type: Transform
+      pos: -7.53669,-6.6549983
+      parent: 60
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: CarbonDioxideCanister
   entities:
   - uid: 15245
@@ -62295,6 +62310,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -14.5,27.5
       parent: 60
+  - uid: 18564
+    components:
+    - type: Transform
+      pos: 2.5,3.5
+      parent: 60
   - uid: 24736
     components:
     - type: Transform
@@ -62323,6 +62343,12 @@ entities:
         - ArtifactAnalyzerSender: ArtifactAnalyzerReceiver
 - proto: ComputerAtmosMonitoring
   entities:
+  - uid: 1441
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,1.5
+      parent: 60
   - uid: 17289
     components:
     - type: Transform
@@ -62426,12 +62452,6 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-  - uid: 5867
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 3.5,1.5
-      parent: 60
   - uid: 6455
     components:
     - type: Transform
@@ -62448,6 +62468,11 @@ entities:
     components:
     - type: Transform
       pos: 47.5,-16.5
+      parent: 60
+  - uid: 18566
+    components:
+    - type: Transform
+      pos: -0.5,3.5
       parent: 60
 - proto: ComputerCriminalRecords
   entities:
@@ -70578,13 +70603,11 @@ entities:
       parent: 60
 - proto: FaxMachineCaptain
   entities:
-  - uid: 15836
+  - uid: 18572
     components:
     - type: Transform
-      pos: 2.5,3.5
+      pos: 3.5,3.5
       parent: 60
-    - type: FaxMachine
-      name: Bridge
 - proto: FigureSpawner
   entities:
   - uid: 5340
@@ -73184,8 +73207,11 @@ entities:
   - uid: 18576
     components:
     - type: Transform
-      pos: 3.1967216,3.6603613
+      pos: 0.9492826,1.6326742
       parent: 60
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: FlashlightLantern
   entities:
   - uid: 4669
@@ -109003,10 +109029,10 @@ entities:
       parent: 60
 - proto: HolopadCommandBridge
   entities:
-  - uid: 25025
+  - uid: 5867
     components:
     - type: Transform
-      pos: -0.5,1.5
+      pos: -0.5,0.5
       parent: 60
 - proto: HolopadCommandBridgeHallway
   entities:
@@ -109017,10 +109043,10 @@ entities:
       parent: 60
 - proto: HolopadCommandBridgeLongRange
   entities:
-  - uid: 1441
+  - uid: 21471
     components:
     - type: Transform
-      pos: 1.5,1.5
+      pos: 1.5,0.5
       parent: 60
 - proto: HolopadCommandBSO
   entities:
@@ -112115,8 +112141,11 @@ entities:
   - uid: 18577
     components:
     - type: Transform
-      pos: 3.6342216,3.5822363
+      pos: 0.1385234,1.4732409
       parent: 60
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 20068
     components:
     - type: Transform
@@ -113813,8 +113842,11 @@ entities:
   - uid: 18573
     components:
     - type: Transform
-      pos: -0.465486,3.4514241
+      pos: -0.5260337,1.5928159
       parent: 60
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 19153
     components:
     - type: Transform
@@ -136743,6 +136775,11 @@ entities:
     - type: Transform
       pos: 9.5,18.5
       parent: 60
+  - uid: 6590
+    components:
+    - type: Transform
+      pos: -0.5,1.5
+      parent: 60
   - uid: 6629
     components:
     - type: Transform
@@ -136922,6 +136959,11 @@ entities:
     - type: Transform
       pos: 47.5,-12.5
       parent: 60
+  - uid: 13484
+    components:
+    - type: Transform
+      pos: 1.5,1.5
+      parent: 60
   - uid: 13639
     components:
     - type: Transform
@@ -136938,6 +136980,11 @@ entities:
     components:
     - type: Transform
       pos: -15.5,26.5
+      parent: 60
+  - uid: 15836
+    components:
+    - type: Transform
+      pos: 3.5,3.5
       parent: 60
   - uid: 16068
     components:
@@ -136964,26 +137011,6 @@ entities:
     components:
     - type: Transform
       pos: -2.5,3.5
-      parent: 60
-  - uid: 18564
-    components:
-    - type: Transform
-      pos: 3.5,3.5
-      parent: 60
-  - uid: 18565
-    components:
-    - type: Transform
-      pos: 2.5,3.5
-      parent: 60
-  - uid: 18566
-    components:
-    - type: Transform
-      pos: -0.5,2.5
-      parent: 60
-  - uid: 18567
-    components:
-    - type: Transform
-      pos: -0.5,3.5
       parent: 60
   - uid: 18571
     components:
@@ -137151,6 +137178,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -110.5,10.5
+      parent: 60
+  - uid: 24657
+    components:
+    - type: Transform
+      pos: 0.5,1.5
       parent: 60
   - uid: 24735
     components:
@@ -154816,13 +154848,11 @@ entities:
     - type: Transform
       pos: -25.5,-13.5
       parent: 60
-  - uid: 18572
+  - uid: 24666
     components:
     - type: Transform
-      pos: -0.5,2.5
+      pos: 1.5,1.5
       parent: 60
-    - type: Physics
-      canCollide: False
 - proto: WeaponLaserCarbine
   entities:
   - uid: 4491
