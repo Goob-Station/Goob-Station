@@ -43,7 +43,7 @@
     - id: MagazineBoxShotgunHighCaliberEMP
     - id: WeaponLeverChester # I AM JOHN POWER CREEP
     - id: MagazineShotgunLeverRifleEmpty
-      amount: 2
+    - id: MagazineShotgunLeverRifleEmpty
 
 - type: entity
   id: LockerBlueshieldOfficerFilled
