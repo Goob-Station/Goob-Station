@@ -265,7 +265,7 @@
   id: MagazineShotgunLeverRifle
   result: MagazineShotgunLeverRifle
   materials:
-    Steel: 185
+    Steel: 240
 
 - type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
