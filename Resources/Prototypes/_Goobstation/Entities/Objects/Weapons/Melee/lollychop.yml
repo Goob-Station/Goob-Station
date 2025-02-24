@@ -32,7 +32,7 @@
         Blunt: 10
         Structural: 40
   - type: Item
-    size: Ginormous
+    size: Large
   - type: Clothing
     sprite: _Goobstation/Objects/Weapons/Melee/lollychop.rsi
     quickEquip: false

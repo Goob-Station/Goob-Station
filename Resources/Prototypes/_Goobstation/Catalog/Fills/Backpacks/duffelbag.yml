@@ -75,8 +75,14 @@
     - id: ClothingHeadHatPropeller
     - id: FoodSnackLollypopWrappedMysteryEvil
       amount: 5
+    - id: FoodSnackLollypopWrappedOmnizine
+      amount: 3
     - id: FoodSnackChocolate
       amount: 1
+    - id: PlushieCarp
+    - id: CrayonRainbow
+      amount: 3
+    - id: BikeHorn
 
 - type: entity # GOD I FUCKING LOVE GAMBLING
   parent: ClothingBackpackDuffelSyndicateBundle

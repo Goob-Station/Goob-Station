@@ -273,7 +273,7 @@
   description: uplink-whimsy-bundle-desc
   productEntity: ClothingBackpackDuffelSyndicateFilledWhimsy
   cost:
-    Telecrystal: 50
+    Telecrystal: 65
   categories:
   - UplinkJob
   conditions:
