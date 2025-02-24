@@ -5323,3 +5323,9 @@ Entries:
       message: Stun batons no longer wide swing, instead they thrust on right click.
   id: 614
   time: '2025-02-24T00:33:22.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: You can now zoom slightly when wielding smart smg.
+  id: 615
+  time: '2025-02-24T00:33:46.0000000+00:00'
