@@ -371,3 +371,39 @@
     nameSegments:
     - NamesFirstMilitaryHighRank
     - NamesLastMilitary
+
+# Diplomat
+
+- type: entity
+  id: RandomHumanoidSpawnerDiplomat
+  name: Diplomat
+  suffix: CentComm
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
+    state: icon
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstMilitaryPolitical
+    - names_last
+  - type: RandomHumanoidSpawner
+    settings: DiplomatGear
+
+- type: randomHumanoidSettings
+  id: DiplomatGear
+  parent: EventHumanoidMindShielded
+  randomizeName: false
+  components:
+  - type: GhostRole
+    name: ghost-role-information-diplomat-name
+    description: ghost-role-information-diplomat-description
+    rules: ghost-role-information-navy-officer-rules
+    raffle:
+      settings: short
+  - type: Loadout
+    prototypes: [  DiplomatGear ]
+    roleLoadout: [ RoleSurvivalEVA ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstMilitaryPolitical
+    - names_last
