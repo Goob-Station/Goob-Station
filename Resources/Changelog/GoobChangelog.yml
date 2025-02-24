@@ -5468,3 +5468,9 @@ Entries:
       message: Fixed lavaland ash storms dealing damage in cases when it shouldn't.
   id: 627
   time: '2025-02-24T20:28:57.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Bingles are no longer announced.
+  id: 628
+  time: '2025-02-24T20:31:26.0000000+00:00'
