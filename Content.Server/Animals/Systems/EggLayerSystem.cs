@@ -39,6 +39,7 @@ public sealed class EggLayerSystem : EntitySystem
     {
         base.Update(frameTime);
         var query = EntityQueryEnumerator<EggLayerComponent>();
+        var eligibleEggLayers = new List<Entity<EggLayerComponent>>(); // Goob - self-spawning
         while (query.MoveNext(out var uid, out var eggLayer))
         {
             // Players should be using the action.
@@ -56,9 +57,14 @@ public sealed class EggLayerSystem : EntitySystem
 
             // Hungerlevel check/modification is done in TryLayEgg()
             // so it's used for player controlled chickens as well.
-
-            TryLayEgg(uid, eggLayer);
+            eligibleEggLayers.Add((uid, eggLayer)); // Goob - self-spawning
         }
+        // Goob - self-spawning start
+        foreach (var ent in eligibleEggLayers)
+        {
+            TryLayEgg(ent.Owner, ent.Comp);
+        }
+        // Goob - self-spawning end
     }
 
     private void OnMapInit(EntityUid uid, EggLayerComponent component, MapInitEvent args)
