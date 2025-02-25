@@ -156,7 +156,7 @@
       - type: SurgerySpeedModifier
         speedModifier: 1.5
       mindRoles:
-      - MindRoleAbductorScienstist
+      - MindRoleAbductorScientist
     - spawnerPrototype: AbductorAgentSpawner
       min: 1
       max: 1
