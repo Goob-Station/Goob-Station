@@ -10,6 +10,7 @@
     hideLayersOnEquip:
     - Snout
 #    - HeadTop # WWDP - Because visible horns its cool
+    - SnoutOverlay # Goob
     - HeadSide
   - type: Hunger
   - type: Puller
@@ -109,6 +110,7 @@
     hideLayersOnEquip: # WWDP
     - Snout
 #    - HeadTop # WWDP - Because visible horns its cool
+    - SnoutOverlay # Goob
     - HeadSide
   - type: Inventory
     speciesId: reptilian

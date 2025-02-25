@@ -16,6 +16,7 @@
   id: MobReptilianSprites
   sprites:
     Head: MobReptilianHead
+    SnoutOverlay: MobHumanoidAnyMarking # Goob
     Snout: MobHumanoidAnyMarking
     Chest: MobReptilianTorso
     HeadTop: MobHumanoidAnyMarking
@@ -45,6 +46,9 @@
       points: 1
       required: true
       defaultMarkings: [ LizardTailSmooth ]
+    SnoutOverlay: # Goob
+      points: 1
+      required: false
     Snout:
       points: 1
       required: true

@@ -23,6 +23,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # Goob
 
 - type: entity
   parent: WeldingMaskBase
