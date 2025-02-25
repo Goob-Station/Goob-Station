@@ -5516,3 +5516,9 @@ Entries:
       message: Added the bent radiator to the RPD.
   id: 634
   time: '2025-02-25T06:42:42.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Adjusted chemicals inside of autoinjectors.
+  id: 635
+  time: '2025-02-25T06:43:49.0000000+00:00'
