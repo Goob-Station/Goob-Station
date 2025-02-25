@@ -19,11 +19,11 @@
   - type: Tag
     tags:
     - GPS
-#  - type: ActivatableUI
-#    key: enum.RadarConsoleUiKey.Key
-#    inHandsOnly: true
-#    singleUser: true
-#  - type: UserInterface
-#    interfaces:
-#      enum.RadarConsoleUiKey.Key:
-#        type: RadarConsoleBoundUserInterface
+  - type: ActivatableUI
+    key: enum.SignalLocatorUiKey.Key
+    inHandsOnly: true
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.SignalLocatorUiKey.Key:
+        type: GpsBoundUserInterface

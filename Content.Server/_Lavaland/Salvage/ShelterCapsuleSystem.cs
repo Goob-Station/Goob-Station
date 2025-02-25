@@ -2,6 +2,7 @@
 using Content.Server._Lavaland.Procedural.Components;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.GridPreloader;
+using Content.Shared._Lavaland.GPS;
 using Content.Shared._Lavaland.Shelter;
 using Content.Shared.Chemistry.Components;
 using Robust.Server.GameObjects;
@@ -91,6 +92,6 @@ public sealed class ShelterCapsuleSystem : SharedShelterCapsuleSystem
             shelter.Comp,
             coords,
             Angle.Zero);
-        EnsureComp<LavalandMemberComponent>(shelter);
+        EnsureComp<GpsSignalComponent>(shelter);
     }
 }
