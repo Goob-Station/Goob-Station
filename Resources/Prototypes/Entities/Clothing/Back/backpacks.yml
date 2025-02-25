@@ -68,10 +68,16 @@
   parent: [ClothingBackpack, BaseSecurityContraband]
   id: ClothingBackpackBrigmedic
   name: brigmedic backpack
-  description: It's a very sterile backpack.
+  description: It's a very sterile backpack. Has an attachment for a Defibrilator!
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/brigmedic.rsi
+  - type: ItemSlots
+    slots:
+      ItemCabinet:
+        whitelist:
+          components:
+          - Defibrillator
 
 - type: entity
   parent: ClothingBackpack

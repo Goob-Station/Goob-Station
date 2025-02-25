@@ -118,10 +118,16 @@
   parent: [ClothingBackpackSatchel, BaseSecurityContraband]
   id: ClothingBackpackSatchelBrigmedic
   name: brigmedic satchel
-  description: A sterile satchel for medical related needs.
+  description: A sterile satchel for medical related needs. Has an attachment for a Defibrilator!
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/brigmedic.rsi
+  - type: ItemSlots
+    slots:
+      ItemCabinet:
+        whitelist:
+          components:
+          - Defibrillator
 
 - type: entity
   parent: [ClothingBackpackSatchel, BaseCommandContraband]
