@@ -146,7 +146,7 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
         if (map == Transform(shuttle).MapID)
             return;
 
-        if (FindLargestGrid(map) is not {} grid)
+        if (FindLargestGrid(map, dest.Name) is not {} grid)
             return;
 
         Log.Debug($"{ToPrettyString(args.Actor):user} is FTL-docking {ToPrettyString(shuttle):shuttle} to {ToPrettyString(grid):grid}");
@@ -169,7 +169,12 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
 
         // Find the target
         var targetMap = Transform(ent).MapID;
-        if (FindLargestGrid(targetMap) is not {} grid)
+        var targetMapName = "";
+        var targetUid = Transform(ent).MapUid;
+        if (targetUid.HasValue)
+            targetMapName = Name(targetUid.Value);
+
+        if (FindLargestGrid(targetMap, targetMapName) is not {} grid)
             return;
 
         // Find the mining shuttle
