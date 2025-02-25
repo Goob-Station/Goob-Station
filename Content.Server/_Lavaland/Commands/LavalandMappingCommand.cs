@@ -21,18 +21,25 @@ public sealed class LavalandMappingCommand : IConsoleCommand
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        LavalandMapPrototype? lavalandProto = null;
+        LavalandMapPrototype? lavalandProto;
         int? lavalandSeed = null;
 
         switch (args.Length)
         {
-            case 0:
-                break;
             case 1:
-                lavalandProto = _proto.Index<LavalandMapPrototype>(args[0]);
+                if (!_proto.TryIndex(args[0], out lavalandProto))
+                {
+                    shell.WriteLine(Loc.GetString("Wrong lavaland prototype!"));
+                    return;
+                }
                 break;
             case 2:
-                lavalandProto = _proto.Index<LavalandMapPrototype>(args[0]);
+                if (!_proto.TryIndex(args[0], out lavalandProto))
+                {
+                    shell.WriteLine(Loc.GetString("Wrong lavaland prototype!"));
+                    return;
+                }
+
                 if (!ushort.TryParse(args[1], out var targetId))
                 {
                     shell.WriteLine(Loc.GetString("shell-argument-must-be-number"));
@@ -43,10 +50,10 @@ public sealed class LavalandMappingCommand : IConsoleCommand
             default:
                 shell.WriteLine(Loc.GetString("cmd-playerpanel-invalid-arguments"));
                 shell.WriteLine(Help);
-                break;
+                return;
         }
 
-        if (!_entityManager.System<LavalandPlanetSystem>().SetupLavaland(out var lavaland, lavalandSeed, lavalandProto))
+        if (!_entityManager.System<LavalandPlanetSystem>().SetupLavalandPlanet(out var lavaland, lavalandProto, lavalandSeed))
             shell.WriteLine("Failed to load lavaland due to an exception!");
 
         shell.WriteLine($"Successfully created new lavaland map: {_entityManager.ToPrettyString(lavaland)}");
