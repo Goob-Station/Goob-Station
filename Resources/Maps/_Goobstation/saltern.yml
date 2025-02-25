@@ -60202,6 +60202,18 @@ entities:
     - type: Transform
       pos: -4.5,-23.5
       parent: 31
+- proto: SpawnPointRoboticist
+  entities:
+  - uid: 9938
+    components:
+    - type: Transform
+      pos: -0.5,-30.5
+      parent: 31
+  - uid: 9939
+    components:
+    - type: Transform
+      pos: -1.5,-30.5
+      parent: 31
 - proto: SpawnPointSalvageSpecialist
   entities:
   - uid: 5917

@@ -11789,7 +11789,7 @@ entities:
       pos: 39.5,-20.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -8338.132
+      secondsUntilStateChange: -8356.184
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13536,7 +13536,7 @@ entities:
       pos: 46.5,-40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -444892.44
+      secondsUntilStateChange: -444910.5
       state: Opening
   - uid: 309
     components:
@@ -13966,7 +13966,7 @@ entities:
       pos: -3.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -561060
+      secondsUntilStateChange: -561078.06
       state: Opening
   - uid: 376
     components:
@@ -156116,6 +156116,18 @@ entities:
     - type: Transform
       pos: 23.5,17.5
       parent: 2
+- proto: SpawnPointRoboticist
+  entities:
+  - uid: 8003
+    components:
+    - type: Transform
+      pos: -6.5,-52.5
+      parent: 2
+  - uid: 18383
+    components:
+    - type: Transform
+      pos: -5.5,-52.5
+      parent: 2
 - proto: SpawnPointSalvageSpecialist
   entities:
   - uid: 18380
@@ -156135,11 +156147,6 @@ entities:
       parent: 2
 - proto: SpawnPointScientist
   entities:
-  - uid: 18383
-    components:
-    - type: Transform
-      pos: -3.5,-54.5
-      parent: 2
   - uid: 18384
     components:
     - type: Transform
@@ -181701,7 +181708,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -8331.999
+      secondsUntilStateChange: -8350.051
       state: Opening
     - type: Airlock
       autoClose: False
@@ -183378,7 +183385,7 @@ entities:
       pos: 24.5,2.5
       parent: 22429
     - type: Door
-      secondsUntilStateChange: -339191.7
+      secondsUntilStateChange: -339209.75
       state: Opening
 - proto: WoodenBench
   entities:
