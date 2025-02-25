@@ -46,12 +46,12 @@ public sealed class LavalandGenerationTest
             Entity<LavalandMapComponent>? lavaland = null;
 
             // Seed is always the same to reduce randomness
-            await server.WaitPost(() => attempt = lavaSystem.SetupLavaland(out lavaland, seed, planet));
+            await server.WaitPost(() => attempt = lavaSystem.SetupLavalandPlanet(out lavaland, planet, seed));
             await pair.RunTicksSync(30);
 
             Assert.That(lavaland, Is.Not.Null);
 
-            var mapId = lavaland.Value.Comp.MapId;
+            var mapId = entMan.GetComponent<TransformComponent>(lavaland.Value).MapID;
 
             // Now check the basics
             Assert.That(attempt, Is.True);
