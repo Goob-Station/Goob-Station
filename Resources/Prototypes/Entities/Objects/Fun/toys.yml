@@ -572,22 +572,25 @@
   - type: Sprite
     sprite: Objects/Fun/sharkplush.rsi
     state: blue
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Items/Toys/rawr.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Items/Toys/rawr.ogg
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/Items/Toys/rawr.ogg
+      collection: ToySqueak
   - type: EmitSoundOnActivate
     sound:
-      path: /Audio/Items/Toys/rawr.ogg
+      collection: ToySqueak
+  - type: EmitSoundOnCollide
+    sound:
+      collection: ToySqueak
+  - type: EmitSoundOnLand
+    sound:
+      collection: ToyFall
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: ToySqueak
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit:
-      path: /Audio/Items/Toys/rawr.ogg
+      collection: ToySqueak
   - type: Item
     heldPrefix: blue
     storedRotation: -90
@@ -1419,7 +1422,7 @@
         params:
           variation: 0.125
     - type: Tag
-      tags: 
+      tags:
       - ToySword #Goobstation
 
 - type: entity

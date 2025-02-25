@@ -2,14 +2,12 @@
 using Content.Server.Administration;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server._Lavaland.Commands;
 
 [AdminCommand(AdminFlags.Admin)]
 public sealed class LavalandListingCommand : IConsoleCommand
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
     public string Command => "listlavaland";
@@ -24,7 +22,8 @@ public sealed class LavalandListingCommand : IConsoleCommand
 
         foreach (var (owner, comp) in lavalands)
         {
-            var lavalandString = $"Type: {comp.PrototypeId} , MapID: {comp.MapId} , MapUid: {owner} , Seed: {comp.Seed}";
+            var mapId = _entityManager.GetComponent<TransformComponent>(owner).MapID;
+            var lavalandString = $"Type: {comp.PrototypeId} | MapID: {mapId} | MapUid: {owner} | Seed: {comp.Seed}";
             shell.WriteLine(lavalandString);
         }
     }
