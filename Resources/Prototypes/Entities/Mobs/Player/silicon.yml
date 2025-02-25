@@ -621,8 +621,8 @@
       rules: ghost-role-information-silicon-rules
       raffle:
         settings: default
-    - type: GhostTakeoverAvailable
       requirements: # Goobstation - ghost roles requirements
       - !type:RoleTimeRequirement
         role: JobBorg
         time: 3600 #1 hour
+    - type: GhostTakeoverAvailable
