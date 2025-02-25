@@ -85,7 +85,7 @@
     graph: GlassesMedHUD
     node: glassesMed
 
-- type: entity # Goobstation - CR glasses changes and addition
+- type: entity 
   parent: [ClothingEyesBase, ShowSecurityIcons, ShowHealthRelatedIcons, BaseSecurityContraband, ClothingEyesGlassesSunglasses]
   id: ClothingEyesGlassesBSO
   name: blueshield officer glasses
@@ -97,7 +97,7 @@
     sprite: _Goobstation/Clothing/Eyes/Glasses/bsoglasses.rsi
     
 
-- type: entity # Goobstation - CR glasses changes and addition
+- type: entity 
   parent: [ClothingEyesBase, ClothingEyesGlassesSunglasses, ShowHealthRelatedIcons]
   id: ClothingEyesGlassesMedDiag
   name: meddiag glasses
