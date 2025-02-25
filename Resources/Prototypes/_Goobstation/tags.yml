@@ -122,6 +122,9 @@
 - type: Tag
   id: GasMask
 
+  - type: Tag
+  id: GodHand
+
 - type: Tag
   id: GorillaFormAction
 
@@ -262,6 +265,9 @@
 
 - type: Tag
   id: RipleyMkII
+
+- type: Tag
+  id: Rosary
 
 - type: Tag
   id: SecurityBreathMask
