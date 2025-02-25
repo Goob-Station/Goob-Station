@@ -19,10 +19,11 @@
     soundHit:
       collection: MetalThud
   - type: DisarmMalus
+    malus: 0
   - type: Tag
     tags:
     - Nullrod
-
+##add spell block
 - type: entity
   name: holy claymore
   parent: BaseSword
@@ -63,6 +64,7 @@
   - type: Wieldable
   - type: GunRequiresWield
   - type: DisarmMalus
+    malus: 0
   - type: DamageBoostOnMarker
     boost:
       types:
@@ -79,3 +81,95 @@
     tags:
     - HolyClaymore
 
+- type: entity
+  name: rosary
+  description: Using these to pray near someone will heal them. They are surrounded by a holy aura.
+  parent: BaseItem
+  id: Rosary
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Melee/rosary.rsi
+    state: icon
+  - type: UseDelay
+    delay: 30.0
+  - type: Bible
+    failChance: 0
+    damage:
+      groups:
+        Brute: -30
+        Burn: -30
+    damageOnFail:
+      groups:
+        Burn: 30
+        Airloss: 30
+    damageOnUntrainedUse: ## What a non-chaplain takes when attempting to heal someone
+      groups:
+        Burn: 25
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/hallelujah.ogg
+    damage:
+      types:
+        Holy: 30
+        Blunt: 1
+  - type: Reflect #Holy Aura :^)
+    reflectProb: .7
+    spread: 90
+  - type: Prayable
+    bibleUserOnly: true
+  - type: Wieldable
+  - type: SpeedModifiedOnWield #HOLY.. AURA!
+    walkModifier: 1.10
+    sprintModifier: 1.10
+  - type: DisarmMalus
+    malus: 0
+  - type: ReactionMixer
+    mixMessage: "rosary-mixing-success"
+    reactionTypes:
+    - Holy
+  - type: Item
+    size: Small
+    sprite: _ShitChap/Objects/Weapons/Melee/rosary.rsi
+  - type: Clothing
+    slots:
+    - Belt
+  - type: Tag
+    tags:
+    - Rosary
+
+- type: entity
+  parent: BaseItem
+  id: GodHand
+  name: the god hand
+  description: A holy, fiery gift from the gods. You won't drop this one.
+  suffix: Unremoveable
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Melee/godhand.rsi
+    state: icon
+  - type: MeleeWeapon
+    angle: 0
+    wideAnimationRotation: 180
+    attackRate: 1
+    heavyStaminaCost: 8
+    damage:
+      types:
+        Heat: 15
+        Slash: 5
+        Holy: 20
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+  - type: Reflect #He needs it.
+    reflectProb: .7
+    spread: 90
+  - type: Item
+    size: Ginormous
+    sprite: _ShitChap/Objects/Weapons/Melee/godhand.rsi
+  - type: Unremoveable
+  - type: DisarmMalus
+    malus: 0
+  - type: GrabbingItem
+  - type: Tag
+    tags:
+    - GodHand
+##add spell block

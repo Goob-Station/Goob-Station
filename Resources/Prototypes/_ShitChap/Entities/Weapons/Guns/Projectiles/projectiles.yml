@@ -22,12 +22,8 @@
         - MobState
     damage:
       types:
-        blunt: 0
+        Burn: 3
         Holy: 5
-  - type: DamageMarker
-    effect:
-      sprite: _Goobstation/Wizard/Effects/effects.rsi
-      state: sparks
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
