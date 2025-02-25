@@ -1,0 +1,84 @@
+- type: reagent
+  id: ThickSmoke
+  name: reagent-name-thick-smoke
+  desc: reagent-desc-thick-smoke
+  color: "#28005B"
+  physicalDesc: reagent-physical-desc-thick
+  metabolisms:
+    Poison:
+      effects:
+      - !type:Emote
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        - !type:HasComponentCondition
+          components:
+            - Wizard
+            - Apprentice
+          guidebookComponentName: reagent-comp-condition-wizard-or-apprentice
+          invert: true
+        emote: Cough
+        showInChat: true
+        probability: 0.2
+      - !type:DropItemsEntityEffect
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        - !type:HasComponentCondition
+          components:
+            - Wizard
+            - Apprentice
+          guidebookComponentName: reagent-comp-condition-wizard-or-apprentice
+          invert: true
+        probability: 0.2
+
+- type: reagent
+  id: Mugwort
+  parent: BaseDrink
+  group: Unknown
+  name: reagent-name-mugwort
+  desc: reagent-desc-mugwort
+  color: "#7EB626"
+  physicalDesc: reagent-physical-desc-magical
+  flavor: tea
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/greenteaglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:ModifyBloodLevel
+        amount: 3
+        conditions:
+        - !type:HasComponentCondition
+          components:
+            - Wizard
+            - Apprentice
+          guidebookComponentName: reagent-comp-condition-wizard-or-apprentice
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: -5
+            Toxin: -5
+            Airloss: -5
+            Brute: -5
+            Genetic: -5
+        conditions:
+        - !type:HasComponentCondition
+          components:
+            - Wizard
+            - Apprentice
+          guidebookComponentName: reagent-comp-condition-wizard-or-apprentice
+      - !type:ModifyBleedAmount
+        amount: -1.5
+        conditions:
+        - !type:HasComponentCondition
+          components:
+            - Wizard
+            - Apprentice
+          guidebookComponentName: reagent-comp-condition-wizard-or-apprentice

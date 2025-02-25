@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._Goobstation.Wizard.TimeStop;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Gravity;
@@ -90,6 +91,9 @@ namespace Content.Shared.Throwing
 
         public void StopThrow(EntityUid uid, ThrownItemComponent thrownItemComponent)
         {
+            if (HasComp<FrozenComponent>(uid)) // Goobstation
+                return;
+
             if (TryComp<PhysicsComponent>(uid, out var physics))
             {
                 _physics.SetBodyStatus(uid, physics, BodyStatus.OnGround);
@@ -114,6 +118,9 @@ namespace Content.Shared.Throwing
 
         public void LandComponent(EntityUid uid, ThrownItemComponent thrownItem, PhysicsComponent physics, bool playSound)
         {
+            if (HasComp<FrozenComponent>(uid)) // Goobstation
+                return;
+
             if (thrownItem.Landed || thrownItem.Deleted || _gravity.IsWeightless(uid) || Deleted(uid))
                 return;
 
@@ -151,8 +158,12 @@ namespace Content.Shared.Throwing
             base.Update(frameTime);
 
             var query = EntityQueryEnumerator<ThrownItemComponent, PhysicsComponent>();
+            var frozenQuery = GetEntityQuery<FrozenComponent>(); // Goobstation
             while (query.MoveNext(out var uid, out var thrown, out var physics))
             {
+                if (frozenQuery.HasComp(uid)) // Goobstation
+                    continue;
+
                 if (thrown.LandTime <= _gameTiming.CurTime)
                 {
                     LandComponent(uid, thrown, physics, thrown.PlayLandSound);

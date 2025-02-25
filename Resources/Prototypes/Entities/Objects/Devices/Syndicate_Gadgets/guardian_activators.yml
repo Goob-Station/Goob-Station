@@ -22,15 +22,13 @@
 - type: entity
   name: magical lamp
   id: MagicalLamp
-  parent: BaseItem
+  parent: [ArabianLamp, BaseMagicContraband] # Goob edit
   description: The wizard federation had to cut costs after the jinn merchandise scandal somehow.
   components:
-  - type: Sprite
-    sprite: Objects/Misc/Lights/lamp.rsi
-    layers:
-      - state: lamp
   - type: GuardianCreator
     guardianProto: MobIfritGuardian
+  - type: AccessReader # Goobstation
+    access: [ [ "Wizard" ] ]
 
 - type: entity
   name: holoparasite box

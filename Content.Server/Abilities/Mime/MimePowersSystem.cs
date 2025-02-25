@@ -135,6 +135,9 @@ namespace Content.Server.Abilities.Mime
             if (!Resolve(uid, ref mimePowers))
                 return;
 
+            if (!mimePowers.CanBreakVow) // Goobstation
+                return;
+
             if (mimePowers.VowBroken)
                 return;
 

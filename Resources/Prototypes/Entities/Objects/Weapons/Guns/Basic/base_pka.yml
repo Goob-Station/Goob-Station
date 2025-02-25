@@ -7,17 +7,29 @@
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
   - type: Item
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
-    size: Normal
-  - type: GunWieldBonus
-    minAngle: -43
-    maxAngle: -43
-  - type: Wieldable
+    size: Large # Lavaland Change
+    shape:
+    - 0,0,2,1
+  # Lavaland Change start
+  - type: WeaponAttachment
+    lightActionPrototype: ActionTogglePKALight
+  - type: PressureDamageChange
+  - type: Multishot
+  - type: UpgradeableGun
+    whitelist:
+      tags:
+      - PKAUpgrade
+  #- type: GunWieldBonus
+  #  minAngle: -43
+  #  maxAngle: -43
+  #- type: Wieldable
+  # Lavaland Change end
   - type: Gun
     fireRate: 0.7 #goobstation
     selectedMode: SemiAuto
-    angleDecay: 45
-    minAngle: 44
-    maxAngle: 45
+    #angleDecay: 45 # Lavaland Change
+    minAngle: 3 # Lavaland Change
+    maxAngle: 5 # Lavaland Change
     availableModes:
     - SemiAuto
     soundGunshot:
@@ -52,3 +64,11 @@
       Steel: 250
       Glass: 125
       Silver: 25
+  - type: MeleeWeapon
+    wideAnimationRotation: 270
+    attackRate: 1
+    angle: 0
+    range: 1.1
+    damage:
+      types:
+        Blunt: 5

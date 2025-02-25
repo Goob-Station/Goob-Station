@@ -1,0 +1,13 @@
+- type: construction
+  name: disposal blocker
+  description: A pipe that allows movement of objects on one side and blocks it on the other.
+  id: DisposalBlocker
+  graph: DisposalPipe
+  startNode: start
+  targetNode: blocker
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  icon:
+    sprite: _Goobstation/Structures/Piping/disposal.rsi
+    state: conpipe-blocker

@@ -114,7 +114,10 @@ uplink-chest-rig-name = Chest Rig
 uplink-chest-rig-desc = Explosion-resistant tactical webbing used for holding traitor goods.
 
 uplink-emag-name = Emag
-uplink-emag-desc = The business card of the syndicate, this sequencer is able to break open airlocks and tamper with a variety of station devices. Recharges automatically.
+uplink-emag-desc = The business card of the syndicate, this sequencer is able to tamper with a variety of station devices. Recharges automatically.
+
+uplink-access-breaker-name = Access Breaker
+uplink-access-breaker-desc = A hacked access configurator and a good friend of the emag. This device is able to force airlocks open as well as erase access requirements from station equipment. Recharges automatically.
 
 uplink-agent-id-card-name = Agent ID Card
 uplink-agent-id-card-desc = A modified ID card that can copy accesses from other cards and change its name and job title at-will.
@@ -159,7 +162,7 @@ uplink-radio-jammer-name = Radio Jammer
 uplink-radio-jammer-desc = This device will disrupt any nearby outgoing radio communication as well as suit sensors when activated.
 
 uplink-syndicate-weapon-module-name = Weapon Cyborg Module
-uplink-syndicate-weapon-module-desc = Upgrades a cyborg with both a machete and an advanced laser.
+uplink-syndicate-weapon-module-desc = Upgrades a cyborg with both an energy dagger and a recharging pistol.
 
 uplink-syndicate-martyr-module-name = Martyr Cyborg Module
 uplink-syndicate-martyr-module-desc = Turn your emagged borg friend into a walking bomb with just this module. Make sure they're loyal to your cause, results may vary.
@@ -201,6 +204,9 @@ uplink-death-acidifier-implant-desc = Completely melts the user and their equipm
 uplink-micro-bomb-implanter-name = Micro Bomb Implanter
 uplink-micro-bomb-implanter-desc = Explode on death or manual activation with this implant. Destroys the body with all equipment.
 
+uplink-radio-implanter-name = Radio Implanter
+uplink-radio-implanter-desc = Implants a Syndicate radio, allowing covert communication without a headset.
+
 # Bundles
 uplink-observation-kit-name = Observation Kit
 uplink-observation-kit-desc = Includes surveillance camera monitor board and security hud disguised as sunglasses.
@@ -215,7 +221,7 @@ uplink-chemistry-kit-name = Chemical Synthesis Kit
 uplink-chemistry-kit-desc = A starter kit for the aspiring chemist, notably includes a chemical payload and timer, a hyperzine syringe, and two vials of vestine for all your criminal needs!
 
 uplink-dart-syringe-gun-name = Dart Syringe Gun
-uplink-dart-syringe-gun-desc = A gun that takes in syringes as ammunition, and injects their contents on its victims. Can pierce through armor.
+uplink-dart-syringe-gun-desc = A gun that takes in syringes as ammunition, and injects their contents on its victims. Can pierce through armor. Injects faster than normal syringe guns.
 
 uplink-knives-kit-name = Throwing Knives Kit
 uplink-knives-kit-desc = A set of 4 syndicate branded throwing knives, perfect for embedding into the body of your victims.
@@ -454,6 +460,9 @@ uplink-combat-bakery-desc = A kit of clandestine baked weapons. Contains a bague
 
 uplink-business-card-name = Syndicate Business Card
 uplink-business-card-desc = A business card that you can give to someone to demonstrate your involvement in the syndicate or leave at the crime scene in order to make fun of the detective. You can buy no more than three of them.
+
+uplink-fake-mindshield-name = Fake Mindshield
+uplink-fake-mindshield-desc = A togglable implant capable of mimicking the same transmissions a real mindshield puts out when on, tricking capable Heads-up displays into thinking you have a mindshield (Nanotrasen brand implanter not provided.)
 
 uplink-beenades-name = Beenades
 uplink-beenades-desc = A non-explosive grenade full of... bees?! NOT THE BEES!!!

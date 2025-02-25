@@ -1,0 +1,9 @@
+- type: entity
+  id: FloraRockSolidFading
+  description: A volcanic rock. Pioneers used to ride these babies for miles.
+  parent: FloraRockSolid
+  suffix: Fading
+  components:
+  - type: FadingTimedDespawn
+    lifetime: 20
+    fadeOutTime: 4

@@ -7,4 +7,6 @@ public sealed partial class GibThisGuyComponent : Component
     public List<string> OcNames = new();
     [DataField]
     public List<string> IcNames = new();
+    [DataField]
+    public bool RequireBoth = false;
 }

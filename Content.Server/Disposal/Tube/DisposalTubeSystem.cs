@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Text;
+using Content.Server._Goobstation.Disposals.Tube.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Construction.Completions;
 using Content.Server.Disposal.Tube.Components;
@@ -63,6 +64,9 @@ namespace Content.Server.Disposal.Tube
 
             SubscribeLocalEvent<DisposalTaggerComponent, GetDisposalsConnectableDirectionsEvent>(OnGetTaggerConnectableDirections);
             SubscribeLocalEvent<DisposalTaggerComponent, GetDisposalsNextDirectionEvent>(OnGetTaggerNextDirection);
+
+            SubscribeLocalEvent<DisposalBlockerComponent, GetDisposalsConnectableDirectionsEvent>(OnGetBlockerConnectableDirections);
+            SubscribeLocalEvent<DisposalBlockerComponent, GetDisposalsNextDirectionEvent>(OnGetBlockerNextDirection);
 
             Subs.BuiEvents<DisposalRouterComponent>(DisposalRouterUiKey.Key, subs =>
             {
@@ -260,6 +264,21 @@ namespace Content.Server.Disposal.Tube
             args.Holder.Tags.Add(component.Tag);
             OnGetTransitNextDirection(uid, component, ref args);
         }
+
+        // Goobstation - Disposal blocker - Start
+        private void OnGetBlockerConnectableDirections(EntityUid uid, DisposalBlockerComponent component, ref GetDisposalsConnectableDirectionsEvent args)
+        {
+            OnGetTransitConnectableDirections(uid, component, ref args);
+        }
+
+        private void OnGetBlockerNextDirection(EntityUid uid, DisposalBlockerComponent component, ref GetDisposalsNextDirectionEvent args)
+        {
+            var ev = new GetDisposalsConnectableDirectionsEvent();
+            RaiseLocalEvent(uid, ref ev);
+
+            args.Next = ev.Connectable[0];
+        }
+        // Goobstation - Disposal blocker - End
 
         private void OnDeconstruct(EntityUid uid, DisposalTubeComponent component, ConstructionBeforeDeleteEvent args)
         {

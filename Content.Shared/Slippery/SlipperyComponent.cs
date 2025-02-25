@@ -41,5 +41,14 @@ namespace Content.Shared.Slippery
         [DataField, AutoNetworkedField]
         [Access(Other = AccessPermissions.ReadWrite)]
         public bool SuperSlippery;
+
+
+        /// <summary>
+        /// Goobstation.
+        /// Whether we should slip on step.
+        /// </summary>
+        [DataField, AutoNetworkedField]
+        [Access(Other = AccessPermissions.ReadWrite)]
+        public bool SlipOnStep = true;
     }
 }

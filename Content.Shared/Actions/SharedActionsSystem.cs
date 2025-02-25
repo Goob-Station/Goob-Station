@@ -1,9 +1,11 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared._Goobstation.Wizard;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions.Events;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
+using Content.Shared.Ghost;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory.Events;
@@ -247,16 +249,21 @@ public abstract class SharedActionsSystem : EntitySystem
         if (actionId == null)
             return;
 
-        if (!TryGetActionData(actionId, out var action) || action.UseDelay == null)
+        // Goob edit start
+        if (!TryGetActionData(actionId, out var action))
             return;
+        var realDelay = CompOrNull<ActionUseDelayModifierComponent>(actionId.Value)?.UseDelay ?? action.UseDelay;
+        if (realDelay == null)
+            return;
+        // Goob edit end
 
-        action.Cooldown = (GameTiming.CurTime, GameTiming.CurTime + action.UseDelay.Value);
+        action.Cooldown = (GameTiming.CurTime, GameTiming.CurTime + realDelay.Value); // Goob edit
         Dirty(actionId.Value, action);
     }
 
-    public void SetUseDelay(EntityUid? actionId, TimeSpan? delay)
+    public void SetUseDelay(EntityUid? actionId, TimeSpan? delay, bool logError = true) // Goob edit
     {
-        if (!TryGetActionData(actionId, out var action) || action.UseDelay == delay)
+        if (!TryGetActionData(actionId, out var action, logError) || action.UseDelay == delay) // Goob edit
             return;
 
         action.UseDelay = delay;
@@ -281,6 +288,9 @@ public abstract class SharedActionsSystem : EntitySystem
 
     private void OnRejuventate(EntityUid uid, ActionsComponent component, RejuvenateEvent args)
     {
+        if (!args.ResetActions) // Goobstation
+            return;
+
         foreach (var act in component.Actions)
         {
             ClearCooldown(act);
@@ -717,11 +727,14 @@ public abstract class SharedActionsSystem : EntitySystem
         }
 
         action.Cooldown = null;
-        if (action is { UseDelay: not null, Charges: null or < 1 })
+        // Goob edit start
+        var realDelay = CompOrNull<ActionUseDelayModifierComponent>(actionId)?.UseDelay ?? action.UseDelay;
+        if (action is { Charges: null or < 1 } && realDelay != null)
         {
             dirty = true;
-            action.Cooldown = (curTime, curTime + action.UseDelay.Value);
+            action.Cooldown = (curTime, curTime + realDelay.Value);
         }
+        // Goob edit end
 
         if (dirty)
         {
@@ -879,9 +892,11 @@ public abstract class SharedActionsSystem : EntitySystem
 
         performer.Comp ??= EnsureComp<ActionsComponent>(performer);
 
+        var ghost = HasComp<GhostComponent>(performer); // Goobstation
+
         foreach (var actionId in container.Comp.Container.ContainedEntities)
         {
-            if (TryGetActionData(actionId, out var action))
+            if (TryGetActionData(actionId, out var action) && (!ghost || action.AllowGhostAction)) // Goob edit
                 AddActionDirect(performer, actionId, performer.Comp, action);
         }
     }

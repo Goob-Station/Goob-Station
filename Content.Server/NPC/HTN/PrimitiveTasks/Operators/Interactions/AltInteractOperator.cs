@@ -30,7 +30,8 @@ public sealed partial class AltInteractOperator : HTNOperator
     public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)
     {
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
-        var target = blackboard.GetValue<EntityUid>(Key);
+        if (!blackboard.TryGetValue<EntityUid>(Key, out var target, _entManager)) // Goob edit
+            return HTNOperatorStatus.Continuing;
         var intSystem = _entManager.System<SharedInteractionSystem>();
         var count = 0;
 

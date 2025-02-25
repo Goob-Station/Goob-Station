@@ -1713,6 +1713,8 @@
   packetPrototype: BerrySeeds
   productPrototypes:
     - FoodBerries
+  mutationPrototypes:
+    - strangeBerries #goobstation
   harvestRepeat: Repeat
   lifespan: 50
   maturation: 6

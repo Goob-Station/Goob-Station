@@ -21,6 +21,9 @@
     rules: ghost-role-information-freeagent-rules
     raffle:
       settings: default
+    requirements: # Goobstation - ghost roles requirements
+    - !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
   - type: GhostRoleMobSpawner
     prototype: MobRatKing
   - type: Sprite
@@ -101,6 +104,10 @@
     name: ghost-role-information-loneop-name
     description: ghost-role-information-loneop-description
     rules: ghost-role-information-loneop-rules
+    requirements: # Goobstation - ghost roles requirements
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 18000 #5 hours
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -147,6 +154,9 @@
     name: ghost-role-information-space-dragon-name
     description: ghost-role-information-space-dragon-description
     rules: ghost-role-information-space-dragon-rules
+    requirements: # Goobstation - ghost roles requirements
+    - !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
   - type: Sprite
     layers:
     - state: green
@@ -164,6 +174,9 @@
     rules: ghost-role-information-antagonist-rules
     raffle:
       settings: default
+    requirements: # Goobstation - ghost roles requirements
+    - !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -182,6 +195,10 @@
     rules: ghost-role-information-silicon-rules
     raffle:
       settings: default
+    requirements: # Goobstation - ghost roles requirements
+    - !type:RoleTimeRequirement
+      role: JobBorg
+      time: 3600 #1 hour
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:

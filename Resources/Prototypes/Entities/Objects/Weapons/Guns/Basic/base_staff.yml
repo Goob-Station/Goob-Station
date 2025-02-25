@@ -1,15 +1,18 @@
-﻿- type: entity
+- type: entity
   id: WeaponStaffBase
   abstract: true
-  parent: BaseItem
+  parent: [BaseItem, BaseMagicContraband] # Goob edit
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Basic/staves.rsi
   - type: Item
     heldPrefix: staff
-    size: Normal
+    size: Huge # Goob edit
   - type: Gun
-    fireRate: 1
+    soundEmpty: null # Goobstation
+    soundMode: null # Goobstation
+    clumsyProof: true # Goobstation
+    fireRate: 1.5 # Goob edit
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -20,4 +23,15 @@
   - type: Tag
     tags:
     - WizardStaff
-
+  - type: Clothing # Goobstation
+    quickEquip: false
+    slots:
+      - Back
+      - suitStorage
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK
+      suitstorage:
+      - state: equipped-BACKPACK
+  - type: StaticPrice # Goobstation
+    price: 30000

@@ -65,7 +65,7 @@ namespace Content.Client.Ghost
 
             SubscribeLocalEvent<EyeComponent, ToggleLightingActionEvent>(OnToggleLighting);
             SubscribeLocalEvent<EyeComponent, ToggleFoVActionEvent>(OnToggleFoV);
-            SubscribeLocalEvent<GhostComponent, ToggleGhostsActionEvent>(OnToggleGhosts);
+            SubscribeLocalEvent<EyeComponent, ToggleGhostsActionEvent>(OnToggleGhosts); // Goob edit
         }
 
         private void OnStartup(EntityUid uid, GhostComponent component, ComponentStartup args)
@@ -94,7 +94,7 @@ namespace Content.Client.Ghost
             args.Handled = true;
         }
 
-        private void OnToggleGhosts(EntityUid uid, GhostComponent component, ToggleGhostsActionEvent args)
+        private void OnToggleGhosts(EntityUid uid, EyeComponent component, ToggleGhostsActionEvent args) // Goob edit
         {
             if (args.Handled)
                 return;

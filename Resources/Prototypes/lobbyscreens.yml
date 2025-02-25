@@ -117,10 +117,21 @@
   background: /Textures/LobbyScreens/tideractivities.webp
   name: Tider Activities
   artist: asardonicsailor
+
+- type: lobbyBackground
+  id: lostpai
+  background: /Textures/LobbyScreens/lostpai.webp
+  name: Lost pAI
+  artist: Cattom
   
 - type: lobbyBackground
-  id: DareToBeSpaced
-  background: /Textures/LobbyScreens/daretobespaced.webp
-  name: Dare to Be Spaced
-  artist: CBozo
+  id: stargoob
+  background: /Textures/LobbyScreens/StarGoob.webp
+  name: GoobWars
+  artist: Jvne
 
+- type: lobbyBackground
+  id: enlist-lavaland
+  background: /Textures/LobbyScreens/enlist.webp
+  name: Nanotrasen wants YOU.
+  artist: thebiggestbruh

@@ -10,7 +10,7 @@
     sprite: Clothing/OuterClothing/Coats/bomber.rsi
 
 - type: entity
-  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, ClothingOuterArmorBasic]
+  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, ClothingOuterArmorBase]
   id: ClothingOuterCoatDetective
   name: detective trenchcoat
   description: An 18th-century multi-purpose trenchcoat. Someone who wears this means serious business.
@@ -30,7 +30,7 @@
   parent: [ClothingOuterCoatDetectiveLoadout]
   id: ClothingOuterCoatDetectiveLoadoutGrey
   name: noir trenchcoat
-  description: Ah, your trusty coat. There's a few tears here and there, giving it a more timely look. Or at least, that's what you told yourself when you found out gettin' it repaired would set you back 200 speos.
+  description: Ah, your trusty coat. There's a few tears here and there, giving it a more timely look. Or at least, that's what you told yourself when you found out gettin' it repaired would set you back 200 spesos.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Coats/detective_grey.rsi
@@ -73,6 +73,9 @@
         Caustic: 0.75 # not the full 90% from ss13 because of the head
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1
+    knockdownTimeDelta: -1
 
 - type: entity
   abstract: true
@@ -88,6 +91,9 @@
         Heat: 0.7
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1
+    knockdownTimeDelta: -1
 
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]
@@ -111,7 +117,7 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/jensencoat.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ClothingHeadHatHoodChaplainHood
 
 - type: entity
@@ -316,7 +322,7 @@
     sprite: Clothing/OuterClothing/Coats/pirate.rsi
 
 - type: entity
-  parent: [ClothingOuterArmorWarden, ClothingOuterStorageBase, BaseRestrictedContraband]
+  parent: [ClothingOuterArmorWarden, ClothingOuterStorageBase, BaseSecurityContraband]
   id: ClothingOuterCoatWarden
   name: warden's armored jacket
   description: A sturdy, utilitarian jacket designed to protect a warden from any brig-bound threats.
@@ -364,6 +370,9 @@
         Blunt: 0.8
         Slash: 0.65
         Piercing: 0.85
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1
+    knockdownTimeDelta: -1
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -416,6 +425,9 @@
         Piercing: 0.65
         Heat: 0.85
         Caustic: 0.75
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1
+    knockdownTimeDelta: -1
 
 - type: entity
   parent: ClothingOuterStorageBase

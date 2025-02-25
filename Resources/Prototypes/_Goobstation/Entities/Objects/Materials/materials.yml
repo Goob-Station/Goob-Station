@@ -12,7 +12,7 @@
     - bluespace_crystal_2
     - bluespace_crystal_3
   - type: Sprite
-    sprite: Goobstation/Objects/Materials/materials.rsi
+    sprite: _Goobstation/Objects/Materials/materials.rsi
     state: bluespace_crystal
     layers:
     - state: bluespace_crystal

@@ -1,0 +1,390 @@
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesEyepatchMedical
+  name: medical eyepatch
+  description: Used by space weeaboos to pretend their eye isn't there, and crewmembers who actually lost their eye to pretend their eye is there.
+  suffix: DO NOT MAP
+  save: false
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/Eyes/eyepatch.rsi
+    layers:
+    - state: icon
+      map: [ "flipped" ]
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/Eyes/eyepatch.rsi
+  - type: WizardClothes
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FlippedVisuals.Flipped:
+        flipped:
+          True: { state: flipped-icon }
+          False: { state: icon }
+  - type: ChuuniEyepatch
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+
+- type: entity
+  abstract: true
+  id: ClothingHeadHatWizardBaseArmor
+  suffix: Wizard Clothes
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.95
+        Heat: 0.9
+        Caustic: 0.9
+        Radiation: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: GroupExamine
+
+- type: entity
+  abstract: true
+  id: ClothingOuterWizardBaseArmor
+  suffix: Wizard Clothes
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.8
+        Heat: 0.8
+        Radiation: 0.1
+        Caustic: 0.1
+  - type: ExplosionResistance
+    damageCoefficient: 0.25
+  - type: GroupExamine
+  - type: FireProtection
+    reduction: 1
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+
+# Black
+- type: entity
+  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
+  id: ClothingHeadHatBlackwizardReal
+  name: black wizard hat
+  description: Strange-looking black hat-wear that most certainly belongs to a real lich. Spooky.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/Head/blackwizard.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/Head/blackwizard.rsi
+
+- type: entity
+  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
+  id: ClothingOuterWizardBlackReal
+  name: black wizard robes
+  description: An unnerving black gem-lined robe that reeks of death and decay.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/OuterClothing/blackwizard.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/OuterClothing/blackwizard.rsi
+
+# Yellow
+- type: entity
+  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
+  id: ClothingHeadHatYellowwizardReal
+  name: yellow wizard hat
+  description: Strange-looking yellow hat-wear that most certainly belongs to a powerful magic user.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/Head/yellowwizard.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/Head/yellowwizard.rsi
+
+- type: entity
+  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
+  id: ClothingOuterWizardYellowReal
+  name: yellow wizard robes
+  description: A magnificent yellow gem-lined robe that seems to radiate power.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/OuterClothing/yellowwizard.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/OuterClothing/yellowwizard.rsi
+
+# Tape
+- type: entity
+  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
+  id: ClothingHeadHatTapewizardReal
+  name: tape hat
+  description: A magically attuned hat made exclusively from duct tape. You can barely see.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/Head/tapewizard.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/Head/tapewizard.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.2"
+
+- type: entity
+  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
+  id: ClothingOuterWizardTapeReal
+  name: tape robes
+  description: A fine robe made from magically attuned duct tape.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/OuterClothing/tapewizard.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/OuterClothing/tapewizard.rsi
+
+# Chanterelle
+- type: entity
+  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
+  id: ClothingHeadHatChanterelleReal
+  name: chanterelle hat
+  description: An oversized chanterelle with hollow out space to fit a head in. Kinda looks like wizard's hat.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/Head/chanterelle.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/Head/chanterelle.rsi
+
+# Paper
+- type: entity
+  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
+  id: ClothingOuterWizardPaperReal
+  name: papier-mâché robes
+  description: A robe held together by various bits of clear-tape and paste.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/OuterClothing/paperwizard.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/OuterClothing/paperwizard.rsi
+  - type: ActionGrant
+    actions:
+    - ActionSummonStickmen
+  - type: ItemActionGrant
+    restrictSlots: true
+    restrictedSlots:
+    - OUTERCLOTHING
+    actions:
+    - ActionSummonStickmen
+
+- type: entity
+  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor, ClothingHeadHatPaper]
+  id: ClothingHeadHatPaperWizard
+  name: paper magic hat
+
+# Mime
+- type: entity
+  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
+  id: ClothingHeadHatMimeReal
+  name: magical beret
+  description: A magical red beret.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/Head/mimewizard.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/Head/mimewizard.rsi
+
+- type: entity
+  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
+  id: ClothingOuterWizardMimeReal
+  name: mime robes
+  description: Red, black, and white robes. There is not much else to say about them.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/OuterClothing/mimewizard.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/OuterClothing/mimewizard.rsi
+
+# Clown
+- type: entity
+  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
+  id: ClothingHeadHatClownReal
+  name: purple wizard hat
+  description: Strange-looking purple hat-wear that most certainly belongs to a real magic user.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/Head/clownwizard.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/Head/clownwizard.rsi
+
+- type: entity
+  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
+  id: ClothingOuterWizardClownReal
+  name: clown robes
+  description: A set of armoured robes that seem to radiate a dark power. That, and bad fashion decisions.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/OuterClothing/clownwizard.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/OuterClothing/clownwizard.rsi
+
+# Psy
+- type: entity
+  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
+  id: ClothingHeadHatPsyReal
+  name: psychic amplifier
+  description: A crown-of-thorns psychic amplifier.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/Head/psywizard.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/Head/psywizard.rsi
+
+- type: entity
+  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
+  id: ClothingOuterWizardPsyReal
+  name: purple robes
+  description: Heavy, royal purple robes threaded with psychic amplifiers and weird, bulbous lenses. Do not machine wash.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/OuterClothing/psywizard.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/OuterClothing/psywizard.rsi
+
+# Oblibion
+- type: entity
+  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
+  id: ClothingHeadHatOblivionEnforcer
+  name: oblivion enforcer's hood
+  description: A hood worn by an Oblivion Enforcer.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/Head/oblivionenforcer.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/Head/oblivionenforcer.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor, ClothingOuterStorageToggleableBase]
+  id: ClothingOuterOblivionEnforcer
+  name: oblivion enforcer's robes
+  description: A set of armored, radiation-proof robes worn by Oblivion Enforcers.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/OuterClothing/oblivionenforcer.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/OuterClothing/oblivionenforcer.rsi
+  - type: ClothingGrantComponent
+    component:
+    - type: SupermatterImmune
+  - type: SupermatterImmune
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.8
+        Heat: 0.8
+        Radiation: 0
+        Caustic: 0.1
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatOblivionEnforcer
+
+- type: entity
+  parent: [ClothingMaskGas, BaseMagicContraband]
+  id: ClothingMaskGasOblivionEnforcer
+  suffix: Voice Mask, Wizard Clothes
+  name: oblivion enforcer's mask
+  description: The mask of an Oblivion Enforcer. Don't forget to turn it on before giving your one-liners!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/Mask/oblivionenforcer.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/Mask/oblivionenforcer.rsi
+  - type: VoiceMask
+  - type: HideLayerClothing
+    slots:
+    - Snout
+  - type: UserInterface
+    interfaces:
+      enum.VoiceMaskUIKey.Key:
+        type: VoiceMaskBoundUserInterface
+  - type: Tag
+    tags:
+    - IPCMaskWearable # EE - IPCs
+  - type: SupermatterImmune
+
+# Blue
+- type: entity
+  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor, ClothingHeadHatWizard]
+  id: ClothingHeadHatWizardReal
+  name: wizard hat
+
+- type: entity
+  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor, ClothingOuterWizard]
+  id: ClothingOuterWizardReal
+  name: wizard robes
+
+# Red
+- type: entity
+  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor, ClothingHeadHatRedwizard]
+  id: ClothingHeadHatRedwizardReal
+  name: red wizard hat
+
+- type: entity
+  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor, ClothingOuterWizardRed]
+  id: ClothingOuterWizardRedReal
+  name: red wizard robes
+
+# Violet
+- type: entity
+  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor, ClothingHeadHatVioletwizard]
+  id: ClothingHeadHatVioletwizardReal
+  name: violet wizard hat
+
+- type: entity
+  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor, ClothingOuterWizardViolet]
+  id: ClothingOuterWizardVioletReal
+  name: violet wizard robes
+
+# Witch
+- type: entity
+  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor, ClothingHeadHatWitch1]
+  id: ClothingHeadHatWitchReal
+  name: witch hat
+
+- type: entity
+  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor, ClothingOuterSuitWitchRobes]
+  id: ClothingOuterSuitWitchRobesReal
+  name: witch robes
+
+# Shrine maiden
+- type: entity
+  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor, ClothingHeadHatShrineMaidenWig]
+  id: ClothingHeadHatShrineMaidenWigReal
+  name: shrine maiden's wig
+
+- type: entity
+  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor, ClothingOuterSuitShrineMaiden]
+  id: ClothingOuterSuitShrineMaidenReal
+  name: shrine maiden outfit
+
+# Gloves
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesWizard
+  name: wizard gloves
+  description: A magnificent pair of blue gem-lined gloves that seem to be insulated.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/Hands/wizgloves.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/Hands/wizgloves.rsi
+  - type: Insulated
+  - type: FingerprintMask
+  - type: StaticPrice
+    price: 1000

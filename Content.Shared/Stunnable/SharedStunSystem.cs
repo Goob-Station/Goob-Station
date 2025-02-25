@@ -231,6 +231,9 @@ public abstract class SharedStunSystem : EntitySystem
     {
         time *= _modify.GetModifier(uid); // Goobstation
 
+        if (!HasComp<LayingDownComponent>(uid)) // Goobstation - only knockdown mobs that can lie down
+            return false;
+
         if (time <= TimeSpan.Zero || !Resolve(uid, ref status, false))
             return false;
 
@@ -245,12 +248,24 @@ public abstract class SharedStunSystem : EntitySystem
     }
 
     /// <summary>
+    ///     Goobstation.
+    ///     Try knockdown, if it fails - stun.
+    /// </summary>
+    public bool KnockdownOrStun(EntityUid uid, TimeSpan time, bool refresh, StatusEffectsComponent? status = null)
+    {
+        return TryKnockdown(uid, time, refresh, status) || TryStun(uid, time, refresh, status);
+    }
+
+    /// <summary>
     ///     Knocks down the entity, making it fall to the ground.
     /// </summary>
     public bool TryKnockdown(EntityUid uid, TimeSpan time, bool refresh,
         StatusEffectsComponent? status = null)
     {
         time *= _modify.GetModifier(uid); // Goobstation
+
+        if (!HasComp<LayingDownComponent>(uid)) // Goobstation - only knockdown mobs that can lie down
+            return false;
 
         if (time <= TimeSpan.Zero)
             return false;

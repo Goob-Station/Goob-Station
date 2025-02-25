@@ -1,4 +1,5 @@
-﻿using Content.Shared.FixedPoint;
+﻿using Content.Shared.Damage; // Goobstation - Armor resisting syringe gun
+using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
 
 namespace Content.Server.Chemistry.Components;
@@ -37,10 +38,17 @@ public abstract partial class BaseSolutionInjectOnEventComponent : Component
     public string Solution = "default";
 
     /// <summary>
-    /// Whether this will inject through hardsuits or not.
+    /// Whether this will inject through armor or not. // Goobstation - Armor resisting syringe gun
     /// </summary>
     [DataField]
     public bool PierceArmor = true;
+
+    // Goobstation - Armor resisting syringe gun
+    /// <summary>
+    /// By how much to downscale the transfer amount by in respect to damage types
+    /// </summary>
+    [DataField]
+    public Dictionary<string, float> DamageModifierResistances = new() {["Piercing"] = 1f}; // lower transfer amount by 1% per 1% piercing resist
 
     /// <summary>
     /// Contents of popup message to display to the attacker when injection
@@ -50,7 +58,7 @@ public abstract partial class BaseSolutionInjectOnEventComponent : Component
     /// Passed values: $weapon and $target
     /// </remarks>
     [DataField]
-    public LocId BlockedByHardsuitPopupMessage = "melee-inject-failed-hardsuit";
+    public LocId BlockedByArmorPopupMessage = "melee-inject-failed-armor"; // Goobstation - Armor resisting syringe gun
 
     /// <summary>
     /// If anything covers any of these slots then the injection fails.
@@ -58,9 +66,19 @@ public abstract partial class BaseSolutionInjectOnEventComponent : Component
     [DataField]
     public SlotFlags BlockSlots = SlotFlags.NONE;
 
+    // <Goobstation>
     /// <summary>
-    ///     GoobStation: If this injection transfers EVERYTHING as soon as it is embedded after a gunshot.
+    /// State: for the next embed, override whether this pierces armor.
+    /// For setting from other code.
     /// </summary>
-    [DataField]
-    public bool Shot = false;
+    [ViewVariables]
+    public bool? PierceArmorOverride;
+
+    /// <summary>
+    /// State: for the next embed, multiply amount transferred by this.
+    /// For setting from other code.
+    /// </summary>
+    [ViewVariables]
+    public float AmountMultiplier = 1f;
+    // </Goobstation>
 }

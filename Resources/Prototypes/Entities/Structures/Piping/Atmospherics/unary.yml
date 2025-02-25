@@ -28,6 +28,12 @@
   placement:
     mode: SnapgridCenter
   components:
+    - type: VentCrawlerTube  # Goobstation - ventcrawl
+      containerId: VentCrawlerTube
+    - type: VentCrawlerEntry
+    - type: ContainerContainer # Goobstation - ventcrawl
+      containers:
+        VentCrawlerTube: !type:Container
     - type: ApcPowerReceiver
     - type: ExtensionCableReceiver
     - type: DeviceNetwork
@@ -72,7 +78,11 @@
     - type: Weldable
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasVentOpening
-      
+    - type: GuideHelp
+      guides:
+      - AirVent
+      - DeviceMonitoringAndControl
+
 - type: entity
   parent: GasUnaryBase
   id: GasPassiveVent
@@ -99,7 +109,18 @@
       node: passivevent
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasVentOpening
-      
+    - type: GuideHelp
+      guides:
+      - PassiveVent
+    - type: VentCrawlerEntry # Goobstation - ventcrawl
+    - type: VentCrawlerTube # Goobstation - ventcrawl
+      containerId: VentCrawlerTube
+    - type: ContainerContainer # Goobstation - ventcrawl
+      containers:
+        VentCrawlerTube: !type:Container
+    - type: Weldable  # Goobstation - ventcrawl
+      time: 3
+
 - type: entity
   parent: [GasUnaryBase, AirSensorBase]
   id: GasVentScrubber
@@ -108,6 +129,12 @@
   placement:
     mode: SnapgridCenter
   components:
+    - type: VentCrawlerTube # Goobstation - ventcrawl
+      containerId: VentCrawlerTube
+    - type: VentCrawlerEntry  # Goobstation - ventcrawl
+    - type: ContainerContainer # Goobstation - ventcrawl
+      containers:
+        VentCrawlerTube: !type:Container
     - type: ApcPowerReceiver
     - type: ExtensionCableReceiver
     - type: DeviceNetwork
@@ -151,7 +178,11 @@
     - type: Weldable
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasVentScrubber
-      
+    - type: GuideHelp
+      guides:
+      - AirScrubber
+      - DeviceMonitoringAndControl
+
 - type: entity
   parent: GasUnaryBase
   id: GasOutletInjector
@@ -192,7 +223,18 @@
       - enum.LightLayers.Unshaded
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasVentOpening
-      
+    - type: GuideHelp
+      guides:
+      - AirInjector
+    - type: VentCrawlerTube # Goobstation - ventcrawl
+      containerId: VentCrawlerTube
+    - type: VentCrawlerJunction # Goobstation - ventcrawl
+      degrees:
+        - 0
+    - type: ContainerContainer # Goobstation - ventcrawl
+      containers:
+        VentCrawlerTube: !type:Container
+
 - type: entity
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   id: BaseGasThermoMachine
@@ -239,7 +281,10 @@
     - type: PowerSwitch
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: Thermoregulator
-      
+    - type: GuideHelp
+      guides:
+      - Thermomachines
+
 - type: entity
   parent: BaseGasThermoMachine
   id: GasThermoMachineFreezer
@@ -447,3 +492,6 @@
   - type: PowerSwitch
   - type: AtmosMonitoringConsoleDevice
     navMapBlip: Thermoregulator
+  - type: GuideHelp
+    guides:
+    - GasCondensing

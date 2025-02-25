@@ -42,7 +42,7 @@ public sealed class ActionContainerSystem : EntitySystem
         if (!TryComp<ActionsContainerComponent>(mindId, out var mindActionContainerComp))
             return;
 
-        if (!HasComp<GhostComponent>(uid) && mindActionContainerComp.Container.ContainedEntities.Count > 0 )
+        if (mindActionContainerComp.Container.ContainedEntities.Count > 0 ) // Goob edit
             _actions.GrantContainedActions(uid, mindId);
     }
 

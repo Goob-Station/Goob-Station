@@ -1,0 +1,78 @@
+- type: polymorph
+  id: WizardRodII
+  configuration:
+    entity: ImmovableRodWizardII
+    transferName: true
+    transferDamage: false
+    inventory: None
+    duration: 2
+    allowMovement: false
+    forced: true
+    revertOnCrit: false
+    revertOnDeath: false
+
+- type: polymorph
+  id: WizardRodIII
+  configuration:
+    entity: ImmovableRodWizardIII
+    transferName: true
+    transferDamage: false
+    inventory: None
+    duration: 2
+    allowMovement: false
+    forced: true
+    revertOnCrit: false
+    revertOnDeath: false
+
+- type: polymorph
+  id: WizardRodIV
+  configuration:
+    entity: ImmovableRodWizardIV
+    transferName: true
+    transferDamage: false
+    inventory: None
+    duration: 2
+    allowMovement: false
+    forced: true
+    revertOnCrit: false
+    revertOnDeath: false
+
+- type: polymorph
+  id: WizardRodV
+  configuration:
+    entity: ImmovableRodWizardV
+    transferName: true
+    transferDamage: false
+    inventory: None
+    duration: 2
+    allowMovement: false
+    forced: true
+    revertOnCrit: false
+    revertOnDeath: false
+
+- type: polymorph
+  id: WizardGorilla
+  configuration:
+    entity: MobGorillaWizard
+    transferName: true
+    transferDamage: true
+    inventory: None
+    revertOnCrit: true
+    revertOnDeath: true
+
+- type: polymorph
+  id: WizardWabbajack
+  configuration:
+    groups: WabbajackGroups
+    transferName: true
+    transferDamage: true
+    inventory: Transfer
+    forced: true
+    revertOnCrit: false
+    revertOnDeath: false
+    allowRepeatedMorphs: true
+    componentsToTransfer:
+    - Wizard
+    - Apprentice
+    - TimedDespawn
+    - FadingTimedDespawn

@@ -67,13 +67,14 @@
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml
   - type: AntagSelection
-    selectionTime: BeforeJobs
+    selectionTime: PrePlayerSpawn
     definitions:
     - prefRoles: [ NukeopsCommander ]
       fallbackRoles: [ Nukeops, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsCommander
       playerRatio: 15
       startingGear: SyndicateCommanderGearFull
+      unequipOldGear: true
       components:
       - type: NukeOperative
       - type: RandomMetadata
@@ -90,6 +91,7 @@
       spawnerPrototype: SpawnPointNukeopsMedic
       playerRatio: 15
       startingGear: SyndicateOperativeMedicFull
+      unequipOldGear: true
       components:
       - type: NukeOperative
       - type: RandomMetadata
@@ -107,6 +109,7 @@
       max: 10
       playerRatio: 20
       startingGear: SyndicateOperativeGearFull
+      unequipOldGear: true
       components:
       - type: NukeOperative
       - type: RandomMetadata
@@ -204,7 +207,7 @@
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet-honkops.yml
   - type: AntagSelection
-    selectionTime: BeforeJobs
+    selectionTime: PrePlayerSpawn
     definitions:
     - prefRoles: [ NukeopsCommander ]
       fallbackRoles: [ Nukeops, NukeopsMedic ]

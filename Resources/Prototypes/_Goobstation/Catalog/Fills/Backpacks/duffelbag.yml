@@ -62,3 +62,18 @@
       - id: WeaponRifleWSPR
       - id: MagazineLightRifleSubsonic
         amount: 2
+
+- type: entity # GOD I FUCKING LOVE GAMBLING
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledCandy
+  name: candy bundle
+  description: "A bundle packed to the brim with candy. Someone's got a sweet tooth!"
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodSnackLollypopWrappedMysteryEvil
+      amount: 35
+    - id: FoodSnackLollypopWrappedOmnizine
+      amount: 5
+    - id: FoodSnackChocolate
+      amount: 5

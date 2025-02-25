@@ -36,4 +36,25 @@ public sealed partial class MagicComponent : Component
 
     // TODO: FreeHand - should check if toggleable action
     //  Check which hand is free to toggle action in
+
+    // Goobstation
+    [DataField]
+    public MagicSchool School = MagicSchool.Unset;
+}
+
+public enum MagicSchool : byte // Goobstation
+{
+    Unset,
+    Holy,
+    Psychic,
+    Mime,
+    Restoration,
+    Evocation,
+    Transmutation,
+    Translocation,
+    Conjuration,
+    Necromancy,
+    Forbidden,
+    Sanguine,
+    Chuuni, // Specifically for chuuni invocations spell
 }
