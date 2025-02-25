@@ -123,7 +123,7 @@
 # roboticist
 
 - type: loadoutGroup
-  id: ScientistHead
+  id: RoboticistHead
   name: loadout-group-scientist-head
   minLimit: 0
   loadouts:
@@ -132,14 +132,14 @@
   - ScientificBeret
 
 - type: loadoutGroup
-  id: ScientistNeck
+  id: RoboticistNeck
   name: loadout-group-scientist-neck
   minLimit: 0
   loadouts:
   - ScientistTie
 
 - type: loadoutGroup
-  id: ScientistJumpsuit
+  id: RoboticistJumpsuit
   name: loadout-group-scientist-jumpsuit
   loadouts:
   - ScientistJumpsuit
@@ -151,7 +151,7 @@
   - ResearchMJ # goob
 
 - type: loadoutGroup
-  id: ScientistBackpack
+  id: RoboticistBackpack
   name: loadout-group-scientist-backpack
   loadouts:
   - ScientistBackpack
@@ -159,7 +159,7 @@
   - ScientistDuffel
 
 - type: loadoutGroup
-  id: ScientistOuterClothing
+  id: RoboticistOuterClothing
   name: loadout-group-scientist-outerclothing
   minLimit: 0
   loadouts:
@@ -171,7 +171,7 @@
   - SeniorResearcherLabCoat
 
 - type: loadoutGroup
-  id: ScientistShoes
+  id: RoboticistShoes
   name: loadout-group-scientist-shoes
   loadouts:
   - WhiteShoes
@@ -179,7 +179,7 @@
   - ScienceWinterBoots
 
 - type: loadoutGroup
-  id: ScientistGloves
+  id: RoboticistGloves
   name: loadout-group-scientist-gloves
   minLimit: 0
   loadouts:
@@ -188,7 +188,7 @@
   - RobohandsGloves
 
 - type: loadoutGroup
-  id: ScientistPDA
+  id: RoboticistPDA
   name: loadout-group-scientist-id
   loadouts:
   - ScientistPDA
