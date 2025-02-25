@@ -15,3 +15,12 @@
   - type: ConditionalSpawner
     prototypes:
     - UniqueMarkerBlueshieldLocker
+
+- type: entity
+  id: UniqueLockerBrigmedicFilled
+  suffix: MAP THIS, Unique, Filled
+  parent: LockerBrigmedicFilled
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - UniqueMarkerBrigmedicLocker

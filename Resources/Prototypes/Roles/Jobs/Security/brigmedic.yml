@@ -1,0 +1,52 @@
+- type: job
+  id: Brigmedic
+  name: job-name-brigmedic
+  description: job-description-brigmedic
+  playTimeTracker: JobBrigmedic
+  requirements:
+    - !type:RoleTimeRequirement
+      role: JobSecurityOfficer
+      time: 18000 #5 hrs
+    - !type:RoleTimeRequirement
+      role: JobChiefMedicalOfficer
+      time: 18000 #5 hrs
+  startingGear: BrigmedicGear
+  icon: "JobIconBrigmedic"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  access:
+  - Security
+  - Brig
+  - Maintenance
+  - Service
+  - External
+  - Cryogenics
+  - Medical
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: SurgerySpeedModifier
+      speedModifier: 1.75
+
+- type: startingGear
+  id: BrigmedicGear
+  equipment:
+    id: BrigmedicPDA
+    eyes: ClothingEyesBrigMedSec   # Goobstation
+    ears: ClothingHeadsetBrigmedic # Goobstation
+    belt: ClothingBeltBrigmedicWebbingFilled
+    pocket1: UniqueBrigmedicLockerTeleporter
+  storage:
+    back:
+    - Flash
+    - Zipties
+
+# BRIGMEDIC TODO LIST:
+# - Fix medical mask for vox and other species
+# - Add Spawnpoints
+# - Map Maps so that brig has a medbrig and remove teleporter
+# - balance is gonna be wack
+# - remove/change defib backpack?
+# - change playtime requirements 

@@ -1,0 +1,16 @@
+
+- type: entity # taken from goob MRP, was under deltaV, thus, why i've put it here.
+  id: ClothingBeltBrigmedicWebbingFilled
+  parent: ClothingBeltBrigmedicWebbing
+  suffix: Filled
+  components:
+  - type: StorageFill #changing fill to match something more akin to paramed
+    contents:
+      - id: Brutepack
+      - id: Ointment
+      - id: Bloodpack
+      - id: Gauze
+      - id: EmergencyMedipen #You never know what people are going to latejoin into
+        amount: 3
+      - id: ParamedHypo #Goobstation - ParamedHypo
+      - id: Tourniquet #Goobstation - ParamedHypo
