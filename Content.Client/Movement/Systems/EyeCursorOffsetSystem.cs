@@ -1,12 +1,12 @@
 using System.Numerics;
 using Content.Client.Movement.Components;
 using Content.Shared.Camera;
-using Content.Shared.Inventory;
-using Content.Shared.Movement.Systems;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Shared.Map;
 using Robust.Client.Player;
+using Robust.Client.UserInterface; // Goob - grabbed wizden PR #35087; if proper version of that gets merged remove these comments and code
+using Content.Client.UserInterface.Controls; // Goob - grabbed wizden PR #35087
 
 namespace Content.Client.Movement.Systems;
 
@@ -14,11 +14,9 @@ public partial class EyeCursorOffsetSystem : EntitySystem
 {
     [Dependency] private readonly IEyeManager _eyeManager = default!;
     [Dependency] private readonly IInputManager _inputManager = default!;
+    [Dependency] private readonly IUserInterfaceManager _uiManager = default!; // Goob - grabbed wizden PR #35087
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedContentEyeSystem _contentEye = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IClyde _clyde = default!;
 
     // This value is here to make sure the user doesn't have to move their mouse
     // all the way out to the edge of the screen to get the full offset.
@@ -42,9 +40,15 @@ public partial class EyeCursorOffsetSystem : EntitySystem
 
     public Vector2? OffsetAfterMouse(EntityUid uid, EyeCursorOffsetComponent? component)
     {
+        // <Goob - wizden PR #35087>
+        // We need the main viewport where the game content is displayed, as certain UI layouts (e.g. Separated Chat)
+        // can make it a different size to the game window.
+        if (_uiManager.ActiveScreen == null || !_uiManager.ActiveScreen!.TryGetWidget<MainViewport>(out var mainViewport))
+            return null;
+        // </Goob - wizden PR #35087>
         var localPlayer = _player.LocalPlayer?.ControlledEntity;
         var mousePos = _inputManager.MouseScreenPosition;
-        var screenSize = _clyde.MainWindow.Size;
+        var screenSize = mainViewport.Size; // Goob - grabbed wizden PR #35087
         var minValue = MathF.Min(screenSize.X / 2, screenSize.Y / 2) * _edgeOffset;
 
         var mouseNormalizedPos = new Vector2(-(mousePos.X - screenSize.X / 2) / minValue, (mousePos.Y - screenSize.Y / 2) / minValue); // X needs to be inverted here for some reason, otherwise it ends up flipped.

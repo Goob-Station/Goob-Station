@@ -224,9 +224,30 @@ public sealed partial class GoobCVars // why was this misnamed
         CVarDef.Create("rmc.discord_account_linking_message_link", "", CVar.REPLICATED | CVar.SERVER);
 
     #endregion
+    
+    #region Goobcoins
 
+    public static readonly CVarDef<int> GoobcoinsPerPlayer =
+        CVarDef.Create("goob.coins_per_player", 10, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> GoobcoinsPerGreentext =
+        CVarDef.Create("goob.coins_per_greentext", 5, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> GoobcoinNonAntagMultiplier =
+        CVarDef.Create("goob.coins_non_antag_multiplier", 3, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> GoobcoinServerMultiplier =
+        CVarDef.Create("goob.coins_server_multiplier", 1, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> GoobcoinMinPlayers =
+        CVarDef.Create("goob.coins_min_players", 5, CVar.SERVERONLY);
+
+    #endregion
+   
     #region Game Director
+    
     public static readonly CVarDef<float> MinimumTimeUntilFirstEvent =
         CVarDef.Create("gamedirector.minimumtimeuntilfirstevent", 300f, CVar.SERVERONLY);
+        
     #endregion
 }

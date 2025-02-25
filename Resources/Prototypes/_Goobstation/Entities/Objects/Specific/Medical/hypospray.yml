@@ -1,34 +1,8 @@
-- type: entity
-  name: futuristic medipen
-  parent: ChemicalMedipen
-  id: StasiziumAutoInjector
-  description: A dose of medicinal substances from the future that can raise even the dead to their feet
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/stasipen.rsi
-    layers:
-    - state: stasipen
-      map: ["enum.SolutionContainerLayers.Fill"]
-  - type: SolutionContainerVisuals
-    maxFillLevels: 1
-    changeColor: false
-    emptySpriteName: stasipen_empty
-  - type: Hypospray
-    solutionName: pen
-    transferAmount: 10
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 10
-        reagents:
-        - ReagentId: Stasizium
-          Quantity: 10
-  - type: Tag
-    tags: []
+# Auto Injectors
 
 - type: entity
   name: security cartridge autoinjector
-  parent: [BaseItem, BaseRestrictedContraband]
+  parent: [BaseItem, BaseSecurityContraband]
   description: Used for rapid administration of medicine. Uses cartridges printable at the medical and security techfab.
   id: SecHypo
   components:
@@ -69,9 +43,11 @@
   - type: Item
     sprite: _Goobstation/Objects/Specific/Medical/medical_hypo.rsi
 
+# Auto-injector Cartridges
+
 - type: entity
   name: autoinjector cartridge
-  parent: [BaseItem, BaseRestrictedContraband]
+  parent: [BaseItem, BaseSecurityContraband]
   description: Used in a cartridge autoinjector.
   id: BaseCartridgeAutoinjector
   components:
@@ -103,6 +79,23 @@
       maxVol: 10
       reagents:
       - ReagentId: Epinephrine
+        Quantity: 10
+
+- type: entity
+  name: atropine autoinjector cartridge
+  parent: BaseCartridgeAutoinjector
+  description: Contains 10u of atropine, used in a cartridge autoinjector.
+  id: CartridgeAtropine
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
+    state: cartridge-epinephrine
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Atropine
         Quantity: 10
 
 - type: entity
@@ -176,3 +169,33 @@
         Quantity: 7
       - ReagentId: TranexamicAcid
         Quantity: 3
+
+# Medipens
+
+- type: entity
+  name: futuristic medipen
+  parent: ChemicalMedipen
+  id: StasiziumAutoInjector
+  description: A dose of medicinal substances from the future that can raise even the dead to their feet
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/stasipen.rsi
+    layers:
+    - state: stasipen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: stasipen_empty
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 10
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 10
+        reagents:
+        - ReagentId: Stasizium
+          Quantity: 10
+  - type: Tag
+    tags: []
