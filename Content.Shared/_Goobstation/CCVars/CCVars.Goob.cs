@@ -227,6 +227,6 @@ public sealed partial class GoobCVars // why was this misnamed
 
     #region Game Director
     public static readonly CVarDef<float> MinimumTimeUntilFirstEvent =
-        CVarDef.Create("gamedirector.minimumtimeintilfirstevent", 300f, CVar.SERVERONLY);
+        CVarDef.Create("gamedirector.minimumtimeuntilfirstevent", 300f, CVar.SERVERONLY);
     #endregion
 }
