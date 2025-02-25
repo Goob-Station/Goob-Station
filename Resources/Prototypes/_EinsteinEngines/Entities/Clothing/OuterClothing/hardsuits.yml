@@ -13,7 +13,7 @@
     highPressureMultiplier: 0.50
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficients: 0.50
+    damageCoefficient: 0.50
   - type: Armor # Good armour resistance across the board, comparable to the standard security hardsuit.
     modifiers:
       coefficients:
