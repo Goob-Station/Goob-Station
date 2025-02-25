@@ -1,5 +1,4 @@
 ﻿using Content.Server._Goobstation.StationEvents.Metric;
-using Content.Shared.EntityTable;
 using Content.Shared.EntityTable.EntitySelectors;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
