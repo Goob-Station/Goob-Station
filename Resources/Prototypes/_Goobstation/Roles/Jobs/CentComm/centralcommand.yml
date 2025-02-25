@@ -10,12 +10,6 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-commander
   canBeAntag: false
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 18000 # 5h
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 18000 # 5h
   accessGroups:
   - AllAccess
   access:
