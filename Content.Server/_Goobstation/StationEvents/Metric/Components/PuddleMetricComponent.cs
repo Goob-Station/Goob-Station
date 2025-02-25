@@ -7,34 +7,41 @@ namespace Content.Server._Goobstation.StationEvents.Metric.Components;
 [RegisterComponent, Access(typeof(PuddleMetricSystem))]
 public sealed partial class PuddleMetricComponent : Component
 {
+    // Impact Constants
+    private const float MinimalImpact = 0.02f;
+    private const float MinorImpact = 0.1f;
+    private const float ModerateImpact = 0.2f;
+    private const float MajorImpact = 0.3f;
+
     /// <summary>
     ///   The cost of each puddle, per mL. Note about 200 mL is one puddle.
+    ///   Example: A water puddle of 200mL would contribute (200 * 0.02) = 4 chaos points.
     /// </summary>
-    [DataField("puddles", customTypeSerializer: typeof(DictionarySerializer<string, FixedPoint2>)), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("puddles", customTypeSerializer: typeof(DictionarySerializer<string, FixedPoint2>))]
     public Dictionary<string, FixedPoint2> Puddles =
         new()
         {
-            { "Water", 0.02f },
-            { "SpaceCleaner", 0.02f },
+            { "Water", MinimalImpact },
+            { "SpaceCleaner", MinimalImpact },
 
-            { "Nutriment", 0.1f },
-            { "Sugar", 0.1f },
-            { "Ephedrine", 0.1f },
-            { "Ale", 0.1f },
-            { "Beer", 0.1f },
+            { "Nutriment", MinorImpact },
+            { "Sugar", MinorImpact },
+            { "Ephedrine", MinorImpact },
+            { "Ale", MinorImpact },
+            { "Beer", ModerateImpact },
 
-            { "Slime", 0.2f },
-            { "Blood", 0.2f },
-            { "CopperBlood", 0.2f },
-            { "ZombieBlood", 0.2f },
-            { "AmmoniaBlood", 0.2f },
-            { "ChangelingBlood", 0.2f },
-            { "SpaceDrugs", 0.3f },
-            { "SpaceLube", 0.3f },
-            { "SpaceGlue", 0.3f}
+            { "Slime", ModerateImpact },
+            { "Blood", ModerateImpact },
+            { "CopperBlood", ModerateImpact },
+            { "ZombieBlood", ModerateImpact },
+            { "AmmoniaBlood", ModerateImpact },
+            { "ChangelingBlood", ModerateImpact },
+            { "SpaceDrugs", MajorImpact },
+            { "SpaceLube", MajorImpact },
+            { "SpaceGlue", MajorImpact },
         };
 
-    [DataField("puddleDefault"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("puddleDefault")]
     public FixedPoint2 PuddleDefault = 0.1f;
 
 }

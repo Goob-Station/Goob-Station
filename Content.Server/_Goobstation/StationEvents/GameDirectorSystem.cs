@@ -7,6 +7,8 @@ using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.StationEvents;
 using Content.Server.StationEvents.Components;
+using Content.Shared._Goobstation.CCVar;
+using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Ghost;
@@ -15,6 +17,7 @@ using Content.Shared.Prototypes;
 using Content.Shared.Tag;
 using JetBrains.Annotations;
 using Robust.Server.Player;
+using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -74,6 +77,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
     [Dependency] private readonly ILogManager _log = default!;
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly IConfigurationManager _configManager = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -93,6 +97,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
     protected override void Added(EntityUid uid, GameDirectorComponent scheduler, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         // This deletes all existing metrics and sets them up again.
+        SpawnRoundstartAntags(scheduler, CountAllPlayers()); // Roundstart antags need to be selected in the lobby
         SetupEvents(scheduler, CountActivePlayers());
     }
 
@@ -146,9 +151,9 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
         // This is the first event, add an automatic delay
         if (scheduler.TimeNextEvent == TimeSpan.Zero)
         {
-            scheduler.TimeNextEvent = _timing.CurTime + TimeSpan.FromSeconds(GameDirectorComponent.MinimumTimeUntilFirstEvent);
-            LogMessage($"Started, first event in {GameDirectorComponent.MinimumTimeUntilFirstEvent} seconds");
-            SpawnRoundstartAntags(scheduler, count);
+            var minimumTimeUntilFirstEvent = _configManager.GetCVar(GoobCVars.MinimumTimeUntilFirstEvent);
+            scheduler.TimeNextEvent = _timing.CurTime + TimeSpan.FromSeconds(minimumTimeUntilFirstEvent);
+            LogMessage($"Started, first event in {minimumTimeUntilFirstEvent} seconds");
             return;
         }
 
@@ -181,7 +186,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
     /// Checks gamedirectorcomp if DualAntags is true
     /// If so selects two antags
     /// </summary>
-    private void SpawnRoundstartAntags(GameDirectorComponent scheduler, PlayerCount count)
+    private void SpawnRoundstartAntags(GameDirectorComponent scheduler, int count)
     {
         // Spawn antags based on GameDirectorComponent
             var roundStartAntags = new List<EntityPrototype>();
@@ -194,7 +199,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
                 if (!proto.TryGetComponent<GameRuleComponent>(out var gameRuleComp, _factory))
                     continue;
 
-                if (gameRuleComp.MinPlayers < count.Players)
+                if (gameRuleComp.MinPlayers < count)
                     continue;
 
                 if (proto.HasComponent<DynamicRulesetComponent>())
@@ -280,6 +285,14 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
         }
 
         return count;
+    }
+
+    /// <summary>
+    ///   Count all the players on the server.
+    /// </summary>
+    private int CountAllPlayers()
+    {
+        return _playerManager.Sessions.Length;
     }
 
     /// <summary>

@@ -9,18 +9,18 @@ public sealed partial class AnomalyMetricComponent : Component
     /// <summary>
     ///   Cost of a growing anomaly
     /// </summary>
-    [DataField("growingCost"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("growingCost")]
     public float GrowingCost = 40.0f;
 
     /// <summary>
     ///   Cost of a dangerous anomaly
     /// </summary>
-    [DataField("severityCost"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("severityCost")]
     public float SeverityCost = 20.0f;
 
     /// <summary>
     ///   Cost of any anomaly
     /// </summary>
-    [DataField("dangerCost"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("dangerCost")]
     public float BaseCost = 10.0f;
 }

@@ -1,6 +1,4 @@
-﻿using System.Runtime.Serialization;
-using Content.Server._Goobstation.StationEvents;
-using Content.Server._Goobstation.StationEvents.Metric;
+﻿using Content.Server._Goobstation.StationEvents.Metric;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -9,7 +7,6 @@ namespace Content.Server._Goobstation.StationEvents.Components;
 [RegisterComponent, Access(typeof(GameDirectorSystem))]
 public sealed partial class GameDirectorComponent : Component
 {
-    public const float MinimumTimeUntilFirstEvent = 300; // in seconds
 
     /// <summary>
     ///   How long until the next check for an event runs

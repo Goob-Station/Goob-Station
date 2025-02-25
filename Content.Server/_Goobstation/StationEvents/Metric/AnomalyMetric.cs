@@ -1,4 +1,5 @@
 ﻿using Content.Server._Goobstation.StationEvents.Metric.Components;
+using Content.Server.Spreader;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.FixedPoint;
 
@@ -11,7 +12,8 @@ namespace Content.Server._Goobstation.StationEvents.Metric;
 /// </summary>
 public sealed class AnomalyMetric : ChaosMetricSystem<AnomalyMetricComponent>
 {
-    public override ChaosMetrics CalculateChaos(EntityUid metricUid, AnomalyMetricComponent component,
+    public override ChaosMetrics CalculateChaos(EntityUid metricUid,
+        AnomalyMetricComponent component,
         CalculateChaosEvent args)
     {
         var anomalyChaos = FixedPoint2.Zero;
@@ -24,6 +26,7 @@ public sealed class AnomalyMetric : ChaosMetricSystem<AnomalyMetricComponent>
             {
                 anomalyChaos += component.SeverityCost;
             }
+
             if (anomaly.Stability > anomaly.GrowthThreshold)
             {
                 anomalyChaos += component.GrowingCost;
@@ -32,7 +35,13 @@ public sealed class AnomalyMetric : ChaosMetricSystem<AnomalyMetricComponent>
             anomalyChaos += component.BaseCost;
         }
 
-        var chaos = new ChaosMetrics(new Dictionary<ChaosMetric, FixedPoint2>()
+        var kudzuQ = EntityQueryEnumerator<KudzuComponent>();
+        while (kudzuQ.MoveNext(out var uid, out var kudzu))
+        {
+            anomalyChaos += 0.25f;
+        }
+
+    var chaos = new ChaosMetrics(new Dictionary<ChaosMetric, FixedPoint2>()
         {
             {ChaosMetric.Anomaly, anomalyChaos},
         });
