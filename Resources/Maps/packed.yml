@@ -38882,6 +38882,14 @@ entities:
       rot: 3.141592653589793 rad
       pos: 61.5,8.5
       parent: 2
+- proto: ComputerSalvageExpedition
+  entities:
+  - uid: 5974
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 9.5,31.5
+      parent: 2
 - proto: ComputerShuttleCargo
   entities:
   - uid: 5975
@@ -38889,14 +38897,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 6.5,25.5
-      parent: 2
-- proto: ComputerShuttleMiningLavaland
-  entities:
-  - uid: 5974
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 9.5,31.5
       parent: 2
 - proto: ComputerSolarControl
   entities:
@@ -79198,18 +79198,6 @@ entities:
     components:
     - type: Transform
       pos: 61.5,9.5
-      parent: 2
-- proto: SpawnPointRoboticist
-  entities:
-  - uid: 15096
-    components:
-    - type: Transform
-      pos: 49.5,10.5
-      parent: 2
-  - uid: 15097
-    components:
-    - type: Transform
-      pos: 51.5,10.5
       parent: 2
 - proto: SpawnPointSalvageSpecialist
   entities:
