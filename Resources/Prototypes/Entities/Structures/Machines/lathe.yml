@@ -897,9 +897,6 @@
       - ContrabandDetectorCircuitboard # Goobstation
       - MagazineBoxShotgunHighCaliber # Goobstation
       - MagazineBoxShotgunSlugHighCaliber # Goobstation
-      - MagazineBoxShotgunIncendiaryHighCaliber # Goobstation
-      - MagazineBoxShotgunUraniumHighCaliber # Goobstation
-      - MagazineBoxShotgunBeanbagHighCaliber # Goobstation
       - MagazineBoxShotgunPracticeHighCaliber # Goobstation
     dynamicRecipes:
       - BoxBeanbag
@@ -930,6 +927,9 @@
       - MagazineRifleUranium
       - MagazineShotgunBeanbag
       - MagazineShotgunIncendiary
+      - MagazineBoxShotgunIncendiaryHighCaliber # Goobstation
+      - MagazineBoxShotgunUraniumHighCaliber # Goobstation
+      - MagazineBoxShotgunBeanbagHighCaliber # Goobstation
       - PortableRecharger
       - PowerCageHigh
       - PowerCageMedium
@@ -1030,9 +1030,6 @@
         - MagazineMagnum # Goobstation
         - MagazineBoxShotgunHighCaliber # Goobstation
         - MagazineBoxShotgunSlugHighCaliber # Goobstation
-        - MagazineBoxShotgunIncendiaryHighCaliber # Goobstation
-        - MagazineBoxShotgunUraniumHighCaliber # Goobstation
-        - MagazineBoxShotgunBeanbagHighCaliber # Goobstation
         - MagazineBoxShotgunPracticeHighCaliber # Goobstation
     - type: EmagLatheRecipes # Goobstation
       emagStaticRecipes:
@@ -1043,6 +1040,9 @@
       - MagazineHighCaliberEmpty # Goobstation
       - MagazineHighCaliber # Goobstation
       - MagazineBoxHighCaliber # Goobstation
+      - MagazineBoxShotgunIncendiaryHighCaliber # Goobstation
+      - MagazineBoxShotgunUraniumHighCaliber # Goobstation
+      - MagazineBoxShotgunBeanbagHighCaliber # Goobstation
     - type: MaterialStorage
       whitelist:
         tags:
