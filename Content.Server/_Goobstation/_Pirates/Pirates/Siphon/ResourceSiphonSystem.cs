@@ -4,7 +4,6 @@ using Content.Server.Cargo.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.Chat.Systems;
 using Content.Server.Mind;
-using Content.Server.Popups;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
@@ -22,7 +21,6 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly StationAnchorSystem _anchor = default!;
     [Dependency] private readonly CargoSystem _cargo = default!;
     [Dependency] private readonly PricingSystem _pricing = default!;
@@ -81,12 +79,14 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
 
         var bank = nbank!.Value;
 
-        var funds = bank.Comp.Balance - ent.Comp.DrainRate;
-        if (funds > 0)
-        {
-            _cargo.DeductFunds(bank.Comp, (int) ent.Comp.DrainRate, forced: true);
-            UpdateCredits(ent, ent.Comp.DrainRate);
-        }
+        // Uncomment this if you don't want cargo to go into space debt
+        // :trollface:
+        //var funds = bank.Comp.Balance - ent.Comp.DrainRate;
+        //if (funds > 0)
+        //{
+        _cargo.DeductFunds(bank.Comp, (int) ent.Comp.DrainRate, forced: true);
+        UpdateCredits(ent, ent.Comp.DrainRate);
+        //}
     }
 
     #region Event Handlers
@@ -134,6 +134,8 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
 
             UpdateCredits(ent, (float) price);
             QueueDel(args.Used);
+            args.Handled = true;
+            return;
         }
 
         // add more stuff here if needed

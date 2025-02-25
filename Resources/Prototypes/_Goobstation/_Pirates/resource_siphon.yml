@@ -16,6 +16,8 @@
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Speech
+    speechSounds: Pai
   - type: Destructible
     thresholds:
     - trigger:
