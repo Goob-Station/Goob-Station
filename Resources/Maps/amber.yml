@@ -112992,6 +112992,18 @@ entities:
     - type: Transform
       pos: 38.5,-35.5
       parent: 2
+- proto: SpawnPointRoboticist
+  entities:
+  - uid: 5551
+    components:
+    - type: Transform
+      pos: 20.5,-30.5
+      parent: 2
+  - uid: 6778
+    components:
+    - type: Transform
+      pos: 36.5,-40.5
+      parent: 2
 - proto: SpawnPointSecurityCadet
   entities:
   - uid: 416
