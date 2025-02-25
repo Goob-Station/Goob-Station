@@ -65,5 +65,5 @@
             Borg: [ 3, 3 ]
           #supply
             CargoTechnician: [ 3, 5 ]
-            SalvageSpecialist: [ 3, 5 ]
+            SalvageSpecialist: [ 7, 7 ]
             Quartermaster: [ 1, 1 ]
