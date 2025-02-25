@@ -10,10 +10,9 @@
     rules: ghost-role-information-freeagent-rules
     raffle:
       settings: short
-    requirements: # Goobstation - ghost roles requirements
-    - !type:RoleTimeRequirement
-      role: JobBorg
-      time: 3600 #1 hour
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 3600 # 1 hour
   - type: GhostRoleMobSpawner
     prototype: MobBingle
   - type: Sprite
