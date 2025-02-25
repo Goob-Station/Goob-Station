@@ -197,7 +197,7 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
         Timer.Spawn(TimeSpan.FromSeconds(15), () => _mapMan.DeleteMap(dummyMap));
     }
 
-    private EntityUid? FindLargestGrid(MapId map)
+    private EntityUid? FindLargestGrid(MapId map, string station)
     {
         EntityUid? largestGrid = null;
         var largestSize = 0f;
@@ -208,8 +208,10 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
             if (xform.MapID != map)
                 continue;
 
-            if (HasComp<BecomesStationComponent>(gridUid) ||
-                HasComp<LavalandStationComponent>(gridUid))
+            if( HasComp<LavalandStationComponent>(gridUid))
+                return gridUid;
+
+            if (TryComp<BecomesStationComponent>(gridUid, out var comp) && comp.Id == station)
                 return gridUid;
 
             var size = grid.LocalAABB.Size.LengthSquared();

@@ -5,7 +5,7 @@
   minPlayers: 0
   stations:
     Lavatest:
-      stationProto: StandardNanotrasenStation
+      stationProto: StandardNanotrasenOutpost
       components:
         - type: StationNameSetup
           mapNameTemplate: "LavaTest"
