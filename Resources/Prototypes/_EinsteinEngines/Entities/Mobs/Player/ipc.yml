@@ -65,7 +65,7 @@
     - NanoTrasen
   - type: StandingState
   - type: Damageable
-    damageContainer: Silicon
+    damageContainer: SiliconRadiation
     damageModifierSet: IPC
   - type: MobState
     allowedStates:
