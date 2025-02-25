@@ -50,8 +50,6 @@
   loadouts:
   - BlueshieldOfficerHeadSwatHelmet
   - BlueshieldOfficerHeadTrooper
-  # - BlueshieldOfficerHeadBeretNavy - You are fucking NOT giving the blueshield navy officer shit. Fuck off with that please.
-  # - BlueshieldOfficerHeadBeretBlack
   - BlueshieldOfficerHeadCowboy
 
 - type: loadoutGroup

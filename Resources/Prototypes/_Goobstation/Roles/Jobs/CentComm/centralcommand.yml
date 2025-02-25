@@ -14,7 +14,7 @@
     - !type:OverallPlaytimeRequirement
       time: 18000 # 5h
     - !type:DepartmentTimeRequirement
-      department: Command
+      department: Security
       time: 18000 # 5h
   accessGroups:
   - AllAccess
