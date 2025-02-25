@@ -390,9 +390,9 @@
       Coal: 300 # Goobstation - was 100
   - type: Item
     heldPrefix: coal
-  - type: RadiationSource
-    intensity: 0.02
-    slope: 0.1
+ # - type: RadiationSource # goobstation - comment this out
+ #   intensity: 0.02
+ #   slope: 0.1
 
 - type: entity
   parent: Coal
