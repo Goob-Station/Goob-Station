@@ -180,6 +180,16 @@
   - UplinkWeaponry
 
 - type: listing
+  id: UplinkGorrote
+  name: uplink-garrote-name
+  description: uplink-garrote-desc
+  productEntity: Garrote
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWeaponry
+
+- type: listing
   id: UplinkBulkMosin
   name: uplink-bulk-mosin-name
   description: uplink-bulk-mosin-desc

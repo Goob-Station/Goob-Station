@@ -1,0 +1,19 @@
+- type: entity
+  name: Garrote
+  parent: [BaseItem, BaseMajorContraband]
+  id: Garrote
+  description: Drag people into maints, never to be seen again.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/garrote.rsi
+    layers:
+    - state: icon
+  - type: DisarmMalus
+    malus: 0
+  - type: GrabbingItem
+    grabBreakDelay: 10
+  - type: Item
+    size: Small
+    shape:
+    - 1,0,1,0
+    - 0,1,0,1
