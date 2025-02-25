@@ -57,6 +57,12 @@
   id: DeathSquad
   parent: EventHumanoidMindShielded
   randomizeName: false
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 18000 # 5h
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 14000000 # 5h
   components:
     - type: GhostRole
       name: ghost-role-information-Death-Squad-name
@@ -71,6 +77,7 @@
       nameSegments:
         - NamesFirstMilitaryLeader
         - NamesLastMilitary
+
 
 
 ## ERT Leader
