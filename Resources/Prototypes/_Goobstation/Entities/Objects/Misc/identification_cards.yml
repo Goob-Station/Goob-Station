@@ -77,3 +77,16 @@
     tags:
     - CentralCommand
     - BlueshieldOfficer
+
+# Roboticist
+- type: entity
+  parent: IDCardStandard
+  id: RoboticistIDCard
+  name: roboticist ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idscientist
+  - type: PresetIdCard
+    job: Scientist
