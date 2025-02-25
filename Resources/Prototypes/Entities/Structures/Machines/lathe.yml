@@ -240,6 +240,7 @@
       - CartridgeBicaridine # Goobstation
       - CartridgeDermaline # Goobstation
       - CartridgeEphedrine # Goobstation
+      - CartridgeAtropine # Goobstation
       - CartridgePuncturase # Goobstation
       - SecHypo # Goobstation
       - ParamedHypo # Goobstation - ParamedHypo
@@ -882,6 +883,7 @@
       - CartridgeEpinephrine # Goobstation
       - CartridgeBicaridine # Goobstation
       - CartridgeDermaline # Goobstation
+      - CartridgeAtropine # Goobstation
       - SecHypo # Goobstation
       - SyringeGun # Goobstation
       - MagazineMagnumEmpty # Goobstation
@@ -1103,6 +1105,7 @@
       - CartridgeEpinephrine # Goobstation - ParamedHypo
       - CartridgeBicaridine # Goobstation - ParamedHypo
       - CartridgeDermaline # Goobstation - ParamedHypo
+      - CartridgeAtropine # Goobstation
       - ParamedHypo # Goobstation - ParamedHypo
     dynamicRecipes:
       - PrescriptionGlasses # Goobstation
