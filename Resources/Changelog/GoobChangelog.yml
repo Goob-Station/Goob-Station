@@ -5504,3 +5504,9 @@ Entries:
   changes: []
   id: 632
   time: '2025-02-24T20:43:38.0000000+00:00'
+- author: Tideonia Liberation Forces
+  changes:
+    - type: Fix
+      message: The shackles have been lifted brothers, take arms and fight once more.
+  id: 633
+  time: '2025-02-25T06:41:56.0000000+00:00'
