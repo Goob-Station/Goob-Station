@@ -9,4 +9,4 @@
   - type: Clothing
     sprite: _DV/Clothing/Belt/brigmedic.rsi
 
-    #^ taken from goob MRP, was under deltaV, thus, why i've put it here.
+# Taken from goob MRP, was under deltaV, thus, why it's placed here.

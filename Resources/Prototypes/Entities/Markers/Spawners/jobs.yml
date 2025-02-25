@@ -485,7 +485,7 @@
     layers:
       - state: green
       - state: detective
-  
+
 #Unused so far - TODO - Map - Currently set so that brigmedics spawn same as latejoins (cryosleep or arrivals)
 - type: entity
   id: SpawnPointBrigmedic

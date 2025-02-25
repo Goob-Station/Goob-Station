@@ -118,7 +118,7 @@
   parent: [ClothingBackpackSatchel, BaseSecurityContraband]
   id: ClothingBackpackSatchelBrigmedic
   name: brigmedic satchel
-  description: A sterile satchel for medical related needs. Has an attachment for a Defibrilator!
+  description: A sterile satchel for medical related needs. Has an attachment for a Defibrillator!
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/brigmedic.rsi

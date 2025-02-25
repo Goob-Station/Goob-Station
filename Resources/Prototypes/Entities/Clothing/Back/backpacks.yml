@@ -68,7 +68,7 @@
   parent: [ClothingBackpack, BaseSecurityContraband]
   id: ClothingBackpackBrigmedic
   name: brigmedic backpack
-  description: It's a very sterile backpack. Has an attachment for a Defibrilator!
+  description: It's a very sterile backpack. Has an attachment for a Defibrillator!
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/brigmedic.rsi
