@@ -10,6 +10,8 @@ using Content.Server.StationEvents.Components;
 using Content.Shared._Goobstation.CCVar;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
+using Content.Shared.EntityTable;
+using Content.Shared.EntityTable.EntitySelectors;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Ghost;
 using Content.Shared.Humanoid;
@@ -78,6 +80,8 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly IConfigurationManager _configManager = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly IPrototypeManager _protoManager = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -107,10 +111,17 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
     private void SetupEvents(GameDirectorComponent scheduler, PlayerCount count)
     {
         scheduler.PossibleEvents.Clear();
-        foreach (var proto in GameTicker.GetAllGameRulePrototypes())
+
+        if(!_event.TryBuildLimitedEvents(scheduler.ScheduledGameRules, out var possibleEvents))
         {
-            if (!proto.TryGetComponent<StationEventComponent>(out var stationEvent, _factory))
-                continue;
+            Log.Error("Could not find any events to select from.");
+            return;
+        }
+
+        foreach (var entry in possibleEvents)
+        {
+            var proto = entry.Key;
+            var stationEvent = entry.Value;
 
             if (proto.HasComponent<DynamicRulesetComponent>()) // Block john shitcode moment
                 continue;

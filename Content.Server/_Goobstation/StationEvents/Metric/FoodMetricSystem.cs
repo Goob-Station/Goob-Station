@@ -1,4 +1,5 @@
 ﻿using Content.Server._Goobstation.StationEvents.Metric.Components;
+using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
@@ -23,9 +24,11 @@ public sealed class FoodMetricSystem : ChaosMetricSystem<FoodMetricComponent>
         var query = EntityQueryEnumerator<MindContainerComponent, MobStateComponent>();
         var hungerSc = FixedPoint2.Zero;
         var thirstSc = FixedPoint2.Zero;
+        var chargeSc = FixedPoint2.Zero;
 
         var thirstQ = GetEntityQuery<ThirstComponent>();
         var hungerQ = GetEntityQuery<HungerComponent>();
+        var siliconQ = GetEntityQuery<SiliconComponent>();
 
         while (query.MoveNext(out var uid, out var mindContainer, out var mobState))
         {
@@ -45,13 +48,38 @@ public sealed class FoodMetricSystem : ChaosMetricSystem<FoodMetricComponent>
             {
                 hungerSc += component.HungerScores.GetValueOrDefault(hunger.CurrentThreshold);
             }
+
+            if (siliconQ.TryGetComponent(uid, out var silicon))
+            {
+                var chargeState = GetChargeState(silicon.ChargeState);
+                chargeSc += component.ChargeScores.GetValueOrDefault(chargeState);
+            }
         }
 
         var chaos = new ChaosMetrics(new Dictionary<ChaosMetric, FixedPoint2>()
         {
             {ChaosMetric.Hunger, hungerSc},
             {ChaosMetric.Thirst, thirstSc},
+            {ChaosMetric.Charge, thirstSc},
         });
         return chaos;
     }
+
+    private float GetChargeState(short chargeState)
+    {
+        var mid = 0.5f;
+        var low = 0.25f;
+        var critical = 0.1f;
+
+        var normalizedCharge = chargeState / 10f; // Assuming ChargeState is from 0-10
+
+        if (normalizedCharge <= critical)
+            return critical;
+        if (normalizedCharge <= low)
+            return low;
+
+        return mid;
+    }
+
 }
+

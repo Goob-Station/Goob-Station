@@ -1,4 +1,6 @@
 ﻿using Content.Server._Goobstation.StationEvents.Metric;
+using Content.Shared.EntityTable;
+using Content.Shared.EntityTable.EntitySelectors;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -59,6 +61,12 @@ public sealed partial class GameDirectorComponent : Component
     /// </summary>
     [DataField]
     public ProtoId<StoryBeatPrototype> FallbackBeatName = "Peace";
+
+    /// <summary>
+    ///   All the events that are allowed to run in the current story.
+    /// </summary>
+    [DataField]
+    public EntityTableSelector ScheduledGameRules = default!;
 
     /// <summary>
     ///   All the events that are allowed to run in the current story.

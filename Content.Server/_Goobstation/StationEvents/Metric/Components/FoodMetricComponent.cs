@@ -1,6 +1,7 @@
 ﻿using Content.Server.StationEvents.Events;
 using Content.Shared.FixedPoint;
 using Content.Shared.Nutrition.Components;
+using Content.Shared._EinsteinEngines.Silicon.Components;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Generic;
 
 namespace Content.Server._Goobstation.StationEvents.Metric.Components;
@@ -24,5 +25,13 @@ public sealed partial class FoodMetricComponent : Component
             { HungerThreshold.Starving, 5.0f },
         };
 
+    [DataField("chargeScores", customTypeSerializer: typeof(DictionarySerializer<float, FixedPoint2>))]
+    public Dictionary<float, FixedPoint2> ChargeScores =
+        new()
+        {
+            { 0.80f, 1.0f },
+            { 0.35f, 2.0f },
+            { 0.10f, 5.0f },
+        };
 
 }

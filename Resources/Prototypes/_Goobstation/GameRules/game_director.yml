@@ -21,6 +21,8 @@
       minPlayers: 25
     - type: GameDirector
       dualAntags: true
+      scheduledGameRules: !type:NestedSelector
+        tableId: BasicGameRulesTable
       stories:
         - RelaxedAttack
         - ScienceAttack

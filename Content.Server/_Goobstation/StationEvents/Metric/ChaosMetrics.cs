@@ -9,6 +9,7 @@ public enum ChaosMetric
 {
     Hunger,
     Thirst,
+    Charge,
 
     Anomaly,
 
