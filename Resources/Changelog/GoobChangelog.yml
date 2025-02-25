@@ -5528,3 +5528,9 @@ Entries:
       message: Ported some EE hardsuits for sec, cargo can buy them
   id: 636
   time: '2025-02-25T06:44:44.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: New grass sprites
+  id: 637
+  time: '2025-02-25T06:46:05.0000000+00:00'
