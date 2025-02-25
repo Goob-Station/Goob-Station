@@ -22,13 +22,29 @@
   suffix: Regenerating, DO NOT MAP
   components:
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 90 # You CAN just endlessly print then grind these. The cooldown is being made so long it'd be faster to just grow it.
+    rechargeCooldown: 90
     rechargeSound:
       path: /Audio/Items/pen_click.ogg
   - type: BasicEntityAmmoProvider
     proto: FoodSnackLollypopWrappedOmnizine
     capacity: 2
     count: 2
+
+- type: entity
+  name: weh! lollypop dispenser
+  parent: LauncherLollypopRegenerating
+  id: LauncherLollypopRegeneratingWeh
+  description: Utilizes a in-built fabricator to generate Weh! lollypops from energy. Weh!
+  suffix: Regenerating, DO NOT MAP
+  components:
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 20
+    rechargeSound:
+      path: /Audio/Items/pen_click.ogg
+  - type: BasicEntityAmmoProvider
+    proto: FoodSnackLollypopWrappedWeh
+    capacity: 3
+    count: 3
 
 - type: entity
   name: weh! lollypop dispenser
