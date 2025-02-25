@@ -105,7 +105,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
         }
     }
 
-    private void EnsurePreloaderMap()
+    public void EnsurePreloaderMap()
     {
         // Already have a preloader?
         if (GetPreloaderEntity() != null)
