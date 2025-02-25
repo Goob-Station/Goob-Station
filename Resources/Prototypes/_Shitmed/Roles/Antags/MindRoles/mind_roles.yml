@@ -20,7 +20,7 @@
 
 - type: entity
   parent: BaseMindRoleAntag
-  id: MindRoleAbductorScienstist
+  id: MindRoleAbductorScientist
   name: Lone Abductor Role
   components:
   - type: MindRole
