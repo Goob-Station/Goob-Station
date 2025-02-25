@@ -137,7 +137,7 @@
   name: emergency medipen
   parent: ChemicalMedipen
   id: EmergencyMedipen
-  description: A rapid and safe way to stabilize patients in critical condition for personnel without advanced medical knowledge. Beware, as it's easy to overdose on epinephrine and tranexamic acid.
+  description: A rapid and safe way to stabilize patients in critical condition for personnel without advanced medical knowledge.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi
@@ -153,10 +153,10 @@
       pen:
         maxVol: 15
         reagents:
-        - ReagentId: Epinephrine
-          Quantity: 12
-        - ReagentId: TranexamicAcid
-          Quantity: 3
+        - ReagentId: Atropine # Goobstation
+          Quantity: 10
+        - ReagentId: Ibuprofen # Goobstation
+          Quantity: 5
   - type: Tag
     tags:
     - EmergencyMedipen
@@ -165,7 +165,7 @@
   name: poison auto-injector
   parent: ChemicalMedipen
   id: AntiPoisonMedipen
-  description: A rapid dose of anti-poison. Contains ultravasculine and epinephrine.
+  description: A rapid dose of anti-poison. Causes extreme stress when mixed with other medications.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi
@@ -181,10 +181,10 @@
       pen:
         maxVol: 15
         reagents:
-        - ReagentId: Ultravasculine
-          Quantity: 10
-        - ReagentId: Epinephrine
-          Quantity: 5
+        - ReagentId: Monover
+          Quantity: 15
+       # - ReagentId: Epinephrine
+       #   Quantity: 5
   - type: Tag
     tags: []
 
@@ -224,7 +224,7 @@
   name: burn auto-injector
   parent: ChemicalMedipen
   id: BurnAutoInjector
-  description: A rapid dose of dermaline and leporazine, intended for combat applications.
+  description: A rapid dose of oxandrolone and leporazine, intended for combat applications.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi
@@ -245,7 +245,7 @@
       pen:
         maxVol: 20
         reagents:
-        - ReagentId: Dermaline
+        - ReagentId: Oxandrolone # Goobstation
           Quantity: 10
         - ReagentId: Leporazine
           Quantity: 10
@@ -320,7 +320,7 @@
   name: pyrazine auto-injector
   parent: ChemicalMedipen
   id: PyraAutoInjector
-  description: A rapid dose of pyrazine and dermaline, intended for combat applications.
+  description: A rapid dose of pyrazine and oxandrolone, intended for combat applications.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi
@@ -343,7 +343,7 @@
         reagents:
         - ReagentId: Pyrazine
           Quantity: 10
-        - ReagentId: Dermaline
+        - ReagentId: Oxandrolone # Goobstation
           Quantity: 10
   - type: Tag
     tags: []
