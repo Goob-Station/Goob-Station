@@ -385,7 +385,7 @@
     tags: []
 
 - type: entity
-  name: enviornmental stabilization medipen # goobstation
+  name: environmental stabilization medipen # goobstation
   parent: ChemicalMedipen
   id: SpaceMedipen
   description: Contains a mix of chemicals that will temporarily protect you from low pressure environments, and stabilizes your body temperature. # goobstation
