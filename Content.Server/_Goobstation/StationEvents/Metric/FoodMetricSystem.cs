@@ -60,7 +60,7 @@ public sealed class FoodMetricSystem : ChaosMetricSystem<FoodMetricComponent>
         {
             {ChaosMetric.Hunger, hungerSc},
             {ChaosMetric.Thirst, thirstSc},
-            {ChaosMetric.Charge, thirstSc},
+            {ChaosMetric.Charge, chargeSc},
         });
         return chaos;
     }
