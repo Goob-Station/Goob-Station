@@ -5522,3 +5522,9 @@ Entries:
       message: Adjusted chemicals inside of autoinjectors.
   id: 635
   time: '2025-02-25T06:43:49.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Ported some EE hardsuits for sec, cargo can buy them
+  id: 636
+  time: '2025-02-25T06:44:44.0000000+00:00'
