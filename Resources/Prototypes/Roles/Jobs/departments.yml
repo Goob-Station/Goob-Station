@@ -126,6 +126,7 @@
   - ResearchDirector
   - Scientist
   - ResearchAssistant
+  - Roboticist # Goob content
 
 - type: department
   id: Silicon
