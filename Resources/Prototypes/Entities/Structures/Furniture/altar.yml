@@ -78,6 +78,9 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: chaos
+  - type: AltarSource
+    interactProto: Nullrod
+    rodProto: GodHand
 
 - type: entity
   id: AltarDruid

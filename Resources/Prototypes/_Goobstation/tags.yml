@@ -122,9 +122,6 @@
 - type: Tag
   id: GasMask
 
-  - type: Tag
-  id: GodHand
-
 - type: Tag
   id: GodHand
 

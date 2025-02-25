@@ -1,7 +1,7 @@
 - type: entity
   name: Null Rod
   parent: BaseItem
-  id: Nullrod
+  id: Nullrod ##add spell block
   description: The old classic. Does nothing special, really.
   components:
   - type: Sprite
@@ -23,7 +23,7 @@
   - type: Tag
     tags:
     - Nullrod
-##add spell block
+
 - type: entity
   name: holy claymore
   parent: BaseSword
@@ -35,15 +35,15 @@
   - type: AmmoCounter
   - type: UseDelayOnShoot
   - type: UseDelay
-    delay: 0.9
+    delay: 1.5
   - type: Gun
     soundGunshot: /Audio/Effects/hallelujah.ogg
-    fireRate: 1
+    fireRate: 0.5
     useKey: false
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.5
+    rechargeCooldown: 0.25
     rechargeSound:
-      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg #change sfx
+      path: /Audio/_Goobstation/Wizard/zapbang.ogg
   - type: BasicEntityAmmoProvider
     proto: HolyBulletCharge
     capacity: 1
@@ -150,8 +150,8 @@
   - type: MeleeWeapon
     angle: 0
     wideAnimationRotation: 180
-    attackRate: 1
-    heavyStaminaCost: 8
+    attackRate: 0.5
+    heavyStaminaCost: 20
     damage:
       types:
         Heat: 15
@@ -159,9 +159,15 @@
         Holy: 20
     soundHit:
       path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+  - type: IgniteOnMeleeHit
+    fireStacks: 1
   - type: Reflect #He needs it.
     reflectProb: .7
     spread: 90
+  - type: Cautery # Shitmed
+    speed: 0.3
+  - type: KnockdownOnHit
+    duration: 1.0
   - type: Item
     size: Ginormous
     sprite: _ShitChap/Objects/Weapons/Melee/godhand.rsi
@@ -169,6 +175,9 @@
   - type: DisarmMalus
     malus: 0
   - type: GrabbingItem
+  - type: Tool
+    qualities:
+      - Prying
   - type: Tag
     tags:
     - GodHand
