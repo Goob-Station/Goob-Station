@@ -34,7 +34,6 @@
   requiredTags:
     Heart: 1
     Pen: 1
-    Paper: 1
   outputEvent: !type:EventHereticRerollTargets
 
 - type: hereticRitual

@@ -1,0 +1,10 @@
+- type: entity
+  parent: [ ClothingBackpack, BaseMajorContraband ]
+  id: ClothingBackpackAbductor
+  name: alien backpack
+  description: An ordinary backpack woven from a durable fiber.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Clothing/Back/Backpacks/abductor.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1

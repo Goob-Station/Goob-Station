@@ -1,0 +1,29 @@
+- type: cargoProduct
+  id: ArmoryCombatHardsuit
+  icon:
+    sprite: _DV/Clothing/Head/Hardsuits/Combat/officer.rsi
+    state: icon
+  product: CrateArmoryCombatHardsuit
+  cost: 20000
+  category: cargoproduct-category-name-armory
+  group: market
+
+- type: cargoProduct
+  id: CrateArmoryCombatMedicalHardsuit
+  icon:
+    sprite: _DV/Clothing/Head/Hardsuits/Combat/medical.rsi
+    state: icon
+  product: CrateArmoryCombatMedicalHardsuit
+  cost: 25000
+  category: cargoproduct-category-name-armory
+  group: market
+
+- type: cargoProduct
+  id: CrateArmoryCombatRiotHardsuit
+  icon:
+    sprite: _DV/Clothing/Head/Hardsuits/Combat/riot.rsi
+    state: icon
+  product: CrateArmoryCombatRiotHardsuit
+  cost: 30000
+  category: cargoproduct-category-name-armory
+  group: market

@@ -63,3 +63,6 @@
 
 - files: ["lambda.yml"]
   authors: Ichai, Dapnee, Oraclestation's players
+
+- files: ["leonid.yml"]
+  authors: Gallagin, Derball

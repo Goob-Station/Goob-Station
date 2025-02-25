@@ -70,4 +70,11 @@ public sealed partial class ImmovableRodComponent : Component
     /// </summary>
     [DataField]
     public List<EntityUid> DamagedEntities = new();
+
+    /// <summary>
+    ///     Goobstation
+    ///     If it is above 0, knock down targets when rod hits them
+    /// </summary>
+    [DataField]
+    public TimeSpan KnockdownTime = TimeSpan.Zero;
 }

@@ -54,7 +54,7 @@ namespace Content.Server.EntityEffects.Effects
                         if (proto.Metabolisms != null && proto.Metabolisms.ContainsKey(Group))
                         {
                             if (amount < 0)
-                                reagentArgs.Source.RemoveReagent(quant.Reagent, amount);
+                                reagentArgs.Source.RemoveReagent(quant.Reagent, -amount);
                             if (amount > 0)
                                 reagentArgs.Source.AddReagent(quant.Reagent, amount);
                         }

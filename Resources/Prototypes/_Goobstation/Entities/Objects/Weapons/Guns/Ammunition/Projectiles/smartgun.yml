@@ -1,0 +1,17 @@
+- type: entity
+  id: BulletSmart
+  name: bullet (.160 smart)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 10
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/smartgun.rsi
+    layers:
+    - state: smartgun
+      shader: unshaded
+  - type: HomingProjectile
+    homingSpeed: 540

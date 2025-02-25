@@ -88,9 +88,11 @@
   - type: Perishable
   - type: Damageable
     damageModifierSet: Vulpkanin
-  - type: TemperatureProtection
-    heatingCoefficient: 0.1
-    coolingCoefficient: 0.1
+  #- type: TemperatureProtection # Goobstation - fix vulps - start
+  #  heatingCoefficient: 0.1
+  #  coolingCoefficient: 0.1
+  - type: Temperature
+    atmosTemperatureTransferEfficiency: 0.01  # Goobstation - fix vulps - end
   - type: Vocal
     sounds:
       Male: MaleVulpkanin

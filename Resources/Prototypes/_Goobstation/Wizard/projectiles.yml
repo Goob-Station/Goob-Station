@@ -108,7 +108,7 @@
   - type: Projectile
     damage:
       types:
-        Heat: 3
+        Heat: 4
   - type: Trail
     color: "#FF0033DD"
     scale: 0.08

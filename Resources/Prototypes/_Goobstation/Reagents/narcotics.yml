@@ -149,3 +149,57 @@
         type: Add
         time: 3
         refresh: false
+
+- type: reagent
+  id: Aranesp
+  name: reagent-name-aranesp
+  group: Narcotics
+  desc: reagent-desc-aranesp
+  physicalDesc: reagent-physical-desc-oily
+  flavor: oily
+  color: "#75fff5"
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:GenericStatusEffect
+        key: Stun
+        time: 2
+        type: Remove
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        time: 2
+        type: Remove
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 5
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.25
+        sprintSpeedModifier: 1.25
+      - !type:TakeStaminaDamage
+        conditions:
+        amount: -20
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.25
+            Asphyxiation: 0.25
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+      - !type:HealthChange # intentionally no yowie conditions
+        damage:
+          groups:
+            Brute: -1
+          types:
+            Heat: -0.5
+            Shock: -0.5
+            Cold: -0.5
+            Radiation: -0.5
+      - !type:Emote
+        emote: Gasp
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Yowie
