@@ -594,6 +594,7 @@
     interfaces:
       enum.SiliconLawsUiKey.Key:
         type: SiliconLawBoundUserInterface
+        requireInputValidation: false
   - type: ComplexInteraction
   - type: Actions
   - type: Access
@@ -669,7 +670,7 @@
   - type: ContainerFill
     containers:
       borg_brain:
-        - PositronicBrain # Goobstation - Borg positronic brain
+      - PositronicBrain
   - type: ItemSlots
     slots:
       cell_slot:

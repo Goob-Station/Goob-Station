@@ -1,6 +1,6 @@
 - type: entity
   name: Abielle Smart-SMG
-  parent: [BaseWeaponSubMachineGun, BaseRestrictedContraband]
+  parent: [BaseWeaponSubMachineGun, BaseSecurityContraband]
   id: WeaponSubMachineSmart
   description: An experiment in smart-weapon technology that guides bullets towards the target the gun was aimed at when fired. While the tracking functions work fine, the gun is prone to insanely wide spread thanks to its practically non-existant barrel.
   components:
@@ -79,3 +79,7 @@
   - type: Item
     shape:
     - 0,0,2,1
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 1.5
+    pvsIncrease: 0.15

@@ -1,4 +1,3 @@
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Atmos;
 using Content.Shared.Damage;
 using Content.Shared.Heretic;
@@ -9,14 +8,18 @@ using Content.Shared.Temperature.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Temperature.Components;
-using Content.Shared.Popups;
+using Robust.Shared.Map.Components;
+using Robust.Server.GameObjects;
+using Robust.Shared.Prototypes;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Content.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem : EntitySystem
 {
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
+    [Dependency] private readonly MapSystem _map = default!;
+    [Dependency] private readonly TransformSystem _xform = default!;
 
     private void SubscribeAsh()
     {
@@ -33,37 +36,20 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
     private void OnJaunt(Entity<HereticComponent> ent, ref EventHereticAshenShift args)
     {
-        var damage = args.Damage;
-        if (damage != null && ent.Comp.CurrentPath == "Ash")
-            damage *= float.Lerp(1f, 0.6f, ent.Comp.PathStage * 0.1f);
-
-        // If ent will hit their crit threshold, we don't let them jaunt and give them a popup saying so.
-        if (damage != null && _entMan.TryGetComponent<DamageableComponent>(ent, out var damageableComp) && _entMan.TryGetComponent<MobThresholdsComponent>(ent, out var thresholdsComp) && _mobThresholdSystem.TryGetThresholdForState(ent, MobState.Critical, out var critThreshold, thresholdsComp))
-        {
-            if (damageableComp.Damage.GetTotal() + damage.GetTotal() >= critThreshold)
-            {
-                _popup.PopupEntity(Loc.GetString("heretic-ability-fail-lowhealth", ("damage", damage.GetTotal())), ent, PopupType.LargeCaution);
-                return;
-            }
-        }
-
-        if (TryUseAbility(ent, args) && TryDoJaunt(ent, damage))
+        if (TryUseAbility(ent, args) && TryDoJaunt(ent))
             args.Handled = true;
     }
     private void OnJauntGhoul(Entity<GhoulComponent> ent, ref EventHereticAshenShift args)
     {
-        if (TryUseAbility(ent, args) && TryDoJaunt(ent, null))
+        if (TryUseAbility(ent, args) && TryDoJaunt(ent))
             args.Handled = true;
     }
-    private bool TryDoJaunt(EntityUid ent, DamageSpecifier? damage)
+    private bool TryDoJaunt(EntityUid ent)
     {
         Spawn("PolymorphAshJauntAnimation", Transform(ent).Coordinates);
         var urist = _poly.PolymorphEntity(ent, "AshJaunt");
         if (urist == null)
             return false;
-
-        if (damage != null)
-            _dmg.TryChangeDamage(ent, damage, true, false, targetPart: TargetBodyPart.Torso);
 
         return true;
     }
@@ -152,15 +138,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (!TryUseAbility(ent, args) || !Transform(ent).GridUid.HasValue)
             return;
 
-        // yeah. it just generates a ton of plasma which just burns.
-        // lame, but we don't have anything fire related atm, so, it works.
-        var tilepos = _transform.GetGridOrMapTilePosition(ent, Transform(ent));
-        var enumerator = _atmos.GetAdjacentTileMixtures(Transform(ent).GridUid!.Value, tilepos, false, false);
-        while (enumerator.MoveNext(out var mix))
-        {
-            mix.AdjustMoles(Gas.Plasma, 50f);
-            mix.Temperature = Atmospherics.T0C + 125f;
-        }
+        CombustArea(ent, 9, false);
 
         if (ent.Comp.Ascended)
             _flammable.AdjustFireStacks(ent, 20f, ignite: true);
@@ -182,4 +160,63 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         // this does NOT protect you against lasers and whatnot. for now. when i figure out THIS STUPID FUCKING LIMB SYSTEM!!!
         // regards.
     }
+
+    #region Helper methods
+
+    [ValidatePrototypeId<EntityPrototype>] private static readonly EntProtoId FirePrototype = "HereticFireAA";
+
+    public async Task CombustArea(EntityUid ent, int range = 1, bool hollow = true)
+    {
+        // we need this beacon in order for damage box to not break apart
+        var beacon = Spawn(null, _xform.GetMapCoordinates((EntityUid) ent));
+
+        for (int i = 0; i <= range; i++)
+        {
+            SpawnFireBox(beacon, range: i, hollow);
+            await Task.Delay((int) 500f);
+        }
+
+        EntityManager.DeleteEntity(beacon); // cleanup
+    }
+
+    public void SpawnFireBox(EntityUid relative, int range = 0, bool hollow = true)
+    {
+        if (range == 0)
+        {
+            Spawn(FirePrototype, Transform(relative).Coordinates);
+            return;
+        }
+
+        var xform = Transform(relative);
+
+        if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
+            return;
+
+        var gridEnt = ((EntityUid) xform.GridUid, grid);
+
+        // get tile position of our entity
+        if (!_xform.TryGetGridTilePosition(relative, out var tilePos))
+            return;
+
+        // make a box
+        var pos = _map.TileCenterToVector(gridEnt, tilePos);
+        var confines = new Box2(pos, pos).Enlarged(range);
+        var box = _map.GetLocalTilesIntersecting(relative, grid, confines).ToList();
+
+        // hollow it out if necessary
+        if (hollow)
+        {
+            var confinesS = new Box2(pos, pos).Enlarged(Math.Max(range - 1, 0));
+            var boxS = _map.GetLocalTilesIntersecting(relative, grid, confinesS).ToList();
+            box = box.Where(b => !boxS.Contains(b)).ToList();
+        }
+
+        // fill the box
+        foreach (var tile in box)
+        {
+            Spawn(FirePrototype, _map.GridTileToWorld((EntityUid) xform.GridUid, grid, tile.GridIndices));
+        }
+    }
+
+    #endregion
 }

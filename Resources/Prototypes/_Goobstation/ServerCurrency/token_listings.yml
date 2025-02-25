@@ -1,0 +1,39 @@
+- type: tokenListing
+  id: HighTierAntagToken
+  name: gs-balanceui-shop-buy-token-hightier-antag
+  label: gs-balanceui-shop-token-hightier-antag
+  description: gs-balanceui-shop-buy-token-hightier-antag-desc
+  price: 2000
+  adminNote: gs-balanceui-remark-token-hightier-antag
+
+- type: tokenListing
+  id: MidTierAntagToken
+  name: gs-balanceui-shop-buy-token-midtier-antag
+  label: gs-balanceui-shop-token-midtier-antag
+  description: gs-balanceui-shop-buy-token-midtier-antag-desc
+  price: 1000
+  adminNote: gs-balanceui-remark-token-midtier-antag
+
+- type: tokenListing
+  id: LowTierAntagToken
+  name: gs-balanceui-shop-buy-token-lowtier-antag
+  label: gs-balanceui-shop-token-lowtier-antag
+  description: gs-balanceui-shop-buy-token-lowtier-antag-desc
+  price: 500
+  adminNote: gs-balanceui-remark-token-lowtier-antag
+
+- type: tokenListing
+  id: GhostRoleToken
+  name: gs-balanceui-shop-buy-token-ghost
+  label: gs-balanceui-shop-token-ghost
+  description: gs-balanceui-shop-buy-token-ghost-desc
+  price: 500
+  adminNote: gs-balanceui-remark-token-ghost
+
+- type: tokenListing
+  id: AdminAbuseToken
+  name: gs-balanceui-shop-buy-token-admin-abuse
+  label: gs-balanceui-shop-token-admin-abuse
+  description: gs-balanceui-shop-buy-token-admin-abuse-desc
+  price: 250
+  adminNote: gs-balanceui-remark-token-admin-abuse

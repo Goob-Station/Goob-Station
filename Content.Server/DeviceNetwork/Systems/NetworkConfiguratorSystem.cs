@@ -52,6 +52,10 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
         //Verbs
         SubscribeLocalEvent<NetworkConfiguratorComponent, GetVerbsEvent<UtilityVerb>>(OnAddInteractVerb);
         SubscribeLocalEvent<DeviceNetworkComponent, GetVerbsEvent<AlternativeVerb>>(OnAddAlternativeSaveDeviceVerb);
+        // <Goobstation> - Fix device alt-verbs
+        SubscribeLocalEvent<DeviceLinkSinkComponent, GetVerbsEvent<AlternativeVerb>>(OnAddAlternativeSaveDeviceVerbSink);
+        SubscribeLocalEvent<DeviceLinkSourceComponent, GetVerbsEvent<AlternativeVerb>>(OnAddAlternativeSaveDeviceVerbSource);
+        // </Goobstation>
         SubscribeLocalEvent<NetworkConfiguratorComponent, GetVerbsEvent<AlternativeVerb>>(OnAddSwitchModeVerb);
 
         //UI
@@ -408,6 +412,22 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
     /// </summary>
     private void OnAddAlternativeSaveDeviceVerb(EntityUid uid, DeviceNetworkComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
+        AddAlternativeVerbs(uid, args); // Goobstation - Fix device alt-verbs; code moved to AddAlternativeVerbs()
+    }
+
+    // <Goobstation> - Fix device alt-verbs
+    private void OnAddAlternativeSaveDeviceVerbSink(EntityUid uid, DeviceLinkSinkComponent component, GetVerbsEvent<AlternativeVerb> args)
+    {
+        AddAlternativeVerbs(uid, args);
+    }
+
+    private void OnAddAlternativeSaveDeviceVerbSource(EntityUid uid, DeviceLinkSourceComponent component, GetVerbsEvent<AlternativeVerb> args)
+    {
+        AddAlternativeVerbs(uid, args);
+    }
+
+    private void AddAlternativeVerbs(EntityUid uid, GetVerbsEvent<AlternativeVerb> args)
+    {
         if (!args.CanAccess || !args.CanInteract || !args.Using.HasValue
             || !TryComp<NetworkConfiguratorComponent>(args.Using.Value, out var configurator))
             return;
@@ -438,6 +458,7 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
             args.Verbs.Add(verb);
         }
     }
+    // </Goobstation>
 
     private void OnAddSwitchModeVerb(EntityUid uid, NetworkConfiguratorComponent configurator, GetVerbsEvent<AlternativeVerb> args)
     {

@@ -1,11 +1,15 @@
 # Basic lavaland.
 - type: lavalandMap
   id: Lavaland
+  name: lavaland-planet-name-lavaland
   outpostPath: Maps/_Lavaland/Lavaland/outpost_lavaland.yml
   ruinPool: Lavaland
   temperature: 308.4523 # 35.3023 C
   planetColor: "#A34931"
   biome: LavaLand
+  shuttleWhitelist:
+    components:
+    - MiningShuttle
   atmosphere:
   - 10.524779 # oxygen, not enough for breathing
   - 25.10312 # nitrogen
@@ -13,6 +17,17 @@
   weather:
   - AshfallLight
   - AshfallHeavy
-  mobs:
+  markers:
   - RandomTendrilLavaland
   - ChasmLavaland
+  - OreIron
+  - OreCoal
+  - OreQuartz
+  - OreGold
+  - OreSilver
+  - OrePlasma
+  - OreUranium
+  #- OreBananium
+  - OreArtifactFragment
+  - OreDiamond
+  - BSCrystal

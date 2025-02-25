@@ -148,6 +148,9 @@
       Steel: 100
   - type: StaticPrice
     price: 22
+  - type: GuideHelp
+    guides:
+    - Construction
 
 - type: entity
   name: multitool
@@ -196,6 +199,12 @@
       Plastic: 100
   - type: StaticPrice
     price: 56
+  - type: GuideHelp
+    guides:
+    - Networking
+    - WirePanels
+    - Airlocks
+    - InspectingPower
 
 - type: entity
   name: network configurator
@@ -246,7 +255,7 @@
       price: 56
     - type: GuideHelp
       guides:
-      - NetworkConfigurator
+      - Networking
     - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
         Steel: 25
@@ -344,7 +353,6 @@
   - type: LimitedCharges
     maxCharges: 30
     charges: 30
-  - type: UseDelay
   - type: Sprite
     sprite: Objects/Tools/rcd.rsi
     state: icon
@@ -393,6 +401,7 @@
     - VentPassive
     - MixerGas
     - Radiator
+    - RadiatorBend
     - SignalValve
     - CanisterPort
     - FilterGas

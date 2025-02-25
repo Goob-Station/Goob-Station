@@ -94,6 +94,7 @@
     color: "#008080"
     activateSound: null
     deactivateSound: null
+  - type: Insulated
 
 - type: entity
   id: MobBinglePrime
