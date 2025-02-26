@@ -87,7 +87,7 @@
     - SemiAuto
     - Burst
     selectedMode: Burst
-    burstFireRate: 15
+    burstFireRate: 18
     burstCooldown: 0.5
     projectileSpeed: 20
     soundGunshot:
