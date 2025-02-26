@@ -121,6 +121,11 @@
       types:
         Holy: 30
         Blunt: 1
+  - type: InjectOnHit
+    reagents:
+    - ReagentId: MuteToxin
+      Quantity: 2.5
+    limit: 5
   - type: Reflect #Holy Aura :^)
     reflectProb: 1
     reflects:
@@ -163,20 +168,25 @@
     damage:
       types:
         Heat: 15
-        Slash: 5
-        Holy: 20
+        Slash: 3
+        Holy: 50
     soundHit:
       path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
   - type: IgniteOnMeleeHit
-    fireStacks: 1
+    fireStacks: 0.25
+  - type: InjectOnHit
+    reagents:
+    - ReagentId: MuteToxin ##HERETIC BE GONE
+      Quantity: 5
+    limit: 10
+  - type: KnockdownOnHit
+    duration: 0.25
   - type: Reflect #Only blocks magic projectiles
     reflectProb: 0.9
     reflects:
       - Magic
   - type: Cautery # Shitmed
     speed: 0.3
-  - type: KnockdownOnHit
-    duration: 1.0
   - type: Item
     size: Ginormous
     sprite: _ShitChap/Objects/Weapons/Melee/godhand.rsi
