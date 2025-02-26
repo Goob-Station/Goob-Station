@@ -267,6 +267,20 @@
     whitelist:
     - Clown
 
+- type: listing
+  id: UplinkSyndicateWhimsyBundle
+  name: uplink-whimsy-bundle-name
+  description: uplink-whimsy-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateFilledWhimsy
+  cost:
+    Telecrystal: 65
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Clown
+
 
 - type: listing
   id: UplinkLubeGrenade

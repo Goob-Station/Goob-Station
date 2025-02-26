@@ -5540,3 +5540,89 @@ Entries:
       message: You can buy admin abuse tokens now
   id: 638
   time: '2025-02-25T06:49:11.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: Fixed infinite zombie mice bug
+  id: 639
+  time: '2025-02-26T02:22:17.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: emergency medipens are now more general purpose but slow you down
+    - type: Tweak
+      message: medipens are cooler again
+  id: 640
+  time: '2025-02-26T02:29:47.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: 250 starting points for blob.
+  id: 641
+  time: '2025-02-26T02:30:53.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Tweak
+      message: Every station now has 2x times more Salvage specialist roles!
+  id: 642
+  time: '2025-02-26T03:17:16.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: removed insulation from bingle
+  id: 643
+  time: '2025-02-26T03:17:41.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: The chester is BAAAACK
+    - type: Remove
+      message: >-
+        Spare medsec glasses and combat gloves removed from the BSO locker. A
+        soul for a soul, as they say.
+  id: 644
+  time: '2025-02-26T03:19:22.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: >-
+        Added a new syndicate item for clowns, the syndicate joy & whimsy
+        bundle.
+    - type: Add
+      message: >-
+        Added the lollychop, a deadly syndicate weapon and a comically large
+        lollypop
+    - type: Add
+      message: Added a silly propeller hat. Have fun!
+    - type: Add
+      message: >-
+        Added the words "Silly", "Tider", "Loser", "Greytide", and "Going" to
+        the abductor speech whitelist.
+    - type: Add
+      message: >-
+        Abductors now get a bowl of candy on their ship, for exceptionally good
+        inferior lifeforms.
+    - type: Tweak
+      message: Lollypop textures redone. (This is because of you, DeusMiles)
+  id: 645
+  time: '2025-02-26T03:20:56.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Remove
+      message: Gate is dead, and I have killed it.
+  id: 646
+  time: '2025-02-26T03:21:57.0000000+00:00'
+- author: ARMOK
+  changes:
+    - type: Add
+      message: Templar armor to piety vend.
+  id: 647
+  time: '2025-02-26T03:23:16.0000000+00:00'
+- author: Moutardomiel
+  changes:
+    - type: Add
+      message: >-
+        Player controlled mouse now have an additional unique emote allowing
+        them to tweak.
+  id: 648
+  time: '2025-02-26T03:26:45.0000000+00:00'

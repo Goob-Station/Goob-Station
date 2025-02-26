@@ -79,6 +79,9 @@ uplink-anaconda-desc = The pride of the Cybersun arms concern, this heavy pistol
 uplink-bulk-mosin-name = Syndicate bulk rifle crate
 uplink-bulk-mosin-desc = 10 WW4-era rifles to arm you, your friends, and your cat. Saves 40% on shipping costs by buying in bulk.
 
+uplink-whimsy-bundle-name = Syndicate Joy & Whimsy Bundle
+uplink-whimsy-bundle-desc = Do YOU like spreading joy & whimsy? Well, Donk Co. has the solution for you! Contains a LIMITED EDITION axe and enough candy to kill a man.
+
 # Ammo
 
 uplink-blast-grenade-name = Blast Grenade

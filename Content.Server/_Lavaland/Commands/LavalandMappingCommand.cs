@@ -52,6 +52,8 @@ public sealed class LavalandMappingCommand : IConsoleCommand
                 shell.WriteLine(Help);
                 return;
         }
+        if (_entityManager.System<LavalandPlanetSystem>().GetPreloaderEntity() == null)
+            _entityManager.System<LavalandPlanetSystem>().EnsurePreloaderMap();
 
         if (!_entityManager.System<LavalandPlanetSystem>().SetupLavalandPlanet(out var lavaland, lavalandProto, lavalandSeed))
             shell.WriteLine("Failed to load lavaland due to an exception!");
