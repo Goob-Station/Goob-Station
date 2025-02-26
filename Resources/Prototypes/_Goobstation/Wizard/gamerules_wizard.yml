@@ -132,4 +132,4 @@
     - BasicStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-    # - SubGamemodesRule
+    - SubGamemodesRule
