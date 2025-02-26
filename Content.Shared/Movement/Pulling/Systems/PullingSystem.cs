@@ -861,8 +861,8 @@ public sealed class PullingSystem : EntitySystem
         // TODO: Change grab stage direction
         var nextStageAddition = puller.Comp.GrabStageDirection switch
         {
-            GrubStageDirection.Increase => 1,
-            GrubStageDirection.Decrease => -1,
+            GrabStageDirection.Increase => 1,
+            GrabStageDirection.Decrease => -1,
             _ => throw new ArgumentOutOfRangeException(),
         };
 
@@ -935,6 +935,7 @@ public sealed class PullingSystem : EntitySystem
             var delta = newVirtualItemsCount - virtualItemsCount;
 
             // Adding new virtual items
+            List<EntityUid> newItems = new();
             if (delta > 0)
             {
                 for (var i = 0; i < delta; i++)
@@ -945,9 +946,14 @@ public sealed class PullingSystem : EntitySystem
                         if (_netManager.IsServer)
                             _popup.PopupEntity(Loc.GetString("popup-grab-need-hand"), puller, puller, PopupType.Medium);
 
+                        foreach (var newItem in newItems) // fixes possible orphaning
+                        {
+                            QueueDel(newItem);
+                        }
                         return false;
                     }
 
+                    newItems.Add(item.Value);
                     puller.Comp.GrabVirtualItems.Add(item.Value);
                 }
             }
@@ -1061,7 +1067,7 @@ public enum GrabStage
     Suffocate = 3,
 }
 
-public enum GrubStageDirection
+public enum GrabStageDirection
 {
     Increase,
     Decrease,

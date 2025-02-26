@@ -57,7 +57,7 @@ public sealed partial class PullerComponent : Component
     public GrabStage GrabStage = GrabStage.No;
 
     [DataField, AutoNetworkedField]
-    public GrubStageDirection GrabStageDirection = GrubStageDirection.Increase;
+    public GrabStageDirection GrabStageDirection = GrabStageDirection.Increase;
 
     [AutoNetworkedField]
     public TimeSpan NextStageChange;
