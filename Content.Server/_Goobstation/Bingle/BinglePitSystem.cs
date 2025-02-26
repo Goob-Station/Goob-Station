@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Server._Lavaland.Damage;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
@@ -16,6 +17,8 @@ using Content.Shared._Goobstation.Bingle;
 using Content.Shared.Popups;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
+using Content.Server.GameTicking;
+using Content.Server.Pinpointer;
 
 namespace Content.Server._Goobstation.Bingle;
 
@@ -29,7 +32,8 @@ public sealed class BinglePitSystem : EntitySystem
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
-
+    [Dependency] private readonly NavMapSystem _navMap = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -39,6 +43,7 @@ public sealed class BinglePitSystem : EntitySystem
         SubscribeLocalEvent<BinglePitComponent, DestructionEventArgs>(OnDestruction);
         SubscribeLocalEvent<BinglePitComponent, AttackedEvent>(OnAttacked);
         SubscribeLocalEvent<BinglePitFallingComponent, UpdateCanMoveEvent>(OnUpdateCanMove);
+        SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndTextAppend);
     }
 
     public override void Update(float frameTime)
@@ -77,10 +82,10 @@ public sealed class BinglePitSystem : EntitySystem
 
         StartFalling(uid, component, args.Tripper);
 
-        if (component.BinglePoints >= component.SpawnNewAt)
+        if (component.BinglePoints >=( component.SpawnNewAt * component.Level))
         {
             SpawnBingle(uid, component);
-            component.BinglePoints -= component.SpawnNewAt;
+            component.BinglePoints -= ( component.SpawnNewAt * component.Level);
         }
     }
 
@@ -173,5 +178,21 @@ public sealed class BinglePitSystem : EntitySystem
         _entityManager.EnsureComponent<ScaleVisualsComponent>(uid);
 
         appearance.SetData(uid, ScaleVisuals.Scale, Vector2.One * component.Level, appearanceComponent);
+    }
+    private void OnRoundEndTextAppend(RoundEndTextAppendEvent ev)
+    {
+
+        var query = AllEntityQuery<BinglePitComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            var mapCoords = _transform.ToMapCoordinates(Transform(uid).Coordinates);
+            if (!_navMap.TryGetNearestBeacon(mapCoords, out var beacon, out _))
+                continue;
+
+            //TODO localisation
+            ev.AddLine("The Binglepit near " + beacon?.Comp?.Text!  + "survived grew to level: " + comp.Level +
+                       " and collected : " + (comp.BinglePoints + (comp.MinionsMade * comp.SpawnNewAt)*comp.Level) + " Bingle Points");
+
+        }
     }
 }
