@@ -115,9 +115,10 @@
 
 - type: entity
   parent: BaseGameRule
-  id: EndRoundOnWizardDeath
+  id: SleepersOnWizardDeath
   components:
-  - type: EndRoundOnWizardDeathRule
+  - type: RuleOnWizardDeathRule
+    rule: SleeperAgents
 
 - type: gamePreset
   id: Wizard
@@ -128,7 +129,7 @@
   showInVote: false
   rules:
     - Wizard
-    # - EndRoundOnWizardDeath # nuh uh
+    - SleepersOnWizardDeath
     - BasicStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
