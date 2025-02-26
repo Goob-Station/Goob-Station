@@ -263,20 +263,66 @@
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineMagnumLeverRifleEmpty
-  result: MagazineMagnumLeverRifleEmpty
+  id: MagazineShotgunLeverRifleEmpty
+  result: MagazineShotgunLeverRifleEmpty
   materials:
     Steel: 25
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineMagnumLeverRifle
-  result: MagazineMagnumLeverRifle
+  id: MagazineShotgunLeverRifle
+  result: MagazineShotgunLeverRifle
   materials:
-    Steel: 185
+    Steel: 240
 
 - type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
   id: ContrabandDetectorCircuitboard
   result: ContrabandDetectorCircuitboard
   completetime: 4
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxShotgunHighCaliber
+  result: MagazineBoxShotgunHighCaliber
+  materials:
+    Steel: 480
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxShotgunSlugHighCaliber
+  result: MagazineBoxShotgunSlugHighCaliber
+  materials:
+    Steel: 480
+    Plastic: 160
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxShotgunIncendiaryHighCaliber
+  result: MagazineBoxShotgunIncendiaryHighCaliber
+  materials:
+    Steel: 160
+    Plastic: 320
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxShotgunUraniumHighCaliber
+  result: MagazineBoxShotgunUraniumHighCaliber
+  materials:
+    Plastic: 640
+    Uranium: 480
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxShotgunBeanbagHighCaliber
+  result: MagazineBoxShotgunBeanbagHighCaliber
+  materials:
+    Steel: 320
+    Plastic: 240
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxShotgunPracticeHighCaliber
+  result: MagazineBoxShotgunPracticeHighCaliber
+  materials:
+    Steel: 160
