@@ -137,7 +137,7 @@
   name: emergency medipen
   parent: ChemicalMedipen
   id: EmergencyMedipen
-  description: A rapid and safe way to stabilize patients in critical condition for personnel without advanced medical knowledge.
+  description: A rapid and safe way to heal minor damage, stop bleeding, and stabilize patients for personnel without advanced medical knowledge. # goobstation
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi
@@ -151,11 +151,13 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 15
+        maxVol: 20 # goobstation
         reagents:
-        - ReagentId: Atropine # Goobstation
+        - ReagentId: Tirimol # Goobstation
           Quantity: 10
         - ReagentId: Ibuprofen # Goobstation
+          Quantity: 5
+        - ReagentId: Omnizine # Goobstation
           Quantity: 5
   - type: Tag
     tags:
@@ -192,7 +194,7 @@
   name: brute auto-injector
   parent: ChemicalMedipen
   id: BruteAutoInjector
-  description: A rapid dose of bicaridine and tranexamic acid, intended for combat applications.
+  description: A rapid dose of bicaridine, salicylic acid, and tranexamic acid, intended for combat applications. Usage of multiple highly recommended against. # goobstation
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi
@@ -213,8 +215,10 @@
       pen:
         maxVol: 20
         reagents:
-        - ReagentId: Bicaridine
-          Quantity: 15
+        - ReagentId: SalicylicAcid # goobstation
+          Quantity: 10
+        - ReagentId: Bicaridine # goobstation
+          Quantity: 5
         - ReagentId: TranexamicAcid
           Quantity: 5
   - type: Tag
@@ -224,7 +228,7 @@
   name: burn auto-injector
   parent: ChemicalMedipen
   id: BurnAutoInjector
-  description: A rapid dose of oxandrolone and leporazine, intended for combat applications.
+  description: A rapid dose of oxandrolone and leporazine, intended for combat applications. # goobstation
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi
@@ -320,7 +324,7 @@
   name: pyrazine auto-injector
   parent: ChemicalMedipen
   id: PyraAutoInjector
-  description: A rapid dose of pyrazine and oxandrolone, intended for combat applications.
+  description: A rapid dose of pyrazine and oxandrolone, intended for combat applications. # goobstation
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi
@@ -381,10 +385,10 @@
     tags: []
 
 - type: entity
-  name: space medipen
+  name: environmental stabilization medipen # goobstation
   parent: ChemicalMedipen
   id: SpaceMedipen
-  description: Contains a mix of chemicals that protect you from the deadly effects of space.
+  description: Contains a mix of chemicals that will temporarily protect you from low pressure environments, and stabilizes your body temperature. # goobstation
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi
@@ -491,10 +495,10 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 30
+        maxVol: 35 # goobstation
         reagents:
         - ReagentId: Omnizine
-          Quantity: 25
+          Quantity: 30 # goobstation
         - ReagentId: TranexamicAcid
           Quantity: 5
   - type: Hypospray
