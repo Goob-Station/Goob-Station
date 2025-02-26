@@ -5606,3 +5606,9 @@ Entries:
       message: Lollypop textures redone. (This is because of you, DeusMiles)
   id: 645
   time: '2025-02-26T03:20:56.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Remove
+      message: Gate is dead, and I have killed it.
+  id: 646
+  time: '2025-02-26T03:21:57.0000000+00:00'
