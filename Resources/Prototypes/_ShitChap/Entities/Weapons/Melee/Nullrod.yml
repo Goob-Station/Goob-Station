@@ -1,7 +1,7 @@
 - type: entity
   name: Null Rod
   parent: BaseItem
-  id: Nullrod ##add spell block
+  id: Nullrod
   description: The old classic. Does nothing special, really.
   components:
   - type: Sprite
@@ -18,6 +18,10 @@
         Holy: 20
     soundHit:
       collection: MetalThud
+  - type: Reflect #Holy Aura :^)
+    reflectProb: 1
+    reflects:
+      - Magic
   - type: DisarmMalus
     malus: 0
   - type: Nullrod
@@ -74,6 +78,10 @@
     leech:
       groups:
         Brute: -10
+  - type: Reflect #Holy Aura :^)
+    reflectProb: 0.5
+    reflects:
+      - Magic
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-inanimate
     weight: 0.05 # 5,000 times less likely than 1 regular animal
@@ -114,14 +122,15 @@
         Holy: 30
         Blunt: 1
   - type: Reflect #Holy Aura :^)
-    reflectProb: .7
-    spread: 90
+    reflectProb: 1
+    reflects:
+      - Magic
   - type: Prayable
     bibleUserOnly: true
   - type: Wieldable
   - type: SpeedModifiedOnWield #HOLY.. AURA!
-    walkModifier: 1.10
-    sprintModifier: 1.10
+    walkModifier: 1.15
+    sprintModifier: 1.15
   - type: DisarmMalus
     malus: 0
   - type: ReactionMixer
@@ -149,10 +158,8 @@
     sprite: _ShitChap/Objects/Weapons/Melee/godhand.rsi
     state: icon
   - type: MeleeWeapon
-    angle: 0
-    wideAnimationRotation: 180
-    attackRate: 0.5
-    heavyStaminaCost: 20
+    canWideSwing: false
+    attackRate: 0.7
     damage:
       types:
         Heat: 15
@@ -162,9 +169,10 @@
       path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
   - type: IgniteOnMeleeHit
     fireStacks: 1
-  - type: Reflect #He needs it.
-    reflectProb: .7
-    spread: 90
+  - type: Reflect #Only blocks magic projectiles
+    reflectProb: 0.9
+    reflects:
+      - Magic
   - type: Cautery # Shitmed
     speed: 0.3
   - type: KnockdownOnHit
@@ -182,4 +190,3 @@
   - type: Tag
     tags:
     - GodHand
-##add spell block
