@@ -89,10 +89,10 @@
     - Alive
     damage:
       types:
-        Poison: -0.1
+        Poison: -0.5
       groups:
-        Brute: -0.1
-        Burn: -0.1
+        Brute: -0.5
+        Burn: -0.5
   - type: NightVision
     color: "#008080"
     activateSound: null
