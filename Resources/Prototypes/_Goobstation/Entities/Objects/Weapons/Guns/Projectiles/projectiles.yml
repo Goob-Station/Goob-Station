@@ -13,7 +13,8 @@
   - type: Projectile
     damage:
       types:
-        Heat: 15
+        Poison: 15
+        Ion: 20
   - type: TimedDespawn
     lifetime: 0.4
   - type: Ammo
@@ -33,6 +34,8 @@
   - type: KnockdownOnCollide
     behavior: DropIfStanding
   - type: BlurOnCollide
+  - type: StaminaDamageOnCollide
+    damage: 30
 
 - type: entity
   id: BulletPlasmaCutter

@@ -100,7 +100,7 @@
   icon: { sprite:  /Textures/_Goobstation/Objects/Weapons/Guns/Battery/miniature_ebow.rsi, state: icon }
   productEntity: MiniatureEnergyCrossbow
   cost:
-    Telecrystal: 33
+    Telecrystal: 50
   categories:
   - UplinkWeaponry
   conditions:
