@@ -519,7 +519,10 @@ public sealed class PullingSystem : EntitySystem
             RaiseLocalEvent(pullableUid, message);
         }
 
-        _alertsSystem.ClearAlert(pullableUid, pullableComp.PulledAlert);
+        if (!HasComp<ActivePullerComponent>(pullableUid) && pullableComp.GrabStage == GrabStage.No)
+        {
+            _alertsSystem.ClearAlert(pullableUid, pullableComp.PulledAlert);
+        }
     }
 
     public bool IsPulled(EntityUid uid, PullableComponent? component = null)
