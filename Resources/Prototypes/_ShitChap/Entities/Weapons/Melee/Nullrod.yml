@@ -92,7 +92,7 @@
     sprite: _ShitChap/Objects/Weapons/Melee/rosary.rsi
     state: icon
   - type: UseDelay
-    delay: 30.0
+    delay: 5.0
   - type: Bible
     failChance: 0
     damage:
