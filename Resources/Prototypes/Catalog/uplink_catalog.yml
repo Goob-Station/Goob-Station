@@ -143,7 +143,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/SMGs/c20r.rsi, state: icon }
   productEntity: WeaponSubMachineGunC20r #Goob unbundle update
   cost:
-    Telecrystal: 50 # goob unbunde update
+    Telecrystal: 60 # goob unbunde update
   categories:
   - UplinkWeaponry
 
