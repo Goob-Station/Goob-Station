@@ -3,12 +3,14 @@ using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Interaction;
 using Content.Shared.Storage;
 using Robust.Shared.Prototypes;
+using Content.Shared.Tag;
 
 namespace Content.Server._Goobstation.Religion.Nullrod;
 
 public sealed class NullrodTransformSystem : EntitySystem
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly TagSystem _tagSystem = default!;
 
 
     public override void Initialize()
@@ -23,7 +25,7 @@ public sealed class NullrodTransformSystem : EntitySystem
 
         if (args.Handled
             || HasComp<StorageComponent>(args.Target) // if it's a storage component like a bag, we ignore usage so it can be stored.
-            || !HasComp<NullrodComponent>(args.Used) //Checks used entity for the component we need.
+            || !_tagSystem.HasTag(args.Used, "Nullrod") //Checks used entity for the tag we need.
             )
                 return;
 

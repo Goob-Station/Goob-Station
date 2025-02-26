@@ -57,8 +57,8 @@
     attackRate: 0.75
     damage:
       types:
-        Slash: 20
-        Holy: 20
+        Slash: 10
+        Holy: 30
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -74,6 +74,7 @@
     boost:
       types:
         Holy: 30
+        Slash: 5
   - type: LeechOnMarker
     leech:
       groups:
@@ -119,7 +120,7 @@
       path: /Audio/Effects/hallelujah.ogg
     damage:
       types:
-        Holy: 30
+        Holy: 25
         Blunt: 1
   - type: InjectOnHit
     reagents:
@@ -167,7 +168,7 @@
     attackRate: 0.7
     damage:
       types:
-        Heat: 15
+        Heat: 7.5
         Slash: 3
         Holy: 50
     soundHit:
@@ -177,8 +178,8 @@
   - type: InjectOnHit
     reagents:
     - ReagentId: MuteToxin ##HERETIC BE GONE
-      Quantity: 5
-    limit: 10
+      Quantity: 2.5
+    limit: 5
   - type: KnockdownOnHit
     duration: 0.25
   - type: Reflect #Only blocks magic projectiles

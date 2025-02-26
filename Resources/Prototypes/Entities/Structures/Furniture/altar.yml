@@ -83,7 +83,6 @@
     energy: 1
     color: "#fbb1b1"
   - type: AltarSource
-    interactProto: Nullrod
     rodProto: GodHand
 
 - type: entity
@@ -129,7 +128,6 @@
     energy: 1
     color: "#fbceb1"
   - type: AltarSource
-    interactProto: Nullrod
     rodProto: Rosary
 
 - type: entity
@@ -401,7 +399,6 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: AltarSource
-    interactProto: Nullrod
     rodProto: HolyClaymore
   - type: PointLight
     radius: 1.5

@@ -8,13 +8,6 @@ namespace Content.Server._Goobstation.Religion.Nullrod
     {
 
         /// <summary>
-        /// Which prototype to check for.
-        /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
-        [DataField("interactProto", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
-        public string InteractProto = "Nullrod";
-
-        /// <summary>
         /// Which prototype to create.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
