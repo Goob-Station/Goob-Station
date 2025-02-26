@@ -41,8 +41,6 @@
     cost: 750
   - id: BorgModulePKA
     cost: 750
-  - id: BorgModulePKAPistol
-    cost: 750
   - id: SurvivalMedipen
     cost: 800
   - id: Fulton
