@@ -1,4 +1,40 @@
 - type: entity
+  id: CrateArmoryLecter
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
+  name: Lecter crate
+  description: Contains two high-powered, fully automatic rifles with four mags. Requires Armory access to open.
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponRifleLecter
+        amount: 2
+      - id: MagazineRifle
+        amount: 4
+
+- type: entity
+  id: CrateArmoryDrozd
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
+  name: Drozd crate
+  description: Contains two drozd burst SMGs with four mags. Requires Armory access to open.
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponSubMachineGunDrozd
+        amount: 2
+      - id: MagazinePistolSubMachineGun
+        amount: 4
+
+- type: entity
+  id: CrateArmoryHardsuit
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
+  name: Hardsuit crate
+  description: Contains a single standard issue security hardsuit. Requires Armory access to open.
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterHardsuitSecurity
+      amount: 1
+
   id: CrateArmoryCombatHardsuit
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
   name: Combat hardsuit crate
