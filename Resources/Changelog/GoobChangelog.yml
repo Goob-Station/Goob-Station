@@ -5540,3 +5540,9 @@ Entries:
       message: You can buy admin abuse tokens now
   id: 638
   time: '2025-02-25T06:49:11.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: Fixed infinite zombie mice bug
+  id: 639
+  time: '2025-02-26T02:22:17.0000000+00:00'
