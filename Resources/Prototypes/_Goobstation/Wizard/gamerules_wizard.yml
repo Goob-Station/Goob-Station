@@ -118,7 +118,25 @@
   id: SleepersOnWizardDeath
   components:
   - type: RuleOnWizardDeathRule
-    rule: SleeperAgents
+    rule: SleeperAgentsWizard
+
+- type: entity
+  parent: BaseTraitorRule
+  id: SleeperAgentsWizard
+  components:
+  - type: StationEvent
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ TraitorSleeper ]
+      fallbackRoles: [ Traitor ]
+      min: 4
+      max: 6
+      playerRatio: 10
+      blacklist:
+        components:
+        - AntagImmune
+      mindRoles:
+      - MindRoleTraitorSleeper
 
 - type: gamePreset
   id: Wizard
