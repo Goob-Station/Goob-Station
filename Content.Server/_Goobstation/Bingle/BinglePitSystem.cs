@@ -185,14 +185,21 @@ public sealed class BinglePitSystem : EntitySystem
         var query = AllEntityQuery<BinglePitComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
+            // neares beacon
+            var location = "Unknown";
             var mapCoords = _transform.ToMapCoordinates(Transform(uid).Coordinates);
-            if (!_navMap.TryGetNearestBeacon(mapCoords, out var beacon, out _))
-                continue;
+            if (_navMap.TryGetNearestBeacon(mapCoords, out var beacon, out _))
+                location = beacon?.Comp?.Text!;
 
-            //TODO localisation
-            ev.AddLine("The Binglepit near " + beacon?.Comp?.Text!  + " grew to level " + comp.Level +
-                       " and collected " + (comp.BinglePoints + (comp.MinionsMade * comp.SpawnNewAt)*comp.Level) + " Bingle points");
+            var points = comp.BinglePoints + (comp.MinionsMade * comp.SpawnNewAt) * comp.Level;
+
+            ev.AddLine(Loc.GetString("binge-pit-end-of-round",
+                ("location", location),
+                ("level", comp.Level),
+                ("points", points)));
 
         }
+
     }
+
 }

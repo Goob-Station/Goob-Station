@@ -97,6 +97,9 @@
     color: "#008080"
     activateSound: null
     deactivateSound: null
+  - type: Prying
+    pryPowered: true
+  - type: FlashImmunity
 
 - type: entity
   id: MobBinglePrime
