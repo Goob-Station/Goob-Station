@@ -110,23 +110,13 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
     {
         scheduler.PossibleEvents.Clear();
 
-        if (scheduler.ScheduledGameRules == default!)
-        {
-            Log.Error("ScheduledGameRules was default.");
-            return;
-        }
-
         if(!_event.TryBuildLimitedEvents(scheduler.ScheduledGameRules, out var possibleEvents))
-        {
-            Log.Error("Could not find any events to select from.");
             return;
-        }
 
         foreach (var entry in possibleEvents)
         {
             var proto = entry.Key;
             var stationEvent = entry.Value;
-            Logger.Debug(proto.ID);
 
             if (proto.HasComponent<DynamicRulesetComponent>()) // Block john shitcode moment
                 continue;
