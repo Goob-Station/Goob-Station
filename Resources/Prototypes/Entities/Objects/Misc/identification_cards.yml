@@ -814,15 +814,7 @@
     jobIcon: JobIconAdmin
   - type: Access
     groups:
-    - AllAccess
-    tags:
-    - CentralCommand
-    - NuclearOperative
-    - SyndicateAgent
-    - Wizard
-    # Goobstation
-    - NanotrasenRepresentative
-    - BlueshieldOfficer
+    - AdminAccess # ShibaStation - Single group for ALL access types, no more adding more tags.
   - type: NanoChatCard # DeltaV
     notificationsMuted: true
   - type: Tag #  Ignore Chameleon tags

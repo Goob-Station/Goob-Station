@@ -16,12 +16,7 @@
     jobIcon: JobIconFuture
   - type: Access
     groups:
-    - AllAccess
-    tags:
-    - CentralCommand
-    - SyndicateAgent
-    - NanotrasenRepresentative
-    - BlueshieldOfficer
+    - AdminAccess # ShibaStation - Single group for ALL access types, no more adding more tags.
 
 # Helldiver
 - type: entity
