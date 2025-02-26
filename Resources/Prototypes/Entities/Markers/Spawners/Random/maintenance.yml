@@ -27,6 +27,7 @@
       - id: ClothingHeadHelmetBasic
       - id: ClothingShoeSlippersDuck
       - id: ClothingUnderSocksBee
+      - id: ClothingShoesFakeJordans
       - id: ClothingUnderSocksCoder
       - id: ClothingHeadHatSquid
       # Animal Masks
