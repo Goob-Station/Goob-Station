@@ -5,28 +5,28 @@
   categories: [ HideSpawnMenu ]
   # not abstract so that we can spawn an empty game director to just measure metrics
   components:
-    - type: GameDirector
-    - type: AnomalyMetric
-    - type: CombatMetric
-    - type: DoorMetric
-    - type: FoodMetric
-    - type: PuddleMetric
+  - type: GameDirector
+  - type: AnomalyMetric
+  - type: CombatMetric
+  - type: DoorMetric
+  - type: FoodMetric
+  - type: PuddleMetric
 
 - type: entity
   id: CombatDynamic
   parent: GameDirector
   categories: [ HideSpawnMenu ]
   components:
-    - type: GameRule
-      minPlayers: 25
-    - type: GameDirector
-      dualAntags: true
-      scheduledGameRules: !type:NestedSelector
-        tableId: BasicGameRulesTable
-      stories:
-        - RelaxedAttack
-        - ScienceAttack
-        - MajorCombat
+  - type: GameRule
+    minPlayers: 25
+  - type: GameDirector
+    dualAntags: true
+    scheduledGameRules: !type:NestedSelector
+      tableId: BasicGameRulesTable
+    stories:
+      - RelaxedAttack
+      - ScienceAttack
+      - MajorCombat
 
 - type: entity
   id: CalmDynamic
