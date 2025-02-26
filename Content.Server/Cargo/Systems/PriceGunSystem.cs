@@ -15,10 +15,19 @@ public sealed class PriceGunSystem : SharedPriceGunSystem
     [Dependency] private readonly CargoSystem _bountySystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
-    protected override bool GetPriceOrBounty(Entity<PriceGunComponent> entity, EntityUid target, EntityUid user)
+    protected override bool GetPriceOrBounty(Entity<PriceGunComponent> entity, EntityUid target, EntityUid user, bool cooldownPopup = false) // Reserve-CooldownPopup
     {
+        // Reserve-CooldownPopup-Start
         if (!TryComp(entity.Owner, out UseDelayComponent? useDelay) || _useDelay.IsDelayed((entity.Owner, useDelay)))
+        {
+            if (cooldownPopup)
+            {
+                _popupSystem.PopupEntity(Loc.GetString("price-gun-cooldown"), user, user);
+            }
             return false;
+        }
+        // Reserve-CooldownPopup-End
+
         // Check if we're scanning a bounty crate
         if (_bountySystem.IsBountyComplete(target, out _))
         {

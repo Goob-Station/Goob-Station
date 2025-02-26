@@ -62,6 +62,7 @@
     id: HoPPDA
     gloves: ClothingHandsGlovesHop
     ears: ClothingHeadsetAltCommand
+    eyes: ClothingEyesGlassesCommand # Reserve-CommandHUD
     belt: BoxFolderClipboard
   storage:
     back:

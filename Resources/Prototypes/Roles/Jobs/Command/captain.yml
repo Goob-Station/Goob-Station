@@ -35,7 +35,7 @@
   id: CaptainGear
   equipment:
     shoes: ClothingShoesBootsLaceup
-    eyes: ClothingEyesGlassesSunglasses
+    eyes: ClothingEyesGlassesCommand # Reserve-CommandHUD
     gloves: ClothingHandsGlovesCaptain
     id: CaptainPDA
     ears: ClothingHeadsetAltCommand

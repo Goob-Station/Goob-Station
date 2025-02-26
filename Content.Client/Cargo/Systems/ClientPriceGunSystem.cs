@@ -11,7 +11,7 @@ public sealed class ClientPriceGunSystem : SharedPriceGunSystem
 {
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
 
-    protected override bool GetPriceOrBounty(Entity<PriceGunComponent> entity, EntityUid target, EntityUid user)
+    protected override bool GetPriceOrBounty(Entity<PriceGunComponent> entity, EntityUid target, EntityUid user, bool cooldownPopup = false)
     {
         if (!TryComp(entity, out UseDelayComponent? useDelay) || _useDelay.IsDelayed((entity, useDelay)))
             return false;

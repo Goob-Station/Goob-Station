@@ -1,0 +1,60 @@
+- type: entity
+  parent: [ClothingEyesBase, ShowMedicalIcons, BaseCommandContraband]
+  id: ClothingEyesGlassesMedicalCommand
+  name: medical command glasses
+  description: Glasses that scans the humanoids in view and provides accurate data about their health status. Provides flash protection.
+  components:
+  - type: Sprite
+    sprite: _Reserve/Entities/Clothing/Eyes/CommandGlasses/CMOglasses.rsi
+  - type: Clothing
+    sprite: _Reserve/Entities/Clothing/Eyes/CommandGlasses/CMOglasses.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+
+- type: entity
+  parent: [ClothingEyesBase, BaseCommandContraband]
+  id: ClothingEyesGlassesWeldingCommand
+  name: meson command goggles
+  description: Glasses that provides eye protection while welding. Also provides flash protection.
+  components:
+  - type: Sprite
+    sprite: _Reserve/Entities/Clothing/Eyes/CommandGlasses/CEglasses.rsi
+  - type: Clothing
+    sprite: _Reserve/Entities/Clothing/Eyes/CommandGlasses/CEglasses.rsi
+  - type: EyeProtection
+  - type: FlashImmunity
+
+- type: entity
+  parent: [ClothingEyesBase, BaseCommandContraband]
+  id: ClothingEyesGlassesAppraisalCommand
+  name: appraisal command glasses
+  description: Glasses with ability to appraise objects and verify bounties like regular appraisal tool. Provides flash protection.
+  components:
+  - type: Sprite
+    sprite: _Reserve/Entities/Clothing/Eyes/CommandGlasses/QMglasses.rsi
+  - type: Clothing
+    sprite: _Reserve/Entities/Clothing/Eyes/CommandGlasses/QMglasses.rsi
+  - type: AppraisalHud
+  - type: EyeProtection
+  - type: FlashImmunity
+  - type: PriceGun
+  - type: UseDelay
+    delay: 3
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesDiagnosticCommand
+  name: diagnostic command glasses
+  description: Glasses that capable of analyzing the integrity and status of robotics and exosuits. Provides flash protection.
+  components:
+  - type: Sprite
+    sprite: _Reserve/Entities/Clothing/Eyes/CommandGlasses/RDglasses.rsi
+  - type: Clothing
+    sprite: _Reserve/Entities/Clothing/Eyes/CommandGlasses/RDglasses.rsi
+  - type: ShowHealthBars
+    damageContainers:
+    - Inorganic
+    - Silicon
+  - type: FlashImmunity
+
