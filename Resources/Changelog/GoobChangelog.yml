@@ -5618,3 +5618,11 @@ Entries:
       message: Templar armor to piety vend.
   id: 647
   time: '2025-02-26T03:23:16.0000000+00:00'
+- author: Moutardomiel
+  changes:
+    - type: Add
+      message: >-
+        Player controlled mouse now have an additional unique emote allowing
+        them to tweak.
+  id: 648
+  time: '2025-02-26T03:26:45.0000000+00:00'
