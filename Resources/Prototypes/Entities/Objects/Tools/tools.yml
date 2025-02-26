@@ -401,6 +401,7 @@
     - VentPassive
     - MixerGas
     - Radiator
+    - RadiatorBend
     - SignalValve
     - CanisterPort
     - FilterGas

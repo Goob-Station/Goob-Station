@@ -16,6 +16,9 @@
     rules: ghost-role-information-freeagent-rules
     raffle:
       settings: short
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 3600 # 1 hour
   - type: Sprite
     drawdepth: Mobs
     sprite: _Goobstation/Mobs/Bingle/bingle.rsi
@@ -94,7 +97,6 @@
     color: "#008080"
     activateSound: null
     deactivateSound: null
-  - type: Insulated
 
 - type: entity
   id: MobBinglePrime
