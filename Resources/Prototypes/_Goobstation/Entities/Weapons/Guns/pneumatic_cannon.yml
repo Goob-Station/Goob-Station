@@ -47,10 +47,10 @@
     count: 3
 
 - type: entity
-  name: weh! lollypop dispenser
+  name: mystery lollypop dispenser
   parent: LauncherLollypopRegenerating
-  id: LauncherLollypopRegeneratingWeh
-  description: Utilizes a in-built fabricator to generate Weh! lollypops from energy. Weh!
+  id: LauncherLollypopRegeneratingMystery
+  description: Utilizes a in-built fabricator to generate randomized lollypops from energy. Weh!
   suffix: Regenerating, DO NOT MAP
   components:
   - type: RechargeBasicEntityAmmo
@@ -58,7 +58,7 @@
     rechargeSound:
       path: /Audio/Items/pen_click.ogg
   - type: BasicEntityAmmoProvider
-    proto: FoodSnackLollypopWrappedWeh
+    proto: FoodSnackLollypopWrappedMystery
     capacity: 3
     count: 3
 

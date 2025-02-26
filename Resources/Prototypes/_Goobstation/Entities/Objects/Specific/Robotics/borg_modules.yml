@@ -48,6 +48,6 @@
     - LauncherLollypopRegenerating
     - LauncherLollypopRegeneratingTricordazine
     - LauncherLollypopRegeneratingWeh
-    - FoodSnackLollypopWrappedMystery # I <3 GAMBLING
+    - LauncherLollypopRegeneratingMystery # I <3 GAMBLING
   - type: BorgModuleIcon
     icon: { sprite: _Goobstation/Interface/Actions/actions_borg.rsi, state: lollypop-module }
