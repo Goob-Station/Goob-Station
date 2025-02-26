@@ -12,7 +12,6 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
-    fireRate: 1
     resetOnHandSelected: false
     soundGunshot:
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/heavy_shot_suppressed.ogg
