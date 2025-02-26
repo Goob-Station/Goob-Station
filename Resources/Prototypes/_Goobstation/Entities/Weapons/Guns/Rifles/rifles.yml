@@ -84,12 +84,11 @@
         map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
     availableModes:
-    - FullAuto
+    - SemiAuto
     - Burst
     selectedMode: Burst
-    burstFireRate: 16
+    burstFireRate: 15
     burstCooldown: 0.5
-    fireRate: 8
     projectileSpeed: 20
     soundGunshot:
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/bwuh.ogg
