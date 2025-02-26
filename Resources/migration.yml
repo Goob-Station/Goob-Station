@@ -736,3 +736,6 @@ LightTree06: LightTree
 VendingMachineRestockSalvageEquipment: null
 ComputerSalvageExpedition: ComputerShuttleMiningLavaland
 SalvageExpeditionsComputerCircuitboard: LavalandShuttleConsoleCircuitboard
+
+# 2025-02-26 # ShibaStation - Remove SalvageMagnet from stations and only keep SalvageLocator on Salvage Shuttle
+SalvageMagnet: null
