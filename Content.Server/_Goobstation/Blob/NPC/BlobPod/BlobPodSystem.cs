@@ -4,6 +4,7 @@ using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Server.Popups;
 using Content.Shared.ActionBlocker;
+using Content.Shared._EinsteinEngines.Abilities.Psionics;
 using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared._Goobstation.Blob.NPC.BlobPod;
 using Content.Shared.CombatMode;
@@ -64,6 +65,12 @@ public sealed class BlobPodSystem : SharedBlobPodSystem
         if (!HasComp<HumanoidAppearanceComponent>(args.Container.Owner) || !HasComp<ZombieBlobComponent>(args.Container.Owner))
             return;
 
+        if (!TryComp<ZombieBlobComponent>(args.Container.Owner, out var zombieComp))
+            return;
+
+        if (zombieComp.TelepathyAdded)
+            RemCompDeferred<TelepathyComponent>(args.Container.Owner);
+
         RemCompDeferred<ZombieBlobComponent>(args.Container.Owner);
     }
 
@@ -112,6 +119,7 @@ public sealed class BlobPodSystem : SharedBlobPodSystem
         ent.Comp.ZombifiedEntityUid = target;
 
         var zombieBlob = EnsureComp<ZombieBlobComponent>(target);
+        zombieBlob.TelepathyAdded = !EnsureComp<TelepathyComponent>(target, out _);
         zombieBlob.BlobPodUid = ent;
         if (HasComp<ActorComponent>(ent))
         {

@@ -65,9 +65,10 @@ public sealed partial class TelepathicChatSystem : EntitySystem
         string messageWrap;
         string adminMessageWrap;
 
-        messageWrap = Loc.GetString("chat-manager-send-telepathic-chat-wrap-message",
-            ("telepathicChannelName", Loc.GetString("chat-manager-telepathic-channel-name")), ("message", message));
+        messageWrap = Loc.GetString("chat-manager-send-telepathic-chat-wrap-message-psychognomy",
+            ("source", source), ("message", message));
 
+        // Goobstation - Telepathy extension
         adminMessageWrap = Loc.GetString("chat-manager-send-telepathic-chat-wrap-message-admin",
             ("source", source), ("message", message));
 

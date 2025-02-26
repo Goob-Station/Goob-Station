@@ -21,4 +21,7 @@ public sealed partial class ZombieBlobComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool CanShoot = false;
+
+    [DataField]
+    public bool TelepathyAdded = false;
 }
