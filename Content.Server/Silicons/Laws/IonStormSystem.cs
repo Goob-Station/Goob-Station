@@ -236,7 +236,7 @@ public sealed class IonStormSystem : EntitySystem
         };
 
         // message logic!!!
-        return _robustRandom.Next(0, 40) switch # Goobstation
+        return _robustRandom.Next(0, 40) switch // Goobstation
         {
             0  => Loc.GetString("ion-storm-law-on-station", ("joined", joined), ("subjects", triple)),
             1  => Loc.GetString("ion-storm-law-no-shuttle", ("joined", joined), ("subjects", triple)),
