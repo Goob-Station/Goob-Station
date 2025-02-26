@@ -131,22 +131,22 @@
 - type: gamePreset
   id: CalmDynamic
   alias:
-  - calm
-  - dynamic
-  - calmdynamic
+    - calm
+    - dynamic
+    - calmdynamic
   name: calm-title
   description: calm-description
   showInVote: false
   rules:
-  - CalmDynamic
+    - CalmDynamic
 
 - type: gamePreset
   id: CombatDynamic
   alias:
-  - combat
-  - combatdynamic
+    - combat
+    - combatdynamic
   name: combat-title
   description: combat-description
   showInVote: false
   rules:
-  - CombatDynamic
+    - CombatDynamic

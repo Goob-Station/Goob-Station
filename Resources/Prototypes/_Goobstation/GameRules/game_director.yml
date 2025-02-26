@@ -33,10 +33,10 @@
   parent: GameDirector
   categories: [ HideSpawnMenu ]
   components:
-    - type: GameDirector
-      stories:
-        - Relaxed
-        - Science
+  - type: GameDirector
+    stories:
+      - Relaxed
+      - Science
 
 - type: story
   id: Relaxed
