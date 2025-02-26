@@ -5560,3 +5560,9 @@ Entries:
       message: 250 starting points for blob.
   id: 641
   time: '2025-02-26T02:30:53.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Tweak
+      message: Every station now has 2x times more Salvage specialist roles!
+  id: 642
+  time: '2025-02-26T03:17:16.0000000+00:00'
