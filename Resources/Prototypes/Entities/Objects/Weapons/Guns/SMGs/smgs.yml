@@ -103,7 +103,7 @@
 #  - type: GunWieldBonus
 #    minAngle: -19
 #    maxAngle: -16
-#  - type: Gun
+  - type: Gun
 #    minAngle: 21 # Base SMG already has minAngle: 2 maxAngle: 16
 #    maxAngle: 32 # Goob - one-handed C20R - end
     shotsPerBurst: 5
