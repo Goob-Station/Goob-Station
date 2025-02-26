@@ -128,7 +128,7 @@
   showInVote: false
   rules:
     - Wizard
-    - EndRoundOnWizardDeath
+    # - EndRoundOnWizardDeath # nuh uh
     - BasicStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
