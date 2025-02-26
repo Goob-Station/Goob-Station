@@ -13,8 +13,7 @@
   - type: Projectile
     damage:
       types:
-        Poison: 15
-        Ion: 20
+        Ion: 25
   - type: TimedDespawn
     lifetime: 0.4
   - type: Ammo
@@ -31,11 +30,22 @@
         hard: false
         mask:
         - Opaque
-  - type: KnockdownOnCollide
-    behavior: DropIfStanding
   - type: BlurOnCollide
   - type: StaminaDamageOnCollide
     damage: 30
+  - type: EmbeddableProjectile
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        maxVol: 1
+        reagents:
+        - ReagentId: Tazinide
+          Quantity: 1
+  - type: SolutionInjectOnEmbed
+    transferAmount: 1
+    solution: ammo
+  - type: SolutionTransfer
+    maxTransferAmount: 1
 
 - type: entity
   id: BulletPlasmaCutter
