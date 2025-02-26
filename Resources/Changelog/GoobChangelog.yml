@@ -5582,3 +5582,27 @@ Entries:
         soul for a soul, as they say.
   id: 644
   time: '2025-02-26T03:19:22.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: >-
+        Added a new syndicate item for clowns, the syndicate joy & whimsy
+        bundle.
+    - type: Add
+      message: >-
+        Added the lollychop, a deadly syndicate weapon and a comically large
+        lollypop
+    - type: Add
+      message: Added a silly propeller hat. Have fun!
+    - type: Add
+      message: >-
+        Added the words "Silly", "Tider", "Loser", "Greytide", and "Going" to
+        the abductor speech whitelist.
+    - type: Add
+      message: >-
+        Abductors now get a bowl of candy on their ship, for exceptionally good
+        inferior lifeforms.
+    - type: Tweak
+      message: Lollypop textures redone. (This is because of you, DeusMiles)
+  id: 645
+  time: '2025-02-26T03:20:56.0000000+00:00'
