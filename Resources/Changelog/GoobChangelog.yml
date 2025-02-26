@@ -5566,3 +5566,9 @@ Entries:
       message: Every station now has 2x times more Salvage specialist roles!
   id: 642
   time: '2025-02-26T03:17:16.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: removed insulation from bingle
+  id: 643
+  time: '2025-02-26T03:17:41.0000000+00:00'
