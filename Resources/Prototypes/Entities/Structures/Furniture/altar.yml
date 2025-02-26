@@ -78,6 +78,10 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: chaos
+  - type: PointLight
+    radius: 1.5
+    energy: 1
+    color: "#fbb1b1"
   - type: AltarSource
     interactProto: Nullrod
     rodProto: GodHand
@@ -124,6 +128,9 @@
     radius: 1.5
     energy: 1
     color: "#fbceb1"
+  - type: AltarSource
+    interactProto: Nullrod
+    rodProto: Rosary
 
 - type: entity
   id: AltarSatana
@@ -393,6 +400,9 @@
             max: 5
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: AltarSource
+    interactProto: Nullrod
+    rodProto: HolyClaymore
   - type: PointLight
     radius: 1.5
     energy: 1

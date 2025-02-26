@@ -20,6 +20,7 @@
       collection: MetalThud
   - type: DisarmMalus
     malus: 0
+  - type: Nullrod
   - type: Tag
     tags:
     - Nullrod

@@ -14,31 +14,24 @@ public sealed class NullrodTransformSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<AltarSourceComponent, BeforeRangedInteractEvent>(OnBeforeInteract);
+        SubscribeLocalEvent<AltarSourceComponent, InteractUsingEvent>(OnInteractUsing);
     }
 
-    private void OnBeforeInteract(EntityUid uid, AltarSourceComponent component, BeforeRangedInteractEvent args)
+    private void OnInteractUsing(EntityUid uid, AltarSourceComponent component, InteractUsingEvent args)
     {
 
 
         if (args.Handled
-            || !args.CanReach // prevent placing out of range
-            || HasComp<StorageComponent>(args.Target) // if it's a storage component like a bag, we ignore usage so it can be stored
-            || !TryComp<MetaDataComponent>(uid, out var metaData) //Grabs UID metadata
+            || HasComp<StorageComponent>(args.Target) // if it's a storage component like a bag, we ignore usage so it can be stored.
+            || !HasComp<NullrodComponent>(args.Used) //Checks used entity for the component we need.
             )
-
                 return;
 
-                var proto = metaData.EntityPrototype;
 
-                if (proto != null && proto.ID == component.InteractProto) { //Checks whether interacting object is as assigned in AltarSource YML
+                var nullrodUid = Spawn(component.RodProto, args.ClickLocation.SnapToGrid(EntityManager));
+                var xform = Transform(nullrodUid); //Spawns entity assigned in RodProto.
 
-                    var nullrodUid = EntityManager.SpawnEntity(component.RodProto, args.ClickLocation.SnapToGrid(EntityManager));
-                    var xform = Transform(nullrodUid); //Spawns entity assigned in RodProto
-                    //QueueDel(uid);
-                }
-
-
-
+                QueueDel(args.Used); //deletes old entity.
+                args.Handled = true;
     }
 }
