@@ -33,3 +33,63 @@
     - PinpointerSyndicateNuclearUniversal
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-operative-module }
+
+- type: entity
+  id: BorgModulePKA
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  name: proto kinetic accelerator cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: cargo
+    - state: icon-pka
+  - type: ItemBorgModule
+    items:
+    - WeaponProtoKineticAccelerator
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: pka-module }
+
+- type: entity
+  id: BorgModulePKAShotgun
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  name: proto kinetic shotgun cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: cargo
+    - state: icon-pka-shotgun
+  - type: ItemBorgModule
+    items:
+    - WeaponProtoKineticShotgun
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: pka-shotgun-module }
+
+- type: entity
+  id: BorgModulePKARepeater
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  name: proto kinetic repeater cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: cargo
+    - state: icon-pka-repeater
+  - type: ItemBorgModule
+    items:
+    - WeaponProtoKineticRepeater
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: pka-repeater-module }
+
+- type: entity
+  id: BorgModulePKAPistol
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  name: proto kinetic pistol cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: cargo
+    - state: icon-pka-pistol
+  - type: ItemBorgModule
+    items:
+    - WeaponProtoKineticPistol
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: pka-pistol-module }

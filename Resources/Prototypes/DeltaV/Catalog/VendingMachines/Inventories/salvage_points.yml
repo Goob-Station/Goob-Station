@@ -39,6 +39,10 @@
     cost: 750
   - id: WeaponProtoKineticAccelerator
     cost: 750
+  - id: BorgModulePKA
+    cost: 750
+  - id: BorgModulePKAPistol
+    cost: 750
   - id: SurvivalMedipen
     cost: 800
   - id: Fulton
@@ -67,6 +71,10 @@
   - id: WeaponProtoKineticRepeater
     cost: 1250
   - id: WeaponProtoKineticPistol
+    cost: 1250
+  - id: BorgModulePKAShotgun
+    cost: 1250
+  - id: BorgModulePKARepeater
     cost: 1250
   - id: ClothingBackpackDuffelSalvageConscription
     cost: 1250

@@ -47,6 +47,18 @@
             "name":"mining-module"
         },
         {
+            "name":"pka-module"
+        },
+        {
+            "name":"pka-pistol-module"
+        },
+        {
+            "name":"pka-repeater-module"
+        },
+        {
+            "name":"pka-shotgun-module"
+        },
+        {
             "name":"light-replacer-module"
         },
         {
