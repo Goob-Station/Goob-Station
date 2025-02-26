@@ -1,6 +1,6 @@
 - type: entity
   id: BulletMic
-  name: MIC bolt
+  name: energy crossbow bolt
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   description: Not too bad, but you still don't want to get hit by it.
@@ -13,7 +13,7 @@
   - type: Projectile
     damage:
       types:
-        Ion: 25
+        Ion: 10
   - type: TimedDespawn
     lifetime: 0.4
   - type: Ammo
@@ -33,19 +33,11 @@
   - type: BlurOnCollide
   - type: StaminaDamageOnCollide
     damage: 30
-  - type: EmbeddableProjectile
-  - type: SolutionContainerManager
-    solutions:
-      ammo:
-        maxVol: 1
-        reagents:
-        - ReagentId: Tazinide
-          Quantity: 1
-  - type: SolutionInjectOnEmbed
-    transferAmount: 1
-    solution: ammo
-  - type: SolutionTransfer
-    maxTransferAmount: 1
+  - type: Electrified
+    shockDamage: 1 # It actually does 6 damage and I have no idea why
+    shockTime: 0.5
+    requirePower: false
+    ignoreInsulation: true
 
 - type: entity
   id: BulletPlasmaCutter
