@@ -218,7 +218,7 @@
   - type: ItemBorgModule
     items:
     - MiningDrill
-    - Shovel
+    # - Shovel # Goobstation
     - MineralScannerUnpowered
     - OreBag
     - Crowbar
