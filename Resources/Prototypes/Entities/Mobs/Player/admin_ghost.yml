@@ -31,11 +31,7 @@
     thermalVisibility: false # WD EDIT
   - type: Access
     groups:
-    - AllAccess
-    tags:
-    - NuclearOperative
-    - SyndicateAgent
-    - CentralCommand
+    - AdminAccess # ShibaStation - Single group for ALL access types, no more adding more tags.
   - type: UserInterface
     interfaces:
       enum.SolarControlConsoleUiKey.Key:
