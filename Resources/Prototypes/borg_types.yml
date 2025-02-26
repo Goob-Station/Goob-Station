@@ -83,7 +83,7 @@
   - BorgModuleGrapplingGun
   - BorgModuleMining
   - BorgModuleAppraisal
-  - BorgModulePKAPistol
+  - BorgModulePKAPistol # Lavaland
 
   radioChannels:
   - Supply
