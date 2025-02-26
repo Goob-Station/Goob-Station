@@ -216,7 +216,8 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
             if (xform.MapID != map)
                 continue;
 
-            if( HasComp<LavalandStationComponent>(gridUid) || TryComp<BecomesStationComponent>(gridUid, out var comp))
+            if (HasComp<BecomesStationComponent>(gridUid) ||
+                HasComp<LavalandStationComponent>(gridUid))
                 return gridUid;
 
             var size = grid.LocalAABB.Size.LengthSquared();
