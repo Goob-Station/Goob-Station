@@ -9,6 +9,7 @@
       types:
         Blunt: 14
         Structural: 28
+        Ion: 7
   - type: GhostTakeoverAvailable
   - type: GhostRole
     name: ghost-role-information-bingle-name
@@ -59,6 +60,7 @@
       types:
         Blunt: 7
         Structural: 14 # breaks down the walls and airlocks in 10 hits
+        Ion: 5
     bluntStaminaDamageFactor: 2.0
   - type: MovementSpeedModifier
     baseWalkSpeed : 2 # same as slime
