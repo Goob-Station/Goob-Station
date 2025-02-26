@@ -33,3 +33,21 @@
     - PinpointerSyndicateNuclearUniversal
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-operative-module }
+
+- type: entity
+  id: BorgModuleLollipop
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  name: lollipop cyborg module
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: generic
+    - state: icon-lollypop
+  - type: ItemBorgModule
+    items:
+    - LauncherLollypopRegenerating
+    - LauncherLollypopRegeneratingTricordazine
+    - LauncherLollypopRegeneratingMystery # I <3 GAMBLING
+  - type: BorgModuleIcon
+    icon: { sprite: _Goobstation/Actions/actions_borg.rsi, state: lollypop-module }
