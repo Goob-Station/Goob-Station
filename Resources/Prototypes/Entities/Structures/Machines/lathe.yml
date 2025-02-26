@@ -253,8 +253,14 @@
       - MagazineBoxHighCaliber # Goobstation
       - MagazineMagnumEmpty # Goobstation
       - MagazineMagnum # Goobstation
-      - MagazineMagnumLeverRifleEmpty # Goobstation
-      - MagazineMagnumLeverRifle # Goobstation
+      - MagazineShotgunLeverRifleEmpty # Goobstation
+      - MagazineShotgunLeverRifle # Goobstation
+      - MagazineBoxShotgunHighCaliber # Goobstation
+      - MagazineBoxShotgunSlugHighCaliber # Goobstation
+      - MagazineBoxShotgunIncendiaryHighCaliber # Goobstation
+      - MagazineBoxShotgunUraniumHighCaliber # Goobstation
+      - MagazineBoxShotgunBeanbagHighCaliber # Goobstation
+      - MagazineBoxShotgunPracticeHighCaliber # Goobstation
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -658,6 +664,7 @@
     - PowerCageSmall # Goobstation - Powercell to exosuit fab
     dynamicRecipes:
     - ProximitySensor
+    - BorgModuleLollipop # Goobstation
     - BorgModuleAdvancedCleaning
     - BorgModuleAdvancedTool
     - BorgModuleGPS
@@ -888,9 +895,12 @@
       - SyringeGun # Goobstation
       - MagazineMagnumEmpty # Goobstation
       - MagazineMagnum # Goobstation
-      - MagazineMagnumLeverRifle # Goobstation
-      - MagazineMagnumLeverRifleEmpty # Goobstation
+      - MagazineShotgunLeverRifle # Goobstation
+      - MagazineShotgunLeverRifleEmpty # Goobstation
       - ContrabandDetectorCircuitboard # Goobstation
+      - MagazineBoxShotgunHighCaliber # Goobstation
+      - MagazineBoxShotgunSlugHighCaliber # Goobstation
+      - MagazineBoxShotgunPracticeHighCaliber # Goobstation
     dynamicRecipes:
       - BoxBeanbag
       - BoxShotgunIncendiary
@@ -920,6 +930,9 @@
       - MagazineRifleUranium
       - MagazineShotgunBeanbag
       - MagazineShotgunIncendiary
+      - MagazineBoxShotgunIncendiaryHighCaliber # Goobstation
+      - MagazineBoxShotgunUraniumHighCaliber # Goobstation
+      - MagazineBoxShotgunBeanbagHighCaliber # Goobstation
       - PortableRecharger
       - PowerCageHigh
       - PowerCageMedium
@@ -1018,6 +1031,9 @@
         - SpeedLoaderMagnumEmpty
         - MagazineMagnumEmpty # Goobstation
         - MagazineMagnum # Goobstation
+        - MagazineBoxShotgunHighCaliber # Goobstation
+        - MagazineBoxShotgunSlugHighCaliber # Goobstation
+        - MagazineBoxShotgunPracticeHighCaliber # Goobstation
     - type: EmagLatheRecipes # Goobstation
       emagStaticRecipes:
       - MagazinePistolCaselessRifle # Goobstation
@@ -1027,6 +1043,9 @@
       - MagazineHighCaliberEmpty # Goobstation
       - MagazineHighCaliber # Goobstation
       - MagazineBoxHighCaliber # Goobstation
+      - MagazineBoxShotgunIncendiaryHighCaliber # Goobstation
+      - MagazineBoxShotgunUraniumHighCaliber # Goobstation
+      - MagazineBoxShotgunBeanbagHighCaliber # Goobstation
     - type: MaterialStorage
       whitelist:
         tags:
