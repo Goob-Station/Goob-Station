@@ -15,7 +15,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: Mining Shuttle
+      name: Lavaland Transport # ShibaStation - rename for clarity since we have returned the Salvage Shuttle
     - type: Transform
     - type: MapGrid
       chunks:
