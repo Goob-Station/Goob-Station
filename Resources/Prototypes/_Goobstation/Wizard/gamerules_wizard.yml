@@ -48,6 +48,15 @@
 
 - type: entity
   parent: BaseWizardRule
+  id: WizardMidround
+  components:
+  - type: StationEvent
+    earliestStart: 75
+    weight: 2
+    minimumPlayers: 30
+
+- type: entity
+  parent: BaseWizardRule
   id: WizardDynamic
   components:
   - type: DynamicRuleset

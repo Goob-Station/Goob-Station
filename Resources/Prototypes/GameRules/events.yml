@@ -43,6 +43,7 @@
     - id: LoneAbductorSpawn # Shitmed - Starlight Abductors
     - id: DuoAbductorSpawn # Shitmed - Starlight Abductors
     - id: BingleSpawn #Goobstation - Bingle
+    - id: WizardMidround # Goobstation - Wizard midround spawn
 
 - type: entity
   id: BaseStationEvent
