@@ -92,7 +92,7 @@ public sealed class DockingShuttleSystem : SharedDockingShuttleSystem
         });
     }
 
-    private void OnAddStation(EntityUid uid, DockingShuttleComponent component ,  ShuttleAddStationEvent args)
+    private void OnAddStation(EntityUid uid, DockingShuttleComponent component,  ShuttleAddStationEvent args)
     {
         component.Station = args.MapUid;
         component.Destinations.Add(new DockingDestination()
@@ -112,4 +112,4 @@ public sealed class ShuttleAddStationEvent : EntityEventArgs
         MapUid = mapUid;
         MapId = mapId;
     }
-};
+}
