@@ -40,7 +40,7 @@
   name: lollipop cyborg module
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Robotics/borgmodule.yml
+    sprite: _Goobstation/Objects/Specific/Robotics/borgmodule.rsi
     layers:
     - state: generic
     - state: icon-lollypop
