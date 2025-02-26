@@ -1,36 +1,32 @@
 - type: entity
-  id: CrateArmoryLecter
+  id: CrateArmoryCombatHardsuit
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
-  name: Lecter crate
-  description: Contains two high-powered, fully automatic rifles with four mags. Requires Armory access to open.
+  name: Combat hardsuit crate
+  description: Contains an advanced security hardsuit. Requires Armory access to open.
   components:
   - type: StorageFill
     contents:
-      - id: WeaponRifleLecter
-        amount: 2
-      - id: MagazineRifle
-        amount: 4
+      - id: ClothingOuterHardsuitCombatOfficer
+        amount: 1
 
 - type: entity
-  id: CrateArmoryDrozd
+  id: CrateArmoryCombatMedicalHardsuit
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
-  name: Drozd crate
-  description: Contains two drozd burst SMGs with four mags. Requires Armory access to open.
+  name: Combat medical hardsuit crate
+  description:  Contains an advanced medical security hardsuit, less defence but much less cumbersome. Requires Armory access to open.
   components:
   - type: StorageFill
     contents:
-      - id: WeaponSubMachineGunDrozd
-        amount: 2
-      - id: MagazinePistolSubMachineGun
-        amount: 4
+      - id: ClothingOuterHardsuitCombatMedical
+        amount: 1
 
 - type: entity
-  id: CrateArmoryHardsuit
+  id: CrateArmoryCombatRiotHardsuit
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
-  name: Hardsuit crate
-  description: Contains a single standard issue security hardsuit. Requires Armory access to open.
+  name: Riot hardsuit crate
+  description: Contains an advanced riot security hardsuit, very high defence but much also very cumbersome. Requires Armory access to open.
   components:
   - type: StorageFill
     contents:
-    - id: ClothingOuterHardsuitSecurity
-      amount: 1
+      - id: ClothingOuterHardsuitCombatRiot
+        amount: 1

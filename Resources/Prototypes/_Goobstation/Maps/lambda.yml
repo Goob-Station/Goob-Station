@@ -55,7 +55,7 @@
             Detective: [ 1, 1 ]
             #supply
             Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 3, 4 ]
+            SalvageSpecialist: [ 7, 7 ]
             CargoTechnician: [ 4, 6 ]
             #civillian
             Passenger: [ -1, -1 ]

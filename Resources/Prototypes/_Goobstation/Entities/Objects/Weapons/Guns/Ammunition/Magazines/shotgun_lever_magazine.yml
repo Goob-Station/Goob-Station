@@ -1,19 +1,19 @@
 # Empty mags
 - type: entity
-  id: BaseMagazineMagnumLeverRifle
-  name: "magazine (.45 rifle)"
+  id: BaseMagazineShotgunLeverRifle
+  name: "magazine (.75 caliber)"
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:
   - type: Tag
     tags:
-      - MagazineMagnumLeverRifle
+      - MagazineShotgunLeverRifle
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:
       tags:
-        - CartridgeMagnum
-    proto: CartridgeMagnum
+        - ShellShotgunHeavy
+    proto: ShellShotgunHighCaliber
     capacity: 8
   - type: Item
     size: Small
@@ -34,19 +34,19 @@
   - type: Appearance
 
 - type: entity
-  id: MagazineMagnumLeverRifle
-  name: "lever rifle magazine (.45)"
-  parent: BaseMagazineMagnumLeverRifle
+  id: MagazineShotgunLeverRifle
+  name: "lever rifle magazine (.75 caliber)"
+  parent: BaseMagazineShotgunLeverRifle
   components:
   - type: Tag
     tags:
-      - MagazineMagnumLeverRifle
+      - MagazineShotgunLeverRifle
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/lever_rifle_mags.rsi
 
 - type: entity
-  id: MagazineMagnumLeverRifleEmpty
-  parent: MagazineMagnumLeverRifle
+  id: MagazineShotgunLeverRifleEmpty
+  parent: MagazineShotgunLeverRifle
   suffix: Empty
   components:
   - type: BallisticAmmoProvider

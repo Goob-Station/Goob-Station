@@ -378,7 +378,7 @@
     unlistedNumber: true
     requiresPower: false
   - type: Holopad
-  - type: StationAiWhitelist  
+  - type: StationAiWhitelist
   - type: UserInterface
     interfaces:
         enum.HolopadUiKey.AiRequestWindow:
@@ -621,4 +621,8 @@
       rules: ghost-role-information-silicon-rules
       raffle:
         settings: default
+      requirements: # Goobstation - ghost roles requirements
+      - !type:RoleTimeRequirement
+        role: JobBorg
+        time: 3600 #1 hour
     - type: GhostTakeoverAvailable
