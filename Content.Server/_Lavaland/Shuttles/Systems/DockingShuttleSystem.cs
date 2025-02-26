@@ -97,7 +97,7 @@ public sealed class DockingShuttleSystem : SharedDockingShuttleSystem
         component.Station = args.MapUid;
         component.Destinations.Add(new DockingDestination()
         {
-            Name =""+ Name(args.MapUid)+" ID: "+args.MapId  ,
+            Name = Name(args.MapUid),
             Map = args.MapId
         });
     }

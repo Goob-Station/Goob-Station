@@ -189,10 +189,10 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
         {
             var targetUid = Transform(ent).MapUid;
 
-            if (targetUid== null)
+            if (targetUid == null)
                 return;
 
-            RaiseLocalEvent(shuttleUid.Value, new ShuttleAddStationEvent(targetUid.Value,targetMap),false);
+            RaiseLocalEvent(shuttleUid.Value, new ShuttleAddStationEvent(targetUid.Value, targetMap), false);
         }
 
         // Finally FTL
