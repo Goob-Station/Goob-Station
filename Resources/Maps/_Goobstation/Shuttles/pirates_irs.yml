@@ -21,7 +21,7 @@ tilemap:
 entities:
 - proto: ""
   entities:
-  #- uid: 1
+  # - uid: 1
   #  components:
   #  - type: MetaData
   #    name: Map Entity
@@ -33,7 +33,7 @@ entities:
   #  - type: MovedGrids
   #  - type: Broadphase
   #  - type: OccluderTree
-  - uid: 2
+  - uid: 1
     components:
     - type: MetaData
       name: IRSS-1984
