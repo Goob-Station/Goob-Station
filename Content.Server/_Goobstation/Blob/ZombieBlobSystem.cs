@@ -9,6 +9,7 @@ using Content.Server.NPC.Systems;
 using Content.Server.Speech.Components;
 using Content.Server.Temperature.Components;
 using Content.Shared.Atmos;
+using Content.Shared._EinsteinEngines.Abilities.Psionics;
 using Content.Shared._Goobstation.Blob;
 using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.Inventory;
@@ -224,6 +225,9 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
     {
         if (args.NewMobState == MobState.Dead)
         {
+            if (component.TelepathyAdded)
+                RemComp<TelepathyComponent>(uid);
+
             RemComp<ZombieBlobComponent>(uid);
         }
     }
