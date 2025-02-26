@@ -596,10 +596,11 @@
     - id: FoodSnackLollypopDylovene
       orGroup: LollypopMystery
     - id: FoodSnackLollypopWeh
+      prob: 0.35 # The other ones actually heal you so I don't want this one to be too common.
       orGroup: LollypopMystery
     - id: FoodSnackLollypopOmnizine
       orGroup: LollypopMystery
-      prob: 0.2
+      prob: 0.15 # Reduced slightly since I'm making the dispenser more common
 
     sound:
       path: /Audio/Effects/unwrap.ogg

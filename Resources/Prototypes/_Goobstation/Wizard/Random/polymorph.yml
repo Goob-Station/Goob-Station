@@ -19,6 +19,7 @@
     WabbajackXeno: 1
     WabbajackSpecies: 1
     WabbajackAnimal: 1
+    WabbajackSpecial: 0.05 # for high-impact transmutations, approximately 1/160 chance with 8 groups
 
 - type: weightedRandomEntity
   id: WabbajackMonkey
@@ -180,3 +181,9 @@
     MobSmallPurpleSnake: 0.5
     MobStickman: 1
     MobCreature: 1
+    MobBingle: 1
+
+- type: weightedRandomEntity
+  id: WabbajackSpecial
+  weights:
+    MobBinglePrime: 1
