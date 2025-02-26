@@ -15,7 +15,7 @@ public sealed partial class ReflectComponent : Component
     /// What we reflect.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("reflects")]
-    public ReflectType Reflects = ReflectType.Energy | ReflectType.NonEnergy | ReflectType.Magic;
+    public ReflectType Reflects = ReflectType.Energy | ReflectType.NonEnergy | ReflectType.Magic; //Goob change to allow Nullrod to reflect magic
 
     /// <summary>
     /// Select in which inventory slots it will reflect.
