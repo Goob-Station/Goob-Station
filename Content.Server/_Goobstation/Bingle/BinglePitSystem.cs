@@ -190,8 +190,8 @@ public sealed class BinglePitSystem : EntitySystem
                 continue;
 
             //TODO localisation
-            ev.AddLine("The Binglepit near " + beacon?.Comp?.Text!  + "survived grew to level: " + comp.Level +
-                       " and collected : " + (comp.BinglePoints + (comp.MinionsMade * comp.SpawnNewAt)*comp.Level) + " Bingle Points");
+            ev.AddLine("The Binglepit near " + beacon?.Comp?.Text!  + " grew to level " + comp.Level +
+                       " and collected " + (comp.BinglePoints + (comp.MinionsMade * comp.SpawnNewAt)*comp.Level) + " Bingle points");
 
         }
     }
