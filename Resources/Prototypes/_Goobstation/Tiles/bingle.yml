@@ -1,5 +1,5 @@
 - type: tile
-  id: Floorbingle
+  id: FloorBingle
   name: tiles-bingle-floor
   sprite: /Textures/_Goobstation/Tiles/binglefloortile.png
   variants: 4
@@ -29,7 +29,7 @@
   - type: FloorTile
     outputs:
     - Plating
-    - Floorbingle
+    - FloorBingle
   - type: Stack
     stackType: FloorTileBingle
 

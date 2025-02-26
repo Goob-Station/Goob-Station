@@ -57,3 +57,18 @@
   - type: Drain
     unitsPerSecond: 10
     unitsDestroyedPerSecond: 10
+  - type: TileSpawnAnomaly
+    entries:
+    - settings:
+        spawnOnPulse: true
+        spawnOnStabilityChanged: true
+        minAmount: 3
+        maxAmount: 7
+        maxRange: 5
+      floor: FloorBingle
+    - settings:
+        spawnOnSuperCritical: true
+        minAmount: 10
+        maxAmount: 30
+        maxRange: 10
+      floor: FloorBingle

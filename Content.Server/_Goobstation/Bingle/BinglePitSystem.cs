@@ -1,5 +1,5 @@
+using System.Linq;
 using System.Numerics;
-using Content.Server._Lavaland.Damage;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
@@ -19,6 +19,12 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Pinpointer;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Random;
+using Content.Shared.Maps;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Goobstation.Bingle;
 
@@ -34,6 +40,10 @@ public sealed class BinglePitSystem : EntitySystem
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] protected readonly IRobustRandom Random = default!;
+    [Dependency] private readonly ITileDefinitionManager _tiledef = default!;
+    [Dependency] private readonly TileSystem _tile = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -114,6 +124,7 @@ public sealed class BinglePitSystem : EntitySystem
     public void SpawnBingle(EntityUid uid, BinglePitComponent component)
     {
         Spawn(component.GhostRoleToSpawn, Transform(uid).Coordinates);
+        OnSpawnTile(uid,(int)component.Level*3, (int)component.Level, (int)component.Level*2);
 
         component.MinionsMade++;
         if (component.MinionsMade >= component.UpgradeMinionsAfter)
@@ -198,6 +209,52 @@ public sealed class BinglePitSystem : EntitySystem
                 ("level", comp.Level),
                 ("points", points)));
 
+        }
+
+    }
+
+    private void OnSpawnTile(EntityUid uid,int maxRange = 1, int minRange = 1, int amount = 1 , string floorTile = "FloorBingle")
+    {
+        if (!TryComp<MapGridComponent>(Transform(uid).GridUid, out var grid))
+            return;
+
+        var localpos = Transform(uid).Coordinates;
+        var tilerefs = _map.GetLocalTilesIntersecting(
+                uid,
+                grid,
+                new Box2(localpos.Position + new Vector2(-maxRange, -maxRange), localpos.Position + new Vector2(maxRange, maxRange)))
+            .ToList();
+
+        if (tilerefs.Count == 0)
+            return;
+
+        var physQuery = GetEntityQuery<PhysicsComponent>();
+        var resultList = new List<TileRef>();
+
+        while (resultList.Count < amount)
+        {
+            if (tilerefs.Count == 0)
+                break;
+
+            var tileref = Random.Pick(tilerefs);
+            var distance = MathF.Sqrt(MathF.Pow(tileref.X - localpos.X, 2) + MathF.Pow(tileref.Y - localpos.Y, 2));
+
+            //cut outer & inner circle
+            if (distance > maxRange || distance < minRange)
+            {
+                tilerefs.Remove(tileref);
+                continue;
+            }
+
+            resultList.Add(tileref);
+        }
+
+        if (!_tiledef.TryGetDefinition(floorTile,  out  var tile))
+            return;
+
+        foreach (var tileref in resultList)
+        {
+            _tile.ReplaceTile(tileref, (ContentTileDefinition) tile);
         }
 
     }
