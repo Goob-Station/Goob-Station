@@ -5572,3 +5572,13 @@ Entries:
       message: removed insulation from bingle
   id: 643
   time: '2025-02-26T03:17:41.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: The chester is BAAAACK
+    - type: Remove
+      message: >-
+        Spare medsec glasses and combat gloves removed from the BSO locker. A
+        soul for a soul, as they say.
+  id: 644
+  time: '2025-02-26T03:19:22.0000000+00:00'
