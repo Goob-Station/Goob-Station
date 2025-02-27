@@ -1,3 +1,14 @@
+# Base prototypes
+
+- type: latheRecipe
+  abstract: true
+  id: BaseMechPartRecipe
+  categories:
+  - Mech
+  completetime: 10
+
+# Recipes
+
 # Ripley
 - type: latheRecipe
   id: RipleyHarness
