@@ -250,8 +250,12 @@ public sealed partial class PolymorphSystem : EntitySystem
         var childXform = Transform(child);
         _transform.SetLocalRotation(child, targetTransformComp.LocalRotation, childXform);
 
-        if (_container.TryGetContainingContainer((uid, targetTransformComp, null), out var cont))
+        // Goob edit start
+        if (configuration.AttachToGridOrMap)
+            _transform.AttachToGridOrMap(child, childXform);
+        else if (_container.TryGetContainingContainer((uid, targetTransformComp, null), out var cont))
             _container.Insert(child, cont);
+        // Goob edit end
 
         //Transfers all damage from the original to the new one
         if (configuration.TransferDamage &&

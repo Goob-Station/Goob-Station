@@ -168,6 +168,13 @@ public sealed partial record PolymorphConfiguration
     /// </summary>
     [DataField]
     public bool ShowPopup = true;
+
+    /// <summary>
+    ///     Goobstation
+    ///     Whether to insert polymorphed entity into container or attach to grid or map.
+    /// </summary>
+    [DataField]
+    public bool AttachToGridOrMap;
 }
 
 public enum PolymorphInventoryChange : byte

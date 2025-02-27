@@ -10,6 +10,7 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Ghost;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
+using Robust.Server.GameStates;
 using Robust.Shared.Player;
 
 namespace Content.Server._Goobstation.Wizard.Systems;
@@ -18,9 +19,10 @@ public sealed class GhostVisibilitySystem : SharedGhostVisibilitySystem
 {
     [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private readonly PvsOverrideSystem _pvsOverride = default!;
     [Dependency] private readonly IAdminLogManager _log = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
 
     public override void Initialize()
     {
@@ -32,6 +34,8 @@ public sealed class GhostVisibilitySystem : SharedGhostVisibilitySystem
 
     private void OnRuleStarted(Entity<GhostsVisibleRuleComponent> ent, ref GameRuleStartedEvent args)
     {
+        _pvsOverride.AddGlobalOverride(ent);
+
         var entityQuery = EntityQueryEnumerator<GhostComponent, VisibilityComponent>();
         while (entityQuery.MoveNext(out var uid, out var ghost, out var vis))
         {
@@ -50,7 +54,7 @@ public sealed class GhostVisibilitySystem : SharedGhostVisibilitySystem
         if (GhostsVisible())
             return;
 
-        _gameTicker.AddGameRule(GameRule);
+        _gameTicker.StartGameRule(GameRule);
 
         var message = Loc.GetString("ghosts-summoned-message");
         var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
