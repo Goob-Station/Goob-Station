@@ -11,6 +11,12 @@
   artist: Wolfio
 
 - type: lobbyBackground
+  id: Eating_Bullets
+  background: /Textures/_ShibaStation/LobbyScreens/eating_bullets.webp
+  name: Eating Bullets
+  artist: TazerPones
+
+- type: lobbyBackground
   id: Shiba1
   background: /Textures/_ShibaStation/LobbyScreens/shiba1.webp
   name: AI Slop

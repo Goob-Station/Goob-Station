@@ -1,0 +1,21 @@
+- type: entity
+  parent: BaseItem
+  id: DerohPlush
+  name: Deroh Clone Jr. 
+  description: A real lady killer! Runs on Moonshine and PGGBs. 
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/deroh.rsi
+    state: icon
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_ShibaStation/Voice/Reptilian/reptilian_hiss2.ogg
