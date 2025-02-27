@@ -177,11 +177,11 @@
   - type: EnergyGun
     fireModes:
     - proto: BulletTemperatureCold
-      fireCost: 125
+      fireCost: 100
       name: cooling
       state: cooling
     - proto: BulletTemperatureHot
-      fireCost: 125
+      fireCost: 100
       name: heating
       state: heating
   - type: GenericVisualizer

@@ -82,7 +82,7 @@
   id: WeaponTemperatureGun
   result: WeaponTemperatureGun
   materials:
-    Steel: 2000
+    Steel: 1500
     Glass: 800
     Plastic: 500
     Plasma: 500
