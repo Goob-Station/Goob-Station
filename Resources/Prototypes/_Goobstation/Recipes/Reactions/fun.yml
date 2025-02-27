@@ -63,7 +63,7 @@
     CatDrugs: 4
 
 - type: reaction
-  id: SolidifyGold
+  id: SolidifyGoldHercuri
   impact: Low
   quantized: true
   reactants:
@@ -76,7 +76,7 @@
     entity: IngotGold1
 
 - type: reaction
-  id: SolidifySilver
+  id: SolidifySilverHercuri
   impact: Low
   quantized: true
   reactants:

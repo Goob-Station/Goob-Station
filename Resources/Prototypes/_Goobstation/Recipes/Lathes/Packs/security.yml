@@ -4,8 +4,8 @@
   recipes:
   - MagazineMagnumEmpty
   - MagazineMagnum
-  - MagazineMagnumLeverRifle
-  - MagazineMagnumLeverRifleEmpty
+  # - MagazineMagnumLeverRifle
+  # - MagazineMagnumLeverRifleEmpty
 
 - type: latheRecipePack
   id: SecurityEquipmentStaticGoob
