@@ -36,6 +36,9 @@
   id: SecurityAmmoGoob
   recipes:
   - MagazineSmart
+  - MagazineBoxShotgunIncendiaryHighCaliber
+  - MagazineBoxShotgunBeanbagHighCaliber
+  - MagazineBoxShotgunUraniumHighCaliber
 
 - type: latheRecipePack
   id: SecurityCybernetics

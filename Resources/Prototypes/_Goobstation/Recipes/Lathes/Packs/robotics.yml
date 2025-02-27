@@ -41,6 +41,7 @@
   id: BorgModulesGoob
   recipes:
   - BorgModuleAdvancedSurgery
+  - BorgModuleLollipop
 
 - type: latheRecipePack
   id: PowerCages
