@@ -1,9 +1,9 @@
-using Content.Shared.CollectiveMind;
+using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 using Robust.Shared.GameObjects;
 
-namespace Content.Shared.CollectiveMind;
+namespace Content.Shared._Starlight.CollectiveMind;
 
 public sealed class CollectiveMindUpdateSystem : EntitySystem
 {

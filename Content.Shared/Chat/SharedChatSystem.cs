@@ -1,5 +1,5 @@
 using System.Collections.Frozen;
-using Content.Shared.CollectiveMind; // Goobstation - Starlight collective mind port
+using Content.Shared._Starlight.CollectiveMind; // Goobstation - Starlight collective mind port
 using System.Text.RegularExpressions;
 using Content.Shared.Popups;
 using Content.Shared.Radio;

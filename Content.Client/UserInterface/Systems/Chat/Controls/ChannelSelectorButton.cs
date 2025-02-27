@@ -1,5 +1,5 @@
 using System.Numerics;
-using Content.Shared.CollectiveMind; // Goobstation - Starlight collective mind port
+using Content.Shared._Starlight.CollectiveMind; // Goobstation - Starlight collective mind port
 using Content.Shared.Chat;
 
 namespace Content.Client.UserInterface.Systems.Chat.Controls;
