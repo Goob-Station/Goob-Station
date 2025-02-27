@@ -23,7 +23,7 @@
       soundHit:
         path: /Audio/Effects/hit_kick.ogg
     - type: Damageable
-      damageContainer: Silicon
+      damageContainer: SiliconRadiation # Goobstation - Make IPCs take radiation
       damageModifierSet: IPC
     - type: InteractionOutline
     - type: MovementSpeedModifier
@@ -226,6 +226,7 @@
           type: LivingHeartMenuBoundUserInterface
         enum.WizardTeleportUiKey.Key: # Goobstation - wizard
           type: WizardTeleportBoundUserInterface
+          requireInputValidation: false
         enum.SurgeryUIKey.Key: # Shitmed
           type: SurgeryBui
     - type: Emoting

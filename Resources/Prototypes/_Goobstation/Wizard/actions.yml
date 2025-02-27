@@ -235,7 +235,7 @@
   - type: EntityTargetAction
     checkCanAccess: false
     raiseOnUser: true
-    useDelay: 5
+    useDelay: 10
     itemIconStyle: BigAction
     whitelist:
       requireAll: true
@@ -294,7 +294,7 @@
 - type: entity
   id: ActionBindSoul
   name: Bind Soul
-  description: Bind your soul to an item to ressurrect after death. If your soul it already bound to an item and you are dead, attempt resurrecton.
+  description: Bind your soul to an item to resurrect after death. If your soul is already bound to an item and you are dead, attempt resurrecion.
   components:
   - type: InstantAction
     raiseOnUser: true
@@ -392,7 +392,7 @@
   - type: EntityTargetAction
     checkCanAccess: false
     raiseOnUser: true
-    useDelay: 10
+    useDelay: 8
     itemIconStyle: BigAction
     whitelist:
       components:
@@ -423,7 +423,7 @@
   - type: EntityWorldTargetAction
     checkCanAccess: false
     raiseOnUser: true
-    useDelay: 6
+    useDelay: 8
     itemIconStyle: BigAction
     whitelist:
       components:
@@ -658,6 +658,7 @@
     event: !type:WizardTeleportEvent
   - type: Magic
     requiresSpeech: true
+    requiresClothes: true
     school: Translocation
   - type: ActionUpgrade
     effectedLevels:
@@ -811,6 +812,7 @@
       speech: action-speech-spell-sanguine-strike
   - type: Magic
     requiresSpeech: true
+    requiresClothes: true
     school: Sanguine
   - type: ActionUpgrade
     effectedLevels:

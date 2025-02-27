@@ -48,6 +48,7 @@ public abstract class SharedMechSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly EmagSystem _emag = default!; // Goobstation change
     [Dependency] private readonly SharedHandsSystem _hands = default!; // Goobstation Change
     [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!; // Goobstation Change
     [Dependency] private readonly IConfigurationManager _config = default!; // Goobstation Change
@@ -542,7 +543,7 @@ public abstract class SharedMechSystem : EntitySystem
 
     private void OnEmagged(EntityUid uid, MechComponent component, ref GotEmaggedEvent args) // Goobstation
     {
-        if (!component.BreakOnEmag)
+        if (!component.BreakOnEmag || !_emag.CompareFlag(args.Type, EmagType.Interaction))
             return;
         args.Handled = true;
         component.EquipmentWhitelist = null;

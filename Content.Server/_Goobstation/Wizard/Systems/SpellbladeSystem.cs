@@ -36,8 +36,8 @@ public sealed class SpellbladeSystem : SharedSpellbladeSystem
 
         List<(EntityUid, TemporalSlashComponent, DamageableComponent, TransformComponent)> toDamage = new();
 
-        var query = EntityQueryEnumerator<DamageableComponent, TemporalSlashComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var damageable, out var temporal, out var xform))
+        var query = EntityQueryEnumerator<TemporalSlashComponent, DamageableComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var temporal, out var damageable, out var xform))
         {
             temporal.Accumulator += frameTime;
 

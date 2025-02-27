@@ -88,6 +88,8 @@
       - ShowAntagIcons
       - Wizard
       - Apprentice
+    tags:
+      - ShowWizardIcons
   icon:
     sprite: /Textures/_Goobstation/Wizard/StatusIcons/10x10.rsi
     state: wizard
@@ -101,6 +103,8 @@
       - ShowAntagIcons
       - Wizard
       - Apprentice
+    tags:
+      - ShowWizardIcons
   icon:
     sprite: /Textures/_Goobstation/Wizard/StatusIcons/10x10.rsi
     state: apprentice

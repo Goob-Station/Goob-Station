@@ -378,7 +378,7 @@
     unlistedNumber: true
     requiresPower: false
   - type: Holopad
-  - type: StationAiWhitelist  
+  - type: StationAiWhitelist
   - type: UserInterface
     interfaces:
         enum.HolopadUiKey.AiRequestWindow:
@@ -425,6 +425,7 @@
     interfaces:
       enum.SiliconLawsUiKey.Key:
         type: SiliconLawBoundUserInterface
+        requireInputValidation: false
   - type: ComplexInteraction
   - type: Actions
   - type: Access
@@ -499,7 +500,7 @@
   - type: ContainerFill
     containers:
       borg_brain:
-        - PositronicBrain # Goobstation - Borg positronic brain
+      - PositronicBrain
   - type: ItemSlots
     slots:
       cell_slot:
@@ -620,4 +621,8 @@
       rules: ghost-role-information-silicon-rules
       raffle:
         settings: default
+      requirements: # Goobstation - ghost roles requirements
+      - !type:RoleTimeRequirement
+        role: JobBorg
+        time: 3600 #1 hour
     - type: GhostTakeoverAvailable

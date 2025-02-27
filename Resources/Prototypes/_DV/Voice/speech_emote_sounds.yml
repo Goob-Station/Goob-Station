@@ -62,6 +62,8 @@
       collection: HarpyHonks
     Weh:
       collection: Weh
+    CatMeow:
+      collection: CatMeows # Goobstation - effect standardization
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
@@ -130,6 +132,8 @@
       collection: HarpyHonks
     Weh:
       collection: Weh
+    CatMeow:
+      collection: CatMeows # Goobstation - effect standardization
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -141,7 +145,7 @@
     variation: 0.125
   sounds:
     Scream:
-      collection: FemaleScreams
+      collection: VulpkaninScreams # EE
     Laugh:
       collection: FemaleLaugh
     Sneeze:
@@ -174,6 +178,8 @@
       collection: VulpkaninHowls
     Awoo:
       collection: VulpkaninHowls
+    CatMeow:
+      collection: CatMeows # Goobstation - effect standardization
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
@@ -185,7 +191,7 @@
     variation: 0.125
   sounds:
     Scream:
-      collection: MaleScreams
+      collection: VulpkaninScreams # EE
     Laugh:
       collection: MaleLaugh
     Sneeze:
@@ -218,6 +224,8 @@
       collection: VulpkaninHowls
     Awoo:
       collection: VulpkaninHowls
+    CatMeow:
+      collection: CatMeows # Goobstation - effect standardization
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -270,6 +278,8 @@
       collection: Weh
     Squeak:
       path: /Audio/Animals/mouse_squeak.ogg
+    CatMeow:
+      collection: CatMeows # Goobstation - effect standardization
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -304,6 +314,8 @@
       collection: Weh
     Squeak:
       path: /Audio/Animals/mouse_squeak.ogg
+    CatMeow:
+      collection: CatMeows # Goobstation - effect standardization
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:

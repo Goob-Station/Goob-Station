@@ -1,0 +1,21 @@
+# This is such a fucking ass way to do this, but who cares.
+- type: entity
+  parent: CandyBowl
+  id: CandyBowlFilledLollypopsMystery
+  suffix: mystery
+  components:
+  - type: Bin
+    initialContents:
+    - FoodSnackLollypopWrappedMystery
+    - FoodSnackLollypopWrappedMystery
+    - FoodSnackLollypopWrappedMystery
+    - FoodSnackLollypopWrappedMystery
+    - FoodSnackLollypopWrappedMystery
+    - FoodSnackLollypopWrappedMystery
+    - FoodSnackLollypopWrappedMystery
+    - FoodSnackLollypopWrappedMystery
+    - FoodSnackLollypopWrappedMystery
+    - FoodSnackLollypopWrappedMystery
+    whitelist:
+      tags:
+      - FoodSnack

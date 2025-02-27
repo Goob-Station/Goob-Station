@@ -1,0 +1,54 @@
+﻿- type: constructionGraph
+  id: ContrabandDetector
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: frame
+          steps:
+            - material: Steel
+              amount: 5
+              doAfter: 2
+
+    - node: frame
+      entity: ContrabandDetectorFrame
+      edges:
+        - to: electronics
+          steps:
+            - material: Cable
+              amount: 5
+              doAfter: 2
+
+    - node: electronics
+      edges:
+        - to: scanner
+          steps:
+            - material: Glass
+              amount: 2
+              doAfter: 2
+            - tag: ContrabandDetectorCircuitboard
+              name: contraband detector electronics
+              icon:
+                sprite: "Objects/Misc/module.rsi"
+                state: "security"
+              doAfter: 3
+    - node: scanner
+      edges:
+        - to: assemble
+          steps:
+            - tag: ProximitySensor
+              icon:
+                sprite: Objects/Misc/proximity_sensor.rsi
+                state: icon
+              name: proximity sensor
+              doAfter: 2
+
+    - node: assemble
+      edges:
+        - to: complete
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: complete
+      entity: ContrabandDetector
