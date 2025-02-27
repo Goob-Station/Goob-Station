@@ -108,15 +108,15 @@
       groups:
         Brute: -25
         Burn: -25
-        Holy: -50 ##50 looks like it's a big number but unless you have unholy equipment, It's not.
+        Holy: -50 # 50 looks like it's a big number but unless you have unholy equipment, It's not.
     damageOnFail:
       groups:
         Burn: 30
         Holy: 50
-    damageOnUntrainedUse: ## What a non-chaplain takes when attempting to heal someone
+    damageOnUntrainedUse: # What a non-chaplain takes when attempting to heal someone
       groups:
         Burn: 25
-        Holy: 50 ##50 looks like it's a big number but unless you have unholy equipment, It's not.
+        Holy: 50 # 50 looks like it's a big number but unless you have unholy equipment, It's not.
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Effects/hallelujah.ogg
@@ -129,14 +129,14 @@
     - ReagentId: MuteToxin
       Quantity: 1
     limit: 2
-  - type: Reflect #Holy Aura :^)
+  - type: Reflect # Holy Aura :^)
     reflectProb: 1
     reflects:
       - Magic
   - type: Prayable
     bibleUserOnly: true
   - type: Wieldable
-  - type: SpeedModifiedOnWield #HOLY.. AURA!
+  - type: SpeedModifiedOnWield # HOLY.. AURA!
     walkModifier: 1.15
     sprintModifier: 1.15
   - type: DisarmMalus
@@ -175,19 +175,19 @@
       types:
         Heat: 7.5
         Slash: 3
-        Holy: 50 ##50 looks like it's a big number but unless you have unholy equipment, It's not.
+        Holy: 50 # 50 looks like it's a big number but unless you have unholy equipment, It's not.
     soundHit:
       path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
   - type: IgniteOnMeleeHit
     fireStacks: 0.25
   - type: InjectOnHit
     reagents:
-    - ReagentId: MuteToxin ##HERETIC BE GONE
+    - ReagentId: MuteToxin # HERETIC BE GONE
       Quantity: 2.5
     limit: 5
   - type: KnockdownOnHit
     duration: 0.25
-  - type: Reflect #Only blocks magic projectiles
+  - type: Reflect # Only blocks magic projectiles
     reflectProb: 0.7
     reflects:
       - Magic
