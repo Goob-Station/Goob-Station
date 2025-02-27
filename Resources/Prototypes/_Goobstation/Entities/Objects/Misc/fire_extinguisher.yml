@@ -1,0 +1,13 @@
+- type: entity
+  name: fire extinguisher
+  parent: FireExtinguisher
+  id: FireExtinguisherSolutionRegeneration
+  suffix: recharging, for borg module
+  description: It extinguishes fires.s
+  components:
+  - type: SolutionRegeneration
+    solution: spray
+    generated:
+      reagents:
+      - ReagentId: Water
+        Quantity: 5

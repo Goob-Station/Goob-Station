@@ -135,7 +135,7 @@
     - state: icon-fire-extinguisher
   - type: ItemBorgModule
     items:
-    - FireExtinguisher
+    - FireExtinguisherSolutionRegeneration # Goobstation
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: extinguisher-module }
 
