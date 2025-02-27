@@ -52,6 +52,10 @@
       230: 0.5
   - type: Insulated
   - type: FlashImmunity
+  - type: Bloodstream
+    maxBleedAmount: 0
+  - type: Respirator
+    suffocationThreshold: -5
 
 - type: entity
   name: monkey
