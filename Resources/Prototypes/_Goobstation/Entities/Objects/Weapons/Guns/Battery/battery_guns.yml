@@ -152,11 +152,11 @@
   description: An energy-efficient gun capable of modifying the temperature of creatures. Just point and click!
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/tempgun.rsi
     layers:
     - state: base
       map: [ "enum.GunVisualLayers.Base" ]
-    - state: mode-disabler
+    - state: mode-cold
       shader: unshaded
       map: [ "Firemode" ]
     - state: mag-unshaded-4
@@ -178,18 +178,18 @@
     fireModes:
     - proto: BulletTemperatureCold
       fireCost: 125
-      name: disabling
+      name: cooling
       state: disabler
     - proto: BulletTemperatureHot
       fireCost: 125
-      name: lethal
+      name: heating
       state: lethal
   - type: GenericVisualizer
     visuals:
       enum.EnergyGunFireModeVisuals.State:
         Firemode:
-          Disabler: { state: mode-disabler }
-          Lethal: { state: mode-lethal }
+          Disabler: { state: mode-cold }
+          Lethal: { state: mode-hot }
   - type: Battery
     maxCharge: 3000
     startingCharge: 3000

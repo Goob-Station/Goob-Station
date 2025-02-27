@@ -9,13 +9,16 @@
       "states": [
 
         {
-          "name": "icon-cold"
-        },
-        {
-          "name": "icon-hot"
+          "name": "icon"
         },
         {
           "name": "base"
+        },
+		{
+          "name": "mode-cold"
+        },
+		{
+          "name": "mode-hot"
         },
         {
           "name": "mag-unshaded-1"
