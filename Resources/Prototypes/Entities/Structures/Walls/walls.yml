@@ -1420,7 +1420,7 @@
           base:
             True: { state: forcewall }
             False: { state: forcewallspawn }
-    - type: PreventCollideComponent
+    - type: PreventCollide
       whitelist:
         components:
         - Wizard
