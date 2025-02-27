@@ -45,6 +45,7 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+      - type: CPRTraining # Einstein Engines
 
 - type: startingGear
   id: BlueshieldOfficerGear

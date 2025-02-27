@@ -23,6 +23,7 @@
     components:
     - type: SurgerySpeedModifier
       speedModifier: 1.75
+    - type: CPRTraining # Einstein Engines
 
 - type: startingGear
   id: ParamedicGear

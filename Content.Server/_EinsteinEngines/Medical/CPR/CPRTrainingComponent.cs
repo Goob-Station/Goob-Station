@@ -10,7 +10,7 @@ public sealed partial class CPRTrainingComponent : Component
     public SoundSpecifier CPRSound = new SoundPathSpecifier("/Audio/_EinsteinEngines/Effects/CPR.ogg");
 
     [DataField]
-    public TimeSpan DoAfterDuration = TimeSpan.FromSeconds(3);
+    public TimeSpan DoAfterDuration = TimeSpan.FromSeconds(4);
 
     [DataField] public DamageSpecifier CPRHealing = new()
     {
@@ -22,7 +22,7 @@ public sealed partial class CPRTrainingComponent : Component
 
     [DataField] public float CrackRibsModifier = 1f;
 
-    [DataField] public float ResuscitationChance = 0.1f;
+    [DataField] public float ResuscitationChance = 0.05f;
 
     [DataField] public float RotReductionMultiplier;
 
