@@ -170,6 +170,8 @@
     fireRate: 2
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletTemperatureHot
   - type: EnergyGun
@@ -186,12 +188,12 @@
     visuals:
       enum.EnergyGunFireModeVisuals.State:
         Firemode:
-          cooling: { state: icon-cold }
-          heating: { state: icon-hot }
+          Cooling: { state: icon-cold }
+          Heating: { state: icon-hot }
   - type: Battery
     maxCharge: 3000
     startingCharge: 3000
   - type: MagazineVisuals
     magState: mag
-    steps: 4
+    steps: 5
     zeroVisible: true
