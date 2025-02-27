@@ -156,7 +156,7 @@
     layers:
     - state: base
       map: [ "enum.GunVisualLayers.Base" ]
-    - state: mode-cold
+    - state: icon
       shader: unshaded
       map: [ "Firemode" ]
     - state: mag-unshaded-4
