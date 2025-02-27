@@ -163,7 +163,7 @@
       map: [ "enum.GunVisualLayers.MagUnshaded" ]
       shader: unshaded
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/tempgun_cold.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/tempgun.rsi
   - type: Gun
     fireRate: 2
     soundGunshot:
