@@ -140,22 +140,14 @@
 - type: entity
   id: BulletTemperatureCold
   name: cold temperature bolt
-  parent: BaseBullet
+  parent: BulletLaser
   categories: [ HideSpawnMenu ]
   description: Chilling!
   components:
-  - type: Sprite
-    noRot: false
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/bullet_cutter.rsi
-    layers:
-    - state: icon
-      shader: unshaded
   - type: Projectile
     damage:
       types:
         Cold: 5
-  - type: StaminaDamageOnCollide
-    damage: 20
   - type: PointLight
     radius: 2
     color: blue
@@ -166,22 +158,14 @@
 - type: entity
   id: BulletTemperatureHot
   name: hot temperature bolt
-  parent: BaseBullet
+  parent: BulletLaser
   categories: [ HideSpawnMenu ]
   description: Burning!
   components:
-  - type: Sprite
-    noRot: false
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/bullet_cutter.rsi
-    layers:
-    - state: icon
-      shader: unshaded
   - type: Projectile
     damage:
       types:
         Heat: 5
-  - type: StaminaDamageOnCollide
-    damage: 20
   - type: PointLight
     radius: 2
     color: blue

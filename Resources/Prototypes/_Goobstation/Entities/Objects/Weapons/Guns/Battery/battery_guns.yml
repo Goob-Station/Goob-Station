@@ -166,7 +166,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletTemperatureCold
+    proto: BulletTemperatureHot
   - type: AmmoSelector
     prototypes:
     - BulletTemperatureCold
@@ -187,5 +187,5 @@
     sprite: Objects/Weapons/Guns/Battery/inhands_64x.rsi
     heldPrefix: energy
   - type: Battery
-    maxCharge: 1050 # Goobstation
-    startingCharge: 1050
+    maxCharge: 3500
+    startingCharge: 3500
