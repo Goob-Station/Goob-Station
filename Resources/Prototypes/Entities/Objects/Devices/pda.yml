@@ -913,7 +913,7 @@
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
        !type:String
-       pda-centcom
+       pda-atmos
   - type: PdaBorderColor
     borderColor: "#00842e"
   - type: Icon
