@@ -54,6 +54,5 @@ highlights-zookeeper = Zookeeper
 highlights-psychologist = Psychologist, Psychology
 
 # Silicon
-highlights-personal-ai = Personal AI, "pAI"
 highlights-cyborg = Cyborg, Borg, Silicon, Law 2
-highlights-station-ai = Station AI, "AI", "sAI", Big Brother, Silicon, Law 2
+highlights-station-ai = Station AI, "AI", "sAI", Big Brother, Door Wizard, Silicon, Law 2
