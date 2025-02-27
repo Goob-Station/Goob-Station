@@ -61,3 +61,29 @@
       amount: 1
   products:
     CatDrugs: 4
+
+- type: reaction
+  id: SolidifyGold
+  impact: Low
+  quantized: true
+  reactants:
+    Gold:
+      amount: 10
+    Hercuri:
+      amount: 5
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: IngotGold1
+
+- type: reaction
+  id: SolidifySilver
+  impact: Low
+  quantized: true
+  reactants:
+    Silver:
+      amount: 10
+    Hercuri:
+      amount: 5
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: IngotSilver1
