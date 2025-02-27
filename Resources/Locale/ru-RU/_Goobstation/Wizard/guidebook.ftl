@@ -1,2 +1,2 @@
-guide-entry-wizard = Wizard
-guide-entry-wizard-spells = Wizard Spells
+guide-entry-wizard = Маг
+guide-entry-wizard-spells = Заклинания мага

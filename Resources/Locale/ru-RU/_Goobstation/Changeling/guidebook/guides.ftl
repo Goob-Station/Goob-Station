@@ -1,1 +1,1 @@
-guide-entry-changelings = генокрады
+guide-entry-changelings = Генокрады
