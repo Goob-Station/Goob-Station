@@ -99,12 +99,14 @@
   name: Deathsquad PDA
   description: Rip and tear until it is done.
   components:
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-deathsquad
   - type: Pda
     id: CentcomIDCardDeathsquad
   - type: Icon
-    sprite: _Goobstation/Objects/Devices/pda.rsi
-    state: pda-deathsquad
-  - type: Sprite
     sprite: _Goobstation/Objects/Devices/pda.rsi
     state: pda-deathsquad
 
