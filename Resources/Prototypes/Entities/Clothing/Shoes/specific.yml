@@ -294,7 +294,7 @@
 #Real jordans (magboots) from emagged clothesdrobe
 - type: entity
   parent: [ClothingShoesBootsMagBase, BaseMagicContraband]
-  id: ClothingShoesRealJordansSyndicate
+  id: ClothingShoesRealJordans
   name: air jordans
   description: State-of-the-art, official, uncreased Jordans that protect you from slipping when turned on.
   components:
