@@ -17,7 +17,8 @@
         Piercing: 0.50
         Heat: 0.50
         Caustic: 0.50
-        Holy: 1.45
+      flatReductions:
+        Holy: -10
   - type: ExplosionResistance
     damageCoefficient: 0.25
   - type: ToggleableClothing # Goobstation - Modsuits change
