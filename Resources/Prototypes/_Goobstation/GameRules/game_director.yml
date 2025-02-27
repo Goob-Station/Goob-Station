@@ -21,12 +21,13 @@
     minPlayers: 25
   - type: GameDirector
     dualAntags: true
-    scheduledGameRules: !type:NestedSelector
-      tableId: BasicGameRulesTable
     stories:
       - RelaxedAttack
       - ScienceAttack
       - MajorCombat
+  - type: SelectedGameRules
+    scheduledGameRules: !type:NestedSelector
+      tableId: BasicGameRulesTable
 
 - type: entity
   id: CalmDynamic

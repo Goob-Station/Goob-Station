@@ -65,12 +65,6 @@ public sealed partial class GameDirectorComponent : Component
     ///   All the events that are allowed to run in the current story.
     /// </summary>
     [DataField]
-    public EntityTableSelector ScheduledGameRules = default!;
-
-    /// <summary>
-    ///   All the events that are allowed to run in the current story.
-    /// </summary>
-    [DataField]
     public List<PossibleEvent> PossibleEvents = new();
     // Could have Chaos multipliers here, or multipliers per player (so stories are harder with more players).
 }

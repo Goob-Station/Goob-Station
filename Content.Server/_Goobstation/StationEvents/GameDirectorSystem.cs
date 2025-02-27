@@ -100,23 +100,40 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
     {
         // This deletes all existing metrics and sets them up again.
         SpawnRoundstartAntags(scheduler, CountAllPlayers()); // Roundstart antags need to be selected in the lobby
-        SetupEvents(scheduler, CountActivePlayers());
+        if(TryComp<SelectedGameRulesComponent>(uid,out var selectedRules))
+        {
+            SetupEvents(scheduler, CountActivePlayers(), selectedRules);
+        }
+        else
+        {
+            SetupEvents(scheduler, CountActivePlayers());
+        }
     }
 
     /// <summary>
     ///   Build a list of events to use for the entire story
     /// </summary>
-    private void SetupEvents(GameDirectorComponent scheduler, PlayerCount count)
+    private void SetupEvents(GameDirectorComponent scheduler, PlayerCount count, SelectedGameRulesComponent? selectedRules = null)
     {
         scheduler.PossibleEvents.Clear();
 
-        if(!_event.TryBuildLimitedEvents(scheduler.ScheduledGameRules, out var possibleEvents))
-            return;
-
-        foreach (var entry in possibleEvents)
+        if (selectedRules != null)
         {
-            var proto = entry.Key;
-            var stationEvent = entry.Value;
+            SelectFromTable(scheduler, count, selectedRules);
+        }
+        else
+        {
+            SelectFromAllEvents(scheduler, count);
+        }
+        LogMessage($"All possible events added");
+    }
+
+    private void SelectFromAllEvents(GameDirectorComponent scheduler, PlayerCount count)
+    {
+        foreach (var proto in GameTicker.GetAllGameRulePrototypes())
+        {
+            if (!proto.TryGetComponent<StationEventComponent>(out var stationEvent, _factory))
+                continue;
 
             if (proto.HasComponent<DynamicRulesetComponent>()) // Block john shitcode moment
                 continue;
@@ -128,8 +145,27 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
 
             scheduler.PossibleEvents.Add(new PossibleEvent(proto.ID, stationEvent.Chaos));
         }
-        LogMessage($"All possible events added");
     }
+
+    private void SelectFromTable(GameDirectorComponent scheduler, PlayerCount count, SelectedGameRulesComponent? selectedRules)
+    {
+        if (selectedRules == null)
+            return;
+
+        if(!_event.TryBuildLimitedEvents(selectedRules.ScheduledGameRules, out var possibleEvents))
+            return;
+
+        foreach (var entry in possibleEvents)
+        {
+            var proto = entry.Key;
+            var stationEvent = entry.Value;
+            LogMessage(proto.ID);
+            if (proto.HasComponent<DynamicRulesetComponent>()) // Block john shitcode moment
+                continue;
+            scheduler.PossibleEvents.Add(new PossibleEvent(proto.ID, stationEvent.Chaos));
+        }
+    }
+
 
     /// <summary>
     ///   Decide what event to run next
