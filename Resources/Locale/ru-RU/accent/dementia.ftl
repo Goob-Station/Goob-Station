@@ -1,9 +1,9 @@
 accent-dementia-prefix-1 = Теперь я не уверен, но,
-accent-dementia-prefix-2 = Эй... черт, я забыл... О, точно!
+accent-dementia-prefix-2 = Эй... бля, я забыл... О, точно!
 accent-dementia-prefix-3 = Что это было... А!
 accent-dementia-suffix-1 = , подождите, что я опять сказал?
 accent-dementia-suffix-2 = , или что-то в этом роде...
-accent-dementia-suffix-3 = , ты... подожди, кто ты опять.
+accent-dementia-suffix-3 = , или... подожди, кто ты еще раз такой?
 accent-dementia-suffix-4 = , я думаю.
 accent-dementia-suffix-5 = . О, кстати, вы не видели мои таблетки?
 accent-dementia-words-1 = охрана
@@ -59,4 +59,4 @@ accent-dementia-words-replace-25 = какой-то злодей, забыл ка
 accent-dementia-words-26 = вор
 accent-dementia-words-replace-26 = какой-то злодей, забыл какой
 accent-dementia-words-27 = мостик
-accent-dementia-words-replace-27 = некоторый отдел
+accent-dementia-words-replace-27 = какой-то отдел
