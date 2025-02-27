@@ -318,11 +318,12 @@ public sealed class PullingSystem : EntitySystem
                 damage.DamageDict.Add("Blunt", 5);
                 damage *= damageModifier;
 
+                var throwbackforce = 0.15f;
                 TryStopPull(args.BlockingEntity, comp, uid, true);
-                _grabThrown.Throw(args.BlockingEntity, uid, direction * 2f, 120f, damage * component.GrabThrowDamageModifier, damage * component.GrabThrowDamageModifier);
-                _throwing.TryThrow(uid, -direction * 0.5f);
+                _grabThrown.Throw(args.BlockingEntity, uid, direction * 2f, 120f, damage * component.GrabThrowDamageModifier, damage * component.GrabThrowDamageModifier); // Throwing the grabbed person
+                _throwing.TryThrow(uid, -direction * throwbackforce); // Throws back the grabber
                 _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), uid);
-                component.NextStageChange.Add(TimeSpan.FromSeconds(2f));  // To avoid grab and throw spamming
+                component.NextStageChange.Add(TimeSpan.FromSeconds(2f));  // To avoid grab and throw spamming 
             }
         }
     }
