@@ -156,7 +156,7 @@
     layers:
     - state: base
       map: [ "enum.GunVisualLayers.Base" ]
-    - state: icon
+    - state: icon-cold
       shader: unshaded
       map: [ "Firemode" ]
     - state: mag-unshaded-4
@@ -181,13 +181,13 @@
     - proto: BulletTemperatureHot
       fireCost: 125
       name: heating
-      state: cooling # Todo - Change this and add hot sprites.
+      state: heating
   - type: GenericVisualizer
     visuals:
       enum.EnergyGunFireModeVisuals.State:
         Firemode:
-          Disabler: { state: icon }
-          Lethal: { state: icon }
+          cooling: { state: icon-cold }
+          heating: { state: icon-hot }
   - type: Battery
     maxCharge: 3000
     startingCharge: 3000
