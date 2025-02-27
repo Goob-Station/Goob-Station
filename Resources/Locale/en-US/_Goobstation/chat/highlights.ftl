@@ -44,7 +44,7 @@ highlights-janitor = Janitor, "Jani"
 highlights-lawyer = Lawyer, Attorney
 highlights-librarian = Librarian, Library
 highlights-mime = Mime
-highlights-passenger = Passenger, Tider, Greytider, Greytide, Tide, Assistant
+highlights-assistant = Passenger, Tider, Greytider, Greytide, Tide, Assistant
 highlights-service-worker = Service Worker
 
 # Wildcards
