@@ -917,7 +917,7 @@
   - type: PdaBorderColor
     borderColor: "#00842e"
   - type: Icon
-    state: pda-centcom
+    state: pda-atmos
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
