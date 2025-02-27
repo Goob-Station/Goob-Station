@@ -17,6 +17,8 @@ namespace Content.Client.Nuke
 
         protected override void Open()
         {
+            base.Open();
+
             _menu = this.CreateWindow<NukeMenu>();
 
             _menu.OnKeypadButtonPressed += i =>

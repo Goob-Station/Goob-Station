@@ -17,6 +17,9 @@ uplink-esword-desc = A very dangerous energy sword that can reflect energy shots
 uplink-esword-double-name = Double Bladed Energy Sword
 uplink-esword-double-desc = A slightly more expensive energy sword, with a higher focus on utility. It deals around the same damage, but reflects all energy projectiles much more accurately. Makes a lot of noise when used or turned on.
 
+uplink-hypereutactic-blade-name = Hypereutactic Blade
+uplink-hypereutactic-blade-desc = A gigantic energy sword with power that matches its looks. Requires two hands. Slow and unwieldy, yet pretty adept at reflecting. Previously made infamous by an operative wearing a joy mask. You wouldn't want to see this coming at you down the hall!
+
 uplink-edagger-name = Energy Dagger
 uplink-edagger-desc = A small energy blade conveniently disguised in the form of a pen.
 
