@@ -88,7 +88,7 @@ public sealed class ChatUIController : UIController
         {SharedChatSystem.AdminPrefix, ChatSelectChannel.Admin},
         {SharedChatSystem.RadioCommonPrefix, ChatSelectChannel.Radio},
         {SharedChatSystem.DeadPrefix, ChatSelectChannel.Dead},
-        {SharedChatSystem.TelepathicPrefix, ChatSelectChannel.Telepathic} //Nyano - Summary: adds the telepathic prefix =.
+        {SharedChatSystem.TelepathicPrefix, ChatSelectChannel.Telepathic}, //Nyano - Summary: adds the telepathic prefix =.
         {SharedChatSystem.CollectiveMindPrefix, ChatSelectChannel.CollectiveMind} // Goobstation - Starlight collective mind port
     };
 
@@ -103,7 +103,7 @@ public sealed class ChatUIController : UIController
         {ChatSelectChannel.Admin, SharedChatSystem.AdminPrefix},
         {ChatSelectChannel.Radio, SharedChatSystem.RadioCommonPrefix},
         {ChatSelectChannel.Dead, SharedChatSystem.DeadPrefix},
-        {ChatSelectChannel.Telepathic, SharedChatSystem.TelepathicPrefix } //Nyano - Summary: associates telepathic with =.
+        {ChatSelectChannel.Telepathic, SharedChatSystem.TelepathicPrefix }, //Nyano - Summary: associates telepathic with =.
         {ChatSelectChannel.CollectiveMind, SharedChatSystem.CollectiveMindPrefix} // Goobstation - Starlight collective mind port
     };
 
@@ -780,14 +780,6 @@ public sealed class ChatUIController : UIController
         }
 
         return (chatChannel, text[1..].TrimStart(), null, null); // Goobstation - Starlight collective mind port
-    }
-
-    // Goobstation - Starlight collective mind port
-    // no breaking changes allowed
-    public (ChatSelectChannel chatChannel, string text, RadioChannelPrototype? radioChannel) SplitInputContents(string text)
-    {
-        var (retChatChannel, retText, retRadioChannel, _) = SplitInputContents(text);
-        return (retChatChannel, retText, retRadioChannel);
     }
 
     public void SendMessage(ChatBox box, ChatSelectChannel channel)

@@ -1,5 +1,5 @@
 ﻿using Robust.Shared.GameStates;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.CollectiveMind
 {
@@ -8,5 +8,8 @@ namespace Content.Shared.CollectiveMind
     {
         [DataField("minds")]
         public Dictionary<string, int> Minds = new();
+
+        [DataField]
+        public ProtoId<CollectiveMindPrototype>? DefaultChannel = null;
     }
 }

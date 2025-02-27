@@ -81,6 +81,7 @@ internal sealed class ChatManager : IChatManager
             //Nyano - Summary: sends the command for telepath communication.
             case ChatSelectChannel.Telepathic:
                 _consoleHost.ExecuteCommand($"tsay \"{CommandParsing.Escape(str)}\"");
+                break;
             // Goobstation - Starlight collective mind port
             case ChatSelectChannel.CollectiveMind:
                 _consoleHost.ExecuteCommand($"cmsay \"{CommandParsing.Escape(str)}\"");

@@ -213,25 +213,37 @@ public abstract class SharedChatSystem : EntitySystem
         if (!input.StartsWith(CollectiveMindPrefix))
             return false;
 
-        if (input.Length < 2 || char.IsWhiteSpace(input[1]))
+        ProtoId<CollectiveMindPrototype>? defaultChannel = null;
+        if (TryComp<CollectiveMindComponent>(source, out var mind))
+            defaultChannel = mind.DefaultChannel;
+
+        if (defaultChannel == null)
         {
-            output = SanitizeMessageCapital(input[1..].TrimStart());
-            if (!quiet)
-                _popup.PopupEntity(Loc.GetString("chat-manager-no-radio-key"), source, source);
+            if (input.Length < 2 || char.IsWhiteSpace(input[1]))
+            {
+                output = SanitizeMessageCapital(input[1..].TrimStart());
+                if (!quiet)
+                    _popup.PopupEntity(Loc.GetString("chat-manager-no-radio-key"), source, source);
+                return true;
+            }
+
+            var channelKey = input[1];
+            channelKey = char.ToLower(channelKey);
+            output = SanitizeMessageCapital(input[2..].TrimStart());
+
+            if (_mindKeyCodes.TryGetValue(channelKey, out channel) || quiet)
+                return true;
+
+            var msg = Loc.GetString("chat-manager-no-such-channel", ("key", channelKey));
+            _popup.PopupEntity(msg, source, source);
+
+            return false;
+        }
+        else
+        {
+            channel = _prototypeManager.Index<CollectiveMindPrototype>(defaultChannel.Value);
             return true;
         }
-
-        var channelKey = input[1];
-        channelKey = char.ToLower(channelKey);
-        output = SanitizeMessageCapital(input[2..].TrimStart());
-
-        if (_mindKeyCodes.TryGetValue(channelKey, out channel) || quiet)
-            return true;
-
-        var msg = Loc.GetString("chat-manager-no-such-channel", ("key", channelKey));
-        _popup.PopupEntity(msg, source, source);
-
-        return false;
     }
 
     public string SanitizeMessageCapital(string message)

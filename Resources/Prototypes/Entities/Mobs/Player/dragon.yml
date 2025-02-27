@@ -160,6 +160,10 @@
     tags:
     - CannotSuicide
     - DoorBumpOpener
+    - DragonMind # Goobstation - Collective mind
+  # Goobstation - Collective mind
+  - type: CollectiveMind
+    defaultChannel: Dragonmind
   - type: Puller
     needsHands: false
   - type: NightVision # Goobstation - Nigthvision

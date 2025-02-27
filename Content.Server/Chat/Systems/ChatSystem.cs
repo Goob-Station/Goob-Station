@@ -288,9 +288,6 @@ public sealed partial class ChatSystem : SharedChatSystem
                 break;
             case InGameICChatType.Telepathic:
                 _telepath.SendTelepathicChat(source, message, range == ChatTransmitRange.HideChat);
-            // Goobstation - Starlight collective mind port
-            case InGameICChatType.CollectiveMind:
-                SendCollectiveMindChat(source, message, false);
                 break;
         }
     }
@@ -471,10 +468,20 @@ public sealed partial class ChatSystem : SharedChatSystem
         string messageWrap;
         string adminMessageWrap;
 
-        messageWrap = Loc.GetString("collective-mind-chat-wrap-message",
-            ("message", message),
-            ("channel", collectiveMind.LocalizedName),
-            ("number", Number));
+        if (!collectiveMind.ShowNames)
+        {
+            messageWrap = Loc.GetString("collective-mind-chat-wrap-message",
+                ("message", message),
+                ("channel", collectiveMind.LocalizedName),
+                ("number", Number));
+        }
+        else
+        {
+            messageWrap = Loc.GetString("collective-mind-chat-wrap-message-named",
+                ("source", source),
+                ("message", message),
+                ("channel", collectiveMind.LocalizedName));
+        }
 
         adminMessageWrap = Loc.GetString("collective-mind-chat-wrap-message-admin",
             ("source", source),
@@ -1077,7 +1084,7 @@ public enum InGameICChatType : byte
     Speak,
     Emote,
     Whisper,
-    Telepathic // Goobstation Change
+    Telepathic, // Goobstation Change
     CollectiveMind // Goobstation - Starlight collective mind port
 }
 
