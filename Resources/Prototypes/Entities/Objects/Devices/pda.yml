@@ -913,11 +913,11 @@
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
        !type:String
-       pda-atmos
+       pda-centcom
   - type: PdaBorderColor
     borderColor: "#00842e"
   - type: Icon
-    state: pda-atmos
+    state: pda-centcom
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
