@@ -3772,7 +3772,7 @@ entities:
       pos: 3.5,0.5
       parent: 2
     - type: Thruster
-      enabled: False
+      enabled: True
 - proto: Handcuffs
   entities:
   - uid: 507
