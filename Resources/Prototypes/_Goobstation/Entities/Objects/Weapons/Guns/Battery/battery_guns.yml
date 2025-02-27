@@ -191,8 +191,8 @@
           Cooling: { state: mode-cooling }
           Heating: { state: mode-heating }
   - type: Battery
-    maxCharge: 3000
-    startingCharge: 3000
+    maxCharge: 2500
+    startingCharge: 2500
   - type: MagazineVisuals
     magState: mag
     steps: 5
