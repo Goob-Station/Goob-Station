@@ -241,6 +241,7 @@ public abstract class SharedChatSystem : EntitySystem
         }
         else
         {
+            output = SanitizeMessageCapital(input[1..].TrimStart());
             channel = _prototypeManager.Index<CollectiveMindPrototype>(defaultChannel.Value);
             return true;
         }
