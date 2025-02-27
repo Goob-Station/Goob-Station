@@ -18,7 +18,7 @@
     interactOnMiss: false
     range: 15
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Todo - Change this
+      sprite: /Textures/_Goobstation/Actions/syndicateswap.rsi
       state: swap
     event: !type:SwapSpellEvent
       sound:
