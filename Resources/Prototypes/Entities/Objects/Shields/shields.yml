@@ -85,7 +85,7 @@
 
 - type: entity
   name: laser shield
-  parent: [ BaseShield, BaseRestrictedContraband ]
+  parent: [ BaseShield, BaseSecurityContraband ]
   id: RiotLaserShield
   description: A shield built for withstanding lasers, but not much else.
   components:
@@ -105,7 +105,7 @@
 
 - type: entity
   name: ballistic shield
-  parent: [ BaseShield, BaseRestrictedContraband ]
+  parent: [ BaseShield, BaseSecurityContraband ]
   id: RiotBulletShield
   description: A shield built for protecting against ballistics, but not much else.
   components:
