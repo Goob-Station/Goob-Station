@@ -4,7 +4,6 @@
   - BaseMob
   - MobDamageable
   - MobPolymorphable
-  - HolyProtection
   - MobCombat
   - StripableInventoryBase
   id: BaseMobSpecies
