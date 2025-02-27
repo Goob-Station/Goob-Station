@@ -7,14 +7,14 @@
     checkCanAccess: false
     raiseOnUser: true
     checkCanInteract: false
-    useDelay: 40
+    useDelay: 45
     itemIconStyle: BigAction
     whitelist:
       requireAll: true
       components:
       - Transform
       - MobState
-    canTargetSelf: true # Required for secondary target deselecting
+    canTargetSelf: true
     interactOnMiss: false
     range: 15
     icon:

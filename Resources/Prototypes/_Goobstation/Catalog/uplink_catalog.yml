@@ -419,6 +419,17 @@
   categories:
     - UplinkImplants
 
+- type: listing
+  id: UplinkJaunterImplanter
+  name: uplink-jaunter-implanter-name
+  description: uplink-jaunter-implanter-desc
+  icon: { sprite: /Textures/_Goobstation/Actions/syndicateswap.rsi, state: swap }
+  productEntity: JaunterImplanter
+  cost:
+    Telecrystal: 40
+  categories:
+  - UplinkImplants
+
 # Deception
 
 - type: listing
