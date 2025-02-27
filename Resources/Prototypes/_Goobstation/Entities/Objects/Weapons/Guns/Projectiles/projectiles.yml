@@ -147,7 +147,7 @@
   - type: Projectile
     damage:
       types:
-        Cold: 3
+        Cold: 5
   - type: PointLight
     radius: 2
     color: blue
@@ -165,10 +165,10 @@
   - type: Projectile
     damage:
       types:
-        Heat: 3
+        Heat: 5
   - type: PointLight
     radius: 2
     color: blue
     energy: 1
   - type: ChangeTemperatureOnCollide
-    heat: 35000
+    heat: 40000
