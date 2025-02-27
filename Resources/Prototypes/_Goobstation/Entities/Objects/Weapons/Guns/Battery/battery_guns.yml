@@ -160,7 +160,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/tempgun_cold.rsi
   - type: Gun
     fireRate: 2
     soundGunshot:
@@ -184,8 +184,7 @@
     size: Large
     shape:
     - 0,0,3,1
-    sprite: Objects/Weapons/Guns/Battery/inhands_64x.rsi
-    heldPrefix: energy
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/tempgun_cold.rsi
   - type: Battery
     maxCharge: 3000
     startingCharge: 3000
