@@ -19,7 +19,7 @@
     range: 15
     icon:
       sprite: /Textures/_Goobstation/Actions/syndicateswap.rsi
-      state: swap
+      state: icon
     event: !type:SwapSpellEvent
       sound:
         path: /Audio/Effects/Lightning/lightningbolt.ogg
