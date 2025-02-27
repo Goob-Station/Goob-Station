@@ -461,9 +461,7 @@ public sealed class PullingSystem : EntitySystem
     /// </summary>
     private void StopPulling(EntityUid pullableUid, PullableComponent pullableComp)
     {
-        if (pullableComp.Puller == null)
-            return;
-
+        Logger.Debug("stopping pulling");
         if (!_timing.ApplyingState)
         {
             // Joint shutdown
@@ -497,11 +495,12 @@ public sealed class PullingSystem : EntitySystem
         if (TryComp<PullerComponent>(oldPuller, out var pullerComp))
         {
             var pullerUid = oldPuller.Value;
-            _alertsSystem.ClearAlert(pullerUid, pullerComp.PullingAlert);
+            if (_netManager.IsServer)
+                _alertsSystem.ClearAlert(pullerUid, pullerComp.PullingAlert);
             pullerComp.Pulling = null;
             // Goobstation start
             pullerComp.GrabStage = GrabStage.No;
-            List<EntityUid> virtItems = pullerComp.GrabVirtualItems;
+            var virtItems = pullerComp.GrabVirtualItems;
             foreach (var item in virtItems)
             {
                 QueueDel(item);
@@ -519,10 +518,8 @@ public sealed class PullingSystem : EntitySystem
             RaiseLocalEvent(pullableUid, message);
         }
 
-        if (!HasComp<ActivePullerComponent>(pullableUid) && pullableComp.GrabStage == GrabStage.No)
-        {
+        if (_netManager.IsServer)
             _alertsSystem.ClearAlert(pullableUid, pullableComp.PulledAlert);
-        }
     }
 
     public bool IsPulled(EntityUid uid, PullableComponent? component = null)
@@ -777,24 +774,35 @@ public sealed class PullingSystem : EntitySystem
         if (msg.Cancelled)
             return false;
 
+
         // Goobstation start
         if (!ignoreGrab)
         {
-            if (!AttemptGrabRelease(pullableUid))
-            {
-                if (_netManager.IsServer && user != null && user.Value == pullableUid)
-                    _popup.PopupEntity(Loc.GetString("popup-grab-release-fail-self"), pullableUid, pullableUid, PopupType.SmallCaution);
-                return false;
-            }
-
             if (_netManager.IsServer && user != null && user.Value == pullableUid)
             {
-                _popup.PopupEntity(Loc.GetString("popup-grab-release-success-self"), pullableUid, pullableUid, PopupType.SmallCaution);
-                _popup.PopupEntity(Loc.GetString("popup-grab-release-success-puller", ("target", Identity.Entity(pullableUid, EntityManager))), pullerUidNull.Value, pullerUidNull.Value, PopupType.MediumCaution);
+                var releaseAttempt = AttemptGrabRelease(pullableUid);
+                if (!releaseAttempt)
+                {
+                    _popup.PopupEntity(Loc.GetString("popup-grab-release-fail-self"),
+                        pullableUid,
+                        pullableUid,
+                        PopupType.SmallCaution);
+                    return false;
+                }
+
+                _popup.PopupEntity(Loc.GetString("popup-grab-release-success-self"),
+                    pullableUid,
+                    pullableUid,
+                    PopupType.SmallCaution);
+                _popup.PopupEntity(
+                    Loc.GetString("popup-grab-release-success-puller",
+                        ("target", Identity.Entity(pullableUid, EntityManager))),
+                    pullerUidNull.Value,
+                    pullerUidNull.Value,
+                    PopupType.MediumCaution);
             }
         }
         // Goobstation end
-
         StopPulling(pullableUid, pullable);
         return true;
     }
@@ -935,7 +943,6 @@ public sealed class PullingSystem : EntitySystem
             var delta = newVirtualItemsCount - virtualItemsCount;
 
             // Adding new virtual items
-            List<EntityUid> newItems = new();
             if (delta > 0)
             {
                 for (var i = 0; i < delta; i++)
@@ -946,14 +953,9 @@ public sealed class PullingSystem : EntitySystem
                         if (_netManager.IsServer)
                             _popup.PopupEntity(Loc.GetString("popup-grab-need-hand"), puller, puller, PopupType.Medium);
 
-                        foreach (var newItem in newItems) // fixes possible orphaning
-                        {
-                            QueueDel(newItem);
-                        }
                         return false;
                     }
 
-                    newItems.Add(item.Value);
                     puller.Comp.GrabVirtualItems.Add(item.Value);
                 }
             }
@@ -984,6 +986,7 @@ public sealed class PullingSystem : EntitySystem
     {
         if (!Resolve(pullable.Owner, ref pullable.Comp))
             return false;
+
         if (_timing.CurTime < pullable.Comp.NextEscapeAttempt)  // No autoclickers! Mwa-ha-ha
         {
             return false;
