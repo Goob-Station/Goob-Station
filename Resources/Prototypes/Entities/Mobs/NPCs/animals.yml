@@ -1763,6 +1763,8 @@
           Quantity: 3
         - ReagentId: MouseBites
           Quantity: 3
+      melee:
+        maxVol: 5
   - type: Butcherable
     spawned:
     - id: FoodMeatRat
@@ -1836,10 +1838,6 @@
     - id: MobMouse
     hungerUsage: 20
     eggLayAction: MouseMultiply
-  - type: SolutionContainerManager
-    solutions:
-      melee:
-        maxVol: 30
   - type: SolutionRegeneration
     solution: melee
     generated:
