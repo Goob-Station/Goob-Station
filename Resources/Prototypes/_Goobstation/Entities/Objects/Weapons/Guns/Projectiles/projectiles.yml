@@ -147,13 +147,13 @@
   - type: Projectile
     damage:
       types:
-        Cold: 5
+        Cold: 3
   - type: PointLight
     radius: 2
     color: blue
     energy: 1
   - type: ChangeTemperatureOnCollide
-    heat: -30000
+    heat: -40000
 
 - type: entity
   id: BulletTemperatureHot
@@ -165,10 +165,10 @@
   - type: Projectile
     damage:
       types:
-        Heat: 5
+        Heat: 3
   - type: PointLight
     radius: 2
     color: blue
     energy: 1
   - type: ChangeTemperatureOnCollide
-    heat: 20000
+    heat: 35000
