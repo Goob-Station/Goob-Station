@@ -15,10 +15,10 @@
           "name": "base"
         },
 		{
-          "name": "mode-cold"
+          "name": "mode-cooling"
         },
 		{
-          "name": "mode-hot"
+          "name": "mode-heating"
         },
         {
           "name": "mag-unshaded-1"
@@ -37,19 +37,19 @@
           "delays": [[ 0.3, 0.3 ]]
         },
         {
-          "name": "hot-inhand-left",
+          "name": "heating-inhand-left",
           "directions": 4
         },
         {
-          "name": "hot-inhand-right",
+          "name": "heating-inhand-right",
           "directions": 4
         },
         {
-          "name": "cold-inhand-left",
+          "name": "cooling-inhand-left",
           "directions": 4
         },
         {
-          "name": "cold-inhand-right",
+          "name": "cooling-inhand-right",
           "directions": 4
         },
         {
