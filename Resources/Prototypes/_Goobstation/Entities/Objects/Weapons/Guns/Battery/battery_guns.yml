@@ -188,11 +188,11 @@
           Lethal: { state: icon }
   - type: Item
     size: Large
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/tempgun_cold.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/tempgun.rsi
   - type: Battery
     maxCharge: 3000
     startingCharge: 3000
   - type: MagazineVisuals
     magState: mag
-    steps: 5
+    steps: 4
     zeroVisible: true
