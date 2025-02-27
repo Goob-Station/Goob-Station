@@ -230,5 +230,5 @@
           min: 5
         type: Local
         visualType: Medium
-        messages: [ "mousebites-effects-vexes, mousebites-effects-stupid, mousebites-effects-metoo" ]
-        probability: 0.40
+        messages: [ "mousebites-effects-vexes", "mousebites-effects-stupid", "mousebites-effects-metoo" ]
+        probability: 0.10
