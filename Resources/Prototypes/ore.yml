@@ -105,7 +105,7 @@
     OreUranium: 1
     BSCrystal: 0.5 # to account for higher points (250)
     OreBananium: 0.25 # to account for it being a useless meme ore
-    OreDiamond: 0.1 # to account for its much higher points (750), as well as its use in endgame schematics
+    OreDiamond: 0.1 # to account for its much higher points (1000), as well as its use in endgame schematics
   # Lavaland Change End
     OreArtifactFragment: 0.5
 
