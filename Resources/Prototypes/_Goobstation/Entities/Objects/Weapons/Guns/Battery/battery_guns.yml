@@ -152,12 +152,15 @@
   description: An energy-efficient gun capable of modifying the temperature of creatures. Just point and click!
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/tempgun_cold.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/tempgun.rsi
     layers:
     - state: base
-      map: ["enum.GunVisualLayers.Base"]
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mode-cold
+      shader: unshaded
+      map: [ "Firemode" ]
     - state: mag-unshaded-4
-      map: ["enum.GunVisualLayers.MagUnshaded"]
+      map: [ "enum.GunVisualLayers.MagUnshaded" ]
       shader: unshaded
   - type: Clothing
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/tempgun_cold.rsi
@@ -167,24 +170,29 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletTemperatureHot
-  - type: AmmoSelector
-    prototypes:
-    - BulletTemperatureCold
-    - BulletTemperatureHot
-  - type: UserInterface
-    interfaces:
-      enum.AmmoSelectorUiKey.Key:
-        type: AmmoSelectorMenuBoundUserInterface
-  - type: ActivatableUI
-    altVerb: true
-    verbOnly: true
-    verbText: mode-select-verb-text
-    key: enum.AmmoSelectorUiKey.Key
+  - type: EnergyGun
+    fireModes:
+    - proto: BulletTemperatureCold
+      fireCost: 125
+      name: cooling
+      state: cooling
+    - proto: BulletTemperatureHot
+      fireCost: 125
+      name: heating
+      state: cooling # Todo - Change this and add hot sprites.
+  - type: GenericVisualizer
+    visuals:
+      enum.EnergyGunFireModeVisuals.State:
+        Firemode:
+          Disabler: { state: icon }
+          Lethal: { state: icon }
   - type: Item
     size: Large
-    shape:
-    - 0,0,3,1
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/tempgun_cold.rsi
   - type: Battery
     maxCharge: 3000
     startingCharge: 3000
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
