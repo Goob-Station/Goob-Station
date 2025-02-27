@@ -217,34 +217,36 @@ public abstract class SharedChatSystem : EntitySystem
         if (TryComp<CollectiveMindComponent>(source, out var mind))
             defaultChannel = mind.DefaultChannel;
 
-        if (defaultChannel == null)
+        if (input.Length < 2 || (char.IsWhiteSpace(input[1]) && defaultChannel == null))
         {
-            if (input.Length < 2 || char.IsWhiteSpace(input[1]))
-            {
-                output = SanitizeMessageCapital(input[1..].TrimStart());
-                if (!quiet)
-                    _popup.PopupEntity(Loc.GetString("chat-manager-no-radio-key"), source, source);
-                return true;
-            }
-
-            var channelKey = input[1];
-            channelKey = char.ToLower(channelKey);
-            output = SanitizeMessageCapital(input[2..].TrimStart());
-
-            if (_mindKeyCodes.TryGetValue(channelKey, out channel) || quiet)
-                return true;
-
-            var msg = Loc.GetString("chat-manager-no-such-channel", ("key", channelKey));
-            _popup.PopupEntity(msg, source, source);
-
-            return false;
+            output = SanitizeMessageCapital(input[1..].TrimStart());
+            if (!quiet)
+                _popup.PopupEntity(Loc.GetString("chat-manager-no-radio-key"), source, source);
+            return true;
         }
-        else
+
+        var channelKey = input[1];
+        channelKey = char.ToLower(channelKey);
+
+        if (_mindKeyCodes.TryGetValue(channelKey, out channel))
+        {
+            output = SanitizeMessageCapital(input[2..].TrimStart());
+            return true;
+        }
+        else if (defaultChannel != null)
         {
             output = SanitizeMessageCapital(input[1..].TrimStart());
             channel = _prototypeManager.Index<CollectiveMindPrototype>(defaultChannel.Value);
             return true;
         }
+
+        if (quiet)
+            return false;
+
+        var msg = Loc.GetString("chat-manager-no-such-channel", ("key", channelKey));
+        _popup.PopupEntity(msg, source, source);
+
+        return false;
     }
 
     public string SanitizeMessageCapital(string message)
