@@ -42,7 +42,10 @@ namespace Content.Shared.GameTicking
 
         private void OnRecordingStart(MappingDataNode metadata, List<object> events)
         {
-            metadata["roundId"] = new ValueDataNode(RoundId.ToString());
+            if (RoundId != 0)
+            {
+                metadata["roundId"] = new ValueDataNode(RoundId.ToString());
+            }
         }
 
         public TimeSpan RoundDuration()
