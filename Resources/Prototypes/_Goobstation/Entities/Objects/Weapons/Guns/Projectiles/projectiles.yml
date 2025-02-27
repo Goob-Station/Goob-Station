@@ -153,7 +153,7 @@
     color: blue
     energy: 1
   - type: ChangeTemperatureOnCollide
-    heat: -40000
+    heat: -35000
 
 - type: entity
   id: BulletTemperatureHot
@@ -170,5 +170,5 @@
     radius: 2
     color: blue
     energy: 1
-  - type: ChangeTemperatureOnCollide
-    heat: 40000
+  - type: ChangeTemperatureOnCollide # This will probably be tweaked.
+    heat: 35000
