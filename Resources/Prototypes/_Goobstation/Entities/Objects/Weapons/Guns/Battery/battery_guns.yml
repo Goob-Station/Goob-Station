@@ -188,8 +188,8 @@
     visuals:
       enum.EnergyGunFireModeVisuals.State:
         Firemode:
-          Disabler: { state: mode-cold }
-          Lethal: { state: mode-hot }
+          Cooling: { state: mode-cold }
+          Heating: { state: mode-hot }
   - type: Battery
     maxCharge: 3000
     startingCharge: 3000
