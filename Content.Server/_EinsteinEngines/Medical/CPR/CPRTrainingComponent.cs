@@ -7,7 +7,7 @@ namespace Content.Server.Medical.CPR;
 public sealed partial class CPRTrainingComponent : Component
 {
     [DataField]
-    public SoundSpecifier CPRSound = new SoundPathSpecifier("/Audio/Effects/CPR.ogg");
+    public SoundSpecifier CPRSound = new SoundPathSpecifier("/Audio/_EnsteinEngines/Effects/CPR.ogg");
 
     [DataField]
     public TimeSpan DoAfterDuration = TimeSpan.FromSeconds(3);
