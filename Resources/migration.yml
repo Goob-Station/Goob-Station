@@ -736,3 +736,6 @@ LightTree06: LightTree
 VendingMachineRestockSalvageEquipment: null
 ComputerSalvageExpedition: ComputerShuttleMiningLavaland
 SalvageExpeditionsComputerCircuitboard: LavalandShuttleConsoleCircuitboard
+
+# 2025-01-27
+FoodCondimentPacketFrostoil: FoodCondimentPacketColdsauce
