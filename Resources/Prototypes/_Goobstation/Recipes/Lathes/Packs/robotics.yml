@@ -1,0 +1,59 @@
+## Static
+- type: latheRecipePack
+  id: IPCPartsStatic
+  recipes:
+  - TorsoIPC
+  - LeftArmIPC
+  - RightArmIPC
+  - LeftLegIPC
+  - RightLegIPC
+  - HeadIPC
+  - LeftHandIPC
+  - RightHandIPC
+  - LeftFootIPC
+  - RightFootIPC
+  - OrganIPCEyes
+  - OrganIPCPump
+
+- type: latheRecipePack
+  id: BorgModulesStaticGoob
+  recipes:
+  - BorgModuleSurgery
+
+- type: latheRecipePack
+  id: PowerCagesStatic
+  recipes:
+  - PowerCageMedium
+  - PowerCageSmall
+
+## Dynamic
+- type: latheRecipePack
+  id: Modsuits
+  recipes:
+  - ModsuitChestplate
+  - ModsuitBoots
+  - ModsuitHelmet
+  - ModsuitGauntlets
+  - ModsuitShell
+  - ModsuitPlatingExternal
+
+- type: latheRecipePack
+  id: BorgModulesGoob
+  recipes:
+  - BorgModuleAdvancedSurgery
+
+- type: latheRecipePack
+  id: PowerCages
+  recipes:
+  - PowerCageHigh
+
+- type: latheRecipePack
+  id: Cybernetics
+  recipes:
+  - JawsOfLifeLeftArm
+  - JawsOfLifeRightArm
+  - SpeedLeftLeg
+  - SpeedRightLeg
+  - DexLeftHand
+  - DexRightHand
+  - BasicCyberneticEyes
