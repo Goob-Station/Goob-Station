@@ -176,4 +176,4 @@
 - type: damageModifierSet
   id: GodsChildren
   coefficients:
-    Holy: 0  # Only the UNHOLY should suffer god's wrath
+    Holy: 0.05  # Only the UNHOLY should suffer god's wrath
