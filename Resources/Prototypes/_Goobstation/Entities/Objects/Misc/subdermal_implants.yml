@@ -57,7 +57,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
-    permanent: true
     implantAction: ActionSwapSpell
   - type: Tag
     tags:
