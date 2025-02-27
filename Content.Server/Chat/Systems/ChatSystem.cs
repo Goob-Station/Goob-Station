@@ -1,4 +1,4 @@
-using System.Collections.Immutable;
+using System.Collections.Immutable; // Goobstation - Starlight collective mind port
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -16,7 +16,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
-using Content.Shared.CollectiveMind;
+using Content.Shared.CollectiveMind; // Goobstation - Starlight collective mind port
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
@@ -66,7 +66,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly TelepathicChatSystem _telepath = default!; // Goobstation Change
     [Dependency] private readonly GhostVisibilitySystem _ghostVisibility = default!; // Goobstation Change
     [Dependency] private readonly ScryingOrbSystem _scrying = default!; // Goobstation Change
-    [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!;
+    [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!; // Goobstation - Starlight collective mind port
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
@@ -190,7 +190,8 @@ public sealed partial class ChatSystem : SharedChatSystem
             TrySendInGameOOCMessage(source, message, InGameOOCChatType.Dead, range == ChatTransmitRange.HideChat, shell, player);
             return;
         }
-        
+
+        // Goobstation - Starlight collective mind port
         if (TryComp<CollectiveMindComponent>(source, out var collective))
             _collectiveMind.UpdateCollectiveMind(source, collective);
 
@@ -262,7 +263,8 @@ public sealed partial class ChatSystem : SharedChatSystem
                 return;
             }
         }
-        
+
+        // Goobstation - Starlight collective mind port
         if (desiredType == InGameICChatType.CollectiveMind)
         {
             if (TryProccessCollectiveMindMessage(source, message, out var modMessage, out var channel))
@@ -286,6 +288,7 @@ public sealed partial class ChatSystem : SharedChatSystem
                 break;
             case InGameICChatType.Telepathic:
                 _telepath.SendTelepathicChat(source, message, range == ChatTransmitRange.HideChat);
+            // Goobstation - Starlight collective mind port
             case InGameICChatType.CollectiveMind:
                 SendCollectiveMindChat(source, message, false);
                 break;
@@ -442,6 +445,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     #region Private API
 
+    // Goobstation - Starlight collective mind port
     private void SendCollectiveMindChat(EntityUid source, string message, CollectiveMindPrototype? collectiveMind)
     {
         if (_mobStateSystem.IsDead(source) || collectiveMind == null || message == "" || !TryComp<CollectiveMindComponent>(source, out var sourseCollectiveMindComp) || !sourseCollectiveMindComp.Minds.ContainsKey(collectiveMind.ID))
@@ -459,7 +463,7 @@ public sealed partial class ChatSystem : SharedChatSystem
                 clients.AddPlayer(actorComp.PlayerSession);
             }
         }
-        
+
         var Number = $"{sourseCollectiveMindComp.Minds[collectiveMind.ID]}";
 
         var admins = _adminManager.ActiveAdmins
@@ -487,8 +491,8 @@ public sealed partial class ChatSystem : SharedChatSystem
             source,
             false,
             true,
-            collectiveMind.Color); 
-            
+            collectiveMind.Color);
+
         // FOR ADMINS
         _chatManager.ChatMessageToMany(ChatChannel.CollectiveMind,
             message,
@@ -1074,7 +1078,7 @@ public enum InGameICChatType : byte
     Emote,
     Whisper,
     Telepathic // Goobstation Change
-    CollectiveMind
+    CollectiveMind // Goobstation - Starlight collective mind port
 }
 
 /// <summary>

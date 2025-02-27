@@ -1,5 +1,5 @@
 using System.Collections.Frozen;
-using Content.Shared.CollectiveMind;
+using Content.Shared.CollectiveMind; // Goobstation - Starlight collective mind port
 using System.Text.RegularExpressions;
 using Content.Shared.Popups;
 using Content.Shared.Radio;
@@ -24,7 +24,7 @@ public abstract class SharedChatSystem : EntitySystem
     public const char AdminPrefix = ']';
     public const char WhisperPrefix = ',';
     public const char TelepathicPrefix = '='; //Nyano - Summary: Adds the telepathic channel's prefix.
-    public const char CollectiveMindPrefix = '+';
+    public const char CollectiveMindPrefix = '+'; // Goobstation - Starlight collective mind port
     public const char DefaultChannelKey = 'h';
 
     [ValidatePrototypeId<RadioChannelPrototype>]
@@ -42,7 +42,8 @@ public abstract class SharedChatSystem : EntitySystem
     /// Cache of the keycodes for faster lookup.
     /// </summary>
     private FrozenDictionary<char, RadioChannelPrototype> _keyCodes = default!;
-    
+
+    // Goobstation - Starlight collective mind port
     private FrozenDictionary<char, CollectiveMindPrototype> _mindKeyCodes = default!;
 
     public override void Initialize()
@@ -51,14 +52,15 @@ public abstract class SharedChatSystem : EntitySystem
         DebugTools.Assert(_prototypeManager.HasIndex<RadioChannelPrototype>(CommonChannel));
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypeReload);
         CacheRadios();
-        CacheCollectiveMinds();
+        CacheCollectiveMinds(); // Goobstation - Starlight collective mind port
     }
 
     protected virtual void OnPrototypeReload(PrototypesReloadedEventArgs obj)
     {
         if (obj.WasModified<RadioChannelPrototype>())
             CacheRadios();
-        
+
+        // Goobstation - Starlight collective mind port
         if (obj.WasModified<CollectiveMindPrototype>())
             CacheCollectiveMinds();
     }
@@ -68,7 +70,8 @@ public abstract class SharedChatSystem : EntitySystem
         _keyCodes = _prototypeManager.EnumeratePrototypes<RadioChannelPrototype>()
             .ToFrozenDictionary(x => x.KeyCode);
     }
-    
+
+    // Goobstation - Starlight collective mind port
     private void CacheCollectiveMinds()
     {
         _prototypeManager.PrototypesReloaded -= OnPrototypeReload;
@@ -192,7 +195,8 @@ public abstract class SharedChatSystem : EntitySystem
 
         return true;
     }
-    
+
+    // Goobstation - Starlight collective mind port
     public bool TryProccessCollectiveMindMessage(
         EntityUid source,
         string input,

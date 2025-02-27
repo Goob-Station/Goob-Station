@@ -1,5 +1,5 @@
 using System.Numerics;
-using Content.Shared.CollectiveMind;
+using Content.Shared.CollectiveMind; // Goobstation - Starlight collective mind port
 using Content.Shared.Chat;
 
 namespace Content.Client.UserInterface.Systems.Chat.Controls;
@@ -70,7 +70,8 @@ public sealed class ChannelSelectorButton : ChatPopupButton<ChannelSelectorPopup
         };
     }
 
-    public void UpdateChannelSelectButton(ChatSelectChannel channel, Shared.Radio.RadioChannelPrototype? radio, CollectiveMindPrototype? collectiveMind)
+    // Goobstation - Starlight collective mind port
+    public void UpdateChannelSelectButton(ChatSelectChannel channel, Shared.Radio.RadioChannelPrototype? radio, CollectiveMindPrototype? collectiveMind = null)
     {
         if (radio != null)
         {

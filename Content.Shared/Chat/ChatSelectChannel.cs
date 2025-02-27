@@ -41,6 +41,7 @@
         /// </summary>
         Emotes = ChatChannel.Emotes,
 
+        // Goobstation - Starlight collective mind port
         /// <summary>
         ///     CollectiveMind
         /// </summary>
