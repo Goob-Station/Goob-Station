@@ -109,6 +109,9 @@
   - type: Icon
     sprite: _Goobstation/Objects/Devices/pda.rsi
     state: pda-deathsquad
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/pda.rsi
+    state: pda-deathsquad
 
 - type: entity
   parent: CentcomPDA
