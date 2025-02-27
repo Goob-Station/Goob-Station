@@ -17,7 +17,7 @@ public sealed partial class PullableComponent : Component
     /// </summary>
     [AutoNetworkedField, DataField]
     public EntityUid? Puller;
-    
+
     /// <summary>
     /// The pull joint.
     /// </summary>

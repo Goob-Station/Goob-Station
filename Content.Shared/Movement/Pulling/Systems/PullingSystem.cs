@@ -461,7 +461,6 @@ public sealed class PullingSystem : EntitySystem
     /// </summary>
     private void StopPulling(EntityUid pullableUid, PullableComponent pullableComp)
     {
-        Logger.Debug("stopping pulling");
         if (!_timing.ApplyingState)
         {
             // Joint shutdown
