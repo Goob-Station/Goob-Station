@@ -18,7 +18,7 @@
         Holy: 25
     soundHit:
       collection: MetalThud
-  - type: Reflect #Holy Aura :^)
+  - type: Reflect
     reflectProb: 1
     reflects:
       - Magic
@@ -35,24 +35,12 @@
   id: HolyClaymore
   description: A weapon fit for a crusade! A sword capable of stealing life from evil-doers.
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Melee/claymore.rsi
-  - type: AmmoCounter
-  - type: UseDelayOnShoot
-  - type: UseDelay
-    delay: 1.5
+  - type: Item
   - type: Gun
     soundGunshot: /Audio/Effects/hallelujah.ogg
     fireRate: 0.5
     useKey: false
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.25
-    rechargeSound:
-      path: /Audio/_Goobstation/Wizard/zapbang.ogg
-  - type: BasicEntityAmmoProvider
-    proto: HolyBulletCharge
-    capacity: 1
-    count: 1
+  - type: GunRequiresWield
   - type: MeleeWeapon
     attackRate: 0.9
     damage:
@@ -61,15 +49,7 @@
         Holy: 30
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
-  - type: Item
-  - type: Clothing
-    sprite: Objects/Weapons/Melee/claymore.rsi
-    slots:
-    - back
   - type: Wieldable
-  - type: GunRequiresWield
-  - type: DisarmMalus
-    malus: 0
   - type: DamageBoostOnMarker
     boost:
       types:
@@ -79,7 +59,27 @@
     leech:
       groups:
         Brute: -10
-  - type: Reflect #Holy Aura :^)
+  - type: Reflect
+  - type: Clothing
+    sprite: Objects/Weapons/Melee/claymore.rsi
+    slots:
+    - back
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/claymore.rsi
+  - type: AmmoCounter
+  - type: UseDelayOnShoot
+  - type: UseDelay
+    delay: 1.5
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 0.25
+    rechargeSound:
+      path: /Audio/_Goobstation/Wizard/zapbang.ogg
+  - type: BasicEntityAmmoProvider
+    proto: HolyBulletCharge
+    capacity: 1
+    count: 1
+  - type: DisarmMalus
+    malus: 0
     reflectProb: 0.5
     reflects:
       - Magic
@@ -162,6 +162,9 @@
   description: A holy, fiery gift from the gods. You won't drop this one.
   suffix: Unremoveable
   components:
+  - type: Item
+    size: Ginormous
+    sprite: _ShitChap/Objects/Weapons/Melee/godhand.rsi
   - type: Sprite
     sprite: _ShitChap/Objects/Weapons/Melee/godhand.rsi
     state: icon
@@ -190,16 +193,13 @@
       - Magic
   - type: Cautery # Shitmed
     speed: 0.3
-  - type: Item
-    size: Ginormous
-    sprite: _ShitChap/Objects/Weapons/Melee/godhand.rsi
+  - type: Tool
+    qualities:
+      - Prying
   - type: Unremoveable
   - type: DisarmMalus
     malus: 0
   - type: GrabbingItem
-  - type: Tool
-    qualities:
-      - Prying
   - type: Tag
     tags:
     - GodHand
