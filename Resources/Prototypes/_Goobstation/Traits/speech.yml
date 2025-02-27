@@ -45,3 +45,12 @@
   cost: 1
   components:
   - type: MedievalAccent
+
+- type: trait
+  id: OhioAccent
+  name: Огайский Акцент
+  description: Акцент прям как из Огайо
+  category: SpeechTraits
+  cost: 1
+  components:
+  - type: OhioAccent
