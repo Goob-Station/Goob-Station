@@ -128,7 +128,7 @@ namespace Content.Shared.Chemistry.Reagent
         /// Should this reagent only work on unconscious entities?
         /// </summary>
         [DataField]
-        public bool WorksOnUnconscious = true;
+        public bool? WorksOnUnconscious;
 
         [DataField(serverOnly: true)]
         public FrozenDictionary<ProtoId<MetabolismGroupPrototype>, ReagentEffectsEntry>? Metabolisms;

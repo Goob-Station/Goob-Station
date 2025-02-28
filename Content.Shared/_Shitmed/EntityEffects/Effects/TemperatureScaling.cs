@@ -16,18 +16,24 @@ public record struct TemperatureScaling(FixedPoint2 Min, FixedPoint2 Max, FixedP
     public static implicit operator (FixedPoint2, FixedPoint2, FixedPoint2)(TemperatureScaling p) => (p.Min, p.Max, p.Scale);
     public static implicit operator TemperatureScaling((FixedPoint2, FixedPoint2, FixedPoint2) p) => new(p.Item1, p.Item2, p.Item3);
 
-    public FixedPoint2 GetEfficiencyMultiplier(FixedPoint2 temperature)
+    public FixedPoint2 GetEfficiencyMultiplier(FixedPoint2 temperature, FixedPoint2 scale, bool invert = false)
     {
-        if (temperature == Min)
-            return 1;
+        if (Min == Max)
+            return FixedPoint2.New(1); // Prevent division by zero if range is invalid
 
-        if (temperature > Max)
-            return FixedPoint2.Zero;
+        // Manual clamping since Math.Clamp doesn't support FixedPoint2
+        if (temperature < Min) temperature = Min;
+        if (temperature > Max) temperature = Max;
 
-        var distance = FixedPoint2.Abs(temperature - Min);
+        var distance = invert ? FixedPoint2.Abs(temperature - Max) : FixedPoint2.Abs(temperature - Min);
         var totalRange = Max - Min;
-        var scaledDistance = distance / totalRange;
-        var efficiency = 1 - scaledDistance;
-        return efficiency < 0 ? FixedPoint2.Zero : efficiency;
+
+        // Handle potential division by zero
+        var scaledDistance = totalRange == FixedPoint2.Zero ? FixedPoint2.Zero : distance / totalRange;
+
+        // Apply scale and allow values > 1
+        var efficiency = (FixedPoint2.New(1) - scaledDistance) * scale;
+
+        return efficiency;
     }
 }

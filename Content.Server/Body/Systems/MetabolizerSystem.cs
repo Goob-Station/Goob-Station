@@ -191,18 +191,15 @@ namespace Content.Server.Body.Systems
                     if (TryComp<MobStateComponent>(solutionEntityUid.Value, out var state))
                     {
                         // Shitmed Change Start
-                        var skip = false;
 
                         if (!proto.WorksOnTheDead && _mobStateSystem.IsDead(solutionEntityUid.Value, state))
-                            skip = true;
-
-                        if (!proto.WorksOnUnconscious &&
-                            (_mobStateSystem.IsIncapacitated(solutionEntityUid.Value, state) ||
-                             HasComp<ForcedSleepingComponent>(solutionEntityUid.Value)))
-                            skip = true;
-
-                        if (skip)
                             continue;
+
+                        if (proto.WorksOnUnconscious == true &&
+                            (_mobStateSystem.IsCritical(solutionEntityUid.Value, state) ||
+                             HasComp<SleepingComponent>(solutionEntityUid.Value)))
+                            continue;
+
                         // Shitmed Change End
                     }
 
