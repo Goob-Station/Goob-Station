@@ -1140,7 +1140,11 @@
       - !type:SatiateThirst
         factor: 3
     Medicine:
-      effects:
+      effects: # imp edit
+      - !type:CleanseCult
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
       - !type:HealthChange
         conditions:
         - !type:TotalDamage

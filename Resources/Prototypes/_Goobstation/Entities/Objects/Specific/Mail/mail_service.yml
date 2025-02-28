@@ -183,7 +183,7 @@
   components:
   - type: Mail
     contents:
-    - id: Bible
+    # - id: Bible
     - id: ClothingHeadHatWitch1
     - id: ClothingOuterSuitWitchRobes
 
