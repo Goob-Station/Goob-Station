@@ -26,8 +26,8 @@ public sealed partial class NullRodSystem : EntitySystem
         if (HasComp<BibleUserComponent>(args.User))
             return;
 
-        if (_damageableSystem.TryChangeDamage(args.User, comp.SelfDamage, true, origin: uid) != null)
-
+        if (_damageableSystem.TryChangeDamage(args.User, comp.SelfDamage, false, origin: uid) != null)
+        // If you set ignore resistances to true, it'll FUCK you up.
         {
             var selfFailMessage = comp.FailPopup;
             _popupSystem.PopupEntity(selfFailMessage, args.User, args.User, PopupType.MediumCaution);
