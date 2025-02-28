@@ -1490,6 +1490,7 @@
     #  range: 0.30 # Delta V - End Magnet Pull
     - type: MiningPoints # DeltaV - Source of mining points for miners
     - type: MiningPointsLathe # DeltaV
+    - type: MaterialStorageMagnetPickup # Frontier
 
 - type: entity
   parent: OreProcessor
