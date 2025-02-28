@@ -29,6 +29,7 @@
       types:
         Holy: 25
         Burn: 15
+    failPopup: "The normally cold rod flashes with a searing heat."
   - type: Tag
     tags:
     - Nullrod

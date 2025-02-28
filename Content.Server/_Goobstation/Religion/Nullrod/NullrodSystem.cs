@@ -1,5 +1,7 @@
- using Content.Server.Bible.Components;
+using Content.Server.Bible.Components;
+using Content.Server.Popups;
 using Content.Shared.Damage;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
@@ -11,6 +13,7 @@ public sealed partial class NullRodSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private readonly PopupSystem _popupSystem = default!;
 
     public override void Initialize()
     {
@@ -22,13 +25,17 @@ public sealed partial class NullRodSystem : EntitySystem
 
     {
 
-        if (HasComp<BibleUserComponent>(args.User)) return;
+        if (HasComp<BibleUserComponent>(args.User))
+            return;
+
 
         if (_damageableSystem.TryChangeDamage(args.User, comp.SelfDamage, false, origin: uid) != null)
 
         {
+            var selfFailMessage = comp.FailPopup;
+            _popupSystem.PopupEntity(selfFailMessage, args.User, args.User, PopupType.MediumCaution);
 
-            _audio.PlayPvs("/Audio/Effects/hit_kick.ogg", args.User);
+            _audio.PlayPvs("Audio/Effects/lightburn.ogg", args.User);
 
         }
 

@@ -6,17 +6,18 @@ namespace Content.Server._Goobstation.Religion.Nullrod
     [RegisterComponent]
     public sealed partial class NullrodComponent : Component
     {
-
         /// <summary>
-        /// Audio played.
+        /// How much damage is dealt when an untrained user uses it.
         /// </summary>
-        [DataField("sizzleSound")]
-        public SoundSpecifier SizzleSoundPath = new SoundPathSpecifier("/Audio/Effects/lightburn.ogg");
-        [DataField("healSound")]
-        public SoundSpecifier HealSoundPath = new  SoundPathSpecifier("/Audio/Effects/holy.ogg");
 
         [DataField("selfDamage", required: true)]
-        [ViewVariables(VVAccess.ReadWrite)]
         public DamageSpecifier SelfDamage = default!;
+
+        /// <summary>
+        /// The pop-up displayed when an untrained user uses it.
+        /// </summary>
+
+        [DataField("failPopup", required: true)]
+        public string FailPopup = default!;
     }
 }
