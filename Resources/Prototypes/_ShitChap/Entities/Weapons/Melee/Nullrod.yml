@@ -1,8 +1,7 @@
-- type: entity
-  name: Null Rod
+- type: entity # Making a base item with allow for creating more variants easier. Probably.
   parent: BaseItem
-  id: Nullrod
-  description: The old classic. Does nothing special, really.
+  id: BaseNullrod
+  abstract: true
   components:
   - type: Sprite
     sprite: _ShitChap/Objects/Weapons/Melee/nullrod.rsi
@@ -21,7 +20,7 @@
   - type: Reflect
     reflectProb: 1
     reflects:
-      - Magic
+    - Magic
   - type: DisarmMalus
     malus: 0
   - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
@@ -35,12 +34,27 @@
     - Nullrod
 
 - type: entity
+  name: Null Rod
+  parent: BaseNullrod
+  id: Nullrod
+  description: The old classic. Does nothing special, really.
+  components:
+  - type: Tag
+    tags:
+    - Nullrod
+
+- type: entity
   name: holy claymore
-  parent: BaseSword
+  parent: BaseNullrod
   id: HolyClaymore
   description: A weapon fit for a crusade! A sword capable of stealing life from evil-doers.
   components:
-  - type: Item
+  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
+    selfDamage:
+      types:
+        Slash: 10
+        Holy: 25
+    failPopup: "The blade lashes out at it's wrongful user."
   - type: Gun
     soundGunshot: /Audio/Effects/hallelujah.ogg
     fireRate: 0.5
@@ -64,7 +78,6 @@
     leech:
       groups:
         Brute: -10
-  - type: Reflect
   - type: Clothing
     sprite: Objects/Weapons/Melee/claymore.rsi
     slots:
@@ -95,17 +108,11 @@
   - type: Tag
     tags:
     - HolyClaymore
-  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
-    selfDamage:
-      types:
-        Slash: 10
-        Holy: 25
-    failPopup: "The blade lashes out at it's wrongful user."
 
 - type: entity
   name: rosary
   description: Using these to pray near someone will heal them. They are surrounded by a holy aura.
-  parent: BaseItem
+  parent: BaseNullrod
   id: Rosary
   components:
   - type: Sprite
@@ -173,7 +180,7 @@
     failPopup: "The beads tighten around your hands painfully"
 
 - type: entity
-  parent: BaseItem
+  parent: BaseNullrod
   id: GodHand
   name: the god hand
   description: A holy, fiery gift from the gods. You won't drop this one.
@@ -225,4 +232,4 @@
       types:
         Burn: 25
         Holy: 15
-    failPopup: "The fire burns your hand painfully."
+    failPopup: "The fiery auru burns your hand painfully."
