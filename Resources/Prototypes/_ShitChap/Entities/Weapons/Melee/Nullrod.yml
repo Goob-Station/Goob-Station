@@ -29,7 +29,7 @@
       types:
         Heat: 15
         Holy: 25
-    failPopup: "The usually cold rod flashes with a searing heat."
+    failPopup: "The usually cold rod flashes with a searing heat." # This should be localized, but I don't know how :godo:
   - type: Tag
     tags:
     - Nullrod
@@ -98,9 +98,9 @@
   - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
     selfDamage:
       types:
-        Slash: 15
+        Slash: 10
         Holy: 25
-    failPopup: 'fail-nullrod-claymore'
+    failPopup: "The blade lashes out at it's wrongful user."
 
 - type: entity
   name: rosary
@@ -200,9 +200,9 @@
   - type: InjectOnHit
     reagents:
     - ReagentId: MuteToxin # HERETIC BE GONE
-      Quantity: 2.5
+      Quantity: 2.5 # Potentially an awful idea, buuuut it's funny.
     limit: 5
-  - type: KnockdownOnHit
+  - type: KnockdownOnHit # Could be unbalanced, we'll see :godo:
     duration: 0.25
   - type: Reflect # Only blocks magic projectiles
     reflectProb: 0.7
@@ -220,3 +220,9 @@
   - type: Tag
     tags:
     - GodHand
+  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
+    selfDamage:
+      types:
+        Burn: 25
+        Holy: 15
+    failPopup: "The fire burns your hand painfully."
