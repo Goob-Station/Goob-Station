@@ -231,7 +231,6 @@
   - type: Targeting # Shitmed Change
   - type: SurgeryTarget # Shitmed Change
   - type: CanEscapeInventory # GoobStation - Escape being picked up by players
-  - type: CPRTraining # Goobstation - Just give to everyone! This ain't MRP.
 
 - type: entity
   save: false
@@ -302,6 +301,7 @@
   - type: FireVisuals
     alternateState: Standing
   - type: Carriable # Goobstation
+  - type: CPRTraining # Goobstation - Just give to everyone! This ain't MRP.
 
 - type: entity
   save: false
