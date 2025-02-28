@@ -13,7 +13,6 @@
 - type: latheRecipePack
   id: LatheMiscStatic
   recipes:
-  - OreBag
   - ToolboxMechanical
   - Pen
 

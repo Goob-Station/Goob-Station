@@ -1,3 +1,11 @@
+## Static
+- type: latheRecipePack
+  id: MiningToolsStatic
+  recipes:
+  - Fulton
+  - FultonBeacon
+  - OreBag
+
 ## Dynamic
 - type: latheRecipePack
   id: MiningWeapons

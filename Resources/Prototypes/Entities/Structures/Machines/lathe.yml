@@ -133,6 +133,7 @@
     - PowerCellsStatic
     - ElectronicsStatic
     # Goobstation
+    - MiningToolsStatic
     - LatheMiscStatic
     - MedicalVehiclesStatic
   - type: EmagLatheRecipes
