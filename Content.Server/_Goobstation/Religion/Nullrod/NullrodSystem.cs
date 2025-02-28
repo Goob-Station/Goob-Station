@@ -35,7 +35,8 @@ public sealed partial class NullRodSystem : EntitySystem
             var selfFailMessage = comp.FailPopup;
             _popupSystem.PopupEntity(selfFailMessage, args.User, args.User, PopupType.MediumCaution);
 
-            _audio.PlayPvs("/Resources/Audio/Effects/lightburn.ogg", args.User);
+            _audio.PlayPvs("/Audio/Effects/hallelujah.ogg", args.User); // Probably change this sound effect LOL
+            args.Handled = true;
 
         }
 
