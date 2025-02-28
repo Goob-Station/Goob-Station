@@ -84,7 +84,7 @@ public sealed class ComboSystem : EntitySystem
         base.Update(frameTime);
 
         var query = EntityQueryEnumerator<CanPerformComboComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+        while (query.MoveNext(out _, out var comp))
         {
             if (_timing.CurTime >= comp.ResetTime && comp.LastAttacks.Count > 0)
                 comp.LastAttacks.Clear();
@@ -110,10 +110,10 @@ public sealed class ComboSystem : EntitySystem
         component.CurrentTarget = args.Target;
         component.ResetTime = _timing.CurTime + TimeSpan.FromSeconds(4);
         component.LastAttacks.Add(args.Type);
-        CheckCombo(uid, args.Target, component);
+        CheckCombo(uid, component);
     }
 
-    private void CheckCombo(EntityUid uid, EntityUid target, CanPerformComboComponent comp)
+    private void CheckCombo(EntityUid uid, CanPerformComboComponent comp)
     {
         var success = false;
 
@@ -230,7 +230,7 @@ public sealed class ComboSystem : EntitySystem
         }
     }
 
-    // Super shitcode incoming
+    // Super shit code incoming
     private void SetMoves(EntityUid ent, ProtoId<ComboListPrototype> comboList)
     {
 
