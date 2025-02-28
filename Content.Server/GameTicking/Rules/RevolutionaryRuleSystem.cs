@@ -215,21 +215,24 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
                     return;
                 }
 
-                // Popup that tells converter request was sent
-                _popup.PopupEntity(
-                    Loc.GetString("rev-consent-convert-requested", ("target", Identity.Entity(args.Target, EntityManager))),
-                    args.User,
-                    args.User);
-
                 // Start conversion
                 if (_mind.TryGetMind(args.Target, out var consentMindId, out var _) &&
                     _mind.TryGetSession(consentMindId, out var session))
                 {
+                    // Popup that tells converter request was sent
+                    _popup.PopupEntity(
+                        Loc.GetString("rev-consent-convert-requested", ("target", Identity.Entity(args.Target, EntityManager))),
+                        args.User,
+                        args.User);
                     _euiMan.OpenEui(new ConsentRequestedEui(args.Target, args.User, this, _popup, EntityManager), session);
                 }
                 else
                 {
                     // Entity don't have mind (not controlled by player) to give response, but it's still convertable without it. We'll consent for them
+                    _popup.PopupEntity(
+                        Loc.GetString("rev-consent-convert-auto-accepted", ("target", Identity.Entity(args.Target, EntityManager))),
+                        args.User,
+                        args.User);
                     ConvertEntityToRevolution(args.Target, args.User);
                 }
 

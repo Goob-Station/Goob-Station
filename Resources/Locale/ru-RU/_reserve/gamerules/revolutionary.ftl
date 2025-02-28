@@ -3,6 +3,8 @@ rev-consent-convert-requested = Вы пытаетесь завербовать {
 rev-consent-convert-accepted = {$target} соглашается и теперь является участником революции!
 rev-consent-convert-denied = {$target} отказывается от вербовки
 
+rev-consent-convert-auto-accepted = {$target} завербован в революцию!
+
 rev-consent-convert-failed = Что-то препятствует вербовке!
 rev-consent-convert-failed-mid-convert = Попытка вербовки была отменена
 
