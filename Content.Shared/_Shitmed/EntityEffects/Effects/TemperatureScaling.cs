@@ -30,8 +30,12 @@ public record struct TemperatureScaling(FixedPoint2 Min, FixedPoint2 Max, FixedP
         // Handle potential division by zero
         var scaledDistance = totalRange == FixedPoint2.Zero ? FixedPoint2.Zero : distance / totalRange;
 
-        // Apply scale and allow values > 1
+        // Take the efficiency and subtract the distance to the target value, and multiply by the scale.
         var efficiency = (FixedPoint2.New(1) - scaledDistance) * scale;
+
+        // If inverted, flip it!
+        if (invert)
+            efficiency = FixedPoint2.New(1) + (scaledDistance * scale);
 
         return efficiency;
     }
