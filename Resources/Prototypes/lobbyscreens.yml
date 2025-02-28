@@ -17,6 +17,12 @@
   artist: TazerPones
 
 - type: lobbyBackground
+  id: Police_Brutality
+  background: /Textures/_ShibaStation/LobbyScreens/police_brutality.webp
+  name: Police Brutality
+  artist: TazerPones
+
+- type: lobbyBackground
   id: Shiba1
   background: /Textures/_ShibaStation/LobbyScreens/shiba1.webp
   name: AI Slop
