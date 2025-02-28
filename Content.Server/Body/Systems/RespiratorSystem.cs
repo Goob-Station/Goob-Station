@@ -55,11 +55,12 @@ public sealed class RespiratorSystem : EntitySystem
     }
 
     // Goobstation start
-    public bool CanBreathe(EntityUid uid)
+    // Can breathe check for grab
+    public bool CanBreathe(EntityUid uid, RespiratorComponent respirator)
     {
-        if (TryComp<PullableComponent>(uid, out var pullable) && pullable.GrabStage == GrabStage.Suffocate)
+        if(respirator.Saturation < respirator.SuffocationThreshold)
             return false;
-        return true;
+        return !TryComp<PullableComponent>(uid, out var pullable) || pullable.GrabStage != GrabStage.Suffocate;
     }
     // Goobstation end
     private void OnMapInit(Entity<RespiratorComponent> ent, ref MapInitEvent args)
@@ -104,7 +105,7 @@ public sealed class RespiratorSystem : EntitySystem
                 }
             }
 
-            if (respirator.Saturation < respirator.SuffocationThreshold || !CanBreathe(uid)) // Goobstation
+            if (!CanBreathe(uid, respirator)) // Goobstation edit
             {
                 if (_gameTiming.CurTime >= respirator.LastGaspEmoteTime + respirator.GaspEmoteCooldown)
                 {

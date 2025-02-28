@@ -1,4 +1,3 @@
-using System.Numerics;
 using Content.Shared.Hands.Components;
 using JetBrains.Annotations;
 using Robust.Shared.Map;
@@ -141,6 +140,7 @@ namespace Content.Shared.Hands
     }
 
     // Goobstation start
+    // Added virtual items for grab intent, this is heavily edited please do not bulldoze.
     /// <summary>
     ///     Raised directed on both the blocking entity and user when
     ///     a virtual hand item is deleted.

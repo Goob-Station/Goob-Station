@@ -1,4 +1,4 @@
-namespace Content.Server._Goobstation.Traits.Assorted;
+namespace Content.Server._White.Traits.Assorted;
 
 /// <summary>
 ///     This is used for traits that modify values related to the Laying Down system.
