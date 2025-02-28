@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   name: watcher
   id: MobWatcherBase
   parent: [ SimpleSpaceMobBase, FlyingMobBase ]
@@ -42,10 +42,10 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      50: Dead
+      140: Dead # Goob - 4 PKA shots, 2 crusher destabilised hits
   - type: MovementSpeedModifier
-    baseWalkSpeed: 4 # Lavaland change
-    baseSprintSpeed: 5 # Lavaland change
+    baseWalkSpeed: 2.25 # Lavaland change // Slightly slower than regular walkspeed, makes it not annoying as fuck to catch
+    baseSprintSpeed: 2.25 # Lavaland change
   - type: ProjectileBatteryAmmoProvider
     proto: WatcherBolt
     fireCost: 50
@@ -56,7 +56,8 @@
     maxCharge: 1000
     startingCharge: 1000
   - type: Gun
-    fireRate: 0.5
+    projectileSpeed: 12.5 # Goob - allows you to actually dodge the projectiles
+    fireRate: 0.3 # Goob - accounts for damage and also to be less annoying
     useKey: false
     selectedMode: SemiAuto
     availableModes:
@@ -105,6 +106,13 @@
     radius: 1.5
     energy: 1
     color: deepskyblue
+  - type: ProjectileBatteryAmmoProvider
+    proto: WatcherBoltIcewing
+    firecost: 50
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      240: Dead # Goob - 6 PKA shots, 3 crusher destabilised hits
 
 - type: entity
   id: MobWatcherMagmawing
@@ -126,6 +134,10 @@
   - type: ProjectileBatteryAmmoProvider
     proto: WatcherBoltMagmawing
     fireCost: 50
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      240: Dead # Goob - 6 PKA shots, 3 crusher destabilised hits
 
 - type: entity
   id: MobWatcherPride
