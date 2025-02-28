@@ -11,5 +11,11 @@ namespace Content.Shared._Starlight.CollectiveMind
 
         [DataField]
         public ProtoId<CollectiveMindPrototype>? DefaultChannel = null;
+
+        [DataField]
+        public bool HearAll = false;
+
+        [DataField]
+        public bool SeeAllNames = false;
     }
 }

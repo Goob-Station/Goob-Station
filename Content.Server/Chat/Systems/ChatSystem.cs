@@ -449,15 +449,19 @@ public sealed partial class ChatSystem : SharedChatSystem
             return;
 
         var clients = Filter.Empty();
+        var clientsSeeNames = Filter.Empty();
         var mindQuery = EntityQueryEnumerator<CollectiveMindComponent, ActorComponent>();
         while (mindQuery.MoveNext(out var uid, out var collectMindComp, out var actorComp))
         {
             if (_mobStateSystem.IsDead(uid))
                 continue;
 
-            if (collectMindComp.Minds.ContainsKey(collectiveMind.ID))
+            if (collectMindComp.Minds.ContainsKey(collectiveMind.ID) || collectMindComp.HearAll)
             {
-                clients.AddPlayer(actorComp.PlayerSession);
+                if (collectMindComp.SeeAllNames)
+                    clientsSeeNames.AddPlayer(actorComp.PlayerSession);
+                else
+                    clients.AddPlayer(actorComp.PlayerSession);
             }
         }
 
@@ -465,25 +469,16 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         var admins = _adminManager.ActiveAdmins
             .Select(p => p.Channel);
-        string messageWrap;
-        string adminMessageWrap;
 
-        if (!collectiveMind.ShowNames)
-        {
-            messageWrap = Loc.GetString("collective-mind-chat-wrap-message",
-                ("message", message),
-                ("channel", collectiveMind.LocalizedName),
-                ("number", Number));
-        }
-        else
-        {
-            messageWrap = Loc.GetString("collective-mind-chat-wrap-message-named",
-                ("source", source),
-                ("message", message),
-                ("channel", collectiveMind.LocalizedName));
-        }
-
-        adminMessageWrap = Loc.GetString("collective-mind-chat-wrap-message-admin",
+        string messageWrap = Loc.GetString("collective-mind-chat-wrap-message",
+            ("message", message),
+            ("channel", collectiveMind.LocalizedName),
+            ("number", Number));
+        string namedMessageWrap = Loc.GetString("collective-mind-chat-wrap-message-named",
+            ("source", source),
+            ("message", message),
+            ("channel", collectiveMind.LocalizedName));
+        string adminMessageWrap = Loc.GetString("collective-mind-chat-wrap-message-admin",
             ("source", source),
             ("message", message),
             ("channel", collectiveMind.LocalizedName),
@@ -491,10 +486,21 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"CollectiveMind chat from {ToPrettyString(source):Player}: {message}");
 
+        // send to normal clients
         _chatManager.ChatMessageToManyFiltered(clients,
             ChatChannel.CollectiveMind,
             message,
-            messageWrap,
+            collectiveMind.ShowNames ? namedMessageWrap : messageWrap,
+            source,
+            false,
+            true,
+            collectiveMind.Color);
+
+        // send to normal clients that should always see names, aka ghosts
+        _chatManager.ChatMessageToManyFiltered(clientsSeeNames,
+            ChatChannel.CollectiveMind,
+            message,
+            namedMessageWrap,
             source,
             false,
             true,

@@ -19,7 +19,7 @@ public sealed class CollectiveMindUpdateSystem : EntitySystem
         {
             if (!_currentId.ContainsKey(prototype.ID))
                 _currentId[prototype.ID] = 0;
-            
+
             foreach (var component in prototype.RequiredComponents)
                 if (EntityManager.HasComponent(uid, _componentFactory.GetRegistration(component).Type) && !collective.Minds.ContainsKey(prototype.ID))
                     collective.Minds.Add(prototype.ID, ++_currentId[prototype.ID]);
