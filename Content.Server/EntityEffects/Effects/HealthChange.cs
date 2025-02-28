@@ -3,7 +3,9 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.EntityEffects;
 using Content.Shared.FixedPoint;
 using Content.Shared.Localizations;
+using Content.Shared._Shitmed.EntityEffects.Effects; // Shitmed Change
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
+using Content.Server.Temperature.Components; // Shitmed Change
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using System.Linq;
@@ -32,6 +34,13 @@ namespace Content.Server.EntityEffects.Effects
         [DataField]
         [JsonPropertyName("scaleByQuantity")]
         public bool ScaleByQuantity;
+
+        /// <summary>
+        ///     Scales the effect based on the temperature of the entity.
+        /// </summary>
+        [DataField]
+        [JsonPropertyName("scaleByTemperature")]
+        public TemperatureScaling? ScaleByTemperature;
 
         [DataField]
         [JsonPropertyName("ignoreResistances")]
@@ -119,6 +128,14 @@ namespace Content.Server.EntityEffects.Effects
             if (args is EntityEffectReagentArgs reagentArgs)
             {
                 scale = ScaleByQuantity ? reagentArgs.Quantity * reagentArgs.Scale : reagentArgs.Scale;
+            }
+
+            if (ScaleByTemperature.HasValue)
+            {
+                if (!args.EntityManager.TryGetComponent<TemperatureComponent>(args.TargetEntity, out var temp))
+                    scale = FixedPoint2.Zero;
+                else
+                    scale *= ScaleByTemperature.Value.GetEfficiencyMultiplier(temp.CurrentTemperature);
             }
 
             args.EntityManager.System<DamageableSystem>().TryChangeDamage(

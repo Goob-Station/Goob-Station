@@ -1,6 +1,7 @@
 using Content.Server.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Bed.Sleep; // Shitmed Change
 using Content.Shared.Body.Organ;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -189,8 +190,20 @@ namespace Content.Server.Body.Systems
                     // still remove reagents
                     if (TryComp<MobStateComponent>(solutionEntityUid.Value, out var state))
                     {
+                        // Shitmed Change Start
+                        var skip = false;
+
                         if (!proto.WorksOnTheDead && _mobStateSystem.IsDead(solutionEntityUid.Value, state))
+                            skip = true;
+
+                        if (!proto.WorksOnUnconscious &&
+                            (_mobStateSystem.IsIncapacitated(solutionEntityUid.Value, state) ||
+                             HasComp<ForcedSleepingComponent>(solutionEntityUid.Value)))
+                            skip = true;
+
+                        if (skip)
                             continue;
+                        // Shitmed Change End
                     }
 
                     var actualEntity = ent.Comp2?.Body ?? solutionEntityUid.Value;
