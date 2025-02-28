@@ -169,6 +169,7 @@
   - Glasses
   - SurvivalClown
   - Trinkets
+  canCustomizeName: true
 
 - type: roleLoadout
   id: JobMime
@@ -183,6 +184,7 @@
   - Glasses
   - SurvivalMime
   - Trinkets
+  canCustomizeName: true
 
 - type: roleLoadout
   id: JobMusician
