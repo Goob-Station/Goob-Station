@@ -97,7 +97,7 @@ namespace Content.Server.Hands.Systems
 
             // Break any pulls
             if (TryComp(uid, out PullerComponent? puller) && TryComp(puller.Pulling, out PullableComponent? pullable))
-                _pullingSystem.TryStopPull(puller.Pulling.Value, pullable, ignoreGrab: true);
+                _pullingSystem.TryStopPull(puller.Pulling.Value, pullable, ignoreGrab: true); // Goobstation edit added check for grab
 
             var offsetRandomCoordinates = _transformSystem.GetMoverCoordinates(args.Target).Offset(_random.NextVector2(1f, 1.5f));
             if (!ThrowHeldItem(args.Target, offsetRandomCoordinates))
@@ -243,7 +243,7 @@ namespace Content.Server.Hands.Systems
                 hands.ActiveHandEntity is not { } throwEnt ||
                 !_actionBlockerSystem.CanThrow(player, throwEnt))
                 return false;
-            // Goobstation start
+            // Goobstation start added throwing for grabbed mobs, mnoved direction.
             var direction = _transformSystem.ToMapCoordinates(coordinates).Position - _transformSystem.GetWorldPosition(player);
 
             if (TryComp<VirtualItemComponent>(throwEnt, out var virt))

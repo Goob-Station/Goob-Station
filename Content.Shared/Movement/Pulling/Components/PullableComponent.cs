@@ -40,6 +40,9 @@ public sealed partial class PullableComponent : Component
     [AutoNetworkedField, DataField]
     public bool PrevFixedRotation;
 
+    // Goobstation start
+    // Added Grab variables
+
 
     [DataField]
     public Dictionary<GrabStage, short> PulledAlertAlertSeverity = new()
@@ -61,7 +64,7 @@ public sealed partial class PullableComponent : Component
 
     [AutoNetworkedField]
     public TimeSpan NextEscapeAttempt = TimeSpan.Zero;
-
+    // Goobstation end
 }
 
 public sealed partial class StopBeingPulledAlertEvent : BaseAlertEvent;

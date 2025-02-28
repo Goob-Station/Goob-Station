@@ -44,6 +44,9 @@ public sealed partial class PullerComponent : Component
     [DataField]
     public ProtoId<AlertPrototype> PullingAlert = "Pulling";
 
+    // Goobstation start
+    // Added Grab variables
+
     [DataField]
     public Dictionary<GrabStage, short> PullingAlertSeverity = new()
     {
@@ -88,6 +91,7 @@ public sealed partial class PullerComponent : Component
     {
         { GrabStage.Suffocate, 1 },
     };
+    // Goobstation end
 }
 
 public sealed partial class StopPullingAlertEvent : BaseAlertEvent;

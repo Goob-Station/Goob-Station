@@ -389,6 +389,7 @@
   description: alerts-vow-broken-desc
 
 # Goobstation start
+# Changed pulling to accomodate grabbing severity
 - type: alert
   id: Pulled
   icons:

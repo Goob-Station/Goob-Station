@@ -1,6 +1,6 @@
 using Content.Shared._White.Standing;
 
-namespace Content.Server._Goobstation.Traits.Assorted;
+namespace Content.Server._White.Traits.Assorted;
 
 public sealed class LayingDownModifierSystem : EntitySystem
 {

@@ -58,7 +58,6 @@ namespace Content.Shared.Cuffs
         [Dependency] private readonly SharedTransformSystem _transform = default!;
         [Dependency] private readonly UseDelaySystem _delay = default!;
         [Dependency] private readonly SharedHulkSystem _hulk = default!;
-        [Dependency] private readonly PullingSystem _pullingSystem = default!;
 
         public override void Initialize()
         {
@@ -812,6 +811,6 @@ namespace Content.Shared.Cuffs
 }
 
 [Serializable, NetSerializable]
-public sealed partial class AddCuffDoAfterEvent : SimpleDoAfterEvent // Goob Edit
+public sealed partial class AddCuffDoAfterEvent : SimpleDoAfterEvent // Goob Edit moved out of class made public
 {
 }
