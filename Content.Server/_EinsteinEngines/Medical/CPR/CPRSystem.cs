@@ -67,7 +67,7 @@ public sealed class CPRSystem : EntitySystem
 
         if (!HasComp<RespiratorComponent>(target) || !HasComp<RespiratorComponent>(performer))
         {
-            _popupSystem.PopupEntity(Loc.GetString("cpr-target-robotic", ("entity", target)), performer, performer);
+            _popupSystem.PopupEntity(Loc.GetString("cpr-target-cantbreathe", ("entity", target)), performer, performer);
             return;
         }
 
