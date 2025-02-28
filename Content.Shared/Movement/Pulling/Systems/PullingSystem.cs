@@ -335,7 +335,13 @@ public sealed class PullingSystem : EntitySystem
                 _grabThrown.Throw(args.BlockingEntity, uid, direction * 2f, 120f, damage * component.GrabThrowDamageModifier, damage * component.GrabThrowDamageModifier); // Throwing the grabbed person
                 _throwing.TryThrow(uid, -direction * throwbackforce); // Throws back the grabber
                 _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), uid);
-                component.NextStageChange.Add(TimeSpan.FromSeconds(2f));  // To avoid grab and throw spamming
+                var cqcModifer = 0.5f;
+                var nextStageChange = 2f;
+                if(HasComp<CQCKnowledgeComponent>(uid))
+                {
+                    nextStageChange /= cqcModifer;
+                }
+                component.NextStageChange.Add(TimeSpan.FromSeconds(nextStageChange));  // To avoid grab and throw spamming
             }
         }
     }

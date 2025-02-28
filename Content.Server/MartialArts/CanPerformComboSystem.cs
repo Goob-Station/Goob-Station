@@ -283,13 +283,9 @@ public sealed class ComboSystem : EntitySystem
         var hitPos = _transform.GetMapCoordinates(target).Position;
         Vector2 dir = hitPos - mapPos;
         dir *= 1f / dir.Length();
-        if (!TryComp<PullableComponent>(target, out var pullable))
-            return;
-        if (!TryComp<PullerComponent>(pullable.Puller, out var puller))
-            return;
-
-        _pulling.TryStopPull(target, pullable, uid, true);
-        _grabThrowing.Throw(target, uid, dir, 120f, damage * puller.GrabThrowDamageModifier, damage * puller.GrabThrowDamageModifier);
+        if (TryComp<PullableComponent>(target, out var pullable))
+            _pulling.TryStopPull(target, pullable, uid, true);
+        _grabThrowing.Throw(target, uid, dir, 120f, damage, damage);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
     }
 
