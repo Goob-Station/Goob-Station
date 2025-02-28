@@ -13,11 +13,23 @@ namespace Content.Shared._Shitmed.EntityEffects.Effects;
 [DataRecord, Serializable]
 public record struct TemperatureScaling(FixedPoint2 Min, FixedPoint2 Max, FixedPoint2 Scale)
 {
+
     public static implicit operator (FixedPoint2, FixedPoint2, FixedPoint2)(TemperatureScaling p) => (p.Min, p.Max, p.Scale);
     public static implicit operator TemperatureScaling((FixedPoint2, FixedPoint2, FixedPoint2) p) => new(p.Item1, p.Item2, p.Item3);
 
+    // <summary>
+    // Calculates the efficiency multiplier based on the given temperature.
+    // </summary>
+    // <param name="temperature">The temperature to calculate efficiency for.</param>
+    // <param name="scale">The scale factor to apply to the efficiency calculation.</param>
+    // <param name="invert"> If true, efficiency increases with temperature. If false, efficiency decreases with temperature.</param>
+    // <returns>The calculated efficiency multiplier.</returns>
+
     public FixedPoint2 GetEfficiencyMultiplier(FixedPoint2 temperature, FixedPoint2 scale, bool invert = false)
     {
+        if (Min > Max) // If the minimum is greater than the max, swap them to prevent issues.
+            (Min, Max) = (Max, Min);
+
         if (Min == Max)
             return FixedPoint2.New(1); // If the min is equal to the max, return one or full efficiency since the range is meaningless.
 
@@ -29,11 +41,13 @@ public record struct TemperatureScaling(FixedPoint2 Min, FixedPoint2 Max, FixedP
         // Calculate the full possible temperature range between min and max.
         var totalRange = Max - Min;
 
-        // The scaled distance should be between 0 and 1. If the total range is zero, avoid dividing by zero by setting the scaled distance to zero.
-        // Otherwise, we calculate scaled distance equals distance divided by total range.
-        var scaledDistance = totalRange == FixedPoint2.Zero ? FixedPoint2.Zero : distance / totalRange;
+        // Calculate scaled distance
+        var scaledDistance = distance / totalRange;
 
-        // Something something ternary
+        // Calculate final efficiency based on the inversion flag:
+        // If inverted, efficiency increases with temperature (1 + scaled distance)
+        // If not inverted, efficiency decreases with temperature (1 - scaled distance)
+        // Then apply the scale factor to the result
         return invert
             ? FixedPoint2.New(1) + (scaledDistance * scale)
             : (FixedPoint2.New(1) - scaledDistance) * scale;
