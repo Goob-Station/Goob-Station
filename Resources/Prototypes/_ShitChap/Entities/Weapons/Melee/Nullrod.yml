@@ -25,6 +25,10 @@
   - type: DisarmMalus
     malus: 0
   - type: Nullrod
+    selfDamage:
+      types:
+        Holy: 25
+        Burn: 15
   - type: Tag
     tags:
     - Nullrod

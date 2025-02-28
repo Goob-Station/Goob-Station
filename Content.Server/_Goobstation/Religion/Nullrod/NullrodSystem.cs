@@ -1,4 +1,4 @@
-/* using Content.Server.Bible.Components;
+ using Content.Server.Bible.Components;
 using Content.Shared.Damage;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
@@ -15,18 +15,23 @@ public sealed partial class NullRodSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<NullrodComponent, MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<NullrodComponent, MeleeHitEvent>(OnMeleeHitEvent);
     }
 
-    private void OnMeleeHit(EntityUid performer, Entity<NullrodComponent> ent, ref MeleeHitEvent args)
+    private void OnMeleeHitEvent(EntityUid uid, NullrodComponent comp, MeleeHitEvent args)
+
     {
-        if (!TryComp<BibleUserComponent>(performer, out var BibleUserComp))
+
+        if (HasComp<BibleUserComponent>(args.User)) return;
+
+        if (_damageableSystem.TryChangeDamage(args.User, comp.SelfDamage, false, origin: uid) != null)
+
         {
+
             _audio.PlayPvs("/Audio/Effects/hit_kick.ogg", args.User);
-            _damageableSystem.TryChangeDamage(args.User);
-            return;
+
         }
+
     }
 }
 
-*/
