@@ -375,8 +375,7 @@ namespace Content.Server.Lathe
                 _proto.TryIndex(pack, out var proto);
                 if (proto is null)
                     continue;
-                proto.Recipes.IntersectWith(args.UnlockedRecipes); // which recipes we can use are the ones just unlocked?
-                recipesCount += proto.Recipes.Count;
+                recipesCount += proto.Recipes.Intersect(args.UnlockedRecipes).Count(); // which recipes we can use are the ones just unlocked?
             }
 
             if (recipesCount > 0)
