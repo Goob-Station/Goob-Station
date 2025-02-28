@@ -24,6 +24,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
 using Content.Shared.Maps;
+using Content.Shared.Mobs;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Goobstation.Bingle;
@@ -83,7 +84,8 @@ public sealed class BinglePitSystem : EntitySystem
     {
         // dont swallow bingles
         if (HasComp<BingleComponent>(args.Tripper))
-            return;
+            if(TryComp<MobStateComponent>(args.Tripper, out var mobState) && mobState.CurrentState == MobState.Alive)
+                return;
         // need to be at levl 2 or above to swallow anything alive
         if (HasComp<MobStateComponent>(args.Tripper) && component.Level < 2)
             return;
@@ -101,9 +103,12 @@ public sealed class BinglePitSystem : EntitySystem
 
     public void StartFalling(EntityUid uid, BinglePitComponent component, EntityUid tripper, bool playSound = true)
     {
-        component.BinglePoints += HasComp<MobStateComponent>(tripper)
-              ? component.PointsForAlive + (HasComp<HumanoidAppearanceComponent>(tripper)
-              ? component.AdditionalPointsForHuman : 0) : 1;
+        if (TryComp<MobStateComponent>(tripper, out var mobState)&& mobState.CurrentState is not MobState.Dead)
+        {
+            component.BinglePoints += component.PointsForAlive;
+            if (HasComp<HumanoidAppearanceComponent>(tripper))
+                component.BinglePoints += component.AdditionalPointsForHuman;
+        }
 
         if (TryComp<PullableComponent>(tripper, out var pullable) && pullable.BeingPulled)
             _pulling.TryStopPull(tripper, pullable);
