@@ -48,6 +48,13 @@ public sealed class HungerSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, HungerComponent component, MapInitEvent args)
     {
+        // <goobstation> Starting hunger override
+        if (component.StartingHunger is not null)
+        {
+            SetHunger(uid, component.StartingHunger.Value, component);
+            return;
+        }
+        // </goobstation>
         var amount = _random.Next(
             (int) component.Thresholds[HungerThreshold.Peckish] + 10,
             (int) component.Thresholds[HungerThreshold.Okay]);
@@ -124,7 +131,7 @@ public sealed class HungerSystem : EntitySystem
     {
         entity.Comp.LastAuthoritativeHungerChangeTime = _timing.CurTime;
         entity.Comp.LastAuthoritativeHungerValue = ClampHungerWithinThresholds(entity.Comp, value);
-        Dirty(entity);
+        DirtyField(entity.Owner, entity.Comp, nameof(HungerComponent.LastAuthoritativeHungerChangeTime));
     }
 
     private void UpdateCurrentThreshold(EntityUid uid, HungerComponent? component = null)
@@ -135,6 +142,7 @@ public sealed class HungerSystem : EntitySystem
         var calculatedHungerThreshold = GetHungerThreshold(component);
         if (calculatedHungerThreshold == component.CurrentThreshold)
             return;
+
         component.CurrentThreshold = calculatedHungerThreshold;
         DoHungerThresholdEffects(uid, component);
     }

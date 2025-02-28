@@ -1,0 +1,4 @@
+lavaland-examine-pressure-in-range-buff = This piece of equipment reaches maximum capability between [color=yellow]{$min} - {$max} kPa[/color], allowing it to deal [color=yellow]{$modifier} times[/color] the damage!
+lavaland-examine-pressure-in-range-debuff = This piece of equipment is weakened between [color=yellow]{$min} - {$max} kPa[/color], causing it to deal [color=yellow]{$modifier} times[/color] the damage!
+lavaland-examine-pressure-out-range-buff = This piece of equipment performs better outside [color=yellow]{$min} - {$max} kPa[/color], allowing it to deal [color=yellow]{$modifier} times[/color] the damage!
+lavaland-examine-pressure-out-range-debuff = This piece of equipment is weakened outside [color=yellow]{$min} - {$max} kPa[/color], causing it to deal [color=yellow]{$modifier} times[/color] the damage!

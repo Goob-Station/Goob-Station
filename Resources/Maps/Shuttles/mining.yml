@@ -11,13 +11,26 @@ tilemap:
 entities:
 - proto: ""
   entities:
+  - uid: 163
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: PhysicsMap
+    - type: GridTree
+    - type: MovedGrids
+    - type: Broadphase
+    - type: OccluderTree
+    - type: LoadedMap
   - uid: 181
     components:
     - type: MetaData
       name: NT-Reclaimer
     - type: Transform
       pos: 2.2710133,-2.4148211
-      parent: invalid
+      parent: 163
     - type: MapGrid
       chunks:
         -1,0:
@@ -83,6 +96,7 @@ entities:
             184: -1,-5
             188: -6,1
             189: -5,1
+            190: -5,-1
         - node:
             color: '#A4610696'
             id: CheckerNWSE
@@ -1220,6 +1234,14 @@ entities:
     - type: Transform
       pos: -4.5,-6.5
       parent: 181
+- proto: SalvageLocator
+  entities:
+  - uid: 164
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -4.5,-0.5
+      parent: 181
 - proto: SheetPlasma
   entities:
   - uid: 58
@@ -1242,6 +1264,14 @@ entities:
         - Pressed: Toggle
         47:
         - Pressed: Toggle
+- proto: SignMagneticsMed
+  entities:
+  - uid: 166
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -4.5,0.5
+      parent: 181
 - proto: SMESBasic
   entities:
   - uid: 1

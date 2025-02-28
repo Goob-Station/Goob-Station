@@ -44,6 +44,7 @@
     - id: BlobSpawn # Goobstation - Blob
     - id: LoneAbductorSpawn # Shitmed - Starlight Abductors
     - id: DuoAbductorSpawn # Shitmed - Starlight Abductors
+    # - id: BingleSpawn #Goobstation - Bingle # ShibaStation - Pretty sure this is memeshit, so I'm disabling it for now.
 
 - type: entity
   id: BaseStationEvent
@@ -160,6 +161,7 @@
     weight: 5
     duration: 1
     minimumPlayers: 10
+    maxOccurrences: 2 # ShibaStation - Capped at 2, we get too many dang skeletons.
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
 

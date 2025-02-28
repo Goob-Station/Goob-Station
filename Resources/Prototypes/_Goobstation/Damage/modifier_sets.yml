@@ -32,6 +32,15 @@
     Poison: 0.0 # Yea, heroin is heaps good for ya
     Radiation : 0.7 # Engie yowies need some help against anti-rads
 
+- type: damageModifierSet
+  id: Tajaran
+  coefficients: # Literally the same as felinids, but heat and cold cuz fur
+    Blunt: 1.15
+    Slash: 1.15
+    Piercing: 1.15
+    Heat: 1.20
+    Cold: 0.80
+
 # Mech armor
 - type: damageModifierSet
   id: ThinArmor
@@ -110,7 +119,7 @@
   flatReductions:
     Blunt: 10
     Heat: 7
-    
+
 # Goobstation - Blob
 - type: damageModifierSet
   id: BaseBlob # ReactiveSpines
@@ -153,3 +162,13 @@
     Slash: 0.9
     Piercing: 0.9
     Heat: 1.5
+
+- type: damageModifierSet
+  id: Bingle
+  coefficients:
+    Blunt: 0.8  # 20% reduction to all
+    Slash: 0.8
+    Piercing: 0.8
+    Shock: 0.8
+    Heat: 0.8
+    Ion: 2.0 # double damage from ion

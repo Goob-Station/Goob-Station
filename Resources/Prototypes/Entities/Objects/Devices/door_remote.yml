@@ -157,8 +157,4 @@
       color: "#22871a"
   - type: Access
     groups:
-    - AllAccess
-    tags:
-    - CentralCommand
-    - NuclearOperative
-    - SyndicateAgent
+    - AdminAccess # ShibaStation - Single group for ALL access types, no more adding more tags.

@@ -20,7 +20,7 @@ using Content.Shared.Gibbing.Events;
 
 namespace Content.Server.Body.Systems;
 
-public sealed class BodySystem : SharedBodySystem
+public sealed partial class BodySystem : SharedBodySystem // Shitmed change: made partial
 {
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!; // Shitmed Change
     [Dependency] private readonly GhostSystem _ghostSystem = default!;

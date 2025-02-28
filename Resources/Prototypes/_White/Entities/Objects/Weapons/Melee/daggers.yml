@@ -35,5 +35,5 @@
     delay: 0.8
     delays:
       blink:
-        length: 3
+        length: 4
   - type: UseDelayBlockMelee

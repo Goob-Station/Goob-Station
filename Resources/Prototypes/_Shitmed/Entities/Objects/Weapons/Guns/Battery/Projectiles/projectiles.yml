@@ -61,5 +61,6 @@
       types:
         Radiation: 10
         Cellular: 20
+        Ion: 30
     soundHit:
       collection: MeatLaserImpact

@@ -1,0 +1,126 @@
+- type: lavalandRuin
+  id: HierophantArena
+  name: lavaland-ruin-hierophant
+  path: Maps/_Lavaland/Lavaland/ruin_hierophant_arena.yml
+  priority: -1 # highest priority
+
+- type: lavalandRuin
+  id: SyndicateBase
+  name: lavaland-ruin-syndicate
+  path: Maps/_Lavaland/Lavaland/ruin_syndicate_base.yml
+  priority: -1 # highest priority
+
+- type: lavalandRuin
+  id: BiodomeSnow
+  name: lavaland-ruin-biodome
+  path: Maps/_Lavaland/Lavaland/ruin_snow_biodome.yml
+  priority: 1
+
+- type: lavalandRuin
+  id: BiodomeBeach
+  name: lavaland-ruin-biodome
+  path: Maps/_Lavaland/Lavaland/ruin_beach_biodome.yml
+  priority: 2
+
+- type: lavalandRuin
+  id: GolemShuttle
+  name: lavaland-ruin-big-shuttle
+  path: Maps/_Lavaland/Lavaland/ruin_golem_shuttle.yml
+  priority: 3
+
+- type: lavalandRuin
+  id: ToyShop
+  name: lavaland-ruin-wooden
+  path: Maps/_Lavaland/Lavaland/ruin_toyshop.yml
+  priority: 4
+
+- type: lavalandRuin
+  id: RougeAI
+  name: lavaland-ruin-station
+  path: Maps/_Lavaland/Lavaland/ruin_rouge_ai.yml
+  priority: 5
+
+- type: lavalandRuin
+  id: OwOLab
+  name: lavaland-ruin-laboratory
+  path: Maps/_Lavaland/Lavaland/ruin_felenid_lab.yml
+  priority: 6
+
+- type: lavalandRuin
+  id: VulpLab
+  name: lavaland-ruin-laboratory
+  path: Maps/_Lavaland/Lavaland/ruin_vulp_lab.yml
+  priority: 7
+
+- type: lavalandRuin
+  id: Chemistry
+  name: lavaland-ruin-laboratory
+  path: Maps/_Lavaland/Lavaland/ruin_chemistry.yml
+  priority: 8
+
+- type: lavalandRuin
+  id: Shelter
+  name: lavaland-ruin-shelter
+  path: Maps/_Lavaland/Lavaland/ruin_shelter.yml
+  priority: 9
+
+- type: lavalandRuin
+  id: MiningPost
+  name: lavaland-ruin-shelter
+  path: Maps/_Lavaland/Lavaland/ruin_mining_outpost.yml
+  priority: 10
+
+- type: lavalandRuin
+  id: Hermit
+  name: lavaland-ruin-shelter
+  path: Maps/_Lavaland/Lavaland/ruin_hermit.yml
+  priority: 11
+
+- type: lavalandRuin
+  id: LavaLake
+  name: lavaland-ruin-anomalous-landscape
+  path: Maps/_Lavaland/Lavaland/ruin_lavalake.yml
+  priority: 12
+
+- type: lavalandRuin
+  id: SeedVault
+  name: lavaland-ruin-seed-vault
+  path: Maps/_Lavaland/Lavaland/ruin_seed_vault.yml
+  priority: 13
+
+- type: lavalandRuin
+  id: Graveyard
+  name: lavaland-ruin-seed-graveyard
+  path: Maps/_Lavaland/Lavaland/ruin_graveyard.yml
+  priority: 14
+
+- type: lavalandRuin
+  id: WaffleCo
+  name: lavaland-ruin-wooden
+  path: Maps/_Lavaland/Lavaland/ruin_wafflecohouse.yml
+  priority: 15
+
+- type: lavalandRuin
+  id: ArrivalsBack
+  name: lavaland-ruin-arrivals-shuttle
+  path: Maps/_Lavaland/Lavaland/ruin_arrivals_back.yml
+  priority: 16
+
+- type: lavalandRuin
+  id: ArrivalsFront
+  name: lavaland-ruin-arrivals-shuttle
+  path: Maps/_Lavaland/Lavaland/ruin_arrivals_front.yml
+  priority: 17
+
+- type: lavalandRuin
+  id: CargoDebris
+  name: lavaland-ruin-cargo
+  path: Maps/_Lavaland/Lavaland/ruin_cargo_debris.yml
+  priority: 18
+
+# TODO: remove this shitcode thing
+- type: lavalandRuin
+  id: CommonRuin5x5 
+  name: lavaland-ruin-unknown
+  path: Maps/_Lavaland/Lavaland/common_ruin_5x5.yml
+  priority: 20 # lowest possible

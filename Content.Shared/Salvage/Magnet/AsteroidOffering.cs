@@ -15,4 +15,6 @@ public record struct AsteroidOffering : ISalvageMagnetOffering
     /// Calculated marker layers for the asteroid.
     /// </summary>
     public Dictionary<string, int> MarkerLayers;
+
+    uint ISalvageMagnetOffering.Cost => 0; // DeltaV
 }

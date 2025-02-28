@@ -2,6 +2,10 @@
   id: EtherealJaunt
   kind: source
   path: "/Textures/_Goobstation/Wizard/Shaders/ethereal_jaunt.swsl"
+  params:
+    use_reference: true
+    time_scale: 1.0
+    blink_rate: 2.0
 
 - type: shader
   id: WizardParallax
@@ -9,3 +13,6 @@
   path: "/Textures/_Goobstation/Wizard/Shaders/ethereal_jaunt.swsl"
   params:
     use_reference: false
+    reference: 0.0, 0.0
+    time_scale: 0.5
+    blink_rate: 0.5
