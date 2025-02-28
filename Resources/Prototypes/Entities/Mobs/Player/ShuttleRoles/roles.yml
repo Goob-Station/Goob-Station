@@ -163,7 +163,7 @@
 
 - type: entity
   id: RandomHumanoidVisitorSalvageSpecialist
-  name: visiting salvage specialist ghost role
+  name: visiting shaft miner ghost role
   components:
     - type: Sprite
       sprite: Markers/jobs.rsi

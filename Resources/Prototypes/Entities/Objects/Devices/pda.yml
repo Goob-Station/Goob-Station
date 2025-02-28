@@ -485,7 +485,7 @@
 - type: entity
   parent: BasePDA
   id: SalvagePDA
-  name: salvage PDA
+  name: shaft miner PDA # Goobstation
   description: Smells like ash.
   components:
   - type: Pda

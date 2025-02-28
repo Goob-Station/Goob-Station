@@ -51,7 +51,7 @@
 - type: entity
   id: LockerSalvageSpecialist
   parent: LockerBase
-  name: salvage specialist's equipment
+  name: shaft miner's equipment
   description: Nevermind the pickaxe.
   components:
   - type: Appearance

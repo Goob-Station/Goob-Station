@@ -175,7 +175,7 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackSalvage
-  name: salvage bag
+  name: miner bag # Goobstation
   description: A robust backpack for stashing your loot.
   components:
     - type: Sprite
