@@ -35,7 +35,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      140: Dead # by request
+      100: Dead # by request
   - type: MobState
     allowedStates:
       - Alive
