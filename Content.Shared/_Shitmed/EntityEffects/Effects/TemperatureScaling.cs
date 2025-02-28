@@ -21,9 +21,8 @@ public record struct TemperatureScaling(FixedPoint2 Min, FixedPoint2 Max, FixedP
         if (Min == Max)
             return FixedPoint2.New(1); // Prevent division by zero if range is invalid
 
-        // Manual clamping since Math.Clamp doesn't support FixedPoint2
-        if (temperature < Min) temperature = Min;
-        if (temperature > Max) temperature = Max;
+        // Clamp temperature within range
+        temperature = FixedPoint2.Clamp(temperature, Min, Max);
 
         var distance = invert ? FixedPoint2.Abs(temperature - Max) : FixedPoint2.Abs(temperature - Min);
         var totalRange = Max - Min;

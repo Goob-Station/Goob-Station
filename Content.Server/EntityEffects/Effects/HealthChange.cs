@@ -135,7 +135,7 @@ namespace Content.Server.EntityEffects.Effects
                 if (!args.EntityManager.TryGetComponent<TemperatureComponent>(args.TargetEntity, out var temp))
                     scale = FixedPoint2.Zero;
                 else
-                    scale *= ScaleByTemperature.Value.GetEfficiencyMultiplier(temp.CurrentTemperature);
+                    scale *= ScaleByTemperature.Value.GetEfficiencyMultiplier(temp.CurrentTemperature, scale, false);
             }
 
             args.EntityManager.System<DamageableSystem>().TryChangeDamage(
