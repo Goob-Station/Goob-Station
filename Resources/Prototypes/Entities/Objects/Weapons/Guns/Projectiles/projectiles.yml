@@ -369,6 +369,8 @@
     - state: omnilaser_greyscale
       shader: unshaded
       color: orangered
+  - type: Ammo
+    muzzleFlash: null
   - type: Projectile
     #   soundHit:  Waiting on serv3
     impactEffect: BulletImpactEffectOrangeDisabler
@@ -390,6 +392,8 @@
     - state: omnilaser_greyscale
       shader: unshaded
       color: darkblue
+  - type: Ammo
+    muzzleFlash: null
   - type: Projectile
     #   soundHit:  Waiting on serv3
     impactEffect: BulletImpactEffectDisabler
