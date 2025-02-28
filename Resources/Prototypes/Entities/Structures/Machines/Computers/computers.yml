@@ -269,7 +269,7 @@
         - map: ["computerLayerKeyboard"]
           state: generic_keyboard
         - map: ["computerLayerScreen"]
-          state: shuttle
+          state: eris_control
         - map: ["computerLayerKeys"]
           state: generic_keys
     - type: DroneConsole

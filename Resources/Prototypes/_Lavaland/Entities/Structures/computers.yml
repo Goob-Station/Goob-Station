@@ -10,7 +10,7 @@
     - map: [ "computerLayerKeyboard" ]
       state: generic_keyboard
     - map: [ "computerLayerScreen" ]
-      state: shuttle
+      state: mining
     - map: ["computerLayerKeys" ]
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
