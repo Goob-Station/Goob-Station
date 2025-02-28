@@ -207,7 +207,7 @@
           scaleByTemperature: # Shitmed Change
             min: 100.0
             max: 213.0
-            scale: 1
+            scale: 1.6
           damage:
             groups:
               Airloss: -6
@@ -235,7 +235,7 @@
           scaleByTemperature: # Shitmed Change
             min: 100.0
             max: 213.0
-            scale: 1
+            scale: 1.6
           damage:
             types:
              Cellular: -2
@@ -1322,7 +1322,7 @@
           scaleByTemperature: # Shitmed Change
             min: 100.0
             max: 213.0
-            scale: 1
+            scale: 1.6
           damage:
             groups:
               Brute: -4
@@ -1350,7 +1350,7 @@
         scaleByTemperature: # Shitmed Change
           min: 100.0
           max: 213.0
-          scale: 1
+          scale: 1.6
         damage:
           types:
             Heat: -3.0
