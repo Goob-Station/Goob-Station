@@ -19,24 +19,23 @@ public record struct TemperatureScaling(FixedPoint2 Min, FixedPoint2 Max, FixedP
     public FixedPoint2 GetEfficiencyMultiplier(FixedPoint2 temperature, FixedPoint2 scale, bool invert = false)
     {
         if (Min == Max)
-            return FixedPoint2.New(1); // Prevent division by zero if range is invalid
+            return FixedPoint2.New(1); // If the min is equal to the max, return one or full efficiency since the range is meaningless.
 
-        // Clamp temperature within range
+        // Clamp the temperature within a given range.
         temperature = FixedPoint2.Clamp(temperature, Min, Max);
 
-        var distance = invert ? FixedPoint2.Abs(temperature - Max) : FixedPoint2.Abs(temperature - Min);
+        // Calculate the distance from the minimum.
+        var distance = FixedPoint2.Abs(temperature - Min);
+        // Calculate the full possible temperature range between min and max.
         var totalRange = Max - Min;
 
-        // Handle potential division by zero
+        // The scaled distance should be between 0 and 1. If the total range is zero, avoid dividing by zero by setting the scaled distance to zero.
+        // Otherwise, we calculate scaled distance equals distance divided by total range.
         var scaledDistance = totalRange == FixedPoint2.Zero ? FixedPoint2.Zero : distance / totalRange;
 
-        // Take the efficiency and subtract the distance to the target value, and multiply by the scale.
-        var efficiency = (FixedPoint2.New(1) - scaledDistance) * scale;
-
-        // If inverted, flip it!
-        if (invert)
-            efficiency = FixedPoint2.New(1) + (scaledDistance * scale);
-
-        return efficiency;
+        // Something something ternary
+        return invert
+            ? FixedPoint2.New(1) + (scaledDistance * scale)
+            : (FixedPoint2.New(1) - scaledDistance) * scale;
     }
 }
