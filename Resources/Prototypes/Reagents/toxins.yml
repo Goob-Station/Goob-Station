@@ -437,22 +437,22 @@
   color: "#f5f5f5"
   meltingPoint: 351
   boilingPoint: 554 # I'm not a chemist, but it boils at 295, lower than melting point, idk how it works so I gave it higher value
-  metabolisms:
-    Poison:
-      metabolismRate: 0.05
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:OrganType
-          type: Animal # Applying damage to the mobs with lower metabolism capabilities
-        damage:
-          types:
-            Poison: 0.4
-      - !type:ChemVomit
-        probability: 0.04 #Scaled for time, not metabolismrate.
-        conditions:
-          - !type:OrganType
-            type: Animal
+  # metabolisms: # ShibaStation - uum wow everything is animal friendly now! :D
+  #   Poison:
+  #     metabolismRate: 0.05
+  #     effects:
+  #     - !type:HealthChange
+  #       conditions:
+  #       - !type:OrganType
+  #         type: Animal # Applying damage to the mobs with lower metabolism capabilities
+  #       damage:
+  #         types:
+  #           Poison: 0.4
+  #     - !type:ChemVomit
+  #       probability: 0.04 #Scaled for time, not metabolismrate.
+  #       conditions:
+  #         - !type:OrganType
+  #           type: Animal
 
 - type: reagent
   id: Amatoxin
