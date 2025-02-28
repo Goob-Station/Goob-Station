@@ -91,7 +91,7 @@ public sealed class TeleportSystem : EntitySystem
         var xform = Transform(uid);
         // break any active pulls e.g. secoff pulling you with cuffs
         if (TryComp<PullableComponent>(uid, out var pullable) && _pullingSystem.IsPulled(uid, pullable))
-            _pullingSystem.TryStopPull(uid, pullable);
+            _pullingSystem.TryStopPull(uid, pullable, ignoreGrab: true);
 
         // if we teleport the pulled entity goes with us
         EntityUid? pullableEntity = null;
