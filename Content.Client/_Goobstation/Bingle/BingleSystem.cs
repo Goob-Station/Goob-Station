@@ -9,6 +9,7 @@ namespace Content.Client._Goobstation.Bingle;
 /// </summary>
 public sealed class BingleSystem : EntitySystem
 {
+    [Dependency] private readonly AppearanceSystem _appearance = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -39,5 +40,7 @@ public sealed class BingleSystem : EntitySystem
             return;
 
         sprite.LayerSetVisible(layer, true);
+        
+        _appearance.OnChangeData(uid, sprite);
     }
 }
