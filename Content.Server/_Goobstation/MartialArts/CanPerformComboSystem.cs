@@ -1,46 +1,37 @@
-using Content.Server.Administration.Logs;
-using Content.Server.Mind;
+using System.Linq;
+using Content.Server.Hands.Systems;
 using Content.Server.Popups;
-using Content.Server.Roles;
-using Content.Shared.Movement.Pulling.Events;
-using Content.Shared.Tag;
-using Content.Shared.MartialArts;
-using Robust.Shared.Timing;
-using Content.Shared.Movement.Pulling.Systems;
-using Content.Shared.StatusEffect;
+using Content.Server.Stunnable;
+using Content.Shared._Goobstation.MartialArts;
+using Content.Shared._Goobstation.MartialArts.Events;
+using Content.Shared._White.Grab;
+using Content.Shared.Bed.Sleep;
+using Content.Shared.Clothing;
+using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
-using Content.Shared.Damage;
-using Content.Shared.Stunnable;
-using Content.Shared.Bed.Sleep;
-using Content.Shared._White.Grab;
-using Content.Shared.MartialArts;
-using System.Numerics;
-using Robust.Shared.Prototypes;
-using System.Linq;
-using Content.Shared.Movement.Pulling.Components;
-using Content.Server.Stunnable;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Audio;
-using Content.Shared.Interaction;
-using Content.Shared.Interaction.Events;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
-using Content.Shared.DoAfter;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
-using Robust.Shared.Random;
-using Content.Server.Hands.Systems;
+using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Movement.Pulling.Events;
+using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Ranged.Components;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
-namespace Content.Server.MartialArts;
+namespace Content.Server._Goobstation.MartialArts;
 
 public sealed class ComboSystem : EntitySystem
 {
-    [Dependency] private readonly IAdminLogManager _adminLogManager = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
@@ -62,14 +53,14 @@ public sealed class ComboSystem : EntitySystem
         SubscribeLocalEvent<CanPerformComboComponent, ComboAttackPerformedEvent>(OnAttackPerformed);
 
         // Granting martial arts
-        SubscribeLocalEvent<GrantCQCComponent, UseInHandEvent>(OnGrantCQCUse);
-        SubscribeLocalEvent<GrantCQCComponent, ExaminedEvent>(OnGrantCQCExamine);
-
+        SubscribeLocalEvent<GrantCqcComponent, UseInHandEvent>(OnGrantCQCUse);
+        SubscribeLocalEvent<GrantCqcComponent, ExaminedEvent>(OnGrantCQCExamine);
+        SubscribeLocalEvent<GrantCorporateJudo, ClothingGotEquippedEvent>(OnGrantCorporateJudo);
         // Here comes CQC!
-        SubscribeLocalEvent<CQCKnowledgeComponent, MapInitEvent>(OnCQCMapInit);
-        SubscribeLocalEvent<CQCKnowledgeComponent, ComponentShutdown>(OnCQCShutdown);
-        SubscribeLocalEvent<CQCKnowledgeComponent, CheckGrabOverridesEvent>(CheckGrabStageOverride);
-        SubscribeLocalEvent<CQCKnowledgeComponent, ComboAttackPerformedEvent>(OnCQCAttackPerformed);
+        SubscribeLocalEvent<MartialArtsKnowledgeComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<MartialArtsKnowledgeComponent, CheckGrabOverridesEvent>(CheckGrabStageOverride);
+        SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComboAttackPerformedEvent>(OnCQCAttackPerformed);
 
         SubscribeLocalEvent<CanPerformComboComponent, CQCSlamPerformedEvent>(OnCQCSlam);
         SubscribeLocalEvent<CanPerformComboComponent, CQCKickPerformedEvent>(OnCQCKick);
@@ -77,11 +68,12 @@ public sealed class ComboSystem : EntitySystem
         SubscribeLocalEvent<CanPerformComboComponent, CQCPressurePerformedEvent>(OnCQCPressure);
         SubscribeLocalEvent<CanPerformComboComponent, CQCConsecutivePerformedEvent>(OnCQCConsecutive);
     }
+
     private void OnMapInit(EntityUid uid, CanPerformComboComponent component, MapInitEvent args)
     {
         foreach (var item in component.RoundstartCombos)
         {
-            component.AllowedCombos.Add(_proto.Index<ComboPrototype>(item));
+            component.AllowedCombos.Add(_proto.Index(item));
         }
     }
 
@@ -106,11 +98,13 @@ public sealed class ComboSystem : EntitySystem
         {
             component.LastAttacks.Clear();
         }
+
         if (args.Weapon != uid)
         {
             component.LastAttacks.Clear();
             return;
         }
+
         component.CurrentTarget = args.Target;
         component.ResetTime = _timing.CurTime + TimeSpan.FromSeconds(4);
         component.LastAttacks.Add(args.Type);
@@ -133,138 +127,162 @@ public sealed class ComboSystem : EntitySystem
             var list = comp.LastAttacks.GetRange(sum, proto.AttackTypes.Count).AsEnumerable();
             var attackList = proto.AttackTypes.AsEnumerable();
 
-            if (list.SequenceEqual(attackList) && proto.ResultEvent != null)
-            {
-                var ev = proto.ResultEvent;
-                RaiseLocalEvent(uid, ev);
-                comp.LastAttacks.Clear();
-            }
+            if (!list.SequenceEqual(attackList) || proto.ResultEvent == null)
+                continue;
+            var ev = proto.ResultEvent;
+            RaiseLocalEvent(uid, ev);
+            comp.LastAttacks.Clear();
         }
     }
 
-    private void CheckGrabStageOverride<T>(EntityUid uid, T component, CheckGrabOverridesEvent args) where T : GrabStagesOverrideComponent
+    private void CheckGrabStageOverride<T>(EntityUid uid, T component, CheckGrabOverridesEvent args)
+        where T : GrabStagesOverrideComponent
     {
         if (args.Stage == GrabStage.Soft)
             args.Stage = component.StartingStage;
     }
 
     #region Granting
-    private void OnGrantCQCUse(EntityUid uid, GrantCQCComponent comp, UseInHandEvent args)
+
+    private void OnGrantCQCUse(Entity<GrantCqcComponent> ent, ref UseInHandEvent args)
     {
-        if (comp.Used)
+        if (ent.Comp.Used)
         {
-            _popupSystem.PopupEntity(Loc.GetString("cqc-fail-used", ("manual", Identity.Entity(uid, EntityManager))), args.User, args.User);
+            _popupSystem.PopupEntity(Loc.GetString("cqc-fail-used", ("manual", Identity.Entity(ent, EntityManager))),
+                args.User,
+                args.User);
             return;
         }
 
         if (HasComp<CanPerformComboComponent>(args.User))
         {
-            if (!TryComp<CQCKnowledgeComponent>(args.User, out var cqc))
+            if (!TryComp<MartialArtsKnowledgeComponent>(args.User, out var cqc))
             {
                 _popupSystem.PopupEntity(Loc.GetString("cqc-success-knowanother"), args.User, args.User);
                 return;
             }
-            else if (cqc.Blocked)
+
+            if (cqc.Blocked)
             {
                 _popupSystem.PopupEntity(Loc.GetString("cqc-success-unblocked"), args.User, args.User);
                 cqc.Blocked = false;
-                comp.Used = true;
+                ent.Comp.Used = true;
                 return;
             }
-            else
-            {
-                _popupSystem.PopupEntity(Loc.GetString("cqc-fail-already"), args.User, args.User);
-                return;
-            }
+
+            _popupSystem.PopupEntity(Loc.GetString("cqc-fail-already"), args.User, args.User);
         }
         else
         {
             _popupSystem.PopupEntity(Loc.GetString("cqc-success-learned"), args.User, args.User);
-            var cqc = EnsureComp<CQCKnowledgeComponent>(args.User);
+            var cqc = EnsureComp<MartialArtsKnowledgeComponent>(args.User);
             cqc.Blocked = false;
-            comp.Used = true;
+            ent.Comp.Used = true;
         }
     }
 
-    private void OnGrantCQCExamine(EntityUid uid, GrantCQCComponent comp, ExaminedEvent args)
+    private void OnGrantCQCExamine(Entity<GrantCqcComponent> ent, ref ExaminedEvent args)
     {
-        if (comp.Used)
-            args.PushMarkup(Loc.GetString("cqc-manual-used", ("manual", Identity.Entity(uid, EntityManager))));
+        if (ent.Comp.Used)
+            args.PushMarkup(Loc.GetString("cqc-manual-used", ("manual", Identity.Entity(ent, EntityManager))));
     }
+
+
+    private void OnGrantCorporateJudo(Entity<GrantCorporateJudo> ent, ref ClothingGotEquippedEvent args)
+    {
+        var user = args.Wearer;
+        var martialArts = EnsureComp<MartialArtsKnowledgeComponent>(user);
+        martialArts.RoundstartCombos = "CorporateJudoMoves";
+        martialArts.Blocked = false;
+    }
+
+    private void OnRemoveCorporateJudo(Entity<GrantCorporateJudo> ent, ref ClothingGotEquippedEvent args)
+    {
+        var user = args.Wearer;
+        var martialArts = RemComp<MartialArtsKnowledgeComponent>(user);
+        if(!martialArts)
+            Log.Error("Failed to remove corporate judo");
+    }
+
     #endregion
 
     #region CQC
-    private void OnCQCMapInit(EntityUid uid, CQCKnowledgeComponent component, MapInitEvent args)
+
+    private void OnMapInit(Entity<MartialArtsKnowledgeComponent> ent, ref MapInitEvent args)
     {
-        var combo = EnsureComp<CanPerformComboComponent>(uid);
-        foreach (var item in component.RoundstartCombos)
+        var combo = EnsureComp<CanPerformComboComponent>(ent);
+        if (!_proto.TryIndex(ent.Comp.RoundstartCombos, out var comboListPrototype))
+            return;
+        Logger.Debug(ent.Comp.RoundstartCombos.Id);
+        foreach (var item in comboListPrototype.Combos)
         {
-            combo.AllowedCombos.Add(_proto.Index<ComboPrototype>(item));
+            combo.AllowedCombos.Add(_proto.Index(item));
         }
     }
 
-    private void OnCQCShutdown(EntityUid uid, CQCKnowledgeComponent component, ComponentShutdown args)
+    private void OnShutdown(Entity<MartialArtsKnowledgeComponent> ent, ref ComponentShutdown args)
     {
-        var combo = EnsureComp<CanPerformComboComponent>(uid);
-        foreach (var item in component.RoundstartCombos)
+        var combo = EnsureComp<CanPerformComboComponent>(ent);
+        if (!_proto.TryIndex(ent.Comp.RoundstartCombos, out var comboListPrototype))
+            return;
+        foreach (var item in comboListPrototype.Combos)
         {
-            combo.AllowedCombos.Remove(_proto.Index<ComboPrototype>(item));
+            combo.AllowedCombos.Remove(_proto.Index(item));
         }
     }
 
-    private void OnCQCAttackPerformed(EntityUid uid, CQCKnowledgeComponent component, ComboAttackPerformedEvent args)
+    private void OnCQCAttackPerformed(Entity<MartialArtsKnowledgeComponent> ent, ref ComboAttackPerformedEvent args)
     {
-        if (!CheckCanUseCQC(uid))
+        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat))
             return;
 
-        if (args.Type == ComboAttackType.Disarm)
-        {
-            if (_random.Prob(0.5f))
-            {
-                var item = _hands.GetActiveItem(args.Target);
+        if (args.Type != ComboAttackType.Disarm)
+            return;
+        if (!_random.Prob(0.5f))
+            return;
 
-                if (item != null)
-                {
-                    if (!HasComp<MeleeWeaponComponent>(item.Value) && !HasComp<GunComponent>(item.Value))
-                        return;
-                    _hands.TryDrop(args.Target, item.Value);
-                    _hands.TryPickupAnyHand(uid, item.Value);
-                    _stamina.TakeStaminaDamage(args.Target, 10f);
-                }
-            }
-        }
+        var item = _hands.GetActiveItem(args.Target);
+
+        if (item == null)
+            return;
+        if (!HasComp<MeleeWeaponComponent>(item.Value) && !HasComp<GunComponent>(item.Value))
+            return;
+        _hands.TryDrop(args.Target, item.Value);
+        _hands.TryPickupAnyHand(ent, item.Value);
+        _stamina.TakeStaminaDamage(args.Target, 10f);
     }
-    private void OnCQCSlam(EntityUid uid, CanPerformComboComponent component, CQCSlamPerformedEvent args)
+
+    private void OnCQCSlam(Entity<CanPerformComboComponent> ent, ref CQCSlamPerformedEvent args)
     {
-        if (component.CurrentTarget == null)
+        if (ent.Comp.CurrentTarget == null)
             return;
 
-        if (!CheckCanUseCQC(uid))
+        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat))
             return;
 
-        var target = component.CurrentTarget.Value;
+        var target = ent.Comp.CurrentTarget.Value;
 
         if (TryComp<RequireProjectileTargetComponent>(target, out var downed) && downed.Active)
             return;
 
         var damage = new DamageSpecifier();
         damage.DamageDict.Add("Blunt", 10);
-        _damageable.TryChangeDamage(target, damage, origin: uid);
+        _damageable.TryChangeDamage(target, damage, origin: ent);
         _stun.TryParalyze(target, TimeSpan.FromSeconds(12), true);
         if (TryComp<PullableComponent>(target, out var pullable))
-            _pulling.TryStopPull(target, pullable, uid, true);
+            _pulling.TryStopPull(target, pullable, ent, true);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
     }
 
-    private void OnCQCKick(EntityUid uid, CanPerformComboComponent component, CQCKickPerformedEvent args)
+    private void OnCQCKick(Entity<CanPerformComboComponent> ent, ref CQCKickPerformedEvent args)
     {
-        if (component.CurrentTarget == null)
+        if (ent.Comp.CurrentTarget == null)
             return;
 
-        if (!CheckCanUseCQC(uid))
+        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat))
             return;
 
-        var target = component.CurrentTarget.Value;
+        var target = ent.Comp.CurrentTarget.Value;
 
         if (!TryComp<RequireProjectileTargetComponent>(target, out var downed) || !downed.Active)
             return;
@@ -276,16 +294,16 @@ public sealed class ComboSystem : EntitySystem
 
         var damage = new DamageSpecifier();
         damage.DamageDict.Add("Blunt", 10);
-        _damageable.TryChangeDamage(target, damage, origin: uid);
-        _stamina.TakeStaminaDamage(target, 55f, source: uid);
+        _damageable.TryChangeDamage(target, damage, origin: ent);
+        _stamina.TakeStaminaDamage(target, 55f, source: ent);
 
-        var mapPos = _transform.GetMapCoordinates(uid).Position;
+        var mapPos = _transform.GetMapCoordinates(ent).Position;
         var hitPos = _transform.GetMapCoordinates(target).Position;
-        Vector2 dir = hitPos - mapPos;
+        var dir = hitPos - mapPos;
         dir *= 1f / dir.Length();
         if (TryComp<PullableComponent>(target, out var pullable))
-            _pulling.TryStopPull(target, pullable, uid, true);
-        _grabThrowing.Throw(target, uid, dir, 120f, damage, damage);
+            _pulling.TryStopPull(target, pullable, ent, true);
+        _grabThrowing.Throw(target, ent, dir, 120f, damage, damage);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
     }
 
@@ -294,7 +312,7 @@ public sealed class ComboSystem : EntitySystem
         if (component.CurrentTarget == null)
             return;
 
-        if (!CheckCanUseCQC(uid))
+        if (!CheckCanUseMartialArt(uid, MartialArtsForms.CloseQuartersCombat))
             return;
 
         var target = component.CurrentTarget.Value;
@@ -308,7 +326,7 @@ public sealed class ComboSystem : EntitySystem
         if (component.CurrentTarget == null)
             return;
 
-        if (!CheckCanUseCQC(uid))
+        if (!CheckCanUseMartialArt(uid, MartialArtsForms.CloseQuartersCombat))
             return;
 
         var target = component.CurrentTarget.Value;
@@ -321,7 +339,7 @@ public sealed class ComboSystem : EntitySystem
         if (component.CurrentTarget == null)
             return;
 
-        if (!CheckCanUseCQC(uid))
+        if (!CheckCanUseMartialArt(uid, MartialArtsForms.CloseQuartersCombat))
             return;
 
         var target = component.CurrentTarget.Value;
@@ -333,9 +351,11 @@ public sealed class ComboSystem : EntitySystem
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg"), target);
     }
 
-    private bool CheckCanUseCQC(EntityUid uid)
+    private bool CheckCanUseMartialArt(EntityUid uid, MartialArtsForms form)
     {
-        if (TryComp<CQCKnowledgeComponent>(uid, out var cqc) && !cqc.Blocked)
+        if (TryComp<MartialArtsKnowledgeComponent>(uid, out var knowledgeComponent)
+            && !knowledgeComponent.Blocked
+            && knowledgeComponent.MartialArtsForm == form)
             return true;
 
         foreach (var ent in _lookup.GetEntitiesInRange(uid, 8f))
@@ -343,7 +363,9 @@ public sealed class ComboSystem : EntitySystem
             if (TryPrototype(ent, out var proto) && proto.ID == "DefaultStationBeaconKitchen")
                 return true;
         }
+
         return false;
     }
+
     #endregion
 }

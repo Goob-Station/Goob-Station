@@ -1,8 +1,8 @@
-using Content.Shared.MartialArts;
+using Content.Shared._Goobstation.MartialArts.Events;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.MartialArts;
+namespace Content.Shared._Goobstation.MartialArts;
 
 [NetworkedComponent]
 [RegisterComponent]
@@ -33,4 +33,13 @@ public sealed partial class ComboPrototype : IPrototype
 
     [DataField("event", required: true)]
     public object? ResultEvent;
+}
+
+[Prototype("comboList")]
+public sealed partial class ComboListPrototype : IPrototype
+{
+    [IdDataField] public string ID { get; private init; } = default!;
+
+    [DataField("combos", required: true)]
+    public List<ProtoId<ComboPrototype>> Combos = new();
 }

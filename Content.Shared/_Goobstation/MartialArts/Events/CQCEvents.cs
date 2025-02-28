@@ -1,6 +1,4 @@
-using Content.Shared.Movement.Components;
-
-namespace Content.Shared.MartialArts;
+namespace Content.Shared._Goobstation.MartialArts.Events;
 
 public sealed class CQCSlamPerformedEvent : EntityEventArgs
 {

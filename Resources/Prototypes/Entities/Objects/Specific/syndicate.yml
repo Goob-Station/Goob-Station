@@ -169,4 +169,4 @@
     size: Small
   - type: StaticPrice
     price: 3000
-  - type: GrantCQC
+  - type: GrantCqc

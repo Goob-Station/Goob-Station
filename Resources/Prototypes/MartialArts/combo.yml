@@ -33,3 +33,18 @@
   - Disarm
   - Harm
   event: !type:CQCConsecutivePerformedEvent {}
+
+- type: comboList
+  id: CQCMoves
+  combos:
+  - CQCConsecutive
+  - CQCPressure
+  - CQCRestrain
+  - CQCKick
+  - CQCSlam
+
+- type: comboList
+  id: CorporateJudoMoves
+  combos:
+  - CQCSlam
+  - CQCRestrain
