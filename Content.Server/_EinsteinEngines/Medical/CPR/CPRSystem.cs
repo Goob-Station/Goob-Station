@@ -1,4 +1,5 @@
 using Content.Server.Atmos.Rotting;
+using Content.Server.Body.Components;
 using Content.Server.DoAfter;
 using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Popups;
@@ -61,6 +62,12 @@ public sealed class CPRSystem : EntitySystem
         if (HasComp<RottingComponent>(target))
         {
             _popupSystem.PopupEntity(Loc.GetString("cpr-target-rotting", ("entity", target)), performer, performer);
+            return;
+        }
+
+        if (!HasComp<RespiratorComponent>(target) || !HasComp<RespiratorComponent>(performer))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("cpr-target-robotic", ("entity", target)), performer, performer);
             return;
         }
 
