@@ -103,12 +103,12 @@ public sealed class BinglePitSystem : EntitySystem
 
     public void StartFalling(EntityUid uid, BinglePitComponent component, EntityUid tripper, bool playSound = true)
     {
-        if (TryComp<MobStateComponent>(tripper, out var mobState)&& mobState.CurrentState is not MobState.Dead)
-        {
+        if (TryComp<MobStateComponent>(tripper, out var mobState) && mobState.CurrentState is MobState.Alive or MobState.Critical)
             component.BinglePoints += component.PointsForAlive;
-            if (HasComp<HumanoidAppearanceComponent>(tripper))
-                component.BinglePoints += component.AdditionalPointsForHuman;
-        }
+        else
+            component.BinglePoints++;
+        if (HasComp<HumanoidAppearanceComponent>(tripper))
+            component.BinglePoints += component.AdditionalPointsForHuman;
 
         if (TryComp<PullableComponent>(tripper, out var pullable) && pullable.BeingPulled)
             _pulling.TryStopPull(tripper, pullable);
