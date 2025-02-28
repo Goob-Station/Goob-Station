@@ -19,7 +19,7 @@
   special:
   - !type:AddComponentSpecial
     components:
-      - type: CQCKnowledge
+      - type: MartialArtsKnowledge
 
 - type: startingGear
   id: ChefGear

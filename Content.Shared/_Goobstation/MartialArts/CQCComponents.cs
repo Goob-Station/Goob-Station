@@ -7,7 +7,9 @@ public sealed partial class GrantCqcComponent : GrantMartialArtKnowledgeComponen
 {
 
 }
-public sealed partial class GrantCorporateJudo : GrantMartialArtKnowledgeComponent
+
+[RegisterComponent]
+public sealed partial class GrantCorporateJudoComponent  : GrantMartialArtKnowledgeComponent
 {
     [DataField]
     public ProtoId<ComboListPrototype> RoundstartCombos = "CorporateJudo";

@@ -55,7 +55,9 @@ public sealed class ComboSystem : EntitySystem
         // Granting martial arts
         SubscribeLocalEvent<GrantCqcComponent, UseInHandEvent>(OnGrantCQCUse);
         SubscribeLocalEvent<GrantCqcComponent, ExaminedEvent>(OnGrantCQCExamine);
-        SubscribeLocalEvent<GrantCorporateJudo, ClothingGotEquippedEvent>(OnGrantCorporateJudo);
+        SubscribeLocalEvent<GrantCorporateJudoComponent, ClothingGotEquippedEvent>(OnGrantCorporateJudo);
+        SubscribeLocalEvent<GrantCorporateJudoComponent, ClothingGotUnequippedEvent>(OnRemoveCorporateJudo);
+
         // Here comes CQC!
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComponentShutdown>(OnShutdown);
@@ -154,31 +156,35 @@ public sealed class ComboSystem : EntitySystem
             return;
         }
 
-        if (HasComp<CanPerformComboComponent>(args.User))
+        if (!CheckGrant(ent.Comp, args.User))
+            return;
+        _popupSystem.PopupEntity(Loc.GetString("cqc-success-learned"), args.User, args.User);
+        var cqc = EnsureComp<MartialArtsKnowledgeComponent>(args.User);
+        cqc.Blocked = false;
+        ent.Comp.Used = true;
+    }
+    private bool CheckGrant(GrantMartialArtKnowledgeComponent comp, EntityUid user)
+    {
+        if (HasComp<CanPerformComboComponent>(user))
         {
-            if (!TryComp<MartialArtsKnowledgeComponent>(args.User, out var cqc))
+            if (!TryComp<MartialArtsKnowledgeComponent>(user, out var cqc))
             {
-                _popupSystem.PopupEntity(Loc.GetString("cqc-success-knowanother"), args.User, args.User);
-                return;
+                _popupSystem.PopupEntity(Loc.GetString("cqc-fail-knowanother"), user, user);
+                return false;
             }
 
             if (cqc.Blocked)
             {
-                _popupSystem.PopupEntity(Loc.GetString("cqc-success-unblocked"), args.User, args.User);
+                _popupSystem.PopupEntity(Loc.GetString("cqc-success-unblocked"), user, user);
                 cqc.Blocked = false;
-                ent.Comp.Used = true;
-                return;
+                comp.Used = true;
+                return false;
             }
 
-            _popupSystem.PopupEntity(Loc.GetString("cqc-fail-already"), args.User, args.User);
+            _popupSystem.PopupEntity(Loc.GetString("cqc-fail-already"), user, user);
+            return false;
         }
-        else
-        {
-            _popupSystem.PopupEntity(Loc.GetString("cqc-success-learned"), args.User, args.User);
-            var cqc = EnsureComp<MartialArtsKnowledgeComponent>(args.User);
-            cqc.Blocked = false;
-            ent.Comp.Used = true;
-        }
+        return true;
     }
 
     private void OnGrantCQCExamine(Entity<GrantCqcComponent> ent, ref ExaminedEvent args)
@@ -188,15 +194,19 @@ public sealed class ComboSystem : EntitySystem
     }
 
 
-    private void OnGrantCorporateJudo(Entity<GrantCorporateJudo> ent, ref ClothingGotEquippedEvent args)
+    private void OnGrantCorporateJudo(Entity<GrantCorporateJudoComponent> ent, ref ClothingGotEquippedEvent args)
     {
         var user = args.Wearer;
+        if (!CheckGrant(ent.Comp, user))
+            return;
         var martialArts = EnsureComp<MartialArtsKnowledgeComponent>(user);
         martialArts.RoundstartCombos = "CorporateJudoMoves";
+        SetMoves(ent, "CorporateJudoMoves");
+        Log.Debug(martialArts.RoundstartCombos);
         martialArts.Blocked = false;
     }
 
-    private void OnRemoveCorporateJudo(Entity<GrantCorporateJudo> ent, ref ClothingGotEquippedEvent args)
+    private void OnRemoveCorporateJudo(Entity<GrantCorporateJudoComponent> ent, ref ClothingGotUnequippedEvent args)
     {
         var user = args.Wearer;
         var martialArts = RemComp<MartialArtsKnowledgeComponent>(user);
@@ -213,10 +223,24 @@ public sealed class ComboSystem : EntitySystem
         var combo = EnsureComp<CanPerformComboComponent>(ent);
         if (!_proto.TryIndex(ent.Comp.RoundstartCombos, out var comboListPrototype))
             return;
-        Logger.Debug(ent.Comp.RoundstartCombos.Id);
         foreach (var item in comboListPrototype.Combos)
         {
             combo.AllowedCombos.Add(_proto.Index(item));
+        }
+    }
+
+    // Super shitcode incoming
+    private void SetMoves(EntityUid ent, ProtoId<ComboListPrototype> comboList)
+    {
+
+        var combo = EnsureComp<CanPerformComboComponent>(ent);
+        combo.AllowedCombos.Clear();
+        if (!_proto.TryIndex(comboList, out var realComboList))
+            return;
+        foreach (var item in realComboList.Combos)
+        {
+            combo.AllowedCombos.Add(_proto.Index(item));
+            Log.Debug(item);
         }
     }
 
