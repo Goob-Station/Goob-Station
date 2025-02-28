@@ -291,6 +291,9 @@
   id: SyndicateBreathMask
 
 - type: Tag
+  id: ShellShotgunHeavy
+
+- type: Tag
   id: SyringeArmor
 
 - type: Tag

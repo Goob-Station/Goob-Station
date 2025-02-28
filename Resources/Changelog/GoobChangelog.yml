@@ -5454,3 +5454,181 @@ Entries:
       message: Bingles are now insulated.
   id: 625
   time: '2025-02-24T16:38:32.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Ripley punch damage increased 14 blunt -> 25 blunt + 30 structural.
+  id: 626
+  time: '2025-02-24T20:19:08.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Fix
+      message: Lavaland is now 100% Lag Free!
+    - type: Fix
+      message: Fixed lavaland ash storms dealing damage in cases when it shouldn't.
+  id: 627
+  time: '2025-02-24T20:28:57.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Bingles are no longer announced.
+  id: 628
+  time: '2025-02-24T20:31:26.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Fix
+      message: Fixed harpy shoulders showing through clothing.
+  id: 629
+  time: '2025-02-24T20:33:06.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Tweak
+      message: Added some extra slots for some jobs on Submarine
+    - type: Tweak
+      message: Mapped in some funny stuff here and there for Submarine.
+    - type: Fix
+      message: Added slots for BSO and NTR on Submarine.
+    - type: Fix
+      message: >-
+        Fixed submarine mining shuttle dock colliding with the cargo one
+        (whoops).
+  id: 630
+  time: '2025-02-24T20:33:43.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Nymph ventcrawl
+  id: 631
+  time: '2025-02-24T20:34:02.0000000+00:00'
+- author: Armok
+  changes: []
+  id: 632
+  time: '2025-02-24T20:43:38.0000000+00:00'
+- author: Tideonia Liberation Forces
+  changes:
+    - type: Fix
+      message: The shackles have been lifted brothers, take arms and fight once more.
+  id: 633
+  time: '2025-02-25T06:41:56.0000000+00:00'
+- author: Bynnel
+  changes:
+    - type: Tweak
+      message: Added the bent radiator to the RPD.
+  id: 634
+  time: '2025-02-25T06:42:42.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Adjusted chemicals inside of autoinjectors.
+  id: 635
+  time: '2025-02-25T06:43:49.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Ported some EE hardsuits for sec, cargo can buy them
+  id: 636
+  time: '2025-02-25T06:44:44.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: New grass sprites
+  id: 637
+  time: '2025-02-25T06:46:05.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Add
+      message: You can buy admin abuse tokens now
+  id: 638
+  time: '2025-02-25T06:49:11.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: Fixed infinite zombie mice bug
+  id: 639
+  time: '2025-02-26T02:22:17.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: emergency medipens are now more general purpose but slow you down
+    - type: Tweak
+      message: medipens are cooler again
+  id: 640
+  time: '2025-02-26T02:29:47.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: 250 starting points for blob.
+  id: 641
+  time: '2025-02-26T02:30:53.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Tweak
+      message: Every station now has 2x times more Salvage specialist roles!
+  id: 642
+  time: '2025-02-26T03:17:16.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: removed insulation from bingle
+  id: 643
+  time: '2025-02-26T03:17:41.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: The chester is BAAAACK
+    - type: Remove
+      message: >-
+        Spare medsec glasses and combat gloves removed from the BSO locker. A
+        soul for a soul, as they say.
+  id: 644
+  time: '2025-02-26T03:19:22.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: >-
+        Added a new syndicate item for clowns, the syndicate joy & whimsy
+        bundle.
+    - type: Add
+      message: >-
+        Added the lollychop, a deadly syndicate weapon and a comically large
+        lollypop
+    - type: Add
+      message: Added a silly propeller hat. Have fun!
+    - type: Add
+      message: >-
+        Added the words "Silly", "Tider", "Loser", "Greytide", and "Going" to
+        the abductor speech whitelist.
+    - type: Add
+      message: >-
+        Abductors now get a bowl of candy on their ship, for exceptionally good
+        inferior lifeforms.
+    - type: Tweak
+      message: Lollypop textures redone. (This is because of you, DeusMiles)
+  id: 645
+  time: '2025-02-26T03:20:56.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Remove
+      message: Gate is dead, and I have killed it.
+  id: 646
+  time: '2025-02-26T03:21:57.0000000+00:00'
+- author: ARMOK
+  changes:
+    - type: Add
+      message: Templar armor to piety vend.
+  id: 647
+  time: '2025-02-26T03:23:16.0000000+00:00'
+- author: Moutardomiel
+  changes:
+    - type: Add
+      message: >-
+        Player controlled mouse now have an additional unique emote allowing
+        them to tweak.
+  id: 648
+  time: '2025-02-26T03:26:45.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: Added the ability to grab at various levels of strength.
+  id: 649
+  time: '2025-02-28T09:42:53.0000000+00:00'
