@@ -27,7 +27,8 @@
   - type: Nullrod
     selfDamage:
       types:
-        Burn: 15
+        Heat: 15
+        Holy: 25
     failPopup: "The usually cold rod flashes with a searing heat."
   - type: Tag
     tags:
