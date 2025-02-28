@@ -34,8 +34,8 @@
 - type: entity
   parent: BaseComputerDocking
   id: ComputerShuttleMiningLavaland
-  name: mining shuttle console
-  description: Used to pilot the mining shuttle to and from the mining base.
+  name: lavaland transport console
+  description: Used to pilot the lavaland transport to and from the lavaland base.
   components:
   - type: DockingConsole
     windowTitle: mining-console-window-title

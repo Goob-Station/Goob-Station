@@ -6139,7 +6139,7 @@ entities:
       pos: 30.5,-11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -4086.358
+      secondsUntilStateChange: -4196.387
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -8562,12 +8562,6 @@ entities:
       parent: 2
 - proto: BenchComfy
   entities:
-  - uid: 146
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 26.5,-26.5
-      parent: 2
   - uid: 7791
     components:
     - type: Transform
@@ -29085,6 +29079,14 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 24.5,-26.5
       parent: 2
+- proto: ComputerShuttleSalvage
+  entities:
+  - uid: 8501
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 26.5,-26.5
+      parent: 2
 - proto: ComputerSolarControl
   entities:
   - uid: 4341
@@ -37110,13 +37112,6 @@ entities:
     components:
     - type: Transform
       pos: 15.485954,21.768797
-      parent: 2
-- proto: Floodlight
-  entities:
-  - uid: 9940
-    components:
-    - type: Transform
-      pos: 26.514858,-25.483692
       parent: 2
 - proto: FloorDrain
   entities:
@@ -58050,15 +58045,15 @@ entities:
       parent: 2
 - proto: LockerSalvageSpecialistFilled
   entities:
-  - uid: 8500
+  - uid: 146
     components:
     - type: Transform
-      pos: 19.5,-23.5
+      pos: 26.5,-25.5
       parent: 2
-  - uid: 8501
+  - uid: 4334
     components:
     - type: Transform
-      pos: 18.5,-23.5
+      pos: 26.5,-24.5
       parent: 2
 - proto: LockerScienceFilled
   entities:
@@ -60332,6 +60327,13 @@ entities:
     components:
     - type: Transform
       pos: -17.703978,-52.27695
+      parent: 2
+- proto: PlushieLizard
+  entities:
+  - uid: 8500
+    components:
+    - type: Transform
+      pos: 26.464676,-27.49574
       parent: 2
 - proto: PlushieRGBee
   entities:
@@ -66546,14 +66548,6 @@ entities:
     components:
     - type: Transform
       pos: -13.33112,-29.043272
-      parent: 2
-- proto: SalvageMagnet
-  entities:
-  - uid: 4334
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 26.5,-24.5
       parent: 2
 - proto: Scalpel
   entities:
