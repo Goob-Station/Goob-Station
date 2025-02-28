@@ -210,6 +210,7 @@ public sealed class ComboSystem : EntitySystem
     {
         var user = args.Wearer;
         var martialArts = RemComp<MartialArtsKnowledgeComponent>(user);
+        RemComp<CanPerformComboComponent>(user);
         if(!martialArts)
             Log.Error("Failed to remove corporate judo");
     }
