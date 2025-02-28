@@ -133,11 +133,11 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
 
             DoJobSpecials(job, jobEntity);
             _identity.QueueIdentityUpdate(jobEntity);
-            // #Goobstation - Borg Preferred Name; Remove when upstream adds loadout names
-            if (profile != null && prototype.ID == "Borg")
+            // #Goobstation - Borg Preferred Name
+            if (profile != null && (prototype.ID == "Borg" || prototype.ID == "StationAi"))
             {
                 var name = profile.BorgName;
-                if (TryComp<NameIdentifierComponent>(jobEntity, out var nameIdentifier))
+                if ((TryComp<NameIdentifierComponent>(jobEntity, out var nameIdentifier)) && (prototype.ID !="StationAi"))
                     name = $"{name} {nameIdentifier.FullIdentifier}";
 
                 _metaSystem.SetEntityName(jobEntity, name);
@@ -187,18 +187,11 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
 
         if (profile != null)
         {
-            // Goobstation - custom loadout names fasttrack; use upstream when that gets added
-            var usedName = profile.Name;
-            if (loadout != null && roleProto!.CanCustomizeName && !string.IsNullOrEmpty(loadout.EntityName))
-                usedName = loadout.EntityName;
-            // Goob define end
-
             if (prototype != null)
-                SetPdaAndIdCardData(entity.Value, usedName, prototype, station);
+                SetPdaAndIdCardData(entity.Value, profile.Name, prototype, station);
 
             _humanoidSystem.LoadProfile(entity.Value, profile);
-            _metaSystem.SetEntityName(entity.Value, usedName);
-            // Good edit end
+            _metaSystem.SetEntityName(entity.Value, profile.Name);
             if (profile.FlavorText != "" && _configurationManager.GetCVar(CCVars.FlavorText))
             {
                 AddComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;
