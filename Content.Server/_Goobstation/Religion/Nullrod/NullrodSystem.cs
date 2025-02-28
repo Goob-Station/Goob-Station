@@ -29,7 +29,7 @@ public sealed partial class NullRodSystem : EntitySystem
             return;
 
 
-        if (_damageableSystem.TryChangeDamage(args.User, comp.SelfDamage, false, origin: uid) != null)
+        if (_damageableSystem.TryChangeDamage(args.User, comp.SelfDamage, true, origin: uid) != null)
 
         {
             var selfFailMessage = comp.FailPopup;
