@@ -43,6 +43,7 @@
     - id: LoneAbductorSpawn # Shitmed - Starlight Abductors
     - id: DuoAbductorSpawn # Shitmed - Starlight Abductors
     - id: BingleSpawn #Goobstation - Bingle
+    - id: XenosSpawn # Goobstation - RMC Xenos
 
 - type: entity
   id: BaseStationEvent
