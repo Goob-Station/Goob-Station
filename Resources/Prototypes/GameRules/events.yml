@@ -611,19 +611,18 @@
   components:
   - type: StationEvent
     weight: 2
-    earliestStart: 10
-    reoccurrenceDelay: 20
+    earliestStart: 1
+    reoccurrenceDelay: 1
     minimumPlayers: 0
     duration: null
   - type: SpaceSpawnRule
     spawnDistance: 0
   - type: AntagSpawner
-    prototype: MobDragon
+    prototype: MobXenoDrone
   - type: DragonRule
   - type: AntagObjectives
     objectives:
-    - CarpRiftsObjective
-    - DragonSurviveObjective
+    - XenoExpandHiveObjective
   - type: AntagSelection
     agentName: dragon-round-end-agent-name
     definitions:
