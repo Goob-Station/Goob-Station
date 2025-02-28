@@ -19,7 +19,7 @@ public sealed class ReligionSystem: EntitySystem
     private void OnSpawnComplete(PlayerSpawnCompleteEvent args)
     {
 
-        if (HasComp<BibleUserComponent>(args.Mob)) //Theoretically this can be used to let everyone spawn with the bible of their chosen faith
+        if (HasComp<BibleUserComponent>(args.Mob)) // Theoretically this can be used to let everyone spawn with the bible of their chosen faith
         {
             if (EntityManager.TryGetComponent(args.Mob, out ReligionComponent? mobReligion))
             {

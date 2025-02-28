@@ -88,7 +88,7 @@
 # Metaphysical damage. Damage represents supernatural injuries that emphasize the fantasy elements in the game
 - type: damageType
   id: Holy
-  name: damage-type-holy-burns
+  name: damage-type-holy
   armorCoefficientPrice: 1
   armorFlatPrice: 1
 

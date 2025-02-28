@@ -1,8 +1,7 @@
-- type: entity
-  name: Null Rod
+- type: entity # Making a base item with allow for creating more variants easier. Probably.
   parent: BaseItem
-  id: Nullrod
-  description: The old classic. Does nothing special, really.
+  id: BaseNullrod
+  abstract: true
   components:
   - type: Sprite
     sprite: _ShitChap/Objects/Weapons/Melee/nullrod.rsi
@@ -21,21 +20,41 @@
   - type: Reflect
     reflectProb: 1
     reflects:
-      - Magic
+    - Magic
   - type: DisarmMalus
     malus: 0
-  - type: Nullrod
+  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
+    selfDamage:
+      types:
+        Heat: 15
+        Holy: 25
+    failPopup: "The usually cold rod flashes with a searing heat." # This should be localized, but I don't know how :godo:
+  - type: Tag
+    tags:
+    - Nullrod
+
+- type: entity
+  name: Null Rod
+  parent: BaseNullrod
+  id: Nullrod
+  description: The old classic. Does nothing special, really.
+  components:
   - type: Tag
     tags:
     - Nullrod
 
 - type: entity
   name: holy claymore
-  parent: BaseSword
+  parent: BaseNullrod
   id: HolyClaymore
   description: A weapon fit for a crusade! A sword capable of stealing life from evil-doers.
   components:
-  - type: Item
+  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
+    selfDamage:
+      types:
+        Slash: 10
+        Holy: 25
+    failPopup: "The blade lashes out at it's wrongful user."
   - type: Gun
     soundGunshot: /Audio/Effects/hallelujah.ogg
     fireRate: 0.5
@@ -59,7 +78,6 @@
     leech:
       groups:
         Brute: -10
-  - type: Reflect
   - type: Clothing
     sprite: Objects/Weapons/Melee/claymore.rsi
     slots:
@@ -94,7 +112,7 @@
 - type: entity
   name: rosary
   description: Using these to pray near someone will heal them. They are surrounded by a holy aura.
-  parent: BaseItem
+  parent: BaseNullrod
   id: Rosary
   components:
   - type: Sprite
@@ -108,15 +126,15 @@
       groups:
         Brute: -25
         Burn: -25
-        Holy: -50 ##50 looks like it's a big number but unless you have unholy equipment, It's not.
+        Holy: -50 # 50 looks like it's a big number but unless you have unholy equipment, It's not.
     damageOnFail:
       groups:
         Burn: 30
         Holy: 50
-    damageOnUntrainedUse: ## What a non-chaplain takes when attempting to heal someone
+    damageOnUntrainedUse: # What a non-chaplain takes when attempting to heal someone
       groups:
         Burn: 25
-        Holy: 50 ##50 looks like it's a big number but unless you have unholy equipment, It's not.
+        Holy: 50 # 50 looks like it's a big number but unless you have unholy equipment, It's not.
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Effects/hallelujah.ogg
@@ -129,14 +147,14 @@
     - ReagentId: MuteToxin
       Quantity: 1
     limit: 2
-  - type: Reflect #Holy Aura :^)
+  - type: Reflect # Holy Aura :^)
     reflectProb: 1
     reflects:
       - Magic
   - type: Prayable
     bibleUserOnly: true
   - type: Wieldable
-  - type: SpeedModifiedOnWield #HOLY.. AURA!
+  - type: SpeedModifiedOnWield # HOLY.. AURA!
     walkModifier: 1.15
     sprintModifier: 1.15
   - type: DisarmMalus
@@ -154,9 +172,15 @@
   - type: Tag
     tags:
     - Rosary
+  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
+    selfDamage:
+      types:
+        Blunt: 1
+        Holy: 60
+    failPopup: "The beads tighten around your hands painfully"
 
 - type: entity
-  parent: BaseItem
+  parent: BaseNullrod
   id: GodHand
   name: the god hand
   description: A holy, fiery gift from the gods. You won't drop this one.
@@ -175,19 +199,19 @@
       types:
         Heat: 7.5
         Slash: 3
-        Holy: 50 ##50 looks like it's a big number but unless you have unholy equipment, It's not.
+        Holy: 50 # 50 looks like it's a big number but unless you have unholy equipment, It's not.
     soundHit:
       path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
   - type: IgniteOnMeleeHit
     fireStacks: 0.25
   - type: InjectOnHit
     reagents:
-    - ReagentId: MuteToxin ##HERETIC BE GONE
-      Quantity: 2.5
+    - ReagentId: MuteToxin # HERETIC BE GONE
+      Quantity: 2.5 # Potentially an awful idea, buuuut it's funny.
     limit: 5
-  - type: KnockdownOnHit
+  - type: KnockdownOnHit # Could be unbalanced, we'll see :godo:
     duration: 0.25
-  - type: Reflect #Only blocks magic projectiles
+  - type: Reflect # Only blocks magic projectiles
     reflectProb: 0.7
     reflects:
       - Magic
@@ -203,3 +227,9 @@
   - type: Tag
     tags:
     - GodHand
+  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
+    selfDamage:
+      types:
+        Burn: 25
+        Holy: 15
+    failPopup: "The fiery auru burns your hand painfully."
