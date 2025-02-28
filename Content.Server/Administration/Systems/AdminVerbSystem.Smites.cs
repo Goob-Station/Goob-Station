@@ -153,7 +153,7 @@ public sealed partial class AdminVerbSystem
             var flamesName = Loc.GetString("admin-smite-set-alight-name").ToLowerInvariant();
             Verb flames = new()
             {
-                Text = "admin-smite-set-alight-name",
+                Text = flamesName,
                 Category = VerbCategory.Smite,
                 Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/Alerts/Fire/fire.png")),
                 Act = () =>
@@ -485,7 +485,7 @@ public sealed partial class AdminVerbSystem
         var breadName = Loc.GetString("admin-smite-become-bread-name").ToLowerInvariant(); // Will I get cancelled for breadName-ing you?
         Verb bread = new()
         {
-            Text = "admin-smite-kill-sign-name",
+            Text = breadName,
             Category = VerbCategory.Smite,
             Icon = new SpriteSpecifier.Rsi(new ("/Textures/Objects/Consumable/Food/Baked/bread.rsi"), "plain"),
             Act = () =>
@@ -500,7 +500,7 @@ public sealed partial class AdminVerbSystem
         var mouseName = Loc.GetString("admin-smite-become-mouse-name").ToLowerInvariant();
         Verb mouse = new()
         {
-            Text = "admin-smite-cluwne-name",
+            Text = mouseName,
             Category = VerbCategory.Smite,
             Icon = new SpriteSpecifier.Rsi(new ("/Textures/Mobs/Animals/mouse.rsi"), "icon-0"),
             Act = () =>
@@ -673,7 +673,7 @@ public sealed partial class AdminVerbSystem
         var instrumentationName = Loc.GetString("admin-smite-become-instrument-name").ToLowerInvariant();
         Verb instrumentation = new()
         {
-            Text = "admin-smite-become-mouse-name",
+            Text = instrumentationName,
             Category = VerbCategory.Smite,
             Icon = new SpriteSpecifier.Rsi(new ("/Textures/Objects/Fun/Instruments/h_synthesizer.rsi"), "supersynth"),
             Act = () =>
@@ -744,7 +744,7 @@ public sealed partial class AdminVerbSystem
         var headstandName = Loc.GetString("admin-smite-headstand-name").ToLowerInvariant();
         Verb headstand = new()
         {
-            Text = "admin-smite-run-walk-swap-name",
+            Text = headstandName,
             Category = VerbCategory.Smite,
             Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/refresh.svg.192dpi.png")),
             Act = () =>
@@ -842,7 +842,7 @@ public sealed partial class AdminVerbSystem
         var superSpeedName = Loc.GetString("admin-smite-super-speed-name").ToLowerInvariant();
         Verb superSpeed = new()
         {
-            Text = "admin-smite-garbage-can-name",
+            Text = superSpeedName,
             Category = VerbCategory.Smite,
             Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/AdminActions/super_speed.png")),
             Act = () =>
@@ -875,7 +875,7 @@ public sealed partial class AdminVerbSystem
         args.Verbs.Add(superBonkLite);
 
         var superBonkName = Loc.GetString("admin-smite-super-bonk-name").ToLowerInvariant();
-        Verb superBonk= new()
+        Verb superBonk = new()
         {
             Text = superBonkName,
             Category = VerbCategory.Smite,
