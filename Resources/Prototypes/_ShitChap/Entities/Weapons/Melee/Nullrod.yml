@@ -100,7 +100,7 @@
       types:
         Slash: 15
         Holy: 25
-    failPopup: fail-nullrod-claymore
+    failPopup: 'fail-nullrod-claymore'
 
 - type: entity
   name: rosary
