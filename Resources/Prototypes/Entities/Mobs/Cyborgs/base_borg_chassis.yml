@@ -119,7 +119,6 @@
   - type: LockingWhitelist
     blacklist:
       components:
-      - BorgChassis
       - RoboticsConsole
   - type: WiresPanel
   - type: ActivatableUIRequiresPanel
