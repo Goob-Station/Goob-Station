@@ -24,7 +24,7 @@
       - Magic
   - type: DisarmMalus
     malus: 0
-  - type: Nullrod
+  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
     selfDamage:
       types:
         Heat: 15
@@ -95,6 +95,12 @@
   - type: Tag
     tags:
     - HolyClaymore
+  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
+    selfDamage:
+      types:
+        Slash: 15
+        Holy: 25
+    failPopup: fail-nullrod-claymore
 
 - type: entity
   name: rosary
@@ -159,6 +165,12 @@
   - type: Tag
     tags:
     - Rosary
+  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
+    selfDamage:
+      types:
+        Blunt: 1
+        Holy: 60
+    failPopup: "The beads tighten around your hands painfully"
 
 - type: entity
   parent: BaseItem

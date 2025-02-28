@@ -1,7 +1,6 @@
 using Content.Server.Bible.Components;
 using Content.Server.Popups;
 using Content.Shared.Damage;
-using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
@@ -11,7 +10,6 @@ namespace Content.Server._Goobstation.Religion.Nullrod;
 public sealed partial class NullRodSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
 
@@ -27,7 +25,6 @@ public sealed partial class NullRodSystem : EntitySystem
 
         if (HasComp<BibleUserComponent>(args.User))
             return;
-
 
         if (_damageableSystem.TryChangeDamage(args.User, comp.SelfDamage, true, origin: uid) != null)
 
