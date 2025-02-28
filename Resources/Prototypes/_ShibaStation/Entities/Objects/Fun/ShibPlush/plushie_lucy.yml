@@ -1,0 +1,25 @@
+- type: entity
+  parent: BaseItem
+  id: LLPlush
+  name: Lucy Plush
+  description: A pitiful looking plush Resomi that somehow looks like its about to
+    cry. A little soggy too...
+  components:
+  - type: Sprite
+    sprite: _ShibaStation/Objects/Fun/ShibPlush/lucy.rsi
+    state: icon
+    scale: 0.5, 0.5
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Floofstation/Voice/Avali/avali_1_ask.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Floofstation/Voice/Avali/avali_1_ask.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Floofstation/Voice/Avali/avali_1_ask.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Floofstation/Voice/Avali/avali_scream.ogg
+  - type: UseDelay
+    delay: .5
