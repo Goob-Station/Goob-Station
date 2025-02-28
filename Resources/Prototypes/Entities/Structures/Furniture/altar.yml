@@ -414,6 +414,8 @@
     sprite: Structures/Furniture/Altars/Cults/fangs.rsi
   - type: Icon
     sprite: Structures/Furniture/Altars/Cults/fangs.rsi
+  - type: AltarSource
+    rodProto: ArrythmicKnife # Shitchap
 
 
 - type: entity
