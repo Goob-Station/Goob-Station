@@ -148,6 +148,7 @@
   physicalDesc: reagent-physical-desc-opaque
   flavor: medicine
   color: "#ffaa00"
+  worksOnUnconscious: true
   metabolisms:
     Medicine:
       effects:
