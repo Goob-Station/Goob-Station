@@ -194,6 +194,7 @@
   - !type:PlantAdjustHealth
     amount: 5
   - !type:PlantCryoxadone {}
+  worksOnTheDead: true # Goobstation
   metabolisms:
     Medicine:
       effects:
@@ -218,6 +219,7 @@
   physicalDesc: reagent-physical-desc-bubbling
   flavor: medicine
   color: "#32cd32"
+  worksOnTheDead: true # Goobstation - Surgery is no longer the only cure.
   metabolisms:
     Medicine:
       effects:
