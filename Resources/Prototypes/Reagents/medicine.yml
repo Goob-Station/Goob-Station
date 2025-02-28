@@ -148,7 +148,6 @@
   physicalDesc: reagent-physical-desc-opaque
   flavor: medicine
   color: "#ffaa00"
-  worksOnUnconscious: true
   metabolisms:
     Medicine:
       effects:
@@ -196,7 +195,6 @@
     amount: 5
   - !type:PlantCryoxadone {}
   worksOnTheDead: true # Goobstation
-  worksOnUnconscious: true # Shitmed Change
   metabolisms:
     Medicine:
       effects:
@@ -225,7 +223,6 @@
   flavor: medicine
   color: "#32cd32"
   worksOnTheDead: true # Goobstation - Surgery is no longer the only cure.
-  worksOnUnconscious: true # Shitmed Change
   metabolisms:
     Medicine:
       effects:
@@ -1306,7 +1303,6 @@
   flavor: medicine
   color: "#86a5bd"
   worksOnTheDead: true
-  worksOnUnconscious: true # Shitmed Change
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: -5
@@ -1340,7 +1336,6 @@
   flavor: medicine
   color: "#89f77f"
   worksOnTheDead: true
-  worksOnUnconscious: true # Shitmed Change
   metabolisms:
     Medicine:
       effects:
