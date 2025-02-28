@@ -7,7 +7,7 @@
     checkCanAccess: false
     raiseOnUser: true
     checkCanInteract: false
-    useDelay: 45
+    useDelay: 32
     itemIconStyle: BigAction
     whitelist:
       requireAll: true
