@@ -2380,7 +2380,9 @@ entities:
       parent: 2
     - type: FaxMachine
       name: Wizard's Den
-- proto: FelinidCube
+      responsePings: false
+      notifyAdmins: true
+- proto: TajaranCube
   entities:
   - uid: 306
     components:

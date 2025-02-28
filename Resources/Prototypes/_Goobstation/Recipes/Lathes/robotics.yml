@@ -48,3 +48,10 @@
     Steel: 300
     Glass: 150
     Plasma: 50
+
+# Modules
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleLollipop
+  result: BorgModuleLollipop

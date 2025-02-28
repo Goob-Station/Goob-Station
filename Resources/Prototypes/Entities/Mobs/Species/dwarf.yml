@@ -72,6 +72,9 @@
     storedOffset: 0,17
     shape:
       - 0, 0, 5, 4 # ShibaStation - wider than felinids and rodentians because dorf thicc
+  - type: InnateMiningScannerViewer # Frontier
+    pingSound: null
+    viewRange: 3 # Goob value
 
 - type: entity
   parent: BaseSpeciesDummy

@@ -1,0 +1,15 @@
+- type: entity
+  id: RandomInsulsSpawner
+  name: random insuls spawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Clothing/Hands/Gloves/Color/yellow.rsi
+          state: icon
+    - type: RandomSpawner
+      chance: 0.5
+      prototypes:
+        - ClothingHandsGlovesConducting
+        - ClothingHandsGlovesColorYellow

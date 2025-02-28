@@ -1,0 +1,19 @@
+- type: constructionGraph
+  id: BananiumSword
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: bananiumSword
+          steps:
+            - tag: ToySword
+              name: toy sword
+              icon:
+                sprite: Objects/Weapons/Melee/e_sword.rsi
+                state: e_sword
+              doAfter: 2
+            - material: Bananium
+              amount: 10
+              doAfter: 1
+    - node: bananiumSword
+      entity: BananiumSword

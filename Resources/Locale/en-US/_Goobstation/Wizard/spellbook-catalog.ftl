@@ -122,7 +122,7 @@ spellbook-instant-summons-desc =
 spellbook-teleport-name = Teleport
 spellbook-teleport-desc =
     Teleports you to an area of your selection.
-    Doesn't require wizard's robe and hat to cast.
+    Requires wizard's robe and hat to cast.
 
 spellbook-the-traps-name = The Traps!
 spellbook-the-traps-desc =
@@ -145,7 +145,7 @@ spellbook-sanguine-strike-name = Exsanguinating Strike
 spellbook-sanguine-strike-desc =
     Sanguine spell that enchants your next weapon strike to deal more damage, heal you for damage dealt, and refill blood.
     Damage dealt is either double damage, or +20 damage, whichever is less.
-    Doesn't require wizard's robe and hat to cast.
+    Requires wizard's robe and hat to cast.
 
 spellbook-chuuni-name = Chuuni Invocations
 spellbook-chuuni-desc =

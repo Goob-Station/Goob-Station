@@ -12,7 +12,7 @@
     - bluespace_crystal_2
     - bluespace_crystal_3
   - type: Sprite
-    sprite: Goobstation/Objects/Materials/materials.rsi
+    sprite: _Goobstation/Objects/Materials/materials.rsi
     state: bluespace_crystal
     layers:
     - state: bluespace_crystal
@@ -36,6 +36,26 @@
 - type: entity
   parent: MaterialBSCrystal
   id: MaterialBSCrystal1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: MaterialBSCrystal
+  id: MaterialBSCrystalUnprocessed
+  name: unprocessed bluespace crystal
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: BSCrystalUnprocessed
+  - type: UnclaimedOre
+    miningPoints: 100
+
+- type: entity
+  parent: MaterialBSCrystalUnprocessed
+  id: MaterialBSCrystal1Unprocessed
+  name: unprocessed bluespace crystal
   suffix: Single
   components:
   - type: Stack

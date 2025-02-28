@@ -22,8 +22,10 @@
     tags:
     - DoorBumpOpener
     - WhitelistChameleon
+    - WhitelistChameleonIdCard
   - type: StealTarget
     stealGroup: IDCard
+  - type: MiningPoints # DeltaV
   - type: NanoChatCard # DeltaV
 
 #IDs with layers
@@ -117,6 +119,7 @@
     tags:
     - DoorBumpOpener
     - WhitelistChameleon
+    - WhitelistChameleonIdCard
     - HighRiskItem
   - type: StealTarget
     stealGroup: CaptainIDCard
@@ -315,6 +318,9 @@
     - type: PresetIdCard
       job: Bartender
       name: Pun Pun
+    - type: Tag #  Ignore Chameleon tags
+      tags:
+      - DoorBumpOpener
 
 - type: entity
   parent: IDCardStandard
@@ -601,6 +607,7 @@
   - type: ChameleonClothing
     slot: [idcard]
     default: PassengerIDCard
+    requireTag: WhitelistChameleonIdCard
   - type: UserInterface
     interfaces:
       enum.AgentIDCardUiKey.Key:
@@ -807,14 +814,9 @@
     jobIcon: JobIconAdmin
   - type: Access
     groups:
-    - AllAccess
-    tags:
-    - CentralCommand
-    - NuclearOperative
-    - SyndicateAgent
-    - Wizard
-    # Goobstation
-    - NanotrasenRepresentative
-    - BlueshieldOfficer
+    - AdminAccess # ShibaStation - Single group for ALL access types, no more adding more tags.
   - type: NanoChatCard # DeltaV
     notificationsMuted: true
+  - type: Tag #  Ignore Chameleon tags
+    tags:
+    - DoorBumpOpener

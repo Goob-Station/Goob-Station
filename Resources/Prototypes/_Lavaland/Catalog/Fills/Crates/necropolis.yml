@@ -1,0 +1,36 @@
+- type: entity
+  id: LavalandCrateNecropolisHeart
+  parent: LavalandCrateNecropolis
+  suffix: Heart
+  components:
+  - type: StorageFill
+    contents:
+      - id: LavalandCursedHeart
+
+- type: entity
+  id: LavalandCrateNecropolisCultArmor
+  parent: LavalandCrateNecropolis
+  suffix: Cult Armor
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterArmorCult
+
+- type: entity
+  id: LavalandCrateNecropolisCultRobe
+  parent: LavalandCrateNecropolis
+  suffix: Cult Robe
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterRobesCult
+      - id: BedsheetCult
+
+- type: entity
+  id: LavalandCrateNecropolisVampirismCrystal
+  parent: LavalandCrateNecropolis
+  suffix: Vampirism Crystal
+  components:
+  - type: StorageFill
+    contents:
+      - id: LavalandVampirismCrystal

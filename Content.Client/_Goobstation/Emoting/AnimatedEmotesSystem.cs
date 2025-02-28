@@ -9,6 +9,10 @@ using Content.Shared.Chat.Prototypes;
 using Content.Shared.Jittering;
 using Content.Client.Jittering;
 using Robust.Shared.Timing;
+using Robust.Client.Graphics;
+using Content.Client.DamageState;
+using System.Linq;
+
 namespace Content.Client.Emoting;
 
 public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
@@ -16,6 +20,8 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
     [Dependency] private readonly AnimationPlayerSystem _anim = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
     [Dependency] private readonly JitteringSystem _jitter = default!;
+
+    private const int TweakAnimationDurationMs = 1100; // 11 frames * 100ms per frame
 
     public override void Initialize()
     {
@@ -27,6 +33,7 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
         SubscribeLocalEvent<AnimatedEmotesComponent, AnimationSpinEmoteEvent>(OnSpin);
         SubscribeLocalEvent<AnimatedEmotesComponent, AnimationJumpEmoteEvent>(OnJump);
         SubscribeLocalEvent<AnimatedEmotesComponent, AnimationVibrateEmoteEvent>(OnVibrate);
+        SubscribeLocalEvent<AnimatedEmotesComponent, AnimationTweakEmoteEvent>(OnTweak);
     }
 
     public void PlayEmote(EntityUid uid, Animation anim, string animationKey = "emoteAnimKeyId")
@@ -131,5 +138,46 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
         {
             RemComp<JitteringComponent>(ent);
         });
+    }
+    private void OnTweak(Entity<AnimatedEmotesComponent> ent, ref AnimationTweakEmoteEvent args)
+    {
+        NetEntity netEntity = EntityManager.GetNetEntity(ent.Owner);
+
+        if (!EntityManager.TryGetEntityData(netEntity, out _, out var metaData))
+        {
+            var sawmill = Logger.GetSawmill("tweak-emotes");
+            sawmill.Warning($"EntityPrototype is null for entity {netEntity}");
+            return;
+        }
+
+        if (metaData.EntityPrototype == null)
+        {
+            var sawmill = Logger.GetSawmill("tweak-emotes");
+            sawmill.Warning($"EntityPrototype is null for entity {netEntity} (Type: {metaData.EntityName})");
+            return;
+        }
+
+        var stateNumber = string.Concat(metaData.EntityPrototype.ID.Where(Char.IsDigit));
+        if (string.IsNullOrEmpty(stateNumber))
+        {
+            stateNumber = "0";
+        }
+
+        var a = new Animation
+        {
+            Length = TimeSpan.FromMilliseconds(TweakAnimationDurationMs),
+            AnimationTracks =
+            {
+                new AnimationTrackSpriteFlick
+                {
+                    LayerKey = DamageStateVisualLayers.Base,
+                    KeyFrames =
+                    {
+                        new AnimationTrackSpriteFlick.KeyFrame(new RSI.StateId($"{metaData.EntityPrototype.SetName}-tweaking-{stateNumber}"), 0f)
+                    }
+                }
+            }
+        };
+        PlayEmote(ent, a);
     }
 }

@@ -19,3 +19,25 @@
   description: A poorly constructed voice modulator made of a gasmask and voice trigger.
   icon: { sprite: Clothing/Mask/gas.rsi, state: icon }
   objectType: Item
+
+- type: construction
+  name: medical glasses
+  id: MedicalGlasses
+  graph: GlassesMedHUD
+  startNode: start
+  targetNode: glassesMed
+  category: construction-category-clothing
+  description: Sunglasses with a medical hud.
+  icon: { sprite: _Goobstation/Clothing/Eyes/Glasses/medglasses.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: medsec glasses
+  id: MedicalSecurityGlasses
+  graph: GlassesMedSecHUD
+  startNode: start
+  targetNode: glassesMedSec
+  category: construction-category-clothing
+  description: Sunglasses with a medical and security hud.
+  icon: { sprite: _Goobstation/Clothing/Eyes/Glasses/medglasses.rsi, state: icon }
+  objectType: Item
