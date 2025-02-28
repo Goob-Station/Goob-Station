@@ -24,16 +24,16 @@ public sealed class NullrodTransformSystem : EntitySystem
 
 
         if (args.Handled
-            || HasComp<StorageComponent>(args.Target) // if it's a storage component like a bag, we ignore usage so it can be stored.
-            || !_tagSystem.HasTag(args.Used, "Nullrod") //Checks used entity for the tag we need.
+            || HasComp<StorageComponent>(args.Target) // If it's a storage component like a bag, we ignore usage so it can be stored.
+            || !_tagSystem.HasTag(args.Used, "Nullrod") // Checks used entity for the tag we need.
             )
-                return;
+            return;
 
 
-                var nullrodUid = Spawn(component.RodProto, args.ClickLocation.SnapToGrid(EntityManager));
-                var xform = Transform(nullrodUid); //Spawns entity assigned in RodProto.
+        var nullrodUid = Spawn(component.RodProto, args.ClickLocation.SnapToGrid(EntityManager));
+        var xform = Transform(nullrodUid); // Spawns entity assigned in RodProto.
 
-                QueueDel(args.Used); //deletes old entity.
-                args.Handled = true;
+        QueueDel(args.Used); // Deletes the previous entity.
+        args.Handled = true;
     }
 }
