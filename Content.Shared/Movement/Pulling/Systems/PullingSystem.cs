@@ -1,11 +1,11 @@
 using Content.Shared._Goobstation.Grab;
+using Content.Shared._Goobstation.MartialArts.Events;
 using Content.Shared._White.Grab; // Goobstation
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
 using Content.Shared.Buckle.Components;
 using Content.Shared.CombatMode; // Goobstation
-using Content.Shared.Cuffs; // Goobstation
 using Content.Shared.Cuffs.Components; // Goobstation
 using Content.Shared.Damage; // Goobstation
 using Content.Shared.Damage.Systems; // Goobstation

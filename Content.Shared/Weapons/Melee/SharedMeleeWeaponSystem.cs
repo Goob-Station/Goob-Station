@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Shared._Goobstation.MartialArts;
 using Content.Shared._Goobstation.MartialArts.Events;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
@@ -456,6 +457,12 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     {
         // If I do not come back later to fix Light Attacks being Heavy Attacks you can throw me in the spider pit -Errant
         var damage = GetDamage(meleeUid, user, component) * GetHeavyDamageModifier(meleeUid, user, component);
+        // Goobstation - Martial Arts
+        if(TryComp<MartialArtsKnowledgeComponent>(user, out var martialArtsKnowledgeComponent) && meleeUid == user)
+        {
+            damage *= martialArtsKnowledgeComponent.DamageModifier;
+        }
+        // Goobstation
         var target = GetEntity(ev.Target);
         var resistanceBypass = GetResistanceBypass(meleeUid, user, component);
 

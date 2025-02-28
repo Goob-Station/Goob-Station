@@ -1,0 +1,9 @@
+- type: martialArt
+  id: CorporateJudo
+  martialArtsForm: CloseQuartersCombat
+  roundstartCombos: CorporateJudoMoves
+
+- type: martialArt
+  id: CloseQuartersCombat
+  martialArtsForm: CloseQuartersCombat
+  roundstartCombos: CQCMoves

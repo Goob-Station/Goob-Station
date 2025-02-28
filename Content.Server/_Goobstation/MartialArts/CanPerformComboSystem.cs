@@ -59,7 +59,7 @@ public sealed class ComboSystem : EntitySystem
         SubscribeLocalEvent<GrantCorporateJudoComponent, ClothingGotUnequippedEvent>(OnRemoveCorporateJudo);
 
         // Here comes CQC!
-        SubscribeLocalEvent<MartialArtsKnowledgeComponent, MapInitEvent>(OnMapInit);
+        //SubscribeLocalEvent<MartialArtsKnowledgeComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, CheckGrabOverridesEvent>(CheckGrabStageOverride);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComboAttackPerformedEvent>(OnCQCAttackPerformed);
@@ -160,6 +160,7 @@ public sealed class ComboSystem : EntitySystem
             return;
         _popupSystem.PopupEntity(Loc.GetString("cqc-success-learned"), args.User, args.User);
         var cqc = EnsureComp<MartialArtsKnowledgeComponent>(args.User);
+        LoadPrototype(args.User, cqc, ent.Comp.MartialArtsForm);
         cqc.Blocked = false;
         ent.Comp.Used = true;
     }
@@ -200,9 +201,7 @@ public sealed class ComboSystem : EntitySystem
         if (!CheckGrant(ent.Comp, user))
             return;
         var martialArts = EnsureComp<MartialArtsKnowledgeComponent>(user);
-        martialArts.RoundstartCombos = "CorporateJudoMoves";
-        SetMoves(ent, "CorporateJudoMoves");
-        Log.Debug(martialArts.RoundstartCombos);
+        LoadPrototype(user, martialArts, ent.Comp.MartialArtsForm);
         martialArts.Blocked = false;
     }
 
@@ -222,7 +221,13 @@ public sealed class ComboSystem : EntitySystem
     private void OnMapInit(Entity<MartialArtsKnowledgeComponent> ent, ref MapInitEvent args)
     {
         var combo = EnsureComp<CanPerformComboComponent>(ent);
-        if (!_proto.TryIndex(ent.Comp.RoundstartCombos, out var comboListPrototype))
+        LoadCombos(ent.Comp.RoundstartCombos, combo);
+    }
+
+    private void LoadCombos(ProtoId<ComboListPrototype> list, CanPerformComboComponent combo)
+    {
+        combo.AllowedCombos.Clear();
+        if (!_proto.TryIndex(list, out var comboListPrototype))
             return;
         foreach (var item in comboListPrototype.Combos)
         {
@@ -230,19 +235,18 @@ public sealed class ComboSystem : EntitySystem
         }
     }
 
-    // Super shit code incoming
-    private void SetMoves(EntityUid ent, ProtoId<ComboListPrototype> comboList)
+    private void LoadPrototype(EntityUid uid, MartialArtsKnowledgeComponent component, MartialArtsForms name)
     {
-
-        var combo = EnsureComp<CanPerformComboComponent>(ent);
-        combo.AllowedCombos.Clear();
-        if (!_proto.TryIndex(comboList, out var realComboList))
+        var combo = EnsureComp<CanPerformComboComponent>(uid);
+        if (!_proto.TryIndex<MartialArtPrototype>(name.ToString(), out var proto))
             return;
-        foreach (var item in realComboList.Combos)
-        {
-            combo.AllowedCombos.Add(_proto.Index(item));
-            Log.Debug(item);
-        }
+        component.RoundstartCombos = proto.RoundstartCombos;
+        Log.Info("Loaded roundstart combos .. " + component.RoundstartCombos);
+        component.DamageModifier = proto.DamageModifier;
+        Log.Info("Loaded damager modifier .. " + component.DamageModifier);
+        //component.MartialArtsForm = proto.MartialArtsForm; -- testing
+        //Log.Info("Loaded MartialArtsForm .. " + component.MartialArtsForm);
+        LoadCombos(proto.RoundstartCombos, combo);
     }
 
     private void OnShutdown(Entity<MartialArtsKnowledgeComponent> ent, ref ComponentShutdown args)
@@ -250,10 +254,7 @@ public sealed class ComboSystem : EntitySystem
         var combo = EnsureComp<CanPerformComboComponent>(ent);
         if (!_proto.TryIndex(ent.Comp.RoundstartCombos, out var comboListPrototype))
             return;
-        foreach (var item in comboListPrototype.Combos)
-        {
-            combo.AllowedCombos.Remove(_proto.Index(item));
-        }
+        combo.AllowedCombos.Clear();
     }
 
     private void OnCQCAttackPerformed(Entity<MartialArtsKnowledgeComponent> ent, ref ComboAttackPerformedEvent args)
@@ -328,7 +329,7 @@ public sealed class ComboSystem : EntitySystem
         dir *= 1f / dir.Length();
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
-        _grabThrowing.Throw(target, ent, dir, 120f, damage, damage);
+        _grabThrowing.Throw(target, ent, dir, 25f, damage, damage);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
     }
 
