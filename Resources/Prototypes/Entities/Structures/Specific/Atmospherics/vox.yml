@@ -18,6 +18,7 @@
       BZ: danger # Assmos - /tg/ gases
       Healium: stationNO # Assmos - /tg/ gases
       Nitrium: danger # Assmos - /tg/ gases
+      Pluoxium: voxOxygen # Assmos - /tg/ gases
 
 - type: entity
   parent: [AirSensorVoxBase, AirSensor]
@@ -45,6 +46,7 @@
     - BZ
     - Healium
     - Nitrium
+    - Pluoxium
 
 # use this to prevent overriding filters with hardcoded defaults
 - type: entity
