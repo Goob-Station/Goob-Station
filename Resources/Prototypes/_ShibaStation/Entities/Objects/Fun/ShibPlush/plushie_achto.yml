@@ -5,7 +5,7 @@
   description: A cute little resomi(?) plush. Smells like apples and bad decisions.
   components:
   - type: Sprite
-    sprite: Objects/Fun/achto.rsi
+    sprite: _ShibaStation/Objects/Fun/ShibPlush/achto.rsi
     state: icon
     scale: 0.6, 0.6
   - type: EmitSoundOnUse

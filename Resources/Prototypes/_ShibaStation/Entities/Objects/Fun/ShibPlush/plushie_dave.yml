@@ -5,7 +5,7 @@
   description: CentComm's best secretary and pizza delivery boy. Still looks great, even with his 5 speso haircut!
   components:
   - type: Sprite
-    sprite: Objects/Fun/dave.rsi
+    sprite: _ShibaStation/Objects/Fun/ShibPlush/dave.rsi
     state: icon
     scale: 0.8, 0.8
   - type: EmitSoundOnUse

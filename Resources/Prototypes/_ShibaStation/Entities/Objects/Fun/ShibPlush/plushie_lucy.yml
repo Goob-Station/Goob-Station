@@ -6,7 +6,7 @@
     cry. A little soggy too...
   components:
   - type: Sprite
-    sprite: Objects/Fun/lucy.rsi
+    sprite: _ShibaStation/Objects/Fun/ShibPlush/lucy.rsi
     state: icon
     scale: 0.5, 0.5
   - type: EmitSoundOnUse
@@ -21,3 +21,5 @@
   - type: EmitSoundOnLand
     sound:
       path: /Audio/_Floofstation/Voice/Avali/avali_scream.ogg
+  - type: UseDelay
+    delay: .5

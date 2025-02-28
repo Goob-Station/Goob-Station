@@ -5,7 +5,7 @@
   description: A plush of the reigning NT Blockgame champion! A perfect travel companion anywhere from the bridge to the trash compactor! 
   components:
   - type: Sprite
-    sprite: Objects/Fun/cass.rsi
+    sprite: _ShibaStation/Objects/Fun/ShibPlush/cass.rsi
     state: icon
     scale: 0.75, 0.75
   - type: EmitSoundOnUse
@@ -21,4 +21,4 @@
     sound:
       path: /Audio/Animals/lizard_happy.ogg
   - type: UseDelay
-    delay: 2
+    delay: 1
