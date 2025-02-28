@@ -11,6 +11,7 @@ using Content.Server.NodeContainer.Nodes;
 using Content.Server.Temperature.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Atmos;
+using Content.Shared.Actions; // Shitmed Change
 using Content.Shared.UserInterface;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
@@ -38,6 +39,7 @@ namespace Content.Server.Medical;
 public sealed partial class CryoPodSystem : SharedCryoPodSystem
 {
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly GasCanisterSystem _gasCanisterSystem = default!;
     [Dependency] private readonly ClimbSystem _climbSystem = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
@@ -51,6 +53,7 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
     [Dependency] private readonly ReactiveSystem _reactiveSystem = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
+    [Dependency] private readonly SleepingSystem _sleepingSystem = default!;
 
     public override void Initialize()
     {
@@ -248,20 +251,12 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
         if (args.Powered)
         {
             EnsureComp<ActiveCryoPodComponent>(entity);
-            if (insidePod is { } patient) // Shitmed Change
-            {
-                EnsureComp<SleepingComponent>(patient);
-                EnsureComp<ForcedSleepingComponent>(patient);
-            }
         }
         else
         {
             RemComp<ActiveCryoPodComponent>(entity);
             if (insidePod is { } patient) // Shitmed Change
-            {
-                RemComp<SleepingComponent>(patient);
-                RemComp<ForcedSleepingComponent>(patient);
-            }
+                _sleepingSystem.TryWaking(patient);
             _uiSystem.CloseUi(entity.Owner, HealthAnalyzerUiKey.Key);
         }
         UpdateAppearance(entity.Owner, entity.Comp);

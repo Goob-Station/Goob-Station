@@ -21,13 +21,13 @@ namespace Content.Server.Medical
         }
         private void OnComponentInit(EntityUid uid, InsideCryoPodComponent component, ComponentInit args)
         {
-            EnsureComp<SleepingComponent>(uid);
-            EnsureComp<ForcedSleepingComponent>(uid);
+            _actionsSystem.AddAction(uid, ref component.SleepAction, SleepingSystem.SleepActionId, uid);
         }
+
         private void OnComponentRemove(EntityUid uid, InsideCryoPodComponent component, ComponentRemove args)
         {
-            RemComp<SleepingComponent>(uid);
-            RemComp<ForcedSleepingComponent>(uid);
+            _actionsSystem.RemoveAction(uid, component.SleepAction);
+            _sleepingSystem.TryWaking(uid);
         }
         // Shitmed Change End
 
