@@ -36,13 +36,13 @@
   - type: InteractionOutline
   - type: Clickable
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 256
+        damage: 600
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -54,21 +54,14 @@
     solutions:
       drainBuffer:
         maxVol: 1000
-  - type: Drain
+  - type: Drain # remove liquids around pit
     unitsPerSecond: 10
     unitsDestroyedPerSecond: 10
-  - type: TileSpawnAnomaly
-    entries:
-    - settings:
-        spawnOnPulse: true
-        spawnOnStabilityChanged: true
-        minAmount: 3
-        maxAmount: 7
-        maxRange: 5
-      floor: FloorBingle
-    - settings:
-        spawnOnSuperCritical: true
-        minAmount: 10
-        maxAmount: 30
-        maxRange: 10
-      floor: FloorBingle
+  - type: PassiveDamage #passive Healing
+    damage:
+      types:
+        Heat: -1
+        Shock: -1
+        Structural: -1
+      groups:
+        Brute: -1
