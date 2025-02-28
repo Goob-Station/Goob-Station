@@ -37,6 +37,8 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitChronolegioneer
+    replaceCurrentClothing: true # ShibaStation - Wear hoods/hardsuit helmets without taking off your head gear first.
+    blockUnequipWhenAttached: true # ShibaStation - Janky workaround for removing an outerwear with part deployed yoinking your head gear (it's still there it's just IN the outerwear)
   - type: ModifyDelayedKnockdown # Goobstation
     cancel: true
 
