@@ -1,0 +1,71 @@
+## Static
+- type: latheRecipePack
+  id: MechPartsStatic
+  recipes:
+  - MechAirTank
+  - MechThruster
+
+- type: latheRecipePack
+  id: MechWeaponsStatic
+  recipes:
+  - WeaponMechCombatFlashbangLauncher
+
+## Dynamic
+- type: latheRecipePack
+  id: MechWeapons
+  recipes:
+  - WeaponMechCombatImmolationGun
+  - WeaponMechCombatSolarisLaser
+  - WeaponMechCombatFiredartLaser
+  - WeaponMechCombatUltraRifle
+  - WeaponMechCombatShotgun
+  - WeaponMechCombatShotgunIncendiary
+  - WeaponMechCombatDisabler
+  - WeaponMechCombatMissileRack8
+
+- type: latheRecipePack
+  id: MechPartsGoob
+  recipes:
+  - ClarkeHarness
+  - ClarkeHead
+  - ClarkeLArm
+  - ClarkeRArm
+  - ClarkeTreads
+  - DurandHarness
+  - DurandArmor
+  - DurandHead
+  - DurandLArm
+  - DurandLLeg
+  - DurandRArm
+  - DurandRLeg
+  - GygaxHarness
+  - GygaxArmor
+  - GygaxHead
+  - GygaxLArm
+  - GygaxLLeg
+  - GygaxRArm
+  - GygaxRLeg
+  - MechEquipmentDrill
+  - MechEquipmentDrillDiamond
+  - MechEquipmentKineticAccelerator
+  - MechEquipmentHonkerBananaMortar
+  - MechEquipmentHonkerMousetrapMortar
+  - RipleyUpgradeKit
+  - RipleyMKIIHarness
+
+- type: latheRecipePack
+  id: MechElectronicsGoob
+  recipes:
+  - HonkerCentralElectronics
+  - HonkerPeripheralsElectronics
+  - HonkerTargetingElectronics
+  - GygaxCentralElectronics
+  - GygaxPeripheralsElectronics
+  - GygaxTargetingElectronics
+  - DurandCentralElectronics
+  - DurandPeripheralsElectronics
+  - DurandTargetingElectronics
+  - ClarkeCentralElectronics
+  - ClarkePeripheralsElectronics
+  - HamtrCentralElectronics
+  - HamtrPeripheralsElectronics

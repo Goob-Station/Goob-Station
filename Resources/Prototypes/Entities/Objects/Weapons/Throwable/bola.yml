@@ -25,6 +25,7 @@
     staminaDamage: 0
     canThrowTrigger: true
     canMoveBreakout: true
+    maxEnsnares: 1
   - type: KnockdownOnCollide
   - type: ThrowableBlocked
 
@@ -84,6 +85,7 @@
     canThrowTrigger: true
     canMoveBreakout: true
     destroyOnRemove: true
+    maxEnsnares: 1
   - type: Tag
     tags:
     - BolaEnergy

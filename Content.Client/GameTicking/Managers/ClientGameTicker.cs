@@ -44,6 +44,8 @@ namespace Content.Client.GameTicking.Managers
 
         public override void Initialize()
         {
+            base.Initialize();
+
             SubscribeNetworkEvent<TickerJoinLobbyEvent>(JoinLobby);
             SubscribeNetworkEvent<TickerJoinGameEvent>(JoinGame);
             SubscribeNetworkEvent<TickerConnectionStatusEvent>(ConnectionStatus);

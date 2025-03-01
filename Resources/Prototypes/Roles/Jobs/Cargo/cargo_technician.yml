@@ -12,6 +12,10 @@
   extendedAccess:
   - Salvage
   - External # goobstation
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: BoxingDay
+    prototype: BoxCardboard
 
 - type: startingGear
   id: CargoTechGear

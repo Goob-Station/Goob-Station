@@ -64,3 +64,10 @@ public readonly record struct TechnologyDatabaseModifiedEvent // Goobstation - L
         UnlockedRecipes = unlockedRecipes ?? new();
     }
 };
+
+/// <summary>
+/// Event raised on a database after being synchronized
+/// with the values from another database.
+/// </summary>
+[ByRefEvent]
+public readonly record struct TechnologyDatabaseSynchronizedEvent;

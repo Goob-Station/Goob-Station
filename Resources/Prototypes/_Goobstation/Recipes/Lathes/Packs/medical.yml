@@ -1,0 +1,61 @@
+## Static
+- type: latheRecipePack
+  id: ParamedHypoStatic
+  recipes:
+  - CartridgeEpinephrine
+  - CartridgeBicaridine
+  - CartridgeDermaline
+  - ParamedHypo
+
+- type: latheRecipePack
+  id: MedicalPatchesStatic
+  recipes:
+  - MedicalPatchBasic
+  - MedicalPatchRapid
+  - MedicalPatchTherapeutic
+  - MedicalPatchLarge
+
+- type: latheRecipePack
+  id: MedicalWeaponsStatic
+  recipes:
+  - SyringeGun
+
+- type: latheRecipePack
+  id: SurgeryStaticGoob
+  recipes:
+  - BoneGel
+
+- type: latheRecipePack
+  id: MedicalVehiclesStatic
+  recipes:
+  - VehicleWheelchairFolded
+
+## Dynamic
+- type: latheRecipePack
+  id: MedicalSurgery
+  parent: Surgery
+  recipes:
+  - OmnimedTool
+
+- type: latheRecipePack
+  id: Surgery
+  recipes:
+  - EnergyScalpel
+  - EnergyCautery
+  - AdvancedRetractor
+  - OmnimedTool
+
+- type: latheRecipePack
+  id: MedicalCybernetics
+  recipes:
+  - MedicalCyberneticEyes
+
+- type: latheRecipePack
+  id: MedicalWeapons
+  recipes:
+  - RapidSyringeGun
+
+- type: latheRecipePack
+  id: MedicalMisc
+  recipes:
+  - PrescriptionGlasses

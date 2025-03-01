@@ -16,10 +16,16 @@ public sealed partial class RoomFillComponent : Component
     public bool Rotation = true;
 
     /// <summary>
-    /// Size of the room to fill.
+    /// Min size of the possible selected room.
     /// </summary>
-    [DataField(required: true)]
-    public Vector2i Size;
+    [DataField]
+    public Vector2i MinSize = new (3, 3);
+
+    /// <summary>
+    /// Max size of the possible selected room.
+    /// </summary>
+    [DataField]
+    public Vector2i MaxSize = new (10, 10);
 
     /// <summary>
     /// Rooms allowed for the marker.
@@ -31,5 +37,5 @@ public sealed partial class RoomFillComponent : Component
     /// Should any existing entities / decals be bulldozed first.
     /// </summary>
     [DataField]
-    public bool ClearExisting;
+    public bool ClearExisting = true;
 }

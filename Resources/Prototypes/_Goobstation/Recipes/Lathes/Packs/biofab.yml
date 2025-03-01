@@ -1,0 +1,21 @@
+- type: latheRecipePack
+  id: BiofabPartsStatic
+  recipes:
+  - SynthLiver
+  - SynthHeart
+  - SynthLungs
+  - SynthEyes
+  - SynthLeftLeg
+  - SynthRightLeg
+  - SynthLeftFoot
+  - SynthRightFoot
+  - SynthLeftArm
+  - SynthRightArm
+  - SynthLeftHand
+  - SynthRightHand
+
+- type: latheRecipePack
+  id: BiofabPartsEmagStatic
+  recipes:
+  - PizzaLeftArm
+  - PizzaRightArm

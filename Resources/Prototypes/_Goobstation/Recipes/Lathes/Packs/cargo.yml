@@ -1,0 +1,21 @@
+## Static
+- type: latheRecipePack
+  id: MiningToolsStatic
+  recipes:
+  - Fulton
+  - FultonBeacon
+  - OreBag
+
+## Dynamic
+- type: latheRecipePack
+  id: MiningWeapons
+  recipes:
+  - WeaponPlasmaCutter
+  - WeaponPlasmaRifle
+
+- type: latheRecipePack
+  id: MiningUpgrades
+  recipes:
+    - PKAUpgradeDamage
+    - PKAUpgradeRange
+    - PKAUpgradeFireRate

@@ -113,8 +113,6 @@
     radius: 1.5
     energy: 1.6
     color: "#43ccb5"
-  - type: Rotatable
-    rotateWhileAnchored: true
   # Goobstation - Add components for self destruct.
   - type: Explosive # Powerful explosion in a very small radius. Doesn't break underplating.
     explosionType: DemolitionCharge
@@ -149,8 +147,6 @@
     radius: 1.5
     energy: 1.6
     color: "#43ccb5"
-  - type: Rotatable
-    rotateWhileAnchored: true
   - type: ItemSlots
     slots:
       disk_slot:

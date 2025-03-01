@@ -156,11 +156,12 @@ public abstract class SharedRoleSystem : EntitySystem
         var mindEv = new MindRoleAddedEvent(silent);
         RaiseLocalEvent(mindId, ref mindEv);
 
+        // RoleType refresh, Role time tracking, Update Admin playerlist
+
         var message = new RoleAddedEvent(mindId, mind, antagonist, silent);
         if (mind.OwnedEntity != null)
-        {
             RaiseLocalEvent(mind.OwnedEntity.Value, message, true);
-        }
+        // RaiseLocalEvent(mindId, message, true); // Upstream, if you see errors remove two above lines above and uncomments this
 
         var name = Loc.GetString(protoEnt.Name);
         if (mind.OwnedEntity is not null)
@@ -219,9 +220,8 @@ public abstract class SharedRoleSystem : EntitySystem
         var message = new RoleRemovedEvent(mindId, mind, antagonist);
 
         if (mind.OwnedEntity != null)
-        {
             RaiseLocalEvent(mind.OwnedEntity.Value, message, true);
-        }
+        // RaiseLocalEvent(mind, message, true); // Also here, remove lines above and use this if you see errors
         _adminLogger.Add(LogType.Mind,
             LogImpact.Low,
             $"'Role {typeof(T).Name}' removed from mind of {ToPrettyString(mind.OwnedEntity)}");

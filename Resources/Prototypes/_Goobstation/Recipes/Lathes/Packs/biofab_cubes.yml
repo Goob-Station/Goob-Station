@@ -1,0 +1,23 @@
+## Static
+- type: latheRecipePack
+  id: HumanoidCubesStatic
+  recipes:
+  - HumanCube
+  - DionaCube
+  - GingerbreadCube
+  - MothCube
+  - DwarfCube
+  - HarpyCube
+  - RodentiaCube
+  - ReptilianCube
+  - VulpkaninCube
+  - SlimePersonCube
+  - TajaranCube
+  - VoxCube
+  - YowieCube
+
+- type: latheRecipePack
+  id: EmagCubesStatic
+  recipes:
+  - SkibidiCube
+  - FelinidCube
