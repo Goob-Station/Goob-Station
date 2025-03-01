@@ -248,9 +248,11 @@
       - MagazineBoxCaselessRifle # Goobstation
       - MagazineLightRifleBoxEmpty # Goobstation
       - MagazineLightRifleBox # Goobstation
+      - MagazineLightRifleSubsonic # GoobStation
       - MagazineHighCaliberEmpty # Goobstation
       - MagazineHighCaliber # Goobstation
       - MagazineBoxHighCaliber # Goobstation
+      - MagazineBoxAntiMaterielNoAP # GoobStation
       - MagazineMagnumEmpty # Goobstation
       - MagazineMagnum # Goobstation
       - MagazineShotgunLeverRifleEmpty # Goobstation

@@ -227,6 +227,13 @@
     Steel: 1600
 
 - type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineLightRifleSubsonic
+  result: MagazineLightRifleSubsonic
+  materials:
+    Steel: 700
+
+- type: latheRecipe
   parent: BaseEmptyAmmoRecipe
   id: MagazineHighCaliberEmpty
   result: MagazineHighCaliberEmpty
@@ -239,6 +246,13 @@
   result: MagazineHighCaliber
   materials:
     Steel: 325
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxAntiMaterielNoAP
+  result: MagazineBoxAntiMaterielNoAP
+  materials:
+    Steel: 1000
 
 - type: latheRecipe
   parent: BaseAmmoRecipe

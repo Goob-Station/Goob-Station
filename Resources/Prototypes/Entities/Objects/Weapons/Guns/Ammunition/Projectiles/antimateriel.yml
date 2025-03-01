@@ -2,7 +2,7 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   id: BulletAntiMateriel
-  name: bullet (.60 anti-materiel)
+  name: bullet (.60 anti-materiel AP)
   components:
   - type: Projectile
     damage:
@@ -10,6 +10,23 @@
         Piercing: 75
         Structural: 226
     ignoreResistances: true # Goobstation
+    penetrationThreshold: 360
+    penetrationDamageTypeRequirement:
+    - Structural
+  - type: StaminaDamageOnCollide
+    damage: 60
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: BulletAntiMaterielNoAP
+  name: bullet (.60 anti-materiel)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 75
+        Structural: 176
     penetrationThreshold: 360
     penetrationDamageTypeRequirement:
     - Structural
