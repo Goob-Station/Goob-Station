@@ -1,7 +1,7 @@
 - type: job
   id: SalvageSpecialist
-  name: job-name-salvagespec
-  description: job-description-salvagespec
+  name: job-name-shaftminer # Goobstation
+  description: job-description-shaftminer # Goobstation
   playTimeTracker: JobSalvageSpecialist
   requirements:
     - !type:DepartmentTimeRequirement

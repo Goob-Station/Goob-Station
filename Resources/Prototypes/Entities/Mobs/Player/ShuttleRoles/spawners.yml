@@ -235,7 +235,7 @@
     - RandomHumanoidVisitorCargoTechnician
 
 - type: entity
-  name: visiting salvage specialist spawner
+  name: visiting shaft miner spawner
   id: VisitorSalvageSpecialistSpawner
   parent: MarkerBase
   components:

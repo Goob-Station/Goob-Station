@@ -211,7 +211,7 @@
 - type: entity
   parent: IDCardStandard
   id: SalvageIDCard
-  name: salvage ID card
+  name: miner ID card
   components:
   - type: Sprite
     layers:
