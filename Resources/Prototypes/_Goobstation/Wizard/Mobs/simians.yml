@@ -78,6 +78,19 @@
       task: SimpleHumanoidHostileCompound
 
 - type: entity
+  name: kobold
+  id: MobKoboldAngry
+  parent: MobBaseKobold
+  description: Cousins to the sentient race of lizard people, kobolds blend in with their natural habitat and are as nasty as monkeys; ready to pull out your hair and stab you to death.
+  components:
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHumanoidHostileCompound
+
+- type: entity
   parent: MobMonkeyAngry
   id: MobMonkeyAngryTemp
   suffix: Angry, Lesser, Temporary
