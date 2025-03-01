@@ -25,6 +25,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Overlays;
 using Content.Shared.Popups;
 using Content.Shared.Storage.Components;
 using Robust.Server.GameObjects;
@@ -98,10 +99,41 @@ namespace Content.Server.Ghost
             SubscribeLocalEvent<GhostComponent, BooActionEvent>(OnActionPerform);
             SubscribeLocalEvent<GhostComponent, ToggleGhostHearingActionEvent>(OnGhostHearingAction);
             SubscribeLocalEvent<GhostComponent, InsertIntoEntityStorageAttemptEvent>(OnEntityStorageInsertAttempt);
+            SubscribeLocalEvent<GhostComponent, ToggleGhostSecHudActionEvent>(OnGhostSecHudAction);
 
             SubscribeLocalEvent<RoundEndTextAppendEvent>(_ => MakeVisible(true));
             SubscribeLocalEvent<ToggleGhostVisibilityToAllEvent>(OnToggleGhostVisibilityToAll);
         }
+        // Goobstation stuff start
+        private void OnGhostSecHudAction(EntityUid uid, GhostComponent component, ToggleGhostSecHudActionEvent args)
+        {
+            if (HasComp<ShowJobIconsComponent>(uid))
+            {
+                RemComp<ShowJobIconsComponent>(uid);
+                RemComp<ShowMindShieldIconsComponent>(uid);
+                RemComp<ShowCriminalRecordIconsComponent>(uid);
+                RemComp<ShowHealthBarsComponent>(uid);
+                RemComp<ShowHealthIconsComponent>(uid);
+                _actions.SetToggled(component.ToggleGhostSecHudActionEntity, true);
+            }
+            else
+            {
+                AddComp<ShowJobIconsComponent>(uid);
+                AddComp<ShowMindShieldIconsComponent>(uid);
+                AddComp<ShowCriminalRecordIconsComponent>(uid);
+                AddComp<ShowHealthBarsComponent>(uid);
+                AddComp<ShowHealthIconsComponent>(uid);
+                _actions.SetToggled(component.ToggleGhostSecHudActionEntity, false);
+            }
+
+            var str = HasComp<ShowJobIconsComponent>(uid)
+                ? Loc.GetString("ghost-gui-toggle-sechud-popup-on")
+                : Loc.GetString("ghost-gui-toggle-sechud-popup-off");
+
+            Popup.PopupEntity(str, uid, uid);
+            Dirty(uid, component);
+        }
+        // Goobstation stuff end
 
         private void OnGhostHearingAction(EntityUid uid, GhostComponent component, ToggleGhostHearingActionEvent args)
         {
@@ -230,6 +262,7 @@ namespace Content.Server.Ghost
             _actions.AddAction(uid, ref component.ToggleLightingActionEntity, component.ToggleLightingAction);
             _actions.AddAction(uid, ref component.ToggleFoVActionEntity, component.ToggleFoVAction);
             _actions.AddAction(uid, ref component.ToggleGhostsActionEntity, component.ToggleGhostsAction);
+            _actions.AddAction(uid, ref component.ToggleGhostSecHudActionEntity, component.ToggleGhostSecHudAction);
         }
 
         private void OnGhostExamine(EntityUid uid, GhostComponent component, ExaminedEvent args)
@@ -587,7 +620,6 @@ namespace Content.Server.Ghost
             return true;
         }
     }
-
     public sealed class GhostAttemptHandleEvent(MindComponent mind, bool canReturnGlobal) : HandledEntityEventArgs
     {
         public MindComponent Mind { get; } = mind;
