@@ -5632,3 +5632,28 @@ Entries:
       message: Added the ability to grab at various levels of strength.
   id: 649
   time: '2025-02-28T09:42:53.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        WSPR now uses .25 caseless ammo, comes unbundled, has no full auto, but
+        costs less than before. .25 caseless ammo is now slower (though not that
+        as slow as subsonic).
+    - type: Remove
+      message: Subsonic ammo is removed from the game.
+    - type: Tweak
+      message: >-
+        Hristov armor penetration removed and capacity slightly nerfed, but it
+        costs less TC and you can print its ammo on an emagged lathe.
+    - type: Tweak
+      message: C20R now does not require wielding to shoot precisely.
+    - type: Tweak
+      message: >-
+        Micro energy crossbow recharges much faster and deals stamina damage
+        now.
+    - type: Tweak
+      message: >-
+        Python, mosin ammo and nukie agent hardsuit all now cost slightly less
+        TC.
+  id: 650
+  time: '2025-03-01T21:55:11.0000000+00:00'

@@ -10,7 +10,7 @@
       tags:
         - CartridgeAntiMateriel
     proto: CartridgeAntiMateriel
-    capacity: 12 # Goobstation
+    capacity: 10
   - type: Item
     size: Small
   - type: ContainerContainer
