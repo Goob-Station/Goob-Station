@@ -612,8 +612,10 @@ namespace Content.Shared.Chemistry.Components
         }
 
         /// <summary>
-        /// Splits a solution with only the specified reagent prototypes.
+        /// splits the solution taking the specified amount of reagents proportionally to their quantity.
         /// </summary>
+        /// <param name="toTake">The total amount of solution to remove and return.</param>
+        /// <returns>a new solution of equal proportions to the original solution</returns>
         public Solution SplitSolutionWithOnly(FixedPoint2 toTake, params string[] includedPrototypes)
         {
             // First remove the non-included prototypes
@@ -700,6 +702,58 @@ namespace Content.Shared.Chemistry.Components
             newSolution.ValidateSolution();
 
             return newSolution;
+        }
+
+        /// <summary>
+        /// splits the solution taking up to the specified amount of each reagent from the solution.
+        /// If the solution has less of a reagent than the specified amount, it will take all of that reagent.
+        /// </summary>
+        /// <param name="toTakePer">How much of each reagent to take</param>
+        /// <returns>a new solution containing the reagents taken from the original solution</returns>
+        public Solution SplitSolutionReagentsEvenly(FixedPoint2 toTakePer)
+        {
+            var splitSolution = new Solution();
+
+            if (toTakePer <= FixedPoint2.Zero)
+                return splitSolution;
+            var reagentsCount = Contents.Count;
+            var reagentsToRemove = new List<ReagentQuantity>();
+            for (var i = 0; i < reagentsCount; i++)
+            {
+                var currentReagent = Contents[i];
+
+                if (currentReagent.Quantity <= FixedPoint2.Zero)
+                {
+                    reagentsToRemove.Add(currentReagent);
+                    continue;
+                }
+
+                if (currentReagent.Quantity <= toTakePer)
+                {
+                    splitSolution.AddReagent(currentReagent);
+                    reagentsToRemove.Add(currentReagent);
+                }
+                else
+                {
+                    splitSolution.AddReagent(currentReagent.Reagent, toTakePer);
+                    RemoveReagent(currentReagent.Reagent, toTakePer);
+                }
+            }
+
+            foreach (var reagent in reagentsToRemove)
+            {
+                RemoveReagent(reagent);
+            }
+            if (Volume == FixedPoint2.Zero)
+                RemoveAllSolution();
+
+            _heatCapacityDirty = true;
+            splitSolution._heatCapacityDirty = true;
+
+            ValidateSolution();
+            splitSolution.ValidateSolution();
+
+            return splitSolution;
         }
 
         /// <summary>

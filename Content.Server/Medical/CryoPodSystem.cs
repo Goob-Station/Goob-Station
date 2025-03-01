@@ -11,6 +11,7 @@ using Content.Server.NodeContainer.Nodes;
 using Content.Server.Temperature.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Atmos;
+using Content.Shared.Actions; // Shitmed Change
 using Content.Shared.UserInterface;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
@@ -27,6 +28,7 @@ using Content.Shared.Medical.Cryogenics;
 using Content.Shared.MedicalScanner;
 using Content.Shared.Power;
 using Content.Shared.Verbs;
+using Content.Shared.Bed.Sleep; // Shitmed Change
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
@@ -37,6 +39,7 @@ namespace Content.Server.Medical;
 public sealed partial class CryoPodSystem : SharedCryoPodSystem
 {
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly GasCanisterSystem _gasCanisterSystem = default!;
     [Dependency] private readonly ClimbSystem _climbSystem = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
@@ -50,6 +53,7 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
     [Dependency] private readonly ReactiveSystem _reactiveSystem = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
+    [Dependency] private readonly SleepingSystem _sleepingSystem = default!;
 
     public override void Initialize()
     {
@@ -111,7 +115,10 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
                     continue;
                 }
 
-                var solutionToInject = _solutionContainerSystem.SplitSolution(containerSolution.Value, cryoPod.BeakerTransferAmount);
+                // Filter out a fixed amount of each reagent from the cryo pod's beaker
+                var solutionToInject = _solutionContainerSystem.SplitSolutionReagentsEvenly(containerSolution.Value, cryoPod.BeakerTransferAmount);
+                //  for every .25 units used, .5 units per second are added to the body, making cryo-pod more efficient than injections
+                solutionToInject.ScaleSolution(cryoPod.PotencyMultiplier);
                 _bloodstreamSystem.TryAddToChemicals(patient.Value, solutionToInject, bloodstream);
                 _reactiveSystem.DoEntityReaction(patient.Value, solutionToInject, ReactionMethod.Injection);
             }
@@ -239,6 +246,8 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
             return;
         }
 
+        var insidePod = entity.Comp.BodyContainer.ContainedEntity; // Shitmed Change
+
         if (args.Powered)
         {
             EnsureComp<ActiveCryoPodComponent>(entity);
@@ -246,6 +255,8 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
         else
         {
             RemComp<ActiveCryoPodComponent>(entity);
+            if (insidePod is { } patient) // Shitmed Change
+                _sleepingSystem.TryWaking(patient);
             _uiSystem.CloseUi(entity.Owner, HealthAnalyzerUiKey.Key);
         }
         UpdateAppearance(entity.Owner, entity.Comp);
