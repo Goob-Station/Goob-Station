@@ -61,6 +61,7 @@
   components:
   - type: Damageable
     damageContainer: Biological
+    damageModifierSet: GodsChildren
   - type: Destructible
     thresholds:
     - trigger:

@@ -6,6 +6,8 @@
     - Toxin
     - Airloss
     - Genetic
+  supportedTypes:
+    - Holy ##Holy added as damage type incase more metaphysical types are expanded in the future.
 
 - type: damageContainer
   id: Inorganic

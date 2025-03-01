@@ -172,3 +172,8 @@
     Shock: 0.8
     Heat: 0.8
     Ion: 2.0 # double damage from ion
+
+- type: damageModifierSet
+  id: GodsChildren
+  coefficients:
+    Holy: 0.05  # Only the UNHOLY should suffer god's wrath
