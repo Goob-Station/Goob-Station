@@ -17,3 +17,8 @@
 - type: statusEffect
   id: BlurryVision
   alwaysAllowed: true
+
+- type: statusEffect
+  id: Centered
+  alert: Centered
+  alwaysAllowed: true

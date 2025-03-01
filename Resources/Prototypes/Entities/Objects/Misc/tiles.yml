@@ -55,6 +55,11 @@
   - type: GuideHelp
     guides:
     - ExpandingRepairingStation
+  - type: Extractable # Goobstation - Tilenol
+    juiceSolution:
+      reagents:
+      - ReagentId: Byondazine
+        Quantity: 1
 
 - type: entity
   name: steel dark checker tile

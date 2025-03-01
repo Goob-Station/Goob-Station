@@ -33,3 +33,11 @@
   description: alerts-modsuit-power-desc
   minSeverity: 0
   maxSeverity: 5
+
+- type: alert
+  id: Centered
+  icons:
+  - sprite: /Textures/_Goobstation/Interface/Alerts/centered.rsi
+    state: plating
+  name: alerts-centered-name
+  description: alerts-centered-desc

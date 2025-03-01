@@ -144,7 +144,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
             var compType = comp.Component.GetType();
             if (HasComp(target, compType))
                 continue;
-            
+
             var newComp = (Component) _serManager.CreateCopy(comp.Component, notNullableOverride: true);
             EntityManager.AddComponent(target, newComp, true);
         }
