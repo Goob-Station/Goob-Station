@@ -17,9 +17,10 @@ using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item.ItemToggle.Components;
-using Content.Shared._Goobstation.MartialArts.Events; // Goobstation
+using Content.Shared._Goobstation.MartialArts.Events; // Goobstation - Martial Arts
 using Content.Shared.Physics;
 using Content.Shared.Popups;
+using Content.Shared.Random;
 using Content.Shared.Weapons.Melee.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
@@ -27,6 +28,7 @@ using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
+using Robust.Shared.Random; // Goobstation - Martial Arts
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -51,6 +53,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] private   readonly SharedPhysicsSystem     _physics         = default!;
     [Dependency] private   readonly IPrototypeManager       _protoManager    = default!;
     [Dependency] private   readonly StaminaSystem           _stamina         = default!;
+    [Dependency] private   readonly IRobustRandom            _random         = default!;
 
     private const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque);
 
@@ -460,9 +463,20 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         // Goobstation - Martial Arts
         if(TryComp<MartialArtsKnowledgeComponent>(user, out var martialArtsKnowledgeComponent) && meleeUid == user)
         {
-            damage *= martialArtsKnowledgeComponent.DamageModifier;
+            if (martialArtsKnowledgeComponent.RandomDamageModifier)
+            {
+                var min = martialArtsKnowledgeComponent.MinDamageModifier.Float();
+                var max = martialArtsKnowledgeComponent.MaxDamageModifier.Float();
+
+                damage *= _random.NextFloat(min, max); // this is fine for now
+            }
+            else
+            {
+                damage *= martialArtsKnowledgeComponent.MinDamageModifier;
+            }
         }
         // Goobstation
+
         var target = GetEntity(ev.Target);
         var resistanceBypass = GetResistanceBypass(meleeUid, user, component);
 

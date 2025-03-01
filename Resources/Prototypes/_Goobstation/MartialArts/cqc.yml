@@ -1,3 +1,18 @@
+- type: martialArt
+  id: CloseQuartersCombat
+  martialArtsForm: CloseQuartersCombat
+  roundstartCombos: CQCMoves
+  randomDamageModifier: true
+
+- type: comboList
+  id: CQCMoves
+  combos:
+  - CQCConsecutive
+  - CQCPressure
+  - CQCRestrain
+  - CQCKick
+  - CQCSlam
+
 - type: combo
   id: CQCSlam
   attacks:
@@ -33,18 +48,3 @@
   - Disarm
   - Harm
   event: !type:CQCConsecutivePerformedEvent {}
-
-- type: comboList
-  id: CQCMoves
-  combos:
-  - CQCConsecutive
-  - CQCPressure
-  - CQCRestrain
-  - CQCKick
-  - CQCSlam
-
-- type: comboList
-  id: CorporateJudoMoves
-  combos:
-  - CQCSlam
-  - CQCRestrain

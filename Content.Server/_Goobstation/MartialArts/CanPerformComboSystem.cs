@@ -5,12 +5,14 @@ using Content.Server.Stunnable;
 using Content.Shared._Goobstation.MartialArts;
 using Content.Shared._Goobstation.MartialArts.Events;
 using Content.Shared._White.Grab;
+using Content.Shared._White.Standing;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Clothing;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
+using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
@@ -44,6 +46,8 @@ public sealed class ComboSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+
 
     public override void Initialize()
     {
@@ -52,23 +56,28 @@ public sealed class ComboSystem : EntitySystem
 
         SubscribeLocalEvent<CanPerformComboComponent, ComboAttackPerformedEvent>(OnAttackPerformed);
 
-        // Granting martial arts
+        // Granting - Subscribes
         SubscribeLocalEvent<GrantCqcComponent, UseInHandEvent>(OnGrantCQCUse);
         SubscribeLocalEvent<GrantCqcComponent, ExaminedEvent>(OnGrantCQCExamine);
         SubscribeLocalEvent<GrantCorporateJudoComponent, ClothingGotEquippedEvent>(OnGrantCorporateJudo);
         SubscribeLocalEvent<GrantCorporateJudoComponent, ClothingGotUnequippedEvent>(OnRemoveCorporateJudo);
 
-        // Here comes CQC!
-        //SubscribeLocalEvent<MartialArtsKnowledgeComponent, MapInitEvent>(OnMapInit);
+        // Martial Arts - Subscribes
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, CheckGrabOverridesEvent>(CheckGrabStageOverride);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComboAttackPerformedEvent>(OnCQCAttackPerformed);
 
+        //CQC Combos - Subscribes
         SubscribeLocalEvent<CanPerformComboComponent, CQCSlamPerformedEvent>(OnCQCSlam);
         SubscribeLocalEvent<CanPerformComboComponent, CQCKickPerformedEvent>(OnCQCKick);
         SubscribeLocalEvent<CanPerformComboComponent, CQCRestrainPerformedEvent>(OnCQCRestrain);
         SubscribeLocalEvent<CanPerformComboComponent, CQCPressurePerformedEvent>(OnCQCPressure);
         SubscribeLocalEvent<CanPerformComboComponent, CQCConsecutivePerformedEvent>(OnCQCConsecutive);
+
+        // Judo Subscribes
+        SubscribeLocalEvent<CanPerformComboComponent, JudoThrowPerformedEvent>(OnJudoThrow);
+        SubscribeLocalEvent<CanPerformComboComponent, JudoEyePokePerformedEvent>(OnJudoEyepoke);
+
     }
 
     private void OnMapInit(EntityUid uid, CanPerformComboComponent component, MapInitEvent args)
@@ -214,16 +223,6 @@ public sealed class ComboSystem : EntitySystem
             Log.Error("Failed to remove corporate judo");
     }
 
-    #endregion
-
-    #region CQC
-
-    private void OnMapInit(Entity<MartialArtsKnowledgeComponent> ent, ref MapInitEvent args)
-    {
-        var combo = EnsureComp<CanPerformComboComponent>(ent);
-        LoadCombos(ent.Comp.RoundstartCombos, combo);
-    }
-
     private void LoadCombos(ProtoId<ComboListPrototype> list, CanPerformComboComponent combo)
     {
         combo.AllowedCombos.Clear();
@@ -238,15 +237,14 @@ public sealed class ComboSystem : EntitySystem
     private void LoadPrototype(EntityUid uid, MartialArtsKnowledgeComponent component, MartialArtsForms name)
     {
         var combo = EnsureComp<CanPerformComboComponent>(uid);
-        if (!_proto.TryIndex<MartialArtPrototype>(name.ToString(), out var proto))
+        if (!_proto.TryIndex<MartialArtPrototype>(name.ToString(), out var martialArtsPrototype))
             return;
-        component.RoundstartCombos = proto.RoundstartCombos;
-        Log.Info("Loaded roundstart combos .. " + component.RoundstartCombos);
-        component.DamageModifier = proto.DamageModifier;
-        Log.Info("Loaded damager modifier .. " + component.DamageModifier);
-        //component.MartialArtsForm = proto.MartialArtsForm; -- testing
-        //Log.Info("Loaded MartialArtsForm .. " + component.MartialArtsForm);
-        LoadCombos(proto.RoundstartCombos, combo);
+        component.RoundstartCombos = martialArtsPrototype.RoundstartCombos;
+        component.MinDamageModifier = martialArtsPrototype.MinDamageModifier;
+        component.MaxDamageModifier = martialArtsPrototype.MaxDamageModifier;
+        component.RandomDamageModifier = martialArtsPrototype.RandomDamageModifier;
+        component.MartialArtsForm = martialArtsPrototype.MartialArtsForm;
+        LoadCombos(martialArtsPrototype.RoundstartCombos, combo);
     }
 
     private void OnShutdown(Entity<MartialArtsKnowledgeComponent> ent, ref ComponentShutdown args)
@@ -257,9 +255,72 @@ public sealed class ComboSystem : EntitySystem
         combo.AllowedCombos.Clear();
     }
 
+    #endregion
+
+    #region Judo
+
+    private void OnJudoThrow(Entity<CanPerformComboComponent> ent, ref JudoThrowPerformedEvent args)
+    {
+        if (ent.Comp.CurrentTarget == null)
+            return;
+        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CorporateJudo))
+            return;
+
+        var target = ent.Comp.CurrentTarget.Value;
+
+        if (TryComp<RequireProjectileTargetComponent>(target, out var downed) && downed.Active)
+            return;
+
+        if (!HasComp<LayingDownComponent>(target))
+            return;
+        Log.Debug("Performing Judo Throw");
+
+        _stun.TryParalyze(target, TimeSpan.FromSeconds(7), true);
+        _stamina.TakeStaminaDamage(target, 25f);
+        if (TryComp<PullableComponent>(target, out var pullable))
+            _pulling.TryStopPull(target, pullable, ent, true);
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
+
+    }
+
+    private void OnJudoEyepoke(Entity<CanPerformComboComponent> ent, ref JudoEyePokePerformedEvent args)
+    {
+        if (ent.Comp.CurrentTarget == null)
+            return;
+
+        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CorporateJudo))
+            return;
+        var target = ent.Comp.CurrentTarget.Value;
+
+        if (TryComp<RequireProjectileTargetComponent>(target, out var downed) && downed.Active)
+            return;
+
+        if (!TryComp(target, out StatusEffectsComponent? status))
+            return;
+        Log.Debug("performing eyepoke");
+
+        var damage = new DamageSpecifier();
+        damage.DamageDict.Add("Blunt", 10);
+        _status.TryAddStatusEffect<TemporaryBlindnessComponent>(target,
+            "TemporaryBlindness",
+            TimeSpan.FromSeconds(2),
+            true,
+            status);
+        _status.TryAddStatusEffect<BlurryVisionComponent>(target,
+            "BlurryVision",
+            TimeSpan.FromSeconds(5),
+            true,
+            status);
+        _damageable.TryChangeDamage(target, damage, origin: ent);
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
+    }
+
+    #endregion
+
+    #region CQC
     private void OnCQCAttackPerformed(Entity<MartialArtsKnowledgeComponent> ent, ref ComboAttackPerformedEvent args)
     {
-        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat))
+        if (TryComp<MartialArtsKnowledgeComponent>(ent, out var knowledgeComponent) && !knowledgeComponent.Blocked)
             return;
 
         if (args.Type != ComboAttackType.Disarm)
@@ -380,9 +441,12 @@ public sealed class ComboSystem : EntitySystem
     private bool CheckCanUseMartialArt(EntityUid uid, MartialArtsForms form)
     {
         if (TryComp<MartialArtsKnowledgeComponent>(uid, out var knowledgeComponent)
-            && !knowledgeComponent.Blocked
-            && knowledgeComponent.MartialArtsForm == form)
-            return true;
+            && !knowledgeComponent.Blocked)
+        {
+            Log.Debug(form + ":" + knowledgeComponent.MartialArtsForm);
+            if(knowledgeComponent.MartialArtsForm == form)
+                return true;
+        }
 
         foreach (var ent in _lookup.GetEntitiesInRange(uid, 8f))
         {

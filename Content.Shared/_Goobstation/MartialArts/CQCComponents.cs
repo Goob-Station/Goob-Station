@@ -7,13 +7,13 @@ namespace Content.Shared._Goobstation.MartialArts;
 [RegisterComponent]
 public sealed partial class GrantCqcComponent : GrantMartialArtKnowledgeComponent
 {
-    public MartialArtsForms MartialArtsForm = MartialArtsForms.CloseQuartersCombat;
+    public readonly MartialArtsForms MartialArtsForm = MartialArtsForms.CloseQuartersCombat;
 }
 
 [RegisterComponent]
 public sealed partial class GrantCorporateJudoComponent  : GrantMartialArtKnowledgeComponent
 {
-    public MartialArtsForms MartialArtsForm = MartialArtsForms.CorporateJudo;
+    public readonly MartialArtsForms MartialArtsForm = MartialArtsForms.CorporateJudo;
 }
 
 [RegisterComponent]
@@ -23,7 +23,13 @@ public sealed partial class MartialArtsKnowledgeComponent : GrabStagesOverrideCo
     public MartialArtsForms MartialArtsForm = MartialArtsForms.CloseQuartersCombat;
 
     [DataField]
-    public FixedPoint2 DamageModifier = 2.0f;
+    public FixedPoint2 MinDamageModifier = 2.0;
+
+    [DataField]
+    public FixedPoint2 MaxDamageModifier = 3.0;
+
+    [DataField]
+    public bool RandomDamageModifier;
 
     [DataField]
     public ProtoId<ComboListPrototype> RoundstartCombos = "CQCMoves";

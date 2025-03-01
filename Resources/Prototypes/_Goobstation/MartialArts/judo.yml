@@ -1,0 +1,32 @@
+- type: martialArt
+  id: CorporateJudo
+  martialArtsForm: CorporateJudo
+  roundstartCombos: CorporateJudoMoves
+
+- type: comboList
+  id: CorporateJudoMoves
+  combos:
+  - JudoThrow
+  - JudoEyepoke
+
+- type: combo
+  id: JudoThrow
+  attacks:
+  - Grab
+  - Disarm
+  event: !type:JudoThrowPerformedEvent {}
+
+- type: combo
+  id: JudoArmbar
+  attacks:
+  - Disarm
+  - Disarm
+  - Grab
+  event: !type:JudoThrowPerformedEvent { }
+
+- type: combo
+  id: JudoEyepoke
+  attacks:
+  - Disarm
+  - Harm
+  event: !type:JudoEyePokePerformedEvent { }
