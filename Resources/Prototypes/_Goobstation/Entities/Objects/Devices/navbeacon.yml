@@ -1,0 +1,20 @@
+- type: entity
+  abstract: true
+  parent: [ BaseMachinePowered ]
+  id: NavBeacon
+  name: navigation beacon
+  description: A beacon to guide robots.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/navbeacon.rsi
+    snapCardinals: true
+    layers:
+    - state: navbeacon0
+  - type: Transform
+    anchored: true
+  - type: MuleDropOff
+
+- type: entity
+  parent: NavBeacon
+  id: NavBeaconEngineering
+  suffix: Engineering
