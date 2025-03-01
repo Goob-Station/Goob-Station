@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Numerics;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -16,6 +17,15 @@ using Content.Shared._Goobstation.Bingle;
 using Content.Shared.Popups;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
+using Content.Server.GameTicking;
+using Content.Server.Pinpointer;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Random;
+using Content.Shared.Maps;
+using Content.Shared.Mobs;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Goobstation.Bingle;
 
@@ -29,7 +39,12 @@ public sealed class BinglePitSystem : EntitySystem
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
-
+    [Dependency] private readonly NavMapSystem _navMap = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] protected readonly IRobustRandom Random = default!;
+    [Dependency] private readonly ITileDefinitionManager _tiledef = default!;
+    [Dependency] private readonly TileSystem _tile = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -39,6 +54,7 @@ public sealed class BinglePitSystem : EntitySystem
         SubscribeLocalEvent<BinglePitComponent, DestructionEventArgs>(OnDestruction);
         SubscribeLocalEvent<BinglePitComponent, AttackedEvent>(OnAttacked);
         SubscribeLocalEvent<BinglePitFallingComponent, UpdateCanMoveEvent>(OnUpdateCanMove);
+        SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndTextAppend);
     }
 
     public override void Update(float frameTime)
@@ -68,7 +84,8 @@ public sealed class BinglePitSystem : EntitySystem
     {
         // dont swallow bingles
         if (HasComp<BingleComponent>(args.Tripper))
-            return;
+            if(TryComp<MobStateComponent>(args.Tripper, out var mobState) && mobState.CurrentState == MobState.Alive)
+                return;
         // need to be at levl 2 or above to swallow anything alive
         if (HasComp<MobStateComponent>(args.Tripper) && component.Level < 2)
             return;
@@ -77,18 +94,21 @@ public sealed class BinglePitSystem : EntitySystem
 
         StartFalling(uid, component, args.Tripper);
 
-        if (component.BinglePoints >= component.SpawnNewAt)
+        if (component.BinglePoints >=( component.SpawnNewAt * component.Level))
         {
             SpawnBingle(uid, component);
-            component.BinglePoints -= component.SpawnNewAt;
+            component.BinglePoints -= ( component.SpawnNewAt * component.Level);
         }
     }
 
     public void StartFalling(EntityUid uid, BinglePitComponent component, EntityUid tripper, bool playSound = true)
     {
-        component.BinglePoints += HasComp<MobStateComponent>(tripper)
-              ? component.PointsForAlive + (HasComp<HumanoidAppearanceComponent>(tripper)
-              ? component.AdditionalPointsForHuman : 0) : 1;
+        if (TryComp<MobStateComponent>(tripper, out var mobState) && mobState.CurrentState is MobState.Alive or MobState.Critical)
+            component.BinglePoints += component.PointsForAlive;
+        else
+            component.BinglePoints++;
+        if (HasComp<HumanoidAppearanceComponent>(tripper))
+            component.BinglePoints += component.AdditionalPointsForHuman;
 
         if (TryComp<PullableComponent>(tripper, out var pullable) && pullable.BeingPulled)
             _pulling.TryStopPull(tripper, pullable, ignoreGrab: true);
@@ -109,6 +129,7 @@ public sealed class BinglePitSystem : EntitySystem
     public void SpawnBingle(EntityUid uid, BinglePitComponent component)
     {
         Spawn(component.GhostRoleToSpawn, Transform(uid).Coordinates);
+        OnSpawnTile(uid,(int)component.Level*3, (int)component.Level, (int)component.Level*2);
 
         component.MinionsMade++;
         if (component.MinionsMade >= component.UpgradeMinionsAfter)
@@ -174,4 +195,73 @@ public sealed class BinglePitSystem : EntitySystem
 
         appearance.SetData(uid, ScaleVisuals.Scale, Vector2.One * component.Level, appearanceComponent);
     }
+    private void OnRoundEndTextAppend(RoundEndTextAppendEvent ev)
+    {
+
+        var query = AllEntityQuery<BinglePitComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            // neares beacon
+            var location = "Unknown";
+            var mapCoords = _transform.ToMapCoordinates(Transform(uid).Coordinates);
+            if (_navMap.TryGetNearestBeacon(mapCoords, out var beacon, out _))
+                location = beacon?.Comp?.Text!;
+
+            var points = comp.BinglePoints + (comp.MinionsMade * comp.SpawnNewAt) * comp.Level;
+
+            ev.AddLine(Loc.GetString("binge-pit-end-of-round",
+                ("location", location),
+                ("level", comp.Level),
+                ("points", points)));
+
+        }
+
+    }
+
+    private void OnSpawnTile(EntityUid uid,int maxRange = 1, int minRange = 1, int amount = 1 , string floorTile = "FloorBingle")
+    {
+        if (!TryComp<MapGridComponent>(Transform(uid).GridUid, out var grid))
+            return;
+
+        var localpos = Transform(uid).Coordinates;
+        var tilerefs = _map.GetLocalTilesIntersecting(
+                uid,
+                grid,
+                new Box2(localpos.Position + new Vector2(-maxRange, -maxRange), localpos.Position + new Vector2(maxRange, maxRange)))
+            .ToList();
+
+        if (tilerefs.Count == 0)
+            return;
+
+        var physQuery = GetEntityQuery<PhysicsComponent>();
+        var resultList = new List<TileRef>();
+
+        while (resultList.Count < amount)
+        {
+            if (tilerefs.Count == 0)
+                break;
+
+            var tileref = Random.Pick(tilerefs);
+            var distance = MathF.Sqrt(MathF.Pow(tileref.X - localpos.X, 2) + MathF.Pow(tileref.Y - localpos.Y, 2));
+
+            //cut outer & inner circle
+            if (distance > maxRange || distance < minRange)
+            {
+                tilerefs.Remove(tileref);
+                continue;
+            }
+
+            resultList.Add(tileref);
+        }
+
+        if (!_tiledef.TryGetDefinition(floorTile,  out  var tile))
+            return;
+
+        foreach (var tileref in resultList)
+        {
+            _tile.ReplaceTile(tileref, (ContentTileDefinition) tile);
+        }
+
+    }
+
 }
