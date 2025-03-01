@@ -3,7 +3,7 @@ using Robust.Shared.Configuration;
 namespace Content.Shared._Goobstation.CCVar;
 
 [CVarDefs]
-public sealed partial class GoobCVars
+public sealed partial class GoobCVars // why was this misnamed
 {
     /// <summary>
     ///     Whether pipes will unanchor on ANY conflicting connection. May break maps.
@@ -224,7 +224,7 @@ public sealed partial class GoobCVars
         CVarDef.Create("rmc.discord_account_linking_message_link", "", CVar.REPLICATED | CVar.SERVER);
 
     #endregion
-
+    
     #region Goobcoins
 
     public static readonly CVarDef<int> GoobcoinsPerPlayer =
@@ -242,5 +242,12 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<int> GoobcoinMinPlayers =
         CVarDef.Create("goob.coins_min_players", 5, CVar.SERVERONLY);
 
+    #endregion
+   
+    #region Game Director
+    
+    public static readonly CVarDef<float> MinimumTimeUntilFirstEvent =
+        CVarDef.Create("gamedirector.minimumtimeuntilfirstevent", 300f, CVar.SERVERONLY);
+        
     #endregion
 }

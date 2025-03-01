@@ -12,6 +12,9 @@
   - type: Item
     sprite: Objects/Tools/emag.rsi
     storedRotation: -90
+  - type: Tag # Goobstation
+    tags:
+    - Hacking
 
 - type: entity
   parent: EmagUnlimited
