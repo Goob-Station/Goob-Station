@@ -45,7 +45,6 @@
     active: False
   - type: AnimatedEmotes
   - type: Fart
-  - type: TileMovement # DAMNATION!!!!!!
 
 - type: entity
   save: false

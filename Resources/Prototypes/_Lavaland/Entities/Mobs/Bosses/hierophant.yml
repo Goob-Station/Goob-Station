@@ -52,7 +52,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      2500: Dead
+      4000: Dead #
   - type: Tag
     tags:
     - CannotSuicide
