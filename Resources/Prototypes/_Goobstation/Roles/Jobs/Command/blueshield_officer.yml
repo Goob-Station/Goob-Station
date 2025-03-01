@@ -58,6 +58,7 @@
     belt: BlueShieldShield
   storage:
     back:
+    - ClothingMaskGasSecurity 
     - Flash
     - BluespaceLifelineImplanter
     - WeaponEnergyRevolver
