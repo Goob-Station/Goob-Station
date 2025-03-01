@@ -20,8 +20,6 @@ public sealed partial class CPRTrainingComponent : Component
         }
     };
 
-    [DataField] public float CrackRibsModifier = 1f;
-
     [DataField] public float ResuscitationChance = 0.05f;
 
     [DataField] public float RotReductionMultiplier;
