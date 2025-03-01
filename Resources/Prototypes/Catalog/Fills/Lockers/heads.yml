@@ -19,6 +19,7 @@
     - id: RubberStampQm
     - id: SalvageShuttleConsoleCircuitboard
     - id: AstroNavCartridge
+    - id: MailTeleporterMachineCircuitboard # GoobStation port of DeltaV mail
 
 - type: entity
   id: LockerQuarterMasterFilled
