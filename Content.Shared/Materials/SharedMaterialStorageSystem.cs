@@ -281,11 +281,9 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
         if (!Resolve(toInsert, ref material, ref composition, false))
             return false;
 
-        Logger.Debug($"Checking whitelist for {ToPrettyString(toInsert)} on {ToPrettyString(receiver)}");
         if (_whitelistSystem.IsWhitelistFail(storage.Whitelist, toInsert))
             return false;
 
-        Logger.Debug("Whitelist check passed");
         if (HasComp<UnremoveableComponent>(toInsert))
             return false;
 
