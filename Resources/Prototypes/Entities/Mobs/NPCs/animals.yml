@@ -1800,7 +1800,7 @@
     animation: WeaponArcBite
     damage:
       types:
-        Piercing: 0
+        Slash: 1 # Goobstation - LET THE HORDES ROAM!!
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: CanEscapeInventory
