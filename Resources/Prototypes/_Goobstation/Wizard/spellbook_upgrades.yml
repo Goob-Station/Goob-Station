@@ -569,7 +569,7 @@
     - SpellbookFullRandom
     - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
-    stock: 4
+    stock: 2
 
 - type: listing
   id: SpellbookChargeUpgrade

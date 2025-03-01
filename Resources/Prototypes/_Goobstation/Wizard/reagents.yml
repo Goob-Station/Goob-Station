@@ -82,3 +82,21 @@
             - Wizard
             - Apprentice
           guidebookComponentName: reagent-comp-condition-wizard-or-apprentice
+      - !type:ChemCleanBloodstream
+        cleanseRate: 6
+        conditions:
+        - !type:HasComponentCondition
+          components:
+            - Wizard
+            - Apprentice
+          guidebookComponentName: reagent-comp-condition-wizard-or-apprentice
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        time: 100.0
+        type: Remove
+        conditions:
+        - !type:HasComponentCondition
+          components:
+            - Wizard
+            - Apprentice
+          guidebookComponentName: reagent-comp-condition-wizard-or-apprentice

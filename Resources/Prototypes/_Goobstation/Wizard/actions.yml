@@ -936,8 +936,6 @@
     effectedLevels:
       2: ActionBlinkII
       3: ActionBlinkIII
-      4: ActionBlinkIV
-      5: ActionBlinkV
 
 - type: entity
   id: ActionSummonStickmen

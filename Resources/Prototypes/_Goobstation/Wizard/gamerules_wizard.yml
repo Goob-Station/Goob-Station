@@ -119,6 +119,12 @@
   components:
   - type: EndRoundOnWizardDeathRule
 
+- type: entity
+  parent: BaseGameRule
+  id: GhostsVisible
+  components:
+  - type: GhostsVisibleRule
+
 - type: gamePreset
   id: Wizard
   alias:
