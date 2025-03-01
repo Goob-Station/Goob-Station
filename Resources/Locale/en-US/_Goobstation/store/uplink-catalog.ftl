@@ -93,8 +93,8 @@ uplink-frag-grenade-desc = Lower damage, bigger radius. Compatible with the Chin
 uplink-rifle-mag-name = .20 Rifle Magazine
 uplink-rifle-mag-desc = A 25 round magazine containing .20 rifle bullets. Supports the Lecter and M-90.
 
-uplink-rifle-subsonic-mag-name = .30 Rifle Subsonic Magazine
-uplink-rifle-subsonic-mag-desc = A 35 round magazine containing .30 rifle subsonic bullets. Supports the WSPR and any other .30 rife.
+uplink-rifle-caseless-mag-name = .25 Caseless Rifle Magazine
+uplink-rifle-caseless-mag-desc = A 30 round rifle magazine filled with .25 caseless bullets. Compatible with the WSPR.
 
 uplink-l6-box-name = Magazine Box (.30 rifle)
 uplink-l6-box-desc = Magazine box with 100 catridges. Compatible with the L6 SAW.

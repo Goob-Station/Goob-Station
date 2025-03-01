@@ -82,7 +82,7 @@
     whitelist:
       tags:
       - CartridgeAntiMateriel
-    capacity: 6 # Goobstation
+    capacity: 5
     proto: CartridgeAntiMateriel
   - type: SpeedModifiedOnWield
     walkModifier: 0.25

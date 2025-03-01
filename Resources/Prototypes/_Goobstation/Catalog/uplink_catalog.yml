@@ -79,7 +79,7 @@
   icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/m90.rsi, state: icon }
   productEntity: WeaponRifleM90
   cost:
-    Telecrystal: 50 #same as c20r until I add the underbarrel grenade launcher
+    Telecrystal: 50
   categories:
   - UplinkWeaponry
 
@@ -113,10 +113,9 @@
   id: UplinkWSPR
   name: uplink-WSPR-name
   description: uplink-WSPR-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/ak.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledWSPR
+  productEntity: WeaponRifleWSPR
   cost:
-    Telecrystal: 85
+    Telecrystal: 60
   categories:
   - UplinkWeaponry
 
@@ -209,7 +208,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndiemedic.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateMedicHardsuitBundle
   cost:
-    Telecrystal: 55 # novelty item for the larp
+    Telecrystal: 50 # novelty item for the larp
   categories:
   - UplinkWearables
   conditions:
@@ -247,7 +246,7 @@
   icon: { sprite: /Textures/_Goobstation/Clothing/OuterClothing/Hardsuits/cybersunstealth.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateStealthHardsuitBundle
   cost:
-    Telecrystal: 75 # might be op? needs testing to see. increase price to 90 TC when we merge the upstream fix that hides HUD stuff for stealthed entities.
+    Telecrystal: 75
   categories:
   - UplinkWearables
 
@@ -545,13 +544,13 @@
   - UplinkAmmo
 
 - type: listing
-  id: UplinkLightRifleSubsonicMag
-  name: uplink-rifle-subsonic-mag-name
-  description: uplink-rifle-subsonic-mag-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi, state: rubber }
-  productEntity: MagazineLightRifleSubsonic
+  id: UplinkCaselessRifleMag
+  name: uplink-rifle-caseless-mag-name
+  description: uplink-rifle-caseless-mag-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_rifle_mag.rsi, state: red }
+  productEntity: MagazineCaselessRifle
   cost:
-    Telecrystal: 5
+    Telecrystal: 6
   categories:
   - UplinkAmmo
 
