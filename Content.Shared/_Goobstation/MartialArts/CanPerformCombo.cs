@@ -18,6 +18,8 @@ public sealed partial class CanPerformComboComponent : Component
     public List<ProtoId<ComboPrototype>> RoundstartCombos = new();
 
     public TimeSpan ResetTime = TimeSpan.Zero;
+
+    public int ConsecutiveGnashes = 0;
 }
 
 [Prototype("combo")]

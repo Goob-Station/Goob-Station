@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server.Chat.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
@@ -7,25 +8,20 @@ using Content.Shared._Goobstation.MartialArts.Events;
 using Content.Shared._White.Grab;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Clothing;
-using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Components;
-using Content.Shared.Hands;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Item;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
-using Content.Shared.Weapons.Melee;
-using Content.Shared.Weapons.Ranged.Components;
+using Content.Shared.Weapons.Reflect;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -51,6 +47,7 @@ public sealed class MartialArtsSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
 
 
     public override void Initialize()
@@ -65,6 +62,8 @@ public sealed class MartialArtsSystem : EntitySystem
         SubscribeLocalEvent<GrantCqcComponent, ExaminedEvent>(OnGrantCQCExamine);
         SubscribeLocalEvent<GrantCorporateJudoComponent, ClothingGotEquippedEvent>(OnGrantCorporateJudo);
         SubscribeLocalEvent<GrantCorporateJudoComponent, ClothingGotUnequippedEvent>(OnRemoveCorporateJudo);
+        SubscribeLocalEvent<GrantSleepingCarpComponent, UseInHandEvent>(OnGrantSleepingCarp);
+
 
         // Martial Arts - Subscribes
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComponentShutdown>(OnShutdown);
@@ -87,9 +86,14 @@ public sealed class MartialArtsSystem : EntitySystem
         SubscribeLocalEvent<CanPerformComboComponent, JudoGoldenBlastPerformedEvent>(OnJudoGoldenBlast);
         // wheel throw
 
-        // Sleeping Carp - Subscribes
+        #region Sleeping Carp - Subscribes
+        SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpGnashingTeethPerformedEvent>(OnSleepingCarpGnashing);
+        SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpKneeHaulPerformedEvent>(OnSleepingCarpKneeHaul);
+        SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpCrashingWavesPerformedEvent>(OnSleepingCarpCrashingWaves);
 
+        #endregion
     }
+
     #region CanPerformCombo
     private void OnMapInit(EntityUid uid, CanPerformComboComponent component, MapInitEvent args)
     {
@@ -106,8 +110,10 @@ public sealed class MartialArtsSystem : EntitySystem
         var query = EntityQueryEnumerator<CanPerformComboComponent>();
         while (query.MoveNext(out _, out var comp))
         {
-            if (_timing.CurTime >= comp.ResetTime && comp.LastAttacks.Count > 0)
-                comp.LastAttacks.Clear();
+            if (_timing.CurTime < comp.ResetTime || comp.LastAttacks.Count <= 0)
+                continue;
+            comp.LastAttacks.Clear();
+            comp.ConsecutiveGnashes = 0;
         }
     }
 
@@ -225,6 +231,51 @@ public sealed class MartialArtsSystem : EntitySystem
         martialArts.Blocked = false;
     }
 
+    private void OnGrantSleepingCarp(Entity<GrantSleepingCarpComponent> ent, ref UseInHandEvent args)
+    {
+        if(ent.Comp.Used)
+            return;
+        if (ent.Comp.UseAgainTime == TimeSpan.Zero)
+        {
+            CarpScrollDelay(ent,args.User);
+            return;
+        }
+
+        if (_timing.CurTime < ent.Comp.UseAgainTime)
+        {
+            _popupSystem.PopupEntity("The journey of a thousand miles begins with one step, and the path of wisdom is traveled slowly, one lesson at a time.", ent, args.User, PopupType.MediumCaution); // localize
+            return;
+        }
+
+        switch (ent.Comp.Stage)
+        {
+            case < 3:
+                CarpScrollDelay(ent,args.User);
+                break;
+            case >= 3:
+                if (!CheckGrant(ent.Comp, args.User))
+                    return;
+                var martialArts = EnsureComp<MartialArtsKnowledgeComponent>(args.User);
+                var userReflect = EnsureComp<ReflectComponent>(args.User);
+                LoadPrototype(args.User, martialArts, ent.Comp.MartialArtsForm);
+                martialArts.Blocked = false;
+                userReflect.ReflectProb = 1;
+                userReflect.Spread = 75;
+                userReflect.OtherTypeReflectProb = 0.25f;
+                ent.Comp.Used = true;
+                _popupSystem.PopupEntity("You are now a master of the Way of the Sleeping Carp.", ent, args.User, PopupType.LargeCaution); // localize // localize
+                return;
+        }
+    }
+
+    private void CarpScrollDelay(Entity<GrantSleepingCarpComponent> ent, EntityUid user)
+    {
+        var time = new Random().Next(1, 2); // set to comp variables
+        ent.Comp.UseAgainTime = _timing.CurTime + TimeSpan.FromSeconds(time);
+        ent.Comp.Stage++;
+        _popupSystem.PopupEntity("You have taken one step closer to becoming a master of the Way of the Sleeping Carp.", ent, user,  PopupType.Medium); // localize
+    }
+
     private void OnRemoveCorporateJudo(Entity<GrantCorporateJudoComponent> ent, ref ClothingGotUnequippedEvent args)
     {
         var user = args.Wearer;
@@ -268,6 +319,8 @@ public sealed class MartialArtsSystem : EntitySystem
         component.MaxDamageModifier = martialArtsPrototype.MaxDamageModifier;
         component.RandomDamageModifier = martialArtsPrototype.RandomDamageModifier;
         component.HarmAsStamina = martialArtsPrototype.HarmAsStamina;
+        component.RandomSayings = martialArtsPrototype.RandomSayings;
+        component.RandomSayingsDowned = martialArtsPrototype.RandomSayingsDowned;
         LoadCombos(martialArtsPrototype.RoundstartCombos, combo);
     }
 
@@ -292,10 +345,6 @@ public sealed class MartialArtsSystem : EntitySystem
 
         if (TryComp<RequireProjectileTargetComponent>(target, out var downed) && downed.Active)
             return;
-
-        if(TryComp<StandingStateComponent>(target, out var standing)
-           && standing.CurrentState != StandingState.Standing)
-               return;
 
         _stun.TryParalyze(target, TimeSpan.FromSeconds(7), false);
         _stamina.TakeStaminaDamage(target, 25f);
@@ -345,21 +394,17 @@ public sealed class MartialArtsSystem : EntitySystem
 
         var target = ent.Comp.CurrentTarget.Value;
 
-        if (TryComp<RequireProjectileTargetComponent>(target, out var downed) && downed.Active)
+        if (!TryComp<RequireProjectileTargetComponent>(target, out var downed))
             return;
 
-        if (!TryComp<StandingStateComponent>(target, out var standing))
-            return;
-
-        switch (standing.CurrentState)
+        switch (downed.Active)
         {
-            case StandingState.Standing:
+            case false:
                 var item = _hands.GetActiveItem(target);
                 if (item != null)
                     _hands.TryDrop(target, item.Value);
                 break;
-            case StandingState.GettingUp:
-            case StandingState.Lying:
+            case true:
                 _stamina.TakeStaminaDamage(target, 45f);
                 _stun.TryParalyze(target, TimeSpan.FromSeconds(5), false);
                 Log.Info("IN ARM BAR");
@@ -463,51 +508,51 @@ public sealed class MartialArtsSystem : EntitySystem
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
     }
 
-    private void OnCQCRestrain(EntityUid uid, CanPerformComboComponent component, CQCRestrainPerformedEvent args)
+    private void OnCQCRestrain(Entity<CanPerformComboComponent> ent, ref CQCRestrainPerformedEvent args)
     {
-        if (component.CurrentTarget == null)
+        if (ent.Comp.CurrentTarget == null)
             return;
 
-        if (!CheckCanUseMartialArt(uid, MartialArtsForms.CloseQuartersCombat))
+        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat))
             return;
 
-        var target = component.CurrentTarget.Value;
+        var target = ent.Comp.CurrentTarget.Value;
 
         _stun.TryParalyze(target, TimeSpan.FromSeconds(10), true);
-        _stamina.TakeStaminaDamage(target, 30f, source: uid);
+        _stamina.TakeStaminaDamage(target, 30f, source: ent);
     }
 
-    private void OnCQCPressure(EntityUid uid, CanPerformComboComponent component, CQCPressurePerformedEvent args)
+    private void OnCQCPressure(Entity<CanPerformComboComponent> ent, ref CQCPressurePerformedEvent args)
     {
-        if (component.CurrentTarget == null)
+        if (ent.Comp.CurrentTarget == null)
             return;
 
-        if (!CheckCanUseMartialArt(uid, MartialArtsForms.CloseQuartersCombat))
+        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat))
             return;
 
-        var target = component.CurrentTarget.Value;
+        var target = ent.Comp.CurrentTarget.Value;
 
         if (!_hands.TryGetActiveItem(target, out var activeItem))
             return;
         _hands.TryDrop(target, activeItem.Value);
-        _hands.TryPickupAnyHand(uid, activeItem.Value);
-        _stamina.TakeStaminaDamage(target, 65f, source: uid);
+        _hands.TryPickupAnyHand(ent, activeItem.Value);
+        _stamina.TakeStaminaDamage(target, 65f, source: ent);
     }
 
-    private void OnCQCConsecutive(EntityUid uid, CanPerformComboComponent component, CQCConsecutivePerformedEvent args)
+    private void OnCQCConsecutive(Entity<CanPerformComboComponent> ent, ref CQCConsecutivePerformedEvent args)
     {
-        if (component.CurrentTarget == null)
+        if (ent.Comp.CurrentTarget == null)
             return;
 
-        if (!CheckCanUseMartialArt(uid, MartialArtsForms.CloseQuartersCombat))
+        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat))
             return;
 
-        var target = component.CurrentTarget.Value;
+        var target = ent.Comp.CurrentTarget.Value;
 
         var damage = new DamageSpecifier();
         damage.DamageDict.Add("Blunt", 20);
-        _damageable.TryChangeDamage(target, damage, origin: uid);
-        _stamina.TakeStaminaDamage(target, 70, source: uid);
+        _damageable.TryChangeDamage(target, damage, origin: ent);
+        _stamina.TakeStaminaDamage(target, 70, source: ent);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg"), target);
     }
 
@@ -528,6 +573,94 @@ public sealed class MartialArtsSystem : EntitySystem
         }
 
         return false;
+    }
+
+    #endregion
+
+    #region Sleeping Carp
+
+    private void OnSleepingCarpGnashing(Entity<CanPerformComboComponent> ent,
+        ref SleepingCarpGnashingTeethPerformedEvent args)
+    {
+        if (ent.Comp.CurrentTarget == null)
+            return;
+
+        if (!CheckCanUseMartialArt(ent, MartialArtsForms.SleepingCarp))
+            return;
+
+        if(!TryComp<MartialArtsKnowledgeComponent>(ent.Owner, out var knowledgeComponent))
+            return;
+
+        var target = ent.Comp.CurrentTarget.Value;
+
+        var damage = new DamageSpecifier();
+        damage.DamageDict.Add("Slash", 20 + ent.Comp.ConsecutiveGnashes * 5) ;
+        _damageable.TryChangeDamage(target, damage, origin: ent);
+        ent.Comp.ConsecutiveGnashes++;
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg"), target);
+        if (TryComp<RequireProjectileTargetComponent>(target, out var standing)
+            && !standing.Active)
+        {
+            var saying =
+                knowledgeComponent.RandomSayings.ElementAt(
+                    _random.Next(knowledgeComponent.RandomSayings.Count));
+            _chat.TrySendInGameICMessage(ent, Loc.GetString(saying), InGameICChatType.Speak, false);
+        }
+        else
+        {
+            var saying =
+                knowledgeComponent.RandomSayingsDowned.ElementAt(_random.Next(knowledgeComponent.RandomSayingsDowned.Count));
+            _chat.TrySendInGameICMessage(ent, Loc.GetString( saying) , InGameICChatType.Speak, false);
+        }
+    }
+
+    private void OnSleepingCarpKneeHaul(Entity<CanPerformComboComponent> ent,
+        ref SleepingCarpKneeHaulPerformedEvent args)
+    {
+        if (ent.Comp.CurrentTarget == null)
+            return;
+
+        if (!CheckCanUseMartialArt(ent, MartialArtsForms.SleepingCarp))
+            return;
+
+        var target = ent.Comp.CurrentTarget.Value;
+
+        if (TryComp<RequireProjectileTargetComponent>(target, out var downed) && downed.Active)
+            return;
+
+        var damage = new DamageSpecifier();
+        damage.DamageDict.Add("Blunt", 10);
+        _damageable.TryChangeDamage(target, damage, origin: ent);
+        _stamina.TakeStaminaDamage(target, 60f);
+        _stun.TryParalyze(target, TimeSpan.FromSeconds(6), true);
+        if (TryComp<PullableComponent>(target, out var pullable))
+            _pulling.TryStopPull(target, pullable, ent, true);
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
+    }
+    private void OnSleepingCarpCrashingWaves(Entity<CanPerformComboComponent> ent, ref SleepingCarpCrashingWavesPerformedEvent args)
+    {
+        if (ent.Comp.CurrentTarget == null)
+            return;
+
+        if (!CheckCanUseMartialArt(ent, MartialArtsForms.SleepingCarp))
+            return;
+
+        var target = ent.Comp.CurrentTarget.Value;
+
+        if (TryComp<RequireProjectileTargetComponent>(target, out var downed) && downed.Active)
+            return;
+
+        var damage = new DamageSpecifier();
+        damage.DamageDict.Add("Blunt", 5);
+        _damageable.TryChangeDamage(target, damage, origin: ent);
+        var mapPos = _transform.GetMapCoordinates(ent).Position;
+        var hitPos = _transform.GetMapCoordinates(target).Position;
+        var dir = hitPos - mapPos;
+        dir *= 1f / dir.Length();
+        if (TryComp<PullableComponent>(target, out var pullable))
+            _pulling.TryStopPull(target, pullable, ent, true);
+        _grabThrowing.Throw(target, ent, dir, 25f, damage, damage);
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
     }
 
     #endregion

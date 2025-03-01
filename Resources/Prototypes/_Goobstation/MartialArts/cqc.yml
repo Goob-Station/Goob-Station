@@ -2,7 +2,6 @@
   id: CloseQuartersCombat
   martialArtsForm: CloseQuartersCombat
   roundstartCombos: CQCMoves
-  randomDamageModifier: true
   harmAsStamina: true
 
 - type: comboList

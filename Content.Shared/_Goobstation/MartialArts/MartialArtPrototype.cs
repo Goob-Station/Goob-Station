@@ -26,4 +26,10 @@ public sealed partial class MartialArtPrototype : IPrototype
 
     [DataField]
     public ProtoId<ComboListPrototype> RoundstartCombos = "CQCMoves";
+
+    [DataField]
+    public List<LocId> RandomSayings = [];
+
+    [DataField]
+    public List<LocId> RandomSayingsDowned = [];
 }

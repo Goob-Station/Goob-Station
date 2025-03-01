@@ -17,6 +17,21 @@ public sealed partial class GrantCorporateJudoComponent  : GrantMartialArtKnowle
 }
 
 [RegisterComponent]
+public sealed partial class GrantSleepingCarpComponent  : GrantMartialArtKnowledgeComponent
+{
+    public readonly MartialArtsForms MartialArtsForm = MartialArtsForms.SleepingCarp;
+
+    public int Stage = 1;
+
+    public TimeSpan UseAgainTime = TimeSpan.Zero;
+
+    public readonly int MaxUseDelay = 60;
+
+    public readonly int MinUseDelay = 30;
+}
+
+
+[RegisterComponent]
 public sealed partial class JudoBlockedComponent  : Component
 {
 }
@@ -25,7 +40,7 @@ public sealed partial class JudoBlockedComponent  : Component
 public sealed partial class MartialArtsKnowledgeComponent : GrabStagesOverrideComponent
 {
     [DataField]
-    public MartialArtsForms MartialArtsForm = MartialArtsForms.CloseQuartersCombat;
+    public MartialArtsForms MartialArtsForm = MartialArtsForms.SleepingCarp;
 
     [DataField]
     public FixedPoint2 MinDamageModifier = 2.0;
@@ -44,10 +59,17 @@ public sealed partial class MartialArtsKnowledgeComponent : GrabStagesOverrideCo
 
     [DataField]
     public bool Blocked = true;
+
+    [DataField]
+    public List<LocId> RandomSayings = [];
+
+    [DataField]
+    public List<LocId> RandomSayingsDowned = [];
 }
 
 public enum MartialArtsForms
 {
     CorporateJudo,
     CloseQuartersCombat,
+    SleepingCarp,
 }
