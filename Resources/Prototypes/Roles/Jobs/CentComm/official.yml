@@ -6,9 +6,8 @@
   setPreference: false
   startingGear: CentcomGear
   icon: "JobIconNanotrasen"
-  supervisors: job-supervisors-hos
+  supervisors: job-supervisors-centcom # Goobstation
   canBeAntag: false
-  # Goobstation - Siouxcide, prevent felinids from playing command
   requirements:
   - !type:AgeRequirement
     requiredAge: 21
@@ -20,17 +19,25 @@
   - NanotrasenRepresentative
   - BlueshieldOfficer
 
-- type: startingGear
+- type: startingGear # Goobstation - Start - SolsticeOfTheWinter
   id: CentcomGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitCentcomOfficial
-    shoes: ClothingShoesBootsCombatFilled
-    head: ClothingHeadHatCentcom
-    eyes: ClothingEyesGlassesSunglasses
-    gloves: ClothingHandsGlovesColorBlack
-    outerClothing: ClothingOuterArmorBasic
+    shoes: ClothingShoesBootsJackFilled # Change this if you want, I don't really care.
+    head: ClothingHeadHatCentcomcap # Lets be real, the other hat looks like steaming ASS.
+    eyes: ClothingEyesGlassesCentComm # Goobstation
+    gloves: ClothingHandsGlovesCombat # Goobstation - Replace with goldtrims when made.
+    back: ClothingBackpackSatchelLeather # Goobstation - Officials need bags too!
+    outerClothing: ClothingOuterArmorCentcommCarapace # Officials shouldn't use shitty armor, Nanotrasen is richer than that.
+    neck: ExecutiveIDCard # Executive Access!
     id: CentcomPDA
     ears: ClothingHeadsetAltCentCom
-    belt: WeaponPistolN1984
-    pocket1: BoxFolderBlack
-    pocket2: PenCentcom
+    belt: ClothingBeltHolsterFilledCentComm # Death to secbelts
+    pocket1: BoxFolderCentCom # Why does a CentComm official not have a CentComm folder? Fixing that.
+    pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
+    # pocket2: PenCentcom - Already has one in the PDA. This is redundant.
+  storage:
+    back:
+    - HandheldFaxOfficial # NTRs fax is huge, do you expect me to use some POOR person fax?
+    - BoxFolderCentComClipboard # Solely for holding and looking menacing.
+# Goobstation - End

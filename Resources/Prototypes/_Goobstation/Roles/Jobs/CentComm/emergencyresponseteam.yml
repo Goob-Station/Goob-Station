@@ -3,7 +3,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTSecurity
     back: ClothingBackpackERTSecurity
-    shoes: ClothingShoesBootsMag
+    shoes: ClothingShoesBootsCombatFilled # STOP GIVING ROLES ADVANCED MAGBOOTS!! - SOL
     mask: ClothingMaskGasERT
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
@@ -11,15 +11,15 @@
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityFilled
-    pocket1: MagazineLightRifle
-    pocket2: MagazineLightRifle
+    pocket1: WeaponPulsePistol # Death to Crew aligned Ballistics
+    pocket2: FlashlightSeclite
   inhand:
     - WeaponRifleAnnie
   storage:
     back:
-    - WeaponDisabler
-    - MedicatedSuture
-    - RegenerativeMesh
+    # - WeaponDisabler - Redundant. It spawns in secbelts now.
+    - MedkitCombatFilled # Goobstation - No reason not to.
     - BoxZiptie
     - CrowbarRed
-    - MagazinePistol
+    - MagazineLightRifle
+    - MagazineLightRifle

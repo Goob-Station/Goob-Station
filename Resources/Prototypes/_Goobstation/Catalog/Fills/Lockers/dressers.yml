@@ -16,7 +16,7 @@
     - id: ClothingUniformJumpsuitBlueshieldOfficer
     - id: ClothingUniformJumpsuitBlueshieldShirt
     - id: ClothingBlueshieldArmoredJacket
-    - id: ClothingHeadHatBeretNavy
+    # - id: ClothingHeadHatBeretNavy - NO. ITS A NAVY OFFICER HAT. NOT THE BLUESHIELD HAT. BAD BAD BAD BAD.
 
 - type: entity
   id: DresserNanorepFilled

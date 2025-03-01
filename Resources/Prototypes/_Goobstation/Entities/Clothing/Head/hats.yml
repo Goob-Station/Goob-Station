@@ -1,28 +1,43 @@
 - type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatBeretNavy
-  name: navy blue officer beret
+  parent: [ClothingHeadBase, BaseCentcommContraband]
+  id: ClothingHeadHatBeretEliteNavyOfficer
+  name: elite navy officer's beret
   description: A navy blue beret with the silver shield of the Nanotrasen security forces.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Hats/beret_bso_navy.rsi
+    sprite: _Goobstation/Clothing/Head/Hats/navy_officer_beret.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Hats/beret_bso_navy.rsi
+    sprite: _Goobstation/Clothing/Head/Hats/navy_officer_beret.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon # We do a little bit of trolling.
+
+- type: entity
+  parent: [ClothingHeadBase, BaseCentcommContraband]
+  id: ClothingHeadHatBeretNavyOfficer
+  name: navy officer's beret
+  description: A black beret with the silver shield of the Nanotrasen security forces.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/officer_beret.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/officer_beret.rsi
   - type: Tag
     tags:
     - ClothMade
     - WhitelistChameleon
 
 - type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatBeretOfficer
-  name: officers beret
-  description: A black beret with the silver shield of the Nanotrasen security forces.
+  parent: [ClothingHeadBase, BaseCentcommContraband]
+  id: ClothingHeadHatBeretNavyCaptain
+  name: navy captain's beret
+  description: A starch white beret.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Hats/beret_bso_officer.rsi
+    sprite: _Goobstation/Clothing/Head/Hats/navy_captain_beret.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Hats/beret_bso_officer.rsi
+    sprite: _Goobstation/Clothing/Head/Hats/navy_captain_beret.rsi
   - type: Tag
     tags:
     - ClothMade
