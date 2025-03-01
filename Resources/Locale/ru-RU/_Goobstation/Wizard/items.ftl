@@ -1,10 +1,10 @@
-ensouled-item-name = ensouled { $item }
-ensouled-item-desc = [color=darkred]A terrible aura surrounds this item, its very existence is offensive to life itself...[/color]
-delete-on-drop-attempt-comp-examine = Drop this item to get rid of it.
-enchanted-rifle-guns-left = Guns left: [color=yellow]{ $guns }[/color].
-teleport-scroll-uses-left = Uses left: [color=yellow]{ $uses }[/color].
-teleport-scroll-no-charges = The scroll runs out of uses and crumbles to dust!
-sanguine-strike-end = { CAPITALIZE($item) } seems to lose its red glow.
-sanguine-strike-examine = [color=#c41515]This weapon is empowered by sanguine magic.[/color]
-scrying-orb-verb-message = Enter the realm of the dead
-scrying-orb-verb-text = Activate the orb
+ensouled-item-name = одухотворённый { $item }
+ensouled-item-desc = [color=darkred]Ужасная аура окружила этот предмет, его существование оскорбительно для самой жизни...[/color]
+delete-on-drop-attempt-comp-examine = Уроните этот предмет чтобы избавиться от него.
+enchanted-rifle-guns-left = Оружия осталось: [color=yellow]{ $guns }[/color].
+teleport-scroll-uses-left = Использований осталось: [color=yellow]{ $uses }[/color].
+teleport-scroll-no-charges = Свиток теряет свои использования и распадается на пыль!
+sanguine-strike-end = { CAPITALIZE($item) } теряет красное свечение.
+sanguine-strike-examine = [color=#c41515]Это оружие было заряжено сангвинической магией.[/color]
+scrying-orb-verb-message = Зайти в мир мёртвых
+scrying-orb-verb-text = Активировать шар

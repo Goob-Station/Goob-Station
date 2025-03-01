@@ -1,22 +1,22 @@
-roles-antag-wizard-name = Wizard
-roles-antag-wizard-description = Cause havoc and destruction to the station.
-roles-antag-apprentice-name = Apprentice
-roles-antag-apprentice-description = Aid the wizard who has summoned you and keep them alive.
-wizard-roundend-name = wizard
-apprentice-roundend-name = apprentice
-roles-wizard-name = Wizard
-roles-wizard-objective = Cause havoc and destruction to the station.
-dynamic-gamerule-wizard-title = [color=cyan]Wizard[/color]
-objective-issuer-wizard-federation = [color=cyan]Space Wizard Federation[/color]
-wizard-role-greeting = You are a powerful space wizard. Your goal is to cause as much chaos as possible on { $station }, and survive. Space Wizard Federation provided you with magical wizard grimoire which you can use to learn devastating spells.
-wizard-role-briefing = You are a space wizard. Survive and wreak havoc on the simpletons.
-apprentice-role-briefing = You are a space wizard apprentice. Keep whoever summoned you alive.
-admin-verb-make-wizard = Make the target into a wizard.
-admin-verb-text-make-wizard = Make Wizard
-wizard-title = Wizard
-wizard-description = A powerful space wizard is visiting the station. Embrace the chaos.
+roles-antag-wizard-name = Маг
+roles-antag-wizard-description = Вызовите хаос и разруху на станции.
+roles-antag-apprentice-name = Ученик
+roles-antag-apprentice-description = Помогайте призвавшему вас магу и сохраните его живым.
+wizard-roundend-name = маг
+apprentice-roundend-name = ученик
+roles-wizard-name = Маг
+roles-wizard-objective = Вызовите хаос и разруху на станции.
+dynamic-gamerule-wizard-title = [color=cyan]Маг[/color]
+objective-issuer-wizard-federation = [color=cyan]Федерация Космических магов[/color]
+wizard-role-greeting = Вы - могущественный космический маг. Ваша цель это вызвать как можно больше хаоса на { $station }, и выжить. Федерация Космических Магов снабдило вас гримуаром волшебника который вы можете использовать для изучения различных заклинаний.
+wizard-role-briefing = Вы - космический маг. Выживите и внушите страх экипажу.
+apprentice-role-briefing = Вы - ученик космического мага. Сохраните того кто вас призвал живым.
+admin-verb-make-wizard = Превратить цель в мага.
+admin-verb-text-make-wizard = Сделать магом
+wizard-title = Маг
+wizard-description = A могущественный космический маг посещает станцию. Покажите им хаос.
 lich-greeting =
-    With a hideous feeling of emptiness you watch in horrified fascination as skin sloughs off bone! Blood boils, nerves disintegrate, eyes boil in their sockets! As your organs crumble to dust in your fleshless chest you come to terms with your choice.
-    You're a lich.
-objective-condition-wizard-alive-title = Ensure wizard { $targetName } stays alive.
-stamp-component-stamped-name-wizard = Wizard
+    С отвратительным чувством опустошенности вы с ужасом и восхищением наблюдаете, как кожа отслаивается от костей! Кровь кипит, нервы сдают, глаза вылезают из орбит! Когда ваши органы рассыпаются в прах в вашей лишенной плоти груди, вы смиряетесь со своим выбором.
+    Вы - лич.
+objective-condition-wizard-alive-title = Убедитесь, что маг { $targetName } останется жив.
+stamp-component-stamped-name-wizard = Маг

@@ -1,6 +1,6 @@
-hulk-unhulked = You feel much weaker.
-hulk-roar-1 = RAAAAAAAARGH!
-hulk-roar-2 = HNNNNNNNNNGGGGGGH!
-hulk-roar-3 = GWAAAAAAAARRRHHH!
-hulk-roar-4 = NNNNNNNNGGGGGGGGHH!
-hulk-roar-5 = AAAAAAARRRGH!
+hulk-unhulked = Вы чувствуете себя намного слабее.
+hulk-roar-1 = РАААААААРГХ!
+hulk-roar-2 = ХННННННННРГХ!
+hulk-roar-3 = ГРААААААААРГГХ!
+hulk-roar-4 = ННННННННГГХ!
+hulk-roar-5 = ААААААААРРРГГХ!

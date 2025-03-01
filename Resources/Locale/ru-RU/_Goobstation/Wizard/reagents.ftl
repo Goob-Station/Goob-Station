@@ -1,16 +1,16 @@
 reagent-effect-condition-guidebook-has-component =
-    the target { $invert ->
-        [true] is not
-       *[false] is
+    цель { $invert ->
+        [true] не является
+       *[false] является
     } { $comp }
 reagent-effect-guidebook-drop-items =
     { $chance ->
-        [1] Forces
-       *[other] force
-    } to drop held items
-reagent-name-thick-smoke = thick smoke
-reagent-desc-thick-smoke = Extremely thick smoke with magical properties. You don't want to inhale it.
-reagent-name-mugwort = mugwort tea
-reagent-desc-mugwort = A rather bitter herb once thought to hold magical protective properties.
-reagent-comp-condition-wizard-or-apprentice = wizard or apprentice
-reagent-physical-desc-magical = magical
+        [1] заставляет
+       *[other] заставляет
+    } выкинуть предмет в руке
+reagent-name-thick-smoke = густой дым
+reagent-desc-thick-smoke = Чрезвычайно густой дым, обладающий магическими свойствами. Вы не захотите его вдыхать.
+reagent-name-mugwort = полынный чай
+reagent-desc-mugwort = Довольно горькая трава, которая, как когда-то считалось, обладала магическими защитными свойствами.
+reagent-comp-condition-wizard-or-apprentice = маг или ученик
+reagent-physical-desc-magical = магическое

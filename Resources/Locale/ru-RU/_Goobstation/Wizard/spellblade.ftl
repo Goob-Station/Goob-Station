@@ -1,12 +1,12 @@
-spellblade-examine-enchantment = It is imbued with { $name } enchantment.
-spellblade-already-enchanted-message = Already enchanted!
-spellblade-enchantment-lightning-name = [color=lightblue]lightning[/color]
-spellblade-enchantment-lightning-desc = Lightning. This blade conducts arcane energy to arc between its victims. It also makes the user immune to shocks.
-spellblade-enchantment-fire-name = [color=orange]fire[/color]
-spellblade-enchantment-fire-desc = Fire. This blade ignites on striking a foe, releasing a ball of fire. It also makes the wielder immune to fire.
-spellblade-enchantment-bluespace-name = [color=blue]bluespace[/color]
-spellblade-enchantment-bluespace-desc = Bluespace. This blade will cut through the fabric of space, transporting its wielder over long distances to strike foes.
-spellblade-enchantment-spacetime-name = [color=pink]spacetime[/color]
-spellblade-enchantment-spacetime-desc = Spacetime. This blade will slice faster but weaker, and will curse the target, slashing them a few seconds after they have not been swung at for each hit.
-spellblade-enchantment-forceshield-name = [color=cyan]forceshield[/color]
-spellblade-enchantment-forceshield-desc = Forceshield. This blade will partially shield you against attacks and stuns for a short duration after striking a foe.
+spellblade-examine-enchantment = Оно пропитано { $name } зачарованием.
+spellblade-already-enchanted-message = Уже зачарован!
+spellblade-enchantment-lightning-name = [color=lightblue]молния[/color]
+spellblade-enchantment-lightning-desc = Молния. Этот клинок проводит магическую энергию по дуге между своими жертвами. Он также делает пользователя невосприимчивым к ударам тока.
+spellblade-enchantment-fire-name = [color=orange]огонь[/color]
+spellblade-enchantment-fire-desc = Огонь. Этот клинок воспламеняет при ударе по врагу, выпуская огненный шар. Он также делает владельца неуязвимым к огню.
+spellblade-enchantment-bluespace-name = [color=blue]блюспейс[/color]
+spellblade-enchantment-bluespace-desc = Блюспейс. Этот клинок будет рассекать ткань космоса, перенося своего владельца на большие расстояния, чтобы поражать врагов.
+spellblade-enchantment-spacetime-name = [color=pink]пространство-время[/color]
+spellblade-enchantment-spacetime-desc = Пространство-время. Этот клинок будет резать быстрее, но слабее, и будет проклинать цель, нанося ей удары через несколько секунд после того, как по ней не наносился удар за ударом.
+spellblade-enchantment-forceshield-name = [color=cyan]силовой щит[/color]
+spellblade-enchantment-forceshield-desc = Силовой щит. Этот клинок частично защитит вас от атак и оглушит на короткое время после нанесения удара по врагу.

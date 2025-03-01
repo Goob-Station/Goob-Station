@@ -1,5 +1,5 @@
-supermatter-halberd-execution-start-user = You raise { THE($used) } high, ready to bring it down on { $target }!
-supermatter-halberd-execution-start-other = { CAPITALIZE($user) } raises { THE($used) } high, ready to bring it down on { $target }!
-supermatter-halberd-execution-cancel = You lower { THE($used) }. There'll be time to obliterate them later...
-supermatter-halberd-execution-end-user = You bring down { THE($used) }, obliterating { $target } with a heavy blow!
-supermatter-halberd-execution-end-other = { CAPITALIZE($user) } brings down { THE($used) }, obliterating { $target } with a heavy blow!
+supermatter-halberd-execution-start-user = Вы поднимаете { THE($used) } высоко, готовясь сокрушить его на { $target }!
+supermatter-halberd-execution-start-other = { CAPITALIZE($user) } поднимает { THE($used) } высоко, готовься сокрушить его на { $target }!
+supermatter-halberd-execution-cancel = Вы принижаете { THE($used) }. Будет время использовать его потом...
+supermatter-halberd-execution-end-user = Вы сокрушаете { THE($used) }, уничтожая { $target } с сильным ударом!
+supermatter-halberd-execution-end-other = { CAPITALIZE($user) } сокрушает { THE($used) }, уничтожая { $target } с сильным ударом!
