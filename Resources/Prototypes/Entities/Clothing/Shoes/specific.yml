@@ -291,7 +291,6 @@
       params:
         variation: 0.08
 
-#Real jordans (magboots) from emagged clothesdrobe
 - type: entity
   parent: [ClothingShoesBootsMagBase, BaseMagicContraband]
   id: ClothingShoesRealJordans
@@ -310,11 +309,11 @@
   - type: StaticPrice
     price: 750
 
-#Fake jordans maints loot
 - type: entity
   parent: [ClothingShoesBaseButcherable, BaseMajorContraband]
   id: ClothingShoesFakeJordans
   name: air jordans
+  suffix: fake
   description: Upon closer inspection, something feels off about these. Are they.. creased? No, it can't be that. Wait, the logo looks a little off...
   components:
   - type: Sprite
