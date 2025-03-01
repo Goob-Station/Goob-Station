@@ -9,3 +9,6 @@ public sealed class JudoEyePokePerformedEvent : EntityEventArgs
 public sealed class JudoArmbarPerformedEvent : EntityEventArgs
 {
 }
+public sealed class JudoGoldenBlastPerformedEvent : EntityEventArgs
+{
+}

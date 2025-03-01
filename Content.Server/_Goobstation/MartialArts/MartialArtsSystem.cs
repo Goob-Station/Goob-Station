@@ -21,12 +21,14 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Popups;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -68,6 +70,7 @@ public sealed class MartialArtsSystem : EntitySystem
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, CheckGrabOverridesEvent>(CheckGrabStageOverride);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComboAttackPerformedEvent>(OnCQCAttackPerformed);
+        SubscribeLocalEvent<MartialArtsKnowledgeComponent, EntInsertedIntoContainerMessage>(OnEntInserted); // Stun baton no no
 
         //CQC Combos - Subscribes
         SubscribeLocalEvent<CanPerformComboComponent, CQCSlamPerformedEvent>(OnCQCSlam);
@@ -77,13 +80,12 @@ public sealed class MartialArtsSystem : EntitySystem
         SubscribeLocalEvent<CanPerformComboComponent, CQCConsecutivePerformedEvent>(OnCQCConsecutive);
 
         // Judo - Subscribes
+        // discombubulate
         SubscribeLocalEvent<CanPerformComboComponent, JudoThrowPerformedEvent>(OnJudoThrow);
         SubscribeLocalEvent<CanPerformComboComponent, JudoEyePokePerformedEvent>(OnJudoEyepoke);
         SubscribeLocalEvent<CanPerformComboComponent, JudoArmbarPerformedEvent>(OnJudoArmbar);
-        //SubscribeLocalEvent<JudoBlockedComponent, PickupAttemptEvent>(OnBlockedEquipped); // Stun baton no no
+        SubscribeLocalEvent<CanPerformComboComponent, JudoGoldenBlastPerformedEvent>(OnJudoGoldenBlast);
         // wheel throw
-        // golden blast
-        //
 
         // Sleeping Carp - Subscribes
 
@@ -226,10 +228,22 @@ public sealed class MartialArtsSystem : EntitySystem
     private void OnRemoveCorporateJudo(Entity<GrantCorporateJudoComponent> ent, ref ClothingGotUnequippedEvent args)
     {
         var user = args.Wearer;
-        var martialArts = RemComp<MartialArtsKnowledgeComponent>(user);
+        RemComp<MartialArtsKnowledgeComponent>(user);
         RemComp<CanPerformComboComponent>(user);
-        if(!martialArts)
-            Log.Error("Failed to remove corporate judo");
+    }
+
+    private void OnEntInserted(EntityUid ent, MartialArtsKnowledgeComponent comp, ref EntInsertedIntoContainerMessage args)
+    {
+        if (!HasComp<JudoBlockedComponent>(args.Entity))
+            return;
+
+        if(comp.MartialArtsForm != MartialArtsForms.CorporateJudo)
+            return;
+
+        var item = _hands.GetActiveItem(ent);
+        if (item != null)
+            _hands.TryDrop(item.Value);
+        _popupSystem.PopupEntity("Judo forbids the use of stun batons", ent, PopupType.MediumCaution);
     }
 
     private void LoadCombos(ProtoId<ComboListPrototype> list, CanPerformComboComponent combo)
@@ -355,6 +369,23 @@ public sealed class MartialArtsSystem : EntitySystem
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
     }
 
+    private void OnJudoGoldenBlast(Entity<CanPerformComboComponent> ent, ref JudoGoldenBlastPerformedEvent args)
+    {
+        if (ent.Comp.CurrentTarget == null)
+            return;
+        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CorporateJudo))
+            return;
+
+        var target = ent.Comp.CurrentTarget.Value;
+
+        if (TryComp<RequireProjectileTargetComponent>(target, out var downed) && downed.Active)
+            return;
+
+        _stun.TryParalyze(target, TimeSpan.FromSeconds(30), false);
+        if (TryComp<PullableComponent>(target, out var pullable))
+            _pulling.TryStopPull(target, pullable, ent, true);
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
+    }
     #endregion
 
     #region CQC
@@ -458,8 +489,8 @@ public sealed class MartialArtsSystem : EntitySystem
 
         if (!_hands.TryGetActiveItem(target, out var activeItem))
             return;
-        _hands.TryDrop(target, (EntityUid) activeItem);
-        _hands.TryPickupAnyHand(uid, (EntityUid) activeItem);
+        _hands.TryDrop(target, activeItem.Value);
+        _hands.TryPickupAnyHand(uid, activeItem.Value);
         _stamina.TakeStaminaDamage(target, 65f, source: uid);
     }
 

@@ -123,7 +123,7 @@ public sealed class PullingSystem : EntitySystem
             && ent.Comp.Pulling != null)
         {
             if(_netManager.IsServer)
-                StopPulling((EntityUid) ent.Comp.Pulling, comp);
+                StopPulling(ent.Comp.Pulling.Value, comp);
         }
     }
     // Goobstation
