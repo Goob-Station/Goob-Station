@@ -22,3 +22,5 @@ comms-console-announcement-title-station = Консоль связи
 comms-console-announcement-title-centcom = Центральное командование
 comms-console-announcement-title-nukie = Ядерные оперативники Синдиката
 comms-console-announcement-title-station-ai = Станционный ИИ
+# LoneOps comms by ThxMqninq
+comms-console-announcement-title-loneops = Одиночный ядерный оперативник Синдиката
