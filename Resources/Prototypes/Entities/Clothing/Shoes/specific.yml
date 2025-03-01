@@ -293,10 +293,10 @@
 
 #Real jordans (magboots) from emagged clothesdrobe
 - type: entity
-  parent: [ClothingShoesBootsMagBase, BaseMagicContraband]
+  parent: [ClothingShoesBootsMagBase, BaseGrandTheftContraband]
   id: ClothingShoesRealJordansSyndicate
   name: air jordans
-  description: State-of-the-art, official, uncreased Jordans that protect you from slipping when turned on.
+  description: State-of-the-art Real Uncreased Jordans that protect you from slipping.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Boots/jordans.rsi
@@ -312,7 +312,7 @@
 
 #Fake jordans maints loot
 - type: entity
-  parent: [ClothingShoesBaseButcherable, BaseMajorContraband]
+  parent: ClothingShoesBaseButcherable
   id: ClothingShoesFakeJordans
   name: air jordans
   description: Upon closer inspection, something feels off about these. Are they.. creased? No, it can't be that. Wait, the logo looks a little off...
