@@ -42,6 +42,7 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Damage;
 using Content.Server.Bible.Components;
 using Content.Server.Chat.Systems;
+using Content.Shared.Eye;
 using Content.Shared.UserInterface;
 
 namespace Content.Server._Impstation.CosmicCult;
@@ -508,6 +509,9 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     }
     private void OnComponentShutdown(Entity<CosmicCultComponent> uid, ref ComponentShutdown args)
     {
+        if (TerminatingOrDeleted(uid)) // Goob station
+            return;
+
         var query = QueryActiveRules();
         while (query.MoveNext(out var _, out _, out var cosmicGamerule, out _))
         {
@@ -538,7 +542,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             {
                 _euiMan.OpenEui(new CosmicDeconvertedEui(), session);
             }
-            _eye.SetVisibilityMask(uid, 1);
+            _eye.SetVisibilityMask(uid, (int) VisibilityFlags.Normal); // Goob edit
             TotalCult--;
             cosmicGamerule.Cultists.Remove(uid);
             UpdateCultData(MonumentInGame);

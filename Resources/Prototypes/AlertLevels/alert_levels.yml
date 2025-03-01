@@ -74,7 +74,7 @@
       announcement: alert-level-octarine-announcement
       selectable: false
       sound:
-        path: /Audio/Misc/epsilon.ogg # i think this is deprecated bc of random announcers
+        path: /Audio/Misc/gamma.ogg # Goob edit
         params:
           volume: -3
       disableSelection: true

@@ -33,7 +33,8 @@
     sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHelmetCosmicCult
+    clothingPrototypes: # Goob edit
+      head: ClothingHeadHelmetCosmicCult
   - type: Tag
     tags:
     - Hardsuit

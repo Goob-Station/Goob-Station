@@ -1,14 +1,20 @@
+using System.Numerics;
 using Content.Server._Impstation.CosmicCult.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.Portable;
 using Content.Server.Bible.Components;
+using Content.Server.Body.Systems;
 using Content.Server.Kitchen.Components;
 using Content.Server.Popups;
+using Content.Server.Standing;
+using Content.Shared._Goobstation.Wizard.SupermatterHalberd;
 using Content.Shared._Impstation.CosmicCult.Components;
 using Content.Shared._Impstation.CosmicCult.Components.Examine;
 using Content.Shared.Clothing;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
+using Content.Shared.Gibbing.Events;
+using Content.Shared.Heretic;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Mind;
@@ -17,6 +23,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.SSDIndicator;
 using Content.Shared.Stunnable;
 using Robust.Server.Audio;
+using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
@@ -35,7 +42,10 @@ public sealed class CosmicGlyphSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
+    [Dependency] private readonly LayingDownSystem _laying = default!; // Goobstation
+    [Dependency] private readonly BodySystem _body = default!; // Goobstation
+    [Dependency] private readonly RaysSystem _rays = default!; // Goobstation
+    [Dependency] private readonly TransformSystem _transform = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -132,7 +142,20 @@ public sealed class CosmicGlyphSystem : EntitySystem
 
         foreach (var target in possibleTargets) // FIVE GODDAMN if-statements? Yep. I know. Why? My brain doesn't have enough juice to write something more succinct.
         {
-            if (_mobState.IsDead(target))
+            if (HasComp<HereticComponent>(target)) // Goobstation
+            {
+                var coords = _transform.GetMapCoordinates(target);
+                _body.GibBody(target, contents:GibContentsOption.Gib);
+                Spawn("MaterialCosmicCultEntropy", coords);
+                _rays.DoRays(coords,
+                    Color.FromHex("#57B300"),
+                    Color.FromHex("#00C566"),
+                    10,
+                    15,
+                    minMaxRadius: new Vector2(3f, 6f),
+                    proto: "EffectRayCharge");
+            }
+            else if (_mobState.IsDead(target))
             {
                 _popup.PopupEntity(Loc.GetString("cult-glyph-target-dead"), uid, args.User);
                 args.Cancel();
@@ -149,7 +172,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
             }
             else
             {
-                _stun.TryStun(target, TimeSpan.FromSeconds(4f), false);
+                _stun.TryParalyze(target, TimeSpan.FromSeconds(4f), false); // Goob edit
                 _cultRule.CosmicConversion(target);
             }
         }
@@ -161,15 +184,16 @@ public sealed class CosmicGlyphSystem : EntitySystem
     {
         _damageable.TryChangeDamage(args.User, uid.Comp.ProjectionDamage, true);
         var projectionEnt = Spawn(uid.Comp.SpawnProjection, Transform(uid).Coordinates);
-        if (_mind.TryGetMind(args.User, out var mindId, out var _))
-            _mind.TransferTo(mindId, projectionEnt);
+        if (!_mind.TryGetMind(args.User, out var mindId, out var mind)) // Goob edit
+            return;
+
+        _mind.TransferTo(mindId, projectionEnt);
         RemComp<SSDIndicatorComponent>(args.User);
         EnsureComp<CosmicMarkBlankComponent>(args.User);
         EnsureComp<CosmicAstralBodyComponent>(projectionEnt, out var astralComp);
-        var mind = Comp<MindComponent>(mindId);
         mind.PreventGhosting = true;
         astralComp.OriginalBody = args.User;
-        _stun.TryKnockdown(args.User, TimeSpan.FromSeconds(2), true);
+        _laying.TryLieDown(args.User);
     }
     #endregion
 

@@ -344,6 +344,14 @@
       enabled: true
 
 - type: entity
+  parent: EffectRay
+  id: EffectRayLong
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 2
+
+- type: entity
   id: SanguineBloodEffect
   categories: [ HideSpawnMenu ]
   components:

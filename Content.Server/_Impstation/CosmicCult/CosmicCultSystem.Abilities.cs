@@ -27,6 +27,7 @@ using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Shared.Camera;
 using Content.Server.Flash;
+using Content.Shared.Heretic;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Physics.Events;
@@ -172,7 +173,7 @@ public sealed partial class CosmicCultSystem
     #region Siphon Entropy
     private void OnCosmicSiphon(Entity<CosmicCultComponent> uid, ref EventCosmicSiphon args)
     {
-        if (HasComp<CosmicCultComponent>(args.Target) || HasComp<BibleUserComponent>(args.Target))
+        if (HasComp<CosmicCultComponent>(args.Target) || HasComp<BibleUserComponent>(args.Target) || HasComp<HereticComponent>(args.Target)) // Goob edit
         {
             _popup.PopupEntity(Loc.GetString("cosmicability-siphon-fail", ("target", Identity.Entity(args.Target, EntityManager))), uid, uid);
             return;

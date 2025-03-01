@@ -11,7 +11,7 @@
     mode: AlignTileAny
   components:
   - type: Visibility
-    layer: 777
+    layer: 32 # Goob edit
   - type: SpriteFade
   - type: Sprite
     noRot: true
@@ -124,7 +124,7 @@
   suffix: Spawn, DO NOT MAP
   components:
   - type: Visibility
-    layer: 777
+    layer: 32 # Goob edit
   - type: Sprite
     sprite: _Impstation/CosmicCult/Tileset/monument.rsi
     layers:

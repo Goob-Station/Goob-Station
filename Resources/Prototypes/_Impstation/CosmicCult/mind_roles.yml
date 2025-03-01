@@ -6,7 +6,7 @@
   - type: MindRole
     antagPrototype: CosmicAntagCultist
     exclusiveAntag: true
-    roleType: TeamAntagonist
+    # roleType: TeamAntagonist
   - type: CosmicCultRole
 
 - type: entity
@@ -17,5 +17,5 @@
   - type: MindRole
     antagPrototype: CosmicAntagLeader
     exclusiveAntag: true
-    roleType: TeamAntagonist
+    # roleType: TeamAntagonist
   - type: CosmicCultRole

@@ -14,6 +14,8 @@
     - CosmicMonumentObjective
     - CosmicEntropyObjective
   - type: AntagSelection
+    selectionTime: BeforeJobs # Goobstation
+    forceAntagRoll: true # Goobstation
     definitions:
     - prefRoles: [ CosmicAntagLeader ]
       fallbackRoles: [ CosmicAntagCultist ]
@@ -23,6 +25,8 @@
         components:
         - AntagImmune
         - BibleUser
+      blacklistedJobs: # Goobstation
+      - Chaplain
       components:
       - type: CosmicCult
       - type: CosmicCultLead
@@ -38,6 +42,8 @@
         components:
         - AntagImmune
         - BibleUser
+      blacklistedJobs: # Goobstation
+      - Chaplain
       components:
       - type: CosmicCult
       mindRoles:

@@ -9,7 +9,7 @@ namespace Content.Shared._Impstation.CosmicCult.Components;
 [AutoGenerateComponentPause]
 public sealed partial class MonumentComponent : Component
 {
-    [NonSerialized] public const int LayerMask = 777;
+    [NonSerialized] public const int LayerMask = 32; // Goob edit
     [DataField] public HashSet<ProtoId<InfluencePrototype>> UnlockedInfluences = [];
     [DataField] public HashSet<ProtoId<GlyphPrototype>> UnlockedGlyphs = [];
     [DataField] public ProtoId<GlyphPrototype> SelectedGlyph;
