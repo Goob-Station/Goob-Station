@@ -5626,3 +5626,9 @@ Entries:
         them to tweak.
   id: 648
   time: '2025-02-26T03:26:45.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: Added the ability to grab at various levels of strength.
+  id: 649
+  time: '2025-02-28T09:42:53.0000000+00:00'

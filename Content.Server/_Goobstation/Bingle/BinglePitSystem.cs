@@ -91,7 +91,7 @@ public sealed class BinglePitSystem : EntitySystem
               ? component.AdditionalPointsForHuman : 0) : 1;
 
         if (TryComp<PullableComponent>(tripper, out var pullable) && pullable.BeingPulled)
-            _pulling.TryStopPull(tripper, pullable);
+            _pulling.TryStopPull(tripper, pullable, ignoreGrab: true);
 
         var fall = EnsureComp<BinglePitFallingComponent>(tripper);
         fall.Pit = component;

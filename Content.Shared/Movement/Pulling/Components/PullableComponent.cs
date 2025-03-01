@@ -1,4 +1,5 @@
 using Content.Shared.Alert;
+using Content.Shared.Movement.Pulling.Systems; // Goobstation
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -39,8 +40,31 @@ public sealed partial class PullableComponent : Component
     [AutoNetworkedField, DataField]
     public bool PrevFixedRotation;
 
+    // Goobstation start
+    // Added Grab variables
+
+
+    [DataField]
+    public Dictionary<GrabStage, short> PulledAlertAlertSeverity = new()
+    {
+        { GrabStage.No, 0 },
+        { GrabStage.Soft, 1 },
+        { GrabStage.Hard, 2 },
+        { GrabStage.Suffocate, 3 },
+    };
+
+    [AutoNetworkedField, DataField]
+    public GrabStage GrabStage = GrabStage.No;
+
+    [AutoNetworkedField, DataField]
+    public float GrabEscapeChance = 1f;
+
     [DataField]
     public ProtoId<AlertPrototype> PulledAlert = "Pulled";
+
+    [AutoNetworkedField]
+    public TimeSpan NextEscapeAttempt = TimeSpan.Zero;
+    // Goobstation end
 }
 
 public sealed partial class StopBeingPulledAlertEvent : BaseAlertEvent;
