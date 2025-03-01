@@ -109,7 +109,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         // Ranged component has priority over melee if both are supported.
         bool gunBoundToUse = false;
         bool gunBoundToAlt = false;
-        Logger.Debug($"weaponUid: {ToPrettyString(weaponUid)}");
+        //Logger.Debug($"weaponUid: {ToPrettyString(weaponUid)}"); // Goobstation
         if (TryComp<GunComponent>(weaponUid, out var gun)) {
             gunBoundToUse = gun.UseKey;
             gunBoundToAlt = !gun.UseKey; //Bound to alt-use when false
@@ -180,7 +180,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 return;
             }
 
-            Logger.Debug($"entity: {ToPrettyString(entity)}, weaponUid: {ToPrettyString(weaponUid)}");
+            //Logger.Debug($"entity: {ToPrettyString(entity)}, weaponUid: {ToPrettyString(weaponUid)}"); Goobstation edit
             ClientHeavyAttack(entity, coordinates, weaponUid, weapon);
             return;
 

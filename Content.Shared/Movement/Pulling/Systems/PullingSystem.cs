@@ -1,11 +1,11 @@
 using Content.Shared._Goobstation.Grab;
+using Content.Shared._Goobstation.MartialArts.Events;
 using Content.Shared._White.Grab; // Goobstation
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
 using Content.Shared.Buckle.Components;
 using Content.Shared.CombatMode; // Goobstation
-using Content.Shared.Cuffs; // Goobstation
 using Content.Shared.Cuffs.Components; // Goobstation
 using Content.Shared.Damage; // Goobstation
 using Content.Shared.Damage.Systems; // Goobstation
@@ -123,7 +123,7 @@ public sealed class PullingSystem : EntitySystem
             && ent.Comp.Pulling != null)
         {
             if(_netManager.IsServer)
-                StopPulling((EntityUid) ent.Comp.Pulling, comp);
+                StopPulling(ent.Comp.Pulling.Value, comp);
         }
     }
     // Goobstation
@@ -887,6 +887,9 @@ public sealed class PullingSystem : EntitySystem
         };
 
         var newStage = puller.Comp.GrabStage + nextStageAddition;
+        var ev = new CheckGrabOverridesEvent(newStage); // guh
+        RaiseLocalEvent(puller, ev);
+        newStage = ev.Stage;
 
         if (!TrySetGrabStages((puller.Owner, puller.Comp), (pullable.Owner, pullable.Comp), newStage))
             return false;
@@ -935,6 +938,9 @@ public sealed class PullingSystem : EntitySystem
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), pullable);
 
+        var comboEv = new ComboAttackPerformedEvent(puller.Owner, pullable.Owner, puller.Owner, ComboAttackType.Grab);
+        RaiseLocalEvent(puller.Owner, comboEv);
+
         Dirty(pullable);
         Dirty(puller);
 
@@ -960,6 +966,7 @@ public sealed class PullingSystem : EntitySystem
                 for (var i = 0; i < delta; i++)
                 {
                     var emptyHand = _handsSystem.TryGetEmptyHand(puller, out _);
+                    Logger.Debug("Try get an empty hand "  + emptyHand);
                     if (!emptyHand)
                     {
                         if (_netManager.IsServer)
@@ -1094,7 +1101,3 @@ public enum GrabStageDirection
     Increase,
     Decrease,
 }
-
-// Goobstation - Grab Intent
-
-// Goobstation

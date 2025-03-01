@@ -16,6 +16,10 @@
   extendedAccess:
   - Hydroponics
   - Bar
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: MartialArtsKnowledge
 
 - type: startingGear
   id: ChefGear
