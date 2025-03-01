@@ -1,9 +1,0 @@
-# Monkey head for borging/transplanting pun pun
-- type: entity
-  parent: [PartAnimalBase, BaseHead]
-  id: HeadAnimal
-  name: animal head
-  components:
-  - type: Sprite
-    layers:
-    - state: head_m
