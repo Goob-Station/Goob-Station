@@ -218,7 +218,7 @@
       - !type:HealthChange
         damage:
           groups:
-            Cellular: -0.2
+            Genetic: -0.2
       - !type:Polymorph
         prototype: MouseSentient
         conditions:
