@@ -128,12 +128,14 @@
     - !type:GroupSelector
       weight: 70
       children:
-      - id: LavalandTendrilMagmawingWatcher
-      - id: LavalandTendrilSpaceCarp
+      - id: LavalandTendrilLavaWatcher
+      - id: LavalandTendrilGoliath
     - !type:GroupSelector
       weight: 30
       children:
-      - id: LavalandTendrilGoliath
+      - id: LavalandTendrilIcewingWatcher
+      - id: LavalandTendrilMagmawingWatcher
+      - id: LavalandTendrilSpaceCarp
       #- id: LavalandTendrilLegion
 
 - type: entity
