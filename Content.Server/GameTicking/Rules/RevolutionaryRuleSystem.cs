@@ -75,9 +75,6 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         SubscribeLocalEvent<HeadRevolutionaryComponent, MobStateChangedEvent>(OnHeadRevMobStateChanged);
 
         SubscribeLocalEvent<RevolutionaryRoleComponent, GetBriefingEvent>(OnGetBriefing);
-
-        SubscribeLocalEvent<HeadRevolutionaryComponent, GetVerbsEvent<InnateVerb>>(OnInnateVerb); // Reserve-ConsentRev
-
     }
 
     protected override void Started(EntityUid uid, RevolutionaryRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
@@ -167,151 +164,6 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         var head = HasComp<HeadRevolutionaryComponent>(ent);
         args.Append(Loc.GetString(head ? "head-rev-briefing" : "rev-briefing"));
     }
-
-    // Reserve-ConsentRev-Start
-    private void OnInnateVerb(EntityUid uid, HeadRevolutionaryComponent comp, GetVerbsEvent<InnateVerb> args)
-    {
-        // Check if it's something convertable.
-        if (!comp.OnlyConsentConvert
-            || !comp.ConvertAbilityEnabled
-            || !args.CanAccess
-            || !args.CanInteract
-            || HasComp<RevolutionaryComponent>(args.Target)
-            || !_mobState.IsAlive(args.Target)
-            || HasComp<ZombieComponent>(args.Target)
-            )
-            return;
-
-        var alwaysConvertible = HasComp<AlwaysRevolutionaryConvertibleComponent>(args.Target);
-
-        if ((!HasComp<HumanoidAppearanceComponent>(args.Target) ||
-             !_mind.TryGetMind(args.Target, out var mindId, out var mind)
-            ) && !alwaysConvertible)
-            return;
-
-        // Verb to convert people
-        var verb = new InnateVerb()
-        {
-            // TODO: put there temporary recrute block
-
-            Act = () =>
-            {
-                // We don't hide verb if person has mindshield/command protection because that reveals it.
-                // If verb was used in this situation, both players will be only alerted about it.
-                if (HasComp<MindShieldComponent>(args.Target) ||
-                    HasComp<CommandStaffComponent>(args.Target))
-                {
-                    _popup.PopupEntity(
-                        Loc.GetString("rev-consent-convert-attempted-to-be-converted", ("user", Identity.Entity(args.User, EntityManager))),
-                        args.User,
-                        args.Target,
-                        PopupType.MediumCaution
-                        );
-                    _popup.PopupEntity(
-                        Loc.GetString("rev-consent-convert-failed", ("target", Identity.Entity(args.Target, EntityManager))),
-                        args.Target,
-                        args.User,
-                        PopupType.MediumCaution);
-                    return;
-                }
-
-                // Start conversion
-                if (_mind.TryGetMind(args.Target, out var consentMindId, out var _) &&
-                    _mind.TryGetSession(consentMindId, out var session))
-                {
-                    // Popup that tells converter request was sent
-                    _popup.PopupEntity(
-                        Loc.GetString("rev-consent-convert-requested", ("target", Identity.Entity(args.Target, EntityManager))),
-                        args.User,
-                        args.User);
-                    _euiMan.OpenEui(new ConsentRequestedEui(args.Target, args.User, this, _popup, EntityManager), session);
-                }
-                else
-                {
-                    // Entity don't have mind (not controlled by player) to give response, but it's still convertable without it. We'll consent for them
-                    _popup.PopupEntity(
-                        Loc.GetString("rev-consent-convert-auto-accepted", ("target", Identity.Entity(args.Target, EntityManager))),
-                        args.User,
-                        args.User);
-                    ConvertEntityToRevolution(args.Target, args.User);
-                }
-
-            },
-            Text = Loc.GetString("rev-verb-consent-convert-text"),
-            Message = Loc.GetString("rev-verb-consent-convert-message")
-        };
-
-        args.Verbs.Add(verb);
-    }
-
-    /// <summary>
-    /// Converts entity to revolution. Doesn't have any checks for possibility of convert.
-    /// It's actually just copied code from headrev flash event handler.
-    /// </summary>
-    public void ConvertEntityToRevolution(EntityUid target, EntityUid? converter)
-    {
-        if (!_mind.TryGetMind(target, out var mindId, out var mind))
-            return;
-
-        if (HasComp<RevolutionEnemyComponent>(target))
-            RemComp<RevolutionEnemyComponent>(target);
-
-        _npcFaction.AddFaction(target, RevolutionaryNpcFaction);
-        var revComp = EnsureComp<RevolutionaryComponent>(target);
-
-        if (converter != null)
-        {
-            _adminLogManager.Add(LogType.Mind,
-                LogImpact.Medium,
-                $"{ToPrettyString(converter.Value)} converted {ToPrettyString(target)} into a Revolutionary");
-
-            if (_mind.TryGetMind(converter.Value, out var revMindId, out _))
-            {
-                if (_role.MindHasRole<RevolutionaryRoleComponent>(revMindId, out _, out var role))
-                    role.Value.Comp.ConvertedCount++;
-            }
-        }
-
-        if (mindId == default || !_role.MindHasRole<RevolutionaryRoleComponent>(mindId))
-        {
-            _role.MindAddRole(mindId, "MindRoleRevolutionary");
-        }
-
-        if (mind?.Session != null)
-            _antag.SendBriefing(mind.Session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);
-
-        if (!TryComp<CommandStaffComponent>(target, out var commandComp))
-            return;
-
-        commandComp.Enabled = false;
-        CheckCommandLose();
-    }
-
-    /// <summary>
-    /// Checks if entity can be converted to revolutioner
-    /// </summary>
-    public bool IsConvertable(EntityUid uid)
-    {
-        var alwaysConvertible = HasComp<AlwaysRevolutionaryConvertibleComponent>(uid);
-
-        if (!_mind.TryGetMind(uid, out var mindId, out var mind) && !alwaysConvertible)
-            return false;
-
-        if (HasComp<RevolutionaryComponent>(uid) ||
-            HasComp<MindShieldComponent>(uid) ||
-            !HasComp<HumanoidAppearanceComponent>(uid) &&
-            !alwaysConvertible ||
-            !_mobState.IsAlive(uid) ||
-            HasComp<ZombieComponent>(uid)
-            || HasComp<CommandStaffComponent>(uid)) // goob edit - rev no command flashing
-        {
-            return false;
-        }
-
-        return true;
-    }
-
-    // Reserve-ConsentRev-End
 
     /// <summary>
     /// Called when a Head Rev uses a flash in melee to convert somebody else.
@@ -533,4 +385,73 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         // revs lost and heads died
         "rev-stalemate"
     };
+
+    // Reserve-ConsentRev-Start
+    /// <summary>
+    /// Converts entity to revolution. Doesn't have any checks for possibility of convert.
+    /// It's actually just copied code from headrev flash event handler.
+    /// </summary>
+    public void ConvertEntityToRevolution(EntityUid target, EntityUid? converter)
+    {
+        if (!_mind.TryGetMind(target, out var mindId, out var mind))
+            return;
+
+        if (HasComp<RevolutionEnemyComponent>(target))
+            RemComp<RevolutionEnemyComponent>(target);
+
+        _npcFaction.AddFaction(target, RevolutionaryNpcFaction);
+        var revComp = EnsureComp<RevolutionaryComponent>(target);
+
+        if (converter != null)
+        {
+            _adminLogManager.Add(LogType.Mind,
+                LogImpact.Medium,
+                $"{ToPrettyString(converter.Value)} converted {ToPrettyString(target)} into a Revolutionary");
+
+            if (_mind.TryGetMind(converter.Value, out var revMindId, out _))
+            {
+                if (_role.MindHasRole<RevolutionaryRoleComponent>(revMindId, out _, out var role))
+                    role.Value.Comp.ConvertedCount++;
+            }
+        }
+
+        if (mindId == default || !_role.MindHasRole<RevolutionaryRoleComponent>(mindId))
+        {
+            _role.MindAddRole(mindId, "MindRoleRevolutionary");
+        }
+
+        if (mind?.Session != null)
+            _antag.SendBriefing(mind.Session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);
+
+        if (!TryComp<CommandStaffComponent>(target, out var commandComp))
+            return;
+
+        commandComp.Enabled = false;
+        CheckCommandLose();
+    }
+
+    /// <summary>
+    /// Checks if entity can be converted to revolutioner
+    /// </summary>
+    public bool IsConvertable(EntityUid uid)
+    {
+        var alwaysConvertible = HasComp<AlwaysRevolutionaryConvertibleComponent>(uid);
+
+        if (!_mind.TryGetMind(uid, out var mindId, out var mind) && !alwaysConvertible)
+            return false;
+
+        if (HasComp<RevolutionaryComponent>(uid) ||
+            HasComp<MindShieldComponent>(uid) ||
+            !HasComp<HumanoidAppearanceComponent>(uid) &&
+            !alwaysConvertible ||
+            !_mobState.IsAlive(uid) ||
+            HasComp<ZombieComponent>(uid)
+            || HasComp<CommandStaffComponent>(uid)) // goob edit - rev no command flashing
+        {
+            return false;
+        }
+
+        return true;
+    }
+    // Reserve-ConsentRev-End
 }

@@ -7,4 +7,5 @@ namespace Content.Shared._Reserve.Revolutionary;
 public sealed class ConsentRequestedState (string converterName) : EuiStateBase
 {
     public string ConverterName = converterName;
+    public bool Close = false;
 }

@@ -8,7 +8,7 @@ using Content.Shared.Popups;
 
 namespace Content.Server._Reserve.Revolutionary.UI;
 
-public sealed class ConsentRequestedEui(EntityUid target, EntityUid converter, RevolutionaryRuleSystem revRuleSystem, PopupSystem popup, EntityManager entManager) : BaseEui
+public sealed class ConsentRequestedEui(EntityUid target, EntityUid converter, RevolutionaryRuleSystem revRuleSystem, ConsentRevolutionarySystem consRevSystem, PopupSystem popup, EntityManager entManager) : BaseEui
 {
     public override EuiStateBase GetNewState()
     {
@@ -27,11 +27,16 @@ public sealed class ConsentRequestedEui(EntityUid target, EntityUid converter, R
 
         if (msg is ConsentRequestedEuiMessage consent && revRuleSystem.IsConvertable(target))
         {
-            // TODO: put there range checks, timeout, check that same mind still here
+            if (!entManager.TryGetComponent<ConsentRevolutionaryComponent>(target, out var targetConsRev)
+                || !entManager.TryGetComponent<ConsentRevolutionaryComponent>(converter, out var consRev))
+            {
+                return;
+            }
 
             if (consent.IsAccepted)
             {
                 revRuleSystem.ConvertEntityToRevolution(target, converter);
+                consRevSystem.CancelRequest(targetConsRev, consRev);
                 popup.PopupEntity(
                     Loc.GetString("rev-consent-convert-accepted", ("target", Identity.Entity(target, entManager))),
                     target,
@@ -39,6 +44,7 @@ public sealed class ConsentRequestedEui(EntityUid target, EntityUid converter, R
             }
             else
             {
+                consRevSystem.CancelRequest(targetConsRev, consRev);
                 popup.PopupEntity(
                     Loc.GetString("rev-consent-convert-denied", ("target", Identity.Entity(target, entManager))),
                     target,
