@@ -5,11 +5,12 @@ using Content.Shared.CombatMode;
 namespace Content.Client._Goobstation.Bingle;
 
 /// <summary>
-///   handles the upgrade apperance from normal bingle to upgraded bingle
+///   handles the apperance bingles
 /// </summary>
 public sealed class BingleSystem : EntitySystem
 {
     [Dependency] private readonly AppearanceSystem _appearance = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -17,7 +18,9 @@ public sealed class BingleSystem : EntitySystem
         SubscribeLocalEvent<BingleComponent, ToggleCombatActionEvent>(OnCombatToggle);
     }
 
-    //make eyse glow red when combat mode engaged.
+    /// <summary>
+    /// make eyse glow red when combat mode engaged.
+    /// </summary>
     private void OnCombatToggle(EntityUid uid, BingleComponent component, ToggleCombatActionEvent args)
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite))
@@ -28,8 +31,12 @@ public sealed class BingleSystem : EntitySystem
             return;
 
         sprite.LayerSetVisible(layer, combat.IsInCombatMode);
+        _appearance.OnChangeData(uid, sprite);
     }
 
+    /// <summary>
+    ///  when bingles get upgraded, this changes the sprite by enabeling a hidden layer
+    /// </summary>
     private void OnUpgradeChange(BingleUpgradeEntityMessage args)
     {
         var uid = GetEntity(args.Bingle);
@@ -40,7 +47,6 @@ public sealed class BingleSystem : EntitySystem
             return;
 
         sprite.LayerSetVisible(layer, true);
-        
         _appearance.OnChangeData(uid, sprite);
     }
 }
