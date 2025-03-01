@@ -39,5 +39,27 @@
   targetNode: glassesMedSec
   category: construction-category-clothing
   description: Sunglasses with a medical and security hud.
-  icon: { sprite: _Goobstation/Clothing/Eyes/Glasses/medglasses.rsi, state: icon }
+  icon: { sprite: _Goobstation/Clothing/Eyes/Glasses/medsecglasses.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: meddiag glasses
+  id: GlassesMedDiag
+  graph: GlassesMedDiagHUD
+  startNode: start
+  targetNode: glassesMedDiag
+  category: construction-category-clothing
+  description: Sunglasses with a medical and diagnostic hud.
+  icon: { sprite: _Goobstation/Clothing/Eyes/Glasses/meddiagglasses.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: meddiag hud
+  id: HudMedDiagHUD
+  graph: HudMedDiag
+  startNode: start
+  targetNode: meddiagHud
+  category: construction-category-clothing
+  description: A heads-up display combining both medical and diagnostic information.
+  icon: { sprite: _Goobstation/Clothing/Eyes/Hud/meddiag.rsi, state: icon }
   objectType: Item
