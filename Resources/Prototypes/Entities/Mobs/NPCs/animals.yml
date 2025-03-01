@@ -1761,6 +1761,10 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 3
+        - ReagentId: MouseBites
+          Quantity: 3
+      melee:
+        maxVol: 5
   - type: Butcherable
     spawned:
     - id: FoodMeatRat
@@ -1825,15 +1829,24 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-rat
-  - type: NightVision # Goobstation - Nigthvision
+  - type: NightVision # Goobstation - Start
     color: "#808080"
     activateSound: null
     deactivateSound: null
-  - type: EggLayer # Goobstation
+  - type: EggLayer
     eggSpawn:
     - id: MobMouse
     hungerUsage: 20
     eggLayAction: MouseMultiply
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: MouseBites
+        Quantity: 1
+  - type: MeleeChemicalInjector
+    transferAmount: 1
+    solution: melee # Goobstation - End
 
 - type: entity
   parent: MobMouse
