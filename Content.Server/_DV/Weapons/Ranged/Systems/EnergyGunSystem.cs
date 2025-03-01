@@ -136,7 +136,7 @@ public sealed class EnergyGunSystem : EntitySystem
             if (TryComp<AppearanceComponent>(uid, out var _) && TryComp<ItemComponent>(uid, out var item))
             {
                 _item.SetHeldPrefix(uid, component.CurrentFireMode.State, component: item);
-                switch (component.CurrentFireMode.State)
+                switch (component.CurrentFireMode.State) // Holy shit this is shitcoded.
                 {
                     case "disabler":
                         UpdateAppearance(uid, EnergyGunFireModeState.Disabler);
@@ -146,6 +146,12 @@ public sealed class EnergyGunSystem : EntitySystem
                         break;
                     case "special":
                         UpdateAppearance(uid, EnergyGunFireModeState.Special);
+                        break;
+                    case "heating":
+                        UpdateAppearance(uid, EnergyGunFireModeState.Heating);
+                        break;
+                    case "cooling":
+                        UpdateAppearance(uid, EnergyGunFireModeState.Cooling);
                         break;
                 }
             }
