@@ -1,7 +1,7 @@
 ## Cosmic Cult Entropy Mote
 
 - type: entity
-  parent: [ MaterialBase, TierXContraband ]
+  parent: [ MaterialBase, BaseMagicContraband ] # Goob edit
   id: MaterialCosmicCultEntropy
   name: mote of entropy
   suffix: Full

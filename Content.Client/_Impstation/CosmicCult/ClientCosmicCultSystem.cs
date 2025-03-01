@@ -7,7 +7,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Client._Impstation.CosmicCult;
 
-public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
+public sealed class CosmicCultSystem : SharedCosmicCultSystem
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 

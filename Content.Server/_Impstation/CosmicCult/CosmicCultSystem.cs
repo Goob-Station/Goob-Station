@@ -20,14 +20,15 @@ using Content.Shared.DoAfter;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Damage;
 using Content.Server.AlertLevel;
+using Content.Server.Chat.Systems;
 using Content.Shared.SSDIndicator;
-using Content.Server.Announcements.Systems;
 using Content.Server.Pinpointer;
+using Content.Shared._Impstation.CosmicCult;
 using Robust.Shared.Utility;
 
 namespace Content.Server._Impstation.CosmicCult;
 
-public sealed partial class CosmicCultSystem : EntitySystem
+public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 {
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly CosmicCultRuleSystem _cultRule = default!;
@@ -46,8 +47,8 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly AlertLevelSystem _alert = default!;
-    [Dependency] private readonly AnnouncerSystem _announcer = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
+    [Dependency] private readonly ChatSystem _chatSystem = default!; // Goobstation
 
     private const string MapPath = "Maps/_Impstation/Nonstations/cosmicvoid.yml";
     public int CultistCount;
@@ -138,19 +139,27 @@ public sealed partial class CosmicCultSystem : EntitySystem
             if (comp.FinaleActive && !comp.BufferComplete && !comp.PlayedBufferSong && !string.IsNullOrEmpty(comp.SelectedBufferSong))
             {
                 _sound.DispatchStationEventMusic(uid, comp.SelectedBufferSong, StationEventMusicType.CosmicCult);
-                _announcer.SendAnnouncementMessage(_announcer.GetAnnouncementId("SpawnAnnounceCaptain"),
+                // Goob edit start
+                _chatSystem.DispatchStationAnnouncement(uid,
                 Loc.GetString("cosmiccult-finale-location", ("location", FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString((uid, Transform(uid)))))),
-                null,
-                Color.FromHex("#cae8e8"));
+                    null,
+                    false,
+                    null,
+                    Color.FromHex("#cae8e8"));
+                // Goob edit end
                 comp.PlayedBufferSong = true;
             }
             else if (comp.FinaleActive && comp.FinaleTimer <= comp.FinaleSongLength && !comp.PlayedFinaleSong && !string.IsNullOrEmpty(comp.SelectedFinaleSong) && comp.BufferComplete && !comp.PlayedFinaleSong)
             {
                 _sound.DispatchStationEventMusic(uid, comp.SelectedFinaleSong, StationEventMusicType.CosmicCult);
-                _announcer.SendAnnouncementMessage(_announcer.GetAnnouncementId("SpawnAnnounceCaptain"),
-                Loc.GetString("cosmiccult-finale-location", ("location", FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString((uid, Transform(uid)))))),
-                null,
-                Color.FromHex("#cae8e8"));
+                // Goob edit start
+                _chatSystem.DispatchStationAnnouncement(uid,
+                    Loc.GetString("cosmiccult-finale-location", ("location", FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString((uid, Transform(uid)))))),
+                    null,
+                    false,
+                    null,
+                    Color.FromHex("#cae8e8"));
+                // Goob edit end
                 comp.PlayedFinaleSong = true;
             }
             if (comp.FinaleActive && _timing.CurTime >= comp.BufferTimer && comp.FinaleActive && !comp.BufferComplete && !comp.Victory)

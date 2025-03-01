@@ -9,8 +9,6 @@ using Robust.Shared.Audio;
 using Content.Server.Radio.Components;
 using Robust.Shared.Player;
 using Content.Server.EUI;
-using Robust.Shared.Random;
-using Content.Server.Announcements.Systems;
 using Robust.Server.Audio;
 using Content.Shared.Coordinates;
 using Content.Shared.Parallax;
@@ -24,7 +22,6 @@ using Content.Shared.GameTicking.Components;
 using Content.Server.GameTicking.Events;
 using Content.Shared.Stunnable;
 using Content.Shared.Mind;
-using Content.Shared.Administration.Logs;
 using Content.Server.Actions;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
@@ -44,6 +41,7 @@ using Content.Shared.Audio;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Damage;
 using Content.Server.Bible.Components;
+using Content.Server.Chat.Systems;
 using Content.Shared.UserInterface;
 
 namespace Content.Server._Impstation.CosmicCult;
@@ -58,8 +56,6 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly EuiManager _euiMan = default!;
-    [Dependency] private readonly IRobustRandom _rand = default!;
-    [Dependency] private readonly AnnouncerSystem _announce = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -77,6 +73,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
+    [Dependency] private readonly ChatSystem _chatSystem = default!; // Goobstation
     public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/antag_cosmic_briefing.ogg");
     public readonly SoundSpecifier DeconvertSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/antag_cosmic_deconvert.ogg");
     public Entity<MonumentComponent> MonumentInGame; // the monument in the current round.
@@ -326,8 +323,21 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             cultComp.UnlockedInfluences.Add("InfluenceUnboundStep");
             cultComp.EntropyBudget += Convert.ToInt16(Math.Floor(Math.Round((double)TotalCrew / 100 * 4))); // pity system. 4% of the playercount worth of entropy on tier up
         }
-        _announce.SendAnnouncementMessage(_announce.GetAnnouncementId("SpawnAnnounceCaptain"), Loc.GetString("cosmiccult-announce-tier2-progress"), sender, Color.FromHex("#4cabb3"));
-        _announce.SendAnnouncementMessage(_announce.GetAnnouncementId("SpawnAnnounceCaptain"), Loc.GetString("cosmiccult-announce-tier2-warning"), null, Color.FromHex("#cae8e8"));
+
+        // Goob edit start
+        _chatSystem.DispatchStationAnnouncement(uid,
+            Loc.GetString("cosmiccult-announce-tier2-progress"),
+            sender,
+            false,
+            null,
+            Color.FromHex("#4cabb3"));
+        _chatSystem.DispatchStationAnnouncement(uid,
+            Loc.GetString("cosmiccult-announce-tier2-warning"),
+            null,
+            false,
+            null,
+            Color.FromHex("#cae8e8"));
+        // Goob edit end
         _audio.PlayGlobal("/Audio/_Impstation/CosmicCult/tier2.ogg", Filter.Broadcast(), false, AudioParams.Default);
         var objectiveQuery = EntityQueryEnumerator<CosmicTierConditionComponent>();
         while (objectiveQuery.MoveNext(out _, out var objectiveComp))
@@ -368,8 +378,20 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         }
         var sender = Loc.GetString("cosmiccult-announcement-sender");
         var mapData = _map.GetMap(_transform.GetMapId(uid.Owner.ToCoordinates()));
-        _announce.SendAnnouncementMessage(_announce.GetAnnouncementId("SpawnAnnounceCaptain"), Loc.GetString("cosmiccult-announce-tier3-progress"), sender, Color.FromHex("#4cabb3"));
-        _announce.SendAnnouncementMessage(_announce.GetAnnouncementId("SpawnAnnounceCaptain"), Loc.GetString("cosmiccult-announce-tier3-warning"), null, Color.FromHex("#cae8e8"));
+        // Goob edit start
+        _chatSystem.DispatchStationAnnouncement(uid,
+            Loc.GetString("cosmiccult-announce-tier3-progress"),
+            sender,
+            false,
+            null,
+            Color.FromHex("#4cabb3"));
+        _chatSystem.DispatchStationAnnouncement(uid,
+            Loc.GetString("cosmiccult-announce-tier3-warning"),
+            null,
+            false,
+            null,
+            Color.FromHex("#cae8e8"));
+        // Goob edit end
         _audio.PlayGlobal("/Audio/_Impstation/CosmicCult/tier3.ogg", Filter.Broadcast(), false, AudioParams.Default);
         EnsureComp<ParallaxComponent>(mapData, out var parallax);
         parallax.Parallax = "CosmicFinaleParallax";

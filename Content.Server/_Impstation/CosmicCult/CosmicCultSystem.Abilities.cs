@@ -23,7 +23,6 @@ using Content.Shared._Impstation.CosmicCult.Components.Examine;
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
 using Content.Server.Doors.Systems;
-using Robust.Shared.Player;
 using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Shared.Camera;
@@ -37,7 +36,7 @@ using Content.Shared.NPC;
 
 namespace Content.Server._Impstation.CosmicCult;
 
-public sealed partial class CosmicCultSystem : EntitySystem
+public sealed partial class CosmicCultSystem
 {
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
@@ -51,7 +50,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly PoweredLightSystem _poweredLight = default!;
     [Dependency] private readonly FlashSystem _flash = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;

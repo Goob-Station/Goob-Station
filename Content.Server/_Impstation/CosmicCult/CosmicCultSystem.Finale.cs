@@ -10,7 +10,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server._Impstation.CosmicCult;
 
-public sealed partial class CosmicCultSystem : EntitySystem
+public sealed partial class CosmicCultSystem
 {
     /// <summary>
     ///     Used to calculate when the finale song should start playing
