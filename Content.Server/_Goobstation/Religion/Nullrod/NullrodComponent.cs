@@ -10,8 +10,8 @@ namespace Content.Server._Goobstation.Religion.Nullrod
         /// How much damage is dealt when an untrained user uses it.
         /// </summary>
 
-        [DataField("selfDamage", required: true)]
-        public DamageSpecifier SelfDamage = default!;
+        [DataField("damageOnUntrainedUse", required: true)]
+        public DamageSpecifier DamageOnUntrainedUse = default!;
 
         /// <summary>
         /// The pop-up displayed when an untrained user uses it.
