@@ -5,20 +5,23 @@ using Content.Server.Stunnable;
 using Content.Shared._Goobstation.MartialArts;
 using Content.Shared._Goobstation.MartialArts.Events;
 using Content.Shared._White.Grab;
-using Content.Shared._White.Standing;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Clothing;
+using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Hands;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Item;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Ranged.Components;
@@ -30,7 +33,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Goobstation.MartialArts;
 
-public sealed class ComboSystem : EntitySystem
+public sealed class MartialArtsSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
@@ -46,7 +49,6 @@ public sealed class ComboSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 
 
     public override void Initialize()
@@ -74,12 +76,19 @@ public sealed class ComboSystem : EntitySystem
         SubscribeLocalEvent<CanPerformComboComponent, CQCPressurePerformedEvent>(OnCQCPressure);
         SubscribeLocalEvent<CanPerformComboComponent, CQCConsecutivePerformedEvent>(OnCQCConsecutive);
 
-        // Judo Subscribes
+        // Judo - Subscribes
         SubscribeLocalEvent<CanPerformComboComponent, JudoThrowPerformedEvent>(OnJudoThrow);
         SubscribeLocalEvent<CanPerformComboComponent, JudoEyePokePerformedEvent>(OnJudoEyepoke);
+        SubscribeLocalEvent<CanPerformComboComponent, JudoArmbarPerformedEvent>(OnJudoArmbar);
+        //SubscribeLocalEvent<JudoBlockedComponent, PickupAttemptEvent>(OnBlockedEquipped); // Stun baton no no
+        // wheel throw
+        // golden blast
+        //
+
+        // Sleeping Carp - Subscribes
 
     }
-
+    #region CanPerformCombo
     private void OnMapInit(EntityUid uid, CanPerformComboComponent component, MapInitEvent args)
     {
         foreach (var item in component.RoundstartCombos)
@@ -145,13 +154,13 @@ public sealed class ComboSystem : EntitySystem
             comp.LastAttacks.Clear();
         }
     }
-
     private void CheckGrabStageOverride<T>(EntityUid uid, T component, CheckGrabOverridesEvent args)
         where T : GrabStagesOverrideComponent
     {
         if (args.Stage == GrabStage.Soft)
             args.Stage = component.StartingStage;
     }
+    #endregion
 
     #region Granting
 
@@ -239,19 +248,18 @@ public sealed class ComboSystem : EntitySystem
         var combo = EnsureComp<CanPerformComboComponent>(uid);
         if (!_proto.TryIndex<MartialArtPrototype>(name.ToString(), out var martialArtsPrototype))
             return;
+        component.MartialArtsForm = martialArtsPrototype.MartialArtsForm;
         component.RoundstartCombos = martialArtsPrototype.RoundstartCombos;
         component.MinDamageModifier = martialArtsPrototype.MinDamageModifier;
         component.MaxDamageModifier = martialArtsPrototype.MaxDamageModifier;
         component.RandomDamageModifier = martialArtsPrototype.RandomDamageModifier;
-        component.MartialArtsForm = martialArtsPrototype.MartialArtsForm;
+        component.HarmAsStamina = martialArtsPrototype.HarmAsStamina;
         LoadCombos(martialArtsPrototype.RoundstartCombos, combo);
     }
 
     private void OnShutdown(Entity<MartialArtsKnowledgeComponent> ent, ref ComponentShutdown args)
     {
         var combo = EnsureComp<CanPerformComboComponent>(ent);
-        if (!_proto.TryIndex(ent.Comp.RoundstartCombos, out var comboListPrototype))
-            return;
         combo.AllowedCombos.Clear();
     }
 
@@ -271,11 +279,11 @@ public sealed class ComboSystem : EntitySystem
         if (TryComp<RequireProjectileTargetComponent>(target, out var downed) && downed.Active)
             return;
 
-        if (!HasComp<LayingDownComponent>(target))
-            return;
-        Log.Debug("Performing Judo Throw");
+        if(TryComp<StandingStateComponent>(target, out var standing)
+           && standing.CurrentState != StandingState.Standing)
+               return;
 
-        _stun.TryParalyze(target, TimeSpan.FromSeconds(7), true);
+        _stun.TryParalyze(target, TimeSpan.FromSeconds(7), false);
         _stamina.TakeStaminaDamage(target, 25f);
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
@@ -297,7 +305,6 @@ public sealed class ComboSystem : EntitySystem
 
         if (!TryComp(target, out StatusEffectsComponent? status))
             return;
-        Log.Debug("performing eyepoke");
 
         var damage = new DamageSpecifier();
         damage.DamageDict.Add("Blunt", 10);
@@ -309,9 +316,42 @@ public sealed class ComboSystem : EntitySystem
         _status.TryAddStatusEffect<BlurryVisionComponent>(target,
             "BlurryVision",
             TimeSpan.FromSeconds(5),
-            true,
+            false,
             status);
         _damageable.TryChangeDamage(target, damage, origin: ent);
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
+    }
+    private void OnJudoArmbar(Entity<CanPerformComboComponent> ent, ref JudoArmbarPerformedEvent args)
+    {
+        if (ent.Comp.CurrentTarget == null)
+            return;
+
+        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CorporateJudo))
+            return;
+
+        var target = ent.Comp.CurrentTarget.Value;
+
+        if (TryComp<RequireProjectileTargetComponent>(target, out var downed) && downed.Active)
+            return;
+
+        if (!TryComp<StandingStateComponent>(target, out var standing))
+            return;
+
+        switch (standing.CurrentState)
+        {
+            case StandingState.Standing:
+                var item = _hands.GetActiveItem(target);
+                if (item != null)
+                    _hands.TryDrop(target, item.Value);
+                break;
+            case StandingState.GettingUp:
+            case StandingState.Lying:
+                _stamina.TakeStaminaDamage(target, 45f);
+                _stun.TryParalyze(target, TimeSpan.FromSeconds(5), false);
+                Log.Info("IN ARM BAR");
+                _popupSystem.PopupEntity("You were placed in an arm bar", target);
+                break;
+        }
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
     }
 
@@ -325,14 +365,12 @@ public sealed class ComboSystem : EntitySystem
 
         if (args.Type != ComboAttackType.Disarm)
             return;
-        if (!_random.Prob(0.5f))
+        if (!_random.Prob(0.5f)) // random chance to steal items? this
             return;
 
         var item = _hands.GetActiveItem(args.Target);
 
         if (item == null)
-            return;
-        if (!HasComp<MeleeWeaponComponent>(item.Value) && !HasComp<GunComponent>(item.Value))
             return;
         _hands.TryDrop(args.Target, item.Value);
         _hands.TryPickupAnyHand(ent, item.Value);
@@ -418,6 +456,10 @@ public sealed class ComboSystem : EntitySystem
 
         var target = component.CurrentTarget.Value;
 
+        if (!_hands.TryGetActiveItem(target, out var activeItem))
+            return;
+        _hands.TryDrop(target, (EntityUid) activeItem);
+        _hands.TryPickupAnyHand(uid, (EntityUid) activeItem);
         _stamina.TakeStaminaDamage(target, 65f, source: uid);
     }
 
@@ -432,9 +474,9 @@ public sealed class ComboSystem : EntitySystem
         var target = component.CurrentTarget.Value;
 
         var damage = new DamageSpecifier();
-        damage.DamageDict.Add("Blunt", 25);
+        damage.DamageDict.Add("Blunt", 20);
         _damageable.TryChangeDamage(target, damage, origin: uid);
-        _stamina.TakeStaminaDamage(target, 55f, source: uid);
+        _stamina.TakeStaminaDamage(target, 70, source: uid);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg"), target);
     }
 

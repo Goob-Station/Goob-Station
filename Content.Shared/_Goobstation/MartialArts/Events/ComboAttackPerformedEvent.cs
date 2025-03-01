@@ -22,5 +22,5 @@ public enum ComboAttackType : byte
     Harm,
     HarmLight,
     Disarm,
-    Grab
+    Grab,
 }

@@ -17,6 +17,11 @@ public sealed partial class GrantCorporateJudoComponent  : GrantMartialArtKnowle
 }
 
 [RegisterComponent]
+public sealed partial class JudoBlockedComponent  : Component
+{
+}
+
+[RegisterComponent]
 public sealed partial class MartialArtsKnowledgeComponent : GrabStagesOverrideComponent
 {
     [DataField]
@@ -30,6 +35,9 @@ public sealed partial class MartialArtsKnowledgeComponent : GrabStagesOverrideCo
 
     [DataField]
     public bool RandomDamageModifier;
+
+    [DataField]
+    public bool HarmAsStamina;
 
     [DataField]
     public ProtoId<ComboListPrototype> RoundstartCombos = "CQCMoves";

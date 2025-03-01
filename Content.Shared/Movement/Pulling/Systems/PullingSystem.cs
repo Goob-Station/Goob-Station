@@ -887,6 +887,9 @@ public sealed class PullingSystem : EntitySystem
         };
 
         var newStage = puller.Comp.GrabStage + nextStageAddition;
+        var ev = new CheckGrabOverridesEvent(newStage); // guh
+        RaiseLocalEvent(puller, ev);
+        newStage = ev.Stage;
 
         if (!TrySetGrabStages((puller.Owner, puller.Comp), (pullable.Owner, pullable.Comp), newStage))
             return false;

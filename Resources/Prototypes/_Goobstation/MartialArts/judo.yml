@@ -8,6 +8,7 @@
   combos:
   - JudoThrow
   - JudoEyepoke
+  - JudoArmbar
 
 - type: combo
   id: JudoThrow
@@ -22,7 +23,7 @@
   - Disarm
   - Disarm
   - Grab
-  event: !type:JudoThrowPerformedEvent { }
+  event: !type:JudoArmbarPerformedEvent { }
 
 - type: combo
   id: JudoEyepoke

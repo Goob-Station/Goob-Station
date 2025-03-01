@@ -22,5 +22,8 @@ public sealed partial class MartialArtPrototype : IPrototype
     public bool RandomDamageModifier;
 
     [DataField]
+    public bool HarmAsStamina;
+
+    [DataField]
     public ProtoId<ComboListPrototype> RoundstartCombos = "CQCMoves";
 }
