@@ -36,15 +36,12 @@ public sealed class ShipyardSystem : EntitySystem
     /// <summary>
     /// Creates a ship from its yaml path in the shipyard.
     /// </summary>
-    public Entity<ShuttleComponent>? TryCreateShuttle(string path)
+    public Entity<ShuttleComponent>? TryCreateShuttle(ResPath path)
     {
         if (!Enabled)
             return null;
 
-        var map = _map.CreateMap(out var mapId);
-        _map.SetPaused(map, false);
-
-        if (!_mapLoader.TryLoad(mapId, path, out var grids))
+        if (!_mapLoader.TryLoad(mapId, path, out var map, out var grids))
         {
             Log.Error($"Failed to load shuttle {path}");
             Del(map);
@@ -68,6 +65,7 @@ public sealed class ShipyardSystem : EntitySystem
             return null;
         }
 
+        _map.SetPaused(map, false);
         _mapDeleterShuttle.Enable(uid);
         return (uid, comp);
     }
@@ -75,7 +73,7 @@ public sealed class ShipyardSystem : EntitySystem
     /// <summary>
     /// Adds a ship to the shipyard and attempts to ftl-dock it to the given station.
     /// </summary>
-    public Entity<ShuttleComponent>? TrySendShuttle(Entity<StationDataComponent?> station, string path)
+    public Entity<ShuttleComponent>? TrySendShuttle(Entity<StationDataComponent?> station, ResPath path)
     {
         if (!Resolve(station, ref station.Comp))
             return null;
