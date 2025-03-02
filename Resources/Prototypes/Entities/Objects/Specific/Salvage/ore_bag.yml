@@ -28,7 +28,6 @@
         - ArtifactFragment
         - Ore
   - type: Dumpable
-<<<<<<< HEAD
   # WHITE EDIT START
   - type: ItemToggle
     soundActivate:
@@ -48,6 +47,3 @@
           False: { state: orebag_off }
   # WHITE EDIT END
   - type: OreBag # Lavaland Change
-=======
-  - type: NFOreBag # Frontier
->>>>>>> 05873f0ddd (WIP: droppable, swappable, insertable cyborg items)
