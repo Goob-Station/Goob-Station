@@ -40,6 +40,8 @@ public sealed partial class RandomizeMovementSpeedSystem : EntitySystem
         if (_timing.CurTime < _nextExecutionTime)
             return;
 
+        TryModifySpeed(default, null!, null!);
+
         _nextExecutionTime = _timing.CurTime + ExecutionInterval;
 
     }
