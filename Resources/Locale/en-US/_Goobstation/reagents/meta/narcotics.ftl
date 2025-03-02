@@ -10,5 +10,5 @@ reagent-desc-tirizene = A nonlethal poison that causes extreme fatigue and weakn
 reagent-name-aranesp = aranesp
 reagent-desc-aranesp = A difficult to synthesize performance enhancer, most famous for strong energy restoration capabilities.
 
-reagent-name-mousebites = Mouse bites
+reagent-name-mousebites = mouse bites
 reagent-desc-mousebites = Did you try the medicine drug?
