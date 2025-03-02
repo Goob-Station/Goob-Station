@@ -193,7 +193,6 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         {
             _gameTicker.EndGameRule(uid, gameRule);
         }
-        _roundEnd.EndRound();
     }
 
     public IEnumerable<Entity<StationDataComponent>> GetWizardTargetStations()
