@@ -1,4 +1,3 @@
-using System.Net.Mime;
 using Content.Server.Popups;
 using Content.Server._Impstation.CosmicCult.Components;
 using Content.Shared._Impstation.CosmicCult.Components;
@@ -22,10 +21,25 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Damage;
 using Content.Server.AlertLevel;
 using Content.Server.Chat.Systems;
-using Content.Shared.SSDIndicator;
 using Content.Server.Pinpointer;
 using Content.Shared._Impstation.CosmicCult;
 using Robust.Shared.Utility;
+using Content.Shared.Roles;
+using Content.Server.Ghost;
+using Content.Server.Polymorph.Systems;
+using Robust.Shared.Map;
+using Content.Server.Station.Systems;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Random;
+using Content.Shared.Stunnable;
+using Content.Server.Doors.Systems;
+using Content.Server.Light.EntitySystems;
+using Content.Server.Flash;
+using Content.Shared.Camera;
+using Robust.Shared.Player;
+using Content.Shared.Weapons.Ranged.Systems;
+using Robust.Shared.Physics.Systems;
+using Robust.Shared.Containers;
 
 namespace Content.Server._Impstation.CosmicCult;
 
@@ -50,7 +64,24 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     [Dependency] private readonly AlertLevelSystem _alert = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!; // Goobstation
-
+    [Dependency] private readonly SharedRoleSystem _role = default!;
+    [Dependency] private readonly GhostSystem _ghost = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly PolymorphSystem _polymorph = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
+    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly DoorSystem _door = default!;
+    [Dependency] private readonly PoweredLightSystem _poweredLight = default!;
+    [Dependency] private readonly FlashSystem _flash = default!;
+    [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
+    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
+    [Dependency] private readonly SharedGunSystem _gun = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
     private const string MapPath = "Maps/_Impstation/Nonstations/cosmicvoid.yml";
     public int CultistCount;
 
@@ -75,6 +106,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         MakeSimpleExamineHandler<CosmicMarkStructureComponent>("cosmic-examine-text-structures");
         MakeSimpleExamineHandler<CosmicMarkBlankComponent>("cosmic-examine-text-abilityblank");
         MakeSimpleExamineHandler<CosmicMarkLapseComponent>("cosmic-examine-text-abilitylapse");
+        MakeSimpleExamineHandler<CosmicMarkEchoComponent>("cosmic-examine-text-malignecho");
         MakeSimpleExamineHandler<CosmicImposingComponent>("cosmic-examine-text-imposition");
         MakeSimpleExamineHandler<CosmicMarkGodComponent>("cosmic-examine-text-god");
 
@@ -109,7 +141,6 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
                 var mind = Comp<MindComponent>(mindEnt);
                 mind.PreventGhosting = false;
                 _mind.TransferTo(mindEnt, comp.OriginalBody);
-                EnsureComp<SSDIndicatorComponent>(comp.OriginalBody);
                 RemComp<CosmicMarkBlankComponent>(comp.OriginalBody);
                 _popup.PopupEntity(Loc.GetString("cosmicability-blank-return"), comp.OriginalBody, comp.OriginalBody);
                 QueueDel(uid);
@@ -186,7 +217,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
                 var cultistsPresent = CultistCount = _cosmicGlyphs.GatherCultists(uid, 5).Count; //Let's use the cultist collecting hashset from Cosmic Glyphs to see how many folks are around!
                 CultistCount = int.Clamp(cultistsPresent, 0, 10);
                 _popup.PopupCoordinates(Loc.GetString("cosmiccult-finale-cultist-count", ("COUNT", CultistCount)), Transform(uid).Coordinates);
-                var modifyTime = TimeSpan.FromSeconds(420 * 5 / (420 - 36 * CultistCount) - 5);
+                var modifyTime = TimeSpan.FromSeconds(360 * 5 / (360 - 25 * CultistCount) - 5);
                 comp.BufferTimer -= modifyTime;
             }
         }

@@ -5,11 +5,8 @@ using Content.Shared._Impstation.CosmicCult;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
 using Content.Shared.Maps;
-using Content.Server.Polymorph.Systems;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Map;
 using System.Numerics;
-using Content.Server.Station.Systems;
 using Content.Server.Station.Components;
 using Content.Server.Bible.Components;
 using Content.Shared.Humanoid;
@@ -20,41 +17,15 @@ using Content.Server.Antag.Components;
 using System.Collections.Immutable;
 using Content.Server._Impstation.CosmicCult.Components;
 using Content.Shared._Impstation.CosmicCult.Components.Examine;
-using Content.Shared.Stunnable;
-using Robust.Shared.Audio.Systems;
-using Content.Server.Doors.Systems;
 using Content.Server.Light.Components;
-using Content.Server.Light.EntitySystems;
-using Content.Shared.Camera;
-using Content.Server.Flash;
 using Content.Shared.Heretic;
-using Content.Shared.Weapons.Ranged.Systems;
-using Robust.Shared.Physics.Systems;
 using Robust.Shared.Physics.Events;
-using Content.Shared.SSDIndicator;
-using Robust.Shared.Containers;
 using Content.Shared.NPC;
 
 namespace Content.Server._Impstation.CosmicCult;
 
 public sealed partial class CosmicCultSystem
 {
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly DoorSystem _door = default!;
-    [Dependency] private readonly PoweredLightSystem _poweredLight = default!;
-    [Dependency] private readonly FlashSystem _flash = default!;
-    [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
-    [Dependency] private readonly SharedGunSystem _gun = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-
     public void SubscribeAbilities()
     {
         SubscribeLocalEvent<CosmicImposingComponent, BeforeDamageChangedEvent>(OnImpositionDamaged);
@@ -72,6 +43,14 @@ public sealed partial class CosmicCultSystem
         SubscribeLocalEvent<CosmicAstralBodyComponent, EventCosmicReturn>(OnCosmicReturn);
     }
 
+    private void MalignEcho(Entity<CosmicCultComponent> uid)
+    {
+        if (_cultRule.CurrentTier > 1 && !_random.Prob(0.5f))
+        {
+            Spawn("CosmicEchoVfx", Transform(uid).Coordinates);
+        }
+    }
+
     #region Force Ingress
     private void OnCosmicIngress(Entity<CosmicCultComponent> uid, ref EventCosmicIngress args)
     {
@@ -82,6 +61,7 @@ public sealed partial class CosmicCultSystem
         _door.StartOpening(args.Target);
         _audio.PlayPvs(uid.Comp.IngressSFX, uid);
         Spawn(uid.Comp.AbsorbVFX, Transform(args.Target).Coordinates);
+        MalignEcho(uid);
     }
 
     #endregion
@@ -91,6 +71,7 @@ public sealed partial class CosmicCultSystem
     {
         _audio.PlayPvs(uid.Comp.GlareSFX, uid);
         Spawn(uid.Comp.GlareVFX, Transform(uid).Coordinates);
+        MalignEcho(uid);
         args.Handled = true;
         var mapPos = _transform.GetMapCoordinates(args.Performer);
         var entities = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, 10);
@@ -139,6 +120,7 @@ public sealed partial class CosmicCultSystem
         var ent = Spawn("ProjectileCosmicNova", startPos);
         _gun.ShootProjectile(ent, delta, userVelocity, args.Performer, args.Performer, 5f);
         _audio.PlayPvs(uid.Comp.NovaCastSFX, uid, AudioParams.Default.WithVariation(0.1f));
+        MalignEcho(uid);
     }
 
     private void OnNovaCollide(Entity<CosmicAstralNovaComponent> uid, ref StartCollideEvent args)
@@ -162,6 +144,7 @@ public sealed partial class CosmicCultSystem
         Spawn(uid.Comp.ImpositionVFX, Transform(uid).Coordinates);
         args.Handled = true;
         _audio.PlayPvs(uid.Comp.ImpositionSFX, uid, AudioParams.Default.WithVariation(0.05f));
+        MalignEcho(uid);
     }
 
     private void OnImpositionDamaged(Entity<CosmicImposingComponent> uid, ref BeforeDamageChangedEvent args)
@@ -210,6 +193,19 @@ public sealed partial class CosmicCultSystem
         var entropyMote1 = _stack.Spawn(uid.Comp.CosmicSiphonQuantity, "Entropy", Transform(uid).Coordinates);
         _hands.TryForcePickupAnyHand(uid, entropyMote1);
         _cultRule.IncrementCultObjectiveEntropy(uid);
+
+        if (_cultRule.CurrentTier > 1 || uid.Comp.CosmicEmpowered)
+        {
+            var lights = GetEntityQuery<PoweredLightComponent>();
+            foreach (var light in _lookup.GetEntitiesInRange(uid, 10, LookupFlags.StaticSundries)) // static range of 10, because dhsdkh dflh.
+            {
+                if (!lights.HasComponent(light))
+                    continue;
+                if (!_random.Prob(0.25f))
+                    continue;
+                _ghost.DoGhostBooEvent(light);
+            }
+        }
     }
     #endregion
 
@@ -235,6 +231,7 @@ public sealed partial class CosmicCultSystem
         args.Handled = true;
         _doAfter.TryStartDoAfter(doargs);
         _popup.PopupEntity(Loc.GetString("cosmicability-blank-begin", ("target", Identity.Entity(uid, EntityManager))), uid, args.Target);
+
     }
 
     private void OnCosmicBlankDoAfter(Entity<CosmicCultComponent> uid, ref EventCosmicBlankDoAfter args)
@@ -252,8 +249,6 @@ public sealed partial class CosmicCultSystem
         }
 
         EnsureComp<CosmicMarkBlankComponent>(target);
-        RemComp<SSDIndicatorComponent>(target);
-
         _popup.PopupEntity(Loc.GetString("cosmicability-blank-success", ("target", Identity.Entity(target, EntityManager))), uid, uid);
         var tgtpos = Transform(target).Coordinates;
         var mindEnt = mindContainer.Mind.Value;
@@ -280,6 +275,7 @@ public sealed partial class CosmicCultSystem
         _popup.PopupEntity(Loc.GetString("cosmicability-blank-transfer"), mobUid, mobUid);
         _audio.PlayPvs(comp.BlankSFX, spawnTgt, AudioParams.Default.WithVolume(6f));
         Spawn(comp.BlankVFX, spawnTgt);
+        MalignEcho(uid);
     }
     #endregion
 
@@ -323,6 +319,7 @@ public sealed partial class CosmicCultSystem
                 _polymorph.PolymorphEntity(action.Target, "CosmicLapseMobHuman");
                 break;
         }
+        MalignEcho(uid);
     }
     #endregion
 
@@ -383,7 +380,6 @@ public sealed partial class CosmicCultSystem
         mind.PreventGhosting = false;
         QueueDel(uid);
         RemComp<CosmicMarkBlankComponent>(uid.Comp.OriginalBody);
-        EnsureComp<SSDIndicatorComponent>(uid.Comp.OriginalBody);
     }
     #endregion
 
