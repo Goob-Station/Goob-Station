@@ -2,6 +2,7 @@ using Content.Shared.Disease;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using System;
 using System.Diagnostics.CodeAnalysis;
 
@@ -9,8 +10,9 @@ namespace Content.Shared.Disease;
 
 public abstract partial class SharedDiseaseSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     private TimeSpan _accumulator = TimeSpan.FromSeconds(0);
 
@@ -221,8 +223,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
         }
 
         var checkEv = new DiseaseInfectAttemptEvent((disease, diseaseComp));
-        if (!force)
-            RaiseLocalEvent(uid, ref checkEv);
+        RaiseLocalEvent(uid, ref checkEv);
         // check immunity
         if (!force && (HasDisease(uid, diseaseComp.Genotype, comp) || !checkEv.CanInfect))
             return false;

@@ -36,19 +36,3 @@
     effects:
       DiseaseBehaviorCancer: 0.5
       DiseaseBehaviorFightImmunity: 1 # won't let you cure it
-
-- type: entity
-  id: DiseaseTurboCancer
-  parent: DiseaseBase
-  name: cancer
-  description: Deals lots of genetic damage to the infected. Better prepare the funeral.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Disease
-    infectionRate: 0.1
-    affectsDead: true
-    canGainImmunity: false
-    genotype: 42069
-    effects:
-      DiseaseBehaviorTurboCancer: 5
-      DiseaseBehaviorFightImmunity: 5

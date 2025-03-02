@@ -15,7 +15,7 @@ public sealed partial class DiseaseOnHitSystem : EntitySystem
         SubscribeLocalEvent<DiseaseOnHitComponent, MeleeHitEvent>(OnMeleeHit);
     }
 
-    public void OnMeleeHit(EntityUid uid, DiseaseOnHitComponent diseaseOnHit, ref MeleeHitEvent args)
+    private void OnMeleeHit(EntityUid uid, DiseaseOnHitComponent diseaseOnHit, ref MeleeHitEvent args)
     {
         if (!args.IsHit)
             return;

@@ -7,7 +7,6 @@ namespace Content.Shared.Disease;
 public partial class SharedDiseaseSystem
 {
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
 
     protected virtual void InitializeConditions()
     {

@@ -20,21 +20,6 @@
         Cellular: 0.5
 
 - type: entity
-  id: DiseaseBehaviorTurboCancer
-  parent: DiseaseBehaviorBase
-  name: turbocancer
-  description: Deals genetic and blunt damage over time. A short time.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: DiseaseEffect
-    complexity: 1000
-  - type: DiseaseDamageEffect
-    damage:
-      types:
-        Cellular: 10
-        Blunt: 10
-
-- type: entity
   id: DiseaseBehaviorPoison
   parent: DiseaseBehaviorBase
   name: poison
