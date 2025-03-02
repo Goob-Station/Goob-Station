@@ -108,7 +108,7 @@
     color: deepskyblue
   - type: ProjectileBatteryAmmoProvider
     proto: WatcherBoltIcewing
-    firecost: 50
+    fireCost: 50
   - type: MobThresholds
     thresholds:
       0: Alive
