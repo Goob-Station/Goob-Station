@@ -26,7 +26,7 @@ public sealed partial class MartialArtsSystem
         // Discombobulate
     }
 
-    #region  Methods
+    #region Generic Methods
     private void OnGrantCorporateJudo(Entity<GrantCorporateJudoComponent> ent, ref ClothingGotEquippedEvent args)
     {
         var user = args.Wearer;

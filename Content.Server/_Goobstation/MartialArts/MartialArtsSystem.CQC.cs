@@ -25,7 +25,7 @@ public sealed partial class MartialArtsSystem
         SubscribeLocalEvent<GrantCqcComponent, ExaminedEvent>(OnGrantCQCExamine);
     }
 
-    #region Methods
+    #region Generic Methods
     private void OnGrantCQCUse(Entity<GrantCqcComponent> ent, ref UseInHandEvent args)
     {
         if (ent.Comp.Used)
@@ -75,6 +75,9 @@ public sealed partial class MartialArtsSystem
         _hands.TryPickupAnyHand(ent, item.Value);
         _stamina.TakeStaminaDamage(args.Target, 10f);
     }
+    #endregion
+
+    #region Combo Methods
     private void OnCQCSlam(Entity<CanPerformComboComponent> ent, ref CQCSlamPerformedEvent args)
     {
         if (ent.Comp.CurrentTarget == null)
@@ -177,6 +180,5 @@ public sealed partial class MartialArtsSystem
         _stamina.TakeStaminaDamage(target, 70, source: ent);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg"), target);
     }
-
     #endregion
 }

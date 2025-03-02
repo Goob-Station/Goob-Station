@@ -45,6 +45,7 @@ public sealed partial class MartialArtsSystem : EntitySystem
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, CheckGrabOverridesEvent>(CheckGrabStageOverride);
     }
 
+    #region Helper Methods
     private void CheckGrabStageOverride<T>(EntityUid uid, T component, CheckGrabOverridesEvent args)
         where T : GrabStagesOverrideComponent
     {
@@ -54,27 +55,26 @@ public sealed partial class MartialArtsSystem : EntitySystem
 
     private bool CheckGrant(GrantMartialArtKnowledgeComponent comp, EntityUid user)
     {
-        if (HasComp<CanPerformComboComponent>(user))
+        if (!HasComp<CanPerformComboComponent>(user))
+            return true;
+
+        if (!TryComp<MartialArtsKnowledgeComponent>(user, out var cqc))
         {
-            if (!TryComp<MartialArtsKnowledgeComponent>(user, out var cqc))
-            {
-                _popupSystem.PopupEntity(Loc.GetString("cqc-fail-knowanother"), user, user);
-                return false;
-            }
-
-            if (cqc.Blocked)
-            {
-                _popupSystem.PopupEntity(Loc.GetString("cqc-success-unblocked"), user, user);
-                cqc.Blocked = false;
-                comp.Used = true;
-                return false;
-            }
-
-            _popupSystem.PopupEntity(Loc.GetString("cqc-fail-already"), user, user);
+            _popupSystem.PopupEntity(Loc.GetString("cqc-fail-knowanother"), user, user);
             return false;
         }
 
-        return true;
+        if (cqc.Blocked)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("cqc-success-unblocked"), user, user);
+            cqc.Blocked = false;
+            comp.Used = true;
+            return false;
+        }
+
+        _popupSystem.PopupEntity(Loc.GetString("cqc-fail-already"), user, user);
+        return false;
+
     }
 
     private void LoadCombos(ProtoId<ComboListPrototype> list, CanPerformComboComponent combo)
@@ -127,4 +127,5 @@ public sealed partial class MartialArtsSystem : EntitySystem
 
         return false;
     }
+    #endregion
 }

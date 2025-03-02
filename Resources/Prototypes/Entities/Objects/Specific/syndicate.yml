@@ -154,36 +154,3 @@
     balance:
       # Goobstation - Telecrystal rework
       Telecrystal: 999999
-
-- type: entity
-  parent: BaseItem
-  id: CQCManual
-  name: CQC manual
-  description: An interesting book.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/cqc_manual.rsi
-    layers:
-    - state: icon
-  - type: Item
-    size: Small
-  - type: StaticPrice
-    price: 3000
-  - type: GrantCqc
-
-- type: entity
-  parent: BaseItem
-  id: SleepingCarpScroll
-  name: mysterious scroll
-  description: A scroll filled with strange markings. It seems to be drawings of some sort of martial art.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Wizard/Objects/scroll.rsi
-    layers:
-    - state: scroll2
-  - type: Item
-    sprite: _Goobstation/Wizard/Objects/scroll.rsi
-    size: Small
-  - type: StaticPrice
-    price: 3000
-  - type: GrantSleepingCarp
