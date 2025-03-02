@@ -190,7 +190,7 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         while (endQuery.MoveNext(out var uid, out var ruleOnDeath, out var gameRule))
         {
             _gameTicker.EndGameRule(uid, gameRule);
-            _gameTicker.AddGameRule(ruleOnDeath.Rule);
+            _gameTicker.StartGameRule(ruleOnDeath.Rule);
         }
     }
 
