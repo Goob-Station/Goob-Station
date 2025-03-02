@@ -1,4 +1,150 @@
 Entries:
+- author: AstroDogeDX
+  changes:
+  - message: Removed Barratry from rotation. Ew.
+    type: Remove
+  id: 192
+  time: '2025-03-02T09:39:45.550176'
+- author: AstroDogeDX
+  changes:
+  - message: Added Elkridge to rotation, with necessary edits!
+    type: Add
+  id: 191
+  time: '2025-03-02T09:40:05.680582'
+- author: LampWithLegs
+  changes:
+  - message: Ambuzol Plus has its description updated to better reflect its ingredients!
+    type: Fix
+  id: 190
+  time: '2025-03-02T09:45:40.419091'
+- author: AstroDogeDX
+  changes:
+  - message: Tajara are now 'full' sized like Vulps. Felinids are the gremlin cats
+      still.
+    type: Tweak
+  id: 189
+  time: '2025-03-02T09:43:50.042592'
+- author: AstroDogeDX
+  changes:
+  - message: (re)added Felinids. Fight me, Durk!
+    type: Add
+  id: 188
+  time: '2025-03-02T09:43:24.302403'
+- author: AstroDogeDX
+  changes:
+  - message: Capped closet skeleton spawns to 2 per round. We ended up with so many!
+    type: Tweak
+  id: 187
+  time: '2025-03-02T09:42:48.593474'
+- author: AstroDogeDX
+  changes:
+  - message: Removed antag token purchasing. We're MRP.
+    type: Remove
+  id: 186
+  time: '2025-03-02T09:42:18.193039'
+- author: AstroDogeDX
+  changes:
+  - message: Disabled the bingle event. Weird goob stuff!
+    type: Remove
+  id: 185
+  time: '2025-03-02T09:41:59.142043'
+- author: AstroDogeDX
+  changes:
+  - message: (re)added the salvage shuttle and VGroid!
+    type: Add
+  id: 184
+  time: '2025-03-02T09:40:41.685800'
+- author: AstroDogeDX
+  changes:
+  - message: The fax machines on Atlas now are all named properly.
+    type: Fix
+  id: 183
+  time: '2025-03-02T09:54:08.356626'
+- author: AstroDogeDX
+  changes:
+  - message: Cluster has been modified a bit more to fit the salvage shuttle to the
+      Lavaland docking port.
+    type: Fix
+  id: 182
+  time: '2025-03-02T09:53:55.896822'
+- author: AstroDogeDX
+  changes:
+  - message: Cargo (and regular Shuttle), Salvage and Lavaland shuttle consoles have
+      distinct screens, making them easier to tell apart.
+    type: Tweak
+  id: 181
+  time: '2025-03-02T09:54:11.813011'
+- author: AstroDogeDX
+  changes:
+  - message: Adjusted the major six maps in rotation for Lavaland.
+    type: Fix
+  id: 180
+  time: '2025-03-02T09:40:26.795874'
+- author: AstroDogeDX
+  changes:
+  - message: Theobromine is a myth; all products are now certified animal safe.
+    type: Tweak
+  id: 179
+  time: '2025-03-02T09:52:33.663076'
+- author: AstroDogeDX
+  changes:
+  - message: Cloaks and some other outer clothing can now toggle their parts (hoods,
+      helmets) over hats like the rest!
+    type: Fix
+  id: 178
+  time: '2025-03-02T09:51:09.492438'
+- author: AstroDogeDX
+  changes:
+  - message: Vox Air Alarms no longer kill your game.
+    type: Fix
+  id: 177
+  time: '2025-03-02T09:50:36.476028'
+- author: Wolfio & MillieAmp
+  changes:
+  - message: Unique plushies of various Shiba regulars have been added!
+    type: Add
+  id: 176
+  time: '2025-03-02T09:50:06.356047'
+- author: Wolfio & TazerPones
+  changes:
+  - message: More lobby art has been added!
+    type: Add
+  id: 175
+  time: '2025-03-02T09:49:39.814418'
+- author: AstroDogeDX
+  changes:
+  - message: Admin IDs (and some others) that are supposed to have UNIVERSAL access
+      now ACTUALLY have UNIVERSAL access.
+    type: Fix
+  id: 174
+  time: '2025-03-02T09:48:38.357267'
+- author: AstroDogeDX
+  changes:
+  - message: Various equipment related to Lavaland has been renamed to make it clearer
+      that they're Lavaland related.
+    type: Tweak
+  id: 173
+  time: '2025-03-02T09:48:13.743016'
+- author: AstroDogeDX
+  changes:
+  - message: The "Salvage Locator" has been added to the salvage shuttle, replacing
+      the magnet.
+    type: Add
+  id: 172
+  time: '2025-03-02T09:47:10.068693'
+- author: AstroDogeDX
+  changes:
+  - message: The "Salvage Magnet" has been removed from all stations.
+    type: Remove
+  id: 171
+  time: '2025-03-02T09:46:53.650893'
+- author: AstroDogeDX
+  changes:
+  - message: The lavaland transport shuttle has an airlock on the opposite side; a
+      lazy fix to dock the salvage shuttle to the station if it's parked there.
+    type: Tweak
+  id: 170
+  time: '2025-03-02T09:46:16.507434'
 - author: bodenpflanze
   changes:
   - message: Cluster has had substantial changes to medical and atmos - surgery is
