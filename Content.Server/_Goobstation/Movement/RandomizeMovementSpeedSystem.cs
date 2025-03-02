@@ -5,6 +5,9 @@ using Content.Shared.Movement.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
+// This isn't actually functioning yet, but it DOES properly add and remove itself.
+// Once one of the smart people of the ivory tower help me I can get this working probably.
+
 
 public sealed partial class RandomizeMovementSpeedSystem : EntitySystem
 {
@@ -29,9 +32,6 @@ public sealed partial class RandomizeMovementSpeedSystem : EntitySystem
     {
         var speedModifier = _random.NextFloat(comp.Min, comp.Max);
         var interval = comp.Interval;
-        Debug.WriteLine(speedModifier);
-        // Debugging
-        // Not finished, trying to get the component to actually apply first.
 
     }
 

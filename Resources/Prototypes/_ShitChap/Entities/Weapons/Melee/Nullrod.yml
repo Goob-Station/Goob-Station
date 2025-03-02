@@ -81,7 +81,7 @@
     slots:
     - back
   - type: Sprite
-    sprite: Objects/Weapons/Melee/claymore.rsi
+    sprite: Objects/Weapons/Melee/claymore.rsi # Todo - Give this proper wielded sprites.
   - type: AmmoCounter
   - type: UseDelayOnShoot
   - type: UseDelay
@@ -106,6 +106,13 @@
   - type: Tag
     tags:
     - HolyClaymore
+  - type: Sharp
+  - type: Execution # OFF WITH HIS HEAD!!
+    doAfterDuration: 3.0
+  - type: Scalpel
+    speed: 0.25
+  - type: BoneSaw # You can't tell me this isn't hilarious.
+    speed: 0.6 # Chaplain preforming surgery with a COMICALLY LARGE CLAYMORE
 
 - type: entity
   name: rosary
@@ -199,7 +206,7 @@
         Holy: 50 # 50 looks like it's a big number but unless you have unholy equipment, It's not.
     soundHit:
       path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
-  - type: IgniteOnMeleeHit
+  - type: IgniteOnMeleeHit # emphasis on FLAMING GIFT!!
     fireStacks: 0.25
   - type: InjectOnHit
     reagents:
@@ -212,7 +219,7 @@
     reflectProb: 0.7
     reflects:
       - Magic
-  - type: Cautery # Shitmed
+  - type: Cautery
     speed: 0.3
   - type: Tool
     qualities:
@@ -229,6 +236,8 @@
       types:
         Burn: 25
         Holy: 15
+  - type: Execution # It's not sharp per se, but who's against executing heretics with a giant flaming hand from god?
+    doAfterDuration: 4.0
 
 - type: entity
   parent: BaseNullrod # Todo: The actual functionality to speed up and slow down isn't done yet buut yknow.
@@ -236,6 +245,11 @@
   name: arrythmic knife
   description: They say fear is the true mind killer, but stabbing them in the head works too. Slows you down and speeds you up randomly.
   components:
+  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
+    DamageOnUntrainedUse:
+      types:
+        Slash: 15
+        Holy: 15
   - type: Item
     size: Huge
     sprite: _ShitChap/Objects/Weapons/Melee/arrythmic.rsi
@@ -264,13 +278,15 @@
   - type: Tag
     tags:
     - ArrythmicKnife
-  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
-    DamageOnUntrainedUse:
-      types:
-        Slash: 15
-        Holy: 15
   - type: RandomizeMovementspeed
     Min: 0.20
     Max: 1.5
     Interval: 3
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 4.0
+  - type: Scalpel # Why? Because it's funny. That's why.
+    speed: 0.5
+  - type: BoneSaw
+    speed: 0.5
 
