@@ -66,6 +66,6 @@
   defaultIsAnnounce: true
   forsedAnnounce: true
   announcementText: shuttle-send-denial-announcement
-  audioPath: /Audio/FishStation/Announcements/ertno.ogg
+  audioPath: /Audio/_Reserve/announcement/ertno.ogg
   isLoadGrid: false
   hintText: send-shuttle-hint-type-ertdenial

@@ -33,7 +33,7 @@ public sealed class SendShuttlePrototype : IPrototype
     public bool IsPlayAudio = true;
 
     [DataField]
-    public string AudioPath = "/Audio/_Reserve/Announcements/ertyes.ogg";
+    public string AudioPath = "/Audio/_Reserve/announcement/ertyes.ogg";
 
     [DataField]
     public int Volume = 0;
