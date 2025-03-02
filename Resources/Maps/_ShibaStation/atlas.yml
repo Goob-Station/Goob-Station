@@ -4042,7 +4042,7 @@ entities:
       pos: -24.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5965.387
+      secondsUntilStateChange: -6075.117
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -25779,6 +25779,8 @@ entities:
     - type: Transform
       pos: 42.5,1.5
       parent: 2
+    - type: FaxMachine
+      name: Bridge
   - uid: 3939
     components:
     - type: Transform
@@ -25798,6 +25800,8 @@ entities:
     - type: Transform
       pos: 1.5,22.5
       parent: 2
+    - type: FaxMachine
+      name: HoS's Office
   - uid: 3942
     components:
     - type: Transform
@@ -25817,6 +25821,8 @@ entities:
     - type: Transform
       pos: 9.5,11.5
       parent: 2
+    - type: FaxMachine
+      name: Security
 - proto: FaxMachineCaptain
   entities:
   - uid: 3945
