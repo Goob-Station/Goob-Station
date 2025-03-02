@@ -1,4 +1,4 @@
-/* namespace Content.Server._Goobstation.Movement;
+namespace Content.Server._Goobstation.Movement;
 
 [RegisterComponent]
 public sealed partial class RandomizeMovementspeedComponent : Component
@@ -7,20 +7,19 @@ public sealed partial class RandomizeMovementspeedComponent : Component
     /// How low the movement speed can drop.
     /// </summary>
 
-    [DataField("lowerBound", required: true)]
-    public float LowerBound = default!;
+    [DataField("Min", required: true)]
+    public float Min;
 
     /// <summary>
     /// How high the movement speed can go
     /// </summary>
 
-    [DataField("upperBound", required: true)]
-    public float UpperBound = default!;
+    [DataField("Max", required: true)]
+    public float Max;
 
     /// <summary>
     /// How long between each randomization.
     /// </summary>
-    [DataField("interval", required: true)]
-    public float Interval = default!;
+    [DataField("Interval", required: true)]
+    public float? Interval;
 }
-*/

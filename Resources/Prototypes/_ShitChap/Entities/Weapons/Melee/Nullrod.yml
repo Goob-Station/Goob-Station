@@ -269,3 +269,8 @@
       types:
         Slash: 15
         Holy: 15
+  - type: RandomizeMovementspeed
+    Min: 0.20
+    Max: 1.5
+    Interval: 3
+

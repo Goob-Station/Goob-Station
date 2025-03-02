@@ -1,4 +1,3 @@
-/*
 using Content.Server._Goobstation.Movement;
 using Content.Shared.Hands;
 using Content.Shared.Movement.Systems;
@@ -20,21 +19,22 @@ public sealed partial class RandomizeMovementSpeedSystem : EntitySystem
 
     public void OnEquipped(EntityUid uid, RandomizeMovementspeedComponent comp, GotEquippedHandEvent args)
     {
+        // When the item is equipped, add the component to the player.
+        EnsureComp<RandomizeMovementspeedComponent>(uid);
+    }
 
-        var initialModifier = _random.NextFloat(RandomizeMovementspeedComponent.LowerBound, RandomizeMovementspeedComponent.UpperBound);
-        // Something about being unable to access a non-static field in a static context
-        // var walkModifier =
-        // var sprintModifier =
-        // The idea here is get two floats from the component, one lower and one higher. Generate number between those two numbers.
-        // Get the movement speed of the user, multiply by that number, then apply it.
-        // Somewhere in here it's supposed to take an interval to randomize every X amount of seconds.
+    public void OnInterval(EntityUid uid, RandomizeMovementspeedComponent comp, GotEquippedHandEvent args)
+    {
+        var speedModifier = _random.NextFloat(comp.Min, comp.Max);
+        var interval = comp.Interval;
     }
 
     public void OnUnequipped(EntityUid uid, RandomizeMovementspeedComponent comp, GotUnequippedHandEvent args)
     {
-        // Delete component somehow
+        // Remove component when the item is unequipped.
+        RemComp<RandomizeMovementspeedComponent>(uid);
+        // Set to handled to prevent fuckery.
         args.Handled = true;
     }
 
 }
-*/
