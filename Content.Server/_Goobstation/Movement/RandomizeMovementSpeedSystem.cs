@@ -13,26 +13,27 @@ public sealed partial class RandomizeMovementSpeedSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<RandomizeMovementspeedComponent, GotEquippedHandEvent>(OnEquipped);
+        SubscribeLocalEvent<RandomizeMovementspeedComponent, GotEquippedHandEvent>(OnItemInHand);
         SubscribeLocalEvent<RandomizeMovementspeedComponent, GotUnequippedHandEvent>(OnUnequipped);
     }
 
-    public void OnEquipped(EntityUid uid, RandomizeMovementspeedComponent comp, GotEquippedHandEvent args)
+    public void OnItemInHand(EntityUid uid, RandomizeMovementspeedComponent comp, GotEquippedHandEvent args)
     {
         // When the item is equipped, add the component to the player.
-        EnsureComp<RandomizeMovementspeedComponent>(uid);
+        EnsureComp<RandomizeMovementspeedComponent>(args.User);
     }
 
     public void OnInterval(EntityUid uid, RandomizeMovementspeedComponent comp, GotEquippedHandEvent args)
     {
         var speedModifier = _random.NextFloat(comp.Min, comp.Max);
         var interval = comp.Interval;
+        // Not finished, trying to get the component to actually apply first.
     }
 
     public void OnUnequipped(EntityUid uid, RandomizeMovementspeedComponent comp, GotUnequippedHandEvent args)
     {
         // Remove component when the item is unequipped.
-        RemComp<RandomizeMovementspeedComponent>(uid);
+        RemComp<RandomizeMovementspeedComponent>(args.User);
         // Set to handled to prevent fuckery.
         args.Handled = true;
     }
