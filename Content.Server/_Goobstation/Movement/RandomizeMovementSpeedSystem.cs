@@ -1,5 +1,6 @@
 using Content.Server._Goobstation.Movement;
 using Content.Shared.Hands;
+using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -20,18 +21,18 @@ public sealed partial class RandomizeMovementSpeedSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<RandomizeMovementspeedComponent, GotEquippedHandEvent>(OnItemInHand);
-        SubscribeLocalEvent<RandomizeMovementspeedComponent, GotUnequippedHandEvent>(OnUnequipped);
+        SubscribeLocalEvent<RandomizeMovementspeedComponent, EquippedHandEvent>(OnItemInHand);
+        SubscribeLocalEvent<RandomizeMovementspeedComponent, UnequippedHandEvent>(OnUnequipped);
     }
 
-    public void OnItemInHand(EntityUid uid, RandomizeMovementspeedComponent comp, GotEquippedHandEvent args)
+    public void OnItemInHand(EntityUid uid, RandomizeMovementspeedComponent comp, EquippedHandEvent args)
     {
         // When the item is equipped, add the component to the player.
         if (args.User != null)
             EnsureComp<RandomizeMovementspeedComponent>(args.User);
     }
 
-    public void Update(float frameTime, EntityUid uid, RandomizeMovementspeedComponent comp, ref HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
+    public void Update(float frameTime, EntityUid uid, RandomizeMovementspeedComponent comp, EquippedHandEvent args)
     {
 
         base.Update(frameTime);
@@ -40,14 +41,11 @@ public sealed partial class RandomizeMovementSpeedSystem : EntitySystem
             return;
 
         var modifier = _random.NextFloat(comp.Min, comp.Max);
-
-        args.Args.ModifySpeed(modifier, modifier);
-
         _nextExecutionTime = _timing.CurTime + ExecutionInterval;
 
     }
 
-    public void OnUnequipped(EntityUid uid, RandomizeMovementspeedComponent comp, GotUnequippedHandEvent args)
+    public void OnUnequipped(EntityUid uid, RandomizeMovementspeedComponent comp, UnequippedHandEvent args)
     {
         // Remove component when the item is unequipped.
         RemComp<RandomizeMovementspeedComponent>(args.User);
