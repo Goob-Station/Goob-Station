@@ -1,6 +1,6 @@
 - type: randomHumanoidSettings
   id: CBURNUnitLeaderReserve
-  speciesWhitelist: [Human, Moth]
+  speciesBlacklist: [ Arachnid, Diona, Dwarf, Reptilian, SlimePerson, Vulpkanin, Harpy, Rodentia, Tajaran, Oni, Vox, Yowie, Resomi, IPC]
   randomizeName: false
   components:
     - type: GhostRole
