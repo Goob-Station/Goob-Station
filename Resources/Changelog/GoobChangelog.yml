@@ -5663,3 +5663,9 @@ Entries:
       message: Mice now deal one pierce damage.
   id: 651
   time: '2025-03-02T11:58:57.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added mousebites.
+  id: 652
+  time: '2025-03-02T13:01:00.0000000+00:00'
