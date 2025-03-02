@@ -402,7 +402,7 @@ ActionVehicleHorn: null
 MobTaxiBot: null
 # MobSupplyBot: null
 SpawnVehicleMotobike: null
-SpawnVehicleATV: null
+#SpawnVehicleATV: null
 #SpawnVehicleSecway: null Goobstation - Re-add vehicles
 #SpawnVehicleJanicart: null Goobstation - Re-add vehicles
 #VehicleJanicart: null Goobstation - Re-add vehicles
