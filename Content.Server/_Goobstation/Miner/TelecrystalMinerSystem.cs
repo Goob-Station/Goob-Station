@@ -4,8 +4,6 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 using Content.Server.Station.Systems;
 using Content.Server.Power.EntitySystems;
-using Content.Shared.Examine;
-using Robust.Server.Containers;
 using Robust.Shared.Containers;
 using Content.Shared.Stacks;
 using Content.Server.Stack;
