@@ -143,8 +143,9 @@
     updateInterval: 0.25
     metabolizerTypes: [ rat ]
     groups:
-    - id: Medicine
-    - id: Poisona
+    - id: Drink
+    - id: Food
+
 
 
 - type: entity
