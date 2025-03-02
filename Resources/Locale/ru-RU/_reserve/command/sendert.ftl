@@ -25,9 +25,7 @@ shuttle-send-janitor-announcement = Внимание! Мы получили за
 
 # Others
 # type: cbrn
-shuttle-send-cbrn-announcement = Внимание! Мы получили запрос на отряд быстрого реагирования. Запрос одобрен. Отряд будет подготовлен и отправлен в кротчайшие сроки.
-# type: deathsquad
-shuttle-send-deathsquad-announcement = Последняя команда Центральное командование. Просьба экипаж станции оставаться на своих местах. Ожидайте шаттл эвакуации.
+shuttle-send-cbrn-announcement = Внимание! Мы получили запрос на отряд РХБЗЗ. Запрос одобрен. Отряд будет подготовлен и отправлен в кротчайшие сроки.
 # type: denial
 shuttle-send-denial-announcement = Внимание! Мы получили запрос на отряд быстрого реагирования. Запрос отклонён. Попытайтесь решить проблемы своими силами.
 
@@ -41,7 +39,6 @@ send-shuttle-hint-type-ertengineer = Отряд инженерного ОБР
 send-shuttle-hint-type-ertmedical = Отряд медицинского ОБР
 send-shuttle-hint-type-ertjanitor = Отряд уборочного ОБР
 send-shuttle-hint-type-cbrn = Отряд РХБЗЗ
-send-shuttle-hint-type-ertdeathsquad = Отряд Эскадрона Смерти
 send-shuttle-hint-type-ertdenial = Отказ в вызове ОБР
 
 

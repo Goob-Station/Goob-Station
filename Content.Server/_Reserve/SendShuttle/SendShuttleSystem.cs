@@ -25,16 +25,7 @@ public sealed class SendShuttle : EntitySystem
     {
         var protos = IoCManager.Resolve<IPrototypeManager>();
         var shuttleProto = protos.Index<SendShuttlePrototype>(shuttletype);
-
-        bool playAnnounce;
-        if (shuttleProto.ForsedAnnounce)
-        {
-            playAnnounce = shuttleProto.DefaultIsAnnounce;
-        }
-        else
-        {
-            playAnnounce = playAnnonce;
-        }
+        var playAnnounce = shuttleProto.ForsedAnnounce ? shuttleProto.DefaultIsAnnounce : playAnnonce;
 
 
         if (shuttleProto.IsLoadGrid)
@@ -91,15 +82,11 @@ public sealed class SendShuttle : EntitySystem
     private void SetAlertLevel(SendShuttlePrototype proto)
     {
         var stationUids = _system.GetEntitySystem<StationSystem>().GetStations();
-        if (stationUids == null)
-            return;
 
         foreach (var stationUid in stationUids)
         {
-            _system.GetEntitySystem<AlertLevelSystem>().SetLevel(stationUid, proto.AlertLevelCode, false, true,
-                                                                 true, true);
+            _system.GetEntitySystem<AlertLevelSystem>().SetLevel(stationUid, proto.AlertLevelCode,
+                false, true, true, true);
         }
-
-        return;
     }
 }

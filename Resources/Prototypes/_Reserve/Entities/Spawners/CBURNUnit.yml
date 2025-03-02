@@ -1,11 +1,13 @@
 - type: randomHumanoidSettings
   id: CBURNUnitReserve
-  speciesBlacklist: [ Arachnid, Diona, Dwarf, Reptilian, SlimePerson, Vulpkanin, Harpy, Rodentia, Tajaran]
+  speciesBlacklist: [ Arachnid, Diona, Dwarf, Reptilian, SlimePerson, Vulpkanin, Harpy, Rodentia, Tajaran, Oni, Vox, Yowie, Resomi, IPC]
   randomizeName: false
   components:
     - type: GhostRole
       name: ghost-role-information-cburnunitReserve-name
       description: ghost-role-information-cburnunitReserve-description
+      raffle:
+        settings: short
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ CBURNGear ]

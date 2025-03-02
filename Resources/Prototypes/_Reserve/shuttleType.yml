@@ -52,16 +52,6 @@
   hintText: send-shuttle-hint-type-cbrn
 
 - type: shuttleType
-  id: DeathSquad
-  announceColor: white
-  announcementText: shuttle-send-deathsquad-announcement
-  isPlayAudio: false
-  gridPath: /Maps/Shuttles/ERT/small-deathsquad.yml
-  isSetAlshuttleLevel: true
-  alertLevelCode: epsilon
-  hintText: send-shuttle-hint-type-deathsquad
-
-- type: shuttleType
   id: ERTDenial
   defaultIsAnnounce: true
   forsedAnnounce: true

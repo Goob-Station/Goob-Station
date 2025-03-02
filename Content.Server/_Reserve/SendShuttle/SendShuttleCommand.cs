@@ -24,7 +24,7 @@ public sealed class SendShuttleCommand : IConsoleCommand
         bool playAnnounce;
         var player = shell.Player;
 
-        if (player?.AttachedEntity == null) // Are we the server's console?
+        if (player?.AttachedEntity == null)
         {
             shell.WriteLine(Loc.GetString("shell-only-players-can-run-this-command"));
             return;
@@ -55,7 +55,7 @@ public sealed class SendShuttleCommand : IConsoleCommand
 
         _system.GetEntitySystem<SendShuttle>().SpawnShuttle(args[0], playAnnounce);
 
-        _adminLogger.Add(LogType.Action, LogImpact.High, $"{player} send shuttle. Type: {args[0]}");
+        _adminLogger.Add(LogType.Action, LogImpact.High, $"{player} отправил ОБР. Тип: {args[0]}");
     }
 
     public CompletionResult GetCompletion(IConsoleShell shell, string[] args)

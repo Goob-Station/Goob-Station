@@ -4,11 +4,6 @@ ghost-role-information-cburnunitleaderReserve-description = Лидер отря�
 ghost-role-information-cburnunitReserve-name = член отряда РХБЗЗ
 ghost-role-information-cburnunitReserve-description = Выполняйте приказы вашего лидера!
 
-
-ghost-role-information-deadsquadReserve-name = член отряда эскадрона смерти
-ghost-role-information-deadsquadReserve-description = Ождайте приказа от ЦК...
-
-
 ghost-role-information-ertleaderReserve-name = лидер ОБР
 ghost-role-information-ertleaderReserve-description = Лидер отряда быстрого реагирования. Повенуется приказам с ЦК.
 
@@ -21,5 +16,5 @@ ghost-role-information-ertjanitorReserve-description = Уборщик отряд
 ghost-role-information-ertmedicalReserve-name = медик ОБР
 ghost-role-information-ertmedicalReserve-description = Медик отряда быстрого реагирования. Ваша первостепенная задача - выполнение приказов вашего лидера!
 
-ghost-role-information-ertsecurityReserve-name = СБ ОБР
-ghost-role-information-ertsecurityReserve-description = Служба безопасности отряда быстрого реагирования. Ваша первостепенная задача - выполнение приказов вашего лидера!
+ghost-role-information-ertsecurityReserve-name = офицер ОБР
+ghost-role-information-ertsecurityReserve-description = Офицер Охраны отряда быстрого реагирования. Ваша первостепенная задача - выполнение приказов вашего лидера!
