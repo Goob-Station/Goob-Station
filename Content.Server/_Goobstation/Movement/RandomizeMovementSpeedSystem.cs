@@ -10,7 +10,6 @@ public sealed partial class RandomizeMovementSpeedSystem : EntitySystem
 {
     [Dependency] private readonly MovementSpeedModifierSystem _speedModifierSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly Timer _timing = default!;
 
     public override void Initialize()
     {
