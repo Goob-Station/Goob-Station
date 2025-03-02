@@ -1,3 +1,5 @@
+using Content.Shared.Inventory;
+using Robust.Shared.Prototypes;
 using System;
 using System.Runtime.CompilerServices;
 
@@ -153,4 +155,30 @@ public sealed class GetImmunityEvent : EntityEventArgs
 {
     public float ImmunityGainRate = 0f;
     public float ImmunityStrength = 0f;
+}
+
+/// <summary>
+/// This event is raised on an entity from which a disease is trying to spread just before it attempts to do so.
+/// </summary>
+[ByRefEvent]
+public record struct DiseaseOutgoingSpreadAttemptEvent(float Power, float Chance, ProtoId<DiseaseSpreadPrototype> Type) : IInventoryRelayEvent
+{
+    public float Power = Power;
+    public float Chance = Chance;
+    public readonly ProtoId<DiseaseSpreadPrototype> Type = Type;
+
+    public SlotFlags TargetSlots => SlotFlags.WITHOUT_POCKET;
+}
+
+/// <summary>
+/// This event is raised on an entity to which a disease is trying to spread just before it attempts to do so.
+/// </summary>
+[ByRefEvent]
+public record struct DiseaseIncomingSpreadAttemptEvent(float Power, float Chance, ProtoId<DiseaseSpreadPrototype> Type) : IInventoryRelayEvent
+{
+    public float Power = Power;
+    public float Chance = Chance;
+    public readonly ProtoId<DiseaseSpreadPrototype> Type = Type;
+
+    public SlotFlags TargetSlots => SlotFlags.WITHOUT_POCKET;
 }

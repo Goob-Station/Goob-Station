@@ -66,6 +66,7 @@ using Content.Shared.Climbing.Events;
 using Content.Shared.Contraband;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
+using Content.Shared.Disease;
 using Content.Shared.Electrocution;
 using Content.Shared.Emoting;
 using Content.Shared.Explosion;
@@ -132,6 +133,9 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, FlashAttemptEvent>(RefRelayInventoryEvent);
         //SubscribeLocalEvent<InventoryComponent, WieldAttemptEvent>(RefRelayInventoryEvent);
         //SubscribeLocalEvent<InventoryComponent, UnwieldAttemptEvent>(RefRelayInventoryEvent);
+
+        SubscribeLocalEvent<InventoryComponent, DiseaseOutgoingSpreadAttemptEvent>(RefRelayInventoryEvent); // Goobstation
+        SubscribeLocalEvent<InventoryComponent, DiseaseIncomingSpreadAttemptEvent>(RefRelayInventoryEvent); // Goobstation
 
         // Eye/vision events
         SubscribeLocalEvent<InventoryComponent, CanSeeAttemptEvent>(RelayInventoryEvent);

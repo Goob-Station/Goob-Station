@@ -1,3 +1,77 @@
+- type: diseaseSpread
+  id: DebugSpread
+  name: Debug
+
+- type: entity
+  id: DiseaseBehaviorTurboCancer
+  parent: DiseaseBehaviorBase
+  name: turbocancer
+  description: Deals genetic and blunt damage over time. A short time.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: DiseaseEffect
+    complexity: 1000
+  - type: DiseaseDamageEffect
+    damage:
+      types:
+        Cellular: 10
+        Blunt: 10
+
+- type: entity
+  id: DiseaseBehaviorTurboCancer
+  parent: DiseaseBehaviorBase
+  name: turbocancer
+  description: Deals genetic and blunt damage over time. A short time.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: DiseaseEffect
+    complexity: 1000
+  - type: DiseaseDamageEffect
+    damage:
+      types:
+        Cellular: 10
+        Blunt: 10
+
+- type: entity
+  id: DiseaseBehaviorSpreadDebug
+  parent: DiseaseBehaviorBase
+  name: turbocancer
+  description: Deals genetic and blunt damage over time. A short time.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: DiseaseEffect
+    complexity: 1000
+  - type: DiseasePeriodicCondition
+    delayMin: 1
+    delayMax: 2
+  - type: DiseaseVomitEffect
+    severityScale: false
+    progressScale: false
+    timeScale: false
+  - type: DiseaseSpreadEffect
+    spreadType: DebugSpread
+    arc: 180
+    range: 4
+    infectionChance: 0.5
+    timeScale: false
+
+- type: entity
+  id: DiseaseTurboCancer
+  parent: DiseaseBase
+  name: cancer
+  description: Deals lots of genetic damage to the infected. Better prepare the funeral.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Disease
+    infectionRate: 0.1
+    affectsDead: true
+    canGainImmunity: false
+    genotype: 42069
+    effects:
+      DiseaseBehaviorTurboCancer: 5
+      DiseaseBehaviorFightImmunity: 5
+      DiseaseBehaviorSpreadDebug: 5
+
 - type: entity
   id: MeleeDebugInfectTurboCancer
   parent: MeleeDebugGib

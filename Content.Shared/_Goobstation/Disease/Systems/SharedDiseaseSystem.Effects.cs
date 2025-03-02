@@ -1,5 +1,8 @@
 using Content.Shared.Damage;
+using Content.Shared.Weapons.Melee;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared.Disease;
@@ -7,11 +10,13 @@ namespace Content.Shared.Disease;
 public partial class SharedDiseaseSystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     protected virtual void InitializeEffects()
     {
         SubscribeLocalEvent<DiseaseDamageEffectComponent, DiseaseEffectEvent>(OnDamageEffect);
-        SubscribeLocalEvent<DiseaseSpredEffectComponent, DiseaseEffectEvent>(OnDiseaseSpreadEffect);
+        SubscribeLocalEvent<DiseaseSpreadEffectComponent, DiseaseEffectEvent>(OnDiseaseSpreadEffect);
         SubscribeLocalEvent<DiseaseFightImmunityEffectComponent, DiseaseEffectEvent>(OnFightImmunityEffect);
     }
 
@@ -22,7 +27,41 @@ public partial class SharedDiseaseSystem
 
     private void OnDiseaseSpreadEffect(EntityUid uid, DiseaseSpreadEffectComponent effect, DiseaseEffectEvent args)
     {
-        ChangeImmunityProgress(args.Disease.Owner, effect.Amount * GetScale(args, effect), args.Disease.Comp);
+        // for gear that makes you less(/more?) infective to others
+        var ev = new DiseaseOutgoingSpreadAttemptEvent(
+            effect.InfectionPower,
+            effect.InfectionChance,
+            effect.SpreadType
+        );
+        RaiseLocalEvent(args.Ent, ref ev);
+
+        Log.Info($"Trying spread for {ToPrettyString(args.Ent)}");
+        if (ev.Power < 0 || ev.Chance < 0)
+            return;
+
+        var xform = Transform(args.Ent);
+        var (selfPos, selfRot) = _transform.GetWorldPositionRotation(xform);
+
+        var targets = _melee.ArcRayCast(selfPos, selfRot, effect.Arc, effect.Range, xform.MapID, args.Ent);
+
+        foreach (var target in targets)
+        {
+            Log.Info($"Spreading to {ToPrettyString(target)}");
+            // for disease (un)protection gear
+            var evIncoming = new DiseaseIncomingSpreadAttemptEvent(
+                ev.Power,
+                ev.Chance,
+                effect.SpreadType
+            );
+            RaiseLocalEvent(target, ref evIncoming);
+            var power = evIncoming.Power;
+            var chance = evIncoming.Chance;
+            if (power < 0 || chance < 0)
+                continue;
+
+            if (_random.Prob(power * chance * GetScale(args, effect)))
+                TryInfect(target, args.Disease.Owner);
+        }
     }
 
     private void OnFightImmunityEffect(EntityUid uid, DiseaseFightImmunityEffectComponent effect, DiseaseEffectEvent args)
