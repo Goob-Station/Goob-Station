@@ -1,1 +1,1 @@
-nullrod-untrained-usage-popup = The usually cold object flashes with a searing heat.
+nullrod-untrained-usage-popup = The relic flashes with a searing heat.
