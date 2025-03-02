@@ -17,9 +17,4 @@ public sealed partial class RandomizeMovementspeedComponent : Component
     [DataField("Max", required: true)]
     public float Max { get; set; } = 1;
 
-    /// <summary>
-    /// How long between each randomization.
-    /// </summary>
-    [DataField("Interval", required: true)]
-    public float Interval { get; set; } = 1;
 }
