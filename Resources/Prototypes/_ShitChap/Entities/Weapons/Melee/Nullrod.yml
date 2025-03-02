@@ -1,7 +1,6 @@
 - type: entity # Making a base item with allow for creating more variants easier. Probably.
   parent: BaseItem
   id: BaseNullrod
-  abstract: true
   components:
   - type: Sprite
     sprite: _ShitChap/Objects/Weapons/Melee/nullrod.rsi
@@ -28,16 +27,6 @@
       types:
         Heat: 15
         Holy: 25
-  - type: Tag
-    tags:
-    - Nullrod
-
-- type: entity
-  name: Null Rod
-  parent: BaseNullrod
-  id: Nullrod
-  description: The old classic. Does nothing special, really.
-  components:
   - type: Tag
     tags:
     - Nullrod
