@@ -1,4 +1,4 @@
-namespace Content.Server._Goobstation.Movement;
+/* namespace Content.Server._Goobstation.Movement;
 
 [RegisterComponent]
 public sealed partial class RandomizeMovementspeedComponent : Component
@@ -23,3 +23,4 @@ public sealed partial class RandomizeMovementspeedComponent : Component
     [DataField("interval", required: true)]
     public float Interval = default!;
 }
+*/
