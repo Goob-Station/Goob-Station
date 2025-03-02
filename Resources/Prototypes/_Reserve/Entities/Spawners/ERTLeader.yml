@@ -1,0 +1,47 @@
+- type: randomHumanoidSettings
+  id: ERTLeaderReserve
+  speciesBlacklist: [ Arachnid, Diona, Dwarf, Reptilian, SlimePerson, Vulpkanin, Harpy, Rodentia, Tajaran, Oni, Vox, Yowie, Resomi, IPC]
+  randomizeName: false
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ertleaderReserve-name
+      description: ghost-role-information-ertleaderReserve-description
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 72000
+      raffle:
+        settings: short
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ ERTLeaderEchoGear ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitaryLeader
+      - NamesLastMilitary
+    - type: RandomHumanoidAppearance
+      randomizeName: false
+
+- type: entity
+  id: RandomHumanoidSpawnerERTLeaderReserve
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: ertleadereva
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitaryLeader
+      - NamesLastMilitary
+    - type: RandomHumanoidSpawner
+      settings: ERTLeaderReserve
+
+- type: entity
+  id: SpawnerERTLeaderReserve
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+  - type: ConditionalSpawner
+    prototypes:
+      - RandomHumanoidSpawnerERTLeaderReserve

@@ -1,0 +1,61 @@
+# - type: shuttleType
+  # id:
+  # defaultIsAnnounce:
+  # forcedAnnounce:
+  # announceColor:
+  # isPlayAudioFromAnnouncement:
+  # announcementText:
+  # announcshuttleext:
+  # isPlayAudio:
+  # audioPath:
+  # volume: 0
+  # isLoadGrid:
+  # gridPath:
+  # isSetAlshuttleLevel:
+  # alertLevelCode:
+  # hintText:
+
+- type: shuttleType
+  id: ERTRed
+  announcementText: shuttle-send-default-announcement
+  gridPath: /Maps/Shuttles/ERT/medium-security.yml
+  hintText: send-shuttle-hint-type-ertdefault
+
+- type: shuttleType
+  id: ERTAmber
+  announcementText: shuttle-send-security-announcement
+  gridPath: /Maps/Shuttles/ERT/small-security.yml
+  hintText: send-shuttle-hint-type-ertsecurity
+
+- type: shuttleType
+  id: ERTEngineer
+  announcementText: shuttle-send-engineer-announcement
+  gridPath: /Maps/Shuttles/ERT/small-engie.yml
+  hintText: send-shuttle-hint-type-ertengineer
+
+- type: shuttleType
+  id: ERTMedical
+  announcementText: shuttle-send-medical-announcement
+  gridPath: /Maps/Shuttles/ERT/small-med.yml
+  hintText: send-shuttle-hint-type-ertmedical
+
+- type: shuttleType
+  id: ERTJanitor
+  announcementText: shuttle-send-janitor-announcement
+  gridPath: /Maps/Shuttles/ERT/small-jani.yml
+  hintText: send-shuttle-hint-type-ertjanitor
+
+- type: shuttleType
+  id: CBRN
+  announcementText: shuttle-send-cbrn-announcement
+  gridPath: /Maps/Shuttles/ERT/small-cburn.yml
+  hintText: send-shuttle-hint-type-cbrn
+
+- type: shuttleType
+  id: ERTDenial
+  defaultIsAnnounce: true
+  forcedAnnounce: true
+  announcementText: shuttle-send-denial-announcement
+  audioPath: /Audio/_Reserve/announcement/ertno.ogg
+  isLoadGrid: false
+  hintText: send-shuttle-hint-type-ertdenial
