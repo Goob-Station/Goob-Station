@@ -105,7 +105,8 @@
     guides:
     - Security
     - Antagonists
-  - type: JudoBlocked # Goobstation - Martial Arts
+  - type: MartialArtBlocked # Goobstation - Martial Arts
+    form: CorporateJudo # Goobstation - Martial Arts
 
 - type: entity
   name: truncheon

@@ -13,6 +13,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Hands;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
@@ -50,51 +51,56 @@ public sealed class MartialArtsSystem : EntitySystem
     [Dependency] private readonly ChatSystem _chat = default!;
 
 
+
     public override void Initialize()
     {
         base.Initialize();
+
+        #region CanPerformCombo - Subscribes
         SubscribeLocalEvent<CanPerformComboComponent, MapInitEvent>(OnMapInit);
-
         SubscribeLocalEvent<CanPerformComboComponent, ComboAttackPerformedEvent>(OnAttackPerformed);
+        #endregion
 
-        // Granting - Subscribes
+        #region Granting - Subscribes
         SubscribeLocalEvent<GrantCqcComponent, UseInHandEvent>(OnGrantCQCUse);
         SubscribeLocalEvent<GrantCqcComponent, ExaminedEvent>(OnGrantCQCExamine);
         SubscribeLocalEvent<GrantCorporateJudoComponent, ClothingGotEquippedEvent>(OnGrantCorporateJudo);
         SubscribeLocalEvent<GrantCorporateJudoComponent, ClothingGotUnequippedEvent>(OnRemoveCorporateJudo);
         SubscribeLocalEvent<GrantSleepingCarpComponent, UseInHandEvent>(OnGrantSleepingCarp);
+        #endregion
 
-
-        // Martial Arts - Subscribes
+        #region Martial Arts - Subscribes
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, CheckGrabOverridesEvent>(CheckGrabStageOverride);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComboAttackPerformedEvent>(OnCQCAttackPerformed);
-        SubscribeLocalEvent<MartialArtsKnowledgeComponent, EntInsertedIntoContainerMessage>(OnEntInserted); // Stun baton no no
+        SubscribeLocalEvent<MartialArtBlockedComponent, GotEquippedHandEvent>(OnGotEquippedHand); // Stun baton no no
+        #endregion
 
-        //CQC Combos - Subscribes
+        #region CQC Combos - Subscribes
         SubscribeLocalEvent<CanPerformComboComponent, CQCSlamPerformedEvent>(OnCQCSlam);
         SubscribeLocalEvent<CanPerformComboComponent, CQCKickPerformedEvent>(OnCQCKick);
         SubscribeLocalEvent<CanPerformComboComponent, CQCRestrainPerformedEvent>(OnCQCRestrain);
         SubscribeLocalEvent<CanPerformComboComponent, CQCPressurePerformedEvent>(OnCQCPressure);
         SubscribeLocalEvent<CanPerformComboComponent, CQCConsecutivePerformedEvent>(OnCQCConsecutive);
+        #endregion
 
-        // Judo - Subscribes
-        // discombubulate
+        #region Corporate Judo - Subscribes
         SubscribeLocalEvent<CanPerformComboComponent, JudoThrowPerformedEvent>(OnJudoThrow);
         SubscribeLocalEvent<CanPerformComboComponent, JudoEyePokePerformedEvent>(OnJudoEyepoke);
         SubscribeLocalEvent<CanPerformComboComponent, JudoArmbarPerformedEvent>(OnJudoArmbar);
-        SubscribeLocalEvent<CanPerformComboComponent, JudoGoldenBlastPerformedEvent>(OnJudoGoldenBlast);
-        // wheel throw
+        //SubscribeLocalEvent<CanPerformComboComponent, JudoGoldenBlastPerformedEvent>(OnJudoGoldenBlast); -- rework
+        // Wheel throw
+        // Discombobulate
+        #endregion
 
         #region Sleeping Carp - Subscribes
         SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpGnashingTeethPerformedEvent>(OnSleepingCarpGnashing);
         SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpKneeHaulPerformedEvent>(OnSleepingCarpKneeHaul);
         SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpCrashingWavesPerformedEvent>(OnSleepingCarpCrashingWaves);
-
         #endregion
     }
 
-    #region CanPerformCombo
+    #region CanPerformCombo - Methods
     private void OnMapInit(EntityUid uid, CanPerformComboComponent component, MapInitEvent args)
     {
         foreach (var item in component.RoundstartCombos)
@@ -170,7 +176,7 @@ public sealed class MartialArtsSystem : EntitySystem
     }
     #endregion
 
-    #region Granting
+    #region Granting - Methods
 
     private void OnGrantCQCUse(Entity<GrantCqcComponent> ent, ref UseInHandEvent args)
     {
@@ -283,18 +289,15 @@ public sealed class MartialArtsSystem : EntitySystem
         RemComp<CanPerformComboComponent>(user);
     }
 
-    private void OnEntInserted(EntityUid ent, MartialArtsKnowledgeComponent comp, ref EntInsertedIntoContainerMessage args)
+    private void OnGotEquippedHand(Entity<MartialArtBlockedComponent> ent, ref GotEquippedHandEvent args)
     {
-        if (!HasComp<JudoBlockedComponent>(args.Entity))
+        if (!TryComp<MartialArtsKnowledgeComponent>(args.User, out  var knowledgeComp))
+            return;
+        if(knowledgeComp.MartialArtsForm != ent.Comp.Form)
             return;
 
-        if(comp.MartialArtsForm != MartialArtsForms.CorporateJudo)
-            return;
-
-        var item = _hands.GetActiveItem(ent);
-        if (item != null)
-            _hands.TryDrop(item.Value);
-        _popupSystem.PopupEntity("Judo forbids the use of stun batons", ent, PopupType.MediumCaution);
+        _hands.TryDrop(args.User, ent);
+        _popupSystem.PopupEntity("Corporate Judo strictly forbids the use of stun batons.", ent, PopupType.MediumCaution);
     }
 
     private void LoadCombos(ProtoId<ComboListPrototype> list, CanPerformComboComponent combo)
@@ -332,7 +335,7 @@ public sealed class MartialArtsSystem : EntitySystem
 
     #endregion
 
-    #region Judo
+    #region Judo - Methods
 
     private void OnJudoThrow(Entity<CanPerformComboComponent> ent, ref JudoThrowPerformedEvent args)
     {
@@ -433,7 +436,7 @@ public sealed class MartialArtsSystem : EntitySystem
     }
     #endregion
 
-    #region CQC
+    #region CQC - Methods
     private void OnCQCAttackPerformed(Entity<MartialArtsKnowledgeComponent> ent, ref ComboAttackPerformedEvent args)
     {
         if (TryComp<MartialArtsKnowledgeComponent>(ent, out var knowledgeComponent) && !knowledgeComponent.Blocked)
@@ -577,7 +580,7 @@ public sealed class MartialArtsSystem : EntitySystem
 
     #endregion
 
-    #region Sleeping Carp
+    #region Sleeping Carp - Methods
 
     private void OnSleepingCarpGnashing(Entity<CanPerformComboComponent> ent,
         ref SleepingCarpGnashingTeethPerformedEvent args)
@@ -610,7 +613,7 @@ public sealed class MartialArtsSystem : EntitySystem
         {
             var saying =
                 knowledgeComponent.RandomSayingsDowned.ElementAt(_random.Next(knowledgeComponent.RandomSayingsDowned.Count));
-            _chat.TrySendInGameICMessage(ent, Loc.GetString( saying) , InGameICChatType.Speak, false);
+            _chat.TrySendInGameICMessage(ent, Loc.GetString(saying) , InGameICChatType.Speak, false);
         }
     }
 

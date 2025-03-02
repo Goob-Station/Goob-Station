@@ -32,8 +32,10 @@ public sealed partial class GrantSleepingCarpComponent  : GrantMartialArtKnowled
 
 
 [RegisterComponent]
-public sealed partial class JudoBlockedComponent  : Component
+public sealed partial class MartialArtBlockedComponent  : Component
 {
+    [DataField]
+    public MartialArtsForms Form;
 }
 
 [RegisterComponent]
