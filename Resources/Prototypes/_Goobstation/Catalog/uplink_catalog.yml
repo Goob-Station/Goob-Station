@@ -428,6 +428,11 @@
     Telecrystal: 100
   categories:
   - UplinkImplants
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
 
 # Deception
 
