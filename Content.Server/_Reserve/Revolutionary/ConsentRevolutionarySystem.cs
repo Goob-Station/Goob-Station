@@ -7,11 +7,13 @@ using Content.Server.Revolutionary;
 using Content.Server.Revolutionary.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Revolutionary.Components;
+using Content.Shared.Roles;
 using Content.Shared.Verbs;
 using Content.Shared.Zombies;
 using Robust.Shared.Physics;
@@ -37,6 +39,8 @@ public sealed class ConsentRevolutionarySystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<HeadRevolutionaryComponent, GetVerbsEvent<InnateVerb>>(OnInnateVerb);
         SubscribeLocalEvent<ConsentRevolutionaryComponent, MobStateChangedEvent>(OnMobStateChanged);
+        SubscribeLocalEvent<ConsentRevolutionaryComponent, MindRemovedMessage>(OnMindRemoved);
+        SubscribeLocalEvent<ConsentRevolutionaryComponent, RoleAddedEvent>(OnRoleAdded);
     }
 
     private void OnInnateVerb(EntityUid uid, HeadRevolutionaryComponent comp, GetVerbsEvent<InnateVerb> args)
@@ -84,7 +88,7 @@ public sealed class ConsentRevolutionarySystem : EntitySystem
                 }
 
                 // We don't hide verb if person has mindshield/command protection because that reveals it.
-                // If verb was used in this situation, both players will be only alerted about it.
+                // If verb was used in this situation, conversion will not proceed and both players will be alerted about.
                 if (HasComp<MindShieldComponent>(args.Target) ||
                     HasComp<CommandStaffComponent>(args.Target))
                 {
@@ -111,6 +115,111 @@ public sealed class ConsentRevolutionarySystem : EntitySystem
         args.Verbs.Add(verb);
     }
 
+    public override void Update(float frameTime)
+    {
+        _accumulator += frameTime;
+
+        if (_accumulator >= AccumulatorTreshold)
+            _accumulator -= AccumulatorTreshold;
+        else
+            return;
+
+        var query = EntityQueryEnumerator<ConsentRevolutionaryComponent>();
+        while (query.MoveNext(out var uid, out var consentRev))
+        {
+            if (consentRev.IsConverter || consentRev.OtherMember == null)
+            {
+                continue;
+            }
+
+            // Convertor component
+            if (!TryComp<ConsentRevolutionaryComponent>(consentRev.OtherMember, out var convertorConsentRev))
+            {
+                consentRev.OtherMember = null;
+                continue;
+            }
+
+            // Check time
+            if (consentRev.LastRequestedTimeSpan != null &&
+                _timing.CurTime - consentRev.LastRequestedTimeSpan > consentRev.ResponseTime)
+            {
+                CancelRequest((uid, consentRev),
+                    (consentRev.OtherMember.Value, convertorConsentRev),
+                    reason: Loc.GetString("rev-consent-convert-failed-mid-convert-timeout"));
+                continue;
+            }
+
+            // Check positions
+            if (!_transform.InRange(Transform(uid).Coordinates,
+                    Transform(consentRev.OtherMember.Value).Coordinates,
+                    consentRev.MaxDistance)
+                )
+            {
+                CancelRequest((uid, consentRev),
+                    (consentRev.OtherMember.Value, convertorConsentRev),
+                    reason: Loc.GetString("rev-consent-convert-failed-mid-convert-out-of-range"));
+                continue;
+            }
+        }
+    }
+
+    private void OnMobStateChanged(EntityUid uid, ConsentRevolutionaryComponent consentRev, MobStateChangedEvent args)
+    {
+        if (consentRev.OtherMember == null || !TryComp<ConsentRevolutionaryComponent>(consentRev.OtherMember, out var otherConsentRev))
+            return;
+
+        if (args.NewMobState == MobState.Alive)
+            return;
+
+        if (consentRev.IsConverter)
+        {
+            CancelRequest((consentRev.OtherMember.Value, otherConsentRev),
+                (uid, consentRev),
+                reason: Loc.GetString("rev-consent-convert-failed-mid-convert-not-alive"));
+        }
+        else
+        {
+            CancelRequest((uid, consentRev),
+                (consentRev.OtherMember.Value, otherConsentRev),
+                reason: Loc.GetString("rev-consent-convert-failed-mid-convert-not-alive"));
+        }
+    }
+
+    private void OnMindRemoved(Entity<ConsentRevolutionaryComponent> ent, ref MindRemovedMessage args)
+    {
+        if (ent.Comp.OtherMember == null || !TryComp<ConsentRevolutionaryComponent>(ent.Comp.OtherMember, out var otherConsentRev))
+            return;
+
+        if (ent.Comp.IsConverter)
+        {
+            CancelRequest((ent.Comp.OtherMember.Value, otherConsentRev),
+                ent,
+                reason: Loc.GetString("rev-consent-convert-failed-mid-convert-not-alive"));
+        }
+        else
+        {
+            CancelRequest(ent,
+                (ent.Comp.OtherMember.Value, otherConsentRev),
+                reason: Loc.GetString("rev-consent-convert-failed-mid-convert-not-alive"));
+        }
+    }
+
+    private void OnRoleAdded(Entity<ConsentRevolutionaryComponent> ent, ref RoleAddedEvent args)
+    {
+        if (ent.Comp.OtherMember == null ||
+            ent.Comp.IsConverter ||
+            !TryComp<ConsentRevolutionaryComponent>(ent.Comp.OtherMember, out var otherConsentRev) ||
+            !HasComp<RevolutionaryComponent>(ent))
+            return;
+
+        CancelRequest((ent.Comp.OtherMember.Value, otherConsentRev), ent);
+    }
+
+    /// <summary>
+    /// Request conversion to entity
+    /// </summary>
+    /// <param name="target">Entity to request convert</param>
+    /// <param name="converter">Entity that requests convert</param>
     public void RequestConsentConversionToEntity(EntityUid target, EntityUid converter)
     {
         // Start conversion
@@ -135,7 +244,7 @@ public sealed class ConsentRevolutionarySystem : EntitySystem
             // For converter
             var converterComp = EnsureComp<ConsentRevolutionaryComponent>(converter);
             converterComp.OtherMember = target;
-            targetComp.IsConverter = true;
+            converterComp.IsConverter = true;
 
             _euiMan.OpenEui(window, session);
         }
@@ -150,63 +259,25 @@ public sealed class ConsentRevolutionarySystem : EntitySystem
         }
     }
 
+    /// <summary>
+    /// Is entity is currently member of convert request.
+    /// </summary>
+    /// <param name="entity">Entity to check</param>
+    /// <returns></returns>
     public bool IsInConversionProcess(EntityUid entity)
     {
         return TryComp<ConsentRevolutionaryComponent>(entity, out var consentRev)
                && consentRev.OtherMember != null;
     }
 
-    public override void Update(float frameTime)
-    {
-        _accumulator += frameTime;
-
-        if (_accumulator >= AccumulatorTreshold)
-            _accumulator -= AccumulatorTreshold;
-        else
-            return;
-
-        var query = EntityQueryEnumerator<ConsentRevolutionaryComponent>();
-        while (query.MoveNext(out var uid, out var consentRev))
-        {
-            if (!consentRev.IsConverter || consentRev.OtherMember == null)
-            {
-                continue;
-            }
-
-            // Convertor component
-            if (!TryComp<ConsentRevolutionaryComponent>(consentRev.OtherMember, out var convertorConsentRev))
-            {
-                consentRev.OtherMember = null;
-                continue;
-            }
-
-            // Check time
-            if (consentRev.LastRequestedTimeSpan != null &&
-                _timing.CurTime - consentRev.LastRequestedTimeSpan > consentRev.ResponseTime)
-            {
-                CancelRequest(uid, consentRev,
-                    consentRev.OtherMember.Value, convertorConsentRev,
-                    reason: Loc.GetString("rev-consent-convert-failed-mid-convert-timeout"));
-                continue;
-            }
-
-            // Check positions
-            if (!_transform.InRange(Transform(uid).Coordinates,
-                    Transform(consentRev.OtherMember.Value).Coordinates,
-                    consentRev.MaxDistance)
-                )
-            {
-                CancelRequest(uid, consentRev,
-                    consentRev.OtherMember.Value, convertorConsentRev,
-                    reason: Loc.GetString("rev-consent-convert-failed-mid-convert-out-of-range"));
-                continue;
-            }
-        }
-    }
-
-    public void CancelRequest(EntityUid target, ConsentRevolutionaryComponent targetComp,
-        EntityUid converter, ConsentRevolutionaryComponent converterComp, bool doBlock = false,
-        string? reason = null)
+    /// <summary>
+    /// Cancels convert request.
+    /// </summary>
+    /// <param name="target">Entity that being requested to convert</param>
+    /// <param name="converter">Entity that requests convert</param>
+    /// <param name="doBlock">If request block should be applied after cancel</param>
+    /// <param name="reason">Reason for cancel that will be sent to players as popup. If null, nothing will be sent</param>
+    public void CancelRequest(Entity<ConsentRevolutionaryComponent> target, Entity<ConsentRevolutionaryComponent> converter, bool doBlock = false, string? reason = null)
     {
         if (reason != null)
         {
@@ -223,9 +294,15 @@ public sealed class ConsentRevolutionarySystem : EntitySystem
                 PopupType.MediumCaution);
         }
 
-        CancelRequest(targetComp, converterComp, doBlock);
+        CancelRequest(target.Comp, converter.Comp, doBlock);
     }
 
+    /// <summary>
+    /// Cancels convert request.
+    /// </summary>
+    /// <param name="target">Component of entity that being requested to convert</param>
+    /// <param name="converter">Component of entity that requests convert</param>
+    /// <param name="doBlock">If request block should be applied after cancel</param>
     public void CancelRequest(ConsentRevolutionaryComponent target, ConsentRevolutionaryComponent converter, bool doBlock = false)
     {
         target.OtherMember = null;
@@ -239,27 +316,5 @@ public sealed class ConsentRevolutionarySystem : EntitySystem
         target.LastRequestedTimeSpan = doBlock ? _timing.CurTime : null;
 
         converter.OtherMember = null;
-    }
-
-    private void OnMobStateChanged(EntityUid uid, ConsentRevolutionaryComponent consentRev, MobStateChangedEvent args)
-    {
-        if (consentRev.OtherMember == null || !TryComp<ConsentRevolutionaryComponent>(consentRev.OtherMember, out var otherConsentRev))
-            return;
-
-        if (args.NewMobState == MobState.Alive)
-            return;
-
-        if (consentRev.IsConverter)
-        {
-            CancelRequest(uid, consentRev,
-                consentRev.OtherMember.Value, otherConsentRev,
-                reason: Loc.GetString("rev-consent-convert-failed-mid-convert-not-alive"));
-        }
-        else
-        {
-            CancelRequest(consentRev.OtherMember.Value, otherConsentRev,
-                uid, consentRev,
-                reason: Loc.GetString("rev-consent-convert-failed-mid-convert-not-alive"));
-        }
     }
 }

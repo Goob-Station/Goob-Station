@@ -13,13 +13,12 @@ public sealed partial class ConsentRevolutionaryComponent : Component
     /// <summary>
     /// If entity is converter. If not, it is requested to be converted
     /// </summary>
-    public bool IsConverter = false;
+    [DataField] public bool IsConverter = false;
 
     /// <summary>
     /// Window for consent convert.
     /// </summary>
-    [DataField] public ConsentRequestedEui? Window;
-
+    public ConsentRequestedEui? Window;
 
     /// <summary>
     /// Last time when entity was requested to be revolutionary
