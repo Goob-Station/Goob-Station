@@ -51,6 +51,7 @@ public sealed partial class RandomizeMovementSpeedSystem : EntitySystem
         var modifier = _random.NextFloat(comp.Min, comp.Max);
 
         _speedModifierSystem.ChangeBaseSpeed(args.User, modifier, modifier, modifier);
+        _speedModifierSystem.RefreshMovementSpeedModifiers(args.User);
     }
 
     public void OnUnequipped(EntityUid uid, RandomizeMovementspeedComponent comp, GotUnequippedHandEvent args)
