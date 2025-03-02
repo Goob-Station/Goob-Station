@@ -1,0 +1,76 @@
+- type: entity
+  id: TCminer
+  name: Telecrystal miner
+  parent: [BaseMachine, BaseSyndicateContraband]
+  description: A very loud machine that uses bluespace blockchain technology to generate telecrystals every 10 seconds when powered.
+  components:
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: -1000000 # god bless shitcode
+  - type: PowerConsumer
+    voltage: High
+    drawRate: 10000 # todo: tweak these numbes
+  - type: TelecrystalMiner
+  - type: Battery
+    maxCharge: 1000 # you dont care about this because of negative-self-recharger
+    pricePerJoule: 0.0003
+  - type: Sprite
+    noRot: true
+    sprite: _Goobstation/Structures/Machines/tc_printer.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: icon
+    - map: ["computerLayerScreen"]
+      state: unshaded
+  - type: ItemSlots
+    slots:
+      tc_slot:
+        name: Telecrystal
+        insertSound:
+          path: /Audio/Effects/pop.ogg
+        ejectSound:
+          path: /Audio/Effects/pop.ogg
+        whitelist:
+          components:
+          - Telecrystal
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      input:
+        !type:CableDeviceNode
+        nodeGroupID: HVPower
+  - type: Transform
+    anchored: true
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.40,-0.40,0.40,0.40"
+        density: 90
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: PointLight
+    radius: 0.8
+    energy: 0.5
+    color: "#ff0000"
+
+- type: entity
+  parent: BaseFlatpack
+  id: TCminerFlatpack
+  name: telecrystal miner flatpack
+  description: A flatpack used for constructing a telecrystal miner machine.
+  components:
+  - type: Flatpack
+    entity: TCminer
