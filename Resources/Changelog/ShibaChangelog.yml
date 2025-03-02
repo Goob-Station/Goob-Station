@@ -1,6 +1,14 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Derotated a lot of maps until they are modernised with silo, holopad
+      and lavaland support. If you would like to help, keep an eye on the Discord
+      for more information.
+    type: Remove
+  id: 193
+  time: '2025-03-02T21:33:53.734296'
+- author: AstroDogeDX
+  changes:
   - message: Removed Barratry from rotation. Ew.
     type: Remove
   id: 192
