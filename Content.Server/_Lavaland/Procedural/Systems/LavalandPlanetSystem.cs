@@ -132,30 +132,10 @@ public sealed class LavalandPlanetSystem : EntitySystem
     {
         if (args.OldParent != null
             && TryComp<LavalandGridGrantComponent>(args.OldParent.Value, out var toRemove))
-            RemoveComponents(ent.Owner, toRemove.ComponentsToGrant);
+            EntityManager.RemoveComponents(ent.Owner, toRemove.ComponentsToGrant);
         else if (TryComp<LavalandGridGrantComponent>(Transform(ent.Owner).GridUid, out var toGrant))
-            AddComponents(ent.Owner, toGrant.ComponentsToGrant);
+            EntityManager.AddComponents(ent.Owner, toGrant.ComponentsToGrant);
     }
-
-    private void AddComponents(EntityUid target, ComponentRegistry reg)
-    {
-        foreach (var (key, comp) in reg)
-        {
-            var compType = comp.Component.GetType();
-            if (HasComp(target, compType))
-                continue;
-
-            var newComp = (Component) _serManager.CreateCopy(comp.Component, notNullableOverride: true);
-            EntityManager.AddComponent(target, newComp, true);
-        }
-    }
-
-    private void RemoveComponents(EntityUid target, ComponentRegistry reg)
-    {
-        foreach (var (key, comp) in reg)
-            RemComp(target, comp.Component.GetType());
-    }
-
     public Entity<LavalandPreloaderComponent>? GetPreloaderEntity()
     {
         var query = AllEntityQuery<LavalandPreloaderComponent>();
