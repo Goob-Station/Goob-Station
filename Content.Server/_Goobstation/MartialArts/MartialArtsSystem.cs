@@ -111,7 +111,7 @@ public sealed partial class MartialArtsSystem : EntitySystem
         combo.AllowedCombos.Clear();
     }
 
-    private bool CheckCanUseMartialArt(Entity<CanPerformComboComponent> ent, MartialArtsForms form, out EntityUid target, out bool downed)
+    private bool TryUseMartialArt(Entity<CanPerformComboComponent> ent, MartialArtsForms form, out EntityUid target, out bool downed)
     {
         target = EntityUid.Invalid;
         downed = false;
@@ -126,6 +126,7 @@ public sealed partial class MartialArtsSystem : EntitySystem
             return false;
 
         downed = isDowned.Active;
+        target = ent.Comp.CurrentTarget.Value;
 
         if(!knowledgeComponent.Blocked && knowledgeComponent.MartialArtsForm == form)
         {

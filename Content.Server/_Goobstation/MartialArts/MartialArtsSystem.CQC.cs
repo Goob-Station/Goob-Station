@@ -80,7 +80,7 @@ public sealed partial class MartialArtsSystem
     #region Combo Methods
     private void OnCQCSlam(Entity<CanPerformComboComponent> ent, ref CQCSlamPerformedEvent args)
     {
-        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out var downed))
+        if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out var downed))
             return;
 
         if (downed)
@@ -97,7 +97,7 @@ public sealed partial class MartialArtsSystem
 
     private void OnCQCKick(Entity<CanPerformComboComponent> ent, ref CQCKickPerformedEvent args)
     {
-        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out var downed))
+        if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out var downed))
             return;
 
         if (!downed)
@@ -125,7 +125,7 @@ public sealed partial class MartialArtsSystem
 
     private void OnCQCRestrain(Entity<CanPerformComboComponent> ent, ref CQCRestrainPerformedEvent args)
     {
-        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out _))
+        if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out _))
             return;
 
         _stun.TryParalyze(target, TimeSpan.FromSeconds(10), true);
@@ -134,7 +134,7 @@ public sealed partial class MartialArtsSystem
 
     private void OnCQCPressure(Entity<CanPerformComboComponent> ent, ref CQCPressurePerformedEvent args)
     {
-        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out _))
+        if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out _))
             return;
 
         if (!_hands.TryGetActiveItem(target, out var activeItem))
@@ -146,7 +146,7 @@ public sealed partial class MartialArtsSystem
 
     private void OnCQCConsecutive(Entity<CanPerformComboComponent> ent, ref CQCConsecutivePerformedEvent args)
     {
-        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out _))
+        if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out _))
             return;
 
         var damage = new DamageSpecifier();

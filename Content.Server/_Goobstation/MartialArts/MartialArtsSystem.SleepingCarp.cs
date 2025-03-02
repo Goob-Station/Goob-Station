@@ -75,7 +75,7 @@ public sealed partial class MartialArtsSystem
     private void OnSleepingCarpGnashing(Entity<CanPerformComboComponent> ent,
         ref SleepingCarpGnashingTeethPerformedEvent args)
     {
-        if (!CheckCanUseMartialArt(ent, MartialArtsForms.SleepingCarp, out var target, out _))
+        if (!TryUseMartialArt(ent, MartialArtsForms.SleepingCarp, out var target, out _))
             return;
 
         if(!TryComp<MartialArtsKnowledgeComponent>(ent.Owner, out var knowledgeComponent))
@@ -105,7 +105,7 @@ public sealed partial class MartialArtsSystem
     private void OnSleepingCarpKneeHaul(Entity<CanPerformComboComponent> ent,
         ref SleepingCarpKneeHaulPerformedEvent args)
     {
-        if (!CheckCanUseMartialArt(ent, MartialArtsForms.SleepingCarp, out var target, out var downed))
+        if (!TryUseMartialArt(ent, MartialArtsForms.SleepingCarp, out var target, out var downed))
             return;
 
         if (downed)
@@ -122,7 +122,7 @@ public sealed partial class MartialArtsSystem
     }
     private void OnSleepingCarpCrashingWaves(Entity<CanPerformComboComponent> ent, ref SleepingCarpCrashingWavesPerformedEvent args)
     {
-        if (!CheckCanUseMartialArt(ent, MartialArtsForms.SleepingCarp, out var target, out var downed))
+        if (!TryUseMartialArt(ent, MartialArtsForms.SleepingCarp, out var target, out var downed))
             return;
 
         if (downed)

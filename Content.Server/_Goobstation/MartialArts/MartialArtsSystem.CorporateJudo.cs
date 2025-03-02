@@ -59,7 +59,7 @@ public sealed partial class MartialArtsSystem
     #region Combo Methods
     private void OnJudoThrow(Entity<CanPerformComboComponent> ent, ref JudoThrowPerformedEvent args)
     {
-        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CorporateJudo, out var target, out var downed))
+        if (!TryUseMartialArt(ent, MartialArtsForms.CorporateJudo, out var target, out var downed))
             return;
 
         if (downed)
@@ -73,7 +73,7 @@ public sealed partial class MartialArtsSystem
     }
     private void OnJudoEyepoke(Entity<CanPerformComboComponent> ent, ref JudoEyePokePerformedEvent args)
     {
-        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CorporateJudo, out var target, out _))
+        if (!TryUseMartialArt(ent, MartialArtsForms.CorporateJudo, out var target, out _))
             return;
 
         if (!TryComp(target, out StatusEffectsComponent? status))
@@ -96,7 +96,7 @@ public sealed partial class MartialArtsSystem
     }
     private void OnJudoArmbar(Entity<CanPerformComboComponent> ent, ref JudoArmbarPerformedEvent args)
     {
-        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CorporateJudo, out var target, out var downed))
+        if (!TryUseMartialArt(ent, MartialArtsForms.CorporateJudo, out var target, out var downed))
             return;
 
         switch (downed)
@@ -117,7 +117,7 @@ public sealed partial class MartialArtsSystem
 
     private void OnJudoGoldenBlast(Entity<CanPerformComboComponent> ent, ref JudoGoldenBlastPerformedEvent args)
     {
-        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CorporateJudo, out var target, out var downed))
+        if (!TryUseMartialArt(ent, MartialArtsForms.CorporateJudo, out var target, out var downed))
             return;
 
         if (downed)
