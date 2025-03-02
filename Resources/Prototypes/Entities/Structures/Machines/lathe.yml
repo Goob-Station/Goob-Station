@@ -234,33 +234,37 @@
       - RiotShield
       - SpeedLoaderMagnum
       - SpeedLoaderMagnumEmpty
-      - GrenadeFlashBang # Goobstation
-      - BolaEnergy # Goobstation
-      - CartridgeEpinephrine # Goobstation
-      - CartridgeBicaridine # Goobstation
-      - CartridgeDermaline # Goobstation
-      - CartridgeEphedrine # Goobstation
-      - CartridgeAtropine # Goobstation
-      - CartridgePuncturase # Goobstation
-      - SecHypo # Goobstation
-      - ParamedHypo # Goobstation - ParamedHypo
-      - MagazinePistolCaselessRifle # Goobstation
-      - MagazineBoxCaselessRifle # Goobstation
-      - MagazineLightRifleBoxEmpty # Goobstation
-      - MagazineLightRifleBox # Goobstation
-      - MagazineHighCaliberEmpty # Goobstation
-      - MagazineHighCaliber # Goobstation
-      - MagazineBoxHighCaliber # Goobstation
-      - MagazineMagnumEmpty # Goobstation
-      - MagazineMagnum # Goobstation
-      - MagazineShotgunLeverRifleEmpty # Goobstation
-      - MagazineShotgunLeverRifle # Goobstation
-      - MagazineBoxShotgunHighCaliber # Goobstation
-      - MagazineBoxShotgunSlugHighCaliber # Goobstation
-      - MagazineBoxShotgunIncendiaryHighCaliber # Goobstation
-      - MagazineBoxShotgunUraniumHighCaliber # Goobstation
-      - MagazineBoxShotgunBeanbagHighCaliber # Goobstation
-      - MagazineBoxShotgunPracticeHighCaliber # Goobstation
+      - GrenadeFlashBang # Goobstation - start
+      - BolaEnergy
+      - CartridgeEpinephrine
+      - CartridgeBicaridine
+      - CartridgeDermaline
+      - CartridgeEphedrine
+      - CartridgeAtropine
+      - CartridgePuncturase
+      - SecHypo
+      - ParamedHypo
+      - MagazinePistolCaselessRifleEmpty
+      - MagazinePistolCaselessRifle
+      - MagazineBoxCaselessRifle
+      - MagazineLightRifleBoxEmpty
+      - MagazineLightRifleBox
+      - MagazineHighCaliberEmpty
+      - MagazineHighCaliber
+      - MagazineBoxHighCaliber
+      - MagazineMagnumEmpty
+      - MagazineMagnum
+      - MagazineShotgunLeverRifleEmpty
+      - MagazineShotgunLeverRifle
+      - MagazineBoxShotgunHighCaliber
+      - MagazineBoxShotgunSlugHighCaliber
+      - MagazineBoxShotgunIncendiaryHighCaliber
+      - MagazineBoxShotgunUraniumHighCaliber
+      - MagazineBoxShotgunBeanbagHighCaliber
+      - MagazineBoxShotgunPracticeHighCaliber
+      - MagazineCaselessRifleEmpty
+      - MagazineCaselessRifle
+      - MagazineBoxAntiMateriel # Goobstation - end
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -972,13 +976,17 @@
       - WeaponMechCombatMissileRack8
   - type: EmagLatheRecipes # Goobstation
     emagStaticRecipes:
-    - MagazinePistolCaselessRifle # Goobstation
-    - MagazineBoxCaselessRifle # Goobstation
-    - MagazineLightRifleBoxEmpty # Goobstation
-    - MagazineLightRifleBox # Goobstation
-    - MagazineHighCaliberEmpty # Goobstation
-    - MagazineHighCaliber # Goobstation
-    - MagazineBoxHighCaliber # Goobstation
+    - MagazinePistolCaselessRifleEmpty
+    - MagazinePistolCaselessRifle
+    - MagazineBoxCaselessRifle
+    - MagazineLightRifleBoxEmpty
+    - MagazineLightRifleBox
+    - MagazineHighCaliberEmpty
+    - MagazineHighCaliber
+    - MagazineBoxHighCaliber
+    - MagazineCaselessRifleEmpty
+    - MagazineCaselessRifle
+    - MagazineBoxAntiMateriel
   - type: MaterialStorage
     whitelist:
       tags:
@@ -1029,23 +1037,27 @@
         - MagazineShotgunSlug
         - SpeedLoaderMagnum
         - SpeedLoaderMagnumEmpty
-        - MagazineMagnumEmpty # Goobstation
-        - MagazineMagnum # Goobstation
-        - MagazineBoxShotgunHighCaliber # Goobstation
-        - MagazineBoxShotgunSlugHighCaliber # Goobstation
-        - MagazineBoxShotgunPracticeHighCaliber # Goobstation
-    - type: EmagLatheRecipes # Goobstation
+        - MagazineMagnumEmpty # Goobstation - start
+        - MagazineMagnum
+        - MagazineBoxShotgunHighCaliber
+        - MagazineBoxShotgunSlugHighCaliber
+        - MagazineBoxShotgunPracticeHighCaliber
+    - type: EmagLatheRecipes
       emagStaticRecipes:
-      - MagazinePistolCaselessRifle # Goobstation
-      - MagazineBoxCaselessRifle # Goobstation
-      - MagazineLightRifleBoxEmpty # Goobstation
-      - MagazineLightRifleBox # Goobstation
-      - MagazineHighCaliberEmpty # Goobstation
-      - MagazineHighCaliber # Goobstation
-      - MagazineBoxHighCaliber # Goobstation
-      - MagazineBoxShotgunIncendiaryHighCaliber # Goobstation
-      - MagazineBoxShotgunUraniumHighCaliber # Goobstation
-      - MagazineBoxShotgunBeanbagHighCaliber # Goobstation
+      - MagazinePistolCaselessRifleEmpty
+      - MagazinePistolCaselessRifle
+      - MagazineBoxCaselessRifle
+      - MagazineLightRifleBoxEmpty
+      - MagazineLightRifleBox
+      - MagazineHighCaliberEmpty
+      - MagazineHighCaliber
+      - MagazineBoxHighCaliber
+      - MagazineBoxShotgunIncendiaryHighCaliber
+      - MagazineBoxShotgunUraniumHighCaliber
+      - MagazineBoxShotgunBeanbagHighCaliber
+      - MagazineCaselessRifleEmpty
+      - MagazineCaselessRifle
+      - MagazineBoxAntiMateriel # Goobstation - end
     - type: MaterialStorage
       whitelist:
         tags:
