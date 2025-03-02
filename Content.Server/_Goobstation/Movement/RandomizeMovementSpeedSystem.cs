@@ -15,7 +15,7 @@ public sealed partial class RandomizeMovementSpeedSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
 
     private TimeSpan _nextExecutionTime = TimeSpan.Zero;
-    private static readonly TimeSpan ExecutionInterval = TimeSpan.FromSeconds(3);
+    private static readonly TimeSpan ExecutionInterval = TimeSpan.FromSeconds(2);
 
     public override void Initialize()
     {
@@ -31,7 +31,7 @@ public sealed partial class RandomizeMovementSpeedSystem : EntitySystem
             EnsureComp<RandomizeMovementspeedComponent>(args.User);
     }
 
-    public void Update(float frameTime, EntityUid uid, RandomizeMovementspeedComponent comp, GotEquippedHandEvent args)
+    public void Update(float frameTime, EntityUid uid, RandomizeMovementspeedComponent comp, ref HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
 
         base.Update(frameTime);
@@ -39,19 +39,12 @@ public sealed partial class RandomizeMovementSpeedSystem : EntitySystem
         if (_timing.CurTime < _nextExecutionTime)
             return;
 
-        TryModifySpeed(uid, comp, args);
+        var modifier = _random.NextFloat(comp.Min, comp.Max);
+
+        args.Args.ModifySpeed(modifier, modifier);
 
         _nextExecutionTime = _timing.CurTime + ExecutionInterval;
 
-    }
-
-    public void TryModifySpeed(EntityUid uid, RandomizeMovementspeedComponent comp, GotEquippedHandEvent args)
-    {
-        Logger.Info("Task executed at " + _timing.CurTime);
-        var modifier = _random.NextFloat(comp.Min, comp.Max);
-
-        _speedModifierSystem.ChangeBaseSpeed(args.User, modifier, modifier, modifier);
-        _speedModifierSystem.RefreshMovementSpeedModifiers(args.User);
     }
 
     public void OnUnequipped(EntityUid uid, RandomizeMovementspeedComponent comp, GotUnequippedHandEvent args)
