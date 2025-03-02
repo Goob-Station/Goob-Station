@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Content.Server._Goobstation.Movement;
+using Content.Server.Worldgen.Tools;
 using Content.Shared.Hands;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.Random;
@@ -40,7 +41,7 @@ public sealed partial class RandomizeMovementSpeedSystem : EntitySystem
         if (_timing.CurTime < _nextExecutionTime)
             return;
 
-        TryModifySpeed(default, null!, null!);
+        TryModifySpeed();
 
         _nextExecutionTime = _timing.CurTime + ExecutionInterval;
 
