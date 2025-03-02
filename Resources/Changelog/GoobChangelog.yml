@@ -5669,3 +5669,9 @@ Entries:
       message: Added mousebites.
   id: 652
   time: '2025-03-02T13:01:00.0000000+00:00'
+- author: Jorgun
+  changes:
+    - type: Fix
+      message: 'Hopefully fixed the salv shuttle :clueless:'
+  id: 653
+  time: '2025-03-02T19:49:15.0000000+00:00'
