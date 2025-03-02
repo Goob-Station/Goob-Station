@@ -1,6 +1,6 @@
 - type: randomHumanoidSettings
   id: ERTEngineerReserve
-  speciesBlacklist: [ Arachnid, Diona, Dwarf, Reptilian, SlimePerson, Vulpkanin, Harpy, Rodentia, Tajaran, Oni, Vox, Yowie, Resomi, IPC]
+  speciesWhitelist: [Human, Moth]
   randomizeName: false
   components:
     - type: GhostRole

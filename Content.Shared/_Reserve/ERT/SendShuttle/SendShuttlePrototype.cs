@@ -14,13 +14,13 @@ public sealed class SendShuttlePrototype : IPrototype
     public bool DefaultIsAnnounce = true;
 
     [DataField]
-    public bool ForsedAnnounce = false;
+    public bool ForcedAnnounce;
 
     [DataField]
     public Color AnnounceColor = Color.Gold;
 
     [DataField]
-    public bool IsPlayAuidoFromAnnouncement = false;
+    public bool IsPlayAudioFromAnnouncement;
 
     [DataField]
     public string AnnouncementText = string.Empty;
@@ -36,7 +36,7 @@ public sealed class SendShuttlePrototype : IPrototype
     public string AudioPath = "/Audio/_Reserve/announcement/ertyes.ogg";
 
     [DataField]
-    public int Volume = 0;
+    public int Volume;
 
 
     [DataField]
@@ -47,7 +47,7 @@ public sealed class SendShuttlePrototype : IPrototype
 
 
     [DataField]
-    public bool IsSetAlertLevel = false;
+    public bool IsSetAlertLevel;
 
     [DataField]
     public string AlertLevelCode = string.Empty;

@@ -16,16 +16,21 @@ namespace Content.Server._Reserve.ERT.SendShuttleSystem;
 
 public sealed class SendShuttle : EntitySystem
 {
+    [Dependency] private readonly MapLoaderSystem _map = default!;
+    [Dependency] private readonly MetaDataSystem _metaSystem = default!;
+    [Dependency] private readonly ServerGlobalSoundSystem _sound = default!;
+    [Dependency] private readonly AlertLevelSystem _alertLevel = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IEntitySystemManager _system = default!;
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     public void SpawnShuttle(string shuttletype, bool playAnnonce)
     {
-        var protos = IoCManager.Resolve<IPrototypeManager>();
+        var protos = _prototypeManager;
         var shuttleProto = protos.Index<SendShuttlePrototype>(shuttletype);
-        var playAnnounce = shuttleProto.ForsedAnnounce ? shuttleProto.DefaultIsAnnounce : playAnnonce;
+        var playAnnounce = shuttleProto.ForcedAnnounce ? shuttleProto.DefaultIsAnnounce : playAnnonce;
 
 
         if (shuttleProto.IsLoadGrid)
@@ -46,7 +51,7 @@ public sealed class SendShuttle : EntitySystem
     private void SpawnMapAndGrid(SendShuttlePrototype proto)
     {
         var mapId = _mapManager.CreateMap();
-        _system.GetEntitySystem<MetaDataSystem>().SetEntityName(
+        _metaSystem.SetEntityName(
             _mapManager.GetMapEntityId(mapId),
             Loc.GetString("sent-shuttle-map-name")
         );
@@ -56,7 +61,7 @@ public sealed class SendShuttle : EntitySystem
             Offset = new Vector2(0, 0),
             Rotation = Angle.FromDegrees(0)
         };
-        _system.GetEntitySystem<MapLoaderSystem>().Load(mapId, proto.GridPath, girdOptions);
+        _map.Load(mapId, proto.GridPath, girdOptions);
     }
 
     private void PlayAudioAnnonce(SendShuttlePrototype proto)
@@ -66,7 +71,7 @@ public sealed class SendShuttle : EntitySystem
         var audioOption = AudioParams.Default;
         audioOption = audioOption.WithVolume(proto.Volume);
 
-        _entManager.System<ServerGlobalSoundSystem>().PlayAdminGlobal(filter, proto.AudioPath, audioOption, true);
+        _sound.PlayAdminGlobal(filter, proto.AudioPath, audioOption, true);
     }
 
     private void WriteAnnonce(SendShuttlePrototype proto)
@@ -74,7 +79,7 @@ public sealed class SendShuttle : EntitySystem
         _system.GetEntitySystem<ChatSystem>().DispatchGlobalAnnouncement(
             Loc.GetString($"{proto.AnnouncementText}"),
             Loc.GetString($"{proto.AnnouncerText}"),
-            playSound: proto.IsPlayAuidoFromAnnouncement,
+            playSound: proto.IsPlayAudioFromAnnouncement,
             colorOverride: proto.AnnounceColor
         );
     }
@@ -85,7 +90,7 @@ public sealed class SendShuttle : EntitySystem
 
         foreach (var stationUid in stationUids)
         {
-            _system.GetEntitySystem<AlertLevelSystem>().SetLevel(stationUid, proto.AlertLevelCode,
+            _alertLevel.SetLevel(stationUid, proto.AlertLevelCode,
                 false, true, true, true);
         }
     }

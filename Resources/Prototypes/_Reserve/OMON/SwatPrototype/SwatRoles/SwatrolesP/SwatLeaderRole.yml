@@ -18,10 +18,7 @@
 - type: randomHumanoidSettings
   id: SwatLeaderSettings
   randomizeName: false
-  speciesBlacklist:
-  - Diona
-  - Dwarf
-  - SlimePerson
+  speciesWhitelist: [Human, Moth]
   components:
     - type: GhostRole
       name: Лидер ОКГ

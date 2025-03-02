@@ -15,6 +15,8 @@ public sealed class SendShuttleCommand : IConsoleCommand
 {
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IEntitySystemManager _system = default!;
+    [Dependency] private readonly SendShuttle _sendShuttle = default!;
+
 
     public string Command => "sendshuttle";
     public string Description => Loc.GetString("send-shuttle-description");
@@ -53,7 +55,7 @@ public sealed class SendShuttleCommand : IConsoleCommand
                 break;
         }
 
-        _system.GetEntitySystem<SendShuttle>().SpawnShuttle(args[0], playAnnounce);
+        _sendShuttle.SpawnShuttle(args[0], playAnnounce);
 
         _adminLogger.Add(LogType.Action, LogImpact.High, $"{player} отправил ОБР. Тип: {args[0]}");
     }

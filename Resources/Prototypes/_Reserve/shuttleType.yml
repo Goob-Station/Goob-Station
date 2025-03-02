@@ -1,9 +1,9 @@
 # - type: shuttleType
   # id:
   # defaultIsAnnounce:
-  # forsedAnnounce:
+  # forcedAnnounce:
   # announceColor:
-  # isPlayAuidoFromAnnouncement:
+  # isPlayAudioFromAnnouncement:
   # announcementText:
   # announcshuttleext:
   # isPlayAudio:
@@ -54,7 +54,7 @@
 - type: shuttleType
   id: ERTDenial
   defaultIsAnnounce: true
-  forsedAnnounce: true
+  forcedAnnounce: true
   announcementText: shuttle-send-denial-announcement
   audioPath: /Audio/_Reserve/announcement/ertno.ogg
   isLoadGrid: false
