@@ -25,7 +25,7 @@ using Robust.Shared.Utility;
 // Tile Movement Change
 using Content.Shared.Interaction;
 using Content.Shared.Physics;
-using Content.Shared._VG.TileMovement;
+using Content.Shared._vg.TileMovement;
 using PullableComponent = Content.Shared.Movement.Pulling.Components.PullableComponent;
 
 namespace Content.Shared.Movement.Systems;

@@ -33,7 +33,7 @@ using Microsoft.Extensions.ObjectPool;
 
 // Tile Movement Change
 using Content.Server.Atmos;
-using Content.Shared._VG.TileMovement;
+using Content.Shared._vg.TileMovement;
 using Robust.Server.GameObjects;
 using Content.Shared.Gravity;
 
