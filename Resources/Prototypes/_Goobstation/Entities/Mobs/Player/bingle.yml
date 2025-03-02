@@ -130,7 +130,7 @@
       Alive:
         Base: Upgraded
       Dead:
-        Base: dead
+        Base: dead_upgraded
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
