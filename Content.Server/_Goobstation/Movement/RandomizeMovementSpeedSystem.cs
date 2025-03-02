@@ -1,14 +1,16 @@
+using System.Diagnostics;
 using Content.Server._Goobstation.Movement;
 using Content.Shared.Hands;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.Random;
-
+using Robust.Shared.Timing;
 
 
 public sealed partial class RandomizeMovementSpeedSystem : EntitySystem
 {
     [Dependency] private readonly MovementSpeedModifierSystem _speedModifierSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly Timer _timing = default!;
 
     public override void Initialize()
     {
@@ -20,14 +22,23 @@ public sealed partial class RandomizeMovementSpeedSystem : EntitySystem
     public void OnItemInHand(EntityUid uid, RandomizeMovementspeedComponent comp, GotEquippedHandEvent args)
     {
         // When the item is equipped, add the component to the player.
-        EnsureComp<RandomizeMovementspeedComponent>(args.User);
+        if (args.User != null)
+            EnsureComp<RandomizeMovementspeedComponent>(args.User);
     }
 
     public void OnInterval(EntityUid uid, RandomizeMovementspeedComponent comp, GotEquippedHandEvent args)
     {
         var speedModifier = _random.NextFloat(comp.Min, comp.Max);
         var interval = comp.Interval;
+        Debug.WriteLine(speedModifier);
+        // Debugging
         // Not finished, trying to get the component to actually apply first.
+
+    }
+
+    public void TryModifySpeed(EntityUid uid, RandomizeMovementspeedComponent comp, GotEquippedHandEvent args)
+    {
+
     }
 
     public void OnUnequipped(EntityUid uid, RandomizeMovementspeedComponent comp, GotUnequippedHandEvent args)
