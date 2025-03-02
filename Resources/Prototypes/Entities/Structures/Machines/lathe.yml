@@ -234,26 +234,37 @@
       - RiotShield
       - SpeedLoaderMagnum
       - SpeedLoaderMagnumEmpty
-      - GrenadeFlashBang # Goobstation
-      - BolaEnergy # Goobstation
-      - CartridgeEpinephrine # Goobstation
-      - CartridgeBicaridine # Goobstation
-      - CartridgeDermaline # Goobstation
-      - CartridgeEphedrine # Goobstation
-      - CartridgePuncturase # Goobstation
-      - SecHypo # Goobstation
-      - ParamedHypo # Goobstation - ParamedHypo
-      - MagazinePistolCaselessRifle # Goobstation
-      - MagazineBoxCaselessRifle # Goobstation
-      - MagazineLightRifleBoxEmpty # Goobstation
-      - MagazineLightRifleBox # Goobstation
-      - MagazineHighCaliberEmpty # Goobstation
-      - MagazineHighCaliber # Goobstation
-      - MagazineBoxHighCaliber # Goobstation
-      - MagazineMagnumEmpty # Goobstation
-      - MagazineMagnum # Goobstation
-      - MagazineMagnumLeverRifleEmpty # Goobstation
-      - MagazineMagnumLeverRifle # Goobstation
+      - GrenadeFlashBang # Goobstation - start
+      - BolaEnergy
+      - CartridgeEpinephrine
+      - CartridgeBicaridine
+      - CartridgeDermaline
+      - CartridgeEphedrine
+      - CartridgeAtropine
+      - CartridgePuncturase
+      - SecHypo
+      - ParamedHypo
+      - MagazinePistolCaselessRifleEmpty
+      - MagazinePistolCaselessRifle
+      - MagazineBoxCaselessRifle
+      - MagazineLightRifleBoxEmpty
+      - MagazineLightRifleBox
+      - MagazineHighCaliberEmpty
+      - MagazineHighCaliber
+      - MagazineBoxHighCaliber
+      - MagazineMagnumEmpty
+      - MagazineMagnum
+      - MagazineShotgunLeverRifleEmpty
+      - MagazineShotgunLeverRifle
+      - MagazineBoxShotgunHighCaliber
+      - MagazineBoxShotgunSlugHighCaliber
+      - MagazineBoxShotgunIncendiaryHighCaliber
+      - MagazineBoxShotgunUraniumHighCaliber
+      - MagazineBoxShotgunBeanbagHighCaliber
+      - MagazineBoxShotgunPracticeHighCaliber
+      - MagazineCaselessRifleEmpty
+      - MagazineCaselessRifle
+      - MagazineBoxAntiMateriel # Goobstation - end
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -657,6 +668,7 @@
     - PowerCageSmall # Goobstation - Powercell to exosuit fab
     dynamicRecipes:
     - ProximitySensor
+    - BorgModuleLollipop # Goobstation
     - BorgModuleAdvancedCleaning
     - BorgModuleAdvancedTool
     - BorgModuleGPS
@@ -882,13 +894,17 @@
       - CartridgeEpinephrine # Goobstation
       - CartridgeBicaridine # Goobstation
       - CartridgeDermaline # Goobstation
+      - CartridgeAtropine # Goobstation
       - SecHypo # Goobstation
       - SyringeGun # Goobstation
       - MagazineMagnumEmpty # Goobstation
       - MagazineMagnum # Goobstation
-      - MagazineMagnumLeverRifle # Goobstation
-      - MagazineMagnumLeverRifleEmpty # Goobstation
+      - MagazineShotgunLeverRifle # Goobstation
+      - MagazineShotgunLeverRifleEmpty # Goobstation
       - ContrabandDetectorCircuitboard # Goobstation
+      - MagazineBoxShotgunHighCaliber # Goobstation
+      - MagazineBoxShotgunSlugHighCaliber # Goobstation
+      - MagazineBoxShotgunPracticeHighCaliber # Goobstation
     dynamicRecipes:
       - BoxBeanbag
       - BoxShotgunIncendiary
@@ -918,6 +934,9 @@
       - MagazineRifleUranium
       - MagazineShotgunBeanbag
       - MagazineShotgunIncendiary
+      - MagazineBoxShotgunIncendiaryHighCaliber # Goobstation
+      - MagazineBoxShotgunUraniumHighCaliber # Goobstation
+      - MagazineBoxShotgunBeanbagHighCaliber # Goobstation
       - PortableRecharger
       - PowerCageHigh
       - PowerCageMedium
@@ -957,13 +976,17 @@
       - WeaponMechCombatMissileRack8
   - type: EmagLatheRecipes # Goobstation
     emagStaticRecipes:
-    - MagazinePistolCaselessRifle # Goobstation
-    - MagazineBoxCaselessRifle # Goobstation
-    - MagazineLightRifleBoxEmpty # Goobstation
-    - MagazineLightRifleBox # Goobstation
-    - MagazineHighCaliberEmpty # Goobstation
-    - MagazineHighCaliber # Goobstation
-    - MagazineBoxHighCaliber # Goobstation
+    - MagazinePistolCaselessRifleEmpty
+    - MagazinePistolCaselessRifle
+    - MagazineBoxCaselessRifle
+    - MagazineLightRifleBoxEmpty
+    - MagazineLightRifleBox
+    - MagazineHighCaliberEmpty
+    - MagazineHighCaliber
+    - MagazineBoxHighCaliber
+    - MagazineCaselessRifleEmpty
+    - MagazineCaselessRifle
+    - MagazineBoxAntiMateriel
   - type: MaterialStorage
     whitelist:
       tags:
@@ -1014,17 +1037,27 @@
         - MagazineShotgunSlug
         - SpeedLoaderMagnum
         - SpeedLoaderMagnumEmpty
-        - MagazineMagnumEmpty # Goobstation
-        - MagazineMagnum # Goobstation
-    - type: EmagLatheRecipes # Goobstation
+        - MagazineMagnumEmpty # Goobstation - start
+        - MagazineMagnum
+        - MagazineBoxShotgunHighCaliber
+        - MagazineBoxShotgunSlugHighCaliber
+        - MagazineBoxShotgunPracticeHighCaliber
+    - type: EmagLatheRecipes
       emagStaticRecipes:
-      - MagazinePistolCaselessRifle # Goobstation
-      - MagazineBoxCaselessRifle # Goobstation
-      - MagazineLightRifleBoxEmpty # Goobstation
-      - MagazineLightRifleBox # Goobstation
-      - MagazineHighCaliberEmpty # Goobstation
-      - MagazineHighCaliber # Goobstation
-      - MagazineBoxHighCaliber # Goobstation
+      - MagazinePistolCaselessRifleEmpty
+      - MagazinePistolCaselessRifle
+      - MagazineBoxCaselessRifle
+      - MagazineLightRifleBoxEmpty
+      - MagazineLightRifleBox
+      - MagazineHighCaliberEmpty
+      - MagazineHighCaliber
+      - MagazineBoxHighCaliber
+      - MagazineBoxShotgunIncendiaryHighCaliber
+      - MagazineBoxShotgunUraniumHighCaliber
+      - MagazineBoxShotgunBeanbagHighCaliber
+      - MagazineCaselessRifleEmpty
+      - MagazineCaselessRifle
+      - MagazineBoxAntiMateriel # Goobstation - end
     - type: MaterialStorage
       whitelist:
         tags:
@@ -1103,6 +1136,7 @@
       - CartridgeEpinephrine # Goobstation - ParamedHypo
       - CartridgeBicaridine # Goobstation - ParamedHypo
       - CartridgeDermaline # Goobstation - ParamedHypo
+      - CartridgeAtropine # Goobstation
       - ParamedHypo # Goobstation - ParamedHypo
     dynamicRecipes:
       - PrescriptionGlasses # Goobstation

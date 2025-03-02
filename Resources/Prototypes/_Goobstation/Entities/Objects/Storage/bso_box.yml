@@ -1,7 +1,7 @@
 - type: entity
   id: BlueshieldAmmunitionBox
   name: blueshield ammunition box
-  description: A box containing various ammunition and magazines for magnum type weapons.
+  description: A box containing various ammunition and magazines for high caliber shotguns.
   parent: BaseStorageItem
   components:
   - type: Sprite
@@ -13,7 +13,7 @@
   - type: Storage
     maxItemSize: Small
     grid:
-    - 0,0,5,1
+    - 0,0,6,1
     whitelist:
       components:
       - BallisticAmmoProvider

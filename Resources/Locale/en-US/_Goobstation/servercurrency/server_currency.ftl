@@ -61,16 +61,19 @@ gs-balanceui-shop-buy-token-hightier-antag = Buy high tier antag token - {$price
 gs-balanceui-shop-buy-token-midtier-antag = Buy mid tier antag token - {$price} Goob Coins
 gs-balanceui-shop-buy-token-lowtier-antag = Buy low tier antag token - {$price} Goob Coins
 gs-balanceui-shop-buy-token-ghost = Buy ghost role token - {$price} Goob Coins
+gs-balanceui-shop-buy-token-admin-abuse = Buy admin abuse token - {$price} Goob Coins
 
 gs-balanceui-shop-token-hightier-antag = High tier antag token
 gs-balanceui-shop-token-midtier-antag = Mid tier antag token
 gs-balanceui-shop-token-lowtier-antag = Low tier antag token
 gs-balanceui-shop-token-ghost = Ghost role token
+gs-balanceui-shop-token-admin-abuse = Admin abuse token
 
 gs-balanceui-shop-buy-token-hightier-antag-desc = Allows you become a Headrev, Nukie, Wizard, Initial Infected, or any antagonist from a lower tier.
 gs-balanceui-shop-buy-token-midtier-antag-desc = Allows you become a Traitor, Changeling, Heretic, or any antagonist from a lower tier.
 gs-balanceui-shop-buy-token-lowtier-antag-desc = Allows you become a Thief or Blob.
 gs-balanceui-shop-buy-token-ghost-desc = Allows you request a ghost role antagonist to be spawned.
+gs-balanceui-shop-buy-token-admin-abuse-desc = Allows you to request an admin to abuse their powers against you. Admins are encouraged to go wild.
 
 gs-balanceui-admin-add-label = Add (or subtract) money:
 gs-balanceui-admin-add-player = Player name
@@ -80,5 +83,6 @@ gs-balanceui-remark-token-hightier-antag = Bought a high tier antag token.
 gs-balanceui-remark-token-midtier-antag = Bought a mid tier antag token.
 gs-balanceui-remark-token-lowtier-antag = Bought a low tier antag token.
 gs-balanceui-remark-token-ghost = Bought a ghost role token.
+gs-balanceui-remark-token-admin-abuse = Bought an admin abuse token.
 gs-balanceui-shop-click-confirm = Click again to confirm
 gs-balanceui-shop-purchased = Purchased {$item}

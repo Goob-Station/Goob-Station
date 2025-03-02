@@ -152,6 +152,7 @@
 
   defaultModules:
   - BorgModuleTreatment
+  - BorgModuleLollipop # Goobstation.
 
   radioChannels:
   - Science
@@ -206,6 +207,7 @@
   - BorgModuleMusique
   - BorgModuleService
   - BorgModuleClowning
+  - BorgModuleLollipop # Goobstation
 
   radioChannels:
   - Science

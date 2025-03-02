@@ -29,3 +29,11 @@
   description: gs-balanceui-shop-buy-token-ghost-desc
   price: 500
   adminNote: gs-balanceui-remark-token-ghost
+
+- type: tokenListing
+  id: AdminAbuseToken
+  name: gs-balanceui-shop-buy-token-admin-abuse
+  label: gs-balanceui-shop-token-admin-abuse
+  description: gs-balanceui-shop-buy-token-admin-abuse-desc
+  price: 250
+  adminNote: gs-balanceui-remark-token-admin-abuse

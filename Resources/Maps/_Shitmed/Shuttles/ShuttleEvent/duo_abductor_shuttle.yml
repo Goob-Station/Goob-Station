@@ -13,7 +13,7 @@ entities:
       name: grid
     - type: Transform
       pos: -0.5520833,-0.5416667
-      parent: invalid
+      parent: 217
     - type: MapGrid
       chunks:
         0,0:
@@ -109,6 +109,18 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+  - uid: 217
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: PhysicsMap
+    - type: GridTree
+    - type: MovedGrids
+    - type: Broadphase
+    - type: OccluderTree
 - proto: AbductorAlienPad
   entities:
   - uid: 181
@@ -560,6 +572,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -1.5,-3.5
+      parent: 1
+- proto: CandyBowlFilledLollypopsMystery
+  entities:
+  - uid: 218
+    components:
+    - type: Transform
+      pos: 4.588385,2.5045772
       parent: 1
 - proto: ChairPilotSeat
   entities:
