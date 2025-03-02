@@ -146,6 +146,7 @@ public sealed class BinglePitSystem : EntitySystem
         while (query.MoveNext(out var queryUid, out var queryBingleComp))
             if (queryBingleComp.MyPit != null && queryBingleComp.MyPit.Value == uid)
                 _bingleSystem.UpgradeBingle(queryUid, queryBingleComp);
+
         if (component.Level <= component.MaxSize)
             ScaleUpPit(uid, component);
 

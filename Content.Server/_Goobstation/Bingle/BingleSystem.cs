@@ -6,12 +6,15 @@ using Robust.Shared.Map;
 using System.Numerics;
 using Content.Shared._White.Overlays;
 using Content.Server.Flash.Components;
+using Content.Server.Polymorph.Components;
+using Content.Server.Polymorph.Systems;
 
 namespace Content.Server._Goobstation.Bingle;
 
 public sealed class BingleSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly PolymorphSystem _polymorph = default!;
 
     public override void Initialize()
     {
@@ -45,16 +48,12 @@ public sealed class BingleSystem : EntitySystem
     {
         if (component.Upgraded)
             return;
-        if (!TryComp<MeleeWeaponComponent>(uid, out var weponComp))
-            return;
 
-        weponComp.Damage = component.UpgradeDamage;
-        component.Upgraded = true;
-        Dirty(uid, weponComp);
+        var polyComp = EnsureComp<PolymorphableComponent>(uid);
+        _polymorph.CreatePolymorphAction("BinglePolymorph",(uid, polyComp ));
 
         _popup.PopupEntity(Loc.GetString("bingle-upgrade-success"), uid, uid);
-
-        RaiseNetworkEvent(new BingleUpgradeEntityMessage(GetNetEntity(uid)));
+        component.Upgraded = true;
     }
 
     private void OnAttackAttempt(EntityUid uid, BingleComponent component, AttackAttemptEvent args)

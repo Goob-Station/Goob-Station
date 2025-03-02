@@ -14,7 +14,6 @@ public sealed class BingleSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeNetworkEvent<BingleUpgradeEntityMessage>(OnUpgradeChange);
         SubscribeLocalEvent<BingleComponent, ToggleCombatActionEvent>(OnCombatToggle);
     }
 
@@ -31,22 +30,6 @@ public sealed class BingleSystem : EntitySystem
             return;
 
         sprite.LayerSetVisible(layer, combat.IsInCombatMode);
-        _appearance.OnChangeData(uid, sprite);
-    }
-
-    /// <summary>
-    ///  when bingles get upgraded, this changes the sprite by enabeling a hidden layer
-    /// </summary>
-    private void OnUpgradeChange(BingleUpgradeEntityMessage args)
-    {
-        var uid = GetEntity(args.Bingle);
-
-        if (!TryComp<SpriteComponent>(uid, out var sprite))
-            return;
-        if (!sprite.LayerMapTryGet(BingleVisual.Upgraded, out var layer))
-            return;
-
-        sprite.LayerSetVisible(layer, true);
         _appearance.OnChangeData(uid, sprite);
     }
 }

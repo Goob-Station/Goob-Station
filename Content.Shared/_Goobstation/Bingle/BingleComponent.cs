@@ -14,13 +14,8 @@ public sealed partial class BingleComponent : Component
     public DamageSpecifier UpgradeDamage = default!;
     [DataField]
     public bool Prime = false;
-
+    [DataField]
     public EntityUid? MyPit;
-}
-[Serializable, NetSerializable]
-public sealed class BingleUpgradeEntityMessage(NetEntity bingle) : EntityEventArgs
-{
-    public NetEntity Bingle = bingle;
 }
 
 [Serializable, NetSerializable]
