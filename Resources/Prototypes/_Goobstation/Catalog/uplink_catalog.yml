@@ -40,7 +40,15 @@
   categories:
     - UplinkDisruption
 
-
+- type: listing
+  id: UplinkTelecrystalMiner
+  name: uplink-tcminer-name
+  description: uplink-tcminer-desc
+  productEntity: TCminerFlatpack
+  cost:
+    Telecrystal: 60
+  categories:
+    - UplinkDisruption
 # Weaponry
 
 # - type: listing
