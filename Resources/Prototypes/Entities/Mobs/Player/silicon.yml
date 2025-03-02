@@ -639,4 +639,7 @@
       - !type:DepartmentTimeRequirement
         department: Security
         time: 72000 # 20 hours
+      - !type:RoleTimeRequirement
+        role: JobBorg
+        time: 18000 # 5 hours
     - type: GhostTakeoverAvailable

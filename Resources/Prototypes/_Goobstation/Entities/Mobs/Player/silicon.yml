@@ -62,5 +62,10 @@
     requirements: # Goobstation - ghost roles requirements
     - !type:RoleTimeRequirement
       role: JobBorg
-      time: 3600 #1 hour
+      time: 18000 # 5 hours
+    - !type:OverallPlaytimeRequirement
+      time: 180000 # 50 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 72000 # 20 hours
   - type: GhostTakeoverAvailable
