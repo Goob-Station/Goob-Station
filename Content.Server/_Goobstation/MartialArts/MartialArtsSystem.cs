@@ -5,6 +5,7 @@ using Content.Server.Stunnable;
 using Content.Shared._Goobstation.MartialArts;
 using Content.Shared._White.Grab;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Pulling.Systems;
@@ -110,18 +111,30 @@ public sealed partial class MartialArtsSystem : EntitySystem
         combo.AllowedCombos.Clear();
     }
 
-    private bool CheckCanUseMartialArt(EntityUid uid, MartialArtsForms form)
+    private bool CheckCanUseMartialArt(Entity<CanPerformComboComponent> ent, MartialArtsForms form, out EntityUid target, out bool downed)
     {
-        if (TryComp<MartialArtsKnowledgeComponent>(uid, out var knowledgeComponent)
-            && !knowledgeComponent.Blocked)
+        target = EntityUid.Invalid;
+        downed = false;
+
+        if (ent.Comp.CurrentTarget == null)
+            return false;
+
+        if (!TryComp<MartialArtsKnowledgeComponent>(ent, out var knowledgeComponent))
+            return false;
+
+        if (!TryComp<RequireProjectileTargetComponent>(ent.Comp.CurrentTarget, out var isDowned))
+            return false;
+
+        downed = isDowned.Active;
+
+        if(!knowledgeComponent.Blocked && knowledgeComponent.MartialArtsForm == form)
         {
-            if (knowledgeComponent.MartialArtsForm == form)
-                return true;
+            return true;
         }
 
-        foreach (var ent in _lookup.GetEntitiesInRange(uid, 8f))
+        foreach (var entInRange in _lookup.GetEntitiesInRange(ent, 8f))
         {
-            if (TryPrototype(ent, out var proto) && proto.ID == "DefaultStationBeaconKitchen")
+            if (TryPrototype(entInRange, out var proto) && proto.ID == "DefaultStationBeaconKitchen")
                 return true;
         }
 

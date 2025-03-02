@@ -75,16 +75,11 @@ public sealed partial class MartialArtsSystem
     private void OnSleepingCarpGnashing(Entity<CanPerformComboComponent> ent,
         ref SleepingCarpGnashingTeethPerformedEvent args)
     {
-        if (ent.Comp.CurrentTarget == null)
-            return;
-
-        if (!CheckCanUseMartialArt(ent, MartialArtsForms.SleepingCarp))
+        if (!CheckCanUseMartialArt(ent, MartialArtsForms.SleepingCarp, out var target, out _))
             return;
 
         if(!TryComp<MartialArtsKnowledgeComponent>(ent.Owner, out var knowledgeComponent))
             return;
-
-        var target = ent.Comp.CurrentTarget.Value;
 
         var damage = new DamageSpecifier();
         damage.DamageDict.Add("Slash", 20 + ent.Comp.ConsecutiveGnashes * 5) ;
@@ -110,15 +105,10 @@ public sealed partial class MartialArtsSystem
     private void OnSleepingCarpKneeHaul(Entity<CanPerformComboComponent> ent,
         ref SleepingCarpKneeHaulPerformedEvent args)
     {
-        if (ent.Comp.CurrentTarget == null)
+        if (!CheckCanUseMartialArt(ent, MartialArtsForms.SleepingCarp, out var target, out var downed))
             return;
 
-        if (!CheckCanUseMartialArt(ent, MartialArtsForms.SleepingCarp))
-            return;
-
-        var target = ent.Comp.CurrentTarget.Value;
-
-        if (TryComp<RequireProjectileTargetComponent>(target, out var downed) && downed.Active)
+        if (downed)
             return;
 
         var damage = new DamageSpecifier();
@@ -132,15 +122,10 @@ public sealed partial class MartialArtsSystem
     }
     private void OnSleepingCarpCrashingWaves(Entity<CanPerformComboComponent> ent, ref SleepingCarpCrashingWavesPerformedEvent args)
     {
-        if (ent.Comp.CurrentTarget == null)
+        if (!CheckCanUseMartialArt(ent, MartialArtsForms.SleepingCarp, out var target, out var downed))
             return;
 
-        if (!CheckCanUseMartialArt(ent, MartialArtsForms.SleepingCarp))
-            return;
-
-        var target = ent.Comp.CurrentTarget.Value;
-
-        if (TryComp<RequireProjectileTargetComponent>(target, out var downed) && downed.Active)
+        if (downed)
             return;
 
         var damage = new DamageSpecifier();

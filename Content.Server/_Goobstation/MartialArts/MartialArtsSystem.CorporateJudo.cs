@@ -59,14 +59,10 @@ public sealed partial class MartialArtsSystem
     #region Combo Methods
     private void OnJudoThrow(Entity<CanPerformComboComponent> ent, ref JudoThrowPerformedEvent args)
     {
-        if (ent.Comp.CurrentTarget == null)
-            return;
-        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CorporateJudo))
+        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CorporateJudo, out var target, out var downed))
             return;
 
-        var target = ent.Comp.CurrentTarget.Value;
-
-        if (TryComp<RequireProjectileTargetComponent>(target, out var downed) && downed.Active)
+        if (downed)
             return;
 
         _stun.TryParalyze(target, TimeSpan.FromSeconds(7), false);
@@ -77,14 +73,7 @@ public sealed partial class MartialArtsSystem
     }
     private void OnJudoEyepoke(Entity<CanPerformComboComponent> ent, ref JudoEyePokePerformedEvent args)
     {
-        if (ent.Comp.CurrentTarget == null)
-            return;
-
-        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CorporateJudo))
-            return;
-        var target = ent.Comp.CurrentTarget.Value;
-
-        if (TryComp<RequireProjectileTargetComponent>(target, out var downed) && downed.Active)
+        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CorporateJudo, out var target, out _))
             return;
 
         if (!TryComp(target, out StatusEffectsComponent? status))
@@ -107,18 +96,10 @@ public sealed partial class MartialArtsSystem
     }
     private void OnJudoArmbar(Entity<CanPerformComboComponent> ent, ref JudoArmbarPerformedEvent args)
     {
-        if (ent.Comp.CurrentTarget == null)
+        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CorporateJudo, out var target, out var downed))
             return;
 
-        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CorporateJudo))
-            return;
-
-        var target = ent.Comp.CurrentTarget.Value;
-
-        if (!TryComp<RequireProjectileTargetComponent>(target, out var downed))
-            return;
-
-        switch (downed.Active)
+        switch (downed)
         {
             case false:
                 var item = _hands.GetActiveItem(target);
@@ -136,14 +117,10 @@ public sealed partial class MartialArtsSystem
 
     private void OnJudoGoldenBlast(Entity<CanPerformComboComponent> ent, ref JudoGoldenBlastPerformedEvent args)
     {
-        if (ent.Comp.CurrentTarget == null)
-            return;
-        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CorporateJudo))
+        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CorporateJudo, out var target, out var downed))
             return;
 
-        var target = ent.Comp.CurrentTarget.Value;
-
-        if (TryComp<RequireProjectileTargetComponent>(target, out var downed) && downed.Active)
+        if (downed)
             return;
 
         _stun.TryParalyze(target, TimeSpan.FromSeconds(30), false);

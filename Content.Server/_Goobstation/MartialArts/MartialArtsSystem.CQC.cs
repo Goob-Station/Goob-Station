@@ -80,15 +80,10 @@ public sealed partial class MartialArtsSystem
     #region Combo Methods
     private void OnCQCSlam(Entity<CanPerformComboComponent> ent, ref CQCSlamPerformedEvent args)
     {
-        if (ent.Comp.CurrentTarget == null)
+        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out var downed))
             return;
 
-        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat))
-            return;
-
-        var target = ent.Comp.CurrentTarget.Value;
-
-        if (TryComp<RequireProjectileTargetComponent>(target, out var downed) && downed.Active)
+        if (downed)
             return;
 
         var damage = new DamageSpecifier();
@@ -102,15 +97,10 @@ public sealed partial class MartialArtsSystem
 
     private void OnCQCKick(Entity<CanPerformComboComponent> ent, ref CQCKickPerformedEvent args)
     {
-        if (ent.Comp.CurrentTarget == null)
+        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out var downed))
             return;
 
-        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat))
-            return;
-
-        var target = ent.Comp.CurrentTarget.Value;
-
-        if (!TryComp<RequireProjectileTargetComponent>(target, out var downed) || !downed.Active)
+        if (!downed)
             return;
 
         if (TryComp<StaminaComponent>(target, out var stamina) && stamina.Critical)
@@ -135,13 +125,8 @@ public sealed partial class MartialArtsSystem
 
     private void OnCQCRestrain(Entity<CanPerformComboComponent> ent, ref CQCRestrainPerformedEvent args)
     {
-        if (ent.Comp.CurrentTarget == null)
+        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out _))
             return;
-
-        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat))
-            return;
-
-        var target = ent.Comp.CurrentTarget.Value;
 
         _stun.TryParalyze(target, TimeSpan.FromSeconds(10), true);
         _stamina.TakeStaminaDamage(target, 30f, source: ent);
@@ -149,13 +134,8 @@ public sealed partial class MartialArtsSystem
 
     private void OnCQCPressure(Entity<CanPerformComboComponent> ent, ref CQCPressurePerformedEvent args)
     {
-        if (ent.Comp.CurrentTarget == null)
+        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out _))
             return;
-
-        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat))
-            return;
-
-        var target = ent.Comp.CurrentTarget.Value;
 
         if (!_hands.TryGetActiveItem(target, out var activeItem))
             return;
@@ -166,13 +146,8 @@ public sealed partial class MartialArtsSystem
 
     private void OnCQCConsecutive(Entity<CanPerformComboComponent> ent, ref CQCConsecutivePerformedEvent args)
     {
-        if (ent.Comp.CurrentTarget == null)
+        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out _))
             return;
-
-        if (!CheckCanUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat))
-            return;
-
-        var target = ent.Comp.CurrentTarget.Value;
 
         var damage = new DamageSpecifier();
         damage.DamageDict.Add("Blunt", 20);
