@@ -5657,3 +5657,9 @@ Entries:
         TC.
   id: 650
   time: '2025-03-01T21:55:11.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Mice now deal one pierce damage.
+  id: 651
+  time: '2025-03-02T11:58:57.0000000+00:00'
