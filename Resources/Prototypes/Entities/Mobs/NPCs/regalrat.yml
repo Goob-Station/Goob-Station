@@ -146,8 +146,6 @@
     - id: Drink
     - id: Food
 
-
-
 - type: entity
   id: MobRatKingBuff
   parent: MobRatKing
