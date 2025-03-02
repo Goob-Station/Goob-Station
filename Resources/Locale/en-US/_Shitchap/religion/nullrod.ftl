@@ -1,1 +1,1 @@
-fail-nullrod-claymore = The blade lashes out at it's wrongful user.
+nullrod-untrained-usage-popup = The usually cold object flashes with a searing heat.

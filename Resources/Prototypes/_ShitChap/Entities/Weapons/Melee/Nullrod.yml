@@ -24,11 +24,10 @@
   - type: DisarmMalus
     malus: 0
   - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
-    selfDamage:
+    DamageOnUntrainedUse:
       types:
         Heat: 15
         Holy: 25
-    failPopup: "The usually cold rod flashes with a searing heat." # This should be localized, but I don't know how :godo:
   - type: Tag
     tags:
     - Nullrod
@@ -50,11 +49,10 @@
   description: A weapon fit for a crusade! A sword capable of stealing life from evil-doers.
   components:
   - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
-    selfDamage:
+    DamageOnUntrainedUse:
       types:
         Slash: 10
         Holy: 25
-    failPopup: "The blade lashes out at it's wrongful user."
   - type: Gun
     soundGunshot: /Audio/Effects/hallelujah.ogg
     fireRate: 0.5
@@ -176,11 +174,10 @@
     tags:
     - Rosary
   - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
-    selfDamage:
+    DamageOnUntrainedUse:
       types:
         Blunt: 1
         Holy: 60
-    failPopup: "The beads tighten around your hands painfully"
 
 - type: entity
   parent: BaseNullrod
@@ -231,8 +228,47 @@
     tags:
     - GodHand
   - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
-    selfDamage:
+    DamageOnUntrainedUse:
       types:
         Burn: 25
         Holy: 15
-    failPopup: "The fiery auru burns your hand painfully."
+
+- type: entity
+  parent: BaseNullrod # Todo: The actual functionality to speed up and slow down isn't done yet buut yknow.
+  id: ArrythmicKnife
+  name: arrythmic knife
+  description: They say fear is the true mind killer, but stabbing them in the head works too. Slows you down and speeds you up randomly.
+  components:
+  - type: Item
+    size: Huge
+    sprite: _ShitChap/Objects/Weapons/Melee/arrythmic.rsi
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Melee/arrythmic.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.2
+    damage:
+      types:
+        Slash: 15
+        Holy: 50 # 50 looks like it's a big number but unless you have unholy equipment, It's not.
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+  - type: InjectOnHit
+    reagents:
+    - ReagentId: MuteToxin # HERETIC BE GONE
+      Quantity: 0.2 # Potentially an awful idea, buuuut it's funny.
+    limit: 2
+  - type: Reflect # Only blocks magic projectiles
+    reflectProb: 0.7
+    reflects:
+    - Magic
+  - type: DisarmMalus
+    malus: 0
+  - type: Tag
+    tags:
+    - ArrythmicKnife
+  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
+    DamageOnUntrainedUse:
+      types:
+        Slash: 15
+        Holy: 15
