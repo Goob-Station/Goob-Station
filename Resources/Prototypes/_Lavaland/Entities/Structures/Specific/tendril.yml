@@ -131,11 +131,14 @@
       - id: LavalandTendrilLavaWatcher
       - id: LavalandTendrilGoliath
     - !type:GroupSelector
-      weight: 30
+        weight: 20
+        children:
+        - id: LavalandTendrilSpaceCarp
+    - !type:GroupSelector
+      weight: 10
       children:
       - id: LavalandTendrilIcewingWatcher
       - id: LavalandTendrilMagmawingWatcher
-      - id: LavalandTendrilSpaceCarp
       #- id: LavalandTendrilLegion
 
 - type: entity

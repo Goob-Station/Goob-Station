@@ -376,7 +376,7 @@
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 35 # goob - to account for lower firerate and projectile speed. also so you can't just stand there and tank
+        Heat: 30 # goob - to account for lower firerate and projectile speed. also so you can't just stand there and tank
   - type: ChangeTemperatureOnCollide
     heat: 20000 # Lavaland Change
 
