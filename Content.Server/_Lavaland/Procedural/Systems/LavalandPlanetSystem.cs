@@ -13,7 +13,7 @@ using Content.Shared.Atmos;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Gravity;
-using Content.Shared.Movement.Components;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Parallax.Biomes;
 using Content.Shared.Salvage;
 using Content.Shared.Shuttles.Components;
@@ -69,7 +69,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
         SubscribeLocalEvent<PostGameMapLoad>(OnPreloadStart);
         SubscribeLocalEvent<RoundStartAttemptEvent>(OnRoundStart);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
-        SubscribeLocalEvent<InputMoverComponent, EntParentChangedMessage>(OnPlayerParentChange);
+        SubscribeLocalEvent<MobStateComponent, EntParentChangedMessage>(OnPlayerParentChange);
 
         _gridQuery = GetEntityQuery<MapGridComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
@@ -129,7 +129,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
     /// <summary>
     /// Raised when an entity exits or enters a grid.
     /// </summary>
-    private void OnPlayerParentChange(Entity<InputMoverComponent> ent, ref EntParentChangedMessage args)
+    private void OnPlayerParentChange(Entity<MobStateComponent> ent, ref EntParentChangedMessage args)
     {
         if (args.OldParent != null
             && TryComp<LavalandGridGrantComponent>(args.OldParent.Value, out var toRemove))
