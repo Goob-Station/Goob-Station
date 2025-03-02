@@ -12,3 +12,6 @@ reagent-desc-amnestizine = A milky white chemical capable of causing retrograde 
 
 reagent-name-aranesp = aranesp
 reagent-desc-aranesp = A difficult to synthesize performance enhancer, most famous for strong energy restoration capabilities.
+
+reagent-name-mousebites = Mouse bites
+reagent-desc-mousebites = Did you try the medicine drug?
