@@ -13,11 +13,5 @@ namespace Content.Server._Goobstation.Religion.Nullrod
         [DataField("damageOnUntrainedUse", required: true)]
         public DamageSpecifier DamageOnUntrainedUse = default!;
 
-        /// <summary>
-        /// The pop-up displayed when an untrained user uses it.
-        /// </summary>
-
-        [DataField("failPopup", required: true)]
-        public string FailPopup = default!;
     }
 }
