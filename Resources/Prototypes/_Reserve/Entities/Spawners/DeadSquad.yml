@@ -1,0 +1,40 @@
+- type: randomHumanoidSettings
+  id: DeadsquadReserve
+  speciesBlacklist: [ Arachnid, Diona, Dwarf, Reptilian, SlimePerson, Vulpkanin, Harpy, Rodentia, Tajaran]
+  randomizeName: false
+  components:
+    - type: GhostRole
+      name: ghost-role-information-deadsquadReserve-name
+      description: ghost-role-information-deadsquadReserve-description
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ DeathSquadGear ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstDeadsquadReserve
+
+- type: entity
+  id: RandomHumanoidSpawnerDeadsquadReserve
+  components:
+    - type: Sprite
+      sprite: Reserve/Mobs/Icons/deathsquad.rsi
+      state: icon
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstDeadsquadReserve
+      - NamesSecondDeadsquadReserve
+    - type: RandomHumanoidSpawner
+      settings: DeadsquadReserve
+
+- type: entity
+  id: SpawnerDeadsquadReserve
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: Reserve/Mobs/Icons/deathsquad.rsi
+    layers:
+      - state: green
+      - state: icon
+  - type: ConditionalSpawner
+    prototypes:
+      - RandomHumanoidSpawnerDeadsquadReserve

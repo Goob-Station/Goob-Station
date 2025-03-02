@@ -1,0 +1,41 @@
+- type: randomHumanoidSettings
+  id: CBURNUnitLeaderReserve
+  speciesBlacklist: [ Arachnid, Diona, Dwarf, Reptilian, SlimePerson, Vulpkanin, Harpy, Rodentia, Tajaran]
+  randomizeName: false
+  components:
+    - type: GhostRole
+      name: ghost-role-information-cburnunitleaderReserve-name
+      description: ghost-role-information-cburnunitleaderReserve-description
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ CBURNLeaderGear ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitaryLeader
+      - NamesLastMilitary
+    - type: RandomHumanoidAppearance
+      randomizeName: false
+
+- type: entity
+  id: RandomHumanoidSpawnerCBURNUnitLeaderReserve
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: cburn
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitaryLeader
+      - NamesLastMilitary
+    - type: RandomHumanoidSpawner
+      settings: CBURNUnitLeaderReserve
+
+- type: entity
+  id: SpawnerCBURNUnitLeaderReserve
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+  - type: ConditionalSpawner
+    prototypes:
+      - RandomHumanoidSpawnerCBURNUnitLeaderReserve
