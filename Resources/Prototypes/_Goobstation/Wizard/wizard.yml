@@ -26,7 +26,7 @@
   objective: roles-antag-wizard-description
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 90000 # 25h
+    time: 126000 # 35h
   guides: [ Wizard ]
 
 - type: antag
