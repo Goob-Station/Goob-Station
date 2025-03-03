@@ -785,6 +785,58 @@
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
+# Mitotrophin
+
+- type: entity
+  parent: FoodSnackLollypopWrappedBase
+  id: FoodSnackLollypopWrappedMitotrophin
+  name: wrapped mitotrophin lollypop
+  description: An mitotrophin filled lollypop. It's still in a wrapper.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapped
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopMitotrophin
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBase
+  id: FoodSnackLollypopMitotrophin
+  name: mitotrophin lollypop
+  description: A mitotrophin filled lollypop. Tastes awful, but will make you feel better in no time.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: color
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#cc9c14"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Mitotrophin
+          Quantity: 10
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    size: Tiny
+
 # Random Lollypops
 
 # Good pops, always has something useful in some way.
@@ -820,6 +872,9 @@
       orGroup: LollypopMystery
     - id: FoodSnackLollypopDylovene
       orGroup: LollypopMystery
+    - id: FoodSnackLollypopMitotrophin
+      orGroup: LollypopMystery
+      prob: 0.30 # Rarer since it's a good medication.
     - id: FoodSnackLollypopOmnizine
       orGroup: LollypopMystery
       prob: 0.15 # Reduced slightly since I'm making the dispenser more common
@@ -863,6 +918,10 @@
       orGroup: LollypopMystery
     - id: FoodSnackLollypopMindbreakerToxin
       orGroup: LollypopMystery
+      prob: 0.45
+    - id: FoodSnackLollypopMitotrophin
+      orGroup: LollypopMystery
+      prob: 0.30 # Rarer since it's a good medication.
     - id: FoodSnackLollypopOmnizine
       orGroup: LollypopMystery
       prob: 0.15
@@ -911,6 +970,9 @@
       orGroup: LollypopMystery
     - id: FoodSnackLollypopProbital
       orGroup: LollypopMystery
+    - id: FoodSnackLollypopMitotrophin
+      orGroup: LollypopMystery
+      prob: 0.30 # Rarer since it's a good medication.
     - id: FoodSnackLollypopTricordrazine
       orGroup: LollypopMystery
     - id: FoodSnackLollypopDexalinPlus
