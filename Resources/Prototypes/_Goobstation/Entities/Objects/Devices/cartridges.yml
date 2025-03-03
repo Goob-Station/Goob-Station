@@ -1,0 +1,20 @@
+- type: entity
+  parent: BaseItem
+  id: MuleWranglerCartridge
+  name: MULE Wrangler cartridge
+  description: A program for directing and handling MULEs.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/cartridge.rsi
+    state: cart-log
+  - type: Icon
+    sprite: Objects/Devices/cartridge.rsi
+    state: cart-log
+  - type: UIFragment
+    ui: !type:MuleWranglerUi
+  - type: Cartridge
+    programName: mule-wrangler-program-name
+    icon:
+      sprite: _Goobstation/Mobs/Silicon/Bots/mule.rsi
+      state: mulebot0
+  - type: MuleWranglerCartridge

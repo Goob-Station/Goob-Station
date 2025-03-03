@@ -1,0 +1,28 @@
+- type: htnCompound
+  id: MuleTransportCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:SetDropoffAsOperator
+        targetKey: DropOffTarget
+        targetMoveKey: TargetCoordinates
+    - !type:HTNPrimitiveTask
+      operator: !type:MoveToOperator
+        rangeKey: MeleeRange
+
+
+- type: htnCompound
+  id: MULECompound
+  branches:
+  - preconditions:
+    - !type:HasOrdersPrecondition
+      orders: enum.MuleOrderType.Idle
+    tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound
+  - preconditions:
+    - !type:HasOrdersPrecondition
+      orders: enum.MuleOrderType.Transport
+    tasks:
+    - !type:HTNCompoundTask
+      task: MuleTransportCompound
