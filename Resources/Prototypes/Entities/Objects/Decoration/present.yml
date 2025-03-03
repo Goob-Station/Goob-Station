@@ -340,6 +340,8 @@
         orGroup: GiftPool
       - id: ToySword
         orGroup: GiftPool
+      - id: FoamWonderprod #Goob
+        orGroup:
       - id: RevolverCapGun
         orGroup: GiftPool
       - id: Ash
