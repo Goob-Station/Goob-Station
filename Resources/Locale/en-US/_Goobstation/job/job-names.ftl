@@ -10,3 +10,4 @@ job-name-hecu = HECU Operative
 JobBlueshieldOfficer = Blueshield Officer
 JobNanotrasenRepresentative = Nanotrasen Representative
 JobHecuOperative = HECU Operative
+JobRoboticist = Roboticist

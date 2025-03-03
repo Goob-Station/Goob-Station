@@ -45,6 +45,7 @@
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 10, 10 ]
+            Roboticist: [ 2, 2 ] # Goob
             ResearchAssistant: [ -1, -1 ]
             Borg: [ 4, 4 ]
             #security
