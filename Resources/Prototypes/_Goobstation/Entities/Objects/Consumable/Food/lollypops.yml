@@ -879,6 +879,9 @@
     - id: FoodSnackLollypopPhlogiston
       orGroup: LollypopMystery
       prob: 0.20
+    - id: FoodSnackLollypopChlorineTriFluoride
+      orGroup: LollypopMystery
+      prob: 0.20
     - id: FoodSnackLollypopFentanyl
       orGroup: LollypopMystery
       prob: 0.20
@@ -1392,7 +1395,7 @@
         - ReagentId: Anacea
           Quantity: 10
 
-# BOOM pop
+# Potassium Bomb
 
 - type: entity
   parent: FoodSnackLollypopWrappedSyndicate
@@ -1430,9 +1433,51 @@
         - ReagentId: Sugar
           Quantity: 5
         - ReagentId: Water
-          Quantity: 7
+          Quantity: 5
         - ReagentId: Potassium
-          Quantity: 7
+          Quantity: 5
+
+# CLF3
+
+- type: entity
+  parent: FoodSnackLollypopWrappedSyndicate
+  id: FoodSnackLollypopWrappedChlorineTriFluoride
+  name: wrapped syndicate lollypop
+  suffix: chlorine tri-fluoride
+  description: A very explosive lollypop. Appears completely ordinary when unwrapped.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrashSyndicate
+    - id: FoodSnackLollypopChlorineTriFluoride
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBaseSyndicate
+  id: FoodSnackLollypopChlorineTriFluoride
+  name: lollypop
+  suffix: chlorine tri-fluoride
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        canReact: false
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Chlorine
+          Quantity: 2
+        - ReagentId: Fluorine
+          Quantity: 6
 
 
 # Non-medication Lollypops
