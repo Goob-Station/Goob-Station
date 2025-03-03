@@ -76,6 +76,8 @@
       - ReagentId: Sugar
         Quantity: 5
 
+# Syndicate
+
 - type: entity
   parent: [FoodSnackLollypopWrappedBase, BaseSyndicateContraband]
   id: FoodSnackLollypopWrappedBaseSyndicate
@@ -121,6 +123,111 @@
     solutions:
       food:
         maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    size: Tiny
+
+# Command
+
+- type: entity
+  parent: [FoodSnackLollypopWrappedBase, BaseCommandContraband]
+  id: FoodSnackLollypopWrappedBaseNanotrasen
+  abstract: true
+  name: wrapped nanotrasen lollypop
+  description: A likely expensive lollypop. It's still in it's gold wrapper.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapped-nanotrasen
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrashNanotrasen
+    - id: FoodSnackLollypopBaseNanotrasen
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBase
+  id: FoodSnackLollypopBaseNanotrasen
+  abstract: true
+  name: nanotrasen lollypop
+  description: An expensive tasting lollypop.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - cola
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: color
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#FFC0CB" # Color can change later if you want to be able to tell it apart.
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    size: Tiny
+
+# Centcomm
+
+- type: entity
+  parent: [FoodSnackLollypopWrappedBase, BaseCentcommContraband]
+  id: FoodSnackLollypopWrappedBaseCentcomm
+  name: wrapped centcomm lollypop
+  description: A highly expensive lollypop. It's still in it's gold wrapper.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapped-centcomm
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrashCentcomm
+    - id: FoodSnackLollypopBaseCentcomm
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBase
+  id: FoodSnackLollypopBaseCentcomm
+  name: centcomm lollypop
+  description: An extremely expensive tasting lollypop. Can hold an ungodly amount of chemicals.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - electrons # idk man, it sounded cool.
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: lollypop-centcomm
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 100 # Cram this baby FULL of omnizine.
         reagents:
         - ReagentId: Sugar
           Quantity: 5
@@ -193,7 +300,7 @@
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
-    - state: rainbow
+    - state: lollypop-rainbow
       map: [ "enum.AmmoVisualLayers.Tip" ]
 
 # Carp
@@ -232,7 +339,7 @@
     layers:
     - state: lollypop-trash
       map: [ "enum.AmmoVisualLayers.Base" ]
-    - state: carp
+    - state: lollypop-carp
       map: [ "enum.AmmoVisualLayers.Tip" ]
 
 # Blueshield
@@ -269,6 +376,80 @@
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
     - state: color
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#040273"
+
+# Captain
+
+- type: entity
+  parent: FoodSnackLollypopWrappedBaseNanotrasen
+  id: FoodSnackLollypopWrappedCaptain
+  name: wrapped captains' lollypop
+  description: An extravagant lollypop. It's still in the wrapper
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopCaptain
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBaseNanotrasen
+  id: FoodSnackLollypopCaptain
+  name: captains' lollypop
+  description: A blueish lollypop containing a potentially unhealthy amount of gold leaf. Only for the goodest of captains.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: lollypop-captain
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#040273"
+
+# CentComm
+
+- type: entity
+  parent: FoodSnackLollypopWrappedBase # Todo, give this to blueshield.
+  id: FoodSnackLollypopWrappedCentComm
+  name: wrapped centcomm lollypop
+  description: An even more extravagant lollypop. It's still in the wrapper
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopCentcomm
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBase
+  id: FoodSnackLollypopCentcomm
+  name: centcomm lollypop
+  description: A green lollypop containing an extremely unhealthy amount of gold leaf. Only for the best centcomm agents.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: lollypop-captain
       map: [ "enum.AmmoVisualLayers.Tip" ]
       color: "#040273"
 
@@ -1941,6 +2122,38 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapper-syndicate
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+  - type: Tag
+    tags:
+    - Trash
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodPacketTrash
+  id: FoodSnackLollypopTrashNanotrasen
+  name: nanotrasen lollypop wrapper
+  description: You could probably sell this for a pretty penny.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapper-nanotrasen
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+  - type: Tag
+    tags:
+    - Trash
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodPacketTrash
+  id: FoodSnackLollypopTrashCentcomm
+  name: centcomm lollypop wrapper
+  description: So heavy the gold on it might just be real.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapper-centcomm
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
   - type: Tag

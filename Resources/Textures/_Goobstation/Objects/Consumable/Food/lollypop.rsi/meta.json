@@ -16,8 +16,26 @@
 	{
       "name": "lollypop-wrapper-syndicate"
     },
+	{
+      "name": "lollypop-wrapper-nanotrasen"
+    },
+	{
+      "name": "lollypop-wrapper-centcomm"
+    },
     {
       "name": "lollypop"
+    },
+	{
+      "name": "lollypop-rainbow"
+    },
+	{
+      "name": "lollypop-carp"
+    },
+	{
+      "name": "lollypop-centcomm"
+    },
+	{
+      "name": "lollypop-captain"
     },
 	{
       "name": "inhand-left",
@@ -41,13 +59,13 @@
       "name": "lollypop-wrapped-syndicate"
     },
 	{
+      "name": "lollypop-wrapped-nanotrasen"
+    },
+	{
+      "name": "lollypop-wrapped-centcomm"
+    },
+	{
       "name": "lollypop-dispenser"
     },
-	{
-      "name": "rainbow"
-    },
-	{
-      "name": "carp"
-    }
   ]
 }
