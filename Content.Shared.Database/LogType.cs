@@ -444,4 +444,9 @@ public enum LogType
     /// A player interacted with a PDA or its cartridge component
     /// </summary>
     PdaInteract = 96,
+
+    /// <summary>
+    /// GameDirector related game interactions.
+    /// </summary>
+    GameDirector = 97, // Goobstation
 }
