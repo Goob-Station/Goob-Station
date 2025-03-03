@@ -138,3 +138,44 @@
     damage:
       types:
         Piercing: 25
+
+- type: entity
+  id: BulletTemperatureCold
+  name: cold temperature bolt
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  description: Chilling!
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Cold: 3
+  - type: PointLight
+    radius: 2
+    color: blue
+    energy: 1
+  - type: ChangeTemperatureOnCollide
+    heat: -35000
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser
+      shader: unshaded
+
+- type: entity
+  id: BulletTemperatureHot
+  name: hot temperature bolt
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  description: Burning!
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Heat: 3
+  - type: PointLight
+    radius: 2
+    color: red
+    energy: 1
+  - type: ChangeTemperatureOnCollide # This will probably be tweaked.
+    heat: 35000

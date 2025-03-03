@@ -379,6 +379,7 @@
       - SyringeBluespace
       - WeaponForceGun
       - WeaponLaserSvalinn
+      - WeaponTemperatureGun # Goobstation
       - WeaponProtoKineticAccelerator
       - WeaponTetherGun
       - ClothingBackpackHolding
@@ -444,6 +445,7 @@
       - TelescopicShield
       - Truncheon
       - WeaponAdvancedLaser
+      - WeaponTemperatureGun # Goobstation
       - WeaponLaserCannon
       - WeaponLaserCarbine
       - WeaponXrayCannon
@@ -958,6 +960,7 @@
       - WeaponDisablerSMG
       - WeaponLaserCannon
       - WeaponLaserCarbine
+      - WeaponTemperatureGun # Goobstation
       - WeaponXrayCannon
       - RapidSyringeGun # Goobstation
       - SecurityCyberneticEyes # Shitmed Change

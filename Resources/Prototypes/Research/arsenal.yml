@@ -48,6 +48,7 @@
   cost: 7500
   recipeUnlocks:
   - WeaponLaserCarbine
+  - WeaponTemperatureGun # Goobstation
   - WeaponMechCombatFiredartLaser # Goobstation
 
 - type: technology
