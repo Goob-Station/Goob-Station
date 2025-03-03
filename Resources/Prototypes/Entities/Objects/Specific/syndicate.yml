@@ -58,6 +58,8 @@
   - type: Currency
     price:
       Telecrystal: 1
+  - type: Tag # Goobstation
+    tags: [ Telecrystal ]
 
 - type: entity
   parent: Telecrystal

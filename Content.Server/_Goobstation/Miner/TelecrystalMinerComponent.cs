@@ -36,4 +36,16 @@ public sealed partial class TelecrystalMinerComponent : Component
     /// </summary>
     [DataField("startTime")]
     public TimeSpan? StartTime { get; set; } = null;
+
+    /// <summary>
+    /// How often the miner produces TC (in seconds)
+    /// </summary>
+    [DataField("miningInterval")]
+    public float MiningInterval = 10.0f;
+
+    /// <summary>
+    /// Power consumption
+    /// </summary>
+    [DataField("powerDraw")]
+    public float PowerDraw = 10000f;
 }
