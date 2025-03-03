@@ -28,7 +28,7 @@
   parent: [FoodBase, FoodInjectableBase]
   id: FoodSnackLollypopBase
   abstract: true
-  description: A plain old lollypop. 99.9% sugar.
+  description: A plain old lollypop. It's cherry flavoured.
   components:
   - type: Food
     trash:
@@ -137,7 +137,7 @@
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypop
   name: lollypop
-  description: A plain old lollypop. 99.9% sugar.
+  description: A plain old lollypop. It's cherry flavoured!
   components:
   - type: Tag
     tags:
@@ -222,7 +222,7 @@
 # Blueshield
 
 - type: entity
-  parent: FoodSnackLollypopWrappedBase
+  parent: FoodSnackLollypopWrappedBase # Todo, give this to blueshield.
   id: FoodSnackLollypopWrappedBlueshield
   name: wrapped blueshield lollypop
   description: A deep blue lollypop. It's still in the wrapper
@@ -240,8 +240,8 @@
 - type: entity
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopBlueshield
-  name: deep blue lollypop
-  description: A deep blue lollypop. You feel a sense of pride.
+  name: blueshield lollypop
+  description: A deep blue lollypop, imbuing you with a sense of determination. Get out there soldier!
   components:
   - type: Tag
     tags:
@@ -281,7 +281,7 @@
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopBicaridine
   name: bicaridine lollypop
-  description: A bicaridine filled lollypop. 99.9% sugar.
+  description: A bicaridine filled lollypop. Flavoured like oranges.
   components:
   - type: Tag
     tags:
@@ -332,8 +332,8 @@
 - type: entity
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopProbital
-  name: probital lollypop
-  description: A probital filled lollypop. 99.9% sugar.
+  name: solar lollypop
+  description: A yellow lollypop filled with probital. Sol's solar pop!
   components:
   - type: Tag
     tags:
@@ -385,7 +385,7 @@
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopDermaline
   name: dermaline lollypop
-  description: A dermaline filled lollypop. 99.9% sugar.
+  description: A dermaline filled lollypop. Flavored with... blue?
   components:
   - type: Tag
     tags:
@@ -437,7 +437,7 @@
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopTricordrazine
   name: Tricordrazine lollypop
-  description: A Tricordrazine filled lollypop. 99.9% sugar.
+  description: A Tricordrazine filled lollypop. A doctors favorite!
   components:
   - type: Tag
     tags:
@@ -593,7 +593,7 @@
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopDexalinPlus
   name: dexalin plus lollypop
-  description: A dexalin plus filled lollypop. 99.9% sugar.
+  description: A dexalin plus filled lollypop. Commonly forcefed to people who forgot their internals.
   components:
   - type: Tag
     tags:
@@ -645,7 +645,7 @@
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopHyronalin
   name: hyronalin lollypop
-  description: A hyronalin filled lollypop. 99.9% sugar.
+  description: A hyronalin filled lollypop. Not quite as effective as you'd hope.
   components:
   - type: Tag
     tags:
@@ -697,7 +697,7 @@
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopCalomel
   name: calomel lollypop
-  description: A calomel filled lollypop. 99.9% sugar.
+  description: A calomel filled lollypop. Contrary to popular belief, it's not caramel flavoured.
   components:
   - type: Tag
     tags:
@@ -816,7 +816,10 @@
       prob: 0.20
     - id: FoodSnackLollypopAnacea
       orGroup: LollypopMystery
-      prob: 0.35
+      prob: 0.20
+    - id: FoodSnackLollypopPotassiumBomb
+      orGroup: LollypopMystery
+      prob: 0.15
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -879,6 +882,9 @@
     - id: FoodSnackLollypopFentanyl
       orGroup: LollypopMystery
       prob: 0.20
+    - id: FoodSnackLollypopPotassiumBomb
+      orGroup: LollypopMystery
+      prob: 0.35
     - id: FoodSnackLollypopCarpEvil
       orGroup: LollypopMystery
       prob: 0.20
@@ -1386,6 +1392,47 @@
         - ReagentId: Anacea
           Quantity: 10
 
+# BOOM pop
+
+- type: entity
+  parent: FoodSnackLollypopWrappedSyndicate
+  id: FoodSnackLollypopWrappedPotassiumBomb
+  name: wrapped syndicate lollypop
+  suffix: potassium bomb
+  description: An explosive lollypop. Appears completely ordinary when unwrapped.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrashSyndicate
+    - id: FoodSnackLollypopPotassiumBomb
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBaseSyndicate
+  id: FoodSnackLollypopPotassiumBomb
+  name: lollypop
+  suffix: potassium bomb
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Water
+          Quantity: 7
+        - ReagentId: Potassium
+          Quantity: 7
+
 # Non-medication Lollypops
 
 # Cognizine
@@ -1561,7 +1608,7 @@
 - type: entity
   parent: FoodSnackLollypopBaseSyndicate
   id: FoodSnackLollypopMouseBites
-  name: lollypop
+  name: mousebites lollypop
   suffix: mouse bites
   description: He needs mouse bites to live.
   components:
