@@ -1,0 +1,127 @@
+- type: listing
+  id: HereticRustPath1
+  name: knowledge-path-rust-s1-name
+  description: knowledge-path-rust-s1-desc
+  icon: { sprite: _Goobstation/Heretic/Blades/blade_rust.rsi, state: icon }
+  productHereticKnowledge: BlacksmithTale
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathRust
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 0
+    # add every path here because you shouldn't be able to buy more starter knowledge
+    blacklist:
+    - Ash
+    - Blade
+    - Flesh
+    - Lock
+    - Void
+    - Rust
+
+- type: listing
+  id: HereticRustPath2
+  name: knowledge-path-rust-s2-name
+  description: knowledge-path-rust-s2-desc
+  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  productHereticKnowledge: GraspOfRust
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathRust
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 1
+    whitelist:
+    - Rust
+
+- type: listing
+  id: HereticRustPath3
+  name: knowledge-path-rust-s3-name
+  description: knowledge-path-rust-s3-desc
+  icon: { sprite: _Goobstation/Heretic/Tiles, state: plating_rust }
+  productHereticKnowledge: LeechingWalk
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathRust
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2
+
+- type: listing
+  id: HereticRustPath4
+  name: knowledge-path-rust-s4-name
+  description: knowledge-path-rust-s4-desc
+  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  productHereticKnowledge: MarkOfRust
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathRust
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 3
+    whitelist:
+    - Rust
+
+- type: listing
+  id: HereticRustPath5
+  name: knowledge-path-rust-s5-name
+  description: knowledge-path-rust-s5-desc
+  icon: { sprite: _Goobstation/Heretic/Tiles, state: plating_rust } # Temp
+  productHereticKnowledge: RustConstruction
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathRust
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 4
+    whitelist:
+    - Rust
+
+- type: listing
+  id: HereticRustPath6
+  name: knowledge-path-rust-s6-name
+  description: knowledge-path-rust-s6-desc
+  icon: { sprite: _Goobstation/Heretic/Tiles, state: plating_rust } # Temp
+  productHereticKnowledge: AggressiveSpread
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathRust
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5
+
+- type: listing
+  id: HereticRustPath7
+  name: knowledge-path-rust-s7-name
+  description: knowledge-path-rust-s7-desc
+  icon: { sprite: _Goobstation/Heretic/Blades/blade_rust.rsi, state: icon }
+  productHereticKnowledge: ToxicBlade
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathRust
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 6
+    whitelist:
+    - Rust

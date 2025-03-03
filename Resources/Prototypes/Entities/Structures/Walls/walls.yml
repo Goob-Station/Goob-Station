@@ -543,7 +543,7 @@
   - type: Tag
     tags:
     - Wall
-    - Diagonal    
+    - Diagonal
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/plastitanium_diagonal.rsi
@@ -651,6 +651,7 @@
   - type: IconSmooth
     key: walls
     base: reinf_over
+  - type: RustedWall # Goobstation
   - type: Destructible
     thresholds:
     - trigger:
@@ -687,6 +688,7 @@
   components:
   - type: Tag
     tags:
+    - Wall # Goobstation
     - Diagonal
   - type: Sprite
     drawdepth: Walls
@@ -1078,6 +1080,7 @@
   - type: IconSmooth
     key: walls
     base: solid
+  - type: RustedWall # Goobstation
   - type: Destructible
     thresholds:
     - trigger:

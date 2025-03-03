@@ -44,7 +44,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
         SubscribeLocalEvent<HereticBladeComponent, MeleeHitEvent>(OnMeleeHit);
     }
 
-    public void ApplySpecialEffect(EntityUid performer, EntityUid target)
+    public void ApplySpecialEffect(EntityUid performer, EntityUid target, MeleeHitEvent args)
     {
         if (!TryComp<HereticComponent>(performer, out var hereticComp))
             return;
@@ -73,6 +73,17 @@ public sealed partial class HereticBladeSystem : EntitySystem
             case "Void":
                 if (TryComp<TemperatureComponent>(target, out var temp))
                     _temp.ForceChangeTemperature(target, temp.CurrentTemperature - 5f, temp);
+                break;
+
+            case "Rust":
+                var specifier = new DamageSpecifier
+                {
+                    DamageDict =
+                    {
+                        { "Poison", 7.5f },
+                    },
+                };
+                args.BonusDamage += specifier;
                 break;
 
             default:
@@ -147,7 +158,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
             }
 
             if (hereticComp.PathStage >= 7)
-                ApplySpecialEffect(args.User, hit);
+                ApplySpecialEffect(args.User, hit, args);
         }
 
         // blade path exclusive.
