@@ -51,3 +51,22 @@
     - LauncherLollypopRegeneratingMystery # I <3 GAMBLING
   - type: BorgModuleIcon
     icon: { sprite: _Goobstation/Actions/actions_borg.rsi, state: lollypop-module }
+
+- type: entity
+  id: BorgModulePKA
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  name: proto kinetic accelerator cyborg module
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: cargo
+    - state: icon-pka
+  - type: ItemBorgModule
+    droppableItems:
+    - id: WeaponProtoKineticAccelerator
+      whitelist:
+        components:
+        - PressureDamageChange
+  - type: BorgModuleIcon
+    icon: { sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi, state: icon }
