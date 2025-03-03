@@ -1432,6 +1432,7 @@
           Quantity: 7
         - ReagentId: Potassium
           Quantity: 7
+      canReact: false
 
 # Non-medication Lollypops
 
