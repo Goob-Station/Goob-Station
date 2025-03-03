@@ -4,6 +4,7 @@
   components:
   - type: HereticRule
   - type: GameRule
+  - type: WeakToHoly
     minPlayers: 15
   - type: AntagObjectives
     objectives:

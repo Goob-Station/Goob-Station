@@ -123,6 +123,7 @@
       blacklist:
         components:
         - AntagImmune
+        - WeakToHoly
       lateJoinAdditional: true
       mindRoles:
       - MindRoleHeretic

@@ -25,3 +25,5 @@ public sealed partial class WeakToHolySystem : EntitySystem
 
 // Okay you see what I'm getting at here.
 // Not finished an a little supercoded but alas.
+
+// We need to check for the player's species, if IPC return;, otherwise re-assign the heretic player's damage container to BiologicalMetaphysical
