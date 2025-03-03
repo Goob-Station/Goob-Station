@@ -186,7 +186,7 @@
       - MagazineLightRifleUranium
       - MagazineLightRifleUranium
 
-# Ambassador
+# Diplomat
 
 - type: job
   id: Diplomat
@@ -220,7 +220,7 @@
     neck: ExecutiveIDCard
     id: DiplomatPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltHolsterFilledCentComm
+    # belt: ClothingBeltHolsterFilledCentComm - SOMEONE wouldn't stop bitching until i removed this
     pocket1: TelescopicBaton
     pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
   storage:
