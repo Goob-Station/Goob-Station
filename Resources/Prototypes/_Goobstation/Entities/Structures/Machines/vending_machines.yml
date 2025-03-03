@@ -200,7 +200,7 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: _Goobstation/Structures/Machines/VendingMachines/fitness.rsi # Todo - Change this
+    sprite: _Goobstation/Structures/Machines/VendingMachines/sweettoof.rsi # Todo - Change this
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
