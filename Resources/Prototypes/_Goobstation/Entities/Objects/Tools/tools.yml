@@ -159,3 +159,13 @@
       map: [ "enum.FaxMachineVisuals.VisualState" ]
     - state: scanner
       shader: unshaded
+
+- type: entity
+  name: borg multitool
+  parent: Multitool
+  id: MultitoolBorg
+  description: An advanced tool to copy, store, and send electrical pulses and signals through wires and machines.
+  components:
+  - type: Tool
+    qualities:
+    - Pulsing
