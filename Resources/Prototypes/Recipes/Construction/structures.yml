@@ -885,7 +885,7 @@
   conditions:
     - !type:TileNotBlocked
       failIfSpace: false
-# Lavaland Change: add ability to build catwalks on any tiles    
+# Lavaland Change: add ability to build catwalks on any tiles
 #    - !type:TileType
 #      targets:
 #        - Lattice
@@ -1745,6 +1745,23 @@
   canBuildInImpassable: false
   icon:
     sprite: Structures/Doors/secret_door.rsi
+    state: closed
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: reinforced secret door
+  id: ReinforcedSecretDoor
+  graph: ReinforcedSecretDoor
+  startNode: start
+  targetNode: ReinforcedSecretDoor
+  category: construction-category-structures
+  description: Another secret door for the wall.
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Doors/reinforced_secret_door.rsi
     state: closed
   conditions:
     - !type:TileNotBlocked
