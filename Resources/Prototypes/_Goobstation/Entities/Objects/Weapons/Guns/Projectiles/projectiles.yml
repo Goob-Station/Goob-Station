@@ -13,7 +13,12 @@
   - type: Projectile
     damage:
       types:
-        Heat: 15
+        Shock: 10
+  - type: StaminaDamageOnCollide
+    damage: 30
+  - type: KnockdownOnCollide
+    behavior: DropIfStanding
+  - type: BlurOnCollide
   - type: TimedDespawn
     lifetime: 0.4
   - type: Ammo
@@ -30,9 +35,6 @@
         hard: false
         mask:
         - Opaque
-  - type: KnockdownOnCollide
-    behavior: DropIfStanding
-  - type: BlurOnCollide
 
 - type: entity
   id: BulletPlasmaCutter
