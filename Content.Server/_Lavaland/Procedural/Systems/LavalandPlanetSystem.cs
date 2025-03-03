@@ -33,8 +33,10 @@ namespace Content.Server._Lavaland.Procedural.Systems;
 /// </summary>
 public sealed class LavalandPlanetSystem : EntitySystem
 {
-    [ViewVariables]
-    private (EntityUid Uid, MapId Id)? _lavalandPreloader; // Global map for lavaland preloading
+    /// <summary>
+    /// Whether lavaland is enabled or not.
+    /// </summary>
+    public bool LavalandEnabled;
 
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -61,26 +63,29 @@ public sealed class LavalandPlanetSystem : EntitySystem
 
         SubscribeLocalEvent<PostGameMapLoad>(OnPreloadStart);
         SubscribeLocalEvent<RoundStartAttemptEvent>(OnRoundStart);
-        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnCleanup);
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
 
         _gridQuery = GetEntityQuery<MapGridComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
         _fixtureQuery = GetEntityQuery<FixturesComponent>();
+
+        Subs.CVar(_config, CCVars.LavalandEnabled, value => LavalandEnabled = value, true);
     }
 
     private void OnPreloadStart(PostGameMapLoad ev)
     {
-        if (!_config.GetCVar(CCVars.LavalandEnabled))
+        if (!LavalandEnabled)
         {
             return;
         }
 
+        EnsurePreloaderMap();
         SetupLavalands();
     }
 
     private void OnRoundStart(RoundStartAttemptEvent ev)
     {
-        if (!_config.GetCVar(CCVars.LavalandEnabled))
+        if (!LavalandEnabled)
         {
             return;
         }
@@ -100,31 +105,39 @@ public sealed class LavalandPlanetSystem : EntitySystem
         }
     }
 
-    private void OnCleanup(RoundRestartCleanupEvent ev)
+    public void EnsurePreloaderMap()
     {
-        ShutdownPreloader();
-    }
+        // Already have a preloader?
+        if (GetPreloaderEntity() != null)
+            return;
 
-    private void SetupPreloader()
-    {
-        if (_lavalandPreloader != null &&
-            !TerminatingOrDeleted(_lavalandPreloader.Value.Uid))
+        if (!LavalandEnabled)
             return;
 
         var mapUid = _map.CreateMap(out var mapId, false);
+        var preloader = EnsureComp<LavalandPreloaderComponent>(mapUid);
         _metaData.SetEntityName(mapUid, "Lavaland Preloader Map");
         _map.SetPaused(mapId, true);
-        _lavalandPreloader = (mapUid, mapId);
     }
 
-    private void ShutdownPreloader()
+    public Entity<LavalandPreloaderComponent>? GetPreloaderEntity()
     {
-        if (_lavalandPreloader == null ||
-            TerminatingOrDeleted(_lavalandPreloader.Value.Uid))
+        var query = AllEntityQuery<LavalandPreloaderComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            return (uid, comp);
+        }
+
+        return null;
+    }
+
+    private void OnRoundRestart(RoundRestartCleanupEvent ev)
+    {
+        var ent = GetPreloaderEntity();
+        if (ent == null)
             return;
 
-        _mapManager.DeleteMap(_lavalandPreloader.Value.Id);
-        _lavalandPreloader = null;
+        Del(ent.Value.Owner);
     }
 
     public List<Entity<LavalandMapComponent>> GetLavalands()
@@ -153,10 +166,20 @@ public sealed class LavalandPlanetSystem : EntitySystem
         }
     }
 
-    public bool SetupLavalandPlanet(out Entity<LavalandMapComponent>? lavaland,  LavalandMapPrototype prototype, int? seed = null)
+    public bool SetupLavalandPlanet(
+        out Entity<LavalandMapComponent>? lavaland,
+        LavalandMapPrototype prototype,
+        int? seed = null,
+        Entity<LavalandPreloaderComponent>? preloader = null)
     {
-        if (_lavalandPreloader == null)
-            SetupPreloader();
+        lavaland = null;
+
+        if (preloader == null)
+        {
+            preloader = GetPreloaderEntity();
+            if (preloader == null)
+                return false;
+        }
 
         // Basic setup.
         var lavalandMap = _map.CreateMap(out var lavalandMapId, runMapInit: false);
@@ -184,7 +207,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
 
         // Setup Ruins.
         var pool = _proto.Index(prototype.RuinPool);
-        SetupRuins(pool, lavaland.Value);
+        SetupRuins(pool, lavaland.Value, preloader.Value);
 
         // Hide all grids from the mass scanner.
         foreach (var grid in _mapManager.GetAllGrids(lavalandMapId))
@@ -282,7 +305,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
 
         // Align outpost to planet
         _transform.SetCoordinates(outpost, new EntityCoordinates(lavaland, 0, 0));
-        
+
         // Name it
         _metaData.SetEntityName(outpost, Loc.GetString("lavaland-planet-outpost"));
         var member = EnsureComp<LavalandMemberComponent>(outpost);
@@ -296,7 +319,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
         return true;
     }
 
-    private void SetupRuins(LavalandRuinPoolPrototype pool, Entity<LavalandMapComponent> lavaland)
+    private void SetupRuins(LavalandRuinPoolPrototype pool, Entity<LavalandMapComponent> lavaland, Entity<LavalandPreloaderComponent> preloader)
     {
         var random = new Random(lavaland.Comp.Seed);
 
@@ -306,7 +329,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
 
         // The LINQ shit is for filtering out all points that are inside the boundary.
         var coords = GetCoordinates(pool.RuinDistance, pool.MaxDistance);
-        var ruinsBounds = CalculateRuinBounds(pool);
+        var ruinsBounds = CalculateRuinBounds(pool, preloader);
 
         List<LavalandRuinPrototype> hugeRuins = [];
         List<LavalandRuinPrototype> smallRuins = [];
@@ -360,7 +383,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
 
             for (j = 0; j < ruin.SpawnAttemps; j++)
             {
-                if (!LoadRuin(ruin, lavaland, box, random, ref usedSpace, ref randomCoords, out var spawned))
+                if (!LoadRuin(ruin, lavaland, preloader, box, random, ref usedSpace, ref randomCoords, out var spawned))
                     continue;
 
                 var member = EnsureComp<LavalandMemberComponent>(spawned.Value);
@@ -395,7 +418,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
 
             for (j = 0; j < ruin.SpawnAttemps; j++)
             {
-                if (LoadRuin(ruin, lavaland, box, random, ref usedSpace, ref newCoords, out var spawned))
+                if (LoadRuin(ruin, lavaland, preloader, box, random, ref usedSpace, ref newCoords, out var spawned))
                     break;
             }
         }
@@ -459,6 +482,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
     private bool LoadRuin(
         LavalandRuinPrototype ruin,
         Entity<LavalandMapComponent> lavaland,
+        Entity<LavalandPreloaderComponent> preloader,
         List<Box2> ruinBox,
         Random random,
         ref HashSet<Box2> usedSpace,
@@ -488,7 +512,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
             return false;
         }
 
-        var salvMap = _lavalandPreloader!.Value.Uid;
+        var salvMap = preloader.Owner;
         var mapXform = Transform(salvMap);
 
         // Try to load everything on a dummy map
@@ -523,23 +547,18 @@ public sealed class LavalandPlanetSystem : EntitySystem
         return true;
     }
 
-    private Dictionary<ProtoId<LavalandRuinPrototype>, List<Box2>> CalculateRuinBounds(LavalandRuinPoolPrototype pool)
+    private Dictionary<ProtoId<LavalandRuinPrototype>, List<Box2>> CalculateRuinBounds(LavalandRuinPoolPrototype pool, Entity<LavalandPreloaderComponent> preloader)
     {
         var ruinBounds = new Dictionary<ProtoId<LavalandRuinPrototype>, List<Box2>>();
-
-        if (_lavalandPreloader == null || TerminatingOrDeleted(_lavalandPreloader.Value.Uid))
-        {
-            SetupPreloader();
-        }
 
         // All possible ruins for this pool
         var ruins = pool.SmallRuins.Keys.ToList().Concat(pool.HugeRuins.Keys).ToHashSet();
 
         foreach (var id in ruins)
         {
-            var mapId = _lavalandPreloader!.Value.Id;
-            var mapUid = _lavalandPreloader.Value.Uid;
+            var mapUid = preloader.Owner;
             var dummyMapXform = Transform(mapUid);
+            var mapId = dummyMapXform.MapID;
 
             var proto = _proto.Index(id);
             var bounds = new List<Box2>();
