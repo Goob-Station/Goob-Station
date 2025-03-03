@@ -281,11 +281,10 @@ public sealed class LavalandPlanetSystem : EntitySystem
         outpost = EntityUid.Invalid;
 
         // Setup Outpost
-        if (!_mapLoader.TryLoadMap(new ResPath(path), out var map, out var outposts) || outposts.Count != 1)
+        if (!_mapLoader.TryLoadGrid(lavalandMapId, new ResPath(path), out var outposts))
         {
-            Log.Error(outposts?.Count > 1
-                ? $"Loading Outpost on lavaland map failed, {path} is not saved as a grid."
-                : $"Failed to spawn Outpost {path} onto Lavaland map.");
+            // since tryloadgrid already checks for it, then w/e
+            Log.Error($"Loading Outpost on lavaland map failed, {path} is not saved as a grid. Failed to spawn Outpost onto Lavaland map.");
             return false;
         }
 

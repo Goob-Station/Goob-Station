@@ -22,8 +22,8 @@
     InsectBlood:
       amount: 30
   products:
-    Water: 14
-    Sodium: 3
+    Water: 11
+    Saline: 6 # Goob - changed to saline due to SodiumExplosion reacion
     Chlorine: 1.5
     CarbonDioxide: 5.5
     Protein: 6
