@@ -53,6 +53,8 @@
       map: [ "enum.AmmoVisualLayers.Tip" ]
       color: "#FFC0CB" # Change this to change the lollypop color. Default is pink.
   - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    size: Tiny
     inhandVisuals:
       left:
       - state: inhand-left
@@ -67,9 +69,6 @@
         reagents:
         - ReagentId: Sugar
           Quantity: 5
-  - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
-    size: Tiny
   - type: Extractable
     grindableSolutionName: food
     juiceSolution:
