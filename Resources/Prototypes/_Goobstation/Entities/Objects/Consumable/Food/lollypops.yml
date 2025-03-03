@@ -76,9 +76,6 @@
   name: wrapped syndicate lollypop
   description: A likely dangerous chem filled lollypop. It's still in a wrapper.
   components:
-  - type: FlavorProfile
-    flavors:
-    - coffee
   - type: Tag
     tags:
     - FoodSnack
@@ -99,6 +96,9 @@
   name: lollypop
   description: A plain old lollypop. This one gives you a bad feeling. # Only way to tell them apart. Read your descriptions.
   components:
+  - type: FlavorProfile
+    flavors:
+    - coffee
   - type: Tag
     tags:
     - FoodSnack
@@ -213,6 +213,9 @@
   name: carp lollypop
   description: A carp shaped lollypop. Careful, it bites!
   components:
+  - type: FlavorProfile
+    flavors:
+    - fishy
   - type: Tag
     tags:
     - FoodSnack
