@@ -126,3 +126,12 @@
   hidden: true
   loadouts:
   - LoadoutHonkopsMask
+
+# Captain
+
+- type: loadoutGroup
+  id: CaptainMask
+  name: loadout-group-captain-mask
+  minLimit: 0
+  loadouts:
+  - CaptainLollypop
