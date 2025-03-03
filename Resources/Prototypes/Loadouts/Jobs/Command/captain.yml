@@ -45,6 +45,16 @@
   equipment:
     head: ClothingHeadHatCapcap
 
+# Mask - Tbh idk if this should be here or in _goob but this is easier.
+
+- type: loadout
+  id: CaptainMask
+  equipment:
+    mask: FoodSnackLollypopCaptain
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterCap
+
 # Neck
 - type: loadout
   id: CaptainCloak

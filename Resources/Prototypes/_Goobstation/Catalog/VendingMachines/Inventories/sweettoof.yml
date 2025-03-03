@@ -1,0 +1,14 @@
+- type: vendingMachineInventory
+  id: SweetToofInventory
+  startingInventory:
+    FoodSnackLollypopWrappedMystery: 12
+    FoodSnackLollypopWrappedMysteryNeutral: 6
+    FoodSnackLollypopWrapped: 6
+    FoodSnackLollypopWrappedWeh: 4
+    FoodSnackChocolate: 6
+    FoodSnackLunacakeWrapped: 4
+    FoodSnackChocobanana: 4
+  emaggedInventory:
+    FoodSnackLollypopWrappedLexorin: 4
+    FoodSnackLollypopWrappedMysteryEvil: 10
+    FoodSnackLollypopWrappedTirizene: 2

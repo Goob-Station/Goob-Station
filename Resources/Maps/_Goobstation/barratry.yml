@@ -34265,6 +34265,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -70.5,28.5
       parent: 1
+- proto: CandyBowlFilledLollypopsMystery
+  entities:
+  - uid: 7393
+    components:
+    - type: Transform
+      pos: 0.44788197,32.49958
+      parent: 1
 - proto: CannabisSeeds
   entities:
   - uid: 29
@@ -77782,8 +77789,11 @@ entities:
   - uid: 1992
     components:
     - type: Transform
-      pos: 0.44623998,32.749245
+      pos: -0.42298993,32.634995
       parent: 1
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 1993
     components:
     - type: Transform

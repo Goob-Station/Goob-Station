@@ -27,3 +27,9 @@
   values:
     prefix: advertisement-maildrobe-
     count: 2
+
+- type: localizedDataset
+  id: SweetToofAds
+  values:
+    prefix: advertisement-sweettoof-
+    count: 4

@@ -27743,12 +27743,17 @@ entities:
     - type: Transform
       pos: 33.5,-38.5
       parent: 4812
-- proto: CandyBowl
+- proto: CandyBowlFilledLollypopsMystery
   entities:
-  - uid: 10667
+  - uid: 9353
     components:
     - type: Transform
-      pos: -9.517075,-13.504629
+      pos: -9.460024,-13.472456
+      parent: 4812
+  - uid: 9682
+    components:
+    - type: Transform
+      pos: 9.502783,23.490051
       parent: 4812
 - proto: CapacitorStockPart
   entities:
