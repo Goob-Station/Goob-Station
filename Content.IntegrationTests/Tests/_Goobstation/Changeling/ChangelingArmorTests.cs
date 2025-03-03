@@ -131,6 +131,8 @@ public sealed class ChangelingArmorTest
             Assert.That(entMan.GetComponent<MetaDataComponent>(head.Value).EntityPrototype!.ID, Is.EqualTo(mercHelmet));
         });
 
+        await server.WaitPost(() => entMan.DeleteEntity(urist));
+
         await pair.CleanReturnAsync();
     }
 }
