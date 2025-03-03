@@ -8,7 +8,6 @@ using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;
 using Content.Server.Roles;
-using Content.Server.RoundEnd;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared._Goobstation.Wizard;
@@ -37,7 +36,6 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly RoleSystem _role = default!;
-    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
@@ -158,7 +156,7 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
 
     private void CheckRoundShouldEnd()
     {
-        if (!_gameTicker.IsGameRuleActive<EndRoundOnWizardDeathRuleComponent>() ||
+        if (!_gameTicker.IsGameRuleActive<RuleOnWizardDeathRuleComponent>() ||
             !_gameTicker.IsGameRuleActive<WizardRuleComponent>())
             return;
 
@@ -188,12 +186,12 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         if (!endRound)
             return;
 
-        var endQuery = EntityQueryEnumerator<EndRoundOnWizardDeathRuleComponent, GameRuleComponent>();
-        while (endQuery.MoveNext(out var uid, out _, out var gameRule))
+        var endQuery = EntityQueryEnumerator<RuleOnWizardDeathRuleComponent, GameRuleComponent>();
+        while (endQuery.MoveNext(out var uid, out var ruleOnDeath, out var gameRule))
         {
             _gameTicker.EndGameRule(uid, gameRule);
+            _gameTicker.StartGameRule(ruleOnDeath.Rule);
         }
-        _roundEnd.EndRound();
     }
 
     public IEnumerable<Entity<StationDataComponent>> GetWizardTargetStations()

@@ -131,14 +131,17 @@
       groups:
         Brute: -25
         Burn: -25
+      types:
         Holy: -50 # 50 looks like it's a big number but unless you have unholy equipment, It's not.
     damageOnFail:
       groups:
         Burn: 30
+      types:
         Holy: 50
     damageOnUntrainedUse: # What a non-chaplain takes when attempting to heal someone
       groups:
         Burn: 25
+      types:
         Holy: 50 # 50 looks like it's a big number but unless you have unholy equipment, It's not.
   - type: MeleeWeapon
     soundHit:
