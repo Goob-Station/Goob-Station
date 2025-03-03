@@ -8,6 +8,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.EntitySerialization.Systems;
 
 namespace Content.Server.Teleportation;
 
@@ -60,16 +61,14 @@ public sealed class PocketDimensionSystem : EntitySystem
     {
         if (Deleted(comp.PocketDimensionMap))
         {
-            var map = _mapMan.CreateMap();
-
-            if (!_mapLoader.TryLoad(map, comp.PocketDimensionPath.ToString(), out var roots))
+            if (!_mapLoader.TryLoadMap(comp.PocketDimensionPath, out var map, out var roots))
             {
                 _sawmill.Error($"Failed to load pocket dimension map {comp.PocketDimensionPath}");
-                QueueDel(_mapMan.GetMapEntityId(map));
+                QueueDel(map);
                 return;
             }
 
-            comp.PocketDimensionMap = _mapMan.GetMapEntityId(map);
+            comp.PocketDimensionMap = map;
 
             // find the pocket dimension's first grid and put the portal there
             bool foundGrid = false;
