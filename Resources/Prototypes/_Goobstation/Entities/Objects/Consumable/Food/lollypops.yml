@@ -681,13 +681,13 @@
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
-# Calomel
+# Ibuprofen
 
 - type: entity
   parent: FoodSnackLollypopWrappedBase
-  id: FoodSnackLollypopWrappedCalomel
-  name: wrapped calomel lollypop
-  description: A calomel filled lollypop. It's still in a wrapper.
+  id: FoodSnackLollypopWrappedIbuprofen
+  name: wrapped ibuprofen lollypop
+  description: An ibuprofen filled lollypop. It's still in a wrapper.
   components:
   - type: Tag
     tags:
@@ -698,15 +698,15 @@
   - type: SpawnItemsOnUse
     items:
     - id: FoodSnackLollypopTrash
-    - id: FoodSnackLollypopCalomel
+    - id: FoodSnackLollypopIbuprofen
     sound:
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
   parent: FoodSnackLollypopBase
-  id: FoodSnackLollypopCalomel
-  name: calomel lollypop
-  description: A calomel filled lollypop. Contrary to popular belief, it's not caramel flavoured.
+  id: FoodSnackLollypopIbuprofen
+  name: ibuprofen lollypop
+  description: A ibuprofen filled lollypop. Leaves a bad aftertaste in your mouth.
   components:
   - type: Tag
     tags:
@@ -719,7 +719,7 @@
       map: [ "enum.AmmoVisualLayers.Base" ]
     - state: color
       map: [ "enum.AmmoVisualLayers.Tip" ]
-      color: "#baffd6"
+      color: "#be5c5c"
   - type: SolutionContainerManager
     solutions:
       food:
@@ -727,7 +727,7 @@
         reagents:
         - ReagentId: Sugar
           Quantity: 5
-        - ReagentId: Calomel
+        - ReagentId: Ibuprofen
           Quantity: 10
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
@@ -812,7 +812,7 @@
       orGroup: LollypopMystery
     - id: FoodSnackLollypopHyronalin
       orGroup: LollypopMystery
-    - id: FoodSnackLollypopCalomel
+    - id: FoodSnackLollypopIbuprofen
       orGroup: LollypopMystery
     - id: FoodSnackLollypopTricordrazine
       orGroup: LollypopMystery
@@ -857,7 +857,7 @@
       orGroup: LollypopMystery
     - id: FoodSnackLollypopHyronalin
       orGroup: LollypopMystery
-    - id: FoodSnackLollypopCalomel
+    - id: FoodSnackLollypopIbuprofen
       orGroup: LollypopMystery
     - id: FoodSnackLollypopWeh
       orGroup: LollypopMystery
