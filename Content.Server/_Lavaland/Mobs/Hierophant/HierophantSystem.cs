@@ -41,7 +41,7 @@ public sealed class HierophantSystem : EntitySystem
     // Im too lazy to deal with MobThreshholds.
     private const float HealthScalingFactor = 1.25f;
     private const float AngerScalingFactor = 1.15f;
-    private readonly FixedPoint2 _baseHierophantHp = 2500;
+    private readonly FixedPoint2 _baseHierophantHp = 4000;
 
     public override void Initialize()
     {

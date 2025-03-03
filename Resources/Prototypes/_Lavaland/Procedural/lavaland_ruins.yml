@@ -3,6 +3,9 @@
   name: lavaland-ruin-hierophant
   path: Maps/_Lavaland/Lavaland/ruin_hierophant_arena.yml
   priority: -1 # highest priority
+  componentsToGrant:
+    - type: TileMovement
+    - type: HierophantBeat
 
 - type: lavalandRuin
   id: SyndicateBase

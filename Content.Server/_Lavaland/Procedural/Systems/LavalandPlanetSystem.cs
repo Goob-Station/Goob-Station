@@ -13,18 +13,22 @@ using Content.Shared.Atmos;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Gravity;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Parallax.Biomes;
 using Content.Shared.Salvage;
 using Content.Shared.Shuttles.Components;
 using Robust.Server.GameObjects;
 using Robust.Server.Maps;
+using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Serialization.Manager;
 
 namespace Content.Server._Lavaland.Procedural.Systems;
 
@@ -52,7 +56,8 @@ public sealed class LavalandPlanetSystem : EntitySystem
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
-
+    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly ISerializationManager _serManager = default!;
     private EntityQuery<MapGridComponent> _gridQuery;
     private EntityQuery<TransformComponent> _xformQuery;
     private EntityQuery<FixturesComponent> _fixtureQuery;
@@ -64,6 +69,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
         SubscribeLocalEvent<PostGameMapLoad>(OnPreloadStart);
         SubscribeLocalEvent<RoundStartAttemptEvent>(OnRoundStart);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
+        SubscribeLocalEvent<MobStateComponent, EntParentChangedMessage>(OnPlayerParentChange);
 
         _gridQuery = GetEntityQuery<MapGridComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
@@ -120,6 +126,17 @@ public sealed class LavalandPlanetSystem : EntitySystem
         _map.SetPaused(mapId, true);
     }
 
+    /// <summary>
+    /// Raised when an entity exits or enters a grid.
+    /// </summary>
+    private void OnPlayerParentChange(Entity<MobStateComponent> ent, ref EntParentChangedMessage args)
+    {
+        if (args.OldParent != null
+            && TryComp<LavalandGridGrantComponent>(args.OldParent.Value, out var toRemove))
+            EntityManager.RemoveComponents(ent.Owner, toRemove.ComponentsToGrant);
+        else if (TryComp<LavalandGridGrantComponent>(Transform(ent.Owner).GridUid, out var toGrant))
+            EntityManager.AddComponents(ent.Owner, toGrant.ComponentsToGrant);
+    }
     public Entity<LavalandPreloaderComponent>? GetPreloaderEntity()
     {
         var query = AllEntityQuery<LavalandPreloaderComponent>();
@@ -212,11 +229,11 @@ public sealed class LavalandPlanetSystem : EntitySystem
         // Hide all grids from the mass scanner.
         foreach (var grid in _mapManager.GetAllGrids(lavalandMapId))
         {
-            var flag = IFFFlags.Hide;
+            var flag = IFFFlags.HideLabel;
 
-            #if DEBUG || TOOLS
+            /*#if DEBUG || TOOLS Uncomment me when GPS is done.
             flag = IFFFlags.HideLabel;
-            #endif
+            #endif*/
 
             _shuttle.AddIFFFlag(grid, flag);
         }
@@ -388,6 +405,10 @@ public sealed class LavalandPlanetSystem : EntitySystem
 
                 var member = EnsureComp<LavalandMemberComponent>(spawned.Value);
                 member.SignalName = Loc.GetString(ruin.Name);
+                var componentsToGrant = EnsureComp<LavalandGridGrantComponent>(spawned.Value);
+                foreach (var (key, comp) in ruin.ComponentsToGrant)
+                    componentsToGrant.ComponentsToGrant[key] = comp;
+
                 break;
             }
         }

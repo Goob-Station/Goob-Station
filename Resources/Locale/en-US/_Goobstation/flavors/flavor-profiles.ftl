@@ -4,4 +4,5 @@ flavor-base-sigma = sigma
 flavor-complex-fentanyl = burning tar
 flavor-base-tears = salty tears
 flavor-base-alienblood = alien
-
+flavor-base-old = old
+flavor-base-robust = robust
