@@ -1,12 +1,15 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Hands.Systems;
+using Content.Server.Heretic.Abilities;
 using Content.Server.Heretic.Components;
+using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
+using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._White.BackStab;
-using Content.Shared._White.Standing;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
@@ -19,20 +22,31 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
+using Content.Shared.Maps;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Silicons.StationAi;
 using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
+using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Server.Heretic.EntitySystems;
 
-public sealed partial class MansusGraspSystem : EntitySystem
+public sealed class MansusGraspSystem : EntitySystem
 {
+    [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
+    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IComponentFactory _compFact = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
@@ -47,6 +61,11 @@ public sealed partial class MansusGraspSystem : EntitySystem
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly BackStabSystem _backstab = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly UseDelaySystem _delay = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly HereticAbilitySystem _ability = default!;
 
     public override void Initialize()
     {
@@ -54,12 +73,78 @@ public sealed partial class MansusGraspSystem : EntitySystem
 
         SubscribeLocalEvent<MansusGraspComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<TagComponent, AfterInteractEvent>(OnAfterInteract);
+        SubscribeLocalEvent<RustGraspComponent, AfterInteractEvent>(OnRustInteract);
         SubscribeLocalEvent<HereticComponent, DrawRitualRuneDoAfterEvent>(OnRitualRuneDoAfter);
 
         SubscribeLocalEvent<MansusInfusedComponent, ExaminedEvent>(OnInfusedExamine);
         SubscribeLocalEvent<MansusInfusedComponent, InteractHandEvent>(OnInfusedInteract);
         SubscribeLocalEvent<MansusInfusedComponent, MeleeHitEvent>(OnInfusedMeleeHit);
         // todo add more mansus infused item interactions
+    }
+
+    private void OnRustInteract(EntityUid uid, RustGraspComponent comp, AfterInteractEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!args.CanReach || !TryComp<HereticComponent>(args.User, out var heretic) ||
+            !TryComp(uid, out UseDelayComponent? delay) || _delay.IsDelayed((uid, delay), comp.Delay) ||
+            !TryComp(uid, out MansusGraspComponent? grasp))
+            return;
+
+        if (args.Target == null || _whitelist.IsBlacklistPass(grasp.Blacklist, args.Target.Value))
+        {
+            RustTile();
+            return;
+        }
+
+        // Already rusted walls are destroyed
+        if (HasComp<RustedWallComponent>(args.Target))
+        {
+            args.Handled = true;
+            InvokeGrasp(args.User, (uid, grasp));
+            ResetDelay();
+            Del(args.Target);
+            return;
+        }
+
+        if (!_ability.TryMakeRustWall(args.Target.Value))
+            return;
+
+        args.Handled = true;
+        InvokeGrasp(args.User, (uid, grasp));
+        ResetDelay();
+
+        return;
+
+        void RustTile()
+        {
+            if (!args.ClickLocation.IsValid(EntityManager))
+                return;
+
+            if (!_mapManager.TryFindGridAt(_transform.ToMapCoordinates(args.ClickLocation), out var gridUid, out var mapGrid))
+                return;
+
+            var tileRef = _mapSystem.GetTileRef(gridUid, mapGrid, args.ClickLocation);
+            var tileDef = (ContentTileDefinition) _tileDefinitionManager[tileRef.Tile.TypeId];
+
+            if (tileDef.ID == HereticAbilitySystem.RustTile)
+                return;
+
+            args.Handled = true;
+            ResetDelay();
+            InvokeGrasp(args.User, (uid, grasp));
+
+            _ability.MakeRustTile(gridUid, mapGrid, tileRef, comp.TileRune);
+        }
+
+        void ResetDelay()
+        {
+            // Less delay the higher the path stage is
+            var length = float.Lerp(comp.MaxUseDelay, comp.MinUseDelay, heretic.PathStage / 10f);
+            _delay.SetLength((uid, delay), TimeSpan.FromSeconds(length), comp.Delay);
+            _delay.TryResetDelay((uid, delay), false, comp.Delay);
+        }
     }
 
     private void OnAfterInteract(Entity<MansusGraspComponent> ent, ref AfterInteractEvent args)
@@ -70,32 +155,38 @@ public sealed partial class MansusGraspSystem : EntitySystem
         if (args.Target == null || args.Target == args.User)
             return;
 
+        var (uid, comp) = ent;
+
         if (!TryComp<HereticComponent>(args.User, out var hereticComp))
         {
-            QueueDel(ent);
+            QueueDel(uid);
             args.Handled = true;
             return;
         }
 
-        var target = (EntityUid) args.Target;
+        var target = args.Target.Value;
 
-        if ((TryComp<HereticComponent>(args.Target, out var th) && th.CurrentPath == ent.Comp.Path))
+        if ((TryComp<HereticComponent>(target, out var th) && th.CurrentPath == ent.Comp.Path))
             return;
 
-        if (HasComp<StatusEffectsComponent>(target))
+        if (_whitelist.IsBlacklistPass(comp.Blacklist, target))
+            return;
+
+        if (TryComp(target, out StatusEffectsComponent? status))
         {
-            _chat.TrySendInGameICMessage(args.User, Loc.GetString("heretic-speech-mansusgrasp"), InGameICChatType.Speak, false);
-            _audio.PlayPvs(new SoundPathSpecifier("/Audio/Items/welder.ogg"), target);
-            _stun.KnockdownOrStun(target, TimeSpan.FromSeconds(3f), true);
-            _stamina.TakeStaminaDamage(target, 80f);
-            _language.DoRatvarian(target, TimeSpan.FromSeconds(10f), true);
+            _stun.KnockdownOrStun(target, comp.KnockdownTime, true, status);
+            _stamina.TakeStaminaDamage(target, comp.StaminaDamage);
+            _language.DoRatvarian(target, comp.SpeechTime, true, status);
         }
 
         // upgraded grasp
         if (hereticComp.CurrentPath != null)
         {
             if (hereticComp.PathStage >= 2)
-                ApplyGraspEffect(args.User, target, hereticComp.CurrentPath!);
+            {
+                if (!ApplyGraspEffect((args.User, hereticComp), target, ent))
+                    return;
+            }
 
             if (hereticComp.PathStage >= 4 && HasComp<StatusEffectsComponent>(target))
             {
@@ -105,8 +196,15 @@ public sealed partial class MansusGraspSystem : EntitySystem
         }
 
         hereticComp.MansusGraspActive = false;
-        QueueDel(ent);
+        InvokeGrasp(args.User, ent);
+        QueueDel(uid);
         args.Handled = true;
+    }
+
+    private void InvokeGrasp(EntityUid user, Entity<MansusGraspComponent> ent)
+    {
+        _audio.PlayPvs(ent.Comp.Sound, user);
+        _chat.TrySendInGameICMessage(user, Loc.GetString(ent.Comp.Invocation), InGameICChatType.Speak, false);
     }
 
     private void OnAfterInteract(Entity<TagComponent> ent, ref AfterInteractEvent args)
@@ -151,12 +249,11 @@ public sealed partial class MansusGraspSystem : EntitySystem
             _transform.AttachToGridOrMap(Spawn("HereticRuneRitual", ev.Coords));
     }
 
-    public void ApplyGraspEffect(EntityUid performer, EntityUid target, string path)
+    public bool ApplyGraspEffect(Entity<HereticComponent> user, EntityUid target, EntityUid grasp)
     {
-        if (!TryComp<HereticComponent>(performer, out var heretic))
-            return;
+        var (performer, heretic) = user;
 
-        switch (path)
+        switch (heretic.CurrentPath)
         {
             case "Ash":
                 {
@@ -218,9 +315,31 @@ public sealed partial class MansusGraspSystem : EntitySystem
                     break;
                 }
 
+            case "Rust":
+                {
+                    if (TryComp(target, out StationAiHolderComponent? aiHolder)) // Kill AI
+                        QueueDel(aiHolder.Slot.ContainerSlot?.ContainedEntity);
+                    else if (HasComp<RustGraspComponent>(grasp) && _tag.HasTag(target, "Wall")) // If we are in rust mode and targeting a wall - do nothing, let other methods handle that
+                        return false;
+                    else if (TryComp(target, out DamageableComponent? damageable) && // Is it even damageable?
+                             (!HasComp<MobStateComponent>(target) || HasComp<SiliconComponent>(target) ||
+                              HasComp<BorgChassisComponent>(target) || _tag.HasTag(target, "Bot"))) // Check for ingorganic target
+                    {
+                        _damage.TryChangeDamage(target,
+                            new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), 500),
+                            ignoreResistances: true,
+                            damageable: damageable,
+                            origin: performer,
+                            targetPart: TargetBodyPart.Torso);
+                    }
+                    break;
+                }
+
             default:
-                return;
+                return true;
         }
+
+        return true;
     }
 
     #region Infused items

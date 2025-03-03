@@ -229,6 +229,19 @@
   outputKnowledge: WaltzAtTheEndOfTime
   outputEvent: !type:EventHereticAscension
 
+### rust path
+- type: hereticRitual
+  id: BladeRust
+  locName: knowledge-path-rust-s1-name
+  locDesc: knowledge-path-rust-s1-desc
+  icon:
+    sprite: _Goobstation/Heretic/Blades/blade_rust.rsi
+    state: icon
+  requiredTags:
+    Knife: 1
+    Trash: 1
+  output:
+    HereticBladeRust: 1
 
 
 ### side knowledge

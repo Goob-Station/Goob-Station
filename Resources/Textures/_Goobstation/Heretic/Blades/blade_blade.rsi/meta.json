@@ -9,6 +9,28 @@
   "states": [
     {
       "name": "icon"
+    },
+    {
+      "name": "infused",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "equipped-BELT",
+      "directions": 4
     }
   ]
 }

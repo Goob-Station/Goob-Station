@@ -15,6 +15,7 @@
   - type: Tag
     tags:
     - Wall
+    - Diagonal
   - type: Sprite
     drawdepth: Walls
     sprite: _Shitmed/Structures/Walls/abductor_diagonal.rsi

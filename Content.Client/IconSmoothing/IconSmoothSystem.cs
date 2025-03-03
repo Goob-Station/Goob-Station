@@ -85,13 +85,13 @@ namespace Content.Client.IconSmoothing
             sprite.LayerMapRemove(CornerLayers.SW);
 
             var state0 = $"{component.StateBase}0";
-            sprite.LayerMapSet(CornerLayers.SE, sprite.AddLayerState(state0));
+            sprite.LayerMapSet(CornerLayers.SE, sprite.AddLayerState(state0, 0)); // Goob edit
             sprite.LayerSetDirOffset(CornerLayers.SE, DirectionOffset.None);
-            sprite.LayerMapSet(CornerLayers.NE, sprite.AddLayerState(state0));
+            sprite.LayerMapSet(CornerLayers.NE, sprite.AddLayerState(state0, 0)); // Goob edit
             sprite.LayerSetDirOffset(CornerLayers.NE, DirectionOffset.CounterClockwise);
-            sprite.LayerMapSet(CornerLayers.NW, sprite.AddLayerState(state0));
+            sprite.LayerMapSet(CornerLayers.NW, sprite.AddLayerState(state0, 0)); // Goob edit
             sprite.LayerSetDirOffset(CornerLayers.NW, DirectionOffset.Flip);
-            sprite.LayerMapSet(CornerLayers.SW, sprite.AddLayerState(state0));
+            sprite.LayerMapSet(CornerLayers.SW, sprite.AddLayerState(state0, 0)); // Goob edit
             sprite.LayerSetDirOffset(CornerLayers.SW, DirectionOffset.Clockwise);
         }
 

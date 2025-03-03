@@ -293,6 +293,51 @@
   path: Void
   event: !type:HereticAscensionVoidEvent
 
+## rust path
+- type: hereticKnowledge
+  id: BlacksmithTale
+  path: Rust
+  stage: 1
+  ritualPrototypes:
+  - BladeRust
+
+- type: hereticKnowledge
+  id: GraspOfRust
+  path: Rust
+  stage: 2
+
+- type: hereticKnowledge
+  id: LeechingWalk
+  path: Rust
+  sideKnowledge: true
+  stage: 3
+  event: !type:HereticLeechingWalkEvent
+
+- type: hereticKnowledge
+  id: MarkOfRust
+  path: Rust
+  stage: 4
+
+- type: hereticKnowledge
+  id: RustConstruction
+  path: Rust
+  stage: 5
+  actionPrototypes:
+  - ActionHereticRustConstruction
+
+- type: hereticKnowledge
+  id: AggressiveSpread
+  path: Rust
+  sideKnowledge: true
+  stage: 6
+  actionPrototypes:
+  - ActionHereticAggressiveSpread
+
+- type: hereticKnowledge
+  id: ToxicBlade
+  path: Rust
+  stage: 7
+
 ### side paths
 - type: hereticKnowledge
   id: RitualOfKnowledge
