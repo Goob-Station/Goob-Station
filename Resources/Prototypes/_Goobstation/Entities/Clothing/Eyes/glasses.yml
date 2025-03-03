@@ -5,9 +5,9 @@
   description: Sunglasses with a medical and security hud
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Eyes/Glasses/medglasses.rsi
+    sprite: _Goobstation/Clothing/Eyes/Glasses/medsecglasses.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Eyes/Glasses/medglasses.rsi
+    sprite: _Goobstation/Clothing/Eyes/Glasses/medsecglasses.rsi
   - type: Construction
     graph: GlassesMedSecHUD
     node: glassesMedSec
@@ -84,3 +84,30 @@
   - type: Construction
     graph: GlassesMedHUD
     node: glassesMed
+
+- type: entity 
+  parent: [ClothingEyesBase, ShowSecurityIcons, ShowHealthRelatedIcons, BaseSecurityContraband, ClothingEyesGlassesSunglasses]
+  id: ClothingEyesGlassesBSO
+  name: blueshield officer glasses
+  description: Sunglasses with a medical, security and diagnostic hud.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Eyes/Glasses/bsoglasses.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Eyes/Glasses/bsoglasses.rsi
+    
+
+- type: entity 
+  parent: [ClothingEyesBase, ClothingEyesGlassesSunglasses, ShowHealthRelatedIcons]
+  id: ClothingEyesGlassesMedDiag
+  name: meddiag glasses
+  description: Sunglasses with a medical and diagnostic hud.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Eyes/Glasses/meddiagglasses.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Eyes/Glasses/meddiagglasses.rsi
+  - type: Construction
+    graph: GlassesMedDiagHUD
+    node: glassesMedDiag
+    
