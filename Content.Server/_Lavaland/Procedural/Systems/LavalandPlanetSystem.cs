@@ -8,6 +8,7 @@ using Content.Server.GameTicking;
 using Content.Server.Parallax;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
+using Content.Shared._Lavaland.GPS;
 using Content.Shared._Lavaland.Procedural.Prototypes;
 using Content.Shared.Atmos;
 using Content.Shared.CCVar;
@@ -308,7 +309,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
 
         // Name it
         _metaData.SetEntityName(outpost, Loc.GetString("lavaland-planet-outpost"));
-        var member = EnsureComp<LavalandMemberComponent>(outpost);
+        var member = EnsureComp<GpsSignalComponent>(outpost);
         member.SignalName = Loc.GetString("lavaland-planet-outpost");
 
         // Add outpost as a new station grid member (if it's in round)
@@ -386,7 +387,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
                 if (!LoadRuin(ruin, lavaland, preloader, box, random, ref usedSpace, ref randomCoords, out var spawned))
                     continue;
 
-                var member = EnsureComp<LavalandMemberComponent>(spawned.Value);
+                var member = EnsureComp<GpsSignalComponent>(spawned.Value);
                 member.SignalName = Loc.GetString(ruin.Name);
                 break;
             }

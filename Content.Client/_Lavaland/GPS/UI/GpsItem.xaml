@@ -1,0 +1,13 @@
+<BoxContainer xmlns="https://spacestation14.io"
+            Orientation="Horizontal"
+            HorizontalExpand="True"
+            SeparationOverride="4">
+    <Label Name="NameLabel" SizeFlagsStretchRatio="3" HorizontalExpand="True" ClipText="True"/>
+    <Label Name="CoordsLabel" SizeFlagsStretchRatio="3" HorizontalAlignment="Center" Margin="8 0"/>
+    <TextureRect
+        Name="ArrowPointer"
+        Margin="4 0 0 0"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        MinSize="32 32"/>
+</BoxContainer>
