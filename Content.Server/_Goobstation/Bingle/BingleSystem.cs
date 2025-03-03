@@ -4,18 +4,24 @@ using Content.Shared.Popups;
 using Content.Shared._Goobstation.Bingle;
 using Robust.Shared.Map;
 using System.Numerics;
+using Content.Shared._White.Overlays;
+using Content.Server.Flash.Components;
+using Content.Server.Polymorph.Components;
+using Content.Server.Polymorph.Systems;
 
 namespace Content.Server._Goobstation.Bingle;
 
 public sealed class BingleSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly PolymorphSystem _polymorph = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<BingleComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BingleComponent, AttackAttemptEvent>(OnAttackAttempt);
+        SubscribeLocalEvent<BingleComponent, ToggleNightVisionEvent>(OnNightvision);
     }
 
     private void OnMapInit(EntityUid uid, BingleComponent component, MapInitEvent args)
@@ -42,16 +48,12 @@ public sealed class BingleSystem : EntitySystem
     {
         if (component.Upgraded)
             return;
-        if (!TryComp<MeleeWeaponComponent>(uid, out var weponComp))
-            return;
 
-        weponComp.Damage = component.UpgradeDamage;
-        component.Upgraded = true;
-        Dirty(uid, weponComp);
+        var polyComp = EnsureComp<PolymorphableComponent>(uid);
+        _polymorph.CreatePolymorphAction("BinglePolymorph",(uid, polyComp ));
 
         _popup.PopupEntity(Loc.GetString("bingle-upgrade-success"), uid, uid);
-
-        RaiseNetworkEvent(new BingleUpgradeEntityMessage(GetNetEntity(uid)));
+        component.Upgraded = true;
     }
 
     private void OnAttackAttempt(EntityUid uid, BingleComponent component, AttackAttemptEvent args)
@@ -59,6 +61,14 @@ public sealed class BingleSystem : EntitySystem
         //Prevent Friendly Bingle fire
         if (HasComp<BinglePitComponent>(args.Target) || HasComp<BingleComponent>(args.Target))
             args.Cancel();
+    }
+
+    private void OnNightvision(EntityUid uid, BingleComponent component, ToggleNightVisionEvent args)
+    {
+        if (!TryComp<FlashImmunityComponent>(uid, out var flashComp))
+            return;
+
+        flashComp.Enabled = !flashComp.Enabled;
     }
 }
 

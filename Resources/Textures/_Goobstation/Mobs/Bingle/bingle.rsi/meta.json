@@ -28,6 +28,9 @@
         "name": "dead"
     },
     {
+         "name": "dead_upgraded"
+    },
+    {
         "name": "Upgraded",
         "directions": 4
     },
