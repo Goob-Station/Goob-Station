@@ -15,6 +15,7 @@ using Content.Shared.Humanoid;
 using Robust.Server.Player;
 using Content.Server.Revolutionary.Components;
 using Content.Shared.Random.Helpers;
+using Content.Server._Goobstation.Religion;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -76,6 +77,7 @@ public sealed partial class HereticSystem : EntitySystem
 
     private void OnCompInit(Entity<HereticComponent> ent, ref ComponentInit args)
     {
+
         // add influence layer
         if (TryComp<EyeComponent>(ent, out var eye))
             _eye.SetVisibilityMask(ent, eye.VisibilityMask | EldritchInfluenceComponent.LayerMask);
@@ -84,6 +86,9 @@ public sealed partial class HereticSystem : EntitySystem
             _knowledge.AddKnowledge(ent, ent.Comp, knowledge);
 
         RaiseLocalEvent(ent, new EventHereticRerollTargets());
+
+
+        EnsureComp<WeakToHolyComponent>(ent);
     }
 
     #region Internal events (target reroll, ascension, etc.)

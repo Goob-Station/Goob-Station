@@ -1,4 +1,8 @@
 # Alphabetical order people!
+
+- type: Tag
+  id: ArrythmicKnife
+
 - type: Tag
   id: AutoinjectorCartridge
 
@@ -120,6 +124,9 @@
   id: GasMask
 
 - type: Tag
+  id: GodHand
+
+- type: Tag
   id: GorillaFormAction
 
 - type: Tag
@@ -163,6 +170,9 @@
 
 - type: Tag
   id: HEVSuit
+
+- type: Tag
+  id: HolyClaymore
 
 - type: Tag
   id: IgnoreBindSoul
@@ -240,6 +250,9 @@
   id: NukeOpsReinforcementUplink
 
 - type: Tag
+  id: Nullrod
+
+- type: Tag
   id: Organ
 
 - type: Tag
@@ -250,6 +263,9 @@
 
 - type: Tag
   id: RipleyMkII
+
+- type: Tag
+  id: Rosary
 
 - type: Tag
   id: SecurityBreathMask

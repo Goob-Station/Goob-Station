@@ -28,7 +28,7 @@
   id: Silicon
   supportedGroups:
     - Brute
-    - Electronic #Goobstation
+    - Electronic # Goobstation
   supportedTypes:
     - Heat
     - Shock

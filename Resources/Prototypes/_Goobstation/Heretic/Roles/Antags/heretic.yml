@@ -8,6 +8,11 @@
   - !type:OverallPlaytimeRequirement
     time: 54000 # 15h
   guides: [ Heretics ]
+  #special: # Shitchap
+  #- !type:AddComponentSpecial
+  #  components:
+  #  - type: WeakToHoly
+  #    Modifier: 2
 
 - type: startingGear
   id: HereticGear
