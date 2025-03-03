@@ -19,6 +19,8 @@ public sealed partial class WeakToHolySystem : EntitySystem
 
     private void OnSpawnComplete(PlayerSpawnCompleteEvent args, WeakToHolyComponent comp)
     {
+        if (TryComp<DamageableComponent>(args.Mob, out var damageable) && damageable.DamageContainerID == "Biological")
+        damageable.DamageContainerID = "BiologicalMetaphysical";
         var multiplier = comp.DamageMultiplier;
     }
 }
@@ -26,4 +28,4 @@ public sealed partial class WeakToHolySystem : EntitySystem
 // Okay you see what I'm getting at here.
 // Not finished an a little supercoded but alas.
 
-// We need to check for the player's species, if IPC return;, otherwise re-assign the heretic player's damage container to BiologicalMetaphysical
+// We need to check for the player's DamageContainer, if Silicon then return;, otherwise re-assign the heretic player's damage container to BiologicalMetaphysical

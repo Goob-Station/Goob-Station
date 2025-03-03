@@ -60,8 +60,7 @@
   abstract: true
   components:
   - type: Damageable
-    damageContainer: BiologicalMetaphysical # Shitchap
-    damageModifierSet: GodsChildren # Shitchap
+    damageContainer: Biological # Shitchap
   - type: Destructible
     thresholds:
     - trigger:
