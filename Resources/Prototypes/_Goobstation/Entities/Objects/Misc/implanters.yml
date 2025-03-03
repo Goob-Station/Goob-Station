@@ -50,7 +50,7 @@
   id: BaseImplantOnlyImplanterCentcomm
   parent: [ BaseImplantOnlyImplanter, BaseCentcommContraband ]
   name: centcomm implanter
-  description: A compact disposable syringe exclusively designed for the injection of subdermal implants. The insertion needle is coated with an anesthetic.
+  description: A compact disposable syringe exclusively designed for the injection of subdermal implants. The insertion needle is coated with an analgesic.
   abstract: true
   components:
   - type: Item
@@ -84,6 +84,22 @@
   components:
   - type: Implanter
     implant: BluespaceLifelineImplant
+
+- type: entity
+  id: CentcommFreedomImplanter
+  suffix: freedom implant
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: FreedomImplant
+
+- type: entity
+  id: CentcommStorageImplanter
+  suffix: storage implant
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: StorageImplant
 
 - type: entity
   parent: BaseImplantOnlyImplanter

@@ -17,3 +17,6 @@
 - type: statusEffect
   id: BlurryVision
   alwaysAllowed: true
+
+- type: statusEffect
+  id: Dementia
