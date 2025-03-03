@@ -13,7 +13,8 @@
 - type: latheRecipe
   id: RipleyHarness
   result: RipleyHarness
-  category: Ripley # Goobstation
+  categories:
+  - Ripley # Goobstation
   completetime: 10
   materials:
     Steel: 1500
@@ -22,7 +23,8 @@
 - type: latheRecipe
   id: RipleyLArm
   result: RipleyLArm
-  category: Ripley # Goobstation
+  categories:
+  - Ripley # Goobstation
   completetime: 10
   materials:
     Steel: 1000
@@ -31,7 +33,8 @@
 - type: latheRecipe
   id: RipleyLLeg
   result: RipleyLLeg
-  category: Ripley # Goobstation
+  categories:
+  - Ripley # Goobstation
   completetime: 10
   materials:
     Steel: 1000
@@ -40,7 +43,8 @@
 - type: latheRecipe
   id: RipleyRLeg
   result: RipleyRLeg
-  category: Ripley # Goobstation
+  categories:
+  - Ripley # Goobstation
   completetime: 10
   materials:
     Steel: 1000
@@ -49,7 +53,8 @@
 - type: latheRecipe
   id: RipleyRArm
   result: RipleyRArm
-  category: Ripley # Goobstation
+  categories:
+  - Ripley # Goobstation
   completetime: 10
   materials:
     Steel: 1000
@@ -59,7 +64,8 @@
 - type: latheRecipe
   id: HonkerHarness
   result: HonkerHarness
-  category: Honker # Goobstation
+  categories:
+  - Honker # Goobstation
   completetime: 10
   materials:
     Steel: 3000
@@ -69,7 +75,8 @@
 - type: latheRecipe
   id: HonkerLArm
   result: HonkerLArm
-  category: Honker # Goobstation
+  categories:
+  - Honker # Goobstation
   completetime: 10
   materials:
     Steel: 3000
@@ -79,7 +86,8 @@
 - type: latheRecipe
   id: HonkerLLeg
   result: HonkerLLeg
-  category: Honker # Goobstation
+  categories:
+  - Honker # Goobstation
   completetime: 10
   materials:
     Steel: 3000
@@ -89,7 +97,8 @@
 - type: latheRecipe
   id: HonkerRLeg
   result: HonkerRLeg
-  category: Honker # Goobstation
+  categories:
+  - Honker # Goobstation
   completetime: 10
   materials:
     Steel: 3000
@@ -99,7 +108,8 @@
 - type: latheRecipe
   id: HonkerRArm
   result: HonkerRArm
-  category: Honker # Goobstation
+  categories:
+  - Honker # Goobstation
   completetime: 10
   materials:
     Steel: 3000
@@ -110,7 +120,8 @@
 - type: latheRecipe
   id: HamtrHarness
   result: HamtrHarness
-  category: Hamptr # Goobstation
+  categories:
+  - Hamptr # Goobstation
   completetime: 10
   materials:
     Steel: 1200
@@ -119,7 +130,8 @@
 - type: latheRecipe
   id: HamtrLArm
   result: HamtrLArm
-  category: Hamptr # Goobstation
+  categories:
+  - Hamptr # Goobstation
   completetime: 10
   materials:
     Steel: 800
@@ -128,7 +140,8 @@
 - type: latheRecipe
   id: HamtrLLeg
   result: HamtrLLeg
-  category: Hamptr # Goobstation
+  categories:
+  - Hamptr # Goobstation
   completetime: 10
   materials:
     Steel: 800
@@ -137,7 +150,8 @@
 - type: latheRecipe
   id: HamtrRLeg
   result: HamtrRLeg
-  category: Hamptr # Goobstation
+  categories:
+  - Hamptr # Goobstation
   completetime: 10
   materials:
     Steel: 800
@@ -146,7 +160,8 @@
 - type: latheRecipe
   id: HamtrRArm
   result: HamtrRArm
-  category: Hamptr # Goobstation
+  categories:
+  - Hamptr # Goobstation
   completetime: 10
   materials:
     Steel: 800
@@ -155,7 +170,8 @@
 - type: latheRecipe
   id: MechEquipmentGrabberSmall
   result: MechEquipmentGrabberSmall
-  category: MechEquipment # Goobstation
+  categories:
+  - MechEquipment # Goobstation
   completetime: 10
   materials:
     Steel: 400
@@ -164,7 +180,8 @@
 - type: latheRecipe
   id: MechEquipmentHorn
   result: MechEquipmentHorn
-  category: MechEquipment
+  categories:
+  - MechEquipment
   completetime: 10
   materials:
     Steel: 500

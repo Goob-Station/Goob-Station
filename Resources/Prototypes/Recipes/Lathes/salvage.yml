@@ -53,7 +53,8 @@
 - type: latheRecipe
   id: MiningDrill
   result: MiningDrill
-  category: Tools
+  categories:
+  - Tools
   completetime: 3
   materials:
     Steel: 500
@@ -62,7 +63,8 @@
 - type: latheRecipe
   id: MiningDrillDiamond
   result: MiningDrillDiamond
-  category: Tools
+  categories:
+  - Tools
   completetime: 3
   materials:
     Steel: 600

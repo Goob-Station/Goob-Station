@@ -1,7 +1,8 @@
 - type: latheRecipe
   id: TimerTrigger
   result: TimerTrigger
-  category: Parts
+  categories:
+  - Parts
   completetime: 2
   materials:
     Steel: 300
@@ -10,7 +11,8 @@
 - type: latheRecipe
   id: SignalTrigger
   result: SignalTrigger
-  category: Parts
+  categories:
+  - Parts
   completetime: 2
   materials:
     Steel: 300
@@ -19,7 +21,8 @@
 - type: latheRecipe
   id: VoiceTrigger
   result: VoiceTrigger
-  category: Parts
+  categories:
+  - Parts
   completetime: 2
   materials:
     Steel: 300
@@ -28,7 +31,8 @@
 - type: latheRecipe
   id: Igniter
   result: Igniter
-  category: Parts
+  categories:
+  - Parts
   completetime: 2
   materials:
     Steel: 300
@@ -38,7 +42,8 @@
 - type: latheRecipe
   id: ChemicalPayload
   result: ChemicalPayload
-  category: Weapons
+  categories:
+  - Weapons
   completetime: 2
   materials:
     Steel: 200
@@ -47,7 +52,8 @@
 - type: latheRecipe
   id: FlashPayload
   result: FlashPayload
-  category: Weapons
+  categories:
+  - Weapons
   completetime: 2
   materials:
     Steel: 50
@@ -71,7 +77,8 @@
 - type: latheRecipe
   id: Signaller
   result: RemoteSignaller
-  category: Parts
+  categories:
+  - Parts
   completetime: 2
   materials:
     Steel: 100
@@ -81,7 +88,8 @@
 - type: latheRecipe
   id: SignallerAdvanced
   result: RemoteSignallerAdvanced
-  category: Parts
+  categories:
+  - Parts
   completetime: 2
   materials:
     Steel: 100
@@ -111,7 +119,8 @@
 - type: latheRecipe
   id: AnomalyScanner
   result: AnomalyScanner
-  category: Tools
+  categories:
+  - Tools
   completetime: 2
   materials:
     Plastic: 200
