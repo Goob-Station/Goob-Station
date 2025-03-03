@@ -20,7 +20,7 @@
   description: uplink-revolver-python-desc
   productEntity: WeaponRevolverPythonAP
   cost:
-    Telecrystal: 24 # goob - Originally was 65 TC but was not used due to high cost. and the same happened at 40 TC. +2 mags = 34 TC.
+    Telecrystal: 20 # goob - Originally was 65 TC but was not used due to high cost. and the same happened at 40 TC. +2 mags = 30 TC.
   categories:
   - UplinkWeaponry
 
@@ -131,7 +131,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Snipers/heavy_sniper.rsi, state: base }
   productEntity: BriefcaseSyndieSniperBundleFilled
   cost:
-    Telecrystal: 80 # goob - increase price by a lot when the thing has a scope
+    Telecrystal: 60 # goob
   categories:
   - UplinkWeaponry
 
@@ -460,7 +460,7 @@
   description: uplink-mosin-ammo-desc
   productEntity: MagazineBoxLightRifle
   cost:
-    Telecrystal: 15 # goob - l6 exists
+    Telecrystal: 12 # goob - l6 exists
   categories:
   - UplinkAmmo
 
@@ -471,7 +471,7 @@
   description: uplink-sniper-ammo-desc
   productEntity: MagazineBoxAntiMateriel
   cost:
-    Telecrystal: 20 # goob - Calculated to have about the same amount/damage ratio as AP speedloader
+    Telecrystal: 8 # goob
   categories:
   - UplinkAmmo
 
