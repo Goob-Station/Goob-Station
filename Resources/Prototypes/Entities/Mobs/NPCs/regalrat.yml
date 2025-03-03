@@ -59,7 +59,7 @@
         Slash: 12
         Piercing: 8
   - type: Body
-    prototype: Rat
+    prototype: RatKing
     requiredLegs: 1 # TODO: More than 1 leg
   - type: SurgeryTarget # Shitmed
   - type: UserInterface # Shitmed
