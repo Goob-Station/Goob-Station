@@ -82,7 +82,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSalvageSpecialist
-  name: salvage specialist's jumpsuit
+  name: shaft miner's jumpsuit
   description: It's a snappy jumpsuit with a sturdy set of overalls. It's very dirty.
   components:
   - type: Sprite

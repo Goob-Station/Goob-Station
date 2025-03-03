@@ -1,1 +1,2 @@
 job-description-hecu = Fufill the orders of your supervisor, no matter the morales.
+job-description-shaftminer = Welcome Shaft Miner, to the wonderful caverns of this Nanotrasen Claimed Landmass. Here, you will break rocks, slay monsters, and die lost and alone in the depths of the caverns.

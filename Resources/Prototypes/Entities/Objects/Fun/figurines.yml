@@ -200,8 +200,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineSalvage
-  name: salvage specialist figure
-  description: A figurine depicting a Salvage Specialist holding a survival knife.
+  name: shaft miner figure # Goobstation
+  description: A figurine depicting a Shaft Miner holding a survival knife. # Goobstation
   components:
   - type: Sprite
     state: salvage
