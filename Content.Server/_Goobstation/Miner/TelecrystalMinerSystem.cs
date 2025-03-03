@@ -41,8 +41,11 @@ public sealed class TelecrystalMinerSystem : EntitySystem
 
         while (query.MoveNext(out var entity, out var miner, out var battery, out var powerConsumer))
         {
-            if (battery.CurrentCharge <= 0 || !_batterySystem.TryUseCharge(entity, miner.PowerDraw, battery))
+            powerConsumer.NetworkLoad.DesiredPower = miner.PowerDraw;
+            if (powerConsumer.NetworkLoad.ReceivingPower < miner.PowerDraw)
                 continue;
+            // todo: end my life
+            _batterySystem.SetCharge(entity, miner.PowerDraw, battery);
 
             var elapsed = (currentTime - miner.LastUpdate).TotalSeconds;
             if (elapsed < miner.MiningInterval)
