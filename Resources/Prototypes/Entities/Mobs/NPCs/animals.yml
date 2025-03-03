@@ -1442,7 +1442,7 @@
     makeSentient: true
     name: ghost-role-information-monkey-name
     description: ghost-role-information-monkey-description
-    rules: ghost-role-information-nonantagonist-rules
+    rules: ghost-role-information-freeagent-rules # Goobstation - - remove: 1984
   - type: GhostTakeoverAvailable
   - type: Clumsy
     gunShootFailDamage:
