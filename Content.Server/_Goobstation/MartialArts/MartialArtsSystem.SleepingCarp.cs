@@ -8,7 +8,6 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
-using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Reflect;
 using Robust.Shared.Audio;
 
@@ -21,7 +20,6 @@ public sealed partial class MartialArtsSystem
         SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpGnashingTeethPerformedEvent>(OnSleepingCarpGnashing);
         SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpKneeHaulPerformedEvent>(OnSleepingCarpKneeHaul);
         SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpCrashingWavesPerformedEvent>(OnSleepingCarpCrashingWaves);
-        SubscribeLocalEvent<MartialArtsKnowledgeComponent, ShotAttemptedEvent>(OnShotAttempted);
         SubscribeLocalEvent<GrantSleepingCarpComponent, UseInHandEvent>(OnGrantSleepingCarp);
     }
 
@@ -53,13 +51,9 @@ public sealed partial class MartialArtsSystem
                 CarpScrollDelay(ent, args.User);
                 break;
             case >= 3:
-                if (!CheckGrant(ent.Comp, args.User))
+                if (!TryGrant(ent.Comp, args.User))
                     return;
-                var martialArts = EnsureComp<MartialArtsKnowledgeComponent>(args.User);
                 var userReflect = EnsureComp<ReflectComponent>(args.User);
-                _tag.TryAddTag(ent, "GunsDisabled");
-                LoadPrototype(args.User, martialArts, GrantSleepingCarpComponent.MartialArtsForm);
-                martialArts.Blocked = false;
                 userReflect.ReflectProb = 1;
                 userReflect.Spread = 75;
                 userReflect.OtherTypeReflectProb = 0.25f;
@@ -81,14 +75,6 @@ public sealed partial class MartialArtsSystem
             ent,
             user,
             PopupType.Medium); // localize
-    }
-
-    private void OnShotAttempted(Entity<MartialArtsKnowledgeComponent> ent, ref ShotAttemptedEvent args)
-    {
-        if(ent.Comp.MartialArtsForm != MartialArtsForms.SleepingCarp)
-            return;
-        _popupSystem.PopupEntity(Loc.GetString("gun-disabled"), ent, ent); // this needs to get moved to sharedf sgfd
-        args.Cancel();
     }
     #endregion
 

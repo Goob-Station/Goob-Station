@@ -19,7 +19,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Goobstation.MartialArts;
 
-public sealed partial class MartialArtsSystem : EntitySystem
+public sealed partial class MartialArtsSystem : SharedMartialArtsSystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
@@ -36,7 +36,6 @@ public sealed partial class MartialArtsSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
 
     public override void Initialize()
     {
@@ -45,6 +44,7 @@ public sealed partial class MartialArtsSystem : EntitySystem
         InitializeCqc();
         InitializeCorporateJudo();
         InitializeCanPerformCombo();
+
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, CheckGrabOverridesEvent>(CheckGrabStageOverride);
     }
@@ -68,10 +68,17 @@ public sealed partial class MartialArtsSystem : EntitySystem
 
     #region Helper Methods
 
-    private bool CheckGrant(GrantMartialArtKnowledgeComponent comp, EntityUid user)
+    private bool TryGrant(GrantMartialArtKnowledgeComponent comp, EntityUid user)
     {
         if (!HasComp<CanPerformComboComponent>(user))
+        {
+            EnsureComp<CanPerformComboComponent>(user);
+            var martialArtsKnowledgeComponent = EnsureComp<MartialArtsKnowledgeComponent>(user);
+            LoadPrototype(user, martialArtsKnowledgeComponent, comp.MartialArtsForm);
+            martialArtsKnowledgeComponent.Blocked = false;
+            Dirty(user, martialArtsKnowledgeComponent);
             return true;
+        }
 
         if (!TryComp<MartialArtsKnowledgeComponent>(user, out var cqc))
         {

@@ -467,7 +467,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                 var min = martialArtsKnowledgeComponent.MinDamageModifier.Float();
                 var max = martialArtsKnowledgeComponent.MaxDamageModifier.Float();
 
-                damage *= _random.NextFloat(min, max); // this is fine for now
+                damage *= Math.Round(_random.NextFloat(min, max));
             }
             else
             {

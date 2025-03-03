@@ -39,12 +39,9 @@ public sealed partial class MartialArtsSystem
             return;
         }
 
-        if (!CheckGrant(ent.Comp, args.User))
+        if (!TryGrant(ent.Comp, args.User))
             return;
         _popupSystem.PopupEntity(Loc.GetString("cqc-success-learned"), args.User, args.User);
-        var cqc = EnsureComp<MartialArtsKnowledgeComponent>(args.User);
-        LoadPrototype(args.User, cqc, ent.Comp.MartialArtsForm);
-        cqc.Blocked = false;
         ent.Comp.Used = true;
     }
 

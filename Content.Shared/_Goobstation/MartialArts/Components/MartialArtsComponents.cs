@@ -1,40 +1,8 @@
 using Content.Shared.FixedPoint;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Goobstation.MartialArts.Components;
-
-[RegisterComponent]
-public sealed partial class GrantCqcComponent : GrantMartialArtKnowledgeComponent
-{
-    public MartialArtsForms MartialArtsForm = MartialArtsForms.CloseQuartersCombat;
-}
-
-[RegisterComponent]
-public sealed partial class GrantCorporateJudoComponent  : GrantMartialArtKnowledgeComponent
-{
-    public MartialArtsForms MartialArtsForm = MartialArtsForms.CorporateJudo;
-}
-
-[RegisterComponent]
-public sealed partial class GrantSleepingCarpComponent  : GrantMartialArtKnowledgeComponent
-{
-    public const MartialArtsForms MartialArtsForm = MartialArtsForms.SleepingCarp;
-
-    public int Stage = 1;
-
-    public TimeSpan UseAgainTime = TimeSpan.Zero;
-
-    public readonly int MaxUseDelay = 2;
-
-    public readonly int MinUseDelay = 1;
-}
-
-[RegisterComponent]
-public sealed partial class GrantKravMagaComponent : Component
-{
-
-}
-
 
 [RegisterComponent]
 public sealed partial class MartialArtBlockedComponent  : Component
@@ -43,7 +11,7 @@ public sealed partial class MartialArtBlockedComponent  : Component
     public MartialArtsForms Form;
 }
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class MartialArtsKnowledgeComponent : GrabStagesOverrideComponent
 {
     [DataField]

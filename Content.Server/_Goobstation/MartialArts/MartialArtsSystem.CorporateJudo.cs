@@ -30,11 +30,7 @@ public sealed partial class MartialArtsSystem
     private void OnGrantCorporateJudo(Entity<GrantCorporateJudoComponent> ent, ref ClothingGotEquippedEvent args)
     {
         var user = args.Wearer;
-        if (!CheckGrant(ent.Comp, user))
-            return;
-        var martialArts = EnsureComp<MartialArtsKnowledgeComponent>(user);
-        LoadPrototype(user, martialArts, ent.Comp.MartialArtsForm);
-        martialArts.Blocked = false;
+        TryGrant(ent.Comp, user);
     }
 
     private void OnRemoveCorporateJudo(Entity<GrantCorporateJudoComponent> ent, ref ClothingGotUnequippedEvent args)
