@@ -1425,6 +1425,7 @@
     solutions:
       food:
         maxVol: 20 # Room for extra chems
+        canReact: false
         reagents:
         - ReagentId: Sugar
           Quantity: 5
@@ -1432,7 +1433,7 @@
           Quantity: 7
         - ReagentId: Potassium
           Quantity: 7
-      canReact: false
+
 
 # Non-medication Lollypops
 
