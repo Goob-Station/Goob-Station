@@ -20,6 +20,8 @@ using Content.Shared.Tag;
 using JetBrains.Annotations;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
+using Robust.Shared.Enums;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -99,7 +101,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
     protected override void Added(EntityUid uid, GameDirectorComponent scheduler, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         // This deletes all existing metrics and sets them up again.
-        SpawnRoundstartAntags(scheduler, CountAllPlayers()); // Roundstart antags need to be selected in the lobby
+        SpawnRoundstartAntags(scheduler, GetTotalPlayerCount(_playerManager.Sessions)); // Roundstart antags need to be selected in the lobby
         if(TryComp<SelectedGameRulesComponent>(uid,out var selectedRules))
         {
             SetupEvents(scheduler, CountActivePlayers(), selectedRules);
@@ -241,7 +243,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
                 if (!proto.TryGetComponent<GameRuleComponent>(out var gameRuleComp, _factory))
                     continue;
 
-                if (gameRuleComp.MinPlayers < count)
+                if (gameRuleComp.MinPlayers > count)
                     continue;
 
                 if (proto.HasComponent<DynamicRulesetComponent>())
@@ -332,9 +334,18 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
     /// <summary>
     ///   Count all the players on the server.
     /// </summary>
-    private int CountAllPlayers()
+    public int GetTotalPlayerCount(IList<ICommonSession> pool)
     {
-        return _playerManager.Sessions.Length;
+        var count = 0;
+        foreach (var session in pool)
+        {
+            if (session.Status is SessionStatus.Disconnected or SessionStatus.Zombie)
+                continue;
+
+            count++;
+        }
+
+        return count;
     }
 
     /// <summary>
