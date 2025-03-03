@@ -4,6 +4,8 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 using Content.Server.Station.Systems;
 using Content.Server.Power.EntitySystems;
+using Content.Shared.Examine;
+using Robust.Server.Containers;
 using Robust.Shared.Containers;
 using Content.Shared.Stacks;
 using Content.Server.Stack;
@@ -21,9 +23,6 @@ public sealed class TelecrystalMinerSystem : EntitySystem
     [Dependency] private readonly StackSystem _stackSystem = default!;
     [Dependency] private readonly BatterySystem _batterySystem = default!;
 
-    private const float MiningInterval = 10.0f;
-    private const float PowerDraw = 10000f;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -37,19 +36,16 @@ public sealed class TelecrystalMinerSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        var query = EntityQueryEnumerator<TelecrystalMinerComponent, BatteryComponent, PowerConsumerComponent, TransformComponent>();
+        var query = EntityQueryEnumerator<TelecrystalMinerComponent, BatteryComponent, PowerConsumerComponent>();
         var currentTime = _gameTiming.CurTime;
 
-        while (query.MoveNext(out var entity, out var miner, out var battery, out var powerConsumer, out var transform))
+        while (query.MoveNext(out var entity, out var miner, out var battery, out var powerConsumer))
         {
-            // Shitcode taken from PowerSinkSystem for it to work (im too lazy to implement it normaly)
-            if (!transform.Anchored)
+            if (battery.CurrentCharge <= 0 || !_batterySystem.TryUseCharge(entity, miner.PowerDraw, battery))
                 continue;
 
-            _batterySystem.SetCharge(entity, battery.CurrentCharge + powerConsumer.DrawRate / 1000, battery);
-
             var elapsed = (currentTime - miner.LastUpdate).TotalSeconds;
-            if (elapsed < MiningInterval)
+            if (elapsed < miner.MiningInterval)
                 continue;
 
             miner.LastUpdate = currentTime;
@@ -58,26 +54,20 @@ public sealed class TelecrystalMinerSystem : EntitySystem
             if (!_containerSystem.TryGetContainer(entity, "tc_slot", out var container))
                 continue;
 
-            var found = false;
-            foreach (var ent in container.ContainedEntities)
+            if (container.ContainedEntities.Count == 0)
             {
-                if (TryComp(ent, out StackComponent? stack))
-                {
-                    _stackSystem.SetCount(ent, stack.Count + 1);
-                    found = true;
-                    break;
-                }
-            }
-
-            if (!found)
-            {
-                var newTC = EntityManager.SpawnEntity("Telecrystal", Transform(entity).Coordinates);
+                var newTC = _entityManager.SpawnEntity("Telecrystal", Transform(entity).Coordinates);
                 if (TryComp(newTC, out StackComponent? newStack))
                 {
                     _stackSystem.SetCount(newTC, 1);
                     _containerSystem.Insert(newTC, container);
                 }
             }
+            else if (TryComp(container.ContainedEntities[0], out StackComponent? stack))
+            {
+                _stackSystem.SetCount(container.ContainedEntities[0], stack.Count + 1);
+            }
+
             if (!miner.Notified && miner.StartTime != null && (currentTime - miner.StartTime.Value).TotalMinutes >= 10)
             {
                 miner.Notified = true;

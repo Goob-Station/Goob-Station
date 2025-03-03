@@ -31,7 +31,7 @@
         ejectSound:
           path: /Audio/Effects/pop.ogg
         whitelist:
-          components:
+          tags:
           - Telecrystal
   - type: NodeContainer
     examinable: true
