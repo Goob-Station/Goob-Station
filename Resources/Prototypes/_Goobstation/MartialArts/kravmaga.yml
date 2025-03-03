@@ -1,0 +1,13 @@
+- type: entity
+  id: ActionLegSweep
+  name: LegSweep
+  description: Sweeps the legs out from under a target to knock them down for four seconds.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _Goobstation/Actions/kravmaga.rsi
+      state: legsweep
+    event: !type:KravMagaActionEvent { }
+  - type: KravMagaAction
+    configuration: LegSweep

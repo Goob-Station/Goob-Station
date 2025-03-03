@@ -1,6 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Shared._Goobstation.MartialArts.Components; // Goobstation - Martial Arts
+using Content.Shared._Goobstation.MartialArts.Events; // Goobstation - Martial Arts
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CombatMode;
@@ -24,6 +26,7 @@ using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
+using Robust.Shared.Random; // Goobstation - Martial Arts
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -48,6 +51,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] private   readonly SharedPhysicsSystem     _physics         = default!;
     [Dependency] private   readonly IPrototypeManager       _protoManager    = default!;
     [Dependency] private   readonly StaminaSystem           _stamina         = default!;
+    [Dependency] private   readonly IRobustRandom            _random         = default!;
 
     private const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque);
 
@@ -454,6 +458,26 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     {
         // If I do not come back later to fix Light Attacks being Heavy Attacks you can throw me in the spider pit -Errant
         var damage = GetDamage(meleeUid, user, component) * GetHeavyDamageModifier(meleeUid, user, component);
+        // Goobstation - Martial Arts
+        var damAsStam = false;
+        if(TryComp<MartialArtsKnowledgeComponent>(user, out var martialArtsKnowledgeComponent) && meleeUid == user)
+        {
+            if (martialArtsKnowledgeComponent.RandomDamageModifier)
+            {
+                var min = martialArtsKnowledgeComponent.MinDamageModifier.Float();
+                var max = martialArtsKnowledgeComponent.MaxDamageModifier.Float();
+
+                damage *= Math.Round(_random.NextFloat(min, max));
+            }
+            else
+            {
+                damage *= martialArtsKnowledgeComponent.MinDamageModifier;
+            }
+
+            damAsStam = martialArtsKnowledgeComponent.HarmAsStamina;
+        }
+        // Goobstation
+
         var target = GetEntity(ev.Target);
         var resistanceBypass = GetResistanceBypass(meleeUid, user, component);
 
@@ -514,7 +538,19 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         RaiseLocalEvent(target.Value, attackedEvent);
 
         var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
+        // Goobstation - Martial Arts
+        if (damAsStam)
+        {
+            _stamina.TakeStaminaDamage(target.Value, modifiedDamage.GetTotal().Float() * 2);
+            var stmComboEv = new ComboAttackPerformedEvent(user, target.Value, meleeUid, ComboAttackType.Harm);
+            RaiseLocalEvent(user, stmComboEv);
+            _meleeSound.PlayHitSound(target.Value, user, GetHighestDamageSound(modifiedDamage, _protoManager), hitEvent.HitSoundOverride, component);
+            return;
+        }
+        // Goobstation
         var damageResult = Damageable.TryChangeDamage(target, modifiedDamage, origin: user, canEvade: true, partMultiplier: component.ClickPartDamageMultiplier); // Shitmed Change
+        var comboEv = new ComboAttackPerformedEvent(user, target.Value, meleeUid, ComboAttackType.Harm);
+        RaiseLocalEvent(user, comboEv);
 
         if (damageResult is {Empty: false})
         {
@@ -671,6 +707,9 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
             var damageResult = Damageable.TryChangeDamage(entity, modifiedDamage, origin: user, canEvade: true, partMultiplier: component.HeavyPartDamageMultiplier); // Shitmed Change
 
+            var comboEv = new ComboAttackPerformedEvent(user, entity, meleeUid, ComboAttackType.HarmLight);
+            RaiseLocalEvent(user, comboEv);
+
             if (damageResult != null && damageResult.GetTotal() > FixedPoint2.Zero)
             {
                 // If the target has stamina and is taking blunt damage, they should also take stamina damage based on their blunt to stamina factor
@@ -799,6 +838,9 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         {
             return false;
         }
+
+        var comboEv = new ComboAttackPerformedEvent(user, target.Value, meleeUid, ComboAttackType.Disarm);
+        RaiseLocalEvent(user, comboEv);
 
         // Play a sound to give instant feedback; same with playing the animations
         _meleeSound.PlaySwingSound(user, meleeUid, component);

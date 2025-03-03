@@ -1,0 +1,51 @@
+- type: martialArt
+  id: SleepingCarp
+  martialArtsForm: SleepingCarp
+  roundstartCombos: SleepingCarpMoves
+  randomDamageModifier: true
+  randomSayings:
+  - carp-saying-huah
+  - carv-vaying-hya
+  - carp-saying-choo
+  - carp-saying-wuo
+  - carp-saying-kya
+  - carp-saying-huh
+  - carp-saying-hiyoh
+  - carp-saying-strike
+  - carp-saying-bite
+  randomSayingsDowned:
+  - carp-saying-banzai
+  - carp-saying-kiya
+  - carp-saying-omae
+  - carp-saying-see
+  - carp-saying-time
+  - carp-saying-cowabunga
+
+- type: comboList
+  id: SleepingCarpMoves
+  combos:
+  - SleepingCarpGnashingTeeth
+  - SleepingCarpKneeHaul
+  - SleepingCarpCrashingWaves
+
+- type: combo
+  id: SleepingCarpGnashingTeeth
+  attacks:
+  - Harm
+  - Harm
+  event: !type:SleepingCarpGnashingTeethPerformedEvent { }
+
+- type: combo
+  id: SleepingCarpKneeHaul
+  attacks:
+  - Harm
+  - Grab
+  event: !type:SleepingCarpKneeHaulPerformedEvent { }
+
+- type: combo
+  id: SleepingCarpCrashingWaves
+  attacks:
+  - Harm
+  - Disarm
+  event: !type:SleepingCarpCrashingWavesPerformedEvent { }
+

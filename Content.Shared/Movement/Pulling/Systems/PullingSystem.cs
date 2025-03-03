@@ -1,11 +1,11 @@
 using Content.Shared._Goobstation.Grab;
+using Content.Shared._Goobstation.MartialArts.Events;
 using Content.Shared._White.Grab; // Goobstation
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
 using Content.Shared.Buckle.Components;
 using Content.Shared.CombatMode; // Goobstation
-using Content.Shared.Cuffs; // Goobstation
 using Content.Shared.Cuffs.Components; // Goobstation
 using Content.Shared.Damage; // Goobstation
 using Content.Shared.Damage.Systems; // Goobstation
@@ -123,7 +123,7 @@ public sealed class PullingSystem : EntitySystem
             && ent.Comp.Pulling != null)
         {
             if(_netManager.IsServer)
-                StopPulling((EntityUid) ent.Comp.Pulling, comp);
+                StopPulling(ent.Comp.Pulling.Value, comp);
         }
     }
     // Goobstation
@@ -248,21 +248,17 @@ public sealed class PullingSystem : EntitySystem
 
         if (!args.Throw)
         {
-            if (component.GrabStage > GrabStage.No
-                && TryComp(args.BlockingEntity, out PullableComponent? comp))
-            {
-                    TryLowerGrabStage(component.Pulling.Value, uid);
-                    args.Cancel();  // VirtualItem is NOT being deleted
-            }
+            if (component.GrabStage <= GrabStage.No
+                || !TryComp(args.BlockingEntity, out PullableComponent? comp))
+                return;
         }
         else
         {
-            if (component.GrabStage <= GrabStage.Soft)
-            {
-                TryLowerGrabStage(component.Pulling.Value, uid);
-                args.Cancel();  // VirtualItem is NOT being deleted
-            }
+            if (component.GrabStage > GrabStage.Soft)
+                return;
         }
+        TryLowerGrabStage(component.Pulling.Value, uid);
+        args.Cancel();  // VirtualItem is NOT being deleted
     }
     // Goobstation
 
@@ -887,6 +883,9 @@ public sealed class PullingSystem : EntitySystem
         };
 
         var newStage = puller.Comp.GrabStage + nextStageAddition;
+        var ev = new CheckGrabOverridesEvent(newStage); // guh
+        RaiseLocalEvent(puller, ev);
+        newStage = ev.Stage;
 
         if (!TrySetGrabStages((puller.Owner, puller.Comp), (pullable.Owner, pullable.Comp), newStage))
             return false;
@@ -935,6 +934,9 @@ public sealed class PullingSystem : EntitySystem
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), pullable);
 
+        var comboEv = new ComboAttackPerformedEvent(puller.Owner, pullable.Owner, puller.Owner, ComboAttackType.Grab);
+        RaiseLocalEvent(puller.Owner, comboEv);
+
         Dirty(pullable);
         Dirty(puller);
 
@@ -950,12 +952,14 @@ public sealed class PullingSystem : EntitySystem
         if (puller.Comp.GrabVirtualItemStageCount.TryGetValue(puller.Comp.GrabStage, out var count))
             newVirtualItemsCount += count;
 
-        if (virtualItemsCount != newVirtualItemsCount)
-        {
-            var delta = newVirtualItemsCount - virtualItemsCount;
+        if (virtualItemsCount == newVirtualItemsCount)
+            return true;
+        var delta = newVirtualItemsCount - virtualItemsCount;
 
+        switch (delta)
+        {
             // Adding new virtual items
-            if (delta > 0)
+            case > 0:
             {
                 for (var i = 0; i < delta; i++)
                 {
@@ -979,9 +983,10 @@ public sealed class PullingSystem : EntitySystem
 
                     puller.Comp.GrabVirtualItems.Add(item.Value);
                 }
-            }
 
-            if (delta < 0)
+                break;
+            }
+            case < 0:
             {
                 for (var i = 0; i < Math.Abs(delta); i++)
                 {
@@ -992,6 +997,8 @@ public sealed class PullingSystem : EntitySystem
                     puller.Comp.GrabVirtualItems.Remove(item);
                     QueueDel(item);
                 }
+
+                break;
             }
         }
 
@@ -1094,7 +1101,3 @@ public enum GrabStageDirection
     Increase,
     Decrease,
 }
-
-// Goobstation - Grab Intent
-
-// Goobstation
