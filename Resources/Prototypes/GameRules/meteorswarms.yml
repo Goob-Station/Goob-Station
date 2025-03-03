@@ -38,16 +38,16 @@
 - type: weightedRandomEntity
   id: MeteorSpawnAsteroidWallTable
   weights:
-    MeteorRock: 10 Goob Edit
-    MeteorRockCoal: 5 Goob Edit
-    MeteorRockQuartz: 5 Goob Edit
-    MeteorRockTin: 5 Goob Edit
-    MeteorRockSilver: 2 Goob Edit
-    MeteorRockGold: 2 Goob Edit
-    MeteorRockPlasma: 2 Goob Edit
-    MeteorRockDiamond: 2 Goob Edit
-    MeteorRockUranium: 0.5 Goob Edit
-    MeteorRockBananium: 0.5 Goob Edit
+    MeteorRock: 10
+    MeteorRockCoal: 5
+    MeteorRockQuartz: 5
+    MeteorRockTin: 5
+    MeteorRockSilver: 2
+    MeteorRockGold: 2
+    MeteorRockPlasma: 2
+    MeteorRockDiamond: 2
+    MeteorRockUranium: 0.5
+    MeteorRockBananium: 0.5
     MeteorRockBSCrystal: 0.5 # Goobstation
 # Goob Edit
 ## Event Schedulers Goob Edit
