@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Sprited by SolsticeOfTheWinter",
+  "copyright": "Sprited by SolsticeOfTheWinter, Captain by Rosef",
   "size": {
     "x": 32,
     "y": 32
@@ -19,15 +19,26 @@
     {
       "name": "lollypop"
     },
+	{
+      "name": "inhand-left",
+	  "directions": 4
+    },
+	{
+      "name": "inhand-right",
+	  "directions": 4
+    },
+	{
+      "name": "equipped-MASK",
+      "directions": 4
+    },
+	{
+      "name": "color"
+    },
     {
       "name": "lollypop-wrapped"
     },
 	{
       "name": "lollypop-wrapped-syndicate"
-    },
-	{
-      "name": "equipped-MASK",
-      "directions": 4
     },
 	{
       "name": "lollypop-dispenser"
@@ -37,9 +48,6 @@
     },
 	{
       "name": "carp"
-    },
-    {
-      "name": "color"
     }
   ]
 }
