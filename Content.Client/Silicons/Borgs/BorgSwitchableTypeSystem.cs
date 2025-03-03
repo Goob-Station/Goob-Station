@@ -37,6 +37,10 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
         Entity<BorgSwitchableTypeComponent> entity,
         BorgTypePrototype prototype)
     {
+        // Begin DeltaV Code
+        if (prototype.ClientComponents is {} add)
+            EntityManager.AddComponents(entity, add);
+        // End DeltaV Code
         if (TryComp(entity, out SpriteComponent? sprite))
         {
             sprite.LayerSetState(BorgVisualLayers.Body, prototype.SpriteBodyState);

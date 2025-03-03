@@ -12,7 +12,7 @@ namespace Content.Shared.Silicons.Borgs;
 /// Information for a borg type that can be selected by <see cref="BorgSwitchableTypeComponent"/>.
 /// </summary>
 /// <seealso cref="SharedBorgSwitchableTypeSystem"/>
-[Prototype]
+[Prototype(-5)] // DeltaV - force load after shaders
 public sealed partial class BorgTypePrototype : IPrototype
 {
     [ValidatePrototypeId<SoundCollectionPrototype>]
@@ -92,6 +92,12 @@ public sealed partial class BorgTypePrototype : IPrototype
     //
     // Visual information
     //
+
+    /// <summary>
+    /// DeltaV: Components only added on the client.
+    /// </summary>
+    [DataField]
+    public ComponentRegistry? ClientComponents;
 
     /// <summary>
     /// The sprite state for the main borg body.
