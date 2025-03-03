@@ -109,12 +109,10 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         // Ranged component has priority over melee if both are supported.
         bool gunBoundToUse = false;
         bool gunBoundToAlt = false;
-        Logger.Debug($"weaponUid: {ToPrettyString(weaponUid)}");
         if (TryComp<GunComponent>(weaponUid, out var gun)) {
             gunBoundToUse = gun.UseKey;
             gunBoundToAlt = !gun.UseKey; //Bound to alt-use when false
 
-            Logger.Debug($"Handling internal trycomp");
             // If ranged mode only works when wielded, do not block melee attacks when unwielded
             // (e.g. crusher & crusher glaive)
             if (TryComp<GunRequiresWieldComponent>(weaponUid, out var _) &&
@@ -123,7 +121,6 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 gunBoundToAlt &= wield.Wielded;
             }
         }
-        //Logger.Debug($"gunBoundToUse: {gunBoundToUse}, gunBoundToAlt: {gunBoundToAlt}"); Goobstation edit spamming console
         //End Frontier
 
         var mousePos = _eyeManager.PixelToMap(_inputManager.MouseScreenPosition);
@@ -180,7 +177,6 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 return;
             }
 
-            Logger.Debug($"entity: {ToPrettyString(entity)}, weaponUid: {ToPrettyString(weaponUid)}");
             ClientHeavyAttack(entity, coordinates, weaponUid, weapon);
             return;
 
