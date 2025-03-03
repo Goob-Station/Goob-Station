@@ -50,7 +50,7 @@
 - type: loadout
   id: CaptainMask
   equipment:
-    head: FoodSnackLollypopCaptain
+    mask: FoodSnackLollypopCaptain
   effects:
   - !type:GroupLoadoutEffect
     proto: MasterCap

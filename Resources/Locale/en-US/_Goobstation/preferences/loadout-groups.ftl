@@ -16,4 +16,6 @@ loadout-group-reporter-outerclothing = Reporter outer clothing
 
 loadout-group-security-neck = Security neck
 
+loadout-group-captain-mask = Captain Mask
+
 
