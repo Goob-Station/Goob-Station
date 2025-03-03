@@ -60,6 +60,7 @@
         Heat: 15
         Structural: 20
   - type: MeleeWeapon
+    animationRotation: -45 # WWDP
     heavyStaminaCost: 2.5 # goob edit
     wideAnimationRotation: -135
     attackRate: 1
@@ -174,6 +175,7 @@
         shader: unshaded
         map: [ "blade" ]
   - type: MeleeWeapon
+    animationRotation: 135 # WWDP
     heavyStaminaCost: 1 # goob edit
     wideAnimationRotation: 145
     attackRate: 1

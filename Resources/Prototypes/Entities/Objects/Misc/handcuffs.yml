@@ -19,7 +19,7 @@
   - type: MeleeWeapon
     wideAnimationRotation: 90
     resetOnHandSelected: false
-    animation: WeaponArcDisarm
+    # animation: WeaponArcDisarm # WWDP replaced with animation
     damage:
       types:
         Blunt: 0

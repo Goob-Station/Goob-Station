@@ -9,6 +9,7 @@
     state: icon
   - type: MeleeWeapon
     heavyStaminaCost: 20 # goob edit
+    animationRotation: -45 # WWDP
     wideAnimationRotation: -135
     damage:
       types:
