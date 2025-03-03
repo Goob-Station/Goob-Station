@@ -41,20 +41,28 @@ public sealed partial class MartialArtsSystem : EntitySystem
         InitializeSleepingCarp();
         InitializeCqc();
         InitializeCorporateJudo();
-
+        InitializeCanPerformCombo();
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, CheckGrabOverridesEvent>(CheckGrabStageOverride);
     }
 
-    #region Helper Methods
+    #region Event Methods
+    private void OnShutdown(Entity<MartialArtsKnowledgeComponent> ent, ref ComponentShutdown args)
+    {
+        var combo = EnsureComp<CanPerformComboComponent>(ent);
+        combo.AllowedCombos.Clear();
+    }
+
     private void CheckGrabStageOverride<T>(EntityUid uid, T component, CheckGrabOverridesEvent args)
-        where T : GrabStagesOverrideComponent
+        where T : Shared._Goobstation.MartialArts.Components.GrabStagesOverrideComponent
     {
         if (args.Stage == GrabStage.Soft)
             args.Stage = component.StartingStage;
     }
+    #endregion
 
-    private bool CheckGrant(GrantMartialArtKnowledgeComponent comp, EntityUid user)
+    #region Helper Methods
+    private bool CheckGrant(Shared._Goobstation.MartialArts.Components.GrantMartialArtKnowledgeComponent comp, EntityUid user)
     {
         if (!HasComp<CanPerformComboComponent>(user))
             return true;
@@ -103,12 +111,6 @@ public sealed partial class MartialArtsSystem : EntitySystem
         component.RandomSayings = martialArtsPrototype.RandomSayings;
         component.RandomSayingsDowned = martialArtsPrototype.RandomSayingsDowned;
         LoadCombos(martialArtsPrototype.RoundstartCombos, combo);
-    }
-
-    private void OnShutdown(Entity<MartialArtsKnowledgeComponent> ent, ref ComponentShutdown args)
-    {
-        var combo = EnsureComp<CanPerformComboComponent>(ent);
-        combo.AllowedCombos.Clear();
     }
 
     private bool TryUseMartialArt(Entity<CanPerformComboComponent> ent, MartialArtsForms form, out EntityUid target, out bool downed)

@@ -1,23 +1,22 @@
-using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Goobstation.MartialArts;
 
 [RegisterComponent]
-public sealed partial class GrantCqcComponent : GrantMartialArtKnowledgeComponent
+public sealed partial class GrantCqcComponent : Components.GrantMartialArtKnowledgeComponent
 {
     public readonly MartialArtsForms MartialArtsForm = MartialArtsForms.CloseQuartersCombat;
 }
 
 [RegisterComponent]
-public sealed partial class GrantCorporateJudoComponent  : GrantMartialArtKnowledgeComponent
+public sealed partial class GrantCorporateJudoComponent  : Components.GrantMartialArtKnowledgeComponent
 {
     public readonly MartialArtsForms MartialArtsForm = MartialArtsForms.CorporateJudo;
 }
 
 [RegisterComponent]
-public sealed partial class GrantSleepingCarpComponent  : GrantMartialArtKnowledgeComponent
+public sealed partial class GrantSleepingCarpComponent  : Components.GrantMartialArtKnowledgeComponent
 {
     public readonly MartialArtsForms MartialArtsForm = MartialArtsForms.SleepingCarp;
 
@@ -39,7 +38,7 @@ public sealed partial class MartialArtBlockedComponent  : Component
 }
 
 [RegisterComponent]
-public sealed partial class MartialArtsKnowledgeComponent : GrabStagesOverrideComponent
+public sealed partial class MartialArtsKnowledgeComponent : Components.GrabStagesOverrideComponent
 {
     [DataField]
     public MartialArtsForms MartialArtsForm = MartialArtsForms.SleepingCarp;

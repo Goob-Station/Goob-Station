@@ -1,4 +1,4 @@
-namespace Content.Shared._Goobstation.MartialArts;
+namespace Content.Shared._Goobstation.MartialArts.Components;
 
 public abstract partial class GrantMartialArtKnowledgeComponent : Component
 {

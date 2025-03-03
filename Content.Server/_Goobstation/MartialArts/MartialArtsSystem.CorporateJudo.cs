@@ -2,9 +2,9 @@ using Content.Shared._Goobstation.MartialArts;
 using Content.Shared._Goobstation.MartialArts.Events;
 using Content.Shared.Clothing;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Components;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Hands;
+using Content.Shared.Inventory.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
@@ -18,7 +18,6 @@ public sealed partial class MartialArtsSystem
         SubscribeLocalEvent<CanPerformComboComponent, JudoThrowPerformedEvent>(OnJudoThrow);
         SubscribeLocalEvent<CanPerformComboComponent, JudoEyePokePerformedEvent>(OnJudoEyepoke);
         SubscribeLocalEvent<CanPerformComboComponent, JudoArmbarPerformedEvent>(OnJudoArmbar);
-        SubscribeLocalEvent<MartialArtBlockedComponent, GotEquippedHandEvent>(OnGotEquippedHand);
         SubscribeLocalEvent<GrantCorporateJudoComponent, ClothingGotEquippedEvent>(OnGrantCorporateJudo);
         SubscribeLocalEvent<GrantCorporateJudoComponent, ClothingGotUnequippedEvent>(OnRemoveCorporateJudo);
         //SubscribeLocalEvent<CanPerformComboComponent, JudoGoldenBlastPerformedEvent>(OnJudoGoldenBlast); -- rework
@@ -44,16 +43,6 @@ public sealed partial class MartialArtsSystem
         RemComp<CanPerformComboComponent>(user);
     }
 
-    private void OnGotEquippedHand(Entity<MartialArtBlockedComponent> ent, ref GotEquippedHandEvent args)
-    {
-        if (!TryComp<MartialArtsKnowledgeComponent>(args.User, out  var knowledgeComp))
-            return;
-        if(knowledgeComp.MartialArtsForm != ent.Comp.Form)
-            return;
-
-        _hands.TryDrop(args.User);
-        _popupSystem.PopupEntity("Corporate Judo strictly forbids the use of stun batons.", ent, PopupType.MediumCaution);
-    }
     #endregion
 
     #region Combo Methods
@@ -115,6 +104,7 @@ public sealed partial class MartialArtsSystem
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
     }
 
+    /* Pending Implement
     private void OnJudoGoldenBlast(Entity<CanPerformComboComponent> ent, ref JudoGoldenBlastPerformedEvent args)
     {
         if (!TryUseMartialArt(ent, MartialArtsForms.CorporateJudo, out var target, out var downed))
@@ -128,5 +118,6 @@ public sealed partial class MartialArtsSystem
             _pulling.TryStopPull(target, pullable, ent, true);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
     }
+    */
     #endregion
 }

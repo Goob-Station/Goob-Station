@@ -2,21 +2,15 @@ using System.Linq;
 using Content.Shared._Goobstation.MartialArts;
 using Content.Shared._Goobstation.MartialArts.Events;
 using Content.Shared.Mobs.Components;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 
 namespace Content.Server._Goobstation.MartialArts;
 
 /// <summary>
 /// This handles determining if a combo was performed.
 /// </summary>
-public sealed class CanPerformComboSystem : EntitySystem
+public sealed partial class MartialArtsSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-
-    /// <inheritdoc/>
-    public override void Initialize()
+    private void InitializeCanPerformCombo()
     {
         SubscribeLocalEvent<CanPerformComboComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<CanPerformComboComponent, ComboAttackPerformedEvent>(OnAttackPerformed);
