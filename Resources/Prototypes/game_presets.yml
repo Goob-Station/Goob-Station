@@ -73,8 +73,8 @@
     - LoneAbductorSpawn
     - BasicStationEventScheduler
     - KesslerSyndromeScheduler
-    - MeteorSwarmMildScheduler
-    - MeteorSwarmScheduler
+#    - MeteorSwarmMildScheduler # Goob Edit
+#    - MeteorSwarmScheduler # Goob edit
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
