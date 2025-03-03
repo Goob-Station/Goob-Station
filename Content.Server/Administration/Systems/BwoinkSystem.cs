@@ -818,7 +818,7 @@ namespace Content.Server.Administration.Systems
                     _gameTicker.RunLevel,
                     playedSound: playSound,
                     isDiscord: bwoinkParams.FromWebhook,
-                    adminOnly: message.AdminOnly,
+                    adminOnly: bwoinkParams.Message.AdminOnly,
                     noReceivers: nonAfkAdmins.Count == 0
                 );
                 _messageQueues[msg.UserId].Enqueue(GenerateAHelpMessage(messageParams));
