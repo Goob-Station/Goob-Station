@@ -7,7 +7,7 @@
         - to: wallDirectional
           steps:
             - material: Steel
-              amount: 1
+              amount: 2
               doAfter: 2
     - node: wallDirectional
       entity: WallDirectional
@@ -15,11 +15,9 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: SheetSteel
-              amount: 1
+              prototype: SheetSteel1
+              amount: 2
             - !type:DeleteEntity {}
           steps:
             - tool: Welding
-              doAfter: 2
-            - tool: Anchoring
               doAfter: 2
