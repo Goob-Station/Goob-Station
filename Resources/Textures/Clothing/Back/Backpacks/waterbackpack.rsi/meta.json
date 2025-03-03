@@ -8,7 +8,10 @@
   },
   "states": [
     {
-      "name": "icon"
+        "name": "icon"
+    },
+    {
+      "name": "icon-filled"
     },
     {
       "name": "equipped-BACKPACK",
