@@ -193,7 +193,7 @@
     color: "#4b93ad"
 
 - type: entity
-  id: VendingMachineLollypop
+  id: VendingMachineSweetToof
   parent: VendingMachine
   name: sweet-toof co. candy
   description: A vending machine selling an unhealthy amount of candy. You'd have to have a 'sweet-tooth' to enjoy it.
