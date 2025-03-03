@@ -73,7 +73,7 @@
   name: WSPR
   parent: WeaponRifleAk
   id: WeaponRifleWSPR
-  description: A cutting-edge rifle from Cybersun, versatile, reliable, and Syndicate-approved. Uses .30 rifle subsonic ammo.
+  description: A cutting-edge rifle from Cybersun, versatile, reliable, and Syndicate-approved. Uses .25 caseless ammo.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Rifles/wspr.rsi
@@ -84,31 +84,30 @@
         map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
     availableModes:
-    - FullAuto
+    - SemiAuto
     - Burst
     selectedMode: Burst
-    burstFireRate: 16
+    burstFireRate: 18
     burstCooldown: 0.5
-    fireRate: 8
-    projectileSpeed: 15
+    projectileSpeed: 20
     soundGunshot:
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/bwuh.ogg
   - type: ItemSlots
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazineLightRifleSubsonic
+        startingItem: MagazineCaselessRifle
         insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
         priority: 2
         whitelist:
           tags:
-            - MagazineLightRifleSubsonic
+            - MagazineCaselessRifle
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeLightRifleSubsonic
+        startingItem: CartridgeCaselessRifle
         priority: 1
         whitelist:
           tags:
-            - CartridgeLightRifleSubsonic
+            - CartridgeCaselessRifle

@@ -2,7 +2,7 @@
   name: Chester
   parent: [ BaseWeaponRifle, BaseGunWieldable, BaseCentcommContraband ]
   id: WeaponLeverChester
-  description: An improved lever-action rifle designed to fire specialized .45 caliber ammunition for rapid threat removal.
+  description: An improved lever-action rifle designed to fire specialized .75 gauge ammunition for rapid threat removal.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi
@@ -17,20 +17,20 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazineMagnumLeverRifle
+        startingItem: MagazineShotgunLeverRifle
         insertSound: /Audio/Weapons/Guns/MagIn/rifle_load.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
         priority: 2
         whitelist:
           tags:
-          - MagazineMagnumLeverRifle
+          - MagazineShotgunLeverRifle
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
         priority: 1
         whitelist:
           tags:
-          - CartridgeMagnum
+          - ShellShotgunHeavy
   - type: Gun
     fireRate: 0.55
     soundGunshot:
@@ -47,7 +47,7 @@
     soundBoltClosed:
       path: /Audio/Weapons/Guns/Bolt/lever_bolt_closed.ogg
       params:
-        volume: -3  
+        volume: -3
     soundBoltOpened:
       path: /Audio/Weapons/Guns/Bolt/lever_bolt_opened.ogg
       params:
@@ -58,5 +58,5 @@
     zeroVisible: true
   - type: Appearance
   - type: UseDelay
-    delay: 0.2
+    delay: 0.1
   - type: UseDelayBlockShoot
