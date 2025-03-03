@@ -333,7 +333,7 @@
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopProbital
   name: solar lollypop
-  description: A yellow lollypop filled with probital. Sol's solar pop!
+  description: A bright yellow lollypop filled with probital. Sol's favorite!
   components:
   - type: Tag
     tags:
@@ -724,6 +724,58 @@
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
+# Antihol
+
+- type: entity
+  parent: FoodSnackLollypopWrappedBase
+  id: FoodSnackLollypopWrappedAntihol
+  name: wrapped antihol lollypop
+  description: An antihol filled lollypop. It's still in a wrapper.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapped
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopAntihol
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBase
+  id: FoodSnackLollypopAntihol
+  name: antihol lollypop
+  description: A calomel filled lollypop. A drunkards best friend.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: color
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#40ffec"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Antihol
+          Quantity: 10
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    size: Tiny
+
 # Random Lollypops
 
 # Good pops, always has something useful in some way.
@@ -800,6 +852,8 @@
       orGroup: LollypopMystery
     - id: FoodSnackLollypopWeh
       orGroup: LollypopMystery
+    - id: FoodSnackLollypopMindbreakerToxin
+      orGroup: LollypopMystery
     - id: FoodSnackLollypopOmnizine
       orGroup: LollypopMystery
       prob: 0.15
@@ -851,6 +905,8 @@
     - id: FoodSnackLollypopTricordrazine
       orGroup: LollypopMystery
     - id: FoodSnackLollypopDexalinPlus
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopMindbreakerToxin
       orGroup: LollypopMystery
     - id: FoodSnackLollypopOmnizine
       orGroup: LollypopMystery
@@ -1434,8 +1490,6 @@
         - ReagentId: Potassium
           Quantity: 5
 
-#
-
 
 # Non-medication Lollypops
 
@@ -1637,6 +1691,59 @@
     - state: color
       map: [ "enum.AmmoVisualLayers.Tip" ]
       color: "#ffaa00"
+
+# Mindbreaker Toxin
+
+- type: entity
+  parent: FoodSnackLollypopWrappedBase
+  id: FoodSnackLollypopWrappedMindbreakerToxin
+  name: wrapped mindbreaker lollypop
+  suffix: mindbreaker toxin
+  description: A mindbreaker-toxin filled lollypop. It's still in a wrapper.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapped
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopMindbreakerToxin
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBase
+  id: FoodSnackLollypopMindbreakerToxin
+  name: mindbreaker toxin lollypop
+  description: A mindbreaker toxin filled lollypop. Should you... eat this?
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: color
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#77b58e"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: MindbreakerToxin
+          Quantity: 10
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    size: Tiny
 
 # Trash
 
