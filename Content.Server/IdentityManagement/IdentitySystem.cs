@@ -103,6 +103,16 @@ public sealed class IdentitySystem : SharedIdentitySystem
         _queuedIdentityUpdates.Add(uid);
     }
 
+    // WWDP simple public API
+    public string GetEntityIdentity(EntityUid uid)
+    {
+        var representation = GetIdentityRepresentation(uid);
+        var name = GetIdentityName(uid, representation);
+
+        return name;
+    }
+    // WWDP edit end
+
     #region Private API
 
     /// <summary>

@@ -331,3 +331,4 @@
     - type: Carriable
     - type: Targeting
     - type: LayingDown
+    - type: ExaminableCharacter # WWDP
