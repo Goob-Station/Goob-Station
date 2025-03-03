@@ -30,6 +30,9 @@
   abstract: true
   description: A plain old lollypop. It's cherry flavoured.
   components:
+  - type: FlavorProfile
+    flavors:
+    - cherry
   - type: Food
     trash:
     - FoodPacketLollypopTrash
@@ -73,6 +76,9 @@
   name: wrapped syndicate lollypop
   description: A likely dangerous chem filled lollypop. It's still in a wrapper.
   components:
+  - type: FlavorProfile
+    flavors:
+    - coffee
   - type: Tag
     tags:
     - FoodSnack
@@ -174,7 +180,7 @@
     - ClothMade
   - type: FlavorProfile
     flavors:
-    - magic
+    - unicorntears
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     layers:
