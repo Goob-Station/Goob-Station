@@ -5681,3 +5681,9 @@ Entries:
       message: Jaunters can now be found in Salvage equipment closets.
   id: 654
   time: '2025-03-02T19:51:39.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: The round no longer ends on wizard death.
+  id: 655
+  time: '2025-03-02T23:18:19.0000000+00:00'
