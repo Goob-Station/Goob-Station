@@ -1,0 +1,9 @@
+- type: entity
+  id: ActionToggleGhostSecHud
+  name: Toggle SecHud
+  description: Toggle between seeing job icons, health bars, mindshield and criminal records.
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    icon: Interface/Misc/security_icons.rsi/hud_wanted.png
+    event: !type:ToggleGhostSecHudActionEvent
