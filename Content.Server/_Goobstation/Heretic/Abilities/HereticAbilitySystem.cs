@@ -6,7 +6,6 @@ using Content.Server.Hands.Systems;
 using Content.Server.Magic;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
-using Content.Server.Radio.Components;
 using Content.Server.Store.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
@@ -33,6 +32,7 @@ using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
 using Content.Server.Heretic.EntitySystems;
 using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
+using Content.Shared.Tag;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -68,6 +68,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly ProtectiveBladeSystem _pblade = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
     {
@@ -220,6 +221,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/heartbeat.ogg"), ent, AudioParams.Default.WithVolume(-3f));
     }
 
+    public ProtoId<TagPrototype> MansusLinkTag = "MansusLinkMind";
     private void OnMansusLink(Entity<GhoulComponent> ent, ref EventHereticMansusLink args)
     {
         if (!TryUseAbility(ent, args))
@@ -231,8 +233,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
         }
 
-        if (TryComp<ActiveRadioComponent>(args.Target, out var radio)
-        && radio.Channels.Contains("Mansus"))
+        if (_tag.HasTag(ent.Owner, MansusLinkTag))
         {
             _popup.PopupEntity(Loc.GetString("heretic-manselink-fail-exists"), ent, ent);
             return;
@@ -254,11 +255,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        var reciever = EnsureComp<IntrinsicRadioReceiverComponent>(args.Target);
-        var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(args.Target);
-        var radio = EnsureComp<ActiveRadioComponent>(args.Target);
-        radio.Channels = new() { "Mansus" };
-        transmitter.Channels = new() { "Mansus" };
+        _tag.AddTag(ent, MansusLinkTag);
 
         // this "* 1000f" (divided by 1000 in FlashSystem) is gonna age like fine wine :clueless:
         _flash.Flash(args.Target, null, null, 2f * 1000f, 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));

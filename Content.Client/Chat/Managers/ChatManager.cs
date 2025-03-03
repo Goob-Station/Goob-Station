@@ -82,6 +82,10 @@ internal sealed class ChatManager : IChatManager
             case ChatSelectChannel.Telepathic:
                 _consoleHost.ExecuteCommand($"tsay \"{CommandParsing.Escape(str)}\"");
                 break;
+            // Goobstation - Starlight collective mind port
+            case ChatSelectChannel.CollectiveMind:
+                _consoleHost.ExecuteCommand($"cmsay \"{CommandParsing.Escape(str)}\"");
+                break;
 
             default:
                 throw new ArgumentOutOfRangeException(nameof(channel), channel, null);

@@ -16,6 +16,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Rejuvenate;
+using Content.Shared.Tag;
 using Robust.Server.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
@@ -34,6 +35,7 @@ public sealed class BlobPodSystem : SharedBlobPodSystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly SharedMoverController _mover = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     public override void Initialize()
     {
@@ -63,6 +65,11 @@ public sealed class BlobPodSystem : SharedBlobPodSystem
 
         if (!HasComp<HumanoidAppearanceComponent>(args.Container.Owner) || !HasComp<ZombieBlobComponent>(args.Container.Owner))
             return;
+
+        if (!TryComp<ZombieBlobComponent>(args.Container.Owner, out var zombieBlob))
+            return;
+
+        _tag.RemoveTag(args.Container.Owner, zombieBlob.TagAdded);
 
         RemCompDeferred<ZombieBlobComponent>(args.Container.Owner);
     }
@@ -112,6 +119,8 @@ public sealed class BlobPodSystem : SharedBlobPodSystem
         ent.Comp.ZombifiedEntityUid = target;
 
         var zombieBlob = EnsureComp<ZombieBlobComponent>(target);
+        _tag.AddTag(target, ent.Comp.HostTag);
+        zombieBlob.TagAdded = ent.Comp.HostTag;
         zombieBlob.BlobPodUid = ent;
         if (HasComp<ActorComponent>(ent))
         {
