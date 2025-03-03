@@ -170,9 +170,8 @@
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
-    - state: color
+    - state: lollypop-captain
       map: [ "enum.AmmoVisualLayers.Tip" ]
-      color: "#FFC0CB" # Color can change later if you want to be able to tell it apart.
   - type: SolutionContainerManager
     solutions:
       food:
@@ -414,12 +413,11 @@
       map: [ "enum.AmmoVisualLayers.Base" ]
     - state: lollypop-captain
       map: [ "enum.AmmoVisualLayers.Tip" ]
-      color: "#040273"
 
 # CentComm
 
 - type: entity
-  parent: FoodSnackLollypopWrappedBase # Todo, give this to blueshield.
+  parent: FoodSnackLollypopWrappedBaseCentcomm
   id: FoodSnackLollypopWrappedCentComm
   name: wrapped centcomm lollypop
   description: An even more extravagant lollypop. It's still in the wrapper
@@ -435,7 +433,7 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  parent: FoodSnackLollypopBase
+  parent: FoodSnackLollypopBaseCentcomm
   id: FoodSnackLollypopCentcomm
   name: centcomm lollypop
   description: A green lollypop containing an extremely unhealthy amount of gold leaf. Only for the best centcomm agents.
@@ -449,9 +447,8 @@
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
-    - state: lollypop-captain
+    - state: lollypop-centcomm
       map: [ "enum.AmmoVisualLayers.Tip" ]
-      color: "#040273"
 
 # Chempops - Bicaridine
 
@@ -1539,7 +1536,7 @@
     layers:
     - state: lollypop-trash
       map: [ "enum.AmmoVisualLayers.Base" ]
-    - state: carp
+    - state: lollypop-carp
       map: [ "enum.AmmoVisualLayers.Tip" ]
 
 - type: entity
@@ -1945,7 +1942,7 @@
     layers:
     - state: lollypop-trash
       map: [ "enum.AmmoVisualLayers.Base" ]
-    - state: carp
+    - state: lollypop-carp
       map: [ "enum.AmmoVisualLayers.Tip" ]
   - type: SolutionContainerManager
     solutions:
