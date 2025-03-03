@@ -3,6 +3,7 @@ using Content.Server.Hands.Systems;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
 using Content.Shared._Goobstation.MartialArts;
+using Content.Shared._Goobstation.MartialArts.Components;
 using Content.Shared._White.Grab;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
@@ -10,6 +11,7 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.StatusEffect;
+using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -34,6 +36,7 @@ public sealed partial class MartialArtsSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     public override void Initialize()
     {
@@ -47,6 +50,7 @@ public sealed partial class MartialArtsSystem : EntitySystem
     }
 
     #region Event Methods
+
     private void OnShutdown(Entity<MartialArtsKnowledgeComponent> ent, ref ComponentShutdown args)
     {
         var combo = EnsureComp<CanPerformComboComponent>(ent);
@@ -59,10 +63,12 @@ public sealed partial class MartialArtsSystem : EntitySystem
         if (args.Stage == GrabStage.Soft)
             args.Stage = component.StartingStage;
     }
+
     #endregion
 
     #region Helper Methods
-    private bool CheckGrant(Shared._Goobstation.MartialArts.Components.GrantMartialArtKnowledgeComponent comp, EntityUid user)
+
+    private bool CheckGrant(GrantMartialArtKnowledgeComponent comp, EntityUid user)
     {
         if (!HasComp<CanPerformComboComponent>(user))
             return true;
@@ -83,7 +89,6 @@ public sealed partial class MartialArtsSystem : EntitySystem
 
         _popupSystem.PopupEntity(Loc.GetString("cqc-fail-already"), user, user);
         return false;
-
     }
 
     private void LoadCombos(ProtoId<ComboListPrototype> list, CanPerformComboComponent combo)
@@ -113,7 +118,10 @@ public sealed partial class MartialArtsSystem : EntitySystem
         LoadCombos(martialArtsPrototype.RoundstartCombos, combo);
     }
 
-    private bool TryUseMartialArt(Entity<CanPerformComboComponent> ent, MartialArtsForms form, out EntityUid target, out bool downed)
+    private bool TryUseMartialArt(Entity<CanPerformComboComponent> ent,
+        MartialArtsForms form,
+        out EntityUid target,
+        out bool downed)
     {
         target = EntityUid.Invalid;
         downed = false;
@@ -130,7 +138,7 @@ public sealed partial class MartialArtsSystem : EntitySystem
         downed = isDowned.Active;
         target = ent.Comp.CurrentTarget.Value;
 
-        if(!knowledgeComponent.Blocked && knowledgeComponent.MartialArtsForm == form)
+        if (!knowledgeComponent.Blocked && knowledgeComponent.MartialArtsForm == form)
         {
             return true;
         }
@@ -143,5 +151,6 @@ public sealed partial class MartialArtsSystem : EntitySystem
 
         return false;
     }
+
     #endregion
 }

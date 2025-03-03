@@ -9,8 +9,10 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Random;
+using Content.Shared._Goobstation.MartialArts.Components;
 
 namespace Content.Server._Goobstation.MartialArts;
+
 public sealed partial class MartialArtsSystem
 {
     private void InitializeCqc()
@@ -26,6 +28,7 @@ public sealed partial class MartialArtsSystem
     }
 
     #region Generic Methods
+
     private void OnGrantCQCUse(Entity<GrantCqcComponent> ent, ref UseInHandEvent args)
     {
         if (ent.Comp.Used)
@@ -75,9 +78,11 @@ public sealed partial class MartialArtsSystem
         _hands.TryPickupAnyHand(ent, item.Value);
         _stamina.TakeStaminaDamage(args.Target, 10f);
     }
+
     #endregion
 
     #region Combo Methods
+
     private void OnCQCSlam(Entity<CanPerformComboComponent> ent, ref CQCSlamPerformedEvent args)
     {
         if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out var downed))
@@ -155,5 +160,6 @@ public sealed partial class MartialArtsSystem
         _stamina.TakeStaminaDamage(target, 70, source: ent);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg"), target);
     }
+
     #endregion
 }

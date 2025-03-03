@@ -1,18 +1,19 @@
 using System.Linq;
 using Content.Server.Chat.Systems;
 using Content.Shared._Goobstation.MartialArts;
+using Content.Shared._Goobstation.MartialArts.Components;
 using Content.Shared._Goobstation.MartialArts.Events;
-using Content.Shared.Bed.Sleep;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
+using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Reflect;
 using Robust.Shared.Audio;
-using Robust.Shared.Random;
 
 namespace Content.Server._Goobstation.MartialArts;
+
 public sealed partial class MartialArtsSystem
 {
     private void InitializeSleepingCarp()
@@ -20,69 +21,90 @@ public sealed partial class MartialArtsSystem
         SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpGnashingTeethPerformedEvent>(OnSleepingCarpGnashing);
         SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpKneeHaulPerformedEvent>(OnSleepingCarpKneeHaul);
         SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpCrashingWavesPerformedEvent>(OnSleepingCarpCrashingWaves);
+        SubscribeLocalEvent<MartialArtsKnowledgeComponent, ShotAttemptedEvent>(OnShotAttempted);
         SubscribeLocalEvent<GrantSleepingCarpComponent, UseInHandEvent>(OnGrantSleepingCarp);
-
     }
 
     #region Generic Methods
+
     private void OnGrantSleepingCarp(Entity<GrantSleepingCarpComponent> ent, ref UseInHandEvent args)
     {
-        if(ent.Comp.Used)
+        if (ent.Comp.Used)
             return;
         if (ent.Comp.UseAgainTime == TimeSpan.Zero)
         {
-            CarpScrollDelay(ent,args.User);
+            CarpScrollDelay(ent, args.User);
             return;
         }
 
         if (_timing.CurTime < ent.Comp.UseAgainTime)
         {
-            _popupSystem.PopupEntity("The journey of a thousand miles begins with one step, and the path of wisdom is traveled slowly, one lesson at a time.", ent, args.User, PopupType.MediumCaution); // localize
+            _popupSystem.PopupEntity(
+                "The journey of a thousand miles begins with one step, and the path of wisdom is traveled slowly, one lesson at a time.",
+                ent,
+                args.User,
+                PopupType.MediumCaution); // localize
             return;
         }
 
         switch (ent.Comp.Stage)
         {
             case < 3:
-                CarpScrollDelay(ent,args.User);
+                CarpScrollDelay(ent, args.User);
                 break;
             case >= 3:
                 if (!CheckGrant(ent.Comp, args.User))
                     return;
                 var martialArts = EnsureComp<MartialArtsKnowledgeComponent>(args.User);
                 var userReflect = EnsureComp<ReflectComponent>(args.User);
-                LoadPrototype(args.User, martialArts, ent.Comp.MartialArtsForm);
+                _tag.TryAddTag(ent, "GunsDisabled");
+                LoadPrototype(args.User, martialArts, GrantSleepingCarpComponent.MartialArtsForm);
                 martialArts.Blocked = false;
                 userReflect.ReflectProb = 1;
                 userReflect.Spread = 75;
                 userReflect.OtherTypeReflectProb = 0.25f;
                 ent.Comp.Used = true;
-                _popupSystem.PopupEntity("You are now a master of the Way of the Sleeping Carp.", ent, args.User, PopupType.LargeCaution); // localize // localize
+                _popupSystem.PopupEntity("You are now a master of the Way of the Sleeping Carp.",
+                    ent,
+                    args.User,
+                    PopupType.LargeCaution); // localize // localize
                 return;
         }
     }
 
     private void CarpScrollDelay(Entity<GrantSleepingCarpComponent> ent, EntityUid user)
     {
-        var time = new Random().Next(1, 2); // set to comp variables
+        var time = new Random().Next(ent.Comp.MinUseDelay, ent.Comp.MaxUseDelay);
         ent.Comp.UseAgainTime = _timing.CurTime + TimeSpan.FromSeconds(time);
         ent.Comp.Stage++;
-        _popupSystem.PopupEntity("You have taken one step closer to becoming a master of the Way of the Sleeping Carp.", ent, user,  PopupType.Medium); // localize
+        _popupSystem.PopupEntity("You have taken one step closer to becoming a master of the Way of the Sleeping Carp.",
+            ent,
+            user,
+            PopupType.Medium); // localize
+    }
+
+    private void OnShotAttempted(Entity<MartialArtsKnowledgeComponent> ent, ref ShotAttemptedEvent args)
+    {
+        if(ent.Comp.MartialArtsForm != MartialArtsForms.SleepingCarp)
+            return;
+        _popupSystem.PopupEntity(Loc.GetString("gun-disabled"), ent, ent); // this needs to get moved to sharedf sgfd
+        args.Cancel();
     }
     #endregion
 
     #region Combo Methods
+
     private void OnSleepingCarpGnashing(Entity<CanPerformComboComponent> ent,
         ref SleepingCarpGnashingTeethPerformedEvent args)
     {
         if (!TryUseMartialArt(ent, MartialArtsForms.SleepingCarp, out var target, out _))
             return;
 
-        if(!TryComp<MartialArtsKnowledgeComponent>(ent.Owner, out var knowledgeComponent))
+        if (!TryComp<MartialArtsKnowledgeComponent>(ent.Owner, out var knowledgeComponent))
             return;
 
         var damage = new DamageSpecifier();
-        damage.DamageDict.Add("Slash", 20 + ent.Comp.ConsecutiveGnashes * 5) ;
+        damage.DamageDict.Add("Slash", 20 + ent.Comp.ConsecutiveGnashes * 5);
         _damageable.TryChangeDamage(target, damage, origin: ent);
         ent.Comp.ConsecutiveGnashes++;
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg"), target);
@@ -97,8 +119,9 @@ public sealed partial class MartialArtsSystem
         else
         {
             var saying =
-                knowledgeComponent.RandomSayingsDowned.ElementAt(_random.Next(knowledgeComponent.RandomSayingsDowned.Count));
-            _chat.TrySendInGameICMessage(ent, Loc.GetString(saying) , InGameICChatType.Speak, false);
+                knowledgeComponent.RandomSayingsDowned.ElementAt(
+                    _random.Next(knowledgeComponent.RandomSayingsDowned.Count));
+            _chat.TrySendInGameICMessage(ent, Loc.GetString(saying), InGameICChatType.Speak, false);
         }
     }
 
@@ -120,7 +143,9 @@ public sealed partial class MartialArtsSystem
             _pulling.TryStopPull(target, pullable, ent, true);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
     }
-    private void OnSleepingCarpCrashingWaves(Entity<CanPerformComboComponent> ent, ref SleepingCarpCrashingWavesPerformedEvent args)
+
+    private void OnSleepingCarpCrashingWaves(Entity<CanPerformComboComponent> ent,
+        ref SleepingCarpCrashingWavesPerformedEvent args)
     {
         if (!TryUseMartialArt(ent, MartialArtsForms.SleepingCarp, out var target, out var downed))
             return;
