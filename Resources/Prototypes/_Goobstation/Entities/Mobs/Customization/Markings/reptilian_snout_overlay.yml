@@ -1,0 +1,26 @@
+- type: marking
+  id: ReptilianTongue
+  bodyPart: SnoutOverlay
+  markingCategory: SnoutOverlay
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/reptilian_snout_overlay.rsi
+      state: reptilian_tongue
+
+- type: marking
+  id: ReptilianTongueFast
+  bodyPart: SnoutOverlay
+  markingCategory: SnoutOverlay
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/reptilian_snout_overlay.rsi
+      state: reptilian_tongue_fast
+
+- type: marking
+  id: ReptilianTongueSlow
+  bodyPart: SnoutOverlay
+  markingCategory: SnoutOverlay
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/reptilian_snout_overlay.rsi
+      state: reptilian_tongue_slow

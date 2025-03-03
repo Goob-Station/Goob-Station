@@ -309,6 +309,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # Goob
   - type: UserInterface
     interfaces:
       enum.VoiceMaskUIKey.Key:

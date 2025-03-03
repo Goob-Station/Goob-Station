@@ -11,6 +11,7 @@ namespace Content.Shared.Humanoid.Markings
         Head,
         HeadTop,
         HeadSide,
+        SnoutOverlay, // for animated tongue from Goob
         Snout,
         Chest,
         Arms,
@@ -32,6 +33,7 @@ namespace Content.Shared.Humanoid.Markings
                 HumanoidVisualLayers.Head => MarkingCategories.Head,
                 HumanoidVisualLayers.HeadTop => MarkingCategories.HeadTop,
                 HumanoidVisualLayers.HeadSide => MarkingCategories.HeadSide,
+                HumanoidVisualLayers.SnoutOverlay => MarkingCategories.SnoutOverlay, // for animated tongue from Goob
                 HumanoidVisualLayers.Snout => MarkingCategories.Snout,
                 HumanoidVisualLayers.Chest => MarkingCategories.Chest,
                 HumanoidVisualLayers.RArm => MarkingCategories.Arms,
