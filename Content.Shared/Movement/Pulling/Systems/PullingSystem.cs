@@ -248,21 +248,17 @@ public sealed class PullingSystem : EntitySystem
 
         if (!args.Throw)
         {
-            if (component.GrabStage > GrabStage.No
-                && TryComp(args.BlockingEntity, out PullableComponent? comp))
-            {
-                    TryLowerGrabStage(component.Pulling.Value, uid);
-                    args.Cancel();  // VirtualItem is NOT being deleted
-            }
+            if (component.GrabStage <= GrabStage.No
+                || !TryComp(args.BlockingEntity, out PullableComponent? comp))
+                return;
         }
         else
         {
-            if (component.GrabStage <= GrabStage.Soft)
-            {
-                TryLowerGrabStage(component.Pulling.Value, uid);
-                args.Cancel();  // VirtualItem is NOT being deleted
-            }
+            if (component.GrabStage > GrabStage.Soft)
+                return;
         }
+        TryLowerGrabStage(component.Pulling.Value, uid);
+        args.Cancel();  // VirtualItem is NOT being deleted
     }
     // Goobstation
 
@@ -956,17 +952,18 @@ public sealed class PullingSystem : EntitySystem
         if (puller.Comp.GrabVirtualItemStageCount.TryGetValue(puller.Comp.GrabStage, out var count))
             newVirtualItemsCount += count;
 
-        if (virtualItemsCount != newVirtualItemsCount)
-        {
-            var delta = newVirtualItemsCount - virtualItemsCount;
+        if (virtualItemsCount == newVirtualItemsCount)
+            return true;
+        var delta = newVirtualItemsCount - virtualItemsCount;
 
+        switch (delta)
+        {
             // Adding new virtual items
-            if (delta > 0)
+            case > 0:
             {
                 for (var i = 0; i < delta; i++)
                 {
                     var emptyHand = _handsSystem.TryGetEmptyHand(puller, out _);
-                    Logger.Debug("Try get an empty hand "  + emptyHand);
                     if (!emptyHand)
                     {
                         if (_netManager.IsServer)
@@ -986,9 +983,10 @@ public sealed class PullingSystem : EntitySystem
 
                     puller.Comp.GrabVirtualItems.Add(item.Value);
                 }
-            }
 
-            if (delta < 0)
+                break;
+            }
+            case < 0:
             {
                 for (var i = 0; i < Math.Abs(delta); i++)
                 {
@@ -999,6 +997,8 @@ public sealed class PullingSystem : EntitySystem
                     puller.Comp.GrabVirtualItems.Remove(item);
                     QueueDel(item);
                 }
+
+                break;
             }
         }
 

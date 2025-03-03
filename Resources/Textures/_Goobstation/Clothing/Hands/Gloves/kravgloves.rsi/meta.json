@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/bd91a1b962fe9bd38e346e9fafd4ebb10784fcb3/icons/mob/clothing/hands.dmi and https://github.com/ParadiseSS13/Paradise/blob/bd91a1b962fe9bd38e346e9fafd4ebb10784fcb3/icons/obj/clothing/gloves.dmi ",
+  "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/bd91a1b962fe9bd38e346e9fafd4ebb10784fcb3/icons/mob/clothing/hands.dmi and https://github.com/ParadiseSS13/Paradise/blob/bd91a1b962fe9bd38e346e9fafd4ebb10784fcb3/icons/obj/clothing/gloves.dmi and https://github.com/ParadiseSS13/Paradise/blob/HEAD/icons/mob/clothing/hands.dmi ",
   "size": {
     "x": 32,
     "y": 32
@@ -11,7 +11,8 @@
       "name": "icon"
     },
     {
-      "name": "equipped-HAND"
+      "name": "fightgloves",
+      "directions": 4
     }
   ]
 }

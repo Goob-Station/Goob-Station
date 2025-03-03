@@ -43,8 +43,8 @@ public sealed partial class MartialArtsSystem : SharedMartialArtsSystem
         InitializeSleepingCarp();
         InitializeCqc();
         InitializeCorporateJudo();
+        InitializeKravMaga();
         InitializeCanPerformCombo();
-
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, CheckGrabOverridesEvent>(CheckGrabStageOverride);
     }

@@ -36,6 +36,10 @@ public sealed partial class MartialArtsSystem
     private void OnRemoveCorporateJudo(Entity<GrantCorporateJudoComponent> ent, ref ClothingGotUnequippedEvent args)
     {
         var user = args.Wearer;
+        if (!TryComp<MartialArtsKnowledgeComponent>(ent.Owner, out var martialArtsKnowledge))
+            return;
+        if(martialArtsKnowledge.MartialArtsForm != MartialArtsForms.CorporateJudo)
+            return;
         RemComp<MartialArtsKnowledgeComponent>(user);
         RemComp<CanPerformComboComponent>(user);
     }
