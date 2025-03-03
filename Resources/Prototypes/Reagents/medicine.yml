@@ -194,6 +194,7 @@
   - !type:PlantAdjustHealth
     amount: 5
   - !type:PlantCryoxadone {}
+  worksOnTheDead: true # Goobstation
   metabolisms:
     Medicine:
       effects:
@@ -202,8 +203,11 @@
           - !type:Temperature
             # this is a little arbitrary but they gotta be pretty cold
             max: 213.0
+          scaleByTemperature: # Shitmed Change
+            min: 100.0
+            max: 213.0
+            scale: 1.6
           damage:
-          # todo scale with temp like SS13
             groups:
               Airloss: -6
               Brute: -4
@@ -218,6 +222,7 @@
   physicalDesc: reagent-physical-desc-bubbling
   flavor: medicine
   color: "#32cd32"
+  worksOnTheDead: true # Goobstation - Surgery is no longer the only cure.
   metabolisms:
     Medicine:
       effects:
@@ -225,6 +230,10 @@
           conditions:
           - !type:Temperature
             max: 213.0
+          scaleByTemperature: # Shitmed Change
+            min: 100.0
+            max: 213.0
+            scale: 1.6
           damage:
             types:
              Cellular: -2
@@ -1307,6 +1316,10 @@
           conditions:
           - !type:Temperature
             max: 213.0
+          scaleByTemperature: # Shitmed Change
+            min: 100.0
+            max: 213.0
+            scale: 1.6
           damage:
             groups:
               Brute: -4
@@ -1330,6 +1343,10 @@
         conditions:
         - !type:Temperature
           max: 213.0
+        scaleByTemperature: # Shitmed Change
+          min: 100.0
+          max: 213.0
+          scale: 1.6
         damage:
           types:
             Heat: -3.0

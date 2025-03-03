@@ -11,7 +11,7 @@
     - type: Organ
       slotId: core
     - type: Metabolizer
-      maxReagents: 6
+      maxReagents: 2 # Shitmed
       metabolizerTypes: [ Slime ]
       removeEmpty: true
       groups:
