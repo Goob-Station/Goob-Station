@@ -503,7 +503,7 @@
           Quantity: 5
   - type: Hypospray
     solutionName: pen
-    transferAmount: 30
+    transferAmount: 35
     onlyAffectsMobs: false
     injectOnly: true
   - type: StaticPrice
