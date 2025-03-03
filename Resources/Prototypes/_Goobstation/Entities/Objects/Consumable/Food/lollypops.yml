@@ -52,6 +52,14 @@
     - state: color
       map: [ "enum.AmmoVisualLayers.Tip" ]
       color: "#FFC0CB" # Change this to change the lollypop color. Default is pink.
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#FFC0CB"
+      right:
+      - state: inhand-right
+        color: "#FFC0CB"
   - type: SolutionContainerManager
     solutions:
       food:
@@ -364,6 +372,58 @@
         - ReagentId: Sugar
           Quantity: 5
         - ReagentId: Probital
+          Quantity: 10
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    size: Tiny
+
+# Kelotane
+
+- type: entity
+  parent: FoodSnackLollypopWrappedBase
+  id: FoodSnackLollypopWrappedKelotane
+  name: wrapped kelotane lollypop
+  description: A kelotane filled lollypop. It's still in a wrapper.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapped
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopKelotane
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBase
+  id: FoodSnackLollypopKelotane
+  name: kelotane lollypop
+  description: A kelotane filled lollypop. Eat with a dermaline one at the same time for maximal effects.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: color
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#bf3d19"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Kelotane
           Quantity: 10
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
@@ -858,11 +918,13 @@
       orGroup: LollypopMystery
     - id: FoodSnackLollypopDermaline
       orGroup: LollypopMystery
+    - id: FoodSnackLollypopKelotane # Gotta dilute the pool. Can't have this be TOO good.
+      orGroup: LollypopMystery
     - id: FoodSnackLollypopBicaridine
       orGroup: LollypopMystery
     - id: FoodSnackLollypopProbital
       orGroup: LollypopMystery
-    - id: FoodSnackLollypopHyronalin
+    - id: FoodSnackLollypopHyronalin # Don't add arithrizine!
       orGroup: LollypopMystery
     - id: FoodSnackLollypopIbuprofen
       orGroup: LollypopMystery
