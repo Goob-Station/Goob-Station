@@ -5626,3 +5626,64 @@ Entries:
         them to tweak.
   id: 648
   time: '2025-02-26T03:26:45.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: Added the ability to grab at various levels of strength.
+  id: 649
+  time: '2025-02-28T09:42:53.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        WSPR now uses .25 caseless ammo, comes unbundled, has no full auto, but
+        costs less than before. .25 caseless ammo is now slower (though not that
+        as slow as subsonic).
+    - type: Remove
+      message: Subsonic ammo is removed from the game.
+    - type: Tweak
+      message: >-
+        Hristov armor penetration removed and capacity slightly nerfed, but it
+        costs less TC and you can print its ammo on an emagged lathe.
+    - type: Tweak
+      message: C20R now does not require wielding to shoot precisely.
+    - type: Tweak
+      message: >-
+        Micro energy crossbow recharges much faster and deals stamina damage
+        now.
+    - type: Tweak
+      message: >-
+        Python, mosin ammo and nukie agent hardsuit all now cost slightly less
+        TC.
+  id: 650
+  time: '2025-03-01T21:55:11.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Mice now deal one pierce damage.
+  id: 651
+  time: '2025-03-02T11:58:57.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added mousebites.
+  id: 652
+  time: '2025-03-02T13:01:00.0000000+00:00'
+- author: Jorgun
+  changes:
+    - type: Fix
+      message: 'Hopefully fixed the salv shuttle :clueless:'
+  id: 653
+  time: '2025-03-02T19:49:15.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Tweak
+      message: Jaunters can now be found in Salvage equipment closets.
+  id: 654
+  time: '2025-03-02T19:51:39.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: The round no longer ends on wizard death.
+  id: 655
+  time: '2025-03-02T23:18:19.0000000+00:00'
