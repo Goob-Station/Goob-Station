@@ -52,7 +52,7 @@
 - type: latheRecipe
   id: ClarkeRArm
   result: ClarkeRArm
-  categorie:
+  categories:
   - Clarke
   completetime: 10
   materials:
