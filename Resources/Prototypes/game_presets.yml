@@ -23,7 +23,7 @@
   showInVote: false # secret
   description: kessler-syndrome-description
   rules:
-    - KesslerSyndromeScheduler
+#    - KesslerSyndromeScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
@@ -72,7 +72,7 @@
     - BlobGameMode
     - LoneAbductorSpawn
     - BasicStationEventScheduler
-    - KesslerSyndromeScheduler
+#    - KesslerSyndromeScheduler
 #    - MeteorSwarmMildScheduler # Goob Edit
 #    - MeteorSwarmScheduler # Goob edit
     - RampingStationEventScheduler
@@ -255,7 +255,7 @@
   rules:
   - Zombie
   - BasicStationEventScheduler
-  - KesslerSyndromeScheduler
+ # - KesslerSyndromeScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change

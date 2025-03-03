@@ -35,20 +35,20 @@
 #    - id: GameRuleUristSwarm Goob Edit
 #    - id: ImmovableRodSpawn Goob Edit
 # Goob Edit
-#- type: weightedRandomEntity Goob Edit
-#  id: MeteorSpawnAsteroidWallTable Goob Edit
-#  weights: Goob Edit
-#    MeteorRock: 10 Goob Edit
-#    MeteorRockCoal: 5 Goob Edit
-#    MeteorRockQuartz: 5 Goob Edit
-#    MeteorRockTin: 5 Goob Edit
-#    MeteorRockSilver: 2 Goob Edit
-#    MeteorRockGold: 2 Goob Edit
-#    MeteorRockPlasma: 2 Goob Edit
-#    MeteorRockDiamond: 2 Goob Edit
-#    MeteorRockUranium: 0.5 Goob Edit
-#    MeteorRockBananium: 0.5 Goob Edit
-#    MeteorRockBSCrystal: 0.5 # Goobstation Goob Edit
+- type: weightedRandomEntity
+  id: MeteorSpawnAsteroidWallTable
+  weights:
+    MeteorRock: 10 Goob Edit
+    MeteorRockCoal: 5 Goob Edit
+    MeteorRockQuartz: 5 Goob Edit
+    MeteorRockTin: 5 Goob Edit
+    MeteorRockSilver: 2 Goob Edit
+    MeteorRockGold: 2 Goob Edit
+    MeteorRockPlasma: 2 Goob Edit
+    MeteorRockDiamond: 2 Goob Edit
+    MeteorRockUranium: 0.5 Goob Edit
+    MeteorRockBananium: 0.5 Goob Edit
+    MeteorRockBSCrystal: 0.5 # Goobstation
 # Goob Edit
 ## Event Schedulers Goob Edit
 # Goob Edit
