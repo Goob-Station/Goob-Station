@@ -1147,8 +1147,6 @@
 - type: Tag
   id: Smokable
 
-
-
 - type: Tag
   id: SnowyLabs
 
@@ -1187,6 +1185,9 @@
 
 - type: Tag
   id: Spray
+
+- type: Tag
+  id: SprayNozzle
 
 - type: Tag
   id: SpreaderIgnore
