@@ -116,7 +116,7 @@
       state: paper
   - type: FootstepModifier
     footstepSoundCollection:
-      path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+      collection: FootstepBorg
   - type: Mech
     baseState: clarke
     openState: clarke-open
