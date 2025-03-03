@@ -2,53 +2,39 @@ using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Shared._Goobstation.Wizard;
+using Content.Shared._Goobstation.Wizard.EventSpells;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Eye;
-using Content.Shared.GameTicking;
+using Content.Shared.GameTicking.Components;
 using Content.Shared.Ghost;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
+using Robust.Server.GameStates;
 using Robust.Shared.Player;
 
 namespace Content.Server._Goobstation.Wizard.Systems;
 
-public sealed class GhostVisibilitySystem : EntitySystem
+public sealed class GhostVisibilitySystem : SharedGhostVisibilitySystem
 {
     [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private readonly PvsOverrideSystem _pvsOverride = default!;
     [Dependency] private readonly IAdminLogManager _log = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
-
-    [ViewVariables]
-    public bool GhostsVisible { get; private set; }
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<SummonGhostsEvent>(OnSummonGhosts);
-        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
+        SubscribeLocalEvent<GhostsVisibleRuleComponent, GameRuleStartedEvent>(OnRuleStarted);
     }
 
-    public override void Shutdown()
+    private void OnRuleStarted(Entity<GhostsVisibleRuleComponent> ent, ref GameRuleStartedEvent args)
     {
-        base.Shutdown();
-
-        GhostsVisible = false;
-    }
-
-    private void OnRoundRestart(RoundRestartCleanupEvent ev)
-    {
-        GhostsVisible = false;
-    }
-
-    private void OnSummonGhosts(SummonGhostsEvent ev)
-    {
-        if (GhostsVisible)
-            return;
-
-        GhostsVisible = true;
+        _pvsOverride.AddGlobalOverride(ent);
 
         var entityQuery = EntityQueryEnumerator<GhostComponent, VisibilityComponent>();
         while (entityQuery.MoveNext(out var uid, out var ghost, out var vis))
@@ -61,6 +47,14 @@ public sealed class GhostVisibilitySystem : EntitySystem
 
             _visibilitySystem.RefreshVisibility(uid, visibilityComponent: vis);
         }
+    }
+
+    private void OnSummonGhosts(SummonGhostsEvent ev)
+    {
+        if (GhostsVisible())
+            return;
+
+        _gameTicker.StartGameRule(GameRule);
 
         var message = Loc.GetString("ghosts-summoned-message");
         var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
@@ -72,7 +66,7 @@ public sealed class GhostVisibilitySystem : EntitySystem
 
     public bool IsVisible(GhostComponent component)
     {
-        if (!GhostsVisible)
+        if (!GhostsVisible())
             return false;
 
         return !component.CanGhostInteract;

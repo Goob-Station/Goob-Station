@@ -59,5 +59,6 @@ spellbook-magical-lamp-name = Magical Lamp
 spellbook-magical-lamp-desc =
     A magical golden lamp, capable of binding a personal guardian to your body. The guardian will transfer some amount of damage to you.
     It would be wise to avoid buying these with anything capable of causing you to swap bodies with others.
+    After hosting guardian you won't be able to change your species in wizard magic mirror.
     Can only be purchased once.
     Cannot be refunded.

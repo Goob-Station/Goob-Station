@@ -14,6 +14,7 @@ using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared.Atmos;
 using Content.Shared.Chat;
+using Content.Shared.Cloning;
 using Content.Shared.Database;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
@@ -21,6 +22,7 @@ using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.NPC.Prototypes;
+using Content.Shared.NPC.Systems;
 using Content.Shared.Parallax;
 using Robust.Server.Audio;
 using Robust.Shared.Player;
@@ -40,6 +42,7 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly IAdminLogManager _log = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
 
@@ -58,12 +61,30 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
 
         SubscribeLocalEvent<WizardComponent, MobStateChangedEvent>(OnStateChanged);
         SubscribeLocalEvent<WizardComponent, ComponentRemove>(OnRemove);
+        SubscribeLocalEvent<WizardComponent, CloningEvent>(OnWizardClone);
         SubscribeLocalEvent<ApprenticeComponent, MobStateChangedEvent>(OnStateChanged);
         SubscribeLocalEvent<ApprenticeComponent, ComponentRemove>(OnRemove);
+        SubscribeLocalEvent<ApprenticeComponent, CloningEvent>(OnApprenticeClone);
         SubscribeLocalEvent<PhylacteryComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<EntParentChangedMessage>(OnParentChanged);
 
         SubscribeLocalEvent<DimensionShiftEvent>(OnDimensionShift);
+    }
+
+    private void OnApprenticeClone(Entity<ApprenticeComponent> ent, ref CloningEvent args)
+    {
+        EnsureComp<ApprenticeComponent>(args.Target);
+        RemCompDeferred<ApprenticeComponent>(args.Source);
+        _faction.ClearFactions(args.Target, false);
+        _faction.AddFaction(args.Target, Faction);
+    }
+
+    private void OnWizardClone(Entity<WizardComponent> ent, ref CloningEvent args)
+    {
+        EnsureComp<WizardComponent>(args.Target);
+        RemCompDeferred<WizardComponent>(args.Source);
+        _faction.ClearFactions(args.Target, false);
+        _faction.AddFaction(args.Target, Faction);
     }
 
     private void OnDimensionShift(DimensionShiftEvent ev)

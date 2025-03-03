@@ -204,6 +204,8 @@
         density: 20
         mask:
         - MobMask
+        layer: # Goobstation
+        - MobLayer
   - type: Construction
     graph: HonkBot
     node: bot

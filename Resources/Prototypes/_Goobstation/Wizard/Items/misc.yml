@@ -149,6 +149,10 @@
   - type: Icon
     sprite: Objects/Consumable/Drinks/greenteaglass.rsi
     state: icon
+  - type: Destructible
+    thresholds: []
+  - type: Spillable
+    spillWhenThrown: false
 
 - type: entity
   name: wizard's rubber stamp
