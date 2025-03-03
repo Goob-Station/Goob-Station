@@ -1894,9 +1894,8 @@
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
-    - state: color
+    - state: lollypop-weh
       map: [ "enum.AmmoVisualLayers.Tip" ]
-      color: "#59b23a"
   - type: SolutionContainerManager
     solutions:
       food:
