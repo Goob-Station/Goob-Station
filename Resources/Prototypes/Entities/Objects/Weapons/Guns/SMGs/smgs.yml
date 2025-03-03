@@ -98,14 +98,14 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
-  - type: Wieldable
-    unwieldOnUse: false
-  - type: GunWieldBonus
-    minAngle: -19
-    maxAngle: -16
+#  - type: Wieldable # Goob - one-handed C20R - start
+#    unwieldOnUse: false
+#  - type: GunWieldBonus
+#    minAngle: -19
+#    maxAngle: -16
   - type: Gun
-    minAngle: 21
-    maxAngle: 32
+#    minAngle: 21 # Base SMG already has minAngle: 2 maxAngle: 16
+#    maxAngle: 32 # Goob - one-handed C20R - end
     shotsPerBurst: 5
     availableModes:
     - Burst
