@@ -5687,3 +5687,9 @@ Entries:
       message: The round no longer ends on wizard death.
   id: 655
   time: '2025-03-02T23:18:19.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Remove
+      message: China Lake no longer can be dualwielded.
+  id: 656
+  time: '2025-03-03T17:25:20.0000000+00:00'
