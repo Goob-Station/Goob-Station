@@ -30,7 +30,7 @@
   description: blueshield-box-category-revolver-description
   sprite:
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
-    state: icon
+    state: base
   content:
   - WeaponEnergyRevolver
 
@@ -40,7 +40,7 @@
   description: blueshield-box-category-blueshield-description
   sprite:
     sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
-    state: icon
+    state: icon-on
   content:
   - BlueShieldShield
   - BlueshieldMace

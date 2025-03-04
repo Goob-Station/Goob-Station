@@ -7,7 +7,8 @@ blueshield-box-category-chester-description =
 blueshield-box-category-cqc-name = close quarters combat set
 blueshield-box-category-cqc-description =
     Sometimes you need to get your hands dirty.
-    Includes: A book capable of teaching the user advanced close-quarters-combat.
+    Includes: A book capable of teaching the user
+    advanced close-quarters-combat.
 
 blueshield-box-category-revolver-name = revolver set
 blueshield-box-category-revolver-description =
