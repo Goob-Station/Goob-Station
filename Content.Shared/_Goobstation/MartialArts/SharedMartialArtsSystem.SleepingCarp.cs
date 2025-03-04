@@ -17,7 +17,8 @@ public partial class SharedMartialArtsSystem
     {
         SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpGnashingTeethPerformedEvent>(OnSleepingCarpGnashing);
         SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpKneeHaulPerformedEvent>(OnSleepingCarpKneeHaul);
-        SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpCrashingWavesPerformedEvent>(OnSleepingCarpCrashingWaves);
+        SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpCrashingWavesPerformedEvent>(
+            OnSleepingCarpCrashingWaves);
         SubscribeLocalEvent<GrantSleepingCarpComponent, UseInHandEvent>(OnGrantSleepingCarp);
     }
 
@@ -25,7 +26,7 @@ public partial class SharedMartialArtsSystem
 
     private void OnGrantSleepingCarp(Entity<GrantSleepingCarpComponent> ent, ref UseInHandEvent args)
     {
-        if(!_netManager.IsServer)
+        if (!_netManager.IsServer)
             return;
 
         if (ent.Comp.Used)
@@ -77,6 +78,7 @@ public partial class SharedMartialArtsSystem
             user,
             PopupType.Medium); // localize
     }
+
     #endregion
 
     #region Combo Methods

@@ -8,6 +8,7 @@ using Content.Shared.StatusEffect;
 using Robust.Shared.Audio;
 
 namespace Content.Shared._Goobstation.MartialArts;
+
 public partial class SharedMartialArtsSystem
 {
     private void InitializeCorporateJudo()
@@ -23,6 +24,7 @@ public partial class SharedMartialArtsSystem
     }
 
     #region Generic Methods
+
     private void OnGrantCorporateJudo(Entity<GrantCorporateJudoComponent> ent, ref ClothingGotEquippedEvent args)
     {
         var user = args.Wearer;
@@ -34,7 +36,7 @@ public partial class SharedMartialArtsSystem
         var user = args.Wearer;
         if (!TryComp<MartialArtsKnowledgeComponent>(ent.Owner, out var martialArtsKnowledge))
             return;
-        if(martialArtsKnowledge.MartialArtsForm != MartialArtsForms.CorporateJudo)
+        if (martialArtsKnowledge.MartialArtsForm != MartialArtsForms.CorporateJudo)
             return;
         RemComp<MartialArtsKnowledgeComponent>(user);
         RemComp<CanPerformComboComponent>(user);
@@ -43,6 +45,7 @@ public partial class SharedMartialArtsSystem
     #endregion
 
     #region Combo Methods
+
     private void OnJudoThrow(Entity<CanPerformComboComponent> ent, ref JudoThrowPerformedEvent args)
     {
         if (!TryUseMartialArt(ent, MartialArtsForms.CorporateJudo, out var target, out var downed))
@@ -57,6 +60,7 @@ public partial class SharedMartialArtsSystem
             _pulling.TryStopPull(target, pullable, ent, true);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
     }
+
     private void OnJudoEyepoke(Entity<CanPerformComboComponent> ent, ref JudoEyePokePerformedEvent args)
     {
         if (!TryUseMartialArt(ent, MartialArtsForms.CorporateJudo, out var target, out _))
@@ -80,6 +84,7 @@ public partial class SharedMartialArtsSystem
         _damageable.TryChangeDamage(target, damage, origin: ent);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
     }
+
     private void OnJudoArmbar(Entity<CanPerformComboComponent> ent, ref JudoArmbarPerformedEvent args)
     {
         if (!TryUseMartialArt(ent, MartialArtsForms.CorporateJudo, out var target, out var downed))
@@ -98,6 +103,7 @@ public partial class SharedMartialArtsSystem
                 _popupSystem.PopupEntity("You were placed in an arm bar", target);
                 break;
         }
+
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
     }
 
@@ -116,5 +122,6 @@ public partial class SharedMartialArtsSystem
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
     }
     */
+
     #endregion
 }

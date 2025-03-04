@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._Goobstation.MartialArts.Components;
 
 [RegisterComponent]
-public sealed partial class MartialArtBlockedComponent  : Component
+public sealed partial class MartialArtBlockedComponent : Component
 {
     [DataField]
     public MartialArtsForms Form;

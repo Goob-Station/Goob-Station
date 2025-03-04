@@ -17,13 +17,13 @@ public sealed partial class GrantCqcComponent : GrantMartialArtKnowledgeComponen
 }
 
 [RegisterComponent]
-public sealed partial class GrantCorporateJudoComponent  : GrantMartialArtKnowledgeComponent
+public sealed partial class GrantCorporateJudoComponent : GrantMartialArtKnowledgeComponent
 {
     public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.CorporateJudo;
 }
 
 [RegisterComponent]
-public sealed partial class GrantSleepingCarpComponent  : GrantMartialArtKnowledgeComponent
+public sealed partial class GrantSleepingCarpComponent : GrantMartialArtKnowledgeComponent
 {
     public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.SleepingCarp;
 

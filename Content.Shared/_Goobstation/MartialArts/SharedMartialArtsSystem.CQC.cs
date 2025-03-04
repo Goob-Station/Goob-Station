@@ -16,11 +16,11 @@ public partial class SharedMartialArtsSystem
 {
     private void InitializeCqc()
     {
-        SubscribeLocalEvent<Components.CanPerformComboComponent, CQCSlamPerformedEvent>(OnCQCSlam);
-        SubscribeLocalEvent<Components.CanPerformComboComponent, CQCKickPerformedEvent>(OnCQCKick);
-        SubscribeLocalEvent<Components.CanPerformComboComponent, CQCRestrainPerformedEvent>(OnCQCRestrain);
-        SubscribeLocalEvent<Components.CanPerformComboComponent, CQCPressurePerformedEvent>(OnCQCPressure);
-        SubscribeLocalEvent<Components.CanPerformComboComponent, CQCConsecutivePerformedEvent>(OnCQCConsecutive);
+        SubscribeLocalEvent<Components.CanPerformComboComponent, CqcSlamPerformedEvent>(OnCQCSlam);
+        SubscribeLocalEvent<Components.CanPerformComboComponent, CqcKickPerformedEvent>(OnCQCKick);
+        SubscribeLocalEvent<Components.CanPerformComboComponent, CqcRestrainPerformedEvent>(OnCQCRestrain);
+        SubscribeLocalEvent<Components.CanPerformComboComponent, CqcPressurePerformedEvent>(OnCQCPressure);
+        SubscribeLocalEvent<Components.CanPerformComboComponent, CqcConsecutivePerformedEvent>(OnCQCConsecutive);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComboAttackPerformedEvent>(OnCQCAttackPerformed);
         SubscribeLocalEvent<GrantCqcComponent, UseInHandEvent>(OnGrantCQCUse);
         SubscribeLocalEvent<GrantCqcComponent, ExaminedEvent>(OnGrantCQCExamine);
@@ -30,7 +30,7 @@ public partial class SharedMartialArtsSystem
 
     private void OnGrantCQCUse(Entity<GrantCqcComponent> ent, ref UseInHandEvent args)
     {
-        if(!_netManager.IsServer)
+        if (!_netManager.IsServer)
             return;
 
         if (ent.Comp.Used)
@@ -82,7 +82,7 @@ public partial class SharedMartialArtsSystem
 
     #region Combo Methods
 
-    private void OnCQCSlam(Entity<Components.CanPerformComboComponent> ent, ref CQCSlamPerformedEvent args)
+    private void OnCQCSlam(Entity<Components.CanPerformComboComponent> ent, ref CqcSlamPerformedEvent args)
     {
         if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out var downed))
             return;
@@ -99,7 +99,7 @@ public partial class SharedMartialArtsSystem
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
     }
 
-    private void OnCQCKick(Entity<Components.CanPerformComboComponent> ent, ref CQCKickPerformedEvent args)
+    private void OnCQCKick(Entity<Components.CanPerformComboComponent> ent, ref CqcKickPerformedEvent args)
     {
         if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out var downed))
             return;
@@ -127,7 +127,7 @@ public partial class SharedMartialArtsSystem
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
     }
 
-    private void OnCQCRestrain(Entity<Components.CanPerformComboComponent> ent, ref CQCRestrainPerformedEvent args)
+    private void OnCQCRestrain(Entity<Components.CanPerformComboComponent> ent, ref CqcRestrainPerformedEvent args)
     {
         if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out _))
             return;
@@ -136,7 +136,7 @@ public partial class SharedMartialArtsSystem
         _stamina.TakeStaminaDamage(target, 30f, source: ent);
     }
 
-    private void OnCQCPressure(Entity<Components.CanPerformComboComponent> ent, ref CQCPressurePerformedEvent args)
+    private void OnCQCPressure(Entity<Components.CanPerformComboComponent> ent, ref CqcPressurePerformedEvent args)
     {
         if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out _))
             return;
@@ -148,7 +148,8 @@ public partial class SharedMartialArtsSystem
         _stamina.TakeStaminaDamage(target, 65f, source: ent);
     }
 
-    private void OnCQCConsecutive(Entity<Components.CanPerformComboComponent> ent, ref CQCConsecutivePerformedEvent args)
+    private void OnCQCConsecutive(Entity<Components.CanPerformComboComponent> ent,
+        ref CqcConsecutivePerformedEvent args)
     {
         if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out _))
             return;

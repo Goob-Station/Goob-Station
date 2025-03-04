@@ -1,4 +1,5 @@
 using Content.Shared._Goobstation.MartialArts.Components;
+using Content.Shared._Goobstation.MartialArts.Events;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Mobs.Components;
@@ -18,9 +19,10 @@ public abstract partial class SharedMartialArtsSystem
         SubscribeLocalEvent<KravMagaComponent, MeleeHitEvent>(OnMeleeHitEvent);
         SubscribeLocalEvent<KravMagaComponent, ComponentShutdown>(OnKravMagaShutdown);
     }
+
     private void OnMeleeHitEvent(Entity<KravMagaComponent> ent, ref MeleeHitEvent args)
     {
-        if(args.HitEntities.Count <= 0)
+        if (args.HitEntities.Count <= 0)
             return;
 
         foreach (var hitEntity in args.HitEntities)
@@ -36,7 +38,7 @@ public abstract partial class SharedMartialArtsSystem
 
     private void DoKravMaga(Entity<KravMagaComponent> ent, EntityUid hitEntity, bool active)
     {
-        if(ent.Comp.SelectedMoveComp == null)
+        if (ent.Comp.SelectedMoveComp == null)
             return;
         var moveComp = ent.Comp.SelectedMoveComp;
 
@@ -62,11 +64,12 @@ public abstract partial class SharedMartialArtsSystem
             default:
                 throw new ArgumentOutOfRangeException();
         }
+
         ent.Comp.SelectedMove = null;
         ent.Comp.SelectedMoveComp = null;
     }
 
-    private void DoDamage(EntityUid uid, EntityUid target, int amount, string type,bool? extraDamageOnGround = null)
+    private void DoDamage(EntityUid uid, EntityUid target, int amount, string type, bool? extraDamageOnGround = null)
     {
         var damage = new DamageSpecifier();
         damage.DamageDict.Add(type, amount);
@@ -78,7 +81,7 @@ public abstract partial class SharedMartialArtsSystem
     private void OnKravMagaAction(Entity<KravMagaComponent> ent, ref KravMagaActionEvent args)
     {
         var actionEnt = args.Action.Owner;
-        if(!TryComp<KravMagaActionComponent>(actionEnt, out var kravActionComp))
+        if (!TryComp<KravMagaActionComponent>(actionEnt, out var kravActionComp))
             return;
 
         _popupSystem.PopupClient(Loc.GetString("krav-maga-ready", ("action", kravActionComp.Name)), ent, ent);

@@ -22,11 +22,10 @@ using Robust.Shared.Timing;
 namespace Content.Shared._Goobstation.MartialArts;
 
 /// <summary>
-/// Provides shared Martial Arts API.
+/// Handles most of Martial Arts Systems.
 /// </summary>
 public abstract partial class SharedMartialArtsSystem : EntitySystem
 {
-
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
@@ -74,7 +73,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         }
 
         var kravSilencedQuery = EntityQueryEnumerator<KravMagaSilencedComponent>();
-        while(kravSilencedQuery.MoveNext(out var ent, out var comp))
+        while (kravSilencedQuery.MoveNext(out var ent, out var comp))
         {
             if (_timing.CurTime < comp.SilencedTime)
                 continue;
@@ -82,13 +81,14 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         }
 
         var kravBlockedQuery = EntityQueryEnumerator<KravMagaBlockedBreathingComponent>();
-        while(kravBlockedQuery.MoveNext(out var ent, out var comp))
+        while (kravBlockedQuery.MoveNext(out var ent, out var comp))
         {
             if (_timing.CurTime < comp.BlockedTime)
                 continue;
             RemComp<KravMagaBlockedBreathingComponent>(ent);
         }
     }
+
     #region Event Methods
 
     private void OnShutdown(Entity<MartialArtsKnowledgeComponent> ent, ref ComponentShutdown args)
@@ -103,21 +103,26 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         if (args.Stage == GrabStage.Soft)
             args.Stage = component.StartingStage;
     }
+
     private void OnSilencedSpeakAttempt(Entity<KravMagaSilencedComponent> ent, ref SpeakAttemptEvent args)
     {
-        _popupSystem.PopupEntity(Loc.GetString("popup-grabbed-cant-speak"), ent, ent);   // You cant speak while someone is choking you
+        _popupSystem.PopupEntity(Loc.GetString("popup-grabbed-cant-speak"),
+            ent,
+            ent); // You cant speak while someone is choking you
         args.Cancel();
     }
+
     private void OnShotAttempt(Entity<MartialArtsKnowledgeComponent> ent, ref ShotAttemptedEvent args)
     {
-        if(ent.Comp.MartialArtsForm != MartialArtsForms.SleepingCarp)
+        if (ent.Comp.MartialArtsForm != MartialArtsForms.SleepingCarp)
             return;
         _popupSystem.PopupClient(Loc.GetString("gun-disabled"), ent, ent);
         args.Cancel();
     }
+
     #endregion
 
-     #region Helper Methods
+    #region Helper Methods
 
     private bool TryGrant(GrantMartialArtKnowledgeComponent comp, EntityUid user)
     {
