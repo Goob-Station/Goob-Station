@@ -55,3 +55,14 @@
   parent: BaseBorgModuleRecipe
   id: BorgModuleLollipop
   result: BorgModuleLollipop
+
+# Hoverchair
+- type: latheRecipe
+  id: VehicleHoverchairSci
+  result: VehicleHoverchair
+  category: Robotics
+  completetime: 5
+  materials:
+    Steel: 500
+    Gold: 300
+    Plasma: 250

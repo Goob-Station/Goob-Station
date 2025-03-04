@@ -14,3 +14,15 @@
   - ModsuitGauntlets
   - ModsuitShell
   - ModsuitPlatingExternal
+
+- type: technology
+  id: HoverTech
+  name: research-technology-hover-tech
+  icon:
+    sprite: _GoobStation/Objects/Vehicles/hoverchair.rsi
+    state: vehicle
+  discipline: Experimental
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - VehicleHoverchairSci
