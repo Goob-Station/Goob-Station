@@ -15,6 +15,12 @@ public sealed partial class MartialArtsSystem
     {
         SubscribeLocalEvent<GrantKravMagaComponent, ClothingGotEquippedEvent>(OnGlovesGotEquipped);
         SubscribeLocalEvent<GrantKravMagaComponent, ClothingGotUnequippedEvent>(OnGlovesGotUnequipped);
+        SubscribeLocalEvent<KravMagaComponent, KravMagaActionEvent>(OnKravMagaAction);
+    }
+
+    private void OnKravMagaAction(Entity<KravMagaComponent> ent, ref KravMagaActionEvent args)
+    {
+        var actionUid = args.Action.Owner;
     }
 
     private void OnGlovesGotEquipped(Entity<GrantKravMagaComponent> ent, ref ClothingGotEquippedEvent args)
@@ -27,7 +33,6 @@ public sealed partial class MartialArtsSystem
                 kravMaga.KravMagaMoveEntities.Add(actions.Value);
         }
     }
-
 
     private void OnGlovesGotUnequipped(Entity<GrantKravMagaComponent> ent, ref ClothingGotUnequippedEvent args)
     {
