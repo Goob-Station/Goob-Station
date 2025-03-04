@@ -486,7 +486,7 @@
       - state: green
       - state: detective
 
-#Unused so far - TODO - Map - Currently set so that brigmedics spawn same as latejoins (cryosleep or arrivals)
+#added brigmed spawns but will anyone ever use them? such is my life
 - type: entity
   id: SpawnPointBrigmedic
   parent: SpawnPointJobBase
@@ -494,7 +494,7 @@
   components:
   - type: SpawnPoint
     job_id: Brigmedic
-    spawn_type: LateJoin
+    #spawn_type: LateJoin       # set so that brigmedics spawn same as latejoins (cryosleep or arrivals)
   - type: Sprite
     layers:
       - state: green

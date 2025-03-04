@@ -37,7 +37,7 @@
     eyes: ClothingEyesBrigMedSec   # Goobstation
     ears: ClothingHeadsetBrigmedic # Goobstation
     belt: ClothingBeltBrigmedicWebbingFilled
-    pocket1: UniqueBrigmedicLockerTeleporter
+    #pocket1: UniqueBrigmedicLockerTeleporter                      # NTR/BSO-like teleporter. 
   storage:
     back:
     - Flash
@@ -45,8 +45,8 @@
 
 # BRIGMEDIC TODO LIST:
 # - Fix medical mask for vox and other species
-# - Add Spawnpoints
-# - Map Maps so that brig has a medbrig and remove teleporter
+# - Add Spawnpoints                                               //
+# - Map Maps so that brig has a medbrig and remove teleporter    // Done both but leaving this here cause im petty
 # - balance is gonna be wack
 # - remove/change defib backpack?
 # - change playtime requirements
