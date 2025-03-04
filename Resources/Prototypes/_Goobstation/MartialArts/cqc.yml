@@ -18,28 +18,28 @@
   attacks:
   - Grab
   - Harm
-  event: !type:CQCSlamPerformedEvent {}
+  event: !type:CqcSlamPerformedEvent {}
 
 - type: combo
   id: CQCKick
   attacks:
   - Harm
   - Harm
-  event: !type:CQCKickPerformedEvent {}
+  event: !type:CqcKickPerformedEvent {}
 
 - type: combo
   id: CQCRestrain
   attacks:
   - Grab
   - Grab
-  event: !type:CQCRestrainPerformedEvent {}
+  event: !type:CqcRestrainPerformedEvent {}
 
 - type: combo
   id: CQCPressure
   attacks:
   - Disarm
   - Grab
-  event: !type:CQCPressurePerformedEvent {}
+  event: !type:CqcPressurePerformedEvent {}
 
 - type: combo
   id: CQCConsecutive
@@ -47,4 +47,4 @@
   - Disarm
   - Disarm
   - Harm
-  event: !type:CQCConsecutivePerformedEvent {}
+  event: !type:CqcConsecutivePerformedEvent {}

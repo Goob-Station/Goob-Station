@@ -16,11 +16,11 @@ public partial class SharedMartialArtsSystem
 {
     private void InitializeCqc()
     {
-        SubscribeLocalEvent<Components.CanPerformComboComponent, CqcSlamPerformedEvent>(OnCQCSlam);
-        SubscribeLocalEvent<Components.CanPerformComboComponent, CqcKickPerformedEvent>(OnCQCKick);
-        SubscribeLocalEvent<Components.CanPerformComboComponent, CqcRestrainPerformedEvent>(OnCQCRestrain);
-        SubscribeLocalEvent<Components.CanPerformComboComponent, CqcPressurePerformedEvent>(OnCQCPressure);
-        SubscribeLocalEvent<Components.CanPerformComboComponent, CqcConsecutivePerformedEvent>(OnCQCConsecutive);
+        SubscribeLocalEvent<CanPerformComboComponent, CqcSlamPerformedEvent>(OnCQCSlam);
+        SubscribeLocalEvent<CanPerformComboComponent, CqcKickPerformedEvent>(OnCQCKick);
+        SubscribeLocalEvent<CanPerformComboComponent, CqcRestrainPerformedEvent>(OnCQCRestrain);
+        SubscribeLocalEvent<CanPerformComboComponent, CqcPressurePerformedEvent>(OnCQCPressure);
+        SubscribeLocalEvent<CanPerformComboComponent, CqcConsecutivePerformedEvent>(OnCQCConsecutive);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComboAttackPerformedEvent>(OnCQCAttackPerformed);
         SubscribeLocalEvent<GrantCqcComponent, UseInHandEvent>(OnGrantCQCUse);
         SubscribeLocalEvent<GrantCqcComponent, ExaminedEvent>(OnGrantCQCExamine);
