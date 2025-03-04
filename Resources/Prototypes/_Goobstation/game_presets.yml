@@ -136,7 +136,7 @@
     - calmdynamic
   name: calm-title
   description: calm-description
-  showInVote: false
+  showInVote: true
   rules:
     - CalmDynamic
 
@@ -147,6 +147,6 @@
     - combatdynamic
   name: combat-title
   description: combat-description
-  showInVote: false
+  showInVote: true
   rules:
     - CombatDynamic
