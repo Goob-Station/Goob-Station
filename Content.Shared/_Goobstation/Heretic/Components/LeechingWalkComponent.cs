@@ -15,17 +15,17 @@ public sealed partial class LeechingWalkComponent : Component
     {
         DamageDict =
         {
-            {"Blunt", -1},
-            {"Slash", -1},
-            {"Piercing", -1},
-            {"Heat", -1},
-            {"Cold", -1},
-            {"Shock", -1},
-            {"Asphyxiation", -1},
-            {"Bloodloss", -1},
-            {"Caustic", -1},
-            {"Poison", -1},
-            {"Radiation", -1},
+            {"Blunt", -2},
+            {"Slash", -2},
+            {"Piercing", -2},
+            {"Heat", -2},
+            {"Cold", -2},
+            {"Shock", -2},
+            {"Asphyxiation", -2},
+            {"Bloodloss", -2},
+            {"Caustic", -2},
+            {"Poison", -2},
+            {"Radiation", -2},
         },
     };
 

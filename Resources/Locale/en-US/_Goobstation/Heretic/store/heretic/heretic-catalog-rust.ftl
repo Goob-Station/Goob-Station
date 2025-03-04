@@ -11,6 +11,7 @@ knowledge-path-rust-s2-desc =
 
     Your Mansus Grasp will deal massive damage to non-living matter and rust any surface it touches.
     Already rusted surfaces are destroyed.
+    Allows you to rust basic iron walls and floors.
 
 knowledge-path-rust-s3-name = Leeching Walk
 knowledge-path-rust-s3-desc =
@@ -24,6 +25,7 @@ knowledge-path-rust-s4-desc =
 
     Your Mansus Grasp now applies the Mark of Rust. The mark is triggered from an attack with your Rusty Blade.
     When triggered, your victim will suffer heavy disgust.
+    Allows you to rust special material walls.
 
 knowledge-path-rust-s5-name = Rust Construction
 knowledge-path-rust-s5-desc =
@@ -42,4 +44,5 @@ knowledge-path-rust-s7-name = Toxic Blade
 knowledge-path-rust-s7-desc =
     The Blacksmith hands you their blade. "The Blade will guide you through the flesh, should you let it." The heavy rust weights it down. You stare deeply into it. The Rusted Hills call for you, now.
 
-    Your Rusty Blade now causes toxic damage to those you attack.
+    Your Rusty Blade now causes toxic damage to those you attack and also increases rot level of corpses.
+    Allows you to rust reinforced and mining walls.

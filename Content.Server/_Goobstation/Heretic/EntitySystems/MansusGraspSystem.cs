@@ -101,6 +101,9 @@ public sealed class MansusGraspSystem : EntitySystem
         // Already rusted walls are destroyed
         if (HasComp<RustedWallComponent>(args.Target))
         {
+            if (!_ability.CanSurfaceBeRusted(args.Target.Value, (args.User, heretic)))
+                return;
+
             args.Handled = true;
             InvokeGrasp(args.User, (uid, grasp));
             ResetDelay();
@@ -108,7 +111,7 @@ public sealed class MansusGraspSystem : EntitySystem
             return;
         }
 
-        if (!_ability.TryMakeRustWall(args.Target.Value))
+        if (!_ability.TryMakeRustWall(args.Target.Value, (args.User, heretic)))
             return;
 
         args.Handled = true;

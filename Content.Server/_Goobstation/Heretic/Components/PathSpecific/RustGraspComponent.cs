@@ -6,10 +6,10 @@ namespace Content.Server.Heretic.Components.PathSpecific;
 public sealed partial class RustGraspComponent : Component
 {
     [DataField]
-    public float MinUseDelay = 0.5f;
+    public float MinUseDelay = 0.7f;
 
     [DataField]
-    public float MaxUseDelay = 2f;
+    public float MaxUseDelay = 3f;
 
     [DataField]
     public string Delay = "rust";

@@ -17,12 +17,23 @@
   - type: UseDelay
     delays: # For rust path
       rust:
-        length: 2
+        length: 3
   - type: PointLight
     enabled: true
     radius: 2
     energy: 1
     color: "#329a00"
+  - type: SurgeryTool # For organ removal
+    startSound:
+      path: /Audio/_Goobstation/Heretic/crack1.ogg
+    endSound:
+      path: /Audio/Items/welder.ogg
+  - type: Hemostat
+    speed: 1.5
+  - type: Retractor
+    speed: 1.5
+  - type: Tweezers
+    speed: 1.5
 
 - type: entity
   id: TouchSpellMansusRust

@@ -28,12 +28,6 @@
     speed: 1.5
   - type: BoneSaw
     speed: 1.5
-  - type: Hemostat
-    speed: 1.5
-  - type: Retractor
-    speed: 1.5
-  - type: Tweezers
-    speed: 1.5
 
 - type: entity
   parent: HereticBladeBase

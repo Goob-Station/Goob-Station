@@ -94,6 +94,22 @@ public sealed partial class HereticAbilitySystem
         }
     }
 
+    public bool CanSurfaceBeRusted(EntityUid target, Entity<HereticComponent>? ent)
+    {
+        if (!TryComp(target, out RustRequiresPathStageComponent? requiresPathStage))
+            return true;
+
+        var stage = ent == null ? 10 : ent.Value.Comp.PathStage;
+
+        if (requiresPathStage.PathStage <= stage)
+            return true;
+
+        if (ent != null)
+            _popup.PopupEntity(Loc.GetString("heretic-ability-fail-rust-stage-low"), ent.Value, ent.Value);
+
+        return false;
+    }
+
     public void MakeRustTile(EntityUid gridUid, MapGridComponent mapGrid, TileRef tileRef, EntProtoId tileRune)
     {
         var plating = _tileDefinitionManager[RustTile];
@@ -102,7 +118,7 @@ public sealed partial class HereticAbilitySystem
         Spawn(tileRune, new EntityCoordinates(gridUid, tileRef.GridIndices));
     }
 
-    public bool TryMakeRustWall(EntityUid target)
+    public bool TryMakeRustWall(EntityUid target, Entity<HereticComponent>? ent = null)
     {
         if (HasComp<RustedWallComponent>(target))
             return false;
@@ -114,6 +130,9 @@ public sealed partial class HereticAbilitySystem
         // Check transformations (walls into rusted walls)
         if (proto != null && Transformations.TryGetValue(proto.ID, out var transformation))
         {
+            if (!CanSurfaceBeRusted(targetEntity, ent))
+                return false;
+
             var xform = Transform(target);
             var rotation = xform.LocalRotation;
             var coords = _transform.GetMapCoordinates(target, xform);
@@ -124,6 +143,9 @@ public sealed partial class HereticAbilitySystem
         }
 
         if (TerminatingOrDeleted(targetEntity) || !_tag.HasTag(targetEntity, "Wall"))
+            return false;
+
+        if (targetEntity == target && !CanSurfaceBeRusted(targetEntity, ent))
             return false;
 
         EnsureComp<RustedWallComponent>(targetEntity);

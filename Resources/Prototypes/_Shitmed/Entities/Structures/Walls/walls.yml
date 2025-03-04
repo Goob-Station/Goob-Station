@@ -56,6 +56,8 @@
   - type: Construction
     graph: Girder
     node: diagonalshuttleWall
+  - type: RustRequiresPathStage
+    pathStage: 10 # Ascension
 
 - type: entity
   parent: BaseWall
@@ -85,3 +87,5 @@
   - type: Appearance
   - type: Reflect
     reflectProb: 1
+  - type: RustRequiresPathStage
+    pathStage: 10 # Ascension
