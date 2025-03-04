@@ -10,10 +10,10 @@
   - type: Blocking
     passiveBlockModifier:
       coefficients:
-        Holy: 3.5
+        Holy: 1.35
     activeBlockModifier:
       coefficients:
-        Holy: 3.5
+        Holy: 1.35
   - type: Sprite
     sprite: _Goobstation/Heretic/mansus_grasp.rsi
     state: icon

@@ -14,7 +14,7 @@
     damage:
       types:
         Blunt: 5
-        Holy: 25
+        Holy: 15
     soundHit:
       collection: MetalThud
   - type: Reflect
@@ -63,14 +63,14 @@
     damage:
       types:
         Slash: 10
-        Holy: 30
+        Holy: 20
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Wieldable
   - type: DamageBoostOnMarker
     boost:
       types:
-        Holy: 30
+        Holy: 15
         Burn: 5
   - type: LeechOnMarker
     leech:
@@ -101,7 +101,7 @@
       - Magic
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-inanimate
-    weight: 0.05 # 5,000 times less likely than 1 regular animal
+    weight: 0.50
   - type: MedievalAccent
   - type: Tag
     tags:
@@ -131,8 +131,6 @@
       groups:
         Brute: -25
         Burn: -25
-      types:
-        Holy: -50 # 50 looks like it's a big number but unless you have unholy equipment, It's not.
     damageOnFail:
       groups:
         Burn: 30
@@ -142,13 +140,13 @@
       groups:
         Burn: 25
       types:
-        Holy: 50 # 50 looks like it's a big number but unless you have unholy equipment, It's not.
+        Holy: 50
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Effects/hallelujah.ogg
     damage:
       types:
-        Holy: 25
+        Holy: 10
         Blunt: 1
   - type: InjectOnHit
     reagents:
@@ -206,7 +204,7 @@
       types:
         Heat: 7.5
         Slash: 3
-        Holy: 50 # 50 looks like it's a big number but unless you have unholy equipment, It's not.
+        Holy: 25
     soundHit:
       path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
   - type: IgniteOnMeleeHit # emphasis on FLAMING GIFT!!
@@ -264,7 +262,7 @@
     damage:
       types:
         Slash: 15
-        Holy: 50 # 50 looks like it's a big number but unless you have unholy equipment, It's not.
+        Holy: 15
     soundHit:
       path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
   - type: InjectOnHit
