@@ -1,0 +1,55 @@
+# Security borg
+- type: borgType
+  id: security
+  # Description
+  dummyPrototype: BorgChassisSecurity
+  # Functional
+  extraModuleCount: 3
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - BorgModuleSecurity
+  # TODO: change these when reworking secborg modules to have the equivalent of roundstart gear
+  defaultModules:
+  - BorgModuleSecurityPeacekeeper
+  - BorgModuleSecurityPatrol
+  - BorgModuleSecurityBastion
+  addComponents:
+  - type: SiliconLawProvider
+    laws: SiliconPolice
+  - type: FlashImmunity
+  - type: ShowMindShieldIcons
+  - type: ShowCriminalRecordIcons
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      80: Critical # -20 to Crit Threshold
+      200: Dead
+  radioChannels:
+  - Science
+  - Security
+  # Visual
+  clientComponents:
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    sprite: _DV/Mobs/Silicon/chassis.rsi
+    layers:
+    - state: security
+      map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: security_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: security_l
+      shader: unshaded
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
+      visible: false
+  inventoryTemplateId: borgShort
+  spriteBodyState: security
+  spriteHasMindState: security_e
+  spriteNoMindState: security_e_r
+  spriteToggleLightState: security_l
+  # Pet
+  petSuccessString: petting-success-security-cyborg
+  petFailureString: petting-failure-security-cyborg
