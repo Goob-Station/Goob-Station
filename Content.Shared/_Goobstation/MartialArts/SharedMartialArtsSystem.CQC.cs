@@ -74,30 +74,25 @@ public partial class SharedMartialArtsSystem
 
     #region Combo Methods
 
-    private void OnCQCSlam(Entity<Components.CanPerformComboComponent> ent, ref CqcSlamPerformedEvent args)
+    private void OnCQCSlam(Entity<CanPerformComboComponent> ent, ref CqcSlamPerformedEvent args)
     {
-        if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out var downed))
+        if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out var downed)
+            || !_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
+            || downed)
             return;
 
-        if (downed)
-            return;
-
-        var damage = new DamageSpecifier();
-        damage.DamageDict.Add("Blunt", 10);
-        _damageable.TryChangeDamage(target, damage, origin: ent);
-
-        _stun.TryParalyze(target, TimeSpan.FromSeconds(12), true);
+        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
+        _stun.TryParalyze(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
     }
 
-    private void OnCQCKick(Entity<Components.CanPerformComboComponent> ent, ref CqcKickPerformedEvent args)
+    private void OnCQCKick(Entity<CanPerformComboComponent> ent, ref CqcKickPerformedEvent args)
     {
-        if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out var downed))
-            return;
-
-        if (!downed)
+        if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out var downed)
+            || !_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
+            || !downed)
             return;
 
         if (TryComp<StaminaComponent>(target, out var stamina) && stamina.Critical)
@@ -105,8 +100,8 @@ public partial class SharedMartialArtsSystem
             _status.TryAddStatusEffect<ForcedSleepingComponent>(target, "ForcedSleep", TimeSpan.FromSeconds(10), true);
         }
 
-        DoDamage(ent, target, "Blunt", 10, out var damage);
-        _stamina.TakeStaminaDamage(target, 55f, source: ent);
+        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out var damage);
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
 
         var mapPos = _transform.GetMapCoordinates(ent).Position;
         var hitPos = _transform.GetMapCoordinates(target).Position;
@@ -118,21 +113,23 @@ public partial class SharedMartialArtsSystem
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
     }
 
-    private void OnCQCRestrain(Entity<Components.CanPerformComboComponent> ent, ref CqcRestrainPerformedEvent args)
+    private void OnCQCRestrain(Entity<CanPerformComboComponent> ent, ref CqcRestrainPerformedEvent args)
     {
-        if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out _))
+        if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out _)
+            || !_proto.TryIndex(ent.Comp.BeingPerformed, out var proto))
             return;
 
-        _stun.TryParalyze(target, TimeSpan.FromSeconds(10), true);
-        _stamina.TakeStaminaDamage(target, 30f, source: ent);
+        _stun.TryParalyze(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
     }
 
-    private void OnCQCPressure(Entity<Components.CanPerformComboComponent> ent, ref CqcPressurePerformedEvent args)
+    private void OnCQCPressure(Entity<CanPerformComboComponent> ent, ref CqcPressurePerformedEvent args)
     {
-        if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out _))
+        if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out _)
+            || !_proto.TryIndex(ent.Comp.BeingPerformed, out var proto))
             return;
 
-        _stamina.TakeStaminaDamage(target, 65f, source: ent);
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
         if (!_hands.TryGetActiveItem(target, out var activeItem))
             return;
         if(!_hands.TryDrop(target, activeItem.Value))
@@ -144,14 +141,14 @@ public partial class SharedMartialArtsSystem
         _hands.SetActiveHand(ent, emptyHand);
     }
 
-    private void OnCQCConsecutive(Entity<Components.CanPerformComboComponent> ent,
-        ref CqcConsecutivePerformedEvent args)
+    private void OnCQCConsecutive(Entity<CanPerformComboComponent> ent, ref CqcConsecutivePerformedEvent args)
     {
-        if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out _))
+        if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out _)
+            || !_proto.TryIndex(ent.Comp.BeingPerformed, out var proto))
             return;
 
-        DoDamage(ent, target, "Blunt", 10, out _);
-        _stamina.TakeStaminaDamage(target, 70, source: ent);
+        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg"), target);
     }
 

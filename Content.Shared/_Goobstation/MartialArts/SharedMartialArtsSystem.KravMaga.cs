@@ -32,11 +32,11 @@ public abstract partial class SharedMartialArtsSystem
             if (!TryComp<RequireProjectileTargetComponent>(hitEntity, out var isDowned))
                 continue;
 
-            DoKravMaga(ent, hitEntity, isDowned.Active);
+            DoKravMaga(ent, hitEntity, isDowned);
         }
     }
 
-    private void DoKravMaga(Entity<KravMagaComponent> ent, EntityUid hitEntity, bool active)
+    private void DoKravMaga(Entity<KravMagaComponent> ent, EntityUid hitEntity, RequireProjectileTargetComponent reguireProjectileTargetComponent)
     {
         if (ent.Comp.SelectedMoveComp == null)
             return;
@@ -45,11 +45,11 @@ public abstract partial class SharedMartialArtsSystem
         switch (ent.Comp.SelectedMove)
         {
             case KravMagaMoves.LegSweep:
+                if(_netManager.IsClient)
+                    return;
                 _stun.TryParalyze(hitEntity, TimeSpan.FromSeconds(4), true);
                 break;
             case KravMagaMoves.NeckChop:
-                DoDamage(ent.Owner, hitEntity, ent.Comp.BaseDamage, "Blunt");
-
                 var comp = EnsureComp<KravMagaSilencedComponent>(hitEntity);
                 comp.SilencedTime = _timing.CurTime + TimeSpan.FromSeconds(moveComp.effectTime);
                 break;
@@ -59,7 +59,11 @@ public abstract partial class SharedMartialArtsSystem
                 blockedBreathingComponent.BlockedTime = _timing.CurTime + TimeSpan.FromSeconds(moveComp.effectTime);
                 break;
             case null:
-                DoDamage(ent.Owner, hitEntity, ent.Comp.BaseDamage, "Blunt", active);
+                var damage = ent.Comp.BaseDamage;
+                if (reguireProjectileTargetComponent.Active)
+                    damage *= ent.Comp.DownedDamageModifier;
+
+                DoDamage(ent.Owner, hitEntity, "Blunt", damage, out _);
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -67,15 +71,6 @@ public abstract partial class SharedMartialArtsSystem
 
         ent.Comp.SelectedMove = null;
         ent.Comp.SelectedMoveComp = null;
-    }
-
-    private void DoDamage(EntityUid uid, EntityUid target, int amount, string type, bool? extraDamageOnGround = null)
-    {
-        var damage = new DamageSpecifier();
-        damage.DamageDict.Add(type, amount);
-        if (extraDamageOnGround is true)
-            damage *= 2;
-        _damageable.TryChangeDamage(target, damage, origin: uid);
     }
 
     private void OnKravMagaAction(Entity<KravMagaComponent> ent, ref KravMagaActionEvent args)
@@ -91,6 +86,8 @@ public abstract partial class SharedMartialArtsSystem
 
     private void OnMapInit(Entity<KravMagaComponent> ent, ref MapInitEvent args)
     {
+        if (HasComp<MartialArtsKnowledgeComponent>(ent))
+            return;
         foreach (var actionId in ent.Comp.BaseKravMagaMoves)
         {
             var actions = _actions.AddAction(ent, actionId);

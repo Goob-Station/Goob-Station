@@ -1,3 +1,5 @@
+using Robust.Shared.Serialization;
+
 namespace Content.Shared._Goobstation.MartialArts.Events;
 
 /// <summary>
@@ -17,6 +19,7 @@ public sealed class ComboAttackPerformedEvent(
     public ComboAttackType Type { get; } = type;
 }
 
+[Serializable,NetSerializable]
 public enum ComboAttackType : byte
 {
     Harm,

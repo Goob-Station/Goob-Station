@@ -90,10 +90,7 @@ public partial class SharedMartialArtsSystem
 
         if (!TryComp<MartialArtsKnowledgeComponent>(ent.Owner, out var knowledgeComponent))
             return;
-
-        var damage = new DamageSpecifier();
-        damage.DamageDict.Add("Slash", 20 + ent.Comp.ConsecutiveGnashes * 5);
-        _damageable.TryChangeDamage(target, damage, origin: ent);
+        DoDamage(ent, target, "Slash", 20 + ent.Comp.ConsecutiveGnashes * 5, out _);
         ent.Comp.ConsecutiveGnashes++;
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg"), target);
         if (TryComp<RequireProjectileTargetComponent>(target, out var standing)
@@ -124,9 +121,7 @@ public partial class SharedMartialArtsSystem
         if (downed)
             return;
 
-        var damage = new DamageSpecifier();
-        damage.DamageDict.Add("Blunt", 10);
-        _damageable.TryChangeDamage(target, damage, origin: ent);
+        DoDamage(ent, target, "Blunt", 10, out _);
         _stamina.TakeStaminaDamage(target, 60f);
         _stun.TryParalyze(target, TimeSpan.FromSeconds(6), true);
         if (TryComp<PullableComponent>(target, out var pullable))
@@ -143,9 +138,7 @@ public partial class SharedMartialArtsSystem
         if (downed)
             return;
 
-        var damage = new DamageSpecifier();
-        damage.DamageDict.Add("Blunt", 5);
-        _damageable.TryChangeDamage(target, damage, origin: ent);
+        DoDamage(ent, target, "Blunt", 5, out var damage);
         var mapPos = _transform.GetMapCoordinates(ent).Position;
         var hitPos = _transform.GetMapCoordinates(target).Position;
         var dir = hitPos - mapPos;

@@ -74,8 +74,6 @@ public partial class SharedMartialArtsSystem
         if (!TryComp(target, out StatusEffectsComponent? status))
             return;
 
-        var damage = new DamageSpecifier();
-        damage.DamageDict.Add("Blunt", 10);
         _status.TryAddStatusEffect<TemporaryBlindnessComponent>(target,
             "TemporaryBlindness",
             TimeSpan.FromSeconds(2),
@@ -86,7 +84,7 @@ public partial class SharedMartialArtsSystem
             TimeSpan.FromSeconds(5),
             false,
             status);
-        _damageable.TryChangeDamage(target, damage, origin: ent);
+        DoDamage(ent, target, "Blunt", 5, out _);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
     }
 

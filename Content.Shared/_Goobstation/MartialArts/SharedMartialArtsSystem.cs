@@ -1,4 +1,5 @@
 using Content.Shared._Goobstation.MartialArts.Components;
+using Content.Shared._Goobstation.MartialArts.Events;
 using Content.Shared._White.Grab;
 using Content.Shared.Actions;
 using Content.Shared.Chat;
@@ -218,7 +219,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         return false;
     }
 
-    private void DoDamage(Entity<CanPerformComboComponent> ent, EntityUid target, string damageType, int damageAmount, out DamageSpecifier damage )
+    private void DoDamage(EntityUid ent, EntityUid target, string damageType, int damageAmount, out DamageSpecifier damage )
     {
         damage = new DamageSpecifier();
         damage.DamageDict.Add(damageType, damageAmount);

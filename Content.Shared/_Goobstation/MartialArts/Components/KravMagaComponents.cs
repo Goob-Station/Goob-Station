@@ -44,6 +44,9 @@ public sealed partial class KravMagaComponent : GrabStagesOverrideComponent
 
     [DataField]
     public int BaseDamage = 5;
+
+    [DataField]
+    public int DownedDamageModifier = 2;
 }
 
 [RegisterComponent,NetworkedComponent]

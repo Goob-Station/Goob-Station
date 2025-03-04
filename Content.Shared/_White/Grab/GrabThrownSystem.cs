@@ -28,47 +28,45 @@ public sealed class GrabThrownSystem : EntitySystem
         SubscribeLocalEvent<GrabThrownComponent, StopThrowEvent>(OnStopThrow);
     }
 
-    private void HandleCollide(EntityUid uid, GrabThrownComponent component, ref StartCollideEvent args)
+    private void HandleCollide(Entity<GrabThrownComponent> ent, ref StartCollideEvent args)
     {
         if (_netMan.IsClient) // To avoid effect spam
             return;
 
-        if (!HasComp<ThrownItemComponent>(uid))
+        if (!HasComp<ThrownItemComponent>(ent))
         {
-            RemComp<GrabThrownComponent>(uid);
+            RemComp<GrabThrownComponent>(ent);
             return;
         }
 
-        if (component.IgnoreEntity.Contains(args.OtherEntity))
+        if (ent.Comp.IgnoreEntity.Contains(args.OtherEntity))
             return;
 
-        if (!HasComp<DamageableComponent>(uid))
-            RemComp<GrabThrownComponent>(uid);
+        if (!HasComp<DamageableComponent>(ent))
+            RemComp<GrabThrownComponent>(ent);
 
-        component.IgnoreEntity.Add(args.OtherEntity);
+        ent.Comp.IgnoreEntity.Add(args.OtherEntity);
 
         var speed = args.OurBody.LinearVelocity.Length();
 
-        if (component.StaminaDamageOnCollide != null)
-            _stamina.TakeStaminaDamage(uid, component.StaminaDamageOnCollide.Value);
+        if (ent.Comp.StaminaDamageOnCollide != null)
+            _stamina.TakeStaminaDamage(ent, ent.Comp.StaminaDamageOnCollide.Value);
 
-        var damageScale = speed;
-
-        if (component.WallDamageOnCollide != null)
-            _damageable.TryChangeDamage(args.OtherEntity, component.WallDamageOnCollide * damageScale);
+        if (ent.Comp.WallDamageOnCollide != null)
+            _damageable.TryChangeDamage(args.OtherEntity, ent.Comp.WallDamageOnCollide * speed);
 
         _layingDown.TryLieDown(args.OtherEntity, behavior: DropHeldItemsBehavior.AlwaysDrop);
 
-        _color.RaiseEffect(Color.Red, new List<EntityUid>() { uid }, Filter.Pvs(uid, entityManager: EntityManager));
+        _color.RaiseEffect(Color.Red, new List<EntityUid>() { ent }, Filter.Pvs(ent, entityManager: EntityManager));
     }
 
-    private void OnStopThrow(EntityUid uid, GrabThrownComponent comp, StopThrowEvent args)
+    private void OnStopThrow(Entity<GrabThrownComponent> ent, ref StopThrowEvent args)
     {
-        if (comp.DamageOnCollide != null)
-            _damageable.TryChangeDamage(uid, comp.DamageOnCollide);
+        if (ent.Comp.DamageOnCollide != null)
+            _damageable.TryChangeDamage(ent, ent.Comp.DamageOnCollide);
 
-        if (HasComp<GrabThrownComponent>(uid))
-            RemComp<GrabThrownComponent>(uid);
+        if (HasComp<GrabThrownComponent>(ent))
+            RemComp<GrabThrownComponent>(ent);
     }
 
     /// <summary>

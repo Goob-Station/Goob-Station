@@ -366,13 +366,16 @@ public sealed class PullingSystem : EntitySystem
                     args.ModifySpeed(walkMod, sprintMod);
                     break;
                 case GrabStage.Soft:
-                    args.ModifySpeed(walkMod * 0.9f, sprintMod * 0.9f);
+                    var softGrabSpeedMod = component.SoftGrabSpeedModifier;
+                    args.ModifySpeed(walkMod * softGrabSpeedMod, sprintMod * softGrabSpeedMod);
                     break;
                 case GrabStage.Hard:
-                    args.ModifySpeed(walkMod * 0.7f, sprintMod * 0.7f);
+                    var hardGrabSpeedModifier = component.HardGrabSpeedModifier;
+                    args.ModifySpeed(walkMod * hardGrabSpeedModifier, sprintMod * hardGrabSpeedModifier);
                     break;
                 case GrabStage.Suffocate:
-                    args.ModifySpeed(walkMod * 0.4f, sprintMod * 0.4f);
+                    var chokeSpeedMod = component.ChokeGrabSpeedModifier;
+                    args.ModifySpeed(walkMod * chokeSpeedMod, sprintMod * chokeSpeedMod);
                     break;
                 default:
                     args.ModifySpeed(walkMod, sprintMod);
@@ -387,13 +390,16 @@ public sealed class PullingSystem : EntitySystem
                 args.ModifySpeed(component.WalkSpeedModifier, component.SprintSpeedModifier);
                 break;
             case GrabStage.Soft:
-                args.ModifySpeed(component.WalkSpeedModifier * 0.9f, component.SprintSpeedModifier * 0.9f);
+                var softGrabSpeedMod = component.SoftGrabSpeedModifier;
+                args.ModifySpeed(component.WalkSpeedModifier * softGrabSpeedMod, component.SprintSpeedModifier * softGrabSpeedMod);
                 break;
             case GrabStage.Hard:
-                args.ModifySpeed(component.WalkSpeedModifier * 0.7f, component.SprintSpeedModifier * 0.7f);
+                var hardGrabSpeedModifier = component.HardGrabSpeedModifier;
+                args.ModifySpeed(component.WalkSpeedModifier * hardGrabSpeedModifier, component.SprintSpeedModifier * hardGrabSpeedModifier);
                 break;
             case GrabStage.Suffocate:
-                args.ModifySpeed(component.WalkSpeedModifier * 0.4f, component.SprintSpeedModifier * 0.4f);
+                var chokeSpeedMod = component.ChokeGrabSpeedModifier;
+                args.ModifySpeed(component.WalkSpeedModifier * chokeSpeedMod, component.SprintSpeedModifier * chokeSpeedMod);
                 break;
             default:
                 args.ModifySpeed(component.WalkSpeedModifier, component.SprintSpeedModifier);

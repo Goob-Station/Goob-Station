@@ -18,7 +18,7 @@ public sealed partial class MartialArtsKnowledgeComponent : GrabStagesOverrideCo
 {
     [DataField]
     [AutoNetworkedField]
-    public MartialArtsForms MartialArtsForm = MartialArtsForms.SleepingCarp;
+    public MartialArtsForms MartialArtsForm = MartialArtsForms.CloseQuartersCombat;
 
     [DataField]
     [AutoNetworkedField]
