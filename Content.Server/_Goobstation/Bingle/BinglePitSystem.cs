@@ -1,4 +1,3 @@
-using System.Linq;
 using System.Numerics;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -21,7 +20,6 @@ using Content.Server.GameTicking;
 using Content.Server.Pinpointer;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
 using Content.Shared.Maps;
 using Content.Shared.Mobs;
@@ -42,10 +40,10 @@ public sealed class BinglePitSystem : EntitySystem
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] protected readonly IRobustRandom Random = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ITileDefinitionManager _tiledef = default!;
     [Dependency] private readonly TileSystem _tile = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+
 
     public override void Initialize()
     {
@@ -222,22 +220,22 @@ public sealed class BinglePitSystem : EntitySystem
     }
 
     private void OnSpawnTile(EntityUid uid,
-        float radius = 1,
-        ProtoId<ContentTileDefinition> floorTile = new()) // "FloorBingle"
+        float radius,
+        ProtoId<ContentTileDefinition> floorTile = new())
     {
         var tgtPos = Transform(uid);
         if (tgtPos.GridUid is not { } gridUid || !TryComp(gridUid, out MapGridComponent? mapGrid))
             return;
 
         var tileEnumerator = _map.GetLocalTilesEnumerator(gridUid, mapGrid, new Box2(tgtPos.Coordinates.Position + new Vector2(-radius, -radius), tgtPos.Coordinates.Position + new Vector2(radius, radius)));
-
         var convertTile = (ContentTileDefinition)_tiledef[floorTile];
 
         while (tileEnumerator.MoveNext(out var tile))
         {
             if (tile.Tile.TypeId == convertTile.TileId)
                 continue;
-            if (tile.GetContentTileDefinition().Name != convertTile.Name && Random.Prob(0.1f))
+            if (tile.GetContentTileDefinition().Name != convertTile.Name &&
+                _random.Prob(0.1f))// 10% probability to transform tile
             {
                 _tile.ReplaceTile(tile, convertTile);
                 _tile.PickVariant(convertTile);
@@ -248,51 +246,3 @@ public sealed class BinglePitSystem : EntitySystem
 
 }
 
-
-/*
-    private void ConvertTilesInRange(Entity<CosmicCorruptingComponent> uid)
-    {
-        var tgtPos = Transform(uid);
-        if (tgtPos.GridUid is not { } gridUid || !TryComp(gridUid, out MapGridComponent? mapGrid))
-            return;
-
-        var radius = uid.Comp.CorruptionRadius;
-        var tileEnumerator = _map.GetLocalTilesEnumerator(gridUid, mapGrid, new Box2(tgtPos.Coordinates.Position + new Vector2(-radius, -radius), tgtPos.Coordinates.Position + new Vector2(radius, radius)));
-        var entityHash = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, radius);
-        var convertTile = (ContentTileDefinition)_tileDefinition[uid.Comp.ConversionTile];
-        foreach (var entity in entityHash)
-        {
-            if (TryComp<TagComponent>(entity, out var tag))
-            {
-                var tags = tag.Tags;
-                // if (uid.Comp.Disintegrate && tags.Contains("Wall") && Prototype(entity) != null && Prototype(entity)!.ID == uid.Comp.ConversionWall && _rand.Prob(uid.Comp.CorruptionChance / 4))
-                // {
-                //     if (uid.Comp.UseVFX)
-                //         Spawn(uid.Comp.TileDisintegrateVFX, Transform(entity).Coordinates);
-                //     QueueDel(entity);
-                // }
-                if (tags.Contains("Wall") && Prototype(entity) != null && Prototype(entity)!.ID != uid.Comp.ConversionWall && _rand.Prob(uid.Comp.CorruptionChance))
-                {
-                    Spawn(uid.Comp.ConversionWall, Transform(entity).Coordinates);
-                    if (uid.Comp.UseVFX)
-                        Spawn(uid.Comp.TileConvertVFX, Transform(entity).Coordinates);
-                    QueueDel(entity);
-                }
-            }
-        }
-        while (tileEnumerator.MoveNext(out var tile))
-        {
-            var tilePos = _turfs.GetTileCenter(tile);
-            if (tile.Tile.TypeId == convertTile.TileId)
-                continue;
-            if (tile.GetContentTileDefinition().Name != convertTile.Name && _rand.Prob(uid.Comp.CorruptionChance))
-            {
-                _tile.ReplaceTile(tile, convertTile);
-                _tile.PickVariant(convertTile);
-                if (uid.Comp.UseVFX)
-                    Spawn(uid.Comp.TileConvertVFX, tilePos);
-            }
-        }
-    }
-}
-*/
