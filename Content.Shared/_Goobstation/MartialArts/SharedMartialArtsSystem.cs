@@ -218,5 +218,12 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         return false;
     }
 
+    private void DoDamage(Entity<CanPerformComboComponent> ent, EntityUid target, string damageType, int damageAmount, out DamageSpecifier damage )
+    {
+        damage = new DamageSpecifier();
+        damage.DamageDict.Add(damageType, damageAmount);
+        _damageable.TryChangeDamage(target, damage, origin: ent);
+    }
+
     #endregion
 }

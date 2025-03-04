@@ -152,7 +152,7 @@ public partial class SharedMartialArtsSystem
         dir *= 1f / dir.Length();
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
-        _grabThrowing.Throw(target, ent, dir, 25f, damage, damage);
+        _grabThrowing.Throw(target, ent, dir, 7f,25f, damage, damage);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
     }
 

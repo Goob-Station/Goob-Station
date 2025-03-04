@@ -91,6 +91,24 @@ public sealed partial class PullerComponent : Component
     {
         { GrabStage.Suffocate, 1 },
     };
+
+    [DataField]
+    public float StaminaDamageOnThrown = 120f;
+
+    [DataField]
+    public float GrabThrownSpeed = 7f;
+
+    [DataField]
+    public float ThrowingDistance = 4f;
+
+    [DataField]
+    public float SoftGrabSpeedModifier = 0.9f;
+
+    [DataField]
+    public float HardGrabSpeedModifier = 0.7f;
+
+    [DataField]
+    public float ChokeGrabSpeedModifier = 0.4f;
     // Goobstation end
 }
 

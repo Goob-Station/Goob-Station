@@ -85,6 +85,7 @@ public partial class SharedMartialArtsSystem
         var damage = new DamageSpecifier();
         damage.DamageDict.Add("Blunt", 10);
         _damageable.TryChangeDamage(target, damage, origin: ent);
+
         _stun.TryParalyze(target, TimeSpan.FromSeconds(12), true);
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
@@ -104,9 +105,7 @@ public partial class SharedMartialArtsSystem
             _status.TryAddStatusEffect<ForcedSleepingComponent>(target, "ForcedSleep", TimeSpan.FromSeconds(10), true);
         }
 
-        var damage = new DamageSpecifier();
-        damage.DamageDict.Add("Blunt", 10);
-        _damageable.TryChangeDamage(target, damage, origin: ent);
+        DoDamage(ent, target, "Blunt", 10, out var damage);
         _stamina.TakeStaminaDamage(target, 55f, source: ent);
 
         var mapPos = _transform.GetMapCoordinates(ent).Position;
@@ -115,7 +114,7 @@ public partial class SharedMartialArtsSystem
         dir *= 1f / dir.Length();
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
-        _grabThrowing.Throw(target, ent, dir, 25f, damage, damage);
+        _grabThrowing.Throw(target, ent, dir,7f, 25f, damage, damage);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
     }
 
@@ -151,9 +150,7 @@ public partial class SharedMartialArtsSystem
         if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out _))
             return;
 
-        var damage = new DamageSpecifier();
-        damage.DamageDict.Add("Blunt", 20);
-        _damageable.TryChangeDamage(target, damage, origin: ent);
+        DoDamage(ent, target, "Blunt", 10, out _);
         _stamina.TakeStaminaDamage(target, 70, source: ent);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg"), target);
     }
