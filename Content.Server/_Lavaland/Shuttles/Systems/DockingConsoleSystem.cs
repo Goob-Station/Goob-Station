@@ -141,8 +141,9 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
 
         var dest = docking.Destinations[args.Index];
         var map = dest.Map;
-        // can't FTL if its already there or somehow failed whitelist
-        if (map == Transform(shuttle).MapID || !_shuttle.CanFTLTo(shuttle, map, ent))
+
+        // can't FTL if its already there
+        if (map == Transform(shuttle).MapID)
             return;
 
         if (FindLargestGrid(map) is not {} grid)
@@ -180,10 +181,17 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
         }
 
         // Add the station of the calling console
-        var station = _station.GetOwningStation(grid);
-        if (station != null)
+        var shuttleUid = ent.Comp.Shuttle;
+        if (!TryComp<DockingShuttleComponent>(shuttleUid, out var shuttleComp))
+            return;
+        if (shuttleComp.Station == null)
         {
-            _station.AddGridToStation(station.Value, shuttle.Value);
+            var targetUid = Transform(ent).MapUid;
+
+            if (targetUid == null)
+                return;
+
+            RaiseLocalEvent(shuttleUid.Value, new ShuttleAddStationEvent(targetUid.Value, targetMap), false);
         }
 
         // Finally FTL

@@ -434,6 +434,7 @@
   - type: Butcherable
     spawned:
     - id: FoodMeatSlime
+  - type: VentCrawler # goobstation - Ventcrawl
 
 - type: entity
   name: mothroach
@@ -1412,6 +1413,12 @@
       effects:
       - !type:WashCreamPieReaction
   - type: LayingDown # Goobstation
+  - type: Vocal # Goobstation
+    sounds:
+      Male: MonkeyMode
+      Female: MonkeyMode
+      Unsexed: MonkeyMode
+    wilhelmProbability: 0.001
 
 
 
@@ -1738,13 +1745,14 @@
       Dead: 0
     baseDecayRate: 0.04
   - type: Hunger
+    startingHunger: 15 # Goobstation change
     thresholds:
       Overfed: 35
       Okay: 25
       Peckish: 15
       Starving: 10
       Dead: 0
-    baseDecayRate: 0.5 # I'm very hungry! Give me. The cheese.
+    baseDecayRate: 0.04 #Goob change
   - type: Extractable
     grindableSolutionName: food
   - type: SolutionContainerManager
@@ -1753,6 +1761,10 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 3
+        - ReagentId: MouseBites
+          Quantity: 3
+      melee:
+        maxVol: 5
   - type: Butcherable
     spawned:
     - id: FoodMeatRat
@@ -1792,7 +1804,7 @@
     animation: WeaponArcBite
     damage:
       types:
-        Piercing: 0
+        Slash: 1 # Goobstation - LET THE HORDES ROAM!!
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: CanEscapeInventory
@@ -1817,10 +1829,24 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-rat
-  - type: NightVision # Goobstation - Nigthvision
+  - type: NightVision # Goobstation - Start
     color: "#808080"
     activateSound: null
     deactivateSound: null
+  - type: EggLayer
+    eggSpawn:
+    - id: MobMouse
+    hungerUsage: 20
+    eggLayAction: MouseMultiply
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: MouseBites
+        Quantity: 1
+  - type: MeleeChemicalInjector
+    transferAmount: 1
+    solution: melee # Goobstation - End
 
 - type: entity
   parent: MobMouse
@@ -3005,6 +3031,7 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: VentCrawler # goobstation - Ventcrawl
 
 - type: entity
   name: calico cat
