@@ -129,24 +129,23 @@
     - LavalandStormScheduler # Lavaland Change
 
 - type: gamePreset
-  id: CalmDynamic
+  id: TheGhost
   alias:
     - calm
-    - dynamic
     - calmdynamic
-  name: calm-title
-  description: calm-description
+  name: ghost-title
+  description: ghost-description
   showInVote: true
   rules:
     - CalmDynamic
 
 - type: gamePreset
-  id: CombatDynamic
+  id: TheGuide
   alias:
     - combat
     - combatdynamic
-  name: combat-title
-  description: combat-description
+  name: guide-title
+  description: guide-description
   showInVote: true
   rules:
     - CombatDynamic

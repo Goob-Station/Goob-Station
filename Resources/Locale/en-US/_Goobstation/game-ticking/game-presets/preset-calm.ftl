@@ -1,2 +1,2 @@
-﻿calm-title = Calm Game Director
-calm-description = A calm experience with a range of peaceful events
+﻿ghost-title = The Ghost
+ghost-description = A calm experience with a range of peaceful events.
