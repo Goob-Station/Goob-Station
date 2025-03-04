@@ -37,13 +37,20 @@ public sealed class ContrabandDetectorSystem : EntitySystem
         var query = EntityQueryEnumerator<ContrabandDetectorComponent>();
         while (query.MoveNext(out var _, out var detectors))
         {
+            var keysToRemove = new List<TimeSpan>();
             foreach (var scan in detectors.Scanned)
             {
                 if (_timing.CurTime > scan.Key)
-                    detectors.Scanned.Remove(scan.Key);
-            }
+                    keysToRemove.Add(scan.Key);
 
-            detectors.Scanned.TrimExcess();
+                foreach (var key in keysToRemove)
+                {
+                    detectors.Scanned.Remove(key);
+                }
+
+                if (keysToRemove.Count > 0)
+                    detectors.Scanned.TrimExcess();
+            }
         }
     }
 
