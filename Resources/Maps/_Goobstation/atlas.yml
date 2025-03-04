@@ -3922,7 +3922,7 @@ entities:
       pos: -24.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -77.63124
+      secondsUntilStateChange: -314.79767
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5867,6 +5867,13 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -1.5,18.5
+      parent: 2
+- proto: BedsheetBrigmedic
+  entities:
+  - uid: 3217
+    components:
+    - type: Transform
+      pos: 5.5,11.5
       parent: 2
 - proto: BedsheetCaptain
   entities:
@@ -20580,10 +20587,10 @@ entities:
       parent: 2
 - proto: ClosetBombFilled
   entities:
-  - uid: 3217
+  - uid: 1366
     components:
     - type: Transform
-      pos: 5.5,12.5
+      pos: 15.5,11.5
       parent: 2
   - uid: 3218
     components:
@@ -20795,6 +20802,13 @@ entities:
     components:
     - type: Transform
       pos: -5.5,23.5
+      parent: 2
+- proto: ClothingBackpackDuffelSurgeryFilled
+  entities:
+  - uid: 8998
+    components:
+    - type: Transform
+      pos: 5.2788258,12.80566
       parent: 2
 - proto: ClothingBeltChampion
   entities:
@@ -21085,6 +21099,18 @@ entities:
     components:
     - type: Transform
       pos: 38.324883,-1.3726358
+      parent: 2
+- proto: ClothingMaskSterile
+  entities:
+  - uid: 7339
+    components:
+    - type: Transform
+      pos: 5.7632008,12.665035
+      parent: 2
+  - uid: 7705
+    components:
+    - type: Transform
+      pos: 5.6538258,12.74316
       parent: 2
 - proto: ClothingNeckBling
   entities:
@@ -22415,6 +22441,12 @@ entities:
     components:
     - type: Transform
       pos: 29.5,5.5
+      parent: 2
+  - uid: 7172
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 4.5,11.5
       parent: 2
 - proto: DeployableBarrier
   entities:
@@ -41636,6 +41668,13 @@ entities:
     - type: Transform
       pos: -10.5,6.5
       parent: 2
+- proto: LockerBrigmedicFilledRandom
+  entities:
+  - uid: 3356
+    components:
+    - type: Transform
+      pos: 5.5,10.5
+      parent: 2
 - proto: LockerCaptainFilledHardsuit
   entities:
   - uid: 6258
@@ -42022,6 +42061,11 @@ entities:
       canCollide: False
 - proto: MedicalBed
   entities:
+  - uid: 1367
+    components:
+    - type: Transform
+      pos: 5.5,11.5
+      parent: 2
   - uid: 6315
     components:
     - type: Transform
@@ -42085,6 +42129,11 @@ entities:
       parent: 2
     - type: Physics
       canCollide: False
+  - uid: 7177
+    components:
+    - type: Transform
+      pos: 5.4507008,12.352535
+      parent: 2
 - proto: MedkitRadiationFilled
   entities:
   - uid: 6324
@@ -47363,10 +47412,10 @@ entities:
       parent: 2
     - type: Physics
       canCollide: False
-  - uid: 7172
+  - uid: 9245
     components:
     - type: Transform
-      pos: 7.7229824,24.600113
+      pos: 10.337595,21.447285
       parent: 2
 - proto: SheetSteel
   entities:
@@ -47392,11 +47441,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -35.327698,1.0551836
       parent: 2
-  - uid: 7177
-    components:
-    - type: Transform
-      pos: 7.3063154,24.558447
-      parent: 2
   - uid: 7178
     components:
     - type: Transform
@@ -47411,6 +47455,11 @@ entities:
       parent: 2
     - type: Physics
       canCollide: False
+  - uid: 9244
+    components:
+    - type: Transform
+      pos: 10.775095,21.416035
+      parent: 2
 - proto: Shovel
   entities:
   - uid: 7180
@@ -49170,6 +49219,13 @@ entities:
     - type: Transform
       pos: -10.5,5.5
       parent: 2
+- proto: SpawnPointBrigmedic
+  entities:
+  - uid: 1364
+    components:
+    - type: Transform
+      pos: 6.5,11.5
+      parent: 2
 - proto: SpawnPointCaptain
   entities:
   - uid: 7425
@@ -49882,6 +49938,13 @@ entities:
     components:
     - type: Transform
       pos: 25.5,-6.5
+      parent: 2
+- proto: SuitStorageBrigmedic
+  entities:
+  - uid: 1365
+    components:
+    - type: Transform
+      pos: 7.5,24.5
       parent: 2
 - proto: SuitStorageEngi
   entities:
@@ -50886,6 +50949,11 @@ entities:
       parent: 2
 - proto: Table
   entities:
+  - uid: 6718
+    components:
+    - type: Transform
+      pos: 5.5,12.5
+      parent: 2
   - uid: 7635
     components:
     - type: Transform
@@ -51238,12 +51306,6 @@ entities:
     components:
     - type: Transform
       pos: -33.5,0.5
-      parent: 2
-  - uid: 7705
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 7.5,24.5
       parent: 2
   - uid: 7706
     components:

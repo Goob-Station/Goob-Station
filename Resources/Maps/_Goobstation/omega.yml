@@ -4617,6 +4617,13 @@ entities:
       container: 12116
 - proto: ActionToggleLight
   entities:
+  - uid: 8447
+    components:
+    - type: Transform
+      parent: 8450
+    - type: InstantAction
+      originalIconColor: '#FFFFFFFF'
+      container: 8450
   - uid: 8638
     components:
     - type: Transform
@@ -11311,6 +11318,13 @@ entities:
     - type: Transform
       pos: -25.5,-20.5
       parent: 4812
+- proto: BedsheetBrigmedic
+  entities:
+  - uid: 8043
+    components:
+    - type: Transform
+      pos: -29.5,10.5
+      parent: 4812
 - proto: BedsheetCaptain
   entities:
   - uid: 2582
@@ -11561,6 +11575,16 @@ entities:
       parent: 4812
     - type: SpamEmitSound
       enabled: False
+- proto: BoneGel
+  entities:
+  - uid: 13088
+    components:
+    - type: Transform
+      pos: -30.682066,10.660177
+      parent: 4812
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: BookAtmosAirAlarms
   entities:
   - uid: 865
@@ -38645,6 +38669,11 @@ entities:
       parent: 4812
     - type: FaxMachine
       name: CMO's Office
+  - uid: 10752
+    components:
+    - type: Transform
+      pos: -31.5,20.5
+      parent: 4812
   - uid: 12428
     components:
     - type: Transform
@@ -38652,13 +38681,6 @@ entities:
       parent: 4812
     - type: FaxMachine
       name: Library
-  - uid: 13221
-    components:
-    - type: Transform
-      pos: -29.5,10.5
-      parent: 4812
-    - type: FaxMachine
-      name: Security
 - proto: FaxMachineCaptain
   entities:
   - uid: 7298
@@ -40276,8 +40298,11 @@ entities:
   - uid: 8451
     components:
     - type: Transform
-      pos: -30.484182,10.599279
+      pos: -31.352402,12.650244
       parent: 4812
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: FlashlightLantern
   entities:
   - uid: 6364
@@ -40388,8 +40413,10 @@ entities:
   - uid: 8450
     components:
     - type: Transform
-      pos: -28.562307,10.614904
+      pos: -31.711777,14.694262
       parent: 4812
+    - type: HandheldLight
+      toggleActionEntity: 8447
     - type: ContainerContainer
       containers:
         cellslot_cell_container: !type:ContainerSlot
@@ -40400,6 +40427,15 @@ entities:
           showEnts: False
           occludes: True
           ent: null
+        actions: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 8447
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+    - type: ActionsContainer
 - proto: Floodlight
   entities:
   - uid: 11744
@@ -60370,8 +60406,11 @@ entities:
   - uid: 8452
     components:
     - type: Transform
-      pos: -30.406057,10.489904
+      pos: -31.680527,12.743994
       parent: 4812
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: HandheldGPSBasic
   entities:
   - uid: 8590
@@ -60484,6 +60523,11 @@ entities:
     components:
     - type: Transform
       pos: 13.5565815,-27.824743
+      parent: 4812
+  - uid: 12613
+    components:
+    - type: Transform
+      pos: -30.391397,10.596886
       parent: 4812
 - proto: HighSecCommandLocked
   entities:
@@ -61467,6 +61511,13 @@ entities:
         - 0
         - 0
         - 0
+- proto: LockerBrigmedicFilledRandom
+  entities:
+  - uid: 9353
+    components:
+    - type: Transform
+      pos: -28.5,10.5
+      parent: 4812
 - proto: LockerCaptainFilledNoLaser
   entities:
   - uid: 2729
@@ -62524,6 +62575,11 @@ entities:
     components:
     - type: Transform
       pos: -37.5,-37.5
+      parent: 4812
+  - uid: 9682
+    components:
+    - type: Transform
+      pos: -29.5,10.5
       parent: 4812
 - proto: MedicalTechFab
   entities:
@@ -66798,8 +66854,11 @@ entities:
   - uid: 8453
     components:
     - type: Transform
-      pos: -30.22465,10.760374
+      pos: -31.243027,14.866137
       parent: 4812
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: Railing
   entities:
   - uid: 3271
@@ -69962,6 +70021,14 @@ entities:
     - type: Transform
       pos: 13.5722065,-27.387243
       parent: 4812
+  - uid: 13076
+    components:
+    - type: Transform
+      pos: -30.650816,10.628927
+      parent: 4812
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: RevolverCapGun
   entities:
   - uid: 11863
@@ -70031,12 +70098,22 @@ entities:
     - type: Transform
       pos: 16.478456,-28.465368
       parent: 4812
+  - uid: 12972
+    components:
+    - type: Transform
+      pos: -30.438272,10.878136
+      parent: 4812
 - proto: Scalpel
   entities:
   - uid: 6245
     components:
     - type: Transform
       pos: 16.525331,-28.059118
+      parent: 4812
+  - uid: 12975
+    components:
+    - type: Transform
+      pos: -30.524065,10.628136
       parent: 4812
 - proto: Screen
   entities:
@@ -71404,6 +71481,11 @@ entities:
     - type: Transform
       pos: -7.5,-23.5
       parent: 4812
+  - uid: 13123
+    components:
+    - type: Transform
+      pos: -37.5,18.5
+      parent: 4812
 - proto: SignMorgue
   entities:
   - uid: 5046
@@ -72656,6 +72738,13 @@ entities:
     - type: Transform
       pos: -13.5,-6.5
       parent: 4812
+- proto: SpawnPointBrigmedic
+  entities:
+  - uid: 13198
+    components:
+    - type: Transform
+      pos: -29.5,12.5
+      parent: 4812
 - proto: SpawnPointCaptain
   entities:
   - uid: 2697
@@ -73360,6 +73449,13 @@ entities:
     - type: Transform
       pos: -30.5,5.5
       parent: 4812
+- proto: SuitStorageBrigmedic
+  entities:
+  - uid: 8448
+    components:
+    - type: Transform
+      pos: -36.5,18.5
+      parent: 4812
 - proto: SuitStorageCaptain
   entities:
   - uid: 746
@@ -73441,11 +73537,6 @@ entities:
       parent: 4812
 - proto: SuitStorageSec
   entities:
-  - uid: 8043
-    components:
-    - type: Transform
-      pos: -36.5,18.5
-      parent: 4812
   - uid: 8045
     components:
     - type: Transform
@@ -75765,16 +75856,6 @@ entities:
     - type: Transform
       pos: -31.5,20.5
       parent: 4812
-  - uid: 8447
-    components:
-    - type: Transform
-      pos: -28.5,10.5
-      parent: 4812
-  - uid: 8448
-    components:
-    - type: Transform
-      pos: -29.5,10.5
-      parent: 4812
   - uid: 8449
     components:
     - type: Transform
@@ -77319,6 +77400,11 @@ entities:
     components:
     - type: Transform
       pos: -14.5,-15.5
+      parent: 4812
+  - uid: 13194
+    components:
+    - type: Transform
+      pos: -28.5,12.5
       parent: 4812
 - proto: VendingMachineMediDrobe
   entities:

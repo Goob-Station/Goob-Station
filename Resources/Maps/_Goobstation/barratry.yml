@@ -15405,6 +15405,11 @@ entities:
     - type: Transform
       pos: 11.5,31.5
       parent: 1
+  - uid: 13791
+    components:
+    - type: Transform
+      pos: -54.5,65.5
+      parent: 1
   - uid: 13841
     components:
     - type: Transform
@@ -15677,6 +15682,16 @@ entities:
     - type: Transform
       pos: 23.683538,-11.353635
       parent: 1
+- proto: BoneGel
+  entities:
+  - uid: 13877
+    components:
+    - type: Transform
+      parent: 13815
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
 - proto: BookAtmosAirAlarms
   entities:
   - uid: 14630
@@ -16119,6 +16134,14 @@ entities:
     - type: Transform
       pos: -63.419567,51.34159
       parent: 1
+  - uid: 13808
+    components:
+    - type: Transform
+      pos: -56.191555,64.8634
+      parent: 1
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: BrigTimer
   entities:
   - uid: 4985
@@ -22238,6 +22261,16 @@ entities:
     - type: Transform
       pos: -42.5,55.5
       parent: 1
+  - uid: 7943
+    components:
+    - type: Transform
+      pos: -55.5,67.5
+      parent: 1
+  - uid: 7944
+    components:
+    - type: Transform
+      pos: -55.5,66.5
+      parent: 1
   - uid: 8347
     components:
     - type: Transform
@@ -25427,6 +25460,11 @@ entities:
     components:
     - type: Transform
       pos: -49.5,36.5
+      parent: 1
+  - uid: 13771
+    components:
+    - type: Transform
+      pos: -55.5,68.5
       parent: 1
   - uid: 14005
     components:
@@ -38618,13 +38656,7 @@ entities:
   - uid: 7941
     components:
     - type: Transform
-      pos: -54.5,65.5
-      parent: 1
-  - uid: 7942
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -54.5,63.5
+      pos: -56.477676,61.57672
       parent: 1
   - uid: 9779
     components:
@@ -38676,6 +38708,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 6.5,8.5
+      parent: 1
+  - uid: 13772
+    components:
+    - type: Transform
+      pos: -54.351837,61.529846
       parent: 1
   - uid: 13838
     components:
@@ -42227,6 +42264,88 @@ entities:
     - type: Transform
       pos: -40.570293,28.017475
       parent: 1
+- proto: ClothingBackpackDuffelMedical
+  entities:
+  - uid: 13815
+    components:
+    - type: Transform
+      pos: -54.50747,64.38819
+      parent: 1
+    - type: Storage
+      savedLocations:
+        bottle of bone gel:
+        - position: 6,0
+          _rotation: South
+      storedItems:
+        13836:
+          position: 0,0
+          _rotation: South
+        13872:
+          position: 1,0
+          _rotation: South
+        13873:
+          position: 2,0
+          _rotation: South
+        13874:
+          position: 3,0
+          _rotation: East
+        13875:
+          position: 5,0
+          _rotation: North
+        13876:
+          position: 3,1
+          _rotation: East
+        13877:
+          position: 6,0
+          _rotation: South
+        13878:
+          position: 7,0
+          _rotation: North
+        13879:
+          position: 0,2
+          _rotation: South
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 13836
+          - 13872
+          - 13873
+          - 13874
+          - 13876
+          - 13875
+          - 13877
+          - 13878
+          - 13879
+    - type: UserInterface
+      actors:
+        enum.StorageUiKey.Key:
+        - invalid
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+    - type: GroupExamine
+      group:
+      - hoverMessage: ""
+        contextText: verb-examine-group-other
+        icon: /Textures/Interface/examine-star.png
+        components:
+        - Armor
+        - ClothingSpeedModifier
+        entries:
+        - message: >-
+            It provides the following protection:
+
+            - [color=orange]Explosion[/color] damage [color=white]to contents[/color] reduced by [color=lightblue]10%[/color].
+          priority: 0
+          component: Armor
+        - message: This decreases your running speed by [color=yellow]10%[/color].
+          priority: 0
+          component: ClothingSpeedModifier
+        title: null
+    - type: ActiveUserInterface
 - proto: ClothingBackpackDuffelSurgeryFilled
   entities:
   - uid: 2993
@@ -42356,6 +42475,16 @@ entities:
     - type: Transform
       pos: 20.792824,-2.5214906
       parent: 1
+- proto: ClothingHeadHatWelding
+  entities:
+  - uid: 13872
+    components:
+    - type: Transform
+      parent: 13815
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
 - proto: ClothingHeadHelmetEVA
   entities:
   - uid: 5443
@@ -42601,6 +42730,16 @@ entities:
     - type: Transform
       pos: -45.285435,17.619186
       parent: 1
+- proto: CombatKnife
+  entities:
+  - uid: 13876
+    components:
+    - type: Transform
+      parent: 13815
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
 - proto: ComfyChair
   entities:
   - uid: 6341
@@ -43694,6 +43833,16 @@ entities:
     - type: Transform
       pos: -24.42766,29.496252
       parent: 1
+- proto: CrowbarWizard
+  entities:
+  - uid: 13836
+    components:
+    - type: Transform
+      parent: 13815
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
 - proto: CryogenicSleepUnit
   entities:
   - uid: 5538
@@ -44122,6 +44271,14 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -55.5,-8.5
+      parent: 1
+- proto: DefibrillatorCabinetFilledOpen
+  entities:
+  - uid: 13809
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -57.5,65.5
       parent: 1
 - proto: DeployableBarrier
   entities:
@@ -48612,8 +48769,11 @@ entities:
   - uid: 9936
     components:
     - type: Transform
-      pos: -54.27973,64.43562
+      pos: -54.191536,64.62887
       parent: 1
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 15102
     components:
     - type: Transform
@@ -74760,6 +74920,16 @@ entities:
     - type: Transform
       pos: -49.5,25.5
       parent: 1
+- proto: Implanter
+  entities:
+  - uid: 13878
+    components:
+    - type: Transform
+      parent: 13815
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
 - proto: InflatableDoor
   entities:
   - uid: 290
@@ -75279,11 +75449,6 @@ entities:
     - type: Transform
       pos: -61.5,89.5
       parent: 1
-  - uid: 7944
-    components:
-    - type: Transform
-      pos: -56.5,63.5
-      parent: 1
 - proto: KitchenReagentGrinder
   entities:
   - uid: 4094
@@ -75636,6 +75801,13 @@ entities:
         - 0
         - 0
         - 0
+- proto: LockerBrigmedicFilledRandom
+  entities:
+  - uid: 13794
+    components:
+    - type: Transform
+      pos: -56.5,65.5
+      parent: 1
 - proto: LockerCaptainFilledHardsuit
   entities:
   - uid: 187
@@ -76580,43 +76752,67 @@ entities:
   - uid: 8360
     components:
     - type: Transform
-      pos: -41.301014,62.60871
+      pos: -41.162506,62.163048
       parent: 1
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 8361
     components:
     - type: Transform
-      pos: -41.363514,62.60871
+      pos: -41.24063,62.381798
       parent: 1
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 8362
     components:
     - type: Transform
-      pos: -41.44164,62.60871
+      pos: -41.52188,62.334923
       parent: 1
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 8363
     components:
     - type: Transform
-      pos: -41.56664,62.60871
+      pos: -41.725006,62.038048
       parent: 1
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 8366
     components:
     - type: Transform
-      pos: -41.301014,62.13996
+      pos: -41.193756,62.006798
       parent: 1
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 8367
     components:
     - type: Transform
-      pos: -41.363514,62.13996
+      pos: -41.131256,61.913048
       parent: 1
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 8368
     components:
     - type: Transform
-      pos: -41.47289,62.13996
+      pos: -41.393425,61.98091
       parent: 1
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 8369
     components:
     - type: Transform
-      pos: -41.582264,62.13996
+      pos: -41.74063,62.334923
       parent: 1
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: MailMetricsCartridge
   entities:
   - uid: 15717
@@ -77205,6 +77401,11 @@ entities:
     - type: Transform
       pos: 10.5,28.5
       parent: 1
+  - uid: 7393
+    components:
+    - type: Transform
+      pos: -54.5,65.5
+      parent: 1
   - uid: 13852
     components:
     - type: Transform
@@ -77219,6 +77420,14 @@ entities:
     components:
     - type: Transform
       pos: 12.5,31.5
+      parent: 1
+- proto: Medkit
+  entities:
+  - uid: 7942
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -56.53679,63.648636
       parent: 1
 - proto: MedkitAdvancedFilled
   entities:
@@ -78103,6 +78312,39 @@ entities:
     - type: Transform
       pos: -60.414387,89.61223
       parent: 1
+  - uid: 13879
+    components:
+    - type: Transform
+      parent: 13815
+    - type: Paper
+      stampState: paper_stamp-hos
+      stampedBy:
+      - stampedColor: '#CC0000FF'
+        stampedName: stamp-component-stamped-name-hos
+      content: >-
+        [color=#cb0000]░█▄▄█░ [head=2]Security Memo[/head]
+
+        ██▄▄██
+
+        ▀█▄▄█▀ 
+
+        [/color]──────────────────────────────────────────
+
+        Sorry about the mess, we didn't expect you here so your department is what was of our break room.
+
+
+        You've got whatever 'surgical tools' I could find, It's a miracle   I found the bone gel.
+
+        ─────────────────────────────────────────
+    - type: UserInterface
+      actors:
+        enum.PaperUiKey.Key:
+        - invalid
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+    - type: ActiveUserInterface
 - proto: PaperCaptainsThoughts
   entities:
   - uid: 10908
@@ -86453,6 +86695,16 @@ entities:
       rot: 3.141592653589793 rad
       pos: 2.5,39.5
       parent: 1
+- proto: Screwdriver
+  entities:
+  - uid: 13875
+    components:
+    - type: Transform
+      parent: 13815
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
 - proto: SecurityTechFab
   entities:
   - uid: 7917
@@ -88342,6 +88594,13 @@ entities:
     - type: Transform
       pos: -41.5,42.5
       parent: 1
+- proto: SpawnPointBrigmedic
+  entities:
+  - uid: 7916
+    components:
+    - type: Transform
+      pos: -55.5,64.5
+      parent: 1
 - proto: SpawnPointCaptain
   entities:
   - uid: 6508
@@ -89179,6 +89438,13 @@ entities:
     components:
     - type: Transform
       pos: -29.5,61.5
+      parent: 1
+- proto: SuitStorageBrigmedic
+  entities:
+  - uid: 13816
+    components:
+    - type: Transform
+      pos: -41.5,63.5
       parent: 1
 - proto: SuitStorageCE
   entities:
@@ -91518,11 +91784,6 @@ entities:
     - type: Transform
       pos: -41.5,62.5
       parent: 1
-  - uid: 7916
-    components:
-    - type: Transform
-      pos: -41.5,63.5
-      parent: 1
   - uid: 10857
     components:
     - type: Transform
@@ -93084,10 +93345,10 @@ entities:
       parent: 1
 - proto: VendingMachineDonut
   entities:
-  - uid: 7943
+  - uid: 10739
     components:
     - type: Transform
-      pos: -56.5,65.5
+      pos: -55.5,68.5
       parent: 1
 - proto: VendingMachineEngiDrobe
   entities:
@@ -106178,18 +106439,27 @@ entities:
   - uid: 8354
     components:
     - type: Transform
-      pos: -41.519764,63.624336
+      pos: -41.756256,62.991173
       parent: 1
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 8355
     components:
     - type: Transform
-      pos: -41.488514,63.38996
+      pos: -41.33438,62.866173
       parent: 1
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 8356
     components:
     - type: Transform
-      pos: -41.488514,63.13996
+      pos: -41.631256,62.678673
       parent: 1
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: WeaponShotgunKammerer
   entities:
   - uid: 8370
@@ -106231,6 +106501,16 @@ entities:
     - type: Transform
       pos: -27.5,54.5
       parent: 1
+- proto: Welder
+  entities:
+  - uid: 13873
+    components:
+    - type: Transform
+      parent: 13815
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
 - proto: WelderIndustrialAdvanced
   entities:
   - uid: 15838
@@ -107398,6 +107678,16 @@ entities:
     - type: Transform
       pos: -25.5,54.5
       parent: 1
+- proto: Wirecutter
+  entities:
+  - uid: 13874
+    components:
+    - type: Transform
+      parent: 13815
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
 - proto: Wrench
   entities:
   - uid: 376
