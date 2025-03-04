@@ -91,18 +91,17 @@
       - id: BookSpaceLaw
         prob: 0.5
 
-- type: entity              # Consier that most maps at the moment do not have a mapped briglocker thus this is mostly for the unique teleporter
+- type: entity
   id: LockerBrigmedicFilled
   suffix: Brigmedic, Filled
   parent: LockerBrigmedic
   components:
   - type: StorageFill
     contents:
+      - id: ClothingEyesGlassesSecurity
       - id: WeaponDisabler
-      - id: TrackingImplanter             #default was 2, but i think it makes sense brigmed gets an implanter
-      - id: ClothingShoesBootsJackFilled
-      - id: ClothingHandsGlovesNitrile
-      - id: ClothingEyesBrigMedSec
+      - id: TrackingImplanter
+        amount: 2
       - id: ClothingOuterHardsuitBrigmedic
       - id: OxygenTankFilled
       - id: NitrogenTankFilled
@@ -113,8 +112,19 @@
       - id: ClothingUniformJumpskirtBrigmedic
       - id: ClothingUniformJumpskirtOfLife
         prob: 0.1
+      - id: MedkitFilled
       - id: MedkitCombatFilled
+        prob: 0.6
+      - id: MedkitAdvancedFilled
+        prob: 0.4
       - id: MedkitOxygenFilled
+        prob: 0.3
+      - id: MedkitBruteFilled
+        prob: 0.3
+      - id: MedkitToxinFilled
+        prob: 0.3
+      - id: MedkitBurnFilled
+        prob: 0.7
       - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
         prob: 0.15
 

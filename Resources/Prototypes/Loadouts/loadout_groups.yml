@@ -1104,45 +1104,6 @@
   - SeniorOfficerPDA
 
 - type: loadoutGroup
-  id: BrigmedicHead
-  name: loadout-group-brigmedic-head
-  loadouts:
-  - BrigmedicBeret
-  - SecurityBeret
-
-- type: loadoutGroup
-  id: BrigmedicJumpsuit
-  name: loadout-group-brigmedic-jumpsuit
-  loadouts:
-  - BrigmedicJumpsuit
-  - BrigmedicJumpskirt
-
-- type: loadoutGroup
-  id: BrigmedicBackpack
-  name: loadout-group-brigmedic-backpack
-  loadouts:
-  - BrigmedicBackpack
-  - BrigmedicSatchel
-  - BrigmedicDuffel
-
-- type: loadoutGroup
-  id: BrigmedicOuterClothing
-  name: loadout-group-brigmedic-outerclothing
-  loadouts:
-  - ArmoredMedicalGown
-  - SecurityOfficerWintercoat
-  - ArmorVestSlim
-  - ArmorVest
-
-- type: loadoutGroup
-  id: BrigmedicMedicalMask
-  name: loadout-group-brigmedic-mask
-  minLimit: 0
-  loadouts:
-  - BrigmedicMedicalMask
-  - SterileMask
-
-- type: loadoutGroup
   id: DetectiveHead
   name: loadout-group-detective-head
   minLimit: 0
@@ -1455,12 +1416,3 @@
   hidden: true
   loadouts:
   - LoadoutSpeciesBreathToolSecurity
-
-- type: loadoutGroup
-  id: GroupSpeciesBreathToolBrigmedic
-  name: loadout-group-breath-tool
-  minLimit: 1
-  maxLimit: 1
-  hidden: true
-  loadouts:
-  - LoadoutSpeciesBreathToolBrigmedic

@@ -248,11 +248,3 @@
     proto: EffectSpeciesVox
   equipment:
     mask: ClothingMaskGasSecurity
-
-- type: loadout
-  id: LoadoutSpeciesBreathToolBrigmedic
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: EffectSpeciesVox
-  equipment:
-    mask: ClothingMaskBreathMedicalSecurity

@@ -84,14 +84,3 @@
   - type: Construction
     graph: GlassesMedHUD
     node: glassesMed
-
-- type: entity
-  parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons, BaseSecurityContraband, ClothingEyesGlassesSunglasses]
-  id: ClothingEyesBrigMedSec
-  name: Brigmed Security Glasses
-  description: Stylish, flash-resistant Security glasses with a medical and security hud
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Eyes/Glasses/brigglasses.rsi
-  - type: Clothing
-    sprite: _Goobstation/Clothing/Eyes/Glasses/brigglasses.rsi

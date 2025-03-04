@@ -132,7 +132,6 @@
   - Warden SOP
   - OfficerCadet SOP
   - Detective SOP
-  - Brigmedic SOP
 
 - type: guideEntry
   id: Service SOP
@@ -381,11 +380,6 @@
   id: Warden SOP
   name: guide-entry-sop-warden
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/WardenSOP.xml"
-
-- type: guideEntry
-  id: Brigmedic SOP
-  name: guide-entry-sop-brigmedic
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/BrigmedicSOP.xml"
 
 # Service SOP Entries
 - type: guideEntry

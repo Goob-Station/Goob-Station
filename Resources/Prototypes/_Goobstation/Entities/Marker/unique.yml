@@ -25,17 +25,3 @@
         state: ntr
   - type: UniqueEntityMarker
     markerName: NanorepLocker
-
-- type: entity
-  name: brigmedic locker unique marker
-  id: UniqueMarkerBrigmedicLocker
-  parent: MarkerBase
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    layers:
-      - state: red
-      - sprite: Structures/Storage/closet.rsi
-        state: brigmedic
-  - type: UniqueEntityMarker
-    markerName: BrigmedicLocker

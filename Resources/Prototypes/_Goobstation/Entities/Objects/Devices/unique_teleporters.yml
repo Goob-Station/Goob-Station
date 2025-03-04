@@ -60,27 +60,3 @@
   - type: UniqueEntityMarker
     markerName: NanorepLocker
     stationOnly: false
-
-- type: entity
-  parent: BaseLockerTeleporter
-  id: BrigmedicLockerTeleporter
-  name: brigmed locker teleporter
-  description: Device that allows you to request delivery of brigmedic locker.
-  components:
-  - type: Sprite
-    state: brigmed
-  - type: SpawnItemsOnUse
-    items: 
-    - id: UniqueLockerBrigmedicFilled
-
-- type: entity
-  parent: BrigmedicLockerTeleporter
-  id: UniqueBrigmedicLockerTeleporter
-  suffix: Unique
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: UniqueEntityChecker
-    markerName: BrigmedicLocker
-  - type: UniqueEntityMarker
-    markerName: BrigmedicLocker
-    stationOnly: false

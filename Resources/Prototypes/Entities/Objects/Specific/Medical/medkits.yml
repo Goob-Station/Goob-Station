@@ -21,10 +21,6 @@
   - type: Tag
     tags:
     - Medkit
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - suitStorage
 
 - type: entity
   name: burn treatment kit
@@ -36,10 +32,6 @@
     state: burnkit
   - type: Item
     heldPrefix: burnkit
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - suitStorage
 
 - type: entity
   name: toxin treatment kit
@@ -51,10 +43,6 @@
     state: toxinkit
   - type: Item
     heldPrefix: toxinkit
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - suitStorage
 
 - type: entity
   name: oxygen deprivation treatment kit
@@ -66,10 +54,6 @@
     state: o2kit
   - type: Item
     heldPrefix: o2kit
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - suitStorage
 
 - type: entity
   name: brute trauma treatment kit
@@ -81,10 +65,6 @@
     state: brutekit
   - type: Item
     heldPrefix: brutekit
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - suitStorage
 
 - type: entity
   name: advanced first aid kit
@@ -96,10 +76,6 @@
     state: advkit
   - type: Item
     heldPrefix: advkit
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - suitStorage
 
 - type: entity
   name: radiation treatment kit
@@ -111,10 +87,6 @@
     state: radkit
   - type: Item
     heldPrefix: radkit
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - suitStorage
 
 - type: entity
   name: combat medical kit
@@ -127,8 +99,4 @@
   - type: Item
     heldPrefix: blackkit
     size: Normal
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - suitStorage
 

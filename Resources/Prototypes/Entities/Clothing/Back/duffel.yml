@@ -76,16 +76,10 @@
   parent: [ClothingBackpackDuffel, BaseSecurityContraband]
   id: ClothingBackpackDuffelBrigmedic
   name: brigmedic duffel bag
-  description: A large duffel bag for holding extra medical related goods. Has an attachment for a Defibrilator!
+  description: A large duffel bag for holding extra medical related goods.
   components:
   - type: Sprite
     sprite: Clothing/Back/Duffels/brigmedic.rsi
-  - type: ItemSlots
-    slots:
-      ItemCabinet:
-        whitelist:
-          components:
-          - Defibrillator
 
 - type: entity
   parent: ClothingBackpackDuffel
