@@ -61,3 +61,15 @@
       amount: 1
   products:
     CatDrugs: 4
+
+- type: reaction
+  id: Tilenol
+  impact: Low
+  quantized: true
+  reactants:
+    Copium:
+      amount: 1
+    Byondazine:
+      amount: 4
+  products:
+    Tilenol: 1
