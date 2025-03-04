@@ -21,14 +21,8 @@ public sealed partial class WeakToHolySystem : EntitySystem
 
     private void OnCompInit(Entity<WeakToHolyComponent> ent, ref ComponentInit args)
     {
-        if (TryComp<DamageableComponent>(ent, out var damageable) && damageable.DamageContainerID == "Biological")
-            damageable.DamageContainerID = "BiologicalMetaphysical";
-
-        _damageableSystem.SetDamageModifierSetId(ent, "ManifestedSpirit");
+        if (TryComp<DamageableComponent>(ent, out var damageable) && damageable.DamageContainerID == "Biological") {
+        _damageableSystem.ChangeDamageContainer(ent, "BiologicalMetaphysical");
+        }
     }
 }
-
-// Okay you see what I'm getting at here.
-// Not finished and a little supercoded but alas.
-
-// It works for now, but we should add a method in damageable to change an entity's damage container
