@@ -193,7 +193,18 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
         }
 
         // Add the station of the calling console
-        _station.AddGridToStation(station.Value, shuttle.Value);
+        var shuttleUid = ent.Comp.Shuttle;
+        if (!TryComp<DockingShuttleComponent>(shuttleUid, out var shuttleComp))
+            return;
+        if (shuttleComp.Station == null)
+        {
+            var targetUid = Transform(ent).MapUid;
+
+            if (targetUid == null)
+                return;
+
+            RaiseLocalEvent(shuttleUid.Value, new ShuttleAddStationEvent(targetUid.Value, targetMap), false);
+        }
 
         // Finally FTL
         _shuttle.FTLToDock(shuttle.Value, Comp<ShuttleComponent>(shuttle.Value), grid, priorityTag: docking.DockTag);

@@ -5657,3 +5657,39 @@ Entries:
         TC.
   id: 650
   time: '2025-03-01T21:55:11.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Mice now deal one pierce damage.
+  id: 651
+  time: '2025-03-02T11:58:57.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added mousebites.
+  id: 652
+  time: '2025-03-02T13:01:00.0000000+00:00'
+- author: Jorgun
+  changes:
+    - type: Fix
+      message: 'Hopefully fixed the salv shuttle :clueless:'
+  id: 653
+  time: '2025-03-02T19:49:15.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Tweak
+      message: Jaunters can now be found in Salvage equipment closets.
+  id: 654
+  time: '2025-03-02T19:51:39.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: The round no longer ends on wizard death.
+  id: 655
+  time: '2025-03-02T23:18:19.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Remove
+      message: China Lake no longer can be dualwielded.
+  id: 656
+  time: '2025-03-03T17:25:20.0000000+00:00'
