@@ -31,9 +31,9 @@ public sealed partial class MartialArtsSystem
 
     private void OnGlovesGotUnequipped(Entity<GrantKravMagaComponent> ent, ref ClothingGotUnequippedEvent args)
     {
-        if (!TryComp<KravMagaComponent>(ent.Owner, out var kravMaga))
+        if (!TryComp<KravMagaComponent>(args.Wearer, out var kravMaga))
             return;
-
+        
         foreach (var action in kravMaga.KravMagaMoveEntities)
         {
             _actions.RemoveAction(action);
