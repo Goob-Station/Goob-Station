@@ -134,7 +134,7 @@
     - calm
     - calmdynamic
   name: sleeper-title
-  description: sleepr-description
+  description: sleeper-description
   showInVote: true
   rules:
     - CalmDynamic
