@@ -23,6 +23,7 @@ using Content.Shared.Stealth.Components;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
 using Content.Shared.Actions;
 using Content.Shared.Movement.Pulling.Systems;
+using Content.Server.Traits.Assorted;
 
 namespace Content.Server.Changeling;
 
@@ -141,6 +142,7 @@ public sealed partial class ChangelingSystem
 
         var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 200);
         _damage.TryChangeDamage(target, dmg, false, false);
+        EnsureComp<UnrevivableComponent>(target);
         _blood.ChangeBloodReagent(target, "FerrochromicAcid");
         _blood.SpillAllSolutions(target);
 
