@@ -84,6 +84,8 @@
     color: "#fbb1b1"
   - type: AltarSource
     rodProto: GodHand
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
 
 - type: entity
   id: AltarDruid
@@ -98,6 +100,8 @@
     state: druid
   - type: AltarSource
     rodProto: MonkStaff
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
 
 - type: entity
   id: AltarToolbox
@@ -131,6 +135,8 @@
     color: "#fbceb1"
   - type: AltarSource
     rodProto: Rosary
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
 
 - type: entity
   id: AltarSatana
@@ -402,6 +408,8 @@
         acts: [ "Destruction" ]
   - type: AltarSource
     rodProto: HolyClaymore
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
   - type: PointLight
     radius: 1.5
     energy: 1
@@ -418,6 +426,8 @@
     sprite: Structures/Furniture/Altars/Cults/fangs.rsi
   - type: AltarSource
     rodProto: ArrythmicKnife # Shitchap
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
 
 
 - type: entity

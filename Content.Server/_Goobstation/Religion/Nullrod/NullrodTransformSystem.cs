@@ -32,8 +32,8 @@ public sealed class NullrodTransformSystem : EntitySystem
             )
             return;
 
-        Spawn("EffectSpark", Transform(uid).Coordinates);
-        _audio.PlayPvs("/Audio/Effects/hallelujah.ogg", uid, AudioParams.Default.WithVolume(-4f));
+        Spawn(component.EffectProto, Transform(uid).Coordinates);
+        _audio.PlayPvs(component.SoundPath, uid, AudioParams.Default.WithVolume(-4f));
         var nullrodUid = Spawn(component.RodProto, args.ClickLocation.SnapToGrid(EntityManager));
         var xform = Transform(nullrodUid); // Spawns entity assigned in RodProto.
 
