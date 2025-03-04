@@ -4,7 +4,7 @@
   description: blueshield-box-category-chester-description
   sprite:
     sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi
-    state: icon
+    state: base
   content:
   - MagazineBoxShotgunHighCaliber
   - MagazineBoxShotgunHighCaliberFlash
@@ -20,7 +20,7 @@
   description: blueshield-box-category-cqc-description
   sprite:
     sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi # Todo - Change this
-    state: icon
+    state: base
   content:
   - MagazineBoxShotgunHighCaliber # Todo - Make this a CQC book
 
@@ -30,7 +30,7 @@
   description: blueshield-box-category-revolver-description
   sprite:
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
-    state: base
+    state: icon
   content:
   - WeaponEnergyRevolver
 
