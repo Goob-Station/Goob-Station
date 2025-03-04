@@ -19,7 +19,7 @@
   id: HoverTech
   name: research-technology-hover-tech
   icon:
-    sprite: _GoobStation/Objects/Vehicles/hoverchair.rsi
+    sprite: _Goobstation/Objects/Vehicles/hoverchair.rsi
     state: vehicle
   discipline: Experimental
   tier: 2
