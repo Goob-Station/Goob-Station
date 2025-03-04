@@ -98,15 +98,10 @@
   components:
   - type: StorageFill
     contents:
-      - id: WeaponDisabler
-      - id: TrackingImplanter             #default was 2, but i think it makes sense brigmed gets an implanter
       - id: ClothingShoesBootsJackFilled
       - id: ClothingHandsGlovesNitrile
       - id: ClothingEyesBrigMedSec
-      - id: ClothingOuterHardsuitBrigmedic
-      - id: OxygenTankFilled
-      - id: NitrogenTankFilled
-      - id: BoxSterileMask
+      - id: BoxSterileMask           
       - id: ClothingHeadHatBeretBrigmedic
       - id: ClothingOuterCoatAMG
       - id: ClothingUniformJumpsuitBrigmedic
@@ -117,6 +112,47 @@
       - id: MedkitOxygenFilled
       - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
         prob: 0.15
+
+
+- type: entityTable
+  id: FillLockerBrigmedic    #this is an overcomplicated way to give brigmed random medkits alongside their kit
+  table: !type:AllSelector   #using 'prob' makes it possible for way too many medkits or way too few so fuck it
+    children:
+      - id: ClothingShoesBootsJackFilled
+      - id: ClothingHandsGlovesNitrile
+      - id: ClothingEyesBrigMedSec
+      - id: BoxSterileMask               
+      - id: ClothingHeadHatBeretBrigmedic
+      - id: ClothingOuterCoatAMG
+      - id: ClothingUniformJumpsuitBrigmedic
+      - id: ClothingUniformJumpskirtBrigmedic
+      - id: ClothingUniformJumpskirtOfLife
+        prob: 0.1
+      - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
+        prob: 0.15
+      - id: MedkitFilled
+      - !type:GroupSelector
+        children:
+        - id: MedkitCombatFilled
+        - id: MedkitOxygenFilled
+        - id: MedkitBurnFilled
+        - id: MedkitToxinFilled
+        - id: MedkitRadiationFilled
+        - id: MedkitAdvancedFilled
+      - id: MedkitCombatFilled # a fun surprise every other round
+        prob: 0.1
+
+
+- type: entity
+  id: LockerBrigmedicFilledRandom
+  parent: LockerBrigmedic
+  suffix: Brigmedic, Filled, Random
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerBrigmedic
+
 
 - type: entity
   id: LockerDetectiveFilled
