@@ -8,10 +8,9 @@
     sprite: _Goobstation/Clothing/Hands/Gloves/kravgloves.rsi
   - type: Item
   - type: Clothing
-  - type: GrantKravMaga
   - type: Fiber
     fiberMaterial: fibers-leather
     fiberColor: fibers-red
   - type: ClothingGrantComponent
     component:
-    - type: KravMagaComponent
+    - type: KravMaga

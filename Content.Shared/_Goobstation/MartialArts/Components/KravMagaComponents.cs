@@ -1,4 +1,3 @@
-using Content.Shared.Actions;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -69,6 +68,3 @@ public enum KravMagaMoves
     LungPunch,
 }
 
-public sealed partial class KravMagaActionEvent : InstantActionEvent
-{
-}

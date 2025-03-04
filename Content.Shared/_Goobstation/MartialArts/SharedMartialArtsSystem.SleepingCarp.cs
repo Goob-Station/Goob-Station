@@ -25,6 +25,9 @@ public partial class SharedMartialArtsSystem
 
     private void OnGrantSleepingCarp(Entity<GrantSleepingCarpComponent> ent, ref UseInHandEvent args)
     {
+        if(!_netManager.IsServer)
+            return;
+
         if (ent.Comp.Used)
             return;
         if (ent.Comp.UseAgainTime == TimeSpan.Zero)
