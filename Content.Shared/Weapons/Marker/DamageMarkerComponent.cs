@@ -17,13 +17,13 @@ public sealed partial class DamageMarkerComponent : Component
     /// Sprite to apply to the entity while damagemarker is applied.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("effect")]
-    public SpriteSpecifier.Rsi? Effect = new(new ResPath("/Textures/Objects/Weapons/Effects"), "shield2");
+    public SpriteSpecifier.Rsi? Effect; // = new(new ResPath("/Textures/Objects/Weapons/Effects"), "shield2");
 
     /// <summary>
     /// Sound to play when the damage marker is procced.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("sound")]
-    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg");
+    public SoundSpecifier? Sound; // = new SoundPathSpecifier("/Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg");
 
     [ViewVariables(VVAccess.ReadWrite), DataField("damage")]
     public DamageSpecifier Damage = new();

@@ -1,6 +1,8 @@
 using Content.Shared.Damage;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
+using Robust.Shared.Audio;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Weapons.Marker;
 
@@ -27,6 +29,18 @@ public sealed partial class DamageMarkerOnCollideComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("amount"), AutoNetworkedField]
     public int Amount = 1;
+
+    /// <summary>
+    /// Sprite to apply to the entity while damagemarker is applied.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("effect")]
+    public SpriteSpecifier.Rsi? Effect = new(new ResPath("/Textures/Objects/Weapons/Effects"), "shield2");
+
+    /// <summary>
+    /// Sound to play when the damage marker is procced.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("sound")]
+    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg");
 
     /// <summary>
     ///     Lavaland Change: Whether the marker can only be applied to fauna.

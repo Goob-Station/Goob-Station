@@ -81,7 +81,10 @@ public abstract class SharedDamageMarkerSystem : EntitySystem
         marker.Damage = new DamageSpecifier(component.Damage);
         marker.Marker = projectile.Weapon.Value;
         marker.EndTime = _timing.CurTime + component.Duration;
+        marker.Effect = component.Effect; // Pass the effect to the marker
+        marker.Sound = component.Sound; // Pass the effect to the marker
         component.Amount--;
+
         Dirty(args.OtherEntity, marker);
 
         if (_netManager.IsServer)
