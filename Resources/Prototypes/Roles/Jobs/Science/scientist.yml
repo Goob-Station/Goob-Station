@@ -10,6 +10,7 @@
   startingGear: ScientistGear
   icon: "JobIconScientist"
   supervisors: job-supervisors-rd
+  goobcoins: 25 #Goob content
   access:
   - Research
   - Maintenance

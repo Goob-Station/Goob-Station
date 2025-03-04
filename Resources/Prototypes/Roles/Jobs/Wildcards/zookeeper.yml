@@ -6,6 +6,7 @@
   startingGear: ZookeeperGear
   icon: "JobIconZookeeper"
   supervisors: job-supervisors-hop
+  goobcoins: 15 #Goob content
   access:
   - Service
   - Maintenance
