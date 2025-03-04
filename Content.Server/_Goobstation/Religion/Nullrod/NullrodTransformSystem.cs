@@ -4,6 +4,8 @@ using Content.Shared.Interaction;
 using Content.Shared.Storage;
 using Robust.Shared.Prototypes;
 using Content.Shared.Tag;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Server._Goobstation.Religion.Nullrod;
 
@@ -11,6 +13,7 @@ public sealed class NullrodTransformSystem : EntitySystem
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
 
     public override void Initialize()
@@ -29,7 +32,8 @@ public sealed class NullrodTransformSystem : EntitySystem
             )
             return;
 
-
+        Spawn("EffectSpark", Transform(uid).Coordinates);
+        _audio.PlayPvs("/Audio/Effects/hallelujah.ogg", uid, AudioParams.Default.WithVolume(-4f));
         var nullrodUid = Spawn(component.RodProto, args.ClickLocation.SnapToGrid(EntityManager));
         var xform = Transform(nullrodUid); // Spawns entity assigned in RodProto.
 
