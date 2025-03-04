@@ -56,7 +56,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Holy: 2000000
+        Holy: 20000
   - type: Item
     size: Tiny
     sprite: Objects/Weapons/Melee/debug.rsi
