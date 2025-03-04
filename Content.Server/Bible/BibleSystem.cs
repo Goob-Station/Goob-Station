@@ -147,8 +147,9 @@ namespace Content.Server.Bible
                 }
             }
 
-            if (HasComp<WeakToHolyComponent>(uid))
+            if (EntityManager.TryGetComponent(args.Target, out WeakToHolyComponent? weakToHoly))
             {
+                // Redundant variable but when I remove it, it stops working so who cares.
                 DoBibleSmite(uid, useDelay, args);
                 return;
             }
