@@ -11,3 +11,8 @@ public sealed class SleepingCarpKneeHaulPerformedEvent : EntityEventArgs
 public sealed class SleepingCarpCrashingWavesPerformedEvent : EntityEventArgs
 {
 }
+
+public sealed class SleepingCarpSaying(LocId saying) : EntityEventArgs
+{
+    public LocId Saying = saying;
+};

@@ -1,13 +1,7 @@
 using Content.Shared._Goobstation.MartialArts.Components;
-using Content.Shared.Actions;
-using Content.Shared.Clothing;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Movement.Pulling.Events;
-using Content.Shared.Movement.Pulling.Systems;
-using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Shared._Goobstation.MartialArts;
@@ -17,17 +11,12 @@ namespace Content.Shared._Goobstation.MartialArts;
 /// </summary>
 public abstract partial class SharedMartialArtsSystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly StaminaSystem _stamina = default!;
-
     private void InitializeKravMaga()
     {
-        SubscribeLocalEvent<GrantKravMagaComponent, ClothingGotEquippedEvent>(OnGlovesGotEquipped);
-        SubscribeLocalEvent<GrantKravMagaComponent, ClothingGotUnequippedEvent>(OnGlovesGotUnequipped);
+        SubscribeLocalEvent<KravMagaComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<KravMagaComponent, KravMagaActionEvent>(OnKravMagaAction);
         SubscribeLocalEvent<KravMagaComponent, MeleeHitEvent>(OnMeleeHitEvent);
+        SubscribeLocalEvent<KravMagaComponent, ComponentShutdown>(OnKravMagaShutdown);
     }
     private void OnMeleeHitEvent(Entity<KravMagaComponent> ent, ref MeleeHitEvent args)
     {
@@ -97,26 +86,24 @@ public abstract partial class SharedMartialArtsSystem
         ent.Comp.SelectedMoveComp = kravActionComp;
     }
 
-    private void OnGlovesGotEquipped(Entity<GrantKravMagaComponent> ent, ref ClothingGotEquippedEvent args)
+    private void OnMapInit(Entity<KravMagaComponent> ent, ref MapInitEvent args)
     {
-        var kravMaga = EnsureComp<KravMagaComponent>(args.Wearer);
-        foreach (var actionId in kravMaga.BaseKravMagaMoves)
+        foreach (var actionId in ent.Comp.BaseKravMagaMoves)
         {
-            var actions = _actions.AddAction(args.Wearer, actionId);
+            var actions = _actions.AddAction(ent, actionId);
             if (actions != null)
-                kravMaga.KravMagaMoveEntities.Add(actions.Value);
+                ent.Comp.KravMagaMoveEntities.Add(actions.Value);
         }
     }
 
-    private void OnGlovesGotUnequipped(Entity<GrantKravMagaComponent> ent, ref ClothingGotUnequippedEvent args)
+    private void OnKravMagaShutdown(Entity<KravMagaComponent> ent, ref ComponentShutdown args)
     {
-        if (!TryComp<KravMagaComponent>(args.Wearer, out var kravMaga))
+        if (!TryComp<KravMagaComponent>(ent, out var kravMaga))
             return;
 
-        foreach (var action in kravMaga.KravMagaMoveEntities)
+        foreach (var action in ent.Comp.KravMagaMoveEntities)
         {
             _actions.RemoveAction(action);
         }
-        RemComp<KravMagaComponent>(args.Wearer);
     }
 }

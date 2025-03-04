@@ -1,4 +1,4 @@
-using Content.Shared._Goobstation.MartialArts;
+using Content.Shared._Goobstation.MartialArts.Components;
 using Content.Shared._Goobstation.MartialArts.Events;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Damage;
@@ -9,19 +9,18 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Random;
-using Content.Shared._Goobstation.MartialArts.Components;
 
-namespace Content.Server._Goobstation.MartialArts;
+namespace Content.Shared._Goobstation.MartialArts;
 
-public sealed partial class MartialArtsSystem
+public partial class SharedMartialArtsSystem
 {
     private void InitializeCqc()
     {
-        SubscribeLocalEvent<CanPerformComboComponent, CQCSlamPerformedEvent>(OnCQCSlam);
-        SubscribeLocalEvent<CanPerformComboComponent, CQCKickPerformedEvent>(OnCQCKick);
-        SubscribeLocalEvent<CanPerformComboComponent, CQCRestrainPerformedEvent>(OnCQCRestrain);
-        SubscribeLocalEvent<CanPerformComboComponent, CQCPressurePerformedEvent>(OnCQCPressure);
-        SubscribeLocalEvent<CanPerformComboComponent, CQCConsecutivePerformedEvent>(OnCQCConsecutive);
+        SubscribeLocalEvent<Components.CanPerformComboComponent, CQCSlamPerformedEvent>(OnCQCSlam);
+        SubscribeLocalEvent<Components.CanPerformComboComponent, CQCKickPerformedEvent>(OnCQCKick);
+        SubscribeLocalEvent<Components.CanPerformComboComponent, CQCRestrainPerformedEvent>(OnCQCRestrain);
+        SubscribeLocalEvent<Components.CanPerformComboComponent, CQCPressurePerformedEvent>(OnCQCPressure);
+        SubscribeLocalEvent<Components.CanPerformComboComponent, CQCConsecutivePerformedEvent>(OnCQCConsecutive);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComboAttackPerformedEvent>(OnCQCAttackPerformed);
         SubscribeLocalEvent<GrantCqcComponent, UseInHandEvent>(OnGrantCQCUse);
         SubscribeLocalEvent<GrantCqcComponent, ExaminedEvent>(OnGrantCQCExamine);
@@ -31,6 +30,9 @@ public sealed partial class MartialArtsSystem
 
     private void OnGrantCQCUse(Entity<GrantCqcComponent> ent, ref UseInHandEvent args)
     {
+        if(!_netManager.IsServer)
+            return;
+
         if (ent.Comp.Used)
         {
             _popupSystem.PopupEntity(Loc.GetString("cqc-fail-used", ("manual", Identity.Entity(ent, EntityManager))),
@@ -80,7 +82,7 @@ public sealed partial class MartialArtsSystem
 
     #region Combo Methods
 
-    private void OnCQCSlam(Entity<CanPerformComboComponent> ent, ref CQCSlamPerformedEvent args)
+    private void OnCQCSlam(Entity<Components.CanPerformComboComponent> ent, ref CQCSlamPerformedEvent args)
     {
         if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out var downed))
             return;
@@ -97,7 +99,7 @@ public sealed partial class MartialArtsSystem
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
     }
 
-    private void OnCQCKick(Entity<CanPerformComboComponent> ent, ref CQCKickPerformedEvent args)
+    private void OnCQCKick(Entity<Components.CanPerformComboComponent> ent, ref CQCKickPerformedEvent args)
     {
         if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out var downed))
             return;
@@ -125,7 +127,7 @@ public sealed partial class MartialArtsSystem
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
     }
 
-    private void OnCQCRestrain(Entity<CanPerformComboComponent> ent, ref CQCRestrainPerformedEvent args)
+    private void OnCQCRestrain(Entity<Components.CanPerformComboComponent> ent, ref CQCRestrainPerformedEvent args)
     {
         if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out _))
             return;
@@ -134,7 +136,7 @@ public sealed partial class MartialArtsSystem
         _stamina.TakeStaminaDamage(target, 30f, source: ent);
     }
 
-    private void OnCQCPressure(Entity<CanPerformComboComponent> ent, ref CQCPressurePerformedEvent args)
+    private void OnCQCPressure(Entity<Components.CanPerformComboComponent> ent, ref CQCPressurePerformedEvent args)
     {
         if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out _))
             return;
@@ -146,7 +148,7 @@ public sealed partial class MartialArtsSystem
         _stamina.TakeStaminaDamage(target, 65f, source: ent);
     }
 
-    private void OnCQCConsecutive(Entity<CanPerformComboComponent> ent, ref CQCConsecutivePerformedEvent args)
+    private void OnCQCConsecutive(Entity<Components.CanPerformComboComponent> ent, ref CQCConsecutivePerformedEvent args)
     {
         if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out _))
             return;

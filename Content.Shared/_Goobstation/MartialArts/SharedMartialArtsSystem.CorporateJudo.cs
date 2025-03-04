@@ -1,18 +1,14 @@
-using Content.Shared._Goobstation.MartialArts;
 using Content.Shared._Goobstation.MartialArts.Components;
 using Content.Shared._Goobstation.MartialArts.Events;
 using Content.Shared.Clothing;
 using Content.Shared.Damage;
 using Content.Shared.Eye.Blinding.Components;
-using Content.Shared.Hands;
-using Content.Shared.Inventory.Events;
 using Content.Shared.Movement.Pulling.Components;
-using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Audio;
 
-namespace Content.Server._Goobstation.MartialArts;
-public sealed partial class MartialArtsSystem
+namespace Content.Shared._Goobstation.MartialArts;
+public partial class SharedMartialArtsSystem
 {
     private void InitializeCorporateJudo()
     {

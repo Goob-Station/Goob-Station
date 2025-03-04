@@ -35,11 +35,3 @@ public sealed partial class GrantSleepingCarpComponent  : GrantMartialArtKnowled
 
     public readonly int MinUseDelay = 1;
 }
-
-
-[RegisterComponent]
-public sealed partial class GrantKravMagaComponent : Component
-{
-
-}
-

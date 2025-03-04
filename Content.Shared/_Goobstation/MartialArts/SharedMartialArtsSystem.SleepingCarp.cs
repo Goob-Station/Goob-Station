@@ -1,6 +1,4 @@
 using System.Linq;
-using Content.Server.Chat.Systems;
-using Content.Shared._Goobstation.MartialArts;
 using Content.Shared._Goobstation.MartialArts.Components;
 using Content.Shared._Goobstation.MartialArts.Events;
 using Content.Shared.Damage;
@@ -11,9 +9,9 @@ using Content.Shared.Popups;
 using Content.Shared.Weapons.Reflect;
 using Robust.Shared.Audio;
 
-namespace Content.Server._Goobstation.MartialArts;
+namespace Content.Shared._Goobstation.MartialArts;
 
-public sealed partial class MartialArtsSystem
+public partial class SharedMartialArtsSystem
 {
     private void InitializeSleepingCarp()
     {
@@ -68,7 +66,7 @@ public sealed partial class MartialArtsSystem
 
     private void CarpScrollDelay(Entity<GrantSleepingCarpComponent> ent, EntityUid user)
     {
-        var time = new Random().Next(ent.Comp.MinUseDelay, ent.Comp.MaxUseDelay);
+        var time = new System.Random().Next(ent.Comp.MinUseDelay, ent.Comp.MaxUseDelay);
         ent.Comp.UseAgainTime = _timing.CurTime + TimeSpan.FromSeconds(time);
         ent.Comp.Stage++;
         _popupSystem.PopupEntity("You have taken one step closer to becoming a master of the Way of the Sleeping Carp.",
@@ -100,14 +98,16 @@ public sealed partial class MartialArtsSystem
             var saying =
                 knowledgeComponent.RandomSayings.ElementAt(
                     _random.Next(knowledgeComponent.RandomSayings.Count));
-            _chat.TrySendInGameICMessage(ent, Loc.GetString(saying), InGameICChatType.Speak, false);
+            var ev = new SleepingCarpSaying(saying);
+            RaiseLocalEvent(ent, ev);
         }
         else
         {
             var saying =
                 knowledgeComponent.RandomSayingsDowned.ElementAt(
                     _random.Next(knowledgeComponent.RandomSayingsDowned.Count));
-            _chat.TrySendInGameICMessage(ent, Loc.GetString(saying), InGameICChatType.Speak, false);
+            var ev = new SleepingCarpSaying(saying);
+            RaiseLocalEvent(ent, ev);
         }
     }
 

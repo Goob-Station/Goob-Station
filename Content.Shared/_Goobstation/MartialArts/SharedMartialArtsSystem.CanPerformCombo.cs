@@ -1,14 +1,14 @@
 using System.Linq;
-using Content.Shared._Goobstation.MartialArts;
+using Content.Shared._Goobstation.MartialArts.Components;
 using Content.Shared._Goobstation.MartialArts.Events;
 using Content.Shared.Mobs.Components;
 
-namespace Content.Server._Goobstation.MartialArts;
+namespace Content.Shared._Goobstation.MartialArts;
 
 /// <summary>
 /// This handles determining if a combo was performed.
 /// </summary>
-public sealed partial class MartialArtsSystem
+public partial class SharedMartialArtsSystem
 {
     private void InitializeCanPerformCombo()
     {
