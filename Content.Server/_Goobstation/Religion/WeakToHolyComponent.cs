@@ -10,7 +10,8 @@ namespace Content.Server._Goobstation.Religion
         /// </summary>
 
         [DataField("damageMultiplier", required: true)]
-        public float DamageMultiplier = 1f;
+        public float DamageMultiplier = 4f;
+        // Setting this to an absurd number for testing purposes.
 
     }
 }

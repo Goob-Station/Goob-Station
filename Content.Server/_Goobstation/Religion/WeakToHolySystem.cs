@@ -20,8 +20,7 @@ public sealed partial class WeakToHolySystem : EntitySystem
     private void OnCompInit(Entity<WeakToHolyComponent> ent, ref ComponentInit args)
     {
         if (TryComp<DamageableComponent>(ent, out var damageable) && damageable.DamageContainerID == "Biological")
-        damageable.DamageContainerID = "BiologicalMetaphysical";
-        var multiplier = comp.DamageMultiplier;
+            damageable.DamageContainerID = "BiologicalMetaphysical";
     }
 }
 
