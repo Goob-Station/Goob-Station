@@ -142,6 +142,9 @@
         Blunt: 14
         Structural: 28
         Ion: 7
+  - type: Damageable
+    damageContainer: OrganicPart # unsure if this is the right type
+    damageModifierSet: BingleUpgraded
 
 - type: polymorph
   id: BinglePolymorph
