@@ -42,7 +42,7 @@
     revertOnDeath: true
     transferName: true
     revertOnCrit: true
-    
+
 - type: polymorph
   id: BinglePolymorph
   configuration:

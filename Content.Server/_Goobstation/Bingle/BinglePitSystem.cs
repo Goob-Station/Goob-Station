@@ -210,7 +210,7 @@ public sealed class BinglePitSystem : EntitySystem
 
             var points = comp.BinglePoints + (comp.MinionsMade * comp.SpawnNewAt) * comp.Level;
 
-            ev.AddLine(Loc.GetString("binge-pit-end-of-round",
+            ev.AddLine(Loc.GetString("bingle-pit-end-of-round",
                 ("location", location),
                 ("level", comp.Level),
                 ("points", points)));
