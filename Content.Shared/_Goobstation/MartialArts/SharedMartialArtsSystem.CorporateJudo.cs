@@ -27,6 +27,9 @@ public partial class SharedMartialArtsSystem
 
     private void OnGrantCorporateJudo(Entity<GrantCorporateJudoComponent> ent, ref ClothingGotEquippedEvent args)
     {
+        if (!_netManager.IsServer)
+            return;
+
         var user = args.Wearer;
         TryGrant(ent.Comp, user);
     }
@@ -34,10 +37,12 @@ public partial class SharedMartialArtsSystem
     private void OnRemoveCorporateJudo(Entity<GrantCorporateJudoComponent> ent, ref ClothingGotUnequippedEvent args)
     {
         var user = args.Wearer;
-        if (!TryComp<MartialArtsKnowledgeComponent>(ent.Owner, out var martialArtsKnowledge))
+        if (!TryComp<MartialArtsKnowledgeComponent>(user, out var martialArtsKnowledge))
             return;
+
         if (martialArtsKnowledge.MartialArtsForm != MartialArtsForms.CorporateJudo)
             return;
+
         RemComp<MartialArtsKnowledgeComponent>(user);
         RemComp<CanPerformComboComponent>(user);
     }

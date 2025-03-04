@@ -126,13 +126,16 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
     private bool TryGrant(GrantMartialArtKnowledgeComponent comp, EntityUid user)
     {
+        if (!_netManager.IsServer) // double check to make sure
+            return false;
+
         if (!HasComp<CanPerformComboComponent>(user))
         {
-            EnsureComp<CanPerformComboComponent>(user);
+            var canPerformComboComponent = EnsureComp<CanPerformComboComponent>(user);
             var martialArtsKnowledgeComponent = EnsureComp<MartialArtsKnowledgeComponent>(user);
             LoadPrototype(user, martialArtsKnowledgeComponent, comp.MartialArtsForm);
             martialArtsKnowledgeComponent.Blocked = false;
-            Dirty(user, martialArtsKnowledgeComponent);
+            Dirty(user, canPerformComboComponent);
             return true;
         }
 
@@ -142,7 +145,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             return false;
         }
 
-        if (cqc.Blocked)
+        if (cqc.Blocked && comp.MartialArtsForm == MartialArtsForms.CloseQuartersCombat)
         {
             _popupSystem.PopupEntity(Loc.GetString("cqc-success-unblocked"), user, user);
             cqc.Blocked = false;

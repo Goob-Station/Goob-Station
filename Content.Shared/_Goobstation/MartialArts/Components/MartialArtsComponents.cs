@@ -11,34 +11,45 @@ public sealed partial class MartialArtBlockedComponent : Component
     public MartialArtsForms Form;
 }
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent]
+[NetworkedComponent]
+[AutoGenerateComponentState]
 public sealed partial class MartialArtsKnowledgeComponent : GrabStagesOverrideComponent
 {
     [DataField]
+    [AutoNetworkedField]
     public MartialArtsForms MartialArtsForm = MartialArtsForms.SleepingCarp;
 
     [DataField]
+    [AutoNetworkedField]
     public FixedPoint2 MinDamageModifier = 2.0;
 
     [DataField]
+    [AutoNetworkedField]
     public FixedPoint2 MaxDamageModifier = 3.0;
 
     [DataField]
+    [AutoNetworkedField]
     public bool RandomDamageModifier;
 
     [DataField]
+    [AutoNetworkedField]
     public bool HarmAsStamina;
 
     [DataField]
+    [AutoNetworkedField]
     public ProtoId<ComboListPrototype> RoundstartCombos = "CQCMoves";
 
     [DataField]
+    [AutoNetworkedField]
     public bool Blocked = true;
 
     [DataField]
+    [AutoNetworkedField]
     public List<LocId> RandomSayings = [];
 
     [DataField]
+    [AutoNetworkedField]
     public List<LocId> RandomSayingsDowned = [];
 }
 
