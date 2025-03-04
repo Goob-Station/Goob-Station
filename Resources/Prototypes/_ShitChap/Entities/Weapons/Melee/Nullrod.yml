@@ -321,6 +321,11 @@
       collection: BoxingHit
   - type: StaminaDamageOnHit
     damage: 20
+  - type: InjectOnHit
+    reagents:
+    - ReagentId: MuteToxin
+      Quantity: 0.10
+    limit: 2
   - type: Wieldable
   - type: DisarmMalus
     malus: 0
