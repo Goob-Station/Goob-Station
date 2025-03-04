@@ -67,9 +67,11 @@
 - type: damageContainer
   id: BiologicalMetaphysical
   supportedGroups:
-  - Brute
-  - Burn
-  - Toxin
-  - Airloss
-  - Genetic
-  - Metaphysical
+    - Brute
+    - Burn
+    - Toxin
+    - Airloss
+    - Genetic
+    - Metaphysical
+  supportedTypes:
+    - Holy
