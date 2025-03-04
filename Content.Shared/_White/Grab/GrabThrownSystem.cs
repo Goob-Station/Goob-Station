@@ -77,6 +77,7 @@ public sealed class GrabThrownSystem : EntitySystem
     /// <param name="uid">Entity to throw</param>
     /// <param name="thrower">Entity that throws</param>
     /// <param name="vector">Direction</param>
+    /// <param name="grabThrownSpeed">How fast you fly when thrown</param>
     /// <param name="staminaDamage">Stamina damage on collide</param>
     /// <param name="damageToUid">Damage to entity on collide</param>
     /// <param name="damageToWall">Damage to wall or anything that was hit by entity</param>
@@ -84,12 +85,11 @@ public sealed class GrabThrownSystem : EntitySystem
         EntityUid uid,
         EntityUid thrower,
         Vector2 vector,
+        float grabThrownSpeed,
         float? staminaDamage = null,
         DamageSpecifier? damageToUid = null,
         DamageSpecifier? damageToWall = null)
     {
-        _throwing.TryThrow(uid, vector, 5f, animated: false);
-
         var comp = EnsureComp<GrabThrownComponent>(uid);
         comp.StaminaDamageOnCollide = staminaDamage;
         comp.DamageOnCollide = damageToUid;
@@ -97,5 +97,6 @@ public sealed class GrabThrownSystem : EntitySystem
         comp.IgnoreEntity.Add(thrower);
 
         _layingDown.TryLieDown(uid, behavior: DropHeldItemsBehavior.AlwaysDrop);
+        _throwing.TryThrow(uid, vector, grabThrownSpeed, animated: false);
     }
 }

@@ -284,62 +284,37 @@ public sealed class PullingSystem : EntitySystem
     // Goobstation - Grab Intent
     private void OnVirtualItemThrown(EntityUid uid, PullerComponent component, VirtualItemThrownEvent args)
     {
-        if (component.Pulling == null)
+        if (!TryComp<PhysicsComponent>(uid, out var throwerPhysics)
+            ||component.Pulling == null
+            || component.Pulling != args.BlockingEntity)
             return;
 
-        if (component.Pulling != args.BlockingEntity)
+        if (!TryComp(args.BlockingEntity, out PullableComponent? comp))
             return;
 
-        if (TryComp(args.BlockingEntity, out PullableComponent? comp))
-        {
-            if (_combatMode.IsInCombatMode(uid) &&
-                !HasComp<GrabThrownComponent>(args.BlockingEntity) &&
-                component.GrabStage > GrabStage.Soft)
-            {
-                var direction = args.Direction;
-                var vecBetween = (Transform(args.BlockingEntity).Coordinates.ToMapPos(EntityManager, _transform) - Transform(uid).WorldPosition);
+        if (!_combatMode.IsInCombatMode(uid)
+            || HasComp<GrabThrownComponent>(args.BlockingEntity)
+            || component.GrabStage <= GrabStage.Soft)
+            return;
 
-                // Getting angle between us
-                var dirAngle = direction.ToWorldAngle().Degrees;
-                var betweenAngle = vecBetween.ToWorldAngle().Degrees;
+        var distanceToCursor = args.Direction.Length();
+        var direction = args.Direction.Normalized() * MathF.Min(distanceToCursor, component.ThrowingDistance);
 
-                var angle = dirAngle - betweenAngle;
+        var damage = new DamageSpecifier();
+        damage.DamageDict.Add("Blunt", 5);
 
-                if (angle < 0)
-                    angle = -angle;
+        TryStopPull(args.BlockingEntity, comp, uid, true);
+        _grabThrown.Throw(args.BlockingEntity,
+            uid,
+            direction,
+            component.GrabThrownSpeed,
+            component.StaminaDamageOnThrown,
+            damage * component.GrabThrowDamageModifier,
+            damage * component.GrabThrowDamageModifier); // Throwing the grabbed person
 
-                var maxDistance = 3f;
-                var damageModifier = 1f;
-
-                if (angle < 30)
-                {
-                    damageModifier = 0.3f;
-                    maxDistance = 1f;
-                }
-                else if (angle < 90)
-                {
-                    damageModifier = 0.7f;
-                    maxDistance = 1.5f;
-                }
-                else
-                    maxDistance = 2.25f;
-
-                var distance = Math.Clamp(args.Direction.Length(), 0.5f, maxDistance);
-                direction *= distance / args.Direction.Length();
-
-
-                var damage = new DamageSpecifier();
-                damage.DamageDict.Add("Blunt", 5);
-                damage *= damageModifier;
-
-                var throwbackforce = 0.15f;
-                TryStopPull(args.BlockingEntity, comp, uid, true);
-                _grabThrown.Throw(args.BlockingEntity, uid, direction * 2f, 120f, damage * component.GrabThrowDamageModifier, damage * component.GrabThrowDamageModifier); // Throwing the grabbed person
-                _throwing.TryThrow(uid, -direction * throwbackforce); // Throws back the grabber
-                _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), uid);
-                component.NextStageChange.Add(TimeSpan.FromSeconds(2f));  // To avoid grab and throw spamming
-            }
-        }
+        _throwing.TryThrow(uid, -direction * throwerPhysics.InvMass); // Throws back the grabber
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), uid);
+        component.NextStageChange.Add(TimeSpan.FromSeconds(2f)); // To avoid grab and throw spamming
     }
     // Goobstation
 
