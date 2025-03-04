@@ -6,7 +6,7 @@
   startingGear: ServiceWorkerGear
   icon: "JobIconServiceWorker"
   supervisors: job-supervisors-service
-  goobcoins: 15 #Goob content
+  goobcoins: 10 #Goob content
   access:
   - Service
   - Maintenance

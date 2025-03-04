@@ -6,7 +6,7 @@
   startingGear: PassengerGear
   icon: "JobIconPassenger"
   supervisors: job-supervisors-everyone
-  goobcoins: -5 #Goob content
+  goobcoins: 1 #Goob content
   access:
   - Maintenance
 

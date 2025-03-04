@@ -10,7 +10,7 @@
   startingGear: AtmosphericTechnicianGear
   icon: "JobIconAtmosphericTechnician"
   supervisors: job-supervisors-ce
-  goobcoins: 25 #Goob content
+  goobcoins: 20 #Goob content
   access:
   - Maintenance
   - Engineering

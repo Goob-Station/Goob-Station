@@ -14,7 +14,7 @@
   icon: "JobIconResearchDirector"
   supervisors: job-supervisors-captain
   canBeAntag: false
-  goobcoins: 80 #Goob content
+  goobcoins: 40 #Goob content
   access:
   - Research
   - Command
