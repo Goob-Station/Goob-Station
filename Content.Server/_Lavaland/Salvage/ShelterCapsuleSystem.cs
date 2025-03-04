@@ -1,4 +1,3 @@
-using System.Linq;
 using Content.Server._Lavaland.Procedural.Components;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.GridPreloader;
@@ -20,7 +19,6 @@ public sealed class ShelterCapsuleSystem : SharedShelterCapsuleSystem
     [Dependency] private readonly SmokeSystem _smoke = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
 
     public override void Initialize()
     {
@@ -54,7 +52,7 @@ public sealed class ShelterCapsuleSystem : SharedShelterCapsuleSystem
             return false;
 
         // Load and place shelter
-        var path = proto.Path.CanonPath;
+        var path = proto.Path;
         var mapEnt = xform.MapUid.Value;
         var posFixed = new MapCoordinates((worldPos.Position + comp.Offset).Rounded(), worldPos.MapId);
 
@@ -65,17 +63,15 @@ public sealed class ShelterCapsuleSystem : SharedShelterCapsuleSystem
 
         if (!_preloader.TryGetPreloadedGrid(comp.PreloadedGrid, out var shelter))
         {
-            if (!_mapLoader.TryLoadMap(new ResPath(path), out var map, out var roots) || roots.Count != 1)
+            _mapSystem.CreateMap(out var dummyMap);
+            if (!_mapLoader.TryLoadGrid(dummyMap, path, out var shelterEnt))
             {
                 Log.Error("Failed to load Shelter grid properly on it's deployment.");
                 return false;
             }
 
-            var shelters = _mapMan.GetAllGrids(map.Value.Comp.MapId);
-            shelter = shelters.FirstOrDefault(x => !TerminatingOrDeleted(x));
-
-            SetupShelter(shelter.Value, new EntityCoordinates(mapEnt, posFixed.Position));
-            _mapSystem.DeleteMap(map.Value.Comp.MapId);
+            SetupShelter(shelterEnt.Value.Owner, new EntityCoordinates(mapEnt, posFixed.Position));
+            _mapSystem.DeleteMap(dummyMap);
             return true;
         }
 
