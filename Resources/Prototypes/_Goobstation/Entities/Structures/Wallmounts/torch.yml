@@ -10,10 +10,6 @@
   - type: Transform
     anchored: true
   - type: Clickable
-  - type: InteractionOutline
-  - type: Construction
-    graph: LightFixture
-    node: tubeLight
   - type: Sprite
     sprite: _Goobstation/Structures/Wallmounts/torch.rsi
     state: torch
