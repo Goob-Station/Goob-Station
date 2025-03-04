@@ -66,16 +66,8 @@ public partial class SharedMartialArtsSystem
 
         if (args.Type != ComboAttackType.Disarm)
             return;
-        if (!_random.Prob(0.5f)) // random chance to steal items? this
-            return;
 
-        var item = _hands.GetActiveItem(args.Target);
-
-        if (item == null)
-            return;
-        _hands.TryDrop(args.Target, item.Value);
-        _hands.TryPickupAnyHand(ent, item.Value);
-        _stamina.TakeStaminaDamage(args.Target, 10f);
+        _stamina.TakeStaminaDamage(args.Target, 15f);
     }
 
     #endregion
@@ -141,11 +133,16 @@ public partial class SharedMartialArtsSystem
         if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out _))
             return;
 
+        _stamina.TakeStaminaDamage(target, 65f, source: ent);
         if (!_hands.TryGetActiveItem(target, out var activeItem))
             return;
-        _hands.TryDrop(target, activeItem.Value);
-        _hands.TryPickupAnyHand(ent, activeItem.Value);
-        _stamina.TakeStaminaDamage(target, 65f, source: ent);
+        if(!_hands.TryDrop(target, activeItem.Value))
+            return;
+        if (!_hands.TryGetEmptyHand(target, out var emptyHand))
+            return;
+        if(!_hands.TryPickupAnyHand(ent, activeItem.Value))
+            return;
+        _hands.SetActiveHand(ent, emptyHand);
     }
 
     private void OnCQCConsecutive(Entity<Components.CanPerformComboComponent> ent,

@@ -8,6 +8,7 @@
     icon:
       sprite: _Goobstation/Actions/kravmaga.rsi
       state: legsweep
+      useDelay: 3
     event: !type:KravMagaActionEvent { }
   - type: KravMagaAction
     configuration: LegSweep
@@ -23,6 +24,7 @@
     icon:
       sprite: _Goobstation/Actions/kravmaga.rsi
       state: neckchop
+      useDelay: 3
     event: !type:KravMagaActionEvent { }
   - type: KravMagaAction
     configuration: NeckChop
@@ -39,6 +41,7 @@
     icon:
       sprite: _Goobstation/Actions/kravmaga.rsi
       state: lungpunch
+      useDelay: 3
     event: !type:KravMagaActionEvent { }
   - type: KravMagaAction
     configuration: LungPunch

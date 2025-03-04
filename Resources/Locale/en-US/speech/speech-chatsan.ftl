@@ -159,7 +159,7 @@ chatsan-replacement-56 = fuck my life
 
 chatsan-word-57 = wtaf
 chatsan-replacement-57 = what the actual fuck
-
+`
 chatsan-word-58 = wsg
 chatsan-replacement-58 = what's good
 
