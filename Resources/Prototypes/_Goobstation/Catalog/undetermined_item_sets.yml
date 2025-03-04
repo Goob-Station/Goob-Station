@@ -1,0 +1,46 @@
+- type: thiefBackpackSet
+  id: ChesterSet
+  name: blueshield-box-category-chester-name
+  description: blueshield-box-category-chester-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi
+    state: icon
+  content:
+  - MagazineBoxShotgunHighCaliber
+  - MagazineBoxShotgunHighCaliberFlash
+  - MagazineBoxShotgunHighCaliberEnsnaring
+  - MagazineBoxShotgunHighCaliberEMP
+  - WeaponLeverChester
+  - MagazineShotgunLeverRifleEmpty
+  - MagazineShotgunLeverRifleEmpty
+
+- type: thiefBackpackSet
+  id: CQCSet
+  name: blueshield-box-category-cqc-name
+  description: blueshield-box-category-cqc-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi # Todo - Change this
+    state: icon
+  content:
+  - MagazineBoxShotgunHighCaliber # Todo - Make this a CQC book
+
+- type: thiefBackpackSet
+  id: RevolverSet
+  name: blueshield-box-category-revolver-name
+  description: blueshield-box-category-revolver-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
+    state: icon
+  content:
+  - WeaponEnergyRevolver
+
+- type: thiefBackpackSet
+  id: PaladinSet
+  name: blueshield-box-category-paladin-name
+  description: blueshield-box-category-paladin-description
+  sprite:
+    sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
+    state: icon
+  content:
+  - BlueShieldShield
+  - BlueshieldMace

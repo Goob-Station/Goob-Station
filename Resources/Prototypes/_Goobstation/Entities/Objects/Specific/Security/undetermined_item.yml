@@ -1,0 +1,21 @@
+- type: entity
+  id: BlueshieldUndetermined
+  name: blueshield loadout pack
+  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
+  parent: [ BaseItem, BaseCentcommContraband ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/bso_box.rsi
+    state: icon
+  - type: ThiefUndeterminedBackpack # Someone should rename this.
+    possibleSets:
+    - PaladinSet
+    - RevolverSet
+    - CQCSet
+    - ChesterSet
+  - type: ActivatableUI
+    key: enum.ThiefBackpackUIKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ThiefBackpackUIKey.Key:
+        type: ThiefBackpackBoundUserInterface

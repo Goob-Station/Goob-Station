@@ -55,11 +55,9 @@
     ears: ClothingHeadsetAltCommand
     pocket1: UniqueBlueshieldOfficerLockerTeleporter
     pocket2: PinpointerNuclear
-    belt: BlueShieldShield
   storage:
     back:
     - Flash
     - BluespaceLifelineImplanter
-    - WeaponEnergyRevolver
     - SecHypo
-    - BlueshieldMace
+    - BlueshieldUndetermined
