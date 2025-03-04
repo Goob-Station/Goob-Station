@@ -2,6 +2,7 @@
 - type: latheRecipePack
   id: SyndicateAmmoStatic
   recipes:
+  - MagazinePistolCaselessRifleEmpty
   - MagazinePistolCaselessRifle
   - MagazineBoxCaselessRifle
   - MagazineLightRifleBoxEmpty
@@ -9,6 +10,12 @@
   - MagazineHighCaliberEmpty
   - MagazineHighCaliber
   - MagazineBoxHighCaliber
+  - MagazineBoxShotgunIncendiaryHighCaliber
+  - MagazineBoxShotgunUraniumHighCaliber
+  - MagazineBoxShotgunBeanbagHighCaliber
+  - MagazineCaselessRifleEmpty
+  - MagazineCaselessRifle
+  - MagazineBoxAntiMateriel
 
 - type: latheRecipePack
   id: LatheMiscStatic

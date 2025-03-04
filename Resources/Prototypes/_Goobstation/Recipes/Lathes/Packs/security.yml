@@ -4,8 +4,9 @@
   recipes:
   - MagazineMagnumEmpty
   - MagazineMagnum
-  # - MagazineMagnumLeverRifle
-  # - MagazineMagnumLeverRifleEmpty
+  - MagazineBoxShotgunHighCaliber
+  - MagazineBoxShotgunSlugHighCaliber
+  - MagazineBoxShotgunPracticeHighCaliber
 
 - type: latheRecipePack
   id: SecurityEquipmentStaticGoob

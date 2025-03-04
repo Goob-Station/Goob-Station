@@ -22,7 +22,7 @@
     fireCost: 900
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 300
+    autoRechargeRate: 900
   - type: Appearance
   - type: MagazineVisuals
     magState: mag
