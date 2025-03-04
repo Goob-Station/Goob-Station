@@ -129,12 +129,12 @@
     - LavalandStormScheduler # Lavaland Change
 
 - type: gamePreset
-  id: TheGhost
+  id: TheSleeper
   alias:
     - calm
     - calmdynamic
-  name: ghost-title
-  description: ghost-description
+  name: sleeper-title
+  description: sleepr-description
   showInVote: true
   rules:
     - CalmDynamic
