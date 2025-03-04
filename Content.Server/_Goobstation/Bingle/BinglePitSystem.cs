@@ -45,6 +45,8 @@ public sealed class BinglePitSystem : EntitySystem
     [Dependency] protected readonly IRobustRandom Random = default!;
     [Dependency] private readonly ITileDefinitionManager _tiledef = default!;
     [Dependency] private readonly TileSystem _tile = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -129,7 +131,7 @@ public sealed class BinglePitSystem : EntitySystem
     public void SpawnBingle(EntityUid uid, BinglePitComponent component)
     {
         Spawn(component.GhostRoleToSpawn, Transform(uid).Coordinates);
-        OnSpawnTile(uid,(int)component.Level*3, (int)component.Level, (int)component.Level*2);
+        OnSpawnTile(uid,component.Level*2, "FloorBingle");
 
         component.MinionsMade++;
         if (component.MinionsMade >= component.UpgradeMinionsAfter)
@@ -219,50 +221,78 @@ public sealed class BinglePitSystem : EntitySystem
 
     }
 
-    private void OnSpawnTile(EntityUid uid,int maxRange = 1, int minRange = 1, int amount = 1 , string floorTile = "FloorBingle")
+    private void OnSpawnTile(EntityUid uid,
+        float radius = 1,
+        ProtoId<ContentTileDefinition> floorTile = new()) // "FloorBingle"
     {
-        if (!TryComp<MapGridComponent>(Transform(uid).GridUid, out var grid))
+        var tgtPos = Transform(uid);
+        if (tgtPos.GridUid is not { } gridUid || !TryComp(gridUid, out MapGridComponent? mapGrid))
             return;
 
-        var localpos = Transform(uid).Coordinates;
-        var tilerefs = _map.GetLocalTilesIntersecting(
-                uid,
-                grid,
-                new Box2(localpos.Position + new Vector2(-maxRange, -maxRange), localpos.Position + new Vector2(maxRange, maxRange)))
-            .ToList();
+        var tileEnumerator = _map.GetLocalTilesEnumerator(gridUid, mapGrid, new Box2(tgtPos.Coordinates.Position + new Vector2(-radius, -radius), tgtPos.Coordinates.Position + new Vector2(radius, radius)));
 
-        if (tilerefs.Count == 0)
-            return;
+        var convertTile = (ContentTileDefinition)_tiledef[floorTile];
 
-        var physQuery = GetEntityQuery<PhysicsComponent>();
-        var resultList = new List<TileRef>();
-
-        while (resultList.Count < amount)
+        while (tileEnumerator.MoveNext(out var tile))
         {
-            if (tilerefs.Count == 0)
-                break;
-
-            var tileref = Random.Pick(tilerefs);
-            var distance = MathF.Sqrt(MathF.Pow(tileref.X - localpos.X, 2) + MathF.Pow(tileref.Y - localpos.Y, 2));
-
-            //cut outer & inner circle
-            if (distance > maxRange || distance < minRange)
-            {
-                tilerefs.Remove(tileref);
+            if (tile.Tile.TypeId == convertTile.TileId)
                 continue;
+            if (tile.GetContentTileDefinition().Name != convertTile.Name && Random.Prob(0.1f))
+            {
+                _tile.ReplaceTile(tile, convertTile);
+                _tile.PickVariant(convertTile);
             }
-
-            resultList.Add(tileref);
-        }
-
-        if (!_tiledef.TryGetDefinition(floorTile,  out  var tile))
-            return;
-
-        foreach (var tileref in resultList)
-        {
-            _tile.ReplaceTile(tileref, (ContentTileDefinition) tile);
         }
 
     }
 
 }
+
+
+/*
+    private void ConvertTilesInRange(Entity<CosmicCorruptingComponent> uid)
+    {
+        var tgtPos = Transform(uid);
+        if (tgtPos.GridUid is not { } gridUid || !TryComp(gridUid, out MapGridComponent? mapGrid))
+            return;
+
+        var radius = uid.Comp.CorruptionRadius;
+        var tileEnumerator = _map.GetLocalTilesEnumerator(gridUid, mapGrid, new Box2(tgtPos.Coordinates.Position + new Vector2(-radius, -radius), tgtPos.Coordinates.Position + new Vector2(radius, radius)));
+        var entityHash = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, radius);
+        var convertTile = (ContentTileDefinition)_tileDefinition[uid.Comp.ConversionTile];
+        foreach (var entity in entityHash)
+        {
+            if (TryComp<TagComponent>(entity, out var tag))
+            {
+                var tags = tag.Tags;
+                // if (uid.Comp.Disintegrate && tags.Contains("Wall") && Prototype(entity) != null && Prototype(entity)!.ID == uid.Comp.ConversionWall && _rand.Prob(uid.Comp.CorruptionChance / 4))
+                // {
+                //     if (uid.Comp.UseVFX)
+                //         Spawn(uid.Comp.TileDisintegrateVFX, Transform(entity).Coordinates);
+                //     QueueDel(entity);
+                // }
+                if (tags.Contains("Wall") && Prototype(entity) != null && Prototype(entity)!.ID != uid.Comp.ConversionWall && _rand.Prob(uid.Comp.CorruptionChance))
+                {
+                    Spawn(uid.Comp.ConversionWall, Transform(entity).Coordinates);
+                    if (uid.Comp.UseVFX)
+                        Spawn(uid.Comp.TileConvertVFX, Transform(entity).Coordinates);
+                    QueueDel(entity);
+                }
+            }
+        }
+        while (tileEnumerator.MoveNext(out var tile))
+        {
+            var tilePos = _turfs.GetTileCenter(tile);
+            if (tile.Tile.TypeId == convertTile.TileId)
+                continue;
+            if (tile.GetContentTileDefinition().Name != convertTile.Name && _rand.Prob(uid.Comp.CorruptionChance))
+            {
+                _tile.ReplaceTile(tile, convertTile);
+                _tile.PickVariant(convertTile);
+                if (uid.Comp.UseVFX)
+                    Spawn(uid.Comp.TileConvertVFX, tilePos);
+            }
+        }
+    }
+}
+*/
