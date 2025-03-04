@@ -10,6 +10,7 @@ using Content.Shared.Access.Systems;
 using Content.Shared.Power;
 using Content.Server.DeviceLinking.Systems;
 using Robust.Server.GameObjects;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Goobstation.Contraband;
 
@@ -20,6 +21,7 @@ public sealed class ContrabandDetectorSystem : EntitySystem
     [Dependency] private readonly SharedIdCardSystem _id = default!;
     [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
     [Dependency] private readonly PointLightSystem _pointLight = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -30,8 +32,28 @@ public sealed class ContrabandDetectorSystem : EntitySystem
         SubscribeLocalEvent<ContrabandDetectorComponent, PowerChangedEvent>(OnPowerchange);
     }
 
+    public override void Update(float frameTime)
+    {
+        var query = EntityQueryEnumerator<ContrabandDetectorComponent>();
+        while (query.MoveNext(out var _, out var detectors))
+        {
+            foreach (var scan in detectors.Scanned)
+            {
+                if (_timing.CurTime > scan.Key)
+                    detectors.Scanned.Remove(scan.Key);
+            }
+
+            detectors.Scanned.TrimExcess();
+        }
+    }
+
     private void HandleStepOnTriggered(EntityUid uid, ContrabandDetectorComponent component, ref StepTriggeredOnEvent args)
     {
+        if (component.Scanned.ContainsValue(args.Tripper))
+            return;
+
+        component.Scanned.Add(_timing.CurTime + TimeSpan.FromSeconds(component.ScanTimeOut) ,args.Tripper);
+
         var list = RecursiveFindContraband(args.Tripper, 0);
         list = RemovePermitedItems(args.Tripper, ref list);
 
@@ -54,6 +76,7 @@ public sealed class ContrabandDetectorSystem : EntitySystem
             _deviceLink.SendSignal(uid, "SignalContrabandDetected", false);
             _pointLight.SetEnabled(uid, false);
         }
+
     }
 
     private static void HandleStepTriggerAttempt(EntityUid uid, ContrabandDetectorComponent component, ref StepTriggerAttemptEvent args)
