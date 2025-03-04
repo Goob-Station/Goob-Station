@@ -123,6 +123,7 @@
       blacklist:
         components:
         - AntagImmune
+        - BibleUser
       lateJoinAdditional: true
       mindRoles:
       - MindRoleHeretic
