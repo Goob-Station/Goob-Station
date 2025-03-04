@@ -102,6 +102,15 @@
   id: EmergencyOxygenTank
 
 - type: Tag
+  id: EnergySpeedloader
+
+- type: Tag
+  id: EnergySpeedloaderDisabler
+
+- type: Tag
+  id: EnergySpeedloaderLethal
+
+- type: Tag
   id: ExtendedEmergencyOxygenTank
 
 - type: Tag
