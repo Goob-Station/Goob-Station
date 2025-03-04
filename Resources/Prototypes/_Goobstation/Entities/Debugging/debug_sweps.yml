@@ -1,7 +1,7 @@
 - type: entity
   name: holy blast stick 100dmg
   parent: BaseItem
-  id: MeleeDebugGib
+  id: MeleeDebugGibHoly100
   description: Behold, the power of GOD!!
   suffix: DEBUG
   components:
@@ -22,7 +22,7 @@
 - type: entity
   name: holy blast stick 200dmg
   parent: BaseItem
-  id: MeleeDebugGib
+  id: MeleeDebugGibHoly200
   description: Behold, the power of GOD!!
   suffix: DEBUG
   components:
@@ -43,7 +43,7 @@
 - type: entity
   name: holy smite stick # This ones just for fun
   parent: BaseItem
-  id: MeleeDebugGib
+  id: MeleeDebugGibHoly200000
   description: BEGONE SINNER
   suffix: DEBUG
   components:
