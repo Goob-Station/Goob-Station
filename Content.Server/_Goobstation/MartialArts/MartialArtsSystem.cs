@@ -11,7 +11,6 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.StatusEffect;
-using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -43,10 +42,23 @@ public sealed partial class MartialArtsSystem : SharedMartialArtsSystem
         InitializeSleepingCarp();
         InitializeCqc();
         InitializeCorporateJudo();
-        InitializeKravMaga();
         InitializeCanPerformCombo();
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, CheckGrabOverridesEvent>(CheckGrabStageOverride);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<CanPerformComboComponent>();
+        while (query.MoveNext(out _, out var comp))
+        {
+            if (_timing.CurTime < comp.ResetTime || comp.LastAttacks.Count <= 0)
+                continue;
+            comp.LastAttacks.Clear();
+            comp.ConsecutiveGnashes = 0;
+        }
     }
 
     #region Event Methods
@@ -58,12 +70,11 @@ public sealed partial class MartialArtsSystem : SharedMartialArtsSystem
     }
 
     private void CheckGrabStageOverride<T>(EntityUid uid, T component, CheckGrabOverridesEvent args)
-        where T : Shared._Goobstation.MartialArts.Components.GrabStagesOverrideComponent
+        where T : GrabStagesOverrideComponent
     {
         if (args.Stage == GrabStage.Soft)
             args.Stage = component.StartingStage;
     }
-
     #endregion
 
     #region Helper Methods

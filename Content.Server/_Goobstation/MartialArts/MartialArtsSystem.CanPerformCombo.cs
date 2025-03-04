@@ -16,20 +16,6 @@ public sealed partial class MartialArtsSystem
         SubscribeLocalEvent<CanPerformComboComponent, ComboAttackPerformedEvent>(OnAttackPerformed);
     }
 
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        var query = EntityQueryEnumerator<CanPerformComboComponent>();
-        while (query.MoveNext(out _, out var comp))
-        {
-            if (_timing.CurTime < comp.ResetTime || comp.LastAttacks.Count <= 0)
-                continue;
-            comp.LastAttacks.Clear();
-            comp.ConsecutiveGnashes = 0;
-        }
-    }
-
     private void OnMapInit(EntityUid uid, CanPerformComboComponent component, MapInitEvent args)
     {
         foreach (var item in component.RoundstartCombos)

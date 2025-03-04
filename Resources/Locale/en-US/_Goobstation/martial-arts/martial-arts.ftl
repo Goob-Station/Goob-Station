@@ -27,3 +27,5 @@ carp-saying-omae = OMAE WA MOU SHINDEIRU!
 carp-saying-see = YOU CAN'T SEE ME!
 carp-saying-time = MY TIME IS NOW!!
 carp-saying-cowabunga = COWABUNGA!
+
+krav-maga-ready = You ready a {$action}

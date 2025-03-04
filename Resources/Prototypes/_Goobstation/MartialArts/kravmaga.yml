@@ -1,7 +1,7 @@
 - type: entity
   id: ActionLegSweep
-  name: LegSweep
-  description: Sweeps the legs out from under a target to knock them down for four seconds.
+  name: Leg Sweep
+  description: Sweeps the legs out from under a target to knock them down for a few seconds.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -11,3 +11,37 @@
     event: !type:KravMagaActionEvent { }
   - type: KravMagaAction
     configuration: LegSweep
+    name: Leg Sweep
+
+- type: entity
+  id: ActionNeckChop
+  name: Neck Chop
+  description: Sweeps the legs out from under a target to knock them down for four seconds.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _Goobstation/Actions/kravmaga.rsi
+      state: neckchop
+    event: !type:KravMagaActionEvent { }
+  - type: KravMagaAction
+    configuration: NeckChop
+    name: Neck Chop
+    effectTime: 20
+
+- type: entity
+  id: ActionLungPunch
+  name: Lung Punch
+  description: Sweeps the legs out from under a target to knock them down for four seconds.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _Goobstation/Actions/kravmaga.rsi
+      state: lungpunch
+    event: !type:KravMagaActionEvent { }
+  - type: KravMagaAction
+    configuration: LungPunch
+    name: Lung Punch
+    staminaDamage: 40
+    effectTime: 10
