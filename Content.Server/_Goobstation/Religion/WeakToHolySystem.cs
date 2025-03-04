@@ -15,12 +15,15 @@ public sealed partial class WeakToHolySystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
+        SubscribeLocalEvent<WeakToHolyComponent, ComponentInit>(OnCompInit);
     }
 
     private void OnCompInit(Entity<WeakToHolyComponent> ent, ref ComponentInit args)
     {
         if (TryComp<DamageableComponent>(ent, out var damageable) && damageable.DamageContainerID == "Biological")
-            damageable.DamageContainerID = "BiologicalMetaphysical";
+        damageable.DamageContainerID = "BiologicalMetaphysical";
+        _damageableSystem.SetDamageModifierSetId(ent, "ManifestedSpirit");
     }
 }
 
