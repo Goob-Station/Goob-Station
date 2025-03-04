@@ -1,3 +1,4 @@
+using Content.Server._Goobstation.Religion;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Bible.Components;
@@ -144,6 +145,12 @@ namespace Content.Server.Bible
                         }
                         break;
                 }
+            }
+
+            if (HasComp<WeakToHolyComponent>(uid))
+            {
+                DoBibleSmite(uid, useDelay, args);
+                return;
             }
             //Public Domain Code Ends
             //Goobstation Edit End - Religion
