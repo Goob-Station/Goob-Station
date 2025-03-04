@@ -11,8 +11,6 @@
       groups:
         Brute: -15
         Burn: -15
-      types:
-        Holy: -50
     damageOnFail:
       groups:
         Brute: 15

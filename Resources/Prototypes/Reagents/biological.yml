@@ -189,6 +189,7 @@
             Burn: -5
             Brute: -5
             Toxin: -2
+            Holy: -5
           types:
             Bloodloss: -5
       - !type:ModifyBleedAmount
