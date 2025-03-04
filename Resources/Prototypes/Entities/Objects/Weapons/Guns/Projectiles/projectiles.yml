@@ -399,7 +399,7 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Cold: 20 # goob - icewing bolts are twice as powerful and effective as regular ones
+        Cold: 15 # goob - matches magmawings in terms of damage
   - type: ChangeTemperatureOnCollide
     heat: -30000 # Lavaland Change
 

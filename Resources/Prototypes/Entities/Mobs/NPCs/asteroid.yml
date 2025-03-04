@@ -73,7 +73,7 @@
       types:
         Blunt: 35
         Slash: 15
-    range: 1.15 # Goob - Allows kinetic crushers to fight them without taking guaranteed damage.
+    range: 1.12 # Goob - Allows kinetic crushers to fight them without taking guaranteed damage.
   - type: NpcFactionMember
     factions:
     - SimpleHostile
