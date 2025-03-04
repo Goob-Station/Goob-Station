@@ -34,6 +34,16 @@
     duration: 20
 
 - type: polymorph
+  id: MouseSentient
+  configuration:
+    entity: MobMouseSentient
+    forced: true
+    inventory: Transfer
+    revertOnDeath: true
+    transferName: true
+    revertOnCrit: true
+    
+- type: polymorph
   id: BinglePolymorph
   configuration:
     entity: MobBingleUpgraded
