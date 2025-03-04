@@ -1,0 +1,55 @@
+- type: entity
+  id: BaseEnergySpeedloader
+  abstract: true
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi # Placeholder, requires spriting
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: base-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: base
+    steps: 7
+    zeroVisible: false
+  - type: Battery
+    maxCharge: 600
+    startingCharge: 600
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 25
+  - type: AmmoCounter
+  - type: Appearance
+  - type: Tag
+    tags:
+      - EnergySpeedloader
+
+- type: entity
+  id: EnergySpeedloaderLethal
+  parent: [ BaseEnergySpeedloader, BaseCentcommContraband ]
+  name: energy speedloader (lethal)
+  description: A special self-recharging powercell designed for use with the energy revolver. This one contains lethal bolts.
+  components:
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletEnergyGunMagnum
+    fireCost: 100
+  - type: Tag
+    tags:
+      - EnergySpeedloader
+      - EnergySpeedloaderLethal
+
+- type: entity
+  id: EnergySpeedloaderDisabler
+  parent: [ BaseEnergySpeedloader, BaseCentcommContraband ]
+  name: energy speedloader (disabler)
+  description: A special self-recharging powercell designed for use with the energy revolver. This one contains disabler bolts.
+  components:
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 50
+  - type: Tag
+    tags:
+      - EnergySpeedloader
+      - EnergySpeedloaderDisabler
