@@ -41815,17 +41815,17 @@ entities:
     - type: Transform
       pos: -68.23208,18.439922
       parent: 2
-#- proto: ClothingOuterHardsuitLuxury # IDC
-#  entities:
-#  - uid: 7474
-#    components:
-#    - type: Transform
-#      parent: 6063
-#    - type: Physics
-#      angularDamping: 0
-#      linearDamping: 0
-#      canCollide: False
-#    - type: InsideEntityStorage
+- proto: ClothingOuterHardsuitLuxury # IDC
+  entities:
+  - uid: 7474
+    components:
+    - type: Transform
+      parent: 6063
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: ClothingOuterHardsuitSecurity
   entities:
   - uid: 4856
