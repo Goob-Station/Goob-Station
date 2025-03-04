@@ -1,7 +1,7 @@
 - type: entity
   name: holy blast stick 100dmg
   parent: BaseItem
-  id: MeleeDebugGib
+  id: MeleeDebugGibHoly100
   description: Behold, the power of GOD!!
   suffix: DEBUG
   components:
@@ -22,7 +22,7 @@
 - type: entity
   name: holy blast stick 200dmg
   parent: BaseItem
-  id: MeleeDebugGib
+  id: MeleeDebugGibHoly200
   description: Behold, the power of GOD!!
   suffix: DEBUG
   components:
@@ -35,7 +35,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Holy: 100
+        Holy: 200
   - type: Item
     size: Tiny
     sprite: Objects/Weapons/Melee/debug.rsi
@@ -43,7 +43,7 @@
 - type: entity
   name: holy smite stick # This ones just for fun
   parent: BaseItem
-  id: MeleeDebugGib
+  id: MeleeDebugGibHoly200000
   description: BEGONE SINNER
   suffix: DEBUG
   components:
@@ -56,7 +56,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Holy: 2000000
+        Holy: 20000
   - type: Item
     size: Tiny
     sprite: Objects/Weapons/Melee/debug.rsi
