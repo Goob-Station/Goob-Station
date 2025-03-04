@@ -69,7 +69,7 @@
     overtime: 40
     sound: /Audio/Weapons/egloves.ogg
   - type: Damageable
-    damageContainer: OrganicPart # unsure if this is the right type
+    damageContainer: OrganicPart
     damageModifierSet: Bingle
   - type: FootstepModifier
     footstepSoundCollection:
@@ -143,16 +143,5 @@
         Structural: 28
         Ion: 7
   - type: Damageable
-    damageContainer: OrganicPart # unsure if this is the right type
+    damageContainer: OrganicPart
     damageModifierSet: BingleUpgraded
-
-- type: polymorph
-  id: BinglePolymorph
-  configuration:
-    entity: MobBingleUpgraded
-    forced: true
-    transferName: true
-    transferHumanoidAppearance: false
-    inventory: Drop
-    revertOnDeath: false
-    revertOnCrit: false
