@@ -333,3 +333,31 @@
     color: "#808080"
     activateSound: null
     deactivateSound: null
+
+
+- type: entity
+  name: strange mouse
+  parent: MobMouse
+  id: MobMouseSentient
+  description: Squeak! Used to be a person!
+  components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      40: Critical
+      80: Dead
+  - type: Tag
+    tags:
+    - Trash
+    - VimPilot
+    - ChefPilot
+    - Mouse
+    - Meat
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 5
