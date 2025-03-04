@@ -1,14 +1,12 @@
 using Content.Shared._Goobstation.MartialArts.Components;
 using Content.Shared._Goobstation.MartialArts.Events;
 using Content.Shared.Bed.Sleep;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Robust.Shared.Audio;
-using Robust.Shared.Random;
 
 namespace Content.Shared._Goobstation.MartialArts;
 
@@ -22,6 +20,7 @@ public partial class SharedMartialArtsSystem
         SubscribeLocalEvent<CanPerformComboComponent, CqcPressurePerformedEvent>(OnCQCPressure);
         SubscribeLocalEvent<CanPerformComboComponent, CqcConsecutivePerformedEvent>(OnCQCConsecutive);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComboAttackPerformedEvent>(OnCQCAttackPerformed);
+
         SubscribeLocalEvent<GrantCqcComponent, UseInHandEvent>(OnGrantCQCUse);
         SubscribeLocalEvent<GrantCqcComponent, ExaminedEvent>(OnGrantCQCExamine);
     }
@@ -76,8 +75,8 @@ public partial class SharedMartialArtsSystem
 
     private void OnCQCSlam(Entity<CanPerformComboComponent> ent, ref CqcSlamPerformedEvent args)
     {
-        if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out var downed)
-            || !_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
+        if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
+            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed)
             || downed)
             return;
 
@@ -90,8 +89,8 @@ public partial class SharedMartialArtsSystem
 
     private void OnCQCKick(Entity<CanPerformComboComponent> ent, ref CqcKickPerformedEvent args)
     {
-        if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out var downed)
-            || !_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
+        if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
+            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed)
             || !downed)
             return;
 
@@ -109,14 +108,14 @@ public partial class SharedMartialArtsSystem
         dir *= 1f / dir.Length();
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
-        _grabThrowing.Throw(target, ent, dir,7f, 25f, damage, damage);
+        _grabThrowing.Throw(target, ent, dir, proto.ThrownSpeed, proto.StaminaDamage / 2, damage, damage);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
     }
 
     private void OnCQCRestrain(Entity<CanPerformComboComponent> ent, ref CqcRestrainPerformedEvent args)
     {
-        if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out _)
-            || !_proto.TryIndex(ent.Comp.BeingPerformed, out var proto))
+        if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
+            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out _))
             return;
 
         _stun.TryParalyze(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
@@ -125,8 +124,8 @@ public partial class SharedMartialArtsSystem
 
     private void OnCQCPressure(Entity<CanPerformComboComponent> ent, ref CqcPressurePerformedEvent args)
     {
-        if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out _)
-            || !_proto.TryIndex(ent.Comp.BeingPerformed, out var proto))
+        if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
+            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out _))
             return;
 
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
@@ -143,8 +142,8 @@ public partial class SharedMartialArtsSystem
 
     private void OnCQCConsecutive(Entity<CanPerformComboComponent> ent, ref CqcConsecutivePerformedEvent args)
     {
-        if (!TryUseMartialArt(ent, MartialArtsForms.CloseQuartersCombat, out var target, out _)
-            || !_proto.TryIndex(ent.Comp.BeingPerformed, out var proto))
+        if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
+            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out _))
             return;
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);

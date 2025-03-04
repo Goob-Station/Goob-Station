@@ -76,5 +76,6 @@ public partial class SharedMartialArtsSystem
     private void OnComboBeingPerformed(Entity<CanPerformComboComponent> ent, ref ComboBeingPerformedEvent args)
     {
         ent.Comp.BeingPerformed = args.ProtoId;
+        Dirty(ent, ent.Comp);
     }
 }

@@ -18,6 +18,7 @@ public partial class SharedMartialArtsSystem
         SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpGnashingTeethPerformedEvent>(OnSleepingCarpGnashing);
         SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpKneeHaulPerformedEvent>(OnSleepingCarpKneeHaul);
         SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpCrashingWavesPerformedEvent>(OnSleepingCarpCrashingWaves);
+
         SubscribeLocalEvent<GrantSleepingCarpComponent, UseInHandEvent>(OnGrantSleepingCarp);
     }
 
@@ -85,12 +86,13 @@ public partial class SharedMartialArtsSystem
     private void OnSleepingCarpGnashing(Entity<CanPerformComboComponent> ent,
         ref SleepingCarpGnashingTeethPerformedEvent args)
     {
-        if (!TryUseMartialArt(ent, MartialArtsForms.SleepingCarp, out var target, out _))
+        if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
+            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out _))
             return;
 
         if (!TryComp<MartialArtsKnowledgeComponent>(ent.Owner, out var knowledgeComponent))
             return;
-        DoDamage(ent, target, "Slash", 20 + ent.Comp.ConsecutiveGnashes * 5, out _);
+        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage + ent.Comp.ConsecutiveGnashes * 5, out _);
         ent.Comp.ConsecutiveGnashes++;
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg"), target);
         if (TryComp<RequireProjectileTargetComponent>(target, out var standing)
@@ -115,15 +117,14 @@ public partial class SharedMartialArtsSystem
     private void OnSleepingCarpKneeHaul(Entity<CanPerformComboComponent> ent,
         ref SleepingCarpKneeHaulPerformedEvent args)
     {
-        if (!TryUseMartialArt(ent, MartialArtsForms.SleepingCarp, out var target, out var downed))
+        if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
+            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed)
+            || downed)
             return;
 
-        if (downed)
-            return;
-
-        DoDamage(ent, target, "Blunt", 10, out _);
-        _stamina.TakeStaminaDamage(target, 60f);
-        _stun.TryParalyze(target, TimeSpan.FromSeconds(6), true);
+        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
+        _stun.TryParalyze(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
@@ -132,20 +133,18 @@ public partial class SharedMartialArtsSystem
     private void OnSleepingCarpCrashingWaves(Entity<CanPerformComboComponent> ent,
         ref SleepingCarpCrashingWavesPerformedEvent args)
     {
-        if (!TryUseMartialArt(ent, MartialArtsForms.SleepingCarp, out var target, out var downed))
+        if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
+            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed)
+            || downed)
             return;
 
-        if (downed)
-            return;
-
-        DoDamage(ent, target, "Blunt", 5, out var damage);
+        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out var damage);
         var mapPos = _transform.GetMapCoordinates(ent).Position;
         var hitPos = _transform.GetMapCoordinates(target).Position;
         var dir = hitPos - mapPos;
-        dir *= 1f / dir.Length();
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
-        _grabThrowing.Throw(target, ent, dir, 7f,25f, damage, damage);
+        _grabThrowing.Throw(target, ent, dir, proto.ThrownSpeed, proto.StaminaDamage / 2, damage, damage);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
     }
 

@@ -30,22 +30,31 @@
 
 - type: combo
   id: SleepingCarpGnashingTeeth
+  martialArtsForm: SleepingCarp
   attacks:
   - Harm
   - Harm
   event: !type:SleepingCarpGnashingTeethPerformedEvent { }
+  damageType: Slash
+  extraDamage: 20
 
 - type: combo
   id: SleepingCarpKneeHaul
+  martialArtsForm: SleepingCarp
   attacks:
   - Harm
   - Grab
   event: !type:SleepingCarpKneeHaulPerformedEvent { }
+  extraDamage: 10
+  paralyzeTime: 6
+  staminaDamage: 60
 
 - type: combo
   id: SleepingCarpCrashingWaves
+  martialArtsForm: SleepingCarp
   attacks:
   - Harm
   - Disarm
   event: !type:SleepingCarpCrashingWavesPerformedEvent { }
+  staminaDamage: 25
 

@@ -16,6 +16,7 @@ public partial class SharedMartialArtsSystem
         SubscribeLocalEvent<CanPerformComboComponent, JudoThrowPerformedEvent>(OnJudoThrow);
         SubscribeLocalEvent<CanPerformComboComponent, JudoEyePokePerformedEvent>(OnJudoEyepoke);
         SubscribeLocalEvent<CanPerformComboComponent, JudoArmbarPerformedEvent>(OnJudoArmbar);
+
         SubscribeLocalEvent<GrantCorporateJudoComponent, ClothingGotEquippedEvent>(OnGrantCorporateJudo);
         SubscribeLocalEvent<GrantCorporateJudoComponent, ClothingGotUnequippedEvent>(OnRemoveCorporateJudo);
         //SubscribeLocalEvent<CanPerformComboComponent, JudoGoldenBlastPerformedEvent>(OnJudoGoldenBlast); -- rework
@@ -53,14 +54,13 @@ public partial class SharedMartialArtsSystem
 
     private void OnJudoThrow(Entity<CanPerformComboComponent> ent, ref JudoThrowPerformedEvent args)
     {
-        if (!TryUseMartialArt(ent, MartialArtsForms.CorporateJudo, out var target, out var downed))
+        if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
+            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed)
+            || downed)
             return;
 
-        if (downed)
-            return;
-
-        _stun.TryParalyze(target, TimeSpan.FromSeconds(7), false);
-        _stamina.TakeStaminaDamage(target, 25f);
+        _stun.TryParalyze(target, TimeSpan.FromSeconds(proto.ParalyzeTime), false);
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
@@ -68,7 +68,8 @@ public partial class SharedMartialArtsSystem
 
     private void OnJudoEyepoke(Entity<CanPerformComboComponent> ent, ref JudoEyePokePerformedEvent args)
     {
-        if (!TryUseMartialArt(ent, MartialArtsForms.CorporateJudo, out var target, out _))
+        if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
+            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out _))
             return;
 
         if (!TryComp(target, out StatusEffectsComponent? status))
@@ -84,13 +85,14 @@ public partial class SharedMartialArtsSystem
             TimeSpan.FromSeconds(5),
             false,
             status);
-        DoDamage(ent, target, "Blunt", 5, out _);
+        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
     }
 
     private void OnJudoArmbar(Entity<CanPerformComboComponent> ent, ref JudoArmbarPerformedEvent args)
     {
-        if (!TryUseMartialArt(ent, MartialArtsForms.CorporateJudo, out var target, out var downed))
+        if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
+            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed))
             return;
 
         switch (downed)
@@ -101,8 +103,8 @@ public partial class SharedMartialArtsSystem
                     _hands.TryDrop(target, item.Value);
                 break;
             case true:
-                _stamina.TakeStaminaDamage(target, 45f);
-                _stun.TryParalyze(target, TimeSpan.FromSeconds(5), false);
+                _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
+                _stun.TryParalyze(target, TimeSpan.FromSeconds(proto.ParalyzeTime), false);
                 _popupSystem.PopupEntity("You were placed in an arm bar", target);
                 break;
         }

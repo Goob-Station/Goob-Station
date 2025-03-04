@@ -1,3 +1,4 @@
+using Content.Shared._Goobstation.MartialArts.Components;
 using Content.Shared._Goobstation.MartialArts.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -9,6 +10,9 @@ namespace Content.Shared._Goobstation.MartialArts;
 public sealed partial class ComboPrototype : IPrototype
 {
     [IdDataField] public string ID { get; private init; } = default!;
+
+    [DataField(required: true)]
+    public MartialArtsForms MartialArtsForm;
 
     [DataField("attacks", required: true)]
     public List<ComboAttackType> AttackTypes = new();
@@ -41,6 +45,12 @@ public sealed partial class ComboPrototype : IPrototype
     /// </summary>
     [DataField]
     public string DamageType = "Blunt";
+
+    /// <summary>
+    /// How fast people are thrown on combo
+    /// </summary>
+    [DataField]
+    public float ThrownSpeed = 14f;
 }
 
 [Prototype("comboList")]

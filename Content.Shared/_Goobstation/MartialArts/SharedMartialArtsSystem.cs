@@ -130,6 +130,12 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         if (!_netManager.IsServer) // double check to make sure
             return false;
 
+        if (HasComp<KravMagaComponent>(user))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("cqc-fail-knowanother"), user, user);
+            return false;
+        }
+
         if (!HasComp<CanPerformComboComponent>(user))
         {
             var canPerformComboComponent = EnsureComp<CanPerformComboComponent>(user);
