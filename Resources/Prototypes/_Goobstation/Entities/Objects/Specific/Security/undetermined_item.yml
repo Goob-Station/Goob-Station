@@ -9,7 +9,7 @@
     state: icon
   - type: ThiefUndeterminedBackpack # Someone should rename this.
     possibleSets:
-    - PaladinSet
+    - BlueshieldSet
     - RevolverSet
     - CQCSet
     - ChesterSet

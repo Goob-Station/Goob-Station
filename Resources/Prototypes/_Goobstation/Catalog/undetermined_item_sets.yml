@@ -35,9 +35,9 @@
   - WeaponEnergyRevolver
 
 - type: thiefBackpackSet
-  id: PaladinSet
-  name: blueshield-box-category-paladin-name
-  description: blueshield-box-category-paladin-description
+  id: BlueshieldSet
+  name: blueshield-box-category-blueshield-name
+  description: blueshield-box-category-blueshield-description
   sprite:
     sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
     state: icon
