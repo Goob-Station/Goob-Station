@@ -29,7 +29,7 @@ public sealed partial class NullRodSystem : EntitySystem
         if (_damageableSystem.TryChangeDamage(args.User, comp.DamageOnUntrainedUse, false, origin: uid) != null)
         // If you set ignore resistances to true, it'll FUCK you up.
         {
-            _popupSystem.PopupEntity(Loc.GetString("nullrod-untrained-usage-popup"), args.User, args.User, PopupType.MediumCaution);
+            _popupSystem.PopupEntity(Loc.GetString(comp.UntrainedUseString), args.User, args.User, PopupType.MediumCaution);
 
             _audio.PlayPvs("/Audio/Effects/hallelujah.ogg", args.User); // Probably change this sound effect LOL
             args.Handled = true;

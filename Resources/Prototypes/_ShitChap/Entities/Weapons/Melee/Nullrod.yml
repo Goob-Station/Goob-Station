@@ -23,11 +23,6 @@
     - Magic
   - type: DisarmMalus
     malus: 0
-  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
-    DamageOnUntrainedUse:
-      types:
-        Heat: 15
-        Holy: 25
   - type: Tag
     tags:
     - Nullrod
@@ -38,6 +33,12 @@
   id: Nullrod
   description: The old classic. Does nothing special, really.
   components:
+  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
+    DamageOnUntrainedUse:
+      types:
+        Heat: 15
+        Holy: 25
+    UntrainedUseString: nullrod-untrained-usage-popup
   - type: Tag
     tags:
     - Nullrod
@@ -53,6 +54,7 @@
       types:
         Slash: 10
         Holy: 25
+    UntrainedUseString: nullrod-holyclaymore-untrained-usage-popup
   - type: Gun
     soundGunshot: /Audio/Effects/radpulse7.ogg
     fireRate: 0.5
@@ -183,6 +185,7 @@
       types:
         Blunt: 1
         Holy: 60
+    UntrainedUseString: nullrod-rosary-untrained-usage-popup
 
 - type: entity
   parent: BaseNullrod
@@ -237,6 +240,7 @@
       types:
         Burn: 25
         Holy: 15
+    UntrainedUseString: nullrod-godhand-untrained-usage-popup
   - type: Execution # It's not sharp per se, but who's against executing heretics with a giant flaming hand from god?
     doAfterDuration: 4.0
 
@@ -251,6 +255,7 @@
       types:
         Slash: 15
         Holy: 15
+    UntrainedUseString: nullrod-arrythmicknife-untrained-usage-popup
   - type: Item
     size: Huge
     sprite: _ShitChap/Objects/Weapons/Melee/arrythmic.rsi
@@ -301,6 +306,7 @@
       types:
         Blunt: 15
         Holy: 15
+    UntrainedUseString: nullrod-monkstaff-untrained-usage-popup
   - type: Item
     size: Huge
     sprite: _ShitChap/Objects/Weapons/Melee/monkstaff.rsi
