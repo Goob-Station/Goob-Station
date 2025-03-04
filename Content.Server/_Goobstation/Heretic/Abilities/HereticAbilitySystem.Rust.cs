@@ -32,8 +32,8 @@ public sealed partial class HereticAbilitySystem
 
     public static readonly Dictionary<EntProtoId, EntProtoId> Transformations = new()
     {
-        {"WallSolid", "WallSolidRust"},
-        {"WallReinforced", "WallReinforcedRust"},
+        { "WallSolid", "WallSolidRust" },
+        { "WallReinforced", "WallReinforcedRust" },
     };
 
     private void SubscribeRust()
@@ -49,7 +49,9 @@ public sealed partial class HereticAbilitySystem
     {
         var (uid, comp) = ent;
 
-        _appearance.SetData(uid, OffsetVisuals.Offset, _random.NextVector2Box(comp.MinX, comp.MinY, comp.MaxX, comp.MaxY));
+        _appearance.SetData(uid,
+            OffsetVisuals.Offset,
+            _random.NextVector2Box(comp.MinX, comp.MinY, comp.MaxX, comp.MaxY));
     }
 
     private void OnAggressiveSpread(Entity<HereticComponent> ent, ref EventHereticAggressiveSpread args)
@@ -84,7 +86,7 @@ public sealed partial class HereticAbilitySystem
             if (_random.Prob(chanceOfNotRusting))
                 continue;
 
-            if (_tileDefinitionManager[tileRef.Tile.TypeId].ID != RustTile)
+            if (CanRustTile((ContentTileDefinition) _tileDefinitionManager[tileRef.Tile.TypeId]))
                 MakeRustTile(gridUid, mapGrid, tileRef, args.TileRune);
 
             foreach (var toRust in _lookup.GetEntitiesInRange(coords, args.LookupRange, LookupFlags.Static))
@@ -108,6 +110,12 @@ public sealed partial class HereticAbilitySystem
             _popup.PopupEntity(Loc.GetString("heretic-ability-fail-rust-stage-low"), ent.Value, ent.Value);
 
         return false;
+    }
+
+    public bool CanRustTile(ContentTileDefinition tile)
+    {
+        return tile.ID != RustTile && !tile.Indestructible &&
+               !(tile.DeconstructTools.Count == 0 && tile.Weather);
     }
 
     public void MakeRustTile(EntityUid gridUid, MapGridComponent mapGrid, TileRef tileRef, EntProtoId tileRune)
@@ -174,7 +182,8 @@ public sealed partial class HereticAbilitySystem
         var mask = CollisionGroup.LowImpassable | CollisionGroup.MidImpassable | CollisionGroup.HighImpassable |
                    CollisionGroup.Impassable;
 
-        var lookup = _lookup.GetEntitiesInRange<FixturesComponent>(args.Target, args.ObstacleCheckRange, LookupFlags.Static);
+        var lookup =
+            _lookup.GetEntitiesInRange<FixturesComponent>(args.Target, args.ObstacleCheckRange, LookupFlags.Static);
         foreach (var (_, fix) in lookup)
         {
             if (fix.Fixtures.All(x => (x.Value.CollisionLayer & (int) mask) == 0))
@@ -186,7 +195,8 @@ public sealed partial class HereticAbilitySystem
 
         var mapCoords = _transform.ToMapCoordinates(args.Target);
 
-        var lookup2 = _lookup.GetEntitiesInRange<TransformComponent>(args.Target, args.MobCheckRange, LookupFlags.Dynamic);
+        var lookup2 =
+            _lookup.GetEntitiesInRange<TransformComponent>(args.Target, args.MobCheckRange, LookupFlags.Dynamic);
         foreach (var (entity, xform) in lookup2)
         {
             var dir = _transform.GetWorldPosition(xform) - mapCoords.Position;

@@ -131,7 +131,7 @@ public sealed class MansusGraspSystem : EntitySystem
             var tileRef = _mapSystem.GetTileRef(gridUid, mapGrid, args.ClickLocation);
             var tileDef = (ContentTileDefinition) _tileDefinitionManager[tileRef.Tile.TypeId];
 
-            if (tileDef.ID == HereticAbilitySystem.RustTile)
+            if (!_ability.CanRustTile(tileDef))
                 return;
 
             args.Handled = true;
