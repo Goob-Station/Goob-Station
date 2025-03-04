@@ -33,7 +33,7 @@ public sealed partial class MartialArtsSystem
     {
         if (!TryComp<KravMagaComponent>(args.Wearer, out var kravMaga))
             return;
-        
+
         foreach (var action in kravMaga.KravMagaMoveEntities)
         {
             _actions.RemoveAction(action);
