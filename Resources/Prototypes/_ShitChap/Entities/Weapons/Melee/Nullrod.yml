@@ -290,3 +290,40 @@
   - type: BoneSaw
     speed: 0.5
 
+- type: entity
+  parent: BaseNullrod
+  id: MonkStaff
+  name: monk's staff
+  description: A long, tall staff made of polished wood. Traditionally used in ancient old-Earth martial arts, now used to harass the clown. #Can parry blows - cqc update
+  components:
+  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
+    DamageOnUntrainedUse:
+      types:
+        Blunt: 15
+        Holy: 15
+  - type: Item
+    size: Huge
+    sprite: _ShitChap/Objects/Weapons/Melee/monkstaff.rsi
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Melee/monkstaff.rsi
+    state: icon
+  - type: Reflect # Only blocks magic projectiles
+    reflectProb: 1.0
+    reflects:
+    - Magic
+  - type: MeleeWeapon
+    attackRate: 5.0
+    damage:
+      types:
+        Blunt: 2
+        Holy: 4
+    soundHit:
+      collection: BoxingHit
+  - type: StaminaDamageOnHit
+    damage: 20
+  - type: Wieldable
+  - type: DisarmMalus
+    malus: 0
+  - type: Tag
+    tags:
+    - MonkStaff

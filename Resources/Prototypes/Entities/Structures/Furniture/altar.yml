@@ -96,6 +96,8 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: druid
+  - type: AltarSource
+    rodProto: MonkStaff
 
 - type: entity
   id: AltarToolbox

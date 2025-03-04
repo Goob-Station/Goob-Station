@@ -241,6 +241,9 @@
   id: ModsuitShell
 
 - type: Tag
+  id: MonkStaff
+
+- type: Tag
   id: NukeOpsCommanderUplink
 
 - type: Tag
