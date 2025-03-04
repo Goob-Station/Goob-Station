@@ -5,11 +5,6 @@
   description: bingle
   components:
   - type: Bingle
-    upgradeDamage:
-      types:
-        Blunt: 14
-        Structural: 28
-        Ion: 7
   - type: GhostTakeoverAvailable
   - type: GhostRole
     name: ghost-role-information-bingle-name
