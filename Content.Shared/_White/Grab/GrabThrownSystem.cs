@@ -60,7 +60,7 @@ public sealed class GrabThrownSystem : EntitySystem
             _stamina.TakeStaminaDamage(ent, ent.Comp.StaminaDamageOnCollide.Value);
 
         var kineticEnergyDamage = new DamageSpecifier();
-        kineticEnergyDamage.DamageDict.Add("Structural", 1);
+        kineticEnergyDamage.DamageDict.Add("Blunt", 1);
         kineticEnergyDamage *= Math.Floor(kineticEnergy / 100);
         _damageable.TryChangeDamage(args.OtherEntity, kineticEnergyDamage);
 

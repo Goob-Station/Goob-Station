@@ -1,3 +1,4 @@
+using Content.Shared._Goobstation.TableSlam; // Goobstation - Table SLam
 using Content.Shared.Alert;
 using Content.Shared.Movement.Pulling.Systems; // Goobstation
 using Robust.Shared.GameStates;
@@ -9,7 +10,7 @@ namespace Content.Shared.Movement.Pulling.Components;
 /// Specifies an entity as being pullable by an entity with <see cref="PullerComponent"/>
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(Systems.PullingSystem))]
+[Access(typeof(Systems.PullingSystem), typeof(TableSlamSystem))]
 public sealed partial class PullableComponent : Component
 {
     /// <summary>
@@ -64,6 +65,9 @@ public sealed partial class PullableComponent : Component
 
     [AutoNetworkedField]
     public TimeSpan NextEscapeAttempt = TimeSpan.Zero;
+
+    [DataField, AutoNetworkedField]
+    public bool BeingTabled = false;
     // Goobstation end
 }
 
