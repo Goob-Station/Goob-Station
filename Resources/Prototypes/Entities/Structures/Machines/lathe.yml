@@ -741,8 +741,7 @@
     - ModsuitShell
     - ModsuitPlatingExternal
     - PowerCageHigh # Goobstation - Powercell to exosuit fab
-    # Goobstation - Hoverchair
-    - VehicleHoverchairSci
+    - VehicleHoverchairSci # Goobstation - Hoverchair
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - WeaponMechCombatImmolationGun
