@@ -26,8 +26,8 @@ jobs:
       - name: Get open pull requests
         id: get-prs
         run: |
-          prs=$(GH_TOKEN=${{ secrets.GITHUB_TOKEN }} gh pr list --state open --json number --jq '.[].number')
-          echo "prs=${prs}" >> $GITHUB_ENV
+          prs=$(GH_TOKEN=${{ secrets.GITHUB_TOKEN }} gh pr list --state open --json number --jq 'map(.number) | @sh' | tr -d "'")
+          echo "prs=$prs" >> $GITHUB_ENV
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -35,6 +35,7 @@ jobs:
         if: env.prs != ''
         run: |
           for pr in $prs; do
+            echo "Updating PR #$pr..."
             GH_TOKEN=${{ secrets.GITHUB_TOKEN }} gh pr merge $pr --rebase --admin || echo "Failed to update PR #$pr"
           done
         env:
