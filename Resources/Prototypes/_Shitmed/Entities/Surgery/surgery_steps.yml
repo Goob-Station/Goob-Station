@@ -443,6 +443,30 @@
   - type: SurgeryStepEmoteEffect
 
 - type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepOpenOrganSlot
+  name: Carve out a cavity
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SurgeryStep
+    tool:
+    - type: Scalpel
+    duration: 6
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/manipulation.rsi
+    state: insertion
+  - type: SurgeryAddOrganSlotStep
+  - type: SurgeryStepEmoteEffect
+  - type: SurgeryDamageChangeEffect # DeltaV
+    sleepModifier: 0.5
+    damage:
+      types:
+        Blunt: 5
+  - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
+    toolDirtiness: 7.5
+    gloveDirtiness: 7.5
+
+- type: entity
   parent: SurgeryStepInsertOrgan
   id: SurgeryStepInsertLungs
   name: Add lungs
