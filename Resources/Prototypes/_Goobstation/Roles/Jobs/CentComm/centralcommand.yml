@@ -39,9 +39,6 @@
     back:
     - HandheldFaxOfficial
     - WeaponPulsePistol
-    - BluespaceLifelineImplanter
-    - CentcommFreedomImplanter
-    - RadioImplanterCentcomm
 
 # Navy Captain
 
@@ -85,9 +82,6 @@
     back:
       - WeaponPulsePistol
       - HandheldFaxOfficial
-      - BluespaceLifelineImplanter
-      - CentcommFreedomImplanter
-      - RadioImplanterCentcomm
 
 # Undercover Officer
 
@@ -129,10 +123,6 @@
     pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
   storage:
     back:
-      - BluespaceLifelineImplanter
-      - CentcommFreedomImplanter
-      - RadioImplanterCentcomm
-      - CentcommStorageImplanter
       - ExecutiveIDCardChameleon
       - WeaponPulsePistol
       - MagazinePistolNeurotoxin
@@ -181,9 +171,6 @@
     back:
       - WeaponPulsePistol
       - HandheldFaxOfficial
-      - BluespaceLifelineImplanter
-      - CentcommFreedomImplanter
-      - RadioImplanterCentcomm
       - BoxFolderNuclearCodes # ka-BOOM
       - MagazineLightRifleUranium
       - MagazineLightRifleUranium
@@ -228,9 +215,6 @@
   storage:
     back:
     - HandheldFaxOfficial
-    - BluespaceLifelineImplanter
-    - CentcommFreedomImplanter
-    - RadioImplanterCentcomm
     - WeaponPulsePistol
 
 ## Half-life stolen roles
