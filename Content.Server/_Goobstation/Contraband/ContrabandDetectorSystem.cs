@@ -37,29 +37,27 @@ public sealed class ContrabandDetectorSystem : EntitySystem
         var query = EntityQueryEnumerator<ContrabandDetectorComponent>();
         while (query.MoveNext(out var _, out var detectors))
         {
-            var keysToRemove = new List<TimeSpan>();
+            var keysToRemove = new List<EntityUid>();
             foreach (var scan in detectors.Scanned)
             {
-                if (_timing.CurTime > scan.Key)
+                if (_timing.CurTime > scan.Value)
                     keysToRemove.Add(scan.Key);
-
-                foreach (var key in keysToRemove)
-                {
-                    detectors.Scanned.Remove(key);
-                }
-
-                if (keysToRemove.Count > 0)
-                    detectors.Scanned.TrimExcess();
             }
+            foreach (var key in keysToRemove)
+            {
+                detectors.Scanned.Remove(key);
+            }
+            if (keysToRemove.Count > 0)
+                detectors.Scanned.TrimExcess();
         }
     }
 
     private void HandleStepOnTriggered(EntityUid uid, ContrabandDetectorComponent component, ref StepTriggeredOnEvent args)
     {
-        if (component.Scanned.ContainsValue(args.Tripper))
+        if (component.Scanned.ContainsKey(args.Tripper))
             return;
 
-        component.Scanned.Add(_timing.CurTime + TimeSpan.FromSeconds(component.ScanTimeOut) ,args.Tripper);
+        component.Scanned.Add(args.Tripper,_timing.CurTime + TimeSpan.FromSeconds(component.ScanTimeOut));
 
         var list = RecursiveFindContraband(args.Tripper, 0);
         list = RemovePermitedItems(args.Tripper, ref list);
@@ -83,7 +81,6 @@ public sealed class ContrabandDetectorSystem : EntitySystem
             _deviceLink.SendSignal(uid, "SignalContrabandDetected", false);
             _pointLight.SetEnabled(uid, false);
         }
-
     }
 
     private static void HandleStepTriggerAttempt(EntityUid uid, ContrabandDetectorComponent component, ref StepTriggerAttemptEvent args)

@@ -26,7 +26,7 @@ public sealed partial class ContrabandDetectorComponent : Component
     public bool IsPowered = false;
 
     /// <summary>
-    ///  random change for false triggering or not.
+    ///  random chance for false triggering or not.
     /// number between 0 and 100
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
@@ -36,7 +36,7 @@ public sealed partial class ContrabandDetectorComponent : Component
     ///  list of scanned entity and time scanned for scan timout
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public Dictionary<TimeSpan, EntityUid> Scanned = new Dictionary<TimeSpan, EntityUid>();
+    public Dictionary<EntityUid, TimeSpan> Scanned = new Dictionary<EntityUid, TimeSpan>();
 
     /// <summary>
     ///  time in seconds for each scan of the entity to happen.
