@@ -45,6 +45,7 @@
     - BluespaceLifelineImplanter # CentComm doesn't use syndicate tech.
     - CentcommFreedomImplanter # CentComm doesn't use syndicate tech.
     - BlueShieldShieldEvilFilled # Goobstation
+    - HyperFlash # Flash!
   inhand:
   - WeaponPulseRifle
 

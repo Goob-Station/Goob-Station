@@ -38,6 +38,7 @@
   storage:
     back:
     - HandheldFaxOfficial
+    - HyperFlash
     - WeaponPulsePistol
 
 # Navy Captain
@@ -81,6 +82,7 @@
   storage:
     back:
       - WeaponPulsePistol
+      - HyperFlash
       - HandheldFaxOfficial
 
 # Undercover Officer
@@ -127,6 +129,7 @@
       - WeaponPulsePistol
       - MagazinePistolNeurotoxin
       - MagazinePistolNeurotoxin
+      - HyperFlash
 
 # Special Operations Officer
 
@@ -174,6 +177,7 @@
       - BoxFolderNuclearCodes # ka-BOOM
       - MagazineLightRifleUranium
       - MagazineLightRifleUranium
+      - HyperFlash
 
 # Diplomat
 
@@ -216,6 +220,7 @@
     back:
     - HandheldFaxOfficial
     - WeaponPulsePistol
+    - HyperFlash
 
 ## Half-life stolen roles
 
@@ -252,17 +257,10 @@
     shoes: ClothingShoesLeather
     eyes: ClothingEyesGlassesCentComm
     back: ClothingBackpackSatchelHolding
-    outerClothing: ClothingOuterArmourInvisible # Todo - Allow him to go invisible
+    outerClothing: ClothingOuterArmourInvisible
     id: GmanPDA
     ears: ClothingHeadsetChronolegioneer
     pocket1: SonicScrewdriver
     pocket2: AmnestizineHypospray # Todo - Make this an ability. It'd be funny.
   inhand:
   - BriefcaseCentcomm
-  storage:
-    back:
-    - ScramImplanter
-    - CentcommFreedomImplanter
-    - VaporizeImplanter
-    - BlinkImplanter
-    - ShiftImplanter
