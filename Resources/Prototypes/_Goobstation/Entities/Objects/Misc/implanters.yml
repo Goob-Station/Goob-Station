@@ -136,14 +136,6 @@
     implant: VaporizeImplant
 
 - type: entity
-  id: VanishImplanter
-  suffix: vanish, admeme
-  parent: BaseImplantOnlyImplanterCentcomm
-  components:
-  - type: Implanter
-    implant: VanishImplant
-
-- type: entity
   id: ShiftImplanter
   suffix: shift, admeme
   parent: BaseImplantOnlyImplanterCentcomm

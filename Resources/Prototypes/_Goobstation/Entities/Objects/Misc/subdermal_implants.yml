@@ -89,20 +89,10 @@
   parent: BaseSubdermalImplant
   id: ShiftImplant
   name: shift implant
-  description: This implant allows the user to swap places with a target.
+  description: This implant allows the user to teleport to a point in range.
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
     implantAction: ActionShiftFreeman
-
-- type: entity
-  parent: BaseSubdermalImplant
-  id: VanishImplant
-  name: vanish implant
-  description: This implant allows the user to vanish, becoming intangible.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: SubdermalImplant
-    implantAction: ActionVanishFreeman
 
 

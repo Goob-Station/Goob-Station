@@ -54,19 +54,3 @@
       sprite: Objects/Magic/magicactions.rsi
       state: blink
     event: !type:TeleportSpellEvent
-
-- type: entity
-  id: ActionVanishFreeman
-  name: Vanish
-  description: Become almost invisible.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    useDelay: 1
-    checkCanInteract: false
-    checkConsciousness: false
-    itemIconStyle: NoItem
-    icon:
-      sprite: _Goobstation/Changeling/changeling_abilities.rsi
-      state: chameleon_skin
-    event: !type:ActionChameleonSkinEvent {}
