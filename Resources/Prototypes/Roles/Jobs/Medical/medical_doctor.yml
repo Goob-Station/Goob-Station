@@ -15,7 +15,10 @@
   - Maintenance
   extendedAccess:
   - Chemistry
-  special: # Shitmed change
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: DoctorDay
+    prototype: WehMedipen
   - !type:AddComponentSpecial
     components:
     - type: SurgerySpeedModifier
