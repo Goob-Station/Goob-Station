@@ -53,7 +53,6 @@
     checkCanInteract: false
     event: !type:PolymorphSpellEvent
       protoId: Jaunt
-      makeWizard: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Wizard/actions.rsi # Todo - Change this
