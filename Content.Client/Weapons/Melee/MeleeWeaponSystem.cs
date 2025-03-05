@@ -112,28 +112,28 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         {
             coordinates = TransformSystem.ToCoordinates(_map.GetMap(mousePos.MapId), mousePos);
         }
-        
+
         // If the gun has AltFireComponent, it can be used to attack.
         if (TryComp<GunComponent>(weaponUid, out var gun) && gun.UseKey)
         {
             if (!TryComp<AltFireMeleeComponent>(weaponUid, out var altFireComponent) || altDown != BoundKeyState.Down)
                 return;
-            
+
             switch(altFireComponent.AttackType)
             {
                 case AltFireAttackType.Light:
                     ClientLightAttack(entity, mousePos, coordinates, weaponUid, weapon);
                     break;
-                
+
                 case AltFireAttackType.Heavy:
                     ClientHeavyAttack(entity, coordinates, weaponUid, weapon);
                     break;
-                
+
                 case AltFireAttackType.Disarm:
                     ClientDisarm(entity, mousePos, coordinates);
                     break;
             }
-            
+
             return;
         }
 
@@ -146,6 +146,42 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 ClientDisarm(entity, mousePos, coordinates);
                 return;
             }
+
+            // Goobstation start; TODO: put this more in-line with new structure
+            // Blink, WD edit
+            if (TryComp(weaponUid, out BlinkComponent? blink) && blink.IsActive)
+            {
+                var direction = GetDirection();
+                if (direction != Vector2.Zero)
+                    RaisePredictiveEvent(new BlinkEvent(GetNetEntity(weaponUid), direction));
+                return;
+            }
+            // WD edit end
+
+            // Dash
+            if (TryComp(weaponUid, out MeleeDashComponent? dash))
+            {
+                var direction = GetDirection();
+                if (direction != Vector2.Zero)
+                    RaisePredictiveEvent(new MeleeDashEvent(GetNetEntity(weaponUid), direction));
+                return;
+            }
+
+            // Helper func
+            Vector2 GetDirection()
+            {
+                if (!_xformQuery.TryGetComponent(entity, out var userXform))
+                    return Vector2.Zero;
+
+                var targetMap = _transform.ToMapCoordinates(coordinates);
+
+                if (targetMap.MapId != userXform.MapID)
+                    return Vector2.Zero;
+
+                var userPos = TransformSystem.GetWorldPosition(userXform);
+                return targetMap.Position - userPos;
+            }
+            // Goobstation end
 
             ClientHeavyAttack(entity, coordinates, weaponUid, weapon);
             return;
@@ -227,17 +263,17 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         var entities = GetNetEntityList(ArcRayCast(userPos, direction.ToWorldAngle(), component.Angle, distance, userXform.MapID, user).ToList());
         RaisePredictiveEvent(new HeavyAttackEvent(GetNetEntity(meleeUid), entities.GetRange(0, Math.Min(MaxTargets, entities.Count)), GetNetCoordinates(coordinates)));
     }
-    
+
     private void ClientDisarm(EntityUid attacker, MapCoordinates mousePos, EntityCoordinates coordinates)
     {
         EntityUid? target = null;
 
         if (_stateManager.CurrentState is GameplayStateBase screen)
-            target = screen.GetClickedEntity(mousePos);
+            target = screen.GetDamageableClickedEntity(mousePos); // Goob edit
 
         RaisePredictiveEvent(new DisarmAttackEvent(GetNetEntity(target), GetNetCoordinates(coordinates)));
     }
-    
+
     private void ClientLightAttack(EntityUid attacker, MapCoordinates mousePos, EntityCoordinates coordinates, EntityUid weaponUid, MeleeWeaponComponent meleeComponent)
     {
         var attackerPos = TransformSystem.GetMapCoordinates(attacker);
@@ -248,7 +284,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         EntityUid? target = null;
 
         if (_stateManager.CurrentState is GameplayStateBase screen)
-            target = screen.GetClickedEntity(mousePos);
+            target = screen.GetDamageableClickedEntity(mousePos); // Goob edit
 
         // Don't light-attack if interaction will be handling this instead
         if (Interaction.CombatModeCanHandInteract(attacker, target))
