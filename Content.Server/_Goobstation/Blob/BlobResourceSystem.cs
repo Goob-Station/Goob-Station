@@ -53,13 +53,13 @@ public sealed class BlobResourceSystem : EntitySystem
         }
     }
     /// <summary>
-    ///  On round end makes all the blobs resource nodes generate 100 points eatch pulse.
+    /// On round end makes all the blobs resource nodes generate 100 points each pulse.
     /// </summary>
     /// <param name="args"></param>
     private void OnRoundEnd(RoundEndTextAppendEvent args)
     {
-        var quary = EntityQueryEnumerator<BlobResourceComponent>();
-        while(quary.MoveNext(out var resource))
+        var query = EntityQueryEnumerator<BlobResourceComponent>();
+        while(query.MoveNext(out var resource))
             resource.PointsPerPulsed = 100;
     }
 }
