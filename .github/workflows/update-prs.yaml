@@ -16,23 +16,17 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install GitHub CLI
+      - name: Install GitHub CLI (if missing)
         run: |
           if ! command -v gh &> /dev/null; then
             echo "Installing GitHub CLI..."
             sudo apt update && sudo apt install gh -y
           fi
 
-      - name: Authenticate with GitHub CLI
-        run: |
-          echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Get open pull requests
         id: get-prs
         run: |
-          prs=$(gh pr list --state open --json number --jq '.[].number')
+          prs=$(GH_TOKEN=${{ secrets.GITHUB_TOKEN }} gh pr list --state open --json number --jq '.[].number')
           echo "prs=${prs}" >> $GITHUB_ENV
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -41,7 +35,7 @@ jobs:
         if: env.prs != ''
         run: |
           for pr in $prs; do
-            gh pr merge $pr --rebase --admin || echo "Failed to update PR #$pr"
+            GH_TOKEN=${{ secrets.GITHUB_TOKEN }} gh pr merge $pr --rebase --admin || echo "Failed to update PR #$pr"
           done
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
