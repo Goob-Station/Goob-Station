@@ -1,3 +1,5 @@
+## Navy Roles
+
 # Navy Officer
 
 - type: job
@@ -230,3 +232,48 @@
     - CentcommFreedomImplanter
     - RadioImplanterCentcomm
     - WeaponPulsePistol
+
+## Half-life stolen roles
+
+- type: job
+  id: GovernmentMan
+  name: job-name-governmentman
+  description: job-description-governmentman
+  playTimeTracker: JobGovernmentMan
+  setPreference: false
+  startingGear: GovernmentManGear
+  icon: "JobIconLambda"
+  supervisors: job-supervisors-null
+  canBeAntag: false
+  requirements:
+  - !type:AgeRequirement
+    requiredAge: 21
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
+  - Wizard
+  - NuclearOperative
+  - SyndicateAgent
+
+- type: startingGear
+  id: GovernmentMan
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitReporter
+    shoes: ClothingShoesLeather
+    eyes: ClothingEyesGlassesCentComm
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
+    back: ClothingBackpackSatchelHolding
+    outerClothing: ClothingOuterArmourInvisible # Todo - Allow him to go invisible
+    id: GmanPDA
+    ears: ClothingHeadsetChronolegioneer
+    pocket1: SonicScrewdriver
+    pocket2: AmnestizineHypospray # Todo - Make this an ability. It'd be funny.
+  inhand:
+  - BriefcaseCentcomm
+  storage:
+    back:
+    - ScramImplanter
+    - CentcommFreedomImplanter

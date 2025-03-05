@@ -1,3 +1,4 @@
+# Chrono Legioneers
 - type: entity
   parent: IDCardStandard
   id: ChronoIDCard
@@ -19,9 +20,11 @@
     - AllAccess
     tags:
     - CentralCommand
-    - SyndicateAgent
     - NanotrasenRepresentative
     - BlueshieldOfficer
+    - Wizard
+    - NuclearOperative
+    - SyndicateAgent
 
 # Helldiver
 - type: entity
@@ -217,3 +220,32 @@
     - CentralCommand
     - NanotrasenRepresentative
     - BlueshieldOfficer
+
+# Halflife Stuff
+
+- type: entity
+  parent: IDCardStandard
+  id: GmanIDCard
+  name: strange ID card
+  description: The card that originally accessed everything in this universe
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/id_cards.rsi
+    layers:
+    - state: future # Todo - Unique sprites?
+    - state: idchrono
+  - type: Item
+    heldPrefix: blue
+  - type: IdCard
+    jobTitle: job-name-gman
+    jobIcon: JobIconLambda
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
+    - Wizard
+    - NuclearOperative
+    - SyndicateAgent

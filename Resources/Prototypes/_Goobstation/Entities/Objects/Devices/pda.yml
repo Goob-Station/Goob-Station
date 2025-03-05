@@ -26,6 +26,33 @@
     state: pda-chrono
 
 - type: entity
+  parent: AdminPDA
+  id: GmanPDA
+  name: strange PDA
+  description: Your mind can't quite comprehend this.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/pda.rsi # todo - make a unique texture.
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-chrono
+  - type: Pda
+    id: GmanIDCard
+    penSlot:
+      startingItem: PenFuture
+      whitelist:
+        tags:
+        - Write
+  - type: PdaBorderColor
+    borderColor: "#dee4e7"
+    accentVColor: "#59bcee"
+  - type: Icon
+    sprite: _Goobstation/Objects/Devices/pda.rsi
+    state: pda-chrono
+
+- type: entity
   parent: SalvagePDA
   id: HelldiverPDA
   name: salvage diver PDA

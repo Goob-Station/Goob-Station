@@ -21,3 +21,6 @@
 
 - type: playTimeTracker
   id: JobDiplomat
+
+- type: playTimeTracker
+  id: JobGovernmentMan
