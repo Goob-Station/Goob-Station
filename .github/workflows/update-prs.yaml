@@ -39,11 +39,22 @@ jobs:
           git config --global submodule.fetchJobs 0
           git config --global submodule.recurse true
 
+          # Clean start
+          git reset --hard
+          git clean -fd
+          git checkout master
+
           for pr in $prs; do
             pr_number=$(echo $pr | cut -d':' -f1)
             branch=$(echo $pr | cut -d':' -f2)
             repo_owner=$(echo $pr | cut -d':' -f3)
             origin_repo=$(basename -s .git $(git remote get-url origin))
+
+            # Reset to clean state between PRs
+            git reset --hard
+            git clean -fd
+            git checkout master
+            git submodule deinit --all -f
 
             if [ "$repo_owner" != "$(git remote get-url origin | cut -d':' -f2 | cut -d'/' -f1)" ]; then
               fork_remote="fork-$repo_owner"
@@ -58,51 +69,40 @@ jobs:
                 git fetch "$fork_remote"
               fi
 
-              # Skip if branch missing
+              # Verify branch exists
               if ! git ls-remote --exit-code --heads "$fork_remote" "$branch" >/dev/null 2>&1; then
                 echo "Branch $branch not found in $fork_remote, skipping PR #$pr_number"
                 continue
               fi
 
-              # Process fork PR
+              # Create temporary branch
               git checkout -b "temp-$branch" "$fork_remote/$branch"
               
-              # Update submodules
-              git submodule update --init --recursive --force || {
-                echo "Submodule update failed, attempting to continue..."
-                git submodule deinit --all -f
-              }
-
-              # Merge and push
-              if git merge --no-commit --no-ff origin/master; then
+              # Attempt merge
+              if git merge --no-commit origin/master; then
                 git commit -m "Merge master into $branch"
                 git push "$fork_remote" "temp-$branch:$branch"
               else
-                echo "Merge conflict in PR #$pr_number, skipping..."
+                echo "Merge conflict in PR #$pr_number, aborting..."
+                git merge --abort >/dev/null 2>&1 || true
               fi
 
               # Cleanup
               git checkout master
               git branch -D "temp-$branch"
+              git remote remove "$fork_remote" || true
 
             else
-              # Process same-repo PR
+              # Handle same-repo PR
               git fetch origin "$branch"
               git checkout "$branch"
               
-              # Update submodules
-              git submodule update --init --recursive --force || {
-                echo "Submodule update failed, attempting to continue..."
-                git submodule deinit --all -f
-              }
-
-              # Merge and push
-              if git merge --no-commit --no-ff origin/master; then
+              if git merge --no-commit origin/master; then
                 git commit -m "Merge master into $branch"
                 git push origin "$branch"
               else
-                echo "Merge conflict in PR #$pr_number, skipping..."
-                git reset --hard
+                echo "Merge conflict in PR #$pr_number, aborting..."
+                git merge --abort >/dev/null 2>&1 || true
                 git checkout master
               fi
             fi
