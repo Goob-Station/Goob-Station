@@ -15,6 +15,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          submodules: recursive
 
       - name: Install GitHub CLI
         run: |
@@ -36,6 +37,10 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
 
+          # Configure submodules to continue on error
+          git config --global submodule.fetchJobs 0
+          git config --global submodule.recurse true
+
           for pr in $prs; do
             pr_number=$(echo $pr | cut -d':' -f1)
             branch=$(echo $pr | cut -d':' -f2)
@@ -46,7 +51,6 @@ jobs:
               fork_remote="fork-$repo_owner"
               fork_repo="https://github.com/$repo_owner/$origin_repo.git"
 
-              # Add/update remote
               if git remote | grep -q "^$fork_remote$"; then
                 git remote set-url "$fork_remote" "$fork_repo"
                 git fetch "$fork_remote"
@@ -55,16 +59,19 @@ jobs:
                 git fetch "$fork_remote"
               fi
 
-              # Verify branch exists
               if ! git ls-remote --exit-code --heads "$fork_remote" "$branch" >/dev/null 2>&1; then
                 echo "Branch $branch not found in $fork_remote, skipping PR #$pr_number"
                 continue
               fi
 
-              # Create working branch
               git checkout -b "temp-$branch" "$fork_remote/$branch"
               
-              # Attempt merge
+              # Attempt submodule update with error handling
+              if ! git submodule update --init --recursive --force; then
+                echo "Warning: Failed to update submodules, attempting to continue..."
+                git submodule deinit --all -f
+              fi
+
               if ! git merge --no-commit --no-ff origin/master; then
                 echo "Merge conflict in PR #$pr_number, skipping..."
                 git reset --hard
@@ -73,24 +80,29 @@ jobs:
                 continue
               fi
 
-              # Reset workflow file changes if present
               if git diff --name-only --cached | grep -q '.github/workflows/update-prs.yaml'; then
                 echo "Resetting workflow file changes in PR #$pr_number"
                 git restore --source=HEAD --staged -- .github/workflows/update-prs.yaml
                 git restore --source=HEAD -- .github/workflows/update-prs.yaml
               fi
 
-              # Commit and push
+              # Attempt to update submodules again before commit
+              git submodule update --recursive --force || true
+
               git commit -m "Merge master into $branch (excluding workflow changes)"
               git push "$fork_remote" "temp-$branch:$branch"
               git checkout master
               git branch -D "temp-$branch"
 
             else
-              # Handle same-repo PRs
               git fetch origin "$branch"
               git checkout "$branch"
               
+              if ! git submodule update --init --recursive --force; then
+                echo "Warning: Failed to update submodules, attempting to continue..."
+                git submodule deinit --all -f
+              fi
+
               if ! git merge --no-commit --no-ff origin/master; then
                 echo "Merge conflict in PR #$pr_number, skipping..."
                 git reset --hard
@@ -98,13 +110,13 @@ jobs:
                 continue
               fi
 
-              # Reset workflow file changes if present
               if git diff --name-only --cached | grep -q '.github/workflows/update-prs.yaml'; then
                 echo "Resetting workflow file changes in PR #$pr_number"
                 git restore --source=HEAD --staged -- .github/workflows/update-prs.yaml
                 git restore --source=HEAD -- .github/workflows/update-prs.yaml
               fi
 
+              git submodule update --recursive --force || true
               git commit -m "Merge master into $branch (excluding workflow changes)"
               git push origin "$branch"
             fi
