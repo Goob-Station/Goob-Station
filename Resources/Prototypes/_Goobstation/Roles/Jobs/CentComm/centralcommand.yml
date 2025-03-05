@@ -257,6 +257,9 @@
   - Wizard
   - NuclearOperative
   - SyndicateAgent
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, VaporizeImplant ]
 
 - type: startingGear
   id: GovernmentManGear
@@ -264,7 +267,6 @@
     jumpsuit: ClothingUniformJumpsuitReporter
     shoes: ClothingShoesLeather
     eyes: ClothingEyesGlassesCentComm
-    gloves: ClothingHandsGlovesHeavyGoldenTrim
     back: ClothingBackpackSatchelHolding
     outerClothing: ClothingOuterArmourInvisible # Todo - Allow him to go invisible
     id: GmanPDA
@@ -278,3 +280,5 @@
     - ScramImplanter
     - CentcommFreedomImplanter
     - VaporizeImplanter
+    - JauntImplanter
+    - ShiftImplanter

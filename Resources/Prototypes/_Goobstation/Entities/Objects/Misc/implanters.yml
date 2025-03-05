@@ -121,8 +121,24 @@
 
 - type: entity
   id: VaporizeImplanter
-  suffix: vaporize
+  suffix: vaporize, admeme
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
     implant: VaporizeImplant
+
+- type: entity
+  id: JauntImplanter
+  suffix: jaunt, admeme
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: ActionPolymorphJauntGman
+
+- type: entity
+  id: ShiftImplanter
+  suffix: shift, admeme
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: ActionShiftGman
