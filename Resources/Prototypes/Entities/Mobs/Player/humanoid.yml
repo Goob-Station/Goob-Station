@@ -558,7 +558,7 @@
   parent: EventHumanoidMindShielded
   components:
     - type: GrantImplant
-    - implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
+      implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
     - type: GhostRole
       name: ghost-role-information-centcom-official-name
       description: ghost-role-information-centcom-official-description
