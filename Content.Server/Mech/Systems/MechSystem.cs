@@ -75,6 +75,48 @@ public sealed partial class MechSystem : SharedMechSystem
         SubscribeLocalEvent<MechComponent, MechSoundboardPlayMessage>(ReceiveEquipmentUiMesssages);
         #endregion
     }
+    private void OnDamageChanged(EntityUid uid, MechComponent component, DamageChangedEvent args)
+    {
+        var integrity = component.MaxIntegrity - args.Damageable.TotalDamage;
+        SetIntegrity(uid, integrity, component);
+
+        if (args.DamageIncreased &&
+            args.DamageDelta != null &&
+            component.PilotSlot.ContainedEntity != null)
+        {
+
+            var damageDictionary = args.DamageDelta.DamageDict;
+            foreach (var (t1, a1) in damageDictionary)
+            {
+                var damageType = t1;
+                var damageAmount = a1;
+
+                var mechArmor = component.MechArmor.DamageDict;
+                var damageReduceType = "";
+                FixedPoint2 damageReduceAmount = default!;
+                foreach (var (t2, a2) in mechArmor)
+                {
+                    damageReduceType = t2;
+                    damageReduceAmount = a2;
+
+                    Log.Info($"{damageType} ({damageAmount}) ; {damageReduceType} ({damageReduceAmount})");
+                    if (damageType == damageReduceType)
+                    {
+                        if (damageReduceAmount >= damageAmount)
+                        {
+                            Log.Info($"{damageReduceAmount} >= {damageAmount} - урон по пилоту НЕ идёт.");
+                        }
+                        else
+                        {
+                            var damage = args.DamageDelta - component.MechArmor;
+                            Log.Info($"{damageReduceAmount} <= {damageAmount} - урон по пилоту идёт ({damage}).");
+                            _damageable.TryChangeDamage(component.PilotSlot.ContainedEntity, damage);
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     private void OnMechCanMoveEvent(EntityUid uid, MechComponent component, UpdateCanMoveEvent args)
     {
@@ -263,20 +305,6 @@ public sealed partial class MechSystem : SharedMechSystem
         Dirty(uid, component);
         UpdateUserInterface(uid, component);
         _actionBlocker.UpdateCanMove(uid);
-    }
-
-    private void OnDamageChanged(EntityUid uid, MechComponent component, DamageChangedEvent args)
-    {
-        var integrity = component.MaxIntegrity - args.Damageable.TotalDamage;
-        SetIntegrity(uid, integrity, component);
-
-        if (args.DamageIncreased &&
-            args.DamageDelta != null &&
-            component.PilotSlot.ContainedEntity != null)
-        {
-            var damage = args.DamageDelta * component.MechToPilotDamageMultiplier;
-            _damageable.TryChangeDamage(component.PilotSlot.ContainedEntity, damage);
-        }
     }
 
     private void ToggleMechUi(EntityUid uid, MechComponent? component = null, EntityUid? user = null)
