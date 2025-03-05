@@ -1,5 +1,6 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Audio;
 
 namespace Content.Server._Goobstation.Religion.Nullrod
 {
@@ -25,8 +26,8 @@ namespace Content.Server._Goobstation.Religion.Nullrod
         /// Which sound effect to play.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
-        [DataField("soundPath", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
-        public string SoundPath = "/Audio/Effects/hallelujah.ogg";
+        [DataField("soundPath"), AutoNetworkedField]
+        public SoundSpecifier? SoundPath;
 
     }
 }
