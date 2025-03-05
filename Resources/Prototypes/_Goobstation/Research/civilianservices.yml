@@ -1,7 +1,6 @@
 # Tier 1
 - type: technology
   id: AccessibilityTech
-  #id: research-technology-accessability
   name: research-technology-accessibility
   icon:
     sprite: _Goobstation/Objects/Vehicles/hoverchair.rsi
