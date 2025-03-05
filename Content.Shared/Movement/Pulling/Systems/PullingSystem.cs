@@ -69,7 +69,6 @@ public sealed class PullingSystem : EntitySystem
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtualSystem = default!;
     [Dependency] private readonly GrabThrownSystem _grabThrown = default!;
     [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
@@ -248,20 +247,18 @@ public sealed class PullingSystem : EntitySystem
 
         if (!args.Throw)
         {
-            if (component.GrabStage > GrabStage.No
-                && TryComp(args.BlockingEntity, out PullableComponent? comp))
-            {
-                    TryLowerGrabStage(component.Pulling.Value, uid);
-                    args.Cancel();  // VirtualItem is NOT being deleted
-            }
+            if (component.GrabStage <= GrabStage.No
+                || !TryComp(args.BlockingEntity, out PullableComponent? comp))
+                return;
+            TryLowerGrabStage(component.Pulling.Value, uid);
+            args.Cancel();  // VirtualItem is NOT being deleted
         }
         else
         {
-            if (component.GrabStage <= GrabStage.Soft)
-            {
-                TryLowerGrabStage(component.Pulling.Value, uid);
-                args.Cancel();  // VirtualItem is NOT being deleted
-            }
+            if (component.GrabStage > GrabStage.Soft)
+                return;
+            TryLowerGrabStage(component.Pulling.Value, uid);
+            args.Cancel();  // VirtualItem is NOT being deleted
         }
     }
     // Goobstation
@@ -285,7 +282,7 @@ public sealed class PullingSystem : EntitySystem
     private void OnVirtualItemThrown(EntityUid uid, PullerComponent component, VirtualItemThrownEvent args)
     {
         if (!TryComp<PhysicsComponent>(uid, out var throwerPhysics)
-            ||component.Pulling == null
+            || component.Pulling == null
             || component.Pulling != args.BlockingEntity)
             return;
 
@@ -309,12 +306,10 @@ public sealed class PullingSystem : EntitySystem
             direction,
             component.GrabThrownSpeed,
             component.StaminaDamageOnThrown,
-            damage * component.GrabThrowDamageModifier,
             damage * component.GrabThrowDamageModifier); // Throwing the grabbed person
-
         _throwing.TryThrow(uid, -direction * throwerPhysics.InvMass); // Throws back the grabber
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), uid);
-        component.NextStageChange.Add(TimeSpan.FromSeconds(2f)); // To avoid grab and throw spamming
+        component.NextStageChange.Add(TimeSpan.FromSeconds(4f)); // To avoid grab and throw spamming
     }
     // Goobstation
 
