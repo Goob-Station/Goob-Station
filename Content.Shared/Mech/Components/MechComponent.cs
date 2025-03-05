@@ -63,6 +63,9 @@ public sealed partial class MechComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float MechToPilotDamageMultiplier;
 
+    /// <summary>
+    /// DamageDict that contains almost all DEFAULT damage types, this is necessary if the user has not specified mecharmor in prototype.
+    /// </summary>
     [DataField]
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public DamageSpecifier MechArmor = new()
