@@ -1,0 +1,41 @@
+name: Update PR Branches
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update-prs:
+    runs-on: self-hosted
+    permissions:
+      pull-requests: write
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install GitHub CLI (if missing)
+        run: |
+          if ! command -v gh &> /dev/null; then
+            echo "Installing GitHub CLI..."
+            sudo apt update && sudo apt install gh -y
+          fi
+
+      - name: Get open pull requests
+        id: get-prs
+        run: |
+          prs=$(GH_TOKEN=${{ secrets.GITHUB_TOKEN }} gh pr list --state open --json number --jq '.[].number')
+          echo "prs=${prs}" >> $GITHUB_ENV
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update PR branches
+        if: env.prs != ''
+        run: |
+          for pr in $prs; do
+            GH_TOKEN=${{ secrets.GITHUB_TOKEN }} gh pr merge $pr --rebase --admin || echo "Failed to update PR #$pr"
+          done
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

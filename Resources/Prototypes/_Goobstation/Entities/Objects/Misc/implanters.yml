@@ -117,6 +117,14 @@
   - type: Implanter
     implant: SmokeImplant
 
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: JaunterImplanter
+  suffix: jaunter
+  components:
+  - type: Implanter
+    implant: SyndicateJaunterImplant
+
 # Admeme
 
 - type: entity
