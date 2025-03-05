@@ -11,11 +11,12 @@ public sealed class DamageMarkerSystem : SharedDamageMarkerSystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<DamageMarkerComponent, ComponentStartup>(OnMarkerStartup);
+        SubscribeLocalEvent<DamageMarkerComponent, AfterAutoHandleStateEvent>(OnMarkerStartup); //ShitChap - Un-hardcoded the sprites and sfx for the markers
         SubscribeLocalEvent<DamageMarkerComponent, ComponentShutdown>(OnMarkerShutdown);
+
     }
 
-    private void OnMarkerStartup(EntityUid uid, DamageMarkerComponent component, ComponentStartup args)
+    private void OnMarkerStartup(EntityUid uid, DamageMarkerComponent component, AfterAutoHandleStateEvent args)
     {
         if (!_timing.ApplyingState || component.Effect == null || !TryComp<SpriteComponent>(uid, out var sprite))
             return;

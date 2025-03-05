@@ -33,13 +33,13 @@ public sealed partial class DamageMarkerOnCollideComponent : Component
     /// <summary>
     /// Sprite to apply to the entity while damagemarker is applied.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("effect")]
-    public SpriteSpecifier.Rsi Effect = default!; //new(new ResPath("/Textures/Objects/Weapons/Effects.rsi"), "shield2");
+    [ViewVariables(VVAccess.ReadWrite), DataField("effect"), AutoNetworkedField]
+    public SpriteSpecifier.Rsi? Effect = default!; //new(new ResPath("/Textures/Objects/Weapons/Effects.rsi"), "shield2");
 
     /// <summary>
     /// Sound to play when the damage marker is procced.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("sound")]
+    [ViewVariables(VVAccess.ReadWrite), DataField("sound"), AutoNetworkedField]
     public SoundSpecifier? Sound; //= new SoundPathSpecifier("/Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg");
 
     /// <summary>

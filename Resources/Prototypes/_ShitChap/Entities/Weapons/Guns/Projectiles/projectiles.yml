@@ -24,8 +24,8 @@
       types:
         Burn: 3
         Holy: 5
-    effect: { sprite: /Textures/Effects/medi_holo.rsi, state: medi_holo }
-    sound: /Audio/Effects/hallelujah.ogg
+    effect: { sprite: /Textures/_ShitChap/Effects/holy_beam.rsi, state: beam }
+    sound: /Audio/Effects/holy.ogg
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:

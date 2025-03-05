@@ -61,7 +61,7 @@
     useKey: false
   - type: GunRequiresWield
   - type: MeleeWeapon
-    attackRate: 0.9
+    attackRate: 1.0
     damage:
       types:
         Slash: 10
@@ -89,7 +89,7 @@
   - type: UseDelay
     delay: 3.5
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 3.3
+    rechargeCooldown: 3.4
     rechargeSound:
       path: /Audio/Magic/Cults/ClockCult/steam_whoosh.ogg
   - type: BasicEntityAmmoProvider
