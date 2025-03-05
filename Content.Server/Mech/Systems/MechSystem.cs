@@ -75,6 +75,16 @@ public sealed partial class MechSystem : SharedMechSystem
         SubscribeLocalEvent<MechComponent, MechSoundboardPlayMessage>(ReceiveEquipmentUiMesssages);
         #endregion
     }
+
+    /// <summary>
+    /// OnDamageChanged moved to top for more for convenience. Will be moved back later
+    /// Integrity = mech HP
+    /// DamageDict is dictionary that contains all damage types and damage amount, so we need to compare every damage type with armor type,
+    /// if match make threshold for pilot damage.
+    /// </summary>
+    /// <param name="uid">Mech</param>
+    /// <param name="component"></param>
+    /// <param name="args"></param>
     private void OnDamageChanged(EntityUid uid, MechComponent component, DamageChangedEvent args)
     {
         var integrity = component.MaxIntegrity - args.Damageable.TotalDamage;
@@ -84,13 +94,14 @@ public sealed partial class MechSystem : SharedMechSystem
             args.DamageDelta != null &&
             component.PilotSlot.ContainedEntity != null)
         {
-
+            // Gained damage
             var damageDictionary = args.DamageDelta.DamageDict;
             foreach (var (t1, a1) in damageDictionary)
             {
                 var damageType = t1;
                 var damageAmount = a1;
 
+                // Armor
                 var mechArmor = component.MechArmor.DamageDict;
                 var damageReduceType = "";
                 FixedPoint2 damageReduceAmount = default!;
@@ -99,17 +110,16 @@ public sealed partial class MechSystem : SharedMechSystem
                     damageReduceType = t2;
                     damageReduceAmount = a2;
 
-                    Log.Info($"{damageType} ({damageAmount}) ; {damageReduceType} ({damageReduceAmount})");
                     if (damageType == damageReduceType)
                     {
                         if (damageReduceAmount >= damageAmount)
                         {
-                            Log.Info($"{damageReduceAmount} >= {damageAmount} - урон по пилоту НЕ идёт.");
+                            return;
                         }
                         else
                         {
+                            // Gained damage to pilot
                             var damage = args.DamageDelta - component.MechArmor;
-                            Log.Info($"{damageReduceAmount} <= {damageAmount} - урон по пилоту идёт ({damage}).");
                             _damageable.TryChangeDamage(component.PilotSlot.ContainedEntity, damage);
                         }
                     }
