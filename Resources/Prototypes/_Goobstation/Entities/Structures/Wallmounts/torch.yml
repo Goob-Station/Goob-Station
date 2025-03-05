@@ -1,8 +1,11 @@
 - type: entity
-  id: WallTorch
+  id: TorchWall
   name: torch
   description: "A torch"
   components:
+  - type: Construction
+    graph: WallTorchGraph
+    node: wallTorch
   - type: MeleeSound
     soundGroups:
       Brute:
@@ -10,6 +13,7 @@
   - type: Transform
     anchored: true
   - type: Clickable
+  - type: InteractionOutline
   - type: Sprite
     sprite: _Goobstation/Structures/Wallmounts/torch.rsi
     state: torch
@@ -49,3 +53,4 @@
     mode: SnapgridCenter
     snap:
     - Wallmount
+

@@ -885,7 +885,7 @@
   conditions:
     - !type:TileNotBlocked
       failIfSpace: false
-# Lavaland Change: add ability to build catwalks on any tiles    
+# Lavaland Change: add ability to build catwalks on any tiles
 #    - !type:TileType
 #      targets:
 #        - Lattice
