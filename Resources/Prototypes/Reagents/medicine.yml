@@ -1062,6 +1062,9 @@
         - !type:ReagentThreshold
           reagent: Arithrazine
           min: 1
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         probability: 0.1
       - !type:PopupMessage
         conditions:

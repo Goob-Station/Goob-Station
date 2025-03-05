@@ -47,8 +47,8 @@
       - MindShieldImplant
       deimplantFailureDamage:
         types:
-          Cellular: 50
-          Heat: 10
+          Caustic: 5 # Goobstation - unnerf implanters (why was it 50 genetic??)
+          Heat: 5
     - type: Sprite
       sprite: Objects/Specific/Medical/implanter.rsi
       state: implanter0
