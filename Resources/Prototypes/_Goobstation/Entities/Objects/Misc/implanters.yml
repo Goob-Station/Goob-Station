@@ -141,7 +141,7 @@
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
-    implant: ActionVanish
+    implant: VanishImplant
 
 - type: entity
   id: ShiftImplanter
@@ -149,4 +149,12 @@
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
-    implant: ActionShift
+    implant: ShiftImplant
+
+- type: entity
+  id: BlinkImplanter
+  suffix: blink, admeme
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: BlinkImplant
