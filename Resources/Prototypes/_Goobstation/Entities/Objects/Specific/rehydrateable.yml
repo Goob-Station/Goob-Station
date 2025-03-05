@@ -133,3 +133,16 @@
   - type: Rehydratable
     possibleSpawns:
     - MobVoxRandom
+
+- type: entity
+  parent: MonkeyCube
+  id: IPCCube
+  name: IPC cube
+  description: How does this even work?
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobIPCRandom
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/bay_food.rsi
+    state: ipccube
