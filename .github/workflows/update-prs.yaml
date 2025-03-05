@@ -25,10 +25,10 @@ jobs:
       - name: Get open pull requests
         id: get-prs
         run: |
-          prs=$(GH_TOKEN=${{ secrets.BOT_TOKEN }} gh pr list --state open --json number,headRefName,headRepositoryOwner --jq 'map("\(.number):\(.headRefName):\(.headRepositoryOwner.login)") | @sh' | tr -d "'")
+          prs=$(GH_TOKEN=${{ secrets.PAT_TOKEN }} gh pr list --state open --json number,headRefName,headRepositoryOwner --jq 'map("\(.number):\(.headRefName):\(.headRepositoryOwner.login)") | @sh' | tr -d "'")
           echo "prs=$prs" >> $GITHUB_ENV
         env:
-          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
 
       - name: Merge master into each PR branch
         if: env.prs != ''
@@ -56,4 +56,4 @@ jobs:
             fi
           done
         env:
-          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
