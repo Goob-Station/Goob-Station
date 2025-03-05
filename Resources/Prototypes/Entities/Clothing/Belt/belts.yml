@@ -557,7 +557,7 @@
     sprite: Clothing/Belt/holster.rsi
   - type: Storage
     grid:
-    - 0,0,4,1 # Goobstation
+    - 0,0,3,1
 
 - type: entity
   parent: [ClothingBeltStorageBase, BaseSyndicateContraband]
