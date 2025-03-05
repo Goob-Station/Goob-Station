@@ -187,7 +187,8 @@ public sealed class PullingSystem : EntitySystem
 
         // Goobstation - Grab Intent
         foreach (var item in ent.Comp.GrabVirtualItems)
-            QueueDel(item);
+            if(TryComp<VirtualItemComponent>(item, out var virtualItemComponent))
+                _virtualSystem.DeleteVirtualItem((item,virtualItemComponent), ent);
 
         TryStopPull(ent.Comp.Pulling.Value, pulling, ent.Owner, true);
         // Goobstation
@@ -275,7 +276,7 @@ public sealed class PullingSystem : EntitySystem
 
         if (TryComp(args.BlockingEntity, out PullableComponent? comp)) // Goobstation
         {
-            TryStopPull(component.Pulling.Value, comp);// Goobstation
+            TryLowerGrabStage(uid, args.BlockingEntity); // Goobstation
         }
     }
 
@@ -492,7 +493,8 @@ public sealed class PullingSystem : EntitySystem
             pullerComp.GrabStage = GrabStage.No;
             var virtItems = pullerComp.GrabVirtualItems;
             foreach (var item in virtItems)
-                QueueDel(item);
+                if(TryComp<VirtualItemComponent>(item, out var virtualItemComponent))
+                    _virtualSystem.DeleteVirtualItem((item,virtualItemComponent), pullerUid);
 
             pullerComp.GrabVirtualItems.Clear();
             // Goobstation
