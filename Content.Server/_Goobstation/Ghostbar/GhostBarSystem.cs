@@ -46,7 +46,7 @@ public sealed class GhostBarSystem : EntitySystem
     {
         var resPath = new ResPath(MapPath);
 
-        if (_mapLoader.TryLoadMap(resPath, out var map, out _))
+        if (_mapLoader.TryLoadMap(resPath, out var map, out _, new DeserializationOptions { InitializeMaps = true }))
             _mapSystem.SetPaused(map.Value.Comp.MapId, false);
     }
 
