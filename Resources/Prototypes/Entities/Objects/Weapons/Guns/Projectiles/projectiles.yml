@@ -458,6 +458,8 @@
       types:
         Blunt: 20
         Slash: 5
+    effect: { sprite: /Textures/Objects/Weapons/Effects.rsi, state: shield2 }
+    sound: /Audio/Effects/hallelujah.ogg
   - type: Projectile
     impactEffect: BulletImpactEffectKinetic
     damage:
