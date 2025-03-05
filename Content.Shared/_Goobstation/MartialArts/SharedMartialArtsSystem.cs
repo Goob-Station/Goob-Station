@@ -136,7 +136,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         _popupSystem.PopupEntity(Loc.GetString("martial-arts-action-sender",
             ("user", Identity.Entity(user, EntityManager)),
             ("pulled", comboName)),
-            user,
+            target,
             target);
     }
 
