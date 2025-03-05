@@ -43,6 +43,10 @@
     thresholds:
       0: Alive
       140: Dead # Goob - 4 PKA shots, 2 crusher destabilised hits
+  - type: Butcherable
+    spawned:
+    - id: DiamondOre1 # not unprocessed
+      amount: 1
   - type: MovementSpeedModifier
     baseWalkSpeed: 1.65 # Lavaland change // Slightly slower than regular walkspeed, makes it not annoying as fuck to catch
     baseSprintSpeed: 1.65 # Lavaland change
