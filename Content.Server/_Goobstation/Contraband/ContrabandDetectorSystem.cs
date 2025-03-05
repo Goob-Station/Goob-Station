@@ -37,7 +37,10 @@ public sealed class ContrabandDetectorSystem : EntitySystem
         var query = EntityQueryEnumerator<ContrabandDetectorComponent>();
         while (query.MoveNext(out var _, out var detectors))
         {
-            var keysToRemove = new List<EntityUid>();
+            if (detectors.Scanned.Count == 0)// go to next if there are no scanned
+                continue;
+
+            var keysToRemove = new List<EntityUid>(detectors.Scanned.Count);
             foreach (var scan in detectors.Scanned)
             {
                 if (_timing.CurTime > scan.Value)
@@ -57,7 +60,7 @@ public sealed class ContrabandDetectorSystem : EntitySystem
         if (component.Scanned.ContainsKey(args.Tripper))
             return;
 
-        component.Scanned.Add(args.Tripper,_timing.CurTime + TimeSpan.FromSeconds(component.ScanTimeOut));
+        component.Scanned.Add(args.Tripper, _timing.CurTime + TimeSpan.FromSeconds(component.ScanTimeOut));
 
         var list = RecursiveFindContraband(args.Tripper, 0);
         list = RemovePermitedItems(args.Tripper, ref list);
