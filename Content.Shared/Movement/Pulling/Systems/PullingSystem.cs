@@ -924,49 +924,48 @@ public sealed class PullingSystem : EntitySystem
         if (puller.Comp.GrabVirtualItemStageCount.TryGetValue(puller.Comp.GrabStage, out var count))
             newVirtualItemsCount += count;
 
-        if (virtualItemsCount != newVirtualItemsCount)
+        if (virtualItemsCount == newVirtualItemsCount)
+            return true;
+        var delta = newVirtualItemsCount - virtualItemsCount;
+
+        // Adding new virtual items
+        if (delta > 0)
         {
-            var delta = newVirtualItemsCount - virtualItemsCount;
-
-            // Adding new virtual items
-            if (delta > 0)
+            for (var i = 0; i < delta; i++)
             {
-                for (var i = 0; i < delta; i++)
+                var emptyHand = _handsSystem.TryGetEmptyHand(puller, out _);
+                if (!emptyHand)
                 {
-                    var emptyHand = _handsSystem.TryGetEmptyHand(puller, out _);
-                    if (!emptyHand)
-                    {
-                        if (_netManager.IsServer)
-                            _popup.PopupEntity(Loc.GetString("popup-grab-need-hand"), puller, puller, PopupType.Medium);
+                    if (_netManager.IsServer)
+                        _popup.PopupEntity(Loc.GetString("popup-grab-need-hand"), puller, puller, PopupType.Medium);
 
-                        return false;
-                    }
-
-                    if (!_virtualSystem.TrySpawnVirtualItemInHand(pullable, puller.Owner, out var item, true))
-                    {
-                        // I'm lazy write client code
-                        if (_netManager.IsServer)
-                            _popup.PopupEntity(Loc.GetString("popup-grab-need-hand"), puller, puller, PopupType.Medium);
-
-                        return false;
-                    }
-
-                    puller.Comp.GrabVirtualItems.Add(item.Value);
+                    return false;
                 }
-            }
 
-            if (delta < 0)
-            {
-                for (var i = 0; i < Math.Abs(delta); i++)
+                if (!_virtualSystem.TrySpawnVirtualItemInHand(pullable, puller.Owner, out var item, true))
                 {
-                    if (i >= puller.Comp.GrabVirtualItems.Count)
-                        break;
+                    // I'm lazy write client code
+                    if (_netManager.IsServer)
+                        _popup.PopupEntity(Loc.GetString("popup-grab-need-hand"), puller, puller, PopupType.Medium);
 
-                    var item = puller.Comp.GrabVirtualItems[i];
-                    puller.Comp.GrabVirtualItems.Remove(item);
-                    QueueDel(item);
+                    return false;
                 }
+
+                puller.Comp.GrabVirtualItems.Add(item.Value);
             }
+        }
+
+        if (delta >= 0)
+            return true;
+        for (var i = 0; i < Math.Abs(delta); i++)
+        {
+            if (i >= puller.Comp.GrabVirtualItems.Count)
+                break;
+
+            var item = puller.Comp.GrabVirtualItems[i];
+            puller.Comp.GrabVirtualItems.Remove(item);
+            if(TryComp<VirtualItemComponent>(item, out var virtualItemComponent))
+                _virtualSystem.DeleteVirtualItem((item,virtualItemComponent), puller);
         }
 
         return true;
