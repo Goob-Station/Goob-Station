@@ -376,7 +376,7 @@ public sealed class PullingSystem : EntitySystem
         var entity = args.Entity;
 
         if (ent.Comp.GrabStage == GrabStage.Soft)
-            TryStopPull(ent, ent);
+            TryStopPull(ent, ent, ent);
 
         if (!_blocker.CanMove(entity))
             return;
