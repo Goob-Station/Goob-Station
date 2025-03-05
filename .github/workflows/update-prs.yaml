@@ -16,7 +16,6 @@ jobs:
         with:
           fetch-depth: 0
           submodules: recursive
-          persist-credentials: false
 
       - name: Install GitHub CLI
         run: |
@@ -37,84 +36,72 @@ jobs:
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
-          
-          # Configure submodule handling
+          git config --global submodule.fetchJobs 0
           git config --global submodule.recurse true
-          git config --global url."https://github.com/".insteadOf git@github.com:
-          git config --global http.https://github.com/.extraheader "AUTHORIZATION: basic $(echo -n x-access-token:${{ secrets.GITHUB_TOKEN }} | base64)"
 
-          # Main processing loop
           for pr in $prs; do
             pr_number=$(echo $pr | cut -d':' -f1)
             branch=$(echo $pr | cut -d':' -f2)
             repo_owner=$(echo $pr | cut -d':' -f3)
             origin_repo=$(basename -s .git $(git remote get-url origin))
 
-            # Clean working state
-            git reset --hard
-            git clean -ffdx
-            git checkout master
-            git submodule foreach --recursive 'git reset --hard && git clean -ffdx'
-
             if [ "$repo_owner" != "$(git remote get-url origin | cut -d':' -f2 | cut -d'/' -f1)" ]; then
               fork_remote="fork-$repo_owner"
               fork_repo="https://github.com/$repo_owner/$origin_repo.git"
 
-              # Configure remote
-              git remote remove "$fork_remote" || true
-              git remote add "$fork_remote" "$fork_repo"
-              git fetch "$fork_remote"
+              # Manage remote
+              if git remote | grep -q "^$fork_remote$"; then
+                git remote set-url "$fork_remote" "$fork_repo"
+                git fetch "$fork_remote"
+              else
+                git remote add "$fork_remote" "$fork_repo"
+                git fetch "$fork_remote"
+              fi
 
-              # Verify branch exists
+              # Skip if branch missing
               if ! git ls-remote --exit-code --heads "$fork_remote" "$branch" >/dev/null 2>&1; then
                 echo "Branch $branch not found in $fork_remote, skipping PR #$pr_number"
                 continue
               fi
 
-              # Checkout branch
-              git checkout -B "temp-$branch" "$fork_remote/$branch"
+              # Create temporary working branch
+              git checkout -b "temp-$branch" "$fork_remote/$branch"
               
-              # Update submodules with retries
-              for i in 1 2 3; do
-                git submodule sync --recursive
-                if git submodule update --init --recursive --force --checkout; then
-                  break
-                fi
-                echo "Submodule update failed (attempt $i/3), retrying..."
-                sleep 5
-              done
-
-              # Merge and push
-              if git merge --no-commit origin/master; then
-                git commit -m "Merge master into $branch"
-                git push "$fork_remote" "temp-$branch:$branch"
-              else
-                echo "Merge conflict in PR #$pr_number, aborting..."
+              # Attempt merge with conflict handling
+              if ! git merge --no-commit --no-ff origin/master; then
+                echo "Merge conflict in PR #$pr_number, resetting and skipping..."
                 git merge --abort || true
+                git reset --hard HEAD
+                git clean -fd
+                git checkout master
+                git branch -D "temp-$branch"
+                continue
               fi
 
-              # Cleanup
+              # Push successful merge
+              git commit -m "Merge master into $branch"
+              git push "$fork_remote" "temp-$branch:$branch"
               git checkout master
               git branch -D "temp-$branch"
-              git remote remove "$fork_remote"
 
             else
-              # Handle same-repo PR
+              # Handle same-repo PRs
               git fetch origin "$branch"
               git checkout "$branch"
               
-              # Update submodules
-              git submodule sync --recursive
-              git submodule update --init --recursive --force --checkout || true
-
-              if git merge --no-commit origin/master; then
-                git commit -m "Merge master into $branch"
-                git push origin "$branch"
-              else
-                echo "Merge conflict in PR #$pr_number, aborting..."
+              # Attempt merge with conflict handling
+              if ! git merge --no-commit --no-ff origin/master; then
+                echo "Merge conflict in PR #$pr_number, resetting and skipping..."
                 git merge --abort || true
+                git reset --hard HEAD
+                git clean -fd
                 git checkout master
+                continue
               fi
+
+              # Push successful merge
+              git commit -m "Merge master into $branch"
+              git push origin "$branch"
             fi
           done
         env:
