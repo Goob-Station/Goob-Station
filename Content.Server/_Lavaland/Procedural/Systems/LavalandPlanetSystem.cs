@@ -12,10 +12,12 @@ using Content.Shared.Atmos;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Gravity;
+using Content.Shared.Light.Components;
 using Content.Shared.Maps;
 using Content.Shared.Parallax.Biomes;
 using Content.Shared.Salvage;
 using Content.Shared.Shuttles.Components;
+using Microsoft.CodeAnalysis;
 using Robust.Shared.Configuration;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
@@ -230,6 +232,18 @@ public sealed class LavalandPlanetSystem : EntitySystem
         var gravity = EnsureComp<GravityComponent>(lavalandMap);
         gravity.Enabled = true;
         Dirty(lavalandMap, gravity);
+
+        // Day Lighting
+        var light = EnsureComp<MapLightComponent>(lavalandMap);
+        light.AmbientLightColor = Color.FromHex("#7a4423");
+        Dirty(lavalandMap, light);
+
+        // Roofs; None mapped yet
+        // EnsureComp<RoofComponent>(lavalandMap);
+
+        // Day-night cycle
+        var lightCycle = EnsureComp<LightCycleComponent>(lavalandMap);
+        lightCycle.Duration = TimeSpan.FromMinutes(15); // Twice as fast as on station
 
         // Atmos
         var air = prototype.Atmosphere;
