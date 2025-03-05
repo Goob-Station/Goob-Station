@@ -74,7 +74,7 @@
   id: Gman
   parent: EventHumanMindShielded
   components:
-  - type: AddImplantSpecial
+  - type: GrantImplant
     implants: [ MindShieldImplant, VaporizeImplant ]
   - type: RandomHumanoidAppearance
     randomizeName: false
