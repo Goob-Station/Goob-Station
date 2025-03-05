@@ -16,27 +16,44 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install GitHub CLI (if missing)
+      - name: Install GitHub CLI
         run: |
           if ! command -v gh &> /dev/null; then
-            echo "Installing GitHub CLI..."
             sudo apt update && sudo apt install gh -y
           fi
 
       - name: Get open pull requests
         id: get-prs
         run: |
-          prs=$(GH_TOKEN=${{ secrets.GITHUB_TOKEN }} gh pr list --state open --json number --jq 'map(.number) | @sh' | tr -d "'")
+          prs=$(GH_TOKEN=${{ secrets.GITHUB_TOKEN }} gh pr list --state open --json number,headRefName,headRepositoryOwner --jq 'map("\(.number):\(.headRefName):\(.headRepositoryOwner.login)") | @sh' | tr -d "'")
           echo "prs=$prs" >> $GITHUB_ENV
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Update PR branches
+      - name: Merge master into each PR branch
         if: env.prs != ''
         run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+
           for pr in $prs; do
-            echo "Updating PR #$pr..."
-            GH_TOKEN=${{ secrets.GITHUB_TOKEN }} gh pr merge $pr --rebase --admin || echo "Failed to update PR #$pr"
+            pr_number=$(echo $pr | cut -d':' -f1)
+            branch=$(echo $pr | cut -d':' -f2)
+            repo_owner=$(echo $pr | cut -d':' -f3)
+
+            if [ "$repo_owner" != "$(git remote get-url origin | cut -d':' -f2 | cut -d'/' -f1)" ]; then
+              fork_repo="https://github.com/$repo_owner/$(basename -s .git $(git remote get-url origin)).git"
+              git remote add fork "$fork_repo" || true
+              git fetch fork $branch
+              git checkout -b fork-$branch fork/$branch
+              git merge --no-commit --no-ff origin/master && git commit -m "Merge master into $branch" || { echo "Merge conflict in PR #$pr_number, skipping..."; git merge --abort; continue; }
+              git push fork fork-$branch:$branch
+            else
+              git fetch origin $branch
+              git checkout $branch
+              git merge --no-commit --no-ff origin/master && git commit -m "Merge master into $branch" || { echo "Merge conflict in PR #$pr_number, skipping..."; git merge --abort; continue; }
+              git push origin $branch
+            fi
           done
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
