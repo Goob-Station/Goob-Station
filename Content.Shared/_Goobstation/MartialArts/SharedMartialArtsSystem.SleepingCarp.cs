@@ -40,10 +40,10 @@ public partial class SharedMartialArtsSystem
         if (_timing.CurTime < ent.Comp.UseAgainTime)
         {
             _popupSystem.PopupEntity(
-                "The journey of a thousand miles begins with one step, and the path of wisdom is traveled slowly, one lesson at a time.",
+                Loc.GetString("carp-scroll-waiting"),
                 ent,
                 args.User,
-                PopupType.MediumCaution); // localize
+                PopupType.MediumCaution);
             return;
         }
 
@@ -57,13 +57,14 @@ public partial class SharedMartialArtsSystem
                     return;
                 var userReflect = EnsureComp<ReflectComponent>(args.User);
                 userReflect.ReflectProb = 1;
-                userReflect.Spread = 75;
+                userReflect.Spread = 60;
                 userReflect.OtherTypeReflectProb = 0.25f;
                 ent.Comp.Used = true;
-                _popupSystem.PopupEntity("You are now a master of the Way of the Sleeping Carp.",
+                _popupSystem.PopupEntity(
+                    Loc.GetString("carp-scroll-complete"),
                     ent,
                     args.User,
-                    PopupType.LargeCaution); // localize // localize
+                    PopupType.LargeCaution);
                 return;
         }
     }
@@ -73,10 +74,11 @@ public partial class SharedMartialArtsSystem
         var time = new System.Random().Next(ent.Comp.MinUseDelay, ent.Comp.MaxUseDelay);
         ent.Comp.UseAgainTime = _timing.CurTime + TimeSpan.FromSeconds(time);
         ent.Comp.Stage++;
-        _popupSystem.PopupEntity("You have taken one step closer to becoming a master of the Way of the Sleeping Carp.",
+        _popupSystem.PopupEntity(
+            Loc.GetString("carp-scroll-advance"),
             ent,
             user,
-            PopupType.Medium); // localize
+            PopupType.Medium);
     }
 
     #endregion
@@ -128,6 +130,7 @@ public partial class SharedMartialArtsSystem
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
+        ComboPopup(ent, target, proto.Name);
     }
 
     private void OnSleepingCarpCrashingWaves(Entity<CanPerformComboComponent> ent,
@@ -146,6 +149,7 @@ public partial class SharedMartialArtsSystem
             _pulling.TryStopPull(target, pullable, ent, true);
         _grabThrowing.Throw(target, ent, dir, proto.ThrownSpeed, proto.StaminaDamage / 2, damage, damage);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
+        ComboPopup(ent, target, proto.Name);
     }
 
     #endregion

@@ -64,6 +64,7 @@ public partial class SharedMartialArtsSystem
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
+        ComboPopup(ent, target, proto.Name);
     }
 
     private void OnJudoEyepoke(Entity<CanPerformComboComponent> ent, ref JudoEyePokePerformedEvent args)
@@ -87,6 +88,7 @@ public partial class SharedMartialArtsSystem
             status);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
+        ComboPopup(ent, target, proto.Name);
     }
 
     private void OnJudoArmbar(Entity<CanPerformComboComponent> ent, ref JudoArmbarPerformedEvent args)
@@ -105,11 +107,11 @@ public partial class SharedMartialArtsSystem
             case true:
                 _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
                 _stun.TryParalyze(target, TimeSpan.FromSeconds(proto.ParalyzeTime), false);
-                _popupSystem.PopupEntity("You were placed in an arm bar", target);
                 break;
         }
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
+        ComboPopup(ent, target, proto.Name);
     }
 
     /* Pending Implement

@@ -8,6 +8,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
@@ -121,6 +122,22 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             return;
         _popupSystem.PopupClient(Loc.GetString("gun-disabled"), ent, ent);
         args.Cancel();
+    }
+
+    private void ComboPopup(EntityUid user, EntityUid target, string comboName)
+    {
+        if (!_netManager.IsServer)
+            return;
+        _popupSystem.PopupEntity(Loc.GetString("martial-arts-action-sender",
+            ("user", Identity.Entity(target, EntityManager)),
+            ("move", comboName)),
+            user,
+            user);
+        _popupSystem.PopupEntity(Loc.GetString("martial-arts-action-sender",
+            ("user", Identity.Entity(user, EntityManager)),
+            ("pulled", comboName)),
+            user,
+            target);
     }
 
     #endregion

@@ -97,6 +97,7 @@ public partial class SharedMartialArtsSystem
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
+        ComboPopup(ent, target, proto.Name);
     }
 
     private void OnCQCKick(Entity<CanPerformComboComponent> ent, ref CqcKickPerformedEvent args)
@@ -122,6 +123,7 @@ public partial class SharedMartialArtsSystem
             _pulling.TryStopPull(target, pullable, ent, true);
         _grabThrowing.Throw(target, ent, dir, proto.ThrownSpeed, proto.StaminaDamage / 2, damage, damage);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
+        ComboPopup(ent, target, proto.Name);
     }
 
     private void OnCQCRestrain(Entity<CanPerformComboComponent> ent, ref CqcRestrainPerformedEvent args)
@@ -150,6 +152,7 @@ public partial class SharedMartialArtsSystem
         if(!_hands.TryPickupAnyHand(ent, activeItem.Value))
             return;
         _hands.SetActiveHand(ent, emptyHand);
+        ComboPopup(ent, target, proto.Name);
     }
 
     private void OnCQCConsecutive(Entity<CanPerformComboComponent> ent, ref CqcConsecutivePerformedEvent args)
@@ -161,6 +164,7 @@ public partial class SharedMartialArtsSystem
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg"), target);
+        ComboPopup(ent, target, proto.Name);
     }
 
     #endregion

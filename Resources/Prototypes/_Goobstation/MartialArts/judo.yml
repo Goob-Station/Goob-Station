@@ -12,6 +12,7 @@
 
 - type: combo
   id: JudoThrow
+  name: Judo Throw
   martialArtsForm: CorporateJudo
   attacks:
   - Grab
@@ -22,6 +23,7 @@
 
 - type: combo
   id: JudoArmbar
+  name: Armbar
   martialArtsForm: CorporateJudo
   attacks:
   - Disarm
@@ -33,6 +35,7 @@
 
 - type: combo
   id: JudoEyepoke
+  name: Eyepoke
   martialArtsForm: CorporateJudo
   attacks:
   - Disarm

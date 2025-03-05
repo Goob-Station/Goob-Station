@@ -50,7 +50,14 @@ public sealed partial class ComboPrototype : IPrototype
     /// How fast people are thrown on combo
     /// </summary>
     [DataField]
-    public float ThrownSpeed = 14f;
+    public float ThrownSpeed = 7f;
+
+    /// <summary>
+    /// Name of the move
+    /// </summary>
+    [DataField(required: true)]
+    public string Name = string.Empty;
+
 }
 
 [Prototype("comboList")]

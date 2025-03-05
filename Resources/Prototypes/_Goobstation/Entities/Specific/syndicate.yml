@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseItem
+  parent: [BaseItem, BaseSyndicateContraband]
   id: CQCManual
   name: old manual
   description: A small, black manual. There are drawn instructions of tactical hand-to-hand combat.
