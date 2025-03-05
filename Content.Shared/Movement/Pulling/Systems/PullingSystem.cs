@@ -100,7 +100,7 @@ public sealed class PullingSystem : EntitySystem
         SubscribeLocalEvent<PullerComponent, DropHandItemsEvent>(OnDropHandItems);
         SubscribeLocalEvent<PullerComponent, StopPullingAlertEvent>(OnStopPullingAlert);
         SubscribeLocalEvent<PullerComponent, VirtualItemThrownEvent>(OnVirtualItemThrown); // Goobstation - Grab Intent
-        SubscribeLocalEvent<PullerComponent, VirtualItemDropAttemptEvent>(OnVirtualItemDropAttempt); // Goobstation - Grab Intent
+        //SubscribeLocalEvent<PullerComponent, VirtualItemDropAttemptEvent>(OnVirtualItemDropAttempt); // Goobstation - Grab Intent
         SubscribeLocalEvent<PullerComponent, AddCuffDoAfterEvent>(OnAddCuffDoAfterEvent); // Goobstation - Grab Intent
 
         SubscribeLocalEvent<PullableComponent, StrappedEvent>(OnBuckled);
@@ -230,6 +230,7 @@ public sealed class PullingSystem : EntitySystem
     }
 
     // Goobstation - Grab Intent
+    /*
     private void OnVirtualItemDropAttempt(EntityUid uid, PullerComponent component, VirtualItemDropAttemptEvent args)
     {
         if (component.Pulling == null)
@@ -260,6 +261,7 @@ public sealed class PullingSystem : EntitySystem
             args.Cancel();  // VirtualItem is NOT being deleted
         }
     }
+    */
     // Goobstation
 
     private void OnVirtualItemDeleted(EntityUid uid, PullerComponent component, VirtualItemDeletedEvent args)
@@ -273,7 +275,7 @@ public sealed class PullingSystem : EntitySystem
 
         if (TryComp(args.BlockingEntity, out PullableComponent? comp)) // Goobstation
         {
-            TryLowerGrabStage(component.Pulling.Value, uid);// Goobstation
+            TryStopPull(component.Pulling.Value, comp);// Goobstation
         }
     }
 
@@ -820,6 +822,10 @@ public sealed class PullingSystem : EntitySystem
         if (!Resolve(puller.Owner, ref puller.Comp))
             return false;
 
+        // prevent you from grabbing someone else while being grabbed
+        if (TryComp<PullableComponent>(puller.Owner, out var pullerAsPullable) && pullerAsPullable.Puller != null)
+            return false;
+
         if (pullable.Comp.Puller != puller.Owner ||
             puller.Comp.Pulling != pullable.Owner)
             return false;
@@ -839,7 +845,6 @@ public sealed class PullingSystem : EntitySystem
         if (!ignoreCombatMode)
             if (!_combatMode.IsInCombatMode(puller.Owner))
                 return false;
-
 
         // It's blocking stage update, maybe better UX?
         if (puller.Comp.GrabStage == GrabStage.Suffocate)
@@ -1035,6 +1040,7 @@ public sealed class PullingSystem : EntitySystem
 
         pullable.Comp.NextEscapeAttempt = _timing.CurTime.Add(TimeSpan.FromSeconds(1f));
         Dirty(pullable);
+        Dirty(puller);
 
         if (!ignoreCombatMode && _combatMode.IsInCombatMode(puller.Owner))
         {
