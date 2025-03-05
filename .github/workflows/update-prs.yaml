@@ -43,27 +43,28 @@ jobs:
             origin_repo=$(basename -s .git $(git remote get-url origin))
 
             if [ "$repo_owner" != "$(git remote get-url origin | cut -d':' -f2 | cut -d'/' -f1)" ]; then
-              # Create unique remote name for each fork
               fork_remote="fork-$repo_owner"
               fork_repo="https://github.com/$repo_owner/$origin_repo.git"
 
-              # Add or update fork remote
+              # Add/update remote
               if git remote | grep -q "^$fork_remote$"; then
                 git remote set-url "$fork_remote" "$fork_repo"
+                git fetch "$fork_remote"
               else
                 git remote add "$fork_remote" "$fork_repo"
+                git fetch "$fork_remote"
               fi
 
-              # Verify branch exists in fork
+              # Verify branch exists
               if ! git ls-remote --exit-code --heads "$fork_remote" "$branch" >/dev/null 2>&1; then
                 echo "Branch $branch not found in $fork_remote, skipping PR #$pr_number"
                 continue
               fi
 
-              # Fetch and merge
-              git fetch "$fork_remote" "$branch"
+              # Create working branch
               git checkout -b "temp-$branch" "$fork_remote/$branch"
               
+              # Attempt merge
               if ! git merge --no-commit --no-ff origin/master; then
                 echo "Merge conflict in PR #$pr_number, skipping..."
                 git reset --hard
@@ -72,16 +73,15 @@ jobs:
                 continue
               fi
 
-              # Check for workflow file changes
-              if git diff --name-only HEAD origin/master -- .github/workflows/update-prs.yaml; then
-                echo "Workflow file modified in PR #$pr_number, skipping..."
-                git reset --hard
-                git checkout master
-                git branch -D "temp-$branch"
-                continue
+              # Reset workflow file changes if present
+              if git diff --name-only --cached | grep -q '.github/workflows/update-prs.yaml'; then
+                echo "Resetting workflow file changes in PR #$pr_number"
+                git restore --source=HEAD --staged -- .github/workflows/update-prs.yaml
+                git restore --source=HEAD -- .github/workflows/update-prs.yaml
               fi
 
-              git commit -m "Merge master into $branch"
+              # Commit and push
+              git commit -m "Merge master into $branch (excluding workflow changes)"
               git push "$fork_remote" "temp-$branch:$branch"
               git checkout master
               git branch -D "temp-$branch"
@@ -98,14 +98,14 @@ jobs:
                 continue
               fi
 
-              if git diff --name-only HEAD origin/master -- .github/workflows/update-prs.yaml; then
-                echo "Workflow file modified in PR #$pr_number, skipping..."
-                git reset --hard
-                git checkout master
-                continue
+              # Reset workflow file changes if present
+              if git diff --name-only --cached | grep -q '.github/workflows/update-prs.yaml'; then
+                echo "Resetting workflow file changes in PR #$pr_number"
+                git restore --source=HEAD --staged -- .github/workflows/update-prs.yaml
+                git restore --source=HEAD -- .github/workflows/update-prs.yaml
               fi
 
-              git commit -m "Merge master into $branch"
+              git commit -m "Merge master into $branch (excluding workflow changes)"
               git push origin "$branch"
             fi
           done
