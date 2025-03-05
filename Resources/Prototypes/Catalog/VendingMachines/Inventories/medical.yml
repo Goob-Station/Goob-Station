@@ -19,4 +19,6 @@
     FoodSnackLollypopWrappedTricordrazine: 8 # Goobstation - Lollypops
   emaggedInventory:
     FoodSnackLollypopWrappedLexorin: 3 # Goobstation - Lollypops
-    FoodSnackLollypopWrappedMysteryEvil: 6 # Goobstation - Lollypops
+    FoodSnackLollypopWrappedMysteryEvil: 5 # Goobstation - Lollypops
+  contrabandInventory:
+    FoodApple: 1
