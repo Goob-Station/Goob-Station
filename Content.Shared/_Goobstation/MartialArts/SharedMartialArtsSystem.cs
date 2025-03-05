@@ -1,8 +1,9 @@
 using Content.Shared._Goobstation.MartialArts.Components;
-using Content.Shared._Goobstation.MartialArts.Events;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared._White.Grab;
 using Content.Shared.Actions;
-using Content.Shared.Chat;
+using Content.Shared.Body.Part;
+using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -11,6 +12,7 @@ using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Speech;
+using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Ranged.Events;
@@ -41,9 +43,9 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedChatSystem _chat = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly INetManager _netManager = default!;
+    [Dependency] private readonly StandingStateSystem _standingState = default!;
 
     public override void Initialize()
     {
@@ -225,11 +227,22 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         return false;
     }
 
-    private void DoDamage(EntityUid ent, EntityUid target, string damageType, int damageAmount, out DamageSpecifier damage )
+    private void DoDamage(EntityUid ent,
+        EntityUid target,
+        string damageType,
+        int damageAmount,
+        out DamageSpecifier damage,
+        TargetBodyPart targetBodyPart = TargetBodyPart.All)
     {
         damage = new DamageSpecifier();
+        if(!TryComp<TargetingComponent>(ent, out var targetingComponent))
+            return;
+
         damage.DamageDict.Add(damageType, damageAmount);
-        _damageable.TryChangeDamage(target, damage, origin: ent);
+        _damageable.TryChangeDamage(target,
+            damage,
+            origin: ent,
+            targetPart: targetBodyPart == TargetBodyPart.All ? targetBodyPart : targetingComponent.Target);
     }
 
     #endregion

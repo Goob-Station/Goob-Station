@@ -1,5 +1,6 @@
 using Content.Shared._Goobstation.MartialArts.Components;
 using Content.Shared._Goobstation.MartialArts.Events;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Damage.Components;
 using Content.Shared.Examine;
@@ -57,16 +58,27 @@ public partial class SharedMartialArtsSystem
         if (!TryComp<MartialArtsKnowledgeComponent>(ent, out var knowledgeComponent))
             return;
 
-        if (!knowledgeComponent.Blocked)
-            return;
-
         if (knowledgeComponent.MartialArtsForm != MartialArtsForms.CloseQuartersCombat)
             return;
 
-        if (args.Type != ComboAttackType.Disarm)
+        if(knowledgeComponent.Blocked)
             return;
 
-        _stamina.TakeStaminaDamage(args.Target, 15f);
+        switch (args.Type)
+        {
+            case ComboAttackType.Disarm:
+                _stamina.TakeStaminaDamage(args.Target, 15f);
+                break;
+            case ComboAttackType.Harm:
+                if (!TryComp<RequireProjectileTargetComponent>(ent, out var standing)
+                    || !standing.Active)
+                    return;
+                _stun.TryParalyze(args.Target, TimeSpan.FromSeconds(5), true);
+                _standingState.Stand(ent);
+                break;
+        }
+
+
     }
 
     #endregion
@@ -99,7 +111,7 @@ public partial class SharedMartialArtsSystem
             _status.TryAddStatusEffect<ForcedSleepingComponent>(target, "ForcedSleep", TimeSpan.FromSeconds(10), true);
         }
 
-        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out var damage);
+        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out var damage, TargetBodyPart.Head);
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
 
         var mapPos = _transform.GetMapCoordinates(ent).Position;
