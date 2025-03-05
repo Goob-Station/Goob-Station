@@ -63,6 +63,18 @@
     - SubdermalImplant
     - HideContextMenu
 
+# Admeme
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: BlinkImplant
+  name: blink implant
+  description: This implant allows the user temporarily blink into a higher dimension.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionBlink
+
 - type: entity
   parent: BaseSubdermalImplant
   id: VaporizeImplant
@@ -72,5 +84,25 @@
   components:
   - type: SubdermalImplant
     implantAction: ActionVaporize
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ShiftImplant
+  name: shift implant
+  description: This implant allows the user to swap places with a target.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionShift
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: VanishImplant
+  name: vanish implant
+  description: This implant allows the user to vanish, becoming intangible.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionVanish
 
 

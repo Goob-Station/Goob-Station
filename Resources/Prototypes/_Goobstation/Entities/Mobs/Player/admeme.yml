@@ -82,5 +82,19 @@
       settings: short
   - type: Loadout
     prototypes: [GovernmentManGear]
+  - type: Tag
+    tags:
+    - InstantDoAfters
+    - CanPilot
+    - BypassInteractionRangeChecks
+    - BypassDropChecks
+    - NoConsoleSound
+  - type: Puller
+    needsHands: false
+  - type: Thieving
+    stripTimeReduction: 9999
+    stealthy: true
+  - type: BypassInteractionChecks
+  - type: SupermatterImmune
 
 

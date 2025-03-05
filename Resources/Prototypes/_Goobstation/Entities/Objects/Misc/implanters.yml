@@ -136,12 +136,12 @@
     implant: VaporizeImplant
 
 - type: entity
-  id: JauntImplanter
-  suffix: jaunt, admeme
+  id: VanishImplanter
+  suffix: vanish, admeme
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
-    implant: ActionPolymorphJauntGman
+    implant: ActionVanish
 
 - type: entity
   id: ShiftImplanter
@@ -149,4 +149,4 @@
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
-    implant: ActionShiftGman
+    implant: ActionShift

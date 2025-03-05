@@ -40,8 +40,8 @@
       speech: action-speech-implant-vaporize
 
 - type: entity
-  id: ActionPolymorphJauntGman
-  name: Vanish
+  id: ActionBlink
+  name: Blink
   description: Wisely done, Mr. Freeman. I will see you up ahead.
   components:
   - type: Sprite
@@ -57,10 +57,9 @@
     icon:
       sprite: _Goobstation/Wizard/actions.rsi # Todo - Change this
       state: jaunt
-    # TODO: Effect ECS (from cardboard box)
 
 - type: entity
-  id: ActionShiftGman
+  id: ActionShift
   name: Shift
   description: Is it really that time again?
   components:
@@ -74,3 +73,19 @@
       sprite: Objects/Magic/magicactions.rsi
       state: blink
     event: !type:TeleportSpellEvent
+
+- type: entity
+  id: ActionVanish
+  name: Vanish
+  description: Become almost invisible.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 1
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: chameleon_skin
+    event: !type:ActionChameleonSkinEvent {}
