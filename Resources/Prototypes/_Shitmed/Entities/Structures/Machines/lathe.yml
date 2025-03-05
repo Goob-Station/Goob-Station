@@ -28,6 +28,7 @@
     idleState: limbgrower_idleoff
     runningState: limbgrower_idleon
     staticRecipes:
+    - SynthHeadEmpty
     - SynthLiver
     - SynthHeart
     - SynthLungs
