@@ -100,7 +100,6 @@ public sealed class PullingSystem : EntitySystem
         SubscribeLocalEvent<PullerComponent, DropHandItemsEvent>(OnDropHandItems);
         SubscribeLocalEvent<PullerComponent, StopPullingAlertEvent>(OnStopPullingAlert);
         SubscribeLocalEvent<PullerComponent, VirtualItemThrownEvent>(OnVirtualItemThrown); // Goobstation - Grab Intent
-        //SubscribeLocalEvent<PullerComponent, VirtualItemDropAttemptEvent>(OnVirtualItemDropAttempt); // Goobstation - Grab Intent
         SubscribeLocalEvent<PullerComponent, AddCuffDoAfterEvent>(OnAddCuffDoAfterEvent); // Goobstation - Grab Intent
 
         SubscribeLocalEvent<PullableComponent, StrappedEvent>(OnBuckled);
@@ -229,40 +228,6 @@ public sealed class PullingSystem : EntitySystem
         component.NextThrow += args.PausedTime;
     }
 
-    // Goobstation - Grab Intent
-    /*
-    private void OnVirtualItemDropAttempt(EntityUid uid, PullerComponent component, VirtualItemDropAttemptEvent args)
-    {
-        if (component.Pulling == null)
-            return;
-
-        if (component.Pulling != args.BlockingEntity)
-            return;
-
-        if (_timing.CurTime < component.NextStageChange)
-        {
-            args.Cancel();  // VirtualItem is NOT being deleted
-            return;
-        }
-
-        if (!args.Throw)
-        {
-            if (component.GrabStage <= GrabStage.No
-                || !TryComp(args.BlockingEntity, out PullableComponent? comp))
-                return;
-            TryLowerGrabStage(component.Pulling.Value, uid);
-            args.Cancel();  // VirtualItem is NOT being deleted
-        }
-        else
-        {
-            if (component.GrabStage > GrabStage.Soft)
-                return;
-            TryLowerGrabStage(component.Pulling.Value, uid);
-            args.Cancel();  // VirtualItem is NOT being deleted
-        }
-    }
-    */
-    // Goobstation
 
     private void OnVirtualItemDeleted(EntityUid uid, PullerComponent component, VirtualItemDeletedEvent args)
     {
@@ -273,9 +238,9 @@ public sealed class PullingSystem : EntitySystem
         if (component.Pulling != args.BlockingEntity)
             return;
 
-        if (TryComp(args.BlockingEntity, out PullableComponent? comp)) // Goobstation
+        if (TryComp(args.BlockingEntity, out PullableComponent? comp)) // Goobstation - Grab Intent
         {
-            TryStopPull(component.Pulling.Value, comp);// Goobstation
+            TryStopPull(component.Pulling.Value, comp); // Goobstation - Grab Intent
         }
     }
 
