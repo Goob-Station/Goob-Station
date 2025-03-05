@@ -14,6 +14,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
+          token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 0
           submodules: recursive
 
@@ -26,7 +27,7 @@ jobs:
       - name: Get open pull requests
         id: get-prs
         run: |
-          prs=$(GH_TOKEN=${{ secrets.BOT_TOKEN }} gh pr list --state open --json number,headRefName,headRepositoryOwner --jq 'map("\(.number):\(.headRefName):\(.headRepositoryOwner.login)") | @sh' | tr -d "'")
+          prs=$(gh pr list --state open --json number,headRefName,headRepositoryOwner --jq 'map("\(.number):\(.headRefName):\(.headRepositoryOwner.login)") | @sh' | tr -d "'")
           echo "prs=$prs" >> $GITHUB_ENV
         env:
           GH_TOKEN: ${{ secrets.BOT_TOKEN }}
@@ -49,63 +50,43 @@ jobs:
               fork_remote="fork-$repo_owner"
               fork_repo="https://github.com/$repo_owner/$origin_repo.git"
 
-              # Manage remote
-              if git remote | grep -q "^$fork_remote$"; then
-                git remote set-url "$fork_remote" "$fork_repo"
-                git fetch "$fork_remote"
-              else
-                git remote add "$fork_remote" "$fork_repo"
-                git fetch "$fork_remote"
-              fi
+              # Clean existing remote if exists
+              git remote remove "$fork_remote" 2> /dev/null || true
+              git remote add "$fork_remote" "$fork_repo"
+              git fetch "$fork_remote"
 
-              # Skip if branch missing
               if ! git ls-remote --exit-code --heads "$fork_remote" "$branch" >/dev/null 2>&1; then
                 echo "Branch $branch not found in $fork_remote, skipping PR #$pr_number"
                 continue
               fi
 
-              # Process fork PR
               git checkout -b "temp-$branch" "$fork_remote/$branch"
               
-              # Update submodules
-              git submodule update --init --recursive --force || {
-                echo "Submodule update failed, attempting to continue..."
-                git submodule deinit --all -f
+              git submodule update --init --recursive --force || :
+              git merge --no-commit --no-ff origin/master || {
+                echo "Merge conflict in PR #$pr_number, skipping..."
+                git checkout master
+                git branch -D "temp-$branch"
+                continue
               }
 
-              # Merge and push
-              if git merge --no-commit --no-ff origin/master; then
-                git commit -m "Merge master into $branch"
-                git push "$fork_remote" "temp-$branch:$branch"
-              else
-                echo "Merge conflict in PR #$pr_number, skipping..."
-              fi
-
-              # Cleanup
+              git commit -m "Merge master into $branch"
+              git push "$fork_remote" "temp-$branch:$branch"
               git checkout master
               git branch -D "temp-$branch"
 
             else
-              # Process same-repo PR
               git fetch origin "$branch"
               git checkout "$branch"
               
-              # Update submodules
-              git submodule update --init --recursive --force || {
-                echo "Submodule update failed, attempting to continue..."
-                git submodule deinit --all -f
+              git submodule update --init --recursive --force || :
+              git merge --no-commit --no-ff origin/master || {
+                echo "Merge conflict in PR #$pr_number, skipping..."
+                git checkout master
+                continue
               }
 
-              # Merge and push
-              if git merge --no-commit --no-ff origin/master; then
-                git commit -m "Merge master into $branch"
-                git push origin "$branch"
-              else
-                echo "Merge conflict in PR #$pr_number, skipping..."
-                git reset --hard
-                git checkout master
-              fi
+              git commit -m "Merge master into $branch"
+              git push origin "$branch"
             fi
           done
-        env:
-          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
