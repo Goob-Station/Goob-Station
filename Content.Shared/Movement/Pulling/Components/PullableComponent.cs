@@ -68,6 +68,9 @@ public sealed partial class PullableComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool BeingTabled = false;
+
+    [DataField]
+    public float BaseTabledForceModifier = 3.5f;
     // Goobstation end
 }
 

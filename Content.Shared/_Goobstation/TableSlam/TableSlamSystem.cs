@@ -1,13 +1,16 @@
 using System.Linq;
 using Content.Shared.Climbing.Components;
+using Content.Shared.Coordinates;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
+using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
@@ -23,6 +26,8 @@ public sealed class TableSlamSystem : EntitySystem
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedPhysicsSystem _physicsSystem = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly StaminaSystem _staminaSystem = default!;
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
@@ -54,20 +59,16 @@ public sealed class TableSlamSystem : EntitySystem
 
         pullableComponent.BeingTabled = true;
         TryTableSlam((ent.Comp.Pulling.Value, pullableComponent), target);
-        _pullingSystem.TryStopPull(ent.Comp.Pulling.Value, pullableComponent, ent.Comp.Pulling.Value, ignoreGrab: true);
     }
 
-    public void TryTableSlam(Entity<PullableComponent> pullable, EntityUid tableUid)
+    public void TryTableSlam(Entity<PullableComponent> ent, EntityUid tableUid)
     {
-        var tableCoords = _transformSystem.GetWorldPosition(tableUid);
-        var pullableCords = _transformSystem.GetWorldPosition(pullable);
-        // Calculate direction
-        var direction = (tableCoords - pullableCords).Normalized();
-        var distance = (tableCoords - pullableCords).Length();
-        var throwVelocity = direction * MathF.Max(distance * 3f, 5f);
+        if(!_transformSystem.InRange(ent.Owner.ToCoordinates(), tableUid.ToCoordinates(), 2f ))
+            return;
+        _standing.Down(ent);
+        _pullingSystem.TryStopPull(ent, ent.Comp, ent, ignoreGrab: true);
 
-        // Apply physics impulse to throw the entity towards the table
-        _physicsSystem.SetLinearVelocity(pullable, throwVelocity);
+        _throwingSystem.TryThrow(ent, tableUid.ToCoordinates() , ent.Comp.BaseTabledForceModifier);
     }
 
     private void OnStartCollide(Entity<PullableComponent> ent, ref StartCollideEvent args)
@@ -77,7 +78,6 @@ public sealed class TableSlamSystem : EntitySystem
 
         if (!HasComp<BonkableComponent>(args.OtherEntity))
             return;
-
         // Apply damage and stun effect
         _damageableSystem.TryChangeDamage(ent,
             new DamageSpecifier()
