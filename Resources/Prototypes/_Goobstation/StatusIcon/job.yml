@@ -2,6 +2,6 @@
   parent: JobIcon
   id: JobIconLambda
   icon:
-    sprite: /_Goobstation/Textures/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
     state: Lambda
   jobName: job-name-governmentman
