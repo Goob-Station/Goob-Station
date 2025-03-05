@@ -3,5 +3,5 @@
   id: JobIconLambda
   icon:
     sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
-    state: Lambda
+    state: lambda
   jobName: job-name-governmentman

@@ -27,4 +27,4 @@ JobNavyOfficer = Navy Officer
 JobNavyOfficerUndercover = Undercover Navy Officer
 JobNavyCaptain = Navy Captain
 JobDiplomat = Diplomat
-JobGovernmentMan
+JobGovernmentMan = The G-Man
