@@ -1,4 +1,5 @@
-using Content.Shared._Goobstation.Grab;
+using Content.Shared._EinsteinEngines.Contests; // Goobstation - Grab Intent
+using Content.Shared._Goobstation.Grab; // Goobstation - Grab Intent
 using Content.Shared._White.Grab; // Goobstation
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
@@ -31,7 +32,6 @@ using Content.Shared.Speech; // Goobstation
 using Content.Shared.Standing;
 using Content.Shared.Throwing; // Goobstation
 using Content.Shared.Verbs;
-using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio; // Goobstation
 using Robust.Shared.Audio.Systems; // Goobstation
 using Robust.Shared.Containers;
@@ -74,6 +74,7 @@ public sealed class PullingSystem : EntitySystem
     [Dependency] private readonly GrabThrownSystem _grabThrown = default!;
     [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
+    [Dependency] private readonly ContestsSystem _contests = default!; // Goobstation - Grab Intent
 
     public override void Initialize()
     {
@@ -230,20 +231,29 @@ public sealed class PullingSystem : EntitySystem
     }
 
 
-    private void OnVirtualItemDeleted(EntityUid uid, PullerComponent component, VirtualItemDeletedEvent args)
+    // Goobstation - Grab Intent
+    private void OnVirtualItemDeleted(Entity<PullerComponent> ent, ref VirtualItemDeletedEvent args)
     {
         // If client deletes the virtual hand then stop the pull.
-        if (component.Pulling == null)
+        if (ent.Comp.Pulling == null)
             return;
 
-        if (component.Pulling != args.BlockingEntity)
+        if (ent.Comp.Pulling != args.BlockingEntity)
             return;
 
-        if (TryComp(args.BlockingEntity, out PullableComponent? comp)) // Goobstation - Grab Intent
+        if (TryComp(args.BlockingEntity, out PullableComponent? comp))
         {
-            TryStopPull(component.Pulling.Value, comp); // Goobstation - Grab Intent
+            TryStopPull(ent.Comp.Pulling.Value, comp, ent);
         }
+
+        foreach (var item in ent.Comp.GrabVirtualItems)
+        {
+            if(TryComp<VirtualItemComponent>(ent, out var virtualItemComponent))
+                _virtualSystem.DeleteVirtualItem((item,virtualItemComponent), ent);
+        }
+        ent.Comp.GrabVirtualItems.Clear();
     }
+    // Goobstation - Grab Intent Refactor
 
     // Goobstation - Grab Intent
     private void OnVirtualItemThrown(EntityUid uid, PullerComponent component, VirtualItemThrownEvent args)
@@ -276,7 +286,7 @@ public sealed class PullingSystem : EntitySystem
             damage * component.GrabThrowDamageModifier); // Throwing the grabbed person
         _throwing.TryThrow(uid, -direction * throwerPhysics.InvMass); // Throws back the grabber
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), uid);
-        component.NextStageChange.Add(TimeSpan.FromSeconds(2f)); // To avoid grab and throw spamming
+        component.NextStageChange.Add(TimeSpan.FromSeconds(4f)); // To avoid grab and throw spamming
     }
     // Goobstation
 
@@ -802,6 +812,7 @@ public sealed class PullingSystem : EntitySystem
         // You can't choke crates
         if (!HasComp<MobStateComponent>(pullable))
             return false;
+        Log.Info(_contests.MassContest(puller, pullable).ToString());
 
         // Delay to avoid spamming
         puller.Comp.NextStageChange = _timing.CurTime + puller.Comp.StageChangeCooldown;
@@ -862,7 +873,8 @@ public sealed class PullingSystem : EntitySystem
             _ => throw new ArgumentOutOfRangeException()
         };
 
-        pullable.Comp.GrabEscapeChance = puller.Comp.EscapeChances[stage];
+        var massModifier = _contests.MassContest(puller, pullable);
+        pullable.Comp.GrabEscapeChance = Math.Clamp(puller.Comp.EscapeChances[stage] / massModifier, 0f, 1f);
 
         _alertsSystem.ShowAlert(puller, puller.Comp.PullingAlert, puller.Comp.PullingAlertSeverity[stage]);
         _alertsSystem.ShowAlert(pullable, pullable.Comp.PulledAlert, pullable.Comp.PulledAlertAlertSeverity[stage]);
@@ -958,7 +970,7 @@ public sealed class PullingSystem : EntitySystem
         if (_random.Prob(pullable.Comp.GrabEscapeChance))
             return true;
 
-        pullable.Comp.NextEscapeAttempt = _timing.CurTime.Add(TimeSpan.FromSeconds(1));
+        pullable.Comp.NextEscapeAttempt = _timing.CurTime.Add(TimeSpan.FromSeconds(3));
         Dirty(pullable.Owner, pullable.Comp);
         return false;
     }

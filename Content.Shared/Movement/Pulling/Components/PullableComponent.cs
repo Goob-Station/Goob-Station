@@ -66,11 +66,29 @@ public sealed partial class PullableComponent : Component
     [AutoNetworkedField]
     public TimeSpan NextEscapeAttempt = TimeSpan.Zero;
 
+    /// <summary>
+    /// If this pullable being tabled.
+    /// </summary>
     [DataField, AutoNetworkedField]
     public bool BeingTabled = false;
 
+    /// <summary>
+    /// Constant for tabling throw math
+    /// </summary>
     [DataField]
-    public float BaseTabledForceModifier = 3.5f;
+    public float BaseTabledForceAcceleration = 2.5f;
+
+    /// <summary>
+    ///  Stamina damage. taken on tabled
+    /// </summary>
+    [DataField]
+    public float TabledStaminaDamage = 40f;
+
+    /// <summary>
+    /// Damage taken on being tabled.
+    /// </summary>
+    [DataField]
+    public float TabledDamage = 7.5f;
     // Goobstation end
 }
 
