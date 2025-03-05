@@ -259,7 +259,7 @@
   - SyndicateAgent
 
 - type: startingGear
-  id: GovernmentMan
+  id: GovernmentManGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitReporter
     shoes: ClothingShoesLeather
