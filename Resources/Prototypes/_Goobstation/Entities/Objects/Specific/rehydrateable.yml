@@ -138,11 +138,22 @@
   parent: MonkeyCube
   id: IPCCube
   name: IPC cube
-  description: How does this even work?
+  description: Just add oil!
   components:
   - type: Rehydratable
+    catalyst: Oil
     possibleSpawns:
     - MobIPCRandom
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: ipccube
+  - type: SolutionContainerManager
+    solutions:
+      cube:
+        maxVol: 11 # needs room for water
+        reagents:
+        - ReagentId: SulfuricAcid
+          Quantity: 10
+  - type: FlavorProfile
+    flavors:
+    - horrible

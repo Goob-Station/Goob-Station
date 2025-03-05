@@ -18,11 +18,12 @@
 
 - type: latheRecipe
   parent: BaseRoboticsRecipe
-  id: TorsoIPC
-  result: TorsoIPC
-  completetime: 3
+  id: IPCCube
+  result: IPCCube
+  completetime: 30
   materials:
-    Steel: 3000
+    Steel: 4000
+    Glass: 1000
     Gold: 500
     Plastic: 500
     Plasma: 500
