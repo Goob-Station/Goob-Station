@@ -5,7 +5,7 @@ on:
 
 jobs:
   update-prs:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     permissions:
       pull-requests: write
       contents: write
@@ -15,6 +15,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          submodules: recursive
 
       - name: Install GitHub CLI
         run: |
@@ -35,26 +36,85 @@ jobs:
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
+          git config --global submodule.fetchJobs 0
+          git config --global submodule.recurse true
 
           for pr in $prs; do
             pr_number=$(echo $pr | cut -d':' -f1)
             branch=$(echo $pr | cut -d':' -f2)
             repo_owner=$(echo $pr | cut -d':' -f3)
+            origin_repo=$(basename -s .git $(git remote get-url origin))
 
             if [ "$repo_owner" != "$(git remote get-url origin | cut -d':' -f2 | cut -d'/' -f1)" ]; then
-              fork_repo="https://github.com/$repo_owner/$(basename -s .git $(git remote get-url origin)).git"
-              git remote add fork "$fork_repo" || true
-              git fetch fork $branch
-              git checkout -b fork-$branch fork/$branch
-              git merge --no-commit --no-ff origin/master || { echo "Merge conflict in PR #$pr_number, skipping..."; continue; }
-              git commit -m "Merge master into $branch"
-              git push fork fork-$branch:$branch
+              fork_remote="fork-$repo_owner"
+              fork_repo="https://github.com/$repo_owner/$origin_repo.git"
+
+              if git remote | grep -q "^$fork_remote$"; then
+                git remote set-url "$fork_remote" "$fork_repo"
+                git fetch "$fork_remote"
+              else
+                git remote add "$fork_remote" "$fork_repo"
+                git fetch "$fork_remote"
+              fi
+
+              if ! git ls-remote --exit-code --heads "$fork_remote" "$branch" >/dev/null 2>&1; then
+                echo "Branch $branch not found in $fork_remote, skipping PR #$pr_number"
+                continue
+              fi
+
+              git checkout -b "temp-$branch" "$fork_remote/$branch"
+              
+              git submodule update --init --recursive --force || {
+                echo "Submodule update failed, attempting to continue..."
+                git submodule deinit --all -f
+              }
+
+              if git merge --no-commit --no-ff origin/master; then
+                # Check for any workflow file changes
+                if git ls-files --error-unmatch -- .github/workflows/ >/dev/null 2>&1; then
+                  if git diff --name-only --cached -- .github/workflows/ | grep -q .; then
+                    echo "Resetting workflow files in PR #$pr_number"
+                    git restore --staged -- .github/workflows/
+                    git restore -- .github/workflows/
+                  fi
+                fi
+
+                git submodule update --recursive --force || true
+                git commit -m "Merge master into $branch"
+                git push "$fork_remote" "temp-$branch:$branch"
+              else
+                echo "Merge conflict in PR #$pr_number, skipping..."
+              fi
+
+              git checkout master
+              git branch -D "temp-$branch"
+
             else
-              git fetch origin $branch
-              git checkout $branch
-              git merge --no-commit --no-ff origin/master || { echo "Merge conflict in PR #$pr_number, skipping..."; continue; }
-              git commit -m "Merge master into $branch"
-              git push origin $branch
+              git fetch origin "$branch"
+              git checkout "$branch"
+              
+              git submodule update --init --recursive --force || {
+                echo "Submodule update failed, attempting to continue..."
+                git submodule deinit --all -f
+              }
+
+              if git merge --no-commit --no-ff origin/master; then
+                if git ls-files --error-unmatch -- .github/workflows/ >/dev/null 2>&1; then
+                  if git diff --name-only --cached -- .github/workflows/ | grep -q .; then
+                    echo "Resetting workflow files in PR #$pr_number"
+                    git restore --staged -- .github/workflows/
+                    git restore -- .github/workflows/
+                  fi
+                fi
+
+                git submodule update --recursive --force || true
+                git commit -m "Merge master into $branch"
+                git push origin "$branch"
+              else
+                echo "Merge conflict in PR #$pr_number, skipping..."
+                git reset --hard
+                git checkout master
+              fi
             fi
           done
         env:
