@@ -1,5 +1,6 @@
 using Content.Shared.FixedPoint;
 using Content.Shared.Whitelist;
+using Content.Shared.Damage;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -62,6 +63,21 @@ public sealed partial class MechComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float MechToPilotDamageMultiplier;
 
+    [DataField]
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public DamageSpecifier MechArmor = new()
+    {
+        DamageDict = new()
+        {
+            { "Blunt", 0 },
+            { "Slash", 0 },
+            { "Piercing", 0 },
+            { "Heat", 0 },
+            { "Cold", 0 },
+            { "Shock", 0 },
+        }
+    };
+
     /// <summary>
     /// Whether the mech has been destroyed and is no longer pilotable.
     /// </summary>
@@ -90,6 +106,9 @@ public sealed partial class MechComponent : Component
     [DataField("maxEquipmentAmount"), ViewVariables(VVAccess.ReadWrite)]
     public int MaxEquipmentAmount = 3;
 
+    // [DataField("maxArmorAmount"), ViewVariables(VVAccess.ReadWrite)]
+    // public int MaxArmorAmount = 3; // Future armor plates
+
     /// <summary>
     /// A whitelist for inserting equipment items.
     /// </summary>
@@ -105,8 +124,14 @@ public sealed partial class MechComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public Container EquipmentContainer = default!;
 
+    // [ViewVariables(VVAccess.ReadWrite)]
+    // public Container ArmorContainer = default!; // future armor plates
+
     [ViewVariables]
     public readonly string EquipmentContainerId = "mech-equipment-container";
+
+    // [ViewVariables]
+    // public readonly string ArmorContainerId = "mech-armor-container"; // future armor plates
 
     /// <summary>
     /// How long it takes to enter the mech.
@@ -148,7 +173,7 @@ public sealed partial class MechComponent : Component
     [DataField]
     public EntProtoId MechCycleAction = "ActionMechCycleEquipment";
     [DataField]
-    public EntProtoId ToggleAction = "ActionToggleLight"; //Goobstation Mech Lights toggle action 
+    public EntProtoId ToggleAction = "ActionToggleLight"; //Goobstation Mech Lights toggle action
     [DataField]
     public EntProtoId MechUiAction = "ActionMechOpenUI";
     [DataField]
@@ -167,5 +192,5 @@ public sealed partial class MechComponent : Component
     [DataField] public EntityUid? MechCycleActionEntity;
     [DataField] public EntityUid? MechUiActionEntity;
     [DataField] public EntityUid? MechEjectActionEntity;
-    [DataField, AutoNetworkedField] public EntityUid? ToggleActionEntity; //Goobstation Mech Lights toggle action 
+    [DataField, AutoNetworkedField] public EntityUid? ToggleActionEntity; //Goobstation Mech Lights toggle action
 }
