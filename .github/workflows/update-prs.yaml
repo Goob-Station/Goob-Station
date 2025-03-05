@@ -46,13 +46,34 @@ jobs:
               git remote add fork "$fork_repo" || true
               git fetch fork $branch
               git checkout -b fork-$branch fork/$branch
-              git merge --no-commit --no-ff origin/master || { echo "Merge conflict in PR #$pr_number, skipping..."; continue; }
+              git merge --no-commit --no-ff origin/master || { echo "Merge conflict in PR #$pr_number, skipping..."; git reset --hard; continue; }
+              
+              # Check if workflow file is modified in merge
+              if git diff --cached --name-only | grep -q '.github/workflows/update-prs.yaml'; then
+                echo "Workflow file modified in PR #$pr_number, skipping..."
+                git reset --hard
+                git checkout -
+                git branch -D fork-$branch
+                continue
+              fi
+
               git commit -m "Merge master into $branch"
               git push fork fork-$branch:$branch
+              git checkout -
+              git branch -D fork-$branch
             else
               git fetch origin $branch
               git checkout $branch
-              git merge --no-commit --no-ff origin/master || { echo "Merge conflict in PR #$pr_number, skipping..."; continue; }
+              git merge --no-commit --no-ff origin/master || { echo "Merge conflict in PR #$pr_number, skipping..."; git reset --hard; continue; }
+
+              # Check if workflow file is modified in merge
+              if git diff --cached --name-only | grep -q '.github/workflows/update-prs.yaml'; then
+                echo "Workflow file modified in PR #$pr_number, skipping..."
+                git reset --hard
+                git checkout main  # or your default branch
+                continue
+              fi
+
               git commit -m "Merge master into $branch"
               git push origin $branch
             fi
