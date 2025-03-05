@@ -23,6 +23,7 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 900
+  - type: Appearance
   - type: MagazineVisuals
     magState: mag
     steps: 2
@@ -61,6 +62,7 @@
   - type: WeaponRandomExplode
     explosionChance: 0.05 # 1d20 roll
     multiplyByCharge: 1.0
+  - type: Appearance
   - type: MagazineVisuals
     magState: mag
     steps: 5
