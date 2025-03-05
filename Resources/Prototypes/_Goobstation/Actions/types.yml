@@ -47,3 +47,25 @@
       sprite: Objects/Weapons/Grenades/smoke.rsi
       state: icon
     event: !type:ActivateImplantEvent
+
+- type: entity
+  id: ActionVaporize
+  name: Vaporize
+  description: Vaporize the targeted foe.
+  components:
+  - type: EntityTargetAction
+    useDelay: 3
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    interactOnMiss: false
+    raiseOnUser: true
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/disintegrate.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: gib
+    event: !type:SmiteSpellEvent
+      speech: action-speech-implant-vaporize

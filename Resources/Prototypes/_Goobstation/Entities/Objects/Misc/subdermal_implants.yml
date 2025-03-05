@@ -49,4 +49,14 @@
     - type: SoundOnTrigger
       sound: /Audio/Effects/smoke.ogg
 
+- type: entity
+  parent: BaseSubdermalImplant
+  id: VaporizeImplant
+  name: vaporize implant
+  description: This implant allows the user to vaporize targets with the power of their mind.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionVaporize
+
 

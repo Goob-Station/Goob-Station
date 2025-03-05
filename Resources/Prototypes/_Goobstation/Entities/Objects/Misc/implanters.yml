@@ -116,3 +116,13 @@
   components:
   - type: Implanter
     implant: SmokeImplant
+
+# Admeme
+
+- type: entity
+  id: VaporizeImplanter
+  suffix: vaporize
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: VaporizeImplant
