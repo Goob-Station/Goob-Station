@@ -150,7 +150,7 @@
   - type: SolutionContainerManager
     solutions:
       cube:
-        maxVol: 11 # needs room for water
+        maxVol: 11 # needs room for OIL!!!
         reagents:
         - ReagentId: SulfuricAcid
           Quantity: 10
