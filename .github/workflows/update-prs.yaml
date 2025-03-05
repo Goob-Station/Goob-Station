@@ -40,42 +40,73 @@ jobs:
             pr_number=$(echo $pr | cut -d':' -f1)
             branch=$(echo $pr | cut -d':' -f2)
             repo_owner=$(echo $pr | cut -d':' -f3)
+            origin_repo=$(basename -s .git $(git remote get-url origin))
 
             if [ "$repo_owner" != "$(git remote get-url origin | cut -d':' -f2 | cut -d'/' -f1)" ]; then
-              fork_repo="https://github.com/$repo_owner/$(basename -s .git $(git remote get-url origin)).git"
-              git remote add fork "$fork_repo" || true
-              git fetch fork $branch
-              git checkout -b fork-$branch fork/$branch
-              git merge --no-commit --no-ff origin/master || { echo "Merge conflict in PR #$pr_number, skipping..."; git reset --hard; continue; }
+              # Create unique remote name for each fork
+              fork_remote="fork-$repo_owner"
+              fork_repo="https://github.com/$repo_owner/$origin_repo.git"
+
+              # Add or update fork remote
+              if git remote | grep -q "^$fork_remote$"; then
+                git remote set-url "$fork_remote" "$fork_repo"
+              else
+                git remote add "$fork_remote" "$fork_repo"
+              fi
+
+              # Verify branch exists in fork
+              if ! git ls-remote --exit-code --heads "$fork_remote" "$branch" >/dev/null 2>&1; then
+                echo "Branch $branch not found in $fork_remote, skipping PR #$pr_number"
+                continue
+              fi
+
+              # Fetch and merge
+              git fetch "$fork_remote" "$branch"
+              git checkout -b "temp-$branch" "$fork_remote/$branch"
               
-              # Check if workflow file is modified in merge
-              if git diff --cached --name-only | grep -q '.github/workflows/update-prs.yaml'; then
+              if ! git merge --no-commit --no-ff origin/master; then
+                echo "Merge conflict in PR #$pr_number, skipping..."
+                git reset --hard
+                git checkout master
+                git branch -D "temp-$branch"
+                continue
+              fi
+
+              # Check for workflow file changes
+              if git diff --name-only HEAD origin/master -- .github/workflows/update-prs.yaml; then
                 echo "Workflow file modified in PR #$pr_number, skipping..."
                 git reset --hard
-                git checkout -
-                git branch -D fork-$branch
+                git checkout master
+                git branch -D "temp-$branch"
                 continue
               fi
 
               git commit -m "Merge master into $branch"
-              git push fork fork-$branch:$branch
-              git checkout -
-              git branch -D fork-$branch
+              git push "$fork_remote" "temp-$branch:$branch"
+              git checkout master
+              git branch -D "temp-$branch"
+
             else
-              git fetch origin $branch
-              git checkout $branch
-              git merge --no-commit --no-ff origin/master || { echo "Merge conflict in PR #$pr_number, skipping..."; git reset --hard; continue; }
+              # Handle same-repo PRs
+              git fetch origin "$branch"
+              git checkout "$branch"
+              
+              if ! git merge --no-commit --no-ff origin/master; then
+                echo "Merge conflict in PR #$pr_number, skipping..."
+                git reset --hard
+                git checkout master
+                continue
+              fi
 
-              # Check if workflow file is modified in merge
-              if git diff --cached --name-only | grep -q '.github/workflows/update-prs.yaml'; then
+              if git diff --name-only HEAD origin/master -- .github/workflows/update-prs.yaml; then
                 echo "Workflow file modified in PR #$pr_number, skipping..."
                 git reset --hard
-                git checkout main  # or your default branch
+                git checkout master
                 continue
               fi
 
               git commit -m "Merge master into $branch"
-              git push origin $branch
+              git push origin "$branch"
             fi
           done
         env:
