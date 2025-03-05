@@ -18,7 +18,7 @@
     event: !type:TeleportSpellEvent
 
 - type: entity
-  id: ActionVaporize
+  id: ActionVaporizeFreeman
   name: Vaporize
   description: Vaporize the targeted foe.
   components:
@@ -40,7 +40,7 @@
       speech: action-speech-implant-vaporize
 
 - type: entity
-  id: ActionBlink
+  id: ActionBlinkFreeman
   name: Blink
   description: Wisely done, Mr. Freeman. I will see you up ahead.
   components:
@@ -59,7 +59,7 @@
       state: jaunt
 
 - type: entity
-  id: ActionShift
+  id: ActionShiftFreeman
   name: Shift
   description: Is it really that time again?
   components:
@@ -75,7 +75,7 @@
     event: !type:TeleportSpellEvent
 
 - type: entity
-  id: ActionVanish
+  id: ActionVanishFreeman
   name: Vanish
   description: Become almost invisible.
   categories: [ HideSpawnMenu ]

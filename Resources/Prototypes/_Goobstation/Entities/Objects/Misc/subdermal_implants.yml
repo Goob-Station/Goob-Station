@@ -73,7 +73,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
-    implantAction: ActionBlink
+    implantAction: ActionBlinkFreeman
 
 - type: entity
   parent: BaseSubdermalImplant
@@ -83,7 +83,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
-    implantAction: ActionVaporize
+    implantAction: ActionVaporizeFreeman
 
 - type: entity
   parent: BaseSubdermalImplant
@@ -93,7 +93,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
-    implantAction: ActionShift
+    implantAction: ActionShiftFreeman
 
 - type: entity
   parent: BaseSubdermalImplant
@@ -103,6 +103,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
-    implantAction: ActionVanish
+    implantAction: ActionVanishFreeman
 
 
