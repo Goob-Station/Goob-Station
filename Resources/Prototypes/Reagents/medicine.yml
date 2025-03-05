@@ -222,7 +222,7 @@
   physicalDesc: reagent-physical-desc-bubbling
   flavor: medicine
   color: "#32cd32"
-  worksOnTheDead: true # Goobstation - Surgery is no longer the only cure.
+  # worksOnTheDead: true - If you want this back, make lings make people unrevivable. I'm too lazy.
   metabolisms:
     Medicine:
       effects:
