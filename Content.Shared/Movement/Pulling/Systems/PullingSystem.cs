@@ -110,7 +110,6 @@ public sealed class PullingSystem : EntitySystem
             .Bind(ContentKeyFunctions.ReleasePulledObject, InputCmdHandler.FromDelegate(OnReleasePulledObject, handle: false))
             .Register<PullingSystem>();
     }
-
     // Goobstation - Grab Intent
     private void OnAddCuffDoAfterEvent(Entity<PullerComponent> ent, ref AddCuffDoAfterEvent args)
     {
@@ -309,7 +308,7 @@ public sealed class PullingSystem : EntitySystem
             damage * component.GrabThrowDamageModifier); // Throwing the grabbed person
         _throwing.TryThrow(uid, -direction * throwerPhysics.InvMass); // Throws back the grabber
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), uid);
-        component.NextStageChange.Add(TimeSpan.FromSeconds(4f)); // To avoid grab and throw spamming
+        component.NextStageChange.Add(TimeSpan.FromSeconds(2f)); // To avoid grab and throw spamming
     }
     // Goobstation
 
@@ -400,19 +399,24 @@ public sealed class PullingSystem : EntitySystem
         }
     }
 
-    private void OnPullableMoveInput(EntityUid uid, PullableComponent component, ref MoveInputEvent args)
+    // Goobstation - Grab Intent
+    private void OnPullableMoveInput(Entity<PullableComponent> ent, ref MoveInputEvent args)
     {
         // If someone moves then break their pulling.
-        if (!component.BeingPulled)
+        if (!ent.Comp.BeingPulled)
             return;
 
         var entity = args.Entity;
 
+        if (ent.Comp.GrabStage == GrabStage.Soft)
+            TryStopPull(ent, ent);
+
         if (!_blocker.CanMove(entity))
             return;
 
-        TryStopPull(uid, component, user: uid);
+        TryStopPull(ent, ent, user: ent);
     }
+    // Goobstation
 
     private void OnPullableCollisionChange(EntityUid uid, PullableComponent component, ref CollisionChangeEvent args)
     {
