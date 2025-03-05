@@ -64,34 +64,28 @@ jobs:
 
               git checkout -b "temp-$branch" "$fork_remote/$branch"
               
-              if ! git submodule update --init --recursive --force; then
-                echo "Warning: Failed to update submodules, attempting to continue..."
+              git submodule update --init --recursive --force || {
+                echo "Submodule update failed, attempting to continue..."
                 git submodule deinit --all -f
-              fi
+              }
 
-              if ! git merge --no-commit --no-ff origin/master; then
-                echo "Merge conflict in PR #$pr_number, skipping..."
-                git reset --hard
-                git checkout master
-                git branch -D "temp-$branch"
-                continue
-              fi
-
-              # Only reset workflow file if it exists in the changes
-              if git diff --name-only HEAD | grep -q '.github/workflows/update-prs.yaml'; then
-                echo "Resetting workflow file changes in PR #$pr_number"
-                # Check if file exists before restoring
-                if [ -f .github/workflows/update-prs.yaml ]; then
-                  git restore --source=HEAD --staged -- .github/workflows/update-prs.yaml
-                  git restore --source=HEAD -- .github/workflows/update-prs.yaml
-                else
-                  echo "Workflow file not present in branch, no need to reset"
+              if git merge --no-commit --no-ff origin/master; then
+                # Check for any workflow file changes
+                if git ls-files --error-unmatch -- .github/workflows/ >/dev/null 2>&1; then
+                  if git diff --name-only --cached -- .github/workflows/ | grep -q .; then
+                    echo "Resetting workflow files in PR #$pr_number"
+                    git restore --staged -- .github/workflows/
+                    git restore -- .github/workflows/
+                  fi
                 fi
+
+                git submodule update --recursive --force || true
+                git commit -m "Merge master into $branch"
+                git push "$fork_remote" "temp-$branch:$branch"
+              else
+                echo "Merge conflict in PR #$pr_number, skipping..."
               fi
 
-              git submodule update --recursive --force || true
-              git commit -m "Merge master into $branch (excluding workflow changes)"
-              git push "$fork_remote" "temp-$branch:$branch"
               git checkout master
               git branch -D "temp-$branch"
 
@@ -99,31 +93,28 @@ jobs:
               git fetch origin "$branch"
               git checkout "$branch"
               
-              if ! git submodule update --init --recursive --force; then
-                echo "Warning: Failed to update submodules, attempting to continue..."
+              git submodule update --init --recursive --force || {
+                echo "Submodule update failed, attempting to continue..."
                 git submodule deinit --all -f
-              fi
+              }
 
-              if ! git merge --no-commit --no-ff origin/master; then
+              if git merge --no-commit --no-ff origin/master; then
+                if git ls-files --error-unmatch -- .github/workflows/ >/dev/null 2>&1; then
+                  if git diff --name-only --cached -- .github/workflows/ | grep -q .; then
+                    echo "Resetting workflow files in PR #$pr_number"
+                    git restore --staged -- .github/workflows/
+                    git restore -- .github/workflows/
+                  fi
+                fi
+
+                git submodule update --recursive --force || true
+                git commit -m "Merge master into $branch"
+                git push origin "$branch"
+              else
                 echo "Merge conflict in PR #$pr_number, skipping..."
                 git reset --hard
                 git checkout master
-                continue
               fi
-
-              if git diff --name-only HEAD | grep -q '.github/workflows/update-prs.yaml'; then
-                echo "Resetting workflow file changes in PR #$pr_number"
-                if [ -f .github/workflows/update-prs.yaml ]; then
-                  git restore --source=HEAD --staged -- .github/workflows/update-prs.yaml
-                  git restore --source=HEAD -- .github/workflows/update-prs.yaml
-                else
-                  echo "Workflow file not present in branch, no need to reset"
-                fi
-              fi
-
-              git submodule update --recursive --force || true
-              git commit -m "Merge master into $branch (excluding workflow changes)"
-              git push origin "$branch"
             fi
           done
         env:
