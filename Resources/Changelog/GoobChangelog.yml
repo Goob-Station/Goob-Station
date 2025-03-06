@@ -5721,3 +5721,21 @@ Entries:
       message: Wizard traps now have an opacity of 5%
   id: 660
   time: '2025-03-06T15:16:45.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Tweak
+      message: Goliaths and Watchers have received a minor rework with regards to stats
+    - type: Tweak
+      message: >-
+        More Goliaths can spawn at a tendril before collapsing. The amount of
+        Goliath spawns per tendril are now 1 -> 2
+    - type: Tweak
+      message: >-
+        There should be a bigger delay before lavaland fauna spawns from their
+        tendrils
+    - type: Fix
+      message: Ice-wing and regular watchers can now spawn from tendrils
+    - type: Fix
+      message: Certain mobs can no longer be hit with the crusher destabilising shot
+  id: 661
+  time: '2025-03-06T18:41:28.0000000+00:00'
