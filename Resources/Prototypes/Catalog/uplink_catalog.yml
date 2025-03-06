@@ -1804,7 +1804,7 @@
   description: uplink-revolver-cap-gun-fake-desc
   productEntity: RevolverCapGunFake
   cost:
-    Telecrystal: 28 # goob
+    Telecrystal: 20 # goob
   categories:
   - UplinkJob
   conditions:
@@ -1959,7 +1959,7 @@
   icon: { sprite:  Objects/Consumable/Food/Baked/bread.rsi, state: baguette}
   productEntity: CombatBakeryKit
   cost:
-    Telecrystal: 30 # goob
+    Telecrystal: 20 # goob
   categories:
   - UplinkJob
   conditions:
