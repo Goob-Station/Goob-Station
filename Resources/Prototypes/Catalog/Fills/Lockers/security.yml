@@ -62,6 +62,7 @@
         amount: 2
       - id: RemoteSignaller # ShibaStation - More clickers.
         amount: 4
+      - id: Binoculars
       - id: Multitool # Goobstation
       - id: Wrench # Goobstation
       - id: ContrabandDetectorFlatpack # Goobstation

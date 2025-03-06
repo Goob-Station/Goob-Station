@@ -18,3 +18,8 @@
     - /Audio/_ShibaStation/Announcements/RoundEnd/wahoo.ogg
     - /Audio/_ShibaStation/Announcements/RoundEnd/wariowins.ogg
     - /Audio/_ShibaStation/Announcements/RoundEnd/yeahbaby.ogg
+
+- type: soundCollection
+  id: PowerOn
+  files:
+  - /Audio/Announcements/power_on.ogg
