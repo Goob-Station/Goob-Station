@@ -7,7 +7,7 @@
     ///     Maps to <see cref="ChatChannel"/>, giving better names.
     /// </remarks>
     [Flags]
-    public enum ChatSelectChannel : ushort
+    public enum ChatSelectChannel : uint // Goobstation - Starlight collective mind port
     {
         None = 0,
 
@@ -40,6 +40,12 @@
         ///     Emotes
         /// </summary>
         Emotes = ChatChannel.Emotes,
+
+        // Goobstation - Starlight collective mind port
+        /// <summary>
+        ///     CollectiveMind
+        /// </summary>
+        CollectiveMind = ChatChannel.CollectiveMind,
 
         /// <summary>
         ///     Deadchat

@@ -59,6 +59,7 @@
     belt: BlueShieldShieldFilled # I felt like einstein after figuring this out.
   storage:
     back:
+    - ClothingMaskGasSecurity 
     - Flash
     - BluespaceLifelineImplanter
     - WeaponEnergyRevolver
