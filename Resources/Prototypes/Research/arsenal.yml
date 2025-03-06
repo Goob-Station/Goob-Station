@@ -28,9 +28,11 @@
   - BoxShotgunIncendiary
   - MagazineRifleIncendiary
   - MagazinePistolIncendiary
+  - MagazinePistolSubMachineGunIncendiary
   - MagazineLightRifleIncendiary
   - SpeedLoaderMagnumIncendiary
   - MagazineShotgunIncendiary
+  - MagazineBoxShotgunIncendiaryHighCaliber # Goobstation
   - MagazineBoxPistolIncendiary
   - MagazineBoxMagnumIncendiary
   - MagazineBoxLightRifleIncendiary
@@ -62,6 +64,7 @@
   - MagazineShotgunBeanbag
   - BoxShellTranquilizer
   - BoxBeanbag
+  - MagazineBoxShotgunBeanbagHighCaliber # Goobstation
   - WeaponDisabler
   - WeaponMechCombatDisabler # Goobstation
 
@@ -77,6 +80,7 @@
   recipeUnlocks:
   - MagazineRifleUranium
   - MagazinePistolUranium
+  - MagazinePistolSubMachineGunUranium
   - MagazineLightRifleUranium
   - SpeedLoaderMagnumUranium
   - MagazineBoxPistolUranium
@@ -84,6 +88,7 @@
   - MagazineBoxLightRifleUranium
   - MagazineBoxRifleUranium
   - BoxShotgunUranium
+  - MagazineBoxShotgunUraniumHighCaliber # Goobstation
 
 - type: technology
   id: AdvancedRiotControl
