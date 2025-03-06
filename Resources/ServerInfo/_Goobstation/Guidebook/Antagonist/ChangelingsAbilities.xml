@@ -16,7 +16,7 @@
     [color=#999999][italic]25 Chems[italic][/color]
   </Box>
 
-  - Adds the stung players DNA to your pool.
+  - Adds the stung player's DNA to your pool.
   - Can be used while cuffed or in lesser form.
 
   ## Cycle DNA
@@ -24,7 +24,7 @@
     [color=#999999][italic]0 Chems[italic][/color]
   </Box>
 
-  - Changes your active DNA used for transform.
+  - Changes the active DNA used for transform.
   - Can be used while cuffed or in lesser form.
 
   ## Transform
@@ -72,7 +72,7 @@
   <Box>
     [color=#999999][italic] 2 Evolution Points / 30 Chems / 1 Absorbed Organic [italic][/color]
   </Box>
-  - Screaches, blinding anyone in the nearby area without flash protection, breaks nearby lights as well.
+  - Screeches, blinding anyone in the nearby area without flash protection, breaks nearby lights as well.
   - Can be used while cuffed or in lesser form.
 
   ## Strained Muscles
@@ -136,8 +136,8 @@
   <Box>
     [color=#999999][italic] 2 Evolution Points / 20 Chems [italic][/color]
   </Box>
-  - Changeling injects organic with 10 units of fresium, dropping their tempreture to 0 degrees celcius in most cases.
-  - Cold oraganics move far slower.
+  - Changeling injects organic with 10 units of fresium, dropping their temperature to 0 degrees Celsius in most cases.
+  - Cold organics move far slower.
   - Can be used while cuffed or in lesser form.
   - Can stack with itself.
 
@@ -166,7 +166,7 @@
   <Box>
     [color=#999999][italic] 4 Evolution Points / 50 Chems [italic][/color]
   </Box>
-  - Changeling injects organic with some of its own genome, forcing the organic to grow a temporary useless armblade.
+  - Changeling injects organic with some of its genome, forcing the organic to grow a temporary useless armblade.
   - Can be used while cuffed or in lesser form.
   - Lasts roughly 60 seconds.
 
@@ -187,9 +187,9 @@
   </Box>
   - Explodes the changelings current body and turns them into a headslug.
   - Headslugs are extremely fast, can ventcrawl, and can crawl under doors.
-  - Can be used while cuffed, cannot be used in lesser form.
+  - It can be used while cuffed but cannot be used in lesser form.
   - Headslugs can infect a non-hollow corpse to turn into a lesser form changeling after a short timer.
-  - If the infected body is destroyed the headslug will not revive, and will be forever lost.
+  - If the infected body is destroyed, the headslug will not revive, and will be forever lost.
 
   ## Lesser Form
   <Box>
@@ -203,7 +203,7 @@
   <Box>
     [color=#999999][italic] 3 Evolution Points [italic][/color]
   </Box>
-  - Consumed meat products restores the changelings chemical stores.
+  - Consuming meat products restores the changelings chemical stores.
 
   ## Augmented Eyesight
   <Box>
