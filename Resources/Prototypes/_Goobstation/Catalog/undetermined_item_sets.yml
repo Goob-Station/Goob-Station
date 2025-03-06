@@ -47,4 +47,4 @@
     state: icon-on
   content:
   - BlueshieldMace
-  - BlueShieldShield
+  - BlueShieldShield # Todo - Replace this with the filled shield.
