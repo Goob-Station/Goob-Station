@@ -18,7 +18,6 @@
   weight: 20
   startingGear: BlueshieldOfficerGear
   icon: "JobIconBlueshield"
-  requireAdminNotify: true
   joinNotifyCrew: true
   supervisors: job-supervisors-ntr-centcom
   canBeAntag: false
@@ -35,13 +34,10 @@
   - CentralCommand
   - BlueshieldOfficer
   - Service
-  - Hydroponics
-  - Kitchen
   - Cargo
-  - Theatre
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+    implants: [ MindShieldImplant, BluespaceLifelineImplant ]
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
@@ -58,6 +54,5 @@
   storage:
     back:
     - Flash
-    - BluespaceLifelineImplanter
     - SecHypo
     - BlueshieldUndetermined

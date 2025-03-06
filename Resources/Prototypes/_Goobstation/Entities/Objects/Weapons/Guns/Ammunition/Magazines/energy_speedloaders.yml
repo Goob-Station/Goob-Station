@@ -46,6 +46,12 @@
   name: energy speedloader (disabler)
   description: A special self-recharging powercell designed for use with the energy revolver. This one contains disabler bolts.
   components:
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: practice-6 # rename to disabler later
+        map: [ "enum.GunVisualLayers.Mag" ]
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 50
