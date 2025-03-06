@@ -290,3 +290,33 @@
       collection: FootstepSkates
       params:
         variation: 0.08
+
+- type: entity
+  parent: [ClothingShoesBootsMagBase, BaseMagicContraband]
+  id: ClothingShoesRealJordans
+  name: air jordans
+  description: State-of-the-art, official, uncreased Jordans that protect you from slipping when turned on.
+  components:
+  - type: Sprite
+    sprite: Clothing/Shoes/Boots/jordans.rsi
+    state: icon
+  - type: Clothing
+    sprite: Clothing/Shoes/Boots/jordans.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: Tag
+  - type: StaticPrice
+    price: 750
+
+- type: entity
+  parent: [ClothingShoesBaseButcherable, BaseMajorContraband]
+  id: ClothingShoesFakeJordans
+  name: air jordans
+  suffix: fake
+  description: Upon closer inspection, something feels off about these. Are they.. creased? No, it can't be that. Wait, the logo looks a little off...
+  components:
+  - type: Sprite
+    sprite: Clothing/Shoes/Boots/jordans.rsi
+  - type: Clothing
+    sprite: Clothing/Shoes/Boots/jordans.rsi
