@@ -281,11 +281,9 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
         if (!Resolve(toInsert, ref material, ref composition, false))
             return false;
 
-        Logger.Debug($"Checking whitelist for {ToPrettyString(toInsert)} on {ToPrettyString(receiver)}");
         if (_whitelistSystem.IsWhitelistFail(storage.Whitelist, toInsert))
             return false;
 
-        Logger.Debug("Whitelist check passed");
         if (HasComp<UnremoveableComponent>(toInsert))
             return false;
 
@@ -358,7 +356,7 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
 
         var proto = _prototype.Index<EntityPrototype>(material.StackEntity);
 
-        if (!proto.TryGetComponent<PhysicalCompositionComponent>(out var composition))
+        if (!proto.TryGetComponent<PhysicalCompositionComponent>(out var composition, EntityManager.ComponentFactory))
             return DefaultSheetVolume;
 
         return composition.MaterialComposition.FirstOrDefault(kvp => kvp.Key == material.ID).Value;
