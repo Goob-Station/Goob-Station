@@ -5787,3 +5787,9 @@ Entries:
       message: Added hoverchairs!
   id: 665
   time: '2025-03-06T23:14:40.0000000+00:00'
+- author: boxxie79
+  changes:
+    - type: Add
+      message: Added reinforced secret door, tiders rejoice
+  id: 666
+  time: '2025-03-06T23:22:44.0000000+00:00'
