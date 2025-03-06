@@ -54,7 +54,8 @@ namespace Content.Server.EntityEffects.Effects
 
             var damageSpec = new DamageSpecifier(Damage);
 
-            var universalReagentDamageModifier = entSys.GetEntitySystem<DamageableSystem>().UniversalReagentDamageModifier;
+            var universalReagentDamageModifier =
+                entSys.GetEntitySystem<DamageableSystem>().UniversalReagentDamageModifier;
             var universalReagentHealModifier = entSys.GetEntitySystem<DamageableSystem>().UniversalReagentHealModifier;
 
             if (universalReagentDamageModifier != 1 || universalReagentHealModifier != 1)
@@ -65,6 +66,7 @@ namespace Content.Server.EntityEffects.Effects
                     {
                         damageSpec.DamageDict[type] = val * universalReagentHealModifier;
                     }
+
                     if (val > 0f)
                     {
                         damageSpec.DamageDict[type] = val * universalReagentDamageModifier;
@@ -80,7 +82,8 @@ namespace Content.Server.EntityEffects.Effects
                     continue;
 
                 var relevantTypes = damageSpec.DamageDict
-                    .Where(x => x.Value != FixedPoint2.Zero && group.DamageTypes.Contains(x.Key)).ToList();
+                    .Where(x => x.Value != FixedPoint2.Zero && group.DamageTypes.Contains(x.Key))
+                    .ToList();
 
                 if (relevantTypes.Count != group.DamageTypes.Count)
                     continue;
@@ -150,41 +153,47 @@ namespace Content.Server.EntityEffects.Effects
             {
                 scale = ScaleByQuantity ? reagentArgs.Quantity * reagentArgs.Scale : reagentArgs.Scale;
             }
+
             if (ScaleByTemperature.HasValue)
             {
                 if (!args.EntityManager.TryGetComponent<TemperatureComponent>(args.TargetEntity, out var temp))
                     scale = FixedPoint2.Zero;
                 else
                     scale *= ScaleByTemperature.Value.GetEfficiencyMultiplier(temp.CurrentTemperature, scale, false);
-                    
-            var universalReagentDamageModifier = args.EntityManager.System<DamageableSystem>().UniversalReagentDamageModifier;
-            var universalReagentHealModifier = args.EntityManager.System<DamageableSystem>().UniversalReagentHealModifier;
 
-            if (universalReagentDamageModifier != 1 || universalReagentHealModifier != 1)
-            {
-                foreach (var (type, val) in damageSpec.DamageDict)
+                var universalReagentDamageModifier =
+                    args.EntityManager.System<DamageableSystem>().UniversalReagentDamageModifier;
+                var universalReagentHealModifier =
+                    args.EntityManager.System<DamageableSystem>().UniversalReagentHealModifier;
+
+                if (universalReagentDamageModifier != 1 || universalReagentHealModifier != 1)
                 {
-                    if (val < 0f)
+                    foreach (var (type, val) in damageSpec.DamageDict)
                     {
-                        damageSpec.DamageDict[type] = val * universalReagentHealModifier;
-                    }
-                    if (val > 0f)
-                    {
-                        damageSpec.DamageDict[type] = val * universalReagentDamageModifier;
+                        if (val < 0f)
+                        {
+                            damageSpec.DamageDict[type] = val * universalReagentHealModifier;
+                        }
+
+                        if (val > 0f)
+                        {
+                            damageSpec.DamageDict[type] = val * universalReagentDamageModifier;
+                        }
                     }
                 }
-            }
 
-            args.EntityManager.System<DamageableSystem>().TryChangeDamage(
-                args.TargetEntity,
-                damageSpec * scale,
-                IgnoreResistances,
-                interruptsDoAfters: false,
-                // Shitmed Change Start
-                targetPart: TargetBodyPart.All,
-                partMultiplier: 0.5f,
-                canSever: false);
+                args.EntityManager.System<DamageableSystem>()
+                    .TryChangeDamage(
+                        args.TargetEntity,
+                        damageSpec * scale,
+                        IgnoreResistances,
+                        interruptsDoAfters: false,
+                        // Shitmed Change Start
+                        targetPart: TargetBodyPart.All,
+                        partMultiplier: 0.5f,
+                        canSever: false);
                 // Shitmed Change End
+            }
         }
     }
 }
