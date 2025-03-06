@@ -122,7 +122,7 @@
   rules:
     - Secret
     - BasicStationEventScheduler
-    - LavalandStormScheduler # Lavaland Change
+    # - LavalandStormScheduler # Lavaland Change # All possible secret choices already contain this
 
 - type: gamePreset
   id: SecretExtended #For Admin Use: Runs Extended but shows "Secret" in lobby.
