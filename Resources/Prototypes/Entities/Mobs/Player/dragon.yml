@@ -176,6 +176,7 @@
   - type: GuideHelp
     guides:
     - MinorAntagonists
+  - type: Fauna # Lavaland Change
 
 - type: entity
   categories: [ HideSpawnMenu ]

@@ -1196,7 +1196,6 @@
     speedModifierThresholds:
       80: 0.7
       100: 0.5
-  - type: Fauna # Lavaland Change
 
 - type: entity
   name: kangaroo
@@ -1486,7 +1485,6 @@
         Burn: 3
     clumsySound:
       path: /Audio/Animals/monkey_scream.ogg
-  - type: Fauna # Lavaland Change
 
 - type: entity
   name: monkey
@@ -2516,7 +2514,6 @@
     color: "#808080"
     activateSound: null
     deactivateSound: null
-  - type: Fauna # Lavaland Change
 
 - type: entity
   parent: MobSpiderBase
