@@ -5755,3 +5755,15 @@ Entries:
       message: Bananium should now appear in Lavaland as intended.
   id: 662
   time: '2025-03-06T18:43:56.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Hitbox sizes and weights of some species got some tweaks to hopefully
+        make more sense, check the guidebook.
+    - type: Tweak
+      message: >-
+        Yowies are now even more resistant to brute damage and are no longer
+        vulnarable to heat.
+  id: 663
+  time: '2025-03-06T21:20:53.0000000+00:00'
