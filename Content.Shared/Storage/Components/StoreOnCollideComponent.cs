@@ -31,4 +31,18 @@ public sealed partial class StoreOnCollideComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Disabled;
+
+    /// <summary>
+    ///     Goobstation
+    ///     Don't store this entity, it is used for shooter if this is projectile
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntityUid? IgnoredEntity;
+
+    /// <summary>
+    ///     Goobstation
+    ///     Should the behavior be disabled when entity (physics) sleeps?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool DisableOnSleep;
 }

@@ -1,0 +1,79 @@
+- type: entity
+  parent: ClothingBackpackClown
+  id: ClothingBackpackWizardClownBundle
+  suffix: Wizard Clown Bundle
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterWizardClownReal
+      - id: ClothingHeadHatClownReal
+      - id: ClownPDA
+      - id: ClothingMaskClown
+      - id: ClothingShoesClown
+      - id: ClothingMaskSexyClown
+      - id: ClothingMaskClownBanana
+      - id: ClothingUniformJumpsuitClown
+      - id: ClothingShoesBling
+
+- type: entity
+  parent: ClothingBackpackMime
+  id: ClothingBackpackWizardMimeBundle
+  suffix: Wizard Mime Bundle
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterWizardMimeReal
+      - id: ClothingHeadHatMimeReal
+      - id: MimePDA
+      - id: ClothingBeltSuspendersBlack
+      - id: ClothingBeltSuspendersRed
+      - id: ClothingUniformJumpsuitMime
+      - id: ClothingMaskMime
+      - id: ClothingMaskSadMime
+      - id: ClothingMaskScaredMime
+      - id: ClothingMaskSexyMime
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackOblivionEnforcerBundle
+  suffix: Wizard Oblivion Enforcer Bundle
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterOblivionEnforcer
+      - id: ClothingMaskGasOblivionEnforcer
+      - id: ClothingUniformJumpsuitColorWhite
+      - id: ClothingShoesColorWhite
+      - id: ClothingHandsGlovesColorYellow
+
+- type: entity
+  parent: ToolboxMechanical
+  id: ToolboxTider
+  description: Are you ready for the new tide order?
+  suffix: Tider
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 20
+
+- type: entity
+  parent: ToolboxTider
+  id: ToolboxTiderFilled
+  suffix: Wizard Tider Bundle
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingUniformJumpsuitAncient
+      - id: ClothingMaskGas
+      - id: ClothingHandsGlovesColorYellow
+      - id: ClothingNeckMantle
+      - id: ClothingOuterWinterColorGray
+      - id: ClothingShoesColorBlack
+      - id: PassengerPDA

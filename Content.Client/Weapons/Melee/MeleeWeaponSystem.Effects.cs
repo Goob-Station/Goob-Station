@@ -138,6 +138,7 @@ public sealed partial class MeleeWeaponSystem
         const float length = 0.15f;
         var startOffset = sprite.Rotation.RotateVec(new Vector2(0f, -distance / 5f));
         var endOffset = sprite.Rotation.RotateVec(new Vector2(0f, -distance));
+        sprite.Rotation += spriteRotation;
 
         return new Animation()
         {
@@ -228,5 +229,13 @@ public sealed partial class MeleeWeaponSystem
 
             TransformSystem.SetWorldPosition(uid, targetPos);
         }
+    }
+
+    private Angle? GetParentRotation(TransformComponent xform) // Goobstation
+    {
+        if (xform.ParentUid == xform.GridUid || xform.ParentUid == xform.MapUid || !Exists(xform.ParentUid))
+            return TransformSystem.GetWorldRotation(xform);
+
+        return null;
     }
 }

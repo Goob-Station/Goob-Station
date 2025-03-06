@@ -10,6 +10,7 @@
   - Headphones
   - PlushieLizard
   - PlushieSpaceLizard
+  - ThreeCandles
   - Lighter
   - CigPackGreen
   - CigPackRed
@@ -18,6 +19,7 @@
   - CigarCase
   - CigarGold
   - ClothingNeckLGBTPin
+  - ClothingNeckAllyPin
   - ClothingNeckAromanticPin
   - ClothingNeckAsexualPin
   - ClothingNeckBisexualPin
@@ -26,10 +28,15 @@
   - ClothingNeckLesbianPin
   - ClothingNeckNonBinaryPin
   - ClothingNeckPansexualPin
+  - ClothingNeckOmnisexualPin
+  - ClothingNeckGenderqueerPin
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - CardBoxBlack # GoobStation
   - CardBoxNanotrasen # GoobStation
+  - FoodSnackLollypopWrapped # Goobstation
+  - FoodSnackLollypopWrappedRainbow # Goobstation
+  - FoodSnackLollypopWrappedCarp # Goobstation
   - TowelColorBlack
   - TowelColorDarkBlue
   - TowelColorDarkGreen
@@ -762,6 +769,7 @@
 - type: loadoutGroup
   id: StationEngineerHead
   name: loadout-group-station-engineer-head
+  minLimit: 0
   loadouts:
   - StationEngineerHardhatYellow
   - StationEngineerHardhatOrange
@@ -1349,6 +1357,7 @@
   loadouts:
   - ReporterJumpsuit
   - JournalistJumpsuit
+  - ReporterDress
 
 - type: loadoutGroup
   id: PsychologistJumpsuit

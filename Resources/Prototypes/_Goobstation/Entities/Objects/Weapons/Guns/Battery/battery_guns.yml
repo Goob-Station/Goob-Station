@@ -1,6 +1,6 @@
 - type: entity
   name: miniature energy crossbow
-  parent: BaseWeaponBatterySmall
+  parent: [ BaseWeaponBatterySmall, BaseSyndicateContraband ]
   id: MiniatureEnergyCrossbow
   description: The syndicate's energy crossbow, small, silent and deadly.
   components:
@@ -22,7 +22,8 @@
     fireCost: 900
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 300
+    autoRechargeRate: 900
+  - type: Appearance
   - type: MagazineVisuals
     magState: mag
     steps: 2
@@ -61,6 +62,7 @@
   - type: WeaponRandomExplode
     explosionChance: 0.05 # 1d20 roll
     multiplyByCharge: 1.0
+  - type: Appearance
   - type: MagazineVisuals
     magState: mag
     steps: 5

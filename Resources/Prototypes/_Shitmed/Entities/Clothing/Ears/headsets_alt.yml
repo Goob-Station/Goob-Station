@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingHeadsetAlt
+  parent: [ ClothingHeadsetAlt, BaseMajorContraband ]
   id: ClothingHeadsetAltAbductor
   name: abductor over-ear headset
   components:

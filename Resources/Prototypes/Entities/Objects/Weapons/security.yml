@@ -1,6 +1,6 @@
 - type: entity
   name: stun baton
-  parent: [BaseItem, BaseRestrictedContraband]
+  parent: [BaseItem, BaseSecurityContraband]
   id: Stunbaton
   description: A stun baton for incapacitating people with. Actively harming with this is considered bad tone.
   components:
@@ -14,6 +14,7 @@
       map: [ "enum.ToggleVisuals.Layer" ]
   - type: Stunbaton
     energyPerUse: 50
+    lightAttackEnergyMultiplier: 2 # Goob edit
   - type: ItemToggle
     predictable: false
     soundActivate:
@@ -32,28 +33,38 @@
     activatedDamage:
       types:
         Blunt: 0
-  - type: MeleeWeapon # goob edited
-    angle: 0
+  - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
       types:
         Blunt: 7
     bluntStaminaDamageFactor: 2.0
-    animation: WeaponArcSlash
+    angle: 0
+    animation: WeaponArcThrust
   # it was ~35 now it's 55 so it's a buff ig
   - type: StaminaDamageOnHit # goob edited
     damage: 15
     overtime: 40
+    lightAttackDamageMultiplier: 4
+    lightAttackOvertimeDamageMultiplier: 0
     sound: /Audio/Weapons/egloves.ogg
   - type: StaminaDamageOnCollide # goob edited
     damage: 15
     overtime: 40
     sound: /Audio/Weapons/egloves.ogg
+  - type: DelayedKnockdownOnHit # Goobstation
+    useDelay: stunbaton
+  - type: UseDelayBlockMelee # Goobstation
+    delays:
+    - stunbaton
   - type: LandAtCursor # it deals stamina damage when thrown
   - type: Battery
     maxCharge: 1000
     startingCharge: 1000
   - type: UseDelay
+    delays: # Goobstation
+      stunbaton:
+        length: 2.5
   - type: Item
     heldPrefix: off
     size: Normal
@@ -97,7 +108,7 @@
 
 - type: entity
   name: truncheon
-  parent: [BaseItem, BaseRestrictedContraband]
+  parent: [BaseItem, BaseSecurityContraband]
   id: Truncheon
   description: A rigid, steel-studded baton, meant to harm.
   components:
@@ -190,7 +201,7 @@
 
 - type: entity
   name: portable flasher
-  parent: [BaseMachine, BaseRestrictedContraband]
+  parent: [BaseMachine, BaseSecurityContraband]
   id: PortableFlasher
   description: An ultrabright flashbulb with a proximity trigger, useful for making an area security-only.
   components:

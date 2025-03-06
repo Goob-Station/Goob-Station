@@ -1,0 +1,638 @@
+# Offensive
+- type: listing
+  id: SpellbookMimeMalaiseUpgrade
+  productUpgradeId: SpellbookMimeMalaiseUpgrade
+  name: spellbook-upgrade-mime-malaise-name
+  description: spellbook-upgrade-mime-malaise-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: mime
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookMimeMalaise
+  - !type:ListingLimitedStockCondition
+    stock: 4
+
+- type: listing
+  id: SpellbookCluwneCurseUpgrade
+  productUpgradeId: SpellbookCluwneCurseUpgrade
+  name: spellbook-upgrade-cluwne-curse-name
+  description: spellbook-upgrade-cluwne-curse-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: cluwne
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookCluwneCurse
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: SpellbookBananaTouchUpgrade
+  productUpgradeId: SpellbookBananaTouchUpgrade
+  name: spellbook-upgrade-banana-touch-name
+  description: spellbook-upgrade-banana-touch-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: clown
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookBananaTouch
+  - !type:ListingLimitedStockCondition
+    stock: 4
+
+- type: listing
+  id: SpellbookBlindUpgrade
+  productUpgradeId: SpellbookBlindUpgrade
+  name: spellbook-upgrade-blind-name
+  description: spellbook-upgrade-blind-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: blind
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookBlind
+  - !type:ListingLimitedStockCondition
+    stock: 4
+
+- type: listing
+  id: SpellbookMutateUpgrade
+  productUpgradeId: SpellbookMutateUpgrade
+  name: spellbook-upgrade-mutate-name
+  description: spellbook-upgrade-mutate-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: mutate
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookMutate
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookTeslaBlastUpgrade
+  productUpgradeId: SpellbookTeslaBlastUpgrade
+  name: spellbook-upgrade-tesla-blast-name
+  description: spellbook-upgrade-tesla-blast-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: tesla
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookTeslaBlast
+  - !type:ListingLimitedStockCondition
+    stock: 4
+
+- type: listing
+  id: SpellbookLightningBoltUpgrade
+  productUpgradeId: SpellbookLightningBoltUpgrade
+  name: spellbook-upgrade-lightning-bolt-name
+  description: spellbook-upgrade-lightning-bolt-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: lightning
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookLightningBolt
+  - !type:ListingLimitedStockCondition
+    stock: 4
+
+- type: listing
+  id: SpellbookHomingToolboxUpgrade
+  productUpgradeId: SpellbookHomingToolboxUpgrade
+  name: spellbook-upgrade-homing-toolbox-name
+  description: spellbook-upgrade-homing-toolbox-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: toolbox
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookHomingToolbox
+  - !type:ListingLimitedStockCondition
+    stock: 4
+
+- type: listing
+  id: SpellbookArcaneBarrageUpgrade
+  productUpgradeId: SpellbookArcaneBarrageUpgrade
+  name: spellbook-upgrade-arcane-barrage-name
+  description: spellbook-upgrade-arcane-barrage-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: arcane_barrage
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookArcaneBarrage
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: SpellbookLesserSummonGunsUpgrade
+  productUpgradeId: SpellbookLesserSummonGunsUpgrade
+  name: spellbook-upgrade-lesser-summon-guns-name
+  description: spellbook-upgrade-lesser-summon-guns-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: bolt_action
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookLesserSummonGuns
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: SpellbookBarnyardCurseUpgrade
+  productUpgradeId: SpellbookBarnyardCurseUpgrade
+  name: spellbook-upgrade-barnyard-name
+  description: spellbook-upgrade-barnyard-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: barn
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookBarnyardCurse
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: SpellbookScreamForMeUpgrade
+  productUpgradeId: SpellbookScreamForMeUpgrade
+  name: spellbook-upgrade-scream-for-me-name
+  description: spellbook-upgrade-scream-for-me-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: scream_for_me
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookScreamForMe
+  - !type:ListingLimitedStockCondition
+    stock: 4
+
+- type: listing
+  id: SpellbookLesserSummonBeesUpgrade
+  productUpgradeId: SpellbookLesserSummonBeesUpgrade
+  name: spellbook-upgrade-bees-name
+  description: spellbook-upgrade-bees-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: bee
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookLesserSummonBees
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: SpellbookSanguineStrikeUpgrade
+  productUpgradeId: SpellbookSanguineStrikeUpgrade
+  name: spellbook-upgrade-sanguine-strike-name
+  description: spellbook-upgrade-sanguine-strike-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: exsanguinating_strike
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookSanguineStrike
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: SpellbookSmiteUpgrade
+  productUpgradeId: SpellbookSmiteUpgrade
+  name: spellbook-upgrade-smite-name
+  description: spellbook-upgrade-smite-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: gib
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookSmite
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: SpellbookRodFormUpgrade
+  productUpgradeId: SpellbookRodFormUpgrade
+  name: spellbook-upgrade-polymorph-rod-name
+  description: spellbook-upgrade-polymorph-rod-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: immrod
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookRodForm
+  - !type:ListingLimitedStockCondition
+    stock: 4
+
+- type: listing
+  id: SpellbookSpellCardsUpgrade
+  productUpgradeId: SpellbookSpellCardsUpgrade
+  name: spellbook-upgrade-spell-cards-name
+  description: spellbook-upgrade-spell-cards-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: spellcard
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookSpellCards
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: SpellbookSummonSimiansUpgrade
+  productUpgradeId: SpellbookSummonSimiansUpgrade
+  name: spellbook-upgrade-simians-name
+  description: spellbook-upgrade-simians-desc
+  productEvent: !type:SummonSimiansMaxedOutEvent
+  raiseProductEventOnUser: true
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: monkey
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookSummonSimians
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+  - !type:ListingLimitedStockCondition
+    stock: 4
+
+# Defensive
+- type: listing
+  id: SpellbookMagicMissileUpgrade
+  productUpgradeId: SpellbookMagicMissileUpgrade
+  name: spellbook-upgrade-magic-missile-name
+  description: spellbook-upgrade-magic-missile-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: missile
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookMagicMissile
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: SpellbookDisableTechUpgrade
+  productUpgradeId: SpellbookDisableTechUpgrade
+  name: spellbook-upgrade-disable-tech-name
+  description: spellbook-upgrade-disable-tech-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: emp
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookDisableTech
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+  - !type:ListingLimitedStockCondition
+    stock: 4
+
+- type: listing
+  id: SpellbookSmokeUpgrade
+  productUpgradeId: SpellbookSmokeUpgrade
+  name: spellbook-upgrade-smoke-name
+  description: spellbook-upgrade-smoke-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: smoke
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookSmoke
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: SpellbookRepulseUpgrade
+  productUpgradeId: SpellbookRepulseUpgrade
+  name: spellbook-upgrade-repulse-name
+  description: spellbook-upgrade-repulse-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: repulse
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookRepulse
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+  - !type:ListingLimitedStockCondition
+    stock: 4
+
+- type: listing
+  id: SpellbookStopTimeUpgrade
+  productUpgradeId: SpellbookStopTimeUpgrade
+  name: spellbook-upgrade-stop-time-name
+  description: spellbook-upgrade-stop-time-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: time
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookStopTime
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: SpellbookTrapsUpgrade
+  productUpgradeId: SpellbookTrapsUpgrade
+  name: spellbook-upgrade-the-traps-name
+  description: spellbook-upgrade-the-traps-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: the_traps
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookTraps
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+  - !type:ListingLimitedStockCondition
+    stock: 4
+
+- type: listing
+  id: SpellbookForceWallUpgrade
+  productUpgradeId: SpellbookForceWallUpgrade
+  name: spellbook-upgrade-force-wall-name
+  description: spellbook-upgrade-force-wall-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: shield_greater
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookForceWall
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+  - !type:ListingLimitedStockCondition
+    stock: 4
+
+# Utility
+- type: listing
+  id: SpellbookTeleportUpgrade
+  productUpgradeId: SpellbookTeleportUpgrade
+  name: spellbook-upgrade-teleport-name
+  description: spellbook-upgrade-teleport-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: teleport
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookTeleport
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: SpellbookSwapUpgrade
+  productUpgradeId: SpellbookSwapUpgrade
+  name: spellbook-upgrade-swap-name
+  description: spellbook-upgrade-swap-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: swap
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookSwap
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: SpellbookBlinkUpgrade
+  productUpgradeId: SpellbookBlinkUpgrade
+  name: spellbook-upgrade-blink-name
+  description: spellbook-upgrade-blink-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: blink
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookBlink
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+  - !type:ListingLimitedStockCondition
+    stock: 4
+
+- type: listing
+  id: SpellbookChargeUpgrade
+  productUpgradeId: SpellbookChargeUpgrade
+  name: spellbook-upgrade-charge-name
+  description: spellbook-upgrade-charge-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: charge
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookCharge
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+  - !type:ListingLimitedStockCondition
+    stock: 4
+
+- type: listing
+  id: SpellbookMindSwapUpgrade
+  productUpgradeId: SpellbookMindSwapUpgrade
+  name: spellbook-upgrade-mind-swap-name
+  description: spellbook-upgrade-mind-swap-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: mindswap
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookMindSwap
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: SpellbookKnockUpgrade
+  productUpgradeId: SpellbookKnockUpgrade
+  name: spellbook-upgrade-knock-name
+  description: spellbook-upgrade-knock-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: knock
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookKnock
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+  - !type:ListingLimitedStockCondition
+    stock: 2

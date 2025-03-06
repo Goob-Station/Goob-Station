@@ -5,7 +5,9 @@
   abstract: true
   components:
   - type: Sprite
-    scale: 1.3, 1.3 
+    scale: 1.3, 1.3
+  - type: ScaleData # Goobstation
+    scale: 1.3, 1.3
   - type: Hunger
   - type: Icon # It will not have an icon in the adminspawn menu without this. Body parts seem fine for whatever reason.
     sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
@@ -37,7 +39,7 @@
   - type: Metabolizer
     updateInterval: 3
   - type: BoganAccent
-  - type: Carriable 
+  - type: Carriable
     freeHandsRequired: 4 # easiest way to make them uncarriable without removing carriable from base mob
   - type: NoWieldNeeded
   - type: OuterSlotPenalty

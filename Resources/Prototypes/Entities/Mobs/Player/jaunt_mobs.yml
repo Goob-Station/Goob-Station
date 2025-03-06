@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   name: jaunt
   parent: [Incorporeal, BaseMob]
   id: BaseMobJaunt
@@ -26,15 +26,19 @@
   id: EtherealJaunt
   suffix: Wizard
   components:
-  - type: Sprite
-    sprite: Mobs/Ghosts/ghost_human.rsi
-    color: "#60f7eb"
-    layers:
-    - state: animated
-      shader: unshaded
-    noRot: true
-    overrideContainerOcclusion: true
-    drawdepth: Ghosts
+  # Goob edit
+  #- type: Sprite
+  #  sprite: Mobs/Ghosts/ghost_human.rsi
+  #  color: "#60f7eb"
+  #  layers:
+  #  - state: animated
+  #    shader: unshaded
+  #  noRot: true
+  #  overrideContainerOcclusion: true
+  #  drawdepth: Ghosts
   - type: MovementSpeedModifier
-    baseSprintSpeed: 6
-    baseWalkSpeed: 4
+    baseSprintSpeed: 3 # Goob edit
+    baseWalkSpeed: 3 # Goob edit
+  - type: WizardJaunt # Goobstation
+  - type: IsDeadIC # Goobstation
+    dead: false

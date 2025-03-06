@@ -1,0 +1,53 @@
+- type: entity
+  abstract: true
+  id: ScryingOrbBase
+  suffix: Wizard
+  components:
+  - type: ScryingOrb
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/scrying_orb.rsi
+    state: icon
+
+- type: entity
+  parent: [BaseStructure, ScryingOrbBase]
+  id: PonderingOrbWizard
+  name: pondering orb
+  description: Ponder your plans for the station using this farsight artefact.
+  components:
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    drawdepth: SmallObjects
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.16,0.3,0.16"
+        density: 20
+        mask:
+        - TabletopMachineMask
+        layer:
+        - TabletopMachineLayer
+
+- type: entity
+  parent: [BaseItem, ScryingOrbBase, BaseMagicContraband]
+  id: ScryingOrbWizard
+  name: scrying orb
+  description: An incandescent orb of otherworldly energy, staring into it gives you vision beyond mortal means.
+  components:
+  - type: ActionGrant
+    actions:
+    - ActionToggleLighting
+    - ActionToggleFov
+    - ActionToggleGhosts
+  - type: ItemActionGrant
+    actions:
+    - ActionToggleLighting
+    - ActionToggleFov
+    - ActionToggleGhosts
+  - type: StaticPrice
+    price: 50000

@@ -1,0 +1,15 @@
+- type: entity
+  parent: GasPipeSensor
+  id: GasPipeSensorSMHot
+  suffix: SM hot
+  components:
+  - type: Label
+    currentLabel: gas-pipe-sensor-sm-hot-loop
+
+- type: entity
+  parent: GasPipeSensor
+  id: GasPipeSensorSMCold
+  suffix: SM cold
+  components:
+  - type: Label
+    currentLabel: gas-pipe-sensor-sm-cold-loop

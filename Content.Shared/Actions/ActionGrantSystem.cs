@@ -20,6 +20,10 @@ public sealed class ActionGrantSystem : EntitySystem
         if (!TryComp(ent.Owner, out ActionGrantComponent? grant))
             return;
 
+        // Goobstation
+        if (ent.Comp.RestrictSlots && ent.Comp.RestrictedSlots != args.SlotFlags)
+            return;
+
         foreach (var action in grant.ActionEntities)
         {
             args.AddAction(action);
@@ -36,6 +40,8 @@ public sealed class ActionGrantSystem : EntitySystem
             if (actionEnt != null)
                 ent.Comp.ActionEntities.Add(actionEnt.Value);
         }
+
+        Dirty(ent); // Goobstation
     }
 
     private void OnShutdown(Entity<ActionGrantComponent> ent, ref ComponentShutdown args)

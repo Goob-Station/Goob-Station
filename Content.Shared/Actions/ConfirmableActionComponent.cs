@@ -53,4 +53,11 @@ public sealed partial class ConfirmableActionComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan PrimeTime = TimeSpan.FromSeconds(5);
+
+    /// <summary>
+    /// Goobstation
+    /// Whether this action should cancel itself to confirm or not
+    /// </summary>
+    [DataField]
+    public bool ShouldCancel = true;
 }

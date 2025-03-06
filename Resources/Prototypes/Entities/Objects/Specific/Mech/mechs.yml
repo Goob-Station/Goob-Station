@@ -180,7 +180,8 @@
     attackRate: 1
     damage:
       types:
-        Blunt: 14 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
+        Blunt: 25 # Goobstation - Make ripley punch hard
+        Structural: 30 # Goobstation - Make ripley punch hard
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.25
     baseSprintSpeed: 3.6

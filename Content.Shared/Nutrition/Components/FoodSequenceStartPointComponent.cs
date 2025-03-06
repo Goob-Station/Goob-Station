@@ -84,6 +84,9 @@ public sealed partial class FoodSequenceStartPointComponent : Component
     [DataField]
     public string Solution = "food";
 
+    [DataField]
+    public bool AllowHorizontalFlip = true;
+
     /// <summary>
     /// LocId with a name generation pattern.
     /// </summary>

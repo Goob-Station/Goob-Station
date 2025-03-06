@@ -13,15 +13,17 @@ public sealed partial class HereticCombatMarkSystem : EntitySystem
         SubscribeLocalEvent<HereticCombatMarkComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<HereticCombatMarkComponent, ComponentShutdown>(OnShutdown);
     }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
         // i can't think of a better way to do this. everything else has failed
         // god i hate client server i hate client server i hate client server i hate
-        foreach (var mark in EntityQuery<HereticCombatMarkComponent>())
+        var eqe = EntityQueryEnumerator<HereticCombatMarkComponent>();
+        while (eqe.MoveNext(out var uid, out var mark))
         {
-            if (!TryComp<SpriteComponent>(mark.Owner, out var sprite))
+            if (!TryComp<SpriteComponent>(uid, out var sprite))
                 continue;
 
             if (!sprite.LayerMapTryGet(0, out var layer))

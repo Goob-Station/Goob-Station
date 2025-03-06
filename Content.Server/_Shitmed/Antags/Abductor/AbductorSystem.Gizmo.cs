@@ -72,11 +72,14 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
 
     private void OnGizmoDoAfter(Entity<AbductorGizmoComponent> ent, ref AbductorGizmoMarkDoAfterEvent args)
     {
-        if (args.Target is null) return;
+        if (args.Handled || args.Cancelled || args.Target is null)
+            return;
+
         ent.Comp.Target = GetNetEntity(args.Target);
         EnsureComp<AbductorVictimComponent>(args.Target.Value, out var victimComponent);
         victimComponent.LastActivation = _time.CurTime + TimeSpan.FromMinutes(5);
-
         victimComponent.Position ??= EnsureComp<TransformComponent>(args.Target.Value).Coordinates;
+
+        args.Handled = true;
     }
 }

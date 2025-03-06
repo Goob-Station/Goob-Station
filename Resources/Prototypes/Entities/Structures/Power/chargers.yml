@@ -166,6 +166,8 @@
           - ProjectileBatteryAmmoProvider
           - Stunbaton
         blacklist:  # Goobstation
+          tags:
+          - WizardWand
           components:
           - MaterialEnergy
 
@@ -194,6 +196,7 @@
         blacklist:
           tags:
           - PotatoBattery
+          - WizardWand # Goobstation
           components:  # Goobstation
           - MaterialEnergy
 
@@ -222,6 +225,9 @@
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
           - Stunbaton
+        blacklist:  # Goobstation
+          tags:
+          - WizardWand
 
 - type: entity
   parent: BaseRecharger

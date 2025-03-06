@@ -27,12 +27,12 @@
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
-    - map: [ "outerClothing" ]
     - map: [ "eyes" ]
     - map: [ "belt" ]
     - map: [ "id" ]
-    - map: [ "neck" ]
+    - map: [ "outerClothing" ]
     - map: [ "back" ]
+    - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -75,6 +75,7 @@
           False: {visible: false}
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
+  - type: HasJobIcons # Goobstation
   - type: RotationVisuals
     defaultRotation: 90
     horizontalRotation: 90
@@ -196,6 +197,9 @@
         type: StoreBoundUserInterface
       enum.HereticLivingHeartKey.Key: # goob edit - heretics
         type: LivingHeartMenuBoundUserInterface
+      enum.WizardTeleportUiKey.Key: # Goobstation - wizard
+        type: WizardTeleportBoundUserInterface
+        requireInputValidation: false
       # Shitmed
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
@@ -336,12 +340,12 @@
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
-    - map: [ "outerClothing" ]
     - map: [ "eyes" ]
     - map: [ "belt" ]
     - map: [ "id" ]
-    - map: [ "neck" ]
+    - map: [ "outerClothing" ]
     - map: [ "back" ]
+    - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]

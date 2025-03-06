@@ -1,12 +1,24 @@
+using System.Linq;
 using System.Numerics;
+using Content.Shared._Goobstation.Wizard;
+using Content.Shared._Goobstation.Wizard.BindSoul;
+using Content.Shared._Goobstation.Wizard.Chuuni;
+using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
+using Content.Shared.Changeling;
 using Content.Shared.Coordinates.Helpers;
+using Content.Shared.Damage;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
+using Content.Shared.FixedPoint;
+using Content.Shared.Ghost;
+using Content.Shared.Gibbing.Events;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Lock;
@@ -15,22 +27,29 @@ using Content.Shared.Magic.Events;
 using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.NPC.Components;
+using Content.Shared.NPC.Prototypes;
+using Content.Shared.NPC.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
+using Content.Shared.Revolutionary.Components;
 using Content.Shared.Speech.Muting;
 using Content.Shared.Storage;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared.Zombies;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Spawners;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.Magic;
 
@@ -39,6 +58,7 @@ namespace Content.Shared.Magic;
 /// </summary>
 public abstract class SharedMagicSystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _timing = default!; // Goobstation
     [Dependency] private readonly ISerializationManager _seriMan = default!;
     [Dependency] private readonly IComponentFactory _compFact = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
@@ -61,6 +81,8 @@ public abstract class SharedMagicSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!; // Goobstation
+    [Dependency] private readonly NpcFactionSystem _faction = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -157,34 +179,66 @@ public abstract class SharedMagicSystem : EntitySystem
         var comp = ent.Comp;
         var hasReqs = true;
 
-        if (comp.RequiresClothes)
+        // Goobstation start
+        var requiresSpeech = comp.RequiresSpeech;
+        var flags = SlotFlags.OUTERCLOTHING | SlotFlags.HEAD;
+        var requiredSlots = 2;
+        if (_inventory.TryGetSlotEntity(args.Performer, "eyes", out var eyepatch) &&
+            HasComp<ChuuniEyepatchComponent>(eyepatch.Value))
         {
-            var enumerator = _inventory.GetSlotEnumerator(args.Performer, SlotFlags.OUTERCLOTHING | SlotFlags.HEAD);
-            while (enumerator.MoveNext(out var containerSlot))
-            {
-                if (containerSlot.ContainedEntity is { } item)
-                    hasReqs = HasComp<WizardClothesComponent>(item);
-                else
-                    hasReqs = false;
-
-                if (!hasReqs)
-                    break;
-            }
+            requiresSpeech = true;
+            flags = SlotFlags.OUTERCLOTHING;
+            requiredSlots = 1;
         }
 
-        if (comp.RequiresSpeech && HasComp<MutedComponent>(args.Performer))
+        var slots = 0;
+        // Goobstation end
+
+        if (comp.RequiresClothes)
+        {
+            if (!TryComp(args.Performer, out InventoryComponent? inventory)) // Goob edit
+                hasReqs = false;
+            else
+            {
+                var enumerator = _inventory.GetSlotEnumerator((args.Performer, inventory), flags); // Goob edit
+                while (enumerator.MoveNext(out var containerSlot))
+                {
+                    slots++; // Goobstation
+
+                    if (containerSlot.ContainedEntity is { } item)
+                        hasReqs = HasComp<WizardClothesComponent>(item);
+                    else
+                        hasReqs = false;
+
+                    if (!hasReqs)
+                        break;
+                }
+            }
+
+            if (slots < requiredSlots) // Goobstation
+                hasReqs = false;
+        }
+
+        if (!hasReqs) // Goobstation
+        {
+            _popup.PopupClient(Loc.GetString("spell-requirements-failed-clothes"), args.Performer, args.Performer);
+            args.Cancelled = true;
+            return;
+        }
+
+        if (requiresSpeech && HasComp<MutedComponent>(args.Performer)) // Goob edit
             hasReqs = false;
 
         if (hasReqs)
             return;
 
         args.Cancelled = true;
-        _popup.PopupClient(Loc.GetString("spell-requirements-failed"), args.Performer, args.Performer);
+        _popup.PopupClient(Loc.GetString("spell-requirements-failed-speech"), args.Performer, args.Performer); // Goob edit
 
         // TODO: Pre-cast do after, either here or in SharedActionsSystem
     }
 
-    private bool PassesSpellPrerequisites(EntityUid spell, EntityUid performer)
+    public bool PassesSpellPrerequisites(EntityUid spell, EntityUid performer) // Goob edit
     {
         var ev = new BeforeCastSpellEvent(performer);
         RaiseLocalEvent(spell, ref ev);
@@ -334,16 +388,21 @@ public abstract class SharedMagicSystem : EntitySystem
     #region Projectile Spells
     private void OnProjectileSpell(ProjectileSpellEvent ev)
     {
-        if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer) || !_net.IsServer)
+        if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer)) // Goob edit
+            return;
+
+        if (ev.Coords == null) // Goob edit
             return;
 
         ev.Handled = true;
         Speak(ev);
 
+        if (_net.IsClient) // Goobstation
+            return;
+
         var xform = Transform(ev.Performer);
         var fromCoords = xform.Coordinates;
-        var toCoords = ev.Target;
-        var userVelocity = _physics.GetMapLinearVelocity(ev.Performer);
+        var toCoords = ev.Coords.Value; // Goob edit
 
         // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
         var fromMap = fromCoords.ToMap(EntityManager, _transform);
@@ -351,10 +410,15 @@ public abstract class SharedMagicSystem : EntitySystem
             ? fromCoords.WithEntityId(gridUid, EntityManager)
             : new(_mapManager.GetMapEntityId(fromMap.MapId), fromMap.Position);
 
+        var userVelocity = _physics.GetMapLinearVelocity(spawnCoords); // Goob edit
+
         var ent = Spawn(ev.Prototype, spawnCoords);
         var direction = toCoords.ToMapPos(EntityManager, _transform) -
                         spawnCoords.ToMapPos(EntityManager, _transform);
         _gunSystem.ShootProjectile(ent, direction, userVelocity, ev.Performer, ev.Performer);
+
+        if (ev.Entity != null) // Goobstation
+            _gunSystem.SetTarget(ent, ev.Entity.Value, out _);
     }
     // End Projectile Spells
     #endregion
@@ -449,7 +513,8 @@ public abstract class SharedMagicSystem : EntitySystem
         if (!TryComp<BodyComponent>(ev.Target, out var body))
             return;
 
-        _body.GibBody(ev.Target, true, body);
+        if (_timing.IsFirstTimePredicted) // Goobstation
+            _body.GibBody(ev.Target, true, body, splatModifier: 10f, contents: GibContentsOption.Skip); // Goob edit
     }
     // End Smite Spells
     #endregion
@@ -469,10 +534,11 @@ public abstract class SharedMagicSystem : EntitySystem
         var transform = Transform(args.Performer);
 
         // Look for doors and lockers, and don't open/unlock them if they're already opened/unlocked.
-        foreach (var target in _lookup.GetEntitiesInRange(_transform.GetMapCoordinates(args.Performer, transform), args.Range, flags: LookupFlags.Dynamic | LookupFlags.Static))
+        foreach (var target in _lookup.GetEntitiesInRange(_transform.GetMapCoordinates(args.Performer, transform), args.Range, flags: LookupFlags.Dynamic | LookupFlags.Static | LookupFlags.Approximate)) // Goob edit
         {
-            if (!_interaction.InRangeUnobstructed(args.Performer, target, range: 0, collisionMask: CollisionGroup.Opaque))
-                continue;
+            // Goob edit
+            // if (!_interaction.InRangeUnobstructed(args.Performer, target, range: 0, collisionMask: CollisionGroup.Opaque))
+            //    continue;
 
             if (TryComp<DoorBoltComponent>(target, out var doorBoltComp) && doorBoltComp.BoltsDown)
                 _door.SetBoltsDown((target, doorBoltComp), false, predicted: true);
@@ -550,6 +616,31 @@ public abstract class SharedMagicSystem : EntitySystem
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
+        // Goobstation start
+        if (_mobState.IsIncapacitated(ev.Target) || HasComp<ZombieComponent>(ev.Target))
+        {
+            _popup.PopupClient(Loc.GetString("spell-fail-mindswap-dead"), ev.Performer, ev.Performer);
+            return;
+        }
+
+        List<(Type, string)> blockers = new()
+        {
+            (typeof(ChangelingComponent), "changeling"),
+            // You should be able to mindswap with heretics,
+            // but all of their data and abilities are not tied to their mind, I'm not making this work.
+            (typeof(HereticComponent), "heretic"),
+            (typeof(GhoulComponent), "ghoul"),
+            // Mindswapping with aghost real.
+            (typeof(GhostComponent), "ghost"),
+            (typeof(SpectralComponent), "ghost"),
+            (typeof(TimedDespawnComponent), "temporary"),
+            (typeof(FadingTimedDespawnComponent), "temporary"),
+        };
+
+        if (blockers.Any(x => CheckMindswapBlocker(x.Item1, x.Item2)))
+            return;
+        // Goobstation end
+
         ev.Handled = true;
         Speak(ev);
 
@@ -562,6 +653,9 @@ public abstract class SharedMagicSystem : EntitySystem
 
         var tarHasMind = _mind.TryGetMind(ev.Target, out var tarMind, out var tarMindComp);
 
+        _tag.AddTag(ev.Performer, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+        _tag.AddTag(ev.Target, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+
         _mind.TransferTo(perMind, ev.Target);
 
         if (tarHasMind)
@@ -569,8 +663,142 @@ public abstract class SharedMagicSystem : EntitySystem
             _mind.TransferTo(tarMind, ev.Performer);
         }
 
-        _stun.TryParalyze(ev.Target, ev.TargetStunDuration, true);
-        _stun.TryParalyze(ev.Performer, ev.PerformerStunDuration, true);
+        // Goobstation start
+        List<Type> components = new()
+        {
+            typeof(RevolutionaryComponent),
+            typeof(HeadRevolutionaryComponent),
+            typeof(WizardComponent),
+            typeof(ApprenticeComponent),
+        };
+
+        foreach (var component in components)
+        {
+            TransferComponent(component, ev.Performer, ev.Target);
+        }
+
+        TransferFactions();
+
+        if (_net.IsServer)
+        {
+            _audio.PlayEntity(ev.Sound, ev.Target, ev.Target);
+            _audio.PlayEntity(ev.Sound, ev.Performer, ev.Performer);
+        }
+        // Goobstation end
+
+        _tag.RemoveTag(ev.Performer, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+        _tag.RemoveTag(ev.Target, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+
+        _stun.KnockdownOrStun(ev.Target, ev.TargetStunDuration, true); // Goob edit
+        _stun.KnockdownOrStun(ev.Performer, ev.PerformerStunDuration, true); // Goob edit
+
+        // Goobstation start
+        return;
+
+        void TransferFactions()
+        {
+            TryComp(ev.Performer, out NpcFactionMemberComponent? performerFaction);
+            TryComp(ev.Target, out NpcFactionMemberComponent? targetFaction);
+
+            if (performerFaction == null && targetFaction == null)
+                return;
+
+            var performerHadFaction = true;
+            var targetHadFaction = true;
+
+            if (performerFaction == null)
+            {
+                performerFaction = AddComp<NpcFactionMemberComponent>(ev.Performer);
+                performerHadFaction = false;
+            }
+
+            if (targetFaction == null)
+            {
+                targetFaction = AddComp<NpcFactionMemberComponent>(ev.Target);
+                targetHadFaction = false;
+            }
+
+            List<ProtoId<NpcFactionPrototype>> factionsToTransfer = new()
+            {
+                "Wizard",
+            };
+
+            ProtoId<NpcFactionPrototype> fallbackFaction = "NanoTrasen";
+
+            var performerFactions = new HashSet<ProtoId<NpcFactionPrototype>>();
+            var targetFactions = new HashSet<ProtoId<NpcFactionPrototype>>();
+
+            foreach (var faction in FilterFactions(performerFaction.Factions))
+            {
+                performerFactions.Add(faction);
+            }
+
+            foreach (var faction in FilterFactions(targetFaction.Factions))
+            {
+                targetFactions.Add(faction);
+            }
+
+            Entity<NpcFactionMemberComponent?> targetFactionEnt = (ev.Target, targetFaction);
+            foreach (var faction in targetFactions)
+            {
+                _faction.RemoveFaction(targetFactionEnt, faction, false);
+            }
+
+            Entity<NpcFactionMemberComponent?> performerFactionEnt = (ev.Performer, performerFaction);
+            foreach (var faction in performerFactions)
+            {
+                _faction.RemoveFaction(performerFactionEnt, faction, false);
+            }
+
+            if (performerHadFaction)
+                _faction.AddFactions(targetFactionEnt, performerFactions);
+
+            if (targetHadFaction)
+                _faction.AddFactions(performerFactionEnt, targetFactions);
+
+            if (targetFaction.Factions.Count == 0)
+                _faction.AddFaction(targetFactionEnt, fallbackFaction);
+
+            if (performerFaction.Factions.Count == 0)
+                _faction.AddFaction(performerFactionEnt, fallbackFaction);
+            return;
+
+            IEnumerable<ProtoId<NpcFactionPrototype>> FilterFactions(HashSet<ProtoId<NpcFactionPrototype>> factions)
+            {
+                return factions.Where(x => factionsToTransfer.Contains(x));
+            }
+        }
+
+        bool CheckMindswapBlocker(Type type, string message)
+        {
+            if (!HasComp(ev.Target, type))
+                return false;
+
+            _popup.PopupClient(Loc.GetString($"spell-fail-mindswap-{message}"), ev.Performer, ev.Performer);
+            return true;
+        }
+        // Goobstation end
+    }
+
+    private void TransferComponent(Type type, EntityUid a, EntityUid b)
+    {
+        var aHasComp = HasComp(a, type);
+        var bHasComp = HasComp(b, type);
+
+        if (aHasComp && bHasComp)
+            return;
+
+        var comp = _compFact.GetComponent(type);
+        if (aHasComp)
+        {
+            AddComp(b, comp);
+            RemCompDeferred(a, type);
+        }
+        else if (bHasComp)
+        {
+            AddComp(a, comp);
+            RemCompDeferred(b, type);
+        }
     }
 
     #endregion
@@ -579,12 +807,36 @@ public abstract class SharedMagicSystem : EntitySystem
 
     // When any spell is cast it will raise this as an event, so then it can be played in server or something. At least until chat gets moved to shared
     // TODO: Temp until chat is in shared
-    private void Speak(BaseActionEvent args)
+    public void Speak(BaseActionEvent args) // Goob edit
     {
-        if (args is not ISpeakSpell speak || string.IsNullOrWhiteSpace(speak.Speech))
+        // Goob edit start
+        var speech = string.Empty;
+
+        if (args is ISpeakSpell speak && !string.IsNullOrWhiteSpace(speak.Speech))
+            speech = speak.Speech;
+
+        if (TryComp(args.Action, out MagicComponent? magic))
+        {
+            var invocationEv = new GetSpellInvocationEvent(magic.School, args.Performer);
+            RaiseLocalEvent(args.Performer, invocationEv);
+            if (invocationEv.Invocation.HasValue)
+                speech = invocationEv.Invocation;
+            if (invocationEv.ToHeal.GetTotal() > FixedPoint2.Zero)
+            {
+                _damageable.TryChangeDamage(args.Performer,
+                    -invocationEv.ToHeal,
+                    true,
+                    false,
+                    canSever: false,
+                    targetPart: TargetBodyPart.All);
+            }
+        }
+
+        if (string.IsNullOrEmpty(speech))
             return;
 
-        var ev = new SpeakSpellEvent(args.Performer, speak.Speech);
+        var ev = new SpeakSpellEvent(args.Performer, speech);
+        // Goob edit end
         RaiseLocalEvent(ref ev);
     }
 }

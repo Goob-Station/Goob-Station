@@ -20,6 +20,7 @@ using Content.Shared.Examine;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using InventoryComponent = Content.Shared.Inventory.InventoryComponent;
 
@@ -39,6 +40,8 @@ namespace Content.Server.Flash
         [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
+
+        public static readonly ProtoId<TagPrototype> IgnoreResistancesTag = "FlashIgnoreResistances"; // Goobstation
 
         public override void Initialize()
         {
@@ -117,11 +120,16 @@ namespace Content.Server.Flash
             bool melee = false,
             TimeSpan? stunDuration = null)
         {
-            var attempt = new FlashAttemptEvent(target, user, used);
-            RaiseLocalEvent(target, attempt, true);
+            // Goob edit start
+            if (used == null || !_tag.HasTag(used.Value, IgnoreResistancesTag))
+            {
+                var attempt = new FlashAttemptEvent(target, user, used);
+                RaiseLocalEvent(target, attempt, true);
 
-            if (attempt.Cancelled)
-                return;
+                if (attempt.Cancelled)
+                    return;
+            }
+            // Goob edit end
 
             // Goobstation start
             var multiplierEv = new FlashDurationMultiplierEvent();
@@ -136,7 +144,7 @@ namespace Content.Server.Flash
             if (stunDuration != null)
             {
                 // goob edit - stunmeta
-                _stun.TryKnockdown(target, stunDuration.Value * multiplier, true); // Goob edit
+                _stun.KnockdownOrStun(target, stunDuration.Value * multiplier, true); // Goob edit
             }
             else
             {

@@ -40,7 +40,7 @@ public abstract class SharedMindSystem : EntitySystem
         SubscribeLocalEvent<VisitingMindComponent, EntityTerminatingEvent>(OnVisitingTerminating);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnReset);
         SubscribeLocalEvent<MindComponent, ComponentStartup>(OnMindStartup);
-        SubscribeLocalEvent<MindComponent, EntityRenamedEvent>(OnRenamed);
+        SubscribeLocalEvent<MindContainerComponent, EntityRenamedEvent>(OnRenamed); // Goob edit
     }
 
     public override void Shutdown()
@@ -183,9 +183,13 @@ public abstract class SharedMindSystem : EntitySystem
             args.Handled = true;
     }
 
-    private void OnRenamed(Entity<MindComponent> ent, ref EntityRenamedEvent args)
+    private void OnRenamed(Entity<MindContainerComponent> ent, ref EntityRenamedEvent args) // Goob edit start
     {
-        ent.Comp.CharacterName = args.NewName;
+        if (!TryComp(ent.Comp.Mind, out MindComponent? mind))
+            return;
+
+        mind.CharacterName = args.NewName;
+        // Goob edit end
         Dirty(ent);
     }
 

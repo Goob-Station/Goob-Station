@@ -1,6 +1,6 @@
 - type: entity
   id: AbductorGizmo
-  parent: [BaseItem, BaseRestrictedContraband]
+  parent: [BaseItem, BaseMajorContraband]
   name: gizmo
   description: A device that inserts a nano tracker, which can be used to target a teleportation beam.
   components:

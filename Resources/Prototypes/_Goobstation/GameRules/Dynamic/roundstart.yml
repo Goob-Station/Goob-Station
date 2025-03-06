@@ -177,12 +177,13 @@
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml
   - type: AntagSelection
-    selectionTime: BeforeJobs
+    selectionTime: PrePlayerSpawn
     definitions:
     - prefRoles: [ NukeopsCommander ]
       fallbackRoles: [ Nukeops, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsCommander
       startingGear: SyndicateCommanderGearFull
+      unequipOldGear: true
       roleLoadout:
       - RoleSurvivalSyndicate
       components:
@@ -198,6 +199,7 @@
       fallbackRoles: [ Nukeops, NukeopsCommander ]
       spawnerPrototype: SpawnPointNukeopsMedic
       startingGear: SyndicateOperativeMedicFull
+      unequipOldGear: true
       roleLoadout:
       - RoleSurvivalSyndicate
       components:
@@ -215,6 +217,7 @@
       max: 10 # Goobstation / 古布空间站 - 没有限制的核特工
       playerRatio: 16
       startingGear: SyndicateOperativeGearFull
+      unequipOldGear: true
       roleLoadout:
       - RoleSurvivalSyndicate
       components:

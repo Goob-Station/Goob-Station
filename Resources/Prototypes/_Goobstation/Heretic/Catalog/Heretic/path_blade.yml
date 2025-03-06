@@ -28,7 +28,7 @@
   icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
   productHereticKnowledge: GraspOfBlade
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathBlade
   conditions:
@@ -47,7 +47,7 @@
   icon: { sprite: _Goobstation/Heretic/book.rsi, state: icon-on }
   productHereticKnowledge: DanceOfTheBrand
   cost:
-    KnowledgePoint: 2
+    KnowledgePoint: 1
   categories:
   - HereticPathBlade
   conditions:
@@ -63,7 +63,7 @@
   icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
   productHereticKnowledge: MarkOfBlade
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathBlade
   conditions:
@@ -81,7 +81,7 @@
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: realignment }
   productHereticKnowledge: Realignment
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathBlade
   conditions:
@@ -100,7 +100,7 @@
   icon: { sprite: _Goobstation/Heretic/book.rsi, state: icon-on }
   productHereticKnowledge: TornChampionStance
   cost:
-    KnowledgePoint: 2
+    KnowledgePoint: 1
   categories:
   - HereticPathBlade
   conditions:
@@ -116,7 +116,7 @@
   icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
   productHereticKnowledge: EmpoweredBlades
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathBlade
   conditions:
@@ -135,7 +135,7 @@
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: furious_steel }
   productHereticKnowledge: FuriousSteel
   cost:
-    KnowledgePoint: 2
+    KnowledgePoint: 1
   categories:
   - HereticPathBlade
   conditions:

@@ -8,7 +8,7 @@
     inventory: Drop
     revertOnDeath: false
     revertOnCrit: false
-    
+
 - type: polymorph
   id: Bananamen
   configuration:
@@ -20,3 +20,25 @@
     revertOnCrit: false
     polymorphSound: /Audio/Items/bikehorn.ogg
     inventory: Transfer
+
+- type: polymorph
+  id: Cat
+  configuration:
+    entity: MobCat
+    forced: true
+    transferName: true
+    transferHumanoidAppearance: true
+    inventory: None
+    revertOnDeath: true
+    revertOnCrit: true
+    duration: 20
+
+- type: polymorph
+  id: MouseSentient
+  configuration:
+    entity: MobMouseSentient
+    forced: true
+    inventory: Transfer
+    revertOnDeath: true
+    transferName: true
+    revertOnCrit: true

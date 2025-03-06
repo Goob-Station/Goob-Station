@@ -6,6 +6,8 @@
   name: "arachnid body part"
   abstract: true
   components:
+  - type: BodyPart # Shitmed Change
+    species: Arachnid
   - type: Extractable
     juiceSolution:
       reagents:

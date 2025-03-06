@@ -113,3 +113,14 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/hecu.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/hecu.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingCostumeAbductor
+  name: Alien Costume
+  description: The tag reads- Donk Co. not responsible for any security shootings caused by this product.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Clothing/Uniforms/Jumpsuit/abductor.rsi
+  - type: Clothing
+    sprite: _Shitmed/Clothing/Uniforms/Jumpsuit/abductor.rsi
