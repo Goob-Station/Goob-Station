@@ -18,10 +18,11 @@ jobs:
       contents: write
     steps:
       - name: Checkout Master
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           token: ${{ secrets.BOT_TOKEN }}
           ref: "${{ vars.CHANGELOG_BRANCH }}"
+          persist-credentials: false
 
       - name: Setup Git
         run: |
