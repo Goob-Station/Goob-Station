@@ -22,11 +22,9 @@
 - type: damageModifierSet
   id: Yowie
   coefficients:
-    Blunt: 0.85
-    Slash: 0.85
-    Piercing: 0.85
-    Heat: 1.15
-    Shock: 1
+    Blunt: 0.75
+    Slash: 0.75
+    Piercing: 0.75
     Cold: 0.9
     Bloodloss: 0.9
     Poison: 0.0 # Yea, heroin is heaps good for ya
