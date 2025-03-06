@@ -1,9 +1,10 @@
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
-using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Map;
+using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Administration.Commands;
 
@@ -47,7 +48,7 @@ public sealed class PersistenceSave : IConsoleCommand
         }
 
         var mapLoader = _system.GetEntitySystem<MapLoaderSystem>();
-        mapLoader.SaveMap(mapId, saveFilePath);
+        mapLoader.TrySaveMap(mapId, new ResPath(saveFilePath));
         shell.WriteLine(Loc.GetString("cmd-savemap-success"));
     }
 }
