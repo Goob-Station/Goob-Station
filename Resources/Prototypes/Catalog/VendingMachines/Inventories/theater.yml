@@ -57,6 +57,10 @@
     ClothingShoesBootsCowboyWhite: 1
     ClothingCostumeAbductorHead: 1
     ClothingCostumeAbductor: 1
+  contrabandInventory:
+    ClothingHeadHatRichard: 1
+    ToyFigurineBoxer: 1
+    ToyFigurineMusician: 1
   emaggedInventory:
     ClothingShoesBling: 1
     ClothingShoesBootsCowboyFancy: 1
