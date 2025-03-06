@@ -1,0 +1,74 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "bingle, boy_fisher, gib, disk, nuker, pufferfish by arraydeess (discord), clown, tropical, mutant, alien by imasleeping (discord)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "alien"
+        },
+        {
+            "name": "anglerh"
+        },
+        {
+            "name": "bassh"
+        },
+        {
+            "name": "bingle"
+        },
+        {
+            "name": "boy_fisher"
+        },
+        {
+            "name": "catfish"
+        },
+        {
+            "name": "clown"
+        },
+        {
+            "name": "disk",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "gib",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "mutant"
+        },
+        {
+            "name": "nuker"
+        },
+        {
+            "name": "pufferfish"
+        },
+        {
+            "name": "silverfish"
+        },
+        {
+            "name": "sun_tropical"
+        },
+        {
+            "name": "tropical"
+        }
+    ]
+}
