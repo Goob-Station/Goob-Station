@@ -324,4 +324,11 @@
   id: HudMedicalSecurity
 
 - type: Tag
+  id: HudDiagnostic
+
+- type: Tag
+  id: HudMedicalDiagnostic
+  
+- type: Tag
   id: ReverseBearTrapKey
+
