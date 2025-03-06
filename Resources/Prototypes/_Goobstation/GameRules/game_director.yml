@@ -35,6 +35,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: GameDirector
+    noRoundstartAntags: true
     stories:
       - Relaxed
       - Science

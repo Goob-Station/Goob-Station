@@ -49,6 +49,12 @@ public sealed partial class GameDirectorComponent : Component
     public bool DualAntags;
 
     /// <summary>
+    /// Does this round start with antags at all?.
+    /// </summary>
+    [DataField]
+    public bool NoRoundstartAntags;
+
+    /// <summary>
     ///   Which stories the director can choose from (so we can change flavor of director by loading different stories)
     ///   One of these get picked randomly each time the current story is exhausted.
     /// </summary>

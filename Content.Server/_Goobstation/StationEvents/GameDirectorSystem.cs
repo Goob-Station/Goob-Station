@@ -101,7 +101,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
     protected override void Added(EntityUid uid, GameDirectorComponent scheduler, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         // This deletes all existing metrics and sets them up again.
-        SpawnRoundstartAntags(scheduler, GetTotalPlayerCount(_playerManager.Sessions)); // Roundstart antags need to be selected in the lobby
+        TrySpawnRoundstartAntags(scheduler, GetTotalPlayerCount(_playerManager.Sessions)); // Roundstart antags need to be selected in the lobby
         if(TryComp<SelectedGameRulesComponent>(uid,out var selectedRules))
         {
             SetupEvents(scheduler, CountActivePlayers(), selectedRules);
@@ -226,12 +226,13 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
     }
 
     /// <summary>
-    /// Spawn roundstart antags at the beginning of the round
-    /// Checks gamedirectorcomp if DualAntags is true
-    /// If so selects two antags
+    /// Tries to spawn roundstart antags at the beginning of the round.
     /// </summary>
-    private void SpawnRoundstartAntags(GameDirectorComponent scheduler, int count)
+    private void TrySpawnRoundstartAntags(GameDirectorComponent scheduler, int count)
     {
+        if (!scheduler.NoRoundstartAntags)
+            return;
+
         // Spawn antags based on GameDirectorComponent
             var roundStartAntags = new List<EntityPrototype>();
             var calmStartAntags = new List<EntityPrototype>();
