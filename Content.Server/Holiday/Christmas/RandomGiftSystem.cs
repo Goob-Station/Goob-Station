@@ -27,6 +27,7 @@ public sealed class RandomGiftSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     private readonly List<string> _possibleGiftsSafe = new();
     private readonly List<string> _possibleGiftsUnsafe = new();
@@ -73,11 +74,16 @@ public sealed class RandomGiftSystem : EntitySystem
             || component.SelectedEntity == "MeleeDebugSever200")
             _audio.PlayGlobal("/Audio/StationEvents/mariah.ogg", Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
 
-        args.Handled = true;
         _audio.PlayPvs(component.Sound, args.User);
-        Del(uid);
+
+        // Don't delete the entity in the event bus, so we queue it for deletion.
+        // We need the free hand for the new item, so we send it to nullspace.
+        _transform.DetachEntity(uid, Transform(uid));
+        QueueDel(uid);
+
         _hands.PickupOrDrop(args.User, handsEnt);
 
+        args.Handled = true;
     }
 
     private void OnGiftMapInit(EntityUid uid, RandomGiftComponent component, MapInitEvent args)
