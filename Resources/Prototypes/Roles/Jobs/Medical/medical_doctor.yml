@@ -10,12 +10,16 @@
   startingGear: DoctorGear
   icon: "JobIconMedicalDoctor"
   supervisors: job-supervisors-cmo
+  goobcoins: 20 #Goob content
   access:
   - Medical
   - Maintenance
   extendedAccess:
   - Chemistry
-  special: # Shitmed change
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: DoctorDay
+    prototype: WehMedipen
   - !type:AddComponentSpecial
     components:
     - type: SurgerySpeedModifier

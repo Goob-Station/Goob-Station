@@ -77,98 +77,105 @@
 - type: latheRecipe
   id: SynthHeart
   result: BioSynthHeart
-  completetime: 30
+  completetime: 10
   materials:
     Biomass: 10
 
 - type: latheRecipe
   id: SynthLungs
   result: BioSynthLungs
-  completetime: 30
+  completetime: 10
   materials:
     Biomass: 10
 
 - type: latheRecipe
   id: SynthLiver
   result: BioSynthLiver
-  completetime: 30
+  completetime: 10
   materials:
     Biomass: 10
 
 - type: latheRecipe
   id: SynthEyes
   result: BioSynthEyes
-  completetime: 30
+  completetime: 10
   materials:
     Biomass: 10
+
+- type: latheRecipe
+  id: SynthHeadEmpty
+  result: BioSynthHeadEmpty
+  completetime: 10
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: SynthLeftArm
   result: BioSynthLeftArm
-  completetime: 30
+  completetime: 5
   materials:
-    Biomass: 10
+    Biomass: 7
 
 - type: latheRecipe
   id: SynthLeftHand
   result: BioSynthLeftHand
-  completetime: 30
+  completetime: 5
   materials:
-    Biomass: 10
+    Biomass: 3
 
 - type: latheRecipe
   id: SynthRightArm
   result: BioSynthRightArm
-  completetime: 30
+  completetime: 5
   materials:
-    Biomass: 10
+    Biomass: 7
 
 - type: latheRecipe
   id: SynthRightHand
   result: BioSynthRightHand
-  completetime: 30
+  completetime: 5
   materials:
-    Biomass: 10
+    Biomass: 3
 
 - type: latheRecipe
   id: SynthLeftLeg
   result: BioSynthLeftLeg
-  completetime: 30
+  completetime: 5
   materials:
-    Biomass: 10
+    Biomass: 7
 
 - type: latheRecipe
   id: SynthRightLeg
   result: BioSynthRightLeg
-  completetime: 30
+  completetime: 5
   materials:
-    Biomass: 10
+    Biomass: 7
 
 - type: latheRecipe
   id: SynthLeftFoot
   result: BioSynthLeftFoot
-  completetime: 30
+  completetime: 5
   materials:
-    Biomass: 10
+    Biomass: 3
 
 - type: latheRecipe
   id: SynthRightFoot
   result: BioSynthRightFoot
-  completetime: 30
+  completetime: 5
   materials:
-    Biomass: 10
+    Biomass: 3
 
 - type: latheRecipe
   id: PizzaLeftArm
   result: PizzaLeftArm
-  completetime: 30
+  completetime: 5
   materials:
     Biomass: 5
 
 - type: latheRecipe
   id: PizzaRightArm
   result: PizzaRightArm
-  completetime: 30
+  completetime: 5
   materials:
     Biomass: 5
 # Shitmed Change End
