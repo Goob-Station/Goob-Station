@@ -138,6 +138,9 @@ uplink-lollypop-bundle-big-desc = Contains an ungodly amount of candy. What coul
 uplink-smoke-implant-name = Smoke Implant
 uplink-smoke-implant-desc = Releases a cloud of smoke when activated.
 
+uplink-jaunter-implanter-name = Jaunter Implanter
+uplink-jaunter-implanter-desc = Swaps position of the user and target upon activation. Recharges passively.
+
 # Wearables
 
 uplink-helmet-swat-name = Syndicate SWAT Helmet
