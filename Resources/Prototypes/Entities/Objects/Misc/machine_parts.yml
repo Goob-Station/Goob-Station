@@ -20,6 +20,7 @@
       interfaces:
         enum.StackCustomSplitUiKey.Key:
           type: StackCustomSplitBoundUserInterface
+    - type: StockPart # Goobstation
 
 - type: entity
   id: CapacitorStockPart
