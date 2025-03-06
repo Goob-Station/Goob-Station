@@ -6,7 +6,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 90000 # 25 hours
+      time: 180000 # 50 hours
     - !type:DepartmentTimeRequirement
       department: Medical
       time: 54000 # 15 hours
