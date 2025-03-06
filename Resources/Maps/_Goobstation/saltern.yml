@@ -22742,17 +22742,17 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -17.5,36.5
       parent: 31
-- proto: CandyBowl
+- proto: CandyBowlFilledLollypopsMystery
   entities:
   - uid: 1105
     components:
     - type: Transform
-      pos: 5.4776692,21.540764
+      pos: 5.509995,21.55377
       parent: 31
   - uid: 1912
     components:
     - type: Transform
-      pos: 6.4716253,-3.2451885
+      pos: 6.4965353,-3.390307
       parent: 31
 - proto: CaptainIDCard
   entities:
