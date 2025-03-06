@@ -1,4 +1,4 @@
-namespace Content.Server._Goobstation.Religion
+namespace Content.Shared._Goobstation.Religion
 {
     [RegisterComponent]
     public sealed partial class WeakToHolyComponent : Component

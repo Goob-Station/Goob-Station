@@ -1,17 +1,16 @@
-using Content.Server.Bible.Components;
-using Content.Server.Popups;
+using Content.Shared.Bible.Components;
 using Content.Shared.Damage;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
 
-namespace Content.Server._Goobstation.Religion.Nullrod;
+namespace Content.Shared._Goobstation.Religion.Nullrod;
 
 public sealed partial class NullRodSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
     public override void Initialize()
     {

@@ -7,7 +7,7 @@ using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 
-namespace Content.Server._Goobstation.Religion.Nullrod;
+namespace Content.Shared._Goobstation.Religion.Nullrod;
 
 public sealed class NullrodTransformSystem : EntitySystem
 {

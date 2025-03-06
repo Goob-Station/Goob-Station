@@ -2,7 +2,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Audio;
 
-namespace Content.Server._Goobstation.Religion.Nullrod
+namespace Content.Shared._Goobstation.Religion.Nullrod
 {
     [RegisterComponent]
     public sealed partial class AltarSourceComponent : Component
@@ -26,7 +26,7 @@ namespace Content.Server._Goobstation.Religion.Nullrod
         /// Which sound effect to play.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
-        [DataField("soundPath"), AutoNetworkedField]
+        [DataField("soundPath")]
         public SoundSpecifier? SoundPath;
 
     }

@@ -2,7 +2,7 @@ using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Bible.Components
+namespace Content.Shared.Bible.Components
 {
     [RegisterComponent]
     public sealed partial class BibleComponent : Component

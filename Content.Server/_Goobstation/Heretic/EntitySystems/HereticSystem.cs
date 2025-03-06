@@ -15,7 +15,7 @@ using Content.Shared.Humanoid;
 using Robust.Server.Player;
 using Content.Server.Revolutionary.Components;
 using Content.Shared.Random.Helpers;
-using Content.Server._Goobstation.Religion;
+using Content.Shared._Goobstation.Religion;
 
 namespace Content.Server.Heretic.EntitySystems;
 

@@ -1,7 +1,7 @@
 using Content.Server._Goobstation.Religion;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Bible.Components;
+using Content.Shared.Bible.Components;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Popups;
 using Content.Shared.ActionBlocker;
