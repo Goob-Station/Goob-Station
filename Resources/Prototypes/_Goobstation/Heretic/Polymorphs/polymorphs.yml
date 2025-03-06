@@ -4,6 +4,7 @@
     entity: PolymorphAshJaunt
     forced: true
     duration: 3
+    attachToGridOrMap: true
 
 - type: polymorph
   id: EldritchHorror

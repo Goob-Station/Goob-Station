@@ -65,7 +65,7 @@ spellbook-upgrade-swap-name = Swap Upgrade
 spellbook-upgrade-swap-desc = Upgrades Swap to a maximum of level 3!
 
 spellbook-upgrade-blink-name = Blink Upgrade
-spellbook-upgrade-blink-desc = Upgrades Blink to a maximum of level 5!
+spellbook-upgrade-blink-desc = Upgrades Blink to a maximum of level 3!
 
 spellbook-upgrade-charge-name = Charge Upgrade
 spellbook-upgrade-charge-desc = Upgrades Charge to a maximum of level 5!
