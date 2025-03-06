@@ -208,11 +208,10 @@
             max: 213.0
             scale: 1.6
           damage:
-            groups:
-              Airloss: -6
-              Brute: -4
-              Burn: -6
-              Toxin: -4
+            groups: # Goobstation - Cryo rebalance
+              Airloss: -3
+              Brute: -3
+              Burn: -3
 
 - type: reagent
   id: Doxarubixadone
@@ -222,7 +221,7 @@
   physicalDesc: reagent-physical-desc-bubbling
   flavor: medicine
   color: "#32cd32"
-  # worksOnTheDead: true - If you want this back, make lings make people unrevivable. I'm too lazy.
+  worksOnTheDead: true # Goobstation - Cryo rebalance
   metabolisms:
     Medicine:
       effects:
@@ -1341,6 +1340,11 @@
   metabolisms:
     Medicine:
       effects:
+        - !type:ModifyBloodLevel # Goobstation - Cryo rebalance
+          conditions:
+          - !type:Temperature
+            max: 213.0
+          amount: 10
         - !type:HealthChange
           conditions:
           - !type:Temperature
@@ -1349,12 +1353,12 @@
             min: 100.0
             max: 213.0
             scale: 1.6
-          damage:
+          damage: # Goobstation - Cryo rebalance
             groups:
-              Brute: -4
-              Burn: -5
-            types:
-              Poison: -2
+              Airloss: -10.0
+              Brute: -5.0
+              Burn: -5.0
+              Toxin: -5.0
 
 - type: reagent
   id : Aloxadone
@@ -1376,11 +1380,11 @@
           min: 100.0
           max: 213.0
           scale: 1.6
-        damage:
+        damage: # Goobstation - Cryo rebalance
           types:
-            Heat: -3.0
-            Shock: -3.0
-            Caustic: -1.0
+            Heat: -10.0
+            Shock: -10.0
+            Caustic: -10.0
 
 - type: reagent
   id : Mannitol # currently this is just a way to create psicodine
