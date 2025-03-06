@@ -1,7 +1,6 @@
 - type: latheRecipePack
   id: BiofabPartsStatic
   recipes:
-  - SynthHeadEmpty  
   - SynthLiver
   - SynthHeart
   - SynthLungs
@@ -14,6 +13,7 @@
   - SynthRightArm
   - SynthLeftHand
   - SynthRightHand
+  - SynthHeadEmpty  
 
 - type: latheRecipePack
   id: BiofabPartsEmagStatic
