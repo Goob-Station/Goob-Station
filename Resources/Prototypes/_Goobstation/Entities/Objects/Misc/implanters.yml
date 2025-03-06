@@ -129,7 +129,7 @@
 
 - type: entity
   id: VaporizeImplanter
-  suffix: vaporize, admeme
+  suffix: vaporize, DO NOT MAP
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -137,7 +137,7 @@
 
 - type: entity
   id: ShiftImplanter
-  suffix: shift, admeme
+  suffix: shift, DO NOT MAP
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -145,7 +145,7 @@
 
 - type: entity
   id: BlinkImplanter
-  suffix: blink, admeme
+  suffix: blink, DO NOT MAP
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter

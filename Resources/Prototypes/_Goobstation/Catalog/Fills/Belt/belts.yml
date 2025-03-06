@@ -2,6 +2,7 @@
   parent: [ ClothingBeltMilitaryWebbingCMO, BaseMedicalContraband ]
   suffix: Filled
   id: ClothingBeltMilitaryWebbingCMOFilled
+  suffix: DO NOT MAP
   name: chief medical officer's chest rig
   description: "A medical chest rig with deep pockets, for use by paramedics and health professionals."
   components:
@@ -23,6 +24,7 @@
   parent: [ ClothingBeltDeathsquadWebbing, BaseCentcommContraband ]
   suffix: Filled
   id: ClothingBeltDeathsquadWebbingFilled
+  suffix: DO NOT MAP
   name: deathsquad operative chestrig
   description: "A robust and durable chestrig, containing everything you need to keep you in the fight. You probably won't need to use it."
   components:

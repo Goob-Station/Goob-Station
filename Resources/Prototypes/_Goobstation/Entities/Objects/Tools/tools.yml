@@ -2,6 +2,7 @@
   name: sonic screwdriver
   parent: BaseItem
   id: SonicScrewdriver
+  suffix: DO NOT MAP
   description: Wzzzzz....
   components:
   - type: Sprite

@@ -23,7 +23,7 @@
 - type: entity
   id: BriefcaseCentcomm
   parent: BriefcaseBrown
-  suffix: Admeme
+  suffix: Admeme, DO NOT MAP
   components:
   - type: Item
     size: Ginormous

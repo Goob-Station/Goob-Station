@@ -1,7 +1,7 @@
 - type: entity
   id: BlueShieldShieldFilled
   parent: BlueShieldShield
-  suffix: Filled
+  suffix: Filled, DO NOT MAP
   components:
   - type: ContainerFill
     containers:
@@ -11,7 +11,7 @@
 - type: entity
   id: BlueShieldShieldEvilFilled
   parent: BlueShieldShieldEvil
-  suffix: Filled, Evil
+  suffix: Filled, Evil, DO NOT MAP
   components:
   - type: ContainerFill
     containers:
