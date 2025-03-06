@@ -3,7 +3,7 @@ using Content.Shared.StatusIcon.Components;
 using Robust.Client.Player;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Heretic;
+namespace Content.Client._Goobstation.Heretic;
 
 public sealed partial class GhoulSystem : EntitySystem
 {
@@ -13,14 +13,14 @@ public sealed partial class GhoulSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<HereticComponent, GetStatusIconsEvent>(HereticMasterIconsEvent);
-        SubscribeLocalEvent<GhoulComponent, GetStatusIconsEvent>(GhoulIconsEvent);
+        SubscribeLocalEvent<HereticComponent, GetStatusIconsEvent>(OnHereticMasterIcons);
+        SubscribeLocalEvent<GhoulComponent, GetStatusIconsEvent>(OnGhoulIcons);
     }
 
     /// <summary>
     /// Show to ghouls who their master is
     /// </summary>
-    private void HereticMasterIconsEvent(Entity<HereticComponent> ent, ref GetStatusIconsEvent args)
+    private void OnHereticMasterIcons(Entity<HereticComponent> ent, ref GetStatusIconsEvent args)
     {
         var player = _player.LocalEntity;
 
@@ -37,12 +37,9 @@ public sealed partial class GhoulSystem : EntitySystem
     /// <summary>
     /// Show an icon for all ghouls to all ghouls and all heretics.
     /// </summary>
-    private void GhoulIconsEvent(Entity<GhoulComponent> ent, ref GetStatusIconsEvent args)
+    private void OnGhoulIcons(Entity<GhoulComponent> ent, ref GetStatusIconsEvent args)
     {
         var player = _player.LocalEntity;
-
-        if (!HasComp<GhoulComponent>(player) && !HasComp<HereticComponent>(player))
-            return;
 
         if (_prototype.TryIndex(ent.Comp.GhoulIcon, out var iconPrototype))
             args.StatusIcons.Add(iconPrototype);

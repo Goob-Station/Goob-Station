@@ -19,7 +19,7 @@ public sealed partial class GhoulComponent : Component
     [DataField] public FixedPoint2 TotalHealth = 50;
 
     [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public ProtoId<FactionIconPrototype> MasterIcon { get; set; } = "HereticFaction";
+    public ProtoId<FactionIconPrototype> MasterIcon { get; set; } = "GhoulHereticMaster";
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public ProtoId<FactionIconPrototype> GhoulIcon { get; set; } = "GhoulFaction";
 }

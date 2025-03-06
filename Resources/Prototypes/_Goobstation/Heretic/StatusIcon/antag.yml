@@ -11,13 +11,12 @@
     state: Ghoul
 
 - type: factionIcon
-  id: HereticFaction
+  id: GhoulHereticMaster
   priority: 11
   showTo:
     components:
       - ShowAntagIcons
       - Ghoul
-      - Heretic
   icon:
     sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
     state: HereticMaster
