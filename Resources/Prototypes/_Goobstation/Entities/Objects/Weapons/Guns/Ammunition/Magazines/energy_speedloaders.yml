@@ -32,16 +32,6 @@
   name: energy speedloader (lethal)
   description: A special self-recharging powercell designed for use with the energy revolver. This one contains lethal bolts.
   components:
-  - type: Sprite # Remove when sprites are done so it would be base state, i just think that bright orange practice bullets fit more for now.
-    layers:
-      - state: base
-        map: [ "enum.GunVisualLayers.Base" ]
-      - state: base-3
-        map: [ "enum.GunVisualLayers.Mag" ]
-  - type: MagazineVisuals # Same as above
-    magState: base
-    steps: 3
-    zeroVisible: false
   - type: ProjectileBatteryAmmoProvider
     proto: BulletEnergyGunMagnum
     fireCost: 100
