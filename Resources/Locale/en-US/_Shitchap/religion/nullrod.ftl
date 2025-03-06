@@ -4,3 +4,4 @@ nullrod-holyclaymore-untrained-usage-popup = The blade slips from your grasp, sl
 nullrod-godhand-untrained-usage-popup = The divine energy crackles, causing your arm to spasm uncontrollably.
 nullrod-arrythmicknife-untrained-usage-popup = The blade jerks out of control, inflicting a painful gash on your arm.
 nullrod-monkstaff-untrained-usage-popup = The staff slips from your grasp and hits you in the shoulder.
+nullrod-atheistfedora-untrained-usage-popup = The hat's razor sharp brim begins to hum.

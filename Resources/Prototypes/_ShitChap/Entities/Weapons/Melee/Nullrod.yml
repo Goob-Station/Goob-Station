@@ -4,7 +4,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: _ShitChap/Objects/Weapons/Melee/nullrod.rsi
+    sprite: _ShitChap/Objects/Weapons/Nullrod/nullrod.rsi
     state: icon
   - type: Item
     size: Small
@@ -79,11 +79,11 @@
       groups:
         Brute: -10
   - type: Clothing
-    sprite: Objects/Weapons/Melee/claymore.rsi
+    sprite: Objects/Weapons/Nullrod/claymore.rsi
     slots:
     - back
   - type: Sprite
-    sprite: Objects/Weapons/Melee/claymore.rsi # Todo - Give this proper wielded sprites.
+    sprite: Objects/Weapons/Nullrod/claymore.rsi # Todo - Give this proper wielded sprites.
   - type: AmmoCounter
   - type: UseDelayOnShoot
   - type: UseDelay
@@ -124,7 +124,7 @@
   id: Rosary
   components:
   - type: Sprite
-    sprite: _ShitChap/Objects/Weapons/Melee/rosary.rsi
+    sprite: _ShitChap/Objects/Weapons/Nullrod/rosary.rsi
     state: icon
   - type: UseDelay
     delay: 5.0
@@ -174,7 +174,7 @@
     - Holy
   - type: Item
     size: Small
-    sprite: _ShitChap/Objects/Weapons/Melee/rosary.rsi
+    sprite: _ShitChap/Objects/Weapons/Nullrod/rosary.rsi
   - type: Clothing
     slots:
     - Belt
@@ -197,9 +197,9 @@
   components:
   - type: Item
     size: Ginormous
-    sprite: _ShitChap/Objects/Weapons/Melee/godhand.rsi
+    sprite: _ShitChap/Objects/Weapons/Nullrod/godhand.rsi
   - type: Sprite
-    sprite: _ShitChap/Objects/Weapons/Melee/godhand.rsi
+    sprite: _ShitChap/Objects/Weapons/Nullrod/godhand.rsi
     state: icon
   - type: MeleeWeapon
     canWideSwing: false
@@ -259,9 +259,9 @@
     UntrainedUseString: nullrod-arrythmicknife-untrained-usage-popup
   - type: Item
     size: Huge
-    sprite: _ShitChap/Objects/Weapons/Melee/arrythmic.rsi
+    sprite: _ShitChap/Objects/Weapons/Nullrod/arrythmic.rsi
   - type: Sprite
-    sprite: _ShitChap/Objects/Weapons/Melee/arrythmic.rsi
+    sprite: _ShitChap/Objects/Weapons/Nullrod/arrythmic.rsi
     state: icon
   - type: MeleeWeapon
     attackRate: 1.2
@@ -310,9 +310,9 @@
     UntrainedUseString: nullrod-monkstaff-untrained-usage-popup
   - type: Item
     size: Huge
-    sprite: _ShitChap/Objects/Weapons/Melee/monkstaff.rsi
+    sprite: _ShitChap/Objects/Weapons/Nullrod/monkstaff.rsi
   - type: Sprite
-    sprite: _ShitChap/Objects/Weapons/Melee/monkstaff.rsi
+    sprite: _ShitChap/Objects/Weapons/Nullrod/monkstaff.rsi
     state: icon
   - type: Reflect # Only blocks magic projectiles
     reflectProb: 1.0
@@ -339,3 +339,58 @@
   - type: Tag
     tags:
     - MonkStaff
+
+- type: entity
+  name: Atheist's Fedora
+  parent: BaseNullrod
+  id: AtheistFedora
+  description: The brim of the hat is as sharp as your wit. Throwing it at someone would hurt almost as much as disproving the existence of God.
+  components:
+  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
+    DamageOnUntrainedUse:
+      types:
+        Slash: 15
+        Holy: 5
+    UntrainedUseString: nullrod-atheistfedora-untrained-usage-popup
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 25
+        Holy: 10
+  - type: Reflect # Only blocks magic projectiles
+    reflectProb: 0.2
+    reflects:
+    - Magic
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 5
+        Holy: 10
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: InjectOnHit
+    reagents:
+    - ReagentId: MuteToxin
+      Quantity: 0.10
+    limit: 2
+  - type: Item
+    size: Small
+    storedRotation: -90
+    sprite: _ShitChap/Objects/Weapons/Nullrod/atheist.rsi
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/atheist.rsi
+    state: icon
+  - type: Clothing
+    slots:
+    - HEAD
+    sprite: _ShitChap/Objects/Weapons/Nullrod/atheist.rsi
+  - type: DisarmMalus
+    malus: 0
+  - type: Sharp
+  - type: Scalpel
+    speed: 0.5
+  - type: Tag
+    tags:
+    - Nullrod

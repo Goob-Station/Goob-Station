@@ -66,6 +66,10 @@
         acts: [ "Destruction" ]
   - type: StealTarget
     stealGroup: AltarNanotrasen
+  - type: AltarSource
+    rodProto: AtheistFedora
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
 
 - type: entity
   id: AltarChaos
