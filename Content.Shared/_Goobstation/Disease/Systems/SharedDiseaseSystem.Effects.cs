@@ -1,5 +1,12 @@
 using Content.Shared.Damage;
+using Content.Shared.Flash;
+using Content.Shared.Flash.Components;
+using Content.Shared.Popups;
+using Content.Shared.Prototypes;
+using Content.Shared.StatusEffect;
+using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -9,24 +16,48 @@ namespace Content.Shared.Disease;
 
 public partial class SharedDiseaseSystem
 {
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly SharedFlashSystem _flash = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+
+    public float MaxEffectSeverity = 1f; // magic numbers are EVIL and BAD
+
+    protected List<EntityPrototype> _diseaseEffects = new();
 
     protected virtual void InitializeEffects()
     {
+        SubscribeLocalEvent<DiseaseAudioEffectComponent, DiseaseEffectEvent>(OnAudioEffect);
         SubscribeLocalEvent<DiseaseDamageEffectComponent, DiseaseEffectEvent>(OnDamageEffect);
         SubscribeLocalEvent<DiseaseSpreadEffectComponent, DiseaseEffectEvent>(OnDiseaseSpreadEffect);
         SubscribeLocalEvent<DiseaseFightImmunityEffectComponent, DiseaseEffectEvent>(OnFightImmunityEffect);
+        SubscribeLocalEvent<DiseaseFlashEffectComponent, DiseaseEffectEvent>(OnFlashEffect);
+        SubscribeLocalEvent<DiseasePopupEffectComponent, DiseaseEffectEvent>(OnPopupEffect);
+
+        SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
+        LoadPrototypes();
+    }
+
+    private void OnAudioEffect(EntityUid uid, DiseaseAudioEffectComponent effect, DiseaseEffectEvent args)
+    {
+        if (_timing.IsFirstTimePredicted)
+            _audio.PlayPredicted(effect.Sound, uid, uid);
     }
 
     private void OnDamageEffect(EntityUid uid, DiseaseDamageEffectComponent effect, DiseaseEffectEvent args)
     {
-        _damageable.TryChangeDamage(args.Ent, effect.Damage * GetScale(args, effect), true, false);
+        if (_timing.IsFirstTimePredicted)
+            _damageable.TryChangeDamage(args.Ent, effect.Damage * GetScale(args, effect), true, false);
     }
 
     private void OnDiseaseSpreadEffect(EntityUid uid, DiseaseSpreadEffectComponent effect, DiseaseEffectEvent args)
     {
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
         // for gear that makes you less(/more?) infective to others
         var ev = new DiseaseOutgoingSpreadAttemptEvent(
             effect.InfectionPower,
@@ -35,7 +66,6 @@ public partial class SharedDiseaseSystem
         );
         RaiseLocalEvent(args.Ent, ref ev);
 
-        Log.Info($"Trying spread for {ToPrettyString(args.Ent)}");
         if (ev.Power < 0 || ev.Chance < 0)
             return;
 
@@ -46,34 +76,95 @@ public partial class SharedDiseaseSystem
 
         foreach (var target in targets)
         {
-            Log.Info($"Spreading to {ToPrettyString(target)}");
-            // for disease (un)protection gear
-            var evIncoming = new DiseaseIncomingSpreadAttemptEvent(
-                ev.Power,
-                ev.Chance,
-                effect.SpreadType
-            );
-            RaiseLocalEvent(target, ref evIncoming);
-            var power = evIncoming.Power;
-            var chance = evIncoming.Chance;
-            if (power < 0 || chance < 0)
-                continue;
-
-            if (_random.Prob(power * chance * GetScale(args, effect)))
-                TryInfect(target, args.Disease.Owner);
+            DoInfectionAttempt(target, args.Disease, ev.Power, ev.Chance * GetScale(args, effect), effect.SpreadType);
         }
     }
 
     private void OnFightImmunityEffect(EntityUid uid, DiseaseFightImmunityEffectComponent effect, DiseaseEffectEvent args)
     {
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
         ChangeImmunityProgress(args.Disease.Owner, effect.Amount * GetScale(args, effect), args.Disease.Comp);
+    }
+
+    private void OnFlashEffect(EntityUid uid, DiseaseFlashEffectComponent effect, DiseaseEffectEvent args)
+    {
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
+        _status.TryAddStatusEffect<FlashedComponent>(args.Ent, _flash.FlashedKey, effect.Duration * GetScale(args, effect), true);
+        _stun.TrySlowdown(args.Ent, effect.Duration * GetScale(args, effect), true, effect.SlowTo, effect.SlowTo);
+
+        if (effect.StunDuration != null)
+            _stun.TryKnockdown(args.Ent, effect.StunDuration.Value * GetScale(args, effect), true);
+    }
+
+    private void OnPopupEffect(EntityUid uid, DiseasePopupEffectComponent effect, DiseaseEffectEvent args)
+    {
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
+        if (effect.HostOnly)
+            _popup.PopupEntity(Loc.GetString(effect.String), args.Ent, args.Ent, effect.Type);
+        else
+            _popup.PopupPredicted(Loc.GetString(effect.String), args.Ent, args.Ent, effect.Type);
     }
 
     protected float GetScale(DiseaseEffectEvent args, ScalingDiseaseEffect effect)
     {
-        return (effect.SeverityScale ? args.Severity : 1f)
-            * (effect.TimeScale ? (float)args.TimeDelta.TotalSeconds : 1f)
-            * (effect.ProgressScale ? args.DiseaseProgress : 1f);
+        return (effect.SeverityScale ? args.Comp.Severity : 1f)
+            * (effect.TimeScale ? (float)UpdateInterval.TotalSeconds : 1f)
+            * (effect.ProgressScale ? args.Disease.Comp.InfectionProgress : 1f);
+    }
+
+    private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)
+    {
+        if (!args.WasModified<EntityPrototype>())
+            return;
+
+        LoadPrototypes();
+    }
+
+    private void LoadPrototypes()
+    {
+        _diseaseEffects.Clear();
+
+        foreach (var entProto in _proto.EnumeratePrototypes<EntityPrototype>())
+            if (entProto.HasComponent<DiseaseEffectComponent>())
+                _diseaseEffects.Add(entProto);
+    }
+
+    private void RemoveRandomEffect(EntityUid uid, DiseaseComponent disease)
+    {
+        if (disease.Effects.Count < 1)
+        {
+            Log.Error($"Disease {ToPrettyString(uid)} attempted to remove a random effect, but had no effects left.");
+            return;
+        }
+        disease.Effects.RemoveAt(_random.Next(disease.Effects.Count - 1));
+
+        Dirty(uid, disease);
+    }
+
+    private void AddRandomEffect(EntityUid uid, DiseaseComponent disease)
+    {
+        List<EntityPrototype> valid = new();
+        foreach (var effectProto in _diseaseEffects)
+        {
+            if (effectProto.TryGetComponent<DiseaseEffectComponent>(out var effectComp, _factory) && effectComp.AllowedDiseaseTypes.Contains(disease.DiseaseType))
+                valid.Add(effectProto);
+        }
+        if (valid.Count == 0)
+        {
+            Log.Error($"Disease {ToPrettyString(uid)} attempted to mutate to add an effect, but there are no valid effects for its type.");
+            return;
+        }
+        var proto = valid[_random.Next(valid.Count - 1)];
+        if (proto.TryGetComponent<DiseaseEffectComponent>(out var effect, _factory))
+            TryAdjustEffect(uid, proto, out _, _random.NextFloat(effect.MinSeverity, 1f), disease);
+
+        Dirty(uid, disease);
     }
 
     #region public API

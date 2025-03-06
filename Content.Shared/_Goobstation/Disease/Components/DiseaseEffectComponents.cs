@@ -1,8 +1,10 @@
 using Content.Shared.Damage;
 using Content.Shared.Popups;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using System;
+using System.Collections.Generic;
 using System.Numerics;
 
 namespace Content.Shared.Disease;
@@ -18,7 +20,14 @@ public sealed partial class DiseaseEffectComponent : Component
     /// Changes on disease mutation
     /// </summary>
     [DataField]
-    public float Severity = 1f;
+    public float Severity = 1f; // don't bring this outside of expected bounds or viro will probably choke and die
+
+    /// <summary>
+    /// Minimum severity this effect can have
+    /// Used to prevent diseases with 15 morbillion 0.005 severity effects
+    /// </summary>
+    [DataField]
+    public float MinSeverity = 0.1f;
 
     /// <summary>
     /// Contribution of this effect to disease complexity
@@ -26,6 +35,20 @@ public sealed partial class DiseaseEffectComponent : Component
     /// </summary>
     [DataField]
     public float Complexity = 10f;
+
+    /// <summary>
+    /// Disease types allowed to naturally roll this effect
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<DiseaseTypePrototype>> AllowedDiseaseTypes = new();
+
+    /// <summary>
+    /// Get the complexity this effect is currently contributing.
+    /// </summary>
+    public float GetComplexity()
+    {
+        return Complexity * Severity;
+    }
 }
 
 /// <summary>
@@ -151,7 +174,7 @@ public sealed partial class DiseaseFlashEffectComponent : ScalingDiseaseEffect
 }
 
 /// <summary>
-/// Causes the host to see a popup
+/// Causes a popup to happen
 /// For use with conditions
 /// </summary>
 [RegisterComponent]
@@ -162,4 +185,21 @@ public sealed partial class DiseasePopupEffectComponent : Component
 
     [DataField]
     public PopupType Type = PopupType.SmallCaution;
+
+    /// <summary>
+    /// Whether only the host should see the popup
+    /// </summary>
+    [DataField]
+    public bool HostOnly = true;
+}
+
+/// <summary>
+/// Causes audio to play at the host
+/// For use with conditions
+/// </summary>
+[RegisterComponent]
+public sealed partial class DiseaseAudioEffectComponent : Component
+{
+    [DataField]
+    public SoundSpecifier Sound;
 }

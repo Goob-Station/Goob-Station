@@ -1,7 +1,7 @@
+# used for disease spread
 - type: entity
   id: DiseaseBase
   categories: [ HideSpawnMenu ]
-  abstract: true
   components:
   - type: Disease
 
@@ -13,6 +13,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Disease
+    diseaseType: Viral
     infectionRate: 0.01 # 100 seconds
     genotype: 1234
     effects:
@@ -29,6 +30,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Disease
+    diseaseType: OwnCells
     infectionRate: 0.005 # slow
     immunityGainRate: 0.5 # immunity against it also slow
     canGainImmunity: false

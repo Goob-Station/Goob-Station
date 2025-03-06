@@ -3,23 +3,18 @@
   name: Debug
 
 - type: entity
-  id: DiseaseBehaviorTurboCancer
+  id: DiseaseBehaviorDebug
   parent: DiseaseBehaviorBase
-  name: turbocancer
-  description: Deals genetic and blunt damage over time. A short time.
+  abstract: true
   categories: [ HideSpawnMenu ]
   components:
   - type: DiseaseEffect
-    complexity: 1000
-  - type: DiseaseDamageEffect
-    damage:
-      types:
-        Cellular: 10
-        Blunt: 10
+    allowedDiseaseTypes:
+    - Debug
 
 - type: entity
   id: DiseaseBehaviorTurboCancer
-  parent: DiseaseBehaviorBase
+  parent: DiseaseBehaviorDebug
   name: turbocancer
   description: Deals genetic and blunt damage over time. A short time.
   categories: [ HideSpawnMenu ]
@@ -29,14 +24,14 @@
   - type: DiseaseDamageEffect
     damage:
       types:
-        Cellular: 10
-        Blunt: 10
+        Cellular: 50
+        Blunt: 50
 
 - type: entity
   id: DiseaseBehaviorSpreadDebug
-  parent: DiseaseBehaviorBase
+  parent: DiseaseBehaviorDebug
   name: turbocancer
-  description: Deals genetic and blunt damage over time. A short time.
+  description: The plague.
   categories: [ HideSpawnMenu ]
   components:
   - type: DiseaseEffect
@@ -68,9 +63,9 @@
     canGainImmunity: false
     genotype: 42069
     effects:
-      DiseaseBehaviorTurboCancer: 5
-      DiseaseBehaviorFightImmunity: 5
-      DiseaseBehaviorSpreadDebug: 5
+      DiseaseBehaviorTurboCancer: 1
+      DiseaseBehaviorFightImmunity: 1
+      DiseaseBehaviorSpreadDebug: 1
 
 - type: entity
   id: MeleeDebugInfectTurboCancer

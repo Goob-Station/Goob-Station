@@ -42,14 +42,14 @@ public partial class SharedDiseaseSystem
     private void CheckSeverityCondition(EntityUid uid, DiseaseProgressConditionComponent condition, DiseaseCheckConditionsEvent args)
     {
         args.DoEffect = args.DoEffect
-            && (condition.MinProgress == null || args.DiseaseProgress > condition.MinProgress)
-            && (condition.MaxProgress == null || args.DiseaseProgress > condition.MaxProgress);
+            && (condition.MinProgress == null || args.Disease.Comp.InfectionProgress > condition.MinProgress)
+            && (condition.MaxProgress == null || args.Disease.Comp.InfectionProgress > condition.MaxProgress);
     }
 
     protected float GetScale(DiseaseCheckConditionsEvent args, ScalingDiseaseEffect effect)
     {
-        return (effect.SeverityScale ? args.Severity : 1f)
-            * (effect.TimeScale ? (float)args.TimeDelta.TotalSeconds : 1f)
-            * (effect.ProgressScale ? args.DiseaseProgress : 1f);
+        return (effect.SeverityScale ? args.Comp.Severity : 1f)
+            * (effect.TimeScale ? (float)UpdateInterval.TotalSeconds : 1f)
+            * (effect.ProgressScale ? args.Disease.Comp.InfectionProgress : 1f);
     }
 }

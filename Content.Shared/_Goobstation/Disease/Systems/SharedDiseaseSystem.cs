@@ -1,20 +1,28 @@
 using Content.Shared.Disease;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 using System;
+using System.Numerics;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared.Disease;
 
 public abstract partial class SharedDiseaseSystem : EntitySystem
 {
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
-    private TimeSpan _accumulator = TimeSpan.FromSeconds(0);
+    private TimeSpan _lastUpdated = TimeSpan.FromSeconds(0);
+
+    protected EntProtoId BaseDisease = "DiseaseBase";
 
     /// <summary>
     /// The interval between updates of disease and disease effect entities
@@ -40,10 +48,9 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        _accumulator += TimeSpan.FromSeconds(frameTime);
-        if (_accumulator < UpdateInterval)
+        if (_timing.CurTime < _lastUpdated + UpdateInterval)
             return;
-        _accumulator -= UpdateInterval;
+        _lastUpdated += UpdateInterval;
 
         var diseaseCarriers = EntityQueryEnumerator<DiseaseCarrierComponent>();
         while (diseaseCarriers.MoveNext(out var uid, out var diseaseCarrier))
@@ -79,7 +86,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
         foreach (var effectSpecifier in disease.StartingEffects)
         {
             if (TryAdjustEffect(uid, effectSpecifier.Key, out var effect, effectSpecifier.Value, disease))
-                complexity += effect.Value.Comp.Severity * effect.Value.Comp.Complexity;
+                complexity += effect.Value.Comp.GetComplexity();
         }
         // disease is a preset so set the complexity
         disease.Complexity = complexity;
@@ -102,13 +109,13 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
             foreach (var effectUid in disease.Effects)
             {
                 if (!TryComp<DiseaseEffectComponent>(effectUid, out var effect))
-                    return;
+                    continue;
 
-                var conditionsEv = new DiseaseCheckConditionsEvent(args.Ent, (uid, disease), effect.Severity, disease.InfectionProgress, UpdateInterval);
+                var conditionsEv = new DiseaseCheckConditionsEvent(args.Ent, (uid, disease), effect);
                 RaiseLocalEvent(effectUid, ref conditionsEv);
                 if (conditionsEv.DoEffect)
                 {
-                    var effectEv = new DiseaseEffectEvent(args.Ent, (uid, disease), effect.Severity, disease.InfectionProgress, UpdateInterval);
+                    var effectEv = new DiseaseEffectEvent(args.Ent, (uid, disease), effect);
                     RaiseLocalEvent(effectUid, effectEv);
                 }
             }
@@ -210,6 +217,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
 
     /// <summary>
     /// Tries to infect the entity with the given disease entity
+    /// Does not clone the provided disease entity, use <see cref="TryClone"/> for that
     /// </summary>
     public bool TryInfect(EntityUid uid, EntityUid disease, DiseaseCarrierComponent? comp = null, bool force = false)
     {
@@ -228,6 +236,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
         if (!force && (HasDisease(uid, diseaseComp.Genotype, comp) || !checkEv.CanInfect))
             return false;
 
+        _transform.SetCoordinates(disease, new EntityCoordinates(uid, Vector2.Zero));
         comp.Diseases.Add(disease);
         var ev = new DiseaseGainedEvent((disease, diseaseComp));
         RaiseLocalEvent(uid, ev);
