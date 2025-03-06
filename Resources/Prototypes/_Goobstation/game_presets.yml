@@ -136,8 +136,10 @@
   name: sleeper-title
   description: sleeper-description
   showInVote: true
+  minPlayers: 5
   rules:
     - CalmDynamic
+    - LavalandStormScheduler # Lavaland Change
 
 - type: gamePreset
   id: TheGuide
@@ -147,5 +149,7 @@
   name: guide-title
   description: guide-description
   showInVote: true
+  minPlayers: 25
   rules:
     - CombatDynamic
+    - LavalandStormScheduler # Lavaland Change
