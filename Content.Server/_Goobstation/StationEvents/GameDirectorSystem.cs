@@ -230,7 +230,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
     /// </summary>
     private void TrySpawnRoundstartAntags(GameDirectorComponent scheduler, int count)
     {
-        if (!scheduler.NoRoundstartAntags)
+        if (scheduler.NoRoundstartAntags)
             return;
 
         // Spawn antags based on GameDirectorComponent
