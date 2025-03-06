@@ -10,12 +10,6 @@ namespace Content.Client.Shuttles.UI;
 [GenerateTypedNameReferences]
 public sealed partial class DockObject : PanelContainer
 {
-    [PublicAPI]
-    public event Action? UndockPressed;
-
-    [PublicAPI]
-    public event Action? ViewPressed;
-
     public BoxContainer ContentsContainer => Contents;
 
     public DockObject()
