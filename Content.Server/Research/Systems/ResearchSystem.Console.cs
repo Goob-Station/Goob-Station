@@ -22,6 +22,7 @@ public sealed partial class ResearchSystem
         SubscribeLocalEvent<ResearchConsoleComponent, ResearchServerPointsChangedEvent>(OnPointsChanged);
         SubscribeLocalEvent<ResearchConsoleComponent, ResearchRegistrationChangedEvent>(OnConsoleRegistrationChanged);
         SubscribeLocalEvent<ResearchConsoleComponent, TechnologyDatabaseModifiedEvent>(OnConsoleDatabaseModified);
+        SubscribeLocalEvent<ResearchConsoleComponent, TechnologyDatabaseSynchronizedEvent>(OnConsoleDatabaseSynchronized);
         SubscribeLocalEvent<ResearchConsoleComponent, GotEmaggedEvent>(OnEmagged);
     }
 
@@ -114,6 +115,12 @@ public sealed partial class ResearchSystem
 
     private void OnConsoleDatabaseModified(EntityUid uid, ResearchConsoleComponent component, ref TechnologyDatabaseModifiedEvent args)
     {
+        SyncClientWithServer(uid);
+        UpdateConsoleInterface(uid, component);
+    }
+
+    private void OnConsoleDatabaseSynchronized(EntityUid uid, ResearchConsoleComponent component, ref TechnologyDatabaseSynchronizedEvent args)
+    {
         UpdateConsoleInterface(uid, component);
     }
 
@@ -127,7 +134,6 @@ public sealed partial class ResearchSystem
 
         args.Handled = true;
     }
-
 }
 
 public sealed partial class ResearchConsoleUnlockEvent : CancellableEntityEventArgs { }
