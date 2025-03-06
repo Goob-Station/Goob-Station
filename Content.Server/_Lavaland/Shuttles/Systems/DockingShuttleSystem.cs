@@ -9,6 +9,7 @@ using Robust.Shared.Map.Components;
 using System.Linq;
 using Content.Server.GameTicking;
 using Robust.Server.GameObjects;
+using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Lavaland.Shuttles.Systems;
@@ -28,6 +29,7 @@ public sealed class DockingShuttleSystem : SharedDockingShuttleSystem
         SubscribeLocalEvent<DockingShuttleComponent, FTLCompletedEvent>(OnFTLCompleted);
 
         SubscribeLocalEvent<StationGridAddedEvent>(OnStationGridAdded);
+        SubscribeLocalEvent<DockingShuttleComponent, ShuttleAddStationEvent>(OnAddStation);
     }
 
     private void OnMapInit(Entity<DockingShuttleComponent> ent, ref MapInitEvent args)
@@ -88,5 +90,26 @@ public sealed class DockingShuttleSystem : SharedDockingShuttleSystem
             Name = Name(station),
             Map = Transform(uid).MapID
         });
+    }
+
+    private void OnAddStation(EntityUid uid, DockingShuttleComponent component,  ShuttleAddStationEvent args)
+    {
+        component.Station = args.MapUid;
+        component.Destinations.Add(new DockingDestination()
+        {
+            Name = Name(args.MapUid),
+            Map = args.MapId
+        });
+    }
+}
+
+public sealed class ShuttleAddStationEvent : EntityEventArgs
+{
+    public readonly EntityUid MapUid;
+    public readonly MapId MapId;
+    public ShuttleAddStationEvent(EntityUid mapUid, MapId mapId)
+    {
+        MapUid = mapUid;
+        MapId = mapId;
     }
 }

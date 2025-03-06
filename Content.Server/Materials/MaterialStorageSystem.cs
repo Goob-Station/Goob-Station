@@ -74,10 +74,10 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
         {
             // Goobstation Change Start
             var proto = _prototypeManager.Index<EntityPrototype>(material.StackEntity);
-            if (!proto.TryGetComponent<PhysicalCompositionComponent>(out var composition))
+            if (!proto.TryGetComponent<PhysicalCompositionComponent>(out var composition, EntityManager.ComponentFactory))
                 return;
 
-            if (proto.TryGetComponent<TagComponent>(out var tag)
+            if (proto.TryGetComponent<TagComponent>(out var tag, EntityManager.ComponentFactory)
                 && component.DisallowOreEjection
                 && _tag.HasTag(tag, OreTag))
                 return;
@@ -180,7 +180,7 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
             return new List<EntityUid>();
 
         var entProto = _prototypeManager.Index<EntityPrototype>(materialProto.StackEntity);
-        if (!entProto.TryGetComponent<PhysicalCompositionComponent>(out var composition))
+        if (!entProto.TryGetComponent<PhysicalCompositionComponent>(out var composition, EntityManager.ComponentFactory))
             return new List<EntityUid>();
 
         var materialPerStack = composition.MaterialComposition[materialProto.ID];
