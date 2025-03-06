@@ -1,0 +1,23 @@
+- type: diseaseType
+  id: Viral
+  name: Viral
+
+- type: diseaseType
+  id: Bacterial
+  name: Bacterial
+
+- type: diseaseType
+  id: OwnCells
+  name: Autoimmune
+
+- type: diseaseType
+  id: Prion
+  name: Prion
+
+- type: diseaseType
+  id: Parasite
+  name: Parasite
+
+- type: diseaseType
+  id: Debug
+  name: Debug

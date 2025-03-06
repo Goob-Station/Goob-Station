@@ -4,6 +4,13 @@
   abstract: true
   components:
   - type: DiseaseEffect
+    allowedDiseaseTypes:
+    - Viral
+    - Bacterial
+    - OwnCells
+    - Prion
+    - Parasite
+    - Debug
 
 - type: entity
   id: DiseaseBehaviorCancer

@@ -71,19 +71,37 @@ public sealed partial class DiseaseComponent : Component
     /// Affects mutation of immunity gain
     /// </summary>
     [DataField]
-    public float ImmunityGainMutationCoefficient = 1f;
+    public float ImmunityGainMutationCoefficient = 0.5f;
 
     /// <summary>
-    /// On mutation, infection rate may go up or down by <see cref="BaseMutationRate"/> multiplied by this
+    /// Affects mutation of infection rate
     /// </summary>
     [DataField]
-    public float InfectionRateMutationCoefficient = 0.005f;
+    public float InfectionRateMutationCoefficient = 0.5f;
 
     /// <summary>
-    /// On mutation, complexity may go up or down by <see cref="BaseMutationRate"/> multiplied by this
+    /// Affects mutation of complexity
     /// </summary>
     [DataField]
-    public float ComplexityMutationCoefficient = 7f;
+    public float ComplexityMutationCoefficient = 1f;
+
+    /// <summary>
+    /// Affects chance of severity of any given effect mutating
+    /// </summary>
+    [DataField]
+    public float SeverityMutationCoefficient = 2f;
+
+    /// <summary>
+    /// Affects chance an effect is added or removed during mutation
+    /// </summary>
+    [DataField]
+    public float EffectMutationCoefficient = 1.5f;
+
+    /// <summary>
+    /// Affects chance genotype is mutated
+    /// </summary>
+    [DataField]
+    public float GenotypeMutationCoefficient = 1f;
 
     /// <summary>
     /// Determines total amount of effects and their severity after a mutation
@@ -117,6 +135,13 @@ public sealed partial class DiseaseComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float DeadInfectionRate = -0.01f;
+
+    /// <summary>
+    /// Type of this disease
+    /// Affects meds needed to heal this and the effects this can mutate
+    /// </summary>
+    [DataField]
+    public ProtoId<DiseaseTypePrototype> DiseaseType = "Debug";
 
     // </parameters>
 }

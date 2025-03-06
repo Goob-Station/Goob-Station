@@ -19,44 +19,30 @@ public sealed class DiseaseUpdateEvent : EntityEventArgs
 }
 
 /// <summary>
-/// This event is raised on disease effects on update.
+/// This event is raised on disease effects when triggered.
 /// </summary>
 public sealed class DiseaseEffectEvent : EntityEventArgs
 {
     /// <summary>
-    /// The severity of the effect.
-    /// Use for effects that set state.
+    /// The DiseaseEffectComponent of the effect entity this is fired on.
     /// </summary>
-    public float Severity;
-
-    /// <summary>
-    /// The progress of the host disease.
-    /// </summary>
-    public readonly float DiseaseProgress;
-
-    /// <summary>
-    /// The severity of the effect adjusted for update interval. Is effectively seconds.
-    /// Use for effects that adjust (over time) state.
-    /// </summary>
-    public TimeSpan TimeDelta;
+    public readonly DiseaseEffectComponent Comp;
 
     /// <summary>
     /// The entity this effect should affect.
     /// </summary>
-    public EntityUid Ent;
+    public readonly EntityUid Ent;
 
     /// <summary>
     /// The host disease of this effect.
     /// </summary>
-    public Entity<DiseaseComponent> Disease;
+    public readonly Entity<DiseaseComponent> Disease;
 
-    public DiseaseEffectEvent(EntityUid ent, Entity<DiseaseComponent> disease, float severity, float progress, TimeSpan delta)
+    public DiseaseEffectEvent(EntityUid ent, Entity<DiseaseComponent> disease, DiseaseEffectComponent comp)
     {
         Ent = ent;
         Disease = disease;
-        Severity = severity;
-        DiseaseProgress = progress;
-        TimeDelta = delta;
+        Comp = comp;
     }
 }
 
@@ -87,6 +73,19 @@ public sealed class DiseaseCuredEvent : EntityEventArgs
 }
 
 /// <summary>
+/// Raised on a newly created base disease entity to clone the provided entity onto it.
+/// </summary>
+public sealed class DiseaseCloneEvent : EntityEventArgs
+{
+    public Entity<DiseaseComponent> Source;
+
+    public DiseaseCloneEvent(Entity<DiseaseComponent> ent)
+    {
+        Source = ent;
+    }
+}
+
+/// <summary>
 /// This event is raised on an entity just before it's infected. Set <see cref="CanInfect"/> to false to prevent the infection.
 /// </summary>
 [ByRefEvent]
@@ -108,19 +107,9 @@ public sealed class DiseaseInfectAttemptEvent : EntityEventArgs
 public sealed class DiseaseCheckConditionsEvent : EntityEventArgs
 {
     /// <summary>
-    /// The severity of the effect.
+    /// The DiseaseEffectComponent of the effect entity this is fired on.
     /// </summary>
-    public readonly float Severity;
-
-    /// <summary>
-    /// The progress of the host disease.
-    /// </summary>
-    public readonly float DiseaseProgress;
-
-    /// <summary>
-    /// The update interval of the effect.
-    /// </summary>
-    public readonly TimeSpan TimeDelta;
+    public readonly DiseaseEffectComponent Comp;
 
     /// <summary>
     /// The entity this effect should affect.
@@ -137,13 +126,11 @@ public sealed class DiseaseCheckConditionsEvent : EntityEventArgs
     /// </summary>
     public bool DoEffect = true;
 
-    public DiseaseCheckConditionsEvent(EntityUid ent, Entity<DiseaseComponent> disease, float severity, float progress, TimeSpan delta)
+    public DiseaseCheckConditionsEvent(EntityUid ent, Entity<DiseaseComponent> disease, DiseaseEffectComponent comp)
     {
         Ent = ent;
         Disease = disease;
-        Severity = severity;
-        DiseaseProgress = progress;
-        TimeDelta = delta;
+        Comp = comp;
     }
 }
 
