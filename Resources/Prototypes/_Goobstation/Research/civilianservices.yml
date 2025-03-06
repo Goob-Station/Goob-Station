@@ -7,7 +7,7 @@
     state: vehicle
   discipline: CivilianServices
   tier: 1
-  cost: 7500
+  cost: 4500
   recipeUnlocks:
   - VehicleHoverchairSci
   - PrescriptionGlasses
