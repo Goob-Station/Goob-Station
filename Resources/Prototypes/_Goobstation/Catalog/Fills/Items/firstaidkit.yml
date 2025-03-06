@@ -12,3 +12,30 @@
   - type: Sprite
     sprite: Objects/Specific/Medical/firstaidkits.rsi
     state: purplekit
+
+- type: entity
+  id: MedkitBSOFilled
+  suffix: Filled, Medical
+  description: Contains advanced topicals and some auto injectors.
+  parent: MedkitBSO
+  components:
+  - type: StorageFill
+    contents:
+    - id: MedicatedSuture
+    - id: RegenerativeMesh
+    - id: Bloodpack
+    - id: BruteAutoInjector
+    - id: BurnAutoInjector
+
+- type: entity
+  id: MedkitBSOFilledSurgical
+  suffix: Filled, Surgical
+  description: Contains the basic tools needed for most surgeries.
+  parent: MedkitBSO
+  components:
+  - type: StorageFill
+    contents:
+    - id: ScalpelLaser
+    - id: Retractor
+    - id: Hemostat
+    - id: Cautery

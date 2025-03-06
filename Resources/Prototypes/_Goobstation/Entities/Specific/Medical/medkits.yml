@@ -31,3 +31,17 @@
     price: 500
   - type: Tag
     tags: []
+
+- type: entity
+  name: tactical medical kit
+  description: "You can probably guess who this is for."
+  parent: Medkit
+  id: MedkitBSO
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Objects/Specific/Medical/firstaidkits.rsi
+    state: bsokit
+  - type: Item
+    sprite: /Textures/_Goobstation/Objects/Specific/Medical/firstaidkits.rsi
+    heldPrefix: bsokit
+    size: Normal
