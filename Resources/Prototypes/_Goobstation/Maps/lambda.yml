@@ -46,6 +46,7 @@
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 4, 6 ]
+            Roboticist: [ 2, 2 ] # Goob
             ResearchAssistant: [ 3, 4 ]
             #security
             HeadOfSecurity: [ 1, 1 ]
