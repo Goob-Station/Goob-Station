@@ -46,6 +46,8 @@
     - SharedBoards
     - CameraBoards
     - ShuttleBoards
+    - BluespaceTheory
+    - ScienceClothing
   - type: MaterialStorage
     whitelist:
       tags:
@@ -96,6 +98,8 @@
     - SharedBoards
     - ShuttleBoards
     - CargoMechElectronicsGoob
+    - BluespaceTheory
+    - ScienceClothing
   - type: MaterialStorage
     whitelist:
       tags:
@@ -147,6 +151,7 @@
     - AdvancedTools
     - ScienceEquipment
     - ScienceExplosives
+    - ScienceClothing
     - ScienceWeapons
     - AtmosTools
     - EngineeringWeapons
@@ -165,6 +170,7 @@
     - MechBoards
     - MechElectronicsGoob
     - CargoMechElectronicsGoob
+    - BluespaceTheory
   - type: MaterialStorage
     whitelist:
       tags:

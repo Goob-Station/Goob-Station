@@ -9,3 +9,4 @@ research-technology-honk-weapons = Bananium Weapons
 research-technology-modsuits = Modular Technologies
 research-technology-prescription-lenses = Prescription Lenses
 research-technology-smart-weaponry = Smart Weaponry
+research-technology-bluespace-theory = Bluespacy Theory
