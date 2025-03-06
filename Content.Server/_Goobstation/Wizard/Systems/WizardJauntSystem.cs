@@ -2,6 +2,7 @@ using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Shared._Goobstation.Wizard.Projectiles;
+using Content.Shared.Polymorph;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
@@ -17,7 +18,7 @@ public sealed class WizardJauntSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<WizardJauntComponent, PolymorphedIntoEvent>(OnPolymorph);
+        SubscribeLocalEvent<WizardJauntComponent, PolymorphedEvent>(OnPolymorph);
     }
 
     public override void Update(float frameTime)
@@ -52,13 +53,13 @@ public sealed class WizardJauntSystem : EntitySystem
         }
     }
 
-    private void OnPolymorph(Entity<WizardJauntComponent> ent, ref PolymorphedIntoEvent args)
+    private void OnPolymorph(Entity<WizardJauntComponent> ent, ref PolymorphedEvent args)
     {
         var (uid, comp) = ent;
 
-        if (args.Reverted)
+        if (args.IsRevert)
         {
-            _transform.ReparentChildren(uid, args.Parent);
+            _transform.ReparentChildren(uid, args.OldEntity);
             return;
         }
 
@@ -70,7 +71,7 @@ public sealed class WizardJauntSystem : EntitySystem
         if (!TryComp(startEffect, out TrailComponent? trail))
             return;
 
-        trail.RenderedEntity = args.Parent;
+        trail.RenderedEntity = args.OldEntity;
         Dirty(startEffect, trail);
     }
 }

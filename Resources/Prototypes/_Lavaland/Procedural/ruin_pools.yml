@@ -4,7 +4,7 @@
 
 - type: lavalandRuinPool
   id: Lavaland
-  hugeRuins:
+  gridRuins:
     SyndicateBase: 1
     HierophantArena: 1
     RougeAI: 1
@@ -25,5 +25,5 @@
     Shelter: 4
     OwOLab: 1
     MiningPost: 3
-  smallRuins:
+  dungeonRuins:
     CommonRuin5x5: 60
