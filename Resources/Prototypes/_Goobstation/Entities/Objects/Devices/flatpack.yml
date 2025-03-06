@@ -30,7 +30,7 @@
   parent: BaseFlatpack
   id: MedicalScannerFlatpack
   name: Medical Scanner Flatpack
-  description: A flatpack used for constructing a medical scanner
+  description: A flatpack used for constructing a Medical Scanner
   components:
   - type: Flatpack
     entity: MedicalScanner

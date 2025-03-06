@@ -222,18 +222,19 @@
     - id: MedicalTechFabCircuitboard
     - id: MedkitFilled
     - id: RubberStampCMO
-    # Goobstation
-    - id: CloningpodFlatpack              # Remove once mapped i reckon or replace back to boards (for extras)
-    - id: MedicalScannerFlatpack          #
-    - id: ComputerCloningConsoleFlatpack  #
-    - id: BiomassReclaimerFlatpack        #
-    - id: Multitool                       #
+    # Goobstation Start
+    - id: CloningpodFlatpack           
+    - id: MedicalScannerFlatpack          
+    - id: ComputerCloningConsoleFlatpack  
+    - id: BiomassReclaimerFlatpack        
+    - id: Multitool                       
     - id: MedTekCartridge 
     - id: RapidSyringeGun
     - id: BoxSyringePax
     - id: MMI
     # Shitmed
-    - id: MedicalBiofabricatorFlatpack    #
+    - id: MedicalBiofabricatorFlatpack
+    # Goobstation End
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
