@@ -123,3 +123,30 @@
     sprite: _Goobstation/Clothing/OuterClothing/Armor/blueshield_cowboy_jacket.rsi
   - type: Item
     size: Normal
+
+- type: entity
+  parent: [ ClothingOuterBaseMedium, AllowSuitStorageClothing, ]
+  id: TemplarArmor
+  name: Templar Armor
+  description: An armoured set from a time long ago.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Armor/chaplain_armor.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Armor/chaplain_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.10
+        Piercing: 0.90
+        Heat: 1.5
+  - type: ModifyDelayedKnockdown
+    delayDelta: 1
+    knockdownTimeDelta: -1
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1 # plate armor keeps you warm but lets go of heat poorly
+    coolingCoefficient: 0.5
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 0.8

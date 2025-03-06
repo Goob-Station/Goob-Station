@@ -124,12 +124,14 @@ public sealed partial class ProtectiveBladeSystem : EntitySystem
         var pblade = Spawn(BladePrototype, Transform(ent).Coordinates);
         _follow.StartFollowingEntity(pblade, ent);
 
+        /* Upstream removed this, but they randomise the start point so it's w/e
         if (TryComp<OrbitVisualsComponent>(pblade, out var vorbit))
         {
             // test scenario: 4 blades are currently following our heretic.
             // making each one somewhat distinct from each other
             vorbit.Orbit = GetBlades(ent).Count / 5;
         }
+        */
     }
     public void RemoveProtectiveBlade(Entity<ProtectiveBladeComponent> blade)
     {

@@ -13,6 +13,8 @@ using Content.Shared._Lavaland.Aggression;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Mobs.Components;
 using Robust.Shared.Timing;
 
 // ReSharper disable AccessToModifiedClosure
@@ -31,12 +33,15 @@ public sealed class HierophantSystem : EntitySystem
     [Dependency] private readonly MegafaunaSystem _megafauna = default!;
     [Dependency] private readonly HierophantFieldSystem _hierophantField = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly MobThresholdSystem _threshold = default!;
 
     private readonly EntProtoId _damageBoxPrototype = "LavalandHierophantSquare";
     private readonly EntProtoId _chaserPrototype = "LavalandHierophantChaser";
 
     // Im too lazy to deal with MobThreshholds.
-    private readonly FixedPoint2 _hierophantHp = 2500;
+    private const float HealthScalingFactor = 1.25f;
+    private const float AngerScalingFactor = 1.15f;
+    private readonly FixedPoint2 _baseHierophantHp = 2500;
 
     public override void Initialize()
     {
@@ -48,6 +53,7 @@ public sealed class HierophantSystem : EntitySystem
         SubscribeLocalEvent<HierophantBossComponent, MegafaunaStartupEvent>(OnHierophantInit);
         SubscribeLocalEvent<HierophantBossComponent, MegafaunaDeinitEvent>(OnHierophantDeinit);
         SubscribeLocalEvent<HierophantBossComponent, MegafaunaKilledEvent>(OnHierophantKilled);
+        SubscribeLocalEvent<HierophantBossComponent, AggressorAddedEvent>(OnAggressorAdded);
     }
 
     #region Event Handling
@@ -63,7 +69,8 @@ public sealed class HierophantSystem : EntitySystem
     {
         if (ent.Comp.ConnectedFieldGenerator == null ||
             !TryComp<DamageableComponent>(ent, out var damageable) ||
-            !TryComp<HierophantFieldGeneratorComponent>(ent.Comp.ConnectedFieldGenerator.Value, out var fieldComp))
+            !TryComp<HierophantFieldGeneratorComponent>(ent.Comp.ConnectedFieldGenerator.Value, out var fieldComp) ||
+            !TryComp<MobThresholdsComponent>(ent, out var thresholds))
             return;
 
         var field = ent.Comp.ConnectedFieldGenerator.Value;
@@ -71,6 +78,7 @@ public sealed class HierophantSystem : EntitySystem
         // After 10 seconds, hierophant teleports back to it's original place
         var position = _xform.GetMapCoordinates(field);
         _damage.SetAllDamage(ent, damageable, 0);
+        _threshold.SetMobStateThreshold(ent, _baseHierophantHp, MobState.Dead, thresholds);
         Timer.Spawn(TimeSpan.FromSeconds(10), () => _xform.SetMapCoordinates(ent, position));
     }
 
@@ -87,6 +95,15 @@ public sealed class HierophantSystem : EntitySystem
         AdjustAnger(ent, ent.Comp.AdjustAngerOnAttack);
     }
 
+    private void OnAggressorAdded(Entity<HierophantBossComponent> ent, ref AggressorAddedEvent args)
+    {
+        if (!TryComp<AggressiveComponent>(ent, out var aggressive)
+            || !TryComp<MobThresholdsComponent>(ent, out var thresholds))
+            return;
+
+        UpdateScaledThresholds(ent, aggressive, thresholds);
+    }
+
     #endregion
 
     public override void Update(float frameTime)
@@ -98,12 +115,17 @@ public sealed class HierophantSystem : EntitySystem
         {
             Entity<HierophantBossComponent> ent = (uid, comp);
 
+            var angerMultiplier = 1f;
+            var healthMultiplier = 1f;
             if (TryComp<AggressiveComponent>(uid, out var aggressors))
             {
                 if (aggressors.Aggressors.Count > 0 && !comp.Aggressive)
-                    InitBoss(ent);
+                    InitBoss(ent, aggressors);
                 else if (aggressors.Aggressors.Count == 0 && comp.Aggressive)
                     DeinitBoss(ent);
+
+                angerMultiplier = aggressors.Aggressors.Count * AngerScalingFactor;
+                healthMultiplier = aggressors.Aggressors.Count * HealthScalingFactor;
             }
 
             if (!comp.Aggressive)
@@ -116,8 +138,8 @@ public sealed class HierophantSystem : EntitySystem
                 comp.AttackTimer = Math.Max(comp.AttackCooldown / comp.CurrentAnger, comp.MinAttackCooldown);
             });
 
-            var newMinAnger = Math.Max((float)(damage.TotalDamage / _hierophantHp) * 2, 0f) + 1f;
-            ent.Comp.MinAnger = newMinAnger;
+            var newMinAnger = Math.Max((float) (damage.TotalDamage / (_baseHierophantHp * healthMultiplier)) * 2, 0f) + 1f;
+            ent.Comp.MinAnger = newMinAnger * angerMultiplier;
             AdjustAnger(ent, 0); // Update anger
         }
     }
@@ -134,9 +156,9 @@ public sealed class HierophantSystem : EntitySystem
 
     #region Boss Initializing
 
-    private void InitBoss(Entity<HierophantBossComponent> ent)
+    private void InitBoss(Entity<HierophantBossComponent> ent, AggressiveComponent aggressors)
     {
-        ent.Comp.Aggressive = true;
+        ent.Comp.Aggressive = true;  
         RaiseLocalEvent(ent, new MegafaunaStartupEvent());
     }
 
@@ -406,6 +428,22 @@ public sealed class HierophantSystem : EntitySystem
     #endregion
 
     #region Helper methods
+
+    private void UpdateScaledThresholds(EntityUid uid,
+        AggressiveComponent aggressors,
+        MobThresholdsComponent thresholds)
+    {
+        var playerCount = Math.Max(1, aggressors.Aggressors.Count);
+        var scalingMultiplier = 1f;
+
+        for (var i = 1; i < playerCount; i++)
+            scalingMultiplier *= HealthScalingFactor;
+
+        Logger.Info($"Setting threshold for {uid} to {_baseHierophantHp * scalingMultiplier}");
+        if (_threshold.TryGetDeadThreshold(uid, out var deadThreshold, thresholds) 
+            && deadThreshold < _baseHierophantHp * scalingMultiplier)
+            _threshold.SetMobStateThreshold(uid, _baseHierophantHp * scalingMultiplier, MobState.Dead, thresholds);
+    }
 
     private EntityUid? PickTarget(Entity<HierophantBossComponent> ent)
     {

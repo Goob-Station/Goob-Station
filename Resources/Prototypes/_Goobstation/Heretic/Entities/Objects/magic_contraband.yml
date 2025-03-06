@@ -4,7 +4,6 @@
   components:
   - type: Contraband
     severity: Magic
-    allowedDepartments: null
 
 - type: contrabandSeverity
   id: Magic
