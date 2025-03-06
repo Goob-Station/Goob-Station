@@ -332,67 +332,6 @@ public sealed partial class CCVars
 #endif
 
         /// <summary>
-        ///     Delay between station alert level changes.
-        /// </summary>
-        public static readonly CVarDef<int> GameAlertLevelChangeDelay =
-            CVarDef.Create("game.alert_level_change_delay", 30, CVar.SERVERONLY);
-
-        /// <summary>
-        ///     The time in seconds that the server should wait before restarting the round.
-        ///     Defaults to 2 minutes.
-        /// </summary>
-        public static readonly CVarDef<float> RoundRestartTime =
-            CVarDef.Create("game.round_restart_time", 120f, CVar.SERVERONLY);
-
-        /// <summary>
-        ///     The prototype to use for secret weights.
-        /// </summary>
-        public static readonly CVarDef<string> SecretWeightPrototype =
-            CVarDef.Create("game.secret_weight_prototype", "Secret", CVar.SERVERONLY);
-
-        /// <summary>
-        ///     The id of the sound collection to randomly choose a sound from and play when the round ends.
-        /// </summary>
-        public static readonly CVarDef<string> RoundEndSoundCollection =
-            CVarDef.Create("game.round_end_sound_collection", "RoundEnd", CVar.SERVERONLY);
-
-        /// <summary>
-        ///     Whether or not to add every player as a global override to PVS at round end.
-        ///     This will allow all players to see their clothing in the round screen player list screen,
-        ///     but may cause lag during round end with very high player counts.
-        /// </summary>
-        public static readonly CVarDef<bool> RoundEndPVSOverrides =
-            CVarDef.Create("game.round_end_pvs_overrides", true, CVar.SERVERONLY);
-
-        /// <summary>
-        ///     If true, players can place objects onto tabletop games like chess boards.
-        /// </summary>
-        /// <remarks>
-        ///     This feature is currently highly abusable and can easily be used to crash the server,
-        ///     so it's off by default.
-        /// </remarks>
-        public static readonly CVarDef<bool> GameTabletopPlace =
-            CVarDef.Create("game.tabletop_place", false, CVar.SERVERONLY);
-
-        /// <summary>
-        ///     If true, contraband severity can be viewed in the examine menu
-        /// </summary>
-        public static readonly CVarDef<bool> ContrabandExamine =
-            CVarDef.Create("game.contraband_examine", true, CVar.SERVER | CVar.REPLICATED);
-
-        /// <summary>
-        ///     Size of the lookup area for adding entities to the context menu
-        /// </summary>
-        public static readonly CVarDef<float> GameEntityMenuLookup =
-            CVarDef.Create("game.entity_menu_lookup", 0.25f, CVar.CLIENTONLY | CVar.ARCHIVE);
-
-        /// <summary>
-        ///     Should the clients window show the server hostname in the title?
-        /// </summary>
-        public static readonly CVarDef<bool> GameHostnameInTitlebar =
-            CVarDef.Create("game.hostname_in_titlebar", true, CVar.SERVER | CVar.REPLICATED);
-
-        /// <summary>
         ///     Controls whether the entire CPR system runs. When false, nobody can perform CPR. You should probably remove the trait too
         ///     if you are wishing to permanently disable the system on your server.
         /// </summary>
