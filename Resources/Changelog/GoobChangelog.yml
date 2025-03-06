@@ -5715,3 +5715,9 @@ Entries:
       message: Blob reflective tile reflect 90%->100%.
   id: 659
   time: '2025-03-06T15:12:07.0000000+00:00'
+- author: Speebr0
+  changes:
+    - type: Tweak
+      message: Wizard traps now have an opacity of 5%
+  id: 660
+  time: '2025-03-06T15:16:45.0000000+00:00'
