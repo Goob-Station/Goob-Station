@@ -177,9 +177,7 @@
   - type: GuideHelp
     guides:
     - MinorAntagonists
-  - type: Fauna # Lavaland Change
-  - type: CombatPower # Goobstation
-    factor: 0.25
+
 
 - type: entity
   name: rat servant
