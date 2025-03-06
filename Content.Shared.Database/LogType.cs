@@ -446,7 +446,17 @@ public enum LogType
     PdaInteract = 96,
 
     /// <summary>
+    /// An atmos networked device (such as a vent or pump) has had its settings changed, usually through an air alarm
+    /// </summary>
+    AtmosDeviceSetting = 97,
+
+    /// <summary>
+    /// Commands related to admemes. Stuff like config changes, etc.
+    /// </summary>
+    AdminCommands = 98,
+
+    /// <summary>
     /// GameDirector related game interactions.
     /// </summary>
-    GameDirector = 97, // Goobstation
+    GameDirector = 99, // Goobstation
 }
