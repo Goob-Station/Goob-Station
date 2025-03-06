@@ -96,7 +96,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         if (TryComp(embeddable, out ProjectileComponent? projectile) && projectile.Weapon.HasValue) // Goobstation edit: un-heisenfailing tests
         {
             // Goobstation edit: Shooter is nullable, so why are we using nullforgiving operator for shooter?
-            var ev = new ProjectileEmbedEvent(projectile.Shooter, projectile.Weapon!.Value, args.Target);
+            var ev = new ProjectileEmbedEvent(projectile.Shooter, projectile.Weapon.Value, args.Target);
             RaiseLocalEvent(embeddable, ref ev);
         }
     }
