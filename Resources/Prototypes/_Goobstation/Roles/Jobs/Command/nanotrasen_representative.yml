@@ -16,6 +16,7 @@
   joinNotifyCrew: true
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  goobcoins: 40
   access:
   - Security
   - Brig

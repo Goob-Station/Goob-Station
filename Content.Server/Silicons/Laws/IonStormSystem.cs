@@ -171,6 +171,7 @@ public sealed class IonStormSystem : EntitySystem
         var verb = Pick(Verbs);
         var number = Pick(NumberBase) + " " + Pick(NumberMod);
         var area = Pick(Areas);
+        var area2 = Pick(Areas); // Goobstation
         var feeling = Pick(Feelings);
         var feelingPlural = Pick(FeelingsPlural);
         var must = Pick(Musts);
@@ -225,8 +226,17 @@ public sealed class IonStormSystem : EntitySystem
 
         var subjects = _robustRandom.Prob(0.5f) ? objectsThreats : Loc.GetString("ion-storm-people");
 
+        // Goobstation
+        var thing = _robustRandom.Next(0, 4) switch
+        {
+            0 => objects,
+            1 => threats,
+            2 => concept,
+            _ => crew1
+        };
+
         // message logic!!!
-        return _robustRandom.Next(0, 35) switch
+        return _robustRandom.Next(0, 40) switch // Goobstation
         {
             0  => Loc.GetString("ion-storm-law-on-station", ("joined", joined), ("subjects", triple)),
             1  => Loc.GetString("ion-storm-law-no-shuttle", ("joined", joined), ("subjects", triple)),
@@ -262,6 +272,13 @@ public sealed class IonStormSystem : EntitySystem
             31 => Loc.GetString("ion-storm-law-crew-must-eat", ("who", who), ("adjective", adjective), ("food", food), ("part", part)),
             32 => Loc.GetString("ion-storm-law-harm", ("who", harm)),
             33 => Loc.GetString("ion-storm-law-protect", ("who", harm)),
+            // <Goobstation> - New ion laws
+            34 => Loc.GetString("ion-storm-maximise", ("thing", thing)),
+            35 => Loc.GetString("ion-storm-maximise-all", ("thing", thing)),
+            36 => Loc.GetString("ion-storm-minimise", ("thing", thing)),
+            37 => Loc.GetString("ion-storm-minimise-all", ("thing", thing)),
+            38 => Loc.GetString("ion-storm-remake", ("place1", area), ("place2", area2)),
+            // </Goobstation>
             _ => Loc.GetString("ion-storm-law-concept-verb", ("concept", concept), ("verb", verb), ("subjects", triple))
         };
     }

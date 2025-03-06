@@ -163,3 +163,34 @@
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Effects/explosion4.ogg
+
+- type: entity
+  name: Toy Wonderprod
+  parent: BaseSword
+  id: FoamWonderprod
+  description: Using this will make sec kill you.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/foamwonderprod.rsi
+    state: icon
+  - type: StaminaDamageOnHit
+    damage: 8
+  - type: MeleeWeapon
+    soundHit:
+      collection: RubberHammer
+      params:
+        variation: 0.03
+        volume: 3
+    soundNoDamage:
+      collection: RubberHammer
+      params:
+        variation: 0.03
+        volume: 3
+    damage:
+      types:
+        Blunt: 0
+  - type: Item
+    sprite: _Goobstation/Objects/Fun/foamwonderprod.rsi
+    size: Small
+  - type: DisarmMalus
+    malus: 0

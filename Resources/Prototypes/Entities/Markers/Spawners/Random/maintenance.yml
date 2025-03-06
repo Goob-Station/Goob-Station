@@ -27,6 +27,7 @@
       - id: ClothingHeadHelmetBasic
       - id: ClothingShoeSlippersDuck
       - id: ClothingUnderSocksBee
+      - id: ClothingShoesFakeJordans
       - id: ClothingUnderSocksCoder
       - id: ClothingHeadHatSquid
       # Animal Masks
@@ -118,6 +119,7 @@
       - id: BalloonCorgi
       - id: MysteryFigureBox
       - id: RubberChicken
+      - id: FoodSnackLollypopWrappedMysteryNeutral # Goobstation - Lollypops!
       # Cult
       - !type:AllSelector
         children:
@@ -168,6 +170,7 @@
       - id: WristwatchGold
       - id: RubberStampGreytide
       - id: ClothingShoesWizardSkates #GoobStation - Wizard Skates
+      - id: FoodSnackLollypopWrappedMysteryEvil # Goobstation - Lollypops!
 
 - type: entity
   name: Maint Loot Spawner
