@@ -11,7 +11,8 @@
 - type: latheRecipe
   id: MedicalCyberneticEyes
   result: MedicalCyberneticEyes
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 5
   materials:
     Steel: 1000
