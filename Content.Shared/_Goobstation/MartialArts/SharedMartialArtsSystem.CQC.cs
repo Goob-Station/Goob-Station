@@ -73,7 +73,7 @@ public partial class SharedMartialArtsSystem
                 if (!TryComp<RequireProjectileTargetComponent>(ent, out var standing)
                     || !standing.Active)
                     return;
-                _stun.TryParalyze(args.Target, TimeSpan.FromSeconds(5), true);
+                _stun.TryKnockdown(args.Target, TimeSpan.FromSeconds(5), true);
                 _standingState.Stand(ent);
                 break;
         }
@@ -93,7 +93,7 @@ public partial class SharedMartialArtsSystem
             return;
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
-        _stun.TryParalyze(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
+        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
@@ -132,7 +132,7 @@ public partial class SharedMartialArtsSystem
             || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out _))
             return;
 
-        _stun.TryParalyze(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
+        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
     }
 

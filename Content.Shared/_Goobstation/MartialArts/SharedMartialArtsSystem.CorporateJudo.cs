@@ -59,7 +59,7 @@ public partial class SharedMartialArtsSystem
             || downed)
             return;
 
-        _stun.TryParalyze(target, TimeSpan.FromSeconds(proto.ParalyzeTime), false);
+        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), false);
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
@@ -106,7 +106,7 @@ public partial class SharedMartialArtsSystem
                 break;
             case true:
                 _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
-                _stun.TryParalyze(target, TimeSpan.FromSeconds(proto.ParalyzeTime), false);
+                _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), false);
                 break;
         }
 

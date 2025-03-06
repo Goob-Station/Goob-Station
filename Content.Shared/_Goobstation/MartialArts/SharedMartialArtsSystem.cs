@@ -128,14 +128,16 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     {
         if (!_netManager.IsServer)
             return;
+        var userName = Identity.Entity(target, EntityManager);
+        var targetName = Identity.Entity(target, EntityManager);
         _popupSystem.PopupEntity(Loc.GetString("martial-arts-action-sender",
-            ("user", Identity.Entity(target, EntityManager)),
+            ("name", targetName),
             ("move", comboName)),
             user,
             user);
-        _popupSystem.PopupEntity(Loc.GetString("martial-arts-action-sender",
-            ("user", Identity.Entity(user, EntityManager)),
-            ("pulled", comboName)),
+        _popupSystem.PopupEntity(Loc.GetString("martial-arts-action-reciever",
+            ("name", userName),
+            ("move", comboName)),
             target,
             target);
     }
