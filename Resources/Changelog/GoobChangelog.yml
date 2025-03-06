@@ -5701,3 +5701,83 @@ Entries:
         100tc.
   id: 657
   time: '2025-03-04T15:58:01.0000000+00:00'
+- author: Speebr0
+  changes:
+    - type: Fix
+      message: >-
+        Protokinetic Crusher, Glaive, and Dagger, now share the
+        MegafaunaWeaponLooter component, just like the new lavaland weapons.
+  id: 658
+  time: '2025-03-06T15:02:07.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Blob reflective tile reflect 90%->100%.
+  id: 659
+  time: '2025-03-06T15:12:07.0000000+00:00'
+- author: Speebr0
+  changes:
+    - type: Tweak
+      message: Wizard traps now have an opacity of 5%
+  id: 660
+  time: '2025-03-06T15:16:45.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Tweak
+      message: Goliaths and Watchers have received a minor rework with regards to stats
+    - type: Tweak
+      message: >-
+        More Goliaths can spawn at a tendril before collapsing. The amount of
+        Goliath spawns per tendril are now 1 -> 2
+    - type: Tweak
+      message: >-
+        There should be a bigger delay before lavaland fauna spawns from their
+        tendrils
+    - type: Fix
+      message: Ice-wing and regular watchers can now spawn from tendrils
+    - type: Fix
+      message: Certain mobs can no longer be hit with the crusher destabilising shot
+  id: 661
+  time: '2025-03-06T18:41:28.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Tweak
+      message: >-
+        Mining points payout for various ores have been increased. Rock and
+        Stone!
+    - type: Tweak
+      message: Silver and gold veins are now as common as eachother.
+    - type: Tweak
+      message: >-
+        Diamonds and bluespace crystal veins have been made rarer (due to the
+        increased points payout).
+    - type: Fix
+      message: Bananium should now appear in Lavaland as intended.
+  id: 662
+  time: '2025-03-06T18:43:56.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Hitbox sizes and weights of some species got some tweaks to hopefully
+        make more sense, check the guidebook.
+    - type: Tweak
+      message: >-
+        Yowies are now even more resistant to brute damage and are no longer
+        vulnarable to heat.
+  id: 663
+  time: '2025-03-06T21:20:53.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Add
+      message: >-
+        Added techfabs for all departments. Circuitboards of them can be found
+        in heads lockers
+    - type: Tweak
+      message: >-
+        Some recipes were moved from protolathe and autolathe to departmental
+        techfabs
+    - type: Tweak
+      message: Bluespace crystal now requires researching and diamond to craft.
+  id: 664
+  time: '2025-03-06T21:21:26.0000000+00:00'
