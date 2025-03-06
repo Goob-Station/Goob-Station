@@ -24,7 +24,10 @@
   - type: Battery
     maxCharge: 500
     startingCharge: 500
+  - type: Appearance
   - type: MagazineVisuals
+    magState: mag
+    steps: 5
     zeroVisible: true
 
 - type: entity
