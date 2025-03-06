@@ -4,6 +4,7 @@
   name: medical eyepatch
   description: Used by space weeaboos to pretend their eye isn't there, and crewmembers who actually lost their eye to pretend their eye is there.
   suffix: DO NOT MAP
+  categories: [ DoNotMap ]
   save: false
   components:
   - type: Sprite
