@@ -223,7 +223,6 @@
     - Surgery
     - SpecOpsGoogles
     - MedicalMisc
-    - CircuitFloorsStatic
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
