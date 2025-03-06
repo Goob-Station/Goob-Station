@@ -14,11 +14,11 @@
       visible: false
       shader: unshaded
   - type: Flash
-    FlashDuration: 20000
-    AoeFlashDuration: 10000
+    duration: 20000
+    aoeFlashDuration: 10000
     MeleeStunDuration: 6
-    SlowTo: 0.2
-    Range: 15
+    slowTo: 0.2
+    range: 15
   - type: MeleeWeapon
     wideAnimationRotation: 180
     damage:
