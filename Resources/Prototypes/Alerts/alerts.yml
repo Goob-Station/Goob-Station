@@ -388,19 +388,43 @@
   clickEvent: !type:RetakeVowAlertEvent
   description: alerts-vow-broken-desc
 
+# Goobstation start
+# Changed pulling to accomodate grabbing severity
 - type: alert
   id: Pulled
-  icons: [ /Textures/Interface/Alerts/Pull/pulled.png ]
-  clickEvent: !type:StopBeingPulledAlertEvent
+  icons:
+  - sprite: /Textures/_White/Interface/Alerts/pull.rsi
+    state: pulled
+  - sprite: /Textures/_White/Interface/Alerts/pull.rsi
+    state: grabbed-soft
+  - sprite: /Textures/_White/Interface/Alerts/pull.rsi
+    state: grabbed-hard
+  - sprite: /Textures/_White/Interface/Alerts/pull.rsi
+    state: grabbed-choke
+  clickEvent: !type:StopBeingPulledAlertEvent  { }
   name: alerts-pulled-name
   description: alerts-pulled-desc
+  minSeverity: 0
+  maxSeverity: 3
 
 - type: alert
   id: Pulling
-  icons: [ /Textures/Interface/Alerts/Pull/pulling.png ]
-  clickEvent: !type:StopPullingAlertEvent
+  icons:
+  - sprite: /Textures/_White/Interface/Alerts/pull.rsi
+    state: pulling
+  - sprite: /Textures/_White/Interface/Alerts/pull.rsi
+    state: grab-soft
+  - sprite: /Textures/_White/Interface/Alerts/pull.rsi
+    state: grab-hard
+  - sprite: /Textures/_White/Interface/Alerts/pull.rsi
+    state: grab-choke
+  clickEvent: !type:StopPullingAlertEvent  { }
   name: alerts-pulling-name
   description: alerts-pulling-desc
+  minSeverity: 0
+  maxSeverity: 3
+
+# Goobstation end
 
 - type: alert
   id: Bleed
