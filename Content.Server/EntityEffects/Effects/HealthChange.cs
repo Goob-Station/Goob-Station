@@ -45,6 +45,26 @@ namespace Content.Server.EntityEffects.Effects
 
             var damageSpec = new DamageSpecifier(Damage);
 
+            var universalReagentDamageModifier = entSys.GetEntitySystem<DamageableSystem>().UniversalReagentDamageModifier;
+            var universalReagentHealModifier = entSys.GetEntitySystem<DamageableSystem>().UniversalReagentHealModifier;
+
+            if (universalReagentDamageModifier != 1 || universalReagentHealModifier != 1)
+            {
+                foreach (var (type, val) in damageSpec.DamageDict)
+                {
+                    if (val < 0f)
+                    {
+                        damageSpec.DamageDict[type] = val * universalReagentHealModifier;
+                    }
+                    if (val > 0f)
+                    {
+                        damageSpec.DamageDict[type] = val * universalReagentDamageModifier;
+                    }
+                }
+            }
+
+            damageSpec = entSys.GetEntitySystem<DamageableSystem>().ApplyUniversalAllModifiers(damageSpec);
+
             foreach (var group in prototype.EnumeratePrototypes<DamageGroupPrototype>())
             {
                 if (!damageSpec.TryGetDamageInGroup(group, out var amount))
@@ -115,15 +135,34 @@ namespace Content.Server.EntityEffects.Effects
         public override void Effect(EntityEffectBaseArgs args)
         {
             var scale = FixedPoint2.New(1);
+            var damageSpec = new DamageSpecifier(Damage);
 
             if (args is EntityEffectReagentArgs reagentArgs)
             {
                 scale = ScaleByQuantity ? reagentArgs.Quantity * reagentArgs.Scale : reagentArgs.Scale;
             }
 
+            var universalReagentDamageModifier = args.EntityManager.System<DamageableSystem>().UniversalReagentDamageModifier;
+            var universalReagentHealModifier = args.EntityManager.System<DamageableSystem>().UniversalReagentHealModifier;
+
+            if (universalReagentDamageModifier != 1 || universalReagentHealModifier != 1)
+            {
+                foreach (var (type, val) in damageSpec.DamageDict)
+                {
+                    if (val < 0f)
+                    {
+                        damageSpec.DamageDict[type] = val * universalReagentHealModifier;
+                    }
+                    if (val > 0f)
+                    {
+                        damageSpec.DamageDict[type] = val * universalReagentDamageModifier;
+                    }
+                }
+            }
+
             args.EntityManager.System<DamageableSystem>().TryChangeDamage(
                 args.TargetEntity,
-                Damage * scale,
+                damageSpec * scale,
                 IgnoreResistances,
                 interruptsDoAfters: false,
                 // Shitmed Change Start
