@@ -203,3 +203,32 @@
         conditions:
         - !type:OrganType
           type: Yowie
+
+- type: reagent
+  id: MouseBites
+  name: reagent-name-mousebites
+  group: Narcotics
+  desc: reagent-desc-mousebites
+  physicalDesc: reagent-physical-desc-oily
+  flavor: oily
+  color: "#ffaa00"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Genetic: -0.2
+      - !type:Polymorph
+        prototype: MouseSentient
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+        type: Local
+        visualType: Medium
+        messages: [ "mousebites-effects-vexes", "mousebites-effects-stupid", "mousebites-effects-metoo" ]
+        probability: 0.10

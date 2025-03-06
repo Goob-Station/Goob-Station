@@ -1,0 +1,19 @@
+# This could be put into wizden packs *but* this should break less
+- type: latheRecipePack
+  id: ClothingCasualJumpsuits # if you're adding more, split them into departments
+  recipes:
+  - ClothingUniformJumpsuitCasualCommand
+  - ClothingUniformJumpsuitCasualEngineer
+
+- type: latheRecipePack
+  id: ClothingDurathreadArmoured
+  recipes:
+  - ClothingOuterVestWebDurathread
+  - ClothingOuterArmourDurathread
+  - ClothingUniformJumpsuitDurathread
+
+- type: latheRecipePack
+  id: ClothingCasualContrabandJumpsuits # same here
+  recipes:
+  - ClothingUniformJumpsuitCasualCentcom
+  - ClothingUniformJumpsuitCasualSyndicate

@@ -23,7 +23,7 @@ public sealed partial class NPCMeleeCombatComponent : Component
     ///     This is to prevent instant attacks and give more time to dodge.
     /// </summary>
     // Lavaland Change Start
-    [ViewVariables] public float ChargeupDelay = 1f;
+    [ViewVariables] public float ChargeupDelay = 0f; // Reduced form 1 to 0, NPCs should be robust
     [ViewVariables] public float ChargeupTimer = 0f;
     // Lavaland Change end
 }

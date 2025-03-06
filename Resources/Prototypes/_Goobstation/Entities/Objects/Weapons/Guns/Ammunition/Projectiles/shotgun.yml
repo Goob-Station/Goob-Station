@@ -1,0 +1,220 @@
+## Buckshot
+
+# Carpshot
+
+- type: entity
+  id: HighCaliberPelletShotgun
+  name: pellet (.75 carpshot)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 15
+
+- type: entity
+  id: HighCaliberPelletShotgunSpread
+  categories: [ HideSpawnMenu ]
+  parent: HighCaliberPelletShotgun
+  components:
+  - type: ProjectileSpread
+    proto: HighCaliberPelletShotgun
+    count: 6
+    spread: 15
+
+# Incendiary
+
+- type: entity
+  id: HighCaliberPelletShotgunIncendiary
+  name: pellet (.75 incendiary)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBulletIncendiary
+  components:
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+      state: buckshot-flare
+    - type: Projectile
+      damage:
+        types:
+          Blunt: 6
+          Heat: 6
+    - type: IgnitionSource
+      ignited: true
+
+- type: entity
+  id: HighCaliberPelletShotgunIncendiarySpread
+  categories: [ HideSpawnMenu ]
+  parent: HighCaliberPelletShotgunIncendiary
+  components:
+    - type: ProjectileSpread
+      proto: HighCaliberPelletShotgunIncendiary
+      count: 6
+      spread: 15
+
+# Practice
+
+- type: entity
+  id: HighCaliberPelletShotgunPractice
+  name: pellet (.75 practice)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBulletPractice
+  components:
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+      state: buckshot
+    - type: Projectile
+      damage:
+        types:
+          Blunt: 2
+
+- type: entity
+  id: HighCaliberPelletShotgunPracticeSpread
+  categories: [ HideSpawnMenu ]
+  parent: HighCaliberPelletShotgunPractice
+  components:
+    - type: ProjectileSpread
+      proto: HighCaliberPelletShotgunPractice
+      count: 8
+      spread: 15
+
+# Depleted Uranium
+
+- type: entity
+  id: HighCaliberPelletShotgunUranium
+  name: pellet (.75 uranium)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+      state: depleted-uranium
+    - type: Projectile
+      damage:
+        types:
+          Radiation: 8
+          Piercing: 8
+
+- type: entity
+  id: HighCaliberPelletShotgunUraniumSpread
+  categories: [ HideSpawnMenu ]
+  parent: HighCaliberPelletShotgunUranium
+  components:
+    - type: ProjectileSpread
+      proto: HighCaliberPelletShotgunUranium
+      count: 6
+      spread: 6
+
+## Slugs
+
+- type: entity
+  id: PelletShotgunSlugHighCaliber
+  name: pellet (.75 slug)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: slug
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 65
+
+- type: entity
+  id: BulletSlugEnsnaring
+  name: bullet (.75 caliber ensnaring slug)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: rubber
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      types:
+        Piercing: 16 #Low damage, but ensnaring
+  - type: Ensnaring
+    canThrowTrigger: true
+    destroyOnRemove: true
+    breakoutTime: 3
+    freeTime: 3
+    sprintSpeed: 0.6
+    walkSpeed: 0.6
+    staminaDamage: 10
+
+- type: entity
+  id: BulletSlugEMP
+  name: bullet (.75 caliber EMP slug)
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: rubber
+      color: "#009eff"
+  - type: EmpOnTrigger
+    range: 0.2
+    energyConsumption: 80
+    disableDuration: 1
+  - type: Ammo
+    muzzleFlash: null
+  - type: PointLight
+    radius: 1.5
+    color: blue
+    energy: 0.5
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 12
+        Ion: 20
+
+- type: entity
+  id: BulletSlugFlash
+  name: bullet (.75 caliber flash slug)
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: rubber
+      color: "#fff94d"
+  - type: FlashOnTrigger
+    range: 5
+    duration: 4
+  - type: SpawnOnTrigger
+    proto: GrenadeFlashEffect
+  - type: Ammo
+    muzzleFlash: null
+  - type: PointLight
+    radius: 1.5
+    color: yellow
+    energy: 1
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+
+- type: entity
+  id: BulletSlugBeanbagHighCaliber
+  name: beanbag (.75)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 20 # ye-OUCH
+  - type: StaminaDamageOnCollide
+    damage: 65 # ye-OW
+

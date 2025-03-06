@@ -68,6 +68,9 @@
   - type: FootPrints # WD EDIT
     leftBarePrint: "footprint-left-bare-dwarf"
     rightBarePrint: "footprint-right-bare-dwarf"
+  - type: InnateMiningScannerViewer # Frontier
+    pingSound: null
+    viewRange: 3 # Goob value
 
 - type: entity
   parent: BaseSpeciesDummy

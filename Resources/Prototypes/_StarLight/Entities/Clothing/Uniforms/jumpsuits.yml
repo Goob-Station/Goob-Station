@@ -1,7 +1,7 @@
 - type: entity
   parent: ClothingUniformJumpsuitAtmos
   id: ClothingUniformJumpsuitAtmosSyndie
-  name: Contortionist's Jumpsuit
+  suffix: Contortionistic
   components:
   - type: ClothingGrantComponent #Goobstation edit
     component:
@@ -11,7 +11,7 @@
 - type: entity  # Goobstation original
   parent: ClothingUniformJumpsuitAtmosSyndie
   id: ClothingUniformJumpsuitAtmosSyndieAdmin
-  suffix: Admin
+  suffix: Contortionistic, Admeme
   components:
   - type: ClothingGrantComponent
     component:

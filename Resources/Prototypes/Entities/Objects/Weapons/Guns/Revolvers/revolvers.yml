@@ -82,7 +82,7 @@
 
 - type: entity
   name: Inspector
-  parent: [BaseWeaponRevolver, BaseRestrictedContraband]
+  parent: [BaseWeaponRevolver, BaseSecurityContraband]
   id: WeaponRevolverInspector
   description: A detective's best friend. Uses .45 magnum ammo.
   components:
@@ -109,6 +109,14 @@
     fireRate: 4 # Goob edit
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+
+- type: entity
+  parent: WeaponRevolverMateba
+  id: WeaponRevolverMatebaAP # For deathsquad
+  suffix: armor-piercing
+  components:
+  - type: RevolverAmmoProvider
+    proto: CartridgeMagnumAP
 
 - type: entity
   name: Python
