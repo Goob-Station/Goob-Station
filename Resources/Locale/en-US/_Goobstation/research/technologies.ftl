@@ -9,3 +9,4 @@ research-technology-honk-weapons = Bananium Weapons
 research-technology-modsuits = Modular Technologies
 research-technology-smart-weaponry = Smart Weaponry
 research-technology-accessibility = Crew Assistance Technologies
+research-technology-bluespace-theory = Bluespace Theory
