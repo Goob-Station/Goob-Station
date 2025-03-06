@@ -1,7 +1,6 @@
 name: Update PR Branches
 on:
   workflow_dispatch:
-  push: {}
 
 jobs:
   autoupdate:
