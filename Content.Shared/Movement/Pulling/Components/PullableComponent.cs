@@ -76,7 +76,7 @@ public sealed partial class PullableComponent : Component
     /// Constant for tabling throw math
     /// </summary>
     [DataField]
-    public float BaseTabledForceAcceleration = 2.5f;
+    public float BasedTabledForceSpeed = 5f;
 
     /// <summary>
     ///  Stamina damage. taken on tabled
@@ -88,7 +88,7 @@ public sealed partial class PullableComponent : Component
     /// Damage taken on being tabled.
     /// </summary>
     [DataField]
-    public float TabledDamage = 7.5f;
+    public float TabledDamage = 5f;
     // Goobstation end
 }
 
