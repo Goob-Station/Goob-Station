@@ -9,4 +9,4 @@ jobs:
     steps:
       - uses: docker://chinthakagodawita/autoupdate-action:v1
         env:
-          GITHUB_TOKEN: '${{ secrets.GOOBER_TOKEN }}'
+          GITHUB_TOKEN: '${{ secrets.BOT_TOKEN }}'
