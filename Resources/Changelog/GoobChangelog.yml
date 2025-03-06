@@ -5767,3 +5767,17 @@ Entries:
         vulnarable to heat.
   id: 663
   time: '2025-03-06T21:20:53.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Add
+      message: >-
+        Added techfabs for all departments. Circuitboards of them can be found
+        in heads lockers
+    - type: Tweak
+      message: >-
+        Some recipes were moved from protolathe and autolathe to departmental
+        techfabs
+    - type: Tweak
+      message: Bluespace crystal now requires researching and diamond to craft.
+  id: 664
+  time: '2025-03-06T21:21:26.0000000+00:00'
