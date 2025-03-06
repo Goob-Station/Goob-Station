@@ -5739,3 +5739,19 @@ Entries:
       message: Certain mobs can no longer be hit with the crusher destabilising shot
   id: 661
   time: '2025-03-06T18:41:28.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Tweak
+      message: >-
+        Mining points payout for various ores have been increased. Rock and
+        Stone!
+    - type: Tweak
+      message: Silver and gold veins are now as common as eachother.
+    - type: Tweak
+      message: >-
+        Diamonds and bluespace crystal veins have been made rarer (due to the
+        increased points payout).
+    - type: Fix
+      message: Bananium should now appear in Lavaland as intended.
+  id: 662
+  time: '2025-03-06T18:43:56.0000000+00:00'
