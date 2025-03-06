@@ -5693,3 +5693,11 @@ Entries:
       message: China Lake no longer can be dualwielded.
   id: 656
   time: '2025-03-03T17:25:20.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: >-
+        Added a new implant to the uplink, the syndicate jaunter implant for
+        100tc.
+  id: 657
+  time: '2025-03-04T15:58:01.0000000+00:00'
