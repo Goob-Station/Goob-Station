@@ -64,6 +64,15 @@
   equipment:
     neck: ClothingNeckMantleBlueshield
 
+# Mask
+- type: loadout
+  id: BlueshieldOfficerMaskLollypop
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorBlueshieldOfficer
+  equipment:
+    mask: FoodSnackLollypopBlueshield
+
 # Back
 - type: loadout
   id: BlueshieldOfficerBackpack
