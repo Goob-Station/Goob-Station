@@ -38,6 +38,15 @@
         rules: abductors-ghost-role-rules
         raffle:
           settings: default
+        requirements:
+        - !type:OverallPlaytimeRequirement
+          time: 18000 #5 hours
+        - !type:DepartmentTimeRequirement
+          department: Medical
+          time: 7200 #2 hours
+        - !type:DepartmentTimeRequirement
+          department: Security
+          time: 7200 #2 hours
       - type: GhostTakeoverAvailable
       - type: NpcFactionMember
         factions:
@@ -120,6 +129,12 @@
         rules: abductors-ghost-role-rules
         raffle:
           settings: default
+        requirements:
+        - !type:OverallPlaytimeRequirement
+          time: 18000 #5 hours
+        - !type:DepartmentTimeRequirement
+          department: Medical
+          time: 10800 #3 hours
       - type: GhostTakeoverAvailable
       - type: NpcFactionMember
         factions:
@@ -141,7 +156,7 @@
       - type: SurgerySpeedModifier
         speedModifier: 1.5
       mindRoles:
-      - MindRoleLoneAbductor
+      - MindRoleAbductorScientist
     - spawnerPrototype: AbductorAgentSpawner
       min: 1
       max: 1
@@ -162,6 +177,12 @@
         rules: abductors-ghost-role-rules
         raffle:
           settings: default
+        requirements:
+        - !type:OverallPlaytimeRequirement
+          time: 18000 #5 hours
+        - !type:DepartmentTimeRequirement
+          department: Security
+          time: 10800 #3 hours
       - type: GhostTakeoverAvailable
       - type: NpcFactionMember
         factions:
@@ -178,4 +199,4 @@
           - DoorBumpOpener
       - type: AbductorScientist # Should be removed when we have proper teleportation system
       mindRoles:
-      - MindRoleLoneAbductor
+      - MindRoleAbductorAgent

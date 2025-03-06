@@ -36,6 +36,9 @@ public sealed partial class BlobCoreComponent : Component
     public FixedPoint2 CoreBlobTotalHealth = 400;
 
     [DataField]
+    public float StartingMoney = 250f; // enough for 2 resource nodes and a bit of defensive action
+
+    [DataField]
     public float AttackRate = 0.3f;
 
     [DataField]
@@ -190,7 +193,7 @@ public sealed partial class BlobCoreComponent : Component
     };
 
     [DataField(required: true)]
-    public List<ProtoId<EntityPrototype>> ActionPrototypes = [];
+    public List<EntProtoId> ActionPrototypes = [];
 
     [DataField]
     public ProtoId<ExplosionPrototype> BlobExplosive = "Blob";

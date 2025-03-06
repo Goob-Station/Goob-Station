@@ -132,8 +132,9 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
         if (!CanTakeVolume(uid, volume, component))
             return false;
 
-        if (component.MaterialWhiteList == null ? false : !component.MaterialWhiteList.Contains(materialId))
-            return false;
+        if (!component.IgnoreMaterialWhiteList) // Goobstation Change - Shitcode.
+            if (component.MaterialWhiteList == null ? false : !component.MaterialWhiteList.Contains(materialId))
+                return false;
 
         if (component.ConnectToSilo && _silo.TryGetMaterialAmount(uid, materialId, out var siloAmount)) // Goobstation
             return siloAmount + volume >= 0;
@@ -355,7 +356,7 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
 
         var proto = _prototype.Index<EntityPrototype>(material.StackEntity);
 
-        if (!proto.TryGetComponent<PhysicalCompositionComponent>(out var composition))
+        if (!proto.TryGetComponent<PhysicalCompositionComponent>(out var composition, EntityManager.ComponentFactory))
             return DefaultSheetVolume;
 
         return composition.MaterialComposition.FirstOrDefault(kvp => kvp.Key == material.ID).Value;

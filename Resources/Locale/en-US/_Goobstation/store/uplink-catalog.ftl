@@ -35,8 +35,8 @@ uplink-hardlight-bow-desc = A modern bow that can fabricate hardlight arrows, de
 uplink-pie-cannon-name = Regenerating Pie Cannon
 uplink-pie-cannon-desc = A pie cannon that automatically regenerates pies, one every ten seconds.
 
-uplink-mobroach-microbomb-name = SyndiMaggot Teleporter
-uplink-mobroach-microbomb-desc = Call in a handy moth maggot equipped with a microbomb implant. Explodes when seriously injured.
+uplink-mobroach-microbomb-name = SyndiRoach Teleporter
+uplink-mobroach-microbomb-desc = Call in a handy mothroach equipped with a microbomb implant. Explodes when seriously injured.
 
 uplink-advanced-combat-medipen-name = Advanced Combat Medipen
 uplink-advanced-combat-medipen-desc = An advanced single-use medipen containing chemicals that will rapidly heal most types of damage taken in a fight.
@@ -79,6 +79,9 @@ uplink-anaconda-desc = The pride of the Cybersun arms concern, this heavy pistol
 uplink-bulk-mosin-name = Syndicate bulk rifle crate
 uplink-bulk-mosin-desc = 10 WW4-era rifles to arm you, your friends, and your cat. Saves 40% on shipping costs by buying in bulk.
 
+uplink-whimsy-bundle-name = Syndicate Joy & Whimsy Bundle
+uplink-whimsy-bundle-desc = Do YOU like spreading joy & whimsy? Well, Donk Co. has the solution for you! Contains a LIMITED EDITION axe and enough candy to kill a man.
+
 # Ammo
 
 uplink-blast-grenade-name = Blast Grenade
@@ -90,8 +93,8 @@ uplink-frag-grenade-desc = Lower damage, bigger radius. Compatible with the Chin
 uplink-rifle-mag-name = .20 Rifle Magazine
 uplink-rifle-mag-desc = A 25 round magazine containing .20 rifle bullets. Supports the Lecter and M-90.
 
-uplink-rifle-subsonic-mag-name = .30 Rifle Subsonic Magazine
-uplink-rifle-subsonic-mag-desc = A 35 round magazine containing .30 rifle subsonic bullets. Supports the WSPR and any other .30 rife.
+uplink-rifle-caseless-mag-name = .25 Caseless Rifle Magazine
+uplink-rifle-caseless-mag-desc = A 30 round rifle magazine filled with .25 caseless bullets. Compatible with the WSPR.
 
 uplink-l6-box-name = Magazine Box (.30 rifle)
 uplink-l6-box-desc = Magazine box with 100 catridges. Compatible with the L6 SAW.
@@ -134,6 +137,9 @@ uplink-lollypop-bundle-big-desc = Contains an ungodly amount of candy. What coul
 
 uplink-smoke-implant-name = Smoke Implant
 uplink-smoke-implant-desc = Releases a cloud of smoke when activated.
+
+uplink-jaunter-implanter-name = Jaunter Implanter
+uplink-jaunter-implanter-desc = Swaps position of the user and target upon activation. Recharges passively.
 
 # Wearables
 

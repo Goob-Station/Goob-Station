@@ -1,0 +1,13 @@
+- type: listing
+  id: uplinkContortionistJumpsuit
+  name: uplink-contortionist-jumpsuit-name
+  description: uplink-contortionist-jumpsuit-desc
+  productEntity: ClothingUniformJumpsuitAtmosSyndie
+  cost:
+    Telecrystal: 30 # Goobstation edit
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - AtmosphericTechnician

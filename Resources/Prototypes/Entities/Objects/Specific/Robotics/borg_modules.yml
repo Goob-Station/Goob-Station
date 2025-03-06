@@ -151,7 +151,7 @@
   - type: ItemBorgModule
     items:
     - HandheldGPSBasic
-    - HandHeldMassScannerBorg
+    #- HandHeldMassScannerBorg - Removed by Lavaland
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: gps-module }
 
@@ -375,7 +375,7 @@
   components:
   - type: Sprite
     layers:
-    - state: medical
+    - state: generic
     - state: icon-treatment
   - type: ItemBorgModule
     items:
@@ -385,7 +385,6 @@
     - Gauze10Lingering
     - Bloodpack10Lingering
     - Syringe
-    - LauncherLollypopRegeneratingTricordazine # Goobstation
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: treatment-module }
 
@@ -477,7 +476,6 @@
     - Lighter
     - DrinkShaker
     - BorgDropper
-    - LauncherLollypopRegenerating # Goobstation
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: service-module }
 
@@ -547,7 +545,6 @@
     - BikeHorn
     - ClownRecorder
     - BikeHornInstrument
-    - LauncherLollypopRegeneratingWeh # Goobstation - Weh!
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: clowning-module }
 
@@ -572,7 +569,7 @@
   id: BorgModuleOperative
   parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
   name: operative cyborg module
-  description: A module that comes with a crowbar, an Emag and a syndicate pinpointer.
+  description: A module that comes with a crowbar, an Emag, an Access Breaker and a syndicate pinpointer.
   components:
     - type: Sprite
       layers:
@@ -582,6 +579,7 @@
       items:
       - Crowbar
       - Emag
+      - AccessBreaker
       - PinpointerSyndicateNuclear
     - type: BorgModuleIcon
       icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-operative-module }

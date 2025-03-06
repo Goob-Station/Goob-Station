@@ -111,6 +111,17 @@
         Base: dead
       Dead:
         Base: dead
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: GroundBee
+          Quantity: 1
+  - type: Butcherable
+    spawned:
+    - id: null # Should give nothing when you butcher it so we set the item id it needs to spawn to null
   - type: Item
     size: Tiny
   - type: Tag
@@ -118,6 +129,7 @@
     - Bee
     - Trash
   - type: Bloodstream
+    bloodReagent: InsectBlood
     bloodMaxVolume: 0.1
   - type: MobPrice
     price: 50
@@ -233,6 +245,7 @@
   - type: EggLayer
     eggSpawn:
     - id: FoodEgg
+  - type: ExaminableHunger
   - type: ReplacementAccent
     accent: chicken
   - type: SentienceTarget
@@ -434,12 +447,13 @@
   - type: Butcherable
     spawned:
     - id: FoodMeatSlime
+  - type: VentCrawler # goobstation - Ventcrawl
 
 - type: entity
-  name: moth maggot
+  name: mothroach
   parent: MobCockroach
   id: MobMothroach
-  description: This is the adorable by-product of multiple attempts at genetically mixing mothpeople with maggots.
+  description: This is the adorable by-product of multiple attempts at genetically mixing mothpeople with cockroaches.
   components:
   - type: GhostRole
     makeSentient: true
@@ -669,6 +683,7 @@
   - type: EggLayer
     eggSpawn:
     - id: FoodEgg
+  - type: ExaminableHunger
   - type: ReplacementAccent
     accent: duck
   - type: SentienceTarget
@@ -775,7 +790,24 @@
         Base: dead
       Dead:
         Base: dead
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 1
+  - type: Butcherable
+    spawned:
+    - id: null # Should give nothing when you butcher it so we set the item id it needs to spawn to null
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - Trash
   - type: Bloodstream
+    bloodReagent: InsectBlood
     bloodMaxVolume: 0.1
   - type: MobPrice
     price: 50
@@ -834,6 +866,7 @@
     reagentId: Milk
     quantityPerUpdate: 25
     growthDelay: 30
+  - type: ExaminableHunger
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -875,6 +908,7 @@
   id: MobCrab
   description: A folk legend goes around that his claw snaps spacemen out of existence over distasteful remarks. Be polite and tolerant for your own safety.
   components:
+  - type: VentCrawler # goobstation - Ventcrawl
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -1000,6 +1034,7 @@
     reagentId: MilkGoat
     quantityPerUpdate: 25
     growthDelay: 20
+  - type: ExaminableHunger
   - type: Wooly
   - type: Food
     solution: wool
@@ -1016,6 +1051,15 @@
   - type: Grammar
     attributes:
       gender: female # Here because of UdderComponent
+  - type: Speech
+    speechSounds: Goat
+    speechVerb: Goat
+  - type: Vocal
+    sounds:
+      Female: Goat
+      Male: Goat
+      Unsexed: Goat
+  - type: BleatingAccent
   - type: InteractionPopup
     successChance: 0.2
     interactSuccessString: petting-success-goat
@@ -1259,6 +1303,8 @@
   description: The genetic bipedal ancestor of... Uh... Something. Yeah, there's definitely something on the station that descended from whatever this is.
   abstract: true
   components:
+  - type: VentCrawler # goobstation - Ventcrawl
+    allowInventory: false
   - type: CombatMode
   # Shitmed Change Start
   - type: SurgeryTarget
@@ -1312,10 +1358,10 @@
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
+    - map: [ "id" ]
     - map: [ "outerClothing" ]
     - map: [ "eyes" ]
     - map: [ "belt" ]
-    - map: [ "id" ]
     - map: [ "neck" ]
     - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
@@ -1400,6 +1446,12 @@
       effects:
       - !type:WashCreamPieReaction
   - type: LayingDown # Goobstation
+  - type: Vocal # Goobstation
+    sounds:
+      Male: MonkeyMode
+      Female: MonkeyMode
+      Unsexed: MonkeyMode
+    wilhelmProbability: 0.001
 
 
 
@@ -1472,6 +1524,7 @@
   suffix: syndicate agent
   components:
     # make the player a traitor once its taken
+  - type: VentCrawler # goobstation - Ventcrawl
   - type: AutoTraitor
     profile: TraitorReinforcement
 
@@ -1480,6 +1533,7 @@
   parent: MobBaseSyndicateMonkey
   suffix: NukeOps
   components:
+  - type: VentCrawler # goobstation - Ventcrawl
   - type: NukeOperative
 
 - type: entity
@@ -1585,7 +1639,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Critical # Goob edit
+      100: Critical
       200: Dead
   - type: NpcFactionMember
     factions:
@@ -1624,6 +1678,7 @@
   id: MobMouse
   description: Squeak!
   components:
+  - type: VentCrawler # goobstation - Ventcrawl
   - type: Body
     prototype: Mouse
   - type: SurgeryTarget # Shitmed
@@ -1723,13 +1778,14 @@
       Dead: 0
     baseDecayRate: 0.04
   - type: Hunger
+    startingHunger: 15 # Goobstation change
     thresholds:
       Overfed: 35
       Okay: 25
       Peckish: 15
       Starving: 10
       Dead: 0
-    baseDecayRate: 0.5 # I'm very hungry! Give me. The cheese.
+    baseDecayRate: 0.04 #Goob change
   - type: Extractable
     grindableSolutionName: food
   - type: SolutionContainerManager
@@ -1738,6 +1794,10 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 3
+        - ReagentId: MouseBites
+          Quantity: 3
+      melee:
+        maxVol: 5
   - type: Butcherable
     spawned:
     - id: FoodMeatRat
@@ -1777,7 +1837,7 @@
     animation: WeaponArcBite
     damage:
       types:
-        Piercing: 0
+        Slash: 1 # Goobstation - LET THE HORDES ROAM!!
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: CanEscapeInventory
@@ -1802,10 +1862,24 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-rat
-  - type: NightVision # Goobstation - Nigthvision
+  - type: NightVision # Goobstation - Start
     color: "#808080"
     activateSound: null
     deactivateSound: null
+  - type: EggLayer
+    eggSpawn:
+    - id: MobMouse
+    hungerUsage: 20
+    eggLayAction: MouseMultiply
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: MouseBites
+        Quantity: 1
+  - type: MeleeChemicalInjector
+    transferAmount: 1
+    solution: melee # Goobstation - End
 
 - type: entity
   parent: MobMouse
@@ -2002,6 +2076,7 @@
   id: MobSlug
   description: And they called this a lizard?
   components:
+  - type: VentCrawler # goobstation - Ventcrawl
   - type: MovementSpeedModifier
     baseWalkSpeed : 2
     baseSprintSpeed : 3
@@ -2049,6 +2124,7 @@
   id: MobFrog
   description: Hop hop hop. Lookin' moist.
   components:
+  - type: VentCrawler # goobstation - Ventcrawl
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 6
@@ -2297,6 +2373,7 @@
   id: MobSnake
   description: Hissss! Bites aren't poisonous.
   components:
+  - type: VentCrawler # goobstation - Ventcrawl
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -2345,6 +2422,7 @@
   id: MobSpiderBase
   abstract: true
   components:
+  - type: VentCrawler # goobstation - Ventcrawl
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -2501,8 +2579,8 @@
 
 - type: entity
   parent:
-  - MobGiantSpider
   - MobSpiderAngryBase
+  - MobGiantSpider
   id: MobGiantSpiderAngry
 
 - type: entity
@@ -2784,6 +2862,7 @@
   - type: Physics
   - type: Speech
     speechVerb: Canine
+    speechSounds: Dog
   - type: Fixtures
     fixtures:
       fix1:
@@ -2896,6 +2975,7 @@
   id: MobCorgiPuppy
   description: A little corgi! Aww...
   components:
+  - type: VentCrawler # goobstation - Ventcrawl
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Pets/corgi.rsi
@@ -2985,6 +3065,7 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: VentCrawler # goobstation - Ventcrawl
 
 - type: entity
   name: calico cat
@@ -3259,6 +3340,7 @@
   id: MobHamster
   description: A cute, fluffy, robust hamster.
   components:
+  - type: VentCrawler # goobstation - Ventcrawl
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -3537,6 +3619,13 @@
       gender: epicene
   - type: Speech
     speechVerb: Plant
+    speechSounds: Alto
+    allowedEmotes: ['Chirp']
+  - type: Vocal
+    sounds:
+      Male: UnisexDiona
+      Female: UnisexDiona
+      Unsexed: UnisexDiona
   - type: Tag
     tags:
     - DoorBumpOpener

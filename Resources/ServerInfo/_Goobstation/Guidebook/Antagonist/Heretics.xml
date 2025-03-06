@@ -16,7 +16,7 @@
   </Box>
   Influences are the easy way to gain power points. Whenever there are Heretics aboard Space Station 14, influences will randomly spawn across the station.
   They are not visible to the naked eye of a crew member, hovewer they [bold]will[/bold] become visible after harvesting, aside from suddenly changing colors.
-  Tip: When using [color=green]Codex Cicatrix[/color] on an influence you will get double the points, but it will be a dead giveaway to anyone nearby that you're a heretic.
+  Tip: When using [color=green]Codex Cicatrix[/color] on an influence you will harvest it twice as faster, but it will be a dead giveaway to anyone nearby that you're a heretic.
   <Box>
     <GuideEntityEmbed Entity="EldritchInfluenceSpent" Caption="Harvested influence. Notice the glow."/>
   </Box>
@@ -27,7 +27,7 @@
   Now it's time for you to grow some balls and start sacrificing crewmembers for points.
   The Mansus desires only a select few Heathens (non-heretics) at any moment.
 
-  At the start of the round you will be assigned five sacrifice targets. You can reroll these with an optional knowledge (The Relentless Heartbeat) later on, but until then, you're stuck with those.
+  At the start of the round you will be assigned four-five sacrifice targets.
 
   - One target will be a Head of Staff. Heads of staff are worth an additional point!
   - One target will be a member of security.
@@ -73,11 +73,9 @@
 
   ## Tips
   - On Ashen Path, always carry a fire extinguisher or a bottle of water with you! While you can spew out fireballs, you are not immune to them until you ascend!
-  - As a [color=purple]Ghoul[/color], your [color=green]Mansus Link[/color] ability is extremely useful for communication. When you use it on someone, they gain a radio channel similar to changelings with :z key to talk privately.
-  - Unlike most other solo antagonists, Heretics start weak but grow stronger over time. It would be best not to attract too much attention to yourself until you unlock more powerful spells and equipment.
+  - As a [color=purple]Raw Prophet[/color], your [color=green]Mansus Link[/color] ability is extremely useful for communication. When you use it on someone, they gain a radio channel similar to changelings with :z key to talk privately.
   - Your Mansus Grasp will temporarily garble the speech of people who you use it on. This can let you get away with murder while comms are online, but be careful - it's not foolproof.
   - [color=purple]Influences[/color] can spawn in almost any location on the station, ranging from the main hallways and public restrooms to [color=cyan]Command staff offices[/color] and [color=red]restricted security areas[/color] in the Brig. It's best to check every area you can access, public and department.
-  - By default, nothing on you is incriminating. If security suspects you, but can't actually pin anything heretical on you, you might be able to pass off as a Traitor instead.
   - Monkeys and other animals make for great, usually non-suspicious sources of organs or corpses for your heretical rituals.
   - Most summoned ghouls will drop the components used to create them on death. While having them to die is not ideal, you can easily grab the parts and summon another.
   - [color=yellow]Eldritch Flask[/color], a stage 3 side path knowledge acts like a cryostasis beaker and has a total capacity of 100 units, meaning you can create deadly mixes that are easily triggered.

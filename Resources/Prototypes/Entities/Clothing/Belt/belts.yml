@@ -33,6 +33,7 @@
         - GPS
         - WeldingMask
       components:
+        - StationMap
         - SprayPainter
         - NetworkConfigurator
         - RCD
@@ -112,6 +113,7 @@
         - Multitool
         - AppraisalTool
       components:
+        - StationMap
         - SprayPainter
         - NetworkConfigurator
         - RCD
@@ -459,7 +461,7 @@
   - type: Appearance
 
 - type: entity
-  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseRestrictedContraband]
+  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSecurityContraband]
   id: ClothingBeltSecurity
   name: security belt
   description: Can hold security gear like handcuffs and flashes.
@@ -546,7 +548,7 @@
 # Belts without visualizers
 
 - type: entity
-  parent: [ClothingBeltAmmoProviderBase, BaseRestrictedContraband]
+  parent: [ClothingBeltAmmoProviderBase, BaseSecurityBartenderContraband]
   id: ClothingBeltBandolier
   name: bandolier
   description: A bandolier for holding shotgun ammunition.
@@ -658,7 +660,7 @@
   - type: Clothing
     sprite: Clothing/Belt/militarywebbing.rsi
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.05 #goobstation
 
 - type: entity
   parent: ClothingBeltMilitaryWebbing
