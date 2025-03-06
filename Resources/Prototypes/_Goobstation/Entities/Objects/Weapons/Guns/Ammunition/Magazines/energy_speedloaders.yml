@@ -39,7 +39,7 @@
       - state: base-3
         map: [ "enum.GunVisualLayers.Mag" ]
   - type: MagazineVisuals # Same as above
-    magState: practice
+    magState: base
     steps: 3
     zeroVisible: false
   - type: ProjectileBatteryAmmoProvider
