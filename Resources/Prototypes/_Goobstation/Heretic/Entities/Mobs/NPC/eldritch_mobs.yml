@@ -58,14 +58,11 @@
     rules: ghostrole-ghoul-rules
     raffle:
       settings: short
-  - type: ActiveRadio
-    channels:
-    - Mansus
-  - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Mansus
-
+  - type: Tag
+    tags:
+    - MansusLinkMind
+  - type: CollectiveMind
+    defaultChannel: MansusLink
 
 - type: entity
   parent: BaseMobGhoul
