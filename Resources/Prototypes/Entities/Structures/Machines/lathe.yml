@@ -705,6 +705,7 @@
       - RGlassSmelting
     - type: MiningPoints # DeltaV - Source of mining points for miners
     - type: MiningPointsLathe # DeltaV
+    - type: MaterialStorageMagnetPickup # Frontier
 
 - type: entity
   parent: OreProcessor
