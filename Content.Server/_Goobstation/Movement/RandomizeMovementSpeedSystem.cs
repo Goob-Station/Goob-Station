@@ -28,7 +28,7 @@ public sealed partial class RandomizeMovementSpeedSystem : EntitySystem
     public void OnItemInHand(EntityUid uid, RandomizeMovementspeedComponent comp, EquippedHandEvent args)
     {
         // When the item is equipped, add the component to the player.
-        EnsureComp<RandomizeMovementspeedComponent>(args.User);
+        EnsureComp<RandomizeMovementspeedComponent>(uid);
     }
 
     public void Update(float frameTime, EntityUid uid, RandomizeMovementspeedComponent comp, EquippedHandEvent args)
