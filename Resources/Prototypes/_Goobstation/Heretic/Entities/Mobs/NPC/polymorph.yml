@@ -71,6 +71,7 @@
   name: eldritch horror
   description: An incomprehensible mess of limbs and eyes. You can feel it's stare into your soul.
   suffix: DO NOT MAP
+  categories: [ DoNotMap ]
   components:
   - type: Bloodstream
     bloodMaxVolume: 1984
