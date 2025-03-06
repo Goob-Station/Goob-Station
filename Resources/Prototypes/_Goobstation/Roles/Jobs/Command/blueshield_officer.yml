@@ -50,7 +50,7 @@
 - type: startingGear
   id: BlueshieldOfficerGear
   equipment:
-    eyes: ClothingEyesGlassesMedSec
+    eyes: ClothingEyesGlassesBSO
     gloves: ClothingHandsGlovesCombat
     id: BlueshieldPDA
     ears: ClothingHeadsetAltCommand
