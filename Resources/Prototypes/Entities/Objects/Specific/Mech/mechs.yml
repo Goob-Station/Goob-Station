@@ -90,11 +90,11 @@
     containers:
       mech-pilot-slot: !type:ContainerSlot
       mech-equipment-container: !type:Container
+      mech-armor-container: !type:Container # Goobstation
       mech-battery-slot: !type:ContainerSlot
       paper_label: !type:ContainerSlot # Goobstation
   - type: Damageable
     damageContainer: Silicon # Goobstation
-    damageModifierSet: LightArmor # Goobstation
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Mecha/mechmove03.ogg
@@ -175,6 +175,9 @@
       components:
         - HumanoidAppearance
         - BorgChassis # Goobstation - Let borgs pilot mechs
+    mechArmor:
+      types:
+        Blunt: 10
   - type: MeleeWeapon
     hidden: true
     attackRate: 1

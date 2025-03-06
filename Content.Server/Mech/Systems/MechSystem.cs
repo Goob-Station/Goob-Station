@@ -22,8 +22,13 @@ using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
+using Robust.Shared.Maths;
 using Content.Shared.Whitelist;
 using Content.Server.Emp; // Goobstation
+using Content.Shared.Damage.Prototypes;
+using Robust.Shared.Prototypes;
+
+
 
 namespace Content.Server.Mech.Systems;
 
@@ -40,6 +45,7 @@ public sealed partial class MechSystem : SharedMechSystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly SharedToolSystem _toolSystem = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -90,26 +96,20 @@ public sealed partial class MechSystem : SharedMechSystem
         var integrity = component.MaxIntegrity - args.Damageable.TotalDamage;
         SetIntegrity(uid, integrity, component);
 
+
         if (args.DamageIncreased &&
             args.DamageDelta != null &&
             component.PilotSlot.ContainedEntity != null)
         {
+            Dictionary<string, float> origCoeff = default!;
             // Gained damage
             var damageDictionary = args.DamageDelta.DamageDict;
-            foreach (var (t1, a1) in damageDictionary)
+            foreach (var (damageType, damageAmount) in damageDictionary)
             {
-                var damageType = t1;
-                var damageAmount = a1;
-
                 // Armor
                 var mechArmor = component.MechArmor.DamageDict;
-                var damageReduceType = "";
-                FixedPoint2 damageReduceAmount = default!;
-                foreach (var (t2, a2) in mechArmor)
+                foreach (var (damageReduceType, damageReduceAmount) in mechArmor)
                 {
-                    damageReduceType = t2;
-                    damageReduceAmount = a2;
-
                     if (damageType == damageReduceType)
                     {
                         if (damageReduceAmount >= damageAmount)
@@ -118,8 +118,40 @@ public sealed partial class MechSystem : SharedMechSystem
                         }
                         else
                         {
-                            // Gained damage to pilot
+                            var armorPlateComponent = new ArmorPlateComponent();
+                            if (component.ArmorContainer.ContainedEntities.Count > 0)
+                            {
+                                if (!TryComp<ArmorPlateComponent>(component.ArmorContainer.ContainedEntities[0], out var ap))
+                                    return;
+                                armorPlateComponent = ap;
+                            }
+                            // Apply armor plates resistances
                             var damage = args.DamageDelta - component.MechArmor;
+                            if (armorPlateComponent.DamageModifierSetId != null &&
+                                _prototypeManager.TryIndex<DamageModifierSetPrototype>(
+                                    armorPlateComponent.DamageModifierSetId,
+                                    out var modifierSet))
+                            {
+                                if (component.ArmorContainer.ContainedEntities.Count >= 1)
+                                {
+                                    // Take original coefficients
+                                    if (origCoeff == null)
+                                    {
+                                        origCoeff = new Dictionary<string, float>(modifierSet.Coefficients);
+                                    }
+                                    // Degree the defense coefficient by armor plates count
+                                    foreach (var (t1, a1) in modifierSet.Coefficients)
+                                    {
+                                        var total = Math.Pow(a1, component.ArmorContainer.Count);
+                                        modifierSet.Coefficients[$"{t1}"] = (float)total;
+                                    }
+                                    damage = DamageSpecifier.ApplyModifierSet(damage, modifierSet);
+                                    modifierSet.Coefficients = origCoeff;
+                                }
+                            }
+                            if (damage.Empty)
+                                return;
+                            // Gained damage to pilot
                             _damageable.TryChangeDamage(component.PilotSlot.ContainedEntity, damage);
                         }
                     }
@@ -206,7 +238,7 @@ public sealed partial class MechSystem : SharedMechSystem
         if (!Exists(equip) || Deleted(equip))
             return;
 
-        if (!component.EquipmentContainer.ContainedEntities.Contains(equip))
+        if (!component.EquipmentContainer.ContainedEntities.Contains(equip) && !component.ArmorContainer.ContainedEntities.Contains(equip))
             return;
 
         RemoveEquipment(uid, equip, component);
@@ -353,7 +385,7 @@ public sealed partial class MechSystem : SharedMechSystem
         base.UpdateUserInterface(uid, component);
 
         var ev = new MechEquipmentUiStateReadyEvent();
-        foreach (var ent in component.EquipmentContainer.ContainedEntities)
+        foreach (var ent in component.EquipmentContainer.ContainedEntities.Concat(component.ArmorContainer.ContainedEntities))
         {
             RaiseLocalEvent(ent, ev);
         }

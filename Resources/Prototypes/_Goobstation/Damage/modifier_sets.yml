@@ -172,3 +172,34 @@
     Shock: 0.8
     Heat: 0.8
     Ion: 2.0 # double damage from ion
+
+- type: damageModifierSet
+  id: KevlarArmorPlate # Against slash and piercing damage, but is less effective against blunt damage.
+  coefficients:
+    Blunt: 0.9
+    Piercing: 0.8
+    Slash: 0.8
+    Shock: 0.7
+
+- type: damageModifierSet
+  id: TitaniumArmorPlate # Balanced plate
+  coefficients:
+    Blunt: 0.7
+    Piercing: 0.7
+    Slash: 0.7
+
+- type: damageModifierSet
+  id: EnergyArmorPlate # Against energy damage, but is less effective against physical damage.
+  coefficients:
+    Blunt: 0.9
+    Piercing: 0.9
+    Slash: 0.9
+    Heat: 0.7
+    Energy: 0.6
+
+- type: damageModifierSet
+  id: SteelArmorPlate # Against blunt and piercing damage, but weaker against slashing damage.
+  coefficients:
+    Blunt: 0.7
+    Piercing: 0.7
+    Slash: 0.9

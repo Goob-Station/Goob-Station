@@ -15,6 +15,7 @@ mech-integrity-display = Integrity: {$amount}%
 mech-energy-display = Energy: {$amount}%
 mech-energy-missing = Energy: MISSING
 mech-slot-display = Open Slots: {$amount}
+mech-slot-armor = Armor Slots: {$amount}
 
 mech-no-enter = You cannot pilot this.
 

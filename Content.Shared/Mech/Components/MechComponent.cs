@@ -109,8 +109,11 @@ public sealed partial class MechComponent : Component
     [DataField("maxEquipmentAmount"), ViewVariables(VVAccess.ReadWrite)]
     public int MaxEquipmentAmount = 3;
 
-    // [DataField("maxArmorAmount"), ViewVariables(VVAccess.ReadWrite)]
-    // public int MaxArmorAmount = 3; // Future armor plates
+    /// <summary>
+    /// Same with MaxEquipmentAmount, but for armor plates
+    /// </summary>
+    [DataField("maxArmorAmount"), ViewVariables(VVAccess.ReadWrite)]
+    public int MaxArmorAmount = 3;
 
     /// <summary>
     /// A whitelist for inserting equipment items.
@@ -127,14 +130,17 @@ public sealed partial class MechComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public Container EquipmentContainer = default!;
 
-    // [ViewVariables(VVAccess.ReadWrite)]
-    // public Container ArmorContainer = default!; // future armor plates
+    /// <summary>
+    /// Same with EquipmentContainer, but for armor plates
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public Container ArmorContainer = default!;
 
     [ViewVariables]
     public readonly string EquipmentContainerId = "mech-equipment-container";
 
-    // [ViewVariables]
-    // public readonly string ArmorContainerId = "mech-armor-container"; // future armor plates
+    [ViewVariables]
+    public readonly string ArmorContainerId = "mech-armor-container";
 
     /// <summary>
     /// How long it takes to enter the mech.

@@ -3,6 +3,7 @@ using Content.Shared.Mech;
 using Content.Shared.Mech.Components;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
+using System.Linq;
 
 namespace Content.Client.Mech.Ui;
 
@@ -46,7 +47,7 @@ public sealed class MechBoundUserInterface : BoundUserInterface
         if (!EntMan.TryGetComponent<MechComponent>(Owner, out var mechComp))
             return;
 
-        foreach (var ent in mechComp.EquipmentContainer.ContainedEntities)
+        foreach (var ent in mechComp.EquipmentContainer.ContainedEntities.Concat(mechComp.ArmorContainer.ContainedEntities))
         {
             var ui = GetEquipmentUi(ent);
             if (ui == null)
