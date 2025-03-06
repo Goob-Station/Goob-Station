@@ -30,14 +30,14 @@
 
 # Jumpsuits
 - type: loadout
-  id: BlueshieldOfficerInnerBlueshieldSkirt
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtBlueshieldOfficer
-
-- type: loadout
   id: BlueshieldOfficerInnerBlueshieldSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitBlueshieldOfficer
+
+- type: loadout
+  id: BlueshieldOfficerInnerBlueshieldSkirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBlueshieldOfficer
 
 - type: loadout
   id: BlueshieldOfficerInnerBlueshieldShirt
