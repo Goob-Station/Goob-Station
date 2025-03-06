@@ -28,8 +28,7 @@ public sealed partial class RandomizeMovementSpeedSystem : EntitySystem
     public void OnItemInHand(EntityUid uid, RandomizeMovementspeedComponent comp, EquippedHandEvent args)
     {
         // When the item is equipped, add the component to the player.
-        if (args.User != null)
-            EnsureComp<RandomizeMovementspeedComponent>(args.User);
+        EnsureComp<RandomizeMovementspeedComponent>(args.User);
     }
 
     public void Update(float frameTime, EntityUid uid, RandomizeMovementspeedComponent comp, EquippedHandEvent args)
@@ -43,13 +42,14 @@ public sealed partial class RandomizeMovementSpeedSystem : EntitySystem
         var modifier = _random.NextFloat(comp.Min, comp.Max);
         _nextExecutionTime = _timing.CurTime + ExecutionInterval;
 
-        _speedModifierSystem.ChangeBaseSpeed(args.User, modifier, modifier, modifier);
+        _speedModifierSystem.ChangeBaseSpeed(uid, modifier, modifier, modifier);
+        _speedModifierSystem.RefreshMovementSpeedModifiers(uid);
 
     }
 
     public void OnUnequipped(EntityUid uid, RandomizeMovementspeedComponent comp, UnequippedHandEvent args)
     {
-        RemComp<RandomizeMovementspeedComponent>(args.User);
+        RemCompDeferred<RandomizeMovementspeedComponent>(args.User);
         args.Handled = true;
     }
 
