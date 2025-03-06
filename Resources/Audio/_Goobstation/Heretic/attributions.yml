@@ -3,6 +3,16 @@
   copyright: "Taken from /tg/station"
   source: "https://github.com/tgstation/tgstation/tree/master/sound/effects/magic"
 
+- files: ["constructform.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/effects/constructform.ogg"
+
+- files: ["crack1.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/effects/wounds/crack1.ogg"
+
 - files: ["heartbeat.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "made by whateverusername0"

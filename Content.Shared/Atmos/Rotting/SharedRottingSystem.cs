@@ -172,4 +172,17 @@ public abstract class SharedRottingSystem : EntitySystem
 
         return (int) (comp.TotalRotTime.TotalSeconds / perishable.RotAfter.TotalSeconds);
     }
+
+    public void ModifyRotTime(EntityUid uid, TimeSpan modifier, PerishableComponent? perishable = null) // Goobstation
+    {
+        if (!Resolve(uid, ref perishable, false))
+            return;
+
+        perishable.RotAccumulator += modifier;
+
+        if (perishable.RotAccumulator < TimeSpan.Zero)
+            perishable.RotAccumulator = TimeSpan.Zero;
+
+        perishable.RotNextUpdate = _timing.CurTime;
+    }
 }
