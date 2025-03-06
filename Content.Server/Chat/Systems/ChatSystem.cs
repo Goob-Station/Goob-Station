@@ -818,7 +818,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     private IEnumerable<INetChannel> GetDeadChatClients()
     {
-        if (_ghostVisibility.GhostsVisible) // Goobstation
+        if (_ghostVisibility.GhostsVisible()) // Goobstation
             return Filter.Broadcast().Recipients.Select(p => p.Channel);
 
         return Filter.Empty()

@@ -321,8 +321,8 @@
     - state: icon-light-replacer
   - type: ItemBorgModule
     items:
-    - LightReplacer
     - Crowbar
+    - LightReplacer
     - Screwdriver
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: light-replacer-module }
