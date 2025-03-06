@@ -5709,3 +5709,9 @@ Entries:
         MegafaunaWeaponLooter component, just like the new lavaland weapons.
   id: 658
   time: '2025-03-06T15:02:07.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Blob reflective tile reflect 90%->100%.
+  id: 659
+  time: '2025-03-06T15:12:07.0000000+00:00'
