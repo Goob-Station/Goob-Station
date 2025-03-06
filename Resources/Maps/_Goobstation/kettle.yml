@@ -13112,7 +13112,7 @@ entities:
       pos: -5.5,-58.5
       parent: 82
     - type: Door
-      secondsUntilStateChange: -5024.8423
+      secondsUntilStateChange: -5060.6963
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -19024,8 +19024,11 @@ entities:
   - uid: 25691
     components:
     - type: Transform
-      pos: 5.529665,-9.45137
+      pos: 5.9489512,-13.430276
       parent: 82
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: BooksBag
   entities:
   - uid: 25617
@@ -52411,6 +52414,18 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -27.5,19.5
+      parent: 82
+- proto: CandyBowlFilledLollypopsMystery
+  entities:
+  - uid: 6869
+    components:
+    - type: Transform
+      pos: 5.4684196,-9.476622
+      parent: 82
+  - uid: 7724
+    components:
+    - type: Transform
+      pos: -23.524523,-28.249546
       parent: 82
 - proto: CannabisSeeds
   entities:

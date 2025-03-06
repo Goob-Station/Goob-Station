@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: CrateVendingMachineRestockSweetToof
+  icon:
+    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    state: base
+  product: CrateVendingMachineRestockSweetToofFilled
+  cost: 1800
+  category: cargoproduct-category-name-service
+  group: market

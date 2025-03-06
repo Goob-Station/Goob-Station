@@ -194,6 +194,7 @@
   - !type:PlantAdjustHealth
     amount: 5
   - !type:PlantCryoxadone {}
+  worksOnTheDead: true # Goobstation
   metabolisms:
     Medicine:
       effects:
@@ -202,13 +203,15 @@
           - !type:Temperature
             # this is a little arbitrary but they gotta be pretty cold
             max: 213.0
+          scaleByTemperature: # Shitmed Change
+            min: 100.0
+            max: 213.0
+            scale: 1.6
           damage:
-          # todo scale with temp like SS13
-            groups:
-              Airloss: -6
-              Brute: -4
-              Burn: -6
-              Toxin: -4
+            groups: # Goobstation - Cryo rebalance
+              Airloss: -3
+              Brute: -3
+              Burn: -3
 
 - type: reagent
   id: Doxarubixadone
@@ -218,6 +221,7 @@
   physicalDesc: reagent-physical-desc-bubbling
   flavor: medicine
   color: "#32cd32"
+  worksOnTheDead: true # Goobstation - Cryo rebalance
   metabolisms:
     Medicine:
       effects:
@@ -225,6 +229,10 @@
           conditions:
           - !type:Temperature
             max: 213.0
+          scaleByTemperature: # Shitmed Change
+            min: 100.0
+            max: 213.0
+            scale: 1.6
           damage:
             types:
              Cellular: -2
@@ -1332,16 +1340,25 @@
   metabolisms:
     Medicine:
       effects:
+        - !type:ModifyBloodLevel # Goobstation - Cryo rebalance
+          conditions:
+          - !type:Temperature
+            max: 213.0
+          amount: 10
         - !type:HealthChange
           conditions:
           - !type:Temperature
             max: 213.0
-          damage:
+          scaleByTemperature: # Shitmed Change
+            min: 100.0
+            max: 213.0
+            scale: 1.6
+          damage: # Goobstation - Cryo rebalance
             groups:
-              Brute: -4
-              Burn: -5
-            types:
-              Poison: -2
+              Airloss: -10.0
+              Brute: -5.0
+              Burn: -5.0
+              Toxin: -5.0
 
 - type: reagent
   id : Aloxadone
@@ -1359,11 +1376,15 @@
         conditions:
         - !type:Temperature
           max: 213.0
-        damage:
+        scaleByTemperature: # Shitmed Change
+          min: 100.0
+          max: 213.0
+          scale: 1.6
+        damage: # Goobstation - Cryo rebalance
           types:
-            Heat: -3.0
-            Shock: -3.0
-            Caustic: -1.0
+            Heat: -10.0
+            Shock: -10.0
+            Caustic: -10.0
 
 - type: reagent
   id : Mannitol # currently this is just a way to create psicodine
