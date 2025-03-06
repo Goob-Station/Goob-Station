@@ -27896,6 +27896,13 @@ entities:
     - type: Transform
       pos: -9.479882,-29.613472
       parent: 2
+- proto: ClothingBackpackDuffelSurgeryFilled
+  entities:
+  - uid: 12742
+    components:
+    - type: Transform
+      pos: 23.396074,5.774317
+      parent: 2
 - proto: ClothingBeltChampion
   entities:
   - uid: 4238
@@ -29465,6 +29472,7 @@ entities:
       pos: 25.5,-23.5
       parent: 2
     - type: Physics
+      canCollide: True
       bodyType: Dynamic
 - proto: DefaultStationBeaconServerRoom
   entities:
@@ -56611,6 +56619,13 @@ entities:
     - type: Transform
       pos: -0.5,-1.5
       parent: 2
+- proto: LockerBrigmedicFilledRandom
+  entities:
+  - uid: 8495
+    components:
+    - type: Transform
+      pos: 21.5,5.5
+      parent: 2
 - proto: LockerCaptainFilled
   entities:
   - uid: 4287
@@ -56909,11 +56924,6 @@ entities:
     components:
     - type: Transform
       pos: -23.5,9.5
-      parent: 2
-  - uid: 8495
-    components:
-    - type: Transform
-      pos: 21.5,5.5
       parent: 2
 - proto: LockerMedicineFilled
   entities:
@@ -57625,11 +57635,6 @@ entities:
     components:
     - type: Transform
       pos: -18.5,16.5
-      parent: 2
-  - uid: 8619
-    components:
-    - type: Transform
-      pos: 23.5,6.5
       parent: 2
   - uid: 8620
     components:
@@ -61099,8 +61104,8 @@ entities:
     - type: Transform
       anchored: False
       rot: 1.5707963267948966 rad
-      pos: 24.015625,-28
-      parent: 1
+      pos: 24.5,-27.5
+      parent: 2
     - type: ApcPowerReceiver
       powerLoad: 0
 - proto: PoweredSmallLight
@@ -65552,8 +65557,11 @@ entities:
   - uid: 9977
     components:
     - type: Transform
-      pos: 37.26254,10.609375
+      pos: 36.47645,10.535043
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 9978
     components:
     - type: Transform
@@ -65589,8 +65597,11 @@ entities:
   - uid: 9984
     components:
     - type: Transform
-      pos: 37.653164,10.59375
+      pos: 36.773327,10.722543
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 9985
     components:
     - type: Transform
@@ -67690,6 +67701,13 @@ entities:
     - type: Transform
       pos: 3.5,-3.5
       parent: 2
+- proto: SpawnPointBrigmedic
+  entities:
+  - uid: 10711
+    components:
+    - type: Transform
+      pos: 22.5,6.5
+      parent: 2
 - proto: SpawnPointCaptain
   entities:
   - uid: 10306
@@ -68083,6 +68101,11 @@ entities:
     - type: Transform
       pos: -12.5,5.5
       parent: 2
+  - uid: 12741
+    components:
+    - type: Transform
+      pos: 23.5,6.5
+      parent: 2
 - proto: StationAiUploadCircuitboard
   entities:
   - uid: 10366
@@ -68401,6 +68424,13 @@ entities:
     components:
     - type: Transform
       pos: 35.5,-18.5
+      parent: 2
+- proto: SuitStorageBrigmedic
+  entities:
+  - uid: 8619
+    components:
+    - type: Transform
+      pos: 37.5,10.5
       parent: 2
 - proto: SuitStorageCaptain
   entities:
@@ -70406,11 +70436,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 32.5,-4.5
-      parent: 2
-  - uid: 10711
-    components:
-    - type: Transform
-      pos: 37.5,10.5
       parent: 2
   - uid: 10712
     components:

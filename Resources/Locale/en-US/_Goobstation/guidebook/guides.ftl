@@ -72,6 +72,7 @@ guide-entry-sop-scientist = Scientist
 guide-entry-sop-detective = Detective
 guide-entry-sop-officercadet = Officer/Cadet
 guide-entry-sop-warden = Warden
+guide-entry-sop-brigmedic = Brigmedic
 # - Service
 guide-entry-sop-bartender = Bartender
 guide-entry-sop-botanist = Botanist

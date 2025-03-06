@@ -1363,7 +1363,6 @@ entities:
             4108: 54,-19
             4109: 54,-18
             4110: 54,-14
-            4111: 54,-13
             4112: 54,-12
             4113: 54,-11
             4114: 54,-10
@@ -2023,7 +2022,6 @@ entities:
             4171: 54,-19
             4172: 54,-18
             4173: 54,-14
-            4174: 54,-13
             4175: 54,-12
             4176: 54,-11
             4177: 54,-10
@@ -3221,7 +3219,6 @@ entities:
             2395: 56,2
             2396: 52,4
             2397: 51,3
-            2398: 53,-13
             2399: 60,-20
             2400: 62,-21
             2401: 61,-22
@@ -5933,7 +5930,6 @@ entities:
             410: 53,-12
             411: 52,-12
             412: 51,-12
-            413: 53,-13
             414: 53,-14
         - node:
             color: '#9FED5896'
@@ -6463,6 +6459,12 @@ entities:
             4671: -29,19
             4843: -10,40
         - node:
+            color: '#52B4E9FF'
+            id: WarnCornerSmallGreyscaleSW
+          decals:
+            4983: 49,-16
+            4984: 51,-14
+        - node:
             color: '#EFB34196'
             id: WarnCornerSmallNE
           decals:
@@ -6558,6 +6560,12 @@ entities:
             4727: -26,17
             4728: -26,18
         - node:
+            color: '#BC863FFF'
+            id: WarnLineE
+          decals:
+            4985: 51,-16
+            4986: 51,-16
+        - node:
             color: '#EFB34196'
             id: WarnLineE
           decals:
@@ -6615,7 +6623,6 @@ entities:
             1603: 46,-14
             1604: 46,-15
             1612: 51,-17
-            1613: 51,-16
             3235: 51,-20
             3236: 51,-19
             3881: 24,54
@@ -6668,6 +6675,11 @@ entities:
             1570: 67,-21
             1571: 67,-21
         - node:
+            color: '#52B4E9FF'
+            id: WarnLineGreyscaleS
+          decals:
+            4982: 48,-16
+        - node:
             color: '#D381C996'
             id: WarnLineGreyscaleS
           decals:
@@ -6692,6 +6704,11 @@ entities:
             1577: 66,-21
             1578: 67,-21
             1579: 67,-21
+        - node:
+            color: '#52B4E9FF'
+            id: WarnLineGreyscaleW
+          decals:
+            4981: 49,-17
         - node:
             color: '#EFB34196'
             id: WarnLineN
@@ -13112,7 +13129,7 @@ entities:
       pos: -5.5,-58.5
       parent: 82
     - type: Door
-      secondsUntilStateChange: -5024.8423
+      secondsUntilStateChange: -5192.509
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -18128,6 +18145,13 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -13.5,10.5
+      parent: 82
+- proto: BedsheetBrigmedic
+  entities:
+  - uid: 10923
+    components:
+    - type: Transform
+      pos: 52.5,-13.5
       parent: 82
 - proto: BedsheetBrown
   entities:
@@ -68250,6 +68274,11 @@ entities:
           showEnts: False
           occludes: True
           ent: null
+  - uid: 26504
+    components:
+    - type: Transform
+      pos: 51.5,-12.5
+      parent: 82
 - proto: CrateMindShieldImplants
   entities:
   - uid: 18366
@@ -118852,6 +118881,13 @@ entities:
         - 0
         - 0
         - 0
+- proto: LockerBrigmedicFilledRandom
+  entities:
+  - uid: 6869
+    components:
+    - type: Transform
+      pos: 51.5,-13.5
+      parent: 82
 - proto: LockerCaptainFilled
   entities:
   - uid: 9058
@@ -119523,13 +119559,6 @@ entities:
     components:
     - type: Transform
       pos: -37.5,-44.5
-      parent: 82
-- proto: LockerMedicineFilled
-  entities:
-  - uid: 10923
-    components:
-    - type: Transform
-      pos: 51.5,-13.5
       parent: 82
 - proto: LockerParamedicFilled
   entities:
@@ -120883,6 +120912,11 @@ entities:
     components:
     - type: Transform
       pos: -31.5,-39.5
+      parent: 82
+  - uid: 22979
+    components:
+    - type: Transform
+      pos: 52.5,-13.5
       parent: 82
 - proto: MedicalTechFab
   entities:
@@ -123106,10 +123140,10 @@ entities:
       parent: 82
 - proto: PortableFlasher
   entities:
-  - uid: 22979
+  - uid: 17425
     components:
     - type: Transform
-      pos: 48.5,-16.5
+      pos: 51.5,-16.5
       parent: 82
   - uid: 25319
     components:
@@ -136201,11 +136235,6 @@ entities:
     - type: Transform
       pos: 53.5,-13.5
       parent: 82
-  - uid: 21372
-    components:
-    - type: Transform
-      pos: 52.5,-13.5
-      parent: 82
 - proto: RubberStampApproved
   entities:
   - uid: 1103
@@ -141824,6 +141853,13 @@ entities:
     - type: Transform
       pos: -34.5,-18.5
       parent: 82
+- proto: SpawnPointBrigmedic
+  entities:
+  - uid: 21372
+    components:
+    - type: Transform
+      pos: 52.5,-12.5
+      parent: 82
 - proto: SpawnPointCaptain
   entities:
   - uid: 22260
@@ -142927,6 +142963,13 @@ entities:
     components:
     - type: Transform
       pos: 25.5,12.5
+      parent: 82
+- proto: SuitStorageBrigmedic
+  entities:
+  - uid: 7724
+    components:
+    - type: Transform
+      pos: 48.5,-16.5
       parent: 82
 - proto: SuitStorageCaptain
   entities:

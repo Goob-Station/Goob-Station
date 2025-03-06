@@ -92,42 +92,68 @@
       - id: BookSpaceLaw
         prob: 0.5
 
-- type: entity
+- type: entity              # Consier that most maps at the moment do not have a mapped briglocker thus this is mostly for the unique teleporter
   id: LockerBrigmedicFilled
   suffix: Brigmedic, Filled
   parent: LockerBrigmedic
   components:
   - type: StorageFill
     contents:
-      - id: ClothingEyesGlassesSecurity
-      - id: WeaponDisabler
-      - id: TrackingImplanter
-        amount: 2
-      - id: ClothingOuterHardsuitBrigmedic
-      - id: OxygenTankFilled
-      - id: NitrogenTankFilled
-      - id: BoxSterileMask
+      - id: ClothingShoesBootsJackFilled
+      - id: ClothingHandsGlovesNitrile
+      - id: ClothingEyesBrigMedSec
+      - id: BoxSterileMask           
       - id: ClothingHeadHatBeretBrigmedic
       - id: ClothingOuterCoatAMG
       - id: ClothingUniformJumpsuitBrigmedic
       - id: ClothingUniformJumpskirtBrigmedic
       - id: ClothingUniformJumpskirtOfLife
         prob: 0.1
-      - id: MedkitFilled
       - id: MedkitCombatFilled
-        prob: 0.6
-      - id: MedkitAdvancedFilled
-        prob: 0.4
       - id: MedkitOxygenFilled
-        prob: 0.3
-      - id: MedkitBruteFilled
-        prob: 0.3
-      - id: MedkitToxinFilled
-        prob: 0.3
-      - id: MedkitBurnFilled
-        prob: 0.7
       - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
         prob: 0.15
+
+
+- type: entityTable
+  id: FillLockerBrigmedic    #this is an overcomplicated way to give brigmed random medkits alongside their kit
+  table: !type:AllSelector   #using 'prob' makes it possible for way too many medkits or way too few so fuck it
+    children:
+      - id: ClothingShoesBootsJackFilled
+      - id: ClothingHandsGlovesNitrile
+      - id: ClothingEyesBrigMedSec
+      - id: BoxSterileMask               
+      - id: ClothingHeadHatBeretBrigmedic
+      - id: ClothingOuterCoatAMG
+      - id: ClothingUniformJumpsuitBrigmedic
+      - id: ClothingUniformJumpskirtBrigmedic
+      - id: ClothingUniformJumpskirtOfLife
+        prob: 0.1
+      - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
+        prob: 0.15
+      - id: MedkitFilled
+      - !type:GroupSelector
+        children:
+        - id: MedkitCombatFilled
+        - id: MedkitOxygenFilled
+        - id: MedkitBurnFilled
+        - id: MedkitToxinFilled
+        - id: MedkitRadiationFilled
+        - id: MedkitAdvancedFilled
+      - id: MedkitCombatFilled # a fun surprise every other round
+        prob: 0.1
+
+
+- type: entity
+  id: LockerBrigmedicFilledRandom
+  parent: LockerBrigmedic
+  suffix: Brigmedic, Filled, Random
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerBrigmedic
+
 
 - type: entity
   id: LockerDetectiveFilled

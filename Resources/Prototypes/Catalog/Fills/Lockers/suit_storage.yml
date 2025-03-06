@@ -289,3 +289,18 @@
         - id: NitrogenTankFilled
         - id: ClothingOuterHardsuitWizard
         - id: ClothingMaskBreath
+
+#Brigmedic
+- type: entity
+  id: SuitStorageBrigmedic
+  parent: SuitStorageBase
+  suffix: Brigmedic
+  components:
+  - type: StorageFill
+    contents:
+        - id: OxygenTankFilled
+        - id: NitrogenTankFilled
+        - id: ClothingOuterHardsuitBrigmedic
+        - id: ClothingMaskBreathMedicalSecurity
+  - type: AccessReader
+    access: [["Security"]]
