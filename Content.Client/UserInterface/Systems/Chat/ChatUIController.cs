@@ -40,10 +40,13 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Replays;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Client.CharacterInfo; // Goob - start
+using static Content.Client.CharacterInfo.CharacterInfoSystem;
+using Content.Shared._Goobstation.CCVar; // Goob - end
 
 namespace Content.Client.UserInterface.Systems.Chat;
 
-public sealed class ChatUIController : UIController
+public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterInfoSystem> // goob highlights - added IOnSystemChanged<CharacterInfoSystem>
 {
     [Dependency] private readonly IClientAdminManager _admin = default!;
     [Dependency] private readonly IChatManager _manager = default!;
@@ -244,6 +247,108 @@ public sealed class ChatUIController : UIController
 
         _config.OnValueChanged(CCVars.ChatWindowOpacity, OnChatWindowOpacityChanged);
 
+    // Goobstation highlights - start
+
+        _config.OnValueChanged(GoobCVars.ChatAutoFillHighlights, (value) => { _autoFillHighlightsEnabled = value; });
+        _autoFillHighlightsEnabled = _config.GetCVar(GoobCVars.ChatAutoFillHighlights);
+
+        _config.OnValueChanged(GoobCVars.ChatHighlightsColor, (value) => { _highlightsColor = value; });
+        _highlightsColor = _config.GetCVar(GoobCVars.ChatHighlightsColor);
+
+        // Load highlights if any were saved.
+        string highlights = _config.GetCVar(GoobCVars.ChatHighlights);
+
+        if (!string.IsNullOrEmpty(highlights))
+        {
+            UpdateHighlights(highlights);
+        }
+    }
+
+    [UISystemDependency] private readonly CharacterInfoSystem _characterInfo = default!;
+
+    /// <summary>
+    ///     The list of words to be highlighted in the chatbox.
+    /// </summary>
+    private List<string> _highlights = new();
+
+    /// <summary>
+    ///     The string holding the hex color used to highlight words.
+    /// </summary>
+    private string? _highlightsColor;
+
+    private bool _autoFillHighlightsEnabled;
+
+    /// <summary>
+    ///     The boolean that keeps track of the 'OnCharacterUpdated' event, whenever it's a player attaching or opening the character info panel.
+    /// </summary>
+    private bool _charInfoIsAttach = false;
+
+    public event Action<string>? HighlightsUpdated;
+
+    public void OnSystemLoaded(CharacterInfoSystem system)
+    {
+        system.OnCharacterUpdate += OnCharacterUpdated;
+    }
+
+    public void OnSystemUnloaded(CharacterInfoSystem system)
+    {
+        system.OnCharacterUpdate -= OnCharacterUpdated;
+    }
+
+  private void OnCharacterUpdated(CharacterData data)
+    {
+        // If the _charInfoIsAttach is false then the character panel was the one
+        // to generate the event, dismiss it.
+        if (!_charInfoIsAttach)
+            return;
+
+        var (_, job, _, _, entityName) = data;
+
+        // If the character has a normal name (eg. "Name Surname" and not "Name Initial Surname" or a particular species name)
+        // subdivide it so that the name and surname individually get highlighted.
+        if (entityName.Count(c => c == ' ') == 1)
+            entityName = entityName.Replace(' ', '\n');
+
+        string newHighlights = entityName;
+
+        // Convert the job title to kebab-case and use it as a key for the loc file.
+        string jobKey = job.Replace(' ', '-').ToLower();
+
+        if (Loc.TryGetString($"highlights-{jobKey}", out var jobMatches))
+            newHighlights += '\n' + jobMatches.Replace(", ", "\n");
+
+        UpdateHighlights(newHighlights);
+        HighlightsUpdated?.Invoke(newHighlights);
+        _charInfoIsAttach = false;
+    }
+    public void UpdateHighlights(string highlights)
+    {
+        // Do nothing if the provided highlighs are the same as the old ones.
+        if (_config.GetCVar(GoobCVars.ChatHighlights).Equals(highlights, StringComparison.CurrentCultureIgnoreCase))
+            return;
+
+        _config.SetCVar(GoobCVars.ChatHighlights, highlights);
+        _config.SaveToFile();
+
+        // Replace any " character with a whole-word regex tag,
+        // this tag will make the words to match are separated by spaces or punctuation.
+        highlights = highlights.Replace("\"", "\\b");
+
+        _highlights.Clear();
+
+        // Fill the array with the highlights separated by newlines, disregarding empty entries.
+        string[] arrHighlights = highlights.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+        foreach (var keyword in arrHighlights)
+        {
+            _highlights.Add(keyword);
+        }
+
+        // Arrange the list of highlights in descending order so that when highlighting,
+        // the full word (eg. "Security") gets picked before the abbreviation (eg. "Sec").
+        _highlights.Sort((x, y) => y.Length.CompareTo(x.Length));
+
+    // Goobstation highlights - end
+
     }
 
     public void OnScreenLoad()
@@ -430,6 +535,13 @@ public sealed class ChatUIController : UIController
     private void OnAttachedChanged(EntityUid uid)
     {
         UpdateChannelPermissions();
+
+        // Goobstation - if auto highlights are enabled generate a request for new character info that will be used to determine the highlights.
+        if (_autoFillHighlightsEnabled)
+        {
+            _charInfoIsAttach = true;
+            _characterInfo.RequestCharacterInfo();
+        }
     }
 
     private void AddSpeechBubble(ChatMessage msg, SpeechBubble.SpeechType speechType)
@@ -835,6 +947,12 @@ public sealed class ChatUIController : UIController
             var grammar = _ent.GetComponentOrNull<GrammarComponent>(_ent.GetEntity(msg.SenderEntity));
             if (grammar != null && grammar.ProperNoun == true)
                 msg.WrappedMessage = SharedChatSystem.InjectTagInsideTag(msg, "Name", "color", GetNameColor(SharedChatSystem.GetStringInsideTag(msg, "Name")));
+        }
+
+        // Goobstation - color any words choosen by the client.
+        foreach (var highlight in _highlights)
+        {
+            msg.WrappedMessage = SharedChatSystem.InjectTagAroundString(msg, highlight, "color", _highlightsColor);
         }
 
         // Color any codewords for minds that have roles that use them
