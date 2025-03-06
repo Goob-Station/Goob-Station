@@ -18,7 +18,7 @@
   id: DerelictCyborgSyndicateSpawn
   components:
   - type: StationEvent
-    weight: 2
+    weight: 6 # Rare, but not AS rare
     earliestStart: 15
     reoccurrenceDelay: 20
     minimumPlayers: 4
