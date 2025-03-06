@@ -1,0 +1,48 @@
+## Static
+- type: latheRecipePack
+  id: SecurityAmmoStaticGoob
+  recipes:
+  - MagazineMagnumEmpty
+  - MagazineMagnum
+  - MagazineBoxShotgunHighCaliber
+  - MagazineBoxShotgunSlugHighCaliber
+  - MagazineBoxShotgunPracticeHighCaliber
+
+- type: latheRecipePack
+  id: SecurityEquipmentStaticGoob
+  recipes:
+  - GrenadeFlashBang
+  - BolaEnergy
+
+- type: latheRecipePack
+  id: SecurityHypoStatic
+  recipes:
+  - CartridgeEpinephrine
+  - CartridgeBicaridine
+  - CartridgeDermaline
+  - SecHypo
+
+- type: latheRecipePack
+  id: SecurityWeaponsStaticGoob
+  parent: MedicalWeaponsStatic # they should have access to these
+
+## Dynamic
+- type: latheRecipePack
+  id: SecurityWeaponsGoob
+  parent: MedicalWeapons # they should have access to these
+  recipes:
+  - WeaponSubMachineSmart
+
+- type: latheRecipePack
+  id: SecurityAmmoGoob
+  recipes:
+  - MagazineSmart
+  - MagazineBoxShotgunIncendiaryHighCaliber
+  - MagazineBoxShotgunBeanbagHighCaliber
+  - MagazineBoxShotgunUraniumHighCaliber
+
+- type: latheRecipePack
+  id: SecurityCybernetics
+  parent: MedicalCybernetics
+  recipes:
+  - SecurityCyberneticEyes
