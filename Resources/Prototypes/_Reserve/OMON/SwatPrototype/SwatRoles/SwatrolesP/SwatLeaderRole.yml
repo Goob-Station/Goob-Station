@@ -18,7 +18,19 @@
 - type: randomHumanoidSettings
   id: SwatLeaderSettings
   randomizeName: false
-  speciesWhitelist: [Human, Moth]
+  speciesBlacklist:
+  - Diona
+  - Dwarf
+  - SlimePerson
+  - Vox
+  - Arachnid
+  - Tajaran
+  - Oni
+  - Vulpkanin
+  - IPC
+  - Yowie
+  - Resomi
+  - Gingerbread
   components:
     - type: GhostRole
       name: Лидер ОКГ
