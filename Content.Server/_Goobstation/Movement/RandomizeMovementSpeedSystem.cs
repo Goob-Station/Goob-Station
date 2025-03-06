@@ -43,13 +43,13 @@ public sealed partial class RandomizeMovementSpeedSystem : EntitySystem
         var modifier = _random.NextFloat(comp.Min, comp.Max);
         _nextExecutionTime = _timing.CurTime + ExecutionInterval;
 
+        _speedModifierSystem.ChangeBaseSpeed(args.User, modifier, modifier, modifier);
+
     }
 
     public void OnUnequipped(EntityUid uid, RandomizeMovementspeedComponent comp, UnequippedHandEvent args)
     {
-        // Remove component when the item is unequipped.
         RemComp<RandomizeMovementspeedComponent>(args.User);
-        // Set to handled to prevent fuckery.
         args.Handled = true;
     }
 
