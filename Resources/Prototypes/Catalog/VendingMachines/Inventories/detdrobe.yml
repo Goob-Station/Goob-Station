@@ -15,3 +15,6 @@
     ClothingHandsGlovesColorBlack: 2
     ClothingHandsGlovesLatex: 2
     ClothingHeadsetAltSecurityRegular: 2 # Goobstation
+    ClothingHeadsetSecurity: 2
+  contrabandInventory:
+    ToyFigurineDetective: 1
