@@ -1,11 +1,20 @@
 using Content.Server.Popups;
+using Content.Shared.Mobs;
+using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
+using Content.Shared.Damage.Prototypes;
+using System.Linq;
 using Content.Shared.Damage;
 using Robust.Shared.Audio.Systems;
+using Content.Shared.StepTrigger.Systems;
+using Content.Shared.Heretic;
+using Robust.Shared.Utility;
 
 namespace Content.Server._Goobstation.Religion;
 
 public sealed partial class WeakToHolySystem : EntitySystem
 {
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
@@ -15,6 +24,8 @@ public sealed partial class WeakToHolySystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<WeakToHolyComponent, ComponentInit>(OnCompInit);
+        //SubscribeLocalEvent<HereticRitualRuneComponent, StepTriggeredOffEvent>(OnStepTriggered);
+        //SubscribeLocalEvent<HereticRitualRuneComponent, StepTriggeredOffEvent>(OnStepOffTriggered);
     }
 
     private void OnCompInit(Entity<WeakToHolyComponent> ent, ref ComponentInit args)
@@ -22,5 +33,26 @@ public sealed partial class WeakToHolySystem : EntitySystem
         if (TryComp<DamageableComponent>(ent, out var damageable) && damageable.DamageContainerID == "Biological") {
             _damageableSystem.ChangeDamageContainer(ent, "BiologicalMetaphysical");
         }
+
     }
+
+
+    // passive healing on runes for aviu - commented out until we refactor to shared
+    //private void OnStepTriggered(EntityUid uid, HereticRitualRuneComponent component, ref StepTriggeredOffEvent args)
+    //{
+
+        //if (!HasComp<WeakToHolyComponent>(args.Tripper))
+            //return;
+
+        //var _heretic = EnsureComp<PassiveDamageComponent>(args.Tripper);
+        //_heretic.AllowedStates = new List<MobState>() { Alive };
+        //_heretic.Damage = new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>("Holy"), -10);
+        //DirtyEntity(uid);
+
+    //}
+
+    //private void OnStepOffTriggered(EntityUid uid, HereticRitualRuneComponent component, ref StepTriggeredOffEvent args)
+    //{
+        //RemComp<PassiveDamageComponent>(args.Tripper);
+    //}
 }
