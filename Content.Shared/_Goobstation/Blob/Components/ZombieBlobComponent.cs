@@ -1,5 +1,7 @@
-﻿using Robust.Shared.Audio;
+﻿using Content.Shared.Tag;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Goobstation.Blob.Components;
 
@@ -21,4 +23,7 @@ public sealed partial class ZombieBlobComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool CanShoot = false;
+
+    [DataField]
+    public ProtoId<TagPrototype> TagAdded = "BlobMind";
 }

@@ -5781,3 +5781,33 @@ Entries:
       message: Bluespace crystal now requires researching and diamond to craft.
   id: 664
   time: '2025-03-06T21:21:26.0000000+00:00'
+- author: ItsMeThom
+  changes:
+    - type: Add
+      message: Added hoverchairs!
+  id: 665
+  time: '2025-03-06T23:14:40.0000000+00:00'
+- author: boxxie79
+  changes:
+    - type: Add
+      message: Added reinforced secret door, tiders rejoice
+  id: 666
+  time: '2025-03-06T23:22:44.0000000+00:00'
+- author: boxxie79
+  changes:
+    - type: Add
+      message: added jordans
+  id: 667
+  time: '2025-03-06T23:23:33.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: More ion storm laws.
+  id: 668
+  time: '2025-03-06T23:23:57.0000000+00:00'
+- author: absurd-shaman
+  changes:
+    - type: Add
+      message: Added a reverse bear trap to uplink.
+  id: 669
+  time: '2025-03-06T23:26:45.0000000+00:00'

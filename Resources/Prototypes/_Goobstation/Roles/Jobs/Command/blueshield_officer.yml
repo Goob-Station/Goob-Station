@@ -50,7 +50,7 @@
 - type: startingGear
   id: BlueshieldOfficerGear
   equipment:
-    eyes: ClothingEyesGlassesMedSec
+    eyes: ClothingEyesGlassesBSO
     gloves: ClothingHandsGlovesCombat
     id: BlueshieldPDA
     ears: ClothingHeadsetAltCommand
@@ -59,6 +59,7 @@
     belt: BlueShieldShieldFilled # I felt like einstein after figuring this out.
   storage:
     back:
+    - ClothingMaskGasSecurity 
     - Flash
     - BluespaceLifelineImplanter
     - WeaponEnergyRevolver
