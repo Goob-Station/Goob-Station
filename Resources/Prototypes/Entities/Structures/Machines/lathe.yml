@@ -451,7 +451,6 @@
     - PowerCells
     - SecurityBoardsStaticGoob
     - PowerCellsStatic
-    - ElectronicsStatic
     dynamicPacks:
     - SecurityEquipment
     - SecurityBoards
@@ -466,7 +465,6 @@
     - SecurityCybernetics
     - ServiceWeapons
     - SpecOpsGoogles
-    - SharedBoards
     - SecurityMechElectronicsGoob
   - type: EmagLatheRecipes # Goobstation
     emagStaticPacks:

@@ -147,6 +147,7 @@
     - PowerCellsStatic
     - ElectronicsStatic
     - SurgeryStatic
+    - ScienceBoardsStatic
     dynamicPacks:
     - AdvancedTools
     - ScienceEquipment
