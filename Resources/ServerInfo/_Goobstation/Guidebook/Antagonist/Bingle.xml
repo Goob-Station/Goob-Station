@@ -8,7 +8,7 @@ A bingle is a disgusting fungus that rapidly grows and takes over stations. Very
 	  <GuideEntityEmbed Entity="BinglePit" Caption="Bingle Pit"/>
   </Box>
 
-Bingles are a midround antagonist that spawns alone, but quickly grow in numbers.
+A bingle is a midround antagonist that spawns alone, but can quickly grow in numbers
 
 ## Playing As A Bingle
 
@@ -26,9 +26,9 @@ The most best way to play against bingles is to avoid melee combat. Instead; Use
     <GuideEntityEmbed Entity="WeaponRifleLecter"/>
 	  <GuideEntityEmbed Entity="WeaponLaserCarbine"/>
   </Box>
-The bingle pit itself can only be damaged by melee weapons and explosives. When attacking the pit directly be careful to avoid falling into it, as you can do so even while alive. It is typically best to deal with the bingles themself before attacking the pit.
+The bingle pit itself can only be damaged by melee weapons and explosives. When attacking the pit directly be careful to avoid falling into it, as you can do so even while alive. It is typically best to deal with the bingles themselves before attacking the pit.
 
-If a bingle infestation is growing out of hand, consiter shutting down gravity, bingles cannot drop items into a pit without gravity and therefor cannot multiply.
+If a bingle infestation is growing out of hand, consider shutting down gravity, bingles cannot drop items into a pit without gravity and therefor cannot multiply.
 
   <Box>
     <GuideEntityEmbed Entity="GravityGenerator"/>

@@ -25,6 +25,7 @@
     - id: SpiderSpawn
     - id: VentClog
     - id: TidemindDevelop # Goobstation - Tidemind
+    - id: TideBeastSpawn # Goobstation
 
 - type: entityTable
   id: BasicAntagEventsTable

@@ -6,7 +6,7 @@
     [color=#999999][italic]0 Chems[italic][/color]
   </Box>
 
-  - Allows you to slowly and noisily absord a dead, crit, or cuffed crewmate. This adds their DNA to your pool, gives you 2 evolution points, and refills your biomass.
+  - Allows you to slowly and noisily absorb a dead, crit, or cuffed crewmate. This adds their DNA to your pool, gives you 2 evolution points, and refills your biomass.
   - If another changeling is absorbed, you instead get 10 more evolution points, +60 max chemicals, and +15 max biomass/
   - Target must be in a HARD grab to use this ability.
   - Can be used in lesser form.
@@ -129,7 +129,7 @@
   </Box>
   - Changeling injects organic with 2 units of blind toxin, blinding the target for 12 seconds.
   - Can be used while cuffed or in lesser form.
-  - Does not work on Yowie.
+  - Does not work on Yowies.
   - Can stack with itself.
 
   ## Cryogenic Sting
@@ -148,7 +148,7 @@
   - Changeling injects organic with 2 units of mute toxin, muting the target for 40 seconds.
   - Can be used while cuffed or in lesser form.
   - Can stack with itself.
-  - Does not work on Yowie
+  - Does not work on Yowies.
 
   ## Lethargic Sting
   <Box>
@@ -160,9 +160,9 @@
   - Deals 15 stamina damage per second for ten seconds
   - Can be used while cuffed or in lesser form.
   - Can stack with itself.
-  - Does not work on Yowie
+  - Does not work on Yowies.
 
-  ## Mute Sting
+  ## False Armblade Sting
   <Box>
     [color=#999999][italic] 4 Evolution Points / 50 Chems [italic][/color]
   </Box>
