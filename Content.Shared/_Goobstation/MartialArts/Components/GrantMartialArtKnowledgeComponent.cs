@@ -14,6 +14,8 @@ public abstract partial class GrantMartialArtKnowledgeComponent : Component
 [RegisterComponent]
 public sealed partial class GrantCqcComponent : GrantMartialArtKnowledgeComponent
 {
+    [DataField]
+    public bool IsBlocked;
 }
 
 [RegisterComponent]

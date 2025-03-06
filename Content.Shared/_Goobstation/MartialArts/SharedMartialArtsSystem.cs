@@ -232,18 +232,21 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         downed = isDowned.Active;
         target = ent.Comp.CurrentTarget.Value;
 
-        if (!knowledgeComponent.Blocked && knowledgeComponent.MartialArtsForm == form)
+        if (knowledgeComponent.MartialArtsForm == form && !knowledgeComponent.Blocked)
         {
             return true;
         }
 
         foreach (var entInRange in _lookup.GetEntitiesInRange(ent, 8f))
         {
-            if (TryPrototype(entInRange, out var proto) && proto.ID == "DefaultStationBeaconKitchen")
-                return true;
+            if (!TryPrototype(entInRange, out var proto) || proto.ID != "DefaultStationBeaconKitchen" ||
+                !knowledgeComponent.Blocked)
+                continue;
+            knowledgeComponent.HarmAsStamina = true;
+            return true;
         }
 
-        return false;
+        return true;
     }
 
     private void DoDamage(EntityUid ent,

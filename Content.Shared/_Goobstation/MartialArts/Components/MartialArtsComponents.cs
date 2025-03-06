@@ -42,7 +42,7 @@ public sealed partial class MartialArtsKnowledgeComponent : GrabStagesOverrideCo
 
     [DataField]
     [AutoNetworkedField]
-    public bool Blocked = true;
+    public bool Blocked = false;
 
     [DataField]
     [AutoNetworkedField]

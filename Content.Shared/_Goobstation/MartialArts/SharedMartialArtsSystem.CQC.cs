@@ -6,6 +6,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Robust.Shared.Audio;
 
@@ -23,10 +24,24 @@ public partial class SharedMartialArtsSystem
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComboAttackPerformedEvent>(OnCQCAttackPerformed);
 
         SubscribeLocalEvent<GrantCqcComponent, UseInHandEvent>(OnGrantCQCUse);
+        SubscribeLocalEvent<GrantCqcComponent, MapInitEvent>(OnMapInitEvent);
         SubscribeLocalEvent<GrantCqcComponent, ExaminedEvent>(OnGrantCQCExamine);
     }
 
+
     #region Generic Methods
+
+        private void OnMapInitEvent(Entity<GrantCqcComponent> ent, ref MapInitEvent args)
+        {
+            if (!HasComp<MobStateComponent>(ent))
+                return;
+
+            if (!TryGrant(ent.Comp, ent))
+                return;
+
+            if (TryComp<MartialArtsKnowledgeComponent>(ent, out var knowledge))
+                knowledge.Blocked = true;
+        }
 
     private void OnGrantCQCUse(Entity<GrantCqcComponent> ent, ref UseInHandEvent args)
     {
