@@ -20,6 +20,11 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
     [DataField]
     public Dictionary<ProtoId<LoadoutGroupPrototype>, List<Loadout>> SelectedLoadouts = new();
 
+    /// <summary>
+    /// Loadout specific name.
+    /// </summary>
+    public string? EntityName;
+
     /*
      * Loadout-specific data used for validation.
      */
@@ -40,6 +45,8 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
             weh.SelectedLoadouts.Add(selected.Key, new List<Loadout>(selected.Value));
         }
 
+        weh.EntityName = EntityName;
+
         return weh;
     }
 
@@ -53,8 +60,32 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
 
         if (!protoManager.TryIndex(Role, out var roleProto))
         {
+            EntityName = null;
             SelectedLoadouts.Clear();
             return;
+        }
+
+        // Remove name not allowed.
+        if (!roleProto.CanCustomizeName)
+        {
+            EntityName = null;
+        }
+
+        // Validate name length
+        // TODO: Probably allow regex to be supplied?
+        if (EntityName != null)
+        {
+            var name = EntityName.Trim();
+
+            if (name.Length > HumanoidCharacterProfile.MaxNameLength)
+            {
+                EntityName = name[..HumanoidCharacterProfile.MaxNameLength];
+            }
+
+            if (name.Length == 0)
+            {
+                EntityName = null;
+            }
         }
 
         // In some instances we might not have picked up a new group for existing data.
@@ -320,7 +351,8 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
 
         if (!Role.Equals(other.Role) ||
             SelectedLoadouts.Count != other.SelectedLoadouts.Count ||
-            Points != other.Points)
+            Points != other.Points ||
+            EntityName != other.EntityName)
         {
             return false;
         }
