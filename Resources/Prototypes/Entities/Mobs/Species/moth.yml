@@ -121,6 +121,18 @@
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
   - type: FootPrints # WD EDIT
+  - type: Fixtures # Goob edit - make moths lighter
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 160 # fluff
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
 
 - type: entity
   parent: BaseSpeciesDummy
