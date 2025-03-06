@@ -4,15 +4,15 @@
   parent: BaseItem
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi # Placeholder, requires spriting
+    sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_speedloader.rsi
     layers:
       - state: base
         map: [ "enum.GunVisualLayers.Base" ]
-      - state: base-6
+      - state: base-3
         map: [ "enum.GunVisualLayers.Mag" ]
   - type: MagazineVisuals
     magState: base
-    steps: 7
+    steps: 3
     zeroVisible: false
   - type: Battery
     maxCharge: 600
@@ -36,11 +36,11 @@
     layers:
       - state: base
         map: [ "enum.GunVisualLayers.Base" ]
-      - state: practice-6
+      - state: base-3
         map: [ "enum.GunVisualLayers.Mag" ]
   - type: MagazineVisuals # Same as above
     magState: practice
-    steps: 7
+    steps: 3
     zeroVisible: false
   - type: ProjectileBatteryAmmoProvider
     proto: BulletEnergyGunMagnum
@@ -60,11 +60,11 @@
     layers:
       - state: base
         map: [ "enum.GunVisualLayers.Base" ]
-      - state: uranium-6 # Rename it to disabler when sprites are done
+      - state: disabling-3 # Rename it to disabler when sprites are done
         map: [ "enum.GunVisualLayers.Mag" ]
   - type: MagazineVisuals
-    magState: uranium # Same as above
-    steps: 7
+    magState: disabling
+    steps: 3
     zeroVisible: false
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
