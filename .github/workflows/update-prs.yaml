@@ -14,8 +14,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
+          token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 0
           submodules: recursive
+          clean: false
+
+      - name: Clean Git config
+        run: |
+          # Remove existing authentication headers
+          git config --unset-all http.https://github.com/.extraheader || true
+          git submodule foreach --recursive 'git config --unset-all http.https://github.com/.extraheader || true'
 
       - name: Install GitHub CLI
         run: |
@@ -26,18 +34,20 @@ jobs:
       - name: Get open pull requests
         id: get-prs
         run: |
-          prs=$(GH_TOKEN=${{ secrets.BOT_TOKEN }} gh pr list --state open --json number,headRefName,headRepositoryOwner --jq 'map("\(.number):\(.headRefName):\(.headRepositoryOwner.login)") | @sh' | tr -d "'")
+          gh auth setup-git
+          prs=$(gh pr list --state open --json number,headRefName,headRepositoryOwner --jq 'map("\(.number):\(.headRefName):\(.headRepositoryOwner.login)") | @sh' | tr -d "'")
           echo "prs=$prs" >> $GITHUB_ENV
         env:
           GH_TOKEN: ${{ secrets.BOT_TOKEN }}
 
-      - name: Merge master into each PR branch
+      - name: Merge master into PR branches
         if: env.prs != ''
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
-          git config --global submodule.fetchJobs 0
-          git config --global submodule.recurse true
+          
+          # Use SSH for all operations
+          git config --global url."git@github.com:".insteadOf "https://github.com/"
 
           for pr in $prs; do
             pr_number=$(echo $pr | cut -d':' -f1)
@@ -47,62 +57,22 @@ jobs:
 
             if [ "$repo_owner" != "$(git remote get-url origin | cut -d':' -f2 | cut -d'/' -f1)" ]; then
               fork_remote="fork-$repo_owner"
-              fork_repo="https://github.com/$repo_owner/$origin_repo.git"
+              fork_repo="git@github.com:$repo_owner/$origin_repo.git"
 
-              # Manage remote
-              if git remote | grep -q "^$fork_remote$"; then
-                git remote set-url "$fork_remote" "$fork_repo"
-                git fetch "$fork_remote"
-              else
-                git remote add "$fork_remote" "$fork_repo"
-                git fetch "$fork_remote"
-              fi
+              git remote remove "$fork_remote" 2>/dev/null || true
+              git remote add "$fork_remote" "$fork_repo"
+              git fetch "$fork_remote"
 
-              # Skip if branch missing
-              if ! git ls-remote --exit-code --heads "$fork_remote" "$branch" >/dev/null 2>&1; then
-                echo "Branch $branch not found in $fork_remote, skipping PR #$pr_number"
-                continue
-              fi
-
-              # Create temporary working branch
-              git checkout -b "temp-$branch" "$fork_remote/$branch"
-              
-              # Attempt merge with conflict handling
-              if ! git merge --no-commit --no-ff origin/master; then
-                echo "Merge conflict in PR #$pr_number, resetting and skipping..."
-                git merge --abort || true
-                git reset --hard HEAD
-                git clean -fd
-                git checkout master
+              if git ls-remote --exit-code --heads "$fork_remote" "$branch" >/dev/null 2>&1; then
+                git checkout -b "temp-$branch" "$fork_remote/$branch"
+                git merge --no-commit --no-ff origin/master && git commit -m "Merge master into $branch" && git push "$fork_remote" "temp-$branch:$branch" || echo "Merge failed for PR #$pr_number"
+                git checkout -q master
                 git branch -D "temp-$branch"
-                continue
               fi
-
-              # Push successful merge
-              git commit -m "Merge master into $branch"
-              git push "$fork_remote" "temp-$branch:$branch"
-              git checkout master
-              git branch -D "temp-$branch"
-
             else
-              # Handle same-repo PRs
               git fetch origin "$branch"
               git checkout "$branch"
-              
-              # Attempt merge with conflict handling
-              if ! git merge --no-commit --no-ff origin/master; then
-                echo "Merge conflict in PR #$pr_number, resetting and skipping..."
-                git merge --abort || true
-                git reset --hard HEAD
-                git clean -fd
-                git checkout master
-                continue
-              fi
-
-              # Push successful merge
-              git commit -m "Merge master into $branch"
-              git push origin "$branch"
+              git merge --no-commit --no-ff origin/master && git commit -m "Merge master into $branch" && git push origin "$branch" || echo "Merge failed for PR #$pr_number"
+              git checkout -q master
             fi
           done
-        env:
-          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
