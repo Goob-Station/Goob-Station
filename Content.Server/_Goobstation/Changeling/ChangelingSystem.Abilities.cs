@@ -23,6 +23,7 @@ using Content.Shared.Stealth.Components;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
 using Content.Shared.Actions;
 using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Traits.Assorted;
 
 namespace Content.Server.Changeling;
 
@@ -145,6 +146,7 @@ public sealed partial class ChangelingSystem
         _blood.SpillAllSolutions(target);
 
         EnsureComp<AbsorbedComponent>(target);
+        EnsureComp<UnrevivableComponent>(target);
 
         var popup = Loc.GetString("changeling-absorb-end-self-ling");
         var bonusChemicals = 0f;
