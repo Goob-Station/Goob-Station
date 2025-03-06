@@ -31,7 +31,7 @@ public sealed partial class GrantSleepingCarpComponent : GrantMartialArtKnowledg
 
     public TimeSpan UseAgainTime = TimeSpan.Zero;
 
-    public readonly int MaxUseDelay = 2;
+    public readonly int MaxUseDelay = 90;
 
-    public readonly int MinUseDelay = 1;
+    public readonly int MinUseDelay = 30;
 }
