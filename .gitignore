@@ -308,3 +308,4 @@ Resources/MapImages
 .direnv/
 
 config.json
+.github/workflows/update-prs.yaml

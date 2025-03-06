@@ -4,6 +4,7 @@
   id: LauncherLollypopRegeneratingTricordazine
   description: Utilizes a in-built fabricator to generate tricordrazine lollypops from energy.
   suffix: Regenerating, DO NOT MAP
+  categories: [ DoNotMap ]
   components:
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 30
@@ -20,9 +21,10 @@
   id: LauncherLollypopRegeneratingOmnizine
   description: Utilizes a in-built fabricator to generate omnizine lollypops from energy.
   suffix: Regenerating, DO NOT MAP
+  categories: [ DoNotMap ]
   components:
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 90 # You CAN just endlessly print then grind these. The cooldown is being made so long it'd be faster to just grow it.
+    rechargeCooldown: 90
     rechargeSound:
       path: /Audio/Items/pen_click.ogg
   - type: BasicEntityAmmoProvider
@@ -36,6 +38,7 @@
   id: LauncherLollypopRegeneratingWeh
   description: Utilizes a in-built fabricator to generate Weh! lollypops from energy. Weh!
   suffix: Regenerating, DO NOT MAP
+  categories: [ DoNotMap ]
   components:
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 20
@@ -47,11 +50,29 @@
     count: 3
 
 - type: entity
+  name: mystery lollypop dispenser
+  parent: LauncherLollypopRegenerating
+  id: LauncherLollypopRegeneratingMystery
+  description: Utilizes a in-built fabricator to generate randomized lollypops from energy. Weh!
+  suffix: Regenerating, DO NOT MAP
+  categories: [ DoNotMap ]
+  components:
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 20
+    rechargeSound:
+      path: /Audio/Items/pen_click.ogg
+  - type: BasicEntityAmmoProvider
+    proto: FoodSnackLollypopWrappedMystery
+    capacity: 3
+    count: 3
+
+- type: entity
   name: lollypop dispenser
   parent: BaseStorageItem
   id: LauncherLollypopRegenerating
   description: Utilizes a in-built fabricator to generate lollypops from energy.
   suffix: Regenerating, DO NOT MAP
+  categories: [ DoNotMap ]
   components:
   - type: PacifismAllowedGun
   - type: Sprite

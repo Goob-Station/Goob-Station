@@ -155,6 +155,7 @@
   parent: RubberStampCMO
   id: RubberStampWizard
   suffix: DO NOT MAP
+  categories: [ DoNotMap ]
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-wizard
