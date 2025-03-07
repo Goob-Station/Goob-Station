@@ -51,6 +51,7 @@
     gloves: ClothingHandsGlovesCombat
     id: BlueshieldPDA
     ears: ClothingHeadsetAltBlueshield
+    belt: ClothingBeltAssaultFilled # NO CUFFS FOR BLUESHIELD!!!
     pocket1: UniqueBlueshieldOfficerLockerTeleporter
   storage:
     back:
