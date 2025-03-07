@@ -11,37 +11,37 @@ public sealed partial class HandcuffComponent : Component
     /// <summary>
     ///     The time it takes to cuff an entity.
     /// </summary>
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float CuffTime = 3.5f;
 
     /// <summary>
     ///     The time it takes to uncuff an entity.
     /// </summary>
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float UncuffTime = 3.5f;
 
     /// <summary>
     ///     The time it takes for a cuffed entity to uncuff itself.
     /// </summary>
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float BreakoutTime = 15f;
 
     /// <summary>
     ///     If an entity being cuffed is stunned, this amount of time is subtracted from the time it takes to add/remove their cuffs.
     /// </summary>
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float StunBonus = 2f;
 
     /// <summary>
     ///     Will the cuffs break when removed?
     /// </summary>
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool BreakOnRemove;
 
     /// <summary>
     ///     Will the cuffs break when removed?
     /// </summary>
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public EntProtoId? BrokenPrototype;
 
     /// <summary>
@@ -62,42 +62,35 @@ public sealed partial class HandcuffComponent : Component
     /// <summary>
     ///     The path of the RSI file used for the player cuffed overlay.
     /// </summary>
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public string? CuffedRSI = "Objects/Misc/handcuffs.rsi";
 
     /// <summary>
     ///     The iconstate used with the RSI file for the player cuffed overlay.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public string? BodyIconState = "body-overlay";
 
     /// <summary>
     /// An opptional color specification for <see cref="BodyIconState"/>
     /// </summary>
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public Color Color = Color.White;
 
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public SoundSpecifier StartCuffSound = new SoundPathSpecifier("/Audio/Items/Handcuffs/cuff_start.ogg");
 
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public SoundSpecifier EndCuffSound = new SoundPathSpecifier("/Audio/Items/Handcuffs/cuff_end.ogg");
 
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public SoundSpecifier StartBreakoutSound = new SoundPathSpecifier("/Audio/Items/Handcuffs/cuff_breakout_start.ogg");
 
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public SoundSpecifier StartUncuffSound = new SoundPathSpecifier("/Audio/Items/Handcuffs/cuff_takeoff_start.ogg");
 
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public SoundSpecifier EndUncuffSound = new SoundPathSpecifier("/Audio/Items/Handcuffs/cuff_takeoff_end.ogg");
-
-    /// <summary>
-    ///     Acts as a two-state option for handcuff speed. When true, handcuffs will be easier to get out of if you are larger than average. Representing the use of strength to break things like zipties.
-    ///     When false, handcuffs are easier to get out of if you are smaller than average, representing the use of dexterity to slip the cuffs.
-    /// </summary>
-    [DataField]
-    public bool UncuffEasierWhenLarge = false;
 }
 
 /// <summary>
