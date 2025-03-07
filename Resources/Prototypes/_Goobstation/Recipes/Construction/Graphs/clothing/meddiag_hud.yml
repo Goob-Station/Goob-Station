@@ -1,0 +1,34 @@
+﻿- type: constructionGraph
+  id: HudMedDiag
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: meddiagHud
+          steps:
+            - tag: HudMedical
+              name: medical hud
+              icon:
+                sprite: Clothing/Eyes/Hud/med.rsi
+                state: icon
+              doAfter: 5
+            - tag: HudDiagnostic
+              name: diagnostic hud
+              icon:
+                sprite: Clothing/Eyes/Hud/diag.rsi
+                state: icon
+              doAfter: 5
+            - material: Cable
+              amount: 5
+              doAfter: 5
+            - tag: Radio
+              name: radio
+              icon:
+                sprite: Objects/Devices/communication.rsi
+                state: walkietalkie
+              doAfter: 5
+            - material: Capacitor
+              amount: 2
+              doAfter: 5
+    - node: meddiagHud
+      entity: ClothingEyesHudDiagnosticMedical

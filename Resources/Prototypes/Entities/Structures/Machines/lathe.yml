@@ -223,6 +223,7 @@
     - Surgery
     - SpecOpsGoogles
     - MedicalMisc
+    - MedicalVehiclesAdvanced
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
@@ -560,9 +561,11 @@
     - MedicalCybernetics
     - MedicalWeapons
     - MedicalMisc
+    - MedicalVehiclesAdvanced
     - MedicalBoards
     - ServiceWeapons
     - Janitor
+
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: EmagLatheRecipes # Goobstation Packs
