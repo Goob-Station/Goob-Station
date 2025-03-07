@@ -34,6 +34,9 @@
         base:
           Primed: { state: primed }
           Unprimed: { state: complete }
+  - type: Tag # Goobstation
+    tags:
+    - Bomb
 
 - type: entity
   name: composition C-4
@@ -77,7 +80,7 @@
     speechVerb: Robotic
     speechSounds: Pai
   - type: GhostRole
-    prob: 0.05 
+    prob: 0.05
     name: ghost-role-information-c4-name
     description: ghost-role-information-c4-description
     rules: ghost-role-information-familiar-rules

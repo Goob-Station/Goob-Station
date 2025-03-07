@@ -23,6 +23,18 @@
     laws: ZooimovLawset
 
 - type: entity
+  id: HelpimovCircuitBoard
+  parent: BaseElectronics
+  name: law board (Helpimov)
+  description: An electronics board containing the Helpimov lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: HelpimovLawset
+
+- type: entity
   id: PlayerBorgDerelictSyndicateAssaultBattery
   parent: BorgChassisDerelictSyndicateAssault
   suffix: Battery, Module, Operative, Derelict
@@ -33,8 +45,8 @@
       borg_brain:
       - PositronicBrain
       borg_module:
-      - BorgModuleOperativeUniversal
       - BorgModuleSyndicateWeaponAdvanced
+      - BorgModuleOperativeUniversal
       # - BorgModuleL6C - No L6 for the derelicts
       # - BorgModuleEsword - Replaced
       - BorgModuleTool

@@ -38,7 +38,13 @@ public sealed class BinglePitSystem : EntitySystem
         SubscribeLocalEvent<BinglePitComponent, MapInitEvent>(OnInit);
         SubscribeLocalEvent<BinglePitComponent, DestructionEventArgs>(OnDestruction);
         SubscribeLocalEvent<BinglePitComponent, AttackedEvent>(OnAttacked);
+        SubscribeLocalEvent<BinglePitComponent, EntRemovedFromContainerMessage>(OnRemovedFromContainer);
         SubscribeLocalEvent<BinglePitFallingComponent, UpdateCanMoveEvent>(OnUpdateCanMove);
+    }
+
+    private void OnRemovedFromContainer(Entity<BinglePitComponent> ent, ref EntRemovedFromContainerMessage args)
+    {
+        RemCompDeferred<StunnedComponent>(args.Entity);
     }
 
     public override void Update(float frameTime)
@@ -91,7 +97,7 @@ public sealed class BinglePitSystem : EntitySystem
               ? component.AdditionalPointsForHuman : 0) : 1;
 
         if (TryComp<PullableComponent>(tripper, out var pullable) && pullable.BeingPulled)
-            _pulling.TryStopPull(tripper, pullable);
+            _pulling.TryStopPull(tripper, pullable, ignoreGrab: true);
 
         var fall = EnsureComp<BinglePitFallingComponent>(tripper);
         fall.Pit = component;
