@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Client.Eui;
 using Content.Shared._Reserve.Revolutionary;
 using Content.Shared.Eui;
@@ -40,7 +41,10 @@ public sealed class ConsentRequestedEui : BaseEui
     public override void Opened()
     {
         IoCManager.Resolve<IClyde>().RequestWindowAttention();
-        _window.OpenCentered();
+
+        // Open window somewhere below center of screen!
+        // We don't want to hide what is going around the player
+        _window.OpenCenteredAt(new Vector2(0.5f, 0.75f));
     }
 
     public override void Closed()
