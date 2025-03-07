@@ -111,8 +111,8 @@
 
 using Content.Goobstation.Common.Singularity;
 using Content.Server.Popups;
-using Content.Server.Shuttles.Components;
 using Content.Server.Singularity.Events;
+using Content.Shared.Shuttles.Components;
 using Content.Shared.Popups;
 using Content.Shared.Singularity.Components;
 using Content.Shared.Throwing;

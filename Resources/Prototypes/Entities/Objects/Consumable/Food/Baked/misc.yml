@@ -889,7 +889,7 @@
         - ReagentId: Vitamin
           Quantity: 1
 
-- type: entity         
+- type: entity
   name: grilled cheese sandwich
   parent: FoodBakedBase
   id: FoodBakedGrilledCheeseSandwich
