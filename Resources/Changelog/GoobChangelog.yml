@@ -5924,3 +5924,9 @@ Entries:
       message: 'Mansus grasp cooldown starts after use now. '
   id: 678
   time: '2025-03-07T20:20:27.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Tweak
+      message: Blob now have a harder time on Submarine and Leonid
+  id: 679
+  time: '2025-03-07T20:21:03.0000000+00:00'
