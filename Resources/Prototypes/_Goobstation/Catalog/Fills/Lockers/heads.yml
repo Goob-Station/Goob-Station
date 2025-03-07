@@ -29,9 +29,12 @@
     children:
     - id: ClothingHeadHelmetSwat
     - id: Flash
-    - id: FlashlightSeclite
-    - id: ClothingBeltSecurityFilled
+    - id: DefibrillatorCompact
+    - id: MedkitCombatFilled
+    - id: MedkitBSOFilledIPC
     - id: ClothingOuterHardsuitBlueshield
+    - id: ClothingBackpackDuffelSurgeryFilled
+    - id: FlippoLighterBlueshield
     - id: BoxZiptie
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
