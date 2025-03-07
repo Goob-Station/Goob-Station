@@ -19,6 +19,7 @@
     - id: RubberStampQm
     - id: SalvageShuttleConsoleCircuitboard
     - id: AstroNavCartridge
+    - id: MailTeleporterMachineCircuitboard
     - id: CargoTechFabCircuitboard # Goobstation - Cargo Techfab
 
 - type: entity
