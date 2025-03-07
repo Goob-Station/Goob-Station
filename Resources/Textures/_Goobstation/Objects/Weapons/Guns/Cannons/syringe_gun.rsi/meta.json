@@ -8,17 +8,14 @@
   },
   "states": [
     {
+        "name": "icon-dart"
+    },
+    {
+        "name": "icon"
+    },
+    {
       "name": "inhand-right",
       "directions": 4
-    },
-    {
-      "name": "syringe-gun"
-    },
-    {
-      "name": "dart-syringe-gun"
-    },
-    {
-      "name": "rapid-syringe-gun"
     },
     {
       "name": "inhand-left",

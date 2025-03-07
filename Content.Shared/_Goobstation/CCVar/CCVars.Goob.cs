@@ -126,6 +126,9 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<string> PlayerRageQuitDiscordWebhook =
         CVarDef.Create("ragequit.discord_webhook", "", CVar.SERVERONLY | CVar.CONFIDENTIAL);
 
+    public static readonly CVarDef<int> PunishmentArrowAngerThreshold =
+        CVarDef.Create("PointingArrow.AngerThreshold", 20, CVar.SERVERONLY, "After how much arrows in a minute will cause them to be angry. Warn threshold will always be half of this, rounded up.");
+
     #endregion PlayerListener
 
     #region Surgery
@@ -241,6 +244,31 @@ public sealed partial class GoobCVars
 
     public static readonly CVarDef<int> GoobcoinMinPlayers =
         CVarDef.Create("goob.coins_min_players", 5, CVar.SERVERONLY);
+
+    #endregion
+
+    #region Game Director
+
+    public static readonly CVarDef<float> MinimumTimeUntilFirstEvent =
+        CVarDef.Create("gamedirector.minimumtimeuntilfirstevent", 300f, CVar.SERVERONLY);
+
+    #endregion
+
+    #region Mass Contests
+    /// <summary>
+    ///
+    ///     Toggles all MassContest functions. All mass contests output 1f when false
+    /// </summary>
+    public static readonly CVarDef<bool> DoMassContests =
+        CVarDef.Create("contests.do_mass_contests", true, CVar.REPLICATED | CVar.SERVER);
+
+    /// <summary>
+    ///     The maximum amount that Mass Contests can modify a physics multiplier, given as a +/- percentage
+    ///     Default of 0.25f outputs between * 0.75f and 1.25f
+    /// </summary>
+    public static readonly CVarDef<float> MassContestsMaxPercentage =
+        CVarDef.Create("contests.max_percentage", 1f, CVar.REPLICATED | CVar.SERVER);
+
 
     #endregion
 
