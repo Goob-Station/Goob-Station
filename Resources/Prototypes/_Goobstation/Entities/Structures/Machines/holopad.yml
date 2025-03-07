@@ -16,8 +16,8 @@
 
 - type: entity
   parent: Holopad
-  id: HolopadCommandCCOfficials
-  suffix: CC Officials
+  id: HolopadCommandCCOffice
+  suffix: CC Office
   components:
   - type: Label
-    currentLabel: holopad-command-cc-officials
+    currentLabel: holopad-command-cc-office
