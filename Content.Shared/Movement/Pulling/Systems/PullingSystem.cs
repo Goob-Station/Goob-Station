@@ -6,7 +6,6 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
 using Content.Shared.Buckle.Components;
 using Content.Shared.CombatMode; // Goobstation
-using Content.Shared.Cuffs; // Goobstation
 using Content.Shared.Cuffs.Components; // Goobstation
 using Content.Shared.Damage; // Goobstation
 using Content.Shared.Damage.Systems; // Goobstation
@@ -812,7 +811,6 @@ public sealed class PullingSystem : EntitySystem
         // You can't choke crates
         if (!HasComp<MobStateComponent>(pullable))
             return false;
-        Log.Info(_contests.MassContest(puller, pullable).ToString());
 
         // Delay to avoid spamming
         puller.Comp.NextStageChange = _timing.CurTime + puller.Comp.StageChangeCooldown;

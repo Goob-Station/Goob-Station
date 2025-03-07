@@ -85,13 +85,14 @@ public sealed class TableSlamSystem : EntitySystem
             return;
 
         var target = args.HitEntities.ElementAt(0);
-        if (!HasComp<BonkableComponent>(target))
+        if (!HasComp<BonkableComponent>(target)) // checks if its a table.
             return;
 
-        if (_contestsSystem.MassContest(ent, ent.Comp.Pulling.Value) > 1)
-            return;
-
-        TryTableSlam((ent.Comp.Pulling.Value, pullableComponent), ent, target);
+        var massContest = _contestsSystem.MassContest(ent, ent.Comp.Pulling.Value);
+        var attemptChance = Math.Clamp(1 * massContest, 0, 1);
+        var attemptRoundedToNearestQuarter = Math.Round(attemptChance * 4, MidpointRounding.ToEven) / 4;
+        if(_random.Prob((float) attemptRoundedToNearestQuarter)) // base chance to table slam someone is 1 if your mass ratio is less than 1 then your going to have a harder time slamming somebody.
+            TryTableSlam((ent.Comp.Pulling.Value, pullableComponent), ent, target);
     }
 
     public void TryTableSlam(Entity<PullableComponent> ent, Entity<PullerComponent> pullerEnt, EntityUid tableUid)

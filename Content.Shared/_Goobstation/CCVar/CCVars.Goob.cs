@@ -257,7 +257,7 @@ public sealed partial class GoobCVars
     ///     Default of 0.25f outputs between * 0.75f and 1.25f
     /// </summary>
     public static readonly CVarDef<float> MassContestsMaxPercentage =
-        CVarDef.Create("contests.max_percentage", 0.25f, CVar.REPLICATED | CVar.SERVER);
+        CVarDef.Create("contests.max_percentage", 1f, CVar.REPLICATED | CVar.SERVER);
 
 
     #endregion
