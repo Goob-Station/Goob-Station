@@ -91,6 +91,6 @@ public sealed class PunishmentArrowSystem : EntitySystem
 
     private void Clear(SessionData data)
     {
-        _arrows[data] = 0;
+        _arrows.Remove(data);
     }
 }
