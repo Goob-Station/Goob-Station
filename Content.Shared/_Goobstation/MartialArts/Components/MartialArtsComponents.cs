@@ -22,11 +22,11 @@ public sealed partial class MartialArtsKnowledgeComponent : GrabStagesOverrideCo
 
     [DataField]
     [AutoNetworkedField]
-    public int MinDamageModifier;
+    public int MinRandomDamageModifier;
 
     [DataField]
     [AutoNetworkedField]
-    public int MaxDamageModifier = 5;
+    public int MaxRandomDamageModifier = 5;
 
     [DataField]
     [AutoNetworkedField]

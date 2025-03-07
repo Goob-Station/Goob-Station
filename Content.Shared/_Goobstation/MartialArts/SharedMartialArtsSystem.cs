@@ -104,7 +104,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         if (!ent.Comp.RandomDamageModifier)
             return;
 
-        var randomDamage = _random.Next(ent.Comp.MinDamageModifier, ent.Comp.MaxDamageModifier);
+        var randomDamage = _random.Next(ent.Comp.MinRandomDamageModifier, ent.Comp.MaxRandomDamageModifier);
         var bonusDamageSpec = new DamageSpecifier();
         bonusDamageSpec.DamageDict.Add("Blunt", randomDamage);
         args.BonusDamage += bonusDamageSpec;
@@ -219,13 +219,15 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
     private void LoadPrototype(EntityUid uid, MartialArtsKnowledgeComponent component, MartialArtsForms name)
     {
+        // just know i hate this and i probably could grab info from the prototype directly from protomanager i was being stupid
+        // when i originally wrote the code for this clearly.
         var combo = EnsureComp<CanPerformComboComponent>(uid);
         if (!_proto.TryIndex<MartialArtPrototype>(name.ToString(), out var martialArtsPrototype))
             return;
         component.MartialArtsForm = martialArtsPrototype.MartialArtsForm;
         component.RoundstartCombos = martialArtsPrototype.RoundstartCombos;
-        component.MinDamageModifier = martialArtsPrototype.MinDamageModifier;
-        component.MaxDamageModifier = martialArtsPrototype.MaxDamageModifier;
+        component.MinRandomDamageModifier = martialArtsPrototype.MinRandomDamageModifier;
+        component.MinRandomDamageModifier = martialArtsPrototype.MaxRandomDamageModifier;
         component.RandomDamageModifier = martialArtsPrototype.RandomDamageModifier;
         component.RandomSayings = martialArtsPrototype.RandomSayings;
         component.RandomSayingsDowned = martialArtsPrototype.RandomSayingsDowned;

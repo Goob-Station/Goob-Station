@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._Goobstation.MartialArts;
 
 [Prototype("martialArt")]
-public sealed partial class MartialArtPrototype : IPrototype
+public sealed class MartialArtPrototype : IPrototype
 {
     [IdDataField]
     public string ID { get; private init; } = default!;
@@ -14,16 +14,13 @@ public sealed partial class MartialArtPrototype : IPrototype
     public MartialArtsForms MartialArtsForm = MartialArtsForms.CloseQuartersCombat;
 
     [DataField]
-    public int MinDamageModifier;
+    public int MinRandomDamageModifier;
 
     [DataField]
-    public int MaxDamageModifier = 5;
+    public int MaxRandomDamageModifier = 5;
 
     [DataField]
     public FixedPoint2 BaseDamageModifier;
-
-    [DataField]
-    public FixedPoint2 HarmAsStamina;
 
     [DataField]
     public bool RandomDamageModifier;

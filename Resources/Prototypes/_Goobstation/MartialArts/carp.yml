@@ -2,7 +2,7 @@
   id: SleepingCarp
   martialArtsForm: SleepingCarp
   roundstartCombos: SleepingCarpMoves
-  randomDamageModifier: true
+  randomDamageModifier: True
   baseDamageModifier: 5
   randomSayings:
   - carp-saying-huah
