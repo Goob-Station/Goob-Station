@@ -64,7 +64,7 @@ namespace Content.Shared.Ghost
             if (!Resolve(uid, ref component))
                 return;
 
-            component.color = value;
+            component.Color = value;
             Dirty(uid, component);
         }
     }

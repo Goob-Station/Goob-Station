@@ -16,7 +16,10 @@
   extendedAccess:
   - Chemistry # ShibaStation - Added Chemistry to Doctor access
   - Research # ShibaStation - Added Research to Doctor access
-  special: # Shitmed change
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: DoctorDay
+    prototype: WehMedipen
   - !type:AddComponentSpecial
     components:
     - type: SurgerySpeedModifier

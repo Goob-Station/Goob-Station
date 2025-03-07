@@ -39578,12 +39578,6 @@ entities:
       parent: 2
 - proto: ComputerRadar
   entities:
-  - uid: 5046
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 6.5,37.5
-      parent: 2
   - uid: 5078
     components:
     - type: Transform
@@ -39636,6 +39630,14 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 4.5,39.5
+      parent: 2
+- proto: ComputerShuttleSalvage
+  entities:
+  - uid: 5046
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 6.5,37.5
       parent: 2
 - proto: ComputerSolarControl
   entities:
@@ -76566,14 +76568,6 @@ entities:
     - type: Transform
       pos: 17.5,42.5
       parent: 2
-- proto: SalvageMagnet
-  entities:
-  - uid: 11666
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 6.5,39.5
-      parent: 2
 - proto: Saw
   entities:
   - uid: 12333
@@ -78316,11 +78310,6 @@ entities:
       parent: 2
 - proto: SignMagneticsMed
   entities:
-  - uid: 6846
-    components:
-    - type: Transform
-      pos: 3.5,39.5
-      parent: 2
   - uid: 14680
     components:
     - type: Transform

@@ -3463,7 +3463,6 @@ entities:
       - 5639
       - 5547
       - 5553
-      - 3958
   - uid: 11
     components:
     - type: Transform
@@ -4043,7 +4042,7 @@ entities:
       pos: -24.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5875.6973
+      secondsUntilStateChange: -6075.117
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -22001,11 +22000,17 @@ entities:
       parent: 2
 - proto: ComputerShuttleMiningLavaland
   entities:
-  - uid: 8433
+  - uid: 7157
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -45.5,19.5
+      pos: -43.5,20.5
+      parent: 2
+- proto: ComputerShuttleSalvage
+  entities:
+  - uid: 3958
+    components:
+    - type: Transform
+      pos: -41.5,20.5
       parent: 2
 - proto: ComputerSolarControl
   entities:
@@ -25774,6 +25779,8 @@ entities:
     - type: Transform
       pos: 42.5,1.5
       parent: 2
+    - type: FaxMachine
+      name: Bridge
   - uid: 3939
     components:
     - type: Transform
@@ -25793,6 +25800,8 @@ entities:
     - type: Transform
       pos: 1.5,22.5
       parent: 2
+    - type: FaxMachine
+      name: HoS's Office
   - uid: 3942
     components:
     - type: Transform
@@ -25812,6 +25821,8 @@ entities:
     - type: Transform
       pos: 9.5,11.5
       parent: 2
+    - type: FaxMachine
+      name: Security
 - proto: FaxMachineCaptain
   entities:
   - uid: 3945
@@ -25904,12 +25915,6 @@ entities:
       parent: 2
 - proto: FirelockEdge
   entities:
-  - uid: 3958
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -37.5,19.5
-      parent: 2
   - uid: 3961
     components:
     - type: Transform
@@ -43121,6 +43126,30 @@ entities:
     - type: Transform
       pos: 8.5,-4.5
       parent: 2
+- proto: OreBag
+  entities:
+  - uid: 9184
+    components:
+    - type: Transform
+      pos: -37.64106,21.767897
+      parent: 2
+  - uid: 9185
+    components:
+    - type: Transform
+      pos: -37.406685,21.596022
+      parent: 2
+- proto: OreBox
+  entities:
+  - uid: 8433
+    components:
+    - type: Transform
+      pos: -45.5,20.5
+      parent: 2
+  - uid: 9182
+    components:
+    - type: Transform
+      pos: -45.5,19.5
+      parent: 2
 - proto: OreProcessor
   entities:
   - uid: 2243
@@ -45896,6 +45925,11 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -45.5,16.5
       parent: 2
+  - uid: 9183
+    components:
+    - type: Transform
+      pos: -37.5,21.5
+      parent: 2
 - proto: RadiationCollectorNoTank
   entities:
   - uid: 6751
@@ -48155,14 +48189,6 @@ entities:
     components:
     - type: Transform
       pos: -48.59307,6.6560664
-      parent: 2
-- proto: SalvageMagnet
-  entities:
-  - uid: 7157
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -45.5,20.5
       parent: 2
 - proto: Screen
   entities:

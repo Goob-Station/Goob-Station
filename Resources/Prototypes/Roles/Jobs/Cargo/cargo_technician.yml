@@ -10,6 +10,10 @@
   - Cargo
   - Maintenance
   # ShibaStation - Removed extendedAccess from CargoTech; Cargo and Salvage should be separate roles, even at low pop.
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: BoxingDay
+    prototype: BoxCardboard
 
 - type: startingGear
   id: CargoTechGear

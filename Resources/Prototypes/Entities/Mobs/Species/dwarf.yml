@@ -20,9 +20,9 @@
   - type: Sprite
     noRot: true
     drawdepth: Mobs
-    scale: 1.15, 0.8
+    scale: 1.1, 0.75 # goob value
   - type: ScaleData # Goobstation
-    scale: 1.15, 0.8
+    scale: 1.1, 0.75
   - type: Body
     prototype: Dwarf
     requiredLegs: 2
@@ -36,9 +36,9 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.35
+          radius: 0.32 # goob edit - reasoning below
         # they r smaller
-        density: 120
+        density: 240 # goob edit - but they r buff
         restitution: 0.0
         mask:
         - MobMask

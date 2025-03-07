@@ -14,3 +14,15 @@
   - ModsuitGauntlets
   - ModsuitShell
   - ModsuitPlatingExternal
+
+- type: technology
+  id: BluespaceTheory
+  name: research-technology-bluespace-theory
+  icon:
+    sprite: _Goobstation/Objects/Materials/materials.rsi
+    state: bluespace_crystal
+  discipline: Experimental
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - MaterialBSCrystal

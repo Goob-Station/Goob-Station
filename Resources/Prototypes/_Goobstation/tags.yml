@@ -24,9 +24,6 @@
   id: CartridgeHighCaliber
 
 - type: Tag
-  id: CartridgeLightRifleSubsonic
-
-- type: Tag
   id: CartridgeMagicBullet
 
 - type: Tag
@@ -192,9 +189,6 @@
   id: MagazineHighCaliber
 
 - type: Tag
-  id: MagazineLightRifleSubsonic
-
-- type: Tag
   id: MagazineMagnumLeverRifle
 
 - type: Tag
@@ -328,4 +322,13 @@
 
 - type: Tag
   id: HudMedicalSecurity
+
+- type: Tag
+  id: HudDiagnostic
+
+- type: Tag
+  id: HudMedicalDiagnostic
+  
+- type: Tag
+  id: ReverseBearTrapKey
 

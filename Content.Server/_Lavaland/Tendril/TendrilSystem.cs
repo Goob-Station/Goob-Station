@@ -1,11 +1,9 @@
-using System.Linq;
 using Content.Server._Lavaland.Tendril.Components;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.Popups;
-using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -14,11 +12,9 @@ namespace Content.Server._Lavaland.Tendril;
 
 public sealed class TendrilSystem : EntitySystem
 {
-    [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IGameTiming _time = default!;
 
     public override void Initialize()
@@ -38,24 +34,20 @@ public sealed class TendrilSystem : EntitySystem
         var query = EntityQueryEnumerator<TendrilComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
+            comp.UpdateAccumulator += frameTime;
+
+            if (comp.UpdateAccumulator < comp.UpdateFrequency)
+                continue;
+
+            comp.UpdateAccumulator = 0;
+
             if (comp.Mobs.Count >= comp.MaxSpawns)
                 continue;
+
             if (comp.LastSpawn + TimeSpan.FromSeconds(comp.SpawnDelay) > _time.CurTime)
                 continue;
 
-            var xform = Transform(uid);
-            var coords = xform.Coordinates;
-            var newCoords = coords.Offset(_random.NextVector2(4));
-            for (var i = 0; i < 100; i++)
-            {
-                var randVector = _random.NextVector2(4);
-                newCoords = coords.Offset(randVector);
-                if (!_lookup.GetEntitiesIntersecting(newCoords.ToMap(EntityManager, _transform), LookupFlags.Static).Any())
-                {
-                    break;
-                }
-            }
-            var mob = Spawn(_random.Pick(comp.Spawns), newCoords);
+            var mob = Spawn(_random.Pick(comp.Spawns), Transform(uid).Coordinates);
             var mobComp = EnsureComp<TendrilMobComponent>(mob);
             mobComp.Tendril = uid;
             comp.Mobs.Add(mob);

@@ -1,0 +1,24 @@
+- type: entity
+  parent: BaseItem
+  id: AchtoPlush
+  name: Achto Plush
+  description: A cute little resomi(?) plush. Smells like apples and bad decisions.
+  components:
+  - type: Sprite
+    sprite: _ShibaStation/Objects/Fun/ShibPlush/achto.rsi
+    state: icon
+    scale: 0.6, 0.6
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_ShibaStation/Voice/Abductor/talk1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_ShibaStation/Voice/Reptilian/reptilian_sigh.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_ShibaStation/Voice/Abductor/talk1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Talk/vox_ask.ogg
+  - type: UseDelay
+    delay: 1

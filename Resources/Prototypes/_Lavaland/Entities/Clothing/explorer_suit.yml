@@ -16,7 +16,7 @@
         Blunt: 0.70
         Slash: 0.70
         Piercing: 0.70
-        Heat: 0.75 # parity with 13 :) 
+        Heat: 0.75 # parity with 13 :)
         Caustic: 0.50
   - type: ExplosionResistance
     damageCoefficient: 0.50
@@ -26,6 +26,8 @@
   - type: ToggleableClothing
     clothingPrototypes:
       head: LavalandEquipmentExplorerHood
+    replaceCurrentClothing: true # ShibaStation - Wear hoods/hardsuit helmets without taking off your head gear first.
+    blockUnequipWhenAttached: true # ShibaStation - Janky workaround for removing an outerwear with part deployed yoinking your head gear (it's still there it's just IN the outerwear)
   - type: Construction
     graph: ExplorerSuit
     node: start
@@ -56,7 +58,7 @@
         Blunt: 0.90
         Slash: 0.90
         Piercing: 0.90
-        Heat: 0.70 # parity with 13 :) 
+        Heat: 0.70 # parity with 13 :)
         Caustic: 0.90
 
 - type: entity
@@ -83,6 +85,8 @@
   - type: ToggleableClothing
     clothingPrototypes:
       head: LavalandEquipmentExplorerHoodReinforced1
+    replaceCurrentClothing: true # ShibaStation - Wear hoods/hardsuit helmets without taking off your head gear first.
+    blockUnequipWhenAttached: true # ShibaStation - Janky workaround for removing an outerwear with part deployed yoinking your head gear (it's still there it's just IN the outerwear)
   - type: Construction
     graph: ExplorerSuit
     node: reinforced1
@@ -133,6 +137,8 @@
   - type: ToggleableClothing
     clothingPrototypes:
       head: LavalandEquipmentExplorerHoodReinforced2
+    replaceCurrentClothing: true # ShibaStation - Wear hoods/hardsuit helmets without taking off your head gear first.
+    blockUnequipWhenAttached: true # ShibaStation - Janky workaround for removing an outerwear with part deployed yoinking your head gear (it's still there it's just IN the outerwear)
   - type: Construction
     graph: ExplorerSuit
     node: reinforced2
@@ -183,6 +189,8 @@
   - type: ToggleableClothing
     clothingPrototypes:
       head: LavalandEquipmentExplorerHoodReinforced3
+    replaceCurrentClothing: true # ShibaStation - Wear hoods/hardsuit helmets without taking off your head gear first.
+    blockUnequipWhenAttached: true # ShibaStation - Janky workaround for removing an outerwear with part deployed yoinking your head gear (it's still there it's just IN the outerwear)
   - type: Construction
     graph: ExplorerSuit
     node: reinforced3
