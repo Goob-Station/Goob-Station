@@ -21,25 +21,24 @@ tilemap:
 entities:
 - proto: ""
   entities:
-  #- uid: 1
-  #  components:
-  #  - type: MetaData
-  #    name: Map Entity
-  #  - type: Transform
-  #  - type: Map
-  #    mapPaused: True
-  #  - type: PhysicsMap
-  #  - type: GridTree
-  #  - type: MovedGrids
-  #  - type: Broadphase
-  #  - type: OccluderTree
+  - uid: 1
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+    - type: PhysicsMap
+    - type: GridTree
+    - type: MovedGrids
+    - type: Broadphase
+    - type: OccluderTree
   - uid: 2
     components:
     - type: MetaData
       name: IRSS-1984
     - type: Transform
-      #pos: 1.9820292,-2.898088
-      #parent: 1
+      pos: 1.9820292,-2.898088
+      parent: 1
     - type: MapGrid
       chunks:
         0,0:
