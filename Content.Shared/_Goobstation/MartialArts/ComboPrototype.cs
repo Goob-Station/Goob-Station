@@ -20,7 +20,7 @@ public sealed partial class ComboPrototype : IPrototype
     //[DataField("weapon")] // Will be done later
     //public string? WeaponProtoId;
     [DataField("event", required: true)]
-    public object? ResultEvent;
+    public EntityEventArgs? ResultEvent;
 
     /// <summary>
     /// How much extra damage should this move do on perform?
