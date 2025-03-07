@@ -25,7 +25,6 @@ using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
-using Robust.Shared.Random; // Goobstation - Martial Arts
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -50,7 +49,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] private   readonly SharedPhysicsSystem     _physics         = default!;
     [Dependency] private   readonly IPrototypeManager       _protoManager    = default!;
     [Dependency] private   readonly StaminaSystem           _stamina         = default!;
-    [Dependency] private   readonly IRobustRandom            _random         = default!;
 
     private const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque);
 
