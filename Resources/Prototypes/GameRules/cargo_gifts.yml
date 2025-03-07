@@ -41,6 +41,9 @@
     weight: 5
     duration: 120
     earliestStart: 20
+    chaos: # Goobstation
+      Hunger: -80
+      Thirst: -40
   - type: CargoGiftsRule
     description: cargo-gift-pizza-small
     dest: cargo-gift-dest-bar
@@ -59,6 +62,9 @@
     duration: 240
     earliestStart: 20
     minimumPlayers: 40
+    chaos: # Goobstation
+      Hunger: -300
+      Thirst: -120
   - type: CargoGiftsRule
     description: cargo-gift-pizza-large
     dest: cargo-gift-dest-bar
@@ -76,6 +82,9 @@
     duration: 240
     earliestStart: 30
     minimumPlayers: 10
+    chaos: # Goobstation
+      Atmos: -300
+      Power: -100
   - type: CargoGiftsRule
     description: cargo-gift-eng
     dest: cargo-gift-dest-eng
@@ -96,6 +105,9 @@
     duration: 120
     minimumPlayers: 40
     earliestStart: 30
+    chaos: # Goobstation
+      Hunger: -100
+      Thirst: -100
   - type: CargoGiftsRule
     description: cargo-gift-vending
     dest: cargo-gift-dest-supp
@@ -116,6 +128,8 @@
     duration: 120
     minimumPlayers: 30
     earliestStart: 20
+    chaos: # Goobstation
+      Mess: -200
   - type: CargoGiftsRule
     description: cargo-gift-cleaning
     dest: cargo-gift-dest-janitor
@@ -133,6 +147,9 @@
     duration: 120
     earliestStart: 20
     minimumPlayers: 30
+    chaos: #Goobstation
+      Medical: -200
+      Friend: 10
   - type: CargoGiftsRule
     description: cargo-gift-medical-supply
     dest: cargo-gift-dest-med
@@ -152,6 +169,8 @@
     duration: 120
     earliestStart: 10
     minimumPlayers: 40
+    chaos: # Goobstation
+      Atmos: -300
   - type: CargoGiftsRule
     description: cargo-gift-space-protection
     dest: cargo-gift-dest-supp
@@ -171,6 +190,8 @@
     duration: 120
     earliestStart: 20
     minimumPlayers: 40
+    chaos: # Goobstation
+      Atmos: -200
   - type: CargoGiftsRule
     description: cargo-gift-fire-protection
     dest: cargo-gift-dest-supp
@@ -188,6 +209,9 @@
     duration: 120
     earliestStart: 20
     minimumPlayers: 50
+    chaos: # Goobstation
+      Hostile: -100
+      Combat: -100
   - type: CargoGiftsRule
     description: cargo-gift-security-guns
     dest: cargo-gift-dest-sec
@@ -206,6 +230,9 @@
     duration: 120
     earliestStart: 20
     minimumPlayers: 50
+    chaos: # Goobstation
+      Hostile: -30
+      Combat: -30
   - type: CargoGiftsRule
     description: cargo-gift-security-riot
     dest: cargo-gift-dest-sec

@@ -61,8 +61,8 @@
 #   - type: DynamicStationEventScheduler
 #     midroundRulesPool: DynamicMidroundGamerules
 
-# # game preset here for various reasons
-# # most of them being myself striving for chaotic folder hierarchy that will collapse onto itself after 6 months
+# game preset here for various reasons
+# most of them being myself striving for chaotic folder hierarchy that will collapse onto itself after 6 months
 # - type: gamePreset
 #   id: Dynamic
 #   alias:
@@ -71,7 +71,7 @@
 #     - secret2
 #   name: gamemode-dynamic-title
 #   description: gamemode-dynamic-description
-#   showInVote: false # Shibastation - admeme only because it's broken at zero pop and I can't stop it from being voteable despite setting minPlayers to 15 ?????
+#   showInVote: false #currently broken, and hasn't been fixed for over a month, and people LOVE voting for it
 #   rules:
 #     - Dynamic
 #     - BasicStationEventSchedulerNoAntag
@@ -80,6 +80,7 @@
 #     - SpaceTrafficControlEventScheduler
 #     - SpaceTrafficControlFriendlyEventScheduler
 #     - BasicRoundstartVariation
+#     - LavalandStormScheduler # Lavaland Change
 
 # - type: gamePreset
 #   id: DynamicUnforgiving
@@ -94,7 +95,8 @@
 #     - DynamicUnforgiving
 #     - BasicStationEventSchedulerNoAntag
 #     - DynamicStationEventScheduler
-#     - MeteorSwarmScheduler
+# #    - MeteorSwarmScheduler Goob Edit
 #     - SpaceTrafficControlEventScheduler
 #     - SpaceTrafficControlFriendlyEventScheduler
 #     - BasicRoundstartVariation
+#     - LavalandStormScheduler # Lavaland Change

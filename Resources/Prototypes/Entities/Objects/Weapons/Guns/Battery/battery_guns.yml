@@ -333,6 +333,9 @@
   - type: Battery
     maxCharge: 5000
     startingCharge: 5000
+  - type: Tag # Goobstation
+    tags:
+    - Rifle
 
 - type: entity
   name: pulse rifle
@@ -365,6 +368,9 @@
   - type: Battery
     maxCharge: 40000
     startingCharge: 40000
+  - type: Tag # Goobstation
+    tags:
+    - Rifle
 
 - type: entity
   name: laser cannon
@@ -394,6 +400,9 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedHeavyLaser
     fireCost: 100
+  - type: Tag # Goobstation
+    tags:
+    - Rifle
 
 - type: entity
   name: portable particle decelerator
@@ -430,6 +439,9 @@
         Steel: 187
         Plasma: 37
         Uranium: 37
+    - type: Tag # Goobstation
+      tags:
+      - Rifle
 
 - type: entity
   name: x-ray cannon
@@ -458,6 +470,9 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: Tag # Goobstation
+    tags:
+    - Rifle
 
 - type: entity
   name: practice disabler
