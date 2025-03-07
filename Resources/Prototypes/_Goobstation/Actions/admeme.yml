@@ -1,0 +1,56 @@
+- type: entity
+  id: ActionVaporizeFreeman
+  name: Vaporize
+  description: That will be all.
+  components:
+  - type: EntityTargetAction
+    useDelay: 3
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    interactOnMiss: false
+    raiseOnUser: true
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/disintegrate.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi # todo - change this
+      state: gib
+    event: !type:SmiteSpellEvent
+      speech: action-speech-implant-vaporize
+
+- type: entity
+  id: ActionBlinkFreeman
+  name: Blink
+  description: Wisely done, Mr. Freeman. I will see you up ahead.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/actions.rsi # Todo - Unique sprite?
+    state: jaunt
+  - type: InstantAction
+    useDelay: 3
+    raiseOnUser: true
+    checkCanInteract: false
+    event: !type:PolymorphSpellEvent
+      protoId: Jaunt
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi # Todo - Change this
+      state: jaunt
+
+- type: entity
+  id: ActionShiftFreeman
+  name: Shift
+  description: Is it really that time again?
+  components:
+  - type: WorldTargetAction
+    useDelay: 1
+    range: 48
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    repeat: false
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: blink
+    event: !type:TeleportSpellEvent

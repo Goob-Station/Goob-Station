@@ -1,3 +1,4 @@
+# Chrono Legioneers
 - type: entity
   parent: IDCardStandard
   id: ChronoIDCard
@@ -19,9 +20,11 @@
     - AllAccess
     tags:
     - CentralCommand
-    - SyndicateAgent
     - NanotrasenRepresentative
     - BlueshieldOfficer
+    - Wizard
+    - NuclearOperative
+    - SyndicateAgent
 
 # Helldiver
 - type: entity
@@ -70,10 +73,179 @@
     - state: idcentcom
   - type: Item
     heldPrefix:
-
   - type: PresetIdCard
     job: BlueshieldOfficer
   - type: Access
     tags:
     - CentralCommand
     - BlueshieldOfficer
+
+# Executive Access
+- type: entity
+  parent: IDCardStandard
+  id: ExecutiveIDCard
+  name: executive access card
+  description: Flash this, and any Nanotrasen employee is legally obligated to listen to you.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/id_cards.rsi
+    layers:
+    - state: executive
+  - type: Clothing
+    quickEquip: true
+    slots:
+    - neck
+    - idcard
+  - type: Item
+    heldPrefix: executive
+  - type: IdCard
+    jobTitle: job-name-exec
+    jobIcon: JobIconNanotrasen
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
+
+- type: entity
+  parent: ExecutiveIDCard
+  id: ExecutiveIDCardChameleon
+  name: executive access card
+  description: Flash this, and any Nanotrasen employee is legally obligated to listen to you. Capable of changing appearance if you want to go incognito.
+  components:
+  - type: AgentIDCard
+  - type: ActivatableUI
+    key: enum.AgentIDCardUiKey.Key
+    inHandsOnly: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+  - type: ChameleonClothing
+    slot: [ idcard ]
+    default: ExecutiveIDCard
+  - type: UserInterface
+    interfaces:
+     enum.AgentIDCardUiKey.Key:
+        type: AgentIDCardBoundUserInterface
+     enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+
+
+# Navy Captain
+
+- type: entity
+  parent: IDCardStandard
+  id: CentcomIDCardNavyCaptain
+  name: Navy Captain's ID card
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    layers:
+    - state: ert_security
+  - type: IdCard
+    jobTitle: job-name-navycaptain
+    jobIcon: JobIconNanotrasen
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
+
+# Navy Officer
+
+- type: entity
+  parent: CentcomIDCardNavyCaptain
+  id: CentcomIDCardNavyOfficer
+  name: Navy Officer's ID card
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    layers:
+    - state: ert_security
+  - type: IdCard
+    jobTitle: job-name-navycaptain
+    jobIcon: JobIconNanotrasen
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
+
+# Special Operations Officer
+
+- type: entity
+  parent: CentcomIDCardNavyCaptain
+  id: CentcomIDCardSpecialOperationsOfficer
+  name: Special Operations Officer's ID card
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    layers:
+    - state: ert_security
+  - type: IdCard
+    jobTitle: job-name-navycaptain
+    jobIcon: JobIconNanotrasen
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
+
+# Diplomat
+
+- type: entity
+  parent: CentcomIDCardNavyCaptain
+  id: CentcomIDCardDiplomat
+  name: Diplomat's ID card
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    layers:
+    - state: ert_security
+  - type: IdCard
+    jobTitle: job-name-diplomat
+    jobIcon: JobIconNanotrasen
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
+
+# Halflife Stuff
+
+- type: entity
+  parent: IDCardStandard
+  id: GmanIDCard
+  name: strange ID card
+  description: The card that originally accessed everything in this universe
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/id_cards.rsi
+    layers:
+    - state: future # Todo - Unique sprites?
+    - state: idchrono
+  - type: Item
+    heldPrefix: blue
+  - type: IdCard
+    jobTitle: job-name-gman
+    jobIcon: JobIconLambda
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
+    - Wizard
+    - NuclearOperative
+    - SyndicateAgent

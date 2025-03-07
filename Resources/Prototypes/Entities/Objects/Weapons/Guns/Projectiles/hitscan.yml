@@ -112,7 +112,8 @@
   id: Pulse
   damage:
     types:
-      Heat: 35
+      Heat: 20 # Slightly nerfing damage, otherwise people will bitch about how I'm giving the pulse pistol out like candy
+      Blunt: 5 # Split damage is cool.
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_blue
