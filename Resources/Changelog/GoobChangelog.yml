@@ -5873,3 +5873,9 @@ Entries:
       message: Mass now effects grab release attempts.
   id: 672
   time: '2025-03-07T03:42:50.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added CPR (DAMN YOU PIRAS314)
+  id: 673
+  time: '2025-03-07T05:15:39.0000000+00:00'
