@@ -91,5 +91,5 @@
     - id: RadioHandheldSecurity
     - id: Zipties
       amount: 4
-    - id: flashbang
+    - id: GrenadeFlashBang
       amount: 2
