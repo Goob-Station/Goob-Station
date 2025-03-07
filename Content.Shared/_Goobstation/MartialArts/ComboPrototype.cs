@@ -20,6 +20,7 @@ public sealed partial class ComboPrototype : IPrototype
     //[DataField("weapon")] // Will be done later
     //public string? WeaponProtoId;
     [DataField("event", required: true)]
+    [NonSerialized]
     public EntityEventArgs? ResultEvent;
 
     /// <summary>
