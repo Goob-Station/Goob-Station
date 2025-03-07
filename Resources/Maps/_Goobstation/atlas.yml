@@ -3922,7 +3922,7 @@ entities:
       pos: -24.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -77.63124
+      secondsUntilStateChange: -169.98892
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -18095,11 +18095,17 @@ entities:
       rot: 3.141592653589793 rad
       pos: 26.486826,1.5149169
       parent: 2
-  - uid: 2779
+- proto: CandyBowlFilledLollypopsMystery
+  entities:
+  - uid: 1364
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 2.5301285,-5.525376
+      pos: 2.4992929,-5.473424
+      parent: 2
+  - uid: 1365
+    components:
+    - type: Transform
+      pos: 36.535454,2.5510066
       parent: 2
 - proto: CannabisSeeds
   entities:

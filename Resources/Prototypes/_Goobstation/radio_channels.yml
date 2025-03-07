@@ -5,11 +5,3 @@
   frequency: 9999
   color: "#91E8E5"
   longRange: true
-
-- type: radioChannel
-  id: TideHivemind
-  name: chat-radio-tidemind
-  keycode: 'p'
-  frequency: 7103 #
-  color: "#8C8C8C"
-  longRange: true

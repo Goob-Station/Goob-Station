@@ -224,4 +224,46 @@ public sealed partial class GoobCVars
         CVarDef.Create("rmc.discord_account_linking_message_link", "", CVar.REPLICATED | CVar.SERVER);
 
     #endregion
+
+    #region Goobcoins
+
+    public static readonly CVarDef<int> GoobcoinsPerPlayer =
+        CVarDef.Create("goob.coins_per_player", 10, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> GoobcoinsPerGreentext =
+        CVarDef.Create("goob.coins_per_greentext", 5, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> GoobcoinNonAntagMultiplier =
+        CVarDef.Create("goob.coins_non_antag_multiplier", 3, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> GoobcoinServerMultiplier =
+        CVarDef.Create("goob.coins_server_multiplier", 1, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> GoobcoinMinPlayers =
+        CVarDef.Create("goob.coins_min_players", 5, CVar.SERVERONLY);
+
+    #endregion
+
+    #region Chat highlights
+
+    /// <summary>
+    /// A string containing a list of newline-separated words to be highlighted in the chat.
+    /// </summary>
+    public static readonly CVarDef<string> ChatHighlights =
+        CVarDef.Create("chat.highlights", "", CVar.CLIENTONLY | CVar.ARCHIVE, "A list of newline-separated words to be highlighted in the chat.");
+
+    /// <summary>
+    /// An option to toggle the automatic filling of the highlights with the character's info, if available.
+    /// </summary>
+    public static readonly CVarDef<bool> ChatAutoFillHighlights =
+        CVarDef.Create("chat.auto_fill_highlights", false, CVar.CLIENTONLY | CVar.ARCHIVE, "Toggles automatically filling the highlights with the character's information.");
+
+    /// <summary>
+    /// The color in which the highlights will be displayed.
+    /// </summary>
+    public static readonly CVarDef<string> ChatHighlightsColor =
+        CVarDef.Create("chat.highlights_color", "#17FFC1FF", CVar.CLIENTONLY | CVar.ARCHIVE, "The color in which the highlights will be displayed.");
+
+    #endregion
+
 }

@@ -14,6 +14,15 @@
     Glass: 500
 
 - type: latheRecipe
+  id: VehicleHoverchairSci
+  result: VehicleHoverchair
+  completetime: 5
+  materials:
+    Steel: 500
+    Gold: 300
+    Plasma: 250
+
+- type: latheRecipe
   id: SyringeGun
   result: SyringeGun
   completetime: 5
