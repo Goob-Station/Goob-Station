@@ -5817,3 +5817,41 @@ Entries:
       message: Added the temperature gun.
   id: 670
   time: '2025-03-07T02:50:26.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added Navy Officer ghostrole.
+    - type: Add
+      message: Added Navy Captain ghostrole.
+    - type: Add
+      message: Added Diplomat ghostrole.
+    - type: Add
+      message: Added Undercover Navy Officer ghostrole.
+    - type: Add
+      message: Added Special Operations Officer ghostrole.
+    - type: Add
+      message: Added the G-Man as a admeme role. You're welcome CodeDJ.
+    - type: Add
+      message: Added new gamerule for admins, "DeathSquadSpawn" Self-explanatory.
+    - type: Tweak
+      message: Deathsquads have been revamped. You'll know it when you see it.
+    - type: Tweak
+      message: CentComm officials have had their loadout updated.
+    - type: Tweak
+      message: >-
+        CBURN now has stronger gear. (RIP CBURN Double barrel, you will not be
+        missed)
+    - type: Tweak
+      message: >-
+        A majority of ERT squads have had their loadouts reworked. (LECTER ERT
+        IS DEAD!!)
+    - type: Tweak
+      message: The blueshield shield can now have the mace holstered into it
+    - type: Tweak
+      message: >-
+        The blueshield mace has had it's stats rebalanced to be in accordance to
+        the new stun baton stats. If you mald pr that, please change this too.
+    - type: Fix
+      message: The second weapons folder is dead. Coders rejoice.
+  id: 671
+  time: '2025-03-07T02:54:20.0000000+00:00'
