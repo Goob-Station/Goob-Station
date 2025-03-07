@@ -5916,3 +5916,11 @@ Entries:
         triggers its reload.
   id: 677
   time: '2025-03-07T15:50:50.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: Mansus grasp now can be deactivated through the action.
+    - type: Tweak
+      message: 'Mansus grasp cooldown starts after use now. '
+  id: 678
+  time: '2025-03-07T20:20:27.0000000+00:00'
