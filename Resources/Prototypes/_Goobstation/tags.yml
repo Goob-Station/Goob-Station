@@ -156,6 +156,9 @@
   id: GunCanAimShooter
 
 - type: Tag
+  id: HandheldCrewMonitor
+
+- type: Tag
   id: HarpyEmotes
 
 - type: Tag
@@ -328,7 +331,7 @@
 
 - type: Tag
   id: HudMedicalDiagnostic
-  
+
 - type: Tag
   id: ReverseBearTrapKey
 

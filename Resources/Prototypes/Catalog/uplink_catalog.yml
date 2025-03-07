@@ -1991,7 +1991,7 @@
   icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi, state: dart-syringe-gun }
   productEntity: DartSyringeGun
   cost:
-    Telecrystal: 30 # goob
+    Telecrystal: 20 # Hypopen is better
   categories:
   - UplinkJob
   conditions:

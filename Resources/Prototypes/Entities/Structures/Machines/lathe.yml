@@ -546,7 +546,6 @@
     - EmptyMedkitsStatic
     - SurgeryStatic
     # Goobstation Packs
-    - MedicalWeaponsStatic
     - ParamedHypoStatic
     - MedicalPatchesStatic
     - SurgeryStaticGoob
@@ -559,13 +558,12 @@
     # Goobstation Packs
     - MedicalSurgery
     - MedicalCybernetics
-    - MedicalWeapons
     - MedicalMisc
+    - MedicalMiscRestricted
     - MedicalVehiclesAdvanced
     - MedicalBoards
     - ServiceWeapons
     - Janitor
-
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: EmagLatheRecipes # Goobstation Packs
