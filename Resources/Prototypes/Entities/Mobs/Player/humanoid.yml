@@ -40,7 +40,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerDeathSquad
-  name: Death Squad Agent
+  name: Death Squad Operative
   suffix: ERTRole, Death Squad
   components:
     - type: Sprite
@@ -58,6 +58,8 @@
   parent: EventHumanoidMindShielded
   randomizeName: false
   components:
+    - type: GrantImplant
+      implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ] # Goobstation
     - type: GhostRole
       name: ghost-role-information-Death-Squad-name
       description: ghost-role-information-Death-Squad-description
@@ -138,15 +140,15 @@
       roleLoadout: [ RoleSurvivalEVA ]
 
 - type: entity
-  id: RandomHumanoidSpawnerERTLeaderEVALecter
+  id: RandomHumanoidSpawnerERTLeaderEVAAnnie
   parent: RandomHumanoidSpawnerERTLeaderEVA
-  suffix: ERTRole, Lecter, EVA
+  suffix: ERTRole, Annie, EVA
   components:
     - type: RandomHumanoidSpawner
-      settings: ERTLeaderEVALecter
+      settings: ERTLeaderEVAAnnie
 
 - type: randomHumanoidSettings
-  id: ERTLeaderEVALecter
+  id: ERTLeaderEVAAnnie
   parent: ERTLeaderEVA
   components:
     - type: GhostRole
@@ -157,7 +159,7 @@
         settings: short
       job: ERTLeader
     - type: Loadout
-      prototypes: [ ERTLeaderGearEVALecter ]
+      prototypes: [ ERTLeaderGearEVAAnnie ]
       roleLoadout: [ RoleSurvivalEVA ]
 
 ## ERT Chaplain
@@ -418,28 +420,29 @@
       prototypes: [ ERTSecurityGearEVA ]
       roleLoadout: [ RoleSurvivalEVA ]
 
-- type: entity
-  id: RandomHumanoidSpawnerERTSecurityEVALecter
-  parent: RandomHumanoidSpawnerERTSecurityEVA
-  suffix: ERTRole, Lecter, EVA
-  components:
-    - type: RandomHumanoidSpawner
-      settings: ERTSecurityEVALecter
-
-- type: randomHumanoidSettings
-  id: ERTSecurityEVALecter
-  parent: ERTSecurityEVA
-  components:
-    - type: GhostRole
-      name: ghost-role-information-ert-security-name
-      description: ghost-role-information-ert-security-description
-      rules: ghost-role-information-nonantagonist-rules
-      raffle:
-        settings: short
-      job: ERTSecurity
-    - type: Loadout
-      prototypes: [ ERTSecurityGearEVALecter ]
-      roleLoadout: [ RoleSurvivalEVA ]
+# ERT Lecter is dead, and I have killed it. - Sol
+#- type: entity
+#  id: RandomHumanoidSpawnerERTSecurityEVALecter
+#  parent: RandomHumanoidSpawnerERTSecurityEVA
+#  suffix: ERTRole, Lecter, EVA
+#  components:
+#    - type: RandomHumanoidSpawner
+#      settings: ERTSecurityEVALecter
+#
+#- type: randomHumanoidSettings
+#  id: ERTSecurityEVALecter
+#  parent: ERTSecurityEVA
+#  components:
+#    - type: GhostRole
+#      name: ghost-role-information-ert-security-name
+#      description: ghost-role-information-ert-security-description
+#      rules: ghost-role-information-nonantagonist-rules
+#      raffle:
+#        settings: short
+#      job: ERTSecurity
+#    - type: Loadout
+#      prototypes: [ ERTSecurityGearEVALecter ]
+#      roleLoadout: [ RoleSurvivalEVA ]
 
 ## ERT Medic
 
@@ -522,6 +525,8 @@
   id: CBURNAgent
   parent: EventHumanoidMindShielded
   components:
+    - type: GrantImplant
+      implants: [ FreedomImplant, RadioImplantCentcomm ]
     - type: Loadout
       prototypes: [CBURNGear]
       roleLoadout: [ RoleSurvivalEVA ]
@@ -552,6 +557,8 @@
   id: CentcomOfficial
   parent: EventHumanoidMindShielded
   components:
+    - type: GrantImplant
+      implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
     - type: GhostRole
       name: ghost-role-information-centcom-official-name
       description: ghost-role-information-centcom-official-description

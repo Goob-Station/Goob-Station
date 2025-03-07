@@ -11,7 +11,7 @@
     drawdepth: FloorEffects
     sprite: _Goobstation/Wizard/Objects/trap.rsi
     state: icon
-    color: '#FFFFFF05'
+    color: '#FFFFFF0e'
   - type: Fixtures
     fixtures:
       fix1:
@@ -43,7 +43,7 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    color: '#FFFF0005'
+    color: '#FFFF000e'
   - type: WizardTrap
     stunTime: 0
     effect: StunTrapFlashEffect
@@ -58,7 +58,7 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    color: '#FF000005'
+    color: '#FF00000e'
   - type: WizardTrap
     effect: FlameTrapFlashEffect
   - type: FlameTrap
@@ -72,7 +72,7 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    color: '#00FF0005'
+    color: '#00FF000e'
   - type: WizardTrap
     effect: DamageTrapFlashEffect
   - type: DamageTrap
@@ -90,7 +90,7 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    color: '#00FFFF05'
+    color: '#00FFFF0e'
   - type: WizardTrap
     stunTime: 0
     effect: ChillTrapFlashEffect

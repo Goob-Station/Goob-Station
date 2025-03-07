@@ -8697,8 +8697,8 @@ entities:
           id: docking46345
           localAnchorB: -0.5,-1
           localAnchorA: -66.5,22
-          damping: 42.400932
-          stiffness: 380.5899
+          damping: 42.40091
+          stiffness: 380.5897
     - type: OccluderTree
     - type: Shuttle
     - type: RadiationGridResistance
@@ -11603,7 +11603,7 @@ entities:
       pos: 24.5,16.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -30839.281
+      secondsUntilStateChange: -30873.63
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -57210,6 +57210,18 @@ entities:
       rot: 3.141592653589793 rad
       pos: 34.5,-92.5
       parent: 8364
+- proto: CandyBowlFilledLollypopsMystery
+  entities:
+  - uid: 3022
+    components:
+    - type: Transform
+      pos: -1.5146732,-5.359657
+      parent: 8364
+  - uid: 7010
+    components:
+    - type: Transform
+      pos: 23.556795,-17.550554
+      parent: 8364
 - proto: CannabisSeeds
   entities:
   - uid: 26471
@@ -84843,7 +84855,7 @@ entities:
       pos: -34.5,-14.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -25027.816
+      secondsUntilStateChange: -25062.166
       state: Closing
   - uid: 15010
     components:
@@ -85336,7 +85348,7 @@ entities:
       pos: -4.5,-71.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -16775.549
+      secondsUntilStateChange: -16809.898
       state: Closing
 - proto: Fireplace
   entities:

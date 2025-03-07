@@ -42,3 +42,29 @@
 #      - state: tip
 #        map: [ "enum.AmmoVisualLayers.Tip" ]
 #        color: "#fff94d"
+
+- type: entity
+  id: CartridgeMagnumNeurotoxin
+  name: shell (.45 subsonic neurotoxin)
+  parent: BaseCartridgeMagnum
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#00FF00"
+  - type: CartridgeAmmo
+    proto: BulletMagnumNeurotoxin
+  - type: ChemicalAmmo
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        reagents:
+        - ReagentId: Amatoxin
+          Quantity: 9
+        - ReagentId: Impedrezene
+          Quantity: 5
+  - type: SolutionTransfer
+    maxTransferAmount: 9
