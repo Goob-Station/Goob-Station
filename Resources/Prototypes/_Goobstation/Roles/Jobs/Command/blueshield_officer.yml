@@ -15,6 +15,7 @@
       time: 90000 # 25 hours
     - !type:AgeRequirement
       requiredAge: 21
+  goobcoins: 45
   weight: 20
   startingGear: BlueshieldOfficerGear
   icon: "JobIconBlueshield"
@@ -49,17 +50,17 @@
 - type: startingGear
   id: BlueshieldOfficerGear
   equipment:
-    eyes: ClothingEyesGlassesMedSec
+    eyes: ClothingEyesGlassesBSO
     gloves: ClothingHandsGlovesCombat
     id: BlueshieldPDA
     ears: ClothingHeadsetAltCommand
     pocket1: UniqueBlueshieldOfficerLockerTeleporter
     pocket2: PinpointerNuclear
-    belt: BlueShieldShield
+    belt: BlueShieldShieldFilled # I felt like einstein after figuring this out.
   storage:
     back:
+    - ClothingMaskGasSecurity 
     - Flash
     - BluespaceLifelineImplanter
     - WeaponEnergyRevolver
     - SecHypo
-    - BlueshieldMace

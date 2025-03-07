@@ -32521,6 +32521,18 @@ entities:
     - type: Transform
       pos: 54.503376,-4.6494684
       parent: 2
+- proto: CandyBowlFilledLollypopsMystery
+  entities:
+  - uid: 9981
+    components:
+    - type: Transform
+      pos: 49.593708,1.513795
+      parent: 2
+  - uid: 9982
+    components:
+    - type: Transform
+      pos: 16.488287,-2.4642391
+      parent: 2
 - proto: CannabisSeeds
   entities:
   - uid: 4865
