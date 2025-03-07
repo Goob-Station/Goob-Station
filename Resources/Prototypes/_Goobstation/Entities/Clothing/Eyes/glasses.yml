@@ -86,7 +86,6 @@
     node: glassesMed
 
 - type: entity
-- type: entity
   parent: [ClothingEyesHudOmni, BaseCentcommContraband]
   id: ClothingEyesGlassesDeathsquad
   suffix: DO NOT MAP
