@@ -126,6 +126,9 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<string> PlayerRageQuitDiscordWebhook =
         CVarDef.Create("ragequit.discord_webhook", "", CVar.SERVERONLY | CVar.CONFIDENTIAL);
 
+    public static readonly CVarDef<int> PunishmentArrowAngerThreshold =
+        CVarDef.Create("PointingArrow.AngerThreshold", 20, CVar.SERVERONLY, "After how much arrows in a minute will cause them to be angry. Warn threshold will always be half of this, rounded up.");
+
     #endregion PlayerListener
 
     #region Surgery
