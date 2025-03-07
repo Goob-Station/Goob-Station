@@ -10,6 +10,7 @@
     forced: true
     revertOnCrit: false
     revertOnDeath: false
+    attachToGridOrMap: true
 
 - type: polymorph
   id: WizardRodIII
@@ -23,6 +24,7 @@
     forced: true
     revertOnCrit: false
     revertOnDeath: false
+    attachToGridOrMap: true
 
 - type: polymorph
   id: WizardRodIV
@@ -36,6 +38,7 @@
     forced: true
     revertOnCrit: false
     revertOnDeath: false
+    attachToGridOrMap: true
 
 - type: polymorph
   id: WizardRodV
@@ -49,6 +52,7 @@
     forced: true
     revertOnCrit: false
     revertOnDeath: false
+    attachToGridOrMap: true
 
 - type: polymorph
   id: WizardGorilla
@@ -72,7 +76,15 @@
     revertOnDeath: false
     allowRepeatedMorphs: true
     componentsToTransfer:
-    - Wizard
-    - Apprentice
-    - TimedDespawn
-    - FadingTimedDespawn
+    - component: Wizard
+      mirror: true
+    - component: Apprentice
+      mirror: true
+    - component: TimedDespawn
+    - component: FadingTimedDespawn
+    - component: HTN
+    - component: NpcFactionMember
+    - component: MeleeWeapon
+      override: false
+    - component: CombatMode
+      mirror: true

@@ -1,0 +1,18 @@
+- type: latheRecipePack
+  id: SharedBoardsStatic
+  recipes:
+  - ProtolatheMachineCircuitboard
+  - AutolatheMachineCircuitboard
+  - CircuitImprinterMachineCircuitboard
+
+#Dynamic
+- type: latheRecipePack
+  id: SharedBoards
+  recipes:
+  - TurboItemRechargerCircuitboard
+  - AutolatheHyperConvectionMachineCircuitboard
+  - ProtolatheHyperConvectionMachineCircuitboard
+  - CircuitImprinterHyperConvectionMachineCircuitboard
+  - FlatpackerMachineCircuitboard
+  - SheetifierMachineCircuitboard
+  - PowerCageRechargerCircuitboard

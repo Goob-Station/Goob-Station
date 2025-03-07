@@ -1,0 +1,17 @@
+- type: entity
+  id: OrganRatKingStomach
+  parent: OrganAnimalStomach
+  suffix: "ratking"
+  description: "How hungry?"
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 800
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Sprite
+    state: stomach
