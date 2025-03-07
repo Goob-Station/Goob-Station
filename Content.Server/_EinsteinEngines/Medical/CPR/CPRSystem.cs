@@ -7,7 +7,8 @@ using Content.Shared.Atmos.Rotting;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Inventory;
-using Content.Shared.Medical;
+
+using Content.Shared.Medical.CPR;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -34,8 +35,7 @@ public sealed class CPRSystem : EntitySystem
 
     public override void Initialize()
     {
-        base.Initialize();
-        SubscribeLocalEvent<CPRTrainingComponent, GetVerbsEvent<InnateVerb>>(AddCPRVerb);
+        base.Initialize(); SubscribeLocalEvent<CPRTrainingComponent, GetVerbsEvent<InnateVerb>>(AddCPRVerb);
         SubscribeLocalEvent<CPRTrainingComponent, CPRDoAfterEvent>(OnCPRDoAfter);
     }
 
