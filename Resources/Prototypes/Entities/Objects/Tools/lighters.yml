@@ -132,7 +132,7 @@
   description: "A rugged metal lighter, lasts quite a while."
   components:
   - type: Sprite
-    sprite: Objects/Tools/lighters.rsi
+    sprite: /Textures/_Goobstation/Objects/Tools/lighters.rsi
     layers:
     - state: zippo_icon_base
       map: ["base"]
