@@ -31,7 +31,7 @@ public sealed partial class KravMagaComponent : GrabStagesOverrideComponent
     [DataField]
     public KravMagaActionComponent? SelectedMoveComp;
 
-    public readonly List<ProtoId<EntityPrototype>> BaseKravMagaMoves = new()
+    public readonly List<EntProtoId> BaseKravMagaMoves = new()
     {
         "ActionLegSweep",
         "ActionNeckChop",
