@@ -395,9 +395,9 @@
     embedOnThrow: true
     sound: /Audio/Weapons/Guns/Hits/bullet_meat1.ogg
   - type: SolutionInjectWhileEmbedded
-    transferAmount: 1
-    updateInterval: 0.5 # done in 7.5 seconds
-    maxInjections: 2 # only inject 2u if thrown
+    transferAmount: 1.5
+    updateInterval: 1 # done in 10 seconds
+    maxInjections: 2 # only inject 3u if thrown
     solution: injector
     pierceArmor: false # 1984
   - type: Fixtures

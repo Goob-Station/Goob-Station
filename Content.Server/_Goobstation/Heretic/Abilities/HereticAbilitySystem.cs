@@ -32,6 +32,8 @@ using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
 using Content.Server.Heretic.EntitySystems;
 using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
+using Content.Server.Heretic.Components;
+using Content.Shared.Hands.Components;
 using Content.Shared.Tag;
 
 namespace Content.Server.Heretic.Abilities;
@@ -149,14 +151,22 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        if (ent.Comp.MansusGraspActive)
+        if (ent.Comp.MansusGrasp != EntityUid.Invalid)
         {
-            _popup.PopupEntity(Loc.GetString("heretic-ability-fail"), ent, ent);
+            if(!TryComp<HandsComponent>(ent, out var handsComp))
+                return;
+            foreach (var hand in handsComp.Hands.Values)
+            {
+                if (hand.HeldEntity == null)
+                    continue;
+                if (HasComp<MansusGraspComponent>(hand.HeldEntity))
+                    QueueDel(hand.HeldEntity);
+            }
+            ent.Comp.MansusGrasp = EntityUid.Invalid;
             return;
         }
 
         var st = Spawn("TouchSpellMansus", Transform(ent).Coordinates);
-
         if (!_hands.TryForcePickupAnyHand(ent, st))
         {
             _popup.PopupEntity(Loc.GetString("heretic-ability-fail"), ent, ent);
@@ -164,7 +174,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
         }
 
-        ent.Comp.MansusGraspActive = true;
+        ent.Comp.MansusGrasp = args.Action.Owner;
         args.Handled = true;
     }
     private void OnLivingHeart(Entity<HereticComponent> ent, ref EventHereticLivingHeart args)

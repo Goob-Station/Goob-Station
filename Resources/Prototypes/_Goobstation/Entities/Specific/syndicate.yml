@@ -1,0 +1,32 @@
+- type: entity
+  parent: [BaseItem, BaseSyndicateContraband]
+  id: CQCManual
+  name: old manual
+  description: A small, black manual. There are drawn instructions of tactical hand-to-hand combat.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/cqc_manual.rsi
+    layers:
+    - state: icon
+  - type: Item
+    size: Small
+  - type: StaticPrice
+    price: 3000
+  - type: GrantCqc
+
+- type: entity
+  parent: BaseItem
+  id: SleepingCarpScroll
+  name: mysterious scroll
+  description: A scroll filled with strange markings. It seems to be drawings of some sort of martial art.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    layers:
+    - state: scroll2
+  - type: Item
+    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    size: Small
+  - type: StaticPrice
+    price: 3000
+  - type: GrantSleepingCarp
