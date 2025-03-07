@@ -79,11 +79,11 @@
   - type: Speech
     speechVerb: Robotic
     speechSounds: Pai
-  - type: GhostRole
-    prob: 0.05
-    name: ghost-role-information-c4-name
-    description: ghost-role-information-c4-description
-    rules: ghost-role-information-familiar-rules
+  # - type: GhostRole # ShibaStation - funny but dumb, new centcomm has a C4 that always becomes a ghost role.
+  #   prob: 0.05
+  #   name: ghost-role-information-c4-name
+  #   description: ghost-role-information-c4-description
+  #   rules: ghost-role-information-familiar-rules
   - type: GhostTakeoverAvailable
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
