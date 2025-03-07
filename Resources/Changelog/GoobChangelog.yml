@@ -5948,3 +5948,11 @@ Entries:
       message: Medical personnel equipment got some improvements.
   id: 680
   time: '2025-03-07T20:21:58.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Tweak
+      message: Changeling Armblade now does 20 slash.
+    - type: Tweak
+      message: Foamblade makes spooky sounds on use.
+  id: 681
+  time: '2025-03-07T20:22:20.0000000+00:00'
