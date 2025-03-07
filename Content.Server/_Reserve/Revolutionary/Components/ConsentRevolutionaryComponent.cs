@@ -1,6 +1,6 @@
 using Content.Server._Reserve.Revolutionary.UI;
 
-namespace Content.Server._Reserve.Revolutionary;
+namespace Content.Server._Reserve.Revolutionary.Components;
 
 [RegisterComponent]
 public sealed partial class ConsentRevolutionaryComponent : Component
@@ -23,7 +23,7 @@ public sealed partial class ConsentRevolutionaryComponent : Component
     /// <summary>
     /// Last time when entity was requested to be revolutionary
     /// </summary>
-    [DataField] public TimeSpan? LastRequestedTimeSpan;
+    [DataField] public TimeSpan? RequestStartTime;
 
     /// <summary>
     /// Time given to give response to request
@@ -34,6 +34,11 @@ public sealed partial class ConsentRevolutionaryComponent : Component
     /// Time in which entity is can't be converted
     /// </summary>
     [DataField] public TimeSpan RequestBlockTime = TimeSpan.FromMinutes(5);
+
+    /// <summary>
+    /// Time in which entity cannot request conversion
+    /// </summary>
+    [DataField] public TimeSpan ConversionBlockTime = TimeSpan.FromMinutes(1);
 
     /// <summary>
     /// Distance in which request works

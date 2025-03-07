@@ -21,6 +21,13 @@ rev-consent-window-convert-deny = Отказаться
 
 rev-verb-consent-convert-text = Завербовать
 rev-verb-consent-convert-message = Добровольно вербует в революцию. Вербуемый может отказаться.
+rev-verb-consent-convert-message-cooldown = Способность к вербовке на перезарядке!
+
+alerts-rev-conversion-denied-name = Отказ от вступления революции
+alerts-rev-conversion-denied-desc = Вы отказались от вступлению в революцию. Вам не могут предложить вступить повторно некоторое время. Нажмите, чтобы отменить данный эффект.
+
+alerts-rev-conversion-cooldown-name = Задержка вербовки
+alerts-rev-conversion-cooldown-desc = Вы недавно завербовали человека в революцию. Функция вербовки временно недоступна.
 
 head-rev-role-greeting-consent-only =
     Вы - глава революции.

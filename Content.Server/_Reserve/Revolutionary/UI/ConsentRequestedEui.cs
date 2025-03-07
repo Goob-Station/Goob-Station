@@ -1,3 +1,4 @@
+using Content.Server._Reserve.Revolutionary.Components;
 using Content.Server.EUI;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Popups;
@@ -35,8 +36,16 @@ public sealed class ConsentRequestedEui(EntityUid target, EntityUid converter, R
 
             if (consent.IsAccepted)
             {
+                // Make target a revolutionary
                 revRuleSystem.ConvertEntityToRevolution(target, converter);
-                consRevSystem.CancelRequest(targetConsRev, consRev);
+
+                // Remove request
+                consRevSystem.CancelRequest((target, targetConsRev), (converter, consRev));
+
+                // Apply cooldown to convertor
+                consRevSystem.ApplyConversionCooldown((converter, consRev));
+
+                // Announce that convert was successful
                 popup.PopupEntity(
                     Loc.GetString("rev-consent-convert-accepted", ("target", Identity.Entity(target, entManager))),
                     target,
@@ -44,7 +53,13 @@ public sealed class ConsentRequestedEui(EntityUid target, EntityUid converter, R
             }
             else
             {
-                consRevSystem.CancelRequest(targetConsRev, consRev);
+                // Cancel request with cooldown
+                consRevSystem.CancelRequest((target, targetConsRev), (converter, consRev));
+
+                // Apply conversion block to target
+                consRevSystem.ApplyConversionDeny((target, targetConsRev));
+
+                // Announce that convert failed
                 popup.PopupEntity(
                     Loc.GetString("rev-consent-convert-denied", ("target", Identity.Entity(target, entManager))),
                     target,
