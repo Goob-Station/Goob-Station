@@ -212,7 +212,7 @@
   table: !type:AllSelector
     children:
     - id: BoxEncryptionKeyMedical
-    - id: ClothingBackpackDuffelSurgeryFilled
+    # - id: ClothingBackpackDuffelSurgeryFilled # Goobstation - tools in webbing
     - id: ClothingCloakCmo
     - id: ClothingEyesHudMedical
     - id: ClothingHandsGlovesNitrile
@@ -220,7 +220,7 @@
     - id: ClothingHeadsetAltMedical
     - id: ClothingMaskSterile
     - id: DoorRemoteMedical
-    # - id: HandheldCrewMonitor # Goobstation
+    # - id: HandheldCrewMonitor # Goobstation - in webbing
     - id: Hypospray
     - id: MedicalTechFabCircuitboard
     - id: MedkitFilled
