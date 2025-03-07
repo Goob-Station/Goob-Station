@@ -5892,3 +5892,9 @@ Entries:
       message: Dynamic.
   id: 674
   time: '2025-03-07T05:19:11.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added a new potential lawset for borgs.
+  id: 675
+  time: '2025-03-07T07:35:07.0000000+00:00'
