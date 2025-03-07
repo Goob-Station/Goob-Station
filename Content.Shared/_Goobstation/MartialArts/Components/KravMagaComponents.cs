@@ -16,10 +16,10 @@ public sealed partial class KravMagaActionComponent : Component
     public string Name;
 
     [DataField]
-    public float staminaDamage;
+    public float StaminaDamage;
 
     [DataField]
-    public int effectTime;
+    public int EffectTime;
 }
 
 [RegisterComponent]
@@ -35,7 +35,7 @@ public sealed partial class KravMagaComponent : GrabStagesOverrideComponent
     {
         "ActionLegSweep",
         "ActionNeckChop",
-            "ActionLungPunch",
+        "ActionLungPunch",
     };
 
     public readonly List<EntityUid> KravMagaMoveEntities = new()
@@ -48,21 +48,27 @@ public sealed partial class KravMagaComponent : GrabStagesOverrideComponent
     [DataField]
     public int DownedDamageModifier = 2;
 }
-
-[RegisterComponent,NetworkedComponent]
+/// <summary>
+/// Tracks when an entity is silenced through Krav Maga techniques.
+/// Prevents the affected entity from using voice-activated abilities or speaking.
+/// </summary>
+[RegisterComponent, NetworkedComponent]
 public sealed partial class KravMagaSilencedComponent : Component
 {
     [DataField]
     public TimeSpan SilencedTime = TimeSpan.Zero;
 }
 
-[RegisterComponent,NetworkedComponent]
+/// <summary>
+/// Tracks when an entity's breathing is blocked through Krav Maga techniques.
+/// May cause suffocation damage over time when integrated with respiration systems.
+/// </summary>
+[RegisterComponent, NetworkedComponent]
 public sealed partial class KravMagaBlockedBreathingComponent : Component
 {
     [DataField]
     public TimeSpan BlockedTime = TimeSpan.Zero;
 }
-
 
 public enum KravMagaMoves
 {
@@ -70,4 +76,3 @@ public enum KravMagaMoves
     NeckChop,
     LungPunch,
 }
-

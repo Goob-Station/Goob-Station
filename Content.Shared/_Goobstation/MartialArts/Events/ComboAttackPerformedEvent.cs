@@ -3,8 +3,8 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._Goobstation.MartialArts.Events;
 
 /// <summary>
-///     Raised whenever <see cref="IMoverComponent.CanMove"/> needs to be updated. Cancel this event to prevent a
-///     mover from moving.
+///     Raised when a martial arts combo attack is performed. Contains information about
+///     the performer, target, weapon used, and the type of combo attack.
 /// </summary>
 public sealed class ComboAttackPerformedEvent(
     EntityUid performer,

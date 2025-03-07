@@ -20,6 +20,12 @@ public sealed partial class MartialArtPrototype : IPrototype
     public int MaxDamageModifier = 5;
 
     [DataField]
+    public FixedPoint2 BaseDamageModifier;
+
+    [DataField]
+    public FixedPoint2 HarmAsStamina;
+
+    [DataField]
     public bool RandomDamageModifier;
 
     [DataField]

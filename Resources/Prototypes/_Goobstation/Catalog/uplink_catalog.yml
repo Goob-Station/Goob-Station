@@ -651,7 +651,7 @@
 - type: listing
   id: UplinkCQCManual
   name: uplink-cqc-name
-  description: uplink-sleeping-carp-desc
+  description: uplink-cqc-desc
   productEntity: CQCManual
   cost:
     Telecrystal: 60
@@ -667,7 +667,7 @@
   id: UplinkMysteriousScroll
   name: uplink-sleeping-carp-name
   description: uplink-sleeping-carp-desc
-  productEntity: DimensionPot
+  productEntity: SleepingCarpScroll
   cost:
     Telecrystal: 70
   categories:

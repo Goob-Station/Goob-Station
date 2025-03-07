@@ -51,12 +51,12 @@ public abstract partial class SharedMartialArtsSystem
                 break;
             case KravMagaMoves.NeckChop:
                 var comp = EnsureComp<KravMagaSilencedComponent>(hitEntity);
-                comp.SilencedTime = _timing.CurTime + TimeSpan.FromSeconds(moveComp.effectTime);
+                comp.SilencedTime = _timing.CurTime + TimeSpan.FromSeconds(moveComp.EffectTime);
                 break;
             case KravMagaMoves.LungPunch:
-                _stamina.TakeStaminaDamage(hitEntity, moveComp.staminaDamage);
+                _stamina.TakeStaminaDamage(hitEntity, moveComp.StaminaDamage);
                 var blockedBreathingComponent = EnsureComp<KravMagaBlockedBreathingComponent>(hitEntity);
-                blockedBreathingComponent.BlockedTime = _timing.CurTime + TimeSpan.FromSeconds(moveComp.effectTime);
+                blockedBreathingComponent.BlockedTime = _timing.CurTime + TimeSpan.FromSeconds(moveComp.EffectTime);
                 break;
             case null:
                 var damage = ent.Comp.BaseDamage;

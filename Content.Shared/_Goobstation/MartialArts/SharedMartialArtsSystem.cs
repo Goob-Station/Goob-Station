@@ -143,7 +143,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     {
         if (!_netManager.IsServer)
             return;
-        var userName = Identity.Entity(target, EntityManager);
+        var userName = Identity.Entity(user, EntityManager);
         var targetName = Identity.Entity(target, EntityManager);
         _popupSystem.PopupEntity(Loc.GetString("martial-arts-action-sender",
             ("name", targetName),
@@ -182,8 +182,8 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             {
                 var newDamage = new DamageSpecifier();
                 newDamage.DamageDict.Add("Blunt", martialArtsKnowledgeComponent.BaseDamageModifier);
+                meleeWeaponComponent.Damage += newDamage;
             }
-
             Dirty(user, canPerformComboComponent);
             return true;
         }
@@ -264,7 +264,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             return true;
         }
 
-        return true;
+        return false;
     }
 
     private void DoDamage(EntityUid ent,

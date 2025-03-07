@@ -59,7 +59,7 @@
 
 - type: combo
   id: CQCConsecutive
-  name: Conescutive
+  name: Consecutive
   martialArtsForm: CloseQuartersCombat
   attacks:
   - Disarm
