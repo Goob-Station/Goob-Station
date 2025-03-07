@@ -65,6 +65,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Goobstation/Nonstations/wizden.yml", // Obviously
             "/Maps/_Lavaland/Lavaland/ruin_toyshop.yml", // I think we might want to glob these, idk
             "/Maps/loop.yml", // Don't ask me why we are overwriting upstream
+            "/Maps/_Goobstation/Shuttles/consul.yml" // Contains HEINOUS amounts of centcomm contraband. Obviously.
         };
 
         private static readonly string[] GameMaps =
