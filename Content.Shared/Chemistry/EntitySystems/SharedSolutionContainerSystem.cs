@@ -118,9 +118,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
     {
         if (entity is not null)
         {
-            DebugTools.Assert(TryGetSolution(container, name, out var debugEnt)
-                              && debugEnt.Value.Owner == entity.Value.Owner);
-            return true;
+            return TryGetSolution(container, name, out var debugEnt) && debugEnt.Value.Owner == entity.Value.Owner;
         }
 
         return TryGetSolution(container, name, out entity);
@@ -145,7 +143,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         [NotNullWhen(true)] out Solution? solution,
         bool errorOnMissing = false)
     {
-        if (!TryGetSolution(container, name, out entity))
+        if (!TryGetSolution(container, name, out entity, errorOnMissing: errorOnMissing))
         {
             solution = null;
             return false;

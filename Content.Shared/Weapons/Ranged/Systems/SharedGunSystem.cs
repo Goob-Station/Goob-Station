@@ -124,7 +124,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (melee.NextAttack > component.NextFire)
         {
             component.NextFire = melee.NextAttack;
-            EntityManager.DirtyField(uid, component, nameof(MeleeWeaponComponent.NextAttack));
+            EntityManager.DirtyField(uid, component, nameof(GunComponent.NextFire));
         }
     }
 
@@ -204,6 +204,15 @@ public abstract partial class SharedGunSystem : EntitySystem
         {
             gunEntity = held;
             gunComp = gun;
+            return true;
+        }
+
+        // Lavaland Change: Check equipped entities for a gun.
+        if (_inventory.TryGetSlotEntity(entity, "gloves", out var gloves) &&
+            TryComp<GunComponent>(gloves.Value, out var glovesGun))
+        {
+            gunEntity = gloves.Value;
+            gunComp = glovesGun;
             return true;
         }
 

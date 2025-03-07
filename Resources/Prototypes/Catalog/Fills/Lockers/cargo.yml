@@ -26,6 +26,7 @@
       - id: WeaponProtoKineticAccelerator
       - id: OreBag
       - id: Pickaxe
+      - id: LavalandJaunter
       - id: LavalandEquipmentExplorerSuit
       - id: ShelterCapsule
       - id: ClothingMaskGasExplorer
@@ -58,6 +59,7 @@
       - id: WeaponProtoKineticAccelerator
       - id: OreBag
       - id: Pickaxe
+      - id: LavalandJaunter
       - id: LavalandEquipmentExplorerSuit
       - id: ShelterCapsule
       - id: ClothingMaskGasExplorer
