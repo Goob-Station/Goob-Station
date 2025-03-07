@@ -112,8 +112,8 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
     private void OnShutdown(Entity<MartialArtsKnowledgeComponent> ent, ref ComponentShutdown args)
     {
-        var combo = EnsureComp<CanPerformComboComponent>(ent);
-        combo.AllowedCombos.Clear();
+        if(TryComp<CanPerformComboComponent>(ent, out var comboComponent))
+            comboComponent.AllowedCombos.Clear();
     }
 
     private void CheckGrabStageOverride<T>(EntityUid uid, T component, CheckGrabOverridesEvent args)
