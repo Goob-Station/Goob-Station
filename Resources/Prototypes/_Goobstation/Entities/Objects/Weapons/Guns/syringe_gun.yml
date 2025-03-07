@@ -59,15 +59,15 @@
     slots:
     - back
     - suitStorage
+    quickEquip: false
   - type: Storage
     grid:
     - 0,0,2,1
   - type: Gun
     fireRate: 2
   - type: SyringeGun
-    pierceArmor: true
+    pierceArmor: false
     injectionSpeedMultiplier: 1.5
-    quickEquip: false
   - type: Item
     size: Large
     shape:
