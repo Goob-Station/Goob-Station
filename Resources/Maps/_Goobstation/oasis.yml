@@ -11789,7 +11789,7 @@ entities:
       pos: 39.5,-20.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -8338.132
+      secondsUntilStateChange: -8420.603
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13536,7 +13536,7 @@ entities:
       pos: 46.5,-40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -444892.44
+      secondsUntilStateChange: -444974.9
       state: Opening
   - uid: 309
     components:
@@ -13966,7 +13966,7 @@ entities:
       pos: -3.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -561060
+      secondsUntilStateChange: -561142.5
       state: Opening
   - uid: 376
     components:
@@ -68024,6 +68024,18 @@ entities:
       rot: 3.141592653589793 rad
       pos: 22.854074,-14.566754
       parent: 2
+- proto: CandyBowlFilledLollypopsMystery
+  entities:
+  - uid: 28779
+    components:
+    - type: Transform
+      pos: -4.483388,-37.451637
+      parent: 2
+  - uid: 28780
+    components:
+    - type: Transform
+      pos: 24.02494,14.602636
+      parent: 2
 - proto: CannabisSeeds
   entities:
   - uid: 26784
@@ -87700,8 +87712,11 @@ entities:
   - uid: 9688
     components:
     - type: Transform
-      pos: 24.350317,14.880395
+      pos: 24.470818,14.787265
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 9689
     components:
     - type: Transform
@@ -87720,8 +87735,11 @@ entities:
   - uid: 9692
     components:
     - type: Transform
-      pos: 23.605179,14.947611
+      pos: 23.513117,14.620598
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 9693
     components:
     - type: Transform
@@ -159000,6 +159018,11 @@ entities:
       parent: 2
 - proto: Table
   entities:
+  - uid: 8003
+    components:
+    - type: Transform
+      pos: -4.5,-37.5
+      parent: 2
   - uid: 10088
     components:
     - type: Transform
@@ -181701,7 +181724,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -8331.999
+      secondsUntilStateChange: -8414.47
       state: Opening
     - type: Airlock
       autoClose: False
@@ -183378,7 +183401,7 @@ entities:
       pos: 24.5,2.5
       parent: 22429
     - type: Door
-      secondsUntilStateChange: -339191.7
+      secondsUntilStateChange: -339274.16
       state: Opening
 - proto: WoodenBench
   entities:

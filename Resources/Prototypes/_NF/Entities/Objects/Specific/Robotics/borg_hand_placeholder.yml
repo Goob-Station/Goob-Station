@@ -1,0 +1,10 @@
+- type: entity
+  id: HandPlaceholder
+  name: unknown tool
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Item
+    size: Ginormous # no storage insertion visuals
+  - type: Unremoveable
+  - type: HandPlaceholder
+  - type: HandPlaceholderVisuals

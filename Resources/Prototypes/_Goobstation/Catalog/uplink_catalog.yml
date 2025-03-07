@@ -250,6 +250,17 @@
   categories:
   - UplinkWearables
 
+- type: listing
+  id: UplinkReverseBearTrap
+  name: uplink-reverse-bear-trap-name
+  description: uplink-reverse-bear-trap-desc
+  icon: { sprite: /Textures/_Goobstation/Clothing/Head/Helmets/reverse_bear_trap.rsi, state: icon }
+  productEntity: BoxReverseBearTrap
+  cost:
+    Telecrystal: 23 # novelty item for rp
+  categories:
+  - UplinkWearables
+
 # Job specific
 - type: listing
   id: UplinkPieCannon
