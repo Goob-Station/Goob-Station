@@ -163,7 +163,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
     private bool TryGrant(GrantMartialArtKnowledgeComponent comp, EntityUid user)
     {
-        if (!_netManager.IsServer) // double check to make sure
+        if (!_netManager.IsServer || MetaData(user).EntityLifeStage >= EntityLifeStage.Terminating)
             return false;
 
         if (HasComp<KravMagaComponent>(user))
