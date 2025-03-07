@@ -15,9 +15,6 @@
     interfaces:
        enum.HereticRitualRuneUiKey.Key:
         type: HereticRitualRuneBoundUserInterface
-  - type: StepTrigger
-    requiredTriggeredSpeed: 0
-    intersectRatio: 0.4
 
 - type: entity
   id: HereticRuneRitualDrawAnimation
