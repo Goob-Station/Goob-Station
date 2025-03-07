@@ -5956,3 +5956,13 @@ Entries:
       message: Foamblade makes spooky sounds on use.
   id: 681
   time: '2025-03-07T20:22:20.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: "Added Corporate Judo, CQC, Sleeping Carp, and Krav Maga martial arts with unique abilities.\_Judo belt prevents the use of stun batons as an alternative combat style.\_Sleeping Carp users reflect projectiles but cannot use firearms.\_Krav Maga gloves allow access to special moves like Leg Sweep and Neck Chop."
+    - type: Add
+      message: >-
+        Chefs now have access to CQC (Close Quarters Cooking) in the Kitchen and
+        Bar.
+  id: 682
+  time: '2025-03-07T20:24:35.0000000+00:00'
