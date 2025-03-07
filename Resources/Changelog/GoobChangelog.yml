@@ -5906,3 +5906,13 @@ Entries:
       message: Fixed dynamic.
   id: 676
   time: '2025-03-07T13:44:37.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Firerate PKA modkits now affect PKA recharge speed.
+    - type: Fix
+      message: >-
+        Trying to fire a PKA while it hasn't charged its ammo yet no longer
+        triggers its reload.
+  id: 677
+  time: '2025-03-07T15:50:50.0000000+00:00'
