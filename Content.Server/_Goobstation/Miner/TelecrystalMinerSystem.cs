@@ -31,6 +31,18 @@ public sealed class TelecrystalMinerSystem : EntitySystem
 
     private void OnStartup(EntityUid uid, TelecrystalMinerComponent component, ComponentStartup args)
     {
+        var originStation = _station.GetOwningStation(uid);
+
+        if (originStation != null)
+        {
+            component.OriginStation = originStation;
+        } // shitcode from nukesystem
+        else
+        {
+            var transform = Transform(uid);
+            component.OriginMapGrid = (transform.MapID, transform.GridUid);
+        }
+
         component.StartTime = _gameTiming.CurTime;
     }
 
@@ -41,10 +53,18 @@ public sealed class TelecrystalMinerSystem : EntitySystem
 
         while (query.MoveNext(out var entity, out var miner, out var battery, out var powerConsumer))
         {
+            // checking station
+            var currentStation = _station.GetOwningStation(entity);
+            if (currentStation == null || miner.OriginStation != null && currentStation != miner.OriginStation)
+            {
+                // if not on station, then L bozo
+                continue;
+            }
+
             powerConsumer.NetworkLoad.DesiredPower = miner.PowerDraw;
             if (powerConsumer.NetworkLoad.ReceivingPower < miner.PowerDraw)
                 continue;
-            // todo: end my life
+
             _batterySystem.SetCharge(entity, miner.PowerDraw, battery);
 
             var elapsed = (currentTime - miner.LastUpdate).TotalSeconds;
