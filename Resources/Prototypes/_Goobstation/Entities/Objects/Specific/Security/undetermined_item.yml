@@ -13,7 +13,6 @@
     - RevolverSet
     - CQCSet
     - ChesterSet
-    - InsuranceSet
   - type: ActivatableUI
     key: enum.ThiefBackpackUIKey.Key
   - type: UserInterface

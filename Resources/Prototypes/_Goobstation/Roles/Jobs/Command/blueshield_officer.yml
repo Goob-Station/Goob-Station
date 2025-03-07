@@ -34,10 +34,11 @@
   - CentralCommand
   - BlueshieldOfficer
   - Service
+  - Hydroponics # Okay, we're keeping this because I've lost three captains to ratkings in botany.
   - Cargo
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, BluespaceLifelineImplant ]
+    implants: [ MindShieldImplant, BluespaceLifelineImplant ] # Go big, or go home.
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
@@ -54,5 +55,6 @@
   storage:
     back:
     - Flash
-    - SecHypo
+    - FlippoLighterBlueshield
     - BlueshieldUndetermined
+    - MedkitBSOFilled
