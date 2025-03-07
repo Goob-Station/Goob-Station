@@ -50,16 +50,3 @@
   content:
   - BlueshieldMace
   - BlueShieldShield # Todo - Replace this with the filled shield.
-
-- type: thiefBackpackSet
-  id: InsuranceSet
-  name: blueshield-box-category-insurance-name
-  description: blueshield-box-category-insurance-description
-  sprite:
-    sprite: /Textures/_Goobstation/Objects/Specific/Medical/firstaidkits.rsi
-    state: bsokit
-  content:
-    - MedkitBSOFilled
-    - MedkitBSOFilledSurgical
-    - DefibrillatorCompact
-    - BoxTracker

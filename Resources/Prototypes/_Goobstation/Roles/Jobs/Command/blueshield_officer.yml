@@ -51,7 +51,7 @@
     id: BlueshieldPDA
     ears: ClothingHeadsetAltCommand
     pocket1: UniqueBlueshieldOfficerLockerTeleporter
-    pocket2: PinpointerNuclear
+    pocket2: PinpointerUniversal # Track any of the heads, not just the captain.
   storage:
     back:
     - Flash

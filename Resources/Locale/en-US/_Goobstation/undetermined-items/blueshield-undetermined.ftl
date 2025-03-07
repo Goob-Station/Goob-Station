@@ -20,9 +20,3 @@ blueshield-box-category-blueshield-name = blueshield set
 blueshield-box-category-blueshield-description =
     The iconic namesake of these soldiers.
     Includes: The greatshield, and the DT-4 Atrocity customized stun baton.
-
-blueshield-box-category-insurance-name = insurance set
-blueshield-box-category-insurance-description =
-    Useful when the people you're protecting seem to be suicidal.
-    Includes: A stocked medical kit, a set of surgical tools,
-    a portable defib, and a box of trackers.

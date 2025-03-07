@@ -1,6 +1,6 @@
 - type: entity
   name: blue flippo
-  parent: BaseItem
+  parent: [BaseItem, BaseCentcommContraband]
   id: FlippoLighterBlueshield
   description: "A specialized blue lighter given only to specific officers. Great for a smoke after a long day."
   components:
@@ -84,7 +84,7 @@
   - type: PointLight
     enabled: false
     netsync: false
-    radius: 1.4 # Slightly better than a normal zippo
+    radius: 3 # Bigger since blue makes it hard to see. Worth it for the drip.
     color: blue
   - type: ItemTogglePointLight
   - type: UseDelay
