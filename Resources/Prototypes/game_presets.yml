@@ -117,7 +117,7 @@
     - secret
     - sekrit
   name: secret-title
-  showInVote: false # Goob - Game Director
+  showInVote: true # Goob - Game Director # ShibaStation - waiting to see how the director works before moving to it ourselves.
   description: secret-description
   rules:
     - Secret
@@ -185,7 +185,7 @@
     - dm
   name: death-match-title
   description: death-match-description
-  maxPlayers: 15
+  maxPlayers: 10
   showInVote: true
   supportedMaps: DeathMatchMapPool
   rules:
