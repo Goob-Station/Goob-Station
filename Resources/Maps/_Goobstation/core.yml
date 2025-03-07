@@ -49650,12 +49650,17 @@ entities:
       rot: 3.141592653589793 rad
       pos: 23.5,-64.5
       parent: 2
-- proto: CandyBowl
+- proto: CandyBowlFilledLollypopsMystery
   entities:
   - uid: 20483
     components:
     - type: Transform
-      pos: 42.491714,10.446698
+      pos: 42.508236,10.422447
+      parent: 2
+  - uid: 22468
+    components:
+    - type: Transform
+      pos: 45.47374,-33.360077
       parent: 2
 - proto: CannabisSeeds
   entities:

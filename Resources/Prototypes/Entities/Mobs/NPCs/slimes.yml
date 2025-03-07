@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   name: basic slime
   id: BaseMobAdultSlimes
   parent: [ SimpleMobBase, MobCombat ]
@@ -118,7 +118,6 @@
     speechSounds: Slime
   - type: TypingIndicator
     proto: slime
-  - type: Fauna # Lavaland Change
 
 - type: entity
   name: basic slime

@@ -72,6 +72,29 @@ In the action bar, you can use special abilities that will allow you to perform 
 - [color=#a4885c]Changing a chemical[/color] allows you to change your chemical to any of the 5 presented. Each has its own characteristics suitable for different situations.
 - [color=#a4885c]Demote Blob[/color] gives you the option to downgrade any blob cell back to normal for free. It is useful in order to correct the wrong placement.
 
+## Chemicals
+
+The blob has access to the following chemicals
+- 1. [color=#637a18]Reactive Spines:[/color]
+
+Receive 25% brute damage, and 200% heat. Deals 25 brute per hit.
+
+- 2. [color=#937000]Blazing Oil:[/color]
+
+Receive 25% brute damage, and 200% heat. Deals 15 brute per hit and sets targets on fire.
+
+- 3. [color=#0d7777]Electromagnetic Web:[/color]
+
+Receive 50% brute damage, and 250% heat. Deals 20 burn per hit and has a 20% chance to EMP on attack. Tiles of this type always EMP on destruction.
+
+- 4. [color=#571101]Explosive Lattice:[/color]
+
+Receive 25% brute damage, and 300% heat. Deals 10 brute and 5 burn in a small explosion per hit. This blob type is immune to explosions, and its spores explode on death.
+
+- 5. [color=#451e58]Regenerative Materia:[/color]
+
+Receive 25% brute damage, and 200% heat. Deals 6 brute and 15 toxin per hit. This blob's core heals 10x faster than other blobs, and generates one extra resource per cycle.
+
 ## Course of the round
 
 As the blob grows, the station will pass through several stages.

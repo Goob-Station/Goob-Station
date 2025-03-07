@@ -85,6 +85,13 @@
   - BlueshieldOfficerOuterBlueshieldMantle
 
 - type: loadoutGroup
+  id: BlueshieldOfficerMask
+  name: loadout-group-bso-mask
+  minLimit: 0
+  loadouts:
+  - BlueshieldOfficerMaskLollypop
+
+- type: loadoutGroup
   id: BlueshieldOfficerShoes
   name: loadout-group-bso-shoes
   minLimit: 0
@@ -119,3 +126,12 @@
   hidden: true
   loadouts:
   - LoadoutHonkopsMask
+
+# Captain
+
+- type: loadoutGroup
+  id: CaptainMask
+  name: loadout-group-captain-mask
+  minLimit: 0
+  loadouts:
+  - CaptainMask

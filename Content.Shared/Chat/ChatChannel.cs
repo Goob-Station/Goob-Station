@@ -4,7 +4,7 @@ namespace Content.Shared.Chat
     ///     Represents chat channels that the player can filter chat tabs by.
     /// </summary>
     [Flags]
-    public enum ChatChannel : UInt32
+    public enum ChatChannel : uint // Goobstation - Starlight collective mind port // surely changing the ushort to uint won't break anything :clueless:
     {
         None = 0,
 
@@ -80,25 +80,31 @@ namespace Content.Shared.Chat
         /// </summary>
         AdminChat = 1 << 13,
 
+        // Goobstation - Starlight collective mind port
+        /// <summary>
+        ///     Collective mind channel for entities who have comp.
+        /// </summary>
+        CollectiveMind = 1 << 14,
+
         /// <summary>
         ///     Unspecified.
         /// </summary>
-        Unspecified = 1 << 14,
+        Unspecified = 1 << 15, // Goobstation - Starlight collective mind port
 
         /// <summary>
         ///     FloofStation
         /// </summary>
-        Subtle = 1 << 15,
+        Subtle = 1 << 16,
 
         /// <summary>
         ///     Nyano - Summary:: Telepathic channel for all psionic entities.
         /// </summary>
-        Telepathic = 1 << 16,
+        Telepathic = 1 << 17, // Goobstation - Starlight collective mind port
 
         /// <summary>
         ///     Channels considered to be IC.
         /// </summary>
-        IC = Local | Whisper | Radio | Dead | Emotes | Subtle | Damage | Visual | Telepathic | Notifications, //Nyano - Summary: Adds telepathic as an 'IC' labelled chat..
+        IC = Local | Whisper | Radio | Dead | Emotes | Subtle | Damage | Visual | Telepathic | CollectiveMind | Notifications, // Goobstation - Starlight collective mind port
 
         AdminRelated = Admin | AdminAlert | AdminChat,
     }
