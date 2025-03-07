@@ -92,7 +92,7 @@
 
 - type: entity
   id: ClothingBeltCorporateJudoFilled
-  parent: ClothingBeltSecurity
+  parent: ClothingBeltCorporateJudo
   suffix: Filled
   components:
   - type: EntityTableContainerFill
