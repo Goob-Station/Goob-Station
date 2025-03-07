@@ -71,6 +71,7 @@
     - DawInstrumentMachineCircuitboard
     - MassMediaCircuitboard
     - JukeboxCircuitBoard
+    - BorgModuleLollipop # Goobstation
 
 - type: technology
   id: RoboticCleanliness

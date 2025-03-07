@@ -22,7 +22,7 @@
       color: SlateGray
       forceEnableEmergencyLights: true
       emergencyLightColor: SlateGray
-      shuttleTime: 120
+      shuttleTime: 1200
     # Reserve-End
     violet:
       announcement: alert-level-violet-announcement

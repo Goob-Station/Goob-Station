@@ -2,7 +2,7 @@
 changeling-biomass-deficit = Недостаточно биомассы!
 changeling-chemicals-deficit = Недостаточно химикатов!
 changeling-action-fail-lesserform = Невозможно использовать его в меньшей форме!
-changeling-action-fail-absorbed = Нужно поглотить { $number } больше органики, чтобы использовать ее!
+changeling-action-fail-absorbed = Нужно поглотить на { $number } больше органики, чтобы использовать ее!
 changeling-absorb-start = { CAPITALIZE(THE($user)) } начинает поглощать ДНК { CAPITALIZE(THE($target)) }!
 changeling-absorb-fail-incapacitated = Вы не сможете поглотить это, пока оно не потеряет сознание.
 changeling-absorb-fail-absorbed = Вы уже поглотили его.

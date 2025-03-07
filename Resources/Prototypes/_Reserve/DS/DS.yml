@@ -114,7 +114,7 @@
     outerClothing: ClothingOuterHardsuitDeathsquadAdv
     shoes: ClothingShoesBootsMagAdv
     id: DSLeaderPDA
-    pocket1: WeaponRevolverMatebaAP
+    pocket1: WeaponRevolverMatebaAPReserve
     pocket2: EnergySwordDS
     suitstorage: WeaponPulseCarbineDS
     belt: ClothingBeltAssaultDS
@@ -131,7 +131,7 @@
     outerClothing: ClothingOuterHardsuitDeathsquadAdv
     shoes: ClothingShoesBootsMagAdv
     id: DSSoldPDA
-    pocket1: WeaponRevolverMatebaAP
+    pocket1: WeaponRevolverMatebaAPReserve
     pocket2: EnergySwordDS
     suitstorage: WeaponPulseCarbineDS
     belt: ClothingBeltAssaultDS
@@ -668,7 +668,7 @@
 - type: entity
   name: Матеба
   parent: WeaponRevolverMateba
-  id: WeaponRevolverMatebaAP
+  id: WeaponRevolverMatebaAPReseve
   suffix: резерв, Бронебойные
   description: Знаковое оружие ужасающих эскадронов смерти. Использует патроны калибра .45 магнум.
   components:

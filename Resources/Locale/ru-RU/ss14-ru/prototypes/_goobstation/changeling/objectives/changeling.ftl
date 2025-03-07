@@ -1,7 +1,7 @@
 ent-BaseChangelingObjective = { ent-BaseObjective }
     .desc = { ent-BaseObjective.desc }
 ent-ChangelingSurviveObjective = Выжить
-    .desc = Выжить не смотря не на что.
+    .desc = Выжить несмотря ни на что.
 ent-ChangelingAbsorbObjective = { ent-BaseChangelingObjective }
     .desc = { ent-BaseChangelingObjective.desc }
 ent-ChangelingStealDNAObjective = { ent-BaseChangelingObjective }

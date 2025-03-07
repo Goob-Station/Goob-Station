@@ -15,6 +15,7 @@
   - Сержант
   - Капрал
   - Ефрейтор
+  - Специалист
 
 - type: dataset
   id: NamesLastMilitary

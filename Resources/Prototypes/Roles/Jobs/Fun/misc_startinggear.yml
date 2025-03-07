@@ -90,6 +90,23 @@
     - Flash
     - MagazinePistol
 
+- type: startingGear # Reserve
+  id: CBURNLeaderGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBrown
+    back: ClothingBackpackDuffelCBURN
+    mask: ClothingMaskGasExplorer
+    eyes: ClothingEyesGlassesSecurity
+    ears: ClothingHeadsetAltCentCom
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitCBURNLeader
+    shoes: ClothingShoesBootsCombatFilled
+    id: CBURNPDA
+    pocket1: RadioHandheld
+    pocket2: WeaponLaserGun
+    belt: ClothingBeltUtilityFilled
+  innerclothingskirt: ClothingUniformJumpsuitColorBrown
+
 - type: startingGear
   id: BoxingKangarooGear
   equipment:

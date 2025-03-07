@@ -1,17 +1,17 @@
-ghost-role-information-apprentice-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with the wizard who summoned you.
-ghost-role-information-apprentice-destruction-name = Apprentice (Destruction)
-ghost-role-information-apprentice-destruction-desc = You are an apprentice proficient in the Fireball and Mutate spells. Protect the wizard who has summoned you at all costs.
-ghost-role-information-apprentice-ethereal-name = Apprentice (Ethereal)
-ghost-role-information-apprentice-ethereal-desc = You are an apprentice proficient in the Ethereal Jaunt and Teleport spells. Protect the wizard who has summoned you at all costs.
-ghost-role-information-apprentice-summon-name = Apprentice (Summon)
-ghost-role-information-apprentice-summon-desc = You are an apprentice proficient in the Lesser Summon Bees and Summon Simians spells. Protect the wizard who has summoned you at all costs.
-ghost-role-information-apprentice-gun-name = Apprentice (Gunslinger)
-ghost-role-information-apprentice-gun-desc = You are an apprentice proficient in the Lesser Summon Guns, Smoke and Blink spells. Protect the wizard who has summoned you at all costs.
-ghost-role-information-apprentice-arcane-name = Apprentice (Arcane)
-ghost-role-information-apprentice-arcane-desc = You are an apprentice proficient in the Arcane Barrage, Charge and Instant Summons spells. Protect the wizard who has summoned you at all costs.
-ghost-role-information-apprentice-sanguine-name = Apprentice (Sanguine)
-ghost-role-information-apprentice-sanguine-desc = You are an apprentice proficient in the Scream For Me, Exsanguinating Strike and Instant Summons spells. Protect the wizard who has summoned you at all costs.
-ghost-role-information-apprentice-robeless-name = Apprentice (Robeless)
-ghost-role-information-apprentice-robeless-desc = You are an apprentice proficient in the Mind Swap, Force Wall and Knock spells. Protect the wizard who has summoned you at all costs.
-ghost-role-information-apprentice-chaos-name = Apprentice (Chaos)
-ghost-role-information-apprentice-chaos-desc = You are an apprentice proficient in completely random spells. Protect the wizard who has summoned you at all costs.
+ghost-role-information-apprentice-rules = Вы [color=red][bold]командный антагонист[/bold][/color] вместе с магом который призвал вас.
+ghost-role-information-apprentice-destruction-name = Ученик (разрушение)
+ghost-role-information-apprentice-destruction-desc = Вы - ученик опытный в заклинаниях Огненный шар и Мутация. Защитите призвавшего вас мага любой ценой.
+ghost-role-information-apprentice-ethereal-name = Ученик (эфир)
+ghost-role-information-apprentice-ethereal-desc = Вы - ученик опытный в заклинаниях Неземная прогулка и Телепорт. Защитите призвавшего вас мага любой ценой.
+ghost-role-information-apprentice-summon-name = Ученик (призыв)
+ghost-role-information-apprentice-summon-desc = Вы - ученик опытный в заклинаниях Меньший призыв пчёл и Призыв обезьян. Защитите призвавшего вас мага любой ценой.
+ghost-role-information-apprentice-gun-name = Ученик (стрелок)
+ghost-role-information-apprentice-gun-desc = Вы - ученик опытный в заклинаниях Меньший призыв оружия, Дым и Блинк. Защитите призвавшего вас мага любой ценой.
+ghost-role-information-apprentice-arcane-name = Ученик (аркана)
+ghost-role-information-apprentice-arcane-desc = Вы - ученик опытный в заклинаниях Арканный обстрел, Зарядка и Мгновенные призывы. Защитите призвавшего вас мага любой ценой.
+ghost-role-information-apprentice-sanguine-name = Ученик (жизнь)
+ghost-role-information-apprentice-sanguine-desc = Вы - ученик опытный в Кричи для меня, Кровожадный удар и Мгновенные призывы. Защитите призвавшего вас мага любой ценой.
+ghost-role-information-apprentice-robeless-name = Ученик (безродье)
+ghost-role-information-apprentice-robeless-desc = Вы - ученик опытный в Mind Swap, Силовая стена и Тук-Тук. Защитите призвавшего вас мага любой ценой.
+ghost-role-information-apprentice-chaos-name = Ученик (хаос)
+ghost-role-information-apprentice-chaos-desc = Вы - ученик опытный в совершенно случайных заклинаниях. Защитите призвавшего вас мага любой ценой.

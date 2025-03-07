@@ -1,0 +1,43 @@
+- type: randomHumanoidSettings
+  id: ERTMedicalReserve
+  speciesBlacklist: [ Arachnid, Diona, Dwarf, Reptilian, SlimePerson, Vulpkanin, Harpy, Rodentia, Tajaran, Oni, Vox, Yowie, Resomi, IPC]
+  randomizeName: false
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ertmedicalReserve-name
+      description: ghost-role-information-ertmedicalReserve-description
+      raffle:
+        settings: short
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ ERTMedicalEchoGear ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitary
+      - NamesLastMilitary
+    - type: RandomHumanoidAppearance
+      randomizeName: false
+
+- type: entity
+  id: RandomHumanoidSpawnerERTMedicalReserve
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: ertmedicaleva
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitary
+      - NamesLastMilitary
+    - type: RandomHumanoidSpawner
+      settings: ERTMedicalReserve
+
+- type: entity
+  id: SpawnerERTMedicalReserve
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+  - type: ConditionalSpawner
+    prototypes:
+      - RandomHumanoidSpawnerERTMedicalReserve
