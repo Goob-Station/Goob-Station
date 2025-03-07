@@ -65,3 +65,4 @@
         Structural: -1
       groups:
         Brute: -1
+  - type: AntiRottingContainer
