@@ -5930,3 +5930,21 @@ Entries:
       message: Blob now have a harder time on Submarine and Leonid
   id: 679
   time: '2025-03-07T20:21:03.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Handheld crew monitor is no longer CMO's highrisk, but the resprited
+        rapid syringe gun is.
+    - type: Add
+      message: >-
+        New "Advanced Rescue Equipment" T1 civilian technology, featuring
+        handheld crew monitor and compact defibrillator.
+    - type: Tweak
+      message: >-
+        Regular syringe guns are no longer printable roundstart and require T1
+        civilian research.
+    - type: Tweak
+      message: Medical personnel equipment got some improvements.
+  id: 680
+  time: '2025-03-07T20:21:58.0000000+00:00'
