@@ -17,6 +17,7 @@
   id: MedkitBSOFilled
   suffix: Filled, Medical
   parent: MedkitBSO
+  description: Contains everything you need to get a person back up quickly.
   components:
   - type: StorageFill
     contents:
@@ -26,10 +27,11 @@
     - id: BruteAutoInjector
     - id: BurnAutoInjector
 
-- type: entity
+- type: entity # tbh idk how to feel about this, but alas.
   id: MedkitBSOFilledIPC
   suffix: Filled, IPC
   parent: MedkitBSO
+  description: Contains everything you need to get a silicon back up quickly.
   components:
   - type: StorageFill
     contents:
