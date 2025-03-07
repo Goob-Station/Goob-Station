@@ -160,40 +160,41 @@ namespace Content.Server.EntityEffects.Effects
                     scale = FixedPoint2.Zero;
                 else
                     scale *= ScaleByTemperature.Value.GetEfficiencyMultiplier(temp.CurrentTemperature, scale, false);
+            }
 
-                var universalReagentDamageModifier =
-                    args.EntityManager.System<DamageableSystem>().UniversalReagentDamageModifier;
-                var universalReagentHealModifier =
-                    args.EntityManager.System<DamageableSystem>().UniversalReagentHealModifier;
+            var universalReagentDamageModifier =
+                args.EntityManager.System<DamageableSystem>().UniversalReagentDamageModifier;
+            var universalReagentHealModifier =
+                args.EntityManager.System<DamageableSystem>().UniversalReagentHealModifier;
 
-                if (universalReagentDamageModifier != 1 || universalReagentHealModifier != 1)
+            if (Math.Abs(universalReagentDamageModifier - 1) > 1 || Math.Abs(universalReagentHealModifier - 1) > 1)
+            {
+                foreach (var (type, val) in damageSpec.DamageDict)
                 {
-                    foreach (var (type, val) in damageSpec.DamageDict)
+                    if (val < 0f)
                     {
-                        if (val < 0f)
-                        {
-                            damageSpec.DamageDict[type] = val * universalReagentHealModifier;
-                        }
+                        damageSpec.DamageDict[type] = val * universalReagentHealModifier;
+                    }
 
-                        if (val > 0f)
-                        {
-                            damageSpec.DamageDict[type] = val * universalReagentDamageModifier;
-                        }
+                    if (val > 0f)
+                    {
+                        damageSpec.DamageDict[type] = val * universalReagentDamageModifier;
                     }
                 }
-
-                args.EntityManager.System<DamageableSystem>()
-                    .TryChangeDamage(
-                        args.TargetEntity,
-                        damageSpec * scale,
-                        IgnoreResistances,
-                        interruptsDoAfters: false,
-                        // Shitmed Change Start
-                        targetPart: TargetBodyPart.All,
-                        partMultiplier: 0.5f,
-                        canSever: false);
-                // Shitmed Change End
             }
+
+            args.EntityManager.System<DamageableSystem>()
+                .TryChangeDamage(
+                    args.TargetEntity,
+                    damageSpec * scale,
+                    IgnoreResistances,
+                    interruptsDoAfters: false,
+                    // Shitmed Change Start
+                    targetPart: TargetBodyPart.All,
+                    partMultiplier: 0.5f,
+                    canSever: false);
+            // Shitmed Change End
+
         }
     }
 }
