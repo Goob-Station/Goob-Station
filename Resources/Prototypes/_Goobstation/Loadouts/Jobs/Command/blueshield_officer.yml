@@ -14,14 +14,9 @@
     head: ClothingHeadHelmetSwat
 
 - type: loadout
-  id: BlueshieldOfficerHeadBeretNavy
+  id: BlueshieldOfficerHeadTrooper
   equipment:
-    head: ClothingHeadHatBeretNavy
-
-- type: loadout
-  id: BlueshieldOfficerHeadBeretBlack
-  equipment:
-    head: ClothingHeadHatBeretOfficer
+    head: ClothingHeadHatSecurityTrooper # NO NAVY OFFICER HAT FOR YOU
 
 - type: loadout
   id: BlueshieldOfficerHeadCowboy
@@ -68,6 +63,15 @@
     proto: SeniorBlueshieldOfficer
   equipment:
     neck: ClothingNeckMantleBlueshield
+
+# Mask
+- type: loadout
+  id: BlueshieldOfficerMaskLollypop
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorBlueshieldOfficer
+  equipment:
+    mask: FoodSnackLollypopBlueshield
 
 # Back
 - type: loadout

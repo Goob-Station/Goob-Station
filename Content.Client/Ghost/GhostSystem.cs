@@ -1,3 +1,4 @@
+using Content.Client._Goobstation.Wizard.Systems;
 using Content.Client.Movement.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Ghost;
@@ -15,6 +16,7 @@ namespace Content.Client.Ghost
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly PointLightSystem _pointLightSystem = default!;
         [Dependency] private readonly ContentEyeSystem _contentEye = default!;
+        [Dependency] private readonly GhostVisibilitySystem _ghostVisSystem = default!; // Goobstation
 
         public int AvailableGhostRoleCount { get; private set; }
 
@@ -22,9 +24,12 @@ namespace Content.Client.Ghost
 
         private bool GhostVisibility
         {
-            get => _ghostVisibility;
+            get => _ghostVisSystem.GhostsVisible() || _ghostVisibility; // Goob edit
             set
             {
+                if (_ghostVisSystem.GhostsVisible()) // Goobstation
+                    value = true;
+
                 if (_ghostVisibility == value)
                 {
                     return;
@@ -116,7 +121,7 @@ namespace Content.Client.Ghost
 
         private void OnToggleGhosts(EntityUid uid, EyeComponent component, ToggleGhostsActionEvent args) // Goob edit
         {
-            if (args.Handled)
+            if (args.Handled || _ghostVisSystem.GhostsVisible()) // Goob edit
                 return;
 
             var locId = GhostVisibility ? "ghost-gui-toggle-ghost-visibility-popup-off" : "ghost-gui-toggle-ghost-visibility-popup-on";

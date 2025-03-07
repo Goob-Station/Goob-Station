@@ -205,7 +205,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
                     if (TryComp<MobStateComponent>(target, out var mobState) && mobState.CurrentState == Shared.Mobs.MobState.Dead)
                     {
                         var ghoul = EnsureComp<GhoulComponent>(target);
-                        ghoul.BoundHeretic = performer;
+                        ghoul.BoundHeretic = GetNetEntity(performer);
                     }
                     break;
                 }
