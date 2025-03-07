@@ -5811,3 +5811,9 @@ Entries:
       message: Added a reverse bear trap to uplink.
   id: 669
   time: '2025-03-06T23:26:45.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added the temperature gun.
+  id: 670
+  time: '2025-03-07T02:50:26.0000000+00:00'
