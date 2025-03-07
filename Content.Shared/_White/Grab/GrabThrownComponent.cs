@@ -8,8 +8,6 @@ public sealed partial class GrabThrownComponent : Component
 {
     public DamageSpecifier? DamageOnCollide;
 
-    public DamageSpecifier? WallDamageOnCollide;
-
     public float? StaminaDamageOnCollide;
 
     public List<EntityUid> IgnoreEntity = new();

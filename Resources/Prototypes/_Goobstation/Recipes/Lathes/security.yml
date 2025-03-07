@@ -75,6 +75,18 @@
     Glass: 1200
     Gold: 500
 
+# Guns
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponTemperatureGun
+  result: WeaponTemperatureGun
+  materials:
+    Steel: 1500
+    Glass: 800
+    Plastic: 500
+    Plasma: 500
+
 # Smartgun
 
 - type: latheRecipe
