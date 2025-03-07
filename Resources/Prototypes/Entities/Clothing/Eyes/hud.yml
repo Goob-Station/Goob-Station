@@ -30,6 +30,9 @@
     - Inorganic
     - Silicon
     - SiliconRadiation # Goobstation - Make IPCs take radiation
+  - type: Tag
+    tags:
+    - HudDiagnostic # Goobstation - CR glasses changes and addition
 
 - type: entity
   parent: [ClothingEyesBase, ShowMedicalIcons]

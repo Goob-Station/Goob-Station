@@ -1,0 +1,19 @@
+- type: entity
+  id: BlueShieldShieldFilled
+  parent: BlueShieldShield
+  suffix: Filled, DO NOT MAP
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - BlueshieldMace
+
+- type: entity
+  id: BlueShieldShieldEvilFilled
+  parent: BlueShieldShieldEvil
+  suffix: Filled, Evil, DO NOT MAP
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - BlueshieldMace

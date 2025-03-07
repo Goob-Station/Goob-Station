@@ -44,7 +44,7 @@
           shape:
             !type:PhysShapeCircle
             radius: 0.35
-          density: 185
+          density: 300 # goob edit - metal is dense
           restitution: 0.0
           mask:
           - MobMask

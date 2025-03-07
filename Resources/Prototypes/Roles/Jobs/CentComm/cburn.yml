@@ -16,25 +16,29 @@
   - NanotrasenRepresentative
   - BlueshieldOfficer
 
-- type: startingGear
+- type: startingGear # Goobstation - Start - Sol
   id: CBURNGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorBrown
     back: ClothingBackpackDuffelCBURN
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesGlassesSecurity
+    neck: ExecutiveIDCard # Executive Access! - Todo: Add more to this card.
+    eyes: ClothingEyesGlassesMedSec # Better glasses
     ears: ClothingHeadsetAltCentCom
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitCBURN
     shoes: ClothingShoesBootsCombatFilled
-    id: CBURNPDA
-    pocket1: RadioHandheld
-    pocket2: WeaponLaserGun
-    belt: ClothingBeltBandolier
+    id: CBURNPDA # Todo - Replace it.
+    pocket1: RadioHandheld # Todo - Replace this probably. Have never seen it used.
+    pocket2: WeaponPulsePistol
+    belt: ClothingBeltSecurityFilled # No shotgun, no bandolier.
   storage:
     back:
-    - WeaponShotgunDoubleBarreled
-    - BoxShotgunIncendiary
-    - GrenadeFlashBang
-    - PillAmbuzolPlus
-    - PillAmbuzol
+    - WeaponPulseCarbine # CBURN desperately needs a good fucking gun, not that dogshit. - Also, this gun is literally never used.
+    # - GrenadeFlashBang - Seriously, who the fuck is using a flashbang against a zombie/blob???
+    - AmbuzolPlusMedipen # Injectors are cooler.
+    - AmbuzolMedipen # Injectors are cooler.
+    - AmbuzolMedipen # Injectors are cooler.
+    - MedkitCombatFilled # Ah yes, let's send them in with ZERO meds. Good luck!
+    - CburnSpear # SPEAAR
+# Goobstation - End - Sol
