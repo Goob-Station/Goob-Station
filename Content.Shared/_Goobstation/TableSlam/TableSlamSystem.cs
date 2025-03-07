@@ -64,9 +64,8 @@ public sealed class TableSlamSystem : EntitySystem
         var tabledQuery = EntityQueryEnumerator<PostTabledComponent>();
         while (tabledQuery.MoveNext(out var uid, out var comp))
         {
-            if (_gameTiming.CurTime < comp.PostTabledShovableTime)
-                return;
-            RemComp<PostTabledComponent>(uid);
+            if (_gameTiming.CurTime >= comp.PostTabledShovableTime)
+             RemComp<PostTabledComponent>(uid);
         }
     }
 
