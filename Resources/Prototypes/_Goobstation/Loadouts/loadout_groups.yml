@@ -49,8 +49,7 @@
   minLimit: 0
   loadouts:
   - BlueshieldOfficerHeadSwatHelmet
-  - BlueshieldOfficerHeadBeretNavy
-  - BlueshieldOfficerHeadBeretBlack
+  - BlueshieldOfficerHeadTrooper
   - BlueshieldOfficerHeadCowboy
 
 - type: loadoutGroup
