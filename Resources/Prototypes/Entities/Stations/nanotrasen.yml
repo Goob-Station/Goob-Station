@@ -67,6 +67,7 @@
     - BaseStationSiliconLawCrewsimov
     - BaseStationAllEventsEligible
     - BaseStationNanotrasen
+    - BaseStationDeliveries
     - BaseStationWizardTarget # Goobstation
   categories: [ HideSpawnMenu ]
   components:
