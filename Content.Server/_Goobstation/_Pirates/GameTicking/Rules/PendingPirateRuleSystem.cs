@@ -24,7 +24,7 @@ public sealed partial class PendingPirateRuleSystem : GameRuleSystem<PendingPira
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly CargoSystem _cargo = default!;
 
-    [ValidatePrototypeId<EntityPrototype>] private readonly EntProtoId _PirateSpawnRule = "PiratesSpawn";
+    private static readonly EntProtoId PirateSpawnRule = "PiratesSpawn";
 
     public override void Update(float frameTime)
     {
@@ -45,7 +45,7 @@ public sealed partial class PendingPirateRuleSystem : GameRuleSystem<PendingPira
                 }
 
                 SendAnnouncement((uid, pending), AnnouncementType.Arrival);
-                _gt.StartGameRule(_PirateSpawnRule);
+                _gt.StartGameRule(PirateSpawnRule);
                 _gt.EndGameRule(uid, gamerule);
                 break;
             }

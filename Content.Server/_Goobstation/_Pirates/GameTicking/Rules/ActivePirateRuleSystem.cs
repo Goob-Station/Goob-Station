@@ -19,20 +19,27 @@ public sealed partial class ActivePirateRuleSystem : GameRuleSystem<ActivePirate
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
 
-    private readonly SoundSpecifier _BriefingSound = new SoundPathSpecifier("/Audio/Ambience/Antag/pirate_start.ogg");
-    [ValidatePrototypeId<EntityPrototype>] static EntProtoId _MindRole = "MindRolePirate";
+    private static readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/Ambience/Antag/pirate_start.ogg");
+    private static readonly EntProtoId MindRole = "MindRolePirate";
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<ActivePirateRuleComponent, AfterAntagEntitySelectedEvent>(OnAntagSelect);
+        SubscribeLocalEvent<PirateRoleComponent, GetBriefingEvent>(OnGetBriefing);
     }
 
     private void OnAntagSelect(Entity<ActivePirateRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
     {
-        if (TryMakePirate(args.EntityUid))
-            ent.Comp.Pirates.Add(args.EntityUid);
+        if (_mind.TryGetMind(args.EntityUid, out var mindId, out var mind) && TryMakePirate(args.EntityUid))
+            ent.Comp.Pirates.Add((mindId, mind));
+    }
+
+    private void OnGetBriefing(Entity<PirateRoleComponent> ent, ref GetBriefingEvent args)
+    {
+        var briefingShort = Loc.GetString("antag-pirate-briefing-short");
+        args.Briefing = briefingShort;
     }
 
     protected override void AppendRoundEndText(EntityUid uid, ActivePirateRuleComponent component, GameRuleComponent gameRule, ref RoundEndTextAppendEvent args)
@@ -58,20 +65,12 @@ public sealed partial class ActivePirateRuleSystem : GameRuleSystem<ActivePirate
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
 
-        _role.MindAddRole(mindId, _MindRole.Id, mind, true);
+        _role.MindAddRole(mindId, MindRole.Id, mind, true);
 
-        if (HasComp<MetaDataComponent>(target))
-        {
-            var briefing = Loc.GetString("antag-pirate-briefing");
-            var briefingShort = Loc.GetString("antag-pirate-briefing-short");
+        var briefing = Loc.GetString("antag-pirate-briefing");
+        _antag.SendBriefing(target, briefing, Color.OrangeRed, BriefingSound);
 
-            _antag.SendBriefing(target, briefing, Color.OrangeRed, _BriefingSound);
-
-            if (_role.MindHasRole<PirateRoleComponent>(mindId, out var mr))
-                AddComp(mr.Value, new RoleBriefingComponent { Briefing = briefingShort }, overwrite: true);
-        }
-
-        _npcFaction.AddFaction(target, "PirateFaction");
+        _npcFaction.AddFaction(target, "PirateFaction"); // yaml fucking sucks!!!
 
         return true;
     }

@@ -594,11 +594,9 @@ namespace Content.Server.Cargo.Systems
 
         }
 
-        // Goob edit - negative cargo balance (mortgage is real...)
-        public void DeductFunds(StationBankAccountComponent component, int amount, bool forced = false)
+        public void DeductFunds(StationBankAccountComponent component, int amount)
         {
-            var bal = component.Balance - amount;
-            bal = forced ? Math.Max(0, bal) : bal;
+            var bal = Math.Max(0, component.Balance - amount);
             component.Balance = bal;
         }
         #region Station

@@ -11,6 +11,7 @@ using Content.Shared.Cargo.Components;
 using Content.Shared.Destructible;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
+using Content.Shared.Mind;
 using Content.Shared.Stacks;
 using Robust.Server.GameObjects;
 using System.Numerics;
@@ -81,12 +82,12 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
 
         // Uncomment this if you don't want cargo to go into space debt
         // :trollface:
-        //var funds = bank.Comp.Balance - ent.Comp.DrainRate;
-        //if (funds > 0)
-        //{
-        _cargo.DeductFunds(bank.Comp, (int) ent.Comp.DrainRate, forced: true);
-        UpdateCredits(ent, ent.Comp.DrainRate);
-        //}
+        var funds = bank.Comp.Balance - ent.Comp.DrainRate;
+        if (funds > 0)
+        {
+            _cargo.DeductFunds(bank.Comp, (int) ent.Comp.DrainRate);
+            UpdateCredits(ent, ent.Comp.DrainRate);
+        }
     }
 
     #region Event Handlers
@@ -217,11 +218,10 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
 
         return true;
     }
-    public void UpdateObjective(EntityUid pirate, Entity<ResourceSiphonComponent> siphon)
+    public void UpdateObjective(Entity<MindComponent> pirate, Entity<ResourceSiphonComponent> siphon)
     {
-        if (_mind.TryGetMind(pirate, out var mindId, out var mind))
-            if (_mind.TryGetObjectiveComp<ObjectivePlunderComponent>(mindId, out var objective, mind))
-                objective.Plundered = siphon.Comp.Credits;
+        if (_mind.TryGetObjectiveComp<ObjectivePlunderComponent>(pirate, out var objective))
+            objective.Plundered = siphon.Comp.Credits;
     }
 
     public void UpdateCredits(Entity<ResourceSiphonComponent> ent, float amount)
@@ -246,7 +246,7 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
         if (!TryComp<StationBankAccountComponent>(stationent, out var bankaccount))
             return false;
 
-        bank = ((EntityUid) stationent!, (StationBankAccountComponent) bankaccount!);
+        bank = (stationent.Value, bankaccount);
         return true;
     }
 }
