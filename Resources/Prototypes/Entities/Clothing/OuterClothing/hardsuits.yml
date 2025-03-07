@@ -765,10 +765,10 @@
   - type: Armor # Goob edit
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.5
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.4
         Radiation: 0.1
         Caustic: 0.1
   - type: ClothingSpeedModifier
@@ -1011,10 +1011,18 @@
     damageCoefficient: 0.2
   - type: FireProtection
     reduction: 0.8
+  - type: StaminaDamageResistance # Goobstation - Deathsquad Revamp
+    coefficient: 0
+  - type: ClothingSlowOnDamageModifier # Goobstation
+    modifier: 0.1
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.1
+  - type: ModifyStandingUpTime # Goobstation
+    multiplier: 0.1
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.1 #best armor in the game
+        Blunt: 0.1 # Best armor in the game - Yeah no shit.
         Slash: 0.1
         Piercing: 0.1
         Heat: 0.1
@@ -1053,11 +1061,11 @@
     modifiers:
       coefficients:
         Blunt: 0.7
-        Slash: 0.7
+        Slash: 0.3 # Goobstation - CBURN should protect against zombie attacks
         Piercing: 0.6
-        Heat: 0.1
-        Cold: 0.1
-        Shock: 0.1
+        Heat: 0.10
+        Cold: 0.10
+        Shock: 0.15
         Radiation: 0.1
         Caustic: 0.1
   - type: ClothingSpeedModifier

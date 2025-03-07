@@ -150,6 +150,7 @@ public sealed class ThrowingSystem : EntitySystem
         {
             Thrower = user,
             Animate = animated,
+
         };
 
         // if not given, get the default friction value for distance calculation

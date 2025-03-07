@@ -8,4 +8,4 @@ chat-emote-name-tweak = Tweak
 chat-emote-msg-flip = does a flip!
 chat-emote-msg-spin = spins!
 chat-emote-msg-jump = jumps!
-chat-emote-msg-tweak = tweaking!
+chat-emote-msg-tweak = starts tweaking!
