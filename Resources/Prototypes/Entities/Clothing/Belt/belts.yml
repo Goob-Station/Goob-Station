@@ -489,6 +489,8 @@
         - CombatKnife
         - Truncheon
         - BolaEnergy # Goobstation
+        - EnergySpeedloader # Goobstation
+        #- HandheldCrewMonitor # Goobstation # uncomment after #1940 is merged. or TODO: make distinct belt/webbing for BSO
       components:
         - Stunbaton
         - FlashOnTrigger

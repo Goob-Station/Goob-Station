@@ -14,28 +14,15 @@
     state: purplekit
 
 - type: entity
-  id: MedkitBSOFilled
-  suffix: Filled, Medical
-  description: Contains advanced topicals and some auto injectors.
+  id: MedkitBSOFilledIPC
+  suffix: Filled
+  name: silicon repairing kit
+  description: A medkit containing the basic tools to repair silicons.
   parent: MedkitBSO
   components:
   - type: StorageFill
     contents:
-    - id: MedicatedSuture
-    - id: RegenerativeMesh
-    - id: Bloodpack
-    - id: BruteAutoInjector
-    - id: BurnAutoInjector
-
-- type: entity
-  id: MedkitBSOFilledSurgical
-  suffix: Filled, Surgical
-  description: Contains the basic tools needed for most surgeries.
-  parent: MedkitBSO
-  components:
-  - type: StorageFill
-    contents:
-    - id: ScalpelLaser
-    - id: Retractor
-    - id: Hemostat
-    - id: Cautery
+    - id: ClothingEyesGlassesMeson
+    - id: WelderIndustrial
+    - id: CableApcStack
+    - id: PowerCellHigh

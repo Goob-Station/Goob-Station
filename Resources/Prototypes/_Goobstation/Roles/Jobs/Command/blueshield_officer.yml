@@ -35,7 +35,7 @@
   - CentralCommand
   - BlueshieldOfficer
   - Service
-  - Hydroponics # Okay, we're keeping this because I've lost three captains to ratkings in botany.
+  - Hydroponics
   - Cargo
   special:
   - !type:AddImplantSpecial
@@ -50,13 +50,11 @@
     eyes: ClothingEyesGlassesBSO
     gloves: ClothingHandsGlovesCombat
     id: BlueshieldPDA
-    ears: ClothingHeadsetAltCommand
+    ears: ClothingHeadsetAltBlueshield
     pocket1: UniqueBlueshieldOfficerLockerTeleporter
-    pocket2: PinpointerUniversal # Track any of the heads, not just the captain.
   storage:
     back:
-    - ClothingMaskGasSecurity 
+    - ClothingMaskGasSecurity
     - Flash
-    - FlippoLighterBlueshield
+    - HandheldCrewMonitor
     - BlueshieldUndetermined
-    - MedkitBSOFilled
