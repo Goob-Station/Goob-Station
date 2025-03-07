@@ -1,17 +1,17 @@
+using Robust.Shared.Serialization;
+
 namespace Content.Shared._Goobstation.MartialArts.Events;
 
-public sealed class SleepingCarpGnashingTeethPerformedEvent : EntityEventArgs
-{
-}
+[Serializable, NetSerializable, DataDefinition]
+public sealed partial class SleepingCarpGnashingTeethPerformedEvent : EntityEventArgs;
 
-public sealed class SleepingCarpKneeHaulPerformedEvent : EntityEventArgs
-{
-}
+[Serializable, NetSerializable, DataDefinition]
+public sealed partial class SleepingCarpKneeHaulPerformedEvent : EntityEventArgs;
 
-public sealed class SleepingCarpCrashingWavesPerformedEvent : EntityEventArgs
-{
-}
+[Serializable, NetSerializable, DataDefinition]
+public sealed partial class SleepingCarpCrashingWavesPerformedEvent : EntityEventArgs;
 
+[Serializable,NetSerializable]
 public sealed class SleepingCarpSaying(LocId saying) : EntityEventArgs
 {
     public LocId Saying = saying;

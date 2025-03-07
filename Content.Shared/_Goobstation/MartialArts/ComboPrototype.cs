@@ -6,10 +6,10 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._Goobstation.MartialArts;
 
 [Prototype("combo")]
-[Serializable, NetSerializable]
+[Serializable, NetSerializable, DataDefinition]
 public sealed partial class ComboPrototype : IPrototype
 {
-    [IdDataField] public string ID { get; private init; } = default!;
+    [IdDataField] public string ID { get; private set; } = default!;
 
     [DataField(required: true)]
     public MartialArtsForms MartialArtsForm;
@@ -20,8 +20,7 @@ public sealed partial class ComboPrototype : IPrototype
     //[DataField("weapon")] // Will be done later
     //public string? WeaponProtoId;
     [DataField("event", required: true)]
-    [NonSerialized]
-    public EntityEventArgs? ResultEvent;
+    public object? ResultEvent;
 
     /// <summary>
     /// How much extra damage should this move do on perform?

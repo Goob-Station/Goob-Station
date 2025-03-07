@@ -1,21 +1,18 @@
+using Robust.Shared.Serialization;
+
 namespace Content.Shared._Goobstation.MartialArts.Events;
 
-public sealed class CqcSlamPerformedEvent : EntityEventArgs
-{
-}
+[Serializable, NetSerializable, DataDefinition]
+public sealed partial class CqcSlamPerformedEvent : EntityEventArgs;
 
-public sealed class CqcKickPerformedEvent : EntityEventArgs
-{
-}
+[Serializable, NetSerializable, DataDefinition]
+public sealed partial class  CqcKickPerformedEvent : EntityEventArgs;
 
-public sealed class CqcRestrainPerformedEvent : EntityEventArgs
-{
-}
+[Serializable, NetSerializable, DataDefinition]
+public sealed partial class CqcRestrainPerformedEvent : EntityEventArgs;
 
-public sealed class CqcPressurePerformedEvent : EntityEventArgs
-{
-}
+[Serializable, NetSerializable, DataDefinition]
+public sealed partial class CqcPressurePerformedEvent : EntityEventArgs;
 
-public sealed class CqcConsecutivePerformedEvent : EntityEventArgs
-{
-}
+[Serializable, NetSerializable, DataDefinition]
+public sealed partial class CqcConsecutivePerformedEvent : EntityEventArgs;

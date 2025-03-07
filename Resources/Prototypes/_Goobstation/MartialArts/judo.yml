@@ -18,7 +18,7 @@
   attacks:
   - Grab
   - Disarm
-  event: !type:JudoThrowPerformedEvent { }
+  event: !type:JudoThrowPerformedEvent
   staminaDamage: 50
   paralyzeTime: 7
 
@@ -30,7 +30,7 @@
   - Disarm
   - Disarm
   - Grab
-  event: !type:JudoArmbarPerformedEvent { }
+  event: !type:JudoArmbarPerformedEvent
   staminaDamage: 45
   paralyzeTime: 5
 
@@ -41,5 +41,5 @@
   attacks:
   - Disarm
   - Harm
-  event: !type:JudoEyePokePerformedEvent { }
+  event: !type:JudoEyePokePerformedEvent
   extraDamage: 5

@@ -1,17 +1,16 @@
+using Robust.Shared.Serialization;
+
 namespace Content.Shared._Goobstation.MartialArts.Events;
+[Serializable, NetSerializable, DataDefinition]
+public sealed partial class JudoThrowPerformedEvent : EntityEventArgs;
 
-public sealed class JudoThrowPerformedEvent : EntityEventArgs
-{
-}
+[Serializable, NetSerializable, DataDefinition]
+public sealed partial class JudoEyePokePerformedEvent : EntityEventArgs;
 
-public sealed class JudoEyePokePerformedEvent : EntityEventArgs
-{
-}
 
-public sealed class JudoArmbarPerformedEvent : EntityEventArgs
-{
-}
+[Serializable, NetSerializable, DataDefinition]
+public sealed partial class JudoArmbarPerformedEvent : EntityEventArgs;
 
-public sealed class JudoGoldenBlastPerformedEvent : EntityEventArgs
-{
-}
+
+[Serializable, NetSerializable, DataDefinition]
+public sealed partial class JudoGoldenBlastPerformedEvent : EntityEventArgs;

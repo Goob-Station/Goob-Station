@@ -36,7 +36,7 @@
   attacks:
   - Harm
   - Harm
-  event: !type:SleepingCarpGnashingTeethPerformedEvent { }
+  event: !type:SleepingCarpGnashingTeethPerformedEvent
   damageType: Slash
   extraDamage: 20
 
@@ -47,7 +47,7 @@
   attacks:
   - Harm
   - Grab
-  event: !type:SleepingCarpKneeHaulPerformedEvent { }
+  event: !type:SleepingCarpKneeHaulPerformedEvent
   extraDamage: 10
   paralyzeTime: 6
   staminaDamage: 60
@@ -59,6 +59,6 @@
   attacks:
   - Harm
   - Disarm
-  event: !type:SleepingCarpCrashingWavesPerformedEvent { }
+  event: !type:SleepingCarpCrashingWavesPerformedEvent
   staminaDamage: 25
 
