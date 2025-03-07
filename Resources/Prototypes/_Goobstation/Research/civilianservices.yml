@@ -25,8 +25,8 @@
   - SyringeGun
 
 - type: technology
-  id: ResqueTechnology
-  name: research-technology-resque
+  id: RescueTechnology
+  name: research-technology-rescue
   icon:
     sprite: Objects/Specific/Medical/handheldcrewmonitor.rsi
     state: scanner
