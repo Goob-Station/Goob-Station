@@ -14,16 +14,13 @@ public sealed partial class MartialArtPrototype : IPrototype
     public MartialArtsForms MartialArtsForm = MartialArtsForms.CloseQuartersCombat;
 
     [DataField]
-    public FixedPoint2 MinDamageModifier = 2.0;
+    public int MinDamageModifier;
 
     [DataField]
-    public FixedPoint2 MaxDamageModifier = 3.0;
+    public int MaxDamageModifier = 5;
 
     [DataField]
     public bool RandomDamageModifier;
-
-    [DataField]
-    public bool HarmAsStamina;
 
     [DataField]
     public ProtoId<ComboListPrototype> RoundstartCombos = "CQCMoves";

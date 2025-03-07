@@ -2,8 +2,6 @@ using Content.Shared._Goobstation.MartialArts.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._White.Grab;
 using Content.Shared.Actions;
-using Content.Shared.Body.Part;
-using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -16,6 +14,8 @@ using Content.Shared.Speech;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
+using Content.Shared.Weapons.Melee;
+using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
@@ -59,6 +59,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, CheckGrabOverridesEvent>(CheckGrabStageOverride);
+        SubscribeLocalEvent<MartialArtsKnowledgeComponent, MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ShotAttemptedEvent>(OnShotAttempt);
         SubscribeLocalEvent<KravMagaSilencedComponent, SpeakAttemptEvent>(OnSilencedSpeakAttempt);
     }
@@ -94,6 +95,20 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     }
 
     #region Event Methods
+
+    private void OnMeleeHit(Entity<MartialArtsKnowledgeComponent> ent, ref MeleeHitEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!ent.Comp.RandomDamageModifier)
+            return;
+
+        var randomDamage = _random.Next(ent.Comp.MinDamageModifier, ent.Comp.MaxDamageModifier);
+        var bonusDamageSpec = new DamageSpecifier();
+        bonusDamageSpec.DamageDict.Add("Blunt", randomDamage);
+        args.BonusDamage += bonusDamageSpec;
+    }
 
     private void OnShutdown(Entity<MartialArtsKnowledgeComponent> ent, ref ComponentShutdown args)
     {
@@ -163,6 +178,12 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             var martialArtsKnowledgeComponent = EnsureComp<MartialArtsKnowledgeComponent>(user);
             LoadPrototype(user, martialArtsKnowledgeComponent, comp.MartialArtsForm);
             martialArtsKnowledgeComponent.Blocked = false;
+            if (TryComp<MeleeWeaponComponent>(user, out var meleeWeaponComponent))
+            {
+                var newDamage = new DamageSpecifier();
+                newDamage.DamageDict.Add("Blunt", martialArtsKnowledgeComponent.BaseDamageModifier);
+            }
+
             Dirty(user, canPerformComboComponent);
             return true;
         }
@@ -206,7 +227,6 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         component.MinDamageModifier = martialArtsPrototype.MinDamageModifier;
         component.MaxDamageModifier = martialArtsPrototype.MaxDamageModifier;
         component.RandomDamageModifier = martialArtsPrototype.RandomDamageModifier;
-        component.HarmAsStamina = martialArtsPrototype.HarmAsStamina;
         component.RandomSayings = martialArtsPrototype.RandomSayings;
         component.RandomSayingsDowned = martialArtsPrototype.RandomSayingsDowned;
         LoadCombos(martialArtsPrototype.RoundstartCombos, combo);
@@ -239,10 +259,8 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
         foreach (var entInRange in _lookup.GetEntitiesInRange(ent, 8f))
         {
-            if (!TryPrototype(entInRange, out var proto) || proto.ID != "DefaultStationBeaconKitchen" ||
-                !knowledgeComponent.Blocked)
+            if (!TryPrototype(entInRange, out var proto) || proto.ID != "DefaultStationBeaconKitchen" || !knowledgeComponent.Blocked)
                 continue;
-            knowledgeComponent.HarmAsStamina = true;
             return true;
         }
 
@@ -254,17 +272,13 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         string damageType,
         int damageAmount,
         out DamageSpecifier damage,
-        TargetBodyPart targetBodyPart = TargetBodyPart.All)
+        TargetBodyPart? targetBodyPart = null)
     {
         damage = new DamageSpecifier();
         if(!TryComp<TargetingComponent>(ent, out var targetingComponent))
             return;
-
         damage.DamageDict.Add(damageType, damageAmount);
-        _damageable.TryChangeDamage(target,
-            damage,
-            origin: ent,
-            targetPart: targetBodyPart == TargetBodyPart.All ? targetBodyPart : targetingComponent.Target);
+        _damageable.TryChangeDamage(target, damage, origin: ent, targetPart: targetBodyPart ?? targetingComponent.Target);
     }
 
     #endregion

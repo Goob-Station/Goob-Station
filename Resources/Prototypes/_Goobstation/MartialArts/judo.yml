@@ -2,6 +2,7 @@
   id: CorporateJudo
   martialArtsForm: CorporateJudo
   roundstartCombos: CorporateJudoMoves
+  baseDamageModifier: 5
 
 - type: comboList
   id: CorporateJudoMoves

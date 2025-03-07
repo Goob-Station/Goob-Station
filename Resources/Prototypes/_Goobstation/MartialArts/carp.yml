@@ -3,6 +3,7 @@
   martialArtsForm: SleepingCarp
   roundstartCombos: SleepingCarpMoves
   randomDamageModifier: true
+  baseDamageModifier: 5
   randomSayings:
   - carp-saying-huah
   - carv-vaying-hya

@@ -1,7 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
-using Content.Shared._Goobstation.MartialArts.Components; // Goobstation - Martial Arts
 using Content.Shared._Goobstation.MartialArts.Events; // Goobstation - Martial Arts
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
@@ -458,25 +457,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     {
         // If I do not come back later to fix Light Attacks being Heavy Attacks you can throw me in the spider pit -Errant
         var damage = GetDamage(meleeUid, user, component) * GetHeavyDamageModifier(meleeUid, user, component);
-        // Goobstation - Martial Arts
-        var damAsStam = false;
-        if(TryComp<MartialArtsKnowledgeComponent>(user, out var martialArtsKnowledgeComponent) && meleeUid == user)
-        {
-            if (martialArtsKnowledgeComponent.RandomDamageModifier)
-            {
-                var min = martialArtsKnowledgeComponent.MinDamageModifier.Float();
-                var max = martialArtsKnowledgeComponent.MaxDamageModifier.Float();
-
-                damage *= Math.Round(_random.NextFloat(min, max));
-            }
-            else
-            {
-                damage *= martialArtsKnowledgeComponent.MinDamageModifier;
-            }
-
-            damAsStam = martialArtsKnowledgeComponent.HarmAsStamina;
-        }
-        // Goobstation
 
         var target = GetEntity(ev.Target);
         var resistanceBypass = GetResistanceBypass(meleeUid, user, component);
@@ -538,16 +518,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         RaiseLocalEvent(target.Value, attackedEvent);
 
         var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
-        // Goobstation - Martial Arts
-        if (damAsStam)
-        {
-            _stamina.TakeStaminaDamage(target.Value, modifiedDamage.GetTotal().Float() * 2);
-            var stmComboEv = new ComboAttackPerformedEvent(user, target.Value, meleeUid, ComboAttackType.Harm);
-            RaiseLocalEvent(user, stmComboEv);
-            _meleeSound.PlayHitSound(target.Value, user, GetHighestDamageSound(modifiedDamage, _protoManager), hitEvent.HitSoundOverride, component);
-            return;
-        }
-        // Goobstation
         var damageResult = Damageable.TryChangeDamage(target, modifiedDamage, origin: user, canEvade: true, partMultiplier: component.ClickPartDamageMultiplier); // Shitmed Change
         var comboEv = new ComboAttackPerformedEvent(user, target.Value, meleeUid, ComboAttackType.Harm);
         RaiseLocalEvent(user, comboEv);

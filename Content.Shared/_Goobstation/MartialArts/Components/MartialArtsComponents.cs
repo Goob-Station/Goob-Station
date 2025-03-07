@@ -22,19 +22,19 @@ public sealed partial class MartialArtsKnowledgeComponent : GrabStagesOverrideCo
 
     [DataField]
     [AutoNetworkedField]
-    public FixedPoint2 MinDamageModifier = 2.0;
+    public int MinDamageModifier;
 
     [DataField]
     [AutoNetworkedField]
-    public FixedPoint2 MaxDamageModifier = 3.0;
+    public int MaxDamageModifier = 5;
+
+    [DataField]
+    [AutoNetworkedField]
+    public FixedPoint2 BaseDamageModifier;
 
     [DataField]
     [AutoNetworkedField]
     public bool RandomDamageModifier;
-
-    [DataField]
-    [AutoNetworkedField]
-    public bool HarmAsStamina;
 
     [DataField]
     [AutoNetworkedField]
