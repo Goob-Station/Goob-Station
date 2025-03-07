@@ -84,4 +84,4 @@
   - type: StealCondition
     stealGroup: RapidSyringeGun
   - type: Objective
-    difficulty: 3 # Slighly more than normal as it does not fit into storage implant
+    difficulty: 3 # Slightly more than normal as it does not fit into storage implant

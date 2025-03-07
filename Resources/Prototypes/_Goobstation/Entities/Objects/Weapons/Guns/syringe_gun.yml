@@ -51,7 +51,7 @@
   name: rapid syringe gun
   parent: [ BaseSyringeGun, BaseGrandTheftContraband ]
   id: RapidSyringeGun
-  description: A finely-tuned syringe gun featuring a faster fire rate and more room for ammo, made for the most expirienced medical officers.
+  description: A finely-tuned syringe gun featuring a faster fire rate and more room for ammo, made for the most experienced medical officers.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
