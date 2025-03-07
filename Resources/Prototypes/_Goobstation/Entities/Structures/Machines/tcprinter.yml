@@ -1,6 +1,6 @@
 - type: entity
   id: TCminer
-  name: Telecrystal miner
+  name: telecrystal miner
   parent: [BaseMachine, BaseSyndicateContraband]
   description: A very loud machine that uses bluespace blockchain technology to generate telecrystals every 10 seconds when powered.
   components:
