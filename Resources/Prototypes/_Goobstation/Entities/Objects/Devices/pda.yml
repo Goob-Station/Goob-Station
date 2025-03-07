@@ -26,6 +26,33 @@
     state: pda-chrono
 
 - type: entity
+  parent: AdminPDA
+  id: GmanPDA
+  name: strange PDA
+  description: Your mind can't quite comprehend this.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/pda.rsi # todo - make a unique texture.
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-chrono
+  - type: Pda
+    id: GmanIDCard
+    penSlot:
+      startingItem: PenFuture
+      whitelist:
+        tags:
+        - Write
+  - type: PdaBorderColor
+    borderColor: "#dee4e7"
+    accentVColor: "#59bcee"
+  - type: Icon
+    sprite: _Goobstation/Objects/Devices/pda.rsi
+    state: pda-chrono
+
+- type: entity
   parent: SalvagePDA
   id: HelldiverPDA
   name: salvage diver PDA
@@ -70,8 +97,6 @@
         - Write
   - type: PdaBorderColor
     borderColor: "#00842e"
-  - type: Icon
-    state: pda-centcom
 
 - type: entity
   parent: ERTLeaderPDA
@@ -94,3 +119,73 @@
     state: pda-blueshield
   - type: PdaBorderColor
     borderColor: "#3c94c5"
+
+- type: entity
+  parent: CentcomPDA
+  id: DeathsquadPDA
+  name: Deathsquad PDA
+  description: Rip and tear until it is done.
+  components:
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-deathsquad
+  - type: Pda
+    id: CentcomIDCardDeathsquad
+  - type: Icon
+    sprite: _Goobstation/Objects/Devices/pda.rsi
+    state: pda-deathsquad
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/pda.rsi
+    state: pda-deathsquad
+
+- type: entity
+  parent: CentcomPDA
+  id: NavyCaptainPDA
+  name: Navy Captain's PDA
+  description: The devil's in the details.
+  components:
+  - type: Pda
+    id: CentcomIDCardNavyCaptain
+  - type: HealthAnalyzer
+    scanDelay: 0
+    silent: true
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    notificationsEnabled: false
+    diskSpace: 10 # DeltaV
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - LogProbeCartridge
+    - WantedListCartridge
+    - MedTekCartridge
+    - AstroNavCartridge
+    - NanoChatCartridge # DeltaV
+
+- type: entity
+  parent: NavyCaptainPDA
+  id: NavyOfficerPDA
+  name: Navy Officer's PDA
+  components:
+  - type: Pda
+    id: CentcomIDCardNavyOfficer
+
+- type: entity
+  parent: NavyCaptainPDA
+  id: SpecialOperationsOfficerPDA
+  name: Special Operations Officer's PDA
+  components:
+  - type: Pda
+    id: CentcomIDCardSpecialOperationsOfficer
+
+- type: entity
+  parent: NavyCaptainPDA
+  id: DiplomatPDA
+  name: diplomat's PDA
+  components:
+  - type: Pda
+    id: CentcomIDCardDiplomat
+

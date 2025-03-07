@@ -305,7 +305,7 @@
 - type: entity
   id: RadioImplanterCentcomm
   suffix: radio Centcomm
-  parent: BaseImplantOnlyImplanter
+  parent: BaseImplantOnlyImplanterCentcomm # Goobstation
   components:
   - type: Implanter
     implant: RadioImplantCentcomm

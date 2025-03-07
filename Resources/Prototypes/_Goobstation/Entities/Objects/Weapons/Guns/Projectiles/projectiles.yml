@@ -139,6 +139,23 @@
       types:
         Piercing: 25
 
+- type: hitscan
+  id: HeavyPulse
+  damage:
+    types:
+      Heat: 35 # Damage nerfed slightly to give you a BIT of a chance. You're still fucked though.
+      Blunt: 10
+      Structural: 80
+  muzzleFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_blue
+  travelFlash:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/heavy_pulse.rsi
+    state: beam_blue_heavy
+  impactFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_blue
+
 - type: entity
   id: BulletTemperatureCold
   name: cold temperature bolt

@@ -115,6 +115,60 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/hecu.rsi
 
 - type: entity
+  parent: [ClothingUniformBase, BaseCentcommContraband]
+  id: ClothingUniformJumpsuitNavyGold
+  name: navy officer's jumpsuit
+  description: A suit worn by high-ranking Central Command members. The rest is classified.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.70
+        Heat: 0.75
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCentcommContraband]
+  id: ClothingUniformJumpsuitSpecOps
+  name: special operations officer's jumpsuit
+  description: A suit worn by high-ranking spec ops officers. The rest is classified.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/specialoperations.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/specialoperations.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.65
+        Heat: 0.70
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCentcommContraband]
+  id: ClothingUniformJumpsuitDiplomat
+  name: diplomat's jumpsuit
+  description: A suit worn by diplomacy focused Central Command workers.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/diplomat.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/diplomat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.70
+        Heat: 0.75
+
+- type: entity
   parent: ClothingUniformBase
   id: ClothingCostumeAbductor
   name: Alien Costume
