@@ -5855,3 +5855,21 @@ Entries:
       message: The second weapons folder is dead. Coders rejoice.
   id: 671
   time: '2025-03-07T02:54:20.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: >-
+        Table slamming. Harm a table when you have someone harm choked, see what
+        happens.
+    - type: Tweak
+      message: >-
+        Mice are no longer wrecking balls. Grab throw damage to other entities
+        is now based on the thrown entities kinetic energy.
+    - type: Tweak
+      message: You can now escape from a soft grab by just walking away.
+    - type: Tweak
+      message: You can no longer grab someone else while your being grabbed.
+    - type: Tweak
+      message: Mass now effects grab release attempts.
+  id: 672
+  time: '2025-03-07T03:42:50.0000000+00:00'
