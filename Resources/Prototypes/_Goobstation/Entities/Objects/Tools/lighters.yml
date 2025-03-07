@@ -5,7 +5,7 @@
   description: "A specialized blue lighter given only to specific officers. Great for a smoke after a long day."
   components:
   - type: Sprite
-    sprite: Objects/Tools/lighters.rsi
+    sprite: /Textures/_Goobstation/Objects/Tools/lighters.rsi
     layers:
     - state: icon
       map: ["base"]
