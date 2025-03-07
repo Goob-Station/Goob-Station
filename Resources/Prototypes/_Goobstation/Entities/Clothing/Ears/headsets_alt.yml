@@ -69,7 +69,7 @@
 
 - type: entity
   parent: [ClothingHeadsetAlt, BaseCentCommcontraband]
-  id: ClothingHeadsetAltWarden
+  id: ClothingHeadsetAltBlueshield
   name: blueshield officer's over-ear headset
   components:
   - type: ContainerFill
