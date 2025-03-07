@@ -185,7 +185,7 @@
     - Wrench
     - Screwdriver
     - Wirecutter
-    - Multitool
+    - MultitoolBorg
     - WelderIndustrial
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: tool-module }
@@ -218,7 +218,7 @@
   - type: ItemBorgModule
     items:
     - MiningDrill
-    - Shovel
+    # - Shovel # Goobstation
     - MineralScannerUnpowered
     - OreBag
     - Crowbar
@@ -279,6 +279,18 @@
     - SheetGlassLingering0
     - PartRodMetalLingering0
     - FloorTileItemSteelLingering0
+    # Frontier: droppable borg items
+    droppableItems:
+    - id: APCElectronics
+      whitelist:
+        components:
+        - Electronics
+        - MachineBoard
+    - id: CapacitorStockPart
+      whitelist:
+        components:
+        - StockPart
+    # End Frontier: droppable borg items
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: construction-module }
 
@@ -309,8 +321,8 @@
     - state: icon-light-replacer
   - type: ItemBorgModule
     items:
-    - LightReplacer
     - Crowbar
+    - LightReplacer
     - Screwdriver
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: light-replacer-module }
@@ -415,10 +427,17 @@
   - type: ItemBorgModule
     items:
     - HandheldHealthAnalyzerUnpowered
-    - Beaker
-    - Beaker
-    - BorgDropper
+#    - Beaker # Frontier
+#    - Beaker # Frontier
+#    - BorgDropper # Frontier
     - BorgHypo
+    # Frontier: droppable borg items
+    droppableItems:
+    - id: Beaker
+      whitelist:
+        components:
+        - FitsInDispenser
+    # End Frontier: droppable borg items
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-diagnosis-module }
 
@@ -474,8 +493,15 @@
     - BooksBag
     - HandLabeler
     - Lighter
-    - DrinkShaker
-    - BorgDropper
+    # Frontier: droppable borg items
+    # - DrinkShaker
+    # - BorgDropper
+    droppableItems:
+    - id: DrinkShaker
+      whitelist:
+        components:
+        - FitsInDispenser
+    # End Frontier: droppable borg items
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: service-module }
 
@@ -511,6 +537,13 @@
     - HydroponicsToolSpade
     - HydroponicsToolClippers
     - Bucket
+    # Frontier: droppable borg items
+    droppableItems:
+    - id: AppleSeeds
+      whitelist:
+        components:
+        - Seed
+    # End Frontier: droppable borg items
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: gardening-module }
 
@@ -654,6 +687,15 @@
     - Cautery
     - SawElectric
     - BoneGel
+    # Frontier: droppable borg items
+    droppableItems:
+    - id: OrganHumanBrain
+      whitelist:
+        components:
+        - BodyPart
+        tags:
+        - Organ
+    # End Frontier: droppable borg items
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: surgery-module }
 
@@ -672,5 +714,14 @@
     - EnergyCautery
     - AdvancedRetractor
     - BoneGel
+    # Frontier: droppable borg items
+    droppableItems:
+    - id: OrganHumanBrain
+      whitelist:
+        components:
+        - BodyPart
+        tags:
+        - Organ
+    # End Frontier: droppable borg items
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-surgery-module }

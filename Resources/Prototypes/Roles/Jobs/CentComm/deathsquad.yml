@@ -16,32 +16,35 @@
   - NanotrasenRepresentative
   - BlueshieldOfficer
 
+  # Goobstation Start - I basically re-did all of deathsquads stuff so. - Sol
+
 - type: startingGear
   id: DeathSquadGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitDeathSquad
     back: ClothingBackpackDeathSquad
     mask: ClothingMaskGasDeathSquad
-    eyes: ClothingEyesHudSecurity
-    ears: ClothingHeadsetAltCentCom
-    gloves: ClothingHandsGlovesCombat
+    eyes: ClothingEyesGlassesDeathsquad # Goobstation
+    neck: ExecutiveIDCard # Executive Access! - Todo: Add more to this card.
+    ears: ClothingHeadsetDeathsquad # Goobstation
+    gloves: ClothingHandsGlovesDeathsquadUnremovable # Rip and TEAR
     outerClothing: ClothingOuterHardsuitDeathsquad
-    shoes: ClothingShoesBootsMagAdv
-    id: DeathsquadPDA
-    pocket1: EnergySword
-    pocket2: EnergyShield
-    belt: ClothingBeltMilitaryWebbingMedFilled
+    shoes: ClothingShoesBootsMagDeathsquad # These boots are cooler.
+    id: DeathsquadPDA # New PDA!
+    pocket1: PhoronSabre # Goobstation
+    pocket2: WeaponRevolverMateba # Goobstation
+    belt: ClothingBeltDeathsquadWebbingFilled # Centcomm Doesn't use syndicate tech.
   storage:
     back:
-    - WeaponPulsePistol
-    - WeaponRevolverMatebaAP
-    - SpeedLoaderMagnumAP
-    - SpeedLoaderMagnumAP
-    - BoxFlashbang
-    - ToolDebug # spanish army knife
+    - SpeedLoaderMatebaAP # Goobstation - 7 rounds
+    - SpeedLoaderMatebaAP # Goobstation - 7 rounds
+    # - BoxFlashbang - WAY too big
+    - ToolDebug # Spanish Army Knife - TODO Replace
     - WelderExperimental
-    - Hypospray
-    - DeathAcidifierImplanter # crew will try to steal their amazing hardsuits
-    - FreedomImplanter
+    - AmnestizineHypospray # SCP Foundation type shit.
+    - BlueShieldShieldEvilFilled # Goobstation
+    - HyperFlash # Flash!
   inhand:
   - WeaponPulseRifle
+
+    # Goobstation End

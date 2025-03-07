@@ -30,6 +30,11 @@
   recipes:
   - VehicleWheelchairFolded
 
+- type: latheRecipePack
+  id: MedicalVehiclesAdvanced
+  recipes:
+  - VehicleHoverchairSci
+
 ## Dynamic
 - type: latheRecipePack
   id: MedicalSurgery
@@ -59,3 +64,4 @@
   id: MedicalMisc
   recipes:
   - PrescriptionGlasses
+  - VehicleHoverchairSci

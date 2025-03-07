@@ -13,7 +13,7 @@
   id: WabbajackGroups
   weights:
     WabbajackMonkey: 1
-    WabbajackCluwne: 1
+    # WabbajackCluwne: 1
     WabbajackRobot: 1
     WabbajackSlime: 1
     WabbajackXeno: 1
@@ -24,8 +24,8 @@
 - type: weightedRandomEntity
   id: WabbajackMonkey
   weights:
-    MobMonkey: 1
-    MobKobold: 1
+    MobMonkeyAngry: 1
+    MobKoboldAngry: 1
 
 - type: weightedRandomEntity
   id: WabbajackCluwne
@@ -35,12 +35,12 @@
 - type: weightedRandomEntity
   id: WabbajackRobot
   weights:
-    BorgChassisGeneric: 30
-    BorgChassisMining: 30
-    BorgChassisEngineer: 30
-    BorgChassisJanitor: 30
-    BorgChassisMedical: 30
-    BorgChassisService: 30
+    PlayerBorgGeneric: 30
+    PlayerBorgMining: 30
+    PlayerBorgEngineer: 30
+    PlayerBorgJanitor: 30
+    PlayerBorgMedical: 30
+    PlayerBorgService: 30
     MobFireBot: 20
     MobHonkBot: 20
     MobJonkBot: 20
@@ -48,10 +48,11 @@
     MobMedibot: 20
     MobMimeBot: 20
     MobSupplyBot: 20
-    BorgChassisDerelict: 10
-    BorgChassisSyndicateAssault: 1
-    BorgChassisSyndicateMedical: 1
-    BorgChassisSyndicateSaboteur: 1
+    PlayerBorgDerelict: 10
+    PlayerBorgSyndicateAssaultBattery: 1
+    PlayerBorgSyndicateMedicalBattery: 1
+    PlayerBorgSyndicateSaboteurBattery: 1
+    PlayerBorgDerelictSyndicateAssaultBattery: 1
 
 - type: weightedRandomEntity
   id: WabbajackSlime
