@@ -283,6 +283,7 @@
         - HandLabeler
         - SurgeryTool # Shitmed Change
         - Defibrillator # Goobstation
+        - SyringeGun # Goobstation
   - type: ItemMapper
     mapLayers:
       bottle:

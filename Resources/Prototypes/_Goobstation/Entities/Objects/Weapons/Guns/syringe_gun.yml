@@ -5,8 +5,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
-    layers:
-    - state: syringe-gun
+    state: icon
   - type: Storage
     maxItemSize: Tiny
     grid:
@@ -24,7 +23,7 @@
   - type: ContainerAmmoProvider
     container: storagebase
   - type: Item
-    size: Large
+    size: Normal
     shape:
     - 0,0,3,0
   - type: ContainerContainer
@@ -54,9 +53,12 @@
   description: A finely-tuned syringe gun featuring a faster fire rate and more room for ammo, made for the most experienced medical officers.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
-    layers:
-    - state: rapid-syringe-gun
+    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/rapid_syringe_gun.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/rapid_syringe_gun.rsi
+    slots:
+    - back
+    - suitStorage
   - type: Storage
     grid:
     - 0,0,2,1
@@ -65,13 +67,9 @@
   - type: SyringeGun
     pierceArmor: true
     injectionSpeedMultiplier: 1.5
-  - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
-    slots:
-    - back
-    - suitStorage
     quickEquip: false
   - type: Item
+    size: Large
     shape:
     - 0,0,3,1
   - type: Tag
@@ -87,9 +85,8 @@
   description: An illegally modified version of the syringe gun that allows projectiles to pierce through armor. Also pierces skin better, resulting in faster injection.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
     layers:
-    - state: dart-syringe-gun
+    - state: icon-dart
   - type: Item
     size: Small
     shape:

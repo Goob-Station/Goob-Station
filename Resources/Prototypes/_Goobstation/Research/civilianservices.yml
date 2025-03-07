@@ -17,7 +17,7 @@
   name: research-technology-medical-defense
   icon:
     sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
-    state: syringe-gun
+    state: icon
   discipline: CivilianServices
   tier: 1
   cost: 5000
