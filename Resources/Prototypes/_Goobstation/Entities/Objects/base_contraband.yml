@@ -4,5 +4,5 @@
   abstract: true
   components:
   - type: Contraband
-    allowedJobs: [ BlueshieldOfficer ]
+    allowedJobs: [ BlueshieldOfficer ] # Basically both security and medic.
     allowedDepartments: [ Security, Medical ]

@@ -117,11 +117,11 @@
       - id: Bloodpack
       - id: Gauze
       - id: EmergencyMedipen #You never know what people are going to latejoin into
-      - id: ParamedHypo # Goobstation - ParamedHypo
-      - id: HandheldCrewMonitor # Goobstation
+      - id: HandheldCrewMonitor # Goobstation - start
+      - id: ParamedHypo
       - id: CartridgeAtropine
       - id: CartridgeBicaridine
-      - id: CartridgeDermaline
+      - id: CartridgeDermaline # Goobstation - end
 
 - type: entity
   id: ClothingBeltPlantFilled
