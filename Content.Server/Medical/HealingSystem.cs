@@ -215,7 +215,7 @@ public sealed class HealingSystem : EntitySystem
         if (TryComp<StackComponent>(uid, out var stack) && stack.Count < 1)
             return false;
 
-        if (!HasDamage((target, targetDamage), component) || !IsPartDamaged(user, target)) // Shitmed Change
+        if (!HasDamage((target, targetDamage), component) && !IsPartDamaged(user, target)) // Shitmed Change
         {
             _popupSystem.PopupEntity(Loc.GetString("medical-item-cant-use", ("item", uid)), uid, user);
             return false;
