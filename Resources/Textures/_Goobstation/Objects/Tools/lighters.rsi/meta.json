@@ -11,7 +11,7 @@
       "name": "icon"
     },
     {
-      "name": "lighter_flame",
+      "name": "lighter-flame",
       "delays": [
         [
           0.2,
@@ -20,10 +20,10 @@
       ]
     },
     {
-      "name": "zippo_open"
+      "name": "icon-open"
     },
     {
-      "name": "zippo_top"
+      "name": "zippo-top"
     },
     {
       "name": "zippo-inhand-left",
