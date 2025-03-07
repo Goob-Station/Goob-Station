@@ -81,7 +81,7 @@
       - id: ClothingHeadHelmetBasic
       - id: ClothingOuterArmorBasic
       - id: ClothingBeltSecurityFilled
-      - id: ClothingBeltCorporateJudo # Goobstation - Martial Arts
+      - id: ClothingBeltCorporateJudoFilled # Goobstation - Martial Arts
       - id: Flash
         prob: 0.5
       - id: ClothingEyesGlassesSecurity
