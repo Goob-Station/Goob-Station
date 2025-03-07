@@ -22,4 +22,4 @@
 - type: soundCollection
   id: PowerOn
   files:
-  - /Audio/Announcements/power_on.ogg
+  - /Audio/_ShibaStation/Announcements/powergrid-end.ogg
