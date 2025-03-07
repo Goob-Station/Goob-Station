@@ -11,7 +11,6 @@
       time: 14400 # 4 hrs
   icon: "JobIconShaftMiner"
   startingGear: SalvageSpecialistGear
-  goobcoins: 20 #Goob content
   supervisors: job-supervisors-qm
   access:
   - Cargo

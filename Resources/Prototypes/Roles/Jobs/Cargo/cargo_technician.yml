@@ -6,7 +6,6 @@
   startingGear: CargoTechGear
   icon: "JobIconCargoTechnician"
   supervisors: job-supervisors-qm
-  goobcoins: 20 #Goob content
   access:
   - Cargo
   - Maintenance
