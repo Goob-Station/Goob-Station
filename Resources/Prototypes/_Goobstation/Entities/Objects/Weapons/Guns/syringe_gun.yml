@@ -66,17 +66,16 @@
   - type: Gun
     fireRate: 2
   - type: SyringeGun
-    pierceArmor: false
     injectionSpeedMultiplier: 1.5
   - type: Item
     size: Large
     shape:
     - 0,0,3,1
+  - type: StealTarget
+    stealGroup: RapidSyringeGun
   - type: Tag
     tags:
     - HighRiskItem
-  - type: StealTarget
-    stealGroup: RapidSyringeGun
 
 - type: entity
   name: dart syringe gun
