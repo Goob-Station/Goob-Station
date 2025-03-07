@@ -445,7 +445,6 @@
     - SecurityAmmoStaticGoob
     - SecurityEquipmentStaticGoob
     - SecurityHypoStatic
-    - SecurityWeaponsStaticGoob
     - MechWeaponsStatic
     - SecurityBoardsStaticGoob
     - PowerCells

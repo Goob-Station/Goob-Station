@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ ClothingBeltMedical, BaseCommandContraband ]
+  parent: [ ClothingBeltStorageBase, BaseCommandContraband ]
   id: ClothingBeltMilitaryWebbingCMO
   name: chief medical officer's chest rig
   description: A medical chest rig with deep pockets, for use by health professionals.
@@ -11,6 +11,32 @@
   - type: Storage
     grid:
       - 0,0,6,2
+    whitelist: # I have no idea why is, say, wrench here, but it's just copied from medical belt.
+      tags:
+        - Wrench
+        - Bottle
+        - Spray
+        - Brutepack
+        - Bloodpack
+        - Gauze
+        - Ointment
+        - CigPack
+        - PillCanister
+        - Radio
+        - DiscreteHealthAnalyzer
+        - SurgeryTool
+        - Dropper
+        - Tourniquet #Goobstation
+        - MedicalPatch # Goobstation
+        - AutoinjectorCartridge # Goobstation
+        - HandheldCrewMonitor # Goobstation
+      components:
+        - Hypospray
+        - Injector
+        - Pill
+        - HandLabeler
+        - SurgeryTool # Shitmed Change
+        - Defibrillator # Goobstation
 
 
 - type: entity
