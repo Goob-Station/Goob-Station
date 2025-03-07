@@ -1196,7 +1196,6 @@
     speedModifierThresholds:
       80: 0.7
       100: 0.5
-  - type: Fauna # Lavaland Change
 
 - type: entity
   name: kangaroo
@@ -1475,7 +1474,7 @@
     makeSentient: true
     name: ghost-role-information-monkey-name
     description: ghost-role-information-monkey-description
-    rules: ghost-role-information-nonantagonist-rules
+    rules: ghost-role-information-freeagent-rules # Goobstation - - remove: 1984
   - type: GhostTakeoverAvailable
   - type: Clumsy
     gunShootFailDamage:
@@ -1486,7 +1485,6 @@
         Burn: 3
     clumsySound:
       path: /Audio/Animals/monkey_scream.ogg
-  - type: Fauna # Lavaland Change
 
 - type: entity
   name: monkey
@@ -2516,7 +2514,6 @@
     color: "#808080"
     activateSound: null
     deactivateSound: null
-  - type: Fauna # Lavaland Change
 
 - type: entity
   parent: MobSpiderBase

@@ -63,6 +63,7 @@ using Content.Shared._Goobstation.Weapons.AmmoSelector;
 using Content.Shared.Projectiles;
 using Content.Shared._White.Overlays;
 using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Tag;
 using Content.Shared.Forensics.Components;
 
 namespace Content.Server.Changeling;
@@ -110,6 +111,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly RejuvenateSystem _rejuv = default!;
     [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
