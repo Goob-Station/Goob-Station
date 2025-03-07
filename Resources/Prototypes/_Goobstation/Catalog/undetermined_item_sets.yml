@@ -48,5 +48,4 @@
     sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
     state: icon-on
   content:
-  - BlueshieldMace
-  - BlueShieldShield # Todo - Replace this with the filled shield.
+  - BlueShieldShieldFilled
