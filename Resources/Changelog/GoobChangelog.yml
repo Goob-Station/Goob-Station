@@ -5879,3 +5879,16 @@ Entries:
       message: Added CPR (DAMN YOU PIRAS314)
   id: 673
   time: '2025-03-07T05:15:39.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: >-
+        Added the game director, currently comes in two flavors, The Guide, a
+        combat/antag driven experience. and then The Sleeper, think green shift
+        but with actual flavor.
+    - type: Remove
+      message: Secret from Rotation
+    - type: Remove
+      message: Dynamic.
+  id: 674
+  time: '2025-03-07T05:19:11.0000000+00:00'
