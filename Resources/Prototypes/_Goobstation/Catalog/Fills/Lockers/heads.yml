@@ -27,17 +27,15 @@
   id: LockerFillBlueshieldOfficer
   table: !type:AllSelector
     children:
-    - id: ClothingHeadHelmetSwat
-    - id: Flash
     - id: DefibrillatorCompact
-    - id: MedkitCombatFilled
+    - id: MedkitBSOFilled
     - id: MedkitBSOFilledIPC
-    - id: ClothingOuterHardsuitBlueshield
-    - id: ClothingBackpackDuffelSurgeryFilled
     - id: FlippoLighterBlueshield
     - id: BoxZiptie
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
+    - id: ClothingHeadHelmetSwat
+    - id: ClothingOuterHardsuitBlueshield
 
 - type: entity
   id: LockerBlueshieldOfficerFilled

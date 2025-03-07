@@ -55,6 +55,6 @@
   storage:
     back:
     - ClothingMaskGasSecurity
-    - Flash
-    - HandheldCrewMonitor
     - BlueshieldUndetermined
+    - HandheldCrewMonitor
+    - Flash

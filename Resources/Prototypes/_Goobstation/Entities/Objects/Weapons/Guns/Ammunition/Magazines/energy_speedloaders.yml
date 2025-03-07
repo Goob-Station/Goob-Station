@@ -50,7 +50,7 @@
     layers:
       - state: base
         map: [ "enum.GunVisualLayers.Base" ]
-      - state: disabling-3 # Rename it to disabler when sprites are done
+      - state: disabling-3
         map: [ "enum.GunVisualLayers.Mag" ]
   - type: MagazineVisuals
     magState: disabling
