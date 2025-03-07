@@ -84,7 +84,7 @@
   #   name: ghost-role-information-c4-name
   #   description: ghost-role-information-c4-description
   #   rules: ghost-role-information-familiar-rules
-  - type: GhostTakeoverAvailable
+  # - type: GhostTakeoverAvailable
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
