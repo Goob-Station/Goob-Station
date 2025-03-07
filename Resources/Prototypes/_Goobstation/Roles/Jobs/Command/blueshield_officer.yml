@@ -15,6 +15,7 @@
       time: 90000 # 25 hours
     - !type:AgeRequirement
       requiredAge: 21
+  goobcoins: 45
   weight: 20
   startingGear: BlueshieldOfficerGear
   icon: "JobIconBlueshield"
@@ -46,7 +47,7 @@
 - type: startingGear
   id: BlueshieldOfficerGear
   equipment:
-    eyes: ClothingEyesGlassesMedSec
+    eyes: ClothingEyesGlassesBSO
     gloves: ClothingHandsGlovesCombat
     id: BlueshieldPDA
     ears: ClothingHeadsetAltCommand
@@ -54,6 +55,7 @@
     pocket2: PinpointerUniversal # Track any of the heads, not just the captain.
   storage:
     back:
+    - ClothingMaskGasSecurity 
     - Flash
     - FlippoLighterBlueshield
     - BlueshieldUndetermined

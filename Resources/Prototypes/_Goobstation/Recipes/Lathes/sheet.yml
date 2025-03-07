@@ -3,7 +3,5 @@
   result: MaterialBSCrystal1
   completetime: 2
   materials:
-    Gold: 25
-    Silver: 25
-    Glass: 50
+    Diamond: 100
     Plasma: 50

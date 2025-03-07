@@ -1,4 +1,5 @@
 using Content.Server._Goobstation.Blob.Components;
+using Content.Server.GameTicking;
 using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.Popups;
 
@@ -17,7 +18,7 @@ public sealed class BlobResourceSystem : EntitySystem
 
         SubscribeLocalEvent<BlobResourceComponent, BlobSpecialGetPulseEvent>(OnPulsed);
         SubscribeLocalEvent<BlobResourceComponent, BlobNodePulseEvent>(OnPulsed);
-
+        SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEnd);
         _blobTile = GetEntityQuery<BlobTileComponent>();
         _blobCore = GetEntityQuery<BlobCoreComponent>();
     }
@@ -50,5 +51,15 @@ public sealed class BlobResourceSystem : EntitySystem
                 blobCoreComponent.Observer.Value,
                 PopupType.Large);
         }
+    }
+    /// <summary>
+    /// On round end makes all the blobs resource nodes generate 100 points each pulse.
+    /// </summary>
+    /// <param name="args"></param>
+    private void OnRoundEnd(RoundEndTextAppendEvent args)
+    {
+        var query = EntityQueryEnumerator<BlobResourceComponent>();
+        while(query.MoveNext(out var resource))
+            resource.PointsPerPulsed = 100;
     }
 }

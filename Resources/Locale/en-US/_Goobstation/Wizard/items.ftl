@@ -13,3 +13,5 @@ sanguine-strike-examine = [color=#c41515]This weapon is empowered by sanguine ma
 
 scrying-orb-verb-message = Enter the realm of the dead
 scrying-orb-verb-text = Activate the orb
+
+wizard-mirror-guardian-change-species-fail = You can't change your species after hosting guardian!
