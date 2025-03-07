@@ -1,0 +1,13 @@
+- type: dataset
+  id: NamesFirstMilitaryHighRank
+  values:
+  - Admiral
+  - Fleet Admiral
+  - Captain
+
+- type: dataset
+  id: NamesFirstMilitaryPolitical
+  values:
+  - Ambassador
+  - Counsellor
+  - Minister Counsellor

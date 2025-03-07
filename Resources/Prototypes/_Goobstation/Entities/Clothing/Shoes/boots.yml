@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: ClothingShoesBootsMag
   id: ClothingShoesBootsChrono
   name: futuristic boots
@@ -27,3 +27,38 @@
   suffix: Unremoveable
   components:
   - type: Unremoveable
+
+
+- type: entity
+  parent: [ClothingShoesBootsMagAdv, BaseJetpack, BaseCentcommContraband]
+  id: ClothingShoesBootsMagDeathsquad
+  name: deathsquad magboots
+  description: The sound of these boots are iconic; the sound of terror.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Boots/deathsquad.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Boots/deathsquad.rsi
+  - type: Item
+    sprite: _Goobstation/Clothing/Shoes/Boots/deathsquad.rsi
+  - type: Magboots
+  - type: ClothingSpeedModifier
+    walkModifier: 1.10
+    sprintModifier: 1.10
+  - type: NoSlip
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHeavySuit
+  - type: GasTank
+    outputPressure: 42.6
+    air:
+      # 2 minutes of thrust
+      volume: 2
+      temperature: 293.15
+      moles:
+      - 0.153853429 # oxygen
+      - 0.153853429 # nitrogen
