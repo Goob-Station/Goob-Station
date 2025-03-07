@@ -1,6 +1,33 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: The 'Shiba Seven' maps in rotation now have been updated with department
+      techfabs!
+    type: Tweak
+  id: 197
+  time: '2025-03-07T13:33:51.268872'
+- author: AstroDogeDX
+  changes:
+  - message: The central office at CentComm now has properly secured doors - and a
+      hard working secretary at the front desk!
+    type: Fix
+  id: 196
+  time: '2025-03-07T13:34:18.765750'
+- author: Tennocide
+  changes:
+  - message: Just a "little" grammar fix~
+    type: Fix
+  id: 195
+  time: '2025-03-07T13:34:50.981230'
+- author: MinxLite
+  changes:
+  - message: Pluoxium is now filtered by scrubbers (fixed and portable) by default.
+      No more pressure issues!
+    type: Add
+  id: 194
+  time: '2025-03-07T13:35:18.640371'
+- author: AstroDogeDX
+  changes:
   - message: Derotated a lot of maps until they are modernised with silo, holopad
       and lavaland support. If you would like to help, keep an eye on the Discord
       for more information.
