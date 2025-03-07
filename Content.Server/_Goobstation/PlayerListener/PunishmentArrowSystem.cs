@@ -4,6 +4,7 @@ using Content.Server.Pointing.Components;
 using Content.Server.Popups;
 using Content.Shared._Goobstation.CCVar;
 using Content.Shared.GameTicking;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Pointing;
 using Content.Shared.Popups;
 using JetBrains.Annotations;
@@ -22,6 +23,7 @@ public sealed class PunishmentArrowSystem : EntitySystem
     [Dependency] private readonly IPlayerManager _playMan = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     private Dictionary<SessionData, int> _arrows = [];
     private HashSet<SessionData> _banned = [];
@@ -57,14 +59,16 @@ public sealed class PunishmentArrowSystem : EntitySystem
 
     private void OnPointAttempt(PointAttemptEvent ev)
     {
-        if (ev.Cancelled)
-            return;
-
-        if (!_playMan.TryGetSessionByEntity(ev.Uid, out var sesh))
+        if (ev.Cancelled
+            || !_playMan.TryGetSessionByEntity(ev.Uid, out var sesh)
+            || !_mobState.IsAlive(ev.Uid))
             return;
 
         if (_banned.Contains(sesh.Data))
+        {
             ev.Cancel();
+            return;
+        }
 
         if (!_arrows.TryGetValue(sesh.Data, out _))
         {
