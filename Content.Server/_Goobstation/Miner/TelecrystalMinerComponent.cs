@@ -1,4 +1,4 @@
-using Content.Server.Power.Components;
+using Robust.Shared.Map;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Audio;
 
@@ -48,4 +48,17 @@ public sealed partial class TelecrystalMinerComponent : Component
     /// </summary>
     [DataField("powerDraw")]
     public float PowerDraw = 10000f;
+
+    /// <summary>
+    ///     Origin map and grid of this [MINER].
+    ///     If a station wasn't tied to a given grid when the bomb was spawned,
+    ///     this will be filled in instead.
+    /// </summary>
+    public (MapId, EntityUid?)? OriginMapGrid; // totally not shitcode from nukecomponent btw
+
+    /// <summary>
+    ///     Origin station of this [MINER], if it exists.
+    ///     If this doesn't exist, then the origin grid and map will be filled in, instead.
+    /// </summary>
+    public EntityUid? OriginStation;
 }
