@@ -1,6 +1,17 @@
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Map
+  engineVersion: 247.2.0
+  forkId: ""
+  forkVersion: ""
+  time: 03/07/2025 13:04:55
+  entityCount: 15374
+maps:
+- 126
+grids:
+- 2
+orphans: []
+nullspace: []
 tilemap:
   0: Space
   3: FloorArcadeRed
@@ -6747,7 +6758,6 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
-    - type: LoadedMap
 - proto: AccordionInstrument
   entities:
   - uid: 13494
@@ -11328,27 +11338,6 @@ entities:
     - type: Transform
       pos: 48.5,-31.5
       parent: 2
-- proto: Autolathe
-  entities:
-  - uid: 474
-    components:
-    - type: Transform
-      pos: 51.5,18.5
-      parent: 2
-    - type: SiloUtilizer
-      silo: 9957
-  - uid: 942
-    components:
-    - type: Transform
-      pos: 15.5,-23.5
-      parent: 2
-  - uid: 6910
-    components:
-    - type: Transform
-      pos: 13.5,20.5
-      parent: 2
-    - type: SiloUtilizer
-      silo: 9957
 - proto: BananaPhoneInstrument
   entities:
   - uid: 9600
@@ -33067,6 +33056,15 @@ entities:
     - type: Transform
       pos: 58.5,10.5
       parent: 2
+- proto: CargoTechFab
+  entities:
+  - uid: 6846
+    components:
+    - type: Transform
+      pos: 13.5,20.5
+      parent: 2
+    - type: SiloUtilizer
+      silo: 9957
 - proto: Carpet
   entities:
   - uid: 3
@@ -39670,12 +39668,6 @@ entities:
     - type: Transform
       pos: 23.5,48.5
       parent: 2
-  - uid: 10274
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 17.5,-3.5
-      parent: 2
   - uid: 12581
     components:
     - type: Transform
@@ -44495,6 +44487,15 @@ entities:
       parent: 12395
     - type: Physics
       canCollide: False
+- proto: EngineeringTechFab
+  entities:
+  - uid: 942
+    components:
+    - type: Transform
+      pos: 15.5,-23.5
+      parent: 2
+    - type: SiloUtilizer
+      silo: 9957
 - proto: ExosuitFabricator
   entities:
   - uid: 12579
@@ -68966,7 +68967,7 @@ entities:
       linkedPorts:
         7673:
         - MaterialSilo: MaterialSiloUtilizer
-        474:
+        6910:
         - MaterialSilo: MaterialSiloUtilizer
         5305:
         - MaterialSilo: MaterialSiloUtilizer
@@ -68978,7 +68979,11 @@ entities:
         - MaterialSilo: MaterialSiloUtilizer
         12373:
         - MaterialSilo: MaterialSiloUtilizer
-        6910:
+        942:
+        - MaterialSilo: MaterialSiloUtilizer
+        474:
+        - MaterialSilo: MaterialSiloUtilizer
+        6846:
         - MaterialSilo: MaterialSiloUtilizer
 - proto: MaterialWoodPlank
   entities:
@@ -76604,6 +76609,15 @@ entities:
     - type: Transform
       pos: 66.473175,-3.547059
       parent: 2
+- proto: ScienceTechFab
+  entities:
+  - uid: 474
+    components:
+    - type: Transform
+      pos: 51.5,18.5
+      parent: 2
+    - type: SiloUtilizer
+      silo: 9957
 - proto: ScrapCamera
   entities:
   - uid: 6843
@@ -76712,6 +76726,15 @@ entities:
     - type: Transform
       pos: 45.5,-4.5
       parent: 2
+- proto: ServiceTechFab
+  entities:
+  - uid: 6910
+    components:
+    - type: Transform
+      pos: 17.5,-3.5
+      parent: 2
+    - type: SiloUtilizer
+      silo: 9957
 - proto: ShardGlass
   entities:
   - uid: 10809

@@ -1,6 +1,17 @@
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Map
+  engineVersion: 247.2.0
+  forkId: ""
+  forkVersion: ""
+  time: 03/07/2025 12:46:31
+  entityCount: 23477
+maps:
+- 1
+grids:
+- 2
+orphans: []
+nullspace: []
 tilemap:
   46: Space
   68: FloorArcadeBlue2
@@ -68,7 +79,6 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
-    - type: LoadedMap
   - uid: 2
     components:
     - type: MetaData
@@ -30595,22 +30605,6 @@ entities:
     - type: Transform
       pos: 0.5,4.5
       parent: 2
-- proto: Autolathe
-  entities:
-  - uid: 4245
-    components:
-    - type: Transform
-      pos: 19.5,-28.5
-      parent: 2
-    - type: SiloUtilizer
-      silo: 13916
-  - uid: 15772
-    components:
-    - type: Transform
-      pos: 7.5,20.5
-      parent: 2
-    - type: SiloUtilizer
-      silo: 13916
 - proto: BackgammonBoard
   entities:
   - uid: 10957
@@ -32202,12 +32196,11 @@ entities:
   - uid: 902
     components:
     - type: Transform
-      pos: -16.012146,-48.421722
+      pos: -13.537657,-46.503723
       parent: 2
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
   - uid: 4177
     components:
     - type: Transform
@@ -58799,6 +58792,15 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
+- proto: CargoTechFab
+  entities:
+  - uid: 9704
+    components:
+    - type: Transform
+      pos: 7.5,20.5
+      parent: 2
+    - type: SiloUtilizer
+      silo: 13916
 - proto: Carpet
   entities:
   - uid: 752
@@ -78313,12 +78315,11 @@ entities:
   - uid: 3930
     components:
     - type: Transform
-      pos: -16.25185,-48.327908
+      pos: -11.756407,-47.87873
       parent: 2
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
 - proto: DrinkMugGreen
   entities:
   - uid: 12463
@@ -79442,6 +79443,15 @@ entities:
       angularDamping: 0
       linearDamping: 0
       canCollide: False
+- proto: EngineeringTechFab
+  entities:
+  - uid: 19275
+    components:
+    - type: Transform
+      pos: -12.5,-15.5
+      parent: 2
+    - type: SiloUtilizer
+      silo: 13916
 - proto: Envelope
   entities:
   - uid: 2730
@@ -104212,8 +104222,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13800
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 580
@@ -104225,8 +104233,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 14085
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 588
@@ -104238,8 +104244,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 9278
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 678
@@ -104250,8 +104254,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 2697
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 680
@@ -104262,8 +104264,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 2697
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 765
@@ -104275,8 +104275,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 14085
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 783
@@ -104285,8 +104283,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 27.5,0.5
       parent: 2
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 1016
@@ -104298,8 +104294,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13665
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 1163
@@ -104311,8 +104305,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13549
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 1569
@@ -104325,8 +104317,6 @@ entities:
       deviceLists:
       - 13796
       - 14984
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 2176
@@ -104338,8 +104328,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 11632
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 2752
@@ -104351,8 +104339,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 5565
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 2849
@@ -104363,8 +104349,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13089
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 3375
@@ -104375,8 +104359,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 15894
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 3486
@@ -104387,8 +104369,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 2583
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 4246
@@ -104400,8 +104380,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13658
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 4262
@@ -104413,8 +104391,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13645
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 5054
@@ -104426,8 +104402,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13665
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 5216
@@ -104436,8 +104410,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -4.5,-31.5
       parent: 2
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 5823
@@ -104449,8 +104421,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 5030
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 6501
@@ -104462,8 +104432,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 15894
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 6545
@@ -104475,8 +104443,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 11632
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 6614
@@ -104488,8 +104454,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13645
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 6725
@@ -104500,8 +104464,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13665
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 6759
@@ -104513,8 +104475,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13653
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 6765
@@ -104526,8 +104486,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13654
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 7245
@@ -104538,8 +104496,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 2697
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 7420
@@ -104551,8 +104507,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 11724
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 7478
@@ -104563,8 +104517,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 7632
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 8008
@@ -104575,8 +104527,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 7178
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 8014
@@ -104587,8 +104537,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 2583
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 8445
@@ -104599,8 +104547,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 8606
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 9131
@@ -104612,8 +104558,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 15421
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 9141
@@ -104625,8 +104569,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 11724
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 9450
@@ -104635,8 +104577,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 14.5,-48.5
       parent: 2
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 9456
@@ -104648,8 +104588,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 7178
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 9627
@@ -104660,8 +104598,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13793
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 10416
@@ -104673,8 +104609,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 11724
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 11024
@@ -104685,8 +104619,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 15869
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 11155
@@ -104698,8 +104630,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 3722
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 11243
@@ -104711,8 +104641,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 9393
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 11259
@@ -104723,8 +104651,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 15139
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 11274
@@ -104736,8 +104662,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 5030
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 11333
@@ -104749,8 +104673,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 19009
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 11369
@@ -104762,8 +104684,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 29
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 11604
@@ -104775,8 +104695,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 9393
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 12054
@@ -104788,8 +104706,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 11724
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 12169
@@ -104801,8 +104717,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 14210
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 12178
@@ -104814,8 +104728,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 11724
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 12377
@@ -104827,8 +104739,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 15205
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 12378
@@ -104840,8 +104750,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13640
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 12398
@@ -104853,8 +104761,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 16062
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 12415
@@ -104866,8 +104772,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 15862
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 12430
@@ -104879,8 +104783,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 14210
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 12488
@@ -104892,8 +104794,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 16096
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 13045
@@ -104901,8 +104801,6 @@ entities:
     - type: Transform
       pos: -54.5,-28.5
       parent: 2
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 13049
@@ -104911,8 +104809,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -58.5,-29.5
       parent: 2
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 13086
@@ -104924,8 +104820,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 14943
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 13411
@@ -104937,8 +104831,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 22600
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 13448
@@ -104950,8 +104842,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 2395
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 13514
@@ -104963,8 +104853,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13639
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 13557
@@ -104976,8 +104864,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13612
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 13582
@@ -104989,8 +104875,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 22600
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 13599
@@ -105002,8 +104886,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13600
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 13609
@@ -105014,8 +104896,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 81
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 13614
@@ -105027,8 +104907,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13612
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 13634
@@ -105039,8 +104917,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13638
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 13641
@@ -105051,8 +104927,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13657
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 13790
@@ -105063,8 +104937,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 29
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 13819
@@ -105076,8 +104948,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13846
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 13833
@@ -105089,8 +104959,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13846
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 13850
@@ -105101,8 +104969,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 22071
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 14002
@@ -105113,8 +104979,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 14004
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 14020
@@ -105126,8 +104990,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 14047
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 14030
@@ -105138,8 +105000,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 58
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 14054
@@ -105151,8 +105011,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 14915
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 14058
@@ -105164,8 +105022,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 14915
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 14059
@@ -105177,8 +105033,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 14915
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 14078
@@ -105190,8 +105044,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 409
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 14089
@@ -105202,8 +105054,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 7632
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 14130
@@ -105215,8 +105065,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 16098
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 14378
@@ -105228,8 +105076,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 15331
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 14468
@@ -105241,8 +105087,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 18900
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 14588
@@ -105254,8 +105098,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 14595
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 14589
@@ -105267,8 +105109,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 14595
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 14619
@@ -105280,8 +105120,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 6203
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 14620
@@ -105293,8 +105131,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 18900
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 14706
@@ -105306,8 +105142,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 10102
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 14709
@@ -105318,8 +105152,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 14733
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 14710
@@ -105331,8 +105163,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 10102
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 14730
@@ -105344,8 +105174,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 15331
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 14867
@@ -105357,8 +105185,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 15862
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 14878
@@ -105370,8 +105196,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 14595
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 14886
@@ -105383,8 +105207,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 15869
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 14900
@@ -105395,8 +105217,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 15875
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 15080
@@ -105408,8 +105228,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 15139
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 15099
@@ -105421,8 +105239,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 3489
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 15113
@@ -105433,8 +105249,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 15937
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 15115
@@ -105446,8 +105260,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 17576
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 15120
@@ -105459,8 +105271,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13600
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 15126
@@ -105472,8 +105282,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 22510
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 15180
@@ -105485,8 +105293,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 8606
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 15269
@@ -105497,8 +105303,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 15287
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 15879
@@ -105510,8 +105314,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 7178
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 16129
@@ -105522,8 +105324,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 7931
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 16139
@@ -105535,8 +105335,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 15937
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 16164
@@ -105548,8 +105346,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 9309
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 16166
@@ -105561,8 +105357,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 9309
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 16260
@@ -105574,8 +105368,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 9309
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 16302
@@ -105587,8 +105379,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 12518
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 16309
@@ -105600,8 +105390,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 12518
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 16456
@@ -105612,8 +105400,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 16446
-    - type: GasVentScrubber
-      enabled: True
   - uid: 17117
     components:
     - type: Transform
@@ -105623,8 +105409,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13549
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 17342
@@ -105635,8 +105419,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 17348
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 17343
@@ -105647,8 +105429,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 17348
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 17355
@@ -105660,8 +105440,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 17351
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 17359
@@ -105672,8 +105450,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 17352
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 17437
@@ -105684,8 +105460,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13600
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 17561
@@ -105697,8 +105471,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13655
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 18580
@@ -105710,8 +105482,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 2670
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 19969
@@ -105722,8 +105492,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 14943
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 19983
@@ -105732,8 +105500,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -12.5,-13.5
       parent: 2
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 21067
@@ -105744,8 +105510,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 3722
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 21421
@@ -105757,8 +105521,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 7178
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 21800
@@ -105770,8 +105532,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 9147
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 22041
@@ -105782,8 +105542,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 21678
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 22072
@@ -105794,8 +105552,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 14085
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 22232
@@ -105807,8 +105563,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 22255
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 22233
@@ -105820,8 +105574,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 22255
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 22270
@@ -105833,8 +105585,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 22255
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 22332
@@ -105845,8 +105595,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 21678
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 22392
@@ -105858,8 +105606,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 22438
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 22417
@@ -105868,8 +105614,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 39.5,20.5
       parent: 2
-    - type: GasVentScrubber
-      enabled: True
   - uid: 22436
     components:
     - type: Transform
@@ -105879,8 +105623,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 22432
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 22441
@@ -105892,8 +105634,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 22439
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 22451
@@ -105905,8 +105645,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 22439
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 23058
@@ -105918,8 +105656,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13665
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 23059
@@ -105931,8 +105667,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13665
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 23082
@@ -105944,8 +105678,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 23067
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 23090
@@ -105957,8 +105689,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 14004
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 23102
@@ -105970,8 +105700,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 14019
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 23103
@@ -105983,8 +105711,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 2583
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 23106
@@ -105996,8 +105722,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 14795
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 23131
@@ -106009,8 +105733,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 7178
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 23132
@@ -106021,8 +105743,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 22255
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 23171
@@ -106033,8 +105753,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 8983
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 23174
@@ -106045,8 +105763,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 8983
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 23195
@@ -106057,8 +105773,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 23193
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 23203
@@ -106069,8 +105783,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 17445
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 23372
@@ -106082,8 +105794,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 20239
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 23375
@@ -106095,8 +105805,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 20239
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 23513
@@ -106108,8 +105816,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 14019
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 23519
@@ -106120,8 +105826,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 14019
-    - type: GasVentScrubber
-      enabled: True
     - type: AtmosPipeColor
       color: '#FF1212FF'
 - proto: GasVolumePump
@@ -120495,9 +120199,9 @@ entities:
       parent: 2
     - type: DeviceLinkSource
       linkedPorts:
-        15772:
-        - MaterialSilo: MaterialSiloUtilizer
         4245:
+        - MaterialSilo: MaterialSiloUtilizer
+        15772:
         - MaterialSilo: MaterialSiloUtilizer
         4232:
         - MaterialSilo: MaterialSiloUtilizer
@@ -120510,6 +120214,10 @@ entities:
         8462:
         - MaterialSilo: MaterialSiloUtilizer
         1360:
+        - MaterialSilo: MaterialSiloUtilizer
+        9704:
+        - MaterialSilo: MaterialSiloUtilizer
+        19275:
         - MaterialSilo: MaterialSiloUtilizer
 - proto: MaterialWoodPlank
   entities:
@@ -136693,6 +136401,15 @@ entities:
       angularDamping: 0
       linearDamping: 0
       canCollide: False
+- proto: ScienceTechFab
+  entities:
+  - uid: 4245
+    components:
+    - type: Transform
+      pos: 19.5,-28.5
+      parent: 2
+    - type: SiloUtilizer
+      silo: 13916
 - proto: ScrapFaxMachine
   entities:
   - uid: 6999
@@ -136900,6 +136617,15 @@ entities:
     - type: Transform
       pos: -18.5,-36.5
       parent: 2
+- proto: ServiceTechFab
+  entities:
+  - uid: 15772
+    components:
+    - type: Transform
+      pos: -16.5,-48.5
+      parent: 2
+    - type: SiloUtilizer
+      silo: 13916
 - proto: ShardGlass
   entities:
   - uid: 793
@@ -146561,11 +146287,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 28.5,11.5
       parent: 2
-  - uid: 9704
-    components:
-    - type: Transform
-      pos: -16.5,-48.5
-      parent: 2
   - uid: 9705
     components:
     - type: Transform
@@ -147593,12 +147314,11 @@ entities:
   - uid: 20222
     components:
     - type: Transform
-      pos: -16.557524,-48.286213
+      pos: -15.818903,-48.4881
       parent: 2
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
 - proto: ToyFigurineHeadOfSecurity
   entities:
   - uid: 12652

@@ -1,6 +1,17 @@
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Map
+  engineVersion: 247.2.0
+  forkId: ""
+  forkVersion: ""
+  time: 03/07/2025 13:07:05
+  entityCount: 11966
+maps:
+- 658
+grids:
+- 31
+orphans: []
+nullspace: []
 tilemap:
   0: Space
   7: FloorAsteroidSand
@@ -3479,7 +3490,6 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
-    - type: LoadedMap
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 3146
@@ -6357,36 +6367,6 @@ entities:
     - type: Transform
       pos: 42.5,21.5
       parent: 31
-- proto: Autolathe
-  entities:
-  - uid: 1435
-    components:
-    - type: Transform
-      pos: -17.5,-21.5
-      parent: 31
-    - type: SiloUtilizer
-      silo: 10902
-  - uid: 3904
-    components:
-    - type: Transform
-      pos: 12.5,9.5
-      parent: 31
-    - type: MaterialStorage
-      materialWhiteList:
-      - Steel
-      - Plastic
-      - Wood
-      - Glass
-      - Cloth
-    - type: SiloUtilizer
-      silo: 10902
-  - uid: 4238
-    components:
-    - type: Transform
-      pos: 47.5,5.5
-      parent: 31
-    - type: SiloUtilizer
-      silo: 10902
 - proto: BannerNanotrasen
   entities:
   - uid: 3677
@@ -22705,6 +22685,15 @@ entities:
     - type: Transform
       pos: 36.5,12.5
       parent: 31
+- proto: CargoTechFab
+  entities:
+  - uid: 3904
+    components:
+    - type: Transform
+      pos: 12.5,9.5
+      parent: 31
+    - type: SiloUtilizer
+      silo: 10902
 - proto: Carpet
   entities:
   - uid: 1275
@@ -32454,10 +32443,10 @@ entities:
       parent: 31
 - proto: DresserHeadOfPersonnelFilled
   entities:
-  - uid: 7085
+  - uid: 10512
     components:
     - type: Transform
-      pos: 7.5,16.5
+      pos: 10.5,17.5
       parent: 31
 - proto: DresserHeadOfSecurityFilled
   entities:
@@ -33064,6 +33053,15 @@ entities:
       parent: 9179
     - type: Physics
       canCollide: False
+- proto: EngineeringTechFab
+  entities:
+  - uid: 4238
+    components:
+    - type: Transform
+      pos: 47.5,5.5
+      parent: 31
+    - type: SiloUtilizer
+      silo: 10902
 - proto: ExosuitFabricator
   entities:
   - uid: 9537
@@ -51479,6 +51477,8 @@ entities:
         - MaterialSilo: MaterialSiloUtilizer
         821:
         - MaterialSilo: MaterialSiloUtilizer
+        7085:
+        - MaterialSilo: MaterialSiloUtilizer
 - proto: MaterialWoodPlank1
   entities:
   - uid: 9680
@@ -58010,6 +58010,15 @@ entities:
       rot: 3.141592653589793 rad
       pos: 17.551718,-20.302809
       parent: 31
+- proto: ScienceTechFab
+  entities:
+  - uid: 1435
+    components:
+    - type: Transform
+      pos: -17.5,-21.5
+      parent: 31
+    - type: SiloUtilizer
+      silo: 10902
 - proto: Screwdriver
   entities:
   - uid: 2338
@@ -58046,6 +58055,15 @@ entities:
     - type: Transform
       pos: -18.5,1.5
       parent: 31
+- proto: ServiceTechFab
+  entities:
+  - uid: 7085
+    components:
+    - type: Transform
+      pos: 7.5,16.5
+      parent: 31
+    - type: SiloUtilizer
+      silo: 10902
 - proto: ShardGlass
   entities:
   - uid: 9719
@@ -73221,6 +73239,12 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 15.5,8.5
+      parent: 31
+  - uid: 11966
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 14.5,8.5
       parent: 31
 - proto: WindoorSecureChemistryLocked
   entities:
