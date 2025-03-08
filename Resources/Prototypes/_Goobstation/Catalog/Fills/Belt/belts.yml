@@ -1,23 +1,20 @@
 - type: entity
-  parent: [ ClothingBeltMilitaryWebbingCMO, BaseMedicalContraband ]
+  parent: ClothingBeltMilitaryWebbingCMO
   suffix: Filled, DO NOT MAP
   id: ClothingBeltMilitaryWebbingCMOFilled
-  name: chief medical officer's chest rig
-  description: "A medical chest rig with deep pockets, for use by paramedics and health professionals."
   components:
   - type: StorageFill
     contents:
-      - id: EnergyCautery
+      - id: DefibrillatorCompact
       - id: EnergyScalpel
       - id: AdvancedRetractor
+      - id: EnergyCautery
       - id: BoneGel
+      - id: HandheldCrewMonitor
       - id: MedicatedSuture
       - id: RegenerativeMesh
       - id: Bloodpack
-      - id: BruteAutoInjector
-      - id: BurnAutoInjector
       - id: EmergencyMedipen
-        amount: 3
 
 - type: entity
   parent: [ ClothingBeltDeathsquadWebbing, BaseCentcommContraband ]
@@ -81,3 +78,24 @@
     containers:
       item:
       - NavyOfficerSabre
+
+- type: entityTable
+  id: BeltSecurityNoBatonEntityTable
+  table: !type:AllSelector
+    children:
+    - id: Handcuffs
+    - id: Handcuffs
+    - id: Handcuffs
+    - id: HoloprojectorSecurity
+    - id: RadioHandheldSecurity
+    - id: WeaponDisabler #Goobstation
+
+- type: entity
+  id: ClothingBeltCorporateJudoFilled
+  parent: ClothingBeltCorporateJudo
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: BeltSecurityNoBatonEntityTable

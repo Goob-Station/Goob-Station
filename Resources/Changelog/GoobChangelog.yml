@@ -5898,3 +5898,99 @@ Entries:
       message: Added a new potential lawset for borgs.
   id: 675
   time: '2025-03-07T07:35:07.0000000+00:00'
+- author: john IRS
+  changes:
+    - type: Add
+      message: Added taxes.
+    - type: Fix
+      message: Fixed dynamic.
+  id: 676
+  time: '2025-03-07T13:44:37.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Firerate PKA modkits now affect PKA recharge speed.
+    - type: Fix
+      message: >-
+        Trying to fire a PKA while it hasn't charged its ammo yet no longer
+        triggers its reload.
+  id: 677
+  time: '2025-03-07T15:50:50.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: Mansus grasp now can be deactivated through the action.
+    - type: Tweak
+      message: 'Mansus grasp cooldown starts after use now. '
+  id: 678
+  time: '2025-03-07T20:20:27.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Tweak
+      message: Blob now have a harder time on Submarine and Leonid
+  id: 679
+  time: '2025-03-07T20:21:03.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Handheld crew monitor is no longer CMO's highrisk, but the resprited
+        rapid syringe gun is.
+    - type: Add
+      message: >-
+        New "Advanced Rescue Equipment" T1 civilian technology, featuring
+        handheld crew monitor and compact defibrillator.
+    - type: Tweak
+      message: >-
+        Regular syringe guns are no longer printable roundstart and require T1
+        civilian research.
+    - type: Tweak
+      message: Medical personnel equipment got some improvements.
+  id: 680
+  time: '2025-03-07T20:21:58.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Tweak
+      message: Changeling Armblade now does 20 slash.
+    - type: Tweak
+      message: Foamblade makes spooky sounds on use.
+  id: 681
+  time: '2025-03-07T20:22:20.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: "Added Corporate Judo, CQC, Sleeping Carp, and Krav Maga martial arts with unique abilities.\_Judo belt prevents the use of stun batons as an alternative combat style.\_Sleeping Carp users reflect projectiles but cannot use firearms.\_Krav Maga gloves allow access to special moves like Leg Sweep and Neck Chop."
+    - type: Add
+      message: >-
+        Chefs now have access to CQC (Close Quarters Cooking) in the Kitchen and
+        Bar.
+  id: 682
+  time: '2025-03-07T20:24:35.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed mansus link.
+  id: 683
+  time: '2025-03-08T00:49:55.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed the deathsquad gamerule.
+  id: 684
+  time: '2025-03-08T00:50:25.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: >-
+        Security Officers can now equip judo belts round start from the loadout
+        menu.
+    - type: Tweak
+      message: Judo belts now come filled with tools in security lockers.
+  id: 685
+  time: '2025-03-08T00:51:47.0000000+00:00'
+- author: thebiggestbruh
+  changes:
+    - type: Fix
+      message: Bluespace ore can appear in Lavaland again
+  id: 686
+  time: '2025-03-08T17:44:33.0000000+00:00'
