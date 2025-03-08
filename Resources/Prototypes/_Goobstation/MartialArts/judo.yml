@@ -1,0 +1,45 @@
+- type: martialArt
+  id: CorporateJudo
+  martialArtsForm: CorporateJudo
+  roundstartCombos: CorporateJudoMoves
+  baseDamageModifier: 5
+
+- type: comboList
+  id: CorporateJudoMoves
+  combos:
+  - JudoThrow
+  - JudoEyepoke
+  - JudoArmbar
+
+- type: combo
+  id: JudoThrow
+  name: Judo Throw
+  martialArtsForm: CorporateJudo
+  attacks:
+  - Grab
+  - Disarm
+  event: !type:JudoThrowPerformedEvent
+  staminaDamage: 50
+  paralyzeTime: 7
+
+- type: combo
+  id: JudoArmbar
+  name: Armbar
+  martialArtsForm: CorporateJudo
+  attacks:
+  - Disarm
+  - Disarm
+  - Grab
+  event: !type:JudoArmbarPerformedEvent
+  staminaDamage: 45
+  paralyzeTime: 5
+
+- type: combo
+  id: JudoEyepoke
+  name: Eyepoke
+  martialArtsForm: CorporateJudo
+  attacks:
+  - Disarm
+  - Harm
+  event: !type:JudoEyePokePerformedEvent
+  extraDamage: 5

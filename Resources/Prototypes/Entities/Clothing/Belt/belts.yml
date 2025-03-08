@@ -272,14 +272,18 @@
         - DiscreteHealthAnalyzer
         - SurgeryTool
         - Dropper
-        - Tourniquet #Goobstation - ParamedHypo
+        - Tourniquet #Goobstation
         - MedicalPatch # Goobstation
+        - AutoinjectorCartridge # Goobstation
+        - HandheldCrewMonitor # Goobstation
       components:
         - Hypospray
         - Injector
         - Pill
         - HandLabeler
         - SurgeryTool # Shitmed Change
+        - Defibrillator # Goobstation
+        - SyringeGun # Goobstation
   - type: ItemMapper
     mapLayers:
       bottle:
@@ -545,6 +549,42 @@
           - CaptainSabre
   - type: Appearance
 
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltHolster
+  name: shoulder holster
+  description: 'A holster to carry a handgun and ammo. WARNING: Badasses only.'
+  components:
+  - type: Sprite
+    sprite: Clothing/Belt/holster.rsi
+  - type: Clothing
+    sprite: Clothing/Belt/holster.rsi
+  - type: Storage
+    grid:
+    - 0,0,3,1
+
+- type: entity
+  parent: [ClothingBeltStorageBase, BaseSyndicateContraband]
+  id: ClothingBeltSyndieHolster
+  name: syndicate shoulder holster
+  description: A deep shoulder holster capable of holding many types of ballistics.
+  components:
+  - type: Sprite
+    sprite: Clothing/Belt/syndieholster.rsi
+  - type: Clothing
+    sprite: Clothing/Belt/syndieholster.rsi
+  - type: Item
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,3,3
+    whitelist:
+      components:
+      - Gun
+      - BallisticAmmoProvider
+      - CartridgeAmmo
+
 # Belts without visualizers
 
 - type: entity
@@ -579,42 +619,6 @@
   - type: Tag
     tags:
     - Kangaroo
-
-- type: entity
-  parent: ClothingBeltStorageBase
-  id: ClothingBeltHolster
-  name: shoulder holster
-  description: 'A holster to carry a handgun and ammo. WARNING: Badasses only.'
-  components:
-  - type: Sprite
-    sprite: Clothing/Belt/holster.rsi
-  - type: Clothing
-    sprite: Clothing/Belt/holster.rsi
-  - type: Storage
-    grid:
-    - 0,0,3,1
-
-- type: entity
-  parent: [ClothingBeltStorageBase, BaseSyndicateContraband]
-  id: ClothingBeltSyndieHolster
-  name: syndicate shoulder holster
-  description: A deep shoulder holster capable of holding many types of ballistics.
-  components:
-  - type: Sprite
-    sprite: Clothing/Belt/syndieholster.rsi
-  - type: Clothing
-    sprite: Clothing/Belt/syndieholster.rsi
-  - type: Item
-    size: Ginormous
-  - type: Storage
-    maxItemSize: Huge
-    grid:
-    - 0,0,3,3
-    whitelist:
-      components:
-        - Gun
-        - BallisticAmmoProvider
-        - CartridgeAmmo
 
 - type: entity
   parent: ClothingBeltSecurity

@@ -264,7 +264,7 @@
   name: pulse pistol
   parent: BaseWeaponBatterySmall
   id: WeaponPulsePistol
-  description: A state of the art energy pistol favoured as a sidearm by the NT operatives.
+  description: A state-of-the-art pulse based weapon. It's smaller frame allows it to passively regenerate charge. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/pulse_pistol.rsi
@@ -294,12 +294,15 @@
     maxCharge: 2000
     startingCharge: 2000
   - type: Multishot # Goobstation
+  - type: BatterySelfRecharger # Goobstation - CentComm Job Revamp
+    autoRecharge: true
+    autoRechargeRate: 40
 
 - type: entity
   name: pulse carbine
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseCentcommContraband]
   id: WeaponPulseCarbine
-  description: A high tech energy carbine favoured by the NT-ERT operatives.
+  description: A state-of-the-art pulse carbine, typically used by Nanotrasen militia. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi
@@ -330,12 +333,15 @@
   - type: Battery
     maxCharge: 5000
     startingCharge: 5000
+  - type: Tag # Goobstation
+    tags:
+    - Rifle
 
 - type: entity
   name: pulse rifle
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseCentcommContraband] # Goobstation - Deathsquad revamp
   id: WeaponPulseRifle
-  description: A weapon that is almost as infamous as its users.
+  description: A weapon almost as infamous as its users. # Goobstation - Sometimes less is more.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
@@ -357,11 +363,14 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   - type: HitscanBatteryAmmoProvider
-    proto: Pulse
+    proto: HeavyPulse # Goobstation - Deathsquad revamp
     fireCost: 100
   - type: Battery
     maxCharge: 40000
     startingCharge: 40000
+  - type: Tag # Goobstation
+    tags:
+    - Rifle
 
 - type: entity
   name: laser cannon
@@ -391,6 +400,9 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedHeavyLaser
     fireCost: 100
+  - type: Tag # Goobstation
+    tags:
+    - Rifle
 
 - type: entity
   name: portable particle decelerator
@@ -427,6 +439,9 @@
         Steel: 187
         Plasma: 37
         Uranium: 37
+    - type: Tag # Goobstation
+      tags:
+      - Rifle
 
 - type: entity
   name: x-ray cannon
@@ -455,6 +470,9 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: Tag # Goobstation
+    tags:
+    - Rifle
 
 - type: entity
   name: practice disabler
