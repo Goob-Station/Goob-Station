@@ -17,6 +17,9 @@ namespace Content.Server.Animals.Systems;
 ///     Gives the ability to lay eggs/other things;
 ///     produces endlessly if the owner does not have a HungerComponent.
 /// </summary>
+/// <remarks>
+/// Goob edit - does not produce without HungerComponent
+/// </remarks>
 public sealed class EggLayerSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -38,9 +41,9 @@ public sealed class EggLayerSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        var query = EntityQueryEnumerator<EggLayerComponent>();
+        var query = EntityQueryEnumerator<EggLayerComponent, HungerComponent>(); // Goob - hard hunger requirement
         var eligibleEggLayers = new List<Entity<EggLayerComponent>>(); // Goob - self-spawning
-        while (query.MoveNext(out var uid, out var eggLayer))
+        while (query.MoveNext(out var uid, out var eggLayer, out var _)) // Goob - hard hunger requirement
         {
             // Players should be using the action.
             if (HasComp<ActorComponent>(uid))
@@ -98,6 +101,8 @@ public sealed class EggLayerSystem : EntitySystem
 
             _hunger.ModifyHunger(uid, -egglayer.HungerUsage, hunger);
         }
+        else
+            return false;
 
         foreach (var ent in EntitySpawnCollection.GetSpawns(egglayer.EggSpawn, _random))
         {
