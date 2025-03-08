@@ -243,7 +243,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
         }
 
-        if (_tag.HasTag(ent.Owner, MansusLinkTag))
+        if (_tag.HasTag(args.Target, MansusLinkTag))
         {
             _popup.PopupEntity(Loc.GetString("heretic-manselink-fail-exists"), ent, ent);
             return;
