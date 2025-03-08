@@ -59,7 +59,7 @@
   randomizeName: false
   components:
     - type: GrantImplant
-      implants: [ MindshieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ] # Goobstation
+      implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ] # Goobstation
     - type: GrantCqc
       isBlocked: false
     - type: GhostRole

@@ -251,7 +251,7 @@
   randomizeName: false
   components:
   - type: GrantImplant
-    implants: [ MindshieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
   - type: GrantCqc
     isBlocked: false
   - type: GhostRole
@@ -291,7 +291,7 @@
   randomizeName: false
   components:
   - type: GrantImplant
-    implants: [ MindshieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
   - type: GrantCqc
     isBlocked: false
   - type: GhostRole
@@ -331,7 +331,7 @@
   randomizeName: false
   components:
   - type: GrantImplant
-    implants: [ MindshieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, StorageImplant ]
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, StorageImplant ]
   - type: GrantCqc
     isBlocked: false
   - type: GhostRole
@@ -371,7 +371,7 @@
   randomizeName: false
   components:
   - type: GrantImplant
-    implants: [ MindshieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
   - type: GrantCqc
     isBlocked: false
   - type: GhostRole
@@ -411,7 +411,7 @@
   randomizeName: false
   components:
   - type: GrantImplant
-    implants: [ MindshieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
   - type: GhostRole
     name: ghost-role-information-diplomat-name
     description: ghost-role-information-diplomat-description
