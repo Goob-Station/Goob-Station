@@ -55,11 +55,11 @@ public sealed partial class AirAlarmWindow : FancyWindow
             {
                 AirAlarmMode.Filtering => "air-alarm-ui-mode-filtering",
                 AirAlarmMode.WideFiltering => "air-alarm-ui-mode-wide-filtering",
+                AirAlarmMode.Cycling => "air-alarm-ui-mode-cycling",
+                AirAlarmMode.WideCycling => "air-alarm-ui-mode-wide-cycling",
                 AirAlarmMode.Fill => "air-alarm-ui-mode-fill",
                 AirAlarmMode.Panic => "air-alarm-ui-mode-panic",
                 AirAlarmMode.None => "air-alarm-ui-mode-none",
-                AirAlarmMode.Cycling => "air-alarm-ui-mode-cycling",
-                AirAlarmMode.WideCycling => "air-alarm-ui-mode-wide-cycling",
                 _ => "error",
             };
             _modes.AddItem(Loc.GetString(text));

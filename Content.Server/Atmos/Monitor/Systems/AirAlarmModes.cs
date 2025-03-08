@@ -68,11 +68,11 @@ public sealed class AirAlarmModeFactory
         {
             AirAlarmMode.Filtering => _filterMode,
             AirAlarmMode.WideFiltering => _wideFilterMode,
+            AirAlarmMode.Cycling => _cyclingMode,
+            AirAlarmMode.WideCycling => _wideCyclingMode,
             AirAlarmMode.Fill => _fillMode,
             AirAlarmMode.Panic => _panicMode,
             AirAlarmMode.None => _noneMode,
-            AirAlarmMode.Cycling => _cyclingMode,
-            AirAlarmMode.WideCycling => _wideCyclingMode,
             _ => null
         };
     }
@@ -155,6 +155,48 @@ public sealed class AirAlarmWideFilterMode : AirAlarmModeExecutor
     }
 }
 
+public sealed class AirAlarmCyclingMode : AirAlarmModeExecutor
+{
+    public override void Execute(EntityUid uid)
+    {
+        if (!EntityManager.TryGetComponent(uid, out AirAlarmComponent? alarm))
+            return;
+
+        foreach (var (addr, device) in alarm.VentData)
+        {
+            AirAlarmSystem.SetData(uid, addr, GasVentPumpData.FillModePreset);
+        }
+
+        foreach (var (addr, device) in alarm.ScrubberData)
+        {
+            var data = GasVentScrubberData.PanicModePreset;
+            data.WideNet = false;
+            AirAlarmSystem.SetData(uid, addr, data);
+        }
+    }
+}
+
+public sealed class AirAlarmWideCyclingMode : AirAlarmModeExecutor
+{
+    public override void Execute(EntityUid uid)
+    {
+        if (!EntityManager.TryGetComponent(uid, out AirAlarmComponent? alarm))
+            return;
+
+        foreach (var (addr, device) in alarm.VentData)
+        {
+            AirAlarmSystem.SetData(uid, addr, GasVentPumpData.FillModePreset);
+        }
+
+        foreach (var (addr, device) in alarm.ScrubberData)
+        {
+            var data = GasVentScrubberData.PanicModePreset;
+            data.WideNet = true;
+            AirAlarmSystem.SetData(uid, addr, data);
+        }
+    }
+}
+
 public sealed class AirAlarmPanicMode : AirAlarmModeExecutor
 {
     public override void Execute(EntityUid uid)
@@ -189,48 +231,6 @@ public sealed class AirAlarmFillMode : AirAlarmModeExecutor
         foreach (var (addr, device) in alarm.ScrubberData)
         {
             AirAlarmSystem.SetData(uid, addr, GasVentScrubberData.FillModePreset);
-        }
-    }
-}
-
-public sealed class AirAlarmCyclingMode : AirAlarmModeExecutor
-{
-    public override void Execute(EntityUid uid)
-    {
-        if (!EntityManager.TryGetComponent(uid, out AirAlarmComponent? alarm))
-            return;
-
-        foreach (var (addr, device) in alarm.VentData)
-        {
-            AirAlarmSystem.SetData(uid, addr, GasVentPumpData.FilterModePreset);
-        }
-
-        foreach (var (addr, device) in alarm.ScrubberData)
-        {
-            var data = GasVentScrubberData.PanicModePreset;
-            data.WideNet = false;
-            AirAlarmSystem.SetData(uid, addr, data);
-        }
-    }
-}
-
-public sealed class AirAlarmWideCyclingMode : AirAlarmModeExecutor
-{
-    public override void Execute(EntityUid uid)
-    {
-        if (!EntityManager.TryGetComponent(uid, out AirAlarmComponent? alarm))
-            return;
-
-        foreach (var (addr, device) in alarm.VentData)
-        {
-            AirAlarmSystem.SetData(uid, addr, GasVentPumpData.FilterModePreset);
-        }
-
-        foreach (var (addr, device) in alarm.ScrubberData)
-        {
-            var data = GasVentScrubberData.PanicModePreset;
-            data.WideNet = true;
-            AirAlarmSystem.SetData(uid, addr, data);
         }
     }
 }
