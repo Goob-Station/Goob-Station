@@ -15,23 +15,22 @@
 
 - type: entity
   id: MedkitBSOFilled
-  suffix: Filled, Medical
+  suffix: Filled
   parent: MedkitBSO
-  description: Contains everything you need to get a person back up quickly.
   components:
   - type: StorageFill
     contents:
     - id: MedicatedSuture
     - id: RegenerativeMesh
-    - id: Bloodpack
-    - id: BruteAutoInjector
-    - id: BurnAutoInjector
+    - id: CartridgeBicaridine
+    - id: CartridgeDermaline
+    - id: CartridgeSaline
+    - id: CartridgeEpinephrine
 
-- type: entity # tbh idk how to feel about this, but alas.
-  id: MedkitBSOFilledIPC
-  suffix: Filled, IPC
-  parent: MedkitBSO
-  description: Contains everything you need to get a silicon back up quickly.
+- type: entity
+  id: MedkitBSOIPCFilled
+  suffix: Filled
+  parent: MedkitBSOIPC
   components:
   - type: StorageFill
     contents:

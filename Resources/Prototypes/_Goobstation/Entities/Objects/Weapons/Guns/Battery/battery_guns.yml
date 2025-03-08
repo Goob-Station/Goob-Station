@@ -95,14 +95,14 @@
     - 0,1,0,1
     heldPrefix: lethal
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi # The sprite does not really fit, but whatever.
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-  - type: ItemMapper # It works.
+  - type: ItemMapper
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
     mapLayers:
-      mode-lethal:
+      mag-unshaded-4:
         whitelist:
           tags:
           - EnergySpeedloaderLethal
@@ -116,6 +116,9 @@
     zeroVisible: true
   - type: Clothing
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
+    slots:
+    - Belt
+    - suitStorage
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
