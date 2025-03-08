@@ -5978,3 +5978,13 @@ Entries:
       message: Fixed the deathsquad gamerule.
   id: 684
   time: '2025-03-08T00:50:25.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: >-
+        Security Officers can now equip judo belts round start from the loadout
+        menu.
+    - type: Tweak
+      message: Judo belts now come filled with tools in security lockers.
+  id: 685
+  time: '2025-03-08T00:51:47.0000000+00:00'
