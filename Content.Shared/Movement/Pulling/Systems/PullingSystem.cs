@@ -7,7 +7,8 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
 using Content.Shared.Buckle.Components;
-using Content.Shared.CombatMode; // Goobstation
+using Content.Shared.CombatMode;
+using Content.Shared.CombatMode.Pacification; // Goobstation
 using Content.Shared.Cuffs.Components; // Goobstation
 using Content.Shared.Damage; // Goobstation
 using Content.Shared.Damage.Systems; // Goobstation
@@ -76,6 +77,7 @@ public sealed class PullingSystem : EntitySystem
     [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly ContestsSystem _contests = default!; // Goobstation - Grab Intent
+
 
     public override void Initialize()
     {
@@ -806,6 +808,9 @@ public sealed class PullingSystem : EntitySystem
 
         // prevent you from grabbing someone else while being grabbed
         if (TryComp<PullableComponent>(puller.Owner, out var pullerAsPullable) && pullerAsPullable.Puller != null)
+            return false;
+
+        if (HasComp<PacifiedComponent>(puller))
             return false;
 
         if (pullable.Comp.Puller != puller.Owner ||

@@ -89,28 +89,26 @@ public partial class SharedMartialArtsSystem
         ref SleepingCarpGnashingTeethPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out _))
+            || !_proto.TryIndex<MartialArtPrototype>(ent.Comp.BeingPerformed.ToString(), out var martialArtProto)
+            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed))
             return;
 
-        if (!TryComp<MartialArtsKnowledgeComponent>(ent.Owner, out var knowledgeComponent))
-            return;
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage + ent.Comp.ConsecutiveGnashes * 5, out _);
         ent.Comp.ConsecutiveGnashes++;
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg"), target);
-        if (TryComp<RequireProjectileTargetComponent>(target, out var standing)
-            && !standing.Active)
+        if (!downed)
         {
             var saying =
-                knowledgeComponent.RandomSayings.ElementAt(
-                    _random.Next(knowledgeComponent.RandomSayings.Count));
+                martialArtProto.RandomSayings.ElementAt(
+                    _random.Next(martialArtProto.RandomSayings.Count));
             var ev = new SleepingCarpSaying(saying);
             RaiseLocalEvent(ent, ev);
         }
         else
         {
             var saying =
-                knowledgeComponent.RandomSayingsDowned.ElementAt(
-                    _random.Next(knowledgeComponent.RandomSayingsDowned.Count));
+                martialArtProto.RandomSayingsDowned.ElementAt(
+                    _random.Next(martialArtProto.RandomSayingsDowned.Count));
             var ev = new SleepingCarpSaying(saying);
             RaiseLocalEvent(ent, ev);
         }

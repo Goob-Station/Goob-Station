@@ -103,10 +103,13 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (!ent.Comp.RandomDamageModifier)
+        if(!_proto.TryIndex<MartialArtPrototype>(ent.Comp.MartialArtsForm.ToString(), out var martialArtsPrototype))
             return;
 
-        var randomDamage = _random.Next(ent.Comp.MinRandomDamageModifier, ent.Comp.MaxRandomDamageModifier);
+        if (!martialArtsPrototype.RandomDamageModifier)
+            return;
+
+        var randomDamage = _random.Next(martialArtsPrototype.MinRandomDamageModifier, martialArtsPrototype.MaxRandomDamageModifier);
         var bonusDamageSpec = new DamageSpecifier();
         bonusDamageSpec.DamageDict.Add("Blunt", randomDamage);
         args.BonusDamage += bonusDamageSpec;
@@ -174,21 +177,21 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             return false;
         }
 
-        if(!HasComp<MindShieldComponent>(user) || comp.MartialArtsForm == MartialArtsForms.CorporateJudo)
-            return false;
-
         if (!HasComp<CanPerformComboComponent>(user))
         {
             var canPerformComboComponent = EnsureComp<CanPerformComboComponent>(user);
             var martialArtsKnowledgeComponent = EnsureComp<MartialArtsKnowledgeComponent>(user);
             var pullerComponent = EnsureComp<PullerComponent>(user);
-            LoadPrototype(user, martialArtsKnowledgeComponent, comp.MartialArtsForm);
+            if (!_proto.TryIndex<MartialArtPrototype>(comp.MartialArtsForm.ToString(), out var martialArtsPrototype))
+                return false;
+            martialArtsKnowledgeComponent.MartialArtsForm = martialArtsPrototype.MartialArtsForm;
+            LoadCombos(martialArtsPrototype.RoundstartCombos, canPerformComboComponent);
             martialArtsKnowledgeComponent.Blocked = false;
             pullerComponent.NextStageChange /= 2;
             if (TryComp<MeleeWeaponComponent>(user, out var meleeWeaponComponent))
             {
                 var newDamage = new DamageSpecifier();
-                newDamage.DamageDict.Add("Blunt", martialArtsKnowledgeComponent.BaseDamageModifier);
+                newDamage.DamageDict.Add("Blunt", martialArtsPrototype.BaseDamageModifier);
                 meleeWeaponComponent.Damage += newDamage;
             }
             Dirty(user, canPerformComboComponent);
@@ -224,23 +227,6 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         {
             combo.AllowedCombos.Add(_proto.Index(item));
         }
-    }
-
-    private void LoadPrototype(EntityUid uid, MartialArtsKnowledgeComponent component, MartialArtsForms name)
-    {
-        // just know i hate this and i probably could grab info from the prototype directly from protomanager i was being stupid
-        // when i originally wrote the code for this clearly.
-        var combo = EnsureComp<CanPerformComboComponent>(uid);
-        if (!_proto.TryIndex<MartialArtPrototype>(name.ToString(), out var martialArtsPrototype))
-            return;
-        component.MartialArtsForm = martialArtsPrototype.MartialArtsForm;
-        component.RoundstartCombos = martialArtsPrototype.RoundstartCombos;
-        component.MinRandomDamageModifier = martialArtsPrototype.MinRandomDamageModifier;
-        component.MinRandomDamageModifier = martialArtsPrototype.MaxRandomDamageModifier;
-        component.RandomDamageModifier = martialArtsPrototype.RandomDamageModifier;
-        component.RandomSayings = martialArtsPrototype.RandomSayings;
-        component.RandomSayingsDowned = martialArtsPrototype.RandomSayingsDowned;
-        LoadCombos(martialArtsPrototype.RoundstartCombos, combo);
     }
 
     private bool TryUseMartialArt(Entity<CanPerformComboComponent> ent,
