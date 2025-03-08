@@ -98,8 +98,8 @@ public sealed partial class ChangelingSystem
             (pullable.GrabStage <= GrabStage.Soft)) &&  // Agressive grab check
             (!IsIncapacitated(target))) // If the target is incapacitated, no need to grab
         {
-                _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-nograb"), uid, uid);
-                return;
+            _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-nograb"), uid, uid);
+            return;
         }
 
         if (!TryUseAbility(uid, comp, args))
