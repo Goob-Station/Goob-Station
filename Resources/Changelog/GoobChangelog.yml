@@ -5966,3 +5966,25 @@ Entries:
         Bar.
   id: 682
   time: '2025-03-07T20:24:35.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed mansus link.
+  id: 683
+  time: '2025-03-08T00:49:55.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed the deathsquad gamerule.
+  id: 684
+  time: '2025-03-08T00:50:25.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: >-
+        Security Officers can now equip judo belts round start from the loadout
+        menu.
+    - type: Tweak
+      message: Judo belts now come filled with tools in security lockers.
+  id: 685
+  time: '2025-03-08T00:51:47.0000000+00:00'
