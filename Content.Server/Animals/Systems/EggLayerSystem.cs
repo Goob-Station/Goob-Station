@@ -41,10 +41,14 @@ public sealed class EggLayerSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        var query = EntityQueryEnumerator<EggLayerComponent, HungerComponent>(); // Goob - hard hunger requirement
+        var query = EntityQueryEnumerator<EggLayerComponent>();
         var eligibleEggLayers = new List<Entity<EggLayerComponent>>(); // Goob - self-spawning
-        while (query.MoveNext(out var uid, out var eggLayer, out var _)) // Goob - hard hunger requirement
+        while (query.MoveNext(out var uid, out var eggLayer))
         {
+            // Goobstation - hard hunger requirement
+            if (eggLayer.HungerRequired && !HasComp<HungerComponent>(uid))
+                continue;
+
             // Players should be using the action.
             if (HasComp<ActorComponent>(uid))
                 continue;
@@ -90,6 +94,10 @@ public sealed class EggLayerSystem : EntitySystem
         if (_mobState.IsDead(uid))
             return false;
 
+        // Goobstation - hard hunger requirement
+        if (egglayer.HungerRequired && !HasComp<HungerComponent>(uid))
+            return false;
+
         // Allow infinitely laying eggs if they can't get hungry.
         if (TryComp<HungerComponent>(uid, out var hunger))
         {
@@ -101,8 +109,6 @@ public sealed class EggLayerSystem : EntitySystem
 
             _hunger.ModifyHunger(uid, -egglayer.HungerUsage, hunger);
         }
-        else // Goob - hard hunger requirement
-            return false;
 
         foreach (var ent in EntitySpawnCollection.GetSpawns(egglayer.EggSpawn, _random))
         {
