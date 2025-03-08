@@ -227,6 +227,9 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
             if (xform.MapID != map)
                 continue;
 
+            if (TryComp<StationDataComponent>(gridUid, out var stationData))
+                return _station.GetLargestGrid(stationData);
+
             if (HasComp<BecomesStationComponent>(gridUid) ||
                 HasComp<LavalandStationComponent>(gridUid))
                 return gridUid;
