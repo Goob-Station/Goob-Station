@@ -23,9 +23,10 @@
     contents:
     - id: MedicatedSuture
     - id: RegenerativeMesh
-    - id: Bloodpack
-    - id: BruteAutoInjector
-    - id: BurnAutoInjector
+    - id: CartridgeBicardine
+    - id: CartridgeDermaline
+    - id: CartridgeSaline
+    - id: CartridgeEpinephrine
 
 - type: entity # tbh idk how to feel about this, but alas.
   id: MedkitBSOFilledIPC
