@@ -358,7 +358,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     /// </summary>
     public bool IsHardGrabbed(EntityUid uid)
     {
-        return (TryComp<PullableComponent>(uid, out var pullable) && pullable.GrabStage <= GrabStage.Soft);
+        return (TryComp<PullableComponent>(uid, out var pullable) && pullable.GrabStage > GrabStage.Soft);
     }
 
     public float? GetEquipmentChemCostOverride(ChangelingComponent comp, EntProtoId proto)
