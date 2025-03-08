@@ -103,14 +103,14 @@
 - type: entity
   id: ClothingBeltAssaultFilled
   parent: ClothingBeltAssault
-  suffix: Filled
+  suffix: Filled, BSO
   components:
   - type: StorageFill
     contents:
     - id: Stunbaton
+    - id: HandheldCrewMonitor
     - id: HoloprojectorSecurity
-    - id: RadioHandheldSecurity
-    - id: Zipties
-      amount: 4
     - id: GrenadeFlashBang
-      amount: 2
+    - id: WeaponDisabler
+    - id: Zipties
+      amount: 3
