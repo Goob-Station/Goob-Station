@@ -282,7 +282,6 @@ public sealed class PullingSystem : EntitySystem
             uid,
             direction,
             component.GrabThrownSpeed,
-            component.StaminaDamageOnThrown,
             damage * component.GrabThrowDamageModifier); // Throwing the grabbed person
         _throwing.TryThrow(uid, -direction * throwerPhysics.InvMass); // Throws back the grabber
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), uid);

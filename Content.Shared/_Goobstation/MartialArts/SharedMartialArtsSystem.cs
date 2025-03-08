@@ -7,6 +7,8 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Mindshield.Components;
+using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
@@ -172,12 +174,17 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             return false;
         }
 
+        if(!HasComp<MindShieldComponent>(user) || comp.MartialArtsForm == MartialArtsForms.CorporateJudo)
+            return false;
+
         if (!HasComp<CanPerformComboComponent>(user))
         {
             var canPerformComboComponent = EnsureComp<CanPerformComboComponent>(user);
             var martialArtsKnowledgeComponent = EnsureComp<MartialArtsKnowledgeComponent>(user);
+            var pullerComponent = EnsureComp<PullerComponent>(user);
             LoadPrototype(user, martialArtsKnowledgeComponent, comp.MartialArtsForm);
             martialArtsKnowledgeComponent.Blocked = false;
+            pullerComponent.NextStageChange /= 2;
             if (TryComp<MeleeWeaponComponent>(user, out var meleeWeaponComponent))
             {
                 var newDamage = new DamageSpecifier();
@@ -185,6 +192,8 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
                 meleeWeaponComponent.Damage += newDamage;
             }
             Dirty(user, canPerformComboComponent);
+            Dirty(user, pullerComponent);
+
             return true;
         }
 

@@ -8,5 +8,5 @@ namespace Content.Shared._Goobstation.MartialArts.Components;
 /// </summary>
 public abstract partial class GrabStagesOverrideComponent : Component
 {
-    public GrabStage StartingStage = GrabStage.Hard;
+    public GrabStage StartingStage = GrabStage.Soft; // rework
 }
