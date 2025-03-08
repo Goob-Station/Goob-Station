@@ -1,16 +1,19 @@
 {
-	"version": 1,
-	"license": "CC-BY-SA-3.0",
-    "copyright": "Sprited by SolsticeOfTheWinter",
-	"size": {
-		"x": 32,
-		"y": 32
-	},
-	"states": [
-	{
-		"name": "bsokit"
-	},
-	{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprited by SolsticeOfTheWinter",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bsokit"
+    },
+    {
+      "name": "bsokit-ipc"
+    },
+    {
       "name": "bsokit-inhand-right",
       "directions": 4
     },
@@ -18,5 +21,6 @@
       "name": "bsokit-inhand-left",
       "directions": 4
     }
-	]
+
+  ]
 }
