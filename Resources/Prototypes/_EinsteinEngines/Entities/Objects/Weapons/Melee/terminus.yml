@@ -36,8 +36,6 @@
         Blunt: 20
         Slash: 15
     bluntStaminaDamageFactor: 2.0
-    heavyRateModifier: 0.75
-    heavyDamageBaseModifier: 1.2
     heavyStaminaCost: 7.5
     angle: 120
     soundHit:

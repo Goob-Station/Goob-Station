@@ -1,7 +1,6 @@
 - type: latheRecipe
   id: Terminus
   result: Terminus
-  category: Weapons
   completetime: 6
   materials:
     Steel: 1250
