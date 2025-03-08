@@ -14,6 +14,8 @@ namespace Content.Client.DeltaV.AACTablet.UI;
 public sealed partial class AACWindow : FancyWindow
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+    private readonly List<QuickPhrasePrototype> _phrases;
+    private readonly Dictionary<string, List<QuickPhrasePrototype>> _filteredPhrases = new();
     public event Action<ProtoId<QuickPhrasePrototype>>? PhraseButtonPressed;
 
     private const float SpaceWidth = 10f;
@@ -27,15 +29,52 @@ public sealed partial class AACWindow : FancyWindow
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
+        _phrases = _prototype.EnumeratePrototypes<QuickPhrasePrototype>().ToList();
+        _phrases.Sort((a, b) => string.CompareOrdinal(a.Group, b.Group));
+        SearchBar.OnTextChanged += FilterSearch;
         PopulateGui();
+        FilterSearch(null);
+    }
+
+    private void FilterSearch(LineEdit.LineEditEventArgs? obj)
+    {
+        SearchResults.DisposeAllChildren();
+        _filteredPhrases.Clear();
+
+        var emptySearch = string.IsNullOrEmpty(SearchBar.Text);
+        foreach (var phrase in _phrases)
+        {
+            if (!emptySearch && !Loc.GetString(phrase.Text).Contains(SearchBar.Text, StringComparison.CurrentCultureIgnoreCase))
+            {
+                continue;
+            }
+
+            if (_filteredPhrases.TryGetValue(phrase.Group, out var group))
+            {
+                group.Add(phrase);
+            }
+            else
+            {
+                _filteredPhrases.Add(phrase.Group, new List<QuickPhrasePrototype> { phrase });
+            }
+        }
+
+        foreach (var phraseList in _filteredPhrases.Values)
+        {
+            phraseList.Sort((a, b) =>
+                string.Compare(Loc.GetString(a.Text),
+                    Loc.GetString(b.Text),
+                    StringComparison.CurrentCultureIgnoreCase));
+        }
+
+        var boxContainer = CreateBoxContainerForTab(_filteredPhrases);
+        SearchResults.AddChild(boxContainer);
     }
 
     private void PopulateGui()
     {
-        var phrases = _prototype.EnumeratePrototypes<QuickPhrasePrototype>().ToList();
-
         // take ALL phrases and turn them into tabs and groups, so the buttons are sorted and tabbed
-        var sortedTabs = phrases
+        var sortedTabs = _phrases
             .GroupBy(p => p.Tab)
             .OrderBy(g => g.Key)
             .ToDictionary(
@@ -48,23 +87,21 @@ public sealed partial class AACWindow : FancyWindow
                     )
             );
 
-        var tabContainer = CreateTabContainer(sortedTabs);
-        WindowBody.AddChild(tabContainer);
+        CreateTabContainer(sortedTabs);
     }
 
-    private TabContainer CreateTabContainer(Dictionary<string, Dictionary<string, List<QuickPhrasePrototype>>> sortedTabs)
+    private void CreateTabContainer(Dictionary<string, Dictionary<string, List<QuickPhrasePrototype>>> sortedTabs)
     {
-        var tabContainer = new TabContainer();
-
         foreach (var tab in sortedTabs)
         {
             var tabName = Loc.GetString(tab.Key);
             var boxContainer = CreateBoxContainerForTab(tab.Value);
-            tabContainer.AddChild(boxContainer);
-            tabContainer.SetTabTitle(tabContainer.ChildCount - 1, tabName);
+            var scroll = new ScrollContainer();
+            scroll.HScrollEnabled = false;
+            scroll.AddChild(boxContainer);
+            WindowBody.AddChild(scroll);
+            WindowBody.SetTabTitle(WindowBody.ChildCount - 1, tabName);
         }
-
-        return tabContainer;
     }
 
     private BoxContainer CreateBoxContainerForTab(Dictionary<string, List<QuickPhrasePrototype>> groups)
@@ -117,7 +154,7 @@ public sealed partial class AACWindow : FancyWindow
         var buttonContainer = new GridContainer
         {
             Margin = new Thickness(10),
-            Columns = 4
+            Columns = ColumnCount
         };
 
         return buttonContainer;
