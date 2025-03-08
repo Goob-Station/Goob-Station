@@ -7,12 +7,12 @@
     sprite: Objects/Specific/Medical/hypospray.rsi
     state: hypo
 
-- type: stealTargetGroup
-  id: HandheldCrewMonitor
-  name: steal-target-groups-handheld-crew-monitor
-  sprite:
-    sprite: Objects/Specific/Medical/handheldcrewmonitor.rsi
-    state: scanner
+#- type: stealTargetGroup # Goobstation - made this public
+#  id: HandheldCrewMonitor
+#  name: steal-target-groups-handheld-crew-monitor
+#  sprite:
+#    sprite: Objects/Specific/Medical/handheldcrewmonitor.rsi
+#    state: scanner
 
 - type: stealTargetGroup
   id: ClothingOuterHardsuitRd

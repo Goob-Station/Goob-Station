@@ -12,6 +12,31 @@
   - VehicleHoverchairSci
   - PrescriptionGlasses
 
+- type: technology
+  id: MedicalDefense
+  name: research-technology-medical-defense
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - SyringeGun
+
+- type: technology
+  id: RescueTechnology
+  name: research-technology-rescue
+  icon:
+    sprite: Objects/Specific/Medical/handheldcrewmonitor.rsi
+    state: scanner
+  discipline: CivilianServices
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - HandheldCrewMonitor
+  - DefibrillatorCompact
+
 # Tier 2
 
 - type: technology
@@ -26,17 +51,5 @@
   recipeUnlocks:
   - MechEquipmentHonkerBananaMortar
   - MechEquipmentHonkerMousetrapMortar
-
-- type: technology
-  id: MedicalDefense
-  name: research-technology-medical-defense
-  icon:
-    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
-    state: rapid-syringe-gun
-  discipline: CivilianServices
-  tier: 2
-  cost: 10000
-  recipeUnlocks:
-  - RapidSyringeGun
 
 # Tier 3

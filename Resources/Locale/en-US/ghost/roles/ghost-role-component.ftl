@@ -302,11 +302,13 @@ ghost-role-information-blackmarketeer-description = Make trades or take odd jobs
 ghost-role-information-cossack-name = Ancient Traveler
 ghost-role-information-cossack-description = From a history lost to time, you find yourself cast into this day and age.
 
-ghost-role-information-pirate-name = Space Pirate
-ghost-role-information-pirate-description = Argh matey! Collect some cool loot, but make sure to avoid security and salvage!
+ghost-role-information-pirate-irs-name = Space Pirate
+ghost-role-information-pirate-irs-description = Confiscate the station's valuable assets. Arrest the captain for tax evasion.
 
-ghost-role-information-pirate-captain-name = Space Pirate Captain
-ghost-role-information-pirate-captain-description = Argh matey! You are in charge here and need to devise a plan to get that juicy loot by hook or by crook. Just make sure to avoid security and salvage!
+ghost-role-information-pirate-irs-captain-name = Space Pirate Captain
+ghost-role-information-pirate-irs-captain-description = Direct the plundering process. Arrest the captain for tax evasion.
+
+ghost-role-information-pirate-irs-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with the other pirates.
 
 ghost-role-information-artifact-name = Sentient Artifact
 ghost-role-information-artifact-description = Enact your eldritch whims. Forcibly activate your nodes for good or for evil.
