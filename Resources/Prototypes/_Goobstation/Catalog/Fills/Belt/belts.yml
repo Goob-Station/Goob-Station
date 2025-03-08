@@ -78,3 +78,24 @@
     containers:
       item:
       - NavyOfficerSabre
+
+- type: entityTable
+  id: BeltSecurityNoBatonEntityTable
+  table: !type:AllSelector
+    children:
+    - id: Handcuffs
+    - id: Handcuffs
+    - id: Handcuffs
+    - id: HoloprojectorSecurity
+    - id: RadioHandheldSecurity
+    - id: WeaponDisabler #Goobstation
+
+- type: entity
+  id: ClothingBeltCorporateJudoFilled
+  parent: ClothingBeltCorporateJudo
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: BeltSecurityNoBatonEntityTable
