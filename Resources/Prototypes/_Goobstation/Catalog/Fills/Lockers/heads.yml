@@ -36,6 +36,7 @@
     - id: NitrogenTankFilled
     - id: ClothingHeadHelmetSwat
     - id: ClothingOuterHardsuitBlueshield
+    - id: ClothingBackpackDuffelSurgeryFilled # Still don't know how I feel about this.
 
 - type: entity
   id: LockerBlueshieldOfficerFilled
