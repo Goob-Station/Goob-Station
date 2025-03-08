@@ -42,8 +42,6 @@
     angle: 120
     soundHit:
       collection: MetalThud
-  - type: DamageOtherOnHit
-    staminaCost: 16
   - type: Wieldable
   - type: GunRequiresWield
   - type: Item
