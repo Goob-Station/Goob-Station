@@ -465,6 +465,7 @@
     - ServiceWeapons
     - SpecOpsGoogles
     - SecurityMechElectronicsGoob
+    - SecurityWeaponsEinsteinEingines # Einstein Engines
   - type: EmagLatheRecipes # Goobstation
     emagStaticPacks:
     - SyndicateAmmoStatic
