@@ -101,7 +101,7 @@ public sealed class EggLayerSystem : EntitySystem
 
             _hunger.ModifyHunger(uid, -egglayer.HungerUsage, hunger);
         }
-        else
+        else // Goob - hard hunger requirement
             return false;
 
         foreach (var ent in EntitySpawnCollection.GetSpawns(egglayer.EggSpawn, _random))
