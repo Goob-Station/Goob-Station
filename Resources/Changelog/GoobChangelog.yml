@@ -5972,3 +5972,9 @@ Entries:
       message: Fixed mansus link.
   id: 683
   time: '2025-03-08T00:49:55.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed the deathsquad gamerule.
+  id: 684
+  time: '2025-03-08T00:50:25.0000000+00:00'
