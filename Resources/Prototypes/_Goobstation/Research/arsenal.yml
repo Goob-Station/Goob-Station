@@ -41,13 +41,14 @@
   id: AdvancedWeaponry
   name: research-technology-advancedweaponry
   icon:
-    sprite: /Textures/_EinsteinEngines/Objects/Weapons/Melee/terminus.rsi
+    sprite: Objects/Weapons/Guns/Battery/xray.rsi
     state: icon
   discipline: Arsenal
   tier: 2
   cost: 10000
   recipeUnlocks:
   - Terminus
+  - WeaponXrayCannon
   technologyPrerequisites:
   - WeaponizedLaserManipulation
 
