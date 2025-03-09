@@ -10,7 +10,7 @@
     fishList: !type:NestedSelector
       tableId: WaterFishingLootTable
     fishDefaultTimer: 25.0
-    FishTimerVariety: 15.0
+    fishTimerVariety: 15.0
   - type: Physics
     bodyType: Static
   - type: Fixtures

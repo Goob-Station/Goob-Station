@@ -11,16 +11,25 @@
             "name": "alien"
         },
         {
-            "name": "anglerh"
+            "name": "angler"
         },
         {
-            "name": "bassh"
+            "name": "bass"
         },
         {
             "name": "bingle"
         },
         {
-            "name": "boy_fisher"
+            "name": "boy_fisher",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
         },
         {
             "name": "catfish"
