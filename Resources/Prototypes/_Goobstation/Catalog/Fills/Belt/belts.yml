@@ -100,17 +100,25 @@
       storagebase: !type:NestedSelector
         tableId: BeltSecurityNoBatonEntityTable
 
+- type: entityTable
+  id: BeltAssaultBSOEntityTable
+  table: !type:AllSelector
+    children:
+    - id: Stunbaton
+    - id: HandheldCrewMonitor
+    - id: HoloprojectorSecurity
+    - id: GrenadeFlashBang
+    - id: WeaponDisabler
+    - id: Zipties
+    - id: Zipties
+    - id: Zipties
+
 - type: entity
   id: ClothingBeltAssaultFilled
   parent: ClothingBeltAssault
-  suffix: Filled
+  suffix: Filled, BSO
   components:
-  - type: StorageFill
-    contents:
-    - id: Stunbaton
-    - id: HoloprojectorSecurity
-    - id: RadioHandheldSecurity
-    - id: Zipties
-      amount: 4
-    - id: GrenadeFlashBang
-      amount: 2
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: BeltAssaultBSOEntityTable

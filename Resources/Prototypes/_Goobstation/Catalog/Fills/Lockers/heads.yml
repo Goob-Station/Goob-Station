@@ -29,7 +29,7 @@
     children:
     - id: DefibrillatorCompact
     - id: MedkitBSOFilled
-    - id: MedkitBSOFilledIPC
+    - id: MedkitBSOIPCFilled
     - id: FlippoLighterBlueshield
     - id: BoxZiptie
     - id: OxygenTankFilled

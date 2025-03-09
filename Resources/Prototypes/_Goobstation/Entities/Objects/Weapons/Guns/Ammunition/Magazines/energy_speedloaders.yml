@@ -19,7 +19,7 @@
     startingCharge: 600
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 25
+    autoRechargeRate: 20
   - type: AmmoCounter
   - type: Appearance
   - type: Tag
