@@ -392,8 +392,11 @@
     - MedkitAdvancedFilled
     - CrowbarRed
     - OmnizineChemistryBottle
-    - EpinephrineChemistryBottle
-    - EpinephrineChemistryBottle
+    - JugOxandrolone
+    - JugSalicylicAcid
+    - ParamedHypo
+    - CartridgeAtropine
+    - CartridgeAtropine
 
 - type: startingGear
   id: ERTMedicalGearEVA
@@ -415,9 +418,11 @@
     - CentCommHypo
     - MedkitAdvancedFilled
     - CrowbarRed
-    - OmnizineChemistryBottle
-    - EpinephrineChemistryBottle
-    - EpinephrineChemistryBottle
+    - JugOxandrolone
+    - JugSalicylicAcid
+    - ParamedHypo
+    - CartridgeAtropine
+    - CartridgeAtropine
 
 # Janitor
 - type: job
