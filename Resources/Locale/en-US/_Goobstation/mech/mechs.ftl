@@ -9,3 +9,9 @@ goobstation-ripley-bounty-name = Ripley MkII
 
 goobstation-gygax-bounty-desc = The Tranquility Assurance Force needs to enhance their Peacekeeping squadrons, we request a Gygax.
 goobstation-gygax-bounty-name = Gygax
+
+goobstation-mech-short-circuit = There's been a short circuit!
+goobstation-mech-cabine-on-fire = The pilot cabine on fire!
+goobstation-mech-engine-broken = The engine broke down!
+goobstation-mech-cabine-breach = A breach in the cabin airtightness!
+goobstation-mech-equipment-loss = The module's fallen off!

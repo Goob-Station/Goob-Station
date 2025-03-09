@@ -174,19 +174,19 @@
     Ion: 2.0 # double damage from ion
 
 - type: damageModifierSet
-  id: KevlarArmorPlate # Against slash and piercing damage, but is less effective against blunt damage.
+  id: KevlarArmorPlate # Lightweight plates that defend decently against piercing and slashes, but worse against blunt.
   coefficients:
     Blunt: 0.9
     Piercing: 0.8
-    Slash: 0.8
+    Slash: 0.85
     Shock: 0.7
 
 - type: damageModifierSet
-  id: TitaniumArmorPlate # Balanced plate
+  id: TitaniumArmorPlate # Plates consisting of padding high-strength plastic to shield against melee.
   coefficients:
     Blunt: 0.7
-    Piercing: 0.7
-    Slash: 0.7
+    Piercing: 0.9
+    Slash: 0.75
 
 - type: damageModifierSet
   id: EnergyArmorPlate # Against energy damage, but is less effective against physical damage.
@@ -198,8 +198,8 @@
     Energy: 0.6
 
 - type: damageModifierSet
-  id: SteelArmorPlate # Against blunt and piercing damage, but weaker against slashing damage.
+  id: SteelArmorPlate # Decently effective against most common types of damage.
   coefficients:
-    Blunt: 0.7
-    Piercing: 0.7
-    Slash: 0.9
+    Blunt: 0.85
+    Piercing: 0.85
+    Slash: 0.8

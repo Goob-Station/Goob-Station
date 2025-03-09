@@ -57,14 +57,7 @@ public sealed partial class MechComponent : Component
     public readonly string BatterySlotId = "mech-battery-slot";
 
     /// <summary>
-    /// A multiplier used to calculate how much of the damage done to a mech
-    /// is transfered to the pilot
-    /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float MechToPilotDamageMultiplier;
-
-    /// <summary>
-    /// DamageDict that contains almost all DEFAULT damage types, this is necessary if the user has not specified mecharmor in prototype.
+    /// Thresholds for pilot damage.
     /// </summary>
     [DataField]
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
@@ -80,6 +73,29 @@ public sealed partial class MechComponent : Component
             { "Shock", 0 },
         }
     };
+
+    [ViewVariables]
+    public readonly float MalfunctionProbability = 0.2f;
+
+    [ViewVariables]
+    public Dictionary<string, float> MalfunctionChances = new()
+    {
+        { "CabineOnFire", 0.4f },
+        { "EngineBroken", 0.2f },
+        { "CabinBreach", 0.2f },
+        { "ShortCircuit", 0.6f },
+        { "EquipmentLoss", 0.1f }
+    };
+
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public bool isEngineBroken = false;
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public bool isCabineOnFire = false;
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public bool isCabineBreach = false;
+
+    [ViewVariables]
+    public FixedPoint2 EnergyLoss = 30;
 
     /// <summary>
     /// Whether the mech has been destroyed and is no longer pilotable.

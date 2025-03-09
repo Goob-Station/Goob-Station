@@ -148,6 +148,12 @@
         - Book
   - type: StaticPrice
     price: 450
+  - type: Flammable
+    fireSpread: false
+    canResistFire: true
+    damage:
+      types:
+        Heat: 3
   # Goobstation Change End
 
 - type: entity
@@ -170,14 +176,15 @@
     baseState: ripley
     openState: ripley-open
     brokenState: ripley-broken
-    mechToPilotDamageMultiplier: 0.75
     pilotWhitelist:
       components:
         - HumanoidAppearance
         - BorgChassis # Goobstation - Let borgs pilot mechs
-    mechArmor:
+    mechArmor:  # Goobstation - Make thresholds for damage
       types:
         Blunt: 10
+        Slash: 7
+        Piercing: 5
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -221,12 +228,19 @@
     baseState: honker
     openState: honker-open
     brokenState: honker-broken
-    mechToPilotDamageMultiplier: 0.5
     airtight: true # Goobstation - Space Honk is real.
     pilotWhitelist:
       components:
       - HumanoidAppearance
       - BorgChassis # Goobstation - Let borgs pilot mechs
+    mechArmor:  # Goobstation - Make thresholds for damage
+      types:
+        Blunt: 20
+        Slash: 5
+        Piercing: 5
+        Heat: 5
+        Cold: 5
+        Shock: 15
 
 - type: entity
   parent: MechHonker
@@ -258,7 +272,6 @@
     baseState: hamtr
     openState: hamtr-open
     brokenState: hamtr-broken
-    mechToPilotDamageMultiplier: 0.2
     maxEquipmentAmount: 2
     airtight: true
     pilotWhitelist:
@@ -322,7 +335,6 @@
     brokenState: vim-broken
     maxEquipmentAmount: 0
     # keep mouse safe
-    mechToPilotDamageMultiplier: 0.1
     airtight: true
     pilotWhitelist:
       tags:
