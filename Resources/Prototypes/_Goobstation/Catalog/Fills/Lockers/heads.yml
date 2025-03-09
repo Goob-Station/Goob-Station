@@ -38,6 +38,7 @@
     - id: ClothingHeadHelmetSwat
     - id: ClothingOuterHardsuitBlueshield
     - id: ClothingBackpackDuffelSurgeryFilled # Or this.
+    - id: BoxTracker # ehhh maybe?
 
 - type: entity
   id: LockerBlueshieldOfficerFilled

@@ -38,6 +38,3 @@
     - id: WelderIndustrial
     - id: CableApcStack
     - id: PowerCellHigh
-  - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/firstaidkits.rsi
-    state: bsokit-ipc

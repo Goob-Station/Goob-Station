@@ -12,4 +12,6 @@
         - ReagentId: Nicotine
           Quantity: 10
         - ReagentId: Ibuprofen
-          Quantity: 30
+          Quantity: 15
+        - ReagentId: Dermaline
+          Quantity: 15
