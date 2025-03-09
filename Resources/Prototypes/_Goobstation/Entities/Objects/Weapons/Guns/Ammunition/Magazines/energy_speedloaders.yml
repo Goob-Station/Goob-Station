@@ -30,7 +30,7 @@
   id: EnergySpeedloaderLethal
   parent: [ BaseEnergySpeedloader, BaseCentcommContraband ]
   name: energy speedloader (lethal)
-  description: A special self-recharging powercell designed for use with the energy revolver. This one contains lethal bolts.
+  description: A rather volatile powercell utilizing phoron to charge lethal bolts over time. Phoron will make us all rich.
   components:
   - type: ProjectileBatteryAmmoProvider
     proto: BulletEnergyGunMagnum
@@ -44,7 +44,7 @@
   id: EnergySpeedloaderDisabler
   parent: [ BaseEnergySpeedloader, BaseCentcommContraband ]
   name: energy speedloader (disabler)
-  description: A special self-recharging powercell designed for use with the energy revolver. This one contains disabler bolts.
+  description: A rather volatile powercell utilizing phoron to charge disabling bolts over time. Phoron will make us all rich.
   components:
   - type: Sprite
     layers:
