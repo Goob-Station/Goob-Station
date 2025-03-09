@@ -76,7 +76,7 @@ public abstract class SharedFishingSystem : EntitySystem
 
             if (!_hands.IsHolding(fisher, fishRod))
             {
-                _popup.PopupEntity("Выпала удочка", fisher, fisher);
+                _popup.PopupEntity(Loc.GetString("fishing-progress-lost-rod", ("ent", Name(fishRod))), fisher, fisher);
                 // Cleanup entities and their connections
                 RemComp(fisher, fisherComp);
                 QueueDel(fishingLure);
@@ -88,7 +88,7 @@ public abstract class SharedFishingSystem : EntitySystem
             if (fisherComp.TotalProgress < 0f)
             {
                 // It's over
-                _popup.PopupEntity("не вышло...", fisher, fisher);
+                _popup.PopupEntity(Loc.GetString("fishing-progress-fail"), fisher, fisher);
 
                 // Cleanup entities and their connections
                 RemComp(fisher, fisherComp);
@@ -118,7 +118,7 @@ public abstract class SharedFishingSystem : EntitySystem
                     }
 
                     // Message
-                    _popup.PopupEntity(Loc.GetString("Чето поймал!!!"), fisher, fisher);
+                    _popup.PopupEntity(Loc.GetString("fishing-progress-success"), fisher, fisher);
                 }
 
                 RemComp(fisher, fisherComp);
@@ -159,6 +159,7 @@ public abstract class SharedFishingSystem : EntitySystem
             activeFisher.ProgressPerUse *= fishRodComp.Efficiency;
             Dirty(fisher, activeFisher);
 
+            _popup.PopupEntity(Loc.GetString("fishing-progress-start"), fisher, fisher);
             activeSpotComp.IsActive = true;
         }
     }
@@ -175,7 +176,7 @@ public abstract class SharedFishingSystem : EntitySystem
     {
         if (component.FishingLure != null)
         {
-            _popup.PopupEntity(Loc.GetString("Удочка сматывается"), uid);
+            _popup.PopupEntity(Loc.GetString("fishing-rod-remove-lure", ("ent", Name(uid))), uid);
             QueueDel(component.FishingLure);
             component.FishingLure = null;
             return;
@@ -197,7 +198,6 @@ public abstract class SharedFishingSystem : EntitySystem
         var visuals = EnsureComp<JointVisualsComponent>(fishFloat);
         visuals.Sprite = component.RopeSprite;
         visuals.OffsetA = new Vector2(0f, 0.1f);
-        visuals.OffsetB = new Vector2(0.5f, 0.5f);
         visuals.Target = GetNetEntity(uid);
         Dirty(fishFloat, visuals);
 
