@@ -195,6 +195,9 @@
         - CanPilot
         - FootstepSound
         - DoorBumpOpener
+        - IPCMind
+    - type: CollectiveMind
+      defaultChannel: IPC 
     - type: Hands
     - type: Inventory
       templateId: human

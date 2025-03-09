@@ -55,3 +55,11 @@
   color: "#5ed7aa"
   requiredTags:
   - BinaryMind
+
+- type: collectiveMind
+  id: IPC
+  name: collective-mind-ipc
+  keycode: 'i'
+  color: "#5ecbd7"
+  requiredTags:
+  - IPCMind
