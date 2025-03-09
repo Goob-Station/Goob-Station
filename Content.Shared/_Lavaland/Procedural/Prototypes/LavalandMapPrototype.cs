@@ -1,4 +1,4 @@
-﻿using Content.Shared._Lavaland.Weather;
+using Content.Shared._Lavaland.Weather;
 using Content.Shared.Atmos;
 using Content.Shared.Parallax.Biomes;
 using Content.Shared.Parallax.Biomes.Markers;
@@ -58,6 +58,7 @@ public sealed partial class LavalandMapPrototype : IPrototype
         "OreSilver",
         "OrePlasma",
         "OreUranium",
+        "BSCrystal",
         "OreBananium",
         "OreArtifactFragment",
         "OreDiamond",
