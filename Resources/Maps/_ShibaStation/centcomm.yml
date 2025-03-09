@@ -4,7 +4,7 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/07/2025 13:09:38
+  time: 03/09/2025 08:07:25
   entityCount: 9680
 maps: []
 grids:
@@ -60843,6 +60843,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 3.5,-1.5
       parent: 1668
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        96:
+        - DoorStatus: Close
   - uid: 1933
     components:
     - type: Transform
@@ -60987,6 +60993,18 @@ entities:
       parent: 1668
 - proto: WindoorSecureCentralCommandLocked
   entities:
+  - uid: 96
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,-1.5
+      parent: 1668
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        142:
+        - DoorStatus: Close
   - uid: 2903
     components:
     - type: Transform
@@ -61097,12 +61115,6 @@ entities:
       parent: 1668
 - proto: WindoorSecureCommandLocked
   entities:
-  - uid: 96
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 3.5,-1.5
-      parent: 1668
   - uid: 9184
     components:
     - type: Transform
