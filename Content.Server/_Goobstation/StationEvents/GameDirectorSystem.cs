@@ -16,6 +16,8 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Ghost;
 using Content.Shared.Humanoid;
 using Content.Shared.Prototypes;
+using Content.Shared.Random;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Tag;
 using JetBrains.Annotations;
 using Robust.Server.Player;
@@ -234,76 +236,26 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             return;
 
         // Spawn antags based on GameDirectorComponent
-            var roundStartAntags = new List<EntityPrototype>();
-            var calmStartAntags = new List<EntityPrototype>();
-            foreach (var proto in GameTicker.GetAllGameRulePrototypes())
-            {
-                if (!proto.TryGetComponent<TagComponent>(out var tag, _factory))
-                    continue;
+        var weightList = _prototypeManager.Index(scheduler.RoundStartAntagsWeightTable);
 
-                if (!proto.TryGetComponent<GameRuleComponent>(out var gameRuleComp, _factory))
-                    continue;
+        if (!scheduler.DualAntags)
+        {
+            EntProtoId pick = weightList.Pick(_random);
+            LogMessage("Choosing roundstart antag");
+            LogMessage($"Roundstart antag chosen: {pick}");
+            GameTicker.AddGameRule(pick);
+        }
+        else
+        {
+            var pick = weightList.Pick(_random);
+            var pick2 = weightList.Pick(_random);
+            LogMessage("Choosing roundstart antag");
+            LogMessage($"Roundstart antag chosen: {pick}");
+            LogMessage($"Roundstart antag chosen: {pick2}");
 
-                if (gameRuleComp.MinPlayers > count)
-                    continue;
-
-                if (proto.HasComponent<DynamicRulesetComponent>())
-                    continue;
-
-                if (_tag.HasTag(tag, "MidroundAntag"))
-                    continue;
-
-                if (_tag.HasTag(tag, "RoundstartAntag"))
-                {
-                    roundStartAntags.Add(proto);
-                }
-                else if (_tag.HasTag(tag, "CalmAntag"))
-                {
-                    calmStartAntags.Add(proto);
-                }
-            }
-
-            if (!scheduler.DualAntags)
-            {
-                if (roundStartAntags.Count == 0)
-                {
-                    LogMessage("No valid roundstart antags found!");
-                    return;
-                }
-
-                LogMessage("Choosing roundstart antag");
-                var random = new Random();
-                var randomAntag = roundStartAntags[random.Next(roundStartAntags.Count)];
-                LogMessage($"Roundstart antag chosen: {randomAntag.ID}");
-
-                var ruleEnt = GameTicker.AddGameRule(randomAntag.ID);
-                GameTicker.StartGameRule(ruleEnt);
-            }
-            else
-            {
-                if (calmStartAntags.Count < 2)
-                {
-                    LogMessage("Not enough valid roundstart antags found!");
-                    return;
-                }
-
-                LogMessage("Choosing multiple roundstart antags");
-                var random = new Random();
-
-                var firstIndex = random.Next(calmStartAntags.Count);
-                var randomAntagFirst = calmStartAntags[firstIndex];
-                calmStartAntags.RemoveAt(firstIndex);
-
-                var randomAntagSecond = calmStartAntags[random.Next(calmStartAntags.Count)];
-
-                LogMessage($"Roundstart antags chosen: 1: {randomAntagFirst.ID} 2: {randomAntagSecond.ID}");
-
-                var ruleFirstEnt = GameTicker.AddGameRule(randomAntagFirst.ID);
-                var ruleSecondEnt = GameTicker.AddGameRule(randomAntagSecond.ID);
-
-                GameTicker.StartGameRule(ruleFirstEnt);
-                GameTicker.StartGameRule(ruleSecondEnt);
-            }
+            GameTicker.AddGameRule(pick);
+            GameTicker.AddGameRule(pick2);
+        }
     }
 
     /// <summary>
