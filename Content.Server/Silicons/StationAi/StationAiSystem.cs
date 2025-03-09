@@ -15,7 +15,7 @@ using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Mind.Components;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Server.Silicons.Laws;
-using Content.Shared.Popups; // Goobstation - end
+using Content.Server.Prayer; // Goobstation - end
 
 namespace Content.Server.Silicons.StationAi;
 
@@ -27,7 +27,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedRoleSystem _roles = default!;
     [Dependency] private readonly QuickDialogSystem _quickDialog = default!; // Goobstation - Borg announce start
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly PrayerSystem _prayer = default!;
     [Dependency] private readonly SiliconLawSystem _law = default!; // Goobstation - end
 
     private readonly HashSet<Entity<StationAiCoreComponent>> _ais = new();
@@ -154,7 +154,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
             if (result.Length >= 155)
                 result = result.Substring(0, 155) + "...";
 
-            SendBorgOrder(result);
+            SendBorgOrder(result, actor.PlayerSession);
         });
         args.Handled = true;
     }
@@ -163,18 +163,20 @@ public sealed class StationAiSystem : SharedStationAiSystem
     /// <summary>
     /// Send a order popup to all borgs that have ai law
     /// </summary>
-    public void SendBorgOrder(string order, PopupType popupType = PopupType.Large)
+    public void SendBorgOrder(string order, ICommonSession source)
     {
         var message = Loc.GetString("ai-borg-order-popup-text", ("message", order));
         var borg = AllEntityQuery<BorgChassisComponent, SiliconLawBoundComponent, MindContainerComponent>();
         while (borg.MoveNext(out var uid, out _, out var slb, out _))
         {
+            if (!TryComp<ActorComponent>(uid, out var actor))
+                return;
 
             var laws = _law.GetLaws(uid, slb).Laws;
             if (!_law.HasLawLocale(laws, ObeyAiLocale))
                 continue; // theres no way to verify a law prototype
 
-            _popup.PopupEntity(message, uid, uid, popupType);
+            _prayer.SendSubtleMessage(actor.PlayerSession, source, message, message);
         }
     }
 
