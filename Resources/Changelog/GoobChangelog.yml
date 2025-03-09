@@ -6008,3 +6008,21 @@ Entries:
       message: Fixed instances of some roles earning more GC than intended
   id: 688
   time: '2025-03-09T19:12:46.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: >-
+        Grab Throws now do less damage do to previously doing like 10 damage to
+        every limb and less stamina damage.
+    - type: Tweak
+      message: >-
+        Martial arts no longer instant hard grab but have less time in between
+        reinforcing your grab stage, and will insta-hard grab downed players.
+    - type: Tweak
+      message: Judo slam + Armbar now do more stamina damage.
+    - type: Tweak
+      message: CQC Kick works on standing up people like it was supposed to.
+    - type: Tweak
+      message: Sleeping carp now has its proper abilities when the target is downed.
+  id: 689
+  time: '2025-03-09T21:26:58.0000000+00:00'
