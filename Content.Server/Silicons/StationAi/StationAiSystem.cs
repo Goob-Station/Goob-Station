@@ -141,11 +141,13 @@ public sealed class StationAiSystem : SharedStationAiSystem
         // Apparently there's no sound for this.
     }
 
-    // Goobstation - Borg announce
-    private void OnBorgAnnounce(Entity<StationAiHeldComponent> ent, SiliconAnnounceEvent args)
+    // Goobstation - Borg announce start
+    private void OnBorgAnnounce(Entity<StationAiHeldComponent> ent, ref SiliconAnnounceEvent args)
     {
         if (!TryComp<ActorComponent>(ent.Owner, out var actor))
             return;
+
+        var handled = false;
 
         _quickDialog.OpenDialog(actor.PlayerSession, Loc.GetString("ai-borg-order-prompt-tittle"), "", (string result) =>
         {
@@ -155,8 +157,11 @@ public sealed class StationAiSystem : SharedStationAiSystem
                 result = result.Substring(0, 155) + "...";
 
             SendBorgOrder(result);
-            args.Handled = true;
+            handled = true;
         });
+
+        if (handled)
+            args.Handled = true;
     }
 
     /// <summary>
@@ -164,23 +169,22 @@ public sealed class StationAiSystem : SharedStationAiSystem
     /// </summary>
     public void SendBorgOrder(string order, PopupType popupType = PopupType.Small)
     {
-        Log.Debug("1");
         var message = Loc.GetString("ai-borg-order-popup-text", ("message", order));
         var borg = AllEntityQuery<BorgChassisComponent, SiliconLawBoundComponent, MindContainerComponent>();
-        while (borg.MoveNext(out var uid, out _, out var slb, out var mc))
+        while (borg.MoveNext(out var uid, out _, out var slb, out _))
         {
-            /*if (HasComp<BorgChassisComponent>(uid) ||
-                HasComp<MindContainerComponent>(uid) ||
-                HasComp<SiliconLawBoundComponent>(uid))
-                continue;*/
-            Log.Debug("2");
+            if (!HasComp<BorgChassisComponent>(uid) ||
+                !HasComp<MindContainerComponent>(uid) ||
+                !HasComp<SiliconLawBoundComponent>(uid))
+                continue;
 
             var laws = _law.GetLaws(uid, slb).Laws;
-            if (_law.HasLawLocale(laws, "law-obeyai"))
-                continue; // theres no way to verify a law prototype in this shit
-            Log.Debug("3");
+            if (!_law.HasLawLocale(laws, "law-obeyai"))
+                continue; // theres no way to verify a law prototype
 
             _popup.PopupEntity(message, uid, popupType);
         }
     }
+
+    // Goobstation - borg order end
 }

@@ -22,3 +22,10 @@ toggle-light = Toggle light
 ai-device-not-responding = Device is not responding
 
 ai-consciousness-download-warning = Your consciousness is being downloaded.
+
+# Goobstation - AI order start
+ai-borg-order-popup-text = New station AI order: {$message}
+
+ai-borg-order-prompt-tittle = Send a silicon annoucement
+
+# Goobstation - AI order end
