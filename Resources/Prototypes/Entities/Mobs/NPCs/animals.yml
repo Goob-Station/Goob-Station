@@ -1878,6 +1878,9 @@
   - type: MeleeChemicalInjector
     transferAmount: 1
     solution: melee # Goobstation - End
+  - type: GibThisGuy  #Goobstation
+    ocNames:
+    - BombasterDS 
 
 - type: entity
   parent: MobMouse
