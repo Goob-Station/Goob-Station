@@ -856,8 +856,8 @@ public sealed class PullingSystem : EntitySystem
 
         var newStage = puller.Comp.GrabStage + nextStageAddition;
 
-        if (HasComp<MartialArtsKnowledgeComponent>(puller) &&
-            TryComp<RequireProjectileTargetComponent>(pullable, out var layingDown)
+        if (HasComp<MartialArtsKnowledgeComponent>(puller)
+            && TryComp<RequireProjectileTargetComponent>(pullable, out var layingDown)
             && layingDown.Active)
         {
             var ev = new CheckGrabOverridesEvent(newStage);
