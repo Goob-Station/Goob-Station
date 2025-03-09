@@ -4,6 +4,7 @@
   path: /Maps/_Goobstation/Shuttles/consul.yml
   copies: 1
 
+# ERT
 - type: preloadedGrid
   id: RetortShuttleAssault
   path: /Maps/_Goobstation/Shuttles/retort_assault.yml
@@ -22,5 +23,12 @@
 - type: preloadedGrid
   id: RetortShuttleJanitorial
   path: /Maps/_Goobstation/Shuttles/retort_janitorial.yml
+  copies: 1
+
+# CBURN
+
+- type: preloadedGrid
+  id: RetortShuttleCBURN
+  path: /Maps/_Goobstation/Shuttles/retort_cburn.yml
   copies: 1
 

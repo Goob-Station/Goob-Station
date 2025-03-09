@@ -1,3 +1,5 @@
+# Deathsquad
+
 - type: entity
   parent: BaseUnknownShuttleRule
   id: SpawnDeathsquad
@@ -12,6 +14,23 @@
     maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: ConsulShuttle
+
+# CBURN
+
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: SpawnCBURN
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-cburn-enroute
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    weight: 10
+    reoccurrenceDelay: 30
+    duration: null
+    maxOccurrences: 1
+  - type: LoadMapRule
+    preloadedGrid: RetortShuttleCBURN
 
 # ERT
 
