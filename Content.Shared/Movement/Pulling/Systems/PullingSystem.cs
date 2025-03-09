@@ -982,7 +982,7 @@ public sealed class PullingSystem : EntitySystem
     /// </summary>
     /// <param name="pullable">Grabbed entity</param>
     /// <returns></returns>
-    public bool AttemptGrabRelease(Entity<PullableComponent?> pullable)
+    private bool AttemptGrabRelease(Entity<PullableComponent?> pullable)
     {
         if (!Resolve(pullable.Owner, ref pullable.Comp))
             return false;
