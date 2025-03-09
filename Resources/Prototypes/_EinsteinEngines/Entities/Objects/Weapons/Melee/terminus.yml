@@ -52,7 +52,7 @@
     qualities:
     - Prying
   - type: Prying
-  - type: RestrictedMelee
-    whitelist:
-      tags:
-        - Oni
+#  - type: RestrictedMelee - Lets add a really cool weapon and only make it usable by a single species, abysmal dogshit.
+#    whitelist:
+#      tags:
+#        - Oni
