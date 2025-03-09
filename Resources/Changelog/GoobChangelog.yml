@@ -5988,3 +5988,9 @@ Entries:
       message: Judo belts now come filled with tools in security lockers.
   id: 685
   time: '2025-03-08T00:51:47.0000000+00:00'
+- author: thebiggestbruh
+  changes:
+    - type: Fix
+      message: Bluespace ore can appear in Lavaland again
+  id: 686
+  time: '2025-03-08T17:44:33.0000000+00:00'
