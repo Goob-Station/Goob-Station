@@ -43,7 +43,6 @@
         Slash: 10
   - type: StaminaDamageOnHit # I stole the baseball bat code and thought it'd be funny to leave this.
     damage: 10
-  - type: Item
   - type: Wieldable
   - type: GunRequiresWield
   - type: Item
