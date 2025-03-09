@@ -174,11 +174,12 @@
 - type: weightedRandom
   id: ThiefObjectiveGroupCollection
   weights:
-    HeadCloakStealCollectionObjective: 1           #command
+    HeadCloakStealCollectionObjective: 1                #command
     HeadBedsheetStealCollectionObjective: 1
     StampStealCollectionObjective: 1
     DoorRemoteStealCollectionObjective: 1
-    TechnologyDiskStealCollectionObjective: 1        #rnd
+    TechnologyDiskStealCollectionObjective: 1           #sci
+    MailStealCollectionObjective: 1                     #cargo
     IDCardsStealCollectionObjective: 1
     LAMPStealCollectionObjective: 2 #only for moth
     BatteryStealCollectionObjective: 2 #Goobedit - only for ipc
@@ -197,6 +198,7 @@
     AmePartFlatpackStealObjective: 1
     #ExpeditionsCircuitboardStealObjective: 1 Goob edit - Removed because lavaland #sup
     CargoShuttleCircuitboardStealObjective: 1
+    #SalvageShuttleCircuitboardStealObjective: 1 # Goobstation?
     ClothingEyesHudBeerStealObjective: 1                #srv
     BibleStealObjective: 1
     ClothingNeckGoldmedalStealObjective: 1              #other
