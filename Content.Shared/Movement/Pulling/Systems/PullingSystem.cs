@@ -80,7 +80,6 @@ public sealed class PullingSystem : EntitySystem
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly ContestsSystem _contests = default!; // Goobstation - Grab Intent
 
-
     public override void Initialize()
     {
         base.Initialize();
@@ -861,6 +860,7 @@ public sealed class PullingSystem : EntitySystem
             && layingDown.Active)
         {
             var ev = new CheckGrabOverridesEvent(newStage);
+            RaiseLocalEvent(puller, ev);
             newStage = ev.Stage;
         }
 
