@@ -147,8 +147,6 @@ public sealed class StationAiSystem : SharedStationAiSystem
         if (!TryComp<ActorComponent>(ent.Owner, out var actor))
             return;
 
-        var handled = false;
-
         _quickDialog.OpenDialog(actor.PlayerSession, Loc.GetString("ai-borg-order-prompt-tittle"), "", (string result) =>
         {
             if (result.Length <= 0)
@@ -157,11 +155,9 @@ public sealed class StationAiSystem : SharedStationAiSystem
                 result = result.Substring(0, 155) + "...";
 
             SendBorgOrder(result);
-            handled = true;
         });
 
-        if (handled)
-            args.Handled = true;
+        args.Handled = true;
     }
 
     /// <summary>
@@ -182,7 +178,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
             if (!_law.HasLawLocale(laws, "law-obeyai"))
                 continue; // theres no way to verify a law prototype
 
-            _popup.PopupEntity(message, uid, popupType);
+            _popup.PopupEntity(message, uid, uid, popupType);
         }
     }
 
