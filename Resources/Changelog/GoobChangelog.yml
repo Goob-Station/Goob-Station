@@ -6002,3 +6002,9 @@ Entries:
       message: Consolidated X-Ray cannons into a new tech that has more items in it.
   id: 687
   time: '2025-03-09T07:59:16.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: Fixed instances of some roles earning more GC than intended
+  id: 688
+  time: '2025-03-09T19:12:46.0000000+00:00'
