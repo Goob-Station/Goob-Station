@@ -1,0 +1,49 @@
+﻿using Content.Shared._Shitmed.Surgery.Pain.Components;
+using Content.Shared.FixedPoint;
+using Robust.Shared.Serialization;
+
+namespace Content.Shared._Shitmed.Surgery.Pain;
+
+[Serializable, NetSerializable]
+public enum PainThresholdTypes
+{
+    None,
+    PainFlinch,
+    Agony,
+    PainShock,
+    PainPassout,
+}
+
+[Serializable, NetSerializable]
+public sealed class NerveComponentState : ComponentState
+{
+    public FixedPoint2 PainMultiplier;
+
+    public Dictionary<(NetEntity, string), PainFeelingModifier> PainFeelingModifiers = new();
+
+    public NetEntity ParentedNerveSystem;
+}
+
+[Serializable, DataRecord]
+public record struct PainMultiplier(FixedPoint2 Change, string Identifier = "Unspecified", TimeSpan? Time = null);
+
+[Serializable, DataRecord]
+public record struct PainFeelingModifier(FixedPoint2 Change, TimeSpan? Time = null);
+
+[Serializable, DataRecord]
+public record struct PainModifier(FixedPoint2 Change, string Identifier = "Unspecified", TimeSpan? Time = null); // Easier to manage pain with modifiers.
+
+[ByRefEvent]
+public record struct PainThresholdTriggered(EntityUid NerveSystem, NerveSystemComponent Component, PainThresholdTypes ThresholdType, FixedPoint2 PainInput, bool Cancelled = false);
+
+[ByRefEvent]
+public record struct PainThresholdEffected(EntityUid NerveSystem, NerveSystemComponent Component, PainThresholdTypes ThresholdType, FixedPoint2 PainInput);
+
+[ByRefEvent]
+public record struct PainModifierAddedEvent(EntityUid NerveSystem, EntityUid NerveUid, FixedPoint2 AddedPain);
+
+[ByRefEvent]
+public record struct PainModifierRemovedEvent(EntityUid NerveSystem, EntityUid NerveUid, FixedPoint2 CurrentPain);
+
+[ByRefEvent]
+public record struct PainModifierChangedEvent(EntityUid NerveSystem, EntityUid NerveUid, FixedPoint2 CurrentPain);

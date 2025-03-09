@@ -11,6 +11,11 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Shared.Player;
 
+// Shitmed Change
+using Content.Shared._Shitmed.Surgery.Consciousness.Components;
+using Content.Shared._Shitmed.Surgery.Consciousness.Systems;
+using Content.Shared.Body.Components;
+
 namespace Content.Client.UserInterface.Systems.DamageOverlays;
 
 [UsedImplicitly]
@@ -19,6 +24,7 @@ public sealed class DamageOverlayUiController : UIController
     [Dependency] private readonly IOverlayManager _overlayManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
 
+    [UISystemDependency] private readonly ConsciousnessSystem _consciousness = default!; // Shitmed Change
     [UISystemDependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
     private Overlays.DamageOverlay _overlay = default!;
 
@@ -28,7 +34,7 @@ public sealed class DamageOverlayUiController : UIController
         SubscribeLocalEvent<LocalPlayerAttachedEvent>(OnPlayerAttach);
         SubscribeLocalEvent<LocalPlayerDetachedEvent>(OnPlayerDetached);
         SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
-        SubscribeLocalEvent<MobThresholdChecked>(OnThresholdCheck);
+        SubscribeNetworkEvent<MobThresholdChecked>(OnThresholdCheck); // Shitmed Change
     }
 
     private void OnPlayerAttach(LocalPlayerAttachedEvent args)
@@ -55,12 +61,13 @@ public sealed class DamageOverlayUiController : UIController
         UpdateOverlays(args.Target, args.Component);
     }
 
-    private void OnThresholdCheck(ref MobThresholdChecked args)
+    private void OnThresholdCheck(MobThresholdChecked args, EntitySessionEventArgs session)
     {
-
-        if (args.Target != _playerManager.LocalEntity)
+        if (!EntityManager.TryGetEntity(args.Uid, out var entity)
+            || !_playerManager.LocalEntity.Equals(entity))
             return;
-        UpdateOverlays(args.Target, args.MobState, args.Damageable, args.Threshold);
+
+        UpdateOverlays(entity.Value);
     }
 
     private void ClearOverlay()
@@ -71,16 +78,17 @@ public sealed class DamageOverlayUiController : UIController
         _overlay.OxygenLevel = 0f;
     }
 
-    //TODO: Jezi: adjust oxygen and hp overlays to use appropriate systems once bodysim is implemented
-    private void UpdateOverlays(EntityUid entity, MobStateComponent? mobState, DamageableComponent? damageable = null, MobThresholdsComponent? thresholds = null)
+    private void UpdateOverlays(EntityUid entity,
+        MobStateComponent? mobState = null,
+        BodyComponent? body = null,
+        DamageableComponent? damageable = null,
+        MobThresholdsComponent? thresholds = null)
     {
         if (mobState == null && !EntityManager.TryGetComponent(entity, out mobState) ||
             thresholds == null && !EntityManager.TryGetComponent(entity, out thresholds) ||
-            damageable == null && !EntityManager.TryGetComponent(entity, out  damageable))
+            body == null && !EntityManager.TryGetComponent(entity, out body)
+            && damageable == null && !EntityManager.TryGetComponent(entity, out damageable))
             return;
-
-        if (!_mobThresholdSystem.TryGetIncapThreshold(entity, out var foundThreshold, thresholds))
-            return; //this entity cannot die or crit!!
 
         if (!thresholds.ShowOverlays)
         {
@@ -88,52 +96,103 @@ public sealed class DamageOverlayUiController : UIController
             return; //this entity intentionally has no overlays
         }
 
-        var critThreshold = foundThreshold.Value;
         _overlay.State = mobState.CurrentState;
 
-        switch (mobState.CurrentState)
+        if (body == null && damageable != null)
         {
-            case MobState.Alive:
+            if (!_mobThresholdSystem.TryGetIncapThreshold(entity, out var foundThreshold, thresholds))
+                return; //this entity cannot die or crit!!
+
+            var critThreshold = foundThreshold.Value;
+            switch (mobState.CurrentState)
             {
-                if (EntityManager.HasComponent<PainNumbnessComponent>(entity))
-                {
-                    _overlay.BruteLevel = 0;
-                }
-                else if (damageable.DamagePerGroup.TryGetValue("Brute", out var bruteDamage))
-                {
-                    _overlay.BruteLevel = FixedPoint2.Min(1f, bruteDamage / critThreshold).Float();
-                }
+                // Why the fuck is this the correct formatting??? Im gonna fucking kill someone.
+                case MobState.Alive:
+                    {
+                        if (damageable.DamagePerGroup.TryGetValue("Brute", out var bruteDamage))
+                            _overlay.BruteLevel = FixedPoint2.Min(1f, bruteDamage / critThreshold).Float();
 
-                if (damageable.DamagePerGroup.TryGetValue("Airloss", out var oxyDamage))
-                {
-                    _overlay.OxygenLevel = FixedPoint2.Min(1f, oxyDamage / critThreshold).Float();
-                }
+                        if (damageable.DamagePerGroup.TryGetValue("Airloss", out var oxyDamage))
+                            _overlay.OxygenLevel = FixedPoint2.Min(1f, oxyDamage / critThreshold).Float();
 
-                if (_overlay.BruteLevel < 0.05f) // Don't show damage overlay if they're near enough to max.
-                {
-                    _overlay.BruteLevel = 0;
-                }
+                        if (_overlay.BruteLevel < 0.05f) // Don't show damage overlay if they're near enough to max.
+                            _overlay.BruteLevel = 0;
 
-                _overlay.CritLevel = 0;
-                _overlay.DeadLevel = 0;
-                break;
+                        _overlay.CritLevel = 0;
+                        _overlay.DeadLevel = 0;
+                        break;
+                    }
+                case MobState.Critical:
+                    {
+                        if (!_mobThresholdSystem.TryGetDeadPercentage(entity,
+                                FixedPoint2.Max(0.0, damageable.TotalDamage), out var critLevel))
+                            return;
+                        _overlay.CritLevel = critLevel.Value.Float();
+
+                        _overlay.BruteLevel = 0;
+                        _overlay.DeadLevel = 0;
+                        break;
+                    }
+                case MobState.Dead:
+                    {
+                        _overlay.BruteLevel = 0;
+                        _overlay.CritLevel = 0;
+                        break;
+                    }
             }
-            case MobState.Critical:
-            {
-                if (!_mobThresholdSystem.TryGetDeadPercentage(entity,
-                        FixedPoint2.Max(0.0, damageable.TotalDamage), out var critLevel))
-                    return;
-                _overlay.CritLevel = critLevel.Value.Float();
+        }
+        else if (body != null)
+        {
+            if (!EntityManager.TryGetComponent<ConsciousnessComponent>(entity, out var consciousness))
+                return;
 
-                _overlay.BruteLevel = 0;
-                _overlay.DeadLevel = 0;
-                break;
-            }
-            case MobState.Dead:
+            switch (mobState.CurrentState)
             {
-                _overlay.BruteLevel = 0;
-                _overlay.CritLevel = 0;
-                break;
+                // Why the fuck is this the correct formatting??? Im gonna fucking kill someone.
+                case MobState.Alive:
+                    {
+                        _overlay.CritLevel = 0;
+                        _overlay.DeadLevel = 0;
+
+                        if (consciousness.Consciousness <= 0 || consciousness.Consciousness >= consciousness.Cap)
+                        {
+                            _overlay.BruteLevel = 0;
+                            return;
+                        }
+
+                        _overlay.BruteLevel = FixedPoint2.Min(1f,
+                            (consciousness.Cap - consciousness.Consciousness) / (consciousness.Cap - consciousness.Threshold))
+                            .Float();
+
+                        if (_consciousness.TryGetNerveSystem(_playerManager.LocalEntity!.Value, out var nerveSys) &&
+                            _consciousness.TryGetConsciousnessModifier(_playerManager.LocalEntity!.Value, nerveSys.Value, out var modifier, "Suffocation"))
+                        {
+                            _overlay.OxygenLevel = FixedPoint2.Min(1f, modifier.Value.Change / (consciousness.Cap - consciousness.Threshold)).Float();
+                        }
+
+                        if (_overlay.BruteLevel < 0.05f) // Don't show damage overlay if they're near enough to max.
+                        {
+                            _overlay.BruteLevel = 0;
+                        }
+
+                        break;
+                    }
+                case MobState.Critical:
+                    {
+                        _overlay.CritLevel = FixedPoint2.Min(1f,
+                            (consciousness.Threshold - consciousness.Consciousness) / consciousness.Threshold)
+                            .Float();
+
+                        _overlay.BruteLevel = 0;
+                        _overlay.DeadLevel = 0;
+                        break;
+                    }
+                case MobState.Dead:
+                    {
+                        _overlay.BruteLevel = 0;
+                        _overlay.CritLevel = 0;
+                        break;
+                    }
             }
         }
     }

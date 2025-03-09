@@ -26,6 +26,11 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Pulling.Events;
 using Content.Shared.Standing;
 using Robust.Shared.Network;
+using Content.Shared.Rejuvenate;
+using Content.Shared.Popups;
+using Content.Shared._Shitmed.Surgery.Consciousness.Systems;
+using Content.Shared._Shitmed.Surgery.Wounds.Components;
+using Content.Shared._Shitmed.Surgery.Wounds.Systems;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Body.Systems;
@@ -39,11 +44,15 @@ public partial class SharedBodySystem
      * - Each "connection" is a body part (e.g. arm, hand, etc.) and each part can also contain organs.
      */
 
-    [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly GibbingSystem _gibbingSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly ItemSlotsSystem _slots = default!; // Shitmed Change
-    [Dependency] private readonly IGameTiming _gameTiming = default!; // Shitmed Change
+
+    // Shitmed Change Start
+    [Dependency] private readonly ItemSlotsSystem _slots = default!;
+    [Dependency] private readonly WoundSystem _woundSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+
+    // Shitmed Change End
 
     private const float GibletLaunchImpulse = 8;
     private const float GibletLaunchImpulseVariance = 3;
@@ -61,6 +70,9 @@ public partial class SharedBodySystem
         SubscribeLocalEvent<BodyComponent, ProfileLoadFinishedEvent>(OnProfileLoadFinished); // Shitmed change
         SubscribeLocalEvent<BodyComponent, IsEquippingAttemptEvent>(OnBeingEquippedAttempt); // Shitmed Change
         SubscribeLocalEvent<BodyComponent, AttemptStopPullingEvent>(OnAttemptStopPulling); // Goobstation
+
+        // Shitmed Change: to prevent people from falling immediately as rejuvenated
+        SubscribeLocalEvent<BodyComponent, RejuvenateEvent>(OnRejuvenate);
     }
 
     private void OnAttemptStopPulling(Entity<BodyComponent> ent, ref AttemptStopPullingEvent args) // Goobstation
@@ -333,7 +345,9 @@ public partial class SharedBodySystem
         SoundSpecifier? gibSoundOverride = null,
         // Shitmed Change
         GibType gib = GibType.Gib,
-        GibContentsOption contents = GibContentsOption.Drop)
+        GibContentsOption contents = GibContentsOption.Drop,
+        List<string>? allowedContainers = null,
+        List<string>? excludedContainers = null)
     {
         var gibs = new HashSet<EntityUid>();
 
@@ -350,9 +364,10 @@ public partial class SharedBodySystem
         foreach (var part in parts)
         {
 
-            _gibbingSystem.TryGibEntityWithRef(bodyId, part.Id, gib, contents, ref gibs, // Shitmed Change
-                playAudio: false, launchGibs: true, launchDirection: splatDirection, launchImpulse: GibletLaunchImpulse * splatModifier,
-                launchImpulseVariance: GibletLaunchImpulseVariance, launchCone: splatCone);
+            _gibbingSystem.TryGibEntityWithRef(bodyId, part.Id, gib, contents, ref gibs, playAudio: false,
+                launchGibs: true, launchDirection: splatDirection, launchImpulse: GibletLaunchImpulse * splatModifier,
+                launchImpulseVariance: GibletLaunchImpulseVariance, launchCone: splatCone,
+                allowedContainers: allowedContainers, excludedContainers: excludedContainers);
 
             if (!gibOrgans)
                 continue;
@@ -361,7 +376,8 @@ public partial class SharedBodySystem
             {
                 _gibbingSystem.TryGibEntityWithRef(bodyId, organ.Id, GibType.Drop, GibContentsOption.Skip,
                     ref gibs, playAudio: false, launchImpulse: GibletLaunchImpulse * splatModifier,
-                    launchImpulseVariance:GibletLaunchImpulseVariance, launchCone: splatCone);
+                    launchImpulseVariance: GibletLaunchImpulseVariance, launchCone: splatCone,
+                    allowedContainers: allowedContainers, excludedContainers: excludedContainers);
             }
         }
 
@@ -400,15 +416,12 @@ public partial class SharedBodySystem
                 return gibs;
 
             DropSlotContents((partId, part));
-            RemovePartChildren((partId, part), bodyEnt);
             foreach (var organ in GetPartOrgans(partId, part))
             {
                 _gibbingSystem.TryGibEntityWithRef(bodyEnt, organ.Id, GibType.Drop, GibContentsOption.Skip,
                     ref gibs, playAudio: false, launchImpulse: GibletLaunchImpulse * splatModifier,
                     launchImpulseVariance: GibletLaunchImpulseVariance, launchCone: splatCone);
             }
-            var ev = new BodyPartDroppedEvent((partId, part));
-            RaiseLocalEvent(bodyEnt, ref ev);
         }
 
         _gibbingSystem.TryGibEntityWithRef(partId, partId, GibType.Gib, GibContentsOption.Drop, ref gibs,
@@ -439,23 +452,8 @@ public partial class SharedBodySystem
             if (IsPartRoot(bodyEnt, partId, part: part))
                 return false;
 
-            var gibs = new HashSet<EntityUid>();
-            // Todo: Kill this in favor of husking.
             DropSlotContents((partId, part));
-            RemovePartChildren((partId, part), bodyEnt);
-            foreach (var organ in GetPartOrgans(partId, part))
-                _gibbingSystem.TryGibEntityWithRef(bodyEnt, organ.Id, GibType.Drop, GibContentsOption.Skip,
-                    ref gibs, playAudio: false, launchImpulse: GibletLaunchImpulse, launchImpulseVariance: GibletLaunchImpulseVariance);
-
-            _gibbingSystem.TryGibEntityWithRef(partId, partId, GibType.Gib, GibContentsOption.Gib, ref gibs,
-                playAudio: false, launchGibs: true, launchImpulse: GibletLaunchImpulse, launchImpulseVariance: GibletLaunchImpulseVariance);
-
-            if (HasComp<InventoryComponent>(partId))
-                foreach (var item in _inventory.GetHandOrInventoryEntities(partId))
-                    SharedTransform.AttachToGridOrMap(item);
-
-            if (_net.IsServer) // Goob edit
-                QueueDel(partId);
+            QueueDel(partId);
             return true;
         }
 
@@ -501,6 +499,107 @@ public partial class SharedBodySystem
                     ("target", args.EquipTarget), ("part", bodyPartString)), args.Equipee, args.Equipee);
                 args.Cancel();
             }
+        }
+    }
+
+    private void OnRejuvenate(EntityUid ent, BodyComponent body, ref RejuvenateEvent args)
+    {
+        if (body.Prototype == null)
+            return;
+
+        var prototype = Prototypes.Index(body.Prototype.Value);
+
+        var rootPart = GetRootPartOrNull(ent, body);
+        if (rootPart == null)
+            return;
+
+        Dirty(rootPart.Value.Entity, rootPart.Value.BodyPart);
+
+        var rootSlot = prototype.Root;
+        var frontier = new Queue<string>();
+        frontier.Enqueue(rootSlot);
+
+        var cameFrom = new Dictionary<string, string>();
+        cameFrom[rootSlot] = rootSlot;
+
+        var cameFromEntities = new Dictionary<string, EntityUid>();
+        cameFromEntities[rootSlot] = rootPart.Value.Entity;
+
+        while (frontier.TryDequeue(out var currentSlotId))
+        {
+            var currentSlot = prototype.Slots[currentSlotId];
+
+            foreach (var connection in currentSlot.Connections)
+            {
+                if (!cameFrom.TryAdd(connection, currentSlotId))
+                    continue;
+
+                var connectionSlot = prototype.Slots[connection];
+                var parentEntity = cameFromEntities[currentSlotId];
+                var parentPartComponent = Comp<BodyPartComponent>(parentEntity);
+
+                if (Containers.TryGetContainer(parentEntity, GetPartSlotContainerId(connection), out var container))
+                {
+                    if (container.ContainedEntities.Count > 0)
+                    {
+                        cameFromEntities[connection] = container.ContainedEntities[0];
+                    }
+                    else
+                    {
+                        var childPart = Spawn(connectionSlot.Part, new EntityCoordinates(parentEntity, Vector2.Zero));
+                        cameFromEntities[connection] = childPart;
+
+                        var childPartComponent = Comp<BodyPartComponent>(childPart);
+
+                        var partSlot = new BodyPartSlot(connection, childPartComponent.PartType);
+                        childPartComponent.ParentSlot = partSlot;
+                        parentPartComponent.Children.TryAdd(connection, partSlot);
+
+                        Dirty(parentEntity, parentPartComponent);
+                        Dirty(childPart, childPartComponent);
+
+                        Containers.Insert(childPart, container);
+
+                        SetupOrgans((childPart, childPartComponent), connectionSlot.Organs);
+                    }
+                }
+                else
+                {
+                    var childPart = Spawn(connectionSlot.Part, new EntityCoordinates(parentEntity, Vector2.Zero));
+                    cameFromEntities[connection] = childPart;
+
+                    var childPartComponent = Comp<BodyPartComponent>(childPart);
+
+                    var partSlot = CreatePartSlot(parentEntity, connection, childPartComponent.PartType, parentPartComponent);
+                    childPartComponent.ParentSlot = partSlot;
+
+                    Dirty(parentEntity, parentPartComponent);
+                    Dirty(childPart, childPartComponent);
+
+                    if (partSlot is null)
+                    {
+                        Log.Error($"Could not create slot for connection {connection} in body {prototype.ID}");
+                        QueueDel(childPart);
+                        continue;
+                    }
+
+                    container = Containers.GetContainer(parentEntity, GetPartSlotContainerId(connection));
+                    Containers.Insert(childPart, container);
+
+                    SetupOrgans((childPart, childPartComponent), connectionSlot.Organs);
+                }
+
+                frontier.Enqueue(connection);
+            }
+        }
+
+        foreach (var bodyPart in GetBodyChildren(ent, body))
+        {
+            if (!TryComp<WoundableComponent>(bodyPart.Id, out var woundable))
+                continue;
+
+            _woundSystem.TryHaltAllBleeding(bodyPart.Id, woundable);
+            _woundSystem.ForceHealWoundsOnWoundable(bodyPart.Id, out _);
         }
     }
 

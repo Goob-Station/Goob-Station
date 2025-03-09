@@ -748,3 +748,7 @@ MagazineBoxAntiMaterielBig: null
 MagazineBoxCaselessRifle10x24: null
 MagazineBoxCaselessRifleBig: null
 MagazinePistolHighCapacityRubber: null
+
+# 2025-03-09 - Shitmed Woundmed, separating torsos into chest and groin
+TorsoHuman: ChestHuman
+TorsoSkeleton: ChestSkeleton

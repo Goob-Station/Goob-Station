@@ -4,6 +4,15 @@
   parent: BasePartInorganic
   id: PartSiliconBase
   components:
+  - type: WoundableVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#DD8822"
+      Burn:
+        # TODO: stuff here
+        sprite: Mobs/Effects/burn_damage.rsi # Would have been cool if those were some fancy burns or stuff
+    bleedingOverlay: Mobs/Effects/bleeding_damage.rsi # they bleed oil, no? Change this if possible
   - type: Sprite
     sprite: Objects/Specific/Robotics/cyborg_parts.rsi
   - type: Icon
@@ -99,7 +108,7 @@
     - BorgHead
 
 - type: entity
-  parent: [ PartSiliconBase, BaseTorsoInorganic ]
+  parent: [ PartSiliconBase, BaseChestInorganic ]
   id: TorsoBorg
   name: cyborg torso
   components:
@@ -111,3 +120,20 @@
     tags:
     - Trash
     - BorgTorso
+  - type: BodyPart
+    children:
+      right arm:
+        id: right arm
+        type: Arm
+      left arm:
+        id: left arm
+        type: Arm
+      head:
+        id: head
+        type: Head
+      right leg:
+        id: right leg
+        type: Leg
+      left leg:
+        id: left leg
+        type: Leg

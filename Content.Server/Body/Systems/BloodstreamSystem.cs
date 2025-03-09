@@ -25,6 +25,17 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
+// Shitmed Change
+using Content.Shared._Shitmed.Surgery.Consciousness;
+using Content.Shared._Shitmed.Surgery.Consciousness.Systems;
+using Content.Shared._Shitmed.Surgery.Pain.Systems;
+using Content.Shared._Shitmed.Surgery.Traumas.Components;
+using Content.Shared._Shitmed.Surgery.Wounds;
+using Content.Shared._Shitmed.Surgery.Wounds.Components;
+using Content.Shared._Shitmed.Surgery.Wounds.Systems;
+using Content.Shared.Body.Part;
+using BleedInflicterComponent = Content.Shared._Shitmed.Surgery.Traumas.Components.BleedInflicterComponent;
+
 namespace Content.Server.Body.Systems;
 
 public sealed class BloodstreamSystem : EntitySystem
@@ -42,7 +53,16 @@ public sealed class BloodstreamSystem : EntitySystem
     [Dependency] private readonly SharedStutteringSystem _stutteringSystem = default!;
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
     [Dependency] private readonly ForensicsSystem _forensicsSystem = default!;
+    // Shitmed Change Start
+    [Dependency] private readonly ConsciousnessSystem _consciousness = default!;
+    [Dependency] private readonly BodySystem _body = default!;
+    [Dependency] private readonly PainSystem _pain = default!;
+    [Dependency] private readonly WoundSystem _wound = default!;
 
+    // balanced, trust me
+    private const float BleedsSeverityTrade = 0.15f;
+    private const float BleedsScalingTimeDefault = 7f;
+    // Shitmed Change End
     public override void Initialize()
     {
         base.Initialize();
@@ -58,6 +78,8 @@ public sealed class BloodstreamSystem : EntitySystem
         SubscribeLocalEvent<BloodstreamComponent, SolutionRelayEvent<ReactionAttemptEvent>>(OnReactionAttempt);
         SubscribeLocalEvent<BloodstreamComponent, RejuvenateEvent>(OnRejuvenate);
         SubscribeLocalEvent<BloodstreamComponent, GenerateDnaEvent>(OnDnaGenerated);
+        SubscribeLocalEvent<BleedInflicterComponent, WoundSeverityPointChangedEvent>(OnWoundSeverityUpdate); // Shitmed Change
+        SubscribeLocalEvent<BleedInflicterComponent, WoundAddedEvent>(OnWoundAdded); // Shitmed Change
     }
 
     private void OnMapInit(Entity<BloodstreamComponent> ent, ref MapInitEvent args)
@@ -179,7 +201,63 @@ public sealed class BloodstreamSystem : EntitySystem
                 // Reset the drunk and stutter time to zero
                 bloodstream.StatusTime = TimeSpan.Zero;
             }
+
+            // Shitmed Change Start
+            if (!_consciousness.TryGetNerveSystem(uid, out var nerveSys))
+                continue;
+
+            var total = (FixedPoint2) 0;
+            foreach (var (bodyPart, _) in _body.GetBodyChildren(uid))
+            {
+                foreach (var (wound, _) in _wound.GetWoundableWounds(bodyPart))
+                {
+                    if (!TryComp<BleedInflicterComponent>(wound, out var bleeds))
+                        continue;
+
+                    total += bleeds.BleedingAmount;
+                }
+            }
+
+            if (!_consciousness.SetConsciousnessModifier(uid, nerveSys.Value, -total, identifier: "Bleeding", type: ConsciousnessModType.Pain))
+            {
+                _consciousness.AddConsciousnessModifier(uid, nerveSys.Value, -total, identifier: "Bleeding", type: ConsciousnessModType.Pain);
+            }
         }
+
+        var bleedsQuery = EntityQueryEnumerator<BleedInflicterComponent, WoundComponent>();
+        while (bleedsQuery.MoveNext(out var ent, out var bleeds, out var wound))
+        {
+            if (bleeds is { IsBleeding: false, BleedingScales: false })
+            {
+                if (!TryComp<BodyPartComponent>(wound.HoldingWoundable, out var holder) || !holder.Body.HasValue)
+                    continue;
+
+                wound.CanBeHealed = true;
+            }
+
+            var totalTime = bleeds.ScalingFinishesAt - bleeds.ScalingStartsAt;
+            var currentTime = bleeds.ScalingFinishesAt - _gameTiming.CurTime;
+
+            if (totalTime <= currentTime || bleeds.ScalingLimit == bleeds.Scaling)
+                continue;
+
+            var newBleeds = FixedPoint2.Clamp(
+                (totalTime / currentTime) / (bleeds.ScalingLimit - bleeds.Scaling),
+                0,
+                bleeds.ScalingLimit);
+
+            if (TryComp<BodyPartComponent>(wound.HoldingWoundable, out var bodyPart) && bodyPart.Body.HasValue)
+            {
+                TryModifyBleedAmount(bodyPart.Body.Value, (float) bleeds.BleedingAmount / 1.6f);
+            }
+            bleeds.Scaling = newBleeds;
+
+            if (bleeds.Scaling >= bleeds.ScalingLimit || _gameTiming.CurTime > bleeds.ScalingFinishesAt)
+                bleeds.BleedingScales = false;
+
+            Dirty(ent, bleeds);
+        }
+        // Shitmed Change End
     }
 
     private void OnComponentInit(Entity<BloodstreamComponent> entity, ref ComponentInit args)
@@ -221,7 +299,7 @@ public sealed class BloodstreamSystem : EntitySystem
         }
 
         // TODO probably cache this or something. humans get hurt a lot
-        if (!_prototypeManager.TryIndex<DamageModifierSetPrototype>(ent.Comp.DamageBleedModifiers, out var modifiers))
+        if (!_prototypeManager.TryIndex(ent.Comp.DamageBleedModifiers, out var modifiers)) // Shitmed Change
             return;
 
         var bloodloss = DamageSpecifier.ApplyModifierSet(args.DamageDelta, modifiers);
@@ -520,4 +598,46 @@ public sealed class BloodstreamSystem : EntitySystem
 
         return bloodData;
     }
+
+    // Shitmed Change Start
+    private void OnWoundAdded(EntityUid uid, BleedInflicterComponent component, ref WoundAddedEvent args)
+    {
+        if (!args.Component.CanBleed)
+            return;
+
+        // wounds that BLEED will not HEAL.
+        component.BleedingAmountRaw = args.Component.WoundSeverityPoint * BleedsSeverityTrade;
+
+        var formula = (float) (args.Component.WoundSeverityPoint / BleedsScalingTimeDefault * args.Component.BleedingScalingMultiplier);
+        component.ScalingFinishesAt = _gameTiming.CurTime + TimeSpan.FromSeconds(formula);
+        component.ScalingStartsAt = _gameTiming.CurTime;
+
+        args.Component.CanBeHealed = false;
+        component.IsBleeding = true;
+    }
+
+    private void OnWoundSeverityUpdate(EntityUid uid, BleedInflicterComponent component, ref WoundSeverityPointChangedEvent args)
+    {
+        if (!args.Component.CanBleed)
+            return;
+
+        var oldBleedsAmount = args.OldSeverity * BleedsSeverityTrade;
+        component.BleedingAmountRaw = args.NewSeverity * BleedsSeverityTrade;
+        component.BleedingScales = true;
+
+        var severityPenalty = component.BleedingAmountRaw - oldBleedsAmount / BleedsScalingTimeDefault;
+        component.SeverityPenalty += severityPenalty;
+
+        var formula = (float) (args.Component.WoundSeverityPoint / BleedsScalingTimeDefault * args.Component.BleedingScalingMultiplier);
+        component.ScalingFinishesAt = _gameTiming.CurTime + TimeSpan.FromSeconds(formula);
+        component.ScalingStartsAt = _gameTiming.CurTime;
+
+        if (!component.IsBleeding && args.NewSeverity > args.OldSeverity)
+        {
+            component.ScalingLimit += 0.6;
+            component.IsBleeding = true;
+            // When bleeding is reopened, the severity is increased
+        }
+    }
+    // Shitmed Change End
 }

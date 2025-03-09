@@ -81,6 +81,7 @@
     - Meat
     - Organ
     - Brain
+  - type: NerveSystem # backmen: wounding
 
 - type: entity
   id: OrganDionaEyes
@@ -117,6 +118,7 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
+
   - type: Organ # Shitmed
     slotId: stomach
   - type: Stomach

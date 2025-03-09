@@ -75,6 +75,9 @@
     - DoorBumpOpener
     - FelinidEmotes
   - type: FootPrints # WD EDIT
+  - type: Consciousness
+    cap: 85
+    threshold: 25
 
 - type: entity
   save: false

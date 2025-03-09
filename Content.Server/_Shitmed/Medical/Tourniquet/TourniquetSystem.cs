@@ -1,0 +1,221 @@
+using System.Linq;
+using Content.Shared._Shitmed.Surgery.Pain.Systems;
+using Content.Shared._Shitmed.Surgery.Traumas.Components;
+using Content.Shared._Shitmed.Surgery.Wounds.Systems;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
+using Content.Shared.DoAfter;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
+using Content.Shared.Popups;
+using Content.Shared._Shitmed.Tourniquet;
+using Content.Shared.Verbs;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
+
+namespace Content.Server._Shitmed.Medical.Tourniquet;
+
+/// <summary>
+/// This handles tourniqueting people
+/// </summary>
+public sealed class TourniquetSystem : EntitySystem
+{
+    [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly WoundSystem _wound = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly PainSystem _pain = default!;
+
+    private const string TourniquetContainerId = "Tourniquet";
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<TourniquetComponent, UseInHandEvent>(OnTourniquetUse);
+        SubscribeLocalEvent<TourniquetComponent, AfterInteractEvent>(OnTourniquetAfterInteract);
+
+        SubscribeLocalEvent<BodyComponent, TourniquetDoAfterEvent>(OnBodyDoAfter);
+        SubscribeLocalEvent<BodyComponent, RemoveTourniquetDoAfterEvent>(OnTourniquetTakenOff);
+
+        SubscribeLocalEvent<BodyComponent, GetVerbsEvent<InnateVerb>>(OnBodyGetVerbs);
+    }
+
+    private bool TryTourniquet(EntityUid target, EntityUid user, EntityUid tourniquetEnt, TourniquetComponent tourniquet)
+    {
+        if (!TryComp<TargetingComponent>(user, out var targeting))
+            return false;
+
+        if (!HasComp<BodyComponent>(target))
+            return false;
+
+        var (partType, symmetry) = _body.ConvertTargetBodyPart(targeting.Target);
+        if (tourniquet.BlockedBodyParts.Contains(partType))
+            return false;
+
+        var targetPart = _body.GetBodyChildrenOfType(target, partType, symmetry: symmetry).FirstOrDefault();
+        _popup.PopupEntity(Loc.GetString("puts-on-a-tourniquet", ("user", user), ("part", targetPart.Id)), target, PopupType.Medium);
+
+        _audio.PlayPvs(tourniquet.TourniquetPutOnSound, target, AudioParams.Default.WithVariation(0.125f).WithVolume(1f));
+
+        var doAfterEventArgs =
+            new DoAfterArgs(EntityManager, user, tourniquet.Delay, new TourniquetDoAfterEvent(), target, target: target, used: tourniquetEnt)
+            {
+                BreakOnDamage = true,
+                NeedHand = true,
+                BreakOnMove = true,
+                BreakOnWeightlessMove = false,
+            };
+
+        _doAfter.TryStartDoAfter(doAfterEventArgs);
+        return true;
+    }
+
+    private void TakeOffTourniquet(EntityUid target, EntityUid user, EntityUid tourniquetEnt, TourniquetComponent tourniquet)
+    {
+        _popup.PopupEntity(Loc.GetString("takes-off-a-tourniquet", ("user", user), ("part", tourniquet.BodyPartTorniqueted!)), target, PopupType.Medium);
+        _audio.PlayPvs(tourniquet.TourniquetPutOffSound, target, AudioParams.Default.WithVariation(0.125f).WithVolume(1f));
+
+        var doAfterEventArgs =
+            new DoAfterArgs(EntityManager, user, tourniquet.RemoveDelay, new RemoveTourniquetDoAfterEvent(), target, target: target, used: tourniquetEnt)
+            {
+                BreakOnDamage = true,
+                NeedHand = true,
+                BreakOnMove = true,
+                BreakOnWeightlessMove = false,
+            };
+
+        _doAfter.TryStartDoAfter(doAfterEventArgs);
+    }
+
+    private void OnTourniquetUse(Entity<TourniquetComponent> ent, ref UseInHandEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (TryTourniquet(args.User, args.User, ent, ent))
+            args.Handled = true;
+    }
+
+    private void OnTourniquetAfterInteract(Entity<TourniquetComponent> ent, ref AfterInteractEvent args)
+    {
+        if (args.Handled || !args.CanReach || args.Target == null)
+            return;
+
+        if (TryTourniquet(args.Target.Value, args.User, ent, ent))
+            args.Handled = true;
+    }
+
+    private void OnBodyDoAfter(EntityUid ent, BodyComponent comp, ref TourniquetDoAfterEvent args)
+    {
+        if (args.Handled || args.Cancelled)
+            return;
+
+        if (!TryComp<TourniquetComponent>(args.Used, out var tourniquet))
+            return;
+
+        if (!TryComp<TargetingComponent>(args.User, out var targeting))
+            return;
+
+        var (partType, symmetry) = _body.ConvertTargetBodyPart(targeting.Target);
+        if (tourniquet.BlockedBodyParts.Contains(partType))
+            return;
+
+        var container = _container.EnsureContainer<ContainerSlot>(args.Target!.Value, TourniquetContainerId);
+        if (container.ContainedEntity.HasValue)
+        {
+            _popup.PopupEntity(Loc.GetString("already-tourniqueted"), ent, PopupType.Medium);
+            return;
+        }
+
+        if (!_container.Insert(args.Used.Value, container))
+        {
+            _popup.PopupEntity(Loc.GetString("cant-tourniquet"), ent, PopupType.Medium);
+            return;
+        }
+
+        var targetPart = _body.GetBodyChildrenOfType(ent, partType, symmetry: symmetry).FirstOrDefault();
+
+        _wound.TryHaltAllBleeding(targetPart.Id);
+        _pain.TryAddPainFeelsModifier(args.Used.Value, "Tourniquet", targetPart.Id, -10f);
+
+        foreach (var woundable in _wound.GetAllWoundableChildren(targetPart.Id))
+        {
+            _wound.TryHaltAllBleeding(woundable.Item1);
+            _pain.TryAddPainFeelsModifier(woundable.Item1, "Tourniquet", targetPart.Id, -10f);
+        }
+
+        tourniquet.BodyPartTorniqueted = targetPart.Id;
+
+        args.Repeat = false;
+        args.Handled = true;
+    }
+
+    private void OnTourniquetTakenOff(EntityUid ent, BodyComponent comp, RemoveTourniquetDoAfterEvent args)
+    {
+        if (args.Handled || args.Cancelled)
+            return;
+
+        if (!TryComp<TourniquetComponent>(args.Used, out var tourniquet))
+            return;
+
+        if (!_container.TryGetContainer(ent, TourniquetContainerId, out var container))
+            return;
+
+        foreach (var wound in _wound.GetAllWounds(tourniquet.BodyPartTorniqueted!.Value))
+        {
+            wound.Item2.CanBleed = true;
+            wound.Item2.CanBeHealed = false;
+
+            if (!TryComp<BleedInflicterComponent>(wound.Item1, out var bleeds))
+                continue;
+
+            bleeds.IsBleeding = true;
+            bleeds.BleedingScales = true;
+
+            bleeds.ScalingLimit += 1;
+            // Punishing players for not healing people properly and using a tourniquet.
+        }
+
+        _pain.TryRemovePainFeelsModifier(args.Used.Value, "Tourniquet", tourniquet.BodyPartTorniqueted!.Value);
+        foreach (var woundable in _wound.GetAllWoundableChildren(tourniquet.BodyPartTorniqueted!.Value))
+        {
+            _pain.TryRemovePainFeelsModifier(args.Used.Value, "Tourniquet", woundable.Item1);
+        }
+
+        _container.Remove(args.Used.Value, container);
+
+        _hands.TryPickupAnyHand(args.User, args.Used.Value);
+        tourniquet.BodyPartTorniqueted = null;
+
+        args.Handled = true;
+    }
+
+    private void OnBodyGetVerbs(EntityUid ent, BodyComponent comp, GetVerbsEvent<InnateVerb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract)
+            return;
+
+        if (!_container.TryGetContainer(args.Target, TourniquetContainerId, out var container))
+            return;
+
+        foreach (var entity in container.ContainedEntities)
+        {
+            var tourniquet = Comp<TourniquetComponent>(entity);
+            InnateVerb verb = new()
+            {
+                Act = () => TakeOffTourniquet(args.Target, args.User, entity, tourniquet),
+                Text = Loc.GetString("take-off-tourniquet", ("part", tourniquet.BodyPartTorniqueted!)),
+                // Icon = new SpriteSpecifier.Texture(new ("/Textures/")),
+                Priority = 2
+            };
+            args.Verbs.Add(verb);
+        }
+    }
+}

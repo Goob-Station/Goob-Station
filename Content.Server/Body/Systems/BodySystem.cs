@@ -36,6 +36,7 @@ public sealed partial class BodySystem : SharedBodySystem // Shitmed change: mad
 
         SubscribeLocalEvent<BodyComponent, MoveInputEvent>(OnRelayMoveInput);
         SubscribeLocalEvent<BodyComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
+        SubscribeLocalEvent<BodyPartComponent, AttemptEntityGibEvent>(OnGibTorsoAttempt); // Shitmed Change
     }
 
     private void OnRelayMoveInput(Entity<BodyComponent> ent, ref MoveInputEvent args)
@@ -116,7 +117,9 @@ public sealed partial class BodySystem : SharedBodySystem // Shitmed change: mad
         SoundSpecifier? gibSoundOverride = null,
         // Shitmed Change
         GibType gib = GibType.Gib,
-        GibContentsOption contents = GibContentsOption.Drop)
+        GibContentsOption contents = GibContentsOption.Drop,
+        List<string>? allowedContainers = null,
+        List<string>? excludedContainers = null)
     {
         if (!Resolve(bodyId, ref body, logMissing: false)
             || TerminatingOrDeleted(bodyId)
@@ -129,9 +132,9 @@ public sealed partial class BodySystem : SharedBodySystem // Shitmed change: mad
         if (xform.MapUid is null)
             return new HashSet<EntityUid>();
 
-        var gibs = base.GibBody(bodyId, gibOrgans, body, launchGibs: launchGibs,
-            splatDirection: splatDirection, splatModifier: splatModifier, splatCone: splatCone,
-            gib: gib, contents: contents); // Shitmed Change
+        var gibs = base.GibBody(bodyId, gibOrgans, body, launchGibs: launchGibs, splatDirection: splatDirection,
+            splatModifier: splatModifier, splatCone: splatCone, gib: gib, contents: contents,
+            allowedContainers: allowedContainers, excludedContainers: excludedContainers); // Shitmed Change
 
         var ev = new BeingGibbedEvent(gibs);
         RaiseLocalEvent(bodyId, ref ev);
@@ -195,13 +198,10 @@ public sealed partial class BodySystem : SharedBodySystem // Shitmed change: mad
         Dirty(target, bodyAppearance);
     }
 
-    protected override void PartRemoveDamage(Entity<BodyComponent?> bodyEnt, Entity<BodyPartComponent> partEnt)
+    private void OnGibTorsoAttempt(Entity<BodyPartComponent> ent, ref AttemptEntityGibEvent args)
     {
-        var bleeding = partEnt.Comp.SeverBleeding;
-        if (partEnt.Comp.IsVital)
-            bleeding *= 2f;
-        _bloodstream.TryModifyBleedAmount(bodyEnt, bleeding);
+        if (ent.Comp.PartType == BodyPartType.Chest)
+            args.GibType = GibType.Skip;
     }
-
     // Shitmed Change End
 }

@@ -66,7 +66,7 @@ public abstract class SharedDamageSquareSystem : EntitySystem
             }
 
             // Damage
-            _dmg.TryChangeDamage(entity, field.Comp.Damage, damageable: dmg, targetPart: TargetBodyPart.Torso);
+            _dmg.TryChangeDamage(entity, field.Comp.Damage, damageable: dmg, targetPart: TargetBodyPart.Chest);
             // Sound
             if (field.Comp.Sound != null)
                 _aud.PlayEntity(field.Comp.Sound, entity, entity, AudioParams.Default.WithVolume(-3f));

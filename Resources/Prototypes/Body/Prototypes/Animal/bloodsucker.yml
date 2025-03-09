@@ -1,17 +1,22 @@
 ﻿- type: body
   id: Bloodsucker
   name: "bloodsucker"
-  root: torso
+  root: chest
   slots:
-    torso:
-      part: TorsoAnimal
+    chest:
+      part: ChestAnimal
+      connections:
+      - groin
+      organs:
+        lungs: OrganAnimalLungs
+        heart: OrganBloodsuckerHeart
+    groin:
+      part: GroinAnimal
       connections:
       - legs
       organs:
-        lungs: OrganAnimalLungs
         stomach: OrganBloodsuckerStomach
         liver: OrganBloodsuckerLiver
-        heart: OrganBloodsuckerHeart
         kidneys: OrganAnimalKidneys
     legs:
       part: LegsAnimal

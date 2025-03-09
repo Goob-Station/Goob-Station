@@ -10,6 +10,7 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.FixedPoint;
 using Content.Shared._Shitmed.Medical.Surgery.Tools;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared._Shitmed.Surgery.Wounds;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Body.Part;
@@ -129,22 +130,10 @@ public sealed partial class BodyPartComponent : Component, ISurgeryToolComponent
     public string? BaseLayerId;
 
     /// <summary>
-    ///     Shitmed Change: On what TargetIntegrity we should re-enable the part.
+    ///     Shitmed Change: On what WoundableSeverity we should re-enable the part.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public TargetIntegrity EnableIntegrity = TargetIntegrity.ModeratelyWounded;
-
-    [DataField, AutoNetworkedField]
-    public Dictionary<TargetIntegrity, float> IntegrityThresholds = new()
-    {
-        { TargetIntegrity.CriticallyWounded, 90 },
-        { TargetIntegrity.HeavilyWounded, 75 },
-        { TargetIntegrity.ModeratelyWounded, 60 },
-        { TargetIntegrity.SomewhatWounded, 40},
-        { TargetIntegrity.LightlyWounded, 20 },
-        { TargetIntegrity.Healthy, 10 },
-    };
-
+    public WoundableSeverity EnableIntegrity = WoundableSeverity.Severe;
 
     [DataField, AutoNetworkedField]
     public BodyPartType PartType = BodyPartType.Other;

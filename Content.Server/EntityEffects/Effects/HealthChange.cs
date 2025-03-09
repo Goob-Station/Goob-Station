@@ -189,10 +189,9 @@ namespace Content.Server.EntityEffects.Effects
                     damageSpec * scale,
                     IgnoreResistances,
                     interruptsDoAfters: false,
-                    // Shitmed Change Start
+            // Shitmed Change Start
                     targetPart: TargetBodyPart.All,
-                    partMultiplier: 0.5f,
-                    canSever: false);
+                    partMultiplier: 0.5f);
             // Shitmed Change End
 
         }
