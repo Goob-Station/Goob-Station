@@ -53,8 +53,9 @@
     ears: ClothingHeadsetAltBlueshield
     belt: ClothingBeltAssaultFilled
     pocket1: UniqueBlueshieldOfficerLockerTeleporter
+    pocket2: Flash
   storage:
     back:
     - ClothingMaskGasSecurity
-    - Flash
+    - SecHypo
     - BlueshieldUndetermined
