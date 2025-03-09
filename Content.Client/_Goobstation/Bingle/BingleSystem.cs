@@ -25,12 +25,6 @@ public sealed class BingleSystem : EntitySystem
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
-        //if (!TryComp<CombatModeComponent>(uid, out var combat))
-         //   return;
-        //if (!sprite.LayerMapTryGet(BingleVisual.Combat, out var layer))
-          //  return;
-
-       // sprite.LayerSetVisible(layer, combat.IsInCombatMode);
         _appearance.OnChangeData(uid, sprite);
     }
 
