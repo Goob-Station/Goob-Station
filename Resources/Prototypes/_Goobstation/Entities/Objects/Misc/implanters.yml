@@ -125,14 +125,6 @@
   - type: Implanter
     implant: SyndicateJaunterImplant
 
-- type: entity
-  parent: BaseImplantOnlyImplanterCentcomm
-  id: CQCImplanter
-  suffix: CQC
-  components:
-  - type: Implanter
-    implant: CQCImplant
-
 # Admeme
 
 - type: entity

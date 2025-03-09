@@ -63,21 +63,6 @@
     - SubdermalImplant
     - HideContextMenu
 
-- type: entity
-  parent: BaseSubdermalImplant
-  id: CQCImplant
-  name: CQC implant
-  description: This implants grants the user the ability to perform advanced CQC.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: SubdermalImplant
-  - type: GrantCqc
-    isBlocked: false
-  - type: Tag
-    tags:
-    - SubdermalImplant
-    - HideContextMenu
-
 # Admeme
 
 - type: entity

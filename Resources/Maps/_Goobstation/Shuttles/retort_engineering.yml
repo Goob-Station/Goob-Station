@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/09/2025 09:03:54
-  entityCount: 320
+  time: 03/09/2025 09:28:52
+  entityCount: 321
 maps: []
 grids:
 - 1
@@ -1383,6 +1383,13 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
+- proto: HolopadBluespace
+  entities:
+  - uid: 321
+    components:
+    - type: Transform
+      pos: 0.5,-9.5
+      parent: 1
 - proto: LockableButtonCentcomm
   entities:
   - uid: 172
