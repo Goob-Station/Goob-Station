@@ -9,3 +9,18 @@
   path: /Maps/_Goobstation/Shuttles/retort_assault.yml
   copies: 1
 
+- type: preloadedGrid
+  id: RetortShuttleMedical
+  path: /Maps/_Goobstation/Shuttles/retort_medical.yml
+  copies: 1
+
+- type: preloadedGrid
+  id: RetortShuttleEngineering
+  path: /Maps/_Goobstation/Shuttles/retort_engineering.yml
+  copies: 1
+
+- type: preloadedGrid
+  id: RetortShuttleJanitorial
+  path: /Maps/_Goobstation/Shuttles/retort_janitorial.yml
+  copies: 1
+
