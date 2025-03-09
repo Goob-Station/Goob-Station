@@ -12,7 +12,7 @@
         map: [ "enum.GunVisualLayers.Mag" ]
   - type: MagazineVisuals
     magState: base
-    steps: 3
+    steps: 4
     zeroVisible: false
   - type: Battery
     maxCharge: 600
@@ -54,7 +54,7 @@
         map: [ "enum.GunVisualLayers.Mag" ]
   - type: MagazineVisuals
     magState: disabling
-    steps: 3
+    steps: 4
     zeroVisible: false
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
@@ -63,3 +63,22 @@
     tags:
       - EnergySpeedloader
       - EnergySpeedloaderDisabler
+
+- type: entity
+  id: EnergySpeedloaderTerminate
+  parent: [ BaseEnergySpeedloader, BaseCentcommContraband ]
+  name: energy speedloader (terminatus)
+  suffix: Admeme
+  description: A rather volatile powercell utilizing phoron to charge horrifyingly destructive bolts over time. Phoron will make us all rich.
+  components:
+  - type: MagazineVisuals
+    magState: disabling
+    steps: 4
+    zeroVisible: false
+  - type: HitscanBatteryAmmoProvider
+    proto: HeavyPulse
+    fireCost: 50
+  - type: Tag
+    tags:
+    - EnergySpeedloader
+    - EnergySpeedloaderTerminate
