@@ -9,7 +9,6 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Timing;
 using Robust.Client.UserInterface;
-using Robust.Shared.Log;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Utility;
 using System.IO;
@@ -212,11 +211,6 @@ public sealed partial class AutodocWindow : FancyWindow
         _currentProgram = window;
 
         window.OpenCentered();
-    }
-
-    private void Window_OnImportProgram(AutodocProgram obj)
-    {
-        throw new NotImplementedException();
     }
 
     protected override void FrameUpdate(FrameEventArgs args)
