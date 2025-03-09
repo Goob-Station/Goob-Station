@@ -48,7 +48,6 @@
   cost: 10000
   recipeUnlocks:
   - Terminus
-  - WeaponXrayCannon
   technologyPrerequisites:
   - WeaponizedLaserManipulation
 

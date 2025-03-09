@@ -1,11 +1,11 @@
+using Content.Shared.Whitelist;
+using Robust.Shared.Audio;
+
 // <summary>
 //   Locks an item to only be used in melee by entities with a specific component.
 // </summary>
 
-using Content.Shared.Whitelist;
-using Robust.Shared.Audio;
-
-
+namespace Content.Shared._EinsteinEngines.Items;
 [RegisterComponent]
 public sealed partial class RestrictedMeleeComponent : Component
 {

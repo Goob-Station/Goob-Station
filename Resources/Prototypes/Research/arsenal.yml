@@ -151,18 +151,17 @@
   - WeaponLaserCannon
   - WeaponMechCombatSolarisLaser # Goobstation
 
-# Goobstation - Consolidated into advanced weaponry tech.
-#- type: technology
-#  id: WaveParticleHarnessing
-#  name: research-technology-wave-particle-harnessing
-#  icon:
-#    sprite: Objects/Weapons/Guns/Battery/xray.rsi
-#    state: icon
-#  discipline: Arsenal
-#  tier: 2
-#  cost: 10000
-#  recipeUnlocks:
-#  - WeaponXrayCannon
+- type: technology
+  id: WaveParticleHarnessing
+  name: research-technology-wave-particle-harnessing
+  icon:
+    sprite: Objects/Weapons/Guns/Battery/xray.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - WeaponXrayCannon
 
 - type: technology
   id: BasicShuttleArmament

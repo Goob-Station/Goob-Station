@@ -4,10 +4,6 @@
   id: Terminus
   description: An advanced weapon crafted specifically for an oni. Capable of firing a spread of disabler shots from its tip.
   components:
-  - type: RestrictedMelee
-    whitelist:
-      tags:
-      - Oni
   - type: Sprite
     sprite: /Textures/_EinsteinEngines/Objects/Weapons/Melee/terminus.rsi
     state: icon
@@ -33,13 +29,21 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 20
-        Slash: 15
+        Blunt: 15
+        Slash: 5
     bluntStaminaDamageFactor: 2.0
     heavyStaminaCost: 7.5
     angle: 120
     soundHit:
       collection: MetalThud
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 5
+        Slash: 10
+  - type: StaminaDamageOnHit # I stole the baseball bat code and thought it'd be funny to leave this.
+    damage: 10
+  - type: Item
   - type: Wieldable
   - type: GunRequiresWield
   - type: Item
@@ -49,3 +53,7 @@
     qualities:
     - Prying
   - type: Prying
+  - type: RestrictedMelee
+    whitelist:
+      tags:
+        - Oni
