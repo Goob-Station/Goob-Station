@@ -20,6 +20,9 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleChangeling
+  - type: Tag
+    tags:
+      - RoundstartAntag
 
 - type: entity
   parent: BaseTraitorRule
@@ -40,6 +43,9 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
+  - type: Tag
+    tags:
+      - CalmAntag
 
 - type: entity
   parent: Changeling
@@ -57,6 +63,9 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
+  - type: Tag
+    tags:
+      - CalmAntag
 
 - type: entity
   parent: BaseNukeopsRule
@@ -121,6 +130,9 @@
         - Syndicate
       mindRoles:
       - MindRoleNukeops
+  - type: Tag
+    tags:
+      - CalmAntag
 
 - type: entity
   id: CalmRevs # For Dual Antag Gamemodes
@@ -145,7 +157,9 @@
       - type: HeadRevolutionary
       mindRoles:
       - MindRoleHeadRevolutionary
-
+  - type: Tag
+    tags:
+      - CalmAntag
 # Blob
 - type: entity
   id: BlobRule
@@ -266,3 +280,4 @@
         - Syndicate
       mindRoles:
       - MindRoleNukeops
+

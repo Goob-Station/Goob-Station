@@ -1,3 +1,18 @@
+- type: entity 
+  id: ShowHealthRelatedIcons
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - Inorganic
+    - Silicon
+    - SiliconRadiation # Goobstation - Make IPCs take radiation
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+
 - type: entity
   parent: ClothingEyesHudOmni
   id: ClothingEyesHudChrono
@@ -15,3 +30,20 @@
   suffix: Unremoveable
   components:
   - type: Unremoveable
+
+- type: entity 
+  parent: [ClothingEyesBase, ShowHealthRelatedIcons]
+  id: ClothingEyesHudDiagnosticMedical
+  name: meddiag hud
+  description: A heads-up display combining both medical and diagnostic information.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Eyes/Hud/meddiag.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Eyes/Hud/meddiag.rsi
+  - type: Construction
+    graph: HudMedDiag
+    node: meddiagHud
+  - type: Tag
+    tags:
+    - HudMedicalDiagnostic

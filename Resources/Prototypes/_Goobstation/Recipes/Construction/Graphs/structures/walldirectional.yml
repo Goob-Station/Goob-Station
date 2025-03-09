@@ -1,0 +1,23 @@
+- type: constructionGraph
+  id: WallDirectional
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: wallDirectional
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 2
+    - node: wallDirectional
+      entity: WallDirectional
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Welding
+              doAfter: 2

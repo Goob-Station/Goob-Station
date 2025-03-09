@@ -133,19 +133,15 @@
     - PowerCellsStatic
     - ElectronicsStatic
     # Goobstation
-    - MiningToolsStatic
     - LatheMiscStatic
     - MedicalVehiclesStatic
+    - ChemistryStatic
+    - SurgeryStatic
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityAmmoStatic
     # Goobstation
     - SecurityAmmoStaticGoob
-    - SyndicateAmmoStatic
-    - SecurityEquipmentStaticGoob
-    - SecurityHypoStatic
-    - ParamedHypoStatic
-    - SyndicateCatridgesStatic
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -202,33 +198,32 @@
     runningState: building
     unlitIdleState: unlit
     unlitRunningState: unlit-building
-    staticPacks:
-    - ChemistryStatic
-    - SurgeryStatic
-    # Goobstation Packs
-    - MedicalVehiclesStatic
-    - ProtoLatheMiscStatic
+    #staticPacks: - Goobstation - Move static recipes to autolathe
+    #- ChemistryStatic
+    #- SurgeryStatic
     dynamicPacks:
     - AdvancedTools
-    - ScienceEquipment
-    - ScienceExplosives
+    #- ScienceEquipment - Goobstation - Moved to Scifab
+    #- ScienceExplosives - Goobstation - Moved to Scifab
     - ScienceClothing
     - PowerCells
-    - ScienceWeapons
-    - Mining
+    #- ScienceWeapons - Goobstation - Moved to Scifab
+    #- Mining - Goobstation - Moved to Cargofab
     - AtmosTools
-    - EngineeringWeapons
+    #- EngineeringWeapons - Goobstation - Moved to Scifab and Engifab
     - Chemistry
     - Janitor
     - Instruments
     - Equipment # Goobstation note: handheld mass scanner is removed
     - FauxTiles
     # Goobstation Packs
-    - MiningWeapons
-    - MiningUpgrades
+    - ServiceWeapons
+    #- MiningWeapons Goobstation - Moved to Cargofab
+    #- MiningUpgrades - Moved to Cargofab
     - Surgery
     - SpecOpsGoogles
     - MedicalMisc
+    - MedicalVehiclesAdvanced
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
@@ -236,7 +231,6 @@
     - SecurityEquipment
     - SecurityWeapons
     # Goobstation Packs
-    - SecurityWeaponsGoob
     - SecurityAmmoGoob
 
 - type: entity
@@ -274,32 +268,32 @@
     idleState: icon
     runningState: building
     staticPacks:
-    - ScienceBoardsStatic
+    #- ScienceBoardsStatic - Goobstation - Moved to Scifab
     - ServiceBoardsStatic
     - CargoBoardsStatic
-    - MedicalBoardsStatic
-    - EngineeringBoardsStatic
+    #- MedicalBoardsStatic - Goobstation - Moved to Scifab and Medfab
+    #- EngineeringBoardsStatic - Goobstation - Moved to Scifab and Engifab
     - CircuitFloorsStatic
     # Goobstation Packs
+    - SharedBoardsStatic
     - MedicalBoardsStaticGoob
+    - SecurityBoardsStaticGoob
     dynamicPacks:
     - EngineeringBoards
     - CargoBoards
     - MedicalBoards
     - ServiceBoards
-    - ScienceBoards
+    #- ScienceBoards - Goobstation - Moved to Scifab
     - CameraBoards
     - MechBoards
     - ShuttleBoards
     # Goobstation Packs
-    - MedicalBoardsGoob
+    - SharedBoards
+    #- MedicalBoardsGoob - Goobstation - Moved to Scifab and Medfab
     - MechElectronicsGoob
   - type: EmagLatheRecipes
-    emagStaticPacks:
-    # Goobstation Packs
-    - SecurityBoardsStaticGoob
-    emagDynamicPacks:
-    - SecurityBoards
+    #emagDynamicPacks:
+    #- SecurityBoards - Goobstation -  Moved to Secfab
   - type: MaterialStorage
     whitelist:
       tags:
@@ -348,6 +342,9 @@
     - BorgModulesStaticGoob
     - IPCPartsStatic
     - PowerCagesStatic
+    - PartsStatic
+    - CablesStatic
+    - PowerCellsStatic
     dynamicPacks:
     - Robotics
     - BorgModules
@@ -359,13 +356,9 @@
     - PowerCages
     - BorgModulesGoob
     - Cybernetics
-  - type: EmagLatheRecipes
-    emagStaticPacks:
-    # Goobstation Packs
-    - MechWeaponsStatic
-    emagDynamicPacks:
-    # Goobstation Packs
-    - MechWeapons
+    - PowerCells
+    - MechBoards
+    - MechElectronicsGoob
   - type: MaterialStorage
     whitelist:
       tags:
@@ -423,7 +416,7 @@
   id: SecurityTechFab
   parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
   name: security techfab
-  description: Prints equipment for use by security crew.
+  description: Prints equipment and circuitboards for use by security crew. #Goobstation - Circuitboards description
   components:
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi
@@ -452,9 +445,11 @@
     - SecurityAmmoStaticGoob
     - SecurityEquipmentStaticGoob
     - SecurityHypoStatic
-    - SecurityWeaponsStaticGoob
     - MechWeaponsStatic
     - SecurityBoardsStaticGoob
+    - PowerCells
+    - SecurityBoardsStaticGoob
+    - PowerCellsStatic
     dynamicPacks:
     - SecurityEquipment
     - SecurityBoards
@@ -467,9 +462,13 @@
     - MechWeapons
     - SecurityAmmoGoob
     - SecurityCybernetics
+    - ServiceWeapons
+    - SpecOpsGoogles
+    - SecurityMechElectronicsGoob
   - type: EmagLatheRecipes # Goobstation
     emagStaticPacks:
     - SyndicateAmmoStatic
+    - SyndicateCatridgesStatic
   - type: MaterialStorage
     whitelist:
       tags:
@@ -517,9 +516,9 @@
 
 - type: entity
   id: MedicalTechFab
-  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
+  parent: [BaseLatheLube, BaseSiloUtilizer] #Goobstation - Circuitboards description
   name: medical techfab
-  description: Prints equipment for use by the medbay.
+  description: Prints equipment and circuitboards for use by the medbay.
   components:
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi
@@ -546,20 +545,29 @@
     - EmptyMedkitsStatic
     - SurgeryStatic
     # Goobstation Packs
-    - MedicalWeaponsStatic
     - ParamedHypoStatic
     - MedicalPatchesStatic
     - SurgeryStaticGoob
     - MedicalVehiclesStatic
+    - MedicalBoardsStatic
+    - MedicalBoardsStaticGoob
+    - PowerCellsStatic
     dynamicPacks:
     - Chemistry
     # Goobstation Packs
     - MedicalSurgery
     - MedicalCybernetics
-    - MedicalWeapons
     - MedicalMisc
+    - MedicalMiscRestricted
+    - MedicalVehiclesAdvanced
+    - MedicalBoards
+    - ServiceWeapons
+    - Janitor
   - type: Machine
     board: MedicalTechFabCircuitboard
+  - type: EmagLatheRecipes # Goobstation Packs
+    emagStaticPacks:
+    - SyndicateCatridgesStatic
   - type: StealTarget
     stealGroup: MedicalTechFabCircuitboard
 
@@ -662,41 +670,42 @@
   name: ore processor
   description: It produces sheets and ingots using ores.
   components:
-  - type: Sprite
-    sprite: Structures/Machines/ore_processor.rsi
-    layers:
-    - state: icon
-      map: ["enum.LatheVisualLayers.IsRunning"]
-    - state: unlit
-      shader: unshaded
-      map: ["enum.PowerDeviceVisualLayers.Powered"]
-    - state: inserting
-      map: ["enum.MaterialStorageVisualLayers.Inserting"]
-    - state: panel
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: Machine
-    board: OreProcessorMachineCircuitboard
-  - type: MaterialStorage
-    ignoreMaterialWhiteList: true # Goob edit
-    connectToSilo: true # Goob edit
-    disconnectSiloOffMap: true # Goob edit
-    disallowOreEjection: false # Goob edit
-    ignoreColor: true
-    whitelist:
-      tags:
-      - Ore
-      - Sheet
-      - RawMaterial
-      - Ingot
-  - type: Lathe
-    idleState: icon
-    runningState: building
-    defaultProductionAmount: 10
-    staticPacks:
-    - OreSmelting
-    - RGlassSmelting
-  - type: MiningPoints # DeltaV - Source of mining points for miners
-  - type: MiningPointsLathe # DeltaV
+    - type: Sprite
+      sprite: Structures/Machines/ore_processor.rsi
+      layers:
+        - state: icon
+          map: ["enum.LatheVisualLayers.IsRunning"]
+        - state: unlit
+          shader: unshaded
+          map: ["enum.PowerDeviceVisualLayers.Powered"]
+        - state: inserting
+          map: ["enum.MaterialStorageVisualLayers.Inserting"]
+        - state: panel
+          map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - type: Machine
+      board: OreProcessorMachineCircuitboard
+    - type: MaterialStorage
+      ignoreMaterialWhiteList: true # Goob edit
+      connectToSilo: true # Goob edit
+      disconnectSiloOffMap: true # Goob edit
+      disallowOreEjection: false # Goob edit
+      ignoreColor: true
+      whitelist:
+        tags:
+          - Ore
+          - Sheet
+          - RawMaterial
+          - Ingot
+    - type: Lathe
+      idleState: icon
+      runningState: building
+      defaultProductionAmount: 10
+      staticPacks:
+      - OreSmelting
+      - RGlassSmelting
+    - type: MiningPoints # DeltaV - Source of mining points for miners
+    - type: MiningPointsLathe # DeltaV
+    - type: MaterialStorageMagnetPickup # Frontier
 
 - type: entity
   parent: OreProcessor

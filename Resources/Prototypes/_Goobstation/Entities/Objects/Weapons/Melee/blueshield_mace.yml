@@ -1,0 +1,82 @@
+- type: entity
+  name: DT-3 "Atrocity"
+  parent: [BaseItem, BaseCentcommContraband]
+  id: BlueshieldMace
+  description: Crush all those who oppose your leaders. Functions as a stun baton in its powered state.
+  components:
+  - type: Tag
+    tags:
+    - Stunbaton
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/blueshield_mace.rsi
+    layers:
+    - state: icon-off
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: ItemToggle
+    soundActivate:
+      collection: sparks
+      params:
+        variation: 0.250
+    soundDeactivate:
+      collection: sparks
+      params:
+        variation: 0.250
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.250
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Heat: 5
+  - type: Stunbaton
+    energyPerUse: 100
+    lightAttackEnergyMultiplier: 2
+  - type: MeleeWeapon
+    angle: 0
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 13 # Unlucky number
+        Slash: 7 # Lucky number
+    bluntStaminaDamageFactor: 0.5
+    animation: WeaponArcThrust
+    soundHit:
+      collection: MetalThud
+  - type: StaminaDamageOnHit
+    damage: 40
+    overtime: 40
+    lightAttackDamageMultiplier: 2
+    lightAttackOvertimeDamageMultiplier: 0.5
+    sound: /Audio/Weapons/egloves.ogg
+  - type: StaminaDamageOnCollide
+    damage: 15
+    overtime: 40
+    sound: /Audio/Weapons/egloves.ogg
+  - type: LandAtCursor
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 20
+  - type: UseDelay
+  - type: Item
+    heldPrefix: off
+    size: Normal
+  - type: DisarmMalus
+    malus: 0.225
+  - type: DelayedKnockdownOnHit
+    useDelay: stunbaton
+  - type: UseDelayBlockMelee
+    delays:
+    - stunbaton
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: {state: icon}
+          False: {state: icon-off}
+  - type: StaticPrice
+    price: 1000

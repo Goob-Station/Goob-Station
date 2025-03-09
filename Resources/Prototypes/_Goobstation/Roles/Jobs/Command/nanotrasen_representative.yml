@@ -16,6 +16,7 @@
   joinNotifyCrew: true
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  goobcoins: 40
   access:
   - Security
   - Brig
@@ -51,6 +52,7 @@
     id: NTRPDA
     ears: ClothingHeadsetAltCommand
     pocket1: UniqueNanorepLockerTeleporter
+    gloves: ClothingHandsGlovesGoldenTrim # Psst. I might as well add this here.
   storage:
     back:
     - Flash

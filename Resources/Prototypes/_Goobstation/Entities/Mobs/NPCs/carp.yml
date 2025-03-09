@@ -17,3 +17,10 @@
     - type: HTN
       rootTask:
         task: DragonCarpCompound
+    - type: Tag
+      tags:
+        - DragonMind
+        - Carp
+        - DoorBumpOpener
+    - type: CollectiveMind
+      defaultChannel: Dragonmind

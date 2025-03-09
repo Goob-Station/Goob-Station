@@ -20,6 +20,7 @@
   icon: "JobIconChiefMedicalOfficer"
   supervisors: job-supervisors-captain
   canBeAntag: false
+  goobcoins: 40 #Goob content
   access:
   - Medical
   - Command
@@ -47,7 +48,7 @@
     id: CMOPDA
     ears: ClothingHeadsetAltMedical # Goobstation
     eyes: ClothingEyesGlassesMedicalCommand # Reserve-CommandHUD
-    belt: ClothingBeltMilitaryWebbingCMOFilled # Goobstation
+    belt: ClothingBeltMedicalFilled
   storage:
     back:
     - Flash

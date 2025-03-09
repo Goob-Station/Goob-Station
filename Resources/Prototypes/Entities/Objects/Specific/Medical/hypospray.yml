@@ -108,12 +108,12 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 15
+        maxVol: 20 # Goobstation
   - type: ExaminableSolution
     solution: pen
   - type: Hypospray
     solutionName: pen
-    transferAmount: 15
+    transferAmount: 20 # Goobstation
     onlyAffectsMobs: false
     injectOnly: true
   - type: Appearance
@@ -503,7 +503,7 @@
           Quantity: 5
   - type: Hypospray
     solutionName: pen
-    transferAmount: 30
+    transferAmount: 35
     onlyAffectsMobs: false
     injectOnly: true
   - type: StaticPrice
