@@ -12,8 +12,8 @@
 
 - type: listing
   id: UplinkBoxReagentGrenades
-  name: Box of Reagent Grenades
-  description: Contains 2 Glue grenades and 2 Lube Grenades
+  name: uplink-box-reagent-grenades-name
+  description: uplink-box-reagent-grenades-desc
   productEntity: BoxReagentGrenades
   cost:
     Telecrystal: 30
@@ -449,7 +449,7 @@
 
 - type: listing
   id: UplinkSmugglerSatchel
-  name: smuggler's satchel
+  name: uplink-smugglers-satchel-name
   description: uplink-smugglers-satchel-desc
   icon: { sprite: Clothing/Back/Satchels/satchel.rsi, state: icon }
   productEntity: ClothingSatchelSmuggler

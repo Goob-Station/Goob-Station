@@ -38,7 +38,8 @@ uplink-smugglers-satchel-name = Ранец контрабандиста
 uplink-smugglers-satchel-desc = Прочный ранец, который можно спрятать под плиткой пола. Просто снимите напольную плитку, прикрепите ранец к покрытию, а затем положите плитку обратно!
 
 # Weapons
-
+uplink-WSPR-name = WSPR набор
+uplink-WSPR-desc = ФФФфффщиииу.
 uplink-dualetta-kit-name = Набор Дуалетт
 uplink-dualetta-kit-desc = Два дуалета по низкой цене.
 uplink-contractor-baton-name = Дубинка контрактника
@@ -58,9 +59,9 @@ uplink-m90-desc = Боевая винтовка M-90.
 uplink-dualetta-bundle-name = Пакет Дуалетты
 uplink-dualetta-bundle-desc = В комплект входят 2 пистолета Dualetta, 2 магазина к пистолетам-пулеметам, боевые перчатки, костюм нуар, плащ детектива и ботинки на шнуровке.
 uplink-anaconda-name = Анаконда
-uplink-anaconda-desc = The pride of the Cybersun arms concern, this heavy pistol is designed to feed itself with the built-in fabricator.
-uplink-bulk-mosin-name = Syndicate bulk rifle crate
-uplink-bulk-mosin-desc = 10 WW4-era rifles to arm you, your friends, and your cat. Saves 40% on shipping costs by buying in bulk.
+uplink-anaconda-desc = Гордость Cybersun Armory, этот сверхмощный пистолет предназначен для самозарядки с помощью встроенного устройства-фабрикатора.
+uplink-bulk-mosin-name = Синдикат
+uplink-bulk-mosin-desc = 10 винтовок времен 4-й мировой войны, которыми вы можете вооружить себя, своих друзей и кошку. Покупайте оптом и экономьте 40% на доставке.
 uplink-anaconda-description = Гордость Cybersun Armory, этот сверхмощный пистолет предназначен для самозарядки с помощью встроенного устройства-фабрикатора.
 source-mosin-name = Синдикат
 source-mosin-desc = 10 винтовок времен 4-й мировой войны, которыми вы можете вооружить себя, своих друзей и кошку. Покупайте оптом и экономьте 40% на доставке.
@@ -89,35 +90,46 @@ uplink-high-caliber-box-name = Ящик с патронами .50
 uplink-high-caliber-box-desc = Коробка с 30 противопехотными патронами 50-го калибра.
 uplink-highcap-pistol-mag-name = Пистолетный магазин повышенной емкости .35
 uplink-highcap-pistol-mag-desc = Пистолетный магазин повышенной емкости вмещает 4 дополнительных патрона, всего 16.
+uplink-rifle-caseless-mag-name = Безгильзовый магазин для винтовки .30
+uplink-rifle-caseless-mag-desc = Безгильзовый магазин для винтовки .30. Совместим с WSPR.
 
 # Mechs
 
 uplink-mech-teleporter-heavy-name = Тяжелый Мех
 uplink-mech-teleporter-heavy-desc = Содержит тяжелобронированного робота Cybersun со встроенным цепным мечом, Ultra AC-2, LBX AC 10 «Scattershot», ракетной стойкой BRM-6 и пушкой P-X Tesla.
-uplink-lollypop-bundle-name = Donk Co. Lollypop Box
-uplink-lollypop-bundle-desc = Contains 9 completely random lollypops. What could they contain?
-uplink-lollypop-bundle-big-name = Donk Co. Candy Bundle
-uplink-lollypop-bundle-big-desc = Contains an ungodly amount of candy. What could they contain?
+uplink-lollypop-bundle-name = Donk Co.© Коробка леденцов
+uplink-lollypop-bundle-desc = Содержит 9 полностью случайных леденцов. Что они могут содержать?
+uplink-lollypop-bundle-big-name = Donk Co.© Конфетный набор
+uplink-lollypop-bundle-big-desc = Содержит невероятное количество конфет. Что они могут содержать?
 uplink-mech-teleporter-assault-name = Штурмовой Мех
 uplink-mech-teleporter-assault-desc = Содержит легкобронированный робот Cybersun со встроенным цепным мечом, дробовиком LBX AC 10, Ракетомет SRM-8 и пушку Tesla P-X..
 
 # Implants
-
+uplink-fake-mindshield-name = Фейковый имплант защиты разума
+uplink-fake-mindshield-desc = Имплантат, который может имитировать сигналы настоящего имплантата защиты разума.
 uplink-smoke-implant-name = Дымовой имплант
 uplink-smoke-implant-desc = Выпускает облако дыма при активации.
-
+uplink-radio-implanter-name = Имплант радио
+uplink-radio-implanter-desc = Имплантирует радио Синдиката, позволяя пользоваться скрытой связью без гарнитуры.
+uplink-jaunter-implanter-name = Имплант Джаунтера
+uplink-jaunter-implanter-desc = Имплантирует Джаунтер, позволяя носителю меняться местами с случайной целью.
 # Wearables
 
 uplink-helmet-swat-name = Шлем спецназа Синдиката
 uplink-helmet-swat-desc = Прочный шлем, который обеспечивает хорошую защиту, а также в некоторой степени подавляет звуки светошумовых гранат.
 uplink-helmet-swat-name = Шлем SWAT Синдиката
 uplink-clothing-explosive-gloves-name = Взрывные изолированные перчатки
-uplink-syndicate-weapon-module-advanced-name = advanced weapons module
-uplink-syndicate-weapon-module-advanced-desc = Upgrades a cyborg with an energy sword and an anaconda pistol.
+uplink-syndicate-weapon-module-advanced-name = Продвинутый оружейный модуль.
+uplink-syndicate-weapon-module-advanced-desc = Улучшает киборга энергетическим мечом и пистолетом Анаконда.
 uplink-clothing-explosive-gloves-desc = Перчатки, которые выглядят как обычные изолированные перчатки, но через секунду после удара током взрываются, выводя из строя кисти рук пользователя.
 uplink-helmet-swat-desc = Прочный шлем, обеспечивающий хорошую защиту и в некоторой степени подавляющий звуки взрывов.
 
 # Misc
-
+uplink-box-reagent-grenades-name = Ящик гранат-реагентов
+uplink-box-reagent-grenades-desc = Содержит 2 клейкие и 2 смазывающие гранаты.
 uplink-dimension-pot-name = Размерный горшок
 uplink-dimension-pot-desc = Портал в ваше собственное карманное измерение, замаскированный под комнатное растение, когда одного предмета в тайнике недостаточно.
+
+#Utility
+uplink-access-breaker-name = Взломщик доступов
+uplink-access-breaker-desc = Устройство для взлома доступа. Может открывать пожарные шлюзы и удалять требования к доступу из оборудования станции. Автоматически перезаряжается.
