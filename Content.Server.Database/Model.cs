@@ -642,6 +642,7 @@ namespace Content.Server.Database
         public List<AdminLogPlayer> AdminLogs { get; set; } = null!;
 
         public int ServerCurrency { get; set; } // Goobstation - Goob coin
+        public int Karma { get; set; } // TBDStation - Karma
 
         public DateTime? LastReadRules { get; set; }
 

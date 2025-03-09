@@ -694,6 +694,28 @@ namespace Content.Server.Database
             await db.DbContext.SaveChangesAsync();
         }
 
+        public async Task<int> GetServerKarma(NetUserId userId) // TBDStation
+        {
+            await using var db = await GetDb();
+
+            return await db.DbContext.Player
+                .Where(dbPlayer => dbPlayer.UserId == userId)
+                .Select(dbPlayer => dbPlayer.Karma)
+                .SingleOrDefaultAsync();
+        }
+
+        public async Task SetServerKarma(NetUserId userId, int currency) // TBDStation
+        {
+            await using var db = await GetDb();
+
+            var dbPlayer = await db.DbContext.Player.Where(dbPlayer => dbPlayer.UserId == userId).SingleOrDefaultAsync();
+            if (dbPlayer == null)
+                return;
+
+            dbPlayer.Karma = currency;
+            await db.DbContext.SaveChangesAsync();
+        }
+
         #endregion
 
         #region Connection Logs
