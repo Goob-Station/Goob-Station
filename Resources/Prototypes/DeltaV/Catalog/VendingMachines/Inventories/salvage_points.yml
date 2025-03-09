@@ -70,6 +70,8 @@
     cost: 1250
   - id: ClothingBackpackDuffelSalvageConscription
     cost: 1250
+  - id: LuxuryMedipen
+    cost: 1600
   - id: WeaponPlasmaCutter
     cost: 1700
   - id: SpaceCash1000

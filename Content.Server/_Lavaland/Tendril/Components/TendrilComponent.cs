@@ -40,4 +40,10 @@ public sealed partial class TendrilComponent : Component
 
     [ViewVariables]
     public bool DestroyedWithMobs;
+
+    [ViewVariables]
+    public float UpdateAccumulator;
+
+    [DataField]
+    public float UpdateFrequency = 5;
 }

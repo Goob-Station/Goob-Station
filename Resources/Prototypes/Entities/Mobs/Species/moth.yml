@@ -94,13 +94,13 @@
       - map: [ "gloves" ]
       - map: [ "shoes" ]
       - map: [ "ears" ]
-      - map: [ "outerClothing" ]
       - map: [ "eyes" ]
       - map: [ "belt" ]
       - map: [ "id" ]
+      - map: [ "outerClothing" ]
       - map: [ "enum.HumanoidVisualLayers.Tail" ] #in the utopian future we should probably have a wings enum inserted here so everyhting doesn't break
-      - map: [ "neck" ]
       - map: [ "back" ]
+      - map: [ "neck" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -121,6 +121,18 @@
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
   - type: FootPrints # WD EDIT
+  - type: Fixtures # Goob edit - make moths lighter
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 160 # fluff
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
 
 - type: entity
   parent: BaseSpeciesDummy

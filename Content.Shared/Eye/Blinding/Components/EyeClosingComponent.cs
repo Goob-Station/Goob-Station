@@ -1,3 +1,4 @@
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
@@ -11,6 +12,16 @@ namespace Content.Shared.Eye.Blinding.Components;
 public sealed partial class EyeClosingComponent : Component
 {
     /// <summary>
+    /// Default eyes opening sound.
+    /// </summary>
+    private static readonly ProtoId<SoundCollectionPrototype> DefaultEyeOpen = new("EyeOpen");
+
+    /// <summary>
+    /// Default eyes closing sound.
+    /// </summary>
+    private static readonly ProtoId<SoundCollectionPrototype> DefaultEyeClose = new("EyeClose");
+
+    /// <summary>
     /// The prototype to grant to enable eye-toggling action.
     /// </summary>
     [DataField("eyeToggleAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
@@ -23,16 +34,16 @@ public sealed partial class EyeClosingComponent : Component
     public EntityUid? EyeToggleActionEntity;
 
     /// <summary>
-    /// Path to sound to play when opening eyes
+    /// Sound to play when opening eyes.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
-    public string EyeOpenSound = "/Audio/Effects/eye_open.ogg";
+    public SoundSpecifier EyeOpenSound = new SoundCollectionSpecifier(DefaultEyeOpen);
 
     /// <summary>
-    /// Path to sound to play when closing eyes
+    /// Sound to play when closing eyes.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
-    public string EyeCloseSound = "/Audio/Effects/eye_close.ogg";
+    public SoundSpecifier EyeCloseSound = new SoundCollectionSpecifier(DefaultEyeClose);
 
     /// <summary>
     /// Toggles whether the eyes are open or closed. This is really just exactly what it says on the tin. Honest.

@@ -48,6 +48,8 @@
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
   - type: Item  # Goob edit start
     size: Large
+  - type: AltFireMelee
+    attackType: Heavy
   - type: MeleeWeapon
     damage:
       types:
@@ -82,7 +84,7 @@
     whitelist:
       tags:
       - CartridgeAntiMateriel
-    capacity: 6 # Goobstation
+    capacity: 5
     proto: CartridgeAntiMateriel
   - type: SpeedModifiedOnWield
     walkModifier: 0.25
