@@ -156,7 +156,6 @@ public sealed class StationAiSystem : SharedStationAiSystem
 
             SendBorgOrder(result);
         });
-
         args.Handled = true;
     }
 
