@@ -1,4 +1,4 @@
-- type: weightedRandom # All dual antag gamemodes are goobstation
+- type: weightedRandom
   id: GameDirector
   weights:
     Traitor: 0.25
