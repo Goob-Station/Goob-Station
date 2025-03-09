@@ -153,6 +153,7 @@ public partial class SharedMartialArtsSystem
 
         _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
+        ComboPopup(ent, target, proto.Name);
     }
 
     private void OnCQCPressure(Entity<CanPerformComboComponent> ent, ref CqcPressurePerformedEvent args)
