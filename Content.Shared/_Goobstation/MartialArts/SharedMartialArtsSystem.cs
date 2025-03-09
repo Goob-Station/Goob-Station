@@ -155,7 +155,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             ("move", comboName)),
             user,
             user);
-        _popupSystem.PopupEntity(Loc.GetString("martial-arts-action-reciever",
+        _popupSystem.PopupEntity(Loc.GetString("martial-arts-action-receiver",
             ("name", userName),
             ("move", comboName)),
             target,
@@ -187,7 +187,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             martialArtsKnowledgeComponent.MartialArtsForm = martialArtsPrototype.MartialArtsForm;
             LoadCombos(martialArtsPrototype.RoundstartCombos, canPerformComboComponent);
             martialArtsKnowledgeComponent.Blocked = false;
-            pullerComponent.NextStageChange /= 2;
+            pullerComponent.StageChangeCooldown /= 2;
             if (TryComp<MeleeWeaponComponent>(user, out var meleeWeaponComponent))
             {
                 var newDamage = new DamageSpecifier();

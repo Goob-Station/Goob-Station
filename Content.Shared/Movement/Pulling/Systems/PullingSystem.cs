@@ -1,7 +1,8 @@
 using Content.Shared._Goobstation.Grab; // Goobstation - Martial Arts
 using Content.Shared._Goobstation.MartialArts.Events; // Goobstation - Martial Arts
 using Content.Shared._EinsteinEngines.Contests; // Goobstation - Grab Intent
-using Content.Shared._Goobstation.Grab; // Goobstation - Grab Intent
+using Content.Shared._Goobstation.Grab;
+using Content.Shared._Goobstation.MartialArts.Components; // Goobstation - Grab Intent
 using Content.Shared._White.Grab; // Goobstation
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
@@ -10,7 +11,8 @@ using Content.Shared.Buckle.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.CombatMode.Pacification; // Goobstation
 using Content.Shared.Cuffs.Components; // Goobstation
-using Content.Shared.Damage; // Goobstation
+using Content.Shared.Damage;
+using Content.Shared.Damage.Components; // Goobstation
 using Content.Shared.Damage.Systems; // Goobstation
 using Content.Shared.Database;
 using Content.Shared.Effects; // Goobstation
@@ -807,14 +809,14 @@ public sealed class PullingSystem : EntitySystem
             return false;
 
         // prevent you from grabbing someone else while being grabbed
-        if (TryComp<PullableComponent>(puller.Owner, out var pullerAsPullable) && pullerAsPullable.Puller != null)
+        if (TryComp<PullableComponent>(puller, out var pullerAsPullable) && pullerAsPullable.Puller != null)
             return false;
 
         if (HasComp<PacifiedComponent>(puller))
             return false;
 
-        if (pullable.Comp.Puller != puller.Owner ||
-            puller.Comp.Pulling != pullable.Owner)
+        if (pullable.Comp.Puller != puller ||
+            puller.Comp.Pulling != pullable)
             return false;
 
         if (puller.Comp.NextStageChange > _timing.CurTime)
@@ -830,7 +832,7 @@ public sealed class PullingSystem : EntitySystem
 
         // Don't grab without grab intent
         if (!ignoreCombatMode)
-            if (!_combatMode.IsInCombatMode(puller.Owner))
+            if (!_combatMode.IsInCombatMode(puller))
                 return false;
 
         // It's blocking stage update, maybe better UX?
@@ -853,11 +855,16 @@ public sealed class PullingSystem : EntitySystem
         };
 
         var newStage = puller.Comp.GrabStage + nextStageAddition;
-        var ev = new CheckGrabOverridesEvent(newStage); // guh
-        RaiseLocalEvent(puller, ev);
-        newStage = ev.Stage;
 
-        if (!TrySetGrabStages((puller.Owner, puller.Comp), (pullable.Owner, pullable.Comp), newStage))
+        if (HasComp<MartialArtsKnowledgeComponent>(puller) &&
+            TryComp<RequireProjectileTargetComponent>(pullable, out var layingDown)
+            && layingDown.Active)
+        {
+            var ev = new CheckGrabOverridesEvent(newStage);
+            newStage = ev.Stage;
+        }
+
+        if (!TrySetGrabStages((puller, puller.Comp), (pullable, pullable.Comp), newStage))
             return false;
 
         _color.RaiseEffect(Color.Yellow, new List<EntityUid> { pullable }, Filter.Pvs(pullable, entityManager: EntityManager));

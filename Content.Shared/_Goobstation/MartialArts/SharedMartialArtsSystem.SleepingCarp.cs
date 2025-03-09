@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Shared._Goobstation.MartialArts.Components;
 using Content.Shared._Goobstation.MartialArts.Events;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Interaction.Events;
@@ -118,13 +119,21 @@ public partial class SharedMartialArtsSystem
         ref SleepingCarpKneeHaulPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed)
-            || downed)
+            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed))
             return;
 
-        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
-        _stun.TryParalyze(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
+        if (!downed)
+        {
+            DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
+            _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
+            _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
+        }
+        else
+        {
+            DoDamage(ent, target, proto.DamageType, proto.ExtraDamage / 2, out _);
+            _stamina.TakeStaminaDamage(target, proto.StaminaDamage - 20);
+            _hands.TryDrop(target);
+        }
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
