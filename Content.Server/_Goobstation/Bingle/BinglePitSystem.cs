@@ -68,7 +68,7 @@ public sealed class BinglePitSystem : EntitySystem
                 continue;
 
             _containerSystem.Insert(uid, falling.Pit.Pit);
-            EnsureComp<StunnedComponent>(uid); // used stuned to prevent any funny being done inside the pit
+            EnsureComp<StunnedComponent>(uid); // used stunned to prevent any funny being done inside the pit
             RemCompDeferred(uid, falling);
         }
     }
@@ -82,15 +82,18 @@ public sealed class BinglePitSystem : EntitySystem
 
     private void OnStepTriggered(EntityUid uid, BinglePitComponent component, ref StepTriggeredOffEvent args)
     {
-        // dont swallow bingles
+        // dont accept if they are already falling
+        if (HasComp<BinglePitFallingComponent>(args.Tripper))
+            return;
+
+        // Needs to be at level two or above to allow anything alive.
+        if (HasComp<MobStateComponent>(args.Tripper) && component.Level < 2)
+            return;
+
+        // allow dead bingles
         if (HasComp<BingleComponent>(args.Tripper))
             if(TryComp<MobStateComponent>(args.Tripper, out var mobState) && mobState.CurrentState == MobState.Alive)
                 return;
-        // need to be at levl 2 or above to swallow anything alive
-        if (HasComp<MobStateComponent>(args.Tripper) && component.Level < 2)
-            return;
-        if (HasComp<BinglePitFallingComponent>(args.Tripper))
-            return;
 
         StartFalling(uid, component, args.Tripper);
 
@@ -101,14 +104,17 @@ public sealed class BinglePitSystem : EntitySystem
         }
     }
 
-    public void StartFalling(EntityUid uid, BinglePitComponent component, EntityUid tripper, bool playSound = true)
+    private void StartFalling(EntityUid uid, BinglePitComponent component, EntityUid tripper, bool playSound = true)
     {
         if (TryComp<MobStateComponent>(tripper, out var mobState) && mobState.CurrentState is MobState.Alive or MobState.Critical)
             component.BinglePoints += component.PointsForAlive;
         else
             component.BinglePoints++;
         if (HasComp<HumanoidAppearanceComponent>(tripper))
-            component.BinglePoints += component.AdditionalPointsForHuman;
+            component.BinglePoints += component.SpawnNewAt * component.Level; // trowing a humanoid in the pit  will spawn a new bingle
+
+        if (HasComp<BingleComponent>(tripper))
+            component.BinglePoints += (component.SpawnNewAt * component.Level) / 4; //recycling a bingle returns a quarter bingle.
 
         if (TryComp<PullableComponent>(tripper, out var pullable) && pullable.BeingPulled)
             _pulling.TryStopPull(tripper, pullable, ignoreGrab: true);
@@ -162,9 +168,9 @@ public sealed class BinglePitSystem : EntitySystem
                 _stun.TryKnockdown(pitUid, TimeSpan.FromSeconds(2), false);
             }
 
-        RemoveAllBingleGhostRoles(uid, component);//remove all unclaimed ghostroles when pit is destroyed
+        RemoveAllBingleGhostRoles(uid, component);//remove all unclaimed ghost roles when pit is destroyed
 
-        //Remove all falling when pit is destroyed, in the small chance somone is inbetween start and insert
+        //Remove all falling when pit is destroyed, in the small chance someone is in between start and insert
         var query = EntityQueryEnumerator<BinglePitFallingComponent>();
         while (query.MoveNext(out var fallingUid, out var fallingComp))
             RemCompDeferred(fallingUid, fallingComp);
@@ -176,7 +182,7 @@ public sealed class BinglePitSystem : EntitySystem
         while (query.MoveNext(out var queryGRMSUid, out var queryGRMScomp))
             if (queryGRMScomp.Prototype == "MobBingle")
                 if (Transform(uid).Coordinates == Transform(queryGRMSUid).Coordinates)
-                    QueueDel(queryGRMSUid); // remove any unspawned bngle when pit is destroyed
+                    QueueDel(queryGRMSUid); // remove any unspanned bingle when pit is destroyed
     }
     private void OnAttacked(EntityUid uid, BinglePitComponent component, AttackedEvent args)
     {
@@ -202,7 +208,7 @@ public sealed class BinglePitSystem : EntitySystem
         var query = AllEntityQuery<BinglePitComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            // neares beacon
+            // nears beacon
             var location = "Unknown";
             var mapCoords = _transform.ToMapCoordinates(Transform(uid).Coordinates);
             if (_navMap.TryGetNearestBeacon(mapCoords, out var beacon, out _))
@@ -235,7 +241,7 @@ public sealed class BinglePitSystem : EntitySystem
             if (tile.Tile.TypeId == convertTile.TileId)
                 continue;
             if (tile.GetContentTileDefinition().Name != convertTile.Name &&
-                _random.Prob(0.1f))// 10% probability to transform tile
+                _random.Prob(0.1f)) // 10% probability to transform tile
             {
                 _tile.ReplaceTile(tile, convertTile);
                 _tile.PickVariant(convertTile);

@@ -1,4 +1,3 @@
-using Content.Shared.Weapons.Melee;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Content.Shared._Goobstation.Bingle;
@@ -8,6 +7,8 @@ using Content.Shared._White.Overlays;
 using Content.Server.Flash.Components;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
+using Content.Shared.CombatMode;
+using Robust.Server.GameObjects;
 
 namespace Content.Server._Goobstation.Bingle;
 
@@ -15,13 +16,14 @@ public sealed class BingleSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
-
+    [Dependency] private readonly AppearanceSystem _appearance = default!;
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<BingleComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BingleComponent, AttackAttemptEvent>(OnAttackAttempt);
         SubscribeLocalEvent<BingleComponent, ToggleNightVisionEvent>(OnNightvision);
+        SubscribeLocalEvent<BingleComponent, ToggleCombatActionEvent>(OnCombatToggle);
     }
 
     private void OnMapInit(EntityUid uid, BingleComponent component, MapInitEvent args)
@@ -69,6 +71,13 @@ public sealed class BingleSystem : EntitySystem
             return;
 
         flashComp.Enabled = !flashComp.Enabled;
+    }
+
+    private void OnCombatToggle(EntityUid uid, BingleComponent component, ToggleCombatActionEvent args)
+    {
+        if (!TryComp<CombatModeComponent>(uid, out var combat))
+            return;
+        _appearance.SetData(uid, BingleVisual.Combat, combat.IsInCombatMode);
     }
 }
 

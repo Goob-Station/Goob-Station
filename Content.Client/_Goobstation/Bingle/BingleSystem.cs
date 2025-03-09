@@ -5,7 +5,7 @@ using Content.Shared.CombatMode;
 namespace Content.Client._Goobstation.Bingle;
 
 /// <summary>
-///   handles the apperance bingles
+///   Handles the appearance of bingles.
 /// </summary>
 public sealed class BingleSystem : EntitySystem
 {
@@ -15,21 +15,34 @@ public sealed class BingleSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<BingleComponent, ToggleCombatActionEvent>(OnCombatToggle);
+        SubscribeLocalEvent<BingleComponent, AppearanceChangeEvent>(OnAppearanceChange);
     }
 
     /// <summary>
-    /// make eyse glow red when combat mode engaged.
+    /// Makes the eyes glow red when combat mode is engaged.
     /// </summary>
     private void OnCombatToggle(EntityUid uid, BingleComponent component, ToggleCombatActionEvent args)
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
+        //if (!TryComp<CombatModeComponent>(uid, out var combat))
+         //   return;
+        //if (!sprite.LayerMapTryGet(BingleVisual.Combat, out var layer))
+          //  return;
+
+       // sprite.LayerSetVisible(layer, combat.IsInCombatMode);
+        _appearance.OnChangeData(uid, sprite);
+    }
+
+    public void OnAppearanceChange(EntityUid uid, BingleComponent component, ref AppearanceChangeEvent args)
+    {
+        var sprite = args.Sprite;
+        if (sprite == null)
+            return;
         if (!TryComp<CombatModeComponent>(uid, out var combat))
             return;
         if (!sprite.LayerMapTryGet(BingleVisual.Combat, out var layer))
             return;
-
         sprite.LayerSetVisible(layer, combat.IsInCombatMode);
-        _appearance.OnChangeData(uid, sprite);
     }
 }
