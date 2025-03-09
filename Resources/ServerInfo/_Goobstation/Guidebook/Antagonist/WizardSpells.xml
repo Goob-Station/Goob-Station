@@ -3,17 +3,17 @@
   <Table Columns="6">
     <ColorBox>
       <Box>
-        Spell Name
+        Название заклинания
       </Box>
     </ColorBox>
     <ColorBox>
       <Box>
-        Cost
+        Цена
       </Box>
     </ColorBox>
     <ColorBox>
       <Box>
-        Robed?
+        Нужна мантия?
       </Box>
     </ColorBox>
     <ColorBox>
@@ -23,17 +23,17 @@
     </ColorBox>
     <ColorBox>
       <Box>
-        Description
+        Описание
       </Box>
     </ColorBox>
     <ColorBox>
       <Box>
-        Invocation
+        Произношение
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Mime Malaise
+        Недомогание мима
       </Box>
     </ColorBox>
     <ColorBox>
@@ -43,7 +43,7 @@
     </ColorBox>
     <ColorBox Color="#4d2e2e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Yes
+        Да
       </Box>
     </ColorBox>
     <ColorBox>
@@ -53,7 +53,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Turns your target into a mime that cannot break their vow.
+        Превращает вашу цель в мима, который не может нарушить свою клятву.
       </Box>
     </ColorBox>
     <ColorBox>
@@ -63,7 +63,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Banana Touch
+        Прикосновение банана
       </Box>
     </ColorBox>
     <ColorBox>
@@ -73,7 +73,7 @@
     </ColorBox>
     <ColorBox Color="#4d2e2e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Yes
+        Да
       </Box>
     </ColorBox>
     <ColorBox>
@@ -83,17 +83,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Turns your target into a clumsy clown.
+        Превращает вашу цель в неуклюжего клоуна.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [italic]NWOLC YRGNA[/italic]
+        [italic]НУОЛК ЙОЛЗ[/italic]
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Curse of the Cluwne
+        Проклятие клувня
       </Box>
     </ColorBox>
     <ColorBox>
@@ -103,7 +103,7 @@
     </ColorBox>
     <ColorBox Color="#4d2e2e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Yes
+        Да
       </Box>
     </ColorBox>
     <ColorBox>
@@ -113,12 +113,12 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Turns your target into a cluwne.
+        Превращает вашу цель в клувня.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [italic]NWOLC EGNEVER[/italic]
+        [italic]АНУОЛК ЬТСЕМ[/italic]
       </Box>
     </ColorBox>
     <ColorBox>
@@ -133,7 +133,7 @@
     </ColorBox>
     <ColorBox Color="#4d2e2e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Yes
+        Да
       </Box>
     </ColorBox>
     <ColorBox>
@@ -143,17 +143,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Fires slow moving homing stunning projectiles at nearby targets.
+        Стреляет медленно движущимися самонаводящимися оглушающими снарядами по ближайшим целям.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [italic]FORTI GY AMA[/italic]
+        [italic]ФОРТИ ГИ АМА[/italic]
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Disable\nTechnology
+        Отключение\nТехнологии
       </Box>
     </ColorBox>
     <ColorBox>
@@ -163,7 +163,7 @@
     </ColorBox>
     <ColorBox Color="#4d2e2e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Yes
+        Да
       </Box>
     </ColorBox>
     <ColorBox>
@@ -178,12 +178,12 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [italic]NEC CANTIO[/italic]
+        [italic]НЕК КАНТИО[/italic]
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Smoke
+        Дым
       </Box>
     </ColorBox>
     <ColorBox>
@@ -193,7 +193,7 @@
     </ColorBox>
     <ColorBox Color="#2e422e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        No
+        Нет
       </Box>
     </ColorBox>
     <ColorBox>
@@ -203,7 +203,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Releases a cloud of choking smoke.
+        Выпускает облако удушливого дыма.
       </Box>
     </ColorBox>
     <ColorBox>
@@ -223,7 +223,7 @@
     </ColorBox>
     <ColorBox Color="#4d2e2e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Yes
+        Да
       </Box>
     </ColorBox>
     <ColorBox>
@@ -233,17 +233,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Throws everything around you away.
+        Отбрасывает все, что тебя окружает, прочь.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [italic]GITTAH WEIGH[/italic]
+        [italic]ГИТТАХ ВЕЙХ[/italic]
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Stop Time
+        Остановка времени
       </Box>
     </ColorBox>
     <ColorBox>
@@ -253,7 +253,7 @@
     </ColorBox>
     <ColorBox Color="#4d2e2e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Yes
+        Да
       </Box>
     </ColorBox>
     <ColorBox>
@@ -263,17 +263,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Stops time in an area around you.
+        Останавливает время в пространстве вокруг вас.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [italic]TOKI YO TOMARE[/italic]
+        [italic]ТОКИ ЙО ТОМАРЕ[/italic]
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Corpse Explosion
+        Взрыв трупа
       </Box>
     </ColorBox>
     <ColorBox>
@@ -283,7 +283,7 @@
     </ColorBox>
     <ColorBox Color="#2e422e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        No
+        Нет
       </Box>
     </ColorBox>
     <ColorBox>
@@ -293,7 +293,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Explodes a corpse, damaging and knocking down everyone around it. Caster is immune to the explosion.
+        Взрывает труп, нанося урон и убивая всех вокруг. Заклинатель невосприимчив к взрыву.
       </Box>
     </ColorBox>
     <ColorBox>
@@ -303,7 +303,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Blind
+        Ослепление
       </Box>
     </ColorBox>
     <ColorBox>
@@ -313,7 +313,7 @@
     </ColorBox>
     <ColorBox Color="#2e422e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        No
+        Нет
       </Box>
     </ColorBox>
     <ColorBox>
@@ -323,17 +323,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Blinds a target temporarily.
+        Временно ослепляет цель.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [italic]STI KALY[/italic]
+        [italic]СТИ КАЛУ[/italic]
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Bind Soul
+        Связка души
       </Box>
     </ColorBox>
     <ColorBox>
@@ -343,7 +343,7 @@
     </ColorBox>
     <ColorBox Color="#2e422e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        No
+        Нет
       </Box>
     </ColorBox>
     <ColorBox>
@@ -353,17 +353,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Makes you immortal, as long as your phylactery is intact.
+        Делает вас бессмертным, пока ваша филактерия цела.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [italic]NECREM IMORTIUM![/italic]
+        [italic]НЕКРЕМ ИМОРТИУМ![/italic]
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Mutate
+        Мутация
       </Box>
     </ColorBox>
     <ColorBox>
@@ -373,7 +373,7 @@
     </ColorBox>
     <ColorBox Color="#4d2e2e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Yes
+        Да
       </Box>
     </ColorBox>
     <ColorBox>
@@ -383,7 +383,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Turns you into a hulk with laser eyes for 30 seconds.
+        Превращает вас в халка с лазерными глазами на 30 секунд.
       </Box>
     </ColorBox>
     <ColorBox>
@@ -393,7 +393,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Tesla Blast
+        Взрыв Теслы
       </Box>
     </ColorBox>
     <ColorBox>
@@ -403,7 +403,7 @@
     </ColorBox>
     <ColorBox Color="#4d2e2e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Yes
+        Да
       </Box>
     </ColorBox>
     <ColorBox>
@@ -413,47 +413,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Fires a tesla blast to a nearby enemy after 10 second charge.
+        Выстреливает зарядом Теслы по ближайшему врагу после 10-секундного заряда.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [italic]UN'LTD P'WAH![/italic]
+        [italic]БЕСК'НЕЧНАЯ С'ЛА![/italic]
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Lightning Bolt
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        1
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#2e422e">
-      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        No
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        8/6.75/5.5/4.25/3
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Fires a lightning bolt at your target.
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [italic]P'WAH, UNLIM'TED P'WAH![/italic]
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Homing Toolbox
+        Молния
       </Box>
     </ColorBox>
     <ColorBox>
@@ -463,7 +433,7 @@
     </ColorBox>
     <ColorBox Color="#2e422e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        No
+        Нет
       </Box>
     </ColorBox>
     <ColorBox>
@@ -473,17 +443,47 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Fires a homing toolbox that damages and knocks down the target.
+        Стреляет молнией в вашу цель.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [italic]ROBUSTIO![/italic]
+        [italic]С'ЛА, БЕСК'НЕЧНАЯ С'ЛА![/italic]
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Spell Cards
+        Самонаводящийся тулбокс
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        1
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#2e422e">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Нет
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        8/6.75/5.5/4.25/3
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Запускает самонаводящийся тулбокс, который ударяет цель и сбивает ее с ног.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [italic]РОБАСТИО![/italic]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Карты заклинаний
       </Box>
     </ColorBox>
     <ColorBox>
@@ -493,7 +493,7 @@
     </ColorBox>
     <ColorBox Color="#2e422e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        No
+        Нет
       </Box>
     </ColorBox>
     <ColorBox>
@@ -503,47 +503,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Fires up to 5 bursts of homing spell cards.
+        Выпускает до 5 очередей карт самонаводящихся заклинаний.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [italic]Sigi'lu M'Fan 'Tasia![/italic]
+        [italic]Сиги'лу М'Фан 'Тасиа![/italic]
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Arcane Barrage
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        2
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#4d2e2e">
-      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Yes
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        60/40/20
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Allows you to fire a rapid barrage of arcane bolts.
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        N/A
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Lesser Summon Guns
+        Арканный обстрел
       </Box>
     </ColorBox>
     <ColorBox>
@@ -553,7 +523,7 @@
     </ColorBox>
     <ColorBox Color="#4d2e2e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Yes
+        Да
       </Box>
     </ColorBox>
     <ColorBox>
@@ -563,7 +533,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Allows you to fire an unending stream of bolt-action rifles.
+        Позволяет вам быстро стрелять магическими разрядами.
       </Box>
     </ColorBox>
     <ColorBox>
@@ -573,7 +543,37 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Curse of the Barnyard
+        Меньший призыв оружия
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        2
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#4d2e2e">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Да
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        60/40/20
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Позволяет вам стрелять бесконечным потоком из винтовок с затвором.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        N/A
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Проклятие скотного двора
       </Box>
     </ColorBox>
     <ColorBox>
@@ -583,7 +583,7 @@
     </ColorBox>
     <ColorBox Color="#2e422e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        No
+        Нет
       </Box>
     </ColorBox>
     <ColorBox>
@@ -593,7 +593,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Curses your target, forcing them to wear animal mask and turning their speech into animal noises.
+        Проклинает вашу цель, заставляя ее носить маску животного и превращая ее речь в звериные ругательства.
       </Box>
     </ColorBox>
     <ColorBox>
@@ -603,7 +603,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Scream For Me
+        Кричи для меня
       </Box>
     </ColorBox>
     <ColorBox>
@@ -613,7 +613,7 @@
     </ColorBox>
     <ColorBox Color="#4d2e2e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Yes
+        Да
       </Box>
     </ColorBox>
     <ColorBox>
@@ -623,17 +623,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Spills all the target's blood.
+        Проливает всю кровь цели.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [italic]SCREAM FOR ME!![/italic]
+        [italic]КРИЧИ ДЛЯ МЕНЯ!![/italic]
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Instant Summons
+        Мгновенные призывы
       </Box>
     </ColorBox>
     <ColorBox>
@@ -643,7 +643,7 @@
     </ColorBox>
     <ColorBox Color="#2e422e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        No
+        Нет
       </Box>
     </ColorBox>
     <ColorBox>
@@ -653,17 +653,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Lets you mark any item and summon it at will.
+        Позволяет вам отметить любой предмет и вызвать его по своему желанию.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [italic]GAR YOK[/italic]
+        [italic]ГАР ЙОК[/italic]
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Teleport
+        Телепортация
       </Box>
     </ColorBox>
     <ColorBox>
@@ -673,7 +673,7 @@
     </ColorBox>
     <ColorBox Color="#4d2e2e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Yes
+        Да
       </Box>
     </ColorBox>
     <ColorBox>
@@ -683,17 +683,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Lets you teleport to any location on the station.
+        Позволяет вам телепортироваться в любое место на станции.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [italic]SCYAR NILA[/italic]
+        [italic]СКЬЯР НИЛА[/italic]
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        The Traps!
+        Ловушки!
       </Box>
     </ColorBox>
     <ColorBox>
@@ -703,7 +703,7 @@
     </ColorBox>
     <ColorBox Color="#4d2e2e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Yes
+        Да
       </Box>
     </ColorBox>
     <ColorBox>
@@ -713,17 +713,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Summons 5 deadly traps around you.
+        Призовите 5 смертельных ловушек вокруг себя.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [italic]CAVERE INSIDIAS[/italic]
+        [italic]КАВЕРЕ ИНСИДИАС[/italic]
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Lesser Summon Bees
+        Меньший призыв пчёл
       </Box>
     </ColorBox>
     <ColorBox>
@@ -733,7 +733,7 @@
     </ColorBox>
     <ColorBox Color="#4d2e2e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Yes
+        Да
       </Box>
     </ColorBox>
     <ColorBox>
@@ -743,17 +743,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Summons a swarm of angry bees.
+       Вызывает рой разъяренных пчел.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [italic]NOT THE BEES[/italic]
+        [italic]ТОЛЬКО НЕ ПЧЁЛЫ[/italic]
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Summon Simians
+        Призыв обезьян
       </Box>
     </ColorBox>
     <ColorBox>
@@ -763,7 +763,7 @@
     </ColorBox>
     <ColorBox Color="#4d2e2e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Yes
+        Да
       </Box>
     </ColorBox>
     <ColorBox>
@@ -773,17 +773,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Summons angry chimps and gorillas.
+       Призывает разъяренных обезьян и горилл.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [italic]OOGA OOGA OOGA!!!![/italic]
+        [italic]УГА УГА УУГА!!!![/italic]
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Exsanguinating Strike
+        Кровожадный удар
       </Box>
     </ColorBox>
     <ColorBox>
@@ -793,7 +793,7 @@
     </ColorBox>
     <ColorBox Color="#4d2e2e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Yes
+        Да
       </Box>
     </ColorBox>
     <ColorBox>
@@ -803,17 +803,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Empowers your weapon to deal more damage as well as to steal health and blood from your enemies.
+        Позволяет вашему оружию наносить больший урон, а также забирать здоровье и кровь у ваших врагов.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [italic]SHAPSDAY[/italic]
+        [italic]ШАПСДЕЙ[/italic]
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Chuuni Invocations
+        Призыв Чууни
       </Box>
     </ColorBox>
     <ColorBox>
@@ -823,7 +823,7 @@
     </ColorBox>
     <ColorBox Color="#2e422e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        No
+        Нет
       </Box>
     </ColorBox>
     <ColorBox>
@@ -833,7 +833,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Replaces your wizard hat with unremoveable medical eyepatch that still allows you to cast spells with your robes. Makes all of the spells require special incantations. Heals slightly after casting a spell.
+        Заменяет вашу шляпу волшебника несъемной медицинской повязкой на глазу, которая по-прежнему позволяет вам произносить заклинания, не снимая мантии. Для всех заклинаний требуются специальные заклинания. После произнесения заклинания немного заживает.
       </Box>
     </ColorBox>
     <ColorBox>
@@ -843,7 +843,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Swap
+        Мена
       </Box>
     </ColorBox>
     <ColorBox>
@@ -853,7 +853,7 @@
     </ColorBox>
     <ColorBox Color="#2e422e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        No
+        Нет
       </Box>
     </ColorBox>
     <ColorBox>
@@ -863,7 +863,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Swaps positions with your target.
+        Меняйтесь позициями со своей целью.
       </Box>
     </ColorBox>
     <ColorBox>
@@ -883,7 +883,7 @@
     </ColorBox>
     <ColorBox Color="#4d2e2e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Yes
+        Да
       </Box>
     </ColorBox>
     <ColorBox>
@@ -893,17 +893,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Trades 20 max health for a recharge of all of your spells.
+        Обменивает 20 единиц максимального здоровья на перезарядку всех ваших заклинаний.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [italic]AT ANY COST![/italic]
+        [italic]ЛЮБОЙ ЦЕНОЙ![/italic]
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Thrown\nLightning
+        Брошенная молния
       </Box>
     </ColorBox>
     <ColorBox>
@@ -913,7 +913,7 @@
     </ColorBox>
     <ColorBox Color="#2e422e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        No
+        Нет
       </Box>
     </ColorBox>
     <ColorBox>
@@ -923,7 +923,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Allows you to throw a lightning bolt spell packet that stuns your enemies.
+        Позволяет вам использовать пакет заклинания, который оглушает ваших врагов.
       </Box>
     </ColorBox>
     <ColorBox>
@@ -933,7 +933,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Blink
+        Блинк
       </Box>
     </ColorBox>
     <ColorBox>
@@ -943,7 +943,7 @@
     </ColorBox>
     <ColorBox Color="#4d2e2e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Yes
+        Да
       </Box>
     </ColorBox>
     <ColorBox>
@@ -953,7 +953,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Randomly teleports you a short distance.
+        Случайным образом телепортирует вас на небольшое расстояние.
       </Box>
     </ColorBox>
     <ColorBox>
@@ -963,7 +963,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Ethereal Jaunt
+        Эфирный прыжок
       </Box>
     </ColorBox>
     <ColorBox>
@@ -973,7 +973,7 @@
     </ColorBox>
     <ColorBox Color="#4d2e2e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Yes
+        Да
       </Box>
     </ColorBox>
     <ColorBox>
@@ -983,7 +983,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Makes you invisible and allows you to pass through walls for a short time.
+        Делает вас невидимым и позволяет на короткое время проходить сквозь стены.
       </Box>
     </ColorBox>
     <ColorBox>
@@ -993,7 +993,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Fireball
+        Огненный шар
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1003,7 +1003,7 @@
     </ColorBox>
     <ColorBox Color="#2e422e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        No
+        Нет
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1013,7 +1013,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Shoots an explosive fireball at the click location.
+        Стреляет огненным шаром в место клика.
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1023,7 +1023,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Rod Form
+        Полиморф-жезл
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1033,7 +1033,7 @@
     </ColorBox>
     <ColorBox Color="#4d2e2e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Yes
+        Да
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1043,17 +1043,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Turns you into an immovable rod for a short time.
+        На короткое время превращает вас в неподвижный стержень.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [italic]CLANG![/italic]
+        [italic]ЛЯЗГ![/italic]
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Force Wall
+        Силовая стена
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1063,7 +1063,7 @@
     </ColorBox>
     <ColorBox Color="#2e422e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        No
+        Нет
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1073,7 +1073,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Summons a 3x1 magic wall that nobody except you can pass through.
+        Создает магическую стену размером 3х1, через которую никто, кроме вас, не сможет пройти.
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1083,7 +1083,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Charge
+        Зарядка
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1093,7 +1093,7 @@
     </ColorBox>
     <ColorBox Color="#2e422e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        No
+        Нет
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1103,12 +1103,12 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Charges wands, staves or energy items.
+        Заряжает волшебные палочки, посохи или энергетические предметы.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [italic]DI'RI CEL[/italic]
+        [italic]ДИ'РИ ЦЕЛ[/italic]
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1123,7 +1123,7 @@
     </ColorBox>
     <ColorBox Color="#2e422e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        No
+        Нет
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1133,7 +1133,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Swaps minds with your target.
+        Обмен мыслями со своей целью.
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1143,7 +1143,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Smite
+        Поражение
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1153,7 +1153,7 @@
     </ColorBox>
     <ColorBox Color="#4d2e2e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Yes
+        Да
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1163,7 +1163,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Gibs your target.
+        Поражает вашу цель.
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1173,7 +1173,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Knock
+        Тук-тук
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1183,7 +1183,7 @@
     </ColorBox>
     <ColorBox Color="#2e422e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        No
+        Нет
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1193,7 +1193,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Opens nearby doors and lockers.
+        Открывает ближайшие двери и шкафчики.
       </Box>
     </ColorBox>
     <ColorBox>

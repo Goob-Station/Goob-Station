@@ -1,29 +1,28 @@
 ﻿<Document>
-  # Wire Panels
-  Some station devices like airlocks, vending machines, and arcade consoles have wire panels, which control certain aspects of their functionality.
+  # Техническая панель
+  Некоторые станционные устройства такие как шлюзы, торгоматы и компьютеры имеют техническую панель, с помощью которой можно контролировать некоторые аспекты функционала.
 
-  These panels can be opened using a screwdriver to access the wiring inside.
-
-  <Box>
-    <GuideEntityEmbed Entity="Wirecutter"/>
-    <GuideEntityEmbed Entity="Screwdriver"/>
-    <GuideEntityEmbed Entity="Multitool"/>
-  </Box>
-
-  From here you can use wirecutters and a multitool to interact with the wiring. Note that interacting with the wiring often requires insulated gloves, as if the wire is live, you can get shocked.
+  Техническую панель можно открыть с помощью отвёртку и получить доступ к проводам внутри.
 
   <Box>
-    <GuideEntityEmbed Entity="ClothingHandsGlovesColorYellow"/>
+    <GuideEntityEmbed Entity="Wirecutter" Caption="кусачки"/>
+    <GuideEntityEmbed Entity="Screwdriver" Caption="отвёртка"/>
+    <GuideEntityEmbed Entity="Multitool" Caption="мультитул"/>
   </Box>
 
-  You can cut and mend wires using the wirecutters and pulse wires using the multitool.
+  С этого шага вы можете использовать кусачки и мультитул для взаимодействия с проводами. Заметьте что для взаимодействия с проводами часто будут нужны изолированные перчатки, пока провод не перекушен, вы можете получить удар током.
 
-  Cutting wires often completely disables or restores functionality to a device.
-  It may also trigger unintended functionality like shocking people, dropping door bolts, or exploding.
+  <Box>
+    <GuideEntityEmbed Entity="ClothingHandsGlovesColorYellow" Caption="изолированные перчатки"/>
+  </Box>
 
-  Pulsing wires can have a variety of effects, but oftentimes it either temporarily disables or enables functionality.
+  Вы можете резать и чинить провода используя кусачки и пульсировать провода с помощью мультитула.
 
-  You can't pulse wires if the wire you're trying to pulse is cut. You have to mend the wire first.
+  Обрезка проводов часто полностью отключает или возвращает функциональность устройства.
+  Также это может спровоцировать непредсказуемые функции такие как удар током, опускание болтов шлюза или вовсе взрыв.
 
+  Пульсирование проводов вызывает различные эффекты, но часто это временно отключает или возвращает функции.
+
+  Вы не можете пульсировать провода если тот был перекушен.
 
 </Document>

@@ -1,5 +1,5 @@
 ﻿<Document>
-  # Tesla Engine
+  # Генератор на основе Теслы
   The Tesla Engine is a powerful generator that uses a contained ball of lightning to produce energy for the station.
   <Box>
     <GuideEntityEmbed Entity="TeslaGenerator"/>
@@ -10,7 +10,7 @@
 
   It generates power by harnessing the lightning strikes produced by the lightning ball using Tesla Coils.
 
-  ## Containment Field
+  ## Поле сдерживаемя
   The Tesla Engine requires a containment field to prevent the lightning ball from escaping and destroying the station.
 
   It is suggested to use the minimum size containment field for the lightning ball.

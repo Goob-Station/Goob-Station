@@ -1,20 +1,20 @@
 ﻿<Document>
-  # Power Storage
-  Because of [textlink="Power Ramping" link="Ramping"], it is important to have power storage devices to help flatten out spikes and dips in power usage, as well as to provide power in the event of a power deficit.
+  # Энергохранилища
+  Из-за [textlink="увеличения мощности" link="Ramping"], важно иметь устройства накопления энергии, которые помогут сгладить резкие перепады энергопотребления, а также обеспечат подачу электроэнергии в случае ее дефицита.
 
-  Each transformer for its respective power level ([color=orange]HV[/color], [color=yellow]MV[/color], and [color=green]LV[/color]) has an attached small battery to handle minor spikes and dips; however, this is not viable in the case of a large grid deficit.
+  Каждый трансформатор соответствует своему уровню мощности ([color=orange]ВВ[/color], [color=yellow]СВ[/color], и [color=green]НВ[/color]) имеют встроенную небольшую батарею, позволяющую справляться с незначительными скачками напряжения; однако это нецелесообразно в случае большого дефицита энергии в сети.
 
-  ## SMES
+  ## СМЭС
 
-  The Superconducting Magnetic Energy Storage (SMES) unit is a device that can store a large amount of power and release it quickly.
+  Сверхпроводящий магнитный энергетический (СМЭС) - это устройство, которое может накапливать большое количество энергии и быстро высвобождать ее.
 
   <Box>
     <GuideEntityEmbed Entity="SMESBasic"/>
   </Box>
 
-  In order to charge the SMES unit, [color=orange]HV[/color] power must be provided to a cable terminal pointing at the SMES unit. The SMES will draw power from the terminal and send power out from underneath.
+  Для того чтобы зарядить СМЭС, [color=orange]ВВ[/color] кабель должен быть подключен к кабельному терминалу, направленной на СМЭС. СМЭС будет получать питание от терминала и передавать его снизу.
 
-  The terminal will ensure that the [color=orange]HV input[/color] and [color=orange]HV output[/color] do not connect.
+  Терминал обеспечит, чтобы [color=orange]вход ВВ[/color] и [color=orange]выход ВВ[/color] не будут подключены.
 
   <Box HorizontalAlignment="Stretch">
     <Box>
@@ -29,22 +29,20 @@
     </Box>
   </Box>
 
-  SMESes can store [color=orange][protodata="SMESBasic" comp="Battery" member="MaxCharge" format="N0"/] J[/color] of energy and can output a maximum [color=orange][protodata="SMESBasic" comp="PowerNetworkBattery" member="MaxSupply" format="N0"/] W[/color] of power.
+  СМЭСы могут хранить до [color=orange][protodata="SMESBasic" comp="Battery" member="MaxCharge" format="N0"/] Джоулей[/color] энергии и может выдавать максимальную [color=orange][protodata="SMESBasic" comp="PowerNetworkBattery" member="MaxSupply" format="N0"/] Ватт[/color] энергии.
 
-  If the battery is full, the SMES will pass through the power it receives from the input cable to the output cable. In the event of a power deficit, the SMES will ramp up to supplement the power draw.
+  Если аккумулятор полностью заряжен, СМЭС будет передавать энергию, которую он получает от входного кабеля, на выходной кабель. В случае нехватки электроэнергии СМЭС увеличит потребление энергии, чтобы увеличить потребление электроэнергии.
 
-  ## Advanced SMES
-  The Advanced SMES unit is a more advanced version of the SMES unit that can store even more power.
+  ## Улучшенный СМЭС
+  Улучшенный СМЭС - это более продвинутая версия СМЭСа, которая может накапливать еще больше энергии.
 
   <Box>
     <GuideEntityEmbed Entity="SMESAdvanced"/>
   </Box>
 
-  They're primarily used in station SMES arrays to store large amounts of power for the station's power grid.
-  They help to buy engineers time to setup power at roundstart or to provide power in the event of a power deficit for extended periods of time.
+  В основном они используются на станционных массивах СМЭСов для хранения больших объемов электроэнергии для энергосистемы станции.
+  Улучшенные СМЭСы могут хранить до [color=orange][protodata="SMESAdvanced" comp="Battery" member="MaxCharge" format="N0"/] Джоулей[/color] энергии и могут высвобождать до [color=orange][protodata="SMESAdvanced" comp="PowerNetworkBattery" member="MaxSupply" format="N0"/] Ватт[/color] энергии.
 
-  Advanced SMESes can store [color=orange][protodata="SMESAdvanced" comp="Battery" member="MaxCharge" format="N0"/] J[/color] of energy and can output a maximum [color=orange][protodata="SMESAdvanced" comp="PowerNetworkBattery" member="MaxSupply" format="N0"/] W[/color] of power.
-
-  Keep in mind that these aren't a magic solution to power deficits and they can't store infinite energy.
-  A station load will drain these battries quickly if there is no power source partially supporting them.
+  Имейте в виду, что это не волшебное решение проблемы дефицита электроэнергии и они не могут накапливать бесконечное количество энергии.
+  При перегрузке станции эти батареи быстро разряжаются, если нет источника питания, частично поддерживающего их.
 </Document>
