@@ -170,7 +170,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
         while (borg.MoveNext(out var uid, out _, out var slb, out _))
         {
             if (!TryComp<ActorComponent>(uid, out var actor))
-                return;
+                continue;
 
             var laws = _law.GetLaws(uid, slb).Laws;
             if (!_law.HasLawLocale(laws, ObeyAiLocale))
