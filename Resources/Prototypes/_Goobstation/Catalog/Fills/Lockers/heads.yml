@@ -29,14 +29,15 @@
     children:
     - id: DefibrillatorCompact
     - id: MedkitBSOFilled
-    - id: MedkitBSOIPCFilled
+    - id: MedkitBSOIPCFilled # Still don't know how I feel about this.
     - id: FlippoLighterBlueshield
+    - id: CigPackBlueshield
     - id: BoxZiptie
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
     - id: ClothingHeadHelmetSwat
     - id: ClothingOuterHardsuitBlueshield
-    - id: ClothingBackpackDuffelSurgeryFilled # Still don't know how I feel about this.
+    - id: ClothingBackpackDuffelSurgeryFilled # Or this.
 
 - type: entity
   id: LockerBlueshieldOfficerFilled
