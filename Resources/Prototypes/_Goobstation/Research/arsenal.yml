@@ -45,7 +45,7 @@
     state: icon
   discipline: Arsenal
   tier: 2
-  cost: 13500
+  cost: 10000
   recipeUnlocks:
   - Terminus
   - WeaponXrayCannon
