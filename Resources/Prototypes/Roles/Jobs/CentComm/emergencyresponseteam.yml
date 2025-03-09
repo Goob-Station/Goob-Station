@@ -130,7 +130,7 @@
     id: ERTChaplainPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltStorageWaistbag
-    pocket1: Flare
+    pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives".
     pocket2: DrinkWaterBottleFull
   storage:
     back:
@@ -213,7 +213,7 @@
     id: ERTEngineerPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltChiefEngineerFilled
-    pocket1: Flare
+    pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives".
     pocket2: GasAnalyzer
   storage:
     back:
@@ -290,7 +290,7 @@
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityFilled
-    pocket1: WeaponPulsePistol # Death to Crew aligned Ballistics
+    pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives".
     pocket2: FlashlightSeclite
   storage:
     back:
@@ -385,6 +385,7 @@
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityWebbingFilledMedical # Fancier
     pocket1: Flare
+    pocket2: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives".
   storage:
     back:
     - CentCommHypo
@@ -408,7 +409,7 @@
     id: ERTMedicPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityWebbingFilledMedical # Fancier
-    pocket1: Flare
+    pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives".
   storage:
     back:
     - CentCommHypo
@@ -450,7 +451,7 @@
     id: ERTJanitorPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltJanitorFilled
-    pocket1: Flare
+    pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives".
   storage:
     back:
     - LightReplacer
@@ -473,7 +474,7 @@
     id: ERTJanitorPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltJanitorFilled
-    pocket1: Flare
+    pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives".
   storage:
     back:
     - LightReplacer
