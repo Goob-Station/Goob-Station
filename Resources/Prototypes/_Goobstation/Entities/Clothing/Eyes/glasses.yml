@@ -5,9 +5,9 @@
   description: Sunglasses with a medical and security hud
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Eyes/Glasses/medglasses.rsi
+    sprite: _Goobstation/Clothing/Eyes/Glasses/medsecglasses.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Eyes/Glasses/medglasses.rsi
+    sprite: _Goobstation/Clothing/Eyes/Glasses/medsecglasses.rsi
   - type: Construction
     graph: GlassesMedSecHUD
     node: glassesMedSec
@@ -84,3 +84,82 @@
   - type: Construction
     graph: GlassesMedHUD
     node: glassesMed
+
+- type: entity
+  parent: [ClothingEyesHudOmni, BaseCentcommContraband]
+  id: ClothingEyesGlassesDeathsquad
+  suffix: DO NOT MAP
+  name: central commander shades
+  description: Pride. Hubris. Wrath. It's not a sin if you're right.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Eyes/Glasses/deathsquad.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Eyes/Glasses/deathsquad.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: ThermalVision
+    isEquipment: true
+    color: "#98EEFB"
+    lightRadius: 15
+  - type: ChameleonClothing
+    slot: [ eyes ]
+    default: ClothingEyesGlassesDeathsquad
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+
+- type: entity
+  parent: [ClothingEyesHudOmni, BaseCentcommContraband]
+  id: ClothingEyesGlassesCentComm
+  suffix: DO NOT MAP
+  name: central command shades
+  description: A pair of shades designed for central command personnel. Comes with more features than you could imagine.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Eyes/Glasses/centcommglasses.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Eyes/Glasses/centcommglasses.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: ThermalVision
+    isEquipment: true
+    color: "#98EEFB"
+    lightRadius: 15
+
+- type: entity
+  parent: [ClothingEyesBase, ShowSecurityIcons, ShowHealthRelatedIcons, BaseSecurityContraband, ClothingEyesGlassesSunglasses]
+  id: ClothingEyesGlassesBSO
+  name: blueshield officer glasses
+  description: Sunglasses with a medical, security and diagnostic hud.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Eyes/Glasses/bsoglasses.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Eyes/Glasses/bsoglasses.rsi
+
+
+- type: entity
+  parent: [ClothingEyesBase, ClothingEyesGlassesSunglasses, ShowHealthRelatedIcons]
+  id: ClothingEyesGlassesMedDiag
+  name: meddiag glasses
+  description: Sunglasses with a medical and diagnostic hud.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Eyes/Glasses/meddiagglasses.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Eyes/Glasses/meddiagglasses.rsi
+  - type: Construction
+    graph: GlassesMedDiagHUD
+    node: glassesMedDiag
+

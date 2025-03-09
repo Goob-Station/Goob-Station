@@ -3,7 +3,7 @@
 - type: entity
   name: security cartridge autoinjector
   parent: [BaseItem, BaseSecurityContraband]
-  description: Used for rapid administration of medicine. Uses cartridges printable at the medical and security techfab.
+  description: Used for rapid administration of medicine. Uses cartridges printable at the security techfab.
   id: SecHypo
   components:
   - type: Sprite
@@ -16,8 +16,10 @@
       hypospray:
         maxVol: 10
         reagents:
-        - ReagentId: Epinephrine
-          Quantity: 10
+        - ReagentId: Bicaridine
+          Quantity: 7
+        - ReagentId: TranexamicAcid
+          Quantity: 3
   - type: ExaminableSolution
     solution: hypospray
   - type: Hypospray
@@ -33,8 +35,8 @@
 
 - type: entity
   name: medical cartridge autoinjector # statistically identical to the security autoinjector but made a seperate entity so they can be balanced seperately in the future.
-  parent: [SecHypo, BaseMedicalContraband]
-  description: Used for rapid administration of medicine. Uses cartridges printable at the medical and security techfab.
+  parent: [BaseMedicalContraband, SecHypo]
+  description: Used for rapid administration of medicine. Uses cartridges printable at the medical techfab.
   id: ParamedHypo
   components:
   - type: Sprite
@@ -42,6 +44,37 @@
     state: icon
   - type: Item
     sprite: _Goobstation/Objects/Specific/Medical/medical_hypo.rsi
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 10
+        reagents:
+        - ReagentId: Atropine
+          Quantity: 10
+
+- type: entity
+  name: centcomm hypospray
+  parent: [BaseItem, BaseCentcommContraband]
+  description: Reserved for Nanotrasen's top doctors. It utilizes experimental bluespace technology.
+  id: CentCommHypo
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/centcomm_hypo.rsi
+    state: hypo
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Medical/centcomm_hypo.rsi
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 50
+  - type: RefillableSolution
+    solution: hypospray
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Hypospray
+    onlyAffectsMobs: false
+  - type: UseDelay
+    delay: 0.2
 
 # Auto-injector Cartridges
 
@@ -176,6 +209,7 @@
   name: futuristic medipen
   parent: ChemicalMedipen
   id: StasiziumAutoInjector
+  suffix: DO NOT MAP
   description: A dose of medicinal substances from the future that can raise even the dead to their feet
   components:
   - type: Sprite
@@ -199,3 +233,126 @@
           Quantity: 10
   - type: Tag
     tags: []
+
+
+- type: entity
+  name: centcomm advanced stimulant
+  parent: [ChemicalMedipen, BaseCentcommContraband]
+  id: CentcommStimpack
+  suffix: DO NOT MAP
+  description: According to a Nanotrasen funded study, it has zero addictive properties.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: ntstimpen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 50
+        reagents:
+        - ReagentId: Stimulants
+          Quantity: 50
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: ntstimpen_empty
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 50
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: StaticPrice
+    price: 500
+  - type: Tag
+    tags: []
+
+- type: entity
+  name: amnestic spray
+  parent: [SecHypo, BaseCentcommContraband]
+  id: AmnestizineHypospray
+  suffix: DO NOT MAP
+  description: Prevents the subject from remembering anything prior or during the injection.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/amnestic_hypo.rsi
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Medical/amnestic_hypo.rsi
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 100
+        reagents:
+        - ReagentId: Amnestizine
+          Quantity: 100
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Hypospray
+    solutionName: hypospray
+    transferAmount: 5
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: HyposprayBlockNonMobInjection
+  - type: UseDelay
+    delay: 0.1 # UseDelays are for LOSERs
+  - type: Tag
+    tags: []
+
+- type: entity
+  name: biohazard medipen
+  parent: ChemicalMedipen
+  id: AmbuzolMedipen
+  suffix: DO NOT MAP
+  description: A safe and effective way to treat infections. Does not prevent re-infection.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: ambuzolpen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: ambuzolpen_empty
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: Ambuzol
+          Quantity: 10
+        - ReagentId: Ultravasculine
+          Quantity: 5
+  - type: Tag
+    tags:
+    - EmergencyMedipen
+
+- type: entity
+  name: advanced biohazard medipen
+  parent: ChemicalMedipen
+  id: AmbuzolPlusMedipen
+  suffix: DO NOT MAP
+  description: A safer and extremely effective way to treat any infections. Prevents re-infection.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: ambuzolpluspen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: ambuzolpen_empty
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 10
+        reagents:
+        - ReagentId: AmbuzolPlus
+          Quantity: 5
+        - ReagentId: Diphenhydramine
+          Quantity: 15
+  - type: Tag
+    tags:
+    - EmergencyMedipen

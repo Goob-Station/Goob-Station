@@ -4,10 +4,12 @@ namespace Content.Client.Chat.Managers
 {
     public interface IChatManager : ISharedChatManager
     {
+        void Initialize(); // Goobstation - Starlight collective mind port
+
         public void SendMessage(string text, ChatSelectChannel channel);
 
         /// <summary>
-        ///     Nyano - Summary:. Will refresh perms.
+        ///     Will refresh perms.
         /// </summary>
         event Action PermissionsUpdated;
         public void UpdatePermissions();

@@ -6,6 +6,7 @@ using Content.Shared._Shitmed.Body.Organ; // Shitmed Change
 using Content.Server.Chat.Systems;
 using Content.Server.EntityEffects.EffectConditions;
 using Content.Server.EntityEffects.Effects;
+using Content.Shared._Goobstation.MartialArts.Components; // Goobstation - Martial Arts
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
@@ -60,7 +61,11 @@ public sealed class RespiratorSystem : EntitySystem
     {
         if(respirator.Saturation < respirator.SuffocationThreshold)
             return false;
-        return !TryComp<PullableComponent>(uid, out var pullable) || pullable.GrabStage != GrabStage.Suffocate;
+        if (TryComp<PullableComponent>(uid, out var pullable)
+            && pullable.GrabStage == GrabStage.Suffocate)
+            return false;
+        
+        return !HasComp<KravMagaBlockedBreathingComponent>(uid);
     }
     // Goobstation end
     private void OnMapInit(Entity<RespiratorComponent> ent, ref MapInitEvent args)
