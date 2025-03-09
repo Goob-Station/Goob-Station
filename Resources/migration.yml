@@ -77,7 +77,6 @@ DefaultStationBeaconMantis: null
 DefaultStationBeaconMetempsychosis: null
 DefaultStationBeaconPark: null
 DefaultStationBeaconPsychologist: null
-DefaultStationBeaconReporter: null
 DefaultStationBeaconVirology: null
 DrinkBubbleTeaGlass: null
 FishLabeler: null
@@ -169,7 +168,6 @@ VendingMachineBoozeUnlocked: null
 VendingMachineBoxingDrobe: null
 VendingMachineCourierDrobe: null
 VendingMachineMNKDrobe: null
-VendingMachinePride: null
 VendingMachineRepDrobe: null
 WallPaper: null
 WarpPointAI: null

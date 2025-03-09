@@ -13,3 +13,11 @@
   components:
   - type: Label
     currentLabel: holopad-command-bso
+
+- type: entity
+  parent: Holopad
+  id: HolopadCommandCCOffice
+  suffix: CC Office
+  components:
+  - type: Label
+    currentLabel: holopad-command-cc-office
