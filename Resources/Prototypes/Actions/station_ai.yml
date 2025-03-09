@@ -56,7 +56,7 @@
 - type: entity
   id: ActionAISiliconAnnounce
   name: silicon Announce
-  description: Do a announce to all allowed silicons
+  description: Do a announcement to all allowed silicons
   components:
   - type: InstantAction
     priority: -2
@@ -65,4 +65,5 @@
       sprite: Interface/Actions/actions_ai.rsi
       state: borg_order
     event: !type:SiliconAnnounceEvent
-    useDelay: 300.0 # 5 minutes delay
+    useDelay: 60
+

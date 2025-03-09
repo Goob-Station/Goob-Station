@@ -142,7 +142,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
     }
 
     // Goobstation - Borg announce
-    private void OnBorgAnnounce(Entity<StationAiHeldComponent> ent, ref SiliconAnnounceEvent args)
+    private void OnBorgAnnounce(Entity<StationAiHeldComponent> ent, SiliconAnnounceEvent args)
     {
         if (!TryComp<ActorComponent>(ent.Owner, out var actor))
             return;
@@ -155,6 +155,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
                 result = result.Substring(0, 155) + "...";
 
             SendBorgOrder(result);
+            args.Handled = true;
         });
     }
 
@@ -168,10 +169,10 @@ public sealed class StationAiSystem : SharedStationAiSystem
         var borg = AllEntityQuery<BorgChassisComponent, SiliconLawBoundComponent, MindContainerComponent>();
         while (borg.MoveNext(out var uid, out _, out var slb, out var mc))
         {
-            if (HasComp<BorgChassisComponent>(uid) ||
+            /*if (HasComp<BorgChassisComponent>(uid) ||
                 HasComp<MindContainerComponent>(uid) ||
                 HasComp<SiliconLawBoundComponent>(uid))
-                continue;
+                continue;*/
             Log.Debug("2");
 
             var laws = _law.GetLaws(uid, slb).Laws;
