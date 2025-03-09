@@ -1,0 +1,36 @@
+- type: entity
+  id: FishingRod
+  parent: BaseItem
+  name: fishing rod
+  description: It's time to go fishing!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/fishing_rod.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/fishing_rod.rsi
+    size: Normal
+  - type: UseDelay # Just for visuals and to prevent autoclickers
+    delay: 0.04 # 25 CPS at max
+  - type: MeleeWeapon
+    wideAnimationRotation: 45
+    attackRate: 1.0
+    damage:
+      types:
+        Piercing: 4
+  - type: FishingRod
+  # TODO appearance
+
+- type: entity
+  id: FishingLure
+  parent: BaseItem
+  name: fishing lure
+  description: fish come here
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/fishing_lure.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/fishing_lure.rsi
+    size: Normal
+  - type: FishingLure

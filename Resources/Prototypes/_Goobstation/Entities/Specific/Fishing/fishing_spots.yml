@@ -1,0 +1,50 @@
+- type: entity
+  id: BaseFishingSpot
+  abstract: true
+  name: suspicuous waves
+  description: Something is floating here...
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: FishingSpot
+    fishList: !type:NestedSelector
+      tableId: WaterFishingLootTable
+    fishDefaultTimer: 25.0
+    FishTimerVariety: 15.0
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        mask:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        - InteractImpassable
+        - Opaque
+        layer:
+        - MidImpassable
+        - HighImpassable
+        - BulletImpassable
+        - InteractImpassable
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: PhysicsGunBlacklist
+  # TODO: change visuals when it's active
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/fishing_spots.rsi
+    state: water
+  - type: Icon
+    sprite: _Goobstation/Objects/Specific/Fishing/fishing_spots.rsi
+    state: water
+
+- type: entity
+  id: FishingSpotWater
+  parent: BaseFishingSpot

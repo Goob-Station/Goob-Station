@@ -1,0 +1,12 @@
+- type: entity
+  id: ActionStartFishing
+  name: action-fishing-start
+  description: action-fishing-start-desc
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _Goobstation/Objects/Specific/Fishing/fishing_rod.rsi
+      state: icon
+    itemIconStyle: NoItem
+    event: !type:ThrowFishingLureActionEvent
+    useDelay: 5
