@@ -14,9 +14,11 @@ using Content.Shared.Labels.EntitySystems;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
+using Content.Shared.VoiceMask;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using System;
 using System.Linq;
 
 namespace Content.Shared._Shitmed.Autodoc.Systems;
@@ -49,6 +51,7 @@ public abstract class SharedAutodocSystem : EntitySystem
             s.Event<AutodocRemoveStepMessage>(OnRemoveStep);
             s.Event<AutodocStartMessage>(OnStart);
             s.Event<AutodocStopMessage>(OnStop);
+            s.Event<AutodocImportProgramMessage>(OnImportProgram);
         });
 
         SubscribeLocalEvent<ActiveAutodocComponent, SurgeryStepEvent>(OnSurgeryStep);
@@ -126,6 +129,11 @@ public abstract class SharedAutodocSystem : EntitySystem
     private void OnStop(Entity<AutodocComponent> ent, ref AutodocStopMessage args)
     {
         RemComp<ActiveAutodocComponent>(ent);
+    }
+
+    private void OnImportProgram(Entity<AutodocComponent> ent, ref AutodocImportProgramMessage args)
+    {
+        ImportProgram(ent, args.Program, args.Actor);
     }
 
     #endregion
@@ -294,8 +302,9 @@ public abstract class SharedAutodocSystem : EntitySystem
     /// </summary>
     public bool StartSurgery(Entity<AutodocComponent> ent, EntityUid patient, EntityUid part, EntProtoId surgery)
     {
-        if (ent.Comp.RequireSleeping && IsAwake(patient))
-            throw new AutodocError("patient-unsedated");
+        // Who cares about sedation???
+        //if (ent.Comp.RequireSleeping && IsAwake(patient))
+        //    throw new AutodocError("patient-unsedated");
 
         if (_surgery.GetSingleton(surgery) is not {} singleton)
             return false;
@@ -316,6 +325,29 @@ public abstract class SharedAutodocSystem : EntitySystem
     public bool IsAwake(EntityUid uid)
     {
         return _mobState.IsAlive(uid) && !HasComp<SleepingComponent>(uid);
+    }
+
+    /// <summary>
+    /// Creates a new program and populates it using another AutodocProgram.
+    /// Will return false on fail. True on success.
+    /// </summary>
+    public bool ImportProgram(Entity<AutodocComponent> ent, AutodocProgram program, EntityUid user)
+    {
+        var idx = CreateProgram(ent, program.Title);
+
+        if (!idx.HasValue)
+            return false;
+
+        for (int key = 0; key < program.Steps.Count; ++key)
+        {
+            if (!program.Steps[key].Validate(ent, this))
+            {
+                Log.Warning($"User {ToPrettyString(user)} tried to add an invalid autodoc step!");
+                return false;
+            }
+            AddStep(ent, idx.Value, program.Steps[key], key, user);
+        }
+        return true;
     }
 
     /// <summary>
