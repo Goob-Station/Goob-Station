@@ -55,8 +55,8 @@
 # Goobstation - better silicon communication
 - type: entity
   id: ActionAISiliconAnnounce
-  name: silicon Announce
-  description: Do a announcement to all allowed silicons
+  name: Make an Silicion Announcement
+  description: Make an announcement to all silicons that obey you.
   components:
   - type: InstantAction
     priority: -2

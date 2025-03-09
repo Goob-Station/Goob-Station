@@ -162,7 +162,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
     /// <summary>
     /// Send a order popup to all borgs that have ai law
     /// </summary>
-    public void SendBorgOrder(string order, PopupType popupType = PopupType.Small)
+    public void SendBorgOrder(string order, PopupType popupType = PopupType.Large)
     {
         var message = Loc.GetString("ai-borg-order-popup-text", ("message", order));
         var borg = AllEntityQuery<BorgChassisComponent, SiliconLawBoundComponent, MindContainerComponent>();
