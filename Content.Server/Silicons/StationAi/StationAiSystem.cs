@@ -147,7 +147,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
         if (!TryComp<ActorComponent>(ent.Owner, out var actor))
             return;
 
-        _quickDialog.OpenDialog(actor.PlayerSession, Loc.GetString("ai-borg-order-prompt-tittle"), "", (string result) =>
+        _quickDialog.OpenDialog(actor.PlayerSession, Loc.GetString("ai-borg-order-prompt-title"), "", (string result) =>
         {
             if (result.Length <= 0)
                 return;
@@ -159,6 +159,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
         args.Handled = true;
     }
 
+    private const string ObeyAiLocale = "law-obeyai";
     /// <summary>
     /// Send a order popup to all borgs that have ai law
     /// </summary>
@@ -168,13 +169,9 @@ public sealed class StationAiSystem : SharedStationAiSystem
         var borg = AllEntityQuery<BorgChassisComponent, SiliconLawBoundComponent, MindContainerComponent>();
         while (borg.MoveNext(out var uid, out _, out var slb, out _))
         {
-            if (!HasComp<BorgChassisComponent>(uid) ||
-                !HasComp<MindContainerComponent>(uid) ||
-                !HasComp<SiliconLawBoundComponent>(uid))
-                continue;
 
             var laws = _law.GetLaws(uid, slb).Laws;
-            if (!_law.HasLawLocale(laws, "law-obeyai"))
+            if (!_law.HasLawLocale(laws, ObeyAiLocale))
                 continue; // theres no way to verify a law prototype
 
             _popup.PopupEntity(message, uid, uid, popupType);

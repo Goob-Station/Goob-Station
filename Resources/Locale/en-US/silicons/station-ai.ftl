@@ -26,6 +26,6 @@ ai-consciousness-download-warning = Your consciousness is being downloaded.
 # Goobstation - AI order start
 ai-borg-order-popup-text = New station AI announcement: {$message}
 
-ai-borg-order-prompt-tittle = Send an announcement to all silicons that obey you
+ai-borg-order-prompt-title = Send an announcement to all silicons that obey you
 
 # Goobstation - AI order end
