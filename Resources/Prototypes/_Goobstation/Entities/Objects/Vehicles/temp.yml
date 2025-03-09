@@ -1,49 +1,9 @@
 - type: entity
-  id: ActionThankDriver
-  name: Thank Driver
-  description: show the driver you enjoy beeing a passanger
-  components:
-  - type: InstantAction
-    itemIconStyle: NoItem
-    icon:
-      sprite: Objects/Vehicles/clowncar.rsi
-      state: icon
-    event: !type:ThankRiderActionEvent
-    useDelay: 60
-
-- type: entity
-  id: ActionQuietBackThere
-  name: Quiet back there
-  description: tell the passangers to be quiet
-  components:
-  - type: InstantAction
-    itemIconStyle: NoItem
-    icon:
-      sprite: Objects/Fun/bikehorn.rsi #replace whit mime mask
-      state: icon
-    event: !type:QuietBackThereActionEvent
-    useDelay: 30
-
-- type: entity
-  id: ActionCanonmode
-  name: activate canon
-  description: FIRE THE URSA CLAWS!!
-  components:
-  - type: InstantAction
-    itemIconStyle: NoItem
-    icon:
-      sprite: Objects/Fun/bikehorn.rsi
-      state: icon
-    event: !type:ClowncarFireModeActionEvent
-    useDelay: 2
-
-- type: entity
   parent: BaseVehicle
   id: TestCowncarBase
   name: testclowncar
-  description: Clowncar description
+  description: Clown car description
   components:
-
   - type: Sprite
     sprite: Objects/Vehicles/clowncar.rsi
     layers:
@@ -51,7 +11,6 @@
         map: ["enum.ClowncarLayers.Base"]
     netsync: false
     noRot: true
-
   - type: Vehicle
     renderOver: North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest
     requiredHands: 1
@@ -59,14 +18,12 @@
       collection: BikeHorn
       params:
         variation: 0.125
-
   - type: MovementSpeedModifier
     weightlessModifier: 0
     acceleration: 1
     friction: 1
     baseWalkSpeed: 4.5
     baseSprintSpeed: 7
-
   - type: ItemSlots
     slots:
       key_slot:
@@ -80,17 +37,15 @@
           path: /Audio/Effects/Vehicle/vehiclestartup.ogg
           params:
             volume: -3
-
   - type: Strap
     maxBuckleDistance: 1
     buckleOnInteractHand: false
     addBuckleverb: false
     unbuckleSound:
       collection: ClowncarCrash
-   # whitelist:
-   #   components:
-   #   - Clumsy
-
+    whitelist:
+      components:
+      - Clumsy
   - type: UnpoweredFlashlight
   - type: PointLight
     enabled: false
@@ -99,11 +54,9 @@
     radius: 3.5
     softness: 2
     netsync: false
-
   - type: ContainerContainer
     containers:
       clowncar_container: !type:Container
-
   - type: ExtendedContainer
     containerName: clowncar_container
     deleteContentsOnBreak: false
@@ -114,22 +67,10 @@
         volume: 4
     removeSound:
       collection: ClowncarCrash
-
   - type: DragInsertContainer
     containerId: clowncar_container
-    delay: 2
+    entryDelay: 2
     useVerbs: false
-
-  - type: InsertToContainerOnCollide
-    container: clowncar_container
-    requiredVelocity: 3
-    insertableEntities:
-      components:
-        - HumanoidAppearance
-    blacklistedEntities:
-      components:
-        - KnockedDown
-
   - type: RemoveFromContainerOnCollide
     container: clowncar_container
     requiredVelocity: 3
@@ -145,7 +86,6 @@
         - Door
         - Strap
         - Body
-
   - type: Clowncar
     container: clowncar_container
     cannonActivateSound:
@@ -156,11 +96,9 @@
       path: "/Audio/Effects/Vehicle/Clowncar/clowncar_deactivate_cannon.ogg"
       params:
         volume: 5
-
   - type: TriggerOnSolutionInsert
     solutionName: IrishCarBomb
     minAmount: 30
-
   - type: Explosive # Explosive banana peel
     explosionType: Default
     totalIntensity: 25
@@ -169,75 +107,22 @@
     canCreateVacuum: false
     deleteAfterExplosion: false
     repeatable: true # if it managed to survuve.
-
   - type: ExplodeOnTrigger
-
   - type: SpawnSolutionOnDamage
     solution: PuddleSpaceLube
     threshold: 5
     probability: 33
-
   - type: Damageable
     damageContainer: ClowncarDamageContainer
     damageModifierSet: Metallic
-
-- type: entity
-  id: ClowncarCannon
-  noSpawn: true
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Launchers/pirate_cannon.rsi
-    layers:
-      - state: icon
-  - type: Physics
-    bodyType: Dynamic
-  - type: Item
-  - type: Gun
-    fireRate: 1
-    selectedMode: SemiAuto
-    availableModes:
-      - SemiAuto
-      - FullAuto
-    soundGunshot:
-      collection: ClowncarCannonFire
-    soundEmpty:
-      path: /Audio/Items/hiss.ogg
-  - type: ContainerAmmoProvider
+  - type: InsertToContainerOnCollide
     container: clowncar_container
-  - type: Unremoveable
-  - type: ClowncarCannon
+    requiredVelocity: 3
+    insertableEntities:
+      components:
+      - HumanoidAppearance
+    blacklistedEntities:
+      components:
+      - KnockedDown
 
-- type: entity
-  id: PuddleSpaceLube
-  parent: PuddleTemporary
-  suffix: SpaceLube
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      puddle:
-        maxVol: 1000
-        reagents:
-        - ReagentId: SpaceLube
-          Quantity: 30
 
-# based on inorganic
-- type: damageContainer
-  id: ClowncarDamageContainer
-  supportedGroups:
-    - Brute
-  supportedTypes:
-    - Heat
-    - Shock
-
-- type: entity
-  id: CrateFunClownCar
-  parent: CrateLivestock
-  name: clowncar crate
-  description: for the cursed clown
-  components:
-  - type: StorageFill
-    contents:
-      - id: TestCowncarBase
-      - id: BikeHorn
-      - id: DrinkIrishCarBomb

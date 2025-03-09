@@ -31,13 +31,7 @@ public sealed partial class DragInsertContainerComponent : Component
     /// </summary>
     [DataField]
     public bool DelaySelfEntry = false;
-    
-    /// </summary>
-    /// How much time (in seconds) it takes to perform the DoAfter
-    /// </summary>
-    [DataField("delay")]
-    [ViewVariables]
-    public float Delay = 0f; //Goobstation
+
 }
 
 [Serializable, NetSerializable, ByRefEvent]

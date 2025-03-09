@@ -36,20 +36,6 @@ public sealed partial class DragInsertContainerSystem : EntitySystem
             return;
         var (uid, comp) = ent;
 
-        if (comp.Delay > 0)// Goobstation if delay is more then 0 start start a do after, if not its instant.
-        {
-
-            var doAfterArgs = new DoAfterArgs(EntityManager, args.User, TimeSpan.FromSeconds(comp.Delay), new InsertOnDragDoAfterEvent(), uid, target: args.Dragged, uid)
-            {
-                BreakOnMove = true,
-                DistanceThreshold = 2f
-            };
-
-            _doAfter.TryStartDoAfter(doAfterArgs);
-            args.Handled = true;
-            return;
-        }
-
         if (!_container.TryGetContainer(ent, comp.ContainerId, out var container))
             return;
 

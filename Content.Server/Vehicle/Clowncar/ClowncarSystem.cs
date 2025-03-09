@@ -41,7 +41,7 @@ public sealed class ClowncarSystem : SharedClowncarSystem
 
         if (vehicle.Driver == null)
         {
-            _chatSystem.TrySendInGameICMessage(args.Performer, Loc.GetString("clowncar-thankrider-no-driver"), InGameICChatType.Speak, false);
+            _chatSystem.TrySendInGameICMessage(args.Performer, Loc.GetString("clowncar-thank-no-driver"), InGameICChatType.Speak, false);
             args.Handled = true;
 
             if (_container.TryGetContainer(uid, component.Container, out var container))
@@ -50,11 +50,11 @@ public sealed class ClowncarSystem : SharedClowncarSystem
             return;
         }
 
-        var message = Loc.GetString("clowncar-thankrider", ("rider", vehicle.Driver));
+        var message = Loc.GetString("clowncar-thank-driver", ("driver", vehicle.Driver));
         _chatSystem.TrySendInGameICMessage(args.Performer, message, InGameICChatType.Speak, false);
         args.Handled = true;
 
-        if (component.ThankCounter >= 5) //TODO add a compnent variable here
+        if (component.ThankCounter >= 5)
             OpenTrunk(uid, component);
     }
 
@@ -107,6 +107,7 @@ public sealed class ClowncarSystem : SharedClowncarSystem
             return;
 
         _buckle.TryBuckle(args.User, args.User, uid);
+
     }
 
     private void OpenTrunkVerb(EntityUid uid, EntityUid player, ClowncarComponent component)
@@ -127,7 +128,7 @@ public sealed class ClowncarSystem : SharedClowncarSystem
             return;
         if (container.Contains(args.User))
             return;
-       OpenTrunk(uid, component);
+        OpenTrunk(uid, component);
     }
 
     private void OpenTrunk(EntityUid uid, ClowncarComponent component)
