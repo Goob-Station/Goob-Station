@@ -1,6 +1,5 @@
 ﻿using Content.Shared.Chat.TypingIndicator;
 using Robust.Client.GameObjects;
-using Robust.Client.Graphics;
 using Robust.Shared.Prototypes;
 using Content.Shared.Inventory;
 

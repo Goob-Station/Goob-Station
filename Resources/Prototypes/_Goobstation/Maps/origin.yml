@@ -56,7 +56,7 @@
             SecurityCadet: [ 2, 4 ]
             #supply
             Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 3, 3 ]
+            SalvageSpecialist: [ 8, 8 ]
             CargoTechnician: [ 5, 5 ]
             #civillian
             Passenger: [ -1, -1 ]
@@ -66,3 +66,9 @@
             Boxer: [ 1, 1 ]
             Reporter: [ 1, 1 ]
 
+        # Goobstation blob-config-start HUGE
+        - type: StationBlobConfig
+          stageBegin: 40
+          stageCritical: 450
+          stageTheEnd: 900
+        # Goobstation blob-config-end

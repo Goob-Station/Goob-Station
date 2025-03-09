@@ -958,7 +958,6 @@
   heatCapacity: 10000
   tileRipResistance: 175
 
-
 # Concrete
 - type: tile
   id: FloorConcrete
@@ -2017,6 +2016,17 @@
   deconstructTools: [ Prying ]
   itemDrop: FloorTileItemAstroSnow
   tileRipResistance: 50
+
+# Asteroid Sand
+- type: tile
+  id: FloorAstroAsteroidSand
+  name: tiles-astro-asteroid-sand
+  parent: FloorAsteroidSand
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  itemDrop: FloorTileItemAstroAsteroidSand
+  weather: false
 
 - type: tile
   id: FloorWoodLarge

@@ -2,7 +2,6 @@ using Content.Shared.Construction;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Reflection;
-using Robust.Shared.Serialization;
 
 namespace Content.Server.Construction.Completions
 {

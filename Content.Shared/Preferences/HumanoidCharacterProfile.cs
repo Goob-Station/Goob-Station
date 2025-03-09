@@ -1,6 +1,4 @@
-using System;
 using System.Linq;
-using System.Reflection;
 using System.Text.RegularExpressions;
 using Content.Shared.CCVar;
 using Content.Shared.Dataset;
@@ -8,7 +6,6 @@ using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences.Loadouts;
-using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
 using Content.Shared.Traits;
@@ -30,10 +27,11 @@ namespace Content.Shared.Preferences
     [Serializable, NetSerializable]
     public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     {
-        private static readonly Regex RestrictedNameRegex = new("[^A-Z,a-z,0-9, ,\\-,']");
+        private static readonly Regex RestrictedNameRegex = new(@"[^A-Za-z0-9 '\-]");
         private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
 
         public const int MaxNameLength = 32;
+        public const int MaxLoadoutNameLength = 32;
         public const int MaxDescLength = 512;
 
         /// <summary>

@@ -6,7 +6,6 @@ using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Teleportation.Components;
 using Content.Shared.Verbs;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
@@ -95,13 +94,13 @@ public abstract class SharedPortalSystem : EntitySystem
         // break pulls before portal enter so we dont break shit
         if (TryComp<PullableComponent>(subject, out var pullable) && pullable.BeingPulled)
         {
-            _pulling.TryStopPull(subject, pullable);
+            _pulling.TryStopPull(subject, pullable, ignoreGrab: true); // Goobstation edit
         }
 
         if (TryComp<PullerComponent>(subject, out var pullerComp)
             && TryComp<PullableComponent>(pullerComp.Pulling, out var subjectPulling))
         {
-            _pulling.TryStopPull(pullerComp.Pulling.Value, subjectPulling);
+            _pulling.TryStopPull(pullerComp.Pulling.Value, subjectPulling, ignoreGrab: true); // Goobstation edit
         }
 
         // if they came from another portal, just return and wait for them to exit the portal

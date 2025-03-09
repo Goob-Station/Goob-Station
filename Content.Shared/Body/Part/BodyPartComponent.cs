@@ -7,7 +7,6 @@ using Robust.Shared.Serialization;
 // Shitmed Change
 
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared._Shitmed.Medical.Surgery.Tools;
 using Content.Shared._Shitmed.Targeting;
@@ -32,22 +31,22 @@ public sealed partial class BodyPartComponent : Component, ISurgeryToolComponent
     public BodyPartSlot? ParentSlot;
 
     /// <summary>
-    ///     Shitmed Change: Amount of damage to deal when the part gets removed.
-    ///     Only works if IsVital is true.
+    /// Shitmed Change: Bleeding stacks to give when this body part is severed.
+    /// Doubled for <see cref="IsVital"/>. parts.
     /// </summary>
-    [DataField, AutoNetworkedField]
-    public FixedPoint2 VitalDamage = 100;
+    [DataField]
+    public float SeverBleeding = 4f;
 
-    [DataField, AlwaysPushInheritance]
+    [DataField]
     public string ToolName { get; set; } = "A body part";
 
-    [DataField, AlwaysPushInheritance]
-    public string SlotId = "";
+    [DataField]
+    public string SlotId = string.Empty;
 
     [DataField, AutoNetworkedField]
     public bool? Used { get; set; } = null;
 
-    [DataField, AlwaysPushInheritance]
+    [DataField]
     public float Speed { get; set; } = 1f;
 
     /// <summary>
@@ -71,7 +70,7 @@ public sealed partial class BodyPartComponent : Component, ISurgeryToolComponent
     /// <summary>
     ///     Shitmed Change: Whether this body part can be enabled or not. Used for non-functional prosthetics.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool CanEnable = true;
 
     /// <summary>
@@ -126,7 +125,7 @@ public sealed partial class BodyPartComponent : Component, ISurgeryToolComponent
     /// <summary>
     ///     Shitmed Change: The ID of the base layer for this body part.
     /// </summary>
-    [DataField, AutoNetworkedField, AlwaysPushInheritance]
+    [DataField, AutoNetworkedField]
     public string? BaseLayerId;
 
     /// <summary>
@@ -147,7 +146,7 @@ public sealed partial class BodyPartComponent : Component, ISurgeryToolComponent
     };
 
 
-    [DataField, AutoNetworkedField, AlwaysPushInheritance]
+    [DataField, AutoNetworkedField]
     public BodyPartType PartType = BodyPartType.Other;
 
 
@@ -159,7 +158,7 @@ public sealed partial class BodyPartComponent : Component, ISurgeryToolComponent
     [DataField("vital"), AutoNetworkedField]
     public bool IsVital;
 
-    [DataField, AutoNetworkedField, AlwaysPushInheritance]
+    [DataField, AutoNetworkedField]
     public BodyPartSymmetry Symmetry = BodyPartSymmetry.None;
 
     /// <summary>

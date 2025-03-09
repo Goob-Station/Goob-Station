@@ -1,3 +1,4 @@
+using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item.ItemToggle.Components;
@@ -6,7 +7,6 @@ using Content.Shared.Temperature;
 using Content.Shared.Toggleable;
 using Content.Shared.Verbs;
 using Content.Shared.Wieldable;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 
@@ -36,7 +36,7 @@ public sealed class ItemToggleSystem : EntitySystem
         SubscribeLocalEvent<ItemToggleComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ItemToggleComponent, ItemUnwieldedEvent>(TurnOffOnUnwielded);
         SubscribeLocalEvent<ItemToggleComponent, ItemWieldedEvent>(TurnOnOnWielded);
-        SubscribeLocalEvent<ItemToggleComponent, UseInHandEvent>(OnUseInHand);
+        SubscribeLocalEvent<ItemToggleComponent, UseInHandEvent>(OnUseInHand, before: [typeof(ClothingSystem)]); // Goobstation - order changes, batons used before equipped
         SubscribeLocalEvent<ItemToggleComponent, GetVerbsEvent<ActivationVerb>>(OnActivateVerb);
         SubscribeLocalEvent<ItemToggleComponent, ActivateInWorldEvent>(OnActivate);
 
@@ -78,7 +78,7 @@ public sealed class ItemToggleSystem : EntitySystem
 
         args.Verbs.Add(new ActivationVerb()
         {
-            Text = !ent.Comp.Activated ? Loc.GetString("item-toggle-activate") : Loc.GetString("item-toggle-deactivate"),
+            Text = !ent.Comp.Activated ? Loc.GetString(ent.Comp.VerbToggleOn) : Loc.GetString(ent.Comp.VerbToggleOff),
             Act = () =>
             {
                 Toggle((ent.Owner, ent.Comp), user, predicted: ent.Comp.Predictable);

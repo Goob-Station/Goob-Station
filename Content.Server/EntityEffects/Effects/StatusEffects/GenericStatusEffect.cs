@@ -1,4 +1,3 @@
-using Content.Shared.Chemistry.Reagent;
 using Content.Shared.EntityEffects;
 using Content.Shared.StatusEffect;
 using JetBrains.Annotations;
@@ -65,6 +64,7 @@ public sealed partial class GenericStatusEffect : EntityEffect
         "reagent-effect-guidebook-status-effect",
         ("chance", Probability),
         ("type", Type),
+        ("refresh", Refresh),
         ("time", Time),
         ("key", $"reagent-effect-status-effect-{Key}"));
 }

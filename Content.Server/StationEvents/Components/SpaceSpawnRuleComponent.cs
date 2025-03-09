@@ -1,6 +1,5 @@
 using Content.Server.StationEvents.Events;
 using Robust.Shared.Map;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.StationEvents.Components;
 

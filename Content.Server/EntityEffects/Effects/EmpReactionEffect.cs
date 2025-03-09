@@ -1,6 +1,5 @@
 using Content.Server.Emp;
 using Content.Shared.EntityEffects;
-using Content.Shared.Chemistry.Reagent;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 

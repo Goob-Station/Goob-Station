@@ -61,7 +61,7 @@
       coefficients:
         Blunt: 0.9
         Slash: 0.9
-        Piercing: 0.85
+        Piercing: 0.9
         Heat: 0.9
         Cold: 0.9
         Radiation: 0.95
@@ -97,6 +97,8 @@
   - type: ClothingGrantComponent
     component:
     - type: Stealth
+      enabledOnDeath: false
+      enabledOnCrit: false
   - type: FlashImmunity
   - type: FlashSoundSuppression
 

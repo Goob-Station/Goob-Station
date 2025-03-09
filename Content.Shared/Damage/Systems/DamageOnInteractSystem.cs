@@ -5,8 +5,6 @@ using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
-using Robust.Shared.Timing;
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
 using Content.Shared.Hands.Components; // Shitmed Change
 

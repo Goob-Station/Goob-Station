@@ -1,4 +1,3 @@
-using System.Linq;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Interaction;

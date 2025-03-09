@@ -6,7 +6,6 @@ using Content.Shared.Emag.Systems;
 using Robust.Client.GameObjects;
 using Robust.Client.Animations;
 using Robust.Client.Graphics;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics.Events;
@@ -144,7 +143,7 @@ public sealed class DisposalUnitSystem : SharedDisposalUnitSystem
                         {
                             KeyFrames =
                             {
-                                new AnimationTrackPlaySound.KeyFrame(_audioSystem.GetSound(unit.FlushSound), 0)
+                                new AnimationTrackPlaySound.KeyFrame(_audioSystem.ResolveSound(unit.FlushSound), 0)
                             }
                         });
                 }

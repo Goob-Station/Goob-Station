@@ -1,7 +1,6 @@
 using System.Linq;
 using System.Numerics;
 using Content.Shared.Administration;
-using Content.Shared.Explosion;
 using Content.Shared.Explosion.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -89,8 +88,7 @@ public sealed partial class ExplosionSystem
         if (referenceGrid != null)
         {
             var xform = Transform(Comp<MapGridComponent>(referenceGrid.Value).Owner);
-            spaceMatrix = xform.WorldMatrix;
-            spaceAngle = xform.WorldRotation;
+            (_, spaceAngle, spaceMatrix) = _transformSystem.GetWorldPositionRotationMatrix(xform);
         }
 
         // is the explosion starting on a grid?

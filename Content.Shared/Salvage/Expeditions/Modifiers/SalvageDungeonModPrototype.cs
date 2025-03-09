@@ -1,6 +1,5 @@
 using Content.Shared.Procedural;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Shared.Salvage.Expeditions.Modifiers;
@@ -8,7 +7,7 @@ namespace Content.Shared.Salvage.Expeditions.Modifiers;
 [Prototype("salvageDungeonMod")]
 public sealed partial class SalvageDungeonModPrototype : IPrototype, IBiomeSpecificMod
 {
-    [IdDataField] public string ID { get; } = default!;
+    [IdDataField] public string ID { get; private set; } = default!;
 
     [DataField("desc")] public LocId Description { get; private set; } = string.Empty;
 

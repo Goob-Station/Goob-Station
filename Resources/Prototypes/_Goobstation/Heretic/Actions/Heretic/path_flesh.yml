@@ -10,5 +10,6 @@
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: flesh_surgery
+    checkCanInteract: true
   - type: HereticAction
     messageLoc: heretic-speech-flesh-surgery

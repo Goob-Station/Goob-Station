@@ -1,0 +1,13 @@
+<ui:RadialMenu xmlns="https://spacestation14.io"
+                xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
+                xmlns:cardhand="Content.Client._EstacaoPirata.Cards.Hand.UI"
+                BackButtonStyleClass="RadialMenuBackButton"
+                CloseButtonStyleClass="RadialMenuCloseButton"
+                VerticalExpand="True"
+                HorizontalExpand="True"
+                MinSize="450 450">
+
+
+    <ui:RadialContainer Name="Main" VerticalExpand="True" HorizontalExpand="True" InitialRadius="100" ReserveSpaceForHiddenChildren="False"
+                        InnerRadiusMultiplier="0.8" OuterRadiusMultiplier="1.2" ></ui:RadialContainer>
+</ui:RadialMenu>

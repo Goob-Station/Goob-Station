@@ -28,6 +28,12 @@
   placement:
     mode: SnapgridCenter
   components:
+    - type: VentCrawlerTube  # Goobstation - ventcrawl
+      containerId: VentCrawlerTube
+    - type: VentCrawlerEntry
+    - type: ContainerContainer # Goobstation - ventcrawl
+      containers:
+        VentCrawlerTube: !type:Container
     - type: ApcPowerReceiver
     - type: ExtensionCableReceiver
     - type: DeviceNetwork
@@ -58,6 +64,7 @@
             Welded: { state: vent_welded }
             Lockout: { state: vent_lockout }
     - type: GasVentPump
+      underPressureLockoutThreshold: 30 # DeltaV - lower threshold
     - type: Construction
       graph: GasUnary
       node: ventpump
@@ -69,6 +76,12 @@
       sound:
         path: /Audio/Ambience/Objects/gas_vent.ogg
     - type: Weldable
+    - type: AtmosMonitoringConsoleDevice
+      navMapBlip: GasVentOpening
+    - type: GuideHelp
+      guides:
+      - AirVent
+      - DeviceMonitoringAndControl
 
 - type: entity
   parent: GasUnaryBase
@@ -94,6 +107,19 @@
     - type: Construction
       graph: GasUnary
       node: passivevent
+    - type: AtmosMonitoringConsoleDevice
+      navMapBlip: GasVentOpening
+    - type: GuideHelp
+      guides:
+      - PassiveVent
+    - type: VentCrawlerEntry # Goobstation - ventcrawl
+    - type: VentCrawlerTube # Goobstation - ventcrawl
+      containerId: VentCrawlerTube
+    - type: ContainerContainer # Goobstation - ventcrawl
+      containers:
+        VentCrawlerTube: !type:Container
+    - type: Weldable  # Goobstation - ventcrawl
+      time: 3
 
 - type: entity
   parent: [GasUnaryBase, AirSensorBase]
@@ -103,6 +129,12 @@
   placement:
     mode: SnapgridCenter
   components:
+    - type: VentCrawlerTube # Goobstation - ventcrawl
+      containerId: VentCrawlerTube
+    - type: VentCrawlerEntry  # Goobstation - ventcrawl
+    - type: ContainerContainer # Goobstation - ventcrawl
+      containers:
+        VentCrawlerTube: !type:Container
     - type: ApcPowerReceiver
     - type: ExtensionCableReceiver
     - type: DeviceNetwork
@@ -144,6 +176,12 @@
       sound:
         path: /Audio/Ambience/Objects/gas_vent.ogg
     - type: Weldable
+    - type: AtmosMonitoringConsoleDevice
+      navMapBlip: GasVentScrubber
+    - type: GuideHelp
+      guides:
+      - AirScrubber
+      - DeviceMonitoringAndControl
 
 - type: entity
   parent: GasUnaryBase
@@ -183,6 +221,19 @@
       visibleLayers:
       - enum.SubfloorLayers.FirstLayer
       - enum.LightLayers.Unshaded
+    - type: AtmosMonitoringConsoleDevice
+      navMapBlip: GasVentOpening
+    - type: GuideHelp
+      guides:
+      - AirInjector
+    - type: VentCrawlerTube # Goobstation - ventcrawl
+      containerId: VentCrawlerTube
+    - type: VentCrawlerJunction # Goobstation - ventcrawl
+      degrees:
+        - 0
+    - type: ContainerContainer # Goobstation - ventcrawl
+      containers:
+        VentCrawlerTube: !type:Container
 
 - type: entity
   parent: [ BaseMachinePowered, ConstructibleMachine ]
@@ -228,6 +279,11 @@
       examinableAddress: true
     - type: WiredNetworkConnection
     - type: PowerSwitch
+    - type: AtmosMonitoringConsoleDevice
+      navMapBlip: Thermoregulator
+    - type: GuideHelp
+      guides:
+      - Thermomachines
 
 - type: entity
   parent: BaseGasThermoMachine
@@ -434,3 +490,8 @@
   - type: ExaminableSolution
     solution: tank
   - type: PowerSwitch
+  - type: AtmosMonitoringConsoleDevice
+    navMapBlip: Thermoregulator
+  - type: GuideHelp
+    guides:
+    - GasCondensing

@@ -1,4 +1,3 @@
-using Content.Server.UserInterface;
 using Content.Shared.Communications;
 using Robust.Shared.Audio;
 

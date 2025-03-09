@@ -1,6 +1,4 @@
-using Content.Server.Body.Components;
 using Content.Shared.Body.Components;
-using Content.Shared.Body.Events;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Eye.Blinding.Systems;

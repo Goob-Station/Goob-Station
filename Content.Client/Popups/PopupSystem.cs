@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Shared.Containers;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
 using Content.Shared.Popups;
@@ -121,6 +120,12 @@ namespace Content.Client.Popups
         {
             if (_playerManager.LocalEntity == recipient)
                 PopupMessage(message, type, coordinates, null, true);
+        }
+
+        public override void PopupPredictedCoordinates(string? message, EntityCoordinates coordinates, EntityUid? recipient, PopupType type = PopupType.Small)
+        {
+            if (recipient != null && _timing.IsFirstTimePredicted)
+                PopupCoordinates(message, coordinates, recipient.Value, type);
         }
 
         private void PopupCursorInternal(string? message, PopupType type, bool recordReplay)

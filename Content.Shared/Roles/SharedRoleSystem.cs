@@ -2,7 +2,6 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
-using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Roles.Jobs;
 using Robust.Shared.Audio;
@@ -19,7 +18,6 @@ public abstract class SharedRoleSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly SharedGameTicker _gameTicker = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
 
     private JobRequirementOverridePrototype? _requirementOverride;
@@ -27,6 +25,8 @@ public abstract class SharedRoleSystem : EntitySystem
     public override void Initialize()
     {
         Subs.CVar(_cfg, CCVars.GameRoleTimerOverride, SetRequirementOverride, true);
+
+        SubscribeLocalEvent<MindRoleComponent, ComponentShutdown>(OnComponentShutdown);
     }
 
     private void SetRequirementOverride(string value)
@@ -49,7 +49,7 @@ public abstract class SharedRoleSystem : EntitySystem
     /// <param name="mind">If the mind component is provided, it will be checked if it belongs to the mind entity</param>
     /// <param name="silent">If true, no briefing will be generated upon receiving the mind role</param>
     public void MindAddRoles(EntityUid mindId,
-        List<ProtoId<EntityPrototype>>? roles,
+        List<EntProtoId>? roles,
         MindComponent? mind = null,
         bool silent = false)
     {
@@ -70,7 +70,7 @@ public abstract class SharedRoleSystem : EntitySystem
     /// <param name="mind">If the mind component is provided, it will be checked if it belongs to the mind entity</param>
     /// <param name="silent">If true, no briefing will be generated upon receiving the mind role</param>
     public void MindAddRole(EntityUid mindId,
-        ProtoId<EntityPrototype> protoId,
+        EntProtoId protoId,
         MindComponent? mind = null,
         bool silent = false)
     {
@@ -114,7 +114,7 @@ public abstract class SharedRoleSystem : EntitySystem
     ///     Creates a Mind Role
     /// </summary>
     private void MindAddRoleDo(EntityUid mindId,
-        ProtoId<EntityPrototype> protoId,
+        EntProtoId protoId,
         MindComponent? mind = null,
         bool silent = false,
         string? jobPrototype = null)
@@ -156,11 +156,12 @@ public abstract class SharedRoleSystem : EntitySystem
         var mindEv = new MindRoleAddedEvent(silent);
         RaiseLocalEvent(mindId, ref mindEv);
 
+        // RoleType refresh, Role time tracking, Update Admin playerlist
+
         var message = new RoleAddedEvent(mindId, mind, antagonist, silent);
         if (mind.OwnedEntity != null)
-        {
             RaiseLocalEvent(mind.OwnedEntity.Value, message, true);
-        }
+        // RaiseLocalEvent(mindId, message, true); // Upstream, if you see errors remove two above lines above and uncomments this
 
         var name = Loc.GetString(protoEnt.Name);
         if (mind.OwnedEntity is not null)
@@ -199,10 +200,13 @@ public abstract class SharedRoleSystem : EntitySystem
             if (!HasComp<T>(role))
                 continue;
 
-            var roleComp = Comp<MindRoleComponent>(role);
-            antagonist = roleComp.Antag;
-            _entityManager.DeleteEntity(role);
+            if (!TryComp(role, out MindRoleComponent? roleComp))
+            {
+                Log.Error($"Encountered mind role entity {ToPrettyString(role)} without a {nameof(MindRoleComponent)}");
+                continue;
+            }
 
+            antagonist |= roleComp.Antag | roleComp.ExclusiveAntag;
             delete.Add(role);
             found = true;
 
@@ -210,24 +214,29 @@ public abstract class SharedRoleSystem : EntitySystem
 
         foreach (var role in delete)
         {
-            mind.MindRoles.Remove(role);
-        }
-
-        if (!found)
-        {
-            throw new ArgumentException($"{mindId} does not have this role: {typeof(T)}");
+            _entityManager.DeleteEntity(role);
         }
 
         var message = new RoleRemovedEvent(mindId, mind, antagonist);
 
         if (mind.OwnedEntity != null)
-        {
             RaiseLocalEvent(mind.OwnedEntity.Value, message, true);
-        }
+        // RaiseLocalEvent(mind, message, true); // Also here, remove lines above and use this if you see errors
         _adminLogger.Add(LogType.Mind,
             LogImpact.Low,
             $"'Role {typeof(T).Name}' removed from mind of {ToPrettyString(mind.OwnedEntity)}");
         return true;
+    }
+
+    // Removing the mind role's reference on component shutdown
+    // to make sure the reference gets removed even if the mind role entity was deleted by outside code
+    private void OnComponentShutdown(Entity<MindRoleComponent> ent, ref ComponentShutdown args)
+    {
+        //TODO: Just ensure that the tests don't spawn unassociated mind role entities
+        if (ent.Comp.Mind.Comp is null)
+            return;
+
+        ent.Comp.Mind.Comp.MindRoles.Remove(ent.Owner);
     }
 
     /// <summary>

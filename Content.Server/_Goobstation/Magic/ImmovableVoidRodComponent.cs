@@ -1,5 +1,4 @@
 using Content.Shared.Heretic;
-using Robust.Shared.Audio;
 
 namespace Content.Server.Magic;
 

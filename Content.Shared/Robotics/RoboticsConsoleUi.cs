@@ -1,5 +1,4 @@
-﻿﻿using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
+﻿﻿using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Utility;
 
@@ -58,7 +57,7 @@ public sealed class RoboticsConsoleDestroyMessage : BoundUserInterfaceMessage
 /// Created by <c>BorgTransponderComponent</c> and sent to clients by <c>RoboticsConsoleComponent</c>.
 /// </summary>
 [DataRecord, Serializable, NetSerializable]
-public record struct CyborgControlData
+public partial record struct CyborgControlData
 {
     /// <summary>
     /// Texture of the borg chassis.

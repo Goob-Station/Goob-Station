@@ -38,6 +38,8 @@ public abstract partial class SharedGunSystem
 
     private void OnMagazineUse(EntityUid uid, MagazineAmmoProviderComponent component, UseInHandEvent args)
     {
+        // not checking for args.Handled or marking as such because we only relay the event to the magazine entity
+
         var magEnt = GetMagazineEntity(uid);
 
         if (magEnt == null)
@@ -102,7 +104,7 @@ public abstract partial class SharedGunSystem
         return (count, capacity);
     }
 
-    protected EntityUid? GetMagazineEntity(EntityUid uid)
+    public EntityUid? GetMagazineEntity(EntityUid uid) // Goob edit
     {
         if (!Containers.TryGetContainer(uid, MagazineSlot, out var container) ||
             container is not ContainerSlot slot)

@@ -5,7 +5,6 @@ using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Spawners;
 
 namespace Content.Server.Destructible.Thresholds.Behaviors;

@@ -34,6 +34,8 @@
       collection: Whistles
     Weh:
       collection: Weh
+    Hew:
+      collection: Hew
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -74,10 +76,54 @@
       collection: Whistles
     Weh:
       collection: Weh
+    Hew:
+      collection: Hew
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+
+- type: emoteSounds ## GOOB CONTENT START
+  id: MonkeyMode
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: MonkeyScreeches
+    Laugh:
+      collection: MonkeyScreeches
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: MonkeyScreeches
+    Snore:
+      collection: MonkeyScreeches
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: MonkeyScreeches
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: MaleDeathGasp ## GOOB CONTENT END
 
 - type: emoteSounds
   id: MaleReptilian
@@ -96,6 +142,10 @@
       collection: MaleCry
     Weh:
       collection: Weh
+    Hew:
+      collection: Hew
+    CatMeow:
+      collection: CatMeows # Goobstation - effect standardization
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -118,6 +168,10 @@
       collection: FemaleCry
     Weh:
       collection: Weh
+    Hew:
+      collection: Hew
+    CatMeow:
+      collection: CatMeows # Goobstation - effect standardization
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
@@ -158,6 +212,8 @@
       collection: Whistles
     Weh:
       collection: Weh
+    Hew:
+      collection: Hew
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -200,6 +256,8 @@
       collection: Whistles
     Weh:
       collection: Weh
+    Hew:
+      collection: Hew
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
@@ -214,6 +272,14 @@
       path: /Audio/Voice/Vox/shriek1.ogg
     Laugh:
       path: /Audio/Voice/Vox/vox_laugh.ogg
+    Honk:
+      collection: BikeHorn
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    CatMeow:
+      collection: CatMeows # Goobstation - effect standardization
   params:
     variation: 0.125
     # We need vox sounds for the other emotes
@@ -225,10 +291,16 @@
       path: /Audio/Voice/Diona/diona_scream.ogg
     Laugh:
       collection: DionaLaugh
+    Chirp:
+      path: /Audio/Animals/nymph_chirp.ogg
     Honk:
       collection: BikeHorn
     Weh:
       collection: Weh
+    Hew:
+      collection: Hew
+    CatMeow:
+      collection: CatMeows # Goobstation - effect standardization
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -251,6 +323,12 @@
       path: /Audio/Voice/Arachnid/arachnid_click.ogg
     Weh:
       collection: Weh
+    Hew:
+      collection: Hew
+    Honk:
+      collection: BikeHorn
+    CatMeow:
+      collection: CatMeows # Goobstation - effect standardization
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -289,6 +367,8 @@
       collection: Whistles
     Weh:
       collection: Weh
+    Hew:
+      collection: Hew
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -330,6 +410,8 @@
       collection: Whistles
     Weh:
       collection: Weh
+    Hew:
+      collection: Hew
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
@@ -355,6 +437,12 @@
       path: /Audio/Voice/Moth/moth_squeak.ogg
     Weh:
       collection: Weh
+    Hew:
+      collection: Hew
+    Honk:
+      collection: BikeHorn
+    CatMeow:
+      collection: CatMeows # Goobstation - effect standardization
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -379,6 +467,12 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+    Boop: # Goobstation - IPC sounds
+      path: /Audio/_EinsteinEngines/Voice/IPC/beep_500.ogg
+    Whirr: # Goobstation - IPC sounds
+      collection: IPCWhirrs
+      params:
+        variation: 0
 
 - type: emoteSounds
   id: UnisexSiliconSyndicate
@@ -503,5 +597,12 @@
   id: Parrot
   sound:
     path: /Audio/Animals/parrot_raught.ogg
+    params:
+      variation: 0.125
+
+- type: emoteSounds
+  id: Goat
+  sound:
+    path: /Audio/Animals/goat_bah.ogg
     params:
       variation: 0.125

@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations;
 using Robust.Shared.Audio;
 
 namespace Content.Shared._EinsteinEngines.Silicon.EmitBuzzWhileDamaged;

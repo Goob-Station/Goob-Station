@@ -91,6 +91,7 @@
   effects:
   - !type:N2ODecompositionReaction {}
 
+ # Assmos - /tg/ gases
 - type: gasReaction
   id: bzFormation
   priority: 2
@@ -133,7 +134,7 @@
   minimumTemperature: 1500.0
   minimumRequirements:
   - 0     # oxygen
-  - 20    # nitrogen
+  - 10    # nitrogen
   - 0     # carbon dioxide
   - 0     # plasma
   - 20    # tritium
@@ -163,6 +164,29 @@
   - 0.01  # nitrium
   effects:
   - !type:NitriumDecompositionReaction {}
+
+- type: gasReaction
+  id: PluoxiumProduction
+  priority: 3
+  minimumTemperature: 50.0
+  maximumTemperature: 273.15
+  minimumRequirements:
+  - 0.01  # oxygen
+  - 0     # nitrogen
+  - 0.01  # carbon dioxide
+  - 0     # plasma
+  - 0.01  # tritium
+  - 0     # vapor
+  - 0     # miasma
+  - 0     # n2o
+  - 0     # frezon
+  - 0     # bz
+  - 0     # healium
+  - 0     # nitrium
+  effects:
+  - !type:PluoxiumProductionReaction {}
+
+# Assmos - /tg/ gases end
 
 #- type: gasReaction
 #  id: WaterVaporPuddle

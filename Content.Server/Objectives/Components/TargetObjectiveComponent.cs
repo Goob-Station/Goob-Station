@@ -18,4 +18,18 @@ public sealed partial class TargetObjectiveComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public EntityUid? Target;
+
+    /// <summary>
+    /// Goobstation.
+    /// Whether name for this objective would change when person's mind attaches to other entity.
+    /// </summary>
+    [DataField]
+    public bool DynamicName;
+
+    /// <summary>
+    /// Goobstation.
+    /// Whether job name should be shown in objective name
+    /// </summary>
+    [DataField]
+    public bool ShowJobTitle = true;
 }

@@ -1,0 +1,10 @@
+﻿- type: entity
+  id: DormNotifierMarker
+  parent: MarkerBase
+  name: Dorm Notifier Marker
+  components:
+    - type: DormNotifierMarker
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      layers:
+      - state: green

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from TGstation github https://github.com/tgstation/tgstation/commit/e89db4dd4f42377b0adafb06806a763314a89034 , edited by Alekshhh",
+  "copyright": "Taken from TGstation github https://github.com/tgstation/tgstation/commit/e89db4dd4f42377b0adafb06806a763314a89034 , edited by Alekshhh, equipped-OUTERCLOTHING-resomi made by svarshiksatanist (Discord)",
   "size": {
     "x": 32,
     "y": 32
@@ -20,6 +20,10 @@
     },
     {
       "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-resomi",
       "directions": 4
     }
   ]

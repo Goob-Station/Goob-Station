@@ -1,5 +1,3 @@
-using Content.Client.Gameplay;
-using Content.Client.Info;
 using Robust.Client.Input;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
@@ -74,7 +72,7 @@ public sealed class CloseRecentWindowUIController : UIController
     /// internal recentlyInteractedWindows tracking.
     /// </summary>
     /// <param name="window"></param>
-    private void SetMostRecentlyInteractedWindow(BaseWindow window)
+    public void SetMostRecentlyInteractedWindow(BaseWindow window)
     {
         // Search through the list and see if already added.
         // (This search is backwards since it's fairly common that the user is clicking the same
@@ -134,7 +132,6 @@ public sealed class CloseRecentWindowUIController : UIController
             if (window.IsOpen)
                 return true;
 
-            recentlyInteractedWindows.RemoveAt(i);
             // continue going down the list, hoping to find a still-open window
         }
 

@@ -1,5 +1,4 @@
 using System.Numerics;
-using Content.Shared.NPC;
 
 namespace Content.Server.NPC.Pathfinding;
 
@@ -36,7 +35,7 @@ public sealed partial class PathfindingSystem
                 return Vector2.Zero;
             }
 
-            endPos = Vector2.Transform(Vector2.Transform(endPos, endXform.WorldMatrix), startXform.InvWorldMatrix);
+            endPos = Vector2.Transform(Vector2.Transform(endPos, _transform.GetWorldMatrix(endXform)), _transform.GetInvWorldMatrix(startXform));
         }
 
         // TODO: Numerics when we changeover.

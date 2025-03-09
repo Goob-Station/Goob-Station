@@ -104,22 +104,22 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         GameRuleComponent gameRule,
         ref RoundEndTextAppendEvent args)
     {
-        var winText = Loc.GetString($"nukeops-{component.WinType.ToString().ToLower()}");
+        var winText = Loc.GetString($"{component.LocalePrefix}{component.WinType.ToString().ToLower()}");
         args.AddLine(winText);
 
         foreach (var cond in component.WinConditions)
         {
-            var text = Loc.GetString($"nukeops-cond-{cond.ToString().ToLower()}");
+            var text = Loc.GetString($"{component.LocalePrefix}cond-{cond.ToString().ToLower()}");
             args.AddLine(text);
         }
 
-        args.AddLine(Loc.GetString("nukeops-list-start"));
+        args.AddLine(Loc.GetString($"{component.LocalePrefix}list-start"));
 
         var antags =_antag.GetAntagIdentifiers(uid);
 
         foreach (var (_, sessionData, name) in antags)
         {
-            args.AddLine(Loc.GetString("nukeops-list-name-user", ("name", name), ("user", sessionData.UserName)));
+            args.AddLine(Loc.GetString($"{component.LocalePrefix}list-name-user", ("name", name), ("user", sessionData.UserName)));
         }
     }
 
@@ -325,7 +325,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             {
                 // Nukies must wait some time after declaration of war to get on the station
                 var warTime = Timing.CurTime.Subtract(nukeops.WarDeclaredTime.Value);
-                if (warTime < nukeops.WarNukieArriveDelay)
+                if (warTime < nukeops.WarEvacShuttleDisabled)
                 {
                     ev.Cancelled = true;
                     ev.Reason = Loc.GetString("war-ops-shuttle-call-unavailable");
@@ -409,8 +409,9 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         var nukiesCount = EntityQuery<NukeopsRoleComponent>().Count();
         if (nukiesCount == 0)
             return rule.WarTcAmountPerNukie;
-        var playersCount = Math.Max(0, _playerManager.Sessions.Length - nukiesCount);
-        var maxNukies = playersCount / rule.WarNukiePlayerRatio;
+        var totalPlayersCount = _antag.GetTotalPlayerCount(_playerManager.Sessions);
+        var playersCount = Math.Max(0, totalPlayersCount - nukiesCount);
+        var maxNukies = totalPlayersCount / rule.WarNukiePlayerRatio;
         var nukiesMissing = Math.Max(0, maxNukies - nukiesCount);
         var totalBonus = playersCount * rule.WarTcPerPlayer;
         totalBonus += nukiesMissing * rule.WarTcPerNukieMissing;
@@ -504,7 +505,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         var target = (ent.Comp.TargetStation is not null) ? Name(ent.Comp.TargetStation.Value) : "the target";
 
         _antag.SendBriefing(args.Session,
-            Loc.GetString("nukeops-welcome",
+            Loc.GetString($"{ent.Comp.LocalePrefix}welcome",
                 ("station", target),
                 ("name", Name(ent))),
             Color.Red,
@@ -514,7 +515,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     private void OnGetBriefing(Entity<NukeopsRoleComponent> role, ref GetBriefingEvent args)
     {
         // TODO Different character screen briefing for the 3 nukie types
-        args.Append(Loc.GetString("nukeops-briefing"));
+        args.Append(Loc.GetString("nukeops-briefing")); // TODO: Goobstation: somehow pass the nukeopsrulecomponent here so we can change this based on LocalePrefix for Honkops.
     }
 
     /// <remarks>

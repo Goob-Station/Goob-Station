@@ -1,4 +1,3 @@
-using Content.Server.GameTicking.Rules;
 using Content.Server.Maps;
 using Content.Shared.GridPreloader.Prototypes;
 using Robust.Shared.Prototypes;
@@ -20,10 +19,16 @@ public sealed partial class LoadMapRuleComponent : Component
     public ProtoId<GameMapPrototype>? GameMap;
 
     /// <summary>
-    /// A map path to load on a new map.
+    /// A map to load.
     /// </summary>
     [DataField]
     public ResPath? MapPath;
+
+    /// <summary>
+    /// A grid to load on a new map.
+    /// </summary>
+    [DataField]
+    public ResPath? GridPath;
 
     /// <summary>
     /// A <see cref="PreloadedGridPrototype"/> to move to a new map.

@@ -7,9 +7,9 @@
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobYowieDummy
   skinColoration: NoColor
+  naming: First
   maleFirstNames: names_yowie_male
   femaleFirstNames: names_yowie_female
-  lastNames: names_yowie_last
 
 # The lack of a layer means that
 # this person cannot have round-start anything

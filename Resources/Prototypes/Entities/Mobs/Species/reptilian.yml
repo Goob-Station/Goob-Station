@@ -9,7 +9,7 @@
     species: Reptilian
     hideLayersOnEquip:
     - Snout
-    - HeadTop
+#    - HeadTop # WWDP - Because visible horns its cool
     - HeadSide
   - type: Hunger
   - type: Puller
@@ -68,17 +68,35 @@
       295: 0.6
       285: 0.4
   - type: Wagging
+  - type: FootPrints # WD EDIT
+    leftBarePrint: "footprint-left-bare-lizard"
+    rightBarePrint: "footprint-right-bare-lizard"
   - type: Inventory
     speciesId: reptilian
+    # WWDP-Edit-Start
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Human/displacement.rsi
+            sprite: _White/Mobs/Species/displacement.rsi
             state: jumpsuit-female
-  - type: FootPrints # WD EDIT
-    leftBarePrint: "footprint-left-bare-lizard"
-    rightBarePrint: "footprint-right-bare-lizard"
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+    # WWDP-Edit-End
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -88,17 +106,35 @@
   components:
   - type: HumanoidAppearance
     species: Reptilian
-    hideLayersOnEquip:
+    hideLayersOnEquip: # WWDP
     - Snout
-    - HeadTop
+#    - HeadTop # WWDP - Because visible horns its cool
     - HeadSide
   - type: Inventory
     speciesId: reptilian
+    # WWDP-Edit-Start
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Human/displacement.rsi
+            sprite: _White/Mobs/Species/displacement.rsi
             state: jumpsuit-female
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+    # WWDP-Edit-End
 
 #Weh

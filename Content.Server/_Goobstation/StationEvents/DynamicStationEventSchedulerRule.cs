@@ -4,7 +4,6 @@ using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.GameTicking.Components;
-using System.Linq;
 
 namespace Content.Server.StationEvents;
 

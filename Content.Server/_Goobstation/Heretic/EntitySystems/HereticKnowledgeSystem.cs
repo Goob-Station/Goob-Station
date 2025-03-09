@@ -3,7 +3,6 @@ using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Heretic;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
-using Content.Shared._Goobstation.Heretic.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
 

@@ -20,9 +20,10 @@ public sealed partial class ArtifactGasTriggerComponent : Component
         Gas.CarbonDioxide,
         Gas.Ammonia,
         Gas.NitrousOxide,
-        Gas.BZ, 
-        Gas.Healium, 
-        Gas.Nitrium, 
+        Gas.BZ, // Assmos - /tg/ gases
+        Gas.Healium, // Assmos - /tg/ gases
+        Gas.Nitrium, // Assmos - /tg/ gases
+        Gas.Pluoxium, // Assmos - /tg/ gases
     };
 
     /// <summary>

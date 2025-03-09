@@ -1,4 +1,3 @@
-using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Heretic.Prototypes;

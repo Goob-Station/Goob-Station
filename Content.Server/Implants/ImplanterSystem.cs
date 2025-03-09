@@ -43,7 +43,9 @@ public sealed partial class ImplanterSystem : SharedImplanterSystem
         }
         else
         {
-            if (!CanImplant(args.User, target, uid, component, out var implant, out _))
+            // Goobstation - allow traitors to buy suicide implants
+            bool canImplant = CanImplant(args.User, target, uid, component, out var implant, out var implantComp);
+            if (!canImplant)
             {
                 // no popup if implant doesn't exist
                 if (implant == null)
@@ -58,43 +60,16 @@ public sealed partial class ImplanterSystem : SharedImplanterSystem
                 return;
             }
 
-            // Check if we are trying to implant a implant which is already implanted
-            if (implant.HasValue && !component.AllowMultipleImplants && CheckSameImplant(target, implant.Value))
-            {
-                var name = Identity.Name(target, EntityManager, args.User);
-                var msg = Loc.GetString("implanter-component-implant-already", ("implant", implant), ("target", name));
-                _popup.PopupEntity(msg, target, args.User);
-                args.Handled = true;
-                return;
-            }
 
-            if (args.User == target && HasComp<PreventSelfImplantComponent>(uid))   //Goobstation - Mindcontrol implant preventing self implant
-            {
-                var name = Identity.Name(target, EntityManager, args.User);
-                var msg = Loc.GetString("implanter-component-implant-failed", ("implant", implant), ("target", name));
-                _popup.PopupEntity(msg, target, args.User);
-                // prevent further interaction since popup was shown
-                args.Handled = true;
-                return;
-            }
 
             //Implant self instantly, otherwise try to inject the target.
             if (args.User == target)
                 Implant(target, target, uid, component);
-            else
-                TryImplant(component, args.User, target, uid);
+            else if (implantComp != null)
+                TryImplant(component, args.User, target, uid, implantComp.ImplantationTimeMultiplier); // Goobstation - allow traitors to buy suicide implants (add time multiplier)
         }
 
         args.Handled = true;
-    }
-
-    public bool CheckSameImplant(EntityUid target, EntityUid implant)
-    {
-        if (!TryComp<ImplantedComponent>(target, out var implanted))
-            return false;
-
-        var implantPrototype = Prototype(implant);
-        return implanted.ImplantContainer.ContainedEntities.Any(entity => Prototype(entity) == implantPrototype);
     }
 
     /// <summary>
@@ -104,9 +79,10 @@ public sealed partial class ImplanterSystem : SharedImplanterSystem
     /// <param name="user">The entity using the implanter</param>
     /// <param name="target">The entity being implanted</param>
     /// <param name="implanter">The implanter being used</param>
-    public void TryImplant(ImplanterComponent component, EntityUid user, EntityUid target, EntityUid implanter)
+    // Goobstation - allow traitors to buy suicide implants (add time multiplier)
+    public void TryImplant(ImplanterComponent component, EntityUid user, EntityUid target, EntityUid implanter, float timeMultiplier = 1)
     {
-        var args = new DoAfterArgs(EntityManager, user, component.ImplantTime, new ImplantEvent(), implanter, target: target, used: implanter)
+        var args = new DoAfterArgs(EntityManager, user, component.ImplantTime * timeMultiplier, new ImplantEvent(), implanter, target: target, used: implanter)
         {
             BreakOnDamage = true,
             BreakOnMove = true,

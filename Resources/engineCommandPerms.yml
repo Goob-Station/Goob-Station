@@ -93,9 +93,17 @@
   - tp
   - tpto
 
+- Flags: FULLADMIN # Goobstation (and every setting in this flag)
+  Commands:
+  - self
+  - entities
+  - nearby
+  - ent
+
 - Flags: FUN
   Commands:
   - tippy
+  - loadprototype # Goobstation
   - tip
 
 - Flags: SERVER
@@ -137,7 +145,6 @@
 - Flags: QUERY
   Commands:
   - uploadfile
-  - loadprototype
   - uploadfolder
 
 - Commands:

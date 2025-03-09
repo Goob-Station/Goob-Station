@@ -1,29 +1,21 @@
 using Content.Server.Atmos.Rotting;
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Systems;
-using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
 using Content.Server.Popups;
 using Content.Shared.Bed.Sleep;
-using Content.Shared.CCVar;
 using Content.Shared.Damage;
-using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared.Interaction;
-using Content.Shared.Inventory;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Conditions;
 using Content.Shared._Shitmed.Medical.Surgery.Effects.Step;
-using Content.Shared._Shitmed.Medical.Surgery.Steps;
-using Content.Shared._Shitmed.Medical.Surgery.Steps.Parts;
 using Content.Shared._Shitmed.Medical.Surgery.Tools;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using System.Linq;
 using Content.Shared.Verbs;
+using Content.Shared._Goobstation.CCVar;
 
 namespace Content.Server._Shitmed.Medical.Surgery;
 
@@ -104,7 +96,7 @@ public sealed class SurgerySystem : SharedSurgerySystem
         if (!IsLyingDown(target, user))
             return;
 
-        if (user == target && !_config.GetCVar(CCVars.CanOperateOnSelf))
+        if (user == target && !_config.GetCVar(GoobCVars.CanOperateOnSelf))
         {
             _popup.PopupEntity(Loc.GetString("surgery-error-self-surgery"), user, user);
             return;

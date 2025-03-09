@@ -1,9 +1,7 @@
-using System.Collections;
 using System.Linq;
 using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
-using Content.Server.Atmos;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Robust.Shared.CPUJob.JobQueues;
@@ -11,7 +9,6 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Server.Parallax;
 using Content.Server.Procedural;
 using Content.Server.Salvage.Expeditions;
-using Content.Server.Salvage.Expeditions.Structure;
 using Content.Shared.Atmos;
 using Content.Shared.Construction.EntitySystems;
 using Content.Shared.Dataset;
@@ -25,7 +22,6 @@ using Content.Shared.Salvage;
 using Content.Shared.Salvage.Expeditions;
 using Content.Shared.Salvage.Expeditions.Modifiers;
 using Content.Shared.Shuttles.Components;
-using Content.Shared.Storage;
 using Robust.Shared.Collections;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -104,7 +100,9 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
         destComp.BeaconsOnly = true;
         destComp.RequireCoordinateDisk = true;
         destComp.Enabled = true;
-        _metaData.SetEntityName(mapUid, SharedSalvageSystem.GetFTLName(_prototypeManager.Index<DatasetPrototype>("names_borer"), _missionParams.Seed));
+        _metaData.SetEntityName(
+            mapUid,
+            _entManager.System<SharedSalvageSystem>().GetFTLName(_prototypeManager.Index<LocalizedDatasetPrototype>("NamesBorer"), _missionParams.Seed));
         _entManager.AddComponent<FTLBeaconComponent>(mapUid);
 
         // Saving the mission mapUid to a CD is made optional, in case one is somehow made in a process without a CD entity
@@ -191,7 +189,7 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
 
         List<Vector2i> reservedTiles = new();
 
-        foreach (var tile in grid.GetTilesIntersecting(new Circle(Vector2.Zero, landingPadRadius), false))
+        foreach (var tile in _map.GetTilesIntersecting(mapUid, grid, new Circle(Vector2.Zero, landingPadRadius), false))
         {
             if (!_biome.TryGetBiomeTile(mapUid, grid, tile.GridIndices, out _))
                 continue;

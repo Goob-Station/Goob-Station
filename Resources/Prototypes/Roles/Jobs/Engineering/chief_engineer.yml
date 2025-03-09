@@ -20,6 +20,7 @@
   icon: "JobIconChiefEngineer"
   supervisors: job-supervisors-captain
   canBeAntag: false
+  goobcoins: 40 #Goob content
   access:
   - Maintenance
   - Engineering
@@ -46,3 +47,4 @@
   storage:
     back:
     - Flash
+    - TelescopicBaton # Goobstation

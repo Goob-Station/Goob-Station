@@ -1,10 +1,7 @@
 using System.Numerics;
-using Content.Shared.Salvage;
 using Content.Shared.Salvage.Expeditions;
 using Robust.Shared.Audio;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Server.Salvage.Expeditions;
 
@@ -56,5 +53,5 @@ public sealed partial class SalvageExpeditionComponent : SharedSalvageExpedition
     /// Song selected on MapInit so we can predict the audio countdown properly.
     /// </summary>
     [DataField]
-    public SoundPathSpecifier SelectedSong;
+    public ResolvedSoundSpecifier SelectedSong;
 }

@@ -4,11 +4,11 @@ using System.Numerics;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Station.Events;
+using Content.Shared._Lavaland.Shuttles;
 using Content.Shared.Body.Components;
 using Content.Shared.Buckle.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
-using Content.Shared.Ghost;
 using Content.Shared.Maps;
 using Content.Shared.Parallax;
 using Content.Shared.Shuttles.Components;
@@ -234,12 +234,6 @@ public sealed partial class ShuttleSystem
 
         if (TryComp<PhysicsComponent>(shuttleUid, out var shuttlePhysics))
         {
-            // Static physics type is set when station anchor is enabled
-            if (shuttlePhysics.BodyType == BodyType.Static)
-            {
-                reason = Loc.GetString("shuttle-console-static");
-                return false;
-            }
 
             // Too large to FTL
             if (FTLMassLimit > 0 &&  shuttlePhysics.Mass > FTLMassLimit)
@@ -638,7 +632,7 @@ public sealed partial class ShuttleSystem
                     continue;
 
                 // goob edit - stunmeta
-                _stuns.TryKnockdown(child, _hyperspaceKnockdownTime, true, status);
+                _stuns.KnockdownOrStun(child, _hyperspaceKnockdownTime, true, status);
 
                 // If the guy we knocked down is on a spaced tile, throw them too
                 if (grid != null)
@@ -1009,6 +1003,7 @@ public sealed partial class ShuttleSystem
                     continue;
                 }
 
+                // If it has the FTLSmashImmuneComponent ignore it.
                 if (_immuneQuery.HasComponent(ent))
                 {
                     continue;

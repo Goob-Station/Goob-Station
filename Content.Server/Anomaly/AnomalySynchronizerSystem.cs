@@ -1,8 +1,6 @@
 using System.Linq;
-using System.Numerics;
 using Content.Server.Anomaly.Components;
 using Content.Server.DeviceLinking.Systems;
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Examine;

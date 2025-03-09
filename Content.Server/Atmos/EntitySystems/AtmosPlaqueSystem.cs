@@ -1,6 +1,5 @@
 using Content.Server.Atmos.Components;
 using Content.Shared.Atmos.Visuals;
-using Robust.Server.GameObjects;
 using Robust.Shared.Random;
 
 namespace Content.Server.Atmos.EntitySystems;

@@ -9,7 +9,6 @@ using JetBrains.Annotations;
 using Robust.Shared.Console;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Localization;
 
 namespace Content.Server.GameTicking;
 

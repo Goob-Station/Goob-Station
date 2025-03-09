@@ -19,7 +19,7 @@ namespace Content.Server.GameTicking
         /// How long before RoundStartTime do we load maps.
         /// </summary>
         [ViewVariables]
-        public TimeSpan RoundPreloadTime { get; } = TimeSpan.FromSeconds(15);
+        public TimeSpan RoundPreloadTime { get; } = TimeSpan.FromSeconds(20); // Lavaland Change: make it a bit earlier
 
         [ViewVariables]
         private TimeSpan _pauseTime;
@@ -184,6 +184,6 @@ namespace Content.Server.GameTicking
             => UserHasJoinedGame(session.UserId);
 
         public bool UserHasJoinedGame(NetUserId userId)
-            => PlayerGameStatuses[userId] == PlayerGameStatus.JoinedGame;
+            => PlayerGameStatuses.TryGetValue(userId, out var status) && status == PlayerGameStatus.JoinedGame;
     }
 }

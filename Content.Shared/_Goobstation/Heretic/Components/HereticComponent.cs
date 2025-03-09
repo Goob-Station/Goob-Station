@@ -50,11 +50,13 @@ public sealed partial class HereticComponent : Component
     /// <summary>
     ///     Used to prevent double casting mansus grasp.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)] public bool MansusGraspActive = false;
+    [ViewVariables(VVAccess.ReadOnly)] public EntityUid MansusGrasp = EntityUid.Invalid;
 
     /// <summary>
     ///     Indicates if a heretic is able to cast advanced spells.
     ///     Requires wearing focus, codex cicatrix, hood or anything else that allows him to do so.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)] public bool CanCastSpells = false;
+
+    [ViewVariables(VVAccess.ReadWrite)] public bool CanShootGuns = true;
 }

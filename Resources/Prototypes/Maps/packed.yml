@@ -13,6 +13,8 @@
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'VG'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/emergency_crimson.yml
         - type: StationJobs
           availableJobs:
             #service
@@ -60,3 +62,10 @@
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 1, 1 ]
+
+        # Goobstation blob-config-start SMALL+
+        - type: StationBlobConfig
+          stageBegin: 25
+          stageCritical: 350
+          stageTheEnd: 700
+        # Goobstation blob-config-end

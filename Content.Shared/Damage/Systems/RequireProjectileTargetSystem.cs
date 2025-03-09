@@ -3,10 +3,7 @@ using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Standing;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Containers;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Mobs;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Physics.Systems;
 
 namespace Content.Shared.Damage.Components;
 
@@ -49,6 +46,11 @@ public sealed class RequireProjectileTargetSystem : EntitySystem
                 return;
 
             if (TryComp(ent, out PhysicsComponent? physics) && physics.LinearVelocity.Length() > 2.5f) // Goobstation
+                return;
+
+            // ProjectileGrenades delete the entity that's shooting the projectile,
+            // so it's impossible to check if the entity is in a container
+            if (TerminatingOrDeleted(shooter.Value))
                 return;
 
             if (!_container.IsEntityOrParentInContainer(shooter.Value))

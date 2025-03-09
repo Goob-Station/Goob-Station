@@ -11,6 +11,8 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Storage.Components;
 using Robust.Server.Containers;
 using Content.Shared.Whitelist;
+using Content.Shared.Inventory;
+using Content.Shared._Goobstation.Clothing.Systems;
 
 namespace Content.Server.Power.EntitySystems;
 
@@ -22,6 +24,7 @@ internal sealed class ChargerSystem : EntitySystem
     [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly InventorySystem _inventorySystem = default!;
 
     public override void Initialize()
     {
@@ -223,10 +226,10 @@ internal sealed class ChargerSystem : EntitySystem
         if (container.ContainedEntities.Count == 0)
             return CellChargerStatus.Empty;
 
-        if (!SearchForBattery(container.ContainedEntities[0], out _, out var heldBattery))
+        if (!SearchForBattery(container.ContainedEntities[0], out var heldEnt, out var heldBattery))
             return CellChargerStatus.Off;
 
-        if (Math.Abs(heldBattery.MaxCharge - heldBattery.CurrentCharge) < 0.01)
+        if (_battery.IsFull(heldEnt.Value, heldBattery))
             return CellChargerStatus.Charged;
 
         return CellChargerStatus.Charging;
@@ -247,24 +250,48 @@ internal sealed class ChargerSystem : EntitySystem
             return;
 
         _battery.SetCharge(batteryUid.Value, heldBattery.CurrentCharge + component.ChargeRate * frameTime, heldBattery);
-        // Just so the sprite won't be set to 99.99999% visibility
-        if (heldBattery.MaxCharge - heldBattery.CurrentCharge < 0.01)
-        {
-            _battery.SetCharge(batteryUid.Value, heldBattery.MaxCharge, heldBattery);
-        }
-
         UpdateStatus(uid, component);
     }
 
+    // Goobstation - Modsuits - Changed charger logic to work with suits in cyborg charger
     private bool SearchForBattery(EntityUid uid, [NotNullWhen(true)] out EntityUid? batteryUid, [NotNullWhen(true)] out BatteryComponent? component)
     {
+        batteryUid = null;
+        component = null;
+
         // try get a battery directly on the inserted entity
-        if (!TryComp(uid, out component))
+        if (TryComp(uid, out component))
         {
-            // or by checking for a power cell slot on the inserted entity
-            return _powerCell.TryGetBatteryFromSlot(uid, out batteryUid, out component);
+            batteryUid = uid;
+            return true;
         }
-        batteryUid = uid;
-        return true;
+
+        // try get battery by checking for a power cell slot on the inserted entity
+        if (_powerCell.TryGetBatteryFromSlot(uid, out batteryUid, out component))
+            return true;
+
+        if (TryComp<InventoryComponent>(uid, out var inventory))
+        {
+            var relayEv = new FindInventoryBatteryEvent();
+            _inventorySystem.RelayEvent((uid, inventory), ref relayEv);
+
+            if (relayEv.FoundBattery != null)
+            {
+                batteryUid = relayEv.FoundBattery.Value.Owner;
+                component = relayEv.FoundBattery.Value.Comp;
+                return true;
+            }
+        }
+
+        return false;
     }
+}
+
+// Goobstation - Modsuits stuff
+[ByRefEvent]
+public record struct FindInventoryBatteryEvent() : IInventoryRelayEvent
+{
+    public SlotFlags TargetSlots { get; } = SlotFlags.WITHOUT_POCKET;
+
+    public Entity<BatteryComponent>? FoundBattery { get; set; }
 }

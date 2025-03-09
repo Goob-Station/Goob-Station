@@ -101,6 +101,7 @@ public sealed partial class HereticVoidBlinkEvent : WorldTargetActionEvent { }
 public sealed partial class HereticVoidPullEvent : InstantActionEvent { }
 
 // blade (+ upgrades)
+[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticCuttingEdgeEvent : EntityEventArgs { }
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticDanceOfTheBrandEvent : EntityEventArgs { }
 public sealed partial class EventHereticRealignment : InstantActionEvent { }
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticChampionStanceEvent : EntityEventArgs { }

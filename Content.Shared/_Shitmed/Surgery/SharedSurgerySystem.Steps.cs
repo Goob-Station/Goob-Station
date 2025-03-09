@@ -1,9 +1,7 @@
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
-using Content.Shared.Bed.Sleep;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Organ;
-using Content.Shared.Body.Events;
 using Content.Shared._Shitmed.BodyEffects;
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared.Buckle.Components;
@@ -24,7 +22,6 @@ using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared._Shitmed.Body.Part;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Toolshed.TypeParsers;
 using System.Linq;
 
 namespace Content.Shared._Shitmed.Medical.Surgery;
@@ -278,6 +275,9 @@ public abstract partial class SharedSurgerySystem
 
         if (_inventory.TryGetContainerSlotEnumerator(args.Body, out var containerSlotEnumerator, args.TargetSlots))
         {
+            if (HasComp<SurgeryIgnoreClothingComponent>(args.User))
+                return;
+
             while (containerSlotEnumerator.MoveNext(out var containerSlot))
             {
                 if (!containerSlot.ContainedEntity.HasValue)
@@ -525,6 +525,7 @@ public abstract partial class SharedSurgerySystem
                 {
                     var ev = new SurgeryStepDamageChangeEvent(args.User, args.Body, args.Part, ent);
                     RaiseLocalEvent(ent, ref ev);
+                    args.Complete = true;
                 }
                 break;
             }

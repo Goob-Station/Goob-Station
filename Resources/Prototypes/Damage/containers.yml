@@ -54,9 +54,22 @@
   supportedTypes:
     - Heat
 
-# Shitmed
 - type: damageContainer
-  id: OrganicPart
+  id: ManifestedSpirit
   supportedGroups:
+    - Metaphysical
     - Brute
-    - Burn
+  supportedTypes:
+    - Heat
+    - Shock
+    - Caustic
+
+- type: damageContainer
+  id: BiologicalMetaphysical
+  supportedGroups:
+  - Brute
+  - Burn
+  - Toxin
+  - Airloss
+  - Genetic
+  - Metaphysical

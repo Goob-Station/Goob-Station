@@ -37,6 +37,7 @@ ui-options-lobby-music = Lobby & Round-end Music
 ui-options-restart-sounds = Round Restart Sounds
 ui-options-event-music = Event Music
 ui-options-admin-sounds = Play Admin Sounds
+ui-options-bwoink-sound = Play AHelp Notification Sound
 ui-options-volume-label = Volume
 
 ## Graphics menu
@@ -152,6 +153,7 @@ ui-options-static-storage-ui = Lock storage window to hotbar
 
 ui-options-function-smart-equip-backpack = Smart-equip to backpack
 ui-options-function-smart-equip-belt = Smart-equip to belt
+ui-options-function-smart-equip-back = Smart-equip to back slot
 ui-options-function-open-backpack = Open backpack
 ui-options-function-open-belt = Open belt
 ui-options-function-throw-item-in-hand = Throw item
@@ -221,6 +223,17 @@ ui-options-function-hotbar7 = Hotbar slot 7
 ui-options-function-hotbar8 = Hotbar slot 8
 ui-options-function-hotbar9 = Hotbar slot 9
 ui-options-function-hotbar0 = Hotbar slot 0
+# Goobstation - Extra hotbar hotkeys
+ui-options-function-hotbarshift1 = Hotbar slot Shift+1
+ui-options-function-hotbarshift2 = Hotbar slot Shift+2
+ui-options-function-hotbarshift3 = Hotbar slot Shift+3
+ui-options-function-hotbarshift4 = Hotbar slot Shift+4
+ui-options-function-hotbarshift5 = Hotbar slot Shift+5
+ui-options-function-hotbarshift6 = Hotbar slot Shift+6
+ui-options-function-hotbarshift7 = Hotbar slot Shift+7
+ui-options-function-hotbarshift8 = Hotbar slot Shift+8
+ui-options-function-hotbarshift9 = Hotbar slot Shift+9
+ui-options-function-hotbarshift0 = Hotbar slot Shift+0
 ui-options-function-loadout1 = Hotbar Loadout 1
 ui-options-function-loadout2 = Hotbar Loadout 2
 ui-options-function-loadout3 = Hotbar Loadout 3
@@ -231,6 +244,17 @@ ui-options-function-loadout7 = Hotbar Loadout 7
 ui-options-function-loadout8 = Hotbar Loadout 8
 ui-options-function-loadout9 = Hotbar Loadout 9
 ui-options-function-loadout0 = Hotbar Loadout 0
+# Goobstation - Extra hotbar hotkeys
+ui-options-function-loadoutshift1 = Hotbar Loadout Shift+1
+ui-options-function-loadoutshift2 = Hotbar Loadout Shift+2
+ui-options-function-loadoutshift3 = Hotbar Loadout Shift+3
+ui-options-function-loadoutshift4 = Hotbar Loadout Shift+4
+ui-options-function-loadoutshift5 = Hotbar Loadout Shift+5
+ui-options-function-loadoutshift6 = Hotbar Loadout Shift+6
+ui-options-function-loadoutshift7 = Hotbar Loadout Shift+7
+ui-options-function-loadoutshift8 = Hotbar Loadout Shift+8
+ui-options-function-loadoutshift9 = Hotbar Loadout Shift+9
+ui-options-function-loadoutshift0 = Hotbar Loadout Shift+0
 
 ui-options-function-shuttle-strafe-up = Strafe up
 ui-options-function-shuttle-strafe-right = Strafe right
@@ -281,8 +305,11 @@ cmd-options-help = Usage: options [tab]
 ui-options-enable-color-name = Add colors to character names
 ui-options-colorblind-friendly = Colorblind friendly mode
 ui-options-reduced-motion = Reduce motion of visual effects
-ui-options-chat-window-opacity = Chat window opacity
 ui-options-screen-shake-intensity = Screen shake intensity
+ui-options-chat-window-opacity = Chat window opacity
+ui-options-speech-bubble-text-opacity = Speech bubble text opacity
+ui-options-speech-bubble-speaker-opacity = Speech bubble speaker opacity
+ui-options-speech-bubble-background-opacity = Speech bubble background opacity
 
 ## Shitmed Change
 ui-options-header-targeting = Targeting

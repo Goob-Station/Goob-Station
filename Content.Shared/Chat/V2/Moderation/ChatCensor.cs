@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace Content.Shared.Chat.V2.Moderation;
+﻿namespace Content.Shared.Chat.V2.Moderation;
 
 public interface IChatCensor
 {

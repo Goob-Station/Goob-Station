@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: StationAnchorBase
   abstract: true
   name: station anchor
@@ -39,12 +39,15 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.7,-0.8,0.7,0.8"
+          bounds: "-0.7,-0.7,0.7,0.7"
         density: 190
         mask:
         - LargeMobMask
         layer:
         - WallLayer
+  - type: Tag # Goobstation
+    tags:
+    - IgnoreImmovableRod
 
 - type: entity
   id: StationAnchorIndestructible
@@ -109,6 +112,10 @@
       interfaces:
         enum.PowerChargeUiKey.Key:
           type: PowerChargeBoundUserInterface
+    - type: Tag # Goobstation
+      tags:
+      - Structure
+      - IgnoreImmovableRod
 
 - type: entity
   parent: StationAnchor

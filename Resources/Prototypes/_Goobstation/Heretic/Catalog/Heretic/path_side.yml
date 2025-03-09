@@ -6,7 +6,7 @@
   icon: { sprite: _Goobstation/Heretic/eldritch_hood.rsi, state: icon }
   productHereticKnowledge: ArmorerRitual
   cost:
-    KnowledgePoint: 2
+    KnowledgePoint: 1
   categories:
   - HereticPathSide
   conditions:
@@ -22,7 +22,23 @@
   icon: { sprite: _Goobstation/Heretic/items.rsi, state: eldritch_flask }
   productHereticKnowledge: PriestRitual
   cost:
-    KnowledgePoint: 2
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2
+
+- type: listing
+  id: HereticSidePath3AshenEyes
+  name: knowledge-path-side-s3-ashen-eyes-name
+  description: knowledge-path-side-s3-ashen-eyes-desc
+  icon: { sprite: _Goobstation/Heretic/eldritch_medalion.rsi, state: icon }
+  productHereticKnowledge: AshenEyesRitual
+  cost:
+    KnowledgePoint: 1
   categories:
   - HereticPathSide
   conditions:
@@ -37,7 +53,7 @@
   description: knowledge-path-side-knowledge-desc
   productHereticKnowledge: RitualOfKnowledge
   cost:
-    KnowledgePoint: 2
+    KnowledgePoint: 1
   categories:
   - HereticPathSide
   conditions:

@@ -1,26 +1,26 @@
-using Content.Server.Atmos.Commands;
 using Content.Server.Chat.Systems;
-using Content.Server.EntityEffects.Effects.StatusEffects;
 using Content.Server.Hands.Systems;
 using Content.Server.Heretic.Components;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared._White.BackStab;
 using Content.Shared._White.Standing;
+using Content.Shared.Actions;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
@@ -28,11 +28,13 @@ using Content.Shared.Tag;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.EntitySystems;
 
 public sealed partial class MansusGraspSystem : EntitySystem
 {
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -45,6 +47,8 @@ public sealed partial class MansusGraspSystem : EntitySystem
     [Dependency] private readonly TemperatureSystem _temperature = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly BackStabSystem _backstab = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
 
     public override void Initialize()
     {
@@ -84,7 +88,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         {
             _chat.TrySendInGameICMessage(args.User, Loc.GetString("heretic-speech-mansusgrasp"), InGameICChatType.Speak, false);
             _audio.PlayPvs(new SoundPathSpecifier("/Audio/Items/welder.ogg"), target);
-            _stun.TryKnockdown(target, TimeSpan.FromSeconds(3f), true);
+            _stun.KnockdownOrStun(target, TimeSpan.FromSeconds(3f), true);
             _stamina.TakeStaminaDamage(target, 80f);
             _language.DoRatvarian(target, TimeSpan.FromSeconds(10f), true);
         }
@@ -102,7 +106,8 @@ public sealed partial class MansusGraspSystem : EntitySystem
             }
         }
 
-        hereticComp.MansusGraspActive = false;
+        _actions.SetCooldown(hereticComp.MansusGrasp, ent.Comp.CooldownAfterUse);
+        hereticComp.MansusGrasp = EntityUid.Invalid;
         QueueDel(ent);
         args.Handled = true;
     }
@@ -114,7 +119,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         if (!args.CanReach
         || !args.ClickLocation.IsValid(EntityManager)
         || !TryComp<HereticComponent>(args.User, out var heretic) // not a heretic - how???
-        || !heretic.MansusGraspActive // no grasp - not special
+        || heretic.MansusGrasp != EntityUid.Invalid // no grasp - not special
         || HasComp<ActiveDoAfterComponent>(args.User) // prevent rune shittery
         || !tags.Contains("Write") || !tags.Contains("Pen")) // not a pen
             return;
@@ -136,6 +141,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
             BreakOnHandChange = true,
             BreakOnMove = true,
             CancelDuplicate = false,
+            MultiplyDelay = false,
         };
         _doAfter.TryStartDoAfter(dargs);
     }
@@ -172,11 +178,15 @@ public sealed partial class MansusGraspSystem : EntitySystem
                         break;
                     }
 
-                    // ultra stun if the person is looking away or laying down
-                    var degrees = Transform(target).LocalRotation.Degrees - Transform(performer).LocalRotation.Degrees;
-                    if (HasComp<LayingDownComponent>(target) // laying down
-                    || (degrees >= 160 && degrees <= 210)) // looking back
-                        _stamina.TakeStaminaDamage(target, 110f, immediate: true);
+                    // small stun if the person is looking away or laying down
+                    if (_backstab.TryBackstab(target, performer, Angle.FromDegrees(45d)))
+                    {
+                        _stun.TryParalyze(target, TimeSpan.FromSeconds(1.5f), true);
+                        _damage.TryChangeDamage(target,
+                            new DamageSpecifier(_proto.Index<DamageTypePrototype>("Slash"), 10),
+                            origin: performer,
+                            targetPart: TargetBodyPart.Torso);
+                    }
                     break;
                 }
 
@@ -198,7 +208,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
                     if (TryComp<MobStateComponent>(target, out var mobState) && mobState.CurrentState == Shared.Mobs.MobState.Dead)
                     {
                         var ghoul = EnsureComp<GhoulComponent>(target);
-                        ghoul.BoundHeretic = performer;
+                        ghoul.BoundHeretic = GetNetEntity(performer);
                     }
                     break;
                 }
@@ -232,8 +242,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         if (HasComp<StatusEffectsComponent>(target))
         {
             _audio.PlayPvs(new SoundPathSpecifier("/Audio/Items/welder.ogg"), target);
-            _stun.TryKnockdown(target, TimeSpan.FromSeconds(3f), true);
-            _stamina.TakeStaminaDamage(target, 80f);
+            _stun.TryParalyze(target, TimeSpan.FromSeconds(5f), true);
             _language.DoRatvarian(target, TimeSpan.FromSeconds(10f), true);
         }
 

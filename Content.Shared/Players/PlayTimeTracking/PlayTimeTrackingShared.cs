@@ -1,6 +1,4 @@
-﻿using Content.Shared.Dataset;
-
-namespace Content.Shared.Players.PlayTimeTracking;
+﻿namespace Content.Shared.Players.PlayTimeTracking;
 
 public static class PlayTimeTrackingShared
 {

@@ -20,6 +20,7 @@ using Content.Shared.Examine;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using InventoryComponent = Content.Shared.Inventory.InventoryComponent;
 
@@ -39,6 +40,8 @@ namespace Content.Server.Flash
         [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
+
+        public static readonly ProtoId<TagPrototype> IgnoreResistancesTag = "FlashIgnoreResistances"; // Goobstation
 
         public override void Initialize()
         {
@@ -117,25 +120,36 @@ namespace Content.Server.Flash
             bool melee = false,
             TimeSpan? stunDuration = null)
         {
-            var attempt = new FlashAttemptEvent(target, user, used);
-            RaiseLocalEvent(target, attempt, true);
+            // Goob edit start
+            if (used == null || !_tag.HasTag(used.Value, IgnoreResistancesTag))
+            {
+                var attempt = new FlashAttemptEvent(target, user, used);
+                RaiseLocalEvent(target, attempt, true);
 
-            if (attempt.Cancelled)
-                return;
+                if (attempt.Cancelled)
+                    return;
+            }
+            // Goob edit end
+
+            // Goobstation start
+            var multiplierEv = new FlashDurationMultiplierEvent();
+            RaiseLocalEvent(target, multiplierEv);
+            var multiplier = multiplierEv.Multiplier;
+            // Goobstation end
 
             // don't paralyze, slowdown or convert to rev if the target is immune to flashes
-            if (!_statusEffectsSystem.TryAddStatusEffect<FlashedComponent>(target, FlashedKey, TimeSpan.FromSeconds(flashDuration / 1000f), true))
+            if (!_statusEffectsSystem.TryAddStatusEffect<FlashedComponent>(target, FlashedKey, TimeSpan.FromSeconds(flashDuration * multiplier / 1000f), true)) // Goob edit
                 return;
 
             if (stunDuration != null)
             {
                 // goob edit - stunmeta
-                _stun.TryKnockdown(target, stunDuration.Value, true);
+                _stun.KnockdownOrStun(target, stunDuration.Value * multiplier, true); // Goob edit
             }
             else
             {
-                _stun.TrySlowdown(target, TimeSpan.FromSeconds(flashDuration / 1000f), true,
-                slowTo, slowTo);
+                _stun.TrySlowdown(target, TimeSpan.FromSeconds(flashDuration * multiplier / 1000f), true,
+                slowTo, slowTo); // Goob edit
             }
 
             if (displayPopup && user != null && target != user && Exists(user.Value))

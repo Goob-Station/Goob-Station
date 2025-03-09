@@ -82,6 +82,11 @@
   - type: Tag
     tags:
       - DrinkGlass
+  - type: ThrowableBlocked # Goobstation
+    behavior: Damage
+    damage:
+      types:
+        Blunt: 5
 
 # Transformable container - normal glass
 - type: entity
@@ -1999,7 +2004,7 @@
 - type: entity
   parent: DrinkGlass
   id: DrinkTheMartinez
-  suffix: The Martinez
+  suffix: the martinez
   components:
     - type: SolutionContainerManager
       solutions:

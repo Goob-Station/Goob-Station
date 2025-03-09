@@ -17,7 +17,7 @@
       path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletKineticShuttle
-    fireCost: 50
+    fireCost: 0.1
   - type: Appearance
   - type: AmmoCounter
 # TODO: Plasma Cutter

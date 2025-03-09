@@ -1,7 +1,6 @@
 using Robust.Shared.Serialization;
 using Content.Shared.Inventory;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.Manager.Exceptions;
 
 namespace Content.Shared.Chat.TypingIndicator;
 

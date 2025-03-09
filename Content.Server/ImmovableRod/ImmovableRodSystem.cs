@@ -1,16 +1,21 @@
 using Content.Server.Body.Systems;
 using Content.Server.Polymorph.Components;
 using Content.Server.Popups;
+using Content.Server.Storage.Components;
+using Content.Server.Storage.EntitySystems;
+using Content.Server.Stunnable;
 using Content.Shared.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Popups;
+using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server.ImmovableRod;
@@ -26,6 +31,11 @@ public sealed class ImmovableRodSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly EntityStorageSystem _entityStorage = default!; // Goobstation
+    [Dependency] private readonly TagSystem _tag = default!; // Goobstation
+    [Dependency] private readonly StunSystem _stun = default!; // Goobstation
+
+    private static readonly ProtoId<TagPrototype> IgnoreTag = "IgnoreImmovableRod"; // Goobstation
 
     public override void Update(float frameTime)
     {
@@ -83,6 +93,14 @@ public sealed class ImmovableRodSystem : EntitySystem
     {
         var ent = args.OtherEntity;
 
+        // Goobstation start
+        if (component.DamagedEntities.Contains(ent))
+            return;
+
+        if (!component.DestroyTiles && _tag.HasTag(ent, IgnoreTag))
+            return;
+        // Goobstation end
+
         if (_random.Prob(component.HitSoundProbability))
         {
             _audio.PlayPvs(component.Sound, uid);
@@ -119,13 +137,18 @@ public sealed class ImmovableRodSystem : EntitySystem
                 if (component.Damage == null)
                     return;
 
-                _damageable.TryChangeDamage(ent, component.Damage, ignoreResistances: true);
+                component.DamagedEntities.Add(ent); // Goobstation
+                _damageable.TryChangeDamage(ent, component.Damage, component.IgnoreResistances, origin: uid, partMultiplier: component.PartDamageMultiplier); // Goob edit
+                if (component.KnockdownTime > TimeSpan.Zero) // Goobstation
+                    _stun.KnockdownOrStun(ent, component.KnockdownTime, true);
                 return;
             }
 
             _bodySystem.GibBody(ent, body: body);
             return;
         }
+
+        _entityStorage.EmptyContents(ent); // Goobstation
 
         QueueDel(ent);
     }

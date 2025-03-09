@@ -1,17 +1,12 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Cargo.Systems;
-using Content.Server.GameTicking;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Xenoarchaeology.Equipment.Components;
 using Content.Server.Xenoarchaeology.XenoArtifacts.Events;
-using Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Components;
-using Content.Shared.CCVar;
 using Content.Shared.Xenoarchaeology.XenoArtifacts;
 using JetBrains.Annotations;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;

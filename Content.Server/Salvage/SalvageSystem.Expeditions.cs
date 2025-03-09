@@ -4,13 +4,11 @@ using Content.Server.Salvage.Expeditions;
 using Content.Server.Salvage.Expeditions.Structure;
 using Content.Shared.CCVar;
 using Content.Shared.Examine;
-using Content.Shared.Random.Helpers;
 using Content.Shared.Salvage.Expeditions;
 using Robust.Shared.Audio;
 using Robust.Shared.CPUJob.JobQueues;
 using Robust.Shared.CPUJob.JobQueues.Queues;
 using Robust.Shared.GameStates;
-using Robust.Shared.Map;
 
 namespace Content.Server.Salvage;
 
@@ -69,8 +67,7 @@ public sealed partial class SalvageSystem
 
     private void OnExpeditionMapInit(EntityUid uid, SalvageExpeditionComponent component, MapInitEvent args)
     {
-        var selectedFile = _audio.GetSound(component.Sound);
-        component.SelectedSong = new SoundPathSpecifier(selectedFile, component.Sound.Params);
+        component.SelectedSong = _audio.ResolveSound(component.Sound);
     }
 
     private void OnExpeditionShutdown(EntityUid uid, SalvageExpeditionComponent component, ComponentShutdown args)

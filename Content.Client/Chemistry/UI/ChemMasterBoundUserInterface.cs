@@ -1,7 +1,6 @@
 using Content.Shared.Chemistry;
 using Content.Shared.Containers.ItemSlots;
 using JetBrains.Annotations;
-using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 
 namespace Content.Client.Chemistry.UI
@@ -46,6 +45,8 @@ namespace Content.Client.Chemistry.UI
             _window.CreateBottleButton.OnPressed += _ => SendMessage(
                 new ChemMasterOutputToBottleMessage(
                     (uint) _window.BottleDosage.Value, _window.LabelLine));
+            _window.BufferSortButton.OnPressed += _ => SendMessage(
+                    new ChemMasterSortingTypeCycleMessage());
 
             for (uint i = 0; i < _window.PillTypeButtons.Length; i++)
             {

@@ -31,6 +31,7 @@
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: furious_steel
     event: !type:EventHereticFuriousSteel
+    checkCanInteract: false
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-blade-furioussteel

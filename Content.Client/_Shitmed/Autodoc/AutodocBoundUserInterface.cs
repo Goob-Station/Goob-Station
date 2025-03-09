@@ -1,5 +1,4 @@
 using Content.Shared._Shitmed.Autodoc;
-using Robust.Client.GameObjects;
 using Robust.Client.Player;
 
 namespace Content.Client._Shitmed.Autodoc;

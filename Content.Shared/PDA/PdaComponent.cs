@@ -1,6 +1,5 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.GameStates;
-using Content.Shared.Access.Components;
 using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
@@ -12,12 +11,6 @@ namespace Content.Shared.PDA
         public const string PdaIdSlotId = "PDA-id";
         public const string PdaPenSlotId = "PDA-pen";
         public const string PdaPaiSlotId = "PDA-pai";
-
-        /// <summary>
-        /// The base PDA sprite state, eg. "pda", "pda-clown"
-        /// </summary>
-        [DataField("state")]
-        public string? State;
 
         [DataField("idSlot")]
         public ItemSlot IdSlot = new();

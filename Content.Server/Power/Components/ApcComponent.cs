@@ -1,7 +1,6 @@
 using Content.Server.Power.NodeGroups;
 using Content.Shared.APC;
 using Robust.Shared.Audio;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.Power.Components;
 

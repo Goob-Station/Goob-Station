@@ -2,13 +2,11 @@ using Content.Server.Atmos.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Humanoid;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Atmos.EntitySystems
@@ -101,7 +99,7 @@ namespace Content.Server.Atmos.EntitySystems
                 return;
 
             // Used by ExperiencePressureDifference to correct push/throw directions from tile-relative to physics world.
-            var gridWorldRotation = xforms.GetComponent(gridAtmosphere).WorldRotation;
+            var gridWorldRotation = _transformSystem.GetWorldRotation(gridAtmosphere);
 
             // If we're using monstermos, smooth out the yeet direction to follow the flow
             //TODO This is bad, don't run this. It just makes the throws worse by somehow rounding them to orthogonal

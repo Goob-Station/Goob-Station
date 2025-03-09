@@ -1,5 +1,3 @@
-using Robust.Shared.Player;
-
 namespace Content.Server.Arcade.BlockGame;
 
 [RegisterComponent]

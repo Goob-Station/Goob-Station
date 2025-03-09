@@ -85,5 +85,8 @@ namespace Content.Shared.Verbs
         public static readonly VerbCategory SelectType = new("verb-categories-select-type", null);
 
         public static readonly VerbCategory PowerLevel = new("verb-categories-power-level", null);
+
+        // Shitmed - Starlight Abductors
+        public static readonly VerbCategory Switch = new("verb-categories-switch", "/Textures/Interface/VerbIcons/group.svg.192dpi.png");
     }
 }

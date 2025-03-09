@@ -1,5 +1,4 @@
 using Content.Server.Administration.Logs;
-using Content.Server.GameTicking.Rules; // GoobStation
 using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.Revolutionary.Components; // GoobStation

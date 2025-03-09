@@ -71,7 +71,7 @@
       slotTexture: glasses
       slotFlags: EYES
       stripTime: 3
-      uiWindowPos: 0,0
+      uiWindowPos: 0,3 # Goobstation - Fix the glasses slot being overlapped with the inventory button; consistent with other inventory templates.
       strippingWindowPos: 0,0
       displayName: Eyes
     # - name: ears

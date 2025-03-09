@@ -16,7 +16,6 @@ using Content.Shared.Destructible;
 using Content.Shared.FixedPoint;
 using JetBrains.Annotations;
 using Robust.Server.Audio;
-using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;

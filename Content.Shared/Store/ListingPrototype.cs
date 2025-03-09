@@ -1,9 +1,9 @@
 using System.Linq;
 using Content.Shared.FixedPoint;
+using Content.Shared.Heretic.Prototypes; // Goob
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
-using Content.Shared.Heretic.Prototypes; // Goob
 
 namespace Content.Shared.Store;
 
@@ -101,7 +101,7 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
     /// <summary>
     /// The event that is broadcast when the listing is purchased.
     /// </summary>
-    [DataField]
+    [DataField(serverOnly: true), NonSerialized] // Goob edit
     public object? ProductEvent;
 
     // goobstation - heretics
@@ -139,6 +139,20 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
     public List<string> Components = new();
     // WD END
 
+    /// <summary>
+    /// Whether or not to disable refunding for the store when the listing is purchased from it.
+    /// Goob edit: This won't disable refund, but instead you won't be able to refund this listing.
+    /// </summary>
+    [DataField]
+    public bool DisableRefund = false;
+
+    /// <summary>
+    /// Goobstation.
+    /// When purchased, it will block refunds of these listings.
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<ListingPrototype>> BlockRefundListings = new();
+
     public bool Equals(ListingData? listing)
     {
         if (listing == null)
@@ -150,11 +164,19 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             Description != listing.Description ||
             ProductEntity != listing.ProductEntity ||
             ProductAction != listing.ProductAction ||
-            ProductEvent?.GetType() != listing.ProductEvent?.GetType() ||
+            RaiseProductEventOnUser != listing.RaiseProductEventOnUser || // Goobstation
+            DisableRefund != listing.DisableRefund || // Goobstation
             RestockTime != listing.RestockTime)
             return false;
 
+        if (ProductEvent != null && listing.ProductEvent != null && ProductEvent.GetType() != listing.ProductEvent.GetType()) // Goobstation
+            return false;
+
         if (Icon != null && !Icon.Equals(listing.Icon))
+            return false;
+
+        // Goobstation
+        if (!BlockRefundListings.OrderBy(x => x).SequenceEqual(listing.BlockRefundListings.OrderBy(x => x)))
             return false;
 
         // more complicated conditions that eat perf. these don't really matter
@@ -194,7 +216,10 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             ProductUpgradeId = ProductUpgradeId,
             ProductActionEntity = ProductActionEntity,
             ProductEvent = ProductEvent,
+            RaiseProductEventOnUser = RaiseProductEventOnUser, // goob edit
             ProductHereticKnowledge = ProductHereticKnowledge, // goob edit
+            DisableRefund = DisableRefund, // goob edit
+            BlockRefundListings = BlockRefundListings, // goob edit
             PurchaseAmount = PurchaseAmount,
             RestockTime = RestockTime,
             // WD START

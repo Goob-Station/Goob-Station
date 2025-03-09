@@ -38,6 +38,8 @@ public abstract partial class SharedGunSystem
 
         if (component is HitscanBatteryAmmoProviderComponent hitscan && state.Prototype != null) // Shitmed Change
             hitscan.Prototype = state.Prototype;
+
+        UpdateAmmoCount(uid, prediction: false);
     }
 
     private void OnBatteryGetState(EntityUid uid, BatteryAmmoProviderComponent component, ref ComponentGetState args)
@@ -88,7 +90,10 @@ public abstract partial class SharedGunSystem
     /// <summary>
     /// Update the battery (server-only) whenever fired.
     /// </summary>
-    protected virtual void TakeCharge(EntityUid uid, BatteryAmmoProviderComponent component) {}
+    protected virtual void TakeCharge(EntityUid uid, BatteryAmmoProviderComponent component)
+    {
+        UpdateAmmoCount(uid, prediction: false);
+    }
 
     protected void UpdateBatteryAppearance(EntityUid uid, BatteryAmmoProviderComponent component)
     {
@@ -120,6 +125,6 @@ public abstract partial class SharedGunSystem
         public int Shots;
         public int MaxShots;
         public float FireCost;
-        public string? Prototype;
+        public string? Prototype; // Shitmed Change
     }
 }

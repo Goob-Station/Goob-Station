@@ -1,0 +1,75 @@
+- type: entity
+  id: TelescopicBaton
+  parent: [BaseItem, BaseCommandContraband] # Goob edit
+  name: telescopic baton
+  description: A compact and harmless personal defense weapon. Sturdy enough to knock the feet out from under attackers. If you hit a person immediately after extending the baton, it will force them drop held items as well. # Goob edit
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/telebaton.rsi # Goob edit
+    layers:
+    - state: icon
+      map: [ "enum.TelescopicBatonVisuals.Layer" ]
+  - type: Item
+    sprite: _Goobstation/Objects/Weapons/Melee/telebaton.rsi # Goob edit
+    heldPrefix: off # Goobstation
+    size: Small
+    storedRotation: -45 # Goobstation
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Weapons/telescopicon.ogg
+      params:
+        volume: -2
+    soundDeactivate:
+      path: /Audio/Weapons/telescopicoff.ogg
+      params:
+        volume: -2
+  - type: ComponentToggler # Goobstation
+    components:
+    - type: DisarmMalus
+      malus: 0.6
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/_Goobstation/Weapons/Baton/woodhit.ogg
+      params:
+        variation: 0.250
+    activatedDamage:
+      types:
+        Blunt: 12
+  - type: ItemToggleSize
+    activatedSize: Normal
+    activatedShape: # Goobstation
+    - 0,0,0,3
+  - type: UseDelay
+    # Goob edit start
+    delays:
+      default:
+        length: 1
+      telebaton:
+        length: 4
+    # Goob edit end
+  - type: TelescopicBaton
+  - type: KnockdownOnHit
+    duration: 1.5
+    dropHeldItemsBehavior: DropIfStanding # Goob edit
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    bluntStaminaDamageFactor: 1.5
+    angle: 0 # Goob edit
+    damage:
+      types:
+        Blunt: 1
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.TelescopicBatonVisuals.State:
+        enum.TelescopicBatonVisuals.Layer:
+          True: { state: icon }
+          False: { state: icon-off }
+  - type: Clothing # Goobstation
+    sprite: _Goobstation/Objects/Weapons/Melee/telebaton.rsi
+    slots:
+    - Belt
+  - type: UseDelayBlockMelee # Goobstation
+    delays:
+    - default
+    - telebaton

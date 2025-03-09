@@ -1,4 +1,3 @@
-using Robust.Shared.Map;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Shuttles.Components;

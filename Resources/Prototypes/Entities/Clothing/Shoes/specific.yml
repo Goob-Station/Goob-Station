@@ -104,7 +104,7 @@
     sprite: Clothing/Shoes/Specific/cult.rsi
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: [ ClothingShoesBase, BaseJanitorContraband ]
   id: ClothingShoesGaloshes
   name: galoshes
   description: Rubber boots.
@@ -136,6 +136,8 @@
     # ninja are masters of sneaking around relatively quickly, won't break cloak
     walkModifier: 1.1
     sprintModifier: 1.3
+  - type: FootstepModifier
+    footstepSoundCollection: null
 
 - type: entity
   parent: ClothingShoesBaseButcherable
@@ -252,6 +254,8 @@
       shoes:
       - state: equipped-FEET
         offset: "0, -0.02"
+      - state: equipped-FEET-reptilian # WWDP
+        offset: "0, -0.02"
   - type: Item
     size: Small
     sprite: Clothing/Shoes/Specific/large_clown.rsi
@@ -273,14 +277,46 @@
       shoes:
       - state: equipped-FEET
         offset: "0, -0.04"
+      - state: equipped-FEET-reptilian # WWDP
+        offset: "0, -0.04"
   - type: Item
     sprite: Clothing/Shoes/Specific/skates.rsi
   - type: ClothingSpeedModifier
-    walkModifier: 1.1
-    sprintModifier: 1.1
+    walkModifier: 1.2 # Goob edit
+    sprintModifier: 1.2 # Goob edit
   - type: Skates
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepSkates
       params:
         variation: 0.08
+
+- type: entity
+  parent: [ClothingShoesBootsMagBase, BaseMagicContraband]
+  id: ClothingShoesRealJordans
+  name: air jordans
+  description: State-of-the-art, official, uncreased Jordans that protect you from slipping when turned on.
+  components:
+  - type: Sprite
+    sprite: Clothing/Shoes/Boots/jordans.rsi
+    state: icon
+  - type: Clothing
+    sprite: Clothing/Shoes/Boots/jordans.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: Tag
+  - type: StaticPrice
+    price: 750
+
+- type: entity
+  parent: [ClothingShoesBaseButcherable, BaseMajorContraband]
+  id: ClothingShoesFakeJordans
+  name: air jordans
+  suffix: fake
+  description: Upon closer inspection, something feels off about these. Are they.. creased? No, it can't be that. Wait, the logo looks a little off...
+  components:
+  - type: Sprite
+    sprite: Clothing/Shoes/Boots/jordans.rsi
+  - type: Clothing
+    sprite: Clothing/Shoes/Boots/jordans.rsi

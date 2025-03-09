@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: LivestockLootbug
+  icon:
+    sprite: _Goobstation/Mobs/Animals/lootbug.rsi
+    state: icon
+  product: CrateNPCLootbug
+  cost: 3000
+  category: cargoproduct-category-name-livestock
+  group: market

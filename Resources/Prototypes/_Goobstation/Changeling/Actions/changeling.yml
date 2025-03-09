@@ -53,6 +53,7 @@
       - Body
     canTargetSelf: false
     interactOnMiss: false
+    checkCanInteract: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
@@ -70,6 +71,7 @@
   components:
   - type: InstantAction
     itemIconStyle: NoItem
+    checkCanInteract: false
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: transform_cycle
@@ -87,6 +89,7 @@
   - type: InstantAction
     useDelay: 5
     itemIconStyle: NoItem
+    checkCanInteract: true
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: transform
@@ -151,6 +154,54 @@
     chemicalCost: 15
 
 - type: entity
+  id: ActionToggleHammer
+  name: Toggle Arm Hammer
+  description: Reform one of your arms into a strong hammer, composed of bone and flesh. Retract on secondary use. Costs 15 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 2
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: hammer
+    event: !type:ToggleArmHammerEvent {}
+  - type: ChangelingAction
+    chemicalCost: 15
+
+- type: entity
+  id: ActionToggleClaw
+  name: Toggle Arm Claw
+  description: Reform one of your arms into a strong claw, composed of bone and flesh. Retract on secondary use. Costs 15 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 2
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: claw
+    event: !type:ToggleArmClawEvent {}
+  - type: ChangelingAction
+    chemicalCost: 15
+
+- type: entity
+  id: ActionToggleDartGun
+  name: Toggle Dart Gun
+  description: Reform one of your arms into a dart gun, composed of bone and flesh. Retract on secondary use. Costs 15 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 2
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: dartgun
+    event: !type:ToggleDartGunEvent {}
+  - type: ChangelingAction
+    chemicalCost: 15
+
+- type: entity
   id: ActionCreateBoneShard
   name: Form Bone Shard
   description: Break off shards of your bone and shape them into a throwing star. Costs 15 chemicals.
@@ -209,6 +260,7 @@
   - type: InstantAction
     useDelay: 10
     itemIconStyle: NoItem
+    checkCanInteract: false
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: shriek_dissonant
@@ -227,6 +279,7 @@
   - type: InstantAction
     useDelay: 10
     itemIconStyle: NoItem
+    checkCanInteract: false
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: shriek_resonant
@@ -245,6 +298,7 @@
   - type: InstantAction
     useDelay: 1
     itemIconStyle: NoItem
+    checkCanInteract: false
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: strained_muscles
@@ -257,7 +311,7 @@
 - type: entity
   id: ActionStingBlind
   name: Blind Sting
-  description: Silently sting your target, blinding them for a short time and rendering them near sighted. Costs 35 chemicals.
+  description: Silently sting your target, blinding them for a short time and rendering them near sighted. Costs 25 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
@@ -267,18 +321,22 @@
     canTargetSelf: false
     interactOnMiss: false
     itemIconStyle: NoItem
+    checkCanInteract: false
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: sting_blind
-    event: !type:StingBlindEvent {}
+    event: !type:StingReagentEvent {}
   - type: ChangelingAction
-    chemicalCost: 35
+    chemicalCost: 20
     useInLesserForm: true
+  - type: ChangelingReagentSting
+    configuration: StingBlind
+    dartGunAmmo: StingBlind
 
 - type: entity
   id: ActionStingCryo
   name: Cryogenic Sting
-  description: Silently sting your target, constantly slowing and freezing them. Costs 35 chemicals.
+  description: Silently sting your target, constantly slowing and freezing them. Costs 25 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
@@ -288,18 +346,22 @@
     canTargetSelf: false
     interactOnMiss: false
     itemIconStyle: NoItem
+    checkCanInteract: false
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: sting_cryo
-    event: !type:StingCryoEvent {}
+    event: !type:StingReagentEvent {}
   - type: ChangelingAction
-    chemicalCost: 35
+    chemicalCost: 20
     useInLesserForm: true
+  - type: ChangelingReagentSting
+    configuration: StingCryo
+    dartGunAmmo: StingCryo
 
 - type: entity
   id: ActionStingLethargic
   name: Lethargic Sting
-  description: Silently inject a cocktail of anesthetics into the target. Costs 35 chemicals.
+  description: Silently inject a cocktail of anesthetics into the target. Costs 25 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
@@ -309,18 +371,22 @@
     canTargetSelf: false
     interactOnMiss: false
     itemIconStyle: NoItem
+    checkCanInteract: false
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: sting_lethargic
-    event: !type:StingLethargicEvent {}
+    event: !type:StingReagentEvent {}
   - type: ChangelingAction
-    chemicalCost: 35
+    chemicalCost: 30
     useInLesserForm: true
+  - type: ChangelingReagentSting
+    configuration: StingLethargic
+    dartGunAmmo: StingLethargic
 
 - type: entity
   id: ActionStingMute
   name: Mute Sting
-  description: Silently sting your target, completely silencing them for a short time. Costs 35 chemicals.
+  description: Silently sting your target, completely silencing them for a short time. Costs 25 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
@@ -330,13 +396,17 @@
     canTargetSelf: false
     interactOnMiss: false
     itemIconStyle: NoItem
+    checkCanInteract: false
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: sting_mute
-    event: !type:StingMuteEvent {}
+    event: !type:StingReagentEvent {}
   - type: ChangelingAction
-    chemicalCost: 35
+    chemicalCost: 20
     useInLesserForm: true
+  - type: ChangelingReagentSting
+    configuration: StingMute
+    dartGunAmmo: StingMute
 
 - type: entity
   id: ActionStingFakeArmblade
@@ -351,6 +421,7 @@
     canTargetSelf: false
     interactOnMiss: false
     itemIconStyle: NoItem
+    checkCanInteract: false
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: sting_armblade
@@ -372,6 +443,7 @@
     canTargetSelf: false
     interactOnMiss: false
     itemIconStyle: NoItem
+    checkCanInteract: false
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: sting_transform
@@ -424,18 +496,17 @@
 - type: entity
   id: ActionAugmentedEyesight
   name: Augmented Eyesight
-  description: Toggle flash protection.
+  description: Toggle thermal vision.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    useDelay: 1
     checkCanInteract: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: augmented_eyesight
-    event: !type:ActionAugmentedEyesightEvent {}
-  - type: ChangelingAction
-    chemicalCost: 0
+    event: !type:ToggleThermalVisionEvent {}
 
 - type: entity
   id: ActionBiodegrade
@@ -446,6 +517,7 @@
   - type: InstantAction
     useDelay: 5
     checkCanInteract: false
+    checkConsciousness: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
@@ -500,6 +572,7 @@
   - type: InstantAction
     useDelay: 30
     checkCanInteract: false
+    checkConsciousness: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
@@ -528,6 +601,7 @@
   - type: ChangelingAction
     chemicalCost: 20
     useInLesserForm: true
+    requireAbsorbed: 1
 
 - type: entity
   id: ActionToggleLesserForm
@@ -579,3 +653,26 @@
   - type: ChangelingAction
     chemicalCost: 0
     useInLesserForm: true
+
+- type: entity
+  id: ActionAbsorbBiomatter
+  name: Absorb Biomatter
+  description: Absorb a food item to regain some chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Food
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: absorb_biomatter
+    event: !type:AbsorbBiomatterEvent {}
+  - type: ChangelingAction
+    chemicalCost: 0
+    requireBiomass: false
+    useInLesserForm: true
+    useInLastResort: true

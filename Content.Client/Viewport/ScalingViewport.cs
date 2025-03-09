@@ -1,17 +1,11 @@
-using System;
-using System.Collections.Generic;
 using System.Numerics;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Graphics;
-using Robust.Shared.IoC;
 using Robust.Shared.Map;
-using Robust.Shared.Maths;
-using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Robust.Shared.ViewVariables;
 using SixLabors.ImageSharp.PixelFormats;
 
 namespace Content.Client.Viewport
@@ -144,7 +138,7 @@ namespace Content.Client.Viewport
             _inputManager.ViewportKeyEvent(this, args);
         }
 
-        protected override void Draw(DrawingHandleScreen handle)
+        protected override void Draw(IRenderHandle handle)
         {
             EnsureViewportCreated();
 
@@ -170,7 +164,7 @@ namespace Content.Client.Viewport
             var drawBox = GetDrawBox();
             var drawBoxGlobal = drawBox.Translated(GlobalPixelPosition);
             _viewport.RenderScreenOverlaysBelow(handle, this, drawBoxGlobal);
-            handle.DrawTextureRect(_viewport.RenderTarget.Texture, drawBox);
+            handle.DrawingHandleScreen.DrawTextureRect(_viewport.RenderTarget.Texture, drawBox);
             _viewport.RenderScreenOverlaysAbove(handle, this, drawBoxGlobal);
         }
 

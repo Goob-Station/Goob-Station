@@ -6,7 +6,6 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Radiation.Components;
 using Content.Shared.Radiation.Systems;
 using Robust.Server.Audio;
-using Robust.Server.GameObjects;
 using Robust.Server.Player;
 
 namespace Content.Server.Radiation.Systems;
@@ -161,7 +160,7 @@ public sealed class GeigerSystem : SharedGeigerSystem
         if (!_player.TryGetSessionByEntity(component.User.Value, out var session))
             return;
 
-        var sound = _audio.GetSound(sounds);
+        var sound = _audio.ResolveSound(sounds);
         var param = sounds.Params.WithLoop(true).WithVolume(-4f);
 
         component.Stream = _audio.PlayGlobal(sound, session, param)?.Entity;

@@ -2,14 +2,16 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Climbing.Systems;
 using Content.Shared.Database;
+using Content.Shared.DoAfter;
 using Content.Shared.DragDrop;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
 using Content.Shared.DoAfter; //Goobstation
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Containers;
 
-public sealed class DragInsertContainerSystem : EntitySystem
+public sealed partial class DragInsertContainerSystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
@@ -22,6 +24,7 @@ public sealed class DragInsertContainerSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<DragInsertContainerComponent, DragDropTargetEvent>(OnDragDropOn, before: new []{ typeof(ClimbSystem)});
+        SubscribeLocalEvent<DragInsertContainerComponent, DragInsertContainerDoAfterEvent>(OnDragFinished);
         SubscribeLocalEvent<DragInsertContainerComponent, CanDropTargetEvent>(OnCanDragDropOn);
         SubscribeLocalEvent<DragInsertContainerComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAlternativeVerb);
         SubscribeLocalEvent<DragInsertContainerComponent, InsertOnDragDoAfterEvent>(OnDragDoAfter);
@@ -50,7 +53,34 @@ public sealed class DragInsertContainerSystem : EntitySystem
         if (!_container.TryGetContainer(ent, comp.ContainerId, out var container))
             return;
 
-        args.Handled = Insert(args.Dragged, args.User, ent, container);
+        if (comp.EntryDelay <= TimeSpan.Zero ||
+            !comp.DelaySelfEntry && args.User == args.Dragged)
+        {
+            //instant insertion
+            args.Handled = Insert(args.Dragged, args.User, ent, container);
+            return;
+        }
+
+        //delayed insertion
+        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, comp.EntryDelay, new DragInsertContainerDoAfterEvent(), ent, args.Dragged, ent)
+        {
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            NeedHand = false,
+        };
+        _doAfter.TryStartDoAfter(doAfterArgs);
+        args.Handled = true;
+    }
+
+    private void OnDragFinished(Entity<DragInsertContainerComponent> ent, ref DragInsertContainerDoAfterEvent args)
+    {
+        if (args.Handled || args.Cancelled || args.Args.Target == null)
+            return;
+
+        if (!_container.TryGetContainer(ent, ent.Comp.ContainerId, out var container))
+            return;
+
+        Insert(args.Args.Target.Value, args.User, ent, container);
     }
     private void OnDragDoAfter(Entity<DragInsertContainerComponent> ent, ref InsertOnDragDoAfterEvent args)
     {
@@ -144,5 +174,10 @@ public sealed class DragInsertContainerSystem : EntitySystem
 
         _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(user):player} inserted {ToPrettyString(target):player} into container {ToPrettyString(containerEntity)}");
         return true;
+    }
+
+    [Serializable, NetSerializable]
+    public sealed partial class DragInsertContainerDoAfterEvent : SimpleDoAfterEvent
+    {
     }
 }

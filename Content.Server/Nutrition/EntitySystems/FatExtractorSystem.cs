@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Nutrition.Components;
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Storage.Components;
 using Content.Shared.Emag.Components;
@@ -21,6 +20,7 @@ namespace Content.Server.Nutrition.EntitySystems;
 public sealed class FatExtractorSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly HungerSystem _hunger = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -36,8 +36,13 @@ public sealed class FatExtractorSystem : EntitySystem
 
     private void OnGotEmagged(EntityUid uid, FatExtractorComponent component, ref GotEmaggedEvent args)
     {
+        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+            return;
+
+        if (_emag.CheckFlag(uid, EmagType.Interaction))
+            return;
+
         args.Handled = true;
-        args.Repeatable = false;
     }
 
     private void OnClosed(EntityUid uid, FatExtractorComponent component, ref StorageAfterCloseEvent args)
@@ -100,10 +105,10 @@ public sealed class FatExtractorSystem : EntitySystem
         if (!TryComp<HungerComponent>(occupant, out var hunger))
             return false;
 
-        if (hunger.CurrentHunger < component.NutritionPerSecond)
+        if (_hunger.GetHunger(hunger) < component.NutritionPerSecond)
             return false;
 
-        if (hunger.CurrentThreshold < component.MinHungerThreshold && !HasComp<EmaggedComponent>(uid))
+        if (hunger.CurrentThreshold < component.MinHungerThreshold && !_emag.CheckFlag(uid, EmagType.Interaction))
             return false;
 
         return true;

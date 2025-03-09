@@ -1,8 +1,4 @@
-using Content.Shared.Gravity;
-using Content.Shared.Maps;
 using Content.Shared.NPC;
-using Robust.Shared.Map.Components;
-using Robust.Shared.Spawners;
 
 namespace Content.Server.NPC.Pathfinding;
 

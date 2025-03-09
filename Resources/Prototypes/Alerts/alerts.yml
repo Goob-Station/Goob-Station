@@ -9,12 +9,14 @@
     - category: Stamina
     - alertType: ChangelingChemicals # goobstation - changelings
     - alertType: SuitPower
+    - alertType: ModsuitPower # Goobstation - Modsuits
     - category: Internals
     - alertType: Fire
     - alertType: Handcuffed
     - alertType: Ensnared
     - category: Buckled
     - alertType: Pulling
+    - alertType: Walking
     - category: Piloting
     - alertType: Corporeal
     - alertType: Stun
@@ -128,6 +130,14 @@
   icons: [ /Textures/Interface/Alerts/Weightless/weightless.png ]
   name: alerts-weightless-name
   description: alerts-weightless-desc
+
+- type: alert
+  id: Walking
+  icons:
+  - sprite: /Textures/Interface/Alerts/walking.rsi
+    state: walking
+  name: alerts-walking-name
+  description: alerts-walking-desc
 
 - type: alert
   id: Stun
@@ -378,19 +388,43 @@
   clickEvent: !type:RetakeVowAlertEvent
   description: alerts-vow-broken-desc
 
+# Goobstation start
+# Changed pulling to accomodate grabbing severity
 - type: alert
   id: Pulled
-  icons: [ /Textures/Interface/Alerts/Pull/pulled.png ]
-  clickEvent: !type:StopBeingPulledAlertEvent
+  icons:
+  - sprite: /Textures/_White/Interface/Alerts/pull.rsi
+    state: pulled
+  - sprite: /Textures/_White/Interface/Alerts/pull.rsi
+    state: grabbed-soft
+  - sprite: /Textures/_White/Interface/Alerts/pull.rsi
+    state: grabbed-hard
+  - sprite: /Textures/_White/Interface/Alerts/pull.rsi
+    state: grabbed-choke
+  clickEvent: !type:StopBeingPulledAlertEvent  { }
   name: alerts-pulled-name
   description: alerts-pulled-desc
+  minSeverity: 0
+  maxSeverity: 3
 
 - type: alert
   id: Pulling
-  icons: [ /Textures/Interface/Alerts/Pull/pulling.png ]
-  clickEvent: !type:StopPullingAlertEvent
+  icons:
+  - sprite: /Textures/_White/Interface/Alerts/pull.rsi
+    state: pulling
+  - sprite: /Textures/_White/Interface/Alerts/pull.rsi
+    state: grab-soft
+  - sprite: /Textures/_White/Interface/Alerts/pull.rsi
+    state: grab-hard
+  - sprite: /Textures/_White/Interface/Alerts/pull.rsi
+    state: grab-choke
+  clickEvent: !type:StopPullingAlertEvent  { }
   name: alerts-pulling-name
   description: alerts-pulling-desc
+  minSeverity: 0
+  maxSeverity: 3
+
+# Goobstation end
 
 - type: alert
   id: Bleed

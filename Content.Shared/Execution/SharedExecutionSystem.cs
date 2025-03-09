@@ -12,7 +12,6 @@ using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Mind;
 using Robust.Shared.Player;
 using Robust.Shared.Audio.Systems;
 
@@ -88,7 +87,8 @@ public sealed class SharedExecutionSystem : EntitySystem
             {
                 BreakOnMove = true,
                 BreakOnDamage = true,
-                NeedHand = true
+                NeedHand = true,
+                MultiplyDelay = false, // Goobstation
             };
 
         _doAfter.TryStartDoAfter(doAfter);

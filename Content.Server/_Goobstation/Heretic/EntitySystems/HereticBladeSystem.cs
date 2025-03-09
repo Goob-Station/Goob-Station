@@ -35,7 +35,6 @@ public sealed partial class HereticBladeSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly TemperatureSystem _temp = default!;
     [Dependency] private readonly TeleportSystem _teleport = default!;
-
     public override void Initialize()
     {
         base.Initialize();

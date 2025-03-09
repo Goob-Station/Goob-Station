@@ -31,9 +31,9 @@
       connections:
       - left hand
     right hand:
-      part: RightHandHuman
+      part: RightHandYowie
     left hand:
-      part: LeftHandHuman
+      part: LeftHandYowie
     right leg:
       part: RightLegHuman
       connections:

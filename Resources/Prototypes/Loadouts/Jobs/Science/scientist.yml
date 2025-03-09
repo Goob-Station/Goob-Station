@@ -75,6 +75,11 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorResearcher
 
+- type: loadout # goob
+  id: ResearchMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryScientist
+
 # Back
 - type: loadout
   id: ScientistBackpack

@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
+using Content.Shared._RMC14.LinkAccount;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
@@ -222,6 +223,7 @@ namespace Content.Server.Database
             {
                 var loadout = new RoleLoadout(role.RoleName)
                 {
+                    EntityName = role.EntityName,
                 };
 
                 foreach (var group in role.Groups)
@@ -323,6 +325,7 @@ namespace Content.Server.Database
                 var dz = new ProfileRoleLoadout()
                 {
                     RoleName = role,
+                    EntityName = loadouts.EntityName ?? string.Empty,
                 };
 
                 foreach (var (group, groupLoadouts) in loadouts.SelectedLoadouts)
@@ -392,12 +395,14 @@ namespace Content.Server.Database
         /// </summary>
         /// <param name="address">The ip address of the user.</param>
         /// <param name="userId">The id of the user.</param>
-        /// <param name="hwId">The HWId of the user.</param>
+        /// <param name="hwId">The legacy HWId of the user.</param>
+        /// <param name="modernHWIds">The modern HWIDs of the user.</param>
         /// <returns>The user's latest received un-pardoned ban, or null if none exist.</returns>
         public abstract Task<ServerBanDef?> GetServerBanAsync(
             IPAddress? address,
             NetUserId? userId,
-            ImmutableArray<byte>? hwId);
+            ImmutableArray<byte>? hwId,
+            ImmutableArray<ImmutableArray<byte>>? modernHWIds);
 
         /// <summary>
         ///     Looks up an user's ban history.
@@ -406,13 +411,15 @@ namespace Content.Server.Database
         /// </summary>
         /// <param name="address">The ip address of the user.</param>
         /// <param name="userId">The id of the user.</param>
-        /// <param name="hwId">The HWId of the user.</param>
+        /// <param name="hwId">The legacy HWId of the user.</param>
+        /// <param name="modernHWIds">The modern HWIDs of the user.</param>
         /// <param name="includeUnbanned">Include pardoned and expired bans.</param>
         /// <returns>The user's ban history.</returns>
         public abstract Task<List<ServerBanDef>> GetServerBansAsync(
             IPAddress? address,
             NetUserId? userId,
             ImmutableArray<byte>? hwId,
+            ImmutableArray<ImmutableArray<byte>>? modernHWIds,
             bool includeUnbanned);
 
         public abstract Task AddServerBanAsync(ServerBanDef serverBan);
@@ -503,11 +510,13 @@ namespace Content.Server.Database
         /// <param name="address">The IP address of the user.</param>
         /// <param name="userId">The NetUserId of the user.</param>
         /// <param name="hwId">The Hardware Id of the user.</param>
+        /// <param name="modernHWIds">The modern HWIDs of the user.</param>
         /// <param name="includeUnbanned">Whether expired and pardoned bans are included.</param>
         /// <returns>The user's role ban history.</returns>
         public abstract Task<List<ServerRoleBanDef>> GetServerRoleBansAsync(IPAddress? address,
             NetUserId? userId,
             ImmutableArray<byte>? hwId,
+            ImmutableArray<ImmutableArray<byte>>? modernHWIds,
             bool includeUnbanned);
 
         public abstract Task<ServerRoleBanDef> AddServerRoleBanAsync(ServerRoleBanDef serverRoleBan);
@@ -516,16 +525,23 @@ namespace Content.Server.Database
         public async Task EditServerRoleBan(int id, string reason, NoteSeverity severity, DateTimeOffset? expiration, Guid editedBy, DateTimeOffset editedAt)
         {
             await using var db = await GetDb();
+            var roleBanDetails = await db.DbContext.RoleBan
+                .Where(b => b.Id == id)
+                .Select(b => new { b.BanTime, b.PlayerUserId })
+                .SingleOrDefaultAsync();
 
-            var ban = await db.DbContext.RoleBan.SingleOrDefaultAsync(b => b.Id == id);
-            if (ban is null)
+            if (roleBanDetails == default)
                 return;
-            ban.Severity = severity;
-            ban.Reason = reason;
-            ban.ExpirationTime = expiration?.UtcDateTime;
-            ban.LastEditedById = editedBy;
-            ban.LastEditedAt = editedAt.UtcDateTime;
-            await db.DbContext.SaveChangesAsync();
+
+            await db.DbContext.RoleBan
+                .Where(b => b.BanTime == roleBanDetails.BanTime && b.PlayerUserId == roleBanDetails.PlayerUserId)
+                .ExecuteUpdateAsync(setters => setters
+                    .SetProperty(b => b.Severity, severity)
+                    .SetProperty(b => b.Reason, reason)
+                    .SetProperty(b => b.ExpirationTime, expiration.HasValue ? expiration.Value.UtcDateTime : (DateTime?)null)
+                    .SetProperty(b => b.LastEditedById, editedBy)
+                    .SetProperty(b => b.LastEditedAt, editedAt.UtcDateTime)
+                );
         }
         #endregion
 
@@ -590,7 +606,7 @@ namespace Content.Server.Database
             NetUserId userId,
             string userName,
             IPAddress address,
-            ImmutableArray<byte> hwId)
+            ImmutableTypedHwid? hwId)
         {
             await using var db = await GetDb();
 
@@ -607,7 +623,7 @@ namespace Content.Server.Database
             record.LastSeenTime = DateTime.UtcNow;
             record.LastSeenAddress = address;
             record.LastSeenUserName = userName;
-            record.LastSeenHWId = hwId.ToArray();
+            record.LastSeenHWId = hwId;
 
             await db.DbContext.SaveChangesAsync();
         }
@@ -653,7 +669,7 @@ namespace Content.Server.Database
                 player.LastSeenUserName,
                 new DateTimeOffset(NormalizeDatabaseTime(player.LastSeenTime)),
                 player.LastSeenAddress,
-                player.LastSeenHWId?.ToImmutableArray());
+                player.LastSeenHWId);
         }
 
         public async Task<int> GetServerCurrency(NetUserId userId) // Goobstation
@@ -684,11 +700,11 @@ namespace Content.Server.Database
         /*
          * CONNECTION LOG
          */
-        public abstract Task<int> AddConnectionLogAsync(
-            NetUserId userId,
+        public abstract Task<int> AddConnectionLogAsync(NetUserId userId,
             string userName,
             IPAddress address,
-            ImmutableArray<byte> hwId,
+            ImmutableTypedHwid? hwId,
+            float trust,
             ConnectionDenyReason? denied,
             int serverId);
 
@@ -764,6 +780,20 @@ namespace Content.Server.Database
             existing.Flags = admin.Flags;
             existing.Title = admin.Title;
             existing.AdminRankId = admin.AdminRankId;
+            existing.Deadminned = admin.Deadminned;
+            existing.Suspended = admin.Suspended;
+
+            await db.DbContext.SaveChangesAsync(cancel);
+        }
+
+        public async Task UpdateAdminDeadminnedAsync(NetUserId userId, bool deadminned, CancellationToken cancel)
+        {
+            await using var db = await GetDb(cancel);
+
+            var adminRecord = db.DbContext.Admin.Where(a => a.UserId == userId);
+            await adminRecord.ExecuteUpdateAsync(
+                set => set.SetProperty(p => p.Deadminned, deadminned),
+                cancellationToken: cancel);
 
             await db.DbContext.SaveChangesAsync(cancel);
         }
@@ -1111,7 +1141,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 .SingleOrDefaultAsync());
         }
 
-        public async Task SetLastReadRules(NetUserId player, DateTimeOffset date)
+        public async Task SetLastReadRules(NetUserId player, DateTimeOffset? date)
         {
             await using var db = await GetDb();
 
@@ -1121,7 +1151,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 return;
             }
 
-            dbPlayer.LastReadRules = date.UtcDateTime;
+            dbPlayer.LastReadRules = date?.UtcDateTime;
             await db.DbContext.SaveChangesAsync();
         }
 
@@ -1732,6 +1762,213 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
         }
 
         #endregion
+
+        #region RMC14
+
+        public async Task<Guid?> GetLinkingCode(Guid player)
+        {
+            await using var db = await GetDb();
+            var linking = await db.DbContext.RMCLinkingCodes.FirstOrDefaultAsync(l => l.PlayerId == player);
+            return linking?.Code;
+        }
+
+        public async Task SetLinkingCode(Guid player, Guid code)
+        {
+            await using var db = await GetDb();
+            var linking = await db.DbContext.RMCLinkingCodes.FirstOrDefaultAsync(l => l.PlayerId == player);
+            if (linking == null)
+            {
+                linking = new RMCLinkingCodes { PlayerId = player };
+                db.DbContext.RMCLinkingCodes.Add(linking);
+            }
+
+            linking.Code = code;
+            linking.CreationTime = DateTime.UtcNow;
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        public async Task<bool> HasLinkedAccount(Guid player, CancellationToken cancel)
+        {
+            await using var db = await GetDb(cancel);
+            return await db.DbContext.RMCLinkedAccounts.AnyAsync(l => l.PlayerId == player, cancel);
+
+        }
+
+        public async Task<RMCPatron?> GetPatron(Guid player, CancellationToken cancel)
+        {
+            await using var db = await GetDb(cancel);
+            var patron = await db.DbContext.RMCPatrons
+                .Include(p => p.Tier)
+                .Include(p => p.LobbyMessage)
+                .Include(p => p.RoundEndNTShoutout)
+                .FirstOrDefaultAsync(p => p.PlayerId == player, cancellationToken: cancel);
+            return patron;
+        }
+
+        public async Task<List<RMCPatron>> GetAllPatrons()
+        {
+            await using var db = await GetDb();
+            return await db.DbContext.RMCPatrons
+                .Include(p => p.Player)
+                .Include(p => p.Tier)
+                .ToListAsync();
+        }
+
+        public async Task SetGhostColor(Guid player, System.Drawing.Color? color)
+        {
+            await using var db = await GetDb();
+            var patron = await db.DbContext.RMCPatrons.FirstOrDefaultAsync(p => p.PlayerId == player);
+            if (patron == null)
+                return;
+
+            patron.GhostColor = color?.ToArgb();
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        public async Task SetLobbyMessage(Guid player, string message)
+        {
+            await using var db = await GetDb();
+            var msg = await db.DbContext.RMCPatronLobbyMessages
+                .Include(l => l.Patron)
+                .FirstOrDefaultAsync(p => p.PatronId == player);
+            msg ??= db.DbContext.RMCPatronLobbyMessages
+                .Add(new RMCPatronLobbyMessage
+                {
+                    PatronId = player,
+                    Message = message,
+                })
+                .Entity;
+            msg.Message = message;
+
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        public async Task SetNTShoutout(Guid player, string name)
+        {
+            await using var db = await GetDb();
+            var msg = await db.DbContext.RMCPatronRoundEndNTShoutouts
+                .Include(s => s.Patron)
+                .FirstOrDefaultAsync(p => p.PatronId == player);
+            msg ??= db.DbContext.RMCPatronRoundEndNTShoutouts
+                .Add(new RMCPatronRoundEndNTShoutout()
+                {
+                    PatronId = player,
+                    Name = name,
+                })
+                .Entity;
+            msg.Name = name;
+
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        public async Task<(string Message, string User)?> GetRandomLobbyMessage()
+        {
+            // TODO RMC14 the random row is evaluated outside the DB, if we have that many patrons I guess we have better problems!
+            await using var db = await GetDb();
+            var messages = await db.DbContext.RMCPatronLobbyMessages
+                .Include(p => p.Patron)
+                .ThenInclude(p => p.Player)
+                .Where(p => p.Patron.Tier.LobbyMessage)
+                .Where(p => !string.IsNullOrWhiteSpace(p.Message))
+                .Select(p => new { p.Message, p.Patron.Player.LastSeenUserName })
+                .ToListAsync();
+
+            if (messages.Count == 0)
+                return null;
+
+            var random = messages[Random.Shared.Next(messages.Count)];
+            return (random.Message, random.LastSeenUserName);
+        }
+
+        public async Task<string?> GetRandomShoutout()
+        {
+            // TODO RMC14 the random row is evaluated outside the DB, if we have that many patrons I guess we have better problems!
+            await using var db = await GetDb();
+            var ntNames = await db.DbContext.RMCPatronRoundEndNTShoutouts
+                .Include(p => p.Patron)
+                .Where(p => p.Patron.Tier.RoundEndShoutout)
+                .Where(p => !string.IsNullOrWhiteSpace(p.Name))
+                .Select(p => p.Name)
+                .ToListAsync();
+
+            var ntName = ntNames.Count == 0 ? null : ntNames[Random.Shared.Next(ntNames.Count)];
+
+            if (ntName == null)
+                ntName = "John Nanotrasen";
+
+            return (ntName);
+        }
+
+        #endregion
+
+        # region IPIntel
+
+        public async Task<bool> UpsertIPIntelCache(DateTime time, IPAddress ip, float score)
+        {
+            while (true)
+            {
+                try
+                {
+                    await using var db = await GetDb();
+
+                    var existing = await db.DbContext.IPIntelCache
+                        .Where(w => ip.Equals(w.Address))
+                        .SingleOrDefaultAsync();
+
+                    if (existing == null)
+                    {
+                        var newCache = new IPIntelCache
+                        {
+                            Time = time,
+                            Address = ip,
+                            Score = score,
+                        };
+                        db.DbContext.IPIntelCache.Add(newCache);
+                    }
+                    else
+                    {
+                        existing.Time = time;
+                        existing.Score = score;
+                    }
+
+                    await Task.Delay(5000);
+
+                    await db.DbContext.SaveChangesAsync();
+                    return true;
+                }
+                catch (DbUpdateException)
+                {
+                    _opsLog.Warning("IPIntel UPSERT failed with a db exception... retrying.");
+                }
+            }
+        }
+
+        public async Task<IPIntelCache?> GetIPIntelCache(IPAddress ip)
+        {
+            await using var db = await GetDb();
+
+            return await db.DbContext.IPIntelCache
+                .SingleOrDefaultAsync(w => ip.Equals(w.Address));
+        }
+
+        public async Task<bool> CleanIPIntelCache(TimeSpan range)
+        {
+            await using var db = await GetDb();
+
+            // Calculating this here cause otherwise sqlite whines.
+            var cutoffTime = DateTime.UtcNow.Subtract(range);
+
+            await db.DbContext.IPIntelCache
+                .Where(w => w.Time <= cutoffTime)
+                .ExecuteDeleteAsync();
+
+            await db.DbContext.SaveChangesAsync();
+            return true;
+        }
+
+        #endregion
+
+        public abstract Task SendNotification(DatabaseNotification notification);
 
         // SQLite returns DateTime as Kind=Unspecified, Npgsql actually knows for sure it's Kind=Utc.
         // Normalize DateTimes here so they're always Utc. Thanks.

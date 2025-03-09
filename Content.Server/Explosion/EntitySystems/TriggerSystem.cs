@@ -31,10 +31,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Player;
-using Content.Shared.Coordinates;
 using Robust.Shared.Utility;
-using Robust.Shared.Timing;
 
 namespace Content.Server.Explosion.EntitySystems
 {
@@ -126,7 +123,7 @@ namespace Content.Server.Explosion.EntitySystems
 
         private void HandleShockTrigger(Entity<ShockOnTriggerComponent> shockOnTrigger, ref TriggerEvent args)
         {
-            if (!_container.TryGetContainingContainer(shockOnTrigger, out var container))
+            if (!_container.TryGetContainingContainer(shockOnTrigger.Owner, out var container))
                 return;
 
             var containerEnt = container.Owner;

@@ -1,5 +1,4 @@
 using Content.Shared.SurveillanceCamera;
-using Robust.Client.GameObjects;
 
 namespace Content.Client.SurveillanceCamera.UI;
 
@@ -21,6 +20,8 @@ public sealed class SurveillanceCameraSetupBoundUi : BoundUserInterface
 
     protected override void Open()
     {
+        base.Open();
+
         _window = new();
 
         if (_type == SurveillanceCameraSetupUiKey.Router)

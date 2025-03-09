@@ -1,10 +1,7 @@
-﻿using System.Linq;
-using System.Text;
-using Content.Server.Administration.BanList;
+﻿using Content.Server.Administration.BanList;
 using Content.Server.EUI;
 using Content.Server.Database;
 using Content.Shared.Administration;
-using Robust.Server.Player;
 using Robust.Shared.Console;
 
 namespace Content.Server.Administration.Commands;
@@ -48,7 +45,7 @@ public sealed class RoleBanListCommand : IConsoleCommand
         if (shell.Player is not { } player)
         {
 
-            var bans = await _dbManager.GetServerRoleBansAsync(data.LastAddress, data.UserId, data.LastHWId, includeUnbanned);
+            var bans = await _dbManager.GetServerRoleBansAsync(data.LastAddress, data.UserId, data.LastLegacyHWId, data.LastModernHWIds, includeUnbanned);
 
             if (bans.Count == 0)
             {

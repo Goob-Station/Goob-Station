@@ -1,7 +1,5 @@
 using Content.Shared.Actions;
-using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
-using Content.Shared.Inventory;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Toggleable;
 
@@ -39,8 +37,12 @@ public sealed class ToggleClothingSystem : EntitySystem
 
     private void OnGetActions(Entity<ToggleClothingComponent> ent, ref GetItemActionsEvent args)
     {
+        if (args.InHands && ent.Comp.MustEquip)
+            return;
+
         var ev = new ToggleClothingCheckEvent(args.User);
         RaiseLocalEvent(ent, ref ev);
+
         if (!ev.Cancelled)
             args.AddAction(ent.Comp.ActionEntity);
     }

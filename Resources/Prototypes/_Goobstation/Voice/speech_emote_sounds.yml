@@ -1,0 +1,9 @@
+- type: emoteSounds
+  id: EmoteC4
+  params:
+    variation: 0
+  sounds:
+    Beep:
+      path: /Audio/Machines/Nuke/general_beep.ogg
+    Scream:
+      path: /Audio/Machines/Nuke/general_beep.ogg

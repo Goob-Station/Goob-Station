@@ -14,10 +14,6 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Random;
 using Content.Shared.Destructible.Thresholds;
-using Content.Shared.Maps;
-using Content.Shared.Tiles;
-using Robust.Shared.Map.Components;
-using System.Linq;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Teleportation;
@@ -95,7 +91,7 @@ public sealed class TeleportSystem : EntitySystem
         var xform = Transform(uid);
         // break any active pulls e.g. secoff pulling you with cuffs
         if (TryComp<PullableComponent>(uid, out var pullable) && _pullingSystem.IsPulled(uid, pullable))
-            _pullingSystem.TryStopPull(uid, pullable);
+            _pullingSystem.TryStopPull(uid, pullable, ignoreGrab: true);
 
         // if we teleport the pulled entity goes with us
         EntityUid? pullableEntity = null;

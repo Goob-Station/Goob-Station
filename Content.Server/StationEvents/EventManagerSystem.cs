@@ -50,6 +50,17 @@ public sealed class EventManagerSystem : EntitySystem
         GameTicker.AddGameRule(randomEvent);
     }
 
+    // Goobstation start
+    /// <summary>
+    /// Runs a specific named event.
+    /// </summary>
+    public void RunNamedEvent(string eventId)
+    {
+        var ent = GameTicker.AddGameRule(eventId);
+        Log.Info($"Running event {eventId} as entity {ent}");
+    }
+    // Goobstation end
+
     /// <summary>
     /// Randomly runs an event from provided EntityTableSelector.
     /// </summary>
@@ -148,20 +159,20 @@ public sealed class EventManagerSystem : EntitySystem
             return null;
         }
 
-        var sumOfWeights = 0;
+        var sumOfWeights = 0.0f;
 
         foreach (var stationEvent in availableEvents.Values)
         {
-            sumOfWeights += (int) stationEvent.Weight;
+            sumOfWeights += stationEvent.Weight;
         }
 
-        sumOfWeights = _random.Next(sumOfWeights);
+        sumOfWeights = _random.NextFloat(sumOfWeights);
 
         foreach (var (proto, stationEvent) in availableEvents)
         {
-            sumOfWeights -= (int) stationEvent.Weight;
+            sumOfWeights -= stationEvent.Weight;
 
-            if (sumOfWeights <= 0)
+            if (sumOfWeights <= 0.0f)
             {
                 return proto.ID;
             }
@@ -210,7 +221,7 @@ public sealed class EventManagerSystem : EntitySystem
             if (prototype.Abstract)
                 continue;
 
-            if (!prototype.TryGetComponent<StationEventComponent>(out var stationEvent))
+            if (!prototype.TryGetComponent<StationEventComponent>(out var stationEvent, EntityManager.ComponentFactory))
                 continue;
 
             allEvents.Add(prototype, stationEvent);
@@ -240,7 +251,7 @@ public sealed class EventManagerSystem : EntitySystem
         return TimeSpan.Zero;
     }
 
-    private bool CanRun(EntityPrototype prototype, StationEventComponent stationEvent, int playerCount, TimeSpan currentTime)
+    public bool CanRun(EntityPrototype prototype, StationEventComponent stationEvent, int playerCount, TimeSpan currentTime)
     {
         if (GameTicker.IsGameRuleActive(prototype.ID))
             return false;

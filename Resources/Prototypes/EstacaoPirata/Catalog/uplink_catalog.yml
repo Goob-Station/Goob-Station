@@ -1,0 +1,10 @@
+# Gamba time
+- type: listing
+  id: UplinkSyndicateDeck
+  name: uplink-syndicate-deck-name
+  description: uplink-syndicate-deck-desc
+  productEntity: CardBoxSyndicate
+  cost:
+    Telecrystal: 3 # goob
+  categories:
+  - UplinkPointless

@@ -1,5 +1,4 @@
 using System.Linq;
-using System.Text;
 using Content.Client.Actions;
 using Content.Client.Message;
 using Content.Shared.FixedPoint;
@@ -56,7 +55,7 @@ public sealed partial class StoreMenu : DefaultWindow
         foreach (var ((_, amount), proto) in currency)
         {
             balanceStr += Loc.GetString("store-ui-balance-display", ("amount", amount),
-                ("currency", Loc.GetString(proto.DisplayName, ("amount", 1))));
+                ("currency", Loc.GetString(proto.DisplayName, ("amount", 1)))) + "\n";
         }
 
         BalanceInfo.SetMarkup(balanceStr.TrimEnd());
@@ -65,7 +64,10 @@ public sealed partial class StoreMenu : DefaultWindow
         foreach (var type in currency)
         {
             if (type.Value.CanWithdraw && type.Value.Cash != null && type.Key.Item2 > 0)
+            {
                 disabled = false;
+                break;
+            }
         }
 
         WithdrawButton.Disabled = disabled;
@@ -80,7 +82,7 @@ public sealed partial class StoreMenu : DefaultWindow
 
     public void UpdateListing()
     {
-        var sorted = _cachedListings.OrderBy(l => l.Priority).ThenBy(l => l.Cost.Values.Sum());
+        var sorted = _cachedListings.OrderBy(l => l.Priority).ThenBy(l => l.Cost.Values.Sum()).ThenBy(l => l.Name == null ? string.Empty : Loc.GetString(l.Name)); // Goob edit
 
         // should probably chunk these out instead. to-do if this clogs the internet tubes.
         // maybe read clients prototypes instead?

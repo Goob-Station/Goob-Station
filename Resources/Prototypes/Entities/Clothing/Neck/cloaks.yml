@@ -148,18 +148,29 @@
   parent: ClothingNeckBase
   id: ClothingNeckCloakGoliathCloak
   name: goliath cloak
-  description: A cloak made from the hide of resilient fauna from a distant planet, though its protective value has faded with its age.
+  description: A cloak made from the hide of resilient fauna from a distant planet. #Goobstation
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/goliathcloak.rsi
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodGoliathCloak
-    requiredSlot:
-    - neck
-    slot: head
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes: 
+      neck: ClothingHeadHatHoodGoliathCloak
+  - type: Armor
+    modifiers:
+     coefficients:
+      Blunt: 0.85
+      Slash: 0.85
+      Piercing: 0.85
+  - type: Construction
+    graph: GoliathCloak
+    node: cloak
+  - type: UserInterface
+    interfaces:
+      enum.ToggleClothingUiKey.Key:
+        type: ToggleableClothingBoundUserInterface
   - type: ContainerContainer
     containers:
-      toggleable-clothing: !type:ContainerSlot {}
+      toggleable-clothing: !type:Container {}
 
 - type: entity
   parent: ClothingNeckBase
@@ -178,14 +189,18 @@
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/moth.rsi
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodMoth
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes: 
+      head: ClothingHeadHatHoodMoth
     requiredSlot:
     - neck
-    slot: head
+  - type: UserInterface
+    interfaces:
+      enum.ToggleClothingUiKey.Key:
+        type: ToggleableClothingBoundUserInterface
   - type: ContainerContainer
     containers:
-      toggleable-clothing: !type:ContainerSlot {}
+      toggleable-clothing: !type:Container {}
   - type: TypingIndicatorClothing
     proto: moth
 
@@ -197,14 +212,18 @@
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/void.rsi
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodVoidCloak
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes: 
+      head: ClothingHeadHatHoodVoidCloak
     requiredSlot:
     - neck
-    slot: head
+  - type: UserInterface
+    interfaces:
+      enum.ToggleClothingUiKey.Key:
+        type: ToggleableClothingBoundUserInterface
   - type: ContainerContainer
     containers:
-      toggleable-clothing: !type:ContainerSlot {}
+      toggleable-clothing: !type:Container {}
   - type: TypingIndicatorClothing
     proto: alien
 

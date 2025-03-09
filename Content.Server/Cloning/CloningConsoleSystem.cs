@@ -3,7 +3,6 @@ using Content.Server.Administration.Logs;
 using Content.Server.Cloning.Components;
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.Medical.Components;
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.UserInterface;
 using Content.Shared.Cloning;

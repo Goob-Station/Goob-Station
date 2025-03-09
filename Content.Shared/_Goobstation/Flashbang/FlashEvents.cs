@@ -16,3 +16,10 @@ public sealed class AreaFlashEvent(float range, float distance, EntityUid target
 
     public EntityUid Target = target;
 }
+
+public sealed class FlashDurationMultiplierEvent : EntityEventArgs, IInventoryRelayEvent
+{
+    public float Multiplier = 1f;
+
+    public SlotFlags TargetSlots => SlotFlags.EYES | SlotFlags.HEAD | SlotFlags.MASK;
+}

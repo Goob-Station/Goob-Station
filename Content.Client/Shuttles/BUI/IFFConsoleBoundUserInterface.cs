@@ -2,7 +2,6 @@ using Content.Client.Shuttles.UI;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Events;
 using JetBrains.Annotations;
-using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 
 namespace Content.Client.Shuttles.BUI;
@@ -21,10 +20,9 @@ public sealed class IFFConsoleBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
-        _window = this.CreateWindow<IFFConsoleWindow>();
+        _window = this.CreateWindowCenteredLeft<IFFConsoleWindow>();
         _window.ShowIFF += SendIFFMessage;
         _window.ShowVessel += SendVesselMessage;
-        _window.OpenCenteredLeft();
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)

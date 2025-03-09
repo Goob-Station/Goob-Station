@@ -28,6 +28,8 @@
     speedModifier: 1.5
     pryPowered: true
     useSound: /Audio/Items/jaws_pry.ogg
+  - type: UseDelay # Goobstation - For insta prying
+    delay: 1
   - type: MultipleTool
     statusShowBehavior: true
     entries:
@@ -50,6 +52,15 @@
         Blunt: 10
     soundHit:
       collection: MetalThud
+  - type: Tweezers # Shitmed
+    speed: 0.6
+  - type: Retractor # Shitmed
+    speed: 0.45
+  - type: Hemostat # Shitmed
+    speed: 0.7
+  - type: SurgeryTool # Shitmed
+    startSound: /Audio/Items/change_jaws.ogg
+    endSound: /Audio/Items/change_jaws.ogg
 
 - type: entity # Goobstation - Recycler Update
   parent: JawsOfLifeBase

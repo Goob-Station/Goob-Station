@@ -37,6 +37,24 @@ public sealed partial class SubdermalImplantComponent : Component
     public bool Permanent = false;
 
     /// <summary>
+    /// Should you be able to implant this into yourself?
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public bool CanImplantSelf = true; // Goobstation - allow traitors to buy suicide implants (fields for self-/other-implantability)
+
+    /// <summary>
+    /// Should you be able to implant this into others?
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public bool CanImplantOther = true; // Goobstation - allow traitors to buy suicide implants (fields for self-/other-implantability)
+
+    /// <summary>
+    /// Multiplier to time taken to implant this implant
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public float ImplantationTimeMultiplier = 1; // Goobstation - allow traitors to buy suicide implants (add time multiplier)
+
+    /// <summary>
     /// Target whitelist for this implant specifically.
     /// Only checked if the implanter allows implanting on the target to begin with.
     /// </summary>
@@ -49,6 +67,13 @@ public sealed partial class SubdermalImplantComponent : Component
     /// </summary>
     [DataField]
     public EntityWhitelist? Blacklist;
+    
+    /// <summary>
+    /// If set, this ProtoId is used when attempting to draw the implant instead.
+    /// Useful if the implant is a child to another implant and you don't want to differentiate between them when drawing.
+    /// </summary>
+    [DataField]
+    public EntProtoId? DrawableProtoIdOverride;
 }
 
 /// <summary>

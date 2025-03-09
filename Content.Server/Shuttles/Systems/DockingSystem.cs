@@ -1,4 +1,3 @@
-using System.Numerics;
 using Content.Server.Doors.Systems;
 using Content.Server.NPC.Pathfinding;
 using Content.Server.Shuttles.Components;
@@ -6,13 +5,10 @@ using Content.Server.Shuttles.Events;
 using Content.Shared.Doors;
 using Content.Shared.Doors.Components;
 using Content.Shared.Popups;
-using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Events;
 using Content.Shared.Shuttles.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Physics;
-using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Dynamics.Joints;
 using Robust.Shared.Physics.Systems;

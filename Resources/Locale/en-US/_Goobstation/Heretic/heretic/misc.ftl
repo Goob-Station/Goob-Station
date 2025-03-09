@@ -4,3 +4,5 @@ heretic-ritualrune-examine = Current selected ritual: [color=yellow]{$rit}[/colo
 
 heretic-knowledge-gain = You've learned something
 heretic-knowledge-loss = You're forgotten something
+
+heretic-clothing-component-fail = Cannot wear this!

@@ -1,4 +1,3 @@
-using Content.Shared.Flash.Components;
 using Robust.Shared.Audio;
 
 namespace Content.Shared.Damage.Components;
@@ -12,6 +11,14 @@ public sealed partial class StaminaDamageOnHitComponent : Component
     // goob edit
     [DataField]
     public float Overtime = 0f;
+
+    // goob edit
+    [DataField]
+    public float LightAttackDamageMultiplier = 1f;
+
+    // goob edit
+    [DataField]
+    public float LightAttackOvertimeDamageMultiplier = 1f;
 
     [DataField("sound")]
     public SoundSpecifier? Sound;

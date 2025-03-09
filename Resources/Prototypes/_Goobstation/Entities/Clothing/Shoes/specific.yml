@@ -1,0 +1,26 @@
+- type: entity
+  parent: [ClothingShoesBase, BaseMinorContraband]
+  id: ClothingShoesWizardSkates
+  name: wizard skates
+  description: "A pair of Wizard Federation Roller Skates, imbued with a protection spell against collision."
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Specific/skateswizard.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Specific/skateswizard.rsi
+    clothingVisuals:
+      shoes:
+      - state: equipped-FEET
+        offset: "0, -0.04"
+  - type: ClothingSpeedModifier
+    walkModifier: 1.2
+    sprintModifier: 1.2
+  - type: Skates
+    stunSeconds: 0
+    speedDamage: 0
+    minimumSpeed: 999
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepSkates
+      params:
+        variation: 0.08

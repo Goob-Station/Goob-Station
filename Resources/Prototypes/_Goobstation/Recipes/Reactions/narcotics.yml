@@ -1,0 +1,29 @@
+- type: reaction
+  id: Fentanyl
+  minTemp: 410
+  maxTemp: 420 # no lavabeaker for the lazy chemist
+  reactants:
+    Desoxyephedrine:
+      amount: 2
+    Impedrezene:
+      amount: 3
+    FourteenLoko:
+      amount: 1
+    Bleach:
+      amount: 1
+  products:
+    Fentanyl: 1
+    VentCrud: 1
+    SpaceGlue: 2
+
+- type: reaction
+  id: Aranesp
+  reactants:
+    Desoxyephedrine:
+      amount: 1
+    Epinephrine:
+      amount: 1
+    Diphenhydramine:
+      amount: 1
+  products:
+    Aranesp: 1

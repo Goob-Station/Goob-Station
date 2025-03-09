@@ -1,5 +1,4 @@
 using Content.Shared.Damage;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Flash.Components;
 

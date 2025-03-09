@@ -2,7 +2,6 @@ using Content.Client.UserInterface.Fragments;
 using Content.Shared.Mech;
 using Content.Shared.Mech.Components;
 using JetBrains.Annotations;
-using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 
 namespace Content.Client.Mech.Ui;
@@ -21,9 +20,8 @@ public sealed class MechBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
-        _menu = this.CreateWindow<MechMenu>();
+        _menu = this.CreateWindowCenteredLeft<MechMenu>();
         _menu.SetEntity(Owner);
-        _menu.OpenCenteredLeft();
 
         _menu.OnRemoveButtonPressed += uid =>
         {

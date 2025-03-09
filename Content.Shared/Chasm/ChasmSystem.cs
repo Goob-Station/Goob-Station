@@ -1,11 +1,8 @@
 ﻿using Content.Shared.ActionBlocker;
-using Content.Shared.Buckle.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.StepTrigger.Systems;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
-using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Chasm;
@@ -42,6 +39,17 @@ public sealed class ChasmSystem : EntitySystem
         {
             if (_timing.CurTime < chasm.NextDeletionTime)
                 continue;
+
+            // Lavaland Change start: Jaunter
+            var ev = new _Lavaland.Chasm.BeforeChasmFallingEvent(uid);
+            RaiseLocalEvent(uid, ref ev);
+            if (ev.Cancelled)
+            {
+                RemComp<ChasmFallingComponent>(uid);
+                _blocker.UpdateCanMove(uid);
+                continue;
+            }
+            // Lavaland Change end: Jaunter
 
             QueueDel(uid);
         }

@@ -1,0 +1,29 @@
+# Lavaland ruins are loaded as separate grids.
+# HugeRuins should contain the biggest and most valuable ruins,
+# while SmallRuins should spawn only small and not important ruins.
+
+- type: lavalandRuinPool
+  id: Lavaland
+  gridRuins:
+    SyndicateBase: 1
+    HierophantArena: 1
+    RougeAI: 1
+    BiodomeBeach: 2
+    BiodomeSnow: 2
+    GolemShuttle: 2
+    ToyShop: 1    
+    Chemistry: 2
+    LavaLake: 3
+    Graveyard: 1
+    SeedVault: 2
+    Hermit: 5
+    WaffleCo: 2
+    ArrivalsBack: 1
+    ArrivalsFront: 1
+    CargoDebris: 2
+    VulpLab: 1
+    Shelter: 4
+    OwOLab: 1
+    MiningPost: 3
+  dungeonRuins:
+    CommonRuin5x5: 60

@@ -1,0 +1,267 @@
+# Entity Prototypes
+
+- type: entity
+  parent: MobAbductor
+  id: MobAbductorAntag
+  abstract: true
+  components:
+  - type: Abductor
+  - type: ActionGrant
+    actions:
+      - ActionReturnToShip
+  - type: GhostRole
+    rules: abductors-ghost-role-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: NpcFactionMember
+    factions:
+      - SimpleHostile
+  - type: RandomMetadata
+    nameSegments:
+      - AbductorScientistPrefix
+      - AbductorNames
+  - type: Tag
+    tags:
+      - Abductor
+      - AbductorScientist
+      - CanPilot
+      - FootstepSound
+      - DoorBumpOpener
+
+- type: entity
+  name: lone abductor
+  parent: MobAbductorAntag
+  id: MobLoneAbductor
+  components:
+  - type: GhostRole
+    name: abductor-lone-ghost-role-name
+    description: abductor-lone-ghost-role-desc
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 7200 #2 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 7200 #2 hours
+  - type: AbductorScientist
+  - type: SurgeryIgnoreClothing
+  - type: Sanitized
+  - type: SurgerySpeedModifier
+    speedModifier: 1.5
+  - type: Loadout
+    prototypes:
+      - LoneAbductorGear
+
+- type: entity
+  name: abductor scientist
+  parent: MobAbductorAntag
+  id: MobAbductorScientist
+  components:
+  - type: GhostRole
+    name: abductor-scientist-ghost-role-name
+    description: abductor-scientist-ghost-role-desc
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 10800 #3 hours
+  - type: AbductorScientist
+  - type: SurgeryIgnoreClothing
+  - type: Sanitized
+  - type: SurgerySpeedModifier
+    speedModifier: 1.5
+  - type: Loadout
+    prototypes:
+      - AbductorScientistGear
+
+- type: entity
+  name: abductor agent
+  parent: MobAbductorAntag
+  id: MobAbductorAgent
+  components:
+  - type: GhostRole
+    name: abductor-agent-ghost-role-name
+    description: abductor-agent-ghost-role-desc
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 10800 #3 hours
+  - type: RandomMetadata
+    nameSegments:
+      - AbductorAgentPrefix
+      - AbductorNames
+  - type: Tag # Ignore AbductorScientist tag
+    tags:
+      - Abductor
+      - CanPilot
+      - FootstepSound
+      - DoorBumpOpener
+  - type: AbductorScientist # Should be removed when we have proper teleportation system
+  - type: Loadout
+    prototypes:
+      - AbductorAgentGear
+
+# Gearsets
+
+- type: startingGear
+  id: LoneAbductorGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitAbductor
+    ears: ClothingHeadsetAltAbductor
+    shoes: ClothingShoesBootsCombat
+    gloves: ClothingHandsGlovesCombat
+    head: ClothingHeadHelmetAbductor
+    outerClothing: ClothingOuterCoatAbductor
+    back: ClothingBackpackAbductor
+    pocket1: AbductorGizmo
+    pocket2: WeaponAlien
+    suitstorage: Wonderprod
+
+- type: startingGear
+  id: AbductorScientistGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitAbductor
+    ears: ClothingHeadsetAltAbductor
+    shoes: ClothingShoesBootsCombat
+    gloves: ClothingHandsGlovesCombat
+    head: ClothingHeadMirror
+    outerClothing: ClothingOuterCoatAbductor
+    back: ClothingBackpackDuffelAbductor
+    pocket1: AbductorGizmo
+    suitstorage: WeaponDecloner
+
+- type: startingGear
+  id: AbductorAgentGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitAbductor
+    ears: ClothingHeadsetAltAbductor
+    shoes: ClothingShoesBootsCombat
+    gloves: ClothingHandsGlovesCombat
+    head: ClothingHeadHelmetAbductor
+    outerClothing: ClothingOuterArmorAbductor
+    back: ClothingBackpackAbductor
+    pocket1: Silencer
+    pocket2: WeaponAlien
+    suitstorage: Wonderprod
+
+# Spawners
+
+- type: entity
+  name: lone abductor spawner
+  id: SpawnPointLoneAbductor
+  parent: MarkerBase
+  components:
+  - type: SpawnPoint
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/signs.rsi
+        state: radiation
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: LoneAbductorSpawner
+  components:
+  - type: GhostRole
+    name: abductor-lone-ghost-role-name
+    description: abductor-lone-ghost-role-desc
+    rules: abductors-ghost-role-rules
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 7200 #2 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 7200 #2 hours
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/signs.rsi
+        state: radiation
+
+- type: entity
+  name: abductor agent spawner
+  id: SpawnPointAbductorAgent
+  parent: MarkerBase
+  components:
+  - type: SpawnPoint
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/signs.rsi
+        state: radiation
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: AbductorAgentSpawner
+  components:
+  - type: GhostRole
+    name: abductor-agent-ghost-role-name
+    description: abductor-agent-ghost-role-desc
+    rules: abductors-ghost-role-rules
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 10800 #3 hours
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/signs.rsi
+        state: radiation
+
+- type: entity
+  name: abductor scientist spawner
+  id: SpawnPointAbductorScientist
+  parent: MarkerBase
+  components:
+  - type: SpawnPoint
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/signs.rsi
+        state: radiation
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: AbductorScientistSpawner
+  components:
+  - type: GhostRole
+    name: abductor-scientist-ghost-role-name
+    description: abductor-scientist-ghost-role-desc
+    rules: abductors-ghost-role-rules
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 10800 #3 hours
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/signs.rsi
+        state: radiation

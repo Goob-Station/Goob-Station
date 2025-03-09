@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using Content.Client.Administration.Managers;
@@ -10,9 +9,6 @@ using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
-using Robust.Shared.IoC;
-using Robust.Shared.Localization;
-using Robust.Shared.Maths;
 using Robust.Shared.Utility;
 using static Content.Shared.Administration.PermissionsEuiMsg;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
@@ -130,6 +126,7 @@ namespace Content.Client.Administration.UI
             }
 
             var title = string.IsNullOrWhiteSpace(popup.TitleEdit.Text) ? null : popup.TitleEdit.Text;
+            var suspended = popup.SuspendedCheckbox.Pressed;
 
             if (popup.SourceData is { } src)
             {
@@ -139,7 +136,8 @@ namespace Content.Client.Administration.UI
                     Title = title,
                     PosFlags = pos,
                     NegFlags = neg,
-                    RankId = rank
+                    RankId = rank,
+                    Suspended = suspended,
                 });
             }
             else
@@ -152,7 +150,8 @@ namespace Content.Client.Administration.UI
                     Title = title,
                     PosFlags = pos,
                     NegFlags = neg,
-                    RankId = rank
+                    RankId = rank,
+                    Suspended = suspended,
                 });
             }
 
@@ -171,7 +170,7 @@ namespace Content.Client.Administration.UI
                 {
                     Id = src,
                     Flags = flags,
-                    Name = name
+                    Name = name,
                 });
             }
             else
@@ -351,6 +350,7 @@ namespace Content.Client.Administration.UI
             public readonly OptionButton RankButton;
             public readonly Button SaveButton;
             public readonly Button? RemoveButton;
+            public readonly CheckBox SuspendedCheckbox;
 
             public readonly Dictionary<AdminFlags, (Button inherit, Button sub, Button plus)> FlagButtons
                 = new();
@@ -380,6 +380,12 @@ namespace Content.Client.Administration.UI
                 TitleEdit = new LineEdit { PlaceHolder = Loc.GetString("permissions-eui-edit-admin-window-title-edit-placeholder") };
                 RankButton = new OptionButton();
                 SaveButton = new Button { Text = Loc.GetString("permissions-eui-edit-admin-window-save-button"), HorizontalAlignment = HAlignment.Right };
+
+                SuspendedCheckbox = new CheckBox
+                {
+                    Text = Loc.GetString("permissions-eui-edit-admin-window-suspended"),
+                    Pressed = data?.Suspended ?? false,
+                };
 
                 RankButton.AddItem(Loc.GetString("permissions-eui-edit-admin-window-no-rank-button"), NoRank);
                 foreach (var (rId, rank) in ui._ranks)
@@ -488,7 +494,8 @@ namespace Content.Client.Administration.UI
                                     {
                                         nameControl,
                                         TitleEdit,
-                                        RankButton
+                                        RankButton,
+                                        SuspendedCheckbox,
                                     }
                                 },
                                 permGrid

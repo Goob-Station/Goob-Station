@@ -1,0 +1,65 @@
+- type: construction
+  name: goliath cloak
+  id: GoliathCloak
+  graph: GoliathCloak
+  startNode: start
+  targetNode: cloak
+  category: construction-category-clothing
+  description: A cloak made from the hide of resilient fauna from a distant planet.
+  icon: { sprite: Clothing/Neck/Cloaks/goliathcloak.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: voice modulator
+  id: makeshiftvoicechanger
+  graph: VoiceMaskCraftable
+  startNode: start
+  targetNode: end
+  category: construction-category-clothing
+  description: A poorly constructed voice modulator made of a gasmask and voice trigger.
+  icon: { sprite: Clothing/Mask/gas.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: medical glasses
+  id: MedicalGlasses
+  graph: GlassesMedHUD
+  startNode: start
+  targetNode: glassesMed
+  category: construction-category-clothing
+  description: Sunglasses with a medical hud.
+  icon: { sprite: _Goobstation/Clothing/Eyes/Glasses/medglasses.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: medsec glasses
+  id: MedicalSecurityGlasses
+  graph: GlassesMedSecHUD
+  startNode: start
+  targetNode: glassesMedSec
+  category: construction-category-clothing
+  description: Sunglasses with a medical and security hud.
+  icon: { sprite: _Goobstation/Clothing/Eyes/Glasses/medsecglasses.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: meddiag glasses
+  id: GlassesMedDiag
+  graph: GlassesMedDiagHUD
+  startNode: start
+  targetNode: glassesMedDiag
+  category: construction-category-clothing
+  description: Sunglasses with a medical and diagnostic hud.
+  icon: { sprite: _Goobstation/Clothing/Eyes/Glasses/meddiagglasses.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: meddiag hud
+  id: HudMedDiagHUD
+  graph: HudMedDiag
+  startNode: start
+  targetNode: meddiagHud
+  category: construction-category-clothing
+  description: A heads-up display combining both medical and diagnostic information.
+  icon: { sprite: _Goobstation/Clothing/Eyes/Hud/meddiag.rsi, state: icon }
+  objectType: Item

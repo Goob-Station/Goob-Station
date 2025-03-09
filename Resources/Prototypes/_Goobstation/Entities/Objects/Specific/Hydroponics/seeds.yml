@@ -1,0 +1,9 @@
+- type: entity
+  parent: SeedBase
+  name: packet of strange berry seeds
+  id: StrangeBerrySeeds
+  components:
+    - type: Seed
+      seedId: strangeBerries
+    - type: Sprite
+      sprite: _Goobstation/Objects/Specific/Hydroponics/strange_berries.rsi

@@ -1,4 +1,3 @@
-using Content.Server.Administration.Logs;
 using Content.Server.DeviceLinking.Events;
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.DeviceNetwork;
@@ -9,14 +8,11 @@ using Content.Server.Light.Components;
 using Content.Server.Power.Components;
 using Content.Shared.Audio;
 using Content.Shared.Damage;
-using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
-using Content.Shared.Inventory;
 using Content.Shared.Light;
 using Content.Shared.Light.Components;
-using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -275,7 +271,7 @@ namespace Content.Server.Light.EntitySystems
                         if (time > light.LastThunk + ThunkDelay)
                         {
                             light.LastThunk = time;
-                            _audio.PlayEntity(light.TurnOnSound, Filter.Pvs(uid), uid, true, AudioParams.Default.WithVolume(-10f));
+                            _audio.PlayPvs(light.TurnOnSound, uid, light.TurnOnSound.Params.AddVolume(-10f));
                         }
                     }
                     else

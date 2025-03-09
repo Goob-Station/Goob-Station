@@ -1,8 +1,6 @@
 using Content.Shared.Actions;
-using Content.Shared.Bed.Sleep;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands;
-using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Content.Shared.Item.PseudoItem;

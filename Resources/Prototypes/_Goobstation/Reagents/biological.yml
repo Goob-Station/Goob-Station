@@ -1,0 +1,11 @@
+- type: reagent
+  parent: Blood
+  id: AlienBlood
+  name: reagent-name-alien-blood
+  group: Biological
+  desc: reagent-desc-alien-blood
+  flavor: alienblood
+  color: "#4B076D"
+  recognizable: true
+  physicalDesc: reagent-physical-desc-alien
+  slippery: false

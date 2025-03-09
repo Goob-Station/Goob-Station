@@ -1,5 +1,4 @@
 using Content.Server.Traits.Assorted;
-using Content.Shared.Chemistry.Reagent;
 using Content.Shared.EntityEffects;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;

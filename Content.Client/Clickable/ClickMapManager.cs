@@ -2,7 +2,6 @@ using System.Text;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.Utility;
-using Robust.Shared.Graphics;
 using Robust.Shared.Graphics.RSI;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
@@ -20,7 +19,7 @@ namespace Content.Client.Clickable
             "/Textures/Logo",
         };
 
-        private const float Threshold = 0.25f;
+        private const float Threshold = 0.1f;
         private const int ClickRadius = 2;
 
         [Dependency] private readonly IResourceCache _resourceCache = default!;

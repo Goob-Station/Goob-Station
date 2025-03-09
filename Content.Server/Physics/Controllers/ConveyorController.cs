@@ -1,7 +1,6 @@
 using Content.Server.DeviceLinking.Events;
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.Materials;
-using Content.Server.Power.Components;
 using Content.Shared.Conveyor;
 using Content.Shared.Destructible;
 using Content.Shared.Maps;
@@ -109,7 +108,7 @@ public sealed class ConveyorController : SharedConveyorController
         component.State = state;
 
         if (TryComp<PhysicsComponent>(uid, out var physics))
-            _broadphase.RegenerateContacts(uid, physics);
+            _broadphase.RegenerateContacts((uid, physics));
 
         UpdateAppearance(uid, component);
         Dirty(uid, component);

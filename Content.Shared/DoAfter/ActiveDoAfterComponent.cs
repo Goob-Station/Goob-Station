@@ -1,6 +1,4 @@
-﻿using Robust.Shared.GameStates;
-
-namespace Content.Shared.DoAfter;
+﻿namespace Content.Shared.DoAfter;
 
 /// <summary>
 ///     Added to entities that are currently performing any doafters.

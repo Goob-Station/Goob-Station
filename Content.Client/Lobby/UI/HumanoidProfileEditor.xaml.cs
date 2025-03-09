@@ -1,7 +1,6 @@
 using System.IO;
 using System.Linq;
 using System.Numerics;
-using System.Text;
 using Content.Client.Humanoid;
 using Content.Client.Lobby.UI.Loadouts;
 using Content.Client.Lobby.UI.Roles;
@@ -857,7 +856,7 @@ namespace Content.Client.Lobby.UI
 
             foreach (var department in departments)
             {
-                var departmentName = Loc.GetString($"department-{department.ID}");
+                var departmentName = Loc.GetString(department.Name);
 
                 if (!_jobCategories.TryGetValue(department.ID, out var category))
                 {
@@ -1033,6 +1032,13 @@ namespace Content.Client.Lobby.UI
             _loadoutWindow.RefreshLoadouts(roleLoadout, session, collection);
             _loadoutWindow.OpenCenteredLeft();
 
+            _loadoutWindow.OnNameChanged += name =>
+            {
+                roleLoadout.EntityName = name;
+                Profile = Profile.WithLoadout(roleLoadout);
+                SetDirty();
+            };
+
             _loadoutWindow.OnLoadoutPressed += (loadoutGroup, loadoutProto) =>
             {
                 roleLoadout.AddLoadout(loadoutGroup, loadoutProto, _prototypeManager);
@@ -1158,6 +1164,22 @@ namespace Content.Client.Lobby.UI
                         Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
                         break;
                     }
+                // Goobstation Section Start - Tajaran
+                case HumanoidSkinColor.AnimalFur: // Goobstation - Tajaran
+                    {
+                        if (!RgbSkinColorContainer.Visible)
+                        {
+                            Skin.Visible = false;
+                            RgbSkinColorContainer.Visible = true;
+                        }
+
+                        var color = SkinColor.ClosestAnimalFurColor(_rgbSkinColorSelector.Color);
+
+                        Markings.CurrentSkinColor = color;
+                        Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
+                        break;
+                    }
+                // Goobstation Section End - Tajaran
             }
 
             ReloadProfilePreview();
@@ -1413,6 +1435,19 @@ namespace Content.Client.Lobby.UI
 
                         break;
                     }
+                // Goobstation Section Start - Tajaran
+                case HumanoidSkinColor.AnimalFur: // Goobstation - Tajaran
+                    {
+                        if (!RgbSkinColorContainer.Visible)
+                        {
+                            Skin.Visible = false;
+                            RgbSkinColorContainer.Visible = true;
+                        }
+
+                        _rgbSkinColorSelector.Color = SkinColor.ClosestAnimalFurColor(Profile.Appearance.SkinColor);
+                        break;
+                    }
+                // Goobstation Section End - Tajaran
             }
 
         }

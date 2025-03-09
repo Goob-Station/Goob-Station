@@ -1,9 +1,7 @@
 using System.Linq;
 using System.Numerics;
-using Content.Server.Examine;
 using Content.Server.NPC.Components;
 using Content.Server.NPC.Pathfinding;
-using Content.Shared.Climbing;
 using Content.Shared.Interaction;
 using Content.Shared.Movement.Components;
 using Content.Shared.NPC;
@@ -253,7 +251,7 @@ public sealed partial class NPCSteeringSystem
 
                 if (!targetCoordinates.IsValid(EntityManager))
                 {
-                    SetDirection(mover, steering, Vector2.Zero);
+                    SetDirection(uid, mover, steering, Vector2.Zero);
                     steering.Status = SteeringStatus.NoPath;
                     return false;
                 }
@@ -263,7 +261,7 @@ public sealed partial class NPCSteeringSystem
                 // Can't make it again.
                 if (ourMap.MapId != targetMap.MapId)
                 {
-                    SetDirection(mover, steering, Vector2.Zero);
+                    SetDirection(uid, mover, steering, Vector2.Zero);
                     steering.Status = SteeringStatus.NoPath;
                     return false;
                 }

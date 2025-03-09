@@ -3,7 +3,6 @@ using Content.Shared.CombatMode;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
-using Content.Shared.Inventory.Events;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Ninja.Components;

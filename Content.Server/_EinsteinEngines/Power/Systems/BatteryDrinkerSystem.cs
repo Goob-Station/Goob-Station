@@ -14,7 +14,6 @@ using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Content.Server._EinsteinEngines.Power.Components;
-using Content.Server._EinsteinEngines.Silicon;
 
 namespace Content.Server._EinsteinEngines.Power;
 
@@ -82,7 +81,8 @@ public sealed class BatteryDrinkerSystem : EntitySystem
             Broadcast = false,
             DistanceThreshold = 1.35f,
             RequireCanInteract = true,
-            CancelDuplicate = false
+            CancelDuplicate = false,
+            MultiplyDelay = false, // Goobstation
         };
 
         _doAfter.TryStartDoAfter(args);

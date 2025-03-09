@@ -2,7 +2,6 @@ using System.Numerics;
 using Content.Shared.Procedural;
 using Robust.Shared.Collections;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Physics.Components;
 
 namespace Content.Server.Procedural.DungeonJob;
 

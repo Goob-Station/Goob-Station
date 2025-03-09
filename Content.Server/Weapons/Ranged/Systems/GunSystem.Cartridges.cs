@@ -1,7 +1,6 @@
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Examine;
-using Content.Shared.FixedPoint;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Prototypes;
@@ -24,7 +23,7 @@ public sealed partial class GunSystem
         if (damageSpec == null)
             return;
 
-        _damageExamine.AddDamageExamine(args.Message, damageSpec, Loc.GetString("damage-projectile"));
+        _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), Loc.GetString("damage-projectile"));
     }
 
     private DamageSpecifier? GetProjectileDamage(string proto)
@@ -39,7 +38,7 @@ public sealed partial class GunSystem
 
             if (!p.Damage.Empty)
             {
-                return p.Damage;
+                return p.Damage * Damageable.UniversalProjectileDamageModifier;
             }
         }
 

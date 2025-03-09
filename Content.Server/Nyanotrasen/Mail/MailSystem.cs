@@ -11,7 +11,7 @@ using Content.Server.Cargo.Systems;
 using Content.Server.Chat.Systems;
 using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.Damage.Components;
-using Content.Server.DeltaV.Cargo.Components;
+using Content.Server._DV.Cargo.Components;
 using Content.Server.Destructible;
 using Content.Server.Destructible.Thresholds;
 using Content.Server.Destructible.Thresholds.Behaviors;
@@ -46,7 +46,7 @@ using Content.Shared.Storage;
 using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
 using Timer = Robust.Shared.Timing.Timer;
-using Content.Server.DeltaV.Cargo.Systems;
+using Content.Server._DV.Cargo.Systems;
 
 namespace Content.Server.Mail
 {
@@ -71,6 +71,7 @@ namespace Content.Server.Mail
         [Dependency] private readonly ItemSystem _itemSystem = default!;
         [Dependency] private readonly MindSystem _mindSystem = default!;
         [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
+        [Dependency] private readonly EmagSystem _emag = default!;
 
         // DeltaV - system that keeps track of mail and cargo stats
         [Dependency] private readonly LogisticStatsSystem _logisticsStatsSystem = default!;
@@ -204,7 +205,7 @@ namespace Content.Server.Mail
             if (idCard == null) /// Return if we still haven't found an id card.
                 return;
 
-            if (!HasComp<EmaggedComponent>(uid))
+            if (!_emag.CheckFlag(uid, EmagType.Interaction))
             {
                 if (idCard.FullName != component.Recipient || idCard.LocalizedJobTitle != component.RecipientJob)
                 {
@@ -364,6 +365,12 @@ namespace Content.Server.Mail
 
         private void OnMailEmagged(EntityUid uid, MailComponent component, ref GotEmaggedEvent args)
         {
+            if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+                return;
+
+            if (_emag.CheckFlag(uid, EmagType.Interaction))
+                return;
+
             if (!component.IsLocked)
                 return;
 

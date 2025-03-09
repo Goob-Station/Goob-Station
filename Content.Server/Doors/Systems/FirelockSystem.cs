@@ -1,7 +1,6 @@
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Monitor.Systems;
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Shuttles.Components;
 using Content.Shared.Atmos;
@@ -37,8 +36,6 @@ namespace Content.Server.Doors.Systems
 
         private void PowerChanged(EntityUid uid, FirelockComponent component, ref PowerChangedEvent args)
         {
-            // TODO this should REALLLLY not be door specific appearance thing.
-            _appearance.SetData(uid, DoorVisuals.Powered, args.Powered);
             component.Powered = args.Powered;
             Dirty(uid, component);
         }

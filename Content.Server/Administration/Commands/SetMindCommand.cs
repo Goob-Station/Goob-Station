@@ -1,4 +1,3 @@
-using Content.Server.Players;
 using Content.Shared.Administration;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -73,6 +72,16 @@ namespace Content.Server.Administration.Commands
             var mind = playerCData.Mind ?? mindSystem.CreateMind(session.UserId, metadata.EntityName);
 
             mindSystem.TransferTo(mind, eUid, ghostOverride);
+        }
+
+        public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+        {
+            if (args.Length == 2)
+            {
+                return CompletionResult.FromHintOptions(CompletionHelper.SessionNames(), Loc.GetString("cmd-mind-command-hint"));
+            }
+
+            return CompletionResult.Empty;
         }
     }
 }

@@ -14,7 +14,6 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
-using Content.Shared.EntityEffects;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
@@ -165,6 +164,9 @@ public sealed class DrinkSystem : SharedDrinkSystem
         if (!HasComp<BodyComponent>(target))
             return false;
 
+        if (!_body.TryGetBodyOrganEntityComps<StomachComponent>(target, out var stomachs))
+            return false;
+
         if (_openable.IsClosed(item, user))
             return true;
 
@@ -218,6 +220,7 @@ public sealed class DrinkSystem : SharedDrinkSystem
             // do-after will stop if item is dropped when trying to feed someone else
             // or if the item started out in the user's own hands
             NeedHand = forceDrink || _hands.IsHolding(user, item),
+            MultiplyDelay = false, // Goobstation
         };
 
         _doAfter.TryStartDoAfter(doAfterEventArgs);

@@ -1,5 +1,5 @@
 - type: entity
-  id: WeaponMechMelleDrill
+  id: WeaponMechMeleeDrill
   parent: BaseMechWeaponMelee
   name: exosuit drill
   suffix: Mech Weapon, Melee, Industrial
@@ -12,6 +12,7 @@
     - Pickaxe
     - IndustrialMech
   - type: MeleeWeapon
+    canWideSwing: false
     autoAttack: true
     angle: 0
     wideAnimationRotation: -90
@@ -25,7 +26,7 @@
         Structural: 40 # ~10 seconds for solid wall / ~21 secods for reinforced wall
 
 - type: entity
-  id: WeaponMechMelleDrillDiamond
+  id: WeaponMechMeleeDrillDiamond
   parent: BaseMechWeaponMelee
   name: diamond-tipped exosuit drill
   suffix: Mech Weapon, Melee, Industrial
@@ -38,6 +39,7 @@
     - Pickaxe
     - IndustrialMech
   - type: MeleeWeapon
+    canWideSwing: false
     autoAttack: true
     angle: 0
     wideAnimationRotation: -90

@@ -22,3 +22,36 @@
     path: /Audio/Machines/beep.ogg
   exclaimSound:
     path: /Audio/Machines/beep.ogg
+
+- type: speechVerb
+  id: Dead
+  name: chat-speech-verb-name-dead
+  speechVerbStrings:
+  - chat-speech-verb-dead-1
+  - chat-speech-verb-dead-2
+  - chat-speech-verb-dead-3
+  - chat-speech-verb-dead-4
+  - chat-speech-verb-dead-5
+  - chat-speech-verb-dead-6
+  - chat-speech-verb-dead-7
+  - chat-speech-verb-dead-8
+  - chat-speech-verb-dead-9
+
+- type: speechVerb
+  id: VoiceModulator
+  name: chat-speech-verb-VoiceModulator-name
+  speechVerbStrings:
+  - chat-speech-verb-VoiceModulator-1
+  - chat-speech-verb-VoiceModulator-2
+  - chat-speech-verb-VoiceModulator-3
+  - chat-speech-verb-VoiceModulator-4
+  - chat-speech-verb-VoiceModulator-5
+  
+- type: speechVerb
+  id: Bingle
+  name: chat-speech-verb-name-bingle
+  speechVerbStrings:
+  - bingle-verb-1
+  - bingle-verb-2
+  - bingle-verb-3
+  - bingle-verb-4

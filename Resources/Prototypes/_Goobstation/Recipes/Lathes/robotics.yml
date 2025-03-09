@@ -1,0 +1,63 @@
+- type: latheRecipe
+  id: ModsuitChestplate
+  result: ModsuitChestplate
+  categories:
+  - Modsuit
+  completetime: 5
+  materials:
+    Steel: 250
+
+- type: latheRecipe
+  id: ModsuitBoots
+  result: ModsuitBoots
+  categories:
+  - Modsuit
+  completetime: 5
+  materials:
+    Steel: 250
+
+- type: latheRecipe
+  id: ModsuitHelmet
+  result: ModsuitHelmet
+  categories:
+  - Modsuit
+  completetime: 5
+  materials:
+    Steel: 250
+
+- type: latheRecipe
+  id: ModsuitGauntlets
+  result: ModsuitGauntlets
+  categories:
+  - Modsuit
+  completetime: 5
+  materials:
+    Steel: 250
+
+- type: latheRecipe
+  id: ModsuitShell
+  result: ModsuitShell
+  categories:
+  - Modsuit
+  completetime: 5
+  materials:
+    Steel: 500
+    Plasma: 250
+
+- type: latheRecipe
+  id: ModsuitPlatingExternal
+  result: ModsuitPlatingExternal
+  categories:
+  - Modsuit
+  completetime: 5
+  materials:
+    Steel: 300
+    Glass: 150
+    Plasma: 50
+
+# Modules
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleLollipop
+  result: BorgModuleLollipop

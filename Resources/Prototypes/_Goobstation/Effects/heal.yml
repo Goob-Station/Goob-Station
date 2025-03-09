@@ -1,0 +1,85 @@
+- type: entity
+  id: EffectHealPlusBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.6
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects
+    sprite: _Goobstation/Blob/heals.rsi
+    state: single
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: AnimationPlayer
+
+# - type: entity
+  # id: EffectHealPlusYellow
+  # parent: EffectHealPlusBase
+  # components:
+  # - type: Sprite
+    # color: yellow
+
+# - type: entity
+  # id: EffectHealPlusGreen
+  # parent: EffectHealPlusBase
+  # components:
+  # - type: Sprite
+    # color: "#00ff7f"
+
+# - type: entity
+  # id: EffectHealPlusRed
+  # parent: EffectHealPlusBase
+  # components:
+  # - type: Sprite
+    # color: red
+
+# - type: entity
+  # id: EffectHealPlusBlue
+  # parent: EffectHealPlusBase
+  # components:
+  # - type: Sprite
+    # color: "#1e90ff"
+
+ # triple
+
+- type: entity
+  id: EffectHealPlusTripleBase
+  categories: [ HideSpawnMenu ]
+  parent: EffectHealPlusBase
+  components:
+  - type: TimedDespawn
+    lifetime: 0.8
+  - type: Sprite
+    state: triple
+
+- type: entity
+  id: EffectHealPlusTripleYellow
+  parent: EffectHealPlusTripleBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    color: yellow
+
+# - type: entity
+  # id: EffectHealPlusTripleRed
+  # parent: EffectHealPlusTripleBase
+  # components:
+  # - type: Sprite
+    # color: red
+
+# - type: entity
+  # id: EffectHealPlusTripleGreen
+  # parent: EffectHealPlusTripleBase
+  # components:
+  # - type: Sprite
+    # color: "#00ff7f"
+
+# - type: entity
+  # id: EffectHealPlusTripleBlue
+  # parent: EffectHealPlusTripleBase
+  # components:
+  # - type: Sprite
+    # color: "#1e90ff"

@@ -9,7 +9,6 @@ using Robust.Shared.Containers;
 
 using Content.Shared.Damage;
 using Content.Shared._Shitmed.BodyEffects;
-using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Body.Organ;
 
 namespace Content.Shared.Body.Systems;
@@ -88,6 +87,10 @@ public partial class SharedBodySystem
             return null;
 
         Containers.EnsureContainer<ContainerSlot>(parentEnt, GetOrganContainerId(slotId));
+        // Shitmed Change: Don't throw when a slot already exists
+        if (parentEnt.Comp.Organs.TryGetValue(slotId, out var existing))
+            return existing;
+
         var slot = new OrganSlot(slotId);
         parentEnt.Comp.Organs.Add(slotId, slot);
         return slot;

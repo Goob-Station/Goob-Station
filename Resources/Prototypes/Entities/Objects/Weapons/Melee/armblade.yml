@@ -13,7 +13,6 @@
   - type: MeleeWeapon
     wideAnimationRotation: 90
     attackRate: 0.75
-    heavyStaminaCost: 10 # goob edit
     damage:
       types:
         Slash: 25
@@ -22,6 +21,8 @@
     size: Normal
     sprite: Objects/Weapons/Melee/armblade.rsi
   - type: Prying
+  - type: UseDelay # Goobstation - For insta prying
+    delay: 1
   - type: Scalpel # Shitmed
     speed: 0.3
   - type: BoneSaw # Shitmed

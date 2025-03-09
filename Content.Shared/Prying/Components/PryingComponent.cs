@@ -36,6 +36,13 @@ public sealed partial class PryingComponent : Component
     /// </summary>
     [DataField]
     public bool Enabled = true;
+
+    /// <summary>
+    /// Goobstation
+    /// Whether the tool is able to instantly pry unpowered unbolted doors and firelocks
+    /// </summary>
+    [DataField]
+    public bool InstaPry = true;
 }
 
 /// <summary>
@@ -85,12 +92,14 @@ public readonly record struct PriedEvent(EntityUid User)
 public record struct GetPryTimeModifierEvent
 {
     public readonly EntityUid User;
+    public readonly bool InstaPry; // Goobstation
     public float PryTimeModifier = 1.0f;
     public float BaseTime = 5.0f;
 
-    public GetPryTimeModifierEvent(EntityUid user)
+    public GetPryTimeModifierEvent(EntityUid user, bool instaPry) // Goob edit
     {
         User = user;
+        InstaPry = instaPry; // Goobstation
     }
 }
 

@@ -6,7 +6,6 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared;
 using Robust.Shared.Configuration;
 using Robust.Client.GameStates;
-using Content.Client.Entry;
 
 namespace Content.Client.Options.UI.Tabs
 {

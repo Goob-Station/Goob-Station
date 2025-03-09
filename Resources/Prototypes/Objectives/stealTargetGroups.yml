@@ -7,12 +7,12 @@
     sprite: Objects/Specific/Medical/hypospray.rsi
     state: hypo
 
-- type: stealTargetGroup
-  id: HandheldCrewMonitor
-  name: steal-target-groups-handheld-crew-monitor
-  sprite:
-    sprite: Objects/Specific/Medical/handheldcrewmonitor.rsi
-    state: scanner
+#- type: stealTargetGroup # Goobstation - made this public
+#  id: HandheldCrewMonitor
+#  name: steal-target-groups-handheld-crew-monitor
+#  sprite:
+#    sprite: Objects/Specific/Medical/handheldcrewmonitor.rsi
+#    state: scanner
 
 - type: stealTargetGroup
   id: ClothingOuterHardsuitRd
@@ -141,6 +141,13 @@
   sprite:
     sprite: Objects/Tools/lantern.rsi
     state: lantern
+
+- type: stealTargetGroup #Goobstation
+  id: Battery
+  name: steal-target-groups-battery
+  sprite:
+    sprite: Objects/Power/power_cells.rsi
+    state: medium
 
 # Thief single item
 

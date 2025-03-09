@@ -1,6 +1,5 @@
 using System.Numerics;
 using Content.Shared.Atmos;
-using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using static Content.Server.Explosion.EntitySystems.ExplosionSystem;
 
@@ -69,14 +68,18 @@ public sealed class ExplosionGridTileFlood : ExplosionTileFlood
             return;
 
         _needToTransform = true;
-        var transform = IoCManager.Resolve<IEntityManager>().GetComponent<TransformComponent>(Grid.Owner);
-        var size = (float) Grid.TileSize;
+        var entityManager = IoCManager.Resolve<IEntityManager>();
+
+        var transformSystem = entityManager.System<SharedTransformSystem>();
+        var transform = entityManager.GetComponent<TransformComponent>(Grid.Owner);
+        var size = (float)Grid.TileSize;
 
         _matrix.M31 = size / 2;
         _matrix.M32 = size / 2;
         Matrix3x2.Invert(spaceMatrix, out var invSpace);
-        _matrix *= transform.WorldMatrix * invSpace;
-        var relativeAngle = transform.WorldRotation - spaceAngle;
+        var (_, relativeAngle, worldMatrix) = transformSystem.GetWorldPositionRotationMatrix(transform);
+        relativeAngle -= spaceAngle;
+        _matrix *= worldMatrix * invSpace;
         _offset = relativeAngle.RotateVec(new Vector2(size / 4, size / 4));
     }
 

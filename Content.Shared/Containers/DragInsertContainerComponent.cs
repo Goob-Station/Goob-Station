@@ -21,6 +21,18 @@ public sealed partial class DragInsertContainerComponent : Component
     public bool UseVerbs = true;
 
     /// <summary>
+    /// The delay in seconds before a drag will be completed.
+    /// </summary>
+    [DataField]
+    public TimeSpan EntryDelay = TimeSpan.Zero;
+
+    /// <summary>
+    /// If entry delay isn't zero, this sets whether an entity dragging itself into the container should be delayed.
+    /// </summary>
+    [DataField]
+    public bool DelaySelfEntry = false;
+    
+    /// </summary>
     /// How much time (in seconds) it takes to perform the DoAfter
     /// </summary>
     [DataField("delay")]

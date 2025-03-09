@@ -7,3 +7,11 @@
   id: NoPro
   equipment:
     outerClothing: SurveillanceWirelessCameraBodyEntertainment
+
+- type: loadout
+  id: LoadoutHonkopsMask
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectSpeciesVox
+  equipment:
+    mask: ClothingMaskClownUnremoveable

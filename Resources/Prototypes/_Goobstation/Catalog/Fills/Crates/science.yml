@@ -1,0 +1,10 @@
+- type: entity
+  id: CrateScienceModsuitCoresFilled
+  parent: CrateScienceSecure
+  name: MOD cores crate
+  description: Contains three MOD cores inside.
+  components:
+  - type: StorageFill
+    contents:
+    - id: ModsuitCoreStandard
+      amount: 3

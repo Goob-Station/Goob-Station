@@ -13,3 +13,19 @@
         reagents:
         - ReagentId: Pax
           Quantity: 15
+
+# Yes, yes we are.
+- type: entity
+  suffix: poison
+  parent: PrefilledSyringe
+  id: SyringePoisonCentcomm
+  components:
+  - type: Label
+    currentLabel: reagent-name-amatoxin
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Amatoxin
+          Quantity: 15

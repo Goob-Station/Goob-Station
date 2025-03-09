@@ -1,9 +1,5 @@
-using System.Linq;
-using System.Numerics;
-using Content.Server.Cargo.Systems;
-using Content.Server.Construction;
-using Content.Server.GameTicking;
 using Content.Server.Radio.EntitySystems;
+using Content.Shared._DV.Salvage.Systems; // DeltaV
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
@@ -12,27 +8,20 @@ using Content.Shared.Salvage;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Utility;
 using Content.Server.Chat.Managers;
 using Content.Server.Gravity;
 using Content.Server.Parallax;
 using Content.Server.Procedural;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
-using Content.Shared.CCVar;
 using Content.Shared.Construction.EntitySystems;
-using Content.Shared.Random;
-using Content.Shared.Random.Helpers;
-using Content.Shared.Tools.Components;
-using Robust.Server.Maps;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
 using Content.Server.Labels;
+using Robust.Shared.EntitySerialization.Systems;
 
 namespace Content.Server.Salvage
 {
@@ -50,8 +39,9 @@ namespace Content.Server.Salvage
         [Dependency] private readonly DungeonSystem _dungeon = default!;
         [Dependency] private readonly GravitySystem _gravity = default!;
         [Dependency] private readonly LabelSystem _labelSystem = default!;
-        [Dependency] private readonly MapLoaderSystem _map = default!;
+        [Dependency] private readonly MapLoaderSystem _loader = default!;
         [Dependency] private readonly MetaDataSystem _metaData = default!;
+        [Dependency] private readonly MiningPointsSystem _points = default!; // DeltaV
         [Dependency] private readonly RadioSystem _radioSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;

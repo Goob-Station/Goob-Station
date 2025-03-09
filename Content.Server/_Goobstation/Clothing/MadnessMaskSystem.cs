@@ -1,13 +1,10 @@
-using Content.Server.EntityEffects.Effects;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Drugs;
-using Content.Shared.Drunk;
 using Content.Shared.Heretic;
 using Content.Shared.Jittering;
 using Content.Shared.StatusEffect;
-using Content.Shared.Stunnable;
 using Robust.Shared.Random;
 
 namespace Content.Server._Goobstation.Clothing;

@@ -7,7 +7,6 @@ using Content.Shared.Light.Components;
 using Content.Shared.Popups;
 using Content.Shared.Storage;
 using JetBrains.Annotations;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Content.Shared.Materials;

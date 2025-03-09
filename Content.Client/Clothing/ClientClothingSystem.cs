@@ -1,12 +1,10 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Numerics;
 using Content.Client.DisplacementMap;
 using Content.Client.Inventory;
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
-using Content.Shared.DisplacementMap;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
@@ -14,7 +12,6 @@ using Content.Shared.Item;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
-using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
 using Robust.Shared.Utility;
 using static Robust.Client.GameObjects.SpriteComponent;
@@ -58,6 +55,7 @@ public sealed class ClientClothingSystem : ClothingSystem
         base.Initialize();
 
         SubscribeLocalEvent<ClothingComponent, GetEquipmentVisualsEvent>(OnGetVisuals);
+        SubscribeLocalEvent<ClothingComponent, InventoryTemplateUpdated>(OnInventoryTemplateUpdated);
 
         SubscribeLocalEvent<InventoryComponent, VisualsChangedEvent>(OnVisualsChanged);
         SubscribeLocalEvent<SpriteComponent, DidUnequipEvent>(OnDidUnequip);
@@ -70,17 +68,30 @@ public sealed class ClientClothingSystem : ClothingSystem
         if (args.Sprite == null)
             return;
 
-        var enumerator = _inventorySystem.GetSlotEnumerator((uid, component));
-        while (enumerator.NextItem(out var item, out var slot))
-        {
-            RenderEquipment(uid, item, slot.Name, component);
-        }
+        UpdateAllSlots(uid, component);
 
         // No clothing equipped -> make sure the layer is hidden, though this should already be handled by on-unequip.
         if (args.Sprite.LayerMapTryGet(HumanoidVisualLayers.StencilMask, out var layer))
         {
             DebugTools.Assert(!args.Sprite[layer].Visible);
             args.Sprite.LayerSetVisible(layer, false);
+        }
+    }
+
+    private void OnInventoryTemplateUpdated(Entity<ClothingComponent> ent, ref InventoryTemplateUpdated args)
+    {
+        UpdateAllSlots(ent.Owner, clothing: ent.Comp);
+    }
+
+    private void UpdateAllSlots(
+        EntityUid uid,
+        InventoryComponent? inventoryComponent = null,
+        ClothingComponent? clothing = null)
+    {
+        var enumerator = _inventorySystem.GetSlotEnumerator((uid, inventoryComponent));
+        while (enumerator.NextItem(out var item, out var slot))
+        {
+            RenderEquipment(uid, item, slot.Name, inventoryComponent, clothingComponent: clothing);
         }
     }
 

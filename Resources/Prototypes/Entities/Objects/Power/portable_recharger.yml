@@ -36,3 +36,6 @@
           components:
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
+        blacklist: # Goobstation
+          tags:
+          - WizardWand

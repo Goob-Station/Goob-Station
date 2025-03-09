@@ -1,4 +1,3 @@
-using Content.Shared._Shitmed.Targeting;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Shitmed.Targeting.Events;

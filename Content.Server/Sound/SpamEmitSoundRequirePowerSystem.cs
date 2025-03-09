@@ -1,4 +1,3 @@
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Power;
 using Content.Shared.Sound;

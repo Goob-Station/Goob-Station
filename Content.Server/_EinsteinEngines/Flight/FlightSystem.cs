@@ -69,9 +69,9 @@ public sealed class FlightSystem : SharedFlightSystem
             new FlightDoAfterEvent(), uid, target: uid)
             {
                 BlockDuplicate = true,
-                BreakOnMove = true,
                 BreakOnDamage = true,
-                NeedHand = true
+                NeedHand = true,
+                MultiplyDelay = false, // Goobstation
             };
 
             if (!_doAfter.TryStartDoAfter(doAfterArgs))

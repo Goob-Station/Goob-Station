@@ -41,6 +41,12 @@ namespace Content.Shared.Atmos
         public const float T20C = 293.15f;
 
         /// <summary>
+        ///     -38.15ºC in K.
+        ///     This is used to initialize roundstart freezer rooms.
+        /// </summary>
+        public const float FreezerTemp = 235f;
+
+        /// <summary>
         ///     Do not allow any gas mixture temperatures to exceed this number. It is occasionally possible
         ///     to have very small heat capacity (e.g. room that was just unspaced) and for large amounts of
         ///     energy to be transferred to it, even for a brief moment. However, this messes up subsequent
@@ -66,6 +72,12 @@ namespace Content.Shared.Atmos
         public const float MolesCellStandard = (OneAtmosphere * CellVolume / (T20C * R));
 
         /// <summary>
+        ///     Moles in a 2.5 m^3 cell at 101.325 kPa and -38.15ºC.
+        ///     This is used in fix atmos freezer markers to ensure the air is at the correct atmospheric pressure while still being cold.
+        /// </summary>
+        public const float MolesCellFreezer = (OneAtmosphere * CellVolume / (FreezerTemp * R));
+
+        /// <summary>
         ///     Moles in a 2.5 m^3 cell at GasMinerDefaultMaxExternalPressure kPa and 20ºC
         /// </summary>
         public const float MolesCellGasMiner = (GasMinerDefaultMaxExternalPressure * CellVolume / (T20C * R));
@@ -80,6 +92,9 @@ namespace Content.Shared.Atmos
 
         public const float OxygenMolesStandard = MolesCellStandard * OxygenStandard;
         public const float NitrogenMolesStandard = MolesCellStandard * NitrogenStandard;
+
+        public const float OxygenMolesFreezer = MolesCellFreezer * OxygenStandard;
+        public const float NitrogenMolesFreezer = MolesCellFreezer * NitrogenStandard;
 
         #endregion
 
@@ -145,6 +160,22 @@ namespace Content.Shared.Atmos
         /// </summary>
         public const float SpaceHeatCapacity = 7000f;
 
+        /// <summary>
+        ///     Dictionary of chemical abbreviations for <see cref="Gas"/>
+        /// </summary>
+        public static Dictionary<Gas, string> GasAbbreviations = new Dictionary<Gas, string>()
+        {
+            [Gas.Ammonia] = Loc.GetString("gas-ammonia-abbreviation"),
+            [Gas.CarbonDioxide] = Loc.GetString("gas-carbon-dioxide-abbreviation"),
+            [Gas.Frezon] = Loc.GetString("gas-frezon-abbreviation"),
+            [Gas.Nitrogen] = Loc.GetString("gas-nitrogen-abbreviation"),
+            [Gas.NitrousOxide] = Loc.GetString("gas-nitrous-oxide-abbreviation"),
+            [Gas.Oxygen] = Loc.GetString("gas-oxygen-abbreviation"),
+            [Gas.Plasma] = Loc.GetString("gas-plasma-abbreviation"),
+            [Gas.Tritium] = Loc.GetString("gas-tritium-abbreviation"),
+            [Gas.WaterVapor] = Loc.GetString("gas-water-vapor-abbreviation"),
+        };
+
         #region Excited Groups
 
         /// <summary>
@@ -172,7 +203,7 @@ namespace Content.Shared.Atmos
         /// <summary>
         ///     Total number of gases. Increase this if you want to add more!
         /// </summary>
-        public const int TotalNumberOfGases = 12;
+        public const int TotalNumberOfGases = 13; // Assmos - /tg/ gases
 
         /// <summary>
         ///     This is the actual length of the gases arrays in mixtures.
@@ -253,22 +284,22 @@ namespace Content.Shared.Atmos
         /// <summary>
         ///     The amount of energy 1 mole of BZ forming from N2O and plasma releases.
         /// </summary>
-        public const float BZFormationEnergy = 80e3f;
+        public const float BZFormationEnergy = 80e3f; // Assmos - /tg/ gases
 
         /// <summary>
         ///     The amount of energy 1 mol of Healium forming from BZ and frezon releases.
         /// </summary>
-        public const float HealiumProductionEnergy = 9e3f;
+        public const float HealiumProductionEnergy = 9e3f; // Assmos - /tg/ gases
 
         /// <summary>
         ///     The amount of energy 1 mol of Nitrium forming from Tritium, Nitrogen and BZ releases.
         /// </summary>
-        public const float NitriumProductionEnergy = 100e3f;
+        public const float NitriumProductionEnergy = 100e3f; // Assmos - /tg/ gases
 
         /// <summary>
         ///     The amount of energy 1 mol of Nitrium decomposing into nitrogen and water vapor releases.
         /// </summary>
-        public const float NitriumDecompositionEnergy = 30e3f;
+        public const float NitriumDecompositionEnergy = 30e3f; // Assmos - /tg/ gases
 
         /// <summary>
         ///     Determines at what pressure the ultra-high pressure red icon is displayed.
@@ -357,8 +388,9 @@ namespace Content.Shared.Atmos
         Ammonia = 6,
         NitrousOxide = 7,
         Frezon = 8,
-        BZ = 9,
-        Healium = 10,
-        Nitrium = 11,
+        BZ = 9, // Assmos - /tg/ gases
+        Healium = 10, // Assmos - /tg/ gases
+        Nitrium = 11, // Assmos - /tg/ gases
+        Pluoxium = 12, // Assmos - /tg/ gases
     }
 }

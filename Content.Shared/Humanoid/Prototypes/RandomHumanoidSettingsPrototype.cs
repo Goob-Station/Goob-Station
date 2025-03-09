@@ -9,14 +9,14 @@ namespace Content.Shared.Humanoid.Prototypes;
 [Prototype("randomHumanoidSettings")]
 public sealed partial class RandomHumanoidSettingsPrototype : IPrototype, IInheritingPrototype
 {
-    [IdDataField] public string ID { get; } = default!;
+    [IdDataField] public string ID { get; private set; } = default!;
 
     [ParentDataField(typeof(PrototypeIdArraySerializer<RandomHumanoidSettingsPrototype>))]
-    public string[]? Parents { get; }
+    public string[]? Parents { get; private set; }
 
     [AbstractDataField]
     [NeverPushInheritance]
-    public bool Abstract { get; }
+    public bool Abstract { get; private set; }
 
     /// <summary>
     ///     Whether the humanoid's name should take from the randomized profile or not.
@@ -29,6 +29,13 @@ public sealed partial class RandomHumanoidSettingsPrototype : IPrototype, IInher
     /// </summary>
     [DataField("speciesBlacklist")]
     public HashSet<string> SpeciesBlacklist { get; private set; } = new();
+
+    /// <summary>
+    ///     Goobstation
+    ///     Specie that will be used.
+    /// </summary>
+    [DataField]
+    public string? SpeciesWhitelist { get; private set; }
 
     /// <summary>
     ///     Extra components to add to this entity.

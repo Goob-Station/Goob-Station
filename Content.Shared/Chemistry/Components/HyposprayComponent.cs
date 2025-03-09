@@ -1,6 +1,5 @@
 using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization;
 using Robust.Shared.Audio;
 
 namespace Content.Shared.Chemistry.Components;
@@ -10,11 +9,6 @@ public sealed partial class HyposprayComponent : Component
 {
     [DataField]
     public string SolutionName = "hypospray";
-
-    // TODO: This should be on clumsycomponent.
-    [DataField]
-    [ViewVariables(VVAccess.ReadWrite)]
-    public float ClumsyFailChance = 0.5f;
 
     [DataField]
     [ViewVariables(VVAccess.ReadWrite)]

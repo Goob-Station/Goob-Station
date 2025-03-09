@@ -1,5 +1,4 @@
 using Content.Shared.Body.Systems;
-using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes; // Shitmed Change
 using Content.Shared._Shitmed.Medical.Surgery; // Shitmed Change
@@ -30,13 +29,13 @@ public sealed partial class OrganComponent : Component, ISurgeryToolComponent //
     ///     without referencing the prototype or hardcoding.
     /// </summary>
 
-    [DataField, AlwaysPushInheritance]
-    public string SlotId = "";
+    [DataField]
+    public string SlotId = string.Empty;
 
-    [DataField, AlwaysPushInheritance]
+    [DataField]
     public string ToolName { get; set; } = "An organ";
 
-    [DataField, AlwaysPushInheritance]
+    [DataField]
     public float Speed { get; set; } = 1f;
 
     /// <summary>

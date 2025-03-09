@@ -147,3 +147,13 @@
   cost: 750
   category: cargoproduct-category-name-medical
   group: market
+
+- type: cargoProduct  # GoobStation Addition - Bounty
+  id: SurgicalSupplies
+  icon:
+    sprite: Structures/Storage/Crates/surgery.rsi
+    state: icon
+  product: CrateMedicalSurgery
+  cost: 1600
+  category: cargoproduct-category-name-medical
+  group: market

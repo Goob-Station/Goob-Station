@@ -10,7 +10,6 @@ using Content.Shared.Tag;
 using Content.Shared.Verbs;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
@@ -150,7 +149,9 @@ public sealed class GuidebookSystem : EntitySystem
         if (!TryComp<SpeechComponent>(uid, out var speech) || speech.SpeechSounds is null)
             return;
 
-        _audioSystem.PlayGlobal(speech.SpeechSounds, Filter.Local(), false, speech.AudioParams);
+        // This code is broken because SpeechSounds isn't a file name or sound specifier directly.
+        // Commenting out to avoid compile failure with https://github.com/space-wizards/RobustToolbox/pull/5540
+        // _audioSystem.PlayGlobal(speech.SpeechSounds, Filter.Local(), false, speech.AudioParams);
     }
 
     public void FakeClientActivateInWorld(EntityUid activated)

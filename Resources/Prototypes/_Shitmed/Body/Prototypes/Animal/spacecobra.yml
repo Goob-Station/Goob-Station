@@ -8,7 +8,7 @@
       connections:
       - legs
       organs:
-        lungs: OrganAnimalLungs
+        lungs: OrganSpaceAnimalLungs # Immunity to airloss
         stomach: OrganAnimalStomach
         liver: OrganAnimalLiver
         heart: OrganCobraHeart # Allows you to become invisible.

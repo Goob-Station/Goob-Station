@@ -1,11 +1,9 @@
 using Content.Server.Construction.Components;
-using Content.Server.Containers;
 using Content.Shared.Construction;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Construction.Steps;
 using Content.Shared.Containers;
 using Content.Shared.Database;
-using Robust.Server.Containers;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using System.Linq;
@@ -363,7 +361,7 @@ namespace Content.Server.Construction
 
             // Transform transferring.
             var newTransform = Transform(newUid);
-            newTransform.AttachToGridOrMap(); // in case in hands or a container
+            TransformSystem.AttachToGridOrMap(newUid, newTransform); // in case in hands or a container
             newTransform.LocalRotation = transform.LocalRotation;
             newTransform.Anchored = transform.Anchored;
 

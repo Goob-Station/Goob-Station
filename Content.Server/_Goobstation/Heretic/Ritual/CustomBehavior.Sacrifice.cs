@@ -1,5 +1,4 @@
 using Content.Shared.Heretic.Prototypes;
-using Content.Shared.Changeling;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Humanoid;
@@ -92,7 +91,7 @@ namespace Content.Server.Heretic.Ritual;
         for (int i = 0; i < Max; i++)
         {
             var isCommand = args.EntityManager.HasComponent<CommandStaffComponent>(uids[i]);
-            var knowledgeGain = isCommand ? 2f : 1f;
+            var knowledgeGain = isCommand ? 3f : 2f;
 
             // YES!!! GIB!!!
             if (args.EntityManager.TryGetComponent<DamageableComponent>(uids[i], out var dmg))

@@ -1,6 +1,3 @@
-using Content.Server.Heretic;
-using Content.Server.Objectives.Systems;
-
 namespace Content.Server.Objectives.Components;
 
 [RegisterComponent]

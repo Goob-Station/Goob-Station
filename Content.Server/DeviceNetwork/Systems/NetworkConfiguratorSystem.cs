@@ -18,7 +18,7 @@ using JetBrains.Annotations;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
-using Robust.Shared.Player;
+using Robust.Shared.Map.Events;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -52,6 +52,10 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
         //Verbs
         SubscribeLocalEvent<NetworkConfiguratorComponent, GetVerbsEvent<UtilityVerb>>(OnAddInteractVerb);
         SubscribeLocalEvent<DeviceNetworkComponent, GetVerbsEvent<AlternativeVerb>>(OnAddAlternativeSaveDeviceVerb);
+        // <Goobstation> - Fix device alt-verbs
+        SubscribeLocalEvent<DeviceLinkSinkComponent, GetVerbsEvent<AlternativeVerb>>(OnAddAlternativeSaveDeviceVerbSink);
+        SubscribeLocalEvent<DeviceLinkSourceComponent, GetVerbsEvent<AlternativeVerb>>(OnAddAlternativeSaveDeviceVerbSource);
+        // </Goobstation>
         SubscribeLocalEvent<NetworkConfiguratorComponent, GetVerbsEvent<AlternativeVerb>>(OnAddSwitchModeVerb);
 
         //UI
@@ -66,6 +70,46 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
         SubscribeLocalEvent<NetworkConfiguratorComponent, BoundUserInterfaceCheckRangeEvent>(OnUiRangeCheck);
 
         SubscribeLocalEvent<DeviceListComponent, ComponentRemove>(OnComponentRemoved);
+
+        SubscribeLocalEvent<BeforeSerializationEvent>(OnMapSave);
+    }
+
+    private void OnMapSave(BeforeSerializationEvent ev)
+    {
+        var enumerator = AllEntityQuery<NetworkConfiguratorComponent>();
+        while (enumerator.MoveNext(out var uid, out var conf))
+        {
+            if (!TryComp(conf.ActiveDeviceList, out TransformComponent? listXform))
+                continue;
+
+            if (!ev.MapIds.Contains(listXform.MapID))
+                continue;
+
+            // The linked device list is (probably) being saved. Make sure that the configurator is also being saved
+            // (i.e., not in the hands of a mapper/ghost). In the future, map saving should raise a separate event
+            // containing a set of all entities that are about to be saved, which would make checking this much easier.
+            // This is a shitty bandaid, and will force close the UI during auto-saves.
+            // TODO Map serialization refactor
+            // I'm refactoring it now and I still dont know what to do
+
+            var xform = Transform(uid);
+            if (ev.MapIds.Contains(xform.MapID) && IsSaveable(uid))
+                continue;
+
+            _uiSystem.CloseUi(uid, NetworkConfiguratorUiKey.Configure);
+            DebugTools.AssertNull(conf.ActiveDeviceList);
+        }
+
+        bool IsSaveable(EntityUid uid)
+        {
+            while (uid.IsValid())
+            {
+                if (Prototype(uid)?.MapSavable == false)
+                    return false;
+                uid = Transform(uid).ParentUid;
+            }
+            return true;
+        }
     }
 
     private void OnUiRangeCheck(Entity<NetworkConfiguratorComponent> ent, ref BoundUserInterfaceCheckRangeEvent args)
@@ -372,6 +416,22 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
     /// </summary>
     private void OnAddAlternativeSaveDeviceVerb(EntityUid uid, DeviceNetworkComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
+        AddAlternativeVerbs(uid, args); // Goobstation - Fix device alt-verbs; code moved to AddAlternativeVerbs()
+    }
+
+    // <Goobstation> - Fix device alt-verbs
+    private void OnAddAlternativeSaveDeviceVerbSink(EntityUid uid, DeviceLinkSinkComponent component, GetVerbsEvent<AlternativeVerb> args)
+    {
+        AddAlternativeVerbs(uid, args);
+    }
+
+    private void OnAddAlternativeSaveDeviceVerbSource(EntityUid uid, DeviceLinkSourceComponent component, GetVerbsEvent<AlternativeVerb> args)
+    {
+        AddAlternativeVerbs(uid, args);
+    }
+
+    private void AddAlternativeVerbs(EntityUid uid, GetVerbsEvent<AlternativeVerb> args)
+    {
         if (!args.CanAccess || !args.CanInteract || !args.Using.HasValue
             || !TryComp<NetworkConfiguratorComponent>(args.Using.Value, out var configurator))
             return;
@@ -402,6 +462,7 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
             args.Verbs.Add(verb);
         }
     }
+    // </Goobstation>
 
     private void OnAddSwitchModeVerb(EntityUid uid, NetworkConfiguratorComponent configurator, GetVerbsEvent<AlternativeVerb> args)
     {
@@ -521,8 +582,17 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
         if (!targetUid.HasValue || !AccessCheck(targetUid.Value, userUid, configurator))
             return;
 
-        SetActiveDeviceList(configuratorUid, configurator, targetUid); // Goobstation - Fix desync of configurator lists
-        if (configurator.ActiveDeviceList.HasValue && _uiSystem.TryOpenUi(configuratorUid, NetworkConfiguratorUiKey.Configure, userUid))
+        if (!TryComp(targetUid, out DeviceListComponent? list))
+            return;
+
+        if (TryComp(configurator.ActiveDeviceList, out DeviceListComponent? oldList))
+            oldList.Configurators.Remove(configuratorUid);
+
+        list.Configurators.Add(configuratorUid);
+        configurator.ActiveDeviceList = targetUid;
+        Dirty(configuratorUid, configurator);
+
+        if (_uiSystem.TryOpenUi(configuratorUid, NetworkConfiguratorUiKey.Configure, userUid))
         {
             _uiSystem.SetUiState(configuratorUid, NetworkConfiguratorUiKey.Configure, new DeviceListUserInterfaceState(
                 _deviceListSystem.GetDeviceList(configurator.ActiveDeviceList.Value)
@@ -784,7 +854,7 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
                 {
                     if (query.TryGetComponent(device, out var comp))
                     {
-                        component.Devices[addr] = device;
+                        component.Devices.Add(addr, device);
                         comp.Configurators.Add(uid);
                     }
                 }

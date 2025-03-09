@@ -1,0 +1,28 @@
+- type: technology
+  id: ModsuitsTech
+  name: research-technology-modsuits
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/modsuit_parts.rsi
+    state: mod-core-standard
+  discipline: Experimental
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - ModsuitChestplate
+  - ModsuitBoots
+  - ModsuitHelmet
+  - ModsuitGauntlets
+  - ModsuitShell
+  - ModsuitPlatingExternal
+
+- type: technology
+  id: BluespaceTheory
+  name: research-technology-bluespace-theory
+  icon:
+    sprite: _Goobstation/Objects/Materials/materials.rsi
+    state: bluespace_crystal
+  discipline: Experimental
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - MaterialBSCrystal

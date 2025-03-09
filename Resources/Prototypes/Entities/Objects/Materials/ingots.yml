@@ -43,6 +43,11 @@
     - gold
     - gold_2
     - gold_3
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: gold_3
     layers:
@@ -88,6 +93,11 @@
     - silver
     - silver_2
     - silver_3
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: silver_3
     layers:

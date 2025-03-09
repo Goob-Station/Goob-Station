@@ -21,7 +21,8 @@
     - Stun
     - Corporeal
   - type: Damageable
-    damageContainer: Biological
+    damageContainer: ManifestedSpirit
+    damageModifierSet: ManifestedSpirit
   - type: NoSlip
   - type: Eye
     drawFov: false
@@ -39,6 +40,9 @@
     rules: ghost-role-information-antagonist-rules
     raffle:
       settings: default
+    requirements: # Goobstation - ghost roles requirements
+    - !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
   - type: GhostTakeoverAvailable
   - type: Revenant
     malfunctionWhitelist:
@@ -76,3 +80,6 @@
     - RevenantTheme
   - type: Speech
     speechVerb: Ghost
+  - type: Reactive
+    groups:
+      Acidic: [Touch]

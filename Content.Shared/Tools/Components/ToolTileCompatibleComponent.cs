@@ -1,7 +1,6 @@
 using Content.Shared.DoAfter;
 using Content.Shared.Tools.Systems;
 using Robust.Shared.GameStates;
-using Robust.Shared.Map;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Tools.Components;

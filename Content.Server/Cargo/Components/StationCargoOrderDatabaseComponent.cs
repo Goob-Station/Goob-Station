@@ -1,9 +1,7 @@
 using Content.Server.Station.Components;
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.Components;
-using Content.Shared.Cargo.Prototypes;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Cargo.Components;
 

@@ -8,7 +8,6 @@ using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared.Nutrition.EntitySystems;
@@ -102,7 +101,8 @@ public sealed class ThirstSystem : EntitySystem
             component.ThirstThresholds[ThirstThreshold.Dead],
             component.ThirstThresholds[ThirstThreshold.OverHydrated]
         );
-        Dirty(uid, component);
+
+        EntityManager.DirtyField(uid, component, nameof(ThirstComponent.CurrentThirst));
     }
 
     private bool IsMovementThreshold(ThirstThreshold threshold)

@@ -1,8 +1,6 @@
 using Content.Server.Damage.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Damage;
-using Content.Shared.StepTrigger;
-using Content.Shared.StepTrigger.Systems;
 
 namespace Content.Server.Damage.Systems;
 
@@ -35,7 +33,7 @@ public sealed class DamageUserOnTriggerSystem : EntitySystem
         var ev = new BeforeDamageUserOnTriggerEvent(damage, target);
         RaiseLocalEvent(source, ev);
 
-        return _damageableSystem.TryChangeDamage(target, ev.Damage, component.IgnoreResistances, origin: source) is not null;
+        return _damageableSystem.TryChangeDamage(target, ev.Damage, component.IgnoreResistances, origin: source, targetPart: component.TargetPart) is not null; // Shitmed Change
     }
 }
 

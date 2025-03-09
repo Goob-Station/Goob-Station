@@ -12,7 +12,7 @@ $scriptDir = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
 . $(join-path $scriptDir contribs_shared.ps1)
 
 $engine = & "$PSScriptRoot\dump_commits_since.ps1" -repo space-wizards/RobustToolbox -since $since -until $until
-$content = & "$PSScriptRoot\dump_commits_since.ps1" -repo space-wizards/space-station-14 -since $since -until $until
+$content = & "$PSScriptRoot\dump_commits_since.ps1" -repo Goob-Station/Goob-Station -since $since -until $until
 
 $contribs = ($content + $engine) `
     | Select-Object -ExpandProperty author `

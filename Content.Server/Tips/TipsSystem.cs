@@ -4,7 +4,6 @@ using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Dataset;
 using Content.Shared.Tips;
-using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;

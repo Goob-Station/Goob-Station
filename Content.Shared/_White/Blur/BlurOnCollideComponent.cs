@@ -4,5 +4,8 @@ namespace Content.Shared._White.Collision.Blur;
 public sealed partial class BlurOnCollideComponent : Component
 {
     [DataField]
-    public float BlurTime = 5f;
+    public TimeSpan BlurTime = TimeSpan.FromSeconds(5);
+
+    [DataField]
+    public TimeSpan BlindTime = TimeSpan.Zero;
 }

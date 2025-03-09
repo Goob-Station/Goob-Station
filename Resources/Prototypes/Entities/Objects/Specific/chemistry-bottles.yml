@@ -94,6 +94,11 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: DnaSubstanceTrace
+  - type: ThrowableBlocked # Goobstation
+    behavior: Damage
+    damage:
+      types:
+        Blunt: 5
 
 - type: entity
   parent: BaseChemistryEmptyBottle

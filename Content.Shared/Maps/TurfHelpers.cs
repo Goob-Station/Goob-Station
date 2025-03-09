@@ -4,7 +4,6 @@ using System.Runtime.CompilerServices;
 using Content.Shared.Physics;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Random;
 
 namespace Content.Shared.Maps
 {
@@ -120,10 +119,11 @@ namespace Content.Shared.Maps
         private static bool GetWorldTileBox(TileRef turf, out Box2Rotated res)
         {
             var entManager = IoCManager.Resolve<IEntityManager>();
+            var xformSystem = entManager.System<SharedTransformSystem>();
 
             if (entManager.TryGetComponent<MapGridComponent>(turf.GridUid, out var tileGrid))
             {
-                var gridRot = entManager.GetComponent<TransformComponent>(turf.GridUid).WorldRotation;
+                var gridRot = xformSystem.GetWorldRotation(turf.GridUid);
 
                 // This is scaled to 90 % so it doesn't encompass walls on other tiles.
                 var tileBox = Box2.UnitCentered.Scale(0.9f);

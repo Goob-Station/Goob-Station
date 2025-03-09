@@ -1,6 +1,5 @@
 using Content.Server.Body.Systems;
 using Content.Server.Popups;
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Stack;
 using Content.Server.Storage.Components;

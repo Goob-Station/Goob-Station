@@ -1,0 +1,61 @@
+- type: entity
+  abstract: true
+  parent: BasePart
+  id: PartVulpkaninBase
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
+  - type: Icon
+    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
+  - type: BodyPart
+    species: Vulpkanin
+
+- type: entity
+  parent: [ PartVulpkaninBase, BaseTorso ]
+  id: TorsoVulpkanin
+  name: "vulpkanin torso"
+
+- type: entity
+  parent: [ PartVulpkaninBase, BaseHead ]
+  id: HeadVulpkanin
+  name: "vulpkanin head"
+
+- type: entity
+  parent: [ PartVulpkaninBase, BaseLeftArm ]
+  id: LeftArmVulpkanin
+  name: "left vulpkanin arm"
+
+- type: entity
+  parent: [ PartVulpkaninBase, BaseRightArm ]
+  id: RightArmVulpkanin
+  name: "right vulpkanin arm"
+
+- type: entity
+  parent: [ PartVulpkaninBase, BaseLeftHand ]
+  id: LeftHandVulpkanin
+  name: "left vulpkanin hand"
+
+- type: entity
+  parent: [ PartVulpkaninBase, BaseRightHand ]
+  id: RightHandVulpkanin
+  name: "right vulpkanin hand"
+
+- type: entity
+  parent: [ PartVulpkaninBase, BaseLeftLeg ]
+  id: LeftLegVulpkanin
+  name: "left vulpkanin leg"
+
+- type: entity
+  parent: [ PartVulpkaninBase, BaseRightLeg ]
+  id: RightLegVulpkanin
+  name: "right vulpkanin leg"
+
+- type: entity
+  parent: [ PartVulpkaninBase, BaseLeftFoot ]
+  id: LeftFootVulpkanin
+  name: "left vulpkanin foot"
+
+- type: entity
+  parent: [ PartVulpkaninBase, BaseRightFoot ]
+  id: RightFootVulpkanin
+  name: "right vulpkanin foot"

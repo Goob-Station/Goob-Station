@@ -1,0 +1,68 @@
+- type: entity
+  abstract: true
+  parent: BasePart
+  id: PartHarpyBase
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Harpy/parts.rsi
+  - type: Icon
+    sprite: _DV/Mobs/Species/Harpy/parts.rsi
+  - type: BodyPart
+    species: Harpy
+
+- type: entity
+  parent: [ PartHarpyBase, BaseTorso ]
+  id: TorsoHarpy
+  name: "harpy torso"
+
+- type: entity
+  parent: [ PartHarpyBase, BaseHead ]
+  id: HeadHarpy
+  name: "harpy head"
+
+- type: entity
+  parent: [ PartHarpyBase, BaseLeftArm ]
+  id: LeftArmHarpy
+  name: "left harpy arm"
+
+- type: entity
+  parent: [ PartHarpyBase, BaseRightArm ]
+  id: RightArmHarpy
+  name: "right harpy arm"
+  components:
+  - type: BodyPart
+    onAdd: # Shitmed Change
+    - type: Flight
+      isLayerAnimated: true
+      layer: "/Textures/_EinsteinEngines/Mobs/Customization/Harpy/harpy_wings.rsi"
+      animationKey: "Flap"
+
+- type: entity
+  parent: [ PartHarpyBase, BaseLeftHand ]
+  id: LeftHandHarpy
+  name: "left harpy hand"
+
+- type: entity
+  parent: [ PartHarpyBase, BaseRightHand ]
+  id: RightHandHarpy
+  name: "right harpy hand"
+
+- type: entity
+  parent: [ PartHarpyBase, BaseLeftLeg ]
+  id: LeftLegHarpy
+  name: "left harpy leg"
+
+- type: entity
+  parent: [ PartHarpyBase, BaseRightLeg ]
+  id: RightLegHarpy
+  name: "right harpy leg"
+
+- type: entity
+  parent: [ PartHarpyBase, BaseLeftFoot ]
+  id: LeftFootHarpy
+  name: "left harpy foot"
+
+- type: entity
+  parent: [ PartHarpyBase, BaseRightFoot ]
+  id: RightFootHarpy
+  name: "right harpy foot"

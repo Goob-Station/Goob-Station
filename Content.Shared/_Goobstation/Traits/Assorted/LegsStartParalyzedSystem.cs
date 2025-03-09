@@ -1,7 +1,8 @@
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared.Body.Components;
+using Content.Shared.Body.Part;
 
-namespace Content.Shared.Traits.Assorted;
+namespace Content.Shared._Goobstation.Traits.Assorted;
 
 public sealed class LegsStartParalyzedSystem : EntitySystem
 {
@@ -9,18 +10,24 @@ public sealed class LegsStartParalyzedSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<LegsStartParalyzedComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<LegsStartParalyzedComponent, MapInitEvent>(OnMapInit);
     }
 
-    private void OnStartup(EntityUid uid, LegsStartParalyzedComponent component, ComponentStartup args)
+    private void OnMapInit(EntityUid uid, LegsStartParalyzedComponent component, MapInitEvent args)
     {
-        if (_entMan.TryGetComponent<BodyComponent>(uid, out var body))
+        if (!_entMan.TryGetComponent<BodyComponent>(uid, out var body))
+            return;
+
+        foreach (var legEntity in body.LegEntities)
         {
-            foreach (var legEntity in body.LegEntities)
+            if (TryComp(legEntity, out BodyPartComponent? part))
             {
-                var ev = new BodyPartEnableChangedEvent(false);
-                RaiseLocalEvent(legEntity, ref ev);
+                part.CanEnable = false;
+                Dirty(legEntity, part);
             }
+
+            var ev = new BodyPartEnableChangedEvent(false);
+            RaiseLocalEvent(legEntity, ref ev);
         }
     }
 }

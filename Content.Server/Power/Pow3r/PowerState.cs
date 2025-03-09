@@ -5,7 +5,6 @@ using System.Runtime.CompilerServices;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Robust.Shared.Utility;
-using static Content.Server.Power.Pow3r.PowerState;
 
 namespace Content.Server.Power.Pow3r
 {

@@ -87,8 +87,10 @@
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
   sprites:
-  - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: horns_curled
+  - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
+    state: horns_curled_l
+  - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
+    state: horns_curled_r
 
 - type: marking
   id: LizardHornsRam
@@ -96,8 +98,10 @@
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
   sprites:
-  - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: horns_ram
+  - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
+    state: horns_ram_l
+  - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
+    state: horns_ram_r
 
 - type: marking
   id: LizardHornsShort
@@ -105,8 +109,10 @@
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
   sprites:
-  - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: horns_short
+  - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
+    state: horns_short_l
+  - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
+    state: horns_short_r
 
 - type: marking
   id: LizardHornsSimple
@@ -114,8 +120,10 @@
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
   sprites:
-  - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: horns_simple
+  - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
+    state: horns_simple_l
+  - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
+    state: horns_simple_r
 
 - type: marking
   id: LizardHornsDouble
@@ -123,8 +131,10 @@
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
   sprites:
-  - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: horns_double
+  - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
+    state: horns_double_l
+  - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
+    state: horns_double_r
 
 - type: marking
   id: LizardTailSmooth
@@ -264,8 +274,10 @@
   markingCategory: HeadTop
   speciesRestriction: [Reptilian, Kobold] # Shitmed Change
   sprites:
-  - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: horns_argali
+  - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
+    state: horns_argali_l
+  - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
+    state: horns_argali_r
 
 - type: marking
   id: LizardHornsAyrshire
@@ -273,8 +285,10 @@
   markingCategory: HeadTop
   speciesRestriction: [Reptilian, Kobold] # Shitmed Change
   sprites:
-  - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: horns_ayrshire
+  - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
+    state: horns_ayrshire_l
+  - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
+    state: horns_ayrshire_r
 
 - type: marking
   id: LizardHornsMyrsore
@@ -282,8 +296,10 @@
   markingCategory: HeadTop
   speciesRestriction: [Reptilian, Kobold] # Shitmed Change
   sprites:
-  - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: horns_myrsore
+  - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
+    state: horns_myrsore_l
+  - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
+    state: horns_myrsore_r
 
 - type: marking
   id: LizardHornsBighorn
@@ -291,8 +307,10 @@
   markingCategory: HeadTop
   speciesRestriction: [Reptilian, Kobold] # Shitmed Change
   sprites:
-  - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: horns_bighorn
+  - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
+    state: horns_bighorn_l
+  - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
+    state: horns_bighorn_r
 
 - type: marking
   id: LizardHornsDemonic

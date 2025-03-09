@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using Content.Server.NodeContainer.Nodes;
 
 namespace Content.Server.NodeContainer

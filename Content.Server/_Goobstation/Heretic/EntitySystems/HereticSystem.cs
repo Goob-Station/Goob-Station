@@ -15,7 +15,6 @@ using Content.Shared.Humanoid;
 using Robust.Server.Player;
 using Content.Server.Revolutionary.Components;
 using Content.Shared.Random.Helpers;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.EntitySystems;
 

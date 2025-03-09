@@ -1,6 +1,0 @@
-- type: salvageLoot  #revert from wiznerf
-  id: OreBananium
-  guaranteed: true
-  loots:
-  - !type:BiomeMarkerLoot
-    proto: OreBananium

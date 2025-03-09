@@ -1,0 +1,61 @@
+- type: entity
+  save: false
+  name: Urist McAlien
+  parent:
+  - MobBloodstream
+  - MobFlammable
+  - BaseMobSpecies
+  id: MobAbductor
+  components:
+  - type: Absorbable # BLOOD FOR THE BLOOD GOD
+  - type: GlorpAccent # GoobStation - Glorpshit
+  - type: HumanoidAppearance
+    species: Abductor
+  - type: Icon
+    sprite: _Shitmed/Mobs/Species/Abductor/parts.rsi
+    state: full
+  - type: Fingerprint
+  - type: Blindable
+  - type: Body
+    prototype: Abductor
+    requiredLegs: 2
+  - type: FireVisuals
+    alternateState: Standing
+  - type: Damageable
+    damageContainer: Biological
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AbductorMind
+  - type: CollectiveMind
+    defaultChannel: Abductormind
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#878787"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damageCap: 40
+    damage:
+      types:
+        Heat: -0.14
+      groups:
+        Brute: -0.14
+  - type: Targeting
+  - type: SurgeryTarget
+  - type: Bloodstream
+    bloodReagent: AlienBlood
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobAbductorDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HumanoidAppearance
+    species: Abductor

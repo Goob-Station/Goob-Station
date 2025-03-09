@@ -1,7 +1,10 @@
 using Content.Shared._Shitmed.Body.Organ; // Shitmed Change
 using Content.Shared.Body.Components;
-using Content.Shared.Body.Part;
-using Content.Shared.CCVar; // Shitmed Change
+using Content.Shared._Goobstation.CCVar; // Shitmed Change
+using Content.Shared._Goobstation.Clothing.Components;
+using Content.Shared._Goobstation.Wizard.TimeStop;
+using Content.Shared._Goobstation.Wizard.Traps;
+using Content.Shared.Administration; // Shitmed Change
 using Content.Shared.DoAfter;
 using Content.Shared.Input;
 using Content.Shared.Mobs.Systems;
@@ -60,9 +63,9 @@ public abstract class SharedLayingDownSystem : EntitySystem
 
         var uid = args.SenderSession.AttachedEntity.Value;
 
-        // TODO: Wizard
-        //if (HasComp<FrozenComponent>(uid))
-        //   return;
+        if (HasComp<IceCubeComponent>(uid) || HasComp<FrozenComponent>(uid) ||
+            HasComp<AdminFrozenComponent>(uid)) // Goob edit
+            return;
 
         if (!TryComp(uid, out StandingStateComponent? standing) ||
             !TryComp(uid, out LayingDownComponent? layingDown))
@@ -111,14 +114,23 @@ public abstract class SharedLayingDownSystem : EntitySystem
             TerminatingOrDeleted(uid) ||
             // Shitmed Change
             !TryComp<BodyComponent>(uid, out var body) ||
-            body.LegEntities.Count == 0 ||
+            body.LegEntities.Count < body.RequiredLegs ||
             HasComp<DebrainedComponent>(uid))
             return false;
 
-        var args = new DoAfterArgs(EntityManager, uid, layingDown.StandingUpTime, new StandingUpDoAfterEvent(), uid)
+        // Goob edit start
+        var ev = new GetStandingUpTimeMultiplierEvent();
+        RaiseLocalEvent(uid, ev);
+
+        var args = new DoAfterArgs(EntityManager,
+            uid,
+            layingDown.StandingUpTime * ev.Multiplier,
+            new StandingUpDoAfterEvent(),
+            uid) // Goob edit end
         {
             BreakOnHandChange = false,
-            RequireCanInteract = false
+            RequireCanInteract = false,
+            MultiplyDelay = false, // Goobstatiom
         };
 
         if (!_doAfter.TryStartDoAfter(args))
@@ -146,39 +158,17 @@ public abstract class SharedLayingDownSystem : EntitySystem
 
     private void OnCheckAutoGetUp(Entity<LayingDownComponent> ent, ref CheckAutoGetUpEvent args)
     {
-        if (!TryComp(ent, out ActorComponent? actor))
-            return;
-
-        // Goobstation start
-        bool fullyParalyzed = false;
-
-        if (TryComp<BodyComponent>(ent, out var body))
-        {
-            foreach (var legEntity in body.LegEntities)
-            {
-                if (!TryComp<BodyPartComponent>(legEntity, out var partCmp))
-                    continue;
-
-                if (!partCmp.Enabled)
-                {
-                    fullyParalyzed = true;
-                    continue;
-                }
-
-                fullyParalyzed = false;
-                break;
-            }
-        }
-
-        if (fullyParalyzed)
+        if (HasComp<IceCubeComponent>(ent) || HasComp<FrozenComponent>(ent) || HasComp<AdminFrozenComponent>(ent))
         {
             ent.Comp.AutoGetUp = false;
             Dirty(ent);
-            return;
+           return;
         }
-        // Goobstation end
 
-        ent.Comp.AutoGetUp = _cfg.GetClientCVar(actor.PlayerSession.Channel, CCVars.AutoGetUp);
+        if (!TryComp(ent, out ActorComponent? actor))
+            return;
+
+        ent.Comp.AutoGetUp = _cfg.GetClientCVar(actor.PlayerSession.Channel, GoobCVars.AutoGetUp);
         Dirty(ent);
     }
 
@@ -188,6 +178,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
 [Serializable, NetSerializable]
 public sealed partial class StandingUpDoAfterEvent : SimpleDoAfterEvent;
 
+[Serializable, NetSerializable]
 public enum DropHeldItemsBehavior : byte
 {
     NoDrop,

@@ -1,4 +1,3 @@
-using System.Numerics;
 using System.Threading.Tasks;
 using Content.Shared.Maps;
 using Content.Shared.Procedural;

@@ -14,7 +14,6 @@ using Robust.Shared.Utility;
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Body.Part;
 using Content.Shared._Shitmed.BodyEffects;
-using Content.Shared._Shitmed.Targeting.Events;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Random;
@@ -58,6 +57,11 @@ public partial class SharedBodySystem
         foreach (var connection in ent.Comp.Children.Keys)
         {
             Containers.EnsureContainer<ContainerSlot>(ent, GetPartSlotContainerId(connection));
+        }
+
+        foreach (var organ in ent.Comp.Organs.Keys)
+        {
+            Containers.EnsureContainer<ContainerSlot>(ent, GetOrganContainerId(organ));
         }
     }
 
@@ -383,19 +387,9 @@ public partial class SharedBodySystem
         }
     }
 
-    private void PartRemoveDamage(Entity<BodyComponent?> bodyEnt, Entity<BodyPartComponent> partEnt)
+    // Shitmed Change: made virtual, bleeding damage is done on server
+    protected virtual void PartRemoveDamage(Entity<BodyComponent?> bodyEnt, Entity<BodyPartComponent> partEnt)
     {
-        if (!Resolve(bodyEnt, ref bodyEnt.Comp, logMissing: false))
-            return;
-
-        if (!_timing.ApplyingState
-            && partEnt.Comp.IsVital
-            && !GetBodyChildrenOfType(bodyEnt, partEnt.Comp.PartType, bodyEnt.Comp).Any()
-        )
-        {
-            var damage = new DamageSpecifier(Prototypes.Index<DamageTypePrototype>("Bloodloss"), partEnt.Comp.VitalDamage); // Shitmed Change
-            Damageable.TryChangeDamage(bodyEnt, damage, partMultiplier: 0f); // Shitmed Change
-        }
     }
 
     /// <summary>
@@ -475,6 +469,10 @@ public partial class SharedBodySystem
             return null;
 
         Containers.EnsureContainer<ContainerSlot>(partUid, GetPartSlotContainerId(slotId));
+        // Shitmed Change: Don't throw if the slot already exists
+        if (part.Children.TryGetValue(slotId, out var existing))
+            return existing;
+
         var partSlot = new BodyPartSlot(slotId, partType);
         part.Children.Add(slotId, partSlot);
         Dirty(partUid, part);

@@ -1,3 +1,4 @@
+using Content.Client._RMC14.LinkAccount;
 using Content.Client.Administration.Managers;
 using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
@@ -61,6 +62,7 @@ namespace Content.Client.IoC
             collection.Register<SharedPlayerRateLimitManager, PlayerRateLimitManager>();
             collection.Register<TitleWindowManager>();
             collection.Register<ServerCurrencySystem>(); // Goob Station - Goob Coin
+            collection.Register<LinkAccountManager>(); // RMC14
         }
     }
 }

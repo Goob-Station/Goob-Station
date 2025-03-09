@@ -4,7 +4,6 @@ using Content.Shared.SubFloor;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
-using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
 namespace Content.Client.SubFloor;
@@ -19,6 +18,7 @@ public sealed class TrayScannerSystem : SharedTrayScannerSystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly TrayScanRevealSystem _trayScanReveal = default!;
 
     private const string TRayAnimationKey = "trays";
     private const double AnimationLength = 0.3;
@@ -82,7 +82,7 @@ public sealed class TrayScannerSystem : SharedTrayScannerSystem
 
             foreach (var (uid, comp) in inRange)
             {
-                if (comp.IsUnderCover)
+                if (comp.IsUnderCover || _trayScanReveal.IsUnderRevealingEntity(uid))
                     EnsureComp<TrayRevealedComponent>(uid);
             }
         }

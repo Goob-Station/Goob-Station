@@ -405,7 +405,7 @@ namespace Content.Server.NPC.Pathfinding
                 return null;
             }
 
-            var localPos = Vector2.Transform(coordinates.ToMapPos(EntityManager, _transform), xform.InvWorldMatrix);
+            var localPos = Vector2.Transform(coordinates.ToMapPos(EntityManager, _transform), _transform.GetInvWorldMatrix(xform));
             var origin = GetOrigin(localPos);
 
             if (!TryGetChunk(origin, comp, out var chunk))
@@ -470,6 +470,11 @@ namespace Content.Server.NPC.Pathfinding
             if (blackboard.TryGetValue<bool>(NPCBlackboard.NavInteract, out var interact, EntityManager) && interact)
             {
                 flags |= PathFlags.Interact;
+            }
+
+            if (blackboard.TryGetValue<bool>(NPCBlackboard.NavBlob, out var blob, EntityManager) && blob) // Goobstation - Blob
+            {
+                flags |= PathFlags.Blob;
             }
 
             return flags;

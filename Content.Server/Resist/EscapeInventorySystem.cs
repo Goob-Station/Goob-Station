@@ -1,18 +1,14 @@
 using Content.Server.Popups;
 using Content.Shared.Storage;
-using Content.Server.Carrying; // Carrying system from Nyanotrasen.
 using Content.Shared.Inventory;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Storage.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
-using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Inventory;
 using Content.Shared.Movement.Events;
 using Content.Shared.Resist;
-using Content.Shared.Storage;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 
@@ -25,7 +21,6 @@ public sealed class EscapeInventorySystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private readonly CarryingSystem _carryingSystem = default!; // Carrying system from Nyanotrasen.
     [Dependency] private readonly SharedActionsSystem _actions = default!; // DeltaV
 
     /// <summary>
@@ -108,13 +103,6 @@ public sealed class EscapeInventorySystem : EntitySystem
 
         if (args.Handled || args.Cancelled)
             return;
-
-        if (TryComp<BeingCarriedComponent>(uid, out var carried)) // Start of carrying system of nyanotrasen.
-        {
-            _carryingSystem.DropCarried(carried.Carrier, uid);
-            return;
-        } // End of carrying system of nyanotrasen.
-
 
         _containerSystem.AttachParentToContainerOrGrid((uid, Transform(uid)));
         args.Handled = true;

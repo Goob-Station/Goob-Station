@@ -10,6 +10,7 @@
     - id: ClericalError
     - id: CockroachMigration
     - id: GasLeak
+    - id: GreytideVirus
     - id: IonStorm # its calm like 90% of the time smh
     - id: KudzuGrowth
     - id: MassHallucinations
@@ -23,6 +24,7 @@
     - id: SpiderClownSpawn
     - id: SpiderSpawn
     - id: VentClog
+    - id: TidemindDevelop # Goobstation - Tidemind
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -36,6 +38,11 @@
     - id: SleeperAgents
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
+    - id: DerelictCyborgSpawn
+    - id: BlobSpawn # Goobstation - Blob
+    - id: LoneAbductorSpawn # Shitmed - Starlight Abductors
+    - id: DuoAbductorSpawn # Shitmed - Starlight Abductors
+    - id: BingleSpawn #Goobstation - Bingle
 
 - type: entity
   id: BaseStationEvent
@@ -77,6 +84,8 @@
       path: /Audio/Announcements/announce.ogg
     weight: 8
     duration: 35
+    chaos: # Goobstation
+      Anomaly: 100
   - type: AnomalySpawnRule
 
 - type: entity
@@ -93,6 +102,8 @@
       path: /Audio/Announcements/announce.ogg
     weight: 8
     duration: 35
+    chaos: # Goobstation
+      Anomaly: 40
   - type: BluespaceArtifactRule
 
 - type: entity
@@ -104,6 +115,8 @@
     reoccurrenceDelay: 5
     earliestStart: 1
     duration: 1
+    chaos: # Goobstation
+      Anomaly: 40
   - type: BluespaceLockerRule
 
 - type: entity
@@ -114,6 +127,8 @@
     weight: 7
     duration: 1
     minimumPlayers: 15
+    chaos: # Goobstation
+      Power: 100
   - type: BreakerFlipRule
 
 - type: entity
@@ -161,6 +176,12 @@
     reoccurrenceDelay: 20
     minimumPlayers: 60
     duration: null
+    chaos: # Goobstation
+      Hostile: 20
+      Friend: 20
+      Combat: 40
+      Death: 100
+      Medical: 100
   - type: SpaceSpawnRule
     spawnDistance: 0
   - type: AntagSpawner
@@ -190,8 +211,23 @@
     earliestStart: 45
     reoccurrenceDelay: 20
     minimumPlayers: 30
+    chaos: # Goobstation
+      Hostile: 20
+      Friend: 20
+      Combat: 40
+      Death: 40
+      Medical: 40
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
+    # Goobstation start
+    speciesOverride: Human
+    speciesOverrideBlacklist:
+    - Yowie
+    - IPC
+    - Diona
+    - Abductor
+    - Harpy
+    # Goobstation end
   - type: AntagObjectives
     objectives:
     - StealResearchObjective
@@ -238,6 +274,12 @@
     duration: 1
     earliestStart: 30
     minimumPlayers: 20
+    chaos: # Goobstation
+      Hostile: 20
+      Friend: 20
+      Combat: 40
+      Death: 100
+      Medical: 100
   - type: RandomSpawnRule
     prototype: MobRevenant
 
@@ -261,6 +303,9 @@
       path: /Audio/Announcements/attention.ogg
     endAnnouncement: station-event-gas-leak-end-announcement
     weight: 8
+    chaos:
+      Atmos: 100
+      Medical: 50
   - type: GasLeakRule
 
 - type: entity
@@ -272,6 +317,10 @@
     minimumPlayers: 15
     weight: 7
     duration: 240
+    chaos:
+      Hostile: 20
+      Friend: 20
+      Medical: 100
   - type: KudzuGrowthRule
 
 - type: entity
@@ -302,6 +351,8 @@
       path: /Audio/Announcements/attention.ogg
     duration: 120
     maxDuration: 240
+    chaos: # Goobstation
+      Friend: 20
   - type: SolarFlareRule
     onlyJamHeadsets: true
     affectedChannels:
@@ -330,6 +381,8 @@
     minimumPlayers: 15
     weight: 5
     duration: 60
+    chaos: # Goobstation
+      Mess: 200
   - type: VentClogRule
 
 - type: entity
@@ -342,8 +395,12 @@
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
     minimumPlayers: 15
-    weight: 0.5 # GoobStation: was 5, vent critters bad
-    duration: 60
+    weight: 5
+    duration: 30 # DeltaV: was 60, used as a delay now
+    chaos: # Goobstation
+      Hostile: 10
+      Friend: 10
+      Medical: 50
   - type: VentCrittersRule
     entries:
     - id: MobAdultSlimesBlueAngry
@@ -363,8 +420,8 @@
       path: /Audio/Announcements/attention.ogg
     earliestStart: 20
     minimumPlayers: 15
-    weight: 2 # GoobStation: was 5, critters because bad
-    duration: 60
+    weight: 5
+    duration: 30 # DeltaV: was 60, used as a delay now
   - type: VentCrittersRule
     entries:
     - id: MobPurpleSnake
@@ -384,8 +441,8 @@
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
     minimumPlayers: 15
-    weight: 1 # GoobStation: was 1, vent critters bad
-    duration: 60
+    weight: 5
+    duration: 30 # DeltaV: was 60, used as a delay now
   - type: VentCrittersRule
     entries:
     - id: MobGiantSpiderAngry
@@ -398,12 +455,13 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/aliens.ogg
-    earliestStart: 20
-    minimumPlayers: 20
-    weight: 0.5 # GoobStation: was 1.5, vent critters bad
-    duration: 60
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 45 # DeltaV - was 20
+    minimumPlayers: 30 # DeltaV - was 20
+    weight: 1 # DeltaV - was 1.5
+    duration: 30 # DeltaV: was 60, used as a delay now
   - type: VentCrittersRule
+    playerRatio: 35 # DeltaV: Clown spiders are very robust
     entries:
     - id: MobClownSpider
       prob: 0.05
@@ -417,6 +475,11 @@
     minimumPlayers: 40
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
+    chaos: # Goobstation
+      Hostile: 40
+      Friend: 60
+      Medical: 200
+      Death: 200
   - type: ZombieRule
   - type: AntagSelection
     definitions:
@@ -450,9 +513,14 @@
     weight: 5.5
     minimumPlayers: 20
     duration: 1
+    chaos: # Goobstation
+      Hostile: 20
+      Friend: 40
+      Medical: 200
+      Death: 100
   - type: RuleGrids
   - type: LoadMapRule
-    mapPath: /Maps/Shuttles/ShuttleEvent/striker.yml
+    gridPath: /Maps/Shuttles/ShuttleEvent/striker.yml
   - type: NukeopsRule
     roundEndBehavior: Nothing
   - type: AntagSelection
@@ -462,6 +530,7 @@
       max: 1
       pickPlayer: false
       startingGear: SyndicateLoneOperativeGearFull
+      unequipOldGear: true
       roleLoadout:
       - RoleSurvivalNukie
       components:
@@ -475,6 +544,9 @@
         - Syndicate
       mindRoles:
       - MindRoleNukeops
+  - type: AntagLoadProfileRule # Goobstation
+    speciesOverride: Human
+    alwaysUseSpeciesOverride: true
 
 - type: entity
   parent: BaseTraitorRule
@@ -540,3 +612,45 @@
     maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
     weight: 5
   - type: MobReplacementRule
+
+- type: entity
+  id: GreytideVirus
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    weight: 5
+    minimumPlayers: 25
+    reoccurrenceDelay: 20
+  - type: GreytideVirusRule
+    accessGroups:
+    - Cargo
+    - Command
+    - Engineering
+    - Research
+    - Security
+    - Service
+    blacklist:
+    - External # don't space everything
+
+- type: entity
+  parent: BaseGameRule
+  id: DerelictCyborgSpawn
+  components:
+  - type: StationEvent
+    weight: 5
+    earliestStart: 15
+    reoccurrenceDelay: 20
+    minimumPlayers: 4
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSpawner
+    prototype: PlayerBorgDerelict
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDerelictCyborg
+      min: 1
+      max: 1
+      pickPlayer: false

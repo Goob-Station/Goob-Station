@@ -1,4 +1,3 @@
-using Content.Shared.Body.Organ;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 

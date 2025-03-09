@@ -22,8 +22,11 @@
     tags:
     - DoorBumpOpener
     - WhitelistChameleon
+    - WhitelistChameleonIdCard
   - type: StealTarget
     stealGroup: IDCard
+  - type: MiningPoints # DeltaV
+  - type: NanoChatCard # DeltaV
 
 #IDs with layers
 
@@ -116,6 +119,7 @@
     tags:
     - DoorBumpOpener
     - WhitelistChameleon
+    - WhitelistChameleonIdCard
     - HighRiskItem
   - type: StealTarget
     stealGroup: CaptainIDCard
@@ -314,6 +318,9 @@
     - type: PresetIdCard
       job: Bartender
       name: Pun Pun
+    - type: Tag #  Ignore Chameleon tags
+      tags:
+      - DoorBumpOpener
 
 - type: entity
   parent: IDCardStandard
@@ -579,8 +586,9 @@
   id: AgentIDCard
   suffix: Agent
   components:
-  - type: PresetIdCard
-    job: Passenger
+  # Goob edit
+  #- type: PresetIdCard
+  #  job: Passenger
   - type: Access
     tags:
     - Maintenance
@@ -599,6 +607,7 @@
   - type: ChameleonClothing
     slot: [idcard]
     default: PassengerIDCard
+    requireTag: WhitelistChameleonIdCard
   - type: UserInterface
     interfaces:
       enum.AgentIDCardUiKey.Key:
@@ -810,3 +819,20 @@
     - CentralCommand
     - NuclearOperative
     - SyndicateAgent
+    - Wizard
+    # Goobstation
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
+  - type: NanoChatCard # DeltaV
+    notificationsMuted: true
+  - type: Tag #  Ignore Chameleon tags
+    tags:
+    - DoorBumpOpener
+  - type: AgentIDCard
+  - type: ActivatableUI
+    key: enum.AgentIDCardUiKey.Key
+    inHandsOnly: true
+  - type: UserInterface
+    interfaces:
+      enum.AgentIDCardUiKey.Key:
+        type: AgentIDCardBoundUserInterface

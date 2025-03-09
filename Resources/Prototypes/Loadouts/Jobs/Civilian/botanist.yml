@@ -25,6 +25,11 @@
   equipment:
     jumpsuit: ClothingUniformOveralls
 
+- type: loadout # goob
+  id: HydroMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryHydroponics
+
 # Back
 - type: loadout
   id: BotanistBackpack

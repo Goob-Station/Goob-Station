@@ -1,3 +1,4 @@
+using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Administration.Commands;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
@@ -184,5 +185,35 @@ public sealed partial class AdminVerbSystem
             Message = Loc.GetString("admin-verb-make-heretic"),
         };
         args.Verbs.Add(heretic);
+
+        // Goobstation - Blob
+        Verb blobAntag = new()
+        {
+            Text = Loc.GetString("admin-verb-text-make-blob"),
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Goobstation/Blob/Actions/blob.rsi"), "blobFactory"),
+            Act = () =>
+            {
+                EnsureComp<Shared._Goobstation.Blob.Components.BlobCarrierComponent>(args.Target).HasMind = HasComp<ActorComponent>(args.Target);
+            },
+            Impact = LogImpact.High,
+            Message = Loc.GetString("admin-verb-text-make-blob"),
+	    };
+        args.Verbs.Add(blobAntag);
+
+        // Goobstation - Wizard
+        Verb wizard = new()
+        {
+            Text = Loc.GetString("admin-verb-make-wizard"),
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Clothing/Head/Hats/wizardhat.rsi"), "icon"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<WizardRuleComponent>(targetPlayer, "Wizard");
+            },
+            Impact = LogImpact.High,
+            Message = Loc.GetString("admin-verb-text-make-wizard"),
+        };
+        args.Verbs.Add(wizard);
     }
 }

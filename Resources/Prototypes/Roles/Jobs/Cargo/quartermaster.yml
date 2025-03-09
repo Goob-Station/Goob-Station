@@ -20,6 +20,7 @@
   icon: "JobIconQuarterMaster"
   supervisors: job-supervisors-captain
   canBeAntag: false
+  goobcoins: 40 #Goob content
   access:
   - Cargo
   - Salvage
@@ -47,3 +48,4 @@
   storage:
     back:
     - Flash
+    - TelescopicBaton # Goobstation

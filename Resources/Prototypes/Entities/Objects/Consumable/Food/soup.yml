@@ -8,7 +8,7 @@
   - type: Item
     storedRotation: -90
   - type: Food
-    trash: 
+    trash:
     - FoodBowlBig
     utensil: Spoon
   - type: SolutionContainerManager
@@ -61,6 +61,11 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: ThrowableBlocked # Goobstation
+    behavior: Damage
+    damage:
+      types:
+        Blunt: 20
 
 # Custom Soup Example
 
@@ -83,7 +88,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -108,7 +113,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 25
         reagents:
         - ReagentId: Nutriment
           Quantity: 8
@@ -168,7 +173,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
           Quantity: 8
@@ -432,7 +437,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 40
+        maxVol: 40.5
         reagents:
         - ReagentId: Nutriment
           Quantity: 18
@@ -566,7 +571,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 12
+        maxVol: 15
         reagents:
         - ReagentId: Nutriment
           Quantity: 6
@@ -591,7 +596,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 12
+        maxVol: 30
         reagents:
         - ReagentId: Nutriment
           Quantity: 7
@@ -620,7 +625,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 12
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
           Quantity: 1
@@ -646,7 +651,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 12
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
           Quantity: 3
@@ -701,7 +706,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 12
+        maxVol: 25
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
@@ -727,7 +732,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 12
+        maxVol: 25
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -754,7 +759,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 12
+        maxVol: 30.5
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -797,7 +802,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 25
         reagents:
           - ReagentId: Nutriment
             Quantity: 8
@@ -971,7 +976,7 @@
     flavors:
       - miso
   - type: Food
-    trash: 
+    trash:
     - FoodBowlFancy
   - type: Sprite
     layers:
@@ -1083,7 +1088,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 25
         reagents:
           - ReagentId: Nutriment
             Quantity: 15
@@ -1137,7 +1142,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10
+        maxVol: 15
         reagents:
           - ReagentId: Nutriment
             Quantity: 1
@@ -1214,7 +1219,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 20
         reagents:
           - ReagentId: Nutriment
             Quantity: 6

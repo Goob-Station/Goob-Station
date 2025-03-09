@@ -2,10 +2,8 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Client.Popups;
 using Content.Shared.Construction;
 using Content.Shared.Construction.Prototypes;
-using Content.Shared.Construction.Steps;
 using Content.Shared.Examine;
 using Content.Shared.Input;
-using Content.Shared.Interaction;
 using Content.Shared.Wall;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
@@ -55,6 +53,12 @@ namespace Content.Client.Construction
                 .Register<ConstructionSystem>();
 
             SubscribeLocalEvent<ConstructionGhostComponent, ExaminedEvent>(HandleConstructionGhostExamined);
+            SubscribeLocalEvent<ConstructionGhostComponent, ComponentShutdown>(HandleGhostComponentShutdown);
+        }
+
+        private void HandleGhostComponentShutdown(EntityUid uid, ConstructionGhostComponent component, ComponentShutdown args)
+        {
+            ClearGhost(component.GhostId);
         }
 
         private void OnConstructionGuideReceived(ResponseConstructionGuide ev)
@@ -205,8 +209,9 @@ namespace Content.Client.Construction
             ghost = EntityManager.SpawnEntity("constructionghost", loc);
             var comp = EntityManager.GetComponent<ConstructionGhostComponent>(ghost.Value);
             comp.Prototype = prototype;
+            comp.GhostId = ghost.GetHashCode();
             EntityManager.GetComponent<TransformComponent>(ghost.Value).LocalRotation = dir.ToAngle();
-            _ghosts.Add(ghost.GetHashCode(), ghost.Value);
+            _ghosts.Add(comp.GhostId, ghost.Value);
             var sprite = EntityManager.GetComponent<SpriteComponent>(ghost.Value);
             sprite.Color = new Color(48, 255, 48, 128);
 

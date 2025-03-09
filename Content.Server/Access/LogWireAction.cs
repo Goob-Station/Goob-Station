@@ -2,7 +2,6 @@ using Content.Server.Wires;
 using Content.Shared.Access;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
-using Content.Shared.Emag.Components;
 using Content.Shared.Wires;
 
 namespace Content.Server.Access;

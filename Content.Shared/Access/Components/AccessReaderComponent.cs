@@ -2,7 +2,6 @@ using Content.Shared.StationRecords;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
 
 namespace Content.Shared.Access.Components;
 
@@ -76,7 +75,7 @@ public sealed partial class AccessReaderComponent : Component
     /// Whether or not emag interactions have an effect on this.
     /// </summary>
     [DataField]
-    public bool BreakOnEmag = true;
+    public bool BreakOnAccessBreaker = true;
 }
 
 [DataDefinition, Serializable, NetSerializable]

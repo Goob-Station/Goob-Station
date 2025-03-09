@@ -12,7 +12,7 @@
     state: icon
   - type: Clickable
   - type: Visibility
-    layer: 69
+    layer: 16
 
 - type: entity
   id: EldritchInfluenceIntermediate

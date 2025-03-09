@@ -1,0 +1,16 @@
+<Document>
+# Emergency Procedures
+This is the list of procedures that should (ideally) be followed in certain circumstances. This is a variety of emergencies and levels of hostiliy/threat to the station.
+
+Command and Security should utilize this section to differentiate the danger level for this station and choose appropriate reactions.
+
+The following emergencies are underneath this folder:
+- [textlink="Confirmed Revolutions" link="ConfirmedRevs SOP"]
+- [textlink="Containment Failures (Tesla/Singularity)" link="ContainmentFail SOP"]
+- [textlink="Fire/Gas Spills" link="FireGasSpill SOP"]
+- [textlink="Meteor Storms" link="MeteorStorm SOP"]
+- [textlink="Supermatter Delamination" link="SMDelam SOP"]
+- [textlink="War Declaration" link="WarDeclaration SOP"]
+- [textlink="Zombie Outbreak" link="Zombie SOP"]
+
+</Document>

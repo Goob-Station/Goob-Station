@@ -1,6 +1,5 @@
 using Content.Server.EUI;
 using Content.Shared.CrewManifest;
-using Content.Shared.Eui;
 
 namespace Content.Server.CrewManifest;
 

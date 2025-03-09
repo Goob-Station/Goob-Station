@@ -1,6 +1,5 @@
 using Content.Shared.Ninja.Systems;
 using Content.Shared.Objectives.Components;
-using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -33,7 +32,7 @@ public sealed partial class NinjaGlovesComponent : Component
 /// An ability that adds components to the user when the gloves are enabled.
 /// </summary>
 [DataRecord]
-public record struct NinjaGloveAbility()
+public partial record struct NinjaGloveAbility()
 {
     /// <summary>
     /// If not null, checks if an objective with this prototype has been completed.

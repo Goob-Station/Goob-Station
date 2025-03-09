@@ -1,0 +1,51 @@
+- type: entity
+  parent: [BaseWeaponBatterySmall, BaseMajorContraband]
+  id: WeaponAlien
+  name: alien pistol
+  description: Is this a war crime? Probably.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Weapons/Guns/Battery/alien.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 50
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: BulletDisabler
+      fireCost: 50
+    - proto: BulletDeclone
+      fireCost: 100
+  - type: Battery
+    maxCharge: 500
+    startingCharge: 500
+  - type: Appearance
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+
+- type: entity
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseMajorContraband]
+  id: WeaponDecloner
+  name: decloner
+  description: Is this a war crime? Absolutely.
+  components:
+  - type: Clothing
+    sprite: _Shitmed/Objects/Weapons/Guns/Battery/decloner.rsi
+  - type: Sprite
+    sprite: _Shitmed/Objects/Weapons/Guns/Battery/decloner.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDeclone
+    fireCost: 100

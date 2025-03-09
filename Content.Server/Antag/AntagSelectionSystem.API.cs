@@ -2,7 +2,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Antag.Components;
 using Content.Server.GameTicking.Rules.Components;
-using Content.Server.Objectives;
 using Content.Shared.Chat;
 using Content.Shared.Mind;
 using Content.Shared.Preferences;
@@ -19,11 +18,12 @@ public sealed partial class AntagSelectionSystem
     /// Tries to get the next non-filled definition based on the current amount of selected minds and other factors.
     /// </summary>
     public bool TryGetNextAvailableDefinition(Entity<AntagSelectionComponent> ent,
-        [NotNullWhen(true)] out AntagSelectionDefinition? definition)
+        [NotNullWhen(true)] out AntagSelectionDefinition? definition,
+        int? players = null)
     {
         definition = null;
 
-        var totalTargetCount = GetTargetAntagCount(ent);
+        var totalTargetCount = GetTargetAntagCount(ent, players);
         var mindCount = ent.Comp.SelectedMinds.Count;
         if (mindCount >= totalTargetCount)
             return false;

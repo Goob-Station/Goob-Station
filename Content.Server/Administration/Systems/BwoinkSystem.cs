@@ -12,13 +12,13 @@ using Content.Server.Discord;
 using Content.Server.GameTicking;
 using Content.Server.Players.RateLimiting;
 using Content.Server.Preferences.Managers;
+using Content.Shared._Goobstation.CCVar;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Players.RateLimiting;
 using JetBrains.Annotations;
-using Pidgin.Configuration;
 using Robust.Server.Player;
 using Robust.Shared;
 using Robust.Shared.Configuration;
@@ -175,7 +175,7 @@ namespace Content.Server.Administration.Systems
                 }
 
                 // Check if the user has been banned
-                var ban = await _dbManager.GetServerBanAsync(null, e.Session.UserId, null);
+                var ban = await _dbManager.GetServerBanAsync(null, e.Session.UserId, null, null);
                 if (ban != null)
                 {
                     var banMessage = Loc.GetString("bwoink-system-player-banned", ("banReason", ban.Reason));
@@ -663,7 +663,7 @@ namespace Content.Server.Administration.Systems
             var personalChannel = senderSession.UserId == message.UserId;
             var senderAdmin = _adminManager.GetAdminData(senderSession);
             var senderAHelpAdmin = senderAdmin?.HasFlag(AdminFlags.Adminhelp) ?? false;
-            var authorized = personalChannel || senderAHelpAdmin;
+            var authorized = personalChannel && !message.AdminOnly || senderAHelpAdmin;
             if (!authorized)
             {
                 // Unauthorized bwoink (log?)
@@ -693,7 +693,7 @@ namespace Content.Server.Administration.Systems
             _activeConversations[bwoinkParams.Message.UserId] = DateTime.Now;
 
             var escapedText = FormattedMessage.EscapeText(bwoinkParams.Message.Text);
-            var adminColor = _config.GetCVar(CCVars.AdminBwoinkColor);
+            var adminColor = _config.GetCVar(GoobCVars.AdminBwoinkColor);
             var adminPrefix = "";
             var bwoinkText = $"{bwoinkParams.SenderName}";
 
@@ -703,19 +703,19 @@ namespace Content.Server.Administration.Systems
                 if (bwoinkParams.SenderAdmin is not null && bwoinkParams.SenderAdmin.Title is not null)
                     adminPrefix = $"[bold]\\[{bwoinkParams.SenderAdmin.Title}\\][/bold] ";
 
-                if (_config.GetCVar(CCVars.UseDiscordRoleName) && bwoinkParams.RoleName is not null)
+                if (_config.GetCVar(GoobCVars.UseDiscordRoleName) && bwoinkParams.RoleName is not null)
                     adminPrefix = $"[bold]\\[{bwoinkParams.RoleName}\\][/bold] ";
             }
 
             // If role color is enabled and exists, use it, otherwise use the discord reply color
-            if (_config.GetCVar(CCVars.DiscordReplyColor) != string.Empty && bwoinkParams.FromWebhook)
-                adminColor = _config.GetCVar(CCVars.DiscordReplyColor);
+            if (_config.GetCVar(GoobCVars.DiscordReplyColor) != string.Empty && bwoinkParams.FromWebhook)
+                adminColor = _config.GetCVar(GoobCVars.DiscordReplyColor);
 
-            if (_config.GetCVar(CCVars.UseDiscordRoleColor) && bwoinkParams.RoleColor is not null)
+            if (_config.GetCVar(GoobCVars.UseDiscordRoleColor) && bwoinkParams.RoleColor is not null)
                 adminColor = bwoinkParams.RoleColor;
 
             if (!bwoinkParams.FromWebhook
-                && _config.GetCVar(CCVars.UseAdminOOCColorInBwoinks)
+                && _config.GetCVar(GoobCVars.UseAdminOOCColorInBwoinks)
                 && bwoinkParams.SenderAdmin is not null)
             {
                 var prefs = _preferencesManager.GetPreferences(bwoinkParams.SenderId);
@@ -732,13 +732,13 @@ namespace Content.Server.Administration.Systems
             }
 
             if (bwoinkParams.FromWebhook)
-                bwoinkText = $"{_config.GetCVar(CCVars.DiscordReplyPrefix)}{bwoinkText}";
+                bwoinkText = $"{_config.GetCVar(GoobCVars.DiscordReplyPrefix)}{bwoinkText}";
 
-            bwoinkText = $"{(bwoinkParams.Message.PlaySound ? "" : "(S) ")}{bwoinkText}: {escapedText}";
+            bwoinkText = $"{(bwoinkParams.Message.AdminOnly ? Loc.GetString("bwoink-message-admin-only") : !bwoinkParams.Message.PlaySound ? Loc.GetString("bwoink-message-silent") : "")} {bwoinkText}: {escapedText}";
 
-            // If it's not an admin / admin chooses to keep the sound then play it.
-            var playSound = bwoinkParams.SenderAdmin == null || bwoinkParams.Message.PlaySound;
-            var msg = new BwoinkTextMessage(bwoinkParams.Message.UserId, bwoinkParams.SenderId, bwoinkText, playSound: playSound);
+            // If it's not an admin / admin chooses to keep the sound and message is not an admin only message, then play it.
+            var playSound = (bwoinkParams.SenderAdmin == null || bwoinkParams.Message.PlaySound) && !bwoinkParams.Message.AdminOnly;
+            var msg = new BwoinkTextMessage(bwoinkParams.Message.UserId, bwoinkParams.SenderId, bwoinkText, playSound: playSound, adminOnly: bwoinkParams.Message.AdminOnly);
 
             LogBwoink(msg);
 
@@ -761,7 +761,7 @@ namespace Content.Server.Administration.Systems
             }
 
             // Notify player
-            if (_playerManager.TryGetSessionById(bwoinkParams.Message.UserId, out var session))
+            if (_playerManager.TryGetSessionById(bwoinkParams.Message.UserId, out var session) && !bwoinkParams.Message.AdminOnly)
             {
                 if (!admins.Contains(session.Channel))
                 {
@@ -780,7 +780,7 @@ namespace Content.Server.Administration.Systems
                             overrideMsgText = $"{bwoinkParams.SenderName}"; // Not an admin, name is not overridden.
 
                         if (bwoinkParams.FromWebhook)
-                            overrideMsgText = $"{_config.GetCVar(CCVars.DiscordReplyPrefix)}{overrideMsgText}";
+                            overrideMsgText = $"{_config.GetCVar(GoobCVars.DiscordReplyPrefix)}{overrideMsgText}";
 
                         overrideMsgText = $"{(bwoinkParams.Message.PlaySound ? "" : "(S) ")}{overrideMsgText}: {escapedText}";
 
@@ -818,6 +818,7 @@ namespace Content.Server.Administration.Systems
                     _gameTicker.RunLevel,
                     playedSound: playSound,
                     isDiscord: bwoinkParams.FromWebhook,
+                    adminOnly: bwoinkParams.Message.AdminOnly,
                     noReceivers: nonAfkAdmins.Count == 0
                 );
                 _messageQueues[msg.UserId].Enqueue(GenerateAHelpMessage(messageParams));
@@ -853,7 +854,7 @@ namespace Content.Server.Administration.Systems
                 .ToList();
         }
 
-        private static DiscordRelayedData GenerateAHelpMessage(AHelpMessageParams parameters)
+        private DiscordRelayedData GenerateAHelpMessage(AHelpMessageParams parameters)
         {
             var config = IoCManager.Resolve<IConfigurationManager>();
             var stringbuilder = new StringBuilder();
@@ -870,10 +871,10 @@ namespace Content.Server.Administration.Systems
             if (parameters.RoundTime != string.Empty && parameters.RoundState == GameRunLevel.InRound)
                 stringbuilder.Append($" **{parameters.RoundTime}**");
             if (!parameters.PlayedSound)
-                stringbuilder.Append(" **(S)**");
+                stringbuilder.Append($" **{(parameters.AdminOnly ? Loc.GetString("bwoink-message-admin-only") : Loc.GetString("bwoink-message-silent"))}**");
 
             if (parameters.IsDiscord) // Frontier - Discord Indicator
-                stringbuilder.Append($" **{config.GetCVar(CCVars.DiscordReplyPrefix)}**");
+                stringbuilder.Append($" **{config.GetCVar(GoobCVars.DiscordReplyPrefix)}**");
 
             if (parameters.Icon == null)
                 stringbuilder.Append($" **{parameters.Username}:** ");
@@ -937,6 +938,7 @@ namespace Content.Server.Administration.Systems
         public string RoundTime { get; set; }
         public GameRunLevel RoundState { get; set; }
         public bool PlayedSound { get; set; }
+        public readonly bool AdminOnly;
         public bool NoReceivers { get; set; }
         public bool IsDiscord { get; set; } // Frontier
         public string? Icon { get; set; }
@@ -948,6 +950,7 @@ namespace Content.Server.Administration.Systems
             string roundTime,
             GameRunLevel roundState,
             bool playedSound,
+            bool adminOnly = false,
             bool isDiscord = false, // Frontier
             bool noReceivers = false,
             string? icon = null)
@@ -959,6 +962,7 @@ namespace Content.Server.Administration.Systems
             RoundState = roundState;
             IsDiscord = isDiscord; // Frontier
             PlayedSound = playedSound;
+            AdminOnly = adminOnly;
             NoReceivers = noReceivers;
             Icon = icon;
         }

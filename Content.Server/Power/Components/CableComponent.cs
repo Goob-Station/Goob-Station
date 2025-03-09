@@ -2,8 +2,6 @@ using Content.Server.Power.EntitySystems;
 using Content.Shared.Power;
 using Content.Shared.Tools;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using System.Diagnostics.Tracing;
 using Content.Shared.Tools.Systems;
 
 namespace Content.Server.Power.Components;
@@ -18,8 +16,11 @@ public sealed partial class CableComponent : Component
     [DataField]
     public EntProtoId CableDroppedOnCutPrototype = "CableHVStack1";
 
+    /// <summary>
+    /// The tool quality needed to cut the cable. Setting to null prevents cutting.
+    /// </summary>
     [DataField]
-    public ProtoId<ToolQualityPrototype> CuttingQuality = SharedToolSystem.CutQuality;
+    public ProtoId<ToolQualityPrototype>? CuttingQuality = SharedToolSystem.CutQuality;
 
     /// <summary>
     ///     Checked by <see cref="CablePlacerComponent"/> to determine if there is
