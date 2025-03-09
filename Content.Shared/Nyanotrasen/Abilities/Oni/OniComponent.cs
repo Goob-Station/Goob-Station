@@ -1,6 +1,6 @@
 using Content.Shared.Damage;
 
-namespace Content.Server.Abilities.Oni
+namespace Content.Shared.Abilities.Oni
 {
     [RegisterComponent]
     public sealed partial class OniComponent : Component
