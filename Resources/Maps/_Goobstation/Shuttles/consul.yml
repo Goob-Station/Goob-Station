@@ -26,7 +26,7 @@ entities:
   - uid: 2
     components:
     - type: MetaData
-      name: NT-252 "Consul"
+      name: CC-252 Terminatus "Consul"
     - type: Transform
       rot: -0.000744084594771266 rad
       pos: -0.53681815,-0.61734354
