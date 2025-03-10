@@ -302,9 +302,8 @@ public abstract class SharedAutodocSystem : EntitySystem
     /// </summary>
     public bool StartSurgery(Entity<AutodocComponent> ent, EntityUid patient, EntityUid part, EntProtoId surgery)
     {
-        // Who cares about sedation???
-        //if (ent.Comp.RequireSleeping && IsAwake(patient))
-        //    throw new AutodocError("patient-unsedated");
+        if (ent.Comp.RequireSleeping && IsAwake(patient))
+            throw new AutodocError("patient-unsedated");
 
         if (_surgery.GetSingleton(surgery) is not {} singleton)
             return false;
