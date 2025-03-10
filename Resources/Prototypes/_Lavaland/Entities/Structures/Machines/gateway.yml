@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseGateway
+  id: GatewayActive
+  suffix: Active
+  components:
+  - type: ActivatableUI
+    key: enum.GatewayUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.GatewayUiKey.Key:
+        type: GatewayBoundUserInterface
+  - type: Gateway
+    enabled: true
