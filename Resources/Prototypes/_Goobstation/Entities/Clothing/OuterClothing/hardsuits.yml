@@ -144,26 +144,26 @@
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/dreadnought.rsi
   - type: Item
-    size: Huge
+    size: Ginormous #damn its hard to spell
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/dreadnought.rsi
     equipDelay: 15
-    unequipDelay: 600 # lmao good luck
+    unequipDelay: 600 # if i add the unremovable comp then you couldnt even put this on
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.09 # chinalake meta would go hard
+    damageCoefficient: 0.1 # chinalake meta would go hard
   - type: FireProtection
-    reduction: 0.8
+    reduction: 0.9 # atmos fire suit is 0.8, so i guess this is fine? Reduction goes the opossite way right?
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.09 # kurwa ja perdole z tych cyfr
-        Slash: 0.09 # holy shit bruv
-        Piercing: 0.09
-        Heat: 0.09
-        Radiation: 0.4
+        Blunt: 0.1
+        Slash: 0.1 # holy shit bruv
+        Piercing: 0.1
+        Heat: 0.1
+        Radiation: 0.25 # do people even know rad ammo exists? anyway making rad its weakness is kinda fair
         Caustic: 0.4
   - type: ClothingSpeedModifier
     walkModifier: 0.7
@@ -178,11 +178,12 @@
     - WhitelistChameleon
   - type: ClothingGrantComponent
     component:
-    - type: DamagePerTime
+    - type: DamageOverTime
       damage:
         types:
-          Slash: 4.2 # 4.2 / (91% + 11% + other%) = 0.3 damage per second... should be at least...
+          Slash: 0.3
       interval: 1.0
+      ignoreResistances: true
   - type: ModifyDelayedKnockdown
     delayDelta: 6
     knockdownTimeDelta: -4

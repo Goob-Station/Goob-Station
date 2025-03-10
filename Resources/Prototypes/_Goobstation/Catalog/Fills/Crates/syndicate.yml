@@ -58,7 +58,4 @@
       - id: ClothingHandsGlovesCombat
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
-      - id: CombatMedipen # mostly just to bump up the price so traitors cant buy this unless on sale
-      - id: EmergencyMedipen # if you want to survive longer than 140 seconds you must use those
-      - id: EmergencyMedipen
-      - id: EmergencyMedipen
+      - id: Gauze # massive L

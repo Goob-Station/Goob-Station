@@ -4,7 +4,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._Goobstation.Clothing.Systems
 {
-    public sealed class DamagePerTimeSystem : EntitySystem
+    public sealed class DamageOverTimeSystem : EntitySystem
     {
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly DamageableSystem _damageSys = default!;
@@ -12,13 +12,13 @@ namespace Content.Shared._Goobstation.Clothing.Systems
         public override void Update(float frameTime)
         {
             var currentTime = _timing.CurTime;
-            var query = EntityQueryEnumerator<DamagePerTimeComponent>();
+            var query = EntityQueryEnumerator<DamageOverTimeComponent>();
             while (query.MoveNext(out var uid, out var component))
             {
                 if (currentTime < component.NextTickTime)
                     continue;
-                component.NextTickTime = currentTime + component.Interval;
-                _damageSys.TryChangeDamage(uid, component.Damage);
+                component.NextTickTime = _timing.CurTime + component.Interval;
+                _damageSys.TryChangeDamage(uid, component.Damage, ignoreResistances: component.IgnoreResistances);
             }
         }
     }
