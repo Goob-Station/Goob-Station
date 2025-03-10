@@ -6032,3 +6032,13 @@ Entries:
       message: Fixed heretics not being able to write runes.
   id: 690
   time: '2025-03-10T07:02:41.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Fix
+      message: >-
+        Pirates, Abductors and the Blob can now spawn as midround event in
+        storyteller modes!
+    - type: Fix
+      message: Nukie spam
+  id: 691
+  time: '2025-03-10T10:23:41.0000000+00:00'
