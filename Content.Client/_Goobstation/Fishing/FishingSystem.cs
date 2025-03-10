@@ -1,4 +1,5 @@
-﻿using Content.Client._Goobstation.Fishing.Overlays;
+﻿
+using Content.Client._Goobstation.Fishing.Overlays;
 using Content.Client.DoAfter;
 using Content.Shared._Goobstation.Fishing.Systems;
 using Robust.Client.Graphics;

@@ -1,9 +1,10 @@
 ﻿using Robust.Shared.Prototypes;
+using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 
 namespace Content.Shared._Goobstation.Fishing.Components;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class FishingRodComponent : Component
 {
     /// <summary>
@@ -19,12 +20,12 @@ public sealed partial class FishingRodComponent : Component
     public SpriteSpecifier RopeSprite =
         new SpriteSpecifier.Rsi(new ResPath("_Goobstation/Objects/Specific/Fishing/fishing_lure.rsi"), "rope");
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityUid? FishingLure;
 
     [DataField]
     public EntProtoId ThrowLureActionId = "ActionStartFishing";
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityUid? ThrowLureActionEntity;
 }

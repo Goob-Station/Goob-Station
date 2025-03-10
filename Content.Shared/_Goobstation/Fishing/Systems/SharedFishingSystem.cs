@@ -157,7 +157,6 @@ public abstract class SharedFishingSystem : EntitySystem
             activeFisher.FishingRod = fishRod;
             activeFisher.ProgressWithdraw += activeSpotComp.FishDifficulty;
             activeFisher.ProgressPerUse *= fishRodComp.Efficiency;
-            Dirty(fisher, activeFisher);
 
             _popup.PopupEntity(Loc.GetString("fishing-progress-start"), fisher, fisher);
             activeSpotComp.IsActive = true;
@@ -191,15 +190,12 @@ public abstract class SharedFishingSystem : EntitySystem
         component.FishingLure = fishFloat;
         var fishLureComp = EnsureComp<FishingLureComponent>(fishFloat);
         fishLureComp.FishingRod = uid;
-        Dirty(fishFloat, fishLureComp);
-        Dirty(uid, component);
 
         // Rope visuals
         var visuals = EnsureComp<JointVisualsComponent>(fishFloat);
         visuals.Sprite = component.RopeSprite;
         visuals.OffsetA = new Vector2(0f, 0.1f);
         visuals.Target = GetNetEntity(uid);
-        Dirty(fishFloat, visuals);
 
         // TODO appearance of the fishing rod
     }

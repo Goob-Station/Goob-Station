@@ -1,11 +1,14 @@
-﻿namespace Content.Shared._Goobstation.Fishing.Components;
+﻿using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
-[RegisterComponent]
+namespace Content.Shared._Goobstation.Fishing.Components;
+
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class FishingLureComponent : Component
 {
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityUid FishingRod;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityUid? FishingSpot;
 }
