@@ -12,6 +12,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Actions;
 
 namespace Content.Shared._Goobstation.Fishing.Systems;
 
@@ -28,6 +29,7 @@ public abstract class SharedFishingSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
 
     private EntityQuery<ActiveFisherComponent> _fisherQuery;
     private EntityQuery<ActiveFishingSpotComponent> _activeFishSpotQuery;
@@ -45,8 +47,12 @@ public abstract class SharedFishingSystem : EntitySystem
         _fishRodQuery = GetEntityQuery<FishingRodComponent>();
         _fishFloatQuery = GetEntityQuery<FishingLureComponent>();
 
+        SubscribeLocalEvent<FishingRodComponent, MapInitEvent>(OnFishingRodInit);
+        SubscribeLocalEvent<FishingRodComponent, GetItemActionsEvent>(OnGetActions);
+
         SubscribeLocalEvent<FishingRodComponent, InteractUsingEvent>(OnFishingInteract);
         SubscribeLocalEvent<FishingRodComponent, ThrowFishingLureActionEvent>(OnThrowFloat);
+        SubscribeLocalEvent<FishingRodComponent, PullFishingLureActionEvent>(OnPullFloat);
 
         SubscribeLocalEvent<FishingLureComponent, StartCollideEvent>(OnFloatCollide);
     }
@@ -178,44 +184,66 @@ public abstract class SharedFishingSystem : EntitySystem
 
         if (component.FishingLure != null)
         {
-            _popup.PopupEntity(Loc.GetString("fishing-rod-remove-lure", ("ent", Name(uid))), uid);
-            QueueDel(component.FishingLure);
-            component.FishingLure = null;
             args.Handled = true;
             return;
         }
 
-        if (!_net.IsServer) // because i hate prediction
-            return;
-
         var player = args.Performer;
-        var targetCoords = _transform.ToMapCoordinates(args.Target);
-        var playerCoords = _transform.GetMapCoordinates(Transform(player));
 
-        var fishFloat = Spawn(component.FloatPrototype, playerCoords);
-        component.FishingLure = fishFloat;
+        if (_net.IsServer) // because i hate prediction
+        {
+            var targetCoords = _transform.ToMapCoordinates(args.Target);
+            var playerCoords = _transform.GetMapCoordinates(Transform(player));
 
-        // Calculate throw direction
-        var direction = targetCoords.Position - playerCoords.Position;
-        if (direction == Vector2.Zero)
-            direction = Vector2.UnitX; // If the user somehow manages to click directly in the center of themself, just toss it to the right i guess.
+            var fishFloat = Spawn(component.FloatPrototype, playerCoords);
+            component.FishingLure = fishFloat;
 
-        // Yeet
-        _throwing.TryThrow(fishFloat, direction, 15f, player, 2f);
+            // Calculate throw direction
+            var direction = targetCoords.Position - playerCoords.Position;
+            if (direction == Vector2.Zero)
+                direction = Vector2.UnitX; // If the user somehow manages to click directly in the center of themself, just toss it to the right i guess.
 
-        // Set up lure component
-        var fishLureComp = EnsureComp<FishingLureComponent>(fishFloat);
-        fishLureComp.FishingRod = uid;
+            // Yeet
+            _throwing.TryThrow(fishFloat, direction, 15f, player, 2f);
 
-        // Rope visuals
-        var visuals = EnsureComp<JointVisualsComponent>(fishFloat);
-        visuals.Sprite = component.RopeSprite;
-        visuals.OffsetA = new Vector2(0, 0.1f);
-        visuals.OffsetB = component.RopeOffset;
-        visuals.Target = GetNetEntity(uid);
+            // Set up lure component
+            var fishLureComp = EnsureComp<FishingLureComponent>(fishFloat);
+            fishLureComp.FishingRod = uid;
+
+            // Rope visuals
+            var visuals = EnsureComp<JointVisualsComponent>(fishFloat);
+            visuals.Sprite = component.RopeSprite;
+            visuals.OffsetA = new Vector2(0, 0.1f);
+            visuals.OffsetB = component.RopeOffset;
+            visuals.Target = GetNetEntity(uid);
+        }
+
+        _actions.RemoveAction(component.ThrowLureActionEntity);
+        _actions.AddAction(player, ref component.PullLureActionEntity, component.PullLureActionId, uid);
 
         args.Handled = true;
+    }
 
+    private void OnPullFloat(EntityUid uid, FishingRodComponent component, PullFishingLureActionEvent args)
+    {
+        if (args.Handled || !_timing.IsFirstTimePredicted)
+            return;
+
+        if (component.FishingLure == null)
+        {
+            args.Handled = true;
+            return;
+        }
+
+        _popup.PopupEntity(Loc.GetString("fishing-rod-remove-lure", ("ent", Name(uid))), uid);
+
+        QueueDel(component.FishingLure);
+        component.FishingLure = null;
+
+        _actions.RemoveAction(component.PullLureActionEntity);
+        _actions.AddAction(args.Performer, ref component.ThrowLureActionEntity, component.ThrowLureActionId, uid);
+
+        args.Handled = true;
     }
 
     private void OnFloatCollide(EntityUid uid, FishingLureComponent component, ref StartCollideEvent args)
@@ -242,5 +270,16 @@ public abstract class SharedFishingSystem : EntitySystem
         activeFishSpot.FishList = spotComp.FishList;
         activeFishSpot.AttachedFishingLure = uid;
         component.FishingSpot = fishingSpot;
+    }
+
+    private void OnFishingRodInit(Entity<FishingRodComponent> ent, ref MapInitEvent args)
+        => _actions.AddAction(ent, ref ent.Comp.ThrowLureActionEntity, ent.Comp.ThrowLureActionId);
+
+    private void OnGetActions(Entity<FishingRodComponent> ent, ref GetItemActionsEvent args)
+    {
+        if (ent.Comp.FishingLure == null)
+            args.AddAction(ref ent.Comp.ThrowLureActionEntity, ent.Comp.ThrowLureActionId);
+        else
+            args.AddAction(ref ent.Comp.PullLureActionEntity, ent.Comp.PullLureActionId);
     }
 }

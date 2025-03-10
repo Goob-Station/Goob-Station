@@ -32,4 +32,10 @@ public sealed partial class FishingRodComponent : Component
 
     [DataField, AutoNetworkedField]
     public EntityUid? ThrowLureActionEntity;
+
+    [DataField]
+    public EntProtoId PullLureActionId = "ActionStopFishing";
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? PullLureActionEntity;
 }
