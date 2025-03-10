@@ -188,6 +188,26 @@
   categories:
     - UplinkWeaponry
 
+- type: listing
+  id: UplinkGlovesKravmaga
+  name: uplink-kravgloves-name
+  description: uplink-kravgloves-desc
+  productEntity: ClothingHandsGlovesKravMagaStealthy
+  cost:
+    Telecrystal: 35
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkGlovesGuerilla
+  name: uplink-guerrillagloves-name
+  description: uplink-guerrillagloves-desc
+  productEntity: ClothingHandsGlovesGuerrilla
+  cost:
+    Telecrystal: 40
+  categories:
+  - UplinkWeaponry
+
 # Wearables
 
 - type: listing
