@@ -150,3 +150,11 @@
   components:
   - type: Implanter
     implant: BlinkImplant
+
+- type: entity
+  id: StopTimeImplanter
+  suffix: stop time, DO NOT MAP
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: StopTimeImplant

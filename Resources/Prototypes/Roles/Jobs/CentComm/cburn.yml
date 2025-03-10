@@ -27,7 +27,7 @@
     ears: ClothingHeadsetAltCentCom
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitCBURN
-    shoes: ClothingShoesBootsCombatFilled
+    shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
     id: CBURNPDA # Todo - Replace it.
     pocket1: RadioHandheld # Todo - Replace this probably. Have never seen it used.
     pocket2: WeaponPulsePistol

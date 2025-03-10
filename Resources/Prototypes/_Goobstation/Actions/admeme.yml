@@ -54,3 +54,28 @@
       sprite: Objects/Magic/magicactions.rsi
       state: blink
     event: !type:TeleportSpellEvent
+
+- type: entity
+  id: ActionStopTimeFreeman
+  name: Stop Time
+  description: I realize this moment may not be the most convienient time for a heart-to-heart.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 1
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/timeparadox2.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi # Todo - Change this, but idc.
+      state: time
+    event: !type:StopTimeEvent
+      speech: action-speech-implant-stoptime
+  - type: Magic
+    requiresClothes: false
+    requiresSpeech: true
+    school: Forbidden
+  - type: Tag
+    tags:
+    - FrozenIgnoreMindAction

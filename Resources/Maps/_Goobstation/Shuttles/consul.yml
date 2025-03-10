@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/07/2025 21:32:43
-  entityCount: 1220
+  time: 03/09/2025 09:19:07
+  entityCount: 1222
 maps: []
 grids:
 - 2
@@ -26,7 +26,7 @@ entities:
   - uid: 2
     components:
     - type: MetaData
-      name: NT-252 "Consul"
+      name: CC-252 Terminatus "Consul"
     - type: Transform
       rot: -0.000744084594771266 rad
       pos: -0.53681815,-0.61734354
@@ -87,10 +87,28 @@ entities:
         version: 2
         nodes:
         - node:
+            color: '#008200FF'
+            id: ConcreteTrimLineN
+          decals:
+            67: -2,5
+            68: -1,5
+            69: 0,5
+            70: 1,5
+            96: 2,5
+        - node:
             color: '#FFFFFFFF'
             id: Delivery
           decals:
             14: -8,-7
+        - node:
+            color: '#008200FF'
+            id: DiagonalCheckerAOverlay
+          decals:
+            97: -2,8
+            98: -1,8
+            99: 0,8
+            100: 1,8
+            101: 2,8
         - node:
             color: '#DE3A3A96'
             id: HalfTileOverlayGreyscale
@@ -8791,6 +8809,13 @@ entities:
     - type: Transform
       pos: -6.5,-2.5
       parent: 2
+- proto: HolopadUnlimitedRange
+  entities:
+  - uid: 1
+    components:
+    - type: Transform
+      pos: 0.5,4.5
+      parent: 2
 - proto: Intellicard
   entities:
   - uid: 278
@@ -13073,6 +13098,20 @@ entities:
           showEnts: False
           occludes: True
           ent: null
+- proto: WeaponPulsePistol
+  entities:
+  - uid: 537
+    components:
+    - type: MetaData
+      desc: Phoron will make us all rich.
+    - type: Transform
+      pos: 1.4187559,0.6584672
+      parent: 2
+    - type: Battery
+      startingCharge: 20000
+      maxCharge: 20000
+    - type: BatterySelfRecharger
+      autoRechargeRate: 200
 - proto: WeaponRevolverMateba
   entities:
   - uid: 1294

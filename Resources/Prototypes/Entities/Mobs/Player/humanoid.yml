@@ -59,7 +59,7 @@
   randomizeName: false
   components:
     - type: GrantImplant
-      implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ] # Goobstation
+      implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ] # Goobstation
     - type: GhostRole
       name: ghost-role-information-Death-Squad-name
       description: ghost-role-information-Death-Squad-description

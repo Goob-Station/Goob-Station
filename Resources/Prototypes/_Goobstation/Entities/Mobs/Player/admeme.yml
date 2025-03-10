@@ -77,7 +77,7 @@
   parent: EventHumanMindShielded
   components:
   - type: GrantImplant
-    implants: [ VaporizeImplant, ShiftImplant, BlinkImplant, FreedomImplant, ScramImplant ]
+    implants: [ VaporizeImplant, ShiftImplant, BlinkImplant, FreedomImplant, ScramImplant, StopTimeImplant ]
   - type: RandomHumanoidAppearance
     randomizeName: false
   - type: GhostRole

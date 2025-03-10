@@ -95,4 +95,13 @@
   - type: SubdermalImplant
     implantAction: ActionShiftFreeman
 
+- type: entity
+  parent: BaseSubdermalImplant
+  id: StopTimeImplant
+  name: stop time implant
+  description: This implant allows the user to stop time in an area briefly.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionStopTimeFreeman
 

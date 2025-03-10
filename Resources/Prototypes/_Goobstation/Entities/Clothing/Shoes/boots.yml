@@ -31,6 +31,40 @@
 
 - type: entity
   parent: [ClothingShoesBootsMagAdv, BaseJetpack, BaseCentcommContraband]
+  id: ClothingShoesBootsMagEmergencyResponseTeam
+  name: tactical response magboots
+  description: Look! An emergency responder, we're saved!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Boots/emergencyresponseteam.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Boots/emergencyresponseteam.rsi
+  - type: Item
+    sprite: _Goobstation/Clothing/Shoes/Boots/emergencyresponseteam.rsi
+  - type: Magboots
+  - type: NoSlip
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.5
+  - type: ClothingModifyStunTime
+    modifier: 0.6
+  - type: ModifyStandingUpTime
+    multiplier: 0.5
+  - type: GasTank
+    outputPressure: 42.6
+    air:
+      # 2 minutes of thrust
+      volume: 2
+      temperature: 293.15
+      moles:
+      - 0.153853429 # oxygen
+      - 0.153853429 # nitrogen
+
+- type: entity
+  parent: ClothingShoesBootsMagEmergencyResponseTeam
   id: ClothingShoesBootsMagDeathsquad
   name: deathsquad magboots
   description: The sound of these boots are iconic; the sound of terror.
@@ -42,23 +76,12 @@
     sprite: _Goobstation/Clothing/Shoes/Boots/deathsquad.rsi
   - type: Item
     sprite: _Goobstation/Clothing/Shoes/Boots/deathsquad.rsi
-  - type: Magboots
   - type: ClothingSpeedModifier
     walkModifier: 1.10
     sprintModifier: 1.10
-  - type: NoSlip
   - type: Tag
     tags:
     - WhitelistChameleon
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepHeavySuit
-  - type: GasTank
-    outputPressure: 42.6
-    air:
-      # 2 minutes of thrust
-      volume: 2
-      temperature: 293.15
-      moles:
-      - 0.153853429 # oxygen
-      - 0.153853429 # nitrogen
