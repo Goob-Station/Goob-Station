@@ -85,8 +85,8 @@ public abstract class SharedFishingSystem : EntitySystem
                 _popup.PopupEntity(Loc.GetString("fishing-progress-lost-rod", ("ent", Name(fishRod))), fisher, fisher);
                 // Cleanup entities and their connections
                 RemComp(fisher, fisherComp);
+                RemComp(fishSpot, activeSpotComp);
                 QueueDel(fishingLure);
-                QueueDel(fishSpot);
                 fishingRodComp.FishingLure = null;
                 continue;
             }
@@ -98,8 +98,8 @@ public abstract class SharedFishingSystem : EntitySystem
 
                 // Cleanup entities and their connections
                 RemComp(fisher, fisherComp);
+                RemComp(fishSpot, activeSpotComp);
                 QueueDel(fishingLure);
-                QueueDel(fishSpot);
                 fishingRodComp.FishingLure = null;
                 continue;
             }
@@ -127,11 +127,10 @@ public abstract class SharedFishingSystem : EntitySystem
                     _popup.PopupEntity(Loc.GetString("fishing-progress-success"), fisher, fisher);
                 }
 
-                RemComp(fisher, fisherComp);
-
                 // Cleanup entities and their connections
                 QueueDel(fishingLure);
-                QueueDel(fishSpot);
+                RemComp(fisher, fisherComp);
+                RemComp(fishSpot, activeSpotComp);
                 fishingRodComp.FishingLure = null;
             }
         }

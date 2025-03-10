@@ -1,14 +1,17 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "By rouden_ (discord)",
+    "copyright": "Sprites by arraydeess (discord)",
     "size": {
         "x": 32,
         "y": 32
     },
     "states": [
         {
-            "name": "water"
+            "name": "icon"
+        },
+        {
+            "name": "rope"
         }
     ]
 }
