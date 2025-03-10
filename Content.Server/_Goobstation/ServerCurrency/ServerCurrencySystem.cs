@@ -6,7 +6,7 @@ using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Server.GameTicking;
 using Content.Shared.Humanoid;
-using Content.Shared.Jobs;
+using Content.Shared.Roles.Jobs;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 
