@@ -6026,3 +6026,9 @@ Entries:
       message: Sleeping carp now has its proper abilities when the target is downed.
   id: 689
   time: '2025-03-09T21:26:58.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Fix
+      message: Fixed heretics not being able to write runes.
+  id: 690
+  time: '2025-03-10T07:02:41.0000000+00:00'
