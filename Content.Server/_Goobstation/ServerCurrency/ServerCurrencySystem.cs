@@ -6,6 +6,9 @@ using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Server.GameTicking;
 using Content.Shared.Humanoid;
+using Content.Shared.Jobs;
+using Robust.Server.Player;
+using Robust.Shared.Configuration;
 
 namespace Content.Server._Goobstation.ServerCurrency
 {
