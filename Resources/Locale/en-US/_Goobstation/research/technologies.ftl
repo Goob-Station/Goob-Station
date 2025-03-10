@@ -11,3 +11,4 @@ research-technology-smart-weaponry = Smart Weaponry
 research-technology-accessibility = Crew Assistance Technologies
 research-technology-bluespace-theory = Bluespace Theory
 research-technology-rescue = Advanced Rescue Equipment
+research-technology-advancedweaponry = Advanced Weaponry

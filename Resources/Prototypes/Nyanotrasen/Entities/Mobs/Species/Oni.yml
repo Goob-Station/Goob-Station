@@ -37,6 +37,9 @@
         - MobLayer
   - type: Stamina
     critThreshold: 115
+  - type: Tag
+    tags:
+    - Oni
 
 - type: entity
   save: false
