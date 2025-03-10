@@ -1,5 +1,6 @@
 using Content.Shared.FixedPoint;
 using Content.Shared.Whitelist;
+using Content.Shared.Damage;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -56,11 +57,45 @@ public sealed partial class MechComponent : Component
     public readonly string BatterySlotId = "mech-battery-slot";
 
     /// <summary>
-    /// A multiplier used to calculate how much of the damage done to a mech
-    /// is transfered to the pilot
+    /// Thresholds for pilot damage.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float MechToPilotDamageMultiplier;
+    [DataField]
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public DamageSpecifier MechArmor = new()
+    {
+        DamageDict = new()
+        {
+            { "Blunt", 0 },
+            { "Slash", 0 },
+            { "Piercing", 0 },
+            { "Heat", 0 },
+            { "Cold", 0 },
+            { "Shock", 0 },
+        }
+    };
+
+    [ViewVariables]
+    public readonly float MalfunctionProbability = 0.2f;
+
+    [ViewVariables]
+    public Dictionary<string, float> MalfunctionChances = new()
+    {
+        { "CabinOnFire", 0.4f },
+        { "EngineBroken", 0.2f },
+        { "CabinBreach", 0.2f },
+        { "ShortCircuit", 0.6f },
+        { "EquipmentLoss", 0.1f }
+    };
+
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public bool isEngineBroken = false;
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public bool isCabinOnFire = false;
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public bool isCabinBreach = false;
+
+    [ViewVariables]
+    public FixedPoint2 EnergyLoss = 30;
 
     /// <summary>
     /// Whether the mech has been destroyed and is no longer pilotable.
@@ -91,6 +126,12 @@ public sealed partial class MechComponent : Component
     public int MaxEquipmentAmount = 3;
 
     /// <summary>
+    /// Same with MaxEquipmentAmount, but for armor plates
+    /// </summary>
+    [DataField("maxArmorAmount"), ViewVariables(VVAccess.ReadWrite)]
+    public int MaxArmorAmount = 3;
+
+    /// <summary>
     /// A whitelist for inserting equipment items.
     /// </summary>
     [DataField]
@@ -105,8 +146,17 @@ public sealed partial class MechComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public Container EquipmentContainer = default!;
 
+    /// <summary>
+    /// Same with EquipmentContainer, but for armor plates
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public Container ArmorContainer = default!;
+
     [ViewVariables]
     public readonly string EquipmentContainerId = "mech-equipment-container";
+
+    [ViewVariables]
+    public readonly string ArmorContainerId = "mech-armor-container";
 
     /// <summary>
     /// How long it takes to enter the mech.
@@ -148,7 +198,7 @@ public sealed partial class MechComponent : Component
     [DataField]
     public EntProtoId MechCycleAction = "ActionMechCycleEquipment";
     [DataField]
-    public EntProtoId ToggleAction = "ActionToggleLight"; //Goobstation Mech Lights toggle action 
+    public EntProtoId ToggleAction = "ActionToggleLight"; //Goobstation Mech Lights toggle action
     [DataField]
     public EntProtoId MechUiAction = "ActionMechOpenUI";
     [DataField]
@@ -167,5 +217,5 @@ public sealed partial class MechComponent : Component
     [DataField] public EntityUid? MechCycleActionEntity;
     [DataField] public EntityUid? MechUiActionEntity;
     [DataField] public EntityUid? MechEjectActionEntity;
-    [DataField, AutoNetworkedField] public EntityUid? ToggleActionEntity; //Goobstation Mech Lights toggle action 
+    [DataField, AutoNetworkedField] public EntityUid? ToggleActionEntity; //Goobstation Mech Lights toggle action
 }
