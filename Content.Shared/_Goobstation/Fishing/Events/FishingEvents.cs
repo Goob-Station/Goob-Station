@@ -2,4 +2,4 @@
 
 namespace Content.Shared._Goobstation.Fishing.Events;
 
-public sealed partial class ThrowFishingLureActionEvent : InstantActionEvent;
+public sealed partial class ThrowFishingLureActionEvent : WorldTargetActionEvent;

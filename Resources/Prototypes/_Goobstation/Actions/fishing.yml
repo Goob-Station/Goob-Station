@@ -3,10 +3,11 @@
   name: action-fishing-start
   description: action-fishing-start-desc
   components:
-  - type: InstantAction
+  - type: WorldTargetAction
     icon:
       sprite: _Goobstation/Objects/Specific/Fishing/fishing_rod.rsi
       state: icon
     itemIconStyle: NoItem
     event: !type:ThrowFishingLureActionEvent
-    useDelay: 5
+    useDelay: 0.75
+    range: 15

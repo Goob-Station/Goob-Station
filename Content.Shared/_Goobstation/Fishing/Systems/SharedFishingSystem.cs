@@ -20,7 +20,7 @@ namespace Content.Shared._Goobstation.Fishing.Systems;
 /// </summary>
 public abstract class SharedFishingSystem : EntitySystem
 {
-    [Dependency] protected readonly IGameTiming GameTiming = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -173,21 +173,37 @@ public abstract class SharedFishingSystem : EntitySystem
 
     private void OnThrowFloat(EntityUid uid, FishingRodComponent component, ThrowFishingLureActionEvent args)
     {
+        if (args.Handled || !_timing.IsFirstTimePredicted)
+            return;
+
         if (component.FishingLure != null)
         {
             _popup.PopupEntity(Loc.GetString("fishing-rod-remove-lure", ("ent", Name(uid))), uid);
             QueueDel(component.FishingLure);
             component.FishingLure = null;
+            args.Handled = true;
             return;
         }
 
         if (!_net.IsServer) // because i hate prediction
             return;
 
-        var userXform = Transform(args.Performer);
-        var fishFloat = Spawn(component.FloatPrototype, userXform.Coordinates);
-        _hands.TryPickupAnyHand(fishFloat, args.Performer);
+        var player = args.Performer;
+        var targetCoords = _transform.ToMapCoordinates(args.Target);
+        var playerCoords = _transform.GetMapCoordinates(Transform(player));
+
+        var fishFloat = Spawn(component.FloatPrototype, playerCoords);
         component.FishingLure = fishFloat;
+
+        // Calculate throw direction
+        var direction = targetCoords.Position - playerCoords.Position;
+        if (direction == Vector2.Zero)
+            direction = Vector2.UnitX; // If the user somehow manages to click directly in the center of themself, just toss it to the right i guess.
+
+        // Yeet
+        _throwing.TryThrow(fishFloat, direction, 15f, player, 2f);
+
+        // Set up lure component
         var fishLureComp = EnsureComp<FishingLureComponent>(fishFloat);
         fishLureComp.FishingRod = uid;
 
@@ -197,7 +213,8 @@ public abstract class SharedFishingSystem : EntitySystem
         visuals.OffsetA = new Vector2(0f, 0.1f);
         visuals.Target = GetNetEntity(uid);
 
-        // TODO appearance of the fishing rod
+        args.Handled = true;
+
     }
 
     private void OnFloatCollide(EntityUid uid, FishingLureComponent component, ref StartCollideEvent args)
@@ -212,7 +229,7 @@ public abstract class SharedFishingSystem : EntitySystem
         _transform.SetWorldPosition(uid, spotPosition);
         _transform.AnchorEntity(uid);
 
-        var rand = new System.Random((int) GameTiming.CurTick.Value); // evil random prediction hack
+        var rand = new System.Random((int) _timing.CurTick.Value); // evil random prediction hack
 
         if (HasComp<ActiveFishingSpotComponent>(fishingSpot))
             return;

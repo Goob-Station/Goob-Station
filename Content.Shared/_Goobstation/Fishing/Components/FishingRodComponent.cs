@@ -13,7 +13,7 @@ public sealed partial class FishingRodComponent : Component
     [DataField]
     public float Efficiency = 1f;
 
-    [DataField, ValidatePrototypeId<EntityPrototype>]
+    [DataField]
     public EntProtoId FloatPrototype = "FishingLure";
 
     [DataField, ViewVariables]
