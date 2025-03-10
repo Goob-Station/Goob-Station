@@ -194,3 +194,14 @@
     size: Small
   - type: DisarmMalus
     malus: 0
+    
+- type: entity
+  parent: BasePlushie
+  id: PlushieBingle
+  name: bingle plushie
+  description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
+  components:
+  - type: Sprite
+    norot: true
+    sprite: _Goobstation/Mobs/Bingle/bingle.rsi
+    state: alive
