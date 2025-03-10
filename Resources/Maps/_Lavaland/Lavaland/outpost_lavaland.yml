@@ -8535,7 +8535,7 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#990000FF'
-- proto: GatewayActive
+- proto: GatewayLavaland
   entities:
   - uid: 556
     components:
