@@ -8,6 +8,7 @@
         </ScrollContainer>
         <BoxContainer Orientation="Horizontal" Margin="5 5 5 5" Align="Center">
             <Button Name="CreateProgramButton" StyleClasses="OpenRight" Text="{Loc 'autodoc-create-program'}"/>
+            <Button Name="ImportProgramButton" StyleClasses="OpenBoth" Text="{Loc 'autodoc-import-program'}"/>
             <Button Name="AbortButton" StyleClasses="OpenLeft" Text="{Loc 'autodoc-abort-program'}" Disabled="True"/>
         </BoxContainer>
     </BoxContainer>
