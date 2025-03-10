@@ -103,11 +103,7 @@ public sealed partial class MechSystem : SharedMechSystem
     {
         if (!TryComp<FlammableComponent>(uid, out var flammable))
             return;
-        if (!flammable.OnFire)
-        {
-            comp.isCabineOnFire = false;
-        }
-        else
+        if (flammable.OnFire)
         {
             var userEntity = new EntityUid();
             if (comp.PilotSlot.ContainedEntity != null)
@@ -119,8 +115,8 @@ public sealed partial class MechSystem : SharedMechSystem
             {
                 if (flammableUser.FireStacks == 0)
                 {
-                    flammableUser.FireStacks = fireStacks * 3;
                     flammableUser.OnFire = true;
+                    flammableUser.FireStacks = fireStacks * 3;
                 }
             }
             flammable.FireStacks = fireStacks;
@@ -324,8 +320,8 @@ public sealed partial class MechSystem : SharedMechSystem
     }
 
     /// <summary>
-    /// Random malfunction if integrity less than or equals 50%
     /// Compare every damage type with armor type, if match make threshold for pilot damage.
+    /// Random malfunction if integrity less than or equals 50% with some chance.
     /// </summary>
     /// <param name="uid">Mech</param>
     /// <param name="component"></param>
@@ -337,7 +333,11 @@ public sealed partial class MechSystem : SharedMechSystem
 
         if (integrity <= (component.MaxIntegrity * 0.5))
         {
-            if (_random.Prob(component.MalfunctionProbability))
+            if (!TryComp<FlammableComponent>(uid, out var flammable))
+                return;
+            if (flammable.FireStacks == 0 && !flammable.OnFire)
+                component.isCabineOnFire = false;
+            if (_random.Prob(component.MalfunctionProbability) && !component.isCabineOnFire)
             {
                 var pick = _random.Pick(component.MalfunctionChances);
 
@@ -354,10 +354,8 @@ public sealed partial class MechSystem : SharedMechSystem
                         _popup.PopupEntity(Loc.GetString("goobstation-mech-short-circuit"), uid, component.PilotSlot.ContainedEntity.Value);
                     }
                 }
-                else if (pick == "EngineBroken")
+                else if (pick == "CabineOnFire")
                 {
-                    if (!TryComp<FlammableComponent>(uid, out var flammable))
-                        return;
                     component.isCabineOnFire = true;
                     flammable.OnFire = true;
                     _popup.PopupEntity(Loc.GetString("goobstation-mech-cabine-on-fire"), uid);
