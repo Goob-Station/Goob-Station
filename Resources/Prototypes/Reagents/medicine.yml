@@ -736,7 +736,7 @@
         - !type:SatiateThirst
           factor: 6
         - !type:ModifyBloodLevel
-          amount: 6
+          amount: 12 # Goobstation - buffed by two times due to shitmed changes
 
 - type: reagent
   id: Siderlac

@@ -49,7 +49,7 @@
   minLimit: 0
   loadouts:
   - BlueshieldOfficerHeadSwatHelmet
-  - BlueshieldOfficerHeadTrooper
+  - BlueshieldOfficerBeret
   - BlueshieldOfficerHeadCowboy
 
 - type: loadoutGroup
@@ -64,8 +64,8 @@
   id: BlueshieldOfficerJumpsuit
   name: loadout-group-bso-jumpsuit
   loadouts:
-  - BlueshieldOfficerInnerBlueshieldSkirt
   - BlueshieldOfficerInnerBlueshieldSuit
+  - BlueshieldOfficerInnerBlueshieldSkirt
   - BlueshieldOfficerInnerBlueshieldShirt
 
 - type: loadoutGroup
@@ -93,7 +93,6 @@
 - type: loadoutGroup
   id: BlueshieldOfficerShoes
   name: loadout-group-bso-shoes
-  minLimit: 0
   loadouts:
   - JackBoots
   - BlackCowboyBoots

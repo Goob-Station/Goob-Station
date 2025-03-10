@@ -51,3 +51,35 @@
     sprite: _Goobstation/Clothing/Ears/Headsets/deathsquad.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Ears/Headsets/deathsquad.rsi
+
+- type: entity
+  parent: [ClothingHeadsetAlt, BaseSecurityContraband]
+  id: ClothingHeadsetAltSecurityRegular
+  name: security over-ear headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeySecurity
+      - EncryptionKeyCommon
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/security.rsi
+  - type: Clothing
+    sprite: Clothing/Ears/Headsets/security.rsi
+
+- type: entity
+  parent: [ClothingHeadsetAlt, BaseCentcommContraband]
+  id: ClothingHeadsetAltBlueshield
+  name: blueshield officers over-ear headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommand
+      - EncryptionKeyCentCom
+      - EncryptionKeySecurity
+      - EncryptionKeyCommon
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Ears/Headsets/blueshield.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Ears/Headsets/blueshield.rsi

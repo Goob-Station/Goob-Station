@@ -1,0 +1,92 @@
+- type: entity
+  name: blue flippo
+  parent: [BaseItem, BaseCentcommContraband]
+  id: FlippoLighterBlueshield
+  description: "A specialized blue lighter given only to specific officers. Great for a smoke after a long day."
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Objects/Tools/lighters.rsi
+    layers:
+    - state: icon
+      map: ["base"]
+    - state: zippo_top
+      map: ["top"]
+      visible: false
+    - state: icon_open
+      map: ["open"]
+      visible: false
+    - state: lighter_flame
+      map: ["flame"]
+      visible: false
+      shader: unshaded
+  - type: ItemToggle
+    predictable: false
+    soundActivate:
+      path: /Audio/Items/Lighters/zippo_open.ogg
+      params:
+        volume: -5
+    soundDeactivate:
+      path: /Audio/Items/Lighters/zippo_close.ogg
+      params:
+        volume: -5
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Heat: 1
+  - type: ItemToggleSize
+    activatedSize: Small
+  - type: ItemToggleHot
+  - type: Item
+    size: Tiny
+    sprite: Objects/Tools/lighters.rsi
+    heldPrefix: zippo
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        flame:
+          True: { visible: true }
+          False: { visible: false }
+        open:
+          True: { visible: true }
+          False: { visible: false }
+        top:
+          True: { visible: true }
+          False: { visible: false }
+        base:
+          True: { visible: false }
+          False: { visible: true }
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 20
+        maxVol: 20
+  - type: Welder
+    fuelConsumption: 0.01
+    fuelLitCost: 0.1
+    tankSafe: true
+  - type: ToggleableLightVisuals
+    spriteLayer: lighter_flame
+    inhandVisuals:
+      left:
+      - state: zippo-inhand-left-flame
+        shader: unshaded
+      right:
+      - state: zippo-inhand-right-flame
+        shader: unshaded
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    damage:
+      types:
+        Blunt: 1
+  - type: PointLight
+    enabled: false
+    netsync: false
+    radius: 3 # Bigger since blue makes it hard to see. Worth it for the drip.
+    color: blue
+  - type: ItemTogglePointLight
+  - type: UseDelay
+  - type: IgnitionSource
+    ignited: false

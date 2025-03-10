@@ -177,6 +177,10 @@
       tags:
         - CigPack
         - Taser
+        - SecBeltEquip # Goobstation
+        - HandheldCrewMonitor # Goobstation
+        - EnergySpeedloader # Goobstation
+        - Sidearm # Goobstation
       components:
         - Stunbaton
         - FlashOnTrigger
@@ -489,6 +493,7 @@
         - CombatKnife
         - Truncheon
         - BolaEnergy # Goobstation
+        - EnergySpeedloader # Goobstation
       components:
         - Stunbaton
         - FlashOnTrigger

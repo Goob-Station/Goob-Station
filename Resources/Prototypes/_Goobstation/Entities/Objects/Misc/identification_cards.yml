@@ -80,6 +80,24 @@
     - CentralCommand
     - BlueshieldOfficer
 
+- type: entity
+  parent: IDCardStandard
+  id: NanotrasenRepresentativeIDCard
+  name: nanotrasen representative ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+    - state: idcentcom
+  - type: Item
+    heldPrefix:
+  - type: PresetIdCard
+    job: NanotrasenRepresentative
+  - type: Access
+    tags:
+    - CentralCommand
+    - NanotrasenRepresentative
+
 # Executive Access
 - type: entity
   parent: IDCardStandard

@@ -5,6 +5,8 @@
   - CartridgeEpinephrine
   - CartridgeBicaridine
   - CartridgeDermaline
+  - CartridgeAtropine
+  - CartridgeSaline
   - ParamedHypo
 
 - type: latheRecipePack

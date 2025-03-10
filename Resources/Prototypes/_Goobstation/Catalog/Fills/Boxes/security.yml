@@ -1,1 +1,14 @@
+- type: entity
+  name: tracker box
+  parent: [BoxCardboard, BaseSecurityContraband]
+  id: BoxTracker
+  description: A box containing a couple trackers.
+  components:
+  - type: StorageFill
+    contents:
+    - id: TrackingImplanter # Todo - Replace with biochip?
+      amount: 4
+  - type: Sprite
+    layers:
+    - state: box
 

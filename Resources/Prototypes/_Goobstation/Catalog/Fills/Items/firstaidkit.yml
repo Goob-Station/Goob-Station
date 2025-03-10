@@ -12,3 +12,29 @@
   - type: Sprite
     sprite: Objects/Specific/Medical/firstaidkits.rsi
     state: purplekit
+
+- type: entity
+  id: MedkitBSOFilled
+  suffix: Filled
+  parent: MedkitBSO
+  components:
+  - type: StorageFill
+    contents:
+    - id: MedicatedSuture
+    - id: RegenerativeMesh
+    - id: CartridgeBicaridine
+    - id: CartridgeDermaline
+    - id: CartridgeSaline
+    - id: CartridgeEpinephrine
+
+- type: entity
+  id: MedkitBSOIPCFilled
+  suffix: Filled
+  parent: MedkitBSOIPC
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingEyesGlassesMeson
+    - id: WelderIndustrial
+    - id: CableApcStack
+    - id: PowerCellHigh
