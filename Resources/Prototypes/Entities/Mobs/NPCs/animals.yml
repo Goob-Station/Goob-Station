@@ -1869,6 +1869,7 @@
     - id: MobMouse
     hungerUsage: 20
     eggLayAction: MouseMultiply
+    hungerRequired: true
   - type: SolutionRegeneration
     solution: melee
     generated:

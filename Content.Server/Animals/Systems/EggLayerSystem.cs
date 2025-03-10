@@ -42,6 +42,10 @@ public sealed class EggLayerSystem : EntitySystem
         var eligibleEggLayers = new List<Entity<EggLayerComponent>>(); // Goob - self-spawning
         while (query.MoveNext(out var uid, out var eggLayer))
         {
+            // Goobstation - hard hunger requirement
+            if (eggLayer.HungerRequired && !HasComp<HungerComponent>(uid))
+                continue;
+
             // Players should be using the action.
             if (HasComp<ActorComponent>(uid))
                 continue;
@@ -86,6 +90,13 @@ public sealed class EggLayerSystem : EntitySystem
 
         if (_mobState.IsDead(uid))
             return false;
+
+        // Goobstation - hard hunger requirement
+        if (egglayer.HungerRequired && !HasComp<HungerComponent>(uid))
+        {
+            _popup.PopupEntity(Loc.GetString("action-popup-lay-egg-unable"), uid, uid);
+            return false;
+        }
 
         // Allow infinitely laying eggs if they can't get hungry.
         if (TryComp<HungerComponent>(uid, out var hunger))
