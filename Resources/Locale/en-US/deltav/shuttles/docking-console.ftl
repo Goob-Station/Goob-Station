@@ -2,7 +2,7 @@ docking-console-no-shuttle = No Shuttle Detected
 docking-console-ftl = FTL
 docking-console-call = Call shuttle
 
-mining-console-window-title = Lavaland Transport Console
+mining-console-window-title = Lavaland FTL Console
 
 shuttle-destination-lavaland = Lavaland
 shuttle-destination-glacier-surface = Glacier Surface
