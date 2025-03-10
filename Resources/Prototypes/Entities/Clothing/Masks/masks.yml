@@ -20,6 +20,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # Goob
     hideOnToggle: true
 
 - type: entity
@@ -225,6 +226,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # Goob
 
 - type: entity
   parent: ClothingMaskClownBase
@@ -238,6 +240,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # Goob
 
 - type: entity
   parent: ClothingMaskClown
@@ -285,6 +288,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # Goob
   - type: Tag
     tags:
     - IPCMaskWearable # EE - IPCs
@@ -309,6 +313,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # Goob
 
 - type: entity
   parent: ClothingMaskPullableBase
@@ -366,6 +371,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # Goob
     hideOnToggle: true
 
 - type: entity
@@ -400,6 +406,7 @@
     slots:
     - Hair
     - Snout
+    - SnoutOverlay # Goob
     hideOnToggle: true
   - type: Armor
     modifiers:
@@ -448,6 +455,7 @@
     slots:
     - Hair
     - Snout
+    - SnoutOverlay # Goob
     hideOnToggle: true
   - type: FlashImmunity
   - type: EyeProtection
@@ -498,6 +506,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # Goob
   - type: IdentityBlocker
   - type: AddAccentClothing # Goobstation
     accent: RatAccent
@@ -516,6 +525,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # Goob
   - type: Tag
     tags:
     - CursedAnimalMask # Goobstation
@@ -538,6 +548,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # Goob
   - type: Tag
     tags:
     - CursedAnimalMask # Goobstation
@@ -560,6 +571,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # Goob
   - type: Tag
     tags:
     - CursedAnimalMask # Goobstation
@@ -582,6 +594,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # Goob
   - type: Tag
     tags:
     - CursedAnimalMask # Goobstation
@@ -604,6 +617,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # Goob
   - type: Tag
     tags:
     - CursedAnimalMask # Goobstation
@@ -626,6 +640,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # Goob
   - type: Tag
     tags:
     - CursedAnimalMask # Goobstation
@@ -768,3 +783,4 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # Goob

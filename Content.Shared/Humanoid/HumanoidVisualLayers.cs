@@ -13,6 +13,7 @@ namespace Content.Shared.Humanoid
         Chest,
         Head,
         Snout,
+        SnoutOverlay, // for animated tongue from Goob
         HeadSide, // side parts (i.e., frills)
         HeadTop,  // top parts (i.e., ears)
         Eyes,

@@ -37,6 +37,7 @@
     slots:
     - Hair
     - Snout
+    - SnoutOverlay # Goob
     - HeadTop
     - HeadSide
 
@@ -58,6 +59,7 @@
   - type: HideLayerClothing # This helmet don't have sprite on unsealed state
     slots:
     - Snout
+    - SnoutOverlay # Goob
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
@@ -88,6 +90,7 @@
       slots:
       - Hair
       - Snout
+      - SnoutOverlay # Goob
       - HeadTop
       - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓

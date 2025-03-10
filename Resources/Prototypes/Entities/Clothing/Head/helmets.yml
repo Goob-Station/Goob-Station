@@ -20,6 +20,7 @@
     slots:
     - HeadTop
     - HeadSide
+    - SnoutOverlay # Goob
 
 #Basic Helmet (Security Helmet)
 - type: entity
