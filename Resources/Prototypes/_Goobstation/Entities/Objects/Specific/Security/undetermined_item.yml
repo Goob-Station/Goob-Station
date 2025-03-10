@@ -33,6 +33,7 @@
     possibleSets:
     - LightSet
     - HeavySet
+    maxSelectedSets: 1
   - type: ActivatableUI
     key: enum.ThiefBackpackUIKey.Key
   - type: UserInterface
