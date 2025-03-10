@@ -20,10 +20,10 @@ public sealed class LavalandWeatherPrototype : IPrototype
     public ProtoId<WeatherPrototype> WeatherType;
 
     [DataField]
-    public string PopupStartMessage = "You feel like wind starts blowing stronger...";
+    public LocId PopupStartMessage = "lavaland-weather-start-message";
 
     [DataField]
-    public string PopupEndMessage = "The wind is going out.";
+    public LocId PopupEndMessage = "lavaland-weather-end-message";
 
     /// <summary>
     /// Amount of temperature to apply every tick.

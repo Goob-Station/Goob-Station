@@ -1,0 +1,57 @@
+- type: collectiveMind
+  id: Dragonmind
+  name: collective-mind-dragon
+  keycode: 'f'
+  color: "#787878"
+  requiredTags:
+  - DragonMind
+
+- type: collectiveMind
+  id: Lingmind
+  name: collective-mind-lingmind
+  keycode: 'h'
+  color: "#787878"
+  showNames: false
+  requiredTags:
+  - LingMind
+
+- type: collectiveMind
+  id: Tidemind
+  name: collective-mind-tidemind
+  keycode: 't'
+  color: "#8C8C8C"
+  showNames: false
+  requiredTags:
+  - TidemindMind
+
+- type: collectiveMind
+  id: Blobmind
+  name: collective-mind-blobmind
+  keycode: 'e'
+  color: "#637b19"
+  requiredTags:
+  - BlobMind
+
+- type: collectiveMind
+  id: MansusLink
+  name: collective-mind-mansus-link
+  keycode: 'm'
+  color: "#237500"
+  requiredTags:
+  - MansusLinkMind
+
+- type: collectiveMind
+  id: Abductormind
+  name: collective-mind-abductormind
+  keycode: 'a'
+  color: "#d600bd"
+  requiredTags:
+  - AbductorMind
+
+- type: collectiveMind
+  id: Binary
+  name: collective-mind-binary
+  keycode: 'b'
+  color: "#5ed7aa"
+  requiredTags:
+  - BinaryMind

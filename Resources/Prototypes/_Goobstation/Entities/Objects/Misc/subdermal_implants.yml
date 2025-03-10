@@ -2,7 +2,7 @@
   parent: BaseSubdermalImplant
   id: BluespaceLifelineImplant
   name: bluespace lifeline implant
-  description: This implants teleport user body to safe place, forcing him to leave current location so he won't be able to come back.
+  description: Teleports the hosts body to Central Command on activation. They will not be able to return.
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
@@ -62,3 +62,37 @@
     tags:
     - SubdermalImplant
     - HideContextMenu
+
+# Admeme
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: BlinkImplant
+  name: blink implant
+  description: This implant allows the user temporarily blink into a higher dimension.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionBlinkFreeman
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: VaporizeImplant
+  name: vaporize implant
+  description: This implant allows the user to vaporize targets with the power of their mind.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionVaporizeFreeman
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ShiftImplant
+  name: shift implant
+  description: This implant allows the user to teleport to a point in range.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionShiftFreeman
+
+

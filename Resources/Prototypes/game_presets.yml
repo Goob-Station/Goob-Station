@@ -23,7 +23,7 @@
   showInVote: false # secret
   description: kessler-syndrome-description
   rules:
-    - KesslerSyndromeScheduler
+#    - KesslerSyndromeScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
@@ -72,9 +72,9 @@
     - BlobGameMode
     - LoneAbductorSpawn
     - BasicStationEventScheduler
-    - KesslerSyndromeScheduler
-    - MeteorSwarmMildScheduler
-    - MeteorSwarmScheduler
+#    - KesslerSyndromeScheduler
+#    - MeteorSwarmMildScheduler # Goob Edit
+#    - MeteorSwarmScheduler # Goob edit
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
@@ -116,12 +116,12 @@
     - secret
     - sekrit
   name: secret-title
-  showInVote: true
+  showInVote: false # Goob - Game Director
   description: secret-description
   rules:
     - Secret
     - BasicStationEventScheduler
-    - LavalandStormScheduler # Lavaland Change
+    # - LavalandStormScheduler # Lavaland Change # All possible secret choices already contain this
 
 - type: gamePreset
   id: SecretExtended #For Admin Use: Runs Extended but shows "Secret" in lobby.
@@ -255,7 +255,7 @@
   rules:
   - Zombie
   - BasicStationEventScheduler
-  - KesslerSyndromeScheduler
+ # - KesslerSyndromeScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change

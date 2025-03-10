@@ -4,6 +4,7 @@
   description: Apparently a wand used by the wizard.
   parent: [BaseItem, BaseMagicContraband]
   suffix: DO NOT MAP
+  categories: [ DoNotMap ]
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Objects/Weapons/Wands/wand.rsi
@@ -96,6 +97,7 @@
   id: MultiWandWizard
   parent: MultiWand
   suffix: Wizard, DO NOT MAP
+  categories: [ DoNotMap ]
   components:
   - type: ActivatableUiUserWhitelist
     whitelist:

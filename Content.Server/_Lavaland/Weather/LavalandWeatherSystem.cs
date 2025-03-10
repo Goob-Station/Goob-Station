@@ -113,7 +113,7 @@ public sealed class LavalandWeatherSystem : EntitySystem
             if (xform.MapUid != map.Owner)
                 continue;
 
-            _popup.PopupEntity(proto.PopupStartMessage, human, human, PopupType.LargeCaution);
+            _popup.PopupEntity(Loc.GetString(proto.PopupStartMessage), human, human, PopupType.LargeCaution);
         }
     }
 
@@ -123,7 +123,7 @@ public sealed class LavalandWeatherSystem : EntitySystem
         if (!TryComp<LavalandStormedMapComponent>(map, out var comp))
             return;
 
-        var popup = _proto.Index(comp.CurrentWeather).PopupEndMessage;
+        var popup = Loc.GetString(_proto.Index(comp.CurrentWeather).PopupEndMessage);
         RemComp<LavalandStormedMapComponent>(map);
 
         var humans = EntityQueryEnumerator<HumanoidAppearanceComponent, DamageableComponent>();
