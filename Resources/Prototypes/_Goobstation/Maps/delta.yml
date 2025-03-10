@@ -2,7 +2,7 @@
   id: Delta
   mapName: 'Delta Station'
   mapPath: /Maps/_Goobstation/delta.yml
-  minPlayers: 50
+  minPlayers: 55
   stations:
     Delta:
       stationProto: StandardNanotrasenStation
@@ -22,12 +22,12 @@
             BlueshieldOfficer: [ 1, 1 ]
             # cargo
             Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 3, 3 ]
-            CargoTechnician: [ 4, 4 ]
+            SalvageSpecialist: [ 6, 6 ]
+            CargoTechnician: [ 5, 6 ]
             # engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 2, 3 ]
-            StationEngineer: [ 4, 5 ]
+            StationEngineer: [ 6, 7 ]
             TechnicalAssistant: [ 3, 3 ]
             # medical
             ChiefMedicalOfficer: [ 1, 1 ]
@@ -38,7 +38,7 @@
             Chemist: [ 2, 2 ]
             # science
             ResearchDirector: [ 1, 1 ]
-            Scientist: [ 5, 6 ]
+            Scientist: [ 6, 7 ]
             ResearchAssistant: [ 3, 3 ]
             # security
             HeadOfSecurity: [ 1, 1 ]
@@ -52,7 +52,7 @@
             Botanist: [ 3, 4 ]
             Boxer: [ 2, 2 ]
             Chaplain: [ 1, 1 ]
-            Chef: [ 1, 2 ]
+            Chef: [ 2, 3 ]
             Clown: [ 1, 1 ]
             Janitor: [ 1, 2 ]
             Librarian: [ 1, 1 ]
@@ -65,3 +65,10 @@
             # silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 3 ]
+
+        # Goobstation blob-config-start HUGE
+        - type: StationBlobConfig
+          stageBegin: 40
+          stageCritical: 450
+          stageTheEnd: 900
+        # backmen blob-config-end
