@@ -42,7 +42,7 @@ namespace Content.Server._DV.Harpy
             SubscribeLocalEvent<InstrumentComponent, StunnedEvent>(OnStunned);
             SubscribeLocalEvent<InstrumentComponent, SleepStateChangedEvent>(OnSleep);
             SubscribeLocalEvent<InstrumentComponent, StatusEffectAddedEvent>(OnStatusEffect);
-            SubscribeLocalEvent<InstrumentComponent, DamageChangedEvent>(OnDamageChanged);
+            SubscribeLocalEvent<HarpySingerComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<HarpySingerComponent, BoundUIClosedEvent>(OnBoundUIClosed);
             SubscribeLocalEvent<HarpySingerComponent, BoundUIOpenedEvent>(OnBoundUIOpened);
 
@@ -98,25 +98,21 @@ namespace Content.Server._DV.Harpy
         /// and maintenance overhead. It still reuses the values from DamageForceSayComponent, so
         /// any tweaks to that will keep ForceSay consistent with singing interruptions.
         /// </summary>
-        private void OnDamageChanged(EntityUid uid, InstrumentComponent instrumentComponent, DamageChangedEvent args)
+        private void OnDamageChanged(EntityUid uid, HarpySingerComponent harpySingerComponent, DamageChangedEvent args)
         {
-            if (!TryComp<DamageForceSayComponent>(uid, out var component) ||
+            if (!harpySingerComponent.ShutUpDamageThreshold.HasValue ||
                 args.DamageDelta == null ||
                 !args.DamageIncreased ||
-                args.DamageDelta.GetTotal() < component.DamageThreshold ||
-                component.ValidDamageGroups == null)
+                args.DamageDelta.GetTotal() < harpySingerComponent.ShutUpDamageThreshold)
                 return;
 
             var totalApplicableDamage = FixedPoint2.Zero;
             foreach (var (group, value) in args.DamageDelta.GetDamagePerGroup(_prototype))
             {
-                if (!component.ValidDamageGroups.Contains(group))
-                    continue;
-
                 totalApplicableDamage += value;
             }
 
-            if (totalApplicableDamage >= component.DamageThreshold)
+            if (totalApplicableDamage >= harpySingerComponent.ShutUpDamageThreshold)
                 CloseMidiUi(uid);
         }
 

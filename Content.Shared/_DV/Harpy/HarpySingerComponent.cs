@@ -13,5 +13,8 @@ namespace Content.Shared._DV.Harpy
 
         [DataField("midiAction", serverOnly: true)] // server only, as it uses a server-BUI event !type
         public EntityUid? MidiAction;
+
+        [DataField("ShutUpDamageThreshold", serverOnly: true)]
+        public int? ShutUpDamageThreshold;
     }
 }
