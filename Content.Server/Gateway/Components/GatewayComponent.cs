@@ -1,5 +1,7 @@
 using Content.Server.Gateway.Systems;
+using Content.Shared.Tag; // Goobstation
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes; // Goobstation
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Utility;
 
@@ -63,4 +65,11 @@ public sealed partial class GatewayComponent : Component
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoPausedField]
     public TimeSpan NextReady;
+
+    // Goobstation
+    /// <summary>
+    /// Restrict this gate's destinations and sources to gates tagged with this.
+    /// </summary>
+    [DataField]
+    public ProtoId<TagPrototype>? TagRestriction;
 }

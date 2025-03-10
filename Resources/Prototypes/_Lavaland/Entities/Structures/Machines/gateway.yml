@@ -1,0 +1,19 @@
+- type: entity
+  parent: BaseGateway
+  id: GatewayLavaland
+  name: Lavaland gateway
+  description: To hell you go.
+  components:
+  - type: ActivatableUI
+    key: enum.GatewayUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.GatewayUiKey.Key:
+        type: GatewayBoundUserInterface
+  - type: Gateway
+    enabled: true
+    tagRestriction: LavalandGateway
+  - type: Tag
+    tags:
+    - Structure
+    - LavalandGateway
