@@ -100,6 +100,9 @@
     weight: 1.5 # ShibaStation - make them way less common
     minimumPlayers: 25 # ShibaStation - increased pop requirement. it's fun to have them around and they aren't a *threat* but they can seriously disrupt a low pop station in a negative way (unintentionally, it's just a symptom of low pop)
     duration: 1
+    chaos: # Goobstation
+      Hostile: 150
+      Medical: 150
   - type: RuleGrids
   - type: LoadMapRule
     mapPath: /Maps/_Shitmed/Shuttles/ShuttleEvent/duo_abductor_shuttle.yml

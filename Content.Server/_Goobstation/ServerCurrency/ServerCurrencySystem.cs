@@ -17,6 +17,15 @@ namespace Content.Server._Goobstation.ServerCurrency
         [Dependency] private readonly ServerCurrencyManager _currencyMan = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly SharedMindSystem _mind = default!;
+        [Dependency] private readonly SharedJobSystem _jobs = default!;
+        [Dependency] private readonly IPlayerManager _players = default!;
+        [Dependency] private readonly IConfigurationManager _cfg = default!;
+
+        private int _goobcoinsPerPlayer = 10;
+        private int _goobcoinsNonAntagMultiplier = 1;
+        private int _goobcoinsServerMultiplier = 1;
+        private int _goobcoinsMinPlayers;
+
         public override void Initialize()
         {
             base.Initialize();
