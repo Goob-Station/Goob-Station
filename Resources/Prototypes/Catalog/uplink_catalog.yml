@@ -1559,6 +1559,16 @@
   categories:
     - UplinkWearables
 
+- type: listing
+  id: UplinkClothingShoesFakeJordans
+  name: uplink-clothing-shoes-fake-jordans-name
+  description: uplink-clothing-shoes-fake-jordans-desc
+  productEntity: ClothingShoesFakeJordans
+  cost:
+    Telecrystal: 1 # goob - suggested and i just had to add it
+  categories:
+    - UplinkWearables
+
  # Pointless
 
 - type: listing
