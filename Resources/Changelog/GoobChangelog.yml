@@ -6026,3 +6026,25 @@ Entries:
       message: Sleeping carp now has its proper abilities when the target is downed.
   id: 689
   time: '2025-03-09T21:26:58.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Fix
+      message: Fixed heretics not being able to write runes.
+  id: 690
+  time: '2025-03-10T07:02:41.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Fix
+      message: >-
+        Pirates, Abductors and the Blob can now spawn as midround event in
+        storyteller modes!
+    - type: Fix
+      message: Nukie spam
+  id: 691
+  time: '2025-03-10T10:23:41.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Firelocks are no longer made out of concentrated reinforcedwallium.
+  id: 692
+  time: '2025-03-10T18:07:07.0000000+00:00'
