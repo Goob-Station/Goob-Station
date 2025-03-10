@@ -1,0 +1,4 @@
+- type: latheRecipePack
+  id: SecurityWeaponsEinsteinEngines
+  recipes:
+  - Terminus

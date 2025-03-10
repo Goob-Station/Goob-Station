@@ -234,7 +234,7 @@ public sealed partial class GoobCVars
         CVarDef.Create("goob.coins_per_greentext", 5, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> GoobcoinNonAntagMultiplier =
-        CVarDef.Create("goob.coins_non_antag_multiplier", 3, CVar.SERVERONLY);
+        CVarDef.Create("goob.coins_non_antag_multiplier", 1, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> GoobcoinServerMultiplier =
         CVarDef.Create("goob.coins_server_multiplier", 1, CVar.SERVERONLY);

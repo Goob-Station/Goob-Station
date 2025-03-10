@@ -1,5 +1,6 @@
 ﻿using Content.Server._Goobstation.StationEvents.Metric;
 using Content.Shared.EntityTable.EntitySelectors;
+using Content.Shared.Random;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -73,6 +74,11 @@ public sealed partial class GameDirectorComponent : Component
     [DataField]
     public List<PossibleEvent> PossibleEvents = new();
     // Could have Chaos multipliers here, or multipliers per player (so stories are harder with more players).
+
+    /// <summary>
+    /// All the possible roundstart antags.
+    /// </summary>
+    public ProtoId<WeightedRandomPrototype> RoundStartAntagsWeightTable = "GameDirector";
 }
 
 /// <summary>
