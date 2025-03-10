@@ -26,6 +26,7 @@
     interfaces:
       enum.InstrumentUiKey.Key:
         type: InstrumentBoundUserInterface
+        requireInputValidation: false
       enum.VoiceMaskUIKey.Key:
         type: VoiceMaskBoundUserInterface
       enum.HumanoidMarkingModifierKey.Key:
