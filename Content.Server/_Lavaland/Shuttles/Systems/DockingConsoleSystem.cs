@@ -234,14 +234,6 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
                 TryComp<StationDataComponent>(stationMember.Station, out var stationData))
                 return _station.GetLargestGrid(stationData);
 
-            // This is like, total fallback here. Technically better than above one tho
-            if (HasComp<StationMemberComponent>(gridUid) &&
-                HasComp<BecomesStationComponent>(gridUid) &&
-                !HasComp<TradeStationComponent>(gridUid) &&
-                !HasComp<CargoShuttleComponent>(gridUid) &&
-                !HasComp<MiningShuttleComponent>(gridUid))
-                return gridUid;
-
             if (HasComp<LavalandStationComponent>(gridUid))
                 return gridUid;
 
