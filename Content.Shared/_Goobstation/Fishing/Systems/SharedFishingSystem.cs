@@ -59,7 +59,7 @@ public abstract class SharedFishingSystem : EntitySystem
 
     protected void UpdateFishing(float frameTime)
     {
-        var activeFishers = AllEntityQuery<ActiveFisherComponent>();
+        var activeFishers = EntityQueryEnumerator<ActiveFisherComponent>();
         while (activeFishers.MoveNext(out var fisher, out var fisherComp))
         {
             fisherComp.TotalProgress -= fisherComp.ProgressWithdraw * frameTime;
@@ -130,7 +130,7 @@ public abstract class SharedFishingSystem : EntitySystem
             }
         }
 
-        var fishingSpots = AllEntityQuery<ActiveFishingSpotComponent>();
+        var fishingSpots = EntityQueryEnumerator<ActiveFishingSpotComponent>();
         while (fishingSpots.MoveNext(out var activeSpotComp))
         {
             activeSpotComp.Accumulator -= frameTime;
@@ -213,6 +213,9 @@ public abstract class SharedFishingSystem : EntitySystem
         _transform.AnchorEntity(uid);
 
         var rand = new System.Random((int) GameTiming.CurTick.Value); // evil random prediction hack
+
+        if (HasComp<ActiveFishingSpotComponent>(fishingSpot))
+            return;
 
         // Start it up
         var activeFishSpot = EnsureComp<ActiveFishingSpotComponent>(fishingSpot);
