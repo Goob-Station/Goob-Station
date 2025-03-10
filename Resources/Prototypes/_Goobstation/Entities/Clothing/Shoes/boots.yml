@@ -48,11 +48,11 @@
     tags:
     - WhitelistChameleon
   - type: ClothingSlowOnDamageModifier
-    modifier: 0.4
+    modifier: 0.5
   - type: ClothingModifyStunTime
     modifier: 0.6
   - type: ModifyStandingUpTime
-    multiplier: 0.4
+    multiplier: 0.5
   - type: GasTank
     outputPressure: 42.6
     air:
