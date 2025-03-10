@@ -75,6 +75,7 @@
         Caustic: 0.6
   - type: ClothingSpeedModifier
     sprintModifier: 0.9
+    walkModifier: 0.9
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
@@ -109,6 +110,7 @@
         Heat: 0.45
   - type: ClothingSpeedModifier
     sprintModifier: 0.75
+    walkModifier: 1
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototypes:

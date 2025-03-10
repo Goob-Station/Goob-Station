@@ -83,12 +83,11 @@
     - type: StaticPrice
       price: 350
     - type: Battery
-      maxCharge: 100
-      startingCharge: 100
-    - type: BatterySelfRecharger
-      autoRecharge: true
-      autoRechargeRate: 10
+      maxCharge: 72
+      startingCharge: 72
     - type: RechargeableBlocking
+      dischargedRechargeRate: 2
+      chargedRechargeRate: 3
     - type: ItemSlots
       slots:
         item:
@@ -110,10 +109,10 @@
   description: The identification number on this shield has been scratched off. Something feels wrong.
   components:
   - type: Battery
-    maxCharge: 600
-    startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 100
+    maxCharge: 720
+    startingCharge: 720
+  - type: RechargeableBlocking
+    dischargedRechargeRate: 20
+    chargedRechargeRate: 30
   - type: Item
     size: Normal
