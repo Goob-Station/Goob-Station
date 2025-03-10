@@ -84,7 +84,6 @@ void fragment() {
         vec4 sampleColor = texture2D(TEXTURE, sampleUV);
         if (sampleColor.a > 0.01) {
             accumulatedColor += sampleColor;
-            count += 1.0;
         }
     }
 
