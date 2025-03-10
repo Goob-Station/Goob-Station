@@ -230,8 +230,7 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
             if (TryComp<StationDataComponent>(gridUid, out var stationData))
                 return _station.GetLargestGrid(stationData);
 
-            if (HasComp<BecomesStationComponent>(gridUid) ||
-                HasComp<LavalandStationComponent>(gridUid))
+            if (HasComp<LavalandStationComponent>(gridUid))
                 return gridUid;
 
             var size = grid.LocalAABB.Size.LengthSquared();
