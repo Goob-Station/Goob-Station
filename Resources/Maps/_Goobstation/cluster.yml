@@ -22683,6 +22683,18 @@ entities:
       rot: 3.141592653589793 rad
       pos: -41.5,20.5
       parent: 2
+- proto: CandyBowlFilledLollypopsMystery
+  entities:
+  - uid: 12741
+    components:
+    - type: Transform
+      pos: -14.86662,8.567894
+      parent: 2
+  - uid: 12742
+    components:
+    - type: Transform
+      pos: 0.49459982,18.53052
+      parent: 2
 - proto: CannabisSeeds
   entities:
   - uid: 3334
@@ -29465,6 +29477,7 @@ entities:
       pos: 25.5,-23.5
       parent: 2
     - type: Physics
+      canCollide: True
       bodyType: Dynamic
 - proto: DefaultStationBeaconServerRoom
   entities:
@@ -61099,8 +61112,8 @@ entities:
     - type: Transform
       anchored: False
       rot: 1.5707963267948966 rad
-      pos: 24.015625,-28
-      parent: 1
+      pos: 24.5,-27.5
+      parent: 2
     - type: ApcPowerReceiver
       powerLoad: 0
 - proto: PoweredSmallLight
