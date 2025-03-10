@@ -302,12 +302,14 @@
   result: ProtolatheMachineCircuitboard
 
 - type: latheRecipe
+  abstract: true # DeltaV
   parent: BaseGoldCircuitboardRecipe
   icon: { sprite: Structures/Machines/autolathe_hypercon.rsi, state: icon } # Goobstation
   id: AutolatheHyperConvectionMachineCircuitboard
   result: AutolatheHyperConvectionMachineCircuitboard
 
 - type: latheRecipe
+  abstract: true # DeltaV
   parent: BaseGoldCircuitboardRecipe
   icon: { sprite: Structures/Machines/protolathe_hypercon.rsi, state: icon } # Goobstation
   id: ProtolatheHyperConvectionMachineCircuitboard
@@ -320,6 +322,7 @@
   result: CircuitImprinterMachineCircuitboard
 
 - type: latheRecipe
+  abstract: true # DeltaV
   parent: BaseGoldCircuitboardRecipe
   icon: { sprite: Structures/Machines/circuit_imprinter_hypercon.rsi, state: icon } # Goobstation
   id: CircuitImprinterHyperConvectionMachineCircuitboard

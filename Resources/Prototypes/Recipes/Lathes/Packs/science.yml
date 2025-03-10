@@ -87,9 +87,11 @@
   id: ScienceBoards
   recipes:
   #- TurboItemRechargerCircuitboard - Goobstation - Moved to SharedBoards
-  #- AutolatheHyperConvectionMachineCircuitboard - Moved to SharedBoards
-  #- ProtolatheHyperConvectionMachineCircuitboard - Moved to SharedBoards
-  #- CircuitImprinterHyperConvectionMachineCircuitboard - Moved to SharedBoards
+  # Begin DeltaV Removals - replaced by techfabs/upgrade kits
+  #- AutolatheHyperConvectionMachineCircuitboard
+  #- ProtolatheHyperConvectionMachineCircuitboard
+  #- CircuitImprinterHyperConvectionMachineCircuitboard
+  # End DeltaV Removals
   - TechDiskComputerCircuitboard
   #- FlatpackerMachineCircuitboard - Moved to SharedBoards
   #- SheetifierMachineCircuitboard - Moved to ServiceBoards
