@@ -80,7 +80,7 @@ public sealed partial class MechComponent : Component
     [ViewVariables]
     public Dictionary<string, float> MalfunctionChances = new()
     {
-        { "CabineOnFire", 0.4f },
+        { "CabinOnFire", 0.4f },
         { "EngineBroken", 0.2f },
         { "CabinBreach", 0.2f },
         { "ShortCircuit", 0.6f },
@@ -90,9 +90,9 @@ public sealed partial class MechComponent : Component
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public bool isEngineBroken = false;
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public bool isCabineOnFire = false;
+    public bool isCabinOnFire = false;
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public bool isCabineBreach = false;
+    public bool isCabinBreach = false;
 
     [ViewVariables]
     public FixedPoint2 EnergyLoss = 30;

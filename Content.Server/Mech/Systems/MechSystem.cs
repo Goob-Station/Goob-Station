@@ -93,10 +93,10 @@ public sealed partial class MechSystem : SharedMechSystem
     private void OnRepaired(EntityUid uid, MechComponent comp, RepairedEvent args)
     {
         comp.isEngineBroken = false;
-        if (comp.isCabineBreach)
+        if (comp.isCabinBreach)
         {
             comp.Airtight = true;
-            comp.isCabineBreach = false;
+            comp.isCabinBreach = false;
         }
     }
     private void Ignite(EntityUid uid, MechComponent comp, float fireStacks, EntityUid? user = null)
@@ -290,7 +290,7 @@ public sealed partial class MechSystem : SharedMechSystem
         _actionBlocker.UpdateCanMove(uid);
         args.Handled = true;
 
-        if (component.isCabineOnFire)
+        if (component.isCabinOnFire)
         {
             if (!TryComp<FlammableComponent>(args.Args.User, out var flammable))
                 return;
@@ -336,8 +336,8 @@ public sealed partial class MechSystem : SharedMechSystem
             if (!TryComp<FlammableComponent>(uid, out var flammable))
                 return;
             if (flammable.FireStacks == 0 && !flammable.OnFire)
-                component.isCabineOnFire = false;
-            if (_random.Prob(component.MalfunctionProbability) && !component.isCabineOnFire)
+                component.isCabinOnFire = false;
+            if (_random.Prob(component.MalfunctionProbability) && !component.isCabinOnFire)
             {
                 var pick = _random.Pick(component.MalfunctionChances);
 
@@ -354,11 +354,11 @@ public sealed partial class MechSystem : SharedMechSystem
                         _popup.PopupEntity(Loc.GetString("goobstation-mech-short-circuit"), uid, component.PilotSlot.ContainedEntity.Value);
                     }
                 }
-                else if (pick == "CabineOnFire")
+                else if (pick == "CabinOnFire")
                 {
-                    component.isCabineOnFire = true;
+                    component.isCabinOnFire = true;
                     flammable.OnFire = true;
-                    _popup.PopupEntity(Loc.GetString("goobstation-mech-cabine-on-fire"), uid);
+                    _popup.PopupEntity(Loc.GetString("goobstation-mech-cabin-on-fire"), uid);
                     Ignite(uid, component, 1f);
                 }
                 else if (pick == "EngineBroken")
@@ -372,9 +372,9 @@ public sealed partial class MechSystem : SharedMechSystem
                     if (component.Airtight)
                     {
                         component.Airtight = false;
-                        component.isCabineBreach = true;
+                        component.isCabinBreach = true;
                     }
-                    _popup.PopupEntity(Loc.GetString("goobstation-mech-cabine-breach"), uid);
+                    _popup.PopupEntity(Loc.GetString("goobstation-mech-cabin-breach"), uid);
                 }
                 else if (pick == "EquipmentLoss")
                 {
@@ -386,7 +386,7 @@ public sealed partial class MechSystem : SharedMechSystem
                     var range = 3f;
                     var direction = new Vector2(_random.NextFloat(-range, range), _random.NextFloat(-range, range));
                     _throwingSystem.TryThrow(randompick, direction, range);
-                    _popup.PopupEntity(Loc.GetString("goobstation-mech-cabine-on-fire"), uid);
+                    _popup.PopupEntity(Loc.GetString("goobstation-mech-cabin-on-fire"), uid);
                 }
             }
         }
