@@ -113,8 +113,8 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
-        - SyndicateNamesPrefix
-        - SyndicateNamesElite
+        - nukeops-role-commander
+        - NamesSyndicateElite
       - type: NpcFactionMember
         factions:
         - Syndicate
