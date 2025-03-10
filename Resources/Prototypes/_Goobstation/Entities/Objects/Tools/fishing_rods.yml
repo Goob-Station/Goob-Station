@@ -41,6 +41,7 @@
   description: fish come here
   components:
   - type: Sprite
+    noRot: true
     sprite: _Goobstation/Objects/Specific/Fishing/fishing_lure.rsi
     state: icon
   - type: Item

@@ -44,9 +44,9 @@
           !type:PhysShapeAabb
           bounds: "-0.5,-0.5,0.5,0.5"
         layer:
-          - SlipLayer
+        - ItemMask
         mask:
-          - ItemMask
+        - HighImpassable
         density: 1000
         hard: false
   - type: FootstepModifier
@@ -63,3 +63,10 @@
   - type: TileEntityEffect
     effects:
     - !type:ExtinguishReaction
+  # Goobstation - fishing
+  - type: FishingSpot
+    fishList: !type:NestedSelector
+      tableId: WaterFishingLootTable
+    fishDefaultTimer: 25.0
+    fishTimerVariety: 15.0
+  # Goobstation - fishing

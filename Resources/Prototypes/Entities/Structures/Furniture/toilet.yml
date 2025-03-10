@@ -92,6 +92,13 @@
   #    reagents:
   #    - ReagentId: Water
   #      Quantity: 1
+  # Goobstation - fishing in toilet is fun
+  - type: FishingSpot
+    fishList: !type:NestedSelector
+      tableId: ToiletFishingLootTable
+    fishDefaultTimer: 45.0
+    fishTimerVariety: 15.0
+  # Goobstation - fishing
   - type: DrainableSolution
     solution: tank
   - type: ReagentTank

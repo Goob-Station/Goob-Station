@@ -60,3 +60,11 @@
     children:
       - !type:NestedSelector
         tableId: BasicFishingLootTable
+
+# Items from Toilets
+- type: entityTable
+  id: ToiletFishingLootTable
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+        tableId: BasicFishingLootTable
