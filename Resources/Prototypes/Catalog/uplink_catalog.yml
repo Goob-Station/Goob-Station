@@ -1549,6 +1549,25 @@
   categories:
     - UplinkWearables
 
+- type: listing
+  id: UplinkClothingShoesRealJordans
+  name: uplink-clothing-shoes-real-jordans-name
+  description: uplink-clothing-shoes-real-jordans-desc
+  productEntity: ClothingShoesRealJordans
+  cost:
+    Telecrystal: 10 # goob - same as noslips and funny
+  categories:
+    - UplinkWearables
+
+- type: listing
+  id: UplinkClothingShoesFakeJordans
+  name: uplink-clothing-shoes-fake-jordans-name
+  description: uplink-clothing-shoes-fake-jordans-desc
+  productEntity: ClothingShoesFakeJordans
+  cost:
+    Telecrystal: 1 # goob - suggested and i just had to add it
+  categories:
+    - UplinkWearables
 
  # Pointless
 

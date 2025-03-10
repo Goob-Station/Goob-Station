@@ -455,6 +455,12 @@ uplink-barber-scissors-desc = A good tool to give your fellow agent a nice hairc
 uplink-backpack-syndicate-name = Syndicate backpack
 uplink-backpack-syndicate-desc = A lightweight explosion-proof backpack for holding various traitor goods
 
+uplink-clothing-shoes-real-jordans-name = Air Jordans
+uplink-clothing-shoes-real-jordans-desc = A pair of stylish shoes that also function as slightly faster magboots.
+
+uplink-clothing-shoes-fake-jordans-name = Fake Air Jordans
+uplink-clothing-shoes-fake-jordans-name = A pair of bootleg stylish shoes with none of the functionality of the real deal.
+
 uplink-cameraBug-name = Camera bug
 uplink-cameraBug-desc = A portable device that allows you to view the station's cameras.
 
