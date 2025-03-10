@@ -39,7 +39,6 @@ namespace Content.Server._DV.Harpy
             SubscribeLocalEvent<InstrumentComponent, MobStateChangedEvent>(OnMobStateChangedEvent);
             SubscribeLocalEvent<GotEquippedEvent>(OnEquip);
             SubscribeLocalEvent<EntityZombifiedEvent>(OnZombified);
-            //SubscribeLocalEvent<InstrumentComponent, KnockedDownEvent>(OnKnockedDown);
             SubscribeLocalEvent<InstrumentComponent, StunnedEvent>(OnStunned);
             SubscribeLocalEvent<InstrumentComponent, SleepStateChangedEvent>(OnSleep);
             SubscribeLocalEvent<InstrumentComponent, StatusEffectAddedEvent>(OnStatusEffect);
@@ -74,12 +73,6 @@ namespace Content.Server._DV.Harpy
         {
             CloseMidiUi(args.Target);
         }
-
-        /*private void OnKnockedDown(EntityUid uid, InstrumentComponent component, ref KnockedDownEvent args)
-        {
-            // Don't stop singing on slip
-            //CloseMidiUi(uid);
-        }*/
 
         private void OnStunned(EntityUid uid, InstrumentComponent component, ref StunnedEvent args)
         {
