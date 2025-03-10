@@ -1,6 +1,51 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Removed the Lavaland Transport Shuttle.
+    type: Remove
+  id: 208
+  time: '2025-03-10T18:40:14.544065'
+- author: AstroDogeDX
+  changes:
+  - message: The Salvage Shuttle can now travel to and from the Lavaland base.
+    type: Tweak
+  id: 207
+  time: '2025-03-10T18:40:27.991267'
+- author: AstroDogeDX
+  changes:
+  - message: The Lavaland Outpost has had its docking area adjusted to fit the Salvage
+      Shuttle.
+    type: Tweak
+  id: 206
+  time: '2025-03-10T18:42:48.218532'
+- author: AstroDogeDX
+  changes:
+  - message: Every map in rotation now has a dedicated docking area for the Salvage
+      Shuttle.
+    type: Add
+  id: 205
+  time: '2025-03-10T18:40:51.170246'
+- author: AstroDogeDX
+  changes:
+  - message: QM's office has been removed from the Lavaland Outpost.
+    type: Remove
+  id: 204
+  time: '2025-03-10T18:41:07.536918'
+- author: AstroDogeDX
+  changes:
+  - message: Mining Hardsuits have been added to the Salvage Shuttle.
+    type: Add
+  id: 203
+  time: '2025-03-10T18:41:21.794678'
+- author: AstroDogeDX
+  changes:
+  - message: Crew monitor has been removed from the Lavaland Outpost. Incidentally
+      this might magically make handheld monitors WORK in Lavaland. (Untested)
+    type: Fix
+  id: 202
+  time: '2025-03-10T18:41:55.157548'
+- author: AstroDogeDX
+  changes:
   - message: Redundant gas filters have been removed from most of the 'Shiba Seven'
       maps. There's never been a reason to filter N2 and O2 back into storage.
     type: Fix
