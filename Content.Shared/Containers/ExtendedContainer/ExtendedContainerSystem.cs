@@ -53,6 +53,7 @@ public sealed partial class ExtendedContainerSystem : EntitySystem
         if (args.Container.ID != component.ContainerName)
             return;
 
+        // Cancel removal only if entity is NOT whitelisted
         if (component.RemoveWhitelist != null && _whitelistsystem.IsValid(component.RemoveWhitelist, args.EntityUid))
         {
             args.Cancel();

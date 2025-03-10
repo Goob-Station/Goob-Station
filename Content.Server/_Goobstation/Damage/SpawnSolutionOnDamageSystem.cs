@@ -1,33 +1,11 @@
-
-using Content.Shared.Actions;
-using Content.Shared.Buckle.Components;
-using Content.Shared.Climbing.Components;
-using Content.Shared.CombatMode;
-using Content.Shared.DoAfter;
-using Content.Shared.Emag.Systems;
-using Content.Shared.Hands.Components;
-using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Item;
-using Content.Shared.Physics;
-using Content.Shared.Stunnable;
-using Content.Shared.Vehicles;
-using Content.Shared.Weapons.Ranged.Components;
-using Content.Shared.Whitelist;
-using Robust.Shared.Containers;
-using Robust.Shared.Serialization;
-using Robust.Shared.Utility;
-using Robust.Shared.Audio.Systems;
-using Content.Shared.DragDrop;
-using Content.Shared.Emag.Components;
 using Content.Shared.Damage;
-using Robust.Shared.Analyzers;
-using Robust.Shared.Maths;
 using Robust.Shared.Random;
 
 namespace Content.Server._Goobstation.Damage;
 
 public sealed partial class SpawnSolutionOnDamageSystem : EntitySystem
 {
+    [Dependency] private readonly IRobustRandom _random = null!;
      public override void Initialize()
     {
         SubscribeLocalEvent<SpawnSolutionOnDamageComponent, BeforeDamageChangedEvent>(OnTakeDamage);
@@ -41,10 +19,11 @@ public sealed partial class SpawnSolutionOnDamageSystem : EntitySystem
         if (args.Damage.GetTotal() <= ent.Comp.Threshold)
             return; //dont trigger on low damage
 
-        var random = new Random();
-        if (random.NextFloat(0f, 100f) > (ent.Comp.Probability))
+        var probability = Math.Clamp(ent.Comp.Probability, 0f, 1f);
+        if(_random.Prob(probability))
+
             return;
-        if (ent.Comp.Solution == "unkown")
+        if (ent.Comp.Solution == "unknown")
             return;
 
         Spawn(ent.Comp.Solution, Transform(ent).Coordinates);

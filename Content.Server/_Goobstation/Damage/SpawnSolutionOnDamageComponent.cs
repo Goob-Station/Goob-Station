@@ -9,7 +9,7 @@ namespace Content.Server._Goobstation.Damage;
 public sealed partial class SpawnSolutionOnDamageComponent : Component
 {
     [DataField]
-    public EntProtoId Solution = "unkown";
+    public EntProtoId Solution = "unknown";
     [DataField]
     public float MinimumAmoun = -1;
     [DataField]
@@ -17,5 +17,5 @@ public sealed partial class SpawnSolutionOnDamageComponent : Component
     [DataField]
     public float Threshold = -1;
     [DataField]
-    public float Probability = 100;
+    public float Probability = 1f;
 }

@@ -45,7 +45,7 @@
       collection: ClowncarCrash
     whitelist:
       components:
-      - Clumsy
+      - Clumsy # clown only
   - type: UnpoweredFlashlight
   - type: PointLight
     enabled: false
@@ -111,7 +111,7 @@
   - type: SpawnSolutionOnDamage
     solution: PuddleSpaceLube
     threshold: 5
-    probability: 33
+    probability: 0.33
   - type: Damageable
     damageContainer: ClowncarDamageContainer
     damageModifierSet: Metallic
