@@ -270,7 +270,7 @@
           state: generic_keys
     - type: DroneConsole
       components:
-        - type: SalvageShuttle
+        - type: MiningShuttle
     - type: RadarConsole
       maxRange: 256
     - type: PointLight
