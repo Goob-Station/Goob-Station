@@ -248,8 +248,6 @@ entities:
 - proto: ActionToggleInternals
   entities:
   - uid: 4
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 3
@@ -257,8 +255,6 @@ entities:
       originalIconColor: '#FFFFFFFF'
       container: 3
   - uid: 7
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 6
@@ -266,8 +262,6 @@ entities:
       originalIconColor: '#FFFFFFFF'
       container: 6
   - uid: 10
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 9
@@ -275,8 +269,6 @@ entities:
       originalIconColor: '#FFFFFFFF'
       container: 9
   - uid: 20
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 19
@@ -284,8 +276,6 @@ entities:
       originalIconColor: '#FFFFFFFF'
       container: 19
   - uid: 22
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 21
@@ -295,8 +285,6 @@ entities:
 - proto: ActionToggleJetpack
   entities:
   - uid: 5
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 3
@@ -304,8 +292,6 @@ entities:
       originalIconColor: '#FFFFFFFF'
       container: 3
   - uid: 8
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 6
@@ -313,8 +299,6 @@ entities:
       originalIconColor: '#FFFFFFFF'
       container: 6
   - uid: 11
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 9
