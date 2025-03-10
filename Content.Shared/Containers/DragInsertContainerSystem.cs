@@ -6,7 +6,6 @@ using Content.Shared.DoAfter;
 using Content.Shared.DragDrop;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
-using Content.Shared.DoAfter; //Goobstation
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Containers;
@@ -27,15 +26,14 @@ public sealed partial class DragInsertContainerSystem : EntitySystem
         SubscribeLocalEvent<DragInsertContainerComponent, DragInsertContainerDoAfterEvent>(OnDragFinished);
         SubscribeLocalEvent<DragInsertContainerComponent, CanDropTargetEvent>(OnCanDragDropOn);
         SubscribeLocalEvent<DragInsertContainerComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAlternativeVerb);
-        SubscribeLocalEvent<DragInsertContainerComponent, InsertOnDragDoAfterEvent>(OnDragDoAfter);
     }
 
     private void OnDragDropOn(Entity<DragInsertContainerComponent> ent, ref DragDropTargetEvent args)
     {
         if (args.Handled)
             return;
-        var (uid, comp) = ent;
 
+        var (_, comp) = ent;
         if (!_container.TryGetContainer(ent, comp.ContainerId, out var container))
             return;
 
@@ -68,18 +66,7 @@ public sealed partial class DragInsertContainerSystem : EntitySystem
 
         Insert(args.Args.Target.Value, args.User, ent, container);
     }
-    private void OnDragDoAfter(Entity<DragInsertContainerComponent> ent, ref InsertOnDragDoAfterEvent args)
-    {
-        if (args.Handled || args.Cancelled || args.Args.Target == null)
-            return;
 
-        var (uid, comp) = ent;
-
-        if (!_container.TryGetContainer(ent, comp.ContainerId, out var container))
-            return;
-
-        args.Handled = Insert(args.Args.Target.Value, args.User, ent, container);
-    }
     private void OnCanDragDropOn(Entity<DragInsertContainerComponent> ent, ref CanDropTargetEvent args)
     {
         var (_, comp) = ent;

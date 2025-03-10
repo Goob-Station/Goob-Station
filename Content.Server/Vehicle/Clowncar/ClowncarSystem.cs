@@ -71,7 +71,7 @@ public sealed class ClowncarSystem : SharedClowncarSystem
 
         if (vehicle.Driver == null){
             AlternativeVerb verb = new();
-            verb.Text = "Enter Driverseat";
+            verb.Text = "Enter Driver seat";
             verb.Act = () => EnterDriverSeatVerb(uid, verbs.User, component);
             verbs.Verbs.Add(verb);
         }
@@ -150,13 +150,13 @@ public sealed class ClowncarSystem : SharedClowncarSystem
             return;
 
         if (args.IsInDetailsRange)
-            args.PushMarkup("Contains: " + container.Count + " Happy Passangers");
+            args.PushMarkup("Contains: " + container.Count + " Happy Passengers");
     }
 
     private void OnQuietInTheBack(EntityUid uid, ClowncarComponent component, QuietBackThereActionEvent args)
     {
         component.ThankCounter = 0;
-        _chatSystem.TrySendInGameICMessage(args.Performer, Loc.GetString("clowncar-Quiet-in-the-back"), InGameICChatType.Speak, false);
+        _chatSystem.TrySendInGameICMessage(args.Performer, Loc.GetString("clowncar-quiet-in-the-back"), InGameICChatType.Speak, false);
     }
 
 }

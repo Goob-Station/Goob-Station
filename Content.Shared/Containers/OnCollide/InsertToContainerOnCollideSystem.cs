@@ -33,6 +33,18 @@ public sealed class InsertToContainerOnCollideSystem : EntitySystem
         if (component.InsertableEntities != null && !_whitelistSystem.IsValid(component.InsertableEntities, args.OtherEntity))
             return;
 
-        _containerSystem.Insert(args.OtherEntity, container);
+        if (container.Contains(args.OtherEntity))
+            return;
+
+        if (_containerSystem.Insert(args.OtherEntity, container))
+        {
+            // Spellcasting failed! Log the arcane failure if needed
+            //todo add log on success
+        }
+        else
+        {
+            //todo
+            //log on faliure
+        }
     }
 }

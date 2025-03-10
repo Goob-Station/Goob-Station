@@ -19,9 +19,11 @@ public sealed partial class ClowncarComponent : Component
     [ViewVariables]
     public EntProtoId ThankRiderAction = "ActionThankDriver";
 
+    [DataField]
     [ViewVariables]
     public EntProtoId QuietInTheBackAction = "ActionQuietBackThere";
 
+    [DataField]
     [ViewVariables]
     public EntProtoId CanonModeAction = "ActionCanonmode";
 

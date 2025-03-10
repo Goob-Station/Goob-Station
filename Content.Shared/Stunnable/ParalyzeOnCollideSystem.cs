@@ -18,11 +18,13 @@ public sealed class ParalyzeOnCollideSystem : EntitySystem
 
     private void OnStartCollide(EntityUid uid, ParalyzeOnCollideComponent component, ref StartCollideEvent args)
     {
-        if (component.CollidableEntities != null && _whitelistSystem.IsValid(component.CollidableEntities, args.OtherEntity));
+        if (component.CollidableEntities != null &&
+            _whitelistSystem.IsValid(component.CollidableEntities, args.OtherEntity))
+            return;
 
-        if (component.ParalyzeOther)
+        if (component.ParalyzeOther && args.OtherEntity != null)
             _stunSystem.TryParalyze(args.OtherEntity, component.ParalyzeTime, true);
-        if (component.ParalyzeSelf)
+        if (component.ParalyzeSelf && uid != null)
             _stunSystem.TryParalyze(uid, component.ParalyzeTime, true);
 
         if (component.RemoveAfterCollide)

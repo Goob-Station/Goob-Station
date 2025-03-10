@@ -66,7 +66,6 @@ public abstract partial class SharedClowncarSystem : EntitySystem
     {
         base.Initialize();
 
-        //SubscribeLocalEvent<ClowncarComponent, GotEmaggedEvent>(OnGotEmagged);
         SubscribeLocalEvent<ClowncarComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
         SubscribeLocalEvent<ClowncarComponent, StrappedEvent>(OnBuckle);
         SubscribeLocalEvent<ClowncarComponent, UnstrappedEvent>(OnUnBuckle);
@@ -88,21 +87,6 @@ public abstract partial class SharedClowncarSystem : EntitySystem
         _actionsSystem.AddAction(args.Entity, component.ThankRiderAction, uid);
     }
 
-    /// <summary>
-    /// Handles making the "toggle cannon" action available only when the car is emagged
-    /// </summary>
-    private void OnGotEmagged(EntityUid uid, ClowncarComponent component, ref GotEmaggedEvent args)
-    {
-        EnsureComp<EmaggedComponent>(uid);
-
-        if (!TryComp<VehicleComponent>(uid, out var vehicle)
-            || vehicle.Driver == null)
-            return;
-
-        _actionsSystem.AddAction(vehicle.Driver.Value, component.CanonModeAction, uid);
-        args.Handled = true;
-        args.Repeatable = false;
-    }
 
     /// <summary>
     /// Handles preventing collision with the rider and
@@ -117,6 +101,7 @@ public abstract partial class SharedClowncarSystem : EntitySystem
         _actionsSystem.AddAction(args.Buckle.Owner, component.QuietInTheBackAction, uid);
         component.ThankCounter = 0;
     }
+
     private void OnUnBuckle(EntityUid uid, ClowncarComponent component, ref UnstrappedEvent args)
     {
         foreach (var ( actionId, comp ) in _actionsSystem.GetActions(args.Buckle.Owner))
