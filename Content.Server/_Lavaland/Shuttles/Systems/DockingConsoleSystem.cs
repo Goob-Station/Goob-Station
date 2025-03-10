@@ -155,7 +155,7 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
         _shuttle.FTLToDock(shuttle, Comp<ShuttleComponent>(shuttle), grid, priorityTag: docking.DockTag);
     }
 
-    private readonly ResPath _miningShuttlePath = new("/Maps/_Lavaland/mining.yml");
+    private readonly ResPath _miningShuttlePath = new("/Maps/Shuttles/mining.yml");
 
     /// <summary>
     /// Load a new mining shuttle if it still doesn't exist
