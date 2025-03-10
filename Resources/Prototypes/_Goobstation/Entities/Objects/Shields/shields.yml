@@ -62,16 +62,16 @@
       passiveBlockFraction: 0.7
       passiveBlockModifier:
         coefficients:
-          Blunt: 0.5
-          Slash: 0.5
-          Piercing: 0.5
-          Heat: 0.5
+          Blunt: 1
+          Slash: 1
+          Piercing: 1
+          Heat: 1
       activeBlockModifier:
         coefficients:
-          Blunt: 0.35
-          Slash: 0.35
-          Piercing: 0.35
-          Heat: 0.35
+          Blunt: 0.7
+          Slash: 0.7
+          Piercing: 0.7
+          Heat: 0.7
         flatReductions:
           Heat: 3
           Blunt: 3
@@ -83,11 +83,13 @@
     - type: StaticPrice
       price: 350
     - type: Battery
-      maxCharge: 72
-      startingCharge: 72
+      maxCharge: 180
+      startingCharge: 180
     - type: RechargeableBlocking
-      dischargedRechargeRate: 2
-      chargedRechargeRate: 3
+      dischargedRechargeRate: 10
+      chargedRechargeRate: 15
+    - type: BatterySelfRecharger
+      autoRecharge: true
     - type: ItemSlots
       slots:
         item:
@@ -109,10 +111,10 @@
   description: The identification number on this shield has been scratched off. Something feels wrong.
   components:
   - type: Battery
-    maxCharge: 720
-    startingCharge: 720
+    maxCharge: 1800
+    startingCharge: 1800
   - type: RechargeableBlocking
-    dischargedRechargeRate: 20
-    chargedRechargeRate: 30
+    dischargedRechargeRate: 100
+    chargedRechargeRate: 150
   - type: Item
     size: Normal
