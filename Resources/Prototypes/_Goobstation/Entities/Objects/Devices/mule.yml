@@ -1,0 +1,38 @@
+- type: entity
+  parent:
+  - MobSiliconBase
+  id: MobMULE
+  name: MULEbot
+  description: Multiple Utility Load Effector Mk. V. MOVE CRATES.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Silicon/Bots/mule.rsi
+    layers:
+    - state: mulebot0 # idle layer
+      map: [ "enum.DamageStateVisualLayers.Base", "movement" ]
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: mulebot1
+    noMovementLayers:
+      movement:
+        state: mulebot0
+  - type: Strap
+    buckleOffset: "0,0.25"
+  - type: Mule
+  - type: ShowOnBuckle
+  - type: HTN
+    rootTask:
+      task: MULECompound
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        density: 500
+        mask:
+        - MobMask
+        layer:
+        - MobLayer

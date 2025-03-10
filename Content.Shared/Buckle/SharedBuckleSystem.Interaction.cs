@@ -1,3 +1,4 @@
+using Content.Shared._Goobstation.MULE.Components;
 using Content.Shared.Buckle.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.DragDrop;
@@ -135,6 +136,11 @@ public abstract partial class SharedBuckleSystem
             if (!_interaction.InRangeUnobstructed(args.User, args.Target, range: buckledComp.Range))
                 continue;
 
+            // Goobstation start - Mule interaction blocker
+            if (HasComp<MuleComponent>(args.Target))
+                continue;
+            // Goobstation end
+
             var verb = new InteractionVerb()
             {
                 Act = () => TryUnbuckle(entity, args.User, buckleComp: buckledComp),
@@ -198,6 +204,11 @@ public abstract partial class SharedBuckleSystem
     {
         if (!args.CanAccess || !args.CanInteract || !component.Buckled)
             return;
+
+        // Goobstation start - Mule interaction blocker
+        if (HasComp<BlockOnBuckleComponent>(args.Target))
+            return;
+        // Goobstation end
 
         InteractionVerb verb = new()
         {
