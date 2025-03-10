@@ -1,6 +1,7 @@
+using Content.Server._Goobstation.Religion;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Bible.Components;
+using Content.Shared.Bible.Components;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Popups;
 using Content.Shared.ActionBlocker;
@@ -144,6 +145,13 @@ namespace Content.Server.Bible
                         }
                         break;
                 }
+            }
+
+            if (EntityManager.TryGetComponent(args.Target, out WeakToHolyComponent? weakToHoly))
+            {
+                // Redundant variable but when I remove it, it stops working so who cares.
+                DoBibleSmite(uid, useDelay, args);
+                return;
             }
             //Public Domain Code Ends
             //Goobstation Edit End - Religion

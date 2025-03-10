@@ -1,5 +1,5 @@
 ﻿//Public Domain Code
-using Content.Server.Bible.Components;
+using Content.Shared.Bible.Components;
 using Content.Shared._Goobstation.Religion;
 using Content.Shared.GameTicking;
 using Content.Shared.Inventory;
@@ -19,7 +19,7 @@ public sealed class ReligionSystem: EntitySystem
     private void OnSpawnComplete(PlayerSpawnCompleteEvent args)
     {
 
-        if (HasComp<BibleUserComponent>(args.Mob)) //Theoretically this can be used to let everyone spawn with the bible of their chosen faith
+        if (HasComp<BibleUserComponent>(args.Mob)) // Theoretically this can be used to let everyone spawn with the bible of their chosen faith
         {
             if (EntityManager.TryGetComponent(args.Mob, out ReligionComponent? mobReligion))
             {
