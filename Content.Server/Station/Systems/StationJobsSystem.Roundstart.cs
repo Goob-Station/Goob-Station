@@ -291,7 +291,9 @@ public sealed partial class StationJobsSystem
             }
 
             var profile = profiles[player];
-            if (profile.PreferenceUnavailable != PreferenceUnavailableMode.SpawnAsOverflow)
+            if (profile.PreferenceUnavailable != PreferenceUnavailableMode.SpawnAsOverflow &&
+                !(_pendingAntag.PendingAntags.TryGetValue(player, out var antag) &&
+                antag.Item2.Comp.ForceAntagRoll)) // Goob edit
             {
                 _pendingAntag.PendingAntags.Remove(player); // Goobstation
                 assignedJobs.Add(player, (null, EntityUid.Invalid));
@@ -353,7 +355,7 @@ public sealed partial class StationJobsSystem
 
             List<string>? availableJobs = null;
 
-            var pendingAntag = _pendingAntag.PendingAntags.ContainsKey(player); // Goobstation
+            var pendingAntag = _pendingAntag.PendingAntags.TryGetValue(player, out var antag); // Goobstation
 
             foreach (var jobId in profileJobs)
             {
@@ -366,6 +368,9 @@ public sealed partial class StationJobsSystem
                     continue;
 
                 if (!job.CanBeAntag && pendingAntag) // Goobstation
+                    continue;
+
+                if (pendingAntag && antag.Item1.BlacklistedJobs.Contains(job.ID)) // Goobstation
                     continue;
 
                 if (weight is not null && job.Weight != weight.Value)
