@@ -505,15 +505,15 @@ public sealed partial class ShuttleSystem
             var config = _dockSystem.GetDockingConfigAt(uid, target.EntityId, target, entity.Comp1.TargetAngle);
             var mapCoordinates = _transform.ToMapCoordinates(target);
 
-            // Couldn't dock somehow so just fallback to regular position FTL.
-            if (config == null)
-            {
-                TryFTLProximity(uid, target.EntityId);
-            }
-            else
-            {
+            // Goob/LL edit start
+            // Added a retry to getting a valid docking config, in case concurrent FTL arrivals took the reserved spot
+            if (config != null)
                 FTLDock((uid, xform), config);
-            }
+            else if ((config = _dockSystem.GetDockingConfig(uid, target.EntityId, entity.Comp1.PriorityTag)) != null)
+                FTLDock((uid, xform), config);
+            else
+                TryFTLProximity(uid, target.EntityId);
+            // Goob/LL edit end
 
             mapId = mapCoordinates.MapId;
         }
