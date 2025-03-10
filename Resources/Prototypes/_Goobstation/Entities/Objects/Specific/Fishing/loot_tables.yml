@@ -1,0 +1,70 @@
+# This should be on every other fishing table
+- type: entityTable
+  id: BasicFishingLootTable
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+        tableId: SalvageScrapSpawnerCommon
+
+# All types of the rare and unique fishes
+- type: entityTable
+  id: RareFishTable
+  table: !type:GroupSelector
+    children:
+    - id: FishAlien
+    - id: FishBingle
+    - id: FishBoyFisher
+    - id: FishNukeDisk
+    - id: FishGib
+    - id: FishMutant
+    - id: FishNuker
+
+# Fish from water
+- type: entityTable
+  id: WaterFishTable
+  table: !type:GroupSelector
+    children:
+    - id: FishAngler
+    - id: FishBass
+    - id: FishCat
+    - id: FishTropicalClown
+    - id: FishPuffer
+    - id: FishSilver
+    - id: FishTropicalSun
+    - id: FishTropical
+
+# Items from Water
+- type: entityTable
+  id: WaterFishingLootTable
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+        tableId: BasicFishingLootTable
+      - !type:NestedSelector
+        tableId: WaterFishTable
+      - !type:NestedSelector
+        tableId: RareFishTable
+
+# Items from Lava
+- type: entityTable
+  id: LavaFishingLootTable
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+        tableId: BasicFishingLootTable
+
+# Items from Plasma
+- type: entityTable
+  id: PlasmaFishingLootTable
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+        tableId: BasicFishingLootTable
+
+# Items from Toilets
+- type: entityTable
+  id: ToiletFishingLootTable
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+        tableId: BasicFishingLootTable
