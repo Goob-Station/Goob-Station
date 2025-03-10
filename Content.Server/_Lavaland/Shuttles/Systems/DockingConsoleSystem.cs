@@ -18,6 +18,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Utility;
 using Timer = Robust.Shared.Timing.Timer;
+using Content.Shared.Station.Components;
 
 namespace Content.Server._Lavaland.Shuttles.Systems;
 
@@ -229,6 +230,12 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
 
             if (TryComp<StationDataComponent>(gridUid, out var stationData))
                 return _station.GetLargestGrid(stationData);
+
+            if (HasComp<BecomesStationComponent>(gridUid) &&
+                TryComp<StationMemberComponent>(gridUid, out var stationMember) &&
+                stationMember.Station == gridUid)
+                return gridUid;
+
 
             if (HasComp<LavalandStationComponent>(gridUid))
                 return gridUid;
