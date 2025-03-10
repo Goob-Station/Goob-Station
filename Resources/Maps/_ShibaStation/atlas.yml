@@ -4,7 +4,7 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/07/2025 12:52:57
+  time: 03/10/2025 17:02:21
   entityCount: 9381
 maps:
 - 1
@@ -243,8 +243,8 @@ entities:
             id: Arrows
           decals:
             684: 25,0
-            1110: -44,19
             1112: -42,19
+            1181: -41,19
         - node:
             color: '#FFFFFFFF'
             id: Bot
@@ -269,8 +269,6 @@ entities:
             985: -51,12
             1010: -17,13
             1011: -16,13
-            1106: -43,18
-            1107: -43,19
             1121: -46,20
             1122: -46,18
             1123: -46,17
@@ -496,6 +494,12 @@ entities:
             id: Bushm2
           decals:
             60: 7.348894,2.1080375
+        - node:
+            color: '#FFFFFFFF'
+            id: Caution
+          decals:
+            1178: -44,20
+            1179: -43,20
         - node:
             color: '#474F52FF'
             id: CheckerNESW
@@ -790,6 +794,7 @@ entities:
             1150: -45,15
             1151: -42,15
             1152: -39,17
+            1174: -43,19
         - node:
             color: '#FFFFFFFF'
             id: DirtLight
@@ -877,6 +882,9 @@ entities:
             1141: -34,19
             1142: -37,21
             1156: -44,17
+            1175: -43,18
+            1176: -41,19
+            1177: -44,19
         - node:
             color: '#FFFFFFFF'
             id: DirtMedium
@@ -1521,6 +1529,7 @@ entities:
             id: LoadingArea
           decals:
             664: -19,21
+            1182: -37,20
         - node:
             color: '#33AEE2FF'
             id: MiniTileSteelBox
@@ -1876,7 +1885,6 @@ entities:
             691: -29,-8
             692: -29,-10
             693: -30,-10
-            1113: -43,20
         - node:
             color: '#334E6DC8'
             id: ThreeQuarterTileOverlayGreyscale
@@ -2125,10 +2133,7 @@ entities:
             1102: -40,20
             1114: -44,20
             1115: -42,20
-            1116: -43,20
-            1117: -43,20
-            1118: -43,20
-            1119: -43,20
+            1180: -43,20
         - node:
             angle: -3.141592653589793 rad
             color: '#FFFFFFFF'
@@ -2167,46 +2172,6 @@ entities:
             856: 4,22
             857: 4,21
             858: 4,20
-        - node:
-            cleanable: True
-            angle: 1.5707963267948966 rad
-            color: '#593D31FF'
-            id: footprint
-          decals:
-            1167: -41.545868,18.353834
-            1168: -41.984276,18.660553
-            1169: -42.393463,18.353834
-        - node:
-            cleanable: True
-            angle: 3.141592653589793 rad
-            color: '#593D31FF'
-            id: footprint
-          decals:
-            1157: -43.431046,19.770582
-            1158: -43.226448,19.347017
-            1159: -43.489494,18.952665
-            1160: -43.19722,18.60213
-            1161: -43.504112,18.163961
-            1162: -43.138763,17.740396
-            1170: -42.46653,19.025694
-        - node:
-            cleanable: True
-            angle: 4.71238898038469 rad
-            color: '#593D31FF'
-            id: footprint
-          decals:
-            1163: -42.685738,17.915665
-            1164: -42.174255,17.608946
-            1165: -41.765076,17.974087
-            1166: -41.35589,17.535917
-        - node:
-            cleanable: True
-            angle: 6.283185307179586 rad
-            color: '#593D31FF'
-            id: footprint
-          decals:
-            1171: -42.83188,19.317806
-            1172: -42.59806,19.814398
     - type: GridAtmosphere
       version: 2
       data:
@@ -2765,12 +2730,12 @@ entities:
             0: 65391
           -13,-2:
             0: 34943
-            3: 12288
+            6: 12288
           -12,-1:
             0: 65535
           -13,-1:
             0: 34952
-            4: 12336
+            3: 12336
           -12,0:
             0: 65535
           -12,-5:
@@ -2806,7 +2771,7 @@ entities:
           -13,-6:
             2: 61680
           -13,-5:
-            4: 61152
+            3: 61152
           -11,-6:
             2: 49
             0: 56320
@@ -2834,8 +2799,8 @@ entities:
             0: 305
           -13,0:
             0: 34952
-            5: 48
-            6: 12288
+            4: 48
+            5: 12288
           -12,1:
             1: 30576
           -13,1:
@@ -2879,7 +2844,7 @@ entities:
             0: 12
             2: 64
           -11,5:
-            0: 47
+            0: 63
           -10,5:
             0: 205
           -16,0:
@@ -2915,8 +2880,8 @@ entities:
             2: 119
           -14,0:
             0: 13107
-            5: 128
-            6: 32768
+            4: 128
+            5: 32768
           -14,1:
             0: 32947
           -14,2:
@@ -2928,7 +2893,7 @@ entities:
             2: 34952
           -14,-1:
             0: 13107
-            4: 32896
+            3: 32896
           -14,4:
             0: 8
             2: 63552
@@ -2951,7 +2916,7 @@ entities:
             0: 2184
           -14,-2:
             0: 13311
-            3: 32768
+            6: 32768
           -14,-4:
             2: 4573
             0: 32768
@@ -3022,8 +2987,8 @@ entities:
         - volume: 2500
           temperature: 235
           moles:
-          - 21.824879
-          - 82.10312
+          - 27.225372
+          - 102.419266
           - 0
           - 0
           - 0
@@ -3063,25 +3028,6 @@ entities:
           - 0
           - 0
           - 0
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -3121,6 +3067,25 @@ entities:
           - 6666.982
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 0
+          - 0
+          - 6666.982
           - 0
           - 0
           - 0
@@ -4058,7 +4023,7 @@ entities:
       pos: -24.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -6435.1006
+      secondsUntilStateChange: -6685.2256
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4489,9 +4454,17 @@ entities:
       rot: 3.141592653589793 rad
       pos: -19.5,26.5
       parent: 2
-- proto: AirlockExternalGlassShuttleMiningFilled
+- proto: AirlockExternalGlassShuttleMining
   entities:
   - uid: 6420
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -43.5,21.5
+      parent: 2
+- proto: AirlockExternalGlassShuttleMiningFilled
+  entities:
+  - uid: 6356
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -5430,6 +5403,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -44.5,13.5
+      parent: 2
+  - uid: 425
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -43.5,21.5
       parent: 2
   - uid: 6614
     components:
@@ -22011,7 +21990,7 @@ entities:
   - uid: 7157
     components:
     - type: Transform
-      pos: -43.5,20.5
+      pos: -40.5,20.5
       parent: 2
 - proto: ComputerShuttleSalvage
   entities:
@@ -41054,12 +41033,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -41.5,21.5
       parent: 2
-  - uid: 6356
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -43.5,21.5
-      parent: 2
   - uid: 6844
     components:
     - type: Transform
@@ -46711,12 +46684,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -36.5,22.5
-      parent: 2
-  - uid: 425
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -43.5,21.5
       parent: 2
   - uid: 426
     components:

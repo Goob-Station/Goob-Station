@@ -58,10 +58,10 @@ entities:
       fixtures: {}
     - type: OccluderTree
     - type: SpreaderGrid
-    - type: Shuttle
-    - type: MiningShuttle
-    - type: DockingShuttle
-      destinations: []
+    # - type: Shuttle
+    # - type: MiningShuttle
+    # - type: DockingShuttle
+    #   destinations: []
     - type: ProtectedGrid
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier

@@ -47,16 +47,13 @@
     - type: GridSpawn
       groups:
         trade: !type:GridSpawnGroup
+          stationGrid: false
           addComponents:
             - type: ProtectedGrid
             - type: TradeStation
           paths:
             - /Maps/Shuttles/trading_outpost.yml
           nameDataset: TradeStationNames
-        mining: !type:GridSpawnGroup
-          paths:
-          - /Maps/Shuttles/mining.yml
-          nameDataset: MiningShuttleNames
         # Spawn last
         ruins: !type:GridSpawnGroup
           hide: true
@@ -88,6 +85,11 @@
             inherent: true
           protos:
           - VGRoid
+        # mining: !type:GridSpawnGroup
+        #   stationGrid: false
+        #   paths:
+        #   - /Maps/Shuttles/mining.yml
+        #   nameDataset: MiningShuttleNames
 
 - type: entity
   id: BaseStationCentcomm
