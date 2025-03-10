@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/06/2025 16:39:29
-  entityCount: 167
+  time: 03/10/2025 17:58:32
+  entityCount: 171
 maps: []
 grids:
 - 181
@@ -56,7 +56,9 @@ entities:
       bodyType: Dynamic
     - type: Fixtures
       fixtures: {}
-    - type: SalvageShuttle
+    - type: MiningShuttle
+    - type: DockingShuttle
+      destinations: []
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
@@ -647,10 +649,10 @@ entities:
       parent: 181
 - proto: BorgModuleMining
   entities:
-  - uid: 94
+  - uid: 164
     components:
     - type: Transform
-      pos: -1.4982989,5.541272
+      pos: -3.5053883,4.4884524
       parent: 181
 - proto: CableApcExtension
   entities:
@@ -941,6 +943,14 @@ entities:
     - type: Transform
       pos: -2.5,6.5
       parent: 181
+- proto: ComputerShuttleMiningLavaland
+  entities:
+  - uid: 154
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -1.5,5.5
+      parent: 181
 - proto: GasPassiveVent
   entities:
   - uid: 77
@@ -1112,6 +1122,13 @@ entities:
     - type: Transform
       pos: -0.5,-0.5
       parent: 181
+- proto: HolopadCentCommSalvageShuttle
+  entities:
+  - uid: 170
+    components:
+    - type: Transform
+      pos: -2.5,4.5
+      parent: 181
 - proto: PersonalAI
   entities:
   - uid: 167
@@ -1135,7 +1152,6 @@ entities:
       linearDamping: 0
       bodyType: Static
     - type: InsertingMaterialStorage
-      endTime: 0
 - proto: PoweredSmallLight
   entities:
   - uid: 138
@@ -1254,12 +1270,24 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -4.5,-5.5
       parent: 181
-- proto: Table
+- proto: SuitStorageSalv
   entities:
-  - uid: 154
+  - uid: 94
     components:
     - type: Transform
-      pos: -1.5,5.5
+      pos: -5.5,2.5
+      parent: 181
+  - uid: 166
+    components:
+    - type: Transform
+      pos: -4.5,2.5
+      parent: 181
+- proto: Table
+  entities:
+  - uid: 163
+    components:
+    - type: Transform
+      pos: -3.5,4.5
       parent: 181
 - proto: Thruster
   entities:
