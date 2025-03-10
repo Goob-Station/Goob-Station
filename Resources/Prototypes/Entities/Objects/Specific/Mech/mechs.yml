@@ -277,6 +277,11 @@
     pilotWhitelist:
       tags:
       - Hamster
+    mechArmor:  # Goobstation - Make thresholds for damage
+      types:
+        Blunt: 12
+        Slash: 8
+        Piercing: 8
   - type: MeleeWeapon
     hidden: true
     attackRate: 0.8
@@ -339,6 +344,11 @@
     pilotWhitelist:
       tags:
       - VimPilot
+    mechArmor:  # Goobstation - Make thresholds for damage
+      types:
+        Blunt: 5
+        Slash: 3
+        Piercing: 2
   - type: MeleeWeapon
     hidden: true
     attackRate: 0.8
