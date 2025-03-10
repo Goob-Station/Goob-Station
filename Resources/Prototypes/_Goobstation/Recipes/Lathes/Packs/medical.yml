@@ -16,11 +16,6 @@
   - MedicalPatchLarge
 
 - type: latheRecipePack
-  id: MedicalWeaponsStatic
-  recipes:
-  - SyringeGun
-
-- type: latheRecipePack
   id: SurgeryStaticGoob
   recipes:
   - BoneGel
@@ -29,6 +24,11 @@
   id: MedicalVehiclesStatic
   recipes:
   - VehicleWheelchairFolded
+
+- type: latheRecipePack
+  id: MedicalVehiclesAdvanced
+  recipes:
+  - VehicleHoverchairSci
 
 ## Dynamic
 - type: latheRecipePack
@@ -51,11 +51,14 @@
   - MedicalCyberneticEyes
 
 - type: latheRecipePack
-  id: MedicalWeapons
-  recipes:
-  - RapidSyringeGun
-
-- type: latheRecipePack
   id: MedicalMisc
   recipes:
   - PrescriptionGlasses
+  - VehicleHoverchairSci
+
+- type: latheRecipePack
+  id: MedicalMiscRestricted
+  recipes:
+  - SyringeGun
+  - HandheldCrewMonitor
+  - DefibrillatorCompact
