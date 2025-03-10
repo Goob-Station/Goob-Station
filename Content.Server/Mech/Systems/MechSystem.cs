@@ -1,6 +1,5 @@
 using System.Linq;
 using System.Numerics;
-using System.Transactions;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
@@ -106,10 +105,13 @@ public sealed partial class MechSystem : SharedMechSystem
         if (flammable.OnFire)
         {
             var userEntity = new EntityUid();
-            if (comp.PilotSlot.ContainedEntity != null)
+
+            if (comp.PilotSlot.ContainedEntity.HasValue)
                 userEntity = comp.PilotSlot.ContainedEntity.Value;
-            else if (user != null)
+            else if (user.HasValue)
                 userEntity = user.Value;
+            else
+                return;
 
             if (TryComp<FlammableComponent>(userEntity, out var flammableUser))
             {
@@ -386,7 +388,7 @@ public sealed partial class MechSystem : SharedMechSystem
                     var range = 3f;
                     var direction = new Vector2(_random.NextFloat(-range, range), _random.NextFloat(-range, range));
                     _throwingSystem.TryThrow(randompick, direction, range);
-                    _popup.PopupEntity(Loc.GetString("goobstation-mech-cabin-on-fire"), uid);
+                    _popup.PopupEntity(Loc.GetString("goobstation-mech-equipment-loss"), uid);
                 }
             }
         }
@@ -395,7 +397,7 @@ public sealed partial class MechSystem : SharedMechSystem
             args.DamageDelta != null &&
             component.PilotSlot.ContainedEntity != null)
         {
-            Dictionary<string, float> origCoeff = default!;
+            Dictionary<string, float>? origCoeff = null;
             // Gained damage
             var originalDamage = args.DamageDelta;
             var updatedDamage = new DamageSpecifier(originalDamage);
@@ -435,8 +437,8 @@ public sealed partial class MechSystem : SharedMechSystem
                                 // Degree the defense coefficient by armor plates count
                                 foreach (var (t1, a1) in modifierSet.Coefficients)
                                 {
-                                    var total = Math.Pow(a1, component.ArmorContainer.Count);
-                                    modifierSet.Coefficients[$"{t1}"] = (float)total;
+                                    var damageReductionFactor = Math.Pow(a1, component.ArmorContainer.Count);
+                                    modifierSet.Coefficients[t1] = (float)damageReductionFactor;
                                 }
                                 updatedDamage = DamageSpecifier.ApplyModifierSet(updatedDamage, modifierSet);
                                 modifierSet.Coefficients = origCoeff;
