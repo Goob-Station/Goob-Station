@@ -28,8 +28,8 @@
 
 - type: entity
   parent: [ ClothingHandsGlovesKravMaga , BaseSyndicateContraband ]
-  id: ClothingHandsGlovesGeurilla
-  name: guerilla gloves
+  id: ClothingHandsGlovesGuerrilla
+  name: guerrilla gloves
   description: These combat gloves come with the extra ability to perform Krav Maga martial art attacks.
   components:
   - type: Sprite

@@ -79,8 +79,8 @@ uplink-anaconda-desc = The pride of the Cybersun arms concern, this heavy pistol
 uplink-kravgloves-name = Krav maga gloves
 uplink-kravgloves-desc = Gloves with krav maga nanites installed while disguised as regular black gloves.
 
-uplink-guerillagloves-name = Guerilla gloves
-uplink-guerillagloves-desc = Insulated combat gloves that allow the wearer to perform krav maga.
+uplink-guerrillagloves-name = Guerrilla gloves
+uplink-guerrillagloves-desc = Insulated combat gloves that allow the wearer to perform krav maga.
 
 uplink-bulk-mosin-name = Syndicate bulk rifle crate
 uplink-bulk-mosin-desc = 10 WW4-era rifles to arm you, your friends, and your cat. Saves 40% on shipping costs by buying in bulk.

@@ -200,9 +200,9 @@
 
 - type: listing
   id: UplinkGlovesGuerilla
-  name: uplink-guerillagloves-name
-  description: uplink-guerillagloves-desc
-  productEntity: ClothingHandsGlovesGeurilla
+  name: uplink-guerrillagloves-name
+  description: uplink-guerrillagloves-desc
+  productEntity: ClothingHandsGlovesGuerrilla
   cost:
     Telecrystal: 40
   categories:
