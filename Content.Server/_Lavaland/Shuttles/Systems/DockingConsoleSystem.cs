@@ -19,6 +19,8 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Utility;
 using Timer = Robust.Shared.Timing.Timer;
 using Content.Shared.Station.Components;
+using Content.Server.Cargo.Components;
+using Content.Shared.Cargo.Components;
 
 namespace Content.Server._Lavaland.Shuttles.Systems;
 
@@ -228,14 +230,17 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
             if (xform.MapID != map)
                 continue;
 
-            if (TryComp<StationDataComponent>(gridUid, out var stationData))
+            if (TryComp<StationMemberComponent>(gridUid, out var stationMember) &&
+                TryComp<StationDataComponent>(stationMember.Station, out var stationData))
                 return _station.GetLargestGrid(stationData);
 
-            if (HasComp<BecomesStationComponent>(gridUid) &&
-                TryComp<StationMemberComponent>(gridUid, out var stationMember) &&
-                stationMember.Station == gridUid)
+            // This is like, total fallback here. Technically better than above one tho
+            if (HasComp<StationMemberComponent>(gridUid) &&
+                HasComp<BecomesStationComponent>(gridUid) &&
+                !HasComp<TradeStationComponent>(gridUid) &&
+                !HasComp<CargoShuttleComponent>(gridUid) &&
+                !HasComp<MiningShuttleComponent>(gridUid))
                 return gridUid;
-
 
             if (HasComp<LavalandStationComponent>(gridUid))
                 return gridUid;
