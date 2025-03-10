@@ -93,7 +93,10 @@ public sealed class EggLayerSystem : EntitySystem
 
         // Goobstation - hard hunger requirement
         if (egglayer.HungerRequired && !HasComp<HungerComponent>(uid))
+        {
+            _popup.PopupEntity(Loc.GetString("action-popup-lay-egg-unable"), uid, uid);
             return false;
+        }
 
         // Allow infinitely laying eggs if they can't get hungry.
         if (TryComp<HungerComponent>(uid, out var hunger))
