@@ -73,12 +73,12 @@ public abstract class SharedFishingSystem : EntitySystem
             // Get fishing rod, then float, then spot... ReCurse.
             if (!_fishRodQuery.TryComp(fisherComp.FishingRod, out var fishingRodComp) ||
                 !_fishFloatQuery.TryComp(fishingRodComp.FishingLure, out var fishingFloatComp) ||
-                !_activeFishSpotQuery.TryComp(fishingFloatComp.FishingSpot, out var activeSpotComp))
+                !_activeFishSpotQuery.TryComp(fishingFloatComp.AttachedEntity, out var activeSpotComp))
                 continue;
 
             var fishRod = fisherComp.FishingRod;
             var fishingLure = fishingRodComp.FishingLure.Value;
-            var fishSpot = fishingFloatComp.FishingSpot.Value;
+            var fishSpot = fishingFloatComp.AttachedEntity.Value;
 
             if (!_hands.IsHolding(fisher, fishRod))
             {
@@ -110,7 +110,7 @@ public abstract class SharedFishingSystem : EntitySystem
                 if (_net.IsServer)
                 {
                     var fishIds = activeSpotComp.FishList.GetSpawns(_random.GetRandom(), EntityManager, _proto);
-                    var position = Transform(fishingFloatComp.FishingSpot.Value).Coordinates;
+                    var position = Transform(fishingFloatComp.AttachedEntity.Value).Coordinates;
                     foreach (var fishId in fishIds)
                     {
                         var fish = Spawn(fishId, position);
@@ -203,7 +203,7 @@ public abstract class SharedFishingSystem : EntitySystem
                 direction = Vector2.UnitX; // If the user somehow manages to click directly in the center of themself, just toss it to the right i guess.
 
             // Yeet
-            _throwing.TryThrow(fishFloat, direction, 15f, player, 2f);
+            _throwing.TryThrow(fishFloat, direction, 15f, player, 2f, null, true);
 
             // Set up lure component
             var fishLureComp = EnsureComp<FishingLureComponent>(fishFloat);
@@ -234,41 +234,58 @@ public abstract class SharedFishingSystem : EntitySystem
             return;
         }
 
+        var player = args.Performer;
+
         _popup.PopupEntity(Loc.GetString("fishing-rod-remove-lure", ("ent", Name(uid))), uid);
+
+        if (TryComp<FishingLureComponent>(component.FishingLure, out var lureComp) && lureComp.AttachedEntity != null)
+        {
+            // TODO: so this kinda just lets you pull anything right up to you, it should instead just apply an impulse in your direction modfiied by the weight of the player vs the object
+            // Also we need to autoreel/snap the line if the player gets too far away
+            // Also we should probably PVS override the lure if the rod is in PVS, and vice versa to stop the joint visuals from popping in/out
+            var attachedEnt = lureComp.AttachedEntity.Value;
+            var targetCoords = _transform.GetMapCoordinates(Transform(attachedEnt));
+            var playerCoords = _transform.GetMapCoordinates(Transform(player));
+            var rand = new System.Random((int) _timing.CurTick.Value); // evil random prediction hack
+
+            // Calculate throw direction
+            var direction = (playerCoords.Position - targetCoords.Position) * rand.NextFloat(0.2f, 0.85f);
+
+            // Yeet
+            _throwing.TryThrow(attachedEnt, direction, 4f, player, 2f);
+        }
 
         QueueDel(component.FishingLure);
         component.FishingLure = null;
 
         _actions.RemoveAction(component.PullLureActionEntity);
-        _actions.AddAction(args.Performer, ref component.ThrowLureActionEntity, component.ThrowLureActionId, uid);
+        _actions.AddAction(player, ref component.ThrowLureActionEntity, component.ThrowLureActionId, uid);
 
         args.Handled = true;
     }
 
     private void OnFloatCollide(EntityUid uid, FishingLureComponent component, ref StartCollideEvent args)
     {
-        if (!_fishSpotQuery.TryComp(args.OtherEntity, out var spotComp))
-            return;
+        // TODO:  make it so this can collide with any unacnchored objects (items, mobs, etc) but not the player castings (get parent of rod?)
+        var attachedEnt = args.OtherEntity;
+        component.AttachedEntity = attachedEnt;
 
-        var fishingSpot = args.OtherEntity;
-
-        // Anchor fishing float on a fishing spot
-        var spotPosition = _transform.GetWorldPosition(fishingSpot);
+        // Anchor fishing float on an entity
+        var spotPosition = _transform.GetWorldPosition(attachedEnt);
         _transform.SetWorldPosition(uid, spotPosition);
         _transform.AnchorEntity(uid);
 
-        var rand = new System.Random((int) _timing.CurTick.Value); // evil random prediction hack
-
-        if (HasComp<ActiveFishingSpotComponent>(fishingSpot))
+        // Fishing spot logic
+        if (HasComp<ActiveFishingSpotComponent>(attachedEnt) || !_fishSpotQuery.TryComp(attachedEnt, out var spotComp))
             return;
 
-        // Start it up
-        var activeFishSpot = EnsureComp<ActiveFishingSpotComponent>(fishingSpot);
+        var rand = new System.Random((int) _timing.CurTick.Value); // evil random prediction hack
+
+        var activeFishSpot = EnsureComp<ActiveFishingSpotComponent>(attachedEnt);
         activeFishSpot.FishDifficulty = spotComp.FishDifficulty + rand.NextFloat(-spotComp.FishDifficultyVariety, spotComp.FishDifficultyVariety);
         activeFishSpot.Accumulator = spotComp.FishDefaultTimer + rand.NextFloat(-spotComp.FishTimerVariety, spotComp.FishTimerVariety);
         activeFishSpot.FishList = spotComp.FishList;
         activeFishSpot.AttachedFishingLure = uid;
-        component.FishingSpot = fishingSpot;
     }
 
     private void OnFishingRodInit(Entity<FishingRodComponent> ent, ref MapInitEvent args)

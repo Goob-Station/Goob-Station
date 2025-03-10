@@ -15,7 +15,6 @@
     range: 15
     checkCanAccess: false
 
-
 - type: entity
   id: ActionStopFishing
   name: action-fishing-stop

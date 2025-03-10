@@ -10,5 +10,5 @@ public sealed partial class FishingLureComponent : Component
     public EntityUid FishingRod;
 
     [DataField, AutoNetworkedField]
-    public EntityUid? FishingSpot;
+    public EntityUid? AttachedEntity;
 }
