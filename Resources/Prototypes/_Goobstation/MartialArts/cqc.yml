@@ -33,7 +33,7 @@
   - Harm
   event: !type:CqcKickPerformedEvent
   extraDamage: 10
-  staminaDamage: 55
+  staminaDamage: 25
 
 - type: combo
   id: CQCRestrain
