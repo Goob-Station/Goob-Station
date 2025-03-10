@@ -1,7 +1,0 @@
-- type: latheRecipe
-  id: MaterialBSCrystal
-  result: MaterialBSCrystal1
-  completetime: 2
-  materials:
-    Diamond: 100
-    Plasma: 50

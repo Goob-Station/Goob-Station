@@ -1,5 +1,0 @@
-- type: wireLayout
-  id: Autodoc
-  wires:
-  - !type:PowerWireAction
-  - !type:AutodocSafetyWireAction

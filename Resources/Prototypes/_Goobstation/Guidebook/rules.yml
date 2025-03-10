@@ -1,5 +1,0 @@
-﻿- type: guideEntry
-  id: NRPRuleset
-  name: guide-entry-rules-nrp
-  priority: 60
-  text: "/ServerInfo/Guidebook/ServerRules/NRPRules.xml"

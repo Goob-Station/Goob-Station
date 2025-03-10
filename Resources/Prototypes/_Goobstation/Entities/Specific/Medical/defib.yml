@@ -1,9 +1,0 @@
-- type: entity
-  id: DefibrillatorCompactEmpty
-  parent: DefibrillatorCompact
-  suffix: Empty
-  components:
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default

@@ -1,5 +1,0 @@
-- type: damageContainer
-  id: OrganicPart
-  supportedGroups:
-  - Brute
-  - Burn

@@ -1,1 +1,0 @@
-ent-ClothingUnderSocksCoder = linq socks

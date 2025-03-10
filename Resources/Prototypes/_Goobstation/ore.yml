@@ -1,5 +1,0 @@
-- type: ore
-  id: oreBSCrystal
-  oreEntity: MaterialBSCrystal1Unprocessed # Lavaland Change
-  minOreYield: 1
-  maxOreYield: 1
