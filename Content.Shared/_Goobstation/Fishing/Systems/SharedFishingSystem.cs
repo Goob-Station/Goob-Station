@@ -210,7 +210,8 @@ public abstract class SharedFishingSystem : EntitySystem
         // Rope visuals
         var visuals = EnsureComp<JointVisualsComponent>(fishFloat);
         visuals.Sprite = component.RopeSprite;
-        visuals.OffsetA = new Vector2(0f, 0.1f);
+        visuals.OffsetA = new Vector2(0, 0.1f);
+        visuals.OffsetB = component.RopeOffset;
         visuals.Target = GetNetEntity(uid);
 
         args.Handled = true;
