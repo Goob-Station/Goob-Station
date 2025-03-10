@@ -1,4 +1,4 @@
-#chrono/future soldier hardsuit
+# Chronolegioneer Hardsuit
 
 - type: entity
   parent: ClothingOuterHardsuitBase
@@ -47,13 +47,13 @@
   components:
   - type: Unremoveable
 
-#bso hardsuit
+# Blueshield Hardsuit
 
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCentcommContraband]
-  id: ClothingOuterHardsuitBlueshield
-  name: blueshield hardsuit
-  description: A hardsuit for the captains personal bodyguard.
+  id: ClothingOuterHardsuitBlueshieldLight
+  name: /'praetorian/' escort hardsuit
+  description: A hardsuit designed for an elite bodyguard. This particular one is made of a lighter metal, allowing for more maneuverability.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bso.rsi
@@ -81,10 +81,45 @@
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitBlueshield
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 2
-    knockdownTimeDelta: -2
+    delayDelta: 1.5
+    knockdownTimeDelta: -1.5
 
-# cybersun stealth
+- type: entity
+  parent: [ClothingOuterHardsuitBase, BaseCentcommContraband]
+  id: ClothingOuterHardsuitBlueshieldHeavy
+  name: /'praetorian/' bulwark hardsuit
+  description: A hardsuit designed for an elite bodyguard. This particular has addition padding inside, at the cost of maneuverability.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bso.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bso.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.55
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.5
+        Piercing: 0.5
+        Radiation: 0.5
+        Caustic: 0.6
+        Heat: 0.6
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.80
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitBlueshield
+  - type: ModifyDelayedKnockdown
+    delayDelta: 2.5
+    knockdownTimeDelta: -2.5
+
+# Cybersun Stealth
 
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]

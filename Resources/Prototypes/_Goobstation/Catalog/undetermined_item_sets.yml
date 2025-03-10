@@ -49,3 +49,25 @@
     state: icon-on
   content:
   - BlueShieldShieldFilled
+
+# Blueshield Hardsuits
+
+- type: thiefBackpackSet
+  id: LightSet
+  name: blueshield-box-category-lightset-name
+  description: blueshield-box-category-lightset-description
+  sprite:
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bso.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitBlueshieldLight
+
+- type: thiefBackpackSet
+  id: HeavySet
+  name: blueshield-box-category-heavyset-name
+  description: blueshield-box-category-heavyset-description
+  sprite:
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bso.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitBlueshieldHeavy

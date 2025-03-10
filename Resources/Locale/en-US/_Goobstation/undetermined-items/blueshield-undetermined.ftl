@@ -20,3 +20,11 @@ blueshield-box-category-blueshield-name = blueshield set
 blueshield-box-category-blueshield-description =
     The iconic namesake of these soldiers.
     Includes: The greatshield, and the DT-4 Atrocity customized stun baton.
+
+blueshield-box-category-lightset-name = light hardsuit
+blueshield-box-category-lightset-description =
+    A lighter hardsuit, allowing for more speed at the cost of protection.
+
+blueshield-box-category-heavyset-name = heavy hardsuit
+blueshield-box-category-heavyset-description =
+    A heavier hardsuit, allowing for more armor at the cost of speed.

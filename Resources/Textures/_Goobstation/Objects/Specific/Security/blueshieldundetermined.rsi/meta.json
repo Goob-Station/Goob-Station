@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by BombasterDS",
+  "copyright": "Made by BombasterDS, icon-alt modified by SolsticeOfTheWinter",
   "size": {
     "x": 32,
     "y": 32
@@ -9,6 +9,9 @@
   "states": [
     {
         "name": "icon"
+    },
+	{
+        "name": "icon-alt"
     },
     {
         "name": "icon-open"

@@ -36,7 +36,7 @@
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
     - id: ClothingHeadHelmetSwat
-    - id: ClothingOuterHardsuitBlueshield
+    - id: BlueshieldUndeterminedHardsuit
     - id: ClothingBackpackDuffelSurgeryFilled # Or this.
     - id: BoxTracker # ehhh maybe?
 
