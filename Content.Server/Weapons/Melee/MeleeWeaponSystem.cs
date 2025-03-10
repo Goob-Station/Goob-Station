@@ -26,6 +26,8 @@ using System.Numerics;
 using Content.Shared._EinsteinEngines.Contests;
 using Content.Shared._Goobstation.CCVar;
 using Content.Shared.Coordinates;
+using Content.Shared.Damage.Components;
+using Content.Shared.Item;
 using Content.Shared.Throwing;
 using Robust.Shared.Configuration;
 
@@ -43,6 +45,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
     [Dependency] private readonly ContestsSystem _contests = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!; // WWDP
     [Dependency] private readonly INetConfigurationManager _config = default!; // WWDP
+    [Dependency] private readonly StaminaSystem _stamina = default!; // WWDP
     [Dependency] private readonly SharedTransformSystem _transform = default!; // Goob - Shove
 
     public override void Initialize()
@@ -109,14 +112,27 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (!TryComp<CombatModeComponent>(user, out var combatMode))
             return false;
 
-        if (_mobState.IsIncapacitated(target)) // Goob Edit
-            return false;
+        if (_mobState.IsIncapacitated(target))
+            return true; // WWDP
+
+
 
 
         if (!TryComp<HandsComponent>(target, out var targetHandsComponent))
         {
-            if (!TryComp<StatusEffectsComponent>(target, out var status) || !status.AllowedEffects.Contains("KnockedDown"))
-                return false;
+            if (!TryComp<StatusEffectsComponent>(target, out var status) ||
+                !status.AllowedEffects.Contains("KnockedDown"))
+            {
+                // WWDP edit; shoving items costs their throw stamina cost
+                if (HasComp<ItemComponent>(target)
+                    && TryComp<DamageOtherOnHitComponent>(target, out var throwComp)
+                    && throwComp.StaminaCost > 0)
+                {
+                    _stamina.TakeStaminaDamage(user, throwComp.StaminaCost);
+                }
+                return true;
+                // WWDP edit end
+            }
         }
 
         if (targetHandsComponent?.ActiveHand is { IsEmpty: false })
@@ -134,7 +150,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         RaiseLocalEvent(target, attemptEvent);
 
         if (attemptEvent.Cancelled)
-            return false;
+            return true; // WWDP
 
         var chance = CalculateDisarmChance(user, target, inTargetHand, combatMode);
 
@@ -150,7 +166,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (!eventArgs.Handled)
         {
             ShoveOrDisarmPopup(disarm: false); // WWDP
-            return false;
+            return true;
         }
 
         ShoveOrDisarmPopup(disarm: true); // WWDP
@@ -166,7 +182,10 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             var msgPrefix = "disarm-action-";
 
             if (!disarm)
+            {
+                return; // WWDP specific - Less popups; would probably want to remove on upstream
                 msgPrefix = "disarm-action-shove-";
+            }
 
             var msgOther = Loc.GetString(
                 msgPrefix + "popup-message-other-clients",
