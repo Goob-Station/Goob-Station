@@ -11,11 +11,11 @@ public sealed partial class SpawnSolutionOnDamageComponent : Component
     [DataField]
     public EntProtoId Solution = "unknown";
     [DataField]
-    public float MinimumAmoun = -1;
+    public float MinimumAmount = 0;
     [DataField]
-    public float MaximumAmount = -1;
+    public float MaximumAmount = 30;
     [DataField]
-    public float Threshold = -1;
+    public float Threshold = 5;
     [DataField]
-    public float Probability = 1f;
+    public float Probability = 0.5f;
 }

@@ -21,8 +21,8 @@ public sealed partial class SpawnSolutionOnDamageSystem : EntitySystem
 
         var probability = Math.Clamp(ent.Comp.Probability, 0f, 1f);
         if(_random.Prob(probability))
-
             return;
+
         if (ent.Comp.Solution == "unknown")
             return;
 

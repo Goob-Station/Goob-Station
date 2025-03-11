@@ -25,7 +25,7 @@ public sealed partial class ClowncarComponent : Component
 
     [DataField]
     [ViewVariables]
-    public EntProtoId CanonModeAction = "ActionCanonmode";
+    public EntProtoId CannonModeAction  = "ActionCanonmode";
 
     [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
