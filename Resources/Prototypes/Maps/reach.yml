@@ -3,7 +3,7 @@
   mapName: 'Reach'
   mapPath: /Maps/_Goobstation/reach.yml
   minPlayers: 0
-  maxPlayers: 8
+  maxPlayers: 10
   stations:
     Reach:
       stationProto: StandardNanotrasenStation
@@ -14,7 +14,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'SC'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency.yml
+          emergencyShuttlePath: /Maps/Shuttles/emergency_box.yml
         - type: StationJobs
           availableJobs:
             NanotrasenRepresentative: [ 1, 1 ]
