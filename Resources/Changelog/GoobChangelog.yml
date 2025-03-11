@@ -6102,3 +6102,9 @@ Entries:
       message: Mice now dodge wideswing. It does stamina damage to them instead.
   id: 700
   time: '2025-03-11T20:57:51.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: Deimplanter works on jaunter, mindcontrol implants
+  id: 701
+  time: '2025-03-11T20:58:13.0000000+00:00'
