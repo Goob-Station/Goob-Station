@@ -6184,3 +6184,9 @@ Entries:
         character when facing south)
   id: 711
   time: '2025-03-11T21:11:20.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Tweak
+      message: Changed made to Bingles.
+  id: 712
+  time: '2025-03-11T21:11:56.0000000+00:00'
