@@ -285,9 +285,7 @@
   - type: Tag
     tags:
     - ArrythmicKnife
-  - type: RandomizeMovementspeed
-    Min: 4
-    Max: 6
+  - type: RandomizeMovementSpeed
   - type: Sharp
   - type: Execution
     doAfterDuration: 4.0

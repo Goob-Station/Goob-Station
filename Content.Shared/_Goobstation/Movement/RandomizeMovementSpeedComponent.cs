@@ -1,4 +1,4 @@
-namespace Content.Server._Goobstation.Movement;
+namespace Content.Shared._Goobstation.Movement;
 
 [RegisterComponent]
 public sealed partial class RandomizeMovementspeedComponent : Component
@@ -7,14 +7,20 @@ public sealed partial class RandomizeMovementspeedComponent : Component
     /// How low the movement speed can drop.
     /// </summary>
 
-    [DataField("Min", required: true)]
+    [DataField]
     public float Min { get; set; } = 1;
 
     /// <summary>
     /// How high the movement speed can go
     /// </summary>
 
-    [DataField("Max", required: true)]
+    [DataField]
     public float Max { get; set; } = 1;
+
+    /// <summary>
+    /// How high the movement speed can go
+    /// </summary>
+    [DataField]
+    public TimeSpan? NextSpeedChange;
 
 }
