@@ -6154,3 +6154,11 @@ Entries:
       message: Autodoc speed set to 1 instead of 0.5! (actually useful now)
   id: 707
   time: '2025-03-11T21:07:09.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added new gamerules for several admeme roles.
+    - type: Tweak
+      message: Whole lotta changes to ERT, Cburn, Deathsquad, etcetera
+  id: 708
+  time: '2025-03-11T21:08:08.0000000+00:00'
