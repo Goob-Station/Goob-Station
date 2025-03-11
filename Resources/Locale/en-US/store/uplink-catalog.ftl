@@ -459,7 +459,7 @@ uplink-clothing-shoes-real-jordans-name = Air Jordans
 uplink-clothing-shoes-real-jordans-desc = A pair of stylish shoes that also function as slightly faster magboots.
 
 uplink-clothing-shoes-fake-jordans-name = Fake Air Jordans
-uplink-clothing-shoes-fake-jordans-desc = A pair of bootleg stylish shoes with none of the functionality of the real deal.
+uplink-clothing-shoes-fake-jordans-desc = A pair of bootleg stylish shoes with none of the functionality of the real deal, but don't tell anyone when you resell them.
 
 uplink-cameraBug-name = Camera bug
 uplink-cameraBug-desc = A portable device that allows you to view the station's cameras.
