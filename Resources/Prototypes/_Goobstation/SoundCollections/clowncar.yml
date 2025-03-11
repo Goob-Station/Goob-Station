@@ -5,7 +5,7 @@
   - /Audio/_Goobstation/Vehicle/Clowncar/clowncar_load2.ogg
   - /Audio/_Goobstation/Vehicle/Clowncar/clowncar_ram1.ogg
   - /Audio/_Goobstation/Vehicle/Clowncar/clowncar_ram2.ogg
-  - /Audio/_Goobstation/fects/Vehicle/Clowncar/clowncar_ram3.ogg
+  - /Audio/_Goobstation/Vehicle/Clowncar/clowncar_ram3.ogg
 
 - type: soundCollection
   id: ClowncarCrash
