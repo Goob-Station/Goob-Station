@@ -19,6 +19,11 @@ public sealed class InputSwapResyncSystem : EntitySystem
         _stateMan.GameStateApplied += ReapplyModifier;
     }
 
+    public override void Shutdown()
+    {
+        _stateMan.GameStateApplied -= ReapplyModifier;
+    }
+
     /// This is abysmal dogshit
     /// This exists purely because a component cannot modify another during application state (why the fuck is <see cref="StateApplicationGuard"/> a thing?)
     /// Three approaches - either append comps apply N seconds after round starting

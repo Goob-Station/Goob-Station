@@ -9,7 +9,8 @@ public sealed class InputSwapSystem : ToggleableSmiteSystem<InputSwapComponent>
 
     public override void Set(EntityUid ent)
     {
-        var mod = Comp<MovementSpeedModifierComponent>(ent);
+        if (!TryComp<MovementSpeedModifierComponent>(ent, out var mod))
+            return; // womp
 
         _move.ChangeBaseSpeed(ent, -mod.BaseWalkSpeed, -mod.BaseSprintSpeed, mod.Acceleration);
         _move.RefreshMovementSpeedModifiers(ent);
