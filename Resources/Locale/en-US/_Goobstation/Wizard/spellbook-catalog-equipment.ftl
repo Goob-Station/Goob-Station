@@ -72,3 +72,4 @@ spellbook-wand-desc =
     Only wizards and their apprentices can change wand firing mode.
     Can be used on yourself.
     Wand is more compact compared to staves but doesn't recharge automatically.
+

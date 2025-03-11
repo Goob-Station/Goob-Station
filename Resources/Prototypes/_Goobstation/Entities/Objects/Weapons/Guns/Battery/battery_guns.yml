@@ -146,3 +146,57 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 22
+
+- type: entity
+  name: temperature gun
+  parent: [BaseWeaponBattery, BaseSecurityContraband]
+  id: WeaponTemperatureGun
+  description: An energy-efficient gun capable of modifying the temperature of creatures. Just point and click!
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/tempgun.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mode-cooling
+      shader: unshaded
+      map: [ "Firemode" ]
+    - state: mag-unshaded-4
+      map: [ "enum.GunVisualLayers.MagUnshaded" ]
+      shader: unshaded
+  - type: Item
+    size: Large
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/tempgun.rsi
+  - type: Gun
+    fireRate: 2
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletTemperatureHot
+  - type: EnergyGun
+    fireModes:
+    - proto: BulletTemperatureCold
+      fireCost: 100
+      name: cooling
+      state: cooling
+    - proto: BulletTemperatureHot
+      fireCost: 100
+      name: heating
+      state: heating
+  - type: GenericVisualizer
+    visuals:
+      enum.EnergyGunFireModeVisuals.State:
+        Firemode:
+          Cooling: { state: mode-cooling }
+          Heating: { state: mode-heating }
+  - type: Battery
+    maxCharge: 2500
+    startingCharge: 2500
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true

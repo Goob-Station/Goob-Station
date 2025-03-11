@@ -1,2 +1,2 @@
-ent-BlueShieldShield = greatshield
-    .desc = The iconic namesake of these soldiers, the Blueshield. Known to take shots meant for high-ranking officials.
+ent-BlueShieldShield = гроссшвейг
+    .desc = Знаковый тезка этих солдат - Blueshield. Известен тем, что принимает выстрелы, предназначенные для высокопоставленных лиц.

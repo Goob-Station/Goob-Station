@@ -59,7 +59,7 @@
         Slash: 12
         Piercing: 8
   - type: Body
-    prototype: Rat
+    prototype: RatKing
     requiredLegs: 1 # TODO: More than 1 leg
   - type: SurgeryTarget # Shitmed
   - type: UserInterface # Shitmed
@@ -137,6 +137,10 @@
     color: "#808080"
     activateSound: null
     deactivateSound: null
+  - type: Insulated # Goobstation
+    coefficient: 0.5
+  - type: CombatPower # Goobstation
+    factor: 2
 
 - type: entity
   id: MobRatKingBuff
@@ -174,7 +178,7 @@
   - type: GuideHelp
     guides:
     - MinorAntagonists
-  - type: Fauna # Lavaland Change
+
 
 - type: entity
   name: rat servant

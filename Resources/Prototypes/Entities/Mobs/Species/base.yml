@@ -141,6 +141,7 @@
     - Brainrotted # Goobstation - skibidi rizz ohio update
     - Adrenaline
     - Brainrotted # Goobstation - skibidi rizz ohio update
+    - Dementia # Goobstation - Amnestic spray!
   - type: Body
     prototype: Human
     requiredLegs: 2
@@ -301,6 +302,7 @@
   - type: FireVisuals
     alternateState: Standing
   - type: Carriable # Goobstation
+  - type: CPRTraining # Goobstation - Just give to everyone! This ain't MRP.
 
 - type: entity
   save: false

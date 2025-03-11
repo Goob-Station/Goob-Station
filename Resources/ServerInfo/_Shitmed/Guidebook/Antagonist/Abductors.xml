@@ -2,6 +2,8 @@
   # Абдукторы
   <Box>
     <GuideEntityEmbed Entity="MobLoneAbductor"/>
+    <GuideEntityEmbed Entity="MobAbductorAgent"/>
+    <GuideEntityEmbed Entity="MobAbductorScientist"/>
   </Box>
   Абдукторы - это инопланетное общество, целью которого является каталогизация и эксперименты над персоналом секторов.
   Важно отметить: абдукторы, в отличие от большинства антагонистов, [color=red]НЕ ставят своей целью убийство людей[/color] и скорее заинтересованы в завершении своих экспериментов.

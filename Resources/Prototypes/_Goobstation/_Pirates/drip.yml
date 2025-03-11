@@ -1,0 +1,57 @@
+- type: entity
+  parent: ClothingOuterHardsuitBasic
+  id: GoobClothingOuterHardsuitSpirate
+  name: modified EVA suit
+  description: A modified suit to allow space pirates to board shuttles and stations while avoiding the maw of the void. Comes with additional protection and is lighter to move in.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/piratecaptain.rsi
+    state: icon
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/piratecaptain.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.5
+        Caustic: 0.7
+        Heat: 0.6
+  - type: ClothingSpeedModifier
+    walkModifier: 0.90
+    sprintModifier: 0.90
+  - type: ToggleableClothing
+    clothingPrototypes: 
+      head: GoobClothingHeadHelmetHardsuitSpirate
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitBasic
+  id: GoobClothingHeadHelmetHardsuitSpirate
+  name: modified EVA helmet
+  description: A modified helmet to allow space pirates to intimidate their customers whilst staying safe from the void. Comes with some additional protection.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/_Pirates/spirate_suit.rsi
+    state: icon_head
+  - type: Clothing
+    sprite: _Goobstation/_Pirates/spirate_suit.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+
+- type: entity
+  id: GoobSuitStorageSpirate
+  parent: SuitStorageBase
+  suffix: Spirate
+  components:
+  - type: StorageFill
+    contents:
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: GoobClothingOuterHardsuitSpirate
+    - id: ClothingMaskBreath

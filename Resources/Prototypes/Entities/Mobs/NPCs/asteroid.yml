@@ -57,12 +57,12 @@
       Dead:
         Base: goliath_dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 1.25
-    baseSprintSpeed : 1.25
+    baseWalkSpeed : 1.5 # Goob - accounts for decreased range, more likely to catch up to you when stunned by tendrils
+    baseSprintSpeed : 1.5
   - type: MobThresholds
     thresholds:
       0: Alive
-      250: Dead
+      350: Dead # Goob - 9 PKA shots, 4 crusher destabilised hits
   - type: MeleeWeapon
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
@@ -71,8 +71,9 @@
     animation: WeaponArcPunch
     damage:
       types:
-        Blunt: 20
-        Slash: 10
+        Blunt: 35
+        Slash: 15
+    range: 1.12 # Goob - Allows kinetic crushers to fight them without taking guaranteed damage.
   - type: NpcFactionMember
     factions:
     - SimpleHostile

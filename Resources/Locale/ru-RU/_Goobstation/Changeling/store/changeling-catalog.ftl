@@ -102,6 +102,33 @@ evolutionmenu-utility-biodegrade-desc =
     Выплевывает едкое вещество на все сковывающие вас предметы, позволяя освободиться.
     При использовании этой способности, когда вас схватили, вы плюнете кислотой в лицо нападающим.
     Затрачивает 30 химикатов.
+evolutionmenu-utility-stims-name = Передозировка эфедрина
+evolutionmenu-utility-stims-desc =
+    Инъекция коктейля стимуляторов в себя, быстро снимает любые станы и даёт вам скорость.
+    Продолжительная инъекция ядовита.
+    Затрачивает 30 химикатов.
+evolutionmenu-utility-fleshmend-name = Исцеление плоти
+evolutionmenu-utility-fleshmend-desc =
+    Быстро исцеляет все царапины и ожоги.
+    Затрачивает 35 химикатов.
+evolutionmenu-utility-chameleon-name = Кожа хамелеона
+evolutionmenu-utility-chameleon-desc = Изменяет пигмент вашей кожи в соответствии с окружающей обстановкой,
+evolutionmenu-utility-lesserform-name = Меньшая форма
+evolutionmenu-utility-lesserform-desc =
+    Отказ от своей текущей формы и превращение в разумного обезьяна.
+    Затрачивает 20 химикатов.
+evolutionmenu-utility-spacesuit-name = Адаптация к космосу.
+evolutionmenu-utility-spacesuit-desc =
+    Избавьтесь от бесполезных тканей, чтобы облегчить космические путешествия. Для выхода в космос по-прежнему необходим источник кислорода.
+    Затрачивает 20 химикатов.
+evolutionmenu-utility-hivemindaccess-name = Разум улья
+evolutionmenu-utility-hivemindaccess-desc =
+    Настраивает химические рецепторы для общения с другими генокрадами, которые также развили этот навык.
+    Стандартный радио-ключ: :g
+evolutionmenu-utility-absorbbiomatter-name = Поглощение биоматерии
+evolutionmenu-utility-absorbbiomatter-desc =
+    Поглощает органический продукт питания, позволяя вам восстановить химикаты в зависимости от его содержимого.
+    Можно поглотить продукты питания, приготовленные и неприготовленные белки и жиры.
 evolutionmenu-utility-stims-name = Эфедриновая передозировка
 evolutionmenu-utility-stims-desc =
     Сделайте инъекцию из смеси стимуляторов в своё тело, быстро убирает любую усталость и ускоряет.

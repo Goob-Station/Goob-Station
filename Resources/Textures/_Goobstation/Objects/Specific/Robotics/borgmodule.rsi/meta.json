@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC0-1.0",
-  "copyright": "Lollypop by SolsticeOfTheWinter (Lollypop Guy)",
+  "copyright": "Lollypop by SolsticeOfTheWinter (Lollypop Guy), PKA by Mocho",
   "size": {
     "x": 32,
     "y": 32
@@ -11,8 +11,15 @@
       "name": "generic",
 	  "_comment": "YAML linter appeasement regarding modules, removal TODO. Refer to /Resources/Textures/Objects/Specific/borgmodule.rsi/meta.json for licensing information"
     },
+    {
+      "name": "cargo",
+      "_comment": "YAML linter appeasement regarding modules, removal TODO. Refer to /Resources/Textures/Objects/Specific/borgmodule.rsi/meta.json for licensing information"
+    },
 	{
       "name": "icon-lollypop"
+    },
+	{
+      "name": "icon-pka"
     }
   ]
 }

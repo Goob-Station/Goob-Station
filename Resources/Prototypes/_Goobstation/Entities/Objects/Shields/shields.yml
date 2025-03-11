@@ -1,0 +1,118 @@
+- type: entity
+  name: greatshield
+  parent: [BaseItem, ClothingSlotBase, BaseCentcommContraband]
+  id: BlueShieldShield
+  description: The iconic namesake of these soldiers, the Blueshield. Known to take shots meant for high-ranking officials.
+  components:
+    - type: ContainerContainer
+    - type: ItemToggle
+      predictable: false
+      soundActivate:
+        path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+      soundDeactivate:
+        path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyoff.ogg
+      soundFailToActivate:
+        path: /Audio/Machines/button.ogg
+        params:
+          variation: 0.250
+    - type: ItemToggleActiveSound
+      activeSound:
+        path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyhum.ogg
+    - type: ItemToggleSize
+      activatedSize: Ginormous
+    - type: Clothing
+      sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
+      quickEquip: false
+      slots:
+      - Belt
+    - type: ComponentToggler
+      components:
+      - type: DisarmMalus
+        malus: 1
+    - type: Sprite
+      sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
+      layers:
+        - state: icon
+        - state: icon-on
+          color: "#FFFFFF"
+          visible: false
+          shader: unshaded
+          map: [ "shield" ]
+    - type: Item
+      size: Large
+    - type: UseDelay
+      delay: 0.5
+    - type: ToggleableLightVisuals
+      spriteLayer: shield
+      inhandVisuals:
+        left:
+          - state: inhand-left-on
+            shader: unshaded
+        right:
+          - state: inhand-right-on
+            shader: unshaded
+    - type: PointLight
+      netsync: false
+      enabled: false
+      radius: 1.5
+      energy: 0.7
+      color: "#678AD9"
+    - type: ItemTogglePointLight
+    - type: Blocking
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 0.7
+          Slash: 0.7
+          Piercing: 0.7
+          Heat: 0.6
+      activeBlockModifier:
+        coefficients:
+          Blunt: 0.8
+          Slash: 0.8
+          Piercing: 0.8
+          Heat: 0.7
+        flatReductions:
+          Heat: 5
+          Blunt: 5
+          Slash: 5
+          Piercing: 5
+    - type: Appearance
+    - type: Damageable
+      damageContainer: Shield
+    - type: StaticPrice
+      price: 350
+    - type: Battery
+      maxCharge: 100
+      startingCharge: 100
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 7
+    - type: RechargeableBlocking
+    - type: ItemSlots
+      slots:
+        item:
+          name: Baton
+          insertVerbText: sheath-insert-verb
+          ejectVerbText: sheath-eject-verb
+          insertSound: /Audio/Items/sheath.ogg
+          ejectSound: /Audio/Items/unsheath.ogg
+          whitelist:
+            tags:
+            - Stunbaton
+
+
+- type: entity
+  name: greatshield
+  parent: BlueShieldShield
+  id: BlueShieldShieldEvil
+  suffix: Deathsquad
+  description: The identification number on this shield has been scratched off. Something feels wrong.
+  components:
+  - type: Battery
+    maxCharge: 600
+    startingCharge: 600
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 100
+  - type: Item
+    size: Normal

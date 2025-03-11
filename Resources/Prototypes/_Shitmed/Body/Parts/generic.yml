@@ -1,4 +1,10 @@
 - type: entity
+  parent: HeadHuman
+  id: BioSynthHeadEmpty
+  name: bio-synthetic hollow head
+  description: This synthetic head can be transplanted into any living organism and it will adapt to its recipient, does not contain a brain or eyes though.
+
+- type: entity
   parent: LeftArmHuman
   id: BioSynthLeftArm
   name: bio-synthetic left arm

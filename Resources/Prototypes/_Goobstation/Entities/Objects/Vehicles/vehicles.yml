@@ -240,3 +240,31 @@
   components:
     - type: Foldable
       folded: true
+
+
+- type: entity
+  id: VehicleHoverchair
+  parent: BaseVehicle
+  name: hoverchair
+  description: A luxury hoverchair, kick back and relax.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Vehicles/hoverchair.rsi
+    layers:
+    - state: vehicle
+    noRot: true
+  - type: Vehicle
+    requiredHands: 0
+    engineRunning: true
+    renderOver: North, NorthEast, NorthWest, East, West
+  - type: MovementSpeedModifier
+    acceleration: 10
+    friction: 0.5
+    baseSprintSpeed: 3.5
+    baseWalkSpeed: 2.5
+  - type: StaticPrice
+    price: 175
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 125
+      Plastic: 125

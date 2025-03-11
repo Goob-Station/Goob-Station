@@ -1,2 +1,2 @@
-ent-FoodCondimentPacketProtein = protein powder packet
-    .desc = Contains 10u of powdered protein. Mix with 20u of water
+ent-FoodCondimentPacketProtein = мешок протеина
+    .desc = Содержит 10u протеина. Смешайте с 20u воды.

@@ -686,8 +686,8 @@
       borg_brain:
         - PositronicBrain
       borg_module:
-        - BorgModuleOperative
         - BorgModuleL6C
+        - BorgModuleOperative
         - BorgModuleEsword
   - type: ItemSlots
     slots:
@@ -719,9 +719,9 @@
       borg_brain:
         - PositronicBrain
       borg_module:
+        - BorgModuleSyndicateWeapon
         - BorgModuleTool
         - BorgModuleOperative
-        - BorgModuleSyndicateWeapon
   - type: ItemSlots
     slots:
       cell_slot:
