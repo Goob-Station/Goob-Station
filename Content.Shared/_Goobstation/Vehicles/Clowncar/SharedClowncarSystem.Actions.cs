@@ -19,7 +19,7 @@ using Robust.Shared.Audio.Systems;
 using Content.Shared.DragDrop;
 using Content.Shared.Emag.Components;
 
-namespace Content.Shared.Vehicle.Clowncar;
+namespace Content.Shared._Goobstation.Vehicles.Clowncar;
 
 public abstract partial class SharedClowncarSystem
 {

@@ -1,6 +1,6 @@
 using System.Linq;
 using Content.Server.Chat.Systems;
-using Content.Shared.Vehicle.Clowncar;
+using Content.Shared._Goobstation.Vehicles.Clowncar;
 using Content.Shared.Vehicles;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Verbs;
@@ -9,7 +9,7 @@ using Robust.Shared.Containers;
 using Content.Shared.Buckle;
 using Content.Shared.Examine;
 
-namespace Content.Server.Vehicle.Clowncar;
+namespace Content.Server._Goobstation.Vehicles.Clowncar;
 
 public sealed class ClowncarSystem : SharedClowncarSystem
 {

@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Content.Shared.Actions;
 
-namespace Content.Shared.Vehicle.Clowncar;
+namespace Content.Shared._Goobstation.Vehicles.Clowncar;
 
 [RegisterComponent, NetworkedComponent]
 [Access(typeof(SharedClowncarSystem))]

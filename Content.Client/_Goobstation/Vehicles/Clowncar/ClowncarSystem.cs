@@ -1,8 +1,8 @@
-using Content.Shared.Vehicle.Clowncar;
+using Content.Shared._Goobstation.Vehicles.Clowncar;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 
-namespace Content.Client.Vehicle.Clowncar;
+namespace Content.Client._Goobstation.Vehicles.Clowncar;
 
 public sealed class ClowncarSystem : SharedClowncarSystem
 {

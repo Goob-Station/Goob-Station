@@ -4,7 +4,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Whitelist;
 
-namespace Content.Shared.Containers.ExtendedContainer;
+namespace Content.Shared._Goobstation.Containers.ExtendedContainer;
 
 public sealed partial class ExtendedContainerSystem : EntitySystem
 {

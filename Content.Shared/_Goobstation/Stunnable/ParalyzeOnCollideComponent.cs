@@ -1,7 +1,7 @@
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Stunnable;
+namespace Content.Shared._Goobstation.Stunnable;
 
 [RegisterComponent, NetworkedComponent]
 [Access(typeof(ParalyzeOnCollideSystem))]

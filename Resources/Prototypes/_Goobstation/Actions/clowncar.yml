@@ -6,7 +6,7 @@
   - type: InstantAction
     itemIconStyle: NoItem
     icon:
-      sprite: Objects/Vehicles/clowncar.rsi
+      sprite: _Goobstation/Objects/Vehicles/clowncar.rsi
       state: clowncar
     event: !type:ThankRiderActionEvent
     useDelay: 60 # 60 sec delay
@@ -19,7 +19,7 @@
   - type: InstantAction
     itemIconStyle: NoItem
     icon:
-      sprite: Objects/Vehicles/clowncar.rsi
+      sprite: _Goobstation/Objects/Vehicles/clowncar.rsi
       state: clowncar
     event: !type:QuietBackThereActionEvent
     useDelay: 30 # 30 sec delay

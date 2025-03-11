@@ -4,7 +4,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Containers.ExtendedContainer;
+namespace Content.Shared._Goobstation.Containers.ExtendedContainer;
 
 /// <summary>
 /// Manages entities that have a <see cref="ExtendedContainer"/>.
