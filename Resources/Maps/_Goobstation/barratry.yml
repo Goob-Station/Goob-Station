@@ -13499,12 +13499,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -14.5,15.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -122.764015
-      state: Opening
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
 - proto: AirlockMedicalLocked
   entities:
   - uid: 277
@@ -77319,13 +77313,6 @@ entities:
     components:
     - type: Transform
       pos: 12.5,31.5
-      parent: 2
-- proto: MedicalTechFab
-  entities:
-  - uid: 15704
-    components:
-    - type: Transform
-      pos: 11.5,23.5
       parent: 2
 - proto: MedkitAdvancedFilled
   entities:
