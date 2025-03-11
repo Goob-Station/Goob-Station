@@ -8,7 +8,7 @@ using Robust.Shared.Player;
 
 namespace Content.Client._Goobstation.MisandryBox;
 
-public sealed class InputSwapSystem : ToggleableSmiteSystem<InputSwapComponent>
+public sealed class InputSwapResyncSystem : EntitySystem
 {
     [Dependency] private readonly MovementSpeedModifierSystem _move = default!;
     [Dependency] private readonly IClientGameStateManager _stateMan = default!;
@@ -16,8 +16,6 @@ public sealed class InputSwapSystem : ToggleableSmiteSystem<InputSwapComponent>
 
     public override void Initialize()
     {
-        base.Initialize();
-
         _stateMan.GameStateApplied += ReapplyModifier;
     }
 
@@ -32,13 +30,5 @@ public sealed class InputSwapSystem : ToggleableSmiteSystem<InputSwapComponent>
             return;
 
         _move.RefreshMovementSpeedModifiers(_playMan.LocalSession.AttachedEntity.Value);
-    }
-
-    public override void Set(EntityUid ent)
-    {
-        var mod = Comp<MovementSpeedModifierComponent>(ent);
-
-        _move.ChangeBaseSpeed(ent, -mod.BaseWalkSpeed, -mod.BaseSprintSpeed, mod.Acceleration);
-        _move.RefreshMovementSpeedModifiers(ent);
     }
 }
