@@ -21,5 +21,17 @@
             - material: Cable
               amount: 5
               doAfter: 5
+
     - node: glassesSec
       entity: ClothingEyesGlassesSecurity
+      edges:
+      - to: start
+        steps:
+        - tool: Screwing
+          doAfter: 5
+        completed:
+        - !type:SpawnPrototype
+          prototype: ClothingEyesGlassesSunglasses
+        - !type:SpawnPrototype
+          prototype: ClothingEyesHudSecurity
+        - !type:DeleteEntity

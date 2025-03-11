@@ -5,3 +5,17 @@
   fullReplacements:
   - accent-words-gondola-1
 
+- type: accent
+  id: bingle
+  fullReplacements:
+  - bingle-accent-1  # for the odds
+  - bingle-accent-1
+  - bingle-accent-1
+  - bingle-accent-1
+  - bingle-accent-1
+  - bingle-accent-1
+  - bingle-accent-1
+  - bingle-accent-2
+  - bingle-accent-3
+  - bingle-accent-4
+  - bingle-accent-5

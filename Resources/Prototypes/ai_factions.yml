@@ -7,8 +7,12 @@
     - PetsNT
     - Zombie
     - Revolutionary
+    - AllHostile
     - Heretic # goob edit - heretics
     - Blob # Goobstation - Blob
+  friendly: # Goobstation
+    - Wizard
+    - PirateFaction # goob - pirates
 
 - type: npcFaction
   id: NanoTrasen
@@ -18,14 +22,19 @@
   - Xeno
   - Zombie
   - Revolutionary
+  - Dragon
+  - AllHostile
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - Wizard
+  - PirateFaction # goob - pirates
 
 - type: npcFaction
   id: Mouse
   hostile:
     - PetsNT
+    - AllHostile
 
 - type: npcFaction
   id: Passive
@@ -37,6 +46,7 @@
   - SimpleHostile
   - Zombie
   - Xeno
+  - AllHostile
   - Blob # Goobstation - Blob
 
 - type: npcFaction
@@ -48,8 +58,12 @@
   - PetsNT
   - Zombie
   - Revolutionary
+  - AllHostile
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - PirateFaction # goob - pirates
+  friendly: # Goobstation
+    - Wizard
 
 - type: npcFaction
   id: SimpleNeutral
@@ -62,9 +76,13 @@
   - Xeno
   - PetsNT
   - Zombie
+  - Dragon
+  - AllHostile
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - Wizard # goob edit - wizard
+  - PirateFaction # goob - pirates
 
 - type: npcFaction
   id: Xeno
@@ -75,8 +93,12 @@
   - PetsNT
   - Zombie
   - Revolutionary
+  - AllHostile
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - PirateFaction # goob - pirates
+  friendly: # Goobstation
+    - Wizard
 
 - type: npcFaction
   id: Zombie
@@ -88,9 +110,12 @@
   - Passive
   - PetsNT
   - Revolutionary
+  - AllHostile
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - Wizard # goob edit - wizard
+  - PirateFaction # goob - pirates
 
 - type: npcFaction
   id: Revolutionary
@@ -99,4 +124,27 @@
   - Zombie
   - SimpleHostile
   - Dragon
+  - AllHostile
   - Blob # Goobstation - Blob
+  - Wizard # Goobstation - wizard
+  - PirateFaction # goob - pirates
+
+- type: npcFaction
+  id: AllHostile
+  hostile:
+  - NanoTrasen
+  - Dragon
+  - Mouse
+  - Passive
+  - PetsNT
+  - SimpleHostile
+  - SimpleNeutral
+  - Syndicate
+  - Xeno
+  - Zombie
+  - Revolutionary
+  - Changeling # goob edit - changelings
+  - Heretic # goob edit - heretics
+  - Blob # Goobstation - Blob
+  - Wizard # goob edit - wizard
+  - PirateFaction # goob - pirates

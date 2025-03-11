@@ -1,0 +1,57 @@
+- type: weightedRandom
+  id: AbductorVictimObjectiveGroups
+  weights:
+    AbductorVictimObjectiveGroupHarmless: 0.75
+    AbductorVictimObjectiveGroupAnnoy: 0.20
+    AbductorVictimObjectiveGroupHarmful: 0.05
+
+- type: weightedRandom
+  id: AbductorVictimObjectiveGroupHarmless
+  weights:
+    AbductorVictimPaintObjective: 1
+    AbductorVictimPristine: 1
+    AbductorVictimCorpseCollector: 1
+    AbductorVictimBlingFloor: 1
+    AbductorVictimParaplegic: 1
+    AbductorVictimHungry: 1
+    AbductorVictimBlazeIt: 1
+    AbductorVictimVirtualInsanity: 1
+    AbductorVictimSocialExperiment: 1
+    AbductorVictimGame: 1
+    AbductorVictimSaveAnimals: 1
+    AbductorVictimMusic: 1
+    AbductorVictimNarrator: 1
+    AbductorVictimStalker: 1
+    AbductorVictimConspiracy: 1
+    AbductorVictimSixthsense: 1
+    AbductorVictimParty: 1
+    AbductorVictimDeadStationTheory: 1
+    AbductorVictimWeaknessOfMyFlesh: 1
+    AbductorVictimInstructor: 1
+    AbductorVictimActor: 1
+
+- type: weightedRandom
+  id: AbductorVictimObjectiveGroupAnnoy
+  weights:
+    AbductorVictimNations: 1
+    AbductorVictimPowerUnlimited: 1
+    AbductorVictimBuild: 1
+    AbductorVictimDefect: 1
+    AbductorVictimMonkeyTakeover: 1
+    AbductorVictimAverageFrontierPirate: 1
+    AbductorVictimNoClown: 1
+    AbductorVictimReplacePets: 1
+    AbductorVictimBald: 1
+
+- type: weightedRandom
+  id: AbductorVictimObjectiveGroupHarmful
+  weights:
+    AbductorVictimNoWalls: 1
+    AbductorVictimAbductception: 1
+    AbductorVictimNoOxygen: 1
+    AbductorVictimEscapeStation: 1
+    AbductorVictimNoCloning: 1
+    AbductorVictimStealWeapons: 1
+    AbductorVictimDismantleComputers: 1
+    AbductorVictimFinality: 1
+    AbductorVictimHeretic: 0.01

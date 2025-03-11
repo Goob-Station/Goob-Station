@@ -91,6 +91,7 @@
       color: "#808080"
       activateSound: null
       deactivateSound: null
+    - type: Fauna # Lavaland Change
 
 - type: entity
   parent: BaseMobCarp
@@ -182,6 +183,14 @@
     - type: HTN
       rootTask:
         task: DragonCarpCompound
+    - type: Tag
+      tags:
+        - DragonMind # Goobstation - Collective mind
+        - Carp
+        - DoorBumpOpener
+    # Goobstation - Collective mind
+    - type: CollectiveMind
+      defaultChannel: Dragonmind
 
 - type: entity
   id: MobCarpDungeon

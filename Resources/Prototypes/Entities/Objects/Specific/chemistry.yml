@@ -381,14 +381,25 @@
   - type: Injector
     injectOnly: false
     # GoobStation Start - Added embeddable properties for syringe gun
+  - type: Projectile
+    deleteOnCollide: false
+    onlyCollideWhenShot: true
+    angle: 45
+    damage:
+      types:
+        Piercing: 3
   - type: EmbeddableProjectile
     offset: "-0.1,0"
     minimumSpeed: 3
     removalTime: 0.25
     embedOnThrow: true
-  - type: SolutionInjectOnEmbed
-    transferAmount: 2
+    sound: /Audio/Weapons/Guns/Hits/bullet_meat1.ogg
+  - type: SolutionInjectWhileEmbedded
+    transferAmount: 1.5
+    updateInterval: 1 # done in 10 seconds
+    maxInjections: 2 # only inject 3u if thrown
     solution: injector
+    pierceArmor: false # 1984
   - type: Fixtures
     fixtures:
       fix1:
@@ -407,10 +418,6 @@
         mask:
         - Impassable
         - BulletImpassable
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Piercing: 3
   - type: ThrowingAngle
     angle: 45
   - type: ThrowableBlocked
@@ -474,9 +481,11 @@
     transferAmount: 1
     solution: injector
     updateInterval: 2
+    pierceArmor: false # Goobstation
   - type: SolutionInjectOnEmbed
     transferAmount: 2
     solution: injector
+    pierceArmor: false # Goobstation
   - type: Fixtures
     fixtures:
       fix1:
@@ -544,6 +553,7 @@
     tags:
     - Syringe
     - Trash
+    - SyringeGunAmmo # Goobstation - This should be fine, given that PR #1626 caused syringes to inject over time
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 25
@@ -603,7 +613,8 @@
     sprite: Objects/Specific/Chemistry/pills.rsi
   - type: Pill
   - type: Food
-    forceFeedDelay: 1
+    delay: 0.2
+    forceFeedDelay: 1.5
     transferAmount: null
     eatMessage: food-swallow
     useSound: /Audio/Items/pill.ogg

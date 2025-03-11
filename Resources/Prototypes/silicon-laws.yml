@@ -1,4 +1,4 @@
-﻿# Goobstation - AI/borg law changes - borgs obeying AI
+# Goobstation - AI/borg law changes - borgs obeying AI
 # Obey AI
 - type: siliconLaw
   id: ObeyAI
@@ -557,6 +557,8 @@
     PainterLawset: 1
     AntimovLawset: 0.25
     NutimovLawset: 0.5
+    ZooimovLawset: 0.5 #silly lawsets down here
+    HelpimovLawset: 0.6
     Drone: 0.5
     Ninja: 0.25
     JermovLawset: 0.25

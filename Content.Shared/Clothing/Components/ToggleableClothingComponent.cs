@@ -66,7 +66,7 @@ public sealed partial class ToggleableClothingComponent : Component
     public string ContainerId = DefaultClothingContainerId;
 
     [ViewVariables]
-    public Container? Container;
+    public Container Container = default!;
 
     /// <summary>
     ///     Time it takes for this clothing to be toggled via the stripping menu verbs. Null prevents the verb from even showing up.

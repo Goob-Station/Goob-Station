@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Content.Shared.CCVar;
+using Robust.Shared;
 using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Serialization.Manager;
@@ -18,7 +19,7 @@ namespace Content.Client.Changelog
         [Dependency] private readonly IConfigurationManager _configManager = default!;
 
         private const string SawmillName = "changelog";
-        public const string MainChangelogName = "Changelog";
+        public const string MainChangelogName = "Gooblog";
 
         private ISawmill _sawmill = default!;
 
@@ -123,6 +124,27 @@ namespace Content.Client.Changelog
         public void PostInject()
         {
             _sawmill = _logManager.GetSawmill(SawmillName);
+        }
+
+        /// <summary>
+        ///     Tries to return a human-readable version number from the build.json file
+        /// </summary>
+        public string GetClientVersion()
+        {
+            var fork = _configManager.GetCVar(CVars.BuildForkId);
+            var version = _configManager.GetCVar(CVars.BuildVersion);
+
+            // This trimming might become annoying if down the line some codebases want to switch to a real
+            // version format like "104.11.3" while others are still using the git hashes
+            if (version.Length > 7)
+                version = version[..7];
+
+            if (string.IsNullOrEmpty(version) || string.IsNullOrEmpty(fork))
+                return Loc.GetString("changelog-version-unknown");
+
+            return Loc.GetString("changelog-version-tag",
+                ("fork", fork),
+                ("version", version));
         }
 
         [DataDefinition]

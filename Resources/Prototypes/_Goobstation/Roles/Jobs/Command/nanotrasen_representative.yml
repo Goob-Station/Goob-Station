@@ -16,8 +16,9 @@
   joinNotifyCrew: true
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  goobcoins: 40
   access:
-  - CentralCommand
+  - Security
   - Brig
   - External
   - Cryogenics
@@ -26,6 +27,12 @@
   - Medical
   - Research
   - Command
+  - CentralCommand
+  - Service
+  - Hydroponics
+  - Kitchen
+  - Cargo
+  - Theatre
   - NanotrasenRepresentative
   special:
   - !type:AddImplantSpecial
@@ -39,6 +46,7 @@
   equipment:
     id: CentcomPDA
     ears: ClothingHeadsetAltCentCom
+    gloves: ClothingHandsGlovesGoldenTrim # Psst. I might as well add this here.
     pocket1: UniqueNanorepLockerTeleporter
   storage:
     back:

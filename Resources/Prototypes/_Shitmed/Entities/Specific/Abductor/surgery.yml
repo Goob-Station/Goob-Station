@@ -1,0 +1,135 @@
+- type: entity
+  name: high-tech mechanical pinches
+  id: MechanicalPinchesAbductor
+  description: A highly advanced set of mechanical pinches, they seem to work like a hemostat and retractor.
+  parent: [BaseToolSurgery, BaseMajorContraband]
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/cautery.rsi
+    state: abductor
+  - type: Item
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/cautery.rsi
+    heldPrefix: abductor
+    storedRotation: 90
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/retractor2.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 6.5
+        Heat: 1
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 150
+      Glass: 37
+      Silver: 37
+  - type: Hemostat
+    speed: 2
+  - type: Retractor
+    speed: 2
+  - type: Tweezers
+    speed: 2
+  - type: Tending
+    speed: 2
+  - type: GuideHelp
+    guides:
+    - Abductors
+
+- type: entity
+  name: high-tech searing tool
+  description: A highly advanced cautery with an energy tip, it seems to also work as a drill.
+  id: SearingToolAbductor
+  parent: [BaseToolSurgery, BaseMajorContraband]
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/drill.rsi
+    state: abductor
+  - type: Item
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/drill.rsi
+    heldPrefix: abductor
+    storedRotation: 90
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/cautery1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/cautery2.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 10
+        Heat: 1
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 150
+      Glass: 37
+      Plasma: 37
+  - type: Drill
+    speed: 2
+  - type: Cautery
+    speed: 2
+  - type: GuideHelp
+    guides:
+    - Abductors
+
+- type: entity
+  name: high-tech energy scalpel
+  description: A scalpel which uses an energy blade, it seems to also work as a saw.
+  id: EnergyScalpelAbductor
+  parent: [BaseToolSurgery, BaseMajorContraband]
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/scalpel.rsi
+    state: abductor
+  - type: Item
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/scalpel.rsi
+    heldPrefix: abductor
+    storedRotation: 90
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 10
+        Heat: 1
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 150
+      Glass: 37
+      Gold: 37
+  - type: Scalpel
+    speed: 2
+  - type: BoneSaw
+    speed: 2
+  - type: GuideHelp
+    guides:
+    - Abductors
+
+- type: entity
+  name: high-tech bone manipulator
+  id: BoneManipulatorAbductor
+  description: A highly advanced tool, capable of mending bones.
+  parent: [BaseToolSurgery, BaseMajorContraband]
+  components:
+    - type: Sprite
+      sprite: _Shitmed/Objects/Specific/Medical/Surgery/bonesetter.rsi
+      state: abductor
+    - type: Item
+      sprite: _Shitmed/Objects/Specific/Medical/Surgery/bonesetter.rsi
+      heldPrefix: abductor
+      storedRotation: 90
+    - type: SurgeryTool
+      startSound:
+        path: /Audio/_Shitmed/Medical/Surgery/bone_setter.ogg
+    - type: BoneSetter
+      speed: 2
+    - type: BoneGel
+      speed: 2
+    - type: GuideHelp
+      guides:
+      - Abductors

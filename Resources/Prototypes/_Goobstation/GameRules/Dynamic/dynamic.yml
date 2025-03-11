@@ -13,9 +13,9 @@
   - HereticDynamic # heretics
   - RevolutionDynamic # revs (M)
   - NukeopsDynamic # nukies (M)
+  - WizardDynamic # wizard (M)
   # cult wyci (M)
   # clock cult wyci (M)
-  # wizard wyci (M)
 
 # add all antag related events here
 - type: dataset
@@ -33,6 +33,7 @@
   - RevenantDynamicMidround # revenant spawn (M)
   - ZombiesDynamicMidround # zombie outbreak (M)
   - BlobDynamicMidround # blob mouse spawn(M)
+  # - WizardDynamicMidround # wizard spawn (M)
   # spider infestation todo (M)
   # xenos todo (M)
   # improved kudzu todo (M)
@@ -71,7 +72,7 @@
     - secret2
   name: gamemode-dynamic-title
   description: gamemode-dynamic-description
-  showInVote: true
+  showInVote: false #currently broken, and hasn't been fixed for over a month, and people LOVE voting for it
   rules:
     - Dynamic
     - BasicStationEventSchedulerNoAntag
@@ -80,6 +81,7 @@
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
+    - LavalandStormScheduler # Lavaland Change
 
 - type: gamePreset
   id: DynamicUnforgiving
@@ -94,7 +96,8 @@
     - DynamicUnforgiving
     - BasicStationEventSchedulerNoAntag
     - DynamicStationEventScheduler
-    - MeteorSwarmScheduler
+#    - MeteorSwarmScheduler Goob Edit
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
+    - LavalandStormScheduler # Lavaland Change

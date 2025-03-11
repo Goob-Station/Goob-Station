@@ -306,3 +306,6 @@ Resources/MapImages
 
 # Direnv stuff
 .direnv/
+
+config.json
+.github/workflows/update-prs.yaml

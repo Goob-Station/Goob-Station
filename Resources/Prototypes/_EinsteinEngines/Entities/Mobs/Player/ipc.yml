@@ -4,6 +4,34 @@
   name: Urist McPositronic
   description: A positronic brain in a metal body.
   components:
+  - type: HarpySinger
+  - type: Instrument
+    allowPercussion: true
+    allowProgramChange: true
+    program: 52
+  - type: SwappableInstrument
+    instrumentList:
+      "Daw": { 0: 0 }
+  - type: UserInterface
+    interfaces:
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+      enum.VoiceMaskUIKey.Key:
+        type: VoiceMaskBoundUserInterface
+      enum.HumanoidMarkingModifierKey.Key:
+        type: HumanoidMarkingModifierBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      # Goobstation - changelings (technically, IPCs cant be a ling, but whatever)
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+      enum.HereticLivingHeartKey.Key: # goob edit - heretics
+        type: LivingHeartMenuBoundUserInterface
+      enum.WizardTeleportUiKey.Key: # Goobstation - wizard
+        type: WizardTeleportBoundUserInterface
+        requireInputValidation: false
+      enum.SurgeryUIKey.Key: # Shitmed
+        type: SurgeryBui
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: true
@@ -34,32 +62,32 @@
     messagePerceivedByOthers: hugging-success-generic-others
   - type: NpcFactionMember
     factions:
-      - NanoTrasen
+    - NanoTrasen
   - type: StandingState
+  - type: Damageable
+    damageContainer: SiliconRadiation
+    damageModifierSet: IPC
   - type: MobState
     allowedStates:
-      - Alive
-      - Critical
-      - Dead
+    - Alive
+    - Dead
   - type: MobThresholds
     thresholds:
       0: Alive
-      119.999: Critical # TO make it almost impossible
       120: Dead
     stateAlertDict:
       Alive: BorgHealth
-      Critical: BorgCrit
       Dead: BorgDead
   - type: TypingIndicator
     proto: robot
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTypeTrigger
-          damageType: Blunt
-          damage: 400
-        behaviors:
-          - !type:GibBehavior { }
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 400
+      behaviors:
+      - !type:GibBehavior { }
   - type: SlowOnDamage
     speedModifierThresholds:
       60: 0.7
@@ -70,7 +98,7 @@
     templateId: ipc
   - type: GuideHelp
     guides:
-      - IPC
+    - IPC
   - type: Silicon
     entityType: enum.SiliconType.Player
     batteryPowered: true
@@ -96,9 +124,9 @@
   - type: DeadStartupButton
     sound:
       path: /Audio/_EinsteinEngines/Effects/Silicon/startup.ogg
-# Erro de linter
-#   - type: Wires
-#     layoutId: IPC
+  # Erro de linter
+  #   - type: Wires
+  #     layoutId: IPC
   - type: EmitBuzzWhileDamaged
   - type: CanHostGuardian
   - type: WeldingHealable

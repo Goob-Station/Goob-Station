@@ -52,6 +52,7 @@
   - type: BlindHealing
     damageContainers:
       - Silicon
+      - SiliconRadiation # Goobstation - Make IPCs take radiation
   - type: StackPrice
     price: 2
 

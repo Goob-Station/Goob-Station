@@ -1,17 +1,26 @@
-using Content.Server.Atmos.Components;
-using Content.Shared.Heretic;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs;
-using Content.Shared.Damage;
 using Content.Shared.Atmos;
-using Content.Server.Temperature.Components;
+using Content.Shared.Damage;
+using Content.Shared.Heretic;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Temperature.Components;
+using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
+using Content.Server.Temperature.Components;
+using Robust.Shared.Map.Components;
+using Robust.Server.GameObjects;
+using Robust.Shared.Prototypes;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Content.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem : EntitySystem
 {
+    [Dependency] private readonly MapSystem _map = default!;
+    [Dependency] private readonly TransformSystem _xform = default!;
+
     private void SubscribeAsh()
     {
         SubscribeLocalEvent<HereticComponent, EventHereticAshenShift>(OnJaunt);
@@ -41,6 +50,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         var urist = _poly.PolymorphEntity(ent, "AshJaunt");
         if (urist == null)
             return false;
+
         return true;
     }
 
@@ -73,8 +83,9 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        var power = ent.Comp.CurrentPath == "Ash" ? ent.Comp.PathStage : 2.5f;
+        var power = ent.Comp.CurrentPath == "Ash" ? ent.Comp.PathStage : 4f;
         var lookup = _lookup.GetEntitiesInRange(ent, power);
+        var healAmount = -10f - power;
 
         foreach (var look in lookup)
         {
@@ -87,16 +98,19 @@ public sealed partial class HereticAbilitySystem : EntitySystem
                 if (flam.OnFire && TryComp<DamageableComponent>(ent, out var dmgc))
                 {
                     // heals everything by base + power for each burning target
-                    _stam.TryTakeStamina(ent, -(10 + power));
+                    _stam.TryTakeStamina(ent, healAmount);
                     var dmgdict = dmgc.Damage.DamageDict;
-                    foreach (var key in dmgdict.Keys)
-                        dmgdict[key] -= 10f + power;
+                    DamageSpecifier healSpecifier = new();
 
-                    var dmgspec = new DamageSpecifier() { DamageDict = dmgdict };
-                    _dmg.TryChangeDamage(ent, dmgspec, true, false, dmgc);
+                    foreach (var key in dmgdict.Keys)
+                    {
+                        healSpecifier.DamageDict[key] = -dmgdict[key] < healAmount ? healAmount : -dmgdict[key];
+                    }
+
+                    _dmg.TryChangeDamage(ent, healSpecifier, true, false, dmgc);
                 }
 
-                if (!flam.OnFire)
+                if (flam.OnFire)
                     _flammable.AdjustFireStacks(look, power, flam, true);
 
                 if (TryComp<MobStateComponent>(look, out var mobstat))
@@ -124,15 +138,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (!TryUseAbility(ent, args) || !Transform(ent).GridUid.HasValue)
             return;
 
-        // yeah. it just generates a ton of plasma which just burns.
-        // lame, but we don't have anything fire related atm, so, it works.
-        var tilepos = _transform.GetGridOrMapTilePosition(ent, Transform(ent));
-        var enumerator = _atmos.GetAdjacentTileMixtures(Transform(ent).GridUid!.Value, tilepos, false, false);
-        while (enumerator.MoveNext(out var mix))
-        {
-            mix.AdjustMoles(Gas.Plasma, 50f);
-            mix.Temperature = Atmospherics.T0C + 125f;
-        }
+        CombustArea(ent, 9, false);
 
         if (ent.Comp.Ascended)
             _flammable.AdjustFireStacks(ent, 20f, ignite: true);
@@ -154,4 +160,63 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         // this does NOT protect you against lasers and whatnot. for now. when i figure out THIS STUPID FUCKING LIMB SYSTEM!!!
         // regards.
     }
+
+    #region Helper methods
+
+    [ValidatePrototypeId<EntityPrototype>] private static readonly EntProtoId FirePrototype = "HereticFireAA";
+
+    public async Task CombustArea(EntityUid ent, int range = 1, bool hollow = true)
+    {
+        // we need this beacon in order for damage box to not break apart
+        var beacon = Spawn(null, _xform.GetMapCoordinates((EntityUid) ent));
+
+        for (int i = 0; i <= range; i++)
+        {
+            SpawnFireBox(beacon, range: i, hollow);
+            await Task.Delay((int) 500f);
+        }
+
+        EntityManager.DeleteEntity(beacon); // cleanup
+    }
+
+    public void SpawnFireBox(EntityUid relative, int range = 0, bool hollow = true)
+    {
+        if (range == 0)
+        {
+            Spawn(FirePrototype, Transform(relative).Coordinates);
+            return;
+        }
+
+        var xform = Transform(relative);
+
+        if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
+            return;
+
+        var gridEnt = ((EntityUid) xform.GridUid, grid);
+
+        // get tile position of our entity
+        if (!_xform.TryGetGridTilePosition(relative, out var tilePos))
+            return;
+
+        // make a box
+        var pos = _map.TileCenterToVector(gridEnt, tilePos);
+        var confines = new Box2(pos, pos).Enlarged(range);
+        var box = _map.GetLocalTilesIntersecting(relative, grid, confines).ToList();
+
+        // hollow it out if necessary
+        if (hollow)
+        {
+            var confinesS = new Box2(pos, pos).Enlarged(Math.Max(range - 1, 0));
+            var boxS = _map.GetLocalTilesIntersecting(relative, grid, confinesS).ToList();
+            box = box.Where(b => !boxS.Contains(b)).ToList();
+        }
+
+        // fill the box
+        foreach (var tile in box)
+        {
+            Spawn(FirePrototype, _map.GridTileToWorld((EntityUid) xform.GridUid, grid, tile.GridIndices));
+        }
+    }
+
+    #endregion
 }

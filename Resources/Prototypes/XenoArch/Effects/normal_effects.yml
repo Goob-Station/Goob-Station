@@ -216,6 +216,8 @@
     - VentCrud
     - WeldingFuel
     - JuiceThatMakesYouWeh
+    # Goobstation - Start
+    - CatDrugs
 
 - type: artifactEffect
   id: EffectInstrumentSpawn
@@ -294,6 +296,7 @@
   components:
   - type: Stealth
     hadOutline: true
+    minVisibility: -1 # Goobstation - Proper invisibility
   - type: StealthOnMove
     passiveVisibilityRate: -0.10
     movementVisibilityRate: 0.10
@@ -511,6 +514,9 @@
     - Desoxyephedrine
     - Pax
     - Siderlac
+    # Goobstation - Start
+    - Ibuprofen
+    - Tirimol
 
 - type: artifactEffect
   id: EffectEmp
@@ -613,6 +619,9 @@
     - ChloralHydrate
     - Mold
     - Amatoxin
+    # Goobstation - Start
+    - Triclor
+    - Cyanide
 
 - type: artifactEffect
   id: EffectIgnite

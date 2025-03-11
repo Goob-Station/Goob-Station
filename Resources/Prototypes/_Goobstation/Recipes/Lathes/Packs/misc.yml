@@ -1,0 +1,42 @@
+## Static
+- type: latheRecipePack
+  id: SyndicateAmmoStatic
+  recipes:
+  - MagazinePistolCaselessRifleEmpty
+  - MagazinePistolCaselessRifle
+  - MagazineBoxCaselessRifle
+  - MagazineLightRifleBoxEmpty
+  - MagazineLightRifleBox
+  - MagazineHighCaliberEmpty
+  - MagazineHighCaliber
+  - MagazineBoxHighCaliber
+  - MagazineBoxShotgunIncendiaryHighCaliber
+  - MagazineBoxShotgunUraniumHighCaliber
+  - MagazineBoxShotgunBeanbagHighCaliber
+  - MagazineCaselessRifleEmpty
+  - MagazineCaselessRifle
+  - MagazineBoxAntiMateriel
+
+- type: latheRecipePack
+  id: LatheMiscStatic
+  recipes:
+  - ToolboxMechanical
+  - Pen
+
+- type: latheRecipePack
+  id: SyndicateCatridgesStatic
+  recipes:
+  - CartridgeEphedrine # Goobstation
+  - CartridgePuncturase # Goobstation
+
+- type: latheRecipePack
+  id: ProtoLatheMiscStatic
+  recipes:
+  - MaterialBSCrystal
+
+## Dynamic
+- type: latheRecipePack # WD
+  id: SpecOpsGoogles
+  recipes:
+    - ClothingEyesNightVisionGoggles
+    - ClothingEyesThermalVisionGoggles

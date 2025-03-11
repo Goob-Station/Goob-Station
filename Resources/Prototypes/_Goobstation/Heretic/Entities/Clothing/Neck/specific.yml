@@ -6,7 +6,6 @@
   suffix: MagicItem
   components:
     - type: HereticMagicItem
-    - type: HereticClothing
     - type: Sprite
       sprite: _Goobstation/Heretic/amber_focus.rsi
       state: icon
@@ -25,8 +24,10 @@
     - type: Clothing
       sprite: _Goobstation/Heretic/eldritch_medalion.rsi
     - type: ThermalVision
+      isEquipment: true
       isActive: true
       color: white
       drawOverlay: false
       lightRadius: 0
       toggleAction: null
+    - type: HereticClothing

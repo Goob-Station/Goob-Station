@@ -1,3 +1,21 @@
+# Weaponry
+
+- type: listing
+  id: UplinkBetrayalKnife
+  name: uplink-betrayal-knife-name
+  description: uplink-betrayal-knife-desc
+  icon: { sprite: /Textures/_White/Objects/Weapons/Melee/Daggers/betrayal_knife.rsi, state: icon }
+  productEntity: BetrayalKnife
+  cost:
+    Telecrystal: 40 # goob
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
 # Night Vision
 
 - type: listing

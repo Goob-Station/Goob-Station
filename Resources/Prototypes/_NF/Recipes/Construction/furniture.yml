@@ -1,0 +1,632 @@
+# Seat
+- type: construction
+  id: BenchSofaMiddle
+  name: sofa (middle)
+  description: Multiple seats spanning a single object. Truly a marvel of science.
+  graph: SofasGraph
+  startNode: start
+  targetNode: BenchSofaMiddleNode
+  category: construction-category-furniture
+  icon:
+    sprite: _SimpleStation/Structures/Furniture/Benches/sofa.rsi
+    state: middle
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchSofaLeft
+  name: sofa (left)
+  description: Multiple seats spanning a single object. Truly a marvel of science.
+  graph: SofasGraph
+  startNode: start
+  targetNode: BenchSofaLeftNode
+  category: construction-category-furniture
+  icon:
+    sprite: _SimpleStation/Structures/Furniture/Benches/sofa.rsi
+    state: left
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchSofaRight
+  name: sofa (right)
+  description: Multiple seats spanning a single object. Truly a marvel of science.
+  graph: SofasGraph
+  startNode: start
+  targetNode: BenchSofaRightNode
+  category: construction-category-furniture
+  icon:
+    sprite: _SimpleStation/Structures/Furniture/Benches/sofa.rsi
+    state: right
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchSofaCorner
+  name: sofa (corner)
+  description: Multiple seats spanning a single object. Truly a marvel of science.
+  graph: SofasGraph
+  startNode: start
+  targetNode: BenchSofaCornerNode
+  category: construction-category-furniture
+  icon:
+    sprite: _SimpleStation/Structures/Furniture/Benches/sofa.rsi
+    state: corner
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchSofaCorpMiddle
+  name: grey sofa (middle)
+  description: Multiple seats spanning a single object. Truly a marvel of science.
+  graph: SofasGraph
+  startNode: start
+  targetNode: BenchSofaCorpMiddleNode
+  category: construction-category-furniture
+  icon:
+    sprite: _SimpleStation/Structures/Furniture/Benches/sofa_corp.rsi
+    state: middle
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchSofaCorpLeft
+  name: grey sofa (left)
+  description: Multiple seats spanning a single object. Truly a marvel of science.
+  graph: SofasGraph
+  startNode: start
+  targetNode: BenchSofaCorpLeftNode
+  category: construction-category-furniture
+  icon:
+    sprite: _SimpleStation/Structures/Furniture/Benches/sofa_corp.rsi
+    state: left
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchSofaCorpRight
+  name: grey sofa (right)
+  description: Multiple seats spanning a single object. Truly a marvel of science.
+  graph: SofasGraph
+  startNode: start
+  targetNode: BenchSofaCorpRightNode
+  category: construction-category-furniture
+  icon:
+    sprite: _SimpleStation/Structures/Furniture/Benches/sofa_corp.rsi
+    state: right
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchSofaCorpCorner
+  name: grey sofa (corner)
+  description: Multiple seats spanning a single object. Truly a marvel of science.
+  graph: SofasGraph
+  startNode: start
+  targetNode: BenchSofaCorpCornerNode
+  category: construction-category-furniture
+  icon:
+    sprite: _SimpleStation/Structures/Furniture/Benches/sofa_corp.rsi
+    state: corner
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchSteelMiddle
+  name: steel bench (middle)
+  description: Multiple seats spanning a single object. Truly a marvel of science.
+  graph: BenchesGraph
+  startNode: start
+  targetNode: BenchSteelMiddleNode
+  category: construction-category-furniture
+  icon:
+    sprite: _SimpleStation/Structures/Furniture/Benches/steel_bench.rsi
+    state: middle
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchSteelRight
+  name: steel bench (right)
+  description: Multiple seats spanning a single object. Truly a marvel of science.
+  graph: BenchesGraph
+  startNode: start
+  targetNode: BenchSteelRightNode
+  category: construction-category-furniture
+  icon:
+    sprite: _SimpleStation/Structures/Furniture/Benches/steel_bench.rsi
+    state: right
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchSteelLeft
+  name: steel bench (left)
+  description: Multiple seats spanning a single object. Truly a marvel of science.
+  graph: BenchesGraph
+  startNode: start
+  targetNode: BenchSteelLeftNode
+  category: construction-category-furniture
+  icon:
+    sprite: _SimpleStation/Structures/Furniture/Benches/steel_bench.rsi
+    state: left
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchPewMiddle
+  name: pew (middle)
+  description: Multiple seats spanning a single object. Truly a marvel of science.
+  graph: BenchesGraph
+  startNode: start
+  targetNode: BenchPewMiddleNode
+  category: construction-category-furniture
+  icon:
+    sprite: _SimpleStation/Structures/Furniture/Benches/pews.rsi
+    state: middle
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchPewRight
+  name: pew (right)
+  description: Multiple seats spanning a single object. Truly a marvel of science.
+  graph: BenchesGraph
+  startNode: start
+  targetNode: BenchPewRightNode
+  category: construction-category-furniture
+  icon:
+    sprite: _SimpleStation/Structures/Furniture/Benches/pews.rsi
+    state: right
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchPewLeft
+  name: pew (left)
+  description: Multiple seats spanning a single object. Truly a marvel of science.
+  graph: BenchesGraph
+  startNode: start
+  targetNode: BenchPewLeftNode
+  category: construction-category-furniture
+  icon:
+    sprite: _SimpleStation/Structures/Furniture/Benches/pews.rsi
+    state: left
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchParkMiddle
+  name: park bench (middle)
+  description: Multiple seats spanning a single object. Truly a marvel of science.
+  graph: BenchesGraph
+  startNode: start
+  targetNode: BenchParkMiddleNode
+  category: construction-category-furniture
+  icon:
+    sprite: _SimpleStation/Structures/Furniture/Benches/parkbench_wooden.rsi
+    state: middle
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchParkRight
+  name: park bench (right)
+  description: Multiple seats spanning a single object. Truly a marvel of science.
+  graph: BenchesGraph
+  startNode: start
+  targetNode: BenchParkRightNode
+  category: construction-category-furniture
+  icon:
+    sprite: _SimpleStation/Structures/Furniture/Benches/parkbench_wooden.rsi
+    state: right
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchParkLeft
+  name: park bench (left)
+  description: Multiple seats spanning a single object. Truly a marvel of science.
+  graph: BenchesGraph
+  startNode: start
+  targetNode: BenchParkLeftNode
+  category: construction-category-furniture
+  icon:
+    sprite: _SimpleStation/Structures/Furniture/Benches/parkbench_wooden.rsi
+    state: left
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchSteelWhiteMiddle
+  name: white bench (middle)
+  description: Multiple seats spanning a single object. Truly a marvel of science.
+  graph: BenchesGraph
+  startNode: start
+  targetNode: BenchSteelWhiteMiddleNode
+  category: construction-category-furniture
+  icon:
+    sprite: _SimpleStation/Structures/Furniture/Benches/steel_bench_white.rsi
+    state: middle
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchSteelWhiteRight
+  name: white bench (right)
+  description: Multiple seats spanning a single object. Truly a marvel of science.
+  graph: BenchesGraph
+  startNode: start
+  targetNode: BenchSteelWhiteRightNode
+  category: construction-category-furniture
+  icon:
+    sprite: _SimpleStation/Structures/Furniture/Benches/steel_bench_white.rsi
+    state: right
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchSteelWhiteLeft
+  name: white bench (left)
+  description: Multiple seats spanning a single object. Truly a marvel of science.
+  graph: BenchesGraph
+  startNode: start
+  targetNode: BenchSteelWhiteLeftNode
+  category: construction-category-furniture
+  icon:
+    sprite: _SimpleStation/Structures/Furniture/Benches/steel_bench_white.rsi
+    state: left
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchParkBambooMiddle
+  name: bamboo park bench (middle)
+  description: Multiple seats spanning a single object. Truly a marvel of science.
+  graph: BenchesGraph
+  startNode: start
+  targetNode: BenchParkBambooMiddleNode
+  category: construction-category-furniture
+  icon:
+    sprite: _SimpleStation/Structures/Furniture/Benches/parkbench_bamboo.rsi
+    state: middle
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchParkBambooRight
+  name: bamboo park bench (right)
+  description: Multiple seats spanning a single object. Truly a marvel of science.
+  graph: BenchesGraph
+  startNode: start
+  targetNode: BenchParkBambooRightNode
+  category: construction-category-furniture
+  icon:
+    sprite: _SimpleStation/Structures/Furniture/Benches/parkbench_bamboo.rsi
+    state: right
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchParkBambooLeft
+  name: bamboo park bench (left)
+  description: Multiple seats spanning a single object. Truly a marvel of science.
+  graph: BenchesGraph
+  startNode: start
+  targetNode: BenchParkBambooLeftNode
+  category: construction-category-furniture
+  icon:
+    sprite: _SimpleStation/Structures/Furniture/Benches/parkbench_bamboo.rsi
+    state: left
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+# Decorations (bonfire, fireplace)
+- type: construction
+  id: Bonfire
+  name: bonfire
+  description: What can be better then late evening under the sky with guitar and friends.
+  graph: FiresGraph
+  startNode: start
+  targetNode: BonfireNode
+  category: construction-category-furniture
+  icon:
+    sprite: Structures/Decoration/bonfire.rsi
+    state: bonfire
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: Fireplace
+  name: fireplace
+  description: A place that has fire. Cozy!
+  graph: FiresGraph
+  startNode: start
+  targetNode: FireplaceNode
+  category: construction-category-furniture
+  icon:
+    sprite: Structures/Decoration/fireplace.rsi
+    state: fireplace
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+# Banners
+- type: construction
+  id: BannerNanotrasen
+  name: nanotrasen banner
+  description: A banner displaying the Nanotrasen logo.
+  graph: BannersGraph
+  startNode: start
+  targetNode: BannerNanotrasenNode
+  category: construction-category-furniture
+  icon:
+    sprite: Structures/Decoration/banner.rsi
+    state: banner
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BannerCargo
+  name: cargo banner
+  description: A banner displaying the colors of the cargo department.
+  graph: BannersGraph
+  startNode: start
+  targetNode: BannerCargoNode
+  category: construction-category-furniture
+  icon:
+    sprite: Structures/Decoration/banner.rsi
+    state: banner_cargo
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BannerEngineering
+  name: engineering banner
+  description: A banner displaying the colors of the engineering department.
+  graph: BannersGraph
+  startNode: start
+  targetNode: BannerEngineeringNode
+  category: construction-category-furniture
+  icon:
+    sprite: Structures/Decoration/banner.rsi
+    state: banner_engineering
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BannerMedical
+  name: medical banner
+  description: A banner displaying the colors of the medical department.
+  graph: BannersGraph
+  startNode: start
+  targetNode: BannerMedicalNode
+  category: construction-category-furniture
+  icon:
+    sprite: Structures/Decoration/banner.rsi
+    state: banner_medical
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BannerScience
+  name: science banner
+  description: A banner displaying the colors of the science department.
+  graph: BannersGraph
+  startNode: start
+  targetNode: BannerScienceNode
+  category: construction-category-furniture
+  icon:
+    sprite: Structures/Decoration/banner.rsi
+    state: banner_science
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BannerSecurity
+  name: security banner
+  description: A banner displaying the colors of the security department.
+  graph: BannersGraph
+  startNode: start
+  targetNode: BannerSecurityNode
+  category: construction-category-furniture
+  icon:
+    sprite: Structures/Decoration/banner.rsi
+    state: banner_security
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BannerBlue
+  name: blue banner
+  description: A banner displaying the color blue.
+  graph: BannersGraph
+  startNode: start
+  targetNode: BannerBlueNode
+  category: construction-category-furniture
+  icon:
+    sprite: Structures/Decoration/banner.rsi
+    state: banner-blue
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BannerRed
+  name: red banner
+  description: A banner displaying the color red.
+  graph: BannersGraph
+  startNode: start
+  targetNode: BannerRedNode
+  category: construction-category-furniture
+  icon:
+    sprite: Structures/Decoration/banner.rsi
+    state: banner-red
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BannerYellow
+  name: yellow banner
+  description: A banner displaying the color yellow.
+  graph: BannersGraph
+  startNode: start
+  targetNode: BannerYellowNode
+  category: construction-category-furniture
+  icon:
+    sprite: Structures/Decoration/banner.rsi
+    state: banner-yellow
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BannerGreen
+  name: green banner
+  description: A banner displaying the color green.
+  graph: BannersGraph
+  startNode: start
+  targetNode: BannerGreenNode
+  category: construction-category-furniture
+  icon:
+    sprite: Structures/Decoration/banner.rsi
+    state: banner-green
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BannerRevolution
+  name: revolution banner
+  description: A banner displaying revolution. Viva!
+  graph: BannersGraph
+  startNode: start
+  targetNode: BannerRevolutionNode
+  category: construction-category-furniture
+  icon:
+    sprite: Structures/Decoration/banner.rsi
+    state: banner_revolution
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BannerSyndicate
+  name: syndicate banner
+  description: A banner from which, according to the syndicate, you should feel hatred for NT.
+  graph: BannersGraph
+  startNode: start
+  targetNode: BannerSyndicateNode
+  category: construction-category-furniture
+  icon:
+    sprite: Structures/Decoration/banner.rsi
+    state: banner_syndicate
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+

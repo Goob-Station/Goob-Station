@@ -14,6 +14,7 @@
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     quickEquip: false
+    equippedPrefix: off
     slots: [ HEAD ]
     clothingVisuals:
       head:

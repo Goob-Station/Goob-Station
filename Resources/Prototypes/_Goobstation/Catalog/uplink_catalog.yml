@@ -79,7 +79,7 @@
   icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/m90.rsi, state: icon }
   productEntity: WeaponRifleM90
   cost:
-    Telecrystal: 50 #same as c20r until I add the underbarrel grenade launcher
+    Telecrystal: 50
   categories:
   - UplinkWeaponry
 
@@ -113,10 +113,9 @@
   id: UplinkWSPR
   name: uplink-WSPR-name
   description: uplink-WSPR-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/ak.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledWSPR
+  productEntity: WeaponRifleWSPR
   cost:
-    Telecrystal: 85
+    Telecrystal: 60
   categories:
   - UplinkWeaponry
 
@@ -169,6 +168,26 @@
   categories:
   - UplinkWeaponry
 
+- type: listing
+  id: UplinkPistolAnaconda
+  name: uplink-anaconda-name
+  description: uplink-anaconda-desc
+  productEntity: WeaponPistolAnaconda
+  cost:
+    Telecrystal: 40
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkBulkMosin
+  name: uplink-bulk-mosin-name
+  description: uplink-bulk-mosin-desc
+  productEntity: CrateSyndicateBulkMosin
+  cost:
+    Telecrystal: 25
+  categories:
+    - UplinkWeaponry
+
 # Wearables
 
 - type: listing
@@ -189,7 +208,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndiemedic.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateMedicHardsuitBundle
   cost:
-    Telecrystal: 55 # novelty item for the larp
+    Telecrystal: 50 # novelty item for the larp
   categories:
   - UplinkWearables
   conditions:
@@ -227,7 +246,18 @@
   icon: { sprite: /Textures/_Goobstation/Clothing/OuterClothing/Hardsuits/cybersunstealth.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateStealthHardsuitBundle
   cost:
-    Telecrystal: 75 # might be op? needs testing to see. increase price to 90 TC when we merge the upstream fix that hides HUD stuff for stealthed entities.
+    Telecrystal: 75
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkReverseBearTrap
+  name: uplink-reverse-bear-trap-name
+  description: uplink-reverse-bear-trap-desc
+  icon: { sprite: /Textures/_Goobstation/Clothing/Head/Helmets/reverse_bear_trap.rsi, state: icon }
+  productEntity: BoxReverseBearTrap
+  cost:
+    Telecrystal: 23 # novelty item for rp
   categories:
   - UplinkWearables
 
@@ -240,6 +270,20 @@
   productEntity: LauncherCreamPieRegenerating
   cost:
     Telecrystal: 40
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Clown
+
+- type: listing
+  id: UplinkSyndicateWhimsyBundle
+  name: uplink-whimsy-bundle-name
+  description: uplink-whimsy-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateFilledWhimsy
+  cost:
+    Telecrystal: 65
   categories:
   - UplinkJob
   conditions:
@@ -307,6 +351,21 @@
     - Clown
     - Passenger
 
+- type: listing
+  id: UplinkZooimovCircuitBoard
+  name: zooimov circuit board
+  description: A lawset for when you wanna keep all the stations animals safe and protected.
+  productEntity: ZooimovCircuitBoard
+  cost:
+    Telecrystal: 15
+  categories:
+    -  UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Zookeeper
+  saleLimit: 1
+
 
 # chemicals
 
@@ -317,6 +376,26 @@
   productEntity: AdvancedCombatMedipen
   cost:
     Telecrystal: 28
+  categories:
+  - UplinkChemicals
+
+- type: listing
+  id: UplinkSyndicateLollypopBundle
+  name: uplink-lollypop-bundle-name
+  description: uplink-lollypop-bundle-desc
+  productEntity: SyndicateLollypopBundle
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkChemicals
+
+- type: listing
+  id: UplinkSyndicateLollypopBundleBig
+  name: uplink-lollypop-bundle-big-name
+  description: uplink-lollypop-bundle-big-desc
+  productEntity: ClothingBackpackDuffelSyndicateFilledCandy
+  cost:
+    Telecrystal: 100
   categories:
   - UplinkChemicals
 
@@ -351,13 +430,41 @@
     - UplinkImplants
 
 - type: listing
+  id: UplinkJaunterImplanter
+  name: uplink-jaunter-implanter-name
+  description: uplink-jaunter-implanter-desc
+  icon: { sprite: /Textures/_Goobstation/Actions/syndicateswap.rsi, state: icon }
+  productEntity: JaunterImplanter
+  cost:
+    Telecrystal: 100
+  categories:
+  - UplinkImplants
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+# Deception
+
+- type: listing
   id: UplinkSmugglerSatchel
-  name: uplink-smugglers-satchel-name
+  name: smuggler's satchel
   description: uplink-smugglers-satchel-desc
   icon: { sprite: Clothing/Back/Satchels/satchel.rsi, state: icon }
   productEntity: ClothingSatchelSmuggler
   cost:
     Telecrystal: 15
+  categories:
+  - UplinkDeception
+
+- type: listing
+  id: UplinkClothingExplosiveGloves
+  name: uplink-clothing-explosive-gloves-name
+  description: uplink-clothing-explosive-gloves-desc
+  productEntity: ClothingHandsGlovesExplosiveShock
+  cost:
+    Telecrystal: 10 # goob
   categories:
   - UplinkDeception
 
@@ -464,13 +571,13 @@
   - UplinkAmmo
 
 - type: listing
-  id: UplinkLightRifleSubsonicMag
-  name: uplink-rifle-subsonic-mag-name
-  description: uplink-rifle-subsonic-mag-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi, state: rubber }
-  productEntity: MagazineLightRifleSubsonic
+  id: UplinkCaselessRifleMag
+  name: uplink-rifle-caseless-mag-name
+  description: uplink-rifle-caseless-mag-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_rifle_mag.rsi, state: red }
+  productEntity: MagazineCaselessRifle
   cost:
-    Telecrystal: 5
+    Telecrystal: 6
   categories:
   - UplinkAmmo
 
@@ -501,6 +608,16 @@
       components:
       - SurplusBundle
 
+- type: listing
+  id: UplinkSyndicateWeaponModuleAdvanced
+  name: uplink-syndicate-weapon-module-advanced-name
+  description: uplink-syndicate-weapon-module-advanced-desc
+  productEntity: BorgModuleSyndicateWeaponAdvanced
+  cost:
+    Telecrystal: 40 # goob
+  categories:
+  - UplinkDisruption
+
 # Mechs
 
 - type: listing
@@ -529,3 +646,46 @@
     whitelist:
       tags:
       - NukeOpsUplink
+
+# Martial Arts
+- type: listing
+  id: UplinkCQCManual
+  name: uplink-cqc-name
+  description: uplink-cqc-desc
+  productEntity: CQCManual
+  cost:
+    Telecrystal: 60
+  categories:
+  - UplinkDeception
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkMysteriousScroll
+  name: uplink-sleeping-carp-name
+  description: uplink-sleeping-carp-desc
+  productEntity: SleepingCarpScroll
+  cost:
+    Telecrystal: 70
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+
+# Misc
+- type: listing
+  id: UplinkDimensionPot
+  name: uplink-dimension-pot-name
+  description: uplink-dimension-pot-desc
+  productEntity: DimensionPot
+  cost:
+    Telecrystal: 40
+  categories:
+  - UplinkDeception

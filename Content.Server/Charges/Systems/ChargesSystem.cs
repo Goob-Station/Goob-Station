@@ -11,6 +11,17 @@ public sealed class ChargesSystem : SharedChargesSystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
 
+    public override void Initialize()
+    {
+        base.Initialize();
+        SubscribeLocalEvent<AutoRechargeComponent, ComponentInit>(OnInit);
+    }
+
+    private void OnInit(EntityUid uid, AutoRechargeComponent comp, ComponentInit args)
+    {
+        comp.NextChargeTime = _timing.CurTime + comp.RechargeDuration;
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);

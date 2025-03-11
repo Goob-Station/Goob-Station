@@ -1,0 +1,41 @@
+- type: entity
+  parent: BaseWall
+  id: WallHierophantArena
+  name: hierophant wall
+  components:
+  - type: Tag
+    tags:
+      - Wall
+  - type: Sprite
+    sprite: _Lavaland/Structures/Walls/hierophant.rsi
+  - type: Icon
+    sprite: _Lavaland/Structures/Walls/hierophant.rsi
+  - type: Destructible
+  - type: IconSmooth
+    key: walls
+    base: hierophant
+  - type: SyncSprite
+  - type: PointLight
+    radius: 3.0
+    energy: 1.5
+
+- type: entity
+  parent: BaseWall
+  id: WallHierophantArenaTemporary
+  name: hierophant field
+  description: "Keeps the salvager in and... Why are you looking at this in a middle of a fight? You have nothing to do?!"
+  components:
+  - type: Tag
+    tags:
+      - Wall
+  - type: Sprite
+    sprite: _Lavaland/Structures/Walls/hierophant_temp.rsi
+  - type: Icon
+    sprite: _Lavaland/Structures/Walls/hierophant_temp.rsi
+  - type: Destructible
+  - type: IconSmooth
+    key: hierofield
+    base: hierotemp
+    shader: unshaded
+  - type: Occluder
+    enabled: false

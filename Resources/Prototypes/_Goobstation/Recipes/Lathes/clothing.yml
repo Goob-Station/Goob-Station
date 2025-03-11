@@ -23,3 +23,23 @@
   materials:
     Cloth: 1000
     Durathread: 1000
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpsuitCasualCentcom
+  result: ClothingUniformJumpsuitCasualCentcom
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpsuitCasualCommand
+  result: ClothingUniformJumpsuitCasualCommand
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitCasualEngineer
+  result: ClothingUniformJumpsuitCasualEngineer
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitCasualSyndicate
+  result: ClothingUniformJumpsuitCasualSyndicate

@@ -1,0 +1,294 @@
+- type: entity
+  name: arcane barrage
+  parent: BaseItem
+  id: ArcaneBarrage
+  description: Pew Pew Pew.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/Weapons/arcane_barrage.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+    sprite: _Goobstation/Wizard/Objects/Weapons/arcane_barrage.rsi
+  - type: UseDelay
+    delay: 0.5
+  - type: ArcaneBarrage
+  - type: DeleteOnDropAttempt
+  - type: UseDelayBlockShoot
+  - type: BasicEntityAmmoProvider
+    proto: ProjectileArcaneBarrage
+    capacity: 30
+  - type: Gun
+    minAngle: 0
+    maxAngle: 0
+    angleIncrease: 0
+    fireRate: 4
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    clumsyProof: true
+    resetOnHandSelected: false
+    soundEmpty: null
+    soundGunshot:
+      path: /Audio/Weapons/emitter.ogg
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 1
+    color: "#FF0BC2"
+  - type: AmmoCounter
+
+- type: entity
+  name: enchanted bolt action rifle
+  parent: [BaseWeaponSniper, BaseGunWieldable]
+  id: WeaponBoltActionEnchanted
+  description: Careful not to lose your head.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/Weapons/enchanted_rifle.rsi
+  - type: Item
+    sprite: _Goobstation/Wizard/Objects/Weapons/enchanted_rifle.rsi
+    size: Huge
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Objects/Weapons/enchanted_rifle.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: UseDelay
+    delay: 0.5
+  - type: UseDelayBlockShoot
+  - type: BallisticAmmoProvider
+    capacity: 1
+    proto: CartridgeMagicBullet
+    whitelist:
+      tags:
+      - CartridgeMagicBullet
+  - type: Gun
+    muzzleFlashRotationOffset: 45
+    minAngle: 20
+    maxAngle: 30
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
+  - type: AmmoCounter
+  - type: EnchantedBoltActionRifle
+
+- type: entity
+  name: supermatter halberd
+  parent: [BaseItem, BaseMagicContraband]
+  id: SupermatterHalberd
+  description: The revered weapon of Oblivion Enforcers, used to enforce the Order's will.
+  components:
+  - type: Sharp
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/Weapons/smhalberd.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 0.75
+    damage:
+      types:
+        Slash: 2
+        Piercing: 2
+        Radiation: 5
+        Structural: 5
+    soundHit:
+      path: "/Audio/Weapons/bladeslice.ogg"
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 8
+        Piercing: 8
+        Radiation: 15
+        Structural: 10
+  - type: Item
+    size: Huge
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Objects/Weapons/smhalberd.rsi
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK
+      suitstorage:
+      - state: equipped-BACKPACK
+  - type: UseDelay
+    delay: 1
+    delays:
+      knockdown:
+        length: 4
+  - type: KnockdownOnHit
+    duration: 4
+    dropHeldItemsBehavior: DropIfStanding
+    knockdownOnHeavyAttack: false
+  - type: UseDelayBlockKnockdown
+    delay: knockdown
+  - type: SupermatterHalberd
+    obliterateWhitelist:
+      components:
+      - Airlock
+      - Firelock
+      - Door
+      tags:
+      - Wall
+      - Window
+      - Airlock
+      - GlassAirlock
+  - type: SupermatterImmune
+  - type: StaticPrice
+    price: 50000
+
+- type: entity
+  name: gohei
+  parent: Gohei
+  id: GoheiWizard
+  suffix: Wizard
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 18
+  - type: Item
+    size: Normal
+
+- type: entity
+  name: broom
+  parent: BaseItem
+  id: BroomWitch
+  description: Used for sweeping, and flying into the night while cackling. Black cat not included.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/Weapons/broom.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: 30
+    damage:
+      types:
+        Blunt: 18
+  - type: Item
+    size: Normal
+    sprite: _Goobstation/Wizard/Objects/Weapons/broom.rsi
+
+- type: entity
+  name: tape staff
+  parent: BaseItem
+  id: StaffTape
+  description: A roll of tape snugly attached to a stick.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/Weapons/tapestaff.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: -150
+    damage:
+      types:
+        Blunt: 18
+  - type: Item
+    size: Normal
+    sprite: _Goobstation/Wizard/Objects/Weapons/tapestaff.rsi
+
+- type: entity
+  name: high frequency blade
+  parent: [BaseSword, BaseMagicContraband]
+  id: HighFrequencyBlade
+  description: A sword reinforced by a powerful alternating current and resonating at extremely high vibration frequencies. This oscillation weakens the molecular bonds of anything it cuts, thereby increasing its cutting ability.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/Weapons/hfrequency.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 8
+    autoAttack: true
+    heavyStaminaCost: 0
+    damage:
+      types:
+        Slash: 5
+        Structural: 10
+    clickPartDamageMultiplier: 2
+    heavyPartDamageMultiplier: 1.5
+    soundHit:
+      path: "/Audio/Weapons/bladeslice.ogg"
+    animation: WeaponArcHighFreq
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Objects/Weapons/hfrequency.rsi
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK
+      suitstorage:
+      - state: equipped-BACKPACK
+  - type: Reflect
+    reflectProb: .3
+    slotFlags:
+      - NONE
+  - type: LightAttackDamageMultiplier
+    multiplier: 3
+    extraSound:
+      path: /Audio/_Goobstation/Wizard/zapbang.ogg
+      params:
+        variation: 0.250
+        volume: -5
+  - type: ThrowableBlocker
+    blockSound:
+      path: /Audio/_Goobstation/Wizard/zapbang.ogg
+      params:
+        variation: 0.250
+  - type: StaticPrice
+    price: 50000
+
+- type: entity
+  name: spellblade
+  parent: [BaseSword, BaseMagicContraband]
+  id: Spellblade
+  description: An enchanted blade with a series of runes along the side.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/Weapons/spellblade.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Slash: 30
+    clickPartDamageMultiplier: 3
+    heavyPartDamageMultiplier: 2
+    soundHit:
+      path: "/Audio/Weapons/bladeslice.ogg"
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Objects/Weapons/spellblade.rsi
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK
+      suitstorage:
+      - state: equipped-BACKPACK
+  - type: Spellblade
+    prototypes:
+    - EnchantmentLightning
+    - EnchantmentFire
+    - EnchantmentBluespace
+    - EnchantmentSpacetime
+    - EnchantmentForceshield
+  - type: UserInterface
+    interfaces:
+      enum.SpellbladeUiKey.Key:
+        type: SpellbladeBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.SpellbladeUiKey.Key
+  - type: StaticPrice
+    price: 50000

@@ -13,6 +13,12 @@ public abstract partial class SwitchableVisionOverlayComponent : BaseVisionOverl
     public bool DrawOverlay = true;
 
     /// <summary>
+    /// Whether it should grant equipment enhanced vision or is it mob vision
+    /// </summary>
+    [DataField]
+    public bool IsEquipment;
+
+    /// <summary>
     /// If it is greater than 0, overlay isn't toggled but pulsed instead
     /// </summary>
     [DataField]

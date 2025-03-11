@@ -1,5 +1,6 @@
 using Content.Server.Kitchen.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Tools;
+using Robust.Shared.Audio;
 
 namespace Content.Server._Shitmed.Medical.Surgery;
 
@@ -18,6 +19,17 @@ public sealed partial class GhettoSurgerySystem : EntitySystem
 
     private void OnSharpInit(Entity<SharpComponent> ent, ref MapInitEvent args)
     {
+        if (EnsureComp<SurgeryToolComponent>(ent, out var tool))
+        {
+            ent.Comp.HadSurgeryTool = true;
+        }
+        else
+        {
+            tool.StartSound = new SoundPathSpecifier("/Audio/_Shitmed/Medical/Surgery/scalpel1.ogg");
+            tool.EndSound = new SoundPathSpecifier("/Audio/_Shitmed/Medical/Surgery/scalpel2.ogg");
+            Dirty(ent.Owner, tool);
+        }
+
         if (EnsureComp<ScalpelComponent>(ent, out var scalpel))
         {
             ent.Comp.HadScalpel = true;

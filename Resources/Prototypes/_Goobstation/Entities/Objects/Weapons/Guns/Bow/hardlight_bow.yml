@@ -30,6 +30,7 @@
     delay: 1
   - type: GunRequiresWield
   - type: Gun
+    clumsyProof: true
     fireRate: 1
     selectedMode: SemiAuto
     availableModes:

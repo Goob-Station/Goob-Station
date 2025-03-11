@@ -1,0 +1,481 @@
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseAbductorObjective
+  components:
+  - type: Objective
+    difficulty: 1.5
+    issuer: objective-issuer-abductors
+  - type: RoleRequirement
+    roles:
+      mindRoles:
+      - Abductor
+
+- type: entity
+  parent: BaseAbductorObjective
+  id: AbductObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: _Shitmed/Mobs/Species/Misc/Dubious/organs.rsi
+      state: gland
+  - type: NumberObjective
+    min: 6
+    max: 9
+    title: objective-condition-abduct-title
+    description: objective-condition-abduct-description
+  - type: AbductCondition
+
+- type: entity
+  parent: BaseObjective
+  id: BaseAbductorVictimObjective
+  abstract: true
+  components:
+  - type: Objective
+    difficulty: 1
+    issuer: objective-issuer-voices
+  - type: RoleplayObjective
+  - type: RoleRequirement
+    roles:
+      mindRoles:
+      - AbductorVictim
+
+# Harmless Objectives
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimPaintObjective
+  name: Paint the station.
+  description: The station is hideous. You must color it all!
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Fun/crayons.rsi
+      state: rainbow
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimPristine
+  name: Ensure the station is pristine.
+  description: The CEO of Nanotrasen is coming! Ensure the station is in absolutely pristine condition.
+  components:
+  - type: Objective
+    icon:
+      sprite: Clothing/Head/Hats/comcap.rsi
+      state: icon
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimBlingFloor
+  name: Replace the floor.
+  description: Replace all the floor tiles with wood, carpeting, grass or bling.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Tiles/tile.rsi
+      state: carpet-blue
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimCorpseCollector
+  name: Collect dead corpses.
+  description: Start a collection of corpses. Don't kill people to get these corpses.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Specific/Medical/Morgue/bodybags.rsi
+      state: bag
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimParaplegic
+  name: Paraplegic.
+  description: Convince the crew that you are paraplegic.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Specific/Medical/Morgue/bodybags.rsi
+      state: bag
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimHungry
+  name: Sate your hunger.
+  description: You are hungry. Eat as much food as you can find.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Consumable/Food/meat.rsi
+      state: plain-cooked
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimBlazeIt
+  name: Chemically improve your body.
+  description: Your body must be improved. Ingest as many drugs as you can.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Specific/Hydroponics/cannabis.rsi
+      state: produce
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimSocialExperiment
+  name: It's all a lie.
+  description: This is a secret social experiment conducted by Nanotrasen. Convince the crew that this is the truth.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Wallmounts/camera.rsi
+      state: cameracase
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimVirtualInsanity
+  name: NOTHING IS REAL.
+  description: It's all an entirely virtual simulation within an underground vault. Convince the crew to escape the shackles of VR.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Machines/computers.rsi
+      state: avionics-systems
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimGame
+  name: Chat is this real?
+  description: Convince the crew that we are in a game, without explicitly telling them we are in a game.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Machines/arcade.rsi
+      state: icon
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimSaveAnimals
+  name: Save the animals.
+  description: Nanotrasen is abusing the animals! Save as many as you can!
+  components:
+  - type: Objective
+    icon:
+      sprite: Mobs/Animals/monkey.rsi
+      state: full
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimMusic
+  name: Share your music.
+  description: You burn with passion for music. Share your vision. If anyone hates it, beat them on the head with your instrument!
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Fun/Instruments/guitar.rsi
+      state: icon
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimStalker
+  name: Stalk the crew.
+  description: Someone hired you to compile dossiers on all important members of the crew. Be sure they don't know you're doing it.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Misc/bureaucracy.rsi
+      state: folder-colormap
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimConspiracy
+  name: The conspiracy.
+  description: The leaders of this station are hiding a grand, evil conspiracy. Only you can learn what it is, and expose it to the people!
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Wallmounts/camera.rsi
+      state: cameracase
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimNarrator
+  name: Narrate the story.
+  description: You're the narrator of this tale. Follow around the protagonists to tell their story.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Misc/books.rsi
+      state: book_icon
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimSixthsense
+  name: Are you really alive?
+  description: You died back there and went to heaven... or is it hell? No one here seems to know they're dead. Convince them, and maybe you can escape this limbo.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Storage/Crates/coffin.rsi
+      state: base
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimParty
+  name: PARTY!
+  description: You NEED to throw a huge rager. Make it as awesome as possible so the whole crew comes... OR ELSE!
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Consumable/Drinks/beer.rsi
+      state: icon
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimDeadStationTheory
+  name: Only one other person exists.
+  description: There is only one other person in existence, they are just really good at pretending to be multiple people.
+  components:
+  - type: Objective
+    icon:
+      sprite: Mobs/Species/Human/parts.rsi
+      state: full
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimWeaknessOfMyFlesh
+  name: The flesh is rotting.
+  description: Your flesh is rotting from your body. Fight the inevitable, and replace your tainted limbs with entirely new ones.
+  components:
+  - type: Objective
+    icon:
+      sprite: _Shitmed/Objects/Specific/Medical/Surgery/scalpel.rsi
+      state: scalpel
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimInstructor
+  name: Military instructor.
+  description: You are a military instructor. You must make sure the crew is in top shape for the war against the syndicate!
+  components:
+  - type: Objective
+    icon:
+      sprite: _Shitmed/Objects/Specific/Medical/Surgery/scalpel.rsi
+      state: scalpel
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimActor
+  name: Action movie.
+  description: You are in an action movie. You must say as many cheesy one-liners as possible.
+  components:
+  - type: Objective
+    icon:
+      sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+      state: icon
+
+# Annoying Objectives
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimNations
+  name: Make your department prosper.
+  description: Ensure your department prospers over all else.
+  components:
+  - type: Objective
+    icon:
+      sprite: Clothing/Neck/Medals/gold.rsi
+      state: icon
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimPowerUnlimited
+  name: Unlimited power.
+  description: Flood the station's powernet with as much electricity as you can.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Power/power_cells.rsi
+      state: antique
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimBuild
+  name: Expand the station.
+  description: The station is too tiny, and you're going to fix that.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Tools/rcd.rsi
+      state: icon
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimDefect
+  name: Defect from the station.
+  description: Fuck the system! Defect from the station and start an independent colony in space, Mining Outpost or the derelict. Recruit crewmates if you can.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Shuttles/gyroscope.rsi
+      state: base
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimMonkeyTakeover
+  name: Raise an army of monkeys.
+  description: OOK OOK AAH!!!
+  components:
+  - type: Objective
+    icon:
+      sprite: Mobs/Animals/monkey.rsi
+      state: full
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimAverageFrontierPirate
+  name: Steal shoes.
+  description: Steal as many shoes as you can.
+  components:
+  - type: Objective
+    icon:
+      sprite: Clothing/Shoes/color.rsi
+      state: icon
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimNoClown
+  name: The clown is not funny.
+  description: The clown is not funny. You can do better! Take over their role and make the crew laugh!
+  components:
+  - type: Objective
+    icon:
+      sprite: Clothing/Mask/clown.rsi
+      state: icon
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimReplacePets
+  name: Replace the pets.
+  description: All the pets around here suck. You need to make them cooler. Replace them with exotic beasts!
+  components:
+  - type: Objective
+    icon:
+      sprite: Mobs/Animals/snake.rsi
+      state: icon
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimBald
+  name: Save people from the hair invasion.
+  description: There are alien parasites masquerading as people's hair. Save people from this invasion.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Tools/scissors.rsi
+      state: icon
+
+# Harmful Objectives
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimNoWalls
+  name: Break down the walls.
+  description: The crew must get to know one another better. Break down the walls inside the station!
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Walls/solid.rsi
+      state: rgeneric
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimAbductception
+  name: Take revenge.
+  description: You have been changed forever. Find the aliens that did this to you and give them a taste of their own medicine.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Weapons/Melee/baseball_bat.rsi
+      state: icon
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimNoOxygen
+  name: OXYGEN IS KILLING EVERYONE.
+  description: The oxygen is killing them all and they don't even know it. Make sure no oxygen is on the station.
+  components:
+  - type: NotJobRequirement
+    job: AtmosphericTechnician # It would be too free for atmos techs :) CE is fair game though.
+  - type: Objective
+    icon:
+      sprite: Objects/Tanks/oxygen.rsi
+      state: icon
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimEscapeStation
+  name: Escape the station.
+  description: You must escape the station! Get the shuttle called!
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Furniture/chairs.rsi
+      state: shuttle
+  - type: EscapeShuttleCondition
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimNoCloning
+  name: No cloning.
+  description: Don't allow anyone to be cloned.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Machines/cloning.rsi
+      state: pod_g
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimStealWeapons
+  name: Steal weapons.
+  description: Steal as many weapons as you can fit on your person.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Weapons/Melee/baseball_bat.rsi
+      state: icon
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimDismantleComputers
+  name: Steal computers.
+  description: The 7G waves coming off from the computers are killing the crew and they dont know it! Dismantle them!
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Machines/computers.rsi
+      state: avionics-systems
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimFinality
+  name: No revival.
+  description: Death should be final and modern medicine disrupts the natural order. Don't allow anyone to be revived.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Specific/Medical/defib.rsi
+      state: icon
+
+- type: entity
+  parent: BaseAbductorVictimObjective
+  id: AbductorVictimHeretic
+  name: THE GATES HAVE OPENED MY MIND IS OPEN MY MIND IS OPEN MY MIND IS OPEN
+  description: You see you see what they cannot you see the open door you seeE you SEeEe you SEe yOU seEee SHOW THEM ALL.
+  components:
+  - type: ForceHereticObjective
+  - type: Objective
+    icon:
+      sprite: _Goobstation/Heretic/mansus_grasp.rsi
+      state: icon
+

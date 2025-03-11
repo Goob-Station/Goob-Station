@@ -39,6 +39,10 @@
       thresholds:
         0: Alive
         100: Dead
+    - type: Butcherable
+      spawned:
+      - id: FoodMeatChicken
+        amount: 2
     - type: MovementSpeedModifier
       baseWalkSpeed: 2
       baseSprintSpeed: 5
@@ -197,13 +201,15 @@
   - type: Appearance
   - type: Produce
     seedId: killerTomato
-  - type: PassiveDamage # Slight passive damage. 35 hp \ 5 min \ 60 sec = 0.08
-    allowedStates:
-    - Alive
-    - Dead
-    damageCap: 50
-    damage:
-      types:
-        Blunt: 0.11
+  # Goobstation - Remove killer tomato timed live
+  # billions must die
+  #- type: PassiveDamage # Slight passive damage. 35 hp \ 5 min \ 60 sec = 0.08
+  #  allowedStates:
+  #  - Alive
+  #  - Dead
+  #  damageCap: 50
+  #  damage:
+  #    types:
+  #      Blunt: 0.11
   - type: StaticPrice
     price: 400

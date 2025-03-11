@@ -147,11 +147,19 @@ namespace Content.Server.DeviceNetwork.Systems
         {
             foreach (var list in component.DeviceLists)
             {
+                // Goobstation - Fix device network sync with deleted objects
+                if (Deleted(list))
+                    return;
+
                 _deviceLists.OnDeviceShutdown(list, (uid, component));
             }
 
             foreach (var list in component.Configurators)
             {
+                // Goobstation - Fix device network sync with deleted objects
+                if (Deleted(list))
+                    return;
+
                 _configurator.OnDeviceShutdown(list, (uid, component));
             }
 

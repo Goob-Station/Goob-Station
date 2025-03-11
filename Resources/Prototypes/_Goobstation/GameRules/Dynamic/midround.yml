@@ -205,8 +205,15 @@
     minimumPlayers: 30
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
+    # Goobstation start
     speciesOverride: Human
-    alwaysUseSpeciesOverride: true
+    speciesOverrideBlacklist:
+    - Yowie
+    - IPC
+    - Diona
+    - Abductor
+    - Harpy
+    # Goobstation end
   - type: AntagObjectives
     objectives:
     - StealResearchObjective
@@ -331,6 +338,7 @@
       max: 1
       pickPlayer: false
       startingGear: SyndicateLoneOperativeGearFull
+      unequipOldGear: true
       roleLoadout:
       - RoleSurvivalNukie
       components:
@@ -343,8 +351,15 @@
       mindRoles:
       - MindRoleNukeops
   - type: AntagLoadProfileRule
+    # Goobstation start
     speciesOverride: Human
-    alwaysUseSpeciesOverride: true
+    speciesOverrideBlacklist:
+    - Yowie
+    - IPC
+    - Diona
+    - Abductor
+    - Harpy
+    # Goobstation end
 
 # Rat King Spawn
 - type: entity
@@ -389,8 +404,8 @@
     cost: 15
     highImpact: true
   - type: StationEvent
-    weight: 6.5
-    earliestStart: 50
+    weight: 2
+    earliestStart: 75
     minimumPlayers: 30 # how is that 20 people when rat king is 30??? changed.
     duration: null
     maxOccurrences: 2

@@ -22,6 +22,14 @@
     Glass: 300
 
 - type: latheRecipe
+  id: CartridgeAtropine
+  result: CartridgeAtropine
+  completetime: 1
+  materials:
+    Steel: 100
+    Glass: 300
+
+- type: latheRecipe
   id: CartridgeBicaridine
   result: CartridgeBicaridine
   completetime: 1
@@ -67,11 +75,43 @@
     Glass: 1200
     Gold: 500
 
+# Guns
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponTemperatureGun
+  result: WeaponTemperatureGun
+  materials:
+    Steel: 1500
+    Glass: 800
+    Plastic: 500
+    Plasma: 500
+
+# Smartgun
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponSubMachineSmart
+  result: WeaponSubMachineSmart
+  materials:
+    Steel: 1800
+    Plastic: 750
+    Silver: 500
+    Gold: 500
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineSmart
+  result: MagazineSmart
+  materials:
+    Steel: 550
+
 # Mech Weapons
 - type: latheRecipe
   id: WeaponMechCombatImmolationGun
   result: WeaponMechCombatImmolationGun
-  category: MechWeapons
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 2800
@@ -82,7 +122,8 @@
 - type: latheRecipe
   id: WeaponMechCombatSolarisLaser
   result: WeaponMechCombatSolarisLaser
-  category: MechWeapons
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 1650
@@ -93,7 +134,8 @@
 - type: latheRecipe
   id: WeaponMechCombatFiredartLaser
   result: WeaponMechCombatFiredartLaser
-  category: MechWeapons
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 1200
@@ -104,7 +146,8 @@
 - type: latheRecipe
   id: WeaponMechCombatUltraRifle
   result: WeaponMechCombatUltraRifle
-  category: MechWeapons
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 1000
@@ -113,7 +156,8 @@
 - type: latheRecipe
   id: WeaponMechCombatShotgun
   result: WeaponMechCombatShotgun
-  category: MechWeapons
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 1600
@@ -122,7 +166,8 @@
 - type: latheRecipe
   id: WeaponMechCombatShotgunIncendiary
   result: WeaponMechCombatShotgunIncendiary
-  category: MechWeapons
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 1500
@@ -132,7 +177,8 @@
 - type: latheRecipe
   id: WeaponMechCombatDisabler
   result: WeaponMechCombatDisabler
-  category: MechWeapons
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 750
@@ -142,7 +188,8 @@
 - type: latheRecipe
   id: WeaponMechCombatFlashbangLauncher
   result: WeaponMechCombatFlashbangLauncher
-  category: MechWeapons
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 1200
@@ -152,7 +199,8 @@
 - type: latheRecipe
   id: WeaponMechCombatMissileRack8
   result: WeaponMechCombatMissileRack8
-  category: MechWeapons
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 2500
@@ -162,7 +210,8 @@
 - type: latheRecipe
   id: MechEquipmentKineticAccelerator
   result: WeaponMechIndustrialKineticAccelerator
-  category: MechEquipment
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 1500
@@ -236,14 +285,94 @@
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineMagnumLeverRifleEmpty
-  result: MagazineMagnumLeverRifleEmpty
+  id: MagazineShotgunLeverRifleEmpty
+  result: MagazineShotgunLeverRifleEmpty
   materials:
     Steel: 25
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineMagnumLeverRifle
-  result: MagazineMagnumLeverRifle
+  id: MagazineShotgunLeverRifle
+  result: MagazineShotgunLeverRifle
   materials:
-    Steel: 185
+    Steel: 240
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: ContrabandDetectorCircuitboard
+  result: ContrabandDetectorCircuitboard
+  completetime: 4
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxShotgunHighCaliber
+  result: MagazineBoxShotgunHighCaliber
+  materials:
+    Steel: 480
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxShotgunSlugHighCaliber
+  result: MagazineBoxShotgunSlugHighCaliber
+  materials:
+    Steel: 480
+    Plastic: 160
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxShotgunIncendiaryHighCaliber
+  result: MagazineBoxShotgunIncendiaryHighCaliber
+  materials:
+    Steel: 160
+    Plastic: 320
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxShotgunUraniumHighCaliber
+  result: MagazineBoxShotgunUraniumHighCaliber
+  materials:
+    Plastic: 640
+    Uranium: 480
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxShotgunBeanbagHighCaliber
+  result: MagazineBoxShotgunBeanbagHighCaliber
+  materials:
+    Steel: 320
+    Plastic: 240
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxShotgunPracticeHighCaliber
+  result: MagazineBoxShotgunPracticeHighCaliber
+  materials:
+    Steel: 160
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolCaselessRifleEmpty
+  result: MagazinePistolCaselessRifleEmpty
+  materials:
+    Steel: 25
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineCaselessRifleEmpty
+  result: MagazineCaselessRifleEmpty
+  materials:
+    Steel: 25
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineCaselessRifle
+  result: MagazineCaselessRifle
+  materials:
+    Steel: 400
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxAntiMateriel
+  result: MagazineBoxAntiMateriel
+  materials:
+    Steel: 1500

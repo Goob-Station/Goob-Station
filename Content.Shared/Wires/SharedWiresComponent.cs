@@ -113,7 +113,7 @@ namespace Content.Shared.Wires
 
         public Color Color { get; }
         public StatusLightState State { get; }
-        public string Text { get; }
+        public string Text { get; set; } // Shitmed Change
 
         public override string ToString()
         {

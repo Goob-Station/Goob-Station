@@ -29,6 +29,11 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtChiefEngineerTurtle
 
+- type: loadout # goob
+  id: ChiefEngineerMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryEngineeringChief
+
 # Head
 - type: loadout
   id: ChiefEngineerHead

@@ -44,7 +44,8 @@
     - !type:GroupSelector
       children:
       - id: PlushieBlackburn
-      - id: PlushieBlackburnPlyushkina
+        weight: 0.35
+      - id: PlushieBlackburnKobliska
         weight: 0.25
       - id: PlushieBlackburnMatryoskya
         weight: 0.25
@@ -111,8 +112,6 @@
         amount: 2
       - id: FrenchHornInstrument
         amount: 2
-      - id: SaxophoneInstrument
-        amount: 2
       - id: EuphoniumInstrument
       - id: TubaInstrument
 
@@ -148,6 +147,8 @@
       - id: ClarinetInstrument
       - id: FluteInstrument
       - id: HarmonicaInstrument
+        amount: 2
+      - id: SaxophoneInstrument
         amount: 2
       - id: OcarinaInstrument
       - id: PanFluteInstrument
@@ -353,11 +354,13 @@
   id: CrateFunBikeHornImplants
   parent: CrateGenericSteel
   name: bike horn implants
-  description: A thousand honks a day keeps security officers away!
+  description: A thousand honks a day keeps security officers away! Now with bike horns!
   components:
   - type: StorageFill
     contents:
       - id: BikeHornImplanter
+        amount: 3
+      - id: BikeHorn
         amount: 3
 
 - type: entity

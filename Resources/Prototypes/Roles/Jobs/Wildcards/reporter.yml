@@ -5,6 +5,7 @@
   playTimeTracker: JobReporter
   startingGear: ReporterGear
   icon: "JobIconReporter"
+  goobcoins: 15 #Goob content
   supervisors: job-supervisors-hop
   access:
   - Service
@@ -16,6 +17,8 @@
     shoes: ClothingShoesColorWhite
     id: ReporterPDA
     ears: ClothingHeadsetService
-  #storage:
-    #back:
-    #- Stuff
+  storage:
+    back:
+    - MicrophoneInstrument # Goobstation
+
+

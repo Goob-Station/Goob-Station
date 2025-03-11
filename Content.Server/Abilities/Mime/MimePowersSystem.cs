@@ -5,11 +5,25 @@ using Content.Shared.Actions.Events;
 using Content.Shared.Alert;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Maps;
+using Content.Shared.Paper;
 using Content.Shared.Physics;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
 using Content.Shared.Speech.Muting;
+using Robust.Shared.Random; // Goobstation - Mime Enforcement - half of these are probably not needed and just leftovers from testing but im too lazy to fix it.
+using Content.Server.Body.Systems; // Goobstation - Mime Enforcement
+using Content.Shared.Administration; // Goobstation - Mime Enforcement
+using Content.Shared.Administration.Components; // Goobstation - Mime Enforcement
+using Content.Server.Administration.Components; // Goobstation - Mime Enforcement
+using Content.Server.Administration.Systems; // Goobstation - Mime Enforcement
+using Content.Server.Explosion.EntitySystems; // Goobstation - Mime Enforcement
+using Content.Server.Polymorph.Systems; // Goobstation - Mime Enforcement
+using Content.Shared.Clothing.Components; // Goobstation - Mime Enforcement
+using Content.Shared.Inventory; // Goobstation - Mime Enforcement
+using Content.Shared.Interaction.Components; // Goobstation - Mime Enforcement
+using Content.Server.Speech.Components; // Goobstation - Mime Enforcement
+using Content.Shared.Speech.Components; // Goobstation - Mime Enforcement
 
 namespace Content.Server.Abilities.Mime
 {
@@ -22,6 +36,12 @@ namespace Content.Server.Abilities.Mime
         [Dependency] private readonly IMapManager _mapMan = default!;
         [Dependency] private readonly SharedContainerSystem _container = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private readonly IRobustRandom _rand = default!; // Goobstation - Mime Enforcement
+        [Dependency] private readonly BodySystem _body = default!; // Goobstation - Mime Enforcement
+        [Dependency] private readonly ExplosionSystem _explosionSystem = default!; // Goobstation - Mime Enforcement
+        [Dependency] private readonly PolymorphSystem _polymorphSystem = default!; // Goobstation - Mime Enforcement
+        [Dependency] private readonly SharedTransformSystem _transformSystem = default!; // Goobstation - Mime Enforcement
+        [Dependency] private readonly InventorySystem _inventorySystem = default!; // Goobstation - Mime Enforcement
 
         public override void Initialize()
         {
@@ -55,6 +75,13 @@ namespace Content.Server.Abilities.Mime
         private void OnComponentInit(EntityUid uid, MimePowersComponent component, ComponentInit args)
         {
             EnsureComp<MutedComponent>(uid);
+            if (component.PreventWriting)
+            {
+                EnsureComp<BlockWritingComponent>(uid, out var illiterateComponent);
+                illiterateComponent.FailWriteMessage = component.FailWriteMessage;
+                Dirty(uid, illiterateComponent);
+            }
+
             _alertsSystem.ShowAlert(uid, component.VowAlert);
             _actionsSystem.AddAction(uid, ref component.InvisibleWallActionEntity, component.InvisibleWallAction, uid);
         }
@@ -116,6 +143,9 @@ namespace Content.Server.Abilities.Mime
             if (!Resolve(uid, ref mimePowers))
                 return;
 
+            if (!mimePowers.CanBreakVow) // Goobstation
+                return;
+
             if (mimePowers.VowBroken)
                 return;
 
@@ -123,9 +153,60 @@ namespace Content.Server.Abilities.Mime
             mimePowers.VowBroken = true;
             mimePowers.VowRepentTime = _timing.CurTime + mimePowers.VowCooldown;
             RemComp<MutedComponent>(uid);
+            if (mimePowers.PreventWriting)
+                RemComp<BlockWritingComponent>(uid);
             _alertsSystem.ClearAlert(uid, mimePowers.VowAlert);
             _alertsSystem.ShowAlert(uid, mimePowers.VowBrokenAlert);
             _actionsSystem.RemoveAction(uid, mimePowers.InvisibleWallActionEntity);
+            if (_rand.Prob(mimePowers.PunishmentChance)) {Punish(uid);} // Goobstation - Mime Enforcement
+        }
+
+        private void Punish(EntityUid ent) // Goobstation - Mime Enforcement
+        {
+            switch(_rand.Next(8))
+            {
+                case 0:
+                    EnsureComp<KillSignComponent>(ent);
+                    break;
+                case 1:
+                    var coords = _transformSystem.GetMapCoordinates(ent);
+                    _explosionSystem.QueueExplosion(coords, ExplosionSystem.DefaultExplosionPrototypeId, 4, 1, 2, ent, maxTileBreak: 0);
+                    _body.GibBody(ent);
+                    break;
+                case 2:
+                    _polymorphSystem.PolymorphEntity(ent, "AdminBreadSmite");
+                    break;
+                case 3:
+                    if (TryComp<InventoryComponent>(ent, out var inventory))
+                    {
+                        var ears = Spawn("ClothingHeadHatCatEars", Transform(ent).Coordinates);
+                        EnsureComp<UnremoveableComponent>(ears);
+                        _inventorySystem.TryUnequip(ent, "head", true, true, false, inventory);
+                        _inventorySystem.TryEquip(ent, ears, "head", true, true, false, inventory);
+                    }
+                    break;
+                case 4:
+                    EnsureComp<MaoistAccentComponent>(ent);
+                    EnsureComp<OhioAccentComponent>(ent);
+                    break;
+                case 5:
+                    EnsureComp<BackwardsAccentComponent>(ent);
+                    EnsureComp<DementiaAccentComponent>(ent);
+                    break;
+                case 6:
+                    EnsureComp<VulgarAccentComponent>(ent);
+                    EnsureComp<BoganAccentComponent>(ent);
+                    EnsureComp<MaoistAccentComponent>(ent);
+                    break;
+                case 7:
+                    EnsureComp<VulgarAccentComponent>(ent);
+                    EnsureComp<RussianAccentComponent>(ent);
+                    EnsureComp<BackwardsAccentComponent>(ent);
+                    EnsureComp<OhioAccentComponent>(ent);
+                    EnsureComp<DementiaAccentComponent>(ent);
+                    EnsureComp<MaoistAccentComponent>(ent);
+                    break;
+            }
         }
 
         /// <summary>
@@ -146,6 +227,13 @@ namespace Content.Server.Abilities.Mime
             mimePowers.ReadyToRepent = false;
             mimePowers.VowBroken = false;
             AddComp<MutedComponent>(uid);
+            if (mimePowers.PreventWriting)
+            {
+                EnsureComp<BlockWritingComponent>(uid, out var illiterateComponent);
+                illiterateComponent.FailWriteMessage = mimePowers.FailWriteMessage;
+                Dirty(uid, illiterateComponent);
+            }
+
             _alertsSystem.ClearAlert(uid, mimePowers.VowBrokenAlert);
             _alertsSystem.ShowAlert(uid, mimePowers.VowAlert);
             _actionsSystem.AddAction(uid, ref mimePowers.InvisibleWallActionEntity, mimePowers.InvisibleWallAction, uid);

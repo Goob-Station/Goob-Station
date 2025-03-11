@@ -2,3 +2,8 @@
   license: "CC-BY-NC-SA-3.0"
   copyright: "Mrjajkes"
   source: "https://youtu.be/ixCcviVDJEg"
+
+- files: ["blob_detected.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Piras314"
+  source: "https://goobstation.com"

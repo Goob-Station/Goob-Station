@@ -1,4 +1,6 @@
 using System.Linq;
+using Content.Shared._Goobstation.MartialArts;
+using Content.Shared._Goobstation.MartialArts.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
 using Content.Shared.CombatMode;
@@ -143,7 +145,14 @@ public sealed partial class StaminaSystem : EntitySystem
             return;
         }
 
-        var ev = new StaminaDamageOnHitAttemptEvent();
+        // Goobstation - Martial Arts
+        if (TryComp<MartialArtsKnowledgeComponent>(args.User, out var knowledgeComp)
+            && TryComp<MartialArtBlockedComponent>(args.Weapon, out var blockedComp)
+            && knowledgeComp.MartialArtsForm == blockedComp.Form)
+            return;
+        // Goobstation
+
+        var ev = new StaminaDamageOnHitAttemptEvent(args.Direction == null, false); // Goob edit
         RaiseLocalEvent(uid, ref ev);
         if (ev.Cancelled)
             return;
@@ -160,6 +169,9 @@ public sealed partial class StaminaSystem : EntitySystem
             toHit.Add((ent, stam));
         }
 
+        // Goobstation
+        RaiseLocalEvent(uid, new StaminaDamageMeleeHitEvent(toHit, args.Direction));
+
         // goobstation
         foreach (var (ent, comp) in toHit)
         {
@@ -171,11 +183,18 @@ public sealed partial class StaminaSystem : EntitySystem
                 return;
 
             var damageImmediate = component.Damage;
+            var damageOvertime = component.Overtime;
             damageImmediate *= hitEvent.Multiplier;
             damageImmediate += hitEvent.FlatModifier;
 
+            if (args.Direction == null)
+            {
+                damageImmediate *= component.LightAttackDamageMultiplier;
+                damageOvertime *= component.LightAttackOvertimeDamageMultiplier;
+            }
+
             TakeStaminaDamage(ent, damageImmediate / toHit.Count, comp, source: args.User, with: args.Weapon, sound: component.Sound, immediate: true);
-            TakeOvertimeStaminaDamage(ent, component.Overtime);
+            TakeOvertimeStaminaDamage(ent, damageOvertime);
         }
     }
 
@@ -223,6 +242,7 @@ public sealed partial class StaminaSystem : EntitySystem
         damage += hitEvent.FlatModifier;
 
         TakeStaminaDamage(target, damage, source: uid, sound: component.Sound);
+        TakeOvertimeStaminaDamage(target, component.Overtime); // Goobstation
     }
 
     private void SetStaminaAlert(EntityUid uid, StaminaComponent? component = null)

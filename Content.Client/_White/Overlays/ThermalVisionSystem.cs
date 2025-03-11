@@ -1,5 +1,6 @@
 using Content.Client.Overlays;
 using Content.Shared._White.Overlays;
+using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Robust.Client.Graphics;
 
@@ -22,9 +23,23 @@ public sealed class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionCompon
         _overlay = new BaseSwitchableOverlay<ThermalVisionComponent>();
     }
 
+    protected override void OnRefreshComponentHud(Entity<ThermalVisionComponent> ent,
+        ref RefreshEquipmentHudEvent<ThermalVisionComponent> args)
+    {
+        if (!ent.Comp.IsEquipment)
+            base.OnRefreshComponentHud(ent, ref args);
+    }
+
+    protected override void OnRefreshEquipmentHud(Entity<ThermalVisionComponent> ent,
+        ref InventoryRelayedEvent<RefreshEquipmentHudEvent<ThermalVisionComponent>> args)
+    {
+        if (ent.Comp.IsEquipment)
+            base.OnRefreshEquipmentHud(ent, ref args);
+    }
+
     private void OnToggle(Entity<ThermalVisionComponent> ent, ref SwitchableOverlayToggledEvent args)
     {
-        RefreshOverlay(args.User);
+        RefreshOverlay();
     }
 
     protected override void UpdateInternal(RefreshEquipmentHudEvent<ThermalVisionComponent> args)
@@ -55,6 +70,7 @@ public sealed class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionCompon
     {
         base.DeactivateInternal();
 
+        _thermalOverlay.ResetLight(false);
         UpdateOverlay(null);
         UpdateThermalOverlay(null, 0f);
     }

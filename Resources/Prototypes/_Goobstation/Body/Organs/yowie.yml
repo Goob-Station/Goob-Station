@@ -28,6 +28,16 @@
   components:
   - type: Metabolizer
     metabolizerTypes: [Yowie]
+    groups:
+    - id: Medicine
+      rateModifier: 1
+    - id: Poison
+      rateModifier: 1
+    - id: Narcotic
+      rateModifier: 1
+    - id: Alcohol # Same as parent
+      rateModifier: 0.1
+    maxReagents: 3 # For proper processing of chems instead of heart
 
 - type: entity
   id: OrganYowieHeart
@@ -36,6 +46,7 @@
   components:
   - type: Metabolizer
     metabolizerTypes: [Yowie]
+    groups: # Empty to ensure it doesn't do anything
 
 - type: entity
   id: OrganYowieLungs

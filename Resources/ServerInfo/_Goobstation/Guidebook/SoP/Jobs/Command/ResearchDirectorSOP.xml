@@ -2,6 +2,12 @@
 # Research Director (RD) SOP
 This is the list of procedures, responsibilities, and duties of the [color=#1b67a5][bold]Research Director[/bold][/color] of this station.
 
+<ColorBox>
+  <Box>
+    For the purposes of Alert Escalation: Treat higher alerts as if they are still on the previous alert level. (Yellow Alert is Blue Alert if it was Blue Alert prior.) Furthermore, treat Delta, Gamma, Epsilon, and Violet Alert as Red Alert.
+  </Box>
+</ColorBox>
+
 ## Green Alert
 1. The Research Director must make sure Research is being done, and monitor Anomalies and Artifacts progress, including Robotics as well.
 

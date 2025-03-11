@@ -11,6 +11,10 @@ changeling-absorb-fail-unabsorbable = The target is not absorbable.
 changeling-absorb-end-self = Another organic absorbed. You are evolving.
 changeling-absorb-end-self-ling = Another changeling absorbed. You are evolving more rapidly.
 changeling-absorb-onexamine = [color=red]The body feels hollow.[/color]
+changeling-absorb-fail-nograb = You arent grabbing hard enough.
+
+changeling-absorbbiomatter-start = {THE($user)} starts absorbing the food!
+changeling-absorbbiomatter-bad-food = This food is not absorbable.
 
 changeling-transform-cycle = Switched to {$target}'s DNA.
 changeling-transform-cycle-empty = You don't have any DNA strains!
@@ -27,6 +31,8 @@ changeling-sting = You silently sting {CAPITALIZE(THE($target))}
 changeling-sting-fail-simplemob = You can't sting a lesser creature!
 changeling-sting-extract-fail = Unable to extract DNA
 changeling-sting-extract-max = Need to get rid of the stored DNA beforehand
+
+changeling-dartgun-no-stings = You don't have any reagent stings evolved!
 
 changeling-stasis-enter = You enter regenerative stasis
 changeling-stasis-enter-fail = Can't enter stasis!

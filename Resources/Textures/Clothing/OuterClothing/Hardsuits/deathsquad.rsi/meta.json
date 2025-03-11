@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Created by discord:IAmRasputin#5242, reptilian made by kuro(388673708753027083). Vox state made by Flareguy for SS14, harpy edit by VMSolidus",
+  "copyright": "Created by discord:IAmRasputin#5242, reptilian made by kuro(388673708753027083). Vox state made by Flareguy for SS14, harpy edit by VMSolidus, equipped-OUTERCLOTHING-resomi made by svarshiksatanist (Discord), reptilian made by kuro(388673708753027083)",
   "size": {
     "x": 32,
     "y": 32
@@ -16,14 +16,26 @@
     },
     {
       "name": "equipped-OUTERCLOTHING-vox",
-	  "directions": 4
-	},
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-reptilian",
+      "directions": 4
+    },
     {
       "name": "inhand-left",
       "directions": 4
     },
     {
       "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-harpy",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-resomi",
       "directions": 4
     }
   ]

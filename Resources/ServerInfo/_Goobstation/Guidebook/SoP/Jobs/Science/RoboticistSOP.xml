@@ -3,6 +3,12 @@
 This is the list of procedures, responsibilities, and duties of the [color=#cc74fc]Roboticist[/color] of this station.
 <Box>For clarification, 'Scientist' and 'Roboticist' are both referred to as 'Scientist' in this SOP.</Box>
 
+<ColorBox>
+  <Box>
+    For the purposes of Alert Escalation: Treat higher alerts as if they are still on the previous alert level. (Yellow Alert is Blue Alert if it was Blue Alert prior.) Furthermore, treat Delta, Gamma, Epsilon, and Violet Alert as Red Alert.
+  </Box>
+</ColorBox>
+
 ## Green Alert
 1. The Scientist is not permitted to construct any Combat Mechs without express permission from the Captain and/or Head of Security.
 <Box>The [color=#1b67a5][bold]Research Director[/bold][/color] is placed under these same restrictions.</Box>

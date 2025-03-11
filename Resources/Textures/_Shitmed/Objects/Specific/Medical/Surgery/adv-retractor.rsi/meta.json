@@ -14,19 +14,19 @@
       "name": "adv-retractor-on"
 		},
 		{
-			"name": "inhand-left",
+			"name": "off-inhand-left",
 			"directions": 4
 		},
 		{
-			"name": "inhand-left-on",
+			"name": "on-inhand-left",
 			"directions": 4
 		},
 		{
-			"name": "inhand-right",
+			"name": "off-inhand-right",
 			"directions": 4
 		},
 		{
-			"name": "inhand-right-on",
+			"name": "on-inhand-right",
 			"directions": 4
 		}
 	]

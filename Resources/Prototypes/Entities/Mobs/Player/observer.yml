@@ -63,8 +63,15 @@
   - type: Tag
     tags:
     - BypassInteractionRangeChecks
+  - type: PointLight
+    radius: 6
+    enabled: false
   - type: Speech #Goobstation - Dead chat verbs
     speechVerb: Dead
+  - type: GhostColor
+  - type: CollectiveMind
+    hearAll: true
+    seeAllNames: true
 
 # proto for player ghosts specifically
 - type: entity
@@ -72,6 +79,9 @@
   id: MobObserver
   components:
   - type: Spectral
+  - type: Tag
+    tags:
+    - AllowGhostShownByEvent
 
 - type: entity
   id: ActionGhostBoo
@@ -87,13 +97,14 @@
 
 - type: entity
   id: ActionToggleLighting
-  name: Toggle All Lighting
-  description: Toggle all light rendering to better observe dark areas.
+  name: Toggle Lighting
+  description: Toggle light rendering to better observe dark areas.
   components:
   - type: InstantAction
     icon: Interface/VerbIcons/light.svg.192dpi.png
     clientExclusive: true
     checkCanInteract: false
+    raiseOnUser: true # Goobstation
     event: !type:ToggleLightingActionEvent
 
 - type: entity
@@ -105,6 +116,7 @@
     icon: Interface/VerbIcons/vv.svg.192dpi.png
     clientExclusive: true
     checkCanInteract: false
+    raiseOnUser: true # Goobstation
     event: !type:ToggleFoVActionEvent
 
 - type: entity
@@ -116,6 +128,7 @@
     icon: { sprite: Mobs/Ghosts/ghost_human.rsi, state: icon }
     clientExclusive: true
     checkCanInteract: false
+    raiseOnUser: true # Goobstation
     event: !type:ToggleGhostsActionEvent
 
 - type: entity

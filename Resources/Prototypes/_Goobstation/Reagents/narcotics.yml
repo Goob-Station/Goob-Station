@@ -10,7 +10,7 @@
     Poison:
       metabolismRate: 0.05
       effects:
-      - !type:HealthChange 
+      - !type:HealthChange
         conditions:
         - !type:OrganType
           type: Yowie
@@ -20,7 +20,7 @@
           types:
             Heat: -0.5
             Shock: -0.5
-            Cold: -0.5 
+            Cold: -0.5
             Radiation: -0.5
       - !type:HealthChange
         conditions:
@@ -106,3 +106,192 @@
       - !type:Emote # Now a bunch of emotes
         emote: Scream
         probability: 0.05
+
+- type: reagent
+  id: Tirizene
+  name: reagent-name-tirizene
+  group: Narcotics
+  desc: reagent-desc-tirizene
+  physicalDesc: reagent-physical-desc-syrupy
+  color: "#6E2828"
+  boilingPoint: 255.0
+  meltingPoint: 36.0
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:TakeStaminaDamage
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        amount: 15
+        immediate: false
+
+- type: reagent
+  id: BlindToxin
+  name: reagent-name-blind-toxin
+  group: Narcotics
+  desc: reagent-desc-blind-toxin
+  physicalDesc: reagent-physical-desc-syrupy
+  color: "#000000"
+  boilingPoint: 255.0
+  meltingPoint: 36.0
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        key: TemporaryBlindness
+        component: TemporaryBlindness
+        type: Add
+        time: 3
+        refresh: false
+
+- type: reagent
+  id: Amnestizine
+  name: reagent-name-amnestizine
+  group: Narcotics
+  desc: reagent-desc-amnestizine
+  physicalDesc: reagent-physical-desc-milky
+  color: "#FFF1DE"
+  boilingPoint: 255.0
+  meltingPoint: 36.0
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.05
+      effects:
+      - !type:GenericStatusEffect
+        key: Dementia
+        component: DementiaAccent
+      - !type:PopupMessage
+        visualType: MediumCaution
+        type: Local
+        messages: # Flavor text, you're supposed to forget what's happening.
+        - amnestizine-effect-forget
+        - amnestizine-effect-hole
+        - amnestizine-effect-blank
+        - amnestizine-effect-distracted
+        - amnestizine-effect-widen
+        - amnestizine-effect-soul
+        - amnestizine-effect-peaceful
+        - amnestizine-effect-leave
+        - amnestizine-effect-listen
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
+        probability: 0.35
+      - !type:GenericStatusEffect # You can't remember how to fire a gun, or swing a sword.
+        key: Pacified
+        component: Pacified
+        type: Add
+        time: 4
+      - !type:MovespeedModifier # You can't quite remember how to walk properly.
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
+          reagent: Amnestizine
+          min: 4
+        walkSpeedModifier: 0.4
+        sprintSpeedModifier: 0.4
+      - !type:GenericStatusEffect # It's all... blurry...
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        key: TemporaryBlindness
+        component: TemporaryBlindness
+        type: Add
+        time: 2
+        refresh: false
+      - !type:Jitter
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+
+- type: reagent
+  id: Aranesp
+  name: reagent-name-aranesp
+  group: Narcotics
+  desc: reagent-desc-aranesp
+  physicalDesc: reagent-physical-desc-oily
+  flavor: oily
+  color: "#75fff5"
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:GenericStatusEffect
+        key: Stun
+        time: 2
+        type: Remove
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        time: 2
+        type: Remove
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 5
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.25
+        sprintSpeedModifier: 1.25
+      - !type:TakeStaminaDamage
+        conditions:
+        amount: -20
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.25
+            Asphyxiation: 0.25
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+      - !type:HealthChange # intentionally no yowie conditions
+        damage:
+          groups:
+            Brute: -1
+          types:
+            Heat: -0.5
+            Shock: -0.5
+            Cold: -0.5
+            Radiation: -0.5
+      - !type:Emote
+        emote: Gasp
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Yowie
+
+- type: reagent
+  id: MouseBites
+  name: reagent-name-mousebites
+  group: Narcotics
+  desc: reagent-desc-mousebites
+  physicalDesc: reagent-physical-desc-oily
+  flavor: oily
+  color: "#ffaa00"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Genetic: -0.2
+      - !type:Polymorph
+        prototype: MouseSentient
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+        type: Local
+        visualType: Medium
+        messages: [ "mousebites-effects-vexes", "mousebites-effects-stupid", "mousebites-effects-metoo" ]
+        probability: 0.10

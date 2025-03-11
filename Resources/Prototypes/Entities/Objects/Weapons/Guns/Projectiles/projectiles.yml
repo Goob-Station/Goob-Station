@@ -16,6 +16,34 @@
     tags:
       - HideContextMenu
   - type: AnimationPlayer
+  
+- type: entity
+  parent: MuzzleFlashEffect
+  id: MuzzleFlashEffectOmnilaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: BelowMobs
+    offset: 0.15, 0
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+      state: omnilaser_flash
+  
+- type: entity
+  parent: MuzzleFlashEffect
+  id: MuzzleFlashEffectHeavyLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: BelowMobs
+    offset: 0.15, 0
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+      state: heavylaser_flash
 
 # One bullet to bring them all into the darkness and bind them
 - type: entity
@@ -228,7 +256,7 @@
       fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
-    damage: 30
+    damage: 33
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
     damage:
@@ -301,6 +329,9 @@
         mask:
         - Opaque
       fly-by: *flybyfixture
+  - type: Reflective # Goobstation - Make emitter bolts reflect as energy
+    reflective:
+    - Energy
   - type: Projectile
 #   soundHit:  Waiting on serv3
     damage:
@@ -348,11 +379,11 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Cold: 0
+        Cold: 10 # goob - to account for lower firerate and projectile speed. low dmg because nothing resists cold
   - type: TimedDespawn
     lifetime: 3
   - type: ChangeTemperatureOnCollide
-    heat: -50000
+    heat: -15000 # Lavaland Change
 
 - type: entity
   name: magmawing watcher bolt
@@ -366,14 +397,39 @@
     - state: omnilaser_greyscale
       shader: unshaded
       color: orangered
+  - type: Ammo
+    muzzleFlash: null
   - type: Projectile
     #   soundHit:  Waiting on serv3
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 0
+        Heat: 30 # goob - to account for lower firerate and projectile speed. also so you can't just stand there and tank
   - type: ChangeTemperatureOnCollide
-    heat: 50000
+    heat: 20000 # Lavaland Change
+
+- type: entity
+  name: icewing watcher bolt
+  id: WatcherBoltIcewing
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser_greyscale
+      shader: unshaded
+      color: darkblue
+  - type: Ammo
+    muzzleFlash: null
+  - type: Projectile
+    #   soundHit:  Waiting on serv3
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Cold: 15 # goob - matches magmawings in terms of damage
+  - type: ChangeTemperatureOnCollide
+    heat: -30000 # Lavaland Change
 
 - type: entity
   id: BulletKinetic
@@ -395,11 +451,11 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 25
-        Structural: 30
+        Blunt: 40 # Lavaland Change - TOTAL PKA VICTORY
+#        Structural: 30 Lavaland Change - No easy break-ins :)
   # Short lifespan
   - type: TimedDespawn
-    lifetime: 0.4
+    lifetime: 0.170 # Lavaland Change
   - type: GatheringProjectile
 
 - type: entity
@@ -447,6 +503,7 @@
         shader: unshaded
   - type: GatheringProjectile
   - type: DamageMarkerOnCollide
+    onlyWorkOnFauna: true # Lavaland Change
     whitelist:
       components:
         - MobState
@@ -947,6 +1004,81 @@
     forceSound: true
 
 - type: entity
+  name : energy bolt
+  id: BulletEnergyTurretBase
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: heavylaser
+      shader: unshaded
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.3,0.15,0.3"
+        hard: false
+        mask:
+        - Opaque
+      fly-by: *flybyfixture
+  - type: Ammo
+
+- type: entity
+  name : laser bolt
+  id: BulletEnergyTurretLaser
+  parent: BulletEnergyTurretBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectHeavyLaser
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: heavylaser
+      shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Heat: 28
+
+- type: entity
+  name : disabler bolt
+  id: BulletEnergyTurretDisabler
+  parent: BulletEnergyTurretBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectOmnilaser
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser
+      shader: unshaded
+  - type: StaminaDamageOnCollide
+    damage: 30
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Heat: 0
+    soundHit:
+      collection: WeakHit
+    forceSound: true
+
+- type: entity
   name: tesla gun lightning
   id: TeslaGunBullet
   parent: BaseBullet
@@ -978,6 +1110,8 @@
   - type: Tag
     tags:
       - HideContextMenu
+  - type: Ammo # Goobstation
+    muzzleFlash: null
 
 - type: entity
   name: laser bolt

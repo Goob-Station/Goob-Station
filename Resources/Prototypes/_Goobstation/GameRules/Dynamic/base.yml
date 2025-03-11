@@ -32,9 +32,15 @@
   - type: RuleGrids
   - type: AntagSelection
   - type: AntagLoadProfileRule
+    # Goobstation start
     speciesOverride: Human
     speciesOverrideBlacklist:
-    - Yowie # lol loser
+    - Yowie
+    - IPC
+    - Diona
+    - Abductor
+    - Harpy
+    # Goobstation end
 
 - type: entity
   abstract: true

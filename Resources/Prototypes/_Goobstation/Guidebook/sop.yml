@@ -13,6 +13,7 @@
   id: Alert Levels
   name: guide-entry-sop-alert-levels
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/AlertLevelsSOP.xml"
+  priority: 0
   children:
   - GreenAlert SOP
   - BlueAlert SOP
@@ -28,6 +29,7 @@
   id: Emergencies SOP
   name: guide-entry-sop-emergencies
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/Emergencies.xml"
+  priority: 1
   children:
   - ConfirmedRevs SOP
   - ContainmentFail SOP
@@ -47,6 +49,7 @@
   - Alert Levels
   - Emergencies SOP
   - Demoting SOP
+  - EarlyEvacuation SOP
   - Hiring SOP
   - Succession
 
@@ -190,16 +193,25 @@
   id: Demoting SOP
   name: guide-entry-sop-demoting
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/StandardProcedures/FiringDemotion.xml"
+  priority: 10
+
+- type: guideEntry
+  id: EarlyEvacuation SOP
+  name: guide-entry-sop-evacuation
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/StandardProcedures/EarlyEvacuationSOP.xml"
+  priority: 10
 
 - type: guideEntry
   id: Hiring SOP
   name: guide-entry-sop-hiring
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/StandardProcedures/HiringTransfers.xml"
+  priority: 10
 
 - type: guideEntry
   id: Succession
   name: guide-entry-sop-succession # Is named as "Chain of Command" in game.
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/StandardProcedures/CommandSuccession.xml"
+  priority: 10
 
 # Emergency SOP Entries
 - type: guideEntry

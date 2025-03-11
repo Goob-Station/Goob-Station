@@ -6,7 +6,6 @@ using Content.Server.Hands.Systems;
 using Content.Server.Magic;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
-using Content.Server.Radio.Components;
 using Content.Server.Store.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
@@ -32,6 +31,10 @@ using Robust.Shared.Audio;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
 using Content.Server.Heretic.EntitySystems;
+using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
+using Content.Server.Heretic.Components;
+using Content.Shared.Hands.Components;
+using Content.Shared.Tag;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -66,6 +69,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prot = default!;
     [Dependency] private readonly ProtectiveBladeSystem _pblade = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
+    [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
     {
@@ -146,14 +151,22 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        if (ent.Comp.MansusGraspActive)
+        if (ent.Comp.MansusGrasp != EntityUid.Invalid)
         {
-            _popup.PopupEntity(Loc.GetString("heretic-ability-fail"), ent, ent);
+            if(!TryComp<HandsComponent>(ent, out var handsComp))
+                return;
+            foreach (var hand in handsComp.Hands.Values)
+            {
+                if (hand.HeldEntity == null)
+                    continue;
+                if (HasComp<MansusGraspComponent>(hand.HeldEntity))
+                    QueueDel(hand.HeldEntity);
+            }
+            ent.Comp.MansusGrasp = EntityUid.Invalid;
             return;
         }
 
         var st = Spawn("TouchSpellMansus", Transform(ent).Coordinates);
-
         if (!_hands.TryForcePickupAnyHand(ent, st))
         {
             _popup.PopupEntity(Loc.GetString("heretic-ability-fail"), ent, ent);
@@ -161,7 +174,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
         }
 
-        ent.Comp.MansusGraspActive = true;
+        ent.Comp.MansusGrasp = args.Action.Owner;
         args.Handled = true;
     }
     private void OnLivingHeart(Entity<HereticComponent> ent, ref EventHereticLivingHeart args)
@@ -218,6 +231,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/heartbeat.ogg"), ent, AudioParams.Default.WithVolume(-3f));
     }
 
+    public ProtoId<TagPrototype> MansusLinkTag = "MansusLinkMind";
     private void OnMansusLink(Entity<GhoulComponent> ent, ref EventHereticMansusLink args)
     {
         if (!TryUseAbility(ent, args))
@@ -229,8 +243,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
         }
 
-        if (TryComp<ActiveRadioComponent>(args.Target, out var radio)
-        && radio.Channels.Contains("Mansus"))
+        if (_tag.HasTag(args.Target, MansusLinkTag))
         {
             _popup.PopupEntity(Loc.GetString("heretic-manselink-fail-exists"), ent, ent);
             return;
@@ -252,11 +265,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        var reciever = EnsureComp<IntrinsicRadioReceiverComponent>(args.Target);
-        var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(args.Target);
-        var radio = EnsureComp<ActiveRadioComponent>(args.Target);
-        radio.Channels = new() { "Mansus" };
-        transmitter.Channels = new() { "Mansus" };
+        _tag.AddTag(ent, MansusLinkTag);
 
         // this "* 1000f" (divided by 1000 in FlashSystem) is gonna age like fine wine :clueless:
         _flash.Flash(args.Target, null, null, 2f * 1000f, 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));

@@ -1,6 +1,9 @@
 # PUT YOUR TAGS IN ALPHABETICAL ORDER
 
 - type: Tag
+  id: AccessBreakerImmune
+
+- type: Tag
   id: AirAlarm
 
 - type: Tag
@@ -11,6 +14,9 @@
 
 - type: Tag
   id: AirSensor
+
+- type: Tag
+  id: AllowGhostShownByEvent
 
 - type: Tag
   id: Ambrosia
@@ -429,6 +435,9 @@
   id: Debug
 
 - type: Tag
+  id: Diagonal
+
+- type: Tag
   id: Dice
 
 - type: Tag
@@ -645,6 +654,9 @@
   id: Hardsuit # Prevent melee injectors that can't penetrate hardsuits from injecting the wearer (nettles)
 
 - type: Tag
+  id: HardsuitSpatio
+
+- type: Tag
   id: Haunted
 
 - type: Tag
@@ -812,6 +824,9 @@
   id: MagazineShotgun
 
 - type: Tag
+  id: MagazineShotgunLeverRifle
+
+- type: Tag
   id: MagazineMagnumSubMachineGun
 
 - type: Tag
@@ -824,6 +839,9 @@
 
 - type: Tag
   id: MailingUnitElectronics
+
+- type: Tag
+  id: Maints
 
 - type: Tag
   id: Matchstick
@@ -910,6 +928,9 @@
   id: Ointment
 
 - type: Tag
+  id: Oni
+
+- type: Tag
   id: Ore
 
 - type: Tag
@@ -980,6 +1001,9 @@
 
 - type: Tag
   id: PlushieGhost
+
+- type: Tag
+  id: PlushieLizard
 
 - type: Tag
   id: PlushieSharkBlue
@@ -1144,6 +1168,9 @@
   id: Soap
 
 - type: Tag
+  id: Softsuit # Used for Yowies outerslot whitelist
+
+- type: Tag
   id: SolarTrackerElectronics
 
 - type: Tag
@@ -1172,6 +1199,9 @@
 
 - type: Tag
   id: Spray
+
+- type: Tag
+  id: SprayNozzle
 
 - type: Tag
   id: SpreaderIgnore
@@ -1319,6 +1349,12 @@
 
 - type: Tag
   id: WhitelistChameleon
+
+- type: Tag
+  id: WhitelistChameleonIdCard
+
+- type: Tag
+  id: WhitelistChameleonPDA
 
 - type: Tag
   id: Window
