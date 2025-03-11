@@ -79,11 +79,11 @@
       groups:
         Brute: -10
   - type: Clothing
-    sprite: Objects/Weapons/Nullrod/claymore.rsi
+    sprite: _ShitChap/Objects/Weapons/Nullrod/holyclaymore.rsi
     slots:
     - back
   - type: Sprite
-    sprite: Objects/Weapons/Nullrod/claymore.rsi # Todo - Give this proper wielded sprites.
+    sprite: _ShitChap/Objects/Weapons/Nullrod/holyclaymore.rsi # Todo - Give this proper wielded sprites.
   - type: AmmoCounter
   - type: UseDelayOnShoot
   - type: UseDelay

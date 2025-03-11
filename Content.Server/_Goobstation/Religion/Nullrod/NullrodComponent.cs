@@ -1,7 +1,7 @@
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
 
-namespace Content.Shared._Goobstation.Religion.Nullrod
+namespace Content.Server._Goobstation.Religion.Nullrod
 {
     [RegisterComponent]
     public sealed partial class NullrodComponent : Component

@@ -3,8 +3,9 @@ using Content.Shared.Damage;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
+using Content.Server.Bible;
 
-namespace Content.Shared._Goobstation.Religion.Nullrod;
+namespace Content.Server._Goobstation.Religion.Nullrod;
 
 public sealed partial class NullRodSystem : EntitySystem
 {
