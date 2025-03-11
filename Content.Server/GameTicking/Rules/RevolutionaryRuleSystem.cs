@@ -161,8 +161,16 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     private void OnGetBriefing(EntityUid uid, RevolutionaryRoleComponent comp, ref GetBriefingEvent args)
     {
         var ent = args.Mind.Comp.OwnedEntity;
-        var head = HasComp<HeadRevolutionaryComponent>(ent);
-        args.Append(Loc.GetString(head ? "head-rev-briefing" : "rev-briefing"));
+        // Reserve-ConsentRev-Start
+        if (TryComp<HeadRevolutionaryComponent>(ent, out var headComp))
+        {
+            args.Append(Loc.GetString(headComp.OnlyConsentConvert ? "head-rev-briefing-consent-only" : "head-rev-briefing"));
+        }
+        else
+        {
+            args.Append(Loc.GetString("rev-briefing"));
+        }
+        // Reserve-ConsentRev-End
     }
 
     /// <summary>

@@ -28,7 +28,7 @@ public sealed partial class ConsentRevolutionaryComponent : Component
     /// <summary>
     /// Time given to give response to request
     /// </summary>
-    [DataField] public TimeSpan ResponseTime = TimeSpan.FromMinutes(1);
+    [DataField] public TimeSpan ResponseTime = TimeSpan.FromSeconds(30);
 
     /// <summary>
     /// Time in which entity is can't be converted

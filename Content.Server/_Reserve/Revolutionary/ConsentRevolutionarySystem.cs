@@ -88,7 +88,7 @@ public sealed class ConsentRevolutionarySystem : EntitySystem
                 Disabled = true,
                 Text = Loc.GetString("rev-verb-consent-convert-text"),
                 Message = Loc.GetString("rev-verb-consent-convert-message-cooldown"),
-                Icon = new SpriteSpecifier.Texture(new("/Textures/_Reserve/VerbIcons/revolution_convert.png")),
+                Icon = new SpriteSpecifier.Texture(new("/Textures/_Reserve/Interface/VerbIcons/revolution_convert.png")),
             };
         }
         else
@@ -98,10 +98,6 @@ public sealed class ConsentRevolutionarySystem : EntitySystem
             {
                 Act = () =>
                 {
-                    // Check that entity is still convertable
-                    if (!_revRule.IsConvertable(args.Target))
-                        return;
-
                     // Don't let convert people that denied request recently
                     if (TryComp<ConsentRevolutionaryDenyComponent>(args.Target, out var denyComponent))
                     {
@@ -131,11 +127,15 @@ public sealed class ConsentRevolutionarySystem : EntitySystem
                         return;
                     }
 
+                    // Check that entity is still convertable
+                    if (!_revRule.IsConvertable(args.Target))
+                        return;
+
                     RequestConsentConversionToEntity(args.Target, args.User);
                 },
                 Text = Loc.GetString("rev-verb-consent-convert-text"),
                 Message = Loc.GetString("rev-verb-consent-convert-message"),
-                Icon = new SpriteSpecifier.Texture(new("/Textures/_Reserve/VerbIcons/revolution_convert.png")),
+                Icon = new SpriteSpecifier.Texture(new("/Textures/_Reserve/Interface/VerbIcons/revolution_convert.png")),
             };
         }
 
