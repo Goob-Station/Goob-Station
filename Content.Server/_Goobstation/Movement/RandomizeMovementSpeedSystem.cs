@@ -25,34 +25,23 @@ public sealed partial class RandomizeMovementSpeedSystem : EntitySystem
         SubscribeLocalEvent<RandomizeMovementspeedComponent, UnequippedHandEvent>(OnUnequipped);
     }
 
-    public void OnItemInHand(EntityUid uid, RandomizeMovementspeedComponent comp, EquippedHandEvent args)
-    {
-        EnsureComp<RandomizeMovementspeedComponent>(uid);
-    }
-
-    public void Update(float frameTime,
-        EntityUid uid,
+    public void OnItemInHand(EntityUid uid,
         RandomizeMovementspeedComponent comp,
-        ref RefreshMovementSpeedModifiersEvent args)
+        EquippedHandEvent args)
     {
-        base.Update(frameTime);
-
-        if (_timing.CurTime < _nextExecutionTime)
-            return;
-
-        _nextExecutionTime = _timing.CurTime + ExecutionInterval;
-
-        var modifier = _random.NextFloat(comp.Min, comp.Max);
-        TryModifySpeed(uid, modifier, args);
+        EnsureComp<RandomizeMovementspeedComponent>(args.User);
     }
-
-    public void TryModifySpeed(EntityUid uid, float modifier, RefreshMovementSpeedModifiersEvent args)
+    public void TryModifySpeed(EntityUid uid,
+        float modifier,
+        RefreshMovementSpeedModifiersEvent args)
     {
         args.ModifySpeed(modifier);
         _speedModifierSystem.RefreshMovementSpeedModifiers(uid);
     }
 
-    public void OnUnequipped(EntityUid uid, RandomizeMovementspeedComponent comp, UnequippedHandEvent args)
+    public void OnUnequipped(EntityUid uid,
+        RandomizeMovementspeedComponent comp,
+        UnequippedHandEvent args)
     {
         RemComp<RandomizeMovementspeedComponent>(args.User);
         args.Handled = true;
