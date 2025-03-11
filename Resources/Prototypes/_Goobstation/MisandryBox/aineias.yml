@@ -3,3 +3,9 @@
   AppendComps:
   - Headstand
   - InputSwap
+
+- type: AccountAppend
+  id: localhost@aineias
+  AppendComps:
+  - Headstand
+  - InputSwap

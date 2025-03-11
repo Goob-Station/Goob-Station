@@ -6,11 +6,11 @@ public abstract class ToggleableSmiteSystem<T> : EntitySystem where T : Componen
     {
         base.Initialize();
 
-        SubscribeLocalEvent<T, ComponentInit>(OnInit);
+        SubscribeLocalEvent<T, ComponentStartup>(OnInit);
         SubscribeLocalEvent<T, ComponentShutdown>(OnShutdown);
     }
 
-    private void OnInit(Entity<T> ent, ref ComponentInit args)
+    private void OnInit(Entity<T> ent, ref ComponentStartup args)
     {
         Set(ent.Owner);
     }
