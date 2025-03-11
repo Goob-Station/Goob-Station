@@ -6118,3 +6118,9 @@ Entries:
       message: Make harpy and IPC stop singing by punching them!
   id: 702
   time: '2025-03-11T20:59:12.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: Mining shuttle works more often than it doesn't now.
+  id: 703
+  time: '2025-03-11T20:59:55.0000000+00:00'
