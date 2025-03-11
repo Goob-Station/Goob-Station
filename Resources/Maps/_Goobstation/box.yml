@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/09/2025 08:31:03
-  entityCount: 27914
+  time: 03/11/2025 17:34:50
+  entityCount: 27915
 maps:
 - 1
 grids:
@@ -11624,7 +11624,7 @@ entities:
       pos: 24.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -31417.283
+      secondsUntilStateChange: -31468.162
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11837,6 +11837,12 @@ entities:
     - type: Transform
       pos: -18.5,-0.5
       parent: 2
+    - type: Door
+      secondsUntilStateChange: -20.866734
+      state: Opening
+    - type: DeviceLinkSource
+      lastSignals:
+        DoorStatus: True
   - uid: 353
     components:
     - type: MetaData
@@ -11844,6 +11850,12 @@ entities:
     - type: Transform
       pos: -18.5,-1.5
       parent: 2
+    - type: Door
+      secondsUntilStateChange: -21.066732
+      state: Opening
+    - type: DeviceLinkSource
+      lastSignals:
+        DoorStatus: True
   - uid: 354
     components:
     - type: MetaData
@@ -11851,6 +11863,12 @@ entities:
     - type: Transform
       pos: -18.5,-2.5
       parent: 2
+    - type: Door
+      secondsUntilStateChange: -21.500067
+      state: Opening
+    - type: DeviceLinkSource
+      lastSignals:
+        DoorStatus: True
   - uid: 355
     components:
     - type: Transform
@@ -84797,7 +84815,7 @@ entities:
       pos: -34.5,-14.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -25605.818
+      secondsUntilStateChange: -25656.697
       state: Closing
   - uid: 13393
     components:
@@ -85290,7 +85308,7 @@ entities:
       pos: -4.5,-71.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -17353.55
+      secondsUntilStateChange: -17404.43
       state: Closing
 - proto: Fireplace
   entities:
@@ -122080,6 +122098,13 @@ entities:
     components:
     - type: Transform
       pos: 31.5,-10.5
+      parent: 2
+- proto: KitchenCQCMarker
+  entities:
+  - uid: 27915
+    components:
+    - type: Transform
+      pos: 36.5,-7.5
       parent: 2
 - proto: KitchenElectricGrill
   entities:
