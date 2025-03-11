@@ -10,13 +10,19 @@ namespace Content.Shared._Goobstation.Fishing.Components;
 public sealed partial class ActiveFisherComponent : Component
 {
     [DataField]
-    public float TotalProgress = 0.5f;
+    public TimeSpan? StartTime;
 
     [DataField]
-    public float ProgressPerUse = 0.07f;
+    public TimeSpan? EndTime;
 
     [DataField]
-    public float ProgressWithdraw = -0.2f;
+    public TimeSpan? NextStruggle;
+
+    [DataField]
+    public float TotalProgress = 0f;
+
+    [DataField, AutoNetworkedField]
+    public float ProgressPerUse = 0.7f;
 
     [DataField, AutoNetworkedField]
     public EntityUid FishingRod;
