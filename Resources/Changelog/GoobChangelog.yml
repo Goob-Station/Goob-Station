@@ -6090,3 +6090,9 @@ Entries:
       message: Reach is updated to have new Goobstation content.
   id: 698
   time: '2025-03-11T20:55:45.0000000+00:00'
+- author: Vlax
+  changes:
+    - type: Tweak
+      message: reduced body heat gained from getting set on fire
+  id: 699
+  time: '2025-03-11T20:56:12.0000000+00:00'
