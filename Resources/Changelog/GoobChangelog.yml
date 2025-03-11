@@ -6124,3 +6124,11 @@ Entries:
       message: Mining shuttle works more often than it doesn't now.
   id: 703
   time: '2025-03-11T20:59:55.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: >-
+        Traitors and nukies can now buy gloves that provide krav maga, with a
+        stealthy black glove version and loud insulated version
+  id: 704
+  time: '2025-03-11T21:02:33.0000000+00:00'
