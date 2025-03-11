@@ -535,8 +535,6 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-kitchen
-  - type: SpawnOnTrigger
-    proto: KitchenCQCMarker
 
 - type: entity
   parent: DefaultStationBeaconService
