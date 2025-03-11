@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/11/2025 17:37:01
-  entityCount: 15079
+  time: 03/09/2025 18:57:45
+  entityCount: 15078
 maps:
 - 1
 grids:
@@ -67458,13 +67458,6 @@ entities:
     components:
     - type: Transform
       pos: 38.348988,28.699009
-      parent: 2
-- proto: KitchenCQCMarker
-  entities:
-  - uid: 15079
-    components:
-    - type: Transform
-      pos: 35.5,-10.5
       parent: 2
 - proto: KitchenElectricGrill
   entities:
