@@ -8,17 +8,17 @@ public sealed partial class RandomizeMovementspeedComponent : Component
     /// </summary>
 
     [DataField]
-    public float Min { get; set; } = 1;
+    public float Min { get; set; } = 2;
 
     /// <summary>
     /// How high the movement speed can go
     /// </summary>
 
     [DataField]
-    public float Max { get; set; } = 1;
+    public float Max { get; set; } = 4;
 
     /// <summary>
-    /// How high the movement speed can go
+    /// bweh
     /// </summary>
     [DataField]
     public TimeSpan? NextSpeedChange;
