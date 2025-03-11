@@ -211,6 +211,17 @@
 # Wearables
 
 - type: listing
+  id: UplinkClothingDreadnought
+  name: uplink-hardsuit-cybersun-dreadnought-name
+  description: uplink-hardsuit-cybersun-dreadnought-desc
+  icon: { sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/dreadnought.rsi, state: icon }
+  productEntity: CrateSyndicateDreadnought
+  cost:
+    Telecrystal: 150
+  categories:
+  - UplinkWearables
+
+- type: listing
   id: UplinkClothingHeadHelmetSwatSyndicate
   name: uplink-helmet-swat-name
   description: uplink-helmet-swat-desc
