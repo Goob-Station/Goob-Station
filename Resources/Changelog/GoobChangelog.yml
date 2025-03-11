@@ -6096,3 +6096,9 @@ Entries:
       message: reduced body heat gained from getting set on fire
   id: 699
   time: '2025-03-11T20:56:12.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Mice now dodge wideswing. It does stamina damage to them instead.
+  id: 700
+  time: '2025-03-11T20:57:51.0000000+00:00'
