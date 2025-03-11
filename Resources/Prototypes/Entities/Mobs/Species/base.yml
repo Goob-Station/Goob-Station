@@ -201,9 +201,6 @@
       enum.WizardTeleportUiKey.Key: # Goobstation - wizard
         type: WizardTeleportBoundUserInterface
         requireInputValidation: false
-      # Shitmed
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: Puller
   - type: Speech
     speechSounds: Alto
@@ -230,7 +227,6 @@
     - AnomalyHost
   - type: LayingDown # WD EDIT
   - type: Targeting # Shitmed Change
-  - type: SurgeryTarget # Shitmed Change
   - type: CanEscapeInventory # GoobStation - Escape being picked up by players
 
 - type: entity

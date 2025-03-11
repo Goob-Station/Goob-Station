@@ -41,6 +41,7 @@ using Content.Shared.Mind;
 using Content.Server.Objectives.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Shared.StatusEffect;
+using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Cuffs;
 using Content.Shared.Fluids;
@@ -341,7 +342,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     }
 
     /// <summary>
-    ///     Check if a target is crit/dead or cuffed. For absorbing.
+    ///     Check if the target is crit/dead or cuffed, for absorbing.
     /// </summary>
     public bool IsIncapacitated(EntityUid uid)
     {
@@ -350,6 +351,14 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             return true;
 
         return false;
+    }
+
+    /// <summary>
+    ///     Check if the target is hard-grabbed, for absorbing.
+    /// </summary>
+    public bool IsHardGrabbed(EntityUid uid)
+    {
+        return (TryComp<PullableComponent>(uid, out var pullable) && pullable.GrabStage > GrabStage.Soft);
     }
 
     public float? GetEquipmentChemCostOverride(ChangelingComponent comp, EntProtoId proto)

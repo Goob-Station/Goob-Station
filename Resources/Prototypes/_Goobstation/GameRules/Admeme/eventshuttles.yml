@@ -1,0 +1,74 @@
+# Deathsquad
+
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: SpawnDeathsquad
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-deathsquad-enroute
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    weight: 10
+    reoccurrenceDelay: 30
+    duration: null
+    maxOccurrences: 1
+  - type: LoadMapRule
+    preloadedGrid: ConsulShuttle
+
+# CBURN
+
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: SpawnCBURN
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-cburn-enroute
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    weight: 10
+    reoccurrenceDelay: 30
+    duration: null
+    maxOccurrences: 1
+  - type: LoadMapRule
+    preloadedGrid: RetortShuttleCBURN
+
+# ERT
+
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: SpawnERTSecurity
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-emergencyresponseteam-enroute
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    weight: 10
+    reoccurrenceDelay: 30
+    duration: null
+    maxOccurrences: 1
+  - type: LoadMapRule
+    preloadedGrid: RetortShuttleAssault
+
+- type: entity
+  parent: SpawnERTSecurity
+  id: SpawnERTMedical
+  components:
+  - type: LoadMapRule
+    preloadedGrid: RetortShuttleMedical
+
+- type: entity
+  parent: SpawnERTSecurity
+  id: SpawnERTEngineering
+  components:
+  - type: LoadMapRule
+    preloadedGrid: RetortShuttleEngineering
+
+- type: entity
+  parent: SpawnERTSecurity
+  id: SpawnERTJanitorial
+  components:
+  - type: LoadMapRule
+    preloadedGrid: RetortShuttleJanitorial
+
+
+
