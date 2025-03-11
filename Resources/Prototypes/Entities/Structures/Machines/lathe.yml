@@ -135,8 +135,6 @@
     # Goobstation
     - LatheMiscStatic
     - MedicalVehiclesStatic
-    - ChemistryStatic
-    - SurgeryStatic
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityAmmoStatic
@@ -445,10 +443,8 @@
     - SecurityAmmoStaticGoob
     - SecurityEquipmentStaticGoob
     - SecurityHypoStatic
-    - SecurityWeaponsStaticGoob
     - MechWeaponsStatic
     - SecurityBoardsStaticGoob
-    - PowerCells
     - SecurityBoardsStaticGoob
     - PowerCellsStatic
     dynamicPacks:
@@ -466,6 +462,8 @@
     - ServiceWeapons
     - SpecOpsGoogles
     - SecurityMechElectronicsGoob
+    - PowerCells
+    - SecurityWeaponsEinsteinEngines # Einstein Engines
   - type: EmagLatheRecipes # Goobstation
     emagStaticPacks:
     - SyndicateAmmoStatic
@@ -546,7 +544,6 @@
     - EmptyMedkitsStatic
     - SurgeryStatic
     # Goobstation Packs
-    - MedicalWeaponsStatic
     - ParamedHypoStatic
     - MedicalPatchesStatic
     - SurgeryStaticGoob
@@ -559,13 +556,12 @@
     # Goobstation Packs
     - MedicalSurgery
     - MedicalCybernetics
-    - MedicalWeapons
     - MedicalMisc
+    - MedicalMiscRestricted
     - MedicalVehiclesAdvanced
     - MedicalBoards
     - ServiceWeapons
     - Janitor
-
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: EmagLatheRecipes # Goobstation Packs

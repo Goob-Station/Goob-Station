@@ -1,0 +1,15 @@
+- type: entity
+  parent: [BaseItem, BaseCommandContraband]
+  id: BSOManual
+  name: Nanotrasen CQC Manual
+  description: A small, blue manual. There are drawn instructions of tactical hand-to-hand combat.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/cqc_manual.rsi
+    layers:
+    - state: icon-alt
+  - type: Item
+    size: Small
+  - type: StaticPrice
+    price: 3000
+  - type: GrantCqc
