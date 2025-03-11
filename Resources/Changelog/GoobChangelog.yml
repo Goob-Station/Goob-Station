@@ -6084,3 +6084,9 @@ Entries:
       message: Office chairs are mobile now, cubicle workers rejoice!
   id: 697
   time: '2025-03-11T20:55:37.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Reach is updated to have new Goobstation content.
+  id: 698
+  time: '2025-03-11T20:55:45.0000000+00:00'
