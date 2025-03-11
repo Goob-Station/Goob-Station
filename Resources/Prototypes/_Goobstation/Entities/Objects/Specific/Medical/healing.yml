@@ -38,7 +38,7 @@
   id: SyringePoisonFent
   components:
   - type: Label
-    currentLabel: reagent-name-fentanyl
+    currentLabel: fentanyl
   - type: SolutionContainerManager
     solutions:
       injector:
