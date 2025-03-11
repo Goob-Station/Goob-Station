@@ -1,6 +1,7 @@
 using Content.Shared.Hands;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._Goobstation.Movement;
 
@@ -8,6 +9,7 @@ public sealed class HeldSpeedModifierSystem : EntitySystem
 {
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
