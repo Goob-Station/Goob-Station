@@ -6078,3 +6078,9 @@ Entries:
       message: Contortionist's jumpsuit is no longer atmos job-specific.
   id: 696
   time: '2025-03-11T20:53:31.0000000+00:00'
+- author: ItsMeThom
+  changes:
+    - type: Tweak
+      message: Office chairs are mobile now, cubicle workers rejoice!
+  id: 697
+  time: '2025-03-11T20:55:37.0000000+00:00'
