@@ -1,6 +1,12 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: The ATS works again now. You know what that means, Cargo. LET'S GO GAMBLING!
+    type: Fix
+  id: 209
+  time: '2025-03-11T06:45:19.858308'
+- author: AstroDogeDX
+  changes:
   - message: Removed the Lavaland Transport Shuttle.
     type: Remove
   id: 208
