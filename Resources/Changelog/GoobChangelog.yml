@@ -6108,3 +6108,13 @@ Entries:
       message: Deimplanter works on jaunter, mindcontrol implants
   id: 701
   time: '2025-03-11T20:58:13.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Tweak
+      message: Harpy and IPC can now sing even if they are cuffed.
+    - type: Tweak
+      message: A muzzled Harpy won't be able to sing.
+    - type: Add
+      message: Make harpy and IPC stop singing by punching them!
+  id: 702
+  time: '2025-03-11T20:59:12.0000000+00:00'
