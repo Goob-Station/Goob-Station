@@ -1087,17 +1087,15 @@ entities:
           0,1:
             0: 62975
           -1,1:
-            0: 62685
+            0: 29917
           0,2:
             0: 65535
-          -1,2:
-            0: 65407
           0,3:
             0: 29439
           0,4:
             0: 7
           -1,3:
-            0: 58886
+            0: 62982
           1,0:
             0: 61663
           1,1:
@@ -1131,8 +1129,7 @@ entities:
           3,3:
             0: 4115
           3,-1:
-            2: 1
-            0: 53724
+            0: 53725
           3,4:
             1: 1
           4,0:
@@ -1159,6 +1156,8 @@ entities:
             0: 57567
           -2,2:
             0: 61166
+          -1,2:
+            0: 30583
           -1,4:
             0: 174
           1,-4:
@@ -1174,8 +1173,8 @@ entities:
           2,-2:
             0: 61687
           2,-4:
-            3: 6
-            4: 1536
+            2: 6
+            3: 1536
           3,-4:
             1: 8737
             0: 256
@@ -1258,25 +1257,6 @@ entities:
           moles:
           - 0
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.14975
-          moles:
-          - 20.078888
-          - 75.53487
           - 0
           - 0
           - 0
@@ -1639,11 +1619,19 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,17.5
       parent: 2
-  - uid: 35
+  - uid: 1643
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -2.5,17.5
+      parent: 2
+- proto: AirlockExternalGlassShuttleMiningFilled
+  entities:
+  - uid: 2109
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -3.5,15.5
       parent: 2
 - proto: AirlockExternalShuttleLocked
   entities:
@@ -1872,6 +1860,12 @@ entities:
       parent: 2
 - proto: AtmosDeviceFanDirectional
   entities:
+  - uid: 35
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -3.5,15.5
+      parent: 2
   - uid: 74
     components:
     - type: Transform
@@ -6622,11 +6616,11 @@ entities:
       parent: 2
 - proto: ComputerShuttleMiningLavaland
   entities:
-  - uid: 950
+  - uid: 1999
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 2.5,15.5
+      rot: 3.141592653589793 rad
+      pos: -2.5,14.5
       parent: 2
 - proto: ComputerStationRecords
   entities:
@@ -11626,15 +11620,15 @@ entities:
       parent: 2
 - proto: KitchenReagentGrinder
   entities:
-  - uid: 1638
-    components:
-    - type: Transform
-      pos: -3.5,5.5
-      parent: 2
   - uid: 1639
     components:
     - type: Transform
       pos: 12.5,1.5
+      parent: 2
+  - uid: 1822
+    components:
+    - type: Transform
+      pos: -10.5,2.5
       parent: 2
 - proto: KitchenSpike
   entities:
@@ -11657,13 +11651,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 25.746017,-2.1150365
-      parent: 2
-- proto: LargeBeaker
-  entities:
-  - uid: 1643
-    components:
-    - type: Transform
-      pos: -3.43964,5.3541145
       parent: 2
 - proto: LockerAtmosphericsFilledHardsuit
   entities:
@@ -12758,12 +12745,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 2.5,-4.5
       parent: 2
-  - uid: 1790
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -2.5,15.5
-      parent: 2
   - uid: 1791
     components:
     - type: Transform
@@ -12919,13 +12900,6 @@ entities:
     components:
     - type: Transform
       pos: 4.5666795,-10.266068
-      parent: 2
-- proto: ReagentContainerFlour
-  entities:
-  - uid: 1822
-    components:
-    - type: Transform
-      pos: -3.642765,5.4634895
       parent: 2
 - proto: Recycler
   entities:
@@ -14000,6 +13974,11 @@ entities:
     - type: Transform
       pos: -1.5,15.5
       parent: 2
+  - uid: 1790
+    components:
+    - type: Transform
+      pos: 0.5,15.5
+      parent: 2
 - proto: SpawnPointScientist
   entities:
   - uid: 1997
@@ -14013,11 +13992,6 @@ entities:
     components:
     - type: Transform
       pos: 15.5,-3.5
-      parent: 2
-  - uid: 1999
-    components:
-    - type: Transform
-      pos: 16.5,-3.5
       parent: 2
   - uid: 2000
     components:
@@ -14352,11 +14326,6 @@ entities:
     components:
     - type: Transform
       pos: -3.5,4.5
-      parent: 2
-  - uid: 2040
-    components:
-    - type: Transform
-      pos: -3.5,5.5
       parent: 2
   - uid: 2041
     components:
@@ -14790,10 +14759,10 @@ entities:
       parent: 2
 - proto: VendingMachineChefvend
   entities:
-  - uid: 2109
+  - uid: 1638
     components:
     - type: Transform
-      pos: 3.5,-7.5
+      pos: -3.5,5.5
       parent: 2
 - proto: VendingMachineChemicals
   entities:
@@ -14875,10 +14844,10 @@ entities:
       parent: 2
 - proto: VendingMachineSalvage
   entities:
-  - uid: 2121
+  - uid: 950
     components:
     - type: Transform
-      pos: -2.5,14.5
+      pos: 2.5,15.5
       parent: 2
 - proto: VendingMachineSec
   entities:
@@ -14986,6 +14955,12 @@ entities:
     components:
     - type: Transform
       pos: -7.5,12.5
+      parent: 2
+  - uid: 2040
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -3.5,16.5
       parent: 2
   - uid: 2127
     components:
@@ -15907,11 +15882,6 @@ entities:
     - type: Transform
       pos: -3.5,17.5
       parent: 2
-  - uid: 2325
-    components:
-    - type: Transform
-      pos: -3.5,15.5
-      parent: 2
   - uid: 2326
     components:
     - type: Transform
@@ -16271,11 +16241,6 @@ entities:
     components:
     - type: Transform
       pos: 1.5,-1.5
-      parent: 2
-  - uid: 2398
-    components:
-    - type: Transform
-      pos: -3.5,16.5
       parent: 2
   - uid: 2399
     components:
