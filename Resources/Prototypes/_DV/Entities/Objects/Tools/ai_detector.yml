@@ -1,0 +1,57 @@
+- type: entity
+  parent: Multitool
+  id: MultitoolAiDetector
+  suffix: AI Detector
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+    - state: green-unlit
+      shader: unshaded
+      map: [ enum.CollidingVisuals.Layer ]
+  - type: Physics
+    canCollide: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.3  # fite me
+        friction: 0.2
+      yellow:
+        shape: !type:PhysShapeCircle
+          radius: 12
+        density: 0
+        hard: false
+        mask:
+        - GhostImpassable
+      red:
+        shape: !type:PhysShapeCircle
+          radius: 5
+        density: 0
+        hard: false
+        mask:
+        - GhostImpassable
+  - type: CollisionWake # don't stop checking for AI just because this isn't moving
+    enabled: false
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.CollidingVisuals.Fixture:
+        enum.CollidingVisuals.Layer:
+          default: { state: "green-unlit" }
+          yellow: { state: "yellow-unlit" }
+          red: { state: "red-unlit" }
+  - type: CollidingVisuals
+    whitelist:
+      tags:
+      - AiDetectable
+    fixtures:
+    - red
+    - yellow
+  - type: MappingCategories # don't map valid multitool by mistake
+    categories:
+    - Syndicate
