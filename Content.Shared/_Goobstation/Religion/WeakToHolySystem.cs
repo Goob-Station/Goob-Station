@@ -25,6 +25,8 @@ public sealed partial class WeakToHolySystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
+    private readonly Dictionary<EntityUid, FixedPoint2> _originalDamageCaps = new();
+
     public override void Initialize()
     {
         base.Initialize();
@@ -55,20 +57,31 @@ public sealed partial class WeakToHolySystem : EntitySystem
             return;
         }
 
-        var oldValue = _heretic.DamageCap;
+            // Store the original DamageCap if it hasn't already been stored
+        if (!_originalDamageCaps.ContainsKey(args.OtherEntity))
+        {
+        _originalDamageCaps[args.OtherEntity] = _heretic.DamageCap;
+        }
 
         _heretic.Damage.DamageDict.TryAdd("Holy", -10);
-        _heretic.DamageCap = new FixedPoint2(0); //why you no work
+        _heretic.DamageCap = FixedPoint2.New(0);
         DirtyEntity(args.OtherEntity);
 
     }
 
     private void OnCollideEnd(EntityUid uid, HereticRitualRuneComponent component, ref EndCollideEvent args)
     {
-        var _heretic = EnsureComp<PassiveDamageComponent>(args.OtherEntity);
-        var oldValue = _heretic.DamageCap;
-        _heretic.DamageCap = oldValue;
+        if (TryComp<PassiveDamageComponent>(args.OtherEntity, out var _heretic))
+        {
+            // Restore the original DamageCap if it was stored
+            if (_originalDamageCaps.TryGetValue(args.OtherEntity, out var originalCap))
+            {
+                _heretic.DamageCap = originalCap;
+                _originalDamageCaps.Remove(args.OtherEntity); // Clean up after restoring
+            }
+
         _heretic.Damage.DamageDict.Remove("Holy");
         DirtyEntity(args.OtherEntity);
+        }
     }
 }
