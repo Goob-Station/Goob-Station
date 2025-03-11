@@ -11,6 +11,7 @@ using Content.Shared.Revolutionary; // GoobStation
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Tag;
 using Content.Shared.Mindcontrol;  //Goobstation - Mindcontrol Implant
+using Robust.Shared.Containers;
 
 namespace Content.Server.Mindshield;
 
@@ -33,7 +34,7 @@ public sealed class MindShieldSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<SubdermalImplantComponent, ImplantImplantedEvent>(ImplantCheck);
-        SubscribeLocalEvent<MindShieldComponent, ImplantRemovedFromEvent>(OnMindShieldRemoved); // GoobStation
+        SubscribeLocalEvent<MindShieldImplantComponent, EntGotRemovedFromContainerMessage>(OnImplantDraw);
     }
 
     /// <summary>
@@ -76,11 +77,7 @@ public sealed class MindShieldSystem : EntitySystem
             RemComp<MindcontrolledComponent>(implanted);
     }
 
-    // GoobStation
-    /// <summary>
-    /// Removes mindshield comp if mindshield implant was ejected
-    /// </summary>
-    public void OnMindShieldRemoved(Entity<MindShieldComponent> mindshielded, ref ImplantRemovedFromEvent args)
+    private void OnImplantDraw(Entity<MindShieldImplantComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
         if (!_tag.HasTag(args.Implant, MindShieldTag))
             return;
@@ -90,6 +87,7 @@ public sealed class MindShieldSystem : EntitySystem
         if (TryComp<HeadRevolutionaryComponent>(mindshielded, out var headRevComp))
             _revolutionarySystem.ToggleConvertAbility((mindshielded, headRevComp), true);
 
-        RemComp<MindShieldComponent>(mindshielded);
+        RemComp<MindShieldComponent>(args.Container.Owner);
     }
 }
+
