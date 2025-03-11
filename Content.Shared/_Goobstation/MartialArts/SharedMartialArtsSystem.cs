@@ -7,7 +7,6 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Mindshield.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Pulling.Systems;
@@ -166,7 +165,13 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
     #region Helper Methods
 
-    private bool TryGrant(GrantMartialArtKnowledgeComponent comp, EntityUid user)
+    /// <summary>
+    /// Tries to grant a martial art to a user. Use this method.
+    /// </summary>
+    /// <param name="user"></param>
+    /// <param name="comp"></param>
+    /// <returns></returns>
+    private bool TryGrantMartialArt(EntityUid user, GrantMartialArtKnowledgeComponent comp)
     {
         if (!_netManager.IsServer || MetaData(user).EntityLifeStage >= EntityLifeStage.Terminating)
             return false;
@@ -179,25 +184,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
         if (!HasComp<CanPerformComboComponent>(user))
         {
-            var canPerformComboComponent = EnsureComp<CanPerformComboComponent>(user);
-            var martialArtsKnowledgeComponent = EnsureComp<MartialArtsKnowledgeComponent>(user);
-            var pullerComponent = EnsureComp<PullerComponent>(user);
-            if (!_proto.TryIndex<MartialArtPrototype>(comp.MartialArtsForm.ToString(), out var martialArtsPrototype))
-                return false;
-            martialArtsKnowledgeComponent.MartialArtsForm = martialArtsPrototype.MartialArtsForm;
-            LoadCombos(martialArtsPrototype.RoundstartCombos, canPerformComboComponent);
-            martialArtsKnowledgeComponent.Blocked = false;
-            pullerComponent.StageChangeCooldown /= 2;
-            if (TryComp<MeleeWeaponComponent>(user, out var meleeWeaponComponent))
-            {
-                var newDamage = new DamageSpecifier();
-                newDamage.DamageDict.Add("Blunt", martialArtsPrototype.BaseDamageModifier);
-                meleeWeaponComponent.Damage += newDamage;
-            }
-            Dirty(user, canPerformComboComponent);
-            Dirty(user, pullerComponent);
-
-            return true;
+            return GrantMartialArt(comp, user);
         }
 
         if (!TryComp<MartialArtsKnowledgeComponent>(user, out var cqc))
@@ -216,6 +203,31 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
         _popupSystem.PopupEntity(Loc.GetString("cqc-fail-already"), user, user);
         return false;
+    }
+
+    private bool GrantMartialArt(GrantMartialArtKnowledgeComponent comp, EntityUid user)
+    {
+        var canPerformComboComponent = EnsureComp<CanPerformComboComponent>(user);
+        var martialArtsKnowledgeComponent = EnsureComp<MartialArtsKnowledgeComponent>(user);
+        var pullerComponent = EnsureComp<PullerComponent>(user);
+
+        if (!_proto.TryIndex<MartialArtPrototype>(comp.MartialArtsForm.ToString(), out var martialArtsPrototype)
+            || !TryComp<MeleeWeaponComponent>(user, out var meleeWeaponComponent))
+            return false;
+
+        martialArtsKnowledgeComponent.MartialArtsForm = martialArtsPrototype.MartialArtsForm;
+        LoadCombos(martialArtsPrototype.RoundstartCombos, canPerformComboComponent);
+        martialArtsKnowledgeComponent.Blocked = false;
+        pullerComponent.StageChangeCooldown /= 2;
+
+        martialArtsKnowledgeComponent.OriginalFistDamage = meleeWeaponComponent.Damage;
+        var newDamage = new DamageSpecifier();
+        newDamage.DamageDict.Add("Blunt", martialArtsPrototype.BaseDamageModifier);
+        meleeWeaponComponent.Damage += newDamage;
+
+        Dirty(user, canPerformComboComponent);
+        Dirty(user, pullerComponent);
+        return true;
     }
 
     private void LoadCombos(ProtoId<ComboListPrototype> list, CanPerformComboComponent combo)
