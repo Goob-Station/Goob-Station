@@ -14,7 +14,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'SC'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency_box.yml
+          emergencyShuttlePath: /Maps/Shuttles/emergency_cluster.yml
         - type: StationJobs
           availableJobs:
             NanotrasenRepresentative: [ 1, 1 ]
@@ -42,5 +42,3 @@
           stageCritical: 200
           stageTheEnd: 400
         # Goobstation blob-config-end
-
-
