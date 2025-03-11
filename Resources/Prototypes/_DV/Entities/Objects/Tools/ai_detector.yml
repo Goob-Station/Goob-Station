@@ -52,6 +52,7 @@
     fixtures:
     - red
     - yellow
-  - type: MappingCategories # don't map valid multitool by mistake
-    categories:
-    - Syndicate
+  # GoobStation - doesn't exist
+  #- type: MappingCategories # don't map valid multitool by mistake
+  #  categories:
+  #  - Syndicate
