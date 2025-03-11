@@ -26,7 +26,7 @@ namespace Content.Server._Goobstation.ServerCurrency
         [Dependency] private readonly IConfigurationManager _cfg = default!;
 
         private int _goobcoinsPerPlayer = 10;
-        private int _goobcoinsNonAntagMultiplier = 3;
+        private int _goobcoinsNonAntagMultiplier = 1;
         private int _goobcoinsServerMultiplier = 1;
         private int _goobcoinsMinPlayers;
 

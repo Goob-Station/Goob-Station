@@ -1,0 +1,15 @@
+- type: npcFaction
+  id: PirateFaction
+  hostile:
+  - NanoTrasen
+  - Syndicate
+  - SimpleHostile
+  - Xeno
+  - PetsNT
+  - Zombie
+  - Dragon
+  - AllHostile
+  - Changeling # goob edit - changelings
+  - Heretic # goob edit - heretics
+  - Blob # Goobstation - Blob
+  - Wizard # goob edit - wizard

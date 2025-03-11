@@ -1,20 +1,101 @@
 - type: entity
-  parent: [ ClothingBeltMilitaryWebbingCMO, BaseMedicalContraband ]
-  suffix: Filled
+  parent: ClothingBeltMilitaryWebbingCMO
+  suffix: Filled, DO NOT MAP
   id: ClothingBeltMilitaryWebbingCMOFilled
-  name: chief medical officer's chest rig
-  description: "A medical chest rig with deep pockets, for use by paramedics and health professionals."
   components:
   - type: StorageFill
     contents:
-      - id: EnergyCautery
+      - id: DefibrillatorCompact
       - id: EnergyScalpel
       - id: AdvancedRetractor
+      - id: EnergyCautery
       - id: BoneGel
+      - id: HandheldCrewMonitor
       - id: MedicatedSuture
       - id: RegenerativeMesh
       - id: Bloodpack
-      - id: BruteAutoInjector
-      - id: BurnAutoInjector
       - id: EmergencyMedipen
-        amount: 3
+
+- type: entity
+  parent: [ ClothingBeltDeathsquadWebbing, BaseCentcommContraband ]
+  suffix: Filled, DO NOT MAP
+  id: ClothingBeltDeathsquadWebbingFilled
+  name: deathsquad operative chestrig
+  description: "A robust and durable chestrig, containing everything you need to keep you in the fight. You probably won't need to use it."
+  components:
+  - type: StorageFill
+    contents:
+      - id: MedkitCombatFilled
+        amount: 1
+      - id: AdvancedCombatMedipen
+        amount: 2
+      - id: PunctAutoInjector
+        amount: 2
+      - id: PyraAutoInjector
+        amount: 2
+      - id: AirlossAutoInjector
+        amount: 2
+      - id: CentcommStimpack
+        amount: 2
+      - id: OmnimedTool
+
+- type: entity
+  id: ClothingBeltHolsterFilledCentComm
+  parent: ClothingBeltHolster
+  suffix: Filled, N1984
+  components:
+  - type: StorageFill
+    contents:
+    - id: MagazineMagnum
+    - id: MagazineMagnum
+    - id: WeaponPistolN1984
+
+- type: entity
+  id: ClothingBeltSecurityWebbingFilledMedical
+  parent: [ClothingBeltSecurityWebbingMedical, BaseCentcommContraband]
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: EnergyCautery
+    - id: EnergyScalpel
+    - id: AdvancedRetractor
+    - id: BoneGel
+    - id: MedicatedSuture
+    - id: RegenerativeMesh
+    - id: Bloodpack
+    - id: BruteAutoInjector
+    - id: BurnAutoInjector
+    - id: EmergencyMedipen
+      amount: 3
+
+- type: entity
+  id: ClothingBeltSheathFilledNavyOfficer
+  parent: ClothingBeltSheath
+  suffix: Filled, Navy Officer
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - NavyOfficerSabre
+
+- type: entityTable
+  id: BeltSecurityNoBatonEntityTable
+  table: !type:AllSelector
+    children:
+    - id: Handcuffs
+    - id: Handcuffs
+    - id: Handcuffs
+    - id: HoloprojectorSecurity
+    - id: RadioHandheldSecurity
+    - id: WeaponDisabler #Goobstation
+
+- type: entity
+  id: ClothingBeltCorporateJudoFilled
+  parent: ClothingBeltCorporateJudo
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: BeltSecurityNoBatonEntityTable
