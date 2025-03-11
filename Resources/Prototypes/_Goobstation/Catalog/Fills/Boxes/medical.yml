@@ -12,3 +12,19 @@
     layers:
       - state: box
       - state: syringe
+
+- type: entity
+  name: poison syringe box
+  parent: BoxCardboard
+  id: BoxSyringePoison
+  description: A box full of quick-acting poison syringes.
+  components:
+  - type: StorageFill
+    contents:
+    - id: SyringePoisonCentcomm
+      amount: 6
+  - type: Sprite
+    layers:
+    - state: box
+    - state: syringe
+

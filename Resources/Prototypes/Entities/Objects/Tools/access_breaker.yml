@@ -12,6 +12,9 @@
     state: icon
   - type: Item
     sprite: Objects/Tools/access_breaker.rsi
+  - type: Tag # Goobstation
+    tags:
+    - Hacking
 
 - type: entity
   parent: AccessBreakerUnlimited

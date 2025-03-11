@@ -49,8 +49,7 @@
   minLimit: 0
   loadouts:
   - BlueshieldOfficerHeadSwatHelmet
-  - BlueshieldOfficerHeadBeretNavy
-  - BlueshieldOfficerHeadBeretBlack
+  - BlueshieldOfficerHeadTrooper
   - BlueshieldOfficerHeadCowboy
 
 - type: loadoutGroup
@@ -83,6 +82,13 @@
   minLimit: 0
   loadouts:
   - BlueshieldOfficerOuterBlueshieldMantle
+
+- type: loadoutGroup
+  id: BlueshieldOfficerMask
+  name: loadout-group-bso-mask
+  minLimit: 0
+  loadouts:
+  - BlueshieldOfficerMaskLollypop
 
 - type: loadoutGroup
   id: BlueshieldOfficerShoes
@@ -119,3 +125,12 @@
   hidden: true
   loadouts:
   - LoadoutHonkopsMask
+
+# Captain
+
+- type: loadoutGroup
+  id: CaptainMask
+  name: loadout-group-captain-mask
+  minLimit: 0
+  loadouts:
+  - CaptainMask

@@ -1,0 +1,14 @@
+- type: entity
+  parent: BaseItem
+  id: ReverseBearTrapKey
+  name: reverse bear trap key
+  description: The keys to unlock the reverse bear trap.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Helmets/reverse_bear_trap.rsi
+    state: key
+  - type: Tag
+    tags:
+    - ReverseBearTrapKey

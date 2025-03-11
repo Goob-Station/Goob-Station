@@ -93,9 +93,10 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         EmbedAttach(embeddable, args.Target, args.Shooter, embeddable.Comp);
 
         // Raise a specific event for projectiles.
-        if (TryComp(embeddable, out ProjectileComponent? projectile))
+        if (TryComp(embeddable, out ProjectileComponent? projectile) && projectile.Weapon.HasValue) // Goobstation edit: un-heisenfailing tests
         {
-            var ev = new ProjectileEmbedEvent(projectile.Shooter!.Value, projectile.Weapon!.Value, args.Target);
+            // Goobstation edit: Shooter is nullable, so why are we using nullforgiving operator for shooter?
+            var ev = new ProjectileEmbedEvent(projectile.Shooter, projectile.Weapon.Value, args.Target);
             RaiseLocalEvent(embeddable, ref ev);
         }
     }

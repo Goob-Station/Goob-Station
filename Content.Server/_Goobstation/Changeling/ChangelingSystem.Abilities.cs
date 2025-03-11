@@ -22,7 +22,9 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Stealth.Components;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
 using Content.Shared.Actions;
+using Content.Shared.Tag;
 using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Traits.Assorted;
 
 namespace Content.Server.Changeling;
 
@@ -145,6 +147,7 @@ public sealed partial class ChangelingSystem
         _blood.SpillAllSolutions(target);
 
         EnsureComp<AbsorbedComponent>(target);
+        EnsureComp<UnrevivableComponent>(target);
 
         var popup = Loc.GetString("changeling-absorb-end-self-ling");
         var bonusChemicals = 0f;
@@ -757,6 +760,7 @@ public sealed partial class ChangelingSystem
 
         PlayMeatySound(uid, comp);
     }
+    public ProtoId<TagPrototype> HivemindTag = "LingMind";
     public void OnHivemindAccess(EntityUid uid, ChangelingComponent comp, ref ActionHivemindAccessEvent args)
     {
         if (!TryUseAbility(uid, comp, args))
@@ -769,11 +773,7 @@ public sealed partial class ChangelingSystem
         }
 
         EnsureComp<HivemindComponent>(uid);
-        var reciever = EnsureComp<IntrinsicRadioReceiverComponent>(uid);
-        var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(uid);
-        var radio = EnsureComp<ActiveRadioComponent>(uid);
-        radio.Channels = new() { "Hivemind" };
-        transmitter.Channels = new() { "Hivemind" };
+        _tag.AddTag(uid, HivemindTag);
 
         _popup.PopupEntity(Loc.GetString("changeling-hivemind-start"), uid, uid);
     }
