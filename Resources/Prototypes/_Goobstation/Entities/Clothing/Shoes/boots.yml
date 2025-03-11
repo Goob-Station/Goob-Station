@@ -77,7 +77,6 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
-  - type: Tag
   - type: StaticPrice
     price: 750
   - type: Damageable
@@ -118,7 +117,6 @@
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesCreasedJordans
   name: creased air jordans
-  suffix: creased
   description: No wait... this can't be.... THEY'RE CREASED!
   components:
   - type: Sprite
