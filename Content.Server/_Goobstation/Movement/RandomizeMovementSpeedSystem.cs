@@ -27,7 +27,7 @@ public sealed partial class RandomizeMovementSpeedSystem : EntitySystem
 
     public void OnItemInHand(EntityUid uid, RandomizeMovementspeedComponent comp, EquippedHandEvent args)
     {
-        EnsureComp<RandomizeMovementspeedComponent>(args.User);
+        EnsureComp<RandomizeMovementspeedComponent>(uid);
     }
 
     public void Update(float frameTime,
