@@ -42,7 +42,7 @@ namespace Content.Server._DV.Harpy
             SubscribeLocalEvent<InstrumentComponent, StunnedEvent>(OnStunned);
             SubscribeLocalEvent<InstrumentComponent, SleepStateChangedEvent>(OnSleep);
             SubscribeLocalEvent<InstrumentComponent, StatusEffectAddedEvent>(OnStatusEffect);
-            SubscribeLocalEvent<HarpySingerComponent, DamageChangedEvent>(OnDamageChanged);
+            SubscribeLocalEvent<HarpySingerComponent, BeforeDamageChangedEvent>(OnBeforeDamageChanged);
             SubscribeLocalEvent<HarpySingerComponent, BoundUIClosedEvent>(OnBoundUIClosed);
             SubscribeLocalEvent<HarpySingerComponent, BoundUIOpenedEvent>(OnBoundUIOpened);
 
@@ -98,16 +98,14 @@ namespace Content.Server._DV.Harpy
         /// and maintenance overhead. It still reuses the values from DamageForceSayComponent, so
         /// any tweaks to that will keep ForceSay consistent with singing interruptions.
         /// </summary>
-        private void OnDamageChanged(EntityUid uid, HarpySingerComponent harpySingerComponent, DamageChangedEvent args)
+        private void OnBeforeDamageChanged(EntityUid uid, HarpySingerComponent harpySingerComponent, BeforeDamageChangedEvent args)
         {
             if (!harpySingerComponent.ShutUpDamageThreshold.HasValue ||
-                args.DamageDelta == null ||
-                !args.DamageIncreased ||
-                args.DamageDelta.GetTotal() < harpySingerComponent.ShutUpDamageThreshold)
+                !args.Damage.AnyPositive())
                 return;
 
             var totalApplicableDamage = FixedPoint2.Zero;
-            foreach (var (group, value) in args.DamageDelta.GetDamagePerGroup(_prototype))
+            foreach (var (group, value) in args.Damage.GetDamagePerGroup(_prototype))
             {
                 totalApplicableDamage += value;
             }
