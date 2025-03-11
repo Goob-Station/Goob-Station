@@ -6168,3 +6168,9 @@ Entries:
       message: Added more promotional material across the station walls
   id: 709
   time: '2025-03-11T21:08:26.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: All mobs can now be operated on.
+  id: 710
+  time: '2025-03-11T21:10:17.0000000+00:00'
