@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/09/2025 19:10:09
-  entityCount: 26505
+  time: 03/11/2025 09:21:18
+  entityCount: 26506
 maps:
 - 1
 grids:
@@ -13131,7 +13131,7 @@ entities:
       pos: -5.5,-58.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5439.3237
+      secondsUntilStateChange: -5459.812
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -118467,6 +118467,13 @@ entities:
     components:
     - type: Transform
       pos: -50.45798,-18.555195
+      parent: 2
+- proto: KitchenCQCMarker
+  entities:
+  - uid: 26506
+    components:
+    - type: Transform
+      pos: -32.5,-12.5
       parent: 2
 - proto: KitchenMicrowave
   entities:

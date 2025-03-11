@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/09/2025 08:51:02
-  entityCount: 25273
+  time: 03/11/2025 09:08:49
+  entityCount: 25274
 maps:
 - 1
 grids:
@@ -11155,7 +11155,7 @@ entities:
       pos: -29.5,37.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -23285.125
+      secondsUntilStateChange: -23507.738
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -71718,6 +71718,9 @@ entities:
     - type: Transform
       pos: -18.5,-21.5
       parent: 2
+    - type: Door
+      secondsUntilStateChange: -138.58064
+      state: Closing
   - uid: 10897
     components:
     - type: Transform
@@ -110282,6 +110285,13 @@ entities:
     components:
     - type: Transform
       pos: 5.43841,-38.31682
+      parent: 2
+- proto: KitchenCQCMarker
+  entities:
+  - uid: 25274
+    components:
+    - type: Transform
+      pos: 24.5,-32.5
       parent: 2
 - proto: KitchenElectricGrill
   entities:

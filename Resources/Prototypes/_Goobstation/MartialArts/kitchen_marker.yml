@@ -1,0 +1,9 @@
+- type: entity
+  parent: MarkerBase
+  id: KitchenCQCMarker
+  name: Kitchen CQC Marker
+  components:
+    - type: Sprite
+      sprite: Markers/cross.rsi
+      layers:
+        - state: blue

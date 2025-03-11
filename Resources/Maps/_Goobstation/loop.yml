@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/09/2025 12:20:04
-  entityCount: 17862
+  time: 03/11/2025 09:23:19
+  entityCount: 17863
 maps:
 - 1
 grids:
@@ -7312,7 +7312,7 @@ entities:
       pos: -30.5,13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -58015.184
+      secondsUntilStateChange: -58063.61
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -43865,7 +43865,7 @@ entities:
       pos: -9.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -305770.72
+      secondsUntilStateChange: -305819.16
       state: Opening
   - uid: 6931
     components:
@@ -43873,7 +43873,7 @@ entities:
       pos: -8.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -305771.44
+      secondsUntilStateChange: -305819.88
       state: Opening
   - uid: 6932
     components:
@@ -43881,7 +43881,7 @@ entities:
       pos: -6.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -305770
+      secondsUntilStateChange: -305818.44
       state: Opening
   - uid: 6933
     components:
@@ -43889,7 +43889,7 @@ entities:
       pos: -5.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -305769.38
+      secondsUntilStateChange: -305817.8
       state: Opening
 - proto: CyberPen
   entities:
@@ -76683,6 +76683,13 @@ entities:
     components:
     - type: Transform
       pos: 20.5,-8.5
+      parent: 2
+- proto: KitchenCQCMarker
+  entities:
+  - uid: 17863
+    components:
+    - type: Transform
+      pos: -50.5,48.5
       parent: 2
 - proto: KitchenElectricGrill
   entities:

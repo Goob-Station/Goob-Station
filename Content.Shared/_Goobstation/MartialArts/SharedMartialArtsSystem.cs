@@ -256,7 +256,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
         foreach (var entInRange in _lookup.GetEntitiesInRange(ent, 8f))
         {
-            if (!TryPrototype(entInRange, out var proto) || proto.ID != "DefaultStationBeaconKitchen" || !knowledgeComponent.Blocked)
+            if (!TryPrototype(entInRange, out var proto) || proto.ID != "KitchenCQCMarker" || !knowledgeComponent.Blocked)
                 continue;
             return true;
         }

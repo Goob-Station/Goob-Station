@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/09/2025 19:02:51
-  entityCount: 15676
+  time: 03/11/2025 09:20:37
+  entityCount: 15677
 maps:
 - 1
 grids:
@@ -13714,6 +13714,12 @@ entities:
     - type: Transform
       pos: -16.5,7.5
       parent: 2
+    - type: Door
+      secondsUntilStateChange: -34.45355
+      state: Opening
+    - type: DeviceLinkSource
+      lastSignals:
+        DoorStatus: True
   - uid: 316
     components:
     - type: Transform
@@ -51407,6 +51413,9 @@ entities:
     - type: Transform
       pos: -11.5,7.5
       parent: 2
+    - type: Door
+      secondsUntilStateChange: -35.28688
+      state: Closing
   - uid: 6810
     components:
     - type: Transform
@@ -75301,6 +75310,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -50.5,37.5
+      parent: 2
+- proto: KitchenCQCMarker
+  entities:
+  - uid: 15677
+    components:
+    - type: Transform
+      pos: -34.5,44.5
       parent: 2
 - proto: KitchenKnife
   entities:
