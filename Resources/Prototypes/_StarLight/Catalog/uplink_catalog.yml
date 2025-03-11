@@ -6,6 +6,21 @@
   cost:
     Telecrystal: 30 # Goobstation edit
   categories:
+  - UplinkWearables
+  # Goobstation - nuh uh
+  #conditions:
+  #- !type:BuyerJobCondition
+  #  whitelist:
+  #  - AtmosphericTechnician
+
+- type: listing
+  id: uplinkContortionistJumpsuitAdvanced
+  name: uplink-contortionist-jumpsuit-advanced-name
+  description: uplink-contortionist-jumpsuit-advanced-desc
+  productEntity: ClothingUniformJumpsuitAtmosSyndieAdvanced
+  cost:
+    Telecrystal: 60
+  categories:
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
