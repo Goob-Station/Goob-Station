@@ -184,6 +184,8 @@
           Slash: 0.3
       interval: 1.0
       ignoreResistances: true
+  - type: StaminaDamageResistance
+    coefficient: 0.10 # 90% stamdgm resist
   - type: ModifyDelayedKnockdown
     delayDelta: 6
     knockdownTimeDelta: -4

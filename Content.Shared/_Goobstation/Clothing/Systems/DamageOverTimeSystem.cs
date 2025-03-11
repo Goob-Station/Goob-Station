@@ -17,7 +17,7 @@ namespace Content.Shared._Goobstation.Clothing.Systems
             {
                 if (currentTime < component.NextTickTime)
                     continue;
-                component.NextTickTime = _timing.CurTime + component.Interval;
+                component.NextTickTime = currentTime + component.Interval;
                 _damageSys.TryChangeDamage(uid, component.Damage, ignoreResistances: component.IgnoreResistances);
             }
         }
