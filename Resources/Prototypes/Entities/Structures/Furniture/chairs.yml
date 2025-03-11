@@ -91,11 +91,15 @@
   parent: BaseVehicle
   abstract: true
   components:
+  - type: Anchorable
   - type: Rotatable
     rotateWhileAnchored: true
   - type: Sprite
     sprite: Structures/Furniture/chairs.rsi
     noRot: true
+  - type: Strap
+    position: Stand
+    buckleOffset: "0,-0.05"
   - type: Vehicle
     requiredHands: 0
     engineRunning: true
