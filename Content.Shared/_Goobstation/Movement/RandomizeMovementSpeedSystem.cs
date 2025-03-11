@@ -1,7 +1,4 @@
-using Content.Shared.Clothing;
 using Content.Shared.Hands;
-using Content.Shared.Item;
-using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.Random;
 
