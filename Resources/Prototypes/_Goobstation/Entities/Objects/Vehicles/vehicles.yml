@@ -244,7 +244,7 @@
 
 - type: entity
   id: VehicleHoverchair
-  parent: [ BaseVehicle, BaseItem ]
+  parent: BaseVehicle
   name: hoverchair
   description: A luxury hoverchair, kick back and relax.
   components:
@@ -256,10 +256,6 @@
   - type: Vehicle
     requiredHands: 0
     engineRunning: true
-    hornSound:
-      collection: BikeHorn
-      params:
-        variation: 0.125
     renderOver: North, NorthEast, NorthWest, East, West
   - type: MovementSpeedModifier
     acceleration: 10

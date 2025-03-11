@@ -928,6 +928,9 @@
   id: Ointment
 
 - type: Tag
+  id: Oni
+
+- type: Tag
   id: Ore
 
 - type: Tag

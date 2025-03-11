@@ -108,7 +108,7 @@
 - type: entity
   id: ClothingBeltMedicalEMTFilled
   parent: ClothingBeltMedicalEMT
-  suffix: Paramedic,Filled
+  suffix: Paramedic, Filled
   components:
   - type: StorageFill
     contents:
@@ -117,9 +117,11 @@
       - id: Bloodpack
       - id: Gauze
       - id: EmergencyMedipen #You never know what people are going to latejoin into
-        amount: 3
-      - id: ParamedHypo #Goobstation - ParamedHypo
-      - id: Tourniquet #Goobstation - ParamedHypo
+      - id: HandheldCrewMonitor # Goobstation - start
+      - id: ParamedHypo
+      - id: CartridgeAtropine
+      - id: CartridgeBicaridine
+      - id: CartridgeDermaline # Goobstation - end
 
 - type: entity
   id: ClothingBeltPlantFilled

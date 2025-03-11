@@ -212,7 +212,7 @@
   table: !type:AllSelector
     children:
     - id: BoxEncryptionKeyMedical
-    - id: ClothingBackpackDuffelSurgeryFilled
+    # - id: ClothingBackpackDuffelSurgeryFilled # Goobstation - tools in webbing
     - id: ClothingCloakCmo
     - id: ClothingEyesHudMedical
     - id: ClothingHandsGlovesNitrile
@@ -220,21 +220,21 @@
     - id: ClothingHeadsetAltMedical
     - id: ClothingMaskSterile
     - id: DoorRemoteMedical
-    - id: HandheldCrewMonitor
+    # - id: HandheldCrewMonitor # Goobstation - in webbing
     - id: Hypospray
     - id: MedicalTechFabCircuitboard
     - id: MedkitFilled
     - id: RubberStampCMO
     # Goobstation Start
-    - id: CloningpodFlatpack           
-    - id: MedicalScannerFlatpack          
-    - id: ComputerCloningConsoleFlatpack  
-    - id: BiomassReclaimerFlatpack        
-    - id: Multitool                       
-    - id: MedTekCartridge 
+    - id: CloningpodFlatpack
+    - id: MedicalScannerFlatpack
+    - id: ComputerCloningConsoleFlatpack
+    - id: BiomassReclaimerFlatpack
+    - id: Multitool
+    - id: MedTekCartridge
     - id: RapidSyringeGun
     - id: BoxSyringePax
-    - id: MMI
+    - id: ClothingBeltMilitaryWebbingCMOFilled
     # Shitmed
     - id: MedicalBiofabricatorFlatpack
     # Goobstation End
@@ -295,6 +295,7 @@
     - id: CigarCase
       prob: 0.15 # GoobStation - RD needs cigs for uhh... science...
     - id: ScienceTechFabCircuitboard # Goobstation - Science Techfab
+    - id: MMI # Goobstation
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

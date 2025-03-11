@@ -33,3 +33,34 @@
   - Zooimov4
   - Zooimov5
   obeysTo: laws-owner-crew
+
+# Helpimov
+
+- type: siliconLaw
+  id: Helpimov1
+  order: 1
+  lawString: law-helpimov-1
+
+- type: siliconLaw
+  id: Helpimov2
+  order: 2
+  lawString: law-helpimov-2
+
+- type: siliconLaw
+  id: Helpimov3
+  order: 3
+  lawString: law-helpimov-3
+
+- type: siliconLaw
+  id: Helpimov4
+  order: 4
+  lawString: law-helpimov-4
+
+- type: siliconLawset
+  id: HelpimovLawset
+  laws:
+  - Helpimov1
+  - Helpimov2
+  - Helpimov3
+  - Helpimov4
+  obeysTo: laws-owner-courier

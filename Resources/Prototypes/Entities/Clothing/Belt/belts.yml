@@ -272,14 +272,18 @@
         - DiscreteHealthAnalyzer
         - SurgeryTool
         - Dropper
-        - Tourniquet #Goobstation - ParamedHypo
+        - Tourniquet #Goobstation
         - MedicalPatch # Goobstation
+        - AutoinjectorCartridge # Goobstation
+        - HandheldCrewMonitor # Goobstation
       components:
         - Hypospray
         - Injector
         - Pill
         - HandLabeler
         - SurgeryTool # Shitmed Change
+        - Defibrillator # Goobstation
+        - SyringeGun # Goobstation
   - type: ItemMapper
     mapLayers:
       bottle:
