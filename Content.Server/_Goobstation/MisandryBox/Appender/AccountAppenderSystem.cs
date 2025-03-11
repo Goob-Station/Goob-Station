@@ -72,7 +72,10 @@ public sealed class AccountAppenderSystem : EntitySystem
 
         foreach (var proto in _protoIds.Values)
         {
-            if (Guid.Parse(proto.Userid) != userid)
+            if (proto.Userid == "" || !Guid.TryParse(proto.Userid, out var guid))
+                continue;
+
+            if (guid != userid)
                 continue;
 
             prototype = proto;
