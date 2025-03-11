@@ -10,6 +10,7 @@ public sealed class TriggerOnSolutionInsertSystem : EntitySystem
 {
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainers = default!;
     [Dependency] private readonly TriggerSystem _triggersystem = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -24,7 +25,7 @@ public sealed class TriggerOnSolutionInsertSystem : EntitySystem
         if (component.MinAmount == null && component.MaxAmount == null)
             return; // abort function, if no limit is set.
 
-        var solutionFound = RecursiveCheckForSolution(args.Entity, component);
+        var solutionFound = RecursiveCheckForSolution(args.Entity, component, 0);
 
         var sendTrigger = true;
         if (component.MinAmount != null && solutionFound < component.MinAmount)
@@ -36,17 +37,18 @@ public sealed class TriggerOnSolutionInsertSystem : EntitySystem
         if (sendTrigger)
             _triggersystem.Trigger(uid, args.Entity);
     }
+
     //Gonna get recursive up in here
-    private FixedPoint2 RecursiveCheckForSolution(EntityUid uid, TriggerOnSolutionInsertComponent component)
+    private FixedPoint2 RecursiveCheckForSolution(EntityUid uid, TriggerOnSolutionInsertComponent component, float depth)
     {
         var solutionFound = FixedPoint2.Zero;
-        if (TryComp<ContainerManagerComponent>(uid, out var containerManager))
+        if (TryComp<ContainerManagerComponent>(uid, out var containerManager) && depth < component.Depth)
         {
             foreach (var (id, container) in containerManager.Containers)
             {
                 foreach (var ent in container.ContainedEntities)
                 {
-                    solutionFound += RecursiveCheckForSolution(ent, component);
+                    solutionFound += RecursiveCheckForSolution(ent, component, depth+1);
                 }
             }
         }
@@ -61,4 +63,5 @@ public sealed class TriggerOnSolutionInsertSystem : EntitySystem
         }
         return solutionFound;
     }
+
 }

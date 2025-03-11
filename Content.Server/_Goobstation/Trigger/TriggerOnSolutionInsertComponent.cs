@@ -16,4 +16,6 @@ public sealed partial class TriggerOnSolutionInsertComponent : Component
     public float? MaxAmount;    // Dos not trigger in found ammount found is Above
     [DataField]
     public string? ContainerName = null;
+    [DataField]
+    public float Depth = 1;
 }

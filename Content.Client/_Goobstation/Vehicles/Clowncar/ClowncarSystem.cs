@@ -25,22 +25,6 @@ public sealed class ClowncarSystem : SharedClowncarSystem
             return;
 
         var state = args.Sprite.LayerGetState(baseLayerIdx);
-        var time = (float) component.CannonSetupDelay.TotalSeconds;
-        switch (fireModeEnabled)
-        {
-            case true:
-                if (state.Name == "clowncar_fire")
-                    return;
-
-                PlayAnimation(uid, ClowncarLayers.Base, "clowncar_tofire", "clowncar_fire", time);
-                return;
-            case false:
-                if (state.Name == "clowncar")
-                    return;
-
-                PlayAnimation(uid, ClowncarLayers.Base, "clowncar_fromfire", "clowncar", time);
-                return;
-        }
     }
 
     private void OnAnimationCompleted(EntityUid uid, ClowncarComponent component, AnimationCompletedEvent args)
