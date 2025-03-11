@@ -6198,3 +6198,9 @@ Entries:
       message: Questionable damage handling.
   id: 713
   time: '2025-03-11T21:30:25.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Fix
+      message: Chef cqc is no longer tied to the beacon.
+  id: 714
+  time: '2025-03-11T21:30:49.0000000+00:00'
