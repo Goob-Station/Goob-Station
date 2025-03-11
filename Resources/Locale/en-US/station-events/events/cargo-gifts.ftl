@@ -10,8 +10,8 @@ cargo-gift-dest-janitor = Service Dept
 cargo-gift-dest-med = Medical Dept
 cargo-gift-dest-sec = Security Dept
 
-cargo-gift-pizza-small = A small pizza party
-cargo-gift-pizza-large = A large pizza party
+cargo-gift-pizza-small = a small pizza party
+cargo-gift-pizza-large = a large pizza party
 
 cargo-gift-eng = Repair Materials
 cargo-gift-vending = Vending machines refills

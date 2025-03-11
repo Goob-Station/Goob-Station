@@ -66,6 +66,12 @@
       rules: ghost-role-information-Death-Squad-rules
       raffle:
         settings: short
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 72000 # 20 hours
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 36000 # 10 hours
     - type: Loadout
       prototypes: [ DeathSquadGear ]
       roleLoadout: [ RoleSurvivalEVA ]
@@ -103,6 +109,12 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 72000 # 20 hours
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 36000 # 10 hours
       job: ERTLeader
     - type: Loadout
       prototypes: [ ERTLeaderGear ]
@@ -134,6 +146,12 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 72000 # 20 hours
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 36000 # 10 hours
       job: ERTLeader
     - type: Loadout
       prototypes: [ ERTLeaderGearEVA ]
@@ -157,6 +175,12 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 72000 # 20 hours
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 36000 # 10 hours
       job: ERTLeader
     - type: Loadout
       prototypes: [ ERTLeaderGearEVAAnnie ]
@@ -191,6 +215,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 36000 # 10 hours
       job: ERTChaplain
     - type: RandomMetadata
       nameSegments:
@@ -222,6 +249,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 36000 # 10 hours
       job: ERTChaplain
     - type: Loadout
       prototypes: [ ERTChaplainGearEVA ]
@@ -256,6 +286,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 36000 # 10 hours
       job: ERTJanitor
     - type: RandomMetadata
       nameSegments:
@@ -287,6 +320,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 36000 # 10 hours
       job: ERTJanitor
     - type: Loadout
       prototypes: [ ERTJanitorGearEVA ]
@@ -320,6 +356,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 36000 # 10 hours
       job: ERTEngineer
     - type: RandomMetadata
       nameSegments:
@@ -351,6 +390,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 36000 # 10 hours
       job: ERTEngineer
     - type: Loadout
       prototypes: [ ERTEngineerGearEVA ]
@@ -384,6 +426,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 36000 # 10 hours
       job: ERTSecurity
     - type: RandomMetadata
       nameSegments:
@@ -415,6 +460,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 36000 # 10 hours
       job: ERTSecurity
     - type: Loadout
       prototypes: [ ERTSecurityGearEVA ]
@@ -472,6 +520,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 36000 # 10 hours
       job: ERTMedical
     - type: RandomMetadata
       nameSegments:
@@ -503,6 +554,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 36000 # 10 hours
       job: ERTMedical
     - type: Loadout
       prototypes: [ ERTMedicalGearEVA ]
@@ -536,6 +590,12 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements: # ShibaStation - Antag Playtime Requirements
+      - !type:OverallPlaytimeRequirement
+        time: 72000 # 20 hours
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 36000 # 10 hours
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitary

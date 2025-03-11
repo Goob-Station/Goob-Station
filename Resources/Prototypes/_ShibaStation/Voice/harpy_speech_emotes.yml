@@ -1,0 +1,610 @@
+## Species/Gender Core Emote Imitations
+# Screaming
+- type: emote
+  id: HarpyScreamsLikeMan
+  name: Scream Like A Man
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [screams like a man.]
+  chatTriggers:
+    - scream like a man
+    - screams like a man
+    - screaming like a man
+    - screamed like a man
+    - scream like a boy
+    - screams like a boy
+    - screaming like a boy
+    - screamed like a boy
+
+- type: emote
+  id: HarpyScreamsLikeWoman
+  name: Scream Like A Woman
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [screams like a woman.]
+  chatTriggers:
+    - scream like a woman
+    - screams like a woman
+    - screaming like a woman
+    - screamed like a woman
+    - scream like a girl
+    - screams like a girl
+    - screaming like a girl
+    - screamed like a girl
+
+- type: emote
+  id: HarpyScreamsLikeMoth
+  name: Scream Like A Moth
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [screams like a moth.]
+  chatTriggers:
+    - scream like a moth
+    - screams like a moth
+    - screaming like a moth
+    - screamed like a moth
+
+- type: emote
+  id: HarpyScreamsLikeLizard
+  name: Scream Like A Lizard
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [screams like a lizard.]
+  chatTriggers:
+    - scream like a lizard
+    - screams like a lizard
+    - screaming like a lizard
+    - screamed like a lizard
+
+- type: emote
+  id: HarpyScreamsLikeCat
+  name: Scream Like A Cat
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [screams like a cat.]
+  chatTriggers:
+    - scream like a cat
+    - screams like a cat
+    - screaming like a cat
+    - screamed like a cat
+
+- type: emote
+  id: HarpyScreamsLikeMonkey
+  name: Scream Like A Monkey
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [screams like a monkey.]
+  chatTriggers:
+    - scream like a monkey
+    - screams like a monkey
+    - screaming like a monkey
+    - screamed like a monkey
+
+- type: emote
+  id: HarpyScreamsLikeVox
+  name: Scream Like Vox
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [screams like a Vox.]
+  chatTriggers:
+    - scream like a vox
+    - screams like a vox
+    - screaming like a vox
+    - screamed like a vox
+
+- type: emote
+  id: HarpyScreamsLikeWilhelm
+  name: Scream Like Wilhelm
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [screams like Wilhelm.]
+  chatTriggers:
+    - scream like wilhelm
+    - screams like wilhelm
+    - screaming like wilhelm
+    - screamed like wilhelm
+
+# Laughing
+- type: emote
+  id: HarpyLaughsLikeMan
+  name: Laugh Like A Man
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [laughs like a man.]
+  chatTriggers:
+    - laugh like a man
+    - laughs like a man
+    - laughing like a man
+    - laughed like a man
+    - laugh like a boy
+    - laughs like a boy
+    - laughing like a boy
+    - laughed like a boy
+
+- type: emote
+  id: HarpyLaughsLikeWoman
+  name: Laugh Like A Woman
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [laughs like a woman.]
+  chatTriggers:
+    - laugh like a woman
+    - laughs like a woman
+    - laughing like a woman
+    - laughed like a woman
+    - laugh like a girl
+    - laughs like a girl
+    - laughing like a girl
+    - laughed like a girl
+
+- type: emote
+  id: HarpyLaughsLikeMoth
+  name: Laugh Like A Moth
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [laughs like a moth.]
+  chatTriggers:
+    - laugh like a moth
+    - laughs like a moth
+    - laughing like a moth
+    - laughed like a moth
+
+- type: emote
+  id: HarpyLaughsLikeLizard
+  name: Laugh Like A Lizard
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [laughs like a lizard.]
+  chatTriggers:
+    - laugh like a lizard
+    - laughs like a lizard
+    - laughing like a lizard
+    - laughed like a lizard
+
+- type: emote
+  id: HarpyLaughsLikeFerret
+  name: Laugh Like A Ferret
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [laughs like a ferret.]
+  chatTriggers:
+    - laugh like a ferret
+    - laughs like a ferret
+    - laughing like a ferret
+    - laughed like a ferret
+    - laugh like a monkey
+    - laughs like a monkey
+    - laughing like a monkey
+    - laughed like a monkey
+
+- type: emote
+  id: HarpyLaughsLikeDiona
+  name: Laugh Like A Diona
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [laughs like a diona.]
+  chatTriggers:
+    - laugh like a diona
+    - laughs like a diona
+    - laughing like a diona
+    - laughed like a diona
+
+- type: emote
+  id: HarpyLaughsLikeVox
+  name: Laugh Like A Vox
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [laughs like a vox.]
+  chatTriggers:
+    - laugh like a vox
+    - laughs like a vox
+    - laughing like a vox
+    - laughed like a vox
+
+- type: emote
+  id: HarpyLaughsLikeCluwne
+  name: Laugh Like A Cluwne
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [laughs like a cluwne.]
+  chatTriggers:
+    - laugh like a cluwne
+    - laughs like a cluwne
+    - laughing like a cluwne
+    - laughed like a cluwne
+    - laugh evilly
+    - laughs evilly
+    - laughing evilly
+    - laughed evilly
+    - cackle
+    - cackles
+    - cackling
+    - cackled
+
+- type: emote
+  id: HarpyLaughsLikeLaughtrack
+  name: Laugh Like A Laughtrack
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [laughs like a laughtrack.]
+  chatTriggers:
+    - laugh like a laughtrack
+    - laughs like a laughtrack
+    - laughing like a laughtrack
+    - laughed like a laughtrack
+    - laughtrack
+    - laughtracks
+    - laughtracking
+    - laughtracked
+    - laugh like a studio audience
+    - laughs like a studio audience
+    - laughing like a studio audience
+    - laughed like a studio audience
+    - laugh like a sitcom
+    - laughs like a sitcom
+    - laughing like a sitcom
+    - laughed like a sitcom
+
+# Coughing
+- type: emote
+  id: HarpyCoughsLikeMan
+  name: Cough Like A Man
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [coughs like a man.]
+  chatTriggers:
+    - cough like a man
+    - coughs like a man
+    - coughing like a man
+    - coughed like a man
+
+- type: emote
+  id: HarpyCoughsLikeWoman
+  name: Cough Like A Woman
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [coughs like a woman.]
+  chatTriggers:
+    - cough like a woman
+    - coughs like a woman
+    - coughing like a woman
+    - coughed like a woman
+
+# Sighing
+- type: emote
+  id: HarpySighsLikeMan
+  name: Sigh Like A Man
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [sighs like a man.]
+  chatTriggers:
+    - sigh like a man
+    - sighs like a man
+    - sighing like a man
+    - sighed like a man
+
+- type: emote
+  id: HarpySighsLikeWoman
+  name: Sigh Like A Woman
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [sighs like a woman.]
+  chatTriggers:
+    - sigh like a woman
+    - sighs like a woman
+    - sighing like a woman
+    - sighed like a woman
+
+# Crying
+- type: emote
+  id: HarpyCriesLikeMan
+  name: Cries Like A Man
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [cries like a man.]
+  chatTriggers:
+    - cry like a man
+    - cries like a man
+    - crying like a man
+    - cried like a man
+
+- type: emote
+  id: HarpyCriesLikeWoman
+  name: Cries Like A Woman
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [cries like a woman.]
+  chatTriggers:
+    - cry like a woman
+    - cries like a woman
+    - crying like a woman
+    - cried like a woman
+
+# Sneeze
+- type: emote
+  id: HarpySneezesLikeMan
+  name: Sneeze Like A Man
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [sneezes like a man.]
+  chatTriggers:
+    - sneeze like a man
+    - sneezes like a man
+    - sneezing like a man
+    - sneezed like a man
+
+- type: emote
+  id: HarpySneezesLikeWoman
+  name: Sneeze Like A Woman
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [sneezes like a woman.]
+  chatTriggers:
+    - sneeze like a woman
+    - sneezes like a woman
+    - sneezing like a woman
+    - sneezed like a woman
+
+# Gasps
+- type: emote
+  id: HarpyGaspsLikeMan
+  name: Gasps Like A Man
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+
+- type: emote
+  id: HarpyGaspsLikeWoman
+  name: Gasps Like A Woman
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+
+## Species Specific Emote Imitations
+
+- type: emote
+  id: HarpyGrowlsLikeCat
+  name: Growl Like A Cat
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [growls like a cat.]
+  chatTriggers:
+    - growl like a cat
+    - growls like a cat
+    - growling like a cat
+    - growled like a cat
+
+- type: emote
+  id: HarpySqueaksLikeMoth
+  name: Squeak Like A Moth
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [squeaks.]
+  chatTriggers:
+    - squeak like a moth
+    - squeaks like a moth
+    - squeaking like a moth
+    - squeaked like a moth
+
+- type: emote
+  id: HarpySqueaksLikeMouse
+  name: Squeak Like A Mouse
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [squeaks.]
+  chatTriggers:
+    - squeak like a mouse
+    - squeaks like a mouse
+    - squeaking like a mouse
+    - squeaked like a mouse
+
+# LIZARDS
+## Todo: Add the new lizard emotes from Old Shiba and then also add them for Harpies.
+
+## Sound Effects (Group and Specific)
+# Some emote triggers are shared, and therefore are in other speech_emotes.yml files. Engine complains if there are duplicate triggers.
+
+# Pews
+- type: emote
+  id: HarpyPews
+  name: Pews
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [pews.]
+  chatTriggers:
+    - pews
+    - pew
+    - pewing
+    - pewed
+
+# Rings
+- type: emote
+  id: HarpyRings
+  name: Ring
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [rings.]
+  chatTriggers:
+    - rings
+    - ring
+    - ringing
+    - rang
+    - ring like a phone
+    - rings like a phone
+    - ringing like a phone
+    - rang like a phone
+
+# Ding
+- type: emote
+  id: HarpyDings
+  name: Ding
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [dings.]
+  chatTriggers:
+    - dings
+    - ding
+    - dinged
+    - dinging
+    - ding like a bell
+    - dings like a bell
+    - dinging like a bell
+    - dinged like a bell
+
+# Bangs
+- type: emote
+  id: HarpyBangs
+  name: Bang
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [bangs.]
+  chatTriggers:
+    - bangs
+    - bang
+    - banging
+    - banged
+
+- type: emote
+  id: HarpyBangsLikeGun
+  name: Bang Like A Gun
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [bangs like a gun.]
+  chatTriggers:
+    - bangs like a gun
+    - bang like a gun
+    - banging like a gun
+    - banged like a gun
+
+# Revs
+- type: emote
+  id: HarpyRevs
+  name: Rev
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [revs.]
+  chatTriggers:
+    - revs
+    - rev
+    - revving
+    - revved
+
+# Blends
+- type: emote
+  id: HarpyBlends
+  name: Blend
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [blends.]
+  chatTriggers:
+    - blends
+    - blend
+    - blending
+    - blended
+    - whirrs like a blender
+    - whirred like a blender
+    - whirring like a blender
+    - whirred like a blender
+  event: !type:AnimationVibrateEmoteEvent
+
+# Caws
+- type: emote
+  id: HarpyCaws
+  name: Caw
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [caws.]
+  chatTriggers:
+    - caws
+    - caw
+    - cawing
+    - cawed
+
+# Rawrs
+- type: emote
+  id: HarpyRawrs
+  name: Rawr
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  chatMessages: [rawrs.]
+  chatTriggers:
+    - rawrs
+    - rawr
+    - rawring
+    - rawred

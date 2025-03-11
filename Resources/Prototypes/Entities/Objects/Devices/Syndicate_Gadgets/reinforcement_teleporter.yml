@@ -28,9 +28,12 @@
     rules: ghost-role-information-syndicate-reinforcement-rules
     raffle:
       settings: default
-    requirements: # Goobstation - ghost roles requirements
+    requirements: # ShibaStation - Antag Playtime Requirements
     - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
+      time: 72000 # 20 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 # 10 hours
   - type: GhostRoleMobSpawner
     prototype: MobHumanSyndicateAgentSpy
     selectablePrototypes: ["SyndicateAgentMedic", "SyndicateAgentSpy", "SyndicateAgentThief"]
@@ -49,9 +52,12 @@
     rules: ghost-role-information-nukeop-reinforcement-rules
     raffle:
       settings: default
-    requirements: # Goobstation - ghost roles requirements
+    requirements: # ShibaStation - Antag Playtime Requirements
     - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
+      time: 180000 # 50 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 72000 # 20 hours
   - type: GhostRoleMobSpawner
     prototype: MobHumanSyndicateAgentNukeops
 
@@ -67,9 +73,12 @@
     rules: ghost-role-information-syndicate-reinforcement-rules
     raffle:
       settings: default
-    requirements: # Goobstation - ghost roles requirements
+    requirements: # ShibaStation - Antag Playtime Requirements
     - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
+      time: 72000 # 20 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 # 10 hours
   - type: GhostRoleMobSpawner
     prototype: MobMonkeySyndicateAgent
     selectablePrototypes: ["SyndicateMonkey", "SyndicateKobold"]
@@ -81,6 +90,12 @@
   components:
   - type: GhostRole
     rules: ghost-role-information-nukeop-reinforcement-rules
+    requirements: # ShibaStation - Antag Playtime Requirements
+    - !type:OverallPlaytimeRequirement
+      time: 180000 # 50 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 72000 # 20 hours
   - type: GhostRoleMobSpawner
     prototype: MobMonkeySyndicateAgentNukeops
     selectablePrototypes: ["SyndicateMonkeyNukeops", "SyndicateKoboldNukeops"]
@@ -97,9 +112,9 @@
     rules: ghost-role-information-syndicate-reinforcement-rules
     raffle:
       settings: default
-    requirements: # Goobstation - ghost roles requirements
+    requirements: # ShibaStation - Antag Playtime Requirements
     - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
+      time: 36000 # 10 hours
   - type: GhostRoleMobSpawner
     prototype: MobCatSyndy
   - type: EmitSoundOnUse
@@ -118,8 +133,11 @@
       rules: ghost-role-information-silicon-rules
       raffle:
         settings: default
-      requirements: # Goobstation - ghost roles requirements
+      requirements: # ShibaStation - Antag Playtime Requirements
       - !type:OverallPlaytimeRequirement
-        time: 18000 #5 hours
+        time: 180000 # 50 hours
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 72000 # 20 hours
     - type: GhostRoleMobSpawner
       prototype: PlayerBorgSyndicateAssaultBattery

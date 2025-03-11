@@ -30,7 +30,7 @@
   - type: Speech
     speechSounds: Lizard
     speechVerb: Reptilian
-    allowedEmotes: ['Thump']
+    allowedEmotes: ['Weh', 'Thump', 'Chirp', 'Hiss']
   - type: TypingIndicator
     proto: lizard
   - type: Vocal
@@ -68,9 +68,6 @@
       295: 0.6
       285: 0.4
   - type: Wagging
-  - type: FootPrints # WD EDIT
-    leftBarePrint: "footprint-left-bare-lizard"
-    rightBarePrint: "footprint-right-bare-lizard"
   - type: Inventory
     speciesId: reptilian
     # WWDP-Edit-Start
@@ -97,6 +94,15 @@
             sprite: _White/Mobs/Species/displacement.rsi
             state: shoes
     # WWDP-Edit-End
+  - type: FootPrints # WD EDIT
+    leftBarePrint: "footprint-left-bare-lizard"
+    rightBarePrint: "footprint-right-bare-lizard"
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - ReptilianEmotes
 
 - type: entity
   parent: BaseSpeciesDummy

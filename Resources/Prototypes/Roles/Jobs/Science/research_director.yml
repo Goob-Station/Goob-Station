@@ -6,15 +6,14 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Science
-      time: 36000 #10 hrs
+      time: 54000 # 15 hrs
     - !type:OverallPlaytimeRequirement
-      time: 144000 #40 hrs
+      time: 72000 # 20 hrs
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
   supervisors: job-supervisors-captain
   canBeAntag: false
-  goobcoins: 40 #Goob content
   access:
   - Research
   - Command
@@ -23,6 +22,9 @@
   - Brig
   - Cryogenics
   - External # goobstation
+  extendedAccess:
+  - Medical # ShibaStation - Added Medical to RD access
+  - Chemistry # ShibaStation - Added Chemistry to RD access
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

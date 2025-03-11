@@ -4,9 +4,10 @@
   id: CalmPestEventsTable
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
-    - id: SnailMigrationLowPop
-    - id: CockroachMigration
-    - id: MouseMigration
+    # - id: SnailMigrationLowPop # ShibaStation - Rolled into 'Category1VentSpawn' event.
+    # - id: CockroachMigration # ShibaStation - Rolled into 'Category1VentSpawn' event.
+    # - id: MouseMigration # ShibaStation - Rolled into 'Category1VentSpawn' event.
+    - id: Category1VentSpawn # ShibaStation - Rolled into 'Category1VentSpawn' event.
 
 - type: entityTable
   id: SpicyPestEventsTable
@@ -24,10 +25,10 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_ShibaStation/Announcements/vent-1-safe.ogg
     earliestStart: 15
     weight: 6
-    duration: 30 # DeltaV: was 50, used as a delay now
+    duration: 50
   - type: VentCrittersRule
     entries:
     - id: MobMouse
@@ -47,10 +48,10 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_ShibaStation/Announcements/vent-5-danger.ogg
     earliestStart: 15
     weight: 6
-    duration: 30 # DeltaV: was 50, used as a delay now
+    duration: 50
     minimumPlayers: 30 # Hopefully this is enough for the Rat King's potential Army (it was not, raised from 15 -> 30)
   - type: VentCrittersRule
     entries:
@@ -75,9 +76,9 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_ShibaStation/Announcements/vent-1-safe.ogg
     weight: 6
-    duration: 30 # DeltaV: was 50, used as a delay now
+    duration: 50
   - type: VentCrittersRule
     entries:
     - id: MobCockroach
@@ -94,9 +95,9 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_ShibaStation/Announcements/vent-1-safe.ogg
     weight: 6
-    duration: 30 # DeltaV: was 50, used as a delay now
+    duration: 50
   - type: VentCrittersRule
     entries:
     - id: MobSnail
@@ -113,10 +114,10 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_ShibaStation/Announcements/vent-1-safe.ogg
     earliestStart: 15
     weight: 6
-    duration: 30 # DeltaV: was 50, used as a delay now
+    duration: 50
     minimumPlayers: 30
   - type: VentCrittersRule
     entries:

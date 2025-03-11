@@ -6,12 +6,11 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 54000 # 15 hours
+      time: 28800 # 8 hrs
   startingGear: DetectiveGear
   icon: "JobIconDetective"
   supervisors: job-supervisors-hos
   canBeAntag: false
-  goobcoins: 30 #Goob content
   access:
   - Security
   - Brig
@@ -20,6 +19,9 @@
   - Detective
   - Cryogenics
   - External
+  extendedAccess:
+  - Medical # ShibaStation - Added Medical to Detective access
+  - Chemistry # ShibaStation - Added Chemistry to Detective access
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

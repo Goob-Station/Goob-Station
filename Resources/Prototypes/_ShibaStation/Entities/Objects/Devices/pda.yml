@@ -1,0 +1,24 @@
+- type: entity
+  parent: BasePDA
+  id: MailPDA
+  name: mail carrier PDA
+  description: Tastes like stamp glue.
+  components:
+  - type: Sprite
+    sprite: _ShibaStation/Objects/Devices/pda.rsi
+    state: pda-mail
+  - type: Pda
+    id: MailIDCard
+  - type: PdaBorderColor
+    borderColor: "#394DC6"
+    accentHColor: "#DCDCDC"
+  - type: Icon
+    state: pda
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - MailMetricsCartridge
+      - NanoChatCartridge # DeltaV

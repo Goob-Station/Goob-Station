@@ -6,3 +6,5 @@ mopping-system-no-water = { CAPITALIZE(THE($used)) } has no water!
 
 mopping-system-full = { CAPITALIZE(THE($used)) } is full!
 mopping-system-empty = { CAPITALIZE(THE($used)) } is empty!
+
+mopping-system-cleaned-footprints = Cleaned {$amount} footprints.

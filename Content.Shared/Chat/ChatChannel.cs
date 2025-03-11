@@ -92,14 +92,19 @@ namespace Content.Shared.Chat
         Unspecified = 1 << 15, // Goobstation - Starlight collective mind port
 
         /// <summary>
+        ///     FloofStation
+        /// </summary>
+        Subtle = 1 << 16,
+
+        /// <summary>
         ///     Nyano - Summary:: Telepathic channel for all psionic entities.
         /// </summary>
-        Telepathic = 1 << 16, // Goobstation - Starlight collective mind port
+        Telepathic = 1 << 17, // Goobstation - Starlight collective mind port
 
         /// <summary>
         ///     Channels considered to be IC.
         /// </summary>
-        IC = Local | Whisper | Radio | Dead | Emotes | Damage | Visual | Telepathic | CollectiveMind | Notifications, // Goobstation - Starlight collective mind port
+        IC = Local | Whisper | Radio | Dead | Emotes | Subtle | Damage | Visual | Telepathic | CollectiveMind | Notifications, // Goobstation - Starlight collective mind port
 
         AdminRelated = Admin | AdminAlert | AdminChat,
     }

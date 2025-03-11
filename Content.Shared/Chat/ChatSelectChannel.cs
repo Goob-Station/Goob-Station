@@ -41,6 +41,11 @@
         /// </summary>
         Emotes = ChatChannel.Emotes,
 
+        /// <summary>
+        ///     FloofStation
+        /// </summary>
+        Subtle = ChatChannel.Subtle,
+
         // Goobstation - Starlight collective mind port
         /// <summary>
         ///     CollectiveMind

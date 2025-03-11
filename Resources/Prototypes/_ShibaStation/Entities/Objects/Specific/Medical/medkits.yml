@@ -1,0 +1,23 @@
+- type: entity
+  name: inebriation recovery kit
+  description: Full of everything needed to stave off a hangover.
+  parent: BaseStorageItem
+  id: MedkitDrunk
+  components:
+  - type: Sprite
+    sprite: _ShibaStation/Objects/Specific/Medical/firstaidkits.rsi
+    state: drunkkit
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,3,1
+  - type: Item
+    size: Large
+    sprite: _ShibaStation/Objects/Specific/Medical/firstaidkits.rsi
+    heldPrefix: drunkkit
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Plastic: 75
+  - type: Tag
+    tags:
+    - Medkit

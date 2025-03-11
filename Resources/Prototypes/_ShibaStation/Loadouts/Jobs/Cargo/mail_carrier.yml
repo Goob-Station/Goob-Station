@@ -1,0 +1,55 @@
+# Head
+- type: loadout
+  id: MailCarrierHead
+  equipment:
+    head: ClothingHeadMailCarrier
+
+# Jumpsuit
+- type: loadout
+  id: MailCarrierJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformMailCarrier
+
+- type: loadout
+  id: MailCarrierJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformSkirtMailCarrier
+
+# Gloves
+- type: loadout
+  id: MailCarrierGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorWhite
+
+# Back
+- type: loadout
+  id: MailCarrierBackpack
+  equipment:
+    back: ClothingBackpackCargo
+
+- type: loadout
+  id: MailCarrierSatchel
+  equipment:
+    back: ClothingBackpackSatchelCargo
+
+- type: loadout
+  id: MailCarrierDuffel
+  equipment:
+    back: ClothingBackpackDuffelCargo
+
+# OuterClothing
+- type: loadout
+  id: MailCarrierWintercoat
+  equipment:
+    outerClothing: ClothingOuterWinterCoatMail
+
+# Shoes
+- type: loadout
+  id: MailCarrierShoes
+  equipment:
+    shoes: ClothingShoesColorBrown
+
+- type: loadout
+  id: MailCarrierWinterBoots
+  equipment:
+    shoes: ClothingShoesBootsWinterCargo

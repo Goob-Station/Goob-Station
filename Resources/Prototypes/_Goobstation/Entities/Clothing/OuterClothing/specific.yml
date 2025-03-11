@@ -22,8 +22,10 @@
     sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ClothingHeadHelmetHEV
+    replaceCurrentClothing: true # ShibaStation - Wear hoods/hardsuit helmets without taking off your head gear first.
+    blockUnequipWhenAttached: true # ShibaStation - Janky workaround for removing an outerwear with part deployed yoinking your head gear (it's still there it's just IN the outerwear)
   - type: ClothingGrantComponent
     component:
       - type: SupermatterImmune

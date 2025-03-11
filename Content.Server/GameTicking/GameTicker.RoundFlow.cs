@@ -686,9 +686,13 @@ namespace Content.Server.GameTicking
                 if (_webhookIdentifier == null)
                     return;
 
-                var content = Loc.GetString("discord-round-notifications-new");
+                if (DiscordRoundEndRole == null)
+                    return;
+
+                var content = Loc.GetString("discord-round-notifications-new", ("roleId", DiscordRoundEndRole));
 
                 var payload = new WebhookPayload { Content = content };
+                payload.AllowedMentions.AllowRoleMentions();
 
                 await _discord.CreateMessage(_webhookIdentifier.Value, payload);
             }

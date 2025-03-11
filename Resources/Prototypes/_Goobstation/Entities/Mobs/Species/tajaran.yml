@@ -6,8 +6,8 @@
   components:
   - type: Hunger
   - type: Thirst
-  - type: Sprite # smaller size
-    scale: 0.8, 0.8
+  - type: Sprite # ShibaStation - Made Tajara human sized. Felinids can be smol cats.
+    scale: 1, 1
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
@@ -89,12 +89,12 @@
     critThreshold: 75 # Goobstation - Siouxcide, felinids take 3 disabler shots to down
   - type: TypingIndicator
     proto: felinid
-  - type: PseudoItem
-    storedOffset: 0,17
-    shape:
-      - 0,0,1,4
-      - 0,2,3,4
-      - 4,0,5,4
+  # - type: PseudoItem # ShibaStation - Too big for bags, this is a Felinid trait.
+  #   storedOffset: 0,17
+  #   shape:
+  #     - 0,0,1,4
+  #     - 0,2,3,4
+  #     - 4,0,5,4
   - type: Vocal
     wilhelm: "/Audio/Nyanotrasen/Voice/Felinid/cat_wilhelm.ogg"
     sounds:

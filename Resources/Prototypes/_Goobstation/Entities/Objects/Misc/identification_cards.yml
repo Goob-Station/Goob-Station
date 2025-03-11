@@ -17,14 +17,7 @@
     jobIcon: JobIconFuture
   - type: Access
     groups:
-    - AllAccess
-    tags:
-    - CentralCommand
-    - NanotrasenRepresentative
-    - BlueshieldOfficer
-    - Wizard
-    - NuclearOperative
-    - SyndicateAgent
+    - AdminAccess # ShibaStation - Single group for ALL access types, no more adding more tags.
 
 # Helldiver
 - type: entity
@@ -68,17 +61,30 @@
   name: blueshield officer ID card
   components:
   - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
     layers:
-    - state: centcom
-    - state: idcentcom
+    - state: silver
+    - state: idblueshield
   - type: Item
-    heldPrefix:
+    heldPrefix: silver
   - type: PresetIdCard
     job: BlueshieldOfficer
-  - type: Access
-    tags:
-    - CentralCommand
-    - BlueshieldOfficer
+
+# NanoTrasen Representative
+- type: entity
+  parent: IDCardStandard
+  id: NTRepIDCard
+  name: NanoTrasen Representative ID card
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    layers:
+    - state: silver
+    - state: idntrep
+  - type: Item
+    heldPrefix: silver
+  - type: PresetIdCard
+    job: NanotrasenRepresentative
 
 # Executive Access
 - type: entity

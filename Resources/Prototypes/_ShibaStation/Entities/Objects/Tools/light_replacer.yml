@@ -1,0 +1,35 @@
+- type: entity
+  parent: LightReplacer
+  id: LightReplacerAdmeme
+  suffix: Admeme
+  components:
+  - type: LightReplacer
+    contents:
+    - id: LightTube
+      amount: 999
+    - id: LightBulb
+      amount: 999
+
+- type: entity
+  parent: LightReplacer
+  id: LightReplacerLED
+  suffix: LED
+  components:
+  - type: LightReplacer
+    contents:
+    - id: LedLightTube
+      amount: 8
+    - id: LedLightBulb
+      amount: 5
+
+- type: entity
+  parent: LightReplacer
+  id: LightReplacerLEDAdmeme
+  suffix: LED, Admeme
+  components:
+  - type: LightReplacer
+    contents:
+    - id: LedLightTube
+      amount: 999
+    - id: LedLightBulb
+      amount: 999

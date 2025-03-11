@@ -155868,6 +155868,13 @@ entities:
     - type: Transform
       pos: -11.5,32.5
       parent: 2
+- proto: SpawnPointMailCarrier
+  entities:
+  - uid: 15427
+    components:
+    - type: Transform
+      pos: -49.5,-3.5
+      parent: 2
 - proto: SpawnPointMedicalDoctor
   entities:
   - uid: 18498

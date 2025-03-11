@@ -120,6 +120,7 @@
   - type: Speech
     speechSounds: Harpy
     speechVerb: Harpy
+    allowedEmotes: ['Squeak', 'Chitter', 'Click', 'Squish', 'Weh']
   - type: Vocal
     sounds:
       Male: SoundsHarpyMale

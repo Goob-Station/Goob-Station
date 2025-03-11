@@ -5,26 +5,28 @@
     - id: AnomalySpawn
     - id: BluespaceArtifact
     - id: BluespaceLocker
-    - id: BreakerFlip
+    # - id: BreakerFlip # ShibaStation - Disabled until I make a custom announcement for it, because no one notices and wonders why power is out.
     - id: BureaucraticError
     - id: ClericalError
-    - id: CockroachMigration
+    # - id: CockroachMigration # ShibaStation - Rolled into 'Category1VentSpawn' event.
     - id: GasLeak
-    - id: GreytideVirus
+    # - id: GreytideVirus # ShibaStation - Disabled; tiders already have plenty of other ways to get into places.
     - id: IonStorm # its calm like 90% of the time smh
     - id: KudzuGrowth
     - id: MassHallucinations
     - id: MimicVendorRule
-    - id: MouseMigration
+    # - id: MouseMigration # ShibaStation - Rolled into 'Category1VentSpawn' event.
     - id: PowerGridCheck
     - id: RandomSentience
-    - id: SlimesSpawn
+    # - id: SlimesSpawn # ShibaStation - Rolled into 'Category3VentSpawn' event.
     - id: SolarFlare
-    - id: SnakeSpawn
+    # - id: SnakeSpawn # ShibaStation - Rolled into 'Category3VentSpawn' event.
     - id: SpiderClownSpawn
-    - id: SpiderSpawn
+    # - id: SpiderSpawn # ShibaStation - Rolled into 'Category3VentSpawn' event.
     - id: VentClog
-    - id: TidemindDevelop # Goobstation - Tidemind
+    - id: Category1VentSpawn # ShibaStation - Rolled into 'Category1VentSpawn' event.
+    - id: Category3VentSpawn # ShibaStation - Rolled into 'Category3VentSpawn' event.
+    # - id: TidemindDevelop # Goobstation - Tidemind # ShibaStation - Disabled, we don't need this.
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -42,7 +44,7 @@
     - id: BlobSpawn # Goobstation - Blob
     - id: LoneAbductorSpawn # Shitmed - Starlight Abductors
     - id: DuoAbductorSpawn # Shitmed - Starlight Abductors
-    - id: BingleSpawn #Goobstation - Bingle
+    # - id: BingleSpawn #Goobstation - Bingle # ShibaStation - Pretty sure this is memeshit, so I'm disabling it for now.
 
 - type: entity
   id: BaseStationEvent
@@ -81,11 +83,11 @@
   - type: StationEvent
     startAnnouncementColor: "#18abf5"
     startAudio:
-      path: /Audio/Announcements/announce.ogg
-    weight: 8
+      path: /Audio/_ShibaStation/Announcements/sci-anom.ogg
+    weight: 5 # ShibaStation - Reduced from 8 to 5
     duration: 35
-    chaos: # Goobstation
-      Anomaly: 100
+    reoccurrenceDelay: 30 # ShibaStation - Anomalies now can only happen after 30 minutes since the last one.
+    minimumPlayers: 3 # ShibaStation - Anomalies now require at least 3 players to spawn.
   - type: AnomalySpawnRule
 
 - type: entity
@@ -99,11 +101,10 @@
   - type: StationEvent
     startAnnouncementColor: "#18abf5"
     startAudio:
-      path: /Audio/Announcements/announce.ogg
-    weight: 8
+      path: /Audio/_ShibaStation/Announcements/sci-arti.ogg
+    weight: 6 # ShibaStation - Reduced from 8 to 6
     duration: 35
-    chaos: # Goobstation
-      Anomaly: 40
+    reoccurrenceDelay: 15 # ShibaStation - Artifacts now can only happen after 15 minutes since the last one.
   - type: BluespaceArtifactRule
 
 - type: entity
@@ -115,8 +116,7 @@
     reoccurrenceDelay: 5
     earliestStart: 1
     duration: 1
-    chaos: # Goobstation
-      Anomaly: 40
+    maxOccurrences: 10 # ShibaStation - Long shifts result in like two thirds of all lockers being bluespaced. It's cringe.
   - type: BluespaceLockerRule
 
 - type: entity
@@ -127,8 +127,6 @@
     weight: 7
     duration: 1
     minimumPlayers: 15
-    chaos: # Goobstation
-      Power: 100
   - type: BreakerFlipRule
 
 - type: entity
@@ -163,6 +161,7 @@
     weight: 5
     duration: 1
     minimumPlayers: 10
+    maxOccurrences: 2 # ShibaStation - Capped at 2, we get too many dang skeletons.
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
 
@@ -176,12 +175,6 @@
     reoccurrenceDelay: 20
     minimumPlayers: 60
     duration: null
-    chaos: # Goobstation
-      Hostile: 20
-      Friend: 20
-      Combat: 40
-      Death: 100
-      Medical: 100
   - type: SpaceSpawnRule
     spawnDistance: 0
   - type: AntagSpawner
@@ -211,12 +204,6 @@
     earliestStart: 45
     reoccurrenceDelay: 20
     minimumPlayers: 30
-    chaos: # Goobstation
-      Hostile: 20
-      Friend: 20
-      Combat: 40
-      Death: 40
-      Medical: 40
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
     # Goobstation start
@@ -274,12 +261,6 @@
     duration: 1
     earliestStart: 30
     minimumPlayers: 20
-    chaos: # Goobstation
-      Hostile: 20
-      Friend: 20
-      Combat: 40
-      Death: 100
-      Medical: 100
   - type: RandomSpawnRule
     prototype: MobRevenant
 
@@ -300,12 +281,13 @@
   - type: StationEvent
     startAnnouncement: station-event-gas-leak-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_ShibaStation/Announcements/gasleak-start.ogg
     endAnnouncement: station-event-gas-leak-end-announcement
-    weight: 8
-    chaos:
-      Atmos: 100
-      Medical: 50
+    endAudio:
+      path: /Audio/_ShibaStation/Announcements/gasleak-end.ogg
+    weight: 6 # ShibaStation - Reduced from 8 to 6
+    reoccurrenceDelay: 30 # ShibaStation - Gas leaks now can only happen after 30 minutes since the last one.
+    maxOccurrences: 5 # ShibaStation - Gas leaks now can only happen 5 times per round.
   - type: GasLeakRule
 
 - type: entity
@@ -315,12 +297,8 @@
   - type: StationEvent
     earliestStart: 15
     minimumPlayers: 15
-    weight: 7
+    weight: 5 # ShibaStation - Reduced from 7 to 5
     duration: 240
-    chaos:
-      Hostile: 20
-      Friend: 20
-      Medical: 100
   - type: KudzuGrowthRule
 
 - type: entity
@@ -328,15 +306,16 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    weight: 5
+    weight: 3 # ShibaStation - Reduced from 5 to 3
     startAnnouncement: station-event-power-grid-check-start-announcement
     endAnnouncement: station-event-power-grid-check-end-announcement
     startAudio:
-      path: /Audio/Announcements/power_off.ogg
+      path: /Audio/_ShibaStation/Announcements/powergrid-start.ogg
       params:
         volume: -4
-    duration: 60
-    maxDuration: 120
+    duration: 30 # ShibaStation - Reduced from 60 to 30
+    maxDuration: 90 # ShibaStation - Reduced from 120 to 90
+    reoccurrenceDelay: 35 # ShibaStation - Power grid checks now can only happen after 35 minutes since the last one.
   - type: PowerGridCheckRule
 
 - type: entity
@@ -344,15 +323,16 @@
   id: SolarFlare
   components:
   - type: StationEvent
-    weight: 8
+    weight: 4 # ShibaStation - Reduced from 8 to 4
     startAnnouncement: station-event-solar-flare-start-announcement
     endAnnouncement: station-event-solar-flare-end-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
-    duration: 120
-    maxDuration: 240
-    chaos: # Goobstation
-      Friend: 20
+      path: /Audio/_ShibaStation/Announcements/solarflare-start.ogg
+    endAudio:
+      path: /Audio/_ShibaStation/Announcements/solarflare-end.ogg
+    duration: 90 # ShibaStation - Reduced from 120 to 90
+    maxDuration: 180 # ShibaStation - Reduced from 240 to 180
+    reoccurrenceDelay: 40 # ShibaStation - Solar flares now can only happen after 40 minutes since the last one.
   - type: SolarFlareRule
     onlyJamHeadsets: true
     affectedChannels:
@@ -376,13 +356,12 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-clog-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_ShibaStation/Announcements/ventclog-start.ogg
     earliestStart: 15
-    minimumPlayers: 15
-    weight: 5
+    minimumPlayers: 6 # ShibaStation - Reduced from 15 to 6
+    weight: 3 # ShibaStation - Reduced from 5 to 3
     duration: 60
-    chaos: # Goobstation
-      Mess: 200
+    reoccurrenceDelay: 40 # ShibaStation - Vent clogs now can only happen after 40 minutes since the last one.
   - type: VentClogRule
 
 - type: entity
@@ -392,15 +371,11 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/aliens.ogg
+      path: /Audio/_ShibaStation/Announcements/vent-3-hostile.ogg
     earliestStart: 20
     minimumPlayers: 15
-    weight: 5
-    duration: 30 # DeltaV: was 60, used as a delay now
-    chaos: # Goobstation
-      Hostile: 10
-      Friend: 10
-      Medical: 50
+    weight: 0.5 # GoobStation: was 5, vent critters bad
+    duration: 60
   - type: VentCrittersRule
     entries:
     - id: MobAdultSlimesBlueAngry
@@ -417,19 +392,19 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_ShibaStation/Announcements/vent-3-hostile.ogg
     earliestStart: 20
     minimumPlayers: 15
-    weight: 5
-    duration: 30 # DeltaV: was 60, used as a delay now
+    weight: 2 # GoobStation: was 5, critters because bad
+    duration: 60
   - type: VentCrittersRule
     entries:
     - id: MobPurpleSnake
       prob: 0.02
     - id: MobSmallPurpleSnake
       prob: 0.02
-    - id: MobCobraSpace
-      prob: 0.02
+    # - id: MobCobraSpace # ShibaStation - No longer spawns free stealth glands
+    #   prob: 0.02
 
 - type: entity
   id: SpiderSpawn
@@ -438,11 +413,11 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/aliens.ogg
+      path: /Audio/_ShibaStation/Announcements/vent-3-hostile.ogg
     earliestStart: 20
     minimumPlayers: 15
-    weight: 5
-    duration: 30 # DeltaV: was 60, used as a delay now
+    weight: 1 # GoobStation: was 1, vent critters bad
+    duration: 60
   - type: VentCrittersRule
     entries:
     - id: MobGiantSpiderAngry
@@ -455,13 +430,12 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
-    earliestStart: 45 # DeltaV - was 20
-    minimumPlayers: 30 # DeltaV - was 20
-    weight: 1 # DeltaV - was 1.5
-    duration: 30 # DeltaV: was 60, used as a delay now
+      path: /Audio/_ShibaStation/Announcements/vent-5-danger.ogg
+    earliestStart: 20
+    minimumPlayers: 20
+    weight: 0.5 # GoobStation: was 1.5, vent critters bad
+    duration: 60
   - type: VentCrittersRule
-    playerRatio: 35 # DeltaV: Clown spiders are very robust
     entries:
     - id: MobClownSpider
       prob: 0.05
@@ -475,11 +449,6 @@
     minimumPlayers: 40
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
-    chaos: # Goobstation
-      Hostile: 40
-      Friend: 60
-      Medical: 200
-      Death: 200
   - type: ZombieRule
   - type: AntagSelection
     definitions:
@@ -511,13 +480,8 @@
   - type: StationEvent
     earliestStart: 35
     weight: 5.5
-    minimumPlayers: 20
+    minimumPlayers: 25
     duration: 1
-    chaos: # Goobstation
-      Hostile: 20
-      Friend: 40
-      Medical: 200
-      Death: 100
   - type: RuleGrids
   - type: LoadMapRule
     gridPath: /Maps/Shuttles/ShuttleEvent/striker.yml
@@ -555,11 +519,11 @@
   - type: StationEvent
     earliestStart: 30
     weight: 8
-    minimumPlayers: 15
+    minimumPlayers: 20
     maxOccurrences: 1 # can only happen once per round
     startAnnouncement: station-event-communication-interception
     startAudio:
-      path: /Audio/Announcements/intercept.ogg
+      path: /Audio/_ShibaStation/Announcements/sleeper-activate.ogg
     duration: null # the rule has to last the whole round not 1 second
     occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule
@@ -599,6 +563,7 @@
   - type: StationEvent
     weight: 8
     reoccurrenceDelay: 20
+    minimumPlayers: 20 # ShibaStation - Ion storms tend to give out free shitter tickets, and at low pop it's cringe. This better meshes with escalating danger in line with population.
     duration: 1
   - type: IonStormRule
 
@@ -642,7 +607,7 @@
     weight: 5
     earliestStart: 15
     reoccurrenceDelay: 20
-    minimumPlayers: 4
+    minimumPlayers: 15 # ShibaStation - Increased from 4 to 15
     duration: null
   - type: SpaceSpawnRule
     spawnDistance: 0

@@ -1,0 +1,16 @@
+- type: startingGear
+  id: SyndieCollectorAdmemeGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCasualSyndicate
+    outerClothing: ClothingOuterCoatSyndieCap
+    back: ClothingBackpackSyndicate
+    shoes: ClothingShoesBootsMagSyndie
+    eyes: ClothingEyesNightVisionGogglesSyndie
+    head: ClothingHeadHatSyndie
+    id: SyndiPDA
+    ears: ClothingHeadsetAltSyndicate
+  storage:
+    back:
+    - BoxSurvivalSlotsSyndicate
+    - UplinkImplanter
+    - Telecrystal500

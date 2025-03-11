@@ -1,5 +1,5 @@
 lavaland-planet-name-unknown = Unknown Planet
-lavaland-planet-name-lavaland = Lavaland Planet
+lavaland-planet-name-lavaland = GS25 Lavaland HR-031
 lavaland-planet-name-icemoon = IceMoon
 
 # GPS Signals

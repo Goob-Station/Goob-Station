@@ -6,6 +6,9 @@ using Content.Shared.Emoting;
 using System.Numerics;
 using Robust.Shared.Prototypes;
 using Content.Shared.Chat.Prototypes;
+using Content.Shared.Jittering;
+using Content.Client.Jittering;
+using Robust.Shared.Timing;
 using Robust.Client.Graphics;
 using Content.Client.DamageState;
 using System.Linq;
@@ -16,6 +19,7 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
 {
     [Dependency] private readonly AnimationPlayerSystem _anim = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
+    [Dependency] private readonly JitteringSystem _jitter = default!;
 
     private const int TweakAnimationDurationMs = 1100; // 11 frames * 100ms per frame
 
@@ -28,6 +32,7 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
         SubscribeLocalEvent<AnimatedEmotesComponent, AnimationFlipEmoteEvent>(OnFlip);
         SubscribeLocalEvent<AnimatedEmotesComponent, AnimationSpinEmoteEvent>(OnSpin);
         SubscribeLocalEvent<AnimatedEmotesComponent, AnimationJumpEmoteEvent>(OnJump);
+        SubscribeLocalEvent<AnimatedEmotesComponent, AnimationVibrateEmoteEvent>(OnVibrate);
         SubscribeLocalEvent<AnimatedEmotesComponent, AnimationTweakEmoteEvent>(OnTweak);
     }
 
@@ -123,6 +128,16 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
             }
         };
         PlayEmote(ent, a);
+    }
+
+    private void OnVibrate(Entity<AnimatedEmotesComponent> ent, ref AnimationVibrateEmoteEvent args)
+    {
+        _jitter.AddJitter(ent, -10, 100);
+        // Schedule removal of jitter after 3 seconds
+        Timer.Spawn(TimeSpan.FromSeconds(3), () =>
+        {
+            RemComp<JitteringComponent>(ent);
+        });
     }
     private void OnTweak(Entity<AnimatedEmotesComponent> ent, ref AnimationTweakEmoteEvent args)
     {

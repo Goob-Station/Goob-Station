@@ -10,6 +10,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
+using Content.Shared._EinsteinEngines.Flight;
+
 namespace Content.Shared.Nutrition.EntitySystems;
 
 public sealed class HungerSystem : EntitySystem
@@ -22,6 +24,8 @@ public sealed class HungerSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly SharedJetpackSystem _jetpack = default!;
+
+    [Dependency] private readonly SharedFlightSystem _flightSystem = default!;
 
     [ValidatePrototypeId<SatiationIconPrototype>]
     private const string HungerIconOverfedId = "HungerIconOverfed";
@@ -259,6 +263,22 @@ public sealed class HungerSystem : EntitySystem
         return prototype != null;
     }
 
+    private void UpdateFlightHunger(EntityUid uid, HungerComponent hunger)
+    {
+        // Check if entity has flight and if it's active
+        if (!TryComp<FlightComponent>(uid, out var flight) || !flight.On)
+            return;
+
+        // Reduce hunger by flight drain rate
+        ModifyHunger(uid, -flight.HungerDrainRate, hunger);
+
+        // Disable flight if too hungry
+        if (IsHungerBelowState(uid, HungerThreshold.Peckish))
+        {
+            _flightSystem.ToggleActive(uid, false, flight);
+        }
+    }
+
     private static float ClampHungerWithinThresholds(HungerComponent component, float hungerValue)
     {
         return Math.Clamp(hungerValue,
@@ -276,6 +296,9 @@ public sealed class HungerSystem : EntitySystem
             if (_timing.CurTime < hunger.NextThresholdUpdateTime)
                 continue;
             hunger.NextThresholdUpdateTime = _timing.CurTime + hunger.ThresholdUpdateRate;
+
+            // Check flight hunger before modifying
+            UpdateFlightHunger(uid, hunger);
 
             UpdateCurrentThreshold(uid, hunger);
             DoContinuousHungerEffects(uid, hunger);

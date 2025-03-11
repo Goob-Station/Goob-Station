@@ -34,6 +34,8 @@
     size: Large
     sprite: Objects/Specific/Janitorial/mop.rsi
   - type: Absorbent
+    footprintCleaningRange: 0.45
+    maxCleanedFootprints: 25
   - type: SolutionContainerManager
     solutions:
       absorbed:
@@ -89,6 +91,8 @@
       sprite: Objects/Specific/Janitorial/advmop.rsi
     - type: Absorbent
       pickupAmount: 100
+      footprintCleaningRange: 0.75
+      maxCleanedFootprints: 25
     - type: UseDelay
       delay: 1.0
     - type: SolutionRegeneration

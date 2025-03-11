@@ -1,9 +1,9 @@
 - type: gameMap
   id: Omega
   mapName: 'Omega'
-  mapPath: /Maps/_Goobstation/omega.yml # Goobstation
-  minPlayers: 7
-  maxPlayers: 35
+  mapPath: /Maps/_ShibaStation/omega.yml
+  minPlayers: 0
+  maxPlayers: 30
   stations:
     Omega:
       stationProto: StandardNanotrasenStation

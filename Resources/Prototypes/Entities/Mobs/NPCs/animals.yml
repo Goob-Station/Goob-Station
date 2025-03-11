@@ -1783,7 +1783,7 @@
       Peckish: 15
       Starving: 10
       Dead: 0
-    baseDecayRate: 0.04 #Goob change
+    baseDecayRate: 0.5 # I'm very hungry! Give me. The cheese.
   - type: Extractable
     grindableSolutionName: food
   - type: SolutionContainerManager
@@ -1864,11 +1864,6 @@
     color: "#808080"
     activateSound: null
     deactivateSound: null
-  - type: EggLayer
-    eggSpawn:
-    - id: MobMouse
-    hungerUsage: 20
-    eggLayAction: MouseMultiply
   - type: SolutionRegeneration
     solution: melee
     generated:

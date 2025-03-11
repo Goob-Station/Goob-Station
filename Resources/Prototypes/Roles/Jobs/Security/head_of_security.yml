@@ -14,13 +14,12 @@
       department: Security
       time: 54000 # 15 hrs
     - !type:OverallPlaytimeRequirement
-      time: 144000 #40 hrs
+      time: 72000 # 20 hrs
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
   supervisors: job-supervisors-captain
   canBeAntag: false
-  goobcoins: 45 #Goob content
   access:
   - HeadOfSecurity
   - Command
@@ -32,6 +31,9 @@
   - External
   - Detective
   - Cryogenics
+  extendedAccess:
+  - Medical # ShibaStation - Added Medical to HoS access
+  - Chemistry # ShibaStation - Added Chemistry to HoS access
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

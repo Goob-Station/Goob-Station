@@ -2,7 +2,7 @@
   id: Kettle
   mapName: 'Kettle'
   mapPath: /Maps/_Goobstation/kettle.yml
-  minPlayers: 35
+  minPlayers: 15
   stations:
     Kettle:
       stationProto: StandardNanotrasenStation

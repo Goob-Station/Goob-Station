@@ -6,12 +6,11 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 36000 #10 hrs
+      time: 7200 # 2 hrs
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos
   canBeAntag: false
-  goobcoins: 30 #Goob content
   access:
   - Security
   - Brig
@@ -19,6 +18,9 @@
   - Service
   - External
   - Cryogenics
+  extendedAccess:
+  - Medical # ShibaStation - Added Medical to Security access
+  - Chemistry # ShibaStation - Added Chemistry to Security access
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

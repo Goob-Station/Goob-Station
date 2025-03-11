@@ -1,0 +1,465 @@
+# Screams
+
+- type: soundCollection
+  id: HarpyScreamsLikeMan
+  files:
+    - /Audio/Voice/Human/malescream_1.ogg
+    - /Audio/Voice/Human/malescream_2.ogg
+    - /Audio/Voice/Human/malescream_3.ogg
+    - /Audio/Voice/Human/malescream_4.ogg
+    - /Audio/Voice/Human/malescream_5.ogg
+    - /Audio/Voice/Human/malescream_6.ogg
+
+- type: soundCollection
+  id: HarpyScreamsLikeWoman
+  files:
+    - /Audio/Voice/Human/femalescream_1.ogg
+    - /Audio/Voice/Human/femalescream_2.ogg
+    - /Audio/Voice/Human/femalescream_3.ogg
+    - /Audio/Voice/Human/femalescream_4.ogg
+    - /Audio/Voice/Human/femalescream_5.ogg
+
+- type: soundCollection
+  id: HarpyScreamsLikeCat
+  files:
+    - /Audio/Nyanotrasen/Voice/Felinid/cat_scream1.ogg
+    - /Audio/Nyanotrasen/Voice/Felinid/cat_scream2.ogg
+    - /Audio/Nyanotrasen/Voice/Felinid/cat_scream3.ogg
+
+- type: soundCollection
+  id: HarpyScreamsLikeMonkey
+  files:
+    - /Audio/Animals/monkey_scream.ogg
+
+- type: soundCollection
+  id: HarpyScreamsLikeMoth
+  files:
+    - /Audio/Voice/Moth/moth_scream.ogg
+
+- type: soundCollection
+  id: HarpyScreamsLikeLizard
+  files:
+    - /Audio/Voice/Reptilian/reptilian_scream.ogg
+
+- type: soundCollection
+  id: HarpyScreamsLikeWilhelm
+  files:
+    - /Audio/Voice/Human/wilhelm_scream.ogg
+
+- type: soundCollection
+  id: HarpyScreamsLikeVox
+  files:
+    - /Audio/Voice/Vox/shriek1.ogg
+
+# Laughs
+
+- type: soundCollection
+  id: HarpyLaughsLikeMan
+  files:
+    - /Audio/Voice/Human/manlaugh1.ogg
+    - /Audio/Voice/Human/manlaugh2.ogg
+
+- type: soundCollection
+  id: HarpyLaughsLikeWoman
+  files:
+    - /Audio/Voice/Human/womanlaugh.ogg
+
+- type: soundCollection
+  id: HarpyLaughsLikeDiona
+  files:
+    - /Audio/Voice/Diona/diona_rustle1.ogg
+    - /Audio/Voice/Diona/diona_rustle2.ogg
+    - /Audio/Voice/Diona/diona_rustle3.ogg
+
+- type: soundCollection
+  id: HarpyLaughsLikeLizard
+  files:
+    - /Audio/Animals/lizard_happy.ogg
+
+- type: soundCollection
+  id: HarpyLaughsLikeFerret
+  files:
+    - /Audio/Animals/ferret_happy.ogg
+
+- type: soundCollection
+  id: HarpyLaughsLikeMoth
+  files:
+    - /Audio/Voice/Moth/moth_laugh.ogg
+
+- type: soundCollection
+  id: HarpyLaughsLikeVox
+  files:
+    - /Audio/Voice/Vox/vox_laugh.ogg
+
+- type: soundCollection
+  id: HarpyLaughsLikeCluwne
+  files:
+    - /Audio/Voice/Cluwne/cluwnelaugh1.ogg
+    - /Audio/Voice/Cluwne/cluwnelaugh2.ogg
+    - /Audio/Voice/Cluwne/cluwnelaugh3.ogg
+
+- type: soundCollection
+  id: HarpyLaughsLikeLaughtrack
+  files:
+    - /Audio/Items/Toys/sitcom_laugh.ogg
+    - /Audio/Items/Toys/sitcom_laugh2.ogg
+# Sighs
+
+- type: soundCollection
+  id: HarpySighsLikeMan
+  files:
+    - /Audio/Voice/Human/male_sigh.ogg
+
+- type: soundCollection
+  id: HarpySighsLikeWoman
+  files:
+    - /Audio/Voice/Human/female_sigh.ogg
+
+# Cries
+
+- type: soundCollection
+  id: HarpyCriesLikeMan
+  files:
+    - /Audio/Voice/Human/cry_male_1.ogg
+    - /Audio/Voice/Human/cry_male_2.ogg
+    - /Audio/Voice/Human/cry_male_3.ogg
+    - /Audio/Voice/Human/cry_male_4.ogg
+
+- type: soundCollection
+  id: HarpyCriesLikeWoman
+  files:
+    - /Audio/Voice/Human/cry_female_1.ogg
+    - /Audio/Voice/Human/cry_female_2.ogg
+    - /Audio/Voice/Human/cry_female_3.ogg
+    - /Audio/Voice/Human/cry_female_4.ogg
+
+# Coughs
+
+- type: soundCollection
+  id: HarpyCoughsLikeMan
+  files:
+    - /Audio/Voice/Human/male_cough_1.ogg
+    - /Audio/Voice/Human/male_cough_2.ogg
+
+- type: soundCollection
+  id: HarpyCoughsLikeWoman
+  files:
+    - /Audio/Voice/Human/female_cough_1.ogg
+    - /Audio/Voice/Human/female_cough_2.ogg
+
+# Sneezes
+
+- type: soundCollection
+  id: HarpySneezesLikeMan
+  files:
+    - /Audio/Voice/Human/male_sneeze_1.ogg
+
+- type: soundCollection
+  id: HarpySneezesLikeWoman
+  files:
+    - /Audio/Voice/Human/female_sneeze_1.ogg
+
+# Gasps
+
+- type: soundCollection
+  id: HarpyGaspsLikeMan
+  files:
+    - /Audio/Effects/Gasp/gasp_male1.ogg
+    - /Audio/Effects/Gasp/gasp_male2.ogg
+
+- type: soundCollection
+  id: HarpyGaspsLikeWoman
+  files:
+    - /Audio/Effects/Gasp/gasp_female1.ogg
+    - /Audio/Effects/Gasp/gasp_female2.ogg
+    - /Audio/Effects/Gasp/gasp_female3.ogg
+
+## Shared Emotes
+# Vulp/Dogs
+
+- type: soundCollection
+  id: HarpyVulpBarks
+  files:
+    - /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
+    - /Audio/_DV/Voice/Vulpkanin/dog_bark2.ogg
+    - /Audio/_DV/Voice/Vulpkanin/dog_bark3.ogg
+
+- type: soundCollection
+  id: HarpyVulpHowls
+  files:
+    - /Audio/_DV/Voice/Vulpkanin/howl.ogg
+
+- type: soundCollection
+  id: HarpyVulpGrowls
+  files:
+    - /Audio/_DV/Voice/Vulpkanin/dog_growl1.ogg
+    - /Audio/_DV/Voice/Vulpkanin/dog_growl2.ogg
+    - /Audio/_DV/Voice/Vulpkanin/dog_growl3.ogg
+    - /Audio/_DV/Voice/Vulpkanin/dog_growl4.ogg
+    - /Audio/_DV/Voice/Vulpkanin/dog_growl5.ogg
+    - /Audio/_DV/Voice/Vulpkanin/dog_growl6.ogg
+
+- type: soundCollection
+  id: HarpyVulpWhines
+  files:
+    - /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+
+- type: soundCollection
+  id: HarpyVulpSnarls
+  files:
+    - /Audio/_DV/Voice/Vulpkanin/dog_snarl1.ogg
+    - /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
+    - /Audio/_DV/Voice/Vulpkanin/dog_snarl3.ogg
+
+# Felinids/Cats
+
+- type: soundCollection
+  id: HarpyFelinidPurrs
+  files:
+    - /Audio/Nyanotrasen/Voice/Felinid/cat_purr1.ogg
+
+- type: soundCollection
+  id: HarpyFelinidHisses
+  files:
+    - /Audio/Nyanotrasen/Voice/Felinid/cat_hiss1.ogg
+    - /Audio/Nyanotrasen/Voice/Felinid/cat_hiss2.ogg
+
+- type: soundCollection
+  id: HarpyFelinidMeows
+  files:
+    - /Audio/Nyanotrasen/Voice/Felinid/cat_meow1.ogg
+    - /Audio/Nyanotrasen/Voice/Felinid/cat_meow2.ogg
+
+- type: soundCollection
+  id: HarpyFelinidMews
+  files:
+    - /Audio/Nyanotrasen/Voice/Felinid/cat_mew1.ogg
+    - /Audio/Nyanotrasen/Voice/Felinid/cat_mew2.ogg
+
+- type: soundCollection
+  id: HarpyGrowlsLikeCat
+  files:
+    - /Audio/Nyanotrasen/Voice/Felinid/cat_growl1.ogg
+
+## Sound Effects
+
+- type: soundCollection
+  id: HarpyHisses
+  files:
+    - /Audio/Nyanotrasen/Voice/Felinid/cat_hiss1.ogg
+    - /Audio/Nyanotrasen/Voice/Felinid/cat_hiss2.ogg
+    - /Audio/Weapons/ebladeon.ogg
+    - /Audio/Weapons/eblade1.ogg
+    - /Audio/Items/hiss.ogg
+    - /Audio/Items/hypospray.ogg
+    - /Audio/Items/ratchet.ogg
+    - /Audio/Items/welder.ogg
+    - /Audio/Machines/airlock_close.ogg
+    - /Audio/Machines/airlock_ext_close.ogg
+    - /Audio/Machines/airlock_ext_open.ogg
+    - /Audio/Machines/airlock_open.ogg
+    - /Audio/Machines/disposalflush.ogg
+    - /Audio/Machines/printer.ogg
+    - /Audio/Machines/windoor_open.ogg
+    - /Audio/Effects/spray.ogg
+    - /Audio/Effects/spray2.ogg
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_hiss1.ogg
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_hiss2.ogg
+
+- type: soundCollection
+  id: HarpyRings
+  files:
+    - /Audio/Items/ring.ogg
+
+- type: soundCollection
+  id: HarpyDings
+  files:
+    - /Audio/Items/desk_bell_ring.ogg
+
+- type: soundCollection
+  id: HarpyHonks
+  files:
+    - /Audio/Items/bikehorn.ogg
+
+- type: soundCollection
+  id: HarpyPews
+  files:
+    - /Audio/Weapons/Guns/Gunshots/silenced.ogg
+    - /Audio/Weapons/Guns/Gunshots/taser.ogg
+    - /Audio/Weapons/Guns/Gunshots/taser2.ogg
+    - /Audio/Weapons/Guns/Gunshots/laser.ogg
+    - /Audio/Weapons/Guns/Gunshots/laser3.ogg
+    - /Audio/Weapons/emitter.ogg
+    - /Audio/Effects/Arcade/player_attack.ogg
+    - /Audio/Effects/Arcade/player_charge.ogg
+    - /Audio/Effects/Arcade/player_heal.ogg
+    - /Audio/Magic/staff_animation.ogg
+    - /Audio/Magic/staff_change.ogg
+    - /Audio/Magic/staff_chaos.ogg
+    - /Audio/Magic/staff_door.ogg
+    - /Audio/Magic/staff_healing.ogg
+
+- type: soundCollection
+  id: HarpyBangs
+  files:
+    - /Audio/Weapons/Guns/Gunshots/atreides.ogg
+    - /Audio/Weapons/Guns/Gunshots/bang.ogg
+    - /Audio/Weapons/Guns/Gunshots/mk58.ogg
+    - /Audio/Weapons/Guns/Gunshots/pistol.ogg
+    - /Audio/Weapons/Guns/Gunshots/c-20r.ogg
+    - /Audio/Items/snap.ogg
+    - /Audio/Machines/blastdoor.ogg
+    - /Audio/Machines/machine_vend.ogg
+    - /Audio/Magic/disintegrate.ogg
+    - /Audio/Magic/fireball.ogg
+    - /Audio/Magic/forcewall.ogg
+    - /Audio/Magic/knock.ogg
+
+- type: soundCollection
+  id: HarpyBangsLikeGun
+  files:
+    - /Audio/Weapons/Guns/Gunshots/atreides.ogg
+    - /Audio/Weapons/Guns/Gunshots/mk58.ogg
+    - /Audio/Weapons/Guns/Gunshots/pistol.ogg
+    - /Audio/Weapons/Guns/Gunshots/c-20r.ogg
+    - /Audio/Weapons/Guns/Gunshots/bang.ogg
+
+- type: soundCollection
+  id: HarpyBeeps
+  files:
+    - /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
+    - /Audio/Items/beep.ogg
+    - /Audio/Items/flashlight_pda.ogg
+    - /Audio/Items/locator_beep.ogg
+    - /Audio/Items/toolbox_drop.ogg
+    - /Audio/Items/Defib/defib_charge.ogg
+    - /Audio/Items/Defib/defib_ready.ogg
+    - /Audio/Items/Defib/defib_safety_off.ogg
+    - /Audio/Items/Defib/defib_safety_on.ogg
+    - /Audio/Items/Medical/healthscanner.ogg
+    - /Audio/Effects/RingtoneNotes/a.ogg
+    - /Audio/Effects/RingtoneNotes/asharp.ogg
+    - /Audio/Effects/RingtoneNotes/b.ogg
+    - /Audio/Effects/RingtoneNotes/c.ogg
+    - /Audio/Effects/RingtoneNotes/csharp.ogg
+    - /Audio/Effects/RingtoneNotes/d.ogg
+    - /Audio/Effects/RingtoneNotes/dsharp.ogg
+    - /Audio/Effects/RingtoneNotes/e.ogg
+    - /Audio/Effects/RingtoneNotes/f.ogg
+    - /Audio/Effects/RingtoneNotes/fsharp.ogg
+    - /Audio/Effects/RingtoneNotes/g.ogg
+    - /Audio/Effects/RingtoneNotes/gsharp.ogg
+    - /Audio/Effects/Arcade/gameover.ogg
+    - /Audio/Effects/Arcade/win.ogg
+    - /Audio/Machines/airlock_deny.ogg
+    - /Audio/Machines/alarm.ogg
+    - /Audio/Machines/beep.ogg
+    - /Audio/Machines/boltsdown.ogg
+    - /Audio/Machines/boltsup.ogg
+    - /Audio/Machines/custom_deny.ogg
+    - /Audio/Machines/high_tech_confirm.ogg
+    - /Audio/Machines/microwave_done_beep.ogg
+    - /Audio/Machines/scan_finish.ogg
+    - /Audio/Machines/vending_jingle.ogg
+
+- type: soundCollection
+  id: HarpyRevs
+  files:
+    - /Audio/Weapons/chainsawwield.ogg
+    - /Audio/Machines/blender.ogg
+    - /Audio/Machines/juicer.ogg
+    - /Audio/Machines/reclaimer_startup.ogg
+
+- type: soundCollection
+  id: HarpyBlends
+  files:
+    - /Audio/Machines/juicer.ogg
+
+- type: soundCollection
+  id: HarpyClicks
+  files:
+    - /Audio/Items/flashlight_off.ogg
+    - /Audio/Items/flashlight_on.ogg
+    - /Audio/Items/pistol_cock.ogg
+    - /Audio/Items/pistol_magin.ogg
+    - /Audio/Items/pistol_magout.ogg
+    - /Audio/Machines/door_lock_off.ogg
+    - /Audio/Machines/door_lock_on.ogg
+    - /Audio/Machines/id_swipe.ogg
+    - /Audio/Machines/machine_switch.ogg
+    - /Audio/Machines/screwdriveropen.ogg
+
+- type: soundCollection
+  id: HarpyChitters
+  files:
+    - /Audio/Voice/Moth/moth_chitter.ogg
+
+- type: soundCollection
+  id: HarpySqueaks
+  files:
+    - /Audio/Voice/Moth/moth_squeak.ogg
+    - /Audio/Animals/mouse_squeak.ogg
+
+- type: soundCollection
+  id: HarpySqueaksLikeMoth
+  files:
+    - /Audio/Voice/Moth/moth_squeak.ogg
+
+- type: soundCollection
+  id: HarpySqueaksLikeMouse
+  files:
+    - /Audio/Animals/mouse_squeak.ogg
+
+- type: soundCollection
+  id: HarpyCaws
+  files:
+    - /Audio/_DV/Voice/Harpy/caw1.ogg
+
+- type: soundCollection
+  id: HarpyChirps
+  files:
+    - /Audio/_DV/Voice/Harpy/chirp1.ogg
+    - /Audio/Voice/Talk/pai.ogg
+    - /Audio/Voice/Talk/pai_ask.ogg
+    - /Audio/Voice/Talk/pai_exclaim.ogg
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_chirp1.ogg
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_chirp2.ogg
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_chirp3.ogg
+    - /Audio/Animals/nymph_chirp.ogg
+
+- type: soundCollection
+  id: HarpyRawrs
+  files:
+    - /Audio/Items/Toys/rawr.ogg
+
+- type: soundCollection
+  id: HarpySquishes
+  files:
+    - /Audio/Effects/Fluids/blood1.ogg
+    - /Audio/Effects/Fluids/blood2.ogg
+    - /Audio/Effects/Fluids/splat.ogg
+    - /Audio/Effects/Footsteps/gib_step.ogg
+    - /Audio/Voice/Slime/slime_squish.ogg
+    - /Audio/Effects/gib1.ogg
+    - /Audio/Effects/gib2.ogg
+    - /Audio/Effects/gib3.ogg
+
+- type: soundCollection
+  id: HarpyPings
+  files:
+    - /Audio/Effects/beep1.ogg
+    - /Audio/Effects/chime.ogg
+    - /Audio/Effects/voteding.ogg
+
+- type: soundCollection
+  id: HarpyTrills
+  files:
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_trill1.ogg
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_trill2.ogg
+
+- type: soundCollection
+  id: HarpyRattles
+  files:
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_rattle1.ogg
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_rattle2.ogg
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_rattle3.ogg

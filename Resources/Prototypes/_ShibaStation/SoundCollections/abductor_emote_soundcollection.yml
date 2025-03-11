@@ -1,0 +1,9 @@
+- type: soundCollection
+  id: AbductorLaugh
+  files:
+    - /Audio/_ShibaStation/Voice/Abductor/laugh.ogg
+
+- type: soundCollection
+  id: AbductorScream
+  files:
+    - /Audio/_ShibaStation/Voice/Abductor/scream.ogg

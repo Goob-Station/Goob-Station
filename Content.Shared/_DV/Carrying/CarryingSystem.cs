@@ -67,6 +67,7 @@ public sealed class CarryingSystem : EntitySystem
         SubscribeLocalEvent<BeingCarriedComponent, StrappedEvent>(OnDrop);
         SubscribeLocalEvent<BeingCarriedComponent, UnstrappedEvent>(OnDrop);
         SubscribeLocalEvent<BeingCarriedComponent, EscapeInventoryEvent>(OnDrop);
+        SubscribeLocalEvent<BeingCarriedComponent, MoveInputEvent>(OnMoveInput);
         SubscribeLocalEvent<CarriableComponent, CarryDoAfterEvent>(OnDoAfter);
     }
 
@@ -195,13 +196,47 @@ public sealed class CarryingSystem : EntitySystem
 
     private void OnDrop<TEvent>(Entity<BeingCarriedComponent> ent, ref TEvent args) // Augh
     {
+        // If this is an escape attempt, let the escape system handle it
+        if (args is EscapeInventoryEvent escapeEvent)
+        {
+            if (escapeEvent.Handled)
+            {
+                // Only drop if the escape was successful
+                DropCarried(ent.Comp.Carrier, ent);
+            }
+            return;
+        }
+
         DropCarried(ent.Comp.Carrier, ent);
+    }
+
+    private void OnMoveInput(Entity<BeingCarriedComponent> ent, ref MoveInputEvent args)
+    {
+        // If they have CanEscapeInventory and try to move, initiate escape attempt
+        if (!TryComp<CanEscapeInventoryComponent>(ent, out var escapeComp))
+            return;
+
+        if (!args.HasDirectionalMovement || escapeComp.IsEscaping)
+            return;
+
+        // Start the escape attempt
+        var carrier = ent.Comp.Carrier;
+        EntityManager.EntitySysManager.GetEntitySystem<SharedEscapeInventorySystem>().AttemptEscape(ent, carrier, escapeComp);
     }
 
     private void OnDoAfter(Entity<CarriableComponent> ent, ref CarryDoAfterEvent args)
     {
-        if (args.Handled || args.Cancelled)
+        if (args.Handled)
             return;
+
+        // If cancelled, make sure we clean up any lingering state
+        if (args.Cancelled)
+        {
+            if (TryComp<BeingCarriedComponent>(ent, out var carried))
+                DropCarried(carried.Carrier, ent);
+            args.Handled = true;
+            return;
+        }
 
         if (!CanCarry(args.Args.User, ent))
             return;

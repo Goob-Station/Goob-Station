@@ -5,6 +5,12 @@
   setPreference: true
   objective: roles-antag-thief-objective
   guides: [ Thieves ]
+  requirements: # ShibaStation - Antag Playtime Requirements
+  - !type:OverallPlaytimeRequirement
+    time: 36000 # 10 hours
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 18000 # 5 hours
 
 - type: startingGear
   id: ThiefGear

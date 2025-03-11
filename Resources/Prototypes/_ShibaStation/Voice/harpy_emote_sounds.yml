@@ -1,0 +1,335 @@
+- type: emoteSounds
+  id: SoundsHarpyFemale
+  params:
+    variation: 0.125
+  sounds:
+    # Screams
+    Scream:
+      collection: HarpyScreamsLikeWoman
+    HarpyScreamsLikeMan:
+      collection: HarpyScreamsLikeMan
+    HarpyScreamsLikeWoman:
+      collection: HarpyScreamsLikeWoman
+    HarpyScreamsLikeCat:
+      collection: HarpyScreamsLikeCat
+    HarpyScreamsLikeMonkey:
+      collection: HarpyScreamsLikeMonkey
+    HarpyScreamsLikeMoth:
+      collection: HarpyScreamsLikeMoth
+    HarpyScreamsLikeLizard:
+      collection: HarpyScreamsLikeLizard
+    HarpyScreamsLikeVox:
+      collection: HarpyScreamsLikeVox
+    HarpyScreamsLikeWilhelm:
+      collection: HarpyScreamsLikeWilhelm
+    # Laughs
+    Laugh:
+      collection: HarpyLaughsLikeWoman
+    HarpyLaughsLikeMan:
+      collection: HarpyLaughsLikeMan
+    HarpyLaughsLikeWoman:
+      collection: HarpyLaughsLikeWoman
+    HarpyLaughsLikeMoth:
+      collection: HarpyLaughsLikeMoth
+    HarpyLaughsLikeLizard:
+      collection: HarpyLaughsLikeLizard
+    HarpyLaughsLikeFerret:
+      collection: HarpyLaughsLikeFerret
+    HarpyLaughsLikeDiona:
+      collection: HarpyLaughsLikeDiona
+    HarpyLaughsLikeVox:
+      collection: HarpyLaughsLikeVox
+    HarpyLaughsLikeCluwne:
+      collection: HarpyLaughsLikeCluwne
+    HarpyLaughsLikeLaughtrack:
+      collection: HarpyLaughsLikeLaughtrack
+    # Sighs
+    Sigh:
+      collection: HarpySighsLikeWoman
+    HarpySighsLikeMan:
+      collection: HarpySighsLikeMan
+    HarpySighsLikeWoman:
+      collection: HarpySighsLikeWoman
+    # Crying
+    Crying:
+      collection: HarpyCriesLikeWoman
+    HarpyCriesLikeMan:
+      collection: HarpyCriesLikeMan
+    HarpyCriesLikeWoman:
+      collection: HarpyCriesLikeWoman
+    # Sneezes
+    Sneeze:
+      collection: HarpySneezesLikeWoman
+    HarpySneezesLikeMan:
+      collection: HarpySneezesLikeMan
+    HarpySneezesLikeWoman:
+      collection: HarpySneezesLikeWoman
+    # Coughs
+    Cough:
+      collection: HarpyCoughsLikeWoman
+    HarpyCoughsLikeMan:
+      collection: HarpyCoughsLikeMan
+    HarpyCoughsLikeWoman:
+      collection: HarpyCoughsLikeWoman
+    # Gasp
+    Gasp:
+      collection: HarpyGaspsLikeWoman
+    HarpyGaspsLikeMan:
+      collection: HarpyGaspsLikeMan
+    HarpyGaspsLikeWoman:
+      collection: HarpyGaspsLikeWoman
+    # Default Death Gasp
+    DefaultDeathgasp:
+      collection: FemaleDeathGasp
+    ## Shared Namespace Emotes
+    Bark:
+      collection: HarpyVulpBarks
+    Howl:
+      collection: HarpyVulpHowls
+    Growl:
+      collection: HarpyVulpGrowls
+    Snarl:
+      collection: HarpyVulpSnarls
+    Whine:
+      collection: HarpyVulpWhines
+    Meow:
+      collection: HarpyFelinidMeows
+    Mew:
+      collection: HarpyFelinidMews
+    Hiss:
+      collection: HarpyFelinidHisses
+    Purr:
+      collection: HarpyFelinidPurrs
+    Chirp:
+      collection: HarpyChirps
+    Beep:
+      collection: HarpyBeeps
+    Click:
+      collection: HarpyClicks
+    Ping:
+      collection: HarpyPings
+    Honk:
+      collection: HarpyHonks
+    Chitter:
+      collection: HarpyChitters
+    Squeak:
+      collection: HarpySqueaks
+    Squish:
+      collection: HarpySquishes
+    ## Animal Specific Sounds (Not In Shared)
+    HarpyGrowlsLikeCat:
+      collection: HarpyGrowlsLikeCat
+    HarpySqueaksLikeMoth:
+      collection: HarpySqueaksLikeMoth
+    HarpySqueaksLikeMouse:
+      collection: HarpySqueaksLikeMouse
+    ## Sound Effects
+    # Bang
+    HarpyBangs:
+      collection: HarpyBangs
+    HarpyBangsLikeGun:
+      collection: HarpyBangsLikeGun
+    # Pews
+    HarpyPews:
+      collection: HarpyPews
+    # Rings
+    HarpyRings:
+      collection: HarpyRings
+    # Ding
+    HarpyDings:
+      collection: HarpyDings
+    # Rev
+    HarpyRevs:
+      collection: HarpyRevs
+    # Blend
+    HarpyBlends:
+      collection: HarpyBlends
+    # Caw
+    HarpyCaws:
+      collection: HarpyCaws
+    # Rawr
+    HarpyRawrs:
+      collection: HarpyRawrs
+    # Weh
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    # Floof Emotes
+    Gekker:
+      collection: VulpkaninGekker
+    Yip:
+      collection: LizardYip
+    # ShibaStation Emotes
+    Trill:
+      collection: ReptilianTrills
+    Rattle:
+      collection: ReptilianRattles
+
+- type: emoteSounds
+  id: SoundsHarpyMale
+  params:
+    variation: 0.125
+  sounds:
+    # Screams
+    Scream:
+      collection: HarpyScreamsLikeMan
+    HarpyScreamsLikeMan:
+      collection: HarpyScreamsLikeMan
+    HarpyScreamsLikeWoman:
+      collection: HarpyScreamsLikeWoman
+    HarpyScreamsLikeCat:
+      collection: HarpyScreamsLikeCat
+    HarpyScreamsLikeMonkey:
+      collection: HarpyScreamsLikeMonkey
+    HarpyScreamsLikeMoth:
+      collection: HarpyScreamsLikeMoth
+    HarpyScreamsLikeLizard:
+      collection: HarpyScreamsLikeLizard
+    HarpyScreamsLikeVox:
+      collection: HarpyScreamsLikeVox
+    HarpyScreamsLikeWilhelm:
+      collection: HarpyScreamsLikeWilhelm
+    # Laughs
+    Laugh:
+      collection: HarpyLaughsLikeMan
+    HarpyLaughsLikeMan:
+      collection: HarpyLaughsLikeMan
+    HarpyLaughsLikeWoman:
+      collection: HarpyLaughsLikeWoman
+    HarpyLaughsLikeMoth:
+      collection: HarpyLaughsLikeMoth
+    HarpyLaughsLikeLizard:
+      collection: HarpyLaughsLikeLizard
+    HarpyLaughsLikeFerret:
+      collection: HarpyLaughsLikeFerret
+    HarpyLaughsLikeDiona:
+      collection: HarpyLaughsLikeDiona
+    HarpyLaughsLikeVox:
+      collection: HarpyLaughsLikeVox
+    HarpyLaughsLikeCluwne:
+      collection: HarpyLaughsLikeCluwne
+    HarpyLaughsLikeLaughtrack:
+      collection: HarpyLaughsLikeLaughtrack
+    # Sighs
+    Sigh:
+      collection: HarpySighsLikeMan
+    HarpySighsLikeMan:
+      collection: HarpySighsLikeMan
+    HarpySighsLikeWoman:
+      collection: HarpySighsLikeWoman
+    # Crying
+    Crying:
+      collection: HarpyCriesLikeMan
+    HarpyCriesLikeMan:
+      collection: HarpyCriesLikeMan
+    HarpyCriesLikeWoman:
+      collection: HarpyCriesLikeWoman
+    # Sneezes
+    Sneeze:
+      collection: HarpySneezesLikeMan
+    HarpySneezesLikeMan:
+      collection: HarpySneezesLikeMan
+    HarpySneezesLikeWoman:
+      collection: HarpySneezesLikeWoman
+    # Coughs
+    Cough:
+      collection: HarpyCoughsLikeMan
+    HarpyCoughsLikeMan:
+      collection: HarpyCoughsLikeMan
+    HarpyCoughsLikeWoman:
+      collection: HarpyCoughsLikeWoman
+    # Gasp
+    Gasp:
+      collection: HarpyGaspsLikeMan
+    HarpyGaspsLikeMan:
+      collection: HarpyGaspsLikeMan
+    HarpyGaspsLikeWoman:
+      collection: HarpyGaspsLikeWoman
+    # Default Death Gasp
+    DefaultDeathgasp:
+      collection: MaleDeathGasp
+    ## Shared Namespace Emotes
+    Bark:
+      collection: HarpyVulpBarks
+    Howl:
+      collection: HarpyVulpHowls
+    Growl:
+      collection: HarpyVulpGrowls
+    Snarl:
+      collection: HarpyVulpSnarls
+    Whine:
+      collection: HarpyVulpWhines
+    Meow:
+      collection: HarpyFelinidMeows
+    Mew:
+      collection: HarpyFelinidMews
+    Hiss:
+      collection: HarpyFelinidHisses
+    Purr:
+      collection: HarpyFelinidPurrs
+    Chirp:
+      collection: HarpyChirps
+    Beep:
+      collection: HarpyBeeps
+    Click:
+      collection: HarpyClicks
+    Ping:
+      collection: HarpyPings
+    Honk:
+      collection: HarpyHonks
+    Chitter:
+      collection: HarpyChitters
+    Squeak:
+      collection: HarpySqueaks
+    Squish:
+      collection: HarpySquishes
+    ## Animal Specific Sounds (Not In Shared)
+    HarpyGrowlsLikeCat:
+      collection: HarpyGrowlsLikeCat
+    HarpySqueaksLikeMoth:
+      collection: HarpySqueaksLikeMoth
+    HarpySqueaksLikeMouse:
+      collection: HarpySqueaksLikeMouse
+    ## Sound Effects
+    # Bang
+    HarpyBangs:
+      collection: HarpyBangs
+    HarpyBangsLikeGun:
+      collection: HarpyBangsLikeGun
+    # Pews
+    HarpyPews:
+      collection: HarpyPews
+    # Rings
+    HarpyRings:
+      collection: HarpyRings
+    # Ding
+    HarpyDings:
+      collection: HarpyDings
+    # Rev
+    HarpyRevs:
+      collection: HarpyRevs
+    # Blend
+    HarpyBlends:
+      collection: HarpyBlends
+    # Caw
+    HarpyCaws:
+      collection: HarpyCaws
+    # Rawr
+    HarpyRawrs:
+      collection: HarpyRawrs
+    # Weh
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    # Floof Emotes
+    Gekker:
+      collection: VulpkaninGekker
+    Yip:
+      collection: LizardYip
+    # ShibaStation Emotes
+    Trill:
+      collection: ReptilianTrills
+    Rattle:
+      collection: ReptilianRattles

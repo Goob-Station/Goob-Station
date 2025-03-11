@@ -103,7 +103,8 @@
   - greenshift
   - shittersafarideluxeedition
   name: greenshift-title
-  showInVote: false #4boring4vote
+  showInVote: true # zero pop easy mode, higher pop admin only
+  maxPlayers: 5
   description: greenshift-description
   rules:
   - SpaceTrafficControlFriendlyEventScheduler
@@ -116,7 +117,7 @@
     - secret
     - sekrit
   name: secret-title
-  showInVote: false # Goob - Game Director
+  showInVote: true # Goob - Game Director # ShibaStation - waiting to see how the director works before moving to it ourselves.
   description: secret-description
   rules:
     - Secret
@@ -184,7 +185,7 @@
     - dm
   name: death-match-title
   description: death-match-description
-  maxPlayers: 15
+  maxPlayers: 10
   showInVote: true
   supportedMaps: DeathMatchMapPool
   rules:

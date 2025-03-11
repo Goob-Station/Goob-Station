@@ -2,7 +2,7 @@
   id: Fland
   mapName: 'Fland Installation'
   mapPath: /Maps/_Goobstation/fland.yml # Goobstation - SM
-  minPlayers: 40 # Goobstation return minPlayers requirement for maps
+  minPlayers: 25 # Goobstation return minPlayers requirement for maps
   maxPlayers: 85 # Goobstation - Limit mappool to highpop versions of maps only
   stations:
     Fland:

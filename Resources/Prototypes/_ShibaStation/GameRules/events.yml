@@ -1,0 +1,64 @@
+- type: entity
+  id: Category1VentSpawn
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/_ShibaStation/Announcements/vent-1-safe.ogg
+    earliestStart: 10
+    weight: 6
+    duration: 50
+    reoccurrenceDelay: 20
+  - type: VentCrittersRule
+    entries:
+    - id: MobMouse
+      prob: 0.0067
+    - id: MobMouse1
+      prob: 0.0067
+    - id: MobMouse2
+      prob: 0.0067
+    - id: MobMouseCancer
+      prob: 0.00033
+    - id: MobCockroach
+      prob: 0.01
+    - id: MobMothroach
+      prob: 0.0027
+    - id: MobSnouse # ShibaStation - hehe snouse
+      prob: 0.0027
+    - id: MobLootbug # Goobstation
+      prob: 0.0027 # ShibaStation - Reduced from 0.01 to 0.008 - felt way too common.
+    - id: MobSnail
+      prob: 0.0067
+    - id: MobSnailSpeed
+      prob: 0.00067
+    - id: MobSnailMoth
+      prob: 0.00067
+
+- type: entity
+  id: Category3VentSpawn
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/_ShibaStation/Announcements/vent-3-hostile.ogg
+    earliestStart: 30
+    minimumPlayers: 12
+    weight: 1
+    duration: 60
+    reoccurrenceDelay: 45
+  - type: VentCrittersRule
+    entries:
+    - id: MobAdultSlimesBlueAngry
+      prob: 0.0033
+    - id: MobAdultSlimesGreenAngry
+      prob: 0.0033
+    - id: MobAdultSlimesYellowAngry
+      prob: 0.0033
+    - id: MobPurpleSnake
+      prob: 0.01
+    - id: MobSmallPurpleSnake
+      prob: 0.01
+    - id: MobGiantSpiderAngry
+      prob: 0.0233

@@ -2,27 +2,29 @@
   id: DefaultMapPool
   maps:
   - Atlas
-  #- Amber TODO: goob amber
-  - Bagel
-  - Box
+  - Amber
+  # - Bagel
+  # - Box
   - Cluster
-  - Core
-  - Fland
- # - Gate Goobstation - My name is Walter Hartwell White, I live at 2308 Negra alloya line albequrque new mexico.
-  - Loop
-  - Marathon
-  - Meta
-  - Oasis
+  # - Cog # Goobstation - cog is broken
+  # - Core
+  # - Fland
+  # - Gate
+  # - Loop # ShibaStation - Loop is cringe
+  # - Marathon
+  # - Meta
+  # - Oasis # ShibaStation - Oasis is broken sad face
   - Omega
-  - Origin
+  # - Origin
   - Saltern
   - Packed
-  - Reach
-#  - Train # Goobstation - all my friends hate train
-  - FlandHighPop
-  - OasisHighPop
-  - Barratry # Goobstation - Re-add barratry
-  - Kettle # Goobstation - Re-add kettle (before it was gemini!)
-  - Submarine # goobstation - kill yourse
-  - Leonid # Goobstation - for goob by goob
-  - Delta # Goobstation - ported from Corvax
+  # - Reach # ShibaStation - FUCK REACH FUCK REACH FUCK REACH
+  # - Train # Goobstation - all my friends hate train
+  # - FlandHighPop
+  # - OasisHighPop
+  # - Barratry # Goobstation - Re-add barratry
+  # - Kettle # Goobstation - Re-add kettle (before it was gemini!)
+  # - Submarine # goobstation - kill yourself
+  # - Leonid # Goobstation - for goob by goob
+  - Delta
+  - Elkridge # ShibaStation - Elkridge

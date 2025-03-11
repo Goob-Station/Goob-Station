@@ -3,3 +3,9 @@
   name: roles-antag-dragon-name
   antagonist: true
   objective: roles-antag-dragon-objective
+  requirements: # ShibaStation - Antag Playtime Requirements
+  - !type:OverallPlaytimeRequirement
+    time: 72000 # 20 hours
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 36000 # 10 hours

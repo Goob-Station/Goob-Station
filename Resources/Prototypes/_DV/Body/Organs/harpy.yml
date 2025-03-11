@@ -12,14 +12,14 @@
   - type: Organ
     slotId: lungs
   - type: Metabolizer
-    updateInterval: 2.0
+    # updateInterval: 2.0 # ShibaStation - Should stop harpies from choking on their own CO2
     removeEmpty: true
     solutionOnBody: false
     solution: "Lung"
     metabolizerTypes: [ Human ]
     groups:
     - id: Gas
-      rateModifier: 200.0
+      rateModifier: 100.0
   - type: SolutionContainerManager
     solutions:
       organ:

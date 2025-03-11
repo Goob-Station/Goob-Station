@@ -150,7 +150,7 @@ ghost-role-information-skeleton-biker-name = Skeleton Biker
 ghost-role-information-skeleton-biker-description = Ride around on your sweet ride.
 
 ghost-role-information-closet-skeleton-name = Closet Skeleton
-ghost-role-information-closet-skeleton-description = You are arguably one of the oldest members of the station! Get your old job back, or cause chaos! The world is yours to shape.
+ghost-role-information-closet-skeleton-description = You are arguably one of the oldest members of the station! Get your old job back, or that overdue promotion! Your NanoTrasen contract is still valid.
 
 ghost-role-information-remilia-name = Remilia, the Chaplain's Familiar
 ghost-role-information-remilia-description = Follow and obey the chaplain. Eat fruit. Screech loudly into people's ears and write it off as echolocation.
@@ -198,7 +198,7 @@ ghost-role-information-hellspawn-description = Bring death to those who do not f
 # Goob Station - Deathsquad Revamp
 
 ghost-role-information-Death-Squad-name = Death Squad Operative
-ghost-role-information-Death-Squad-description = We need the Nanotrasen Representative alive to tell us what happened. The rest? Well... they're witnesses.
+ghost-role-information-Death-Squad-description = We need the NanoTrasen Representative alive to tell us what happened. The rest? Well... they're witnesses.
 ghost-role-information-Death-Squad-rules = Your objectives are simple: [color=red][bold]Terminate[/bold][/color] everyone who isn't Central Command staff. Executive orders may change this.
 
 ghost-role-information-SyndiCat-name = SyndiCat

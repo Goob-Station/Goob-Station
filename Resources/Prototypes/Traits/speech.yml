@@ -5,12 +5,13 @@
   name: trait-accentless-name
   description: trait-accentless-desc
   category: SpeechTraits
-  cost: 2
   components:
   - type: Accentless
     removes:
     - type: LizardAccent
     - type: MothAccent
+    - type: FelinidAccent # ShibaStation - removes the funny meow meow
+    - type: RodentiaAccent # ShibaStation - removes the funny mouse squeaks
     - type: ReplacementAccent
       accent: dwarf
 
@@ -51,7 +52,7 @@
   category: SpeechTraits
   cost: 1
   components:
-  - type: GermanAccent
+  - type: GermanDeluxeAccent # Replaced the cringe WizDen one with the superior Shiba one :rizz:
 
 - type: trait
   id: ItalianAccent
@@ -60,8 +61,7 @@
   category: SpeechTraits
   cost: 1
   components:
-  - type: ReplacementAccent
-    accent: italian
+  - type: ItalianDeluxeAccent # Replaced the cringe WizDen one with the superior Shiba one :rizz:
 
 - type: trait
   id: FrenchAccent

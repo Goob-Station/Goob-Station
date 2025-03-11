@@ -1,0 +1,12 @@
+- type: entity
+  parent: IDCardStandard
+  id: MailIDCard
+  name: mail carrier ID card
+  components:
+  - type: Sprite
+    sprite: _ShibaStation/Objects/Misc/id_cards.rsi
+    layers:
+    - state: default
+    - state: idmailcarrier
+  - type: PresetIdCard
+    job: MailCarrier

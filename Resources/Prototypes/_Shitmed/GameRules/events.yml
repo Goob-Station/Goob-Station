@@ -3,14 +3,12 @@
   id: LoneAbductorSpawn
   components:
   - type: StationEvent
-    earliestStart: 15
+    earliestStart: 35
     reoccurrenceDelay: 45
-    weight: 7.5
-    minimumPlayers: 10
+    weight: 1.5 # ShibaStation - make them way less common
+    minimumPlayers: 20 # ShibaStation - increased pop requirement. it's fun to have them around and they aren't a *threat* but they can seriously disrupt a low pop station in a negative way (unintentionally, it's just a symptom of low pop)
     duration: 1
-    chaos: # Goobstation
-      Hostile: 75
-      Medical: 75
+    maxOccurrences: 1 # can only happen once per round
   - type: RuleGrids
   - type: LoadMapRule
     mapPath: /Maps/_Shitmed/Shuttles/ShuttleEvent/abductor_shuttle.yml
@@ -97,10 +95,10 @@
   id: DuoAbductorSpawn
   components:
   - type: StationEvent
-    earliestStart: 15
+    earliestStart: 35 # ShibaStation - later start time
     reoccurrenceDelay: 45
-    weight: 7.5
-    minimumPlayers: 20
+    weight: 1.5 # ShibaStation - make them way less common
+    minimumPlayers: 25 # ShibaStation - increased pop requirement. it's fun to have them around and they aren't a *threat* but they can seriously disrupt a low pop station in a negative way (unintentionally, it's just a symptom of low pop)
     duration: 1
     chaos: # Goobstation
       Hostile: 150

@@ -181,24 +181,27 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
 
-- type: artifactEffect
-  id: EffectSentience
-  targetDepth: 3
-  effectHint: artifact-effect-hint-sentience
-  permanentComponents:
-  - type: GhostRole
-    allowMovement: true
-    allowSpeech: true
-    makeSentient: true
-    name: ghost-role-information-artifact-name
-    description: ghost-role-information-artifact-description
-    rules: ghost-role-information-freeagent-rules
-    raffle:
-      settings: default
-  - type: GhostTakeoverAvailable
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 0.25
-    baseSprintSpeed: 0.5
+# - type: artifactEffect # ShibaStation - Disabled; free shitter ticket, hate it.
+#   id: EffectSentience
+#   targetDepth: 3
+#   effectHint: artifact-effect-hint-sentience
+#   permanentComponents:
+#   - type: GhostRole
+#     allowMovement: true
+#     allowSpeech: true
+#     makeSentient: true
+#     name: ghost-role-information-artifact-name
+#     description: ghost-role-information-artifact-description
+#     rules: ghost-role-information-freeagent-rules
+#     raffle:
+#       settings: default
+#     requirements: # ShibaStation - Antag Playtime Requirements
+#     - !type:OverallPlaytimeRequirement
+#       time: 72000 # 20 hours
+#   - type: GhostTakeoverAvailable
+#   - type: MovementSpeedModifier
+#     baseWalkSpeed: 0.25
+#     baseSprintSpeed: 0.5
 
 - type: artifactEffect
   id: EffectMultitool

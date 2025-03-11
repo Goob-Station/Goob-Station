@@ -1,8 +1,8 @@
 - type: gameMap
   id: Atlas
   mapName: Atlas
-  mapPath: /Maps/_Goobstation/atlas.yml
-  minPlayers: 5
+  mapPath: /Maps/_ShibaStation/atlas.yml
+  minPlayers: 0
   maxPlayers: 20
   stations:
     Atlas:
@@ -53,11 +53,14 @@
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 4, 4 ]
             CargoTechnician: [ 2, 2 ]
+            MailCarrier: [ 1, 1 ]
             #civillian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
+            Lawyer: [ 1, 1 ]
+            Reporter: [ 1, 1 ]
 
         # Goobstation blob-config-start SMALL+
         - type: StationBlobConfig

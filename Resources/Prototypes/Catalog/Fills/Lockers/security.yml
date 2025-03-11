@@ -26,8 +26,10 @@
       - id: BookSpaceLaw
       - id: ClothingBackpackElectropack
         amount: 2
-      - id: RemoteSignaller
+      - id: ClothingNeckShockCollar # ShibaStation - Hehe funny necklace
         amount: 2
+      - id: RemoteSignaller # ShibaStation - More clickers.
+        amount: 4
       - id: Multitool # Goobstation
       - id: Wrench # Goobstation
       - id: ContrabandDetectorFlatpack # Goobstation
@@ -58,8 +60,10 @@
       - id: BookSpaceLaw
       - id: ClothingBackpackElectropack
         amount: 2
-      - id: RemoteSignaller
+      - id: ClothingNeckShockCollar # ShibaStation - Hehe funny necklace
         amount: 2
+      - id: RemoteSignaller # ShibaStation - More clickers.
+        amount: 4
       - id: Binoculars
       - id: Multitool # Goobstation
       - id: Wrench # Goobstation

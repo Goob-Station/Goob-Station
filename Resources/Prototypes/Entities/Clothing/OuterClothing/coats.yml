@@ -107,7 +107,7 @@
     sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
 
 - type: entity
-  parent: ClothingOuterStorageToggleableBase
+  parent: [ ClothingOuterStorageBase, ClothingOuterBaseToggleable ] # ShibaStation - FILTY DIRTY HACK FIX
   id: ClothingOuterCoatJensen
   name: jensen coat
   description: A jensen coat.

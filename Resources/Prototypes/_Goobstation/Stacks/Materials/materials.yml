@@ -10,5 +10,5 @@
   name: unprocessed bluespace crystal
   icon: { sprite: /Textures/_Goobstation/Objects/Materials/materials.rsi, state: bluespace_crystal }
   spawn: MaterialBSCrystal1Unprocessed
-  maxCount: 30
+  maxCount: 50 # Shibastation - Increased from 30 to 50.
 

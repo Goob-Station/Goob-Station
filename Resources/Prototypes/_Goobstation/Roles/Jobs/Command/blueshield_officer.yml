@@ -1,21 +1,18 @@
 - type: job
   id: BlueshieldOfficer
   name: Blueshield Officer
-  description: "Act as a bodyguard and advisor for Command and CentCom VIPs."
+  description: "Act as a bodyguard and advisor for Command and CentComm VIPs."
   playTimeTracker: JobBlueshieldOfficer
   requirements:
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 90000 # 25 hours
+      time: 72000 # 20 hrs
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 54000 # 15 hours
+      time: 36000 # 10 hrs
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 90000 # 25 hours
-    - !type:AgeRequirement
-      requiredAge: 21
-  goobcoins: 45
+      time: 54000 # 15 hrs
   weight: 20
   startingGear: BlueshieldOfficerGear
   icon: "JobIconBlueshield"
@@ -59,7 +56,7 @@
     belt: BlueShieldShieldFilled # I felt like einstein after figuring this out.
   storage:
     back:
-    - ClothingMaskGasSecurity 
+    - ClothingMaskGasSecurity
     - Flash
     - BluespaceLifelineImplanter
     - WeaponEnergyRevolver

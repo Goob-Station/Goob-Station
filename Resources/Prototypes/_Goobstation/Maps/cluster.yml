@@ -1,9 +1,9 @@
 - type: gameMap
   id: Cluster
   mapName: 'Cluster'
-  mapPath: /Maps/_Goobstation/cluster.yml
-  minPlayers: 10
-  maxPlayers: 35
+  mapPath: /Maps/_ShibaStation/cluster.yml
+  minPlayers: 0
+  maxPlayers: 25
   stations:
     Cluster:
       stationProto: StandardNanotrasenStation
@@ -56,6 +56,7 @@
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 5, 5 ]
             CargoTechnician: [ 2, 2 ]
+            MailCarrier: [ 1, 1 ]
             #civillian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]

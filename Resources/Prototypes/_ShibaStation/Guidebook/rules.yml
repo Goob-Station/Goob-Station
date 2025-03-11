@@ -1,0 +1,606 @@
+- type: guideEntry # Main page for the rules
+  id: DefaultRuleset
+  name: "ShibaStation Rules"
+  priority: 1
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/ShibaRules.xml"
+  children:
+  - ShibaCoreRules
+  - ShibaRoleplayRules
+  - ShibaJobExpectations
+  - SiliconRules
+
+- type: guideEntry #
+  id: ShibaCoreRules
+  name: "Core Rules"
+  priority: 1
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleCAll.xml"
+  children:
+  - ShibaRuleUA0
+  - ShibaRuleC1
+  - ShibaRuleC2
+  - ShibaRuleC3
+  - ShibaRuleC4
+  - ShibaRuleC5
+  - ShibaRuleC6
+  - ShibaRuleC7
+  - ShibaRuleC8
+  - ShibaRuleC9
+  - ShibaRuleC10
+  - ShibaRuleC11
+  - ShibaRuleC12
+  - ShibaRuleC13
+
+- type: guideEntry
+  id: ShibaRuleUA0
+  name: "Ultimate Authority 0"
+  ruleEntry: true
+  priority: 1
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleUA0Admins.xml"
+
+- type: guideEntry
+  id: ShibaRuleC1
+  name: "Core Rule 1"
+  ruleEntry: true
+  priority: 2
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC1Over18.xml"
+
+- type: guideEntry
+  id: ShibaRuleC2
+  name: "Core Rule 2"
+  ruleEntry: true
+  priority: 3
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC2EnglishOnly.xml"
+
+- type: guideEntry
+  id: ShibaRuleC3
+  name: "Core Rule 3"
+  ruleEntry: true
+  priority: 4
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC3DBAD.xml"
+
+- type: guideEntry
+  id: ShibaRuleC4
+  name: "Core Rule 4"
+  ruleEntry: true
+  priority: 5
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC4BeCivil.xml"
+
+- type: guideEntry
+  id: ShibaRuleC5
+  name: "Core Rule 5"
+  ruleEntry: true
+  priority: 6
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC5FunForAll.xml"
+
+- type: guideEntry
+  id: ShibaRuleC6
+  name: "Core Rule 6"
+  ruleEntry: true
+  priority: 7
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC6LightERP.xml"
+
+- type: guideEntry
+  id: ShibaRuleC7
+  name: "Core Rule 7"
+  ruleEntry: true
+  priority: 8
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC7Metacomms.xml"
+
+- type: guideEntry
+  id: ShibaRuleC8
+  name: "Core Rule 8"
+  ruleEntry: true
+  priority: 9
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC8BanEvasion.xml"
+
+- type: guideEntry
+  id: ShibaRuleC9
+  name: "Core Rule 9"
+  ruleEntry: true
+  priority: 10
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC9Multikey.xml"
+
+- type: guideEntry
+  id: ShibaRuleC10
+  name: "Core Rule 10"
+  ruleEntry: true
+  priority: 11
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC10Ahelp.xml"
+
+- type: guideEntry
+  id: ShibaRuleC11
+  name: "Core Rule 11"
+  ruleEntry: true
+  priority: 12
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC11AhelpThreats.xml"
+
+- type: guideEntry
+  id: ShibaRuleC12
+  name: "Core Rule 12"
+  ruleEntry: true
+  priority: 13
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC12CharacterNames.xml"
+
+- type: guideEntry
+  id: ShibaRuleC13
+  name: "Core Rule 13"
+  ruleEntry: true
+  priority: 14
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC13ICinOOC.xml"
+
+- type: guideEntry # Roleplay rules
+  id: ShibaRoleplayRules
+  name: "Roleplay Rules"
+  priority: 2
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleRAll.xml"
+  children:
+  - ShibaRuleR1
+  - ShibaRuleR2
+  - ShibaRuleR3
+  - ShibaRuleR4
+  - ShibaRuleR5-0
+  - ShibaRuleR5-1
+  - ShibaRuleR6
+  - ShibaRuleR7
+  - ShibaRuleR8
+  - ShibaRuleR9
+  - ShibaRuleR10
+  - ShibaRuleR11
+  - ShibaRuleR12
+
+- type: guideEntry
+  id: ShibaRuleR1
+  name: "Roleplay Rule 1"
+  ruleEntry: true
+  priority: 1
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR1JobExpectations.xml"
+  children:
+  - ShibaJobExpectations
+
+- type: guideEntry
+  id: ShibaRuleR2
+  name: "Roleplay Rule 2"
+  ruleEntry: true
+  priority: 2
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR2SiliconRules.xml"
+
+- type: guideEntry
+  id: ShibaRuleR3
+  name: "Roleplay Rule 3"
+  ruleEntry: true
+  priority: 3
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR3Familiars.xml"
+
+- type: guideEntry
+  id: ShibaRuleR4
+  name: "Roleplay Rule 4"
+  ruleEntry: true
+  priority: 4
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR4ReasonablePerson.xml"
+
+- type: guideEntry
+  id: ShibaRuleR5-0
+  name: "Roleplay Rule 5"
+  ruleEntry: true
+  priority: 5
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR5-0SelfAntag.xml"
+
+- type: guideEntry
+  id: ShibaRuleR5-1
+  name: "Roleplay Rule 5-1"
+  ruleEntry: true
+  priority: 5
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR5-1AcceptableCollateral.xml"
+
+- type: guideEntry
+  id: ShibaRuleR6
+  name: "Roleplay Rule 6"
+  ruleEntry: true
+  priority: 6
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR6NoEORG.xml"
+
+- type: guideEntry
+  id: ShibaRuleR7
+  name: "Roleplay Rule 7"
+  ruleEntry: true
+  priority: 7
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR7Metashield.xml"
+
+- type: guideEntry
+  id: ShibaRuleR8
+  name: "Roleplay Rule 8"
+  ruleEntry: true
+  priority: 8
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR8-0Escalation.xml"
+  children:
+  - ShibaRuleR8-1
+  - ShibaRuleR8-2
+
+- type: guideEntry
+  id: ShibaRuleR8-1
+  name: "Roleplay Rule 8-1"
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR8-1AnimalEscalation.xml"
+
+- type: guideEntry
+  id: ShibaRuleR8-2
+  name: "Roleplay Rule 8-2"
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR8-2ConflictTypes.xml"
+
+- type: guideEntry
+  id: ShibaRuleR9
+  name: "Roleplay Rule 9"
+  ruleEntry: true
+  priority: 9
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR9Arrivals.xml"
+
+- type: guideEntry
+  id: ShibaRuleR10
+  name: "Roleplay Rule 10"
+  ruleEntry: true
+  priority: 10
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR10Stalling.xml"
+
+- type: guideEntry
+  id: ShibaRuleR11
+  name: "Roleplay Rule 11"
+  ruleEntry: true
+  priority: 11
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR11Powergaming.xml"
+
+- type: guideEntry
+  id: ShibaRuleR12
+  name: "Roleplay Rule 12"
+  ruleEntry: true
+  priority: 12
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR12Validhunting.xml"
+
+- type: guideEntry # Job expectations
+  id: ShibaJobExpectations
+  name: "Job Expectations"
+  priority: 3
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/_JobExMain.xml"
+  children:
+  - ShibaJobExCommandBSO
+  - ShibaJobExCommandCaptain
+  - ShibaJobExCommandCE
+  - ShibaJobExCommandCMO
+  - ShibaJobExCommandHoP
+  - ShibaJobExCommandHoS
+  - ShibaJobExCommandNTRep
+  - ShibaJobExCommandQM
+  - ShibaJobExCommandRD
+  - ShibaJobExCargoMailCarrier
+  - ShibaJobExCargoSalvager
+  - ShibaJobExCargoTechnician
+  - ShibaJobExEngiAssistant
+  - ShibaJobExEngiAtmos
+  - ShibaJobExEngiEngineer
+  - ShibaJobExMedicalChemist
+  - ShibaJobExMedicalDoctor
+  - ShibaJobExMedicalIntern
+  - ShibaJobExMedicalParamedic
+  - ShibaJobExMedicalPsychologist
+  - ShibaJobExSciAssistant
+  - ShibaJobExSciScientist
+  - ShibaJobExSecurityCadet
+  - ShibaJobExSecurityDetective
+  - ShibaJobExSecurityOfficer
+  - ShibaJobExSecurityWarden
+  - ShibaJobExSiliconAI
+  - ShibaJobExSiliconBorg
+  - ShibaJobExCivilianAssistant
+  - ShibaJobExCivilianBartender
+  - ShibaJobExCivilianBotanist
+  - ShibaJobExCivilianBoxer
+  - ShibaJobExCivilianChaplain
+  - ShibaJobExCivilianChef
+  - ShibaJobExCivilianClown
+  - ShibaJobExCivilianJanitor
+  - ShibaJobExCivilianLawyer
+  - ShibaJobExCivilianLibrarian
+  - ShibaJobExCivilianMime
+  - ShibaJobExCivilianMusician
+  - ShibaJobExCivilianReporter
+  - ShibaJobExCivilianServiceWorker
+  - ShibaJobExCivilianZookeeper
+
+- type: guideEntry
+  id: ShibaJobExCommandBSO
+  ruleEntry: true
+  name: "Command - Blueshield Officer"
+  priority: 1
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExCommandBSO.xml"
+
+- type: guideEntry
+  id: ShibaJobExCommandCaptain
+  ruleEntry: true
+  name: "Command - Captain"
+  priority: 2
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExCommandCaptain.xml"
+
+- type: guideEntry
+  id: ShibaJobExCommandCE
+  ruleEntry: true
+  name: "Command - Chief Engineer"
+  priority: 3
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExCommandCE.xml"
+
+- type: guideEntry
+  id: ShibaJobExCommandCMO
+  ruleEntry: true
+  name: "Command - Chief Medical Officer"
+  priority: 4
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExCommandCMO.xml"
+
+- type: guideEntry
+  id: ShibaJobExCommandHoP
+  ruleEntry: true
+  name: "Command - Head of Personnel"
+  priority: 5
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExCommandHoP.xml"
+
+- type: guideEntry
+  id: ShibaJobExCommandHoS
+  ruleEntry: true
+  name: "Command - Head of Security"
+  priority: 6
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExCommandHoS.xml"
+
+- type: guideEntry
+  id: ShibaJobExCommandNTRep
+  ruleEntry: true
+  name: "Command - NT Representative"
+  priority: 7
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExCommandNTRep.xml"
+
+- type: guideEntry
+  id: ShibaJobExCommandQM
+  ruleEntry: true
+  name: "Command - Quartermaster"
+  priority: 8
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExCommandQM.xml"
+
+- type: guideEntry
+  id: ShibaJobExCommandRD
+  ruleEntry: true
+  name: "Command - Research Director"
+  priority: 9
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExCommandRD.xml"
+
+- type: guideEntry
+  id: ShibaJobExCargoMailCarrier
+  ruleEntry: true
+  name: "Cargo - Mail Carrier"
+  priority: 10
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExCargoMailCarrier.xml"
+
+- type: guideEntry
+  id: ShibaJobExCargoSalvager
+  ruleEntry: true
+  name: "Cargo - Salvager"
+  priority: 11
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExCargoSalvager.xml"
+
+- type: guideEntry
+  id: ShibaJobExCargoTechnician
+  ruleEntry: true
+  name: "Cargo - Technician"
+  priority: 12
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExCargoTechnician.xml"
+
+- type: guideEntry
+  id: ShibaJobExEngiAssistant
+  ruleEntry: true
+  name: "Engineering - Assistant"
+  priority: 13
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExEngiAssistant.xml"
+
+- type: guideEntry
+  id: ShibaJobExEngiAtmos
+  ruleEntry: true
+  name: "Engineering - Atmospheric Technician"
+  priority: 14
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExEngiAtmos.xml"
+
+- type: guideEntry
+  id: ShibaJobExEngiEngineer
+  ruleEntry: true
+  name: "Engineering - Station Engineer"
+  priority: 15
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExEngiEngineer.xml"
+
+- type: guideEntry
+  id: ShibaJobExMedicalChemist
+  ruleEntry: true
+  name: "Medical - Chemist"
+  priority: 16
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExMedicalChemist.xml"
+
+- type: guideEntry
+  id: ShibaJobExMedicalDoctor
+  ruleEntry: true
+  name: "Medical - Doctor"
+  priority: 17
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExMedicalDoctor.xml"
+
+- type: guideEntry
+  id: ShibaJobExMedicalIntern
+  ruleEntry: true
+  name: "Medical - Intern"
+  priority: 18
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExMedicalIntern.xml"
+
+- type: guideEntry
+  id: ShibaJobExMedicalParamedic
+  ruleEntry: true
+  name: "Medical - Paramedic"
+  priority: 19
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExMedicalParamedic.xml"
+
+- type: guideEntry
+  id: ShibaJobExMedicalPsychologist
+  ruleEntry: true
+  name: "Medical - Psychologist"
+  priority: 20
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExMedicalPsychologist.xml"
+
+- type: guideEntry
+  id: ShibaJobExSciAssistant
+  ruleEntry: true
+  name: "Science - Research Assistant"
+  priority: 21
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExSciAssistant.xml"
+
+- type: guideEntry
+  id: ShibaJobExSciScientist
+  ruleEntry: true
+  name: "Science - Scientist"
+  priority: 22
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExSciScientist.xml"
+
+- type: guideEntry
+  id: ShibaJobExSecurityCadet
+  ruleEntry: true
+  name: "Security - Cadet"
+  priority: 23
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExSecurityCadet.xml"
+
+- type: guideEntry
+  id: ShibaJobExSecurityDetective
+  ruleEntry: true
+  name: "Security - Detective"
+  priority: 24
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExSecurityDetective.xml"
+
+- type: guideEntry
+  id: ShibaJobExSecurityOfficer
+  ruleEntry: true
+  name: "Security - Officer"
+  priority: 25
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExSecurityOfficer.xml"
+
+- type: guideEntry
+  id: ShibaJobExSecurityWarden
+  ruleEntry: true
+  name: "Security - Warden"
+  priority: 26
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExSecurityWarden.xml"
+
+- type: guideEntry
+  id: ShibaJobExSiliconAI
+  ruleEntry: true
+  name: "Silicon - AI"
+  priority: 27
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExSiliconAI.xml"
+
+- type: guideEntry
+  id: ShibaJobExSiliconBorg
+  ruleEntry: true
+  name: "Silicon - Cyborg"
+  priority: 28
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExSiliconBorg.xml"
+
+- type: guideEntry
+  id: ShibaJobExCivilianAssistant
+  ruleEntry: true
+  name: "Civilian - Assistant"
+  priority: 29
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExCivilianAssistant.xml"
+
+- type: guideEntry
+  id: ShibaJobExCivilianBartender
+  ruleEntry: true
+  name: "Civilian - Bartender"
+  priority: 30
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExCivilianBartender.xml"
+
+- type: guideEntry
+  id: ShibaJobExCivilianBotanist
+  ruleEntry: true
+  name: "Civilian - Botanist"
+  priority: 31
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExCivilianBotanist.xml"
+
+- type: guideEntry
+  id: ShibaJobExCivilianBoxer
+  ruleEntry: true
+  name: "Civilian - Boxer"
+  priority: 32
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExCivilianBoxer.xml"
+
+- type: guideEntry
+  id: ShibaJobExCivilianChaplain
+  ruleEntry: true
+  name: "Civilian - Chaplain"
+  priority: 33
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExCivilianChaplain.xml"
+
+- type: guideEntry
+  id: ShibaJobExCivilianChef
+  ruleEntry: true
+  name: "Civilian - Chef"
+  priority: 34
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExCivilianChef.xml"
+
+- type: guideEntry
+  id: ShibaJobExCivilianClown
+  ruleEntry: true
+  name: "Civilian - Clown"
+  priority: 35
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExCivilianClown.xml"
+
+- type: guideEntry
+  id: ShibaJobExCivilianJanitor
+  ruleEntry: true
+  name: "Civilian - Janitor"
+  priority: 36
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExCivilianJanitor.xml"
+
+- type: guideEntry
+  id: ShibaJobExCivilianLawyer
+  ruleEntry: true
+  name: "Civilian - Lawyer"
+  priority: 37
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExCivilianLawyer.xml"
+
+- type: guideEntry
+  id: ShibaJobExCivilianLibrarian
+  ruleEntry: true
+  name: "Civilian - Librarian"
+  priority: 38
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExCivilianLibrarian.xml"
+
+- type: guideEntry
+  id: ShibaJobExCivilianMime
+  ruleEntry: true
+  name: "Civilian - Mime"
+  priority: 39
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExCivilianMime.xml"
+
+- type: guideEntry
+  id: ShibaJobExCivilianMusician
+  ruleEntry: true
+  name: "Civilian - Musician"
+  priority: 40
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExCivilianMusician.xml"
+
+- type: guideEntry
+  id: ShibaJobExCivilianReporter
+  ruleEntry: true
+  name: "Civilian - Reporter"
+  priority: 41
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExCivilianReporter.xml"
+
+- type: guideEntry
+  id: ShibaJobExCivilianServiceWorker
+  ruleEntry: true
+  name: "Civilian - Service Worker"
+  priority: 42
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExCivilianServiceWorker.xml"
+
+- type: guideEntry
+  id: ShibaJobExCivilianZookeeper
+  ruleEntry: true
+  name: "Civilian - Zookeeper"
+  priority: 43
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/JobExCivilianZookeeper.xml"

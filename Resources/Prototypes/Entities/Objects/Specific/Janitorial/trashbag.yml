@@ -61,9 +61,9 @@
   parent: TrashBagBlue
   components:
   - type: Storage
-    maxItemSize: Huge
+    # maxItemSize: Huge # ShibaStation - allows this item to fit in bags. It's an admeme item anyway, honestly.
     grid:
     - 0,0,19,9
     quickInsert: true
     areaInsert: true
-    areaInsertRadius: 5
+    areaInsertRadius: 10 # ShibaStation - biggerrrr (up to 10 from 5)

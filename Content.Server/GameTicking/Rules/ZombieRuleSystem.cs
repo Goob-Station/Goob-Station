@@ -131,7 +131,7 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
                     colorOverride: Color.Pink);
             }
 
-            _audio.PlayGlobal("/Audio/Announcements/outbreak7.ogg", Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
+            _audio.PlayGlobal("/Audio/_ShibaStation/Announcements/blob-zombie-start.ogg", Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
         }
 
         if (GetInfectedFraction(false) > zombieRuleComponent.ZombieShuttleCallPercentage && !_roundEnd.IsRoundEndRequested())

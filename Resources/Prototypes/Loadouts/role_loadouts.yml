@@ -10,6 +10,9 @@
   - CaptainOuterClothing
   - Survival
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -24,6 +27,9 @@
   - Glasses
   - Survival
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathTool
 
 # Silicons
@@ -52,6 +58,9 @@
   - Glasses
   - Survival
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -65,6 +74,9 @@
   - Glasses
   - Survival
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -76,6 +88,9 @@
   - Glasses
   - Survival
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -90,6 +105,9 @@
   - Glasses
   - Survival
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -101,6 +119,9 @@
   - Glasses
   - Survival
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -113,6 +134,9 @@
   - Glasses
   - Survival
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -128,6 +152,9 @@
   - Glasses
   - Survival
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -142,6 +169,9 @@
   - Glasses
   - Survival
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - JanitorPlunger
   - GroupSpeciesBreathTool
 
@@ -156,6 +186,9 @@
   - Glasses
   - Survival
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -170,6 +203,9 @@
   - Glasses
   - SurvivalClown
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
 
 - type: roleLoadout
   id: JobMime
@@ -184,6 +220,9 @@
   - Glasses
   - SurvivalMime
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
 
 - type: roleLoadout
   id: JobMusician
@@ -195,6 +234,9 @@
   - Glasses
   - Survival
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - Instruments
   - GroupSpeciesBreathTool
 
@@ -212,6 +254,9 @@
   - Glasses
   - Survival
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -226,6 +271,9 @@
   - Glasses
   - Survival
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -238,6 +286,9 @@
   - Glasses
   - Survival
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathTool
 
 # Engineering
@@ -253,6 +304,9 @@
   - ChiefEngineerShoes
   - SurvivalExtended
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -263,6 +317,9 @@
   - StationEngineerBackpack
   - SurvivalExtended
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -277,6 +334,9 @@
   - StationEngineerID
   - SurvivalExtended
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -290,6 +350,9 @@
   - AtmosphericTechnicianShoes
   - SurvivalExtended
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathTool
 
 # Science
@@ -307,6 +370,9 @@
   - Glasses
   - Survival
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -324,6 +390,9 @@
   - Glasses
   - Survival
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -335,6 +404,9 @@
   - Glasses
   - Survival
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathTool
 
 # Security
@@ -350,6 +422,9 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
@@ -365,6 +440,9 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
@@ -381,6 +459,9 @@
   - SecurityBelt
   - SurvivalSecurity
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
@@ -395,6 +476,9 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
@@ -407,6 +491,9 @@
   - SecurityNeck
   - SecurityOuterClothing # Goobstation - Why not.
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathToolSecurity
 
 # Medical
@@ -425,6 +512,9 @@
   - Glasses
   - SurvivalMedical
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -442,6 +532,9 @@
   - Glasses
   - SurvivalMedical
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -453,6 +546,9 @@
   - Glasses
   - SurvivalMedical
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -467,6 +563,9 @@
   - MedicalShoes
   - SurvivalMedical
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -483,6 +582,9 @@
   - Glasses
   - SurvivalMedical
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathToolMedical
 
 # Wildcards
@@ -494,6 +596,9 @@
   - Glasses
   - Survival
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -506,8 +611,10 @@
   - Glasses
   - Survival
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathTool
-
 
 - type: roleLoadout
   id: JobPsychologist
@@ -518,6 +625,9 @@
   - Glasses
   - Survival
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -530,6 +640,9 @@
   - Glasses
   - Survival
   - Trinkets
+  - Sharks
+  - Towels
+  - Pins
   - GroupSpeciesBreathTool
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs

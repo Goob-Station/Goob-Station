@@ -28,13 +28,19 @@ public sealed partial class FlightComponent : Component
     ///     Stamina drain per second when flying
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float StaminaDrainRate = 6.0f;
+    public float StaminaDrainRate = 0.0f; // ShibaStation - No stamina drain, to be replaced with hunger drain instead.
+
+    /// <summary>
+    ///     Hunger drain per second when flying
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float HungerDrainRate = 1.5f; // ShibaStation - Drain hunger by this amount every time hunger updates.
 
     /// <summary>
     ///     DoAfter delay until the user becomes weightless.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float ActivationDelay = 1.0f;
+    public float ActivationDelay = 0.0f; // ShibaStation - Instant takeoff, fuck it we ball.
 
     /// <summary>
     ///     Speed modifier while in flight

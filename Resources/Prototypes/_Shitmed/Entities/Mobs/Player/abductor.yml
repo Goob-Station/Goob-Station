@@ -5,6 +5,9 @@
   id: MobAbductorAntag
   abstract: true
   components:
+  # - type: RandomMetadata
+  #   nameSegments:
+  #     - names_abductor
   - type: Abductor
   - type: ActionGrant
     actions:
@@ -37,15 +40,12 @@
   - type: GhostRole
     name: abductor-lone-ghost-role-name
     description: abductor-lone-ghost-role-desc
-    requirements:
+    requirements: # ShibaStation - Antag Playtime Requirements
     - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
+      time: 72000 # 20 hours
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 7200 #2 hours
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 7200 #2 hours
+      time: 36000 # 10 hours
   - type: AbductorScientist
   - type: SurgeryIgnoreClothing
   - type: Sanitized
@@ -54,6 +54,9 @@
   - type: Loadout
     prototypes:
       - LoneAbductorGear
+  - type: RandomMetadata
+    nameSegments:
+    - names_abductor
 
 - type: entity
   name: abductor scientist
@@ -63,12 +66,12 @@
   - type: GhostRole
     name: abductor-scientist-ghost-role-name
     description: abductor-scientist-ghost-role-desc
-    requirements:
+    requirements: # ShibaStation - Antag Playtime Requirements
     - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
+      time: 72000 # 20 hours
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 10800 #3 hours
+      time: 36000 # 10 hours
   - type: AbductorScientist
   - type: SurgeryIgnoreClothing
   - type: Sanitized
@@ -86,12 +89,12 @@
   - type: GhostRole
     name: abductor-agent-ghost-role-name
     description: abductor-agent-ghost-role-desc
-    requirements:
+    requirements: # ShibaStation - Antag Playtime Requirements
     - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
+      time: 72000 # 20 hours
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 10800 #3 hours
+      time: 36000 # 10 hours
   - type: RandomMetadata
     nameSegments:
       - AbductorAgentPrefix
@@ -174,17 +177,14 @@
     name: abductor-lone-ghost-role-name
     description: abductor-lone-ghost-role-desc
     rules: abductors-ghost-role-rules
-    raffle:
-      settings: default
-    requirements:
+    requirements: # ShibaStation - Antag Playtime Requirements
     - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
+      time: 72000 # 20 hours
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 7200 #2 hours
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 7200 #2 hours
+      time: 36000 # 10 hours
+    raffle:
+      settings: default
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -214,14 +214,14 @@
     name: abductor-agent-ghost-role-name
     description: abductor-agent-ghost-role-desc
     rules: abductors-ghost-role-rules
-    raffle:
-      settings: default
-    requirements:
+    requirements: # ShibaStation - Antag Playtime Requirements
     - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
+      time: 72000 # 20 hours
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 10800 #3 hours
+      time: 36000 # 10 hours
+    raffle:
+      settings: default
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -251,14 +251,14 @@
     name: abductor-scientist-ghost-role-name
     description: abductor-scientist-ghost-role-desc
     rules: abductors-ghost-role-rules
-    raffle:
-      settings: default
-    requirements:
+    requirements: # ShibaStation - Antag Playtime Requirements
     - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
+      time: 72000 # 20 hours
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 10800 #3 hours
+      time: 36000 # 10 hours
+    raffle:
+      settings: default
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:

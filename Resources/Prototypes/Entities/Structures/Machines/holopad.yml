@@ -923,6 +923,14 @@
   - type: Label
     currentLabel: holopad-cargo-shuttle
 
+- type: entity # Goobstation - Added a salvage shuttle holopad.
+  parent: HolopadLongRange
+  id: HolopadCentCommSalvageShuttle
+  suffix: Salvage Shuttle
+  components:
+  - type: Label
+    currentLabel: holopad-salvage-shuttle
+
 - type: entity
   parent: HolopadLongRange
   id: HolopadCentCommEvacShuttle

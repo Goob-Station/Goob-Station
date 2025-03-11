@@ -1,0 +1,8 @@
+- type: speechSounds
+  id: Abductor
+  saySound:
+    path: /Audio/_ShibaStation/Voice/Abductor/talk1.ogg
+  askSound:
+    path: /Audio/_ShibaStation/Voice/Abductor/talk1.ogg
+  exclaimSound:
+    path: /Audio/_ShibaStation/Voice/Abductor/talk1.ogg

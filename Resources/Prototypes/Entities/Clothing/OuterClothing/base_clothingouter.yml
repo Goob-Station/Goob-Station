@@ -94,8 +94,10 @@
   id: ClothingOuterStorageToggleableBase
   components:
   - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ClothingHeadHatHoodWinterDefault
+    replaceCurrentClothing: true # ShibaStation - Wear hoods/hardsuit helmets without taking off your head gear first.
+    blockUnequipWhenAttached: true # ShibaStation - Janky workaround for removing an outerwear with part deployed yoinking your head gear (it's still there it's just IN the outerwear)
   - type: UserInterface
     interfaces:
       enum.ToggleClothingUiKey.Key:
@@ -135,6 +137,8 @@
         Heat: 0.90
         Radiation: 0.25
   - type: ToggleableClothing
+    replaceCurrentClothing: true # ShibaStation - Wear hoods/hardsuit helmets without taking off your head gear first.
+    blockUnequipWhenAttached: true # ShibaStation - Janky workaround for removing an outerwear with part deployed yoinking your head gear (it's still there it's just IN the outerwear)
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:Container {}
@@ -188,8 +192,10 @@
   abstract: True
   components:
   - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ClothingHeadHatHoodWinterDefault
+    replaceCurrentClothing: true # ShibaStation - Wear hoods/hardsuit helmets without taking off your head gear first.
+    blockUnequipWhenAttached: true # ShibaStation - Janky workaround for removing an outerwear with part deployed yoinking your head gear (it's still there it's just IN the outerwear)
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:Container {}

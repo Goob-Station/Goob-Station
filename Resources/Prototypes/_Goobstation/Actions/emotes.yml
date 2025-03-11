@@ -27,18 +27,6 @@
   event: !type:AnimationTweakEmoteEvent
 
 - type: emote
-  id: Spin
-  name: chat-emote-name-spin
-  category: Invalid # Don't show in the emote wheel
-  chatMessages: ["chat-emote-msg-spin"]
-  chatTriggers:
-  - spin
-  - spins
-  - spins.
-  - spins!
-  event: !type:AnimationSpinEmoteEvent
-
-- type: emote
   id: Jump
   name: chat-emote-name-jump
   chatMessages: ["chat-emote-msg-jump"]
@@ -48,3 +36,14 @@
   - jumps.
   - jumps!
   event: !type:AnimationJumpEmoteEvent
+
+- type: emote # ShibaStation - Spin IS BACK
+  id: Spin
+  name: chat-emote-name-spin
+  chatMessages: ["chat-emote-msg-spin"]
+  chatTriggers:
+  - spin
+  - spins
+  - spins.
+  - spins!
+  event: !type:AnimationSpinEmoteEvent

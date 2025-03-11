@@ -4,6 +4,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Content.Shared.Popups;
 using Robust.Shared.Serialization;
+using Robust.Shared.Maths;
 
 namespace Content.Shared.Ghost
 {
@@ -56,6 +57,15 @@ namespace Content.Shared.Ghost
         public void SetCanReturnToBody(GhostComponent component, bool value)
         {
             component.CanReturnToBody = value;
+        }
+
+        public void SetColor(EntityUid uid, Color value, GhostComponent? component = null)
+        {
+            if (!Resolve(uid, ref component))
+                return;
+
+            component.Color = value;
+            Dirty(uid, component);
         }
     }
 

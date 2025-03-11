@@ -64,9 +64,9 @@
   category: Vocal
   icon: Interface/Emotes/honk.png
   whitelist:
-    requireAll: true
+    tags:
+    - HarpyEmotes
     components:
-    - Vocal
     - BorgChassis
   chatMessages: ["chat-emote-msg-honk"]
   chatTriggers:
@@ -138,6 +138,8 @@
   whitelist:
     components:
     - Vocal
+    tags:
+    - HarpyEmotes
   blacklist:
     components:
     - BorgChassis
@@ -156,6 +158,8 @@
   whitelist:
     components:
     - Vocal
+    tags:
+    - HarpyEmotes
   blacklist:
     components:
     - BorgChassis
@@ -164,6 +168,7 @@
    - chitter
    - chitters
    - chittered
+   - chittering
 
 - type: emote
   id: Squeak
@@ -173,7 +178,9 @@
   icon: Interface/Emotes/squeak.png
   whitelist:
     components:
-      - Vocal
+    - Vocal
+    tags:
+    - HarpyEmotes
   blacklist:
     components:
     - BorgChassis
@@ -182,6 +189,7 @@
    - squeak
    - squeaks
    - squeaked
+   - squeaking
 
 - type: emote
   id: Click
@@ -192,6 +200,8 @@
   whitelist:
     components:
     - Vocal
+    tags:
+    - HarpyEmotes
   blacklist:
     components:
     - BorgChassis
@@ -320,11 +330,11 @@
   name: chat-emote-name-buzz
   category: Vocal
   icon: Interface/Emotes/buzz.png
+  whitelist:
+    tags:
+    - BorgEmotes
+    - HarpyEmotes
   chatMessages: ["chat-emote-msg-buzz"]
-  whitelist: #Goobstation - IPCs
-    components:
-    - Silicon
-    - BorgChassis
   chatTriggers:
     - buzzing
     - buzz
@@ -335,15 +345,30 @@
   id: Weh
   name: chat-emote-name-weh
   category: Vocal
+  available: false
   icon: Interface/Emotes/weh.png
-  chatMessages: ["chat-emote-msg-weh"]
+  chatMessages: [wehs]
+  chatTriggers:
+    - weh
+    - wehs
+    - wehing
+    - wehed
 
 - type: emote
   id: Hew
   name: chat-emote-name-hew
   category: Vocal
+  whitelist:
+    tags:
+    - ReptilianEmotes
+    - HarpyEmotes
   icon: Interface/Emotes/hew.png
   chatMessages: ["chat-emote-msg-hew"]
+  chatTriggers:
+    - hew
+    - hews
+    - hewing
+    - hewed
 
 - type: emote
   id: Chirp
@@ -354,10 +379,9 @@
   whitelist:
     components:
     - Nymph
-    - Vocal
-  blacklist:
-    components:
-    - BorgChassis
+    tags:
+    - HarpyEmotes
+    - ReptilianEmotes
   chatMessages: ["chat-emote-msg-chirp"]
   chatTriggers:
     - chirp
@@ -371,12 +395,12 @@
   name: chat-emote-name-beep
   category: Vocal
   icon: Interface/Emotes/beep.png
+  whitelist:
+    tags:
+    - BorgEmotes
+    - HarpyEmotes
+    - IPCEmotes
   chatMessages: ["chat-emote-msg-beep"]
-  whitelist: #Goobstation - IPCs, C4 sentience
-    components:
-    - Silicon
-    - BorgChassis
-    - Explosive
   chatTriggers:
     - beep
     - beeps
@@ -388,11 +412,12 @@
   name: chat-emote-name-chime
   category: Vocal
   icon: Interface/Emotes/chime.png
+  whitelist:
+    tags:
+    - BorgEmotes
+    - HarpyEmotes
+    - IPCEmotes
   chatMessages: ["chat-emote-msg-chime"]
-  whitelist: #Goobstation - IPCs
-    components:
-    - Silicon
-    - BorgChassis
   chatTriggers:
     - chime
     - chimes
@@ -404,11 +429,12 @@
   name: chat-emote-name-buzztwo
   category: Vocal
   icon: Interface/Emotes/buzztwo.png
+  whitelist:
+    tags:
+    - BorgEmotes
+    - HarpyEmotes
+    - IPCEmotes
   chatMessages: ["chat-emote-msg-buzzestwo"]
-  whitelist: #Goobstation - IPCs
-    components:
-    - Silicon
-    - BorgChassis
   chatTriggers:
     - buzztwice
     - buzzstwice
@@ -426,13 +452,45 @@
   name: chat-emote-name-ping
   category: Vocal
   icon: Interface/Emotes/ping.png
+  whitelist:
+    tags:
+    - BorgEmotes
+    - HarpyEmotes
+    - IPCEmotes
   chatMessages: ["chat-emote-msg-ping"]
-  whitelist: #Goobstation - IPCs
-    components:
-    - Silicon
-    - BorgChassis
   chatTriggers:
     - ping
     - pings
     - pinged
     - pinging
+
+# More Reptilian Emotes
+- type: emote
+  id: Trill
+  name: chat-emote-name-trill
+  category: Vocal
+  whitelist:
+    tags:
+    - ReptilianEmotes
+    - HarpyEmotes
+  chatMessages: ["chat-emote-msg-trill"]
+  chatTriggers:
+    - trill
+    - trills
+    - trilled
+    - trilling
+
+- type: emote
+  id: Rattle
+  name: chat-emote-name-rattle
+  category: Vocal
+  whitelist:
+    tags:
+    - ReptilianEmotes
+    - HarpyEmotes
+  chatMessages: ["chat-emote-msg-rattle"]
+  chatTriggers:
+    - rattle
+    - rattles
+    - rattled
+    - rattling

@@ -642,7 +642,7 @@
     - RandomHumanoidVisitorLawyer
 
 - type: entity
-  name: visiting centcom lawyer spawner
+  name: visiting CentComm lawyer spawner
   id: VisitorLawyerCentcomSpawner
   parent: MarkerBase
   components:

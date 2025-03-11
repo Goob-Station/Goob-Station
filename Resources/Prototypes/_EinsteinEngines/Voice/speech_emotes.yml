@@ -6,30 +6,36 @@
   chatTriggers:
   - sdeathgasp
   whitelist:
-    components:
-    - Silicon
-    - BorgChassis
+    tags:
+    - IPCEmotes
+    - BorgEmotes
 
 - type: emote
   id: Boop
   name: chat-emote-name-boop
   category: Vocal
+  icon: Interface/Emotes/beep.png # ShibaStation - Icon
+  whitelist: # ShibaStation - Whitelist
+    tags:
+    - IPCEmotes
+    - HarpyEmotes
   chatMessages: [ boops. ]
   chatTriggers:
   - boops
-  whitelist:
-    components:
-    - Silicon
-    - BorgChassis
+  - boop
+  - booped
+  - booping
 
 - type: emote
   id: Whirr
   name: chat-emote-name-whirr
-  category: Vocal
+  whitelist: # ShibaStation - Whitelist
+    tags:
+    - IPCEmotes
+    - HarpyEmotes
   chatMessages: [ whirrs. ]
   chatTriggers:
-  - whirrs
-  whitelist:
-    components:
-    - Silicon
-    - BorgChassis
+    - whirrs
+    - whirr
+    - whirred
+    - whirring

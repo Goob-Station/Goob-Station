@@ -5,32 +5,33 @@
     green:
       announcement: alert-level-green-announcement
       color: Green
+      sound: /Audio/_ShibaStation/Announcements/alert-green.ogg
       emergencyLightColor: LawnGreen
       shuttleTime: 600
     blue:
       announcement: alert-level-blue-announcement
-      sound: /Audio/Misc/bluealert.ogg
+      sound: /Audio/_ShibaStation/Announcements/alert-blue.ogg
       color: DodgerBlue
       forceEnableEmergencyLights: true
       emergencyLightColor: DodgerBlue
       shuttleTime: 600
     violet:
       announcement: alert-level-violet-announcement
-      sound: /Audio/Misc/notice1.ogg
+      sound: /Audio/_ShibaStation/Announcements/alert-violet.ogg
       color: Violet
       emergencyLightColor: Violet
       forceEnableEmergencyLights: true
       shuttleTime: 600
     yellow:
       announcement: alert-level-yellow-announcement
-      sound: /Audio/Misc/notice1.ogg
+      sound: /Audio/_ShibaStation/Announcements/alert-yellow.ogg
       color: Yellow
       emergencyLightColor: Goldenrod
       forceEnableEmergencyLights: true
       shuttleTime: 600
     red:
       announcement: alert-level-red-announcement
-      sound: /Audio/Misc/redalert.ogg
+      sound: /Audio/_ShibaStation/Announcements/alert-red.ogg
       color: Red
       emergencyLightColor: Red
       forceEnableEmergencyLights: true
@@ -39,7 +40,7 @@
       announcement: alert-level-gamma-announcement
       selectable: false
       sound:
-        path: /Audio/Misc/gamma.ogg
+        path: /Audio/_ShibaStation/Announcements/alert-gamma.ogg
         params:
           volume: -2
       disableSelection: true
@@ -50,7 +51,7 @@
       announcement: alert-level-delta-announcement
       selectable: false
       sound:
-        path: /Audio/Misc/delta.ogg
+        path: /Audio/_ShibaStation/Announcements/alert-delta.ogg
         params:
           volume: -3
       disableSelection: true
@@ -62,7 +63,7 @@
       announcement: alert-level-epsilon-announcement
       selectable: false
       sound:
-        path: /Audio/Misc/epsilon.ogg
+        path: /Audio/_ShibaStation/Announcements/alert-epsilon.ogg
         params:
           volume: -2
       disableSelection: true
@@ -70,3 +71,11 @@
       emergencyLightColor: DarkViolet
       forceEnableEmergencyLights: true
       shuttleTime: 1200
+    hyde: # ShibaStation - funny admeme alert level
+      announcement: alert-level-hyde-announcement
+      selectable: false
+      sound: /Audio/_ShibaStation/Announcements/alert-hyde.ogg
+      color: DodgerBlue
+      forceEnableEmergencyLights: true
+      emergencyLightColor: DodgerBlue
+      shuttleTime: 600

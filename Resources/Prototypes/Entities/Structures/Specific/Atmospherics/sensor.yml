@@ -25,7 +25,7 @@
         Ammonia: stationAmmonia
         NitrousOxide: stationNO
         Frezon: danger
-        BZ: danger # Assmos - /tg/ gases
+        BZ: stationNO # Assmos - /tg/ gases # ShibaStation - BZ is inert in standard atmosphere and takes FOREVER to scrub; it's relatively harmless at 1% concentration
         Healium: stationNO # Assmos - /tg/ gases
         Nitrium: danger # Assmos - /tg/ gases
         Pluoxium: ignore # Assmos - /tg/ gases

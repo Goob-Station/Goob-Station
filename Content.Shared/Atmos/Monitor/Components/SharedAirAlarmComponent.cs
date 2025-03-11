@@ -14,6 +14,8 @@ public enum AirAlarmMode
     None,
     Filtering,
     WideFiltering,
+    Cycling,
+    WideCycling,
     Fill,
     Panic,
 }

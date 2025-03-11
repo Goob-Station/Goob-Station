@@ -11,6 +11,9 @@
     name: ghost-role-information-remilia-name
     description: ghost-role-information-remilia-description
     rules: ghost-role-information-familiar-rules
+    requirements: # ShibaStation - Antag Playtime Requirements
+    - !type:OverallPlaytimeRequirement
+      time: 36000 # 10 hours
   - type: GhostTakeoverAvailable
   - type: Grammar
     attributes:
@@ -46,6 +49,9 @@
     rules: ghost-role-information-familiar-rules
     raffle:
       settings: default
+    requirements: # ShibaStation - Antag Playtime Requirements
+    - !type:OverallPlaytimeRequirement
+      time: 36000 # 10 hours
   - type: GhostTakeoverAvailable
   - type: MeleeWeapon
     altDisarm: false

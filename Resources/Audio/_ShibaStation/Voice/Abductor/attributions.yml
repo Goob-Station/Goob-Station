@@ -1,0 +1,14 @@
+- files: ["talk1.ogg", "talk2.ogg", "talk3.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "ArtificiallyInspired"
+  source: "https://pixabay.com/sound-effects/cute-alien-noises-291369/"
+
+- files: ["laugh.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Breviceps (Freesound)"
+  source: "https://pixabay.com/sound-effects/alien-cackle-99968/"
+
+- files: ["scream.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "DigitalDominic (Freesound)"
+  source: "https://pixabay.com/sound-effects/alien-scream-89031/"

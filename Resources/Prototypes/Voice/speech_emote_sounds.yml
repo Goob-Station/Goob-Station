@@ -142,10 +142,20 @@
       collection: MaleCry
     Weh:
       collection: Weh
+    Chirp:
+      collection: ReptilianChirps
+    Trill:
+      collection: ReptilianTrills
+    Rattle:
+      collection: ReptilianRattles
+    Sigh:
+      collection: ReptilianSighs
+    Hiss:
+      collection: ReptilianHisses
     Hew:
       collection: Hew
-    CatMeow:
-      collection: CatMeows # Goobstation - effect standardization
+    Yip:
+      collection: LizardYip
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -168,10 +178,20 @@
       collection: FemaleCry
     Weh:
       collection: Weh
+    Chirp:
+      collection: ReptilianChirps
+    Trill:
+      collection: ReptilianTrills
+    Rattle:
+      collection: ReptilianRattles
+    Sigh:
+      collection: ReptilianSighs
+    Hiss:
+      collection: ReptilianHisses
     Hew:
       collection: Hew
-    CatMeow:
-      collection: CatMeows # Goobstation - effect standardization
+    Yip:
+      collection: LizardYip
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:

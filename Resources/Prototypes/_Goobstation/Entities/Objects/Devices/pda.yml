@@ -121,6 +121,24 @@
     borderColor: "#3c94c5"
 
 - type: entity
+  parent: BasePDA
+  id: NTRepPDA
+  name: NanoTrasen Representative PDA
+  description: Smells like a corporate office.
+  components:
+  - type: Pda
+    id: NTRepIDCard
+    penSlot:
+      startingItem: PenCentcom
+      whitelist:
+        tags:
+        - Write
+  - type: PdaBorderColor
+    borderColor: "#00842e"
+  - type: Icon
+    state: pda-centcom
+
+- type: entity
   parent: CentcomPDA
   id: DeathsquadPDA
   name: Deathsquad PDA

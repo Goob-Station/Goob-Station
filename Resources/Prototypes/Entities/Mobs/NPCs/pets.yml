@@ -592,6 +592,9 @@
     name: ghost-role-information-hamlet-name
     description: ghost-role-information-hamlet-description
     rules: ghost-role-information-nonantagonist-rules
+    requirements: # ShibaStation - Antag Playtime Requirements
+    - !type:OverallPlaytimeRequirement
+      time: 18000 # 5 hours
   - type: GhostTakeoverAvailable
   - type: InteractionPopup
     successChance: 1
@@ -711,6 +714,9 @@
     name: ghost-role-information-willow-name
     description: ghost-role-information-willow-description
     rules: ghost-role-information-nonantagonist-rules
+    requirements: # ShibaStation - Antag Playtime Requirements
+    - !type:OverallPlaytimeRequirement
+      time: 18000 # 5 hours
   - type: GhostTakeoverAvailable
   - type: Loadout
     prototypes: [ BoxingKangarooGear ]
@@ -794,6 +800,12 @@
     description: ghost-role-information-smile-description
     rules: ghost-role-information-nonantagonist-rules
     raffle: null
+    requirements: # ShibaStation - Antag Playtime Requirements
+    - !type:OverallPlaytimeRequirement
+      time: 0 # 0 - inherits from the hostile mob
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 0 # 0 - inherits from the hostile mob
   - type: Grammar
     attributes:
       proper: true
@@ -813,6 +825,9 @@
     name: ghost-role-information-punpun-name
     description: ghost-role-information-punpun-description
     rules: ghost-role-information-nonantagonist-rules
+    requirements: # ShibaStation - Antag Playtime Requirements
+    - !type:OverallPlaytimeRequirement
+      time: 18000 # 5 hours
   - type: GhostTakeoverAvailable
   - type: Butcherable
     butcheringType: Spike
@@ -833,6 +848,12 @@
     attributes:
       proper: true
       gender: male
+  - type: NpcFactionMember # ShibaStation - Pun Pun self defense training
+    factions:
+      - PetsNT
+  - type: HTN # ShibaStation - Pun Pun self defense training
+    rootTask:
+      task: SimpleHostileCompound
 
 - type: entity
   name: Tropico

@@ -47,6 +47,30 @@
         whitelist:
           tags:
             - PlushieSharkGrey
+      mopbucket_shark_command:
+        whitelist:
+          tags:
+            - PlushieSharkCommand
+      mopbucket_shark_medical:
+        whitelist:
+          tags:
+            - PlushieSharkMedical
+      mopbucket_shark_science:
+        whitelist:
+          tags:
+            - PlushieSharkScience
+      mopbucket_shark_engineering:
+        whitelist:
+          tags:
+            - PlushieSharkEngineering
+      mopbucket_shark_security:
+        whitelist:
+          tags:
+            - PlushieSharkSecurity
+      mopbucket_shark_cargo:
+        whitelist:
+          tags:
+            - PlushieSharkCargo
       mopbucket_carpplush:
         whitelist:
           tags:
@@ -64,6 +88,12 @@
             - PlushieSharkBlue
             - PlushieSharkPink
             - PlushieSharkGrey
+            - PlushieSharkCommand
+            - PlushieSharkMedical
+            - PlushieSharkScience
+            - PlushieSharkEngineering
+            - PlushieSharkSecurity
+            - PlushieSharkCargo
             - PlushieCarp
           components:
             - Rehydratable

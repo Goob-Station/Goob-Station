@@ -1,0 +1,26 @@
+- type: Tag
+  id: PlushieSharkCommand
+
+- type: Tag
+  id: PlushieSharkMedical
+
+- type: Tag
+  id: PlushieSharkScience
+
+- type: Tag
+  id: PlushieSharkEngineering
+
+- type: Tag
+  id: PlushieSharkSecurity
+
+- type: Tag
+  id: PlushieSharkCargo
+
+- type: Tag
+  id: ReptilianEmotes
+
+- type: Tag
+  id: BorgEmotes
+
+- type: Tag
+  id: IPCEmotes

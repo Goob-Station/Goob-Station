@@ -7,9 +7,8 @@
   requirements:
   - !type:RoleTimeRequirement
     role: JobBorg
-    time: 18000  # 5 hrs
+    time: 14400 # 4 hrs
   canBeAntag: false
-  goobcoins: 40 #Goob content
   icon: JobIconStationAi
   supervisors: job-supervisors-rd
   jobEntity: StationAiBrain
@@ -23,9 +22,8 @@
   playTimeTracker: JobBorg
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 144000 # 40 hrs
+      time: 36000 # 10 hrs
   canBeAntag: false
-  goobcoins: 20 #Goob content
   icon: JobIconBorg
   supervisors: job-supervisors-rd
   jobEntity: PlayerBorgBattery

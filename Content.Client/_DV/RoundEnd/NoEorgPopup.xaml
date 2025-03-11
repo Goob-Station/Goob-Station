@@ -1,0 +1,37 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'no-eorg-popup-title'}"
+                      Resizable="False">
+    <BoxContainer Orientation="Vertical" Margin="20" MaxWidth="520">
+        <Label Name="TitleLabel"
+               StyleClasses="LabelBig"
+               HorizontalAlignment="Center"
+               Margin="0 0 0 5" />
+        <PanelContainer StyleClasses="BackgroundDark" Margin="0 0 0 10">
+            <BoxContainer Orientation="Vertical" Margin="10">
+                <RichTextLabel Name="MessageLabel" HorizontalAlignment="Center" />
+                <Control MinSize="0 5" />
+                <RichTextLabel Name="RuleLabel" HorizontalAlignment="Center" />
+                <RichTextLabel Name="RuleTextLabel" HorizontalAlignment="Center" Margin="0 5 0 0" />
+                <RichTextLabel Name="NoEorgMurderboxInfo" HorizontalAlignment="Center" Margin="0 20 0 0" />
+            </BoxContainer>
+        </PanelContainer>
+        <BoxContainer Orientation="Vertical" VerticalAlignment="Bottom">
+            <CheckBox Name="SkipCheckBox"
+                      Text="{Loc 'no-eorg-popup-skip-checkbox'}"
+                      HorizontalAlignment="Center"
+                      Margin="0 0 0 5" />
+            <RichTextLabel Name="NoEorgUndoSkipNotice"
+                          HorizontalAlignment="Center"
+                          StyleClasses="WindowFooterText"
+                          Margin="0 0 0 10" />
+            <BoxContainer Orientation="Vertical" HorizontalAlignment="Center">
+                <Button Name="NoEorgCloseButton"
+                        MinWidth="150"
+                        Margin="0 0 0 5" />
+                <Button Name="NoEorgMurderboxButton"
+                        MinWidth="150" />
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

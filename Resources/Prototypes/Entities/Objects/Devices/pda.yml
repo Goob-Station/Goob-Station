@@ -105,6 +105,8 @@
         type: InstrumentBoundUserInterface
       enum.HealthAnalyzerUiKey.Key:
         type: HealthAnalyzerBoundUserInterface
+      enum.AnomalyScannerUiKey.Key:
+        type: AnomalyScannerBoundUserInterface
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -147,6 +149,19 @@
       - NotekeeperCartridge
       - NewsReaderCartridge
       - MedTekCartridge
+      - NanoChatCartridge # DeltaV
+
+- type: entity
+  parent: BasePDA
+  id: BaseSciencePDA
+  abstract: true
+  components:
+  - type: CartridgeLoader
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - SciScanCartridge
       - NanoChatCartridge # DeltaV
 
 - type: entity
@@ -221,7 +236,7 @@
     state: pda-interncadet
 
 - type: entity
-  parent: BasePDA
+  parent: BaseSciencePDA
   id: ResearchAssistantPDA
   name: research assistant PDA
   description: Why isn't it purple?
@@ -411,9 +426,9 @@
 
 - type: entity
   name: chaplain PDA
-  parent: BasePDA
+  parent: BaseMedicalPDA
   id: ChaplainPDA
-  description: God's chosen PDA.
+  description: God's chosen PDA. Has a built in health scanner.
   components:
   - type: Pda
     id: ChaplainIDCard
@@ -794,7 +809,7 @@
     state: pda-chemistry
 
 - type: entity
-  parent: BasePDA
+  parent: BaseSciencePDA
   id: RnDPDA
   name: research director PDA
   description: It appears surprisingly ordinary.
@@ -814,7 +829,7 @@
     state: pda-rd
 
 - type: entity
-  parent: BasePDA
+  parent: BaseSciencePDA
   id: SciencePDA
   name: science PDA
   description: It's covered with an unknown gooey substance.
@@ -920,11 +935,14 @@
     state: pda-centcom
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
+    diskSpace: 16 # DeltaV
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
       - NewsReaderCartridge
+      - MailMetricsCartridge
       - MedTekCartridge
+      - SciScanCartridge # Shibastation - adding SciScan cartridge to CentComm PDA to compliment the Admin one.
       - WantedListCartridge
       - LogProbeCartridge
       - AstroNavCartridge
@@ -945,13 +963,15 @@
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     notificationsEnabled: false
-    diskSpace: 10 # DeltaV
+    diskSpace: 16 # DeltaV
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
       - NewsReaderCartridge
+      - MailMetricsCartridge
       - LogProbeCartridge
       - WantedListCartridge
+      - SciScanCartridge # Shibastation - adding SciScan cartridge to admin PDA to compliment the MedTek one.
       - MedTekCartridge
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
@@ -1353,7 +1373,7 @@
     state: pda-seniorengineer
 
 - type: entity
-  parent: BasePDA
+  parent: BaseSciencePDA
   id: SeniorResearcherPDA
   name: senior researcher PDA
   description: Looks like it's been through years of chemical burns and explosions.

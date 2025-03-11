@@ -10,14 +10,42 @@
   - Headphones
   - PlushieLizard
   - PlushieSpaceLizard
+  - CardBoxBlack # GoobStation
+  - CardBoxNanotrasen # GoobStation
   - ThreeCandles
   - Lighter
+  - FlippoLighter
   - CigPackGreen
   - CigPackRed
   - CigPackBlue
   - CigPackBlack
   - CigarCase
-  - CigarGold
+  - FoodSnackLollypopWrapped # Goobstation
+  - FoodSnackLollypopWrappedRainbow # Goobstation
+  - FoodSnackLollypopWrappedCarp # Goobstation
+
+- type: loadoutGroup
+  id: Sharks
+  name: loadout-group-sharks
+  minLimit: 0
+  maxLimit: 2
+  loadouts:
+  - PlushieSharkBlue
+  - PlushieSharkPink
+  - PlushieSharkGrey
+  - PlushieSharkCommand
+  - PlushieSharkMedical
+  - PlushieSharkScience
+  - PlushieSharkEngineering
+  - PlushieSharkSecurity
+  - PlushieSharkCargo
+
+- type: loadoutGroup
+  id: Pins
+  name: loadout-group-pins
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
   - ClothingNeckLGBTPin
   - ClothingNeckAllyPin
   - ClothingNeckAromanticPin
@@ -32,11 +60,13 @@
   - ClothingNeckGenderqueerPin
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
-  - CardBoxBlack # GoobStation
-  - CardBoxNanotrasen # GoobStation
-  - FoodSnackLollypopWrapped # Goobstation
-  - FoodSnackLollypopWrappedRainbow # Goobstation
-  - FoodSnackLollypopWrappedCarp # Goobstation
+
+- type: loadoutGroup
+  id: Towels
+  name: loadout-group-towels
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
   - TowelColorBlack
   - TowelColorDarkBlue
   - TowelColorDarkGreen
@@ -53,6 +83,7 @@
   - TowelColorSilver
   - TowelColorWhite
   - TowelColorYellow
+  - TowelColorNT
 
 - type: loadoutGroup
   id: Glasses
@@ -660,7 +691,6 @@
   minLimit: 0
   loadouts:
   - CargoTechnicianHead
-  - CargoTechnicianHeadMail # Goob/DeltaV - Mail
 
 - type: loadoutGroup
   id: CargoTechnicianJumpsuit
@@ -668,8 +698,6 @@
   loadouts:
   - CargoTechnicianJumpsuit
   - CargoTechnicianJumpskirt
-  - CargoTechnicianJumpsuitMail # Goob/DeltaV - Mail
-  - CargoTechnicianJumpskirtMail # Goob/DeltaV - Mail
   - CargoTechMJ # goob
 
 - type: loadoutGroup
@@ -685,8 +713,7 @@
   name: loadout-group-cargo-technician-outerclothing
   minLimit: 0
   loadouts:
-  - CargoTechnicianWintercoat
-  - CargoTechnicianWintercoatMail # Goob/DeltaV - Mail
+  - CargoTechnicianWintercoat # Goob/DeltaV - Mail
 
 - type: loadoutGroup
   id: CargoTechnicianShoes

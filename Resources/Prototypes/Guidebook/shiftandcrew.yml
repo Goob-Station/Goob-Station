@@ -1,6 +1,7 @@
 - type: guideEntry
   id: Jobs
   name: guide-entry-jobs
+  priority: 1 # ShibaStation - reorder the guidebook entries
   text: "/ServerInfo/Guidebook/Jobs.xml"
   children:
   - Cargo

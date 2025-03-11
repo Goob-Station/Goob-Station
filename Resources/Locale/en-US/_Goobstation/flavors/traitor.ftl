@@ -1,5 +1,5 @@
 traitor-arc-intro = You are the ARC terrorist.
-traitor-arc-goal = The creatures of this world must be freed from the iron grasp of Nanotrasen, and you are their only hope!
+traitor-arc-goal = The creatures of this world must be freed from the iron grasp of NanoTrasen, and you are their only hope!
 traitor-arc-allies = You may cooperate with other syndicate agents if you support our cause. Maybe you can convince the Bee Liberation Front agents to cooperate for once?
 traitor-arc-uplink = The Syndicate have graciously given one of their PDA-uplinks for your task.
 traitor-arc-roundend = [color=green]an activist from the Animal Rights Consortium[/color]
@@ -59,7 +59,7 @@ traitor-waffleco-uplink = You have been provided with a syndicate uplink located
 traitor-waffleco-roundend = [color=orange]an employee from Waffle Corporation[/color]
 
 traitor-waffleco-terrorist-intro = You are the Waffle Corporation terrorist.
-traitor-waffleco-terrorist-goal = Our investors need a demonstration of our pledge to destroying Nanotrasen. Let's give them a loud one!
+traitor-waffleco-terrorist-goal = Our investors need a demonstration of our pledge to destroying NanoTrasen. Let's give them a loud one!
 traitor-waffleco-terrorist-allies = Most other syndicate agents are not to be trusted, except for members of the Gorlex Marauders.
 traitor-waffleco-terrorist-uplink = You have been provided with a syndicate uplink located in your PDA to accomplish your task.
 traitor-waffleco-terrorist-roundend = [color=red]a terrorist from Waffle Corporation[/color]

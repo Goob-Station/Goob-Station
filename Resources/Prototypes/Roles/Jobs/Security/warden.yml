@@ -6,12 +6,11 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
-      time: 36000 #10 hrs
+      time: 36000 # 10 hrs
   startingGear: WardenGear
   icon: "JobIconWarden"
   supervisors: job-supervisors-hos
   canBeAntag: false
-  goobcoins: 35 #Goob content
   access:
   - Security
   - Brig
@@ -21,6 +20,9 @@
   - External
   - Detective
   - Cryogenics
+  extendedAccess:
+  - Medical # ShibaStation - Added Medical to Warden access
+  - Chemistry # ShibaStation - Added Chemistry to Warden access
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

@@ -46,7 +46,7 @@
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_ShibaStation/Announcements/unidentified-vessel.ogg
     weight: 10 # 10 default
     reoccurrenceDelay: 30
     duration: 1
@@ -102,6 +102,8 @@
     startAnnouncement: null # It should be silent.
     weight: 5 # lower because weird freelance roles
     maxOccurrences: 2 # should be the same as [copies] in shuttle_incoming_event.yml
+    earliestStart: 15 # ShibaStation - Breathing space.
+    minimumPlayers: 20 # ShibaStation - Free shitter ticket; not acceptable at low pop.
   - type: LoadMapRule
     preloadedGrid: SyndieEvacPod
 
@@ -183,6 +185,7 @@
     startAnnouncement: null #dont nark on antags
     weight: 1 #  lower because antags.
     earliestStart: 50 # late to hopefully have enough ghosts to fill all roles quickly (3) and because antags
+    minimumPlayers: 35 # ShibaStation - 3 antags appearing at low pop is cringe.
   - type: LoadMapRule
     preloadedGrid: Instigator
 

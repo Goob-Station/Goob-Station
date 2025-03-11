@@ -2,7 +2,7 @@
   id: Bagel
   mapName: 'Bagel Station'
   mapPath: /Maps/_Goobstation/bagel.yml # Goobstation - custom bagel
-  minPlayers: 35
+  minPlayers: 15
   maxPlayers: 80
   stations:
     Bagel:
@@ -56,6 +56,7 @@
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
             CargoTechnician: [ 3, 3 ]
+            MailCarrier: [ 1, 1 ]
             #civilian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]

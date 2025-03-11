@@ -40,8 +40,9 @@ public sealed partial class CleanTileReaction : ITileReaction
         var entities = entityManager.System<EntityLookupSystem>().GetLocalEntitiesIntersecting(tile, 0f).ToArray();
         var puddleQuery = entityManager.GetEntityQuery<PuddleComponent>();
         var solutionContainerSystem = entityManager.System<SharedSolutionContainerSystem>();
-        // Multiply as the amount we can actually purge is higher than the react amount.
+        // Calculate initial purge amount but don't reduce it per entity
         var purgeAmount = reactVolume / CleanAmountMultiplier;
+        var totalPurged = FixedPoint2.Zero;
 
         foreach (var entity in entities)
         {
@@ -52,15 +53,12 @@ public sealed partial class CleanTileReaction : ITileReaction
             }
 
             var purgeable = solutionContainerSystem.SplitSolutionWithout(puddleSolution.Value, purgeAmount, ReplacementReagent, reagent.ID);
-
-            purgeAmount -= purgeable.Volume;
+            totalPurged += purgeable.Volume;
 
             solutionContainerSystem.TryAddSolution(puddleSolution.Value, new Solution(ReplacementReagent, purgeable.Volume));
-
-            if (purgeable.Volume <= FixedPoint2.Zero)
-                break;
         }
 
-        return (reactVolume / CleanAmountMultiplier - purgeAmount) * CleanAmountMultiplier;
+        // Return how much cleaning reagent was actually used
+        return totalPurged * CleanAmountMultiplier;
     }
 }
