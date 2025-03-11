@@ -1,0 +1,13 @@
+- type: listing
+  id: MultitoolAiDetector
+  name: uplink-ai-detector-name
+  description: uplink-ai-detector-desc
+  icon:
+    sprite: Objects/Tools/multitool.rsi
+    state: icon
+  productEntity: MultitoolAiDetector
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkDeception
+

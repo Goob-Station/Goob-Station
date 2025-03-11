@@ -42,7 +42,7 @@
     visuals:
       enum.CollidingVisuals.Fixture:
         enum.CollidingVisuals.Layer:
-          default: { state: "green-unlit" }
+          none: { state: "green-unlit" }
           yellow: { state: "yellow-unlit" }
           red: { state: "red-unlit" }
   - type: CollidingVisuals
