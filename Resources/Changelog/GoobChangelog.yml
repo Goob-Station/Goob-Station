@@ -6068,3 +6068,13 @@ Entries:
         grabbed ones.
   id: 695
   time: '2025-03-11T20:50:22.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Contortionist's bluespace jumpsuit: atmos job-specific contortionist's
+        jumpsuit that allows inventory.
+    - type: Tweak
+      message: Contortionist's jumpsuit is no longer atmos job-specific.
+  id: 696
+  time: '2025-03-11T20:53:31.0000000+00:00'
