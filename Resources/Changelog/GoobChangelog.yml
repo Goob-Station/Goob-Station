@@ -6060,3 +6060,11 @@ Entries:
       message: Made Barratry worse.
   id: 694
   time: '2025-03-11T11:23:21.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: >-
+        Changeling absord no longer requires grabbing dead bodies or killing
+        grabbed ones.
+  id: 695
+  time: '2025-03-11T20:50:22.0000000+00:00'
