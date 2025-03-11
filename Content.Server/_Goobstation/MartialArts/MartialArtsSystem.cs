@@ -1,6 +1,4 @@
 using Content.Server.Chat.Systems;
-using Content.Server.GameTicking.Events;
-using Content.Server.Station.Systems;
 using Content.Shared._Goobstation.MartialArts;
 using Content.Shared._Goobstation.MartialArts.Components;
 using Content.Shared._Goobstation.MartialArts.Events;
@@ -13,7 +11,6 @@ namespace Content.Server._Goobstation.MartialArts;
 public sealed class MartialArtsSystem : SharedMartialArtsSystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly StationSystem _station = default!;
 
     public override void Initialize()
     {
