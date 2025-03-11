@@ -1,6 +1,9 @@
 ## This is for Nyano and Delta V tags
 
 - type: Tag
+  id: AiDetectable
+
+- type: Tag
   id: HidesHarpyWings
 
 - type: Tag
