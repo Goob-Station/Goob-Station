@@ -11,7 +11,6 @@ public sealed class AccountAppenderSystem : EntitySystem
 {
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency]
 
     FrozenDictionary<string, AccountAppendPrototype> _protoIds = default!;
 
