@@ -42,9 +42,9 @@ public sealed partial class SleepingCarpStudentComponent : Component
     public TimeSpan UseAgainTime = TimeSpan.Zero;
 
     [DataField]
-    public int MaxUseDelay = 20;
+    public int MaxUseDelay = 90;
 
     [DataField]
-    public int MinUseDelay = 5;
+    public int MinUseDelay = 30;
 }
 

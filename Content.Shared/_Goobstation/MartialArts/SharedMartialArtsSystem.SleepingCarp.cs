@@ -31,15 +31,14 @@ public partial class SharedMartialArtsSystem
             return;
 
         var studentComp = EnsureComp<SleepingCarpStudentComponent>(args.User);
-        Entity<SleepingCarpStudentComponent> student = (args.User, studentComp);
 
-        if (student.Comp.UseAgainTime == TimeSpan.Zero)
+        if (studentComp.UseAgainTime == TimeSpan.Zero)
         {
-            CarpScrollDelay(student, args.User);
+            CarpScrollDelay((args.User, studentComp));
             return;
         }
 
-        if (_timing.CurTime < student.Comp.UseAgainTime)
+        if (_timing.CurTime < studentComp.UseAgainTime)
         {
             _popupSystem.PopupEntity(
                 Loc.GetString("carp-scroll-waiting"),
@@ -49,10 +48,10 @@ public partial class SharedMartialArtsSystem
             return;
         }
 
-        switch (student.Comp.Stage)
+        switch (studentComp.Stage)
         {
             case < 3:
-                CarpScrollDelay(student, args.User);
+                CarpScrollDelay((args.User, studentComp));
                 break;
             case >= 3:
                 if (!TryGrantMartialArt(args.User, ent.Comp))
@@ -66,12 +65,11 @@ public partial class SharedMartialArtsSystem
                     ent,
                     args.User,
                     PopupType.LargeCaution);
-                RemComp<SleepingCarpStudentComponent>(args.User);
                 return;
         }
     }
 
-    private void CarpScrollDelay(Entity<SleepingCarpStudentComponent> ent, EntityUid user)
+    private void CarpScrollDelay(Entity<SleepingCarpStudentComponent> ent)
     {
         var time = new System.Random().Next(ent.Comp.MinUseDelay, ent.Comp.MaxUseDelay);
         ent.Comp.UseAgainTime = _timing.CurTime + TimeSpan.FromSeconds(time);
@@ -79,7 +77,7 @@ public partial class SharedMartialArtsSystem
         _popupSystem.PopupEntity(
             Loc.GetString("carp-scroll-advance"),
             ent,
-            user,
+            ent,
             PopupType.Medium);
     }
 
@@ -91,7 +89,7 @@ public partial class SharedMartialArtsSystem
         ref SleepingCarpGnashingTeethPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !_proto.TryIndex<MartialArtPrototype>(ent.Comp.BeingPerformed.ToString(), out var martialArtProto)
+            || !_proto.TryIndex<MartialArtPrototype>(proto.MartialArtsForm.ToString(), out var martialArtProto)
             || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed))
             return;
 
