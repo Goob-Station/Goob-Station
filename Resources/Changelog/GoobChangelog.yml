@@ -6146,3 +6146,11 @@ Entries:
         deals 0.3 slash per second when equiped to the person who wears it.
   id: 706
   time: '2025-03-11T21:06:27.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Add
+      message: You can now Import/Export programs in the autodoc!
+    - type: Tweak
+      message: Autodoc speed set to 1 instead of 0.5! (actually useful now)
+  id: 707
+  time: '2025-03-11T21:07:09.0000000+00:00'
