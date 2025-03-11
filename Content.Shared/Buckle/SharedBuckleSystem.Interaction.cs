@@ -121,6 +121,10 @@ public abstract partial class SharedBuckleSystem
         if (args.Handled)
             return;
 
+        if (ent.Comp.BuckledTo != null && TryComp<StrapComponent>(ent.Comp.BuckledTo.Value, out var strapcomp) && //Goobstation - Clowncar
+            (!strapcomp.AllowOthersToUnbuckle && args.User != args.Target))
+            return;
+
         if (ent.Comp.BuckledTo != null)
             args.Handled = TryUnbuckle(ent!, args.User, popup: true);
 
