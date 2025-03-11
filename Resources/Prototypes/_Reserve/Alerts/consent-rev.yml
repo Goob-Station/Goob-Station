@@ -2,7 +2,7 @@
   id: RevConversionDenied
   icons:
   - sprite: /Textures/_Reserve/Interface/Alerts/consent_rev_denied.rsi
-    state: icon-on
+    state: consent_rev_denied
   clickEvent: !type:RemoveConversionDeniedAlertEvent
   name: alerts-rev-conversion-denied-name
   description: alerts-rev-conversion-denied-desc
@@ -11,6 +11,6 @@
   id: RevConversionCooldown
   icons:
   - sprite: /Textures/_Reserve/Interface/Alerts/consent_rev_cooldown.rsi
-    state: icon-on
+    state: consent_rev_cooldown
   name: alerts-rev-conversion-cooldown-name
   description: alerts-rev-conversion-cooldown-desc
