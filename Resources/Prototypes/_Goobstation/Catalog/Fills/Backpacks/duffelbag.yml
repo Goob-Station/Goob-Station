@@ -12,19 +12,6 @@
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
 
-- type: entity
-  parent: ClothingBackpackDuffelSyndicateBundle
-  id: ClothingBackpackDuffelSyndicateDreadnought
-  name: cybersun dreadnought bundle
-  description: "An advanced cybersun dreadnought bundle."
-  components:
-  - type: StorageFill
-    contents:
-      - id: ClothingOuterHardsuitCybersunDreadnought
-      - id: ClothingMaskGasSyndicate
-      - id: ClothingHandsGlovesCombat
-      - id: DoubleEmergencyOxygenTankFilled
-      - id: DoubleEmergencyNitrogenTankFilled
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
