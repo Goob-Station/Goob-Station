@@ -119,7 +119,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         if (!args.CanReach
         || !args.ClickLocation.IsValid(EntityManager)
         || !TryComp<HereticComponent>(args.User, out var heretic) // not a heretic - how???
-        || heretic.MansusGrasp != EntityUid.Invalid // no grasp - not special
+        || heretic.MansusGrasp == EntityUid.Invalid // no grasp - not special
         || HasComp<ActiveDoAfterComponent>(args.User) // prevent rune shittery
         || !tags.Contains("Write") || !tags.Contains("Pen")) // not a pen
             return;
