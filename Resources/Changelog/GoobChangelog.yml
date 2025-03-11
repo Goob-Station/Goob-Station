@@ -6190,3 +6190,11 @@ Entries:
       message: Changed made to Bingles.
   id: 712
   time: '2025-03-11T21:11:56.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: Sleeping carp scrolls are no longer locked to one person!
+    - type: Fix
+      message: Questionable damage handling.
+  id: 713
+  time: '2025-03-11T21:30:25.0000000+00:00'
