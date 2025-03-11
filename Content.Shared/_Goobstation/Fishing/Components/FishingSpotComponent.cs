@@ -27,8 +27,8 @@ public sealed partial class FishingSpotComponent : Component
     /// How hard it is to caught something from here
     /// </summary>
     [DataField]
-    public float FishDifficulty = 0.1f;
+    public float FishDifficulty = -0.1f;
 
     [DataField]
-    public float FishDifficultyVariety = 0.05f;
+    public float FishDifficultyVariety = -0.05f;
 }

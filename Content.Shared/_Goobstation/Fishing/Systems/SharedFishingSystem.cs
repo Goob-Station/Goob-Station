@@ -91,7 +91,7 @@ public abstract class SharedFishingSystem : EntitySystem
             if (fisherComp.StartTime == null || fisherComp.EndTime == null)
             {
                 fisherComp.StartTime = currentTime;
-                fisherComp.EndTime = currentTime + TimeSpan.FromSeconds(1f / activeSpotComp.FishDifficulty);
+                fisherComp.EndTime = currentTime + TimeSpan.FromSeconds(1f / Math.Abs(activeSpotComp.FishDifficulty));
             }
 
             if (!_hands.IsHolding(fisher, fishRod))
@@ -131,8 +131,9 @@ public abstract class SharedFishingSystem : EntitySystem
                 if (fisherComp.StartTime + TimeSpan.FromSeconds(1f) <= _timing.CurTime && fisherComp.NextStruggle == null)
                     fisherComp.NextStruggle = _timing.CurTime + TimeSpan.FromSeconds(rand.NextFloat(0.5f, 10) * activeSpotComp.FishDifficulty);
 
-                if (fisherComp.NextStruggle != null && fisherComp.NextStruggle <= _timing.CurTime){
-                    fisherComp.EndTime += TimeSpan.FromSeconds(rand.NextFloat(0, 0.01f) / activeSpotComp.FishDifficulty);
+                if (fisherComp.NextStruggle != null && fisherComp.NextStruggle <= _timing.CurTime)
+                {
+                    fisherComp.EndTime += TimeSpan.FromSeconds(rand.NextFloat(0, 0.01f) / Math.Abs(activeSpotComp.FishDifficulty));
                     fisherComp.NextStruggle = _timing.CurTime + TimeSpan.FromSeconds(rand.NextFloat(0.5f, 10) * activeSpotComp.FishDifficulty);
                 }
             }

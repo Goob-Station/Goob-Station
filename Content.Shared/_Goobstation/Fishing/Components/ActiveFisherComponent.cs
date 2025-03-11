@@ -9,17 +9,17 @@ namespace Content.Shared._Goobstation.Fishing.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ActiveFisherComponent : Component
 {
-    [DataField]
+    [DataField, AutoNetworkedField]
     public TimeSpan? StartTime;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public TimeSpan? EndTime;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public TimeSpan? NextStruggle;
 
-    [DataField]
-    public float TotalProgress = 0f;
+    [DataField, AutoNetworkedField]
+    public float TotalProgress;
 
     [DataField, AutoNetworkedField]
     public float ProgressPerUse = 0.7f;
