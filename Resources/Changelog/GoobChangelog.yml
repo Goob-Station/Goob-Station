@@ -6174,3 +6174,13 @@ Entries:
       message: All mobs can now be operated on.
   id: 710
   time: '2025-03-11T21:10:17.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Tweak
+      message: >-
+        Normal IPC wings have been split into two different colouring options
+        for the base part and the light part, this will have reset any
+        colourings already on these wings. (Also made them stop laying over your
+        character when facing south)
+  id: 711
+  time: '2025-03-11T21:11:20.0000000+00:00'
