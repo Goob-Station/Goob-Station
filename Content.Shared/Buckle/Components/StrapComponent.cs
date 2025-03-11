@@ -90,6 +90,12 @@ public sealed partial class StrapComponent : Component
     /// </summary>
     [DataField]
     public bool BuckleOnInteractHand = true;
+
+    /// <summary>
+    /// adds bverb for bucle
+    /// </summary>
+    [DataField]
+    public bool AddBuckleverb = true; //Goobstation
 }
 
 public enum StrapPosition
