@@ -7,7 +7,6 @@
     state: icon
   productEntity: MultitoolAiDetector
   cost:
-    Telecrystal: 1
+    Telecrystal: 5 # Goobstation
   categories:
   - UplinkDeception
-
