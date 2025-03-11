@@ -1860,7 +1860,8 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-rat
-  - type: NightVision # Goobstation - Start
+  # <Goobstation>
+  - type: NightVision
     color: "#808080"
     activateSound: null
     deactivateSound: null
@@ -1878,11 +1879,17 @@
         Quantity: 1
   - type: MeleeChemicalInjector
     transferAmount: 1
-    solution: melee # Goobstation - End
-  - type: GibThisGuy  #Goobstation
+    solution: melee
+  - type: GibThisGuy
     ocNames:
     - BombasterDS
-    - Gallagin 
+    - Gallagin
+  - type: DodgeWideswing
+    staminaRatio: 1 # mice are small so can probably evade without much stamina drain
+  - type: Stamina
+    critThreshold: 20
+  - type: LayingDown
+  # </Goobstation>
 
 - type: entity
   parent: MobMouse
