@@ -30,15 +30,16 @@ public partial class SharedMartialArtsSystem
         if (!_netManager.IsServer)
             return;
 
-        if (ent.Comp.Used)
-            return;
-        if (ent.Comp.UseAgainTime == TimeSpan.Zero)
+        var studentComp = EnsureComp<SleepingCarpStudentComponent>(args.User);
+        Entity<SleepingCarpStudentComponent> student = (args.User, studentComp);
+
+        if (student.Comp.UseAgainTime == TimeSpan.Zero)
         {
-            CarpScrollDelay(ent, args.User);
+            CarpScrollDelay(student, args.User);
             return;
         }
 
-        if (_timing.CurTime < ent.Comp.UseAgainTime)
+        if (_timing.CurTime < student.Comp.UseAgainTime)
         {
             _popupSystem.PopupEntity(
                 Loc.GetString("carp-scroll-waiting"),
@@ -48,29 +49,29 @@ public partial class SharedMartialArtsSystem
             return;
         }
 
-        switch (ent.Comp.Stage)
+        switch (student.Comp.Stage)
         {
             case < 3:
-                CarpScrollDelay(ent, args.User);
+                CarpScrollDelay(student, args.User);
                 break;
             case >= 3:
-                if (!TryGrant(ent.Comp, args.User))
+                if (!TryGrantMartialArt(args.User, ent.Comp))
                     return;
                 var userReflect = EnsureComp<ReflectComponent>(args.User);
                 userReflect.ReflectProb = 1;
                 userReflect.Spread = 60;
                 userReflect.OtherTypeReflectProb = 0.25f;
-                ent.Comp.Used = true;
                 _popupSystem.PopupEntity(
                     Loc.GetString("carp-scroll-complete"),
                     ent,
                     args.User,
                     PopupType.LargeCaution);
+                RemComp<SleepingCarpStudentComponent>(args.User);
                 return;
         }
     }
 
-    private void CarpScrollDelay(Entity<GrantSleepingCarpComponent> ent, EntityUid user)
+    private void CarpScrollDelay(Entity<SleepingCarpStudentComponent> ent, EntityUid user)
     {
         var time = new System.Random().Next(ent.Comp.MinUseDelay, ent.Comp.MaxUseDelay);
         ent.Comp.UseAgainTime = _timing.CurTime + TimeSpan.FromSeconds(time);
