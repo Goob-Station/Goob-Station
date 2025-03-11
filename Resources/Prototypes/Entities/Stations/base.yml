@@ -47,7 +47,6 @@
     - type: GridSpawn
       groups:
         trade: !type:GridSpawnGroup
-          stationGrid: false
           addComponents:
             - type: ProtectedGrid
             - type: TradeStation
