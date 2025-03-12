@@ -7,7 +7,7 @@
   - type: StationEvent
     startAnnouncement: station-event-deathsquad-enroute
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/StationEvents/rescue_imminent.ogg
     reoccurrenceDelay: 30
     duration: null
     maxOccurrences: 1
