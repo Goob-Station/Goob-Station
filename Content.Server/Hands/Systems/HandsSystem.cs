@@ -95,6 +95,9 @@ namespace Content.Server.Hands.Systems
             if (args.Handled)
                 return;
 
+            if (!_random.Prob(args.DisarmProbability)) // WWDP shove
+                return;
+
             // Break any pulls
             if (TryComp(uid, out PullerComponent? puller) && TryComp(puller.Pulling, out PullableComponent? pullable))
                 _pullingSystem.TryStopPull(puller.Pulling.Value, pullable, ignoreGrab: true); // Goobstation edit added check for grab
@@ -105,7 +108,7 @@ namespace Content.Server.Hands.Systems
 
             args.PopupPrefix = "disarm-action-";
 
-            args.Handled = true; // no shove/stun.
+            args.Handled = true; // Successful disarm
         }
 
         // Shitmed Change Start
