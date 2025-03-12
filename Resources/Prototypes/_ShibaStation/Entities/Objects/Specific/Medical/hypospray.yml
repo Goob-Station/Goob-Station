@@ -15,7 +15,7 @@
     emptySpriteName: ethylpen_empty
   - type: Hypospray
     solutionName: pen
-    transferAmount: 10
+    transferAmount: 30
   - type: SolutionContainerManager
     solutions:
       pen:
