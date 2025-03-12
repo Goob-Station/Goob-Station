@@ -18,6 +18,9 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Utility;
 using Timer = Robust.Shared.Timing.Timer;
+using Content.Shared.Station.Components;
+using Content.Server.Cargo.Components;
+using Content.Shared.Cargo.Components;
 
 namespace Content.Server._Lavaland.Shuttles.Systems;
 
@@ -227,8 +230,11 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
             if (xform.MapID != map)
                 continue;
 
-            if (HasComp<BecomesStationComponent>(gridUid) ||
-                HasComp<LavalandStationComponent>(gridUid))
+            if (TryComp<StationMemberComponent>(gridUid, out var stationMember) &&
+                TryComp<StationDataComponent>(stationMember.Station, out var stationData))
+                return _station.GetLargestGrid(stationData);
+
+            if (HasComp<LavalandStationComponent>(gridUid))
                 return gridUid;
 
             var size = grid.LocalAABB.Size.LengthSquared();
