@@ -179,7 +179,9 @@ namespace Content.Shared.Damage
         public DamageSpecifier? TryChangeDamage(EntityUid? uid, DamageSpecifier damage, bool ignoreResistances = false,
             bool interruptsDoAfters = true, DamageableComponent? damageable = null, EntityUid? origin = null,
             // Shitmed Change
-            bool? canSever = true, bool? canEvade = false, float? partMultiplier = 1.00f, TargetBodyPart? targetPart = null)
+            bool? canSever = true, bool? canEvade = false, float? partMultiplier = 1.00f, TargetBodyPart? targetPart = null,
+            // Goobstation
+            bool heavyAttack = false)
         {
             if (!uid.HasValue || !_damageableQuery.Resolve(uid.Value, ref damageable, false))
             {
@@ -192,7 +194,7 @@ namespace Content.Shared.Damage
                 return damage;
             }
 
-            var before = new BeforeDamageChangedEvent(damage, origin, targetPart, canEvade ?? false); // Shitmed Change
+            var before = new BeforeDamageChangedEvent(damage, origin, targetPart, canEvade ?? false, heavyAttack); // Shitmed Change // Goobstation
             RaiseLocalEvent(uid.Value, ref before);
 
             if (before.Cancelled)
@@ -402,6 +404,7 @@ namespace Content.Shared.Damage
         EntityUid? Origin = null,
         TargetBodyPart? TargetPart = null, // Shitmed Change
         bool CanEvade = false, // Lavaland Change
+        bool HeavyAttack = false, // Goobstation
         bool Cancelled = false);
 
     /// <summary>

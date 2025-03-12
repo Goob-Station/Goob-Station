@@ -14,3 +14,28 @@
   - type: ClothingGrantComponent
     component:
     - type: KravMaga
+
+- type: entity
+  parent: ClothingHandsGlovesKravMaga
+  id: ClothingHandsGlovesKravMagaStealthy
+  name: black gloves
+  description: Regular black gloves that do not keep you from frying.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/black.rsi
+  - type: Fiber
+    fiberColor: fibers-black
+
+- type: entity
+  parent: [ ClothingHandsGlovesKravMaga , BaseSyndicateContraband ]
+  id: ClothingHandsGlovesGuerrilla
+  name: guerrilla gloves
+  description: These combat gloves come with the extra ability to perform Krav Maga martial art attacks.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/combat.rsi
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/combat.rsi
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-black

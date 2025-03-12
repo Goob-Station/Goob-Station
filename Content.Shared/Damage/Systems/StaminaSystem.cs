@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Shared._Goobstation.MartialArts;
 using Content.Shared._Goobstation.MartialArts.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;

@@ -104,6 +104,9 @@
       prob: 0.001
       orGroup: Canister
     #weapons
+    - id: VehicleClowncarAntag #Goobstation - Clowncar
+      prob: 0.01
+      orGroup: Weapons
     - id: WeaponPulseCarbine
       prob: 0.0001
       orGroup: Weapons
