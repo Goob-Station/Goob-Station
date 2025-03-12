@@ -18,7 +18,7 @@ public sealed partial class MeleeWeaponSystem
     /// <summary>
     /// Does all of the melee effects for a player that are predicted, i.e. character lunge and weapon animation.
     /// </summary>
-    public override void DoLunge(EntityUid user, EntityUid weapon, Angle angle, Vector2 localPos, string? animation, Angle spriteRotation, bool predicted = true)
+    public override void DoLunge(EntityUid user, EntityUid weapon, Angle angle, Vector2 localPos, string? animation, Angle spriteRotation, bool flippedAnimation, bool predicted = true)
     {
         if (!Timing.IsFirstTimePredicted)
             return;
@@ -71,6 +71,16 @@ public sealed partial class MeleeWeaponSystem
             case WeaponArcAnimation.Thrust:
                 track = EnsureComp<TrackUserComponent>(animationUid);
                 track.User = user;
+                // Goobstation Start
+                if (flippedAnimation
+                    && (GetEntityDirection(user) == Direction.South
+                    || GetEntityDirection(user) == Direction.West))
+                {
+                    Log.Info("2 flipped animation");
+                    spriteRotation = 360 - spriteRotation;
+                }
+                // Goobstation End
+                Log.Info(spriteRotation.ToString());
                 _animation.Play(animationUid, GetThrustAnimation(sprite, distance, spriteRotation), ThrustAnimationKey);
                 if (arcComponent.Fadeout)
                     _animation.Play(animationUid, GetFadeAnimation(sprite, 0.05f, 0.15f), FadeAnimationKey);
@@ -85,6 +95,12 @@ public sealed partial class MeleeWeaponSystem
                 break;
         }
     }
+
+    private Direction GetEntityDirection(EntityUid entity) // Goobstation
+    {
+        return EntityManager.TryGetComponent(entity, out TransformComponent? transform) ? transform.LocalRotation.GetCardinalDir() : Direction.North;
+    }
+
 
     private Animation GetSlashAnimation(SpriteComponent sprite, Angle arc, Angle spriteRotation)
     {

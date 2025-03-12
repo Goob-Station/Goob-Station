@@ -63,4 +63,7 @@ public sealed partial class StaminaComponent : Component
 
     [DataField]
     public ProtoId<AlertPrototype> StaminaAlert = "Stamina";
+
+    [DataField]
+    public float StaminaOnShove = 7.5f;
 }

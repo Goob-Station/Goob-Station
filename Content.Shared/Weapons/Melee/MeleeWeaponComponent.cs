@@ -111,12 +111,16 @@ public sealed partial class MeleeWeaponComponent : Component
     public Angle Angle = Angle.FromDegrees(60);
 
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
-    public EntProtoId Animation = "WeaponArcThrust";
+    public EntProtoId Animation = "WeaponArcThrust"; // Goob Edit
+
+    [DataField, AutoNetworkedField]
+    public bool FlipAnimation = true; // Goob Edit
 
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public EntProtoId WideAnimation = "WeaponArcSlash";
 
     // WD EDIT START
+
     [DataField, AutoNetworkedField]
     public EntProtoId DisarmAnimation = "WeaponArcDisarm";
 

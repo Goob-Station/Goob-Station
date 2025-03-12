@@ -36,7 +36,13 @@ public sealed class MeleeLungeEvent : EntityEventArgs
     /// </summary>
     public Angle SpriteRotation;
 
-    public MeleeLungeEvent(NetEntity entity, NetEntity weapon, Angle angle, Vector2 localPos, string? animation, Angle spriteRotation)
+    /// <summary>
+    /// GoobStation / The rotation of the sprite for the animation
+    /// </summary>
+    public bool FlipAnimation;
+
+
+    public MeleeLungeEvent(NetEntity entity, NetEntity weapon, Angle angle, Vector2 localPos, string? animation, Angle spriteRotation, bool flipAnimation)
     {
         Entity = entity;
         Weapon = weapon;
@@ -44,5 +50,6 @@ public sealed class MeleeLungeEvent : EntityEventArgs
         LocalPos = localPos;
         Animation = animation;
         SpriteRotation = spriteRotation;
+        FlipAnimation = flipAnimation;
     }
 }

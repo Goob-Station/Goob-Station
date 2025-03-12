@@ -123,14 +123,14 @@ public sealed partial class StaminaSystem : EntitySystem
 
     private void OnDisarmed(EntityUid uid, StaminaComponent component, DisarmedEvent args)
     {
-        if (args.Handled || !_random.Prob(args.DisarmProbability))
+        // No random stamina damage
+        if (args.Handled)
             return;
 
         if (component.Critical)
             return;
 
-        var damage = args.DisarmProbability * component.CritThreshold;
-        TakeStaminaDamage(uid, damage, component, source: args.Source);
+        TakeStaminaDamage(uid, args.StaminaDamage, component, source: args.Source);
 
         args.PopupPrefix = "disarm-action-shove-";
         args.IsStunned = component.Critical;

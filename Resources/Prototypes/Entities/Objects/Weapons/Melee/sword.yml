@@ -29,7 +29,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Melee/captain_sabre.rsi
   - type: MeleeWeapon
-    animationRotation: -100 # WWDP
+    animationRotation: -95 # WWDP
     wideAnimationRotation: -135 # WWDP
     heavyStaminaCost: 2.5 # goob edit
     attackRate: 1.5

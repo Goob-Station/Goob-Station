@@ -138,85 +138,82 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 return true;
                 // WWDP edit end
             }
-
-            // no throw stamina for now
-
-            if (targetHandsComponent?.ActiveHand is { IsEmpty: false })
-            {
-                inTargetHand = targetHandsComponent.ActiveHand.HeldEntity!.Value;
-            }
-
-            var attemptEvent = new DisarmAttemptEvent(target, user, inTargetHand);
-
-            if (inTargetHand != null)
-            {
-                RaiseLocalEvent(inTargetHand.Value, attemptEvent);
-            }
-
-            RaiseLocalEvent(target, attemptEvent);
-
-            if (attemptEvent.Cancelled)
-                return true; // WWDP
-
-            var chance = CalculateDisarmChance(user, target, inTargetHand, combatMode);
-
-            // WWDP shove is guaranteed now, disarm chance is rolled on top
-            _audio.PlayPvs(combatMode.DisarmSuccessSound,
-                user,
-                AudioParams.Default.WithVariation(0.025f).WithVolume(5f));
-            AdminLogger.Add(LogType.DisarmedAction,
-                $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");
-
-            var staminaDamage = CalculateShoveStaminaDamage(user, target); // WWDP shoving
-
-            var eventArgs = new DisarmedEvent
-            {
-                Target = target, Source = user, DisarmProbability = chance, StaminaDamage = staminaDamage
-            }; // WWDP shoving
-            RaiseLocalEvent(target, eventArgs);
-
-            if (!eventArgs.Handled)
-            {
-                ShoveOrDisarmPopup(disarm: false); // WWDP
-                return true;
-            }
-
-            ShoveOrDisarmPopup(disarm: true); // WWDP
-
-            _audio.PlayPvs(combatMode.DisarmSuccessSound,
-                user,
-                AudioParams.Default.WithVariation(0.025f).WithVolume(5f));
-            AdminLogger.Add(LogType.DisarmedAction,
-                $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");
-
-            return true;
-
-            void ShoveOrDisarmPopup(bool disarm)
-            {
-                var filterOther = Filter.PvsExcept(user, entityManager: EntityManager);
-                var msgPrefix = "disarm-action-";
-
-                if (!disarm)
-                {
-                    return; // WWDP specific - Less popups; would probably want to remove on upstream
-                    msgPrefix = "disarm-action-shove-";
-                }
-
-                var msgOther = Loc.GetString(
-                    msgPrefix + "popup-message-other-clients",
-                    ("performerName", Identity.Entity(user, EntityManager)),
-                    ("targetName", Identity.Entity(target, EntityManager)));
-
-                var msgUser = Loc.GetString(msgPrefix + "popup-message-cursor",
-                    ("targetName", Identity.Entity(target, EntityManager)));
-
-                PopupSystem.PopupEntity(msgOther, user, filterOther, true);
-                PopupSystem.PopupEntity(msgUser, target, user);
-            }
-            // WWDP edit end
         }
 
-        return false;
+        // no throw stamina for now
+
+        if (targetHandsComponent?.ActiveHand is { IsEmpty: false })
+        {
+            inTargetHand = targetHandsComponent.ActiveHand.HeldEntity!.Value;
+        }
+
+        var attemptEvent = new DisarmAttemptEvent(target, user, inTargetHand);
+        if (inTargetHand != null)
+        {
+            RaiseLocalEvent(inTargetHand.Value, attemptEvent);
+        }
+
+        RaiseLocalEvent(target, attemptEvent);
+
+        if (attemptEvent.Cancelled)
+            return true; // WWDP
+
+        var chance = CalculateDisarmChance(user, target, inTargetHand, combatMode);
+
+        // WWDP shove is guaranteed now, disarm chance is rolled on top
+        _audio.PlayPvs(combatMode.DisarmSuccessSound,
+            user,
+            AudioParams.Default.WithVariation(0.025f).WithVolume(5f));
+        AdminLogger.Add(LogType.DisarmedAction,
+            $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");
+
+        var staminaDamage = CalculateShoveStaminaDamage(user, target); // WWDP shoving
+
+        var eventArgs = new DisarmedEvent
+        {
+            Target = target, Source = user, DisarmProbability = chance, StaminaDamage = staminaDamage,
+        }; // WWDP shoving
+        RaiseLocalEvent(target, eventArgs);
+
+        if (!eventArgs.Handled)
+        {
+            ShoveOrDisarmPopup(disarm: false); // WWDP
+            return true;
+        }
+
+        ShoveOrDisarmPopup(disarm: true); // WWDP
+
+        _audio.PlayPvs(combatMode.DisarmSuccessSound,
+            user,
+            AudioParams.Default.WithVariation(0.025f).WithVolume(5f));
+        AdminLogger.Add(LogType.DisarmedAction,
+            $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");
+
+        return true;
+
+        void ShoveOrDisarmPopup(bool disarm)
+        {
+            var filterOther = Filter.PvsExcept(user, entityManager: EntityManager);
+            var msgPrefix = "disarm-action-";
+
+            if (!disarm)
+            {
+                return; // WWDP specific - Less popups; would probably want to remove on upstream
+                msgPrefix = "disarm-action-shove-";
+            }
+
+            var msgOther = Loc.GetString(
+                msgPrefix + "popup-message-other-clients",
+                ("performerName", Identity.Entity(user, EntityManager)),
+                ("targetName", Identity.Entity(target, EntityManager)));
+
+            var msgUser = Loc.GetString(msgPrefix + "popup-message-cursor",
+                ("targetName", Identity.Entity(target, EntityManager)));
+
+            PopupSystem.PopupEntity(msgOther, user, filterOther, true);
+            PopupSystem.PopupEntity(msgUser, target, user);
+        }
+        // WWDP edit end
     }
 
     protected override bool InRange(EntityUid user, EntityUid target, float range, ICommonSession? session)
@@ -267,7 +264,12 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         {
             chance += malus.Malus;
         }
-
+        Log.Info(_contests.StaminaContest(disarmer,disarmed).ToString());
+        Log.Info(_contests.HealthContest(disarmer,disarmed).ToString());
+        Log.Info(Math.Clamp(chance // WWDP disarm based on health & stamina
+                            * _contests.StaminaContest(disarmer, disarmed)
+                            * _contests.HealthContest(disarmer, disarmed),
+            0f, 1f).ToString());
         return Math.Clamp(chance // WWDP disarm based on health & stamina
                         * _contests.StaminaContest(disarmer, disarmed)
                         * _contests.HealthContest(disarmer, disarmed),
@@ -284,7 +286,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             * _contests.MassContest(disarmer, disarmed, false, 4f);
     }
 
-    public override void DoLunge(EntityUid user, EntityUid weapon, Angle angle, Vector2 localPos, string? animation, Angle spriteRotation, bool predicted = true)
+    public override void DoLunge(EntityUid user, EntityUid weapon, Angle angle, Vector2 localPos, string? animation, Angle spriteRotation, bool flipAnimation, bool predicted = true)
     {
         Filter filter;
 
@@ -297,7 +299,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             filter = Filter.Pvs(user, entityManager: EntityManager);
         }
 
-        RaiseNetworkEvent(new MeleeLungeEvent(GetNetEntity(user), GetNetEntity(weapon), angle, localPos, animation, spriteRotation), filter);
+        RaiseNetworkEvent(new MeleeLungeEvent(GetNetEntity(user), GetNetEntity(weapon), angle, localPos, animation, spriteRotation, flipAnimation), filter);
     }
 
     private void OnSpeechHit(EntityUid owner, MeleeSpeechComponent comp, MeleeHitEvent args)

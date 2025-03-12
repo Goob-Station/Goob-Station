@@ -298,6 +298,6 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         // Entity might not have been sent by PVS.
         if (Exists(ent) && Exists(entWeapon))
-            DoLunge(ent, entWeapon, ev.Angle, ev.LocalPos, ev.Animation, ev.SpriteRotation);
+            DoLunge(ent, entWeapon, ev.Angle, ev.LocalPos, ev.Animation, ev.SpriteRotation, ev.FlipAnimation);
     }
 }
