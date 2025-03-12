@@ -33,6 +33,8 @@
     maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: RetortShuttleCBURN
+  - type: AlertLevelInterceptionRule
+    alertLevel: gamma
 
 # ERT
 
@@ -50,6 +52,8 @@
     maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: RetortShuttleAssault
+  - type: AlertLevelInterceptionRule
+    alertLevel: gamma
 
 - type: entity
   parent: SpawnERTSecurity
