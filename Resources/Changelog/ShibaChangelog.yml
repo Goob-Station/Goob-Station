@@ -1,6 +1,52 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Add missing light to the Salvage Docking Arm on Amber.
+    type: Fix
+  id: 216
+  time: '2025-03-12T15:38:17.181369'
+- author: AstroDogeDX
+  changes:
+  - message: Ethylredoxrazine medipens in the inhebriation kit now inject the full
+      30u dose.
+    type: Fix
+  id: 215
+  time: '2025-03-12T15:41:35.716454'
+- author: AstroDogeDX
+  changes:
+  - message: Abductors now have our namesets again; no more meme shit.
+    type: Fix
+  id: 214
+  time: '2025-03-12T15:41:02.487426'
+- author: AstroDogeDX
+  changes:
+  - message: Removed that errant pipe from the library on Cluster. It's been there
+      for months, it's there on Goob, I think it was there when I played on Blep.
+      It's GONE NOW.
+    type: Remove
+  id: 213
+  time: '2025-03-12T15:40:33.043686'
+- author: AstroDogeDX
+  changes:
+  - message: Fixed access to Telecomms/Silo on Packed. It's all Command now.
+    type: Fix
+  id: 212
+  time: '2025-03-12T15:39:51.107161'
+- author: AstroDogeDX
+  changes:
+  - message: Added secure windoor to Cargo's flap on Cluster. No more sneaking in
+      that easy.
+    type: Fix
+  id: 211
+  time: '2025-03-12T15:39:21.680221'
+- author: AstroDogeDX
+  changes:
+  - message: Added missing directional fan to Salvage on Omega. No more spacing.
+    type: Fix
+  id: 210
+  time: '2025-03-12T15:39:00.447661'
+- author: AstroDogeDX
+  changes:
   - message: The ATS works again now. You know what that means, Cargo. LET'S GO GAMBLING!
     type: Fix
   id: 209
