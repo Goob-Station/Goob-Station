@@ -10,7 +10,7 @@ public sealed class AlertLevelInterceptionRule : StationEventSystem<AlertLevelIn
 
     protected override void Started(EntityUid uid, AlertLevelInterceptionRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
-        // base.Started(uid, component, gameRule, args);
+        base.Started(uid, component, gameRule, args);
 
         if (!TryGetRandomStation(out var chosenStation))
             return;

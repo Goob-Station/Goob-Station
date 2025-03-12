@@ -42,6 +42,9 @@
   parent: BaseUnknownShuttleRule
   id: SpawnERTSecurity
   components:
+  - type: AlertLevelInterceptionRule
+    alertLevel: gamma
+    overrideAlert: true
   - type: StationEvent
     startAnnouncement: station-event-emergencyresponseteam-security-enroute
     startAudio:
@@ -50,16 +53,13 @@
     maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: RetortShuttleAssault
-  - type: AlertLevelInterceptionRule
-    alertLevel: gamma
-    overrideAlert: true
 
 - type: entity
   parent: BaseUnknownShuttleRule
   id: SpawnERTMedical
   components:
   - type: StationEvent
-    startAnnouncement: station-event-emergencyresponseteam-medical-enroute
+    # startAnnouncement: station-event-emergencyresponseteam-medical-enroute
     startAudio:
       path: /Audio/Announcements/attention.ogg
     duration: 1
