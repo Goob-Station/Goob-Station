@@ -858,7 +858,10 @@ public sealed partial class ChatSystem : SharedChatSystem
             return false;
         }
 
-        return !_chatManager.MessageCharacterLimit(player, message);
+        if (_chatManager.MessageCharacterLimit(player, message))
+            return false;
+
+        return !_chatManager.ContainsSlur(player, message);
     }
 
     // ReSharper disable once InconsistentNaming

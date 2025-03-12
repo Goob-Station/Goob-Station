@@ -18,7 +18,8 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
-using Content.Server._RMC14.LinkAccount; // RMC - Patreon
+using Content.Server._RMC14.LinkAccount;
+using System.Text.RegularExpressions; // RMC - Patreon
 
 namespace Content.Server.Chat.Managers;
 
@@ -57,6 +58,9 @@ internal sealed partial class ChatManager : IChatManager
 
     private readonly Dictionary<NetUserId, ChatUser> _players = new();
 
+    private static readonly string[] Words = new string[] { "ligga", "nigga", "nigger", "ligger", "molest" };
+    private static readonly string Pattern = @"\b(" + string.Join("|", Words) + @")\b";
+    private static readonly Regex _slurRegex = new Regex(Pattern, RegexOptions.IgnoreCase);
     public void Initialize()
     {
         _netManager.RegisterNetMessage<MsgChatMessage>();
@@ -393,6 +397,17 @@ internal sealed partial class ChatManager : IChatManager
         }
 
         return isOverLength;
+    }
+
+    public bool ContainsSlur(ICommonSession player, string message)
+    {
+        bool containsSlur = _slurRegex.IsMatch(message);
+        if (containsSlur)
+        {
+            var feedback = Loc.GetString("server-slur-detected-warning");
+            DispatchServerMessage(player, feedback);
+        }
+        return containsSlur;
     }
 
     #endregion

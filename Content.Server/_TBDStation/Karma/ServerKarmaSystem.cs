@@ -184,6 +184,7 @@ namespace Content.Server._TBDStation.ServerKarma
 
         private int GetMultiplier(ICommonSession session, int val)
         {
+            // TODO: deal with retaliation and allow it to happen without the retaliator losing karma.
             if (_playerSystem.ContentData(session) is not { Mind: { } mindId })
                 return (int) (0.5f * val);
             if (_role.MindIsAntagonist(mindId))

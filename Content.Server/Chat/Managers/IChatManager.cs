@@ -36,6 +36,8 @@ namespace Content.Server.Chat.Managers
 
         bool MessageCharacterLimit(ICommonSession player, string message);
 
+        bool ContainsSlur(ICommonSession player, string message);
+
         void DeleteMessagesBy(NetUserId uid);
 
         [return: NotNullIfNotNull(nameof(author))]
