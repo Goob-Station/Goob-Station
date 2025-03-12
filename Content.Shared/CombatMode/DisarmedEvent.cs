@@ -32,5 +32,11 @@ namespace Content.Shared.CombatMode
         ///     Potential stamina damage if this disarm results in a shove.
         /// </summary>
         public float StaminaDamage { get; init; }
+
+        /// <summary>
+        ///     Whether the entity was successfully stunned from a shove.
+        /// </summary>
+        public bool WasDisarmed { get; set; }
+
     }
 }

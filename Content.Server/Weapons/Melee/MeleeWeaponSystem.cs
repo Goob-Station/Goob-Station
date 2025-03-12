@@ -38,7 +38,6 @@ namespace Content.Server.Weapons.Melee;
 public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly DamageExamineSystem _damageExamine = default!;
     [Dependency] private readonly LagCompensationSystem _lag = default!;
@@ -140,7 +139,6 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             }
         }
 
-        // no throw stamina for now
 
         if (targetHandsComponent?.ActiveHand is { IsEmpty: false })
         {
@@ -175,32 +173,24 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         }; // WWDP shoving
         RaiseLocalEvent(target, eventArgs);
 
-        if (!eventArgs.Handled)
+        if (!eventArgs.Handled || !eventArgs.WasDisarmed)
         {
-            ShoveOrDisarmPopup(disarm: false); // WWDP
+            ShoveOrDisarmPopup(eventArgs.PopupPrefix);
             return true;
         }
 
-        ShoveOrDisarmPopup(disarm: true); // WWDP
-
+        ShoveOrDisarmPopup(eventArgs.PopupPrefix);
         _audio.PlayPvs(combatMode.DisarmSuccessSound,
             user,
             AudioParams.Default.WithVariation(0.025f).WithVolume(5f));
         AdminLogger.Add(LogType.DisarmedAction,
-            $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");
+            $"{ToPrettyString(user):user} used a shove on {ToPrettyString(target):target}");
 
         return true;
 
-        void ShoveOrDisarmPopup(bool disarm)
+        void ShoveOrDisarmPopup(string msgPrefix)
         {
             var filterOther = Filter.PvsExcept(user, entityManager: EntityManager);
-            var msgPrefix = "disarm-action-";
-
-            if (!disarm)
-            {
-                return; // WWDP specific - Less popups; would probably want to remove on upstream
-                msgPrefix = "disarm-action-shove-";
-            }
 
             var msgOther = Loc.GetString(
                 msgPrefix + "popup-message-other-clients",
@@ -258,20 +248,19 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (HasComp<DisarmProneComponent>(disarmed))
             return 0.0f;
 
-        var chance = disarmerComp.BaseDisarmFailChance;
+        var chance = 1 - disarmerComp.BaseDisarmFailChance;
 
         if (inTargetHand != null && TryComp<DisarmMalusComponent>(inTargetHand, out var malus))
         {
             chance += malus.Malus;
         }
 
-        var staminaContest = _contests.StaminaContest(disarmer, disarmed);
+        var staminaContest = _contests.StaminaContest(disarmer, disarmed); // we aint even using this anymore might nuke it
         var healthContest = _contests.HealthContest(disarmer, disarmed);
-        Log.Info(Math.Clamp(chance / staminaContest / healthContest, 0f, 1f).ToString());
-        return Math.Clamp(chance // WWDP disarm based on health & stamina
-                        * staminaContest
-                        * healthContest,
-                        0f, 1f);
+        var disarmFinalChance = Math.Clamp(chance * 0.5f + staminaContest * 0.25f + healthContest * 0.25f, 0f, 1f);
+        Log.Info(disarmFinalChance.ToString());
+        return disarmFinalChance; // this ideally should give lower values
+
     }
 
     // WWDP shove stamina damage based on mass

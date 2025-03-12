@@ -134,8 +134,7 @@ public sealed partial class StaminaSystem : EntitySystem
 
         args.PopupPrefix = "disarm-action-shove-";
         args.IsStunned = component.Critical;
-
-        args.Handled = true;
+        // Shoving shouldnt handle it
     }
 
     // goobstation - stun resistance. try not to modify this method at all
