@@ -1,6 +1,8 @@
+using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._Goobstation.MartialArts.Components;
 
@@ -22,7 +24,11 @@ public sealed partial class MartialArtsKnowledgeComponent : GrabStagesOverrideCo
 
     [DataField]
     [AutoNetworkedField]
-    public bool Blocked = false;
+    public bool Blocked;
+
+    [DataField]
+    [AutoNetworkedField]
+    public DamageSpecifier OriginalFistDamage;
 }
 
 public enum MartialArtsForms

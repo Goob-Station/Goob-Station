@@ -257,7 +257,9 @@
   randomizeName: false
   components:
   - type: GrantImplant
-    implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
+  - type: GrantCqc
+    isBlocked: false
   - type: GhostRole
     name: ghost-role-information-navy-officer-name
     description: ghost-role-information-navy-officer-description
@@ -295,7 +297,9 @@
   randomizeName: false
   components:
   - type: GrantImplant
-    implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
+  - type: GrantCqc
+    isBlocked: false
   - type: GhostRole
     name: ghost-role-information-navy-captain-name
     description: ghost-role-information-navy-captain-description
@@ -333,7 +337,9 @@
   randomizeName: false
   components:
   - type: GrantImplant
-    implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, StorageImplant ]
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, StorageImplant ]
+  - type: GrantCqc
+    isBlocked: false
   - type: GhostRole
     name: ghost-role-information-navy-officer-undercover-name
     description: ghost-role-information-navy-officer-undercover-description
@@ -371,7 +377,9 @@
   randomizeName: false
   components:
   - type: GrantImplant
-    implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
+  - type: GrantCqc
+    isBlocked: false
   - type: GhostRole
     name: ghost-role-information-special-operations-officer-name
     description: ghost-role-information-special-operations-officer-description
@@ -409,7 +417,7 @@
   randomizeName: false
   components:
   - type: GrantImplant
-    implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
   - type: GhostRole
     name: ghost-role-information-diplomat-name
     description: ghost-role-information-diplomat-description
@@ -417,7 +425,7 @@
     raffle:
       settings: short
   - type: Loadout
-    prototypes: [  DiplomatGear ]
+    prototypes: [ DiplomatGear ]
     roleLoadout: [ RoleSurvivalEVA ]
   - type: RandomMetadata
     nameSegments:

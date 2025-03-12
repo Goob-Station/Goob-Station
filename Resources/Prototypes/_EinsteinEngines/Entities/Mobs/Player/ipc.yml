@@ -5,6 +5,7 @@
   description: A positronic brain in a metal body.
   components:
   - type: HarpySinger
+    ShutUpDamageThreshold: 5 # Punch does 5 damage
   - type: Instrument
     allowPercussion: true
     allowProgramChange: true
@@ -16,6 +17,7 @@
     interfaces:
       enum.InstrumentUiKey.Key:
         type: InstrumentBoundUserInterface
+        requireInputValidation: false
       enum.VoiceMaskUIKey.Key:
         type: VoiceMaskBoundUserInterface
       enum.HumanoidMarkingModifierKey.Key:
