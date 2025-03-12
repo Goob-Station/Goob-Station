@@ -18,8 +18,8 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
-using Content.Server._RMC14.LinkAccount;
-using System.Text.RegularExpressions; // RMC - Patreon
+using Content.Server._RMC14.LinkAccount; // RMC - Patreon
+using System.Text.RegularExpressions;
 
 namespace Content.Server.Chat.Managers;
 
@@ -58,9 +58,10 @@ internal sealed partial class ChatManager : IChatManager
 
     private readonly Dictionary<NetUserId, ChatUser> _players = new();
 
-    private static readonly string[] Words = new string[] { "ligga", "nigga", "nigger", "ligger", "molest" };
-    private static readonly string Pattern = @"\b(" + string.Join("|", Words) + @")\b";
-    private static readonly Regex _slurRegex = new Regex(Pattern, RegexOptions.IgnoreCase);
+    private static readonly string[] Words = new string[] { "molest", "cum" };
+    private static readonly string Pattern = string.Join("|", Words);
+    // private static readonly string Pattern = @""
+    private static readonly Regex _slurRegex = new Regex(Pattern, RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace | RegexOptions.Compiled);
     public void Initialize()
     {
         _netManager.RegisterNetMessage<MsgChatMessage>();
@@ -88,10 +89,10 @@ internal sealed partial class ChatManager : IChatManager
         DispatchServerAnnouncement(Loc.GetString(val ? "chat-manager-admin-ooc-chat-enabled-message" : "chat-manager-admin-ooc-chat-disabled-message"));
     }
 
-        public void DeleteMessagesBy(NetUserId uid)
-        {
-            if (!_players.TryGetValue(uid, out var user))
-                return;
+    public void DeleteMessagesBy(NetUserId uid)
+    {
+        if (!_players.TryGetValue(uid, out var user))
+            return;
 
         var msg = new MsgDeleteChatMessagesBy { Key = user.Key, Entities = user.Entities };
         _netManager.ServerSendToAll(msg);
