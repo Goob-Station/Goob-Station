@@ -19,7 +19,7 @@
           Quantity: 100
 
 - type: entity
-  name: spray bottle
+  name: silver sulfadiazine spray bottle
   id: SprayBottleSilverSulfadiazine
   suffix: Filled, Silver sulfadiazine
   parent: SprayBottle
