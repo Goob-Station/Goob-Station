@@ -17,6 +17,6 @@ public sealed class AlertLevelInterceptionRule : StationEventSystem<AlertLevelIn
         if (_alertLevelSystem.GetLevel(chosenStation.Value) != "green" && component.OverrideAlert == false) // Goobstation
             return;
 
-        _alertLevelSystem.SetLevel(chosenStation.Value, component.AlertLevel, true, true, false, component.Locked);
+        _alertLevelSystem.SetLevel(chosenStation.Value, component.AlertLevel, true, true, true, component.Locked);
     }
 }

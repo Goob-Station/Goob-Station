@@ -47,7 +47,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     duration: 1
-    maxOccurrences: 1
+    maxOccurrences: 2
   - type: LoadMapRule
     preloadedGrid: RetortShuttleAssault
   - type: AlertLevelInterceptionRule
