@@ -72,7 +72,7 @@
       - id: Flash
 
 - type: entity
-  parent: ClothingBackpackDuffelHolding
+  parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelGman
   name: strange duffelbag
   description: A strange, unremovable, bag capable of containing an absurd amount of items. Seemingly invisible to the naked eye.
@@ -83,3 +83,7 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Armor/covert_armor.rsi
   - type: Unremoveable # No looting the gman.
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,19,9
