@@ -31,11 +31,10 @@
   description: A weapon worthy of a god, able to strike with the force of a lightning bolt. It crackles with barely contained energy.
   components:
   - type: Wieldable
-    useDelayOnWield: false
-  - type: MeleeRequiresWield
+    useDelayOnWield: false # GoobStation Edit
   - type: LandAtCursor
   - type: Sprite
-    sprite: Objects/Weapons/Melee/mjollnir.rsi
+    sprite: _Goobstation/Objects/Weapons/Melee/mjollnir.rsi # GoobStation Edit
     layers:
     - state: icon
   - type: UseDelay
@@ -48,8 +47,8 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 5
-        Structural: 5
+        Blunt: 10 # GoobStation Edit
+        Structural: 10 # GoobStation Edit
     soundHit:
       path: /Audio/Effects/tesla_consume.ogg
       params:
@@ -57,8 +56,8 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 20
-        Structural: 25
+        Blunt: 10 # GoobStation Edit
+        Structural: 15 # GoobStation Edit
   - type: DamageOtherOnHit
     damage:
       types:
@@ -66,6 +65,7 @@
         Structural: 15
   - type: Item
     size: Ginormous
+  - type: Boomerang
 
 - type: entity
   id: SingularityHammer
