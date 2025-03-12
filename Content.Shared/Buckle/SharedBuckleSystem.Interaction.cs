@@ -32,11 +32,17 @@ public abstract partial class SharedBuckleSystem
     {
         if (!StrapCanDragDropOn(uid, args.User, uid, args.Dragged, component))
             return;
+        //Goobstation - Start Goobstation added whielist check before the insert test
+        if (!TryComp(args.Dragged, out BuckleComponent? buckle))
+            return;
 
+        if (!CanBuckle(args.Dragged, args.User, uid, false, out var _, buckle))
+            return;
+        // Goobstation end
         if (args.Dragged == args.User)
         {
-            if (!TryComp(args.User, out BuckleComponent? buckle))
-                return;
+            //if (!TryComp(args.User, out BuckleComponent? buckle)) // Goobstation - Clowncar
+            //    return;
 
             args.Handled = TryBuckle(args.User, args.User, uid, buckle);
         }
@@ -157,7 +163,8 @@ public abstract partial class SharedBuckleSystem
             buckle.BuckledTo != uid &&
             args.User != uid &&
             StrapHasSpace(uid, buckle, component) &&
-            _interaction.InRangeUnobstructed(args.User, args.Target, range: buckle.Range))
+            _interaction.InRangeUnobstructed(args.User, args.Target, range: buckle.Range) &&
+            component.AddBuckleverb) //Goobstation - Clowncar
         {
             InteractionVerb verb = new()
             {
@@ -172,7 +179,8 @@ public abstract partial class SharedBuckleSystem
         if (args.Using is { Valid: true } @using &&
             TryComp<BuckleComponent>(@using, out var usingBuckle) &&
             StrapHasSpace(uid, usingBuckle, component) &&
-            _interaction.InRangeUnobstructed(@using, args.Target, range: usingBuckle.Range))
+            _interaction.InRangeUnobstructed(@using, args.Target, range: usingBuckle.Range) &&
+            component.AddBuckleverb) //Goobstation - Clowncar
         {
             // Check that the entity is unobstructed from the target (ignoring the user).
             bool Ignored(EntityUid entity) => entity == args.User || entity == args.Target || entity == @using;
