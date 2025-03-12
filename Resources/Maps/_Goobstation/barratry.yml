@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/12/2025 07:47:23
-  entityCount: 15676
+  time: 03/12/2025 21:34:23
+  entityCount: 15672
 maps:
 - 1
 grids:
@@ -232,7 +232,7 @@ entities:
           version: 6
         -1,4:
           ind: -1,4
-          tiles: WQAAAAADWQAAAAABWQAAAAACWQAAAAADeQAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAWQAAAAADWQAAAAAAWQAAAAABeQAAAAAAeQAAAAAAeAAAAAAAAAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWQAAAAACWQAAAAAAeQAAAAAAeQAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+          tiles: WQAAAAADWQAAAAABWQAAAAACWQAAAAADeQAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAWQAAAAADWQAAAAAAWQAAAAABeQAAAAAAeQAAAAAAeAAAAAAAAAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWQAAAAACWQAAAAAAeQAAAAAAeQAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAIgAAAAAAeQAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAABgAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
           version: 6
         -2,4:
           ind: -2,4
@@ -15052,10 +15052,10 @@ entities:
     - type: Transform
       pos: -88.5,43.5
       parent: 2
-  - uid: 15698
+  - uid: 5205
     components:
     - type: Transform
-      pos: -4.5,67.5
+      pos: -1.5,70.5
       parent: 2
 - proto: Autolathe
   entities:
@@ -73338,26 +73338,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -24.5,30.5
       parent: 2
-  - uid: 15686
-    components:
-    - type: Transform
-      pos: -4.5,68.5
-      parent: 2
-  - uid: 15688
-    components:
-    - type: Transform
-      pos: -4.5,66.5
-      parent: 2
-  - uid: 15692
-    components:
-    - type: Transform
-      pos: -5.5,67.5
-      parent: 2
-  - uid: 15693
-    components:
-    - type: Transform
-      pos: -3.5,67.5
-      parent: 2
 - proto: GrilleBroken
   entities:
   - uid: 9948
@@ -79001,10 +78981,13 @@ entities:
       desc: I don't feel so good...
       name: Demon-er Core
     - type: Transform
-      pos: -4.432224,67.46182
+      pos: -1.5292864,70.500565
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
     - type: RadiationSource
-      slope: 0.6
+      slope: 0.8
       intensity: 15
 - proto: PortableGeneratorJrPacman
   entities:
@@ -84753,6 +84736,26 @@ entities:
       parent: 2
 - proto: ReinforcedPlasmaWindow
   entities:
+  - uid: 5202
+    components:
+    - type: Transform
+      pos: -2.5,70.5
+      parent: 2
+  - uid: 5228
+    components:
+    - type: Transform
+      pos: -1.5,69.5
+      parent: 2
+  - uid: 5231
+    components:
+    - type: Transform
+      pos: -1.5,71.5
+      parent: 2
+  - uid: 5233
+    components:
+    - type: Transform
+      pos: -0.5,70.5
+      parent: 2
   - uid: 11722
     components:
     - type: Transform
@@ -84803,26 +84806,6 @@ entities:
     components:
     - type: Transform
       pos: 12.5,-13.5
-      parent: 2
-  - uid: 15687
-    components:
-    - type: Transform
-      pos: -3.5,67.5
-      parent: 2
-  - uid: 15689
-    components:
-    - type: Transform
-      pos: -5.5,67.5
-      parent: 2
-  - uid: 15690
-    components:
-    - type: Transform
-      pos: -4.5,66.5
-      parent: 2
-  - uid: 15691
-    components:
-    - type: Transform
-      pos: -4.5,68.5
       parent: 2
 - proto: ReinforcedWindow
   entities:
@@ -87601,25 +87584,25 @@ entities:
     - type: Transform
       pos: -5.5,62.5
       parent: 2
-  - uid: 5202
+  - uid: 5226
     components:
     - type: Transform
-      pos: -5.5,66.5
+      pos: -0.5,71.5
       parent: 2
-  - uid: 5203
+  - uid: 5229
     components:
     - type: Transform
-      pos: -3.5,66.5
+      pos: -2.5,71.5
       parent: 2
-  - uid: 5204
+  - uid: 5230
     components:
     - type: Transform
-      pos: -3.5,68.5
+      pos: -2.5,69.5
       parent: 2
-  - uid: 5205
+  - uid: 5234
     components:
     - type: Transform
-      pos: -5.5,68.5
+      pos: -0.5,69.5
       parent: 2
 - proto: SignScience
   entities:
@@ -90189,8 +90172,21 @@ entities:
   - uid: 5215
     components:
     - type: Transform
+      anchored: True
       pos: -20.5,25.5
       parent: 2
+    - type: Defusable
+      activated: True
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      bodyType: Static
+    - type: ActiveTimerTrigger
+      beepSound: !type:SoundPathSpecifier
+        path: /Audio/Machines/timer.ogg
+      beepInterval: 1
+      user: invalid
+      timeRemaining: 180
   - uid: 12581
     components:
     - type: Transform
@@ -96710,6 +96706,26 @@ entities:
       parent: 2
 - proto: WallReinforcedRust
   entities:
+  - uid: 5203
+    components:
+    - type: Transform
+      pos: -2.5,71.5
+      parent: 2
+  - uid: 5204
+    components:
+    - type: Transform
+      pos: -0.5,71.5
+      parent: 2
+  - uid: 5227
+    components:
+    - type: Transform
+      pos: -2.5,69.5
+      parent: 2
+  - uid: 5232
+    components:
+    - type: Transform
+      pos: -0.5,69.5
+      parent: 2
   - uid: 13729
     components:
     - type: Transform
@@ -97999,26 +98015,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 16.5,18.5
-      parent: 2
-  - uid: 15694
-    components:
-    - type: Transform
-      pos: -5.5,66.5
-      parent: 2
-  - uid: 15695
-    components:
-    - type: Transform
-      pos: -5.5,68.5
-      parent: 2
-  - uid: 15696
-    components:
-    - type: Transform
-      pos: -3.5,68.5
-      parent: 2
-  - uid: 15697
-    components:
-    - type: Transform
-      pos: -3.5,66.5
       parent: 2
 - proto: WallShuttle
   entities:
