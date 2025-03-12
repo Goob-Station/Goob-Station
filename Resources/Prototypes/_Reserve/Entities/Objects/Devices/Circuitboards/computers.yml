@@ -1,0 +1,12 @@
+ # LoneOps Comms by ThxMqninq
+
+- type: entity
+  parent: [ BaseComputerCircuitboard, BaseSyndicateContraband ]
+  id: LoneOpsCommsComputerCircuitboard
+  name: lone operative communications computer board
+  description: A computer printed circuit board for a lone operative communications console.
+  components:
+  - type: Sprite
+    state: cpu_syndicate
+  - type: ComputerBoard
+    prototype: LoneOpsComputerComms
