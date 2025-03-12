@@ -92,10 +92,10 @@
     layers:
     - state: executive
   - type: Clothing
+    state: executive-equipped-NECK
     quickEquip: true
     slots:
     - neck
-    - idcard
   - type: Item
     heldPrefix: executive
   - type: IdCard

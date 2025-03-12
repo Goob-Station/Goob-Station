@@ -84,6 +84,7 @@
       - WeaponPulsePistol
       - HyperFlash
       - HandheldFaxOfficial
+      - NukeOverride
 
 # Undercover Officer
 
@@ -177,6 +178,7 @@
       - BoxFolderNuclearCodes # ka-BOOM
       - MagazineLightRifleUranium
       - MagazineLightRifleUranium
+      - NukeOverride
       - HyperFlash
 
 # Diplomat
