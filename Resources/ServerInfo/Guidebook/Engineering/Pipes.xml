@@ -1,25 +1,26 @@
 ﻿<Document>
-  # Pipes
-  Pipes are used to distribute gasses from one place to another.
-  There are a wide variety of pipes available to construct:
+  # Трубы
+  Трубы используются для распределения газов из одного места в другое.
+  Существует большое разнообразие доступных для изготовления труб:
 
   <Box>
-    <GuideEntityEmbed Entity="GasPipeStraight" Caption="straight"/>
-    <GuideEntityEmbed Entity="GasPipeHalf" Caption="half"/>
-    <GuideEntityEmbed Entity="GasPipeBend" Caption="bend"/>
-    <GuideEntityEmbed Entity="GasPipeTJunction" Caption="T junction"/>
-    <GuideEntityEmbed Entity="GasPipeFourway" Caption="fourway"/>
+    <GuideEntityEmbed Entity="GasPipeStraight" Caption=""/>
+    <GuideEntityEmbed Entity="GasPipeHalf" Caption=""/>
+    <GuideEntityEmbed Entity="GasPipeBend" Caption=""/>
+    <GuideEntityEmbed Entity="GasPipeTJunction" Caption=""/>
+    <GuideEntityEmbed Entity="GasPipeFourway" Caption=""/>
   </Box>
 
-  Pipes will [color=#a4885c]automatically connect[/color] to other pipes when anchored (or wrenched) to the hull to form a [textlink="network of pipes." link="PipeNetworks"]
-  A network of pipes is commonly called a [textlink="pipenet" link="PipeNetworks"].
+  Трубы будут[color=#a4885c]автоматически подключаться[/color] к другим трубам при закреплении к покрытию чтобы сформировать [textlink="сеть труб" link="PipeNetworks"].
+  Соединённые трубы обычно называются [textlink="сетью труб" link="PipeNetworks"].
 
-  Pipes will [color=red]not connect[/color] to pipes that are already connected to a different pipe.
-  For example, building a bent pipe on top of a straight pipe to form a makeshift T-junction will not work.
+  Трубы не будут [color=red] подключаться[/color] к трубам, которые уже подсоединены к другой трубе.
+  Например, наложение изогнутой трубы поверх прямой трубы для образования импровизированного Т-образного соединения не сработает.
 
-  However, two pipes can share a tile as long as one isn't obstructing the other's connection to another pipe.
-  For example, two bend pipes can be placed on the same tile, with one moving gas from north to east, and the other moving gas from west to south.
+  Однако две трубы могут совместно использовать плитку до тех пор, пока одна из них не препятствует соединению другой трубы с другой трубой.
+  Например, на одной и той же плитке можно разместить две изогнутые трубы, по одной из которых газ движется с севера на восток, а по другой - с запада на юг.
 
-  You can color pipes (and most equipment that handles gasses) using a spray painter.
-  This is commonly done to distinguish the air and waste components of the station's Distro pipenet.
+  Вы можете красить трубы (и большинство устройств, которые работают с газами) с помощью краскопульта.
+  Обычно это делается для того, чтобы различать компоненты воздуха и отходов в распределительной сети станции.
+
 </Document>

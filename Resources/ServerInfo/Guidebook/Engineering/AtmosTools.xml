@@ -1,29 +1,29 @@
 <Document>
-  # Atmos Tools
-  Atmospheric Technicians have the same core toolset as Engineers, but they also have access to two new tools, the Holofan Projector and the Gas Analyzer.
+  # Инструменты атмоса
+  Атмосферные техники имеют тот же базовый набор инструментов, что и инженеры, но у них также есть доступ к двум новым инструментам: АТМОС голопроектору и газоанализатору.
 
   <Box>
     <GuideEntityEmbed Entity="HolofanProjector"/>
     <GuideEntityEmbed Entity="GasAnalyzer"/>
   </Box>
 
-  ## Holofan Projector
-  The Holofan Projector is a tool that can project a barrier of hard-light which blocks air and gas flow, while still allowing people to pass through.
+  ## АТМОС голопроектор
+  АТМОС голопроектор - это инструмент, который может создавать барьер из жесткого света, который блокирует поток воздуха и газа, но в то же время позволяет людям проходить сквозь него.
 
   <Box>
     <GuideEntityEmbed Entity="HolofanProjector"/>
     <GuideEntityEmbed Entity="HoloFan"/>
   </Box>
 
-  This is super useful for moving in between [textlink="firelock buffers" link="FireAndGasControl"] without leaking gas between rooms, as well a signifying to regular crew that a room may be unsafe for entry.
-  It can also be used for forming a temporary barrier to allow crew to quickly move between a spaced and unspaced area without risk of leaking air from other rooms.
+  Это очень полезно для перемещения между [textlink="пожарными шлюзами" link="FireAndGasControl"] без утечек газа между комнат, а также сигнал обычному экипажу о том, что вход в помещение может быть небезопасным.
+  Он также может быть использован для создания временного барьера, позволяющего экипажу быстро перемещаться между изолированными и незастроенными помещениями без риска утечки воздуха из других помещений.
 
-  It has an internal charge that will deplete with each use, but it can be recharged by taking out the power cell and inserting it into a cell charger or recharger.
+  У него есть внутренний заряд, который разряжается при каждом использовании, но его можно подзарядить, вынув элемент питания и вставив его в зарядное устройство или подзарядку от аккумулятора.
 
-  Holofans that are placed adjacent to a [textlink="firelock" link="FireAndGasControl"] will deactivate the firelock lockout, allowing the firelock to be opened by hand.
+  Голопроекторы, расположенные рядом с [textlink="пожарными шлюхами" link="FireAndGasControl"] отключит блокировку пожарного шлюза, что позволит открыть его вручную.
 
-  ## Gas Analyzer
-  The Gas Analyzer is a tool that can be used to analyze the gas composition of an exposed atmosphere, or any [textlink="atmospheric device" link="GasManipulation"] containing gas.
+  ## Газоанализатор
+  Газоанализатор - это инструмент, который может быть использован для анализа газового состава открытой атмосферы или любого другого [textlink="атмосферного устройства" link="GasManipulation"] содержащий газ.
 
   <Box>
     <GuideEntityEmbed Entity="GasAnalyzer"/>
@@ -37,16 +37,16 @@
     <GuideEntityEmbed Entity="GasThermoMachineFreezer" Caption=""/>
   </Box>
 
-  You can use the Gas Analyzer by clicking on a gas-containing [textlink="device" link="GasManipulation"], or by clicking on the air in the room.
+  Вы можете воспользоваться газоанализатором, нажав на газосодержащее [textlink="устройство" link="GasManipulation"], или нажав на воздух в комнате.
 
-  When used, the gas analyzer will report on:
-  - The volume of the device measured (not the volume of the gas!)
-  - The total pressure of the gas, in kPa
-  - The temperature of the gas, in Kelvin (K) and Celsius (C)
-  - The precise composition of the gas in molar amounts, and as a percentage of the total gas volume
+  При использовании газоанализатор выдает следующие данные:
+  - Объем измеряемого устройства (не объем газа!)
+  - Общее давление газа в кПа
+  - Температура газа в Кельвинах (К) и Цельсиях (С)
+  - Точный состав газа в молярных количествах и в процентах от общего объема газа
 
-  At the bottom of the UI, the gas analyzer will display a visual indication of the different [textlink="gasses" link="Gasses"] present in the composition, as well as their relative concentrations.
+  В нижней части пользовательского интерфейса газоанализатор отобразит визуальную индикацию различных [textlink="газов" link="Gasses"] присутствующих в составе, а также их относительные концентрации.
 
-  When the gas analyzer is analyzing binary and trinary [textlink="devices" link="GasManipulation"] (devices with two and three inputs/outputs), it will display the composition of each input/output separately. This is useful for troubleshooting gas [textlink="mixing and filtering" link="MixingAndFiltering"] setups.
+  Когда газоанализатор анализирует бинарные и тройные [textlink="устройства" link="GasManipulation"] (устройства с двумя и тремя входами/выходами), он будет отображать состав каждого входа/выхода отдельно. Это полезно для устранения неполадок с газовыми [textlink="газовыми смесителями и фильтрами" link="MixingAndFiltering"].
 
 </Document>

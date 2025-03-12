@@ -1,14 +1,14 @@
 ﻿<Document>
-  #Air Injector
-  The air injector is a special vent that forces gasses into the atmosphere it's exposed to.
+  # Инжектор
+  Инжектор - это специальная вентиляция, которое выбрасывает газы в атмосферу, в которую они попадают.
   <Box>
     <GuideEntityEmbed Entity="GasOutletInjector"/>
   </Box>
-  It is primarily used to force gasses into high-pressure rooms like the station's [textlink="gas storage rooms" link="GasMiningAndStorage"] or a burn chamber.
+  В основном он используется для подачи газов в помещения с высоким давлением, такие как станционные [textlink="хранилища газа" link="GasMiningAndStorage"] или камера сгорания.
 
-  The air injector does not require [textlink="power" link="Power"] to function.
+  Инжектор не требует [textlink="питания" link="Power"] для функционирования.
 
-  The air injector will inject gasses into the atmosphere it's exposed to until the atmosphere reaches [color=orange][protodata="GasOutletInjector" comp="GasOutletInjector" member="MaxPressure"/] kPa[/color].
+  Инжектор будет впрыскивать газы в атмосферу, воздействию которой он подвергается, до тех пор, пока атмосфера не достигнет [color=orange][protodata="GasOutletInjector" comp="GasOutletInjector" member="MaxPressure"/] кПа[/color].
 
-  The air injector's speed is proportional to the amount of gas in the injector.
+  Скорость подачи воздуха из инжектора пропорциональна количеству газа в инжекторе.
 </Document>
