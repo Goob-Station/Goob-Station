@@ -8,7 +8,7 @@ public sealed class AlertLevelInterceptionRule : StationEventSystem<AlertLevelIn
 {
     [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
 
-    protected override void Started(EntityUid uid, AlertLevelInterceptionRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
+    protected override void Started(EntityUid uid, AlertLevelInterceptionRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args) // Goobstation - Changed an indent.
     {
         base.Started(uid, component, gameRule, args);
 
