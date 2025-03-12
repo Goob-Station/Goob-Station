@@ -16,6 +16,7 @@
     preloadedGrid: ConsulShuttle
   - type: AlertLevelInterceptionRule
     alertLevel: epsilon
+    overrideAlert: true
 
 # CBURN
 
@@ -35,6 +36,7 @@
     preloadedGrid: RetortShuttleCBURN
   - type: AlertLevelInterceptionRule
     alertLevel: gamma
+    overrideAlert: true
 
 # ERT
 
@@ -54,9 +56,10 @@
     preloadedGrid: RetortShuttleAssault
   - type: AlertLevelInterceptionRule
     alertLevel: gamma
+    overrideAlert: true
 
 - type: entity
-  parent: SpawnERTSecurity
+  parent: BaseUnknownShuttleRule
   id: SpawnERTMedical
   components:
   - type: StationEvent
@@ -69,9 +72,12 @@
     maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: RetortShuttleMedical
+  - type: AlertLevelInterceptionRule
+    alertLevel: gamma
+    overrideAlert: true
 
 - type: entity
-  parent: SpawnERTSecurity
+  parent: BaseUnknownShuttleRule
   id: SpawnERTEngineering
   components:
   - type: StationEvent
@@ -84,9 +90,12 @@
     maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: RetortShuttleEngineering
+  - type: AlertLevelInterceptionRule
+    alertLevel: gamma
+    overrideAlert: true
 
 - type: entity
-  parent: SpawnERTSecurity
+  parent: BaseUnknownShuttleRule
   id: SpawnERTJanitorial
   components:
   - type: StationEvent
@@ -99,6 +108,9 @@
     maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: RetortShuttleJanitorial
+  - type: AlertLevelInterceptionRule
+    alertLevel: gamma
+    overrideAlert: true
 
 
 
