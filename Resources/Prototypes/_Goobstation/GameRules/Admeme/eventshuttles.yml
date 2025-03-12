@@ -16,6 +16,7 @@
   - type: AlertLevelInterceptionRule
     alertLevel: epsilon
     overrideAlert: true
+    locked: true
 
 # CBURN
 
