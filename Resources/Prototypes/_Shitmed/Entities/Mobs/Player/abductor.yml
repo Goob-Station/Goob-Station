@@ -5,9 +5,6 @@
   id: MobAbductorAntag
   abstract: true
   components:
-  # - type: RandomMetadata
-  #   nameSegments:
-  #     - names_abductor
   - type: Abductor
   - type: ActionGrant
     actions:
@@ -23,7 +20,7 @@
   - type: RandomMetadata
     nameSegments:
       - AbductorScientistPrefix
-      - AbductorNames
+      - names_abductor
   - type: Tag
     tags:
       - Abductor
@@ -98,7 +95,7 @@
   - type: RandomMetadata
     nameSegments:
       - AbductorAgentPrefix
-      - AbductorNames
+      - names_abductor
   - type: Tag # Ignore AbductorScientist tag
     tags:
       - Abductor
