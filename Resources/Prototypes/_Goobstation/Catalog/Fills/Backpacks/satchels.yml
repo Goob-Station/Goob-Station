@@ -10,16 +10,6 @@
 
 - type: entity
   parent: ClothingBackpackSatchelLeather
-  id: ClothingBackpackSatchelLeatherFilledNavyOfficer
-  components:
-  - type: StorageFill
-    contents:
-    - id: HandheldFaxOfficial
-    - id: HyperFlash
-    - id: WeaponPulsePistol
-
-- type: entity
-  parent: ClothingBackpackSatchelLeather
   id: ClothingBackpackSatchelLeatherFilledSpecOps
   components:
   - type: StorageFill
