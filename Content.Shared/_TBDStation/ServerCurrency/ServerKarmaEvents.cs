@@ -92,3 +92,27 @@ public sealed class PlayerKarmaHitEvent : EntityEventArgs
         Target = target.Id;
     }
 }
+
+
+[Serializable, NetSerializable]
+public sealed class PlayerKarmaGriefEvent : EntityEventArgs
+{
+    /// <summary>
+    ///     Creates a new instance of this class.
+    /// </summary>
+    public int User;
+    public GriefType Grief;
+    public PlayerKarmaGriefEvent(EntityUid user, GriefType grief)
+    {
+        User = user.Id;
+        Grief = grief;
+    }
+    public enum GriefType
+    {
+        Explosion,
+        Fire,
+        Chemical,
+        Radiation,
+        Spawning
+    }
+}

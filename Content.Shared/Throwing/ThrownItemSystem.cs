@@ -10,6 +10,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
+using Content.Shared._TBDStation.ServerKarma.Events;
 
 namespace Content.Shared.Throwing
 {
@@ -129,7 +130,6 @@ namespace Content.Shared.Throwing
             // Assume it's uninteresting if it has no thrower. For now anyway.
             if (thrownItem.Thrower is not null)
                 _adminLogger.Add(LogType.Landed, LogImpact.Low, $"{ToPrettyString(uid):entity} thrown by {ToPrettyString(thrownItem.Thrower.Value):thrower} landed.");
-
             _broadphase.RegenerateContacts((uid, physics));
             var landEvent = new LandEvent(thrownItem.Thrower, playSound);
             RaiseLocalEvent(uid, ref landEvent);
@@ -141,8 +141,11 @@ namespace Content.Shared.Throwing
         public void ThrowCollideInteraction(ThrownItemComponent component, EntityUid thrown, EntityUid target)
         {
             if (component.Thrower is not null)
+            {
                 _adminLogger.Add(LogType.ThrowHit, LogImpact.Low,
                     $"{ToPrettyString(thrown):thrown} thrown by {ToPrettyString(component.Thrower.Value):thrower} hit {ToPrettyString(target):target}.");
+                RaiseLocalEvent(new PlayerKarmaHitEvent(8, component.Thrower.Value, target)); // TODO: get actuall damage from the thrown item
+            }
 
             // Goob edit start
             var ev = new ThrowHitByEvent(thrown, target, component);

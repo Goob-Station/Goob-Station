@@ -2,6 +2,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Destructible;
 using Content.Server.Effects;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared._TBDStation.ServerKarma.Events;
 using Content.Shared.Camera;
 using Content.Shared.Damage;
 using Content.Shared.Database;
@@ -69,6 +70,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             _adminLogger.Add(LogType.BulletHit,
                 HasComp<ActorComponent>(target) ? LogImpact.Extreme : LogImpact.High,
                 $"Projectile {ToPrettyString(uid):projectile} shot by {ToPrettyString(component.Shooter!.Value):user} hit {otherName:target} and dealt {modifiedDamage.GetTotal():damage} damage");
+            RaiseLocalEvent(new PlayerKarmaHitEvent(modifiedDamage.GetTotal(), component.Shooter!.Value, target));
         }
 
         // If penetration is to be considered, we need to do some checks to see if the projectile should stop.

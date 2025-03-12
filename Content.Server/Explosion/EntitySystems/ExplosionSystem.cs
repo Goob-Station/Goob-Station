@@ -5,6 +5,7 @@ using Content.Server.Atmos.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NPC.Pathfinding;
+using Content.Shared._TBDStation.ServerKarma.Events;
 using Content.Shared.Camera;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
@@ -270,6 +271,7 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
             var alertMinExplosionIntensity = _cfg.GetCVar(CCVars.AdminAlertExplosionMinIntensity);
             if (alertMinExplosionIntensity > -1 && totalIntensity >= alertMinExplosionIntensity)
                 _chat.SendAdminAlert(user.Value, $"caused {ToPrettyString(uid)} to explode ({typeId}:{totalIntensity}) at Pos:{(posFound ? $"{gridPos:coordinates}" : "[Grid or Map not found]")}");
+            RaiseLocalEvent(new PlayerKarmaGriefEvent(user.Value, PlayerKarmaGriefEvent.GriefType.Explosion));
         }
     }
 

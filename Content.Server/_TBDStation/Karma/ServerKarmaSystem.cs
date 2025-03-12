@@ -11,8 +11,6 @@ using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared._Goobstation.CCVar;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
-using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.Weapons.Melee;
 using Robust.Shared.Player;
 
 namespace Content.Server._TBDStation.ServerKarma
@@ -42,9 +40,8 @@ namespace Content.Server._TBDStation.ServerKarma
             SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundEndCleanup);
             SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndText);
             SubscribeNetworkEvent<PlayerKarmaRequestEvent>(OnKarmaRequest);
-            // SubscribeLocalEvent<PlayerKarmaHitEvent>(OnKarmaHit);
-            SubscribeAllEvent<PlayerKarmaHitEvent>(OnKarmaHit);
-            // SubscribeLocalEvent<NetEntity, DamageChangedEvent>(onAttackKarma);
+            SubscribeLocalEvent<PlayerKarmaHitEvent>(OnKarmaHit);
+            SubscribeLocalEvent<PlayerKarmaGriefEvent>(OnKarmaGrief);
             Subs.CVar(_cfg, GoobCVars.GoobcoinsPerPlayer, value => _goobcoinsPerPlayer = value, true);
             Subs.CVar(_cfg, GoobCVars.GoobcoinNonAntagMultiplier, value => _goobcoinsNonAntagMultiplier = value, true);
             Subs.CVar(_cfg, GoobCVars.GoobcoinServerMultiplier, value => _goobcoinsServerMultiplier = value, true);
@@ -160,6 +157,23 @@ namespace Content.Server._TBDStation.ServerKarma
                 else if (ev.NewKarma < ev.OldKarma)
                     _popupSystem.PopupEntity("-" + _karmaMan.Stringify(ev.OldKarma - ev.NewKarma), userEnt, userEnt, PopupType.MediumCaution);
                 // I really wanted to do some fancy shit where we also display a little sprite next to the pop-up, but that gets pretty complex for such a simple interaction, so, you get this.
+            }
+        }
+
+        private void OnKarmaGrief(PlayerKarmaGriefEvent ev)
+        {
+            if (!_actors.TryGetSession(new EntityUid(ev.User), out ICommonSession? session))
+                return;
+            if (session == null)
+                return;
+            var netUserId = session.UserId;
+            switch (ev.Grief)
+            {
+                case PlayerKarmaGriefEvent.GriefType.Explosion:
+                    _karmaMan.RemoveKarma(netUserId, 20);
+                    break;
+                case PlayerKarmaGriefEvent.GriefType.Fire:
+                    break;
             }
         }
     }
