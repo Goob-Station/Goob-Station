@@ -36,5 +36,5 @@ alert-level-epsilon-announcement = Central Command has ordered the Epsilon secur
 alert-level-epsilon-instructions = Consider all contracts terminated.
 
 alert-level-omicron = Omicron
-alert-level-omicron-announcement = Station override activated, alert level set to Omicron. Await further orders.
+alert-level-omicron-announcement = Station override activated. Await further orders from Central Command staff, stay in your departments.
 alert-level-omicron-instructions = Await further orders.

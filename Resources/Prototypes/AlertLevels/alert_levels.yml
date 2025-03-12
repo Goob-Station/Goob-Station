@@ -75,10 +75,8 @@
       selectable: false
       sound:
         path: /Audio/_Goobstation/Misc/omicron.ogg
-        params:
-          volume: -2
       disableSelection: true
       color: White
       emergencyLightColor: White
       forceEnableEmergencyLights: true
-      shuttleTime: 3600
+      shuttleTime: 2400
