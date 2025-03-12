@@ -82,8 +82,9 @@
     state: icon
   - type: Clothing
     sprite: _Goobstation/Clothing/Armor/covert_armor.rsi
-  - type: Unremoveable # No looting the gman.
   - type: Storage
     maxItemSize: Huge
     grid:
     - 0,0,19,9
+  - type: Unremoveable # No looting the gman.
+
