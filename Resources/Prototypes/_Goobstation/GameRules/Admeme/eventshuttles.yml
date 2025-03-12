@@ -49,6 +49,10 @@
     maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: RetortShuttleAssault
+  - type: AlertLevelInterceptionRule
+    alertLevel: gamma
+    overrideAlert: true
+    announce: false
 
 - type: entity
   parent: BaseUnknownShuttleRule

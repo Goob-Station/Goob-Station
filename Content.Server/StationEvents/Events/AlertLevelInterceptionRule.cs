@@ -8,8 +8,7 @@ public sealed class AlertLevelInterceptionRule : StationEventSystem<AlertLevelIn
 {
     [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
 
-    protected override void Started(EntityUid uid, AlertLevelInterceptionRuleComponent component, GameRuleComponent gameRule,
-        GameRuleStartedEvent args)
+    protected override void Started(EntityUid uid, AlertLevelInterceptionRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
 
@@ -18,6 +17,6 @@ public sealed class AlertLevelInterceptionRule : StationEventSystem<AlertLevelIn
         if (_alertLevelSystem.GetLevel(chosenStation.Value) != "green" && component.OverrideAlert == false) // Goobstation
             return;
 
-        _alertLevelSystem.SetLevel(chosenStation.Value, component.AlertLevel, true, true, true);
+        _alertLevelSystem.SetLevel(chosenStation.Value, component.AlertLevel, true, component.Announce, true); // Goobstation
     }
 }

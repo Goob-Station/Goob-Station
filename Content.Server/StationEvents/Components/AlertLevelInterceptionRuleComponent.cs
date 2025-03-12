@@ -17,4 +17,10 @@ public sealed partial class AlertLevelInterceptionRuleComponent : Component
     /// </summary>
     [DataField]
     public bool OverrideAlert = false; // Goobstation
+
+    /// <summary>
+    /// Whether or not to announce the change.
+    /// </summary>
+    [DataField]
+    public bool Announce = true; // Goobstation
 }
