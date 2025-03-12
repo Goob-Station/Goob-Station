@@ -11,8 +11,6 @@ namespace Content.Server.Damage.Systems;
 public sealed class DamageUserOnTriggerSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly ServerKarmaManager _KarmaMan = default!;
-    [Dependency] private readonly ActorSystem _actors = default!;
 
     public override void Initialize()
     {
@@ -25,12 +23,6 @@ public sealed class DamageUserOnTriggerSystem : EntitySystem
             return;
 
         args.Handled |= OnDamageTrigger(uid, args.User.Value, component);
-        // if (_actors.TryGetSession(args.User.Value, out ICommonSession? session)) { // !args.Handled &&
-        //     if (session != null) {
-        //         var netUserId = session.UserId;
-        //         _KarmaMan.RemoveKarma(netUserId, 22);
-        //     }
-        // }
     }
 
     private bool OnDamageTrigger(EntityUid source, EntityUid target, DamageUserOnTriggerComponent? component = null)

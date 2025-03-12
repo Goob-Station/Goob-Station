@@ -858,10 +858,10 @@ public sealed partial class ChatSystem : SharedChatSystem
             return false;
         }
 
-        if (_chatManager.MessageCharacterLimit(player, message))
-            return false;
+        if (_chatManager.MessageCharacterLimit(player, message)) // TBDStation Edit
+            return false; // TBDStation Edit
 
-        return !_chatManager.ContainsSlur(player, message);
+        return !_chatManager.ContainsSlur(player, message); // TBDStation Edit
     }
 
     // ReSharper disable once InconsistentNaming

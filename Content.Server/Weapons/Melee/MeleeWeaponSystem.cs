@@ -20,7 +20,6 @@ using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
-using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using System.Linq;
@@ -37,8 +36,6 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
     [Dependency] private readonly LagCompensationSystem _lag = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
-    [Dependency] private readonly ServerKarmaManager _karmaMan = default!;
-    [Dependency] private readonly ActorSystem _actors = default!;
 
 
     public override void Initialize()
@@ -209,37 +206,6 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
     {
         var filter = Filter.Pvs(targetXform.Coordinates, entityMan: EntityManager).RemoveWhereAttachedEntity(o => o == user);
         _color.RaiseEffect(Color.Red, targets, filter);
-
-        // var netUID = IoCManager.Resolve<IEntityManager>().GetNetEntity(user);
-        // if (netUID == null)
-        //     return;
-        // _karmaMan.RemoveKarma(netUID.Value.Id, 22);
-        // RaiseLocalEvent();
-
-        // if (!_actors.TryGetSession(user, out ICommonSession? session))
-        //     return;
-        // if (session == null)
-        //     return;
-        // var netUserId = session.UserId;
-        // foreach (var target in targets)
-        // {
-        //     if (_actors.TryGetSession(target, out ICommonSession? hitSession)) {
-        //         if (hitSession != null) {
-        //             _karmaMan.RemoveKarma(netUserId, 22);
-        //         }
-        //     }
-        // }
-
-        // if (IoCManager.Resolve<IEntityManager>().GetNetEntity(user) == null)
-            // return;
-        // var netUserId = IoCManager.Resolve<IEntityManager>().GetNetEntity(user);
-        // if (netUserId == null)
-        //     return;
-        // foreach (var target in targets)
-        // {
-        //     if (IoCManager.Resolve<IEntityManager>().GetNetEntity(user) == null)
-        //         _karmaMan.RemoveKarma(new NetUserId(netUserId.Value.Id), 22);
-        // }
     }
 
     private float CalculateDisarmChance(EntityUid disarmer, EntityUid disarmed, EntityUid? inTargetHand, CombatModeComponent disarmerComp)

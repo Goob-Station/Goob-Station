@@ -36,7 +36,7 @@ namespace Content.Server.Chat.Managers
 
         bool MessageCharacterLimit(ICommonSession player, string message);
 
-        bool ContainsSlur(ICommonSession player, string message);
+        bool ContainsSlur(ICommonSession player, string message); // TBDStation Edit
 
         void DeleteMessagesBy(NetUserId uid);
 

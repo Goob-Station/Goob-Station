@@ -22,8 +22,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.Containers;
-using Content.Shared._Lavaland.Weapons.Ranged.Events;
-using Content.Shared._TBDStation.ServerKarma.Events; // Lavaland Change
+using Content.Shared._Lavaland.Weapons.Ranged.Events; // Lavaland Change
+using Content.Shared._TBDStation.ServerKarma.Events;
 
 namespace Content.Server.Weapons.Ranged.Systems;
 

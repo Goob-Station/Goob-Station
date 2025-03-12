@@ -164,7 +164,7 @@ namespace Content.Shared.Roles
         ///
         /// </summary>
         [DataField]
-        public float KarmaMult { get; private set; } = 1;
+        public float KarmaMult { get; private set; } = 1; // TBDStation Edit
     }
 
     /// <summary>

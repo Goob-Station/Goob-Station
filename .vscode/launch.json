@@ -126,6 +126,15 @@
             "preLaunchTask": "build"
         },
         {
+            "name": "Server/TWO Client",
+            "configurations": [
+                "Server",
+                "Client",
+                "Client"
+            ],
+            "preLaunchTask": "build"
+        },
+        {
             "name": "Server/Client - Tools",
             "configurations": [
                 "Server - Tools",

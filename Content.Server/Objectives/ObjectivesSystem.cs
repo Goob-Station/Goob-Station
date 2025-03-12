@@ -18,7 +18,7 @@ using Robust.Server.Player;
 using Robust.Shared.Utility;
 using Content.Shared._Goobstation.CCVar;
 using Content.Server._Goobstation.ServerCurrency;
-using Content.Server._TBDStation.ServerKarma;
+using Content.Server._TBDStation.ServerKarma; // TBDStation Edit
 using Robust.Shared.Configuration;
 
 namespace Content.Server.Objectives;
@@ -34,7 +34,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
     [Dependency] private readonly SharedJobSystem _job = default!;
     [Dependency] private readonly ServerCurrencyManager _currencyMan = default!;
-    [Dependency] private readonly ServerKarmaManager _karmaMan = default!;
+    [Dependency] private readonly ServerKarmaManager _karmaMan = default!; // TBDStation Edit
     [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     private IEnumerable<string>? _objectives;
@@ -191,10 +191,11 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                         ));
                         completedObjectives++;
 
-                         // Easiest place to give people points for completing objectives lol
-                        if(userid.HasValue) {
+                        // Easiest place to give people points for completing objectives lol
+                        if (userid.HasValue)
+                        {
                             _currencyMan.AddCurrency(userid.Value, _goobcoinsPerGreentext * _goobcoinsServerMultiplier);
-                            _karmaMan.AddKarma(userid.Value, 5);
+                            _karmaMan.AddKarma(userid.Value, 5); // TBDStation Edit
                         }
                     }
                     else

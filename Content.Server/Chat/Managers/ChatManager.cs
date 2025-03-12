@@ -400,7 +400,7 @@ internal sealed partial class ChatManager : IChatManager
         return isOverLength;
     }
 
-    public bool ContainsSlur(ICommonSession player, string message)
+    public bool ContainsSlur(ICommonSession player, string message) // TBDStation Edit
     {
         bool containsSlur = _slurRegex.IsMatch(message);
         if (containsSlur)

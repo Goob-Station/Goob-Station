@@ -18,7 +18,7 @@ using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
-using Content.Shared._TBDStation.ServerKarma.Events; // Goobstation - Karma
+using Content.Shared._TBDStation.ServerKarma.Events; // TBDStation Edit
 using Content.Shared.Weapons.Melee.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
@@ -62,7 +62,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     /// If an attack is released within this buffer it's assumed to be full damage.
     /// </summary>
     public const float GracePeriod = 0.05f;
-    public bool serverRan = false;
+    public bool serverRan = false; // TBDStation Edit
 
     public override void Initialize()
     {
@@ -542,10 +542,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     LogImpact.Medium,
                     $"{ToPrettyString(user):actor} melee attacked (light) {ToPrettyString(target.Value):subject} using {ToPrettyString(meleeUid):tool} and dealt {damageResult.GetTotal():damage} damage");
             }
-            // if (!serverRan) {// TBDSTATION - Karma
-            //     RaiseNetworkEvent(new PlayerKarmaHitEvent(damageResult.GetTotal()));
-            // }
-            if (serverRan)
+            if (serverRan) // TBDStation Edit
             {
                 var textEv = new PlayerKarmaHitEvent(damageResult.GetTotal(), user, target.Value);
                 RaiseLocalEvent(textEv);
@@ -708,6 +705,11 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     AdminLogger.Add(LogType.MeleeHit,
                         LogImpact.Medium,
                         $"{ToPrettyString(user):actor} melee attacked (heavy) {ToPrettyString(entity):subject} using {ToPrettyString(meleeUid):tool} and dealt {damageResult.GetTotal():damage} damage");
+                }
+                if (serverRan) // TBDStation Edit
+                {
+                    var textEv = new PlayerKarmaHitEvent(damageResult.GetTotal(), user, entity);
+                    RaiseLocalEvent(textEv);
                 }
             }
         }
