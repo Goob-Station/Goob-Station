@@ -8,7 +8,6 @@
     startAnnouncement: station-event-deathsquad-enroute
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    weight: 10
     reoccurrenceDelay: 30
     duration: null
     maxOccurrences: 1
@@ -28,9 +27,7 @@
     startAnnouncement: station-event-cburn-enroute
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    weight: 10
-    reoccurrenceDelay: 30
-    duration: null
+    duration: 1
     maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: RetortShuttleCBURN
@@ -48,9 +45,7 @@
     startAnnouncement: station-event-emergencyresponseteam-security-enroute
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    weight: 10
-    reoccurrenceDelay: 30
-    duration: null
+    duration: 1
     maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: RetortShuttleAssault
@@ -66,9 +61,7 @@
     startAnnouncement: station-event-emergencyresponseteam-medical-enroute
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    weight: 10
-    reoccurrenceDelay: 30
-    duration: null
+    duration: 1
     maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: RetortShuttleMedical
@@ -84,9 +77,7 @@
     startAnnouncement: station-event-emergencyresponseteam-engineering-enroute
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    weight: 10
-    reoccurrenceDelay: 30
-    duration: null
+    duration: 1
     maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: RetortShuttleEngineering
@@ -102,9 +93,7 @@
     startAnnouncement: station-event-emergencyresponseteam-generic-enroute
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    weight: 10
-    reoccurrenceDelay: 30
-    duration: null
+    duration: 1
     maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: RetortShuttleJanitorial
