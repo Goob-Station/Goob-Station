@@ -223,5 +223,8 @@ namespace Content.Server._TBDStation.ServerKarma
             }
         }
 
+
+        private const int _tbdstationKarmaPerDamage = 2;
+
     }
 }

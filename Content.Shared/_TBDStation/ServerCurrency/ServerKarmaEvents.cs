@@ -1,3 +1,4 @@
+using Content.Shared.FixedPoint;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization;
@@ -73,4 +74,16 @@ public sealed class PlayerKarmaRequestEvent : EntityEventArgs
     ///     Creates a new instance of this class.
     /// </summary>
     public PlayerKarmaRequestEvent(){}
+}
+
+[Serializable, NetSerializable]
+public sealed class PlayerKarmaHitEvent : EntityEventArgs
+{
+    /// <summary>
+    ///     Creates a new instance of this class.
+    /// </summary>
+    public int Damage;
+    public PlayerKarmaHitEvent(FixedPoint2 a){
+        Damage = (int)a;
+    }
 }

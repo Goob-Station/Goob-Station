@@ -11,6 +11,9 @@ using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared._Goobstation.CCVar;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
+using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Weapons.Melee;
+
 namespace Content.Server._TBDStation.ServerKarma
 {
     /// <summary>
@@ -37,11 +40,46 @@ namespace Content.Server._TBDStation.ServerKarma
             SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundEndCleanup);
             SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndText);
             SubscribeNetworkEvent<PlayerKarmaRequestEvent>(OnKarmaRequest);
+            // SubscribeLocalEvent<PlayerKarmaHitEvent>(OnKarmaHit);
+            SubscribeAllEvent<PlayerKarmaHitEvent>(OnKarmaHit);
+            // SubscribeLocalEvent<NetEntity, DamageChangedEvent>(onAttackKarma);
             Subs.CVar(_cfg, GoobCVars.GoobcoinsPerPlayer, value => _goobcoinsPerPlayer = value, true);
             Subs.CVar(_cfg, GoobCVars.GoobcoinNonAntagMultiplier, value => _goobcoinsNonAntagMultiplier = value, true);
             Subs.CVar(_cfg, GoobCVars.GoobcoinServerMultiplier, value => _goobcoinsServerMultiplier = value, true);
             Subs.CVar(_cfg, GoobCVars.GoobcoinMinPlayers, value => _goobcoinsMinPlayers = value, true);
         }
+
+        // private void onAttackKarma(EntityUid uid, RechargeableBlockingComponent component, DamageChangedEvent args)
+        // {
+        //     int s = 5;
+        //     for (int i = 0; i <= 10; i = i + 2)
+        //     {
+        //         s += i;
+        //     }
+        //     // if (args.Attacked is null || args.Attacker is null)
+        //     //     return;
+
+        //     // if (_mind.TryGetMind(args.Attacked.Value, out var attackedMind))
+        //     // {
+        //     //     if (attackedMind.Mind?.HasRole<Job>(out var job) == true)
+        //     //     {
+        //     //         if (job.RoleType == JobType.Antag)
+        //     //         {
+        //     //             if (_mind.TryGetMind(args.Attacker.Value, out var attackerMind))
+        //     //             {
+        //     //                 if (attackerMind.Mind?.HasRole<Job>(out var attackerJob) == true)
+        //     //                 {
+        //     //                     if (attackerJob.RoleType == JobType.Antag)
+        //     //                     {
+        //     //                         return;
+        //     //                     }
+        //     //                 }
+        //     //             }
+        //     //         }
+        //     //     }
+        //     // }
+        //     // _KarmaMan.AddKarma(, 10);
+        // }
 
         public override void Shutdown()
         {
@@ -76,19 +114,7 @@ namespace Content.Server._TBDStation.ServerKarma
                         && (isBorg || !_mind.IsCharacterDeadIc(mind)) // Borgs count always as dead so I'll just throw them a bone and give them an exception.
                         && mind.OriginalOwnerUserId.HasValue)
                     {
-                        int money = _goobcoinsPerPlayer;
-                        var session = mind.Session;
-                        if (session is not null)
-                        {
-                            money += _jobs.GetJobGoobcoins(session);
-                            if (!_jobs.CanBeAntag(session))
-                                money *= _goobcoinsNonAntagMultiplier;
-                        }
-
-                        if (_goobcoinsServerMultiplier != 1)
-                            money *= _goobcoinsServerMultiplier;
-
-                        _KarmaMan.AddKarma(mind.OriginalOwnerUserId.Value, money);
+                        _KarmaMan.AddKarma(mind.OriginalOwnerUserId.Value, 50);
                     }
                 }
             }
@@ -99,7 +125,13 @@ namespace Content.Server._TBDStation.ServerKarma
             var senderSession = eventArgs.SenderSession;
             var karma = _KarmaMan.GetKarma(senderSession.UserId);
             RaiseNetworkEvent(new PlayerKarmaUpdateEvent(karma, karma), senderSession);
-
+        }
+        private void OnKarmaHit(PlayerKarmaHitEvent ev, EntitySessionEventArgs eventArgs)
+        {
+            var senderSession = eventArgs.SenderSession;
+            var karma = _KarmaMan.GetKarma(senderSession.UserId);
+            // RaiseNetworkEvent(new PlayerKarmaUpdateEvent(karma, karma), senderSession);
+            _KarmaMan.RemoveKarma(senderSession.UserId, ev.Damage);
         }
 
         /// <summary>

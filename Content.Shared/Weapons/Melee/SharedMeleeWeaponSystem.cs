@@ -18,6 +18,7 @@ using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
+using Content.Shared._TBDStation.ServerKarma.Events; // Goobstation - Karma
 using Content.Shared.Weapons.Melee.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
@@ -61,6 +62,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     /// If an attack is released within this buffer it's assumed to be full damage.
     /// </summary>
     public const float GracePeriod = 0.05f;
+    public bool serverRan = false;
 
     public override void Initialize()
     {
@@ -540,7 +542,13 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     LogImpact.Medium,
                     $"{ToPrettyString(user):actor} melee attacked (light) {ToPrettyString(target.Value):subject} using {ToPrettyString(meleeUid):tool} and dealt {damageResult.GetTotal():damage} damage");
             }
-
+            // if (!serverRan) {// TBDSTATION - Karma
+            //     RaiseNetworkEvent(new PlayerKarmaHitEvent(damageResult.GetTotal()));
+            // }
+            // if (serverRan) {
+            //     var textEv = new PlayerKarmaHitEvent(damageResult.GetTotal());
+            //     RaiseLocalEvent(textEv);
+            // }
         }
 
         _meleeSound.PlayHitSound(target.Value, user, GetHighestDamageSound(modifiedDamage, _protoManager), hitEvent.HitSoundOverride, component);

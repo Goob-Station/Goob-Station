@@ -1,6 +1,9 @@
 using Content.Server.Damage.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Damage;
+using Robust.Shared.Network;
+using Content.Server._TBDStation.ServerKarma;
+using Robust.Shared.Player;
 
 namespace Content.Server.Damage.Systems;
 
@@ -8,6 +11,8 @@ namespace Content.Server.Damage.Systems;
 public sealed class DamageUserOnTriggerSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private readonly ServerKarmaManager _KarmaMan = default!;
+    [Dependency] private readonly ActorSystem _actors = default!;
 
     public override void Initialize()
     {
@@ -20,6 +25,12 @@ public sealed class DamageUserOnTriggerSystem : EntitySystem
             return;
 
         args.Handled |= OnDamageTrigger(uid, args.User.Value, component);
+        // if (_actors.TryGetSession(args.User.Value, out ICommonSession? session)) { // !args.Handled &&
+        //     if (session != null) {
+        //         var netUserId = session.UserId;
+        //         _KarmaMan.RemoveKarma(netUserId, 22);
+        //     }
+        // }
     }
 
     private bool OnDamageTrigger(EntityUid source, EntityUid target, DamageUserOnTriggerComponent? component = null)
