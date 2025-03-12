@@ -83,7 +83,12 @@ public sealed class PlayerKarmaHitEvent : EntityEventArgs
     ///     Creates a new instance of this class.
     /// </summary>
     public int Damage;
-    public PlayerKarmaHitEvent(FixedPoint2 a){
-        Damage = (int)a;
+    public int User;
+    public int Target;
+    public PlayerKarmaHitEvent(FixedPoint2 damage, EntityUid user, EntityUid target)
+    {
+        Damage = (int) damage;
+        User = user.Id;
+        Target = target.Id;
     }
 }

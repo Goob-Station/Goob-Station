@@ -545,10 +545,11 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             // if (!serverRan) {// TBDSTATION - Karma
             //     RaiseNetworkEvent(new PlayerKarmaHitEvent(damageResult.GetTotal()));
             // }
-            // if (serverRan) {
-            //     var textEv = new PlayerKarmaHitEvent(damageResult.GetTotal());
-            //     RaiseLocalEvent(textEv);
-            // }
+            if (serverRan)
+            {
+                var textEv = new PlayerKarmaHitEvent(damageResult.GetTotal(), user, target.Value);
+                RaiseLocalEvent(textEv);
+            }
         }
 
         _meleeSound.PlayHitSound(target.Value, user, GetHighestDamageSound(modifiedDamage, _protoManager), hitEvent.HitSoundOverride, component);

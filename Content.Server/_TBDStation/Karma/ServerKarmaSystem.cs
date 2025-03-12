@@ -13,6 +13,7 @@ using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Melee;
+using Robust.Shared.Player;
 
 namespace Content.Server._TBDStation.ServerKarma
 {
@@ -21,7 +22,8 @@ namespace Content.Server._TBDStation.ServerKarma
     /// </summary>
     public sealed class ServerKarmaSystem : EntitySystem
     {
-        [Dependency] private readonly ServerKarmaManager _KarmaMan = default!;
+        [Dependency] private readonly ServerKarmaManager _karmaMan = default!;
+        [Dependency] private readonly ActorSystem _actors = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly SharedMindSystem _mind = default!;
         [Dependency] private readonly SharedJobSystem _jobs = default!;
@@ -36,7 +38,7 @@ namespace Content.Server._TBDStation.ServerKarma
         public override void Initialize()
         {
             base.Initialize();
-            _KarmaMan.KarmaChange += OnKarmaChange;
+            _karmaMan.KarmaChange += OnKarmaChange;
             SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundEndCleanup);
             SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndText);
             SubscribeNetworkEvent<PlayerKarmaRequestEvent>(OnKarmaRequest);
@@ -78,18 +80,18 @@ namespace Content.Server._TBDStation.ServerKarma
         //     //         }
         //     //     }
         //     // }
-        //     // _KarmaMan.AddKarma(, 10);
+        //     // _karmaMan.AddKarma(, 10);
         // }
 
         public override void Shutdown()
         {
             base.Shutdown();
-            _KarmaMan.KarmaChange -= OnKarmaChange;
+            _karmaMan.KarmaChange -= OnKarmaChange;
         }
 
         private void OnRoundEndCleanup(RoundRestartCleanupEvent ev)
         {
-            _KarmaMan.Save();
+            _karmaMan.Save();
         }
 
         private void OnRoundEndText(RoundEndTextAppendEvent ev)
@@ -114,7 +116,7 @@ namespace Content.Server._TBDStation.ServerKarma
                         && (isBorg || !_mind.IsCharacterDeadIc(mind)) // Borgs count always as dead so I'll just throw them a bone and give them an exception.
                         && mind.OriginalOwnerUserId.HasValue)
                     {
-                        _KarmaMan.AddKarma(mind.OriginalOwnerUserId.Value, 50);
+                        _karmaMan.AddKarma(mind.OriginalOwnerUserId.Value, 50);
                     }
                 }
             }
@@ -123,15 +125,23 @@ namespace Content.Server._TBDStation.ServerKarma
         private void OnKarmaRequest(PlayerKarmaRequestEvent ev, EntitySessionEventArgs eventArgs)
         {
             var senderSession = eventArgs.SenderSession;
-            var karma = _KarmaMan.GetKarma(senderSession.UserId);
+            var karma = _karmaMan.GetKarma(senderSession.UserId);
             RaiseNetworkEvent(new PlayerKarmaUpdateEvent(karma, karma), senderSession);
         }
-        private void OnKarmaHit(PlayerKarmaHitEvent ev, EntitySessionEventArgs eventArgs)
+
+        private void OnKarmaHit(PlayerKarmaHitEvent ev)
         {
-            var senderSession = eventArgs.SenderSession;
-            var karma = _KarmaMan.GetKarma(senderSession.UserId);
-            // RaiseNetworkEvent(new PlayerKarmaUpdateEvent(karma, karma), senderSession);
-            _KarmaMan.RemoveKarma(senderSession.UserId, ev.Damage);
+            if (!_actors.TryGetSession(new EntityUid(ev.User), out ICommonSession? session))
+                return;
+            if (session == null)
+                return;
+            var netUserId = session.UserId;
+            if (_actors.TryGetSession(new EntityUid(ev.Target), out ICommonSession? hitSession)) {
+                if (hitSession != null)
+                {
+                    _karmaMan.RemoveKarma(netUserId, ev.Damage);
+                }
+            }
         }
 
         /// <summary>
@@ -146,9 +156,9 @@ namespace Content.Server._TBDStation.ServerKarma
             if(ev.UserSes.AttachedEntity.HasValue){
                 var userEnt = ev.UserSes.AttachedEntity.Value;
                 if (ev.NewKarma > ev.OldKarma)
-                    _popupSystem.PopupEntity("+" + _KarmaMan.Stringify(ev.NewKarma - ev.OldKarma), userEnt, userEnt, PopupType.Medium);
+                    _popupSystem.PopupEntity("+" + _karmaMan.Stringify(ev.NewKarma - ev.OldKarma), userEnt, userEnt, PopupType.Medium);
                 else if (ev.NewKarma < ev.OldKarma)
-                    _popupSystem.PopupEntity("-" + _KarmaMan.Stringify(ev.OldKarma - ev.NewKarma), userEnt, userEnt, PopupType.MediumCaution);
+                    _popupSystem.PopupEntity("-" + _karmaMan.Stringify(ev.OldKarma - ev.NewKarma), userEnt, userEnt, PopupType.MediumCaution);
                 // I really wanted to do some fancy shit where we also display a little sprite next to the pop-up, but that gets pretty complex for such a simple interaction, so, you get this.
             }
         }

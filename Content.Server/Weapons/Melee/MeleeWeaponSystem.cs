@@ -43,6 +43,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
     public override void Initialize()
     {
+        serverRan = true;
         base.Initialize();
         SubscribeLocalEvent<MeleeSpeechComponent, MeleeHitEvent>(OnSpeechHit);
         SubscribeLocalEvent<MeleeWeaponComponent, DamageExamineEvent>(OnMeleeExamineDamage);
@@ -213,22 +214,21 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         // if (netUID == null)
         //     return;
         // _karmaMan.RemoveKarma(netUID.Value.Id, 22);
+        // RaiseLocalEvent();
 
-        if (!_actors.TryGetSession(user, out ICommonSession? session))
-            return;
-        if (session == null)
-            return;
-        var netUserId = session.UserId;
-        foreach (var target in targets)
-        {
-            if (_actors.TryGetSession(target, out ICommonSession? hitSession)) {
-                if (hitSession != null) {
-                    if (hitSession.UserId != null) {
-                        _karmaMan.RemoveKarma(netUserId, 22);
-                    }
-                }
-            }
-        }
+        // if (!_actors.TryGetSession(user, out ICommonSession? session))
+        //     return;
+        // if (session == null)
+        //     return;
+        // var netUserId = session.UserId;
+        // foreach (var target in targets)
+        // {
+        //     if (_actors.TryGetSession(target, out ICommonSession? hitSession)) {
+        //         if (hitSession != null) {
+        //             _karmaMan.RemoveKarma(netUserId, 22);
+        //         }
+        //     }
+        // }
 
         // if (IoCManager.Resolve<IEntityManager>().GetNetEntity(user) == null)
             // return;

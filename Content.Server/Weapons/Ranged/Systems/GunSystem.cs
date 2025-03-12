@@ -234,6 +234,7 @@ public sealed partial class GunSystem : SharedGunSystem
                             {
                                 Logs.Add(LogType.HitScanHit,
                                     $"{ToPrettyString(user.Value):user} hit {hitName:target} using hitscan and dealt {dmg.GetTotal():damage} damage");
+                                // RaiseLocalEvent(new Kar);
                             }
                             else
                             {
