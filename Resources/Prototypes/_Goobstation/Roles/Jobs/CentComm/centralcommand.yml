@@ -256,7 +256,7 @@
     jumpsuit: ClothingUniformJumpsuitReporter
     shoes: ClothingShoesLeather
     eyes: ClothingEyesGlassesCentComm
-    back: ClothingBackpackSatchelHolding
+    back: ClothingBackpackDuffelGman
     outerClothing: ClothingOuterArmourInvisible
     id: GmanPDA
     ears: ClothingHeadsetChronolegioneer
