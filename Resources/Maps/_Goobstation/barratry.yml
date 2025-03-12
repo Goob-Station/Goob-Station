@@ -48140,10 +48140,6 @@ entities:
     - type: Transform
       pos: -5.5,61.5
       parent: 2
-    - type: UserInterface
-      actors:
-        enum.StorageUiKey.Key:
-        - invalid
     - type: ActiveUserInterface
 - proto: DresserChiefEngineerFilled
   entities:
