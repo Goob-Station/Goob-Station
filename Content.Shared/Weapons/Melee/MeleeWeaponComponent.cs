@@ -116,6 +116,21 @@ public sealed partial class MeleeWeaponComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public EntProtoId WideAnimation = "WeaponArcSlash";
 
+    // WD EDIT START
+    [DataField, AutoNetworkedField]
+    public EntProtoId DisarmAnimation = "WeaponArcDisarm";
+
+    [DataField, AutoNetworkedField]
+    public bool CanHeavyAttack = true;
+
+    /// <summary>
+    /// Rotation of the animation.
+    /// 0 degrees means the top faces the attacker.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public Angle AnimationRotation = Angle.Zero;
+    // WD EDIT END
+
     /// <summary>
     /// Rotation of the animation.
     /// 0 degrees means the top faces the attacker.
