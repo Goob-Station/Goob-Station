@@ -12,6 +12,9 @@ using Content.Shared._Goobstation.CCVar;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
+using Content.Server.Roles;
+using Content.Shared.Players;
+using Content.Shared.Roles;
 
 namespace Content.Server._TBDStation.ServerKarma
 {
@@ -25,8 +28,10 @@ namespace Content.Server._TBDStation.ServerKarma
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly SharedMindSystem _mind = default!;
         [Dependency] private readonly SharedJobSystem _jobs = default!;
+        [Dependency] private readonly RoleSystem _role = default!;
         [Dependency] private readonly IPlayerManager _players = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
+        [Dependency] private readonly SharedPlayerSystem _playerSystem = default!;
 
         private int _goobcoinsPerPlayer = 10;
         private int _goobcoinsNonAntagMultiplier = 3;
@@ -126,21 +131,6 @@ namespace Content.Server._TBDStation.ServerKarma
             RaiseNetworkEvent(new PlayerKarmaUpdateEvent(karma, karma), senderSession);
         }
 
-        private void OnKarmaHit(PlayerKarmaHitEvent ev)
-        {
-            if (!_actors.TryGetSession(new EntityUid(ev.User), out ICommonSession? session))
-                return;
-            if (session == null)
-                return;
-            var netUserId = session.UserId;
-            if (_actors.TryGetSession(new EntityUid(ev.Target), out ICommonSession? hitSession)) {
-                if (hitSession != null)
-                {
-                    _karmaMan.RemoveKarma(netUserId, ev.Damage);
-                }
-            }
-        }
-
         /// <summary>
         /// Calls event that when a player's karma is updated.
         /// Also handles popups
@@ -148,8 +138,6 @@ namespace Content.Server._TBDStation.ServerKarma
         private void OnKarmaChange(PlayerKarmaChangeEvent ev)
         {
             RaiseNetworkEvent(new PlayerKarmaUpdateEvent(ev.NewKarma, ev.OldKarma), ev.UserSes);
-
-
             if(ev.UserSes.AttachedEntity.HasValue){
                 var userEnt = ev.UserSes.AttachedEntity.Value;
                 if (ev.NewKarma > ev.OldKarma)
@@ -157,6 +145,23 @@ namespace Content.Server._TBDStation.ServerKarma
                 else if (ev.NewKarma < ev.OldKarma)
                     _popupSystem.PopupEntity("-" + _karmaMan.Stringify(ev.OldKarma - ev.NewKarma), userEnt, userEnt, PopupType.MediumCaution);
                 // I really wanted to do some fancy shit where we also display a little sprite next to the pop-up, but that gets pretty complex for such a simple interaction, so, you get this.
+            }
+        }
+
+        private void OnKarmaHit(PlayerKarmaHitEvent ev)
+        {
+            if (!_actors.TryGetSession(new EntityUid(ev.User), out ICommonSession? session))
+                return;
+            if (session == null)
+                return;
+            var netUserId = session.UserId;
+            if (_actors.TryGetSession(new EntityUid(ev.Target), out ICommonSession? hitSession))
+            {
+                if (hitSession != null)
+                {
+                    int delta = GetMultiplier(session, ev.Damage);
+                    _karmaMan.RemoveKarma(netUserId, delta);
+                }
             }
         }
 
@@ -170,11 +175,22 @@ namespace Content.Server._TBDStation.ServerKarma
             switch (ev.Grief)
             {
                 case PlayerKarmaGriefEvent.GriefType.Explosion:
-                    _karmaMan.RemoveKarma(netUserId, 20);
+                    _karmaMan.RemoveKarma(netUserId, GetMultiplier(session, 20));
                     break;
                 case PlayerKarmaGriefEvent.GriefType.Fire:
                     break;
             }
+        }
+
+        private int GetMultiplier(ICommonSession session, int val)
+        {
+            if (_playerSystem.ContentData(session) is not { Mind: { } mindId })
+                return (int) (0.5f * val);
+            if (_role.MindIsAntagonist(mindId))
+                return 0;
+            if (!_jobs.MindTryGetJob(mindId, out var prototype))
+                return 1 * val;
+            return (int) (prototype.KarmaMult * val);
         }
     }
 }

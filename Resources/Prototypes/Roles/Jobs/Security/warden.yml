@@ -12,6 +12,7 @@
   supervisors: job-supervisors-hos
   canBeAntag: false
   goobcoins: 35 #Goob content
+  karmaMult: 0.5 #TBD content
   access:
   - Security
   - Brig

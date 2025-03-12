@@ -15,6 +15,7 @@
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
+  karmaMult: 0 #TBD content
 
 - type: startingGear # Goobstation - Start - Sol
   id: CBURNGear

@@ -17,6 +17,7 @@
       department: Command
       time: 54000 # 15 hours
   goobcoins: 50 #Goob content
+  karmaMult: 0.2 #TBD content
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"

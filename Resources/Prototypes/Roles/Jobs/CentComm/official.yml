@@ -18,6 +18,7 @@
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
+  karmaMult: 0.4 #TBD content
 
 - type: startingGear # Goobstation - Start - SolsticeOfTheWinter
   id: CentcomGear

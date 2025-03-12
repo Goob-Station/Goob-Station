@@ -159,6 +159,12 @@ namespace Content.Shared.Roles
         /// </summary>
         [DataField]
         public int Goobcoins { get; private set; } = 1;
+
+        /// <summary>
+        ///
+        /// </summary>
+        [DataField]
+        public float KarmaMult { get; private set; } = 1;
     }
 
     /// <summary>

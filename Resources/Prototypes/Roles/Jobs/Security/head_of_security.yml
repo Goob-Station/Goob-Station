@@ -21,6 +21,7 @@
   supervisors: job-supervisors-captain
   canBeAntag: false
   goobcoins: 45 #Goob content
+  karmaMult: 0.2 #TBD content
   access:
   - HeadOfSecurity
   - Command

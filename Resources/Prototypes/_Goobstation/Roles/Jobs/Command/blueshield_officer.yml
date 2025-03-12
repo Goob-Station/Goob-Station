@@ -16,6 +16,7 @@
     - !type:AgeRequirement
       requiredAge: 21
   goobcoins: 45
+  karmaMult: 0.4 #TBD content
   weight: 20
   startingGear: BlueshieldOfficerGear
   icon: "JobIconBlueshield"
@@ -59,7 +60,7 @@
     belt: BlueShieldShieldFilled # I felt like einstein after figuring this out.
   storage:
     back:
-    - ClothingMaskGasSecurity 
+    - ClothingMaskGasSecurity
     - Flash
     - BluespaceLifelineImplanter
     - WeaponEnergyRevolver
