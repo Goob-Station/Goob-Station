@@ -32,81 +32,52 @@ public sealed class SharedCameraSystem : EntitySystem
         if (args.Handled)
             return;
 
-        CopyEntitiesInFrontOfPlayer(args.User);
-        args.Handled = true;
+
+        args.Handled = TryCopy(args.User);
+    }
+
+    private bool TryCopy(EntityUid user)
+    {
+        return CopyTilesInFrontOfPlayer(user);
     }
 
 
-    public void CopyEntitiesInFrontOfPlayer(EntityUid playerEntity)
+    private bool CopyTilesInFrontOfPlayer(EntityUid user)
     {
-        var playerPos = _transformSystem.GetWorldPosition(playerEntity);
-        var playerRot = _transformSystem.GetWorldPosition(playerEntity);
-        var direction = playerRot.GetDir();
+        var transform = EntityManager.GetComponent<TransformComponent>(user);
+        var direction = transform.LocalRotation.ToWorldVec();
+        var origin = transform.Coordinates.Offset(direction);
 
-        var originTile = playerPos + direction.ToVec() * 1.5f;
-        var areaEntities = new List<EntityUid>();
-
-        var newMapUId = _mapSystem.CreateMap();
-        if(!TryComp<MapComponent>(newMapUId, out var mapComponent))
-            return;
-        var mapId = mapComponent.MapId;
-        Log.Info("Map ID: " + mapId);
-        var boxSize = new Vector2(3f, 3f); // 3×3 area
-        var boxOffset = new Vector2(2f, 0f); // Offset in front of the player
-
-        var rotation = _transformSystem.GetWorldRotation(playerEntity).ToWorldVec();
-        var boxCenter = _transformSystem.GetWorldPosition(playerEntity) + (boxOffset * rotation);
-        var grid = _transformSystem.GetGrid(playerEntity);
-        if(grid == null)
-            return;
-        var collisionBox = new Box2(boxCenter - (boxSize / 2), boxCenter + (boxSize / 2));
-        var newMapGridId = _mapManager.CreateGrid(mapId);
-        CopyTiles(grid.Value, boxCenter - (boxSize / 2), boxCenter + (boxSize / 2), newMapGridId);
-        var intersecting = _lookupSystem.GetEntitiesIntersecting(grid.Value, collisionBox);
-        foreach (var entity in intersecting)
+        if (!_mapManager.TryFindGridAt(_transformSystem.GetMapCoordinates(user, transform), out var gridUid, out var gridComp) && gridComp == null)
         {
-            Log.Info(entity.ToString());
-            areaEntities.Add(entity);
+            Logger.Warning("No grid found at player location.");
+            return false;
         }
 
-        foreach (var entity in areaEntities)
+        List<(Vector2i, Tile)> copiedTiles = [];
+
+        for (var x = -1; x <= 1; x++)
         {
-            var relativePos = _transformSystem.GetWorldPosition(entity) - originTile + new Vector2(1, 1);
-
-            var prototype = GetEntityData(GetNetEntity(entity)).Item2.EntityPrototype;
-            if (prototype != null)
+            for (var y = -1; y <= 1; y++)
             {
-                var newEntity = Spawn(prototype.ID, new EntityCoordinates(newMapUId, relativePos));
-
-                // need to strip components.
-                // depends on exactly what needs to be saved.
-            }
-
-        }
-    }
-    private void CopyTiles(EntityUid gridUid, Vector2 areaStart, Vector2 areaEnd, EntityUid newGrid)
-    {
-        if (!TryComp<MapGridComponent>(gridUid, out var grid))
-            return;
-
-        if (!TryComp<MapGridComponent>(newGrid, out var newGridComp))
-            return;
-
-        for (var x = areaStart.X; x <= areaEnd.X; x++)
-        {
-            for (var y = areaStart.Y; y <= areaEnd.Y; y++)
-            {
-                var tilePos = new Vector2i(x, y);
-                var tileRef = _mapSystem.GetTileRef((gridUid, grid), tilePos);
-
-                if (tileRef.Tile.IsEmpty)
-                    continue; // Skip empty tiles
-
-                // Copy tile (including lattices, floors, and walls)
-                _mapSystem.SetTile((newGrid, newGridComp), tilePos, tileRef.Tile);
+                var tileCoords = new Vector2i((int) origin.Position.X + x, (int) origin.Position.Y + y);
+                var tileRef = _mapSystem.GetTileRef((gridUid, gridComp), tileCoords);
+                copiedTiles.Add((tileCoords, tileRef.Tile));
             }
         }
+
+        EntityUid map = default!;
+        if(_netManager.IsServer)
+            map = _mapSystem.CreateMap();
+        if (!TryComp<MapComponent>(map, out var mapComponent))
+            return false;
+
+        var photoGrid = _mapManager.CreateGridEntity(map);
+
+        foreach (var (pos, tile) in copiedTiles)
+        {
+            _mapSystem.SetTile(photoGrid, pos, tile);
+        }
+        return true;
     }
-
-
 }
