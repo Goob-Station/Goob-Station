@@ -29,7 +29,6 @@ shuttle-send-cbrn-announcement = Внимание! Мы получили зап�
 # type: denial
 shuttle-send-denial-announcement = Внимание! Мы получили запрос на отряд быстрого реагирования. Запрос отклонён. Попытайтесь решить проблемы своими силами.
 
-
 # Hints
 send-shuttle-hint-type = Тип шатта
 
@@ -40,7 +39,6 @@ send-shuttle-hint-type-ertmedical = Отряд медицинского ОБР
 send-shuttle-hint-type-ertjanitor = Отряд уборочного ОБР
 send-shuttle-hint-type-cbrn = Отряд РХБЗЗ
 send-shuttle-hint-type-ertdenial = Отказ в вызове ОБР
-
 
 send-shuttle-hint-isannounce = Проигрывать объявление?
 send-shuttle-hint-isannounce-true = Да
