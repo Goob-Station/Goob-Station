@@ -55,10 +55,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] private   readonly SharedPhysicsSystem     _physics         = default!;
     [Dependency] private   readonly IPrototypeManager       _protoManager    = default!;
     [Dependency] private   readonly StaminaSystem           _stamina         = default!;
-    [Dependency] private   readonly ContestsSystem          _contests        = default!;
-    [Dependency] private   readonly ThrowingSystem          _throwing        = default!; // WWDP
-    [Dependency] private   readonly IConfigurationManager   _config          = default!; // WWDP
-    [Dependency] private   readonly SharedTransformSystem   _transform       = default!; // Goob - Shove
 
 
     private const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque);
@@ -810,34 +806,28 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
     protected virtual bool DoDisarm(EntityUid user, DisarmAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, ICommonSession? session)
     {
-        if (!TryGetEntity(ev.Target, out var t)) // WWDP
-            return false;
+        var target = GetEntity(ev.Target);
 
-        var target = (EntityUid) t;
-
-        if (Deleted(target) ||
-            user == target)
+        if (Deleted(target)
+            || user == target)
         {
             return false;
         }
 
-        // WWDP Push shove physics yeee
-
-        var shoveRange = _config.GetCVar(GoobCVars.ShoveRange);
-        var shoveSpeed = _config.GetCVar(GoobCVars.ShoveSpeed);
-        var shoveMass = _config.GetCVar(GoobCVars.ShoveMassFactor);
-
-        var force = shoveRange * _contests.MassContest(user, target, rangeFactor: shoveMass);
-
-        var userPos = _transform.ToMapCoordinates(user.ToCoordinates()).Position;
-        var targetPos = _transform.ToMapCoordinates(target.ToCoordinates()).Position;
-        var pushVector = (targetPos - userPos).Normalized() * force;
-
-        _throwing.TryThrow(target, pushVector, force * shoveSpeed, animated: false);
-        // WWDP Edit end
-
-        var comboEv = new ComboAttackPerformedEvent(user, target, meleeUid, ComboAttackType.Disarm);
+        var comboEv = new ComboAttackPerformedEvent(user, target.Value, meleeUid, ComboAttackType.Disarm);
         RaiseLocalEvent(user, comboEv);
+
+        if (!TryComp<CombatModeComponent>(user, out var combatMode) ||
+            combatMode.CanDisarm == false) // WWDP
+        {
+            return false;
+        }
+
+        if (!InRange(user, target.Value, component.Range, session)) // WWDP
+        {
+            return false;
+        }
+
 
         // Play a sound to give instant feedback; same with playing the animations
         _meleeSound.PlaySwingSound(user, meleeUid, component);

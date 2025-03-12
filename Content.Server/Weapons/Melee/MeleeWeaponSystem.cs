@@ -24,6 +24,10 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Numerics;
 using Content.Shared._EinsteinEngines.Contests;
+using Content.Shared._Goobstation.CCVar;
+using Content.Shared.Coordinates;
+using Content.Shared.Throwing;
+using Robust.Shared.Configuration;
 
 namespace Content.Server.Weapons.Melee;
 
@@ -37,6 +41,9 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly ContestsSystem _contests = default!;
+    [Dependency] private readonly ThrowingSystem _throwing = default!; // WWDP
+    [Dependency] private readonly INetConfigurationManager _config = default!; // WWDP
+    [Dependency] private readonly SharedTransformSystem _transform = default!; // Goob - Shove
 
     public override void Initialize()
     {
@@ -92,18 +99,19 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (!base.DoDisarm(user, ev, meleeUid, component, session))
             return false;
 
-        if (!TryComp<CombatModeComponent>(user, out var combatMode) ||
-            combatMode.CanDisarm != true)
-        {
-            return false;
-        }
-
         var target = GetEntity(ev.Target!.Value);
 
-        if (_mobState.IsIncapacitated(target))
-        {
+        PhysicalShove(user, target); // WWDP physical shoving, including inanimate objects
+        Interaction.DoContactInteraction(user, target); // WWDP moved up for shoves
+
+        EntityUid? inTargetHand = null;
+
+        if (!TryComp<CombatModeComponent>(user, out var combatMode))
             return false;
-        }
+
+        if (_mobState.IsIncapacitated(target)) // Goob Edit
+            return false;
+
 
         if (!TryComp<HandsComponent>(target, out var targetHandsComponent))
         {
@@ -111,19 +119,10 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 return false;
         }
 
-        if (!InRange(user, target, component.Range, session))
-        {
-            return false;
-        }
-
-        EntityUid? inTargetHand = null;
-
         if (targetHandsComponent?.ActiveHand is { IsEmpty: false })
         {
             inTargetHand = targetHandsComponent.ActiveHand.HeldEntity!.Value;
         }
-
-        Interaction.DoContactInteraction(user, target);
 
         var attemptEvent = new DisarmAttemptEvent(target, user, inTargetHand);
 
@@ -196,6 +195,20 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         return Interaction.InRangeUnobstructed(user, target, range);
     }
 
+    private void PhysicalShove(EntityUid user, EntityUid target)
+    {
+        var shoveRange = _config.GetCVar(GoobCVars.ShoveRange);
+        var shoveSpeed = _config.GetCVar(GoobCVars.ShoveSpeed);
+        var shoveMass = _config.GetCVar(GoobCVars.ShoveMassFactor);
+
+        var force = shoveRange * _contests.MassContest(user, target, rangeFactor: shoveMass);
+
+        var userPos = _transform.ToMapCoordinates(user.ToCoordinates()).Position;
+        var targetPos = _transform.ToMapCoordinates(target.ToCoordinates()).Position;
+        var pushVector = (targetPos - userPos).Normalized() * force;
+
+        _throwing.TryThrow(target, pushVector, force * shoveSpeed, animated: false);
+    }
     protected override void DoDamageEffect(List<EntityUid> targets, EntityUid? user, TransformComponent targetXform)
     {
         var filter = Filter.Pvs(targetXform.Coordinates, entityMan: EntityManager).RemoveWhereAttachedEntity(o => o == user);
