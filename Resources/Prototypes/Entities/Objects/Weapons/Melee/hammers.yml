@@ -38,7 +38,7 @@
     layers:
     - state: icon
   - type: UseDelay
-    delay: 5
+    delay: 5 # Goobstation
   - type: UseDelayOnMeleeHit
   - type: MeleeThrowOnHit
     stunTime: 3
@@ -65,7 +65,7 @@
         Structural: 15
   - type: Item
     size: Ginormous
-  - type: Boomerang
+  - type: Boomerang # Goobstation
 
 - type: entity
   id: SingularityHammer
