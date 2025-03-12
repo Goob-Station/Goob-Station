@@ -38,7 +38,7 @@
 # ERT
 
 - type: entity
-  parent: BaseUnknownShuttleRule
+  parent: BaseGameRule
   id: SpawnERTSecurity
   components:
   - type: StationEvent
@@ -52,6 +52,7 @@
   - type: AlertLevelInterceptionRule
     alertLevel: gamma
     overrideAlert: true
+  - type: RuleGrids
 
 - type: entity
   parent: BaseUnknownShuttleRule
