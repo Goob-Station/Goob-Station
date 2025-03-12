@@ -1,0 +1,8 @@
+- type: entity
+  parent: BaseItem
+  id: ContractorUplink
+  name: Contractor Uplink
+  description: A standard, Syndicate issued tablet for handling important contracts while on the field.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/contractor_uplink.rsi

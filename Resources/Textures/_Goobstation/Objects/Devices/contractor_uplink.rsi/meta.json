@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/81f6ddb12a200d67cdc826dca6a50d1a0672b64b/icons/obj/device.dmi, https://github.com/discordia-space/CEV-Eris/commit/efce5b6c3be75458ce238dcc01510e8f8a653ca6. Uplink radio sprites by Vermidia, derivative of other lisenced sprites in the repo",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "inhand-left"
+    },
+    {
+      "name": "inhand-right"
+    }
+  ]
+}
