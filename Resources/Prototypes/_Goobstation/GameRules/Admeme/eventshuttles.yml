@@ -13,10 +13,6 @@
     maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: ConsulShuttle
- # - type: AlertLevelInterceptionRule
- #   alertLevel: epsilon
- #   overrideAlert: true
- #   locked: true
 
 # CBURN
 
@@ -32,9 +28,6 @@
     maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: RetortShuttleCBURN
- # - type: AlertLevelInterceptionRule
- #   alertLevel: gamma
- #   overrideAlert: true
 
 # ERT
 
@@ -50,9 +43,6 @@
     maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: RetortShuttleAssault
- # - type: AlertLevelInterceptionRule
- #   alertLevel: gamma
- #   overrideAlert: true
 
 - type: entity
   parent: BaseUnknownShuttleRule
@@ -66,9 +56,6 @@
     maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: RetortShuttleMedical
- # - type: AlertLevelInterceptionRule
- #   alertLevel: gamma
- #   overrideAlert: true
 
 - type: entity
   parent: BaseUnknownShuttleRule
@@ -82,9 +69,6 @@
     maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: RetortShuttleEngineering
- # - type: AlertLevelInterceptionRule
- #   alertLevel: gamma
- #   overrideAlert: true
 
 - type: entity
   parent: BaseUnknownShuttleRule
@@ -98,9 +82,6 @@
     maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: RetortShuttleJanitorial
-  #- type: AlertLevelInterceptionRule
-  #  alertLevel: gamma
-  #  overrideAlert: true
 
 
 
