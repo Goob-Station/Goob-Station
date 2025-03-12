@@ -264,15 +264,13 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         {
             chance += malus.Malus;
         }
-        Log.Info(_contests.StaminaContest(disarmer,disarmed).ToString());
-        Log.Info(_contests.HealthContest(disarmer,disarmed).ToString());
-        Log.Info(Math.Clamp(chance // WWDP disarm based on health & stamina
-                            * _contests.StaminaContest(disarmer, disarmed)
-                            * _contests.HealthContest(disarmer, disarmed),
-            0f, 1f).ToString());
+
+        var staminaContest = _contests.StaminaContest(disarmer, disarmed);
+        var healthContest = _contests.HealthContest(disarmer, disarmed);
+        Log.Info(Math.Clamp(chance / staminaContest / healthContest, 0f, 1f).ToString());
         return Math.Clamp(chance // WWDP disarm based on health & stamina
-                        * _contests.StaminaContest(disarmer, disarmed)
-                        * _contests.HealthContest(disarmer, disarmed),
+                        * staminaContest
+                        * healthContest,
                         0f, 1f);
     }
 
