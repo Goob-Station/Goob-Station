@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/12/2025 14:44:50
-  entityCount: 12837
+  time: 03/12/2025 15:15:50
+  entityCount: 12836
 maps:
 - 1
 grids:
@@ -6207,7 +6207,7 @@ entities:
       pos: 30.5,-11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5410.978
+      secondsUntilStateChange: -5443.2783
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -44740,18 +44740,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#990000FF'
-  - uid: 6664
-    components:
-    - type: Transform
-      anchored: False
-      rot: 3.141592653589793 rad
-      pos: -37.5,0.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#0055CCFF'
-    - type: Physics
-      canCollide: True
-      bodyType: Dynamic
   - uid: 6665
     components:
     - type: Transform
