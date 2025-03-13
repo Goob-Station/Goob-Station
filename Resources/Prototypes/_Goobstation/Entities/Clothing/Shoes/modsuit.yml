@@ -110,7 +110,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Shoes/Modsuits/security.rsi
+    sprite: _Goobstation/Clothing/Shoes/Modsuits/headofsecurity.rsi
     layers:
     - state: boots
     - state: boots-sealed
