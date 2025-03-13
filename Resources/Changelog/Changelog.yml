@@ -1,25 +1,4 @@
 ﻿Entries:
-- author: august-sun
-  changes:
-  - message: Extended the minimum round time for meteor swarm events.
-    type: Tweak
-  id: 7558
-  time: '2024-10-28T21:25:34.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/32876
-- author: deltanedas
-  changes:
-  - message: Fixed lava planet expeditions not working.
-    type: Fix
-  id: 7559
-  time: '2024-10-29T05:00:29.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/33042
-- author: metalgearsloth
-  changes:
-  - message: Fix separated game screen bumping slightly.
-    type: Fix
-  id: 7560
-  time: '2024-10-29T05:07:57.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/33046
 - author: Blackern5000
   changes:
   - message: Proto-kitentic crushers, glaives, and daggers now have more accurate
@@ -3891,3 +3870,30 @@
   id: 8057
   time: '2025-03-13T07:21:24.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/34816
+- author: Crude Oil
+  changes:
+  - message: You can now pet the mail teleporter
+    type: Add
+  id: 8058
+  time: '2025-03-13T12:49:25.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/35819
+- author: ScarKy0
+  changes:
+  - message: Singularity and Whitehole grenades are now in the Disruption category
+      of uplinks.
+    type: Tweak
+  - message: Singularity and Whitehole grenades have had their prices reduced to 2TC
+      each.
+    type: Tweak
+  - message: Whitehole grenade no longer has extremely overtuned strength.
+    type: Fix
+  id: 8059
+  time: '2025-03-13T13:12:27.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/35821
+- author: slarticodefast, ps3moira
+  changes:
+  - message: Added the paradox clone as a ghostrole antagonist.
+    type: Add
+  id: 8060
+  time: '2025-03-13T17:09:07.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/35794
