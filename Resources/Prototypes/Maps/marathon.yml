@@ -18,7 +18,6 @@
         - type: StationJobs
           availableJobs:
             #service
-            # Goobstation - TODO: add bso and ntr, Done by Yours Truly, Sol
             Captain: [ 1, 1 ]
             NanotrasenRepresentative: [ 1, 1 ] # Goobstation
             BlueshieldOfficer: [ 1, 1 ] # Goobstation
