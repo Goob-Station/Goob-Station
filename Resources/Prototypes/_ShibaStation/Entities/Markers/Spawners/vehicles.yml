@@ -1,0 +1,27 @@
+- type: entity
+  name: Dark Office Chair Spawner
+  id: SpawnVehicleOfficeChairDark
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Structures/Furniture/chairs.rsi
+        state: office-dark
+  - type: ConditionalSpawner
+    prototypes:
+      - ChairOfficeDark
+
+- type: entity
+  name: White Office Chair Spawner
+  id: SpawnVehicleOfficeChairLight
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Structures/Furniture/chairs.rsi
+        state: office-white
+  - type: ConditionalSpawner
+    prototypes:
+      - ChairOfficeLight
