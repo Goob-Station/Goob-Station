@@ -12,10 +12,13 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+
+    private TimeSpan _nextExecutionTime = TimeSpan.Zero;
+    private static readonly TimeSpan ExecutionInterval = TimeSpan.FromSeconds(3);
+
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<RandomizeMovementspeedComponent, GotEquippedHandEvent>(OnGotEquippedHand);
         SubscribeLocalEvent<RandomizeMovementspeedComponent, GotUnequippedHandEvent>(OnGotUnequippedHand);
         SubscribeLocalEvent<RandomizeMovementspeedComponent, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshMovementSpeedModifiers);
@@ -23,7 +26,7 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
     }
     private void OnPendingMapInit(EntityUid uid, RandomizeMovementspeedComponent component, MapInitEvent args)
     {
-        component.NextRandomize = _timing.CurTime + TimeSpan.FromSeconds(3f);
+        component.CurrentModifier = GetMovementSpeedModifiers(uid, component);
     }
 
     private void OnGotEquippedHand(Entity<RandomizeMovementspeedComponent> ent, ref GotEquippedHandEvent args)
@@ -45,15 +48,14 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        var curTime = _timing.CurTime;
+
+        if (_timing.CurTime < _nextExecutionTime)
+            return;
 
         foreach (var ent in EntityQuery<RandomizeMovementspeedComponent>())
         {
-            if (curTime < ent.NextRandomize)
-                continue;
-
             var uid = ent.Owner;
-            var comp  = ent;
+            var comp = ent;
 
             var modifier = GetMovementSpeedModifiers(uid, comp);
             comp.CurrentModifier = modifier;
@@ -62,8 +64,9 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
 
             _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
         }
-    }
 
+        _nextExecutionTime = _timing.CurTime + ExecutionInterval;
+    }
 
 
     private void OnRefreshMovementSpeedModifiers(EntityUid uid, RandomizeMovementspeedComponent  comp, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)

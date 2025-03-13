@@ -1,9 +1,6 @@
-using Robust.Shared.GameStates;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-
 namespace Content.Shared._Goobstation.Movement;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
+[RegisterComponent]
 public sealed partial class RandomizeMovementspeedComponent : Component
 {
     /// <summary>
@@ -25,11 +22,5 @@ public sealed partial class RandomizeMovementspeedComponent : Component
     /// </summary>
     [DataField]
     public float CurrentModifier { get; set; } = 1f;
-
-    /// <summary>
-    /// Time until next randomization.
-    /// </summary>
-    [DataField("nextRandomize", customTypeSerializer: typeof(TimeOffsetSerializer)), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public TimeSpan NextRandomize = TimeSpan.Zero;
 
 }
