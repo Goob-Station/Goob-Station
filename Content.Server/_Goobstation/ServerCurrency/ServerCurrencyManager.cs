@@ -54,9 +54,11 @@ namespace Content.Server._Goobstation.ServerCurrency
         /// <returns>An integer containing the new amount of currency attributed to the player.</returns>
         public int AddCurrency(NetUserId userId, int amount)
         {
-            var old = GetBalance(userId);
-            SetBalance(userId, old + amount);
-            return old + amount;
+            // To decrease the calls to DB, we're running internal version instead
+            var oldAmount = GetBalance(userId);
+            var newAmount = oldAmount + amount;
+            Task.Run(() => GetBalanceAsync(userId)).GetAwaiter().GetResult();
+            return newAmount;
         }
 
         /// <summary>
@@ -67,9 +69,7 @@ namespace Content.Server._Goobstation.ServerCurrency
         /// <returns>An integer containing the new amount of currency attributed to the player.</returns>
         public int RemoveCurrency(NetUserId userId, int amount)
         {
-            var old = GetBalance(userId);
-            SetBalance(userId, old - amount);
-            return old - amount;
+            return AddCurrency(userId, -amount);
         }
 
         /// <summary>
@@ -101,8 +101,16 @@ namespace Content.Server._Goobstation.ServerCurrency
         /// </summary>
         /// <param name="userId">The player's NetUserId</param>
         /// <param name="amount">The amount of currency that will be set.</param>
-        /// <remarks>Use <see cref="SetBalanceAsync(NetUserId, int)"/> instead, since this doesn't call necessary events, nor ensures shutdown safety.</remarks>
-        private async Task SetBalanceAsyncInternal(NetUserId userId, int amount) => await _db.SetServerCurrency(userId, amount);
+        /// <param name="oldAmount">The amount of currency that will be set.</param>
+        /// <remarks>This and its calees will block server shutdown until execution finishes.</remarks>
+        private async Task SetBalanceAsyncInternal(NetUserId userId, int amount, int oldAmount)
+        {
+            var task = Task.Run(() => _db.SetServerCurrency(userId, amount));
+            TrackPending(task);
+            await task;
+            if (_player.TryGetSessionById(userId, out var userSession))
+                BalanceChange?.Invoke(new PlayerBalanceChangeEvent(userSession, userId, amount, oldAmount));
+        }
 
         /// <summary>
         /// Sets a player's balance.
@@ -115,11 +123,7 @@ namespace Content.Server._Goobstation.ServerCurrency
         {
             // We need to block it first to ensure we don't read our own amount, hence sync function
             var oldAmount = GetBalance(userId);
-            var task = Task.Run(() => SetBalanceAsyncInternal(userId, amount));
-            TrackPending(task);
-            await task;
-            if (_player.TryGetSessionById(userId, out var userSession))
-                BalanceChange?.Invoke(new PlayerBalanceChangeEvent(userSession, userId, amount, oldAmount));
+            await SetBalanceAsyncInternal(userId, amount, oldAmount);
             return oldAmount;
         }
 
