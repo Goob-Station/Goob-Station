@@ -22,11 +22,6 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
         SubscribeLocalEvent<RandomizeMovementspeedComponent, GotEquippedHandEvent>(OnGotEquippedHand);
         SubscribeLocalEvent<RandomizeMovementspeedComponent, GotUnequippedHandEvent>(OnGotUnequippedHand);
         SubscribeLocalEvent<RandomizeMovementspeedComponent, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshMovementSpeedModifiers);
-        SubscribeLocalEvent<RandomizeMovementspeedComponent, MapInitEvent>(OnPendingMapInit);
-    }
-    private void OnPendingMapInit(EntityUid uid, RandomizeMovementspeedComponent component, MapInitEvent args)
-    {
-        component.CurrentModifier = GetMovementSpeedModifiers(uid, component);
     }
 
     private void OnGotEquippedHand(Entity<RandomizeMovementspeedComponent> ent, ref GotEquippedHandEvent args)
@@ -71,6 +66,8 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
 
     private void OnRefreshMovementSpeedModifiers(EntityUid uid, RandomizeMovementspeedComponent  comp, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
+        Logger.Info($"Entity {uid} is raising a RefreshMovementSpeedModifiersEvent due to {nameof(Update)}");
+
         var modifier = comp.CurrentModifier;
         args.Args.ModifySpeed(modifier, modifier);
     }
