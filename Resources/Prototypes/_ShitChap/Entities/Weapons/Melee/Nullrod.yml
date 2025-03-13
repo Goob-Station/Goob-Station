@@ -286,7 +286,7 @@
     tags:
     - ArrythmicKnife
   - type: RandomizeMovementspeed
-    dummyDamage:
+    DummyDamage:
       types:
         Blunt: 1
   - type: Sharp
