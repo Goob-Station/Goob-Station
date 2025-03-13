@@ -147,7 +147,6 @@ namespace Content.Server._Goobstation.ServerCurrency
         {
             var task = Task.Run(() => _db.ModifyServerCurrency(userId, amountDelta));
             TrackPending(task);
-            await task; // why we need more awaits after the first one? idk
             if (_player.TryGetSessionById(userId, out var userSession))
                 BalanceChange?.Invoke(new PlayerBalanceChangeEvent(userSession, userId, await task, await task - amountDelta));
             return await task;
