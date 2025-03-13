@@ -38,7 +38,7 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsSecurity
-  name: security modsuit gauntlets
+  name: dragoon modsuit gauntlets
   description: Robust modular suit gloves for gripping perps and guns tight.
   categories: [ HideSpawnMenu ]
   components:
@@ -74,13 +74,49 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsParamedic
-  name: paramedic modsuit gauntlets
+  name: sanitater modsuit gauntlets
   description: Black modular suit gloves for gripping percs and patients tight.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Clothing/Hands/Modsuits/paramedic.rsi
+    layers:
+    - state: gauntlets
+    - state: gauntlets-sealed
+      visible: false
+      map: [ "sealed" ]
+  - type: Clothing
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    slots: [ gloves ]
+  - type: DamageOnInteractProtection
+    damageProtection:
+      flatReductions:
+        Heat: 10
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-modular
+    fiberColor: fibers-black
+  - type: FingerprintMask
+  - type: SealableClothing
+    sealUpPopup: sealable-clothing-seal-up-gauntlets
+    sealDownPopup: sealable-clothing-seal-down-gauntlets
+  - type: SealableClothingVisuals
+    visualLayers:
+      gloves:
+      - state: equipped-HAND-sealed
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingModsuitGauntletsHeadOfSecurity
+  name: bulwark modsuit gauntlets
+  description: Robust modular suit gloves for gripping perps and guns tight.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Modsuits/headofsecurity.rsi
     layers:
     - state: gauntlets
     - state: gauntlets-sealed
