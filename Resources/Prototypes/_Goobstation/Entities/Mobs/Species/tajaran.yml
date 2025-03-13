@@ -8,18 +8,19 @@
   - type: Thirst
   - type: Sprite # ShibaStation - Made Tajara human sized. Felinids can be smol cats.
     scale: 1, 1
-  - type: Fixtures
-    fixtures: # TODO: This needs a second fixture just for mob collisions.
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.28
-        density: 140
-        restitution: 0.0
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
+# ShibaStation - Since Tajara are not small, we inherit density and phys shape from it's parent, similar to other species.
+#    - type: Fixtures
+#      fixtures: # TODO: This needs a second fixture just for mob collisions.
+#        fix1:
+#          shape:
+#            !type:PhysShapeCircle
+#            radius: 0.28
+#          density: 140
+#          restitution: 0.0
+#          mask:
+#          - MobMask
+#          layer:
+#          - MobLayer
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -85,8 +86,9 @@
     damage:
       types:
         Blunt: 1
-  - type: Stamina
-    critThreshold: 75 # Goobstation - Siouxcide, felinids take 3 disabler shots to down
+  # Tajara are full sized on ShibaStation, and as such don't need this addition.
+  # - type: Stamina
+  #   critThreshold: 75 # Goobstation - Siouxcide, felinids take 3 disabler shots to down
   - type: TypingIndicator
     proto: felinid
   # - type: PseudoItem # ShibaStation - Too big for bags, this is a Felinid trait.

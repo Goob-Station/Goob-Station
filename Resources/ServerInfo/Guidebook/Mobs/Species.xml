@@ -9,6 +9,7 @@
   <GuideEntityEmbed Entity="MobDwarf" Caption="Dwarf"/>
   <GuideEntityEmbed Entity="MobGingerbread" Caption="Gingerbread"/>
     <GuideEntityEmbed Entity="MobHarpy" Caption="Harpy"/>
+    <GuideEntityEmbed Entity="MobFelinid" Caption="Felinid"/>
   </Box>
   <Box>
   <GuideEntityEmbed Entity="MobHuman" Caption="Human"/>
