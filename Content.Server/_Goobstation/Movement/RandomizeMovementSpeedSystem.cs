@@ -50,21 +50,17 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
         {
             foreach (var ent in EntityQuery<RandomizeMovementspeedComponent>())
             {
-                var modifier = GetMovementSpeedModifiers(comp);
-                comp.CurrentModifier = modifier;
-
                 _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
                 Dirty(uid, comp);
-
             }
         }
         _nextExecutionTime = _timing.CurTime + ExecutionInterval;
     }
 
 
-    private static void OnRefreshMovementSpeedModifiers(EntityUid uid, RandomizeMovementspeedComponent  comp, ref HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
+    private void OnRefreshMovementSpeedModifiers(EntityUid uid, RandomizeMovementspeedComponent  comp, ref HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
-        var modifier = comp.CurrentModifier;
+        var modifier = GetMovementSpeedModifiers(comp);
         args.Args.ModifySpeed(modifier, modifier);
     }
 
