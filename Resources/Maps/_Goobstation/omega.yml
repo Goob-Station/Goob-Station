@@ -54211,7 +54211,7 @@ entities:
   - uid: 8114
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
+      rot: 3.141592653589793 rad\
       pos: -54.5,14.5
       parent: 2
 - proto: GasVentPump
@@ -54222,9 +54222,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -7.5,16.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 9631
     - type: AtmosPipeColor
@@ -55197,9 +55194,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -7.5,17.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 9631
     - type: AtmosPipeColor
