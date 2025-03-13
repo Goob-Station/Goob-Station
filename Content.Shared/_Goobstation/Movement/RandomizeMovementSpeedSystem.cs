@@ -41,7 +41,7 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
         return modifier;
 
     }
-    public override void Update(float frameTime)
+    public override void Update(float frameTime) // Okay so this works, but ONLY when injured. What the fuck dude.
     {
         base.Update(frameTime);
 
@@ -70,3 +70,8 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
     }
 
 }
+
+// My best guess is that the Base.Update() in PassiveDamageSystem.cs is somehow activating the event to refresh modifiers.
+// Whenever I try to call it manually, it doesn't fucking work.
+// I want to hang myself.
+
