@@ -62,6 +62,12 @@
     visualLayers:
       shoes:
       - state: equipped-FEET-sealed
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.5
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.8
+  - type: ModifyStandingUpTime # Goobstation
+    multiplier: 0.5
 
 - type: entity
   parent: ClothingShoesBase
@@ -126,3 +132,9 @@
     visualLayers:
       shoes:
       - state: equipped-FEET-sealed
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.5
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.8
+  - type: ModifyStandingUpTime # Goobstation
+    multiplier: 0.5
