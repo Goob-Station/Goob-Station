@@ -5,29 +5,21 @@
     <GuideEntityEmbed Entity="MobRodentiaDummy" Caption=""/>
   </Box>
 
-  Rodentians are a race of humanoid beings resembling rodents. Resourceful, evasive, sneaky, but fragile.
+  Rodentians are a race of humanoid beings resembling rodents. Resourceful, evasive, sneaky, but fragile. They are [color=#1e90ff]able to eat raw meat.[/color]
 
-  ## Diet
+  They slash with their claws instead of using their fists, dealing [color=#ec3a3a]Slashing[/color] and [color=#ec3a3a]Blunt[/color] damage.
 
-  - Can eat raw meat.
-  - Will get poisoned by Theobromine (Chocolate, Tea, Coffee) and Allicin (Onion, Garlic).
-
-  ## Benefits
-
-  - Uses their claws to do some Slashing and Blunt damage.
-  - Can fit in duffelbags.
+  Due to their [color=yellow]small stature[/color], Rodentians can also [color=#1e90ff]fit into duffel bags[/color]. However, this comes at the cost of being [color=#ec3a3a]25% easier to knock down[/color].
 
   ## Special
 
-  - Can Rummage in disposal chutes, which can sometimes dig up food.
-  - Can store small items in their cheeks. Having items in their mouth makes their speech unintelligible, and they will drop all items in their mouth if attacked, stunned, or shoved.
+  - Can rummage in disposal chutes, sometimes digging up food.
+  - Can store small items in their cheeks. However, having items in their mouth makes their speech unintelligible. If attacked, stunned, or shoved, they will drop all items in their mouth.
   - Can "sneak" underneath tables, but not doors.
-  - Smaller than most other species.
 
   ## Drawbacks
 
   - Takes 30% more Blunt damage, and 15% more Slash and Piercing damage.
-  - Always triggers mousetraps, regardless of whether or not they are wearing shoes.
   - Gets hungry 33% faster.
 
 </Document>
