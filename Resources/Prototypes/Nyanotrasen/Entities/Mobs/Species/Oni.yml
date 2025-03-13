@@ -37,13 +37,6 @@
         - MobLayer
   - type: Stamina
     critThreshold: 115
-  - type: Tag
-    tags:
-    - Oni
-    - CanPilot # ShibaStation
-    - FootstepSound # ShibaStation
-    - DoorBumpOpener # ShibaStation
-    - AnomalyHost # ShibaStation
 
 - type: entity
   save: false
