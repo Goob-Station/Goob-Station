@@ -418,7 +418,11 @@
         - state: mag-0
           map: ["enum.GunVisualLayers.Mag"]
     - type: Clothing
-      sprite: _Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi # Todo - Change sprites
+      sprite: _Goobstation/Objects/Weapons/Guns/Pistols/anaconda.rsi # Bweh!
+      quickEquip: false
+      slots:
+        - suitStorage
+        - Belt
     - type: Gun
       minAngle: 1
       maxAngle: 5
