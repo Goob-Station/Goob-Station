@@ -45,6 +45,7 @@
     tags:
     - Payload # yes, you can make re-usable prank grenades
     - BikeHorn
+    - VehicleKey #Goobstatiuon - Clowncar
   - type: MeleeWeapon
     wideAnimationRotation: 135
     soundHit:

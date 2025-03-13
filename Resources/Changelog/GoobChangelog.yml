@@ -6048,3 +6048,159 @@ Entries:
       message: Firelocks are no longer made out of concentrated reinforcedwallium.
   id: 692
   time: '2025-03-10T18:07:07.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Delta Station map is added to the game.
+  id: 693
+  time: '2025-03-11T09:59:33.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Made Barratry worse.
+  id: 694
+  time: '2025-03-11T11:23:21.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: >-
+        Changeling absord no longer requires grabbing dead bodies or killing
+        grabbed ones.
+  id: 695
+  time: '2025-03-11T20:50:22.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Contortionist's bluespace jumpsuit: atmos job-specific contortionist's
+        jumpsuit that allows inventory.
+    - type: Tweak
+      message: Contortionist's jumpsuit is no longer atmos job-specific.
+  id: 696
+  time: '2025-03-11T20:53:31.0000000+00:00'
+- author: ItsMeThom
+  changes:
+    - type: Tweak
+      message: Office chairs are mobile now, cubicle workers rejoice!
+  id: 697
+  time: '2025-03-11T20:55:37.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Reach is updated to have new Goobstation content.
+  id: 698
+  time: '2025-03-11T20:55:45.0000000+00:00'
+- author: Vlax
+  changes:
+    - type: Tweak
+      message: reduced body heat gained from getting set on fire
+  id: 699
+  time: '2025-03-11T20:56:12.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Mice now dodge wideswing. It does stamina damage to them instead.
+  id: 700
+  time: '2025-03-11T20:57:51.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: Deimplanter works on jaunter, mindcontrol implants
+  id: 701
+  time: '2025-03-11T20:58:13.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Tweak
+      message: Harpy and IPC can now sing even if they are cuffed.
+    - type: Tweak
+      message: A muzzled Harpy won't be able to sing.
+    - type: Add
+      message: Make harpy and IPC stop singing by punching them!
+  id: 702
+  time: '2025-03-11T20:59:12.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: Mining shuttle works more often than it doesn't now.
+  id: 703
+  time: '2025-03-11T20:59:55.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: >-
+        Traitors and nukies can now buy gloves that provide krav maga, with a
+        stealthy black glove version and loud insulated version
+  id: 704
+  time: '2025-03-11T21:02:33.0000000+00:00'
+- author: Fishbait, AJCM-git
+  changes:
+    - type: Add
+      message: added new car
+  id: 705
+  time: '2025-03-11T21:03:24.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: >-
+        a dreadnought suit for 150TC, has 90% resistances, CANT BE TAKEN OFF,
+        deals 0.3 slash per second when equiped to the person who wears it.
+  id: 706
+  time: '2025-03-11T21:06:27.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Add
+      message: You can now Import/Export programs in the autodoc!
+    - type: Tweak
+      message: Autodoc speed set to 1 instead of 0.5! (actually useful now)
+  id: 707
+  time: '2025-03-11T21:07:09.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added new gamerules for several admeme roles.
+    - type: Tweak
+      message: Whole lotta changes to ERT, Cburn, Deathsquad, etcetera
+  id: 708
+  time: '2025-03-11T21:08:08.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Add
+      message: Added more promotional material across the station walls
+  id: 709
+  time: '2025-03-11T21:08:26.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: All mobs can now be operated on.
+  id: 710
+  time: '2025-03-11T21:10:17.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Tweak
+      message: >-
+        Normal IPC wings have been split into two different colouring options
+        for the base part and the light part, this will have reset any
+        colourings already on these wings. (Also made them stop laying over your
+        character when facing south)
+  id: 711
+  time: '2025-03-11T21:11:20.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Tweak
+      message: Changed made to Bingles.
+  id: 712
+  time: '2025-03-11T21:11:56.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: Sleeping carp scrolls are no longer locked to one person!
+    - type: Fix
+      message: Questionable damage handling.
+  id: 713
+  time: '2025-03-11T21:30:25.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Fix
+      message: Chef cqc is no longer tied to the beacon.
+  id: 714
+  time: '2025-03-11T21:30:49.0000000+00:00'
