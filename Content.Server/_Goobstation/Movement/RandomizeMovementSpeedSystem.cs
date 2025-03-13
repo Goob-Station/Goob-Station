@@ -26,11 +26,17 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
     private void OnGotEquippedHand(Entity<RandomizeMovementspeedComponent> ent, ref GotEquippedHandEvent args)
     {
         _movementSpeedModifier.RefreshMovementSpeedModifiers(args.User);
+        GetEntityUid(ent, ref args);
     }
 
     private void OnGotUnequippedHand(Entity<RandomizeMovementspeedComponent> ent, ref GotUnequippedHandEvent args)
     {
         _movementSpeedModifier.RefreshMovementSpeedModifiers(args.User);
+    }
+
+    private void GetEntityUid(Entity<RandomizeMovementspeedComponent> ent, ref GotEquippedHandEvent args)
+    {
+        ent.Comp.EntityUid = args.User;
     }
 
     private float GetMovementSpeedModifiers(RandomizeMovementspeedComponent comp)
@@ -47,16 +53,15 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
             return;
 
         var query = EntityQueryEnumerator<RandomizeMovementspeedComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+        while (query.MoveNext(out var comp))
         {
             foreach (var ent in EntityQuery<RandomizeMovementspeedComponent>())
             {
                 var modifier = GetMovementSpeedModifiers(comp);
 
                 comp.CurrentModifier = modifier;
-                Debug.WriteLine("Component Modifier:" + comp.CurrentModifier);
 
-                _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
+                _movementSpeedModifier.RefreshMovementSpeedModifiers(comp.EntityUid);
             }
         }
         _nextExecutionTime = _timing.CurTime + ExecutionInterval;
@@ -66,7 +71,6 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
     private static void OnRefreshMovementSpeedModifiers(EntityUid uid, RandomizeMovementspeedComponent  comp, ref HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
         var modifier = comp.CurrentModifier;
-        Debug.WriteLine("Current Modifier:" + modifier);
         args.Args.ModifySpeed(modifier, modifier);
     }
 

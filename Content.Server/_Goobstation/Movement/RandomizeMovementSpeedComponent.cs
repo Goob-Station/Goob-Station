@@ -23,4 +23,7 @@ public sealed partial class RandomizeMovementspeedComponent : Component
     [DataField]
     public float CurrentModifier { get; set; } = 1f;
 
+    [DataField]
+    public EntityUid EntityUid = default!;
+
 }
