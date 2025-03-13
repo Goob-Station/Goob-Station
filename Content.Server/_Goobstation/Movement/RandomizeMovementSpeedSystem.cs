@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Content.Shared.Hands;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.Random;
@@ -50,6 +51,10 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
         {
             foreach (var ent in EntityQuery<RandomizeMovementspeedComponent>())
             {
+                var modifier = GetMovementSpeedModifiers(comp);
+
+                comp.CurrentModifier = modifier;
+
                 _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
             }
         }
@@ -57,9 +62,9 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
     }
 
 
-    private void OnRefreshMovementSpeedModifiers(EntityUid uid, RandomizeMovementspeedComponent  comp, ref HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
+    private static void OnRefreshMovementSpeedModifiers(EntityUid uid, RandomizeMovementspeedComponent  comp, ref HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
-        var modifier = GetMovementSpeedModifiers(comp);
+        var modifier = comp.CurrentModifier;
         args.Args.ModifySpeed(modifier, modifier);
     }
 
