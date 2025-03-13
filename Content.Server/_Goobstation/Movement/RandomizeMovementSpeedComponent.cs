@@ -1,6 +1,10 @@
+using Content.Shared.Movement.Systems;
+using Robust.Shared.GameStates;
+
 namespace Content.Server.Movement;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[Access(typeof(MovementSpeedModifierSystem))]
 public sealed partial class RandomizeMovementspeedComponent : Component
 {
     /// <summary>
