@@ -57,7 +57,7 @@ namespace Content.Server._Goobstation.ServerCurrency
             // To decrease the calls to DB, we're running internal version instead
             var oldAmount = GetBalance(userId);
             var newAmount = oldAmount + amount;
-            Task.Run(() => GetBalanceAsync(userId)).GetAwaiter().GetResult();
+            Task.Run(() => SetBalanceAsync(userId, amount)).GetAwaiter().GetResult();
             return newAmount;
         }
 
