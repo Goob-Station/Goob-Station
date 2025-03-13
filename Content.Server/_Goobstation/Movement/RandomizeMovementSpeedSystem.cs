@@ -32,6 +32,7 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
     private void OnGotUnequippedHand(Entity<RandomizeMovementspeedComponent> ent, ref GotUnequippedHandEvent args)
     {
         _movementSpeedModifier.RefreshMovementSpeedModifiers(args.User);
+        ent.Comp.EntityUid = default!;
     }
 
     private void GetEntityUid(Entity<RandomizeMovementspeedComponent> ent, ref GotEquippedHandEvent args)
