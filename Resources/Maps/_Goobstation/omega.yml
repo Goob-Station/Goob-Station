@@ -54211,7 +54211,7 @@ entities:
   - uid: 8114
     components:
     - type: Transform
-      rot: 3.141592653589793 rad\
+      rot: 3.141592653589793 rad
       pos: -54.5,14.5
       parent: 2
 - proto: GasVentPump
