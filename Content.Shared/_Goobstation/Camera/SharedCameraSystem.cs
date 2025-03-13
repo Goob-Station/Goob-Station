@@ -1,9 +1,7 @@
 using System.Numerics;
 using Content.Shared.Coordinates;
-using Content.Shared.Directions;
 using Content.Shared.Interaction.Events;
 using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 
 namespace Content.Shared._Goobstation.Camera;
@@ -13,77 +11,87 @@ namespace Content.Shared._Goobstation.Camera;
 /// </summary>
 public sealed class SharedCameraSystem : EntitySystem
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
+
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
+    [Dependency] private readonly IMapManager _mapManager = default!;
 
+    /// <inheritdoc/>
     public override void Initialize()
     {
-        base.Initialize();
-        SubscribeLocalEvent<CameraComponent, UseInHandEvent>(OnUseCameraInHand);
+        SubscribeLocalEvent<CameraComponent, UseInHandEvent>(OnCameraUseInHand);
     }
 
-    private void OnUseCameraInHand(Entity<CameraComponent> ent, ref UseInHandEvent args)
+    private void OnCameraUseInHand(Entity<CameraComponent> ent, ref UseInHandEvent args)
     {
-        CopyEntitiesInFrontOfPlayer(args.User);
-    }
+        var user = args.User;
+        var userPos = user.ToCoordinates();
+        var userRotation = _transformSystem.GetWorldRotation(user);
+        var userCardinalDir = userRotation.GetCardinalDir();
 
+        Vector2i centerOffset;
 
-    public void CopyEntitiesInFrontOfPlayer(EntityUid playerEntity)
-    {
-        var playerPos = _transformSystem.GetWorldPosition(playerEntity);
-        var playerRot = _transformSystem.GetWorldPosition(playerEntity);
-        var direction = playerRot.GetDir();
-
-        var originTile = playerPos + direction.ToVec() * 1.5f;
-        var areaEntities = new List<EntityUid>();
-
-        var newMapUId = _mapSystem.CreateMap();
-        if(!TryComp<MapComponent>(newMapUId, out var mapComponent))
-            return;
-        var mapId = mapComponent.MapId;
-        Log.Info("Map ID: " + mapId);
-
-
-        for (int x = -1; x <= 1; x++)
+        switch (userCardinalDir)
         {
-            for (int y = -1; y <= 1; y++)
+            case Direction.North:
+                centerOffset = new Vector2i(0, 2);
+                break;
+            case (Direction.East):
+                centerOffset = new Vector2i(2, 0);
+                break;
+            case Direction.South:
+                centerOffset = new Vector2i(0, -2);
+                break;
+            case Direction.West:
+                centerOffset = new Vector2i(-2, 0);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+
+        var centerTile = new EntityCoordinates(user, userPos.Position + centerOffset);
+
+        var newMap = _mapSystem.CreateMap();
+        var newMapId = new MapId();
+        foreach (var map in _mapSystem.GetAllMapIds()) // i couldnt find a getmap id function lol
+        {
+            if (_mapSystem.GetMap(map) != newMap)
+                continue;
+
+            newMapId = map;
+            break;
+        }
+        var newMapGrid = _mapManager.CreateGrid(newMapId);
+
+
+
+        var copiedEntities = new List<EntityUid>();
+
+        for (var x = -1; x <= 1; x++)
+        {
+            for (var y = -1; y <= 1; y++)
             {
-                var checkPos = originTile + new Vector2(x, y);
-                var entitiesAtPos =
-                    _lookupSystem.GetEntitiesIntersecting(new EntityCoordinates(playerEntity, checkPos));
+                var tileCoords = centerTile.Offset(new Vector2i(x, y));
+                var entities = _lookupSystem.GetEntitiesIntersecting(tileCoords);
 
-                foreach (var entity in entitiesAtPos)
+                foreach (var entity in entities)
                 {
-                    // Skip the player if they're somehow in this area
-                    if (entity == playerEntity)
-                        continue;
-
-                    areaEntities.Add(entity);
+                    var newEntity = Spawn(Comp<MetaDataComponent>(entity).EntityPrototype.ID, newMapGrid.ToCoordinates(new Vector2(tileCoords.X, tileCoords.Y)));
+                    copiedEntities.Add(newEntity);
                 }
             }
         }
 
-        var newMapGridId = _mapManager.CreateGrid(mapId);
-        foreach (var entity in areaEntities)
+        foreach (var entity in copiedEntities)
         {
-            var entityTransform = _entityManager.GetComponent<TransformComponent>(entity);
-            var relativePos = entityTransform.WorldPosition - originTile + new Vector2(1, 1);
-
-            var prototype = GetEntityData(GetNetEntity(entity)).Item2.EntityPrototype;
-            if (prototype != null)
+            var allComps = _entityManager.GetAllComponents(copiedEntities);
+            foreach (var comp in allComps)
             {
-                var newEntity = Spawn(prototype.ID, new EntityCoordinates(newMapUId, relativePos));
-
-                // need to strip components.
-                // depends on exactly what needs to be saved.
+                if(comp.Component is SpriteComponent spriteComponent)
             }
-
         }
+
     }
-
-
 }
