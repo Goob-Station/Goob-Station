@@ -69726,7 +69726,6 @@ entities:
     - type: Transform
       pos: 14.5,43.5
       parent: 2
-      bodyType: Static
 - proto: PottedPlant22
   entities:
   - uid: 10439
@@ -83488,7 +83487,6 @@ entities:
     - type: Transform
       pos: 14.5,44.5
       parent: 2
-      bodyType: Static
 - proto: UniqueLockerNanorepFilled
   entities:
   - uid: 5668
@@ -83496,7 +83494,6 @@ entities:
     - type: Transform
       pos: 16.5,43.5
       parent: 2
-      bodyType: Static
 - proto: Vaccinator
   entities:
   - uid: 12594
