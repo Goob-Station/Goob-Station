@@ -1,6 +1,5 @@
 using Content.Shared.Damage;
 using Content.Shared.Hands;
-using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
