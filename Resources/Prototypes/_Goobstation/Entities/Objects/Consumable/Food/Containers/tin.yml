@@ -2,7 +2,7 @@
 # Black Caviar
 
 - type: entity
-  parent: [FoodTinBase, BaseMajorContraband]
+  parent: FoodTinBase
   id: FoodBlackCaviar
   name: black caviar
   description: A tin of black caviar with a convenient pull tab. Looks expensive.
@@ -20,9 +20,6 @@
   - type: Food
     trash:
     - FoodBlackCaviarTrash
-  - type: Tag
-    tags:
-    - Trash
 
 - type: entity
   parent: FoodTinBaseTrash
@@ -53,9 +50,6 @@
   - type: Food
     trash:
     - FoodRedCaviarTrash
-  - type: Tag
-    tags:
-    - Trash
 
 - type: entity
   parent: FoodTinBaseTrash
