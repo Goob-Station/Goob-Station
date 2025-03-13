@@ -15,12 +15,15 @@ public sealed partial class RandomizeMovementspeedComponent : Component
     /// </summary>
 
     [DataField]
-    public float Max { get; set; } = 2f;
+    public float Max { get; set; } = 1.6f;
 
     /// <summary>
     /// bweh
     /// </summary>
     [DataField]
     public TimeSpan? NextSpeedChange;
+
+    [DataField]
+    public float CurrentModifier { get; set; } = 1f;
 
 }

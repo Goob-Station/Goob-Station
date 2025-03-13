@@ -37,11 +37,6 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
         return modifier;
 
     }
-    private void OnRefreshMovementSpeedModifiers(EntityUid uid, RandomizeMovementspeedComponent  comp, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
-    {
-        var modifier = GetMovementSpeedModifiers(uid, comp);
-        args.Args.ModifySpeed(modifier, modifier);
-    }
 
     public override void Update(float frameTime)
     {
@@ -55,10 +50,18 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
             var uid = ent.Owner;
             var comp = ent;
 
-            GetMovementSpeedModifiers(uid, comp);
+            var modifier = GetMovementSpeedModifiers(uid, comp);
+            comp.CurrentModifier = modifier;
+
         }
 
         _nextExecutionTime = _timing.CurTime + ExecutionInterval;
+    }
+
+    private void OnRefreshMovementSpeedModifiers(EntityUid uid, RandomizeMovementspeedComponent  comp, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
+    {
+        var modifier = comp.CurrentModifier;
+        args.Args.ModifySpeed(modifier, modifier);
     }
 
 
