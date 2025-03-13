@@ -392,3 +392,85 @@
   - type: Tag
     tags:
     - Nullrod
+
+# Casul & Jackal
+- type: entity
+  name: casul
+  parent: BaseWeaponPistol
+  id: WeaponPistolCasul
+  description: The first of two huge pistols, capable of firing regenerating silver bullets. Incapable of firing without its sister gun.
+  components:
+    - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
+      DamageOnUntrainedUse:
+        types:
+          Heat: 15
+          Holy: 5
+      UntrainedUseString: nullrod-pistol-untrained-usage-popup
+    - type: Reflect # Only blocks magic projectiles
+      reflectProb: 0.4
+      reflects:
+        - Magic
+    - type: Sprite
+      sprite: _Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi # Todo - Change sprites
+      layers:
+        - state: base
+          map: ["enum.GunVisualLayers.Base"]
+        - state: mag-0
+          map: ["enum.GunVisualLayers.Mag"]
+    - type: Clothing
+      sprite: _Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi # Todo - Change sprites
+    - type: Gun
+      minAngle: 1
+      maxAngle: 5
+      angleIncrease: 1
+      angleDecay: 4
+      fireRate: 8
+      availableModes:
+        - SemiAuto
+        - FullAuto
+      soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+    - type: BasicEntityAmmoProvider
+      proto: BulletAnaconda
+      capacity: 7
+      count: 7
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 4
+      rechargeSound:
+        path: /Audio/Weapons/Guns/Cock/shotgun_close.ogg
+    - type: AmmoCounter
+    - type: ContainerContainer
+      containers:
+        ballistic-ammo: !type:Container
+    - type: Multishot
+      spreadMultiplier: 1.25
+    - type: Tag
+      tags:
+        - WeaponPistolCasul
+    - type: RequiresDualWield
+      whitelist:
+        tags:
+          - WeaponPistolJackal
+
+- type: entity
+  name: jackal
+  parent: WeaponPistolCasul
+  id: WeaponPistolJackal
+  description: The second of two huge pistols, capable of firing regenerating silver bullets. Incapable of firing without its sister gun.
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi # Todo - Change sprites
+      layers:
+        - state: base
+          map: ["enum.GunVisualLayers.Base"]
+        - state: mag-0
+          map: ["enum.GunVisualLayers.Mag"]
+    - type: Clothing
+      sprite: _Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi # Todo - Change sprites
+    - type: Tag
+      tags:
+        - WeaponPistolJackal
+    - type: RequiresDualWield
+      whitelist:
+        tags:
+          - WeaponPistolCasul

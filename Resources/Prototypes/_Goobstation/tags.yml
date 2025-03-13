@@ -340,6 +340,12 @@
   id: WeaponPistolDualetta
 
 - type: Tag
+  id: WeaponPistolCasul
+
+- type: Tag
+  id: WeaponPistolJackal
+
+- type: Tag
   id: WizardHat
 
 - type: Tag

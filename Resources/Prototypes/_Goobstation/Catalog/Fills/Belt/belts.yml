@@ -99,3 +99,13 @@
     containers:
       storagebase: !type:NestedSelector
         tableId: BeltSecurityNoBatonEntityTable
+
+- type: entity
+  id: ClothingBeltHolsterFilledChaplain
+  parent: ClothingBeltHolster
+  suffix: Filled, Chaplain
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponPistolCasul
+    - id: WeaponPistolJackal
