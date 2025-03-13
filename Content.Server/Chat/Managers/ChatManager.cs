@@ -58,10 +58,6 @@ internal sealed partial class ChatManager : IChatManager
 
     private readonly Dictionary<NetUserId, ChatUser> _players = new();
 
-    private static readonly string[] Words = new string[] { "molest", "cum" };
-    private static readonly string Pattern = string.Join("|", Words);
-    // private static readonly string Pattern = @""
-    private static readonly Regex _slurRegex = new Regex(Pattern, RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace | RegexOptions.Compiled);
     public void Initialize()
     {
         _netManager.RegisterNetMessage<MsgChatMessage>();
@@ -398,17 +394,6 @@ internal sealed partial class ChatManager : IChatManager
         }
 
         return isOverLength;
-    }
-
-    public bool ContainsSlur(ICommonSession player, string message) // TBDStation Edit
-    {
-        bool containsSlur = _slurRegex.IsMatch(message);
-        if (containsSlur)
-        {
-            var feedback = Loc.GetString("server-slur-detected-warning");
-            DispatchServerMessage(player, feedback);
-        }
-        return containsSlur;
     }
 
     #endregion

@@ -52,39 +52,6 @@ namespace Content.Server._TBDStation.ServerKarma
             Subs.CVar(_cfg, GoobCVars.GoobcoinServerMultiplier, value => _goobcoinsServerMultiplier = value, true);
             Subs.CVar(_cfg, GoobCVars.GoobcoinMinPlayers, value => _goobcoinsMinPlayers = value, true);
         }
-
-        // private void onAttackKarma(EntityUid uid, RechargeableBlockingComponent component, DamageChangedEvent args)
-        // {
-        //     int s = 5;
-        //     for (int i = 0; i <= 10; i = i + 2)
-        //     {
-        //         s += i;
-        //     }
-        //     // if (args.Attacked is null || args.Attacker is null)
-        //     //     return;
-
-        //     // if (_mind.TryGetMind(args.Attacked.Value, out var attackedMind))
-        //     // {
-        //     //     if (attackedMind.Mind?.HasRole<Job>(out var job) == true)
-        //     //     {
-        //     //         if (job.RoleType == JobType.Antag)
-        //     //         {
-        //     //             if (_mind.TryGetMind(args.Attacker.Value, out var attackerMind))
-        //     //             {
-        //     //                 if (attackerMind.Mind?.HasRole<Job>(out var attackerJob) == true)
-        //     //                 {
-        //     //                     if (attackerJob.RoleType == JobType.Antag)
-        //     //                     {
-        //     //                         return;
-        //     //                     }
-        //     //                 }
-        //     //             }
-        //     //         }
-        //     //     }
-        //     // }
-        //     // _karmaMan.AddKarma(, 10);
-        // }
-
         public override void Shutdown()
         {
             base.Shutdown();

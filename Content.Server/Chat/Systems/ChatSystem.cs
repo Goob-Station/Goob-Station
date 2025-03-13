@@ -39,6 +39,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
+using Content.Server._TBDStation.SlurFilter; // TBDStation
 
 namespace Content.Server.Chat.Systems;
 
@@ -69,6 +70,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly GhostVisibilitySystem _ghostVisibility = default!; // Goobstation Change
     [Dependency] private readonly ScryingOrbSystem _scrying = default!; // Goobstation Change
     [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!; // Goobstation - Starlight collective mind port
+    [Dependency] private readonly SlurFilterManager _slurFilterMan = default!; // TBDStation
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
@@ -861,7 +863,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (_chatManager.MessageCharacterLimit(player, message)) // TBDStation Edit
             return false; // TBDStation Edit
 
-        return !_chatManager.ContainsSlur(player, message); // TBDStation Edit
+        return !_slurFilterMan.ContainsSlur(player, message); // TBDStation Edit
     }
 
     // ReSharper disable once InconsistentNaming
