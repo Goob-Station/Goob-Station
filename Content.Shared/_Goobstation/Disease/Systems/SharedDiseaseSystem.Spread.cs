@@ -114,7 +114,7 @@ public partial class SharedDiseaseSystem
 
                 complexity += effect.GetComplexity();
                 minComplexity += effect.Complexity * effect.MinSeverity;
-                maxComplexity += MaxEffectSeverity;
+                maxComplexity += effect.Complexity * MaxEffectSeverity;
             }
             // we have too many effects for our chosen complexity
             if (disease.Complexity < minComplexity)
@@ -131,23 +131,25 @@ public partial class SharedDiseaseSystem
                 }
                 // by how much we need to adjust complexity
                 var delta = disease.Complexity - complexity;
+
                 // try to decrease complexity, adjust severities of random effects until we hit the target
                 if (delta < 0)
                 {
                     bool done = false;
-                    while (!done)
+                    for (var i = 0; i < 20 && !done; i++) // no infinite loops
                     {
                         var effectUid = disease.Effects[_random.Next(disease.Effects.Count - 1)];
                         if (!TryComp<DiseaseEffectComponent>(effectUid, out var effect))
                             return;
 
                         var maxChange = effect.Complexity * effect.MinSeverity - effect.GetComplexity(); // maximum amount we can change the complexity by
-                        done = (delta - maxChange) >= 0; // check if the maximum severity change we can do can bring the delta to 0
+                        var targetSeverity = effect.Severity + delta / effect.Complexity;
+                        done = targetSeverity > effect.MinSeverity && targetSeverity < MaxEffectSeverity;
 
                         var oldComplexity = effect.GetComplexity();
                         if (done)
                             // we can bring delta to 0 so do it
-                            effect.Severity = effect.Severity + delta / effect.Complexity;
+                            effect.Severity = targetSeverity;
                         else
                             effect.Severity = _random.NextFloat(effect.MinSeverity, MaxEffectSeverity);
 
@@ -161,18 +163,19 @@ public partial class SharedDiseaseSystem
                 {
                     // same as above but try to increase complexity for deltas > 0
                     bool done = false;
-                    while (!done)
+                    for (var i = 0; i < 20 && !done; i++)
                     {
                         var effectUid = disease.Effects[_random.Next(disease.Effects.Count - 1)];
                         if (!TryComp<DiseaseEffectComponent>(effectUid, out var effect))
                             return;
 
                         var maxChange = effect.Complexity * MaxEffectSeverity - effect.GetComplexity();
-                        done = (delta - maxChange) <= 0;
+                        var targetSeverity = effect.Severity + delta / effect.Complexity;
+                        done = targetSeverity > effect.MinSeverity && targetSeverity < MaxEffectSeverity;
 
                         var oldComplexity = effect.GetComplexity();
                         if (done)
-                            effect.Severity = effect.Severity + delta / effect.Complexity;
+                            effect.Severity = targetSeverity;
                         else
                             effect.Severity = _random.NextFloat(effect.MinSeverity, MaxEffectSeverity);
 

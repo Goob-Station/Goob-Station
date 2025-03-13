@@ -1,6 +1,7 @@
 using Content.Shared.Damage;
 using Content.Shared.Flash;
 using Content.Shared.Flash.Components;
+using Content.Shared.Humanoid;
 using Content.Shared.Popups;
 using Content.Shared.Prototypes;
 using Content.Shared.StatusEffect;
@@ -43,8 +44,14 @@ public partial class SharedDiseaseSystem
 
     private void OnAudioEffect(EntityUid uid, DiseaseAudioEffectComponent effect, DiseaseEffectEvent args)
     {
-        if (_timing.IsFirstTimePredicted)
-            _audio.PlayPredicted(effect.Sound, uid, uid);
+        if (_net.IsClient)
+            return;
+
+        var sound = effect.Sound;
+        if (effect.SoundFemale != null && TryComp<HumanoidAppearanceComponent>(args.Ent, out var humanoid) && humanoid.Sex == Sex.Female)
+            sound = effect.SoundFemale;
+
+        _audio.PlayPvs(sound, args.Ent);
     }
 
     private void OnDamageEffect(EntityUid uid, DiseaseDamageEffectComponent effect, DiseaseEffectEvent args)
@@ -90,7 +97,7 @@ public partial class SharedDiseaseSystem
 
     private void OnFlashEffect(EntityUid uid, DiseaseFlashEffectComponent effect, DiseaseEffectEvent args)
     {
-        if (!_timing.IsFirstTimePredicted)
+        if (_net.IsClient) // flashes twice if ran on both server and client
             return;
 
         _status.TryAddStatusEffect<FlashedComponent>(args.Ent, _flash.FlashedKey, effect.Duration * GetScale(args, effect), true);
@@ -102,13 +109,13 @@ public partial class SharedDiseaseSystem
 
     private void OnPopupEffect(EntityUid uid, DiseasePopupEffectComponent effect, DiseaseEffectEvent args)
     {
-        if (!_timing.IsFirstTimePredicted)
+        if (_net.IsClient)
             return;
 
         if (effect.HostOnly)
-            _popup.PopupEntity(Loc.GetString(effect.String), args.Ent, args.Ent, effect.Type);
+            _popup.PopupEntity(Loc.GetString(effect.String, ("source", args.Ent)), args.Ent, args.Ent, effect.Type);
         else
-            _popup.PopupPredicted(Loc.GetString(effect.String), args.Ent, args.Ent, effect.Type);
+            _popup.PopupEntity(Loc.GetString(effect.String, ("source", args.Ent)), args.Ent, effect.Type);
     }
 
     protected float GetScale(DiseaseEffectEvent args, ScalingDiseaseEffect effect)
@@ -152,7 +159,9 @@ public partial class SharedDiseaseSystem
         List<EntityPrototype> valid = new();
         foreach (var effectProto in _diseaseEffects)
         {
-            if (effectProto.TryGetComponent<DiseaseEffectComponent>(out var effectComp, _factory) && effectComp.AllowedDiseaseTypes.Contains(disease.DiseaseType))
+            if (effectProto.TryGetComponent<DiseaseEffectComponent>(out var effectComp, _factory)
+                && effectComp.AllowedDiseaseTypes.Contains(disease.DiseaseType)
+                && !HasEffect(uid, effectProto.ID, disease))
                 valid.Add(effectProto);
         }
         if (valid.Count == 0)

@@ -201,5 +201,11 @@ public sealed partial class DiseasePopupEffectComponent : Component
 public sealed partial class DiseaseAudioEffectComponent : Component
 {
     [DataField]
-    public SoundSpecifier Sound;
+    public SoundCollectionSpecifier Sound;
+
+    /// <summary>
+    /// If not null, will use this sound collection for female characters instead
+    /// </summary>
+    [DataField]
+    public SoundCollectionSpecifier? SoundFemale = null;
 }

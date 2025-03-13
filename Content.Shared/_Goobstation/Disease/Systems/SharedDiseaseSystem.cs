@@ -2,6 +2,7 @@ using Content.Shared.Disease;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
+using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -17,6 +18,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
@@ -61,8 +63,10 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
 
     private void UpdateDiseases(EntityUid uid, DiseaseCarrierComponent diseaseCarrier)
     {
-        foreach (var diseaseUid in diseaseCarrier.Diseases)
+        // not foreach since it can be cured and deleted from the list while inside the loop
+        for (int i = 0; i < diseaseCarrier.Diseases.Count; i++)
         {
+            var diseaseUid = diseaseCarrier.Diseases[i];
             var ev = new DiseaseUpdateEvent(uid);
             RaiseLocalEvent(diseaseUid, ev);
         }
