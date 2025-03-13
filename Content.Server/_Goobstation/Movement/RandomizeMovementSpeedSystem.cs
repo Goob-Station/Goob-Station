@@ -23,6 +23,7 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
         SubscribeLocalEvent<RandomizeMovementspeedComponent, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshMovementSpeedModifiers);
     }
 
+    #region Helper Functions
     private void OnGotEquippedHand(Entity<RandomizeMovementspeedComponent> ent, ref GotEquippedHandEvent args)
     {
         // Refresh the movement speed modifiers.
@@ -53,6 +54,17 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
         return modifier;
 
     }
+    private static void OnRefreshMovementSpeedModifiers(EntityUid uid, RandomizeMovementspeedComponent  comp, ref HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
+    {
+        // Set the variable modifier equal to the components current modifier field.
+        var modifier = comp.CurrentModifier;
+        // Modify the speed of the entity according to the modifier.
+        args.Args.ModifySpeed(modifier, modifier);
+    }
+
+    #endregion
+
+    #region Update Loop
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -84,14 +96,8 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
         _nextExecutionTime = _timing.CurTime + ExecutionInterval;
     }
 
+    #endregion
 
-    private static void OnRefreshMovementSpeedModifiers(EntityUid uid, RandomizeMovementspeedComponent  comp, ref HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
-    {
-        // Set the variable modifier equal to the components current modifier field.
-        var modifier = comp.CurrentModifier;
-        // Modify the speed of the entity according to the modifier.
-        args.Args.ModifySpeed(modifier, modifier);
-    }
 
 }
 
