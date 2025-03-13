@@ -1,0 +1,75 @@
+using Content.Shared.Damage;
+using Content.Shared.Hands;
+using Content.Shared.Movement.Systems;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
+
+namespace Content.Server._Goobstation.Movement;
+
+public sealed class RandomizeMovementSpeedSystemServer : EntitySystem
+{
+    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = null!;
+    [Dependency] private readonly IRobustRandom _random = null!;
+    [Dependency] private readonly IGameTiming _timing = null!;
+
+    private TimeSpan _nextExecutionTime = TimeSpan.Zero;
+    private static readonly TimeSpan ExecutionInterval = TimeSpan.FromSeconds(3);
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        SubscribeLocalEvent<RandomizeMovementspeedServerComponent, GotEquippedHandEvent>(OnGotEquippedHand);
+        SubscribeLocalEvent<RandomizeMovementspeedServerComponent, GotUnequippedHandEvent>(OnGotUnequippedHand);
+        SubscribeLocalEvent<RandomizeMovementspeedServerComponent, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshMovementSpeedModifiers);
+    }
+
+    private void OnGotEquippedHand(Entity<RandomizeMovementspeedServerComponent> ent, ref GotEquippedHandEvent args)
+    {
+        _movementSpeedModifier.RefreshMovementSpeedModifiers(args.User);
+    }
+
+    private void OnGotUnequippedHand(Entity<RandomizeMovementspeedServerComponent> ent, ref GotUnequippedHandEvent args)
+    {
+        _movementSpeedModifier.RefreshMovementSpeedModifiers(args.User);
+    }
+
+    private float GetMovementSpeedModifiers(RandomizeMovementspeedServerComponent comp)
+    {
+        var modifier = _random.NextFloat(comp.Min, comp.Max);
+        return modifier;
+
+    }
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        if (_timing.CurTime < _nextExecutionTime)
+            return;
+
+        var query = EntityQueryEnumerator<RandomizeMovementspeedServerComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            foreach (var ent in EntityQuery<RandomizeMovementspeedServerComponent>())
+            {
+                var modifier = GetMovementSpeedModifiers(comp);
+                comp.CurrentModifier = modifier;
+
+                _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
+            }
+        }
+        _nextExecutionTime = _timing.CurTime + ExecutionInterval;
+    }
+
+
+    private static void OnRefreshMovementSpeedModifiers(EntityUid uid, RandomizeMovementspeedServerComponent  comp, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
+    {
+        var modifier = comp.CurrentModifier;
+        args.Args.ModifySpeed(modifier, modifier);
+    }
+
+}
+
+// My best guess is that the Base.Update() in PassiveDamageSystem.cs is somehow activating the event to refresh modifiers.
+// Whenever I try to call it manually, it doesn't fucking work.
+// I want to hang myself.
+
