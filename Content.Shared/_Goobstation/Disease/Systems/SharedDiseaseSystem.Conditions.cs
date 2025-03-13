@@ -1,4 +1,3 @@
-using Robust.Shared.Network;
 using Robust.Shared.Random;
 using System;
 
@@ -6,8 +5,6 @@ namespace Content.Shared.Disease;
 
 public partial class SharedDiseaseSystem
 {
-    [Dependency] private readonly INetManager _net = default!;
-
     protected virtual void InitializeConditions()
     {
         SubscribeLocalEvent<DiseasePeriodicConditionComponent, DiseaseCheckConditionsEvent>(CheckPeriodicCondition);

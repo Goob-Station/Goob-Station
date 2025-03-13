@@ -21,6 +21,7 @@
       DiseaseBehaviorVomit: 0.6
       DiseaseBehaviorFeelUnwell: 1
       DiseaseBehaviorHeadache: 0.8
+      DiseaseBehaviorCough: 0.6
 
 - type: entity
   id: DiseaseCancer

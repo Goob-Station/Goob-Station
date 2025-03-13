@@ -101,3 +101,30 @@
   - type: DiseaseEffect
     complexity: 12
   - type: DiseaseFightImmunityEffect
+
+- type: entity
+  id: DiseaseBehaviorCough
+  parent: DiseaseBehaviorBase
+  name: cough
+  description: Makes you cough. Infective.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: DiseaseEffect
+    complexity: 6
+  - type: DiseasePeriodicCondition
+    delayMin: 5
+    delayMax: 20
+  - type: DiseaseAudioEffect
+    sound:
+      collection: MaleCoughs
+    soundFemale:
+      collection: FemaleCoughs
+  - type: DiseasePopupEffect
+    string: disease-effect-popup-cough
+    hostOnly: false
+  - type: DiseaseSpreadEffect
+    spreadType: DebugSpread
+    arc: 120
+    range: 3
+    infectionChance: 0.5
+    timeScale: false
