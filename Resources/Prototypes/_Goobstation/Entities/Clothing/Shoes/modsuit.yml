@@ -30,3 +30,35 @@
       shoes:
       - state: equipped-FEET-sealed
         shader: unshaded
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingModsuitBootsSecurity
+  name: security modsuit boots
+  description: THE IRON BOOTS OF THE LAW.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Modsuits/security.rsi
+    layers:
+    - state: boots
+    - state: boots-sealed
+      map: [ "sealed" ]
+  - type: Clothing
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    slots: [ feet ]
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: SealableClothing
+    sealUpPopup: sealable-clothing-seal-up-boots
+    sealDownPopup: sealable-clothing-seal-down-boots
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: SealableClothingVisuals
+    visualLayers:
+      shoes:
+      - state: equipped-FEET-sealed
