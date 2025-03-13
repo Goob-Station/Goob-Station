@@ -1829,16 +1829,6 @@
 
 - type: entity
   parent: BasePlushie
-  id: PlushieShadowkin
-  name: shadowkin plushie
-  description: A plushie of a Shadowkin. It's very soft.
-  components:
-    - type: Sprite
-      sprite: Objects/Fun/toys.rsi
-      state: shadowkin
-
-- type: entity
-  parent: BasePlushie
   id: RubberChicken
   name: rubber chicken
   description: A stress inducing parody of nature's most delectable avian.

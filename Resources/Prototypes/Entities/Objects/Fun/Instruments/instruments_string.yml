@@ -89,8 +89,6 @@
     heavyDamageBaseModifier: 1.2
     heavyStaminaCost: 15
     angle: 90 # WWDP
-  - type: DamageOtherOnHit
-    staminaCost: 8
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
