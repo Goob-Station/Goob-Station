@@ -36,7 +36,6 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
     private void OnMoveInput(Entity<RandomizeMovementspeedComponent> ent, ref MoveInputEvent args)
     {
         _movementSpeedModifier.RefreshMovementSpeedModifiers(args.Entity);
-        Logger.Debug("Ran OnMoveInput Event");
 
     }
 
@@ -61,6 +60,7 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
             var modifier = GetMovementSpeedModifiers(uid, comp);
             comp.CurrentModifier = modifier;
 
+            RaiseLocalEvent(uid, new RefreshMovementSpeedModifiersEvent(), true);
         }
 
         _nextExecutionTime = _timing.CurTime + ExecutionInterval;
@@ -68,7 +68,8 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
 
     private void OnRefreshMovementSpeedModifiers(EntityUid uid, RandomizeMovementspeedComponent  comp, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
-        args.Args.ModifySpeed(comp.CurrentModifier, comp.CurrentModifier);
+        var modifier = comp.CurrentModifier;
+        args.Args.ModifySpeed(modifier, modifier);
     }
 
 }

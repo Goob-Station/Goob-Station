@@ -27,7 +27,6 @@ public sealed partial class NullRodSystem : EntitySystem
             return;
 
         if (_damageableSystem.TryChangeDamage(args.User, comp.DamageOnUntrainedUse, false, origin: uid) != null)
-        // If you set ignore resistances to true, it'll FUCK you up.
         {
             _popupSystem.PopupEntity(Loc.GetString(comp.UntrainedUseString), args.User, args.User, PopupType.MediumCaution);
 
