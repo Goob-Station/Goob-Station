@@ -1,4 +1,4 @@
-namespace Content.Server._Goobstation.Movement;
+namespace Content.Server.Movement;
 
 [RegisterComponent]
 public sealed partial class RandomizeMovementspeedComponent : Component

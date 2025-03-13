@@ -1,10 +1,9 @@
-using Content.Shared.Damage;
 using Content.Shared.Hands;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Server._Goobstation.Movement;
+namespace Content.Server.Movement;
 
 public sealed class RandomizeMovementSpeedSystem : EntitySystem
 {
@@ -54,8 +53,9 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
                 var modifier = GetMovementSpeedModifiers(comp);
                 comp.CurrentModifier = modifier;
 
-                var ev = new RefreshMovementSpeedModifiersEvent();
-                RaiseLocalEvent(uid, ev, true);
+                _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
+                Dirty(uid, comp);
+
             }
         }
         _nextExecutionTime = _timing.CurTime + ExecutionInterval;
