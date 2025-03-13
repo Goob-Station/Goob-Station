@@ -188,7 +188,38 @@
   categories:
     - UplinkWeaponry
 
+- type: listing
+  id: UplinkGlovesKravmaga
+  name: uplink-kravgloves-name
+  description: uplink-kravgloves-desc
+  productEntity: ClothingHandsGlovesKravMagaStealthy
+  cost:
+    Telecrystal: 35
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkGlovesGuerilla
+  name: uplink-guerrillagloves-name
+  description: uplink-guerrillagloves-desc
+  productEntity: ClothingHandsGlovesGuerrilla
+  cost:
+    Telecrystal: 40
+  categories:
+  - UplinkWeaponry
+
 # Wearables
+
+- type: listing
+  id: UplinkClothingDreadnought
+  name: uplink-hardsuit-cybersun-dreadnought-name
+  description: uplink-hardsuit-cybersun-dreadnought-desc
+  icon: { sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/dreadnought.rsi, state: icon }
+  productEntity: CrateSyndicateDreadnought
+  cost:
+    Telecrystal: 150
+  categories:
+  - UplinkWearables
 
 - type: listing
   id: UplinkClothingHeadHelmetSwatSyndicate
@@ -247,6 +278,17 @@
   productEntity: ClothingBackpackDuffelSyndicateStealthHardsuitBundle
   cost:
     Telecrystal: 75
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkReverseBearTrap
+  name: uplink-reverse-bear-trap-name
+  description: uplink-reverse-bear-trap-desc
+  icon: { sprite: /Textures/_Goobstation/Clothing/Head/Helmets/reverse_bear_trap.rsi, state: icon }
+  productEntity: BoxReverseBearTrap
+  cost:
+    Telecrystal: 23 # novelty item for rp
   categories:
   - UplinkWearables
 
@@ -312,6 +354,20 @@
     - Clown
     - Mime
 
+- type: listing
+  id: UplinkClowncar
+  name: uplink-clowncar-name
+  description: uplink-clowncar-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Vehicles/clowncar.rsi, state: clowncar }
+  productEntity: CrateFunClownCarUplink
+  cost:
+    Telecrystal: 25
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Clown
 
 - type: listing
   id: UplinkMobRoachMicrobomb
@@ -636,8 +692,39 @@
       tags:
       - NukeOpsUplink
 
-# Misc
+# Martial Arts
+- type: listing
+  id: UplinkCQCManual
+  name: uplink-cqc-name
+  description: uplink-cqc-desc
+  productEntity: CQCManual
+  cost:
+    Telecrystal: 60
+  categories:
+  - UplinkDeception
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
+- type: listing
+  id: UplinkMysteriousScroll
+  name: uplink-sleeping-carp-name
+  description: uplink-sleeping-carp-desc
+  productEntity: SleepingCarpScroll
+  cost:
+    Telecrystal: 70
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+
+# Misc
 - type: listing
   id: UplinkDimensionPot
   name: uplink-dimension-pot-name

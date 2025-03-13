@@ -1466,6 +1466,11 @@
             False: { state: forcewallspawn }
     - type: RustRequiresPathStage
       pathStage: 11 # Can't rust
+    - type: PreventCollide
+      whitelist:
+        components:
+        - Wizard
+        - Apprentice
     # Goobstation end
 
 - type: entity

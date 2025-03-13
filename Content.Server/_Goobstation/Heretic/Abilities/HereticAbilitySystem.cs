@@ -6,7 +6,6 @@ using Content.Server.Hands.Systems;
 using Content.Server.Magic;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
-using Content.Server.Radio.Components;
 using Content.Server.Store.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
@@ -36,6 +35,8 @@ using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
 using Content.Server.Body.Systems;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Server.Heretic.Components;
+using Content.Shared.Hands.Components;
 using Content.Shared.Tag;
 
 namespace Content.Server.Heretic.Abilities;
@@ -159,9 +160,18 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        if (ent.Comp.MansusGraspActive)
+        if (ent.Comp.MansusGrasp != EntityUid.Invalid)
         {
-            _popup.PopupEntity(Loc.GetString("heretic-ability-fail"), ent, ent);
+            if(!TryComp<HandsComponent>(ent, out var handsComp))
+                return;
+            foreach (var hand in handsComp.Hands.Values)
+            {
+                if (hand.HeldEntity == null)
+                    continue;
+                if (HasComp<MansusGraspComponent>(hand.HeldEntity))
+                    QueueDel(hand.HeldEntity);
+            }
+            ent.Comp.MansusGrasp = EntityUid.Invalid;
             return;
         }
 
@@ -174,7 +184,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
         }
 
-        ent.Comp.MansusGraspActive = true;
+        ent.Comp.MansusGrasp = args.Action.Owner;
         args.Handled = true;
     }
 
@@ -240,6 +250,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/heartbeat.ogg"), ent, AudioParams.Default.WithVolume(-3f));
     }
 
+    public ProtoId<TagPrototype> MansusLinkTag = "MansusLinkMind";
     private void OnMansusLink(Entity<GhoulComponent> ent, ref EventHereticMansusLink args)
     {
         if (!TryUseAbility(ent, args))
@@ -251,8 +262,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
         }
 
-        if (TryComp<ActiveRadioComponent>(args.Target, out var radio)
-        && radio.Channels.Contains("Mansus"))
+        if (_tag.HasTag(args.Target, MansusLinkTag))
         {
             _popup.PopupEntity(Loc.GetString("heretic-manselink-fail-exists"), ent, ent);
             return;
@@ -274,11 +284,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        var reciever = EnsureComp<IntrinsicRadioReceiverComponent>(args.Target);
-        var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(args.Target);
-        var radio = EnsureComp<ActiveRadioComponent>(args.Target);
-        radio.Channels = new() { "Mansus" };
-        transmitter.Channels = new() { "Mansus" };
+        _tag.AddTag(ent, MansusLinkTag);
 
         // this "* 1000f" (divided by 1000 in FlashSystem) is gonna age like fine wine :clueless:
         _flash.Flash(args.Target, null, null, 2f * 1000f, 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));

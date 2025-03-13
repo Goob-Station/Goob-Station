@@ -11,6 +11,9 @@ public sealed partial class MansusGraspComponent : Component
     public string? Path;
 
     [DataField]
+    public TimeSpan CooldownAfterUse = TimeSpan.FromSeconds(10);
+
+    [DataField]
     public EntityWhitelist Blacklist = new();
 
     [DataField]

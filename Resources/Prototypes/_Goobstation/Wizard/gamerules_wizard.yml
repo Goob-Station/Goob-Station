@@ -41,6 +41,9 @@
   - type: RuleGrids
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/wizden.yml
+  - type: Tag
+    tags:
+      - RoundstartAntag
 
 - type: entity
   parent: BaseWizardRule
@@ -57,14 +60,19 @@
     highImpact: true
 
 - type: entity
-  parent: WizardDynamic
-  id: WizardDynamicMidround
+  parent: BaseWizardRule
+  id: WizardMidround
   components:
   - type: StationEvent
     earliestStart: 35
     weight: 5.5
     minimumPlayers: 20
     duration: 1
+    chaos: # Goobstation
+      Hostile: 200
+      Friend: 40
+      Medical: 200
+      Death: 200
   - type: AntagSelection
     useCharacterNames: true
     selectionTime: PostPlayerSpawn
@@ -89,6 +97,13 @@
       - type: NpcFactionMember
         factions:
         - Wizard
+  - type: Tag
+    tags:
+      - MidroundAntag
+
+- type: entity
+  parent: [ WizardDynamic, WizardMidround]
+  id: WizardDynamicMidround
 
 - type: entity
   parent: BaseGameRule
@@ -137,6 +152,12 @@
         - AntagImmune
       mindRoles:
       - MindRoleTraitorSleeper
+
+- type: entity
+  parent: BaseGameRule
+  id: GhostsVisible
+  components:
+  - type: GhostsVisibleRule
 
 - type: gamePreset
   id: Wizard

@@ -13,7 +13,7 @@
     attackRate: 1.5
     damage:
       types:
-        Slash: 15
+        Slash: 20
         Structural: 20
     clickPartDamageMultiplier: 2
     heavyPartDamageMultiplier: 1.5
