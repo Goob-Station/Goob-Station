@@ -114,7 +114,7 @@
         type: ChameleonBoundUserInterface
   - type: ClothingGrantComponent
     component:
-    - type: KravMaga
+    - type: KravMaga # Silly
 
 - type: entity
   parent: [ClothingEyesHudOmni, BaseCentcommContraband]
