@@ -1,5 +1,6 @@
 using Content.Shared.Damage;
 using Content.Shared.Hands;
+using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -34,7 +35,7 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
         _movementSpeedModifier.RefreshMovementSpeedModifiers(args.User);
     }
 
-    public float GetMovementSpeedModifiers(EntityUid uid, RandomizeMovementspeedComponent comp)
+    public float GetMovementSpeedModifiers(RandomizeMovementspeedComponent comp)
     {
         var modifier = _random.NextFloat(comp.Min, comp.Max);
         return modifier;
@@ -47,19 +48,17 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
         if (_timing.CurTime < _nextExecutionTime)
             return;
 
-        foreach (var ent in EntityQuery<RandomizeMovementspeedComponent>())
+        var query = EntityQueryEnumerator<RandomizeMovementspeedComponent>();
+        while (query.MoveNext(out var uid, out var comp))
         {
-            var uid = ent.Owner;
-            var comp = ent;
+            foreach (var ent in EntityQuery<RandomizeMovementspeedComponent>())
+            {
+                var modifier = GetMovementSpeedModifiers(comp);
+                comp.CurrentModifier = modifier;
 
-            var modifier = GetMovementSpeedModifiers(uid, comp);
-            comp.CurrentModifier = modifier;
-
-            RaiseLocalEvent(uid, new RefreshMovementSpeedModifiersEvent(), true);
-
-            _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
+                _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
+            }
         }
-
         _nextExecutionTime = _timing.CurTime + ExecutionInterval;
     }
 
