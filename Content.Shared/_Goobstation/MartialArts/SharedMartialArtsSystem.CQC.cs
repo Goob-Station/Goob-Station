@@ -36,7 +36,7 @@ public partial class SharedMartialArtsSystem
             if (!HasComp<MobStateComponent>(ent))
                 return;
 
-            if (!TryGrant(ent.Comp, ent))
+            if (!TryGrantMartialArt(ent, ent.Comp))
                 return;
 
             if (TryComp<MartialArtsKnowledgeComponent>(ent, out var knowledge))
@@ -56,7 +56,7 @@ public partial class SharedMartialArtsSystem
             return;
         }
 
-        if (!TryGrant(ent.Comp, args.User))
+        if (!TryGrantMartialArt(args.User, ent.Comp))
             return;
         _popupSystem.PopupEntity(Loc.GetString("cqc-success-learned"), args.User, args.User);
         ent.Comp.Used = true;

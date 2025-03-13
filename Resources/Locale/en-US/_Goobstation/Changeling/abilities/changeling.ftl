@@ -11,7 +11,7 @@ changeling-absorb-fail-unabsorbable = The target is not absorbable.
 changeling-absorb-end-self = Another organic absorbed. You are evolving.
 changeling-absorb-end-self-ling = Another changeling absorbed. You are evolving more rapidly.
 changeling-absorb-onexamine = [color=red]The body feels hollow.[/color]
-changeling-absorb-fail-nograb = You arent grabbing hard enough.
+changeling-absorb-fail-nograb = You aren't grabbing hard enough.
 
 changeling-absorbbiomatter-start = {THE($user)} starts absorbing the food!
 changeling-absorbbiomatter-bad-food = This food is not absorbable.
