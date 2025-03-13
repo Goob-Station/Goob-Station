@@ -112,7 +112,7 @@
           - EnergySpeedloaderDisabler
   - type: MagazineVisuals
     magState: mag
-    steps: 5
+    steps: 6
     zeroVisible: true
   - type: Clothing
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
