@@ -1,0 +1,11 @@
+- type: entity
+  parent: BaseItem
+  id: HandheldCamera
+  name: Camera
+  description: A polaroid camera.
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Objects/Devices/camera.rsi
+      layers:
+        - state: icon
+    - type: Camera

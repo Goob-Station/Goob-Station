@@ -23,18 +23,31 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Numerics;
+using Content.Server.Damage.Components;
+using Content.Shared._EinsteinEngines.Contests;
+using Content.Shared._Goobstation.CCVar;
+using Content.Shared.Coordinates;
+using Content.Shared.Damage.Components;
+using Content.Shared.Item;
+using Content.Shared.Throwing;
+using Robust.Shared.Configuration;
+using Robust.Shared.Physics.Components;
 
 namespace Content.Server.Weapons.Melee;
 
 public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly DamageExamineSystem _damageExamine = default!;
     [Dependency] private readonly LagCompensationSystem _lag = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
+    [Dependency] private readonly ContestsSystem _contests = default!;
+    [Dependency] private readonly ThrowingSystem _throwing = default!; // WWDP
+    [Dependency] private readonly INetConfigurationManager _config = default!; // WWDP
+    [Dependency] private readonly StaminaSystem _stamina = default!; // WWDP
+    [Dependency] private readonly SharedTransformSystem _transform = default!; // Goob - Shove
 
     public override void Initialize()
     {
@@ -85,46 +98,54 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         return true;
     }
 
-    protected override bool DoDisarm(EntityUid user, DisarmAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, ICommonSession? session)
+    protected override bool DoDisarm(EntityUid user,
+        DisarmAttackEvent ev,
+        EntityUid meleeUid,
+        MeleeWeaponComponent component,
+        ICommonSession? session)
     {
         if (!base.DoDisarm(user, ev, meleeUid, component, session))
             return false;
 
-        if (!TryComp<CombatModeComponent>(user, out var combatMode) ||
-            combatMode.CanDisarm != true)
-        {
-            return false;
-        }
-
         var target = GetEntity(ev.Target!.Value);
 
-        if (_mobState.IsIncapacitated(target))
-        {
+        PhysicalShove(user, target); // WWDP physical shoving, including inanimate objects
+        Interaction.DoContactInteraction(user, target); // WWDP moved up for shoves
+
+        EntityUid? inTargetHand = null;
+
+        if (!TryComp<CombatModeComponent>(user, out var combatMode))
             return false;
-        }
+
+        if (_mobState.IsIncapacitated(target))
+            return true; // WWDP
+
+        if (!TryComp<PhysicsComponent>(target, out var targetPhysicsComponent))
+            return false;
 
         if (!TryComp<HandsComponent>(target, out var targetHandsComponent))
         {
-            if (!TryComp<StatusEffectsComponent>(target, out var status) || !status.AllowedEffects.Contains("KnockedDown"))
-                return false;
+            if (!TryComp<StatusEffectsComponent>(target, out var status) ||
+                !status.AllowedEffects.Contains("KnockedDown"))
+            {
+                // WWDP edit; shoving items costs their throw stamina cost
+                if (HasComp<ItemComponent>(target))
+                {
+                    _stamina.TakeStaminaDamage(user, (float) Math.Floor(targetPhysicsComponent.Mass / 6));
+                }
+
+                return true;
+                // WWDP edit end
+            }
         }
 
-        if (!InRange(user, target, component.Range, session))
-        {
-            return false;
-        }
-
-        EntityUid? inTargetHand = null;
 
         if (targetHandsComponent?.ActiveHand is { IsEmpty: false })
         {
             inTargetHand = targetHandsComponent.ActiveHand.HeldEntity!.Value;
         }
 
-        Interaction.DoContactInteraction(user, target);
-
         var attemptEvent = new DisarmAttemptEvent(target, user, inTargetHand);
-
         if (inTargetHand != null)
         {
             RaiseLocalEvent(inTargetHand.Value, attemptEvent);
@@ -133,56 +154,56 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         RaiseLocalEvent(target, attemptEvent);
 
         if (attemptEvent.Cancelled)
-            return false;
+            return true; // WWDP
 
         var chance = CalculateDisarmChance(user, target, inTargetHand, combatMode);
 
-        if (_random.Prob(chance))
+        // WWDP shove is guaranteed now, disarm chance is rolled on top
+        _audio.PlayPvs(combatMode.DisarmSuccessSound,
+            user,
+            AudioParams.Default.WithVariation(0.025f).WithVolume(5f));
+        AdminLogger.Add(LogType.DisarmedAction,
+            $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");
+
+        var staminaDamage = CalculateShoveStaminaDamage(user, target); // WWDP shoving
+
+        var eventArgs = new DisarmedEvent
         {
-            // Yknow something tells me this comment is hilariously out of date...
-            // Don't play a sound as the swing is already predicted.
-            // Also don't play popups because most disarms will miss.
-            return false;
-        }
-
-        AdminLogger.Add(LogType.DisarmedAction, $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");
-
-        var eventArgs = new DisarmedEvent { Target = target, Source = user, PushProbability = 1 - chance };
+            Target = target, Source = user, DisarmProbability = chance, StaminaDamage = staminaDamage,
+        }; // WWDP shoving
         RaiseLocalEvent(target, eventArgs);
 
-        if (!eventArgs.Handled)
+        if (!eventArgs.Handled || !eventArgs.WasDisarmed)
         {
-            return false;
+            ShoveOrDisarmPopup(eventArgs.PopupPrefix);
+            return true;
         }
 
-        _audio.PlayPvs(combatMode.DisarmSuccessSound, user, AudioParams.Default.WithVariation(0.025f).WithVolume(5f));
-        AdminLogger.Add(LogType.DisarmedAction, $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");
-
-        var targetEnt = Identity.Entity(target, EntityManager);
-        var userEnt = Identity.Entity(user, EntityManager);
-
-        var msgOther = Loc.GetString(
-                eventArgs.PopupPrefix + "popup-message-other-clients",
-                ("performerName", userEnt),
-                ("targetName", targetEnt));
-
-        var msgUser = Loc.GetString(eventArgs.PopupPrefix + "popup-message-cursor", ("targetName", targetEnt));
-
-        var filterOther = Filter.PvsExcept(user, entityManager: EntityManager);
-
-        PopupSystem.PopupEntity(msgOther, user, filterOther, true);
-        PopupSystem.PopupEntity(msgUser, target, user);
-
-        if (eventArgs.IsStunned)
-        {
-
-            PopupSystem.PopupEntity(Loc.GetString("stunned-component-disarm-success-others", ("source", userEnt), ("target", targetEnt)), targetEnt, Filter.PvsExcept(user), true, PopupType.LargeCaution);
-            PopupSystem.PopupCursor(Loc.GetString("stunned-component-disarm-success", ("target", targetEnt)), user, PopupType.Large);
-
-            AdminLogger.Add(LogType.DisarmedKnockdown, LogImpact.Medium, $"{ToPrettyString(user):user} knocked down {ToPrettyString(target):target}");
-        }
+        ShoveOrDisarmPopup(eventArgs.PopupPrefix);
+        _audio.PlayPvs(combatMode.DisarmSuccessSound,
+            user,
+            AudioParams.Default.WithVariation(0.025f).WithVolume(5f));
+        AdminLogger.Add(LogType.DisarmedAction,
+            $"{ToPrettyString(user):user} used a shove on {ToPrettyString(target):target}");
 
         return true;
+
+        void ShoveOrDisarmPopup(string msgPrefix)
+        {
+            var filterOther = Filter.PvsExcept(user, entityManager: EntityManager);
+
+            var msgOther = Loc.GetString(
+                msgPrefix + "popup-message-other-clients",
+                ("performerName", Identity.Entity(user, EntityManager)),
+                ("targetName", Identity.Entity(target, EntityManager)));
+
+            var msgUser = Loc.GetString(msgPrefix + "popup-message-cursor",
+                ("targetName", Identity.Entity(target, EntityManager)));
+
+            PopupSystem.PopupEntity(msgOther, user, filterOther, true);
+            PopupSystem.PopupEntity(msgUser, target, user);
+        }
+        // WWDP edit end
     }
 
     protected override bool InRange(EntityUid user, EntityUid target, float range, ICommonSession? session)
@@ -199,6 +220,20 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         return Interaction.InRangeUnobstructed(user, target, range);
     }
 
+    private void PhysicalShove(EntityUid user, EntityUid target)
+    {
+        var shoveRange = _config.GetCVar(GoobCVars.ShoveRange);
+        var shoveSpeed = _config.GetCVar(GoobCVars.ShoveSpeed);
+        var shoveMass = _config.GetCVar(GoobCVars.ShoveMassFactor);
+
+        var force = shoveRange * _contests.MassContest(user, target, rangeFactor: shoveMass);
+
+        var userPos = _transform.ToMapCoordinates(user.ToCoordinates()).Position;
+        var targetPos = _transform.ToMapCoordinates(target.ToCoordinates()).Position;
+        var pushVector = (targetPos - userPos).Normalized() * force;
+
+        _throwing.TryThrow(target, pushVector, force * shoveSpeed, animated: false);
+    }
     protected override void DoDamageEffect(List<EntityUid> targets, EntityUid? user, TransformComponent targetXform)
     {
         var filter = Filter.Pvs(targetXform.Coordinates, entityMan: EntityManager).RemoveWhereAttachedEntity(o => o == user);
@@ -213,17 +248,32 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (HasComp<DisarmProneComponent>(disarmed))
             return 0.0f;
 
-        var chance = disarmerComp.BaseDisarmFailChance;
+        var chance = 1 - disarmerComp.BaseDisarmFailChance;
 
         if (inTargetHand != null && TryComp<DisarmMalusComponent>(inTargetHand, out var malus))
         {
             chance += malus.Malus;
         }
 
-        return Math.Clamp(chance, 0f, 1f);
+        var staminaContest = _contests.StaminaContest(disarmer, disarmed); // we aint even using this anymore might nuke it
+        var healthContest = _contests.HealthContest(disarmer, disarmed);
+        var disarmFinalChance = Math.Clamp(chance * 0.5f + staminaContest * 0.25f + healthContest * 0.25f, 0f, 1f);
+        Log.Info(disarmFinalChance.ToString());
+        return disarmFinalChance; // this ideally should give lower values
+
     }
 
-    public override void DoLunge(EntityUid user, EntityUid weapon, Angle angle, Vector2 localPos, string? animation, bool predicted = true)
+    // WWDP shove stamina damage based on mass
+    private float CalculateShoveStaminaDamage(EntityUid disarmer, EntityUid disarmed)
+    {
+        var baseStaminaDamage = TryComp<ShovingComponent>(disarmer, out var shoving) ? shoving.StaminaDamage : ShovingComponent.DefaultStaminaDamage;
+
+        return
+            baseStaminaDamage
+            * _contests.MassContest(disarmer, disarmed, false, 4f);
+    }
+
+    public override void DoLunge(EntityUid user, EntityUid weapon, Angle angle, Vector2 localPos, string? animation, Angle spriteRotation, bool flipAnimation, bool predicted = true)
     {
         Filter filter;
 
@@ -236,7 +286,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             filter = Filter.Pvs(user, entityManager: EntityManager);
         }
 
-        RaiseNetworkEvent(new MeleeLungeEvent(GetNetEntity(user), GetNetEntity(weapon), angle, localPos, animation), filter);
+        RaiseNetworkEvent(new MeleeLungeEvent(GetNetEntity(user), GetNetEntity(weapon), angle, localPos, animation, spriteRotation, flipAnimation), filter);
     }
 
     private void OnSpeechHit(EntityUid owner, MeleeSpeechComponent comp, MeleeHitEvent args)
