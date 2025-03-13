@@ -1,4 +1,36 @@
 Entries:
+- author: MinxLite
+  changes:
+  - message: Smol species are now consistent in their stamina damage.
+    type: Tweak
+  id: 221
+  time: '2025-03-13T18:43:38.243481'
+- author: MinxLite
+  changes:
+  - message: Guidebook is more accurate with species specific listings.
+    type: Tweak
+  id: 220
+  time: '2025-03-13T18:43:38.707410'
+- author: MinxLite
+  changes:
+  - message: Ensured ALL foodstuffs are animal friendly! Garlic and onions are on
+      the menu!
+    type: Fix
+  id: 219
+  time: '2025-03-13T18:43:39.197213'
+- author: MinxLite
+  changes:
+  - message: Onis can open doors and pilot shuttles again. Oopsie.
+    type: Fix
+  id: 218
+  time: '2025-03-13T18:43:36.782627'
+- author: AstroDogeDX
+  changes:
+  - message: Created office chair spawners and mapped them to the maps missing rolly
+      chairs.
+    type: Fix
+  id: 217
+  time: '2025-03-13T18:43:37.758162'
 - author: AstroDogeDX
   changes:
   - message: Add missing light to the Salvage Docking Arm on Amber.
