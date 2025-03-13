@@ -52,7 +52,7 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
             var modifier = GetMovementSpeedModifiers(uid, comp);
             comp.CurrentModifier = modifier;
 
-            _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
+            _movementSpeedModifier.RefreshMovementSpeedModifiers(comp.Owner);
         }
 
         _nextExecutionTime = _timing.CurTime + ExecutionInterval;
@@ -62,6 +62,8 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
     {
         var modifier = comp.CurrentModifier;
         args.Args.ModifySpeed(modifier, modifier);
+
+        _movementSpeedModifier.RefreshMovementSpeedModifiers(comp.Owner);
     }
 
 
