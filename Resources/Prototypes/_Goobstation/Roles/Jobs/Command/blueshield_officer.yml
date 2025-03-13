@@ -55,7 +55,7 @@
     pocket1: UniqueBlueshieldOfficerLockerTeleporter
   storage:
     back:
+    - Flash
     - ClothingMaskGasSecurity
     - SecHypo
     - BlueshieldUndeterminedWeapon
-    - Flash

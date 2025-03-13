@@ -57,7 +57,7 @@
   name: blueshield-box-category-lightset-name
   description: blueshield-box-category-lightset-description
   sprite:
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bso.rsi
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bsolight.rsi
     state: icon
   content:
   - ClothingOuterHardsuitBlueshieldLight
