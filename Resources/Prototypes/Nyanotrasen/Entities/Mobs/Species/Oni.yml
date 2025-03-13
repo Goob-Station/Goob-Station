@@ -40,6 +40,10 @@
   - type: Tag
     tags:
     - Oni
+    - CanPilot # ShibaStation
+    - FootstepSound # ShibaStation
+    - DoorBumpOpener # ShibaStation
+    - AnomalyHost # ShibaStation
 
 - type: entity
   save: false
@@ -48,3 +52,4 @@
   id: MobOniDummy
   categories: [ HideSpawnMenu ]
   description: A dummy oni meant to be used in character setup.
+
