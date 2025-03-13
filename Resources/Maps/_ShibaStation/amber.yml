@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/12/2025 14:42:49
-  entityCount: 23489
+  time: 03/13/2025 12:34:24
+  entityCount: 23515
 maps:
 - 1
 grids:
@@ -69418,14 +69418,11 @@ entities:
       linearDamping: 0
 - proto: CrateNPCHamlet
   entities:
-  - uid: 20764
+  - uid: 342
     components:
     - type: Transform
-      pos: -16.5,-50.654945
+      pos: -14.5,-51.5
       parent: 2
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
 - proto: CrateSecurityTrackingMindshieldImplants
   entities:
   - uid: 4184
@@ -140826,6 +140823,137 @@ entities:
     - type: Transform
       pos: -21.5,-4.5
       parent: 2
+- proto: SpawnVehicleJanicart
+  entities:
+  - uid: 7570
+    components:
+    - type: Transform
+      pos: 28.5,3.5
+      parent: 2
+- proto: SpawnVehicleOfficeChairDark
+  entities:
+  - uid: 271
+    components:
+    - type: Transform
+      pos: -13.5,-46.5
+      parent: 2
+  - uid: 463
+    components:
+    - type: Transform
+      pos: -25.5,-51.5
+      parent: 2
+  - uid: 858
+    components:
+    - type: Transform
+      pos: -20.5,-44.5
+      parent: 2
+  - uid: 914
+    components:
+    - type: Transform
+      pos: -19.5,-44.5
+      parent: 2
+  - uid: 2878
+    components:
+    - type: Transform
+      pos: -20.5,-3.5
+      parent: 2
+  - uid: 3438
+    components:
+    - type: Transform
+      pos: -21.5,11.5
+      parent: 2
+  - uid: 3606
+    components:
+    - type: Transform
+      pos: 4.5,16.5
+      parent: 2
+  - uid: 4357
+    components:
+    - type: Transform
+      pos: 38.5,2.5
+      parent: 2
+  - uid: 4498
+    components:
+    - type: Transform
+      pos: 27.5,10.5
+      parent: 2
+  - uid: 6163
+    components:
+    - type: Transform
+      pos: 21.5,-37.5
+      parent: 2
+  - uid: 6364
+    components:
+    - type: Transform
+      pos: 21.5,-40.5
+      parent: 2
+  - uid: 6601
+    components:
+    - type: Transform
+      pos: 22.5,-43.5
+      parent: 2
+  - uid: 7418
+    components:
+    - type: Transform
+      pos: -13.5,-14.5
+      parent: 2
+  - uid: 7532
+    components:
+    - type: Transform
+      pos: -8.5,-26.5
+      parent: 2
+- proto: SpawnVehicleOfficeChairLight
+  entities:
+  - uid: 985
+    components:
+    - type: Transform
+      pos: -28.5,-34.5
+      parent: 2
+  - uid: 2229
+    components:
+    - type: Transform
+      pos: -28.5,-25.5
+      parent: 2
+  - uid: 2536
+    components:
+    - type: Transform
+      pos: -48.5,-21.5
+      parent: 2
+  - uid: 3856
+    components:
+    - type: Transform
+      pos: 16.5,14.5
+      parent: 2
+  - uid: 4190
+    components:
+    - type: Transform
+      pos: 28.5,4.5
+      parent: 2
+  - uid: 4582
+    components:
+    - type: Transform
+      pos: 21.5,3.5
+      parent: 2
+  - uid: 5153
+    components:
+    - type: Transform
+      pos: 19.5,-24.5
+      parent: 2
+  - uid: 5740
+    components:
+    - type: Transform
+      pos: 36.5,-40.5
+      parent: 2
+  - uid: 6063
+    components:
+    - type: Transform
+      pos: 31.5,-34.5
+      parent: 2
+  - uid: 7557
+    components:
+    - type: Transform
+      pos: -49.5,-45.5
+      parent: 2
 - proto: SpawnVendingMachineRestockFoodDrink
   entities:
   - uid: 20685
@@ -146765,6 +146893,13 @@ entities:
       angularDamping: 0
       linearDamping: 0
       canCollide: False
+- proto: VehicleKeyJanicart
+  entities:
+  - uid: 7675
+    components:
+    - type: Transform
+      pos: 28.49301,2.85808
+      parent: 2
 - proto: VendingBarDrobe
   entities:
   - uid: 21407

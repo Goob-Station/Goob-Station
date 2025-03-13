@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/12/2025 14:43:25
-  entityCount: 13861
+  time: 03/13/2025 12:43:51
+  entityCount: 13887
 maps:
 - 473
 grids:
@@ -74242,6 +74242,140 @@ entities:
     components:
     - type: Transform
       pos: -34.5,15.5
+      parent: 4812
+- proto: SpawnVehicleOfficeChairDark
+  entities:
+  - uid: 2686
+    components:
+    - type: Transform
+      pos: -3.5,-27.5
+      parent: 4812
+  - uid: 3704
+    components:
+    - type: Transform
+      pos: -31.5,-19.5
+      parent: 4812
+  - uid: 4569
+    components:
+    - type: Transform
+      pos: -30.5,1.5
+      parent: 4812
+  - uid: 4595
+    components:
+    - type: Transform
+      pos: -30.5,-5.5
+      parent: 4812
+  - uid: 4973
+    components:
+    - type: Transform
+      pos: -25.5,11.5
+      parent: 4812
+  - uid: 5371
+    components:
+    - type: Transform
+      pos: -8.5,33.5
+      parent: 4812
+  - uid: 6179
+    components:
+    - type: Transform
+      pos: -7.5,33.5
+      parent: 4812
+  - uid: 6180
+    components:
+    - type: Transform
+      pos: -5.5,34.5
+      parent: 4812
+  - uid: 6216
+    components:
+    - type: Transform
+      pos: -4.5,34.5
+      parent: 4812
+  - uid: 6288
+    components:
+    - type: Transform
+      pos: -0.5,34.5
+      parent: 4812
+  - uid: 6320
+    components:
+    - type: Transform
+      pos: 0.5,34.5
+      parent: 4812
+  - uid: 6344
+    components:
+    - type: Transform
+      pos: 2.5,33.5
+      parent: 4812
+  - uid: 6475
+    components:
+    - type: Transform
+      pos: 3.5,33.5
+      parent: 4812
+  - uid: 6619
+    components:
+    - type: Transform
+      pos: 9.5,24.5
+      parent: 4812
+  - uid: 6620
+    components:
+    - type: Transform
+      pos: 28.5,2.5
+      parent: 4812
+  - uid: 7037
+    components:
+    - type: Transform
+      pos: 15.5,17.5
+      parent: 4812
+  - uid: 7038
+    components:
+    - type: Transform
+      pos: 17.5,30.5
+      parent: 4812
+  - uid: 7071
+    components:
+    - type: Transform
+      pos: -33.5,15.5
+      parent: 4812
+  - uid: 7072
+    components:
+    - type: Transform
+      pos: -49.5,-7.5
+      parent: 4812
+  - uid: 7073
+    components:
+    - type: Transform
+      pos: 19.5,-15.5
+      parent: 4812
+- proto: SpawnVehicleOfficeChairLight
+  entities:
+  - uid: 2508
+    components:
+    - type: Transform
+      pos: 3.5,-15.5
+      parent: 4812
+  - uid: 2665
+    components:
+    - type: Transform
+      pos: 23.5,-26.5
+      parent: 4812
+  - uid: 2666
+    components:
+    - type: Transform
+      pos: 25.5,-18.5
+      parent: 4812
+  - uid: 2667
+    components:
+    - type: Transform
+      pos: 3.5,-23.5
+      parent: 4812
+  - uid: 3237
+    components:
+    - type: Transform
+      pos: -9.5,-25.5
+      parent: 4812
+  - uid: 3238
+    components:
+    - type: Transform
+      pos: -11.5,-18.5
       parent: 4812
 - proto: Spoon
   entities:

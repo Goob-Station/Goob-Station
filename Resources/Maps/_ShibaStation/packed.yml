@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/12/2025 14:47:05
-  entityCount: 15335
+  time: 03/13/2025 12:47:32
+  entityCount: 15356
 maps:
 - 126
 grids:
@@ -79883,6 +79883,115 @@ entities:
     components:
     - type: Transform
       pos: 6.5,-5.5
+      parent: 2
+- proto: SpawnVehicleOfficeChairDark
+  entities:
+  - uid: 311
+    components:
+    - type: Transform
+      pos: -2.5,-3.5
+      parent: 2
+  - uid: 313
+    components:
+    - type: Transform
+      pos: 16.5,-3.5
+      parent: 2
+  - uid: 314
+    components:
+    - type: Transform
+      pos: 29.5,25.5
+      parent: 2
+  - uid: 579
+    components:
+    - type: Transform
+      pos: 20.5,45.5
+      parent: 2
+  - uid: 683
+    components:
+    - type: Transform
+      pos: 23.5,47.5
+      parent: 2
+  - uid: 684
+    components:
+    - type: Transform
+      pos: 24.5,47.5
+      parent: 2
+  - uid: 940
+    components:
+    - type: Transform
+      pos: 31.5,47.5
+      parent: 2
+  - uid: 1010
+    components:
+    - type: Transform
+      pos: 7.5,18.5
+      parent: 2
+  - uid: 1852
+    components:
+    - type: Transform
+      pos: 20.5,22.5
+      parent: 2
+  - uid: 2318
+    components:
+    - type: Transform
+      pos: 37.5,18.5
+      parent: 2
+  - uid: 2727
+    components:
+    - type: Transform
+      pos: 42.5,20.5
+      parent: 2
+  - uid: 4999
+    components:
+    - type: Transform
+      pos: 11.5,3.5
+      parent: 2
+  - uid: 5000
+    components:
+    - type: Transform
+      pos: -2.5,-11.5
+      parent: 2
+  - uid: 5001
+    components:
+    - type: Transform
+      pos: 11.5,-34.5
+      parent: 2
+- proto: SpawnVehicleOfficeChairLight
+  entities:
+  - uid: 2480
+    components:
+    - type: Transform
+      pos: 49.5,18.5
+      parent: 2
+  - uid: 2489
+    components:
+    - type: Transform
+      pos: 62.5,9.5
+      parent: 2
+  - uid: 2632
+    components:
+    - type: Transform
+      pos: 44.5,3.5
+      parent: 2
+  - uid: 2678
+    components:
+    - type: Transform
+      pos: 50.5,2.5
+      parent: 2
+  - uid: 2724
+    components:
+    - type: Transform
+      pos: 50.5,-4.5
+      parent: 2
+  - uid: 2725
+    components:
+    - type: Transform
+      pos: 55.5,-11.5
+      parent: 2
+  - uid: 2726
+    components:
+    - type: Transform
+      pos: 61.5,-11.5
       parent: 2
 - proto: SprayBottle
   entities:
