@@ -52,14 +52,7 @@ namespace Content.Server._Goobstation.ServerCurrency
         /// <param name="userId">The player's NetUserId</param>
         /// <param name="amount">The amount of currency to add.</param>
         /// <returns>An integer containing the new amount of currency attributed to the player.</returns>
-        public int AddCurrency(NetUserId userId, int amount)
-        {
-            // To decrease the calls to DB, we're running internal version instead
-            var oldAmount = GetBalance(userId);
-            var newAmount = oldAmount + amount;
-            Task.Run(() => SetBalanceAsyncInternal(userId, newAmount, oldAmount)).GetAwaiter().GetResult();
-            return newAmount;
-        }
+        public int AddCurrency(NetUserId userId, int amount) => ModifyBalance(userId, amount);
 
         /// <summary>
         /// Removes currency from a player.
@@ -67,10 +60,7 @@ namespace Content.Server._Goobstation.ServerCurrency
         /// <param name="userId">The player's NetUserId</param>
         /// <param name="amount">The amount of currency to remove.</param>
         /// <returns>An integer containing the new amount of currency attributed to the player.</returns>
-        public int RemoveCurrency(NetUserId userId, int amount)
-        {
-            return AddCurrency(userId, -amount);
-        }
+        public int RemoveCurrency(NetUserId userId, int amount) => ModifyBalance(userId, -amount);
 
         /// <summary>
         /// Sets a player's balance.
@@ -94,7 +84,19 @@ namespace Content.Server._Goobstation.ServerCurrency
             return Task.Run(() => GetBalanceAsync(userId)).GetAwaiter().GetResult();
         }
 
-        // Async Tasks
+        /// <summary>
+        /// Modifies a player's balance.
+        /// </summary>
+        /// <param name="userId">The player's NetUserId</param>
+        /// <param name="amountDelta">The amount of currency that will be set.</param>
+        /// <returns>An integer containing the new amount of currency attributed to the player.</returns>
+        /// <remarks>Use the return value instead of calling <see cref="GetBalance(NetUserId)"/> after to this.</remarks>
+        public int ModifyBalance(NetUserId userId, int amountDelta)
+        {
+            return Task.Run(() => ModifyBalanceAsync(userId, amountDelta)).GetAwaiter().GetResult();
+        }
+
+        #region Internal/Async tasks
 
         /// <summary>
         /// Sets a player's balance.
@@ -135,6 +137,23 @@ namespace Content.Server._Goobstation.ServerCurrency
         public async Task<int> GetBalanceAsync(NetUserId userId) => await _db.GetServerCurrency(userId);
 
         /// <summary>
+        /// Modifies a player's balance.
+        /// </summary>
+        /// <param name="userId">The player's NetUserId</param>
+        /// <param name="amountDelta">The amount of currency that will be given or taken.</param>
+        /// <returns>An integer containing the new amount of currency attributed to the player.</returns>
+        /// <remarks>This and its calees will block server shutdown until execution finishes.</remarks>
+        private async Task<int> ModifyBalanceAsync(NetUserId userId, int amountDelta)
+        {
+            var task = Task.Run(() => _db.ModifyServerCurrency(userId, amountDelta));
+            TrackPending(task);
+            await task; // why we need more awaits after the first one? idk
+            if (_player.TryGetSessionById(userId, out var userSession))
+                BalanceChange?.Invoke(new PlayerBalanceChangeEvent(userSession, userId, await task, await task - amountDelta));
+            return await task;
+        }
+
+        /// <summary>
         /// Track a database save task to make sure we block server shutdown on it.
         /// </summary>
         private async void TrackPending(Task task)
@@ -151,5 +170,6 @@ namespace Content.Server._Goobstation.ServerCurrency
             }
         }
 
+        #endregion
     }
 }
