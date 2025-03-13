@@ -5,11 +5,14 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._Goobstation.Movement;
 
-public sealed class HeldSpeedModifierSystem : EntitySystem
+public sealed class RandomizeMovementSpeedSystem : EntitySystem
 {
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+
+    private TimeSpan _nextExecutionTime = TimeSpan.Zero;
+    private static readonly TimeSpan ExecutionInterval = TimeSpan.FromSeconds(3);
 
     public override void Initialize()
     {
@@ -39,4 +42,24 @@ public sealed class HeldSpeedModifierSystem : EntitySystem
         var modifier = GetMovementSpeedModifiers(uid, comp);
         args.Args.ModifySpeed(modifier, modifier);
     }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        if (_timing.CurTime < _nextExecutionTime)
+            return;
+
+        foreach (var ent in EntityQuery<RandomizeMovementspeedComponent>())
+        {
+            var uid = ent.Owner;
+            var comp = ent;
+
+            GetMovementSpeedModifiers(uid, comp);
+        }
+
+        _nextExecutionTime = _timing.CurTime + ExecutionInterval;
+    }
+
+
 }
