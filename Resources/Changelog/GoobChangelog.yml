@@ -6204,3 +6204,11 @@ Entries:
       message: Chef cqc is no longer tied to the beacon.
   id: 714
   time: '2025-03-11T21:30:49.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: Lowered nukies chance by about half.
+    - type: Tweak
+      message: Lowered midround revs chance.
+  id: 715
+  time: '2025-03-13T12:08:43.0000000+00:00'
