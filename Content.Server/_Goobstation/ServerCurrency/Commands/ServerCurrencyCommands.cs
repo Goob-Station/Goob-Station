@@ -231,7 +231,8 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
                 return;
             }
 
-            var newCurrency = _currencyMan.Stringify(_currencyMan.SetBalance(targetPlayer, currency));
+            _currencyMan.SetBalance(targetPlayer, currency);
+            var newCurrency = _currencyMan.Stringify(currency);
             shell.WriteLine(Loc.GetString("server-currency-command-return", ("player", args[0]), ("balance", newCurrency)));
         }
 
