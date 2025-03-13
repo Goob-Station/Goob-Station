@@ -42,22 +42,30 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
         base.Update(frameTime);
 
         if (_timing.CurTime < _nextExecutionTime)
+        {
+            Logger.DebugS("RandomizeMovementSpeed", $"Skipping update. Time left: {_nextExecutionTime - _timing.CurTime}");
             return;
+        }
 
         foreach (var ent in EntityQuery<RandomizeMovementspeedComponent>())
         {
             var uid = ent.Owner;
             var comp = ent;
+            Logger.DebugS("RandomizeMovementSpeed", $"Processing entity {uid}. CurrentModifier: {comp.CurrentModifier}");
 
             var modifier = GetMovementSpeedModifiers(uid, comp);
             comp.CurrentModifier = modifier;
+            Logger.DebugS("RandomizeMovementSpeed", $"Generated new modifier {modifier} for entity {uid}");
 
-            _movementSpeedModifier.Update(frameTime);
-
+            RaiseLocalEvent(uid, new RefreshMovementSpeedModifiersEvent(), true);
+            Logger.DebugS("RandomizeMovementSpeed", $"Raised RefreshMovementSpeedModifiersEvent for entity {uid}");
         }
 
         _nextExecutionTime = _timing.CurTime + ExecutionInterval;
+        Logger.DebugS("RandomizeMovementSpeed", $"Next execution scheduled at {_nextExecutionTime}");
     }
+
+
 
     private void OnRefreshMovementSpeedModifiers(EntityUid uid, RandomizeMovementspeedComponent  comp, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
