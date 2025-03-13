@@ -1,3 +1,4 @@
+using Content.Shared.Damage;
 using Content.Shared.Hands;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
@@ -11,6 +12,7 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
     private TimeSpan _nextExecutionTime = TimeSpan.Zero;
     private static readonly TimeSpan ExecutionInterval = TimeSpan.FromSeconds(3);
@@ -20,7 +22,6 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
         SubscribeLocalEvent<RandomizeMovementspeedComponent, GotEquippedHandEvent>(OnGotEquippedHand);
         SubscribeLocalEvent<RandomizeMovementspeedComponent, GotUnequippedHandEvent>(OnGotUnequippedHand);
         SubscribeLocalEvent<RandomizeMovementspeedComponent, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshMovementSpeedModifiers);
-        SubscribeLocalEvent<RandomizeMovementspeedComponent, MoveInputEvent>(OnMoveInput);
     }
 
     private void OnGotEquippedHand(Entity<RandomizeMovementspeedComponent> ent, ref GotEquippedHandEvent args)
@@ -61,6 +62,7 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
             comp.CurrentModifier = modifier;
 
             RaiseLocalEvent(uid, new RefreshMovementSpeedModifiersEvent(), true);
+            _damageableSystem.TryChangeDamage(uid, comp.DummyDamage, false, origin: uid);
         }
 
         _nextExecutionTime = _timing.CurTime + ExecutionInterval;

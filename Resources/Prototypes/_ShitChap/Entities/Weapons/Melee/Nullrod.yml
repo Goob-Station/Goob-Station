@@ -286,6 +286,9 @@
     tags:
     - ArrythmicKnife
   - type: RandomizeMovementspeed
+    dummyDamage:
+      types:
+        Blunt: 1
   - type: Sharp
   - type: Execution
     doAfterDuration: 4.0

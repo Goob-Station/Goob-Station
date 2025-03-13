@@ -1,3 +1,5 @@
+using Content.Shared.Damage;
+
 namespace Content.Shared._Goobstation.Movement;
 
 [RegisterComponent]
@@ -23,4 +25,6 @@ public sealed partial class RandomizeMovementspeedComponent : Component
     [DataField]
     public float CurrentModifier { get; set; } = 1f;
 
+    [DataField("DummyDamage", required: true)]
+    public DamageSpecifier DummyDamage = default!;
 }
