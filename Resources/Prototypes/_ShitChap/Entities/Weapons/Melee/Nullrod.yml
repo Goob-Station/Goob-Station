@@ -430,6 +430,11 @@
         - FullAuto
       soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+    - type: Item
+      size: Small
+      shape:
+        - 0,0,1,0
+        - 0,1,0,1
     - type: BasicEntityAmmoProvider
       proto: BulletAnaconda
       capacity: 7
@@ -447,6 +452,7 @@
     - type: Tag
       tags:
         - WeaponPistolCasul
+        - Sidearm
     - type: RequiresDualWield
       whitelist:
         tags:
@@ -470,6 +476,7 @@
     - type: Tag
       tags:
         - WeaponPistolJackal
+        - Sidearm
     - type: RequiresDualWield
       whitelist:
         tags:
