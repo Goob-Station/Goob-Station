@@ -54,6 +54,7 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
                 var modifier = GetMovementSpeedModifiers(comp);
 
                 comp.CurrentModifier = modifier;
+                Debug.WriteLine("Component Modifier:" + comp.CurrentModifier);
 
                 _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
             }
@@ -65,6 +66,7 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
     private static void OnRefreshMovementSpeedModifiers(EntityUid uid, RandomizeMovementspeedComponent  comp, ref HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
         var modifier = comp.CurrentModifier;
+        Debug.WriteLine("Current Modifier:" + modifier);
         args.Args.ModifySpeed(modifier, modifier);
     }
 
