@@ -734,3 +734,13 @@
     Telecrystal: 40
   categories:
   - UplinkDeception
+
+- type: listing
+  id: UplinkContractorBundle
+  name: uplink-contractor-bundle-name
+  description: uplink-contractor-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateFilledContractor
+  cost:
+    Telecrystal: 100
+  categories:
+  - UplinkDisruption

@@ -1,0 +1,9 @@
+- type: entity
+  id: PaperContractorGuide
+  name: Contractor Guide
+  description: The single sheet of instructions that came in the kit.
+  parent: Paper
+  components:
+  - type: Paper
+    content: book-text-contractor-manual
+    editingDisabled: true

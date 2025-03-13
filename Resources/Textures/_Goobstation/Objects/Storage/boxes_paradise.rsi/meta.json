@@ -1,0 +1,213 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/f5a4bd0e4b0bdf1b572f0fbf9832916057837b3c/icons/obj/boxes.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "no_name"
+    },
+    {
+      "name": "box"
+    },
+    {
+      "name": "sec_box"
+    },
+    {
+      "name": "med_box"
+    },
+    {
+      "name": "doom_box"
+    },
+    {
+      "name": "cup_box"
+    },
+    {
+      "name": "tape_box"
+    },
+    {
+      "name": "id_box"
+    },
+    {
+      "name": "pda_box"
+    },
+    {
+      "name": "disk_box"
+    },
+    {
+      "name": "circuit_box"
+    },
+    {
+      "name": "implant_box"
+    },
+    {
+      "name": "light_box"
+    },
+    {
+      "name": "light_tube_box"
+    },
+    {
+      "name": "light_mixed_box"
+    },
+    {
+      "name": "mousetraps_box"
+    },
+    {
+      "name": "clown_box"
+    },
+    {
+      "name": "id_prisoner_box"
+    },
+    {
+      "name": "evidence_box"
+    },
+    {
+      "name": "badge_box"
+    },
+    {
+      "name": "handcuff_box"
+    },
+    {
+      "name": "zipties_box"
+    },
+    {
+      "name": "grenade_box"
+    },
+    {
+      "name": "flashbang_box"
+    },
+    {
+      "name": "teargas_box"
+    },
+    {
+      "name": "emp_box"
+    },
+    {
+      "name": "flash_box"
+    },
+    {
+      "name": "syringe_box"
+    },
+    {
+      "name": "injector_box"
+    },
+    {
+      "name": "mask_box"
+    },
+    {
+      "name": "pillbox_box"
+    },
+    {
+      "name": "patch_box"
+    },
+    {
+      "name": "bodybags_box"
+    },
+    {
+      "name": "glasses_box"
+    },
+    {
+      "name": "latex_box"
+    },
+    {
+      "name": "iv_box"
+    },
+    {
+      "name": "beaker_box"
+    },
+    {
+      "name": "beaker_bs_box"
+    },
+    {
+      "name": "id_syndie_box"
+    },
+    {
+      "name": "donk_box"
+    },
+    {
+      "name": "ert_box"
+    },
+    {
+      "name": "cyber_implants_box"
+    },
+    {
+      "name": "alien_handcuff_box"
+    },
+    {
+      "name": "alien_box"
+    },
+    {
+      "name": "wizard_box"
+    },
+    {
+      "name": "vox_box"
+    },
+    {
+      "name": "civ_box"
+    },
+    {
+      "name": "eng_box"
+    },
+    {
+      "name": "min_box"
+    },
+    {
+      "name": "plasma_box"
+    },
+    {
+      "name": "syndi_box"
+    },
+    {
+      "name": "soviet_box"
+    },
+    {
+      "name": "hug_box"
+    },
+    {
+      "name": "toy_box"
+    },
+    {
+      "name": "monkey_box"
+    },
+    {
+      "name": "neaera_box"
+    },
+    {
+      "name": "stok_box"
+    },
+    {
+      "name": "farwa_box"
+    },
+    {
+      "name": "wolpin_box"
+    },
+    {
+      "name": "shippack_sealed"
+    },
+    {
+      "name": "shippack"
+    },
+    {
+      "name": "plastic_box"
+    },
+    {
+      "name": "large_box"
+    },
+    {
+      "name": "large_box-deployed",
+      "directions": 4
+    },
+    {
+      "name": "nian_worme_box"
+    },
+    {
+      "name": "inhand-left"
+    },
+    {
+      "name": "inhand-right"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+- type: entity
+  parent: ContractorLoadoutBox
+  id: ContractorLoadoutBoxFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: ContractorBaton
+    - id: AgentIDCard
+    - id: ClothingMaskGasVoiceChameleon
+    - id: CigPackSyndicate
+    - id: FlippoEngravedLighter
+    - id: ClothingOuterContractorSyndicate
+    - id: ClothingHeadHelmetContractor
+    - id: ClothingUniformJumpsuitChameleon
+
+

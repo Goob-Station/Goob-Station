@@ -189,3 +189,20 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 6
     knockdownTimeDelta: -4
+
+- type: entity
+  parent: [ ClothingOuterEVASuitBase, BaseSyndicateContraband ]
+  id: ClothingOuterContractorSyndicate
+  name: contractor space suit
+  description: A specialised black and gold space suit that's easier to move around in than its standard Syndicate counterpart. It is made of an exotic military-grade fabric for added protection, and can be ultra-compressed into even the tightest of spaces.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/contractor.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/contractor.rsi
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - SuitEVA
+    - WhitelistChameleon
