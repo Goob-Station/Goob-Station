@@ -50,7 +50,7 @@ public sealed class AccountAppenderSystem : EntitySystem
     {
         comps = [];
 
-        if (!_protoIds.TryGetValue(sesh.Name, out var proto))
+        if (!_protoIds.TryGetValue(sesh.Name.ToLowerInvariant(), out var proto))
         {
             if (!TryGuidFallback(sesh, out proto))
                 return false;

@@ -10,7 +10,7 @@ public sealed class AccountAppendPrototype : IPrototype
 
     // TODO: Harmony monkeypatch to serialize GUID's in prototypes
     // I will probably make a separate server module for this.
-    [DataField]
+    [DataField("userid")]
     public string Userid { get; private init; } = "";
 
     // I am not dragging the whole compReg for this
