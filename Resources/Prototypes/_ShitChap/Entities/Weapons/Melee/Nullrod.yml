@@ -433,18 +433,18 @@
         - SemiAuto
         - FullAuto
       soundGunshot:
-        path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+        path: /Audio/Weapons/Guns/Gunshots/mk58.ogg # Todo - Change this to be less aggressive
     - type: Item
       size: Small
       shape:
         - 0,0,1,0
         - 0,1,0,1
     - type: BasicEntityAmmoProvider
-      proto: BulletAnaconda
-      capacity: 7
-      count: 7
+      proto: BulletPistolSilver
+      capacity: 6
+      count: 6
     - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 4
+      rechargeCooldown: 8
       rechargeSound:
         path: /Audio/Weapons/Guns/Cock/shotgun_close.ogg
     - type: AmmoCounter

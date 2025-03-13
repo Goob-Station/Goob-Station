@@ -34,3 +34,15 @@
   # Short lifespan
   - type: TimedDespawn
     lifetime: 0.4
+
+- type: entity
+  id: BulletPistolSilver
+  name: bullet (.45 silver)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 8
+        Holy: 12
