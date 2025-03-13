@@ -37,7 +37,6 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
         return modifier;
 
     }
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -53,6 +52,7 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
             var modifier = GetMovementSpeedModifiers(uid, comp);
             comp.CurrentModifier = modifier;
 
+            _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
         }
 
         _nextExecutionTime = _timing.CurTime + ExecutionInterval;
