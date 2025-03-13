@@ -6,7 +6,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Goobstation.Movement;
 
-public sealed class RandomizeMovementSpeedSystemServer : EntitySystem
+public sealed class RandomizeMovementSpeedSystem : EntitySystem
 {
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = null!;
     [Dependency] private readonly IRobustRandom _random = null!;
@@ -18,22 +18,22 @@ public sealed class RandomizeMovementSpeedSystemServer : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<RandomizeMovementspeedServerComponent, GotEquippedHandEvent>(OnGotEquippedHand);
-        SubscribeLocalEvent<RandomizeMovementspeedServerComponent, GotUnequippedHandEvent>(OnGotUnequippedHand);
-        SubscribeLocalEvent<RandomizeMovementspeedServerComponent, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshMovementSpeedModifiers);
+        SubscribeLocalEvent<RandomizeMovementspeedComponent, GotEquippedHandEvent>(OnGotEquippedHand);
+        SubscribeLocalEvent<RandomizeMovementspeedComponent, GotUnequippedHandEvent>(OnGotUnequippedHand);
+        SubscribeLocalEvent<RandomizeMovementspeedComponent, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshMovementSpeedModifiers);
     }
 
-    private void OnGotEquippedHand(Entity<RandomizeMovementspeedServerComponent> ent, ref GotEquippedHandEvent args)
+    private void OnGotEquippedHand(Entity<RandomizeMovementspeedComponent> ent, ref GotEquippedHandEvent args)
     {
         _movementSpeedModifier.RefreshMovementSpeedModifiers(args.User);
     }
 
-    private void OnGotUnequippedHand(Entity<RandomizeMovementspeedServerComponent> ent, ref GotUnequippedHandEvent args)
+    private void OnGotUnequippedHand(Entity<RandomizeMovementspeedComponent> ent, ref GotUnequippedHandEvent args)
     {
         _movementSpeedModifier.RefreshMovementSpeedModifiers(args.User);
     }
 
-    private float GetMovementSpeedModifiers(RandomizeMovementspeedServerComponent comp)
+    private float GetMovementSpeedModifiers(RandomizeMovementspeedComponent comp)
     {
         var modifier = _random.NextFloat(comp.Min, comp.Max);
         return modifier;
@@ -46,22 +46,23 @@ public sealed class RandomizeMovementSpeedSystemServer : EntitySystem
         if (_timing.CurTime < _nextExecutionTime)
             return;
 
-        var query = EntityQueryEnumerator<RandomizeMovementspeedServerComponent>();
+        var query = EntityQueryEnumerator<RandomizeMovementspeedComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            foreach (var ent in EntityQuery<RandomizeMovementspeedServerComponent>())
+            foreach (var ent in EntityQuery<RandomizeMovementspeedComponent>())
             {
                 var modifier = GetMovementSpeedModifiers(comp);
                 comp.CurrentModifier = modifier;
 
-                _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
+                var ev = new RefreshMovementSpeedModifiersEvent();
+                RaiseLocalEvent(uid, ev, true);
             }
         }
         _nextExecutionTime = _timing.CurTime + ExecutionInterval;
     }
 
 
-    private static void OnRefreshMovementSpeedModifiers(EntityUid uid, RandomizeMovementspeedServerComponent  comp, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
+    private static void OnRefreshMovementSpeedModifiers(EntityUid uid, RandomizeMovementspeedComponent  comp, ref HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
         var modifier = comp.CurrentModifier;
         args.Args.ModifySpeed(modifier, modifier);

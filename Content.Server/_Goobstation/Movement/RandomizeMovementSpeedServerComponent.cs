@@ -1,7 +1,7 @@
 namespace Content.Server._Goobstation.Movement;
 
 [RegisterComponent]
-public sealed partial class RandomizeMovementspeedServerComponent : Component
+public sealed partial class RandomizeMovementspeedComponent : Component
 {
     /// <summary>
     /// The minimum limit of the modifier.
