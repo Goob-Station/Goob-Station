@@ -35,7 +35,7 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
         _movementSpeedModifier.RefreshMovementSpeedModifiers(args.User);
     }
 
-    public float GetMovementSpeedModifiers(RandomizeMovementspeedComponent comp)
+    private float GetMovementSpeedModifiers(RandomizeMovementspeedComponent comp)
     {
         var modifier = _random.NextFloat(comp.Min, comp.Max);
         return modifier;
@@ -65,8 +65,6 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
 
     private void OnRefreshMovementSpeedModifiers(EntityUid uid, RandomizeMovementspeedComponent  comp, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
-        Logger.Info($"Entity {uid} is raising a RefreshMovementSpeedModifiersEvent due to {nameof(Update)}");
-
         var modifier = comp.CurrentModifier;
         args.Args.ModifySpeed(modifier, modifier);
     }
