@@ -119,7 +119,6 @@ namespace Content.Server.Entry
                 IoCManager.Resolve<JobWhitelistManager>().Initialize();
                 IoCManager.Resolve<PlayerRateLimitManager>().Initialize();
                 _currencyManager = IoCManager.Resolve<ServerCurrencyManager>(); // Goobstation
-                _currencyManager.Initialize(); // Goobstation
             }
         }
 
@@ -178,7 +177,6 @@ namespace Content.Server.Entry
                     _playTimeTracking?.Update();
                     _watchlistWebhookManager.Update();
                     _connectionManager?.Update();
-                    _currencyManager?.Update(); // Goobstation
                     break;
             }
         }
