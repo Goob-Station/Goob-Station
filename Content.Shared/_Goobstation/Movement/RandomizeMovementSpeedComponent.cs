@@ -4,25 +4,22 @@ namespace Content.Shared._Goobstation.Movement;
 public sealed partial class RandomizeMovementspeedComponent : Component
 {
     /// <summary>
-    /// How low the movement speed can drop.
+    /// The minimum limit of the modifier.
     /// </summary>
 
     [DataField]
-    public float Min { get; set; } = 2f;
+    public float Min { get; set; } = 0.6f;
 
     /// <summary>
-    /// How high the movement speed can go
+    /// The max limit of the modifier.
     /// </summary>
 
     [DataField]
-    public float Max { get; set; } = 4f;
+    public float Max { get; set; } = 1.6f;
 
     /// <summary>
-    /// bweh
+    /// The current modifier.
     /// </summary>
-    [DataField]
-    public TimeSpan? NextSpeedChange;
-
     [DataField]
     public float CurrentModifier { get; set; } = 1f;
 
