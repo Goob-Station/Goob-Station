@@ -391,16 +391,16 @@
     speed: 0.5
   - type: Tag
     tags:
-    - Nullrod
+    - AthiestsFedora
 
 # Casul & Jackal
 - type: entity
   name: casul
-  parent: BaseWeaponPistol
+  parent: BaseItem
   id: WeaponPistolCasul
   description: The first of two huge pistols, capable of firing regenerating silver bullets. Incapable of firing without its sister gun.
   components:
-    - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
+    - type: Nullrod # Todo - I don't think this can handle ranged attacks, we should change that later.
       DamageOnUntrainedUse:
         types:
           Heat: 15
