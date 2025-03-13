@@ -54,6 +54,9 @@ public sealed partial class ChangelingComponent : Component
 
     public bool IsInLastResort = false;
 
+    public bool VoidAdaptActive = false;
+    public float DefaultColdDamageThreshold; // ensures the ling's species gets their default thresholds back
+
     public List<EntityUid>? ActiveArmor = null;
 
     public Dictionary<string, EntityUid?> Equipment = new();
@@ -100,6 +103,8 @@ public sealed partial class ChangelingComponent : Component
     public TimeSpan UpdateTimer = TimeSpan.Zero;
     public float UpdateCooldown = 1f;
 
+    public float ChemicalUpdateTimer = 0f;
+    public float ChemicalUpdateCooldown = 1f;
     public float BiomassUpdateTimer = 0f;
     public float BiomassUpdateCooldown = 60f;
 

@@ -191,7 +191,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     private void OnRefreshSpeed(Entity<ChangelingComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
         if (ent.Comp.StrainedMusclesActive)
-            args.ModifySpeed(1.25f, 1.5f);
+            args.ModifySpeed(1.5f, 2.0f);
         else
             args.ModifySpeed(1f, 1f);
     }
@@ -217,7 +217,13 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     }
     public void Cycle(EntityUid uid, ChangelingComponent comp)
     {
-        UpdateChemicals(uid, comp);
+
+        comp.ChemicalUpdateTimer += 1;
+        if (comp.ChemicalUpdateTimer >= comp.ChemicalUpdateCooldown)
+        {
+            comp.ChemicalUpdateTimer = 0;
+            UpdateChemicals(uid, comp);
+        }
 
         comp.BiomassUpdateTimer += 1;
         if (comp.BiomassUpdateTimer >= comp.BiomassUpdateCooldown)
@@ -303,7 +309,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (comp.StrainedMusclesActive)
         {
             var stamina = EnsureComp<StaminaComponent>(uid);
-            _stamina.TakeStaminaDamage(uid, 7.5f, visual: false, immediate: false);
+            _stamina.TakeStaminaDamage(uid, 15f, visual: false, immediate: false);
             if (stamina.StaminaDamage >= stamina.CritThreshold || _gravity.IsWeightless(uid))
                 ToggleStrainedMuscles(uid, comp);
         }
@@ -504,6 +510,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             }
 
             comp.ActiveArmor = newArmor;
+            comp.ChemicalUpdateCooldown += 0.25f; // base chem regen slowed by a flat 25%
             return true;
         }
         else
@@ -513,6 +520,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
                 QueueDel(armor);
 
             comp.ActiveArmor = null!;
+            comp.ChemicalUpdateCooldown -= 0.25f; // chem regen debuff removed
             return true;
         }
     }

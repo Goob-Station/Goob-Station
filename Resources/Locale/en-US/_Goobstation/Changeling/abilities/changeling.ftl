@@ -60,6 +60,9 @@ changeling-panacea = You mutate and alter your DNA for better cell regeneration
 changeling-chameleon-start = You adapt your skin to the environment
 changeling-chameleon-end = Your skin is losing it's translucency
 
+changeling-voidadapt-start = You adapt your cells and organs to be more resilient to the extremes
+changeling-voidadapt-end = Your cells and organs feel weaker as they lose their resilience
+
 changeling-hivemind-start = You tune your brainwaves to match the hivemind frequency
 
 changeling-lastresort-activate = CURRENT BODY WILL BE LOST! Use it again to confirm.

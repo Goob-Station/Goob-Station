@@ -116,7 +116,7 @@ evolutionmenu-utility-eyesight-desc =
 evolutionmenu-utility-biodegrade-name = Biodegrade
 evolutionmenu-utility-biodegrade-desc =
     Vomit a caustic substance onto any restraints you may be wearing, allowing yourself to break free.
-    Using this ability while being grabbed will spit acid in your attackers face.
+    Using this ability while being grabbed will spit acid in your attackers face, blinding them.
     Costs 30 chemicals.
 
 evolutionmenu-utility-chameleon-name = Chameleon Skin
@@ -124,9 +124,16 @@ evolutionmenu-utility-chameleon-desc =
     Alter the pigment in your skin to match your surroundings, rendering you invisible.
     Costs 20 chemicals.
 
-evolutionmenu-utility-stims-name = Ephedrine Overdose
+evolutionmenu-utility-voidadapt-name = Void Adaption
+evolutionmenu-utility-voidadapt-desc =
+    Alter your cells and organs to resist cold, low pressure and the need for oxygen.
+    Maintaining this state slows chemical regeneration.
+    WARNING: Requires you to absorb at least 2 organics to use the ability.
+    Cost-free.
+
+evolutionmenu-utility-stims-name = Adrenaline reserves
 evolutionmenu-utility-stims-desc =
-    Inject a cocktail of stimulants into yourself, quickly removing any stuns and giving yourself a speed boost.
+    Releases additional adrenaline into your bloodstream, making you nigh-impervious to fatigue, knockdown and stuns.
     Continuous injection is poisonous.
     Costs 30 chemicals.
 

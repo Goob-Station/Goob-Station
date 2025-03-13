@@ -232,7 +232,7 @@
     event: !type:ToggleChitinousArmorEvent {}
   - type: ChangelingAction
     chemicalCost: 25
-    requireAbsorbed: 2
+    #requireAbsorbed: 2
 
 - type: entity
   id: ActionToggleOrganicShield
@@ -287,7 +287,7 @@
   - type: ChangelingAction
     chemicalCost: 30
     useInLesserForm: true
-    requireAbsorbed: 1
+    #requireAbsorbed: 1
 
 - type: entity
   id: ActionToggleStrainedMuscles
@@ -545,22 +545,42 @@
     chemicalCost: 20
 
 - type: entity
-  id: ActionEphedrineOverdose
-  name: Ephedrine Overdose
-  description: Inject some stimulants into yourself. Costs 30 chemicals.
+  id: ActionVoidAdapt
+  name: Toggle Void Adaption
+  description: Adapt to the harsh environment of space, removing the need for oxygen or a suit. Cost free.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 10
+    useDelay: 1
+    checkCanInteract: false
+    checkConciousness: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: space_adaptation
+    event: !type:ActionVoidAdaptEvent {}
+  - type: ChangelingAction
+    chemicalCost: 0
+    useInLesserForm: true
+    #requireAbsorbed: 2
+
+- type: entity
+  id: ActionAdrenalineReserves
+  name: Adrenaline Reserves
+  description: Release powerful adrenaline from your glands. Costs 30 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 5
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: epinephrine_overdose
-    event: !type:ActionEphedrineOverdoseEvent {}
+    event: !type:ActionAdrenalineReservesEvent {}
   - type: ChangelingAction
-    chemicalCost: 30
+    chemicalCost: 25
     useInLesserForm: true
 
 - type: entity
@@ -620,21 +640,21 @@
   - type: ChangelingAction
     chemicalCost: 20
 
-- type: entity
-  id: ActionToggleSpacesuit
-  name: Toggle Space Suit
-  description: Make your body space proof. Costs 20 chemicals.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    useDelay: 2
-    itemIconStyle: NoItem
-    icon:
-      sprite: _Goobstation/Changeling/changeling_abilities.rsi
-      state: space_adaptation
-    event: !type:ActionSpacesuitEvent {}
-  - type: ChangelingAction
-    chemicalCost: 20
+#- type: entity
+#  id: ActionToggleSpacesuit
+#  name: Toggle Space Suit
+#  description: Make your body space proof. Costs 20 chemicals.
+#  categories: [ HideSpawnMenu ]
+#  components:
+#  - type: InstantAction
+#    useDelay: 2
+#    itemIconStyle: NoItem
+#    icon:
+#      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+#      state: space_adaptation
+#    event: !type:ActionSpacesuitEvent {}
+#  - type: ChangelingAction
+#    chemicalCost: 20
 
 - type: entity
   id: ActionHivemindAccess
