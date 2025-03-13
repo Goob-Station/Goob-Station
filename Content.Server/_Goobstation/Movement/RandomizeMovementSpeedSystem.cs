@@ -7,9 +7,9 @@ namespace Content.Server.Movement;
 
 public sealed class RandomizeMovementSpeedSystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = null!;
-    [Dependency] private readonly IRobustRandom _random = null!;
-    [Dependency] private readonly IGameTiming _timing = null!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     private TimeSpan _nextExecutionTime = TimeSpan.Zero;
     private static readonly TimeSpan ExecutionInterval = TimeSpan.FromSeconds(3);
