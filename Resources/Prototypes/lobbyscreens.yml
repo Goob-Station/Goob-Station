@@ -135,3 +135,9 @@
   background: /Textures/LobbyScreens/enlist.webp
   name: Nanotrasen wants YOU.
   artist: thebiggestbruh
+
+- type: lobbyBackground
+  id: greytide-attack
+  background: /Textures/LobbyScreens/GreytideAttack.webp
+  name: Greytide Attack
+  artist: ARandomHunter
