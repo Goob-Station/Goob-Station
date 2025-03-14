@@ -5,6 +5,7 @@ using Content.Shared.Damage;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.StatusEffect;
+using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio;
 
 namespace Content.Shared._Goobstation.MartialArts;
@@ -32,7 +33,7 @@ public partial class SharedMartialArtsSystem
             return;
 
         var user = args.Wearer;
-        TryGrant(ent.Comp, user);
+        TryGrantMartialArt(user, ent.Comp);
     }
 
     private void OnRemoveCorporateJudo(Entity<GrantCorporateJudoComponent> ent, ref ClothingGotUnequippedEvent args)
@@ -43,6 +44,11 @@ public partial class SharedMartialArtsSystem
 
         if (martialArtsKnowledge.MartialArtsForm != MartialArtsForms.CorporateJudo)
             return;
+
+        if(!TryComp<MeleeWeaponComponent>(args.Wearer, out var meleeWeaponComponent))
+            return;
+
+        meleeWeaponComponent.Damage = martialArtsKnowledge.OriginalFistDamage;
 
         RemComp<MartialArtsKnowledgeComponent>(user);
         RemComp<CanPerformComboComponent>(user);

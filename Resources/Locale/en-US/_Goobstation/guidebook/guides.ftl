@@ -27,6 +27,7 @@ guide-entry-sop-deltaalert = Delta Alert
 guide-entry-sop-epsilonalert = Epsilon Alert
 guide-entry-sop-gammaalert = Gamma Alert
 guide-entry-sop-violetalert = Violet Alert
+guide-entry-sop-omicronalert = Omicron Alert
 # - Standard Procedures
 guide-entry-sop-demoting = Dismissal/Demoting
 guide-entry-sop-evacuation = Early Evacuation
@@ -41,6 +42,7 @@ guide-entry-sop-stationdamage = Station Damage
 guide-entry-sop-supermatterdelam = SM Delamination
 guide-entry-sop-wardeclaration = War Declaration
 guide-entry-sop-zombieoutbreak = Zombie Outbreak
+guide-entry-sop-emergencyresponseteam = Emergency Response Team
 # - Legal
 guide-entry-sop-execution = Executions
 guide-entry-sop-permabrig = Permanent Brig
