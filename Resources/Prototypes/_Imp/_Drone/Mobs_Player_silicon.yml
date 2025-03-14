@@ -85,7 +85,7 @@
 - type: entity
   name: drone
   id: Drone
-  parent: PlayerSiliconBase
+  parent: [PlayerSiliconBase, BaseBorgTransponder]
   components:
   - type: Drone # this system has too much going on, it should really be like three different components
     whitelist:
@@ -184,13 +184,18 @@
     - state: shell
       sprite: _Imp/Drone/drone.rsi #Mobs/Silicon/drone.rsi
       map: ["base"]
+  - type: BorgTransponder
+    sprite:
+      sprite: _Imp/Drone/drone.rsi
+      state: shell
+    name: drone
   - type: MovementIgnoreGravity
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.35
+          radius: 0.3
         density: 50
         mask:
         - SmallMobMask
