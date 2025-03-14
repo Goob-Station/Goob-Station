@@ -339,7 +339,7 @@
   table: !type:AllSelector
     children:
 #    - id: WeaponEnergyShotgun
-    - id: WeaponEnergyGunMultiphase # Goobstation, replace energy shotgun with the X-01 Multiphase.
+    # - id: WeaponEnergyGunMultiphase # Goobstation - Security Revamp
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase
@@ -354,6 +354,8 @@
     - id: HoloprojectorSecurity
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
+    - id: Justice # Goobstation - Security Revamp
+    - id: HeadOfSecurityUndetermined # Goobstation - Security Revamp
     #- id: WeaponDisabler #Goobstation (Disablers in belts)
     - id: WantedListCartridge
     - id: DrinkHosFlask

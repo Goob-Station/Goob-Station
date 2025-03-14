@@ -1,6 +1,6 @@
 {
     "version": 1,
-    "copyright": "Taked From Paradise Station, animated by darkrell",
+    "copyright": "Sprited by Taro Varne",
     "license": "CC-BY-SA-3.0",
     "size": {
         "x": 32,
@@ -27,15 +27,12 @@
             "name": "stun-icon",
             "delays": [
               [
-                1,
-                0.15,
-                0.15,
-                0.15,
-                0.15,
-                0.15,
-                0.15,
-                0.15,
-                1
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2
               ]
             ]
         },
@@ -53,18 +50,15 @@
             ]
         },
         {
-            "name": "cuffs-icon",
+            "name": "ion-icon",
             "delays": [
               [
-                0.1,
-                0.1,
-                0.1,
-                0.1,
-                0.1,
-                0.1,
-                0.1,
-                0.1,
-                0.1
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2
               ]
             ]
         },

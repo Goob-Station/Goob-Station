@@ -71,3 +71,15 @@
     state: icon
   content:
   - ClothingOuterHardsuitBlueshieldHeavy
+
+# Head of Security
+
+- type: thiefBackpackSet
+  id: MultiPhaseSet
+  name: blueshield-box-category-blueshield-name
+  description: blueshield-box-category-blueshield-description
+  sprite:
+    sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
+    state: icon-on
+  content:
+  - WeaponEnergyGunMultiphase
