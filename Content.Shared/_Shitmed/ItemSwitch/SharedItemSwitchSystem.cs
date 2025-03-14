@@ -8,6 +8,7 @@ using Content.Shared._Shitmed.ItemSwitch.Components;
 using Content.Shared._Shitmed.Switchable;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 
@@ -57,7 +58,8 @@ public abstract class SharedItemSwitchSystem : EntitySystem
 
     private void OnUseInHand(Entity<ItemSwitchComponent> ent, ref UseInHandEvent args)
     {
-        if (args.Handled || !ent.Comp.OnUse || ent.Comp.States.Count == 0) return;
+        if (args.Handled || !ent.Comp.OnUse || ent.Comp.States.Count == 0)
+            return;
         args.Handled = true;
 
         if (ent.Comp.States.TryGetValue(Next(ent), out var state) && state.Hidden)
@@ -68,16 +70,14 @@ public abstract class SharedItemSwitchSystem : EntitySystem
 
     private void OnActivateVerb(Entity<ItemSwitchComponent> ent, ref GetVerbsEvent<ActivationVerb> args)
     {
-        if (!args.CanAccess || !args.CanInteract || !ent.Comp.OnActivate || ent.Comp.States.Count == 0) return;
+        if (!args.CanAccess || !args.CanInteract || !ent.Comp.OnActivate || ent.Comp.States.Count == 0)
+            return;
 
         var user = args.User;
-        int addedVerbs = 0;
+        var addedVerbs = 0;
 
-        foreach (var state in ent.Comp.States)
+        foreach (var state in ent.Comp.States.Where(state => !state.Value.Hidden)) // I'm linqing all over the place.
         {
-            if (state.Value.Hidden)
-                continue;
-
             args.Verbs.Add(new ActivationVerb()
             {
                 Text = Loc.TryGetString(state.Value.Verb, out var title) ? title : state.Value.Verb,
@@ -185,6 +185,16 @@ public abstract class SharedItemSwitchSystem : EntitySystem
 
         return true;
     }
+
+    public void TryTurnOff(Entity<ItemSwitchComponent> ent)
+    {
+        var uid = ent.Owner;
+        var comp = ent.Comp;
+
+        if (comp.States.TryGetValue(comp.State, out var state) && state is { RemoveComponents: true, Components: not null })
+            EntityManager.RemoveComponents(ent, state.Components);
+        comp.State = comp.DefaultState;
+    }
     public virtual void VisualsChanged(Entity<ItemSwitchComponent> ent, string key)
     {
 
@@ -198,5 +208,7 @@ public abstract class SharedItemSwitchSystem : EntitySystem
         VisualsChanged(ent, key);
     }
     private void UpdateClothingLayer(Entity<ClothingComponent> ent, ref ItemSwitchedEvent args)
-        => _clothing.SetEquippedPrefix(ent, args.State, ent.Comp);
+    {
+        _clothing.SetEquippedPrefix(ent, args.State, ent.Comp);
+    }
 }

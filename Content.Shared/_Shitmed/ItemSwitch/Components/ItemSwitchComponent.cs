@@ -45,6 +45,19 @@ public sealed partial class ItemSwitchComponent : Component
     /// </summary>
     [DataField]
     public bool ShowLabel = false;
+
+    /// <summary>
+    ///     Whether the item requires power to sustain a state.
+    /// </summary>
+    [DataField]
+    public bool NeedsPower = false;
+
+    /// <summary>
+    ///     Whether the item requires power to sustain a state.
+    /// </summary>
+    [DataField]
+    public string DefaultState = default!;
+
 }
 [DataDefinition]
 public sealed partial class ItemSwitchState : BoundUserInterfaceMessage
@@ -69,6 +82,12 @@ public sealed partial class ItemSwitchState : BoundUserInterfaceMessage
 
     [DataField]
     public bool Hidden;
+
+    /// <summary>
+    ///     Amount of energy consumed per swing
+    /// </summary>
+    [DataField]
+    public int EnergyPerUse = default!;
 }
 
 /// <summary>
