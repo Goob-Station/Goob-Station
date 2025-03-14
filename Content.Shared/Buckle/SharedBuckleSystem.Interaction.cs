@@ -105,7 +105,9 @@ public abstract partial class SharedBuckleSystem
         }
 
         // Unbuckle others
-        if (component.BuckledEntities.TryFirstOrNull(out var buckled) && TryUnbuckle(buckled.Value, args.User))
+        if (component.BuckledEntities.TryFirstOrNull(out var buckled) &&
+            component.AllowOthersToUnbuckle &&  // Goobstation
+            TryUnbuckle(buckled.Value, args.User))
         {
             args.Handled = true;
             return;
@@ -117,6 +119,10 @@ public abstract partial class SharedBuckleSystem
     private void OnBuckleInteractHand(Entity<BuckleComponent> ent, ref InteractHandEvent args)
     {
         if (args.Handled)
+            return;
+
+        if (ent.Comp.BuckledTo != null && TryComp<StrapComponent>(ent.Comp.BuckledTo.Value, out var strapcomp) && //Goobstation - Clowncar
+            (!strapcomp.AllowOthersToUnbuckle && args.User != args.Target))
             return;
 
         if (ent.Comp.BuckledTo != null)

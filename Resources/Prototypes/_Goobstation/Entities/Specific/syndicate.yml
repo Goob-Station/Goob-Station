@@ -15,7 +15,7 @@
   - type: GrantCqc
 
 - type: entity
-  parent: BaseItem
+  parent: [ BaseItem, BaseSyndicateContraband ]
   id: SleepingCarpScroll
   name: mysterious scroll
   description: A scroll filled with strange markings. It seems to be drawings of some sort of martial art.
