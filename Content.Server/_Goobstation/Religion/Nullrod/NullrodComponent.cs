@@ -16,7 +16,7 @@ namespace Content.Server._Goobstation.Religion.Nullrod
         /// Which pop-up string to use.
         /// </summary>
         [DataField("UntrainedUseString", required: true)]
-        public String UntrainedUseString = default!;
+        public string UntrainedUseString = default!;
 
         /// <summary>
         /// What sound to play on untrained use.
