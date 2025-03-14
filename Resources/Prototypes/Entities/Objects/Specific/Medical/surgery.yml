@@ -425,6 +425,7 @@
   - type: ItemSwitch
     showLabel: true
     state: scalpel
+    defaultState: scalpel
     states:
       scalpel: !type:ItemSwitchState
         verb: scalpel
