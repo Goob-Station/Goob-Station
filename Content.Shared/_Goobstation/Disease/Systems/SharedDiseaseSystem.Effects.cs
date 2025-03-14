@@ -142,38 +142,43 @@ public partial class SharedDiseaseSystem
                 _diseaseEffects.Add(entProto);
     }
 
-    private void RemoveRandomEffect(EntityUid uid, DiseaseComponent disease)
+    private Entity<DiseaseEffectComponent>? RemoveRandomEffect(EntityUid uid, DiseaseComponent disease)
     {
         if (disease.Effects.Count < 1)
         {
             Log.Error($"Disease {ToPrettyString(uid)} attempted to remove a random effect, but had no effects left.");
-            return;
+            return null;
         }
-        disease.Effects.RemoveAt(_random.Next(disease.Effects.Count - 1));
+        var index = _random.Next(disease.Effects.Count - 1);
+        var effectUid = disease.Effects[index];
+        disease.Effects.RemoveAt(index);
 
         Dirty(uid, disease);
+        return TryComp<DiseaseEffectComponent>(effectUid, out var comp) ? (effectUid, comp) : null;
     }
 
-    private void AddRandomEffect(EntityUid uid, DiseaseComponent disease)
+    private Entity<DiseaseEffectComponent>? AddRandomEffect(EntityUid uid, DiseaseComponent disease)
     {
         List<EntityPrototype> valid = new();
         foreach (var effectProto in _diseaseEffects)
         {
-            if (effectProto.TryGetComponent<DiseaseEffectComponent>(out var effectComp, _factory)
-                && effectComp.AllowedDiseaseTypes.Contains(disease.DiseaseType)
+            if (effectProto.TryGetComponent<DiseaseEffectComponent>(out var effectProtoComp, _factory)
+                && effectProtoComp.AllowedDiseaseTypes.Contains(disease.DiseaseType)
                 && !HasEffect(uid, effectProto.ID, disease))
                 valid.Add(effectProto);
         }
         if (valid.Count == 0)
         {
             Log.Error($"Disease {ToPrettyString(uid)} attempted to mutate to add an effect, but there are no valid effects for its type.");
-            return;
+            return null;
         }
         var proto = valid[_random.Next(valid.Count - 1)];
-        if (proto.TryGetComponent<DiseaseEffectComponent>(out var effect, _factory))
-            TryAdjustEffect(uid, proto, out _, _random.NextFloat(effect.MinSeverity, 1f), disease);
+        Entity<DiseaseEffectComponent>? effect = null;
+        if (proto.TryGetComponent<DiseaseEffectComponent>(out var effectComp, _factory))
+            TryAdjustEffect(uid, proto, out effect, _random.NextFloat(effectComp.MinSeverity, 1f), disease);
 
         Dirty(uid, disease);
+        return effect;
     }
 
     #region public API
@@ -282,26 +287,17 @@ public partial class SharedDiseaseSystem
                 return false;
         }
 
-        if (!TryComp<DiseaseEffectComponent>(effect, out var effectComp))
-        {
-            if (spawned)
-            {
-                TryRemoveEffect(uid, effect.Value.Owner, comp);
-            }
-            Log.Error($"Attempted to adjust disease effect {effectId}, but it had no DiseaseEffectComponent");
-            return false;
-        }
-
         if (spawned)
-            effectComp.Severity = 0f;
+            effect.Value.Comp.Severity = 0f;
 
-        effectComp.Severity += delta;
-        if (effectComp.Severity <= 0f)
+        effect.Value.Comp.Severity += delta;
+        if (effect.Value.Comp.Severity <= 0f)
         {
             if (!TryRemoveEffect(uid, effect.Value.Owner, comp))
                 return false;
         }
 
+        Dirty(effect.Value);
         Dirty(uid, comp);
         return true;
     }

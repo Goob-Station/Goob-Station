@@ -1,3 +1,4 @@
+using Content.Shared.Chat.Prototypes;
 using Content.Shared.Damage;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
@@ -210,3 +211,18 @@ public sealed partial class DiseaseAudioEffectComponent : Component
     [DataField]
     public SoundCollectionSpecifier? SoundFemale = null;
 }
+
+/// <summary>
+/// Causes the host to emote
+/// For use with conditions
+/// </summary>
+[RegisterComponent]
+public sealed partial class DiseaseEmoteEffectComponent : Component
+{
+    [DataField]
+    public ProtoId<EmotePrototype> Emote;
+
+    [DataField]
+    public bool WithChat = true;
+}
+

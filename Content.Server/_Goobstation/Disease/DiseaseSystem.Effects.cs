@@ -12,13 +12,25 @@ namespace Content.Server.Disease;
 
 public sealed partial class DiseaseSystem
 {
+    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly VomitSystem _vomit = default!;
 
     protected override void InitializeEffects()
     {
         base.InitializeEffects();
 
+        SubscribeLocalEvent<DiseaseEmoteEffectComponent, DiseaseEffectEvent>(OnEmoteEffect);
         SubscribeLocalEvent<DiseaseVomitEffectComponent, DiseaseEffectEvent>(OnVomitEffect);
+    }
+
+    private void OnEmoteEffect(EntityUid uid, DiseaseEmoteEffectComponent effect, DiseaseEffectEvent args)
+    {
+        var emote = _proto.Index(effect.Emote);
+        if (effect.WithChat)
+            _chat.TryEmoteWithChat(args.Ent, emote);
+        else
+            _chat.TryEmoteWithoutChat(args.Ent, emote);
     }
 
     private void OnVomitEffect(EntityUid uid, DiseaseVomitEffectComponent effect, DiseaseEffectEvent args)
