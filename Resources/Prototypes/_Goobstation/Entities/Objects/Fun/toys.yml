@@ -258,12 +258,12 @@
   description: PLOOP.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
+    sprite: _Goobstation/Objects/Fun/taiwan_pond.rsi
     layers:
       - state: icon
         map: ["enum.GunVisualLayers.Base"]
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
+    sprite: _Goobstation/Objects/Fun/china_lake.rsi
     slots:
     - Back
     - suitStorage
