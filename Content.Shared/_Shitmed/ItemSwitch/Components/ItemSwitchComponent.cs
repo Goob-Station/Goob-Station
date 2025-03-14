@@ -61,7 +61,7 @@ public sealed partial class ItemSwitchComponent : Component
     ///     The default state of an item, which is also the state it reverts to when out of power.
     /// </summary>
     [DataField]
-    public string DefaultState = default!;
+    public string? DefaultState = default!;
 
     public ItemSwitchComponent(string state)
     {
