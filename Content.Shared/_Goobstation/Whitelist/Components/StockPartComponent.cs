@@ -1,4 +1,4 @@
-namespace Content.Server._Goobstation.Whitelist.Components;
+namespace Content.Shared._Goobstation.Whitelist.Components;
 
 /// <summary>
 /// Whitelist component for stock parts to avoid tag redefinition and collisions
