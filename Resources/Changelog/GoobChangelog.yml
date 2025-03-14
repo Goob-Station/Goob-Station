@@ -6338,3 +6338,9 @@ Entries:
       message: Fixed NTR not having access to their room on some maps.
   id: 729
   time: '2025-03-14T02:06:27.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: Fixed Greatshield not recharging sometimes.
+  id: 730
+  time: '2025-03-14T19:18:50.0000000+00:00'
