@@ -6382,3 +6382,11 @@ Entries:
       message: Added Maintanence drones
   id: 736
   time: '2025-03-14T19:21:31.0000000+00:00'
+- author: deltanedas, whatstone3, pheenty
+  changes:
+    - type: Tweak
+      message: Whitelisted borg hands work more smooth now.
+    - type: Fix
+      message: Fixed an edgecase where borgs could bypass their hand whitelist.
+  id: 737
+  time: '2025-03-14T19:22:09.0000000+00:00'
