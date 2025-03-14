@@ -6,6 +6,7 @@ namespace Content.Shared.Disease;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [Access(typeof(SharedDiseaseSystem), Other = AccessPermissions.ReadExecute)] // if the system's methods don't let you do something you want, add a method for it
+[EntityCategory("Diseases")]
 public sealed partial class DiseaseComponent : Component
 {
     // <state>
