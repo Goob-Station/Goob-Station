@@ -7,6 +7,8 @@
   suffix: Unremoveable
   components:
   - type: Unremoveable
+  - type: Sprite
+    sprite: _Imp/Drone/dronesatchel.rsi
 
 - type: entity
   parent: trayScanner
