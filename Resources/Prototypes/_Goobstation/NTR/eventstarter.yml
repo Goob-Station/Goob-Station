@@ -1,0 +1,24 @@
+# you might wonder wtf is this
+# and you'd be right, what the fuck is this
+# its lazy, awfull, but it works
+- type: entity
+  id: NTRgameruleSpawnerMats
+  categories: [ HideSpawnMenu ]
+  name: AN ITEM THAT YOU WERENT SUPPOSED TO SEE
+  components:
+  - type: EventTrigger # this component delets this entity on spawn
+    eventId: "GiftsEngineering"
+  - type: Sprite # sprite needed for NTRstore
+    sprite: Objects\Materials\Sheets\metal.rsi
+    state: titanium_3
+
+- type: entity
+  id: NTRgameruleSpawnerPizza
+  categories: [ HideSpawnMenu ]
+  name: AN ITEM THAT YOU WERENT SUPPOSED TO SEE
+  components:
+  - type: EventTrigger
+    eventId: "GiftsPizzaPartySmall"
+  - type: Sprite
+    sprite: Objects\Consumable\Food\Baked\pizza.rsi
+    state: box1

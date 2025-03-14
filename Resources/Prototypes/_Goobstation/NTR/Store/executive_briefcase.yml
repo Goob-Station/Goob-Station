@@ -1,0 +1,59 @@
+- type: entity
+  name: Executive briefcase
+  parent: [BaseItem, StorePresetNTR]
+  suffix: Debug
+  id: ExecutiveBriefcaseEmpty
+  description: A standart issued executive briefcase for accessing NTnet.
+  components:
+  - type: Item
+    size: Ginormous
+    sprite: _Goobstation\Objects\Tools\executive_briefcase.rsi
+  - type: Sprite
+    sprite: _Goobstation\Objects\Tools\executive_briefcase.rsi
+    state: icon
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    balance:
+      NTLoyaltyPoint: 999 # change this to 0 before pr-ing
+
+# Executive briefcase store
+# i dont want to make a bunch of new files for 1 prototype so....
+- type: entity
+  id: StorePresetNTR
+  abstract: true
+  components:
+  - type: Store
+    name: store-preset-name-ntr
+    categories:
+    - NTRtier1 # for small stuff like buying disablers, small spesos grant etc.
+    - NTRtier2 # for medium stuff like unobtainable boards, BSO recall etc
+    - NTRtier3 # for ultra stuff like calling ERT
+    currencyWhitelist:
+    - NTLoyaltyPoint
+    sales:
+      enabled: false
+
+- type: storeCategory
+  id: NTRtier1
+  name: ntr-executive-tier-1-name
+  priority: 0
+
+- type: storeCategory
+  id: NTRtier2
+  name: ntr-executive-tier-2-name
+  priority: 1
+
+- type: storeCategory
+  id: NTRtier3
+  name: ntr-executive-tier-3-name
+  priority: 2
+
+- type: currency
+  id: NTLoyaltyPoint
+  displayName: store-currency-nt-loyalty-point
+  canWithdraw: false

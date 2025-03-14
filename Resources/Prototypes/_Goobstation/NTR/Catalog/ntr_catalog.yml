@@ -1,0 +1,137 @@
+# tier 1
+
+- type: listing
+  id: NTRExecutiveSpesosSmall
+  name: ntr-executive-spesos-small-name
+  description: ntr-executive-spesos-small-desc
+  productEntity: NTRCrateSpesosSmall
+  cost:
+    NTLoyaltyPoint: 5 # to be changed
+  categories:
+  - NTRtier1
+  restockTime: 900 # 15 min
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 900
+
+- type: listing
+  id: NTRExecutiveResearchDisksSmall
+  name: ntr-executive-disk-small-name
+  description: ntr-executive-disk-small-desc
+  productEntity: NTRCratePointDisks
+  cost:
+    NTLoyaltyPoint: 5 # to be changed
+  categories:
+  - NTRtier1
+  restockTime: 900 # 15 min
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 900
+
+- type: listing
+  id: NTRExecutiveEmergencyMed
+  name: ntr-executive-emergency-meds-name
+  description: ntr-executive-emergency-meds-desc
+  productEntity: NTRCrateEmergencyMed
+  cost:
+    NTLoyaltyPoint: 5 # to be changed
+  categories:
+  - NTRtier1
+  restockTime: 300 # 5 min
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 300
+
+- type: listing
+  id: NTRExecutiveDisablers
+  name: ntr-executive-disablers-name
+  description: ntr-executive-disablers-desc
+  productEntity: NTRCrateDisablers
+  cost:
+    NTLoyaltyPoint: 5 # to be changed
+  categories:
+  - NTRtier1
+  restockTime: 600 # 10 min
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 600
+
+- type: listing
+  id: NTRExecutiveMaterialsSpawn
+  name: ntr-executive-mats-name
+  description: ntr-executive-mats-desc
+  productEntity: NTRgameruleSpawnerMats # okay so this is real shitcode
+  cost:
+    NTLoyaltyPoint: 10 # to be changed
+  categories:
+  - NTRtier1
+  restockTime: 1800 # 30 min
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 1800
+
+- type: listing
+  id: NTRExecutiveToolsSmall
+  name: ntr-executive-tools-small-name
+  description: ntr-executive-tools-small-desc
+  productEntity: NTRCrateToolsSmall
+  cost:
+    NTLoyaltyPoint: 5
+  categories:
+  - NTRtier1
+  restockTime: 300 # 5 min
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 300
+
+- type: listing
+  id: NTRExecutivePizzaSmall
+  name: ntr-executive-pizza-small-name
+  description: ntr-executive-pizza-small-desc
+  productEntity: NTRgameruleSpawnerPizza
+  cost:
+    NTLoyaltyPoint: 10
+  categories:
+  - NTRtier1
+  #restockTime: 1800 # 3o min
+  restockTime: 120 #2 mins
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 120
+
+- type: listing
+  id: NTRExecutiveSoftsuit
+  name: ntr-executive-softsuit-name
+  description: ntr-executive-softsuit-desc
+  productEntity: CrateEvaKit # PLACEHOLDER, change to NTR softsuit when sprites are ready
+  cost:
+    NTLoyaltyPoint: 15
+  categories:
+  - NTRtier1
+  restockTime: 300 # 5 mins
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 1800 # 30 mins, you dont need two softsuits as NTR, unless you fuck up real bad
+
+
+# tier 2
+
+- type: listing
+  id: NTRExecutiveBSDCall
+  name: ntr-executive-bsd-name
+  description: ntr-executive-bsd-desc
+  productEntity: BlueShieldDeputySpawnBriefcase
+  cost:
+    NTLoyaltyPoint: 75
+  categories:
+  - NTRtier2
+  #restockTime: 1800 # 3o min
+  restockTime: 120 #2 mins
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1 # we dont want NTR to buy 3 BSDs in one shift so
+
+- type: listing
+  id: NTRExecutiveHardsuit
+  name: ntr-executive-hardsuit-name
+  description: ntr-executive-hardsuit-desc
+  productEntity: ClothingOuterHardsuitCombatStandard # PLACEHOLDER, change this to NTR hardsuit
+  cost:
+    NTLoyaltyPoint: 35
+  categories:
+  - NTRtier2
+  restockTime: 600 # 10 mins
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 2400 # 60 mins, you dont want to buy 2 suits in one shift, but if you do, then wait lol
