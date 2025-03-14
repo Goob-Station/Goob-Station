@@ -37,6 +37,8 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
 
         if (batteryComponent == null || !comp.NeedsPower || state == null)
             return;
+        if (ent.Comp.State == comp.DefaultState)
+            return;
 
         var count = (int) (batteryComponent.CurrentCharge / state.EnergyPerUse);
         args.PushMarkup(Loc.GetString("melee-battery-examine", ("color", "yellow"), ("count", count)));

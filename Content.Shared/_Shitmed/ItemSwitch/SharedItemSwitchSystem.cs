@@ -60,12 +60,9 @@ public abstract class SharedItemSwitchSystem : EntitySystem
     {
         var comp = ent.Comp;
 
-        if (args.Handled || !comp.OnUse || comp.States.Count == 0)
+        if (args.Handled || !comp.OnUse || comp.States.Count == 0 || !comp.IsPowered)
             return;
         args.Handled = true;
-
-        if (!comp.IsPowered)
-            return;
 
         if (comp.States.TryGetValue(Next(ent), out var state) && state.Hidden)
             return;
@@ -77,10 +74,7 @@ public abstract class SharedItemSwitchSystem : EntitySystem
     {
         var comp = ent.Comp;
 
-        if (!args.CanAccess || !args.CanInteract || !comp.OnActivate || comp.States.Count == 0)
-            return;
-
-        if (!comp.IsPowered)
+        if (!args.CanAccess || !args.CanInteract || !comp.OnActivate || comp.States.Count == 0 || !comp.IsPowered)
             return;
 
         var user = args.User;
@@ -106,10 +100,7 @@ public abstract class SharedItemSwitchSystem : EntitySystem
         var comp = ent.Comp;
         var uid = ent.Owner;
 
-        if (args.Handled || !comp.OnActivate)
-            return;
-
-        if (!comp.IsPowered)
+        if (args.Handled || !comp.OnActivate || !comp.IsPowered)
             return;
 
         args.Handled = true;
