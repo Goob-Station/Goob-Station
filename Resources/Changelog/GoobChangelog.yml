@@ -6396,3 +6396,13 @@ Entries:
       message: Slight Bingle sprite update
   id: 738
   time: '2025-03-14T19:22:30.0000000+00:00'
+- author: Vlax
+  changes:
+    - type: Add
+      message: added ore bag of holding to salvage vendor for 2000 points
+    - type: Tweak
+      message: >-
+        increased spesos from 2k to 5k in salvage vendor while reducing the
+        point cost to 750
+  id: 739
+  time: '2025-03-14T19:24:33.0000000+00:00'
