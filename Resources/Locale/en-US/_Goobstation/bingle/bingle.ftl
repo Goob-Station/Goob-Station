@@ -19,4 +19,9 @@ ghost-role-information-bingle-description = The Pit is love. The Pit is life. Th
 bingle-upgrade-success = You feel stronger
 bingle-pit-grow =  The pit grows larger
 
-bingle-pit-end-of-round = The Binglepit near {$location} grew to level {$level} and collected {$points} Bingle points
+bingle-pit-end-of-round = The Binglepit near {$location} grew to level [color=teal]{$level}[/color] and collected [color=teal]{$points}[/color] Bingle points
+
+bingle-cant-spawn-pit-here = Not on a grid this is not a good spot for a pit
+bingle-cant-spawn-no-gravity = No gravity need to find a better spot
+bingle-cant-spawn-to-close = to close to another pit
+bingle-spawn-pit = The pit must grow!

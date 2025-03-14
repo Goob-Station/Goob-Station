@@ -1,3 +1,4 @@
+using Content.Shared.Actions;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Content.Shared.Damage;
@@ -21,4 +22,9 @@ public enum BingleVisual : byte
 {
     Upgraded,
     Combat
+}
+
+public sealed partial class SpawnBinglePitActionEvent : InstantActionEvent
+{
+
 }

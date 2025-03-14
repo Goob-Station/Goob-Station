@@ -1,0 +1,10 @@
+- type: entity
+  id: ActionSpawnBinglePit
+  name: spawn bingle pit
+  description: spawn a pit on your location
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _Goobstation/Mobs/Bingle/bingle.rsi
+      state: pit
+    event: !type:SpawnBinglePitActionEvent
