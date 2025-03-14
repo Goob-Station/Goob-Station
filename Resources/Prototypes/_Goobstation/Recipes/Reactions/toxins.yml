@@ -4,12 +4,12 @@
   reactants:
     Ammonia:
       amount: 1
-    SodiumHydroxide:
-      amount: 1
+    SodiumHydroxide: # reserve triclor-fix begin
+      amount: 2
     Ipecac:
-      amount: 1
-    Chlorine:
       amount: 3
+    Ichor:
+      amount: 1 # reserve triclor-fix end
   products:
     Triclor: 3
 
