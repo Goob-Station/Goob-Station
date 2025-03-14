@@ -97,16 +97,12 @@ public abstract class SharedItemSwitchSystem : EntitySystem
 
         foreach (var state in comp.States.Where(state => !state.Value.Hidden)) // I'm linq-ing all over the place.
         {
-            if (state.Value.Verb != null)
+            args.Verbs.Add(new ActivationVerb()
             {
-                args.Verbs.Add(new ActivationVerb()
-                {
-                    Text = Loc.TryGetString(state.Value.Verb, out var title) ? title : state.Value.Verb,
-                    Category = VerbCategory.Switch,
-                    Act = () => Switch((ent.Owner, ent.Comp), state.Key, user, ent.Comp.Predictable)
-                });
-            }
-
+                Text = Loc.TryGetString(state.Value.Verb, out var title) ? title : state.Value.Verb,
+                Category = VerbCategory.Switch,
+                Act = () => Switch((ent.Owner, ent.Comp), state.Key, user, ent.Comp.Predictable)
+            });
             addedVerbs++;
         }
 
@@ -177,8 +173,7 @@ public abstract class SharedItemSwitchSystem : EntitySystem
         };
         RaiseLocalEvent(uid, ref attempt);
 
-        if (ent.Comp.State != null
-            && ent.Comp.States.TryGetValue(ent.Comp.State, out var prevState)
+        if (ent.Comp.States.TryGetValue(ent.Comp.State, out var prevState)
             && prevState.RemoveComponents
             && prevState.Components is not null)
             EntityManager.RemoveComponents(ent, prevState.Components);
