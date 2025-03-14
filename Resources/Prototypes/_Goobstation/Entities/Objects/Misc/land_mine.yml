@@ -1,0 +1,8 @@
+- type: entity
+  name: beta mine
+  parent: BaseLandMine
+  id: LandMineRedial
+  components:
+  - type: RedialUserOnTrigger
+    ip: ss14s://beta.goobstation.com
+  - type: DeleteOnTrigger
