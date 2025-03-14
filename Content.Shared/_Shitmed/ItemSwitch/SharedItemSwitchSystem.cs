@@ -58,25 +58,35 @@ public abstract class SharedItemSwitchSystem : EntitySystem
 
     private void OnUseInHand(Entity<ItemSwitchComponent> ent, ref UseInHandEvent args)
     {
-        if (args.Handled || !ent.Comp.OnUse || ent.Comp.States.Count == 0)
+        var comp = ent.Comp;
+
+        if (args.Handled || !comp.OnUse || comp.States.Count == 0)
             return;
         args.Handled = true;
 
-        if (ent.Comp.States.TryGetValue(Next(ent), out var state) && state.Hidden)
+        if (!comp.IsPowered)
             return;
 
-        Switch((ent, ent.Comp), Next(ent), args.User, predicted: ent.Comp.Predictable);
+        if (comp.States.TryGetValue(Next(ent), out var state) && state.Hidden)
+            return;
+
+        Switch((ent, comp), Next(ent), args.User, predicted: comp.Predictable);
     }
 
     private void OnActivateVerb(Entity<ItemSwitchComponent> ent, ref GetVerbsEvent<ActivationVerb> args)
     {
-        if (!args.CanAccess || !args.CanInteract || !ent.Comp.OnActivate || ent.Comp.States.Count == 0)
+        var comp = ent.Comp;
+
+        if (!args.CanAccess || !args.CanInteract || !comp.OnActivate || comp.States.Count == 0)
+            return;
+
+        if (!comp.IsPowered)
             return;
 
         var user = args.User;
         var addedVerbs = 0;
 
-        foreach (var state in ent.Comp.States.Where(state => !state.Value.Hidden)) // I'm linqing all over the place.
+        foreach (var state in comp.States.Where(state => !state.Value.Hidden)) // I'm linq-ing all over the place.
         {
             args.Verbs.Add(new ActivationVerb()
             {
@@ -93,15 +103,21 @@ public abstract class SharedItemSwitchSystem : EntitySystem
 
     private void OnActivate(Entity<ItemSwitchComponent> ent, ref ActivateInWorldEvent args)
     {
-        if (args.Handled || !ent.Comp.OnActivate)
+        var comp = ent.Comp;
+        var uid = ent.Owner;
+
+        if (args.Handled || !comp.OnActivate)
+            return;
+
+        if (!comp.IsPowered)
             return;
 
         args.Handled = true;
 
-        if (ent.Comp.States.TryGetValue(Next(ent), out var state) && state.Hidden)
+        if (comp.States.TryGetValue(Next(ent), out var state) && state.Hidden)
             return;
 
-        Switch((ent.Owner, ent.Comp), Next(ent), args.User, predicted: ent.Comp.Predictable);
+        Switch((uid, comp), Next(ent), args.User, predicted: comp.Predictable);
     }
 
     private static string Next(Entity<ItemSwitchComponent> ent)
