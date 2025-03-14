@@ -4,6 +4,7 @@ using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
 using Content.Server.Bible;
+using Content.Shared.Weapons.Ranged.Systems;
 
 namespace Content.Server._Goobstation.Religion.Nullrod;
 
@@ -17,24 +18,35 @@ public sealed partial class NullRodSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<NullrodComponent, MeleeHitEvent>(OnMeleeHitEvent);
+        SubscribeLocalEvent<NullrodComponent, AttemptShootEvent>(OnShootAttempt);
     }
 
     private void OnMeleeHitEvent(EntityUid uid, NullrodComponent comp, MeleeHitEvent args)
-
     {
-
         if (HasComp<BibleUserComponent>(args.User))
             return;
 
-        if (_damageableSystem.TryChangeDamage(args.User, comp.DamageOnUntrainedUse, false, origin: uid) != null)
-        {
-            _popupSystem.PopupEntity(Loc.GetString(comp.UntrainedUseString), args.User, args.User, PopupType.MediumCaution);
+        if (_damageableSystem.TryChangeDamage(args.User, comp.DamageOnUntrainedUse, false, origin: uid) == null)
+            return;
 
-            _audio.PlayPvs("/Audio/Effects/hallelujah.ogg", args.User); // Probably change this sound effect LOL
-            args.Handled = true;
+        _popupSystem.PopupEntity(Loc.GetString(comp.UntrainedUseString), args.User, args.User, PopupType.MediumCaution);
 
-        }
+        _audio.PlayPvs(comp.UntrainedUseSound, args.User);
+        args.Handled = true;
+    }
 
+    private void OnShootAttempt(EntityUid uid, NullrodComponent comp, AttemptShootEvent args)
+    {
+        if (HasComp<BibleUserComponent>(args.User))
+            return;
+
+        if (_damageableSystem.TryChangeDamage(args.User, comp.DamageOnUntrainedUse, false, origin: uid) == null)
+            return;
+
+        _popupSystem.PopupEntity(Loc.GetString(comp.UntrainedUseString), args.User, args.User, PopupType.MediumCaution);
+        _audio.PlayPvs(comp.UntrainedUseSound, args.User);
+
+        args.Cancelled = true;
     }
 }
 

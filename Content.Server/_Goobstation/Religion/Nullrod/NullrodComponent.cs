@@ -18,5 +18,11 @@ namespace Content.Server._Goobstation.Religion.Nullrod
         [DataField("UntrainedUseString", required: true)]
         public String UntrainedUseString = default!;
 
+        /// <summary>
+        /// What sound to play on untrained use.
+        /// </summary>
+        [DataField]
+        public SoundSpecifier UntrainedUseSound = new SoundPathSpecifier("/Audio/Effects/hallelujah.ogg");
+
     }
 }

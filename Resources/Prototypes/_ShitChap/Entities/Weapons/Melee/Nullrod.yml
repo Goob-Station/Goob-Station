@@ -400,8 +400,8 @@
   id: WeaponPistolCasul
   description: The first of two huge pistols, capable of firing regenerating silver bullets. Incapable of firing without its sister gun.
   components:
-    - type: Nullrod # Todo - I don't think this can handle ranged attacks, we should change that later.
-      DamageOnUntrainedUse: # Probably check how ninjas do it? idk.
+    - type: Nullrod
+      DamageOnUntrainedUse:
         types:
           Heat: 15
           Holy: 5
