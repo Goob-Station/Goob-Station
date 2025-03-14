@@ -120,7 +120,7 @@ public abstract class SharedItemSwitchSystem : EntitySystem
 
         if (comp is { IsPowered: false, NeedsPower: true })
         {
-            _popup.PopupClient("placeholder", uid, uid);
+            _popup.PopupClient(Loc.GetString("stunbaton-component-low-charge"), ent.Owner, uid);
             return;
         }
 

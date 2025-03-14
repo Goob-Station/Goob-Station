@@ -52,13 +52,13 @@ public sealed partial class ItemSwitchComponent : Component
     public bool NeedsPower = false;
 
     /// <summary>
-    ///     Whether the item requires power to sustain a state.
+    ///     Whether the item currently has enough power to sustain a state.
     /// </summary>
     [DataField]
     public bool IsPowered = true;
 
     /// <summary>
-    ///     Whether the item requires power to sustain a state.
+    ///     The default state of an item, which is also the state it reverts to when out of power.
     /// </summary>
     [DataField]
     public string DefaultState = default!;
