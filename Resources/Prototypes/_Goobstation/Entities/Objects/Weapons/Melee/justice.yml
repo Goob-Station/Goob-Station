@@ -34,6 +34,9 @@
     guides:
     - Security
     - Antagonists
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 4.0
   - type: ItemSwitch
     needsPower: true
     defaultState: off
