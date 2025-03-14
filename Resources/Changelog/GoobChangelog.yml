@@ -6390,3 +6390,9 @@ Entries:
       message: Fixed an edgecase where borgs could bypass their hand whitelist.
   id: 737
   time: '2025-03-14T19:22:09.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Slight Bingle sprite update
+  id: 738
+  time: '2025-03-14T19:22:30.0000000+00:00'
