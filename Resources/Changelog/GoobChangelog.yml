@@ -6356,3 +6356,11 @@ Entries:
       message: Audrey & Aubrey White can now be gibbed with a carp plushie. Go wild.
   id: 732
   time: '2025-03-14T19:20:08.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        BSO weaponry box is now in the BSO's locker instead of being given at
+        spawn.
+  id: 733
+  time: '2025-03-14T19:20:28.0000000+00:00'
