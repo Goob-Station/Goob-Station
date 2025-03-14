@@ -12,7 +12,7 @@ public sealed partial class ItemSwitchComponent : Component
     ///     The item's toggle state.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public required string State;
+    public string State;
 
     [DataField(readOnly: true)]
     public Dictionary<string, ItemSwitchState> States = [];
@@ -63,12 +63,16 @@ public sealed partial class ItemSwitchComponent : Component
     [DataField]
     public string DefaultState = default!;
 
+    public ItemSwitchComponent(string state)
+    {
+        State = state;
+    }
 }
 [DataDefinition]
 public sealed partial class ItemSwitchState : BoundUserInterfaceMessage
 {
     [DataField]
-    public required string Verb;
+    public string Verb;
 
     [DataField]
     public SoundSpecifier? SoundStateActivate;
@@ -93,6 +97,11 @@ public sealed partial class ItemSwitchState : BoundUserInterfaceMessage
     /// </summary>
     [DataField]
     public int EnergyPerUse = default!;
+
+    public ItemSwitchState(string verb)
+    {
+        Verb = verb;
+    }
 }
 
 /// <summary>
@@ -102,8 +111,8 @@ public sealed partial class ItemSwitchState : BoundUserInterfaceMessage
 public record struct ItemSwitchAttemptEvent()
 {
     public bool Cancelled = false;
-    public required readonly EntityUid? User { get; init; }
-    public required readonly string State { get; init; }
+    public required EntityUid? User { get; init; }
+    public required  string State { get; init; }
     /// <summary>
     /// Pop-up that gets shown to users explaining why the attempt was cancelled.
     /// </summary>
@@ -116,7 +125,7 @@ public record struct ItemSwitchAttemptEvent()
 [ByRefEvent]
 public readonly record struct ItemSwitchedEvent()
 {
-    public required readonly bool Predicted { get; init; }
-    public required readonly string State { get; init; }
-    public required readonly EntityUid? User { get; init; }
+    public required bool Predicted { get; init; }
+    public required string State { get; init; }
+    public required EntityUid? User { get; init; }
 }
