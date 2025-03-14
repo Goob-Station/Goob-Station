@@ -677,6 +677,16 @@
   - SpellbookEquipment
 
 - type: listing
+  id: SpellBookStaffAnimate
+  name: spellbook-staff-animate-name
+  description: spellbook-staff-animate-desc
+  productEntity: AnimationStaff
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookEquipment
+
+- type: listing
   id: SpellbookStaffChange
   name: spellbook-staff-change-name
   description: spellbook-staff-change-desc
