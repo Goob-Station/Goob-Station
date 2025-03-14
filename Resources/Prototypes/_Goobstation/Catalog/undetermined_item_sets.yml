@@ -75,7 +75,7 @@
 # Head of Security
 
 - type: thiefBackpackSet
-  id: MultiPhaseSet
+  id: MultiphaseSet
   name: blueshield-box-category-blueshield-name
   description: blueshield-box-category-blueshield-description
   sprite:
