@@ -6,3 +6,6 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/contractor_uplink.rsi
+    layers:
+      - state: icon
+  - type: Appearance
