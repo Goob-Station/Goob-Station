@@ -59,9 +59,17 @@ public abstract class SharedItemSwitchSystem : EntitySystem
     private void OnUseInHand(Entity<ItemSwitchComponent> ent, ref UseInHandEvent args)
     {
         var comp = ent.Comp;
+        var uid = args.User;
 
-        if (args.Handled || !comp.OnUse || comp.States.Count == 0 || !comp.IsPowered)
+        if (args.Handled || !comp.OnUse || comp.States.Count == 0)
             return;
+
+        if (comp is { IsPowered: false, NeedsPower: true })
+        {
+            _popup.PopupClient("placeholder", uid, uid);
+            return;
+        }
+
         args.Handled = true;
 
         if (comp.States.TryGetValue(Next(ent), out var state) && state.Hidden)
@@ -73,9 +81,16 @@ public abstract class SharedItemSwitchSystem : EntitySystem
     private void OnActivateVerb(Entity<ItemSwitchComponent> ent, ref GetVerbsEvent<ActivationVerb> args)
     {
         var comp = ent.Comp;
+        var uid = args.User;
 
-        if (!args.CanAccess || !args.CanInteract || !comp.OnActivate || comp.States.Count == 0 || !comp.IsPowered)
+        if (!args.CanAccess || !args.CanInteract || !comp.OnActivate || comp.States.Count == 0)
             return;
+
+        if (comp is { IsPowered: false, NeedsPower: true })
+        {
+            _popup.PopupClient("placeholder", uid, uid);
+            return;
+        }
 
         var user = args.User;
         var addedVerbs = 0;
@@ -98,17 +113,23 @@ public abstract class SharedItemSwitchSystem : EntitySystem
     private void OnActivate(Entity<ItemSwitchComponent> ent, ref ActivateInWorldEvent args)
     {
         var comp = ent.Comp;
-        var uid = ent.Owner;
+        var uid = args.User;
 
-        if (args.Handled || !comp.OnActivate || !comp.IsPowered)
+        if (args.Handled || !comp.OnActivate)
             return;
+
+        if (comp is { IsPowered: false, NeedsPower: true })
+        {
+            _popup.PopupClient("placeholder", uid, uid);
+            return;
+        }
 
         args.Handled = true;
 
         if (comp.States.TryGetValue(Next(ent), out var state) && state.Hidden)
             return;
 
-        Switch((uid, comp), Next(ent), args.User, predicted: comp.Predictable);
+        Switch((ent.Owner, comp), Next(ent), args.User, predicted: comp.Predictable);
     }
 
     private static string Next(Entity<ItemSwitchComponent> ent)
