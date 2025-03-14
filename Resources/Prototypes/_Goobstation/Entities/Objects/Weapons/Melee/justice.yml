@@ -20,8 +20,9 @@
   - type: Battery
     maxCharge: 500
     startingCharge: 500
+  - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 10
+    autoRechargeRate: 20
   - type: DisarmMalus
   - type: UseDelay
   - type: Tag
@@ -59,7 +60,7 @@
         verb: stun
         energyPerUse: 5
         sprite:
-          sprite: _Shitmed/Objects/Weapons/Melee/wonderprod.rsi
+          sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
           state: stun-icon
         components:
         - type: MeleeWeapon
@@ -82,7 +83,7 @@
         verb: ion
         energyPerUse: 40
         sprite:
-          sprite: _Shitmed/Objects/Weapons/Melee/wonderprod.rsi
+          sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
           state: cuffs-icon
         components:
         - type: MeleeWeapon
@@ -98,8 +99,8 @@
         verb: lethal
         energyPerUse: 50
         sprite:
-          sprite: _Shitmed/Objects/Weapons/Melee/wonderprod.rsi
-          state: sleep-icon
+          sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+          state: lethal-icon
         components:
         - type: MeleeWeapon
           wideAnimationRotation: -135
@@ -115,8 +116,8 @@
         verb: unstable
         energyPerUse: 150
         sprite:
-          sprite: _Shitmed/Objects/Weapons/Melee/wonderprod.rsi
-          state: damage-icon
+          sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+          state: sleep-icon
         components:
         - type: MeleeWeapon
           wideAnimationRotation: -135
