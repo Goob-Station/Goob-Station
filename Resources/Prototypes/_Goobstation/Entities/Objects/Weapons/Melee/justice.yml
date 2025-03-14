@@ -127,4 +127,4 @@
           damage:
             types:
               Heat: 25
-              Radiation: 25
+              Shock: 25
