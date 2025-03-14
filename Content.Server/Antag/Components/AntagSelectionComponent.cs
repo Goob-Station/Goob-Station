@@ -58,6 +58,14 @@ public sealed partial class AntagSelectionComponent : Component
     /// </summary>
     [DataField]
     public bool UseCharacterNames;
+
+    /// <summary>
+    /// Goobstation.
+    /// This will always spawn player if they rolled antag (before jobs) even if they have no eligible jobs selected,
+    /// it would spawn them as overflow job
+    /// </summary>
+    [DataField]
+    public bool ForceAntagRoll;
 }
 
 [DataDefinition]
@@ -209,6 +217,13 @@ public partial struct AntagSelectionDefinition()
     /// </summary>
     [DataField]
     public bool UnequipOldGear;
+
+    /// <summary>
+    /// Goobstation.
+    /// Jobs that are blacklisted from rolling.
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<JobPrototype>> BlacklistedJobs = new();
 }
 
 /// <summary>
