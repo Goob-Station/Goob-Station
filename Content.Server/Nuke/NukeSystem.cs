@@ -337,7 +337,7 @@ public sealed class NukeSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
-        TryComp<NukeDiskComponent>(uid, out var NukeDiskComponent); // Goobstation
+        TryComp<NukeDiskComponent>(component.DiskSlot.Item, out var NukeDiskComponent); // Goobstation
         var isOverride = NukeDiskComponent != null && NukeDiskComponent.Override; // Goobstation
 
         switch (component.Status)
