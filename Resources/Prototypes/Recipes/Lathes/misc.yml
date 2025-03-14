@@ -96,6 +96,15 @@
   materials:
     Wood: 100
 
+- type: latheRecipe # Goobstation
+  id: Drone
+  result: Drone
+  completetime: 6
+  materials:
+    Steel: 1000
+    Glass: 500
+    Plastic: 500
+
 - type: latheRecipe
   id: SynthesizerInstrument
   result: SynthesizerInstrument
