@@ -5,17 +5,17 @@
   description: An expensive & self-recharging energy sword, designed specifically for the Head of Security. If it were not for injustice, man would not know justice.
   components:
   - type: Item
-    sprite: _Shitmed/Objects/Weapons/Melee/wonderprod.rsi # Todo - Change this.
+    sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
     size: Huge
     storedRotation: -90
   - type: Clothing
-    sprite: _Shitmed/Objects/Weapons/Melee/wonderprod.rsi # Todo - Change this.
+    sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
     quickEquip: false
     slots:
     - Belt
     - suitStorage
   - type: Sprite
-    sprite: _Shitmed/Objects/Weapons/Melee/wonderprod.rsi # Todo - Change this.
+    sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
     state: icon
   - type: Battery
     maxCharge: 500
