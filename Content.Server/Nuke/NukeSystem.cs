@@ -337,8 +337,7 @@ public sealed class NukeSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
-        TryComp<NukeDiskComponent>(component.DiskSlot.Item, out var NukeDiskComponent); // Goobstation
-        var isOverride = NukeDiskComponent != null && NukeDiskComponent.Override; // Goobstation
+        var isOverride = GetDiskOverrideStatus(component.DiskSlot.Item); // Goobstation
 
         switch (component.Status)
         {
@@ -451,6 +450,12 @@ public sealed class NukeSystem : EntitySystem
 
         return ret;
     }
+    private bool GetDiskOverrideStatus(EntityUid? diskItem) // Goobstation
+    {
+        if (diskItem == null)
+            return false;
+        return TryComp<NukeDiskComponent>(diskItem, out var diskComp) && diskComp.Override;
+    }
 
     #region Public API
 
@@ -465,8 +470,7 @@ public sealed class NukeSystem : EntitySystem
         if (component.Status == NukeStatus.ARMED)
             return;
 
-        TryComp<NukeDiskComponent>(component.DiskSlot.Item, out var NukeDiskComponent); // Goobstation
-        var isOverride = NukeDiskComponent != null && NukeDiskComponent.Override; // Goobstation
+        var isOverride = GetDiskOverrideStatus(component.DiskSlot.Item); // Goobstation
 
         var nukeXform = Transform(uid);
         var stationUid = _station.GetStationInMap(nukeXform.MapID);
