@@ -1,4 +1,3 @@
-using System.Linq;
 using Content.Server.AlertLevel;
 using Content.Server.Audio;
 using Content.Server.Chat.Systems;
@@ -13,6 +12,7 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
+using Content.Shared.Item;
 using Content.Shared.Maps;
 using Content.Shared.Nuke;
 using Content.Shared.Popups;
@@ -22,7 +22,6 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
@@ -338,11 +337,16 @@ public sealed class NukeSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
+        TryComp<NukeDiskComponent>(uid, out var NukeDiskComponent); // Goobstation
+        var isOverride = NukeDiskComponent != null && NukeDiskComponent.Override; // Goobstation
+
         switch (component.Status)
         {
             case NukeStatus.AWAIT_DISK:
-                if (component.DiskSlot.HasItem)
+                if (component.DiskSlot.HasItem && !isOverride) // Goobstation
                     component.Status = NukeStatus.AWAIT_CODE;
+                else if (component.DiskSlot.HasItem && isOverride) // Goobstation
+                    component.Status = NukeStatus.AWAIT_ARM;
                 break;
             case NukeStatus.AWAIT_CODE:
                 if (!component.DiskSlot.HasItem)

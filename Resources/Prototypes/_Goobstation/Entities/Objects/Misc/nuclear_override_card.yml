@@ -6,6 +6,7 @@
   description: A surprisingly cheaply made plastic card, capable of overriding a nuclear devices safety protocols.
   components:
   - type: NukeDisk
+    override: true
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/nukeoverride.rsi
     state: icon
