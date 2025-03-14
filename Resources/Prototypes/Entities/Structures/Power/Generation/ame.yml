@@ -101,6 +101,9 @@
     guides:
     - AME
     - Power
+  - type: Tag
+    tags:
+    - DroneUsable # Goobstation
   - type: Electrified
     onHandInteract: false
     onInteractUsing: false

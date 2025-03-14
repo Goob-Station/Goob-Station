@@ -62,6 +62,9 @@
       materialComposition:
         Steel: 12
         Wood: 25
+    - type: Tag
+      tags:
+        - DroneUsable # Goobstation
 
 - type: entity
   name: mousetrap

@@ -10,6 +10,7 @@
       state: clowncar
     event: !type:ThankRiderActionEvent
     useDelay: 60 # 60 sec delay
+    checkCanInteract: false
 
 - type: entity
   id: ActionQuietBackThere
