@@ -6262,3 +6262,17 @@ Entries:
       message: Rescue is imminent. Please do not resist.
   id: 721
   time: '2025-03-14T01:25:07.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: >-
+        Added prefilled styptic powder and silver sulfadiazine spray bottles to
+        brute and burn medkits
+    - type: Add
+      message: Added brute and burn autoinjectors to brute and burn medkits
+    - type: Add
+      message: Added iron pills to first aid kit
+    - type: Remove
+      message: Removed copper and kelotane pills from brute and burn kits
+  id: 722
+  time: '2025-03-14T01:25:59.0000000+00:00'
