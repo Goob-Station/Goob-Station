@@ -263,7 +263,7 @@
       - state: icon
         map: ["enum.GunVisualLayers.Base"]
   - type: Clothing
-    sprite: _Goobstation/Objects/Fun/china_lake.rsi
+    sprite: _Goobstation/Objects/Fun/taiwan_pond.rsi
     slots:
     - Back
     - suitStorage
