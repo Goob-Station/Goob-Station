@@ -46,6 +46,7 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
     {
         var batteryComponent = GetBatteryComponent(ent);
         var state = GetState(ent);
+        var comp = ent.Comp;
 
         if (state == null)
             return;
@@ -55,8 +56,15 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
         if (!ent.Comp.NeedsPower)
             return;
 
-        if (batteryComponent != null && batteryComponent.CurrentCharge < energyPerUse)
-            _itemSwitch.Switch((ent.Owner, ent.Comp), ent.Comp.DefaultState);
+        if (batteryComponent == null || !(batteryComponent.CurrentCharge < energyPerUse))
+            return;
+
+        if (batteryComponent.CurrentCharge > energyPerUse)
+            comp.IsPowered = true;
+
+        _itemSwitch.Switch((ent.Owner, ent.Comp), ent.Comp.DefaultState);
+        comp.IsPowered = false;
+
     }
 
     private void OnMeleeAttack(Entity<ItemSwitchComponent> ent, ref MeleeHitEvent args)
