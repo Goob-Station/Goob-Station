@@ -1,5 +1,6 @@
 using Content.Shared.Disease;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using System;
 
 namespace Content.Shared.Disease;
@@ -8,6 +9,7 @@ namespace Content.Shared.Disease;
 /// Causes this effect to only trigger ocassionally
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[EntityCategory("Diseases")]
 public sealed partial class DiseasePeriodicConditionComponent : ScalingDiseaseEffect
 {
     /// <summary>

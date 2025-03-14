@@ -13,6 +13,7 @@ namespace Content.Shared.Disease;
 /// Component for disease behaviors
 /// </summary>
 [RegisterComponent]
+[EntityCategory("Diseases")]
 public sealed partial class DiseaseEffectComponent : Component
 {
     /// <summary>

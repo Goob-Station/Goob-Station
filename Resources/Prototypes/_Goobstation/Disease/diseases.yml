@@ -1,7 +1,6 @@
 # used for disease spread
 - type: entity
   id: DiseaseBase
-  categories: [ HideSpawnMenu ]
   components:
   - type: Disease
 
@@ -10,7 +9,6 @@
   parent: DiseaseBase
   name: flu
   description: Highly annoying and mildly dangerous.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Disease
     diseaseType: Viral
@@ -28,7 +26,6 @@
   parent: DiseaseBase
   name: cancer
   description: Deals genetic damage to the infected. Doesn't go away by itself.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Disease
     diseaseType: OwnCells

@@ -1,7 +1,6 @@
 - type: entity
-  id: DiseaseBehaviorBase
-  categories: [ HideSpawnMenu ]
   abstract: true
+  id: DiseaseBehaviorBase
   components:
   - type: DiseaseEffect
     allowedDiseaseTypes:
@@ -17,7 +16,6 @@
   parent: DiseaseBehaviorBase
   name: cancer
   description: Deals genetic damage over time.
-  categories: [ HideSpawnMenu ]
   components:
   - type: DiseaseEffect
     complexity: 40
@@ -31,7 +29,6 @@
   parent: DiseaseBehaviorBase
   name: poison
   description: Deals poison damage over time.
-  categories: [ HideSpawnMenu ]
   components:
   - type: DiseaseEffect
     complexity: 16
@@ -45,7 +42,6 @@
   parent: DiseaseBehaviorBase
   name: vomiting
   description: Makes you periodically vomit.
-  categories: [ HideSpawnMenu ]
   components:
   - type: DiseaseEffect
     complexity: 12 # can make you constantly hungry
@@ -62,7 +58,6 @@
   parent: DiseaseBehaviorBase
   name: feeling unwell
   description: Makes you feel unwell.
-  categories: [ HideSpawnMenu ]
   components:
   - type: DiseaseEffect
     complexity: 4 # just an annoyance
@@ -79,7 +74,6 @@
   parent: DiseaseBehaviorBase
   name: headache
   description: Gives you headaches, which may make working more difficult.
-  categories: [ HideSpawnMenu ]
   components:
   - type: DiseaseEffect
     complexity: 8 # very annoying
@@ -96,7 +90,6 @@
   parent: DiseaseBehaviorBase
   name: immune resistance
   description: Makes the disease resist immunity once developed.
-  categories: [ HideSpawnMenu ]
   components:
   - type: DiseaseEffect
     complexity: 12
@@ -107,7 +100,6 @@
   parent: DiseaseBehaviorBase
   name: cough
   description: Makes you cough. Infective.
-  categories: [ HideSpawnMenu ]
   components:
   - type: DiseaseEffect
     complexity: 6

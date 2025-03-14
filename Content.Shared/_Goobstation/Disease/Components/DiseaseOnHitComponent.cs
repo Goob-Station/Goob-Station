@@ -5,6 +5,7 @@ using System;
 namespace Content.Shared.Disease;
 
 [RegisterComponent]
+[EntityCategory("Diseases")]
 public sealed partial class DiseaseOnHitComponent : Component
 {
     /// <summary>
