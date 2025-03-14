@@ -1,0 +1,27 @@
+<Document>
+  # Chitinid
+
+  <Box>
+    <GuideEntityEmbed Entity="MobChitinid" Caption=""/>
+  </Box>
+
+  An industrious hymenoptera species, the Chitinid are strong and diligent. Thanks to evolution, they have grown an acute resistance to radiation, but not without its side effects.
+
+  ## Diet
+  - Can eat raw meat.
+
+  ## Benefits
+  - Takes 80% less Radiation, 10% less Slash Blunt and Piercing.
+  - Their bodies naturally recover from light radiation damage up to a point, once they accumulate enough radiation they must purge it from their systems in the form of a small rock [color=#ff0f0f]WARNING:The Chitzite they expel is slightly radioactive [/color].
+  - They are Better at pulling and carrying things.
+  - They possess a bio light.
+
+  ## Drawbacks
+  - They take 15% more Shock damage due to their biology.
+  - Due to their hard shells normal syringes can not pierce them, requiring hypos to bypass the toughness.
+  - Thanks to their overactive systems they get hungry 33% faster.
+  - The cold does not agree with their biology and makes their movement sluggish the colder it gets, the cold also harms them more than others causing them to take 25% more damage from it.
+  - They are deceptively heavy due to their lifestyle and diet.
+  - Bug Blood.
+
+</Document>

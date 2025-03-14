@@ -241,7 +241,7 @@
   id: GauzeHead
   bodyPart: Head
   markingCategory: Overlay
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, Moth]
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, Moth, Chitinid] # Delta V - Chitinid
   coloring:
     default:
       type:
@@ -327,7 +327,7 @@
   id: GauzeMothBlindfold
   bodyPart: Eyes
   markingCategory: Overlay
-  speciesRestriction: [Moth]
+  speciesRestriction: [Moth, Chitinid] # Delta V - Chitinid
   coloring:
     default:
       type:
@@ -341,7 +341,7 @@
   id: GauzeMothShoulder
   bodyPart: Chest
   markingCategory: Overlay
-  speciesRestriction: [Moth]
+  speciesRestriction: [Moth, Chitinid] # Delta V - Chitinid
   coloring:
     default:
       type:
@@ -355,7 +355,7 @@
   id: GauzeMothStomach
   bodyPart: Chest
   markingCategory: Overlay
-  speciesRestriction: [Moth]
+  speciesRestriction: [Moth, Chitinid] # Delta V - Chitinid
   coloring:
     default:
       type:
@@ -369,7 +369,7 @@
   id: GauzeMothLeftEyePatch
   bodyPart: Eyes
   markingCategory: Overlay
-  speciesRestriction: [Moth]
+  speciesRestriction: [Moth, Chitinid] # Delta V - Chitinid
   coloring:
     default:
       type:
@@ -383,7 +383,7 @@
   id: GauzeMothLeftEyePad
   bodyPart: Eyes
   markingCategory: Overlay
-  speciesRestriction: [Moth]
+  speciesRestriction: [Moth, Chitinid] # Delta V - Chitinid
   coloring:
     default:
       type:
@@ -397,7 +397,7 @@
   id: GauzeMothRightEyePatch
   bodyPart: Eyes
   markingCategory: Overlay
-  speciesRestriction: [Moth]
+  speciesRestriction: [Moth, Chitinid] # Delta V - Chitinid
   coloring:
     default:
       type:
@@ -411,7 +411,7 @@
   id: GauzeMothRightEyePad
   bodyPart: Eyes
   markingCategory: Overlay
-  speciesRestriction: [Moth]
+  speciesRestriction: [Moth, Chitinid] # Delta V - Chitinid
   coloring:
     default:
       type:
@@ -425,7 +425,7 @@
   id: GauzeMothUpperArmRight
   bodyPart: RArm
   markingCategory: Overlay
-  speciesRestriction: [Moth]
+  speciesRestriction: [Moth, Chitinid] # Delta V - Chitinid
   coloring:
     default:
       type:
@@ -439,7 +439,7 @@
   id: GauzeMothUpperArmLeft
   bodyPart: LArm
   markingCategory: Overlay
-  speciesRestriction: [Moth]
+  speciesRestriction: [Moth, Chitinid] # Delta V - Chitinid
   coloring:
     default:
       type:
@@ -453,7 +453,7 @@
   id: GauzeMothUpperLegRight
   bodyPart: RLeg
   markingCategory: Overlay
-  speciesRestriction: [Moth]
+  speciesRestriction: [Moth, Chitinid] # Delta V - Chitinid
   coloring:
     default:
       type:
@@ -467,7 +467,7 @@
   id: GauzeMothUpperLegLeft
   bodyPart: LLeg
   markingCategory: Overlay
-  speciesRestriction: [Moth]
+  speciesRestriction: [Moth, Chitinid] # Delta V - Chitinid
   coloring:
     default:
       type:
@@ -481,7 +481,7 @@
   id: GauzeMothLowerLegRight
   bodyPart: RFoot
   markingCategory: Overlay
-  speciesRestriction: [Moth]
+  speciesRestriction: [Moth, Chitinid] # Delta V - Chitinid
   coloring:
     default:
       type:
@@ -495,7 +495,7 @@
   id: GauzeMothLowerLegLeft
   bodyPart: LFoot
   markingCategory: Overlay
-  speciesRestriction: [Moth]
+  speciesRestriction: [Moth, Chitinid] # Delta V - Chitinid
   coloring:
     default:
       type:

@@ -126,6 +126,7 @@
     - Oni
     - Resomi
     - Tajaran
+    - Chitinid # DeltaV
 
 - type: loadoutEffectGroup
   id: EffectSpeciesVox
