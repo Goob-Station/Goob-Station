@@ -318,6 +318,9 @@
   id: ToySword
 
 - type: Tag
+  id: Telecrystal
+
+- type: Tag
   id: Undead
 
 - type: Tag
