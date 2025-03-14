@@ -6218,3 +6218,15 @@ Entries:
       message: Bluespace crystal recipe is now 0.2 diamond and 1 plasma.
   id: 716
   time: '2025-03-14T01:19:11.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Tweak
+      message: Proto-kinetic shotgun fires 3 shots (instead of 4)
+    - type: Tweak
+      message: Proto-kinetic shotgun now requires wielding to fire
+    - type: Tweak
+      message: PKA fire-rate upgrades now require 40 storage instead of 20
+    - type: Tweak
+      message: PKA range upgrades now take up 20 space instead of 30
+  id: 717
+  time: '2025-03-14T01:19:42.0000000+00:00'
