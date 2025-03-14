@@ -16,10 +16,10 @@ public sealed class RedialUserOnTriggerSystem : EntitySystem
 
     private void OnTrigger(EntityUid uid, RedialUserOnTriggerComponent component, TriggerEvent args)
     {
-        if (!TryComp(args.User, out ActorComponent? actor) || component.IP == string.Empty)
+        if (!TryComp(args.User, out ActorComponent? actor) || component.Address == string.Empty)
             return;
 
-        _redial.Redial(actor.PlayerSession.Channel, component.IP);
+        _redial.Redial(actor.PlayerSession.Channel, component.Address);
 
         args.Handled = true;
     }

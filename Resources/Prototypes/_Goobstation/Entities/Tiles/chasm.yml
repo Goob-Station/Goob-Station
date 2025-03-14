@@ -4,4 +4,4 @@
   suffix: REDIAL
   components:
   - type: RedialUserOnTrigger
-    IP: ss14s://beta.goobstation.com
+    address: ss14s://beta.goobstation.com

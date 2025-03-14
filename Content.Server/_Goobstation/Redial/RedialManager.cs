@@ -16,14 +16,14 @@ public sealed class RedialManager
         _netManager.RegisterNetMessage<MsgRedial>();
     }
 
-    public void Redial(INetChannel channel, string ip)
+    public void Redial(INetChannel channel, string address)
     {
         if (!channel.IsConnected)
             return;
 
         var msg = new MsgRedial();
 
-        msg.IP = ip;
+        msg.Address = address;
 
         channel.SendMessage(msg);
     }
@@ -34,7 +34,7 @@ public sealed class RedialCommand : IConsoleCommand
 {
     public string Command => "redial";
     public string Description => "Redials a player to another server";
-    public string Help => "Usage: redial <Player> [IP]";
+    public string Help => "Usage: redial <Player> [Address]";
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {

@@ -7,8 +7,8 @@ namespace Content.Client._Goobstation.Redial;
 public sealed class RedialManager
 {
     public void Initialize()
-        => IoCManager.Resolve<IClientNetManager>().RegisterNetMessage<MsgRedial>(RxCallback);
+        => IoCManager.Resolve<IClientNetManager>().RegisterNetMessage<MsgRedial>(RedialOnMessage);
 
-    private void RxCallback(MsgRedial message)
-        => IoCManager.Resolve<IGameController>().Redial(message.IP);
+    private void RedialOnMessage(MsgRedial message)
+        => IoCManager.Resolve<IGameController>().Redial(message.Address);
 }

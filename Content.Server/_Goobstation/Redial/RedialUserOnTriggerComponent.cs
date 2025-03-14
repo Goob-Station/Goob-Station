@@ -4,5 +4,5 @@
 public sealed partial class RedialUserOnTriggerComponent : Component
 {
     [DataField]
-    public string IP = string.Empty;
+    public string Address = string.Empty;
 }

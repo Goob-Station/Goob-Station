@@ -8,16 +8,16 @@ public sealed class MsgRedial : NetMessage
 {
     public override MsgGroups MsgGroup => MsgGroups.Core;
 
-    public string IP = string.Empty;
+    public string Address = string.Empty;
 
     public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
     {
-        IP = buffer.ReadString();
+        Address = buffer.ReadString();
     }
 
     public override void WriteToBuffer(NetOutgoingMessage buffer, IRobustSerializer serializer)
     {
-        buffer.Write(IP);
+        buffer.Write(Address);
     }
 
     public override NetDeliveryMethod DeliveryMethod => NetDeliveryMethod.ReliableOrdered;
