@@ -2,6 +2,7 @@ using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared._Shitmed.ItemSwitch;
 using Content.Shared._Shitmed.ItemSwitch.Components;
+using Content.Shared.Examine;
 using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Server._Shitmed.ItemSwitch;
@@ -13,6 +14,7 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
     public override void Initialize()
     {
         base.Initialize();
+        SubscribeLocalEvent<ItemSwitchComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<ItemSwitchComponent, ChargeChangedEvent>(OnChargeChanged);
         SubscribeLocalEvent<ItemSwitchComponent, MeleeAttackEvent>(OnMeleeAttackRef);
     }
@@ -22,9 +24,22 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
         return TryComp<BatteryComponent>(ent.Owner, out var battery) ? battery : null;
     }
 
-    public ItemSwitchState? GetState(Entity<ItemSwitchComponent> ent)
+    public static ItemSwitchState? GetState(Entity<ItemSwitchComponent> ent)
     {
         return ent.Comp.States.TryGetValue(ent.Comp.State, out var state) ? state : null;
+    }
+
+    private void OnExamined(Entity<ItemSwitchComponent> ent, ref ExaminedEvent args)
+    {
+        var state = GetState(ent);
+        var batteryComponent = GetBatteryComponent(ent);
+        var comp = ent.Comp;
+
+        if (batteryComponent == null || !comp.NeedsPower || state == null)
+            return;
+
+        var count = (int) (batteryComponent.CurrentCharge / state.EnergyPerUse);
+        args.PushMarkup(Loc.GetString("melee-battery-examine", ("color", "yellow"), ("count", count)));
     }
 
     private void OnChargeChanged(Entity<ItemSwitchComponent> ent, ref ChargeChangedEvent args)
@@ -39,6 +54,7 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
 
         if (!ent.Comp.NeedsPower)
             return;
+
         if (batteryComponent != null && batteryComponent.CurrentCharge < energyPerUse)
             _itemSwitch.TryTurnOff(ent);
     }
