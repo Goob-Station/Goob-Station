@@ -34,7 +34,7 @@ public sealed class RedialCommand : IConsoleCommand
 {
     public string Command => "redial";
     public string Description => "Redials a player to another server";
-    public string Help => "Usage: ghostkick <Player> [IP]";
+    public string Help => "Usage: redial <Player> [IP]";
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
