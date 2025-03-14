@@ -6230,3 +6230,11 @@ Entries:
       message: PKA range upgrades now take up 20 space instead of 30
   id: 717
   time: '2025-03-14T01:19:42.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Mapped BSO & NTR into Marathon, Packed, and Omega.
+    - type: Add
+      message: Marathon now has holopads.
+  id: 718
+  time: '2025-03-14T01:21:23.0000000+00:00'
