@@ -6204,3 +6204,137 @@ Entries:
       message: Chef cqc is no longer tied to the beacon.
   id: 714
   time: '2025-03-11T21:30:49.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: Lowered nukies chance by about half.
+    - type: Tweak
+      message: Lowered midround revs chance.
+  id: 715
+  time: '2025-03-13T12:08:43.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Bluespace crystal recipe is now 0.2 diamond and 1 plasma.
+  id: 716
+  time: '2025-03-14T01:19:11.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Tweak
+      message: Proto-kinetic shotgun fires 3 shots (instead of 4)
+    - type: Tweak
+      message: Proto-kinetic shotgun now requires wielding to fire
+    - type: Tweak
+      message: PKA fire-rate upgrades now require 40 storage instead of 20
+    - type: Tweak
+      message: PKA range upgrades now take up 20 space instead of 30
+  id: 717
+  time: '2025-03-14T01:19:42.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Mapped BSO & NTR into Marathon, Packed, and Omega.
+    - type: Add
+      message: Marathon now has holopads.
+  id: 718
+  time: '2025-03-14T01:21:23.0000000+00:00'
+- author: Aineias1
+  changes:
+    - type: Add
+      message: Added caviar
+  id: 719
+  time: '2025-03-14T01:22:21.0000000+00:00'
+- author: ItsMeThom
+  changes:
+    - type: Add
+      message: New borg chassis redesigns from Nanotrasen!
+  id: 720
+  time: '2025-03-14T01:24:19.0000000+00:00'
+- author: SolsticeOfTheWinter, NoSugarPlumNovember
+  changes:
+    - type: Tweak
+      message: Tweaked ERT ships.
+    - type: Add
+      message: >-
+        Added a Nuclear Authentication Override Card for admins, and for special
+        operations officers.
+    - type: Add
+      message: Rescue is imminent. Please do not resist.
+  id: 721
+  time: '2025-03-14T01:25:07.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: >-
+        Added prefilled styptic powder and silver sulfadiazine spray bottles to
+        brute and burn medkits
+    - type: Add
+      message: Added brute and burn autoinjectors to brute and burn medkits
+    - type: Add
+      message: Added iron pills to first aid kit
+    - type: Remove
+      message: Removed copper and kelotane pills from brute and burn kits
+  id: 722
+  time: '2025-03-14T01:25:59.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Made barratry even worse.
+  id: 723
+  time: '2025-03-14T01:26:25.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: passanger being able to unBuckle bug.
+  id: 724
+  time: '2025-03-14T01:27:22.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed harpies being immune to anomaly infections.
+  id: 725
+  time: '2025-03-14T01:27:39.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: >-
+        The Staff of Animation, Mjolnir and Singularity Hammer to the Wizards
+        Grimoire.
+    - type: Add
+      message: Mjolnir returns to your hand when thrown.
+  id: 726
+  time: '2025-03-14T01:27:59.0000000+00:00'
+- author: SolsticeOfTheWinter, pheenty, Gallagin, John Powercreep
+  changes:
+    - type: Add
+      message: Gave BSO their beret back. You're welcome Gallagin.
+    - type: Tweak
+      message: >-
+        Changed how blueshields loadout works. You now spawn with a box, and
+        have to choose which items you want
+    - type: Tweak
+      message: >-
+        Clarified in the blueshield SOP who they should protect when multiple
+        command members are in danger at once.
+    - type: Tweak
+      message: >-
+        Blueshield loadout has recieved and lost several items. Too many for me
+        to list.
+    - type: Tweak
+      message: The bluespace lifeline implanter is now enforced. If you die, you die.
+    - type: Tweak
+      message: The EG-4 Energy revolver has been reworked.
+  id: 727
+  time: '2025-03-14T01:28:36.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: You can now crease jordans.
+  id: 728
+  time: '2025-03-14T01:29:02.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed NTR not having access to their room on some maps.
+  id: 729
+  time: '2025-03-14T02:06:27.0000000+00:00'
