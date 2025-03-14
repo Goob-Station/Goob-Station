@@ -1,0 +1,34 @@
+- type: entity
+  parent: ClothingBackpackSatchelLeather
+  id: ClothingBackpackSatchelLeatherFilledNavyOfficer
+  components:
+  - type: StorageFill
+    contents:
+    - id: HandheldFaxOfficial
+    - id: HyperFlash
+    - id: WeaponPulsePistol
+
+- type: entity
+  parent: ClothingBackpackSatchelLeather
+  id: ClothingBackpackSatchelLeatherFilledSpecOps
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponPulsePistol
+    - id: HandheldFaxOfficial
+    - id: NukeOverride # No need for codes.
+    - id: MagazineLightRifleUranium
+    - id: MagazineLightRifleUranium
+    - id: HyperFlash
+
+- type: entity
+  parent: ClothingBackpackChameleon
+  id: ClothingBackpackChameleonFilledUndercover
+  components:
+  - type: StorageFill
+    contents:
+    - id: ExecutiveIDCardChameleon
+    - id: WeaponPulsePistol
+    - id: MagazinePistolNeurotoxin
+    - id: MagazinePistolNeurotoxin
+    - id: HyperFlash
