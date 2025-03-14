@@ -6344,3 +6344,9 @@ Entries:
       message: Fixed Greatshield not recharging sometimes.
   id: 730
   time: '2025-03-14T19:18:50.0000000+00:00'
+- author: SolsticeOfTheWinter, NoSugarPlumNovember
+  changes:
+    - type: Tweak
+      message: Nuclear Override Card now properly Overrides. No need for a code.
+  id: 731
+  time: '2025-03-14T19:19:12.0000000+00:00'
