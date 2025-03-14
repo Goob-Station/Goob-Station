@@ -185,16 +185,6 @@ public abstract class SharedItemSwitchSystem : EntitySystem
 
         return true;
     }
-
-    public void TryTurnOff(Entity<ItemSwitchComponent> ent)
-    {
-        var uid = ent.Owner;
-        var comp = ent.Comp;
-
-        if (comp.States.TryGetValue(comp.State, out var state) && state is { RemoveComponents: true, Components: not null })
-            EntityManager.RemoveComponents(ent, state.Components);
-        comp.State = comp.DefaultState;
-    }
     public virtual void VisualsChanged(Entity<ItemSwitchComponent> ent, string key)
     {
 

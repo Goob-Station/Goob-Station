@@ -2,7 +2,6 @@ using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared._Shitmed.ItemSwitch;
 using Content.Shared._Shitmed.ItemSwitch.Components;
-using Content.Shared.Administration.Logs;
 using Content.Shared.Examine;
 using Content.Shared.Weapons.Melee.Events;
 
