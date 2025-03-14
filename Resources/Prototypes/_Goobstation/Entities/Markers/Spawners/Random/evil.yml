@@ -18,7 +18,7 @@
         - WeaponRevolverPython
         - ThrowingKnivesKit
         - ToolboxElectricalTurretFilled
-        - BoxDuelettaKit
+        - BoxDualettaKit
         - ContractorBaton
         - ClothingHandsGlovesKravMagaStealthy
         - EnergySword
@@ -31,12 +31,12 @@
         - MiniatureEnergyCrossbow
         - WeaponShotgunBulldog
         - FireAxeFlaming
-        - BriefcaseSyndieSniperBundle
+        - BriefcaseSyndieSniperBundleFilled
         - WeaponRifleWSPR
         - SleepingCarpScroll
         - BowHardlight
         - WeaponRifleBurner
-        - WeaponMachineGunL6
+        - WeaponLightMachineGunL6
         - WeaponLauncherChinaLake
         - EmpGrenade
         - GrenadeFlashBang
@@ -49,7 +49,7 @@
         - ClusterGrenade
         - SupermatterGrenade
         - SyndieMiniBomb
-        - ClothingBackpackDuffelSyndicateC4Bundle
+        - ClothingBackpackDuffelSyndicateC4tBundle
         - ClothingBeltSyndieHolster
         - ClothingBeltMilitaryWebbing
         - ClothingBackpackSyndicate
@@ -70,10 +70,9 @@
         - ClothingOuterHardsuitJuggernaut
         - ClothingOuterHardsuitSyndieElite
         - ClothingEyesThermalVisionGogglesSyndie
-        - AdvanceCombatMedipen
         - SyndicateLollypopBundle
         - ChemicalSynthesisKit
-        - AdvanceCombatMedipen
+        - AdvancedCombatMedipen
         - ClothingOuterHardsuitCybersunStealth
         - Stimpack
         - HypoDartBox
@@ -104,14 +103,14 @@
         - BriefcaseSyndieLobbyingBundleFilled
         - CameraBug
         - ChameleonProjector
-        - DuffelSyndicateDecoyKitFilled
+        - ClothingBackpackDuffelSyndicateDecoyKitFilled
         - ClothingSatchelSmuggler
         - BoxEncryptionKeySyndie
         - RevolverCapGunFake
         - ClothingBackpackDuffelSyndicateCarpSuit
         - ClothingHeadHatCatEars
         - ClothingBackpackDuffelSyndicateCostumeClown
-        - ClustedBananaPeel
+        - ClusterBananaPeel
         - CombatBakeryKit
         - DartSyringeGun
         - DehydratedSpaceCarp
@@ -139,7 +138,7 @@
         - ReinforcementRadioSyndicateAncestor
         - SmokeImplanter
         - RadioImplanter
-        - FakeMindshieldImplanter
+        - FakeMindShieldImplanter
         - EmpImplanter
         - ScramImplanter
         - JaunterImplanter
@@ -151,7 +150,7 @@
         - DnaScramblerImplanter
         - ClothingBackpackDuffelSyndicateFilledWhimsy
         - SyndicatePersonalAI
-        - ClothingBackpackDuffelSyndicatePajamaBundle
+        - ClothingBackpackDuffelSyndicatePyjamaBundle
         - ReinforcementRadioSyndicate
         - RubberStampSyndicate
         - HappyHonkNukieSnacks
