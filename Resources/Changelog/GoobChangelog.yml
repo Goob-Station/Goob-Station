@@ -6304,3 +6304,25 @@ Entries:
       message: Mjolnir returns to your hand when thrown.
   id: 726
   time: '2025-03-14T01:27:59.0000000+00:00'
+- author: SolsticeOfTheWinter, pheenty, Gallagin, John Powercreep
+  changes:
+    - type: Add
+      message: Gave BSO their beret back. You're welcome Gallagin.
+    - type: Tweak
+      message: >-
+        Changed how blueshields loadout works. You now spawn with a box, and
+        have to choose which items you want
+    - type: Tweak
+      message: >-
+        Clarified in the blueshield SOP who they should protect when multiple
+        command members are in danger at once.
+    - type: Tweak
+      message: >-
+        Blueshield loadout has recieved and lost several items. Too many for me
+        to list.
+    - type: Tweak
+      message: The bluespace lifeline implanter is now enforced. If you die, you die.
+    - type: Tweak
+      message: The EG-4 Energy revolver has been reworked.
+  id: 727
+  time: '2025-03-14T01:28:36.0000000+00:00'
