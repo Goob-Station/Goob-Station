@@ -46,7 +46,8 @@ public sealed partial class NullRodSystem : EntitySystem
         _popupSystem.PopupEntity(Loc.GetString(comp.UntrainedUseString), args.User, args.User, PopupType.MediumCaution);
         _audio.PlayPvs(comp.UntrainedUseSound, args.User);
 
-        args.Cancelled = true;
+        args.Cancelled = true; // This isn't canceling the shot, probably something to do with duel wielding
+        // IMO it's perfectly fine to just kill you for shooting but whatev.
     }
 }
 
