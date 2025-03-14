@@ -16,7 +16,7 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
         base.Initialize();
         SubscribeLocalEvent<ItemSwitchComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<ItemSwitchComponent, ChargeChangedEvent>(OnChargeChanged);
-        SubscribeLocalEvent<ItemSwitchComponent, MeleeAttackEvent>(OnMeleeAttackRef);
+        SubscribeLocalEvent<ItemSwitchComponent, MeleeHitEvent>(OnMeleeAttack);
     }
 
     public BatteryComponent? GetBatteryComponent(Entity<ItemSwitchComponent> ent)
@@ -56,10 +56,10 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
             return;
 
         if (batteryComponent != null && batteryComponent.CurrentCharge < energyPerUse)
-            _itemSwitch.TryTurnOff(ent);
+            _itemSwitch.Switch(ent!, ent.Comp.DefaultState, null, false);
     }
 
-    private void OnMeleeAttackRef(Entity<ItemSwitchComponent> ent, ref MeleeAttackEvent args)
+    private void OnMeleeAttack(Entity<ItemSwitchComponent> ent, ref MeleeHitEvent args)
     {
         var uid = ent.Owner;
         var comp = ent.Comp;

@@ -23,12 +23,12 @@
   - type: DisarmMalus
   - type: ItemSwitch
     needsPower: true
-    defaultState: stun
+    defaultState: default
     state: stun
     showLabel: true
     states:
       stun: !type:ItemSwitchState
-        verb: stun
+        verb: default
         sprite:
           sprite: _Shitmed/Objects/Weapons/Melee/wonderprod.rsi
           state: stun-icon
@@ -51,6 +51,7 @@
 
       cuffs: !type:ItemSwitchState
         verb: cuffs
+        energyPerUse: 50
         sprite:
           sprite: _Shitmed/Objects/Weapons/Melee/wonderprod.rsi
           state: cuffs-icon
@@ -68,6 +69,7 @@
 
       sleep: !type:ItemSwitchState
         verb: sleep
+        energyPerUse: 50
         sprite:
           sprite: _Shitmed/Objects/Weapons/Melee/wonderprod.rsi
           state: sleep-icon
