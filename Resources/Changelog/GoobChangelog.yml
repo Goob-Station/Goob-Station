@@ -6326,3 +6326,9 @@ Entries:
       message: The EG-4 Energy revolver has been reworked.
   id: 727
   time: '2025-03-14T01:28:36.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: You can now crease jordans.
+  id: 728
+  time: '2025-03-14T01:29:02.0000000+00:00'
