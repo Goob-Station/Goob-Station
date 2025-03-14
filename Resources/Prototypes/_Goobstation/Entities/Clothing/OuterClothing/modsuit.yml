@@ -29,6 +29,8 @@
       outerClothing:
       - state: equipped-OUTERCLOTHING-sealed
         shader: unshaded
+  - type: StaminaDamageResistance
+    coefficient: 0.9
   - type: Armor
     modifiers:
       coefficients:
@@ -81,6 +83,8 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 2
     knockdownTimeDelta: -2
+  - type: StaminaDamageResistance
+    coefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
@@ -150,6 +154,8 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 1
     knockdownTimeDelta: -1
+  - type: StaminaDamageResistance
+    coefficient: 0.9
 
 - type: entity
   parent: ClothingOuterBase
@@ -183,9 +189,11 @@
       - state: equipped-OUTERCLOTHING-sealed
   - type: ExplosionResistance
     damageCoefficient: 0.4
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown
     delayDelta: 3
     knockdownTimeDelta: -3
+  - type: StaminaDamageResistance
+    coefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
@@ -257,6 +265,8 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 1
     knockdownTimeDelta: -1
+  - type: StaminaDamageResistance
+    coefficient: 0.9
 
 - type: entity
   parent: ClothingOuterBase
@@ -311,3 +321,5 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 3
     knockdownTimeDelta: -3
+  - type: StaminaDamageResistance
+    coefficient: 0.9
