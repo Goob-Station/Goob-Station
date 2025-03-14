@@ -1,8 +1,8 @@
 - type: entity
-  name: justice
+  name: DT-2 'justice'
   parent: [BaseItem, BaseCommandContraband]
   id: Justice
-  description: Justice, and liberty for all.
+  description: If it were not for injustice, man would not know justice.
   components:
   - type: Item
     sprite: _Shitmed/Objects/Weapons/Melee/wonderprod.rsi
@@ -18,8 +18,8 @@
     sprite: _Shitmed/Objects/Weapons/Melee/wonderprod.rsi
     state: icon
   - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
+    maxCharge: 500
+    startingCharge: 500
   - type: DisarmMalus
   - type: ItemSwitch
     needsPower: true
@@ -28,7 +28,7 @@
     showLabel: true
     states:
       stun: !type:ItemSwitchState
-        verb: default
+        verb: stun
         sprite:
           sprite: _Shitmed/Objects/Weapons/Melee/wonderprod.rsi
           state: stun-icon
@@ -49,9 +49,9 @@
           params:
             variation: 0.250
 
-      cuffs: !type:ItemSwitchState
-        verb: cuffs
-        energyPerUse: 50
+      ion: !type:ItemSwitchState
+        verb: ion
+        energyPerUse: 40
         sprite:
           sprite: _Shitmed/Objects/Weapons/Melee/wonderprod.rsi
           state: cuffs-icon
@@ -61,14 +61,12 @@
           attackRate: 0.5
           damage:
             types:
-              Shock: 0
+              Ion: 35
           angle: 60
           animation: WeaponArcThrust
-        - type: CuffsOnHit
-          proto: Cablecuffs
 
-      sleep: !type:ItemSwitchState
-        verb: sleep
+      lethal: !type:ItemSwitchState
+        verb: lethal
         energyPerUse: 50
         sprite:
           sprite: _Shitmed/Objects/Weapons/Melee/wonderprod.rsi
@@ -79,19 +77,14 @@
           attackRate: 1
           damage:
             types:
-              Shock: 0
+              Slash: 15
+              Heat: 15
           angle: 60
           animation: WeaponArcThrust
-        - type: InjectOnHit
-          reagents:
-          - ReagentId: Nocturine
-            Quantity: 5
-          limit: 20
-          needsRestrain: true
 
-      damage: !type:ItemSwitchState
-        verb: damage
-        energyPerUse: 50
+      empowered: !type:ItemSwitchState
+        verb: empowered
+        energyPerUse: 150
         sprite:
           sprite: _Shitmed/Objects/Weapons/Melee/wonderprod.rsi
           state: damage-icon
@@ -103,4 +96,5 @@
           animation: WeaponArcThrust
           damage:
             types:
-              Heat: 30
+              Heat: 50
+              Slash: 30
