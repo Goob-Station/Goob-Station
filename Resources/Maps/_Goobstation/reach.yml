@@ -3764,12 +3764,12 @@ entities:
   - uid: 432
     components:
     - type: Transform
-      pos: 8.5,7.5
+      pos: 12.5,11.5
       parent: 2
   - uid: 433
     components:
     - type: Transform
-      pos: 7.5,7.5
+      pos: 8.5,11.5
       parent: 2
   - uid: 434
     components:
@@ -3781,15 +3781,10 @@ entities:
     - type: Transform
       pos: 11.5,11.5
       parent: 2
-  - uid: 436
-    components:
-    - type: Transform
-      pos: 8.5,16.5
-      parent: 2
   - uid: 437
     components:
     - type: Transform
-      pos: 7.5,16.5
+      pos: 10.5,16.5
       parent: 2
   - uid: 438
     components:
@@ -3900,6 +3895,21 @@ entities:
     components:
     - type: Transform
       pos: 10.5,-8.5
+      parent: 2
+  - uid: 855
+    components:
+    - type: Transform
+      pos: 11.5,16.5
+      parent: 2
+  - uid: 856
+    components:
+    - type: Transform
+      pos: 12.5,16.5
+      parent: 2
+  - uid: 858
+    components:
+    - type: Transform
+      pos: 7.5,11.5
       parent: 2
   - uid: 1242
     components:
@@ -5966,33 +5976,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 7.5,-8.5
       parent: 2
-- proto: ChairOfficeDark
-  entities:
-  - uid: 856
-    components:
-    - type: Transform
-      pos: 2.5,7.5
-      parent: 2
-  - uid: 858
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 19.5,-3.5
-      parent: 2
-- proto: ChairOfficeLight
-  entities:
-  - uid: 855
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -3.5738664,11.146056
-      parent: 2
-  - uid: 859
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 7.5,0.5
-      parent: 2
 - proto: ChairPilotSeat
   entities:
   - uid: 860
@@ -6606,16 +6589,16 @@ entities:
       parent: 2
 - proto: ComputerRadar
   entities:
+  - uid: 436
+    components:
+    - type: Transform
+      pos: 1.5,16.5
+      parent: 2
   - uid: 947
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 25.5,-0.5
-      parent: 2
-  - uid: 2300
-    components:
-    - type: Transform
-      pos: 1.5,16.5
       parent: 2
 - proto: ComputerResearchAndDevelopment
   entities:
