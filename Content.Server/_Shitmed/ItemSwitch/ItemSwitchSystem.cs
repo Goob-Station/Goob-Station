@@ -2,6 +2,7 @@ using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared._Shitmed.ItemSwitch;
 using Content.Shared._Shitmed.ItemSwitch.Components;
+using Content.Shared.Administration.Logs;
 using Content.Shared.Examine;
 using Content.Shared.Weapons.Melee.Events;
 
@@ -56,7 +57,7 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
             return;
 
         if (batteryComponent != null && batteryComponent.CurrentCharge < energyPerUse)
-            _itemSwitch.Switch(ent!, ent.Comp.DefaultState, null, false);
+            _itemSwitch.Switch((ent.Owner, ent.Comp), ent.Comp.DefaultState);
     }
 
     private void OnMeleeAttack(Entity<ItemSwitchComponent> ent, ref MeleeHitEvent args)
