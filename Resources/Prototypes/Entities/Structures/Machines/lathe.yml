@@ -357,7 +357,6 @@
     - PowerCells
     - MechBoards
     - MechElectronicsGoob
-    - Drone
   - type: MaterialStorage
     whitelist:
       tags:
