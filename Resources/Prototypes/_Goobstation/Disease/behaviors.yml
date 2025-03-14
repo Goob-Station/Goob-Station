@@ -106,16 +106,10 @@
   - type: DiseasePeriodicCondition
     delayMin: 5
     delayMax: 20
-  - type: DiseaseAudioEffect
-    sound:
-      collection: MaleCoughs
-    soundFemale:
-      collection: FemaleCoughs
-  - type: DiseasePopupEffect
-    string: disease-effect-popup-cough
-    hostOnly: false
+  - type: DiseaseEmoteEffect
+    emote: Cough
   - type: DiseaseSpreadEffect
-    spreadType: DebugSpread
+    spreadType: Aerial
     arc: 120
     range: 3
     infectionChance: 0.5

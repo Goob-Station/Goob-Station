@@ -59,6 +59,14 @@ public partial class SharedDiseaseSystem
         }
     }
 
+    /// <summary>
+    /// Chance function that can take arbitrarily large values
+    /// <summary>
+    public bool ExpProb(float prob)
+    {
+        return _random.Prob(1f - MathF.Exp(-prob));
+    }
+
     public void MutateDisease(EntityUid uid, DiseaseComponent? disease = null)
     {
         if (!Resolve(uid, ref disease))
@@ -74,16 +82,19 @@ public partial class SharedDiseaseSystem
         disease.Complexity *= MathF.Exp(_random.NextFloat(-1f, 1f) * disease.ComplexityMutationCoefficient * rate);
 
         // effect mutation
-        if (_random.Prob(1f - MathF.Exp(-disease.EffectMutationCoefficient * rate)))
+        float effectProb = 1f - MathF.Exp(-disease.EffectMutationCoefficient * rate);
+        for (var limit = 0; limit < 20 && _random.Prob(effectProb); limit++) // no infinite loop
         {
             if (_random.Prob(0.5f)) // half chance to remove effect, half chance to add
                 RemoveRandomEffect(uid, disease);
             else
                 AddRandomEffect(uid, disease);
+
+            effectProb *= effectProb;
         }
 
         // genotype mutation
-        if (_random.Prob(1f - MathF.Exp(-disease.GenotypeMutationCoefficient * rate)))
+        if (ExpProb(disease.GenotypeMutationCoefficient * rate))
             disease.Genotype = _random.Next();
 
         // effect severity mutation
@@ -92,42 +103,59 @@ public partial class SharedDiseaseSystem
             if (!TryComp<DiseaseEffectComponent>(effectUid, out var effect))
                 continue;
 
-            if (_random.Prob(1f - MathF.Exp(-disease.SeverityMutationCoefficient * rate)))
+            if (ExpProb(disease.SeverityMutationCoefficient * rate))
             {
                 effect.Severity = _random.NextFloat(effect.MinSeverity, MaxEffectSeverity);
                 Dirty(effectUid, effect);
             }
         }
 
+        var complexity = 0f;
+        var minComplexity = 0f;
+        var maxComplexity = 0f;
+        foreach (var effectUid in disease.Effects)
+        {
+            if (!TryComp<DiseaseEffectComponent>(effectUid, out var effect))
+                continue;
+
+            complexity += effect.GetComplexity();
+            minComplexity += effect.Complexity * effect.MinSeverity;
+            maxComplexity += effect.Complexity * MaxEffectSeverity;
+        }
         // try to adjust complexity to target
         // will hopefully succeed on first iteration
         // if it doesn't, whatever the user did, i don't trust it to not infinite loop
         for (var limit = 0; limit < 20; limit++)
         {
-            var complexity = 0f;
-            var minComplexity = 0f;
-            var maxComplexity = 0f;
-            foreach (var effectUid in disease.Effects)
-            {
-                if (!TryComp<DiseaseEffectComponent>(effectUid, out var effect))
-                    continue;
-
-                complexity += effect.GetComplexity();
-                minComplexity += effect.Complexity * effect.MinSeverity;
-                maxComplexity += effect.Complexity * MaxEffectSeverity;
-            }
             // we have too many effects for our chosen complexity
+            Entity<DiseaseEffectComponent>? changedEffect;
             if (disease.Complexity < minComplexity)
-                RemoveRandomEffect(uid, disease);
+            {
+                changedEffect = RemoveRandomEffect(uid, disease);
+                if (changedEffect != null)
+                {
+                    complexity -= changedEffect.Value.Comp.GetComplexity();
+                    minComplexity -= changedEffect.Value.Comp.Complexity * changedEffect.Value.Comp.MinSeverity;
+                    maxComplexity -= changedEffect.Value.Comp.Complexity * MaxEffectSeverity;
+                }
+            }
             // we have too little effects
             else if (disease.Complexity > maxComplexity)
-                AddRandomEffect(uid, disease);
+            {
+                changedEffect = AddRandomEffect(uid, disease);
+                if (changedEffect != null)
+                {
+                    complexity += changedEffect.Value.Comp.GetComplexity();
+                    minComplexity += changedEffect.Value.Comp.Complexity * changedEffect.Value.Comp.MinSeverity;
+                    maxComplexity += changedEffect.Value.Comp.Complexity * MaxEffectSeverity;
+                }
+            }
             else
             {
                 if (disease.Effects.Count < 1)
                 {
                     Log.Error($"Disease {ToPrettyString(uid)} tried to mutate effects, but had no effects.");
-                    return;
+                    break;
                 }
                 // by how much we need to adjust complexity
                 var delta = disease.Complexity - complexity;
@@ -140,7 +168,7 @@ public partial class SharedDiseaseSystem
                     {
                         var effectUid = disease.Effects[_random.Next(disease.Effects.Count - 1)];
                         if (!TryComp<DiseaseEffectComponent>(effectUid, out var effect))
-                            return;
+                            continue;
 
                         var maxChange = effect.Complexity * effect.MinSeverity - effect.GetComplexity(); // maximum amount we can change the complexity by
                         var targetSeverity = effect.Severity + delta / effect.Complexity;
@@ -151,7 +179,7 @@ public partial class SharedDiseaseSystem
                             // we can bring delta to 0 so do it
                             effect.Severity = targetSeverity;
                         else
-                            effect.Severity = _random.NextFloat(effect.MinSeverity, MaxEffectSeverity);
+                            effect.Severity = _random.NextFloat(effect.MinSeverity, effect.Severity); // only decrease
 
                         Dirty(effectUid, effect);
 
@@ -167,7 +195,7 @@ public partial class SharedDiseaseSystem
                     {
                         var effectUid = disease.Effects[_random.Next(disease.Effects.Count - 1)];
                         if (!TryComp<DiseaseEffectComponent>(effectUid, out var effect))
-                            return;
+                            continue;
 
                         var maxChange = effect.Complexity * MaxEffectSeverity - effect.GetComplexity();
                         var targetSeverity = effect.Severity + delta / effect.Complexity;
@@ -177,7 +205,7 @@ public partial class SharedDiseaseSystem
                         if (done)
                             effect.Severity = targetSeverity;
                         else
-                            effect.Severity = _random.NextFloat(effect.MinSeverity, MaxEffectSeverity);
+                            effect.Severity = _random.NextFloat(effect.Severity, MaxEffectSeverity); // only increase
 
                         Dirty(effectUid, effect);
 
