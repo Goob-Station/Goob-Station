@@ -1,7 +1,0 @@
-- type: entity
-  parent: FloorChasmEntity
-  id: FloorChasmRedial
-  suffix: REDIAL
-  components:
-  - type: RedialUserOnTrigger
-    address: ss14s://beta.goobstation.com
