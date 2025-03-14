@@ -6250,3 +6250,15 @@ Entries:
       message: New borg chassis redesigns from Nanotrasen!
   id: 720
   time: '2025-03-14T01:24:19.0000000+00:00'
+- author: SolsticeOfTheWinter, NoSugarPlumNovember
+  changes:
+    - type: Tweak
+      message: Tweaked ERT ships.
+    - type: Add
+      message: >-
+        Added a Nuclear Authentication Override Card for admins, and for special
+        operations officers.
+    - type: Add
+      message: Rescue is imminent. Please do not resist.
+  id: 721
+  time: '2025-03-14T01:25:07.0000000+00:00'
