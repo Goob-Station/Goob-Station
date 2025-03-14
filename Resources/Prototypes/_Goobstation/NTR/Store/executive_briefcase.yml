@@ -30,26 +30,26 @@
   - type: Store
     name: store-preset-name-ntr
     categories:
-    - NTRtier1 # for small stuff like buying disablers, small spesos grant etc.
-    - NTRtier2 # for medium stuff like unobtainable boards, BSO recall etc
-    - NTRtier3 # for ultra stuff like calling ERT
+    - NTRstation # for stuff like buying spesos, disablers, etc
+    - NTRresponse # for stuff like ert
+    - NTRpersonal # for, well, personal stuff.
     currencyWhitelist:
     - NTLoyaltyPoint
     sales:
       enabled: false
 
 - type: storeCategory
-  id: NTRtier1
+  id: NTRstation
   name: ntr-executive-tier-1-name
   priority: 0
 
 - type: storeCategory
-  id: NTRtier2
+  id: NTRresponse
   name: ntr-executive-tier-2-name
   priority: 1
 
 - type: storeCategory
-  id: NTRtier3
+  id: NTRpersonal
   name: ntr-executive-tier-3-name
   priority: 2
 

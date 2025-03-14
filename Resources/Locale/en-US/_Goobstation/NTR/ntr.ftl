@@ -3,6 +3,7 @@ store-currency-nt-loyalty-point = NT loyalty point
 store-preset-name-ntr = Executive briefcase store
 
 # listing
+# station
 
 ntr-executive-spesos-small-name = Small spesos grant
 ntr-executive-spesos-small-desc = Recieve a small money bonus from NanoTrasen for all your hard work, you better give this to quartermaster as a good employee, right?
@@ -25,6 +26,8 @@ ntr-executive-tools-small-desc = A crate, containing basic tools.
 ntr-executive-pizza-small-name = Order a small pizza party
 ntr-executive-pizza-small-desc = Order a small pizza party bundle from NanoTrasen, as a good employee, you should give this to your workers, or eat it yourself.
 
+# personal
+
 ntr-executive-bsd-name = Call Blueshield Deputy
 ntr-executive-bsd-desc = Request a blueshield deputy from CentComm, your or commands personal guard, you better have a good reason to call this one. You are only allowed to call one.
 
@@ -34,8 +37,27 @@ ntr-executive-softsuit-desc = A weak softsuit, made to protect its user from dep
 ntr-executive-hardsuit-name = Order a hardsuit
 ntr-executive-hardsuit-desc = A fairly decent hardsuit for extreme situations, are you certain this is a good idea?
 
+ntr-executive-cigar-name = Premium cigar case
+ntr-executive-cigar-desc = A standart premium cigar case, only wealthy people are allowed to smoke those in public.
+
+ntr-executive-whiskey-name = Premium whiskey
+ntr-executive-whiskey-desc = A full premium whiskey bottle, made in 2879 in space Spain from the last non-synthetic grapes in existence.
+
+ntr-executive-glasses-name = CentComm glasses
+ntr-executive-glasses-desc = When you need some swag.
+
+ntr-executive-savaliniaharunianisimious-name = Svallin laser pistol
+ntr-executive-savaliniaharunianisimious-desc = Your normal svalinn laser pistol, used in self-defense classes in NanoTrasen.
+
+ntr-executive-1984-name = NT1984
+ntr-executive-1984-desc = A standart NT1984 for self defense.
+
+ntr-executive-combatmed-name = Combat medkit
+ntr-executive-combatmed-desc = When you need something more than "just a gauze"
+
 # tiers
 
-ntr-executive-tier-1-name = Tier 1
-ntr-executive-tier-2-name = Tier 2
-ntr-executive-tier-3-name = Tier 3
+ntr-executive-tier-1-name = Station
+ntr-executive-tier-2-name = Response teams
+ntr-executive-tier-3-name = Personal
+ntr-executive-tier-4-name = Evil
