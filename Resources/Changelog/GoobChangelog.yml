@@ -6332,3 +6332,9 @@ Entries:
       message: You can now crease jordans.
   id: 728
   time: '2025-03-14T01:29:02.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed NTR not having access to their room on some maps.
+  id: 729
+  time: '2025-03-14T02:06:27.0000000+00:00'

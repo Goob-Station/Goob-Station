@@ -4,7 +4,7 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/13/2025 21:25:44
+  time: 03/14/2025 02:01:00
   entityCount: 15098
 maps:
 - 1
@@ -7709,6 +7709,13 @@ entities:
     - type: Transform
       pos: 21.5,21.5
       parent: 2
+- proto: AirlockCentralCommandLocked
+  entities:
+  - uid: 5641
+    components:
+    - type: Transform
+      pos: 18.5,44.5
+      parent: 2
 - proto: AirlockChapelLocked
   entities:
   - uid: 111
@@ -9263,19 +9270,6 @@ entities:
     - type: Transform
       pos: 71.5,-6.5
       parent: 2
-- proto: AirlockNanotrasenRepresentativeCommandGlassLocked
-  entities:
-  - uid: 5641
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 18.5,44.5
-      parent: 2
-    - type: AccessReader
-      access:
-      - - BlueshieldOfficer
-      - - Captain
-      - - NanotrasenRepresentative
 - proto: AirlockQuartermasterGlassLocked
   entities:
   - uid: 360
