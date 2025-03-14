@@ -50,7 +50,7 @@
   id: violet
   name: Mrjajkes - Violet
   path:
-    path: /Audio/_Goobstation/Announcements/violet.ogg
+    path: /Audio/_Goobstation/StationEvents/violet_alt.ogg
 
 - type: jukebox
   id: redsun
