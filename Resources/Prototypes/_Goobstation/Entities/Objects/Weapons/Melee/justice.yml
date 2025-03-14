@@ -31,8 +31,8 @@
     stealGroup: WeaponEnergyGunMultiphase # Todo - Change this.
   - type: ItemSwitch
     needsPower: true
-    defaultState: stun
-    state: stun
+    defaultState: off
+    state: off
     showLabel: true
     states:
       off: !type:ItemSwitchState
