@@ -6350,3 +6350,9 @@ Entries:
       message: Nuclear Override Card now properly Overrides. No need for a code.
   id: 731
   time: '2025-03-14T19:19:12.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Audrey & Aubrey White can now be gibbed with a carp plushie. Go wild.
+  id: 732
+  time: '2025-03-14T19:20:08.0000000+00:00'
