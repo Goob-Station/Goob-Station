@@ -1,4 +1,82 @@
 Entries:
+- author: MinxLite
+  changes:
+  - message: Smol species are now consistent in their stamina damage.
+    type: Tweak
+  id: 221
+  time: '2025-03-13T18:43:38.243481'
+- author: MinxLite
+  changes:
+  - message: Guidebook is more accurate with species specific listings.
+    type: Tweak
+  id: 220
+  time: '2025-03-13T18:43:38.707410'
+- author: MinxLite
+  changes:
+  - message: Ensured ALL foodstuffs are animal friendly! Garlic and onions are on
+      the menu!
+    type: Fix
+  id: 219
+  time: '2025-03-13T18:43:39.197213'
+- author: MinxLite
+  changes:
+  - message: Onis can open doors and pilot shuttles again. Oopsie.
+    type: Fix
+  id: 218
+  time: '2025-03-13T18:43:36.782627'
+- author: AstroDogeDX
+  changes:
+  - message: Created office chair spawners and mapped them to the maps missing rolly
+      chairs.
+    type: Fix
+  id: 217
+  time: '2025-03-13T18:43:37.758162'
+- author: AstroDogeDX
+  changes:
+  - message: Add missing light to the Salvage Docking Arm on Amber.
+    type: Fix
+  id: 216
+  time: '2025-03-12T15:38:17.181369'
+- author: AstroDogeDX
+  changes:
+  - message: Ethylredoxrazine medipens in the inhebriation kit now inject the full
+      30u dose.
+    type: Fix
+  id: 215
+  time: '2025-03-12T15:41:35.716454'
+- author: AstroDogeDX
+  changes:
+  - message: Abductors now have our namesets again; no more meme shit.
+    type: Fix
+  id: 214
+  time: '2025-03-12T15:41:02.487426'
+- author: AstroDogeDX
+  changes:
+  - message: Removed that errant pipe from the library on Cluster. It's been there
+      for months, it's there on Goob, I think it was there when I played on Blep.
+      It's GONE NOW.
+    type: Remove
+  id: 213
+  time: '2025-03-12T15:40:33.043686'
+- author: AstroDogeDX
+  changes:
+  - message: Fixed access to Telecomms/Silo on Packed. It's all Command now.
+    type: Fix
+  id: 212
+  time: '2025-03-12T15:39:51.107161'
+- author: AstroDogeDX
+  changes:
+  - message: Added secure windoor to Cargo's flap on Cluster. No more sneaking in
+      that easy.
+    type: Fix
+  id: 211
+  time: '2025-03-12T15:39:21.680221'
+- author: AstroDogeDX
+  changes:
+  - message: Added missing directional fan to Salvage on Omega. No more spacing.
+    type: Fix
+  id: 210
+  time: '2025-03-12T15:39:00.447661'
 - author: AstroDogeDX
   changes:
   - message: The ATS works again now. You know what that means, Cargo. LET'S GO GAMBLING!

@@ -87,6 +87,9 @@
       types:
         Blunt: 2
         Slash: 3
+  # ShibaStation - Similar to Felinids, easier to knock down since smol
+  - type: Stamina
+    critThreshold: 75 # Goobstation - Siouxcide, felinids take 3 disabler shots to down
   - type: Damageable
     damageModifierSet: Rodentia
   - type: Butcherable

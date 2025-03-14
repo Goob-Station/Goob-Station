@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/10/2025 17:57:44
-  entityCount: 15381
+  time: 03/13/2025 12:47:32
+  entityCount: 15356
 maps:
 - 126
 grids:
@@ -37302,275 +37302,6 @@ entities:
     components:
     - type: Transform
       pos: 6.5,-12.5
-      parent: 2
-- proto: ChairOfficeDark
-  entities:
-  - uid: 190
-    components:
-    - type: Transform
-      pos: -2.5,-11.5
-      parent: 2
-  - uid: 311
-    components:
-    - type: Transform
-      pos: 11.5,5.5
-      parent: 2
-  - uid: 313
-    components:
-    - type: Transform
-      pos: 10.5,5.5
-      parent: 2
-  - uid: 314
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 10.5,3.5
-      parent: 2
-  - uid: 579
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 16.5,-3.5
-      parent: 2
-  - uid: 683
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 21.5,-16.5
-      parent: 2
-  - uid: 684
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 21.5,-18.5
-      parent: 2
-  - uid: 1010
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 22.517172,-24.347618
-      parent: 2
-  - uid: 1852
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 20.5,22.5
-      parent: 2
-  - uid: 2318
-    components:
-    - type: Transform
-      pos: 37.5,18.5
-      parent: 2
-  - uid: 2480
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 42.5,19.5
-      parent: 2
-  - uid: 2489
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 35.5,27.5
-      parent: 2
-  - uid: 2632
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 47.5,11.5
-      parent: 2
-  - uid: 2678
-    components:
-    - type: Transform
-      pos: 62.5,9.5
-      parent: 2
-  - uid: 2724
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 21.5,33.5
-      parent: 2
-  - uid: 2725
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 21.5,32.5
-      parent: 2
-  - uid: 2726
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 21.5,30.5
-      parent: 2
-  - uid: 2727
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 21.5,29.5
-      parent: 2
-  - uid: 4999
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 34.5,45.5
-      parent: 2
-  - uid: 5000
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 31.5,47.5
-      parent: 2
-  - uid: 5001
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 23.5,47.5
-      parent: 2
-  - uid: 5002
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 20.5,45.5
-      parent: 2
-  - uid: 5159
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 55.5,-11.5
-      parent: 2
-  - uid: 5321
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 49.5,18.5
-      parent: 2
-  - uid: 5389
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 50.5,10.5
-      parent: 2
-  - uid: 5742
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -3.5,-10.5
-      parent: 2
-  - uid: 7468
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -2.5,-3.5
-      parent: 2
-  - uid: 7792
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 70.5,14.5
-      parent: 2
-  - uid: 8207
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 18.517927,23.649218
-      parent: 2
-  - uid: 8608
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 30.500034,25.750826
-      parent: 2
-  - uid: 8658
-    components:
-    - type: Transform
-      pos: 50.5,2.5
-      parent: 2
-  - uid: 9036
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 7.5,18.5
-      parent: 2
-  - uid: 10912
-    components:
-    - type: Transform
-      pos: 74.5,-1.5
-      parent: 2
-  - uid: 12728
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 7.5,25.5
-      parent: 2
-  - uid: 14154
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 72.5,23.5
-      parent: 2
-  - uid: 14559
-    components:
-    - type: Transform
-      pos: 90.5,29.5
-      parent: 2
-  - uid: 14560
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 89.5,31.5
-      parent: 2
-- proto: ChairOfficeLight
-  entities:
-  - uid: 940
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 11.5,-34.5
-      parent: 2
-  - uid: 5068
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 50.5,-4.5
-      parent: 2
-  - uid: 5069
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 53.5,-4.5
-      parent: 2
-  - uid: 5227
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 81.5,-6.5
-      parent: 2
-  - uid: 7075
-    components:
-    - type: Transform
-      pos: 44.5,3.5
-      parent: 2
-  - uid: 7859
-    components:
-    - type: Transform
-      pos: 71.5,-19.495005
-      parent: 2
-  - uid: 8664
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 64.5,24.5
-      parent: 2
-  - uid: 10901
-    components:
-    - type: Transform
-      pos: 79.5,-6.5
-      parent: 2
-  - uid: 11293
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 61.5,-11.5
       parent: 2
 - proto: ChairPilotSeat
   entities:
@@ -80153,6 +79884,115 @@ entities:
     - type: Transform
       pos: 6.5,-5.5
       parent: 2
+- proto: SpawnVehicleOfficeChairDark
+  entities:
+  - uid: 311
+    components:
+    - type: Transform
+      pos: -2.5,-3.5
+      parent: 2
+  - uid: 313
+    components:
+    - type: Transform
+      pos: 16.5,-3.5
+      parent: 2
+  - uid: 314
+    components:
+    - type: Transform
+      pos: 29.5,25.5
+      parent: 2
+  - uid: 579
+    components:
+    - type: Transform
+      pos: 20.5,45.5
+      parent: 2
+  - uid: 683
+    components:
+    - type: Transform
+      pos: 23.5,47.5
+      parent: 2
+  - uid: 684
+    components:
+    - type: Transform
+      pos: 24.5,47.5
+      parent: 2
+  - uid: 940
+    components:
+    - type: Transform
+      pos: 31.5,47.5
+      parent: 2
+  - uid: 1010
+    components:
+    - type: Transform
+      pos: 7.5,18.5
+      parent: 2
+  - uid: 1852
+    components:
+    - type: Transform
+      pos: 20.5,22.5
+      parent: 2
+  - uid: 2318
+    components:
+    - type: Transform
+      pos: 37.5,18.5
+      parent: 2
+  - uid: 2727
+    components:
+    - type: Transform
+      pos: 42.5,20.5
+      parent: 2
+  - uid: 4999
+    components:
+    - type: Transform
+      pos: 11.5,3.5
+      parent: 2
+  - uid: 5000
+    components:
+    - type: Transform
+      pos: -2.5,-11.5
+      parent: 2
+  - uid: 5001
+    components:
+    - type: Transform
+      pos: 11.5,-34.5
+      parent: 2
+- proto: SpawnVehicleOfficeChairLight
+  entities:
+  - uid: 2480
+    components:
+    - type: Transform
+      pos: 49.5,18.5
+      parent: 2
+  - uid: 2489
+    components:
+    - type: Transform
+      pos: 62.5,9.5
+      parent: 2
+  - uid: 2632
+    components:
+    - type: Transform
+      pos: 44.5,3.5
+      parent: 2
+  - uid: 2678
+    components:
+    - type: Transform
+      pos: 50.5,2.5
+      parent: 2
+  - uid: 2724
+    components:
+    - type: Transform
+      pos: 50.5,-4.5
+      parent: 2
+  - uid: 2725
+    components:
+    - type: Transform
+      pos: 55.5,-11.5
+      parent: 2
+  - uid: 2726
+    components:
+    - type: Transform
+      pos: 61.5,-11.5
+      parent: 2
 - proto: SprayBottle
   entities:
   - uid: 5393
@@ -96073,6 +95913,12 @@ entities:
       parent: 2
 - proto: WindoorSecureCommandLocked
   entities:
+  - uid: 190
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 21.5,-15.5
+      parent: 2
   - uid: 8247
     components:
     - type: Transform
@@ -96129,12 +95975,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 23.5,-23.5
-      parent: 2
-  - uid: 5858
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 21.5,-15.5
       parent: 2
   - uid: 5865
     components:

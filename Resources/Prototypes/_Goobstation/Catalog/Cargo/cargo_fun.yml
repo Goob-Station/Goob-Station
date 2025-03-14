@@ -6,3 +6,13 @@
   product: CrateFunATV
   cost: 3000
   group: market
+
+- type: cargoProduct
+  id: FunClowncar
+  icon:
+    sprite: _Goobstation/Objects/Vehicles/clowncar.rsi
+    state: clowncar
+  product: CrateFunClownCarCargo
+  cost: 6000
+  category: cargoproduct-category-name-fun
+  group: market

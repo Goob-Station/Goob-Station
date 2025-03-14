@@ -437,7 +437,7 @@
   color: "#f5f5f5"
   meltingPoint: 351
   boilingPoint: 554 # I'm not a chemist, but it boils at 295, lower than melting point, idk how it works so I gave it higher value
-  # metabolisms: # ShibaStation - uum wow everything is animal friendly now! :D
+  # metabolisms: # ShibaStation
   #   Poison:
   #     metabolismRate: 0.05
   #     effects:
@@ -570,19 +570,20 @@
   physicalDesc: reagent-physical-desc-pungent
   flavor: bitter
   color: "#F2E9D2"
-  metabolisms:
-    Poison:
-      metabolismRate: 0.05
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 1
-        - !type:OrganType
-          type: Animal
-        damage:
-          types:
-            Poison: 0.06
+# ShibaStation - Animals are finally, for real, truly, cured of their curse of being poisoned by non-animal friendly foods. Not FakeMews this time.
+#  metabolisms:
+#    Poison:
+#      metabolismRate: 0.05
+#      effects:
+#      - !type:HealthChange
+#        conditions:
+#        - !type:ReagentThreshold
+#          min: 1
+#        - !type:OrganType
+#          type: Animal
+#        damage:
+#          types:
+#            Poison: 0.06
 
 - type: reagent
   id: Pax
@@ -622,15 +623,16 @@
         showInChat: true
         force: true
         probability: 0.2
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 1
-        - !type:OrganType
-          type: Animal
-        damage:
-          types:
-            Poison: 0.06
+# ShibaStation - Part of the animal-friendly foods changes.
+#      - !type:HealthChange
+#        conditions:
+#        - !type:ReagentThreshold
+#          min: 1
+#        - !type:OrganType
+#          type: Animal
+#        damage:
+#          types:
+#            Poison: 0.06
 
 
 - type: reagent
