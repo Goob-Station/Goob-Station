@@ -35,8 +35,29 @@
     state: stun
     showLabel: true
     states:
+      off: !type:ItemSwitchState
+        verb: off
+        energyPerUse: 0
+        sprite:
+          sprite: _Shitmed/Objects/Weapons/Melee/wonderprod.rsi
+          state: stun-icon
+        components:
+        - type: MeleeWeapon
+          wideAnimationRotation: -135
+          attackRate: 1
+          damage:
+            types:
+              Blunt: 10
+          angle: 60
+          animation: WeaponArcThrust
+        soundStateActivate:
+          collection: sparks
+          params:
+            variation: 0.250
+
       stun: !type:ItemSwitchState
         verb: stun
+        energyPerUse: 5
         sprite:
           sprite: _Shitmed/Objects/Weapons/Melee/wonderprod.rsi
           state: stun-icon

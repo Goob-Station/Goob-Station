@@ -37,7 +37,13 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
 
         if (batteryComponent == null || !comp.NeedsPower || state == null)
             return;
-        if (ent.Comp.State == comp.DefaultState)
+
+        var onMsg = comp.State != comp.DefaultState
+            ? Loc.GetString("comp-stunbaton-examined-on")
+            : Loc.GetString("comp-stunbaton-examined-off");
+        args.PushMarkup(onMsg);
+
+        if (comp.State == comp.DefaultState)
             return;
 
         var count = (int) (batteryComponent.CurrentCharge / state.EnergyPerUse);
