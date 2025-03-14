@@ -6288,3 +6288,9 @@ Entries:
       message: passanger being able to unBuckle bug.
   id: 724
   time: '2025-03-14T01:27:22.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed harpies being immune to anomaly infections.
+  id: 725
+  time: '2025-03-14T01:27:39.0000000+00:00'
