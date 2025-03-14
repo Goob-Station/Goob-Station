@@ -6212,3 +6212,9 @@ Entries:
       message: Lowered midround revs chance.
   id: 715
   time: '2025-03-13T12:08:43.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Bluespace crystal recipe is now 0.2 diamond and 1 plasma.
+  id: 716
+  time: '2025-03-14T01:19:11.0000000+00:00'
