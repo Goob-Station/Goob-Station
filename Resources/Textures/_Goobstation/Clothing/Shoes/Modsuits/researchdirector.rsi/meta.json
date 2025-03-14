@@ -8,17 +8,17 @@
   },
   "states": [
     {
-      "name": "helmet"
+      "name": "boots"
     },
 		{
-		  "name": "helmet-sealed"
+		  "name": "boots-sealed"
 		},
 		{
-			"name": "equipped-HEAD",
+			"name": "equipped-FEET",
 			"directions": 4
 		},
 		{
-			"name": "equipped-HEAD-sealed",
+			"name": "equipped-FEET-sealed",
 			"directions": 4
 		}
   ]

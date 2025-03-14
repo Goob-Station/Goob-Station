@@ -8,17 +8,25 @@
   },
   "states": [
     {
-      "name": "helmet"
+      "name": "control"
     },
 		{
-		  "name": "helmet-sealed"
+		  "name": "control-sealed",
+		  "delays": [
+		    [
+				  0.1,
+				  0.1,
+				  0.1,
+				  0.1
+				]
+		  ]
 		},
 		{
-			"name": "equipped-HEAD",
+			"name": "equipped-BACKPACK",
 			"directions": 4
 		},
 		{
-			"name": "equipped-HEAD-sealed",
+			"name": "equipped-BACKPACK-sealed",
 			"directions": 4
 		}
   ]

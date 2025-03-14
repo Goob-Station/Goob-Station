@@ -78,7 +78,7 @@
       - state: equipped-OUTERCLOTHING-sealed
   - type: ExplosionResistance
     damageCoefficient: 0.4
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown
     delayDelta: 2
     knockdownTimeDelta: -2
   - type: Armor
@@ -147,6 +147,9 @@
     - type: TemperatureProtection
       coolingCoefficient: 0.1
       heatingCoefficient: 0.4
+  - type: ModifyDelayedKnockdown
+    delayDelta: 1
+    knockdownTimeDelta: -1
 
 - type: entity
   parent: ClothingOuterBase
@@ -181,8 +184,8 @@
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 2
-    knockdownTimeDelta: -2
+    delayDelta: 3
+    knockdownTimeDelta: -3
   - type: Armor
     modifiers:
       coefficients:
@@ -251,3 +254,60 @@
     - type: TemperatureProtection
       coolingCoefficient: 0.1
       heatingCoefficient: 0.4
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1
+    knockdownTimeDelta: -1
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingModsuitChestplateResearchDirector
+  name: minerva modsuit chestplate
+  description: A bulky bomb and bat proof chunk of steel.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: AllowSuitStorage
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/researchdirector.rsi
+    layers:
+    - state: chestplate
+    - state: chestplate-sealed
+      visible: false
+      map: [ "sealed" ]
+  - type: Clothing
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    slots: [ outerClothing ]
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: SealableClothing
+    sealUpPopup: sealable-clothing-seal-up-chestplate
+    sealDownPopup: sealable-clothing-seal-down-chestplate
+  - type: SealableClothingVisuals
+    visualLayers:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING-sealed
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.8
+        Piercing: 0.85
+        Heat: 0.3
+        Shock: 0.8
+        Caustic: 0.5
+        Radiation: 0.1
+  - type: ComponentToggler
+    components:
+    - type: PressureProtection
+      highPressureMultiplier: 0.3
+      lowPressureMultiplier: 1000
+    - type: TemperatureProtection
+      coolingCoefficient: 0.1
+      heatingCoefficient: 0.4
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3

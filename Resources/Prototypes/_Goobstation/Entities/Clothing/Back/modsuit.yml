@@ -2,7 +2,7 @@
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitStandard
   name: standard modsuit control
-  description: A special modular suit contol containing all modular hardsuit parts.
+  description: A special modular suit contol unit containing all necessary modular hardsuit parts.
   components:
   - type: Appearance
   - type: Sprite
@@ -95,7 +95,7 @@
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitSecurity
   name: dragoon modsuit control
-  description: A robust modular hardsuit control module for security.
+  description: A robust modular hardsuit control module unit for thrashing commies in spess.
   components:
   - type: Appearance
   - type: Sprite
@@ -188,7 +188,7 @@
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitParamedic
   name: sanitater modsuit control
-  description: A modular hardsuit control module for paramedics.
+  description: A modular hardsuit control module unit for paramedics.
   components:
   - type: Appearance
   - type: Sprite
@@ -283,7 +283,7 @@
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitHeadOfSecurity
   name: head of security's bulwark modsuit control
-  description: A robust modular HARDERsuit control module for the head of security.
+  description: A robust modular HARDERsuit control module unit for the head of security.
   components:
   - type: Appearance
   - type: Sprite
@@ -356,7 +356,7 @@
         shader: unshaded
   - type: Construction
     graph: Modsuit
-    node: security
+    node: headofsecurity
 
 - type: entity
   parent: ClothingModsuitHeadOfSecurity
@@ -376,7 +376,7 @@
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitEngineer
   name: engineer sapper modsuit control
-  description: A  modular hardsuit control module for withstanding the greatest hazards on the job.
+  description: A  modular hardsuit control module unit for withstanding the greatest hazards on the job.
   components:
   - type: Appearance
   - type: Sprite
@@ -449,11 +449,106 @@
         shader: unshaded
   - type: Construction
     graph: Modsuit
-    node: security
+    node: engineer
 
 - type: entity
   parent: ClothingModsuitEngineer
   id: ClothingModsuitEngineerPowerCell
+  suffix: High-Capacity Battery
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
+        whitelist:
+          components:
+            - PowerCell
+
+- type: entity
+  parent: [Clothing, ContentsExplosionResistanceBase]
+  id: ClothingModsuitResearchDirector
+  name: RD's minerva modsuit control
+  description: A  modular hardsuit control module unit for withstanding another shuttlebomb.
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Back/Modsuits/researchdirector.rsi
+    layers:
+    - state: control
+    - state: control-sealed
+      visible: false
+      shader: unshaded
+      map: [ "sealed" ]
+  - type: Item
+    size: Huge
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+  - type: Storage
+    grid:
+    - 0,0,6,3
+    maxItemSize: Huge
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      toggleable-clothing: !type:Container
+      cell_slot: !type:ContainerSlot
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.ToggleClothingUiKey.Key:
+        type: ToggleableClothingBoundUserInterface
+  - type: UseDelay
+    delay: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: ToggleableClothing
+    requiredSlot: back
+    blockUnequipWhenAttached: true
+    replaceCurrentClothing: true
+    clothingPrototypes: 
+      head: ClothingModsuitHelmetResearchDirector
+      gloves: ClothingModsuitGauntletsResearchDirector
+      outerClothing: ClothingModsuitChestplateResearchDirector
+      shoes: ClothingModsuitBootsResearchDirector
+  - type: WiresPanel
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        whitelist:
+          components:
+            - PowerCell
+  - type: ItemSlotsRequirePanel
+    slots:
+      cell_slot: true
+  - type: PowerCellDraw
+    drawRate: 1 # Sealed draw rate
+    useRate: 5 # Draw rate for sealing
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+    fitsInCharger: false
+  - type: DoAfter
+  - type: SealableClothingControl
+  - type: SealableClothingRequiresPower
+  - type: SealableClothingVisuals
+    visualLayers:
+      back:
+      - state: equipped-BACKPACK-sealed
+        shader: unshaded
+  - type: Construction
+    graph: Modsuit
+    node: rd
+#  - type: StealTarget
+#    stealGroup: ClothingOuterHardsuitRd
+
+- type: entity
+  parent: ClothingModsuitResearchDirector
+  id: ClothingModsuitResearchDirectorPowerCell
   suffix: High-Capacity Battery
   components:
   - type: ItemSlots

@@ -8,17 +8,17 @@
   },
   "states": [
     {
-      "name": "helmet"
+      "name": "chestplate"
     },
 		{
-		  "name": "helmet-sealed"
+		  "name": "chestplate-sealed"
 		},
 		{
-			"name": "equipped-HEAD",
+			"name": "equipped-OUTERCLOTHING",
 			"directions": 4
 		},
 		{
-			"name": "equipped-HEAD-sealed",
+			"name": "equipped-OUTERCLOTHING-sealed",
 			"directions": 4
 		}
   ]
