@@ -2,7 +2,7 @@
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Goobstation.Redial;
+namespace Content.Goobstation.Shared.Redial;
 
 public sealed class MsgRedial : NetMessage
 {

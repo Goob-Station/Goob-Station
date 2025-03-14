@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+      <TargetFramework>net9.0</TargetFramework>
+      <LangVersion>12</LangVersion>
+      <IsPackable>false</IsPackable>
+      <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+      <OutputPath>$(SolutionDir)bin\Content.Client\</OutputPath>
+      <WarningsAsErrors>nullable</WarningsAsErrors>
+      <Nullable>enable</Nullable>
+      <Configurations>Debug;Release;Tools;DebugOpt</Configurations>
+      <Platforms>AnyCPU</Platforms>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Content.Goobstation.Shared\Content.Goobstation.Shared.csproj" />
+      <ProjectReference Include="..\RobustToolbox\Robust.Client\Robust.Client.csproj" Private="false"/>
+      <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj" Private="false"/>
+    </ItemGroup>
+
+</Project>

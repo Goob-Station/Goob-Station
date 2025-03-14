@@ -1,7 +1,9 @@
 using Content.Server.Explosion.EntitySystems;
+using Robust.Shared.GameObjects;
+using Robust.Shared.IoC;
 using Robust.Shared.Player;
 
-namespace Content.Server._Goobstation.Redial;
+namespace Content.Goobstation.Server.Redial;
 
 public sealed class RedialUserOnTriggerSystem : EntitySystem
 {

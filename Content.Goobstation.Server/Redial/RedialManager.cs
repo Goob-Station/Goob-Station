@@ -1,17 +1,16 @@
+using Content.Goobstation.Shared.Redial;
 using Content.Server.Administration;
 using Content.Shared.Administration;
 using Robust.Server.Player;
 using Robust.Shared.Console;
+using Robust.Shared.IoC;
 using Robust.Shared.Network;
-using Content.Shared._Goobstation.Redial;
 
-namespace Content.Server._Goobstation.Redial;
+namespace Content.Goobstation.Server.Redial;
 
-public sealed class RedialManager
+public sealed class RedialManager : SharedRedialManager
 {
-    [Dependency] private readonly IServerNetManager _netManager = default!;
-
-    public void Initialize()
+    public override void Initialize()
     {
         _netManager.RegisterNetMessage<MsgRedial>();
     }
