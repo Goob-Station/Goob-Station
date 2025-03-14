@@ -32,7 +32,7 @@
   - type: ItemSwitch
     needsPower: true
     defaultState: off
-    state: off
+    state: "off"
     showLabel: true
     states:
       off: !type:ItemSwitchState

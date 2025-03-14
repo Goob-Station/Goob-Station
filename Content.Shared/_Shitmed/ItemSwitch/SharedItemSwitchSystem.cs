@@ -66,7 +66,7 @@ public abstract class SharedItemSwitchSystem : EntitySystem
 
         if (comp is { IsPowered: false, NeedsPower: true })
         {
-            _popup.PopupClient("placeholder", uid, uid);
+            _popup.PopupClient(Loc.GetString("stunbaton-component-low-charge"), args.User, args.User, PopupType.Large);
             return;
         }
 
@@ -88,7 +88,7 @@ public abstract class SharedItemSwitchSystem : EntitySystem
 
         if (comp is { IsPowered: false, NeedsPower: true })
         {
-            _popup.PopupClient("placeholder", uid, uid);
+            _popup.PopupClient(Loc.GetString("stunbaton-component-low-charge"), args.User, args.User, PopupType.Large);
             return;
         }
 
@@ -97,12 +97,16 @@ public abstract class SharedItemSwitchSystem : EntitySystem
 
         foreach (var state in comp.States.Where(state => !state.Value.Hidden)) // I'm linq-ing all over the place.
         {
-            args.Verbs.Add(new ActivationVerb()
+            if (state.Value.Verb != null)
             {
-                Text = Loc.TryGetString(state.Value.Verb, out var title) ? title : state.Value.Verb,
-                Category = VerbCategory.Switch,
-                Act = () => Switch((ent.Owner, ent.Comp), state.Key, user, ent.Comp.Predictable)
-            });
+                args.Verbs.Add(new ActivationVerb()
+                {
+                    Text = Loc.TryGetString(state.Value.Verb, out var title) ? title : state.Value.Verb,
+                    Category = VerbCategory.Switch,
+                    Act = () => Switch((ent.Owner, ent.Comp), state.Key, user, ent.Comp.Predictable)
+                });
+            }
+
             addedVerbs++;
         }
 
@@ -120,7 +124,7 @@ public abstract class SharedItemSwitchSystem : EntitySystem
 
         if (comp is { IsPowered: false, NeedsPower: true })
         {
-            _popup.PopupClient(Loc.GetString("stunbaton-component-low-charge"), ent.Owner, ent.Owner);
+            _popup.PopupClient(Loc.GetString("stunbaton-component-low-charge"), args.User, args.User, PopupType.Large);
             return;
         }
 
@@ -173,7 +177,8 @@ public abstract class SharedItemSwitchSystem : EntitySystem
         };
         RaiseLocalEvent(uid, ref attempt);
 
-        if (ent.Comp.States.TryGetValue(ent.Comp.State, out var prevState)
+        if (ent.Comp.State != null
+            && ent.Comp.States.TryGetValue(ent.Comp.State, out var prevState)
             && prevState.RemoveComponents
             && prevState.Components is not null)
             EntityManager.RemoveComponents(ent, prevState.Components);
