@@ -169,6 +169,18 @@
     },
     {
       "name": "rust_diagonal"
+    },
+    {
+      "name": "cloud_swirl",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
     }
   ]
 }

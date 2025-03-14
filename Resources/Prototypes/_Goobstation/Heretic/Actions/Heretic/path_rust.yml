@@ -37,3 +37,24 @@
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-rust-spread
+
+- type: entity
+  id: ActionHereticEntropicPlume
+  name: Entropic Plume
+  description: Spews forth a disorienting plume that causes enemies to strike each other, briefly blinds them and poisons them. Also spreads rust in the path of the plume.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 30
+    itemIconStyle: NoItem
+    sound:
+      path: /Audio/_Goobstation/Wizard/smoke.ogg
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: entropic_plume
+    event: !type:EventHereticEntropicPlume
+    checkCanInteract: false
+    predicted: false
+  - type: HereticAction
+    requireMagicItem: true
+    messageLoc: heretic-speech-rust-plume

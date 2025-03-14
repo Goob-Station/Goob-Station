@@ -46,3 +46,9 @@ knowledge-path-rust-s7-desc =
 
     Your Rusty Blade now causes toxic damage to those you attack and also increases rot level of corpses.
     Allows you to rust reinforced and mining walls.
+
+knowledge-path-rust-s8-name = Entropic Plume
+knowledge-path-rust-s8-desc =
+    The corrosion was unstoppable. The rust was unpleasable. The Blacksmith was gone, and you hold their blade. Champions of hope, the Rustbringer is nigh!
+
+    Grants you Entropic Plume, a spell that releases a vexing wave of Rust. Blinds, poisons, and inflicts Amok on any heathen it hits, causing them to strike at friend or foe wildly. Also rusts and destroys and surfaces it hits.

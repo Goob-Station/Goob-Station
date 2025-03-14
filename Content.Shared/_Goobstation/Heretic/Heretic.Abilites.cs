@@ -151,6 +151,27 @@ public sealed partial class EventHereticRustConstruction : WorldTargetActionEven
     };
 }
 
+public sealed partial class EventHereticEntropicPlume : InstantActionEvent
+{
+    [DataField]
+    public EntProtoId Proto = "EntropicPlume";
+
+    [DataField]
+    public float Offset = 2.5f;
+
+    [DataField]
+    public float Speed = 0.1f;
+
+    [DataField]
+    public float Radius = 2.5f;
+
+    [DataField]
+    public float LookupRange = 0.1f;
+
+    [DataField]
+    public EntProtoId TileRune = "TileHereticRustRune";
+}
+
 public sealed partial class EventHereticAggressiveSpread : InstantActionEvent
 {
     [DataField]

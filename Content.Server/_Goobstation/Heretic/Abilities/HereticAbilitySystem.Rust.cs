@@ -41,8 +41,55 @@ public sealed partial class HereticAbilitySystem
         SubscribeLocalEvent<HereticComponent, HereticLeechingWalkEvent>(OnLeechingWalk);
         SubscribeLocalEvent<HereticComponent, EventHereticRustConstruction>(OnRustConstruction);
         SubscribeLocalEvent<HereticComponent, EventHereticAggressiveSpread>(OnAggressiveSpread);
+        SubscribeLocalEvent<HereticComponent, EventHereticEntropicPlume>(OnEntropicPlume);
 
         SubscribeLocalEvent<SpriteRandomOffsetComponent, ComponentStartup>(OnRandomOffsetStartup);
+    }
+
+    private void OnEntropicPlume(Entity<HereticComponent> ent, ref EventHereticEntropicPlume args)
+    {
+        var uid = ent.Owner;
+
+        if (!TryUseAbility(uid, args))
+            return;
+
+        args.Handled = true;
+
+        var xform = Transform(uid);
+
+        var (pos, rot) = _transform.GetWorldPositionRotation(xform);
+
+        var dir = rot.ToWorldVec();
+
+        var mapPos = new MapCoordinates(pos + dir * args.Offset, xform.MapID);
+
+        var plume = Spawn(args.Proto, mapPos);
+
+        var circle = new Circle(mapPos.Position, args.Radius);
+        var grids = new List<Entity<MapGridComponent>>();
+        var box = Box2.CenteredAround(mapPos.Position, new Vector2(args.Radius, args.Radius));
+        _mapMan.FindGridsIntersecting(mapPos.MapId, box, ref grids);
+
+        var tiles = new List<(EntityCoordinates, TileRef, EntityUid, MapGridComponent)>();
+        foreach (var grid in grids)
+        {
+            tiles.AddRange(_map.GetTilesIntersecting(grid.Owner, grid.Comp, circle)
+                .Select(x => (_map.GridTileToLocal(grid.Owner, grid.Comp, x.GridIndices), x, grid.Owner, grid.Comp)));
+        }
+
+        foreach (var (coords, tileRef, gridUid, mapGrid) in tiles)
+        {
+            if (CanRustTile((ContentTileDefinition) _tileDefinitionManager[tileRef.Tile.TypeId]))
+                MakeRustTile(gridUid, mapGrid, tileRef, args.TileRune);
+
+            foreach (var toRust in _lookup.GetEntitiesInRange(coords, args.LookupRange, LookupFlags.Static))
+            {
+                TryMakeRustWall(toRust);
+            }
+        }
+
+        _gun.ShootProjectile(plume, dir, Vector2.Zero, uid, uid, args.Speed);
+        _gun.SetTarget(plume, null, out _);
     }
 
     private void OnRandomOffsetStartup(Entity<SpriteRandomOffsetComponent> ent, ref ComponentStartup args)

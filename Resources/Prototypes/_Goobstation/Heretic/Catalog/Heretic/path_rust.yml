@@ -125,3 +125,19 @@
     stage: 6
     whitelist:
     - Rust
+
+- type: listing
+  id: HereticRustPath8
+  name: knowledge-path-rust-s8-name
+  description: knowledge-path-rust-s8-desc
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: entropic_plume }
+  productHereticKnowledge: EntropicPlume
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathRust
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 7

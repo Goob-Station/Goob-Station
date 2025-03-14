@@ -338,6 +338,14 @@
   path: Rust
   stage: 7
 
+- type: hereticKnowledge
+  id: EntropicPlume
+  path: Rust
+  sideKnowledge: true
+  stage: 8
+  actionPrototypes:
+  - ActionHereticEntropicPlume
+
 ### side paths
 - type: hereticKnowledge
   id: RitualOfKnowledge

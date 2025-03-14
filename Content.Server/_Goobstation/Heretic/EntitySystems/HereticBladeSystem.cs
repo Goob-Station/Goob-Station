@@ -77,7 +77,7 @@ public sealed class HereticBladeSystem : EntitySystem
 
             case "Rust":
                 if (_mobState.IsDead(target))
-                    _rotting.ModifyRotTime(target, TimeSpan.FromMinutes(1f));
+                    _rotting.ReduceAccumulator(target, -TimeSpan.FromMinutes(1f));
                 break;
 
             default:
