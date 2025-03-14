@@ -114,7 +114,6 @@
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_hammer-inhands.rsi
   - type: MeleeThrowOnHit
     speed: 5
-    lifetime: 0.5
   - type: FlipOnHit
   - type: GunRequiresWield
   - type: Wieldable
@@ -147,7 +146,7 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Slash: 5 
+        Slash: 5
     soundHit:
       collection: MetalThud
     angle: 0

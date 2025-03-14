@@ -45,6 +45,21 @@
 
 - type: entity
   parent: ClothingHeadBase
+  id: ClothingHeadHatBeretBlueshield
+  name: blueshield officer's beret
+  description: A durable beret woven out of durathread. Doesn't actually provide any protection.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/blueshield_beret.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/blueshield_beret.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon # We do a little bit of trolling.
+
+- type: entity
+  parent: ClothingHeadBase
   id: ClothingHeadMailCarrier
   name: mail carrier's hat
   description: Smells like a good pension.

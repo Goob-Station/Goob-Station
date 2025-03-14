@@ -112,6 +112,9 @@
     interfaces:
       enum.ChameleonUiKey.Key:
         type: ChameleonBoundUserInterface
+  - type: ClothingGrantComponent
+    component:
+    - type: KravMaga # Silly
 
 - type: entity
   parent: [ClothingEyesHudOmni, BaseCentcommContraband]

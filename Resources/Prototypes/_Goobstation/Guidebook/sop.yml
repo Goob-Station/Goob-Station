@@ -30,6 +30,7 @@
   - EpsilonAlert SOP
   - GammaAlert SOP
   - VioletAlert SOP
+  - OmicronAlert SOP
 
 # Emergencies Main Directory
 - type: guideEntry
@@ -46,6 +47,7 @@
   - StationDamage SOP
   - WarDeclaration SOP
   - Zombie SOP
+  - EmergencyResponseTeam SOP
 
 # Standard Procedures and Legal Main Directories
 - type: guideEntry
@@ -195,6 +197,11 @@
   name: guide-entry-sop-violetalert
   text: "/ServerInfo/_Reserve/Guidebook/SoP/AlertLevels/VioletAlertSOP.xml"
 
+- type: guideEntry
+  id: OmicronAlert SOP
+  name: guide-entry-sop-omicronalert
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/OmicronAlertSOP.xml"
+
 # Basic SOP Entries
 - type: guideEntry
   id: Demoting SOP
@@ -260,6 +267,11 @@
   id: Zombie SOP
   name: guide-entry-sop-zombieoutbreak
   text: "/ServerInfo/_Reserve/Guidebook/SoP/Emergencies/ZombieOutbreak.xml"
+
+- type: guideEntry
+  id: EmergencyResponseTeam SOP
+  name: guide-entry-sop-emergencyresponseteam
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/EmergencyResponseTeam.xml"
 
 # Legal SOP Entries
 - type: guideEntry
