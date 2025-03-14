@@ -6294,3 +6294,13 @@ Entries:
       message: Fixed harpies being immune to anomaly infections.
   id: 725
   time: '2025-03-14T01:27:39.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: >-
+        The Staff of Animation, Mjolnir and Singularity Hammer to the Wizards
+        Grimoire.
+    - type: Add
+      message: Mjolnir returns to your hand when thrown.
+  id: 726
+  time: '2025-03-14T01:27:59.0000000+00:00'
