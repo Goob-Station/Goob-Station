@@ -70,7 +70,8 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
         if (batteryComponent.CurrentCharge > energyPerUse)
             comp.IsPowered = true;
 
-        _itemSwitch.Switch((ent.Owner, ent.Comp), ent.Comp.DefaultState);
+        if (ent.Comp.DefaultState != null)
+            _itemSwitch.Switch((ent.Owner, ent.Comp), ent.Comp.DefaultState);
         comp.IsPowered = false;
 
     }
