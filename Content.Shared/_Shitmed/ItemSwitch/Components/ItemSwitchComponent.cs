@@ -12,7 +12,7 @@ public sealed partial class ItemSwitchComponent : Component
     ///     The item's toggle state.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public string State;
+    public string? State;
 
     [DataField(readOnly: true)]
     public Dictionary<string, ItemSwitchState> States = [];
@@ -68,7 +68,7 @@ public sealed partial class ItemSwitchComponent : Component
 public sealed partial class ItemSwitchState : BoundUserInterfaceMessage
 {
     [DataField]
-    public string Verb;
+    public string? Verb;
 
     [DataField]
     public SoundSpecifier? SoundStateActivate;
