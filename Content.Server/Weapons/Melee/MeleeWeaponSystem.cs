@@ -109,13 +109,13 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         var target = GetEntity(ev.Target!.Value);
 
-        PhysicalShove(user, target); // WWDP physical shoving, including inanimate objects
-        Interaction.DoContactInteraction(user, target); // WWDP moved up for shoves
-
         EntityUid? inTargetHand = null;
 
         if (!TryComp<CombatModeComponent>(user, out var combatMode))
             return false;
+
+        PhysicalShove(user, target); // WWDP physical shoving, including inanimate objects
+        Interaction.DoContactInteraction(user, target); // WWDP moved up for shoves
 
         if (_mobState.IsIncapacitated(target))
             return true; // WWDP
@@ -131,14 +131,13 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 // WWDP edit; shoving items costs their throw stamina cost
                 if (HasComp<ItemComponent>(target))
                 {
-                    _stamina.TakeStaminaDamage(user, (float) Math.Floor(targetPhysicsComponent.Mass / 6));
+                    _stamina.TakeStaminaDamage(user, (float) Math.Round(targetPhysicsComponent.Mass / 7.1));
                 }
 
                 return true;
                 // WWDP edit end
             }
         }
-
 
         if (targetHandsComponent?.ActiveHand is { IsEmpty: false })
         {
@@ -173,13 +172,13 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         }; // WWDP shoving
         RaiseLocalEvent(target, eventArgs);
 
-        if (!eventArgs.Handled || !eventArgs.WasDisarmed)
+        if (!eventArgs.Handled)
         {
-            ShoveOrDisarmPopup(eventArgs.PopupPrefix);
+            ShoveOrDisarmPopup(false);
             return true;
         }
 
-        ShoveOrDisarmPopup(eventArgs.PopupPrefix);
+        ShoveOrDisarmPopup(true);
         _audio.PlayPvs(combatMode.DisarmSuccessSound,
             user,
             AudioParams.Default.WithVariation(0.025f).WithVolume(5f));
@@ -188,22 +187,25 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         return true;
 
-        void ShoveOrDisarmPopup(string msgPrefix)
+        // WWDP edit (moved to function)
+        void ShoveOrDisarmPopup(bool disarm)
         {
             var filterOther = Filter.PvsExcept(user, entityManager: EntityManager);
+            var msgPrefix = "disarm-action-";
+
+            if (!disarm)
+                msgPrefix = "disarm-action-shove-";
 
             var msgOther = Loc.GetString(
                 msgPrefix + "popup-message-other-clients",
                 ("performerName", Identity.Entity(user, EntityManager)),
                 ("targetName", Identity.Entity(target, EntityManager)));
 
-            var msgUser = Loc.GetString(msgPrefix + "popup-message-cursor",
-                ("targetName", Identity.Entity(target, EntityManager)));
+            var msgUser = Loc.GetString(msgPrefix + "popup-message-cursor", ("targetName", Identity.Entity(target, EntityManager)));
 
             PopupSystem.PopupEntity(msgOther, user, filterOther, true);
             PopupSystem.PopupEntity(msgUser, target, user);
         }
-        // WWDP edit end
     }
 
     protected override bool InRange(EntityUid user, EntityUid target, float range, ICommonSession? session)
@@ -232,7 +234,16 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         var targetPos = _transform.ToMapCoordinates(target.ToCoordinates()).Position;
         var pushVector = (targetPos - userPos).Normalized() * force;
 
-        _throwing.TryThrow(target, pushVector, force * shoveSpeed, animated: false);
+        var animated = false;
+        var throwInAir = false;
+
+        if (HasComp<ItemComponent>(target)) // Throw items instead of shoving
+        {
+            animated = true;
+            throwInAir = true;
+        }
+
+        _throwing.TryThrow(target, pushVector, force * shoveSpeed, animated: animated, throwInAir: throwInAir);
     }
     protected override void DoDamageEffect(List<EntityUid> targets, EntityUid? user, TransformComponent targetXform)
     {
@@ -250,16 +261,21 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         var chance = 1 - disarmerComp.BaseDisarmFailChance;
 
-        if (inTargetHand != null && TryComp<DisarmMalusComponent>(inTargetHand, out var malus))
-        {
-            chance += malus.Malus;
-        }
+        // WWDP edit, disarm based on health & stamina
+        chance *= Math.Clamp(
+            _contests.StaminaContest(disarmer, disarmed)
+            * _contests.HealthContest(disarmer, disarmed),
+            0f,
+            1f);
 
-        var staminaContest = _contests.StaminaContest(disarmer, disarmed); // we aint even using this anymore might nuke it
-        var healthContest = _contests.HealthContest(disarmer, disarmed);
-        var disarmFinalChance = Math.Clamp(chance * 0.5f + staminaContest * 0.25f + healthContest * 0.25f, 0f, 1f);
-        Log.Info(disarmFinalChance.ToString());
-        return disarmFinalChance; // this ideally should give lower values
+        if (inTargetHand != null && TryComp<DisarmMalusComponent>(inTargetHand, out var malus))
+            chance *= 1 - malus.Malus; // WWDP edit
+
+        if (TryComp<ShovingComponent>(disarmer, out var shoving))
+            chance *= 1 + shoving.DisarmBonus; // WWDP edit
+
+        Log.Info(chance.ToString());
+        return chance;
 
     }
 
