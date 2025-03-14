@@ -1,7 +1,7 @@
 - type: entity
   name: proto-kinetic shotgun
   id: WeaponProtoKineticShotgun
-  parent: [WeaponProtoKineticAcceleratorBase, BaseCargoContraband]
+  parent: [WeaponProtoKineticAcceleratorBase, BaseGunWieldable, BaseCargoContraband]
   description: Fires a spread of low-damage kinetic bolts.
   components:
   - type: Sprite
@@ -34,6 +34,10 @@
     whitelist:
       tags:
       - PKAUpgrade
+  - type: GunWieldBonus
+    minAngle: 0
+    maxAngle: 0
+  - type: GunRequiresWield
   - type: Item
     shape:
     - 0,0,4,0

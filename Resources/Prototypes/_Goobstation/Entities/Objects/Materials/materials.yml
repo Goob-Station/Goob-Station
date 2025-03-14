@@ -50,7 +50,7 @@
   - type: Stack
     stackType: BSCrystalUnprocessed
   - type: UnclaimedOre
-    miningPoints: 100
+    miningPoints: 250
 
 - type: entity
   parent: MaterialBSCrystalUnprocessed

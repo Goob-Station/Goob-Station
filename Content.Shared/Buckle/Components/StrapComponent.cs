@@ -90,6 +90,18 @@ public sealed partial class StrapComponent : Component
     /// </summary>
     [DataField]
     public bool BuckleOnInteractHand = true;
+
+    /// <summary>
+    /// adds bverb for bucle
+    /// </summary>
+    [DataField]
+    public bool AddBuckleverb = true; //Goobstation
+
+    /// <summary>
+    /// add so can block unbuckeling of vehicle drivers
+    /// </summary>
+    [DataField]
+    public bool AllowOthersToUnbuckle = true; // Goobstation
 }
 
 public enum StrapPosition

@@ -118,9 +118,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
     {
         if (entity is not null)
         {
-            DebugTools.Assert(TryGetSolution(container, name, out var debugEnt)
-                              && debugEnt.Value.Owner == entity.Value.Owner);
-            return true;
+            return TryGetSolution(container, name, out var debugEnt) && debugEnt.Value.Owner == entity.Value.Owner;
         }
 
         return TryGetSolution(container, name, out entity);
@@ -145,7 +143,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         [NotNullWhen(true)] out Solution? solution,
         bool errorOnMissing = false)
     {
-        if (!TryGetSolution(container, name, out entity))
+        if (!TryGetSolution(container, name, out entity, errorOnMissing: errorOnMissing))
         {
             solution = null;
             return false;
@@ -351,6 +349,22 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         var solution = comp.Solution;
 
         var splitSol = solution.SplitSolution(quantity);
+        UpdateChemicals(soln);
+        return splitSol;
+    }
+
+    /// <summary>
+    /// Splits a solution removing a specified amount of each reagent, if available.
+    /// </summary>
+    /// <param name="soln">The container to split the solution from.</param>
+    /// <param name="quantity">The amount of each reagent to split.</param>
+    /// <returns></returns>
+    public Solution SplitSolutionReagentsEvenly(Entity<SolutionComponent> soln, FixedPoint2 quantity)
+    {
+        var (uid, comp) = soln;
+        var solution = comp.Solution;
+
+        var splitSol = solution.SplitSolutionReagentsEvenly(quantity);
         UpdateChemicals(soln);
         return splitSol;
     }

@@ -1,0 +1,10 @@
+- type: entity
+  id: CigPackBlueshield
+  parent: [BaseCentcommContraband, CigPackSyndicate] # Don't tell them
+  name: blueshield cigarette packet
+  description: High-grade cigarettes for a high-grade bodyguard. Infused with a slow-affecting medication to help soothe you.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Smokeables/Cigarettes/Packs/blueshield.rsi
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Smokeables/Cigarettes/Packs/blueshield.rsi

@@ -11,6 +11,10 @@ uplink-hardsuit-syndiecommander-desc = A surplus commander hardsuit, from the Go
 uplink-hardsuit-cybersun-stealth-name = Cybersun Stealth Hardsuit
 uplink-hardsuit-cybersun-stealth-desc = Reversed engineered from Spider Clan technology, this hardsuit has stealth plating in it for those special ops. Slightly slower and less armor than the default hardsuits.
 
+# Cybersun Dreadnought suit
+uplink-hardsuit-cybersun-dreadnought-name = Cybersun Dreadnought suit
+uplink-hardsuit-cybersun-dreadnought-desc = An insanely tough combat hardsuit utilizing hyper-bluespace enhanced plasteel to make an almost impenetrable wall out of the wearer. However, only the absolutely insane syndicate followers will put this on. Because of its weight, it must be tightened very hard, to the point of impaling the user and being unable to be taken off without completely ripping off their skin. The syndicate sends their regards.
+
 # Misc
 
 uplink-gondola-name = Gondola Crate
@@ -76,8 +80,17 @@ uplink-dualetta-bundle-desc = Comes with 2 Dualetta pistols, 2 machine pistol ma
 uplink-anaconda-name = Anaconda
 uplink-anaconda-desc = The pride of the Cybersun arms concern, this heavy pistol is designed to feed itself with the built-in fabricator.
 
+uplink-kravgloves-name = Krav maga gloves
+uplink-kravgloves-desc = Gloves with krav maga nanites installed while disguised as regular black gloves.
+
+uplink-guerrillagloves-name = Guerrilla gloves
+uplink-guerrillagloves-desc = Insulated combat gloves that allow the wearer to perform krav maga.
+
 uplink-bulk-mosin-name = Syndicate bulk rifle crate
 uplink-bulk-mosin-desc = 10 WW4-era rifles to arm you, your friends, and your cat. Saves 40% on shipping costs by buying in bulk.
+
+uplink-whimsy-bundle-name = Syndicate Joy & Whimsy Bundle
+uplink-whimsy-bundle-desc = Do YOU like spreading joy & whimsy? Well, Donk Co. has the solution for you! Contains a LIMITED EDITION axe and enough candy to kill a man.
 
 # Ammo
 
@@ -90,8 +103,8 @@ uplink-frag-grenade-desc = Lower damage, bigger radius. Compatible with the Chin
 uplink-rifle-mag-name = .20 Rifle Magazine
 uplink-rifle-mag-desc = A 25 round magazine containing .20 rifle bullets. Supports the Lecter and M-90.
 
-uplink-rifle-subsonic-mag-name = .30 Rifle Subsonic Magazine
-uplink-rifle-subsonic-mag-desc = A 35 round magazine containing .30 rifle subsonic bullets. Supports the WSPR and any other .30 rife.
+uplink-rifle-caseless-mag-name = .25 Caseless Rifle Magazine
+uplink-rifle-caseless-mag-desc = A 30 round rifle magazine filled with .25 caseless bullets. Compatible with the WSPR.
 
 uplink-l6-box-name = Magazine Box (.30 rifle)
 uplink-l6-box-desc = Magazine box with 100 catridges. Compatible with the L6 SAW.
@@ -135,10 +148,16 @@ uplink-lollypop-bundle-big-desc = Contains an ungodly amount of candy. What coul
 uplink-smoke-implant-name = Smoke Implant
 uplink-smoke-implant-desc = Releases a cloud of smoke when activated.
 
+uplink-jaunter-implanter-name = Jaunter Implanter
+uplink-jaunter-implanter-desc = Swaps position of the user and target upon activation. Recharges passively.
+
 # Wearables
 
 uplink-helmet-swat-name = Syndicate SWAT Helmet
 uplink-helmet-swat-desc = Robust helmet that offers good protection and also suppresses flashbang sounds to some extent.
+
+uplink-reverse-bear-trap-name = Reverse bear trap
+uplink-reverse-bear-trap-desc = An ingenious execution device worn on (or forced onto) the head. Arming it starts a configurable timer (30-120 seconds) mounted on the bear trap. When it goes off, the trap's jaws will violently open, instantly killing anyone wearing it by tearing their jaws in half. To arm, attack someone with it while they're not wearing headgear.
 
 # Deception
 

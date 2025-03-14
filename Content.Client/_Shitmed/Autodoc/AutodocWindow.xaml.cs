@@ -8,6 +8,12 @@ using Robust.Client.Player;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Timing;
+using Robust.Client.UserInterface;
+using Robust.Shared.Serialization.Manager;
+using Robust.Shared.Utility;
+using System.IO;
+using YamlDotNet.RepresentationModel;
+using Robust.Shared.Serialization.Markdown;
 
 namespace Content.Client._Shitmed.Autodoc;
 
@@ -29,6 +35,7 @@ public sealed partial class AutodocWindow : FancyWindow
     public event Action<int, int>? OnRemoveStep;
     public event Action<int>? OnStart;
     public event Action? OnStop;
+    public event Action<AutodocProgram>? OnImportProgram;
 
     private DialogWindow? _dialog;
     private AutodocProgramWindow? _currentProgram;
@@ -47,6 +54,11 @@ public sealed partial class AutodocWindow : FancyWindow
         {
             _dialog?.Close();
             _currentProgram?.Close();
+        };
+
+        ImportProgramButton.OnPressed += _ =>
+        {
+            ImportProgram();
         };
 
         CreateProgramButton.OnPressed += _ =>
@@ -138,6 +150,33 @@ public sealed partial class AutodocWindow : FancyWindow
             button.Disabled = _active;
             Programs.AddChild(button);
         }
+    }
+
+    private async void ImportProgram()
+    {
+        var dialogManager = IoCManager.Resolve<IFileDialogManager>();
+        var file = await dialogManager.OpenFile(new FileDialogFilters(new FileDialogFilters.Group("yml")));
+
+        if (file == null)
+            return;
+
+        try
+        {
+            var serializationManager = IoCManager.Resolve<ISerializationManager>();
+            using var reader = new StreamReader(file, EncodingHelpers.UTF8);
+            var yamlStream = new YamlStream();
+            yamlStream.Load(reader);
+            var root = yamlStream.Documents[0].RootNode;
+            var program = serializationManager.Read<AutodocProgram>(root.ToDataNode(), notNullableOverride: true);
+            OnImportProgram?.Invoke(program);
+        }
+        catch (Exception exc)
+        {
+            ILogManager logManager = IoCManager.Resolve<ILogManager>(); // Using automatic dependancy doesn't work here
+            ISawmill sawmill = logManager.GetSawmill("autodoc-ui");
+            sawmill.Error($"Error when importing program\n{exc.StackTrace}");
+        }
+
     }
 
     private void OpenProgram(int index)

@@ -26,6 +26,7 @@ using Content.Shared.Chat;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Players.RateLimiting;
 using Content.Client._Goobstation.ServerCurrency; // Goob Station - Goob Coin
+using Content.Client._Goobstation.Redial; // Goobstation - Redialing
 
 namespace Content.Client.IoC
 {
@@ -62,6 +63,7 @@ namespace Content.Client.IoC
             collection.Register<SharedPlayerRateLimitManager, PlayerRateLimitManager>();
             collection.Register<TitleWindowManager>();
             collection.Register<ServerCurrencySystem>(); // Goob Station - Goob Coin
+            collection.Register<RedialManager>(); // Goobstation - Redialing
             collection.Register<LinkAccountManager>(); // RMC14
         }
     }
