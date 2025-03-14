@@ -1,5 +1,5 @@
 - type: entity
-  name: DT-2 'justice'
+  name: DT-2 'Justice'
   parent: [BaseItem, BaseGrandTheftContraband]
   id: Justice
   description: An expensive & self-recharging energy sword, designed specifically for the Head of Security. If it were not for injustice, man would not know justice.
@@ -22,8 +22,6 @@
     startingCharge: 500
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargePause: true
-    autoRechargePauseTime: 4
     autoRechargeRate: 5
   - type: DisarmMalus
   - type: UseDelay
