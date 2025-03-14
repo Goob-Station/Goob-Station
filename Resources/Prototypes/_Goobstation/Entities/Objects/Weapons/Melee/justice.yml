@@ -23,7 +23,7 @@
   - type: DisarmMalus
   - type: ItemSwitch
     needsPower: true
-    defaultState: default
+    defaultState: stun
     state: stun
     showLabel: true
     states:
