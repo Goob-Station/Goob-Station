@@ -138,3 +138,35 @@
     modifier: 0.8
   - type: ModifyStandingUpTime # Goobstation
     multiplier: 0.5
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingModsuitBootsEngineer
+  name: sapper modsuit boots
+  description: Made to get oily.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Modsuits/engineer.rsi
+    layers:
+    - state: boots
+    - state: boots-sealed
+      map: [ "sealed" ]
+  - type: Clothing
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    slots: [ feet ]
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: SealableClothing
+    sealUpPopup: sealable-clothing-seal-up-boots
+    sealDownPopup: sealable-clothing-seal-down-boots
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: SealableClothingVisuals
+    visualLayers:
+      shoes:
+      - state: equipped-FEET-sealed
