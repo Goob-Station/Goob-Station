@@ -1,0 +1,10 @@
+- type: construction
+  name: toy grenade
+  id: ToyGrenade
+  graph: ToyGrenade
+  startNode: start
+  targetNode: toygrenade
+  category: construction-category-misc
+  description: A weak grenade that might just scare some people.
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi, state: frag }
+  objectType: Item
