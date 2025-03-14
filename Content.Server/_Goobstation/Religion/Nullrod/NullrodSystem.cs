@@ -35,7 +35,7 @@ public sealed partial class NullRodSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnShootAttempt(EntityUid uid, NullrodComponent comp, AttemptShootEvent args)
+    private void OnShootAttempt(EntityUid uid, NullrodComponent comp, ref AttemptShootEvent args)
     {
         if (HasComp<BibleUserComponent>(args.User))
             return;
