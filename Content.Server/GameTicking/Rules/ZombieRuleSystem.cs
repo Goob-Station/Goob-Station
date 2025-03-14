@@ -132,6 +132,7 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
             }
 
             _audio.PlayGlobal("/Audio/Announcements/outbreak7.ogg", Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
+            _audio.PlayGlobal("/Audio/StationEvents/violet_alt.ogg", Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f)); // Goobstation
         }
 
         if (GetInfectedFraction(false) > zombieRuleComponent.ZombieShuttleCallPercentage && !_roundEnd.IsRoundEndRequested())
