@@ -239,6 +239,9 @@
     tags:
     - Engineering
     - Maintenance
+  - type: RandomMetadata
+    nameSegments:
+    - names_drone # maintainer drones get named after maintainers get it? its funny
 
 - type: entity
   name: onestar mecha
