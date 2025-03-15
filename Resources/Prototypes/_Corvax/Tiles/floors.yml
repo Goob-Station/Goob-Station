@@ -15,7 +15,7 @@
     collection: FootstepWood
   barestepSounds:
     collection: BarestepWood
-  itemDrop: FloorTileItemWood
+  itemDrop: FloorTileItemWoodParquet
   heatCapacity: 10000
 
 - type: tile
@@ -35,7 +35,7 @@
     collection: FootstepWood
   barestepSounds:
     collection: BarestepWood
-  itemDrop: FloorTileItemWood
+  itemDrop: FloorTileItemWoodChess
   heatCapacity: 10000
 
 - type: tile
@@ -75,7 +75,7 @@
     collection: FootstepWood
   barestepSounds:
     collection: BarestepWood
-  itemDrop: FloorTileItemWoodBlack
+  itemDrop: FloorTileItemWoodLargeBlack
   heatCapacity: 10000
 
 - type: tile
@@ -95,7 +95,7 @@
     collection: FootstepWood
   barestepSounds:
     collection: BarestepWood
-  itemDrop: FloorTileItemWoodBlack
+  itemDrop: FloorTileItemWoodParquetBlack
   heatCapacity: 10000
 
 - type: tile
@@ -115,7 +115,7 @@
     collection: FootstepWood
   barestepSounds:
     collection: BarestepWood
-  itemDrop: FloorTileItemWoodBlack
+  itemDrop: FloorTileItemWoodChessBlack
   heatCapacity: 10000
 
 - type: tile
@@ -155,7 +155,7 @@
     collection: FootstepWood
   barestepSounds:
     collection: BarestepWood
-  itemDrop: FloorTileItemWoodDark
+  itemDrop: FloorTileItemWoodLargeDark
   heatCapacity: 10000
 
 - type: tile
@@ -175,7 +175,7 @@
     collection: FootstepWood
   barestepSounds:
     collection: BarestepWood
-  itemDrop: FloorTileItemWoodDark
+  itemDrop: FloorTileItemWoodParquetDark
   heatCapacity: 10000
 
 - type: tile
@@ -195,7 +195,7 @@
     collection: FootstepWood
   barestepSounds:
     collection: BarestepWood
-  itemDrop: FloorTileItemWoodDark
+  itemDrop: FloorTileItemWoodChessDark
   heatCapacity: 10000
 
 - type: tile
@@ -235,7 +235,7 @@
     collection: FootstepWood
   barestepSounds:
     collection: BarestepWood
-  itemDrop: FloorTileItemWoodLight
+  itemDrop: FloorTileItemWoodLargeLight
   heatCapacity: 10000
 
 - type: tile
@@ -255,7 +255,7 @@
     collection: FootstepWood
   barestepSounds:
     collection: BarestepWood
-  itemDrop: FloorTileItemWoodLight
+  itemDrop: FloorTileItemWoodParquetLight
   heatCapacity: 10000
 
 - type: tile
@@ -275,7 +275,7 @@
     collection: FootstepWood
   barestepSounds:
     collection: BarestepWood
-  itemDrop: FloorTileItemWoodLight
+  itemDrop: FloorTileItemWoodChessLight
   heatCapacity: 10000
 
 - type: tile
@@ -315,7 +315,7 @@
     collection: FootstepWood
   barestepSounds:
     collection: BarestepWood
-  itemDrop: FloorTileItemWoodRed
+  itemDrop: FloorTileItemWoodLargeRed
   heatCapacity: 10000
 
 - type: tile
@@ -335,7 +335,7 @@
     collection: FootstepWood
   barestepSounds:
     collection: BarestepWood
-  itemDrop: FloorTileItemWoodRed
+  itemDrop: FloorTileItemWoodParquetRed
   heatCapacity: 10000
 
 - type: tile
@@ -355,5 +355,5 @@
     collection: FootstepWood
   barestepSounds:
     collection: BarestepWood
-  itemDrop: FloorTileItemWoodRed
+  itemDrop: FloorTileItemWoodChessRed
   heatCapacity: 10000
