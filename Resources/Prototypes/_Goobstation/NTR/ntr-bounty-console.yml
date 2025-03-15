@@ -1,0 +1,56 @@
+- type: entity
+  id: ComputerNTRBounty
+  parent: BaseComputerAiAccess
+  name: NTR bounty computer
+  description: Used to manage currently active bounties.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: nanotrasen
+    - map: ["computerLayerKeys"]
+      state: ntr_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: NTRBountyConsole
+  - type: ActivatableUI
+    key: enum.NTRConsoleUiKey.Bounty
+  - type: UserInterface
+    interfaces:
+      enum.NTRConsoleUiKey.Bounty:
+        type: NTRBountyBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Computer
+    board: NTRBountyComputerCircuitboard
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#b89f25"
+  - type: AccessReader
+    access: [["NanotrasenRepresentative"]]
+
+- type: entity
+  id: NTRBountyComputerCircuitboard
+  parent: BaseComputerCircuitboard
+  name: NanoTrasen Representative bounty computer board
+  description: A computer printed circuit board for a NanoTrasen bounty computer.
+  components:
+  - type: Sprite
+    state: cpu_supply
+  - type: ComputerBoard
+    prototype: ComputerNTRBounty
+  - type: StaticPrice
+
+- type: entity
+  id: NTRBountyCompoterFlatpack
+  parent: BaseFlatpack
+  name: NanoTrasen bounty console flatpack
+  description: A flatpack containing NanoTrasen bounty console.
+  components:
+  - type: Flatpack
+    entity: ComputerNTRBounty

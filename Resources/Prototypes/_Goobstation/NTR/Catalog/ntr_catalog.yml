@@ -108,6 +108,19 @@
 # personal
 
 - type: listing
+  id: NTRExecutiveBountyFlatpack
+  name: ntr-executive-bounty-name
+  description: ntr-executive-bounty-desc
+  productEntity: NTRBountyCompoterFlatpack
+  cost:
+    NTLoyaltyPoint: 0
+  categories:
+  - NTRpersonal
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
   id: NTRExecutiveBSDCall
   name: ntr-executive-bsd-name
   description: ntr-executive-bsd-desc
