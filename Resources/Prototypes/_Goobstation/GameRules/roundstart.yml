@@ -148,13 +148,14 @@
       max: 1
       playerRatio: 20
       briefing:
-        text: head-rev-role-greeting
+        text: head-rev-role-greeting-consent-only # Reserve-ConsentRev
         color: CornflowerBlue
         sound: "/Audio/Ambience/Antag/headrev_start.ogg"
-      startingGear: HeadRevGear
+      #startingGear: HeadRevGear # Reserve-ConsentRev
       components:
       - type: Revolutionary
       - type: HeadRevolutionary
+        onlyConsentConvert: true # Reserve-ConsentRev
       mindRoles:
       - MindRoleHeadRevolutionary
   - type: Tag
