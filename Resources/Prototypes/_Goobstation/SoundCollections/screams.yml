@@ -1,0 +1,6 @@
+- type: soundCollection
+  id: VoxScreams
+  files:
+    - /Audio/Voice/Vox/shriek1.ogg
+    - /_Goobstation/Audio/Voice/Vox/scream4.ogg
+    - /_Goobstation/Audio/Voice/Vox/scream3.ogg
