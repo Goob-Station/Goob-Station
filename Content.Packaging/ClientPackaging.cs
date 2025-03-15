@@ -84,7 +84,7 @@ public static class ClientPackaging
     {
         var modules = new List<string> { "Content.Client", "Content.Shared", "Content.Shared.Database" };
 
-        var directories = Directory.GetDirectories(".", "Content.*");
+        var directories = Directory.GetDirectories("../../", "Content.*");
         foreach (var dir in directories)
         {
             var dirName = Path.GetFileName(dir);
