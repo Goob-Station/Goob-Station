@@ -176,7 +176,7 @@
   # Goobstation R&D Console rework start
   position: 3,2
   technologyPrerequisites:
-  - IndustrialEngineering
+  - MechanicalCompression
   # Goobstation R&D Console rework end
 
 - type: technology
