@@ -58,19 +58,19 @@ ntr-executive-combatmed-desc = When you need something more than "just a gauze"
 # response teams
 
 ntr-executive-ert-sec-name = Call ERT security
-ntr-executive-ert-sec-desc = Call ERT security team from CentComm. This is the primary combat force of the response teams, deployed to neutralize major threats such as nuclear operatives or revolutionaries. Its deployment is strictly reserved for extreme emergencies, any abuse of their presence may have lasting consequences for stations command.
+ntr-executive-ert-sec-desc = Call ERT security team from CentComm. This is the primary combat force of the response teams, deployed to neutralize major threats such as nuclear operatives or revolutionaries. Their deployment is strictly reserved for extreme emergencies, any abuse of their presence may have lasting consequences for the station's command.
 
 ntr-executive-ert-med-name = Call ERT medical
-ntr-executive-ert-med-desc = Call ERT medical team from CentComm. Primarly called in post-emergency situations and massive casualty events. Their primary missions is to save lives and not to deal with the threats.
+ntr-executive-ert-med-desc = Call ERT medical team from CentComm. Primarily called in for mass casualty events and post-emergency body clean up. Their primary mission is to save lives and not to deal with threats.
 
 ntr-executive-ert-engi-name = Call ERT engineering
-ntr-executive-ert-engi-desc = Call ERT engineering team from CentComm. A team of engineers, that specialize in repairing stations atmosphere and powergrids. Usually called in to patch up the station, and not to deal with threats of whats on.
+ntr-executive-ert-engi-desc = Call ERT engineering team from CentComm. A team of engineers that specialize in repairing a station's atmosphere and power grid. Their primary mission is to repair the station and not to deal with threats.
 
 ntr-executive-ert-jani-name = Call ERT janitorial
-ntr-executive-ert-jani-desc = Call ERT janitorial team from CentComm. While less combat-focused, these specialists ensure that the station is restored to a functional state.
+ntr-executive-ert-jani-desc = Call ERT janitorial team from CentComm. A team of specialists with many cleaning supplies. Their primary mission is to make sure the station is restored to a clean, mess free state and not to deal with threats.
 
 ntr-executive-cburn-name = Call CBURN
-ntr-executive-cburn-desc = Call CBURN team. CBURN, or Contaiment and Biohazard Urban Response Network, is a specialised task force, deployed exclusively to deal with severe biological threats, such as virus outbrakes, level 5 or 7 biohazard outbreaks or else. CBURN operates under strict quarantine protocols, so please do not interfiere with their work and cooperate.
+ntr-executive-cburn-desc = Call CBURN team. Containment and Biohazard Urban Response Network, is a specialized task force, deployed exclusively to deal with severe biological threats, such as viral and biohazard outbreaks. CBURN operates under strict quarantine protocols, so cooperate with them by not interfering with their work.
 
 # tiers
 
