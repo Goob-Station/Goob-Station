@@ -16,8 +16,7 @@
     contents:
     - id: WeaponPulsePistol
     - id: HandheldFaxOfficial
-    - id: BoxFolderNuclearCodes # ka-BOOM
-    - id: NukeOverride
+    - id: NukeOverride # No need for codes.
     - id: MagazineLightRifleUranium
     - id: MagazineLightRifleUranium
     - id: HyperFlash
