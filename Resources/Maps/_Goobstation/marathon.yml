@@ -64829,7 +64829,7 @@ entities:
       parent: 2
 - proto: GasMinerPlasma
   entities:
-  - uid: 22570
+  - uid: 22583
     components:
     - type: Transform
       pos: 26.5,-30.5

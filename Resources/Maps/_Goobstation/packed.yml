@@ -47122,7 +47122,7 @@ entities:
       parent: 2
 - proto: GasMinerPlasma
   entities:
-  - uid: 15079
+  - uid: 15099
     components:
     - type: Transform
       pos: 49.5,-31.5
