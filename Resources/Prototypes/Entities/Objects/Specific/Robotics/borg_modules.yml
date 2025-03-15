@@ -227,9 +227,18 @@
     - MiningDrill
     # - Shovel # Goobstation
     - MineralScannerUnpowered
-    - OreBag
+    # - OreBag # Goobstation
     - Crowbar
     - RadioHandheld
+    # Frontier: droppable borg items
+  - type: DroppableBorgModule
+    moduleId: Mining
+    items:
+    - id: OreBag
+      whitelist:
+        components:
+        - OreBag
+    # End Frontier: droppable borg items
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: mining-module }
 
