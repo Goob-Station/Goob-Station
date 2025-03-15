@@ -1,0 +1,51 @@
+<Control xmlns="https://spacestation14.io"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
+    Margin="5"
+    VerticalExpand="True">
+    <BoxContainer
+        Name="InfoContainer"
+        Orientation="Vertical"
+        VerticalExpand="True"
+        Margin="5">
+        <TextureRect Name="TechnologyTexture"
+                     TextureScale="2 2"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Left"/>
+        <BoxContainer Orientation="Horizontal">
+            <Label Name="TechnologyNameLabel" StyleClasses="LabelKeyText" HorizontalExpand="True"/>
+            <TextureRect Name="DisciplineTexture" TextureScale="5 5" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        </BoxContainer>
+        <Button Name="ResearchButton" Text="{Loc 'research-console-menu-server-research-button'}" HorizontalAlignment="Left"/>
+    </BoxContainer>
+    <Control MinSize="10 10"
+        HorizontalExpand="True"/>
+    <BoxContainer
+        Name="RecipesContainer"
+        Orientation="Vertical"
+        VerticalExpand="True"
+        SizeFlagsStretchRatio="1"
+        VerticalAlignment="Bottom"
+        Margin="5"
+        MinSize="400 400"
+        SetSize="400 400">
+        <Label Text="{Loc 'research-console-unlocks-text'}" HorizontalAlignment="Center"/>
+        <customControls:HSeparator StyleClasses="LowDivider" Margin="0 0 0 10"/>
+        <PanelContainer VerticalExpand="True">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+            </PanelContainer.PanelOverride>
+            <ScrollContainer
+                HScrollEnabled="False"
+                HorizontalExpand="True"
+                SizeFlagsStretchRatio="4"
+                VerticalExpand="True">
+                <BoxContainer
+                    Name="UnlocksContainer"
+                    Orientation="Vertical"
+                    VerticalExpand="True">
+                </BoxContainer>
+            </ScrollContainer>
+        </PanelContainer>
+    </BoxContainer>
+</Control>
