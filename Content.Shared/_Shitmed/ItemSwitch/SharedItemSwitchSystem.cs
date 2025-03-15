@@ -8,7 +8,6 @@ using Content.Shared._Shitmed.ItemSwitch.Components;
 using Content.Shared._Shitmed.Switchable;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
-using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 
