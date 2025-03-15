@@ -83,7 +83,7 @@ public abstract partial class SharedClowncarSystem : EntitySystem
 
         if (!TryComp<VehicleComponent>(uid, out var _))
             return;
-
+        EnsureComp<StunnedComponent>(args.Entity);
         _actionsSystem.AddAction(args.Entity, component.ThankRiderAction, uid);
     }
 
@@ -131,6 +131,7 @@ public abstract partial class SharedClowncarSystem : EntitySystem
             if (metaData.EntityPrototype != null && metaData.EntityPrototype == component.ThankRiderAction)
                 _actionsSystem.RemoveAction(actionId);
         }
+        RemComp<StunnedComponent>(args.Entity);
     }
 }
 
