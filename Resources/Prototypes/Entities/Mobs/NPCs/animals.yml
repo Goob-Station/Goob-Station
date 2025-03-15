@@ -1427,8 +1427,6 @@
       Unsexed: MonkeyMode
     wilhelmProbability: 0.001
 
-
-
 - type: entity
   name: monkey
   id: MobMonkey
