@@ -26,7 +26,7 @@ jobs:
     - name: Install REUSE tool
       run: pip install reuse
 
-    - name: Configure REUSE (custom license paths)
+    - name: Configure REUSE
       run: |
         mkdir -p .reuse
         cat << EOF > .reuse/dep5
@@ -45,17 +45,24 @@ jobs:
         EOF
 
     - name: Get PR labels
-      id: pr-labels
-      uses: mshick/add-pr-labels@v1
+      id: get-labels
+      uses: actions/github-script@v7
       with:
         github-token: ${{ secrets.BOT_TOKEN }}
+        script: |
+          const { data: labels } = await github.rest.issues.listLabelsOnIssue({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: context.issue.number
+          })
+          return labels.map(label => label.name).join(',')
 
     - name: Determine license
       id: determine-license
       run: |
-        if [[ "${{ steps.pr-labels.outputs.labels }}" == *"AGPL"* ]]; then
+        if [[ "${{ steps.get-labels.outputs.result }}" == *"AGPL"* ]]; then
           echo "SPDX=AGPL-3.0-or-later" >> $GITHUB_OUTPUT
-        elif [[ "${{ steps.pr-labels.outputs.labels }}" == *"MIT"* ]]; then
+        elif [[ "${{ steps.get-labels.outputs.result }}" == *"MIT"* ]]; then
           echo "SPDX=MIT" >> $GITHUB_OUTPUT
         else
           echo "SPDX=" >> $GITHUB_OUTPUT
@@ -67,26 +74,22 @@ jobs:
         AUTHOR_NAME=$(git log -1 --pretty=format:"%an")
         AUTHOR_EMAIL=$(git log -1 --pretty=format:"%ae")
         
-        # Get modified C# files only
         FILES=$(git diff --name-only HEAD^ HEAD | grep -E '\.cs$')
 
         for FILE in $FILES; do
           if [ -f "$FILE" ]; then
-            # Check if header exists using REUSE
             if ! reuse lint "$FILE"; then
-              # Add headers with C# style comments
               reuse addheader \
                 --license "${{ steps.determine-license.outputs.SPDX }}" \
                 --copyright "$AUTHOR_NAME <$AUTHOR_EMAIL>" \
                 --style c \
                 "$FILE"
               
-              # Convert to C# comment style
               sed -i '1s|^/*|//|; 1s|*/$||' "$FILE"
             fi
           fi
         done
-
+        
     - name: Commit and push changes
       if: ${{ steps.determine-license.outputs.SPDX != '' }}
       run: |
