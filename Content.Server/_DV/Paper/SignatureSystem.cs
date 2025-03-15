@@ -1,6 +1,7 @@
 using Content.Server.Access.Systems;
 using Content.Server.Popups;
 using Content.Shared.Paper;
+using Content.Server.Paper;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Content.Shared.Verbs;
@@ -67,7 +68,7 @@ public sealed class SignatureSystem : EntitySystem
             StampedColor = Color.DarkSlateGray, //TODO Make this configurable depending on the pen.
         };
 
-        if (!comp.StampedBy.Contains(stampInfo) && _paper.TryStamp(paper, stampInfo, SignatureStampState, comp))
+        if (!comp.StampedBy.Contains(stampInfo) && _paper.TryStamp(paper, stampInfo, SignatureStampState))
         {
             // Show popups and play a paper writing sound
             var signedOtherMessage = Loc.GetString("paper-signed-other", ("user", signer), ("target", paper.Owner));
@@ -78,7 +79,7 @@ public sealed class SignatureSystem : EntitySystem
 
             _audio.PlayPvs(comp.Sound, signer);
 
-            _paper.UpdateUserInterface(paper, comp);
+            _paper.UpdateUserInterface(paper);
 
             return true;
         }
