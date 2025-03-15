@@ -361,3 +361,17 @@
     damage:
       types:
         Piercing: 5
+
+- type: entity
+  name: monkey
+  id: MobMonkeySmort
+  parent: MobMonkey
+  description: New church of neo-darwinists actually believe that EVERY animal evolved from a monkey. Tastes like pork, and killing them is both fun and relaxing.
+  components:
+  - type: GhostRole
+    prob: 1
+    makeSentient: true
+    name: ghost-role-information-monkey-name
+    description: ghost-role-information-monkey-description
+    rules: ghost-role-information-freeagent-rules # Goobstation - - remove: 1984
+

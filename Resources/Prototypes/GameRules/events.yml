@@ -23,6 +23,7 @@
     - id: SnakeSpawn
     - id: SpiderClownSpawn
     - id: SpiderSpawn
+    - id: MonkeySpawn #Gooberstation
     - id: VentClog
     - id: TidemindDevelop # Goobstation - Tidemind
 
@@ -446,7 +447,7 @@
   - type: VentCrittersRule
     entries:
     - id: MobGiantSpiderAngry
-      prob: 0.05
+      prob: 0.025
 
 - type: entity
   id: SpiderClownSpawn
