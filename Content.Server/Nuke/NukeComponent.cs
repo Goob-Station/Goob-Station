@@ -59,6 +59,7 @@ namespace Content.Server.Nuke
         public float DisarmDoafterLength = 30.0f;
 
         [DataField("alertLevelOnActivate")] public string AlertLevelOnActivate = default!;
+        [DataField("alertLevelOnOverride")] public string AlertLevelOnOverride = default!; // Goobstation
         [DataField("alertLevelOnDeactivate")] public string AlertLevelOnDeactivate = default!;
 
         /// <summary>
