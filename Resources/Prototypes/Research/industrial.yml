@@ -285,7 +285,7 @@
     state: holding
   discipline: Industrial
   tier: 3
-  cost: 15000
+  cost: 20000 # Goobstation 15000 -> 20000
   recipeUnlocks:
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
@@ -304,7 +304,7 @@
     state: microreactor
   discipline: Industrial
   tier: 3
-  cost: 10000
+  cost: 15000 # Goobstation 10000 -> 15000
   recipeUnlocks:
   - PowerCellMicroreactor
   technologyPrerequisites:

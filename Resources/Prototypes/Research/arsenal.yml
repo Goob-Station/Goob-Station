@@ -236,7 +236,7 @@
     state: icon
   discipline: Arsenal
   tier: 3
-  cost: 15000
+  cost: 20000 # Goobstation 15000 -> 20000
   recipeUnlocks:
   - WeaponAdvancedLaser
   - PortableRecharger
@@ -256,7 +256,7 @@
     state: icon
   discipline: Arsenal
   tier: 3
-  cost: 15000
+  cost: 20000 # Goobstation 15000 -> 20000
   recipeUnlocks:
   - WeaponLaserSvalinn
   # Goobstation R&D Console rework start
@@ -273,7 +273,7 @@
     state: icon
   discipline: Arsenal
   tier: 3
-  cost: 15000
+  cost: 20000 # Goobstation 15000 -> 20000
   recipeUnlocks:
   - GrenadeEMP
   - PowerCageHigh
