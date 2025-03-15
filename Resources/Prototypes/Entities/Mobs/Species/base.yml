@@ -186,12 +186,16 @@
     - NanoTrasen
   - type: CreamPied
   - type: Stripping
+  - type: AccessReader # Goobstation - wanted menu
+    access: [["Security"]]
   - type: UserInterface
     interfaces:
       enum.HumanoidMarkingModifierKey.Key:
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+      enum.SetWantedVerbMenu.Key: # Goobstation - wanted menu
+        type: WantedMenuBoundUserInterface
       # Goobstation - changelings
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
