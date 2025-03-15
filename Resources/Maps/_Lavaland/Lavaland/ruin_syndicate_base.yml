@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/15/2025 03:53:48
-  entityCount: 3527
+  time: 03/15/2025 19:38:04
+  entityCount: 3524
 maps:
 - 11
 grids:
@@ -2186,7 +2186,7 @@ entities:
       pos: 25.5,0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -13724.872
+      secondsUntilStateChange: -14039.154
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -2259,7 +2259,7 @@ entities:
       pos: 18.5,-3.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -27557.295
+      secondsUntilStateChange: -27871.578
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -2275,7 +2275,7 @@ entities:
       pos: 21.5,-10.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -23.325932
+      secondsUntilStateChange: -337.6082
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -2416,27 +2416,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 90
-- proto: AlwaysPoweredLightLED
-  entities:
-  - uid: 148
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 24.5,-17.5
-      parent: 2
-  - uid: 149
-    components:
-    - type: Transform
-      pos: 21.5,-13.5
-      parent: 2
-- proto: AlwaysPoweredLightSodium
-  entities:
-  - uid: 150
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 26.5,-17.5
-      parent: 2
 - proto: APCBasic
   entities:
   - uid: 151
@@ -7464,7 +7443,7 @@ entities:
       pos: 16.5,-11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -33761.043
+      secondsUntilStateChange: -34075.324
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -14292,7 +14271,7 @@ entities:
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 24.5,-5.5
+      pos: 24.5,-4.5
       parent: 2
 - proto: GasPipeFourway
   entities:
@@ -15439,14 +15418,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#990000FF'
-  - uid: 1259
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 27.5,-5.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#990000FF'
   - uid: 1260
     components:
     - type: Transform
@@ -16274,31 +16245,13 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 28.5,-5.5
       parent: 2
-  - uid: 2258
+- proto: GasPipeTJunction
+  entities:
+  - uid: 150
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 27.5,-5.5
-      parent: 2
-  - uid: 2259
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 26.5,-5.5
-      parent: 2
-  - uid: 2260
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 25.5,-5.5
-      parent: 2
-- proto: GasPipeTJunction
-  entities:
-  - uid: 1093
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 24.5,-4.5
       parent: 2
   - uid: 1250
     components:
@@ -17687,6 +17640,16 @@ entities:
       angularDamping: 0
       linearDamping: 0
       canCollide: False
+- proto: LightBulbOld
+  entities:
+  - uid: 1259
+    components:
+    - type: Transform
+      parent: 1093
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
 - proto: LockerChemistryFilled
   entities:
   - uid: 10
@@ -18413,6 +18376,100 @@ entities:
         - DoorStatus: Trigger
         3510:
         - DoorStatus: Close
+        1093:
+        - DoorStatus: Off
+        12:
+        - DoorStatus: Off
+        1630:
+        - DoorStatus: Off
+        1618:
+        - DoorStatus: Off
+        1621:
+        - DoorStatus: Off
+        1619:
+        - DoorStatus: Off
+        1620:
+        - DoorStatus: Off
+        1627:
+        - DoorStatus: Off
+        1626:
+        - DoorStatus: Off
+        1614:
+        - DoorStatus: Off
+        1613:
+        - DoorStatus: Off
+        1612:
+        - DoorStatus: Off
+        1593:
+        - DoorStatus: Off
+        1607:
+        - DoorStatus: Off
+        1611:
+        - DoorStatus: Off
+        1631:
+        - DoorStatus: Off
+        1633:
+        - DoorStatus: Off
+        1635:
+        - DoorStatus: Off
+        1634:
+        - DoorStatus: Off
+        1632:
+        - DoorStatus: Off
+        1587:
+        - DoorStatus: Off
+        1590:
+        - DoorStatus: Off
+        1582:
+        - DoorStatus: Off
+        1585:
+        - DoorStatus: Off
+        1584:
+        - DoorStatus: Off
+        1583:
+        - DoorStatus: Off
+        1586:
+        - DoorStatus: Off
+        1588:
+        - DoorStatus: Off
+        1628:
+        - DoorStatus: Off
+        1591:
+        - DoorStatus: Off
+        1606:
+        - DoorStatus: Off
+        1604:
+        - DoorStatus: Off
+        1603:
+        - DoorStatus: Off
+        1608:
+        - DoorStatus: Off
+        1609:
+        - DoorStatus: Off
+        1602:
+        - DoorStatus: Off
+        148:
+        - DoorStatus: Off
+        46:
+        - DoorStatus: Off
+        149:
+        - DoorStatus: Off
+        1597:
+        - DoorStatus: Off
+        1598:
+        - DoorStatus: Off
+        1600:
+        - DoorStatus: Off
+        1599:
+        - DoorStatus: Off
+        1596:
+        - DoorStatus: Off
+        1601:
+        - DoorStatus: Off
+        1616:
+        - DoorStatus: Off
+        1615:
+        - DoorStatus: Off
 - proto: PlasmaWindoorSyndicateLocked
   entities:
   - uid: 1563
@@ -18536,35 +18593,57 @@ entities:
       parent: 2
 - proto: PoweredDimSmallLight
   entities:
-  - uid: 46
+  - uid: 1093
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 31.5,-3.5
       parent: 2
+    - type: PointLight
+      enabled: False
+    - type: DamageOnInteract
+      isDamageActive: False
+    - type: ContainerContainer
+      containers:
+        light_bulb: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: 1259
+    - type: ApcPowerReceiver
+      powerLoad: 60
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1582
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 15.5,-10.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1583
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 18.5,-14.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1584
     components:
     - type: Transform
       pos: 19.5,-10.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1585
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 17.5,-8.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
 - proto: Poweredlight
   entities:
   - uid: 12
@@ -18573,24 +18652,55 @@ entities:
       rot: 3.141592653589793 rad
       pos: 27.5,0.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+  - uid: 46
+    components:
+    - type: Transform
+      pos: 21.5,-13.5
+      parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+  - uid: 148
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 24.5,-17.5
+      parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+  - uid: 149
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 26.5,-17.5
+      parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1586
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 7.5,-15.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1587
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 13.5,-11.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1588
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 6.5,-14.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1589
     components:
     - type: Transform
@@ -18602,12 +18712,16 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 16.5,-12.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1591
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 15.5,-16.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1592
     components:
     - type: Transform
@@ -18620,6 +18734,8 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 9.5,0.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1594
     components:
     - type: Transform
@@ -18637,52 +18753,70 @@ entities:
     - type: Transform
       pos: 26.5,-11.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1597
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 31.5,-18.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1598
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 28.5,-21.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1599
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 34.5,-15.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1600
     components:
     - type: Transform
       pos: 34.5,-11.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1601
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 28.5,-8.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1602
     components:
     - type: Transform
       pos: 17.5,-17.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1603
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 15.5,-20.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1604
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 8.5,-19.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1605
     components:
     - type: Transform
@@ -18695,24 +18829,32 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 5.5,-16.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 2
   - uid: 1607
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 10.5,-1.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1608
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 15.5,-22.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1609
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 20.5,-22.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1610
     components:
     - type: Transform
@@ -18725,58 +18867,78 @@ entities:
       rot: 3.141592653589793 rad
       pos: 13.5,-5.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1612
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 12.5,-0.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1613
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 16.5,0.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1614
     components:
     - type: Transform
       pos: 21.5,1.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1615
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 24.5,-1.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1616
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 22.5,-8.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1618
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 29.5,1.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1619
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 25.5,6.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1620
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 22.5,4.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1621
     components:
     - type: Transform
       pos: 29.5,6.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
 - proto: PoweredlightLED
   entities:
   - uid: 1622
@@ -18807,12 +18969,16 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 15.5,6.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1627
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 20.5,6.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
 - proto: PoweredlightRed
   entities:
   - uid: 1628
@@ -18821,6 +18987,8 @@ entities:
       rot: 3.141592653589793 rad
       pos: 13.5,-16.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1629
     components:
     - type: Transform
@@ -18835,6 +19003,8 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 27.5,3.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
 - proto: PoweredSmallLight
   entities:
   - uid: 1631
@@ -18843,27 +19013,37 @@ entities:
       rot: 3.141592653589793 rad
       pos: 15.5,-8.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1632
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 19.5,-8.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1633
     components:
     - type: Transform
       pos: 16.5,-1.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1634
     components:
     - type: Transform
       pos: 20.5,-1.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 1635
     components:
     - type: Transform
       pos: 18.5,-1.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
 - proto: PoweredStrobeLightEpsilon
   entities:
   - uid: 3485
