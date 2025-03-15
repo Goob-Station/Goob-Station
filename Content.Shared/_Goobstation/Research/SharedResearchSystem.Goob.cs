@@ -15,14 +15,6 @@ public abstract partial class SharedResearchSystem : EntitySystem
     {
         var allTech = PrototypeManager.EnumeratePrototypes<TechnologyPrototype>()
             .Where(p => p.Discipline == techDiscipline.ID && !p.Hidden).ToList();
-        var allUnlocked = new List<TechnologyPrototype>();
-        foreach (var recipe in component.UnlockedTechnologies)
-        {
-            var proto = PrototypeManager.Index<TechnologyPrototype>(recipe);
-            if (proto.Discipline != techDiscipline.ID)
-                continue;
-            allUnlocked.Add(proto);
-        }
 
         var percentage = (float)component.UnlockedTechnologies
             .Where(x => PrototypeManager.Index<TechnologyPrototype>(x).Discipline == techDiscipline.ID)
