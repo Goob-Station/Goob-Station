@@ -31,8 +31,8 @@
     name: store-preset-name-ntr
     categories:
     - NTRstation # for stuff like buying spesos, disablers, etc
-    - NTRresponse # for stuff like ert
     - NTRpersonal # for, well, personal stuff.
+    - NTRresponse # for stuff like ert
     currencyWhitelist:
     - NTLoyaltyPoint
     sales:
@@ -46,12 +46,12 @@
 - type: storeCategory
   id: NTRresponse
   name: ntr-executive-tier-2-name
-  priority: 1
+  priority: 2 # making it all the way down
 
 - type: storeCategory
   id: NTRpersonal
   name: ntr-executive-tier-3-name
-  priority: 2
+  priority: 1
 
 - type: currency
   id: NTLoyaltyPoint
