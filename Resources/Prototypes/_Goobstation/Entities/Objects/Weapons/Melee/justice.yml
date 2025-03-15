@@ -55,7 +55,7 @@
           attackRate: 1
           damage:
             types:
-              Blunt: 10
+              Slash: 12 # Same as a knife.
           angle: 60
           animation: WeaponArcThrust
         soundStateActivate:
