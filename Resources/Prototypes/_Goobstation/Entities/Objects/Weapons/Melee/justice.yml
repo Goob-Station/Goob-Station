@@ -75,7 +75,7 @@
           attackRate: 0.80
           damage:
             types:
-              Shock: 0
+              Shock: 5
           angle: 60
           animation: WeaponArcThrust
         - type: StaminaDamageOnHit
@@ -116,7 +116,7 @@
           damage:
             types:
               Slash: 15
-              Heat: 15
+              Shock: 10
           angle: 60
           animation: WeaponArcThrust
 
