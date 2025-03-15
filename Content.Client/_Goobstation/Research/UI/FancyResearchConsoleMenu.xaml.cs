@@ -141,7 +141,7 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
         foreach (var disciplineId in database.SupportedDisciplines)
         {
             var discipline = _prototype.Index<TechDisciplinePrototype>(disciplineId);
-            var tier = _research.GetHighestDisciplineTier(database, discipline);
+            var tier = _research.GetTierCompletionPercentage(database, discipline);
 
             // don't show tiers with no available tech
             if (tier == 0)
@@ -155,7 +155,7 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
             };
             var label = new RichTextLabel();
             texture.Texture = _sprite.Frame0(discipline.Icon);
-            label.SetMessage(Loc.GetString("research-console-tier-info-small", ("tier", tier)));
+            label.SetMessage(Loc.GetString("research-console-tier-percentage", ("perc", tier)));
 
             var control = new BoxContainer
             {
