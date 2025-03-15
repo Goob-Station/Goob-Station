@@ -19,30 +19,45 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
         SubscribeLocalEvent<ItemSwitchComponent, MeleeHitEvent>(OnMeleeAttack);
     }
 
-    public BatteryComponent? GetBatteryComponent(Entity<ItemSwitchComponent> ent)
+    /// <summary>
+    /// Gets the battery component of the entity, if it exists.
+    /// </summary>
+    /// <returns>The battery component of the entity.</returns>
+    private BatteryComponent? GetBatteryComponent(Entity<ItemSwitchComponent> ent)
     {
         return TryComp<BatteryComponent>(ent.Owner, out var battery) ? battery : null;
     }
 
-    public static ItemSwitchState? GetState(Entity<ItemSwitchComponent> ent)
+    /// <summary>
+    /// Gets the current state of the item.
+    /// </summary>
+    /// <returns>The current state of the item.</returns>
+    private static ItemSwitchState? GetState(Entity<ItemSwitchComponent> ent)
     {
         return ent.Comp.States.TryGetValue(ent.Comp.State, out var state) ? state : null;
     }
 
+    /// <summary>
+    /// Handles showing the current charge on examination.
+    /// </summary>
     private void OnExamined(Entity<ItemSwitchComponent> ent, ref ExaminedEvent args)
     {
         var state = GetState(ent);
         var batteryComponent = GetBatteryComponent(ent);
         var comp = ent.Comp;
 
+        // If the item has no battery, or if it does not need power, or if the current state is invalid, cancel.
         if (batteryComponent == null || !comp.NeedsPower || state == null)
             return;
 
+        // If the current state is the default state, which is also the off state, show off. Else, show on.
         var onMsg = comp.State != comp.DefaultState
             ? Loc.GetString("comp-stunbaton-examined-on")
             : Loc.GetString("comp-stunbaton-examined-off");
         args.PushMarkup(onMsg);
 
+        // If the current state is the default state, which is also off, do not calculate the current percentage.
+        // This is because any number divided by 0 gets fucked real quick.
         if (comp.State == comp.DefaultState)
             return;
 
@@ -50,30 +65,37 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
         args.PushMarkup(Loc.GetString("melee-battery-examine", ("color", "yellow"), ("count", count)));
     }
 
+    /// <summary>
+    /// Handles turning off and locking the item when it runs out of power.
+    /// </summary>
     private void OnChargeChanged(Entity<ItemSwitchComponent> ent, ref ChargeChangedEvent args)
     {
         var batteryComponent = GetBatteryComponent(ent);
         var state = GetState(ent);
         var comp = ent.Comp;
 
-        if (state == null)
+        // If the state doesn't exist, or if the item does not need power, cancel.
+        if (state == null || !comp.NeedsPower )
             return;
 
         var energyPerUse = state.EnergyPerUse;
 
-        if (!ent.Comp.NeedsPower)
-            return;
-
-        if (batteryComponent != null && batteryComponent.CurrentCharge < energyPerUse)
+        // If the battery component does not exist, or if the current charge is less than the energy per use, it is not powered.
+        if (batteryComponent == null || batteryComponent.CurrentCharge < energyPerUse)
             comp.IsPowered = false;
 
+        // If the battery component is not null, and the current charge is greater than the energy per use, it is powered.
         if (batteryComponent != null && batteryComponent.CurrentCharge > energyPerUse)
             comp.IsPowered = true;
 
+        // If the default state exists, and the item is not powered, set to default state and lock it there. (Locking is handled in SharedItemSwitchSystem)
         if (ent.Comp.DefaultState != null && comp.IsPowered == false)
             _itemSwitch.Switch((ent.Owner, ent.Comp), ent.Comp.DefaultState);
     }
 
+    /// <summary>
+    /// Handles removing charge from the item on melee attack.
+    /// </summary>
     private void OnMeleeAttack(Entity<ItemSwitchComponent> ent, ref MeleeHitEvent args)
     {
         var uid = ent.Owner;
@@ -81,11 +103,11 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
         var batteryComponent = GetBatteryComponent(ent);
         var state = GetState(ent);
 
+        // If the item does not need power, do not draw power.
         if (!comp.NeedsPower)
             return;
+        // If the item has a battery, and the current state is valid, attempt to drain power by the states EnergyPerUse field.
         if (batteryComponent != null && state != null)
             _battery.TryUseCharge(uid, state.EnergyPerUse, batteryComponent);
     }
-
-    // This might be obscene supercode, but that's how ya learn I guess.
 }
