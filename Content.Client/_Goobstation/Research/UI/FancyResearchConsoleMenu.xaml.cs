@@ -83,13 +83,6 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
         RecenterButton.OnPressed += _ => Recenter();
     }
 
-    protected override void ExitedTree()
-    {
-        base.ExitedTree();
-        DragContainer.OnKeyBindDown -= OnKeybindDown;
-        DragContainer.OnKeyBindUp -= OnKeybindUp;
-    }
-
     public void SetEntity(EntityUid entity)
     {
         Entity = entity;
@@ -282,6 +275,9 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
     protected override void ExitedTree()
     {
         base.ExitedTree();
+
+        DragContainer.OnKeyBindDown -= OnKeybindDown;
+        DragContainer.OnKeyBindUp -= OnKeybindUp;
 
         InfoContainer.DisposeAllChildren();
 
