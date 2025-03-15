@@ -68,6 +68,30 @@
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
 
 - type: entity
+  id: FishBlob
+  parent: BaseFishRare
+  name: blob fish
+  description: Unfortuantly, this is not a 5th level bio-hazard threat.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+    state: blob
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: FishBlueFintuna
+  parent: BaseFishRare
+  name: blue fintuna
+  description: It's looking straight to you...
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+    state: blue_fintuna
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
   id: FishBoyFisher
   parent: BaseFishRare
   name: boy fisher

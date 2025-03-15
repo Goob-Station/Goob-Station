@@ -18,6 +18,7 @@
     - id: FishGib
     - id: FishMutant
     - id: FishNuker
+    - id: FishToxic
 
 # Fish from water
 - type: entityTable
@@ -26,6 +27,8 @@
     children:
     - id: FishAngler
     - id: FishBass
+    - id: FishBlob
+    - id: FishBlueFintuna
     - id: FishCat
     - id: FishTropicalClown
     - id: FishPuffer
