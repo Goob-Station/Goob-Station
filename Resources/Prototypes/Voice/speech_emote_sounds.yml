@@ -306,7 +306,6 @@
       path: /Audio/_Goobstation/Voice/Vox/vox_deathgasp.ogg
   params:
     variation: 0.125
-    # We need vox sounds for the other emotes
 
 - type: emoteSounds
   id: UnisexDiona
