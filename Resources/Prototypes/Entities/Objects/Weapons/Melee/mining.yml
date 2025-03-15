@@ -196,7 +196,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Slash: 10
+        Slash: 15
   - type: DisarmMalus
     malus: 0.225
   - type: ThrowingAngle
@@ -218,6 +218,14 @@
       groups:
         Brute: -10 # Lavaland Change: lower crusher healing
   - type: MeleeWeapon
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 15
   - type: Tag
     tags:
       - Pickaxe

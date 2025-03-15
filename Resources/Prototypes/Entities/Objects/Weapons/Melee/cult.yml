@@ -16,6 +16,14 @@
         Slash: 12
     soundHit: # Goobstation
         path: /Audio/Weapons/bladeslice.ogg
+  - type: EmbeddableProjectile # V Goobstation
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 15 # ^ Goobstation
   - type: Item
     size: Normal
   - type: Clothing
@@ -42,6 +50,14 @@
         Slash: 16
     soundHit: # Goobstation
         path: /Audio/Weapons/bladeslice.ogg
+  - type: EmbeddableProjectile # V Goobstation
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 20 # ^ Goobstation
   - type: Item
     size: Normal
   - type: Clothing
@@ -80,6 +96,15 @@
         Blunt: 5
         Slash: 5
         Structural: 10
+  - type: EmbeddableProjectile # V Goobstation
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 15
+        Slash: 10 # ^ Goobstation
   - type: Item
     size: Ginormous
   - type: Clothing

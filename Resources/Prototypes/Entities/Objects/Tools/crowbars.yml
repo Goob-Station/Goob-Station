@@ -10,7 +10,6 @@
   - type: Tag
     tags:
     - Crowbar
-    - DroneUsable # Goobstation
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
@@ -18,6 +17,10 @@
         Blunt: 8
     soundHit:
       collection: MetalThud
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 10 # Goobstation
   - type: Tool
     qualities:
       - Prying

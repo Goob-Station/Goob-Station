@@ -11,7 +11,6 @@
     tags:
     - PlantSampleTaker
     - Wirecutter
-    - DroneUsable # Goobstation
   - type: Sprite
     sprite: Objects/Tools/wirecutters.rsi
     layers:
@@ -26,6 +25,10 @@
     attackRate: 2 #open and close that shit on their arm like hell! because you sure aren't doing any damage with this
     soundHit:
       path: "/Audio/Items/wirecutter.ogg"
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 2 # Goobstation
   - type: Tool
     qualities:
       - Cutting
@@ -70,7 +73,6 @@
   - type: Tag
     tags:
     - Screwdriver
-    - DroneUsable # Goobstation
   - type: Sprite
     sprite: Objects/Tools/screwdriver.rsi
     layers:
@@ -88,6 +90,14 @@
         Piercing: 6
     soundHit:
       path: "/Audio/Weapons/bladeslice.ogg"
+  - type: EmbeddableProjectile # V Goobstation
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 8 # ^ Goobstation
   - type: Tool
     qualities:
       - Screwing
@@ -124,7 +134,6 @@
   - type: Tag
     tags:
     - Wrench
-    - DroneUsable # Goobstation
   - type: Sprite
     sprite: Objects/Tools/wrench.rsi
     state: icon
@@ -141,6 +150,10 @@
         Blunt: 4.5
     soundHit:
       collection: MetalThud
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 5 # Goobstation
   - type: Tool
     qualities:
       - Anchoring
@@ -196,7 +209,6 @@
     tags:
       - Multitool
       - DoorElectronicsConfigurator
-      - DroneUsable # Goobstation
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
@@ -320,6 +332,10 @@
         Piercing: 10
     soundHit:
       path: "/Audio/Items/drill_hit.ogg"
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 10 # Goobstation
   - type: Tending # Shitmed
     speed: 0.75
   - type: Drill # Shitmed
@@ -380,9 +396,6 @@
   - type: ActivatableUI
     inHandsOnly: true
     key: enum.RcdUiKey.Key
-  - type: Tag
-    tags:
-      - DroneUsable # Goobstation
 
 - type: entity
   id: RPD
@@ -555,6 +568,10 @@
         Blunt: 14
     soundHit:
       collection: MetalThud
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 15 # Goobstation
   - type: Item
     size: Normal
     sprite: Objects/Tools/shovel.rsi
@@ -590,6 +607,10 @@
         Blunt: 7
     soundHit:
       collection: MetalThud
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 7 # Goobstation
   - type: Tool
     qualities:
     - Rolling

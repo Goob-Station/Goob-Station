@@ -63,6 +63,14 @@
         Piercing: 10
     soundHit:
       path: /Audio/Items/drill_hit.ogg
+  - type: EmbeddableProjectile # V Goobstation
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 11 # ^ Goobstation
   - type: StaticPrice
     price: 40
   # Shitmed Change
@@ -103,6 +111,14 @@
         Slash: 8
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  - type: EmbeddableProjectile # V Goobstation
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 10 # ^ Goobstation
   # Shitmed Change
   - type: SurgeryTool
     startSound:
@@ -281,7 +297,7 @@
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 10
+        Brute: 12 # Goobstation - slight buff because 3.33 recurring damage is weird
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Tool
@@ -307,6 +323,14 @@
         Brute: 15
     soundHit:
       path: /Audio/Items/drill_hit.ogg
+  - type: EmbeddableProjectile # V Goobstation
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 18 # ^ Goobstation
   - type: Tool
     speedModifier: 1.5
   - type: BoneSaw # Shitmed
@@ -417,6 +441,15 @@
       types:
         Slash: 10
         Heat: 1
+  - type: EmbeddableProjectile # V Goobstation
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 10
+        Heat: 1 # ^ Goobstation
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 150
