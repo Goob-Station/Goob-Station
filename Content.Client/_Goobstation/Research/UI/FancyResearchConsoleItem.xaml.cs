@@ -69,13 +69,12 @@ public sealed partial class FancyResearchConsoleItem : LayoutContainer
     }
 }
 
-public sealed partial class DrawButton : Button
+public sealed class DrawButton : Button
 {
     public event Action? OnDrawModeChanged;
 
     public DrawButton()
     {
-        RobustXamlLoader.Load(this);
     }
 
     protected override void DrawModeChanged()
