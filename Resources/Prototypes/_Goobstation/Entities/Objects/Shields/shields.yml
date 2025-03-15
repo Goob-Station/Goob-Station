@@ -89,6 +89,7 @@
       dischargedRechargeRate: 10
       chargedRechargeRate: 15
     - type: BatterySelfRecharger
+      autoRechargeRate: 15
       autoRecharge: true
     - type: ItemSlots
       slots:
@@ -116,5 +117,7 @@
   - type: RechargeableBlocking
     dischargedRechargeRate: 100
     chargedRechargeRate: 150
+  - type: BatterySelfRecharger
+    autoRechargeRate: 150
   - type: Item
     size: Normal

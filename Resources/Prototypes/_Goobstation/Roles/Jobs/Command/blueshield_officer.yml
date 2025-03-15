@@ -56,6 +56,5 @@
   storage:
     back:
     - Flash
-    - ClothingMaskGasSecurity
     - SecHypo
-    - BlueshieldUndeterminedWeapon
+    - ClothingMaskGasSecurity
