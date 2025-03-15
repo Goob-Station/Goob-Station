@@ -12,6 +12,7 @@
   recipeUnlocks:
   - ProximitySensor
   - Drone # Goobstation
+  position: 2,0  # Goobstation R&D Console rework
 
 - type: technology
   id: BasicAnomalousResearch
@@ -32,7 +33,7 @@
   # Goobstation R&D Console rework start
   position: 3,-1
   technologyPrerequisites:
-  - AlternativeResearch
+  - BasicRobotics
   # Goobstation R&D Console rework end
 
 - type: technology
@@ -52,7 +53,7 @@
   # Goobstation R&D Console rework start
   position: 3,1
   technologyPrerequisites:
-  - AlternativeResearch
+  - BasicRobotics
   # Goobstation R&D Console rework end
 
 - type: technology
@@ -66,7 +67,11 @@
   cost: 5000
   recipeUnlocks:
   - TechDiskComputerCircuitboard
-  position: 2,0 # Goobstation R&D Console rework end
+  # Goobstation R&D Console rework start
+  technologyPrerequisites:
+  - BasicRobotics
+  position: 1,0
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: MagnetsTech
@@ -81,7 +86,7 @@
   - ClothingShoesBootsMagSci
   - ClothingShoesBootsMoon
   # Goobstation R&D Console rework start
-  position: 1,0
+  position: 0,-1
   technologyPrerequisites:
   - AlternativeResearch
   # Goobstation R&D Console rework end
@@ -154,7 +159,7 @@
   # Goobstation R&D Console rework start
   position: 0,1
   technologyPrerequisites:
-  - MagnetsTech
+  - AlternativeResearch
   # Goobstation R&D Console rework end
 
 # Tier 3
