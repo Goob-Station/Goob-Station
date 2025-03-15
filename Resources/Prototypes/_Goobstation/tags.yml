@@ -192,6 +192,9 @@
   id: JanicartKeys
 
 - type: Tag
+  id: Justice
+
+- type: Tag
   id: Kidneys
 
 - type: Tag
