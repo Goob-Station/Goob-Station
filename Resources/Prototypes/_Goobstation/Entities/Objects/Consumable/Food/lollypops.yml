@@ -28,8 +28,11 @@
   parent: [FoodBase, FoodInjectableBase]
   id: FoodSnackLollypopBase
   abstract: true
-  description: A plain old lollypop. 99.9% sugar.
+  description: A plain old lollypop. It's cherry flavoured.
   components:
+  - type: FlavorProfile
+    flavors:
+    - cherry
   - type: Food
     trash:
     - FoodPacketLollypopTrash
@@ -49,6 +52,16 @@
     - state: color
       map: [ "enum.AmmoVisualLayers.Tip" ]
       color: "#FFC0CB" # Change this to change the lollypop color. Default is pink.
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    size: Tiny
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#FFC0CB"
+      right:
+      - state: inhand-right
+        color: "#FFC0CB"
   - type: SolutionContainerManager
     solutions:
       food:
@@ -56,15 +69,14 @@
         reagents:
         - ReagentId: Sugar
           Quantity: 5
-  - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
-    size: Tiny
   - type: Extractable
     grindableSolutionName: food
     juiceSolution:
       reagents:
       - ReagentId: Sugar
         Quantity: 5
+
+# Syndicate
 
 - type: entity
   parent: [FoodSnackLollypopWrappedBase, BaseSyndicateContraband]
@@ -93,6 +105,9 @@
   name: lollypop
   description: A plain old lollypop. This one gives you a bad feeling. # Only way to tell them apart. Read your descriptions.
   components:
+  - type: FlavorProfile
+    flavors:
+    - coffee
   - type: Tag
     tags:
     - FoodSnack
@@ -108,6 +123,112 @@
     solutions:
       food:
         maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    size: Tiny
+
+# Command
+
+- type: entity
+  parent: [FoodSnackLollypopWrappedBase, BaseCommandContraband]
+  id: FoodSnackLollypopWrappedBaseNanotrasen
+  abstract: true
+  name: wrapped nanotrasen lollypop
+  description: A likely expensive lollypop. It's still in it's gold wrapper.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapped-nanotrasen
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrashNanotrasen
+    - id: FoodSnackLollypopBaseNanotrasen
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBase
+  id: FoodSnackLollypopBaseNanotrasen
+  abstract: true
+  name: nanotrasen lollypop
+  description: An expensive tasting lollypop.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - cola
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: lollypop-captain
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    size: Tiny
+
+# Centcomm
+
+- type: entity
+  parent: [FoodSnackLollypopWrappedBase, BaseCentcommContraband]
+  id: FoodSnackLollypopWrappedBaseCentcomm
+  name: wrapped centcomm lollypop
+  description: A highly expensive lollypop. It's still in it's gold wrapper.
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapped-centcomm
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrashCentcomm
+    - id: FoodSnackLollypopBaseCentcomm
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBase
+  id: FoodSnackLollypopBaseCentcomm
+  name: centcomm lollypop
+  description: An extremely expensive tasting lollypop. Can hold an ungodly amount of chemicals.
+  abstract: true
+  components:
+  - type: FlavorProfile
+    flavors:
+    - electrons # idk man, it sounded cool.
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: lollypop-centcomm
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 100 # Cram this baby FULL of omnizine.
         reagents:
         - ReagentId: Sugar
           Quantity: 5
@@ -137,7 +258,7 @@
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypop
   name: lollypop
-  description: A plain old lollypop. 99.9% sugar.
+  description: A plain old lollypop. It's cherry flavoured!
   components:
   - type: Tag
     tags:
@@ -174,13 +295,13 @@
     - ClothMade
   - type: FlavorProfile
     flavors:
-    - magic
+    - unicorntears
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
-    - state: rainbow
+    - state: lollypop-rainbow
       map: [ "enum.AmmoVisualLayers.Tip" ]
 
 # Carp
@@ -207,6 +328,9 @@
   name: carp lollypop
   description: A carp shaped lollypop. Careful, it bites!
   components:
+  - type: FlavorProfile
+    flavors:
+    - fishy
   - type: Tag
     tags:
     - FoodSnack
@@ -216,13 +340,13 @@
     layers:
     - state: lollypop-trash
       map: [ "enum.AmmoVisualLayers.Base" ]
-    - state: carp
+    - state: lollypop-carp
       map: [ "enum.AmmoVisualLayers.Tip" ]
 
 # Blueshield
 
 - type: entity
-  parent: FoodSnackLollypopWrappedBase
+  parent: FoodSnackLollypopWrappedBase # Todo, give this to blueshield.
   id: FoodSnackLollypopWrappedBlueshield
   name: wrapped blueshield lollypop
   description: A deep blue lollypop. It's still in the wrapper
@@ -232,7 +356,7 @@
     - FoodSnack
   - type: SpawnItemsOnUse
     items:
-    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopTrashNanotrasen
     - id: FoodSnackLollypopBlueshield
     sound:
       path: /Audio/Effects/unwrap.ogg
@@ -240,8 +364,8 @@
 - type: entity
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopBlueshield
-  name: deep blue lollypop
-  description: A deep blue lollypop. You feel a sense of pride.
+  name: blueshield lollypop
+  description: A deep blue lollypop, imbuing you with a sense of determination. Get out there soldier!
   components:
   - type: Tag
     tags:
@@ -255,6 +379,78 @@
     - state: color
       map: [ "enum.AmmoVisualLayers.Tip" ]
       color: "#040273"
+
+# Captain
+
+- type: entity
+  parent: FoodSnackLollypopWrappedBaseNanotrasen
+  id: FoodSnackLollypopWrappedCaptain
+  name: wrapped captains' lollypop
+  description: An extravagant lollypop. It's still in the wrapper
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrashNanotrasen
+    - id: FoodSnackLollypopCaptain
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBaseNanotrasen
+  id: FoodSnackLollypopCaptain
+  name: captains' lollypop
+  description: A blueish lollypop containing a potentially unhealthy amount of gold leaf. Only for the goodest of captains.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: lollypop-captain
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+
+# CentComm
+
+- type: entity
+  parent: FoodSnackLollypopWrappedBaseCentcomm
+  id: FoodSnackLollypopWrappedCentComm
+  name: wrapped centcomm lollypop
+  description: An even more extravagant lollypop. It's still in the wrapper
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrashCentcomm
+    - id: FoodSnackLollypopCentcomm
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBaseCentcomm
+  id: FoodSnackLollypopCentcomm
+  name: centcomm lollypop
+  description: A green lollypop containing an extremely unhealthy amount of gold leaf. Only for the best centcomm agents.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: lollypop-centcomm
+      map: [ "enum.AmmoVisualLayers.Tip" ]
 
 # Chempops - Bicaridine
 
@@ -281,7 +477,7 @@
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopBicaridine
   name: bicaridine lollypop
-  description: A bicaridine filled lollypop. 99.9% sugar.
+  description: A bicaridine filled lollypop. Flavoured like oranges.
   components:
   - type: Tag
     tags:
@@ -303,6 +499,110 @@
         - ReagentId: Sugar
           Quantity: 5
         - ReagentId: Bicaridine
+          Quantity: 10
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    size: Tiny
+
+# Probital
+
+- type: entity
+  parent: FoodSnackLollypopWrappedBase
+  id: FoodSnackLollypopWrappedProbital
+  name: wrapped probital lollypop
+  description: A probital filled lollypop. It's still in a wrapper.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapped
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopProbital
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBase
+  id: FoodSnackLollypopProbital
+  name: solar lollypop
+  description: A bright yellow lollypop filled with probital. Sol's favorite!
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: color
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#ffff64"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Probital
+          Quantity: 10
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    size: Tiny
+
+# Kelotane
+
+- type: entity
+  parent: FoodSnackLollypopWrappedBase
+  id: FoodSnackLollypopWrappedKelotane
+  name: wrapped kelotane lollypop
+  description: A kelotane filled lollypop. It's still in a wrapper.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapped
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopKelotane
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBase
+  id: FoodSnackLollypopKelotane
+  name: kelotane lollypop
+  description: A kelotane filled lollypop. Eat with a dermaline one at the same time for maximal effects.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: color
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#bf3d19"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Kelotane
           Quantity: 10
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
@@ -333,7 +633,7 @@
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopDermaline
   name: dermaline lollypop
-  description: A dermaline filled lollypop. 99.9% sugar.
+  description: A dermaline filled lollypop. Flavored with... blue?
   components:
   - type: Tag
     tags:
@@ -385,7 +685,7 @@
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopTricordrazine
   name: Tricordrazine lollypop
-  description: A Tricordrazine filled lollypop. 99.9% sugar.
+  description: A Tricordrazine filled lollypop. A doctors favorite!
   components:
   - type: Tag
     tags:
@@ -541,7 +841,7 @@
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopDexalinPlus
   name: dexalin plus lollypop
-  description: A dexalin plus filled lollypop. 99.9% sugar.
+  description: A dexalin plus filled lollypop. Commonly forcefed to people who forgot their internals.
   components:
   - type: Tag
     tags:
@@ -568,13 +868,267 @@
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
+# Hyronalin
+
+- type: entity
+  parent: FoodSnackLollypopWrappedBase
+  id: FoodSnackLollypopWrappedHyronalin
+  name: wrapped hyronalin lollypop
+  description: A hyronalin filled lollypop. It's still in a wrapper.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapped
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopHyronalin
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBase
+  id: FoodSnackLollypopHyronalin
+  name: hyronalin lollypop
+  description: A hyronalin filled lollypop. Not quite as effective as you'd hope.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: color
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#4cb580"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Hyronalin
+          Quantity: 10
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    size: Tiny
+
+# Ibuprofen
+
+- type: entity
+  parent: FoodSnackLollypopWrappedBase
+  id: FoodSnackLollypopWrappedIbuprofen
+  name: wrapped ibuprofen lollypop
+  description: An ibuprofen filled lollypop. It's still in a wrapper.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapped
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopIbuprofen
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBase
+  id: FoodSnackLollypopIbuprofen
+  name: ibuprofen lollypop
+  description: A ibuprofen filled lollypop. Leaves a bad aftertaste in your mouth.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: color
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#be5c5c"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Ibuprofen
+          Quantity: 10
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    size: Tiny
+
+# Antihol
+
+- type: entity
+  parent: FoodSnackLollypopWrappedBase
+  id: FoodSnackLollypopWrappedAntihol
+  name: wrapped antihol lollypop
+  description: An antihol filled lollypop. It's still in a wrapper.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapped
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopAntihol
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBase
+  id: FoodSnackLollypopAntihol
+  name: antihol lollypop
+  description: A calomel filled lollypop. A drunkards best friend.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: color
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#40ffec"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Antihol
+          Quantity: 10
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    size: Tiny
+
+# Mitotrophin
+
+- type: entity
+  parent: FoodSnackLollypopWrappedBase
+  id: FoodSnackLollypopWrappedMitotrophin
+  name: wrapped mitotrophin lollypop
+  description: An mitotrophin filled lollypop. It's still in a wrapper.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapped
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopMitotrophin
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBase
+  id: FoodSnackLollypopMitotrophin
+  name: mitotrophin lollypop
+  description: A mitotrophin filled lollypop. Tastes awful, but will make you feel better in no time.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: color
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#cc9c14"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Mitotrophin
+          Quantity: 10
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    size: Tiny
+
 # Random Lollypops
+
+# Good pops, always has something useful in some way.
 
 - type: entity
   parent: FoodSnackLollypopWrappedBase
   id: FoodSnackLollypopWrappedMystery
   name: wrapped mystery lollypop
   suffix: good
+  description: A mysterious lollypop. Perfect for all your doctoring needs.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypop
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopDermaline
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopKelotane # Gotta dilute the pool. Can't have this be TOO good.
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopBicaridine
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopProbital
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopHyronalin # Don't add arithrizine!
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopIbuprofen
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopTricordrazine
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopDexalinPlus
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopDylovene
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopMitotrophin
+      orGroup: LollypopMystery
+      prob: 0.30 # Rarer since it's a good medication.
+    - id: FoodSnackLollypopOmnizine
+      orGroup: LollypopMystery
+      prob: 0.15 # Reduced slightly since I'm making the dispenser more common
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+# Neutral pops, could be bad, could be good.
+
+- type: entity
+  parent: FoodSnackLollypopWrappedBase
+  id: FoodSnackLollypopWrappedMysteryNeutral
+  name: wrapped mystery lollypop
+  suffix: neutral
   description: A mysterious lollypop. It could be any one of them!
   components:
   - type: Tag
@@ -587,6 +1141,8 @@
       orGroup: LollypopMystery
     - id: FoodSnackLollypopDermaline
       orGroup: LollypopMystery
+    - id: FoodSnackLollypopProbital
+      orGroup: LollypopMystery
     - id: FoodSnackLollypopBicaridine
       orGroup: LollypopMystery
     - id: FoodSnackLollypopTricordrazine
@@ -595,15 +1151,42 @@
       orGroup: LollypopMystery
     - id: FoodSnackLollypopDylovene
       orGroup: LollypopMystery
-    - id: FoodSnackLollypopWeh
-      prob: 0.35 # The other ones actually heal you so I don't want this one to be too common.
+    - id: FoodSnackLollypopHyronalin
       orGroup: LollypopMystery
+    - id: FoodSnackLollypopIbuprofen
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopWeh
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopMindbreakerToxin
+      orGroup: LollypopMystery
+      prob: 0.45
+    - id: FoodSnackLollypopMitotrophin
+      orGroup: LollypopMystery
+      prob: 0.30 # Rarer since it's a good medication.
     - id: FoodSnackLollypopOmnizine
       orGroup: LollypopMystery
-      prob: 0.15 # Reduced slightly since I'm making the dispenser more common
-
+      prob: 0.15
+    - id: FoodSnackLollypopMouseBites
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopFentanyl
+      orGroup: LollypopMystery
+      prob: 0.20
+    - id: FoodSnackLollypopSynaptizine
+      orGroup: LollypopMystery
+      prob: 0.35
+    - id: FoodSnackLollypopCyanide
+      orGroup: LollypopMystery
+      prob: 0.20
+    - id: FoodSnackLollypopAnacea
+      orGroup: LollypopMystery
+      prob: 0.20
+    - id: FoodSnackLollypopPotassiumBomb
+      orGroup: LollypopMystery
+      prob: 0.15
     sound:
       path: /Audio/Effects/unwrap.ogg
+
+# EVIL pops, syndicates and rare loot.
 
 - type: entity
   parent: [FoodSnackLollypopWrappedBase, BaseSyndicateContraband]
@@ -626,13 +1209,16 @@
       prob: 0.20
     - id: FoodSnackLollypopDermaline
       orGroup: LollypopMystery
+    - id: FoodSnackLollypopProbital
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopMitotrophin
+      orGroup: LollypopMystery
+      prob: 0.30 # Rarer since it's a good medication.
     - id: FoodSnackLollypopTricordrazine
       orGroup: LollypopMystery
-    - id: FoodSnackLollypopBicaridine
-      orGroup: LollypopMystery
-    - id: FoodSnackLollypopDylovene
-      orGroup: LollypopMystery
     - id: FoodSnackLollypopDexalinPlus
+      orGroup: LollypopMystery
+    - id: FoodSnackLollypopMindbreakerToxin
       orGroup: LollypopMystery
     - id: FoodSnackLollypopOmnizine
       orGroup: LollypopMystery
@@ -640,10 +1226,10 @@
     - id: FoodSnackLollypopLexorin
       orGroup: LollypopMystery
       prob: 0.35
-    - id: FoodSnackLollypopCognizine
+    - id: FoodSnackLollypopCyanide
       orGroup: LollypopMystery
-      prob: 0.20
-    - id: FoodSnackLollypopSynaptizine
+      prob: 0.35
+    - id: FoodSnackLollypopTirizene
       orGroup: LollypopMystery
       prob: 0.35
     - id: FoodSnackLollypopCarpoToxin
@@ -652,6 +1238,9 @@
     - id: FoodSnackLollypopNocturine
       orGroup: LollypopMystery
       prob: 0.35
+    - id: FoodSnackLollypopAnacea
+      orGroup: LollypopMystery
+      prob: 0.25
     - id: FoodSnackLollypopHyperzine
       orGroup: LollypopMystery
       prob: 0.35
@@ -661,6 +1250,9 @@
     - id: FoodSnackLollypopFentanyl
       orGroup: LollypopMystery
       prob: 0.20
+    - id: FoodSnackLollypopPotassiumBomb
+      orGroup: LollypopMystery
+      prob: 0.35
     - id: FoodSnackLollypopCarpEvil
       orGroup: LollypopMystery
       prob: 0.20
@@ -697,7 +1289,7 @@
   parent: FoodSnackLollypopBaseSyndicate
   id: FoodSnackLollypopSyndicate
   name: lollypop
-  description: A plain old lollypop. This one gives you a bad feeling. # Only way to tell them apart. Read your descriptions.
+  description: A plain old lollypop. This one gives you a bad feeling. # Only way to tell them apart. Read your descriptions!
   components:
   - type: Tag
     tags:
@@ -946,7 +1538,7 @@
     layers:
     - state: lollypop-trash
       map: [ "enum.AmmoVisualLayers.Base" ]
-    - state: carp
+    - state: lollypop-carp
       map: [ "enum.AmmoVisualLayers.Tip" ]
 
 - type: entity
@@ -1051,7 +1643,168 @@
         - ReagentId: Phlogiston
           Quantity: 10
 
+# Cyanide
+
+- type: entity
+  parent: FoodSnackLollypopWrappedSyndicate
+  id: FoodSnackLollypopWrappedCyanide
+  name: wrapped syndicate lollypop
+  suffix: cyanide
+  description: A lollypop containing cyanide. Appears completely ordinary when unwrapped.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrashSyndicate
+    - id: FoodSnackLollypopCyanide
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBaseSyndicate
+  id: FoodSnackLollypopCyanide
+  name: lollypop
+  suffix: cyanide
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Cyanide
+          Quantity: 10
+
+# Tirizine
+
+- type: entity
+  parent: FoodSnackLollypopWrappedSyndicate
+  id: FoodSnackLollypopWrappedTirizene
+  name: wrapped syndicate lollypop
+  suffix: tirizine
+  description: A lollypop containing tirizine. Appears completely ordinary when unwrapped.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrashSyndicate
+    - id: FoodSnackLollypopTirizene
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBaseSyndicate
+  id: FoodSnackLollypopTirizene
+  name: lollypop
+  suffix: tirizine
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Tirizene
+          Quantity: 10
+
+# Anacea
+
+- type: entity
+  parent: FoodSnackLollypopWrappedSyndicate
+  id: FoodSnackLollypopWrappedAnacea
+  name: wrapped syndicate lollypop
+  suffix: anacea
+  description: A lollypop containing anacea. Appears completely ordinary when unwrapped.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrashSyndicate
+    - id: FoodSnackLollypopAnacea
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBaseSyndicate
+  id: FoodSnackLollypopAnacea
+  name: lollypop
+  suffix: anacea
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Anacea
+          Quantity: 10
+
+# Potassium Bomb
+
+- type: entity
+  parent: FoodSnackLollypopWrappedSyndicate
+  id: FoodSnackLollypopWrappedPotassiumBomb
+  name: wrapped syndicate lollypop
+  suffix: potassium bomb
+  description: An explosive lollypop. Appears completely ordinary when unwrapped.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrashSyndicate
+    - id: FoodSnackLollypopPotassiumBomb
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBaseSyndicate
+  id: FoodSnackLollypopPotassiumBomb
+  name: lollypop
+  suffix: potassium bomb
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        canReact: false
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Water
+          Quantity: 5
+        - ReagentId: Potassium
+          Quantity: 5
+
+
 # Non-medication Lollypops
+
 # Cognizine
 
 - type: entity
@@ -1139,11 +1892,10 @@
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     layers:
-    - state: lollypop
+    - state: lollypop-weh
       map: [ "enum.AmmoVisualLayers.Base" ]
-    - state: color
+    - state: lollypop-weh
       map: [ "enum.AmmoVisualLayers.Tip" ]
-      color: "#59b23a"
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1191,7 +1943,7 @@
     layers:
     - state: lollypop-trash
       map: [ "enum.AmmoVisualLayers.Base" ]
-    - state: carp
+    - state: lollypop-carp
       map: [ "enum.AmmoVisualLayers.Tip" ]
   - type: SolutionContainerManager
     solutions:
@@ -1202,6 +1954,107 @@
           Quantity: 5
         - ReagentId: Carpolin
           Quantity: 10
+
+# Mousebites
+
+- type: entity
+  parent: FoodSnackLollypopWrappedSyndicate
+  id: FoodSnackLollypopWrappedMouseBites
+  name: wrapped syndicate lollypop
+  suffix: mouse bites
+  description: A lollypop containing mouse bites. Appears completely ordinary when unwrapped.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrashSyndicate
+    - id: FoodSnackLollypopMouseBites
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBaseSyndicate
+  id: FoodSnackLollypopMouseBites
+  name: mousebites lollypop
+  suffix: mouse bites
+  description: He needs mouse bites to live.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: MouseBites
+          Quantity: 10
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: color
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#ffaa00"
+
+# Mindbreaker Toxin
+
+- type: entity
+  parent: FoodSnackLollypopWrappedBase
+  id: FoodSnackLollypopWrappedMindbreakerToxin
+  name: wrapped mindbreaker lollypop
+  suffix: mindbreaker toxin
+  description: A mindbreaker-toxin filled lollypop. It's still in a wrapper.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapped
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopMindbreakerToxin
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBase
+  id: FoodSnackLollypopMindbreakerToxin
+  name: mindbreaker toxin lollypop
+  description: A mindbreaker toxin filled lollypop. Should you... eat this?
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: color
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#77b58e"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: MindbreakerToxin
+          Quantity: 10
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    size: Tiny
 
 # Trash
 
@@ -1267,6 +2120,38 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapper-syndicate
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+  - type: Tag
+    tags:
+    - Trash
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodPacketTrash
+  id: FoodSnackLollypopTrashNanotrasen
+  name: nanotrasen lollypop wrapper
+  description: You could probably sell this for a pretty penny.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapper-nanotrasen
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+  - type: Tag
+    tags:
+    - Trash
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodPacketTrash
+  id: FoodSnackLollypopTrashCentcomm
+  name: centcomm lollypop wrapper
+  description: So heavy the gold on it might just be real.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapper-centcomm
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
   - type: Tag
