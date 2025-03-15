@@ -93,7 +93,7 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
         DragContainer.DisposeAllChildren();
         DisciplinesContainer.DisposeAllChildren();
         List = state.Researches;
-        LocalState = state;
+        LocalState.Researches = state.Researches;
 
         // Добавляем к верхней панели все дисциплины
         var disciplines = _prototype.EnumeratePrototypes<TechDisciplinePrototype>()
@@ -137,6 +137,8 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
 
     public void UpdateInformationPanel(ResearchConsoleBoundInterfaceState state)
     {
+        LocalState.Points = state.Points;
+
         var amountMsg = new FormattedMessage();
         amountMsg.AddMarkupOrThrow(Loc.GetString("research-console-menu-research-points-text",
             ("points", state.Points)));

@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Client._Goobstation.Research.UI;
 using Content.Shared.Research.Components;
 using Content.Shared.Research.Prototypes;
@@ -62,9 +63,9 @@ public sealed class ResearchConsoleBoundUserInterface : BoundUserInterface
         // Thats for avoiding refresh spam when only points are updated
         if (_consoleMenu == null)
             return;
-        if (!_consoleMenu.LocalState.Researches.Equals(castState.Researches))
+        if (!_consoleMenu.LocalState.Researches.SequenceEqual(castState.Researches))
             _consoleMenu.UpdatePanels(castState);
         if (_consoleMenu.LocalState.Points != castState.Points)
-            _consoleMenu?.UpdateInformationPanel(castState);
+            _consoleMenu.UpdateInformationPanel(castState);
     }
 }
