@@ -297,7 +297,7 @@
     Sigh:
       path: /Audio/_Goobstation/Voice/Vox/vox_sigh.ogg
     Crying:
-      collection: /Audio/_Goobstation/Voice/Vox/vox_cry.ogg
+      path: /Audio/_Goobstation/Voice/Vox/vox_cry.ogg
     Whistle:
       collection: Whistles
     Gasp:
