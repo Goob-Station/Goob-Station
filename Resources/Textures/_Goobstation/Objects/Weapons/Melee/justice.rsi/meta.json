@@ -1,0 +1,66 @@
+{
+    "version": 1,
+    "copyright": "Sprited by Taro Varne",
+    "license": "CC-BY-SA-3.0",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "empowered-icon",
+            "delays": [
+              [
+                1,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2
+              ]
+            ]
+        },
+        {
+            "name": "stun-icon",
+            "delays": [
+              [
+                1,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2
+              ]
+            ]
+        },
+        {
+            "name": "lethal-icon",
+            "delays": [
+              [
+                1,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2
+              ]
+            ]
+        },
+        {
+            "name": "ion-icon",
+            "delays": [
+              [
+                1,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2
+              ]
+            ]
+        }
+    ]
+}

@@ -40,3 +40,24 @@
     interfaces:
       enum.ThiefBackpackUIKey.Key:
         type: ThiefBackpackBoundUserInterface
+
+# Head Of Security
+
+- type: entity
+  id: HeadOfSecurityUndetermined
+  name: X-00 Series Box
+  description: A small box utilizing bluespace technology to drop in a weapon from the X-00 series to you. Choose wisely.
+  parent: [ BaseItem, BaseCommandContraband ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Security/blueshieldundetermined.rsi # Todo - Change This
+    state: icon
+  - type: ThiefUndeterminedBackpack # Someone should rename this.
+    possibleSets:
+    - MultiphaseSet
+  - type: ActivatableUI
+    key: enum.ThiefBackpackUIKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ThiefBackpackUIKey.Key:
+        type: ThiefBackpackBoundUserInterface
