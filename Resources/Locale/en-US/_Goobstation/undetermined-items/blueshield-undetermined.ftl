@@ -21,6 +21,11 @@ blueshield-box-category-blueshield-description =
     The iconic namesake of these soldiers.
     Includes: The greatshield, and the DT-4 Atrocity customized stun baton.
 
+blueshield-box-category-syringe-name = medical set
+blueshield-box-category-syringe-description =
+    Perfect for healing allies or poisioning foes in a pinch.
+    Includes: A combat injector, and several vials of medicine.
+
 blueshield-box-category-lightset-name = light hardsuit
 blueshield-box-category-lightset-description =
     A lighter hardsuit, allowing for more speed at the cost of protection.
