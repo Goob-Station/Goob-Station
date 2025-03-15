@@ -28,6 +28,7 @@
   - type: Tag
     tags:
     - HighRiskItem
+    - Justice
   - type: StealTarget
     stealGroup: WeaponEnergyGunMultiphase # Todo - Change this.
   - type: GuideHelp
