@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-      <TargetFramework>net9.0</TargetFramework>
+      <TargetFramework>$(TargetFramework)</TargetFramework>
       <LangVersion>12</LangVersion>
       <IsPackable>false</IsPackable>
       <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
@@ -18,4 +18,5 @@
       <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj" Private="false"/>
     </ItemGroup>
 
+    <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
 </Project>

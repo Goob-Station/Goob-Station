@@ -145,11 +145,11 @@ public static class ServerPackaging
         logger.Info($"Finished packaging server in {sw.Elapsed}");
     }
 
-    private static List<string> FindServerModules()
+    private static List<string> FindServerModules(string path = ".")
     {
         var serverModules = new List<string> { "Content.Server" };
 
-        var directories = Directory.GetDirectories(".", "Content.*");
+        var directories = Directory.GetDirectories(path, "Content.*");
         foreach (var dir in directories)
         {
             var dirName = Path.GetFileName(dir);
@@ -168,11 +168,11 @@ public static class ServerPackaging
         return serverModules;
     }
 
-    private static List<string> FindAllServerModules()
+    private static List<string> FindAllServerModules(string path = ".")
     {
         var modules = new List<string>(CoreServerContentAssemblies);
 
-        var directories = Directory.GetDirectories(".", "Content.*");
+        var directories = Directory.GetDirectories(path, "Content.*");
         foreach (var dir in directories)
         {
             var dirName = Path.GetFileName(dir);
