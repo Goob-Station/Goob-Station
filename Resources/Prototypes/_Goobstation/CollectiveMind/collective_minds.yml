@@ -10,7 +10,7 @@
   id: Lingmind
   name: collective-mind-lingmind
   keycode: 'h'
-  color: "#787878"
+  color: "#FFA000"
   showNames: false
   requiredTags:
   - LingMind
