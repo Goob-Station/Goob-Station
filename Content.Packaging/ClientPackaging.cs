@@ -14,13 +14,13 @@ public static class ClientPackaging
     /// Be advised this can be called from server packaging during a HybridACZ build.
     /// Be also advised this goes against god and nature
     /// </summary>
-    public static async Task PackageClient(bool skipBuild, string configuration, IPackageLogger logger)
+    public static async Task PackageClient(bool skipBuild, string configuration, IPackageLogger logger, string path = ".")
     {
         logger.Info("Building client...");
 
         if (!skipBuild)
         {
-            var clientProjects = GetClientModules();
+            var clientProjects = GetClientModules(path);
 
             foreach (var project in clientProjects)
             {
@@ -58,11 +58,17 @@ public static class ClientPackaging
         logger.Info($"Finished packaging client in {sw.Elapsed}");
     }
 
-    private static List<string> GetClientModules()
+    private static List<string> GetClientModules(string path)
     {
         var clientProjects = new List<string> { Path.Combine("Content.Client", "Content.Client.csproj") };
 
-        var directories = Directory.GetDirectories(".", "Content.*");
+        var directories = Directory.GetDirectories(path, "Content.*");
+
+        foreach (var dir in directories)
+        {
+            Console.WriteLine(dir);
+        }
+
         foreach (var dir in directories)
         {
             var dirName = Path.GetFileName(dir);
@@ -77,14 +83,21 @@ public static class ClientPackaging
             }
         }
 
+        Console.WriteLine("Building");
+
+        foreach (var project in clientProjects)
+        {
+            Console.WriteLine(project);
+        }
+
         return clientProjects;
     }
 
-    private static List<string> FindAllModules()
+    private static List<string> FindAllModules(string path)
     {
         var modules = new List<string> { "Content.Client", "Content.Shared", "Content.Shared.Database" };
 
-        var directories = Directory.GetDirectories("../../", "Content.*");
+        var directories = Directory.GetDirectories(path, "Content.*");
         foreach (var dir in directories)
         {
             var dirName = Path.GetFileName(dir);
@@ -123,7 +136,7 @@ public static class ClientPackaging
 
         var inputPass = graph.Input;
 
-        var modules = FindAllModules();
+        var modules = FindAllModules(contentDir);
 
         await RobustSharedPackaging.WriteContentAssemblies(
             inputPass,
