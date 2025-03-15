@@ -86,6 +86,7 @@
       - Door
       - Strap
       - Body
+      - Holopad
   - type: Clowncar
     container: clowncar_container
     cannonActivateSound:
