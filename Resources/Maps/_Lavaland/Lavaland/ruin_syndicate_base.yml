@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Map
+  category: Grid
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/15/2025 19:38:04
-  entityCount: 3524
-maps:
-- 11
+  time: 03/15/2025 19:56:48
+  entityCount: 3523
+maps: []
 grids:
 - 2
-orphans: []
+orphans:
+- 2
 nullspace: []
 tilemap:
   0: Space
@@ -44,7 +44,7 @@ entities:
       name: grid
     - type: Transform
       pos: -1.875,2.3625705
-      parent: 11
+      parent: invalid
     - type: MapGrid
       chunks:
         -1,-1:
@@ -1703,18 +1703,6 @@ entities:
     - type: ContainedSolution
       containerName: battery
       container: 8
-  - uid: 11
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: PhysicsMap
-    - type: GridTree
-    - type: MovedGrids
-    - type: Broadphase
-    - type: OccluderTree
 - proto: AdvancedRetractor
   entities:
   - uid: 74
@@ -2186,7 +2174,7 @@ entities:
       pos: 25.5,0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -14039.154
+      secondsUntilStateChange: -14107.737
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -2259,7 +2247,7 @@ entities:
       pos: 18.5,-3.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -27871.578
+      secondsUntilStateChange: -27940.162
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -2275,7 +2263,7 @@ entities:
       pos: 21.5,-10.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -337.6082
+      secondsUntilStateChange: -406.19144
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7443,7 +7431,7 @@ entities:
       pos: 16.5,-11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -34075.324
+      secondsUntilStateChange: -34143.906
       state: Closing
     - type: DeviceNetwork
       deviceLists:
