@@ -42,6 +42,18 @@ public sealed partial class FancyTechnologyInfoPanel : Control
         if (availablity == ResearchAvailablity.Researched)
             ResearchButton.Text = Loc.GetString("research-console-menu-server-researched-button");
 
+        Color? color = availablity switch
+        {
+            ResearchAvailablity.Researched => Color.LimeGreen,
+            ResearchAvailablity.Unavailable => Color.Crimson,
+            _ => null
+        };
+
+        TechnologyCostLabel.SetMessage(Loc.GetString("research-console-tech-cost-label", ("cost", proto.Cost)), defaultColor: color);
+
+        if (availablity == ResearchAvailablity.Researched)
+            ResearchButton.Text = Loc.GetString("research-console-menu-server-researched-button");
+
         ResearchButton.Disabled = !hasAccess || availablity != ResearchAvailablity.Available;
         ResearchButton.OnPressed += Bought;
     }
