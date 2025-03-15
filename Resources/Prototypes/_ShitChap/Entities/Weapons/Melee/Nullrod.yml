@@ -385,8 +385,6 @@
     slots:
     - HEAD
     sprite: _ShitChap/Objects/Weapons/Nullrod/atheist.rsi
-  - type: DisarmMalus
-    malus: 0
   - type: Sharp
   - type: Scalpel
     speed: 0.5
