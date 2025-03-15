@@ -25,6 +25,14 @@ knowledge-path-side-s3-ashen-eyes-desc =
     Allows you to transmute a pair of eyes, a flare, and a glass shard into an Eldritch Medallion.
     The Eldritch Medallion grants you thermal vision while worn, and also functions as a focus.
 
+## stage 6
+knowledge-path-side-s6-rustwalker-name = Rusted Ritual
+knowledge-path-side-s6-rustwalker-desc =
+    I combined my knowledge of creation with my desire for corruption. The Marshal knew my name, and the Rusted Hills echoed out.
+
+    Allows you to transmute a pool of vomit, 15 cable coil, and 10 sheets of iron into a Rust Walker.
+    Rust Walkers excel at spreading rust and are moderately strong in combat.
+
 ## stage 7
 knowledge-path-side-s7-uncuff-name = Wave of Desperation
 knowledge-path-side-s7-uncuff-desc =

@@ -3,13 +3,13 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared._Goobstation.Heretic.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class EntropicPlumeAffectedComponent : Component
 {
     [DataField]
     public float Duration = 10f;
 
-    [DataField]
+    [DataField, AutoNetworkedField, AutoPausedField]
     public TimeSpan NextAttack = TimeSpan.Zero;
 
     [DataField]

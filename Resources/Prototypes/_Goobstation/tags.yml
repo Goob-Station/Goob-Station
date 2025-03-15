@@ -279,6 +279,9 @@
   id: StasisCage
 
 - type: Tag
+  id: Steel
+
+- type: Tag
   id: Stomach
 
 - type: Tag

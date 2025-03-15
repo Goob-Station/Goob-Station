@@ -296,4 +296,20 @@
   output:
     ClothingEldritchMedalion: 1
 
-## stage 7
+## stage 6
+
+- type: hereticRitual
+  id: RustedRitual
+  locName: knowledge-path-side-s6-rustwalker-name
+  locDesc: knowledge-path-side-s6-rustwalker-desc
+  icon:
+    sprite: _Goobstation/Heretic/eldritch_mobs.rsi
+    state: rust_walker
+  customBehaviors:
+  - !type:RitualReagentPuddleBehavior
+    reagent: Vomit
+  requiredTags:
+    Steel: 10
+    CableCoil: 15
+  output:
+    MobGhoulRustWalker: 1

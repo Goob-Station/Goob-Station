@@ -40,10 +40,22 @@ public sealed partial class HereticAbilitySystem
     {
         SubscribeLocalEvent<HereticComponent, HereticLeechingWalkEvent>(OnLeechingWalk);
         SubscribeLocalEvent<HereticComponent, EventHereticRustConstruction>(OnRustConstruction);
-        SubscribeLocalEvent<HereticComponent, EventHereticAggressiveSpread>(OnAggressiveSpread);
+        SubscribeLocalEvent<GhoulComponent, EventHereticAggressiveSpread>(OnGhoulAggressiveSpread);
+        SubscribeLocalEvent<HereticComponent, EventHereticAggressiveSpread>(OnHereticAggressiveSpread);
         SubscribeLocalEvent<HereticComponent, EventHereticEntropicPlume>(OnEntropicPlume);
 
         SubscribeLocalEvent<SpriteRandomOffsetComponent, ComponentStartup>(OnRandomOffsetStartup);
+    }
+
+    private void OnHereticAggressiveSpread(Entity<HereticComponent> ent, ref EventHereticAggressiveSpread args)
+    {
+        var multiplier = ent.Comp.CurrentPath == "Rust" ? MathF.Sqrt(ent.Comp.PathStage - 4) : 1f;
+        OnAggressiveSpread(ent, ref args, multiplier);
+    }
+
+    private void OnGhoulAggressiveSpread(Entity<GhoulComponent> ent, ref EventHereticAggressiveSpread args)
+    {
+        OnAggressiveSpread(ent, ref args, 2.2f);
     }
 
     private void OnEntropicPlume(Entity<HereticComponent> ent, ref EventHereticEntropicPlume args)
@@ -101,14 +113,13 @@ public sealed partial class HereticAbilitySystem
             _random.NextVector2Box(comp.MinX, comp.MinY, comp.MaxX, comp.MaxY));
     }
 
-    private void OnAggressiveSpread(Entity<HereticComponent> ent, ref EventHereticAggressiveSpread args)
+    private void OnAggressiveSpread(EntityUid ent, ref EventHereticAggressiveSpread args, float multiplier = 1f)
     {
         if (!TryUseAbility(ent, args))
             return;
 
         args.Handled = true;
 
-        var multiplier = ent.Comp.CurrentPath == "Rust" ? MathF.Sqrt(ent.Comp.PathStage - 4) : 1f;
         var aoeRadius = MathF.Max(args.AoeRadius, args.AoeRadius * multiplier);
         var range = MathF.Max(args.Range, args.Range * multiplier);
 
@@ -290,16 +301,19 @@ public sealed partial class HereticAbilitySystem
         var temperatureQuery = GetEntityQuery<TemperatureComponent>();
         var staminaQuery = GetEntityQuery<StaminaComponent>();
         var statusQuery = GetEntityQuery<StatusEffectsComponent>();
+        var hereticQuery = GetEntityQuery<HereticComponent>();
 
-        var query = EntityQueryEnumerator<LeechingWalkComponent, HereticComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var leech, out var heretic, out var xform))
+        var query = EntityQueryEnumerator<LeechingWalkComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var leech, out var xform))
         {
             if (!IsTileRust(xform.Coordinates, out _))
                 continue;
 
             RemCompDeferred<DelayedKnockdownComponent>(uid);
 
-            var multiplier = heretic.Ascended ? leech.AscensuionMultiplier : 1f;
+            var multiplier = hereticQuery.TryComp(uid, out var heretic) && heretic.Ascended
+                ? leech.AscensuionMultiplier
+                : 1f;
 
             if (damageableQuery.TryComp(uid, out var damageable))
             {

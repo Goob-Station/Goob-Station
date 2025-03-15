@@ -375,4 +375,10 @@
   ritualPrototypes:
   - PriestRitual
 
-## stage 7
+## stage 6
+- type: hereticKnowledge
+  id: RustedRitual
+  sideKnowledge: true
+  stage: 6
+  ritualPrototypes:
+  - RustedRitual

@@ -80,9 +80,6 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
         var query = EntityQueryEnumerator<EntropicPlumeAffectedComponent, MobStateComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var affected, out var mobState, out var xform))
         {
@@ -105,7 +102,9 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
                 if (_net.IsClient && _player.LocalEntity != uid)
                     return;
 
-                if (_timing.CurTime < affected.NextAttack)
+                var curTime = _timing.CurTime;
+
+                if (curTime < affected.NextAttack)
                     return;
 
                 if (!TryComp(uid, out CombatModeComponent? combat))
@@ -126,11 +125,17 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
 
                 if (gunComp != null)
                 {
+                    if (gunComp.NextFire > curTime)
+                        return;
+
                     attackRate = gunComp.FireRate;
                     range = 3f;
                 }
                 else if (meleeComp != null)
                 {
+                    if (meleeComp.NextAttack > curTime)
+                        return;
+
                     attackRate = meleeComp.AttackRate;
                     range = meleeComp.Range;
                 }
@@ -144,7 +149,8 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
                 if (targets.Count == 0)
                     return;
 
-                affected.NextAttack = _timing.CurTime + TimeSpan.FromSeconds(1f / attackRate);
+                affected.NextAttack = curTime + TimeSpan.FromSeconds(1f / attackRate);
+                Dirty(uid, affected);
 
                 _combat.SetInCombatMode(uid, true, combat);
 

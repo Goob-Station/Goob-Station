@@ -325,7 +325,8 @@ public sealed class MansusGraspSystem : EntitySystem
                 {
                     if (TryComp(target, out StationAiHolderComponent? aiHolder)) // Kill AI
                         QueueDel(aiHolder.Slot.ContainerSlot?.ContainedEntity);
-                    else if (HasComp<RustGraspComponent>(grasp) && _tag.HasTag(target, "Wall")) // If we are in rust mode and targeting a wall - do nothing, let other methods handle that
+                    else if (HasComp<RustGraspComponent>(grasp) && _tag.HasTag(target, "Wall") ||
+                             HasComp<HereticRitualRuneComponent>( target)) // If we have rust grasp and targeting a wall - do nothing, let other methods handle that. Also don't damage transmutation rune.
                         return false;
                     else if (TryComp(target, out DamageableComponent? damageable) && // Is it even damageable?
                              (!HasComp<MobStateComponent>(target) || HasComp<SiliconComponent>(target) ||

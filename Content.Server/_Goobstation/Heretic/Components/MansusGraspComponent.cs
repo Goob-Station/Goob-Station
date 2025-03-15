@@ -17,7 +17,7 @@ public sealed partial class MansusGraspComponent : Component
     public EntityWhitelist Blacklist = new();
 
     [DataField]
-    public TimeSpan KnockdownTime = TimeSpan.FromSeconds(3f);
+    public TimeSpan KnockdownTime = TimeSpan.FromSeconds(5f);
 
     [DataField]
     public float StaminaDamage = 80f;
