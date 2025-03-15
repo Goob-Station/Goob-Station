@@ -23,7 +23,7 @@
 
 - files: ["cropped_parallax.png", "eighties.png", "gold.png", "grass.png", "ironsand1.png", "ironsand2.png", "ironsand3.png", "ironsand4.png", "junglegrass.png", "lattice.png", "plating.png", "reinforced.png", "silver.png", "snow.png", "wood.png"]
   license: "CC-BY-SA-3.0"
-  copyright: "tgstation commit 8abb19545828230d92ba18827feeb42a67a55d49, cropped_parallax modified from parallax."
+  copyright: "tgstation commit 8abb19545828230d92ba18827feeb42a67a55d49, cropped_parallax modified from parallax, wood.png resprited by Meowstushka and modified by Ko4erga (discord)"
   source: "https://github.com/tgstation/tgstation/"
 
 - files: ["super_reinforced.png"]
@@ -98,7 +98,7 @@
 
 - files: ["steel_maint.png", "grating_maint.png", "wood_tile.png"]
   license: "CC-BY-SA-3.0"
-  copyright: "by brainfood for space-station-14, ."
+  copyright: "by brainfood for space-station-14, wood tile resprited by Dezzzix and modified by Ko4erga (discord)."
   source: "https://github.com/space-wizards/space-station-14/pull/12193"
 
 - files: ["meat.png"]
@@ -108,7 +108,7 @@
 
 - files: ["wood_broken.png"]
   license: "CC-BY-SA-3.0"
-  copyright: "taken at https://github.com/ParadiseSS13/Paradise/blob/8b7f4c8b69c74c6de5a755272eb8d3520f3d87c7/icons/turf/floors.dmi"
+  copyright: "taken at https://github.com/ParadiseSS13/Paradise/blob/8b7f4c8b69c74c6de5a755272eb8d3520f3d87c7/icons/turf/floors.dmi; resprited by Meowstushka and modified by Ko4erga (discord)"
   source: "https://github.com/ParadiseSS13/Paradise"
 
 - files: ["chromite.png"]
@@ -128,5 +128,5 @@
 
 - files: ["wood_large.png"]
   license: "CC0-1.0"
-  copyright: "Created by ps3moira (github) for space-station-14."
+  copyright: "Created by ps3moira (github) for space-station-14; resprited by Meowstushka and modified by Ko4erga (discord)"
   source: "https://github.com/space-wizards/space-station-14/"
