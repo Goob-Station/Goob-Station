@@ -134,5 +134,6 @@
           animation: WeaponArcThrust
           damage:
             types:
+              Slash: 15
               Heat: 25
               Shock: 25

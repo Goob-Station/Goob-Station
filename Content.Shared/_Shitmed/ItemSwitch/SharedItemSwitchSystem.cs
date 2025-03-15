@@ -59,16 +59,12 @@ public abstract class SharedItemSwitchSystem : EntitySystem
     private void OnUseInHand(Entity<ItemSwitchComponent> ent, ref UseInHandEvent args)
     {
         var comp = ent.Comp;
-        var uid = args.User;
 
         if (args.Handled || !comp.OnUse || comp.States.Count == 0)
             return;
 
         if (comp is { IsPowered: false, NeedsPower: true })
-        {
-            _popup.PopupClient(Loc.GetString("stunbaton-component-low-charge"), args.User, args.User, PopupType.Large);
             return;
-        }
 
         args.Handled = true;
 
@@ -81,16 +77,12 @@ public abstract class SharedItemSwitchSystem : EntitySystem
     private void OnActivateVerb(Entity<ItemSwitchComponent> ent, ref GetVerbsEvent<ActivationVerb> args)
     {
         var comp = ent.Comp;
-        var failText = Loc.GetString("stunbaton-component-low-charge");
 
         if (!args.CanAccess || !args.CanInteract || !comp.OnActivate || comp.States.Count == 0)
             return;
 
         if (comp is { IsPowered: false, NeedsPower: true })
-        {
-            _popup.PopupClient(failText, args.User, PopupType.Large);
             return;
-        }
 
         var user = args.User;
         var addedVerbs = 0;
@@ -119,10 +111,7 @@ public abstract class SharedItemSwitchSystem : EntitySystem
             return;
 
         if (comp is { IsPowered: false, NeedsPower: true })
-        {
-            _popup.PopupClient(Loc.GetString("stunbaton-component-low-charge"), uid, PopupType.Large);
             return;
-        }
 
         args.Handled = true;
 
