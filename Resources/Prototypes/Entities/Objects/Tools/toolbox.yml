@@ -23,10 +23,13 @@
         Blunt: 12
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 15 # Goobstation
   - type: Tag
     tags:
     - Toolbox
-    - DroneUsable # Goobstation
   - type: GenericVisualizer
     visuals:
       enum.StorageVisuals.Open:
@@ -137,6 +140,10 @@
     damage:
       types:
         Blunt: 20
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 25 # Goobstation
 
 - type: entity
   name: golden toolbox
@@ -153,7 +160,7 @@
 - type: entity
   id: ToolboxThief
   name: thief undetermined toolbox
-  description: This is where your favorite thief's supplies lie. Try to remember which ones.
+  description: This is where your favorite thief's supplies lie. But you cant remember what was inside..
   parent: [ BaseItem, BaseMinorContraband ]
   components:
   - type: Sprite

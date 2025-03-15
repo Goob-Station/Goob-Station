@@ -11,6 +11,14 @@
         Slash: 16
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 20 # Goobstation
   - type: Reflect
     reflectProb: 0.05
     spread: 90

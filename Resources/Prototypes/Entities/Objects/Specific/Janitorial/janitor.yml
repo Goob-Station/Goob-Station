@@ -30,6 +30,10 @@
     damage:
       types:
         Blunt: 5
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 10
   - type: Item
     size: Large
     sprite: Objects/Specific/Janitorial/mop.rsi
@@ -47,7 +51,6 @@
     tags:
       - Mop
       - MopBasic
-      - DroneUsable # Goobstation
   - type: GuideHelp
     guides:
     - Janitorial
@@ -85,6 +88,10 @@
       damage:
         types:
           Blunt: 5
+    - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 10
     - type: Item
       size: Large
       sprite: Objects/Specific/Janitorial/advmop.rsi
@@ -111,7 +118,6 @@
       tags:
         - Mop
         - MopAdv
-        - DroneUsable # Goobstation
     - type: DnaSubstanceTrace
     - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
@@ -338,7 +344,6 @@
     - type: Tag
       tags:
         - Mop
-        - DroneUsable # Goobstation
     - type: CleansForensics
     - type: Fiber
       fiberColor: fibers-white
