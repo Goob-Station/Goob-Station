@@ -635,15 +635,15 @@ public abstract partial class SharedDoorSystem : EntitySystem
 
         // Goobstation
         bool isProximity = args.OurFixtureId == door.ProximityFixtureId;
-        if (isProximity
-            && (
-                    TryComp<PhysicsComponent>(args.OtherEntity, out var otherPhysics)
-                    && Vector2.Dot((Transform(uid).WorldPosition - Transform(args.OtherEntity).WorldPosition).Normalized(), otherPhysics.LinearVelocity.Normalized()) < door.ProximityOpenThreshold // only proximity open us if the other entity is going towards us
-                ||
-                    TryComp<AccessReaderComponent>(uid, out var reader)
-                    && !_accessReaderSystem.IsAllowed(EmptyAccessList, EmptyRecordList, uid, reader) // only proximity open us if we're an access-less door
+        if (isProximity && TryComp<PhysicsComponent>(args.OtherEntity, out var otherPhysics) &&
+            (
+                otherPhysics.LinearVelocity.Length() < door.ProximityOpenSpeedThreshold // only proximity open us if the other entity is going fast enough
+                || Vector2.Dot((Transform(uid).WorldPosition - Transform(args.OtherEntity).WorldPosition).Normalized(), otherPhysics.LinearVelocity.Normalized()) < door.ProximityOpenThreshold // only proximity open us if the other entity is going towards us
             )
         )
+            return;
+        // only proximity open us if we're an access-less door
+        if (isProximity && TryComp<AccessReaderComponent>(uid, out var reader) && !_accessReaderSystem.IsAllowed(EmptyAccessList, EmptyRecordList, uid, reader))
             return;
 
         if (Tags.HasTag(otherUid, DoorBumpTag))

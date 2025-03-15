@@ -309,6 +309,12 @@ public sealed partial class DoorComponent : Component
     /// </summary>
     [DataField]
     public float ProximityOpenThreshold = 0.7f;
+
+    /// <summary>
+    /// How fast you have to be going for the door to proximity open
+    /// </summary>
+    [DataField]
+    public float ProximityOpenSpeedThreshold = 1.5f; // doesn't proximity open if you're crawling
     // </Goobstation>
 }
 
