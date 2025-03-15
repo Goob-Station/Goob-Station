@@ -1,11 +1,15 @@
-﻿using System.Collections.Frozen;
+﻿using System;
+using System.Collections.Frozen;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using Content.Shared._Goobstation.MisandryBox;
+using Content.Goobstation.Shared.MisandryBox;
 using Content.Shared.Mobs.Components;
+using Robust.Shared.GameObjects;
+using Robust.Shared.IoC;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.MisandryBox.Appender;
+namespace Content.Goobstation.Server.MisandryBox.Appender;
 
 public sealed class AccountAppenderSystem : EntitySystem
 {
@@ -30,7 +34,7 @@ public sealed class AccountAppenderSystem : EntitySystem
 
         foreach (var comp in comps)
         {
-            AddComp(args.Entity, comp);
+            AddComp(args.Entity, comp, overwrite: true);
         }
     }
 
@@ -72,10 +76,7 @@ public sealed class AccountAppenderSystem : EntitySystem
 
         foreach (var proto in _protoIds.Values)
         {
-            if (proto.Userid == "" || !Guid.TryParse(proto.Userid, out var guid))
-                continue;
-
-            if (guid != userid)
+            if (proto.Userid == Guid.Empty || proto.Userid != userid)
                 continue;
 
             prototype = proto;

@@ -1,6 +1,7 @@
 ﻿using Content.Shared.Movement.Components;
+using Robust.Shared.GameObjects;
 
-namespace Content.Shared._Goobstation.MisandryBox.Smites;
+namespace Content.Goobstation.Shared.MisandryBox.Smites;
 
 public sealed class RunWalkSwapSystem : ToggleableSmiteSystem<RunWalkSwapComponent>
 {
