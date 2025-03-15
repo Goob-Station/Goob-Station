@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using System.Linq;
+using System.Numerics;
 using Content.Shared._Goobstation.Fishing.Components;
 using Content.Shared._Goobstation.Fishing.Events;
 using Content.Shared.Hands.EntitySystems;
@@ -23,6 +24,7 @@ public abstract class SharedFishingSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
@@ -60,10 +62,10 @@ public abstract class SharedFishingSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        UpdateFishing(frameTime);
+        UpdateFishing();
     }
 
-    protected void UpdateFishing(float frameTime)
+    protected void UpdateFishing()
     {
         if (!_timing.IsFirstTimePredicted)
             return;
@@ -146,22 +148,18 @@ public abstract class SharedFishingSystem : EntitySystem
                 // We're spawning the fish only on the server, because I don't want to deal with networking just for this
                 if (_net.IsServer)
                 {
-                    var fishIds = activeSpotComp.FishList.GetSpawns(_random.GetRandom(), EntityManager, _proto);
                     var position = Transform(fishingFloatComp.AttachedEntity.Value).Coordinates;
-                    foreach (var fishId in fishIds)
-                    {
-                        var fish = Spawn(fishId, position);
-                        // Throw da fish back to the player because it looks funny
-                        var direction = _transform.GetWorldPosition(fisher) - _transform.GetWorldPosition(fish);
-                        var length = direction.Length();
-                        var distance = Math.Clamp(length, 0.5f, 15f);
-                        direction *= distance / length;
+                    var fish = Spawn(activeSpotComp.Fish, position);
+                    // Throw da fish back to the player because it looks funny
+                    var direction = _transform.GetWorldPosition(fisher) - _transform.GetWorldPosition(fish);
+                    var length = direction.Length();
+                    var distance = Math.Clamp(length, 0.5f, 15f);
+                    direction *= distance / length;
 
-                        _throwing.TryThrow(fish, direction, 7f);
-                    }
+                    _throwing.TryThrow(fish, direction, 7f);
 
                     // Message
-                    _popup.PopupEntity(Loc.GetString("fishing-progress-success"), fisher, fisher);
+                    _popup.PopupPredicted(Loc.GetString("fishing-progress-success"), fisher, fisher);
                     QueueDel(fishingLure);
                 }
 
@@ -201,7 +199,7 @@ public abstract class SharedFishingSystem : EntitySystem
             activeFisher.FishingRod = fishRod;
             activeFisher.ProgressPerUse *= fishRodComp.Efficiency;
 
-            _popup.PopupEntity(Loc.GetString("fishing-progress-start"), fisher, fisher);
+            _popup.PopupPredicted(Loc.GetString("fishing-progress-start"), fisher, fisher);
             activeSpotComp.IsActive = true;
         }
     }
@@ -281,7 +279,7 @@ public abstract class SharedFishingSystem : EntitySystem
             return;
         }
 
-        _popup.PopupEntity(Loc.GetString("fishing-rod-remove-lure", ("ent", Name(uid))), uid);
+        _popup.PopupPredicted(Loc.GetString("fishing-rod-remove-lure", ("ent", Name(uid))), uid, uid);
 
         if (TryComp<FishingLureComponent>(component.FishingLure, out var lureComp) && lureComp.AttachedEntity != null && Exists(lureComp.AttachedEntity))
         {
@@ -327,11 +325,22 @@ public abstract class SharedFishingSystem : EntitySystem
 
         var rand = new System.Random((int) _timing.CurTick.Value); // evil random prediction hack
 
+        // Currently we don't support multiple loots from this
+        var fish = spotComp.FishList.GetSpawns(_random.GetRandom(), EntityManager, _proto).First();
+
+        // Get fish difficulty
+        _proto.Index(fish).TryGetComponent(out FishComponent? fishComp, _compFactory);
+        var difficulty = fishComp?.FishDifficulty ?? FishComponent.DefaultDifficulty;
+        var variety = fishComp?.FishDifficultyVarirty ?? FishComponent.DefaultDifficultyVariety;
+
+        // Assign things that depend on the fish
         var activeFishSpot = EnsureComp<ActiveFishingSpotComponent>(attachedEnt);
-        activeFishSpot.FishDifficulty = spotComp.FishDifficulty + rand.NextFloat(-spotComp.FishDifficultyVariety, spotComp.FishDifficultyVariety);
+        activeFishSpot.Fish = fish;
+        activeFishSpot.FishDifficulty = difficulty + rand.NextFloat(-variety, variety);
+
+        // Assign things that depend on the spot
         var time = spotComp.FishDefaultTimer + rand.NextFloat(-spotComp.FishTimerVariety, spotComp.FishTimerVariety);
         activeFishSpot.FishingStartTime = _timing.CurTime + TimeSpan.FromSeconds(time);
-        activeFishSpot.FishList = spotComp.FishList;
         activeFishSpot.AttachedFishingLure = uid;
     }
 

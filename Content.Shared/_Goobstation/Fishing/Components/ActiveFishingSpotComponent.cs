@@ -1,5 +1,6 @@
 ﻿using Content.Shared.EntityTable.EntitySelectors;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Goobstation.Fishing.Components;
 
@@ -25,8 +26,8 @@ public sealed partial class ActiveFishingSpotComponent : Component
     public float FishDifficulty;
 
     /// <summary>
-    /// All possible fishes to catch here
+    /// Fish that we're currently trying to catch
     /// </summary>
-    [DataField(required: true)]
-    public EntityTableSelector FishList;
+    [DataField]
+    public EntProtoId Fish;
 }
