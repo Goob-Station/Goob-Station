@@ -8,10 +8,11 @@
     range: 4
     useDelay: 8
     itemIconStyle: NoItem
-    icon: # Temp
-      sprite: _Goobstation/Heretic/Tiles
-      state: plating_rust
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: construction
     event: !type:EventHereticRustConstruction
+    checkCanAccess: false
     checkCanInteract: false
     repeat: true
   - type: HereticAction
@@ -28,9 +29,9 @@
     itemIconStyle: NoItem
     sound:
       path: /Audio/Items/welder.ogg
-    icon: # Temp
-      sprite: _Goobstation/Heretic/Tiles
-      state: plating_rust
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: aggressive_spread
     event: !type:EventHereticAggressiveSpread
     checkCanInteract: false
     predicted: false

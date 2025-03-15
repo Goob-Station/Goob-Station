@@ -25,7 +25,7 @@
     color: "#329a00"
   - type: SurgeryTool # For organ removal
     startSound:
-      path: /Audio/_Goobstation/Heretic/crack1.ogg
+      path: /Audio/_Goobstation/Heretic/crack2.ogg
     endSound:
       path: /Audio/Items/welder.ogg
   - type: Hemostat

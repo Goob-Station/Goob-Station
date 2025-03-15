@@ -49,3 +49,20 @@
   - type: Tag
     tags:
       - HideContextMenu
+
+- type: entity
+  id: EffectCleave
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects
+    layers:
+      - shader: unshaded
+        sprite: _Goobstation/Heretic/Effects/effects.rsi
+        state: cleave
+  - type: Tag
+    tags:
+      - HideContextMenu

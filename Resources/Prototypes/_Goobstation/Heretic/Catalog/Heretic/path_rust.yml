@@ -78,7 +78,7 @@
   id: HereticRustPath5
   name: knowledge-path-rust-s5-name
   description: knowledge-path-rust-s5-desc
-  icon: { sprite: _Goobstation/Heretic/Tiles, state: plating_rust } # Temp
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: construction }
   productHereticKnowledge: RustConstruction
   cost:
     KnowledgePoint: 2
@@ -96,7 +96,7 @@
   id: HereticRustPath6
   name: knowledge-path-rust-s6-name
   description: knowledge-path-rust-s6-desc
-  icon: { sprite: _Goobstation/Heretic/Tiles, state: plating_rust } # Temp
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: aggressive_spread }
   productHereticKnowledge: AggressiveSpread
   cost:
     KnowledgePoint: 1

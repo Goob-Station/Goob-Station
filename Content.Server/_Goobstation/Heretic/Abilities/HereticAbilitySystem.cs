@@ -121,6 +121,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         SubscribeBlade();
         SubscribeLock();
         SubscribeRust();
+        SubscribeSide();
     }
 
     private bool TryUseAbility(EntityUid ent, BaseActionEvent args)

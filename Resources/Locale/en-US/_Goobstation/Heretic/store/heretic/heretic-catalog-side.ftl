@@ -64,6 +64,13 @@ knowledge-path-side-s7-crucible-desc =
     Allows you to transmute a portable water tank and a table to create a Mawed Crucible.
     The Mawed Crucible can brew powerful potions for combat and utility, but must be fed bodyparts and organs between uses.
 
+# stage 8
+knowledge-path-side-s8-cleave-name = Blood Cleave
+knowledge-path-side-s8-cleave-desc =
+    At first I didn't understand these instruments of war, but the Priest told me to use them regardless. Soon, he said, I would know them well.
+
+    Grants you Cleave, an area-of-effect targeted spell that causes heavy bleeding and blood loss to anyone afflicted.
+
 ## stage 9
 knowledge-path-side-s9-coin-name = Eldritch Coin
 knowledge-path-side-s9-coin-desc =
@@ -78,9 +85,3 @@ knowledge-path-side-s9-ashman-name = Ashen Ritual
 knowledge-path-side-s9-ashman-desc =
     Transmute a pile of ash, a brain and a book to summon an Ashman.
     Ashmen can jaunt, cause bleeding wounds, and can release large waves of fire.
-
-knowledge-path-side-s9-cleave-name = Blood Cleave
-knowledge-path-side-s9-cleave-desc =
-    At first I didn't understand these instruments of war, but the Priest told me to use them regardless. Soon, he said, I would know them well.
-
-    Grants you Cleave, an area-of-effect targeted spell that causes heavy bleeding and blood loss to anyone afflicted.
