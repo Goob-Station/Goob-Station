@@ -14,6 +14,7 @@
   - ShuttleGunKineticCircuitboard
   - MechEquipmentKineticAccelerator # Goobstation
   # These are roundstart but not replenishable for salvage
+  position: 0,0 # Goobstation R&D Console rework
 
 - type: technology
   id: DraconicMunitions
@@ -29,14 +30,19 @@
   - MagazineRifleIncendiary
   - MagazinePistolIncendiary
   - MagazinePistolSubMachineGunIncendiary
+  - MagazineBoxShotgunIncendiaryHighCaliber # Goobstation
   - MagazineLightRifleIncendiary
   - SpeedLoaderMagnumIncendiary
   - MagazineShotgunIncendiary
-  - MagazineBoxShotgunIncendiaryHighCaliber # Goobstation
   - MagazineBoxPistolIncendiary
   - MagazineBoxMagnumIncendiary
   - MagazineBoxLightRifleIncendiary
   - MagazineBoxRifleIncendiary
+  # Goobstation R&D Console rework start
+  position: 1,-1
+  technologyPrerequisites:
+  - SalvageWeapons
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: WeaponizedLaserManipulation
@@ -51,6 +57,11 @@
   - WeaponLaserCarbine
   - WeaponTemperatureGun # Goobstation
   - WeaponMechCombatFiredartLaser # Goobstation
+  # Goobstation R&D Console rework start
+  position: 2,-1
+  technologyPrerequisites:
+  - DraconicMunitions
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: NonlethalAmmunition
@@ -68,6 +79,11 @@
   - MagazineBoxShotgunBeanbagHighCaliber # Goobstation
   - WeaponDisabler
   - WeaponMechCombatDisabler # Goobstation
+  # Goobstation R&D Console rework start
+  position: 1,0
+  technologyPrerequisites:
+  - SalvageWeapons
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: UraniumMunitions
@@ -90,6 +106,11 @@
   - MagazineBoxRifleUranium
   - BoxShotgunUranium
   - MagazineBoxShotgunUraniumHighCaliber # Goobstation
+  # Goobstation R&D Console rework start
+  position: 1,-2
+  technologyPrerequisites:
+  - DraconicMunitions
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: AdvancedRiotControl
@@ -105,6 +126,11 @@
   - TelescopicShield
   - HoloprojectorSecurity
   - WeaponDisablerSMG
+  # Goobstation R&D Console rework start
+  position: 2,0
+  technologyPrerequisites:
+  - NonlethalAmmunition
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: ExplosiveTechnology
@@ -123,6 +149,9 @@
   - FlashPayload
   - ExplosivePayload
   - ChemicalPayload
+  technologyPrerequisites:
+  - SalvageWeapons # Goobstation R&D Console rework
+  position: 1,1  # Goobstation R&D Console rework
 
 - type: technology
   id: SpecialMeans
@@ -135,6 +164,11 @@
   cost: 5000
   recipeUnlocks:
   - ClothingBackpackElectropack
+  # Goobstation R&D Console rework start
+  position: 3,0
+  technologyPrerequisites:
+  - AdvancedRiotControl
+  # Goobstation R&D Console rework end
 
 # Tier 2
 
@@ -150,6 +184,11 @@
   recipeUnlocks:
   - WeaponLaserCannon
   - WeaponMechCombatSolarisLaser # Goobstation
+  # Goobstation R&D Console rework start
+  position: 3,-1
+  technologyPrerequisites:
+  - WeaponizedLaserManipulation
+  # Goobstation R&D Console rework end
 
 # Goobstation - Consolidated ( AGAIN !!! )
 #- type: technology
@@ -184,7 +223,8 @@
   - ShuttleGunPerforatorCircuitboard
   - ShuttleGunFriendshipCircuitboard
   technologyPrerequisites:
-  - SalvageWeapons
+  - ExplosiveTechnology # Goobstation R&D Console rework
+  position: 2,1  # Goobstation R&D Console rework
 
 # Tier 3
 
@@ -201,6 +241,12 @@
   - WeaponAdvancedLaser
   - PortableRecharger
   - WeaponMechCombatImmolationGun # Goobstation
+  # Goobstation R&D Console rework start
+  position: 5,-1
+  technologyPrerequisites:
+  - ExperimentalBatteryAmmo
+  - WaveParticleHarnessing
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: ExperimentalBatteryAmmo
@@ -213,6 +259,11 @@
   cost: 15000
   recipeUnlocks:
   - WeaponLaserSvalinn
+  # Goobstation R&D Console rework start
+  position: 4,-1
+  technologyPrerequisites:
+  - ConcentratedLaserWeaponry
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: AdvancedShuttleWeapon
@@ -229,3 +280,5 @@
   - ShuttleGunDusterCircuitboard
   technologyPrerequisites:
   - BasicShuttleArmament
+  - ExperimentalBatteryAmmo
+  position: 4,1  # Goobstation R&D Console rework

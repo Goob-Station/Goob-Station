@@ -29,6 +29,11 @@
   - BorgModuleAnomaly
   - APECircuitboard
   - AnomalyVesselCircuitboard
+  # Goobstation R&D Console rework start
+  position: 3,-1
+  technologyPrerequisites:
+  - AlternativeResearch
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: BasicXenoArcheology
@@ -44,6 +49,11 @@
   - BorgModuleArtifact
   - AnalysisComputerCircuitboard
   - ArtifactAnalyzerMachineCircuitboard
+  # Goobstation R&D Console rework start
+  position: 3,1
+  technologyPrerequisites:
+  - AlternativeResearch
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: AlternativeResearch
@@ -56,6 +66,7 @@
   cost: 5000
   recipeUnlocks:
   - TechDiskComputerCircuitboard
+  position: 2,0 # Goobstation R&D Console rework end
 
 - type: technology
   id: MagnetsTech
@@ -69,6 +80,11 @@
   recipeUnlocks:
   - ClothingShoesBootsMagSci
   - ClothingShoesBootsMoon
+  # Goobstation R&D Console rework start
+  position: 1,0
+  technologyPrerequisites:
+  - AlternativeResearch
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: AnomalyCoreHarnessing
@@ -81,6 +97,11 @@
   cost: 10000
   recipeUnlocks:
   - WeaponGauntletGorilla
+  # Goobstation R&D Console rework start
+  position: 4,-1
+  technologyPrerequisites:
+  - BasicAnomalousResearch
+  # Goobstation R&D Console rework end
 
 # Tier 2
 
@@ -95,6 +116,11 @@
   cost: 5000
   recipeUnlocks:
   - ArtifactCrusherMachineCircuitboard
+  # Goobstation R&D Console rework start
+  position: 4,1
+  technologyPrerequisites:
+  - BasicXenoArcheology
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: AdvancedAnomalyResearch
@@ -111,6 +137,7 @@
   - AnomalyVesselExperimentalCircuitboard
   technologyPrerequisites:
   - BasicAnomalousResearch
+  position: 3,-2  # Goobstation R&D Console rework
 
 - type: technology
   id: DeterrenceTechnologies
@@ -124,6 +151,11 @@
   recipeUnlocks:
   - WeaponParticleDecelerator
   - HoloprojectorField
+  # Goobstation R&D Console rework start
+  position: 0,1
+  technologyPrerequisites:
+  - MagnetsTech
+  # Goobstation R&D Console rework end
 
 # Tier 3
 
@@ -139,6 +171,12 @@
   recipeUnlocks:
     - WeaponForceGun
     - WeaponTetherGun
+  # Goobstation R&D Console rework start
+  position: 5,0
+  technologyPrerequisites:
+  - AbnormalArtifactManipulation
+  - AnomalyCoreHarnessing
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: QuantumLeaping
@@ -151,3 +189,8 @@
   cost: 10000
   recipeUnlocks:
   - DeviceQuantumSpinInverter
+  # Goobstation R&D Console rework start
+  position: 6,0
+  technologyPrerequisites:
+  - GravityManipulation
+  # Goobstation R&D Console rework end
