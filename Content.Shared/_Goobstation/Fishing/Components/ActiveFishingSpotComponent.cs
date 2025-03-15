@@ -1,26 +1,27 @@
 ﻿using Content.Shared.EntityTable.EntitySelectors;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared._Goobstation.Fishing.Components;
 
 /// <summary>
 /// Dynamic component, that is assigned to active fishing spots that are currently waiting for da fish.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ActiveFishingSpotComponent : Component
 {
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public EntityUid AttachedFishingLure;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float Accumulator;
 
     /// <summary>
     /// If true, someone is pulling fish out of this spot.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool IsActive;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float FishDifficulty;
 
     /// <summary>
