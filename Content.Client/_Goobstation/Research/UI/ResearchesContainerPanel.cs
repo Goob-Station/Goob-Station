@@ -39,8 +39,8 @@ public sealed partial class ResearchesContainerPanel : LayoutContainer
                     handle.DrawLine(new Vector2(0, y1), new Vector2(PixelWidth, y2), Color.Cyan);
                     continue;
                 }
-                var startCoords = new Vector2(item.PixelPosition.X + 40, item.PixelPosition.Y + 40);
-                var endCoords = new Vector2(second.PixelPosition.X + 40, second.PixelPosition.Y + 40);
+                var startCoords = new Vector2(item.PixelPosition.X + item.PixelWidth / 2, item.PixelPosition.Y + item.PixelHeight / 2);
+                var endCoords = new Vector2(second.PixelPosition.X + second.PixelWidth / 2, second.PixelPosition.Y + second.PixelHeight / 2);
 
                 if (second.PixelPosition.Y != item.PixelPosition.Y)
                 {
