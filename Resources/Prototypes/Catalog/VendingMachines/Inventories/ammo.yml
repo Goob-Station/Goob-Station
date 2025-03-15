@@ -6,7 +6,7 @@
 # SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
 # SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2022 Andreas Kämper <andreas@kaemper.tech>
+# SPDX-FileCopyrightText: 2022 Andreas K�mper <andreas@kaemper.tech>
 # SPDX-FileCopyrightText: 2022 ElectroJr <leonsfriedrich@gmail.com>
 # SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
 # SPDX-FileCopyrightText: 2022 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
@@ -36,3 +36,6 @@
 
     MagazineBoxRifle: 6
     MagazineBoxRiflePractice: 3
+
+    BoxLethalshot: 6
+    BoxShotgunPractice: 3
