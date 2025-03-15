@@ -355,7 +355,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Slash: 25
+        Slash: 5
         Holy: 10
   - type: Reflect # Only blocks magic projectiles
     reflectProb: 0.2

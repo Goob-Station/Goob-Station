@@ -118,6 +118,10 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: toolbox
+  - type: AltarSource
+    rodProto: Throngler
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
 
 - type: entity
   id: AltarSpaceChristian
