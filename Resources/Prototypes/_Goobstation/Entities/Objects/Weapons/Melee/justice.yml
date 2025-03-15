@@ -128,7 +128,7 @@
           state: empowered-icon
         components:
         - type: IgniteOnMeleeHit
-          fireStacks: 3
+          fireStacks: 4
         - type: MeleeWeapon
           wideAnimationRotation: -135
           attackRate: 0.50
