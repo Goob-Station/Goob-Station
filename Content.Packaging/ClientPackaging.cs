@@ -66,11 +66,6 @@ public static class ClientPackaging
 
         foreach (var dir in directories)
         {
-            Console.WriteLine(dir);
-        }
-
-        foreach (var dir in directories)
-        {
             var dirName = Path.GetFileName(dir);
 
             if (dirName != "Content.Client" && dirName.EndsWith(".Client"))
@@ -83,18 +78,15 @@ public static class ClientPackaging
             }
         }
 
-        Console.WriteLine("Building");
-
-        foreach (var project in clientProjects)
-        {
-            Console.WriteLine(project);
-        }
-
         return clientProjects;
     }
 
-    private static List<string> FindAllModules(string path)
+    private static List<string> FindAllModules(string path = ".")
     {
+        // Correct pathing to be in local folder if contentDir is empty.
+        if (string.IsNullOrEmpty(path))
+            path = ".";
+
         var modules = new List<string> { "Content.Client", "Content.Shared", "Content.Shared.Database" };
 
         var directories = Directory.GetDirectories(path, "Content.*");

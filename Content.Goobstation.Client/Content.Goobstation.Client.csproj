@@ -5,7 +5,7 @@
       <LangVersion>12</LangVersion>
       <IsPackable>false</IsPackable>
       <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-      <OutputPath>$(SolutionDir)bin\Content.Client\</OutputPath>
+      <OutputPath>..\bin\Content.Client\</OutputPath>
       <WarningsAsErrors>nullable</WarningsAsErrors>
       <Nullable>enable</Nullable>
       <Configurations>Debug;Release;Tools;DebugOpt</Configurations>
