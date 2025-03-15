@@ -24,6 +24,13 @@
       multiplier: 3.75
       multiplierOnExisting: 0.75
     - !type:Ignite
+  # Goobstation - fishing
+  - type: FishingSpot
+    fishList: !type:NestedSelector
+      tableId: PlasmaFishingLootTable
+    fishDefaultTimer: 25.0
+    fishTimerVariety: 15.0
+  # Goobstation - fishing
   - type: Transform
     anchored: true
   - type: SyncSprite
