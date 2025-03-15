@@ -44,11 +44,11 @@
 - type: startingGear
   id: NanotrasenRepresentativeGear
   equipment:
-    id: CentcomPDA
+    id: NanotrasenRepresentativePDA
     ears: ClothingHeadsetAltCentCom
     gloves: ClothingHandsGlovesGoldenTrim # Psst. I might as well add this here.
     pocket1: UniqueNanorepLockerTeleporter
   storage:
     back:
     - Flash
-    - TelescopicBaton # Goobstation
+    - TelescopicBaton

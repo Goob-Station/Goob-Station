@@ -122,6 +122,9 @@
       collection: Welder
     endSound:
       collection: WelderOff
+  - type: Tag
+    tags:
+    - DroneUsable # Goobstation
 
 - type: entity
   name: industrial welding tool

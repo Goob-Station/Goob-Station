@@ -95,17 +95,17 @@ public sealed partial class GoobCVars
 
     /// <summary>
     ///     Time given to be found to be engaging in dorm activity
-    ///     Default is 120.
+    ///     Default is 180.
     /// </summary>
     public static readonly CVarDef<int> DormNotifierPresenceTimeout =
-        CVarDef.Create("dorm_notifier.timeout", 120, CVar.SERVER, "Mark as condemned if present near a dorm marker for more than X amount of seconds.");
+        CVarDef.Create("dorm_notifier.timeout", 180, CVar.SERVER, "Mark as condemned if present near a dorm marker for more than X amount of seconds.");
 
     /// <summary>
     ///     Time given to be found engaging in dorm activity if any of the sinners are nude
-    ///     Default if 25.
+    ///     Default if 60.
     /// </summary>
     public static readonly CVarDef<int> DormNotifierPresenceTimeoutNude =
-        CVarDef.Create("dorm_notifier.timeout_nude", 25, CVar.SERVER, "Mark as condemned if present near a dorm marker for more than X amount of seconds while being nude.");
+        CVarDef.Create("dorm_notifier.timeout_nude", 60, CVar.SERVER, "Mark as condemned if present near a dorm marker for more than X amount of seconds while being nude.");
 
     /// <summary>
     ///     Broadcast to all players that a player has ragequit.
@@ -234,7 +234,7 @@ public sealed partial class GoobCVars
         CVarDef.Create("goob.coins_per_greentext", 5, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> GoobcoinNonAntagMultiplier =
-        CVarDef.Create("goob.coins_non_antag_multiplier", 3, CVar.SERVERONLY);
+        CVarDef.Create("goob.coins_non_antag_multiplier", 1, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> GoobcoinServerMultiplier =
         CVarDef.Create("goob.coins_server_multiplier", 1, CVar.SERVERONLY);

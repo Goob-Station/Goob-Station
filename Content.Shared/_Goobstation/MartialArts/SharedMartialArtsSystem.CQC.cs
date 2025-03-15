@@ -36,7 +36,7 @@ public partial class SharedMartialArtsSystem
             if (!HasComp<MobStateComponent>(ent))
                 return;
 
-            if (!TryGrant(ent.Comp, ent))
+            if (!TryGrantMartialArt(ent, ent.Comp))
                 return;
 
             if (TryComp<MartialArtsKnowledgeComponent>(ent, out var knowledge))
@@ -56,7 +56,7 @@ public partial class SharedMartialArtsSystem
             return;
         }
 
-        if (!TryGrant(ent.Comp, args.User))
+        if (!TryGrantMartialArt(args.User, ent.Comp))
             return;
         _popupSystem.PopupEntity(Loc.GetString("cqc-success-learned"), args.User, args.User);
         ent.Comp.Used = true;
@@ -118,25 +118,29 @@ public partial class SharedMartialArtsSystem
     private void OnCQCKick(Entity<CanPerformComboComponent> ent, ref CqcKickPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed)
-            || !downed)
+            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed))
             return;
-
-        if (TryComp<StaminaComponent>(target, out var stamina) && stamina.Critical)
-        {
-            _status.TryAddStatusEffect<ForcedSleepingComponent>(target, "ForcedSleep", TimeSpan.FromSeconds(10), true);
-        }
-
-        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out var damage, TargetBodyPart.Head);
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
 
         var mapPos = _transform.GetMapCoordinates(ent).Position;
         var hitPos = _transform.GetMapCoordinates(target).Position;
         var dir = hitPos - mapPos;
         dir *= 1f / dir.Length();
+
+        if (downed)
+        {
+            if (TryComp<StaminaComponent>(target, out var stamina) && stamina.Critical)
+                _status.TryAddStatusEffect<ForcedSleepingComponent>(target, "ForcedSleep", TimeSpan.FromSeconds(10), true);
+            DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _, TargetBodyPart.Head);
+            _stamina.TakeStaminaDamage(target, proto.StaminaDamage * 2 + 5, source: ent);
+        }
+        else
+        {
+            _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
+        }
+
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
-        _grabThrowing.Throw(target, ent, dir, proto.ThrownSpeed, proto.StaminaDamage / 2, damage);
+        _grabThrowing.Throw(target, ent, dir, proto.ThrownSpeed);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
         ComboPopup(ent, target, proto.Name);
     }
@@ -149,6 +153,7 @@ public partial class SharedMartialArtsSystem
 
         _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
+        ComboPopup(ent, target, proto.Name);
     }
 
     private void OnCQCPressure(Entity<CanPerformComboComponent> ent, ref CqcPressurePerformedEvent args)

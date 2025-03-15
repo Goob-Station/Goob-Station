@@ -31,6 +31,40 @@
 
 - type: entity
   parent: [ClothingShoesBootsMagAdv, BaseJetpack, BaseCentcommContraband]
+  id: ClothingShoesBootsMagEmergencyResponseTeam
+  name: tactical response magboots
+  description: Look! An emergency responder, we're saved!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Boots/emergencyresponseteam.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Boots/emergencyresponseteam.rsi
+  - type: Item
+    sprite: _Goobstation/Clothing/Shoes/Boots/emergencyresponseteam.rsi
+  - type: Magboots
+  - type: NoSlip
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.5
+  - type: ClothingModifyStunTime
+    modifier: 0.6
+  - type: ModifyStandingUpTime
+    multiplier: 0.5
+  - type: GasTank
+    outputPressure: 42.6
+    air:
+      # 2 minutes of thrust
+      volume: 2
+      temperature: 293.15
+      moles:
+      - 0.153853429 # oxygen
+      - 0.153853429 # nitrogen
+
+- type: entity
+  parent: ClothingShoesBootsMagEmergencyResponseTeam
   id: ClothingShoesBootsMagDeathsquad
   name: deathsquad magboots
   description: The sound of these boots are iconic; the sound of terror.
@@ -42,11 +76,9 @@
     sprite: _Goobstation/Clothing/Shoes/Boots/deathsquad.rsi
   - type: Item
     sprite: _Goobstation/Clothing/Shoes/Boots/deathsquad.rsi
-  - type: Magboots
   - type: ClothingSpeedModifier
     walkModifier: 1.10
     sprintModifier: 1.10
-  - type: NoSlip
   - type: Tag
     tags:
     - WhitelistChameleon
@@ -62,3 +94,70 @@
       moles:
       - 0.153853429 # oxygen
       - 0.153853429 # nitrogen
+
+- type: entity
+  parent: [ClothingShoesBootsMagBase, BaseMagicContraband]
+  id: ClothingShoesRealJordans
+  name: air jordans
+  description: State-of-the-art, official, uncreased Jordans that protect you from slipping when turned on.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: StaticPrice
+    price: 750
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Items/bow_pull.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ClothingShoesCreasedJordans:
+            min: 1
+            max: 1
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingShoesBaseButcherable, BaseMajorContraband]
+  id: ClothingShoesFakeJordans
+  name: air jordans
+  suffix: fake
+  description: Upon closer inspection, something feels off about these. Are they.. creased? No, it can't be that. Wait, the logo looks a little off...
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesCreasedJordans
+  name: creased air jordans
+  description: No wait... this can't be.... THEY'RE CREASED!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
+    state: icon-creased
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.7
+    sprintModifier: 0.7
+  - type: StaticPrice
+    price: 1
