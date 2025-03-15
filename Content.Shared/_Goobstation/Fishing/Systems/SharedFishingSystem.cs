@@ -159,10 +159,10 @@ public abstract class SharedFishingSystem : EntitySystem
 
                     // Message
                     _popup.PopupEntity(Loc.GetString("fishing-progress-success"), fisher, fisher);
+                    QueueDel(fishingLure);
                 }
 
                 // Cleanup entities and their connections
-                QueueDel(fishingLure);
                 RemComp(fisher, fisherComp);
                 RemComp(fishSpot, activeSpotComp);
                 _actions.RemoveAction(fishingRodComp.PullLureActionEntity);
