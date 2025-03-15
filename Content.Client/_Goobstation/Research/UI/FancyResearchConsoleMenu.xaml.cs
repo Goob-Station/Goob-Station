@@ -55,7 +55,7 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
     /// <summary>
     /// Contains BUI state for some stuff
     /// </summary>
-    private ResearchConsoleBoundInterfaceState _localState = new(0, new());
+    public ResearchConsoleBoundInterfaceState LocalState = new(0, new());
 
     /// <summary>
     /// Is tech currently being dragged
@@ -93,7 +93,7 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
         DragContainer.DisposeAllChildren();
         DisciplinesContainer.DisposeAllChildren();
         List = state.Researches;
-        _localState = state;
+        LocalState = state;
 
         // Добавляем к верхней панели все дисциплины
         var disciplines = _prototype.EnumeratePrototypes<TechDisciplinePrototype>()
@@ -150,10 +150,6 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
         {
             var discipline = _prototype.Index<TechDisciplinePrototype>(disciplineId);
             var tier = _research.GetTierCompletionPercentage(database, discipline);
-
-            // don't show tiers with no available tech
-            if (tier == 0)
-                continue;
 
             // i'm building the small-ass control here to spare me some mild annoyance in making a new file
             var texture = new TextureRect
@@ -251,7 +247,7 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
         CurrentDiscipline = proto.ID;
         discipline.SetClickPressed(false);
         UserInterfaceManager.ClickSound();
-        UpdatePanels(_localState);
+        UpdatePanels(LocalState);
         Recenter();
     }
 

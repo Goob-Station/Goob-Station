@@ -57,7 +57,14 @@ public sealed class ResearchConsoleBoundUserInterface : BoundUserInterface
 
         if (state is not ResearchConsoleBoundInterfaceState castState)
             return;
-        _consoleMenu?.UpdatePanels(castState);
-        _consoleMenu?.UpdateInformationPanel(castState);
+
+        // Goobstation checks added
+        // Thats for avoiding refresh spam when only points are updated
+        if (_consoleMenu == null)
+            return;
+        if (!_consoleMenu.LocalState.Researches.Equals(castState.Researches))
+            _consoleMenu.UpdatePanels(castState);
+        if (_consoleMenu.LocalState.Points != castState.Points)
+            _consoleMenu?.UpdateInformationPanel(castState);
     }
 }
