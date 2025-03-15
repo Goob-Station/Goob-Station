@@ -15,10 +15,10 @@ public sealed partial class ResearchSystem
 
         ResearchConsoleBoundInterfaceState state;
 
-        Dictionary<string, ResearchAvailablity> list = new();
+        Dictionary<string, ResearchAvailability> list = new();
         foreach (var proto in PrototypeManager.EnumeratePrototypes<TechnologyPrototype>().ToList())
         {
-            list.Add(proto.ID, ResearchAvailablity.Unavailable);
+            list.Add(proto.ID, ResearchAvailability.Unavailable);
         }
 
         if (TryGetClientServer(uid, out var serverUid, out var serverComponent, clientComponent))
@@ -30,9 +30,9 @@ public sealed partial class ResearchSystem
                 {
                     var item = PrototypeManager.Index<TechnologyPrototype>(toList[i].Key);
                     if (CompOrNull<TechnologyDatabaseComponent>(serverUid)?.UnlockedTechnologies.Contains(item.ID) ?? false)
-                        list[item.ID] = ResearchAvailablity.Researched;
+                        list[item.ID] = ResearchAvailability.Researched;
                     else if (item.TechnologyPrerequisites.Count <= 0)
-                        list[item.ID] = serverComponent.Points >= item.Cost ? ResearchAvailablity.Available : ResearchAvailablity.Unavailable;
+                        list[item.ID] = serverComponent.Points >= item.Cost ? ResearchAvailability.Available : ResearchAvailability.Unavailable;
                     else
                     {
                         var success = true;
@@ -44,7 +44,7 @@ public sealed partial class ResearchSystem
 
                         var available = success && serverComponent.Points >= item.Cost;
                         if (success)
-                            list[item.ID] = available ? ResearchAvailablity.Available : ResearchAvailablity.Unavailable;
+                            list[item.ID] = available ? ResearchAvailability.Available : ResearchAvailability.Unavailable;
                     }
                 }
             }

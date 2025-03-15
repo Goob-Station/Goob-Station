@@ -50,7 +50,7 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
     /// <summary>
     /// All technologies and their availablity
     /// </summary>
-    public Dictionary<string, ResearchAvailablity> List = new();
+    public Dictionary<string, ResearchAvailability> List = new();
 
     /// <summary>
     /// Contains BUI state for some stuff
@@ -224,15 +224,15 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
     /// Selects a tech prototype and opens info panel
     /// </summary>
     /// <param name="proto">Tech proto</param>
-    /// <param name="availablity">Tech availablity</param>
-    public void SelectTech(TechnologyPrototype proto, ResearchAvailablity availablity)
+    /// <param name="availability">Tech availablity</param>
+    public void SelectTech(TechnologyPrototype proto, ResearchAvailability availability)
     {
         InfoContainer.DisposeAllChildren();
         if (!_player.LocalEntity.HasValue)
             return;
 
         CurrentTech = proto.ID;
-        var control = new FancyTechnologyInfoPanel(proto, _sprite, _accessReader.IsAllowed(_player.LocalEntity.Value, Entity), availablity);
+        var control = new FancyTechnologyInfoPanel(proto, _sprite, _accessReader.IsAllowed(_player.LocalEntity.Value, Entity), availability);
         control.BuyAction += args => OnTechnologyCardPressed?.Invoke(args.ID);
         InfoContainer.AddChild(control);
     }

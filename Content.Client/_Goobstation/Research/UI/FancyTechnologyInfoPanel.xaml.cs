@@ -19,7 +19,7 @@ public sealed partial class FancyTechnologyInfoPanel : Control
 
     public TechnologyPrototype Prototype;
     public Action<TechnologyPrototype>? BuyAction;
-    public FancyTechnologyInfoPanel(TechnologyPrototype proto, SpriteSystem sprite, bool hasAccess, ResearchAvailablity availablity)
+    public FancyTechnologyInfoPanel(TechnologyPrototype proto, SpriteSystem sprite, bool hasAccess, ResearchAvailability availability)
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
@@ -39,22 +39,22 @@ public sealed partial class FancyTechnologyInfoPanel : Control
         if (!hasAccess)
             ResearchButton.ToolTip = Loc.GetString("research-console-no-access-popup");
 
-        if (availablity == ResearchAvailablity.Researched)
+        if (availability == ResearchAvailability.Researched)
             ResearchButton.Text = Loc.GetString("research-console-menu-server-researched-button");
 
-        Color? color = availablity switch
+        Color? color = availability switch
         {
-            ResearchAvailablity.Researched => Color.LimeGreen,
-            ResearchAvailablity.Unavailable => Color.Crimson,
+            ResearchAvailability.Researched => Color.LimeGreen,
+            ResearchAvailability.Unavailable => Color.Crimson,
             _ => null
         };
 
         TechnologyCostLabel.SetMessage(Loc.GetString("research-console-tech-cost-label", ("cost", proto.Cost)), defaultColor: color);
 
-        if (availablity == ResearchAvailablity.Researched)
+        if (availability == ResearchAvailability.Researched)
             ResearchButton.Text = Loc.GetString("research-console-menu-server-researched-button");
 
-        ResearchButton.Disabled = !hasAccess || availablity != ResearchAvailablity.Available;
+        ResearchButton.Disabled = !hasAccess || availability != ResearchAvailability.Available;
         ResearchButton.OnPressed += Bought;
     }
 

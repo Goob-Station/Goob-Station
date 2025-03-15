@@ -13,8 +13,8 @@ public sealed partial class FancyResearchConsoleItem : LayoutContainer
 {
     // Public fields
     public TechnologyPrototype Prototype;
-    public Action<TechnologyPrototype, ResearchAvailablity>? SelectAction;
-    public ResearchAvailablity Availablity;
+    public Action<TechnologyPrototype, ResearchAvailability>? SelectAction;
+    public ResearchAvailability Availability;
 
     // Some visuals
     public static readonly Color DefaultColor = Color.FromHex("#141F2F");
@@ -25,23 +25,23 @@ public sealed partial class FancyResearchConsoleItem : LayoutContainer
     public Color BorderColor = DefaultBorderColor;
     public Color HoveredColor = DefaultHoveredColor;
 
-    public FancyResearchConsoleItem(TechnologyPrototype proto, SpriteSystem sprite, ResearchAvailablity availablity)
+    public FancyResearchConsoleItem(TechnologyPrototype proto, SpriteSystem sprite, ResearchAvailability availability)
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
-        Availablity = availablity;
+        Availability = availability;
         Prototype = proto;
 
         ResearchDisplay.Texture = sprite.Frame0(proto.Icon);
         Button.OnPressed += Selected;
         Button.OnDrawModeChanged += UpdateColor;
 
-        (Color, HoveredColor, BorderColor) = availablity switch
+        (Color, HoveredColor, BorderColor) = availability switch
         {
-            ResearchAvailablity.Researched => (Color.PaleGreen, Color.PaleGreen, Color.LimeGreen),
-            ResearchAvailablity.Available => (Color.DarkOliveGreen, Color.PaleGreen, Color.LimeGreen),
-            ResearchAvailablity.Unavailable => (Color.DarkRed, Color.PaleVioletRed, Color.Crimson),
+            ResearchAvailability.Researched => (Color.PaleGreen, Color.PaleGreen, Color.LimeGreen),
+            ResearchAvailability.Available => (Color.DarkOliveGreen, Color.PaleGreen, Color.LimeGreen),
+            ResearchAvailability.Unavailable => (Color.DarkRed, Color.PaleVioletRed, Color.Crimson),
             _ => (Color.White, Color.White, Color.White)
         };
 
@@ -65,7 +65,7 @@ public sealed partial class FancyResearchConsoleItem : LayoutContainer
 
     private void Selected(BaseButton.ButtonEventArgs args)
     {
-        SelectAction?.Invoke(Prototype, Availablity);
+        SelectAction?.Invoke(Prototype, Availability);
     }
 }
 

@@ -34,8 +34,8 @@ namespace Content.Shared.Research.Components
         /// <summary>
         /// Goobstation field - all researches and their availablities
         /// </summary>
-        public Dictionary<string, ResearchAvailablity> Researches;
-        public ResearchConsoleBoundInterfaceState(int points, Dictionary<string, ResearchAvailablity> researches)   // Goobstation R&D console rework = researches field
+        public Dictionary<string, ResearchAvailability> Researches;
+        public ResearchConsoleBoundInterfaceState(int points, Dictionary<string, ResearchAvailability> researches)   // Goobstation R&D console rework = researches field
         {
             Points = points;
             Researches = researches;    // Goobstation R&D console rework
