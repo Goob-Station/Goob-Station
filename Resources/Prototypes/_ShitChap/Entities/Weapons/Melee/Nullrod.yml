@@ -351,6 +351,7 @@
         Holy: 5
     UntrainedUseString: nullrod-atheistfedora-untrained-usage-popup
   - type: LandAtCursor
+  - type: Boomerang
   - type: DamageOtherOnHit
     damage:
       types:
