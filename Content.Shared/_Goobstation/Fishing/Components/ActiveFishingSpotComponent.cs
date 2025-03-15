@@ -13,7 +13,7 @@ public sealed partial class ActiveFishingSpotComponent : Component
     public EntityUid AttachedFishingLure;
 
     [DataField, AutoNetworkedField]
-    public float Accumulator;
+    public TimeSpan FishingStartTime;
 
     /// <summary>
     /// If true, someone is pulling fish out of this spot.

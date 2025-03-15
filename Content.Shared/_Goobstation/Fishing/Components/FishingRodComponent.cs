@@ -22,7 +22,7 @@ public sealed partial class FishingRodComponent : Component
         new SpriteSpecifier.Rsi(new ResPath("_Goobstation/Objects/Specific/Fishing/fishing_lure.rsi"), "rope");
 
     [DataField, ViewVariables]
-    public Vector2 RopeOffset = new Vector2(0.25f, 0.25f);
+    public Vector2 RopeOffset = new (0f, 0f);
 
     [DataField, AutoNetworkedField]
     public EntityUid? FishingLure;

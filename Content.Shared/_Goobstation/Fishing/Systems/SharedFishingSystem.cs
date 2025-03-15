@@ -65,6 +65,9 @@ public abstract class SharedFishingSystem : EntitySystem
 
     protected void UpdateFishing(float frameTime)
     {
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
         var currentTime = _timing.CurTime;
         var activeFishers = EntityQueryEnumerator<ActiveFisherComponent>();
         while (activeFishers.MoveNext(out var fisher, out var fisherComp))
@@ -168,14 +171,14 @@ public abstract class SharedFishingSystem : EntitySystem
                 _actions.RemoveAction(fishingRodComp.PullLureActionEntity);
                 _actions.AddAction(fisher, ref fishingRodComp.ThrowLureActionEntity, fishingRodComp.ThrowLureActionId, fishRod);
                 fishingRodComp.FishingLure = null;
+                Dirty(fishRod, fishingRodComp);
             }
         }
 
         var fishingSpots = EntityQueryEnumerator<ActiveFishingSpotComponent>();
         while (fishingSpots.MoveNext(out var activeSpotComp))
         {
-            activeSpotComp.Accumulator -= frameTime;
-            if (activeSpotComp.Accumulator > 0f || activeSpotComp.IsActive)
+            if (currentTime < activeSpotComp.FishingStartTime || activeSpotComp.IsActive)
                 continue;
 
             // Trigger start of the fishing process
@@ -205,7 +208,7 @@ public abstract class SharedFishingSystem : EntitySystem
 
     private void OnFishingInteract(EntityUid uid, FishingRodComponent component, UseInHandEvent args)
     {
-        if (!_fisherQuery.TryComp(args.User, out var fisherComp) || fisherComp.EndTime == null || args.Handled == true || !_timing.IsFirstTimePredicted)
+        if (!_fisherQuery.TryComp(args.User, out var fisherComp) || fisherComp.EndTime == null || args.Handled || !_timing.IsFirstTimePredicted)
             return;
 
         fisherComp.EndTime -= TimeSpan.FromSeconds(fisherComp.ProgressPerUse * component.Efficiency);
@@ -247,11 +250,12 @@ public abstract class SharedFishingSystem : EntitySystem
             // Set up lure component
             var fishLureComp = EnsureComp<FishingLureComponent>(fishFloat);
             fishLureComp.FishingRod = uid;
+            Dirty(fishFloat, fishLureComp);
 
             // Rope visuals
             var visuals = EnsureComp<JointVisualsComponent>(fishFloat);
             visuals.Sprite = component.RopeSprite;
-            visuals.OffsetA = new Vector2(0, 0.1f);
+            visuals.OffsetA = new Vector2(0f, 0f);
             visuals.OffsetB = component.RopeOffset;
             visuals.Target = GetNetEntity(uid);
         }
@@ -293,7 +297,7 @@ public abstract class SharedFishingSystem : EntitySystem
             var direction = (playerCoords.Position - targetCoords.Position) * rand.NextFloat(0.2f, 0.85f);
 
             // Yeet
-            _throwing.TryThrow(attachedEnt, direction, 4f, player, 2f);
+            _throwing.TryThrow(attachedEnt, direction, 4f, player);
         }
 
         QueueDel(component.FishingLure);
@@ -325,7 +329,8 @@ public abstract class SharedFishingSystem : EntitySystem
 
         var activeFishSpot = EnsureComp<ActiveFishingSpotComponent>(attachedEnt);
         activeFishSpot.FishDifficulty = spotComp.FishDifficulty + rand.NextFloat(-spotComp.FishDifficultyVariety, spotComp.FishDifficultyVariety);
-        activeFishSpot.Accumulator = spotComp.FishDefaultTimer + rand.NextFloat(-spotComp.FishTimerVariety, spotComp.FishTimerVariety);
+        var time = spotComp.FishDefaultTimer + rand.NextFloat(-spotComp.FishTimerVariety, spotComp.FishTimerVariety);
+        activeFishSpot.FishingStartTime = _timing.CurTime + TimeSpan.FromSeconds(time);
         activeFishSpot.FishList = spotComp.FishList;
         activeFishSpot.AttachedFishingLure = uid;
     }
