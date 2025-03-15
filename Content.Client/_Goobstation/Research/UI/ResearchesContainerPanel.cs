@@ -32,7 +32,7 @@ public sealed partial class ResearchesContainerPanel : LayoutContainer
 
                 var y1 = second.PixelPosition.Y + second.PixelHeight / 2;
                 var y2 = item.PixelPosition.Y + item.PixelHeight / 2;
-            }
+
                 var startCoords = new Vector2(item.PixelPosition.X + item.PixelWidth / 2, item.PixelPosition.Y + item.PixelHeight / 2);
                 var endCoords = new Vector2(second.PixelPosition.X + second.PixelWidth / 2, second.PixelPosition.Y + second.PixelHeight / 2);
 
