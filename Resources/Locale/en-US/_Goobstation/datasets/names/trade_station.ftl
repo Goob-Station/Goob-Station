@@ -1,1 +1,1 @@
-trade-station-names-dataset-1 = Automated Trade Station
+trade-station-names-dataset-1 = Automated Trade Ponyville
