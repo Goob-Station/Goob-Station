@@ -32,7 +32,7 @@
     neck: ExecutiveIDCard
     id: NavyOfficerPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltHolsterFilledCentComm # Todo - Give the officer a sabre
+    belt: ClothingBeltSheathFilledNavyOfficer
     pocket1: HyperFlash
     pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
 
@@ -232,6 +232,6 @@
     id: GmanPDA
     ears: ClothingHeadsetChronolegioneer
     pocket1: SonicScrewdriver
-    pocket2: AmnestizineHypospray # Todo - Make this an ability. It'd be funny.
+    pocket2: AmnestizineHypospray
   inhand:
   - BriefcaseCentcomm
