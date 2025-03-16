@@ -210,7 +210,6 @@
     damage:
       types:
         Poison: -0.5
-      groups:
         Blunt: -0.5
         Piercing: -0.5
         Slash: -0.5
