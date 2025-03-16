@@ -154,3 +154,17 @@
     balance:
       # Goobstation - Telecrystal rework
       Telecrystal: 999999
+
+- type: entity
+  parent: BaseUplinkRadio
+  # Goobstation - Telecrystal rework
+  id: LoneOpsUplinkRadio350TC
+  suffix: 350 TC, LoneOps
+  components:
+  - type: Store
+    balance:
+      Telecrystal: 350
+  - type: Tag
+    tags:
+    - NukeOpsUplink
+    - LoneOpsUplink
