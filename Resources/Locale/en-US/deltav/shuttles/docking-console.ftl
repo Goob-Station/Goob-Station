@@ -1,12 +1,9 @@
 docking-console-no-shuttle = No Shuttle Detected
 docking-console-ftl = FTL
 docking-console-call = Call shuttle
-
 mining-console-window-title = Mining Shuttle Console
-
 shuttle-destination-lavaland = Lavaland
 shuttle-destination-glacier-surface = Glacier Surface
-
 docking-console-ftl-message-Unknown = Fetching FTL state...
 docking-console-ftl-message-Ready = All systems are ready.
 docking-console-ftl-message-NoSelection = Select one of the destinations.

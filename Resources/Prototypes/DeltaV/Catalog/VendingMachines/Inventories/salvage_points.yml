@@ -39,6 +39,8 @@
     cost: 750
   - id: WeaponProtoKineticAccelerator
     cost: 750
+  - id: SpaceCash5000
+    cost: 750
   - id: SurvivalMedipen
     cost: 800
   - id: Fulton
@@ -74,9 +76,9 @@
     cost: 1600
   - id: WeaponPlasmaCutter
     cost: 1700
-  - id: SpaceCash1000
-    cost: 2000
   - id: ShelterCapsule
+    cost: 2000
+  - id: OreBagOfHolding
     cost: 2000
   # TODO: super resonator for 2500
   # TODO: jump boots for 2500

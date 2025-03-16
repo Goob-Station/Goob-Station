@@ -33,6 +33,12 @@ public sealed partial class WieldableComponent : Component
     [DataField]
     public bool UnwieldOnUse = true;
 
+    /// <summary>
+    ///     Should use delay trigger after the wield/unwield?
+    /// </summary>
+    [DataField]
+    public bool UseDelayOnWield = true;
+
     [DataField("wieldedInhandPrefix")]
     public string? WieldedInhandPrefix = "wielded";
 
