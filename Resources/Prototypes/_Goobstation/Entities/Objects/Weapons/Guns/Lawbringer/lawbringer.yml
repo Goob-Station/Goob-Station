@@ -68,9 +68,8 @@
     restrictRanged: true
   - type: StaticPrice
     price: 750
-  - type: TriggerOnVoice
+  - type: TriggerOnVoiceIdLocked
     keyPhrase: "I AM THE LAW"
-    restrictById: true
     access: [ "HeadOfSecurity" ]
   - type: ExplodeOnTrigger
 
