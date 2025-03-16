@@ -20,13 +20,20 @@
           state: icon
         components:
         - type: Armor
+          coverage:
+          - Chest
+          - Groin
+          - Arm
+          - Hand
+          - Leg
+          - Foot
           modifiers:
             coefficients:
-              Blunt: 0.85
-              Slash: 0.85
-              Heat: 0.85
-              Piercing: 0.85
-              Radiation: 0.85
+              Blunt: 0.65
+              Slash: 0.65
+              Heat: 0.65
+              Piercing: 0.65
+              Radiation: 0.65
               Caustic: 0.25
         - type: ExplosionResistance
           damageCoefficient: 0.85
@@ -72,13 +79,21 @@
   - type: Clothing
     sprite: _Shitmed/Clothing/OuterClothing/Coats/abductor.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    dismembermentChanceDeduction: 0.4 # having a suit on saves your limbs          
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Heat: 0.85
-        Piercing: 0.85
-        Radiation: 0.85
+        Blunt: 0.45
+        Slash: 0.45
+        Heat: 0.45
+        Piercing: 0.45
+        Radiation: 0.45
         Caustic: 0.25
   - type: ExplosionResistance
     damageCoefficient: 0.85

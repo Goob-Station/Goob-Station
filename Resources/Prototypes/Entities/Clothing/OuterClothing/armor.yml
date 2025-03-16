@@ -14,6 +14,10 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/security.rsi
   - type: Armor #Based on /tg/ but slightly compensated to fit the fact that armor stacks in SS14.
+    coverage:
+    - Chest
+    - Groin
+    dismembermentChanceDeduction: 0.2
     modifiers:
       coefficients:
         Blunt: 0.65
@@ -55,12 +59,21 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/riot.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    dismembermentChanceDeduction: 0.4  
     modifiers:
       coefficients:
         Blunt: 0.4
         Slash: 0.4
         Piercing: 0.7
-        Heat: 0.9
+        Heat: 0.7
         Caustic: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.9
@@ -80,6 +93,11 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/bulletproof.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    dismembermentChanceDeduction: 0.07  
     modifiers:
       coefficients:
         Blunt: 0.9
@@ -87,7 +105,7 @@
         Piercing: 0.4
         Heat: 0.9
   - type: ExplosionResistance
-    damageCoefficient: 0.80
+    damageCoefficient: 0.60
 
 - type: entity
   parent: ClothingOuterArmorBase
@@ -100,12 +118,17 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/armor_reflec.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    # Does not give dismemberment deduction because of reflection. yeah do with it somehow  
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.4 # this technically means it protects against fires pretty well? -heat is just for lasers and stuff, not atmos temperature
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.33 # this technically means it protects against fires pretty well? -heat is just for lasers and stuff, not atmos temperature
   - type: Reflect
     reflectProb: 1
     reflects:
@@ -128,6 +151,15 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/syndie-raid.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    dismembermentChanceDeduction: 0.4  
     modifiers:
       coefficients:
         Blunt: 0.35
@@ -201,6 +233,15 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/cult_armour.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    dismembermentChanceDeduction: 0.332  
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -223,6 +264,15 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/heavy.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    dismembermentChanceDeduction: 1  
     modifiers:
       coefficients:
         Blunt: 0.2
@@ -309,6 +359,11 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/captain_carapace.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    dismembermentChanceDeduction: 0.2  
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -349,6 +404,17 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/lingarmor.rsi
   - type: Armor
+    coverage:
+    - Head
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
+    dismembermentChanceDeduction: 0.4  
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -380,6 +446,16 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/bone_armor.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
+    dismembermentChanceDeduction: -1 #:trolley:  
     modifiers:
       coefficients:
         Blunt: 0.6
@@ -411,6 +487,16 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/podwars_armor.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
+    dismembermentChanceDeduction: 0.27  
     modifiers:
       coefficients:
         Blunt: 0.5

@@ -158,6 +158,8 @@
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1
   - type: Armor
+    coverage:
+    - Head  
     modifiers:
       coefficients:
         Blunt: 0.90
