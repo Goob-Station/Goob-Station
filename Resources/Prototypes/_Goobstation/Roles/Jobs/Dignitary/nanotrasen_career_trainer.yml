@@ -14,7 +14,7 @@
     requiredAge: 21
   goobcoins: 65
   weight: 20
-  startingGear: BlueshieldOfficerGear
+  startingGear: NanotrasenCareerTrainerGear
   icon: "JobIconNanotrasenTrainer"
   joinNotifyCrew: true
   supervisors: job-supervisors-ntr-centcom
@@ -45,7 +45,12 @@
 - type: startingGear
   id: NanotrasenCareerTrainerGear
   equipment:
-    gloves: ClothingHandsGlovesHeavyGoldenTrim
+    jumpsuit: ClothingUniformJumpsuitTrainer
+    shoes: ClothingShoesBootsLaceup
+    head: ClothingHeadHatTrainer
+    eyes: ClothingEyesGlasses
+    back: ClothingBackpackSatchelLeather
+    outerClothing: ClothingOuterWinterCoatTrainer
+    belt: BoxFolderCentComClipboard
     id: TrainerPDA
     ears: ClothingHeadsetAltCentCom
-    pocket1: TelescopicBaton
