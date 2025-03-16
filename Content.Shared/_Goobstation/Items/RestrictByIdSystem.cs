@@ -34,6 +34,7 @@ namespace Content.Shared._Goobstation.Items
             var item = ent.Owner;
             var comp = ent.Comp;
 
+            // Get the failtext from the localization string.
             args.Message = Loc.GetString(comp.FailText);
 
             // If the entity shooting the item is invalid, return.
@@ -58,6 +59,7 @@ namespace Content.Shared._Goobstation.Items
             var item = ent.Owner;
             var comp = ent.Comp;
 
+            // Get the failtext from the localization string.
             args.Message = Loc.GetString(comp.FailText);
 
             // If the entity swinging the weapon is invalid, return.
