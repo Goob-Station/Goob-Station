@@ -20,7 +20,7 @@ namespace Content.Server._Goobstation.Explosion.Components
         ///     The range at which it listens for keywords.
         /// </summary>
         [DataField]
-        public int ListenRange { get; private set; } = 4;
+        public int ListenRange { get; private set; } = 2;
 
         /// <summary>
         ///     Which accesses to restrict the trigger to. - Goobstation
