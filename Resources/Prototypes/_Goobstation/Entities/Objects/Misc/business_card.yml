@@ -5,7 +5,7 @@
   description: A green card with nanotrasen's logo. There's something written on the back.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Misc/bureaucracy.rsi
+    sprite: Objects/Misc/bureaucracy.rsi
     layers:
     - state: nanotrasen_card
     - state: nanotrasen_card
