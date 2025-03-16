@@ -232,7 +232,7 @@ public abstract class SharedStealthSystem : EntitySystem
 
     private void OnMeleeAttack(Entity<StealthComponent> ent, ref MeleeAttackEvent args)
     {
-        if (ent.Comp.RevealOnDamage)
+        if (ent.Comp.RevealOnAttack)
             return;
 
         ModifyVisibility(ent.Owner, ent.Comp.MaxVisibility, ent.Comp);
@@ -240,7 +240,7 @@ public abstract class SharedStealthSystem : EntitySystem
 
     private void OnGunShootAttack(Entity<StealthComponent> ent, ref SelfBeforeGunShotEvent args)
     {
-        if (ent.Comp.RevealOnDamage)
+        if (ent.Comp.RevealOnAttack)
             return;
 
         ModifyVisibility(ent.Owner, ent.Comp.MaxVisibility, ent.Comp);
@@ -248,7 +248,7 @@ public abstract class SharedStealthSystem : EntitySystem
 
     private void OnThrow(Entity<StealthComponent> ent, ref BeforeThrowEvent args)
     {
-        if (ent.Comp.RevealOnDamage)
+        if (ent.Comp.RevealOnAttack)
             return;
 
         ModifyVisibility(ent.Owner, ent.Comp.MaxVisibility, ent.Comp);
