@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Shared.Access;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
+using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Prototypes;
@@ -11,6 +12,7 @@ namespace Content.Shared._Goobstation.Items
     public sealed partial class RestrictByIdSystem : EntitySystem
     {
         [Dependency] private readonly AccessReaderSystem _accessReader = default!;
+        [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
         public override void Initialize()
         {
@@ -38,8 +40,14 @@ namespace Content.Shared._Goobstation.Items
             if (!attacker.IsValid() || !item.IsValid() || !ent.Comp.RestrictMelee)
                 return;
 
-            // if the entities ID card does not match the allowed accesses, cancel.
-            if (!_accessReader.IsAllowed(attacker, item))
+            // If the entities ID card does not match the allowed accesses, cancel.
+            if (!_accessReader.IsAllowed(attacker, item) && !ent.Comp.Invert)
+            {
+                args.Cancelled = true;
+            }
+
+            // If the entities ID card *does* match the allowed accesses, but invert is on, cancel.
+            else if (_accessReader.IsAllowed(attacker, item) && ent.Comp.Invert)
                 args.Cancelled = true;
         }
 
@@ -52,8 +60,11 @@ namespace Content.Shared._Goobstation.Items
             if (!attacker.IsValid() || !item.IsValid() || !ent.Comp.RestrictRanged)
                 return;
 
-            // if the entities ID card does not match the allowed accesses, cancel.
-            if (!_accessReader.IsAllowed(attacker, item))
+            // If the entities ID card does not match the allowed accesses, cancel.
+            if (!_accessReader.IsAllowed(attacker, item) && !ent.Comp.Invert)
+                args.Cancelled = true;
+            // If the entities ID card *does* match the allowed accesses, but invert is on, cancel.
+            else if (_accessReader.IsAllowed(attacker, item) && ent.Comp.Invert)
                 args.Cancelled = true;
         }
 
