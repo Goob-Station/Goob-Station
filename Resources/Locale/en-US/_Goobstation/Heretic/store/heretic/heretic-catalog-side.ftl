@@ -31,12 +31,12 @@ knowledge-path-side-s7-uncuff-desc =
     My shackles undone in dark fury, their feeble bindings crumble before my power.
 
     Grants you Wave Of Desperation, a spell which can only be cast while restrained.
-    It removes your restraints, repels and knocks down adjacent ponies, and applies the Mansus Grasp to everything nearby.
+    It removes your restraints, repels and knocks down adjacent people, and applies the Mansus Grasp to everything nearby.
     However, you will fall unconscious a short time after casting this spell.
 
 knowledge-path-side-s7-siphon-name = Blood Siphon
 knowledge-path-side-s7-siphon-desc =
-    No matter the pony, we bleed all the same. That's what the Marshal told me.
+    No matter the man, we bleed all the same. That's what the Marshal told me.
 
     Grants Blood Siphon, a ranged spell that steals a bit of life from your target, healing your bruises and restoring blood.
     Additionally, you have a chance of transferring wounds you are experiencing to the target.

@@ -19,7 +19,7 @@ knowledge-path-ash-s3-desc =
 
 knowledge-path-ash-s4-name = Mark of Ash
 knowledge-path-ash-s4-desc =
-    He was a very particular pony, always watching in the dead of night.
+    He was a very particular man, always watching in the dead of night.
     But in spite of his duty, he regularly tranced through the Manse with his blazing lantern held high.
     He shone brightly in the darkness, until the blaze begin to die.
 
@@ -45,13 +45,13 @@ knowledge-path-ash-s6-desc =
 knowledge-path-ash-s7-name = Fiery Blade
 knowledge-path-ash-s7-desc =
     He returned, blade in hand, he swung and swung as the ash fell from the skies.
-    His city, the ponies he swore to watch... and watch he did, as they all burnt to cinders.
+    His city, the people he swore to watch... and watch he did, as they all burnt to cinders.
 
     Your blade now lights enemies ablaze on attack.
 
 knowledge-path-ash-s8-name = Nightwatcher's Rebirth
 knowledge-path-ash-s8-desc =
-    The fire was inescapable, and yet, life remained in his charred body. The Nightwatcher was a particular pony, always watching.
+    The fire was inescapable, and yet, life remained in his charred body. The Nightwatcher was a particular man, always watching.
 
     Grants you Nightwatcher's Rebirth, a spell that burns all nearby heathens who are currently on fire, healing you for every victim afflicted.
     If any victims afflicted are in critical condition, they will instantly die.

@@ -112,4 +112,4 @@ alerts-revenant-essence-name = Essence
 alerts-revenant-essence-desc = The power of souls. It sustains you and is used for abilities. It regenerates slowly over time.
 
 alerts-revenant-corporeal-name = Corporeal
-alerts-revenant-corporeal-desc = You have manifested physically. Ponies around you can see and hurt you.
+alerts-revenant-corporeal-desc = You have manifested physically. People around you can see and hurt you.

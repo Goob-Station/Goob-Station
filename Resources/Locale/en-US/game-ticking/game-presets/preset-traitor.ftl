@@ -15,8 +15,8 @@ traitor-no-one-ready = No players readied up! Can't start Traitor.
 
 ## TraitorDeathMatch
 traitor-death-match-title = Traitor Deathmatch
-traitor-death-match-description = Everypony's a traitor. Everypony wants each other dead.
-traitor-death-match-ponyville-is-too-unsafe-announcement = The ponyville is too unsafe to continue. You have one minute.
+traitor-death-match-description = Everyone's a traitor. Everyone wants each other dead.
+traitor-death-match-station-is-too-unsafe-announcement = The station is too unsafe to continue. You have one minute.
 traitor-death-match-end-round-description-first-line = The PDAs recovered afterwards...
 traitor-death-match-end-round-description-entry = {$originalName}'s PDA, with {$tcBalance} TC
 

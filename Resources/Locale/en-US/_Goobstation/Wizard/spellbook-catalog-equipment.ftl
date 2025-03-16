@@ -1,6 +1,6 @@
 spellbook-scrying-orb-name = Scrying Orb
 spellbook-scrying-orb-desc =
-    An incandescent orb of crackling energy, using it will allow you to ghost while alive, allowing you to spy upon the ponyville with ease. In addition, holding it in your hand or in your pocket will grant you x-ray vision.
+    An incandescent orb of crackling energy, using it will allow you to ghost while alive, allowing you to spy upon the station with ease. In addition, holding it in your hand or in your pocket will grant you x-ray vision.
 
 spellbook-spellblade-name = Spellblade
 spellbook-spellblade-desc =
@@ -20,7 +20,7 @@ spellbook-cryo-katana-name = Cryo Katana
 spellbook-cryo-katana-desc =
     Modified Spider Clan energy katana, imbued with frost magic. Freezes the targets on hit, slowing them down. Able to dash a short distance, slicing anyone on your path. Can't dash while lying down.
 
-spellbook-skates-name = Discord Skates
+spellbook-skates-name = Wizard Skates
 spellbook-skates-desc =
     A pair of roller skates that greatly increase your movement speed.
     These skates are imbued with collision protection magic so you don't have to worry about hitting obstacles.
@@ -32,7 +32,7 @@ spellbook-hardsuit-desc =
 
 spellbook-paper-robe-name = Papier-Mâché Robes
 spellbook-paper-robe-desc =
-    Special discord robes that allow the user to summon angry stick minions to aid them in battle
+    Special wizard robes that allow the user to summon angry stick minions to aid them in battle
 
 spellbook-high-freq-name = High Frequency Blade
 spellbook-high-freq-desc =
@@ -57,7 +57,7 @@ spellbook-staff-change-desc =
 
 spellbook-staff-chaos-name = Staff of Chaos
 spellbook-staff-chaos-desc =
-    A caprious tool that can fire all sorts of magic without any rhyme or reason. Using it on ponies you care about is not recommended.
+    A caprious tool that can fire all sorts of magic without any rhyme or reason. Using it on people you care about is not recommended.
     Automatically recharges once every 2 seconds.
 
 spellbook-staff-slipping-name = Staff of Slipping
@@ -68,7 +68,7 @@ spellbook-staff-slipping-desc =
 
 spellbook-wand-name = Magic Wand
 spellbook-wand-desc =
-    The iconic discord's wand. Has 14 different magical firing modes, activate it to change them.
+    The iconic wizard's wand. Has 14 different magical firing modes, activate it to change them.
     Only wizards and their apprentices can change wand firing mode.
     Can be used on yourself.
     Wand is more compact compared to staves but doesn't recharge automatically.

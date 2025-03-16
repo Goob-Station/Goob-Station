@@ -11,7 +11,7 @@ reagent-name-charcoal = charcoal
 reagent-desc-charcoal = A black, porous solid
 
 reagent-name-chlorine = chlorine
-reagent-desc-chlorine = A yellow-green gas which is toxic to ponies.
+reagent-desc-chlorine = A yellow-green gas which is toxic to humans.
 
 reagent-name-copper = copper
 reagent-desc-copper = A soft, malleable, and ductile metal with very high thermal and electrical conductivity.
@@ -35,7 +35,7 @@ reagent-name-lithium = lithium
 reagent-desc-lithium = A soft, silvery-white alkali metal. It's highly reactive, and ignites if it makes contact with water.
 
 reagent-name-mercury = mercury
-reagent-desc-mercury = A silver metal which is liquid at room temperature. It's highly toxic to ponies.
+reagent-desc-mercury = A silver metal which is liquid at room temperature. It's highly toxic to humans.
 
 reagent-name-potassium = potassium
 reagent-desc-potassium = A soft, shiny grey metal. Even more reactive than lithium.

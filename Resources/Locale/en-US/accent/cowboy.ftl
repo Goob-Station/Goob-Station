@@ -29,7 +29,7 @@ accent-cowboy-words-10 = bomb
 accent-cowboy-replacement-10 = dynamite
 
 accent-cowboy-words-11 = borg
-accent-cowboy-replacement-11 = tin pony
+accent-cowboy-replacement-11 = tin man
 
 accent-cowboy-words-12 = bye
 accent-cowboy-replacement-12 = so long
@@ -61,8 +61,8 @@ accent-cowboy-replacement-20 = dogies
 accent-cowboy-words-21 = crazy
 accent-cowboy-replacement-21 = cracked
 
-accent-cowboy-words-22 = robo-pony
-accent-cowboy-replacement-22 = tin pony
+accent-cowboy-words-22 = cyborg
+accent-cowboy-replacement-22 = tin man
 
 accent-cowboy-words-23 = dad
 accent-cowboy-replacement-23 = pappy
@@ -223,7 +223,7 @@ accent-cowboy-replacement-74 = law
 accent-cowboy-words-75 = secoff
 accent-cowboy-replacement-75 = deputy
 
-accent-cowboy-words-76 = royal guard
+accent-cowboy-words-76 = security
 accent-cowboy-replacement-76 = law 
 
 accent-cowboy-words-77 = shitsec

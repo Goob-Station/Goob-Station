@@ -19,7 +19,7 @@ holopad-window-controls-unlock-countdown = It will automatically unlock in: {$co
 # Buttons
 holopad-window-answer-call = Answer call
 holopad-window-end-call = End call
-holopad-window-request-ponyville-ai = Request ponyville AI
+holopad-window-request-station-ai = Request station AI
 holopad-window-activate-projector = Activate projector
 holopad-window-emergency-broadcast = Emergency broadcast
 holopad-window-emergency-broadcast-with-countdown = Emergency broadcast ({$countdown})
@@ -61,7 +61,7 @@ holopad-command-vault = Command - Vault
 holopad-command-bridge-hallway = Command - Bridge Hallway
 holopad-command-meeting-room = Command - Meeting Room
 holopad-command-lounge = Command - Lounge
-holopad-command-celestia = Command - Celestia
+holopad-command-captain = Command - Captain
 holopad-command-hop = Command - HoP
 holopad-command-cmo = Command - CMO
 holopad-command-qm = Command - QM
@@ -70,80 +70,80 @@ holopad-command-rd = Command - RD
 holopad-command-hos = Command - HoS
 
 # Science
-holopad-starswirl academy-anomaly = Starswirl Academy - Anomaly
-holopad-starswirl academy-artifact = Starswirl Academy - Artifact
-holopad-starswirl academy-artifact-north = Starswirl Academy - Artifact North
-holopad-starswirl academy-artifact-south = Starswirl Academy - Artifact South
-holopad-starswirl academy-robotics = Starswirl Academy - Robotics
-holopad-starswirl academy-rnd = Starswirl Academy - R&D
-holopad-starswirl academy-front = Starswirl Academy - Front
-holopad-starswirl academy-breakroom = Starswirl Academy - Breakroom
+holopad-science-anomaly = Science - Anomaly
+holopad-science-artifact = Science - Artifact
+holopad-science-artifact-north = Science - Artifact North
+holopad-science-artifact-south = Science - Artifact South
+holopad-science-robotics = Science - Robotics
+holopad-science-rnd = Science - R&D
+holopad-science-front = Science - Front
+holopad-science-breakroom = Science - Breakroom
 
 # Medical
-holopad-ponyville hospital-medbay = Ponyville Hospital - Medbay
-holopad-ponyville hospital-chemistry = Ponyville Hospital - Chemistry
-holopad-ponyville hospital-cryopods = Ponyville Hospital - Cryopods
-holopad-ponyville hospital-morgue = Ponyville Hospital - Morgue
-holopad-ponyville hospital-surgery = Ponyville Hospital - Surgery
-holopad-ponyville hospital-paramedic = Ponyville Hospital - Paramedic
-holopad-ponyville hospital-virology = Ponyville Hospital - Virology
-holopad-ponyville hospital-front = Ponyville Hospital - Front
-holopad-ponyville hospital-breakroom = Ponyville Hospital - Breakroom
-holopad-ponyville hospital-clinic = Ponyville Hospital - Clinic
+holopad-medical-medbay = Medical - Medbay
+holopad-medical-chemistry = Medical - Chemistry
+holopad-medical-cryopods = Medical - Cryopods
+holopad-medical-morgue = Medical - Morgue
+holopad-medical-surgery = Medical - Surgery
+holopad-medical-paramedic = Medical - Paramedic
+holopad-medical-virology = Medical - Virology
+holopad-medical-front = Medical - Front
+holopad-medical-breakroom = Medical - Breakroom
+holopad-medical-clinic = Medical - Clinic
 
 # Cargo
-holopad-appleloosa shipping-front = Appleloosa Shipping - Front
-holopad-appleloosa shipping-bay = Appleloosa Shipping - Appleloosa Shipping Bay
-holopad-appleloosa shipping-salvage-bay = Appleloosa Shipping - Salvage Bay
-holopad-appleloosa shipping-breakroom  = Appleloosa Shipping - Breakroom
-holopad-appleloosa shipping-ats = Appleloosa Shipping - ATS
-holopad-appleloosa shipping-shuttle = Appleloosa Shipping - Shuttle
-holopad-appleloosa shipping-mailroom = Appleloosa Shipping - Mailroom
+holopad-cargo-front = Cargo - Front
+holopad-cargo-bay = Cargo - Cargo Bay
+holopad-cargo-salvage-bay = Cargo - Salvage Bay
+holopad-cargo-breakroom  = Cargo - Breakroom
+holopad-cargo-ats = Cargo - ATS
+holopad-cargo-shuttle = Cargo - Shuttle
+holopad-cargo-mailroom = Cargo - Mailroom
 
 # Engineering
-holopad-cloudsmithing-atmos-front = Atmos - Front
-holopad-cloudsmithing-atmos-main = Atmos - Main
-holopad-cloudsmithing-atmos-teg = Atmos - TEG
-holopad-cloudsmithing-storage = Cloudsmithing - Storage
-holopad-cloudsmithing-breakroom = Cloudsmithing - Breakroom
-holopad-cloudsmithing-front = Cloudsmithing - Front
-holopad-cloudsmithing-telecoms = Cloudsmithing - Telecoms
-holopad-cloudsmithing-tech-vault = Cloudsmithing - Tech Vault
-holopad-cloudsmithing-ame = Cloudsmithing - AME
-holopad-cloudsmithing-power = Cloudsmithing - Power
-holopad-cloudsmithing-main = Cloudsmithing - Main
+holopad-engineering-atmos-front = Atmos - Front
+holopad-engineering-atmos-main = Atmos - Main
+holopad-engineering-atmos-teg = Atmos - TEG
+holopad-engineering-storage = Engineering - Storage
+holopad-engineering-breakroom = Engineering - Breakroom
+holopad-engineering-front = Engineering - Front
+holopad-engineering-telecoms = Engineering - Telecoms
+holopad-engineering-tech-vault = Engineering - Tech Vault
+holopad-engineering-ame = Engineering - AME
+holopad-engineering-power = Engineering - Power
+holopad-engineering-main = Engineering - Main
 
 # Security
-holopad-royal guard-front = Royal Guard - Front
-holopad-royal guard-brig = Royal Guard - Brig
-holopad-royal guard-warden = Royal Guard - Warden
-holopad-royal guard-interrogation = Royal Guard - Interrogation
-holopad-royal guard-breakroom = Royal Guard - Breakroom
-holopad-royal guard-detective = Royal Guard - Detective
-holopad-royal guard-perma = Royal Guard - Perma
-holopad-royal guard-courtroom = Royal Guard - Courtroom
-holopad-royal guard-lawyer = Royal Guard - Lawyer
-holopad-royal guard-armory = Royal Guard - Armory
-holopad-royal guard-locker-room = Royal Guard - Locker Room
-holopad-royal guard-brig-med = Royal Guard - Brig Med
-holopad-royal guard-evac-checkpoint = Royal Guard - Evac Checkpoint
-holopad-royal guard-arrivals-checkpoint = Royal Guard - Arrivals Checkpoint
+holopad-security-front = Security - Front
+holopad-security-brig = Security - Brig
+holopad-security-warden = Security - Warden
+holopad-security-interrogation = Security - Interrogation
+holopad-security-breakroom = Security - Breakroom
+holopad-security-detective = Security - Detective
+holopad-security-perma = Security - Perma
+holopad-security-courtroom = Security - Courtroom
+holopad-security-lawyer = Security - Lawyer
+holopad-security-armory = Security - Armory
+holopad-security-locker-room = Security - Locker Room
+holopad-security-brig-med = Security - Brig Med
+holopad-security-evac-checkpoint = Security - Evac Checkpoint
+holopad-security-arrivals-checkpoint = Security - Arrivals Checkpoint
 
 # Service
-holopad-sugarcube corner-janitor = Sugarcube Corner - Janitor
-holopad-sugarcube corner-bar = Sugarcube Corner - Bar
-holopad-sugarcube corner-kitchen = Sugarcube Corner - Kitchen
-holopad-sugarcube corner-botany = Sugarcube Corner - Botany
-holopad-sugarcube corner-chapel = Sugarcube Corner - Chapel
-holopad-sugarcube corner-library = Sugarcube Corner - Library
-holopad-sugarcube corner-newsroom = Sugarcube Corner - Newsroom
-holopad-sugarcube corner-zookeeper = Sugarcube Corner - Zookeeper
-holopad-sugarcube corner-boxer = Sugarcube Corner - Boxer
-holopad-sugarcube corner-clown = Sugarcube Corner - Clown
-holopad-sugarcube corner-musician = Sugarcube Corner - Musician
-holopad-sugarcube corner-mime = Sugarcube Corner - Mime
-holopad-sugarcube corner-clown-mime = Sugarcube Corner - Clown/Mime
-holopad-sugarcube corner-gameroom = Sugarcube Corner - Game Room
+holopad-service-janitor = Service - Janitor
+holopad-service-bar = Service - Bar
+holopad-service-kitchen = Service - Kitchen
+holopad-service-botany = Service - Botany
+holopad-service-chapel = Service - Chapel
+holopad-service-library = Service - Library
+holopad-service-newsroom = Service - Newsroom
+holopad-service-zookeeper = Service - Zookeeper
+holopad-service-boxer = Service - Boxer
+holopad-service-clown = Service - Clown
+holopad-service-musician = Service - Musician
+holopad-service-mime = Service - Mime
+holopad-service-clown-mime = Service - Clown/Mime
+holopad-service-gameroom = Service - Game Room
 
 # AI
 holopad-ai-core = AI - Core
@@ -154,8 +154,8 @@ holopad-ai-entrance = AI - Entrance
 holopad-ai-chute = AI - Chute
 
 # Long Range
-holopad-ponyville-bridge = Ponyville - Bridge
-holopad-ponyville-appleloosa shipping-bay = Ponyville - Appleloosa Shipping Bay
+holopad-station-bridge = Station - Bridge
+holopad-station-cargo-bay = Station - Cargo Bay
 
 # CentComm
-holopad-canterlot-evac = Canterlot - Evacuation Shuttle
+holopad-centcomm-evac = CentComm - Evacuation Shuttle

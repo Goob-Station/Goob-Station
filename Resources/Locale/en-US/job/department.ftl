@@ -1,10 +1,10 @@
-department-Cargo = Appleloosa Shipping
+department-Cargo = Cargo
 department-Civilian = Civilian
 department-Command = Command
-department-CentralCommand = Canterlot
-department-Cloudsmithing = Cloudsmithing
-department-Ponyville Hospital = Ponyville Hospital
-department-Royal Guard = Royal Guard
-department-Starswirl Academy = Starswirl Academy
+department-CentralCommand = Central Command
+department-Engineering = Engineering
+department-Medical = Medical
+department-Security = Security
+department-Science = Science
 department-Silicon = Silicon
-department-Specific = Ponyville specific
+department-Specific = Station specific

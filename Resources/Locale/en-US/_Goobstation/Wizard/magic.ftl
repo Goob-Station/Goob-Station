@@ -29,7 +29,7 @@ spell-fail-mindswap-ghost = You can't mindswap with the ghost!
 spell-fail-mindswap-temporary = You can't mindswap with temporary creatures!
 spell-fail-mindswap-dead = You don't particularly want to be dead!
 
-spell-requirements-failed-clothes = Missing requirements to cast this spell! You need to wear discord robes and hat.
+spell-requirements-failed-clothes = Missing requirements to cast this spell! You need to wear wizard robes and hat.
 spell-requirements-failed-speech = Missing requirements to cast this spell! You can't speak.
 
 instant-summons-item-marked = Sucessfully marked {$item}.

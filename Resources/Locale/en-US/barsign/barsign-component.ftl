@@ -6,11 +6,11 @@ barsign-ui-set-label = Set Sign:
 
 ## The Harmbaton
 barsign-prototype-name-harmbaton = The Harmbaton
-barsign-prototype-description-harmbaton = A great dining experience for both royal guard members and passengers.
+barsign-prototype-description-harmbaton = A great dining experience for both security members and passengers.
 
 ## The Singulo
 barsign-prototype-name-singulo = The Singulo
-barsign-prototype-description-singulo = Where ponies go that'd rather not be called by their name.
+barsign-prototype-description-singulo = Where people go that'd rather not be called by their name.
 
 ## The Drunk Carp
 barsign-prototype-name-drunk-carp = The Drunk Carp
@@ -18,7 +18,7 @@ barsign-prototype-description-drunk-carp = Don't drink and swim.
 
 ## Officer Beersky
 barsign-prototype-name-officer-beersky = Officer Beersky's
-barsign-prototype-description-officer-beersky = Pony eat a dong, these drinks are great.
+barsign-prototype-description-officer-beersky = Man eat a dong, these drinks are great.
 
 ## The Outer Spess
 barsign-prototype-name-outer-spess = The Outer Spess
@@ -102,7 +102,7 @@ barsign-prototype-description-maltroach = Squeak!
 
 ## Whiskey Echoes
 barsign-prototype-name-whiskeyechoes = Whiskey Echoes
-barsign-prototype-description-whiskeyechoes = An elite bar for elite oper-wait, this is a Equestria ponyville. Why's this sign in the database?
+barsign-prototype-description-whiskeyechoes = An elite bar for elite oper-wait, this is a Nanotrasen station. Why's this sign in the database?
 
 ## EmpBarSign
 barsign-prototype-description-empbarsign = Something has gone very wrong.

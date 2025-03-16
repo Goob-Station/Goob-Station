@@ -9,7 +9,7 @@ accent-bogan-suffix-3 = , fuckin' oath cunt.
 accent-bogan-suffix-4 = , ya fuckin druggo.
 accent-bogan-suffix-5 = , you fucking drug addict.
 
-accent-bogan-words-1 = mare
+accent-bogan-words-1 = woman
 accent-bogan-words-replace-1 = sheila
 
 accent-bogan-words-2 = girl
@@ -18,7 +18,7 @@ accent-bogan-words-replace-2 = sheila
 accent-bogan-words-3 = guy
 accent-bogan-words-replace-3 = bloke
 
-accent-bogan-words-4 = pony
+accent-bogan-words-4 = man
 accent-bogan-words-replace-4 = bloke
 
 accent-bogan-words-5 = good
@@ -69,13 +69,13 @@ accent-bogan-words-replace-19 = fucked
 accent-bogan-words-20 = shuttle
 accent-bogan-words-replace-20 = tinnie
 
-accent-bogan-words-21 = appleloosa shipping technician
+accent-bogan-words-21 = cargo technician
 accent-bogan-words-replace-21 = tradie
 
-accent-bogan-words-22 = appleloosa shipping tech
+accent-bogan-words-22 = cargo tech
 accent-bogan-words-replace-22 = tradie
 
-accent-bogan-words-23 = appleloosa shipping 
+accent-bogan-words-23 = cargo 
 accent-bogan-words-replace-23 = tradies
 
 accent-bogan-words-24 = its
@@ -141,7 +141,7 @@ accent-bogan-words-replace-43 = drugs
 accent-bogan-words-44 = chemist
 accent-bogan-words-replace-44 = junkie
 
-accent-bogan-words-45 = royal guard officer
+accent-bogan-words-45 = security officer
 accent-bogan-words-replace-45 = coppa
 
 accent-bogan-words-46 = a tider
@@ -201,8 +201,8 @@ accent-bogan-words-replace-63 = pino clean
 accent-bogan-words-64 = purple
 accent-bogan-words-replace-64 = poiple
 
-accent-bogan-words-65 = discord
-accent-bogan-words-replace-65 = magic pony
+accent-bogan-words-65 = wizard
+accent-bogan-words-replace-65 = magic man
 
 accent-bogan-words-66 = coward
 accent-bogan-words-replace-66 = pussy
@@ -222,7 +222,7 @@ accent-bogan-words-replace-70 = wacky tobaccy
 accent-bogan-words-71 = really?
 accent-bogan-words-replace-71 = full on?
 
-accent-bogan-words-72 = royal guard
+accent-bogan-words-72 = security
 accent-bogan-words-replace-72 = cop shop
 
 accent-bogan-words-73 = botany

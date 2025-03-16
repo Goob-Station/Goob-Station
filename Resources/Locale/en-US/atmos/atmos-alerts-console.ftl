@@ -1,5 +1,5 @@
 atmos-alerts-window-title = Atmospheric Alerts Computer
-atmos-alerts-window-ponyville-name = [color=white][font size=14]{$stationName}[/font][/color]
+atmos-alerts-window-station-name = [color=white][font size=14]{$stationName}[/font][/color]
 atmos-alerts-window-unknown-location = Unknown location
 
 atmos-alerts-window-tab-no-alerts = Alerts

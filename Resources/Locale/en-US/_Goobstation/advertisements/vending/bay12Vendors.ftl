@@ -1,5 +1,5 @@
 ﻿advertisement-solsnack-1 = We cut all the red-tape so that you can have diarrhea!
-advertisement-solsnack-2 = Food safety standards are merely a suggestion if you know the right ponies!
+advertisement-solsnack-2 = Food safety standards are merely a suggestion if you know the right people!
 advertisement-solsnack-3 = Snacks from home, corruption included!
 advertisement-solsnack-4 = A taste of home!
 
@@ -19,5 +19,5 @@ advertisement-fitness-4 = Never forget leg day!
 advertisement-fitness-5 = Push out!
 advertisement-fitness-6 = This is the only break you get today.
 advertisement-fitness-7 = Don't cry, sweat!
-advertisement-fitness-8 = Healthy is an outfit that looks good on everypony.
+advertisement-fitness-8 = Healthy is an outfit that looks good on everybody.
 advertisement-fitness-9 = Want to hide from the Solarian authorities? Don't worry, they don't know what the inside of a gym looks like.

@@ -21,7 +21,7 @@ accent-italian-words-replace-4 = molto male
 accent-italian-words-5 = bye
 accent-italian-words-replace-5 = arrivederci
 
-accent-italian-words-6 = celestia
+accent-italian-words-6 = captain
 accent-italian-words-replace-6 = capitano
 
 accent-italian-words-7 = cheese
@@ -81,7 +81,7 @@ accent-italian-words-replace-24 = greeks
 accent-italian-words-25 = sec
 accent-italian-words-replace-25 = polizia
 
-accent-italian-words-26 = royal guard
+accent-italian-words-26 = security
 accent-italian-words-replace-26 = polizia
 
 accent-italian-words-27 = secoff

@@ -12,7 +12,7 @@ blockgame-menu-gameover-info = Global: {$global}
     Local: {$local}
     Points: {$points}
 
-blockgame-menu-title = Equestria Block Game
+blockgame-menu-title = Nanotrasen Block Game
 blockgame-menu-button-new-game = New Game
 blockgame-menu-button-scoreboard = Scoreboard
 blockgame-menu-button-pause = Pause
@@ -22,5 +22,5 @@ blockgame-menu-label-highscores = Highscores
 blockgame-menu-button-back = Back
 blockgame-menu-label-next = Next
 blockgame-menu-label-hold = Hold
-blockgame-menu-text-ponyville = Ponyville
-blockgame-menu-text-equestria = Equestria
+blockgame-menu-text-station = Station
+blockgame-menu-text-nanotrasen = Nanotrasen

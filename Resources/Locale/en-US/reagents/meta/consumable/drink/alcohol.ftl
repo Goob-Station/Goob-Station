@@ -167,7 +167,7 @@ reagent-name-irish-coffee = Irish coffee
 reagent-desc-irish-coffee = Coffee served with irish cream. Regular cream just isn't the same!
 
 reagent-name-kira-special = Kira special
-reagent-desc-kira-special = Long live the guy who everypony had mistaken for a girl. Baka!
+reagent-desc-kira-special = Long live the guy who everyone had mistaken for a girl. Baka!
 
 reagent-name-long-island-iced-tea = Long Island iced tea
 reagent-desc-long-island-iced-tea = The liquor cabinet, brought together in a delicious mix. Intended for middle-aged alcoholic women only.
@@ -245,7 +245,7 @@ reagent-name-tequila-sunrise = tequila sunrise
 reagent-desc-tequila-sunrise = Tequila and orange juice. Much like a Screwdriver, only Mexican.
 
 reagent-name-three-mile-island = Three Mile Island iced tea
-reagent-desc-three-mile-island = "Made for a mare, strong enough for a pony."
+reagent-desc-three-mile-island = "Made for a woman, strong enough for a man."
 
 reagent-name-toxins-special = toxins special
 reagent-desc-toxins-special = This thing is ON FIRE! CALL THE DAMN SHUTTLE!
@@ -266,7 +266,7 @@ reagent-name-white-gilgamesh = White Gilgamesh
 reagent-desc-white-gilgamesh = A sickening mixture of milk and beer. Makes you feel like you're made of wood.
 
 reagent-name-white-russian = White Russian
-reagent-desc-white-russian = That's just, like, your opinion, pony...
+reagent-desc-white-russian = That's just, like, your opinion, man...
 
 reagent-name-vodka-red-bool = vodka red bool
 reagent-desc-vodka-red-bool = Because heart failure and liver failure go hand in hand.

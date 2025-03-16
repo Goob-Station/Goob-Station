@@ -4,7 +4,7 @@ positronic-brain-still-searching = Synthetic neuron descrambling in progress...
 positronic-brain-searching = Beginning synthetic neuron descrambling...
 
 positronic-brain-role-name = Positronic Brain
-positronic-brain-role-description = Serve the ponyville crew.
+positronic-brain-role-description = Serve the station crew.
 
 positronic-brain-wipe-device-verb-text = Wipe Brain
 positronic-brain-wiped-device = The neural activity was terminated.

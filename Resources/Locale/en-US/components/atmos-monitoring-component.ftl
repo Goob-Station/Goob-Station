@@ -1,5 +1,5 @@
 atmos-monitoring-window-title = Atmospheric Network Monitor
-atmos-monitoring-window-ponyville-name = [color=white][font size=14]{$stationName}[/font][/color]
+atmos-monitoring-window-station-name = [color=white][font size=14]{$stationName}[/font][/color]
 atmos-monitoring-window-unknown-location = Unknown location
 atmos-monitoring-window-label-gas-opening = Network opening 
 atmos-monitoring-window-label-gas-scrubber = Air scrubber

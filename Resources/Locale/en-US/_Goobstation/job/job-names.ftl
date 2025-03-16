@@ -1,6 +1,6 @@
 job-name-futureagent = Future Agent
 job-name-salvagediver = Salvage Diver
-job-name-ntr = Equestria Representative
+job-name-ntr = Nanotrasen Representative
 job-name-bs = Blueshield
 job-name-overall = Overall
 
@@ -10,21 +10,21 @@ job-name-exec = Executive Access
 
 job-name-navyofficer = Navy Officer
 job-name-navy-officer-undercover = Undercover Navy Officer
-job-name-navycelestia = Navy Celestia
+job-name-navycaptain = Navy Captain
 job-name-diplomat = Diplomat
 
 # Half Life
 
 job-name-hecu = HECU Operative
-job-name-gman = The G-Pony
+job-name-gman = The G-Man
 
 # Role timers - Make these alphabetical or I cut you (dont listen to upstream, i copied and pasted this, make it very un-alphabetical :godo:)
 
 JobBlueshieldOfficer = Blueshield Officer
-JobEquestriaRepresentative = Equestria Representative
+JobNanotrasenRepresentative = Nanotrasen Representative
 JobHecuOperative = HECU Operative
 JobNavyOfficer = Navy Officer
 JobNavyOfficerUndercover = Undercover Navy Officer
-JobNavyCelestia = Navy Celestia
+JobNavyCaptain = Navy Captain
 JobDiplomat = Diplomat
-JobGovernmentMan = The G-Pony
+JobGovernmentMan = The G-Man

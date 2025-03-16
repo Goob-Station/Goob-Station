@@ -1,10 +1,10 @@
 ﻿department-Cargo-description = Complete bounties, earn Spessos, and order useful supplies for the crew.
-department-Civilian-description = Perform small helpful tasks to keep the ponyville sane and well catered.
+department-Civilian-description = Perform small helpful tasks to keep the station sane and well catered.
 department-Command-description = Manage the crew and keep them working efficiently.
 department-CentralCommand-description = Manage the crew and keep them working efficiently.
-department-Cloudsmithing-description = Keep the power on and the ponyville operational.
-department-Ponyville Hospital-description = Keep the crew healthy.
-department-Royal Guard-description = Keep the peace around the ponyville.
-department-Starswirl Academy-description = Research artifacts and anomalies to invent new equipment for the ponyville
+department-Engineering-description = Keep the power on and the station operational.
+department-Medical-description = Keep the crew healthy.
+department-Security-description = Keep the peace around the station.
+department-Science-description = Research artifacts and anomalies to invent new equipment for the station
 department-Silicon-description = Obey your laws and serve the crew.
 department-Specific-description = Jobs that not all stations have.

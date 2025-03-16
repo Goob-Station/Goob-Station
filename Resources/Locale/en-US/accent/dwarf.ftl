@@ -9,10 +9,10 @@ accent-dwarf-words-replace-1 = lassie
 accent-dwarf-words-2 = boy
 accent-dwarf-words-replace-2 = laddie
 
-accent-dwarf-words-3 = pony
+accent-dwarf-words-3 = man
 accent-dwarf-words-replace-3 = lad
 
-accent-dwarf-words-4 = mare
+accent-dwarf-words-4 = woman
 accent-dwarf-words-replace-4 = lass
 
 accent-dwarf-words-5 = do
@@ -153,13 +153,13 @@ accent-dwarf-words-replace-49 = shouhae
 accent-dwarf-words-50 = couldve
 accent-dwarf-words-replace-50 = couhae
 
-accent-dwarf-words-51 = would'eq
+accent-dwarf-words-51 = would'nt
 accent-dwarf-words-replace-51 = wou'nae
 
-accent-dwarf-words-52 = should'eq
+accent-dwarf-words-52 = should'nt
 accent-dwarf-words-replace-52 = shou'nae
 
-accent-dwarf-words-53 = could'eq
+accent-dwarf-words-53 = could'nt
 accent-dwarf-words-replace-53 = cou'nae
 
 accent-dwarf-words-54 = wouldnt
@@ -234,7 +234,7 @@ accent-dwarf-words-replace-77 = wis'nae
 accent-dwarf-words-78 = wasnt
 accent-dwarf-words-replace-78 = wisnae
 
-accent-dwarf-words-79 = discord
+accent-dwarf-words-79 = wizard
 accent-dwarf-words-replace-79 = wizer
 
 accent-dwarf-words-80 = fool
@@ -351,7 +351,7 @@ accent-dwarf-words-replace-122 = maero'er
 accent-dwarf-words-123 = over
 accent-dwarf-words-replace-123 = o'er
 
-accent-dwarf-words-125 = pony
+accent-dwarf-words-125 = human
 accent-dwarf-words-replace-125 = humi
 
 accent-dwarf-words-126 = dwarf

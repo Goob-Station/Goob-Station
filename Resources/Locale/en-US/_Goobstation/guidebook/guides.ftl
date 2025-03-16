@@ -1,5 +1,5 @@
 guide-entry-space-law = Space Law
-guide-entry-medpatches = Ponyville Hospital Patches
+guide-entry-medpatches = Medical Patches
 guide-entry-rules-nrp = NRP Ruleset
 
 # Goob SOP
@@ -11,13 +11,13 @@ guide-entry-sop-jobs = Jobs
 guide-entry-sop-legal = Legal
 guide-entry-sop-standards = Standard Procedures
 # - Sub/Nested Directories
-guide-entry-sop-appleloosa shipping = Appleloosa Shipping
+guide-entry-sop-cargo = Cargo
 guide-entry-sop-command = Command
-guide-entry-sop-cloudsmithing = Cloudsmithing
-guide-entry-sop-ponyville hospital = Ponyville Hospital
-guide-entry-sop-starswirl academy = Starswirl Academy
-guide-entry-sop-royal guard = Royal Guard
-guide-entry-sop-sugarcube corner = Sugarcube Corner
+guide-entry-sop-engineering = Engineering
+guide-entry-sop-medical = Medical
+guide-entry-sop-science = Science
+guide-entry-sop-security = Security
+guide-entry-sop-service = Service
 # - Alert Levels
 guide-entry-sop-greenalert = Green Alert
 guide-entry-sop-bluealert = Blue Alert
@@ -38,7 +38,7 @@ guide-entry-sop-confirmedrevs = Revolution
 guide-entry-sop-containmentfail = Containment Fail
 guide-entry-sop-firegasspill = Fire/Gas Spills
 guide-entry-sop-meteorstorm = Meteor Storms
-guide-entry-sop-stationdamage = Ponyville Damage
+guide-entry-sop-stationdamage = Station Damage
 guide-entry-sop-supermatterdelam = SM Delamination
 guide-entry-sop-wardeclaration = War Declaration
 guide-entry-sop-zombieoutbreak = Zombie Outbreak
@@ -49,21 +49,21 @@ guide-entry-sop-permabrig = Permanent Brig
 guide-entry-sop-punishments = Punishments
 guide-entry-sop-searches = Searches
 # - Cargo
-guide-entry-sop-cargotech = Appleloosa Shipping Tech
+guide-entry-sop-cargotech = Cargo Tech
 guide-entry-sop-salvage = Salvage Specialist
 # - Command
-guide-entry-sop-ntr = Equestria Rep.
+guide-entry-sop-ntr = Nanotrasen Rep.
 guide-entry-sop-bso = Blueshield Officer
-guide-entry-sop-celestia = Celestia
+guide-entry-sop-captain = Captain
 guide-entry-sop-hop = Head of Personnel
-guide-entry-sop-hos = Head of Royal Guard
+guide-entry-sop-hos = Head of Security
 guide-entry-sop-rd = Research Director
-guide-entry-sop-cmo = Chief Ponyville Hospital Ofc.
+guide-entry-sop-cmo = Chief Medical Ofc.
 guide-entry-sop-ce = Chief Engineer
 guide-entry-sop-qm = Quartermaster
 # - Engineering
 guide-entry-sop-atmostech = Atmos Tech
-guide-entry-sop-stationengineer = Ponyville Engineer
+guide-entry-sop-stationengineer = Station Engineer
 # - Medical
 guide-entry-sop-chemist = Chemist
 guide-entry-sop-doctorintern = Doctor/Intern

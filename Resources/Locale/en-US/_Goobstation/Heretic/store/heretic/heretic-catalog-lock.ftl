@@ -30,7 +30,7 @@ knowledge-path-lock-s4-desc =
     The Gatekeeper was a corrupt Steward. She hindered her fellows for her own twisted amusement.
 
     Your Mansus Grasp now applies the Mark of Lock.
-    Attack a marked pony to bar them from all passages for the duration of the mark.
+    Attack a marked person to bar them from all passages for the duration of the mark.
     This will make it so that they have no access whatsoever, even public access doors will reject them.
 
 knowledge-path-lock-s6-name = Concierge's Rite
@@ -38,7 +38,7 @@ knowledge-path-lock-s6-desc =
     The Concierge scribbled my name into the Handbook. Welcome to your new home, fellow Steward.
 
     Allows you to transmute a stick of chalk, a wooden plank, and a multitool to create a Labyrinth Handbook.
-    It can materialize a barricade at range that only you and ponies resistant to magic can pass. Has limited uses.
+    It can materialize a barricade at range that only you and people resistant to magic can pass. Has limited uses.
 
 knowledge-path-lock-s7-name = Burglar's Finesse
 knowledge-path-lock-s7-desc =

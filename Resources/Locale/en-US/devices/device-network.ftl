@@ -7,18 +7,18 @@ device-frequency-prototype-name-mailing-units = Mailing Units
 device-frequency-prototype-name-pdas = PDAs
 device-frequency-prototype-name-fax = Fax
 device-frequency-prototype-name-basic-device = Basic Devices
-device-frequency-prototype-name-robo-pony-control = Robo-Pony Control
+device-frequency-prototype-name-cyborg-control = Cyborg Control
 device-frequency-prototype-name-robotics-console = Robotics Console
 
 ## camera frequencies
 device-frequency-prototype-name-surveillance-camera-test = Subnet Test
-device-frequency-prototype-name-surveillance-camera-cloudsmithing = Cloudsmithing Cameras
-device-frequency-prototype-name-surveillance-camera-royal guard = Royal Guard Cameras
-device-frequency-prototype-name-surveillance-camera-starswirl academy = Starswirl Academy Cameras
+device-frequency-prototype-name-surveillance-camera-engineering = Engineering Cameras
+device-frequency-prototype-name-surveillance-camera-security = Security Cameras
+device-frequency-prototype-name-surveillance-camera-science = Science Cameras
 device-frequency-prototype-name-surveillance-camera-supply = Supply Cameras
 device-frequency-prototype-name-surveillance-camera-command = Command Cameras
-device-frequency-prototype-name-surveillance-camera-sugarcube corner = Sugarcube Corner Cameras
-device-frequency-prototype-name-surveillance-camera-ponyville hospital = Ponyville Hospital Cameras
+device-frequency-prototype-name-surveillance-camera-service = Service Cameras
+device-frequency-prototype-name-surveillance-camera-medical = Medical Cameras
 device-frequency-prototype-name-surveillance-camera-general = General Cameras
 device-frequency-prototype-name-surveillance-camera-entertainment = Entertainment Cameras
 

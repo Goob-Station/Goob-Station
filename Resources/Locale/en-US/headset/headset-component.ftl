@@ -5,13 +5,13 @@ chat-radio-message-wrap-bold = [color={$color}]{$channel} [bold]{$name}[/bold] {
 examine-headset-default-channel = Use {$prefix} for the default channel ([color={$color}]{$channel}[/color]).
 
 chat-radio-common = Common
-chat-radio-canterlot = Canterlot
+chat-radio-centcom = CentComm
 chat-radio-command = Command
-chat-radio-cloudsmithing = Cloudsmithing
-chat-radio-ponyville hospital = Ponyville Hospital
-chat-radio-starswirl academy = Starswirl Academy
-chat-radio-royal guard = Royal Guard
-chat-radio-sugarcube corner = Sugarcube Corner
+chat-radio-engineering = Engineering
+chat-radio-medical = Medical
+chat-radio-science = Science
+chat-radio-security = Security
+chat-radio-service = Service
 chat-radio-supply = Supply
 chat-radio-syndicate = Syndicate
 chat-radio-freelance = Freelance

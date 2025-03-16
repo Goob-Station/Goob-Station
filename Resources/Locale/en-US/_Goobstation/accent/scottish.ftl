@@ -9,10 +9,10 @@ accent-scottish-words-replace-1 = lassie
 accent-scottish-words-2 = boy
 accent-scottish-words-replace-2 = laddie
 
-accent-scottish-words-3 = pony
+accent-scottish-words-3 = man
 accent-scottish-words-replace-3 = lad
 
-accent-scottish-words-4 = mare
+accent-scottish-words-4 = woman
 accent-scottish-words-replace-4 = lass
 
 accent-scottish-words-5 = do
@@ -153,13 +153,13 @@ accent-scottish-words-replace-49 = shouhae
 accent-scottish-words-50 = couldve
 accent-scottish-words-replace-50 = couhae
 
-accent-scottish-words-51 = would'eq
+accent-scottish-words-51 = would'nt
 accent-scottish-words-replace-51 = wou'nae
 
-accent-scottish-words-52 = should'eq
+accent-scottish-words-52 = should'nt
 accent-scottish-words-replace-52 = shou'nae
 
-accent-scottish-words-53 = could'eq
+accent-scottish-words-53 = could'nt
 accent-scottish-words-replace-53 = cou'nae
 
 accent-scottish-words-54 = wouldnt
@@ -234,7 +234,7 @@ accent-scottish-words-replace-77 = wis'nae
 accent-scottish-words-78 = wasnt
 accent-scottish-words-replace-78 = wisnae
 
-accent-scottish-words-79 = discord
+accent-scottish-words-79 = wizard
 accent-scottish-words-replace-79 = wizer
 
 accent-scottish-words-80 = fool
@@ -351,7 +351,7 @@ accent-scottish-words-replace-122 = maero'er
 accent-scottish-words-123 = over
 accent-scottish-words-replace-123 = o'er
 
-accent-scottish-words-125 = pony
+accent-scottish-words-125 = human
 accent-scottish-words-replace-125 = humi
 
 accent-scottish-words-126 = scottish

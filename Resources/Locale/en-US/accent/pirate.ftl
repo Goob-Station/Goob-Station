@@ -87,7 +87,7 @@ accent-pirate-replacement-27 = landlubber
 accent-pirate-replaced-28 = tider
 accent-pirate-replacement-28 = landlubber
 
-accent-pirate-replaced-29 = celestia
+accent-pirate-replaced-29 = captain
 accent-pirate-replacement-29 = cap'n
 
 accent-pirate-replaced-30 = pistol

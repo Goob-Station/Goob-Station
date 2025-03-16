@@ -1,38 +1,38 @@
 # Command
-highlights-captain = Celestia, "Cap", Bridge, Command
-highlights-head-of-personnel = Head Of Personnel, "HoP", HoPline, Sugarcube Corner, Bridge, Command
-highlights-chief-engineer = Chief Engineer, "CE", Atmos, Atmosia, Atmospherics, Engi, Engineer, Cloudsmithing, Bridge, Command
-highlights-chief-ponyville hospital-officer = Chief Ponyville Hospital Officer, "CMO", Doctor, "Doc", "Medic", Medbay, "Med", Ponyville Hospital, Chemistry, "Chem", Chemlab, Chemical Lab, Bridge, Command
-highlights-head-of-royal guard = Head of Royal Guard, "HoS", Royal Guard, Shitsec, Shitcurity, Brig, "Sec", "Law", "Perma", Permabrig, Bridge, Command
-highlights-quartermaster = Quartermaster, "QM", "Appleloosa Shipping", Cargonia, Bridge, Command
-highlights-research-director = Research Director, "RD", Scientist, Starswirl Academy, "Sci", "RnD", Robotics, "Robo", Bridge, Command
-highlights-equestria-representative = Equestria Representative, Representative, "NTR"
+highlights-captain = Captain, "Cap", Bridge, Command
+highlights-head-of-personnel = Head Of Personnel, "HoP", HoPline, Service, Bridge, Command
+highlights-chief-engineer = Chief Engineer, "CE", Atmos, Atmosia, Atmospherics, Engi, Engineer, Engineering, Bridge, Command
+highlights-chief-medical-officer = Chief Medical Officer, "CMO", Doctor, "Doc", "Medic", Medbay, "Med", Medical, Chemistry, "Chem", Chemlab, Chemical Lab, Bridge, Command
+highlights-head-of-security = Head of Security, "HoS", Security, Shitsec, Shitcurity, Brig, "Sec", "Law", "Perma", Permabrig, Bridge, Command
+highlights-quartermaster = Quartermaster, "QM", "Cargo", Cargonia, Bridge, Command
+highlights-research-director = Research Director, "RD", Scientist, Science, "Sci", "RnD", Robotics, "Robo", Bridge, Command
+highlights-nanotrasen-representative = Nanotrasen Representative, Representative, "NTR"
 highlights-blueshield-officer = Blueshield Officer, Blueshield, "BSO", Bridge, Command
 
 # Security
-highlights-detective = Detective, "Det", Royal Guard, Shitsec, Shitcurity, Brig, "Sec", "Law"
-highlights-royal guard-cadet = Cadet, Secoff, Officer, Royal Guard, Shitsec, Shitcurity, Brig, "Sec", "Law"
-highlights-royal guard-officer = Secoff, Officer, Royal Guard, Shitsec, Shitcurity, Brig, "Sec", "Law"
-highlights-warden = Warden, "Ward", Royal Guard, Shitsec, Shitcurity, Brig, "Sec", "Law", "Perma", Permabrig
+highlights-detective = Detective, "Det", Security, Shitsec, Shitcurity, Brig, "Sec", "Law"
+highlights-security-cadet = Cadet, Secoff, Officer, Security, Shitsec, Shitcurity, Brig, "Sec", "Law"
+highlights-security-officer = Secoff, Officer, Security, Shitsec, Shitcurity, Brig, "Sec", "Law"
+highlights-warden = Warden, "Ward", Security, Shitsec, Shitcurity, Brig, "Sec", "Law", "Perma", Permabrig
 
 # Cargo
-highlights-appleloosa shipping-technician = Appleloosa Shipping Technician, Cargotech, Appleloosa Shipping Tech, Mailman, Appleloosa Shipping, Cargonia
-highlights-salvage-specialist = Salvage Specialist, Salvager, Salvage, "Salv", Miner, Lavaland, "Appleloosa Shipping", Cargonia
+highlights-cargo-technician = Cargo Technician, Cargotech, Cargo Tech, Mailman, Cargo, Cargonia
+highlights-salvage-specialist = Salvage Specialist, Salvager, Salvage, "Salv", Miner, Lavaland, "Cargo", Cargonia
 
 # Engineering
-highlights-atmospheric-technician = Atmospheric Technician, Atmostech, Atmos Tech, Atmos, Atmosia, Atmospherics, Engi, Engineer, Cloudsmithing
-highlights-ponyville-engineer = Ponyville Engineer, Engi, Engineer, Cloudsmithing
-highlights-technical-assistant = Technical Assistant, Tech Assistant, "TA", Engi, Engineer, Cloudsmithing
+highlights-atmospheric-technician = Atmospheric Technician, Atmostech, Atmos Tech, Atmos, Atmosia, Atmospherics, Engi, Engineer, Engineering
+highlights-station-engineer = Station Engineer, Engi, Engineer, Engineering
+highlights-technical-assistant = Technical Assistant, Tech Assistant, "TA", Engi, Engineer, Engineering
 
 # Medical
-highlights-chemist = Chemist, Chemistry, "Chem", Chemlab, Chemical Lab, Medbay, "Med", Ponyville Hospital
-highlights-ponyville hospital-doctor = Physician, Doctor, "Doc", "Medic", Medbay, "Med", Ponyville Hospital
-highlights-ponyville hospital-intern = Intern, Doctor, "Doc", Medbay, "Med", "Medic", Ponyville Hospital
-highlights-paramedic = Paramedic, "Para", Doctor, "Doc", "Medic", Medbay, "Med", Ponyville Hospital
+highlights-chemist = Chemist, Chemistry, "Chem", Chemlab, Chemical Lab, Medbay, "Med", Medical
+highlights-medical-doctor = Physician, Doctor, "Doc", "Medic", Medbay, "Med", Medical
+highlights-medical-intern = Intern, Doctor, "Doc", Medbay, "Med", "Medic", Medical
+highlights-paramedic = Paramedic, "Para", Doctor, "Doc", "Medic", Medbay, "Med", Medical
 
 # Science
-highlights-scientist = Scientist, Starswirl Academy, "Sci", "RnD", Robotics, Roboticist, "Robo"
-highlights-research-assistant = Research Assistant, Scientist, Starswirl Academy, "Sci", "RnD", Robotics, Roboticist, "Robo"
+highlights-scientist = Scientist, Science, "Sci", "RnD", Robotics, Roboticist, "Robo"
+highlights-research-assistant = Research Assistant, Scientist, Science, "Sci", "RnD", Robotics, Roboticist, "Robo"
 
 # Civilian
 highlights-bartender = Bartender, Barkeep, Barman, "Bar"
@@ -45,7 +45,7 @@ highlights-lawyer = Lawyer, Attorney
 highlights-librarian = Librarian, Library
 highlights-mime = Mime
 highlights-assistant = Passenger, Tider, Greytider, Greytide, Tide, Assistant
-highlights-sugarcube corner-worker = Sugarcube Corner Worker
+highlights-service-worker = Service Worker
 
 # Wildcards
 highlights-boxer = Boxer
@@ -54,5 +54,5 @@ highlights-zookeeper = Zookeeper
 highlights-psychologist = Psychologist, Psychology
 
 # Silicon
-highlights-robo-pony = Robo-Pony, Borg, Silicon, Law 2
-highlights-ponyville-ai = Ponyville AI, "AI", "sAI", Big Brother, Door Discord, Silicon, Law 2, Law 3
+highlights-cyborg = Cyborg, Borg, Silicon, Law 2
+highlights-station-ai = Station AI, "AI", "sAI", Big Brother, Door Wizard, Silicon, Law 2, Law 3

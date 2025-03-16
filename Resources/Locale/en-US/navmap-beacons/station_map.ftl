@@ -1,9 +1,9 @@
-station-map-window-title = Ponyville map
-ponyville-map-user-interface-flavor-left = Don't panic
-ponyville-map-user-interface-flavor-right = v1.42
-ponyville-map-filter-placeholder = Search by name
+station-map-window-title = Station map
+station-map-user-interface-flavor-left = Don't panic
+station-map-user-interface-flavor-right = v1.42
+station-map-filter-placeholder = Search by name
 
-nav-beacon-window-title = Ponyville Beacon
+nav-beacon-window-title = Station Beacon
 nav-beacon-toggle-visible = Visible
 nav-beacon-toggle-invisible = Invisible
 nav-beacon-text-label = Label:

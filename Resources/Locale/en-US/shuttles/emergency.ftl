@@ -5,17 +5,17 @@ emergency-shuttle-command-round-yes = Round delayed.
 emergency-shuttle-command-round-no = Unable to delay round end.
 
 ## Dock emergency shuttle
-emergency-shuttle-command-dock-desc = Calls the emergency shuttle and docks it to the ponyville... if it can.
+emergency-shuttle-command-dock-desc = Calls the emergency shuttle and docks it to the station... if it can.
 
 ## Launch emergency shuttle
 emergency-shuttle-command-launch-desc = Early launches the emergency shuttle if possible.
 
 # Emergency shuttle
-emergency-shuttle-left = The Emergency Shuttle has left the ponyville. Estimate {$transitTime} seconds until the shuttle arrives at Canterlot.
+emergency-shuttle-left = The Emergency Shuttle has left the station. Estimate {$transitTime} seconds until the shuttle arrives at CentComm.
 emergency-shuttle-launch-time = The emergency shuttle will launch in {$consoleAccumulator} seconds.
-emergency-shuttle-docked = The Emergency Shuttle has docked {$direction} of the ponyville, {$location}. It will leave in {$time} seconds.{$extended}
-emergency-shuttle-good-luck = The Emergency Shuttle is unable to find a ponyville. Good luck.
-emergency-shuttle-nearby = The Emergency Shuttle is unable to find a valid docking port. It has warped in {$direction} of the ponyville, {$location}. It will leave in {$time} seconds.{$extended}
+emergency-shuttle-docked = The Emergency Shuttle has docked {$direction} of the station, {$location}. It will leave in {$time} seconds.{$extended}
+emergency-shuttle-good-luck = The Emergency Shuttle is unable to find a station. Good luck.
+emergency-shuttle-nearby = The Emergency Shuttle is unable to find a valid docking port. It has warped in {$direction} of the station, {$location}. It will leave in {$time} seconds.{$extended}
 emergency-shuttle-extended = {" "}Launch time has been extended due to inconvenient circumstances.
 
 # Emergency shuttle console popup / announcement
@@ -36,5 +36,5 @@ emergency-shuttle-ui-authorizations = Authorizations
 emergency-shuttle-ui-remaining = Remaining: {$remaining}
 
 # Map Misc.
-map-name-centcomm = Canterlot
+map-name-centcomm = Central Command
 map-name-terminal = Arrivals Terminal

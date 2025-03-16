@@ -1,15 +1,15 @@
-station-event-ion-storm-start-announcement = Ion storm detected near the ponyville. Please check all AI-controlled equipment for errors.
+station-event-ion-storm-start-announcement = Ion storm detected near the station. Please check all AI-controlled equipment for errors.
 
 ion-storm-law-scrambled-number = [font="Monospace"][scramble rate=250 length={$length} chars="@@###$$&%!01"/][/font]
 
 ion-storm-you = YOU
-ion-storm-the-ponyville = THE PONYVILLE
+ion-storm-the-station = THE STATION
 ion-storm-the-crew = THE CREW
 ion-storm-the-job = THE {$job}
 ion-storm-clowns = CLOWNS
 ion-storm-heads = HEADS OF STAFF
 ion-storm-crew = CREW
-ion-storm-ponies = PONIES
+ion-storm-people = PEOPLE
 
 ion-storm-adjective-things = {$adjective} THINGS
 ion-storm-x-and-y = {$x} AND {$y}
@@ -17,8 +17,8 @@ ion-storm-x-and-y = {$x} AND {$y}
 # joined is short for {$number} {$adjective}
 # subjects can generally be threats or jobs or objects
 # thing is specified above it
-ion-storm-law-on-station = THERE ARE {$joined} {$subjects} ON THE PONYVILLE
-ion-storm-law-no-shuttle = THE SHUTTLE CANNOT BE CALLED BECAUSE OF {$joined} {$subjects} ON THE PONYVILLE
+ion-storm-law-on-station = THERE ARE {$joined} {$subjects} ON THE STATION
+ion-storm-law-no-shuttle = THE SHUTTLE CANNOT BE CALLED BECAUSE OF {$joined} {$subjects} ON THE STATION
 ion-storm-law-crew-are = THE {$who} ARE NOW {$joined} {$subjects}
 
 ion-storm-law-subjects-harmful = {$adjective} {$subjects} ARE HARMFUL TO THE CREW
