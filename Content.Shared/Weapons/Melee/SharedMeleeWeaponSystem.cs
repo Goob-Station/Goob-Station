@@ -421,20 +421,20 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         // Attack confirmed
         for (var i = 0; i < swings; i++)
         {
-            string animation = weapon.Animation;
+            EntProtoId animation; // Goobstation - Edit
             var spriteRotation = weapon.AnimationRotation;
 
             switch (attack)
             {
                 case LightAttackEvent light:
-                    DoLightAttack(user, light, weaponUid, weapon, session);
-                    animation = weapon.Animation;
+                    DoLightAttack(user, light, weaponUid, weapon, GetCoordinates(attack.Coordinates), session);
                     break;
                 case DisarmAttackEvent disarm:
                     if (!DoDisarm(user, disarm, weaponUid, weapon, session))
                         return false;
 
                     animation = weapon.DisarmAnimation; // WWDP
+                    DoLungeAnimation(user, weaponUid, weapon.Angle, TransformSystem.ToMapCoordinates(GetCoordinates(attack.Coordinates)), weapon.Range, animation, spriteRotation, weapon.FlipAnimation); // Goobstation - Edit
                     break;
                 case HeavyAttackEvent heavy:
                     if (!DoHeavyAttack(user, heavy, weaponUid, weapon, session))
@@ -442,12 +442,12 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
                     animation = weapon.WideAnimation;
                     spriteRotation = weapon.WideAnimationRotation;
+                    DoLungeAnimation(user, weaponUid, weapon.Angle, TransformSystem.ToMapCoordinates(GetCoordinates(attack.Coordinates)), weapon.Range, animation, spriteRotation, weapon.FlipAnimation); // Goobstation - Edit
                     break;
                 default:
                     throw new NotImplementedException();
             }
 
-            DoLungeAnimation(user, weaponUid, weapon.Angle, TransformSystem.ToMapCoordinates(GetCoordinates(attack.Coordinates)), weapon.Range, animation, spriteRotation, weapon.FlipAnimation); // Goobstation - Edit
         }
 
         var attackEv = new MeleeAttackEvent(weaponUid);
@@ -460,11 +460,11 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     protected abstract bool InRange(EntityUid user, EntityUid target, float range, ICommonSession? session);
 
     // Goob edit
-    public virtual void DoLightAttack(EntityUid user, LightAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, ICommonSession? session)
+    public virtual void DoLightAttack(EntityUid user, LightAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, EntityCoordinates coordinates, ICommonSession? session) // Goobstation - Edit
     {
         // If I do not come back later to fix Light Attacks being Heavy Attacks you can throw me in the spider pit -Errant
         var damage = GetDamage(meleeUid, user, component) * GetHeavyDamageModifier(meleeUid, user, component);
-
+        var weapon = GetEntity(ev.Weapon); // Goobstation - Edit
         var target = GetEntity(ev.Target);
         var resistanceBypass = GetResistanceBypass(meleeUid, user, component);
 
@@ -494,6 +494,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             var missEvent = new MeleeHitEvent(new List<EntityUid>(), user, meleeUid, damage, null);
             RaiseLocalEvent(meleeUid, missEvent);
             _meleeSound.PlaySwingSound(user, meleeUid, component);
+            DoLungeAnimation(user, weapon, component.Angle, TransformSystem.ToMapCoordinates(coordinates), component.Range, component.MissAnimation, component.AnimationRotation, component.FlipAnimation); // Goobstation - Edit
             return;
         }
 
@@ -503,6 +504,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         var hitEvent = new MeleeHitEvent(new List<EntityUid> { target.Value }, user, meleeUid, damage, null);
         RaiseLocalEvent(meleeUid, hitEvent);
 
+
         if (hitEvent.Handled)
             return;
 
@@ -511,8 +513,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             target.Value
         };
 
-        var weapon = GetEntity(ev.Weapon);
-
+        DoLungeAnimation(user, weapon, component.Angle, TransformSystem.ToMapCoordinates(target.Value.ToCoordinates()), component.Range, component.Animation, component.AnimationRotation, component.FlipAnimation); // Goobstation - Edit
         // We skip weapon -> target interaction, as forensics system applies DNA on hit
         Interaction.DoContactInteraction(user, weapon);
 

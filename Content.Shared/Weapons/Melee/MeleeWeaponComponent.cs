@@ -114,6 +114,9 @@ public sealed partial class MeleeWeaponComponent : Component
     public EntProtoId Animation = "WeaponArcThrust"; // Goob Edit
 
     [DataField, AutoNetworkedField]
+    public EntProtoId MissAnimation = "WeaponArcPunch"; // Goob Edit
+
+    [DataField, AutoNetworkedField]
     public bool FlipAnimation = true; // Goob Edit
 
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
