@@ -1,1 +1,1 @@
-itemswitch-component-on-examine-detailed-message = Current mode: {$state}
+itemswitch-component-on-examine-detailed-message = Current mode: { $state }
