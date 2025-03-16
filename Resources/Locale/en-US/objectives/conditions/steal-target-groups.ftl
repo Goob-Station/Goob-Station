@@ -23,12 +23,12 @@ steal-target-groups-id-cards = ID Card
 steal-target-groups-lamps = LAMP
 # Thief single item
 steal-target-groups-forensic-scanner = forensic scanner
-steal-target-groups-flippo-engraved-lighter = detective's Flippo engraved lighter
+steal-target-groups-flippo-engraved-lighter = royal guard detective's Flippo engraved lighter
 steal-target-groups-ammo-tech-fab-circuitboard = ammo techfab circuit board
-steal-target-groups-clothing-head-hat-warden = warden's cap
-steal-target-groups-clothing-outer-hardsuit-void-paramed = paramedic void suit
+steal-target-groups-clothing-head-hat-warden = royal guard jailer's cap
+steal-target-groups-clothing-outer-hardsuit-void-paramed = ponyville hospital  void suit
 steal-target-groups-medical-tech-fab-circuitboard = ponyville hospital techfab machine board
-steal-target-groups-clothing-headset-alt-medical = chief ponyville hospital officer's over-ear headset
+steal-target-groups-clothing-headset-alt-medical = fluttershy's over-ear headset
 steal-target-groups-research-and-development-server-machine-circuitboard = R&D server machine board
 steal-target-groups-fire-axe = fireaxe
 steal-target-groups-ame-part-flatpack = AME flatpack
@@ -37,7 +37,7 @@ steal-target-groups-cargo-shuttle-console-circuitboard = appleloosa shipping shu
 steal-target-groups-clothing-eyes-hud-beer = beer goggles
 steal-target-groups-bible = bible
 steal-target-groups-clothing-neck-goldmedal = gold medal of crewmanship
-steal-target-groups-clothing-neck-clownmedal = clown medal
+steal-target-groups-clothing-neck-clownmedal = pinkie pie medal
 steal-target-groups-wanted-list-cartridge = wanted list cartridge
 # Thief structures
 steal-target-groups-teg = teg generator part
@@ -51,7 +51,7 @@ steal-target-groups-booze-dispenser = booze dispenser
 steal-target-groups-plant-rd = "RD's potted plant"
 steal-target-groups-toilet-golden-dirty-water = golden toilet
 # Thief Animal
-steal-target-groups-animal-named-cat = CMO's Cat
+steal-target-groups-animal-named-cat = FLUTTERSHY's Cat
 steal-target-groups-animal-ian = Ian
 steal-target-groups-animal-mc-griff = McGriff
 steal-target-groups-animal-walter = Walter

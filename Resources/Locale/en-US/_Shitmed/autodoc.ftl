@@ -54,7 +54,7 @@ autodoc-add-step-surgery = PERFORM SURGERY 开始手术
 # Chinese text translates approximately to "Take Item"
 autodoc-add-step-grab-item = GRAB ITEM 拿走物品
 autodoc-add-step-grab-item-prompt = Item name
-autodoc-add-step-grab-item-placeholder = dwarf heart
+autodoc-add-step-grab-item-placeholder = short pony heart
 # Chinese text translates approximately to "Take Organ"
 autodoc-add-step-grab-organ = GRAB ORGAN 拿管风琴
 # Chinese text translates approximately to "Pick up body part"
