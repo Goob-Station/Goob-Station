@@ -1,7 +1,10 @@
+using System.Linq;
+using Content.Shared.Access;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Systems;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Goobstation.Items
 {
@@ -24,8 +27,27 @@ namespace Content.Shared._Goobstation.Items
             // Add the access reader component
             EnsureComp<AccessReaderComponent>(item, out var readerAccess);
 
-            // Set the access levels.
-            _accessReader.SetAccesses(item, readerAccess, [ent.Comp.AccessLists]);
+            var accesses = new List<ProtoId<AccessLevelPrototype>>();
+
+            if (accesses == null)
+            {
+                throw new ArgumentNullException(nameof(accesses))
+                {
+                    HelpLink = null,
+                    HResult = 0,
+                    Source = null
+                };
+            }
+
+            if (!EnsureComp<AccessReaderComponent>(item, out var accessReader))
+                return;
+
+            foreach (var accessList in accessReader.AccessLists)
+            {
+                var access = accessList.FirstOrDefault();
+                accesses.Add(access);
+            }
+
         }
 
         private void OnAttemptShoot(Entity<RestrictByIdComponent> ent, ref AttemptShootEvent args)
