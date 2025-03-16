@@ -6466,3 +6466,9 @@ Entries:
       message: Stable release!
   id: 747
   time: '2025-03-16T04:18:59.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added the taiwan pond gun. Hack an autodrobe to see what it does.
+  id: 748
+  time: '2025-03-16T07:53:14.0000000+00:00'
