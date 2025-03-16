@@ -37,7 +37,7 @@ namespace Content.Shared._Goobstation.Items
             var item = ent.Owner;
             var comp = ent.Comp;
 
-            args.Message = Loc.GetString(comp.FailText, ("access", comp.AccessLists));
+            args.Message = Loc.GetString(comp.FailText);
 
             // If the entity shooting the item is invalid, return.
             if (!attacker.IsValid() || !item.IsValid() || !ent.Comp.RestrictMelee)
@@ -51,7 +51,7 @@ namespace Content.Shared._Goobstation.Items
                 return;
 
             args.Cancelled = true;
-            _popupSystem.PopupClient(args.Message, attacker, PopupType.Large);
+            _popupSystem.PopupClient(args.Message, attacker, PopupType.Medium);
 
         }
 
@@ -61,7 +61,7 @@ namespace Content.Shared._Goobstation.Items
             var item = ent.Owner;
             var comp = ent.Comp;
 
-            args.Message = Loc.GetString(comp.FailText, ("access", comp.AccessLists));
+            args.Message = Loc.GetString(comp.FailText);
 
             // If the entity swinging the weapon is invalid, return.
             if (!attacker.IsValid() || !item.IsValid() || !comp.RestrictRanged)
@@ -75,7 +75,7 @@ namespace Content.Shared._Goobstation.Items
                 return;
 
             args.Cancelled = true;
-            _popupSystem.PopupClient(args.Message, attacker, PopupType.Large);
+            _popupSystem.PopupClient(args.Message, attacker, PopupType.Medium);
         }
     }
 }
