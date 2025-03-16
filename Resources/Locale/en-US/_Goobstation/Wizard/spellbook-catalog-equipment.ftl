@@ -12,7 +12,7 @@ spellbook-spellblade-desc =
 spellbook-everfull-mug-name = Everfull Mug
 spellbook-everfull-mug-desc = A magical mug that can be filled with omnizine at will. Great source of healing.
 spellbook-cryo-katana-name = Cryo Katana
-spellbook-cryo-katana-desc = Modified Spider Clan energy katana, imbued with frost magic. Freezes the targets on hit, slowing them down. Able to dash a short distance, slicing anyone on your path. Can't dash while lying down.
+spellbook-cryo-katana-desc = Modified Spider Pony Clan energy katana, imbued with frost magic. Freezes the targets on hit, slowing them down. Able to dash a short distance, slicing anyone on your path. Can't dash while lying down.
 spellbook-skates-name = Discord Skates
 spellbook-skates-desc =
     A pair of roller skates that greatly increase your movement speed.

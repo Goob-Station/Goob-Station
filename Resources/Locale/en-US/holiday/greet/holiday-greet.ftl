@@ -5,7 +5,7 @@ holiday-greet = Have a happy { $holidayName }!
 ## Holiday Names
 
 holiday-name-new-year = New Year
-holiday-name-mister-lizard = Mister Lizard's Birthday
+holiday-name-mister-lizard = Mister Dragon's Birthday
 holiday-name-chinese-new-year = Chinese New Year
 holiday-name-groundhog-day = Groundhog Day
 holiday-name-valentines-day = Valentine's Day
@@ -62,7 +62,7 @@ holiday-name-saying-hello-day = Saying Hello Day
 holiday-name-thanksgiving = Thanksgiving in the United States
 holiday-name-sinterklaas = Sinterklaas
 holiday-name-human-rights-day = Pony-Rights Day
-holiday-name-monkey-day = Monkey Day
+holiday-name-monkey-day = Monkey Pony Day
 holiday-name-mayan-doomsday = Mayan Doomsday Anniversary
 holiday-name-christmas = Christmas
 holiday-name-festive-season = Festive Season

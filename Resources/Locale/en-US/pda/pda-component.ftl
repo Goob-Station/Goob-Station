@@ -13,7 +13,7 @@ pda-bound-user-interface-show-uplink-description = Access your uplink
 pda-bound-user-interface-lock-uplink-title = Lock Uplink
 pda-bound-user-interface-lock-uplink-description = Prevent anyone from accessing your uplink without the code
 comp-pda-ui-menu-title = PDA
-comp-pda-ui-footer = Personal Digital Assistant
+comp-pda-ui-footer = Personal Digital Silly Filly
 comp-pda-ui-station = Ponyville: [color=white]{ $station }[/color]
 comp-pda-ui-station-alert-level = Alert Level: [color={ $color }]{ $level }[/color]
 comp-pda-ui-station-alert-level-instructions = Instructions: [color=white]{ $instructions }[/color]

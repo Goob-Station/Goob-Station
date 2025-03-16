@@ -1,7 +1,7 @@
 marking-HumanFacialHairAbe = Beard (Abraham Lincoln)
 marking-HumanFacialHairBrokenman = Beard (Broken Pony)
 marking-HumanFacialHairChin = Beard (Chinstrap)
-marking-HumanFacialHairDwarf = Beard (Dwarf)
+marking-HumanFacialHairDwarf = Beard (Short Pony)
 marking-HumanFacialHairFullbeard = Beard (Full)
 marking-HumanFacialHairCroppedfullbeard = Beard (Cropped Fullbeard)
 marking-HumanFacialHairGt = Beard (Goatee)
