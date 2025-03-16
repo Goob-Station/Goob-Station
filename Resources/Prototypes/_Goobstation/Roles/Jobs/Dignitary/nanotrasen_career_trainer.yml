@@ -45,6 +45,16 @@
 - type: startingGear
   id: NanotrasenCareerTrainerGear
   equipment:
+    id: TrainerPDA
+    ears: ClothingHeadsetAltCentCom
+  storage:
+    back:
+    - Flash
+    - TelescopicBaton
+
+- type: startingGear
+  id: NanotrasenCareerTrainerGearFull
+  equipment:
     jumpsuit: ClothingUniformJumpsuitTrainer
     shoes: ClothingShoesBootsLaceup
     head: ClothingHeadHatTrainer
