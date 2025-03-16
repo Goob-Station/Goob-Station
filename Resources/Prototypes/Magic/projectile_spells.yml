@@ -74,3 +74,30 @@
       event: !type:ProjectileSpellEvent
         prototype: ProjectileFireball
         speech: action-speech-spell-fireball
+
+- type: entity
+  id: GokuBlast
+  name: Kamehameha
+  description: KAHHHHHH!!!
+  components:
+  - type: Magic
+    requiresSpeech: true # Goobstation
+    school: Evocation # Goobstation
+  - type: Sprite # Goobstation - for apprentices
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: gokuball
+  - type: EntityWorldTargetAction # Goob edit
+    useDelay: 30 # Goob edit
+    checkCanInteract: false # Goobstation
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    raiseOnUser: true
+    range: 60
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/fireball.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      state: fireball # Goob edit
+    event: !type:ProjectileSpellEvent
+      prototype: Gokuball
+      speech: "KAMEHAMEHA!!!"

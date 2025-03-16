@@ -44,6 +44,10 @@ ghost-role-information-diplomat-description = Represent Central Command, managin
 
 ghost-role-information-sentient-shark-name = Sentient Sharkminnow
 
+ghost-role-information-Goku-name = Goku
+ghost-role-information-Goku-description = You heard the station was pretty strong.
+ghost-role-information-Goku-rules = Will they stop you?
+
 # Half Life
 
 ghost-role-information-Gman-name = The G-Man

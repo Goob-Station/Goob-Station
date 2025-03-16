@@ -105,4 +105,118 @@
   - type: BypassInteractionChecks
   - type: SupermatterImmune
 
-
+- type: entity
+  id: MobGoku
+  name: Son Goku
+  parent: [MobRespirator, MobAtmosStandard, StripableInventoryBase, BaseSimpleMob, MobCombat, MobBloodstream, MobFlammable]
+  description: I heard this station was pretty strong.
+  suffix: Admeme
+  components:
+  - type: Targeting
+  - type: Stripping
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 6
+  - type: CombatMode
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 30
+        Structural: 2000
+    clickPartDamageMultiplier: 1000
+  - type: Sprite
+    scale: 1.18, 1.18
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: goku
+      sprite: _Goobstation/Mobs/Demons/goku.rsi
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: GhostRole
+    name: ghost-role-information-Goku-name
+    description: ghost-role-information-Goku-description
+    rules: ghost-role-information-Goku-rules
+    raffle:
+      settings: short
+  - type: SupermatterImmune
+  - type: StatusEffects
+    allowed:
+      - KnockedDown
+      - SlowedDown
+  - type: Climbing
+  - type: RotationVisuals
+    defaultRotation: 90
+    horizontalRotation: 90
+  - type: Deathgasp
+  - type: Hands
+  - type: ComplexInteraction
+  - type: Puller
+    needsHands: true
+  - type: LayingDown # Goobstation
+  - type: Inventory
+    speciesId: human
+  - type: Body
+    prototype: Human
+    requiredLegs: 0
+  - type: Hunger
+    thresholds:
+      Overfed: 100
+      Okay: 50
+      Peckish: 25
+      Starving: 10
+      Dead: 0
+    baseDecayRate: 0.5
+  - type: Thirst
+    thresholds:
+      OverHydrated: 200
+      Okay: 150
+      Thirsty: 100
+      Parched: 50
+      Dead: 0
+    baseDecayRate: 0.04
+  - type: Bloodstream
+    bloodMaxVolume: 25000
+  - type: Perishable
+  - type: FloatingVisuals
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+  - type: Grammar
+    attributes:
+      gender: male
+  - type: Vocal
+    sounds:
+      Male: MaleHuman
+      Female: MaleHuman
+      Unsexed: MaleHuman
+    wilhelmProbability: 0.001
+  - type: FireVisuals
+    alternateState: Standing
+  - type: GrantCqc
+  - type: ActionGrant
+    actions:
+    - GokuBlast
+  - type: MeleeThrowOnHit
+    speed: 20
+  - type: KnockdownOnHit
+    duration: 0
+    knockdownOnHeavyAttack: falsep
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damage:
+      types:
+        Poison: -0.5
+      groups:
+        Blunt: -0.5
+        Piercing: -0.5
+        Slash: -0.5
+        Burn: -0.5
+  - type: Stamina
+    critThreshold: 500
+  - type: Damageable
+    damageContainer: OrganicPart
+    damageModifierSet: Goku
