@@ -25,19 +25,12 @@ namespace Content.Shared._Goobstation.Items
             var item = ent.Comp.Owner;
 
             // Set the access levels.
-            var accesses = new List<ProtoId<AccessLevelPrototype>>();
+            List<ProtoId<AccessLevelPrototype>> accesses = [];
 
-            if (accesses == null)
-                throw new ArgumentNullException(nameof(accesses));
+            EnsureComp<AccessReaderComponent>(item, out var accessReader);
 
-            if (!EnsureComp<AccessReaderComponent>(item, out var accessReader))
-                return;
-
-            foreach (var accessList in accessReader.AccessLists)
-            {
-                var access = accessList.FirstOrDefault();
-                accesses.Add(access);
-            }
+            accesses.AddRange(accessReader.AccessLists.Select(accessList => accessList.FirstOrDefault())); // Code legibility is dead. What the fuck is this.
+            _accessReader.SetAccesses(item, accessReader, accesses);
         }
 
         private void OnAttemptShoot(Entity<RestrictByIdComponent> ent, ref AttemptShootEvent args)
