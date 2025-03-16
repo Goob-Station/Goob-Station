@@ -6424,3 +6424,9 @@ Entries:
       message: Combat injector weapon and BSO kit
   id: 741
   time: '2025-03-16T01:56:31.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: You can now sign papers by alt clicking with a pen.
+  id: 742
+  time: '2025-03-16T01:57:18.0000000+00:00'
