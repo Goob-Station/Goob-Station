@@ -1,9 +1,10 @@
+using System;
+using Robust.Shared.GameObjects;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
-using Content.Shared.Damage;
-using Robust.Shared.Network;
+using Robust.Shared.Serialization.Manager.Attributes;
 
-namespace Content.Shared._Goobstation.Bingle;
+namespace Content.Goobstation.Shared.Bingle;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class BingleComponent : Component

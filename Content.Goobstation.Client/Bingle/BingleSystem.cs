@@ -1,8 +1,10 @@
-using Robust.Client.GameObjects;
-using Content.Shared._Goobstation.Bingle;
+using Content.Goobstation.Shared.Bingle;
 using Content.Shared.CombatMode;
+using Robust.Client.GameObjects;
+using Robust.Shared.GameObjects;
+using Robust.Shared.IoC;
 
-namespace Content.Client._Goobstation.Bingle;
+namespace Content.Goobstation.Client.Bingle;
 
 /// <summary>
 ///   Handles the appearance of bingles.

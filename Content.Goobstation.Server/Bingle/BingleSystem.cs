@@ -1,16 +1,19 @@
-using Content.Shared.Interaction.Events;
-using Content.Shared.Popups;
-using Content.Shared._Goobstation.Bingle;
-using Robust.Shared.Map;
 using System.Numerics;
-using Content.Shared._White.Overlays;
+using Content.Goobstation.Common.Bingle;
+using Content.Goobstation.Shared.Bingle;
 using Content.Server.Flash.Components;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
+using Content.Shared._White.Overlays;
 using Content.Shared.CombatMode;
+using Content.Shared.Interaction.Events;
+using Content.Shared.Popups;
 using Robust.Server.GameObjects;
+using Robust.Shared.GameObjects;
+using Robust.Shared.IoC;
+using Robust.Shared.Map;
 
-namespace Content.Server._Goobstation.Bingle;
+namespace Content.Goobstation.Server.Bingle;
 
 public sealed class BingleSystem : EntitySystem
 {
@@ -40,8 +43,10 @@ public sealed class BingleSystem : EntitySystem
         {
             var query = EntityQueryEnumerator<BinglePitComponent>();
             while (query.MoveNext(out var queryUid, out var _))
+            {
                 if (cords == Transform(queryUid).Coordinates)
                     component.MyPit = queryUid;
+            }
         }
     }
 

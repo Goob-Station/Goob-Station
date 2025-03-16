@@ -1,9 +1,11 @@
+using Content.Goobstation.Shared.Bingle;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 using Robust.Shared.Animations;
-using Content.Shared._Goobstation.Bingle;
+using Robust.Shared.GameObjects;
+using Robust.Shared.IoC;
 
-namespace Content.Client._Goobstation.Bingle;
+namespace Content.Goobstation.Client.Bingle;
 
 /// <summary>
 ///     Handles the falling animation for entities that fall into a Binglepit. shamlesly copied from chasm

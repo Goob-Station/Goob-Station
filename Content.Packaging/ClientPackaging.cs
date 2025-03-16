@@ -94,8 +94,8 @@ public static class ClientPackaging
         {
             var dirName = Path.GetFileName(dir);
 
-            // Throw in anything that ends with .Client and .Shared
-            if ((dirName.EndsWith(".Client") || dirName.EndsWith(".Shared")) &&
+            // Throw in anything that ends with ".Client", ".Shared" or ".Common"
+            if ((dirName.EndsWith(".Client") || dirName.EndsWith(".Shared") || dir.EndsWith(".Common")) &&
                 !modules.Contains(dirName))
             {
                 var projectPath = Path.Combine(dir, $"{dirName}.csproj");

@@ -11,13 +11,14 @@ public static partial class PoolManager
 {
     // Modules that match ContentPrefix+suffix[..1] are considered "core" modules.
     // So, Content.Shared, Content.Client, Content.Server are "core" modules
+    // Content.Common is not a thing by default but will be considered a core module if found.
     private static readonly string ContentPrefix = "Content.";
-    private static readonly string[] Suffixes = [".Shared", ".Client", ".Server"];
+    private static readonly string[] Suffixes = [".Shared", ".Client", ".Server", ".Common"];
 
     private static readonly Assembly CurrentAssembly = typeof(PoolManager).Assembly;
 
     private static readonly HashSet<Assembly> Client = [];
-    private static readonly HashSet<Assembly> Shared = [];
+    private static readonly HashSet<Assembly> Shared = []; // Holds both .Shared and .Common modules
     private static readonly HashSet<Assembly> Server = [];
 
     private static readonly IReadOnlyList<ModuleMap> ModuleTypes = new[]
