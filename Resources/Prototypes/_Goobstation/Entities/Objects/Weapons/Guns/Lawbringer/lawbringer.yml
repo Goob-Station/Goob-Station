@@ -72,5 +72,5 @@
     keyPhrase: "I AM THE LAW"
     restrictById: true
     access: [ "HeadOfSecurity" ]
-  - type: explodeOnTrigger
+  - type: ExplodeOnTrigger
 
