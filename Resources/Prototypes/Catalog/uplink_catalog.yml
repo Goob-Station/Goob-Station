@@ -2005,11 +2005,11 @@
   description: uplink-sleeping-carp-desc
   productEntity: SleepingCarpScroll
   cost:
-    Telecrystal: 120 # Nukie carp for all team cost
+    Telecrystal: 70 # Version for LoneOps
   categories:
   - UplinkWeaponry
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
-      - NukeOpsCommanderUplink
+      - LoneOpsUplink
