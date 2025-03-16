@@ -15,4 +15,10 @@ public sealed partial class PressureDamageChangeComponent : Component
 
     [DataField]
     public float AppliedModifier = 0.25f;
+
+    [DataField]
+    public bool ApplyToMelee = true;
+
+    [DataField]
+    public bool ApplyToProjectiles = true;
 }

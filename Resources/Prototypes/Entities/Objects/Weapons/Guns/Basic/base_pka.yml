@@ -14,6 +14,7 @@
   - type: WeaponAttachment
     lightActionPrototype: ActionTogglePKALight
   - type: PressureDamageChange
+    applyToMelee: false
   - type: Multishot
   - type: UpgradeableGun
     whitelist:
@@ -72,5 +73,7 @@
     damage:
       types:
         Blunt: 5
+    soundHit:
+      path: /Audio/Effects/bite.ogg
   - type: AltFireMelee
     attackType: Heavy
