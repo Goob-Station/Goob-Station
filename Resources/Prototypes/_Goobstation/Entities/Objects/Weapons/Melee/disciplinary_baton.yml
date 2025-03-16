@@ -14,6 +14,9 @@
       types:
         Blunt: 15
   - type: TelescopicBaton
+    AttackTimeframe: 10
+    AlwaysDropItems: true
+    CanDropItems: true
   - type: KnockdownOnHit
     duration: 3.0
     dropHeldItemsBehavior: DropIfStanding
