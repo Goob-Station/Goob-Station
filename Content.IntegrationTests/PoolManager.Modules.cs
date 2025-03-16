@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using Robust.Shared.ContentPack;
 
 namespace Content.IntegrationTests;
@@ -26,11 +27,8 @@ public static partial class PoolManager
         new ModuleMap(typeof(GameShared), Shared),
     };
 
-    private static void DiscoverModules()
+    private static readonly Lazy<bool> Discovered = new Lazy<bool>(() =>
     {
-        if (Client.Count != 0 || Shared.Count != 0 || Server.Count != 0)
-            throw new InvalidOperationException("DiscoverModules ran twice!");
-
         LoadCore();
         LoadExtras();
 
@@ -44,6 +42,14 @@ public static partial class PoolManager
                 AssignModule(assembly);
             }
         }
+
+        return true;
+    },
+    LazyThreadSafetyMode.ExecutionAndPublication);
+
+    private static void DiscoverModules()
+    {
+        _ = Discovered.Value;
     }
 
     /// <summary>
