@@ -8,6 +8,8 @@ namespace Content.IntegrationTests;
 
 public static partial class PoolManager
 {
+    // Modules that match ContentPrefix+suffix[..1] are considered "core" modules.
+    // So, Content.Shared, Content.Client, Content.Server are "core" modules
     private static readonly string ContentPrefix = "Content.";
     private static readonly string[] Suffixes = [".Shared", ".Client", ".Server"];
 
@@ -29,6 +31,7 @@ public static partial class PoolManager
         if (Client.Count != 0 || Shared.Count != 0 || Server.Count != 0)
             throw new InvalidOperationException("DiscoverModules ran twice!");
 
+        LoadCore();
         LoadExtras();
 
         foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
@@ -43,20 +46,20 @@ public static partial class PoolManager
         }
     }
 
+    /// <summary>
+    /// This is required for programs that don't explicitly load core modules by themselves.
+    /// For example, Content.YAMLLinter.
+    /// </summary>
+    private static void LoadCore()
+    {
+        var coreModules = Suffixes.Select(suffix => ContentPrefix + suffix[1..]).ToArray();
+        LoadAssemblies(fileName => coreModules.Contains(fileName));
+    }
 
     private static void LoadExtras()
     {
-        var dir = Path.GetDirectoryName(CurrentAssembly.Location);
-
-        if (string.IsNullOrEmpty(dir))
-            return;
-
-        var dlls = Directory.GetFiles(dir, "*.dll");
-
-        var match = dlls.Where(file =>
+        LoadAssemblies(fileName =>
         {
-            var fileName = Path.GetFileNameWithoutExtension(file);
-
             if (!fileName.StartsWith(ContentPrefix))
                 return false;
 
@@ -68,8 +71,19 @@ public static partial class PoolManager
             var middlePartLength = fileName.Length - ContentPrefix.Length - matchingSuffix.Length;
             return middlePartLength > 0;
         });
+    }
 
-        foreach (var dll in match)
+    private static void LoadAssemblies(Func<string, bool> fileFilter)
+    {
+        var dir = Path.GetDirectoryName(CurrentAssembly.Location);
+
+        if (string.IsNullOrEmpty(dir))
+            return;
+
+        var dlls = Directory.GetFiles(dir, "*.dll");
+        var matchingDlls = dlls.Where(file => fileFilter(Path.GetFileNameWithoutExtension(file)));
+
+        foreach (var dll in matchingDlls)
         {
             if (!AlreadyLoaded(dll))
             {
