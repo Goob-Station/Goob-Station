@@ -27,7 +27,7 @@
   - SurvivalSecurity
 
 - type: roleLoadout
-  id: JobNanotrasenTrainer
+  id: JobNanotrasenCareerTrainer
   groups:
   - GroupTankHarness
   - NanotrasenTrainerHead

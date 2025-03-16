@@ -3,11 +3,6 @@
   name: job-name-nct
   description: job-description-nct
   playTimeTracker: JobNanotrasenCareerTrainer
-  setPreference: true
-  startingGear: NanotrasenCareerTrainerGear
-  icon: "JobIconNanotrasenTrainer"
-  supervisors: job-supervisors-ntr-centcom
-  canBeAntag: false
   requirements:
   - !type:DepartmentTimeRequirement
     department: Command
@@ -19,7 +14,11 @@
     requiredAge: 21
   goobcoins: 65
   weight: 20
+  startingGear: BlueshieldOfficerGear
+  icon: "JobIconNanotrasenTrainer"
   joinNotifyCrew: true
+  supervisors: job-supervisors-ntr-centcom
+  canBeAntag: false
   access:
   - Security
   - Brig
@@ -46,7 +45,6 @@
 - type: startingGear
   id: NanotrasenCareerTrainerGear
   equipment:
-    eyes: ClothingEyesGlassesCentComm
     gloves: ClothingHandsGlovesHeavyGoldenTrim
     id: TrainerPDA
     ears: ClothingHeadsetAltCentCom
