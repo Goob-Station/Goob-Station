@@ -26,8 +26,6 @@ namespace Content.Shared._Goobstation.Items
 
             // Set the access levels.
             EnsureComp<AccessReaderComponent>(item, out var accessReader);
-            foreach (var access in ent.Comp.AccessLists){}
-            accessReader.AccessLists.Add(ent.Comp.AccessLists);
         }
 
         private void OnAttemptShoot(Entity<RestrictByIdComponent> ent, ref AttemptShootEvent args)
