@@ -1,8 +1,9 @@
 ## UI
+
 cloning-console-window-title = Cloning Console
 cloning-console-window-clone-button-text = Clone
-cloning-console-window-scanner-id = ID: [color=white]{$scannerOccupantName}[/color]
-cloning-console-window-pod-id = ID: [color=white]{$podOccupantName}[/color]
+cloning-console-window-scanner-id = ID: [color=white]{ $scannerOccupantName }[/color]
+cloning-console-window-pod-id = ID: [color=white]{ $podOccupantName }[/color]
 cloning-console-window-no-patient-data-text = No patient data.
 cloning-console-window-id-blank = ID:
 cloning-console-window-scanner-details-label = Genetic Scanner Status
@@ -24,7 +25,6 @@ cloning-console-component-msg-already-cloning = Not Ready: Pod Network Conflict
 cloning-console-component-msg-incomplete = Not Ready: Cloning In Progress
 cloning-console-component-msg-no-cloner = Not Ready: No Cloner Detected
 cloning-console-component-msg-no-mind = Not Ready: No Soul Activity Detected
-
-cloning-console-chat-error = ERROR: INSUFFICIENT BIOMASS. CLONING THIS BODY REQUIRES {$units} UNITS OF BIOMASS.
+cloning-console-chat-error = ERROR: INSUFFICIENT BIOMASS. CLONING THIS BODY REQUIRES { $units } UNITS OF BIOMASS.
 cloning-console-uncloneable-trait-error = ERROR: SOUL IS ABSENT, CLONING IS IMPOSSIBLE.
-cloning-console-cellular-warning = WARNING: GENEFSCK CONFIDENCE SCORE IS {$percent}%. CLONING MAY HAVE UNEXPECTED RESULTS.
+cloning-console-cellular-warning = WARNING: GENEFSCK CONFIDENCE SCORE IS { $percent }%. CLONING MAY HAVE UNEXPECTED RESULTS.

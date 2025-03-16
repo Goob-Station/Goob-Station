@@ -7,25 +7,23 @@ story-gen-book-type6 = records
 story-gen-book-type7 = tome
 story-gen-book-type8 = journal
 story-gen-book-type9 = archives
-story-gen-book-type10= codex
-story-gen-book-type11= memories
-story-gen-book-type12= compendium
-
+story-gen-book-type10 = codex
+story-gen-book-type11 = memories
+story-gen-book-type12 = compendium
 story-gen-book-genre1 = work of crime fiction
 story-gen-book-genre2 = comedy
 story-gen-book-genre3 = horror story
 story-gen-book-genre4 = poem
 story-gen-book-genre5 = novella
 story-gen-book-genre6 = chronicle
-story-gen-book-genre7 = work of science-fiction
+story-gen-book-genre7 = work of starswirl academy-fiction
 story-gen-book-genre8 = fantasy story
 story-gen-book-genre9 = romance
-story-gen-book-genre10= thriller
-story-gen-book-genre11= work of historical fiction
-story-gen-book-genre12= biography
-story-gen-book-genre13= adventure story
-story-gen-book-genre14= drama
-
+story-gen-book-genre10 = thriller
+story-gen-book-genre11 = work of historical fiction
+story-gen-book-genre12 = biography
+story-gen-book-genre13 = adventure story
+story-gen-book-genre14 = drama
 story-gen-book-appearance1 = ancient
 story-gen-book-appearance2 = shabby
 story-gen-book-appearance3 = dirty
@@ -35,25 +33,24 @@ story-gen-book-appearance6 = nasty
 story-gen-book-appearance7 = dusty
 story-gen-book-appearance8 = scary
 story-gen-book-appearance9 = bloody
-story-gen-book-appearance10= bright
-story-gen-book-appearance11= dubious
-story-gen-book-appearance12= intriguing
-story-gen-book-appearance13= ugly
-story-gen-book-appearance14= crooked
-story-gen-book-appearance15= crumpled
-story-gen-book-appearance16= dirty
-story-gen-book-appearance17= elegant
-story-gen-book-appearance18= ornate
-story-gen-book-appearance19= weathered
-story-gen-book-appearance20= crisp
-story-gen-book-appearance21= lavish
-story-gen-book-appearance22= tattered
-story-gen-book-appearance23= polished
-story-gen-book-appearance24= embossed
-story-gen-book-appearance25= mismatched
-story-gen-book-appearance26= gilded
-story-gen-book-appearance27= strange
-
+story-gen-book-appearance10 = bright
+story-gen-book-appearance11 = dubious
+story-gen-book-appearance12 = intriguing
+story-gen-book-appearance13 = ugly
+story-gen-book-appearance14 = crooked
+story-gen-book-appearance15 = crumpled
+story-gen-book-appearance16 = dirty
+story-gen-book-appearance17 = elegant
+story-gen-book-appearance18 = ornate
+story-gen-book-appearance19 = weathered
+story-gen-book-appearance20 = crisp
+story-gen-book-appearance21 = lavish
+story-gen-book-appearance22 = tattered
+story-gen-book-appearance23 = polished
+story-gen-book-appearance24 = embossed
+story-gen-book-appearance25 = mismatched
+story-gen-book-appearance26 = gilded
+story-gen-book-appearance27 = strange
 story-gen-book-character1 = clown
 story-gen-book-character2 = mime
 story-gen-book-character3 = reporter
@@ -68,7 +65,7 @@ story-gen-book-character11 = chemist
 story-gen-book-character12 = prisoner
 story-gen-book-character13 = researcher
 story-gen-book-character14 = trader
-story-gen-book-character15 = captain
+story-gen-book-character15 = celestia
 story-gen-book-character16 = lizard
 story-gen-book-character17 = moth
 story-gen-book-character18 = diona
@@ -92,9 +89,8 @@ story-gen-book-character35 = arachnid
 story-gen-book-character36 = vox
 story-gen-book-character37 = dwarf
 story-gen-book-character38 = thief
-story-gen-book-character39 = wizard
+story-gen-book-character39 = discord
 story-gen-book-character40 = slime
-
 story-gen-book-character-trait1 = stupid
 story-gen-book-character-trait2 = smart
 story-gen-book-character-trait3 = funny
@@ -119,7 +115,6 @@ story-gen-book-character-trait21 = painfully beautiful
 story-gen-book-character-trait22 = robotic
 story-gen-book-character-trait23 = holographic
 story-gen-book-character-trait24 = hysterically laughing
-
 story-gen-book-event1 = a zombie outbreak
 story-gen-book-event2 = a nuclear explosion
 story-gen-book-event3 = a mass murder
@@ -144,7 +139,6 @@ story-gen-book-event21 = eating way too much pizza
 story-gen-book-event22 = having a quarrel with a close friend
 story-gen-book-event23 = the sudden loss of their home in a fiery blaze
 story-gen-book-event24 = the loss of a PDA
-
 story-gen-book-action1 = share in a kiss with
 story-gen-book-action2 = strangle
 story-gen-book-action3 = blow apart
@@ -157,7 +151,6 @@ story-gen-book-action9 = infiltrate the wedding of
 story-gen-book-action10 = join forces to defeat their common enemy,
 story-gen-book-action11 = are forced to work together to escape
 story-gen-book-action12 = give a valuable gift to
-
 story-gen-book-action-trait1 = clumsily
 story-gen-book-action-trait2 = disgustingly
 story-gen-book-action-trait3 = marvelously
@@ -171,7 +164,6 @@ story-gen-book-action-trait10 = severely
 story-gen-book-action-trait11 = ruthlessly
 story-gen-book-action-trait12 = playfully
 story-gen-book-action-trait13 = thoughtfully
-
 story-gen-book-location1 = in an underground complex
 story-gen-book-location2 = while on an expedition
 story-gen-book-location3 = while trapped in outer space
@@ -180,7 +172,7 @@ story-gen-book-location5 = in a hidden garden
 story-gen-book-location6 = in the kitchen of a local restaurant
 story-gen-book-location7 = under the counter of the local sports bar
 story-gen-book-location8 = in an ancient library
-story-gen-book-location9 = while deep in bowels of the space station's maintenance corridors
+story-gen-book-location9 = while deep in bowels of the space ponyville's maintenance corridors
 story-gen-book-location10 = on the bridge of a starship
 story-gen-book-location11 = while in a grungy public bathroom
 story-gen-book-location12 = while trapped inside a crate
@@ -200,13 +192,12 @@ story-gen-book-location25 = in an escape pod
 story-gen-book-location26 = while abroad in a fictional country
 story-gen-book-location27 = clinging to the wing of an inflight airplane
 story-gen-book-location28 = inside a pocket dimension
-story-gen-book-location29 = onboard a Wizard Federation shuttle
+story-gen-book-location29 = onboard a Discord Federation shuttle
 story-gen-book-location30 = standing atop of a mountain of corpses
 story-gen-book-location31 = while psychically projected into their subconscious
 story-gen-book-location32 = while trapped in a shadow dimension
-story-gen-book-location33 = while trying to escape a destroyed space station
+story-gen-book-location33 = while trying to escape a destroyed space ponyville
 story-gen-book-location34 = while sandwiched between a Tesla ball and a gravitational singularity
-
 story-gen-book-element1 = plot
 story-gen-book-element2 = twist
 story-gen-book-element3 = climax
@@ -216,7 +207,6 @@ story-gen-book-element6 = moral of the story
 story-gen-book-element7 = theme of this work
 story-gen-book-element8 = literary style
 story-gen-book-element9 = artwork
-
 story-gen-book-element-trait1 = terrifying
 story-gen-book-element-trait2 = disgusting
 story-gen-book-element-trait3 = wonderful
@@ -230,15 +220,3 @@ story-gen-book-element-trait10 = interesting
 story-gen-book-element-trait11 = inadequate
 story-gen-book-element-trait12 = sad
 story-gen-book-element-trait13 = rather depressing
-
-
-
-
-
-
-
-
-
-
-
-

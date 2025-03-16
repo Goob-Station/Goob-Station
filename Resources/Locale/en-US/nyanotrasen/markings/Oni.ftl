@@ -10,5 +10,5 @@ marking-OniHornDoubleCurved = Double Curved
 marking-OniHornDoubleCurved-double_curved = Double Curved
 marking-OniHornDoubleLeftBrokeCurved = Double Left Broke Curved
 marking-OniHornDoubleLeftBrokeCurved-double_left_broke_curved = Double Left Broke Curved
-marking-OniHornDoubleRightBrokeCurved =  Double Right Broke Curved
+marking-OniHornDoubleRightBrokeCurved = Double Right Broke Curved
 marking-OniHornDoubleRightBrokeCurved-double_right_broke_curved = Double Right Broke Curved

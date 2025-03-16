@@ -27,23 +27,19 @@
   id: LockerFillBlueshieldOfficer
   table: !type:AllSelector
     children:
-    - id: ClothingHeadHelmetSwat
-    - id: Flash
-    - id: FlashlightSeclite
-    - id: ClothingBlueshieldArmourVest
-   # - id: ClothingEyesGlassesMedSec - NO MORE MEDSEC NTR. DEATH TO YOU
-   # - id: ClothingHandsGlovesCombat
-    - id: ClothingOuterHardsuitBlueshield
+    - id: DefibrillatorCompact
+    - id: MedkitBSOFilled
+    - id: MedkitBSOIPCFilled
+    - id: FlippoLighterBlueshield
+    - id: CigPackBlueshield
     - id: BoxZiptie
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
-    - id: MagazineBoxShotgunHighCaliber # Yeah these aren't gonna fit in a box.
-    - id: MagazineBoxShotgunHighCaliberFlash
-    - id: MagazineBoxShotgunHighCaliberEnsnaring
-    - id: MagazineBoxShotgunHighCaliberEMP
-    - id: WeaponLeverChester # I AM JOHN POWER CREEP
-    - id: MagazineShotgunLeverRifleEmpty
-    - id: MagazineShotgunLeverRifleEmpty
+    - id: ClothingHeadHelmetSwat
+    - id: BlueshieldUndeterminedHardsuit
+    - id: ClothingBackpackDuffelSurgeryFilled
+    - id: BoxTracker
+    - id: BlueshieldUndeterminedWeapon
 
 - type: entity
   id: LockerBlueshieldOfficerFilled

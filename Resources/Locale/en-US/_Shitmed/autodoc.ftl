@@ -1,17 +1,15 @@
-autodoc-program-step-surgery = perform surgery on {$part}: {$name}
-autodoc-program-step-grab-item = grab item: '{$name}'
-autodoc-program-step-grab-any = grab any: {$name}
+autodoc-program-step-surgery = perform surgery on { $part }: { $name }
+autodoc-program-step-grab-item = grab item: '{ $name }'
+autodoc-program-step-grab-any = grab any: { $name }
 autodoc-item-organ = Organ
 autodoc-item-part = Body Part
 autodoc-program-step-store-item = store item
-autodoc-program-step-set-label = set label: '{$label}'
-autodoc-program-step-wait = wait {$length} seconds
-
+autodoc-program-step-set-label = set label: '{ $label }'
+autodoc-program-step-wait = wait { $length } seconds
 autodoc-program-completed = PROGRAM COMPLETED
-autodoc-error = ERROR: {$error}
-autodoc-fatal-error = FATAL ERROR: {$error}
+autodoc-error = ERROR: { $error }
+autodoc-fatal-error = FATAL ERROR: { $error }
 autodoc-waiting = PROGRAM WAITING
-
 autodoc-error-missing-patient = MISSING PATIENT
 autodoc-error-body-part = BODY PART NOT DETECTED
 autodoc-error-surgery-impossible = SELECTED SURGERY IMPOSSIBLE
@@ -30,10 +28,9 @@ autodoc-title = AUTODOC 人民辉煌自动手术机 MK.XIV
 autodoc-create-program = NEW PROGRAM 新计划
 # Chinese text translates approximately to "Plan Title"
 autodoc-program-title = PROGRAM TITLE 计划标题
-autodoc-program-title-placeholder = Program {$number}
+autodoc-program-title-placeholder = Program { $number }
 # Chinese text translates approximately to "Quit"
 autodoc-abort-program = ABORT PROGRAM 退出
-
 # Chinese text translates approximately to "View Plan"
 autodoc-view-program-title = VIEW PROGRAM 查看计划
 # Chinese text translates approximately to "Ensure Safety"
@@ -52,7 +49,6 @@ autodoc-start-program = START PROGRAM 发起光荣人民计划
 autodoc-import-program = IMPORT PROGRAM 进口计划
 # Chinese text translates approximately to "import program")
 autodoc-export-program = EXPORT PROGRAM 出口计划
-
 # Chinese text translates approximately to "Start Surgical Operation"
 autodoc-add-step-surgery = PERFORM SURGERY 开始手术
 # Chinese text translates approximately to "Take Item"
@@ -71,7 +67,6 @@ autodoc-add-step-set-label-prompt = Label
 # Chinese text translates approximately to "Wait" this is probably the most impolite way you can say it, but im stupid and this is all i know :)
 autodoc-add-step-wait = WAIT 等
 autodoc-add-step-wait-prompt = Seconds to wait
-
 autodoc-body-part-Other = Other
 autodoc-body-part-Torso = Torso
 autodoc-body-part-Head = Head
@@ -80,10 +75,8 @@ autodoc-body-part-Hand = Hand
 autodoc-body-part-Leg = Leg
 autodoc-body-part-Foot = Foot
 autodoc-body-part-Tail = Tail
-
 autodoc-body-symmetry-ignored = Any
 autodoc-body-symmetry-None = None
 autodoc-body-symmetry-Left = Left
 autodoc-body-symmetry-Right = Right
-
 autodoc-submit = Submit

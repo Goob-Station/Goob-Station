@@ -7,8 +7,7 @@
   - type: StationEvent
     startAnnouncement: station-event-deathsquad-enroute
     startAudio:
-      path: /Audio/Announcements/attention.ogg
-    weight: 10
+      path: /Audio/StationEvents/rescue_imminent.ogg
     reoccurrenceDelay: 30
     duration: null
     maxOccurrences: 1
@@ -25,9 +24,7 @@
     startAnnouncement: station-event-cburn-enroute
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    weight: 10
-    reoccurrenceDelay: 30
-    duration: null
+    duration: 1
     maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: RetortShuttleCBURN
@@ -39,34 +36,50 @@
   id: SpawnERTSecurity
   components:
   - type: StationEvent
-    startAnnouncement: station-event-emergencyresponseteam-enroute
+    startAnnouncement: station-event-emergencyresponseteam-security-enroute
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    weight: 10
-    reoccurrenceDelay: 30
-    duration: null
+    duration: 1
     maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: RetortShuttleAssault
 
 - type: entity
-  parent: SpawnERTSecurity
+  parent: BaseUnknownShuttleRule
   id: SpawnERTMedical
   components:
+  - type: StationEvent
+    startAnnouncement: station-event-emergencyresponseteam-medical-enroute
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    duration: 1
+    maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: RetortShuttleMedical
 
 - type: entity
-  parent: SpawnERTSecurity
+  parent: BaseUnknownShuttleRule
   id: SpawnERTEngineering
   components:
+  - type: StationEvent
+    startAnnouncement: station-event-emergencyresponseteam-engineering-enroute
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    duration: 1
+    maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: RetortShuttleEngineering
 
 - type: entity
-  parent: SpawnERTSecurity
+  parent: BaseUnknownShuttleRule
   id: SpawnERTJanitorial
   components:
+  - type: StationEvent
+    startAnnouncement: station-event-emergencyresponseteam-generic-enroute
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    duration: 1
+    maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: RetortShuttleJanitorial
 
