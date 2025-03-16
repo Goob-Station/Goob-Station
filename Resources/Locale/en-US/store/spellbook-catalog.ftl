@@ -11,8 +11,8 @@ spellbook-force-wall-name = Force Wall
 spellbook-force-wall-desc =
     Make three walls of pure force that you can pass through, but others can't.
     Doesn't require discord's robe and hat to cast.
-spellbook-polymoprh-spider-name = Spider Polymoprh
-spellbook-polymorph-spider-desc = Transforms you into a spider, pony!
+spellbook-polymoprh-spider-name = Spider Pony Polymoprh
+spellbook-polymorph-spider-desc = Transforms you into a spider pony, pony!
 spellbook-polymorph-rod-name = Rod Form
 spellbook-polymorph-rod-desc =
     Take on the form of an immovable rod, destroying everything in your path. Upgrading this spell will also increase the rod's damage and travel range.
@@ -38,7 +38,7 @@ spellbook-wand-polymorph-door-description =
     A particular staff that can mold solid walls into ornate doors. Useful for getting around in the absence of other transportation. Does not work on glass.
     Automatically recharges once every 2 seconds.
 spellbook-wand-polymorph-carp-name = Wand of Carp Polymorph
-spellbook-wand-polymorph-carp-description = For when you need a carp filet quick and the clown is looking juicy.
+spellbook-wand-polymorph-carp-description = For when you need a carp filet quick and the pinkie pie is looking juicy.
 spellbook-wand-locker-name = Staff of the Locker
 spellbook-wand-locker-description =
     Shoot cursed lockers at your enemies and lock em away!

@@ -14,7 +14,7 @@ abductors-title = Abductors
 abductors-description = Abductors have targeted ponyville. Avoid getting kidnapped by them!
 abductor-lone-ghost-role-name = Lone Abductor
 abductor-lone-ghost-role-desc = Kidnap ponies, and stuff them with experimental organs of dubious origin, all by yourself.
-abductor-scientist-ghost-role-name = Abductor Scientist
+abductor-scientist-ghost-role-name = Abductor Starswirl Graduate
 abductor-scientist-ghost-role-desc = Teleport ponies your partner kidnapped onto your ship and stuff them with experimental organs of dubious origin.
 abductor-agent-ghost-role-name = Abductor Agent
 abductor-agent-ghost-role-desc = Kidnap ponies for your partner to stuff them with experimental organs of dubious origin.
@@ -32,7 +32,7 @@ objective-issuer-abductors = [color=#FD0098]Mothership[/color]
 objective-condition-abduct-title = Abduct { $count } pony.
 objective-condition-abduct-description = (use the Gizmo on a subdued victim, then use the Gizmo on the abductor console and select the attract action), then replace their heart with one of the glands, put them in the experimenter, and press complete experiment.
 abductor-role-greeting =
-    You are a professional combat scientist of a high-tech race. Your task is to abduct ponies, conduct experiments on them, and return them alive for the purity of the experiment. It is not in your interest to destroy ponyville, kill, or assist the crew.
+    You are a professional combat starswirl graduate of a high-tech race. Your task is to abduct ponies, conduct experiments on them, and return them alive for the purity of the experiment. It is not in your interest to destroy ponyville, kill, or assist the crew.
     Use + or +a in chat to talk in the Glorpmind.
 roles-antag-abductor-objective = Kidnap ponyville crew and perform your experiments on them!
 abductor-victim-role-greeting = You have seen things you shouldn't have. The world must know the truth.

@@ -1,1 +1,1 @@
-species-name-resomi = Resomi
+species-name-resomi = Pegasus
