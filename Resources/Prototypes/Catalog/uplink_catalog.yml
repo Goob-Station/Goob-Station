@@ -2012,4 +2012,4 @@
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
-      - NukeOpsUplink
+      - NukeOpsCommanderUplink
