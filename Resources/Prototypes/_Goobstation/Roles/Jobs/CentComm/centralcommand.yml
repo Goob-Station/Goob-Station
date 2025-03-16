@@ -33,7 +33,7 @@
     id: NavyOfficerPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltHolsterFilledCentComm # Todo - Give the officer a sabre
-    pocket1: BoxFolderCentCom
+    pocket1: HyperFlash
     pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
 
 # Navy Captain
@@ -190,7 +190,7 @@
     id: DiplomatPDA
     ears: ClothingHeadsetAltCentCom
     # belt: ClothingBeltHolsterFilledCentComm - SOMEONE wouldn't stop bitching until i removed this
-    pocket1: TelescopicBaton
+    pocket1: TelescopicBatonAdvanced
     pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
 
 ## Half-life stolen roles

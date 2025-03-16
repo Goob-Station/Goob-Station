@@ -5,8 +5,8 @@
   - type: StorageFill
     contents:
     - id: HandheldFaxOfficial
-    - id: HyperFlash
     - id: WeaponPulsePistol
+    - id: TelescopicBatonAdvanced
 
 - type: entity
   parent: ClothingBackpackSatchelLeather
@@ -17,6 +17,7 @@
     - id: WeaponPulsePistol
     - id: HandheldFaxOfficial
     - id: NukeOverride # No need for codes.
+    - id: TelescopicBatonAdvanced
     - id: MagazineLightRifleUranium
     - id: MagazineLightRifleUranium
     - id: HyperFlash
