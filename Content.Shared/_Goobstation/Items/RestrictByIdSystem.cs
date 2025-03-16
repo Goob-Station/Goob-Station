@@ -48,7 +48,7 @@ namespace Content.Shared._Goobstation.Items
                 return;
 
             args.Cancelled = true;
-            _popupSystem.PopupClient(args.Message, item, PopupType.Medium);
+            _popupSystem.PopupClient(args.Message, item, PopupType.MediumCaution);
 
         }
 
@@ -72,7 +72,7 @@ namespace Content.Shared._Goobstation.Items
                 return;
 
             args.Cancelled = true;
-            _popupSystem.PopupClient(args.Message, item, PopupType.Medium);
+            _popupSystem.PopupClient(args.Message, item, PopupType.MediumCaution);
         }
     }
 }
