@@ -1,16 +1,41 @@
 # Tier 1
+- type: technology
+  id: AccessibilityTech
+  name: research-technology-accessibility
+  icon:
+    sprite: _Goobstation/Objects/Vehicles/hoverchair.rsi
+    state: vehicle
+  discipline: CivilianServices
+  tier: 1
+  cost: 4500
+  recipeUnlocks:
+  - VehicleHoverchairSci
+  - PrescriptionGlasses
 
 - type: technology
-  id: PrescriptionLenses
-  name: research-technology-prescription-lenses
+  id: MedicalDefense
+  name: research-technology-medical-defense
   icon:
-    sprite: Clothing/Eyes/Glasses/glasses.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
     state: icon
   discipline: CivilianServices
   tier: 1
-  cost: 2500
-  recipeUnlocks: # In the future, this can allow for prescription versions of sec glasses/med glasses
-  - PrescriptionGlasses
+  cost: 5000
+  recipeUnlocks:
+  - SyringeGun
+
+- type: technology
+  id: RescueTechnology
+  name: research-technology-rescue
+  icon:
+    sprite: Objects/Specific/Medical/handheldcrewmonitor.rsi
+    state: scanner
+  discipline: CivilianServices
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - HandheldCrewMonitor
+  - DefibrillatorCompact
 
 # Tier 2
 
@@ -26,17 +51,5 @@
   recipeUnlocks:
   - MechEquipmentHonkerBananaMortar
   - MechEquipmentHonkerMousetrapMortar
-
-- type: technology
-  id: MedicalDefense
-  name: research-technology-medical-defense
-  icon:
-    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
-    state: rapid-syringe-gun
-  discipline: CivilianServices
-  tier: 2
-  cost: 10000
-  recipeUnlocks:
-  - RapidSyringeGun
 
 # Tier 3

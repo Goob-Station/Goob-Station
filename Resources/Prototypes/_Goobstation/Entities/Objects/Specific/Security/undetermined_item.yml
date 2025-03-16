@@ -1,0 +1,43 @@
+- type: entity
+  id: BlueshieldUndeterminedWeapon
+  name: blueshield weaponry pack
+  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
+  parent: [ BaseItem, BaseCentcommContraband ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Security/blueshieldundetermined.rsi
+    state: icon
+  - type: ThiefUndeterminedBackpack # Someone should rename this.
+    possibleSets:
+    - BlueshieldSet
+    - RevolverSet
+    - CQCSet
+    - ChesterSet
+    - SyringeSet
+  - type: ActivatableUI
+    key: enum.ThiefBackpackUIKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ThiefBackpackUIKey.Key:
+        type: ThiefBackpackBoundUserInterface
+
+- type: entity
+  id: BlueshieldUndeterminedHardsuit
+  name: blueshield hardsuit pack
+  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
+  parent: [ BaseItem, BaseCentcommContraband ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Security/blueshieldundetermined.rsi
+    state: icon-alt
+  - type: ThiefUndeterminedBackpack # Someone should rename this.
+    possibleSets:
+    - LightSet
+    - HeavySet
+    maxSelectedSets: 1
+  - type: ActivatableUI
+    key: enum.ThiefBackpackUIKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ThiefBackpackUIKey.Key:
+        type: ThiefBackpackBoundUserInterface

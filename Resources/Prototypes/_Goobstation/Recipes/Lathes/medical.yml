@@ -14,6 +14,15 @@
     Glass: 500
 
 - type: latheRecipe
+  id: VehicleHoverchairSci
+  result: VehicleHoverchair
+  completetime: 5
+  materials:
+    Steel: 500
+    Gold: 300
+    Plasma: 250
+
+- type: latheRecipe
   id: SyringeGun
   result: SyringeGun
   completetime: 5
@@ -25,17 +34,6 @@
     Plasma: 100
 
 - type: latheRecipe
-  id: RapidSyringeGun
-  result: RapidSyringeGun
-  completetime: 5
-  materials:
-    Steel: 1000
-    Glass: 1000
-    Plastic: 1000
-    Gold: 200
-    Plasma: 200
-
-- type: latheRecipe
   id: ParamedHypo
   result: ParamedHypo
   completetime: 3
@@ -44,3 +42,21 @@
     Plastic: 800
     Glass: 1200
     Gold: 500
+
+- type: latheRecipe
+  id: HandheldCrewMonitor
+  result: HandheldCrewMonitorEmpty
+  completetime: 5
+  materials:
+    Steel: 500
+    Glass: 200
+    Plastic: 200
+    Gold: 100
+
+- type: latheRecipe
+  id: DefibrillatorCompact
+  result: DefibrillatorCompactEmpty
+  completetime: 5
+  materials:
+    Steel: 250
+    Silver: 50

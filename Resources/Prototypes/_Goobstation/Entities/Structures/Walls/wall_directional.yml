@@ -1,0 +1,80 @@
+- type: entity
+  id: WallDirectional
+  parent: BaseStructure
+  name: directional wall
+  description: Cheap and cheerful metal plating.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: RangedDamageSound
+    soundGroups:
+      Brute:
+        collection:
+          MetalBulletImpact
+    soundTypes:
+      Heat:
+        collection:
+          MetalLaserImpact
+  - type: Tag
+    tags:
+      - Wall
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        collection: MetalThud
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Structures/Walls/directional.rsi
+    state: directionalwall
+  - type: Icon
+    sprite: _Goobstation/Structures/Walls/directional.rsi
+    state: directionalwall
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,-0.28125"
+        density: 500
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: Repairable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: RCDDeconstructable
+    cost: 4
+    delay: 2
+    fx: EffectRCDDeconstruct2
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+    airBlockedDirection:
+    - South
+  - type: Construction
+    graph: WallDirectional
+    node: wallDirectional
+  - type: Occluder
+    boundingBox: "-0.5,-0.5,0.5,-0.28125"
+  - type: StaticPrice
+    price: 37
+  - type: RadiationBlocker
+    resistance: 1
+  - type: BlockWeather

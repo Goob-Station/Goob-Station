@@ -46,6 +46,14 @@
     Glass: 300
 
 - type: latheRecipe
+  id: CartridgeSaline
+  result: CartridgeSaline
+  completetime: 1
+  materials:
+    Steel: 100
+    Glass: 300
+
+- type: latheRecipe
   id: CartridgeEphedrine
   result: CartridgeEphedrine
   completetime: 1
@@ -75,6 +83,18 @@
     Glass: 1200
     Gold: 500
 
+# Guns
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponTemperatureGun
+  result: WeaponTemperatureGun
+  materials:
+    Steel: 1500
+    Glass: 800
+    Plastic: 500
+    Plasma: 500
+
 # Smartgun
 
 - type: latheRecipe
@@ -98,7 +118,8 @@
 - type: latheRecipe
   id: WeaponMechCombatImmolationGun
   result: WeaponMechCombatImmolationGun
-  category: MechWeapons
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 2800
@@ -109,7 +130,8 @@
 - type: latheRecipe
   id: WeaponMechCombatSolarisLaser
   result: WeaponMechCombatSolarisLaser
-  category: MechWeapons
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 1650
@@ -120,7 +142,8 @@
 - type: latheRecipe
   id: WeaponMechCombatFiredartLaser
   result: WeaponMechCombatFiredartLaser
-  category: MechWeapons
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 1200
@@ -131,7 +154,8 @@
 - type: latheRecipe
   id: WeaponMechCombatUltraRifle
   result: WeaponMechCombatUltraRifle
-  category: MechWeapons
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 1000
@@ -140,7 +164,8 @@
 - type: latheRecipe
   id: WeaponMechCombatShotgun
   result: WeaponMechCombatShotgun
-  category: MechWeapons
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 1600
@@ -149,7 +174,8 @@
 - type: latheRecipe
   id: WeaponMechCombatShotgunIncendiary
   result: WeaponMechCombatShotgunIncendiary
-  category: MechWeapons
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 1500
@@ -159,7 +185,8 @@
 - type: latheRecipe
   id: WeaponMechCombatDisabler
   result: WeaponMechCombatDisabler
-  category: MechWeapons
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 750
@@ -169,7 +196,8 @@
 - type: latheRecipe
   id: WeaponMechCombatFlashbangLauncher
   result: WeaponMechCombatFlashbangLauncher
-  category: MechWeapons
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 1200
@@ -179,7 +207,8 @@
 - type: latheRecipe
   id: WeaponMechCombatMissileRack8
   result: WeaponMechCombatMissileRack8
-  category: MechWeapons
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 2500
@@ -189,7 +218,8 @@
 - type: latheRecipe
   id: MechEquipmentKineticAccelerator
   result: WeaponMechIndustrialKineticAccelerator
-  category: MechEquipment
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 1500

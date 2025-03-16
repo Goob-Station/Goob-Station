@@ -17,6 +17,9 @@
     sound: /Audio/Weapons/star_hit.ogg
   - type: Stack
     count: 1
+  - type: Tag
+    tags:
+      - DroneUsable # Goobstation
   # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:

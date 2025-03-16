@@ -124,7 +124,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (melee.NextAttack > component.NextFire)
         {
             component.NextFire = melee.NextAttack;
-            EntityManager.DirtyField(uid, component, nameof(MeleeWeaponComponent.NextAttack));
+            EntityManager.DirtyField(uid, component, nameof(GunComponent.NextFire));
         }
     }
 
@@ -315,6 +315,8 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (gun.NextFire < curTime - fireRate || gun.ShotCounter == 0 && gun.NextFire < curTime)
             gun.NextFire = curTime;
 
+        bool isRechargingGun = HasComp<RechargeBasicEntityAmmoComponent>(gunUid); // Goobstation
+
         var shots = 0;
         var lastFire = gun.NextFire;
 
@@ -389,6 +391,13 @@ public abstract partial class SharedGunSystem : EntitySystem
             // triggers effects on the gun if it's empty
             var emptyGunShotEvent = new OnEmptyGunShotEvent();
             RaiseLocalEvent(gunUid, ref emptyGunShotEvent);
+
+            // Goobstation
+            if (isRechargingGun)
+            {
+                gun.NextFire = lastFire; // for empty PKAs, don't play no-ammo sound and don't trigger the reload
+                return;
+            }
 
             if (!gun.LockOnTargetBurst || gun.ShootCoordinates == null) // Goobstation
                 gun.Target = null;

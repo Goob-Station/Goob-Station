@@ -70,6 +70,7 @@
 - type: entity
   id: LavalandHierophantSquare
   suffix: DO NOT MAP
+  categories: [ DoNotMap ]
   name: hierophant square
   placement:
     mode: SnapgridCenter
@@ -123,6 +124,7 @@
 - type: entity
   id: LavalandHierophantChaser
   suffix: DO NOT MAP
+  categories: [ DoNotMap ]
   name: hierophant chaser
   placement:
     mode: SnapgridCenter

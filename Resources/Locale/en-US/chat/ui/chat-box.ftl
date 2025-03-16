@@ -1,9 +1,8 @@
-hud-chatbox-info = {$talk-key} to talk, {$cycle-key} to cycle channels.
-hud-chatbox-info-talk = {$talk-key} to talk.
-hud-chatbox-info-cycle = Click here to talk, {$cycle-key} to cycle channels.
+hud-chatbox-info = { $talk-key } to talk, { $cycle-key } to cycle channels.
+hud-chatbox-info-talk = { $talk-key } to talk.
+hud-chatbox-info-cycle = Click here to talk, { $cycle-key } to cycle channels.
 hud-chatbox-info-unbound = Click here to talk.
-
-hud-chatbox-select-name-prefixed = {$prefix} {$name}
+hud-chatbox-select-name-prefixed = { $prefix } { $name }
 hud-chatbox-select-channel-Admin = Admin
 hud-chatbox-select-channel-Console = Console
 hud-chatbox-select-channel-Dead = Dead
@@ -13,9 +12,10 @@ hud-chatbox-select-channel-Whisper = Whisper
 hud-chatbox-select-channel-LOOC = LOOC
 hud-chatbox-select-channel-OOC = OOC
 hud-chatbox-select-channel-Damage = Damage
+# Goobstation - Starlight collective mind port
+hud-chatbox-select-channel-CollectiveMind = Collective Mind
 hud-chatbox-select-channel-Visual = Actions
 hud-chatbox-select-channel-Radio = Radio
-
 hud-chatbox-channel-Admin = Admin Misc
 hud-chatbox-channel-AdminAlert = Admin Alert
 hud-chatbox-channel-AdminChat = Admin Chat
@@ -28,6 +28,8 @@ hud-chatbox-channel-OOC = OOC
 hud-chatbox-channel-Radio = Radio
 hud-chatbox-channel-Notifications = Notifications
 hud-chatbox-channel-Server = Server
+# Goobstation - Starlight collective mind port
+hud-chatbox-channel-CollectiveMind = Collective Mind
 hud-chatbox-channel-Visual = Actions
 hud-chatbox-channel-Damage = Damage
 hud-chatbox-channel-Unspecified = Unspecified

@@ -27,7 +27,12 @@
   id: tears
   flavorType: Base
   description: flavor-base-tears
-  
+
+- type: flavor
+  id: unicorntears
+  flavorType: Complex
+  description: flavor-complex-unicorntears
+
 - type: flavor
   id: alienblood
   flavorType: Base

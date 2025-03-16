@@ -24,6 +24,9 @@
     materialComposition:
       Steel: 25
       Glass: 125
+  - type: Tag
+    tags:
+    - DroneUsable # Goobstation
 
 - type: entity
   parent: LightReplacer

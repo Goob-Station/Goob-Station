@@ -8,7 +8,8 @@
 - type: latheRecipe
   id: OreBag
   result: OreBag
-  category: Tools
+  categories:
+  - Tools
   completetime: 3
   materials:
     Plastic: 500

@@ -1,5 +1,7 @@
 ﻿### Loc for the transfer amount eui window
 
+
+
 ## Title
 
 ui-transfer-amount-title = Change Transfer Amount
