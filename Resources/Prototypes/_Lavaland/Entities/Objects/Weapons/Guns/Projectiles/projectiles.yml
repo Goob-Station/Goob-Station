@@ -10,8 +10,6 @@
     damage:
       types:
         Blunt: 25
-  - type: TimedDespawn
-    lifetime: 0.08 # Lavaland Change
 
 - type: entity
   id: WeakBulletKinetic
