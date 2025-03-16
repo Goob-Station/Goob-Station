@@ -15,7 +15,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 20
+        Blunt: 8
 
 - type: entity
   parent: BriefcaseBase
