@@ -180,7 +180,6 @@ namespace Content.Server.Entry
                     _playTimeTracking?.Update();
                     _watchlistWebhookManager.Update();
                     _connectionManager?.Update();
-                    _currencyManager?.Update(); // Goobstation
                     break;
             }
         }
