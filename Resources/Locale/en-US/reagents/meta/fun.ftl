@@ -1,5 +1,5 @@
 reagent-name-carpetium = carpetium
-reagent-desc-carpetium = A mystical chemical, usually outsourced from the Clown Planet, that covers everything it touches in carpet. Somehow filters out carpotoxin from the blood stream.
+reagent-desc-carpetium = A mystical chemical, usually outsourced from the Pinkie Pie Planet, that covers everything it touches in carpet. Somehow filters out carpotoxin from the blood stream.
 reagent-name-fiber = fiber
 reagent-desc-fiber = A raw material, usually extracted from wool or other fabric products.
 reagent-name-buzzochloric-bees = buzzochloric bees
@@ -17,6 +17,6 @@ reagent-desc-fresium = A mysterious compound that slows the vibration of atoms a
 reagent-name-laughter = laughter
 reagent-desc-laughter = Some say that this is the best medicine, but recent studies have proven that to be untrue.
 reagent-name-weh = juice that makes you Weh
-reagent-desc-weh = Pure essence of lizard plush. Makes you Weh!
+reagent-desc-weh = Pure essence of dragon plush. Makes you Weh!
 reagent-name-hew = juice that makes you Hew
-reagent-desc-hew = Pure essence of inversed lizard plush. Makes you Hew!
+reagent-desc-hew = Pure essence of inversed dragon plush. Makes you Hew!

@@ -2,7 +2,7 @@
 advertisement-bruiseomat-2 = Who has TC?
 advertisement-bruiseomat-3 = Did anyone buy an EMAG?
 advertisement-bruiseomat-4 = I wanna go back to my home ponyville...
-advertisement-bruiseomat-5 = Beware of the Mime and Clown. BEWARE!
+advertisement-bruiseomat-5 = Beware of the Quiet Pony and Pinkie Pie. BEWARE!
 advertisement-bruiseomat-6 = A nuke a day keeps the deathsquad at bay!
 advertisement-bruiseomat-7 = You'll never be able to match MY mixing, Agent!
 advertisement-bruiseomat-8 = Thirsting for blood? I got you covered!
@@ -18,7 +18,7 @@ thankyou-bruiseomat-2 = Show 'em the Gorlex Style!
 thankyou-bruiseomat-3 = Don't forget to stay hydrated!
 thankyou-bruiseomat-4 = You noted down the codes, right?
 thankyou-bruiseomat-5 = Don't forget the nuke!
-thankyou-bruiseomat-6 = I hope those are noslips.
+thankyou-bruiseomat-6 = I raritye those are noslips.
 thankyou-bruiseomat-7 = Please let this be a normal team...
 thankyou-bruiseomat-8 = Seems like ponyville isn't the only thing getting hammered today.
 thankyou-bruiseomat-9 = What the hell did you buy?

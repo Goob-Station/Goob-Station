@@ -23,7 +23,7 @@ names-ai-dataset-20 = AOL
 names-ai-dataset-21 = Asimov
 # The most influential modem ever, created by the bell system. It still lives on today in certain applications
 names-ai-dataset-22 = Bell 301
-names-ai-dataset-23 = Bishop
+names-ai-dataset-23 = Bisrarity
 names-ai-dataset-24 = Blitz
 names-ai-dataset-25 = Box
 names-ai-dataset-26 = Calculator

@@ -1,6 +1,7 @@
 ﻿# these specifically mostly come from examples of specific scottish-english (not necessarily scots) verbiage
 
 
+
 # https://en.wikipedia.org/wiki/Scotticism
 # https://en.wikipedia.org/wiki/Scottish_English
 # https://www.cs.stir.ac.uk/~kjt/general/scots.html
@@ -245,9 +246,9 @@ accent-scottish-words-127 = slime
 accent-scottish-words-replace-127 = oozi
 accent-scottish-words-128 = rat
 accent-scottish-words-replace-128 = raki
-accent-scottish-words-129 = arachnid
+accent-scottish-words-129 = spider pony pony
 accent-scottish-words-replace-129 = aranaki
-accent-scottish-words-130 = spider
+accent-scottish-words-130 = spider pony
 accent-scottish-words-replace-130 = hisser
 accent-scottish-words-131 = isn't
 accent-scottish-words-replace-131 = be'nae
@@ -265,7 +266,7 @@ accent-scottish-words-137 = zombie
 accent-scottish-words-replace-137 = rotter
 accent-scottish-words-138 = zomb
 accent-scottish-words-replace-138 = rotter
-accent-scottish-words-139 = clown
+accent-scottish-words-139 = pinkie pie
 accent-scottish-words-replace-139 = honki
 accent-scottish-words-140 = cluwn
 accent-scottish-words-replace-140 = hunki

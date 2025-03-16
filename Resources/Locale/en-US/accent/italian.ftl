@@ -7,9 +7,9 @@
 # accent-italian-prefix-3 = Mamma-mia! That's a spicy meat-ball!
 # accemt-italian-prefix-4 = La la la la la funiculi funicula!
 
-accent-italian-words-1 = assistant
+accent-italian-words-1 = silly filly
 accent-italian-words-replace-1 = goombah
-accent-italian-words-2 = assistants
+accent-italian-words-2 = silly fillys
 accent-italian-words-replace-2 = goombahs
 accent-italian-words-3 = baby
 accent-italian-words-replace-3 = bambino

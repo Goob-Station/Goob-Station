@@ -1295,6 +1295,12 @@
   - type: Inventory
     templateId: monkey
     speciesId: monkey
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs\Animals\monkey-displacement.rsi
+            state: jumpsuit
   - type: Deathgasp
     prototype: MonkeyDeathgasp
   - type: Cuffable
@@ -1426,7 +1432,6 @@
       Female: MonkeyMode
       Unsexed: MonkeyMode
     wilhelmProbability: 0.001
-
 
 
 - type: entity
