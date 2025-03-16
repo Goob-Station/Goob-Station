@@ -18,4 +18,11 @@ public sealed partial class DiseaseCarrierComponent : Component
     /// </summary>
     [DataField("diseases")]
     public List<EntProtoId> StartingDiseases = new();
+
+    /// <summary>
+    /// Whether to be immune to disease effects
+    /// For entities that need to carry disease but not have their effects happen
+    /// </summary>
+    [DataField]
+    public bool EffectImmune = false;
 }

@@ -3,7 +3,8 @@ using Content.Shared.Flash;
 using Content.Shared.Flash.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Popups;
-using Content.Shared.Prototypes;
+using Content.Shared.Random;
+using Content.Shared.Random.Helpers;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
@@ -27,8 +28,6 @@ public partial class SharedDiseaseSystem
 
     public float MaxEffectSeverity = 1f; // magic numbers are EVIL and BAD
 
-    protected List<EntityPrototype> _diseaseEffects = new();
-
     protected virtual void InitializeEffects()
     {
         SubscribeLocalEvent<DiseaseAudioEffectComponent, DiseaseEffectEvent>(OnAudioEffect);
@@ -37,9 +36,6 @@ public partial class SharedDiseaseSystem
         SubscribeLocalEvent<DiseaseFightImmunityEffectComponent, DiseaseEffectEvent>(OnFightImmunityEffect);
         SubscribeLocalEvent<DiseaseFlashEffectComponent, DiseaseEffectEvent>(OnFlashEffect);
         SubscribeLocalEvent<DiseasePopupEffectComponent, DiseaseEffectEvent>(OnPopupEffect);
-
-        SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
-        LoadPrototypes();
     }
 
     private void OnAudioEffect(EntityUid uid, DiseaseAudioEffectComponent effect, DiseaseEffectEvent args)
@@ -67,9 +63,9 @@ public partial class SharedDiseaseSystem
 
         // for gear that makes you less(/more?) infective to others
         var ev = new DiseaseOutgoingSpreadAttemptEvent(
-            effect.InfectionPower,
-            effect.InfectionChance,
-            effect.SpreadType
+            effect.SpreadParams.Power,
+            effect.SpreadParams.Chance,
+            effect.SpreadParams.Type
         );
         RaiseLocalEvent(args.Ent, ref ev);
 
@@ -83,7 +79,7 @@ public partial class SharedDiseaseSystem
 
         foreach (var target in targets)
         {
-            DoInfectionAttempt(target, args.Disease, ev.Power, ev.Chance * GetScale(args, effect), effect.SpreadType);
+            DoInfectionAttempt(target, args.Disease, ev.Power, ev.Chance * GetScale(args, effect), effect.SpreadParams.Type);
         }
     }
 
@@ -125,23 +121,6 @@ public partial class SharedDiseaseSystem
             * (effect.ProgressScale ? args.Disease.Comp.InfectionProgress : 1f);
     }
 
-    private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)
-    {
-        if (!args.WasModified<EntityPrototype>())
-            return;
-
-        LoadPrototypes();
-    }
-
-    private void LoadPrototypes()
-    {
-        _diseaseEffects.Clear();
-
-        foreach (var entProto in _proto.EnumeratePrototypes<EntityPrototype>())
-            if (entProto.HasComponent<DiseaseEffectComponent>())
-                _diseaseEffects.Add(entProto);
-    }
-
     private Entity<DiseaseEffectComponent>? RemoveRandomEffect(EntityUid uid, DiseaseComponent disease)
     {
         if (disease.Effects.Count < 1)
@@ -159,20 +138,27 @@ public partial class SharedDiseaseSystem
 
     private Entity<DiseaseEffectComponent>? AddRandomEffect(EntityUid uid, DiseaseComponent disease)
     {
-        List<EntityPrototype> valid = new();
-        foreach (var effectProto in _diseaseEffects)
-        {
-            if (effectProto.TryGetComponent<DiseaseEffectComponent>(out var effectProtoComp, _factory)
-                && effectProtoComp.AllowedDiseaseTypes.Contains(disease.DiseaseType)
-                && !HasEffect(uid, effectProto.ID, disease))
-                valid.Add(effectProto);
-        }
-        if (valid.Count == 0)
+        if (!_proto.TryIndex<WeightedRandomPrototype>(disease.AvailableEffects, out var effects))
         {
             Log.Error($"Disease {ToPrettyString(uid)} attempted to mutate to add an effect, but there are no valid effects for its type.");
             return null;
         }
-        var proto = valid[_random.Next(valid.Count - 1)];
+
+        var weights = new Dictionary<string, float>(effects.Weights);
+        foreach (var diseaseEffect in disease.Effects) // no rolling effects we have
+        {
+            if (TryComp<MetaDataComponent>(diseaseEffect, out var metadata) && metadata.EntityPrototype != null)
+                weights.Remove(metadata.EntityPrototype.ID);
+        }
+
+        if (weights.Count == 0)
+        {
+            Log.Error($"Disease {ToPrettyString(uid)} attempted to mutate to add an effect, but it has all available effects.");
+            return null;
+        }
+
+        var protoId = new EntProtoId(_random.Pick<string>(weights));
+        var proto = _proto.Index(protoId);
         Entity<DiseaseEffectComponent>? effect = null;
         if (proto.TryGetComponent<DiseaseEffectComponent>(out var effectComp, _factory))
             TryAdjustEffect(uid, proto, out effect, _random.NextFloat(effectComp.MinSeverity, 1f), disease);

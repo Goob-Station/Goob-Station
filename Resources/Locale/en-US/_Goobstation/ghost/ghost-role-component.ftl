@@ -65,6 +65,8 @@ ghost-role-information-inspector-name = Central Command Auditor
 ghost-role-information-inspector-description = Perform inspections on the stations assets and its crew. Probably die in a horrific accident and get a deathsquad called.
 
 ghost-role-information-sentient-shark-name = Sentient Sharkminnow
+ghost-role-information-plague-mouse-name = Plague Mouse
+ghost-role-information-plague-mouse-description = A hungry and mischievous mouse. This one carries a disease and will spread it on bite.
 
 ghost-role-information-trevor-name = Trevor
 ghost-role-information-trevor-description = Securities trusted battle steed.

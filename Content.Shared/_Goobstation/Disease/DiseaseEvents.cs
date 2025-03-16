@@ -10,9 +10,9 @@ namespace Content.Shared.Disease;
 /// </summary>
 public sealed class DiseaseUpdateEvent : EntityEventArgs
 {
-    public EntityUid Ent;
+    public Entity<DiseaseCarrierComponent> Ent;
 
-    public DiseaseUpdateEvent(EntityUid ent)
+    public DiseaseUpdateEvent(Entity<DiseaseCarrierComponent> ent)
     {
         Ent = ent;
     }

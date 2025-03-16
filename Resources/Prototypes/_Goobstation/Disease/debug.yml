@@ -8,8 +8,6 @@
   parent: DiseaseBehaviorBase
   components:
   - type: DiseaseEffect
-    allowedDiseaseTypes:
-    - Debug
 
 - type: entity
   id: DiseaseBehaviorTurboCancer

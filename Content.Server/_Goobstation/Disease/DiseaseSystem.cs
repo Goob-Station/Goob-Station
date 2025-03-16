@@ -14,6 +14,7 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
         base.Initialize();
 
         SubscribeLocalEvent<DiseaseComponent, DiseaseCloneEvent>(OnClonedInto);
+        SubscribeLocalEvent<GrantDiseaseComponent, MapInitEvent>(OnGrantDiseaseInit);
     }
 
     private void OnClonedInto(EntityUid uid, DiseaseComponent disease, DiseaseCloneEvent args)
@@ -41,10 +42,49 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
         disease.CanGainImmunity = args.Source.Comp.CanGainImmunity;
         disease.AffectsDead = args.Source.Comp.AffectsDead;
         disease.DeadInfectionRate = args.Source.Comp.DeadInfectionRate;
+        disease.AvailableEffects = args.Source.Comp.AvailableEffects;
         disease.DiseaseType = args.Source.Comp.DiseaseType;
     }
 
+    private void OnGrantDiseaseInit(EntityUid uid, GrantDiseaseComponent grant, MapInitEvent args)
+    {
+        var disease = MakeRandomDisease(grant.BaseDisease, grant.Complexity);
+        if (TryComp<DiseaseComponent>(disease, out var diseaseComp))
+            diseaseComp.InfectionProgress = grant.Severity;
+        if (disease != null)
+        {
+            if (!TryInfect(uid, disease.Value))
+                QueueDel(disease);
+        }
+    }
     #region public API
+
+    /// <summary>
+    /// Tries to infect the given target with the given disease prototype
+    /// </summary>
+    public override EntityUid? DoInfectionAttempt(EntityUid target, EntProtoId proto, float power, float chance, ProtoId<DiseaseSpreadPrototype> spreadType)
+    {
+        var ent = Spawn(proto);
+        if (DoInfectionAttempt(target, ent, power, chance, spreadType, false))
+            return ent;
+
+        QueueDel(ent);
+        return null;
+    }
+
+    /// <summary>
+    /// Makes a random disease from a base prototype
+    /// By default, will avoid changing anything already present in the base prototype
+    /// </summary>
+    public override EntityUid? MakeRandomDisease(EntProtoId baseProto, float complexity, float mutationRate = 0f)
+    {
+        var ent = Spawn(baseProto);
+        // requiring us to add DiseaseCarrier is just inconveniencing the user for no reason
+        EnsureComp<DiseaseComponent>(ent, out var disease);
+        disease.Complexity = complexity;
+        MutateDisease(ent, disease, mutationRate);
+        return ent;
+    }
 
     /// <summary>
     /// Makes a clone of the provided disease entity

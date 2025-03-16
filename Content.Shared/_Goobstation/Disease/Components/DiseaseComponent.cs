@@ -1,3 +1,4 @@
+using Content.Shared.Random;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using System;
@@ -138,8 +139,14 @@ public sealed partial class DiseaseComponent : Component
     public float DeadInfectionRate = -0.01f;
 
     /// <summary>
+    /// Determiens the effects this disease mutates
+    /// </summary>
+    [DataField]
+    public ProtoId<WeightedRandomPrototype> AvailableEffects = "DiseaseBehaviorsStandard";
+
+    /// <summary>
     /// Type of this disease
-    /// Affects meds needed to heal this and the effects this can mutate
+    /// Affects meds needed to heal this
     /// </summary>
     [DataField]
     public ProtoId<DiseaseTypePrototype> DiseaseType = "Debug";

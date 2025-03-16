@@ -5,6 +5,15 @@
   - type: Disease
 
 - type: entity
+  id: DiseaseBaseMouse
+  parent: DiseaseBase
+  components:
+  - type: Disease
+    effects:
+      DiseaseBehaviorCough: 1 # guaranteed cough
+      DiseaseBehaviorFeelUnwell: 1 # gotta mutate to be stealthy
+
+- type: entity
   id: DiseaseFlu
   parent: DiseaseBase
   name: flu

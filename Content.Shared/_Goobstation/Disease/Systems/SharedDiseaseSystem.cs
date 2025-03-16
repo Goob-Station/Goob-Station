@@ -67,7 +67,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
         for (int i = 0; i < diseaseCarrier.Diseases.Count; i++)
         {
             var diseaseUid = diseaseCarrier.Diseases[i];
-            var ev = new DiseaseUpdateEvent(uid);
+            var ev = new DiseaseUpdateEvent((uid, diseaseCarrier));
             RaiseLocalEvent(diseaseUid, ev);
         }
     }
@@ -106,27 +106,27 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
     private void OnUpdateDisease(EntityUid uid, DiseaseComponent disease, DiseaseUpdateEvent args)
     {
         var timeDelta = (float)UpdateInterval.TotalSeconds;
-        var alive = !_mobState.IsDead(args.Ent) || disease.AffectsDead;
+        var alive = !_mobState.IsDead(args.Ent.Owner) || disease.AffectsDead;
 
-        if (alive)
+        if (alive && !args.Ent.Comp.EffectImmune)
         {
             foreach (var effectUid in disease.Effects)
             {
                 if (!TryComp<DiseaseEffectComponent>(effectUid, out var effect))
                     continue;
 
-                var conditionsEv = new DiseaseCheckConditionsEvent(args.Ent, (uid, disease), effect);
+                var conditionsEv = new DiseaseCheckConditionsEvent(args.Ent.Owner, (uid, disease), effect);
                 RaiseLocalEvent(effectUid, ref conditionsEv);
                 if (conditionsEv.DoEffect)
                 {
-                    var effectEv = new DiseaseEffectEvent(args.Ent, (uid, disease), effect);
+                    var effectEv = new DiseaseEffectEvent(args.Ent.Owner, (uid, disease), effect);
                     RaiseLocalEvent(effectUid, effectEv);
                 }
             }
         }
 
         var ev = new GetImmunityEvent();
-        RaiseLocalEvent(args.Ent, ref ev);
+        RaiseLocalEvent(args.Ent.Owner, ref ev);
 
         var immunityStrength = ev.ImmunityStrength * disease.ImmunityProgress;
 
@@ -143,7 +143,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
         if (disease.InfectionProgress == 0f)
         {
             var curedEv = new DiseaseCuredEvent((uid, disease));
-            RaiseLocalEvent(args.Ent, curedEv);
+            RaiseLocalEvent(args.Ent.Owner, curedEv);
         }
     }
 

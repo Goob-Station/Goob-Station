@@ -17,16 +17,38 @@ public partial class SharedDiseaseSystem
     }
 
     /// <summary>
+    /// Tries to infect the given target with the given disease prototype
+    /// </summary>
+    public EntityUid? DoInfectionAttempt(EntityUid target, EntProtoId proto, DiseaseSpreadSpecifier spreadParams)
+    {
+        return DoInfectionAttempt(target, proto, spreadParams.Power, spreadParams.Chance, spreadParams.Type);
+    }
+
+    /// <summary>
+    /// Tries to infect the given target with the given disease prototype
+    /// </summary>
+    public virtual EntityUid? DoInfectionAttempt(EntityUid target, EntProtoId proto, float power, float chance, ProtoId<DiseaseSpreadPrototype> spreadType)
+    {
+        // do nothing on client
+        return null;
+    }
+
+    public bool DoInfectionAttempt(EntityUid target, EntityUid disease, DiseaseSpreadSpecifier spreadParams, bool clone = true)
+    {
+        return DoInfectionAttempt(target, disease, spreadParams.Power, spreadParams.Chance, spreadParams.Type, clone);
+    }
+
+    /// <summary>
     /// Tries to infect the given target with the given disease, clones and mutates the provided disease by default
     /// </summary>
-    public void DoInfectionAttempt(EntityUid target, EntityUid disease, float power, float chance, ProtoId<DiseaseSpreadPrototype> spreadType, bool clone = true)
+    public bool DoInfectionAttempt(EntityUid target, EntityUid disease, float power, float chance, ProtoId<DiseaseSpreadPrototype> spreadType, bool clone = true)
     {
         if (!TryComp<DiseaseComponent>(disease, out var diseaseComp))
-            return;
+            return false;
 
         // prevent the disease mutating a new genotype in-transmission so if you cough at one person many times they can't get infected many times
         if (HasDisease(target, diseaseComp.Genotype))
-            return;
+            return false;
 
         // for disease (un)protection gear
         var evIncoming = new DiseaseIncomingSpreadAttemptEvent(
@@ -38,7 +60,7 @@ public partial class SharedDiseaseSystem
         power = evIncoming.Power;
         chance = evIncoming.Chance;
         if (power < 0 || chance < 0)
-            return;
+            return false;
 
         if (_random.Prob(power * chance))
         {
@@ -48,15 +70,29 @@ public partial class SharedDiseaseSystem
             {
                 newDisease = TryClone(disease, diseaseComp);
                 if (newDisease == null)
-                    return;
+                    return false;
 
                 MutateDisease(newDisease.Value);
                 infectDisease = newDisease.Value;
             }
 
-            if (!TryInfect(target, infectDisease) && newDisease != null)
+            bool success = TryInfect(target, infectDisease);
+            if (!success && newDisease != null)
                 QueueDel(newDisease);
+
+            return success;
         }
+        return false;
+    }
+
+    /// <summary>
+    /// Makes a random disease from a base prototype
+    /// By default, will avoid changing anything already present in the base prototype
+    /// </summary>
+    public virtual EntityUid? MakeRandomDisease(EntProtoId baseProto, float complexity, float mutationChance = 0f)
+    {
+        // do nothing on client
+        return null;
     }
 
     /// <summary>
@@ -67,13 +103,17 @@ public partial class SharedDiseaseSystem
         return _random.Prob(1f - MathF.Exp(-prob));
     }
 
-    public void MutateDisease(EntityUid uid, DiseaseComponent? disease = null)
+    /// <summary>
+    /// Mutate the provided disease
+    /// Can take an override of mutation rate
+    /// </summary>
+    public void MutateDisease(EntityUid uid, DiseaseComponent? disease = null, float? mutationRate = null)
     {
         if (!Resolve(uid, ref disease))
             return;
 
         // if you're reading this and want something to affect mutation rate, make and use an event for it
-        float rate = disease.MutationRate;
+        float rate = mutationRate ?? disease.MutationRate;
         // parameter mutation
         disease.MutationRate *= MathF.Exp(_random.NextFloat(-1f, 1f) * disease.MutationMutationCoefficient * rate);
         disease.ImmunityGainRate *= MathF.Exp(_random.NextFloat(-1f, 1f) * disease.ImmunityGainMutationCoefficient * rate);

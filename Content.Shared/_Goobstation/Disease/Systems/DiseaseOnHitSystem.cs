@@ -2,7 +2,7 @@ using Content.Shared.Disease;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.GameObjects;
 
-namespace Content.Shared.Disease;
+namespace Content.Shared.Disease.DiseaseOnHit;
 
 public sealed partial class DiseaseOnHitSystem : EntitySystem
 {
@@ -22,7 +22,20 @@ public sealed partial class DiseaseOnHitSystem : EntitySystem
 
         foreach (var target in args.HitEntities)
         {
-            _disease.TryInfect(target, diseaseOnHit.Disease, out _);
+            if (diseaseOnHit.Disease != null)
+            {
+                _disease.DoInfectionAttempt(target, diseaseOnHit.Disease.Value, diseaseOnHit.SpreadParams);
+            }
+            else
+            {
+                if (!TryComp<DiseaseCarrierComponent>(uid, out var carrier))
+                    return;
+
+                foreach (var disease in carrier.Diseases)
+                {
+                    _disease.DoInfectionAttempt(target, disease, diseaseOnHit.SpreadParams);
+                }
+            }
         }
     }
 }
