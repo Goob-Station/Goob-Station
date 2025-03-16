@@ -10,7 +10,7 @@ public sealed partial class ContractorComponent : Component
 {
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     [AutoNetworkedField]
-    public List<NetEntity> Contracts;
+    public List<NetEntity> Contracts = [];
 
     [DataField]
     [AutoNetworkedField]
