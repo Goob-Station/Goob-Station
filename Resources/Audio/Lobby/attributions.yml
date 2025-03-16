@@ -1,140 +1,19 @@
-﻿- files: ["thunderdome.ogg"]
+﻿- files: ["silverpony.ogg"]
   license: "CC-BY-NC-SA-3.0"
-  copyright: "-Sector11 by MashedByMachines. Converted from MP3 to OGG."
-  source: "https://www.newgrounds.com/audio/listen/312622"
+  copyright: "Pony by Silver Jews. Converted from MP3 to OGG."
+  source: "https://freemusicarchive.org/music/Silver_Jews/Live_at_WFMU_on_Benjamin_Walkers_Show_on_982008/Pony/"
 
-- files: ["endless_space.ogg"]
-  license: "CC-BY-3.0"
-  copyright: "Endless Space by SolusLunes. Converted from MP3 to OGG."
-  source: "https://www.newgrounds.com/audio/listen/67583"
-
-- files: ["space_asshole.ogg"]
-  license: "Custom"
-  copyright: "Space Asshole by Chris Remo is used with special permission from the author, under the condition that the project remains non-commercial and open source. The author also requested that a link to his bandcamp be included: https://chrisremo.bandcamp.com/"
-  source: "https://idlethumbs.bandcamp.com/track/space-asshole"
-  # The source is a direct link the the track, but not the "main" bandcamp of the author. Hence the link is also included separately in the copyright.
-
-- files: ["absconditus.ogg"]
+- files: ["drillpony.ogg"]
   license: "CC-BY-NC-SA-3.0"
-  copyright: "Absconditus by ZhayTee. Converted from MP3 to OGG."
-  source: "https://bandcamp.zhaytee.net/track/absconditus"
+  copyright: "Pony by MC Firedrill. Converted from MP3 to OGG."
+  source: "https://freemusicarchive.org/music/MC_Firedrill/Untitled/Pony_1928/"
 
-- files: ["atomicamnesiammx.ogg"]
+- files: ["ponysong.ogg"]
   license: "CC-BY-NC-SA-3.0"
-  copyright: "Atomic Amnesia MMX by Philip Dyer. Converted from MP3 to OGG."
-  source: "https://soundcloud.com/3kliksphilip/atomic-amnesia-mmx-1"
+  copyright: "Pony Song by Edith Frost. Converted from MP3 to OGG."
+  source: "https://freemusicarchive.org/music/Edith_Frost/Demos_1816/Pony_Song/"
 
-- files: ["singuloose.ogg"]
+- files: ["luckyhorse.ogg"]
   license: "CC-BY-NC-SA-3.0"
-  copyright: "Singuloose by Janis Schiedková. Converted from MP3 to OGG."
-  source: "https://soundcloud.com/js_m/singuloose"
-
-- files: ["title2.ogg"]
-  license: "Custom"
-  copyright: "Originally composed by Jonathan Dunn for Robocop 2 Gameboy published by Ocean Software. Remixed by Eric Shumaker for his video Dilbert 3. As of October 9th, 2008 nobody owns the rights to this song and copyright action has never been taken against anyone using this song in their projects."
-  source: "https://www.youtube.com/watch?v=4o6_8Unj2mQ"
-
-- files: ["title3.ogg"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "Title3 by Cuboos. It is a remix of the song 'Tintin on the Moon'. Converted from MP3 to OGG."
-  source: "https://www.youtube.com/watch?v=YKVmXn-Gv0M"
-
-- files: ["comet_haley.ogg"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "Comet Haley by Stellardrone. Converted from MP3 to OGG."
-  source: "https://freemusicarchive.org/music/Stellardrone/Light_Years_1227/07_Comet_Halley"
-
-- files: ["mod.flip-flap.ogg"]
-  license: "Custom"
-  copyright: "Flip Flap by X-ceed is licensed under a short but clear license (see flip-flap.txt in this directory) and is free for non-commercial use. It was converted from MOD to WAV using Schism Tracker, in 16 Bit, Non-Interpolated mode, no output equalizer settings, Ramp volume at start of sample enabled. From there it was converted to OGG Vorbis with `ffmpeg -i flip-flap.wav -q 2.9 flip-flap-renc.ogg` (quality scale chosen to match size of the OGG file being replaced). Non-interpolated mode was chosen as the module has a high enough sample rate to balance it out, but seems muffled in other interpolation modes. If 'Ramp volume at start of sample' is not enabled, a clicking phenomenon results."
-  source: "http://aminet.net/package/mods/xceed/Fextendlipflap"
-
-- files: ["Spac_Stac.ogg"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "Spac Stac by Hayabusa. Converted from MP3 to OGG."
-  source: "https://www.youtube.com/watch?v=grUBe-SZgr0"
-
-- files: ["pwmur.ogg"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "phoron will make us rich by Alexander Divine."
-  source: "https://soundcloud.com/alexanderdivine/phoron-will-make-us-rich"
-
-- files: ["lasers_rip_apart_the_bulkhead.ogg"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "lasers rip apart the bulkhead by Alexander Divine."
-  source: "https://soundcloud.com/alexanderdivine/lasers-rip-apart-the-bulkhead"
-
-- files: ["every_light_is_blinking_at_once.ogg"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "every light is blinking at once by Alexander Divine."
-  source: "https://soundcloud.com/alexanderdivine/every-light-is-blinking-at-once"
-
-- files: ["skubstep.ogg"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "skubstep by finket."
-  source: "https://soundcloud.com/finket/skubstep-extended"
-
-- files: ["sneedsfeedandseed.ogg"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "Sneed's Feed and Seed by Burgerchild"
-  source: "https://soundcloud.com/burgerchild/sneeds-feed-and-seed-2022"
-
-- files: ["clownwmv.ogg"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "Clown.wmv by Admiral Hippie"
-  source: "https://www.youtube.com/watch?v=9whQIbNmu9s"
-
-- files: ["clownalwayswins.ogg"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "Clown Always Wins by NИTRODE"
-  source: "https://www.youtube.com/watch?v=UkN2DQYRooA"
-
-- files: ["horn.ogg"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "Honk! by SlendyMawn, Remastered by Scruq"
-  source: "https://www.youtube.com/watch?v=ujY7djCJVwQ"
-
-- files: ["dawsonschristian.ogg"]
-  license: "Custom"
-  copyright: "Dawson's Christian by Vic Tyler"
-  source: "https://archive.org/details/filk_carmen_mirandas_ghost"
-
-- files: ["thewizard.ogg"]
-  license: "Custom"
-  copyright: "The Wizard by Chris Remo is used with special permission from the author, under the condition that the project remains non-commercial and open source. The author also requested that a link to his bandcamp be included: https://chrisremo.bandcamp.com/"
-  source: "https://idlethumbs.bandcamp.com/track/the-wizard"
-
-- files: ["skubstub.ogg"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "DJ B1G YAPPA"
-  source: "https://forums.goobstation.com"
-
-- files: ["space_radiation.ogg"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "Space Radiation by Outer"
-  source: "https://soundcloud.com/user-957617053"
-
-- files: ["redsun.ogg"]
-  license: "CC-BY-NC-SA-4.0"
-  copyright: "Bluecometdude"
-  source: "https://soundcloud.com/bluecometdude/red-sun-in-the-sky-hq-and-extended"
-
-- files: ["chollima.ogg"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "Pochonbo Electronic Ensemble"
-  source: "https://goobstation.com"
-
-- files: ["marhaba.ogg"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "Marhaba by Ian Alex Mac. Converted from MP3 to OGG."
-  source: "https://freemusicarchive.org/music/Ian_Alex_Mac/Cues/Marhaba"
-
-- files: ["monument.ogg"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "Monument by Six Umbrellas."
-  source: "https://sixumbrellas.bandcamp.com/album/the-psychedelic-and"
-
-- files: ["the_future_soon.ogg"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "The Future Soon by Jonathan Coulton"
-  source: "https://www.youtube.com/watch?v=l5PEz3kGbp4"
+  copyright: "Lucky Horse by Movie Star Junkies. Converted from MP3 to OGG."
+  source: "https://freemusicarchive.org/music/Movie_Star_Junkies/Live_at_WFMU_on_Three_Chord_Monte_4212009/Lucky_Horse/"
