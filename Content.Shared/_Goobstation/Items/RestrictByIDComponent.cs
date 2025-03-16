@@ -13,7 +13,7 @@ public sealed partial class RestrictByIdComponent : Component
     /// <summary>
     ///     Which accesses to restrict the item to.
     /// </summary>
-    [DataField("access")] [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("access")]
     public ProtoId<AccessLevelPrototype> AccessLists = new();
 
     /// <summary>
