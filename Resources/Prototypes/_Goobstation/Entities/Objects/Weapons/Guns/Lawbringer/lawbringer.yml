@@ -72,4 +72,9 @@
     keyPhrase: "I AM THE LAW"
     access: [ "HeadOfSecurity" ]
   - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 10
+    intensitySlope: 3
+    totalIntensity: 40 # about a ~4 tile radius
 
