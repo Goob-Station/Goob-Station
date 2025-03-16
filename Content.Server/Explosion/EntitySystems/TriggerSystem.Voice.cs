@@ -1,8 +1,6 @@
 using Content.Server.Explosion.Components;
 using Content.Server.Speech;
 using Content.Server.Speech.Components;
-using Content.Shared.Access.Components;
-using Content.Shared.Access.Systems;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Verbs;
@@ -11,8 +9,6 @@ namespace Content.Server.Explosion.EntitySystems
 {
     public sealed partial class TriggerSystem
     {
-        [Dependency] private readonly AccessReaderSystem _accessReader = default!; // Goobstation
-
         private void InitializeVoice()
         {
             SubscribeLocalEvent<TriggerOnVoiceComponent, ComponentInit>(OnVoiceInit);
@@ -28,14 +24,6 @@ namespace Content.Server.Explosion.EntitySystems
             else
                 RemCompDeferred<ActiveListenerComponent>(uid);
 
-            // If the voice trigger is not restricted, do not apply a accessreader comp. - Goobstation Start
-            if (!comp.RestrictById)
-                return;
-
-            // Set the access levels.
-            EnsureComp<AccessReaderComponent>(uid, out var accessReader);
-            _accessReader.SetAccesses(uid, accessReader, comp.AccessLists);
-            // Goobstation - End
         }
 
         private void OnListen(Entity<TriggerOnVoiceComponent> ent, ref ListenEvent args)
@@ -61,23 +49,12 @@ namespace Content.Server.Explosion.EntitySystems
                 return;
             }
 
-            if (!string.IsNullOrWhiteSpace(component.KeyPhrase) && // Goobstation - Start
-                message.Contains(component.KeyPhrase, StringComparison.InvariantCultureIgnoreCase) &&
-                !component.RestrictById)
+            if (!string.IsNullOrWhiteSpace(component.KeyPhrase) && message.Contains(component.KeyPhrase, StringComparison.InvariantCultureIgnoreCase))
             {
                 _adminLogger.Add(LogType.Trigger, LogImpact.High,
                         $"A voice-trigger on {ToPrettyString(ent):entity} was triggered by {ToPrettyString(args.Source):speaker} speaking the key-phrase {component.KeyPhrase}.");
                 Trigger(ent, args.Source);
             }
-
-            if (!string.IsNullOrWhiteSpace(component.KeyPhrase) &&
-                message.Contains(component.KeyPhrase, StringComparison.InvariantCultureIgnoreCase) &&
-                component.RestrictById)
-            {
-                if (!_accessReader.IsAllowed(args.Source, component.Owner))
-                    Trigger(ent, args.Source);
-            }
-            // Goobstation - End
         }
 
         private void OnVoiceGetAltVerbs(Entity<TriggerOnVoiceComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
