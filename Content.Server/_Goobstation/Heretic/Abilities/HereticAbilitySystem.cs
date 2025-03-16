@@ -37,6 +37,7 @@ using Content.Server.Temperature.Systems;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Server.Heretic.Components;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared._Goobstation.Heretic.Systems;
 using Content.Shared.Hands.Components;
 using Content.Shared.Tag;
 
@@ -81,6 +82,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly GunSystem _gun = default!;
+    [Dependency] private readonly RespiratorSystem _respirator = default!;
+    [Dependency] private readonly RustbringerSystem _rustbringer = default!;
 
     private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
     {

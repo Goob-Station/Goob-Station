@@ -141,3 +141,21 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 7
+
+- type: listing
+  id: HereticRustPath9
+  name: knowledge-path-rust-s9-name
+  description: knowledge-path-rust-s9-desc
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: ascension_rust }
+  productHereticKnowledge: AscensionRust
+  cost:
+    KnowledgePoint: 3
+  categories:
+  - HereticPathRust
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 8
+    whitelist:
+    - Rust

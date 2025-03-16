@@ -243,6 +243,19 @@
   output:
     HereticBladeRust: 1
 
+- type: hereticRitual
+  id: AscensionRust
+  locName: knowledge-path-rust-s9-name
+  locDesc: knowledge-path-rust-s9-desc
+  icon:
+    sprite: _Goobstation/Heretic/abilities_heretic.rsi
+    state: ascension_rust
+  customBehaviors:
+  - !type:RitualRustAscendBehavior
+    min: 3
+    max: 3
+  outputKnowledge: RustbringersOath
+  outputEvent: !type:EventHereticAscension
 
 ### side knowledge
 - type: hereticRitual

@@ -346,6 +346,19 @@
   actionPrototypes:
   - ActionHereticEntropicPlume
 
+- type: hereticKnowledge
+  id: AscensionRust
+  stage: 9
+  path: Rust
+  ritualPrototypes:
+  - AscensionRust
+
+- type: hereticKnowledge
+  id: RustbringersOath
+  stage: 10
+  path: Rust
+  event: !type:HereticAscensionRustEvent
+
 ### side paths
 - type: hereticKnowledge
   id: RitualOfKnowledge

@@ -1,12 +1,17 @@
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
 using Content.Server._Goobstation.Weapons.DelayedKnockdown;
+using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
+using Content.Server.Flash;
+using Content.Server.Heretic.Components.PathSpecific;
+using Content.Server.Shuttles.Components;
+using Content.Server.Spreader;
 using Content.Server.Temperature.Components;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Atmos;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
@@ -15,6 +20,8 @@ using Content.Shared.Heretic;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
 using Content.Shared.StatusEffect;
+using Content.Shared.Tiles;
+using Robust.Shared.Collections;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
@@ -43,8 +50,157 @@ public sealed partial class HereticAbilitySystem
         SubscribeLocalEvent<GhoulComponent, EventHereticAggressiveSpread>(OnGhoulAggressiveSpread);
         SubscribeLocalEvent<HereticComponent, EventHereticAggressiveSpread>(OnHereticAggressiveSpread);
         SubscribeLocalEvent<HereticComponent, EventHereticEntropicPlume>(OnEntropicPlume);
+        SubscribeLocalEvent<HereticComponent, HereticAscensionRustEvent>(OnAscensionRust);
+
+        SubscribeLocalEvent<RustSpreaderComponent, MapInitEvent>(OnSpreaderMapInit);
+        SubscribeLocalEvent<RustSpreaderComponent, SpreadNeighborsEvent>(OnSpread);
 
         SubscribeLocalEvent<SpriteRandomOffsetComponent, ComponentStartup>(OnRandomOffsetStartup);
+
+        SubscribeLocalEvent<RustbringerComponent, FlashAttemptEvent>(OnFlashAttempt);
+        SubscribeLocalEvent<RustbringerComponent, GetPressureProtectionValuesEvent>(OnGetPressureProtection);
+    }
+
+
+    private void OnGetPressureProtection(Entity<RustbringerComponent> ent, ref GetPressureProtectionValuesEvent args)
+    {
+        if (!_rustbringer.IsTileRust(Transform(ent).Coordinates, out _))
+            return;
+
+        args.HighPressureMultiplier *= 0f;
+        args.LowPressureMultiplier *= 0f;
+    }
+
+    private void OnFlashAttempt(Entity<RustbringerComponent> ent, ref FlashAttemptEvent args)
+    {
+        if (!_rustbringer.IsTileRust(Transform(ent).Coordinates, out _))
+            return;
+
+        args.Cancel();
+    }
+
+    private void OnSpread(Entity<RustSpreaderComponent> ent, ref SpreadNeighborsEvent args)
+    {
+        var (uid, comp) = ent;
+
+        if (args.Neighbors.Count >= 4)
+        {
+            RemCompDeferred<ActiveEdgeSpreaderComponent>(uid);
+            return;
+        }
+
+        var prototype = MetaData(uid).EntityPrototype?.ID;
+
+        if (prototype == null)
+        {
+            RemCompDeferred<ActiveEdgeSpreaderComponent>(uid);
+            return;
+        }
+
+        var xformQuery = GetEntityQuery<TransformComponent>();
+
+        var xform = xformQuery.Comp(uid);
+
+        if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
+            return;
+
+        var tile = _map.TileIndicesFor(xform.GridUid.Value, grid, xform.Coordinates);
+
+        var ourEnts = _map.GetAnchoredEntitiesEnumerator(xform.GridUid.Value, grid, tile);
+        var spreaderQuery = GetEntityQuery<EdgeSpreaderComponent>();
+        var dockQuery = GetEntityQuery<DockingComponent>();
+
+        var neighborTiles = new ValueList<(EntityUid entity, MapGridComponent grid, Vector2i Indices)>();
+
+        while (ourEnts.MoveNext(out var entity))
+        {
+            if (dockQuery.TryGetComponent(entity, out var dock) &&
+                dock.Docked &&
+                xformQuery.TryGetComponent(dock.DockedWith, out var dockedXform) &&
+                TryComp<MapGridComponent>(dockedXform.GridUid, out var dockedGrid))
+            {
+                neighborTiles.Add((dockedXform.GridUid.Value, dockedGrid, _map.CoordinatesToTile(dockedXform.GridUid.Value, dockedGrid, dockedXform.Coordinates)));
+            }
+        }
+
+        for (var i = 0; i < 4; i++)
+        {
+            var atmosDir = (AtmosDirection) (1 << i);
+            var neighborPos = tile.Offset(atmosDir);
+
+            if (!_map.TryGetTileRef(xform.GridUid.Value, grid, neighborPos, out var tileRef) || tileRef.Tile.IsEmpty)
+                continue;
+
+            neighborTiles.Add((xform.GridUid.Value, grid, neighborPos));
+        }
+
+        for (var i = neighborTiles.Count - 1; i >= 0; i--)
+        {
+            var (gridUid, gridComp, indices) = neighborTiles[i];
+            foreach (var entity in _map.GetAnchoredEntities(gridUid, gridComp, indices))
+            {
+                if (!spreaderQuery.TryGetComponent(entity, out var spreader))
+                    continue;
+
+                if (spreader.Id != comp.SpreaderProto)
+                    continue;
+
+                neighborTiles.RemoveAt(i);
+                break;
+            }
+        }
+
+        if (neighborTiles.Count == 0)
+        {
+            RemCompDeferred<ActiveEdgeSpreaderComponent>(uid);
+            return;
+        }
+
+        _random.Shuffle(neighborTiles);
+
+        foreach (var (gridUid, gridComp, indices) in neighborTiles)
+        {
+            Spawn(prototype, _map.GridTileToLocal(gridUid, gridComp, indices));
+            args.Updates--;
+            if (args.Updates <= 0)
+                return;
+        }
+    }
+
+    private void OnAscensionRust(Entity<HereticComponent> ent, ref HereticAscensionRustEvent args)
+    {
+        EnsureComp<LeechingWalkComponent>(ent); // Just in case
+        EnsureComp<RustbringerComponent>(ent);
+    }
+
+    private void OnSpreaderMapInit(Entity<RustSpreaderComponent> ent, ref MapInitEvent args)
+    {
+        var (uid, comp) = ent;
+
+        var xform = Transform(uid);
+        if (!_mapMan.TryFindGridAt(_transform.GetMapCoordinates(xform), out var gridUid, out var mapGrid))
+        {
+            EnsureComp<RequiresTileComponent>(uid);
+            return;
+        }
+
+        var tileRef = _map.GetTileRef(gridUid, mapGrid, xform.Coordinates);
+        var tileDef = (ContentTileDefinition) _tileDefinitionManager[tileRef.Tile.TypeId];
+
+        if (!CanRustTile(tileDef))
+        {
+            EnsureComp<RequiresTileComponent>(uid);
+            return;
+        }
+
+        MakeRustTile(gridUid, mapGrid, tileRef, comp.TileRune);
+
+        foreach (var toRust in _lookup.GetEntitiesInRange(xform.Coordinates, comp.LookupRange, LookupFlags.Static))
+        {
+            TryMakeRustWall(toRust);
+        }
+
+        EnsureComp<RequiresTileComponent>(uid);
     }
 
     private void OnHereticAggressiveSpread(Entity<HereticComponent> ent, ref EventHereticAggressiveSpread args)
@@ -231,7 +387,7 @@ public sealed partial class HereticAbilitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        if (!IsTileRust(args.Target, out var pos))
+        if (!_rustbringer.IsTileRust(args.Target, out var pos))
         {
             _popup.PopupEntity(Loc.GetString("heretic-ability-fail-tile-not-rusted"), ent, ent);
             return;
@@ -302,12 +458,19 @@ public sealed partial class HereticAbilitySystem
         var staminaQuery = GetEntityQuery<StaminaComponent>();
         var statusQuery = GetEntityQuery<StatusEffectsComponent>();
         var hereticQuery = GetEntityQuery<HereticComponent>();
+        var rustbringerQuery = GetEntityQuery<RustbringerComponent>();
+        var resiratorQuery = GetEntityQuery<RespiratorComponent>();
 
         var query = EntityQueryEnumerator<LeechingWalkComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var leech, out var xform))
         {
-            if (!IsTileRust(xform.Coordinates, out _))
+            if (!_rustbringer.IsTileRust(xform.Coordinates, out _))
                 continue;
+
+            if (rustbringerQuery.HasComp(uid) && resiratorQuery.TryComp(uid, out var respirator))
+            {
+                _respirator.UpdateSaturation(uid, respirator.MaxSaturation - respirator.MinSaturation, respirator);
+            }
 
             RemCompDeferred<DelayedKnockdownComponent>(uid);
 
@@ -344,12 +507,7 @@ public sealed partial class HereticAbilitySystem
             }
 
             if (temperatureQuery.TryComp(uid, out var temperature))
-            {
-                _temperature.ForceChangeTemperature(uid,
-                    leech.TargetTemperature + (leech.TargetTemperature - temperature.CurrentTemperature) *
-                    leech.AdjustTemperatureMultiplier * multiplier,
-                    temperature);
-            }
+                _temperature.ForceChangeTemperature(uid, leech.TargetTemperature, temperature);
 
             if (staminaQuery.TryComp(uid, out var stamina) && stamina.StaminaDamage > 0)
             {
@@ -364,20 +522,13 @@ public sealed partial class HereticAbilitySystem
                 var reduction = leech.StunReduction * multiplier;
                 _statusEffect.TryRemoveTime(uid, "Stun", reduction, status);
                 _statusEffect.TryRemoveTime(uid, "KnockedDown", reduction, status);
+
+                _statusEffect.TryRemoveStatusEffect(uid, "ForcedSleep", status);
+                _statusEffect.TryRemoveStatusEffect(uid, "SlowedDown", status);
+                _statusEffect.TryRemoveStatusEffect(uid, "BlurryVision", status);
+                _statusEffect.TryRemoveStatusEffect(uid, "TemporaryBlindness", status);
+                _statusEffect.TryRemoveStatusEffect(uid, "SeeingRainbows", status);
             }
         }
-    }
-
-    private bool IsTileRust(EntityCoordinates coords, [NotNullWhen(true)] out Vector2i? tileCoords)
-    {
-        tileCoords = null;
-        if (!_mapMan.TryFindGridAt(_transform.ToMapCoordinates(coords), out var gridUid, out var mapGrid))
-            return false;
-
-        var tileRef = _map.GetTileRef(gridUid, mapGrid, coords);
-        var tileDef = (ContentTileDefinition) _tileDefinitionManager[tileRef.Tile.TypeId];
-
-        tileCoords = tileRef.GridIndices;
-        return tileDef.ID == RustTile;
     }
 }

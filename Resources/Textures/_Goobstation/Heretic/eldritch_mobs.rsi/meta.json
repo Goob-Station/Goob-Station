@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from TG station",
+  "copyright": "Taken from TG station. rust_walker left and right direction sprites made by Armok.",
   "size": {
     "x": 32,
     "y": 32

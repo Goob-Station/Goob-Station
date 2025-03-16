@@ -26,6 +26,7 @@ public sealed partial class LeechingWalkComponent : Component
             {"Caustic", -2},
             {"Poison", -2},
             {"Radiation", -2},
+            {"Cellular", -2},
         },
     };
 
@@ -37,9 +38,6 @@ public sealed partial class LeechingWalkComponent : Component
 
     [DataField]
     public TimeSpan StunReduction = TimeSpan.FromSeconds(1f);
-
-    [DataField]
-    public float AdjustTemperatureMultiplier = 0.2f;
 
     [DataField]
     public float TargetTemperature = 310f;

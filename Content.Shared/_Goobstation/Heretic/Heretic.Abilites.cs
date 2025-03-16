@@ -215,4 +215,5 @@ public sealed partial class EventHereticCleave : WorldTargetActionEvent
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionFleshEvent : EntityEventArgs { }
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionLockEvent : EntityEventArgs { }
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionBladeEvent : EntityEventArgs { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionRustEvent : EntityEventArgs { }
 #endregion

@@ -38,6 +38,9 @@
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-rust-spread
+  - type: ChangeUseDelayOnAscension
+    newUseDelay: 15
+    requiredPath: Rust
 
 - type: entity
   id: ActionHereticEntropicPlume

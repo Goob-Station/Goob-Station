@@ -52,3 +52,11 @@ knowledge-path-rust-s8-desc =
     The corrosion was unstoppable. The rust was unpleasable. The Blacksmith was gone, and you hold their blade. Champions of hope, the Rustbringer is nigh!
 
     Grants you Entropic Plume, a spell that releases a vexing wave of Rust. Blinds, poisons, and inflicts Amok on any heathen it hits, causing them to strike at friend or foe wildly. Also rusts and destroys and surfaces it hits.
+
+knowledge-path-rust-s9-name = Rustbringer's Oath
+knowledge-path-rust-s9-desc =
+    The ascension ritual of the Path of Rust.
+    Bring 3 rotting or silicon corpses to a transmutation rune to complete the ritual.
+    When completed, the ritual site will endlessly spread rust onto any surface, stopping for nothing.
+    Additionally, you will become extremely resilient on rust, healing at triple the rate and becoming immune to many effects and dangers.
+    You will be able to rust almost anything upon ascending.
