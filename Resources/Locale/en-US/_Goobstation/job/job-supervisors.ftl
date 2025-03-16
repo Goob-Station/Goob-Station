@@ -1,3 +1,3 @@
-job-supervisors-ntr-centcom = the Nanotrasen Representative and Central Command
-job-supervisors-commander = the Navy Captain
+job-supervisors-ntr-centcom = the Equestria Representative and Canterlot
+job-supervisors-commander = the Navy Celestia
 job-supervisors-null = nobody but yourself.

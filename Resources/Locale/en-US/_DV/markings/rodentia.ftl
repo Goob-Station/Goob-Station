@@ -1,2 +1,2 @@
-marking-RodentiaHeadTopEarDefault = Rodentia Ears
-marking-RodentiaTailDefault = Rodentia Tail
+marking-RodentiaHeadTopEarDefault = Rodent Pony Ears
+marking-RodentiaTailDefault = Rodent Pony Tail
