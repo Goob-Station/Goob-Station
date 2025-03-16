@@ -166,7 +166,7 @@
     sprite: _Shitmed/Clothing/Uniforms/Jumpsuit/abductor.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, BaseCentcommContraband]
+  parent: ClothingUniformJumpsuitNavyGold
   id: ClothingUniformJumpsuitTrainer
   name: NCT Jumpsuit
   description: A jumpsuit issued to Nanotrasen Career Trainers. Fills you with a feeling of pride.
