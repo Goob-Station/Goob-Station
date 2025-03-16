@@ -39,12 +39,6 @@ public sealed partial class DiseaseEffectComponent : Component
     public float Complexity = 10f;
 
     /// <summary>
-    /// Disease types allowed to naturally roll this effect
-    /// </summary>
-    [DataField]
-    public HashSet<ProtoId<DiseaseTypePrototype>> AllowedDiseaseTypes = new();
-
-    /// <summary>
     /// Get the complexity this effect is currently contributing.
     /// </summary>
     public float GetComplexity()
@@ -106,9 +100,6 @@ public sealed partial class DiseaseFightImmunityEffectComponent : ScalingDisease
 [RegisterComponent]
 public sealed partial class DiseaseSpreadEffectComponent : ScalingDiseaseEffect
 {
-    [DataField]
-    public ProtoId<DiseaseSpreadPrototype> SpreadType;
-
     /// <summary>
     /// Angle in front of the entity to check for infectables
     /// </summary>
@@ -121,17 +112,8 @@ public sealed partial class DiseaseSpreadEffectComponent : ScalingDiseaseEffect
     [DataField]
     public float Range = 2f;
 
-    /// <summary>
-    /// Power of the infection attempt, determines how well it gets through infection protection
-    /// </summary>
     [DataField]
-    public float InfectionPower = 1f;
-
-    /// <summary>
-    /// If the infection attempt gets through, chance for it to actually work
-    /// </summary>
-    [DataField]
-    public float InfectionChance = 0.2f;
+    public DiseaseSpreadSpecifier SpreadParams = new(1f, 1f, "Debug");
 }
 
 /// <summary>

@@ -3,13 +3,6 @@
   id: DiseaseBehaviorBase
   components:
   - type: DiseaseEffect
-    allowedDiseaseTypes:
-    - Viral
-    - Bacterial
-    - OwnCells
-    - Prion
-    - Parasite
-    - Debug
 
 - type: entity
   id: DiseaseBehaviorCancer
@@ -22,7 +15,7 @@
   - type: DiseaseDamageEffect
     damage:
       types:
-        Cellular: 0.5
+        Cellular: 0.2
 
 - type: entity
   id: DiseaseBehaviorPoison
@@ -109,8 +102,10 @@
   - type: DiseaseEmoteEffect
     emote: Cough
   - type: DiseaseSpreadEffect
-    spreadType: Aerial
     arc: 120
     range: 3
-    infectionChance: 0.5
     timeScale: false
+    spreadParams:
+      power: 1
+      chance: 0.5
+      spreadType: Aerial

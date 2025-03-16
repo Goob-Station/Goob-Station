@@ -261,6 +261,9 @@
       - id: MobMouse2
         orGroup: Critter
         prob: 0.33
+      - id: MobMousePlague
+        orGroup: Critter
+        prob: 0.05
       - id: MobMouseCancer
         orGroup: Critter
         prob: 0.01 # Rare

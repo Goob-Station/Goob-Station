@@ -1,3 +1,7 @@
 - type: diseaseSpread
   id: Aerial
   name: Aerial
+
+- type: diseaseSpread
+  id: Blood
+  name: Blood

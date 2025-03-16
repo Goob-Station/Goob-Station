@@ -1,0 +1,23 @@
+- type: entity
+  parent: MobMouse
+  id: MobMousePlague
+  suffix: Plague
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-plague-mouse-name
+    description: ghost-role-information-plague-mouse-description
+    rules: ghost-role-information-freeagent-rules
+  - type: GhostTakeoverAvailable
+  - type: DiseaseCarrier
+    effectImmune: true
+  - type: GrantDisease
+    baseDisease: DiseaseBaseMouse
+    complexity: 20
+  - type: DiseaseOnHit
+    spreadParams:
+      chance: 0.2
+      power: 1
+      spreadType: Blood

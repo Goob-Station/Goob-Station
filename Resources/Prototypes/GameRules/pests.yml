@@ -81,11 +81,12 @@
       - id: MobMouse
       - id: MobMouse1
       - id: MobMouse2
-      - id: MobMouseCancer # Goobstation
-        weight: 0.05
+      - id: MobMousePlague # Goobstation
+        prob: 0.05 # 1/20 of normal mouse chance
+      - id: MobMouseCancer
+        prob: 0.05
       - id: MobLootbug # Goobstation
-        weight: 0.25
-    specialEntries:
+        prob: 0.25
     - id: SpawnPointGhostRatKing
       prob: 0.001
 
