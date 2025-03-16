@@ -14,7 +14,7 @@ public sealed partial class RestrictByIdComponent : Component
     ///     Which accesses to restrict the item to.
     /// </summary>
     [DataField("access")]
-    public HashSet<ProtoId<AccessLevelPrototype>> AccessLists = new();
+    public List<ProtoId<AccessLevelPrototype>> AccessLists = [];
 
     /// <summary>
     ///     Whether the restriction should be inverted

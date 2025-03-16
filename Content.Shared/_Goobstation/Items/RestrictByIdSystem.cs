@@ -22,10 +22,11 @@ namespace Content.Shared._Goobstation.Items
 
         private void OnComponentInit(Entity<RestrictByIdComponent> ent, ref ComponentInit args)
         {
-            var item = ent.Owner;
+            var item = ent.Comp.Owner;
 
             // Set the access levels.
             EnsureComp<AccessReaderComponent>(item, out var accessReader);
+            _accessReader.SetAccesses(item, accessReader, ent.Comp.AccessLists);
         }
 
         private void OnAttemptShoot(Entity<RestrictByIdComponent> ent, ref AttemptShootEvent args)
