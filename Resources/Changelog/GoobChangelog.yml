@@ -6430,3 +6430,9 @@ Entries:
       message: You can now sign papers by alt clicking with a pen.
   id: 742
   time: '2025-03-16T01:57:18.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: Increased air vent lock pressure threshold
+  id: 743
+  time: '2025-03-16T01:57:47.0000000+00:00'
