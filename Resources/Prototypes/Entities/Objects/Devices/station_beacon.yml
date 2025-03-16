@@ -76,7 +76,9 @@
           acts: ["Breakage"]
   - type: StaticPrice
     price: 25
-
+  - type: SpawnOnTrigger
+    proto: ContractorMarker
+  - type: TriggerOnSpawn
 - type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconUnanchored

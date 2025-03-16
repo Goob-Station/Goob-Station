@@ -1,5 +1,7 @@
 using System.Linq;
+using Content.Shared.Coordinates;
 using Content.Shared.Mind;
+using Content.Shared.Pinpointer;
 using Content.Shared.Roles;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
@@ -15,16 +17,34 @@ public sealed class SharedContractorSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ContractorComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<ContractorComponent, MapInitEvent>(OnContractorMapInit);
+        SubscribeLocalEvent<ContractorMarkerComponent, MapInitEvent>(OnMarkerMapInit);
     }
 
-    private void OnMapInit(Entity<ContractorComponent> ent, ref MapInitEvent args)
+    private void OnMarkerMapInit(Entity<ContractorMarkerComponent> ent, ref MapInitEvent args)
+    {
+        var entitiesIntersecting = _lookupSystem.GetEntitiesIntersecting(ent.Owner.ToCoordinates());
+        foreach (var entity in entitiesIntersecting)
+        {
+            if(!TryComp<NavMapBeaconComponent>(entity, out var navMapBeaconComponent))
+                continue;
+
+            if (navMapBeaconComponent.DefaultText == null)
+                continue;
+
+            ent.Comp.Name = navMapBeaconComponent.DefaultText;
+            break;
+        }
+    }
+
+    private void OnContractorMapInit(Entity<ContractorComponent> ent, ref MapInitEvent args)
     {
         SetupContracts(ent);
     }
@@ -42,11 +62,22 @@ public sealed class SharedContractorSystem : EntitySystem
             if (!TryComp<MindRoleComponent>(mindRole, out var mindRoleComp) || mindRoleComp.Antag || humanoid.Owner == ent.Owner)
                 possibleContracts.Remove(humanoid);
 
-        var contracts = possibleContracts.OrderBy(x => _random.Next())
+        var targets = possibleContracts.OrderBy(x => _random.Next())
             .Take(5)
             .Select(entity => GetNetEntity(entity.Owner))
             .ToList();
 
-        ent.Comp.Contracts = contracts;
+        var query = EntityQueryEnumerator<ContractorMarkerComponent>();
+        var markerList = new List<NetEntity>();
+
+        while (query.MoveNext(out var uid, out _))
+        {
+            markerList.Add(GetNetEntity(uid));
+        }
+
+        foreach (var target in targets)
+        {
+            ent.Comp.Contracts.Add(target, markerList.OrderBy(x => _random.Next()).Take(3).ToList());
+        }
     }
 }

@@ -1,0 +1,10 @@
+- type: entity
+  name: contractor marker
+  id: ContractorMarker
+  parent: MarkerBase
+  categories: [HideSpawnMenu]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+  - type: ContractorMarker

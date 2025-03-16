@@ -739,7 +739,7 @@
   id: UplinkContractorBundle
   name: uplink-contractor-bundle-name
   description: uplink-contractor-bundle-desc
-  productEntity: ClothingBackpackDuffelSyndicateFilledContractor
+  productEntity: ContractorLoadoutBoxFilled
   cost:
     Telecrystal: 100
   categories:

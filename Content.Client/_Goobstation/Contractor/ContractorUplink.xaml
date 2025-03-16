@@ -1,56 +1,50 @@
 <controls:ContractorUplink
     xmlns="https://spacestation14.io"
-    xmlns:controls="clr-namespace:Content.Client._Goobstation.Contractor">
-<PanelContainer>
-    <BoxContainer Margin="10">
-        <BoxContainer>
-            <!-- Header Section -->
-            <BoxContainer>
-                <Label Text="Summary"/>
-                <Label Text="TC Available: 0" />
-                <Label Text="TC Earned: 6" />
-                <Label Text="Contracts Completed: 1" />
-                <Button Text="Claim" />
-            </BoxContainer>
+    xmlns:controls="clr-namespace:Content.Client._Goobstation.Contractor" MinSize="600 600">
+    <PanelContainer>
+        <BoxContainer Orientation="Vertical" Margin="5">
+            <!-- Header -->
+            <Label Text="Syndicate Contractor Uplink" />
 
-            <!-- Contracts List -->
-            <GridContainer Rows="1">
-                <!-- Contract 1: Bill Nokingston -->
-                <PanelContainer>
-                    <BoxContainer Margin="5">
-                        <BoxContainer>
+            <!-- Summary Section -->
+            <PanelContainer>
+                <BoxContainer Orientation="Vertical" Margin="5">
+                    <Label Text="Summary" />
+
+                    <BoxContainer Orientation="Horizontal">
+                        <Label Text="TC Available: 0 TC" />
+                        <Button Text="Claim" />
+                        <Label Text="Contracts Completed: 1" />
+                    </BoxContainer>
+
+                    <Label Text="Contractor Status: ACTIVE" />
+                </BoxContainer>
+            </PanelContainer>
+
+            <!-- Contracts Section -->
+            <Label Text="Contracts" />
+
+            <ScrollContainer VerticalExpand="true">
+                <BoxContainer Orientation="Vertical">
+                    <!-- Example Contract Entry -->
+                    <PanelContainer>
+                        <BoxContainer Orientation="Vertical" Margin="5">
                             <Label Text="Bill Nokingston, the Scientist" />
+
                             <Label Text="Ransomeable to Nanotrasen for rebirthing a cult on NSS Cyberiad." />
+
                             <Label Text="Extraction Zone:" />
-                            <GridContainer Columns="3">
+
+                            <GridContainer Columns="1">
                                 <Button Text="Fore Port Solar Maintenance (4 TC)" />
                                 <Button Text="Technical Storage (6 TC)" />
                                 <Button Text="Robotics Lab (6 TC)" />
                             </GridContainer>
                         </BoxContainer>
-                    </BoxContainer>
-                </PanelContainer>
-
-                <!-- Contract 2: Frank Scorpio -->
-                <PanelContainer>
-                    <BoxContainer Margin="5">
-                        <BoxContainer>
-                            <Label Text="Frank Scorpio, the Blueshield"/>
-                            <Label Text="Has exploitable information about destroying a cult on NSS Kerberos." />
-                            <Label Text="Extraction Zone:" />
-                            <GridContainer Columns="3">
-                                <Button Text="Leeker Room (3 TC)" />
-                                <Button Text="Dormitory Toilets (6 TC)" />
-                                <Button Text="Dorms (6 TC)" />
-                            </GridContainer>
-                        </BoxContainer>
-                    </BoxContainer>
-                </PanelContainer>
-
-
-            </GridContainer>
+                    </PanelContainer>
+                </BoxContainer>
+            </ScrollContainer>
         </BoxContainer>
-    </BoxContainer>
-</PanelContainer>
+    </PanelContainer>
 
 </controls:ContractorUplink>

@@ -9,3 +9,9 @@
     layers:
       - state: icon
   - type: Appearance
+  - type: ActivatableUI
+    key: enum.ContractorUplinkUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ContractorUplinkUiKey.Key:
+        type: ContractorUplinkBoundUserInterface

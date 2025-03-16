@@ -13,5 +13,7 @@
     - id: ClothingOuterContractorSyndicate
     - id: ClothingHeadHelmetContractor
     - id: ClothingUniformJumpsuitChameleon
+    - id: PaperContractorGuide
+    - id: ContractorUplink
 
 
