@@ -124,7 +124,7 @@
 
 - type: loadoutGroup
   id: NanotrasenTrainerOuterClothing
-  name: loadout-group-nct-jumpsuit
+  name: loadout-group-nct-outerclothing
   minLimit: 0
   loadouts:
   - NanotrasenTrainerCoat
