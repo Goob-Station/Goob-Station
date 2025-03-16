@@ -14,5 +14,5 @@ public sealed partial class PressureDamageChangeComponent : Component
     public bool ApplyWhenInRange = false;
 
     [DataField]
-    public float AppliedModifier = 0.33f;
+    public float AppliedModifier = 0.25f;
 }
