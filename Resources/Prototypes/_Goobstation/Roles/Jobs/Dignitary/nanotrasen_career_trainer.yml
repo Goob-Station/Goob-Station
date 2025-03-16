@@ -30,9 +30,9 @@
     id: TrainerPDA
     ears: ClothingHeadsetAltCentCom
     eyes: ClothingEyesGlassesCentComm
-    pocket1: WeaponDisablerAdvanced
+    pocket1: WeaponDisabler
+    pocket2: FoodSnackLollypopWrappedCentComm # Come on, it's a trademark at this point.
   storage:
     back:
-    - HyperFlash # Teehee
+    - Flash
     - TelescopicBatonAdvanced
-    - FoodSnackLollypopWrappedCentComm # Come on, it's a trademark at this point.
