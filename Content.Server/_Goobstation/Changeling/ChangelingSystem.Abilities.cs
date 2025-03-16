@@ -25,14 +25,11 @@ using Content.Shared.Actions;
 using Content.Shared.Tag;
 using Content.Shared.Traits.Assorted;
 using Content.Server.Temperature.Components;
-using Content.Shared.Temperature.Components;
 using Content.Server.Atmos.Components;
 using Content.Shared._Shitmed.Body.Components;
 using Content.Server.Flash.Components;
 using Content.Shared.StatusEffect;
 using Content.Shared.Eye.Blinding.Components;
-using Content.Shared.Temperature.Systems;
-using Content.Server.Body.Components;
 
 namespace Content.Server.Changeling;
 
@@ -829,7 +826,7 @@ public sealed partial class ChangelingSystem
                     return;
 
                 _statusEffects.TryAddStatusEffect<TemporaryBlindnessComponent>((EntityUid) puller,
-                    "BlurryVision",
+                    "TemporaryBlindness",
                     TimeSpan.FromSeconds(2f),
                     true,
                     status);
@@ -882,8 +879,6 @@ public sealed partial class ChangelingSystem
                 if (!comp.VoidAdaptActive)
                 {
                     comp.DefaultColdDamageThreshold = tempComp.ColdDamageThreshold; // to account for species having different temp thresholds
-                    //comp.DefaultCoolingCoefficient = tempProtectComp.CoolingCoefficient;
-                    //comp.DefaultShiveringHeatRegulation = regulateComp.ShiveringHeatRegulation;
 
                     EnsureComp<BreathingImmunityComponent>(uid);
                     EnsureComp<PressureImmunityComponent>(uid);

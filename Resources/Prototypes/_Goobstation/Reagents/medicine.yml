@@ -123,10 +123,10 @@
         - !type:HealthChange
           damage:
             types:
-              Heat: -3.5
-              Cold: -3.5
-              Shock: -3.5
-              Caustic: -3.5
+              Heat: -3.0
+              Cold: -3.0
+              Shock: -3.0
+              Caustic: -3.0
               Asphyxiation: -2
               Blunt: -7
               Piercing: -7

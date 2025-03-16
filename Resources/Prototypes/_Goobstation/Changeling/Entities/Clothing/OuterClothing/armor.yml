@@ -10,7 +10,7 @@
   - type: Clothing
     sprite: _Goobstation/Changeling/ling_armor.rsi
   - type: TemperatureProtection
-    heatingCoefficient: 0.005 # same amount as regular fire suit
+    heatingCoefficient: 0.35 # solid protection, resists WEAKER fires
   - type: Armor
     modifiers:
       coefficients:

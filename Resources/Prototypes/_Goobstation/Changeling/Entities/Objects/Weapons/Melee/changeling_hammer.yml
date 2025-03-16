@@ -27,6 +27,7 @@
     malus: 0
   - type: MeleeThrowOnHit
     speed: 5
+    distance: 3
   - type: KnockdownOnHit
     duration: 0
     knockdownOnHeavyAttack: false
