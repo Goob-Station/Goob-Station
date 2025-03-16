@@ -14,6 +14,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Actions;
+using Robust.Shared.Physics;
 
 namespace Content.Shared._Goobstation.Fishing.Systems;
 
@@ -314,14 +315,25 @@ public abstract class SharedFishingSystem : EntitySystem
         var attachedEnt = args.OtherEntity;
         component.AttachedEntity = attachedEnt;
 
-        // Anchor fishing float on an entity
+        // Fishing spot logic
+        if (HasComp<ActiveFishingSpotComponent>(attachedEnt))
+            return;
+
         var spotPosition = _transform.GetWorldPosition(attachedEnt);
+        if (!_fishSpotQuery.TryComp(attachedEnt, out var spotComp))
+        {
+            if (args.OtherBody.BodyType != BodyType.Dynamic)
+                return;
+
+            // Anchor fishing float on an entity
+            _transform.SetWorldPosition(uid, spotPosition);
+            _transform.AnchorEntity(uid);
+            return;
+        }
+
+        // Anchor fishing float on an entity
         _transform.SetWorldPosition(uid, spotPosition);
         _transform.AnchorEntity(uid);
-
-        // Fishing spot logic
-        if (HasComp<ActiveFishingSpotComponent>(attachedEnt) || !_fishSpotQuery.TryComp(attachedEnt, out var spotComp))
-            return;
 
         var rand = new System.Random((int) _timing.CurTick.Value); // evil random prediction hack
 
