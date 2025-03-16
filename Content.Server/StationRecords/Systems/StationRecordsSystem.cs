@@ -386,6 +386,11 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         if (filter.Value.Length == 0)
             return false;
 
+        if (filter.Type == StationRecordFilterType.Prints && someRecord.Fingerprint == null) // Goobstation - IPC
+            return true;
+        if (filter.Type == StationRecordFilterType.DNA && someRecord.DNA == null) // Goobstation - IPC
+            return true;
+
         var filterLowerCaseValue = filter.Value.ToLower();
 
         return filter.Type switch
@@ -416,10 +421,6 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         foreach (var pair in records)
         {
             if (IsSkipped(filter, pair.Item2))
-                continue;
-            if (filter != null && filter.Type == StationRecordFilterType.DNA && pair.Item2.DNA == null) // Goobstation - IPC
-                continue;
-            if (filter != null && filter.Type == StationRecordFilterType.Prints && pair.Item2.Fingerprint == null) // Goobstation - IPC
                 continue;
 
             listing.Add(pair.Item1, pair.Item2.Name);
