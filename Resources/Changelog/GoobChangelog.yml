@@ -6406,3 +6406,15 @@ Entries:
         point cost to 750
   id: 739
   time: '2025-03-14T19:24:33.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Briefings now communicate how to use your collective mind channel when
+        appropriate (+e for blobmind, +a for glorpmind).
+    - type: Tweak
+      message: Changeling hivemind channel color changed.
+    - type: Fix
+      message: Fixed abductors not having glorpmind.
+  id: 740
+  time: '2025-03-16T01:56:13.0000000+00:00'
