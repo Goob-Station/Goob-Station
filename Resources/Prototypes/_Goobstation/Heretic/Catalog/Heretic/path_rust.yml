@@ -44,7 +44,7 @@
   id: HereticRustPath3
   name: knowledge-path-rust-s3-name
   description: knowledge-path-rust-s3-desc
-  icon: { sprite: _Goobstation/Heretic/Tiles, state: plating_rust }
+  icon: { sprite: _Goobstation/Heretic/tiles.rsi, state: plating_rust }
   productHereticKnowledge: LeechingWalk
   cost:
     KnowledgePoint: 1
