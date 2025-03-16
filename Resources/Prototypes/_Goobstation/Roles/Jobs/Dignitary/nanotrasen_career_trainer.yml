@@ -29,7 +29,7 @@
   equipment:
     id: TrainerPDA
     ears: ClothingHeadsetAltCentCom
-    eyes: ClothingEyesGlassesCentcomm
+    eyes: ClothingEyesGlassesCentComm
     pocket1: WeaponDisablerAdvanced
   storage:
     back:
