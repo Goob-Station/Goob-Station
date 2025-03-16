@@ -1,173 +1,23 @@
 - type: jukebox
-  id: skubstep
-  name: Finket - Skubstep
+  id: silverpony
+  name: Silver Jews - Pony
   path:
-    path: /Audio/Lobby/skubstep.ogg
+    path: /Audio/Lobby/silverpony.ogg
 
 - type: jukebox
-  id: sneeds
-  name: Burgerchild - Sneeds Feed and Seed
+  id: drillpony
+  name: MC Firedrill - Pony
   path:
-    path: /Audio/Lobby/sneedsfeedandseed.ogg
+    path: /Audio/Lobby/drillpony.ogg
 
 - type: jukebox
-  id: clownwmv
-  name: Admiral Hippie - Clown.wmv
+  id: ponysong
+  name: Edith Frost - Pony Song
   path:
-    path: /Audio/Lobby/clownwmv.ogg
+    path: /Audio/Lobby/ponysong.ogg
 
 - type: jukebox
-  id: clownalwayswins
-  name: NИTRODE - Clown Always Wins
+  id: luckyhorse
+  name: Movie Star Junkies - Lucky Horse
   path:
-    path: /Audio/Lobby/clownalwayswins.ogg
-
-- type: jukebox
-  id: horn
-  name: Scruq - Horn!
-  path:
-    path: /Audio/Lobby/horn.ogg
-
-- type: jukebox
-  id: thewizard
-  name: Chris Remo - The Wizard
-  path:
-    path: /Audio/Lobby/thewizard.ogg
-
-- type: jukebox
-  id: dawsonschristian
-  name: Vic Tyler - Dawson's Christian
-  path:
-    path: /Audio/Lobby/dawsonschristian.ogg
-
-- type: jukebox
-  id: skubstub
-  name: DJ B1G YAPPA - SKUBSTUB
-  path:
-    path: /Audio/Lobby/skubstub.ogg
-
-- type: jukebox
-  id: violet
-  name: Mrjajkes - Violet
-  path:
-    path: /Audio/_Goobstation/Announcements/violet.ogg
-
-- type: jukebox
-  id: redsun
-  name: Red Sun in the Sky
-  path:
-    path: /Audio/Lobby/redsun.ogg
-
-- type: jukebox
-  id: chollima
-  name: Pochonbo Electronic Ensemble - Chollima on the Wing
-  path:
-    path: /Audio/Lobby/chollima.ogg
-
-- type: jukebox
-  id: blatantly_nuclear
-  name: mrjajkes - Blatantly Nuclear
-  path:
-    path: /Audio/StationEvents/blatantly_nuclear.ogg
-
-- type: jukebox
-  id: countdown
-  name: Qwertyqwerty - Countdown
-  path:
-    path: /Audio/StationEvents/countdown.ogg
-
-- type: jukebox
-  id: last_call
-  name: Mrjajkes - Last Call
-  path:
-    path: /Audio/StationEvents/last_call.ogg
-
-- type: jukebox
-  id: running_out
-  name: Bolgarich - Running Out
-  path:
-    path: /Audio/StationEvents/running_out.ogg
-
-- type: jukebox
-  id: sound_station_14
-  name: Donchan - Sound Station 14
-  path:
-    path: /Audio/StationEvents/sound_station_14.ogg
-
-- type: jukebox
-  id: tansume
-  name: Moranbong Band - Tansume
-  path:
-    path: /Audio/StationEvents/tansume.ogg
-
-- type: jukebox
-  id: absconditus
-  name: ZhayTee - Absconditus
-  path:
-    path: /Audio/Lobby/absconditus.ogg
-
-- type: jukebox
-  id: spaceasshole
-  name: Chris Remo - Space Asshole
-  path:
-    path: /Audio/Lobby/space_asshole.ogg
-
-- type: jukebox
-  id: endless_space
-  name: SolusLunes - Endless Space
-  path:
-    path: /Audio/Lobby/endless_space.ogg
-
-- type: jukebox
-  id: singuloose
-  name: Janis Schiedková - Singuloose
-  path:
-    path: /Audio/Lobby/singuloose.ogg
-
-- type: jukebox
-  id: comet_haley
-  name: Stellardrone - Comet Haley
-  path:
-    path: /Audio/Lobby/comet_haley.ogg
-
-- type: jukebox
-  id: title2
-  name: Eric Shumaker & Jonathan Dunn - Robocop / Title 2
-  path:
-    path: /Audio/Lobby/title2.ogg
-
-- type: jukebox
-  id: spac_stac
-  name: Hayabusa - Spac Stac
-  path:
-    path: /Audio/Lobby/Spac_Stac.ogg
-
-- type: jukebox
-  id: pwmur
-  name: Alexander Divine - Phoron Will Make Us Rich
-  path:
-    path: /Audio/Lobby/pwmur.ogg
-
-- type: jukebox
-  id: lasers_rip_apart_the_bulkhead
-  name: Alexander Divine - Lasers Rip Apart the Bulkhead
-  path:
-    path: /Audio/Lobby/lasers_rip_apart_the_bulkhead.ogg
-
-- type: jukebox
-  id: every_light_is_blinking_at_once
-  name: Alexander Divine - Every Light is Blinking at Once
-  path:
-    path: /Audio/Lobby/every_light_is_blinking_at_once.ogg
-
-- type: jukebox
-  id: atomicamnesiammx
-  name: Philip Dyer - Atomic Amnesia MMX
-  path:
-    path: /Audio/Lobby/atomicamnesiammx.ogg
-
-- type: jukebox
-  id: the_future_soon
-  name: Jonathan Coulton - The Future Soon
-  path:
-    path: /Audio/Lobby/the_future_soon.ogg
+    path: /Audio/Lobby/luckyhorse.ogg
