@@ -807,9 +807,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return false;
         }
 
-        var comboEv = new ComboAttackPerformedEvent(user, target.Value, meleeUid, ComboAttackType.Disarm);
-        RaiseLocalEvent(user, comboEv);
-
         // Play a sound to give instant feedback; same with playing the animations
         _meleeSound.PlaySwingSound(user, meleeUid, component);
         return true;

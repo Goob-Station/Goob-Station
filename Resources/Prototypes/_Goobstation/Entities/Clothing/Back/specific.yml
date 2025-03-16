@@ -70,3 +70,21 @@
       - id: MedkitAdvancedFilled
       - id: WeaponPistolEchis
       - id: Flash
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelGman
+  name: strange duffelbag
+  description: A strange, unremovable, bag capable of containing an absurd amount of items. Seemingly invisible to the naked eye.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Duffels/duffel.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Armor/covert_armor.rsi
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,19,9
+  - type: Unremoveable # No looting the gman.
+
