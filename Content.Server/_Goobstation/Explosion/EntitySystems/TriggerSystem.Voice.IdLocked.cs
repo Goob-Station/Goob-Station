@@ -1,6 +1,7 @@
 using Content.Server._Goobstation.Explosion.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Speech;
+using Content.Server.Speech.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Database;
@@ -23,6 +24,8 @@ namespace Content.Server.Explosion.EntitySystems
         {
             // Set the access levels.
             EnsureComp<AccessReaderComponent>(uid, out var accessReader);
+            // Allow the item to listen.
+            EnsureComp<ActiveListenerComponent>(uid).Range = comp.ListenRange;
             _accessReader.SetAccesses(uid, accessReader, comp.AccessLists);
 
         }
