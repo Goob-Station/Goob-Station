@@ -7,6 +7,7 @@
     - id: HandheldFaxOfficial
     - id: WeaponPulsePistol
     - id: TelescopicBatonAdvanced
+    - id: CentralCommandBusinessCard
 
 - type: entity
   parent: ClothingBackpackSatchelLeather
@@ -21,6 +22,7 @@
     - id: MagazineLightRifleUranium
     - id: MagazineLightRifleUranium
     - id: HyperFlash
+    - id: CentralCommandBusinessCard
 
 - type: entity
   parent: ClothingBackpackChameleon
@@ -33,3 +35,16 @@
     - id: MagazinePistolNeurotoxin
     - id: MagazinePistolNeurotoxin
     - id: HyperFlash
+    - id: CentralCommandBusinessCard
+
+- type: entity
+  parent: ClothingBackpackSatchelLeather
+  id: ClothingBackpackSatchelLeatherFilledInspector
+  components:
+  - type: StorageFill
+    contents:
+    - id: HandheldFaxOfficial
+    - id: WeaponPulsePistol
+    - id: TelescopicBatonAdvanced
+    - id: BoxFolderCentComClipboard
+    - id: CentralCommandBusinessCard

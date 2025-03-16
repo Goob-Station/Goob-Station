@@ -193,6 +193,47 @@
     pocket1: TelescopicBatonAdvanced
     pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
 
+# Inspector
+
+- type: job
+  id: Inspector
+  name: job-name-inspector
+  description: job-description-inspector
+  playTimeTracker: JobInspector
+  setPreference: false
+  startingGear: InspectorGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-commander
+  canBeAntag: false
+  requirements:
+  - !type:AgeRequirement
+    requiredAge: 21
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: MindShieldImplant
+
+- type: startingGear
+  id: InspectorGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNavyGold
+    shoes: ClothingShoesBootsLaceup
+    eyes: ClothingEyesGlassesCentComm
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
+    back: ClothingBackpackSatchelLeatherFilledInspector
+    outerClothing: ClothingOuterArmourInvisible
+    neck: ExecutiveIDCard
+    id: InspectorPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: BoxFolderCentComClipboard
+    pocket1: TelescopicBatonAdvanced
+    pocket2: AmnestizineHypospray
+
 ## Half-life stolen roles
 
 - type: job

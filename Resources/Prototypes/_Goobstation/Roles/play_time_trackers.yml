@@ -23,6 +23,9 @@
   id: JobDiplomat
 
 - type: playTimeTracker
+  id: JobInspector
+
+- type: playTimeTracker
   id: JobNanotrasenCareerTrainer
 
 - type: playTimeTracker
