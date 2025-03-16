@@ -102,7 +102,5 @@
   - type: ThrowingAngle
     angle: 225
   - type: ThrowableBlocked
-  - type: AccessReader
-    access: [ [ "HeadOfSecurity" ] ]
   - type: RestrictById
-    access: [ [ "HeadOfSecurity" ] ]
+    access: [[ "HeadOfSecurity" ]]
