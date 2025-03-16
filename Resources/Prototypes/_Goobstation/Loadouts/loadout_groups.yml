@@ -143,7 +143,7 @@
   - NanotrasenTrainerClipboard
 
 - type: loadoutGroup
-  id: NanotrasenTrainereShoes
+  id: NanotrasenTrainerShoes
   name: loadout-group-nct-shoes
   loadouts:
   - NanotrasenTrainerBoots
