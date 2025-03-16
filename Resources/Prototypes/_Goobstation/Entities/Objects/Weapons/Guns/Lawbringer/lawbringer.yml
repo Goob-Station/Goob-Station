@@ -68,4 +68,7 @@
     restrictRanged: true
   - type: StaticPrice
     price: 750
+  - type: TriggerOnVoice
+    restrictById: true
+  - type: explodeOnTrigger
 
