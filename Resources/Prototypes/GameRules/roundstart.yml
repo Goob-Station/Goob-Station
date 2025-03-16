@@ -175,6 +175,15 @@
       prob: 0.3
 
 - type: entity
+  parent: BaseGameRule
+  id: TraitorSubGamemodesRule
+  components:
+  - type: SubGamemodes
+    rules:
+    - id: TraitorSubgamemode
+      prob: 0.5
+
+- type: entity
   id: DeathMatch31
   parent: BaseGameRule
   components:
@@ -535,7 +544,7 @@
     definitions:
     - prefRoles: [ Thief ]
       max: 10
-      playerRatio: 10
+      playerRatio: 7
       lateJoinAdditional: true
       allowNonHumans: true
       multiAntagSetting: NotExclusive
