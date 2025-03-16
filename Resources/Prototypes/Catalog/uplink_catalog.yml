@@ -1998,3 +1998,18 @@
   - !type:BuyerDepartmentCondition
     whitelist:
     - Medical
+
+- type: listing
+  id: 
+  name: uplink-sleeping-carp-name
+  description: uplink-sleeping-carp-desc
+  productEntity: SleepingCarpScroll
+  cost:
+    Telecrystal: 250 # Nukie carp for all team cost
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink

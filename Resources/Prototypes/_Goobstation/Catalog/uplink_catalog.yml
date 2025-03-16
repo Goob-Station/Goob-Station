@@ -689,3 +689,18 @@
     Telecrystal: 40
   categories:
   - UplinkDeception
+
+- type: listing
+  id: NukieUplinkMysteriousScroll
+  name: uplink-sleeping-carp-name
+  description: uplink-sleeping-carp-desc
+  productEntity: SleepingCarpScroll
+  cost:
+    Telecrystal: 250 #nukie can use it by all team
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
