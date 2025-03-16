@@ -23,7 +23,7 @@ namespace Content.Server._Goobstation.Explosion.Components
         public int ListenRange { get; private set; } = 2;
 
         /// <summary>
-        ///     Which accesses to restrict the trigger to. - Goobstation
+        ///     Which accesses to restrict the trigger to.
         /// </summary>
         [DataField("access")]
         public List<ProtoId<AccessLevelPrototype>> AccessLists = [];

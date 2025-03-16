@@ -34,13 +34,13 @@ namespace Content.Server.Explosion.EntitySystems
 
             if (!string.IsNullOrWhiteSpace(comp.KeyPhrase) && message.Contains(comp.KeyPhrase, StringComparison.InvariantCultureIgnoreCase))
             {
-                if (!_accessReader.IsAllowed(args.Source, comp.Owner ))
+                if (_accessReader.IsAllowed(args.Source, comp.Owner ))
                     return;
 
                 _adminLogger.Add(LogType.Trigger, LogImpact.High,
                         $"An ID locked voice-trigger on {ToPrettyString(ent):entity} was triggered by {ToPrettyString(args.Source):speaker} speaking the key-phrase {comp.KeyPhrase}.");
 
-                _triggerSystem.Trigger(ent, args.Source);
+                _triggerSystem.Trigger(ent, ent.Comp.Owner);
             }
         }
     }
