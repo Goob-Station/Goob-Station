@@ -203,7 +203,7 @@
     speed: 20
   - type: KnockdownOnHit
     duration: 0
-    knockdownOnHeavyAttack: falsep
+    knockdownOnHeavyAttack: false
   - type: PassiveDamage
     allowedStates:
     - Alive
