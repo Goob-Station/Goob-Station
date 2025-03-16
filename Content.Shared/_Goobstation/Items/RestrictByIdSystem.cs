@@ -1,11 +1,8 @@
-using System.Linq;
-using Content.Shared.Access;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Systems;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Goobstation.Items
 {
