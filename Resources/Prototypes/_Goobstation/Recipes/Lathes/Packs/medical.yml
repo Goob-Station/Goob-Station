@@ -2,9 +2,11 @@
 - type: latheRecipePack
   id: ParamedHypoStatic
   recipes:
+  - CartridgeAtropine
   - CartridgeEpinephrine
   - CartridgeBicaridine
   - CartridgeDermaline
+  - CartridgeSaline
   - ParamedHypo
 
 - type: latheRecipePack

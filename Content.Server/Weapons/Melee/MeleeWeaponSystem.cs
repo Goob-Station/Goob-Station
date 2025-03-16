@@ -23,6 +23,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Numerics;
+using Content.Shared._Goobstation.MartialArts.Events;
 using Content.Server.Damage.Components;
 using Content.Shared._EinsteinEngines.Contests;
 using Content.Shared._Goobstation.CCVar;
@@ -143,6 +144,11 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         {
             inTargetHand = targetHandsComponent.ActiveHand.HeldEntity!.Value;
         }
+
+        Interaction.DoContactInteraction(user, target);
+
+        var comboEv = new ComboAttackPerformedEvent(user, target, meleeUid, ComboAttackType.Disarm);
+        RaiseLocalEvent(user, comboEv);
 
         var attemptEvent = new DisarmAttemptEvent(target, user, inTargetHand);
         if (inTargetHand != null)

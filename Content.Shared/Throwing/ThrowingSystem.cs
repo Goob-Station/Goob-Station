@@ -2,6 +2,7 @@ using System.Numerics;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Camera;
 using Content.Shared.CCVar;
+using Content.Shared.Construction.Components;
 using Content.Shared.Database;
 using Content.Shared.Friction;
 using Content.Shared.Gravity;
@@ -58,6 +59,7 @@ public sealed class ThrowingSystem : EntitySystem
         bool animated = true,
         bool playSound = true,
         bool doSpin = true,
+        bool unanchor = false,
         bool throwInAir = true)
     {
         var thrownPos = _transform.GetMapCoordinates(uid);
@@ -66,7 +68,7 @@ public sealed class ThrowingSystem : EntitySystem
         if (mapPos.MapId != thrownPos.MapId)
             return;
 
-        TryThrow(uid, mapPos.Position - thrownPos.Position, baseThrowSpeed, user, pushbackRatio, friction, compensateFriction: compensateFriction, recoil: recoil, animated: animated, playSound: playSound, doSpin: doSpin, throwInAir: throwInAir); // WWDP throwInAir
+        TryThrow(uid, mapPos.Position - thrownPos.Position, baseThrowSpeed, user, pushbackRatio, friction, compensateFriction: compensateFriction, recoil: recoil, animated: animated, playSound: playSound, doSpin: doSpin, unanchor: unanchor, throwInAir: throwInAir); // WWDP throwInAir
     }
 
     /// <summary>
@@ -79,6 +81,7 @@ public sealed class ThrowingSystem : EntitySystem
     /// <param name="friction">friction value used for the distance calculation. If set to null this defaults to the standard tile values</param>
     /// <param name="compensateFriction">True will adjust the throw so the item stops at the target coordinates. False means it will land at the target and keep sliding.</param>
     /// <param name="doSpin">Whether spin will be applied to the thrown entity.</param>
+    /// <param name="unanchor">If true and the thrown entity has <see cref="AnchorableComponent"/>, unanchor the thrown entity</param>
     /// <param name="throwInAir">WWDP - Whether the thrown entity status will be set to InAir during flight.</param>
     public void TryThrow(EntityUid uid,
         Vector2 direction,
@@ -91,6 +94,7 @@ public sealed class ThrowingSystem : EntitySystem
         bool animated = true,
         bool playSound = true,
         bool doSpin = true,
+        bool unanchor = false,
         bool throwInAir = true) // WWDP throwInAir
     {
         var physicsQuery = GetEntityQuery<PhysicsComponent>();
@@ -109,6 +113,7 @@ public sealed class ThrowingSystem : EntitySystem
             user,
             pushbackRatio,
             friction, compensateFriction: compensateFriction, recoil: recoil, animated: animated, playSound: playSound, doSpin: doSpin, throwInAir: throwInAir);
+
     }
 
     /// <summary>
@@ -116,11 +121,21 @@ public sealed class ThrowingSystem : EntitySystem
     /// </summary>
     /// <param name="uid">The entity being thrown.</param>
     /// <param name="direction">A vector pointing from the entity to its destination.</param>
+    /// <param name="physics"></param>
+    /// <param name="transform"></param>
+    /// <param name="projectileQuery"></param>
     /// <param name="baseThrowSpeed">Throw velocity. Gets modified if compensateFriction is true.</param>
+    /// <param name="user"></param>
     /// <param name="pushbackRatio">The ratio of impulse applied to the thrower - defaults to 10 because otherwise it's not enough to properly recover from getting spaced</param>
     /// <param name="friction">friction value used for the distance calculation. If set to null this defaults to the standard tile values</param>
     /// <param name="compensateFriction">True will adjust the throw so the item stops at the target coordinates. False means it will land at the target and keep sliding.</param>
+    /// <param name="recoil"></param>
+    /// <param name="animated"></param>
+    /// <param name="playSound"></param>
+    /// <param name="doSpin1"></param>
     /// <param name="doSpin">Whether spin will be applied to the thrown entity.</param>
+    /// <param name="unanchor">If true and the thrown entity has <see cref="AnchorableComponent"/>, unanchor the thrown entity</param>
+    /// <param name="throwInAir"></param>
     public void TryThrow(EntityUid uid,
         Vector2 direction,
         PhysicsComponent physics,
@@ -135,16 +150,17 @@ public sealed class ThrowingSystem : EntitySystem
         bool animated = true,
         bool playSound = true,
         bool doSpin = true,
+        bool unanchor = false,
         bool throwInAir = true) // WWDP throwInAir
     {
         if (baseThrowSpeed <= 0 || direction == Vector2Helpers.Infinity || direction == Vector2Helpers.NaN || direction == Vector2.Zero || friction < 0)
             return;
 
+        if (unanchor && HasComp<AnchorableComponent>(uid))
+            _transform.Unanchor(uid);
+
         if ((physics.BodyType & (BodyType.Dynamic | BodyType.KinematicController)) == 0x0)
-        {
-            Log.Warning($"Tried to throw entity {ToPrettyString(uid)} but can't throw {physics.BodyType} bodies!");
             return;
-        }
 
         // Allow throwing if this projectile only acts as a projectile when shot, otherwise disallow
         if (projectileQuery.TryGetComponent(uid, out var proj) && !proj.OnlyCollideWhenShot)

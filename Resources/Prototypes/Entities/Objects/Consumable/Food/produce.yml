@@ -318,6 +318,19 @@
         name: food-sequence-content-banana
       taco:
         name: food-sequence-content-banana
+  - type: Healing #Goobstation - Clowncar
+    damageContainers:
+      - ClowncarDamageContainer
+    damage:
+      groups:
+        Brute: -150
+      types:
+        Heat: -10
+        Shock: -10
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
 
 - type: entity
   name: mimana

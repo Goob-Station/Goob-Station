@@ -1,0 +1,21 @@
+- type: entity
+  id: CrateFunBlackCaviar
+  parent: CrateGenericSteel
+  name: Black caviar crate
+  description: Contains 5 tins of black caviar.
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodBlackCaviar
+      amount: 5
+
+- type: entity
+  id: CrateFunRedCaviar
+  parent: CrateGenericSteel
+  name: Red caviar crate
+  description: Contains 5 tins of red caviar.
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodRedCaviar
+      amount: 5

@@ -1,6 +1,8 @@
+using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._Goobstation.MartialArts.Components;
 
@@ -22,35 +24,11 @@ public sealed partial class MartialArtsKnowledgeComponent : GrabStagesOverrideCo
 
     [DataField]
     [AutoNetworkedField]
-    public int MinRandomDamageModifier;
+    public bool Blocked;
 
     [DataField]
     [AutoNetworkedField]
-    public int MaxRandomDamageModifier = 5;
-
-    [DataField]
-    [AutoNetworkedField]
-    public FixedPoint2 BaseDamageModifier;
-
-    [DataField]
-    [AutoNetworkedField]
-    public bool RandomDamageModifier;
-
-    [DataField]
-    [AutoNetworkedField]
-    public ProtoId<ComboListPrototype> RoundstartCombos = "CQCMoves";
-
-    [DataField]
-    [AutoNetworkedField]
-    public bool Blocked = false;
-
-    [DataField]
-    [AutoNetworkedField]
-    public List<LocId> RandomSayings = [];
-
-    [DataField]
-    [AutoNetworkedField]
-    public List<LocId> RandomSayingsDowned = [];
+    public DamageSpecifier OriginalFistDamage;
 }
 
 public enum MartialArtsForms
