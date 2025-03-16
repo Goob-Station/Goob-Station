@@ -6450,3 +6450,13 @@ Entries:
       message: Thee shalt knoweth god's wrath f'r farting on his holy text
   id: 745
   time: '2025-03-16T01:59:05.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Krav Maga legsweep no longer stunlocks
+    - type: Tweak
+      message: Judo Combos longer, throw is G>D>D, Armbar is D>D>G>G
+    - type: Tweak
+      message: Judo moves stam damage changed, throw now does 30, and armbar 70.
+  id: 746
+  time: '2025-03-16T01:59:32.0000000+00:00'
