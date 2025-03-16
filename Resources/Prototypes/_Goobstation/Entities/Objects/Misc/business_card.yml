@@ -8,7 +8,6 @@
     sprite: Objects/Misc/bureaucracy.rsi
     layers:
     - state: nanotrasen_card
-    - state: nanotrasen_card
       map: ["enum.PaperVisualLayers.Writing"]
       visible: false
     - state: paper_stamp-generic
