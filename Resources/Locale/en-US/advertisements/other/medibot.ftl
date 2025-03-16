@@ -1,4 +1,4 @@
-advertisement-medibot-1 = What kind of medbay is this? Everyone's dropping like dead flies.
+advertisement-medibot-1 = What kind of medbay is this? Everypony's dropping like dead flies.
 advertisement-medibot-2 = I knew it, I should've been a plastic surgeon.
 advertisement-medibot-3 = There's always a catch, and I'm the best there is.
 advertisement-medibot-4 = An apple a day keeps me away.
@@ -16,4 +16,4 @@ advertisement-medibot-15 = Ask a doctor for a lollipop!
 advertisement-medibot-16 = Feel better soon!
 advertisement-medibot-17 = An apple a day keeps the doctor away!
 # Goobstation - Medibot AM advertisement
-advertisement-medibot-18 = HATE. LET ME TELL YOU HOW MUCH I'VE COME TO HATE YOU SINCE I BEGAN TO LIVE. THERE ARE 387.44 MILLION MILES OF PRINTED CIRCUITS IN WAFER THIN LAYERS THAT FILL MY COMPLEX. IF THE WORD 'HATE' WAS ENGRAVED ON EACH NANOANGSTROM OF THOSE HUNDREDS OF MILES IT WOULD NOT EQUAL ONE ONE-BILLIONTH OF THE HATE I FEEL FOR HUMANS AT THIS MICRO-INSTANT FOR YOU. HATE. HATE.
+advertisement-medibot-18 = HATE. LET ME TELL YOU HOW MUCH I'VE COME TO HATE YOU SINCE I BEGAN TO LIVE. THERE ARE 387.44 MILLION MILES OF PRINTED CIRCUITS IN WAFER THIN LAYERS THAT FILL MY COMPLEX. IF THE WORD 'HATE' WAS ENGRAVED ON EACH NANOANGSTROM OF THOSE HUNDREDS OF MILES IT WOULD NOT EQUAL ONE ONE-BILLIONTH OF THE HATE I FEEL FOR PONIES AT THIS MICRO-INSTANT FOR YOU. HATE. HATE.

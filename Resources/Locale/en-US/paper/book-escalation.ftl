@@ -1,4 +1,4 @@
-book-text-escalation = When it comes to getting robusted, it's all about strategy. Do it right and you'll be the envy of the station. Do it wrong and the gods themselves may turn against you. Personally, I always aim for the former...
+book-text-escalation = When it comes to getting robusted, it's all about strategy. Do it right and you'll be the envy of the ponyville. Do it wrong and the gods themselves may turn against you. Personally, I always aim for the former...
 
         First things first: let the insults fly! This is your chance to really let your opponent know what you think of their ridiculously large shoes and that annoying bike horn.
 
@@ -8,13 +8,13 @@ book-text-escalation = When it comes to getting robusted, it's all about strateg
 
         If deescalation doesn't work, it's time to grab a weapon. But be smart about it - choose something that looks like it couldn't possibly be deadly, like this book.
 
-        And if you're both still standing, it's time to pull out the big guns. Find the sharpest thing you can and end things, because everyone's getting kind of tired of this by now.
+        And if you're both still standing, it's time to pull out the big guns. Find the sharpest thing you can and end things, because everypony's getting kind of tired of this by now.
 
-        Now parade your vanquished opponent through the halls to the medbay so that everyone knows just how robust you really are.
+        Now parade your vanquished opponent through the halls to the medbay so that everypony knows just how robust you really are.
 
         Remember, it's all about conserving energy. Let your opponent do some of the escalation for you - it's a win-win!
 
-book-text-escalation-security = Get it right and you'll have the whole station calling you shitsec. Get it wrong and you'll face harmbatoning from the gods. Personally, I always aim for the former...
+book-text-escalation-royal guard = Get it right and you'll have the whole ponyville calling you shitsec. Get it wrong and you'll face harmbatoning from the gods. Personally, I always aim for the former...
 
         They say the pen is mightier than the sword, but you don't have a sword, you have a stun baton, and as soon as you start writing, any suspect is going to leave.
 

@@ -1,5 +1,5 @@
 book-text-gaming1 = Can't stay for the game.
-      Engineering want me to keep a close eye on the singularity SMESes.
+      Cloudsmithing want me to keep a close eye on the singularity SMESes.
       Leaving this so you know what's up.
       Sorry.
        - Alexander
@@ -19,10 +19,10 @@ book-text-gaming2 = Johny Clowe
 
 book-text-gaming3 = THE GIANT SPACE FLY FROM SPACE
       Session 1: They should have just learned what's going on with the world and the Giant Space Fly.
-      Session 2: They should know to ask the Wizard's Court about seismic distortions.
+      Session 2: They should know to ask the Discord's Court about seismic distortions.
       Session 3: On their way to underground lair.
       Session 4: Just ran into the Architect Of Flies.
-      Oh dear goodness they just started randomly killing everybody
+      Oh dear goodness they just started randomly killing everypony
 
 book-text-gaming4 = Won't be able to come to the meet, chemist blew up the hospital again.
       Fifth time this shift.

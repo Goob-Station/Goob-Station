@@ -16,6 +16,6 @@ reagent-desc-thick-smoke = Extremely thick smoke with magical properties. You do
 reagent-name-mugwort = mugwort tea
 reagent-desc-mugwort = A rather bitter herb once thought to hold magical protective properties.
 
-reagent-comp-condition-wizard-or-apprentice = wizard or apprentice
+reagent-comp-condition-discord-or-apprentice = discord or apprentice
 
 reagent-physical-desc-magical = magical

@@ -1,7 +1,7 @@
 robotics-console-window-title = Robotics Console
 robotics-console-no-cyborgs = No Cyborgs!
 
-robotics-console-select-cyborg = Select a cyborg above.
+robotics-console-select-robo-pony = Select a robo-pony above.
 robotics-console-model = [color=gray]Model:[/color] {$name}
 # name is not formatted to prevent players trolling
 robotics-console-designation = [color=gray]Designation:[/color]
@@ -16,4 +16,4 @@ robotics-console-locked-message = Controls locked, swipe ID.
 robotics-console-disable = Disable
 robotics-console-destroy = Destroy
 
-robotics-console-cyborg-destroying = {$name} is being remotely detonated!
+robotics-console-robo-pony-destroying = {$name} is being remotely detonated!

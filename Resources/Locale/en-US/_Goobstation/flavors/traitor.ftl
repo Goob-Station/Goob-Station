@@ -1,5 +1,5 @@
 traitor-arc-intro = You are the ARC terrorist.
-traitor-arc-goal = The creatures of this world must be freed from the iron grasp of Nanotrasen, and you are their only hope!
+traitor-arc-goal = The creatures of this world must be freed from the iron grasp of Equestria, and you are their only hope!
 traitor-arc-allies = You may cooperate with other syndicate agents if you support our cause. Maybe you can convince the Bee Liberation Front agents to cooperate for once?
 traitor-arc-uplink = The Syndicate have graciously given one of their PDA-uplinks for your task.
 traitor-arc-roundend = [color=green]an activist from the Animal Rights Consortium[/color]
@@ -10,11 +10,11 @@ traitor-blf-allies = You may cooperate with other syndicate agents if they suppo
 traitor-blf-uplink = The Syndicate have graciously given one of their PDA-uplinks to see if we are worthy.
 traitor-blf-roundend = [color=green]an activist from Bee Liberation Front[/color]
 
-traitor-cybersun-intro = You are a specialist from Cybersun Industries.
-traitor-cybersun-goal = Do not establish substantial presence on the designated facility, as larger incidents are harder to cover up.
-traitor-cybersun-allies = Fellow Cybersun operatives are to be trusted. Members of the MI13 organization can be trusted. All other syndicate agents are not to be trusted.
-traitor-cybersun-uplink = You have been supplied the tools for the job in the form of a syndicate uplink located in your PDA.
-traitor-cybersun-roundend = [color=yellow]a specialist from Cybersun Industries[/color]
+traitor-nightmare forces-intro = You are a specialist from Nightmare Forces Industries.
+traitor-nightmare forces-goal = Do not establish substantial presence on the designated facility, as larger incidents are harder to cover up.
+traitor-nightmare forces-allies = Fellow Nightmare Forces operatives are to be trusted. Members of the MI13 organization can be trusted. All other syndicate agents are not to be trusted.
+traitor-nightmare forces-uplink = You have been supplied the tools for the job in the form of a syndicate uplink located in your PDA.
+traitor-nightmare forces-roundend = [color=yellow]a specialist from Nightmare Forces Industries[/color]
 
 traitor-corporateclimber-intro = You are a Corporate Climber.
 traitor-corporateclimber-goal = Killing needlessly would make you some kind of traitor, or at least definitely seen as one. This is all just a means to an end.
@@ -24,7 +24,7 @@ traitor-corporateclimber-roundend = [color=yellow]a corporate climber.[/color]
 
 traitor-donkco-intro = You are a Donk Co. infiltrator.
 traitor-donkco-goal = We do not approve of mindless killing of innocent workers; get in, get done, get out is our motto.
-traitor-donkco-allies = Members of Waffle Co. are to be killed on sight; they are not allowed to be on the station while we're around.
+traitor-donkco-allies = Members of Waffle Co. are to be killed on sight; they are not allowed to be on the ponyville while we're around.
 traitor-donkco-uplink = You have been provided with a syndicate uplink located in your PDA to accomplish your task.
 traitor-donkco-roundend = [color=orange]an employee from Donk Corporation[/color]
 
@@ -41,25 +41,25 @@ traitor-legaltrouble-uplink =  You've connected to the black market to clean thi
 traitor-legaltrouble-roundend = [color=white]in Legal Trouble[/color]
 
 traitor-mi13-intro = You are the MI13 agent.
-traitor-mi13-goal =  Avoid killing innocent personnel at all costs. You are not here to mindlessly kill people, as that would attract too much attention and is not our goal. Avoid detection at all costs.
-traitor-mi13-allies = You are the only operative we are sending, any others are fake. All other syndicate agents are not to be trusted, with the exception of Cybersun specialists.
+traitor-mi13-goal =  Avoid killing innocent personnel at all costs. You are not here to mindlessly kill ponies, as that would attract too much attention and is not our goal. Avoid detection at all costs.
+traitor-mi13-allies = You are the only operative we are sending, any others are fake. All other syndicate agents are not to be trusted, with the exception of Nightmare Forces specialists.
 traitor-mi13-uplink = You have been provided with a syndicate uplink located in your PDA to accomplish your task.
 traitor-mi13-roundend = [color=cyan]an MI13 agent[/color]
 
 traitor-tiger-intro = You are the Tiger Cooperative Fanatic.
 traitor-tiger-goal = Remember the teachings of Hy-lurgixon; kill first, ask questions later!
 traitor-tiger-allies = Only the enlightened Tiger brethren can be trusted; all others must be expelled from this mortal realm!
-traitor-tiger-uplink = You have been provided with a syndicate uplink from your friends at Cybersun Industries to prove yourself to the changeling hive. If you accomplish your tasks, you will be assimilated.
+traitor-tiger-uplink = You have been provided with a syndicate uplink from your friends at Nightmare Forces Industries to prove yourself to the changeling hive. If you accomplish your tasks, you will be assimilated.
 traitor-tiger-roundend = [color=crimson]a Tiger Cooperative Fanatic[/color]
 
 traitor-waffleco-intro = You are a Waffle Co. infiltrator.
-traitor-waffleco-goal = You are not here for a station-wide demonstration. Again, other Waffle Co. infiltrators may be, so watch out. Your job is to only accomplish your objectives.
-traitor-waffleco-allies = Members of Donk Co. are to be killed on sight; they are not allowed to be on the station while we're around.
+traitor-waffleco-goal = You are not here for a ponyville-wide demonstration. Again, other Waffle Co. infiltrators may be, so watch out. Your job is to only accomplish your objectives.
+traitor-waffleco-allies = Members of Donk Co. are to be killed on sight; they are not allowed to be on the ponyville while we're around.
 traitor-waffleco-uplink = You have been provided with a syndicate uplink located in your PDA to accomplish your task.
 traitor-waffleco-roundend = [color=orange]an employee from Waffle Corporation[/color]
 
 traitor-waffleco-terrorist-intro = You are the Waffle Corporation terrorist.
-traitor-waffleco-terrorist-goal = Our investors need a demonstration of our pledge to destroying Nanotrasen. Let's give them a loud one!
+traitor-waffleco-terrorist-goal = Our investors need a demonstration of our pledge to destroying Equestria. Let's give them a loud one!
 traitor-waffleco-terrorist-allies = Most other syndicate agents are not to be trusted, except for members of the Gorlex Marauders.
 traitor-waffleco-terrorist-uplink = You have been provided with a syndicate uplink located in your PDA to accomplish your task.
 traitor-waffleco-terrorist-roundend = [color=red]a terrorist from Waffle Corporation[/color]

@@ -40,7 +40,7 @@ book-text-chemistry-insane = IGOR CHEMISTRY GUIDE TO CHEMISTRY
 
       CONCLUSION: IGOR CHEMISTRY
 
-book-text-botanics = ** Applications of Botanical Specimens Found In Nanotrasen Territories **
+book-text-botanics = ** Applications of Botanical Specimens Found In Equestria Territories **
 
       Many plants, when ground, yield useful chemicals. S. (spessmens) papaver and S. aloe vera
       are known for their basic healing properties.
@@ -77,9 +77,9 @@ book-text-fishing = When I grow up, I want to be one of the harvesters of the sp
 
       - Sgt. John Baker Aclopoly
 
-book-text-detective = CHAPTER 1: SMALL ADVENTURES IN A BIG STATION
+book-text-detective = CHAPTER 1: SMALL ADVENTURES IN A BIG PONYVILLE
 
-      This station is filled with crime and grime...
+      This ponyville is filled with crime and grime...
 
       I was shooting hoops down on Bagel when I heard a cry and a laser shot. I walked under the table nearby to hide, but there wasn't a second shot.
 

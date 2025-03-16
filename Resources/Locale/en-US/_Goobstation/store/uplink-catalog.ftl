@@ -8,12 +8,12 @@ uplink-hardsuit-syndiecommander-desc = A surplus commander hardsuit, from the Go
 
 # Cybersun Stealth
 
-uplink-hardsuit-cybersun-stealth-name = Cybersun Stealth Hardsuit
-uplink-hardsuit-cybersun-stealth-desc = Reversed engineered from Spider Clan technology, this hardsuit has stealth plating in it for those special ops. Slightly slower and less armor than the default hardsuits.
+uplink-hardsuit-nightmare forces-stealth-name = Nightmare Forces Stealth Hardsuit
+uplink-hardsuit-nightmare forces-stealth-desc = Reversed engineered from Spider Clan technology, this hardsuit has stealth plating in it for those special ops. Slightly slower and less armor than the default hardsuits.
 
 # Cybersun Dreadnought suit
-uplink-hardsuit-cybersun-dreadnought-name = Cybersun Dreadnought suit
-uplink-hardsuit-cybersun-dreadnought-desc = An insanely tough combat hardsuit utilizing hyper-bluespace enhanced plasteel to make an almost impenetrable wall out of the wearer. However, only the absolutely insane syndicate followers will put this on. Because of its weight, it must be tightened very hard, to the point of impaling the user and being unable to be taken off without completely ripping off their skin. The syndicate sends their regards.
+uplink-hardsuit-nightmare forces-dreadnought-name = Nightmare Forces Dreadnought suit
+uplink-hardsuit-nightmare forces-dreadnought-desc = An insanely tough combat hardsuit utilizing hyper-bluespace enhanced plasteel to make an almost impenetrable wall out of the wearer. However, only the absolutely insane syndicate followers will put this on. Because of its weight, it must be tightened very hard, to the point of impaling the user and being unable to be taken off without completely ripping off their skin. The syndicate sends their regards.
 
 # Misc
 
@@ -78,7 +78,7 @@ uplink-dualetta-bundle-name = Dualetta Bundle
 uplink-dualetta-bundle-desc = Comes with 2 Dualetta pistols, 2 machine pistol magazines, combat gloves, noir suit, detectives trenchcoat, and laceup shoes.
 
 uplink-anaconda-name = Anaconda
-uplink-anaconda-desc = The pride of the Cybersun arms concern, this heavy pistol is designed to feed itself with the built-in fabricator.
+uplink-anaconda-desc = The pride of the Nightmare Forces arms concern, this heavy pistol is designed to feed itself with the built-in fabricator.
 
 uplink-kravgloves-name = Krav maga gloves
 uplink-kravgloves-desc = Gloves with krav maga nanites installed while disguised as regular black gloves.
@@ -90,7 +90,7 @@ uplink-bulk-mosin-name = Syndicate bulk rifle crate
 uplink-bulk-mosin-desc = 10 WW4-era rifles to arm you, your friends, and your cat. Saves 40% on shipping costs by buying in bulk.
 
 uplink-whimsy-bundle-name = Syndicate Joy & Whimsy Bundle
-uplink-whimsy-bundle-desc = Do YOU like spreading joy & whimsy? Well, Donk Co. has the solution for you! Contains a LIMITED EDITION axe and enough candy to kill a man.
+uplink-whimsy-bundle-desc = Do YOU like spreading joy & whimsy? Well, Donk Co. has the solution for you! Contains a LIMITED EDITION axe and enough candy to kill a pony.
 
 # Ammo
 
@@ -130,10 +130,10 @@ uplink-highcap-pistol-mag-desc = High capacity pistol magazine holds 4 extra bul
 # Mechs
 
 uplink-mech-teleporter-heavy-name = Heavy Mech teleporter
-uplink-mech-teleporter-heavy-desc = Contains a heavily armored Cybersun mech with an integrated chainsword, Ultra AC-2, LBX AC 10 "Scattershot", BRM-6 Missile Rack and P-X Tesla Cannon.
+uplink-mech-teleporter-heavy-desc = Contains a heavily armored Nightmare Forces mech with an integrated chainsword, Ultra AC-2, LBX AC 10 "Scattershot", BRM-6 Missile Rack and P-X Tesla Cannon.
 
 uplink-mech-teleporter-assault-name = Assault Mech teleporter
-uplink-mech-teleporter-assault-desc = Contains a lightly armored Cybersun mech with an integrated chainsword, LBX AC 10 "Scattershot", SRM-8 Light Missile Rack and P-X Tesla Cannon.
+uplink-mech-teleporter-assault-desc = Contains a lightly armored Nightmare Forces mech with an integrated chainsword, LBX AC 10 "Scattershot", SRM-8 Light Missile Rack and P-X Tesla Cannon.
 
 # Chemicals
 
@@ -167,7 +167,7 @@ uplink-clothing-explosive-gloves-desc = Gloves that look just like normal insula
 # Disruption
 
 uplink-syndicate-weapon-module-advanced-name = advanced weapons module
-uplink-syndicate-weapon-module-advanced-desc = Upgrades a cyborg with an energy sword and an anaconda pistol.
+uplink-syndicate-weapon-module-advanced-desc = Upgrades a robo-pony with an energy sword and an anaconda pistol.
 
 # Misc
 

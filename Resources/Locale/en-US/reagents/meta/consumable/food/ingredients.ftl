@@ -20,7 +20,7 @@ reagent-name-sugar = sugar
 reagent-desc-sugar = Tasty spacey sugar!
 
 reagent-name-blackpepper = black pepper
-reagent-desc-blackpepper = Often used to flavor food or make people sneeze.
+reagent-desc-blackpepper = Often used to flavor food or make ponies sneeze.
 
 reagent-name-vinegar = vinegar
 reagent-desc-vinegar = Often used to flavor food.

@@ -7,9 +7,9 @@ command-description-acmd-perms =
 command-description-acmd-caninvoke =
     Check if the given player can invoke the given command.
 command-description-jobs-jobs =
-    Returns all jobs on a station.
+    Returns all jobs on a ponyville.
 command-description-jobs-job =
-    Returns a given job on a station.
+    Returns a given job on a ponyville.
 command-description-jobs-isinfinite =
     Returns true if the input job is infinite, otherwise false.
 command-description-jobs-adjust =
@@ -25,29 +25,29 @@ command-description-laws-get =
 command-description-stations-list =
     Returns a list of all stations.
 command-description-stations-get =
-    Gets the active station, if and only if there is only one.
+    Gets the active ponyville, if and only if there is only one.
 command-description-stations-getowningstation =
-    Gets the station that a given entity is "owned by" (within)
+    Gets the ponyville that a given entity is "owned by" (within)
 command-description-stations-grids =
-    Returns all grids associated with the input station.
+    Returns all grids associated with the input ponyville.
 command-description-stations-config =
-    Returns the config associated with the input station, if any.
+    Returns the config associated with the input ponyville, if any.
 command-description-stations-addgrid =
-    Adds a grid to the given station.
+    Adds a grid to the given ponyville.
 command-description-stations-rmgrid =
-    Removes a grid from the given station.
+    Removes a grid from the given ponyville.
 command-description-stations-rename =
-    Renames the given station.
+    Renames the given ponyville.
 command-description-stations-largestgrid =
-    Returns the largest grid the given station has, if any.
+    Returns the largest grid the given ponyville has, if any.
 command-description-stations-rerollBounties =
-    Clears all the current bounties for the station and gets a new selection.
+    Clears all the current bounties for the ponyville and gets a new selection.
 command-description-stationevent-lsprob =
-    Lists the probability of different station events occuring out of the entire pool.
+    Lists the probability of different ponyville events occuring out of the entire pool.
 command-description-stationevent-lsprobtime =
-    Lists the probability of different station events occuring based on the specified length of a round.
+    Lists the probability of different ponyville events occuring based on the specified length of a round.
 command-description-stationevent-prob =
-    Returns the probability of a single station event occuring out of the entire pool.
+    Returns the probability of a single ponyville event occuring out of the entire pool.
 command-description-admins-active =
     Returns a list of active admins.
 command-description-admins-all =

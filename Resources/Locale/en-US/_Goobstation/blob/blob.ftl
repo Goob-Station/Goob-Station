@@ -29,7 +29,7 @@ ghost-role-information-blobbernaut-name = Blobbernaut
 ghost-role-information-blobbernaut-description = You are a Blobbernaut. You must defend the blob core. Use + or +e in chat to talk in the Blobmind.
 
 ghost-role-information-blob-name = Blob
-ghost-role-information-blob-description = You are the Blob Infection. Consume the station.
+ghost-role-information-blob-description = You are the Blob Infection. Consume the ponyville.
 
 roles-antag-blob-name = Blob
 roles-antag-blob-objective = Reach critical mass.
@@ -85,13 +85,13 @@ blob-chem-electromagneticweb-info = Electromagnetic Web
                                     Blob tiles cause an EMP pulse when destroyed.
                                     You take 25% more brute and heat damage.
 
-blob-alert-out-off-station = The blob was removed because it was found outside the station!
+blob-alert-out-off-ponyville = The blob was removed because it was found outside the ponyville!
 
 # Announcment
-blob-alert-recall-shuttle = The emergency shuttle can not be sent while there is a level 5 biohazard present on the station.
-blob-alert-detect = Confirmed outbreak of level 5 biohazard aboard the station. All personnel must contain the outbreak.
-blob-alert-critical = Biohazard level critical, nuclear authentication codes have been sent to the station. Central Command orders any remaining personnel to activate the self-destruction mechanism.
-blob-alert-critical-NoNukeCode = Biohazard level critical. Central Command orders any remaining personnel to seek shelter, and await resque.
+blob-alert-recall-shuttle = The emergency shuttle can not be sent while there is a level 5 biohazard present on the ponyville.
+blob-alert-detect = Confirmed outbreak of level 5 biohazard aboard the ponyville. All personnel must contain the outbreak.
+blob-alert-critical = Biohazard level critical, nuclear authentication codes have been sent to the ponyville. Canterlot orders any remaining personnel to activate the self-destruction mechanism.
+blob-alert-critical-NoNukeCode = Biohazard level critical. Canterlot orders any remaining personnel to seek shelter, and await resque.
 
 # Actions
 blob-create-factory-action-name = Place Factory Blob (80)
@@ -124,8 +124,8 @@ blob-downgrade-action-desc = Turns the selected tile back into a normal blob to 
 blob-carrier-role-name = Blob carrier
 blob-carrier-role-desc =  A blob-infected creature.
 blob-carrier-role-rules = You are an antagonist. You have 4 minutes before you transform into a blob.
-                        Use this time to find a safe spot on the station. Keep in mind that you will be very weak right after the transformation.
-blob-carrier-role-greeting = You are a carrier of Blob. Find a secluded place at the station and transform into a Blob. Turn the station into a mass and its inhabitants into your servants. We are all Blobs.
+                        Use this time to find a safe spot on the ponyville. Keep in mind that you will be very weak right after the transformation.
+blob-carrier-role-greeting = You are a carrier of Blob. Find a secluded place at the ponyville and transform into a Blob. Turn the ponyville into a mass and its inhabitants into your servants. We are all Blobs.
 
 # Verbs
 blob-pod-verb-zombify = Zombify
@@ -148,7 +148,7 @@ blob-role-greeting =
         Make sure to place resource blobs to generate resources.
         Keep in mind that resource blobs and factories will only work when next to node blobs or cores.
         You may use + or +e in chat to use the Blobmind to talk to your minions.
-blob-zombie-greeting = You were infected and raised by a blob spore. Now you must help the blob take over the station. Use +e in chat to talk in the Blobmind.
+blob-zombie-greeting = You were infected and raised by a blob spore. Now you must help the blob take over the ponyville. Use +e in chat to talk in the Blobmind.
 
 # End round
 blob-round-end-result =
@@ -168,7 +168,7 @@ blob-user-was-a-blob-with-objectives-named = [color=White]{$name}[/color] ([colo
 blob-was-a-blob-with-objectives-named = [color=White]{$name}[/color] was a blob who had the following objectives:
 
 # Objectivies
-objective-condition-blob-capture-title = Take over the station
-objective-condition-blob-capture-description = Your only goal is to take over the whole station. You need to have at least {$count} blob tiles.
+objective-condition-blob-capture-title = Take over the ponyville
+objective-condition-blob-capture-description = Your only goal is to take over the whole ponyville. You need to have at least {$count} blob tiles.
 objective-condition-success = { $condition } | [color={ $markupColor }]Success![/color]
 objective-condition-fail = { $condition } | [color={ $markupColor }]Failure![/color] ({ $progress }%)

@@ -3,7 +3,7 @@ data-siphon-activated-announcement = Attention! Data theft signal detected! Trac
 
 pirate-siphon-deactivated-full = RESOURCE CAPACITY FULL. Unable to siphon any more resources. Mechanism has been stopped. Thank you for using Donk. Co. branded RS!
 pirate-siphon-deactivated-broken = CRITICAL DAMAGE THRESHOLD REACHED. Forced resource disposal imminent, please step aside from the emergency disposal mechanism.
-pirate-siphon-deactivated-announcement = Data theft signal source has been lost! Please ensure station systems are operating in normal mode. And do not let any more such signals show up on our radars!
+pirate-siphon-deactivated-announcement = Data theft signal source has been lost! Please ensure ponyville systems are operating in normal mode. And do not let any more such signals show up on our radars!
 
 pirate-siphon-examine = The siphon has [color=yellow]{$num}[/color] / [color=yellow]{$max_num} spesos[/color] stored.
 

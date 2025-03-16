@@ -6,7 +6,7 @@ roundend-prepend-heretic-knowledge-named = [color=white]{$name}[/color] has rese
 
 heretic-gamemode-title = Heretics
 heretic-gamemode-description =
-    Dimensional anomaly detected within the station. There is no additional data.
+    Dimensional anomaly detected within the ponyville. There is no additional data.
 
 heretic-role-greeting-fluff =
     Another day at a meaningless job. You feel a shimmer around you, as a realization of something strange in the air unfolds. You look inwards and discover something that will change your life.

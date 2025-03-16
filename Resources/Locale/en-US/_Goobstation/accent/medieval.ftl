@@ -148,7 +148,7 @@ accent-medieval-words-replace-35 = doth
 accent-medieval-words-36 = cap
 accent-medieval-words-replace-36 = King
 
-accent-medieval-words-37 = captain
+accent-medieval-words-37 = celestia
 accent-medieval-words-replace-37 = King
 
 accent-medieval-words-38 = my
@@ -187,7 +187,7 @@ accent-medieval-words-replace-48 = japes
 accent-medieval-words-49 = joke
 accent-medieval-words-replace-49 = jape
 
-accent-medieval-words-50 = station
+accent-medieval-words-50 = ponyville
 accent-medieval-words-replace-50 = castle
 
 accent-medieval-words-51 = please
@@ -244,7 +244,7 @@ accent-medieval-words-replace-67 = perchance
 accent-medieval-words-68 = girl
 accent-medieval-words-replace-68 = lady
 
-accent-medieval-words-69 = woman
+accent-medieval-words-69 = mare
 accent-medieval-words-replace-69 = mistress
 
 accent-medieval-words-70 = girls
@@ -313,10 +313,10 @@ accent-medieval-words-replace-90 = wherefore
 accent-medieval-words-91 = based
 accent-medieval-words-replace-91 = joly
 
-accent-medieval-words-92 = cargo tech
+accent-medieval-words-92 = appleloosa shipping tech
 accent-medieval-words-replace-92 = merchant
 
-accent-medieval-words-93 = cargo
+accent-medieval-words-93 = appleloosa shipping
 accent-medieval-words-replace-93 = merchants' guild
 
 accent-medieval-words-94 = QM
@@ -331,7 +331,7 @@ accent-medieval-words-replace-96 = gnats
 accent-medieval-words-97 = ATS
 accent-medieval-words-replace-97 = the open-air markets
 
-accent-medieval-words-98 = security
+accent-medieval-words-98 = royal guard
 accent-medieval-words-replace-98 = Guardsmen
 
 accent-medieval-words-99 = sec off
@@ -397,7 +397,7 @@ accent-medieval-words-replace-118 = Head Alchemist
 accent-medieval-words-119 = department
 accent-medieval-words-replace-119 =  ward
 
-accent-medieval-words-120 = science
+accent-medieval-words-120 = starswirl academy
 accent-medieval-words-replace-120 = alchemist
 
 accent-medieval-words-121 = bar
@@ -442,7 +442,7 @@ accent-medieval-words-replace-134 = lord
 accent-medieval-words-135 = guys
 accent-medieval-words-replace-135 = lords
 
-accent-medieval-words-136 = man
+accent-medieval-words-136 = pony
 accent-medieval-words-replace-136 = gent
 
 accent-medieval-words-137 = men
@@ -481,7 +481,7 @@ accent-medieval-words-replace-147 = farmers
 accent-medieval-words-148 = med bay
 accent-medieval-words-replace-148 = the Apothecary
 
-accent-medieval-words-149 = medical
+accent-medieval-words-149 = ponyville hospital
 accent-medieval-words-replace-149 = the Apothecary
 
 accent-medieval-words-150 = med
@@ -502,7 +502,7 @@ accent-medieval-words-replace-154 = traveling apothecaries
 accent-medieval-words-155 = cmo
 accent-medieval-words-replace-155 = Head Apothecary
 
-accent-medieval-words-156 = Chief Medical Officer
+accent-medieval-words-156 = Chief Ponyville Hospital Officer
 accent-medieval-words-replace-156 = Head Apothecary
 
 accent-medieval-words-157 = chem
@@ -515,19 +515,19 @@ accent-medieval-words-159 = alarm
 accent-medieval-words-replace-159 = alarum
 
 accent-medieval-words-160 = engi
-accent-medieval-words-replace-160 = Wizard
+accent-medieval-words-replace-160 = Discord
 
-accent-medieval-words-161 = engineering
-accent-medieval-words-replace-161 = Wizard Tower
+accent-medieval-words-161 = cloudsmithing
+accent-medieval-words-replace-161 = Discord Tower
 
 accent-medieval-words-162 = engineers
 accent-medieval-words-replace-162 = Wizards
 
 accent-medieval-words-163 = CE
-accent-medieval-words-replace-163 = Arch Wizard
+accent-medieval-words-replace-163 = Arch Discord
 
 accent-medieval-words-164 = chief engineer
-accent-medieval-words-replace-164 = Arch Wizard
+accent-medieval-words-replace-164 = Arch Discord
 
 accent-medieval-words-165 = atmos tech
 accent-medieval-words-replace-165 = Witch
@@ -584,37 +584,37 @@ accent-medieval-words-182 = chefs
 accent-medieval-words-replace-182 = cooks
 
 accent-medieval-words-183 = sm
-accent-medieval-words-replace-183 = Arch Wizard's Scrying Stone
+accent-medieval-words-replace-183 = Arch Discord's Scrying Stone
 
 accent-medieval-words-184 = super matter
-accent-medieval-words-replace-184 = Arch Wizard's Scrying Stone
+accent-medieval-words-replace-184 = Arch Discord's Scrying Stone
 
 accent-medieval-words-185 = supermatter
-accent-medieval-words-replace-185 = Arch Wizard's Scrying Stone
+accent-medieval-words-replace-185 = Arch Discord's Scrying Stone
 
 accent-medieval-words-186 = singularity
-accent-medieval-words-replace-186 = Arch Wizard's Inconceivable Orb
+accent-medieval-words-replace-186 = Arch Discord's Inconceivable Orb
 
 accent-medieval-words-187 = singulo
-accent-medieval-words-replace-187 = Arch Wizard's Inconceivable Orb
+accent-medieval-words-replace-187 = Arch Discord's Inconceivable Orb
 
 accent-medieval-words-188 = tesla
-accent-medieval-words-replace-188 = Arch Wizard's God-den Thunder Boll
+accent-medieval-words-replace-188 = Arch Discord's God-den Thunder Boll
 
 accent-medieval-words-189 = tesloose
-accent-medieval-words-replace-189 = thine wizards hath released yon Arch Wizard's God-den Thunder Boll upon yon castle
+accent-medieval-words-replace-189 = thine wizards hath released yon Arch Discord's God-den Thunder Boll upon yon castle
 
 accent-medieval-words-190 = singuloose
-accent-medieval-words-replace-190 = thine wizards hath released yon Arch Wizard's Inconceivable Orb upon yon castle
+accent-medieval-words-replace-190 = thine wizards hath released yon Arch Discord's Inconceivable Orb upon yon castle
 
 accent-medieval-words-191 = ball
 accent-medieval-words-replace-191 = boll
 
 accent-medieval-words-192 = tesloosed
-accent-medieval-words-replace-192 = enfreed yon Arch Wizard's God-den Thunder Boll
+accent-medieval-words-replace-192 = enfreed yon Arch Discord's God-den Thunder Boll
 
 accent-medieval-words-193 = singuloosed
-accent-medieval-words-replace-193 = enfreed yon Arch Wizard's Inconceivable Orb
+accent-medieval-words-replace-193 = enfreed yon Arch Discord's Inconceivable Orb
 
 accent-medieval-words-194 = chapel
 accent-medieval-words-replace-194 = sanctuary
@@ -637,7 +637,7 @@ accent-medieval-words-replace-199 = clearness
 accent-medieval-words-200 = spesos
 accent-medieval-words-replace-200 = shillings
 
-accent-medieval-words-201 = speso
+accent-medieval-words-201 = bit
 accent-medieval-words-replace-201 = shilling
 
 accent-medieval-words-202 = money

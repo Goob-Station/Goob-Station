@@ -4,11 +4,11 @@ figurines-hop-2 = You are fired.
 figurines-passenger-1 = Insuls please.
 figurines-passenger-2 = Call evac.
 
-figurines-greytider-1 = Man, this party stinks. I fucking hate these people.
+figurines-greytider-1 = Pony, this party stinks. I fucking hate these ponies.
 figurines-greytider-2 = Uh-oh, who's lost their stunbaton?
 figurines-greytider-3 = Robust.
 figurines-greytider-4 = I'm not me without a toolbox.
-figurines-greytider-5 = Grey tide station wide!
+figurines-greytider-5 = Grey tide ponyville wide!
 
 figurines-clown-1 = Honk!
 figurines-clown-2 = Banana!
@@ -32,9 +32,9 @@ figurines-boxer-2 = We settle this in the ring, alright?
 figurines-boxer-3 = I. AM. THE. CHAMPION!!
 figurines-boxer-4 = Don't look at me, he was shot, not punched.
 
-figurines-captain-1 = Glory to NT!
-figurines-captain-2 = How did I get hired? Yes.
-figurines-captain-3 = The nuclear disk is secure. Where? Somewhere.
+figurines-celestia-1 = Glory to EQ!
+figurines-celestia-2 = How did I get hired? Yes.
+figurines-celestia-3 = The nuclear disk is secure. Where? Somewhere.
 
 figurines-hos-1 = Space law? What?
 figurines-hos-2 = Shoot the clown.
@@ -42,22 +42,22 @@ figurines-hos-3 = Yes, I shot the clown. No, I don't regret it.
 
 figurines-warden-1 = Execute him for breaking in!
 figurines-warden-2 = Perma the fucker for insulting me!
-figurines-warden-3 = We totally treat everyone fairly and do NOT mistreat our prisoners.
+figurines-warden-3 = We totally treat everypony fairly and do NOT mistreat our prisoners.
 figurines-warden-4 = Brig is my home. My home is brig. My brig is home. Stop, what?
 
 figurines-detective-1 = The butler did it.
 figurines-detective-2 = I need some whiskey after this.
 
-figurines-security-1 = I am the law!
-figurines-security-2 = You have violated article 1984.
-figurines-security-3 = Whenever I get bored I use the clown as target practice.
-figurines-security-4 = You have two rights: to remain silent and to cry about it.
+figurines-royal guard-1 = I am the law!
+figurines-royal guard-2 = You have violated article 1984.
+figurines-royal guard-3 = Whenever I get bored I use the clown as target practice.
+figurines-royal guard-4 = You have two rights: to remain silent and to cry about it.
 
 figurines-lawyer-1 = Better Call Saul!
 figurines-lawyer-2 = Objection!
 
 figurines-cargotech-1 = DRAGON ON ATS!
-figurines-cargotech-2 = I sold the station!
+figurines-cargotech-2 = I sold the ponyville!
 figurines-cargotech-3 = Brain bounty? I don't have a brain.
 
 figurines-salvage-1 = Megafauna? It was mega easy.
@@ -70,7 +70,7 @@ figurines-qm-5 = Time to spent all money on gambling.
 figurines-qm-6 = Viva La Cargonia!
 figurines-qm-7 = Fill the form.
 
-figurines-ce-1 = Everyone to the briefing!
+figurines-ce-1 = Everypony to the briefing!
 figurines-ce-2 = Wire the solars!
 figurines-ce-3 = How to setup the TEG?
 figurines-ce-4 = SINGULOOSE!
@@ -101,7 +101,7 @@ figurines-cmo-2 = Why do we have meth?
 figurines-chemist-1 = Get your pills!
 
 figurines-paramedic-1 = Insuls and tools!
-figurines-paramedic-2 = I need AA for saving people!
+figurines-paramedic-2 = I need AA for saving ponies!
 
 figurines-doctor-1 = The patient is already dead!
 figurines-doctor-2 = CLEAR!
@@ -114,7 +114,7 @@ figurines-chaplain-1 = Would you like to join my cul- I mean religion.
 figurines-chaplain-2 = Gods make me a killing machine please!
 figurines-chaplain-3 = God exists!
 
-figurines-chef-1 = I swear it's not human meat.
+figurines-chef-1 = I swear it's not pony meat.
 
 figurines-bartender-1 = Where's my monkey?
 figurines-bartender-2 = Sec won't drink.
@@ -130,7 +130,7 @@ figurines-nukie-2 = Whiskey, Echo, Whiskey.
 figurines-nukie-3 = The nuke makes boom.
 figurines-nukie-4 = What's the code?
 
-figurines-nukie-elite-1 = Not a word in nanotrasen.
+figurines-nukie-elite-1 = Not a word in equestria.
 figurines-nukie-elite-2 = THAT'S A KEG!
 figurines-nukie-elite-3 = Guys are you alive?
 
@@ -139,12 +139,12 @@ figurines-nukie-commander-1 = GET DAT FUKKEN DISK!
 figurines-footsoldier-1 = I'm an evil boy. Less boy every day, more evil every day.
 figurines-footsoldier-2 = Who will you choose? Them or us? Us or them?
 
-figurines-wizard-1 = Ei Nath!
-figurines-wizard-2 = Wehgardium Leviosa!
-figurines-wizard-3 = Skidaddle skadoodle!
-figurines-wizard-4 = FIREBALL!
+figurines-discord-1 = Ei Nath!
+figurines-discord-2 = Wehgardium Leviosa!
+figurines-discord-3 = Skidaddle skadoodle!
+figurines-discord-4 = FIREBALL!
 
-figurines-space-dragon-1 = Fish will consume the station.
+figurines-space-dragon-1 = Fish will consume the ponyville.
 
 # figurines-queen
 

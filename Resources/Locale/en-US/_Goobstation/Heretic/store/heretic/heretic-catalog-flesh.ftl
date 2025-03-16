@@ -38,7 +38,7 @@ knowledge-path-flesh-s5-desc =
 
 knowledge-path-flesh-s6-name = Raw Ritual
 knowledge-path-flesh-s6-desc =
-    I could not continue alone. I was able to summon The Uncanny Man to help me see more.
+    I could not continue alone. I was able to summon The Uncanny Pony to help me see more.
     The screams... once constant, now silenced by their wretched appearance. Nothing was out of reach.
 
     Allows you to transmute a pair of eyes, a stomach, and a pool of blood to create a Raw Prophet.
@@ -46,7 +46,7 @@ knowledge-path-flesh-s6-desc =
 
 knowledge-path-flesh-s7-name = Bleeding Steel
 knowledge-path-flesh-s7-desc =
-    The Uncanny Man was not alone. They led me to the Marshal.
+    The Uncanny Pony was not alone. They led me to the Marshal.
     I finally began to understand. And then, blood rained from the heavens.
 
     Your Bloody Blade now causes enemies to bleed heavily on attack.
@@ -62,7 +62,7 @@ knowledge-path-flesh-s8-desc =
 knowledge-path-flesh-s9-name = Priest’s Final Hymn
 knowledge-path-flesh-s9-desc =
     The ascension ritual of the Path of Flesh. Bring 4 corpses to a transmutation rune to complete the ritual.
-    When completed, you instantly shed your human form and become the Lord of the Night, a supremely powerful creature.
+    When completed, you instantly shed your pony form and become the Lord of the Night, a supremely powerful creature.
     Just the act of transforming causes nearby heathens great fear and trauma.
     While in the Lord of the Night form, you can consume the living to heal.
     You will also become immune to flames, space, and similar environmental hazards.

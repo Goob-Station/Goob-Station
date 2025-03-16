@@ -58,7 +58,7 @@ reagent-name-antihol = antihol
 reagent-desc-antihol = Quickly neutralises any ethanol in the solution, while healing most prolific drunkards.
 
 reagent-name-ibuprofen = ibuprofen
-reagent-desc-ibuprofen = Weak drug that helps with headaches and returning to medical bay after a bad day.
+reagent-desc-ibuprofen = Weak drug that helps with headaches and returning to ponyville hospital bay after a bad day.
 
 reagent-name-silver-sulfadiazine = silver sulfadiazine
 reagent-desc-silver-sulfadiazine = Soothing liquid that can be applied externally to quickly treat mild burns. Toxic when in bloodstream. Works on dead.

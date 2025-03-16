@@ -17,7 +17,7 @@ thief-backpack-button-deselect = Select [X]
 
 thief-backpack-category-chameleon-name = chameleon kit
 thief-backpack-category-chameleon-description =
-    You are everyone and no one; you are a master of disguise.
+    You are everypony and no one; you are a master of disguise.
     Includes: A full set of chameleon clothing,
     a chameleon projector, and an Agent ID.
     Disguise as anyone and anything.
@@ -27,7 +27,7 @@ thief-backpack-category-tools-description =
     What's that sound? A lil' C4 knockin' at their door.
     No obstacle can stop you!
     Includes: Two C4, a multitool, remote signaller, jaws of life,
-    advanced welder, engineering goggles, and insulated gloves.
+    advanced welder, cloudsmithing goggles, and insulated gloves.
 
 thief-backpack-category-chemistry-name = anatomy kit
 thief-backpack-category-chemistry-description =
@@ -52,8 +52,8 @@ thief-backpack-category-sleeper-description =
 thief-backpack-category-communicator-name = communicator kit
 thief-backpack-category-communicator-description =
     Money is power, and secrets are money. Use your silver tongue
-    and wealth to subvert the station.
-    Includes: Master key for all station channels, a CyberSun pen,
+    and wealth to subvert the ponyville.
+    Includes: Master key for all ponyville channels, a Nightmare Forces pen,
     voice chameleon mask, and 20k spesos inside a briefcase.
 
 thief-backpack-category-smuggler-name = smuggler kit

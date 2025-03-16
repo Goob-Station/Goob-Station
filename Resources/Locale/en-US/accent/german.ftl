@@ -17,13 +17,13 @@ accent-german-words-replace-5 = wurst
 accent-german-words-6 = sausages
 accent-german-words-replace-6 = würste
 
-accent-german-words-7 = man
+accent-german-words-7 = pony
 accent-german-words-replace-7 = mann
 
 accent-german-words-8 = men
 accent-german-words-replace-8 = männer
 
-accent-german-words-9 = woman
+accent-german-words-9 = mare
 accent-german-words-9-2 = lady
 accent-german-words-replace-9 = frau
 
@@ -67,7 +67,7 @@ accent-german-words-replace-21 = achtung
 accent-german-words-22 = music
 accent-german-words-replace-22 = musik
 
-accent-german-words-23 = captain
+accent-german-words-23 = celestia
 accent-german-words-replace-23 = kapitän
 
 accent-german-words-24 = kebab

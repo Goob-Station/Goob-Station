@@ -5,4 +5,4 @@ hud-chatbox-highlights-tooltip = The words need to be separated by a newline,
                                  only if separated by spaces or punctuation.
 hud-chatbox-highlights-placeholder = McHands
                                      "Judge"
-                                     Medical
+                                     Ponyville Hospital

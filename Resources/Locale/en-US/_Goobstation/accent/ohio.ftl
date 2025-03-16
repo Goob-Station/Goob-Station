@@ -86,7 +86,7 @@ accent-ohio-words-replace-21 = FEMALES
 accent-ohio-words-22 = girl
 accent-ohio-words-replace-22 = FEMALE
 
-accent-ohio-words-23 = woman
+accent-ohio-words-23 = mare
 accent-ohio-words-replace-23 = FEMALE
 
 accent-ohio-words-24 = miss
@@ -134,7 +134,7 @@ accent-ohio-words-replace-37 = sus
 accent-ohio-words-38 = brother
 accent-ohio-words-replace-38 = bro
 
-accent-ohio-words-39 = man
+accent-ohio-words-39 = pony
 accent-ohio-words-replace-39 = bro
 
 accent-ohio-words-40 = marijuana
@@ -179,7 +179,7 @@ accent-ohio-words-replace-52 = nerd
 accent-ohio-words-53 = smart
 accent-ohio-words-replace-53 = nerdlike
 
-accent-ohio-words-54 = science
+accent-ohio-words-54 = starswirl academy
 accent-ohio-words-replace-54 = nerdland
 
 accent-ohio-words-55 = scientist
@@ -203,7 +203,7 @@ accent-ohio-words-replace-60 = rizzbucks
 accent-ohio-words-61 = dollar
 accent-ohio-words-replace-61 = rizzbuck
 
-accent-ohio-words-62 = speso
+accent-ohio-words-62 = bit
 accent-ohio-words-replace-62 = rizzbuck
 
 accent-ohio-words-63 = money
@@ -398,7 +398,7 @@ accent-ohio-words-replace-125 = icky
 accent-ohio-words-126 = pun pun
 accent-ohio-words-replace-126 = ipad-addicted monkey
 
-accent-ohio-words-127 = security
+accent-ohio-words-127 = royal guard
 accent-ohio-words-replace-127 = karen department
 
 accent-ohio-words-128 = secoff

@@ -21,7 +21,7 @@ blueshield-box-category-blueshield-description =
     The iconic namesake of these soldiers.
     Includes: The greatshield, and the DT-4 Atrocity customized stun baton.
 
-blueshield-box-category-syringe-name = medical set
+blueshield-box-category-syringe-name = ponyville hospital set
 blueshield-box-category-syringe-description =
     Perfect for healing allies or poisioning foes in a pinch.
     Includes: A combat injector, and several vials of medicine.

@@ -9,8 +9,8 @@ loadout-group-instruments = Instruments
 loadout-group-survival-basic = Survival Box
 loadout-group-survival-extended = Extended Survival Box
 loadout-group-survival-clown = Clown Survival Box
-loadout-group-survival-medical = Medical Survival Box
-loadout-group-survival-security = Security Survival Box
+loadout-group-survival-ponyville hospital = Ponyville Hospital Survival Box
+loadout-group-survival-royal guard = Royal Guard Survival Box
 loadout-group-survival-syndicate = Github is forcing me to write text that is literally twice-impossible for the player to ever see, send help
 loadout-group-breath-tool = Species-dependent breath tools
 loadout-group-tank-harness = Species-specific survival equipment
@@ -19,11 +19,11 @@ loadout-group-pocket-tank-double = Species-specific double emergency tank in poc
 loadout-group-survival-mime = Mime Survival Box
 
 # Command
-loadout-group-captain-head = Captain head
-loadout-group-captain-jumpsuit = Captain jumpsuit
-loadout-group-captain-neck = Captain neck
-loadout-group-captain-backpack = Captain backpack
-loadout-group-captain-outerclothing = Captain outer clothing
+loadout-group-celestia-head = Celestia head
+loadout-group-celestia-jumpsuit = Celestia jumpsuit
+loadout-group-celestia-neck = Celestia neck
+loadout-group-celestia-backpack = Celestia backpack
+loadout-group-celestia-outerclothing = Celestia outer clothing
 
 loadout-group-hop-head = Head of Personnel head
 loadout-group-hop-jumpsuit = Head of Personnel jumpsuit
@@ -93,11 +93,11 @@ loadout-group-quartermaster-neck = Quartermaster neck
 loadout-group-quartermaster-outerclothing = Quartermaster outer clothing
 loadout-group-quartermaster-shoes = Quartermaster shoes
 
-loadout-group-cargo-technician-head = Cargo Technician head
-loadout-group-cargo-technician-jumpsuit = Cargo Technician jumpsuit
-loadout-group-cargo-technician-backpack = Cargo Technician backpack
-loadout-group-cargo-technician-outerclothing = Cargo Technician outer clothing
-loadout-group-cargo-technician-shoes = Cargo Technician shoes
+loadout-group-appleloosa shipping-technician-head = Appleloosa Shipping Technician head
+loadout-group-appleloosa shipping-technician-jumpsuit = Appleloosa Shipping Technician jumpsuit
+loadout-group-appleloosa shipping-technician-backpack = Appleloosa Shipping Technician backpack
+loadout-group-appleloosa shipping-technician-outerclothing = Appleloosa Shipping Technician outer clothing
+loadout-group-appleloosa shipping-technician-shoes = Appleloosa Shipping Technician shoes
 
 loadout-group-salvage-specialist-backpack = Salvage Specialist backpack
 loadout-group-salvage-specialist-outerclothing = Salvage Specialist outer clothing
@@ -112,12 +112,12 @@ loadout-group-chief-engineer-shoes = Chief Engineer shoes
 
 loadout-group-technical-assistant-jumpsuit = Technical Assistant jumpsuit
 
-loadout-group-station-engineer-head = Station Engineer head
-loadout-group-station-engineer-jumpsuit = Station Engineer jumpsuit
-loadout-group-station-engineer-backpack = Station Engineer backpack
-loadout-group-station-engineer-outerclothing = Station Engineer outer clothing
-loadout-group-station-engineer-shoes = Station Engineer shoes
-loadout-group-station-engineer-id = Station Engineer ID
+loadout-group-ponyville-engineer-head = Ponyville Engineer head
+loadout-group-ponyville-engineer-jumpsuit = Ponyville Engineer jumpsuit
+loadout-group-ponyville-engineer-backpack = Ponyville Engineer backpack
+loadout-group-ponyville-engineer-outerclothing = Ponyville Engineer outer clothing
+loadout-group-ponyville-engineer-shoes = Ponyville Engineer shoes
+loadout-group-ponyville-engineer-id = Ponyville Engineer ID
 
 loadout-group-atmospheric-technician-head = Atmospheric Technician head
 loadout-group-atmospheric-technician-jumpsuit = Atmospheric Technician jumpsuit
@@ -144,49 +144,49 @@ loadout-group-scientist-id = Scientist ID
 loadout-group-research-assistant-jumpsuit = Research Assistant jumpsuit
 
 # Security
-loadout-group-head-of-security-head = Head of Security head
-loadout-group-head-of-security-jumpsuit = Head of Security jumpsuit
-loadout-group-head-of-security-neck = Head of Security neck
-loadout-group-head-of-security-outerclothing = Head of Security outer clothing
+loadout-group-head-of-royal guard-head = Head of Royal Guard head
+loadout-group-head-of-royal guard-jumpsuit = Head of Royal Guard jumpsuit
+loadout-group-head-of-royal guard-neck = Head of Royal Guard neck
+loadout-group-head-of-royal guard-outerclothing = Head of Royal Guard outer clothing
 
 loadout-group-warden-head = Warden head
 loadout-group-warden-jumpsuit = Warden jumpsuit
 loadout-group-warden-outerclothing = Warden outer clothing
 
-loadout-group-security-head = Security head
-loadout-group-security-jumpsuit = Security jumpsuit
-loadout-group-security-backpack = Security backpack
-loadout-group-security-belt = Security Belt
-loadout-group-security-outerclothing = Security outer clothing
-loadout-group-security-shoes = Security shoes
-loadout-group-security-id = Security ID
+loadout-group-royal guard-head = Royal Guard head
+loadout-group-royal guard-jumpsuit = Royal Guard jumpsuit
+loadout-group-royal guard-backpack = Royal Guard backpack
+loadout-group-royal guard-belt = Royal Guard Belt
+loadout-group-royal guard-outerclothing = Royal Guard outer clothing
+loadout-group-royal guard-shoes = Royal Guard shoes
+loadout-group-royal guard-id = Royal Guard ID
 
 loadout-group-detective-head = Detective head
 loadout-group-detective-neck = Detective neck
 loadout-group-detective-jumpsuit = Detective jumpsuit
 loadout-group-detective-outerclothing = Detective outer clothing
 
-loadout-group-security-cadet-jumpsuit = Security cadet jumpsuit
-loadout-group-security-star = Security Star
+loadout-group-royal guard-cadet-jumpsuit = Royal Guard cadet jumpsuit
+loadout-group-royal guard-star = Royal Guard Star
 
 # Medical
-loadout-group-medical-gloves = Medical gloves
-loadout-group-medical-mask = Medical mask
+loadout-group-ponyville hospital-gloves = Ponyville Hospital gloves
+loadout-group-ponyville hospital-mask = Ponyville Hospital mask
 
-loadout-group-chief-medical-officer-head = Chief Medical Officer head
-loadout-group-chief-medical-officer-jumpsuit = Chief Medical Officer jumpsuit
-loadout-group-chief-medical-officer-outerclothing = Chief Medical Officer outer clothing
-loadout-group-chief-medical-officer-shoes = Chief Medical Officer shoes
-loadout-group-chief-medical-officer-neck = Chief Medical Officer neck
+loadout-group-chief-ponyville hospital-officer-head = Chief Ponyville Hospital Officer head
+loadout-group-chief-ponyville hospital-officer-jumpsuit = Chief Ponyville Hospital Officer jumpsuit
+loadout-group-chief-ponyville hospital-officer-outerclothing = Chief Ponyville Hospital Officer outer clothing
+loadout-group-chief-ponyville hospital-officer-shoes = Chief Ponyville Hospital Officer shoes
+loadout-group-chief-ponyville hospital-officer-neck = Chief Ponyville Hospital Officer neck
 
-loadout-group-medical-doctor-head = Medical Doctor head
-loadout-group-medical-doctor-jumpsuit = Medical Doctor jumpsuit
-loadout-group-medical-doctor-outerclothing = Medical Doctor outer clothing
-loadout-group-medical-doctor-backpack = Medical Doctor backpack
-loadout-group-medical-doctor-shoes = Medical Doctor shoes
-loadout-group-medical-doctor-id = Medical Doctor ID
+loadout-group-ponyville hospital-doctor-head = Ponyville Hospital Doctor head
+loadout-group-ponyville hospital-doctor-jumpsuit = Ponyville Hospital Doctor jumpsuit
+loadout-group-ponyville hospital-doctor-outerclothing = Ponyville Hospital Doctor outer clothing
+loadout-group-ponyville hospital-doctor-backpack = Ponyville Hospital Doctor backpack
+loadout-group-ponyville hospital-doctor-shoes = Ponyville Hospital Doctor shoes
+loadout-group-ponyville hospital-doctor-id = Ponyville Hospital Doctor ID
 
-loadout-group-medical-intern-jumpsuit = Medical intern jumpsuit
+loadout-group-ponyville hospital-intern-jumpsuit = Ponyville Hospital intern jumpsuit
 
 loadout-group-chemist-jumpsuit = Chemist jumpsuit
 loadout-group-chemist-outerclothing = Chemist outer clothing

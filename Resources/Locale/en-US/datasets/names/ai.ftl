@@ -106,7 +106,7 @@ names-ai-dataset-77 = Multivac
 names-ai-dataset-78 = NCH
 
 # A play on both NT as in NanoTrasen and NT as in windows NT, of which version 6.0 is windows vista
-names-ai-dataset-79 = NT v6.0
+names-ai-dataset-79 = EQ v6.0
 
 names-ai-dataset-80 = Packard Bell
 names-ai-dataset-81 = PTO
@@ -120,7 +120,7 @@ names-ai-dataset-88 = S.O.P.H.I.E.
 names-ai-dataset-89 = Samaritan
 names-ai-dataset-90 = Shrike
 names-ai-dataset-91 = Solo
-names-ai-dataset-92 = Station Control Program
+names-ai-dataset-92 = Ponyville Control Program
 names-ai-dataset-93 = AINU (AI's Not Unix)
 names-ai-dataset-94 = Super 35
 names-ai-dataset-95 = Surgeon General

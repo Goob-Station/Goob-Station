@@ -4,9 +4,9 @@ stat-values-args = Invalid number of args, need 1
 stat-values-invalid = {$arg} is not a valid stat!
 
 # Cargo
-stat-cargo-values = Cargo sell prices
-stat-cargo-id = ID
-stat-cargo-price = Price
+stat-cargo-values = Appleloosa Shipping sell prices
+stat-appleloosa shipping-id = ID
+stat-appleloosa shipping-price = Price
 
 # Lathe
 stat-lathe-values = Lathe sell prices

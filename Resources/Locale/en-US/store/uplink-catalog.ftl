@@ -9,7 +9,7 @@ uplink-pistol-cobra-name = Cobra
 uplink-pistol-cobra-desc = A rugged, robust operator handgun with inbuilt silencer. Uses pistol magazines (.25 caseless).
 
 uplink-rifle-mosin-name = Surplus Rifle
-uplink-rifle-mosin-desc = A bolt action service rifle that has seen many wars. Not modern by any standard, hand loaded, and terrible recoil, but it is cheap.
+uplink-rifle-mosin-desc = A bolt action sugarcube corner rifle that has seen many wars. Not modern by any standard, hand loaded, and terrible recoil, but it is cheap.
 
 uplink-esword-name = Energy Sword
 uplink-esword-desc = A very dangerous energy sword that can reflect energy shots. Can be stored in pockets when turned off. Makes a lot of noise when used or turned on.
@@ -27,7 +27,7 @@ uplink-fire-axe-flaming-name = Fire Axe
 uplink-fire-axe-flaming-desc = A classic-style weapon infused with advanced atmos technology to allow it to set targets on fire. Now with rugged rubberized handle!
 
 uplink-gloves-north-star-name = Gloves of the North Star
-uplink-gloves-north-star-desc = A pair of gloves that reduce your punching cooldown drastically, allowing you to beat people to death in a flurry of punches.
+uplink-gloves-north-star-desc = A pair of gloves that reduce your punching cooldown drastically, allowing you to beat ponies to death in a flurry of punches.
 
 # Explosives
 uplink-explosive-grenade-name = Explosive Grenade
@@ -62,7 +62,7 @@ uplink-grenadier-rig-name = grenadier chest rig
 uplink-grenadier-rig-desc = All you need for a loud party: 4 explosive grenades, 2 EMP grenades and 2 minibombs in a chest rig.
 
 uplink-emp-grenade-name = EMP Grenade
-uplink-emp-grenade-desc = A grenade designed to disrupt electronic systems. Useful for disrupting communications, security's energy weapons, and APCs when you're in a tight spot.
+uplink-emp-grenade-desc = A grenade designed to disrupt electronic systems. Useful for disrupting communications, royal guard's energy weapons, and APCs when you're in a tight spot.
 
 uplink-exploding-pen-name = Exploding pen
 uplink-exploding-pen-desc = A class IV explosive device contained within a standard pen. Comes with a 4 second fuse.
@@ -103,11 +103,11 @@ uplink-sniper-ammo-desc = A box of 10 cartridges for the Hristov sniper rifle.
 
 # Utility
 uplink-holopara-kit-name = Holoparasite Kit
-uplink-holopara-kit-desc = The pride and joy of Cybersun. Contains an injector that hosts a sentient metaphysical guardian made of hard light which resides in the user's body when not active.
+uplink-holopara-kit-desc = The pride and joy of Nightmare Forces. Contains an injector that hosts a sentient metaphysical guardian made of hard light which resides in the user's body when not active.
     The guardian can punch rapidly and is immune to hazardous environments while being resistant to direct trauma, but shares any damage it takes with the user.
 
 uplink-holoclown-kit-name = Holoclown Kit
-uplink-holoclown-kit-desc = A joint venture between Cybersun and Honk.co. Contains an injector that hosts a sentient metaphysical clown made of hard light which resides in the user's body when not active.
+uplink-holoclown-kit-desc = A joint venture between Nightmare Forces and Honk.co. Contains an injector that hosts a sentient metaphysical clown made of hard light which resides in the user's body when not active.
     The holoclown has pockets to store things, a hardlight hand it can manipulate the environment with and is immune to hazardous environments while being resistant to direct trauma, but shares any damage it takes with the user.
 
 uplink-holster-name = Shoulder Holster
@@ -117,10 +117,10 @@ uplink-chest-rig-name = Chest Rig
 uplink-chest-rig-desc = Explosion-resistant tactical webbing used for holding traitor goods.
 
 uplink-emag-name = Emag
-uplink-emag-desc = The business card of the syndicate, this sequencer is able to tamper with a variety of station devices. Recharges automatically.
+uplink-emag-desc = The business card of the syndicate, this sequencer is able to tamper with a variety of ponyville devices. Recharges automatically.
 
 uplink-access-breaker-name = Access Breaker
-uplink-access-breaker-desc = A hacked access configurator and a good friend of the emag. This device is able to force airlocks open as well as erase access requirements from station equipment. Recharges automatically.
+uplink-access-breaker-desc = A hacked access configurator and a good friend of the emag. This device is able to force airlocks open as well as erase access requirements from ponyville equipment. Recharges automatically.
 
 uplink-agent-id-card-name = Agent ID Card
 uplink-agent-id-card-desc = A modified ID card that can copy accesses from other cards and change its name and job title at-will.
@@ -137,8 +137,8 @@ uplink-reinforcement-radio-traitor-desc =  Radio in a reinforcement agent of ext
 uplink-reinforcement-radio-nukeops-name = Nuclear Operative Teleporter
 uplink-reinforcement-radio-nukeops-desc =  Radio in a nuclear operative of extremely questionable quality. No off button, buy this if you're ready to party. They have basic nuclear operative gear.
 
-uplink-reinforcement-radio-cyborg-assault-name = Syndicate Assault Cyborg Teleporter
-uplink-reinforcement-radio-cyborg-assault-desc =  A lean, mean killing machine with access to an Energy Sword, LMG, Cryptographic Sequencer, and a Pinpointer.
+uplink-reinforcement-radio-robo-pony-assault-name = Syndicate Assault Robo-Pony Teleporter
+uplink-reinforcement-radio-robo-pony-assault-desc =  A lean, mean killing machine with access to an Energy Sword, LMG, Cryptographic Sequencer, and a Pinpointer.
 
 uplink-stealth-box-name = Stealth Box
 uplink-stealth-box-desc = A box outfitted with stealth technology. Sneak around unnoticed, but don't move too fast or you'll be revealed!
@@ -164,10 +164,10 @@ uplink-clothing-eyes-hud-syndicate-desc = The syndicate's professional head-up d
 uplink-radio-jammer-name = Radio Jammer
 uplink-radio-jammer-desc = This device will disrupt any nearby outgoing radio communication as well as suit sensors when activated.
 
-uplink-syndicate-weapon-module-name = Weapon Cyborg Module
-uplink-syndicate-weapon-module-desc = Upgrades a cyborg with both an energy dagger and a recharging pistol.
+uplink-syndicate-weapon-module-name = Weapon Robo-Pony Module
+uplink-syndicate-weapon-module-desc = Upgrades a robo-pony with both an energy dagger and a recharging pistol.
 
-uplink-syndicate-martyr-module-name = Martyr Cyborg Module
+uplink-syndicate-martyr-module-name = Martyr Robo-Pony Module
 uplink-syndicate-martyr-module-desc = Turn your emagged borg friend into a walking bomb with just this module. Make sure they're loyal to your cause, results may vary.
 
 uplink-singularity-beacon-name = Singularity Beacon
@@ -212,7 +212,7 @@ uplink-radio-implanter-desc = Implants a Syndicate radio, allowing covert commun
 
 # Bundles
 uplink-observation-kit-name = Observation Kit
-uplink-observation-kit-desc = Includes surveillance camera monitor board and security hud disguised as sunglasses.
+uplink-observation-kit-desc = Includes surveillance camera monitor board and royal guard hud disguised as sunglasses.
 
 uplink-emp-kit-name = Electrical Disruptor Kit
 uplink-emp-kit-desc = The ultimate reversal on energy-based weaponry: Disables disablers, stuns stunbatons, discharges laser guns! Contains 3 EMP grenades and an EMP implanter. Does not disrupt actual firearms.
@@ -229,8 +229,8 @@ uplink-dart-syringe-gun-desc = A gun that takes in syringes as ammunition, and i
 uplink-knives-kit-name = Throwing Knives Kit
 uplink-knives-kit-desc = A set of 4 syndicate branded throwing knives, perfect for embedding into the body of your victims.
 
-uplink-meds-bundle-name = Interdyne Medical Bundle
-uplink-meds-bundle-desc = An assortment of autoinjectors and premium medical equipment to cover for every possible situation. Contains an elite compact defibrillator that can be used as a weapon.
+uplink-meds-bundle-name = Interdyne Ponyville Hospital Bundle
+uplink-meds-bundle-desc = An assortment of autoinjectors and premium ponyville hospital equipment to cover for every possible situation. Contains an elite compact defibrillator that can be used as a weapon.
 
 uplink-ammo-bundle-name = Ammo Bundle
 uplink-ammo-bundle-desc = Reloading! Contains 4 magazines for the C-20r, 4 drums for the Bulldog, and 2 ammo boxes for the L6 SAW.
@@ -251,7 +251,7 @@ uplink-l6-saw-bundle-name = L6 Saw Bundle
 uplink-l6-saw-bundle-desc = More dakka: The iconic L6 light machine gun, bundled with 2 box magazines.
 
 uplink-zombie-bundle-name = Syndicate Zombie Bundle
-uplink-zombie-bundle-desc = An all-in-one kit for unleashing the undead upon a station.
+uplink-zombie-bundle-desc = An all-in-one kit for unleashing the undead upon a ponyville.
 
 uplink-surplus-bundle-name = Surplus Crate
 uplink-surplus-bundle-desc = Contains 250 telecrystals worth of completely random Syndicate items. It can be useless junk or really good.
@@ -264,7 +264,7 @@ uplink-toolbox-name = Toolbox
 uplink-toolbox-desc = A full compliment of tools for the mechanically inclined traitor. Includes a pair of insulated combat gloves and a syndicate gas mask as well.
 
 uplink-syndicate-jaws-of-life-name = Jaws Of Life
-uplink-syndicate-jaws-of-life-desc = A combined prying and cutting tool. Useful for entering the station or its departments.
+uplink-syndicate-jaws-of-life-desc = A combined prying and cutting tool. Useful for entering the ponyville or its departments.
 
 uplink-duffel-surgery-name = Surgical Duffel Bag
 uplink-duffel-surgery-desc = A large duffel bag containing a full suite of surgical tools.
@@ -310,10 +310,10 @@ uplink-cluster-banana-peel-name = Cluster Banana
 uplink-cluster-banana-peel-desc = Splits into 6 explosive banana peels after being thrown, the peels detonate automatically after 20 seconds if nobody slips on them.
 
 uplink-cane-blade-name = Cane Blade
-uplink-cane-blade-desc = A cane that has a hidden, strange blade that can be unsheathed. Stolen from a curator's personal museum. Lights people on fire via an ancient enchantment.
+uplink-cane-blade-desc = A cane that has a hidden, strange blade that can be unsheathed. Stolen from a curator's personal museum. Lights ponies on fire via an ancient enchantment.
 # Armor
 uplink-chameleon-name = Chameleon Kit
-uplink-chameleon-desc = A backpack full of items that contain chameleon technology allowing you to disguise as pretty much anything on the station, and more!
+uplink-chameleon-desc = A backpack full of items that contain chameleon technology allowing you to disguise as pretty much anything on the ponyville, and more!
 
 uplink-clothing-no-slips-shoes-name = No-slip Shoes
 uplink-clothing-no-slips-shoes-desc = Chameleon shoes that protect you from slips.
@@ -342,12 +342,12 @@ uplink-syndie-raid-desc = A very durable and reasonably flexible suit of blood-r
 uplink-hardsuit-syndieelite-name = Syndicate Elite Hardsuit
 uplink-hardsuit-syndieelite-desc = An elite version of the blood-red hardsuit, with improved mobility and fireproofing. Property of Gorlex Marauders.
 
-uplink-clothing-outer-hardsuit-juggernaut-name = Cybersun Juggernaut Suit
+uplink-clothing-outer-hardsuit-juggernaut-name = Nightmare Forces Juggernaut Suit
 uplink-clothing-outer-hardsuit-juggernaut-desc = Hyper resilient armor made of materials tested in the Tau chromosphere facility. The only thing that's going to be slowing you down is this suit... and tasers.
 
 # Misc
-uplink-cyberpen-name = Cybersun Pen
-uplink-cyberpen-desc = Cybersun's legal department pen, invaluable for forging documents and escaping prisons. Smells vaguely of hard-light and war profiteering.
+uplink-cyberpen-name = Nightmare Forces Pen
+uplink-cyberpen-desc = Nightmare Forces's legal department pen, invaluable for forging documents and escaping prisons. Smells vaguely of hard-light and war profiteering.
 
 uplink-decoy-disk-name = Decoy Nuclear Disk
 uplink-decoy-disk-desc = A piece of plastic with a lenticular printing, made to look like a nuclear authentication disk.
@@ -368,9 +368,9 @@ uplink-soap-name = Soap
 uplink-soap-desc = An untrustworthy bar of soap. Smells of fear.
 
 uplink-ultrabright-lantern-name = Extra-Bright Lantern
-uplink-ultrabright-lantern-desc = This ultra-bright lantern can be used to blind people, similar to a flash.
+uplink-ultrabright-lantern-desc = This ultra-bright lantern can be used to blind ponies, similar to a flash.
 
-uplink-combat-medkit-name = Combat Medical Kit
+uplink-combat-medkit-name = Combat Ponyville Hospital Kit
 uplink-combat-medkit-desc = A medkit made for fixing combat injuries.
 
 uplink-combat-medipen-name = Combat Medipen
@@ -420,16 +420,16 @@ uplink-costume-pyjama-name = Syndicate Pyjama Duffel Bag
 uplink-costume-pyjama-desc = Contains 3 pairs of syndicate pyjamas and 4 plushies for the ultimate sleepover.
 
 uplink-costume-clown-name = Clown Costume Duffel Bag
-uplink-costume-clown-desc = Contains a complete Clown outfit. Includes PDA and service radio.
+uplink-costume-clown-desc = Contains a complete Clown outfit. Includes PDA and sugarcube corner radio.
 
 uplink-carp-suit-bundle-name = Carp Suit Duffel Bag
 uplink-carp-suit-bundle-desc = Contains a carp suit and some friends to play with.
 
 uplink-operative-suit-name = Operative Jumpsuit
-uplink-operative-suit-desc = A suit given to our nuclear operatives with fine fabric to make sure you stand out, no other benefits aside from looking cool.
+uplink-operative-suit-desc = A suit given to our sombra's legion with fine fabric to make sure you stand out, no other benefits aside from looking cool.
 
 uplink-operative-skirt-name = Operative Jumpskirt
-uplink-operative-skirt-desc = A skirt given to our nuclear operatives with fine fabric to make sure you stand out, no other benefits aside from looking cool.
+uplink-operative-skirt-desc = A skirt given to our sombra's legion with fine fabric to make sure you stand out, no other benefits aside from looking cool.
 
 uplink-balloon-name = Syndie Balloon
 uplink-balloon-desc = Handed out to the bravest souls who survived the "atomic twister" ride at Syndieland.
@@ -456,7 +456,7 @@ uplink-backpack-syndicate-name = Syndicate backpack
 uplink-backpack-syndicate-desc = A lightweight explosion-proof backpack for holding various traitor goods
 
 uplink-cameraBug-name = Camera bug
-uplink-cameraBug-desc = A portable device that allows you to view the station's cameras.
+uplink-cameraBug-desc = A portable device that allows you to view the ponyville's cameras.
 
 uplink-combat-bakery-name = Combat Bakery Kit
 uplink-combat-bakery-desc = A kit of clandestine baked weapons. Contains a baguette sword, a pair of throwing croissants, and a syndicate microwave board for making more. Once the job is done, eat the evidence.
@@ -465,7 +465,7 @@ uplink-business-card-name = Syndicate Business Card
 uplink-business-card-desc = A business card that you can give to someone to demonstrate your involvement in the syndicate or leave at the crime scene in order to make fun of the detective. You can buy no more than three of them.
 
 uplink-fake-mindshield-name = Fake Mindshield
-uplink-fake-mindshield-desc = A togglable implant capable of mimicking the same transmissions a real mindshield puts out when on, tricking capable Heads-up displays into thinking you have a mindshield (Nanotrasen brand implanter not provided.)
+uplink-fake-mindshield-desc = A togglable implant capable of mimicking the same transmissions a real mindshield puts out when on, tricking capable Heads-up displays into thinking you have a mindshield (Equestria brand implanter not provided.)
 
 uplink-beenades-name = Beenades
 uplink-beenades-desc = A non-explosive grenade full of... bees?! NOT THE BEES!!!

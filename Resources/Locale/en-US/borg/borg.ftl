@@ -1,18 +1,18 @@
 borg-player-not-allowed = The brain doesn't fit!
 borg-player-not-allowed-eject = The brain was expelled from the chassis!
 
-borg-panel-not-open = The cyborg's panel isn't open...
+borg-panel-not-open = The robo-pony's panel isn't open...
 
 borg-mind-added = {CAPITALIZE($name)} powered on!
 borg-mind-removed = {CAPITALIZE($name)} shut off!
 
 borg-module-too-many = There's not enough room for another module...
-borg-module-duplicate = This module is already installed in this cyborg.
-borg-module-whitelist-deny = This module doesn't fit in this type of cyborg...
+borg-module-duplicate = This module is already installed in this robo-pony.
+borg-module-whitelist-deny = This module doesn't fit in this type of robo-pony...
 
-borg-construction-guide-string = The cyborg limbs and torso must be attached to the endoskeleton.
+borg-construction-guide-string = The robo-pony limbs and torso must be attached to the endoskeleton.
 
-borg-ui-menu-title = Cyborg Interface
+borg-ui-menu-title = Robo-Pony Interface
 borg-ui-charge-label = Charge: {$charge}%
 borg-ui-no-brain = No brain present
 borg-ui-remove-battery = Remove
@@ -38,27 +38,27 @@ borg-select-type-menu-guidebook = Guidebook
 ## Borg type information
 
 borg-type-generic-name = Generic
-borg-type-generic-desc = Jack of all trades, master of none. Do various random station tasks, or maybe help out the science department that built you.
-borg-type-generic-transponder = generic cyborg
+borg-type-generic-desc = Jack of all trades, master of none. Do various random ponyville tasks, or maybe help out the starswirl academy department that built you.
+borg-type-generic-transponder = generic robo-pony
 
-borg-type-engineering-name = Engineering
-borg-type-engineering-desc = Assist the engineering team in station construction, repairing damage, or fixing electrical and atmospheric issues.
-borg-type-engineering-transponder = engineering cyborg
+borg-type-cloudsmithing-name = Cloudsmithing
+borg-type-cloudsmithing-desc = Assist the cloudsmithing team in ponyville construction, repairing damage, or fixing electrical and atmospheric issues.
+borg-type-cloudsmithing-transponder = cloudsmithing robo-pony
 
 borg-type-mining-name = Salvage
 borg-type-mining-desc = Join salvage and help them mine for materials, scavenge wrecks, and fight off hostile wildlife.
-borg-type-mining-transponder = salvage cyborg
+borg-type-mining-transponder = salvage robo-pony
 
 borg-type-janitor-name = Janitor
-borg-type-janitor-desc = Keep the station nice and tidy, clean up spills, collect and properly dispose of trash left around by lazy crewmembers.
-borg-type-janitor-transponder = janitor cyborg
+borg-type-janitor-desc = Keep the ponyville nice and tidy, clean up spills, collect and properly dispose of trash left around by lazy crewmembers.
+borg-type-janitor-transponder = janitor robo-pony
 
-borg-type-medical-name = Medical
-borg-type-medical-desc = Provide medical attention to crew who need it, either in medbay or in hazardous areas conventional paramedics cannot reach.
-borg-type-medical-transponder = medical cyborg
+borg-type-ponyville hospital-name = Ponyville Hospital
+borg-type-ponyville hospital-desc = Provide ponyville hospital attention to crew who need it, either in medbay or in hazardous areas conventional paramedics cannot reach.
+borg-type-ponyville hospital-transponder = ponyville hospital robo-pony
 
-borg-type-service-name = Service
-borg-type-service-desc = Help out with a wide range of crew services, ranging from serving snacks and drinks to botany to entertainment.
-borg-type-service-transponder = service cyborg
+borg-type-sugarcube corner-name = Sugarcube Corner
+borg-type-sugarcube corner-desc = Help out with a wide range of crew services, ranging from serving snacks and drinks to botany to entertainment.
+borg-type-sugarcube corner-transponder = sugarcube corner robo-pony
 
 

@@ -1,6 +1,6 @@
 particle-accelerator-control-menu-on-button = On
 particle-accelerator-control-menu-off-button = Off
-particle-accelerator-control-menu-service-manual-reference = Refer to p.132 of service manual
+particle-accelerator-control-menu-sugarcube corner-manual-reference = Refer to p.132 of sugarcube corner manual
 particle-accelerator-control-menu-device-version-label = Mark 2 Particle Accelerator
 particle-accelerator-control-menu-power-label = [bold]Power:[/bold]
 particle-accelerator-control-menu-strength-label = [bold]Strength:[/bold]

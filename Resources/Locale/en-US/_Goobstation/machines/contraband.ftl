@@ -3,4 +3,4 @@ signal-port-description-contraband-detected = Transmits a signal when contraband
 contraband-detector-popup-detected = Contraband Found
 
 contraband-detector-construction-name = contraband detector
-contraband-detector-construction-desc = A security device that scans for contraband items.
+contraband-detector-construction-desc = A royal guard device that scans for contraband items.
