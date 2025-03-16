@@ -27,7 +27,6 @@ public abstract class SharedFishingSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -132,19 +131,7 @@ public abstract class SharedFishingSystem : EntitySystem
             }
 
             // Fish fighting logic
-            if (_timing.IsFirstTimePredicted)
-            {
-                var rand = new System.Random((int) _timing.CurTick.Value);
-
-                if (fisherComp.StartTime + TimeSpan.FromSeconds(1f) <= _timing.CurTime && fisherComp.NextStruggle == null)
-                    fisherComp.NextStruggle = _timing.CurTime + TimeSpan.FromSeconds(rand.NextFloat(0.5f, 10) * activeSpotComp.FishDifficulty);
-
-                if (fisherComp.NextStruggle != null && fisherComp.NextStruggle <= _timing.CurTime)
-                {
-                    fisherComp.EndTime += TimeSpan.FromSeconds(rand.NextFloat(0, 0.01f) / Math.Abs(activeSpotComp.FishDifficulty));
-                    fisherComp.NextStruggle = _timing.CurTime + TimeSpan.FromSeconds(rand.NextFloat(0.5f, 10) * activeSpotComp.FishDifficulty);
-                }
-            }
+            CalculateFightingTimings(fisherComp, activeSpotComp);
 
             if (fisherComp.TotalProgress >= 1.0f)
             {
@@ -179,7 +166,7 @@ public abstract class SharedFishingSystem : EntitySystem
         var fishingSpots = EntityQueryEnumerator<ActiveFishingSpotComponent>();
         while (fishingSpots.MoveNext(out var activeSpotComp))
         {
-            if (currentTime < activeSpotComp.FishingStartTime || activeSpotComp.IsActive)
+            if (currentTime < activeSpotComp.FishingStartTime || activeSpotComp.IsActive || activeSpotComp.FishingStartTime == null)
                 continue;
 
             // Trigger start of the fishing process
@@ -204,6 +191,27 @@ public abstract class SharedFishingSystem : EntitySystem
 
             _popup.PopupPredicted(Loc.GetString("fishing-progress-start"), fisher, fisher);
             activeSpotComp.IsActive = true;
+        }
+    }
+
+    private void CalculateFightingTimings(ActiveFisherComponent fisherComp, ActiveFishingSpotComponent activeSpotComp)
+    {
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
+        // Dividing by zero is bad.
+        if (Math.Abs(activeSpotComp.FishDifficulty) == 0)
+            return;
+
+        var rand = new System.Random((int) _timing.CurTick.Value);
+
+        if (fisherComp.StartTime + TimeSpan.FromSeconds(1f) <= _timing.CurTime && fisherComp.NextStruggle == null)
+            fisherComp.NextStruggle = _timing.CurTime + TimeSpan.FromSeconds(rand.NextFloat(0.5f, 10) * activeSpotComp.FishDifficulty);
+
+        if (fisherComp.NextStruggle != null && fisherComp.NextStruggle <= _timing.CurTime)
+        {
+            fisherComp.EndTime += TimeSpan.FromSeconds(rand.NextFloat(0, 0.01f) / Math.Abs(activeSpotComp.FishDifficulty));
+            fisherComp.NextStruggle = _timing.CurTime + TimeSpan.FromSeconds(rand.NextFloat(0.5f, 10) * activeSpotComp.FishDifficulty);
         }
     }
 
@@ -284,7 +292,7 @@ public abstract class SharedFishingSystem : EntitySystem
 
         _popup.PopupPredicted(Loc.GetString("fishing-rod-remove-lure", ("ent", Name(uid))), uid, uid);
 
-        if (TryComp<FishingLureComponent>(component.FishingLure, out var lureComp) && lureComp.AttachedEntity != null && Exists(lureComp.AttachedEntity))
+        if (_fishFloatQuery.TryComp(component.FishingLure, out var lureComp) && lureComp.AttachedEntity != null && Exists(lureComp.AttachedEntity))
         {
             // TODO: so this kinda just lets you pull anything right up to you, it should instead just apply an impulse in your direction modfiied by the weight of the player vs the object
             // Also we need to autoreel/snap the line if the player gets too far away
@@ -299,6 +307,12 @@ public abstract class SharedFishingSystem : EntitySystem
 
             // Yeet
             _throwing.TryThrow(attachedEnt, direction, 4f, player);
+
+            // If we're currently fishing then clean it up too
+            if (_activeFishSpotQuery.TryComp(lureComp.AttachedEntity, out var activeSpot))
+            {
+                RemComp(lureComp.AttachedEntity.Value, activeSpot);
+            }
         }
 
         if (_net.IsServer)
@@ -322,12 +336,10 @@ public abstract class SharedFishingSystem : EntitySystem
         if (HasComp<ActiveFishingSpotComponent>(attachedEnt))
             return;
 
-        component.AttachedEntity = attachedEnt;
-
         var spotPosition = _transform.GetWorldPosition(attachedEnt);
         if (!_fishSpotQuery.TryComp(attachedEnt, out var spotComp))
         {
-            if (args.OtherBody.BodyType != BodyType.Dynamic)
+            if (args.OtherBody.BodyType == BodyType.Static)
                 return;
 
             // Anchor fishing float on an entity
@@ -339,11 +351,12 @@ public abstract class SharedFishingSystem : EntitySystem
         // Anchor fishing float on an entity
         _transform.SetWorldPosition(uid, spotPosition);
         _transform.AnchorEntity(uid);
+        component.AttachedEntity = attachedEnt;
 
         var rand = new System.Random((int) _timing.CurTick.Value); // evil random prediction hack
 
         // Currently we don't support multiple loots from this
-        var fish = spotComp.FishList.GetSpawns(_random.GetRandom(), EntityManager, _proto).First();
+        var fish = spotComp.FishList.GetSpawns(rand, EntityManager, _proto).First();
 
         // Get fish difficulty
         _proto.Index(fish).TryGetComponent(out FishComponent? fishComp, _compFactory);
@@ -359,6 +372,7 @@ public abstract class SharedFishingSystem : EntitySystem
         var time = spotComp.FishDefaultTimer + rand.NextFloat(-spotComp.FishTimerVariety, spotComp.FishTimerVariety);
         activeFishSpot.FishingStartTime = _timing.CurTime + TimeSpan.FromSeconds(time);
         activeFishSpot.AttachedFishingLure = uid;
+        Dirty(attachedEnt, activeFishSpot); // Sometimes StartCollideEvent just fails to work on client
     }
 
     private void OnFishingRodInit(Entity<FishingRodComponent> ent, ref MapInitEvent args)

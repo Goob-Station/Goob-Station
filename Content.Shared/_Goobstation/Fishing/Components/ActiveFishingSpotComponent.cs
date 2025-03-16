@@ -1,5 +1,4 @@
-﻿using Content.Shared.EntityTable.EntitySelectors;
-using Robust.Shared.GameStates;
+﻿using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Goobstation.Fishing.Components;
@@ -11,15 +10,15 @@ namespace Content.Shared._Goobstation.Fishing.Components;
 public sealed partial class ActiveFishingSpotComponent : Component
 {
     [ViewVariables, AutoNetworkedField]
-    public EntityUid AttachedFishingLure;
+    public EntityUid? AttachedFishingLure;
 
-    [DataField, AutoNetworkedField]
-    public TimeSpan FishingStartTime;
+    [DataField]
+    public TimeSpan? FishingStartTime;
 
     /// <summary>
     /// If true, someone is pulling fish out of this spot.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public bool IsActive;
 
     [DataField, AutoNetworkedField]
