@@ -12,32 +12,30 @@ namespace Content.Server.Explosion.EntitySystems
     public sealed partial class TriggerSystem
     {
         [Dependency] private readonly AccessReaderSystem _accessReader = default!; // Goobstation
+
         private void InitializeVoice()
         {
-            SubscribeLocalEvent<TriggerOnVoiceComponent, ComponentInit>(OnComponentInit); // Goobstation
             SubscribeLocalEvent<TriggerOnVoiceComponent, ComponentInit>(OnVoiceInit);
             SubscribeLocalEvent<TriggerOnVoiceComponent, ExaminedEvent>(OnVoiceExamine);
             SubscribeLocalEvent<TriggerOnVoiceComponent, GetVerbsEvent<AlternativeVerb>>(OnVoiceGetAltVerbs);
             SubscribeLocalEvent<TriggerOnVoiceComponent, ListenEvent>(OnListen);
         }
 
-        private void OnComponentInit(EntityUid uid, TriggerOnVoiceComponent comp, ref ComponentInit args) // Goobstation - Start
+        private void OnVoiceInit(EntityUid uid, TriggerOnVoiceComponent comp, ComponentInit args)
         {
-            // We don't need to add an access reader if we aren't going to use it.
+            if (comp.IsListening)
+                EnsureComp<ActiveListenerComponent>(uid).Range = comp.ListenRange;
+            else
+                RemCompDeferred<ActiveListenerComponent>(uid);
+
+            // If the voice trigger is not restricted, do not apply a accessreader comp. - Goobstation Start
             if (!comp.RestrictById)
                 return;
 
             // Set the access levels.
             EnsureComp<AccessReaderComponent>(uid, out var accessReader);
             _accessReader.SetAccesses(uid, accessReader, comp.AccessLists);
-        } // Goobstation - End
-
-        private void OnVoiceInit(EntityUid uid, TriggerOnVoiceComponent component, ComponentInit args)
-        {
-            if (component.IsListening)
-                EnsureComp<ActiveListenerComponent>(uid).Range = component.ListenRange;
-            else
-                RemCompDeferred<ActiveListenerComponent>(uid);
+            // Goobstation - End
         }
 
         private void OnListen(Entity<TriggerOnVoiceComponent> ent, ref ListenEvent args)
