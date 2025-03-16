@@ -72,6 +72,7 @@
     keyPhrase: "I AM THE LAW"
     access: [ "HeadOfSecurity" ]
   - type: ExplodeOnTrigger
+  - type: DropOnTrigger
   - type: Explosive
     explosionType: Default
     maxIntensity: 2
