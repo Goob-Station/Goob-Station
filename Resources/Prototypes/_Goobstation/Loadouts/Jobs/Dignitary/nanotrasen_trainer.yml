@@ -53,6 +53,12 @@
   equipment:
     belt: ClothingBeltStorageWaistbag
 
+# Gloves
+- type: loadout
+  id: NanotrasenTrainerGloves
+  equipment:
+    gloves: ClothingHandsGlovesGoldenTrim
+
 # Shoes
 - type: loadout
   id: NanotrasenTrainerBoots

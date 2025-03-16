@@ -26,15 +26,15 @@
   - Cryogenics
   - Maintenance
   - Engineering
+  - Atmospherics
   - Medical
   - Research
   - Command
   - CentralCommand
-  - BlueshieldOfficer
-  - NanotrasenRepresentative
   - Service
   - Hydroponics
   - Cargo
+  - Salvage
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, BluespaceLifelineImplant ]
@@ -49,8 +49,13 @@
     shoes: ClothingShoesBootsLaceup
     head: ClothingHeadHatTrainer
     eyes: ClothingEyesGlasses
+    gloves: ClothingHandsGlovesGoldenTrim
     back: ClothingBackpackSatchelLeather
     outerClothing: ClothingOuterWinterCoatTrainer
     belt: BoxFolderCentComClipboard
     id: TrainerPDA
     ears: ClothingHeadsetAltCentCom
+  storage:
+    back:
+    - Flash
+    - TelescopicBaton

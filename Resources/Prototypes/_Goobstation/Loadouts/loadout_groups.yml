@@ -130,6 +130,12 @@
   - NanotrasenTrainerCoat
 
 - type: loadoutGroup
+  id: NanotrasenTrainerGloves
+  name: loadout-group-nct-gloves
+  loadouts:
+  - NanotrasenTrainerGloves
+
+- type: loadoutGroup
   id: NanotrasenTrainerBelt
   name: loadout-group-nct-belt
   minLimit: 0
