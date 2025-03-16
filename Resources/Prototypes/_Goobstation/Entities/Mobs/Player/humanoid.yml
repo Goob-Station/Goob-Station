@@ -425,3 +425,41 @@
     nameSegments:
     - NamesFirstMilitaryPolitical
     - names_last
+
+# Inspector
+
+- type: entity
+  id: RandomHumanoidSpawnerDiplomat
+  name: Inspector
+  suffix: CentComm
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
+    state: icon
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstInspector
+    - names_last
+  - type: RandomHumanoidSpawner
+    settings: DiplomatGear
+
+- type: randomHumanoidSettings
+  id: InspectorGear
+  parent: EventHumanoidMindShielded
+  randomizeName: false
+  components:
+  - type: GrantImplant
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
+  - type: GhostRole
+    name: ghost-role-information-inspector-name
+    description: ghost-role-information-inspector-description
+    rules: ghost-role-information-navy-officer-rules
+    raffle:
+      settings: short
+  - type: Loadout
+    prototypes: [ InspectorGear ]
+    roleLoadout: [ RoleSurvivalEVA ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstInspector
+    - names_last

@@ -42,6 +42,9 @@ ghost-role-information-navy-officer-undercover-rules = Follow the orders of the 
 ghost-role-information-diplomat-name = Diplomat
 ghost-role-information-diplomat-description = Represent Central Command, managing relationships with other factions aboard the station. Cleanup the issues the captain has likely caused.
 
+ghost-role-information-inspector-name = Central Command Auditor
+ghost-role-information-inspector-description = Perform inspections on the stations assets and its crew. Probably die in a horrific accident and get a deathsquad called.
+
 ghost-role-information-sentient-shark-name = Sentient Sharkminnow
 
 # Half Life

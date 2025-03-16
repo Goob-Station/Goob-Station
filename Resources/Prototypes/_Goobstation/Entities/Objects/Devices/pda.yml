@@ -207,3 +207,11 @@
   - type: Pda
     id: CentcomIDCardDiplomat
 
+- type: entity
+  parent: NavyCaptainPDA
+  id: InspectorPDA
+  name: Navy Officer's PDA
+  components:
+  - type: Pda
+    id: CentcomIDCardInspector
+
