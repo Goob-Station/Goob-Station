@@ -6460,3 +6460,9 @@ Entries:
       message: Judo moves stam damage changed, throw now does 30, and armbar 70.
   id: 746
   time: '2025-03-16T01:59:32.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Stable release!
+  id: 747
+  time: '2025-03-16T04:18:59.0000000+00:00'
