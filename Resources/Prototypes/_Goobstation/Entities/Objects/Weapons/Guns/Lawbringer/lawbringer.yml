@@ -63,8 +63,8 @@
   - type: StealTarget
     stealGroup: WeaponEnergyGunMultiphase
   - type: RestrictById
-    access: [ [ "HeadOfSecurity" ] ]
-    restrictMelee: True
+    access: [ "HeadOfSecurity" ]
+    restrictMelee: true
     restrictRanged: true
   - type: StaticPrice
     price: 750
