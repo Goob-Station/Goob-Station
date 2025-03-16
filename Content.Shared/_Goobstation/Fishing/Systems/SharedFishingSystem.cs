@@ -119,10 +119,12 @@ public abstract class SharedFishingSystem : EntitySystem
                 // It's over
                 _popup.PopupEntity(Loc.GetString("fishing-progress-fail"), fisher, fisher);
 
+                if (_net.IsServer)
+                    QueueDel(fishingLure);
+
                 // Cleanup entities and their connections
                 RemComp(fisher, fisherComp);
                 RemComp(fishSpot, activeSpotComp);
-                QueueDel(fishingLure);
                 _actions.RemoveAction(fishingRodComp.PullLureActionEntity);
                 _actions.AddAction(fisher, ref fishingRodComp.ThrowLureActionEntity, fishingRodComp.ThrowLureActionId, fishRod);
                 fishingRodComp.FishingLure = null;
@@ -299,7 +301,9 @@ public abstract class SharedFishingSystem : EntitySystem
             _throwing.TryThrow(attachedEnt, direction, 4f, player);
         }
 
-        QueueDel(component.FishingLure);
+        if (_net.IsServer)
+            QueueDel(component.FishingLure);
+
         component.FishingLure = null;
         RemComp<ActiveFisherComponent>(player);
 
@@ -312,12 +316,13 @@ public abstract class SharedFishingSystem : EntitySystem
     private void OnFloatCollide(EntityUid uid, FishingLureComponent component, ref StartCollideEvent args)
     {
         // TODO:  make it so this can collide with any unacnchored objects (items, mobs, etc) but not the player casting it (get parent of rod?)
-        var attachedEnt = args.OtherEntity;
-        component.AttachedEntity = attachedEnt;
-
         // Fishing spot logic
+        var attachedEnt = args.OtherEntity;
+
         if (HasComp<ActiveFishingSpotComponent>(attachedEnt))
             return;
+
+        component.AttachedEntity = attachedEnt;
 
         var spotPosition = _transform.GetWorldPosition(attachedEnt);
         if (!_fishSpotQuery.TryComp(attachedEnt, out var spotComp))
