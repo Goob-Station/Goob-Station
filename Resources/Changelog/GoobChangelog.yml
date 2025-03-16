@@ -6418,3 +6418,9 @@ Entries:
       message: Fixed abductors not having glorpmind.
   id: 740
   time: '2025-03-16T01:56:13.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Combat injector weapon and BSO kit
+  id: 741
+  time: '2025-03-16T01:56:31.0000000+00:00'
