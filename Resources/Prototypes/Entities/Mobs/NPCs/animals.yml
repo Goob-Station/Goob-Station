@@ -1854,6 +1854,7 @@
     ocNames:
     - BombasterDS
     - Gallagin
+    - TerminatorBo # fuck you specifically
   - type: DodgeWideswing
     staminaRatio: 1 # mice are small so can probably evade without much stamina drain
   - type: Stamina
