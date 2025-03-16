@@ -9,25 +9,12 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 20
+        Blunt: 25
   - type: TimedDespawn
-    lifetime: 0.100 # Lavaland Change
+    lifetime: 0.08 # Lavaland Change
 
 - type: entity
   id: WeakBulletKinetic
-  name: weak kinetic bolt
-  parent: BulletKinetic
-  categories: [ HideSpawnMenu ]
-  description: Not too bad, but you still don't want to get hit by it.
-  components:
-  - type: Projectile
-    impactEffect: BulletImpactEffectKinetic
-    damage:
-      types:
-        Blunt: 10
-
-- type: entity
-  id: PelletKinetic
   categories: [ HideSpawnMenu ]
   parent: BulletKinetic
   components:
@@ -40,9 +27,9 @@
 - type: entity
   id: PelletKineticSpread
   categories: [ HideSpawnMenu ]
-  parent: BulletKinetic
+  parent: WeakBulletKinetic
   components:
   - type: ProjectileSpread
-    proto: PelletKinetic
-    count: 3
-    spread: 40
+    proto: WeakBulletKinetic
+    count: 6
+    spread: 20

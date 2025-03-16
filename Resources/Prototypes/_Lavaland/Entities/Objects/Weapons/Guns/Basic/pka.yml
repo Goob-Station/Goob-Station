@@ -21,16 +21,12 @@
     - state: animation-shotgun
       visible: false
       map: [ "empty-icon" ]
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 1.50
-    rechargeSound:
-      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: BasicEntityAmmoProvider
     proto: PelletKineticSpread
     capacity: 1
     count: 1
   - type: UpgradeableGun
-    maxUpgradeCapacity: 60
+    maxUpgradeCapacity: 70
     whitelist:
       tags:
       - PKAUpgrade
@@ -41,12 +37,13 @@
   - type: Item
     shape:
     - 0,0,4,0
-  
+
+# Repeater is balanced around dual wielding not affecting burst fire rate. If someone changes that, repeater should probably be buffed.
 - type: entity
   name: proto-kinetic repeater
   id: WeaponProtoKineticRepeater
   parent: [WeaponProtoKineticAcceleratorBase, BaseCargoContraband]
-  description: Fires a barrage of kinetic bolts at a short range.
+  description: Fires a barrage of medium-damage kinetic bolts at a short range.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
@@ -66,17 +63,16 @@
       visible: false
       map: [ "empty-icon" ]
   - type: Gun
-    fireRate: 2.5
-    selectedMode: SemiAuto
+    selectedMode: Burst
     minAngle: 10
-    maxAngle: 30
-    projectileSpeed: 30
+    maxAngle: 20
+    projectileSpeed: 40
+    burstFireRate: 3
+    burstCooldown: 2
     availableModes:
-    - SemiAuto
+    - Burst
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 2.5
     rechargeSound:
       path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: BasicEntityAmmoProvider
@@ -84,7 +80,7 @@
     capacity: 3
     count: 3
   - type: UpgradeableGun
-    maxUpgradeCapacity: 60
+    maxUpgradeCapacity: 70
     whitelist:
       tags:
       - PKAUpgrade
@@ -124,6 +120,10 @@
     whitelist:
       tags:
       - PKAUpgrade
+  - type: Gun
+    availableModes:
+    - FullAuto
+    - SemiAuto
   - type: Item
     size: Small
     shape:
