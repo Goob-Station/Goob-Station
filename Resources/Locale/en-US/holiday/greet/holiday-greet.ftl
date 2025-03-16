@@ -1,6 +1,6 @@
 ## Generic Congrats
 
-holiday-greet = Have a happy {$holidayName}!
+holiday-greet = Have a happy { $holidayName }!
 
 ## Holiday Names
 
@@ -9,7 +9,7 @@ holiday-name-mister-lizard = Mister Lizard's Birthday
 holiday-name-chinese-new-year = Chinese New Year
 holiday-name-groundhog-day = Groundhog Day
 holiday-name-valentines-day = Valentine's Day
-holiday-name-birthday13 = Birthday of Space Station 13
+holiday-name-birthday13 = Birthday of Space Ponyville 13
 holiday-name-random-kindness = Random Acts of Kindness Day
 holiday-name-leap-day = Leap Day
 holiday-name-miku-day = Hatsune Miku Day
@@ -23,7 +23,7 @@ holiday-name-four-twenty = Four-Twenty
 holiday-name-tea-day = National Tea Day
 holiday-name-earth-day = Earth Day
 holiday-name-anzac-day = Anzac Day
-holiday-name-birthday14 = Birthday of Space Station 14
+holiday-name-birthday14 = Birthday of Space Ponyville 14
 holiday-name-labor-day = Labor Day
 holiday-name-firefighter-day = Firefighter's Day
 holiday-name-mothers-day = Mother's Day
@@ -61,7 +61,7 @@ holiday-name-transgender-remembrance-day = Transgender Day of Remembrance
 holiday-name-saying-hello-day = Saying Hello Day
 holiday-name-thanksgiving = Thanksgiving in the United States
 holiday-name-sinterklaas = Sinterklaas
-holiday-name-human-rights-day = Human-Rights Day
+holiday-name-human-rights-day = Pony-Rights Day
 holiday-name-monkey-day = Monkey Day
 holiday-name-mayan-doomsday = Mayan Doomsday Anniversary
 holiday-name-christmas = Christmas
@@ -75,7 +75,7 @@ holiday-name-pride-month = Pride Month
 
 holiday-custom-cosmonautics-day = On this day over 600 years ago, Comrade Yuri Gagarin first ventured into space!
 holiday-custom-mothers-day = Happy Mother's Day in most of the Americas, Asia, and Oceania!
-holiday-custom-bastille-day = Do you hear the people sing?
+holiday-custom-bastille-day = Do you hear the ponies sing?
 holiday-custom-friendship-day = Have a magical Friendship Day!
 holiday-custom-talk-like-a-pirate-day = Ye be talkin' like a pirate today or else ye'r walkin' tha plank, matey!
 holiday-custom-halloween = Have a spooky Halloween!
