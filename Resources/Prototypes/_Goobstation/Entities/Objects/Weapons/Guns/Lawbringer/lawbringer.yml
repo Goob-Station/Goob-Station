@@ -69,6 +69,7 @@
   - type: StaticPrice
     price: 750
   - type: TriggerOnVoice
+    keyPhrase: "I AM THE LAW"
     restrictById: true
   - type: explodeOnTrigger
 
