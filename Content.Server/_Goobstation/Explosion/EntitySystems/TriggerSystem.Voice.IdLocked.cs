@@ -7,13 +7,13 @@ using Content.Shared.Database;
 
 namespace Content.Server.Explosion.EntitySystems
 {
-    public sealed partial class GoobTriggerSystem : EntitySystem
+    public sealed partial class VoiceTriggerSystem : EntitySystem
     {
         [Dependency] private readonly AccessReaderSystem _accessReader = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly TriggerSystem _triggerSystem = default!;
 
-        private void InitializeVoice()
+        public override void Initialize()
         {
             SubscribeLocalEvent<TriggerOnVoiceIdLockedComponent, ComponentInit>(OnVoiceInit);
             SubscribeLocalEvent<TriggerOnVoiceIdLockedComponent, ListenEvent>(OnListen);
