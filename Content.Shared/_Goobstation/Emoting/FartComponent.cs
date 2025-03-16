@@ -1,5 +1,8 @@
 using Content.Shared.Chat.Prototypes;
+using Content.Shared.DoAfter;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -16,6 +19,13 @@ public sealed partial class FartComponent : Component
     [DataField] public bool FartInhale = false;
     [DataField] public bool SuperFarted = false;
     [DataField] public float MolesAmmoniaPerFart = 5f;
+
+    /// <summary>
+    ///     Path to the sound when you get bible smited
+    /// </summary>
+    [DataField]
+    [Access(Other = AccessPermissions.ReadWriteExecute)]
+    public SoundSpecifier BibleSmiteSnd = new SoundPathSpecifier("/Audio/_Goobstation/Effects/thunder_clap.ogg");
 }
 
 [Serializable, NetSerializable]
@@ -33,4 +43,24 @@ public sealed partial class FartComponentState : ComponentState
         FartInhale = fartInhale;
         SuperFarted = superFarted;
     }
+}
+
+/// <summary>
+///     Triggers after a fart 🦍💨
+/// </summary>
+public sealed class PostFartEvent : EntityEventArgs
+{
+    public readonly EntityUid Uid;
+    public readonly bool SuperFart;
+    public PostFartEvent(EntityUid uid, bool IsSuperFart = false)
+    {
+        Uid = uid;
+        SuperFart = IsSuperFart;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class BibleFartSmiteEvent(NetEntity uid) : EntityEventArgs
+{
+    public NetEntity Bible = uid;
 }
