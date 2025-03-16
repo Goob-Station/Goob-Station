@@ -75,7 +75,7 @@
     state: icon
   - type: MeleeWeapon
     soundHit:
-      path: /Audio/Nyanotrasen/Weapons/electricguitarhit.ogg
+      path: /Audio/Weapons/guitarsmash.ogg
     range: 1.85
     attackRate: .8
     animationRotation: -45 # WWDP
@@ -85,8 +85,6 @@
         Blunt: 6
         Shock: 1
     bluntStaminaDamageFactor: 1.5
-    heavyRateModifier: 0.75
-    heavyDamageBaseModifier: 1.2
     heavyStaminaCost: 15
     angle: 90 # WWDP
   - type: Wieldable
