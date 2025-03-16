@@ -137,6 +137,7 @@
   - type: Transform
     anchored: true
   - type: Physics
+    canCollide: false
     bodyType: Static
   - type: ActiveEdgeSpreader
   - type: EdgeSpreader
