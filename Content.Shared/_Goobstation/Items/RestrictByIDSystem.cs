@@ -20,9 +20,9 @@ namespace Content.Shared._Goobstation.Items
             SubscribeLocalEvent<RestrictByIdComponent, AttemptMeleeEvent>(OnAttemptMelee);
         }
 
-        public void OnComponentInit(Entity<RestrictByIdComponent> ent, ref ComponentInit args)
+        private void OnComponentInit(Entity<RestrictByIdComponent> ent, ref ComponentInit args)
         {
-            var item = ent.Comp.Owner;
+            var item = ent.Owner;
 
             // Set the access levels.
             List<ProtoId<AccessLevelPrototype>> accesses = [];
@@ -36,7 +36,7 @@ namespace Content.Shared._Goobstation.Items
         private void OnAttemptShoot(Entity<RestrictByIdComponent> ent, ref AttemptShootEvent args)
         {
             var attacker = args.User;
-            var item = ent.Comp.Owner;
+            var item = ent.Owner;
 
             // If the entity shooting the item is invalid, return.
             if (!attacker.IsValid() || !item.IsValid() || !ent.Comp.RestrictMelee)
@@ -50,7 +50,7 @@ namespace Content.Shared._Goobstation.Items
         private void OnAttemptMelee(Entity<RestrictByIdComponent> ent, ref AttemptMeleeEvent args)
         {
             var attacker = args.User;
-            var item = ent.Comp.Owner;
+            var item = ent.Owner;
 
             // If the entity swinging the weapon is invalid, return.
             if (!attacker.IsValid() || !item.IsValid() || !ent.Comp.RestrictRanged)
