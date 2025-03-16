@@ -2005,7 +2005,7 @@
   description: uplink-sleeping-carp-desc
   productEntity: SleepingCarpScroll
   cost:
-    Telecrystal: 250 # Nukie carp for all team cost
+    Telecrystal: 120 # Nukie carp for all team cost
   categories:
   - UplinkWeaponry
   conditions:
