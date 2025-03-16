@@ -24,20 +24,11 @@ namespace Content.Shared._Goobstation.Items
         {
             var item = ent.Comp.Owner;
 
-            // Add the access reader component
-            EnsureComp<AccessReaderComponent>(item, out var readerAccess);
-
+            // Set the access levels.
             var accesses = new List<ProtoId<AccessLevelPrototype>>();
 
             if (accesses == null)
-            {
-                throw new ArgumentNullException(nameof(accesses))
-                {
-                    HelpLink = null,
-                    HResult = 0,
-                    Source = null
-                };
-            }
+                throw new ArgumentNullException(nameof(accesses));
 
             if (!EnsureComp<AccessReaderComponent>(item, out var accessReader))
                 return;
@@ -47,7 +38,6 @@ namespace Content.Shared._Goobstation.Items
                 var access = accessList.FirstOrDefault();
                 accesses.Add(access);
             }
-
         }
 
         private void OnAttemptShoot(Entity<RestrictByIdComponent> ent, ref AttemptShootEvent args)
