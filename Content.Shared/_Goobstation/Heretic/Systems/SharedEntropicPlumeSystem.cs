@@ -80,6 +80,7 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
     {
         base.Update(frameTime);
 
+        var rand = new System.Random((int) _timing.CurTick.Value);
         var query = EntityQueryEnumerator<EntropicPlumeAffectedComponent, MobStateComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var affected, out var mobState, out var xform))
         {
@@ -154,7 +155,6 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
 
                 _combat.SetInCombatMode(uid, true, combat);
 
-                var rand = new System.Random((int) _timing.CurTick.Value);
                 var target = rand.Pick(targets);
                 var coords = Transform(target).Coordinates;
 

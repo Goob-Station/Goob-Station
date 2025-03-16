@@ -923,7 +923,7 @@
     graph: Girder
     node: diagonalshuttleWall
   - type: RustRequiresPathStage # Goobstation
-    pathStage: 4 # Mark of rust
+    pathStage: 7 # Toxic blade
 
 - type: entity
   parent: BaseWall

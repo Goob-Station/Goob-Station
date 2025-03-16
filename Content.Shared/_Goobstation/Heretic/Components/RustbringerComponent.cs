@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Server.Heretic.Components.PathSpecific;
+namespace Content.Shared._Goobstation.Heretic.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class RustbringerComponent : Component

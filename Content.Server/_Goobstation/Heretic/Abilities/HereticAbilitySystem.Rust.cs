@@ -205,7 +205,8 @@ public sealed partial class HereticAbilitySystem
 
     private void OnHereticAggressiveSpread(Entity<HereticComponent> ent, ref EventHereticAggressiveSpread args)
     {
-        var multiplier = ent.Comp.CurrentPath == "Rust" ? MathF.Sqrt(ent.Comp.PathStage - 4) : 1f;
+        var effectiveStage = MathF.Max(ent.Comp.PathStage - 4f, 1f);
+        var multiplier = ent.Comp.CurrentPath == "Rust" ? MathF.Sqrt(effectiveStage) : 1f;
         OnAggressiveSpread(ent, ref args, multiplier);
     }
 
