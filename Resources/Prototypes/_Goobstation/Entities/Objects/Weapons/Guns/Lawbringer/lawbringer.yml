@@ -71,5 +71,6 @@
   - type: TriggerOnVoice
     keyPhrase: "I AM THE LAW"
     restrictById: true
+    access: [ "HeadOfSecurity" ]
   - type: explodeOnTrigger
 
