@@ -19,7 +19,7 @@ job-name-gman = The G-Pony
 
 # Role timers - Make these alphabetical or I cut you (dont listen to upstream, i copied and pasted this, make it very un-alphabetical :godo:)
 
-JobBlueshieldOfficer = Blueshield Officer
+JobBlueshieldOfficer = Big Macintosh
 JobNanotrasenRepresentative = Equestria Representative
 JobHecuOperative = HECU Operative
 JobNavyOfficer = Navy Officer

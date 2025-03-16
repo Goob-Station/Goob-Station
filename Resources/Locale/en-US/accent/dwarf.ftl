@@ -1,6 +1,7 @@
 ﻿# these specifically mostly come from examples of specific scottish-english (not necessarily scots) verbiage
 
 
+
 # https://en.wikipedia.org/wiki/Scotticism
 # https://en.wikipedia.org/wiki/Scottish_English
 # https://www.cs.stir.ac.uk/~kjt/general/scots.html
@@ -239,15 +240,15 @@ accent-dwarf-words-123 = over
 accent-dwarf-words-replace-123 = o'er
 accent-dwarf-words-125 = pony
 accent-dwarf-words-replace-125 = humi
-accent-dwarf-words-126 = dwarf
+accent-dwarf-words-126 = short pony
 accent-dwarf-words-replace-126 = dorf
 accent-dwarf-words-127 = slime
 accent-dwarf-words-replace-127 = oozi
 accent-dwarf-words-128 = rat
 accent-dwarf-words-replace-128 = raki
-accent-dwarf-words-129 = arachnid
+accent-dwarf-words-129 = spider pony pony
 accent-dwarf-words-replace-129 = aranaki
-accent-dwarf-words-130 = spider
+accent-dwarf-words-130 = spider pony
 accent-dwarf-words-replace-130 = hisser
 accent-dwarf-words-131 = isn't
 accent-dwarf-words-replace-131 = be'nae
@@ -265,7 +266,7 @@ accent-dwarf-words-137 = zombie
 accent-dwarf-words-replace-137 = rotter
 accent-dwarf-words-138 = zomb
 accent-dwarf-words-replace-138 = rotter
-accent-dwarf-words-139 = clown
+accent-dwarf-words-139 = pinkie pie
 accent-dwarf-words-replace-139 = honki
 accent-dwarf-words-140 = cluwn
 accent-dwarf-words-replace-140 = hunki
