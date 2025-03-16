@@ -98,6 +98,20 @@
     - CentralCommand
     - NanotrasenRepresentative
 
+- type: entity
+  parent: IDCardStandard
+  id: NanotrasenCareerTrainerIDCard
+  name: nanotrasen career trainer ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+    - state: idcentcom
+  - type: Item
+    heldPrefix:
+  - type: PresetIdCard
+    job: NanotrasenCareerTrainer
+
 # Executive Access
 - type: entity
   parent: IDCardStandard

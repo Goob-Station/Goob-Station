@@ -1,0 +1,53 @@
+- type: job
+  id: NanotrasenCareerTrainer
+  name: job-name-nct
+  description: job-description-nct
+  playTimeTracker: JobNanotrasenCareerTrainer
+  setPreference: true
+  startingGear: NanotrasenCareerTrainerGear
+  icon: "JobIconNanotrasenTrainer"
+  supervisors: job-supervisors-ntr-centcom
+  canBeAntag: false
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Command
+    time: 216000 # 60 hours
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 90000 # 25 hours
+  - !type:AgeRequirement
+    requiredAge: 21
+  goobcoins: 65
+  weight: 20
+  joinNotifyCrew: true
+  access:
+  - Security
+  - Brig
+  - External
+  - Cryogenics
+  - Maintenance
+  - Engineering
+  - Medical
+  - Research
+  - Command
+  - CentralCommand
+  - BlueshieldOfficer
+  - NanotrasenRepresentative
+  - Service
+  - Hydroponics
+  - Cargo
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, BluespaceLifelineImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: CommandStaff
+
+- type: startingGear
+  id: NanotrasenCareerTrainerGear
+  equipment:
+    eyes: ClothingEyesGlassesCentComm
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
+    id: TrainerPDA
+    ears: ClothingHeadsetAltCentCom
+    pocket1: TelescopicBaton

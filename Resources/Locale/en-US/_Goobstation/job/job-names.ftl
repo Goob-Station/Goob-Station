@@ -1,6 +1,7 @@
 job-name-futureagent = Future Agent
 job-name-salvagediver = Salvage Diver
 job-name-ntr = Nanotrasen Representative
+job-name-nct = Nanotrasen Career Trainer
 job-name-bs = Blueshield
 job-name-overall = Overall
 
@@ -22,6 +23,7 @@ job-name-gman = The G-Man
 
 JobBlueshieldOfficer = Blueshield Officer
 JobNanotrasenRepresentative = Nanotrasen Representative
+JobNanotrasenCareerTrainer = Nanotrasen Career Trainer
 JobHecuOperative = HECU Operative
 JobNavyOfficer = Navy Officer
 JobNavyOfficerUndercover = Undercover Navy Officer

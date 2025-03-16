@@ -23,4 +23,7 @@
   id: JobDiplomat
 
 - type: playTimeTracker
+  id: JobNanotrasenCareerTrainer
+
+- type: playTimeTracker
   id: JobGovernmentMan

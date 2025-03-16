@@ -151,6 +151,15 @@
 
 - type: entity
   parent: CentcomPDA
+  id: TrainerPDA
+  name: nct's PDA
+  description: A standard-issue nanotrasen career trainer PDA.
+  components:
+  - type: Pda
+    id: NanotrasenCareerTrainerIDCard
+
+- type: entity
+  parent: CentcomPDA
   id: NavyCaptainPDA
   name: Navy Captain's PDA
   description: The devil's in the details.
