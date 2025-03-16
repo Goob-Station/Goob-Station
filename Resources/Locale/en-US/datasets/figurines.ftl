@@ -43,7 +43,7 @@ figurines-security-4 = You have two rights: to remain silent and to cry about it
 figurines-lawyer-1 = Better Call Saul!
 figurines-lawyer-2 = Objection!
 figurines-cargotech-1 = DRAGON ON ATS!
-figurines-cargotech-2 = I sold the ponyville!
+figurines-cargotech-2 = I sold ponyville!
 figurines-cargotech-3 = Brain bounty? I don't have a brain.
 figurines-salvage-1 = Megafauna? It was mega easy.
 figurines-qm-1 = Who stole the shuttle?
@@ -107,7 +107,7 @@ figurines-wizard-1 = Ei Nath!
 figurines-wizard-2 = Wehgardium Leviosa!
 figurines-wizard-3 = Skidaddle skadoodle!
 figurines-wizard-4 = FIREBALL!
-figurines-space-dragon-1 = Fish will consume the ponyville.
+figurines-space-dragon-1 = Fish will consume ponyville.
 
 # figurines-queen
 

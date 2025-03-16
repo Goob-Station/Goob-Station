@@ -20,7 +20,7 @@ random-sentience-event-strength-8 = AI
 ## Announcement text
 
 station-event-random-sentience-announcement =
-    Based on { $data }, we believe that some of the ponyville's { $amount ->
+    Based on { $data }, we believe that some of ponyville's { $amount ->
         [1] { $kind1 }
         [2] { $kind1 } and { $kind2 }
         [3] { $kind1 }, { $kind2 }, and { $kind3 }

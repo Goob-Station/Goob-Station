@@ -3,7 +3,7 @@ roundend-prepend-heretic-ascension-success = { $name }, [color=green] has Ascend
 roundend-prepend-heretic-ascension-fail = { $name }, [color=red] has failed![/color]
 roundend-prepend-heretic-knowledge-named = [color=white]{ $name }[/color] has researched a total of [color=purple]{ $number }[/color] knowledge.
 heretic-gamemode-title = Heretics
-heretic-gamemode-description = Dimensional anomaly detected within the ponyville. There is no additional data.
+heretic-gamemode-description = Dimensional anomaly detected within ponyville. There is no additional data.
 heretic-role-greeting-fluff =
     Another day at a meaningless job. You feel a shimmer around you, as a realization of something strange in the air unfolds. You look inwards and discover something that will change your life.
     

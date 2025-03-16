@@ -1,5 +1,5 @@
 ﻿nukeops-title = Nuclear Operatives
-nukeops-description = Sombra's Legion have targeted the ponyville. Try to keep them from arming and detonating the nuke by protecting the nuke disk!
+nukeops-description = Sombra's Legion have targeted ponyville. Try to keep them from arming and detonating the nuke by protecting the nuke disk!
 nukeops-welcome =
     You are a nuclear operative. Your goal is to blow up { $station }, and ensure that it is nothing but a pile of rubble. Your bosses, the Syndicate, have provided you with the tools you'll need for the task.
     Operation { $name } is a go ! Death to Equestria!
@@ -9,7 +9,7 @@ nukeops-opsminor = [color=crimson]Syndicate minor victory![/color]
 nukeops-neutral = [color=yellow]Neutral outcome![/color]
 nukeops-crewminor = [color=green]Crew minor victory![/color]
 nukeops-crewmajor = [color=green]Crew major victory![/color]
-nukeops-cond-nukeexplodedoncorrectstation = The sombra's legion managed to blow up the ponyville.
+nukeops-cond-nukeexplodedoncorrectstation = The sombra's legion managed to blow up ponyville.
 nukeops-cond-nukeexplodedonnukieoutpost = The nuclear operative outpost was destroyed by a nuclear blast.
 nukeops-cond-nukeexplodedonincorrectlocation = The nuclear bomb was detonated off-ponyville.
 nukeops-cond-nukeactiveinstation = The nuclear bomb was left armed on-ponyville.

@@ -1,4 +1,4 @@
-cargo-gifts-event-announcement = Congratulations! { $sender } has decided to send { $description } to the ponyville { $dest }. Look for it in your next appleloosa shipping shipment.
+cargo-gifts-event-announcement = Congratulations! { $sender } has decided to send { $description } to ponyville { $dest }. Look for it in your next appleloosa shipping shipment.
 cargo-gift-default-description = A bundle of gifts
 cargo-gift-default-sender = equestria
 cargo-gift-default-dest = Appleloosa Shipping Dept.

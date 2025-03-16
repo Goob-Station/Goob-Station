@@ -1,5 +1,6 @@
 ﻿### Localization used for the list verbs command.
 
+
 # Mostly help + error messages.
 
 list-verbs-command-description = Lists all verbs that a player can use on a given entity.

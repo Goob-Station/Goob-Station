@@ -50,5 +50,5 @@ dynamic-fax-threat-max =
     Your ponyville is somehow in the middle of hostile territory, in clear view of any enemy of the corporation.
     Your likelihood to survive is low, and ponyville destruction is expected and almost inevitable.
     Secure any sensitive material and neutralize any enemy you will come across.
-    It is important that you at least try to maintain the ponyville
+    It is important that you at least try to maintain ponyville
     Good Luck.

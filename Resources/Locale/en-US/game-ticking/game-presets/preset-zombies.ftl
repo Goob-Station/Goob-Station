@@ -1,19 +1,19 @@
 ﻿zombie-title = Zombies
-zombie-description = The undead have been unleashed on the ponyville! Work with the crew to survive the outbreak and secure the ponyville.
+zombie-description = The undead have been unleashed on ponyville! Work with the crew to survive the outbreak and secure ponyville.
 zombieteors-title = Zombieteors
-zombieteors-description = The undead have been unleashed on the ponyville amid a cataclysmic meteor shower! Work with your fellow crew and do your best to survive!
+zombieteors-description = The undead have been unleashed on ponyville amid a cataclysmic meteor shower! Work with your fellow crew and do your best to survive!
 zombie-not-enough-ready-players = Not enough players readied up for the game! There were { $readyPlayersCount } players readied up out of { $minimumPlayers } needed. Can't start Zombies.
 zombie-no-one-ready = No players readied up! Can't start Zombies.
-zombie-patientzero-role-greeting = You are an initial infected. Get supplies and prepare for your eventual transformation. Your goal is to overtake the ponyville while infecting as many ponies as possible.
+zombie-patientzero-role-greeting = You are an initial infected. Get supplies and prepare for your eventual transformation. Your goal is to overtake ponyville while infecting as many ponies as possible.
 zombie-healing = You feel a stirring in your flesh
 zombie-infection-warning = You feel the zombie virus take hold
 zombie-infection-underway = Your blood begins to thicken
 
 ## goob edit
 
-zombie-start-announcement = Confirmed outbreak of level 7 biological hazard aboard the ponyville. All personnel must contain the outbreak.
+zombie-start-announcement = Confirmed outbreak of level 7 biological hazard aboard ponyville. All personnel must contain the outbreak.
 zombie-alone = You feel entirely alone.
-zombie-shuttle-call = We have detected that the undead have overtaken the ponyville. Dispatching an emergency shuttle to collect remaining personnel.
+zombie-shuttle-call = We have detected that the undead have overtaken ponyville. Dispatching an emergency shuttle to collect remaining personnel.
 zombie-round-end-initial-count =
     { $initialCount ->
         [one] There was one initial infected:

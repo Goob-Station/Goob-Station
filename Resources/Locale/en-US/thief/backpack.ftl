@@ -44,7 +44,7 @@ thief-backpack-category-sleeper-description =
 thief-backpack-category-communicator-name = communicator kit
 thief-backpack-category-communicator-description =
     Money is power, and secrets are money. Use your silver tongue
-    and wealth to subvert the ponyville.
+    and wealth to subvert ponyville.
     Includes: Master key for all ponyville channels, a Nightmare Forces pen,
     voice chameleon mask, and 20k spesos inside a briefcase.
 thief-backpack-category-smuggler-name = smuggler kit

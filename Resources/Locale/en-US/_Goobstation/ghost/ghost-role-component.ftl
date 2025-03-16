@@ -23,13 +23,13 @@ ghost-role-information-special-operations-officer-name = Special Operations Offi
 ghost-role-information-special-operations-officer-description = Send, brief, and direct emergency response teams or other Equestria forces. Release the nuclear codes, or don't.
 ghost-role-information-special-operations-officer-rules = Bring the Equestria Representative in alive, the rest are just collateral. [color=#yellow][bold]Navy Celestia[/bold][/color] orders may change this.
 ghost-role-information-navy-officer-name = Navy Officer
-ghost-role-information-navy-officer-description = Answer faxes and radio communications directed at Canterlot. Perform investigations on the ponyville and it's crew.
+ghost-role-information-navy-officer-description = Answer faxes and radio communications directed at Canterlot. Perform investigations on ponyville and it's crew.
 ghost-role-information-navy-officer-rules = Follow the orders of the [color=#yellow][bold]Navy Celestia[/bold][/color]. In the absence of one, make your own judgements.
 ghost-role-information-navy-officer-undercover-name = Undercover Navy officer
 ghost-role-information-navy-officer-undercover-description = Complete your assigned tasks and terminate the given targets. Good luck.
 ghost-role-information-navy-officer-undercover-rules = Follow the orders of the [color=#yellow][bold]Navy Celestia[/bold][/color], or other Canterlot official.
 ghost-role-information-diplomat-name = Diplomat
-ghost-role-information-diplomat-description = Represent Canterlot, managing relationships with other factions aboard the ponyville. Cleanup the issues the celestia has likely caused.
+ghost-role-information-diplomat-description = Represent Canterlot, managing relationships with other factions aboard ponyville. Cleanup the issues the celestia has likely caused.
 ghost-role-information-sentient-shark-name = Sentient Sharkminnow
 
 # Half Life

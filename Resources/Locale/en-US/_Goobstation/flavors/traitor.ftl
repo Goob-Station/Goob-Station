@@ -20,7 +20,7 @@ traitor-corporateclimber-uplink = You have connections to the black market for t
 traitor-corporateclimber-roundend = [color=yellow]a corporate climber.[/color]
 traitor-donkco-intro = You are a Donk Co. infiltrator.
 traitor-donkco-goal = We do not approve of mindless killing of innocent workers; get in, get done, get out is our motto.
-traitor-donkco-allies = Members of Waffle Co. are to be killed on sight; they are not allowed to be on the ponyville while we're around.
+traitor-donkco-allies = Members of Waffle Co. are to be killed on sight; they are not allowed to be on ponyville while we're around.
 traitor-donkco-uplink = You have been provided with a syndicate uplink located in your PDA to accomplish your task.
 traitor-donkco-roundend = [color=orange]an employee from Donk Corporation[/color]
 traitor-gorlex-intro = You are a Gorlex Marauder.
@@ -45,7 +45,7 @@ traitor-tiger-uplink = You have been provided with a syndicate uplink from your 
 traitor-tiger-roundend = [color=crimson]a Tiger Cooperative Fanatic[/color]
 traitor-waffleco-intro = You are a Waffle Co. infiltrator.
 traitor-waffleco-goal = You are not here for a ponyville-wide demonstration. Again, other Waffle Co. infiltrators may be, so watch out. Your job is to only accomplish your objectives.
-traitor-waffleco-allies = Members of Donk Co. are to be killed on sight; they are not allowed to be on the ponyville while we're around.
+traitor-waffleco-allies = Members of Donk Co. are to be killed on sight; they are not allowed to be on ponyville while we're around.
 traitor-waffleco-uplink = You have been provided with a syndicate uplink located in your PDA to accomplish your task.
 traitor-waffleco-roundend = [color=orange]an employee from Waffle Corporation[/color]
 traitor-waffleco-terrorist-intro = You are the Waffle Corporation terrorist.

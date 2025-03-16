@@ -45,7 +45,7 @@ book-text-agrichemkit-manual =
     This will mix into Diethylamine, a miracle fertilizer that can make plants grow faster AND live longer! Keep the crops you love with you longer thanks to Diethylamine.
     
     Third Experiment: Unstable Mutagen
-    When you're ready to show everypony you're the greatest botanist on the ponyville, you'll need to mix up some unstable mutagen and hope for the best. Despite the scary name, unstable mutagen is entirely safe when applied to plants, but do not drink the appealingly green chemical yourself.
+    When you're ready to show everypony you're the greatest botanist on ponyville, you'll need to mix up some unstable mutagen and hope for the best. Despite the scary name, unstable mutagen is entirely safe when applied to plants, but do not drink the appealingly green chemical yourself.
     
     Mix equal parts radium, phosphorus, and chlorine together to get a bright green batch of unstable mutagen, the safe and fun way to get the most of your farm. The 15u this kit lets you make could be your introduction to agrichemical stardom!
     Unstable mutagen can have a wide variety of effects on plant life, including drastic changes to all sorts of growth parameters, produce full of helpful pharmaceuticals, plants that glow in the dark, or creating entirely new species.

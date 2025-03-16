@@ -5,7 +5,7 @@ ghost-role-component-default-rules =
     You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
     You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
 ghost-role-information-nonantagonist-rules =
-    You are a [color=green][bold]Non-antagonist[/bold][/color]. You should generally not seek to harm the ponyville and its crew.
+    You are a [color=green][bold]Non-antagonist[/bold][/color]. You should generally not seek to harm ponyville and its crew.
     You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
     You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
     You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
@@ -15,12 +15,12 @@ ghost-role-information-freeagent-rules =
     You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
     You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
 ghost-role-information-antagonist-rules =
-    You are a [color=red][bold]Solo Antagonist[/bold][/color]. Your intentions are clear, and harmful to the ponyville and its crew.
+    You are a [color=red][bold]Solo Antagonist[/bold][/color]. Your intentions are clear, and harmful to ponyville and its crew.
     You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
     You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
     You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
 ghost-role-information-rules-team-antagonist =
-    You are a [color=red][bold]Team Antagonist[/bold][/color]. Your intentions are clear, and harmful to the ponyville and its crew.
+    You are a [color=red][bold]Team Antagonist[/bold][/color]. Your intentions are clear, and harmful to ponyville and its crew.
     You must [bold]work with your team[/bold] or follow reasonable directions from your team leaders.
     You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
     You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
@@ -52,7 +52,7 @@ ghost-role-information-cognizine-description = Made conscious with the magic of 
 ghost-role-information-hamster-name = Hamster
 ghost-role-information-hamster-description = A grumpy little ball of fluff.
 ghost-role-information-hamlet-name = Hamlet the Hamster
-ghost-role-information-hamlet-description = Lives in the ponyville bridge, has a bit of a temper and is always hungry.
+ghost-role-information-hamlet-description = Lives in ponyville bridge, has a bit of a temper and is always hungry.
 ghost-role-information-slimes-name = Slime
 ghost-role-information-slimes-description = An ordinary slime with no special needs or interests. You are friendly to others.
 ghost-role-information-angry-slimes-name = Slime
@@ -74,13 +74,13 @@ ghost-role-information-monkey-description = Ook ook!
 ghost-role-information-kobold-name = Kobold
 ghost-role-information-kobold-description = Be the little gremlin you are, yell at ponies and beg for meat!
 ghost-role-information-rat-king-name = Rat King
-ghost-role-information-rat-king-description = You are the Rat King, your interests are food, food, and more food. Cooperate with or fight against the ponyville for food. Did I say food interests you?
+ghost-role-information-rat-king-description = You are the Rat King, your interests are food, food, and more food. Cooperate with or fight against ponyville for food. Did I say food interests you?
 ghost-role-information-rat-servant-name = Rat Servant
 ghost-role-information-rat-servant-description = You are a Rat Servant. You must follow your king's orders.
 ghost-role-information-salvage-carp-name = Space Carp on Salvage Wreck
 ghost-role-information-salvage-carp-description = Defend the loot inside the salvage wreck!
 ghost-role-information-sentient-carp-name = Sentient Carp
-ghost-role-information-sentient-carp-description = Help the dragon flood the ponyville with carps!
+ghost-role-information-sentient-carp-description = Help the dragon flood ponyville with carps!
 ghost-role-information-willow-name = Willow the Kangaroo
 ghost-role-information-willow-description = You're a kangaroo named Willow! Willow likes to box.
 ghost-role-information-honkbot-name = Honkbot
@@ -90,7 +90,7 @@ ghost-role-information-jonkbot-description = An artificial being of pure evil.
 ghost-role-information-mimebot-name = Mimebot
 ghost-role-information-mimebot-description = A Mimebot, act like a mime but don't act like a greytider.
 ghost-role-information-supplybot-name = SupplyBot
-ghost-role-information-supplybot-description = Deliver goods around the ponyville.
+ghost-role-information-supplybot-description = Deliver goods around ponyville.
 ghost-role-information-space-bear-name = Space Bear
 ghost-role-information-space-bear-description = Your tummy rumbles, and these ponies look really yummy... What a feast!
 # Still exists as a commented out reference for Tropico. Keeping it around. -TsjipTsjip, 2024-06-20
@@ -113,34 +113,34 @@ ghost-role-information-space-dragon-dungeon-rules = You are a [color=red][bold]T
 ghost-role-information-cluwne-name = Cluwne
 ghost-role-information-cluwne-description = Become a pitiful cluwne, your only goal in life is to find a sweet release from your suffering (usually by being beaten to death). A cluwne is not an antagonist but may defend itself. Crewmembers may murder cluwnes freely.
 ghost-role-information-skeleton-pirate-name = Skeleton Pirate
-ghost-role-information-skeleton-pirate-description = Cause chaos and loot the ponyville for treasure.
+ghost-role-information-skeleton-pirate-description = Cause chaos and loot ponyville for treasure.
 ghost-role-information-skeleton-biker-name = Skeleton Biker
 ghost-role-information-skeleton-biker-description = Ride around on your sweet ride.
 ghost-role-information-closet-skeleton-name = Closet Skeleton
-ghost-role-information-closet-skeleton-description = You are arguably one of the oldest members of the ponyville! Get your old job back, or cause chaos! The world is yours to shape.
+ghost-role-information-closet-skeleton-description = You are arguably one of the oldest members of ponyville! Get your old job back, or cause chaos! The world is yours to shape.
 ghost-role-information-remilia-name = Remilia, the Chaplain's Familiar
 ghost-role-information-remilia-description = Follow and obey the chaplain. Eat fruit. Screech loudly into ponies's ears and write it off as echolocation.
 ghost-role-information-cerberus-name = Cerberus, Evil Familiar
 ghost-role-information-cerberus-description = Obey your master. Spread chaos.
 ghost-role-information-ert-leader-name = ERT Leader
-ghost-role-information-ert-leader-description = Lead a team of specialists to resolve the ponyville's issues.
+ghost-role-information-ert-leader-description = Lead a team of specialists to resolve ponyville's issues.
 ghost-role-information-ert-chaplain-name = ERT Chaplain
-ghost-role-information-ert-chaplain-description = Assist with mourning to resolve the ponyville's crew moral issues.
+ghost-role-information-ert-chaplain-description = Assist with mourning to resolve ponyville's crew moral issues.
 ghost-role-information-ert-janitor-name = ERT Janitor
-ghost-role-information-ert-janitor-description = Assist with custodial efforts to resolve the ponyville's issues.
+ghost-role-information-ert-janitor-description = Assist with custodial efforts to resolve ponyville's issues.
 ghost-role-information-ert-engineer-name = ERT Engineer
-ghost-role-information-ert-engineer-description = Assist with cloudsmithing efforts to resolve the ponyville's issues.
+ghost-role-information-ert-engineer-description = Assist with cloudsmithing efforts to resolve ponyville's issues.
 ghost-role-information-ert-security-name = ERT Royal Guard
-ghost-role-information-ert-security-description = Assist with royal guard efforts to resolve the ponyville's issues.
+ghost-role-information-ert-security-description = Assist with royal guard efforts to resolve ponyville's issues.
 ghost-role-information-ert-medical-name = ERT Ponyville Hospital
-ghost-role-information-ert-medical-description = Assist with ponyville hospital efforts to resolve the ponyville's issues.
+ghost-role-information-ert-medical-description = Assist with ponyville hospital efforts to resolve ponyville's issues.
 ghost-role-information-cburn-agent-name = CBURN Agent
 ghost-role-information-cburn-agent-description = A highly trained Canterlot agent, specializing in biological threats.
 ghost-role-information-centcom-official-name = Canterlot official
-ghost-role-information-centcom-official-description = Perform Canterlot related duties such as inspecting the ponyville, jotting down performance reviews for heads of staff, and managing the fax machine.
+ghost-role-information-centcom-official-description = Perform Canterlot related duties such as inspecting ponyville, jotting down performance reviews for heads of staff, and managing the fax machine.
 ghost-role-information-nukeop-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with all other sombra's legion. Covert syndicate agents are not guaranteed to help you.
 ghost-role-information-loneop-name = Lone Operative
-ghost-role-information-loneop-description = You are a lone nuclear operative. Destroy the ponyville!
+ghost-role-information-loneop-description = You are a lone nuclear operative. Destroy ponyville!
 ghost-role-information-loneop-rules = You are a [color=red][bold]Solo Antagonist[/bold][/color]. Covert syndicate agents are not guaranteed to help you.
 ghost-role-information-behonker-name = Behonker
 ghost-role-information-behonker-description = You are an antagonist, bring death and honks to those who do not follow the honkmother.
@@ -160,7 +160,7 @@ ghost-role-information-Cak-description = You are the chef's favorite child. You'
 ghost-role-information-BreadDog-name = BreadDog
 ghost-role-information-BreadDog-description = You are the chef's favorite child. You're a living bread dog.
 ghost-role-information-space-ninja-name = Space Ninja
-ghost-role-information-space-ninja-description = Use stealth and deception to sabotage the ponyville.
+ghost-role-information-space-ninja-description = Use stealth and deception to sabotage ponyville.
 ghost-role-information-syndicate-reinforcement-name = Syndicate Agent
 ghost-role-information-syndicate-reinforcement-description = Someone needs reinforcements. You, the first pony the syndicate could find, will help them.
 ghost-role-information-syndicate-reinforcement-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with the agent who summoned you.
@@ -204,14 +204,14 @@ ghost-role-information-command-description = You are a member of command, but se
 ghost-role-information-lost-challenge-commander-name = Commander on Shore Leave
 ghost-role-information-lost-challenge-commander-description = You are a command member from another starship who was granted shore leave with one of your appleloosa shipping technicians.
 ghost-role-information-lost-challenge-commander-rules =
-    You are not hostile to the ponyville, do what you must to ensure your own survival.
+    You are not hostile to ponyville, do what you must to ensure your own survival.
     You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
     You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
     You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
 ghost-role-information-lost-challenge-cargo-technican-name = Appleloosa Shipping Chauffeur
 ghost-role-information-lost-challenge-cargo-technican-description = You are a appleloosa shipping technician who was granted shore leave with one of your commanding officers.
 ghost-role-information-lost-challenge-cargo-technican-rules =
-    You are not hostile to the ponyville, do what you must to ensure your own survival.
+    You are not hostile to ponyville, do what you must to ensure your own survival.
     You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
     You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
     You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
@@ -228,7 +228,7 @@ ghost-role-information-blackmarketeer-description = Make trades or take odd jobs
 ghost-role-information-cossack-name = Ancient Traveler
 ghost-role-information-cossack-description = From a history lost to time, you find yourself cast into this day and age.
 ghost-role-information-pirate-irs-name = Space Pirate
-ghost-role-information-pirate-irs-description = Confiscate the ponyville's valuable assets. Arrest the celestia for tax evasion.
+ghost-role-information-pirate-irs-description = Confiscate ponyville's valuable assets. Arrest the celestia for tax evasion.
 ghost-role-information-pirate-irs-captain-name = Space Pirate Celestia
 ghost-role-information-pirate-irs-captain-description = Direct the plundering process. Arrest the celestia for tax evasion.
 ghost-role-information-pirate-irs-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with the other pirates.
