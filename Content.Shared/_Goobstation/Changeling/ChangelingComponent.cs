@@ -54,8 +54,10 @@ public sealed partial class ChangelingComponent : Component
 
     public bool IsInLastResort = false;
 
+    public bool ChameleonActive = false;
+
     public bool VoidAdaptActive = false;
-    public float DefaultColdDamageThreshold; // ensures the ling's species gets their default thresholds back
+    public float DefaultColdDamageThreshold; // ensures the changeling's species gets their default thresholds back
 
     public List<EntityUid>? ActiveArmor = null;
 
@@ -83,19 +85,25 @@ public sealed partial class ChangelingComponent : Component
     ///     Current amount of chemicals changeling currently has.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float Chemicals = 100f;
+    public float Chemicals = 100.0f;
 
     /// <summary>
     ///     Maximum amount of chemicals changeling can have.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float MaxChemicals = 100f;
+    public float MaxChemicals = 100.0f;
 
     /// <summary>
     ///     Bonus chemicals regeneration. In case
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float BonusChemicalRegen = 0f;
+    public float BonusChemicalRegen = 0.0f;
+
+    /// <summary>
+    ///     Chemicals regeneration rate reduction multiplier from certain abilities.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float ChemicalRegenReduction = 1.0f;
 
     /// <summary>
     ///     Cooldown between chem regen events.
@@ -104,7 +112,6 @@ public sealed partial class ChangelingComponent : Component
     public float UpdateCooldown = 1f;
 
     public float ChemicalUpdateTimer = 0f;
-    public float ChemicalUpdateCooldown = 1f;
     public float BiomassUpdateTimer = 0f;
     public float BiomassUpdateCooldown = 60f;
 

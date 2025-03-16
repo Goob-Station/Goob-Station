@@ -106,7 +106,7 @@ evolutionmenu-sting-armblade-desc =
 evolutionmenu-utility-panacea-name = Anatomic Panacea
 evolutionmenu-utility-panacea-desc =
     Cure yourself of diseases, disabilities, radiation, toxins, drunkenness, and brain damage. Generally covers the things that fleshmend doesn't.
-    Costs 30 chemicals.
+    Costs 35 chemicals.
 
 evolutionmenu-utility-eyesight-name = Augmented Eyesight
 evolutionmenu-utility-eyesight-desc =
@@ -122,6 +122,7 @@ evolutionmenu-utility-biodegrade-desc =
 evolutionmenu-utility-chameleon-name = Chameleon Skin
 evolutionmenu-utility-chameleon-desc =
     Alter the pigment in your skin to match your surroundings, rendering you invisible.
+    Maintaining this chameleon state slows chemical generation.
     Costs 20 chemicals.
 
 evolutionmenu-utility-voidadapt-name = Void Adaption

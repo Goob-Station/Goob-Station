@@ -10,7 +10,7 @@
     state: icon
   - type: MeleeWeapon
     angle: 0
-    wideAnimationRotation: 180
+    wideAnimationRotation: 45
     attackRate: 1
     heavyStaminaCost: 8
     damage:

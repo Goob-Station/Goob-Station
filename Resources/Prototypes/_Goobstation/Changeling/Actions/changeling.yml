@@ -232,7 +232,7 @@
     event: !type:ToggleChitinousArmorEvent {}
   - type: ChangelingAction
     chemicalCost: 25
-    #requireAbsorbed: 2
+    requireAbsorbed: 2
 
 - type: entity
   id: ActionToggleOrganicShield
@@ -287,7 +287,7 @@
   - type: ChangelingAction
     chemicalCost: 30
     useInLesserForm: true
-    #requireAbsorbed: 1
+    requireAbsorbed: 1
 
 - type: entity
   id: ActionToggleStrainedMuscles
@@ -296,7 +296,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 1
+    useDelay: 5
     itemIconStyle: NoItem
     checkCanInteract: false
     icon:
@@ -477,7 +477,7 @@
 - type: entity
   id: ActionAnatomicPanacea
   name: Anatomic Panacea
-  description: Cure yourself of diseases, disabilities, radiation, toxins, drunkedness and brain damage. Costs 30 chemicals.
+  description: Cure yourself of diseases, disabilities, radiation, toxins, drunkedness and brain damage. Costs 35 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -490,7 +490,7 @@
       state: anatomic_panacea
     event: !type:ActionAnatomicPanaceaEvent {}
   - type: ChangelingAction
-    chemicalCost: 30
+    chemicalCost: 35
     useInLesserForm: true
 
 - type: entity
@@ -557,7 +557,7 @@
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
-      state: space_adaptation
+      state: void_adaptation
     event: !type:ActionVoidAdaptEvent {}
   - type: ChangelingAction
     chemicalCost: 0
