@@ -29,7 +29,8 @@
   equipment:
     id: TrainerPDA
     ears: ClothingHeadsetAltCentCom
+    pocket1: WeaponDisablerAdvanced
   storage:
     back:
-    - Flash
+    - HyperFlash # Teehee
     - TelescopicBaton
