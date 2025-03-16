@@ -8,7 +8,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Goobstation.Items
 {
-    public sealed partial class RestrictByIDSystem : EntitySystem
+    public sealed partial class RestrictByIdSystem : EntitySystem
     {
         [Dependency] private readonly AccessReaderSystem _accessReader = default!;
 
