@@ -21,12 +21,11 @@ namespace Content.Shared._Goobstation.Items
         {
             var item = ent.Comp.Owner;
 
-            // Try to find the access reader component, if it doesn't exist, return.
-            if (!(TryComp<AccessReaderComponent>(item, out var readerAccess)))
-                return;
+            // Add the access reader component
+            EnsureComp<AccessReaderComponent>(item, out var readerAccess);
 
             // Set the access levels.
-            _accessReader.SetAccesses(item, readerAccess, [ent.Comp.RestrictTo]);
+            _accessReader.SetAccesses(item, readerAccess, [ent.Comp.AccessLists]);
         }
 
         private void OnAttemptShoot(Entity<RestrictByIdComponent> ent, ref AttemptShootEvent args)
