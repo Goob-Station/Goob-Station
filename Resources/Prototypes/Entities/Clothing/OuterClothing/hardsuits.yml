@@ -698,7 +698,7 @@
         Blunt: 0.4
         Slash: 0.4
         Piercing: 0.3
-        Heat: 0.5
+        Heat: 0.3
         Radiation: 0.25
         Caustic: 0.4
   - type: ClothingSpeedModifier
