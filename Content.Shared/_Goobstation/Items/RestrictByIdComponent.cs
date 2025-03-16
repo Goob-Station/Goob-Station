@@ -36,4 +36,10 @@ public sealed partial class RestrictByIdComponent : Component
     /// </summary>
     [DataField]
     public bool RestrictRanged { get; set; } = true;
+
+    /// <summary>
+    ///     Whether ranged attacks should be restricted. True by default.
+    /// </summary>
+    [DataField]
+    public string FailText { get; set; } = "restricted-by-id-component-attack-fail-id-wrong";
 }

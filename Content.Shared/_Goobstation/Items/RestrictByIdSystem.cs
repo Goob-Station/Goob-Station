@@ -35,39 +35,47 @@ namespace Content.Shared._Goobstation.Items
         {
             var attacker = args.User;
             var item = ent.Owner;
+            var comp = ent.Comp;
+
+            args.Message = Loc.GetString(comp.FailText, ("access", comp.AccessLists));
 
             // If the entity shooting the item is invalid, return.
             if (!attacker.IsValid() || !item.IsValid() || !ent.Comp.RestrictMelee)
                 return;
 
-            // If the entities ID card does not match the allowed accesses, cancel.
-            if (!_accessReader.IsAllowed(attacker, item) && !ent.Comp.Invert)
-            {
-                args.Cancelled = true;
-            }
+            // If the entities ID card matches the allowed accesses, and invert is false, return and allow the shot.
+            if (_accessReader.IsAllowed(attacker, item) && !comp.Invert)
+                return;
+            // If the entities ID card doesn't match the allowed accesses, but invert is true, return and allow the shot.
+            if (!_accessReader.IsAllowed(attacker, item) && comp.Invert)
+                return;
 
-            // If the entities ID card *does* match the allowed accesses, but invert is on, cancel.
-            else if (_accessReader.IsAllowed(attacker, item) && ent.Comp.Invert)
-                args.Cancelled = true;
+            args.Cancelled = true;
+            _popupSystem.PopupClient(args.Message, attacker, PopupType.Large);
+
         }
 
         private void OnAttemptMelee(Entity<RestrictByIdComponent> ent, ref AttemptMeleeEvent args)
         {
             var attacker = args.User;
             var item = ent.Owner;
+            var comp = ent.Comp;
+
+            args.Message = Loc.GetString(comp.FailText, ("access", comp.AccessLists));
 
             // If the entity swinging the weapon is invalid, return.
-            if (!attacker.IsValid() || !item.IsValid() || !ent.Comp.RestrictRanged)
+            if (!attacker.IsValid() || !item.IsValid() || !comp.RestrictRanged)
                 return;
 
-            // If the entities ID card does not match the allowed accesses, cancel.
-            if (!_accessReader.IsAllowed(attacker, item) && !ent.Comp.Invert)
-                args.Cancelled = true;
-            // If the entities ID card *does* match the allowed accesses, but invert is on, cancel.
-            else if (_accessReader.IsAllowed(attacker, item) && ent.Comp.Invert)
-                args.Cancelled = true;
+            // If the entities ID card matches the allowed accesses, and invert is false, return and allow the shot.
+            if (_accessReader.IsAllowed(attacker, item) && !comp.Invert)
+                return;
+            // If the entities ID card doesn't match the allowed accesses, but invert is true, return and allow the shot.
+            if (!_accessReader.IsAllowed(attacker, item) && comp.Invert)
+                return;
+
+            args.Cancelled = true;
+            _popupSystem.PopupClient(args.Message, attacker, PopupType.Large);
         }
-
-
     }
 }
