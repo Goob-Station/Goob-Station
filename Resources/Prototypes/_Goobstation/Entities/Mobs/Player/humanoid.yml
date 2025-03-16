@@ -441,7 +441,7 @@
     - NamesFirstInspector
     - names_last
   - type: RandomHumanoidSpawner
-    settings: DiplomatGear
+    settings: InspectorGear
 
 - type: randomHumanoidSettings
   id: InspectorGear
