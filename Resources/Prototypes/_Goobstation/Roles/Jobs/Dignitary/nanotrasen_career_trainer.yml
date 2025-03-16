@@ -3,15 +3,6 @@
   name: job-name-nct
   description: job-description-nct
   playTimeTracker: JobNanotrasenCareerTrainer
-  requirements:
-  - !type:DepartmentTimeRequirement
-    department: Command
-    time: 216000 # 60 hours
-  - !type:DepartmentTimeRequirement
-    department: Security
-    time: 90000 # 25 hours
-  - !type:AgeRequirement
-    requiredAge: 21
   goobcoins: 65
   weight: 20
   startingGear: NanotrasenCareerTrainerGear
@@ -19,50 +10,23 @@
   joinNotifyCrew: true
   supervisors: job-supervisors-ntr-centcom
   canBeAntag: false
+  whitelisted: true # 1984
+  accessGroups:
+  - AllAccess
   access:
-  - Security
-  - Brig
-  - External
-  - Cryogenics
-  - Maintenance
-  - Engineering
-  - Atmospherics
-  - Medical
-  - Research
-  - Command
   - CentralCommand
-  - Service
-  - Hydroponics
-  - Cargo
-  - Salvage
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, BluespaceLifelineImplant ]
-  - !type:AddComponentSpecial
-    components:
-    - type: CommandStaff
+#  - !type:AddComponentSpecial # Intentionally not command. I don't want them to ruin rev rounds.
+#    components:
+#    - type: CommandStaff
 
 - type: startingGear
   id: NanotrasenCareerTrainerGear
   equipment:
-    id: TrainerPDA
-    ears: ClothingHeadsetAltCentCom
-  storage:
-    back:
-    - Flash
-    - TelescopicBaton
-
-- type: startingGear
-  id: NanotrasenCareerTrainerGearFull
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitTrainer
-    shoes: ClothingShoesBootsLaceup
-    head: ClothingHeadHatTrainer
-    eyes: ClothingEyesGlasses
-    gloves: ClothingHandsGlovesGoldenTrim
-    back: ClothingBackpackSatchelLeather
-    outerClothing: ClothingOuterWinterCoatTrainer
-    belt: BoxFolderCentComClipboard
     id: TrainerPDA
     ears: ClothingHeadsetAltCentCom
   storage:
