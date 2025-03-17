@@ -47,7 +47,7 @@
   id: PepperSpray
   parent: [BaseItem, BaseSecurityScienceCommandContraband]
   suffix: Filled
-  description: A small 100u canister of Oleoresin Capsaicin! Capable of blinding and stunning targets who aren't wearing protective gear.
+  description: A small 50u canister of Oleoresin Capsaicin. Capable of blinding and stunning targets who aren't wearing protective gear.
   components:
   - type: Tag
     tags:
