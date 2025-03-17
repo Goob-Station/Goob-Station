@@ -329,6 +329,7 @@ public sealed class MansusGraspSystem : EntitySystem
                              HasComp<HereticRitualRuneComponent>( target)) // If we have rust grasp and targeting a wall - do nothing, let other methods handle that. Also don't damage transmutation rune.
                         return false;
                     else if (TryComp(target, out DamageableComponent? damageable) && // Is it even damageable?
+                             !_tag.HasTag(target, "Meat") && // Is it not organic body part or organ?
                              (!HasComp<MobStateComponent>(target) || HasComp<SiliconComponent>(target) ||
                               HasComp<BorgChassisComponent>(target) || _tag.HasTag(target, "Bot"))) // Check for ingorganic target
                     {
