@@ -28,7 +28,20 @@
   - type: DiseaseDamageEffect
     damage:
       types:
-        Poison: 0.5
+        Poison: 0.3
+
+- type: entity
+  id: DiseaseBehaviorBlunt
+  parent: DiseaseBehaviorBase
+  name: poison
+  description: Deals blunt damage over time.
+  components:
+  - type: DiseaseEffect
+    complexity: 10
+  - type: DiseaseDamageEffect
+    damage:
+      types:
+        Blunt: 0.3
 
 - type: entity
   id: DiseaseBehaviorVomit

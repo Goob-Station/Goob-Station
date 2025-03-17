@@ -117,6 +117,36 @@ public sealed partial class DiseaseSpreadEffectComponent : ScalingDiseaseEffect
 }
 
 /// <summary>
+/// Causes a forced spread effect of specified shape, will infect EVERYTHING
+/// For use with conditions
+/// Note: this is a debug effect and should not be used in real diseases
+/// </summary>
+[RegisterComponent]
+public sealed partial class DiseaseForceSpreadEffectComponent : ScalingDiseaseEffect
+{
+    /// <summary>
+    /// Angle in front of the entity to check for infectables
+    /// </summary>
+    [DataField]
+    public Angle Arc = Angle.FromDegrees(120);
+
+    /// <summary>
+    /// Up to how far away entities to check
+    /// </summary>
+    [DataField]
+    public float Range = 2f;
+
+    [DataField]
+    public float Chance = 1f;
+
+    /// <summary>
+    /// Whether to ensure StatusIconComponent on the spread-to entities for viro hud to work properly.
+    /// </summary>
+    [DataField]
+    public bool AddIcon = true;
+}
+
+/// <summary>
 /// Causes the host to vomit
 /// For use with conditions
 /// </summary>

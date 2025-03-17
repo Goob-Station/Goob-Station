@@ -55,9 +55,15 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
         _lastUpdated += UpdateInterval;
 
         var diseaseCarriers = EntityQueryEnumerator<DiseaseCarrierComponent>();
+        // so that we can EnsureComp disease carriers while we're looping over them without erroring
+        List<Entity<DiseaseCarrierComponent>> carriers = new();
         while (diseaseCarriers.MoveNext(out var uid, out var diseaseCarrier))
         {
-            UpdateDiseases(uid, diseaseCarrier);
+            carriers.Add((uid, diseaseCarrier));
+        }
+        for (int i = 0; i < carriers.Count; i++)
+        {
+            UpdateDiseases(carriers[i].Owner, carriers[i].Comp);
         }
     }
 
@@ -225,6 +231,9 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
     /// </summary>
     public bool TryInfect(EntityUid uid, EntityUid disease, DiseaseCarrierComponent? comp = null, bool force = false)
     {
+        if (force)
+            EnsureComp<DiseaseCarrierComponent>(uid, out comp);
+
         if (!Resolve(uid, ref comp, false))
             return false;
 
@@ -237,7 +246,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
         var checkEv = new DiseaseInfectAttemptEvent((disease, diseaseComp));
         RaiseLocalEvent(uid, ref checkEv);
         // check immunity
-        if (!force && (HasDisease(uid, diseaseComp.Genotype, comp) || !checkEv.CanInfect))
+        if (HasDisease(uid, diseaseComp.Genotype, comp) || !force && !checkEv.CanInfect)
             return false;
 
         _transform.SetCoordinates(disease, new EntityCoordinates(uid, Vector2.Zero));
