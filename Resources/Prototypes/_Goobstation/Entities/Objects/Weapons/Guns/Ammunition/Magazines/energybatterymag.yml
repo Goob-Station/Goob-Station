@@ -20,7 +20,7 @@
 - type: entity
   id: EnergyMagRifleLethal
   parent: [ EnergyRifleMagBase, BaseSecurityContraband ]
-  name: energy magazine (lethal)
+  name: energy rifle magazine (lethal)
   description: Powercell with an attached power converter that create lethal bolt at the end of energy rifle.
   components:
   - type: Sprite
@@ -34,7 +34,7 @@
 - type: entity
   id: EnergyMagRifleDisabler
   parent: [ EnergyRifleMagBase, BaseSecurityContraband ]
-  name: energy magazine (disabler)
+  name: energy rifle magazine (disabler)
   description: Powercell with an attached power converter that create disabler bolt at the end of energy rifle.
   components:
   - type: Sprite
@@ -48,7 +48,7 @@
 - type: entity
   id: EnergyMagRifleIon
   parent: [ EnergyRifleMagBase, BaseSecurityContraband ]
-  name: energy magazine (Ion)
+  name: energy rifle magazine (Ion)
   description: Powercell with an attached power converter that create Ionize bolt at the end of energy rifle.
   components:
   - type: Sprite
