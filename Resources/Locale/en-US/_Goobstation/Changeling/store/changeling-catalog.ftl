@@ -1,3 +1,4 @@
+
 # combat
 
 evolutionmenu-combat-armblade-name = Arm Blade
@@ -45,15 +46,15 @@ evolutionmenu-combat-shield-desc =
 evolutionmenu-combat-shriek-dissonant-name = Dissonant Shriek
 evolutionmenu-combat-shriek-dissonant-desc =
     You emit an EMP blast, which disables technology in the surrounding area, including radio headsets.
-    Good for escaping cyborgs and royal guard.
+    Good for escaping cyborgs and security.
     WARNING: Requires you to absorb at least 1 organic to use the ability.
     Costs 30 chemicals.
 
 evolutionmenu-combat-shriek-resonant-name = Resonant Shriek
 evolutionmenu-combat-shriek-resonant-desc =
-    You emit a tone beyond the range of pony hearing,
+    You emit a tone beyond the range of human hearing,
     bursting lights and causing disorientation in an area around yourself.
-    Good for escaping groups, or hindering ponies from fleeing.
+    Good for escaping groups, or hindering people from fleeing.
     WARNING: Requires you to absorb at least 1 organic to use the ability.
     Costs 30 chemicals.
 
