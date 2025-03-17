@@ -106,4 +106,5 @@ public enum ReactionMethod
 Touch,
 Injection,
 Ingestion,
+Eyes,
 }

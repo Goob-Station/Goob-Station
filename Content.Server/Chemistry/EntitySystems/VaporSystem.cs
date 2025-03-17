@@ -16,6 +16,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
 using System.Numerics;
+using Content.Server.Flash.Components;
 
 namespace Content.Server.Chemistry.EntitySystems
 {
@@ -46,7 +47,14 @@ namespace Content.Server.Chemistry.EntitySystems
             foreach (var (_, soln) in _solutionContainerSystem.EnumerateSolutions((entity.Owner, contents)))
             {
                 var solution = soln.Comp.Solution;
-                _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Touch);
+                var canEyesReact = TryComp<FlashImmunityComponent>(args.OtherEntity, out var flashImmunity); // Goobstation - Returns true if the entity has flash protection
+
+                if (!canEyesReact) // Goobstation - If the eyes are covered, you cannot react with the eyes.
+                    _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Touch);
+
+
+                _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Eyes); // Goobstation
+                _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Touch); // Goobstation
             }
 
             // Check for collision with a impassable object (e.g. wall) and stop
