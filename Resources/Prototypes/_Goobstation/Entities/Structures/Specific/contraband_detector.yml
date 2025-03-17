@@ -63,6 +63,7 @@
     graph: ContrabandDetector
     node: detector
   - type: WiresPanel
+  - type: WiresPanelSecurity
   - type: WiresVisuals
   - type: Wires
     layoutId: ContrabandDetector
@@ -84,6 +85,7 @@
     node: panelReinforced
   - type: WiresPanelSecurity
     securityLevel: panelReinforced
+    examine: wires-panel-component-on-examine-security-level2
     wiresAccessible: false
 
 - type: entity

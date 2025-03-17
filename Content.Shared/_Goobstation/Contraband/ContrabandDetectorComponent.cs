@@ -50,7 +50,6 @@ public sealed partial class ContrabandDetectorComponent : Component
     ///  list of scanned entity and time scanned for scan timout
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    [AutoNetworkedField]
     public Dictionary<EntityUid, TimeSpan> Scanned = new Dictionary<EntityUid, TimeSpan>();
 
     /// <summary>
