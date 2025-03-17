@@ -67,16 +67,6 @@ public abstract class SharedFishingSystem : EntitySystem
         var activeFishers = EntityQueryEnumerator<ActiveFisherComponent>();
         while (activeFishers.MoveNext(out var fisher, out var fisherComp))
         {
-            if (fisherComp.StartTime != null && fisherComp.EndTime != null)
-            {
-                var elapsedTime = currentTime - fisherComp.StartTime;
-                var totalDuration = fisherComp.EndTime - fisherComp.StartTime;
-                if (Timing.InPrediction)
-                    totalDuration += TimeSpan.FromSeconds(1); // Client works faster than the server, so we apply that to also count lag.
-
-                fisherComp.TotalProgress = (float) (elapsedTime.Value.TotalSeconds / totalDuration.Value.TotalSeconds);
-            }
-
             // Get fishing rod, then float, then spot... ReCurse.
             if (!_fishRodQuery.TryComp(fisherComp.FishingRod, out var fishingRodComp))
                 continue;
@@ -93,6 +83,17 @@ public abstract class SharedFishingSystem : EntitySystem
             {
                 fisherComp.StartTime = currentTime;
                 fisherComp.EndTime = currentTime + TimeSpan.FromSeconds(1f / Math.Abs(activeSpotComp.FishDifficulty));
+            }
+
+            // Calculate progress
+            if (fisherComp.StartTime != null && fisherComp.EndTime != null)
+            {
+                var elapsedTime = currentTime - fisherComp.StartTime;
+                var totalDuration = fisherComp.EndTime - fisherComp.StartTime;
+                if (Timing.InPrediction)
+                    totalDuration += TimeSpan.FromSeconds(1f / Math.Abs(activeSpotComp.FishDifficulty) * 0.1f); // Client works faster than the server, so we apply that to also count lag.
+
+                fisherComp.TotalProgress = (float) (elapsedTime.Value.TotalSeconds / totalDuration.Value.TotalSeconds);
             }
 
             if (!_hands.IsHolding(fisher, fishRod))
