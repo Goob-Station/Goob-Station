@@ -27,7 +27,7 @@ public sealed partial class ProjectileRequireWhitelistSystem : EntitySystem
             return;
 
         // If the whitelist is invalid, delete the projectile.
-        EntityManager.QueueDeleteEntity(projectile);
+        EntityManager.DeleteEntity(projectile);
     }
 
 }
