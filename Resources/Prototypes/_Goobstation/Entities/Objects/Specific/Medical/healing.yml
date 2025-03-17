@@ -61,8 +61,6 @@
         maxVol: 15
         reagents:
         - ReagentId: Cyanide
-          Quantity: 5
+          Quantity: 10
         - ReagentId: Amatoxin
-          Quantity: 5
-        - ReagentId: Toxin
           Quantity: 5
