@@ -9,12 +9,11 @@ public sealed partial class ProjectileRequireWhitelistSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<ProjectileRequireWhitelistComponent, StartCollideEvent>(OnProjectileCollide);
+        SubscribeLocalEvent<ProjectileRequireWhitelistComponent, PreventCollideEvent>(OnProjectileCollide);
     }
 
-    private void OnProjectileCollide(Entity<ProjectileRequireWhitelistComponent> ent, ref StartCollideEvent args)
+    private void OnProjectileCollide(Entity<ProjectileRequireWhitelistComponent> ent, ref PreventCollideEvent args)
     {
-        var projectile = args.OurEntity;
         var uid = args.OtherEntity;
         var comp = ent.Comp;
 
@@ -26,8 +25,8 @@ public sealed partial class ProjectileRequireWhitelistSystem : EntitySystem
         if ((comp.Whitelist != null) && !_whitelist.IsValid(comp.Whitelist, uid) && comp.Invert)
             return;
 
-        // If the whitelist is invalid, delete the projectile.
-        EntityManager.DeleteEntity(projectile);
+        // Prevent the collision
+        args.Cancelled = true;
     }
 
 }
