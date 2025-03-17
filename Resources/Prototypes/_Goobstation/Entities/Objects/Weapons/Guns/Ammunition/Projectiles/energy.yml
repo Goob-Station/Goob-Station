@@ -32,7 +32,7 @@
     impactEffect: BulletImpactEffectRedDisabler
     damage:
       types:
-        Heat: 13 
+        Heat: 15 
     soundHit:
       collection: MeatLaserImpact
 
@@ -93,9 +93,8 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
-    - state: omnilaser_greyscale
+    - state: omnilaser
       shader: unshaded
-      color: blue
   - type: Ammo
   - type: Physics
   - type: Fixtures
@@ -108,11 +107,49 @@
         mask:
         - Opaque
   - type: StaminaDamageOnCollide
-    damage: 15
+    damage: 20
   - type: Projectile
     impactEffect: BulletImpactEffectBlueDisabler
     damage:
       types:
         Ion: 5
+    soundHit:
+      collection: MeatLaserImpact
+
+- type: entity 
+  name: ashified energy bolt #oh dear me
+  id: RifleBulletEnergyGunAsh
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: heavylaser
+      shader: unshaded
+  - type: Ammo
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        mask:
+        - Opaque
+  - type: Projectile
+    impactEffect: BulletImpactEffectRedDisabler
+    damage:
+      types:
+        Heat: 99999 
     soundHit:
       collection: MeatLaserImpact
