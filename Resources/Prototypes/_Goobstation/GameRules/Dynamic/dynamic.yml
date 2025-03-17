@@ -96,7 +96,7 @@
     - DynamicUnforgiving
     - BasicStationEventSchedulerNoAntag
     - DynamicStationEventScheduler
-#    - MeteorSwarmScheduler Goob Edit
+    - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation

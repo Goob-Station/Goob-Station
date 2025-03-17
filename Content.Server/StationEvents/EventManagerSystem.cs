@@ -50,17 +50,6 @@ public sealed class EventManagerSystem : EntitySystem
         GameTicker.AddGameRule(randomEvent);
     }
 
-    // Goobstation start
-    /// <summary>
-    /// Runs a specific named event.
-    /// </summary>
-    public void RunNamedEvent(string eventId)
-    {
-        var ent = GameTicker.AddGameRule(eventId);
-        Log.Info($"Running event {eventId} as entity {ent}");
-    }
-    // Goobstation end
-
     /// <summary>
     /// Randomly runs an event from provided EntityTableSelector.
     /// </summary>
@@ -251,7 +240,7 @@ public sealed class EventManagerSystem : EntitySystem
         return TimeSpan.Zero;
     }
 
-    public bool CanRun(EntityPrototype prototype, StationEventComponent stationEvent, int playerCount, TimeSpan currentTime)
+    private bool CanRun(EntityPrototype prototype, StationEventComponent stationEvent, int playerCount, TimeSpan currentTime)
     {
         if (GameTicker.IsGameRuleActive(prototype.ID))
             return false;

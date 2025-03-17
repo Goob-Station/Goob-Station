@@ -1,5 +1,3 @@
-using Content.Server._Goobstation.StationEvents;
-using Content.Server._Goobstation.StationEvents.Metric; // Goobstation
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -89,13 +87,4 @@ public sealed partial class StationEventComponent : Component
     /// </summary>
     [DataField]
     public bool OccursDuringRoundEnd = true;
-
-    // Goobstation start
-    /// <summary>
-    ///  Expected Chaos changes when this event occurs.
-    ///  Used by the GameDirector, which picks an event expected to make the desired chaos changes.
-    /// </summary>
-    [DataField("chaos")]
-    public ChaosMetrics Chaos = new ChaosMetrics();
-    // Goobstation end
 }

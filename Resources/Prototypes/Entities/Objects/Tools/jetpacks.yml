@@ -58,9 +58,6 @@
     - type: Appearance
     - type: StaticPrice
       price: 100
-    - type: Tag # Goobstation
-      tags:
-      - Jetpack
 
 - type: entity
   id: ActionToggleJetpack
