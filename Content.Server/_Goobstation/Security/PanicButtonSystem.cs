@@ -16,6 +16,7 @@ namespace Content.Server._Goobstation.Security
         [Dependency] private readonly RadioSystem _radioSystem = default!;
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+
         public override void Initialize()
         {
             base.Initialize();
@@ -26,14 +27,20 @@ namespace Content.Server._Goobstation.Security
         private void OnButtonPressed(Entity<PanicButtonComponent> ent, ref UseInHandEvent args)
         {
             var comp = ent.Comp;
+            var uid = args.User;
 
             var doAfterArgs = new DoAfterArgs(
-                EntityManager, args.User, comp.DoAfterDuration, new PanicButtonDoAfterEvent(), args.User, ent.Owner,
+                EntityManager,
+                uid,
+                comp.DoAfterDuration,
+                new PanicButtonDoAfterEvent(),
+                ent.Owner,
+                ent.Owner,
                 ent.Owner)
             {
                 BreakOnMove = true,
                 NeedHand = true,
-                BlockDuplicate = true,
+                BlockDuplicate = true
             };
 
             _doAfterSystem.TryStartDoAfter(doAfterArgs);
@@ -41,8 +48,11 @@ namespace Content.Server._Goobstation.Security
 
         private void OnDoAfterComplete(Entity<PanicButtonComponent> ent, ref PanicButtonDoAfterEvent args)
         {
+            if (args.Handled || args.Cancelled || !args.Target.HasValue)
+                return;
+
             var comp = ent.Comp;
-            var uid = args.User;
+            var uid = ent.Owner;
 
             // Gets location of the implant
             var posText = FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString(uid));
