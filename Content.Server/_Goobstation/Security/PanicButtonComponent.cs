@@ -22,7 +22,7 @@ namespace Content.Server._Goobstation.Security
         /// How long is the cooldown before you can send another message.
         /// </summary>
         [DataField]
-        public TimeSpan CoolDown = TimeSpan.FromSeconds(45);
+        public TimeSpan CoolDown = TimeSpan.FromSeconds(70);
 
         /// <summary>
         /// Which channel to send the message over.

@@ -161,3 +161,20 @@
     sprintModifier: 0.7
   - type: StaticPrice
     price: 1
+
+- type: entity
+  parent: [ClothingShoesMilitaryBase, BaseCommandContraband] # Not parented from jackboots, because I want them to be command contraband.
+  id: ClothingShoesBootsJackAdvanced
+  name: advanced jackboots
+  description: Bluespace enhanced Nanotrasen-issue Security combat boots for combat scenarios or combat situations. This pair was designed for the Head of Security.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Boots/advanced_jackboots.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Boots/advanced_jackboots.rsi
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.3
+  - type: ClothingModifyStunTime
+    modifier: 0.5
+  - type: ModifyStandingUpTime
+    multiplier: 0.3
