@@ -53,7 +53,6 @@
     - id: Handcuffs
     - id: HoloprojectorSecurity
     - id: RadioHandheldSecurity
-    - id: PepperSpray # Goobstation
     - id: WeaponDisabler # Goobstation
 
 - type: entity

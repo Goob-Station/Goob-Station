@@ -90,6 +90,7 @@
       - id: ClothingHeadsetAltSecurityRegular # Goobstation
       - id: ClothingHandsGlovesColorBlack
       - id: ClothingShoesBootsJack
+      - id: PepperSpray
       - id: WeaponMeleeNeedle
         prob: 0.1
       - id: HoloprojectorSecurity
