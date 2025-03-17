@@ -53,12 +53,12 @@
     tags:
     - PepperSpray
   - type: Sprite
-    sprite: /Textures/_Goobstation/Objects/Specific/Security/pepper_spray.rsi
+    sprite: /Textures/_Goobstation/Objects/Specific/Security/pepperspray.rsi
     layers:
     - state: icon
   - type: Item
     size: Small
-    sprite: /Textures/_Goobstation/Objects/Specific/Security/pepper_spray.rsi
+    sprite: /Textures/_Goobstation/Objects/Specific/Security/pepperspray.rsi
   - type: RefillableSolution
     solution: spray
   - type: SolutionContainerManager
