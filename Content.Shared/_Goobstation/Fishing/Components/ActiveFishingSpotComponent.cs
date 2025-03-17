@@ -6,10 +6,10 @@ namespace Content.Shared._Goobstation.Fishing.Components;
 /// <summary>
 /// Dynamic component, that is assigned to active fishing spots that are currently waiting for da fish.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class ActiveFishingSpotComponent : Component
 {
-    [ViewVariables, AutoNetworkedField]
+    [ViewVariables]
     public EntityUid? AttachedFishingLure;
 
     [DataField]
@@ -21,12 +21,12 @@ public sealed partial class ActiveFishingSpotComponent : Component
     [DataField]
     public bool IsActive;
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float FishDifficulty;
 
     /// <summary>
     /// Fish that we're currently trying to catch
     /// </summary>
     [DataField]
-    public EntProtoId Fish;
+    public EntProtoId? Fish;
 }
