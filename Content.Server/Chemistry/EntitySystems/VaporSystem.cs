@@ -47,7 +47,7 @@ namespace Content.Server.Chemistry.EntitySystems
             foreach (var (_, soln) in _solutionContainerSystem.EnumerateSolutions((entity.Owner, contents)))
             {
                 var solution = soln.Comp.Solution;
-                var canEyesReact = TryComp<FlashImmunityComponent>(args.OtherEntity, out var flashImmunity); // Goobstation - Returns true if the entity has flash protection
+                var canEyesReact = !TryComp<FlashImmunityComponent>(args.OtherEntity, out var flashImmunity); // Goobstation - Returns true if the entity has flash protection
 
                 if (!canEyesReact) // Goobstation - If the eyes are covered, you cannot react with the eyes.
                     _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Touch);
