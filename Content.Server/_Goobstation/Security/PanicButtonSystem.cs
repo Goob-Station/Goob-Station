@@ -29,8 +29,8 @@ namespace Content.Server._Goobstation.Security
 
         private void OnButtonPressed(Entity<PanicButtonComponent> ent, ref UseInHandEvent args)
         {
-            if (!TryComp(ent.Owner, out UseDelayComponent? useDelay) ||
-                _useDelaySystem.IsDelayed((ent.Owner, useDelay)))
+            EnsureComp<UseDelayComponent>(ent.Owner, out var useDelay);
+            if (_useDelaySystem.IsDelayed((ent.Owner, useDelay)))
                 return;
 
             var comp = ent.Comp;
@@ -67,8 +67,7 @@ namespace Content.Server._Goobstation.Security
             if (_useDelaySystem.IsDelayed((ent.Owner, useDelay)))
                 return;
 
-            _useDelaySystem.SetLength((uid, useDelay), comp.CoolDown, comp.DelayId);
-            _useDelaySystem.TryResetDelay((uid, useDelay), id: comp.DelayId);
+            _useDelaySystem.TryResetDelay((uid, useDelay));
 
 
 
