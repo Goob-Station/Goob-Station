@@ -13,15 +13,6 @@ accent-pony-words-replace-4 = pony
 accent-pony-words-5 = people
 accent-pony-words-replace-5 = ponies
 
-accent-pony-words-6 = crew
-accent-pony-words-replace-6 = ponies
-
-accent-pony-words-5 = crewmate
-accent-pony-words-replace-5 = pony
-
-accent-pony-words-5 = crewmates
-accent-pony-words-replace-5 = ponies
-
 accent-pony-words-6 = bro
 accent-pony-words-replace-6 = pony
 
@@ -70,3 +61,11 @@ accent-pony-words-replace-20 = friend
 accent-pony-words-21 = piss
 accent-pony-words-replace-22 = apple juice
 
+accent-pony-words-22 = crew
+accent-pony-words-replace-22 = ponies
+
+accent-pony-words-23 = crewmate
+accent-pony-words-replace-23 = pony
+
+accent-pony-words-24 = crewmates
+accent-pony-words-replace-24 = ponies
