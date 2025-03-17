@@ -70,7 +70,10 @@ public partial class SharedMartialArtsSystem
             var ev = proto.ResultEvent;
             RaiseLocalEvent(uid, beingPerformedEv);
             RaiseLocalEvent(uid, ev);
-            comp.LastAttacks.Clear();
+            if (!TryComp<MartialArtsKnowledgeComponent>(uid, out var martialArtsKnowledge))
+                return;
+            if (martialArtsKnowledge.MartialArtsForm != MartialArtsForms.CorporateJudo)
+                comp.LastAttacks.Clear();
         }
     }
     private void OnComboBeingPerformed(Entity<CanPerformComboComponent> ent, ref ComboBeingPerformedEvent args)
