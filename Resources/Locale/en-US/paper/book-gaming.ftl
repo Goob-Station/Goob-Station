@@ -25,7 +25,7 @@ book-text-gaming3 =
     Session 4: Just ran into the Architect Of Flies.
     Oh dear goodness they just started randomly killing everypony
 book-text-gaming4 =
-    Won't be able to come to the meet, chemist blew up the hospital again.
+    Won't be able to come to the meet, ponyville hospital alchemist blew up the hospital again.
     Fifth time this shift.
     It's amazing.
     But not in a good way.

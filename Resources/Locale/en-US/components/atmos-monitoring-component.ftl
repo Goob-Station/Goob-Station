@@ -10,5 +10,5 @@ atmos-monitoring-window-toggle-overlays = Toggle map overlays
 atmos-monitoring-window-show-pipe-network = Pipe network
 atmos-monitoring-window-show-gas-pipe-sensors = Gas pipe sensors
 atmos-monitoring-window-label-gases = Present gases
-atmos-monitoring-window-flavor-left = Contact an atmospheric technician for assistance
+atmos-monitoring-window-flavor-left = Contact an cloudsmithing technician for assistance
 atmos-monitoring-window-flavor-right = v1.1

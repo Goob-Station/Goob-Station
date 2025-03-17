@@ -76,7 +76,7 @@ book-cnc-sheet =
     
     Age / Gender         :
     Height / Weight      :
-    Eyes / Skin / Hair   :
+    Eyes / Skin / Mane   :
     Description          :
     
     Background           :

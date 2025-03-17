@@ -49,36 +49,36 @@ guide-entry-sop-punishments = Punishments
 guide-entry-sop-searches = Searches
 # - Cargo
 guide-entry-sop-cargotech = Appleloosa Shipping Tech
-guide-entry-sop-salvage = Salvage Specialist
+guide-entry-sop-salvage = Salvage Pony
 # - Command
 guide-entry-sop-ntr = Equestria Rep.
-guide-entry-sop-bso = Blueshield Officer
+guide-entry-sop-bso = Big Macintosh
 guide-entry-sop-captain = Celestia
-guide-entry-sop-hop = Head of Personnel
-guide-entry-sop-hos = Head of Royal Guard
-guide-entry-sop-rd = Research Director
+guide-entry-sop-hop = Pinkie Pie
+guide-entry-sop-hos = Rarity
+guide-entry-sop-rd = Twilight Sparkle
 guide-entry-sop-cmo = Chief Ponyville Hospital Ofc.
-guide-entry-sop-ce = Chief Engineer
-guide-entry-sop-qm = Quartermaster
+guide-entry-sop-ce = Rainbow Dash
+guide-entry-sop-qm = Applejack
 # - Engineering
 guide-entry-sop-atmostech = Atmos Tech
 guide-entry-sop-stationengineer = Ponyville Engineer
 # - Medical
-guide-entry-sop-chemist = Chemist
+guide-entry-sop-chemist = Ponyville Hospital Alchemist
 guide-entry-sop-doctorintern = Doctor/Intern
 # - Science
 guide-entry-sop-roboticist = Roboticist
-guide-entry-sop-scientist = Scientist
+guide-entry-sop-scientist = Starswirl Graduate
 # - Security
-guide-entry-sop-detective = Detective
+guide-entry-sop-detective = Royal Guard Detective
 guide-entry-sop-officercadet = Officer/Cadet
-guide-entry-sop-warden = Warden
+guide-entry-sop-warden = Royal Guard Jailer
 # - Service
-guide-entry-sop-bartender = Bartender
-guide-entry-sop-botanist = Botanist
-guide-entry-sop-chef = Chef
-guide-entry-sop-clown = Clown
-guide-entry-sop-janitor = Janitor
-guide-entry-sop-librarian = Librarian
-guide-entry-sop-mime = Mime
-guide-entry-sop-reporter = Reporter
+guide-entry-sop-bartender = Bar Pony
+guide-entry-sop-botanist = Plant Pony
+guide-entry-sop-chef = Cooking Pony
+guide-entry-sop-clown = Pinkie Pie
+guide-entry-sop-janitor = Cleaning Pony
+guide-entry-sop-librarian = Book Pony
+guide-entry-sop-mime = Quiet Pony
+guide-entry-sop-reporter = News Pony
