@@ -63,12 +63,22 @@ public enum ContractorUplinkUiKey
     Key,
 }
 
-public enum UiButton
+[Serializable, NetSerializable]
+public enum UiMessage
 {
-    SelectTarget
+    SelectTarget,
+    Refresh,
 }
 
-public sealed class UiButtonPressedMessage(UiButton button) : BoundUserInterfaceMessage
+[Serializable, NetSerializable]
+public sealed class ContractorUiMessage(UiMessage button) : BoundUserInterfaceMessage
 {
-    public readonly UiButton Button = button;
+    public readonly UiMessage Button = button;
+}
+
+[RegisterComponent, NetworkedComponent ,AutoGenerateComponentState]
+public sealed partial class ContractorUplinkComponent : Component
+{
+    [DataField, AutoNetworkedField]
+    public bool Used;
 }

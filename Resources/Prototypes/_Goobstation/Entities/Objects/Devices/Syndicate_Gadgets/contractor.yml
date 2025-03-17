@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseItem
   id: ContractorUplink
-  name: Contractor Uplink
+  name: contractor Uplink
   description: A standard, Syndicate issued tablet for handling important contracts while on the field.
   components:
   - type: Sprite

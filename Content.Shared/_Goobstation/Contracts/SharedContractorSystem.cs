@@ -1,5 +1,7 @@
 using System.Linq;
 using Content.Shared.Coordinates;
+using Content.Shared.Hands;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Mind;
 using Content.Shared.Pinpointer;
 using Content.Shared.Roles;
@@ -18,6 +20,7 @@ public sealed class SharedContractorSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _userInterfaceSystem = default!;
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -26,8 +29,22 @@ public sealed class SharedContractorSystem : EntitySystem
 
         SubscribeLocalEvent<ContractorComponent, MapInitEvent>(OnContractorMapInit);
         SubscribeLocalEvent<ContractorMarkerComponent, MapInitEvent>(OnMarkerMapInit);
-        SubscribeLocalEvent<ContractorComponent, UiButtonPressedMessage>(OnUiButtonPressed);
+        SubscribeLocalEvent<ContractorComponent, ContractorUiMessage>(OnUiButtonPressed);
+        SubscribeLocalEvent<ContractorUplinkComponent, GotEquippedHandEvent>(OnUplinkEquipped);
     }
+
+    private void OnUplinkEquipped(Entity<ContractorUplinkComponent> ent, ref GotEquippedHandEvent args)
+    {
+        if(!_net.IsServer)
+            return;
+
+        if(ent.Comp.Used)
+            return;
+
+        EnsureComp<ContractorComponent>(args.User);
+        ent.Comp.Used = true;
+    }
+
 
     private void OnMarkerMapInit(Entity<ContractorMarkerComponent> ent, ref MapInitEvent args)
     {
@@ -53,8 +70,10 @@ public sealed class SharedContractorSystem : EntitySystem
 
     private void UpdateUi(Entity<ContractorComponent> ent)
     {
-        Logger.Debug("UpdateState");
-        if (!_userInterfaceSystem.HasUi(ent, ContractorUplinkUiKey.Key))
+        if (!_handsSystem.TryGetActiveItem(ent.Owner, out var item))
+            return;
+
+        if (!_userInterfaceSystem.HasUi(item.Value, ContractorUplinkUiKey.Key))
             return;
 
         var state = new ContractorUplinkBoundUserInterfaceState(ent.Comp.Tc,
@@ -62,10 +81,10 @@ public sealed class SharedContractorSystem : EntitySystem
             ent.Comp.Rep,
             ent.Comp.CurrentTarget,
             ent.Comp.CurrentExtractionPoint);
-        _userInterfaceSystem.SetUiState(ent.Owner, ContractorUplinkUiKey.Key, state);
+        _userInterfaceSystem.SetUiState(item.Value, ContractorUplinkUiKey.Key, state);
     }
 
-    private void OnUiButtonPressed(Entity<ContractorComponent> ent, ref UiButtonPressedMessage msg)
+    private void OnUiButtonPressed(Entity<ContractorComponent> ent, ref ContractorUiMessage msg)
     {
         var user = msg.Actor;
         if (!Exists(user))
@@ -73,13 +92,15 @@ public sealed class SharedContractorSystem : EntitySystem
 
         switch (msg.Button)
         {
-            case UiButton.SelectTarget:
+            case UiMessage.SelectTarget:
                 Log.Info("TEST");
+                break;
+            case UiMessage.Refresh:
+                Log.Debug("Refresh requested for contractor uplink");
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
-
 
         UpdateUi(ent);
     }
@@ -100,7 +121,7 @@ public sealed class SharedContractorSystem : EntitySystem
 
         if (possibleContracts.Count == 0)
         {
-            Log.Debug("Not enough alive humanoids to generate a contract");
+            Log.Debug("Not enough alive humanoids to generate a contract"); // add a refresh timer or sum idk need a brain
             return;
         }
 
@@ -124,6 +145,5 @@ public sealed class SharedContractorSystem : EntitySystem
 
             ent.Comp.Contracts.Add(target.Value, markerList.OrderBy(x => _random.Next()).Take(3).ToList());
         }
-        UpdateUi(ent);
     }
 }
