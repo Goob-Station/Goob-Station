@@ -38,6 +38,18 @@ public sealed partial class RestrictByIdComponent : Component
     public bool RestrictRanged { get; set; } = true;
 
     /// <summary>
+    ///     Whether the item can be emagged to remove it's access locks.
+    /// </summary>
+    [DataField]
+    public bool IsEmaggable { get; set; } = false;
+
+    /// <summary>
+    ///     Whether the item is currently emagged.
+    /// </summary>
+    [DataField]
+    public bool IsEmagged = false;
+
+    /// <summary>
     ///     Whether ranged attacks should be restricted. True by default.
     /// </summary>
     [DataField]

@@ -70,6 +70,7 @@
     access: [ "HeadOfSecurity" ]
     restrictMelee: true
     restrictRanged: true
+    isEmaggable: true
   - type: StaticPrice
     price: 750
   - type: TriggerOnVoiceIdLocked

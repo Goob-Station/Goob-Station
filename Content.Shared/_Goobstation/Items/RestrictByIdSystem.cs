@@ -1,5 +1,7 @@
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
+using Content.Shared.Emag.Components;
+using Content.Shared.Emag.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Systems;
@@ -10,6 +12,7 @@ namespace Content.Shared._Goobstation.Items
     {
         [Dependency] private readonly AccessReaderSystem _accessReader = default!;
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+        [Dependency] private readonly EmagSystem _emag = default!;
 
         public override void Initialize()
         {
@@ -17,6 +20,7 @@ namespace Content.Shared._Goobstation.Items
             SubscribeLocalEvent<RestrictByIdComponent, ComponentInit>(OnComponentInit);
             SubscribeLocalEvent<RestrictByIdComponent, AttemptShootEvent>(OnAttemptShoot);
             SubscribeLocalEvent<RestrictByIdComponent, AttemptMeleeEvent>(OnAttemptMelee);
+            SubscribeLocalEvent<RestrictByIdComponent, GotEmaggedEvent>(OnEmagged);
         }
 
         private void OnComponentInit(Entity<RestrictByIdComponent> ent, ref ComponentInit args)
@@ -28,11 +32,31 @@ namespace Content.Shared._Goobstation.Items
             _accessReader.SetAccesses(item, accessReader, ent.Comp.AccessLists);
         }
 
+        private void OnEmagged(Entity<RestrictByIdComponent> ent, ref GotEmaggedEvent args)
+        {
+            if (!ent.Comp.IsEmaggable)
+                return;
+
+            var item = ent.Comp.Owner;
+
+            if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+                return;
+
+            RemComp<AccessReaderComponent>(item);
+            ent.Comp.IsEmagged = true;
+            args.Handled = true;
+
+        }
+
         private void OnAttemptShoot(Entity<RestrictByIdComponent> ent, ref AttemptShootEvent args)
         {
             var attacker = args.User;
             var item = ent.Owner;
             var comp = ent.Comp;
+
+            // If the item is currently emagged, do not check for accesses.
+            if (comp.IsEmagged)
+                return;
 
             // Get the failtext from the localization string.
             args.Message = Loc.GetString(comp.FailText);
@@ -58,6 +82,10 @@ namespace Content.Shared._Goobstation.Items
             var attacker = args.User;
             var item = ent.Owner;
             var comp = ent.Comp;
+
+            // If the item is currently emagged, do not check for accesses.
+            if (comp.IsEmagged)
+                return;
 
             // Get the failtext from the localization string.
             args.Message = Loc.GetString(comp.FailText);
