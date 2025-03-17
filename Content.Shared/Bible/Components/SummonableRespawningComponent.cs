@@ -1,4 +1,4 @@
-namespace Content.Server.Bible.Components
+namespace Content.Shared.Bible.Components
 {
     /// <summary>
     /// EntityQuery Tracking Component for Summonables that are counting up a respawn.

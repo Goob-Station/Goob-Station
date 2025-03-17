@@ -7,6 +7,13 @@
   - type: Unremoveable
   - type: Item
   - type: MansusGrasp
+  - type: Blocking
+    passiveBlockModifier:
+      coefficients:
+        Holy: 1.35
+    activeBlockModifier:
+      coefficients:
+        Holy: 1.35
   - type: Sprite
     sprite: _Goobstation/Heretic/mansus_grasp.rsi
     state: icon

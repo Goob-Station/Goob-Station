@@ -1,4 +1,4 @@
-namespace Content.Server.Bible.Components
+namespace Content.Shared.Bible.Components
 {
     /// <summary>
     /// This component is for the chaplain's familiars, and mostly
