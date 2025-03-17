@@ -8,7 +8,7 @@ uplink-hardsuit-syndiecommander-desc = A surplus commander hardsuit, from the Go
 # Cybersun Stealth
 
 uplink-hardsuit-cybersun-stealth-name = Nightmare Forces Stealth Hardsuit
-uplink-hardsuit-cybersun-stealth-desc = Reversed engineered from Spider Clan technology, this hardsuit has stealth plating in it for those special ops. Slightly slower and less armor than the default hardsuits.
+uplink-hardsuit-cybersun-stealth-desc = Reversed engineered from Spider Pony Clan technology, this hardsuit has stealth plating in it for those special ops. Slightly slower and less armor than the default hardsuits.
 # Cybersun Dreadnought suit
 uplink-hardsuit-cybersun-dreadnought-name = Nightmare Forces Dreadnought suit
 uplink-hardsuit-cybersun-dreadnought-desc = An insanely tough combat hardsuit utilizing hyper-bluespace enhanced plasteel to make an almost impenetrable wall out of the wearer. However, only the absolutely insane syndicate followers will put this on. Because of its weight, it must be tightened very hard, to the point of impaling the user and being unable to be taken off without completely ripping off their skin. The syndicate sends their regards.
@@ -59,7 +59,7 @@ uplink-l6-saw-desc = More dakka: The iconic L6 light machine gun.
 uplink-m90-name = M-90
 uplink-m90-desc = An M-90 combat rifle.
 uplink-dualetta-bundle-name = Dualetta Bundle
-uplink-dualetta-bundle-desc = Comes with 2 Dualetta pistols, 2 machine pistol magazines, combat gloves, noir suit, detectives trenchcoat, and laceup shoes.
+uplink-dualetta-bundle-desc = Comes with 2 Dualetta pistols, 2 machine pistol magazines, combat gloves, noir suit, royal guard detectives trenchcoat, and laceup shoes.
 uplink-anaconda-name = Anaconda
 uplink-anaconda-desc = The pride of the Nightmare Forces arms concern, this heavy pistol is designed to feed itself with the built-in fabricator.
 uplink-kravgloves-name = Krav maga gloves

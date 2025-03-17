@@ -13,7 +13,7 @@ random-sentience-event-strength-2 = primate
 random-sentience-event-strength-3 = moderate
 random-sentience-event-strength-4 = royal guard
 random-sentience-event-strength-5 = command
-random-sentience-event-strength-6 = clown
+random-sentience-event-strength-6 = pinkie pie
 random-sentience-event-strength-7 = low
 random-sentience-event-strength-8 = AI
 
