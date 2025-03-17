@@ -33,8 +33,6 @@ namespace Content.Server._Goobstation.Security
                 _useDelaySystem.IsDelayed((ent.Owner, useDelay)))
                 return;
 
-            args.ApplyDelay = true;
-
             var comp = ent.Comp;
             var uid = args.User;
 
