@@ -46,3 +46,23 @@
         reagents:
         - ReagentId: Fentanyl
           Quantity: 7
+
+- type: entity
+  parent: PrefilledSyringe
+  name: lethal injection syringe
+  description: A somewhat humane way to put down prisoners.
+  id: SyringePoisonLethalInjection
+  components:
+  - type: Label
+    currentLabel: Lethal Injection
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Cyanide
+          Quantity: 5
+        - ReagentId: FluorosulfuricAcid
+          Quantity: 5
+        - ReagentId: Toxin
+          Quantity: 5

@@ -10,6 +10,7 @@
       #- id: WeaponDisabler #Goobstation (Disablers in belts)
       - id: ClothingBeltSecurityFilled
       - id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts
+      - id: BoxLethalInjection # Goobstation
       - id: Flash
       - id: ClothingEyesGlassesSecurity
       - id: ClothingHeadsetAltWarden # Goobstation
@@ -45,6 +46,7 @@
       #- id: WeaponDisabler #Goobstation (Disablers in belts)
       - id: ClothingBeltSecurityFilled
       - id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts
+      - id: BoxLethalInjection # Goobstation
       - id: Flash
       - id: ClothingEyesGlassesSecurity
       - id: ClothingHeadsetAltWarden # Goobstation
