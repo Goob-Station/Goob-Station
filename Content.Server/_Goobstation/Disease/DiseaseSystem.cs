@@ -1,7 +1,10 @@
+using Content.Server.Body.Components;
+using Content.Server.Body.Systems;
 using Content.Shared.Disease;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 
@@ -9,12 +12,16 @@ namespace Content.Server.Disease;
 
 public sealed partial class DiseaseSystem : SharedDiseaseSystem
 {
+    [Dependency] private readonly InternalsSystem _internals = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<DiseaseComponent, DiseaseCloneEvent>(OnClonedInto);
         SubscribeLocalEvent<GrantDiseaseComponent, MapInitEvent>(OnGrantDiseaseInit);
+        SubscribeLocalEvent<InternalsComponent, DiseaseIncomingSpreadAttemptEvent>(OnInternalsIncomingSpread);
     }
 
     private void OnClonedInto(EntityUid uid, DiseaseComponent disease, DiseaseCloneEvent args)
@@ -57,6 +64,15 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
                 QueueDel(disease);
         }
     }
+
+    private void OnInternalsIncomingSpread(EntityUid uid, InternalsComponent internals, DiseaseIncomingSpreadAttemptEvent args)
+    {
+        if (_proto.TryIndex<DiseaseSpreadPrototype>(args.Type, out var spreadProto) && _internals.AreInternalsWorking(uid, internals))
+        {
+            args.ApplyModifier(internals.IncomingInfectionModifier);
+        }
+    }
+
     #region public API
 
     /// <summary>
@@ -82,6 +98,7 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
         // requiring us to add DiseaseCarrier is just inconveniencing the user for no reason
         EnsureComp<DiseaseComponent>(ent, out var disease);
         disease.Complexity = complexity;
+        disease.Genotype = _random.Next();
         MutateDisease(ent, disease, mutationRate);
         return ent;
     }

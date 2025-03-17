@@ -110,6 +110,7 @@
   components:
   - type: ShowHealthBars
   - type: ShowHealthIcons
+  - type: ShowDiseaseIcons # Goobstation
 
 - type: entity
   parent: ClothingEyesBase
