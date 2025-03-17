@@ -1,0 +1,10 @@
+- type: entity
+  id: PanicButton
+  Name: distress signaller
+  description: A small device with a large red button on the front. Press it to send a distress signal over the security channel.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Security/blueshieldundetermined.rsi # Placeholder
+    state: icon
+  - type: PanicButton

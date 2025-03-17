@@ -1,0 +1,53 @@
+using Content.Server.DoAfter;
+using Content.Server.Pinpointer;
+using Content.Server.Radio.EntitySystems;
+using Content.Shared._Goobstation.Security;
+using Content.Shared.DoAfter;
+using Content.Shared.Interaction.Events;
+using Content.Shared.Radio;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
+
+namespace Content.Server._Goobstation.Security
+{
+    public sealed partial class PanicButtonSystem : EntitySystem
+    {
+        [Dependency] private readonly NavMapSystem _navMap = default!;
+        [Dependency] private readonly RadioSystem _radioSystem = default!;
+        [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        public override void Initialize()
+        {
+            base.Initialize();
+            SubscribeLocalEvent<PanicButtonComponent, UseInHandEvent>(OnButtonPressed);
+            SubscribeLocalEvent<PanicButtonComponent, PanicButtonDoAfterEvent>(OnDoAfterComplete);
+        }
+
+        private void OnButtonPressed(Entity<PanicButtonComponent> ent, ref UseInHandEvent args)
+        {
+            var comp = ent.Comp;
+
+            var doAfterArgs = new DoAfterArgs(
+                EntityManager, args.User, comp.DoAfterDuration, new PanicButtonDoAfterEvent(), args.User, args.User,
+                args.User)
+            {
+                BreakOnMove = true,
+                NeedHand = true,
+                BlockDuplicate = true,
+            };
+
+            _doAfterSystem.TryStartDoAfter(doAfterArgs);
+        }
+
+        private void OnDoAfterComplete(EntityUid uid, PanicButtonComponent component, ref PanicButtonDoAfterEvent args)
+        {
+
+            // Gets location of the implant
+            var posText = FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString(uid));
+            var distressMessage = Loc.GetString(component.DistressMessage, ("user", args.User), ("position", posText));
+
+            _radioSystem.SendRadioMessage(uid, distressMessage, _prototypeManager.Index<RadioChannelPrototype>(component.RadioChannel), uid);
+            args.Handled = true;
+        }
+    }
+}
