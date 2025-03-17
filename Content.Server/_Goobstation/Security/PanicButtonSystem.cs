@@ -39,14 +39,16 @@ namespace Content.Server._Goobstation.Security
             _doAfterSystem.TryStartDoAfter(doAfterArgs);
         }
 
-        private void OnDoAfterComplete(EntityUid uid, PanicButtonComponent component, ref PanicButtonDoAfterEvent args)
+        private void OnDoAfterComplete(Entity<PanicButtonComponent> ent, ref PanicButtonDoAfterEvent args)
         {
+            var comp = ent.Comp;
+            var uid = args.User;
 
             // Gets location of the implant
             var posText = FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString(uid));
-            var distressMessage = Loc.GetString(component.DistressMessage, ("position", posText));
+            var distressMessage = Loc.GetString(comp.DistressMessage, ("position", posText));
 
-            _radioSystem.SendRadioMessage(uid, distressMessage, _prototypeManager.Index<RadioChannelPrototype>(component.RadioChannel), uid);
+            _radioSystem.SendRadioMessage(uid, distressMessage, _prototypeManager.Index<RadioChannelPrototype>(comp.RadioChannel), uid);
             args.Handled = true;
         }
     }
