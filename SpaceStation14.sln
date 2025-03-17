@@ -6,16 +6,8 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Content.Shared", "Content.Shared\Content.Shared.csproj", "{26AEEBB3-DDE7-443A-9F43-7BC7F4ACF6B5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Content.Server", "Content.Server\Content.Server.csproj", "{B38DBBD0-04C2-4D1A-84E2-B3446F6ADF2A}"
-	ProjectSection(ProjectDependencies) = postProject
-		{59250BAF-0000-0000-0000-000000000000} = {59250BAF-0000-0000-0000-000000000000}
-		{26AEEBB3-DDE7-443A-9F43-7BC7F4ACF6B5} = {26AEEBB3-DDE7-443A-9F43-7BC7F4ACF6B5}
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Content.Client", "Content.Client\Content.Client.csproj", "{A2E5F175-78AF-4DDD-8F97-E2D2552372ED}"
-	ProjectSection(ProjectDependencies) = postProject
-		{59250BAF-0000-0000-0000-000000000000} = {59250BAF-0000-0000-0000-000000000000}
-		{BACB57CD-EF9A-40C2-9E63-418A50223B85} = {BACB57CD-EF9A-40C2-9E63-418A50223B85}
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build Checker", "Build Checker", "{3202E94D-E985-4181-9F69-F458A7F6574F}"
 EndProject
