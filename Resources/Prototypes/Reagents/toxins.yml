@@ -279,7 +279,7 @@
     amount: -5
   reactiveEffects:
     Acidic:
-      methods: [ Eyes ] # Goobstation - Temporary
+      methods: [ Touch ]
       effects:
       - !type:HealthChange
         scaleByQuantity: true

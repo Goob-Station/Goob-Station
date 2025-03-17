@@ -307,7 +307,7 @@
   color: "#e32227"
   reactiveEffects:
     Acidic:
-      methods: [ Eyes, Ingestion ]
+      methods: [ Eyes ]
       effects:
       - !type:HealthChange
         scaleByQuantity: true
