@@ -349,14 +349,15 @@
     - id: ClothingHeadsetAltSecurity
     - id: ClothingMaskNeckGaiter
     - id: ClothingOuterCoatHoSTrench
-    - id: ClothingShoesBootsJack
+   # - id: ClothingShoesBootsJack # Goobstation
     - id: DoorRemoteSecurity
-    - id: HoloprojectorSecurity
+   # - id: HoloprojectorSecurity
+    - id: HoloprojectorSecurityAdvanced # Goobstation - Security Revamp
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
     - id: ClothingBeltSheathHeadOfSecurityFilled # Goobstation - Security Revamp
     - id: HeadOfSecurityUndetermined # Goobstation - Security Revamp
-    #- id: WeaponDisabler #Goobstation (Disablers in belts)
+    #- id: WeaponDisabler # Goobstation (Disablers in belts)
     - id: WantedListCartridge
     - id: DrinkHosFlask
 
