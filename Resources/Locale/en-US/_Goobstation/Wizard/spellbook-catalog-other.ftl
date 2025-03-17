@@ -1,13 +1,15 @@
-spellbook-mime-bundle-name = Quiet Pony Discord Bundle
+spellbook-mime-bundle-name = Mime Wizard Bundle
 spellbook-mime-bundle-desc =
-    Contains a set of quiet pony clothes, as well as quiet pony PDA and special quiet pony discord hat and robes.
+    Contains a set of mime clothes, as well as mime PDA and special mime wizard hat and robes.
     Cannot be refunded.
-    Warning: Purchasing this blocks the refund of Quiet Pony Malaise spell!
-spellbook-clown-bundle-name = Pinkie Pie Discord Bundle
+    Warning: Purchasing this blocks the refund of Mime Malaise spell!
+
+spellbook-clown-bundle-name = Clown Wizard Bundle
 spellbook-clown-bundle-desc =
-    Contains a set of pinkie pie clothes, as well as pinkie pie PDA and special pinkie pie discord hat and robes.
+    Contains a set of clown clothes, as well as clown PDA and special clown wizard hat and robes.
     Cannot be refunded.
     Warning: Purchasing this blocks the refund of Banana Touch and Curse of the Cluwne spells!
+
 spellbook-oblivion-enforcer-name = Oblivion Enforcer Bundle
 spellbook-oblivion-enforcer-desc =
     Contains Oblivion Enforcer robes, a pair of insulated gloves and Oblivion Enforcer mask with integrated voice changer.
@@ -15,29 +17,34 @@ spellbook-oblivion-enforcer-desc =
     Cannot be refunded.
     You can get this bundle as many times as you have purchased Supermatter Halberd.
     Warning: Purchasing this blocks the refund of Supermatter Halberd!
-spellbook-tider-bundle-name = Tider Discord Bundle
+
+spellbook-tider-bundle-name = Tider Wizard Bundle
 spellbook-tider-bundle-desc =
-    Contains an ancient jumpsuit, a pair of insulated gloves, a gas mask, gray winter coat and mantle as well as silly filly PDA.
+    Contains an ancient jumpsuit, a pair of insulated gloves, a gas mask, gray winter coat and mantle as well as assistant PDA.
     Cannot be refunded.
     Warning: Purchasing this blocks the refund of Homing Toolbox spell!
+
 spellbook-full-random-name = Full Random
 spellbook-full-random-desc =
     Get 15 WizCoins worth of completely random spells. There's no going back.
     Not recommended for newer wizards.
+
 spellbook-semi-random-name = Semi-Random
 spellbook-semi-random-desc =
     Get 12 WizCoins worth of random spells. You are guaranteed to get at least some mobility and lethal spells though. There's no going back.
     Not recommended for newer wizards.
+
 spellbook-event-dimension-shift-name = Dimension Shift
 spellbook-event-dimension-shift-desc =
-    Shift dimensions of the target ponyville, making space atmosphere safe for humanoid beings but still non-breathable. Useful if you are afraid of space, but this also prevents crew from dying to it as well.
+    Shift dimensions of the target station, making space atmosphere safe for humanoid beings but still non-breathable. Useful if you are afraid of space, but this also prevents crew from dying to it as well.
     This spell goes into effect immediately the moment you buy it.
     Cannot be refunded.
+
 spellbook-apprentice-name = Contract of Apprenticeship
 spellbook-apprentice-desc =
-    A magical contract binding an apprentice discord to your sugarcube corner, using it will summon them to your side.
+    A magical contract binding an apprentice wizard to your service, using it will summon them to your side.
     Can only be purchased once.
-    
+
     You can choose between 8 set of spells for your apprentice to learn:
     Destruction: Fireball and Mutate.
     Ethereal: Ethereal Jaunt and Teleport.
@@ -47,10 +54,11 @@ spellbook-apprentice-desc =
     Sanguine: Scream For Me, Exsanguinating Strike and Instant Summons.
     Robeless: Mind Swap, Force Wall and Knock.
     Chaos: 6 WizCoins worth of random spells, except for Bind Soul and Soul Tap.
+
 spellbook-magical-lamp-name = Magical Lamp
 spellbook-magical-lamp-desc =
     A magical golden lamp, capable of binding a personal guardian to your body. The guardian will transfer some amount of damage to you.
     It would be wise to avoid buying these with anything capable of causing you to swap bodies with others.
-    After hosting guardian you won't be able to change your species in discord magic mirror.
+    After hosting guardian you won't be able to change your species in wizard magic mirror.
     Can only be purchased once.
     Cannot be refunded.

@@ -3,11 +3,13 @@ materials-glass = glass
 materials-reinforced-glass = reinforced glass
 materials-plasma-glass = plasma glass
 materials-reinforced-plasma-glass = reinforced plasma glass
+
 # Metals
 materials-steel = steel
 materials-gold = gold
 materials-silver = silver
 materials-plasteel = plasteel
+
 # Other
 materials-biomass = biomass
 materials-cardboard = cardboard
@@ -25,6 +27,7 @@ materials-bones = bone
 materials-coal = coal
 materials-diamond = diamond
 materials-gunpowder = gunpowder
+
 # Ores
 materials-raw-iron = raw iron
 materials-raw-quartz = raw quartz
