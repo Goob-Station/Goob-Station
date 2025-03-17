@@ -580,13 +580,13 @@
       state: epinephrine_overdose
     event: !type:ActionAdrenalineReservesEvent {}
   - type: ChangelingAction
-    chemicalCost: 25
+    chemicalCost: 30
     useInLesserForm: true
 
 - type: entity
   id: ActionFleshmend
   name: Fleshmend
-  description: Rapidly heal yourself. Costs 35 chemicals.
+  description: Rapidly heal yourself. Costs 40 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
