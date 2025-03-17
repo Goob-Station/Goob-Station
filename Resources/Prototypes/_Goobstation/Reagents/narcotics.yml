@@ -309,12 +309,6 @@
     Acidic:
       methods: [ Eyes ]
       effects:
-      - !type:HealthChange
-        scaleByQuantity: true
-        ignoreResistances: false
-        damage:
-          types:
-            Caustic: 0.5
       - !type:PopupMessage
         type: Local
         probability: 0.7
