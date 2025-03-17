@@ -1,0 +1,12 @@
+- type: construction
+  name: makeshift fishing rod
+  id: FishingRodMakeshift
+  graph: FishingRodMakeshift
+  startNode: start
+  targetNode: makeshiftRod
+  category: construction-category-misc
+  description: Probably would be hard to catch a fish using that.
+  icon:
+    sprite: _Goobstation/Objects/Specific/Fishing/makeshift_rod.rsi
+    state: icon
+  objectType: Item

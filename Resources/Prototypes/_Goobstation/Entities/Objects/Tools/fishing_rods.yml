@@ -51,7 +51,10 @@
     size: Normal
   - type: FishingRod
     floatPrototype: FishingLureMakeshift
-    efficiency: 0.6
+    efficiency: 0.8
+  - type: Construction
+    graph: FishingRodMakeshift
+    node: makeshiftRod
 
 # Golden rod
 - type: entity
@@ -67,7 +70,7 @@
     sprite: _Goobstation/Objects/Specific/Fishing/golden_rod.rsi
     size: Normal
   - type: FishingRod
-    efficiency: 1.4
+    efficiency: 1.3
   - type: MeleeWeapon
     wideAnimationRotation: 45
     attackRate: 1.0
