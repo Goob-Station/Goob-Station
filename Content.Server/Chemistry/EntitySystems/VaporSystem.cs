@@ -40,10 +40,10 @@ namespace Content.Server.Chemistry.EntitySystems
         {
             base.Initialize();
 
-            SubscribeLocalEvent<VaporComponent, StartCollideEvent>(HandleCollide);
+            SubscribeLocalEvent<VaporComponent, PreventCollideEvent>(HandleCollide);
         }
 
-        private void HandleCollide(Entity<VaporComponent> entity, ref StartCollideEvent args)
+        private void HandleCollide(Entity<VaporComponent> entity, ref PreventCollideEvent args)
         {
             if (!EntityManager.TryGetComponent(entity.Owner, out SolutionContainerManagerComponent? contents)) return;
 
@@ -52,7 +52,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 var solution = soln.Comp.Solution;
                 _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Touch);
 
-                var eyesProtected = IsEyesProtected(args.OtherEntity);
+                var eyesProtected = IsEyesProtected(args.OtherEntity, entity, ref args);
 
                 if (!eyesProtected) // Goobstation
                     _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Eyes); // Goobstation
@@ -152,7 +152,7 @@ namespace Content.Server.Chemistry.EntitySystems
             }
 
         }
-        private bool IsEyesProtected(EntityUid entitySprayed) // Goobstation - Start
+        private bool IsEyesProtected(EntityUid entitySprayed, VaporComponent comp, ref PreventCollideEvent args) // Goobstation - Start
         {
             if (!TryComp<InventoryComponent>(entitySprayed, out var inventoryComponent))
                 return false;
@@ -160,8 +160,8 @@ namespace Content.Server.Chemistry.EntitySystems
             foreach (var slot in new[] { "head", "eyes", "mask" })
             {
                 _inventory.TryGetSlotEntity(entitySprayed, slot, out var item, inventoryComponent);
-                return (TryComp<FlashImmunityComponent>(item, out var flashImmunityComponent) &&
-                        flashImmunityComponent.Enabled);
+                if (TryComp<FlashImmunityComponent>(item, out var flashImmunityComponent) && flashImmunityComponent.Enabled)
+                    args.Cancelled = true;
             }
             return false; // Goobstation - End
         }
