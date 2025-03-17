@@ -60,7 +60,7 @@ public abstract class SharedFishingSystem : EntitySystem
         UpdateFishing();
     }
 
-    protected void UpdateFishing()
+    private void UpdateFishing()
     {
         if (!Timing.IsFirstTimePredicted)
             return;
@@ -73,6 +73,9 @@ public abstract class SharedFishingSystem : EntitySystem
             {
                 var elapsedTime = currentTime - fisherComp.StartTime;
                 var totalDuration = fisherComp.EndTime - fisherComp.StartTime;
+                if (Timing.InPrediction)
+                    totalDuration += TimeSpan.FromSeconds(1); // Client works faster than the server, so we apply that to also count lag.
+
                 fisherComp.TotalProgress = (float) (elapsedTime.Value.TotalSeconds / totalDuration.Value.TotalSeconds);
             }
 

@@ -19,18 +19,12 @@
         shape:
           !type:PhysShapeAabb
           bounds: "-0.25,-0.25,0.25,0.25"
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        - Opaque
         layer:
-        - MidImpassable
+        - ItemMask
+        mask:
         - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
+        density: 1000
+        hard: false
   - type: Transform
     anchored: true
     noRot: true
