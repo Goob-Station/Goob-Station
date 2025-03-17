@@ -14,9 +14,9 @@
     head: ClothingHeadHelmetSwat
 
 - type: loadout
-  id: BlueshieldOfficerHeadTrooper
+  id: BlueshieldOfficerBeret
   equipment:
-    head: ClothingHeadHatSecurityTrooper # NO NAVY OFFICER HAT FOR YOU
+    head: ClothingHeadHatBeretBlueshield # Here's your beret back Gallagin.
 
 - type: loadout
   id: BlueshieldOfficerHeadCowboy

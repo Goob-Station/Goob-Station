@@ -1,11 +1,11 @@
 metabolizer-type-animal = Animal
 metabolizer-type-bloodsucker = Bloodsucker
 metabolizer-type-dragon = Dragon
-metabolizer-type-human = Human
+metabolizer-type-human = Pony
 metabolizer-type-slime = Slime
-metabolizer-type-vox = Vox
+metabolizer-type-vox = Pegasus
 metabolizer-type-rat = Rat
 metabolizer-type-plant = Plant
-metabolizer-type-dwarf = Dwarf
+metabolizer-type-dwarf = Short Pony
 metabolizer-type-moth = Moth
-metabolizer-type-arachnid = Arachnid
+metabolizer-type-arachnid = Spider Pony Pony

@@ -26,7 +26,7 @@ namespace Content.Server._Goobstation.ServerCurrency
         [Dependency] private readonly IConfigurationManager _cfg = default!;
 
         private int _goobcoinsPerPlayer = 10;
-        private int _goobcoinsNonAntagMultiplier = 3;
+        private int _goobcoinsNonAntagMultiplier = 1;
         private int _goobcoinsServerMultiplier = 1;
         private int _goobcoinsMinPlayers;
 
@@ -34,7 +34,6 @@ namespace Content.Server._Goobstation.ServerCurrency
         {
             base.Initialize();
             _currencyMan.BalanceChange += OnBalanceChange;
-            SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundEndCleanup);
             SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndText);
             SubscribeNetworkEvent<PlayerBalanceRequestEvent>(OnBalanceRequest);
             Subs.CVar(_cfg, GoobCVars.GoobcoinsPerPlayer, value => _goobcoinsPerPlayer = value, true);
@@ -47,11 +46,6 @@ namespace Content.Server._Goobstation.ServerCurrency
         {
             base.Shutdown();
             _currencyMan.BalanceChange -= OnBalanceChange;
-        }
-
-        private void OnRoundEndCleanup(RoundRestartCleanupEvent ev)
-        {
-            _currencyMan.Save();
         }
 
         private void OnRoundEndText(RoundEndTextAppendEvent ev)

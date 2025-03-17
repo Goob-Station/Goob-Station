@@ -102,6 +102,18 @@
   id: EmergencyOxygenTank
 
 - type: Tag
+  id: EnergySpeedloader
+
+- type: Tag
+  id: EnergySpeedloaderDisabler
+
+- type: Tag
+  id: EnergySpeedloaderLethal
+
+- type: Tag
+  id: EnergySpeedloaderTerminate
+
+- type: Tag
   id: ExtendedEmergencyOxygenTank
 
 - type: Tag
@@ -301,6 +313,9 @@
 
 - type: Tag
   id: Tourniquet
+
+- type: Tag
+  id: ToyGrenade
 
 - type: Tag
   id: ToySword

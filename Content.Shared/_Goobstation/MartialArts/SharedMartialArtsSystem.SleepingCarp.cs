@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Shared._Goobstation.MartialArts.Components;
 using Content.Shared._Goobstation.MartialArts.Events;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Interaction.Events;
@@ -29,15 +30,15 @@ public partial class SharedMartialArtsSystem
         if (!_netManager.IsServer)
             return;
 
-        if (ent.Comp.Used)
-            return;
-        if (ent.Comp.UseAgainTime == TimeSpan.Zero)
+        var studentComp = EnsureComp<SleepingCarpStudentComponent>(args.User);
+
+        if (studentComp.UseAgainTime == TimeSpan.Zero)
         {
-            CarpScrollDelay(ent, args.User);
+            CarpScrollDelay((args.User, studentComp));
             return;
         }
 
-        if (_timing.CurTime < ent.Comp.UseAgainTime)
+        if (_timing.CurTime < studentComp.UseAgainTime)
         {
             _popupSystem.PopupEntity(
                 Loc.GetString("carp-scroll-waiting"),
@@ -47,19 +48,18 @@ public partial class SharedMartialArtsSystem
             return;
         }
 
-        switch (ent.Comp.Stage)
+        switch (studentComp.Stage)
         {
             case < 3:
-                CarpScrollDelay(ent, args.User);
+                CarpScrollDelay((args.User, studentComp));
                 break;
             case >= 3:
-                if (!TryGrant(ent.Comp, args.User))
+                if (!TryGrantMartialArt(args.User, ent.Comp))
                     return;
                 var userReflect = EnsureComp<ReflectComponent>(args.User);
                 userReflect.ReflectProb = 1;
                 userReflect.Spread = 60;
                 userReflect.OtherTypeReflectProb = 0.25f;
-                ent.Comp.Used = true;
                 _popupSystem.PopupEntity(
                     Loc.GetString("carp-scroll-complete"),
                     ent,
@@ -69,7 +69,7 @@ public partial class SharedMartialArtsSystem
         }
     }
 
-    private void CarpScrollDelay(Entity<GrantSleepingCarpComponent> ent, EntityUid user)
+    private void CarpScrollDelay(Entity<SleepingCarpStudentComponent> ent)
     {
         var time = new System.Random().Next(ent.Comp.MinUseDelay, ent.Comp.MaxUseDelay);
         ent.Comp.UseAgainTime = _timing.CurTime + TimeSpan.FromSeconds(time);
@@ -77,7 +77,7 @@ public partial class SharedMartialArtsSystem
         _popupSystem.PopupEntity(
             Loc.GetString("carp-scroll-advance"),
             ent,
-            user,
+            ent,
             PopupType.Medium);
     }
 
@@ -89,28 +89,26 @@ public partial class SharedMartialArtsSystem
         ref SleepingCarpGnashingTeethPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out _))
+            || !_proto.TryIndex<MartialArtPrototype>(proto.MartialArtsForm.ToString(), out var martialArtProto)
+            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed))
             return;
 
-        if (!TryComp<MartialArtsKnowledgeComponent>(ent.Owner, out var knowledgeComponent))
-            return;
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage + ent.Comp.ConsecutiveGnashes * 5, out _);
         ent.Comp.ConsecutiveGnashes++;
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg"), target);
-        if (TryComp<RequireProjectileTargetComponent>(target, out var standing)
-            && !standing.Active)
+        if (!downed)
         {
             var saying =
-                knowledgeComponent.RandomSayings.ElementAt(
-                    _random.Next(knowledgeComponent.RandomSayings.Count));
+                martialArtProto.RandomSayings.ElementAt(
+                    _random.Next(martialArtProto.RandomSayings.Count));
             var ev = new SleepingCarpSaying(saying);
             RaiseLocalEvent(ent, ev);
         }
         else
         {
             var saying =
-                knowledgeComponent.RandomSayingsDowned.ElementAt(
-                    _random.Next(knowledgeComponent.RandomSayingsDowned.Count));
+                martialArtProto.RandomSayingsDowned.ElementAt(
+                    _random.Next(martialArtProto.RandomSayingsDowned.Count));
             var ev = new SleepingCarpSaying(saying);
             RaiseLocalEvent(ent, ev);
         }
@@ -120,13 +118,21 @@ public partial class SharedMartialArtsSystem
         ref SleepingCarpKneeHaulPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed)
-            || downed)
+            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed))
             return;
 
-        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
-        _stun.TryParalyze(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
+        if (!downed)
+        {
+            DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
+            _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
+            _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
+        }
+        else
+        {
+            DoDamage(ent, target, proto.DamageType, proto.ExtraDamage / 2, out _);
+            _stamina.TakeStaminaDamage(target, proto.StaminaDamage - 20);
+            _hands.TryDrop(target);
+        }
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
@@ -147,7 +153,7 @@ public partial class SharedMartialArtsSystem
         var dir = hitPos - mapPos;
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
-        _grabThrowing.Throw(target, ent, dir, proto.ThrownSpeed, proto.StaminaDamage / 2, damage);
+        _grabThrowing.Throw(target, ent, dir, proto.ThrownSpeed, damage);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
         ComboPopup(ent, target, proto.Name);
     }

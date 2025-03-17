@@ -116,9 +116,9 @@
     duration: null
     occursDuringRoundEnd: false
     chaos:
-      Hostile: 100
-      Medical: 100
-      Death: 100
+      Hostile: 250
+      Medical: 250
+      Death: 250
   - type: AntagSelection
     selectionTime: PostPlayerSpawn
     definitions:

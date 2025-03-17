@@ -11,6 +11,10 @@ using Content.Shared.Movement.Systems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
+using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Destructible;
+using Content.Shared.FixedPoint;
+using Content.Shared.Damage;
 
 namespace Content.Shared.Vehicles;
 
@@ -43,6 +47,9 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         SubscribeLocalEvent<VehicleComponent, HornActionEvent>(OnHorn);
         SubscribeLocalEvent<VehicleComponent, SirenActionEvent>(OnSiren);
+        SubscribeLocalEvent<VehicleComponent, ItemSlotEjectAttemptEvent>(OnItemSlotEject);
+        SubscribeLocalEvent<VehicleComponent, BreakageEventArgs>(OnBreak);
+        SubscribeLocalEvent<VehicleComponent, DamageChangedEvent>(OnRepair);
     }
 
     private void OnInit(EntityUid uid, VehicleComponent component, ComponentInit args)
@@ -66,28 +73,35 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         if (HasComp<InstantActionComponent>(args.Entity))
             return;
 
-        component.EngineRunning = true;
-        _appearance.SetData(component.Owner, VehicleState.Animated, true);
+        if (args.Container.ID == component.KeySlot && !component.IsBroken)
+        {
+            component.EngineRunning = true;
+            _appearance.SetData(uid, VehicleState.Animated, true);
 
-        _ambientSound.SetAmbience(component.Owner, true);
+            _ambientSound.SetAmbience(uid, true);
 
-        if (component.Driver == null)
-            return;
 
-        Mount(component.Driver.Value, component.Owner);
+            if (component.Driver == null)
+                return;
+
+            Mount(component.Driver.Value, uid);
+        }
     }
 
     private void OnEject(EntityUid uid, VehicleComponent component, ref EntRemovedFromContainerMessage args)
     {
-        component.EngineRunning = false;
-        _appearance.SetData(component.Owner, VehicleState.Animated, false);
+        if (args.Container.ID == component.KeySlot)
+        {
+            component.EngineRunning = false;
+            _appearance.SetData(uid, VehicleState.Animated, false);
 
-        _ambientSound.SetAmbience(component.Owner, false);
+            _ambientSound.SetAmbience(uid, false);
 
-        if (component.Driver == null)
-            return;
+            if (component.Driver == null)
+                return;
 
-        Dismount(component.Driver.Value, component.Owner);
+            Dismount(component.Driver.Value, uid);
+        }
     }
 
     private void OnHorn(EntityUid uid, VehicleComponent component, InstantActionEvent args)
@@ -101,7 +115,7 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         if (component.HornSound == null)
             return;
 
-        _audio.PlayPvs(component.HornSound, component.Owner);
+        _audio.PlayPvs(component.HornSound, uid);
         args.Handled = true;
     }
 
@@ -128,7 +142,6 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         component.SirenEnabled = !component.SirenEnabled;
         args.Handled = true;
     }
-
 
     private void OnStrapAttempt(Entity<VehicleComponent> ent, ref StrapAttemptEvent args)
     {
@@ -191,8 +204,8 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         _buckle.TryUnbuckle(args.User, args.User);
 
-        Dismount(args.User, comp.Owner);
-        _appearance.SetData(comp.Owner, VehicleState.DrawOver, false);
+        Dismount(args.User, uid);
+        _appearance.SetData(uid, VehicleState.DrawOver, false);
     }
 
     private void AddHorns(EntityUid driver, EntityUid vehicle)
@@ -246,6 +259,43 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         if (TryComp<AccessComponent>(vehicle, out var accessComp))
             accessComp.Tags.Clear();
     }
+
+    private void OnItemSlotEject(EntityUid uid, VehicleComponent comp, ref ItemSlotEjectAttemptEvent args)
+    {
+        if (!comp.PreventEjectOfKey)
+            return;
+        if (comp.Driver == null)
+            return;
+        if (args.Slot.ID != comp.KeySlot)
+            return;
+        if (args.User == comp.Driver)
+            return;
+
+        args.Cancelled = true;
+    }
+
+    private void OnBreak(EntityUid uid, VehicleComponent component, BreakageEventArgs args)
+    {
+        component.IsBroken = true;
+
+        //remove dirvers ability to drive if there is a driver
+        if (component.Driver != null)
+            Dismount(component.Driver.Value, uid);
+
+        //stop animation
+        component.EngineRunning = false;
+        _appearance.SetData(uid, VehicleState.Animated, false);
+        _ambientSound.SetAmbience(uid, false);
+    }
+
+    private void OnRepair(EntityUid uid, VehicleComponent component, DamageChangedEvent args)
+    {
+        if (!component.IsBroken)
+            return;
+        if (args.Damageable.TotalDamage == FixedPoint2.Zero)
+            component.IsBroken = false;
+    }
+
 }
 
 public sealed partial class HornActionEvent : InstantActionEvent;

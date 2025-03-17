@@ -46,6 +46,13 @@ public sealed partial class EggLayerComponent : Component
     [DataField]
     public float HungerUsage = 60f;
 
+    /// <summary>
+    ///     Goobstation.
+    ///     Whether given entity needs to have HungerComponent in order to lay eggs
+    /// </summary>
+    [DataField]
+    public bool HungerRequired = false;
+
     [DataField] public EntityUid? Action;
 
     /// <summary>

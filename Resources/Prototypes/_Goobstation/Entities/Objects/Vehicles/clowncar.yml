@@ -1,0 +1,156 @@
+- type: entity
+  parent: BaseVehicle
+  id: VehicleClowncarBase
+  name: clown car
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Vehicles/clowncar.rsi
+    layers:
+    - state: clowncar
+      map: ["enum.ClowncarLayers.Base"]
+    netsync: false
+    noRot: true
+  - type: Vehicle
+    renderOver: North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest
+    requiredHands: 1
+    hornSound:
+      collection: BikeHorn
+      params:
+        variation: 0.125
+  - type: MovementSpeedModifier
+    weightlessModifier: 0
+    acceleration: 1
+    friction: 1
+    baseWalkSpeed: 4.5
+    baseSprintSpeed: 7
+  - type: ItemSlots
+    slots:
+      key_slot:
+        name: vehicle-slot-component-slot-name-keys
+        whitelist:
+          requireAll: true
+          tags:
+          - VehicleKey
+          - BikeHorn
+        insertSound:
+          path: /Audio/Effects/Vehicle/vehiclestartup.ogg
+          params:
+            volume: -3
+  - type: Strap
+    buckleOnInteractHand: false
+    addBuckleverb: false
+    allowOthersToUnbuckle: false
+    unbuckleSound:
+      collection: ClowncarCrash
+    whitelist:
+      components:
+      - Clumsy # clown only
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    enabled: false
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    radius: 3.5
+    softness: 2
+    netsync: false
+  - type: ContainerContainer
+    containers:
+      clowncar_container: !type:Container
+  - type: ExtendedContainer
+    containerName: clowncar_container
+    deleteContentsOnBreak: false
+    capacity: 6
+    insertSound:
+      collection: ClowncarLoad
+      params:
+        volume: 4
+    removeSound:
+      collection: ClowncarCrash
+  - type: DragInsertContainer
+    containerId: clowncar_container
+    entryDelay: 2
+    useVerbs: false
+  - type: RemoveFromContainerOnCollide
+    container: clowncar_container
+    requiredVelocity: 3
+    removeEverything: true
+    collidableEntities:
+      components:
+      - HumanoidAppearance
+      - KnockedDown
+      - Item
+      - SlowContacts
+      - Puddle
+      - Airlock
+      - Door
+      - Strap
+      - Body
+      - Holopad
+  - type: Clowncar
+    container: clowncar_container
+    cannonActivateSound:
+      path: "/Audio/_Goobstation/Vehicle/Clowncar/clowncar_activate_cannon.ogg"
+      params:
+        volume: 5
+    cannonDeactivateSound:
+      path: "/Audio/_Goobstation/Vehicle/Clowncar/clowncar_deactivate_cannon.ogg"
+      params:
+        volume: 5
+  - type: TriggerOnSolutionInsert
+    solutionName: IrishCarBomb
+    minAmount: 30
+  - type: Explosive # Explosive banana peel
+    explosionType: Default
+    totalIntensity: 25
+    intensitySlope: 5
+    maxIntensity: 3
+    canCreateVacuum: false
+    deleteAfterExplosion: false
+    repeatable: true # if it managed to survuve.
+  - type: ExplodeOnTrigger
+  - type: SpawnSolutionOnDamage
+    solution: PuddleSpaceLube
+    threshold: 5
+    probability: 0.33
+  - type: Damageable
+    damageContainer: ClowncarDamageContainer
+    damageModifierSet: Metallic
+
+- type: entity
+  parent: VehicleClowncarBase
+  id: VehicleClowncarAntag
+  description: How someone could even fit in there is byond me.
+  components:
+  - type: InsertToContainerOnCollide
+    container: clowncar_container
+    requiredVelocity: 3
+    insertableEntities:
+      components:
+      - HumanoidAppearance
+    blacklistedEntities:
+      components:
+      - KnockedDown
+  - type: ExtendedContainer
+    containerName: clowncar_container
+    deleteContentsOnBreak: false
+    capacity: 50
+    insertSound:
+      collection: ClowncarLoad
+      params:
+        volume: 4
+
+- type: entity
+  parent: VehicleClowncarBase
+  id: VehicleClowncarTrainee
+  name: trainee clown car
+  description: Carry mostly willing passengers around! Be careful with collisions!.
+  components:
+  - type: ExtendedContainer
+    containerName: clowncar_container
+    deleteContentsOnBreak: false
+    capacity: 5
+    insertSound:
+      collection: ClowncarLoad
+      params:
+        volume: 4
