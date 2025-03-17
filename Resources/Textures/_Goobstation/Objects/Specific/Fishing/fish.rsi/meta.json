@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "bingle, boy_fisher, gib, disk, nuker, pufferfish by arraydeess (discord), clown, tropical, mutant, alien, bluefintuna, blob, toxic by imasleeping (discord)",
+    "copyright": "bingle, boy_fisher, gib, disk, nuker, pufferfish by arraydeess (discord), clown, tropical, mutant, alien, bluefintuna, blob, toxic by imasleeping (discord), ian fish by latibulate_ (discord)",
     "size": {
         "x": 32,
         "y": 32
@@ -87,6 +87,9 @@
         },
         {
             "name": "tropical"
+        },
+        {
+            "name": "ian"
         }
     ]
 }

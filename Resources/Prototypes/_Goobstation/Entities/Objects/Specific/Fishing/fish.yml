@@ -179,7 +179,7 @@
   id: FishPuffer
   parent: BaseFish
   name: puffer fish
-  description: 
+  description:
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
@@ -232,5 +232,17 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
     state: tropical
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: FishIan
+  parent: BaseFishRare
+  name: ian fish
+  description: Water-born ian from the sea.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+    state: ian
   - type: Item
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
