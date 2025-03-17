@@ -2,7 +2,7 @@
   parent: Holoprojector
   id: HoloprojectorSecurityAdvanced
   name: advanced holobarrier projector
-  description: An advanced barrier projector, capable of projecting more durable & secure barriers. Passively recharges.
+  description: An advanced barrier projector, capable of projecting more durable & secure barriers.
   components:
   - type: HolosignProjector
     signProto: HolosignSecurityAdvanced
@@ -10,12 +10,12 @@
   - type: Sprite
     sprite: Objects/Devices/Holoprojectors/security.rsi
     state: icon
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 5
   - type: Tag
     tags:
     - HolofanProjector
     - SecBeltEquip
-  - type: StaticPrice
-    price: 50
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
