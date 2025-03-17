@@ -30,9 +30,11 @@
     clothingPrototypes: #goobstation change
       head: ClothingHeadHelmetHardsuitCombatStandard
   - type: AllowSuitStorage
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.6
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 1
-    knockdownTimeDelta: -1
+    delayDelta: 3
+    knockdownTimeDelta: -3
 
 - type: entity
   parent: [ClothingOuterHardsuitCombatStandard,BaseCommandContraband]
@@ -80,9 +82,11 @@
     clothingPrototypes: #goobstation change
       head: ClothingHeadHelmetHardsuitCombatMedical
   - type: AllowSuitStorage
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.6
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 1
-    knockdownTimeDelta: -1
+    delayDelta: 3
+    knockdownTimeDelta: -3
 
 # Riot Combat Hardsuits
 - type: entity
@@ -116,3 +120,7 @@
     clothingPrototypes: #goobstation change
       head: ClothingHeadHelmetHardsuitCombatRiot
   - type: AllowSuitStorage
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.5
+  - type: ModifyDelayedKnockdown # Goobstation
+    cancel: true

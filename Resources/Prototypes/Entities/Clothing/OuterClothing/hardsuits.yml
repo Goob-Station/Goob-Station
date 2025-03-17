@@ -128,9 +128,11 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitSpatio
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.7
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 1
-    knockdownTimeDelta: -1
+    delayDelta: 2
+    knockdownTimeDelta: -2
   - type: Tag
     tags:
     - Hardsuit
@@ -168,9 +170,11 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitSalvage
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.6
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 1.5
-    knockdownTimeDelta: -1.5
+    delayDelta: 2.5
+    knockdownTimeDelta: -2.5
 
 #Goliath Hardsuit
 - type: entity
@@ -210,6 +214,11 @@
   - type: Construction
     graph: HardsuitGoliath
     node: hardsuitGoliath
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.6
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2.5
+    knockdownTimeDelta: -2.5
 
 #Maxim Hardsuit
 - type: entity
@@ -244,9 +253,11 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitMaxim
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.5
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 2
-    knockdownTimeDelta: -2
+    delayDelta: 3
+    knockdownTimeDelta: -3
 
 #Security Hardsuit
 - type: entity
@@ -279,9 +290,11 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitSecurity
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.6
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 2
-    knockdownTimeDelta: -2
+    delayDelta: 3
+    knockdownTimeDelta: -3
 
 #Brigmedic Hardsuit
 - type: entity
@@ -311,9 +324,11 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitBrigmedic
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.6
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 2
-    knockdownTimeDelta: -2
+    delayDelta: 3
+    knockdownTimeDelta: -3
 
 #Warden's Hardsuit
 - type: entity
@@ -346,9 +361,11 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitWarden
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.5
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 2
-    knockdownTimeDelta: -2
+    delayDelta: 3
+    knockdownTimeDelta: -3
 
 #Captain's Hardsuit
 - type: entity
@@ -382,9 +399,11 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitCap
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.5
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 2
-    knockdownTimeDelta: -2
+    delayDelta: 3
+    knockdownTimeDelta: -3
 
 #Chief Engineer's Hardsuit
 - type: entity
@@ -497,6 +516,8 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.5
 
 #Head of Security's Hardsuit
 - type: entity
@@ -531,8 +552,10 @@
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitSecurityRed
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 2
-    knockdownTimeDelta: -2
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.5
 
 #Luxury Mining Hardsuit
 - type: entity
@@ -566,6 +589,11 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitLuxury
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.7
 
 #ANTAG HARDSUITS
 #Blood-red Hardsuit
@@ -608,8 +636,10 @@
     - Hardsuit
     - WhitelistChameleon
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 2
-    knockdownTimeDelta: -2
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.5
 
 # Syndicate Medic Hardsuit
 - type: entity
@@ -630,8 +660,10 @@
     - Hardsuit
     - WhitelistChameleon
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 2
-    knockdownTimeDelta: -2
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.5
 
 #Syndicate Elite Hardsuit
 - type: entity
@@ -673,8 +705,10 @@
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitSyndieElite
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 2
-    knockdownTimeDelta: -2
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.5
 
 #Syndicate Commander Hardsuit
 - type: entity
@@ -709,8 +743,10 @@
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitSyndieCommander
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 2
-    knockdownTimeDelta: -2
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.4
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
@@ -745,8 +781,9 @@
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitCybersun
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 3
-    knockdownTimeDelta: -3
+    cancel: true
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.2
 
 #Wizard Hardsuit
 - type: entity
@@ -780,8 +817,9 @@
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitWizard
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 3
-    knockdownTimeDelta: -3
+    cancel: true
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.2
   - type: Tag # Goobstation
     tags:
     - Hardsuit
@@ -818,9 +856,10 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitLing
-  - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 2
-    knockdownTimeDelta: -2
+  - type: ModifyDelayedKnockdown
+    cancel: true
+  - type: StaminaDamageResistance
+    coefficient: 0.4
 
 #Pirate EVA Suit (Deep Space EVA Suit)
 #Despite visually appearing like a softsuit, it functions exactly like a hardsuit would (parents off of base hardsuit, has resistances and toggleable clothing, etc.) so it goes here.
@@ -855,8 +894,10 @@
   - type: StaticPrice
     price: 0
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 1
-    knockdownTimeDelta: -1
+    delayDelta: 2
+    knockdownTimeDelta: -2
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.7
 
 #Pirate Captain Hardsuit
 - type: entity
@@ -892,8 +933,10 @@
   - type: StaticPrice
     price: 0
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 1.5
-    knockdownTimeDelta: -1.5
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.5
 
 #CENTCOMM / ERT HARDSUITS
 #ERT Leader Hardsuit
@@ -1078,8 +1121,10 @@
     clothingPrototypes:
       head: ClothingHeadHelmetCBURN
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 2
-    knockdownTimeDelta: -2
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.5
 
 #MISC. HARDSUITS
 #Clown Hardsuit

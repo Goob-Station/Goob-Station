@@ -37,8 +37,10 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitChronolegioneer
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown
     cancel: true
+  - type: StaminaDamageResistance
+    coefficient: 0
 
 - type: entity
   parent: ClothingOuterHardsuitChronolegioneer
@@ -81,8 +83,10 @@
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitBlueshield
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 1.5
-    knockdownTimeDelta: -1.5
+    delayDelta: 2
+    knockdownTimeDelta: -2
+  - type: StaminaDamageResistance
+    coefficient: 0.6
 
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCentcommContraband]
@@ -116,8 +120,10 @@
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitBlueshield
   - type: ModifyDelayedKnockdown
-    delayDelta: 2
-    knockdownTimeDelta: -2
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: StaminaDamageResistance
+    coefficient: 0.5
 
 # Cybersun Stealth
 
@@ -165,8 +171,10 @@
       passiveVisibilityRate: -0.5
       movementVisibilityRate: 0.6
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 2
-    knockdownTimeDelta: -2
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: StaminaDamageResistance
+    coefficient: 0.5
 
 # cybersun dreadnought suit
 
@@ -220,7 +228,6 @@
       interval: 1.0
       ignoreResistances: true
   - type: StaminaDamageResistance
-    coefficient: 0.10 # 90% stamdgm resist
+    coefficient: 0
   - type: ModifyDelayedKnockdown
-    delayDelta: 6
-    knockdownTimeDelta: -4
+    cancel: true
