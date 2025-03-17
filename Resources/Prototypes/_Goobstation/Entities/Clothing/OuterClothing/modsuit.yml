@@ -392,3 +392,59 @@
     coefficient: 0.9
   - type: FireProtection
     reduction: 0.5
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingModsuitChestplateCaptain
+  name: magnate modsuit chestplate
+  description: This shit is made out of DIAMONDS, man, this armor was forged with GEMS.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: AllowSuitStorage
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/captain.rsi
+    layers:
+    - state: chestplate
+    - state: chestplate-sealed
+      visible: false
+      map: [ "sealed" ]
+  - type: Clothing
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    slots: [ outerClothing ]
+  - type: ClothingSpeedModifier
+    walkModifier: 0.90
+    sprintModifier: 0.90
+  - type: SealableClothing
+    sealUpPopup: sealable-clothing-seal-up-chestplate
+    sealDownPopup: sealable-clothing-seal-down-chestplate
+  - type: SealableClothingVisuals
+    visualLayers:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING-sealed
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.6
+        Heat: 0.5
+        Radiation: 0.4
+  - type: ComponentToggler
+    components:
+    - type: PressureProtection
+      highPressureMultiplier: 0.3
+      lowPressureMultiplier: 1000
+    - type: TemperatureProtection
+      coolingCoefficient: 0.1
+      heatingCoefficient: 0.4
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: StaminaDamageResistance
+    coefficient: 0.7
+  - type: FireProtection
+    reduction: 0.5
