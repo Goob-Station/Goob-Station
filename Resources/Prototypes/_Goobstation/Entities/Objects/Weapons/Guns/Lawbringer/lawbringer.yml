@@ -33,6 +33,7 @@
     - BulletDisabler
     - BulletEnergyGunLaser
     - BulletEnergyGunIon
+    - BulletClownshot
   - type: UserInterface
     interfaces:
       enum.AmmoSelectorUiKey.Key:

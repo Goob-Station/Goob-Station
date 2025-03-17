@@ -54,3 +54,13 @@
   color: blue
   protoId: BulletEnergyGunIon
   fireCost: 100
+
+- type: selectableAmmo
+  id: BulletEnergyGunClownshot
+  desc: Sends clowns FLYING.
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    state: omnilaser-blue
+  color: blue
+  protoId: BulletClownshot
+  fireCost: 100
