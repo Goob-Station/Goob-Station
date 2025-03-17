@@ -68,3 +68,38 @@
     maxItemSize: Normal
     grid:
     - 0,0,6,2
+
+- type: entity
+  parent: ClothingBeltSecurity
+  id: ClothingBeltCorporateJudo
+  name: Corporate Judo Belt
+  description: Teaches the wearer NT Corporate Judo.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Belt/judobelt.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Belt/judobelt.rsi
+  - type: GrantCorporateJudo
+  - type: Storage
+    whitelist:
+      tags:
+      - CigPack
+      - Taser
+      - SecBeltEquip
+      - Radio
+      - Sidearm
+      - MagazinePistol
+      - MagazineMagnum
+      - CombatKnife
+      - Truncheon
+      - BolaEnergy
+      components:
+      - FlashOnTrigger
+      - SmokeOnTrigger
+      - Flash
+      - Handcuff
+      - BallisticAmmoProvider
+      - CartridgeAmmo
+      - DoorRemote
+      - Whistle
+      - BalloonPopper
