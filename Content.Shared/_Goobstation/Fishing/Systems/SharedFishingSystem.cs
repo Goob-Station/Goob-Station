@@ -11,7 +11,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Actions;
-using Robust.Shared.GameStates;
 
 namespace Content.Shared._Goobstation.Fishing.Systems;
 
@@ -90,8 +89,11 @@ public abstract class SharedFishingSystem : EntitySystem
             {
                 var elapsedTime = currentTime - fisherComp.StartTime;
                 var totalDuration = fisherComp.EndTime - fisherComp.StartTime;
+
+                // Client works faster than the server, so we apply that to also count lag.
+                // TODO: fix this thing raaaaaagh
                 if (Timing.InPrediction)
-                    totalDuration += TimeSpan.FromSeconds(1f / Math.Abs(activeSpotComp.FishDifficulty) * 0.1f); // Client works faster than the server, so we apply that to also count lag.
+                    totalDuration += TimeSpan.FromSeconds(1f / Math.Abs(activeSpotComp.FishDifficulty) * 0.1f);
 
                 fisherComp.TotalProgress = (float) (elapsedTime.Value.TotalSeconds / totalDuration.Value.TotalSeconds);
             }
@@ -261,8 +263,8 @@ public abstract class SharedFishingSystem : EntitySystem
             // Rope visuals
             var visuals = EnsureComp<JointVisualsComponent>(fishFloat);
             visuals.Sprite = component.RopeSprite;
-            visuals.OffsetA = new Vector2(0f, 0f);
-            visuals.OffsetB = component.RopeOffset;
+            visuals.OffsetA = component.RopeLureOffset;
+            visuals.OffsetB = component.RopeUserOffset;
             visuals.Target = GetNetEntity(uid);
         }
 

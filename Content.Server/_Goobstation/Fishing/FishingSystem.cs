@@ -34,7 +34,7 @@ public sealed class FishingSystem : SharedFishingSystem
         var spotPosition = Xform.GetWorldPosition(attachedEnt);
         if (!FishSpotQuery.TryComp(attachedEnt, out var spotComp))
         {
-            if (args.OtherBody.BodyType == BodyType.Static)
+            if (args.OtherBody.BodyType != BodyType.Dynamic)
                 return;
 
             // Anchor fishing float on an entity
