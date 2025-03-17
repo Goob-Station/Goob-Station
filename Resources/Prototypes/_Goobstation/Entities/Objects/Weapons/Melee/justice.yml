@@ -56,6 +56,7 @@
           sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
           prefix: off
           storedRotation: -90
+          size: Huge
         - type: MeleeWeapon
           wideAnimationRotation: -135
           attackRate: 1
@@ -80,6 +81,7 @@
           sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
           prefix: stun
           storedRotation: -90
+          size: Huge
         - type: MeleeWeapon
           wideAnimationRotation: -135
           attackRate: 0.80
@@ -107,6 +109,7 @@
           sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
           prefix: ion
           storedRotation: -90
+          size: Huge
         - type: MeleeWeapon
           wideAnimationRotation: -135
           attackRate: 0.80
@@ -128,6 +131,7 @@
           sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
           prefix: lethal
           storedRotation: -90
+          size: Huge
         - type: MeleeWeapon
           wideAnimationRotation: -135
           attackRate: 0.80
@@ -149,6 +153,7 @@
           sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
           prefix: empowered
           storedRotation: -90
+          size: Huge
         - type: IgniteOnMeleeHit
           fireStacks: 4
         - type: MeleeWeapon
