@@ -56,7 +56,7 @@
   description: Smells like shit.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/bingle_meat.rsi
+    sprite: _Goobstation/Objects/Consumable/Food/bingle.rsi
     state: binglemeat
   - type: SolutionContainerManager
     solutions:
@@ -85,7 +85,7 @@
     - Meat
     - Steak
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/bingle_meat.rsi
+    sprite: _Goobstation/Objects/Consumable/Food/bingle.rsi
     state: cookedbinglemeat
   - type: SolutionContainerManager
     solutions:
