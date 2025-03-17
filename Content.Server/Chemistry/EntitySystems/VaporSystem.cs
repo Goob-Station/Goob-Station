@@ -16,7 +16,9 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
 using System.Numerics;
+using Content.Server.Flash;
 using Content.Server.Flash.Components;
+using Content.Shared.Inventory;
 
 namespace Content.Server.Chemistry.EntitySystems
 {
@@ -30,6 +32,7 @@ namespace Content.Server.Chemistry.EntitySystems
         [Dependency] private readonly ThrowingSystem _throwing = default!;
         [Dependency] private readonly ReactiveSystem _reactive = default!;
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+        [Dependency] private readonly InventorySystem _inventory = default!; // Goobstation
 
         private const float ReactTime = 0.125f;
 
@@ -49,7 +52,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 var solution = soln.Comp.Solution;
                 _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Touch);
 
-                if (!HasComp<FlashImmunityComponent>(args.OtherEntity)) // Goobstation - If the entity does not have flash protection, react in the eyes aswell.
+                if (!IsEyesProtected(entity, args))
                     _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Eyes);
 
             }
@@ -145,6 +148,21 @@ namespace Content.Server.Chemistry.EntitySystems
                 // Delete this
                 EntityManager.QueueDeleteEntity(entity);
             }
+
+        }
+
+        private bool IsEyesProtected(Entity<VaporComponent> ent, StartCollideEvent args)
+        {
+            if (!TryComp<InventoryComponent>(args.OtherEntity, out var inventoryComponent))
+                return false;
+
+            foreach (var slot in new[] { "head", "eyes", "mask" })
+            {
+                _inventory.TryGetSlotEntity(args.OtherEntity, slot, out var item, inventoryComponent);
+                return (TryComp<FlashImmunityComponent>(item, out var flashImmunityComponent) &&
+                        flashImmunityComponent.Enabled);
+            }
+            return false;
         }
     }
 }
