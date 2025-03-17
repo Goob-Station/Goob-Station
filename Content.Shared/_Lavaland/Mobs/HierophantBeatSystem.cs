@@ -26,7 +26,9 @@ public sealed class HierophantBeatSystem : EntitySystem
     private void OnRemove(EntityUid uid, HierophantBeatComponent component, ref ComponentRemove args)
     {
         _alertsSystem.ClearAlert(uid, component.HierophantBeatAlertKey);
-        RemComp<TileMovementComponent>(uid);
+
+        if (HasComp<TileMovementComponent>(uid))
+            RemComp<TileMovementComponent>(uid);
     }
 
     private void OnRefreshSpeed(EntityUid uid, HierophantBeatComponent component, ref RefreshMovementSpeedModifiersEvent args)
