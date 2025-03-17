@@ -31,11 +31,7 @@ namespace Content.Server._Goobstation.Security
         {
             if (!TryComp(ent.Owner, out UseDelayComponent? useDelay) ||
                 _useDelaySystem.IsDelayed((ent.Owner, useDelay)))
-            {
-                args.Handled = true;
                 return;
-            }
-
 
             args.ApplyDelay = true;
 
@@ -67,6 +63,17 @@ namespace Content.Server._Goobstation.Security
             var comp = ent.Comp;
             var uid = ent.Owner;
 
+            if (!TryComp(ent.Owner, out UseDelayComponent? useDelay))
+                return;
+
+            if (_useDelaySystem.IsDelayed((ent.Owner, useDelay)))
+                return;
+
+            _useDelaySystem.SetLength((uid, useDelay), comp.CoolDown, comp.DelayId);
+            _useDelaySystem.TryResetDelay((uid, useDelay), id: comp.DelayId);
+
+
+
             // Gets location of the implant
             var posText = FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString(uid));
             var distressMessage = Loc.GetString(comp.DistressMessage, ("position", posText));
@@ -74,11 +81,6 @@ namespace Content.Server._Goobstation.Security
             _radioSystem.SendRadioMessage(uid, distressMessage, _prototypeManager.Index<RadioChannelPrototype>(comp.RadioChannel), uid);
             args.Handled = true;
 
-            if (!TryComp(ent.Owner, out UseDelayComponent? useDelay))
-                return;
-
-            _useDelaySystem.SetLength((uid, useDelay), comp.CoolDown, comp.DelayId);
-            _useDelaySystem.TryResetDelay((uid, useDelay), id: comp.DelayId);
 
 
 
