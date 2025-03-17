@@ -123,6 +123,6 @@
   icon:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     state: omnilaser_greyscale
-  color: grey
+  color: gray
   protoId: BulletBigshot
   fireCost: 120
