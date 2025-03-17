@@ -50,8 +50,6 @@ public abstract class SharedFishingSystem : EntitySystem
         SubscribeLocalEvent<FishingRodComponent, UseInHandEvent>(OnFishingInteract);
         SubscribeLocalEvent<FishingRodComponent, ThrowFishingLureActionEvent>(OnThrowFloat);
         SubscribeLocalEvent<FishingRodComponent, PullFishingLureActionEvent>(OnPullFloat);
-
-        SubscribeLocalEvent<ActiveFishingSpotComponent, ComponentGetState>(OnFishingSpotGetState);
     }
 
     public override void Update(float frameTime)
@@ -323,15 +321,6 @@ public abstract class SharedFishingSystem : EntitySystem
         _actions.AddAction(player, ref component.ThrowLureActionEntity, component.ThrowLureActionId, uid);
 
         args.Handled = true;
-    }
-
-    private void OnFishingSpotGetState(EntityUid uid, ActiveFishingSpotComponent component, ref ComponentGetState args)
-    {
-        args.State = new ActiveFishingSpotComponentState(
-            component.FishDifficulty,
-            component.IsActive,
-            component.FishingStartTime,
-            GetNetEntity(component.AttachedFishingLure));
     }
 
     private void OnFishingRodInit(Entity<FishingRodComponent> ent, ref MapInitEvent args)
