@@ -119,8 +119,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         if (TryComp<CanPerformComboComponent>(ent, out var comboComponent))
             comboComponent.AllowedCombos.Clear();
 
-        var pullerComponent = EnsureComp<PullerComponent>(ent); 
-        pullerComponent.StageChangeCooldown *= 2;
+        EnsureComp<PullerComponent>(ent).StageChangeCooldown *= 2;
         //returning time of grab to avoid abuse of judo belt and etc.
     }
 
