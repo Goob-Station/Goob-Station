@@ -19,6 +19,18 @@ namespace Content.Server._Goobstation.Security
         public TimeSpan DoAfterDuration = TimeSpan.FromSeconds(4);
 
         /// <summary>
+        /// How long is the cooldown before you can send another message.
+        /// </summary>
+        [DataField]
+        public TimeSpan CoolDown = TimeSpan.FromSeconds(45);
+
+        /// <summary>
+        /// When is the next execution.
+        /// </summary>
+        [DataField]
+        public TimeSpan NextExecutionTime = default!;
+
+        /// <summary>
         /// Which channel to send the message over.
         /// </summary>
         [DataField]

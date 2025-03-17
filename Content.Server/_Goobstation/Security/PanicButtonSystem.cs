@@ -5,6 +5,7 @@ using Content.Shared._Goobstation.Security;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Radio;
+using Content.Shared.Timing;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -16,6 +17,7 @@ namespace Content.Server._Goobstation.Security
         [Dependency] private readonly RadioSystem _radioSystem = default!;
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly UseDelaySystem _useDelaySystem = default!;
 
         public override void Initialize()
         {
@@ -24,8 +26,15 @@ namespace Content.Server._Goobstation.Security
             SubscribeLocalEvent<PanicButtonComponent, PanicButtonDoAfterEvent>(OnDoAfterComplete);
         }
 
+
         private void OnButtonPressed(Entity<PanicButtonComponent> ent, ref UseInHandEvent args)
         {
+            if (_useDelaySystem.IsDelayed(ent.Owner))
+            {
+                args.Handled = true;
+                return;
+            }
+
             var comp = ent.Comp;
             var uid = args.User;
 
@@ -50,6 +59,8 @@ namespace Content.Server._Goobstation.Security
         {
             if (args.Handled || args.Cancelled || !args.Target.HasValue)
                 return;
+
+            _useDelaySystem.SetLength(ent.Owner, ent.Comp.CoolDown);
 
             var comp = ent.Comp;
             var uid = ent.Owner;
