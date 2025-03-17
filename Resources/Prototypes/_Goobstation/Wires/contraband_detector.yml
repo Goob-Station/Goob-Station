@@ -1,0 +1,8 @@
+- type: wireLayout
+  id: ContrabandDetector
+  dummyWires: 2
+  wires:
+  - !type:PowerWireAction
+  - !type:PowerWireAction
+  - !type:ContrabandDetectorBadChanceWireAction
+  - !type:ContrabandDetectorFakeScanWireAction

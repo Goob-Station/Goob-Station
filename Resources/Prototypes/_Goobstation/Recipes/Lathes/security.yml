@@ -307,6 +307,7 @@
 
 - type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
+  icon: { sprite: _Goobstation/Structures/Machines/contraband_detector.rsi, state: icon }
   id: ContrabandDetectorCircuitboard
   result: ContrabandDetectorCircuitboard
   completetime: 4
