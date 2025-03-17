@@ -1,0 +1,22 @@
+- type: constructionGraph
+  id: ToyGrenade
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: toygrenade
+          steps:
+            - tag: SnapPop
+              name: a snap pop
+              icon:
+                sprite: Objects/Fun/toys.rsi
+                state: snappop
+              doAfter: 1
+            - tag: MailCapsule
+              name: a mail capsule
+              icon:
+                sprite: _NF/Objects/Misc/mail_capsule.rsi
+                state: icon-empty
+              doAfter: 1
+    - node: toygrenade
+      entity: GrenadeToy
