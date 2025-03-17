@@ -63,11 +63,11 @@
       food:
         reagents:
         - ReagentId: UncookedAnimalProteins
-          Quantity: 9
+          Quantity: 10
         - ReagentId: Fat
           Quantity: 9
-        - ReagentId: Tranquility
-          Quantity: 10
+        - ReagentId: BingleJuice
+          Quantity: 1
   - type: Construction
     graph: BingleSteak
     node: start
@@ -92,11 +92,11 @@
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 9
         - ReagentId: Protein
-          Quantity: 5
-        - ReagentId: Tranquility
-          Quantity: 15
+          Quantity: 9
+        - ReagentId: BingleJuice
+          Quantity: 2
   - type: Construction
     graph: BingleSteak
     node: bingle steak
