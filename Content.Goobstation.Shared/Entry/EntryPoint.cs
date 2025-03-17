@@ -9,8 +9,6 @@ namespace Content.Goobstation.Shared.Entry;
 
 public sealed class EntryPoint : GameShared
 {
-    [Dependency] private readonly IPrototypeManager prototypeManager = default!;
-
     public override void PreInit()
     {
         IoCManager.InjectDependencies(this);

@@ -2,7 +2,6 @@ using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Analyzers;
 using Robust.Shared.Serialization.Manager.Attributes;
 
 namespace Content.Goobstation.Common.Bingle;
