@@ -49,7 +49,7 @@
           messages: [ "reagent-popup-binglejuice" ]
           probability: 0.2
       - !type:Polymorph
-        prototype: MobBingle
+        prototype: Bingle
         conditions:
         - !type:ReagentThreshold
           min: 25
