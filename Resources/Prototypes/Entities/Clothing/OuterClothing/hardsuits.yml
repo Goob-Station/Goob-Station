@@ -208,9 +208,6 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitGoliath
-  - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 1.5
-    knockdownTimeDelta: -1.5
   - type: Construction
     graph: HardsuitGoliath
     node: hardsuitGoliath

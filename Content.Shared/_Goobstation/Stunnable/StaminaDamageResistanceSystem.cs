@@ -20,7 +20,7 @@ public sealed partial class StaminaDamageResistanceSystem : EntitySystem
     }
     private void OnExamine(Entity<StaminaDamageResistanceComponent> ent, ref ArmorExamineEvent args)
     {
-        var percentage = (1 - ent.Comp.Coefficient) * 100;
+        var percentage = MathF.Round((1 - ent.Comp.Coefficient) * 100);
 
         if (percentage == 0)
             return;
