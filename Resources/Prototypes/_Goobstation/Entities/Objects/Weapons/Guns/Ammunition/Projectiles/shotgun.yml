@@ -216,5 +216,5 @@
       types:
         Blunt: 20 # ye-OUCH
   - type: StaminaDamageOnCollide
-    damage: 65 # ye-OW
+    damage: 80 # ye-OW
 
