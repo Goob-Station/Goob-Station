@@ -1,33 +1,38 @@
+using System;
 using System.Linq;
+using System.Text;
+using Content.Goobstation.Common.Supermatter;
+using Content.Goobstation.Shared.Supermatter.Components;
+using Content.Goobstation.Shared.Supermatter.Systems;
+using Content.Server.AlertLevel;
+using Content.Server.Atmos.EntitySystems;
+using Content.Server.Audio;
+using Content.Server.Chat.Systems;
+using Content.Server.DoAfter;
+using Content.Server.Explosion.EntitySystems;
+using Content.Server.Kitchen.Components;
+using Content.Server.Lightning;
+using Content.Server.Popups;
+using Content.Server.Station.Systems;
+using Content.Shared.Atmos;
+using Content.Shared.DoAfter;
+using Content.Shared.Examine;
+using Content.Shared.Interaction;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Projectiles;
+using Content.Shared.Radiation.Components;
+using Content.Shared.Tag;
+using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.GameObjects;
+using Robust.Shared.IoC;
+using Robust.Shared.Maths;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
-using Robust.Server.GameObjects;
-using Content.Shared.Atmos;
-using Content.Shared.Interaction;
-using Content.Shared.Projectiles;
-using Content.Shared.Tag;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Radiation.Components;
-using Content.Server.Audio;
-using Content.Server.Atmos.EntitySystems;
-using Content.Server.Chat.Systems;
-using Content.Server.Explosion.EntitySystems;
-using Content.Shared.Supermatter.Components;
-using Content.Shared.Supermatter.Systems;
-using Content.Server.Lightning;
-using Content.Server.AlertLevel;
-using Content.Server.Station.Systems;
-using System.Text;
-using Content.Server.Kitchen.Components;
-using Content.Shared.DoAfter;
-using Content.Shared.Examine;
-using Content.Server.DoAfter;
-using Content.Server.Popups;
 
-namespace Content.Server.Supermatter.Systems;
+namespace Content.Goobstation.Server.Supermatter.Systems;
 
 public sealed class SupermatterSystem : SharedSupermatterSystem
 {
@@ -348,7 +353,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         sm.Damage = Math.Min(sm.DamageArchived + sm.DamageHardcap * sm.DelaminationPoint, totalDamage);
 
-        // Return the manipulated gas back to the mix 
+        // Return the manipulated gas back to the mix
         _atmosphere.Merge(mix, absorbedGas);
     }
 
@@ -472,7 +477,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                 return DelamType.Singulo;
         }
 
-        if (sm.Power >= sm.PowerPenaltyThreshold) 
+        if (sm.Power >= sm.PowerPenaltyThreshold)
             return DelamType.Tesla;
 
         // TODO: add resonance cascade when there's crazy conditions, or a destabilizing crystal :godo:

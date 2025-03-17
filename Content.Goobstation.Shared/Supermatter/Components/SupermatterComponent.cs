@@ -1,12 +1,17 @@
-using Robust.Shared.GameStates;
-using Robust.Shared.Audio;
+using System;
+using System.Collections.Generic;
+using Content.Goobstation.Shared.Supermatter.Systems;
 using Content.Shared.Atmos;
-using Content.Shared.Supermatter.Systems;
-using Content.Shared.Whitelist;
 using Content.Shared.DoAfter;
+using Content.Shared.Whitelist;
+using Robust.Shared.Audio;
+using Robust.Shared.GameObjects;
+using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.Manager.Attributes;
+using Robust.Shared.ViewVariables;
 
-namespace Content.Shared.Supermatter.Components;
+namespace Content.Goobstation.Shared.Supermatter.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SupermatterComponent : Component

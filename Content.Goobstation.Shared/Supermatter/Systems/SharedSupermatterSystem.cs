@@ -1,7 +1,9 @@
-using Content.Shared.Supermatter.Components;
+using System;
+using Content.Goobstation.Shared.Supermatter.Components;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Supermatter.Systems;
+namespace Content.Goobstation.Shared.Supermatter.Systems;
 
 public abstract class SharedSupermatterSystem : EntitySystem
 {
