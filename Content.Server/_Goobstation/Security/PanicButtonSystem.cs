@@ -44,7 +44,7 @@ namespace Content.Server._Goobstation.Security
 
             // Gets location of the implant
             var posText = FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString(uid));
-            var distressMessage = Loc.GetString(component.DistressMessage, ("user", args.User), ("position", posText));
+            var distressMessage = Loc.GetString(component.DistressMessage, ("position", posText));
 
             _radioSystem.SendRadioMessage(uid, distressMessage, _prototypeManager.Index<RadioChannelPrototype>(component.RadioChannel), uid);
             args.Handled = true;
