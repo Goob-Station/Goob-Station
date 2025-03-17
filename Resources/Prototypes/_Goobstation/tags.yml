@@ -261,6 +261,9 @@
   id: Organ
 
 - type: Tag
+  id: PepperSpray
+
+- type: Tag
   id: Poppy
 
 - type: Tag
