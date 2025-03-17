@@ -1,1 +1,1 @@
-species-name-ipc = ROBOT PONY
+species-name-ipc = IPC
