@@ -13,11 +13,11 @@ namespace Content.Shared._Goobstation.Contracts;
 /// </summary>
 public sealed class SharedContractorSystem : EntitySystem
 {
-
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _userInterfaceSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -26,6 +26,7 @@ public sealed class SharedContractorSystem : EntitySystem
 
         SubscribeLocalEvent<ContractorComponent, MapInitEvent>(OnContractorMapInit);
         SubscribeLocalEvent<ContractorMarkerComponent, MapInitEvent>(OnMarkerMapInit);
+        SubscribeLocalEvent<ContractorComponent, UiButtonPressedMessage>(OnUiButtonPressed);
     }
 
     private void OnMarkerMapInit(Entity<ContractorMarkerComponent> ent, ref MapInitEvent args)
@@ -33,7 +34,7 @@ public sealed class SharedContractorSystem : EntitySystem
         var entitiesIntersecting = _lookupSystem.GetEntitiesIntersecting(ent.Owner.ToCoordinates());
         foreach (var entity in entitiesIntersecting)
         {
-            if(!TryComp<NavMapBeaconComponent>(entity, out var navMapBeaconComponent))
+            if (!TryComp<NavMapBeaconComponent>(entity, out var navMapBeaconComponent))
                 continue;
 
             if (navMapBeaconComponent.DefaultText == null)
@@ -47,24 +48,65 @@ public sealed class SharedContractorSystem : EntitySystem
     private void OnContractorMapInit(Entity<ContractorComponent> ent, ref MapInitEvent args)
     {
         SetupContracts(ent);
+        UpdateUi(ent);
+    }
+
+    private void UpdateUi(Entity<ContractorComponent> ent)
+    {
+        Logger.Debug("UpdateState");
+        if (!_userInterfaceSystem.HasUi(ent, ContractorUplinkUiKey.Key))
+            return;
+
+        var state = new ContractorUplinkBoundUserInterfaceState(ent.Comp.Tc,
+            ent.Comp.Contracts,
+            ent.Comp.Rep,
+            ent.Comp.CurrentTarget,
+            ent.Comp.CurrentExtractionPoint);
+        _userInterfaceSystem.SetUiState(ent.Owner, ContractorUplinkUiKey.Key, state);
+    }
+
+    private void OnUiButtonPressed(Entity<ContractorComponent> ent, ref UiButtonPressedMessage msg)
+    {
+        var user = msg.Actor;
+        if (!Exists(user))
+            return;
+
+        switch (msg.Button)
+        {
+            case UiButton.SelectTarget:
+                Log.Info("TEST");
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+
+
+        UpdateUi(ent);
     }
 
     private void SetupContracts(Entity<ContractorComponent> ent)
     {
-        if(_net.IsClient) // I really feel like this is the really lazy way of doing this instead of moving it to server but... alas we are here.
+        if (_net.IsClient) // I really feel like this is the really lazy way of doing this instead of moving it to server but... alas we are here.
             return;
 
         // get ready for the craziest linq maxing
         var possibleContracts = _mindSystem.GetAliveHumans();
 
         foreach (var humanoid in possibleContracts)
-        foreach (var mindRole in humanoid.Comp.MindRoles)
-            if (!TryComp<MindRoleComponent>(mindRole, out var mindRoleComp) || mindRoleComp.Antag || humanoid.Owner == ent.Owner)
+        foreach (var mindRole in humanoid.Comp.MindRoles) // cleanse the list of yourself
+            if (!TryComp<MindRoleComponent>(mindRole, out var mindRoleComp) || mindRoleComp.Antag ||
+                humanoid.Comp.OwnedEntity == ent.Owner || humanoid.Comp.OwnedEntity == null)
                 possibleContracts.Remove(humanoid);
+
+        if (possibleContracts.Count == 0)
+        {
+            Log.Debug("Not enough alive humanoids to generate a contract");
+            return;
+        }
 
         var targets = possibleContracts.OrderBy(x => _random.Next())
             .Take(5)
-            .Select(entity => GetNetEntity(entity.Owner))
+            .Select(entity => GetNetEntity(entity.Comp.OwnedEntity))
             .ToList();
 
         var query = EntityQueryEnumerator<ContractorMarkerComponent>();
@@ -77,7 +119,11 @@ public sealed class SharedContractorSystem : EntitySystem
 
         foreach (var target in targets)
         {
-            ent.Comp.Contracts.Add(target, markerList.OrderBy(x => _random.Next()).Take(3).ToList());
+            if (target == null)
+                return;
+
+            ent.Comp.Contracts.Add(target.Value, markerList.OrderBy(x => _random.Next()).Take(3).ToList());
         }
+        UpdateUi(ent);
     }
 }

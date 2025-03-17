@@ -1,47 +1,35 @@
 <controls:ContractorUplink
     xmlns="https://spacestation14.io"
-    xmlns:controls="clr-namespace:Content.Client._Goobstation.Contractor" MinSize="600 600">
+    xmlns:controls="clr-namespace:Content.Client._Goobstation.Contractor"
+    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
+    Access="Public"
+    MinSize="600 600">
     <PanelContainer>
         <BoxContainer Orientation="Vertical" Margin="5">
-            <!-- Header -->
-            <Label Text="Syndicate Contractor Uplink" />
-
-            <!-- Summary Section -->
             <PanelContainer>
+                <PanelContainer.PanelOverride>
+                    <graphics:StyleBoxFlat BackgroundColor="#202023"/>
+                </PanelContainer.PanelOverride>
                 <BoxContainer Orientation="Vertical" Margin="5">
                     <Label Text="Summary" />
-
+                    <customControls:HSeparator Margin="3 0" />
                     <BoxContainer Orientation="Horizontal">
-                        <Label Text="TC Available: 0 TC" />
-                        <Button Text="Claim" />
+                        <Label Margin="0 0 5 0" Text="TC Available: 0 TC" />
+                        <Button Margin="0 0 20 0" Text="Claim" />
                         <Label Text="Contracts Completed: 1" />
                     </BoxContainer>
-
-                    <Label Text="Contractor Status: ACTIVE" />
+                    <BoxContainer Orientation="Horizontal">
+                        <Label Margin="0 0 110 0" Text="TC Earned: 0 TC" />
+                        <Label Margin="0 0 0 0"  Text="Contractor Status: ACTIVE" />
+                    </BoxContainer>
                 </BoxContainer>
             </PanelContainer>
 
-            <!-- Contracts Section -->
             <Label Text="Contracts" />
 
             <ScrollContainer VerticalExpand="true">
-                <BoxContainer Orientation="Vertical">
-                    <!-- Example Contract Entry -->
-                    <PanelContainer>
-                        <BoxContainer Orientation="Vertical" Margin="5">
-                            <Label Text="Bill Nokingston, the Scientist" />
-
-                            <Label Text="Ransomeable to Nanotrasen for rebirthing a cult on NSS Cyberiad." />
-
-                            <Label Text="Extraction Zone:" />
-
-                            <GridContainer Columns="1">
-                                <Button Text="Fore Port Solar Maintenance (4 TC)" />
-                                <Button Text="Technical Storage (6 TC)" />
-                                <Button Text="Robotics Lab (6 TC)" />
-                            </GridContainer>
-                        </BoxContainer>
-                    </PanelContainer>
+                <BoxContainer Access="Public" Name="ContractContainer" Orientation="Vertical">
                 </BoxContainer>
             </ScrollContainer>
         </BoxContainer>

@@ -12,7 +12,6 @@ public sealed partial class ContractorComponent : Component
 {
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     [AutoNetworkedField]
-
     public Dictionary<NetEntity, List<NetEntity>> Contracts = new(5);
 
     [DataField]
@@ -21,27 +20,55 @@ public sealed partial class ContractorComponent : Component
 
     [DataField]
     [AutoNetworkedField]
-    public int Rep = 0;
+    public NetEntity CurrentExtractionPoint = NetEntity.Invalid;
+
+    [DataField]
+    [AutoNetworkedField]
+    public int Tc;
+
+    [DataField]
+    [AutoNetworkedField]
+    public int TotalTc;
+
+    [DataField]
+    [AutoNetworkedField]
+    public int Rep;
 }
 
 [RegisterComponent]
-public sealed partial class ContractorMarkerComponent : Component // this is stupid but station beacons can be moved so i need this i thinmk
+public sealed partial class ContractorMarkerComponent : Component
 {
     [DataField]
     public LocId? Name;
 }
 
 [Serializable, NetSerializable]
-public sealed class ContractorUplinkBoundUserInterfaceState(int tc, List<NetEntity> contracts) : BoundUserInterfaceState
+public sealed class ContractorUplinkBoundUserInterfaceState(
+    int tc,
+    Dictionary<NetEntity, List<NetEntity>> contracts,
+    int rep,
+    NetEntity currentTarget,
+    NetEntity currentExtractionPoint) : BoundUserInterfaceState
 {
     public readonly int Tc = tc;
-    public readonly List<NetEntity> Contracts = contracts;
+    public readonly int Rep = rep;
+    public readonly NetEntity CurrentTarget = currentTarget;
+    public readonly NetEntity CurrentExtractionPoint = currentExtractionPoint;
+    public readonly Dictionary<NetEntity, List<NetEntity>> Contracts = contracts;
 }
-
 
 [Serializable, NetSerializable]
 public enum ContractorUplinkUiKey
 {
-    Key
+    Key,
 }
 
+public enum UiButton
+{
+    SelectTarget
+}
+
+public sealed class UiButtonPressedMessage(UiButton button) : BoundUserInterfaceMessage
+{
+    public readonly UiButton Button = button;
+}

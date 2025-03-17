@@ -1,0 +1,22 @@
+<controls:Contract
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client._Goobstation.Contractor"
+    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    Access="Public">
+    <PanelContainer Margin="0 10">
+        <PanelContainer.PanelOverride>
+            <graphics:StyleBoxFlat BackgroundColor="#202023"/>
+        </PanelContainer.PanelOverride>
+        <BoxContainer Orientation="Horizontal" Margin="5">
+            <BoxContainer Orientation="Vertical">
+                <Label Access="Public" Name="TargetText" Text="Bill Nokingston, the Scientist" />
+                <Label Access="Public" Name="ReasonText" Text="Ransomeable to Nanotrasen for rebirthing a cult on NSS Cyberiad." />
+            </BoxContainer>
+            <BoxContainer Orientation="Vertical">
+                <Label Margin="10 0 0 0" Name="ExtractionText" Text="Extraction Zones:" />
+                <GridContainer Access="Public" Margin="10 0" Name="ExtractionOptions" Columns="1">
+                </GridContainer>
+            </BoxContainer>
+        </BoxContainer>
+    </PanelContainer>
+</controls:Contract>

@@ -16,6 +16,7 @@ namespace Content.Client._Goobstation.Contractor
             base.Open();
 
             _uplink = this.CreateWindow<ContractorUplink>();
+            _uplink.OnContractButtonClicked += ButtonPressed;
         }
 
         protected override void UpdateState(BoundUserInterfaceState state)
@@ -26,5 +27,10 @@ namespace Content.Client._Goobstation.Contractor
             _uplink?.UpdateState(castState); //Update window state
         }
 
+        public void ButtonPressed(UiButton button)
+        {
+            Logger.Debug("TEST");
+            SendMessage(new UiButtonPressedMessage(button));
+        }
     }
 }
