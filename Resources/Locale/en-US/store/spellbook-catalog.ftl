@@ -30,6 +30,12 @@ spellbook-mind-swap-description =
     Allows you to switch bodies with a target next to you. You will both be knocked down when this happens, and it will be quite obvious that you are the target's body if someone watches you do it.
     Doesn't work on changelings, heretics, ghouls, ghosts and temporary creatures.
     Doesn't require discord's robe and hat to cast.
+spellbook-tile-toggle-name = Tile Movement
+spellbook-tile-toggle-description = The assistant will not like this.
+spellbook-global-tile-toggle-name = Global Tile Movement
+spellbook-global-tile-toggle-description = The station will not like this.
+spellbook-curse-of-byond-name = Curse of Byond
+spellbook-curse-of-byond-description = Condemn your target to an eternity of suffering.
 
 # Equipment
 

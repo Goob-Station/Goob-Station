@@ -61,7 +61,7 @@
   - type: Extractable # Goobstation - Tilenol
     juiceSolution:
       reagents:
-      - ReagentId: Byondazine
+      - ReagentId: Nostalgia
         Quantity: 1
 
 - type: entity

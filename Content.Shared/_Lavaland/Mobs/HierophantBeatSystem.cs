@@ -1,8 +1,9 @@
-using Content.Server._Lavaland.Mobs.Hierophant.Components;
+using Content.Shared._Lavaland.Mobs.Components;
 using Content.Shared.Alert;
 using Content.Shared.Movement.Systems;
-
-namespace Content.Server._Lavaland.Mobs.Hierophant;
+using Content.Shared._vg.TileMovement;
+using System.Linq;
+namespace Content.Shared._Lavaland.Mobs;
 
 public sealed class HierophantBeatSystem : EntitySystem
 {
@@ -19,11 +20,13 @@ public sealed class HierophantBeatSystem : EntitySystem
     private void OnStartup(EntityUid uid, HierophantBeatComponent component, ref ComponentStartup args)
     {
         _alertsSystem.ShowAlert(uid, component.HierophantBeatAlertKey);
+        EnsureComp<TileMovementComponent>(uid);
     }
 
     private void OnRemove(EntityUid uid, HierophantBeatComponent component, ref ComponentRemove args)
     {
         _alertsSystem.ClearAlert(uid, component.HierophantBeatAlertKey);
+        RemComp<TileMovementComponent>(uid);
     }
 
     private void OnRefreshSpeed(EntityUid uid, HierophantBeatComponent component, ref RefreshMovementSpeedModifiersEvent args)

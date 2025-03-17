@@ -89,39 +89,13 @@
     entity: IngotSilver1
 
 - type: reaction
-  id: SolidifyGoldHercuri
-  impact: Low
-  quantized: true
-  reactants:
-    Gold:
-      amount: 10
-    Hercuri:
-      amount: 5
-  effects:
-  - !type:CreateEntityReactionEffect
-    entity: IngotGold1
-
-- type: reaction
-  id: SolidifySilverHercuri
-  impact: Low
-  quantized: true
-  reactants:
-    Silver:
-      amount: 10
-    Hercuri:
-      amount: 5
-  effects:
-  - !type:CreateEntityReactionEffect
-    entity: IngotSilver1
-
-- type: reaction
   id: Tilenol
   impact: Low
   quantized: true
   reactants:
     Copium:
       amount: 1
-    Byondazine:
+    Nostalgia:
       amount: 4
   products:
     Tilenol: 1

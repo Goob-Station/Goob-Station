@@ -18,7 +18,6 @@ using Content.Shared.Parallax.Biomes;
 using Content.Shared.Salvage;
 using Content.Shared.Shuttles.Components;
 using Robust.Server.GameObjects;
-using Robust.Server.Maps;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.EntitySerialization.Systems;
@@ -58,7 +57,6 @@ public sealed class LavalandPlanetSystem : EntitySystem
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
-    [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly ISerializationManager _serManager = default!;
@@ -291,9 +289,6 @@ public sealed class LavalandPlanetSystem : EntitySystem
         _metaData.SetEntityName(outpost, Loc.GetString("lavaland-planet-outpost"));
         var member = EnsureComp<LavalandMemberComponent>(outpost);
         member.SignalName = Loc.GetString("lavaland-planet-outpost");
-        var componentsToGrant = EnsureComp<LavalandGridGrantComponent>(spawned.Value);
-        foreach (var (key, comp) in ruin.ComponentsToGrant)
-            componentsToGrant.ComponentsToGrant[key] = comp;
 
         return true;
     }
@@ -506,6 +501,9 @@ public sealed class LavalandPlanetSystem : EntitySystem
         _metaData.SetEntityName(spawned.Value, Loc.GetString(ruin.Name));
         _transform.SetParent(spawned.Value, spawnedXForm, lavaland);
         _transform.SetCoordinates(spawned.Value, new EntityCoordinates(lavaland, spawnedXForm.Coordinates.Position.Rounded()));
+        var componentsToGrant = EnsureComp<LavalandGridGrantComponent>(spawned.Value);
+        foreach (var (key, comp) in ruin.ComponentsToGrant)
+            componentsToGrant.ComponentsToGrant[key] = comp;
 
         // yaaaaaaaaaaaaaaaay
         usedSpace.Add(ruinBox);

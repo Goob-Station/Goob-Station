@@ -5,4 +5,5 @@ flavor-complex-fentanyl = burning tar
 flavor-base-tears = salty tears
 flavor-base-alienblood = alien
 flavor-base-old = old
-flavor-base-robust = robustflavor-complex-unicorntears = like unicorn tears
+flavor-base-robust = robust
+flavor-complex-unicorntears = like unicorn tears

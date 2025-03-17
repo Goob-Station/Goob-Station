@@ -1,8 +1,8 @@
-using Robust.Shared.Prototypes;
+using Robust.Shared.GameStates;
 
-namespace Content.Server._Lavaland.Mobs.Hierophant.Components;
+namespace Content.Shared._Lavaland.Mobs.Components;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class HierophantBeatComponent : Component
 {
     [DataField]

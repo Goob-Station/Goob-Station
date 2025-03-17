@@ -76,6 +76,7 @@
   - type: NoRotateOnMove
   - type: Input
     context: "human"
+  - type: UnmannedWeaponry # Lavaland Change
 
 - type: entity
   parent: BaseWeaponTurret
@@ -97,7 +98,7 @@
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessRifle
     capacity: 500
-      
+
 - type: entity
   parent: BaseWeaponTurret
   id: BaseWeaponEnergyTurret

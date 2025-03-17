@@ -32,10 +32,10 @@ public sealed partial class HierophantBossComponent : MegafaunaComponent
     public float InterActionDelay = 1.5f * TileDamageDelay * 1000f;
 
     [DataField]
-    public float AttackCooldown = 4f * TileDamageDelay;
+    public float AttackCooldown = 4.5f * TileDamageDelay;
 
     [ViewVariables]
-    public float AttackTimer = 2f * TileDamageDelay;
+    public float AttackTimer = 2.5f * TileDamageDelay;
 
     [DataField]
     public float MinAttackCooldown = 1f * TileDamageDelay;

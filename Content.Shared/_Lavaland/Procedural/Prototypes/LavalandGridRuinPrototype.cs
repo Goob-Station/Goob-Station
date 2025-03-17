@@ -21,4 +21,10 @@ public sealed partial class LavalandGridRuinPrototype : IPrototype
 
     [DataField(required: true)]
     public int Priority = int.MinValue;
+
+    /// <summary>
+    /// List of components to grant to entities that enter the ruin.
+    /// </summary>
+    [DataField]
+    public ComponentRegistry ComponentsToGrant = new();
 }
