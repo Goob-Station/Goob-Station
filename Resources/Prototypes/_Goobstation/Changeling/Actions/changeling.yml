@@ -553,7 +553,7 @@
   - type: InstantAction
     useDelay: 1
     checkCanInteract: false
-    checkConciousness: false
+    checkConsciousness: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
