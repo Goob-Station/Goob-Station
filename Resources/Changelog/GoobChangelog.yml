@@ -6472,3 +6472,11 @@ Entries:
       message: Added the taiwan pond gun. Hack an autodrobe to see what it does.
   id: 748
   time: '2025-03-16T07:53:14.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: Restored Judo's combos to their original set of moves.
+    - type: Tweak
+      message: Krav maga leg sweep now does stamina damage instead of just a knockdown.
+  id: 749
+  time: '2025-03-17T06:21:09.0000000+00:00'
