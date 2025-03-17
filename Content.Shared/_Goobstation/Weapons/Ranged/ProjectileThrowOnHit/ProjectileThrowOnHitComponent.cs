@@ -1,15 +1,13 @@
-using Content.Shared._Goobstation.Boomerang;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Weapons.Melee.Components;
+namespace Content.Shared._Goobstation.Weapons.Ranged.ProjectileThrowOnHit;
 
 /// <summary>
-/// This is used for a melee weapon that throws whatever gets hit by it in a line
-/// until it hits a wall or a time limit is exhausted.
+/// This is used for a projectile that tosses entities it hits.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(MeleeThrowOnHitSystem), typeof(BoomerangSystem))] // Goobstation Edit
-public sealed partial class MeleeThrowOnHitComponent : Component
+[Access(typeof(ProjectileThrowOnHitSystem))]
+public sealed partial class ProjectileThrowOnHitComponent : Component
 {
     /// <summary>
     /// The speed at which hit entities should be thrown.
@@ -43,13 +41,13 @@ public sealed partial class MeleeThrowOnHitComponent : Component
 }
 
 /// <summary>
-/// Raised a weapon entity with <see cref="MeleeThrowOnHitComponent"/> to see if a throw is allowed.
+/// Raised a weapon entity with <see cref="ProjectileThrowOnHitComponent"/> to see if a throw is allowed.
 /// </summary>
 [ByRefEvent]
-public record struct AttemptMeleeThrowOnHitEvent(EntityUid Target, EntityUid? User, bool Cancelled = false, bool Handled = false);
+public record struct AttemptProjectileThrowOnHitEvent(EntityUid Target, EntityUid? User, bool Cancelled = false, bool Handled = false);
 
 /// <summary>
-/// Raised a target entity before it is thrown by <see cref="MeleeThrowOnHitComponent"/>.
+/// Raised a target entity before it is thrown by <see cref="ProjectileThrowOnHitComponent"/>.
 /// </summary>
 [ByRefEvent]
-public record struct MeleeThrowOnHitStartEvent(EntityUid Weapon, EntityUid? User);
+public record struct ProjectileThrowOnHitStartEvent(EntityUid Weapon, EntityUid? User);

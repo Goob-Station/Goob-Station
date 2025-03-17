@@ -1,0 +1,11 @@
+- type: entity
+  id: BulletClownshot
+  name: clownshot
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 25
+  - type: ProjectileThrowOnHit
