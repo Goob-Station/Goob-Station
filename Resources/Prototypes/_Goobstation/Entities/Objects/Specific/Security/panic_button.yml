@@ -9,3 +9,5 @@
     state: icon
   - type: PanicButton
     radioChannel: "Security"
+  - type: UseDelay
+    delay: 45
