@@ -17,7 +17,7 @@ accent-cheese-words-6 = disagree
 accent-cheese-words-replace-6 = disa-brie
 
 accent-cheese-words-7 = hello
-accent-cheese-words-replace-7 = halloumi
+accent-cheese-words-replace-7 = uhm, cheesed to meet you?
 
 accent-cheese-words-8 = great
 accent-cheese-words-replace-8 = grate
@@ -40,14 +40,11 @@ accent-cheese-words-replace-13 = bleu
 accent-cheese-words-14 = hi
 accent-cheese-words-replace-14 = uhm, cheesed to meet you?
 
-accent-cheese-words-15 = hello
-accent-cheese-words-replace-15 = uhm, cheesed to meet you?
+accent-cheese-words-15 = goodbye
+accent-cheese-words-replace-15 = gouda-bye
 
-accent-cheese-words-16 = goodbye
+accent-cheese-words-16 = bye
 accent-cheese-words-replace-16 = gouda-bye
 
-accent-cheese-words-17 = bye
+accent-cheese-words-17 = cya
 accent-cheese-words-replace-17 = gouda-bye
-
-accent-cheese-words-18 = cya
-accent-cheese-words-replace-18 = gouda-bye
