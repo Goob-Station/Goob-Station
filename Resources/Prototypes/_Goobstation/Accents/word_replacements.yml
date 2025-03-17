@@ -679,3 +679,20 @@
     accent-pony-words-22: accent-pony-words-replace-22
     accent-pony-words-23: accent-pony-words-replace-23
     accent-pony-words-24: accent-pony-words-replace-24
+
+- type: accent
+  id: rodentia
+  wordReplacements:
+    accent-rodentia-words-1: accent-rodentia-words-replace-1
+    accent-rodentia-words-2: accent-rodentia-words-replace-2
+    accent-rodentia-words-3: accent-rodentia-words-replace-3
+    accent-rodentia-words-4: accent-rodentia-words-replace-4
+    accent-rodentia-words-5: accent-rodentia-words-replace-5
+    accent-rodentia-words-6: accent-rodentia-words-replace-6
+    accent-rodentia-words-7: accent-rodentia-words-replace-7
+    accent-rodentia-words-8: accent-rodentia-words-replace-8
+    accent-rodentia-words-9: accent-rodentia-words-replace-9
+    accent-rodentia-words-10: accent-rodentia-words-replace-10
+    accent-rodentia-words-11: accent-rodentia-words-replace-11
+    accent-rodentia-words-12: accent-rodentia-words-replace-12
+    accent-rodentia-words-13: accent-rodentia-words-replace-13
