@@ -26,10 +26,10 @@ public sealed class TelecrystalMinerSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<TelecrystalMinerComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<TelecrystalMinerComponent, MapInitEvent>(OnStartup);
     }
 
-    private void OnStartup(EntityUid uid, TelecrystalMinerComponent component, ComponentStartup args)
+    private void OnStartup(EntityUid uid, TelecrystalMinerComponent component, MapInitEvent args)
     {
         var originStation = _station.GetOwningStation(uid);
 
