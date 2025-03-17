@@ -161,10 +161,6 @@
     damage:
       types:
         Heat: 0
-  - type: SolutionContainerManager
-    solutions:
-      ammo:
-        maxVol: 7
   - type: RefillableSolution
     solution: ammo
   - type: DrainableSolution
