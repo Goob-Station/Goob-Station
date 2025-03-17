@@ -7,5 +7,7 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Security/blueshieldundetermined.rsi # Placeholder
     state: icon
+  - type: Item
+    size: small
   - type: PanicButton
     radioChannel: "Security"
