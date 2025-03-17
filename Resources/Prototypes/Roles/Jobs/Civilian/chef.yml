@@ -17,8 +17,6 @@
   extendedAccess:
   - Hydroponics
   - Bar
-  special: # Goobstation - Martial Arts
-  - !type:AddComponentSpecial # Goobstation - Martial Arts
 
 - type: startingGear
   id: ChefGear
