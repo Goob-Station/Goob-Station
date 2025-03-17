@@ -30,6 +30,7 @@ using Content.Shared._Shitmed.Body.Components;
 using Content.Server.Flash.Components;
 using Content.Shared.StatusEffect;
 using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Temperature.Components;
 
 namespace Content.Server.Changeling;
 
@@ -850,7 +851,7 @@ public sealed partial class ChangelingSystem
                     EnsureComp<StealthOnMoveComponent>(uid);
                     _popup.PopupEntity(Loc.GetString("changeling-chameleon-start"), uid, uid);
                     comp.ChameleonActive = true;
-                    comp.ChemicalRegenReduction -= 0.25f; // base chem regen slowed by a flat 25%
+                    comp.ChemicalRegenMultiplier -= 0.25f; // chem regen slowed by a flat 25%
                 }
                 else
                 {
@@ -858,7 +859,7 @@ public sealed partial class ChangelingSystem
                     RemComp<StealthOnMoveComponent>(uid);
                     _popup.PopupEntity(Loc.GetString("changeling-chameleon-end"), uid, uid);
                     comp.ChameleonActive = false;
-                    comp.ChemicalRegenReduction += 0.25f; // chem regen debuff removed
+                    comp.ChemicalRegenMultiplier += 0.25f; // chem regen debuff removed
                 }
             }
             else
@@ -882,19 +883,21 @@ public sealed partial class ChangelingSystem
 
                     EnsureComp<BreathingImmunityComponent>(uid);
                     EnsureComp<PressureImmunityComponent>(uid);
+                    EnsureComp<TemperatureSlowImmuneComponent>(uid);
                     tempComp.ColdDamageThreshold = -273.15f;
                     _popup.PopupEntity(Loc.GetString("changeling-voidadapt-start"), uid, uid);
                     comp.VoidAdaptActive = true;
-                    comp.ChemicalRegenReduction -= 0.25f; // base chem regen slowed by a flat 25%
+                    comp.ChemicalRegenMultiplier -= 0.25f; // chem regen slowed by a flat 25%
                 }
                 else
                 {
                     RemComp<BreathingImmunityComponent>(uid);
                     RemComp<PressureImmunityComponent>(uid);
+                    RemComp<TemperatureSlowImmuneComponent>(uid);
                     tempComp.ColdDamageThreshold = comp.DefaultColdDamageThreshold;
                     _popup.PopupEntity(Loc.GetString("changeling-voidadapt-end"), uid, uid);
                     comp.VoidAdaptActive = false;
-                    comp.ChemicalRegenReduction += 0.25f; // chem regen debuff removed
+                    comp.ChemicalRegenMultiplier += 0.25f; // chem regen debuff removed
                 }
             }
             else

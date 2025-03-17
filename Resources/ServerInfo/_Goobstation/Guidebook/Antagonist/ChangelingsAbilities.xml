@@ -130,6 +130,7 @@
   - Armor slows ling by 15 percent
   - Armor reduces all damage by 50 percent
   - Head armor reduces brute and burn damages by 10 percent
+  - Has decent protection against fires
   - Slows down chem regen rate by 25%.
   - Cannot be toggled while on fire.
 
@@ -284,13 +285,13 @@
 
   ## Fleshmend
   <Box>
-    [color=#999999][italic] 5 Evolution Points / 35 Chems [italic][/color]
+    [color=#999999][italic] 5 Evolution Points / 40 Chems [italic][/color]
   </Box>
   - Changeling produces 10 units of changeling fleshmenders.
   - Reduces bleed by 8 every unit.
-  - Restores 10 blood per unit.
+  - Restores 20 blood level per unit.
   - Heals 70 of each brute damage.
-  - Heals 35 of each burn damage.
+  - Heals 30 of each burn damage.
   - Usable while in critical condition.
   - Can be used while cuffed or in lesser form.
   - Cannot be used while on fire.

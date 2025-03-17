@@ -190,7 +190,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         AddComp(uid, thermalVision);
     }
 
- private void OnRefreshSpeed(Entity<ChangelingComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
+    private void OnRefreshSpeed(Entity<ChangelingComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
         if (ent.Comp.StrainedMusclesActive)
             args.ModifySpeed(1.5f, 2.0f);
@@ -240,11 +240,11 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         {
             if (!flame.OnFire)
             {
-                chemicals += (amount ?? 1 + comp.BonusChemicalRegen) * comp.ChemicalRegenReduction;
+                chemicals += (amount ?? 1 + comp.BonusChemicalRegen) * comp.ChemicalRegenMultiplier;
             }
             else
             {
-                chemicals += ((amount ?? 1 + comp.BonusChemicalRegen) * comp.ChemicalRegenReduction) * 0.25f;
+                chemicals += (amount ?? 1 + comp.BonusChemicalRegen) * comp.ChemicalRegenMultiplier * 0.25f;
             }
 
         }
@@ -527,7 +527,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             }
 
             comp.ActiveArmor = newArmor;
-            comp.ChemicalRegenReduction -= 0.25f; // base chem regen slowed by a flat 25%
+            comp.ChemicalRegenMultiplier -= 0.25f; // base chem regen slowed by a flat 25%
             return true;
         }
         else
@@ -537,7 +537,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
                 QueueDel(armor);
 
             comp.ActiveArmor = null!;
-            comp.ChemicalRegenReduction += 0.25f; // chem regen debuff removed
+            comp.ChemicalRegenMultiplier += 0.25f; // chem regen debuff removed
             return true;
         }
     }

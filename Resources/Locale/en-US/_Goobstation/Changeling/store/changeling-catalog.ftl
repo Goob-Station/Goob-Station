@@ -142,7 +142,7 @@ evolutionmenu-utility-fleshmend-name = Fleshmend
 evolutionmenu-utility-fleshmend-desc =
     Rapidly heal your brute damage.
     Burn and oxygen damage healed at a lower amount.
-    Costs 35 chemicals.
+    Costs 40 chemicals.
 
 evolutionmenu-utility-lastresort-name = Last Resort
 evolutionmenu-utility-lastresort-desc =

@@ -25,6 +25,25 @@ public sealed class SharedTemperatureSystem : EntitySystem
 
         SubscribeLocalEvent<TemperatureSpeedComponent, OnTemperatureChangeEvent>(OnTemperatureChanged);
         SubscribeLocalEvent<TemperatureSpeedComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers);
+
+        SubscribeLocalEvent<TemperatureSlowImmuneComponent, ComponentInit>(OnTempSlowdownImmuneInit);
+        SubscribeLocalEvent<TemperatureSlowImmuneComponent, ComponentRemove>(OnTempSlowdownImmuneRemove);
+    }
+
+    private void OnTempSlowdownImmuneInit(EntityUid uid, TemperatureSlowImmuneComponent pressureImmunity, ComponentInit args)
+    {
+        if (TryComp<TemperatureSpeedComponent>(uid, out var tempSpeed))
+        {
+            tempSpeed.HasImmunity = true;
+        }
+    }
+
+    private void OnTempSlowdownImmuneRemove(EntityUid uid, TemperatureSlowImmuneComponent pressureImmunity, ComponentRemove args)
+    {
+        if (TryComp<TemperatureSpeedComponent>(uid, out var tempSpeed))
+        {
+            tempSpeed.HasImmunity = false;
+        }
     }
 
     private void OnTemperatureChanged(Entity<TemperatureSpeedComponent> ent, ref OnTemperatureChangeEvent args)
@@ -55,6 +74,11 @@ public sealed class SharedTemperatureSystem : EntitySystem
         // Don't update speed and mispredict while we're compensating for lag.
         if (ent.Comp.NextSlowdownUpdate != null || ent.Comp.CurrentSpeedModifier == null)
             return;
+
+        if (ent.Comp.HasImmunity)
+        {
+            ent.Comp.CurrentSpeedModifier = 1.0f; // No slowdown if immune
+        }
 
         args.ModifySpeed(ent.Comp.CurrentSpeedModifier.Value, ent.Comp.CurrentSpeedModifier.Value);
     }

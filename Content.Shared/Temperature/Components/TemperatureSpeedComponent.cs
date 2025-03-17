@@ -27,4 +27,10 @@ public sealed partial class TemperatureSpeedComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField, AutoPausedField]
     public TimeSpan? NextSlowdownUpdate;
+
+    /// <summary>
+    /// Determines if immune to temperature slowdown
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool HasImmunity = false;
 }

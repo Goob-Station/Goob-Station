@@ -57,7 +57,7 @@ public sealed partial class ChangelingComponent : Component
     public bool ChameleonActive = false;
 
     public bool VoidAdaptActive = false;
-    public float DefaultColdDamageThreshold; // ensures the changeling's species gets their default thresholds back
+    public float DefaultColdDamageThreshold; // changeling's species default thresholds
 
     public List<EntityUid>? ActiveArmor = null;
 
@@ -100,10 +100,10 @@ public sealed partial class ChangelingComponent : Component
     public float BonusChemicalRegen = 0.0f;
 
     /// <summary>
-    ///     Chemicals regeneration rate reduction multiplier from certain abilities.
+    ///     Chemicals regeneration rate multiplier from certain abilities.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float ChemicalRegenReduction = 1.0f;
+    public float ChemicalRegenMultiplier = 1.0f;
 
     /// <summary>
     ///     Cooldown between chem regen events.
@@ -111,7 +111,6 @@ public sealed partial class ChangelingComponent : Component
     public TimeSpan UpdateTimer = TimeSpan.Zero;
     public float UpdateCooldown = 1f;
 
-    public float ChemicalUpdateTimer = 0f;
     public float BiomassUpdateTimer = 0f;
     public float BiomassUpdateCooldown = 60f;
 
