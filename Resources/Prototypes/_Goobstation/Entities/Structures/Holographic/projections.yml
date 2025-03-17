@@ -25,7 +25,7 @@
   - type: PointLight
     enabled: true
     radius: 3
-    color: blue
+    color: red
   - type: Clickable
   - type: Destructible
     thresholds:
