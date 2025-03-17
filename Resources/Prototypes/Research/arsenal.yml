@@ -149,6 +149,7 @@
   cost: 10000
   recipeUnlocks:
   - WeaponLaserCannon
+  - HoloprojectorSecurityAdvanced # Goobstation
   - WeaponMechCombatSolarisLaser # Goobstation
 
 # Goobstation - Consolidated ( AGAIN !!! )
