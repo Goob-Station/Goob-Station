@@ -18,6 +18,7 @@
   attacks:
   - Grab
   - Disarm
+  - Disarm
   event: !type:JudoThrowPerformedEvent
   staminaDamage: 30
   paralyzeTime: 3
@@ -28,6 +29,8 @@
   martialArtsForm: CorporateJudo
   attacks:
   - Disarm
+  - Disarm
+  - Grab
   - Grab
   event: !type:JudoArmbarPerformedEvent
   staminaDamage: 70
