@@ -154,15 +154,18 @@ namespace Content.Server.Chemistry.EntitySystems
         {
             if (!TryComp<InventoryComponent>(entitySprayed, out var inventoryComponent))
                 return false;
+            var hasFlashImmunity = false;
 
             foreach (var slot in new[] { "head", "eyes", "mask" })
             {
                 _inventory.TryGetSlotEntity(entitySprayed, slot, out var item, inventoryComponent);
-                if (!HasComp<FlashImmunityComponent>(item))
+                if (HasComp<FlashImmunityComponent>(item))
+                {
+                    hasFlashImmunity = true;
                     break;
-                return true;
+                }
             }
-            return false; // Goobstation - End
+            return hasFlashImmunity;
         }
     }
 }
