@@ -1,7 +1,7 @@
 - type: entity
   id: BulletClownshot
   name: clownshot
-  parent: BaseBullet
+  parent: BaseBulletSmall
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
