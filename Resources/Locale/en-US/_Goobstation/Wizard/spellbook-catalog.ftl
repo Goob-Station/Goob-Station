@@ -1,19 +1,19 @@
-spellbook-mime-malaise-name = Mime Malaise
+spellbook-mime-malaise-name = Quiet Pony Malaise
 spellbook-mime-malaise-desc =
-    A spell popular with theater nerd wizards and contrarian pranksters, this spell will put on a mime costume on the target, stun them so that they may contemplate Art, and silence them.
+    A spell popular with theater nerd wizards and contrarian pranksters, this spell will put on a quiet pony costume on the target, stun them so that they may contemplate Art, and silence them.
     Effects are permanent on non-wizards.
-    Learning this spell allows you to get a set of mime discord robes and hat for free!
+    Learning this spell allows you to get a set of quiet pony discord robes and hat for free!
     Requires discord's robe and hat to cast.
 spellbook-banana-touch-name = Banana Touch
 spellbook-banana-touch-desc =
-    A spell popular at discord birthday parties, this spell will put on a clown costume on the target, stun them with a loud HONK, and mutate them to make them more entertaining!
+    A spell popular at discord birthday parties, this spell will put on a pinkie pie costume on the target, stun them with a loud HONK, and mutate them to make them more entertaining!
     Effects are permanent on non-wizards.
-    Learning this spell allows you to get a set of clown discord robes and hat for free!
+    Learning this spell allows you to get a set of pinkie pie discord robes and hat for free!
     Requires discord's robe and hat to cast.
 spellbook-cluwne-curse-name = Curse of the Cluwne
 spellbook-cluwne-curse-desc =
-    Turns the target into a fat and cursed monstrosity of a clown.
-    Learning this spell allows you to get a set of clown discord robes and hat for free!
+    Turns the target into a fat and cursed monstrosity of a pinkie pie.
+    Learning this spell allows you to get a set of pinkie pie discord robes and hat for free!
     Requires discord's robe and hat to cast.
 spellbook-magic-missile-name = Magic Missile
 spellbook-magic-missile-desc =
@@ -112,8 +112,8 @@ spellbook-bees-desc =
     Requires discord's robe and hat to cast.
 spellbook-simians-name = Summon Simians
 spellbook-simians-desc =
-    This spell reaches deep into the elemental plane of bananas (the monkey one, not the clown one), and summons lesser monkeys and gorillas in front of you that will promptly flip out and attack everything in sight. Fun! The monkeys are not friendly to anyone except wizards.
-    Upgrading this spell also increases summonned monkey amount, and their gear gets stronger as well!
+    This spell reaches deep into the elemental plane of bananas (the monkey pony one, not the pinkie pie one), and summons lesser monkeys and gorillas in front of you that will promptly flip out and attack everything in sight. Fun! The monkeys are not friendly to anyone except wizards.
+    Upgrading this spell also increases summonned monkey pony amount, and their gear gets stronger as well!
     Cannot be refunded once fully upgraded.
     Requires discord's robe and hat to cast.
 spellbook-sanguine-strike-name = Exsanguinating Strike

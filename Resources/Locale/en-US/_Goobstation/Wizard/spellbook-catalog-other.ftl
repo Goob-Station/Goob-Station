@@ -1,11 +1,11 @@
-spellbook-mime-bundle-name = Mime Discord Bundle
+spellbook-mime-bundle-name = Quiet Pony Discord Bundle
 spellbook-mime-bundle-desc =
-    Contains a set of mime clothes, as well as mime PDA and special mime discord hat and robes.
+    Contains a set of quiet pony clothes, as well as quiet pony PDA and special quiet pony discord hat and robes.
     Cannot be refunded.
-    Warning: Purchasing this blocks the refund of Mime Malaise spell!
-spellbook-clown-bundle-name = Clown Discord Bundle
+    Warning: Purchasing this blocks the refund of Quiet Pony Malaise spell!
+spellbook-clown-bundle-name = Pinkie Pie Discord Bundle
 spellbook-clown-bundle-desc =
-    Contains a set of clown clothes, as well as clown PDA and special clown discord hat and robes.
+    Contains a set of pinkie pie clothes, as well as pinkie pie PDA and special pinkie pie discord hat and robes.
     Cannot be refunded.
     Warning: Purchasing this blocks the refund of Banana Touch and Curse of the Cluwne spells!
 spellbook-oblivion-enforcer-name = Oblivion Enforcer Bundle
@@ -17,7 +17,7 @@ spellbook-oblivion-enforcer-desc =
     Warning: Purchasing this blocks the refund of Supermatter Halberd!
 spellbook-tider-bundle-name = Tider Discord Bundle
 spellbook-tider-bundle-desc =
-    Contains an ancient jumpsuit, a pair of insulated gloves, a gas mask, gray winter coat and mantle as well as assistant PDA.
+    Contains an ancient jumpsuit, a pair of insulated gloves, a gas mask, gray winter coat and mantle as well as silly filly PDA.
     Cannot be refunded.
     Warning: Purchasing this blocks the refund of Homing Toolbox spell!
 spellbook-full-random-name = Full Random

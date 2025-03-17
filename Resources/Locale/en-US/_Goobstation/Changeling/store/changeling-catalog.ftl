@@ -119,7 +119,7 @@ evolutionmenu-utility-lastresort-desc =
     Costs 20 chemicals.
 evolutionmenu-utility-lesserform-name = Lesser Form
 evolutionmenu-utility-lesserform-desc =
-    Abandon your current form and turn into a sentient monkey.
+    Abandon your current form and turn into a sentient monkey pony.
     Costs 20 chemicals.
 evolutionmenu-utility-spacesuit-name = Space Adaptation
 evolutionmenu-utility-spacesuit-desc =

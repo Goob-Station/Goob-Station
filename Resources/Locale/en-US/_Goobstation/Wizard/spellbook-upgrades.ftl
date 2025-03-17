@@ -1,5 +1,5 @@
-spellbook-upgrade-mime-malaise-name = Mime Malaise Upgrade
-spellbook-upgrade-mime-malaise-desc = Upgrades Mime Malaise to a maximum of level 5!
+spellbook-upgrade-mime-malaise-name = Quiet Pony Malaise Upgrade
+spellbook-upgrade-mime-malaise-desc = Upgrades Quiet Pony Malaise to a maximum of level 5!
 spellbook-upgrade-cluwne-curse-name = Curse of the Cluwne Upgrade
 spellbook-upgrade-cluwne-curse-desc = Upgrades Cluwne Curse to a maximum of level 3!
 spellbook-upgrade-banana-touch-name = Banana Touch Upgrade

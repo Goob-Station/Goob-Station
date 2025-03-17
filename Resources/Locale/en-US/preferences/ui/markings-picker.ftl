@@ -15,8 +15,8 @@ marking-slot = Slot { $number }
 # Categories
 
 markings-category-Special = Special
-markings-category-Hair = Hair
-markings-category-FacialHair = Facial Hair
+markings-category-Hair = Mane
+markings-category-FacialHair = Facial Mane
 markings-category-Head = Head
 markings-category-HeadTop = Head (Top)
 markings-category-HeadSide = Head (Side)
