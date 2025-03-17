@@ -1,5 +1,5 @@
 ﻿## Species Names
 
-species-name-vulpkanin = Vulpkanin
-species-name-harpy = Harpy
-species-name-rodentia = Rodentia
+species-name-vulpkanin = Furry Pony
+species-name-harpy = Pegasus
+species-name-rodentia = Rodent Pony
