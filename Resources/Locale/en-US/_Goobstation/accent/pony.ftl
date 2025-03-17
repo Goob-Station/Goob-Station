@@ -59,7 +59,7 @@ accent-pony-words-20 = bitchass
 accent-pony-words-replace-20 = friend
 
 accent-pony-words-21 = piss
-accent-pony-words-replace-22 = apple juice
+accent-pony-words-replace-21 = apple juice
 
 accent-pony-words-22 = crew
 accent-pony-words-replace-22 = ponies
