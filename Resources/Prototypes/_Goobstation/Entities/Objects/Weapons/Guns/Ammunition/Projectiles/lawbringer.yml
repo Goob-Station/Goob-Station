@@ -1,9 +1,22 @@
 - type: entity
   id: BulletClownshot
   name: clownshot
-  parent: BaseBulletSmall
+  parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser
+      shader: unshaded
   - type: Projectile
     damage:
       types:
@@ -13,3 +26,183 @@
      components:
       - Clumsy
   - type: ProjectileThrowOnHit
+    distance: 10
+    speed: 10
+  - type: BlurOnCollide
+
+- type: entity
+  id: BulletPulse
+  name: pulse
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 5
+  - type: ProjectileThrowOnHit
+    distance: 3
+    speed: 3
+  - type: BlurOnCollide
+  - type: StaminaDamageOnCollide
+    damage: 30
+
+- type: entity
+  id: BulletDetain
+  name: detain
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 2
+  - type: BlurOnCollide
+  - type: StaminaDamageOnCollide
+    damage: 45
+
+- type: entity
+  id: BulletExecute
+  name: execute
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 25
+        Radiation: 5
+
+- type: entity
+  id: BulletHotshot
+  name: hotshot
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 15
+  - type: IgniteOnCollide
+    fireStacks: 1.5
+
+- type: entity
+  id: BulletSleepshot
+  name: sleepshot
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 0
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        maxVol: 7
+  - type: RefillableSolution
+    solution: ammo
+  - type: DrainableSolution
+    solution: ammo
+  - type: SolutionInjectOnProjectileHit
+    transferAmount: 7
+    solution: ammo
+  - type: InjectableSolution
+    solution: ammo
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        reagents:
+        - ReagentId: Haloperidol
+          Quantity: 7
+
+- type: entity
+  id: BulletBigshot
+  name: bigshot
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 15
+        Structural: 45
+  - type: BlurOnCollide

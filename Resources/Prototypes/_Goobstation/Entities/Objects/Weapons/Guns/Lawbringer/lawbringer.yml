@@ -23,17 +23,20 @@
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
   - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
+    maxCharge: 800
+    startingCharge: 800
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisabler
-    fireCost: 50
+    proto: BulletEnergyGunDetain
+    fireCost: 80
   - type: AmmoSelector
     prototypes:
-    - BulletDisabler
-    - BulletEnergyGunLaser
-    - BulletEnergyGunIon
     - BulletEnergyGunClownshot
+    - BulletEnergyGunPulse
+    - BulletEnergyGunDetain
+    - BulletEnergyGunExecute
+    - BulletEnergyGunHotshot
+    - BulletEnergyGunSleepshot
+    - BulletEnergyGunBigshot
   - type: UserInterface
     interfaces:
       enum.AmmoSelectorUiKey.Key:
@@ -82,4 +85,7 @@
     canCreateVacuum: false
     deleteAfterExplosion: false
     repeatable: true
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 40
 
