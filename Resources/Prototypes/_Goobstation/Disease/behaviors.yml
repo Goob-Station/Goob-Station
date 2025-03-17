@@ -102,8 +102,8 @@
   - type: DiseaseEmoteEffect
     emote: Cough
   - type: DiseaseSpreadEffect
-    arc: 120
-    range: 3
+    arc: 180
+    range: 2.5
     timeScale: false
     spreadParams:
       power: 1

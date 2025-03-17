@@ -1,5 +1,5 @@
 - type: diseaseSpread
-  id: DebugSpread
+  id: Debug
   name: Debug
 
 - type: entity

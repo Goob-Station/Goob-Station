@@ -145,27 +145,31 @@ public sealed class GetImmunityEvent : EntityEventArgs
 }
 
 /// <summary>
+/// Base event for disease spread attempts.
+/// </summary>
+public abstract record DiseaseSpreadAttemptEvent(float Power, float Chance, ProtoId<DiseaseSpreadPrototype> Type) : IInventoryRelayEvent
+{
+    public float Power { get; set; } = Power;
+    public float Chance { get; set; } = Chance;
+    public ProtoId<DiseaseSpreadPrototype> Type { get; } = Type;
+
+    public SlotFlags TargetSlots => SlotFlags.WITHOUT_POCKET;
+
+    public void ApplyModifier(DiseaseSpreadModifier mod)
+    {
+        Power += mod.PowerMod(Type);
+        Chance *= mod.ChanceMult(Type);
+    }
+}
+
+/// <summary>
 /// This event is raised on an entity from which a disease is trying to spread just before it attempts to do so.
 /// </summary>
 [ByRefEvent]
-public record struct DiseaseOutgoingSpreadAttemptEvent(float Power, float Chance, ProtoId<DiseaseSpreadPrototype> Type) : IInventoryRelayEvent
-{
-    public float Power = Power;
-    public float Chance = Chance;
-    public readonly ProtoId<DiseaseSpreadPrototype> Type = Type;
-
-    public SlotFlags TargetSlots => SlotFlags.WITHOUT_POCKET;
-}
+public record DiseaseOutgoingSpreadAttemptEvent(float Power, float Chance, ProtoId<DiseaseSpreadPrototype> Type) : DiseaseSpreadAttemptEvent(Power, Chance, Type);
 
 /// <summary>
 /// This event is raised on an entity to which a disease is trying to spread just before it attempts to do so.
 /// </summary>
 [ByRefEvent]
-public record struct DiseaseIncomingSpreadAttemptEvent(float Power, float Chance, ProtoId<DiseaseSpreadPrototype> Type) : IInventoryRelayEvent
-{
-    public float Power = Power;
-    public float Chance = Chance;
-    public readonly ProtoId<DiseaseSpreadPrototype> Type = Type;
-
-    public SlotFlags TargetSlots => SlotFlags.WITHOUT_POCKET;
-}
+public record DiseaseIncomingSpreadAttemptEvent(float Power, float Chance, ProtoId<DiseaseSpreadPrototype> Type) : DiseaseSpreadAttemptEvent(Power, Chance, Type);

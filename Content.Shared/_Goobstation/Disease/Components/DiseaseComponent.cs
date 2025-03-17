@@ -103,7 +103,7 @@ public sealed partial class DiseaseComponent : Component
     /// Affects chance genotype is mutated
     /// </summary>
     [DataField]
-    public float GenotypeMutationCoefficient = 1f;
+    public float GenotypeMutationCoefficient = 0.5f;
 
     /// <summary>
     /// Determines total amount of effects and their severity after a mutation

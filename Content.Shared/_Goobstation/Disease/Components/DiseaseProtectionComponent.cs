@@ -10,15 +10,9 @@ namespace Content.Shared.Disease;
 [RegisterComponent]
 public sealed partial class DiseaseProtectionComponent : Component
 {
-    /// <summary>
-    /// How much to modify incoming spread attempts' power.
-    /// <summary>
     [DataField]
-    public Dictionary<ProtoId<DiseaseSpreadPrototype>, float> Incoming = new();
+    public DiseaseSpreadModifier Incoming = new();
 
-    /// <summary>
-    /// How much to modify outgoing spread attempts' power.
-    /// <summary>
     [DataField]
-    public Dictionary<ProtoId<DiseaseSpreadPrototype>, float> Outgoing = new();
+    public DiseaseSpreadModifier Outgoing = new();
 }

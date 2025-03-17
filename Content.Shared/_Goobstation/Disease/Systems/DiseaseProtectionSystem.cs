@@ -1,4 +1,5 @@
 using Content.Shared.Disease;
+using Content.Shared.Inventory;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.GameObjects;
 
@@ -12,19 +13,17 @@ public sealed partial class DiseaseProtectionSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<DiseaseProtectionComponent, DiseaseIncomingSpreadAttemptEvent>(OnIncomingSpread);
-        SubscribeLocalEvent<DiseaseProtectionComponent, DiseaseOutgoingSpreadAttemptEvent>(OnOutgoingSpread);
+        SubscribeLocalEvent<DiseaseProtectionComponent, InventoryRelayedEvent<DiseaseIncomingSpreadAttemptEvent>>(OnIncomingSpread);
+        SubscribeLocalEvent<DiseaseProtectionComponent, InventoryRelayedEvent<DiseaseOutgoingSpreadAttemptEvent>>(OnOutgoingSpread);
     }
 
-    private void OnIncomingSpread(EntityUid uid, DiseaseProtectionComponent protection, ref DiseaseIncomingSpreadAttemptEvent args)
+    private void OnIncomingSpread(EntityUid uid, DiseaseProtectionComponent protection, ref InventoryRelayedEvent<DiseaseIncomingSpreadAttemptEvent> args)
     {
-        if (protection.Incoming.ContainsKey(args.Type))
-            args.Power += protection.Incoming[args.Type];
+        args.Args.ApplyModifier(protection.Incoming);
     }
 
-    private void OnOutgoingSpread(EntityUid uid, DiseaseProtectionComponent protection, ref DiseaseOutgoingSpreadAttemptEvent args)
+    private void OnOutgoingSpread(EntityUid uid, DiseaseProtectionComponent protection, ref InventoryRelayedEvent<DiseaseOutgoingSpreadAttemptEvent> args)
     {
-        if (protection.Outgoing.ContainsKey(args.Type))
-            args.Power += protection.Outgoing[args.Type];
+        args.Args.ApplyModifier(protection.Outgoing);
     }
 }
