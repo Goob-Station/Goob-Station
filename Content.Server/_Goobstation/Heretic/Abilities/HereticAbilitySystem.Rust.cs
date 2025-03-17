@@ -524,6 +524,7 @@ public sealed partial class HereticAbilitySystem
                 _statusEffect.TryRemoveTime(uid, "Stun", reduction, status);
                 _statusEffect.TryRemoveTime(uid, "KnockedDown", reduction, status);
 
+                _statusEffect.TryRemoveStatusEffect(uid, "Pacified", status);
                 _statusEffect.TryRemoveStatusEffect(uid, "ForcedSleep", status);
                 _statusEffect.TryRemoveStatusEffect(uid, "SlowedDown", status);
                 _statusEffect.TryRemoveStatusEffect(uid, "BlurryVision", status);
