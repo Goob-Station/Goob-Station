@@ -42,14 +42,14 @@
   color: "#1a6ac1"
   metabolisms:
     Poison:
-      metabolismRate: 0.001
+      metabolismRate: 0.05
       effects:
       - !type:PopupMessage
           type: Local
           messages: [ "reagent-popup-binglejuice" ]
           probability: 0.2
       - !type:Polymorph
-        prototype: Gondola
+        prototype: MobBingle
         conditions:
         - !type:ReagentThreshold
           min: 25
