@@ -64,12 +64,12 @@
   - type: SolutionContainerManager
     solutions:
       spray:
-        maxVol: 100
+        maxVol: 50
         reagents:
         - ReagentId: OleoresinCapsaicin
-          Quantity: 100
+          Quantity: 50
   - type: Spray
-    transferAmount: 12.5
+    transferAmount: 10
     sprayedPrototype: BigVapor
     sprayVelocity: 3
     sprayDistance: 2.5
