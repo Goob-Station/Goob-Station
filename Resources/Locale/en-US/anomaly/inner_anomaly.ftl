@@ -9,7 +9,9 @@ inner-anomaly-start-message-grav = Everything becames unnaturally heavy and ligh
 inner-anomaly-start-message-tech = Your head is buzzing with the amount of chaotic information! You became the host of a tech anomaly.
 inner-anomaly-start-message-rock = The crystals are growing through your bones! You became the host of a rock anomaly.
 inner-anomaly-start-message-santa = You're becoming obsessed with the Christmas spirit! You became the host of a Christmas anomaly.
+
 inner-anomaly-end-message = The abnormal activity within you disappears without a trace....
+
 inner-anomaly-severity-info-50 = You feel that the anomaly is taking over half your body.
 inner-anomaly-severity-info-75 = You feel that the anomaly is taking over a large part of your body.
 inner-anomaly-severity-info-90 = You feel that the anomaly has almost completely taken over your body.

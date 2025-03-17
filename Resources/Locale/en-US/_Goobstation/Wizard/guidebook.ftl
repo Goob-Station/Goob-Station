@@ -1,2 +1,2 @@
-guide-entry-wizard = Discord
-guide-entry-wizard-spells = Discord Spells
+guide-entry-wizard = Wizard
+guide-entry-wizard-spells = Wizard Spells

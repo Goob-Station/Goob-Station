@@ -2,6 +2,7 @@
 # Nouns
 seeds-noun-seeds = seeds
 seeds-noun-spores = spores
+
 # Seeds
 seeds-wheat-name = wheat
 seeds-wheat-display-name = wheat stalks

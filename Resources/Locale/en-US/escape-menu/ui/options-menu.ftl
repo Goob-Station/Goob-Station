@@ -7,9 +7,11 @@ ui-options-tab-controls = Controls
 ui-options-tab-audio = Audio
 ui-options-tab-network = Network
 ui-options-tab-misc = General
+
 ui-options-apply = Save & apply
 ui-options-reset-all = Reset changed
 ui-options-default = Reset to defaults
+
 ui-options-value-percent = { TOSTRING($value, "P0") }
 
 # Misc/General menu
@@ -44,6 +46,8 @@ ui-options-display-label = Display
 ui-options-quality-label = Quality
 ui-options-misc-label = Misc
 ui-options-interface-label = Interface
+
+
 ui-options-show-held-item = Show held item next to cursor
 ui-options-show-combat-mode-indicators = Show combat mode indicators with cursor
 ui-options-opaque-storage-window = Opaque storage window
@@ -80,16 +84,14 @@ ui-options-vp-stretch = Stretch viewport to fit game window
 ui-options-vp-scale = Fixed viewport scale:
 ui-options-vp-scale-value = x{ $scale }
 ui-options-vp-integer-scaling = Prefer integer scaling (might cause black bars/clipping)
-ui-options-vp-integer-scaling-tooltip =
-    If this option is enabled, the viewport will be scaled using an integer value
-    at specific resolutions. While this results in crisp textures, it also often
-    means that black bars appear at the top/bottom of the screen or that part
-    of the viewport is not visible.
+ui-options-vp-integer-scaling-tooltip = If this option is enabled, the viewport will be scaled using an integer value
+                                        at specific resolutions. While this results in crisp textures, it also often
+                                        means that black bars appear at the top/bottom of the screen or that part
+                                        of the viewport is not visible.
 ui-options-vp-vertical-fit = Vertical viewport fitting
-ui-options-vp-vertical-fit-tooltip =
-    When enabled, the main viewport will ignore the horizontal axis entirely when
-    fitting to your screen. If your screen is smaller than the viewport, then this
-    will cause the viewport to be cut off on the horizontal axis.
+ui-options-vp-vertical-fit-tooltip = When enabled, the main viewport will ignore the horizontal axis entirely when
+                                     fitting to your screen. If your screen is smaller than the viewport, then this
+                                     will cause the viewport to be cut off on the horizontal axis.
 ui-options-vp-low-res = Low-resolution viewport
 ui-options-parallax-low-quality = Low-quality Parallax (background)
 ui-options-fps-counter = Show FPS counter
@@ -103,6 +105,7 @@ ui-options-binds-explanation = Click to change binding, right-click to clear
 ui-options-unbound = Unbound
 ui-options-bind-reset = Reset
 ui-options-key-prompt = Press a key...
+
 ui-options-header-movement = Movement
 ui-options-header-camera = Camera
 ui-options-header-interaction-basic = Basic Interaction
@@ -114,20 +117,24 @@ ui-options-header-shuttle = Shuttle
 ui-options-header-map-editor = Map Editor
 ui-options-header-dev = Development
 ui-options-header-general = General
+
 ui-options-hotkey-keymap = Use US QWERTY Keys
 ui-options-hotkey-toggle-walk = Toggle Walk
+
 ui-options-function-move-up = Move Up
 ui-options-function-move-left = Move Left
 ui-options-function-move-down = Move Down
 ui-options-function-move-right = Move Right
 ui-options-function-walk = Walk
 ui-options-function-toggle-standing = Crawl/Stand
+
 ui-options-function-camera-rotate-left = Rotate left
 ui-options-function-camera-rotate-right = Rotate right
 ui-options-function-camera-reset = Reset
 ui-options-function-zoom-in = Zoom in
 ui-options-function-zoom-out = Zoom out
 ui-options-function-reset-zoom = Reset zoom
+
 ui-options-function-use = Use
 ui-options-function-use-secondary = Use secondary
 ui-options-function-alt-use = Alt use
@@ -143,6 +150,7 @@ ui-options-function-move-stored-item = Move stored item
 ui-options-function-rotate-stored-item = Rotate stored item
 ui-options-function-save-item-location = Save item location
 ui-options-static-storage-ui = Lock storage window to hotbar
+
 ui-options-function-smart-equip-backpack = Smart-equip to backpack
 ui-options-function-smart-equip-belt = Smart-equip to belt
 ui-options-function-smart-equip-back = Smart-equip to back slot
@@ -156,6 +164,7 @@ ui-options-function-point = Point at location
 ui-options-function-rotate-object-clockwise = Rotate clockwise
 ui-options-function-rotate-object-counterclockwise = Rotate counterclockwise
 ui-options-function-flip-object = Flip
+
 ui-options-function-focus-chat-input-window = Focus chat
 ui-options-function-focus-local-chat-window = Focus chat (IC)
 ui-options-function-focus-emote = Focus chat (Emote)
@@ -186,9 +195,11 @@ ui-options-function-window-close-all = Close all windows
 ui-options-function-window-close-recent = Close recent window
 ui-options-function-show-escape-menu = Toggle game menu
 ui-options-function-escape-context = Close recent window or toggle game menu
+
 ui-options-function-take-screenshot = Take screenshot
 ui-options-function-take-screenshot-no-ui = Take screenshot (without UI)
 ui-options-function-toggle-fullscreen = Toggle fullscreen
+
 ui-options-function-editor-place-object = Place object
 ui-options-function-editor-cancel-place = Cancel placement
 ui-options-function-editor-grid-place = Place in grid
@@ -196,10 +207,12 @@ ui-options-function-editor-line-place = Place line
 ui-options-function-editor-rotate-object = Rotate
 ui-options-function-editor-flip-object = Flip
 ui-options-function-editor-copy-object = Copy
+
 ui-options-function-show-debug-console = Open Console
 ui-options-function-show-debug-monitors = Show Debug Monitors
 ui-options-function-inspect-entity = Inspect Entity
 ui-options-function-hide-ui = Hide UI
+
 ui-options-function-hotbar1 = Hotbar slot 1
 ui-options-function-hotbar2 = Hotbar slot 2
 ui-options-function-hotbar3 = Hotbar slot 3
@@ -242,6 +255,7 @@ ui-options-function-loadoutshift7 = Hotbar Loadout Shift+7
 ui-options-function-loadoutshift8 = Hotbar Loadout Shift+8
 ui-options-function-loadoutshift9 = Hotbar Loadout Shift+9
 ui-options-function-loadoutshift0 = Hotbar Loadout Shift+0
+
 ui-options-function-shuttle-strafe-up = Strafe up
 ui-options-function-shuttle-strafe-right = Strafe right
 ui-options-function-shuttle-strafe-left = Strafe left
@@ -253,37 +267,36 @@ ui-options-function-shuttle-brake = Brake
 ## Network menu
 
 ui-options-net-predict = Client-side prediction
+
 ui-options-net-interp-ratio = State buffer size
-ui-options-net-interp-ratio-tooltip =
-    Increasing this will generally make the game more resistant
-    to server->client packet-loss, however in doing so it
-    effectively adds slightly more latency and requires the
-    client to predict more future ticks.
+ui-options-net-interp-ratio-tooltip = Increasing this will generally make the game more resistant
+                                      to server->client packet-loss, however in doing so it
+                                      effectively adds slightly more latency and requires the
+                                      client to predict more future ticks.
+
 ui-options-net-predict-tick-bias = Prediction tick bias
-ui-options-net-predict-tick-bias-tooltip =
-    Increasing this will generally make the game more resistant
-    to client->server packet-loss, however in doing so it
-    effectively adds slightly more latency and requires the
-    client to predict more future ticks.
+ui-options-net-predict-tick-bias-tooltip = Increasing this will generally make the game more resistant
+                                           to client->server packet-loss, however in doing so it
+                                           effectively adds slightly more latency and requires the
+                                           client to predict more future ticks.
+
 ui-options-net-pvs-spawn = PVS entity spawn budget
-ui-options-net-pvs-spawn-tooltip =
-    This limits the rate at which the server will send newly spawned
-    entities to the client. Lowering this can help reduce
-    stuttering due to entity spawning, but can lead to pop-in.
+ui-options-net-pvs-spawn-tooltip = This limits the rate at which the server will send newly spawned
+                                       entities to the client. Lowering this can help reduce
+                                       stuttering due to entity spawning, but can lead to pop-in.
+
 ui-options-net-pvs-entry = PVS entity budget
-ui-options-net-pvs-entry-tooltip =
-    This limits the rate at which the server will send newly visible
-    entities to the client. Lowering this can help reduce
-    stuttering, but can lead to pop-in.
+ui-options-net-pvs-entry-tooltip = This limits the rate at which the server will send newly visible
+                                       entities to the client. Lowering this can help reduce
+                                       stuttering, but can lead to pop-in.
+
 ui-options-net-pvs-leave = PVS detach rate
-ui-options-net-pvs-leave-tooltip =
-    This limits the rate at which the client will remove
-    out-of-view entities. Lowering this can help reduce
-    stuttering when walking around, but could occasionally
-    lead to mispredicts and other issues.
+ui-options-net-pvs-leave-tooltip = This limits the rate at which the client will remove
+                                       out-of-view entities. Lowering this can help reduce
+                                       stuttering when walking around, but could occasionally
+                                       lead to mispredicts and other issues.
 
 ## Toggle window console command
-
 cmd-options-desc = Opens options menu, optionally with a specific tab selected.
 cmd-options-help = Usage: options [tab]
 
@@ -299,7 +312,6 @@ ui-options-speech-bubble-speaker-opacity = Speech bubble speaker opacity
 ui-options-speech-bubble-background-opacity = Speech bubble background opacity
 
 ## Shitmed Change
-
 ui-options-header-targeting = Targeting
 ui-options-function-target-head = Target head
 ui-options-function-target-torso = Target torso

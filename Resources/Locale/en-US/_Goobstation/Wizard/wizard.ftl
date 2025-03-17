@@ -1,22 +1,35 @@
-roles-antag-wizard-name = Discord
-roles-antag-wizard-description = Cause havoc and destruction to ponyville.
+roles-antag-wizard-name = Wizard
+roles-antag-wizard-description = Cause havoc and destruction to the station.
+
 roles-antag-apprentice-name = Apprentice
-roles-antag-apprentice-description = Aid the discord who has summoned you and keep them alive.
-wizard-roundend-name = discord
+roles-antag-apprentice-description = Aid the wizard who has summoned you and keep them alive.
+
+wizard-roundend-name = wizard
 apprentice-roundend-name = apprentice
-roles-wizard-name = Discord
-roles-wizard-objective = Cause havoc and destruction to ponyville.
-dynamic-gamerule-wizard-title = [color=cyan]Discord[/color]
-objective-issuer-wizard-federation = [color=cyan]Space Discord Federation[/color]
-wizard-role-greeting = You are a powerful space discord. Your goal is to cause as much chaos as possible on { $station }, and survive. Space Discord Federation provided you with magical discord grimoire which you can use to learn devastating spells.
-wizard-role-briefing = You are a space discord. Survive and wreak havoc on the simpletons.
-apprentice-role-briefing = You are a space discord apprentice. Keep whoever summoned you alive.
-admin-verb-make-wizard = Make the target into a discord.
-admin-verb-text-make-wizard = Make Discord
-wizard-title = Discord
-wizard-description = A powerful space discord is visiting ponyville. Embrace the chaos.
+
+roles-wizard-name = Wizard
+roles-wizard-objective = Cause havoc and destruction to the station.
+
+dynamic-gamerule-wizard-title = [color=cyan]Wizard[/color]
+
+objective-issuer-wizard-federation = [color=cyan]Space Wizard Federation[/color]
+
+wizard-role-greeting =
+    You are a powerful space wizard. Your goal is to cause as much chaos as possible on {$station}, and survive. Space Wizard Federation provided you with magical wizard grimoire which you can use to learn devastating spells.
+
+wizard-role-briefing = You are a space wizard. Survive and wreak havoc on the simpletons.
+apprentice-role-briefing = You are a space wizard apprentice. Keep whoever summoned you alive.
+
+admin-verb-make-wizard = Make the target into a wizard.
+admin-verb-text-make-wizard = Make Wizard
+
+wizard-title = Wizard
+wizard-description = A powerful space wizard is visiting the station. Embrace the chaos.
+
 lich-greeting =
     With a hideous feeling of emptiness you watch in horrified fascination as skin sloughs off bone! Blood boils, nerves disintegrate, eyes boil in their sockets! As your organs crumble to dust in your fleshless chest you come to terms with your choice.
     You're a lich.
-objective-condition-wizard-alive-title = Ensure discord { $targetName } stays alive.
-stamp-component-stamped-name-wizard = Discord
+
+objective-condition-wizard-alive-title = Ensure wizard {$targetName} stays alive.
+
+stamp-component-stamped-name-wizard = Wizard

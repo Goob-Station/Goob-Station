@@ -12,7 +12,8 @@ goodfeeling-artifact-11 = Your scalp prickles.
 goodfeeling-artifact-12 = All the colours seem a bit more vibrant.
 goodfeeling-artifact-13 = Everything seems a little lighter.
 goodfeeling-artifact-14 = The troubles of the world seem to fade away.
-goodfeeling-artifact-drastic-1 = You want to hug everypony you meet!
+
+goodfeeling-artifact-drastic-1 = You want to hug everyone you meet!
 goodfeeling-artifact-drastic-2 = Everything is going so well!
 goodfeeling-artifact-drastic-3 = You feel euphoric.
 goodfeeling-artifact-drastic-4 = You feel giddy.

@@ -2,6 +2,7 @@ chuuni-eyepatch-backstory-1 = [color=hotpink]This eyepatch is a seal that contai
 chuuni-eyepatch-backstory-2 = [color=hotpink]This eyepatch is a gift from the angel of light. It allows me to see the true nature of things and protect the innocent from harm.[/color]
 chuuni-eyepatch-backstory-3 = [color=hotpink]This eyepatch is a mark of my contract with the dragon god. It grants me access to his ancient wisdom and fiery breath.[/color]
 chuuni-eyepatch-backstory-4 = [color=hotpink]This eyepatch is a symbol of my sacrifice for the sake of love. It hides the scar that I received from saving my beloved from a fatal attack.[color]
+
 chuuni-invocation-unset = This is embarrassing... I can't remember the words... um... maybe if I just wave my hand like this... no, that's not wor- Ah! There it goes!
 chuuni-invocation-holy = By the grace of the holy one, I summon the light of salvation. Let my allies rejoice. O, Heaven! Bless them!
 chuuni-invocation-psychic = By the secret of the hidden one, I reveal the truth of creation. Let my mind expand. O, Mystery! Enlighten me!
@@ -15,7 +16,9 @@ chuuni-invocation-necromancy = I am the Lord of the Dead, the Master of Bones, t
 chuuni-invocation-forbidden = I renounce the laws of this world and embrace the chaos of the old gods! Let the forbidden power flow through me and destroy everything in its path!
 chuuni-invocation-sanguine = I cover my eye with an eyepatch to seal my true power, but now I will unleash it upon you. I feast on the life force of my prey and grow stronger with every drop!
 chuuni-invocation-chuuni = By the decree of the dark lord, I invoke the curse of the chuuni. Let all my spells be tainted by the power of delusion. O, Reality! Bend to my will!
-chat-manager-entity-say-wrap-message-chuuni = [BubbleHeader][bold][Name]{ $entityName }[/Name][/bold][/BubbleHeader] { $verb }: [font={ $fontType } size={ $fontSize }]"[BubbleContent][color=hotpink]{ $message }[/color][/BubbleContent]"[/font]
-chat-manager-entity-say-bold-wrap-message-chuuni = [BubbleHeader][bold][Name]{ $entityName }[/Name][/bold][/BubbleHeader] { $verb }: [font={ $fontType } size={ $fontSize }]"[BubbleContent][color=hotpink][bold]{ $message }[/bold][/color][/BubbleContent]"[/font]
-chat-manager-entity-whisper-wrap-message-chuuni = [font size=11][italic][BubbleHeader][Name]{ $entityName }[/Name][/BubbleHeader] whispers: "[BubbleContent][color=hotpink]{ $message }[/color][/BubbleContent]"[/italic][/font]
-chat-manager-entity-whisper-unknown-wrap-message-chuuni = [font size=11][italic][BubbleHeader]Someone[/BubbleHeader] whispers: "[BubbleContent][color=hotpink]{ $message }[/color][/BubbleContent]"[/italic][/font]
+
+chat-manager-entity-say-wrap-message-chuuni = [BubbleHeader][bold][Name]{$entityName}[/Name][/bold][/BubbleHeader] {$verb}: [font={$fontType} size={$fontSize}]"[BubbleContent][color=hotpink]{$message}[/color][/BubbleContent]"[/font]
+chat-manager-entity-say-bold-wrap-message-chuuni = [BubbleHeader][bold][Name]{$entityName}[/Name][/bold][/BubbleHeader] {$verb}: [font={$fontType} size={$fontSize}]"[BubbleContent][color=hotpink][bold]{$message}[/bold][/color][/BubbleContent]"[/font]
+
+chat-manager-entity-whisper-wrap-message-chuuni = [font size=11][italic][BubbleHeader][Name]{$entityName}[/Name][/BubbleHeader] whispers: "[BubbleContent][color=hotpink]{$message}[/color][/BubbleContent]"[/italic][/font]
+chat-manager-entity-whisper-unknown-wrap-message-chuuni = [font size=11][italic][BubbleHeader]Someone[/BubbleHeader] whispers: "[BubbleContent][color=hotpink]{$message}[/color][/BubbleContent]"[/italic][/font]

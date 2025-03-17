@@ -1,16 +1,17 @@
 reagent-name-tranquility = tranquility
 reagent-desc-tranquility = You feel oddly calm...
 reagent-popup-tranquility = You feel oddly calm...
+
 reagent-name-carpolin = carpolin
 reagent-desc-carpolin = Causes the metabolizer to transform into a superior lifeform.
 reagent-popup-carpolin = You feel... strange.
+
 # CREATED BY Goldminermac
 # https://github.com/space-wizards/space-station-14/pull/31149
 # LICENSED UNDER THE MIT LICENSE
 # SEE README.MD AND LICENSE.TXT IN THE ROOT OF THIS REPOSITORY FOR MORE INFORMATION
 reagent-name-profanol = profanol
-reagent-desc-profanol = A chemical compound known to make ponies compulsively swear. A ruiner of countless family reunions and funerals.
-
+reagent-desc-profanol = A chemical compound known to make people compulsively swear. A ruiner of countless family reunions and funerals.
 # END OF MIT-LICENSED CODE
 
 reagent-name-copium = copium
@@ -23,9 +24,11 @@ reagent-popup-copium-5 = Your investments are going to the moon.
 reagent-popup-copium-6 = You are that guy.
 reagent-popup-copium-7 = You can stop anytime you want.
 reagent-popup-copium-8 = You are in control.
-reagent-popup-copium-9 = You should be the celestia.
-reagent-popup-copium-10 = You run this ponyville.
+reagent-popup-copium-9 = You should be the captain.
+reagent-popup-copium-10 = You run this station.
 reagent-popup-copium-11 = You know what's best.
 reagent-popup-copium-12 = You could take him.
+
 reagent-name-cat-drugs = cat drugs
 reagent-desc-cat-drugs = Cat drugs? Drugs for cats? Drugs from cats? Better not to ask.
+

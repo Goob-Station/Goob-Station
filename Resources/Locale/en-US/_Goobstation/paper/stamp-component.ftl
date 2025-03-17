@@ -1,1 +1,1 @@
-stamp-component-stamped-name-nanorep = Equestria Representative
+stamp-component-stamped-name-nanorep = Nanotrasen Representative
