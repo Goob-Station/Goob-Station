@@ -81,7 +81,7 @@ public enum CollisionGroup
     HalfWallLayer = MidImpassable | LowImpassable,
 
     // Statue, monument, airlock, window
-    FullTileMask = Impassable | HighImpassable | MidImpassable | LowImpassable | InteractImpassable,
+    FullTileMask = Impassable | HighImpassable | MidImpassable | LowImpassable | InteractImpassable | BulletImpassable, // GoobStation - ventcrawling replaces mice going under doors
     // FlyingMob can go past
     FullTileLayer = Opaque | HighImpassable | MidImpassable | LowImpassable | BulletImpassable | InteractImpassable,
 
