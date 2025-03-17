@@ -8,4 +8,8 @@
     damage:
       types:
         Blunt: 25
+  - type: ProjectileRequireWhitelist
+    whitelist:
+     components:
+      - Clumsy
   - type: ProjectileThrowOnHit

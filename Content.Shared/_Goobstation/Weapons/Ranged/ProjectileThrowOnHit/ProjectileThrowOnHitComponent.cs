@@ -32,12 +32,6 @@ public sealed partial class ProjectileThrowOnHitComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public TimeSpan? StunTime;
-
-    /// <summary>
-    /// Should this also work on a throw-hit?
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool ActivateOnThrown;
 }
 
 /// <summary>
