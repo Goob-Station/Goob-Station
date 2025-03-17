@@ -6,8 +6,7 @@ suit-sensor-mode-vitals = Vitals
 suit-sensor-mode-cords = Coordinates
 
 ## Popups
-
-suit-sensor-mode-state = Suit sensors: { $mode }
+suit-sensor-mode-state = Suit sensors: {$mode}
 
 ## Components
 
