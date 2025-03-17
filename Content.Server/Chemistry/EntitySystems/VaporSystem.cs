@@ -52,7 +52,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 var solution = soln.Comp.Solution;
                 _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Touch);
 
-                if (IsEyesProtected(args.OtherEntity)) // Goobstation
+                if (!IsEyesProtected(args.OtherEntity)) // Goobstation
                     _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Eyes); // Goobstation
 
             }
