@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.Changeling;
 using Content.Server.Administration.Logs;
 using Content.Server.Body.Systems;
 using Content.Server.Kitchen.Components;
@@ -22,7 +23,8 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using static Content.Shared.Kitchen.Components.KitchenSpikeComponent;
-using Content.Shared.Changeling; // Goobstation
+
+// Goobstation
 
 namespace Content.Server.Kitchen.EntitySystems
 {
