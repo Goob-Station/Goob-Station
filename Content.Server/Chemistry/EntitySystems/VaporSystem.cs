@@ -52,8 +52,8 @@ namespace Content.Server.Chemistry.EntitySystems
                 var solution = soln.Comp.Solution;
                 _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Touch);
 
-                if (!IsEyesProtected(entity, args))
-                    _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Eyes);
+                if (!IsEyesProtected(entity, args)) // Goobstation
+                    _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Eyes); // Goobstation
 
             }
 
@@ -150,8 +150,7 @@ namespace Content.Server.Chemistry.EntitySystems
             }
 
         }
-
-        private bool IsEyesProtected(Entity<VaporComponent> ent, StartCollideEvent args)
+        private bool IsEyesProtected(Entity<VaporComponent> ent, StartCollideEvent args) // Goobstation - Start
         {
             if (!TryComp<InventoryComponent>(args.OtherEntity, out var inventoryComponent))
                 return false;
@@ -162,7 +161,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 return (TryComp<FlashImmunityComponent>(item, out var flashImmunityComponent) &&
                         flashImmunityComponent.Enabled);
             }
-            return false;
+            return false; // Goobstation - End
         }
     }
 }
