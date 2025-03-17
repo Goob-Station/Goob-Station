@@ -36,3 +36,18 @@ accent-rodentia-words-replace-12 = BRIE-f
 
 accent-rodentia-words-13 = blue
 accent-rodentia-words-replace-13 = bleu 
+
+accent-rodentia-words- = hi
+accent-rodentia-words-replace- = uhm, cheesed to meet you?
+
+accent-rodentia-words- = hello
+accent-rodentia-words-replace- = uhm, cheesed to meet you?
+
+accent-rodentia-words- = goodbye
+accent-rodentia-words-replace- = gouda-bye
+
+accent-rodentia-words- = bye
+accent-rodentia-words-replace- = gouda-bye
+
+accent-rodentia-words- = cya
+accent-rodentia-words-replace- = gouda-bye
