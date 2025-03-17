@@ -30,8 +30,9 @@
   id: LavalandHierophantClubTeleportMarker
   name: mysterious marker
   description: What even is this?
+  save: false
   placement:
-    mode: SnapgridCenter
+    mode: AlignTileAny
   components:
   - type: Transform
     anchored: true
