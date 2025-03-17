@@ -468,16 +468,17 @@ public sealed partial class HereticAbilitySystem
             if (!_rustbringer.IsTileRust(xform.Coordinates, out _))
                 continue;
 
-            if (rustbringerQuery.HasComp(uid) && resiratorQuery.TryComp(uid, out var respirator))
+            var multiplier = 1f;
+
+            if (rustbringerQuery.HasComp(uid))
             {
-                _respirator.UpdateSaturation(uid, respirator.MaxSaturation - respirator.MinSaturation, respirator);
+                multiplier = leech.AscensuionMultiplier;
+
+                if (resiratorQuery.TryComp(uid, out var respirator))
+                    _respirator.UpdateSaturation(uid, respirator.MaxSaturation - respirator.MinSaturation, respirator);
             }
 
             RemCompDeferred<DelayedKnockdownComponent>(uid);
-
-            var multiplier = hereticQuery.TryComp(uid, out var heretic) && heretic.Ascended
-                ? leech.AscensuionMultiplier
-                : 1f;
 
             if (damageableQuery.TryComp(uid, out var damageable))
             {
