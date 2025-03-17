@@ -25,15 +25,15 @@ namespace Content.Server._Goobstation.Security
         public TimeSpan CoolDown = TimeSpan.FromSeconds(45);
 
         /// <summary>
-        /// When is the next execution.
-        /// </summary>
-        [DataField]
-        public TimeSpan NextExecutionTime = default!;
-
-        /// <summary>
         /// Which channel to send the message over.
         /// </summary>
         [DataField]
         public ProtoId<RadioChannelPrototype> RadioChannel = "Security";
+
+        /// <summary>
+        ///     ID of the cooldown use delay.
+        /// </summary>
+        [DataField]
+        public string DelayId = "button-delay";
     }
 }

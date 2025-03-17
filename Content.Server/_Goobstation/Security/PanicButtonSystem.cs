@@ -29,11 +29,15 @@ namespace Content.Server._Goobstation.Security
 
         private void OnButtonPressed(Entity<PanicButtonComponent> ent, ref UseInHandEvent args)
         {
-            if (_useDelaySystem.IsDelayed(ent.Owner))
+            if (!TryComp(ent.Owner, out UseDelayComponent? useDelay) ||
+                _useDelaySystem.IsDelayed((ent.Owner, useDelay)))
             {
                 args.Handled = true;
                 return;
             }
+
+
+            args.ApplyDelay = true;
 
             var comp = ent.Comp;
             var uid = args.User;
@@ -60,8 +64,6 @@ namespace Content.Server._Goobstation.Security
             if (args.Handled || args.Cancelled || !args.Target.HasValue)
                 return;
 
-            _useDelaySystem.SetLength(ent.Owner, ent.Comp.CoolDown);
-
             var comp = ent.Comp;
             var uid = ent.Owner;
 
@@ -71,6 +73,16 @@ namespace Content.Server._Goobstation.Security
 
             _radioSystem.SendRadioMessage(uid, distressMessage, _prototypeManager.Index<RadioChannelPrototype>(comp.RadioChannel), uid);
             args.Handled = true;
+
+            if (!TryComp(ent.Owner, out UseDelayComponent? useDelay))
+                return;
+
+            _useDelaySystem.SetLength((uid, useDelay), comp.CoolDown, comp.DelayId);
+            _useDelaySystem.TryResetDelay((uid, useDelay), id: comp.DelayId);
+
+
+
+
         }
     }
 }
