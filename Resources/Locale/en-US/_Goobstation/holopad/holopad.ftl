@@ -1,3 +1,3 @@
 # Command-adjacent
 holopad-command-ntr = Command - EQ Representative
-holopad-command-bso = Command - Big Macintosh
+holopad-command-bso = Command - Blueshield Officer

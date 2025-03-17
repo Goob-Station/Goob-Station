@@ -1,14 +1,14 @@
 ﻿## Species Names
 
 species-name-human = Pony
-species-name-dwarf = Short Pony
+species-name-dwarf = Dwarf
 species-name-reptilian = Reptilian
 species-name-slime = Slime Pony
-species-name-diona = Plant Pony
-species-name-arachnid = Spider Pony Pony
+species-name-diona = Diona
+species-name-arachnid = Arachnid
 species-name-moth = Moth Pony
 species-name-skeleton = Skeleton
-species-name-vox = Pegasus
+species-name-vox = Vox
 
 # species-name-gingerbread = delicious baked good goobstation - no
 
