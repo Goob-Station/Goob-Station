@@ -282,12 +282,12 @@ public abstract partial class SharedSurgerySystem : EntitySystem
     private void OnBodyConditionValid(Entity<SurgeryBodyConditionComponent> ent, ref SurgeryValidEvent args)
     {
         if (TryComp<BodyComponent>(args.Body, out var body) && body.Prototype is {} bodyId)
-            args.Cancelled = ent.Comp.Accepted.Contains(bodyId) ^ !ent.Comp.Inverse;
+            args.Cancelled |= ent.Comp.Accepted.Contains(bodyId) ^ !ent.Comp.Inverse;
     }
 
     private void OnOrganSlotConditionValid(Entity<SurgeryOrganSlotConditionComponent> ent, ref SurgeryValidEvent args)
     {
-        args.Cancelled = _body.CanInsertOrgan(args.Part, ent.Comp.OrganSlot) ^ !ent.Comp.Inverse;
+        args.Cancelled |= _body.CanInsertOrgan(args.Part, ent.Comp.OrganSlot) ^ !ent.Comp.Inverse;
     }
 
     private void OnPartRemovedConditionValid(Entity<SurgeryPartRemovedConditionComponent> ent, ref SurgeryValidEvent args)
