@@ -28,7 +28,7 @@
   - type: Appearance
   - type: AnimationPlayer
   - type: TimedDespawn
-    lifetime: 300
+    lifetime: 30
   - type: WizardTrap
   - type: Tag
     tags:

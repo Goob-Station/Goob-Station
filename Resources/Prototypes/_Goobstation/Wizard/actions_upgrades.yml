@@ -548,7 +548,7 @@
   name: Force Wall II
   components:
   - type: ActionUseDelayModifier
-    useDelay: 8.75
+    useDelay: 35
 
 - type: entity
   parent: ActionForceWall
@@ -556,7 +556,7 @@
   name: Force Wall III
   components:
   - type: ActionUseDelayModifier
-    useDelay: 7.5
+    useDelay: 25
 
 - type: entity
   parent: ActionForceWall
@@ -564,7 +564,7 @@
   name: Force Wall IV
   components:
   - type: ActionUseDelayModifier
-    useDelay: 6.25
+    useDelay: 10
 
 - type: entity
   parent: ActionForceWall

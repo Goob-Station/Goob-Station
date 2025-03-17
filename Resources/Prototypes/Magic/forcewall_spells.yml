@@ -6,7 +6,7 @@
   - type: InstantAction
     raiseOnUser: true # Goobstation
     checkCanInteract: false # Goobstation
-    useDelay: 10
+    useDelay: 45
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/forcewall.ogg
