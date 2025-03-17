@@ -116,8 +116,12 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
     private void OnShutdown(Entity<MartialArtsKnowledgeComponent> ent, ref ComponentShutdown args)
     {
-        if(TryComp<CanPerformComboComponent>(ent, out var comboComponent))
+        if (TryComp<CanPerformComboComponent>(ent, out var comboComponent))
             comboComponent.AllowedCombos.Clear();
+
+        var pullerComponent = EnsureComp<PullerComponent>(ent); 
+        pullerComponent.StageChangeCooldown *= 2;
+        //returning time of grab to avoid abuse of judo belt and etc.
     }
 
     private void CheckGrabStageOverride<T>(EntityUid uid, T component, CheckGrabOverridesEvent args)
