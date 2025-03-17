@@ -68,6 +68,6 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Eyes/Hud/viro.rsi
   - type: ShowDiseaseIcons
-    lowThreshold: 2 # very sensitive
+    lowThreshold: 1 # very sensitive
     mediumThreshold: 20
     highThreshold: 40

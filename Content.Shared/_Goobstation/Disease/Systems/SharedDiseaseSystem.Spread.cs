@@ -103,6 +103,8 @@ public partial class SharedDiseaseSystem
         return _random.Prob(1f - MathF.Exp(-prob));
     }
 
+    public const float MinMutationRate = 0.0001f;
+
     /// <summary>
     /// Mutate the provided disease
     /// Can take an override of mutation rate
@@ -114,6 +116,10 @@ public partial class SharedDiseaseSystem
 
         // if you're reading this and want something to affect mutation rate, make and use an event for it
         float rate = mutationRate ?? disease.MutationRate;
+
+        if (rate < MinMutationRate)
+            return;
+
         // parameter mutation
         disease.MutationRate *= MathF.Exp(_random.NextFloat(-1f, 1f) * disease.MutationMutationCoefficient * rate);
         disease.ImmunityGainRate *= MathF.Exp(_random.NextFloat(-1f, 1f) * disease.ImmunityGainMutationCoefficient * rate);

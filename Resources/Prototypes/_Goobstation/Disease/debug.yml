@@ -26,7 +26,7 @@
 - type: entity
   id: DiseaseBehaviorSpreadDebug
   parent: DiseaseBehaviorDebug
-  name: turbocancer
+  name: debug spread
   description: The plague.
   components:
   - type: DiseaseEffect
@@ -46,9 +46,40 @@
     timeScale: false
 
 - type: entity
+  id: DiseaseBehaviorForceSpreadDebug
+  parent: DiseaseBehaviorDebug
+  name: omega spread
+  description: Worlds will rot. # [x] sufficiently edgy description
+  components:
+  - type: DiseaseEffect
+    complexity: 1000
+  - type: DiseaseForceSpreadEffect
+    arc: 360
+    range: 2.5
+    chance: 1
+    severityScale: false
+    spreadParams:
+      chance: 1
+      power: 1
+      type: Debug
+
+- type: entity
+  id: DiseaseBehaviorTurboBlunt
+  parent: DiseaseBehaviorBase
+  name: poison
+  description: Deals lots of blunt damage over time.
+  components:
+  - type: DiseaseEffect
+    complexity: 1000
+  - type: DiseaseDamageEffect
+    damage:
+      types:
+        Blunt: 30
+
+- type: entity
   id: DiseaseTurboCancer
   parent: DiseaseBase
-  name: cancer
+  name: turbo cancer
   description: Deals lots of genetic damage to the infected. Better prepare the funeral.
   components:
   - type: Disease
@@ -60,6 +91,24 @@
       DiseaseBehaviorTurboCancer: 1
       DiseaseBehaviorFightImmunity: 1
       DiseaseBehaviorSpreadDebug: 1
+
+- type: entity
+  id: DiseaseOmegaCancer
+  parent: DiseaseBase
+  name: omega cancer
+  description: If you are reading this, you've invoked the gods' wrath.
+  components:
+  - type: Disease
+    infectionRate: 0.03
+    immunityGainRate: 0
+    mutationRate: 0
+    affectsDead: true
+    canGainImmunity: false
+    genotype: 9001
+    effects:
+      DiseaseBehaviorTurboBlunt: 0.2
+      DiseaseBehaviorFightImmunity: 1
+      DiseaseBehaviorForceSpreadDebug: 0.2
 
 - type: entity
   id: MeleeDebugInfectTurboCancer
@@ -76,6 +125,22 @@
         Blunt: 5
   - type: DiseaseOnHit
     disease: DiseaseTurboCancer
+
+- type: entity
+  id: MeleeDebugInfectOmegaCancer
+  parent: MeleeDebugGib
+  name: omega cancer stick
+  description: Destroys everything. No, really.
+  components:
+  - type: Tag
+    tags:
+      - Debug
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+  - type: DiseaseOnHit
+    disease: DiseaseOmegaCancer
 
 - type: entity
   id: MeleeDebugInfectFlu

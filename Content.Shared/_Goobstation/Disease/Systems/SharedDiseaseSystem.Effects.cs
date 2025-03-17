@@ -6,6 +6,7 @@ using Content.Shared.Popups;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.StatusEffect;
+using Content.Shared.StatusIcon.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio.Systems;
@@ -33,6 +34,7 @@ public partial class SharedDiseaseSystem
         SubscribeLocalEvent<DiseaseAudioEffectComponent, DiseaseEffectEvent>(OnAudioEffect);
         SubscribeLocalEvent<DiseaseDamageEffectComponent, DiseaseEffectEvent>(OnDamageEffect);
         SubscribeLocalEvent<DiseaseSpreadEffectComponent, DiseaseEffectEvent>(OnDiseaseSpreadEffect);
+        SubscribeLocalEvent<DiseaseForceSpreadEffectComponent, DiseaseEffectEvent>(OnDiseaseForceSpreadEffect);
         SubscribeLocalEvent<DiseaseFightImmunityEffectComponent, DiseaseEffectEvent>(OnFightImmunityEffect);
         SubscribeLocalEvent<DiseaseFlashEffectComponent, DiseaseEffectEvent>(OnFlashEffect);
         SubscribeLocalEvent<DiseasePopupEffectComponent, DiseaseEffectEvent>(OnPopupEffect);
@@ -52,8 +54,10 @@ public partial class SharedDiseaseSystem
 
     private void OnDamageEffect(EntityUid uid, DiseaseDamageEffectComponent effect, DiseaseEffectEvent args)
     {
-        if (_timing.IsFirstTimePredicted)
-            _damageable.TryChangeDamage(args.Ent, effect.Damage * GetScale(args, effect), true, false);
+        if (_net.IsClient) // this desyncs if ran on client too somehow
+            return;
+
+        _damageable.TryChangeDamage(args.Ent, effect.Damage * GetScale(args, effect), true, false);
     }
 
     private void OnDiseaseSpreadEffect(EntityUid uid, DiseaseSpreadEffectComponent effect, DiseaseEffectEvent args)
@@ -80,6 +84,32 @@ public partial class SharedDiseaseSystem
         foreach (var target in targets)
         {
             DoInfectionAttempt(target, args.Disease, ev.Power, ev.Chance * GetScale(args, effect), effect.SpreadParams.Type);
+        }
+    }
+
+    private void OnDiseaseForceSpreadEffect(EntityUid uid, DiseaseForceSpreadEffectComponent effect, DiseaseEffectEvent args)
+    {
+        if (!_timing.IsFirstTimePredicted)
+            return;
+        if (!_random.Prob(effect.Chance * GetScale(args, effect)))
+            return;
+
+        var xform = Transform(args.Ent);
+        var (selfPos, selfRot) = _transform.GetWorldPositionRotation(xform);
+
+        var targets = _melee.ArcRayCast(selfPos, selfRot, effect.Arc, effect.Range, xform.MapID, args.Ent);
+
+        foreach (var target in targets)
+        {
+            var newDisease = TryClone(args.Disease);
+            if (newDisease == null)
+                continue;
+
+            MutateDisease(newDisease.Value);
+            if (!TryInfect(target, newDisease.Value, null, true))
+                QueueDel(newDisease);
+            else if (effect.AddIcon)
+                EnsureComp<StatusIconComponent>(target);
         }
     }
 

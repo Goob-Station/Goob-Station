@@ -140,6 +140,10 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
     public override bool TryInfect(EntityUid uid, EntProtoId diseaseId, [NotNullWhen(true)] out EntityUid? disease, DiseaseCarrierComponent? comp = null, bool force = false)
     {
         disease = null;
+
+        if (force)
+            EnsureComp<DiseaseCarrierComponent>(uid, out comp);
+
         if (!Resolve(uid, ref comp, false))
             return false;
 
