@@ -114,6 +114,9 @@ public sealed class LavalandPlanetSystem : EntitySystem
     /// </summary>
     private void OnPlayerParentChange(Entity<MobStateComponent> ent, ref EntParentChangedMessage args)
     {
+        if (TerminatingOrDeleted(ent.Owner))
+            return;
+
         if (args.OldParent != null
             && TryComp<LavalandGridGrantComponent>(args.OldParent.Value, out var toRemove))
             EntityManager.RemoveComponents(ent.Owner, toRemove.ComponentsToGrant);
