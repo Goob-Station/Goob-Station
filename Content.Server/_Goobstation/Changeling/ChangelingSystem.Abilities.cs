@@ -84,6 +84,11 @@ public sealed partial class ChangelingSystem
     {
         var target = args.Target;
 
+        if (!IsIncapacitated(target))
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-incapacitated"), uid, uid);
+            return;
+        }
         if (HasComp<AbsorbedComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-absorbed"), uid, uid);
@@ -94,10 +99,13 @@ public sealed partial class ChangelingSystem
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-unabsorbable"), uid, uid);
             return;
         }
-        if (!IsIncapacitated(target) && !IsHardGrabbed(target))
+        if (TryComp<PullableComponent>(target, out var pullable)) // Agressive grab check
         {
-            _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-nograb"), uid, uid);
-            return;
+            if (pullable.GrabStage <= GrabStage.Soft)
+            {
+                _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-nograb"), uid, uid);
+                return;
+            }
         }
 
         if (!TryUseAbility(uid, comp, args))
@@ -126,7 +134,7 @@ public sealed partial class ChangelingSystem
 
         var target = args.Args.Target.Value;
 
-        if (args.Cancelled || HasComp<AbsorbedComponent>(target) || (!IsIncapacitated(target) && !IsHardGrabbed(target)))
+        if (args.Cancelled || !IsIncapacitated(target) || HasComp<AbsorbedComponent>(target))
             return;
 
         PlayMeatySound(args.User, comp);
