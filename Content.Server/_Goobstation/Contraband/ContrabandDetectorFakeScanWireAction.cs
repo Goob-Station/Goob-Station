@@ -9,7 +9,7 @@ public sealed partial class ContrabandDetectorFakeScanWireAction : BaseToggleWir
 {
     private ContrabandDetectorSystem _contrabandDetectorSystem = default!;
 
-    public override Color Color { get; set; } = Color.DarkRed;
+    public override Color Color { get; set; } = Color.CadetBlue;
     public override string Name { get; set; } = "wire-name-contraband-detector-fake-scan";
     public override object? StatusKey { get; } = ContrabandDetectorFakeScanWireKey.StatusKey;
     public override object? TimeoutKey { get; } = ContrabandDetectorFakeScanWireKey.TimeoutKey;
