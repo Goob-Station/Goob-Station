@@ -28,8 +28,8 @@ namespace Content.Server._Goobstation.Security
             var comp = ent.Comp;
 
             var doAfterArgs = new DoAfterArgs(
-                EntityManager, args.User, comp.DoAfterDuration, new PanicButtonDoAfterEvent(), args.User, args.User,
-                args.User)
+                EntityManager, args.User, comp.DoAfterDuration, new PanicButtonDoAfterEvent(), args.User, ent.Owner,
+                ent.Owner)
             {
                 BreakOnMove = true,
                 NeedHand = true,
