@@ -645,7 +645,7 @@
     - type: ItemBorgModule
       moduleId: Operative
       items:
-      - Crowbar
+      - SyndicateJawsOfLife # - Crowbar # Goobstation
       - Emag
       - AccessBreaker
       - PinpointerSyndicateNuclear
