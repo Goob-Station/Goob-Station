@@ -457,14 +457,6 @@
     state: insertion
   - type: SurgeryAddOrganSlotStep
   - type: SurgeryStepEmoteEffect
-  - type: SurgeryDamageChangeEffect # DeltaV
-    sleepModifier: 0.5
-    damage:
-      types:
-        Blunt: 5
-  - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
-    toolDirtiness: 7.5
-    gloveDirtiness: 7.5
 
 - type: entity
   parent: SurgeryStepInsertOrgan
