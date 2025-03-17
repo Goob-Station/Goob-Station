@@ -179,7 +179,7 @@
   id: FishPuffer
   parent: BaseFish
   name: puffer fish
-  description:
+  description: It is poisonous... in many ways.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
