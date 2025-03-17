@@ -1,1 +1,1 @@
-station-beacon-centcomm-office = Centcomm Office
+station-beacon-centcomm-office = Canterlot Office

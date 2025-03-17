@@ -44,17 +44,17 @@ crime-assist-question-hadillicititem = Did the suspect have an illicit or contro
 crime-assist-question-wasitaperson = Did the suspect hold another sophont against its will?
 crime-assist-question-wassuspectselling = Was the suspect selling or distributing the illicit items?
 crime-assist-question-wassuspectseentaking = Can it be proven that the suspect took the item knowing that it was illegal for the suspect to possess the item?
-crime-assist-question-isitemextremelydangerous = Is the item in question dangerous to other sophonts or the station as a whole?
+crime-assist-question-isitemextremelydangerous = Is the item in question dangerous to other sophonts or ponyville as a whole?
 crime-assist-question-wassuspectinarestrictedlocation = Was the suspect in a restricted location, or anywhere the suspect did not have legal access to?
 crime-assist-question-wasentrancelocked = Did the suspect force through a locked access point to get to the location?
 crime-assist-question-didsuspectbreaksomething = Did the suspect break something?
 crime-assist-question-weretheremanysuspects = Were there many suspects in a group causing a disturbance?
 crime-assist-question-wasdamagesmall = Was the damage minor, or easily undone?
-crime-assist-question-wasdestroyeditemimportanttostation = Was the damaged or destroyed item important to the functioning of the station?
-crime-assist-question-islargepartofstationdestroyed = Was a large part of the station destroyed or made uninhabitable?
+crime-assist-question-wasdestroyeditemimportanttostation = Was the damaged or destroyed item important to the functioning of ponyville?
+crime-assist-question-islargepartofstationdestroyed = Was a large part of ponyville destroyed or made uninhabitable?
 crime-assist-question-wascrimesexualinnature = Was the crime sexual in nature?
 crime-assist-question-wassuspectanuisance = Was the suspect being a nuisance to other sophonts?
-crime-assist-question-falselyreportingtosecurity = Has the suspect made a report, in person or through radio channels, to security that was proven to be intentionally false?
+crime-assist-question-falselyreportingtosecurity = Has the suspect made a report, in pony or through radio channels, to royal guard that was proven to be intentionally false?
 crime-assist-question-happenincourt = Was the suspect a nuisance in court?
 crime-assist-question-duringactiveinvestigation = Was the suspect a nuisance during an active investigation, and hindered the investigation as a result?
 crime-assist-question-tocommandstaff = Did the suspect overthrow or compromise a lawfully established Chain of Command, or attempt to do so?
@@ -63,7 +63,7 @@ crime-assist-crimedetail-innocent = Crime could not be determined. Use your best
 crime-assist-crimedetail-animalcruelty = To inflict unnecessary suffering on a sapient being with malicious intent.
 crime-assist-crimedetail-theft = To unlawfully take property or items without consent.
 crime-assist-crimedetail-trespass = To enter into an area where one is not authorised nor invited.
-crime-assist-crimedetail-vandalism = To deface or superficially damage public property, or property belonging to another person.
+crime-assist-crimedetail-vandalism = To deface or superficially damage public property, or property belonging to another pony.
 crime-assist-crimedetail-hooliganism = To intentionally and maliciously engage in disruptive conduct, where one refuses to cease.
 crime-assist-crimedetail-manslaughter = To effect violence upon a sophont, resulting in their death, without the apparent intent to kill them.
 crime-assist-crimedetail-grandtheft = To unlawfully take highly restricted, dangerous, valuable, or highly sensitive property or items without consent.
@@ -74,7 +74,7 @@ crime-assist-crimedetail-assault = To cause physical harm or to effect unwanted 
 crime-assist-crimedetail-abuseofpower = To intentionally misuse or wrongfully exercise one’s own authority, influence, or control, resulting in harm, unjust treatment, or demonstrable loss to a separate party due to violation of ethical and professional standards.
 crime-assist-crimedetail-possession = To be in unauthorised possession of restricted items or items of particular danger.
 crime-assist-crimedetail-endangerment = To recklessly abandon obligations involving the continued wellbeing and/or protection of life and property, through malpractice, action, or inaction.
-crime-assist-crimedetail-breakingandentering = To break and enter into a high security area where one is not authorised nor invited, with intent to commit a crime within.
+crime-assist-crimedetail-breakingandentering = To break and enter into a high royal guard area where one is not authorised nor invited, with intent to commit a crime within.
 crime-assist-crimedetail-rioting = To partake in an unauthorised riotous, tumultuous, and disruptive public assembly that refuses to disperse after warning.
 crime-assist-crimedetail-contemptofcourt = To conduct oneself disruptively and disrespectfully before the court.
 crime-assist-crimedetail-perjuryfalsereport = To wilfully and maliciously tell an untruth either in court or in the process of making an actionable report to law enforcement.
@@ -113,12 +113,12 @@ crime-assist-crimepunishment-decorporealisation = Punishment: Capital
 crime-assist-crimepunishment-kidnapping = Punishment: Capital
 crime-assist-crimepunishment-sedition = Punishment: Capital
 crime-assist-crimepunishment-sexualharassment = Punishment: Capital
-crime-assist-sophont-explanation = A sophont is described as any entity with the capacity to display the following attributes:
-                                   • [bold]Sapience[/bold]: the entity possesses basic logic and problem-solving skills, or at a minimum some level of significant intelligence.
-                                   • [bold]Sentience[/bold]: the entity has the capacity to process an emotion or lack thereof, or at a minimum the ability to recognise its own pain.
-                                   • [bold]Self-awareness[/bold]: the entity is capable of altering its behaviour in a reasonable fashion as a result of stimuli, or at a minimum is capable of recognising its own sapience and sentience.
-                                   Any sophont is considered a legal person, regardless of origin or prior cognitive status. Much like any other intelligent organic, a sophont may press charges against crew and be tried for crimes.
-
+crime-assist-sophont-explanation =
+    A sophont is described as any entity with the capacity to display the following attributes:
+    • [bold]Sapience[/bold]: the entity possesses basic logic and problem-solving skills, or at a minimum some level of significant intelligence.
+    • [bold]Sentience[/bold]: the entity has the capacity to process an emotion or lack thereof, or at a minimum the ability to recognise its own pain.
+    • [bold]Self-awareness[/bold]: the entity is capable of altering its behaviour in a reasonable fashion as a result of stimuli, or at a minimum is capable of recognising its own sapience and sentience.
+    Any sophont is considered a legal pony, regardless of origin or prior cognitive status. Much like any other intelligent organic, a sophont may press charges against crew and be tried for crimes.
 mail-metrics-program-name = MailMetrics
 mail-metrics-header = Income from Mail Deliveries
 mail-metrics-opened = Earnings (Opened)
@@ -129,8 +129,8 @@ mail-metrics-unopened = Unopened
 mail-metrics-count-header = Packages
 mail-metrics-money-header = Spesos
 mail-metrics-total = Total
-mail-metrics-progress = {$opened} out of {$total} packages opened!
-mail-metrics-progress-percent = Success rate: {$successRate}%
+mail-metrics-progress = { $opened } out of { $total } packages opened!
+mail-metrics-progress-percent = Success rate: { $successRate }%
 
 ## NanoChat
 
@@ -145,13 +145,12 @@ nano-chat-message-placeholder = Type a message...
 nano-chat-send = Send
 nano-chat-delete = Delete
 nano-chat-loading = Loading...
-nano-chat-message-too-long = Message too long ({$current}/{$max} characters)
+nano-chat-message-too-long = Message too long ({ $current }/{ $max } characters)
 nano-chat-max-recipients = Maximum number of chats reached
-nano-chat-new-message-title = Message from {$sender}
-nano-chat-new-message-body = {$message}
+nano-chat-new-message-title = Message from { $sender }
+nano-chat-new-message-body = { $message }
 nano-chat-toggle-mute = Mute notifications
 nano-chat-delivery-failed = Failed to deliver
-
 # Create chat popup
 nano-chat-new-title = Add a new chat
 nano-chat-number-label = Number
@@ -162,13 +161,12 @@ nano-chat-name-placeholder = Enter a name
 nano-chat-job-placeholder = Enter a job title (optional)
 nano-chat-cancel = Cancel
 nano-chat-create = Create
-
 # LogProbe additions
-log-probe-scan-nanochat = Scanned {$card}'s NanoChat logs
+log-probe-scan-nanochat = Scanned { $card }'s NanoChat logs
 log-probe-header-access = Access Log Scanner
 log-probe-header-nanochat = NanoChat Log Scanner
 log-probe-label-message = Message
-log-probe-card-number = Card: {$number}
-log-probe-recipients = {$count} Recipients
+log-probe-card-number = Card: { $number }
+log-probe-recipients = { $count } Recipients
 log-probe-recipient-list = Known Recipients:
-log-probe-message-format = {$sender} → {$recipient}: {$content}
+log-probe-message-format = { $sender } → { $recipient }: { $content }

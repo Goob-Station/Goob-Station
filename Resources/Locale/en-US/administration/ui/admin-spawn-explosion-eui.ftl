@@ -1,5 +1,4 @@
 admin-explosion-eui-title = Spawn Explosions
-
 admin-explosion-eui-label-type = Explosion Type
 admin-explosion-eui-label-mapid = Map ID
 admin-explosion-eui-label-xmap = X (Map)
