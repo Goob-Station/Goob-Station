@@ -19,7 +19,7 @@
                              HorizontalExpand="False"
                              VerticalExpand="False"
                              Margin="1"
-                             TextureScale="0.5 0.5"/>
+                             TextureScale="1 1"/>
                 <Control MinWidth="5"/>
                 <RichTextLabel Name="NameLabel" StyleClasses="LabelSubText" VerticalAlignment="Center"/>
             </BoxContainer>
