@@ -1,7 +1,7 @@
 # These are the gamerules to spawn antags for tokens.
 - type: entity
   parent: NinjaSpawn
-  id: NinjaSpawnToken
+  id: TokenNinjaSpawn
   components:
   - type: AntagSelection
     agentName: ninja-round-end-agent-name
@@ -34,7 +34,7 @@
 
 - type: entity
   parent: DragonSpawn
-  id: DragonSpawnToken
+  id: TokenDragonSpawn
   components:
   - type: AntagSelection
     agentName: dragon-round-end-agent-name
@@ -48,14 +48,14 @@
 
 - type: entity
   parent: RevenantSpawn
-  id: RevenantSpawnToken
+  id: TokenRevenantSpawn
   components:
   - type: RandomSpawnRule
     prototype: MobRevenantToken
 
 - type: entity
   parent: LoneOpsSpawn
-  id: LoneOpsSpawnToken
+  id: TokenLoneOpsSpawn
   components:
   - type: AntagSelection
     definitions:
@@ -81,7 +81,7 @@
 
 - type: entity
   parent: DerelictCyborgSyndicateSpawn
-  id: DerelictCyborgSyndicateSpawnToken
+  id: TokenDerelictCyborgSyndicateSpawn
   components:
   - type: AntagSpawner
     prototype: PlayerBorgDerelictSyndicateAssaultBattery
@@ -94,14 +94,14 @@
 
 - type: entity
   parent: BingleSpawn
-  id: BingleSpawnToken
+  id: TokenBingleSpawn
   components:
   - type: RandomSpawnRule
     prototype: SpawnPointGhostBinglePrimeToken
 
 - type: entity
   parent: BlobMidround
-  id: BlobMidroundToken
+  id: TokenBlobMidround
   components:
   - type: BlobSpawnRule
     carrierBlobProtos:
@@ -114,11 +114,11 @@
 
 - type: entity
   parent: LoneAbductorSpawn
-  id: LoneAbductorSpawnToken
+  id: TokenLoneAbductorSpawn
   components:
   - type: AntagSelection
     definitions:
-    - spawnerPrototype: LoneAbductorSpawner
+    - spawnerPrototype: LoneAbductorSpawnerToken # idk why this shit is defined twice, but i dont want to mess with it so... *shrugs
       min: 1
       max: 1
       pickPlayer: false
