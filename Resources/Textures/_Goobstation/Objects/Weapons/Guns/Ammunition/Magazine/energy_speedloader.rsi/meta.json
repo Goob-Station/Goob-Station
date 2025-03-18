@@ -51,7 +51,7 @@
             ]
         },
         {
-            "name": "disabler-empty",
+            "name": "disabling-empty",
             "delays": [
                 [
                     0.2,
