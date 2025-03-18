@@ -6486,3 +6486,9 @@ Entries:
       message: Goob is less stable now.
   id: 750
   time: '2025-03-17T09:25:21.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Tweak
+      message: Return of old appearance of engi & default borg.
+  id: 751
+  time: '2025-03-18T20:22:38.0000000+00:00'
