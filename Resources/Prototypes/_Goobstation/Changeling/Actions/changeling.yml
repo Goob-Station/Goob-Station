@@ -553,7 +553,7 @@
   - type: InstantAction
     useDelay: 1
     checkCanInteract: false
-    checkConciousness: false
+    checkConsciousness: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
@@ -580,7 +580,7 @@
       state: epinephrine_overdose
     event: !type:ActionAdrenalineReservesEvent {}
   - type: ChangelingAction
-    chemicalCost: 25
+    chemicalCost: 30
     useInLesserForm: true
 
 - type: entity

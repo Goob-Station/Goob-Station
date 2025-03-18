@@ -2,17 +2,18 @@
 changeling-biomass-deficit = Not enough biomass!
 changeling-chemicals-deficit = Not enough chemicals!
 changeling-action-fail-lesserform = Can't use it while in lesser form!
-changeling-action-fail-absorbed = Need to absorb {$number} more organisms to use it!
 
+changeling-action-fail-absorbed = Need to absorb {$number} more organisms to use it!
 changeling-absorb-start = {CAPITALIZE(THE($user))} starts absorbing {CAPITALIZE(THE($target))}'s DNA!
 changeling-absorb-fail-incapacitated = We can't absorb them until they're incapacitated.
 changeling-absorb-fail-absorbed = They've already been absorbed.
 changeling-absorb-fail-unabsorbable = The target is not absorbable.
 changeling-absorb-end-self = The organism was absorbed. We are evolving.
-changeling-absorb-end-self-ling = Another changeling was absorbed. Our body is filled with immense vigor as our cells shift rapidly evolve.
+changeling-absorb-end-self-ling = Another changeling was absorbed. Our body is filled with immense vigor as our cells rapidly evolve.
 changeling-absorb-onexamine = [color=red]The body feels hollow.[/color]
 changeling-absorb-fail-nograb = We aren't grabbing hard enough.
 changeling-absorb-fail-onfire = The target is on fire, put them out first!
+
 
 changeling-absorbbiomatter-start = {THE($user)} starts absorbing the food!
 changeling-absorbbiomatter-bad-food = This food is not absorbable.
