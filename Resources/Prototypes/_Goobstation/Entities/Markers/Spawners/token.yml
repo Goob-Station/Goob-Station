@@ -69,3 +69,13 @@
     name: abductor-lone-ghost-role-name-token
     description: ghost-role-information-description-token-generic
     rules: abductors-ghost-role-rules
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: SpawnPointWizard
+  id: SpawnPointWizardToken
+  components:
+  - type: GhostRole
+    name: roles-wizard-name-token
+    description: ghost-role-information-description-token-generic
+    rules: ghost-role-information-antagonist-rules

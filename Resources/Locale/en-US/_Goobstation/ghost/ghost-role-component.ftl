@@ -65,3 +65,4 @@ ghost-role-information-derelict-cyborg-syndicate-name-token = Derelict Assault C
 ghost-role-information-bingle-name-token = Bingle (Token)
 blob-carrier-role-name-token = Blob Carrier (Token)
 abductor-lone-ghost-role-name-token = Lone Abductor (Token)
+roles-wizard-name-token = Wizard (Token)
