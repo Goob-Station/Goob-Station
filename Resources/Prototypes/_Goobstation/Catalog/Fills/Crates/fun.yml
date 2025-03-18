@@ -41,3 +41,5 @@
     proto: MobBingle
   - type: TriggerOnVoice
     keyPhrase: Bingle
+  - type: ActiveListener
+    range: 4
