@@ -5,31 +5,24 @@
         "y": 32
     },
     "license": "CC-BY-SA-3.0",
-    "copyright": "Sprited by SolsticeOfTheWinter",
+    "copyright": "Sprited by Wyvernrer",
     "states": [
         {
-            "name": "base"
-        },
-        {
-            "name": "icon"
-        },
-        {
-            "name": "base-1"
-        },
-        {
-            "name": "base-2"
-        },
-        {
-            "name": "base-3"
-        },
-        {
-            "name": "disabling-1"
-        },
-        {
-            "name": "disabling-2"
-        },
-        {
-            "name": "disabling-3"
+            "name": "icon-disabling",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
         }
     ]
 }
