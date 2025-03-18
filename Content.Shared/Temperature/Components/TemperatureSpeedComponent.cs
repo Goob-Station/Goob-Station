@@ -29,7 +29,7 @@ public sealed partial class TemperatureSpeedComponent : Component
     public TimeSpan? NextSlowdownUpdate;
 
     /// <summary>
-    /// Determines if immune to temperature slowdown
+    /// Determines if immune to temperature slowdown || GOOB EDIT ||
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public bool HasImmunity = false;

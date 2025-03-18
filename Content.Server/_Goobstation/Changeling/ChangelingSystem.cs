@@ -127,9 +127,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     public EntProtoId ArmorPrototype = "ChangelingClothingOuterArmor";
     public EntProtoId ArmorHelmetPrototype = "ChangelingClothingHeadHelmet";
 
-    //public EntProtoId SpacesuitPrototype = "ChangelingClothingOuterHardsuit";
-    //public EntProtoId SpacesuitHelmetPrototype = "ChangelingClothingHeadHelmetHardsuit";
-
     public override void Initialize()
     {
         base.Initialize();
@@ -383,13 +380,23 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     public bool TryUseAbility(EntityUid uid,
         ChangelingComponent comp,
         BaseActionEvent action,
-        float? chemCostOverride = null)
+        float? chemCostOverride = null,
+        bool fireAffected = true)
     {
         if (action.Handled)
             return false;
 
         if (!TryComp<ChangelingActionComponent>(action.Action, out var lingAction))
             return false;
+
+        if (TryComp<FlammableComponent>(uid, out var fire)) // checks if the changeling is on fire, and if the ability is affected by fire
+        {
+            if (fire.OnFire && fireAffected)
+            {
+                _popup.PopupEntity(Loc.GetString("changeling-onfire"), uid, uid, PopupType.LargeCaution);
+                return false;
+            }
+        }
 
         if (comp.Biomass < 1 && lingAction.RequireBiomass)
         {

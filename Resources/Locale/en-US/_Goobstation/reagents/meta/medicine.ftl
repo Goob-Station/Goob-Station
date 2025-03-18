@@ -3,11 +3,11 @@ reagent-desc-stasizium = An unstable fluid of future capable of restoring the pa
 
 reagent-name-fleshmend = Changeling Fleshmenders
 reagent-desc-fleshmend = Tons of singlecell organisms focused soley on restoring the changeling to peak physical health
-reagent-popup-fleshmend = Your body twists and contorts into shape.
+reagent-popup-fleshmend = Our body twists and contorts into better shape.
 
 reagent-name-panacea = Changeling Panacea
 reagent-desc-panacea = Tons of singlecell organisms focused soley on purging the changeling of toxic chemicals.
-reagent-popup-panacea = Poison drains out of you onto the floor.
+reagent-popup-panacea = Poison drains out of us onto the floor.
 
 reagent-name-lingdrenaline = Changeling Adrenaline
 reagent-desc-lingdrenaline = A reserve of potent adrenaline stored in a gland capable of immediately recovering a changeling from any fatigue.
@@ -62,7 +62,7 @@ reagent-name-antihol = antihol
 reagent-desc-antihol = Quickly neutralises any ethanol in the solution, while healing most prolific drunkards.
 
 reagent-name-ibuprofen = ibuprofen
-reagent-desc-ibuprofen = Weak drug that helps with headaches and returning to ponyville hospital bay after a bad day.
+reagent-desc-ibuprofen = Weak drug that helps with headaches and returning to medical bay after a bad day.
 
 reagent-name-silver-sulfadiazine = silver sulfadiazine
 reagent-desc-silver-sulfadiazine = Soothing liquid that can be applied externally to quickly treat mild burns. Toxic when in bloodstream. Works on dead.

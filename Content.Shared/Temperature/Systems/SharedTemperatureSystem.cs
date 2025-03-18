@@ -26,11 +26,11 @@ public sealed class SharedTemperatureSystem : EntitySystem
         SubscribeLocalEvent<TemperatureSpeedComponent, OnTemperatureChangeEvent>(OnTemperatureChanged);
         SubscribeLocalEvent<TemperatureSpeedComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers);
 
-        SubscribeLocalEvent<TemperatureSlowImmuneComponent, ComponentInit>(OnTempSlowdownImmuneInit);
-        SubscribeLocalEvent<TemperatureSlowImmuneComponent, ComponentRemove>(OnTempSlowdownImmuneRemove);
+        SubscribeLocalEvent<TemperatureSlowImmuneComponent, ComponentInit>(OnTempSlowdownImmuneInit); // Goob edit
+        SubscribeLocalEvent<TemperatureSlowImmuneComponent, ComponentRemove>(OnTempSlowdownImmuneRemove); // Goob edit
     }
 
-    private void OnTempSlowdownImmuneInit(EntityUid uid, TemperatureSlowImmuneComponent pressureImmunity, ComponentInit args)
+    private void OnTempSlowdownImmuneInit(EntityUid uid, TemperatureSlowImmuneComponent pressureImmunity, ComponentInit args) // Goob edit
     {
         if (TryComp<TemperatureSpeedComponent>(uid, out var tempSpeed))
         {
@@ -38,7 +38,7 @@ public sealed class SharedTemperatureSystem : EntitySystem
         }
     }
 
-    private void OnTempSlowdownImmuneRemove(EntityUid uid, TemperatureSlowImmuneComponent pressureImmunity, ComponentRemove args)
+    private void OnTempSlowdownImmuneRemove(EntityUid uid, TemperatureSlowImmuneComponent pressureImmunity, ComponentRemove args) // Goob edit
     {
         if (TryComp<TemperatureSpeedComponent>(uid, out var tempSpeed))
         {
@@ -77,7 +77,7 @@ public sealed class SharedTemperatureSystem : EntitySystem
 
         if (ent.Comp.HasImmunity)
         {
-            ent.Comp.CurrentSpeedModifier = 1.0f; // No slowdown if immune
+            ent.Comp.CurrentSpeedModifier = 1.0f; // Goob edit, no slowdown if immune
         }
 
         args.ModifySpeed(ent.Comp.CurrentSpeedModifier.Value, ent.Comp.CurrentSpeedModifier.Value);
