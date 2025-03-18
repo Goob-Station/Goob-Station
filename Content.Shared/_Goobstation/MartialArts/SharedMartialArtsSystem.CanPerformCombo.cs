@@ -72,7 +72,9 @@ public partial class SharedMartialArtsSystem
             RaiseLocalEvent(uid, ev);
             if (!TryComp<MartialArtsKnowledgeComponent>(uid, out var martialArtsKnowledge))
                 return;
-            if (martialArtsKnowledge.MartialArtsForm != MartialArtsForms.CorporateJudo)
+            // Clears previous moves if a combo is longer than 16 moves, really is only called after a sucessful move.
+            if (martialArtsKnowledge.MartialArtsForm != MartialArtsForms.CorporateJudo
+            || comp.LastAttacks.Count >=16)
                 comp.LastAttacks.Clear();
         }
     }
