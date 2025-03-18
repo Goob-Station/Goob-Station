@@ -232,7 +232,7 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
             return;
 
         CurrentTech = proto.ID;
-        var control = new FancyTechnologyInfoPanel(proto, _sprite, _accessReader.IsAllowed(_player.LocalEntity.Value, Entity), availability);
+        var control = new FancyTechnologyInfoPanel(proto, _accessReader.IsAllowed(_player.LocalEntity.Value, Entity), availability, _sprite);
         control.BuyAction += args => OnTechnologyCardPressed?.Invoke(args.ID);
         InfoContainer.AddChild(control);
     }

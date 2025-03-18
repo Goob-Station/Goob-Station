@@ -20,7 +20,7 @@ public sealed partial class FancyTechnologyInfoPanel : Control
 
     public TechnologyPrototype Prototype;
     public Action<TechnologyPrototype>? BuyAction;
-    public FancyTechnologyInfoPanel(TechnologyPrototype proto, SpriteSystem sprite, bool hasAccess, ResearchAvailability availability)
+    public FancyTechnologyInfoPanel(TechnologyPrototype proto, bool hasAccess, ResearchAvailability availability, SpriteSystem sprite)
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
