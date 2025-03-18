@@ -557,63 +557,33 @@ public sealed partial class ChangelingSystem
 
     private void OnStingReagent(EntityUid uid, ChangelingComponent comp, StingReagentEvent args)
     {
-        if (TryComp<FlammableComponent>(uid, out var flame))
-        {
-            if (!flame.OnFire) // only toggleable or useable when not on fire // 
-            {
-                TryReagentSting(uid, comp, args);
-            }
-            else
-            {
-                _popup.PopupEntity(Loc.GetString("changeling-onfire"), uid, uid, PopupType.LargeCaution);
-            }
-        }
+        TryReagentSting(uid, comp, args);
     }
     private void OnStingTransform(EntityUid uid, ChangelingComponent comp, ref StingTransformEvent args)
     {
-        if (TryComp<FlammableComponent>(uid, out var flame))
-        {
-            if (!flame.OnFire) // only toggleable or useable when not on fire // 
-            {
-                if (!TrySting(uid, comp, args, true))
-                    return;
+        if (!TrySting(uid, comp, args, true))
+            return;
 
-                var target = args.Target;
-                if (!TryTransform(target, comp, true, true))
-                    comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
-            }
-            else
-            {
-                _popup.PopupEntity(Loc.GetString("changeling-onfire"), uid, uid, PopupType.LargeCaution);
-            }
-        }
+        var target = args.Target;
+        if (!TryTransform(target, comp, true, true))
+            comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
     }
     private void OnStingFakeArmblade(EntityUid uid, ChangelingComponent comp, ref StingFakeArmbladeEvent args)
     {
-        if (TryComp<FlammableComponent>(uid, out var flame))
+        if (!TrySting(uid, comp, args))
+            return;
+
+        var target = args.Target;
+        var fakeArmblade = EntityManager.SpawnEntity(FakeArmbladePrototype, Transform(target).Coordinates);
+        if (!_hands.TryPickupAnyHand(target, fakeArmblade))
         {
-            if (!flame.OnFire) // only toggleable or useable when not on fire // 
-            {
-                if (!TrySting(uid, comp, args))
-                    return;
-
-                var target = args.Target;
-                var fakeArmblade = EntityManager.SpawnEntity(FakeArmbladePrototype, Transform(target).Coordinates);
-                if (!_hands.TryPickupAnyHand(target, fakeArmblade))
-                {
-                    QueueDel(fakeArmblade);
-                    comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
-                    _popup.PopupEntity(Loc.GetString("changeling-sting-fail-simplemob"), uid, uid);
-                    return;
-                }
-
-                PlayMeatySound(target, comp);
-            }
-            else
-            {
-                _popup.PopupEntity(Loc.GetString("changeling-onfire"), uid, uid, PopupType.LargeCaution);
-            }
+            QueueDel(fakeArmblade);
+            comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
+            _popup.PopupEntity(Loc.GetString("changeling-sting-fail-simplemob"), uid, uid);
+            return;
         }
+
+        PlayMeatySound(target, comp);
     }
     public void OnLayEgg(EntityUid uid, ChangelingComponent comp, ref StingLayEggsEvent args)
     {
