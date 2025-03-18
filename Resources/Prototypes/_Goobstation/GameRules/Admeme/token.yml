@@ -1,0 +1,144 @@
+# These are the gamerules to spawn antags for tokens.
+- type: entity
+  parent: NinjaSpawn
+  id: NinjaSpawnToken
+  components:
+  - type: AntagSelection
+    agentName: ninja-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostSpaceNinjaToken
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: SpaceNinjaGear
+      roleLoadout:
+      - RoleSurvivalEVA
+      briefing:
+        text: ninja-role-greeting
+        color: Green
+        sound: /Audio/Misc/ninja_greeting.ogg
+      components:
+      - type: SpaceNinja
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      - type: AutoImplant
+        implants:
+        - DeathAcidifierImplant
+      - type: RandomMetadata
+        nameSegments:
+        - names_ninja_title
+        - names_ninja
+      mindRoles:
+      - MindRoleNinja
+
+- type: entity
+  parent: DragonSpawn
+  id: DragonSpawnToken
+  components:
+  - type: AntagSelection
+    agentName: dragon-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDragonToken
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleDragon
+
+- type: entity
+  parent: RevenantSpawn
+  id: RevenantSpawnToken
+  components:
+  - type: RandomSpawnRule
+    prototype: MobRevenantToken
+
+- type: entity
+  parent: LoneOpsSpawn
+  id: LoneOpsSpawnToken
+  components:
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointLoneNukeOperativeToken
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: SyndicateLoneOperativeGearFull
+      unequipOldGear: true
+      roleLoadout:
+      - RoleSurvivalNukie
+      components:
+      - type: NukeOperative
+      - type: RandomMetadata
+        nameSegments:
+        - SyndicateNamesPrefix
+        - SyndicateNamesNormal
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindRoles:
+      - MindRoleNukeops
+
+- type: entity
+  parent: DerelictCyborgSyndicateSpawn
+  id: DerelictCyborgSyndicateSpawnToken
+  components:
+  - type: AntagSpawner
+    prototype: PlayerBorgDerelictSyndicateAssaultBattery
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDerelictCyborgSyndicateToken
+      min: 1
+      max: 1
+      pickPlayer: false
+
+- type: entity
+  parent: BingleSpawn
+  id: BingleSpawnToken
+  components:
+  - type: RandomSpawnRule
+    prototype: SpawnPointGhostBinglePrimeToken
+
+- type: entity
+  parent: BlobMidround
+  id: BlobMidroundToken
+  components:
+  - type: BlobSpawnRule
+    carrierBlobProtos:
+    - SpawnPointGhostBlobRatToken
+    playersPerCarrierBlob: 30
+    maxCarrierBlob: 1
+  - type: Tag
+    tags:
+    - MidroundAntag
+
+- type: entity
+  parent: LoneAbductorSpawn
+  id: LoneAbductorSpawnToken
+  components:
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: LoneAbductorSpawner
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: LoneAbductorGear
+      briefing:
+        text: abductor-role-greeting
+        color: Green
+        sound: /Audio/_Shitmed/Misc/abductor.ogg
+      components:
+      - type: GhostRole
+        name: abductor-lone-ghost-role-name-token
+        description: ghost-role-information-description-token-generic
+        rules: abductors-ghost-role-rules
+      - type: Tag
+        tags:
+        - Abductor
+        - AbductorScientist
+        - CanPilot
+        - FootstepSound
+        - DoorBumpOpener
+        - AbductorMind
+      mindRoles:
+      - MindRoleLoneAbductor
