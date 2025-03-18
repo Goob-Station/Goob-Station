@@ -8,6 +8,7 @@
     - id: WeaponPulsePistol
     - id: TelescopicBatonAdvanced
     - id: CentralCommandBusinessCard
+    - id: BoxFolderCentCom
 
 - type: entity
   parent: ClothingBackpackSatchelLeather
@@ -47,3 +48,4 @@
     - id: WeaponPulsePistol
     - id: TelescopicBatonAdvanced
     - id: CentralCommandBusinessCard
+    - id: BoxFolderCentCom
