@@ -14,10 +14,6 @@
     autoRechargeRate: 20
   - type: AmmoCounter
   - type: Appearance
-  - type: MagazineVisuals
-    magState: lethal-empty
-    steps: 0
-    zeroVisible: true
   - type: Tag
     tags:
       - EnergySpeedloader
@@ -44,10 +40,6 @@
   components:
   - type: Sprite
     state: icon-disabling
-  - type: MagazineVisuals
-    magState: disabling-empty
-    steps: 0
-    zeroVisible: true
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 50
