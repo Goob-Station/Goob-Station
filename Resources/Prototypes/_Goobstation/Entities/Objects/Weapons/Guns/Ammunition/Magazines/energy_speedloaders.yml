@@ -4,16 +4,8 @@
   parent: BaseItem
   components:
   - type: Sprite
-    sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_speedloader.rsi # We're awaiting new textures for this, and for the projectiles.
-    layers:
-      - state: base
-        map: [ "enum.GunVisualLayers.Base" ]
-      - state: base-3
-        map: [ "enum.GunVisualLayers.Mag" ]
-  - type: MagazineVisuals
-    magState: base
-    steps: 4
-    zeroVisible: false
+    sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_speedloader.rsi
+    state: icon-disabling
   - type: Battery
     maxCharge: 600
     startingCharge: 600
@@ -67,10 +59,6 @@
   suffix: Admeme
   description: A rather volatile powercell utilizing phoron to charge horrifyingly destructive bolts over time. Phoron will make us all rich.
   components:
-  - type: MagazineVisuals
-    magState: disabling
-    steps: 4
-    zeroVisible: false
   - type: HitscanBatteryAmmoProvider
     proto: HeavyPulse
     fireCost: 50
