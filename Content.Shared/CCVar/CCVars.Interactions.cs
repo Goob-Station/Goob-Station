@@ -63,7 +63,7 @@ public sealed partial class CCVars
     /// Recommended that you utilise this in conjunction with <see cref="StaticStorageUI"/>
     /// </summary>
     public static readonly CVarDef<int> StorageLimit =
-        CVarDef.Create("control.storage_limit", 1, CVar.REPLICATED | CVar.SERVER);
+        CVarDef.Create("control.storage_limit", 5, CVar.REPLICATED | CVar.SERVER); // Goobstation  1 => 5
 
     /// <summary>
     /// Whether or not storage can be opened recursively.
