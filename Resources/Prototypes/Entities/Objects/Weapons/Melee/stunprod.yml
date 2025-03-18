@@ -43,7 +43,7 @@
   - type: StaminaDamageOnHit # goob edited
     damage: 15
     overtime: 40
-    lightAttackDamageMultiplier: 4
+    lightAttackDamageMultiplier: 5
     lightAttackOvertimeDamageMultiplier: 0
     sound: /Audio/Weapons/egloves.ogg
   - type: StaminaDamageOnCollide # goob edited
