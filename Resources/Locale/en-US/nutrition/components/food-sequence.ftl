@@ -12,7 +12,7 @@ food-sequence-content-rouny = rouny
 food-sequence-content-tomato = tomato
 food-sequence-content-salami = salami
 food-sequence-content-slime = slime
-food-sequence-content-clown = pinkie pie
+food-sequence-content-clown = clown
 food-sequence-content-pea = pea
 food-sequence-content-world-pea = world pea
 food-sequence-content-bungo = bungo
@@ -50,10 +50,10 @@ food-sequence-content-penguin = penguin meat
 food-sequence-content-corgi = corgi meat
 food-sequence-content-goliath = goliath meat
 food-sequence-content-rat = rat
-food-sequence-content-lizard = dragon meat
+food-sequence-content-lizard = lizard meat
 food-sequence-content-plant = plant meat
 food-sequence-content-rotten = rotten meat
-food-sequence-content-spider = spider pony legs
+food-sequence-content-spider = spider legs
 food-sequence-content-carrot = carrot
 food-sequence-content-cabbage = cabbage
 food-sequence-content-garlic = garlic
@@ -80,7 +80,8 @@ food-sequence-content-anomaly-berry = anomaly berry
 
 # BURGERS
 
-food-sequence-burger-gen = { $content }burger
+food-sequence-burger-gen = {$content}burger
+
 food-sequence-burger-content-raw-meat = raw
 food-sequence-burger-content-meat = meaty
 food-sequence-burger-content-carp = carpo
@@ -97,7 +98,7 @@ food-sequence-burger-content-carrot = carro
 food-sequence-burger-content-cabbage = cabba
 food-sequence-burger-content-garlic = garli
 food-sequence-burger-content-pineapple = pine
-food-sequence-burger-content-onion = japanese pony
+food-sequence-burger-content-onion = oni
 food-sequence-burger-content-ambrosia = ambro
 food-sequence-burger-content-galaxy = galaxy
 food-sequence-burger-content-glasstle = glass
@@ -121,8 +122,8 @@ food-sequence-burger-content-world-pea = peace
 
 # TACO
 
-food-sequence-taco-gen = taco with { $content }
+food-sequence-taco-gen = taco with {$content}
 
 # SKEWER
 
-food-sequence-skewer-gen = { $content } kebab
+food-sequence-skewer-gen = {$content} kebab

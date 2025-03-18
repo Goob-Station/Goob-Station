@@ -1,9 +1,9 @@
 ## UI
 
-
 # Bound Interface
 
 gas-canister-bound-user-interface-title = Gas Canister
+
 # Popup
 gas-canister-popup-denied = Access denied
 
@@ -17,4 +17,4 @@ gas-canister-window-release-pressure-label = Release pressure:
 gas-canister-window-valve-label = Valve:
 gas-canister-window-valve-closed-text = Closed
 gas-canister-window-valve-open-text = Open
-gas-canister-window-pressure-format-text = { $pressure }kPa
+gas-canister-window-pressure-format-text = {$pressure}kPa

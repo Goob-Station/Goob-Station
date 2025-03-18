@@ -6480,3 +6480,9 @@ Entries:
       message: Krav maga leg sweep now does stamina damage instead of just a knockdown.
   id: 749
   time: '2025-03-17T06:21:09.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Goob is less stable now.
+  id: 750
+  time: '2025-03-17T09:25:21.0000000+00:00'
