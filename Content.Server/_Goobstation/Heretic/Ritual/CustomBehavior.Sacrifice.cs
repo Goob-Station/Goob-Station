@@ -105,7 +105,7 @@ namespace Content.Server.Heretic.Ritual;
             return;
         }
 
-        for (var i = 0; i < Max; i++)
+        for (var i = 0; i < Max && i < uids.Count; i++)
         {
             if (!args.EntityManager.EntityExists(uids[i]))
                 continue;
