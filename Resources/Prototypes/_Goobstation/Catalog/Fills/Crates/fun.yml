@@ -20,3 +20,24 @@
         - id: VehicleSyndicateSegway
         - id: VehicleKeySyndicateSegway
 
+
+- type: entity
+  id: CrateFunBingleLoot
+  parent: CrateBingle
+  name: Bingle loot
+  components:
+  - type: StorageFill
+    contents:
+    - id: PlushieBingle
+      amount: 3
+
+- type: entity
+  id: CrateFunBingleAdmeme
+  parent: CrateBingle
+  suffix: Admeme voice triggered bingle crate
+  name: Bingle
+  components:
+  - type: SpawnOnTrigger
+    proto: MobBingle
+  - type: TriggerOnVoice
+    keyPhrase: Bingle
