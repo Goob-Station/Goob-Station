@@ -1,3 +1,5 @@
+using System.Linq;
+using Content.Server.Heretic.Components;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
@@ -32,7 +34,12 @@ namespace Content.Server.Heretic.Ritual;
     /// <summary>
     ///     Should we count only targets?
     /// </summary>
-    [DataField] public bool OnlyTargets = false;
+    [DataField] public bool OnlyTargets;
+
+    /// <summary>
+    ///     Whether sec and command members will always be sacrificed even if <see cref="OnlyTargets"/> is true
+    /// </summary>
+    [DataField] public bool SecAndCommandValid = true;
 
     // this is awful but it works so i'm not complaining
     protected SharedMindSystem _mind = default!;
@@ -51,6 +58,8 @@ namespace Content.Server.Heretic.Ritual;
         _lookup = args.EntityManager.System<EntityLookupSystem>();
         _proto = IoCManager.Resolve<IPrototypeManager>();
 
+        uids = new();
+
         if (!args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
         {
             outstr = string.Empty;
@@ -58,7 +67,7 @@ namespace Content.Server.Heretic.Ritual;
         }
 
         var lookup = _lookup.GetEntitiesInRange(args.Platform, .75f);
-        if (lookup.Count == 0 || lookup == null)
+        if (lookup.Count == 0)
         {
             outstr = Loc.GetString("heretic-ritual-fail-sacrifice");
             return false;
@@ -67,9 +76,11 @@ namespace Content.Server.Heretic.Ritual;
         // get all the dead ones
         foreach (var look in lookup)
         {
+            var (isCommand, isSec) = IsCommandOrSec(look, args.EntityManager);
             if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate) // only mobs
             || !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(look) // only humans
-            || (OnlyTargets && !hereticComp.SacrificeTargets.Contains(args.EntityManager.GetNetEntity(look)))) // only targets
+            || OnlyTargets && hereticComp.SacrificeTargets.All(x => x.Entity != args.EntityManager.GetNetEntity(look)) && // only targets
+            (!SecAndCommandValid || !(isCommand || isSec))) // sec or command
                 continue;
 
             if (mobstate.CurrentState == Shared.Mobs.MobState.Dead)
@@ -88,10 +99,21 @@ namespace Content.Server.Heretic.Ritual;
 
     public override void Finalize(RitualData args)
     {
-        for (int i = 0; i < Max; i++)
+        if (!args.EntityManager.TryGetComponent(args.Performer, out HereticComponent? heretic))
         {
-            var isCommand = args.EntityManager.HasComponent<CommandStaffComponent>(uids[i]);
-            var knowledgeGain = isCommand ? 3f : 2f;
+            uids = new();
+            return;
+        }
+
+        for (var i = 0; i < Max; i++)
+        {
+            if (!args.EntityManager.EntityExists(uids[i]))
+                continue;
+
+            var (isCommand, isSec) = IsCommandOrSec(uids[i], args.EntityManager);
+            var knowledgeGain = heretic.SacrificeTargets.Any(x => x.Entity == args.EntityManager.GetNetEntity(uids[i]))
+                ? (isCommand || isSec ? 3f : 2f)
+                : ((isCommand || isSec) && SecAndCommandValid ? 1f : 0f);
 
             // YES!!! GIB!!!
             if (args.EntityManager.TryGetComponent<DamageableComponent>(uids[i], out var dmg))
@@ -101,8 +123,8 @@ namespace Content.Server.Heretic.Ritual;
                 _damage.TryChangeDamage(uids[i], new DamageSpecifier(dmgtype, 1984f), true);
             }
 
-            if (args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
-                _heretic.UpdateKnowledge(args.Performer, hereticComp, knowledgeGain);
+            if (knowledgeGain > 0)
+                _heretic.UpdateKnowledge(args.Performer, heretic, knowledgeGain);
 
             // update objectives
             if (_mind.TryGetMind(args.Performer, out var mindId, out var mind))
@@ -122,5 +144,11 @@ namespace Content.Server.Heretic.Ritual;
         // reset it because it refuses to work otherwise.
         uids = new();
         args.EntityManager.EventBus.RaiseLocalEvent(args.Performer, new EventHereticUpdateTargets());
+    }
+
+    protected (bool isCommand, bool isSec) IsCommandOrSec(EntityUid uid, IEntityManager entityManager)
+    {
+        return (entityManager.HasComponent<CommandStaffComponent>(uid),
+            entityManager.HasComponent<SecurityStaffComponent>(uid));
     }
 }
