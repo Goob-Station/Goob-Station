@@ -50,6 +50,16 @@
   content:
   - BlueShieldShieldFilled
 
+- type: thiefBackpackSet
+  id: SyringeSet
+  name: blueshield-box-category-syringe-name
+  description: blueshield-box-category-syringe-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Melee/blueshield_knife.rsi
+    state: icon
+  content:
+  - BoxCombatInjector
+
 # Blueshield Hardsuits
 
 - type: thiefBackpackSet
