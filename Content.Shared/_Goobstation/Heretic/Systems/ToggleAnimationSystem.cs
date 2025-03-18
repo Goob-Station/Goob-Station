@@ -1,7 +1,8 @@
+using System.Threading;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Item.ItemToggle.Components;
 using Robust.Shared.Network;
-using Robust.Shared.Timing;
+using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Shared._Goobstation.Heretic.Systems;
 
@@ -40,8 +41,8 @@ public sealed class ToggleAnimationSystem : EntitySystem
 
         _appearance.SetData(uid, ToggleAnimationVisuals.ToggleState, state);
 
-        comp.TokenSource.Cancel();
-
+        comp.TokenSource?.Cancel();
+        comp.TokenSource = new CancellationTokenSource();
         Timer.Spawn(timer,
             () =>
             {

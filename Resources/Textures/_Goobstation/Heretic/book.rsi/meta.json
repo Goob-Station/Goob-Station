@@ -11,7 +11,7 @@
             "name": "icon"
         },
         {
-            "name": "icon_opening",
+            "name": "icon-opening",
             "delays": [
                 [
                     0.1,
@@ -39,7 +39,7 @@
             ]
         },
         {
-            "name": "icon_closing",
+            "name": "icon-closing",
             "delays": [
                 [
                     0.1,
@@ -63,7 +63,7 @@
             ]
         },
         {
-            "name": "icon_on",
+            "name": "icon-on",
             "delays": [
                 [
                     0.1,

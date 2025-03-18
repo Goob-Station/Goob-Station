@@ -135,6 +135,8 @@ public sealed partial class MansusGraspSystem : EntitySystem
                  || !tags.Contains("Write") || !tags.Contains("Pen")) // not a pen
             return;
 
+        args.Handled = true;
+
         // remove our rune if clicked
         if (args.Target != null && HasComp<HereticRitualRuneComponent>(args.Target))
         {

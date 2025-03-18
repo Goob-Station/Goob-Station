@@ -8,12 +8,12 @@ namespace Content.Shared._Goobstation.Heretic.Components;
 public sealed partial class ToggleAnimationComponent : Component
 {
     [DataField]
-    public TimeSpan ToggleOnTime = TimeSpan.FromSeconds(2.1);
+    public TimeSpan ToggleOnTime = TimeSpan.FromSeconds(2);
 
     [DataField]
-    public TimeSpan ToggleOffTime = TimeSpan.FromSeconds(1.7);
+    public TimeSpan ToggleOffTime = TimeSpan.FromSeconds(1.6);
 
-    public CancellationTokenSource TokenSource = new()
+    public CancellationTokenSource? TokenSource;
 }
 
 [Serializable, NetSerializable]
