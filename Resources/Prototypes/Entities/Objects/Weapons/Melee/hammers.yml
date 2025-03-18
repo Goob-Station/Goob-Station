@@ -24,48 +24,7 @@
   - type: Item
     size: Large
 
-- type: entity
-  id: Mjollnir
-  parent: BaseItem
-  name: Mjollnir
-  description: A weapon worthy of a god, able to strike with the force of a lightning bolt. It crackles with barely contained energy.
-  components:
-  - type: Wieldable
-    useDelayOnWield: false # GoobStation Edit
-  - type: LandAtCursor
-  - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Melee/mjollnir.rsi # GoobStation Edit
-    layers:
-    - state: icon
-  - type: UseDelay
-    delay: 5 # Goobstation
-  - type: UseDelayOnMeleeHit
-  - type: MeleeThrowOnHit
-    stunTime: 3
-    activateOnThrown: true
-  - type: MeleeWeapon
-    wideAnimationRotation: -135
-    damage:
-      types:
-        Blunt: 10 # GoobStation Edit
-        Structural: 10 # GoobStation Edit
-    soundHit:
-      path: /Audio/Effects/tesla_consume.ogg
-      params:
-        variation: 0.10
-  - type: IncreaseDamageOnWield
-    damage:
-      types:
-        Blunt: 10 # GoobStation Edit
-        Structural: 15 # GoobStation Edit
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 15
-        Structural: 15
-  - type: Item
-    size: Ginormous
-  - type: Boomerang # Goobstation
+
 
 - type: entity
   id: SingularityHammer

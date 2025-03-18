@@ -371,7 +371,7 @@
   name: Lesser Summon Guns III
   components:
   - type: ActionUseDelayModifier
-    useDelay: 20
+    useDelay: 25
 
 # Curse of the Barnyard
 - type: entity
@@ -488,7 +488,7 @@
   name: Lesser Summon Bees III
   components:
   - type: ActionUseDelayModifier
-    useDelay: 20
+    useDelay: 25
 
 # Sanguine Strike
 - type: entity
@@ -548,7 +548,7 @@
   name: Force Wall II
   components:
   - type: ActionUseDelayModifier
-    useDelay: 8.75
+    useDelay: 25
 
 - type: entity
   parent: ActionForceWall
@@ -556,7 +556,7 @@
   name: Force Wall III
   components:
   - type: ActionUseDelayModifier
-    useDelay: 7.5
+    useDelay: 25
 
 - type: entity
   parent: ActionForceWall
@@ -564,7 +564,7 @@
   name: Force Wall IV
   components:
   - type: ActionUseDelayModifier
-    useDelay: 6.25
+    useDelay: 25
 
 - type: entity
   parent: ActionForceWall
@@ -572,7 +572,7 @@
   name: Force Wall V
   components:
   - type: ActionUseDelayModifier
-    useDelay: 5
+    useDelay: 25
 
 # Charge
 - type: entity
