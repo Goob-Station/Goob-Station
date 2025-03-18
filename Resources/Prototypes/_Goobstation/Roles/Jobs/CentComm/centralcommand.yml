@@ -60,9 +60,9 @@
     - CentralCommand
     - NanotrasenRepresentative
     - BlueshieldOfficer
-    special:
-    - !type:AddImplantSpecial
-      implants: [ MindShieldImplant, VaporizeImplant ]
+  special:
+   - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, VaporizeImplant ]
 
 - type: startingGear
   id: NavyCaptainGear
