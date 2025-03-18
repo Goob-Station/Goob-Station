@@ -385,10 +385,10 @@ public sealed partial class ChangelingSystem
     }
     private void OnToggleHammer(EntityUid uid, ChangelingComponent comp, ref ToggleArmHammerEvent args)
     {
-        if (!TryToggleItem(uid, HammerPrototype, comp, out _))
-            return;
-
         if (!TryUseAbility(uid, comp, args, GetEquipmentChemCostOverride(comp, HammerPrototype)))
+            return;
+        
+        if (!TryToggleItem(uid, HammerPrototype, comp, out _))
             return;
 
         PlayMeatySound(uid, comp);
