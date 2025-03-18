@@ -245,7 +245,6 @@
   position: 5,-1
   technologyPrerequisites:
   - ExperimentalBatteryAmmo
-  - WaveParticleHarnessing
   # Goobstation R&D Console rework end
 
 - type: technology
