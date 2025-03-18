@@ -448,7 +448,7 @@
   parent: EventHumanoidMindShielded
   randomizeName: false
   components:
-  - type: GrantImplant
+  - type: AutoImplant
     implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
   - type: GhostRole
     name: ghost-role-information-inspector-name
