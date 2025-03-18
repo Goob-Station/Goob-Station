@@ -12,6 +12,6 @@ public sealed partial class AutoImplantComponent : Component
     /// <summary>
     /// List of implants to inject.
     /// </summary>
-    [DataField("implants", required: true, customTypeSerializer: typeof(PrototypeIdListSerializer<EntityPrototype>))]
-    public List<string> Implants = new();
+    [DataField(required: true, customTypeSerializer: typeof(PrototypeIdListSerializer<EntityPrototype>))]
+    public List<string> Implants = [];
 }

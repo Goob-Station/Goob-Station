@@ -58,7 +58,7 @@
   parent: EventHumanoidMindShielded
   randomizeName: false
   components:
-    - type: GrantImplant
+    - type: AutoImplant
       implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ] # Goobstation
     - type: GhostRole
       name: ghost-role-information-Death-Squad-name
@@ -525,7 +525,7 @@
   id: CBURNAgent
   parent: EventHumanoidMindShielded
   components:
-    - type: GrantImplant
+    - type: AutoImplant
       implants: [ FreedomImplant, RadioImplantCentcomm ]
     - type: Loadout
       prototypes: [CBURNGear]
@@ -557,7 +557,7 @@
   id: CentcomOfficial
   parent: EventHumanoidMindShielded
   components:
-    - type: GrantImplant
+    - type: AutoImplant
       implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
     - type: GhostRole
       name: ghost-role-information-centcom-official-name
