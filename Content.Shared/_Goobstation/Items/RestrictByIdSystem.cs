@@ -45,6 +45,7 @@ namespace Content.Shared._Goobstation.Items
             RemComp<AccessReaderComponent>(item);
             ent.Comp.IsEmagged = true;
             args.Handled = true;
+            args.Repeatable = false;
 
         }
 
@@ -62,7 +63,7 @@ namespace Content.Shared._Goobstation.Items
             args.Message = Loc.GetString(comp.FailText);
 
             // If the entity shooting the item is invalid, return.
-            if (!attacker.IsValid() || !item.IsValid() || !ent.Comp.RestrictMelee)
+            if (!attacker.IsValid() || !item.IsValid() || !ent.Comp.RestrictRanged)
                 return;
 
             // If the entities ID card matches the allowed accesses, and invert is false, return and allow the shot.
@@ -91,7 +92,7 @@ namespace Content.Shared._Goobstation.Items
             args.Message = Loc.GetString(comp.FailText);
 
             // If the entity swinging the weapon is invalid, return.
-            if (!attacker.IsValid() || !item.IsValid() || !comp.RestrictRanged)
+            if (!attacker.IsValid() || !item.IsValid() || !comp.RestrictMelee)
                 return;
 
             // If the entities ID card matches the allowed accesses, and invert is false, return and allow the shot.
