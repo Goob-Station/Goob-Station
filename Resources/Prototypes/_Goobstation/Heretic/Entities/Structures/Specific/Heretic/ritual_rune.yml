@@ -43,6 +43,17 @@
     state: icon_drawanim
 
 - type: entity
+  parent: HereticRuneRitualDrawAnimation
+  id: HereticRuneRitualDrawAnimationCicatrix
+  categories: [ HideSpawnMenu ]
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/ritual_rune.rsi
+    state: icon_drawanim_cicatrix
+
+- type: entity
   id: HereticRuneRitualAnimation
   name: transmutation rune
   description: you shouldn't be seeing this description
