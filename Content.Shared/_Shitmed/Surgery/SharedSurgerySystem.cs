@@ -3,6 +3,8 @@ using Content.Shared._Shitmed.Medical.Surgery.Conditions;
 using Content.Shared.Body.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Steps;
 using Content.Shared._Shitmed.Medical.Surgery.Steps.Parts;
+using Content.Shared._Shitmed.Surgery.Wounds.Systems;
+using Content.Shared._Shitmed.Surgery.Wounds.Components;
 //using Content.Shared._RMC14.Xenonids.Parasite;
 using Content.Shared.Body.Part;
 using Content.Shared.Damage;
@@ -25,7 +27,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Shared._Shitmed.Surgery.Wounds.Systems;
 using Robust.Shared.Containers;
 
 namespace Content.Shared._Shitmed.Medical.Surgery;
@@ -142,8 +143,10 @@ public abstract partial class SharedSurgerySystem : EntitySystem
     {
         if (!TryComp(args.Body, out DamageableComponent? damageable)
             || !TryComp(args.Part, out DamageableComponent? partDamageable)
+            || !TryComp(args.Part, out WoundableComponent? partwoundable)
             || damageable.TotalDamage <= 0
             && partDamageable.TotalDamage <= 0
+            && partwoundable.Wounds!.Count == 0
             && !HasComp<IncisionOpenComponent>(args.Part))
             args.Cancelled = true;
     }

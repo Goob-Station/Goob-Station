@@ -66,7 +66,7 @@ public partial class TraumaSystem
 
     public bool TryApplyTraumaWithRandom(EntityUid target, EntityUid woundInflicter, FixedPoint2 severity, WoundableComponent? woundable = null)
     {
-        if (!Resolve(target, ref woundable) || _net.IsClient)
+        if (!Resolve(target, ref woundable))
             return false;
 
         if (severity <= 0)

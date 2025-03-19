@@ -60,7 +60,7 @@
           Quantity: 0.8
 
 - type: entity
-  id: Blunt
+  id: BluntCigar
   parent: BaseCigar
   name: blunt
   description: A roll of dried plant matter wrapped in a dried tobacco leaf.
@@ -94,7 +94,7 @@
 
 - type: entity
   id: BluntRainbow
-  parent: Blunt
+  parent: BluntCigar
   name: blunt
   suffix: Rainbow
   description: A roll of dried plant matter wrapped in a dried tobacco leaf. Seems to be colorful inside.

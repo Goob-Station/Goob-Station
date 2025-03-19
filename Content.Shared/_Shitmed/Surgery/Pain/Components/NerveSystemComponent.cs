@@ -17,6 +17,12 @@ public sealed partial class NerveSystemComponent : Component
     public FixedPoint2 Pain = 0f;
 
     /// <summary>
+    /// How much of typical wound pain can this nerve system hold?
+    /// </summary>
+    [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadOnly)]
+    public FixedPoint2 SoftPainCap = 90f;
+
+    /// <summary>
     /// How much Pain can this nerve system hold.
     /// </summary>
     [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadOnly)]
@@ -39,16 +45,21 @@ public sealed partial class NerveSystemComponent : Component
     public PainThresholdTypes LastThresholdType = PainThresholdTypes.None;
 
     [DataField("thresholdUpdate")]
-    public TimeSpan ThresholdUpdateTime = TimeSpan.FromSeconds(2f);
+    public TimeSpan ThresholdUpdateTime = TimeSpan.FromSeconds(1.2f);
 
     [DataField("accumulated", customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan UpdateTime = TimeSpan.Zero;
 
     [DataField("painShockStun")]
-    public TimeSpan PainShockStunTime = TimeSpan.FromSeconds(11f);
+    public TimeSpan PainShockStunTime = TimeSpan.FromSeconds(7f);
 
-    [DataField("passoutTime")]
-    public TimeSpan ForcePassoutTime = TimeSpan.FromSeconds(7f);
+    public TimeSpan NextCritScream = TimeSpan.Zero;
+
+    [DataField]
+    public TimeSpan CritScreamsIntervalMin = TimeSpan.FromSeconds(13f);
+
+    [DataField]
+    public TimeSpan CritScreamsIntervalMax = TimeSpan.FromSeconds(32f);
 
     [DataField]
     public SoundSpecifier PainRattles = new SoundCollectionSpecifier("PainRattles");
@@ -172,12 +183,12 @@ public sealed partial class NerveSystemComponent : Component
     public Dictionary<PainThresholdTypes, FixedPoint2> PainThresholds = new()
     {
         { PainThresholdTypes.PainFlinch, 5 },
-        { PainThresholdTypes.Agony, 18 },
+        { PainThresholdTypes.Agony, 20 },
         // Just having 'PainFlinch' is lame, people scream for a few seconds before passing out / getting pain shocked, so I added agony.
         // A lot of screams (individual pain screams poll), for the funnies.
-        { PainThresholdTypes.PainShock, 36 },
+        { PainThresholdTypes.PainShock, 42 },
         // usually appears after an explosion. or some ultra big damage output thing, you might survive, and most importantly, you will fall down in pain.
         // :troll:
-        { PainThresholdTypes.PainPassout, 60 },
+        { PainThresholdTypes.PainShockAndAgony, 70 },
     };
 }

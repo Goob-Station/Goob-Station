@@ -8,6 +8,7 @@ using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Tools;
 using Content.Shared._Shitmed.Surgery.Traumas;
 using Content.Shared._Shitmed.Surgery.Traumas.Systems;
+using Robust.Shared.Audio;
 
 namespace Content.Shared.Body.Organ;
 
@@ -48,6 +49,12 @@ public sealed partial class OrganComponent : Component, ISurgeryToolComponent //
     public OrganSeverity OrganSeverity = OrganSeverity.Normal;
 
     /// <summary>
+    ///     Sound played when this organ gets turned into a blood mush.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier OrganDestroyedSound = new SoundCollectionSpecifier("OrganDestroyed");
+
+    /// <summary>
     ///     All the modifiers that are currently modifying the OrganIntegrity
     /// </summary>
     public Dictionary<(string, EntityUid), FixedPoint2> IntegrityModifiers = new();
@@ -55,7 +62,7 @@ public sealed partial class OrganComponent : Component, ISurgeryToolComponent //
     /// <summary>
     ///     The name's self-explanatory, thresholds. for states. of integrity. of this god fucking damn organ.
     /// </summary>
-    //[DataField(required: true)] TEMPORARY: REMOVE WHEN EVERY YML HAS THESE.
+    [DataField] //TEMPORARY: MAKE REQUIRED WHEN EVERY YML HAS THESE.
     public Dictionary<OrganSeverity, FixedPoint2> IntegrityThresholds = new()
     {
         { OrganSeverity.Normal, 15 },

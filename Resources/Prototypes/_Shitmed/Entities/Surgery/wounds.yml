@@ -128,9 +128,28 @@
     integrityMultiplier: 0.01
     traumasChances:
       Dismemberment: -1
-      OrganDamage: -1
-      BoneDamage: -1
-      VeinsDamage: 0.5
-      NerveDamage: 0.14
+      OrganDamage: 0.34
+      BoneDamage: 0.12
+      VeinsDamage: 0.34
+      NerveDamage: 0.12
   - type: PainInflicter
     multiplier: 0.12
+
+- type: entity
+  id: Poison
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Wound
+    woundType: External
+    woundVisibility: HandScanner
+    scarWound: BluntScar
+    integrityMultiplier: 0
+    bleedsScaling: 0 # Does not bleed nor do integrity damage
+    traumasChances:
+      Dismemberment: -1
+      OrganDamage: 0.4
+      BoneDamage: -1
+      VeinsDamage: 0.4
+      NerveDamage: 0.4
+  - type: PainInflicter
+    multiplier: 0.12 # very little pain

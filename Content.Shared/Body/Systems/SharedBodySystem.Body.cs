@@ -19,6 +19,7 @@ using Robust.Shared.Utility;
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Body.Part;
 using Content.Shared._Shitmed.Humanoid.Events;
+using Content.Shared._Shitmed.Surgery.Traumas.Systems;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Humanoid;
@@ -51,7 +52,7 @@ public partial class SharedBodySystem
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
     [Dependency] private readonly WoundSystem _woundSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-
+    [Dependency] private readonly TraumaSystem _trauma = default!;
     // Shitmed Change End
 
     private const float GibletLaunchImpulse = 8;
@@ -513,9 +514,28 @@ public partial class SharedBodySystem
         if (rootPart == null)
             return;
 
+        var rootSlot = prototype.Root;
+        foreach (var organ in prototype.Slots[rootSlot].Organs)
+        {
+            if (Containers.TryGetContainer(rootPart.Value.Entity, GetOrganContainerId(organ.Key), out var organContainer))
+            {
+                var organEnt = organContainer.ContainedEntities.FirstOrNull();
+                if (organEnt != null)
+                {
+                    foreach (var modifier in Comp<OrganComponent>(organEnt.Value).IntegrityModifiers)
+                    {
+                        _trauma.TryRemoveOrganDamageModifier(organEnt.Value, modifier.Key.Item2, modifier.Key.Item1);
+                    }
+                }
+                else
+                {
+                    SpawnInContainerOrDrop(organ.Value, rootPart.Value.Entity, GetOrganContainerId(organ.Key));
+                }
+            }
+        }
+
         Dirty(rootPart.Value.Entity, rootPart.Value.BodyPart);
 
-        var rootSlot = prototype.Root;
         var frontier = new Queue<string>();
         frontier.Enqueue(rootSlot);
 
@@ -542,7 +562,38 @@ public partial class SharedBodySystem
                 {
                     if (container.ContainedEntities.Count > 0)
                     {
-                        cameFromEntities[connection] = container.ContainedEntities[0];
+                        var containedEnt = container.ContainedEntities[0];
+                        var containedPartComp = Comp<BodyPartComponent>(containedEnt);
+                        cameFromEntities[connection] = containedEnt;
+
+                        foreach (var organ in connectionSlot.Organs)
+                        {
+                            if (Containers.TryGetContainer(containedEnt, GetOrganContainerId(organ.Key), out var organContainer))
+                            {
+                                var organEnt = organContainer.ContainedEntities.FirstOrNull();
+                                if (organEnt != null)
+                                {
+                                    foreach (var modifier in Comp<OrganComponent>(organEnt.Value).IntegrityModifiers)
+                                    {
+                                        _trauma.TryRemoveOrganDamageModifier(organEnt.Value, modifier.Key.Item2, modifier.Key.Item1);
+                                    }
+                                }
+                                else
+                                {
+                                    SpawnInContainerOrDrop(organ.Value, containedEnt, GetOrganContainerId(organ.Key));
+                                }
+                            }
+                            else
+                            {
+                                var slot = CreateOrganSlot((containedEnt, containedPartComp), organ.Key);
+                                SpawnInContainerOrDrop(organ.Value, containedEnt, GetOrganContainerId(organ.Key));
+
+                                if (slot is null)
+                                {
+                                    Log.Error($"Could not create organ for slot {organ.Key} in {ToPrettyString(ent)}");
+                                }
+                            }
+                        }
                     }
                     else
                     {

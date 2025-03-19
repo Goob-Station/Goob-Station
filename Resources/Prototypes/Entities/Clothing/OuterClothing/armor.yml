@@ -67,7 +67,7 @@
     - Hand
     - Leg
     - Foot
-    dismembermentChanceDeduction: 0.4  
+    dismembermentChanceDeduction: 0.4
     modifiers:
       coefficients:
         Blunt: 0.4
@@ -97,7 +97,7 @@
     - Chest
     - Groin
     - Tail
-    dismembermentChanceDeduction: 0.07  
+    dismembermentChanceDeduction: 0.07
     modifiers:
       coefficients:
         Blunt: 0.9
@@ -122,7 +122,7 @@
     - Chest
     - Groin
     - Tail
-    # Does not give dismemberment deduction because of reflection. yeah do with it somehow  
+    # Does not give dismemberment deduction because of reflection. yeah do with it somehow
     modifiers:
       coefficients:
         Blunt: 0.8
@@ -159,7 +159,7 @@
     - Leg
     - Foot
     - Tail
-    dismembermentChanceDeduction: 0.4  
+    dismembermentChanceDeduction: 0.4
     modifiers:
       coefficients:
         Blunt: 0.35
@@ -241,7 +241,7 @@
     - Leg
     - Foot
     - Tail
-    dismembermentChanceDeduction: 0.332  
+    dismembermentChanceDeduction: 0.332
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -272,7 +272,7 @@
     - Leg
     - Foot
     - Tail
-    dismembermentChanceDeduction: 1  
+    dismembermentChanceDeduction: 1
     modifiers:
       coefficients:
         Blunt: 0.2
@@ -321,12 +321,19 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/magusblue.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.5
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.3
         Radiation: 0.1
         Caustic: 0.1
   - type: ClothingSpeedModifier # Goobstation
@@ -363,7 +370,7 @@
     - Chest
     - Groin
     - Tail
-    dismembermentChanceDeduction: 0.2  
+    dismembermentChanceDeduction: 0.2
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -414,7 +421,7 @@
     - Foot
     - Tail
     - Other
-    dismembermentChanceDeduction: 0.4  
+    dismembermentChanceDeduction: 0.4
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -455,7 +462,7 @@
     - Foot
     - Tail
     - Other
-    dismembermentChanceDeduction: -1 #:trolley:  
+    dismembermentChanceDeduction: -1 #:trolley:
     modifiers:
       coefficients:
         Blunt: 0.6
@@ -496,7 +503,7 @@
     - Foot
     - Tail
     - Other
-    dismembermentChanceDeduction: 0.27  
+    dismembermentChanceDeduction: 0.27
     modifiers:
       coefficients:
         Blunt: 0.5

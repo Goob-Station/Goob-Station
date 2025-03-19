@@ -50,13 +50,20 @@
           state: combat-icon
         components:
         - type: Armor
+          coverage:
+          - Chest
+          - Groin
+          - Arm
+          - Hand
+          - Leg
+          - Foot
           modifiers:
             coefficients:
-              Blunt: 0.5
-              Slash: 0.5
-              Heat: 0.5
-              Piercing: 0.5
-              Radiation: 0.5
+              Blunt: 0.3
+              Slash: 0.3
+              Heat: 0.3
+              Piercing: 0.3
+              Radiation: 0.3
               Caustic: 0.1
         - type: StaminaDamageResistance
           coefficient: 0.25
@@ -86,7 +93,7 @@
     - Hand
     - Leg
     - Foot
-    dismembermentChanceDeduction: 0.4 # having a suit on saves your limbs          
+    dismembermentChanceDeduction: 0.4 # having a suit on saves your limbs
     modifiers:
       coefficients:
         Blunt: 0.45

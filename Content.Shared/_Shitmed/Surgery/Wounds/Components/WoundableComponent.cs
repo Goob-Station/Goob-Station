@@ -1,7 +1,9 @@
-﻿using Content.Shared.FixedPoint;
+﻿using Content.Shared.Damage.Prototypes;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Shitmed.Surgery.Wounds.Components;
 
@@ -32,6 +34,12 @@ public sealed partial class WoundableComponent : Component
     [DataField]
     [ViewVariables, AutoNetworkedField]
     public bool AllowWounds = true;
+
+    /// <summary>
+    /// The same as DamageableComponent's one
+    /// </summary>
+    [DataField("damageContainer")]
+    public ProtoId<DamageContainerPrototype>? DamageContainerID;
 
     /// <summary>
     /// Integrity points of this woundable.

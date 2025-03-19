@@ -27,7 +27,9 @@ using Content.Shared.Body.Systems;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Surgery.Traumas.Components;
+using Content.Shared._Shitmed.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Surgery.Wounds.Systems;
+using Robust.Shared.Audio;
 using System.Linq;
 
 namespace Content.Server.Medical;
@@ -207,13 +209,6 @@ public sealed class HealingSystem : EntitySystem
         if (args.Handled || args.Cancelled)
             return;
 
-        /*if (healing.DamageContainers is not null &&
-            entity.Comp.DamageContainerID is not null &&
-            !healing.DamageContainers.Contains(entity.Comp.DamageContainerID))
-        {
-            return;
-        }*/ // TODO: Lowkey.. We wanna introduce something similar for woundables, if we wanna make borgs and other shi
-
         var stuffToHeal = new Dictionary<string, FixedPoint2>();
         var targetedWoundable = EntityUid.Invalid;
         if (TryComp<TargetingComponent>(args.User, out var targeting))
@@ -239,6 +234,19 @@ public sealed class HealingSystem : EntitySystem
             return;
         }
 
+        var woundableDamageContainer = Comp<WoundableComponent>(targetedWoundable).DamageContainerID;
+        if (healing.DamageContainers is not null &&
+            woundableDamageContainer is not null &&
+            !healing.DamageContainers.Contains(woundableDamageContainer))
+        {
+            _popupSystem.PopupEntity(
+                Loc.GetString("cant-heal-damage-container-rebell", ("target", ent), ("used", args.Used)),
+                ent,
+                args.User,
+                PopupType.MediumCaution);
+            return;
+        }
+
         // Heal some bleeds
         if (healing.BloodlossModifier != 0)
         {
@@ -250,6 +258,7 @@ public sealed class HealingSystem : EntitySystem
 
                 if (bleedStopAbility > bleeds.BleedingAmount)
                 {
+                    bleedStopAbility -= bleeds.BleedingAmountRaw;
                     bleeds.BleedingAmountRaw = 0;
                     bleeds.IsBleeding = false;
 
@@ -264,7 +273,7 @@ public sealed class HealingSystem : EntitySystem
             }
             _bloodstreamSystem.TryModifyBleedAmount(ent, healing.ModifyBloodLevel);
 
-            if (bleedStopAbility != healing.BloodlossModifier)
+            if (bleedStopAbility != -healing.BloodlossModifier)
             {
                 _popupSystem.PopupEntity(bleedStopAbility > 0
                         ? Loc.GetString("rebell-medical-item-stop-bleeding-fully")
@@ -274,9 +283,11 @@ public sealed class HealingSystem : EntitySystem
             }
         }
 
-        if (targetedWoundable == EntityUid.Invalid || stuffToHeal.Count == 0 && healing.BloodlossModifier == 0)
+        if (targetedWoundable == EntityUid.Invalid
+            || stuffToHeal.Count == 0
+            || healing.BloodlossModifier <= 0)
         {
-            _popupSystem.PopupEntity(Loc.GetString("medical-item-cant-use", ("item", args.User)), ent, args.User);
+            _popupSystem.PopupEntity(Loc.GetString("medical-item-cant-use-rebell", ("target", ent)), ent, args.User);
             return;
         }
 
@@ -312,7 +323,7 @@ public sealed class HealingSystem : EntitySystem
         if (healedTotal <= 0)
         {
             if (healing.BloodlossModifier == 0)
-                _popupSystem.PopupEntity(Loc.GetString("medical-item-cant-use-rebell", ("target", ent)), ent, args.User, PopupType.MediumCaution);
+                _popupSystem.PopupEntity(Loc.GetString("medical-item-cant-use", ("item", args.Used)), ent, args.User);
 
             return;
         }
@@ -328,7 +339,7 @@ public sealed class HealingSystem : EntitySystem
                 $"{EntityManager.ToPrettyString(args.User):user} healed themselves for {healedTotal:damage} damage");
         }
 
-        _audio.PlayPvs(healing.HealingEndSound, ent, AudioHelpers.WithVariation(0.125f, _random).WithVolume(1f));
+        _audio.PlayPvs(healing.HealingEndSound, ent, AudioParams.Default.WithVariation(0.125f).WithVolume(1f));
 
         // Logic to determine whether or not to repeat the healing action
         args.Repeat = IsBodyDamaged((ent, comp), args.User, healing);

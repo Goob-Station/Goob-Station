@@ -24,9 +24,6 @@ public partial class TraumaSystem
 
     private void OnBoneSeverityChanged(EntityUid uid, BoneComponent component, BoneSeverityChangedEvent args)
     {
-        if (_net.IsClient)
-            return;
-
         ApplyBoneDamageEffects(component);
 
         if (!TryComp<BodyPartComponent>(component.BoneWoundable, out var bodyPart)
@@ -38,9 +35,6 @@ public partial class TraumaSystem
 
     private void OnBoneSeverityPointChanged(EntityUid uid, BoneComponent component, BoneSeverityPointChangedEvent args)
     {
-        if (_net.IsClient)
-            return;
-
         if (!TryComp<BodyPartComponent>(component.BoneWoundable, out var bodyPart) || bodyPart.Body == null)
             return;
 
@@ -69,7 +63,7 @@ public partial class TraumaSystem
 
     public bool ApplyDamageToBone(EntityUid bone, FixedPoint2 severity, BoneComponent? boneComp = null)
     {
-        if (!Resolve(bone, ref boneComp) || _net.IsClient)
+        if (!Resolve(bone, ref boneComp))
             return false;
 
         var newIntegrity = FixedPoint2.Clamp(boneComp.BoneIntegrity - severity, 0, boneComp.IntegrityCap);
@@ -143,10 +137,9 @@ public partial class TraumaSystem
                 if (bodyComp.Body.HasValue)
                 {
                     if (boneComp.IntegrityCap / 1.6 > boneComp.BoneIntegrity &&
-                        nearestSeverity == BoneSeverity.Damaged &&
-                        _consciousness.TryGetNerveSystem(bodyComp.Body.Value, out var nerveSys))
+                        nearestSeverity == BoneSeverity.Damaged)
                     {
-                        _pain.PlayPainSound(bodyComp.Body.Value, nerveSys, boneComp.BoneBreakSound, AudioParams.Default.WithVolume(-8f));
+                        _audio.PlayPvs(boneComp.BoneBreakSound, bodyComp.Body.Value, AudioParams.Default.WithVolume(-8f));
                     }
                 }
             }

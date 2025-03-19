@@ -5,6 +5,7 @@ using Content.Shared.Body.Systems;
 using Content.Shared.Inventory;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Standing;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
 
@@ -22,6 +23,7 @@ public sealed partial class TraumaSystem : EntitySystem
     [Dependency] private readonly WoundSystem _wound = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly ConsciousnessSystem _consciousness = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     private ISawmill _sawmill = default!;
 

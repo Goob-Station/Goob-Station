@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._Shitmed.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Surgery.Pain.Systems;
 using Content.Shared._Shitmed.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Surgery.Wounds.Systems;
@@ -52,12 +53,16 @@ public sealed class TourniquetSystem : EntitySystem
         if (!TryComp<TargetingComponent>(user, out var targeting))
             return false;
 
-        if (!HasComp<BodyComponent>(target))
+        // To prevent people from tourniqueting simple mobs
+        if (!HasComp<BodyComponent>(target) || !HasComp<ConsciousnessComponent>(target))
             return false;
 
         var (partType, symmetry) = _body.ConvertTargetBodyPart(targeting.Target);
         if (tourniquet.BlockedBodyParts.Contains(partType))
+        {
+            _popup.PopupEntity(Loc.GetString("cant-put-tourniquet-here"), target, PopupType.MediumCaution);
             return false;
+        }
 
         var targetPart = _body.GetBodyChildrenOfType(target, partType, symmetry: symmetry).FirstOrDefault();
         _popup.PopupEntity(Loc.GetString("puts-on-a-tourniquet", ("user", user), ("part", targetPart.Id)), target, PopupType.Medium);
@@ -148,7 +153,7 @@ public sealed class TourniquetSystem : EntitySystem
         foreach (var woundable in _wound.GetAllWoundableChildren(targetPart.Id))
         {
             _wound.TryHaltAllBleeding(woundable.Item1);
-            _pain.TryAddPainFeelsModifier(woundable.Item1, "Tourniquet", targetPart.Id, -10f);
+            _pain.TryAddPainFeelsModifier(args.Used.Value, "Tourniquet", targetPart.Id, -10f);
         }
 
         tourniquet.BodyPartTorniqueted = targetPart.Id;

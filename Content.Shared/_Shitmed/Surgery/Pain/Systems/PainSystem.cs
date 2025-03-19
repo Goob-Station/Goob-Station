@@ -15,7 +15,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
-
+using Robust.Shared.Random;
 namespace Content.Shared._Shitmed.Surgery.Pain.Systems;
 
 [Virtual]
@@ -23,7 +23,7 @@ public sealed partial class PainSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
 
     [Dependency] private readonly SharedAudioSystem _IHaveNoMouthAndIMustScream = default!;
@@ -37,14 +37,9 @@ public sealed partial class PainSystem : EntitySystem
 
     [Dependency] private readonly WoundSystem _wound = default!;
     [Dependency] private readonly ConsciousnessSystem _consciousness = default!;
-
-    private ISawmill _sawmill = default!;
-
     public override void Initialize()
     {
         base.Initialize();
-
-        _sawmill = Logger.GetSawmill("pain");
 
         SubscribeLocalEvent<NerveComponent, ComponentHandleState>(OnComponentHandleState);
         SubscribeLocalEvent<NerveComponent, ComponentGetState>(OnComponentGet);
@@ -106,7 +101,7 @@ public sealed partial class PainSystem : EntitySystem
 
     private void OnBodyPartAdded(EntityUid uid, NerveComponent nerve, ref BodyPartAddedEvent args)
     {
-        if (_net.IsClient)
+        if (!_timing.IsFirstTimePredicted)
             return;
 
         var bodyPart = Comp<BodyPartComponent>(uid);
@@ -122,7 +117,7 @@ public sealed partial class PainSystem : EntitySystem
 
     private void OnBodyPartRemoved(EntityUid uid, NerveComponent nerve, ref BodyPartRemovedEvent args)
     {
-        if (_net.IsClient)
+        if (!_timing.IsFirstTimePredicted)
             return;
 
         var bodyPart = Comp<BodyPartComponent>(uid);
@@ -148,7 +143,7 @@ public sealed partial class PainSystem : EntitySystem
                 CleanupSounds(nerveSys);
                 PlayPainSound(args.Target, nerveSys, nerveSys.CritWhimpers[sex], AudioParams.Default.WithVolume(-12f));
                 break;
-            default:
+            case MobState.Dead:
                 CleanupSounds(nerveSys);
                 break;
         }

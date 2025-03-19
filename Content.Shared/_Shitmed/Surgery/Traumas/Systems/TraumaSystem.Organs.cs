@@ -13,16 +13,27 @@ public partial class TraumaSystem
 
     private void InitOrgans()
     {
-        SubscribeLocalEvent<OrganComponent, OrganDamageSeverityChanged>(SomeShitHappensHere);
+        SubscribeLocalEvent<OrganComponent, OrganDamageSeverityChanged>(OnOrganSeverityChanged);
         SubscribeLocalEvent<OrganComponent, OrganDamagePointChangedEvent>(SomeOtherShitHappensHere);
     }
 
     #region Event handling
 
-    private void SomeShitHappensHere(EntityUid organ, OrganComponent comp, OrganDamageSeverityChanged args)
+    private void OnOrganSeverityChanged(EntityUid organ, OrganComponent comp, OrganDamageSeverityChanged args)
     {
+        if (args.NewSeverity != OrganSeverity.Destroyed)
+            return;
 
-        // TODO: Make those actually handled. and also make undamaged organs fall out when a woundable gets destroyed, for the funnies :3
+        if (comp.Body != null && _consciousness.TryGetNerveSystem(comp.Body.Value, out var nerveSys))
+        {
+            // Getting your organ turned into a blood mush inside you applies a LOT of internal pain, that can get you dead.
+            _pain.TryAddPainModifier(nerveSys.Value, nerveSys.Value, "OrganDestroyed", 20f, time: TimeSpan.FromSeconds(12f));
+
+            _audio.PlayPvs(comp.OrganDestroyedSound, comp.Body.Value);
+        }
+
+        _body.RemoveOrgan(organ, comp);
+        QueueDel(organ);
     }
 
     private void SomeOtherShitHappensHere(EntityUid organ, OrganComponent comp, OrganDamagePointChangedEvent args)
@@ -36,7 +47,7 @@ public partial class TraumaSystem
 
     public bool ApplyDamageToOrgan(EntityUid organ, FixedPoint2 severity, OrganComponent? organComp = null)
     {
-        if (!Resolve(organ, ref organComp) || _net.IsClient)
+        if (!Resolve(organ, ref organComp))
             return false;
 
         var newIntegrity = FixedPoint2.Clamp(organComp.OrganIntegrity - severity, 0, organComp.IntegrityCap);
@@ -152,11 +163,9 @@ public partial class TraumaSystem
     {
         var oldIntegrity = organ.OrganIntegrity;
 
-        // Makes more sense for this to just multiply the value no?
         if (organ.IntegrityModifiers.Count > 0)
-            organ.OrganIntegrity *= FixedPoint2.Clamp(organ.IntegrityModifiers
-                .Aggregate((FixedPoint2) 0,
-                    (current, modifier) => current + modifier.Value),
+            organ.OrganIntegrity = FixedPoint2.Clamp(organ.IntegrityModifiers
+                .Aggregate((FixedPoint2) 0, (current, modifier) => current + modifier.Value),
                 0,
                 organ.IntegrityCap);
 

@@ -12,7 +12,7 @@ public sealed partial class ConsciousnessComponent : Component
     /// </summary>
     [DataField(required: true)]
     [ViewVariables(VVAccess.ReadOnly)]
-    public FixedPoint2 Threshold = 30;
+    public FixedPoint2 Threshold = 90;
 
     /// <summary>
     /// Represents the base consciousness value before applying any modifiers.
@@ -39,7 +39,7 @@ public sealed partial class ConsciousnessComponent : Component
     /// </summary>
     [DataField]
     [ViewVariables(VVAccess.ReadOnly)]
-    public FixedPoint2 Cap = 100;
+    public FixedPoint2 Cap = 175;
 
     /// <summary>
     /// Represents the collection of additional effects that modify the base consciousness level.

@@ -15,6 +15,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Effects.Step;
 using Content.Shared._Shitmed.Medical.Surgery.Steps;
 using Content.Shared._Shitmed.Medical.Surgery.Steps.Parts;
 using Content.Shared._Shitmed.Medical.Surgery.Tools;
+using Content.Shared._Shitmed.Surgery.Wounds.Components;
 //using Content.Shared.Mood;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
@@ -315,6 +316,10 @@ public abstract partial class SharedSurgerySystem
         }
     }
 
+    private string GetDamageGroupByType(string id)
+    {
+        return (from @group in _prototypes.EnumeratePrototypes<DamageGroupPrototype>() where @group.DamageTypes.Contains(id) select @group.ID).FirstOrDefault()!;
+    }
     private EntProtoId? GetProtoId(EntityUid entityUid)
     {
         if (!TryComp<MetaDataComponent>(entityUid, out var metaData))
@@ -333,6 +338,13 @@ public abstract partial class SharedSurgerySystem
         }
 
         damageable = damageableComp;
+
+        if (TryComp<WoundableComponent>(entity, out var woundable))
+        {
+            return _wounds.GetWoundableWounds(entity, woundable)
+                .Any(wounds => GetDamageGroupByType(group.FirstOrDefault()!) == wounds.Item2.DamageGroup);
+        }
+
         return group.Any(damageType => damageableComp.Damage.DamageDict.TryGetValue(damageType, out var value) && value > 0);
 
     }
@@ -451,7 +463,7 @@ public abstract partial class SharedSurgerySystem
         if (targetPart != default)
         {
             // We reward players for properly affixing the parts by healing a little bit of damage, and enabling the part temporarily.
-            _wounds.TryHealWoundsOnWoundable(targetPart.Id, 12f, out _);
+            _wounds.TryHealWoundsOnWoundable(targetPart.Id, 12f, out _, damageGroup: "Brute");
             RemComp<BodyPartReattachedComponent>(targetPart.Id);
         }
     }

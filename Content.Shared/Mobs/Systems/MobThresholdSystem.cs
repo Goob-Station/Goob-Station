@@ -12,6 +12,7 @@ using Content.Shared._Shitmed.Surgery.Wounds;
 using Content.Shared._Shitmed.Surgery.Wounds.Systems;
 using Content.Shared.Body.Components;
 using Robust.Shared.Serialization;
+using Robust.Shared.Network;
 
 namespace Content.Shared.Mobs.Systems;
 
@@ -20,7 +21,7 @@ public sealed class MobThresholdSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly WoundSystem _wound = default!; // Shitmed Change
-
+    [Dependency] private readonly INetManager _net = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<MobThresholdsComponent, ComponentGetState>(OnGetState);
@@ -324,6 +325,9 @@ public sealed class MobThresholdSystem : EntitySystem
             CheckThresholds(target, mobState, threshold, damageable);
         RaiseNetworkEvent(new MobThresholdChecked(GetNetEntity(target)), target);
 
+        if (_net.IsServer)
+            RaiseNetworkEvent(new MobThresholdChecked(GetNetEntity(target)), target);
+
         UpdateAlerts(target, mobState.CurrentState, threshold, damageable, body);
     }
 
@@ -453,7 +457,9 @@ public sealed class MobThresholdSystem : EntitySystem
         if (!TryComp<MobStateComponent>(target, out var mobState))
             return;
         CheckThresholds(target, mobState, thresholds, args.Damageable, args.Origin);
-        RaiseNetworkEvent(new MobThresholdChecked(GetNetEntity(target)), target);
+
+        if (_net.IsServer)
+            RaiseNetworkEvent(new MobThresholdChecked(GetNetEntity(target)), target);
 
         UpdateAlerts(target, mobState.CurrentState, thresholds, args.Damageable);
     }
@@ -465,7 +471,8 @@ public sealed class MobThresholdSystem : EntitySystem
             return;
 
         // mob states are handled by consciousness. so we fine here
-        RaiseNetworkEvent(new MobThresholdChecked(GetNetEntity(body)), body);
+        if (_net.IsServer)
+            RaiseNetworkEvent(new MobThresholdChecked(GetNetEntity(body)), body);
 
         UpdateAlerts(body, mobState.CurrentState, thresholds, null, Comp<BodyComponent>(body));
     }
@@ -501,7 +508,7 @@ public sealed class MobThresholdSystem : EntitySystem
     private void UpdateAllEffects(Entity<MobThresholdsComponent, MobStateComponent?, DamageableComponent?, BodyComponent?> ent, MobState currentState)
     {
         var (_, thresholds, mobState, damageable, bodyComponent) = ent;
-        if (Resolve(ent, ref thresholds, ref mobState))
+        if (Resolve(ent, ref thresholds, ref mobState) && _net.IsServer)
         {
             RaiseNetworkEvent(new MobThresholdChecked(GetNetEntity(ent.Owner)), ent.Owner);
         }

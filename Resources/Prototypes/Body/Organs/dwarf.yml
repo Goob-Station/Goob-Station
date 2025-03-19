@@ -22,6 +22,12 @@
   - type: Sprite
     state: stomach
   - type: Organ
+    intCap: 38
+    integrity: 38
+    integrityThresholds:
+      Normal: 38
+      Damaged: 22
+      Destroyed: 0  
   - type: SolutionContainerManager
     solutions:
       stomach:

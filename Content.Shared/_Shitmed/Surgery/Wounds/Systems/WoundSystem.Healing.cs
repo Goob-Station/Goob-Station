@@ -40,7 +40,7 @@ public partial class WoundSystem
     }
     private void ProcessHealing(Entity<WoundableComponent> ent)
     {
-        if (_net.IsClient)
+        if (!_timing.IsFirstTimePredicted)
             return;
 
         var healableWounds = ent.Comp.Wounds!.ContainedEntities.Select(Comp<WoundComponent>).Count(comp => comp.CanBeHealed);
@@ -60,13 +60,22 @@ public partial class WoundSystem
 
     #region Public API
 
-    public bool TryHaltAllBleeding(EntityUid woundable, WoundableComponent? component = null)
+    public bool TryHaltAllBleeding(EntityUid woundable,
+    WoundableComponent? component = null,
+    bool force = false)
     {
         if (!Resolve(woundable, ref component) || component.Wounds!.Count == 0)
             return false;
 
         foreach (var wound in GetWoundableWounds(woundable, component))
         {
+            if (force)
+            {
+                // For wounds like scars. Temporary for now
+                wound.Item2.CanBleed = false;
+                wound.Item2.CanBeHealed = true;
+            }
+
             if (!TryComp<BleedInflicterComponent>(wound.Item1, out var bleeds))
                 continue;
 

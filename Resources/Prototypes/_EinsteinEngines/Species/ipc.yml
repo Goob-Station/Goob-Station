@@ -116,7 +116,7 @@
   speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: marking
   id: MobIPCChestFemaleDefault
@@ -125,7 +125,7 @@
   speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
-    state: torso_f
+    state: chest_f
 
 # Groin
 

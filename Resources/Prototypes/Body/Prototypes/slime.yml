@@ -1,7 +1,7 @@
 ﻿- type: body
   id: Slime
   name: "slime"
-  root: torso
+  root: chest
   slots:
     head:
       part: HeadSlime

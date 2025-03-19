@@ -151,6 +151,14 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:SuppressPain
+        amount: 1.2
+        time: 30 # it REFRESHES. Not accumulates
+      - !type:AdjustPainFeels
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        amount: 0.04
       - !type:HealthChange
         damage:
           groups:
@@ -248,6 +256,14 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:SuppressPain
+        amount: 2
+        time: 7 # it REFRESHES. Not accumulates
+      - !type:AdjustPainFeels
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        amount: 0.01
       - !type:HealthChange
         damage:
           types:
@@ -283,6 +299,14 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:SuppressPain
+        amount: 2.4
+        time: 12 # it REFRESHES. Not accumulates
+      - !type:AdjustPainFeels
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        amount: 0.04
       - !type:HealthChange
         damage:
           types:
@@ -311,6 +335,14 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:SuppressPain
+        amount: 3.7
+        time: 12 # it REFRESHES. Not accumulates
+      - !type:AdjustPainFeels
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+        amount: 0.1
       - !type:HealthChange
         damage:
           types:
@@ -347,6 +379,12 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:SuppressPain
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Critical
+        amount: 2
+        time: 2 # very little because it's supposed to suppress pain while you're in crit
       - !type:HealthChange
         conditions:
           # they gotta be in crit first
@@ -749,6 +787,8 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:AdjustPainFeels
+        amount: 0.05 # heheheh
       - !type:HealthChange
         damage:
           types:
@@ -886,6 +926,9 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:SuppressPain
+        amount: 2
+        time: 14 # it REFRESHES. Not accumulates
       - !type:HealthChange
         damage:
           groups:
@@ -1221,6 +1264,9 @@
     Medicine:
       metabolismRate: 0.1 # slow metabolism to not be a godly combat med, its for treating burn victims efficiently
       effects:
+      - !type:SuppressPain
+        amount: 4 # To prevent people from dying while being healed
+        time: 5
       - !type:HealthChange
         damage:
           types:

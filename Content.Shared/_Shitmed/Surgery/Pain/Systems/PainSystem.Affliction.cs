@@ -31,7 +31,7 @@ public partial class PainSystem
             return;
 
         // bro how
-        pain.Pain = FixedPoint2.Clamp(args.NewSeverity * pain.PainMultiplier, 0, 100);
+        pain.Pain = FixedPoint2.Clamp(args.NewSeverity * pain.PainMultiplier, 0, 100f);
         var allPain = (FixedPoint2) 0;
 
         foreach (var (woundId, _) in _wound.GetWoundableWounds(args.Component.HoldingWoundable))

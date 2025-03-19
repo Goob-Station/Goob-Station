@@ -27,10 +27,10 @@
   components:
     - type: Sprite
       sprite: Mobs/Species/Vox/parts.rsi
-      state: "chest"
+      state: "chest_m"
     - type: Icon
       sprite: Mobs/Species/Vox/parts.rsi
-      state: "chest"
+      state: "chest_m"
     - type: Extractable
       juiceSolution:
         reagents:
@@ -46,10 +46,10 @@
   components:
     - type: Sprite
       sprite: Mobs/Species/Vox/parts.rsi
-      state: "groin"
+      state: "groin_m"
     - type: Icon
       sprite: Mobs/Species/Vox/parts.rsi
-      state: "groin"
+      state: "groin_m"
     - type: Extractable
       juiceSolution:
         reagents:

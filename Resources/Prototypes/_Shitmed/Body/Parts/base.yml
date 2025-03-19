@@ -7,6 +7,7 @@
   - type: Damageable
     damageContainer: OrganicPart # Shitmed Change
   - type: Woundable
+    damageContainer: Biological
     integrity: 65
     integrityCap: 65
     thresholds:
@@ -67,9 +68,11 @@
 # this doesn't affect gibbing bodies as there is code to prevent torso gibbing while part of a body
 - type: entity
   abstract: true
-  parent: BaseTorsoInorganic
-  id: BaseTorso
+  parent: BaseChestInorganic
+  id: BaseChest
   components:
+  - type: Woundable
+    damageContainer: Organic
   - type: Destructible
     thresholds:
     - trigger:
@@ -106,3 +109,12 @@
         Quantity: 10
       - ReagentId: Blood
         Quantity: 20
+
+
+- type: entity
+  abstract: true
+  id: BaseGroin
+  parent: BaseGroinInorganic
+  components:
+  - type: Woundable
+    damageContainer: Organic

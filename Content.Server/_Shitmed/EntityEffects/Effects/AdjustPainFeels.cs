@@ -56,7 +56,7 @@ public sealed partial class AdjustPainFeels : EntityEffect
                         nerveSys.Value,
                         ModifierIdentifier,
                         bodyPart.Id,
-                        modifier.Value.Change + add * scale);
+                        add * scale);
             }
         }
     }
