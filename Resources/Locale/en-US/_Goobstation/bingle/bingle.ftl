@@ -18,3 +18,5 @@ ghost-role-information-bingle-description = The Pit is love. The Pit is life. Th
 
 bingle-upgrade-success = You feel stronger
 bingle-pit-grow =  The pit grows larger
+
+bingle-pit-end-of-round = The Binglepit near {$location} grew to level {$level} and collected {$points} Bingle points

@@ -45,6 +45,9 @@
       - DeathAcidifierImplant
       - DeathRattleImplant
       - MindShieldImplant
+      # Goob implants
+      - SyndicateJaunterImplant
+      - MindcontrolImplant
       deimplantFailureDamage:
         types:
           Caustic: 5 # Goobstation - unnerf implanters (why was it 50 genetic??)
@@ -305,7 +308,7 @@
 - type: entity
   id: RadioImplanterCentcomm
   suffix: radio Centcomm
-  parent: BaseImplantOnlyImplanter
+  parent: BaseImplantOnlyImplanterCentcomm # Goobstation
   components:
   - type: Implanter
     implant: RadioImplantCentcomm

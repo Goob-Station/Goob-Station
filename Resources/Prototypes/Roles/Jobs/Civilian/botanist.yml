@@ -6,6 +6,7 @@
   startingGear: BotanistGear
   icon: "JobIconBotanist"
   supervisors: job-supervisors-hop
+  goobcoins: 15 #Goob content
   access:
   - Service
   - Maintenance

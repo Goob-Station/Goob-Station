@@ -102,6 +102,18 @@
   id: EmergencyOxygenTank
 
 - type: Tag
+  id: EnergySpeedloader
+
+- type: Tag
+  id: EnergySpeedloaderDisabler
+
+- type: Tag
+  id: EnergySpeedloaderLethal
+
+- type: Tag
+  id: EnergySpeedloaderTerminate
+
+- type: Tag
   id: ExtendedEmergencyOxygenTank
 
 - type: Tag
@@ -154,6 +166,9 @@
 
 - type: Tag
   id: GunCanAimShooter
+
+- type: Tag
+  id: HandheldCrewMonitor
 
 - type: Tag
   id: HarpyEmotes
@@ -300,6 +315,9 @@
   id: Tourniquet
 
 - type: Tag
+  id: ToyGrenade
+
+- type: Tag
   id: ToySword
 
 - type: Tag
@@ -323,3 +341,32 @@
 - type: Tag
   id: HudMedicalSecurity
 
+- type: Tag
+  id: HudDiagnostic
+
+- type: Tag
+  id: HudMedicalDiagnostic
+
+- type: Tag
+  id: ReverseBearTrapKey
+
+- type: Tag
+  id: Bomb
+
+- type: Tag
+  id: Rifle
+
+- type: Tag
+  id: Hacking
+
+- type: Tag
+  id: Jetpack
+
+- type: Tag
+  id: RoundstartAntag
+
+- type: Tag
+  id: CalmAntag
+
+- type: Tag
+  id: MidroundAntag

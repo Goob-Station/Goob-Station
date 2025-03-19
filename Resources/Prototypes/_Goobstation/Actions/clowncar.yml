@@ -1,0 +1,26 @@
+- type: entity
+  id: ActionThankDriver
+  name: Thank Driver
+  description: show the driver you enjoy being a passenger
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Objects/Vehicles/clowncar.rsi
+      state: clowncar
+    event: !type:ThankRiderActionEvent
+    useDelay: 60 # 60 sec delay
+    checkCanInteract: false
+
+- type: entity
+  id: ActionQuietBackThere
+  name: Quiet back there
+  description: tell the passengers to be quiet
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Objects/Vehicles/clowncar.rsi
+      state: clowncar
+    event: !type:QuietBackThereActionEvent
+    useDelay: 30 # 30 sec delay
