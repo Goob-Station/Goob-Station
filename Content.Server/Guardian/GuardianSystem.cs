@@ -110,7 +110,6 @@ namespace Content.Server.Guardian
 
             _container.Remove(uid, hostComponent.GuardianContainer);
             hostComponent.HostedGuardian = null;
-            Dirty(host.Value, hostComponent);
             QueueDel(hostComponent.ActionEntity);
             hostComponent.ActionEntity = null;
         }
