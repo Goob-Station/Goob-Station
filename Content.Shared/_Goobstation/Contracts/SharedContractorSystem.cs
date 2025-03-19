@@ -7,6 +7,7 @@ using Content.Shared.Mind;
 using Content.Shared.Pinpointer;
 using Content.Shared.Roles;
 using Robust.Shared.Network;
+using Robust.Shared.Physics.Events;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -40,6 +41,7 @@ public sealed class SharedContractorSystem : EntitySystem
         SubscribeLocalEvent<ContractorUplinkComponent, ContractorUiMessage>(OnUiButtonPressed);
         SubscribeLocalEvent<ContractorUplinkComponent, GotEquippedHandEvent>(OnUplinkEquipped);
         SubscribeLocalEvent<ContractorUplinkComponent, ExtractionDoAfterEvent>(OnExtractionDoAfter);
+        SubscribeLocalEvent<ContractorPortalComponent, PreventCollideEvent>(OnPortalCollide);
     }
 
     public override void Update(float frameTime)
@@ -48,12 +50,40 @@ public sealed class SharedContractorSystem : EntitySystem
         var query = EntityQueryEnumerator<ContractorUplinkComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (_gameTiming.CurTime < comp.PortalSpawnTimer && comp.PortalSpawnTimer == TimeSpan.Zero)
+            if (_gameTiming.CurTime < comp.PortalSpawnTimer || comp.PortalSpawnTimer == TimeSpan.Zero)
                 continue;
 
             // spawn portal
-
+            var extractPortal = Spawn("PortalRed", GetEntity(comp.FlareUid).ToCoordinates());
+            comp.PortalSpawnTimer = TimeSpan.Zero; // reset timer so we dont spawn multiple portals
+            var contractorPortalComponent = EnsureComp<ContractorPortalComponent>(extractPortal);
+            contractorPortalComponent.LinkedUplink = GetNetEntity(uid);
+            comp.FlareUid = NetEntity.Invalid;
+            QueueDel(GetEntity(comp.FlareUid));
+            // check if a nukeop map exists ig and then if not spawn it
+            // link to a warp marker on nukeops
         }
+    }
+
+
+    // prevent portal from colliding with the contractor or a non targetted entity
+    private void OnPortalCollide(Entity<ContractorPortalComponent> ent, ref PreventCollideEvent args)
+    {
+        if(!TryComp<ContractorUplinkComponent>(GetEntity(ent.Comp.LinkedUplink), out var contractorUplinkComponent))
+            return;
+
+        var contractor = GetEntity(contractorUplinkComponent.User);
+
+        if(!TryComp<ContractorComponent>(contractor, out var contractorComponent))
+            return;
+
+        if (args.OtherEntity == contractor)
+            args.Cancelled = true;
+
+        if (args.OtherEntity == GetEntity(contractorComponent.CurrentTarget))
+            args.Cancelled = false;
+
+        QueueDel(ent); // delete the portal
     }
 
     private void OnExtractionDoAfter(Entity<ContractorUplinkComponent> ent, ref ExtractionDoAfterEvent args)
@@ -66,20 +96,19 @@ public sealed class SharedContractorSystem : EntitySystem
 
         var flare = SpawnAtPosition(ent.Comp.Flare, args.User.ToCoordinates());
         _transform.SetLocalRotation(flare, Angle.Zero);
-        ent.Comp.FlareUid = flare;
+        ent.Comp.FlareUid = GetNetEntity(flare);
         ent.Comp.PortalSpawnTimer = _gameTiming.CurTime + ent.Comp.PortalSpawnTime;
         args.Handled = true;
-
     }
 
 
     private void OnUplinkEquipped(Entity<ContractorUplinkComponent> ent, ref GotEquippedHandEvent args)
     {
-        if(!_net.IsServer || ent.Comp.Used)
+        if(!_net.IsServer || ent.Comp.User != NetEntity.Invalid)
             return;
 
         EnsureComp<ContractorComponent>(args.User);
-        ent.Comp.Used = true;
+        ent.Comp.User = GetNetEntity(args.User);
     }
 
 
@@ -169,6 +198,7 @@ public sealed class SharedContractorSystem : EntitySystem
 
                 break;
             case UiMessage.Refresh:
+                Log.Info("Refresh requested");
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
