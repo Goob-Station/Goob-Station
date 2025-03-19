@@ -144,6 +144,7 @@
     - outerClothing
   - type: Sprite
     state: icon
+  - type: AllowSuitStorage # DeltaV - allow suit storage for all outer clothing, no whitelist
 
 - type: entity
   abstract: true
