@@ -50,6 +50,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.7
   - type: ToggleableClothing # Goobstation - Modsuits change
+    stripDelay: null
     clothingPrototypes:
       head: ClothingHeadHatHoodVoidCloakHeretic
   - type: ModifyDelayedKnockdown # Goobstation
