@@ -1,5 +1,4 @@
-﻿using Content.Shared.Whitelist;
-using Robust.Shared.Containers;
+﻿﻿using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
@@ -15,26 +14,14 @@ public sealed partial class ItemBorgModuleComponent : Component
     /// <summary>
     /// The items that are provided.
     /// </summary>
-    [DataField("items", customTypeSerializer: typeof(PrototypeIdListSerializer<EntityPrototype>))] // Frontier: removed
+    [DataField("items", customTypeSerializer: typeof(PrototypeIdListSerializer<EntityPrototype>), required: true)]
     public List<string> Items = new();
-
-    /// <summary>
-    /// Frontier: The droppable items that are provided.
-    /// </summary>
-    [DataField]
-    public List<DroppableBorgItem> DroppableItems = new();
 
     /// <summary>
     /// The entities from <see cref="Items"/> that were spawned.
     /// </summary>
     [DataField("providedItems")]
     public SortedDictionary<string, EntityUid> ProvidedItems = new();
-
-    /// <summary>
-    /// The entities from <see cref="Items"/> that were spawned.
-    /// </summary>
-    [DataField("droppableProvidedItems")]
-    public SortedDictionary<string, (EntityUid, DroppableBorgItem)> DroppableProvidedItems = new();
 
     /// <summary>
     /// A counter that ensures a unique
@@ -60,15 +47,10 @@ public sealed partial class ItemBorgModuleComponent : Component
     /// </summary>
     [DataField("providedContainerId")]
     public string ProvidedContainerId = "provided_container";
-}
 
-// Frontier: droppable borg item data definitions
-[DataDefinition]
-public sealed partial class DroppableBorgItem
-{
-    [IdDataField]
-    public EntProtoId ID;
-
-    [DataField]
-    public EntityWhitelist Whitelist;
+    /// <summary>
+    /// Frontier: a module ID to check for equivalence // TODO: why not to make it automatically set itself to the prototype of the component's owner?
+    /// </summary>
+    [DataField(required: true)]
+    public string ModuleId = default!;
 }

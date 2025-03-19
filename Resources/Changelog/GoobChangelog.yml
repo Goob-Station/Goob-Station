@@ -6338,3 +6338,157 @@ Entries:
       message: Fixed NTR not having access to their room on some maps.
   id: 729
   time: '2025-03-14T02:06:27.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: Fixed Greatshield not recharging sometimes.
+  id: 730
+  time: '2025-03-14T19:18:50.0000000+00:00'
+- author: SolsticeOfTheWinter, NoSugarPlumNovember
+  changes:
+    - type: Tweak
+      message: Nuclear Override Card now properly Overrides. No need for a code.
+  id: 731
+  time: '2025-03-14T19:19:12.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Audrey & Aubrey White can now be gibbed with a carp plushie. Go wild.
+  id: 732
+  time: '2025-03-14T19:20:08.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        BSO weaponry box is now in the BSO's locker instead of being given at
+        spawn.
+  id: 733
+  time: '2025-03-14T19:20:28.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: passangers of the clowncar will now behave better
+  id: 734
+  time: '2025-03-14T19:20:48.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Fix
+      message: Fixed my autism
+  id: 735
+  time: '2025-03-14T19:21:07.0000000+00:00'
+- author: FlippenPage, widgetbeck, AftrLite, Fishbait
+  changes:
+    - type: Add
+      message: Added Maintanence drones
+  id: 736
+  time: '2025-03-14T19:21:31.0000000+00:00'
+- author: deltanedas, whatstone3, pheenty
+  changes:
+    - type: Tweak
+      message: Whitelisted borg hands work more smooth now.
+    - type: Fix
+      message: Fixed an edgecase where borgs could bypass their hand whitelist.
+  id: 737
+  time: '2025-03-14T19:22:09.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Slight Bingle sprite update
+  id: 738
+  time: '2025-03-14T19:22:30.0000000+00:00'
+- author: Vlax
+  changes:
+    - type: Add
+      message: added ore bag of holding to salvage vendor for 2000 points
+    - type: Tweak
+      message: >-
+        increased spesos from 2k to 5k in salvage vendor while reducing the
+        point cost to 750
+  id: 739
+  time: '2025-03-14T19:24:33.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Briefings now communicate how to use your collective mind channel when
+        appropriate (+e for blobmind, +a for glorpmind).
+    - type: Tweak
+      message: Changeling hivemind channel color changed.
+    - type: Fix
+      message: Fixed abductors not having glorpmind.
+  id: 740
+  time: '2025-03-16T01:56:13.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Combat injector weapon and BSO kit
+  id: 741
+  time: '2025-03-16T01:56:31.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: You can now sign papers by alt clicking with a pen.
+  id: 742
+  time: '2025-03-16T01:57:18.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: Increased air vent lock pressure threshold
+  id: 743
+  time: '2025-03-16T01:57:47.0000000+00:00'
+- author: ARMOKS
+  changes:
+    - type: Add
+      message: Improve Syndicate base loot pool
+    - type: Add
+      message: Random sydnie loot spawner for mappers
+  id: 744
+  time: '2025-03-16T01:58:07.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Add
+      message: Thee shalt knoweth god's wrath f'r farting on his holy text
+  id: 745
+  time: '2025-03-16T01:59:05.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Krav Maga legsweep no longer stunlocks
+    - type: Tweak
+      message: Judo Combos longer, throw is G>D>D, Armbar is D>D>G>G
+    - type: Tweak
+      message: Judo moves stam damage changed, throw now does 30, and armbar 70.
+  id: 746
+  time: '2025-03-16T01:59:32.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Stable release!
+  id: 747
+  time: '2025-03-16T04:18:59.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added the taiwan pond gun. Hack an autodrobe to see what it does.
+  id: 748
+  time: '2025-03-16T07:53:14.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: Restored Judo's combos to their original set of moves.
+    - type: Tweak
+      message: Krav maga leg sweep now does stamina damage instead of just a knockdown.
+  id: 749
+  time: '2025-03-17T06:21:09.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Goob is less stable now.
+  id: 750
+  time: '2025-03-17T09:25:21.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Tweak
+      message: Return of old appearance of engi & default borg.
+  id: 751
+  time: '2025-03-18T20:22:38.0000000+00:00'
