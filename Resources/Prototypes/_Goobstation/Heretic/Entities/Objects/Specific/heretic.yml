@@ -51,11 +51,11 @@
       drink:
         # it's a cryostasis flash filled with healing goodies what could possibly go wrong?
         # i will certainly not abuse it as a heretic chemist
-        maxVol: 30
+        maxVol: 100
         canReact: false
         reagents:
-        - ReagentId: Ichor
-          Quantity: 30
+        - ReagentId: EldritchEssence
+          Quantity: 100
 
 - type: entity
   id: HereticProtectiveBlade

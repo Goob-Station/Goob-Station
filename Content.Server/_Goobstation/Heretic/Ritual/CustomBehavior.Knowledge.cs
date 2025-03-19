@@ -42,7 +42,7 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
         if (requiredTags == null)
             return false;
 
-        var lookup = _lookup.GetEntitiesInRange(args.Platform, .75f);
+        var lookup = _lookup.GetEntitiesInRange(args.Platform, 1.5f);
 
         _toDelete.Clear();
         _missingTags.Clear();

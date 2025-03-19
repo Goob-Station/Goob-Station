@@ -66,7 +66,7 @@ namespace Content.Server.Heretic.Ritual;
             return false;
         }
 
-        var lookup = _lookup.GetEntitiesInRange(args.Platform, .75f);
+        var lookup = _lookup.GetEntitiesInRange(args.Platform, 1.5f);
         if (lookup.Count == 0)
         {
             outstr = Loc.GetString("heretic-ritual-fail-sacrifice");
