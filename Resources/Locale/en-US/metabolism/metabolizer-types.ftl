@@ -1,7 +1,7 @@
 metabolizer-type-animal = Animal
 metabolizer-type-bloodsucker = Bloodsucker
 metabolizer-type-dragon = Dragon
-metabolizer-type-human = Pony
+metabolizer-type-human = Human
 metabolizer-type-slime = Slime
 metabolizer-type-vox = Vox
 metabolizer-type-rat = Rat
