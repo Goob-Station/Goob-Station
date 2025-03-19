@@ -30,7 +30,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Atmos.Reactions
 {
-    [Prototype("gasReaction")]
+    [Prototype]
     public sealed partial class GasReactionPrototype : IPrototype
     {
         [ViewVariables]
