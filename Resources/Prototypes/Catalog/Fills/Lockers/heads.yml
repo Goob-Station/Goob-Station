@@ -19,11 +19,8 @@
     - id: RubberStampQm
     - id: SalvageShuttleConsoleCircuitboard
     - id: AstroNavCartridge
-<<<<<<< HEAD
-    - id: MailTeleporterMachineCircuitboard # GoobStation port of DeltaV mail
-=======
     - id: CargoTechFabCircuitboard # Goobstation - Cargo Techfab
->>>>>>> upstream/master
+    - id: MailTeleporterMachineCircuitboard # GoobStation port of DeltaV mail
 
 - type: entity
   id: LockerQuarterMasterFilled
