@@ -50,7 +50,7 @@ public sealed partial class CarveRuneDoAfterEvent(ProtoId<RuneCarvingPrototype> 
 {
     public ProtoId<RuneCarvingPrototype> Carving = carving;
 
-    public CarveRuneDoAfterEvent() : this("TrapShock") { }
+    public CarveRuneDoAfterEvent() : this("AlertCarving") { }
 
     public override DoAfterEvent Clone() => this;
 }
