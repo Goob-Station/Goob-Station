@@ -74,7 +74,7 @@ public partial class SharedMartialArtsSystem
                     ent,
                     args.User,
                     PopupType.LargeCaution);
-                ent.Comp.MaximumUses++;
+                ent.Comp.CurrentUses++;
                 break;
         }
 
