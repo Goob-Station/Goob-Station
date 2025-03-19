@@ -6498,3 +6498,9 @@ Entries:
       message: Skeletons now have 10% chance of doing a funny sound when screaming.
   id: 752
   time: '2025-03-19T16:02:31.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Remove
+      message: Goob is no longer stable.
+  id: 753
+  time: '2025-03-19T20:17:28.0000000+00:00'
