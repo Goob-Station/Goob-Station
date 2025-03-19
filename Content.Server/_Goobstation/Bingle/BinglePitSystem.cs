@@ -176,9 +176,6 @@ public sealed class BinglePitSystem : EntitySystem
 
         RemoveAllBingleGhostRoles(uid, component);//remove all unclaimed ghost roles when pit is destroyed
 
-        if (component.Loot != null)
-            Spawn(component.Loot, Transform(uid).Coordinates);
-
         //Remove all falling when pit is destroyed, in the small chance someone is in between start and insert
         var query = EntityQueryEnumerator<BinglePitFallingComponent>();
         while (query.MoveNext(out var fallingUid, out var fallingComp))
