@@ -63,25 +63,26 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
         DoInjection((entity.Owner, entity.Comp), args.EmbeddedIntoUid);
     }
 
-    private void OnEmbedLand(Entity<SolutionInjectOnEmbedComponent> entity, ref LandEvent args)
-    {
-        ResetState(entity.Comp);
-    }
-
-    private void OnWhileEmbeddedLand(Entity<SolutionInjectWhileEmbeddedComponent> entity, ref LandEvent args)
-    {
-        ResetState(entity.Comp);
-    }
-
-    private void ResetState(BaseSolutionInjectOnEventComponent comp)
-    {
-        comp.PierceArmorOverride = null;
-        comp.AmountMultiplier = 1f;
-    }
-
     private void DoInjection(Entity<BaseSolutionInjectOnEventComponent> injectorEntity, EntityUid target, EntityUid? source = null)
     {
         TryInjectTargets(injectorEntity, [target], source);
+    }
+
+    private void ResetState(BaseSolutionInjectOnEventComponent comp) // Goobstation
+    {
+        comp.PierceArmorOverride = null;
+        comp.SpeedMultiplier = 1f;
+    }
+
+    private void OnEmbedLand(Entity<SolutionInjectOnEmbedComponent> entity, ref LandEvent args) // Goobstation
+    {
+        ResetState(entity.Comp);
+    }
+
+    private void OnWhileEmbeddedLand(Entity<SolutionInjectWhileEmbeddedComponent> entity, ref LandEvent args) // Goobstation
+    {
+        entity.Comp.UpdateInterval *= entity.Comp.SpeedMultiplier;
+        ResetState(entity.Comp);
     }
 
     /// <summary>
@@ -115,7 +116,7 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
                 continue;
 
             // Goobstation - Armor resisting syringe gun
-            var mult = injector.Comp.AmountMultiplier; // multiplier of how much to actually inject
+            var mult = 1f; // multiplier of how much to actually inject
             var pierce = injector.Comp.PierceArmorOverride ?? injector.Comp.PierceArmor;
             if (_inventory.TryGetSlotEntity(target, "outerClothing", out var suit)) // attempt to apply armor injection speed multiplier or block the syringe
             {
