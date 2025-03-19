@@ -195,7 +195,7 @@
     Piercing: 0.9
     Slash: 0.9
     Heat: 0.7
-    Energy: 0.6
+    Ion: 0.6
 
 - type: damageModifierSet
   id: SteelArmorPlate # Decently effective against most common types of damage.
