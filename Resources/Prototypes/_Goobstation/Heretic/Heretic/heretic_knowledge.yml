@@ -396,6 +396,13 @@
   ritualPrototypes:
   - RustedRitual
 
+- type: hereticKnowledge
+  id: CarvingKnife
+  sideKnowledge: true
+  stage: 6
+  ritualPrototypes:
+  - CarvingKnife
+
 ## stage 8
 - type: hereticKnowledge
   id: Cleave

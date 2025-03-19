@@ -326,3 +326,17 @@
     CableCoil: 15
   output:
     MobGhoulRustWalker: 1
+
+- type: hereticRitual
+  id: CarvingKnife
+  locName: knowledge-path-side-s6-knife-name
+  locDesc: knowledge-path-side-s6-knife-desc
+  icon:
+    sprite: _Goobstation/Heretic/items.rsi
+    state: rune_carver
+  requiredTags:
+    GlassShard: 1
+    Document: 1
+    Knife: 1
+  output:
+    CarvingKnife: 1

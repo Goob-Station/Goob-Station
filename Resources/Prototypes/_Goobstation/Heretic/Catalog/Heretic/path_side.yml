@@ -79,7 +79,23 @@
     stage: 5
 
 - type: listing
-  id: HereticSidePath8
+  id: HereticSidePath6CarvingKnife
+  name: knowledge-path-side-s6-knife-name
+  description: knowledge-path-side-s6-knife-desc
+  icon: { sprite: _Goobstation/Heretic/items.rsi, state: rune_carver }
+  productHereticKnowledge: CarvingKnife
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5
+
+- type: listing
+  id: HereticSidePath8Cleave
   name: knowledge-path-side-s8-cleave-name
   description: knowledge-path-side-s8-cleave-desc
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: cleave }

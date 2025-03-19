@@ -33,6 +33,14 @@ knowledge-path-side-s6-rustwalker-desc =
     Allows you to transmute a pool of vomit, 15 cable coil, and 10 sheets of iron into a Rust Walker.
     Rust Walkers excel at spreading rust and are moderately strong in combat.
 
+knowledge-path-side-s6-knife-name = Carving Knife
+knowledge-path-side-s6-knife-desc =
+    Etched, carved... eternal. There is power hidden in everything. I can unveil it! I can carve the monolith to reveal the chains!
+
+    Allows you to transmute a knife, a shard of glass, and a piece of paper to create a Carving Knife.
+    The Carving Knife allows you to etch difficult to see traps that trigger on heathens who walk overhead.
+    Also makes for a handy throwing weapon.
+
 ## stage 7
 knowledge-path-side-s7-uncuff-name = Wave of Desperation
 knowledge-path-side-s7-uncuff-desc =
@@ -48,13 +56,6 @@ knowledge-path-side-s7-siphon-desc =
 
     Grants Blood Siphon, a ranged spell that steals a bit of life from your target, healing your bruises and restoring blood.
     Additionally, you have a chance of transferring wounds you are experiencing to the target.
-
-knowledge-path-side-s7-knife-name = Carving Knife
-knowledge-path-side-s7-knife-desc =
-    Etched, carved... eternal. There is power hidden in everything. I can unveil it! I can carve the monolith to reveal the chains!
-
-    Transmute a knife, a glass shard and a piece of paper to create a Carving Knife.
-    The knife allows you to create up to 3 carvings on the floor that have various effects on nonbelievers who walk over them.
 
 knowledge-path-side-s7-crucible-name = Mawed Crucible
 knowledge-path-side-s7-crucible-desc =
