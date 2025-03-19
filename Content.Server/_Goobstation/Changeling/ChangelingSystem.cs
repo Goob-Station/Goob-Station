@@ -744,8 +744,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (newUid != null)
         {
             PlayMeatySound((EntityUid) newUid, comp);
-            //var loc = Loc.GetString("changeling-transform-others", ("user", locName));
-            //_popup.PopupEntity(loc, (EntityUid) newUid, PopupType.LargeCaution);
         }
 
         return true;

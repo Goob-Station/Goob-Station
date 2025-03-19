@@ -11,7 +11,7 @@ reagent-popup-panacea = Poison drains out of us onto the floor.
 
 reagent-name-lingdrenaline = Changeling Adrenaline
 reagent-desc-lingdrenaline = A reserve of potent adrenaline stored in a gland capable of immediately recovering a changeling from any fatigue.
-reagent-popup-lingdrenaline = Your entire body violently jitters and shakes.
+reagent-popup-lingdrenaline = Our entire body violently jitters and shakes.
 
 reagent-name-probital = probital
 reagent-desc-probital = Forces patient's body to spend its energy creating more healing compounds. Overdose exhausts body, forcing what effectively amounts to power naps.

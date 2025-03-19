@@ -312,7 +312,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, comp, args))
+        if (!TryUseAbility(uid, comp, args, null, false)) // ignores fires
             return;
 
         comp.Chemicals = 0f;
@@ -345,7 +345,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, comp, args))
+        if (!TryUseAbility(uid, comp, args, null, false)) // ignores fires
             return;
 
         if (!TryComp<DamageableComponent>(uid, out var damageable))
@@ -820,8 +820,6 @@ public sealed partial class ChangelingSystem
             return;
         }
         PlayMeatySound((EntityUid) newUid, comp);
-        //var loc = Loc.GetString("changeling-transform-others", ("user", Identity.Entity((EntityUid) newUid, EntityManager)));
-        //_popup.PopupEntity(loc, (EntityUid) newUid, PopupType.LargeCaution);
     }
     public ProtoId<TagPrototype> HivemindTag = "LingMind";
     public void OnHivemindAccess(EntityUid uid, ChangelingComponent comp, ref ActionHivemindAccessEvent args)
