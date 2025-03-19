@@ -139,29 +139,6 @@
       prototypes: [ ERTLeaderGearEVA ]
       roleLoadout: [ RoleSurvivalEVA ]
 
-- type: entity
-  id: RandomHumanoidSpawnerERTLeaderEVAAnnie
-  parent: RandomHumanoidSpawnerERTLeaderEVA
-  suffix: ERTRole, Annie, EVA
-  components:
-    - type: RandomHumanoidSpawner
-      settings: ERTLeaderEVAAnnie
-
-- type: randomHumanoidSettings
-  id: ERTLeaderEVAAnnie
-  parent: ERTLeaderEVA
-  components:
-    - type: GhostRole
-      name: ghost-role-information-ert-leader-name
-      description: ghost-role-information-ert-leader-description
-      rules: ghost-role-information-nonantagonist-rules
-      raffle:
-        settings: short
-      job: ERTLeader
-    - type: Loadout
-      prototypes: [ ERTLeaderGearEVAAnnie ]
-      roleLoadout: [ RoleSurvivalEVA ]
-
 ## ERT Chaplain
 
 - type: entity
