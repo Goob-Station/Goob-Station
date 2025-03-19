@@ -102,7 +102,7 @@
 
 - type: thiefBackpackSet
   id: ERTPulseSet
-  name: ert-box-category-pulse-description
+  name: ert-box-category-pulse-name
   description: ert-box-category-pulse-description
   sprite:
     sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi
@@ -113,27 +113,3 @@
   - EnergySpeedloaderPulse
   - EnergySpeedloaderPulse
   - EnergySpeedLoaderDisabler
-
-- type: thiefBackpackSet
-  id: RevolverSet
-  name: blueshield-box-category-revolver-name
-  description: blueshield-box-category-revolver-description
-  sprite:
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
-    state: icon
-  content:
-  - WeaponEnergyRevolver # One lethal speedloader inside.
-  - EnergySpeedloaderLethal
-  - EnergySpeedloaderLethal
-  - EnergySpeedloaderDisabler
-  - EnergySpeedloaderDisabler
-
-- type: thiefBackpackSet
-  id: BlueshieldSet
-  name: blueshield-box-category-blueshield-name
-  description: blueshield-box-category-blueshield-description
-  sprite:
-    sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
-    state: icon-on
-  content:
-  - BlueShieldShieldFilled

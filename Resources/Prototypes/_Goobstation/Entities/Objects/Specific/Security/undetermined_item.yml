@@ -49,16 +49,17 @@
 - type: entity
   id: ERTSecurityUndeterminedWeapon
   name: emergency response weaponry pack
-  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
+  description: A small remote utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
   parent: [ BaseItem, BaseCentcommContraband ]
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Security/blueshieldundetermined.rsi
+    sprite: _Goobstation/Objects/Specific/Security/ertundetermined.rsi
     state: icon
   - type: ThiefUndeterminedBackpack # Someone should rename this.
     possibleSets:
     - ERTBallisticsSet
     - ERTPulseSet
+    maxSelectedSets: 1
   - type: ActivatableUI
     key: enum.ThiefBackpackUIKey.Key
   - type: UserInterface
