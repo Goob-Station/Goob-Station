@@ -13,7 +13,10 @@
                 <Label Access="Public" Name="ReasonText" Text="Ransomeable to Nanotrasen for rebirthing a cult on NSS Cyberiad." />
             </BoxContainer>
             <BoxContainer Orientation="Vertical">
-                <Label Margin="10 0 0 0" Name="ExtractionText" Text="Extraction Zones:" />
+                <BoxContainer Margin="10 0 0 0" Orientation="Horizontal">
+                    <Label Margin="0 0 50 0" Name="ExtractionText" Text="Extraction Zones:" />
+                    <Label Access="Public" Visible="False" Name="ActiveText" FontColorOverride="#26de81" Text="ACTIVE" />
+                </BoxContainer>
                 <GridContainer Access="Public" Margin="10 0" Name="ExtractionOptions" Columns="1">
                 </GridContainer>
             </BoxContainer>

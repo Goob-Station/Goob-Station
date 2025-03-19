@@ -13,7 +13,7 @@ namespace Content.Client._Goobstation.Contractor
         {
             base.Open();
 
-            SendMessage(new ContractorUiMessage(UiMessage.Refresh));
+            SendMessage(new ContractorUiMessage(UiMessage.Refresh, NetEntity.Invalid, NetEntity.Invalid));
             _uplink = this.CreateWindow<ContractorUplink>();
             _uplink.OnContractButtonClicked += ButtonPressed;
         }
@@ -26,9 +26,9 @@ namespace Content.Client._Goobstation.Contractor
             _uplink?.UpdateState(castState); //Update window state
         }
 
-        public void ButtonPressed(UiMessage message)
+        private void ButtonPressed(ContractorUiMessage message)
         {
-            SendMessage(new ContractorUiMessage(message));
+            SendMessage(message);
         }
     }
 }

@@ -79,6 +79,7 @@
   - type: SpawnOnTrigger
     proto: ContractorMarker
   - type: TriggerOnSpawn
+
 - type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconUnanchored

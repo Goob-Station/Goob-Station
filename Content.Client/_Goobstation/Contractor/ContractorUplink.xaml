@@ -4,7 +4,7 @@
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
     Access="Public"
-    MinSize="600 600">
+    MinSize="700 600" Resizable="False" Title="Syndicate Contractor Uplink">
     <PanelContainer>
         <BoxContainer Orientation="Vertical" Margin="5">
             <PanelContainer>
@@ -26,7 +26,11 @@
                 </BoxContainer>
             </PanelContainer>
 
-            <Label Text="Contracts" />
+            <BoxContainer Orientation="Horizontal">
+                <Label Margin="0 0 500 0" Text="Available Contracts" />
+                <Button Name="ExtractionButton" Text="Call Extraction" />
+            </BoxContainer>
+            <customControls:HSeparator Margin="3 0" />
 
             <ScrollContainer VerticalExpand="true">
                 <BoxContainer Access="Public" Name="ContractContainer" Orientation="Vertical">

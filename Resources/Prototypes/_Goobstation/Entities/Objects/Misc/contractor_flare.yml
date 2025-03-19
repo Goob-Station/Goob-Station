@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseItem
+  id: ContractorFlare
+  name: contractor flare
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/contractor_flare.rsi
+    layers:
+    - state: flare-lit
+  - type: Appearance # add an actual light holy fuck
+  - type: Transform
+    anchored: true
+

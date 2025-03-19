@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseItem
   id: ContractorUplink
-  name: contractor Uplink
+  name: contractor uplink
   description: A standard, Syndicate issued tablet for handling important contracts while on the field.
   components:
   - type: Sprite
@@ -9,6 +9,7 @@
     layers:
       - state: icon
   - type: Appearance
+  - type: ContractorUplink
   - type: ActivatableUI
     key: enum.ContractorUplinkUiKey.Key
   - type: UserInterface
