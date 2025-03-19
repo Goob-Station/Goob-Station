@@ -39,6 +39,7 @@
     - MedkitCombatFilled # Goobstation - No reason not to.
     - BoxZiptie
     - CrowbarRed
+    - ERTSecurityUndeterminedWeapon
     # - MagazineMagnum - No need
 
 - type: startingGear
@@ -63,34 +64,8 @@
     - MedkitCombatFilled # Goobstation - No reason not to.
     - BoxZiptie
     - CrowbarRed
-    # Goobstation - MagazineMagnum
-
-- type: startingGear
-  id: ERTLeaderGearEVAAnnie # Goobstation
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitERTLeader
-    back: ClothingBackpackERTLeader
-    shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
-    neck: ExecutiveIDCard # Goobstation - Executive Access!
-    mask: ClothingMaskGasERT
-    eyes: ClothingEyesGlassesSecurity
-    gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterHardsuitERTLeader
-    id: ERTLeaderPDA
-    ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltSecurityFilled
-    pocket1: FlashlightSeclite
-    pocket2: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives". Is never used anywhere else.
- #  inhand: # Goobstation
- #  - WeaponRifleAnnie # Goobstation
-  storage:
-    back:
-    # - WeaponDisabler - Redundant. It spawns in secbelts now.
-    - MedkitCombatFilled # Goobstation - No reason not to.
-    - BoxZiptie
-    - CrowbarRed
     - ERTSecurityUndeterminedWeapon
-    # - MagazineMagnum - Literally doesn't spawn with a gun that uses this. Seriously, who made this?
+    # Goobstation - MagazineMagnum
 
 # Chaplain
 - type: job
@@ -297,6 +272,7 @@
     - MedkitCombatFilled # Goobstation - No reason not to.
     - BoxZiptie
     - CrowbarRed
+    - ERTSecurityUndeterminedWeapon
    # - MagazinePistol
 
 - type: startingGear
@@ -321,6 +297,7 @@
     - MedkitCombatFilled # Goobstation - No reason not to.
     - BoxZiptie
     - CrowbarRed
+    - ERTSecurityUndeterminedWeapon
    # - MagazinePistol
 
 # Every time an admin spawns a lecter ERT instead of an annie ert i lose a part of my soul. USE THE DAMN GUN MADE FOR THE ERTS, OR SPAWN THE OTHER PROTO. THIS IS REDUNDANT!!
