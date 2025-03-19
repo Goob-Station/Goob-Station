@@ -63,7 +63,7 @@
     - MedkitCombatFilled # Goobstation - No reason not to.
     - BoxZiptie
     - CrowbarRed
-    - MagazineMagnum
+    # Goobstation - MagazineMagnum
 
 - type: startingGear
   id: ERTLeaderGearEVAAnnie # Goobstation
@@ -81,16 +81,15 @@
     belt: ClothingBeltSecurityFilled
     pocket1: FlashlightSeclite
     pocket2: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives". Is never used anywhere else.
-  inhand:
-  - WeaponRifleAnnie # Goobstation - DEATH TO LECTER ERT!!
+ #  inhand: # Goobstation
+ #  - WeaponRifleAnnie # Goobstation
   storage:
     back:
     # - WeaponDisabler - Redundant. It spawns in secbelts now.
     - MedkitCombatFilled # Goobstation - No reason not to.
     - BoxZiptie
     - CrowbarRed
-    - MagazineLightRifle
-    - MagazineLightRifle
+    - ERTSecurityUndeterminedWeapon
     # - MagazineMagnum - Literally doesn't spawn with a gun that uses this. Seriously, who made this?
 
 # Chaplain
