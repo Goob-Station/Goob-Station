@@ -59,35 +59,38 @@
       color: "#678AD9"
     - type: ItemTogglePointLight
     - type: Blocking
+      passiveBlockFraction: 0.7
       passiveBlockModifier:
+        coefficients:
+          Blunt: 1
+          Slash: 1
+          Piercing: 1
+          Heat: 1
+      activeBlockModifier:
         coefficients:
           Blunt: 0.7
           Slash: 0.7
           Piercing: 0.7
-          Heat: 0.6
-      activeBlockModifier:
-        coefficients:
-          Blunt: 0.8
-          Slash: 0.8
-          Piercing: 0.8
           Heat: 0.7
         flatReductions:
-          Heat: 5
-          Blunt: 5
-          Slash: 5
-          Piercing: 5
+          Heat: 3
+          Blunt: 3
+          Slash: 3
+          Piercing: 3
     - type: Appearance
     - type: Damageable
       damageContainer: Shield
     - type: StaticPrice
       price: 350
     - type: Battery
-      maxCharge: 100
-      startingCharge: 100
-    - type: BatterySelfRecharger
-      autoRecharge: true
-      autoRechargeRate: 7
+      maxCharge: 180
+      startingCharge: 180
     - type: RechargeableBlocking
+      dischargedRechargeRate: 10
+      chargedRechargeRate: 15
+    - type: BatterySelfRecharger
+      autoRechargeRate: 15
+      autoRecharge: true
     - type: ItemSlots
       slots:
         item:
@@ -109,10 +112,12 @@
   description: The identification number on this shield has been scratched off. Something feels wrong.
   components:
   - type: Battery
-    maxCharge: 600
-    startingCharge: 600
+    maxCharge: 1800
+    startingCharge: 1800
+  - type: RechargeableBlocking
+    dischargedRechargeRate: 100
+    chargedRechargeRate: 150
   - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 100
+    autoRechargeRate: 150
   - type: Item
     size: Normal

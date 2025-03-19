@@ -2,9 +2,11 @@
 - type: latheRecipePack
   id: ParamedHypoStatic
   recipes:
+  - CartridgeAtropine
   - CartridgeEpinephrine
   - CartridgeBicaridine
   - CartridgeDermaline
+  - CartridgeSaline
   - ParamedHypo
 
 - type: latheRecipePack
@@ -14,11 +16,6 @@
   - MedicalPatchRapid
   - MedicalPatchTherapeutic
   - MedicalPatchLarge
-
-- type: latheRecipePack
-  id: MedicalWeaponsStatic
-  recipes:
-  - SyringeGun
 
 - type: latheRecipePack
   id: SurgeryStaticGoob
@@ -56,12 +53,14 @@
   - MedicalCyberneticEyes
 
 - type: latheRecipePack
-  id: MedicalWeapons
-  recipes:
-  - RapidSyringeGun
-
-- type: latheRecipePack
   id: MedicalMisc
   recipes:
   - PrescriptionGlasses
   - VehicleHoverchairSci
+
+- type: latheRecipePack
+  id: MedicalMiscRestricted
+  recipes:
+  - SyringeGun
+  - HandheldCrewMonitor
+  - DefibrillatorCompact

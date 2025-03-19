@@ -1171,11 +1171,11 @@
       head: ClothingHeadHelmetHardsuitERTJanitor
 
 #Deathsquad
-- type: entity
+- type: entity # Goobstation - Start
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitBase ]
-  id: ClothingOuterHardsuitDeathsquad
-  name: death squad hardsuit
-  description: An advanced hardsuit favored by commandos for use in special operations.
+  id: ClothingOuterHardsuitDeathsquad # Todo - This should be a modsuit when those are done.
+  name: PI-52 "Lucifer" hardsuit
+  description: A highly classified hardsuit for use by Central Commands death-squadrons.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
@@ -1191,13 +1191,13 @@
     damageCoefficient: 0.0
   - type: FireProtection
     reduction: 0.8
-  - type: StaminaDamageResistance # Goobstation - Deathsquad Revamp
+  - type: StaminaDamageResistance # Goobstation - Start
     coefficient: 0
-  - type: ClothingSlowOnDamageModifier # Goobstation
+  - type: ClothingSlowOnDamageModifier
     modifier: 0.1
-  - type: ClothingModifyStunTime # Goobstation
+  - type: ClothingModifyStunTime
     modifier: 0.1
-  - type: ModifyStandingUpTime # Goobstation
+  - type: ModifyStandingUpTime
     multiplier: 0.1
   - type: Armor
     coverage:
@@ -1219,10 +1219,10 @@
     walkModifier: 1.0
     sprintModifier: 1.0
   - type: HeldSpeedModifier
-  - type: ToggleableClothing # Goobstation - Modsuits change
+  - type: ToggleableClothing
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitDeathsquad
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown # Goobstation - End
     cancel: true
 
 #CBURN Hardsuit

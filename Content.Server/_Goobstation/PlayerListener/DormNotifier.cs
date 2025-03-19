@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading;
 using Content.Server.Afk;
@@ -42,8 +42,8 @@ public sealed class DormNotifier : EntitySystem
     private bool _enabled;
     private int _frequency = 10;
 
-    private int _timeout = 120;
-    private int _timeoutExpedited = 25;
+    private int _timeout = 180;
+    private int _timeoutExpedited = 60;
 
     public override void Initialize()
     {

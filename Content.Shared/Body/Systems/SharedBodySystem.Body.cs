@@ -149,6 +149,7 @@ public partial class SharedBodySystem
         // Obviously can't run in Init to avoid double-spawns on save / load.
         var prototype = Prototypes.Index(ent.Comp.Prototype.Value);
         MapInitBody(ent, prototype);
+        EnsureComp<SurgeryTargetComponent>(ent); // Shitmed change
     }
 
     private void MapInitBody(EntityUid bodyEntity, BodyPrototype prototype)

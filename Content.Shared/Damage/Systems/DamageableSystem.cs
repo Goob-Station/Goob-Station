@@ -198,15 +198,10 @@ namespace Content.Shared.Damage
         ///     Returns a <see cref="DamageSpecifier"/> with information about the actual damage changes. This will be
         ///     null if the user had no applicable components that can take damage.
         /// </returns>
-        public DamageSpecifier? TryChangeDamage(EntityUid? uid,
-            DamageSpecifier damage,
-            bool ignoreResistances = false,
-            bool interruptsDoAfters = true,
-            DamageableComponent? damageable = null,
-            EntityUid? origin = null,
-            bool canBeCancelled = false,
-            float partMultiplier = 1.00f,
-            TargetBodyPart? targetPart = null)
+        public DamageSpecifier? TryChangeDamage(EntityUid? uid, DamageSpecifier damage, bool ignoreResistances = false,
+            bool interruptsDoAfters = true, DamageableComponent? damageable = null, EntityUid? origin = null,
+            // Shitmed Change
+            bool? canSever = true, bool? canEvade = false, float? partMultiplier = 1.00f, TargetBodyPart? targetPart = null, bool heavyAttack = false)
         {
             // Shitmed Change Start
             if (damage.Empty)
@@ -215,7 +210,7 @@ namespace Content.Shared.Damage
             if (!uid.HasValue)
                 return null;
 
-            var before = new BeforeDamageChangedEvent(damage, origin, canBeCancelled); // heheheha
+            var before = new BeforeDamageChangedEvent(damage, origin, targetPart, canEvade ?? false, heavyAttack); // Shitmed Change
             RaiseLocalEvent(uid.Value, ref before);
 
             if (before.Cancelled)
@@ -562,12 +557,12 @@ namespace Content.Shared.Damage
         {
             if (_netMan.IsServer)
             {
-                args.State = new DamageableComponentState(component.Damage.DamageDict, component.DamageModifierSetId, component.HealthBarThreshold);
+                args.State = new DamageableComponentState(component.Damage.DamageDict, component.DamageContainerID, component.DamageModifierSetId, component.HealthBarThreshold);
             }
             else
             {
                 // avoid mispredicting damage on newly spawned entities.
-                args.State = new DamageableComponentState(component.Damage.DamageDict.ShallowClone(), component.DamageModifierSetId, component.HealthBarThreshold);
+                args.State = new DamageableComponentState(component.Damage.DamageDict.ShallowClone(), component.DamageContainerID, component.DamageModifierSetId, component.HealthBarThreshold);
             }
         }
 
@@ -603,6 +598,7 @@ namespace Content.Shared.Damage
                 return;
             }
 
+            component.DamageContainerID = state.DamageContainerId;
             component.DamageModifierSetId = state.ModifierSetId;
             component.HealthBarThreshold = state.HealthBarThreshold;
 
@@ -626,7 +622,24 @@ namespace Content.Shared.Damage
     public record struct BeforeDamageChangedEvent(
         DamageSpecifier Damage,
         EntityUid? Origin = null,
-        bool CanBeCancelled = true,
+        TargetBodyPart? TargetPart = null, // Shitmed Change
+        bool CanEvade = false, // Lavaland Change
+        bool Cancelled = false,
+        bool HeavyAttack = false);
+
+    /// <summary>
+    ///     Shitmed Change: Raised on parts before damage is done so we can cancel the damage if they evade.
+    /// </summary>
+    [ByRefEvent]
+    public record struct TryChangePartDamageEvent(
+        DamageSpecifier Damage,
+        EntityUid? Origin = null,
+        TargetBodyPart? TargetPart = null,
+        bool IgnoreResistances = false,
+        bool CanSever = true,
+        bool CanEvade = false,
+        float PartMultiplier = 1.00f,
+        bool Evaded = false,
         bool Cancelled = false);
 
     /// <summary>

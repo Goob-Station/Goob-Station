@@ -20,6 +20,7 @@
     tags:
     - WhitelistChameleon
     - WeldingMask
+    - DroneUsable # Goobstation
   - type: HideLayerClothing
     slots:
     - Snout
@@ -48,6 +49,7 @@
     - HamsterWearable
     - WhitelistChameleon
     - WeldingMask
+    - DroneUsable # Goobstation
 
 - type: entity
   parent: WeldingMaskBase

@@ -104,7 +104,6 @@ public sealed partial class ZombieSystem
         RemComp<HungerComponent>(target);
         RemComp<ThirstComponent>(target);
         RemComp<ReproductiveComponent>(target);
-        RemComp<EggLayerComponent>(target); // Goobstation - very funny haha it lags server to hell
         RemComp<ReproductivePartnerComponent>(target);
         RemComp<LegsParalyzedComponent>(target);
         RemComp<ComplexInteractionComponent>(target);
