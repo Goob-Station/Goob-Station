@@ -1,7 +1,6 @@
 ﻿
 
 
-
 ## UI
 
 chameleon-component-ui-window-name = Chameleon Settings

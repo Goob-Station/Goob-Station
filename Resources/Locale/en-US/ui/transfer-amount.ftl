@@ -2,7 +2,6 @@
 
 
 
-
 ## Title
 
 ui-transfer-amount-title = Change Transfer Amount
