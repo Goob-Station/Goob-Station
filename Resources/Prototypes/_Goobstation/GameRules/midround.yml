@@ -167,7 +167,7 @@
   components:
   - type: StationEvent
     weight: 2
-    earliestStart: 75
+    earliestStart: 60
     minimumPlayers: 30 # how is that 20 people when rat king is 30??? changed.
     duration: null
     maxOccurrences: 2
@@ -179,7 +179,7 @@
     carrierBlobProtos:
     - SpawnPointGhostBlobRat
     playersPerCarrierBlob: 30
-    maxCarrierBlob: 1
+    maxCarrierBlob: 3
   - type: Tag
     tags:
       - MidroundAntag
