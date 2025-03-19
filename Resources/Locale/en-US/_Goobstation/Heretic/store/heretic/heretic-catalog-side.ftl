@@ -25,6 +25,14 @@ knowledge-path-side-s3-ashen-eyes-desc =
     Allows you to transmute a pair of eyes, a flare, and a glass shard into an Eldritch Medallion.
     The Eldritch Medallion grants you thermal vision while worn, and also functions as a focus.
 
+knowledge-path-side-s3-void-cloak-name = Void Cloak
+knowledge-path-side-s3-void-cloak-desc =
+    The Owl is the keeper of things that are not quite in practice, but in theory are. Many things are.
+
+    Allows you to transmute a glass shard, a bedsheet, and any winter coat to create a Void Cloak.
+    While the hood is down, the cloak functions as a focus and provides low pressure protection, and while the hood is up, the cloak is completely invisible.
+    It also provide decent armor and has pockets which can hold one of your blades, various ritual components (such as organs), and small heretical trinkets.
+
 ## stage 6
 knowledge-path-side-s6-rustwalker-name = Rusted Ritual
 knowledge-path-side-s6-rustwalker-desc =

@@ -177,6 +177,9 @@
   id: Heart
 
 - type: Tag
+  id: HereticItem
+
+- type: Tag
   id: HEVSuit
 
 - type: Tag
@@ -337,6 +340,9 @@
 
 - type: Tag
   id: WeaponPistolDualetta
+
+- type: Tag
+  id: WinterCoat
 
 - type: Tag
   id: WizardHat

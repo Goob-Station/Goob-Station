@@ -58,17 +58,6 @@ public sealed partial class HereticAbilitySystem
         SubscribeLocalEvent<SpriteRandomOffsetComponent, ComponentStartup>(OnRandomOffsetStartup);
 
         SubscribeLocalEvent<RustbringerComponent, FlashAttemptEvent>(OnFlashAttempt);
-        SubscribeLocalEvent<RustbringerComponent, GetPressureProtectionValuesEvent>(OnGetPressureProtection);
-    }
-
-
-    private void OnGetPressureProtection(Entity<RustbringerComponent> ent, ref GetPressureProtectionValuesEvent args)
-    {
-        if (!_rustbringer.IsTileRust(Transform(ent).Coordinates, out _))
-            return;
-
-        args.HighPressureMultiplier *= 0f;
-        args.LowPressureMultiplier *= 0f;
     }
 
     private void OnFlashAttempt(Entity<RustbringerComponent> ent, ref FlashAttemptEvent args)

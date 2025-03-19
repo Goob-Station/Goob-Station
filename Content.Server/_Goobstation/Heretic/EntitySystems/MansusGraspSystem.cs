@@ -177,13 +177,6 @@ public sealed class MansusGraspSystem : EntitySystem
         if (_whitelist.IsBlacklistPass(comp.Blacklist, target))
             return;
 
-        if (TryComp(target, out StatusEffectsComponent? status))
-        {
-            _stun.KnockdownOrStun(target, comp.KnockdownTime, true, status);
-            _stamina.TakeStaminaDamage(target, comp.StaminaDamage);
-            _language.DoRatvarian(target, comp.SpeechTime, true, status);
-        }
-
         // upgraded grasp
         if (hereticComp.CurrentPath != null)
         {
@@ -198,6 +191,13 @@ public sealed class MansusGraspSystem : EntitySystem
                 var markComp = EnsureComp<HereticCombatMarkComponent>(target);
                 markComp.Path = hereticComp.CurrentPath;
             }
+        }
+
+        if (TryComp(target, out StatusEffectsComponent? status))
+        {
+            _stun.KnockdownOrStun(target, comp.KnockdownTime, true, status);
+            _stamina.TakeStaminaDamage(target, comp.StaminaDamage);
+            _language.DoRatvarian(target, comp.SpeechTime, true, status);
         }
 
         _actions.SetCooldown(hereticComp.MansusGrasp, ent.Comp.CooldownAfterUse);

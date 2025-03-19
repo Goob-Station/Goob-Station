@@ -28,6 +28,9 @@
     speed: 1.5
   - type: BoneSaw
     speed: 1.5
+  - type: Tag
+    tags:
+    - HereticItem
 
 - type: entity
   parent: HereticBladeBase

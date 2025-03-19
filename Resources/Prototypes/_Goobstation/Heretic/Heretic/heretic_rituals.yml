@@ -309,6 +309,20 @@
   output:
     ClothingEldritchMedalion: 1
 
+- type: hereticRitual
+  id: VoidCloak
+  locName: knowledge-path-side-s3-void-cloak-name
+  locDesc: knowledge-path-side-s3-void-cloak-desc
+  icon:
+    sprite: _Goobstation/Heretic/void_cloak.rsi
+    state: icon
+  requiredTags:
+    GlassShard: 1
+    Bedsheet: 1
+    WinterCoat: 1
+  output:
+    ClothingOuterArmorCloakVoid: 1
+
 ## stage 6
 
 - type: hereticRitual

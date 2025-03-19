@@ -388,6 +388,13 @@
   ritualPrototypes:
   - PriestRitual
 
+- type: hereticKnowledge
+  id: VoidCloak
+  sideKnowledge: true
+  stage: 3
+  ritualPrototypes:
+  - VoidCloak
+
 ## stage 6
 - type: hereticKnowledge
   id: RustedRitual
