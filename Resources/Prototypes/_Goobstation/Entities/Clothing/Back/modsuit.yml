@@ -1,7 +1,7 @@
 - type: entity
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitStandard
-  name: standard modsuit control unit
+  name: standard modsuit hardsuit unit
   description: A special modular suit contol unit containing all necessary modular hardsuit parts.
   components:
   - type: Appearance
@@ -94,7 +94,7 @@
 - type: entity
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitSecurity
-  name: security dragoon modsuit control unit
+  name: security dragoon hardsuit control unit
   description: A robust modular hardsuit control module unit for thrashing commies in spess.
   components:
   - type: Appearance
@@ -187,7 +187,7 @@
 - type: entity
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitHeadOfSecurity
-  name: head of security's bulwark modsuit control unit
+  name: head of security's bulwark hardsuit control unit
   description: A robust modular HARDERsuit control module unit for the head of security.
   components:
   - type: Appearance
@@ -266,7 +266,7 @@
 - type: entity
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitParamedic
-  name: sanitater modsuit control unit
+  name: sanitater hardsuit control unit
   description: A modular hardsuit control module unit for paramedics.
   components:
   - type: Appearance
@@ -375,7 +375,7 @@
 - type: entity
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitEngineer
-  name: engineer sapper modsuit control unit
+  name: engineer sapper hardsuit control unit
   description: A  modular hardsuit control module unit for withstanding the greatest hazards on the job.
   components:
   - type: Appearance
@@ -468,7 +468,7 @@
 - type: entity
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitAtmostech
-  name: atmospheric technician aeolus modsuit control unit
+  name: atmospheric technician aeolus hardsuit control unit
   description: A  modular hardsuit control module unit for withstanding the greatest hazards on the job.
   components:
   - type: Appearance
@@ -561,7 +561,7 @@
 - type: entity
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitResearchDirector
-  name: RD's minerva modsuit control unit
+  name: RD's minerva hardsuit control unit
   description: A  modular hardsuit control module unit for withstanding another shuttlebomb.
   components:
   - type: Appearance
@@ -656,7 +656,7 @@
 - type: entity
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitCaptain
-  name: captain's magnate modsuit control unit
+  name: captain's magnate hardsuit control unit
   description: A gem encrysted, mirror shined and absolutely MAGNATE armored hardsuit, the cooling fluid is dragons blood watered down with dr gibb. This shit is nothing to you, man.
   components:
   - type: Appearance
