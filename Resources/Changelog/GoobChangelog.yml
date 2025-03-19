@@ -6492,3 +6492,9 @@ Entries:
       message: Return of old appearance of engi & default borg.
   id: 751
   time: '2025-03-18T20:22:38.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: Skeletons now have 10% chance of doing a funny sound when screaming.
+  id: 752
+  time: '2025-03-19T16:02:31.0000000+00:00'
