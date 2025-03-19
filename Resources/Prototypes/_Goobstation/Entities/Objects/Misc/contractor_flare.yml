@@ -10,4 +10,8 @@
   - type: Appearance # add an actual light holy fuck
   - type: Transform
     anchored: true
-
+  - type: PointLight
+    color: OrangeRed
+    radius: 3
+    energy: 1
+    netsync: false
