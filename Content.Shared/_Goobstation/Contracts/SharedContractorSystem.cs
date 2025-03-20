@@ -6,10 +6,15 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Mind;
 using Content.Shared.Pinpointer;
 using Content.Shared.Roles;
+using Content.Shared.Teleportation.Components;
+using Content.Shared.Teleportation.Systems;
+using Robust.Shared.EntitySerialization;
+using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._Goobstation.Contracts;
 
@@ -27,6 +32,10 @@ public sealed class SharedContractorSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
+    [Dependency] private readonly LinkedEntitySystem _linkedEntitySystem = default!;
+
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -53,18 +62,80 @@ public sealed class SharedContractorSystem : EntitySystem
             if (_gameTiming.CurTime < comp.PortalSpawnTimer || comp.PortalSpawnTimer == TimeSpan.Zero)
                 continue;
 
-            // spawn portal
-            var extractPortal = Spawn("PortalRed", GetEntity(comp.FlareUid).ToCoordinates());
-            comp.PortalSpawnTimer = TimeSpan.Zero; // reset timer so we dont spawn multiple portals
-            var contractorPortalComponent = EnsureComp<ContractorPortalComponent>(extractPortal);
-            contractorPortalComponent.LinkedUplink = GetNetEntity(uid);
-            comp.FlareUid = NetEntity.Invalid;
-            QueueDel(GetEntity(comp.FlareUid));
-            // check if a nukeop map exists ig and then if not spawn it
-            // link to a warp marker on nukeops
+            CreatePortalAndLink(comp, uid);
         }
     }
 
+    private void CreatePortalAndLink(ContractorUplinkComponent comp, EntityUid uid)
+    {
+        var extractPortal = Spawn("PortalRed", GetEntity(comp.FlareUid).ToCoordinates());
+
+        if (!TryComp<PortalComponent>(extractPortal, out var portalComp))
+            return;
+
+        portalComp.CanTeleportToOtherMaps = true;
+        portalComp.RandomTeleport = false; // prevents fucky shit
+        comp.PortalSpawnTimer = TimeSpan.Zero;
+
+        var contractorPortalComponent = EnsureComp<ContractorPortalComponent>(extractPortal);
+        contractorPortalComponent.LinkedUplink = GetNetEntity(uid);
+
+        QueueDel(GetEntity(comp.FlareUid));
+        comp.FlareUid = NetEntity.Invalid;
+
+        CheckAndSpawnNukeOpsMap();
+        var warpMarker = SelectRandomWarp();
+        if(warpMarker != null)
+            _linkedEntitySystem.TryLink(extractPortal, warpMarker.Value);
+    }
+
+    private EntityUid? SelectRandomWarp()
+    {
+        var warpList = new List<EntityUid>();
+        var warpEnumerator = EntityQueryEnumerator<ContractorWarpMarkerComponent>();
+
+        while (warpEnumerator.MoveNext(out var warpUid, out _))
+        {
+            warpList.Add(warpUid);
+        }
+
+        if (warpList.Count > 0)
+            return _random.Pick(warpList);
+
+        Log.Warning("No warp markers found. Returning a null value");
+        return null;
+        // Select a random warp from the list
+
+    }
+
+    private void CheckAndSpawnNukeOpsMap()
+    {
+        var nukeOpsMap = false;
+
+
+        foreach (var map in _mapSystem.GetAllMapIds())
+        {
+            if(!_mapSystem.TryGetMap(map, out var mapUid))
+                continue;
+
+            if (!TryGetEntityData(GetNetEntity(mapUid.Value), out _, out var metaDataComponent))
+                continue;
+
+            Log.Info(metaDataComponent.EntityName);
+
+            if (metaDataComponent.EntityName != "Syndicate Outpost")
+                continue;
+
+            nukeOpsMap = true;
+            break;
+        }
+
+        if (nukeOpsMap)
+            return;
+
+        if(_mapLoader.TryLoadMap(new ResPath("/Maps/_Goobstation/Nonstations/nukieplanet.yml"), out var nukiemap, out _, new DeserializationOptions { InitializeMaps = true }))
+            _mapSystem.SetPaused(nukiemap.Value.Comp.MapId, false); // i think this is how i access the shit on da map lol
+    }
 
     // prevent portal from colliding with the contractor or a non targetted entity
     private void OnPortalCollide(Entity<ContractorPortalComponent> ent, ref PreventCollideEvent args)
@@ -77,11 +148,12 @@ public sealed class SharedContractorSystem : EntitySystem
         if(!TryComp<ContractorComponent>(contractor, out var contractorComponent))
             return;
 
-        if (args.OtherEntity == contractor)
-            args.Cancelled = true;
 
-        if (args.OtherEntity == GetEntity(contractorComponent.CurrentTarget))
+        if (args.OtherEntity != GetEntity(contractorComponent.CurrentTarget))
+            args.Cancelled = true;
+        else
             args.Cancelled = false;
+
 
         QueueDel(ent); // delete the portal
     }

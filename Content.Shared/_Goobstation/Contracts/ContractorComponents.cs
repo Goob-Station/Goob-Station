@@ -67,6 +67,12 @@ public sealed partial class ContractorComponent : Component
     [AutoNetworkedField]
     public int Rep;
 
+    /// <summary>
+    /// The reputation value associated with a contractor's component.
+    /// </summary>
+    [DataField]
+    [AutoNetworkedField]
+    public TimeSpan ExtractionCooldown = TimeSpan.Zero;
 }
 
 /// <summary>
@@ -200,7 +206,8 @@ public sealed partial class ContractorPortalComponent : Component
     public NetEntity LinkedUplink = NetEntity.Invalid;
 }
 
-
-
 [Serializable, NetSerializable]
 public sealed partial class ExtractionDoAfterEvent : SimpleDoAfterEvent;
+
+[RegisterComponent]
+public sealed partial class ContractorWarpMarkerComponent : Component;

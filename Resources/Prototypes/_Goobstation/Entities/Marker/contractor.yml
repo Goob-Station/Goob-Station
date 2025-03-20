@@ -8,3 +8,13 @@
     layers:
     - state: red
   - type: ContractorMarker
+
+- type: entity
+  name: contractor prison warp marker
+  id: ContractorPrisonMarker
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+  - type: ContractorWarpMarker
