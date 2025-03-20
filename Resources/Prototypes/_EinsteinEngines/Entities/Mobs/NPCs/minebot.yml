@@ -1,0 +1,94 @@
+- type: entity
+  parent: MobSiliconBase
+  id: MobMineBot
+  name: minebot
+  description: A miner's best friend!
+  components:
+  - type: Sprite
+    sprite: Mobs/Silicon/Bots/minebot.rsi
+    state: minebot
+  - type: Construction
+    graph: MineBot
+    node: bot
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-minebot-name
+    description: ghost-role-information-minebot-description
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Tag
+    tags:
+    - Pickaxe
+  - type: Access
+    tags:
+    - Cargo
+    - Maintenance
+    - Salvage
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    enabled: false
+    radius: 3.5
+    softness: 2
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+  - type: UseDelay
+    delay: 0.65
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen
+  - type: CombatMode
+  - type: MeleeWeapon
+    attackRate: 0.65
+    range: 1.5
+    wideAnimationRotation: -135
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+      params:
+        volume: -3
+    damage:
+      types:
+        Blunt: 6
+        Piercing: 3
+        Structural: 20
+    bluntStaminaDamageFactor: 2.0
+    heavyDamageBaseModifier: 1.75
+    maxTargets: 5
+    angle: 80
+  - type: DamageOtherOnHit
+    staminaCost: 5
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      120: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 110
+      behaviors:
+      - !type:TriggerBehavior
+    - trigger:
+        !type:DamageTrigger
+        damage: 120
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ProximitySensor:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 3
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Supply
+  - type: InteractionPopup
+    interactSuccessString: petting-success-minebot
+    interactFailureString: petting-failure-minebot
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg

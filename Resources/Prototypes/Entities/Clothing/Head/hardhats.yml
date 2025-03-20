@@ -95,6 +95,7 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+    - HardHat # Einstein Engines
   - type: Armor
     coverage:
     - Head

@@ -60,5 +60,18 @@
   objectType: Item
   description: This bot is linked to a machine that items can be inserted into using a multitool.
   icon:
-    sprite: Mobs/Silicon/Bots/fillbot.rsi
+    sprite: _EinsteinEngines/Mobs/Silicon/Bots/fillbot.rsi
     state: fillbot
+
+- type: construction
+  name: minebot
+  id: minebot
+  graph: MineBot
+  startNode: start
+  targetNode: bot
+  category: construction-category-utilities
+  objectType: Item
+  description: Helps the miners with their work.
+  icon:
+    sprite: _EinsteinEngines/Mobs/Silicon/Bots/minebot.rsi
+    state: minebot
