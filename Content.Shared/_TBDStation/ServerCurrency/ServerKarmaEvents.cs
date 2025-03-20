@@ -102,17 +102,24 @@ public sealed class PlayerKarmaGriefEvent : EntityEventArgs
     /// </summary>
     public int User;
     public GriefType Grief;
-    public PlayerKarmaGriefEvent(EntityUid user, GriefType grief)
+    // Used when a value can help determine the amount of karma lost.
+    // Can be set to 0 and ignored in many cases.
+    public float Val;
+    public PlayerKarmaGriefEvent(EntityUid user, GriefType grief, float val = 0)
     {
         User = user.Id;
         Grief = grief;
+        Val = val;
     }
     public enum GriefType
     {
         Explosion,
+        IgniteOthers,
+        OpenToxicCanister,
         Fire,
-        Chemical,
-        Radiation,
-        Spawning
+        Chemical, // Using chemical hazards
+        Transform, // Transformin others into e.x. gondola
+        Radiation, // Irradiating crewmembers
+        Spawning, // Spawning dangerous mobs
     }
 }

@@ -30,6 +30,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
+using Content.Shared._TBDStation.ServerKarma.Events; // TBDStation
 
 namespace Content.Server.Atmos.EntitySystems
 {
@@ -335,7 +336,10 @@ namespace Content.Server.Atmos.EntitySystems
             if (flammable.FireStacks > 0 && !flammable.OnFire)
             {
                 if (ignitionSourceUser != null)
+                {
                     _adminLogger.Add(LogType.Flammable, $"{ToPrettyString(uid):target} set on fire by {ToPrettyString(ignitionSourceUser.Value):actor} with {ToPrettyString(ignitionSource):tool}");
+                    RaiseLocalEvent(new PlayerKarmaGriefEvent(ignitionSourceUser.Value, PlayerKarmaGriefEvent.GriefType.IgniteOthers, flammable.FireStacks)); // TBDStation
+                }
                 else
                     _adminLogger.Add(LogType.Flammable, $"{ToPrettyString(uid):target} set on fire by {ToPrettyString(ignitionSource):actor}");
                 flammable.OnFire = true;
