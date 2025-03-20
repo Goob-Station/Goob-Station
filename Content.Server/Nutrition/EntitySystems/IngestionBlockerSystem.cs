@@ -29,6 +29,6 @@ public sealed class IngestionBlockerSystem : EntitySystem
 
     private void OnBlockerMaskToggled(Entity<IngestionBlockerComponent> ent, ref ItemMaskToggledEvent args)
     {
-        ent.Comp.Enabled = !args.IsToggled;
+        ent.Comp.Enabled = !args.Mask.Comp.IsToggled;
     }
 }
