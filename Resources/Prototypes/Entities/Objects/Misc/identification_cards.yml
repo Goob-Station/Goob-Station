@@ -191,7 +191,7 @@
   components:
   - type: Sprite
     layers:
-    - state: default
+    - state: chemist
     - state: idchemist
   - type: PresetIdCard
     job: Chemist

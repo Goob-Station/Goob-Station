@@ -1,0 +1,16 @@
+- type: entity        #Goob item, so far does nothing
+  parent: BaseItem
+  id: ChemLabeler
+  name: chem labeler
+  description: A modified hand labeler working with the same technology of chem glasses, able to automatically label jugs with whatever chem they contain.
+  components:
+    - type: Sprite
+      sprite: Objects/Specific/Chemistry/chem_labeler.rsi
+      state: icon
+    - type: Item
+      sprite: Objects/Specific/Chemistry/chem_labeler.rsi
+      storedRotation: -90
+    - type: PhysicalComposition #Goobstation - Recycle update
+      materialComposition:
+        Plastic: 25
+        #- type: SolutionScanner

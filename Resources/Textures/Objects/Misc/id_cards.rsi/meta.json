@@ -182,6 +182,9 @@
       "name": "orange"
     },
     {
+      "name": "chemist"
+    },
+    {
       "name": "pirate"
     },
     {
@@ -256,6 +259,14 @@
     },
     {
       "name": "orange-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "chemist-inhand-left",   
+      "directions": 4
+    },
+    {
+      "name": "chemist-inhand-right",
       "directions": 4
     },
     {
