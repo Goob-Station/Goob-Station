@@ -198,10 +198,16 @@ namespace Content.Shared.Damage
         ///     Returns a <see cref="DamageSpecifier"/> with information about the actual damage changes. This will be
         ///     null if the user had no applicable components that can take damage.
         /// </returns>
-        public DamageSpecifier? TryChangeDamage(EntityUid? uid, DamageSpecifier damage, bool ignoreResistances = false,
-            bool interruptsDoAfters = true, DamageableComponent? damageable = null, EntityUid? origin = null,
-            // Shitmed Change
-            bool? canSever = true, bool? canEvade = false, float? partMultiplier = 1.00f, TargetBodyPart? targetPart = null, bool heavyAttack = false)
+        public DamageSpecifier? TryChangeDamage(EntityUid? uid,
+            DamageSpecifier damage,
+            bool ignoreResistances = false,
+            bool interruptsDoAfters = true,
+            DamageableComponent? damageable = null,
+            EntityUid? origin = null,
+            bool canBeCancelled = false,
+            float partMultiplier = 1.00f,
+            TargetBodyPart? targetPart = null,
+            bool heavyAttack = false)
         {
             // Shitmed Change Start
             if (damage.Empty)
@@ -210,7 +216,7 @@ namespace Content.Shared.Damage
             if (!uid.HasValue)
                 return null;
 
-            var before = new BeforeDamageChangedEvent(damage, origin, targetPart, canEvade ?? false, heavyAttack); // Shitmed Change
+            var before = new BeforeDamageChangedEvent(damage, origin, targetPart, canBeCancelled, heavyAttack); // Shitmed Change
             RaiseLocalEvent(uid.Value, ref before);
 
             if (before.Cancelled)
@@ -623,7 +629,7 @@ namespace Content.Shared.Damage
         DamageSpecifier Damage,
         EntityUid? Origin = null,
         TargetBodyPart? TargetPart = null, // Shitmed Change
-        bool CanEvade = false, // Lavaland Change
+        bool CanBeCancelled = false, // Shitmed Change
         bool Cancelled = false,
         bool HeavyAttack = false);
 

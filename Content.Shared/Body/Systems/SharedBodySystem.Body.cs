@@ -16,6 +16,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Utility;
 
 // Shitmed Change
+using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Body.Part;
 using Content.Shared._Shitmed.Humanoid.Events;

@@ -38,7 +38,6 @@
   parent: [ PartVulpkaninBase, BaseHead ]
   id: HeadVulpkanin
   name: "vulpkanin head"
-  components:
 
 - type: entity
   parent: [ PartVulpkaninBase, BaseLeftArm ]

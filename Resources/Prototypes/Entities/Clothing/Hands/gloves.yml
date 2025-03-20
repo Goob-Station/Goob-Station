@@ -124,7 +124,7 @@
     fiberColor: fibers-black
   - type: Armor
     coverage:
-    - Hands
+    - Hand
     modifiers:
       coefficients:
         Slash: 0.95

@@ -26,9 +26,9 @@
       - right leg
       - left leg
       organs:
-        stomach: OrganHarpyStomach
-        liver:  OrganHarpyLiver
-        kidneys: OrganHarpyKidneys
+        stomach: OrganAnimalStomach
+        liver:  OrganAnimalLiver
+        kidneys: OrganAnimalKidneys
     right arm:
       part: RightArmHarpy
       connections:
