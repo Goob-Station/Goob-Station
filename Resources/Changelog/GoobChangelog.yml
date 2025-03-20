@@ -6512,3 +6512,9 @@ Entries:
         appear somewhat rarer.
   id: 754
   time: '2025-03-20T15:36:23.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix round end manifest not showing up.
+  id: 755
+  time: '2025-03-20T16:03:53.0000000+00:00'
