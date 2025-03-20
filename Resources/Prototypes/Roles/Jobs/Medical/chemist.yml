@@ -28,7 +28,8 @@
     id: ChemistryPDA
     ears: ClothingHeadsetMedical
     belt: ChemBag
-    pocket1: ChemLabeler  #Goob content
+    pocket1: HandLabeler 
+    #pocket2: ChemLabeler  #Goob content, uncomment when added
     eyes: ClothingEyesGlassesChemical
   #storage:
     #back:
