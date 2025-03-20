@@ -70,12 +70,10 @@ public partial class SharedMartialArtsSystem
             var ev = proto.ResultEvent;
             RaiseLocalEvent(uid, beingPerformedEv);
             RaiseLocalEvent(uid, ev);
-            if (!TryComp<MartialArtsKnowledgeComponent>(uid, out var martialArtsKnowledge))
-                return;
-            // Clears previous moves if a combo is longer than 16 moves, really is only called after a sucessful move.
-            if (martialArtsKnowledge.MartialArtsForm != MartialArtsForms.CorporateJudo
-            || comp.LastAttacks.Count >=16)
-                comp.LastAttacks.Clear();
+            if(proto.FollowupCombos == true && comp.LastAttacks.Count <= 8)
+                // Clears previous moves if a combo is longer than 16 moves, really is only called after a sucessful move.)
+                continue;
+            comp.LastAttacks.Clear();
         }
     }
     private void OnComboBeingPerformed(Entity<CanPerformComboComponent> ent, ref ComboBeingPerformedEvent args)

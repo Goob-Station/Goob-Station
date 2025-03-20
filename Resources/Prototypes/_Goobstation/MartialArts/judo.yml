@@ -22,6 +22,7 @@
   event: !type:JudoThrowPerformedEvent
   staminaDamage: 30
   paralyzeTime: 3
+  followupCombos: true
 
 - type: combo
   id: JudoArmbar
@@ -35,6 +36,7 @@
   event: !type:JudoArmbarPerformedEvent
   staminaDamage: 70
   paralyzeTime: 7
+  followupCombos: true
 
 - type: combo
   id: JudoEyepoke

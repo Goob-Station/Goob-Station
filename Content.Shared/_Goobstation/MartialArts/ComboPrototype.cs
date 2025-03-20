@@ -58,6 +58,12 @@ public sealed partial class ComboPrototype : IPrototype
     [DataField(required: true)]
     public string Name = string.Empty;
 
+    /// <summary>
+    /// Whether the combo should not clear, meaning you can follow it up with additional moves.
+    /// </summary>
+    [DataField]
+    public bool FollowupCombos = false;
+
 }
 
 [Prototype("comboList")]
