@@ -2,6 +2,7 @@ using Content.Shared.Damage;
 using Content.Shared.Flash;
 using Content.Shared.Flash.Components;
 using Content.Shared.Humanoid;
+using Content.Shared.Maps;
 using Content.Shared.Popups;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
@@ -11,6 +12,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Diagnostics.CodeAnalysis;
@@ -19,13 +21,17 @@ namespace Content.Shared.Disease;
 
 public partial class SharedDiseaseSystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedFlashSystem _flash = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly IMapManager _mapMan = default!;
+    [Dependency] private readonly TileSystem _tile = default!;
 
     public float MaxEffectSeverity = 1f; // magic numbers are EVIL and BAD
 
@@ -38,6 +44,7 @@ public partial class SharedDiseaseSystem
         SubscribeLocalEvent<DiseaseFightImmunityEffectComponent, DiseaseEffectEvent>(OnFightImmunityEffect);
         SubscribeLocalEvent<DiseaseFlashEffectComponent, DiseaseEffectEvent>(OnFlashEffect);
         SubscribeLocalEvent<DiseasePopupEffectComponent, DiseaseEffectEvent>(OnPopupEffect);
+        SubscribeLocalEvent<DiseasePryTileEffectComponent, DiseaseEffectEvent>(OnPryTileEffect);
     }
 
     private void OnAudioEffect(EntityUid uid, DiseaseAudioEffectComponent effect, DiseaseEffectEvent args)
@@ -62,9 +69,6 @@ public partial class SharedDiseaseSystem
 
     private void OnDiseaseSpreadEffect(EntityUid uid, DiseaseSpreadEffectComponent effect, DiseaseEffectEvent args)
     {
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
         // for gear that makes you less(/more?) infective to others
         var ev = new DiseaseOutgoingSpreadAttemptEvent(
             effect.SpreadParams.Power,
@@ -89,35 +93,30 @@ public partial class SharedDiseaseSystem
 
     private void OnDiseaseForceSpreadEffect(EntityUid uid, DiseaseForceSpreadEffectComponent effect, DiseaseEffectEvent args)
     {
-        if (!_timing.IsFirstTimePredicted)
-            return;
-        if (!_random.Prob(effect.Chance * GetScale(args, effect)))
-            return;
-
         var xform = Transform(args.Ent);
-        var (selfPos, selfRot) = _transform.GetWorldPositionRotation(xform);
-
-        var targets = _melee.ArcRayCast(selfPos, selfRot, effect.Arc, effect.Range, xform.MapID, args.Ent);
+        var targets = _lookup.GetEntitiesInRange<DamageableComponent>(xform.MapPosition, effect.Range);
 
         foreach (var target in targets)
         {
+            if (!_random.Prob(effect.Chance * GetScale(args, effect)))
+                continue;
+            if (HasDisease(target.Owner, args.Disease.Comp.Genotype))
+                continue;
+
             var newDisease = TryClone(args.Disease);
             if (newDisease == null)
                 continue;
 
             MutateDisease(newDisease.Value);
-            if (!TryInfect(target, newDisease.Value, null, true))
+            if (!TryInfect(target.Owner, newDisease.Value, null, true))
                 QueueDel(newDisease);
             else if (effect.AddIcon)
-                EnsureComp<StatusIconComponent>(target);
+                EnsureComp<StatusIconComponent>(target.Owner);
         }
     }
 
     private void OnFightImmunityEffect(EntityUid uid, DiseaseFightImmunityEffectComponent effect, DiseaseEffectEvent args)
     {
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
         ChangeImmunityProgress(args.Disease.Owner, effect.Amount * GetScale(args, effect), args.Disease.Comp);
     }
 
@@ -142,6 +141,25 @@ public partial class SharedDiseaseSystem
             _popup.PopupEntity(Loc.GetString(effect.String, ("source", args.Ent)), args.Ent, args.Ent, effect.Type);
         else
             _popup.PopupEntity(Loc.GetString(effect.String, ("source", args.Ent)), args.Ent, effect.Type);
+    }
+
+    private void OnPryTileEffect(EntityUid uid, DiseasePryTileEffectComponent effect, DiseaseEffectEvent args)
+    {
+        if (_net.IsClient)
+            return;
+
+        var xform = Transform(args.Ent);
+        if (_mapMan.TryFindGridAt(xform.MapPosition, out var gridUid, out var grid))
+        {
+            for (int i = 0; i < effect.Attempts; i++)
+            {
+                var distance = effect.Range * MathF.Sqrt(_random.NextFloat());
+                var tileCoordinates = xform.MapPosition.Offset(_random.NextAngle().ToVec() * distance);
+                var tile = _map.GetTileRef((gridUid, grid), tileCoordinates);
+                if (_tile.DeconstructTile(tile))
+                    break;
+            }
+        }
     }
 
     protected float GetScale(DiseaseEffectEvent args, ScalingDiseaseEffect effect)

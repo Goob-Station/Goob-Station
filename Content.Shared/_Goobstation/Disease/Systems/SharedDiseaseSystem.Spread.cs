@@ -173,8 +173,8 @@ public partial class SharedDiseaseSystem
         // if it doesn't, whatever the user did, i don't trust it to not infinite loop
         for (var limit = 0; limit < 20; limit++)
         {
-            // we have too many effects for our chosen complexity
             Entity<DiseaseEffectComponent>? changedEffect;
+            // we have too many effects for our chosen complexity
             if (disease.Complexity < minComplexity)
             {
                 changedEffect = RemoveRandomEffect(uid, disease);
@@ -206,57 +206,28 @@ public partial class SharedDiseaseSystem
                 // by how much we need to adjust complexity
                 var delta = disease.Complexity - complexity;
 
-                // try to decrease complexity, adjust severities of random effects until we hit the target
-                if (delta < 0)
+                // try to adjust complexity, adjust severities of random effects until we hit the target
+                bool done = false;
+                for (var i = 0; i < 20 && !done; i++) // no infinite loops
                 {
-                    bool done = false;
-                    for (var i = 0; i < 20 && !done; i++) // no infinite loops
-                    {
-                        var effectUid = disease.Effects[_random.Next(disease.Effects.Count - 1)];
-                        if (!TryComp<DiseaseEffectComponent>(effectUid, out var effect))
-                            continue;
+                    var effectUid = disease.Effects[_random.Next(disease.Effects.Count - 1)];
+                    if (!TryComp<DiseaseEffectComponent>(effectUid, out var effect))
+                        continue;
 
-                        var maxChange = effect.Complexity * effect.MinSeverity - effect.GetComplexity(); // maximum amount we can change the complexity by
-                        var targetSeverity = effect.Severity + delta / effect.Complexity;
-                        done = targetSeverity > effect.MinSeverity && targetSeverity < MaxEffectSeverity;
+                    var targetSeverity = effect.Severity + delta / effect.Complexity;
+                    done = targetSeverity > effect.MinSeverity && targetSeverity < MaxEffectSeverity;
 
-                        var oldComplexity = effect.GetComplexity();
-                        if (done)
-                            // we can bring delta to 0 so do it
-                            effect.Severity = targetSeverity;
-                        else
-                            effect.Severity = _random.NextFloat(effect.MinSeverity, effect.Severity); // only decrease
+                    var oldComplexity = effect.GetComplexity();
+                    if (done)
+                        // we can bring delta to 0 so do it
+                        effect.Severity = targetSeverity;
+                    else
+                        effect.Severity = delta > 0 ? _random.NextFloat(effect.Severity, MaxEffectSeverity) : _random.NextFloat(effect.MinSeverity, effect.Severity);
 
-                        Dirty(effectUid, effect);
+                    Dirty(effectUid, effect);
 
-                        // update our current complexity since we updated the effect severity
-                        complexity += effect.GetComplexity() - oldComplexity;
-                    }
-                }
-                else
-                {
-                    // same as above but try to increase complexity for deltas > 0
-                    bool done = false;
-                    for (var i = 0; i < 20 && !done; i++)
-                    {
-                        var effectUid = disease.Effects[_random.Next(disease.Effects.Count - 1)];
-                        if (!TryComp<DiseaseEffectComponent>(effectUid, out var effect))
-                            continue;
-
-                        var maxChange = effect.Complexity * MaxEffectSeverity - effect.GetComplexity();
-                        var targetSeverity = effect.Severity + delta / effect.Complexity;
-                        done = targetSeverity > effect.MinSeverity && targetSeverity < MaxEffectSeverity;
-
-                        var oldComplexity = effect.GetComplexity();
-                        if (done)
-                            effect.Severity = targetSeverity;
-                        else
-                            effect.Severity = _random.NextFloat(effect.Severity, MaxEffectSeverity); // only increase
-
-                        Dirty(effectUid, effect);
-
-                        complexity += effect.GetComplexity() - oldComplexity;
-                    }
+                    // update our current complexity since we updated the effect severity
+                    complexity += effect.GetComplexity() - oldComplexity;
                 }
                 break;
             }

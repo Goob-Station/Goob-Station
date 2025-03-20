@@ -53,9 +53,12 @@
   components:
   - type: DiseaseEffect
     complexity: 1000
+  - type: DiseaseChanceCondition # mostly for performance concerns
+    chance: 1
+    timeScale: false
+    progresScale: false
   - type: DiseaseForceSpreadEffect
-    arc: 360
-    range: 2.5
+    range: 1.5
     chance: 1
     severityScale: false
     spreadParams:
@@ -77,6 +80,19 @@
         Blunt: 30
 
 - type: entity
+  id: DiseaseBehaviorDeconstructFloor
+  parent: DiseaseBehaviorBase
+  name: tile prying
+  description: Deconstructs the floor.
+  components:
+  - type: DiseaseEffect
+    complexity: 80
+  - type: DiseaseChanceCondition
+    chance: 1
+  - type: DiseasePryTileEffect
+    range: 2
+
+- type: entity
   id: DiseaseTurboCancer
   parent: DiseaseBase
   name: turbo cancer
@@ -93,22 +109,23 @@
       DiseaseBehaviorSpreadDebug: 1
 
 - type: entity
-  id: DiseaseOmegaCancer
+  id: DiseaseTheRot
   parent: DiseaseBase
-  name: omega cancer
+  name: the rot
   description: If you are reading this, you've invoked the gods' wrath.
   components:
   - type: Disease
-    infectionRate: 0.03
+    infectionRate: 0.003
     immunityGainRate: 0
     mutationRate: 0
     affectsDead: true
     canGainImmunity: false
     genotype: 9001
     effects:
-      DiseaseBehaviorTurboBlunt: 0.2
+      DiseaseBehaviorTurboBlunt: 0.5
       DiseaseBehaviorFightImmunity: 1
-      DiseaseBehaviorForceSpreadDebug: 0.2
+      DiseaseBehaviorForceSpreadDebug: 0.5
+      DiseaseBehaviorDeconstructFloor: 0.25
 
 - type: entity
   id: MeleeDebugInfectTurboCancer
@@ -127,9 +144,9 @@
     disease: DiseaseTurboCancer
 
 - type: entity
-  id: MeleeDebugInfectOmegaCancer
+  id: MeleeDebugInfectTheRot
   parent: MeleeDebugGib
-  name: omega cancer stick
+  name: the rot stick
   description: Destroys everything. No, really.
   components:
   - type: Tag
@@ -140,7 +157,7 @@
       types:
         Blunt: 5
   - type: DiseaseOnHit
-    disease: DiseaseOmegaCancer
+    disease: DiseaseTheRot
 
 - type: entity
   id: MeleeDebugInfectFlu

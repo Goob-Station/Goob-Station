@@ -125,12 +125,6 @@ public sealed partial class DiseaseSpreadEffectComponent : ScalingDiseaseEffect
 public sealed partial class DiseaseForceSpreadEffectComponent : ScalingDiseaseEffect
 {
     /// <summary>
-    /// Angle in front of the entity to check for infectables
-    /// </summary>
-    [DataField]
-    public Angle Arc = Angle.FromDegrees(120);
-
-    /// <summary>
     /// Up to how far away entities to check
     /// </summary>
     [DataField]
@@ -205,6 +199,25 @@ public sealed partial class DiseasePopupEffectComponent : Component
     /// </summary>
     [DataField]
     public bool HostOnly = true;
+}
+
+/// <summary>
+/// Tries to pry a tile in range
+/// </summary>
+[RegisterComponent]
+public sealed partial class DiseasePryTileEffectComponent : Component
+{
+    /// <summary>
+    /// Up to how far away entities to check
+    /// </summary>
+    [DataField]
+    public float Range = 2f;
+
+    /// <summary>
+    /// How many times to re-sample for a tile if we fail
+    /// </summary>
+    [DataField]
+    public int Attempts = 1;
 }
 
 /// <summary>

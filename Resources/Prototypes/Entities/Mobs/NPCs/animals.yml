@@ -2276,6 +2276,7 @@
       spreadType: Blood
   - type: DiseaseCarrier
     effectImmune: true
+  - type: ShowDiseaseIcons # they sense it
   - type: Destructible # Shitmed Change
     thresholds:
     - trigger:
