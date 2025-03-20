@@ -6504,3 +6504,11 @@ Entries:
       message: Goob is no longer stable.
   id: 753
   time: '2025-03-19T20:17:28.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Nukies should now once again appear in the game, and wizard should
+        appear somewhat rarer.
+  id: 754
+  time: '2025-03-20T15:36:23.0000000+00:00'
