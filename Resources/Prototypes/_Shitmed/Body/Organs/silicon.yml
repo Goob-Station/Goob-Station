@@ -1,0 +1,23 @@
+- type: entity
+  id: RightArmSiliconIndestructible
+  name: "right silicon arm"
+  parent: [BaseItem, BaseRightArm]
+  components:
+    - type: Damageable
+    - type: BodyPart
+      partType: Arm
+      symmetry: Right
+      toolName: "a right arm" # Shitmed Change
+      canSever: false
+
+- type: entity
+  id: RightHandSiliconIndestructible
+  name: "right silicon hand"
+  parent: [BaseItem, BaseRightArm]
+  components:
+    - type: Damageable
+    - type: BodyPart
+      partType: Hand
+      symmetry: Right
+      toolName: "a right hand" # Shitmed Change
+      canSever: false

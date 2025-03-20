@@ -319,6 +319,38 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
     }
 
     /// <summary>
+    /// Einstein Engines
+    /// </summary>
+    public virtual bool CanInsertMaterialEntity(
+        EntityUid toInsert,
+        EntityUid receiver,
+        MaterialStorageComponent? storage = null,
+        MaterialSiloUtilizerComponent? utilizer = null,
+        MaterialComponent? material = null,
+        PhysicalCompositionComponent? composition = null
+    )
+    {
+        if (!Resolve(receiver, ref storage)
+            || !Resolve(toInsert, ref material, ref composition, false)
+            || _whitelistSystem.IsWhitelistFail(storage.Whitelist, toInsert)
+            || HasComp<UnremoveableComponent>(toInsert))
+            return false;
+
+        // Material Whitelist checked implicitly by CanChangeMaterialAmount();
+
+        var multiplier = TryComp<StackComponent>(toInsert, out var stackComponent) ? stackComponent.Count : 1;
+        var totalVolume = 0;
+        foreach (var (mat, vol) in composition.MaterialComposition)
+        {
+            if (!CanChangeMaterialAmount(receiver, mat, vol * multiplier, storage, utilizer))
+                return false;
+            totalVolume += vol * multiplier;
+        }
+
+        return CanTakeVolume(receiver, totalVolume, storage, utilizer);
+    }
+
+    /// <summary>
     /// Tries to insert an entity into the material storage.
     /// </summary>
     public virtual bool TryInsertMaterialEntity(EntityUid user,

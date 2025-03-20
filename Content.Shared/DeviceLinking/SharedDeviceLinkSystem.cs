@@ -390,6 +390,20 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     }
 
     /// <summary>
+    /// Einstein Engines: Removes every link from the given sink
+    /// </summary>
+    public void RemoveAllFromSource(EntityUid sourceUid, DeviceLinkSourceComponent? sourceComponent = null, Predicate<EntityUid>? filter = null)
+    {
+        if (!Resolve(sourceUid, ref sourceComponent))
+            return;
+
+        foreach (var sinkUid in sourceComponent.LinkedPorts.Where(sinkUid => filter == null || filter.Invoke(sinkUid.Key)))
+        {
+            RemoveSinkFromSource(sourceUid, sinkUid.Key, sourceComponent);
+        }
+    }
+
+    /// <summary>
     /// Removes all links between a source and a sink
     /// </summary>
     public void RemoveSinkFromSource(
@@ -434,8 +448,8 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
         {
             foreach (var (sourcePort, sinkPort) in ports)
             {
-                RaiseLocalEvent(sourceUid, new PortDisconnectedEvent(sourcePort));
-                RaiseLocalEvent(sinkUid, new PortDisconnectedEvent(sinkPort));
+                RaiseLocalEvent(sourceUid, new PortDisconnectedEvent(sourcePort, sinkUid)); // EE edit: added Uid field
+                RaiseLocalEvent(sinkUid, new PortDisconnectedEvent(sinkPort, sourceUid)); // EE edit: added Uid field
             }
         }
 
@@ -473,8 +487,8 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
             else
                 _adminLogger.Add(LogType.DeviceLinking, LogImpact.Low, $"unlinked {ToPrettyString(sourceUid):source} {source} and {ToPrettyString(sinkUid):sink} {sink}");
 
-            RaiseLocalEvent(sourceUid, new PortDisconnectedEvent(source));
-            RaiseLocalEvent(sinkUid, new PortDisconnectedEvent(sink));
+            RaiseLocalEvent(sourceUid, new PortDisconnectedEvent(source, sinkUid)); // EE edit: added Uid field
+            RaiseLocalEvent(sinkUid, new PortDisconnectedEvent(sink, sourceUid)); // EE edit: added Uid field
 
             outputs.Remove(sinkUid);
             linkedPorts.Remove((source, sink));

@@ -1,0 +1,24 @@
+- type: constructionGraph
+  id: FillBot
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bot
+      steps:
+      - material: Plastic
+        amount: 10
+      - tag: ProximitySensor
+        icon:
+          sprite: Objects/Misc/proximity_sensor.rsi
+          state: icon
+        name: proximity sensor
+        doAfter: 2
+      - tag: BorgArm
+        icon:
+          sprite: Mobs/Silicon/drone.rsi
+          state: l_hand
+        name: borg arm
+        doAfter: 2
+  - node: bot
+    entity: MobFillBot
