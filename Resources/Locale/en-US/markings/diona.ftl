@@ -1,58 +1,86 @@
-marking-DionaThornsHead-thorns_head = Plant Pony Head (Thorns)
-marking-DionaThornsHead = Plant Pony Head (Thorns)
-marking-DionaThornsBody-thorns_body = Plant Pony Chest (Thorns)
-marking-DionaThornsBody = Plant Pony Chest (Thorns)
-marking-DionaFlowersHead-flowers_head = Plant Pony Head (Flowers)
-marking-DionaFlowersHead = Plant Pony Head (Flowers)
-marking-DionaFlowersBody-flowers_body = Plant Pony Chest (Flowers)
-marking-DionaFlowersBody = Plant Pony Chest (Flowers)
-marking-DionaLeafCover-leaf_cover = Plant Pony Chest (Leaf)
-marking-DionaLeafCover = Plant Pony Chest (Leaf)
-marking-DionaBloomHead-bloom = Plant Pony Everbloom (Flower)
-marking-DionaBloomHead = Plant Pony Everbloom (Flower)
-marking-DionaBracketHead-bracket = Plant Pony Bracket (Mushrooms)
-marking-DionaBracketHead = Plant Pony Bracket (Mushrooms)
-marking-DionaBrushHead-brush = Plant Pony Brush (Lians)
-marking-DionaBrushHead = Plant Pony Brush (Lians)
-marking-DionaCornflowerHead-cornflower = Plant Pony Cornflowers (Flowers)
-marking-DionaCornflowerHead = Plant Pony Cornflowers (Flowers)
-marking-DionaFicusHead-ficus = Plant Pony Ficus (Leafs)
-marking-DionaFicusHead = Plant Pony Ficus (Leafs)
-marking-DionaGarlandHead-garland = Plant Pony Garland (Flowers)
-marking-DionaGarlandHead = Plant Pony Garland (Flowers)
-marking-DionaKingHead-king = Plant Pony Flowerking (Flower)
-marking-DionaKingHead = Plant Pony Flowerking (Flower)
-marking-DionaLaurelHead-laurel = Plant Pony Laurel (Leafs)
-marking-DionaLaurelHead = Plant Pony Laurel (Leafs)
-marking-DionaLeafyHeadTop-leafy = Plant Pony Leafy (Leafs)
-marking-DionaLeafyHeadTop = Plant Pony Leafy (Leafs)
-marking-DionaLotusHead-lotus = Plant Pony Lotus (Flower)
-marking-DionaLotusHead = Plant Pony Lotus (Flower)
-marking-DionaMeadowHeadTop-meadow = Plant Pony Meadow
-marking-DionaMeadowHeadTop = Plant Pony Meadow
-marking-DionaOakHead-oak = Plant Pony Oak (Snag)
-marking-DionaOakHead = Plant Pony Oak (Snag)
-marking-DionaPalmHead-palm = Plant Pony Palmhead (Leafs)
-marking-DionaPalmHead = Plant Pony Palmhead (Leafs)
-marking-DionaRootHead-root = Plant Pony Root (Roots)
-marking-DionaRootHead = Plant Pony Root (Roots)
-marking-DionaRoseHead-rose = Plant Pony Rose (Flower)
-marking-DionaRoseHead = Plant Pony Rose (Flower)
-marking-DionaRoseyHead-rosey = Plant Pony Rosey (Flowers)
-marking-DionaRoseyHead = Plant Pony Rosey (Flowers)
-marking-DionaShrubHeadTop-shrub = Plant Pony Shrub (Thorns)
-marking-DionaShrubHeadTop = Plant Pony Shrub (Thorns)
-marking-DionaSpinnerHeadSide-spinner = Plant Pony Spinner
-marking-DionaSpinnerHeadSide = Plant Pony Spinner
-marking-DionaSproutHeadSide-sprout = Plant Pony Sprout
-marking-DionaSproutHeadSide = Plant Pony Sprout
-marking-DionaVineHeadTop-vine = Plant Pony Vines (Vines)
-marking-DionaVineHeadTop = Plant Pony Vines (Vines)
-marking-DionaVinelHead-vinel = Plant Pony Vines Long (Vines)
-marking-DionaVinelHead = Plant Pony Vines Long (Vines)
-marking-DionaVinesHead-vines = Plant Pony Vines Short (Vines)
-marking-DionaVinesHead = Plant Pony Vines Short (Vines)
-marking-DionaWildflowerHead-wildflower = Plant Pony Wild Flowers (Flowers)
-marking-DionaWildflowerHead = Plant Pony Wild Flowers (Flowers)
-marking-DionaVineOverlay-overlay = Plant Pony Body Vines
-marking-DionaVineOverlay = Plant Pony Body Vines
+marking-DionaThornsHead-thorns_head = Diona Head (Thorns)
+marking-DionaThornsHead = Diona Head (Thorns)
+
+marking-DionaThornsBody-thorns_body = Diona Chest (Thorns)
+marking-DionaThornsBody = Diona Chest (Thorns)
+
+marking-DionaFlowersHead-flowers_head = Diona Head (Flowers)
+marking-DionaFlowersHead = Diona Head (Flowers)
+
+marking-DionaFlowersBody-flowers_body = Diona Chest (Flowers)
+marking-DionaFlowersBody = Diona Chest (Flowers)
+
+marking-DionaLeafCover-leaf_cover = Diona Chest (Leaf)
+marking-DionaLeafCover = Diona Chest (Leaf)
+
+marking-DionaBloomHead-bloom = Diona Everbloom (Flower)
+marking-DionaBloomHead = Diona Everbloom (Flower)
+
+marking-DionaBracketHead-bracket = Diona Bracket (Mushrooms)
+marking-DionaBracketHead = Diona Bracket (Mushrooms)
+
+marking-DionaBrushHead-brush = Diona Brush (Lians)
+marking-DionaBrushHead = Diona Brush (Lians)
+
+marking-DionaCornflowerHead-cornflower = Diona Cornflowers (Flowers)
+marking-DionaCornflowerHead = Diona Cornflowers (Flowers)
+
+marking-DionaFicusHead-ficus = Diona Ficus (Leafs)
+marking-DionaFicusHead = Diona Ficus (Leafs)
+
+marking-DionaGarlandHead-garland = Diona Garland (Flowers)
+marking-DionaGarlandHead = Diona Garland (Flowers)
+
+marking-DionaKingHead-king = Diona Flowerking (Flower)
+marking-DionaKingHead = Diona Flowerking (Flower)
+
+marking-DionaLaurelHead-laurel = Diona Laurel (Leafs)
+marking-DionaLaurelHead = Diona Laurel (Leafs)
+
+marking-DionaLeafyHeadTop-leafy = Diona Leafy (Leafs)
+marking-DionaLeafyHeadTop = Diona Leafy (Leafs)
+
+marking-DionaLotusHead-lotus = Diona Lotus (Flower)
+marking-DionaLotusHead = Diona Lotus (Flower)
+
+marking-DionaMeadowHeadTop-meadow = Diona Meadow
+marking-DionaMeadowHeadTop = Diona Meadow
+
+marking-DionaOakHead-oak = Diona Oak (Snag)
+marking-DionaOakHead = Diona Oak (Snag)
+
+marking-DionaPalmHead-palm = Diona Palmhead (Leafs)
+marking-DionaPalmHead = Diona Palmhead (Leafs)
+
+marking-DionaRootHead-root = Diona Root (Roots)
+marking-DionaRootHead = Diona Root (Roots)
+
+marking-DionaRoseHead-rose = Diona Rose (Flower)
+marking-DionaRoseHead = Diona Rose (Flower)
+
+marking-DionaRoseyHead-rosey = Diona Rosey (Flowers)
+marking-DionaRoseyHead = Diona Rosey (Flowers)
+
+marking-DionaShrubHeadTop-shrub = Diona Shrub (Thorns)
+marking-DionaShrubHeadTop = Diona Shrub (Thorns)
+
+marking-DionaSpinnerHeadSide-spinner = Diona Spinner
+marking-DionaSpinnerHeadSide = Diona Spinner
+
+marking-DionaSproutHeadSide-sprout = Diona Sprout
+marking-DionaSproutHeadSide = Diona Sprout
+
+marking-DionaVineHeadTop-vine = Diona Vines (Vines)
+marking-DionaVineHeadTop = Diona Vines (Vines)
+
+marking-DionaVinelHead-vinel = Diona Vines Long (Vines)
+marking-DionaVinelHead = Diona Vines Long (Vines)
+
+marking-DionaVinesHead-vines = Diona Vines Short (Vines)
+marking-DionaVinesHead = Diona Vines Short (Vines)
+
+marking-DionaWildflowerHead-wildflower = Diona Wild Flowers (Flowers)
+marking-DionaWildflowerHead = Diona Wild Flowers (Flowers)
+
+marking-DionaVineOverlay-overlay = Diona Body Vines
+marking-DionaVineOverlay = Diona Body Vines

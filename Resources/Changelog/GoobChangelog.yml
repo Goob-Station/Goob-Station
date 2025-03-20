@@ -6472,3 +6472,35 @@ Entries:
       message: Added the taiwan pond gun. Hack an autodrobe to see what it does.
   id: 748
   time: '2025-03-16T07:53:14.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: Restored Judo's combos to their original set of moves.
+    - type: Tweak
+      message: Krav maga leg sweep now does stamina damage instead of just a knockdown.
+  id: 749
+  time: '2025-03-17T06:21:09.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Goob is less stable now.
+  id: 750
+  time: '2025-03-17T09:25:21.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Tweak
+      message: Return of old appearance of engi & default borg.
+  id: 751
+  time: '2025-03-18T20:22:38.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: Skeletons now have 10% chance of doing a funny sound when screaming.
+  id: 752
+  time: '2025-03-19T16:02:31.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Remove
+      message: Goob is no longer stable.
+  id: 753
+  time: '2025-03-19T20:17:28.0000000+00:00'
