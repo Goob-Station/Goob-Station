@@ -6,5 +6,5 @@ namespace Content.Shared._Goobstation.Heretic.Components;
 public sealed partial class AlertCarvingComponent : Component
 {
     [DataField]
-    public EntityUid User;
+    public EntityUid? User;
 }
