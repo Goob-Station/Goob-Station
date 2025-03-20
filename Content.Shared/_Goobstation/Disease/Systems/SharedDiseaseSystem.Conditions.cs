@@ -7,8 +7,14 @@ public partial class SharedDiseaseSystem
 {
     protected virtual void InitializeConditions()
     {
+        SubscribeLocalEvent<DiseaseChanceConditionComponent, DiseaseCheckConditionsEvent>(CheckChanceCondition);
         SubscribeLocalEvent<DiseasePeriodicConditionComponent, DiseaseCheckConditionsEvent>(CheckPeriodicCondition);
         SubscribeLocalEvent<DiseaseProgressConditionComponent, DiseaseCheckConditionsEvent>(CheckSeverityCondition);
+    }
+
+    private void CheckChanceCondition(EntityUid uid, DiseaseChanceConditionComponent condition, DiseaseCheckConditionsEvent args)
+    {
+        args.DoEffect = args.DoEffect && _random.Prob(condition.Chance * GetScale(args, condition));
     }
 
     private void CheckPeriodicCondition(EntityUid uid, DiseasePeriodicConditionComponent condition, DiseaseCheckConditionsEvent args)

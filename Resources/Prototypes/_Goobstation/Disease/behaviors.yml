@@ -54,7 +54,7 @@
   - type: DiseaseVomitEffect
     severityScale: false
     progressScale: false
-    timeScale: false
+    timeScale: false # doesn't cause us to vomit harder if, say, the disease update interval is increased
   - type: DiseasePeriodicCondition
     delayMin: 20
     delayMax: 60

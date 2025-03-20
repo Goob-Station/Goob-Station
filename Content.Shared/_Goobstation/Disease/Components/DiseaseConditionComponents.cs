@@ -6,10 +6,19 @@ using System;
 namespace Content.Shared.Disease;
 
 /// <summary>
+/// Causes this effect to only trigger with a specified chance
+/// </summary>
+[RegisterComponent]
+public sealed partial class DiseaseChanceConditionComponent : ScalingDiseaseEffect
+{
+    [DataField]
+    public float Chance = 0.5f;
+}
+
+/// <summary>
 /// Causes this effect to only trigger ocassionally
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[EntityCategory("Diseases")]
 public sealed partial class DiseasePeriodicConditionComponent : ScalingDiseaseEffect
 {
     /// <summary>

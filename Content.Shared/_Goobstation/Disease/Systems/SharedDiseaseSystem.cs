@@ -15,12 +15,12 @@ namespace Content.Shared.Disease;
 public abstract partial class SharedDiseaseSystem : EntitySystem
 {
     [Dependency] private readonly IComponentFactory _factory = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
 
     private TimeSpan _lastUpdated = TimeSpan.FromSeconds(0);
 
@@ -50,9 +50,14 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
     {
         base.Update(frameTime);
 
+
         if (_timing.CurTime < _lastUpdated + UpdateInterval)
             return;
+
         _lastUpdated += UpdateInterval;
+
+        if (!_timing.IsFirstTimePredicted)
+            return;
 
         var diseaseCarriers = EntityQueryEnumerator<DiseaseCarrierComponent>();
         // so that we can EnsureComp disease carriers while we're looping over them without erroring
@@ -246,7 +251,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
         var checkEv = new DiseaseInfectAttemptEvent((disease, diseaseComp));
         RaiseLocalEvent(uid, ref checkEv);
         // check immunity
-        if (HasDisease(uid, diseaseComp.Genotype, comp) || !force && !checkEv.CanInfect)
+        if (!force && (HasDisease(uid, diseaseComp.Genotype, comp) || !checkEv.CanInfect))
             return false;
 
         _transform.SetCoordinates(disease, new EntityCoordinates(uid, Vector2.Zero));
