@@ -6518,3 +6518,9 @@ Entries:
       message: Fix round end manifest not showing up.
   id: 755
   time: '2025-03-20T16:03:53.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Tweak
+      message: Carp scroll can now only be learned by a single person.
+  id: 756
+  time: '2025-03-21T02:46:57.0000000+00:00'
