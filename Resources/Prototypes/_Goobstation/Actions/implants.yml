@@ -24,3 +24,4 @@
         path: /Audio/Effects/Lightning/lightningbolt.ogg
       throughWalls: false
   - type: SwapSpell
+    allowSecondaryTarget: false
