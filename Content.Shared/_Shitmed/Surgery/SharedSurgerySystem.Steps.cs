@@ -93,12 +93,13 @@ public abstract partial class SharedSurgerySystem
             return;
         }
 
-        if (CheckOrganAddOrRemove(ent.Comp.AddOrganOnAdd, args.Part, checkMissing: true) ||
-            CheckOrganAddOrRemove(ent.Comp.RemoveOrganOnAdd, args.Part, checkMissing: false))
-        {
+        if (TryToolOrganCheck(ent.Comp.AddOrganOnAdd, args.Part)
+            || TryToolOrganCheck(ent.Comp.RemoveOrganOnAdd, args.Part, checkMissing: false))
             args.Cancelled = true;
-        }
+
+
     }
+
     private void OnToolCanPerform(Entity<SurgeryStepComponent> ent, ref SurgeryCanPerformStepEvent args)
     {
         if (HasComp<SurgeryOperatingTableConditionComponent>(ent))
@@ -569,22 +570,23 @@ public abstract partial class SharedSurgerySystem
 
             var (organId, organ) = organValue;
 
-            if (!remove)
+            if (remove)
+            {
+                if (organValue.Item2.OnAdd == null || organ.OnAdd == null)
+                    continue;
+                RaiseLocalEvent(organId, new OrganComponentsModifyEvent(bodyTarget, false));
+                foreach (var key in components.Keys)
+                    organ.OnAdd.Remove(key);
+            }
+            else
             {
                 organ.OnAdd ??= new ComponentRegistry();
+
                 foreach (var (key, compToAdd) in components)
                     organ.OnAdd[key] = compToAdd;
 
                 EnsureComp<OrganEffectComponent>(organId);
                 RaiseLocalEvent(organId, new OrganComponentsModifyEvent(bodyTarget, true));
-            }
-            else if (remove && organ.OnAdd != null)
-            {
-                if (organValue.Item2.OnAdd == null)
-                    continue;
-                RaiseLocalEvent(organId, new OrganComponentsModifyEvent(bodyTarget, false));
-                foreach (var key in components.Keys)
-                    organ.OnAdd.Remove(key);
             }
         }
     }
@@ -621,20 +623,34 @@ public abstract partial class SharedSurgerySystem
         return false;
     }
 
-    private bool CheckOrganAddOrRemove(IReadOnlyDictionary<string, ComponentRegistry>? organChanges, EntityUid part, bool checkMissing = true)
+    private bool TryToolOrganCheck(IReadOnlyDictionary<string, ComponentRegistry>? organChanges, EntityUid part, bool checkMissing = true)
     {
         if (organChanges == null)
             return false;
 
-        var organSlotMap = _body.GetPartOrgans(part).ToDictionary(o => o.Item2.SlotId, o => o.Item2);
-
-        foreach (var (slotId, components) in organChanges)
+        var organSlotIdToOrgan = _body.GetPartOrgans(part).ToDictionary(o => o.Item2.SlotId, o => o.Item2);
+        foreach (var (organSlotId, compsToAdd) in organChanges)
         {
-            if (!organSlotMap.TryGetValue(slotId, out var organ) || organ.OnAdd == null)
+            if (!organSlotIdToOrgan.TryGetValue(organSlotId, out var organ))
                 continue;
 
-            if (components.Keys.Any(key => checkMissing != organ.OnAdd.ContainsKey(key)))
-                return true;
+            if (checkMissing)
+            {
+                if (organ.OnAdd == null || compsToAdd.Keys.Any(key => !organ.OnAdd.ContainsKey(key)))
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                if (organ.OnAdd == null)
+                    continue;
+
+                if (compsToAdd.Keys.Any(key => organ.OnAdd != null && organ.OnAdd.ContainsKey(key)))
+                {
+                    return true;
+                }
+            }
         }
 
         return false;
