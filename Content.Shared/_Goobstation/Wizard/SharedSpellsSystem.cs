@@ -989,7 +989,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (!TryComp(ev.Action, out SwapSpellComponent? swap))
             return;
 
-        if (!_examine.InRangeUnOccluded(ev.Performer, ev.Target, ev.Range))
+        if (!ev.ThroughWalls && !_examine.InRangeUnOccluded(ev.Performer, ev.Target, ev.Range))
             return;
 
         var userXform = Transform(ev.Performer);

@@ -22,4 +22,5 @@
     event: !type:SwapSpellEvent
       sound:
         path: /Audio/Effects/Lightning/lightningbolt.ogg
+      throughWalls: false
   - type: SwapSpell
