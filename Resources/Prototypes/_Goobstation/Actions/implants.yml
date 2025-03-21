@@ -4,6 +4,7 @@
   description: Allows you to swap locations with any living being.
   components:
   - type: EntityTargetAction
+    checkCanAccess: false
     raiseOnUser: true
     checkCanInteract: false
     useDelay: 60
