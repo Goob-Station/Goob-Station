@@ -8,6 +8,7 @@
     - state: syndicate
     - state: icon-syndicate
   - type: ItemBorgModule
+    moduleId: SyndicateWeaponAdvanced
     items:
     - WeaponPistolAnaconda
     - EnergySword
@@ -26,6 +27,7 @@
     - state: syndicate
     - state: icon-syndicate
   - type: ItemBorgModule
+    moduleId: OperativeUniversal
     items:
     - Crowbar
     - Emag
@@ -45,6 +47,7 @@
     - state: generic
     - state: icon-lollypop
   - type: ItemBorgModule
+    moduleId: Lollipop
     items:
     - LauncherLollypopRegenerating
     - LauncherLollypopRegeneratingTricordazine
@@ -62,8 +65,9 @@
     layers:
     - state: cargo
     - state: icon-pka
-  - type: ItemBorgModule
-    droppableItems:
+  - type: DroppableBorgModule
+    moduleId: PKA
+    items:
     - id: WeaponProtoKineticAccelerator
       whitelist:
         components:

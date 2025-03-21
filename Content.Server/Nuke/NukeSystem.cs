@@ -1,4 +1,3 @@
-using System.Linq;
 using Content.Server.AlertLevel;
 using Content.Server.Audio;
 using Content.Server.Chat.Systems;
@@ -13,6 +12,7 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
+using Content.Shared.Item;
 using Content.Shared.Maps;
 using Content.Shared.Nuke;
 using Content.Shared.Popups;
@@ -22,7 +22,6 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
@@ -338,11 +337,15 @@ public sealed class NukeSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
+        var isOverride = GetDiskOverrideStatus(component.DiskSlot.Item); // Goobstation
+
         switch (component.Status)
         {
             case NukeStatus.AWAIT_DISK:
-                if (component.DiskSlot.HasItem)
+                if (component.DiskSlot.HasItem && !isOverride) // Goobstation
                     component.Status = NukeStatus.AWAIT_CODE;
+                else if (component.DiskSlot.HasItem && isOverride) // Goobstation
+                    component.Status = NukeStatus.AWAIT_ARM;
                 break;
             case NukeStatus.AWAIT_CODE:
                 if (!component.DiskSlot.HasItem)
@@ -447,6 +450,12 @@ public sealed class NukeSystem : EntitySystem
 
         return ret;
     }
+    private bool GetDiskOverrideStatus(EntityUid? diskItem) // Goobstation
+    {
+        if (diskItem == null)
+            return false;
+        return TryComp<NukeDiskComponent>(diskItem, out var diskComp) && diskComp.Override;
+    }
 
     #region Public API
 
@@ -461,13 +470,17 @@ public sealed class NukeSystem : EntitySystem
         if (component.Status == NukeStatus.ARMED)
             return;
 
+        var isOverride = GetDiskOverrideStatus(component.DiskSlot.Item); // Goobstation
+
         var nukeXform = Transform(uid);
         var stationUid = _station.GetStationInMap(nukeXform.MapID);
         // The nuke may not be on a station, so it's more important to just
         // let people know that a nuclear bomb was armed in their vicinity instead.
         // Otherwise, you could set every station to whatever AlertLevelOnActivate is.
-        if (stationUid != null)
+        if (stationUid != null && !isOverride)
             _alertLevel.SetLevel(stationUid.Value, component.AlertLevelOnActivate, true, true, true, true);
+        else if (stationUid != null && isOverride)
+            _alertLevel.SetLevel(stationUid.Value, component.AlertLevelOnOverride, true, true, true, true );
 
         var pos = _transform.GetMapCoordinates(uid, xform: nukeXform);
         var x = (int) pos.X;
