@@ -20,7 +20,7 @@ namespace Content.Server._TBDStation.ServerKarma
         private ISawmill _sawmill = default!;
         private Dictionary<NetUserId, KarmaData> _karmas = new();
         private readonly List<Task> _pendingSaveTasks = new();
-        private TimeSpan _saveInterval = TimeSpan.FromSeconds(600); // Yeah, players will only gain coins mid round from gifting/admins, so we dont need to update often.
+        private TimeSpan _saveInterval = TimeSpan.FromSeconds(60); // Yeah, players will only gain coins mid round from gifting/admins, so we dont need to update often.
         private TimeSpan _lastSave;
         public event Action<PlayerKarmaChangeEvent>? KarmaChange;
 
@@ -149,9 +149,10 @@ namespace Content.Server._TBDStation.ServerKarma
         {
             if (!_karmas.TryGetValue(userId, out var data) || !data.Initialized)
             {
-                _sawmill.Warning($"Attempted to set karma, which was not loaded for player {userId.ToString()}");
+                _sawmill.Warning($"Attempted to set karma, which was not loaded for player {userId}");
                 return 0;
             }
+            amount = Math.Clamp(amount, -1200, 400); // Clamp karma cannot be higher then 400 or less then -1200.
 
             var karmaData = _karmas[userId];
 

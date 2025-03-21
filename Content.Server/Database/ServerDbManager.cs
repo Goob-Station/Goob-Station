@@ -679,12 +679,12 @@ namespace Content.Server.Database
         public Task<int> GetServerKarma(NetUserId userId) // TBDStation
         {
             DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetServerCurrency(userId));
+            return RunDbCommand(() => _db.GetServerKarma(userId));
         }
         public Task SetServerKarma(NetUserId userId, int currency) // TBDStation
         {
             DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.SetServerCurrency(userId, currency));
+            return RunDbCommand(() => _db.SetServerKarma(userId, currency));
         }
 
 
