@@ -52,10 +52,12 @@ public sealed class SharedContractorSystem : EntitySystem
         SubscribeLocalEvent<ContractorComponent, MapInitEvent>(OnContractorMapInit);
         SubscribeLocalEvent<ContractorMarkerComponent, MapInitEvent>(OnMarkerMapInit);
 
-        // Events
+        // Uplink Events
         SubscribeLocalEvent<ContractorUplinkComponent, ContractorUiMessage>(OnUiButtonPressed);
         SubscribeLocalEvent<ContractorUplinkComponent, GotEquippedHandEvent>(OnUplinkEquipped);
         SubscribeLocalEvent<ContractorUplinkComponent, ExtractionDoAfterEvent>(OnExtractionDoAfter);
+
+        // Other Events
         SubscribeLocalEvent<ContractorPortalComponent, PreventCollideEvent>(OnPortalCollide);
     }
 
@@ -63,12 +65,12 @@ public sealed class SharedContractorSystem : EntitySystem
     {
         base.Update(frameTime);
         var uplinkQuery = EntityQueryEnumerator<ContractorUplinkComponent>();
-        while (uplinkQuery.MoveNext(out var uid, out var comp))
+        while (uplinkQuery.MoveNext(out _, out var comp))
         {
             if (_gameTiming.CurTime < comp.PortalSpawnTimer || comp.PortalSpawnTimer == TimeSpan.Zero)
                 continue;
 
-            CreatePortalAndLink(comp, uid);
+            CreatePortalAndLink(comp);
         }
 
         var prisonerQuery = EntityQueryEnumerator<ContractorPrisonerComponent>();
@@ -88,17 +90,15 @@ public sealed class SharedContractorSystem : EntitySystem
         }
     }
 
+    #region Portal Methods
+
     private void SpawnReturnPortal(EntityUid uid, ContractorPrisonerComponent prisonerComponent)
     {
-        var facingDirection = Transform(uid).LocalRotation.GetCardinalDir();
-
-        // Calculate the tile in front of the entity
-        var offset = facingDirection.ToVec();
-        var spawnCoordinates = uid.ToCoordinates().Offset(offset);
-
         // Spawn the return portal
-        var returnPortal = Spawn("PortalBlue", spawnCoordinates);
+        var returnPortal = Spawn("PortalBlue", GetTileInFrontOfEntity(uid));
         prisonerComponent.TimeLeft = TimeSpan.Zero;
+        var contractorPortalComp = EnsureComp<ContractorPortalComponent>(returnPortal);
+        contractorPortalComp.Target = uid;
 
         if (!TryComp<PortalComponent>(returnPortal, out var portalComp))
             return;
@@ -110,11 +110,14 @@ public sealed class SharedContractorSystem : EntitySystem
         _linkedEntitySystem.TryLink(returnPortal, warpMarker);
     }
 
-    private void CreatePortalAndLink(ContractorUplinkComponent comp, EntityUid uid)
+    private void CreatePortalAndLink(ContractorUplinkComponent comp)
     {
         var extractPortal = Spawn("PortalRed", GetEntity(comp.FlareUid).ToCoordinates());
 
         if (!TryComp<PortalComponent>(extractPortal, out var portalComp))
+            return;
+
+        if (!TryComp<ContractorComponent>(GetEntity(comp.User), out var contractorComp))
             return;
 
         portalComp.CanTeleportToOtherMaps = true;
@@ -122,7 +125,7 @@ public sealed class SharedContractorSystem : EntitySystem
         comp.PortalSpawnTimer = TimeSpan.Zero;
 
         var contractorPortalComponent = EnsureComp<ContractorPortalComponent>(extractPortal);
-        contractorPortalComponent.LinkedUplink = GetNetEntity(uid);
+        contractorPortalComponent.Target = GetEntity(contractorComp.CurrentTarget);
 
         QueueDel(GetEntity(comp.FlareUid));
         comp.FlareUid = NetEntity.Invalid;
@@ -135,6 +138,7 @@ public sealed class SharedContractorSystem : EntitySystem
 
     private EntityUid? SelectRandomWarp()
     {
+        // Select a random warp from the list
         var warpList = new List<EntityUid>();
         var warpEnumerator = EntityQueryEnumerator<ContractorWarpMarkerComponent>();
 
@@ -148,9 +152,25 @@ public sealed class SharedContractorSystem : EntitySystem
 
         Log.Warning("No warp markers found. Returning a null value");
         return null;
-        // Select a random warp from the list
-
     }
+
+    // prevent portal from colliding with the contractor or a non targetted entity
+    private void OnPortalCollide(Entity<ContractorPortalComponent> ent, ref PreventCollideEvent args)
+    {
+        if (args.OtherEntity != ent.Comp.Target)
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        if (args.OtherEntity == ent.Comp.Target)
+            args.Cancelled = false;
+
+        StartPrisonTimer(args.OtherEntity, args.OurEntity);
+        ent.Comp.Used = true;
+    }
+
+    #endregion
 
     private void CheckAndSpawnNukeOpsMap()
     {
@@ -159,7 +179,7 @@ public sealed class SharedContractorSystem : EntitySystem
 
         foreach (var map in _mapSystem.GetAllMapIds())
         {
-            if(!_mapSystem.TryGetMap(map, out var mapUid))
+            if (!_mapSystem.TryGetMap(map, out var mapUid))
                 continue;
 
             if (!TryGetEntityData(GetNetEntity(mapUid.Value), out _, out var metaDataComponent))
@@ -177,29 +197,12 @@ public sealed class SharedContractorSystem : EntitySystem
         if (nukeOpsMap)
             return;
 
-        if(_mapLoader.TryLoadMap(new ResPath("/Maps/_Goobstation/Nonstations/nukieplanet.yml"), out var nukiemap, out _, new DeserializationOptions { InitializeMaps = true }))
-            _mapSystem.SetPaused(nukiemap.Value.Comp.MapId, false); // i think this is how i access the shit on da map lol
-    }
-
-    // prevent portal from colliding with the contractor or a non targetted entity
-    private void OnPortalCollide(Entity<ContractorPortalComponent> ent, ref PreventCollideEvent args)
-    {
-        if(!TryComp<ContractorUplinkComponent>(GetEntity(ent.Comp.LinkedUplink), out var contractorUplinkComponent))
-            return;
-
-        var contractor = GetEntity(contractorUplinkComponent.User);
-
-        if(!TryComp<ContractorComponent>(contractor, out var contractorComponent))
-            return;
-
-        if (args.OtherEntity == contractor)
-            args.Cancelled = true;
-
-        if (args.OtherEntity == GetEntity(contractorComponent.CurrentTarget))
-            args.Cancelled = false;
-
-        StartPrisonTimer(args.OtherEntity, args.OurEntity);
-        ent.Comp.Used = true;
+        if (_mapLoader.TryLoadMap(new ResPath("/Maps/_Goobstation/Nonstations/nukieplanet.yml"),
+                out var nukiemap,
+                out _,
+                new DeserializationOptions { InitializeMaps = true }))
+            _mapSystem.SetPaused(nukiemap.Value.Comp.MapId,
+                false);
     }
 
     private void StartPrisonTimer(EntityUid target, EntityUid portal)
@@ -214,7 +217,8 @@ public sealed class SharedContractorSystem : EntitySystem
     {
         var containerEntity = Spawn("ContractorPrisonerBox", MapCoordinates.Nullspace);
         var dumpContainerOnUseComponent = EnsureComp<DumpContainerOnUseComponent>(containerEntity);
-        var container = _containerSystem.EnsureContainer<Container>(containerEntity, dumpContainerOnUseComponent.ContainerId);
+        var container =
+            _containerSystem.EnsureContainer<Container>(containerEntity, dumpContainerOnUseComponent.ContainerId);
 
         foreach (var item in _inventorySystem.GetHandOrInventoryEntities(target))
         {
@@ -231,18 +235,16 @@ public sealed class SharedContractorSystem : EntitySystem
 
         if (args.Cancelled)
             return;
-
-        var flare = SpawnAtPosition(ent.Comp.Flare, args.User.ToCoordinates());
+        var flare = SpawnAtPosition(ent.Comp.Flare, GetTileInFrontOfEntity(args.User));
         _transform.SetLocalRotation(flare, Angle.Zero);
         ent.Comp.FlareUid = GetNetEntity(flare);
         ent.Comp.PortalSpawnTimer = _gameTiming.CurTime + ent.Comp.PortalSpawnTime;
         args.Handled = true;
     }
 
-
     private void OnUplinkEquipped(Entity<ContractorUplinkComponent> ent, ref GotEquippedHandEvent args)
     {
-        if(!_net.IsServer || ent.Comp.User != NetEntity.Invalid)
+        if (!_net.IsServer || ent.Comp.User != NetEntity.Invalid)
             return;
 
         EnsureComp<ContractorComponent>(args.User);
@@ -276,7 +278,9 @@ public sealed class SharedContractorSystem : EntitySystem
 
     private void UpdateUi(EntityUid uid)
     {
-        if (!_handsSystem.TryGetActiveItem(uid, out var item) || !_userInterfaceSystem.HasUi(item.Value, ContractorUplinkUiKey.Key) || !TryComp<ContractorComponent>(uid, out var contractorComponent))
+        if (!_handsSystem.TryGetActiveItem(uid, out var item) ||
+            !_userInterfaceSystem.HasUi(item.Value, ContractorUplinkUiKey.Key) ||
+            !TryComp<ContractorComponent>(uid, out var contractorComponent))
             return;
 
         var state = new ContractorUplinkBoundUserInterfaceState(contractorComponent.Tc,
@@ -288,7 +292,8 @@ public sealed class SharedContractorSystem : EntitySystem
         _userInterfaceSystem.SetUiState(item.Value, ContractorUplinkUiKey.Key, state);
     }
 
-    private void OnUiButtonPressed(Entity<ContractorUplinkComponent> ent, ref ContractorUiMessage msg) // extract the switch
+    private void
+        OnUiButtonPressed(Entity<ContractorUplinkComponent> ent, ref ContractorUiMessage msg) // extract the switch
     {
         if (!_net.IsServer)
             return;
@@ -297,7 +302,7 @@ public sealed class SharedContractorSystem : EntitySystem
         if (!Exists(user))
             return;
 
-        if(!TryComp<ContractorComponent>(user, out var contractorComponent))
+        if (!TryComp<ContractorComponent>(user, out var contractorComponent))
             return;
 
         var loc = msg.Location;
@@ -305,35 +310,10 @@ public sealed class SharedContractorSystem : EntitySystem
         switch (msg.Button)
         {
             case UiMessage.SelectTarget:
-                if(contractorComponent.Contracts.ContainsKey(msg.Target))
-                    contractorComponent.CurrentTarget = msg.Target;
-                if(contractorComponent.Contracts.Values.Any(subList => subList.Contains(loc))) // this is evil
-                    contractorComponent.CurrentExtractionPoint = msg.Location;
-                if (!TryComp<ContractorMarkerComponent>(GetEntity(msg.Location), out var contractorMarkerComponent))
-                    return;
-                contractorComponent.TcReward = contractorMarkerComponent.TcReward;
+                UpdateContractorTarget(msg, contractorComponent, loc);
                 break;
             case UiMessage.TryExtraction:
-                // light flare do after
-                var lookup = _lookupSystem.GetEntitiesInRange<ContractorMarkerComponent>(user.ToCoordinates(), 8.0f);
-                if (!lookup.Select(entity => entity.Owner)
-                    .Contains(GetEntity(contractorComponent.CurrentExtractionPoint)))
-                    break;
-
-                var doAfterEventArgs = new DoAfterArgs(EntityManager,
-                    user,
-                    3.0f,
-                    new ExtractionDoAfterEvent(),
-                    ent.Owner,
-                    used: ent.Owner)
-                {
-                    BreakOnMove = true,
-                    BreakOnDamage = true,
-                };
-
-                if (!_doAfterSystem.TryStartDoAfter(doAfterEventArgs))
-                    return;
-
+                StartExtraction(ent, user, contractorComponent);
                 break;
             case UiMessage.Refresh:
                 Log.Info("Refresh requested");
@@ -343,6 +323,43 @@ public sealed class SharedContractorSystem : EntitySystem
         }
 
         UpdateUi(msg.Actor);
+    }
+
+    private void StartExtraction(Entity<ContractorUplinkComponent> ent,
+        EntityUid user,
+        ContractorComponent contractorComponent)
+    {
+        // light flare do after
+        var lookup = _lookupSystem.GetEntitiesInRange<ContractorMarkerComponent>(user.ToCoordinates(), 8.0f);
+        if (!lookup.Select(entity => entity.Owner)
+                .Contains(GetEntity(contractorComponent.CurrentExtractionPoint)))
+            return;
+
+        var doAfterEventArgs = new DoAfterArgs(EntityManager,
+            user,
+            3.0f,
+            new ExtractionDoAfterEvent(),
+            ent.Owner,
+            used: ent.Owner)
+        {
+            BreakOnMove = true,
+            BreakOnDamage = true,
+        };
+
+        if (!_doAfterSystem.TryStartDoAfter(doAfterEventArgs))
+            return;
+        return;
+    }
+
+    private void UpdateContractorTarget(ContractorUiMessage msg, ContractorComponent contractorComponent, NetEntity loc)
+    {
+        if (contractorComponent.Contracts.ContainsKey(msg.Target))
+            contractorComponent.CurrentTarget = msg.Target;
+        if (contractorComponent.Contracts.Values.Any(subList => subList.Contains(loc)))
+            contractorComponent.CurrentExtractionPoint = msg.Location;
+        if (!TryComp<ContractorMarkerComponent>(GetEntity(msg.Location), out var contractorMarkerComponent))
+            return;
+        contractorComponent.TcReward = contractorMarkerComponent.TcReward;
     }
 
     private void SetupContracts(Entity<ContractorComponent> ent)
@@ -360,7 +377,8 @@ public sealed class SharedContractorSystem : EntitySystem
 
         if (possibleContracts.Count == 0)
         {
-            Log.Debug("Not enough alive humanoids to generate a contract"); // add a refresh timer or sum IDK need a brain
+            Log.Debug(
+                "Not enough alive humanoids to generate a contract"); // add a refresh timer or sum IDK need a brain
             return;
         }
 
@@ -386,4 +404,17 @@ public sealed class SharedContractorSystem : EntitySystem
             Dirty(ent, ent.Comp); // dirty since this is the server
         }
     }
+
+    #region Helper Methods
+
+    private EntityCoordinates GetTileInFrontOfEntity(EntityUid ent) // holy supercode someone please tell me something exists to already do this having bespoke transform code in here makes me blow up
+    {
+        var facingDirection = Transform(ent).LocalRotation.GetCardinalDir();
+
+        // Calculate the tile in front of the entity
+        var offset = facingDirection.ToVec();
+        return ent.ToCoordinates().Offset(offset);
+    }
+
+    #endregion
 }

@@ -4,7 +4,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Goobstation.Contracts;
+namespace Content.Shared._Goobstation.Contracts; // this file is a "monolith" currently need to split up events and shit etc.
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ContractorComponent : Component
@@ -74,6 +74,20 @@ public sealed partial class ContractorComponent : Component
     [DataField]
     [AutoNetworkedField]
     public TimeSpan ExtractionCooldown = TimeSpan.Zero;
+
+
+    /// <summary>
+    /// If all contracts have been found
+    /// </summary>
+    [DataField]
+    public bool AllContractsFound = false;
+
+
+    /// <summary>
+    /// How long to wait before searching for new contracts
+    /// </summary>
+    public TimeSpan RefreshTime = TimeSpan.FromSeconds(5);
+
 }
 
 /// <summary>
@@ -204,7 +218,7 @@ public sealed partial class ContractorUplinkComponent : Component
 public sealed partial class ContractorPortalComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public NetEntity LinkedUplink = NetEntity.Invalid;
+    public EntityUid Target = EntityUid.Invalid;
 
     [DataField, AutoNetworkedField]
     public bool Used = false;
