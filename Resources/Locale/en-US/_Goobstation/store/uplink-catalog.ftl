@@ -80,12 +80,6 @@ uplink-dualetta-bundle-desc = Comes with 2 Dualetta pistols, 2 machine pistol ma
 uplink-anaconda-name = Anaconda
 uplink-anaconda-desc = The pride of the Cybersun arms concern, this heavy pistol is designed to feed itself with the built-in fabricator.
 
-uplink-kravgloves-name = Krav maga gloves
-uplink-kravgloves-desc = Gloves with krav maga nanites installed while disguised as regular black gloves.
-
-uplink-guerrillagloves-name = Guerrilla gloves
-uplink-guerrillagloves-desc = Insulated combat gloves that allow the wearer to perform krav maga.
-
 uplink-bulk-mosin-name = Syndicate bulk rifle crate
 uplink-bulk-mosin-desc = 10 WW4-era rifles to arm you, your friends, and your cat. Saves 40% on shipping costs by buying in bulk.
 
@@ -150,6 +144,9 @@ uplink-smoke-implant-desc = Releases a cloud of smoke when activated.
 
 uplink-jaunter-implanter-name = Jaunter Implanter
 uplink-jaunter-implanter-desc = Swaps position of the user and target upon activation. Recharges passively.
+
+uplink-krav-maga-implant-name = Krav Maga Implanter
+uplink-krav-maga-implant-desc = Allows the user to perform various Krav Maga moves.
 
 # Wearables
 
