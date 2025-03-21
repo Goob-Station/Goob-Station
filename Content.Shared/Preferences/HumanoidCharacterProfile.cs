@@ -817,5 +817,10 @@ namespace Content.Shared.Preferences
         {
             return new HumanoidCharacterProfile(this);
         }
+
+        public void SetName(string name)
+        {
+            Name = name;
+        }
     }
 }
