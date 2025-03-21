@@ -167,6 +167,7 @@
     - WelderExperimental
     - PowerDrill
     - JawsOfLife
+    - SignallerAdvanced # Goobstation, moved from explosives
     - BorgModuleAdvancedTool
 
 - type: technology

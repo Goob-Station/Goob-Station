@@ -21,6 +21,7 @@
   id: ChemistryStatic
   recipes:
   - Jug
+  - ChemicalPayload # Goobstation, roundstart chemical payloads
   - ChemistryEmptyBottle01
   - ClothingEyesGlassesChemical
 
@@ -87,7 +88,6 @@
 - type: latheRecipePack
   id: Chemistry
   recipes:
-  - ChemicalPayload
   - CryostasisBeaker
   - SyringeCryostasis
   - BluespaceBeaker

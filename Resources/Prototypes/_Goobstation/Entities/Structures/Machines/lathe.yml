@@ -149,10 +149,10 @@
     - ElectronicsStatic
     - SurgeryStatic
     - ScienceBoardsStatic
+    - ScienceExplosivesTriggers
     dynamicPacks:
     - AdvancedTools
     - ScienceEquipment
-    - ScienceExplosives
     - ScienceClothing
     - ScienceWeapons
     - AtmosTools
@@ -173,6 +173,7 @@
     - MechElectronicsGoob
     - CargoMechElectronicsGoob
     - BluespaceTheory
+    - FlashPayloadPack
   - type: MaterialStorage
     whitelist:
       tags:

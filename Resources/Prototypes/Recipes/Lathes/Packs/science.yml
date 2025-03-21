@@ -67,21 +67,22 @@
   - FauxTileAstroAsteroidSand
 
 # Only contains parts for making basic modular grenades, no actual explosives
-- type: latheRecipePack
-  id: ScienceExplosives
-  recipes:
-  - ChemicalPayload
-  - FlashPayload
-  - TimerTrigger
-  - SignalTrigger
-  - VoiceTrigger
+- #type: latheRecipePack
+  #id: ScienceExplosives - Goobstation, stuff moved for roundstart explosives tech
+  #recipes:
+  #-Advanced
+  #- ChemicalPayload - Moved to BasicChemistryStatic
+  #- FlashPayload - Moved to FlashPayloadPack
+  #- TimerTrigger - All triggers sent to ScienceExplosiveTriggers
+  #- SignalTrigger
+  #- VoiceTrigger
 
 - type: latheRecipePack
   id: ScienceBoards
   recipes:
   #- TurboItemRechargerCircuitboard - Goobstation - Moved to SharedBoards
   #- AutolatheHyperConvectionMachineCircuitboard - Moved to SharedBoards
-  #- ProtolatheHyperConvectionMachineCircuitboard - Moved to SharedBoards 
+  #- ProtolatheHyperConvectionMachineCircuitboard - Moved to SharedBoards
   #- CircuitImprinterHyperConvectionMachineCircuitboard - Moved to SharedBoards
   - TechDiskComputerCircuitboard
   #- FlatpackerMachineCircuitboard - Moved to SharedBoards
