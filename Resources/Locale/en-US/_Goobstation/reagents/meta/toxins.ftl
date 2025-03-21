@@ -12,3 +12,6 @@ reagent-desc-pendetide = While mostly neutral, it amplifies any existing radiati
 
 reagent-name-aluite = aluite
 reagent-desc-aluite = Non-reactive molecule that binds with other chemicals at low temperatures to transport them and boost their efficiency. Bursts when in bloodstream, with overdoses causing organ ruptures.
+
+reagent-name-saxitoxin = saxitoxin
+reagent-desc-saxitoxin = A brutal neurotoxin that makes caustic burns on skin contact and poisons and paralyzes when breathed in.
