@@ -1,15 +1,19 @@
 using System.Linq;
+using Content.Shared._Goobstation.DumpContainerOnUse;
 using Content.Shared.Coordinates;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Inventory;
 using Content.Shared.Mind;
 using Content.Shared.Pinpointer;
 using Content.Shared.Roles;
 using Content.Shared.Teleportation.Components;
 using Content.Shared.Teleportation.Systems;
+using Robust.Shared.Containers;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Random;
@@ -35,6 +39,8 @@ public sealed class SharedContractorSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly LinkedEntitySystem _linkedEntitySystem = default!;
+    [Dependency] private readonly InventorySystem _inventorySystem = default!;
+    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
 
 
     /// <inheritdoc/>
@@ -56,14 +62,52 @@ public sealed class SharedContractorSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        var query = EntityQueryEnumerator<ContractorUplinkComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+        var uplinkQuery = EntityQueryEnumerator<ContractorUplinkComponent>();
+        while (uplinkQuery.MoveNext(out var uid, out var comp))
         {
             if (_gameTiming.CurTime < comp.PortalSpawnTimer || comp.PortalSpawnTimer == TimeSpan.Zero)
                 continue;
 
             CreatePortalAndLink(comp, uid);
         }
+
+        var prisonerQuery = EntityQueryEnumerator<ContractorPrisonerComponent>();
+        while (prisonerQuery.MoveNext(out var uid, out var prisonerComponent))
+        {
+            if (_gameTiming.CurTime < prisonerComponent.TimeLeft || prisonerComponent.TimeLeft == TimeSpan.Zero)
+                continue;
+
+            SpawnReturnPortal(uid, prisonerComponent);
+        }
+
+        var contractorPortalQuery = EntityQueryEnumerator<ContractorPortalComponent>();
+        while (contractorPortalQuery.MoveNext(out var uid, out var contractorPortalComponent))
+        {
+            if (contractorPortalComponent.Used)
+                QueueDel(uid);
+        }
+    }
+
+    private void SpawnReturnPortal(EntityUid uid, ContractorPrisonerComponent prisonerComponent)
+    {
+        var facingDirection = Transform(uid).LocalRotation.GetCardinalDir();
+
+        // Calculate the tile in front of the entity
+        var offset = facingDirection.ToVec();
+        var spawnCoordinates = uid.ToCoordinates().Offset(offset);
+
+        // Spawn the return portal
+        var returnPortal = Spawn("PortalBlue", spawnCoordinates);
+        prisonerComponent.TimeLeft = TimeSpan.Zero;
+
+        if (!TryComp<PortalComponent>(returnPortal, out var portalComp))
+            return;
+
+        portalComp.RandomTeleport = false;
+        portalComp.CanTeleportToOtherMaps = true;
+
+        var warpMarker = Spawn("ContractorMarker", prisonerComponent.ReturnCoordinates);
+        _linkedEntitySystem.TryLink(returnPortal, warpMarker);
     }
 
     private void CreatePortalAndLink(ContractorUplinkComponent comp, EntityUid uid)
@@ -85,7 +129,7 @@ public sealed class SharedContractorSystem : EntitySystem
 
         CheckAndSpawnNukeOpsMap();
         var warpMarker = SelectRandomWarp();
-        if(warpMarker != null)
+        if (warpMarker != null)
             _linkedEntitySystem.TryLink(extractPortal, warpMarker.Value);
     }
 
@@ -148,14 +192,36 @@ public sealed class SharedContractorSystem : EntitySystem
         if(!TryComp<ContractorComponent>(contractor, out var contractorComponent))
             return;
 
-
-        if (args.OtherEntity != GetEntity(contractorComponent.CurrentTarget))
+        if (args.OtherEntity == contractor)
             args.Cancelled = true;
-        else
+
+        if (args.OtherEntity == GetEntity(contractorComponent.CurrentTarget))
             args.Cancelled = false;
 
+        StartPrisonTimer(args.OtherEntity, args.OurEntity);
+        ent.Comp.Used = true;
+    }
 
-        QueueDel(ent); // delete the portal
+    private void StartPrisonTimer(EntityUid target, EntityUid portal)
+    {
+        var prisonerComp = EnsureComp<ContractorPrisonerComponent>(target);
+        prisonerComp.TimeLeft = _gameTiming.CurTime + prisonerComp.PrisonerTime;
+        prisonerComp.ReturnCoordinates = Transform(portal).Coordinates;
+        prisonerComp.Gear = InitializePrisonerContainer(target);
+    }
+
+    private EntityUid InitializePrisonerContainer(EntityUid target)
+    {
+        var containerEntity = Spawn("ContractorPrisonerBox", MapCoordinates.Nullspace);
+        var dumpContainerOnUseComponent = EnsureComp<DumpContainerOnUseComponent>(containerEntity);
+        var container = _containerSystem.EnsureContainer<Container>(containerEntity, dumpContainerOnUseComponent.ContainerId);
+
+        foreach (var item in _inventorySystem.GetHandOrInventoryEntities(target))
+        {
+            _containerSystem.Insert(item, container, force: true);
+        }
+
+        return containerEntity;
     }
 
     private void OnExtractionDoAfter(Entity<ContractorUplinkComponent> ent, ref ExtractionDoAfterEvent args)
@@ -283,7 +349,6 @@ public sealed class SharedContractorSystem : EntitySystem
     {
         if (!_net.IsServer) // I really feel like this is the really lazy way of doing this instead of moving it to server but... alas we are here.
             return;
-
         // get ready for the craziest linq maxing
         var possibleContracts = _mindSystem.GetAliveHumans();
 

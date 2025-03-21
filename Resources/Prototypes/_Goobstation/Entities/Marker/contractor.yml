@@ -18,3 +18,20 @@
     layers:
     - state: red
   - type: ContractorWarpMarker
+
+- type: entity
+  parent: BaseItem
+  name: Prisoner Item Storage
+  id: ContractorPrisonerBox
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/boxes_paradise.rsi
+    layers:
+    - state: large_box
+  - type: ContainerContainer
+    containers:
+      storage: !type:Container
+  - type: DumpContainerOnUse
+  - type: Appearance
+

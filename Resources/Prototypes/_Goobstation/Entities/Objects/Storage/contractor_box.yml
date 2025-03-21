@@ -15,10 +15,3 @@
     maxItemSize: Normal
     grid:
     - 0,0,3,4
-  - type: GenericVisualizer
-    visuals:
-      enum.StorageVisuals.Open:
-        base:
-          True: { state: icon-open }
-          False: { state: icon }
-

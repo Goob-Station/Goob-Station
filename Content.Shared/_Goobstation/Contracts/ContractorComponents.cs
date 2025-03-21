@@ -1,5 +1,6 @@
 using Content.Shared.DoAfter;
 using Robust.Shared.GameStates;
+using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -204,6 +205,9 @@ public sealed partial class ContractorPortalComponent : Component
 {
     [DataField, AutoNetworkedField]
     public NetEntity LinkedUplink = NetEntity.Invalid;
+
+    [DataField, AutoNetworkedField]
+    public bool Used = false;
 }
 
 [Serializable, NetSerializable]
@@ -211,3 +215,18 @@ public sealed partial class ExtractionDoAfterEvent : SimpleDoAfterEvent;
 
 [RegisterComponent]
 public sealed partial class ContractorWarpMarkerComponent : Component;
+
+[RegisterComponent]
+public sealed partial class ContractorPrisonerComponent : Component
+{
+    [DataField]
+    public TimeSpan TimeLeft = TimeSpan.Zero;
+
+    [DataField]
+    public EntityCoordinates ReturnCoordinates;
+
+    [DataField]
+    public EntityUid Gear = EntityUid.Invalid;
+
+    public TimeSpan PrisonerTime = TimeSpan.FromSeconds(10); // bump up to prod value
+}
