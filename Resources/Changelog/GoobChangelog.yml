@@ -6530,3 +6530,11 @@ Entries:
       message: Biocube Fabricators can be sped up using space lube.
   id: 757
   time: '2025-03-21T10:28:14.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Jaunter Implant now cost 30 TC, but has higher cooldown, no longer works
+        through walls and doesn't let one choose a secondary target.
+  id: 758
+  time: '2025-03-21T17:44:30.0000000+00:00'
