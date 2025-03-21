@@ -176,9 +176,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (!TryComp(action, out SwapSpellComponent? swap))
             return;
 
-        if (!swap.AllowSecondaryTarget)
-            return;
-
         swap.SecondaryTarget = target;
         Dirty(action, swap);
     }
