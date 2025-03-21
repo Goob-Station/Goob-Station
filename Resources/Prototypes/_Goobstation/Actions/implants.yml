@@ -4,18 +4,16 @@
   description: Allows you to swap locations with any living being.
   components:
   - type: EntityTargetAction
-    checkCanAccess: false
     raiseOnUser: true
     checkCanInteract: false
-    useDelay: 5
+    useDelay: 60
     itemIconStyle: BigAction
     whitelist:
       requireAll: true
       components:
       - Transform
       - MobState
-    canTargetSelf: true
-    interactOnMiss: false
+    canTargetSelf: false
     range: 15
     icon:
       sprite: /Textures/_Goobstation/Actions/syndicateswap.rsi
