@@ -1,0 +1,49 @@
+- type: entity
+  name: Fall Laser SMG
+  parent: [ BaseWeaponPowerCell, BaseSecurityContraband ]
+  id: WeaponLaserCellTest
+  description: A Focused Ablation Low-energy Laser (FALL), it's compatible with specialized SMG power cells.
+  components:
+  - type: Item
+    size: Large
+  - type: Gun
+    minAngle: 2
+    maxAngle: 15
+    angleIncrease: 3
+    angleDecay: 16
+    fireRate: 10
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/laser_smg.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        whitelist:
+          tags:
+          - MilitaryPowerCellSMG
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_smg.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-4
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Multishot
+    spreadMultiplier: 1.6
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 500
+      Gold: 125
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_smg.rsi
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage

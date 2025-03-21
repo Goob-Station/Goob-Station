@@ -1,0 +1,122 @@
+- type: entity
+  id: BaseMilitaryPowerCell
+  abstract: true
+  parent: BaseItem
+  components:
+  - type: Item
+  - type: Battery
+    pricePerJoule: 0.15
+  - type: PowerCell
+    powerCellVisualsLevels: 4
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 200
+    intensitySlope: 1.5
+  - type: Sprite
+    sprite: Objects/Power/power_cells.rsi
+  - type: SolutionContainerManager
+    solutions:
+      battery:
+        maxVol: 5
+  - type: InjectableSolution
+    solution: battery
+  - type: DrawableSolution
+    solution: battery
+  - type: Appearance
+  - type: PowerCellVisuals
+  - type: Riggable
+  - type: HitscanBatteryAmmoProvider
+    proto: SmallRedLaser
+    fireCost: 50
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Plastic: 37
+      Steel: 50
+      Glass: 100
+      Gold: 5
+    chemicalComposition:
+      Zinc: 16.5
+
+- type: entity
+  id: BaseMilitaryPowerCellSMG
+  abstract: true
+  parent: BaseMilitaryPowerCell
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: icon
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o4
+      shader: unshaded
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: Tag
+    tags:
+    - MilitaryPowerCellSMG
+
+- type: entity
+  name: SMG power cell
+  description: A militarized power cell compatible with SMG scale lasers.
+  id: PowerCellIRSMG
+  suffix: Full
+  parent: BaseMilitaryPowerCellSMG
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_pistol_lethal.rsi
+  - type: HitscanBatteryAmmoProvider
+    proto: SmallRedLaser
+    fireCost: 16.5
+
+- type: entity
+  name: x-ray SMG power cell
+  description: A militarized power cell compatible with SMG scale lasers that fires x-rays.
+  id: PowerCellXraySMG
+  suffix: Full
+  parent: BaseMilitaryPowerCellSMG
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_pistol_xray.rsi
+  - type: HitscanBatteryAmmoProvider
+    proto: SmallXrayLaser
+    fireCost: 16.5
+
+- type: entity
+  name: overclocked SMG power cell
+  description: A militarized power cell compatible with SMG scale lasers that has been overclocked.
+  id: PowerCellOverchargedSMG
+  suffix: Full
+  parent: BaseMilitaryPowerCellSMG
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_pistol_overcharge.rsi
+  - type: HitscanBatteryAmmoProvider
+    proto: SmallOverchargedLaser
+    fireCost: 33
+
+- type: entity
+  name: pulse SMG power cell
+  description: A militarized power cell compatible with SMG scale lasers that fires pulse beams.
+  id: PowerCellPulseSMG
+  suffix: Full
+  parent: BaseMilitaryPowerCellSMG
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_pistol_pulse.rsi
+  - type: HitscanBatteryAmmoProvider
+    proto: SmallPulseLaser
+    fireCost: 16.5
+
+- type: entity
+  name: ion SMG power cell
+  description: A militarized power cell compatible with SMG scale lasers that fires ion beams.
+  id: PowerCellIonSMG
+  suffix: Full
+  parent: BaseMilitaryPowerCellSMG
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_pistol_ion.rsi
+  - type: HitscanBatteryAmmoProvider
+    proto: SmallIonLaser
+    fireCost: 16.5

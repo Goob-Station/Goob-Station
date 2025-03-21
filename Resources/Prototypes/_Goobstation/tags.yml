@@ -222,6 +222,9 @@
   id: MedicalPatch
 
 - type: Tag
+  id: MilitaryPowerCellSMG
+
+- type: Tag
   id: ModsuitBoots
 
 - type: Tag

@@ -54,4 +54,8 @@ public sealed partial class HitscanPrototype : IPrototype, IShootable
     /// </summary>
     [DataField("maxLength")]
     public float MaxLength = 20f;
+
+    // Goobstation
+    [DataField]
+    public float FireStacks;
 }

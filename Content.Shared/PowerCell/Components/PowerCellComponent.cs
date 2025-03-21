@@ -11,12 +11,16 @@ namespace Content.Shared.PowerCell;
 [RegisterComponent]
 public sealed partial class PowerCellComponent : Component
 {
-    public const int PowerCellVisualsLevels = 2;
+    // Goob edit start
+    [DataField]
+    public int PowerCellVisualsLevels = 2;
+    // Goob edit end
 }
 
 [Serializable, NetSerializable]
 public enum PowerCellVisuals : byte
 {
+    HasCharge, // Goobstation
     ChargeLevel
 }
 [Serializable, NetSerializable]
