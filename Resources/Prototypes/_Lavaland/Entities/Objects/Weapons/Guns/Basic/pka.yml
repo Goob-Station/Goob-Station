@@ -30,9 +30,6 @@
     whitelist:
       tags:
       - PKAUpgrade
-  - type: GunWieldBonus
-    minAngle: 0
-    maxAngle: 0
   - type: GunRequiresWield
   - type: Item
     shape:
