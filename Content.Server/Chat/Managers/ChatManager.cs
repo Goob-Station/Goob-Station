@@ -19,7 +19,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 using Content.Server._RMC14.LinkAccount; // RMC - Patreon
-using System.Text.RegularExpressions;
+using Content.Server._TBDStation.SlurFilter; // TBDStation
 
 namespace Content.Server.Chat.Managers;
 
@@ -47,6 +47,7 @@ internal sealed partial class ChatManager : IChatManager
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly PlayerRateLimitManager _rateLimitManager = default!;
     [Dependency] private readonly LinkAccountManager _linkAccount = default!; // RMC - Patreon
+    [Dependency] private readonly SlurFilterManager _slurFilterMan = default!; // TBDStation
 
     /// <summary>
     /// The maximum length a player-sent message can be sent
@@ -217,6 +218,9 @@ internal sealed partial class ChatManager : IChatManager
             DispatchServerMessage(player, Loc.GetString("chat-manager-max-message-length-exceeded-message", ("limit", MaxMessageLength)));
             return;
         }
+
+        if (_slurFilterMan.ContainsSlur(player, message)) // TBDStation Edit
+            return;
 
         switch (type)
         {
