@@ -30,6 +30,7 @@ public abstract partial class SharedSurgerySystem
 {
     private static readonly string[] BruteDamageTypes = { "Slash", "Blunt", "Piercing" };
     private static readonly string[] BurnDamageTypes = { "Heat", "Shock", "Cold", "Caustic" };
+
     private void InitializeSteps()
     {
         SubscribeLocalEvent<SurgeryStepComponent, SurgeryStepEvent>(OnToolStep);
@@ -52,10 +53,11 @@ public abstract partial class SharedSurgerySystem
         SubSurgery<SurgeryAffixOrganStepComponent>(OnAffixOrganStep, OnAffixOrganCheck);
         SubSurgery<SurgeryAddMarkingStepComponent>(OnAddMarkingStep, OnAddMarkingCheck);
         SubSurgery<SurgeryRemoveMarkingStepComponent>(OnRemoveMarkingStep, OnRemoveMarkingCheck);
-        Subs.BuiEvents<SurgeryTargetComponent>(SurgeryUIKey.Key, subs =>
-        {
-            subs.Event<SurgeryStepChosenBuiMsg>(OnSurgeryTargetStepChosen);
-        });
+        Subs.BuiEvents<SurgeryTargetComponent>(SurgeryUIKey.Key,
+            subs =>
+            {
+                subs.Event<SurgeryStepChosenBuiMsg>(OnSurgeryTargetStepChosen);
+            });
     }
 
     private void SubSurgery<TComp>(EntityEventRefHandler<TComp, SurgeryStepEvent> onStep,
@@ -67,200 +69,138 @@ public abstract partial class SharedSurgerySystem
 
     private void OnToolStep(Entity<SurgeryStepComponent> ent, ref SurgeryStepEvent args)
     {
-        if (ent.Comp.Tool != null)
-        {
-            foreach (var reg in ent.Comp.Tool.Values)
-            {
-                if (!AnyHaveComp(args.Tools, reg.Component, out var tool, out _))
-                    return;
+        if (!TryToolAudio(ent, args))
+            return;
 
-                if (_net.IsServer &&
-                    TryComp(tool, out SurgeryToolComponent? toolComp) &&
-                    toolComp.EndSound != null)
-                {
-                    _audio.PlayPvs(toolComp.EndSound, tool);
-                }
-            }
-        }
-
-        if (ent.Comp.Add != null)
-        {
-            foreach (var reg in ent.Comp.Add.Values)
-            {
-                var compType = reg.Component.GetType();
-                if (HasComp(args.Part, compType))
-                    continue;
-                AddComp(args.Part, _compFactory.GetComponent(compType));
-            }
-        }
-
-        if (ent.Comp.Remove != null)
-        {
-            foreach (var reg in ent.Comp.Remove.Values)
-            {
-                RemComp(args.Part, reg.Component.GetType());
-            }
-        }
-
-        if (ent.Comp.BodyAdd != null)
-        {
-            foreach (var reg in ent.Comp.BodyAdd.Values)
-            {
-                var compType = reg.Component.GetType();
-                if (HasComp(args.Body, compType))
-                    continue;
-                AddComp(args.Body, _compFactory.GetComponent(compType));
-            }
-        }
-
-        if (ent.Comp.BodyRemove != null)
-        {
-            foreach (var reg in ent.Comp.BodyRemove.Values)
-            {
-                RemComp(args.Body, reg.Component.GetType());
-            }
-        }
-
-        // Dude this fucking function is so bloated now what the fuck.
-        if (ent.Comp.AddOrganOnAdd != null)
-        {
-            var organSlotIdToOrgan = _body.GetPartOrgans(args.Part).ToDictionary(o => o.Item2.SlotId, o => o);
-
-            foreach (var (organSlotId, compsToAdd) in ent.Comp.AddOrganOnAdd)
-            {
-                if (!organSlotIdToOrgan.TryGetValue(organSlotId, out var organValue))
-                    continue;
-                var (organId, organ) = organValue;
-
-                organ.OnAdd ??= new();
-
-                foreach (var (key, compToAdd) in compsToAdd)
-                    organ.OnAdd[key] = compToAdd;
-
-                EnsureComp<OrganEffectComponent>(organId);
-                RaiseLocalEvent(organId, new OrganComponentsModifyEvent(args.Body, true));
-            }
-        }
-
-        if (ent.Comp.RemoveOrganOnAdd != null)
-        {
-            var organSlotIdToOrgan = _body.GetPartOrgans(args.Part).ToDictionary(o => o.Item2.SlotId, o => o);
-
-            foreach (var (organSlotId, compsToRemove) in ent.Comp.RemoveOrganOnAdd)
-            {
-                if (!organSlotIdToOrgan.TryGetValue(organSlotId, out var organValue) ||
-                    organValue.Item2.OnAdd == null)
-                    continue;
-                var (organId, organ) = organValue;
-
-                // Need to raise this event first before removing the component entries so
-                // OrganEffectSystem still knows which components on the body to remove
-                RaiseLocalEvent(organId, new OrganComponentsModifyEvent(args.Body, false));
-                foreach (var key in compsToRemove.Keys)
-                    organ.OnAdd.Remove(key);
-            }
-        }
-
+        HandleOrganModification(args.Part, ent.Comp.AddOrganOnAdd, true);
+        HandleOrganModification(args.Part, ent.Comp.RemoveOrganOnAdd, false);
 
         //if (!HasComp<ForcedSleepingComponent>(args.Body))
         //    //RaiseLocalEvent(args.Body, new MoodEffectEvent("SurgeryPain"));
         // No mood on Goob :(
-        if (!_inventory.TryGetSlotEntity(args.User, "gloves", out var _)
-            || !_inventory.TryGetSlotEntity(args.User, "mask", out var _))
-        {
-            if (!HasComp<SanitizedComponent>(args.User))
-            {
-                var sepsis = new DamageSpecifier(_prototypes.Index<DamageTypePrototype>("Poison"), 5);
-                var ev = new SurgeryStepDamageEvent(args.User, args.Body, args.Part, args.Surgery, sepsis, 0.5f);
-                RaiseLocalEvent(args.Body, ref ev);
-            }
-        }
+        HandleSanitization(args);
     }
 
     private void OnToolCheck(Entity<SurgeryStepComponent> ent, ref SurgeryStepCompleteCheckEvent args)
     {
-        // Lord this function is fucking bloated now. Need to clean it up so its less spammy.
-        if (ent.Comp.Add != null)
+        if (CheckAddOrRemoveComponents(ent.Comp.Add, args.Part, checkMissing: true) ||
+            CheckAddOrRemoveComponents(ent.Comp.Remove, args.Part, checkMissing: false) ||
+            CheckAddOrRemoveComponents(ent.Comp.BodyAdd, args.Body, checkMissing: true) ||
+            CheckAddOrRemoveComponents(ent.Comp.BodyRemove, args.Body, checkMissing: false))
         {
-            foreach (var reg in ent.Comp.Add.Values)
+            args.Cancelled = true;
+            return;
+        }
+
+        if (CheckOrganAddOrRemove(ent.Comp.AddOrganOnAdd, args.Part, checkMissing: true) ||
+            CheckOrganAddOrRemove(ent.Comp.RemoveOrganOnAdd, args.Part, checkMissing: false))
+        {
+            args.Cancelled = true;
+        }
+    }
+
+    private void HandleSanitization(SurgeryStepEvent args)
+    {
+        if (_inventory.TryGetSlotEntity(args.User, "gloves", out var _)
+            && _inventory.TryGetSlotEntity(args.User, "mask", out var _))
+            return;
+
+        if (HasComp<SanitizedComponent>(args.User))
+            return;
+        var sepsis = new DamageSpecifier(_prototypes.Index<DamageTypePrototype>("Poison"), 5);
+        var ev = new SurgeryStepDamageEvent(args.User, args.Body, args.Part, args.Surgery, sepsis, 0.5f);
+        RaiseLocalEvent(args.Body, ref ev);
+    }
+
+    private bool TryToolAudio(Entity<SurgeryStepComponent> ent, SurgeryStepEvent args)
+    {
+        if (ent.Comp.Tool == null)
+            return true;
+        foreach (var reg in ent.Comp.Tool.Values)
+        {
+            if (!AnyHaveComp(args.Tools, reg.Component, out var tool, out _))
+                return false;
+
+            if (_net.IsServer &&
+                TryComp(tool, out SurgeryToolComponent? toolComp) &&
+                toolComp.EndSound != null)
             {
-                if (!HasComp(args.Part, reg.Component.GetType()))
-                {
-                    args.Cancelled = true;
-                    return;
-                }
+                _audio.PlayPvs(toolComp.EndSound, tool);
             }
         }
 
-        if (ent.Comp.Remove != null)
-        {
-            foreach (var reg in ent.Comp.Remove.Values)
-            {
-                if (HasComp(args.Part, reg.Component.GetType()))
-                {
-                    args.Cancelled = true;
-                    return;
-                }
-            }
-        }
+        return true;
+    }
+    private void HandleOrganModification(EntityUid organTarget,
+        Dictionary<string, ComponentRegistry>? modifications,
+        bool add)
+    {
+        if (modifications == null)
+            return;
 
-        if (ent.Comp.BodyAdd != null)
-        {
-            foreach (var reg in ent.Comp.BodyAdd.Values)
-            {
-                if (!HasComp(args.Body, reg.Component.GetType()))
-                {
-                    args.Cancelled = true;
-                    return;
-                }
-            }
-        }
+        var organSlotIdToOrgan = _body.GetPartOrgans(organTarget).ToDictionary(o => o.Item2.SlotId, o => o);
 
-        if (ent.Comp.BodyRemove != null)
+        foreach (var (slotId, components) in modifications)
         {
-            foreach (var reg in ent.Comp.BodyRemove.Values)
-            {
-                if (HasComp(args.Body, reg.Component.GetType()))
-                {
-                    args.Cancelled = true;
-                    return;
-                }
-            }
-        }
+            if (!organSlotIdToOrgan.TryGetValue(slotId, out var organValue))
+                continue;
 
-        if (ent.Comp.AddOrganOnAdd != null)
-        {
-            var organSlotIdToOrgan = _body.GetPartOrgans(args.Part).ToDictionary(o => o.Item2.SlotId, o => o.Item2);
-            foreach (var (organSlotId, compsToAdd) in ent.Comp.AddOrganOnAdd)
+            var (organId, organ) = organValue;
+
+            if (add)
             {
-                if (!organSlotIdToOrgan.TryGetValue(organSlotId, out var organ))
+                organ.OnAdd ??= new ComponentRegistry();
+                foreach (var (key, compToAdd) in components)
+                    organ.OnAdd[key] = compToAdd;
+
+                EnsureComp<OrganEffectComponent>(organId);
+                RaiseLocalEvent(organId, new OrganComponentsModifyEvent(organTarget, true));
+            }
+            else if (organ.OnAdd != null)
+            {
+                if (organValue.Item2.OnAdd == null)
                     continue;
-
-                if (organ.OnAdd == null || compsToAdd.Keys.Any(key => !organ.OnAdd.ContainsKey(key)))
-                {
-                    args.Cancelled = true;
-                    return;
-                }
-            }
-        }
-
-        if (ent.Comp.RemoveOrganOnAdd != null)
-        {
-            var organSlotIdToOrgan = _body.GetPartOrgans(args.Part).ToDictionary(o => o.Item2.SlotId, o => o.Item2);
-            foreach (var (organSlotId, compsToRemove) in ent.Comp.RemoveOrganOnAdd)
-            {
-                if (!organSlotIdToOrgan.TryGetValue(organSlotId, out var organ) || organ.OnAdd == null)
-                    continue;
-
-                if (compsToRemove.Keys.Any(key => organ.OnAdd.ContainsKey(key)))
-                {
-                    args.Cancelled = true;
-                    return;
-                }
+                RaiseLocalEvent(organId, new OrganComponentsModifyEvent(organTarget, false));
+                foreach (var key in components.Keys)
+                    organ.OnAdd.Remove(key);
             }
         }
     }
 
+    private bool CheckAddOrRemoveComponents(ComponentRegistry? components, EntityUid target, bool checkMissing)
+    {
+        if (components == null)
+            return false;
+
+        foreach (var (key,entry) in components)
+        {
+            bool hasComponent = HasComp(target, entry.Component.GetType());
+            if (checkMissing != hasComponent)
+                return true; // Early exit if condition fails
+        }
+
+        return false;
+    }
+
+// Checks add/remove logic on organs
+    private bool CheckOrganAddOrRemove(IReadOnlyDictionary<string, ComponentRegistry>? organChanges, EntityUid part, bool checkMissing)
+    {
+        if (organChanges == null)
+            return false;
+
+        var organSlotMap = _body.GetPartOrgans(part).ToDictionary(o => o.Item2.SlotId, o => o.Item2);
+
+        foreach (var (slotId, components) in organChanges)
+        {
+            if (!organSlotMap.TryGetValue(slotId, out var organ) || organ.OnAdd == null)
+                continue;
+
+            if (components.Keys.Any(key => checkMissing != organ.OnAdd.ContainsKey(key)))
+                return true;
+        }
+
+        return false;
+    }
     private void OnToolCanPerform(Entity<SurgeryStepComponent> ent, ref SurgeryCanPerformStepEvent args)
     {
         if (HasComp<SurgeryOperatingTableConditionComponent>(ent))
@@ -314,15 +254,6 @@ public abstract partial class SharedSurgerySystem
             }
         }
     }
-
-    private EntProtoId? GetProtoId(EntityUid entityUid)
-    {
-        if (!TryComp<MetaDataComponent>(entityUid, out var metaData))
-            return null;
-
-        return metaData.EntityPrototype?.ID;
-    }
-
     // I wonder if theres not a function that can do this already.
     private bool HasDamageGroup(EntityUid entity, string[] group, out DamageableComponent? damageable)
     {
@@ -450,17 +381,17 @@ public abstract partial class SharedSurgerySystem
 
         var targetPart = _body.GetBodyChildrenOfType(args.Body, removedComp.Part, symmetry: removedComp.Symmetry).FirstOrDefault();
 
-        if (targetPart != default)
-        {
-            // We reward players for properly affixing the parts by healing a little bit of damage, and enabling the part temporarily.
-            var ev = new BodyPartEnableChangedEvent(true);
-            RaiseLocalEvent(targetPart.Id, ref ev);
-            _damageable.TryChangeDamage(args.Body,
-                _body.GetHealingSpecifier(targetPart.Component) * 2,
-                canSever: false, // Just in case we heal a brute damage specifier and the logic gets fucky lol
-                targetPart: _body.GetTargetBodyPart(targetPart.Component.PartType, targetPart.Component.Symmetry));
-            RemComp<BodyPartReattachedComponent>(targetPart.Id);
-        }
+        if (targetPart == default)
+            return;
+
+        // We reward players for properly affixing the parts by healing a little bit of damage, and enabling the part temporarily.
+        var ev = new BodyPartEnableChangedEvent(true);
+        RaiseLocalEvent(targetPart.Id, ref ev);
+        _damageable.TryChangeDamage(args.Body,
+            _body.GetHealingSpecifier(targetPart.Component) * 2,
+            canSever: false, // Just in case we heal a brute damage specifier and the logic gets fucky lol
+            targetPart: _body.GetTargetBodyPart(targetPart.Component.PartType, targetPart.Component.Symmetry));
+        RemComp<BodyPartReattachedComponent>(targetPart.Id);
     }
 
     private void OnAffixPartCheck(Entity<SurgeryAffixPartStepComponent> ent, ref SurgeryStepCompleteCheckEvent args)
@@ -562,7 +493,7 @@ public abstract partial class SharedSurgerySystem
         foreach (var reg in removedOrganComp.Organ.Values)
         {
             _body.TryGetBodyPartOrgans(args.Part, reg.Component.GetType(), out var organs);
-            if (organs != null && organs.Count > 0)
+            if (organs is { Count: > 0 })
                 RemComp<OrganReattachedComponent>(organs[0].Id);
         }
 
@@ -578,8 +509,7 @@ public abstract partial class SharedSurgerySystem
         foreach (var reg in removedOrganComp.Organ.Values)
         {
             _body.TryGetBodyPartOrgans(args.Part, reg.Component.GetType(), out var organs);
-            if (organs != null
-                && organs.Count > 0
+            if (organs is { Count: > 0 }
                 && organs.Any(organ => HasComp<OrganReattachedComponent>(organ.Id)))
                 args.Cancelled = true;
         }
@@ -594,11 +524,10 @@ public abstract partial class SharedSurgerySystem
         foreach (var reg in organComp.Organ.Values)
         {
             _body.TryGetBodyPartOrgans(args.Part, reg.Component.GetType(), out var organs);
-            if (organs != null && organs.Count > 0)
-            {
-                _body.RemoveOrgan(organs[0].Id, organs[0].Organ);
-                _hands.TryPickupAnyHand(args.User, organs[0].Id);
-            }
+            if (organs is not { Count: > 0 })
+                continue;
+            _body.RemoveOrgan(organs[0].Id, organs[0].Organ);
+            _hands.TryPickupAnyHand(args.User, organs[0].Id);
         }
     }
 
@@ -612,13 +541,11 @@ public abstract partial class SharedSurgerySystem
 
         foreach (var reg in organComp.Organ.Values)
         {
-            if (_body.TryGetBodyPartOrgans(args.Part, reg.Component.GetType(), out var organs)
-                && organs != null
-                && organs.Count > 0)
-            {
-                args.Cancelled = true;
-                return;
-            }
+            if (!_body.TryGetBodyPartOrgans(args.Part, reg.Component.GetType(), out var organs)
+                || organs.Count <= 0)
+                continue;
+            args.Cancelled = true;
+            return;
         }
     }
 
@@ -740,8 +667,7 @@ public abstract partial class SharedSurgerySystem
         // TODO: Move 2 seconds to a field of SurgeryStepComponent
         var duration = GetSurgeryDuration(step, user, body, speed);
 
-        if (TryComp(user, out SurgerySpeedModifierComponent? surgerySpeedMod)
-            && surgerySpeedMod is not null)
+        if (TryComp(user, out SurgerySpeedModifierComponent? surgerySpeedMod))
             duration = duration / surgerySpeedMod.SpeedModifier;
 
         var doAfter = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(duration), ev, body, part)
