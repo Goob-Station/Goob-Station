@@ -6524,3 +6524,9 @@ Entries:
       message: Carp scroll can now only be learned by a single person.
   id: 756
   time: '2025-03-21T02:46:57.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Tweak
+      message: Biocube Fabricators can be sped up using space lube.
+  id: 757
+  time: '2025-03-21T10:28:14.0000000+00:00'
