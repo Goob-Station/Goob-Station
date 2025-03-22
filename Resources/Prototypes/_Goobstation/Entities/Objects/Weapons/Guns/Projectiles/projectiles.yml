@@ -156,6 +156,46 @@
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: impact_blue
 
+- type: hitscan
+  id: LaserSniper
+  damage:
+    types:
+      Heat: 30
+      Shock: 10
+  muzzleFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_blue
+  travelFlash:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/heavy_pulse.rsi
+    state: beam_blue_heavy
+  impactFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_blue
+
+- type: entity
+  name: heavy laser bolt
+  id: BulletLaserHeavy
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Heat: 13
+        Shock: 5
+
+- type: entity
+  name: heavy laser barrage
+  id: BulletLaserSpreadHeavy
+  categories: [ HideSpawnMenu ]
+  parent: BulletLaserHeavy
+  components:
+  - type: ProjectileSpread
+    proto: BulletLaserHeavy
+    count: 5
+    spread: 30
+
 - type: entity
   id: BulletTemperatureCold
   name: cold temperature bolt
@@ -196,3 +236,4 @@
     energy: 1
   - type: ChangeTemperatureOnCollide # This will probably be tweaked.
     heat: 35000
+
