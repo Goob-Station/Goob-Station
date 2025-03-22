@@ -274,3 +274,6 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 40
+  - type: Tag
+    tags:
+    - WeaponEnergyGunLawbringer
