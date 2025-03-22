@@ -55,3 +55,11 @@
   color: "#5ed7aa"
   requiredTags:
   - BinaryMind
+
+- type: collectiveMind
+  id: Mousemind
+  name: collective-mind-mousemind
+  keycode: 'p'
+  color: "#c18851"
+  requiredTags:
+  - MouseMind
