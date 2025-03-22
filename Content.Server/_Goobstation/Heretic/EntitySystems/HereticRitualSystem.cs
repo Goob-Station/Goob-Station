@@ -50,7 +50,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
             return false;
 
         var rit = _series.CreateCopy((HereticRitualPrototype) GetRitual(ritualId).Clone(), notNullableOverride: true);
-        var lookup = _lookup.GetEntitiesInRange(platform, .75f);
+        var lookup = _lookup.GetEntitiesInRange(platform, 1.5f);
 
         var missingList = new Dictionary<string, float>();
         var toDelete = new List<EntityUid>();
