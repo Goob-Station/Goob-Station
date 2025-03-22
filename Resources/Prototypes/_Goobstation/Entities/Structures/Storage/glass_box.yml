@@ -1,5 +1,5 @@
 - type: entity
-  id: GlassBoxLaser
+  id: GlassBoxLawbringer
   parent: GlassBox
   suffix: Lawbringer
   components:
@@ -16,3 +16,13 @@
           tags:
           - WeaponEnergyGunLawbringer
         ejectSound: /Audio/Machines/machine_switch.ogg
+
+- type: entity
+  id: GlassBoxLawbringerFilled
+  parent: GlassBoxLawbringer
+  suffix: AntiqueLaser, Filled
+  components:
+  - type: ContainerFill
+    containers:
+      ItemCabinet:
+      - WeaponEnergyGunLawbringer
