@@ -74,8 +74,10 @@
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 1
-    knockdownTimeDelta: -1
+    delayDelta: 2
+    knockdownTimeDelta: -2
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.7
 
 - type: entity
   abstract: true
@@ -92,8 +94,10 @@
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 1
-    knockdownTimeDelta: -1
+    delayDelta: 2
+    knockdownTimeDelta: -2
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.7
 
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]
@@ -371,8 +375,10 @@
         Slash: 0.65
         Piercing: 0.85
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 1
-    knockdownTimeDelta: -1
+    delayDelta: 2
+    knockdownTimeDelta: -2
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.7
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -426,8 +432,10 @@
         Heat: 0.85
         Caustic: 0.75
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 1
-    knockdownTimeDelta: -1
+    delayDelta: 2
+    knockdownTimeDelta: -2
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.7
 
 - type: entity
   parent: ClothingOuterStorageBase
