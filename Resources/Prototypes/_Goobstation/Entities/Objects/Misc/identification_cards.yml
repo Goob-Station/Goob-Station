@@ -121,8 +121,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/id_cards.rsi
-    layers:
-    - state: executive
+    state: icon
   - type: Clothing
     sprite: _Goobstation/Objects/Misc/id_cards.rsi
     quickEquip: true
