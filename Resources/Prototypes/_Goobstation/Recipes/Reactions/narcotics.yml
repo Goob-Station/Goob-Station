@@ -27,3 +27,13 @@
       amount: 1
   products:
     Aranesp: 1
+
+- type: reaction
+  id: OleoresinCapsaicin
+  reactants:
+    CapsaicinOil:
+      amount: 1
+    Acetone:
+      amount: 2
+  products:
+    OleoresinCapsaicin: 1

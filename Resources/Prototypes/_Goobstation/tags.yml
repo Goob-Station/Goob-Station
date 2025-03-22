@@ -192,6 +192,9 @@
   id: JanicartKeys
 
 - type: Tag
+  id: Justice
+
+- type: Tag
   id: Kidneys
 
 - type: Tag
@@ -256,6 +259,9 @@
 
 - type: Tag
   id: Organ
+
+- type: Tag
+  id: PepperSpray
 
 - type: Tag
   id: Poppy

@@ -1,8 +1,5 @@
-using System.Numerics;
 using Content.Shared._Goobstation.Boomerang;
 using Robust.Shared.GameStates;
-using Robust.Shared.Physics.Components;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.Weapons.Melee.Components;
 

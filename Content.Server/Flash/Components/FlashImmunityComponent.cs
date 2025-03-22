@@ -1,5 +1,3 @@
-using Robust.Shared.GameStates;
-
 namespace Content.Server.Flash.Components;
 
 /// <summary>
@@ -9,7 +7,6 @@ namespace Content.Server.Flash.Components;
 [RegisterComponent] // Goob edit
 public sealed partial class FlashImmunityComponent : Component
 {
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("enabled")]
+    [DataField] // Goob edit
     public bool Enabled { get; set; } = true;
 }

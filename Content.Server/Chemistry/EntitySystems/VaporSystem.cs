@@ -16,6 +16,9 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
 using System.Numerics;
+using Content.Server.Flash;
+using Content.Server.Flash.Components;
+using Content.Shared.Inventory;
 
 namespace Content.Server.Chemistry.EntitySystems
 {
@@ -29,6 +32,7 @@ namespace Content.Server.Chemistry.EntitySystems
         [Dependency] private readonly ThrowingSystem _throwing = default!;
         [Dependency] private readonly ReactiveSystem _reactive = default!;
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+        [Dependency] private readonly InventorySystem _inventory = default!; // Goobstation
 
         private const float ReactTime = 0.125f;
 
@@ -47,6 +51,10 @@ namespace Content.Server.Chemistry.EntitySystems
             {
                 var solution = soln.Comp.Solution;
                 _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Touch);
+
+                if (!IsEyesProtected(args.OtherEntity)) // Goobstation
+                    _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Eyes); // Goobstation
+
             }
 
             // Check for collision with a impassable object (e.g. wall) and stop
@@ -140,6 +148,24 @@ namespace Content.Server.Chemistry.EntitySystems
                 // Delete this
                 EntityManager.QueueDeleteEntity(entity);
             }
+
+        }
+        private bool IsEyesProtected(EntityUid entitySprayed) // Goobstation - Start
+        {
+            if (!TryComp<InventoryComponent>(entitySprayed, out var inventoryComponent))
+                return false;
+            var hasFlashImmunity = false;
+
+            foreach (var slot in new[] { "head", "eyes", "mask" })
+            {
+                _inventory.TryGetSlotEntity(entitySprayed, slot, out var item, inventoryComponent);
+                if (HasComp<FlashImmunityComponent>(item))
+                {
+                    hasFlashImmunity = true;
+                    break;
+                }
+            }
+            return hasFlashImmunity;
         }
     }
 }
