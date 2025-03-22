@@ -1,0 +1,18 @@
+- type: entity
+  id: GlassBoxLaser
+  parent: GlassBox
+  suffix: Lawbringer
+  components:
+  - type: AccessReader
+    access: [["HeadOfSecurity"]]
+  - type: Construction
+    graph: GlassBox
+    node: glassBox
+  - type: ItemSlots
+    slots:
+      ItemCabinet:
+        ejectOnInteract: true
+        whitelist:
+          tags:
+          - WeaponEnergyGunLawbringer
+        ejectSound: /Audio/Machines/machine_switch.ogg
