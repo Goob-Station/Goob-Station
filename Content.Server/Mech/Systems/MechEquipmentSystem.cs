@@ -39,7 +39,7 @@ public sealed class MechEquipmentSystem : EntitySystem
         if (args.User == mechComp.PilotSlot.ContainedEntity)
             return;
 
-        if (mechComp.EquipmentContainer.ContainedEntities.Count >= mechComp.MaxEquipmentAmount)
+        if (mechComp.EquipmentContainer.ContainedEntities.Count >= mechComp.MaxEquipmentAmount || mechComp.ArmorContainer.ContainedEntities.Count >= mechComp.MaxArmorAmount)
             return;
 
         if (_whitelistSystem.IsWhitelistFail(mechComp.EquipmentWhitelist, args.Used))
