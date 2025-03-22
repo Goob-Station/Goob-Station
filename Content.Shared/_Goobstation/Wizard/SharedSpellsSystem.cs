@@ -176,6 +176,9 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (!TryComp(action, out SwapSpellComponent? swap))
             return;
 
+        if (!swap.AllowSecondaryTarget)
+            return;
+
         swap.SecondaryTarget = target;
         Dirty(action, swap);
     }
@@ -987,6 +990,9 @@ public abstract class SharedSpellsSystem : EntitySystem
             return;
 
         if (!TryComp(ev.Action, out SwapSpellComponent? swap))
+            return;
+
+        if (!ev.ThroughWalls && !_examine.InRangeUnOccluded(ev.Performer, ev.Target, ev.Range))
             return;
 
         var userXform = Transform(ev.Performer);
