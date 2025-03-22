@@ -388,6 +388,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         // Raise an event to inform anything that wants to know about the entity swap
         var ev = new PolymorphedEvent(uid, child, false);
         RaiseLocalEvent(uid, ref ev);
+        RaiseLocalEvent(child, ref ev);
 
         return child;
     }
@@ -468,6 +469,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         // Raise an event to inform anything that wants to know about the entity swap
         var ev = new PolymorphedEvent(uid, parent, true);
         RaiseLocalEvent(uid, ref ev);
+        RaiseLocalEvent(parent, ref ev);
 
         if (component.Configuration.ShowPopup) // Goob edit
         {

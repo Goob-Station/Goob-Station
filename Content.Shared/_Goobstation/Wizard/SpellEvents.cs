@@ -591,7 +591,7 @@ public sealed partial class DimensionShiftEvent : EntityEventArgs
     public float CarbonDioxideMoles = 10f;
 
     [DataField]
-    public float Temperature = Atmospherics.T20C;
+    public float Temperature = Atmospherics.T0C - 5f;
 
     [DataField]
     public string? Parallax = "Wizard";
