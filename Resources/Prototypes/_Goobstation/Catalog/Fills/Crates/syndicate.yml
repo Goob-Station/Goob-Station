@@ -66,12 +66,26 @@
   description: Help do your part to end station hunger by distributing pizza to underfunded departments! Includes 4 pizzas.
   components:
   - type: StorageFill
-    contents:
+    contents:     #to avoid them from being easily identifiable (8 pizza bomb + 7 regular pizzas)
     - id: FoodBoxPizzaFilled
-      amount: 5
-    - id: FoodBoxPizzaCotton
-      amount : 2
+      amount: 1
     - id: FoodBoxPizzaBomb
-      amount : 8
+      amount: 2
+    - id: FoodBoxPizzaFilled
+      amount: 2
+    - id: FoodBoxPizzaBomb
+      amount : 1
+    - id: FoodBoxPizzaCotton
+      amount : 1
+    - id: FoodBoxPizzaBomb
+      amount : 2
+    - id: FoodBoxPizzaFilled
+      amount: 2
+    - id: FoodBoxPizzaBomb
+      amount : 2
+    - id: FoodBoxPizzaFilled
+      amount: 1
+    - id: FoodBoxPizzaBomb
+      amount: 1
     - id: LidSalami
       prob: 0.01
