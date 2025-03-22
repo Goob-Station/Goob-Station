@@ -404,6 +404,16 @@
     - UplinkExplosives
 
 
+- type: listing
+  id: UplinkPizzaBomb   # Harmony
+  name: uplink-pizza-bomb-name
+  description: uplink-pizza-bomb-desc
+  productEntity: Pizzabomb
+  cost:
+    Telecrystal: 20  # Goob
+  categories:
+  - UplinkExplosives
+
 # Ammo
 
 - type: listing
