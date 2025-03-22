@@ -224,3 +224,15 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 6
     knockdownTimeDelta: -4
+
+# Head of Security
+
+- type: entity
+  parent: ClothingOuterHardsuitSecurityRed
+  id: ClothingOuterHardsuitHeadOfSecurityAdvanced
+  name: head of security's advanced hardsuit
+  description: A special suit that protects against hazardous, low pressure environments. This particular model has a recharging adrenal auto-injector.
+  components:
+  - type: ClothingGrantComponent
+    component:
+    - type: EpinephrineAutoInjectComponent

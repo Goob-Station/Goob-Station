@@ -1,0 +1,4 @@
+- type: ClothingAutoInjectorConfiguration
+  id: Epinephrine
+  reagents:
+    Epinephrine: 10
