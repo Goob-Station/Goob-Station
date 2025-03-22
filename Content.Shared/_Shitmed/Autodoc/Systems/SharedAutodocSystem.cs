@@ -14,11 +14,9 @@ using Content.Shared.Labels.EntitySystems;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
-using Content.Shared.VoiceMask;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using System;
 using System.Linq;
 
 namespace Content.Shared._Shitmed.Autodoc.Systems;
