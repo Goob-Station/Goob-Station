@@ -292,7 +292,7 @@
   parent: [SecHypo, BaseCentcommContraband]
   id: AmnestizineHypospray
   suffix: DO NOT MAP
-  description: Prevents the subject from remembering anything prior or during the injection.
+  description: Injects a substance capable of causing complete and total amnesia. Caution:/ Overuse may lead to permanent effects. # Adding a warning, since I saw so many mins just perma blind people lmfao.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/amnestic_hypo.rsi
@@ -301,10 +301,10 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 100
+        maxVol: 150
         reagents:
         - ReagentId: Amnestizine
-          Quantity: 100
+          Quantity: 150
   - type: ExaminableSolution
     solution: hypospray
   - type: Hypospray

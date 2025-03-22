@@ -1875,7 +1875,7 @@ entities:
     - type: Transform
       pos: -0.5293221,-9.356291
       parent: 1
-- proto: RandomHumanoidSpawnerERTLeaderEVAAnnie
+- proto: RandomHumanoidSpawnerERTLeaderEVA
   entities:
   - uid: 216
     components:

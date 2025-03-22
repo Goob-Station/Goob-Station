@@ -44,7 +44,7 @@
   id: HecuSoldier
   parent: EventHumanMindShielded
   components:
-  - type: GrantImplant
+  - type: AutoImplant
     implants: [ FreedomImplant ]
   - type: GhostRole
     name: ghost-role-information-Hecu-name
@@ -76,7 +76,7 @@
   id: Gman
   parent: EventHumanMindShielded
   components:
-  - type: GrantImplant
+  - type: AutoImplant
     implants: [ VaporizeImplant, ShiftImplant, BlinkImplant, FreedomImplant, ScramImplant, StopTimeImplant ]
   - type: RandomHumanoidAppearance
     randomizeName: false
