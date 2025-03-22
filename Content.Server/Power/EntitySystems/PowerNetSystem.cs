@@ -3,6 +3,7 @@ using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.Power.Components;
 using Content.Server.Power.NodeGroups;
 using Content.Server.Power.Pow3r;
+using Content.Shared._TBDStation.ServerKarma.Events;
 using Content.Shared.CCVar;
 using Content.Shared.Power;
 using Content.Shared.Power.Components;
@@ -381,6 +382,11 @@ namespace Content.Server.Power.EntitySystems
 
                 var ev = new PowerChangedEvent(powered, apcReceiver.NetworkLoad.ReceivingPower);
                 RaiseLocalEvent(uid, ref ev);
+                if (!powered) // TBDStaion
+                {
+                    var ev2 = new DepStatDEvent(1, DepStatDEvent.DepStatKey.PowerOff); // TBDStaion
+                    RaiseLocalEvent(ev2); // TBDStaion
+                }
 
                 if (_appearanceQuery.TryComp(uid, out var appearance))
                     _appearance.SetData(uid, PowerDeviceVisuals.Powered, powered, appearance);

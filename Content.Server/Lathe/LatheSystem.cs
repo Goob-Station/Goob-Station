@@ -31,6 +31,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Server.Chat.Systems;
+using Content.Shared._TBDStation.ServerKarma.Events;
 
 namespace Content.Server.Lathe
 {
@@ -209,6 +210,8 @@ namespace Content.Server.Lathe
 
             var ev = new LatheStartPrintingEvent(recipe);
             RaiseLocalEvent(uid, ref ev);
+            var ev2 = new DepStatDEvent(recipe.Materials.Values.Sum(), DepStatDEvent.DepStatKey.LathePrint); // TBDStaion
+            RaiseLocalEvent(ev2); // TBDStaion
 
             _audio.PlayPvs(component.ProducingSound, uid);
             UpdateRunningAppearance(uid, true);

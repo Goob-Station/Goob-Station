@@ -16,6 +16,17 @@ using Content.Server.Roles;
 using Content.Shared.Players;
 using Content.Shared.Roles;
 using Robust.Shared.Network;
+using Content.Shared.Mobs.Systems;
+using Robust.Shared.Prototypes;
+using System.Linq;
+using Content.Server.Objectives;
+using Content.Shared.Cuffs.Components;
+using Content.Server.Shuttles.Systems;
+using Content.Shared.Research.Components;
+using Content.Shared.Power;
+using Content.Shared.Materials;
+using Content.Shared.Lathe;
+using Content.Server.Research.Systems;
 
 namespace Content.Server._TBDStation.ServerKarma
 {
@@ -33,28 +44,69 @@ namespace Content.Server._TBDStation.ServerKarma
         [Dependency] private readonly IPlayerManager _players = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly SharedPlayerSystem _playerSystem = default!;
+        [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
-        private int _goobcoinsPerPlayer = 10;
-        private int _goobcoinsNonAntagMultiplier = 3;
-        private int _goobcoinsServerMultiplier = 1;
-        private int _goobcoinsMinPlayers;
+        private readonly int _karmaPerRound = 9;
+        private readonly float _karmaEndRoundMultiplier = 1;
+
         // assholeMeter[user] -> (timeSinceAsshole, karmaMult)
-        private Dictionary<NetUserId, Tuple<DateTime, float>> assholeMeter = new Dictionary<NetUserId, Tuple<DateTime, float>>();
+        private Dictionary<NetUserId, Tuple<DateTime, float>> _assholeMeter = new Dictionary<NetUserId, Tuple<DateTime, float>>();
+        private List<int> _departmentSuccess = new List<int>();
 
         public override void Initialize()
         {
             base.Initialize();
             _karmaMan.KarmaChange += OnKarmaChange;
+            for (int i = 0; i < Enum.GetNames(typeof(DepStatDEvent.DepStatKey)).Length; i++)
+                _departmentSuccess.Add(0);
             SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundEndCleanup);
-            SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndText);
+            SubscribeLocalEvent<RoundEndMessageEvent>(OnRoundEndText);
             SubscribeNetworkEvent<PlayerKarmaRequestEvent>(OnKarmaRequest);
             SubscribeLocalEvent<PlayerKarmaHitEvent>(OnKarmaHit);
             SubscribeLocalEvent<PlayerKarmaGriefEvent>(OnKarmaGrief);
-            Subs.CVar(_cfg, GoobCVars.GoobcoinsPerPlayer, value => _goobcoinsPerPlayer = value, true);
-            Subs.CVar(_cfg, GoobCVars.GoobcoinNonAntagMultiplier, value => _goobcoinsNonAntagMultiplier = value, true);
-            Subs.CVar(_cfg, GoobCVars.GoobcoinServerMultiplier, value => _goobcoinsServerMultiplier = value, true);
-            Subs.CVar(_cfg, GoobCVars.GoobcoinMinPlayers, value => _goobcoinsMinPlayers = value, true);
+
+            SubscribeLocalEvent<DepStatDEvent>(OnDepartmentSuccessChange);
+            // SubscribeLocalEvent<PowerChangedEvent>(OnPowerChanged);
+            // SubscribeLocalEvent<LatheStartPrintingEvent>(OnLathePrint);
+
+            // TODO use CVars, I believe they let us change these values midgame.
+            // Subs.CVar(_cfg, GoobCVars.GoobcoinsPerPlayer, value => _karmaPerRound = value, true);
+            // Subs.CVar(_cfg, GoobCVars.GoobcoinNonAntagMultiplier, value => _goobcoinsNonAntagMultiplier = value, true);
+            // Subs.CVar(_cfg, GoobCVars.GoobcoinServerMultiplier, value => _goobcoinsServerMultiplier = value, true);
+            // Subs.CVar(_cfg, GoobCVars.GoobcoinMinPlayers, value => _goobcoinsMinPlayers = value, true);
         }
+
+        private void OnDepartmentSuccessChange(DepStatDEvent ev)
+        {
+            _departmentSuccess[(int) ev.Type] += ev.Amount;
+            switch (ev.Type)
+            {
+                case DepStatDEvent.DepStatKey.PowerOff:
+                    break;
+                case DepStatDEvent.DepStatKey.ResearchTech:
+                    break;
+                case DepStatDEvent.DepStatKey.LathePrint:
+                    break;
+            }
+        }
+
+        // private void OnNewTechUnlocked(ResearchSystem ent, ref TechnologyDatabaseModifiedEvent args)
+        // {
+        //     _techResearched++;
+        // }
+
+        // private void OnLathePrint(LatheStartPrintingEvent ev)
+        // {
+        //     _matsUsedToPrint += ev.Recipe.Materials.Values.Sum();
+        // }
+
+        // private void OnPowerChanged(PowerChangedEvent ev)
+        // {
+        //     if (!ev.Powered)
+        //         _unPowered++;
+        // }
+
         public override void Shutdown()
         {
             base.Shutdown();
@@ -64,14 +116,23 @@ namespace Content.Server._TBDStation.ServerKarma
         private void OnRoundEndCleanup(RoundRestartCleanupEvent ev)
         {
             _karmaMan.Save();
+            for (int i = 0; i < Enum.GetNames(typeof(DepStatDEvent.DepStatKey)).Length; i++)
+                _departmentSuccess[i] = 0;
         }
 
-        private void OnRoundEndText(RoundEndTextAppendEvent ev)
+        private void OnRoundEndText(RoundEndMessageEvent ev)
         {
-            if (_players.PlayerCount < _goobcoinsMinPlayers)
-                return;
+            // if (_players.PlayerCount < _goobcoinsMinPlayers)
+            //     return;
 
             var query = EntityQueryEnumerator<MindContainerComponent>();
+            var departmentProtos = _prototypeManager.EnumeratePrototypes<DepartmentPrototype>();
+
+            int antagsCount = 0;
+            int custodyAntags = 0;
+            int deadPlayers = 0;
+            // NetUserId, karmaSum, departments
+            List<Tuple<NetUserId, float, List<DepartmentPrototype>>> players = new List<Tuple<NetUserId, float, List<DepartmentPrototype>>>();
 
             while (query.MoveNext(out var uid, out var mindContainer))
             {
@@ -80,17 +141,92 @@ namespace Content.Server._TBDStation.ServerKarma
                     || HasComp<BorgBrainComponent>(uid)
                     || isBorg))
                     continue;
-
-                if (mindContainer.Mind.HasValue)
+                if (!mindContainer.Mind.HasValue)
+                    continue;
+                var mindId = mindContainer.Mind.Value;
+                var mind = Comp<MindComponent>(mindId);
+                if (!(mind is not null
+                    && (isBorg || !_mind.IsCharacterDeadIc(mind)) // Borgs count always as dead so I'll just throw them a bone and give them an exception.
+                    && mind.OriginalOwnerUserId.HasValue))
+                    continue;
+                // Is player - now calculate karma
+                float karma = _karmaPerRound;
+                var session = mind.Session; // mind.MindRoles
+                if (session is not null)
                 {
-                    var mind = Comp<MindComponent>(mindContainer.Mind.Value);
-                    if (mind is not null
-                        && (isBorg || !_mind.IsCharacterDeadIc(mind)) // Borgs count always as dead so I'll just throw them a bone and give them an exception.
-                        && mind.OriginalOwnerUserId.HasValue)
+                    karma += _jobs.GetJobGoobcoins(session);
+                }
+
+                var job = _jobs.MindTryGetJobName(mindId);
+                List<DepartmentPrototype> departments = new List<DepartmentPrototype>();
+                foreach (var department in departmentProtos)
+                {
+                    if (department.Roles.Contains(job))
                     {
-                        _karmaMan.AddKarma(mind.OriginalOwnerUserId.Value, 50);
+                        departments.Add(department);
                     }
                 }
+                players.Add(new Tuple<NetUserId, float, List<DepartmentPrototype>>(mind.OriginalOwnerUserId.Value, karma, departments));
+
+                if (_role.MindIsAntagonist(mindId))
+                {
+                    antagsCount++;
+                    if (IsInCustody(mindId))
+                        custodyAntags++;
+                }
+                if (_mobStateSystem.IsDead(uid))
+                    deadPlayers++;
+            }
+
+            float departmentSuccessSecurity = 15 * custodyAntags - 4 * antagsCount; // TODO check greentext antags
+            // departmentSuccessSecurity = Math.Clamp(departmentSuccessSecurity, -15, 90);
+            float departmentSuccessCargo = 0.0003f * _departmentSuccess[(int) DepStatDEvent.DepStatKey.LathePrint] - 10;
+            // departmentSuccessCargo = Math.Clamp(departmentSuccessCargo, -15, 90);
+            float departmentSuccessEngineering = 20 - 0.03f * _departmentSuccess[(int) DepStatDEvent.DepStatKey.PowerOff];
+            // departmentSuccessEngineering = Math.Clamp(departmentSuccessEngineering, -15, 90);
+            float departmentSuccessMedical = 3 * (0.5f * players.Count - deadPlayers);
+            // departmentSuccessMedical = Math.Clamp(departmentSuccessMedical, -15, 90);
+            float departmentSuccessScience = 2 * (_departmentSuccess[(int) DepStatDEvent.DepStatKey.ResearchTech] - 7);
+            // departmentSuccessScience = Math.Clamp(departmentSuccessScience, -15, 90);
+
+            float departmentSuccessAll = (departmentSuccessSecurity + departmentSuccessCargo + departmentSuccessEngineering + departmentSuccessMedical + departmentSuccessScience) / (5 + 2);
+            // Add department data to karma sums
+            foreach (var player in players)
+            {
+                var departments = player.Item3;
+                float karma = player.Item2;
+                float jobSuccessKarma = 0;
+                foreach (var department in departments)
+                {
+                    switch (department.ID)
+                    {
+                        // mfw they define things in yml instead of code
+                        case "Command":
+                        case "Silicon":
+                            jobSuccessKarma += departmentSuccessAll;
+                            break;
+                        case "Security":
+                            jobSuccessKarma += departmentSuccessSecurity;
+                            break;
+                        case "Cargo":
+                            jobSuccessKarma += departmentSuccessCargo;
+                            break;
+                        case "Engineering":
+                            jobSuccessKarma += departmentSuccessEngineering;
+                            break;
+                        case "Medical":
+                            jobSuccessKarma += departmentSuccessMedical;
+                            break;
+                        case "Science":
+                            jobSuccessKarma += departmentSuccessScience;
+                            break;
+                    }
+                }
+                if (departments.Count != 0)
+                    karma += jobSuccessKarma / departments.Count;
+
+                karma *= _karmaEndRoundMultiplier;
+                _karmaMan.AddKarma(player.Item1, (int) karma);
             }
         }
 
@@ -129,11 +265,16 @@ namespace Content.Server._TBDStation.ServerKarma
             // Should not lose karma attacking someone you attacked
             // Should lose extra 3x karma if said person is crit and less 0.5x karma if their full health.
             // Should not lose karma if you attack nukie, should lose karma if you unprovoked attack heratic/traitor unless they have killed someone.
-            if (_actors.TryGetSession(new EntityUid(ev.Target), out ICommonSession? hitSession))
+            var target = new EntityUid(ev.Target);
+            if (_actors.TryGetSession(target, out ICommonSession? hitSession))
             {
                 if (hitSession != null)
                 {
                     float delta = GetMultiplier(session, hitSession, ev.Damage);
+                    if (_mobStateSystem.IsCritical(target)) // more if crit
+                        delta *= 3;
+                    else if (_mobStateSystem.IsDead(target)) // less if dead
+                        delta *= 0.5f;
                     _karmaMan.RemoveKarma(netUserId, (int) delta);
                 }
             }
@@ -198,15 +339,15 @@ namespace Content.Server._TBDStation.ServerKarma
             // 1 > karmaMult > 0: Lower means others lose less karma greifing this player.
             var karmaMult = 1 / (1 + amount * 0.3f);
             var now = DateTime.UtcNow;
-            if (assholeMeter.TryGetValue(asshole, out var proofOfAsshole))
+            if (_assholeMeter.TryGetValue(asshole, out var proofOfAsshole))
             {
                 TimeSpan timeSinceLastJerkMoment = now - proofOfAsshole.Item1;
                 if (timeSinceLastJerkMoment.TotalMinutes > 10)
                 {
-                    assholeMeter[asshole] = new Tuple<DateTime, float>(now, proofOfAsshole.Item2 * karmaMult);
+                    _assholeMeter[asshole] = new Tuple<DateTime, float>(now, proofOfAsshole.Item2 * karmaMult);
                 }
             }
-            assholeMeter[asshole] = new Tuple<DateTime, float>(now, 1 * karmaMult);
+            _assholeMeter[asshole] = new Tuple<DateTime, float>(now, 1 * karmaMult);
         }
         /// <summary>
         ///
@@ -216,7 +357,7 @@ namespace Content.Server._TBDStation.ServerKarma
         private float GetAssholeMeter(NetUserId asshole)
         {
             var now = DateTime.UtcNow;
-            if (assholeMeter.TryGetValue(asshole, out var proofOfAsshole))
+            if (_assholeMeter.TryGetValue(asshole, out var proofOfAsshole))
             {
                 TimeSpan timeSinceLastJerkMoment = now - proofOfAsshole.Item1;
                 if (timeSinceLastJerkMoment.TotalMinutes > 10)
@@ -226,5 +367,30 @@ namespace Content.Server._TBDStation.ServerKarma
             }
             return 1;
         }
+
+
+        #region Copied stuff
+        [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
+        /// <summary>
+        /// Returns whether a target is considered 'in custody' (cuffed on the shuttle).
+        /// </summary>
+        private bool IsInCustody(EntityUid mindId, MindComponent? mind = null)
+        {
+            if (!Resolve(mindId, ref mind))
+                return false;
+
+            // Ghosting will not save you
+            bool originalEntityInCustody = false;
+            EntityUid? originalEntity = GetEntity(mind.OriginalOwnedEntity);
+            if (originalEntity.HasValue && originalEntity != mind.OwnedEntity)
+            {
+                originalEntityInCustody = TryComp<CuffableComponent>(originalEntity, out var origCuffed) && origCuffed.CuffedHandCount > 0
+                    && _emergencyShuttle.IsTargetEscaping(originalEntity.Value);
+            }
+
+            return originalEntityInCustody || (TryComp<CuffableComponent>(mind.OwnedEntity, out var cuffed) && cuffed.CuffedHandCount > 0
+                && _emergencyShuttle.IsTargetEscaping(mind.OwnedEntity.Value));
+        }
+        #endregion
     }
 }

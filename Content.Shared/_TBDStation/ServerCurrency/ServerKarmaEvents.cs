@@ -67,6 +67,30 @@ public sealed class PlayerKarmaUpdateEvent : EntityEventArgs
 
 }
 
+/// <summary>
+/// Department statistic delta(change) event
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class DepStatDEvent : EntityEventArgs
+{
+    public int Amount;
+    public DepStatKey Type;
+    public DepStatDEvent(int amount, DepStatKey type)
+    {
+        Amount = amount;
+        Type = type;
+    }
+    /// <summary>
+    /// Department Statistic key
+    /// </summary>
+    public enum DepStatKey
+    {
+        PowerOff,
+        ResearchTech,
+        LathePrint,
+    }
+}
+
 [Serializable, NetSerializable]
 public sealed class PlayerKarmaRequestEvent : EntityEventArgs
 {
