@@ -486,6 +486,9 @@ public sealed partial class SwapSpellEvent : EntityTargetActionEvent, ISpeakSpel
 
     [DataField]
     public EntProtoId Effect = "SwapSpellEffect";
+
+    [DataField]
+    public bool ThroughWalls = true;
 }
 
 public sealed partial class SoulTapEvent : InstantActionEvent, ISpeakSpell
