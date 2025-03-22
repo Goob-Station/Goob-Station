@@ -8,13 +8,19 @@
   },
   "states": [
 	{
-      "name": "future"
+      "name": "executive"
     },
 	{
-      "name": "idhelldiver"
+      "name": "inhand-right",
+        "directions": 4
     },
 	{
-      "name": "idchrono"
+      "name": "inhand-left",
+        "directions": 4
+    },
+	{
+      "name": "equipped-NECK",
+      "directions": 4
     }
   ]
 }

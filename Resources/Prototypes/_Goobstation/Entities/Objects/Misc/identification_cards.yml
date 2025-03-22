@@ -124,12 +124,13 @@
     layers:
     - state: executive
   - type: Clothing
+    sprite: _Goobstation/Objects/Misc/id_cards.rsi
     quickEquip: true
     slots:
     - neck
     - idcard
   - type: Item
-    heldPrefix: executive
+    sprite: _Goobstation/Objects/Misc/id_cards.rsi
   - type: IdCard
     jobTitle: job-name-exec
     jobIcon: JobIconNanotrasen
