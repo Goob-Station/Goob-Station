@@ -6512,3 +6512,41 @@ Entries:
         appear somewhat rarer.
   id: 754
   time: '2025-03-20T15:36:23.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix round end manifest not showing up.
+  id: 755
+  time: '2025-03-20T16:03:53.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Tweak
+      message: Carp scroll can now only be learned by a single person.
+  id: 756
+  time: '2025-03-21T02:46:57.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Tweak
+      message: Biocube Fabricators can be sped up using space lube.
+  id: 757
+  time: '2025-03-21T10:28:14.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Jaunter Implant now cost 30 TC, but has higher cooldown, no longer works
+        through walls and doesn't let one choose a secondary target.
+  id: 758
+  time: '2025-03-21T17:44:30.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Krav Maga gloves were replaced with Krav Maga implant in the uplink.
+  id: 759
+  time: '2025-03-22T06:02:41.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Syndicate assault cyborgs now have syndicate jaws of life.
+  id: 760
+  time: '2025-03-22T09:17:57.0000000+00:00'
