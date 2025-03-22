@@ -16,11 +16,14 @@
     slots:
     - Back
     - suitStorage
+  - type: Item
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun_inhands_64x.rsi
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 10
   - type: Gun
-    fireRate: 0.8
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -50,6 +53,8 @@
     autoRecharge: true
     autoRechargeRate: 10
   - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
     fireRate: 0.8
     selectedMode: SemiAuto
     availableModes:
