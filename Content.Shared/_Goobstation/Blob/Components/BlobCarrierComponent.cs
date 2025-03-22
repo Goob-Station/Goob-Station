@@ -9,7 +9,7 @@ namespace Content.Shared._Goobstation.Blob.Components;
 public sealed partial class BlobCarrierComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite), DataField("transformationDelay")]
-    public float TransformationDelay = 240;
+    public float TransformationDelay = 600;
 
     [ViewVariables(VVAccess.ReadWrite), DataField("alertInterval")]
     public float AlertInterval = 30f;
