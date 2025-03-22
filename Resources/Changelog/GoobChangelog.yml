@@ -6544,3 +6544,9 @@ Entries:
       message: Krav Maga gloves were replaced with Krav Maga implant in the uplink.
   id: 759
   time: '2025-03-22T06:02:41.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Syndicate assault cyborgs now have syndicate jaws of life.
+  id: 760
+  time: '2025-03-22T09:17:57.0000000+00:00'
