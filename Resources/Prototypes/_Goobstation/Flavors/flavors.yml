@@ -37,3 +37,13 @@
   id: alienblood
   flavorType: Base
   description: flavor-base-alienblood
+
+- type: flavor
+  id: old
+  flavorType: Base
+  description: flavor-base-old
+
+- type: flavor
+  id: robust
+  flavorType: Base
+  description: flavor-base-robust

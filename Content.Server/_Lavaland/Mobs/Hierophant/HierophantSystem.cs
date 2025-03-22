@@ -158,7 +158,7 @@ public sealed class HierophantSystem : EntitySystem
 
     private void InitBoss(Entity<HierophantBossComponent> ent, AggressiveComponent aggressors)
     {
-        ent.Comp.Aggressive = true;  
+        ent.Comp.Aggressive = true;
         RaiseLocalEvent(ent, new MegafaunaStartupEvent());
     }
 
@@ -440,7 +440,7 @@ public sealed class HierophantSystem : EntitySystem
             scalingMultiplier *= HealthScalingFactor;
 
         Logger.Info($"Setting threshold for {uid} to {_baseHierophantHp * scalingMultiplier}");
-        if (_threshold.TryGetDeadThreshold(uid, out var deadThreshold, thresholds) 
+        if (_threshold.TryGetDeadThreshold(uid, out var deadThreshold, thresholds)
             && deadThreshold < _baseHierophantHp * scalingMultiplier)
             _threshold.SetMobStateThreshold(uid, _baseHierophantHp * scalingMultiplier, MobState.Dead, thresholds);
     }

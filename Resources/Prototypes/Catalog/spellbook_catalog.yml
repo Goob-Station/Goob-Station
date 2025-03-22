@@ -88,6 +88,61 @@
     - SpellbookSemiRandom
 
 - type: listing
+  id: SpellbookTileToggle
+  name: spellbook-tile-toggle-name
+  description: spellbook-tile-toggle-description
+  productAction: ActionTileToggle
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookGlobalTileToggle
+  name: spellbook-global-tile-toggle-name
+  description: spellbook-global-tile-toggle-description
+  productAction: ActionGlobalTileToggle
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    whitelist:
+      - SpellbookTileToggle
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookCurseOfByond
+  name: spellbook-curse-of-byond-name
+  description: spellbook-curse-of-byond-description
+  productAction: ActionCurseOfByond
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    whitelist:
+      - SpellbookTileToggle
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
   id: SpellbookCharge
   productUpgradeId: SpellbookChargeUpgrade # Goobstation
   name: spellbook-charge-name

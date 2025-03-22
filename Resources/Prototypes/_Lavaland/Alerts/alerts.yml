@@ -1,0 +1,8 @@
+- type: alert
+  id: HierophantBeat
+  category: TileMovement
+  icons:
+  - sprite: /Textures/_Lavaland/Interface/Alerts/hierophantbeat.rsi
+    state: hierophant
+  name: alerts-hierophantbeat-name
+  description: alerts-hierophantbeat-desc

@@ -133,3 +133,29 @@
         conditions:
         - !type:ReagentThreshold
           min: 50
+
+- type: reagent
+  id: Nostalgia
+  name: reagent-name-nostalgia
+  group: Special
+  desc: reagent-desc-nostalgia
+  physicalDesc: reagent-physical-desc-chalky
+  flavor: old
+  color: "#375dcf"
+
+- type: reagent
+  id: Tilenol
+  name: reagent-name-tilenol
+  group: Special
+  desc: reagent-desc-tilenol
+  physicalDesc: reagent-physical-desc-robust
+  flavor: robust
+  color: "#ffd648"
+  metabolisms:
+    Drink:
+      metabolismRate: 0.1
+      effects:
+      - !type:GenericStatusEffect
+        key: Centered
+        time: 10
+        component: TileMovement

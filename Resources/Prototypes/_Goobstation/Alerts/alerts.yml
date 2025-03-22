@@ -33,3 +33,20 @@
   description: alerts-modsuit-power-desc
   minSeverity: 0
   maxSeverity: 5
+
+- type: alert
+  id: Centered
+  category: TileMovement
+  icons:
+  - sprite: /Textures/_Goobstation/Interface/Alerts/centered.rsi
+    state: plating
+  name: alerts-centered-name
+  description: alerts-centered-desc
+
+- type: alert
+  id: CurseOfByond
+  icons:
+  - sprite: /Textures/_Goobstation/Interface/Alerts/byond.rsi
+    state: byond
+  name: alerts-curse-of-byond-name
+  description: alerts-curse-of-byond-desc

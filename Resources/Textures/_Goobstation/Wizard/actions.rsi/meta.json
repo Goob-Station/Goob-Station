@@ -129,6 +129,15 @@
     },
     {
       "name": "emp"
+    },
+    {
+      "name": "tile"
+    },
+    {
+      "name": "tileglobal"
+    },
+    {
+      "name": "curseofbyond"
     }
   ]
 }

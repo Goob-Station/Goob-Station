@@ -58,6 +58,11 @@
   - type: GuideHelp
     guides:
     - ExpandingRepairingStation
+  - type: Extractable # Goobstation - Tilenol
+    juiceSolution:
+      reagents:
+      - ReagentId: Nostalgia
+        Quantity: 1
 
 - type: entity
   name: steel dark checker tile
