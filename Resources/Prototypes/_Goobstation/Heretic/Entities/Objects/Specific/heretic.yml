@@ -36,6 +36,9 @@
   - type: ToggleableLightVisuals
   - type: ItemToggleSize
     activatedSize: Normal
+  - type: Tag
+    tags:
+    - HereticItem
 
 - type: entity
   parent: [ DrinkBase, BaseMagicContraband ]
@@ -59,6 +62,9 @@
         reagents:
         - ReagentId: Ichor
           Quantity: 30
+  - type: Tag
+    tags:
+    - HereticItem
 
 - type: entity
   id: HereticProtectiveBlade

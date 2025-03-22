@@ -1,0 +1,133 @@
+- type: entity
+  id: BaseCarving
+  name: elder carving
+  description: Collection of unknown symbols, they remind you of days long gone...
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: Sprite
+    drawdepth: FloorEffects
+    sprite: _Goobstation/Heretic/carvings.rsi
+    color: '#FFFFFF2a'
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        hard: false
+        mask:
+          - ItemMask
+        layer:
+          - SlipLayer
+  - type: Physics
+    bodyType: Static
+  - type: WizardTrap # Wizard cuz yeah
+    canReveal: false
+    ignoredEntityWhitelist:
+      components:
+      - Heretic
+      - Ghoul
+  - type: Tag
+    tags:
+    - HideContextMenu
+    - HereticCarving
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/Heretic/runebreak.ogg
+
+- type: entity
+  parent: BaseCarving
+  id: GraspingCarving
+  name: grasping carving
+  description: When stepped on, causes heavy damage leg damage and stuns the victim for 5 seconds. Has 1 charge.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    state: tentacle_rune
+  - type: WizardTrap
+    timeBetweenTriggers: 45
+    triggerSound:
+      path: /Audio/_Goobstation/Heretic/demon_attack1.ogg
+    stunTime: 5
+  - type: DamageTrap
+    damage:
+      types:
+        Blunt: 20
+
+- type: entity
+  parent: BaseCarving
+  id: MadCarving
+  name: mad carving
+  description: When stepped on, causes heavy stamina damage, blindness, and muteness the victim. Has 2 charges.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    state: madness_rune
+  - type: WizardTrap
+    timeBetweenTriggers: 20
+    charges: 2
+    triggerSound:
+      path: /Audio/_Goobstation/Heretic/blind.ogg
+  - type: MadCarving
+
+- type: entity
+  parent: BaseCarving
+  id: AlertCarving
+  name: alert carving
+  description: A nearly invisible rune that, when stepped on, alerts the carver who triggered it and where.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    color: '#FFFFFF0e'
+    state: alert_rune
+  - type: WizardTrap
+    sparks: false
+    silent: true
+    stunTime: 0
+    charges: 50
+    ignoredEntityWhitelist:
+      components: []
+    targetedEntityWhitelist:
+      components:
+      - HumanoidAppearance
+  - type: AlertCarving
+
+- type: runeCarving
+  id: GraspingCarving
+  desc: Grasping Carving. When stepped on, causes heavy damage leg damage and stuns the victim for 5 seconds. Has 1 charge.
+  icon:
+    sprite: _Goobstation/Heretic/carvings.rsi
+    state: tentacle_rune
+  protoId: GraspingCarving
+
+- type: runeCarving
+  id: MadCarving
+  desc: Mad Carving. When stepped on, causes heavy stamina damage, blindness, and muteness the victim. Has 2 charges.
+  icon:
+    sprite: _Goobstation/Heretic/carvings.rsi
+    state: madness_rune
+  protoId: MadCarving
+
+- type: runeCarving
+  id: AlertCarving
+  desc: Alert Carving. A nearly invisible rune that, when stepped on, alerts the carver who triggered it and where.
+  icon:
+    sprite: _Goobstation/Heretic/carvings.rsi
+    state: alert_rune
+  protoId: AlertCarving

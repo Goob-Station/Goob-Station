@@ -12,6 +12,7 @@ using System.Linq;
 using Robust.Shared.Serialization.Manager;
 using Content.Shared.Examine;
 using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared.Stacks;
 using Robust.Shared.Containers;
 
 namespace Content.Server.Heretic.EntitySystems;
@@ -26,6 +27,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedStackSystem _stack = default!;
 
     public SoundSpecifier RitualSuccessSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/castsummon.ogg");
 
@@ -54,6 +56,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         var missingList = new Dictionary<string, float>();
         var toDelete = new List<EntityUid>();
+        var toSplit = new List<(Entity<StackComponent> ent, int amount)>();
 
         // check for all conditions
         // this is god awful but it is that it is
@@ -85,11 +88,19 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
                 if (ltags.Contains(tag.Key))
                 {
-                    requiredTags[tag.Key] -= 1;
+                    TryComp(look, out StackComponent? stack);
+                    var amount = stack == null ? 1 : Math.Min(stack.Count, requiredTags[tag.Key]);
+
+                    requiredTags[tag.Key] -= amount;
 
                     // prevent deletion of more items than needed
                     if (requiredTags[tag.Key] >= 0)
-                        toDelete.Add(look);
+                    {
+                        if (stack == null || stack.Count <= amount)
+                            toDelete.Add(look);
+                        else
+                            toSplit.Add(((look, stack), amount));
+                    }
                 }
             }
         }
@@ -135,11 +146,27 @@ public sealed partial class HereticRitualSystem : EntitySystem
         foreach (var ent in toDelete)
             QueueDel(ent);
 
+        foreach (var ((ent, stack), amount) in toSplit)
+        {
+            _stack.SetCount(ent, stack.Count - amount, stack);
+        }
+
+        var ghoulQuery = GetEntityQuery<GhoulComponent>();
+
         // add stuff
         var output = rit.Output ?? new();
         foreach (var ent in output.Keys)
-            for (int i = 0; i < output[ent]; i++)
-                Spawn(ent, Transform(platform).Coordinates);
+        {
+            for (var i = 0; i < output[ent]; i++)
+            {
+                var spawned = Spawn(ent, Transform(platform).Coordinates);
+                if (!ghoulQuery.TryComp(spawned, out var ghoul))
+                    continue;
+
+                ghoul.BoundHeretic = GetNetEntity(performer);
+                Dirty(spawned, ghoul);
+            }
+        }
 
         if (rit.OutputEvent != null)
             RaiseLocalEvent(performer, rit.OutputEvent, true);
