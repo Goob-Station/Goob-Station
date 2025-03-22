@@ -24,7 +24,7 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-  - type: HitscanBatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: BulletLaserSpreadHeavy
     fireCost: 100
   - type: StaticPrice
