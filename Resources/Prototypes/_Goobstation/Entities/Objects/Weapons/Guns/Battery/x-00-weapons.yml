@@ -7,11 +7,11 @@
   description: An elaborately designed shotgun, firing shots of pure phoron. Built to break down defenses, and it does that job well.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/sniper.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun.rsi
     state: icon
   - type: Appearance
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/sniper.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun.rsi
     quickEquip: false
     slots:
     - Back
