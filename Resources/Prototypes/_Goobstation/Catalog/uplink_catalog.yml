@@ -188,26 +188,6 @@
   categories:
     - UplinkWeaponry
 
-- type: listing
-  id: UplinkGlovesKravmaga
-  name: uplink-kravgloves-name
-  description: uplink-kravgloves-desc
-  productEntity: ClothingHandsGlovesKravMagaStealthy
-  cost:
-    Telecrystal: 35
-  categories:
-  - UplinkWeaponry
-
-- type: listing
-  id: UplinkGlovesGuerilla
-  name: uplink-guerrillagloves-name
-  description: uplink-guerrillagloves-desc
-  productEntity: ClothingHandsGlovesGuerrilla
-  cost:
-    Telecrystal: 40
-  categories:
-  - UplinkWeaponry
-
 # Wearables
 
 - type: listing
@@ -489,6 +469,17 @@
     blacklist:
       tags:
       - NukeOpsUplink
+
+- type: listing
+  id: UplinkKravMagaImplanter
+  name: uplink-krav-maga-implant-name
+  description: uplink-krav-maga-implant-desc
+  icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/kravgloves.rsi, state: icon }
+  productEntity: KravMagaImplanter
+  cost:
+    Telecrystal: 40
+  categories:
+    - UplinkImplants
 
 # Deception
 
