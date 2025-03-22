@@ -21,7 +21,7 @@ public sealed partial class TargetingControl : UIWidget
         {
             // TODO: ADD EYE AND MOUTH TARGETING
             { TargetBodyPart.Head, HeadButton },
-            { TargetBodyPart.Torso, ChestButton },
+            { TargetBodyPart.Chest, ChestButton },
             { TargetBodyPart.Groin, GroinButton },
             { TargetBodyPart.LeftArm, LeftArmButton },
             { TargetBodyPart.LeftHand, LeftHandButton },

@@ -66,6 +66,8 @@
       head:
       - state: equipped-HEAD-sealed
   - type: Armor
+    coverage:
+    - Head
     modifiers:
       coefficients:
         Blunt: 0.90

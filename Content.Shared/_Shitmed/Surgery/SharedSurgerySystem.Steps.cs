@@ -15,6 +15,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Effects.Step;
 using Content.Shared._Shitmed.Medical.Surgery.Steps;
 using Content.Shared._Shitmed.Medical.Surgery.Steps.Parts;
 using Content.Shared._Shitmed.Medical.Surgery.Tools;
+using Content.Shared._Shitmed.Surgery.Wounds.Components;
 //using Content.Shared.Mood;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
@@ -315,6 +316,10 @@ public abstract partial class SharedSurgerySystem
         }
     }
 
+    private string GetDamageGroupByType(string id)
+    {
+        return (from @group in _prototypes.EnumeratePrototypes<DamageGroupPrototype>() where @group.DamageTypes.Contains(id) select @group.ID).FirstOrDefault()!;
+    }
     private EntProtoId? GetProtoId(EntityUid entityUid)
     {
         if (!TryComp<MetaDataComponent>(entityUid, out var metaData))
@@ -333,6 +338,13 @@ public abstract partial class SharedSurgerySystem
         }
 
         damageable = damageableComp;
+
+        if (TryComp<WoundableComponent>(entity, out var woundable))
+        {
+            return _wounds.GetWoundableWounds(entity, woundable)
+                .Any(wounds => GetDamageGroupByType(group.FirstOrDefault()!) == wounds.Item2.DamageGroup);
+        }
+
         return group.Any(damageType => damageableComp.Damage.DamageDict.TryGetValue(damageType, out var value) && value > 0);
 
     }
@@ -393,7 +405,7 @@ public abstract partial class SharedSurgerySystem
 
     private void OnCavityStep(Entity<SurgeryStepCavityEffectComponent> ent, ref SurgeryStepEvent args)
     {
-        if (!TryComp(args.Part, out BodyPartComponent? partComp) || partComp.PartType != BodyPartType.Torso)
+        if (!TryComp(args.Part, out BodyPartComponent? partComp) || partComp.PartType != BodyPartType.Chest)
             return;
 
         var activeHandEntity = _hands.EnumerateHeld(args.User).FirstOrDefault();
@@ -437,8 +449,6 @@ public abstract partial class SharedSurgerySystem
                 _body.TryCreatePartSlot(args.Part, slotName, partComp.PartType, out var _);
                 _body.AttachPart(args.Part, slotName, tool);
                 EnsureComp<BodyPartReattachedComponent>(tool);
-                var ev = new BodyPartAttachedEvent((tool, partComp));
-                RaiseLocalEvent(args.Body, ref ev);
             }
         }
     }
@@ -453,12 +463,7 @@ public abstract partial class SharedSurgerySystem
         if (targetPart != default)
         {
             // We reward players for properly affixing the parts by healing a little bit of damage, and enabling the part temporarily.
-            var ev = new BodyPartEnableChangedEvent(true);
-            RaiseLocalEvent(targetPart.Id, ref ev);
-            _damageable.TryChangeDamage(args.Body,
-                _body.GetHealingSpecifier(targetPart.Component) * 2,
-                canSever: false, // Just in case we heal a brute damage specifier and the logic gets fucky lol
-                targetPart: _body.GetTargetBodyPart(targetPart.Component.PartType, targetPart.Component.Symmetry));
+            _wounds.TryHealWoundsOnWoundable(targetPart.Id, 12f, out _, damageGroup: "Brute");
             RemComp<BodyPartReattachedComponent>(targetPart.Id);
         }
     }
@@ -488,8 +493,10 @@ public abstract partial class SharedSurgerySystem
             || partComp.Body != args.Body)
             return;
 
-        var ev = new AmputateAttemptEvent(args.Part);
-        RaiseLocalEvent(args.Part, ref ev);
+        if (!_body.TryGetParentBodyPart(args.Part, out var parentPart, out _))
+            return;
+
+        _wounds.AmputateWoundableSafely(parentPart.Value, args.Part);
         _hands.TryPickupAnyHand(args.User, args.Part);
     }
 
@@ -854,7 +861,8 @@ public abstract partial class SharedSurgerySystem
         var slot = type switch
         {
             BodyPartType.Head => SlotFlags.HEAD,
-            BodyPartType.Torso => SlotFlags.OUTERCLOTHING | SlotFlags.INNERCLOTHING,
+            BodyPartType.Chest => SlotFlags.OUTERCLOTHING | SlotFlags.INNERCLOTHING,
+            BodyPartType.Groin => SlotFlags.OUTERCLOTHING | SlotFlags.INNERCLOTHING,
             BodyPartType.Arm => SlotFlags.OUTERCLOTHING | SlotFlags.INNERCLOTHING,
             BodyPartType.Hand => SlotFlags.GLOVES,
             BodyPartType.Leg => SlotFlags.OUTERCLOTHING | SlotFlags.LEGS,

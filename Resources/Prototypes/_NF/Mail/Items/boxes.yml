@@ -65,7 +65,9 @@
     contents:
       - id: HeadHuman
         amount: 1
-      - id: TorsoHuman
+      - id: ChestHuman
+        amount: 1
+      - id: GroinHuman
         amount: 1
       - id: LeftArmHuman
         amount: 1
@@ -192,7 +194,9 @@
     contents:
       - id: HeadVulpkanin
         amount: 1
-      - id: TorsoVulpkanin
+      - id: ChestVulpkanin
+        amount: 1
+      - id: GroinVulpkanin
         amount: 1
       - id: LeftArmVulpkanin
         amount: 1

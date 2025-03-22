@@ -58,6 +58,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared._Shitmed.Surgery.Traumas.Components; // Shitmed Change
 
 namespace Content.Server._Goobstation.Wizard.Systems;
 
@@ -566,7 +567,6 @@ public sealed class SpellsSystem : SharedSpellsSystem
                 -invocationEv.ToHeal,
                 true,
                 false,
-                canSever: false,
                 targetPart: TargetBodyPart.All);
 
             if (speakerUid != casterUid)
@@ -575,7 +575,6 @@ public sealed class SpellsSystem : SharedSpellsSystem
                     -invocationEv.ToHeal,
                     true,
                     false,
-                    canSever: false,
                     targetPart: TargetBodyPart.All);
             }
         }
