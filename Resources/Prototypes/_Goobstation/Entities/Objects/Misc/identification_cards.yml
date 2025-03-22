@@ -129,6 +129,7 @@
     - neck
     - idcard
   - type: Item
+    heldPrefix:
     sprite: _Goobstation/Objects/Misc/executive.rsi
   - type: IdCard
     jobTitle: job-name-exec
