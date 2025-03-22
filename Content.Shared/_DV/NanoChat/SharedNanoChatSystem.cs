@@ -57,6 +57,17 @@ public abstract class SharedNanoChatSystem : EntitySystem
     }
 
     /// <summary>
+    ///     Sets IsClosed for a card.
+    /// </summary>
+    public void SetClosed(Entity<NanoChatCardComponent?> card, bool closed)
+    {
+        if (!Resolve(card, ref card.Comp))
+            return;
+
+        card.Comp.IsClosed = closed;
+    }
+
+    /// <summary>
     ///     Gets the recipients dictionary from a card.
     /// </summary>
     public IReadOnlyDictionary<uint, NanoChatRecipient> GetRecipients(Entity<NanoChatCardComponent?> card)
@@ -174,6 +185,29 @@ public abstract class SharedNanoChatSystem : EntitySystem
             return;
 
         card.Comp.NotificationsMuted = muted;
+        Dirty(card);
+    }
+
+    /// <summary>
+    ///     Gets whether NanoChat number is listed.
+    /// </summary>
+    public bool GetListNumber(Entity<NanoChatCardComponent?> card)
+    {
+        if (!Resolve(card, ref card.Comp))
+            return false;
+
+        return card.Comp.ListNumber;
+    }
+
+    /// <summary>
+    ///     Sets whether NanoChat number is listed.
+    /// </summary>
+    public void SetListNumber(Entity<NanoChatCardComponent?> card, bool listNumber)
+    {
+        if (!Resolve(card, ref card.Comp) || card.Comp.ListNumber == listNumber)
+            return;
+
+        card.Comp.ListNumber = listNumber;
         Dirty(card);
     }
 
