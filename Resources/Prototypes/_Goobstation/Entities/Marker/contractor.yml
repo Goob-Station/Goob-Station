@@ -1,25 +1,33 @@
 - type: entity
-  name: contractor marker
-  id: ContractorMarker
+  abstract: true
+  id: BaseContractorMarker
   parent: MarkerBase
   categories: [HideSpawnMenu]
   components:
   - type: Sprite
     layers:
     - state: red
+
+- type: entity
+  name: contractor temp marker
+  id: ContractorTempMarker
+  parent: BaseContractorMarker
+
+- type: entity
+  name: contractor marker
+  id: ContractorMarker
+  parent: BaseContractorMarker
+  components:
   - type: ContractorMarker
 
 - type: entity
   name: contractor prison warp marker
   id: ContractorPrisonMarker
-  parent: MarkerBase
+  parent: BaseContractorMarker
   components:
-  - type: Sprite
-    layers:
-    - state: red
   - type: ContractorWarpMarker
 
-- type: entity
+- type: entity # Need to move this lol
   parent: BaseItem
   name: Prisoner Item Storage
   id: ContractorPrisonerBox

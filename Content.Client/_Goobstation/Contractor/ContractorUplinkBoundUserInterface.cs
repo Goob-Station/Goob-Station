@@ -1,19 +1,24 @@
 using Content.Shared._Goobstation.Contracts;
+using Content.Shared._Goobstation.Contracts.Components;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 
 namespace Content.Client._Goobstation.Contractor
 {
     [UsedImplicitly]
-    public sealed class ContractorUplinkBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
+    public sealed class ContractorUplinkBoundUserInterface : BoundUserInterface
     {
         private ContractorUplink? _uplink;
+
+        public ContractorUplinkBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
+        {
+
+        }
 
         protected override void Open()
         {
             base.Open();
 
-            SendMessage(new ContractorUiMessage(UiMessage.Refresh, NetEntity.Invalid, NetEntity.Invalid));
             _uplink = this.CreateWindow<ContractorUplink>();
             _uplink.OnContractButtonClicked += ButtonPressed;
         }
