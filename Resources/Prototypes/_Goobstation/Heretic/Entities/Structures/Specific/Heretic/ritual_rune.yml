@@ -15,6 +15,7 @@
     interfaces:
        enum.HereticRitualRuneUiKey.Key:
         type: HereticRitualRuneBoundUserInterface
+  - type: IgnoresFingerprints
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
