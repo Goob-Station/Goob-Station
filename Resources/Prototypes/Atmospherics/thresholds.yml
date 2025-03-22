@@ -35,12 +35,12 @@
   id: stationOxygen
   lowerBound: !type:AlarmThresholdSetting
     threshold: 0.10
-  #upperBound: !type:AlarmThresholdSetting # Goobstation
-  #  threshold: 0.3
+  upperBound: !type:AlarmThresholdSetting
+    threshold: 1.0 # Goobstation
   lowerWarnAround: !type:AlarmThresholdSetting
     threshold: 1.5
-  #upperWarnAround: !type:AlarmThresholdSetting # Goobstation
-  #  threshold: 0.8
+  upperWarnAround: !type:AlarmThresholdSetting
+    threshold: 0.8 # Goobstation
 
 - type: alarmThreshold
   id: stationNitrogen
