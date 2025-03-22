@@ -12,6 +12,11 @@ using Content.Shared.Power;
 using Content.Shared.Radio;
 using Content.Shared.Chat;
 using Content.Shared.Radio.Components;
+using Content.Shared.UserInterface; // Goob
+using Content.Shared._Goobstation.Radio; // Goob
+using Content.Shared.Verbs; //Frontier
+using Robust.Shared.Utility; //Frontier
+using Robust.Server.GameObjects; // Goob
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Radio.EntitySystems;
@@ -27,6 +32,7 @@ public sealed class RadioDeviceSystem : EntitySystem
     [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly InteractionSystem _interaction = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly UserInterfaceSystem _ui = default!; // Goob
 
     // Used to prevent a shitter from using a bunch of radios to spam chat.
     private HashSet<(string, EntityUid, RadioChannelPrototype)> _recentlySent = new();
@@ -40,6 +46,7 @@ public sealed class RadioDeviceSystem : EntitySystem
         SubscribeLocalEvent<RadioMicrophoneComponent, ListenEvent>(OnListen);
         SubscribeLocalEvent<RadioMicrophoneComponent, ListenAttemptEvent>(OnAttemptListen);
         SubscribeLocalEvent<RadioMicrophoneComponent, PowerChangedEvent>(OnPowerChanged);
+        SubscribeLocalEvent<RadioMicrophoneComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAltVerbs); // Frontier
 
         SubscribeLocalEvent<RadioSpeakerComponent, ComponentInit>(OnSpeakerInit);
         SubscribeLocalEvent<RadioSpeakerComponent, ActivateInWorldEvent>(OnActivateSpeaker);
@@ -49,6 +56,11 @@ public sealed class RadioDeviceSystem : EntitySystem
         SubscribeLocalEvent<IntercomComponent, ToggleIntercomMicMessage>(OnToggleIntercomMic);
         SubscribeLocalEvent<IntercomComponent, ToggleIntercomSpeakerMessage>(OnToggleIntercomSpeaker);
         SubscribeLocalEvent<IntercomComponent, SelectIntercomChannelMessage>(OnSelectIntercomChannel);
+        // Goob start
+        SubscribeLocalEvent<RadioMicrophoneComponent, BeforeActivatableUIOpenEvent>(OnBeforeHandheldRadioUiOpen);
+        SubscribeLocalEvent<RadioMicrophoneComponent, ToggleHandheldRadioMicMessage>(OnToggleHandheldRadioMic);
+        SubscribeLocalEvent<RadioMicrophoneComponent, ToggleHandheldRadioSpeakerMessage>(OnToggleHandheldRadioSpeaker);
+        // Goob end
     }
 
     public override void Update(float frameTime)
@@ -282,4 +294,82 @@ public sealed class RadioDeviceSystem : EntitySystem
             speaker.Channels = new() { channel };
         Dirty(ent);
     }
+
+    // Goob start
+    #region Handheld Radio
+
+    private void OnBeforeHandheldRadioUiOpen(Entity<RadioMicrophoneComponent> microphone, ref BeforeActivatableUIOpenEvent args)
+    {
+        UpdateHandheldRadioUi(microphone);
+    }
+
+    private void OnToggleHandheldRadioMic(Entity<RadioMicrophoneComponent> microphone, ref ToggleHandheldRadioMicMessage args)
+    {
+        if (!args.Actor.Valid)
+            return;
+
+        SetMicrophoneEnabled(microphone, args.Actor, args.Enabled, true);
+        UpdateHandheldRadioUi(microphone);
+    }
+
+    private void OnToggleHandheldRadioSpeaker(Entity<RadioMicrophoneComponent> microphone, ref ToggleHandheldRadioSpeakerMessage args)
+    {
+        if (!args.Actor.Valid)
+            return;
+
+        SetSpeakerEnabled(microphone, args.Actor, args.Enabled, true);
+        UpdateHandheldRadioUi(microphone);
+    }
+
+    private void UpdateHandheldRadioUi(Entity<RadioMicrophoneComponent> radio)
+    {
+        var speakerComp = CompOrNull<RadioSpeakerComponent>(radio);
+
+        var micEnabled = radio.Comp.Enabled;
+        var speakerEnabled = speakerComp?.Enabled ?? false;
+        var state = new HandheldRadioBoundUIState(micEnabled, speakerEnabled);
+        if (TryComp<UserInterfaceComponent>(radio, out var uiComp))
+            _ui.SetUiState((radio.Owner, uiComp), HandheldRadioUiKey.Key, state);
+    }
+
+    #endregion
+    // Goob end
+
+    // Frontier Start
+    #region Alt Mic Toggle
+    /// <summary>
+    ///     Adds an alt verb allowing for the mic to be toggled easily.
+    /// </summary>
+    private void OnGetAltVerbs(EntityUid uid, RadioMicrophoneComponent microphone, GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!args.CanInteract || !args.CanAccess)
+            return;
+
+        AlternativeVerb verb = new()
+        {
+            Text = Loc.GetString("handheld-radio-component-toggle"),
+            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
+            Act = () => ToggleRadioOrIntercomMic(uid, microphone, args.User)
+        };
+        args.Verbs.Add(verb);
+    }
+
+    /// <summary>
+    ///     A mic toggle for both radios and intercoms.
+    /// </summary>
+    private void ToggleRadioOrIntercomMic(EntityUid uid, RadioMicrophoneComponent microphone, EntityUid user)
+    {
+        if (microphone.PowerRequired && !this.IsPowered(uid, EntityManager))
+            return;
+
+        ToggleRadioMicrophone(uid, user, false, microphone);
+        if (TryComp<IntercomComponent>(uid, out var intercom))
+        {
+            intercom.MicrophoneEnabled = microphone.Enabled;
+            Dirty<IntercomComponent>((uid, intercom));
+        }
+    }
+    #endregion
+    // Frontier End
+
 }
