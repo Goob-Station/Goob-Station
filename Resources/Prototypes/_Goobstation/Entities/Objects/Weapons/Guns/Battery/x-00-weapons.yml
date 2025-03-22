@@ -1,6 +1,45 @@
 # I don't want to clutter battery guns with these ones.
 
 - type: entity
+  name: X-6 "Threadripper"
+  parent: BaseWeaponBattery
+  id: WeaponHeadOfSecuritySMG
+  description: An elaborately designed SMG, firing shots of pure phoron. Great for disintegrating tiders.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/smg.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/smg.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Gun
+    minAngle: 2
+    maxAngle: 16
+    fireRate: 8
+    burstFireRate: 8
+    angleIncrease: 3
+    angleDecay: 16
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    - Burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+    defaultDirection: 1, 0
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 10
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletLaserHeavy
+    fireCost: 10
+  - type: StaticPrice
+    price: 2500
+
+- type: entity
   name: X-12 "Flamberge"
   parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponHeadOfSecurityShotgun
