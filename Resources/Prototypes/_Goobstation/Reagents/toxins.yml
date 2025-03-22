@@ -184,10 +184,10 @@
         reagent: Aluite
 
 - type: reagent
-  id: Saxitoxin
-  name: reagent-name-saxitoxin
+  id: Sarin
+  name: reagent-name-sarin
   group: Toxins
-  desc: reagent-desc-saxitoxin
+  desc: reagent-desc-sarin
   physicalDesc: reagent-physical-desc-powdery
   flavor: salty
   color: "#ff8239"

@@ -1,7 +1,7 @@
 - type: entity
   parent: [ SmokeGrenade , BaseSyndicateContraband ]
-  id: SaxitoxinGasGrenade
-  name: saxitoxin gas grenade
+  id: SarinGasGrenade
+  name: sarin gas grenade
   description: A brutal neurotoxin gas that stuns, blinds, poisons and burns anybody unlucky enough to catch a whiff or not be in a voidsuit.
   components:
   - type: Sprite
@@ -11,5 +11,5 @@
     spreadAmount: 30
     solution:
       reagents:
-      - ReagentId: Saxitoxin
+      - ReagentId: Sarin
         Quantity: 50

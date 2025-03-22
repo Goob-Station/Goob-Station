@@ -1230,7 +1230,7 @@
       - !type:ModifyBleedAmount
         amount: -1
       - !type:AdjustReagent
-        reagent: Saxitoxin
+        reagent: Sarin
         amount: -3
 
 # Niche/crazy/experimental meds
