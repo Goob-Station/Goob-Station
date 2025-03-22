@@ -22,6 +22,7 @@
     autoRecharge: true
     autoRechargeRate: 10
   - type: Gun
+    fireRate: 0.75
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
     selectedMode: SemiAuto
@@ -55,7 +56,7 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-    fireRate: 0.8
+    fireRate: 0.70
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
