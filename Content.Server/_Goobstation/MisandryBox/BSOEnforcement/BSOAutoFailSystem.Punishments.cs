@@ -102,15 +102,6 @@ public sealed partial class BSOAutoFailSystem
 
     private void RemoveFromRound(EntityUid victim)
     {
-        if (TryComp<ActionsComponent>(victim, out var actionsComponent) &&
-            TryGetLifelineAction(victim, actionsComponent, out var action, out var actionComponent))
-        {
-            _act.PerformAction(victim, actionsComponent, action.Value, actionComponent, null, TimeSpan.Zero, false);
-            _act.PerformAction(victim, actionsComponent, action.Value, actionComponent, null, TimeSpan.Zero, false);
-            return;
-        }
-
-        // If its not BSO - spill all their blood.
         if (TryComp<BloodstreamComponent>(victim, out var bloodstream))
         {
             _damage.SetDamage(victim, Comp<DamageableComponent>(victim), new DamageSpecifier(_prototype.Index<DamageGroupPrototype>("Genetic"), 1984));
@@ -120,6 +111,7 @@ public sealed partial class BSOAutoFailSystem
         {
             // Okay fuck you
             Monkey(victim);
+            RemoveFromRound(victim);
         }
     }
 
