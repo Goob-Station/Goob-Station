@@ -184,3 +184,47 @@
     magState: mag
     steps: 5
     zeroVisible: true
+
+
+- type: entity
+  name: CR-2 energy assault rifle
+  parent: [ BaseWeaponPowerCell, BaseGunWieldable, BaseSecurityContraband ]
+  id: WeaponEnergyRifle
+  description: An advanced energy rifle capable of firing various bolts depending on the powercell magazine.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_rifle.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Item
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_rifle.rsi
+    size: Large
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_rifle.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: EnergyMagRifleLethal
+        insertSound: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
+        whitelist:
+          tags:
+            - EnergyMagAmmo
