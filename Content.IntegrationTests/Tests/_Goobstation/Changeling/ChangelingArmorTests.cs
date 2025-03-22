@@ -1,10 +1,10 @@
+using Content.Goobstation.Server.Changeling;
+using Content.Goobstation.Shared.Changeling;
 using Content.Server.Actions;
 using Content.Server.Antag;
-using Content.Server.Changeling;
 using Content.Server.GameTicking;
 using Content.Server.Mind;
 using Content.Shared.Actions;
-using Content.Shared.Changeling;
 using Content.Shared.Inventory;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Timing;
@@ -42,7 +42,7 @@ public sealed class ChangelingArmorTest
         // Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.InRound));
 
         EntityUid urist = EntityUid.Invalid;
-        ChangelingComponent changeling = null;
+        Goobstation.Shared.Changeling.Components.ChangelingIdentityComponent changelingIdentity = null;
         Entity<InstantActionComponent> armorAction = (EntityUid.Invalid, null);
 
         await server.WaitPost(() =>
@@ -51,10 +51,10 @@ public sealed class ChangelingArmorTest
             urist = entMan.SpawnEntity("MobHuman", testMap.GridCoords);
 
             // Make urist a changeling
-            changeling = entMan.AddComponent<ChangelingComponent>(urist);
-            changeling.TotalAbsorbedEntities += 10;
-            changeling.MaxChemicals = 1000;
-            changeling.Chemicals = 1000;
+            changelingIdentity = entMan.AddComponent<Goobstation.Shared.Changeling.Components.ChangelingIdentityComponent>(urist);
+            changelingIdentity.TotalAbsorbedEntities += 10;
+            changelingIdentity.MaxChemicals = 1000;
+            changelingIdentity.Chemicals = 1000;
 
             // Give urist chitinous armor action
             var armorActionEnt = actionSys.AddAction(urist, actionProto);

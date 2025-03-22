@@ -1,3 +1,4 @@
+using Content.Shared._Goobstation.Clothing.Components;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Serialization.Manager;
