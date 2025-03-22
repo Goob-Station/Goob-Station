@@ -16,27 +16,6 @@
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
 
 - type: entity
-  id: BorgModuleOperativeUniversal
-  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
-  name: operative cyborg module
-  description: A module that comes with a crowbar, an Emag, an Access Breaker and a syndicate pinpointer.
-  suffix: Universal Pinpointer
-  components:
-  - type: Sprite
-    layers:
-    - state: syndicate
-    - state: icon-syndicate
-  - type: ItemBorgModule
-    moduleId: OperativeUniversal
-    items:
-    - Crowbar
-    - Emag
-    - AccessBreaker
-    - PinpointerSyndicateNuclearUniversal
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-operative-module }
-
-- type: entity
   id: BorgModuleLollipop
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
   name: lollipop cyborg module
