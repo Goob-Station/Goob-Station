@@ -1,0 +1,126 @@
+- type: entity
+  parent: BaseTree
+  id: N14FloraDesertCactus
+  name: Cactus
+  description: Some kind of wasteland flora.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Misc/floradesert.rsi
+    state: cactus
+    offset: 0,0
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+            bounds: "-0.7,-0.3,-0.4,-1.2"
+        density: 1000
+        layer:
+        - WallLayer
+    
+- type: entity
+  parent: N14FloraDesertCactus
+  id: N14FloraDesertTree1
+  name: "tree yucca"
+  description: A Joshua Tree.
+  components:
+  - type: Sprite
+    state: joshua_1
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+            bounds: "0.3,-0.3,-0.2,-1.2"
+        density: 1000
+        layer:
+        - WallLayer
+    
+- type: entity
+  parent: N14FloraDesertTree1
+  id: N14FloraDesertTree2
+  components:
+  - type: Sprite
+    state: joshua_2
+    
+- type: entity
+  parent: N14FloraDesertTree1
+  id: N14FloraDesertTree3
+  components:
+  - type: Sprite
+    state: joshua_3
+    
+- type: entity
+  parent: N14FloraDesertTree1
+  id: N14FloraDesertTree4
+  components:
+  - type: Sprite
+    state: joshua_4
+    
+- type: entity
+  parent: N14FloraDesertCactus
+  id: N14FloraTreeBald
+  name: bald tree
+  description: "What? Even trees go bald."
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Misc/trees-ms.rsi
+    state: bald
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+            bounds: "0.2,-1.4,-0.2,-1.8"
+        density: 1000
+        layer:
+        - WallLayer
+    
+- type: entity
+  parent: N14FloraTreeBald
+  id: N14FloraTreePine
+  name: pine tree
+  description: It has an almost overwhelming scent.
+  components:
+  - type: Sprite
+    layers:
+    - state: pine_1
+      map: [ "tree" ]
+  - type: RandomSprite
+    available:
+      - tree:
+          pine_1: ""
+          pine_1_alt: ""
+          
+- type: entity
+  parent: N14FloraTreeBald
+  id: N14FloraTreeDead1
+  name: dead tree
+  description: A dead memory of a tree.
+  components:
+  - type: Sprite
+    layers:
+    - state: dead_tree1
+      map: [ "tree" ]
+  - type: RandomSprite
+    available:
+      - tree:
+          dead_tree1: ""
+          dead_tree2: ""
+          dead_tree3: ""
+          
+- type: entity
+  parent: N14FloraTreeDead1
+  id: N14FloraTreeDead2
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Misc/trees-dead.rsi
+    layers:
+    - state: tree_1
+      map: [ "tree" ]
+  - type: RandomSprite
+    available:
+      - tree:
+          tree_1: ""
+          tree_2: ""
+          tree_3: ""

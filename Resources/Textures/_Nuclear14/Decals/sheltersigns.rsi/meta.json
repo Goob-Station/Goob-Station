@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from mojave-sun-13 at https://github.com/Mojave-Sun/mojave-sun-13/blob/808df55d72420e4d3f56a007033d570442700a47/mojave/icons/decals/shelter_signs.dmi",
+  "size": {
+    "x": 32,
+    "y": 48
+  },
+  "states": [
+    {
+      "name": "arrowshelter_left"
+    },
+    {
+      "name": "arrowshelter_right"
+    },
+    {
+      "name": "falloutshelter"
+    },
+    {
+      "name": "shelteryellow_left"
+    },
+    {
+      "name": "shelteryellow_right"
+    },
+    {
+      "name": "shelteryellow"
+    },
+    {
+      "name": "shelteryellow_circle"
+    }
+  ]
+}

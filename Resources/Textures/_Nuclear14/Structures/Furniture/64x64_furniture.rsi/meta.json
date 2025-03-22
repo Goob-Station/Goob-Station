@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from MS13 at commit https://github.com/Mojave-Sun/mojave-sun-13/commit/176be184d511dd4f85585e3a62f0cf524b4e1d9b",
+  "size": {
+    "x": 64,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "showcase"
+    },
+    {
+      "name": "desk_wood",
+      "directions": 4
+    },
+    {
+      "name": "desk_wood_small",
+      "directions": 4
+    },
+    {
+      "name": "table_wood_wide_square",
+      "directions": 4
+    },
+    {
+      "name": "table_wood_wide_oval",
+      "directions": 4
+    },
+    {
+      "name": "desk_metal",
+      "directions": 4
+    },
+    {
+      "name": "desk_metal_small",
+      "directions": 4
+    },
+    {
+      "name": "table_metal_wide",
+      "directions": 4
+    },
+    {
+      "name": "table_pool",
+      "directions": 4
+    },
+    {
+      "name": "table_cards",
+      "directions": 4
+    },
+    {
+      "name": "table_cards1",
+      "directions": 4
+    },
+    {
+      "name": "table_cards2",
+      "directions": 4
+    },
+    {
+      "name": "bigshelf1_openR"
+    },
+    {
+      "name": "bigshelf1_openL"
+    },
+    {
+      "name": "bigshelf2_open"
+    }
+  ]
+}

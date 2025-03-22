@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "by Luckass on discord for Nuclear 14",
+  "size": {
+    "x": 128,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "nukagirl"
+    },
+    {
+      "name": "nukagirl-worn"
+    },
+    {
+      "name": "nukagirl-damaged"
+    },
+    {
+      "name": "mrhandy"
+    },
+    {
+      "name": "mrhandy-worn"
+    },
+    {
+      "name": "mrhandy-worn2"
+    },
+    {
+      "name": "mrhandy-damaged"
+    },
+    {
+      "name": "mrhandy-damaged2"
+    },
+    {
+      "name": "vaulttec"
+    },
+    {
+     "name": "vaulttec-worn"
+    },
+    {
+      "name": "vaulttec-worn2"
+    },
+    {
+      "name": "vaulttec-damaged"
+    }
+  ]
+}

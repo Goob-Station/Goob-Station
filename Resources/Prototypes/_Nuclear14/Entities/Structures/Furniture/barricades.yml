@@ -1,0 +1,231 @@
+- type: entity
+  id: N14BarricadeSandbagSingle
+  parent: BaseStructure
+  name: sandbags
+  description: A sandbag fortification.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/barricades.rsi
+    netsync: false
+    state: sandbag_single
+  - type: Damageable
+    damageModifierSet: Wood
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,-0.25"
+        density: 1000
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+  - type: Climbable
+  
+- type: entity
+  id: N14BarricadeTanktrap
+  parent: N14BarricadeSandbagSingle
+  name: tank trap
+  description: A metal fabricated spike for blocking vehicles.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/barricades.rsi
+    netsync: false
+    state: iron_barricade
+    snapCardinals: true
+  - type: Damageable
+    damageModifierSet: Metallic
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 1000
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+        
+- type: entity
+  id: N14BarricadeTanktrapRusty
+  parent: N14BarricadeTanktrap
+  name: tank trap
+  description: A rusty metal fabricated spike for blocking vehicles.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/barricades.rsi
+    netsync: false
+    state: iron_barricadeA
+  
+- type: entity
+  parent: BaseStructure
+  id: N14BarricadeRazorwire
+  name: razorwire barricade
+  description: A razorwire fortification.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/barricades.rsi
+    netsync: false
+    state: barbedwire_single
+  - type: Damageable
+    damageModifierSet: Metallic
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Sharp # not sure this is needed
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 2
+  - type: StepTrigger
+    intersectRatio: 0.2
+    requiredTriggeredSpeed: 0
+  - type: TriggerOnStepTrigger
+  - type: DamageUserOnTrigger
+    damage:
+      types:
+        Piercing: 5
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.5
+    sprintSpeedModifier: 0.5
+  - type: Fixtures
+    fixtures:
+      slips:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,-0.25"
+        hard: false
+        layer:
+        - LowImpassable
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,-0.25"
+        density: 100
+        mask:
+        - ItemMask
+  - type: CollisionWake # not sure this is needed
+    enabled: false
+  - type: Slippery
+    slipSound:
+      path: /Audio/Effects/fence_rattle1.ogg
+    launchForwardsMultiplier: 0
+    paralyzeTime: 0
+
+- type: entity
+  parent: N14BarricadeSandbagSingle
+  id: N14BarricadeMetal
+  name: metal barricade
+  description: A metal fortification.
+  suffix: black
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/ms13_barricades.rsi
+    state: black
+  - type: Damageable
+    damageModifierSet: Metallic
+    damageContainer: Inorganic
+    
+- type: entity
+  parent: N14BarricadeMetal
+  id: N14BarricadeMetalGreen
+  suffix: green
+  components:
+  - type: Sprite
+    state: green
+    
+#- type: entity 
+#  parent: N14DecorFloorWorldBase - Has to be made/fixed, Not present in dictionary
+#  id: N14DecorConcreteBarrier
+#  name: concrete barrier
+#  description: an old concrete barrier for stopping traffic.
+#  components:
+#  - type: Sprite
+#    sprite: _Nuclear14/Structures/Decoration/barriers.rsi
+#    state: concrete_barrier
+#  - type: Fixtures
+#    fixtures:
+#      fix1:
+#        shape:
+#          !type:PhysShapeAabb
+#            bounds: "0.3,0,-0.3,-0.1"
+#        density: 1000
+#        layer:
+#        - WallLayer
+#    
+#- type: entity
+#  parent: N14DecorConcreteBarrier
+#  id: N14DecorConcreteBarrierDamaged
+#  components:
+#  - type: Sprite
+#    layers:
+#    - state: concrete_barrier_1
+#      map: [ "body" ]
+#  - type: RandomSprite
+#    available:
+#      - body:
+#          concrete_barrier_1: ""
+#          concrete_barrier_2: ""
+#          concrete_barrier_3: ""
+#          concrete_barrier_4: ""
+#          concrete_barrier_5: ""
+#          
+#- type: entity
+#  parent: N14DecorConcreteBarrier
+#  id: N14DecorConcreteBarrierStriped
+#  name: concrete barrier
+#  description: an old concrete barrier for stopping traffic.
+#  components:
+#  - type: Sprite
+#    layers:
+#    - state: concrete_barrier_alt
+#      map: [ "body" ]
+#  - type: RandomSprite
+#    available:
+#      - body:
+#          concrete_barrier_alt: ""
+#          concrete_barrier_alt_1: ""
+#          
+#- type: entity
+#  parent: N14DecorConcreteBarrier
+#  id: N14DecorRoadBarrier
+#  name: road barrier
+#  description: an old wooden barrier for stopping traffic.
+#  components:
+#  - type: Sprite
+#    state: road_barrier
