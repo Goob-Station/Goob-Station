@@ -34,17 +34,14 @@ namespace Content.Shared._Goobstation.Items
 
         private void OnEmagged(Entity<RestrictByIdComponent> ent, ref GotEmaggedEvent args)
         {
-            // If the item is not emaggable, return.
             if (!ent.Comp.IsEmaggable)
                 return;
 
             var item = ent.Comp.Owner;
 
-            // If an amag is used instead of an emag, return.
             if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
                 return;
 
-            // Remove the access lock, and set the appropriate flags.
             RemComp<AccessReaderComponent>(item);
             ent.Comp.IsEmagged = true;
             args.Handled = true;
@@ -69,8 +66,11 @@ namespace Content.Shared._Goobstation.Items
             if (!attacker.IsValid() || !item.IsValid() || !ent.Comp.RestrictRanged)
                 return;
 
-            // If the entities ID card doesn't match the allowed accesses, return and allow the shot.
-            if (_accessReader.IsAllowed(attacker, item))
+            // If the entities ID card matches the allowed accesses, and invert is false, return and allow the shot.
+            if (_accessReader.IsAllowed(attacker, item) && !comp.Invert)
+                return;
+            // If the entities ID card doesn't match the allowed accesses, but invert is true, return and allow the shot.
+            if (!_accessReader.IsAllowed(attacker, item) && comp.Invert)
                 return;
 
             args.Cancelled = true;
@@ -95,8 +95,11 @@ namespace Content.Shared._Goobstation.Items
             if (!attacker.IsValid() || !item.IsValid() || !comp.RestrictMelee)
                 return;
 
-            // If the entities ID card doesn't match the allowed accesses, return and allow the shot.
-            if (_accessReader.IsAllowed(attacker, item))
+            // If the entities ID card matches the allowed accesses, and invert is false, return and allow the shot.
+            if (_accessReader.IsAllowed(attacker, item) && !comp.Invert)
+                return;
+            // If the entities ID card doesn't match the allowed accesses, but invert is true, return and allow the shot.
+            if (!_accessReader.IsAllowed(attacker, item) && comp.Invert)
                 return;
 
             args.Cancelled = true;

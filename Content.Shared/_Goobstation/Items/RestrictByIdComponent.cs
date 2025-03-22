@@ -17,6 +17,15 @@ public sealed partial class RestrictByIdComponent : Component
     public List<ProtoId<AccessLevelPrototype>> AccessLists = [];
 
     /// <summary>
+    ///     Whether the restriction should be inverted
+    /// </summary>
+    /// <remarks>
+    /// For example, setting the ID to "Clown" and invert to true, would allow anyone but someone with a clown ID to use it.
+    /// </remarks>
+    [DataField]
+    public bool Invert { get; set; } = false;
+
+    /// <summary>
     ///     Whether melee attacks should be restricted. True by default.
     /// </summary>
     [DataField]
