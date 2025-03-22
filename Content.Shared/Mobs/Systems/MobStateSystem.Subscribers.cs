@@ -186,6 +186,7 @@ public partial class MobStateSystem
             return;
 
         _blocker.UpdateCanMove(target); //update movement anytime a state changes
+        var ev = new DropHandItemsEvent(); // Goobstation
         switch (state)
         {
             case MobState.Alive:
@@ -194,13 +195,13 @@ public partial class MobStateSystem
                 break;
             case MobState.Critical:
                 _standing.Down(target);
-                RaiseLocalEvent(target, new DropHandItemsEvent()); // Goobstation
+                RaiseLocalEvent(target, ref ev); // Goobstation
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Critical);
                 break;
             case MobState.Dead:
                 EnsureComp<CollisionWakeComponent>(target);
                 _standing.Down(target);
-                RaiseLocalEvent(target, new DropHandItemsEvent()); // Goobstation
+                RaiseLocalEvent(target, ref ev); // Goobstation
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Dead);
                 break;
             case MobState.Invalid:
