@@ -194,7 +194,7 @@
   - type: ProjectileSpread
     proto: BulletLaserHeavy
     count: 5
-    spread: 30
+    spread: 20
 
 - type: entity
   id: BulletTemperatureCold
