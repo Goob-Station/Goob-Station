@@ -2,53 +2,128 @@
   id: ContrabandDetector
   start: start
   graph:
-    - node: start
-      edges:
-        - to: frame
-          steps:
-            - material: Steel
-              amount: 5
-              doAfter: 2
+  - node: start
+    edges:
+    - to: frame
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 2
 
-    - node: frame
-      entity: ContrabandDetectorFrame
-      edges:
-        - to: electronics
-          steps:
-            - material: Cable
-              amount: 5
-              doAfter: 2
+  - node: frame
+    entity: ContrabandDetectorFrame
+    edges:
+    - to: electronics
+      conditions:
+      - !type:EntityAnchored { }
+      steps:
+      - material: Cable
+        amount: 5
+        doAfter: 1
+    - to: start
+      steps:
+      - tool: Welding
+        doAfter: 4
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 5
 
-    - node: electronics
-      edges:
-        - to: scanner
-          steps:
-            - material: Glass
-              amount: 2
-              doAfter: 2
-            - tag: ContrabandDetectorCircuitboard
-              name: contraband detector electronics
-              icon:
-                sprite: "Objects/Misc/module.rsi"
-                state: "security"
-              doAfter: 3
-    - node: scanner
-      edges:
-        - to: assemble
-          steps:
-            - tag: ProximitySensor
-              icon:
-                sprite: Objects/Misc/proximity_sensor.rsi
-                state: icon
-              name: proximity sensor
-              doAfter: 2
+  - node: electronics
+    edges:
+    - to: scanner
+      steps:
+      - material: Glass
+        amount: 2
+        doAfter: 2
+      - tag: ContrabandDetectorCircuitboard
+        name: contraband detector electronics
+        icon:
+          sprite: "Objects/Misc/module.rsi"
+          state: "security"
+        doAfter: 3
+    - to: frame
+      steps:
+      - tool: Cutting
+        doAfter: 1
+      completed:
+      - !type:SpawnPrototype
+        prototype: CableApcStack1
+        amount: 5
 
-    - node: assemble
-      edges:
-        - to: complete
-          steps:
-            - tool: Screwing
-              doAfter: 2
+  - node: scanner
+    entity: ContrabandDetectorFrame
+    edges:
+    - to: assemble
+      steps:
+      - tag: ProximitySensor
+        icon:
+          sprite: Objects/Misc/proximity_sensor.rsi
+          state: icon
+        name: proximity sensor
+        doAfter: 2
+    - to: electronics
+      steps:
+      - tool: Prying
+        doAfter: 2
+      completed:
+      - !type:SpawnPrototype
+        prototype: ContrabandDetectorCircuitboard
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: SheetGlass1
+        amount: 2
 
-    - node: complete
-      entity: ContrabandDetector
+  - node: assemble 
+    edges:
+    - to: detector
+      steps:
+      - tool: Screwing
+        doAfter: 2
+
+  - node: detector
+    entity: ContrabandDetector
+    doNotReplaceInheritingEntities: true
+    actions:
+    - !type:SetWiresPanelSecurity
+      wiresAccessible: true
+    edges:
+    - to: scanner
+      conditions:
+      - !type:WirePanel {}
+      - !type:AllWiresCut
+      steps:
+      - tool: Prying
+        doAfter: 2
+      completed:
+      - !type:SpawnPrototype
+        prototype: ProximitySensor
+        amount: 1
+    - to: panelReinforced
+      conditions:
+      - !type:WirePanel {}
+      steps:
+      - material: Steel
+        amount: 1
+      - tool: Welding
+        doAfter: 2
+
+  - node: panelReinforced
+    actions:
+    - !type:SetWiresPanelSecurity
+      examine: wires-panel-component-on-examine-security-level2
+      wiresAccessible: false
+    edges:
+    - to: detector
+      conditions:
+      - !type:WirePanel
+      completed:
+      - !type:GivePrototype
+        prototype: SheetSteel1
+      steps:
+      - tool: Welding
+        doAfter: 10
+      
