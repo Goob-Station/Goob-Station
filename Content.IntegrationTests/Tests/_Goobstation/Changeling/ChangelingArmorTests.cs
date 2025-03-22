@@ -16,7 +16,6 @@ public sealed class ChangelingArmorTest
 {
     [Test]
     [TestCase("ActionToggleChitinousArmor", "ChangelingClothingOuterArmor", "ChangelingClothingHeadHelmet")]
-    [TestCase("ActionToggleSpacesuit", "ChangelingClothingOuterHardsuit", "ChangelingClothingHeadHelmetHardsuit")]
     public async Task TestChangelingFullArmor(string actionProto, string outerProto, string helmetProto)
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings

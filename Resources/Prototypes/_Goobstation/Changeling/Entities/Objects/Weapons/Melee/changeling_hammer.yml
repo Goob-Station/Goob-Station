@@ -10,7 +10,7 @@
     state: icon
   - type: MeleeWeapon
     angle: 0
-    wideAnimationRotation: -90
+    wideAnimationRotation: 75
     attackRate: 0.75
     damage:
       types:
@@ -27,6 +27,7 @@
     malus: 0
   - type: MeleeThrowOnHit
     speed: 5
+    distance: 3
   - type: KnockdownOnHit
     duration: 0
     knockdownOnHeavyAttack: false

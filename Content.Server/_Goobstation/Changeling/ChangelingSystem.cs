@@ -66,6 +66,7 @@ using Content.Shared._White.Overlays;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Tag;
 using Content.Shared.Forensics.Components;
+using Content.Server.Atmos.Components;
 
 namespace Content.Server.Changeling;
 
@@ -125,9 +126,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     public EntProtoId ArmorPrototype = "ChangelingClothingOuterArmor";
     public EntProtoId ArmorHelmetPrototype = "ChangelingClothingHeadHelmet";
-
-    public EntProtoId SpacesuitPrototype = "ChangelingClothingOuterHardsuit";
-    public EntProtoId SpacesuitHelmetPrototype = "ChangelingClothingHeadHelmetHardsuit";
 
     public override void Initialize()
     {
@@ -192,7 +190,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     private void OnRefreshSpeed(Entity<ChangelingComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
         if (ent.Comp.StrainedMusclesActive)
-            args.ModifySpeed(1.25f, 1.5f);
+            args.ModifySpeed(1.5f, 2.0f);
         else
             args.ModifySpeed(1f, 1f);
     }
@@ -234,7 +232,20 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     {
         var chemicals = comp.Chemicals;
         // either amount or regen
-        chemicals += amount ?? 1 + comp.BonusChemicalRegen;
+
+        if (TryComp<FlammableComponent>(uid, out var flame)) // if on fire, reduce total chemicals restored to a 1/4 - if not, continue as normal //
+        {
+            if (!flame.OnFire)
+            {
+                chemicals += (amount ?? 1 + comp.BonusChemicalRegen) * comp.ChemicalRegenMultiplier;
+            }
+            else
+            {
+                chemicals += (amount ?? 1 + comp.BonusChemicalRegen) * comp.ChemicalRegenMultiplier * 0.25f;
+            }
+
+        }
+
         comp.Chemicals = Math.Clamp(chemicals, 0, comp.MaxChemicals);
         Dirty(uid, comp);
         _alerts.ShowAlert(uid, "ChangelingChemicals");
@@ -304,7 +315,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (comp.StrainedMusclesActive)
         {
             var stamina = EnsureComp<StaminaComponent>(uid);
-            _stamina.TakeStaminaDamage(uid, 7.5f, visual: false, immediate: false);
+            _stamina.TakeStaminaDamage(uid, 15f, visual: false, immediate: false);
             if (stamina.StaminaDamage >= stamina.CritThreshold || _gravity.IsWeightless(uid))
                 ToggleStrainedMuscles(uid, comp);
         }
@@ -369,13 +380,23 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     public bool TryUseAbility(EntityUid uid,
         ChangelingComponent comp,
         BaseActionEvent action,
-        float? chemCostOverride = null)
+        float? chemCostOverride = null,
+        bool fireAffected = true)
     {
         if (action.Handled)
             return false;
 
         if (!TryComp<ChangelingActionComponent>(action.Action, out var lingAction))
             return false;
+
+        if (TryComp<FlammableComponent>(uid, out var fire)) // checks if the changeling is on fire, and if the ability is affected by fire
+        {
+            if (fire.OnFire && fireAffected)
+            {
+                _popup.PopupEntity(Loc.GetString("changeling-onfire"), uid, uid, PopupType.LargeCaution);
+                return false;
+            }
+        }
 
         if (comp.Biomass < 1 && lingAction.RequireBiomass)
         {
@@ -513,6 +534,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             }
 
             comp.ActiveArmor = newArmor;
+            comp.ChemicalRegenMultiplier -= 0.25f; // base chem regen slowed by a flat 25%
             return true;
         }
         else
@@ -522,6 +544,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
                 QueueDel(armor);
 
             comp.ActiveArmor = null!;
+            comp.ChemicalRegenMultiplier += 0.25f; // chem regen debuff removed
             return true;
         }
     }
@@ -721,8 +744,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (newUid != null)
         {
             PlayMeatySound((EntityUid) newUid, comp);
-            var loc = Loc.GetString("changeling-transform-others", ("user", locName));
-            _popup.PopupEntity(loc, (EntityUid) newUid, PopupType.LargeCaution);
         }
 
         return true;
