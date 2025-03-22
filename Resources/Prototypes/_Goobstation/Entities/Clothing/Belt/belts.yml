@@ -111,10 +111,10 @@
   description: A rugged sheath, designed to hold the Head of Security's custom energy sword.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/sheath.rsi  # Todo - Change this
-    state: sheath
+    sprite: _Goobstation/Clothing/Belt/hossheath.rsi
+    state: icon
   - type: Clothing
-    sprite: Clothing/Belt/sheath.rsi # Todo - Change this
+    sprite: _Goobstation/Clothing/Belt/hossheath.rsi
   - type: Item
     size: Ginormous
   - type: ItemSlots
