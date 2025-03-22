@@ -1,7 +1,7 @@
 # I don't want to clutter battery guns with these ones.
 
 - type: entity
-  name: X-16 "Threadcutter"
+  name: X-18 "Threadcutter"
   parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponHeadOfSecuritySniper
   description: An elaborately designed sniper rifle, firing shots of pure phoron. You won't want to get hit by this.
@@ -16,12 +16,15 @@
     slots:
     - Back
     - suitStorage
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 10
   - type: Gun
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
   - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
-    fireCost: 60
+    proto: RedHeavyLaser
+    fireCost: 100
   - type: StaticPrice
     price: 2500
