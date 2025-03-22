@@ -20,6 +20,7 @@
     autoRecharge: true
     autoRechargeRate: 10
   - type: Gun
+    fireRate: 0.8
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -28,3 +29,10 @@
     fireCost: 100
   - type: StaticPrice
     price: 2500
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.80
+    sprintModifier: 0.80
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 3
+    pvsIncrease: 0.3
