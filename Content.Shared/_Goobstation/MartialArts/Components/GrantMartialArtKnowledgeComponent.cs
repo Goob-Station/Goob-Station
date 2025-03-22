@@ -30,6 +30,9 @@ public sealed partial class GrantSleepingCarpComponent : GrantMartialArtKnowledg
 {
     [DataField]
     public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.SleepingCarp;
+    [DataField]
+    public int MaximumUses = 1;
+    public int CurrentUses = 0;
 }
 
 [RegisterComponent]

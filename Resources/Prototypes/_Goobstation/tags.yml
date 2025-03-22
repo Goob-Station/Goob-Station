@@ -337,6 +337,9 @@
   id: Tourniquet
 
 - type: Tag
+  id: ToyGrenade
+
+- type: Tag
   id: ToySword
 
 - type: Tag
