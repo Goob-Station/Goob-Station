@@ -249,6 +249,7 @@
     tags:
     - HighRiskItem
     - Sidearm
+    - WeaponEnergyGunLawbringer
   - type: StealTarget
     stealGroup: WeaponEnergyGunLawbringer
   - type: RestrictById
@@ -274,6 +275,3 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 40
-  - type: Tag
-    tags:
-    - WeaponEnergyGunLawbringer
