@@ -12,6 +12,9 @@ public sealed partial class RustGraspComponent : Component
     public float MaxUseDelay = 3f;
 
     [DataField]
+    public float CatwalkDelayMultiplier = 0.15f;
+
+    [DataField]
     public string Delay = "rust";
 
     [DataField]

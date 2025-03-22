@@ -128,6 +128,16 @@ public sealed class MansusGraspSystem : EntitySystem
             return;
         }
 
+        // Death to catwalks
+        if (_tag.HasTag(args.Target.Value, "Catwalk"))
+        {
+            args.Handled = true;
+            InvokeGrasp(args.User, (uid, grasp));
+            ResetDelay(comp.CatwalkDelayMultiplier);
+            Del(args.Target);
+            return;
+        }
+
         if (!_ability.TryMakeRustWall(args.Target.Value, (args.User, heretic)))
             return;
 
@@ -158,10 +168,10 @@ public sealed class MansusGraspSystem : EntitySystem
             _ability.MakeRustTile(gridUid, mapGrid, tileRef, comp.TileRune);
         }
 
-        void ResetDelay()
+        void ResetDelay(float multiplier = 1f)
         {
             // Less delay the higher the path stage is
-            var length = float.Lerp(comp.MaxUseDelay, comp.MinUseDelay, heretic.PathStage / 10f);
+            var length = float.Lerp(comp.MaxUseDelay, comp.MinUseDelay, heretic.PathStage / 10f) * multiplier;
             _delay.SetLength((uid, delay), TimeSpan.FromSeconds(length), comp.Delay);
             _delay.TryResetDelay((uid, delay), false, comp.Delay);
         }
@@ -345,8 +355,8 @@ public sealed class MansusGraspSystem : EntitySystem
                 {
                     if (TryComp(target, out StationAiHolderComponent? aiHolder)) // Kill AI
                         QueueDel(aiHolder.Slot.ContainerSlot?.ContainedEntity);
-                    else if (HasComp<RustGraspComponent>(grasp) && _tag.HasTag(target, "Wall") ||
-                             HasComp<HereticRitualRuneComponent>( target)) // If we have rust grasp and targeting a wall - do nothing, let other methods handle that. Also don't damage transmutation rune.
+                    else if (HasComp<RustGraspComponent>(grasp) && _tag.HasAnyTag(target, "Wall", "Catwalk") ||
+                             HasComp<HereticRitualRuneComponent>( target)) // If we have rust grasp and targeting a wall (or a catwalk) - do nothing, let other methods handle that. Also don't damage transmutation rune.
                         return false;
                     else if (TryComp(target, out DamageableComponent? damageable) && // Is it even damageable?
                              !_tag.HasTag(target, "Meat") && // Is it not organic body part or organ?
