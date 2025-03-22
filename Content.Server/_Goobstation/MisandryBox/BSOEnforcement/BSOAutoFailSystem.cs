@@ -142,6 +142,9 @@ public sealed partial class BSOAutoFailSystem : EntitySystem
 
     private void Recheck()
     {
+        if (!CheckCommand())
+            _cts.Cancel(); // It's fucked, we have no command - blueshield can now furioso
+
         CheckProximity();
         CheckCounts();
     }
