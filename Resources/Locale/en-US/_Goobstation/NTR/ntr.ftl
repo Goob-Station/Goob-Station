@@ -28,9 +28,6 @@ ntr-executive-pizza-small-desc = Order a small pizza party bundle from NanoTrase
 
 # personal
 
-ntr-executive-bounty-name = A NTR Bounty Console
-ntr-executive-bounty-desc = Standard-issued flatpack, containing NanoTrasen bounty console. This - is your main source of communicating with CentComm. Multitool not included.
-
 ntr-executive-bsd-name = Call Blueshield Deputy
 ntr-executive-bsd-desc = Request a blueshield deputy from CentComm, your or commands personal guard, you better have a good reason to call this one. You are only allowed to call one.
 
