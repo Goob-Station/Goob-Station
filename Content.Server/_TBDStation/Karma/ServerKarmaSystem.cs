@@ -27,6 +27,8 @@ using Content.Shared.Power;
 using Content.Shared.Materials;
 using Content.Shared.Lathe;
 using Content.Server.Research.Systems;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 
 namespace Content.Server._TBDStation.ServerKarma
 {
@@ -46,6 +48,7 @@ namespace Content.Server._TBDStation.ServerKarma
         [Dependency] private readonly SharedPlayerSystem _playerSystem = default!;
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
         private readonly int _karmaPerRound = 9;
         private readonly float _karmaEndRoundMultiplier = 1;
@@ -122,6 +125,7 @@ namespace Content.Server._TBDStation.ServerKarma
 
         private void OnRoundEndText(RoundEndMessageEvent ev)
         {
+            // TODO: renable
             // if (_players.PlayerCount < _goobcoinsMinPlayers)
             //     return;
 
@@ -131,8 +135,8 @@ namespace Content.Server._TBDStation.ServerKarma
             int antagsCount = 0;
             int custodyAntags = 0;
             int deadPlayers = 0;
-            // NetUserId, karmaSum, departments
-            List<Tuple<NetUserId, float, List<DepartmentPrototype>>> players = new List<Tuple<NetUserId, float, List<DepartmentPrototype>>>();
+            // NetUserId, userId, karmaSum, departments
+            List<Tuple<NetUserId, EntityUid, float, List<DepartmentPrototype>>> players = new List<Tuple<NetUserId, EntityUid, float, List<DepartmentPrototype>>>();
 
             while (query.MoveNext(out var uid, out var mindContainer))
             {
@@ -166,7 +170,7 @@ namespace Content.Server._TBDStation.ServerKarma
                         departments.Add(department);
                     }
                 }
-                players.Add(new Tuple<NetUserId, float, List<DepartmentPrototype>>(mind.OriginalOwnerUserId.Value, karma, departments));
+                players.Add(new Tuple<NetUserId, EntityUid, float, List<DepartmentPrototype>>(mind.OriginalOwnerUserId.Value, uid, karma, departments));
 
                 if (_role.MindIsAntagonist(mindId))
                 {
@@ -178,6 +182,7 @@ namespace Content.Server._TBDStation.ServerKarma
                     deadPlayers++;
             }
 
+            // These numbers need to be tweaked to hell, should not apply at all when low pop/department.
             float departmentSuccessSecurity = 15 * custodyAntags - 4 * antagsCount; // TODO check greentext antags
             // departmentSuccessSecurity = Math.Clamp(departmentSuccessSecurity, -15, 90);
             float departmentSuccessCargo = 0.0003f * _departmentSuccess[(int) DepStatDEvent.DepStatKey.LathePrint] - 10;
@@ -190,11 +195,14 @@ namespace Content.Server._TBDStation.ServerKarma
             // departmentSuccessScience = Math.Clamp(departmentSuccessScience, -15, 90);
 
             float departmentSuccessAll = (departmentSuccessSecurity + departmentSuccessCargo + departmentSuccessEngineering + departmentSuccessMedical + departmentSuccessScience) / (5 + 2);
+            _adminLogger.Add(LogType.Karma,
+            LogImpact.Medium,
+            $"Department Overall Success Karma bonus/decriment's are: Security:{departmentSuccessSecurity}, Cargo:{departmentSuccessCargo}, Engineering:{departmentSuccessEngineering}, Medical:{departmentSuccessMedical}, Science:{departmentSuccessScience}, Command/Silicon:{departmentSuccessAll}");
             // Add department data to karma sums
             foreach (var player in players)
             {
-                var departments = player.Item3;
-                float karma = player.Item2;
+                var departments = player.Item4;
+                float karma = player.Item3;
                 float jobSuccessKarma = 0;
                 foreach (var department in departments)
                 {
@@ -226,6 +234,9 @@ namespace Content.Server._TBDStation.ServerKarma
                     karma += jobSuccessKarma / departments.Count;
 
                 karma *= _karmaEndRoundMultiplier;
+                _adminLogger.Add(LogType.Karma,
+                LogImpact.Medium,
+                $"{ToPrettyString(player.Item2):actor} end round gaining or lossing {(int) karma} karma");
                 _karmaMan.AddKarma(player.Item1, (int) karma);
             }
         }
@@ -275,6 +286,10 @@ namespace Content.Server._TBDStation.ServerKarma
                         delta *= 3;
                     else if (_mobStateSystem.IsDead(target)) // less if dead
                         delta *= 0.5f;
+                    _adminLogger.Add(LogType.Karma,
+                    LogImpact.Medium,
+                    $"{ToPrettyString(new EntityUid(ev.User)):actor} hit {ToPrettyString(target):subject} lossing {(int) delta} karma");
+
                     _karmaMan.RemoveKarma(netUserId, (int) delta);
                 }
             }
@@ -304,6 +319,9 @@ namespace Content.Server._TBDStation.ServerKarma
             }
             if ((int) dif > 0)
             {
+                _adminLogger.Add(LogType.Karma,
+                LogImpact.Medium,
+                $"{ToPrettyString(new EntityUid(ev.User)):actor} griefed by {PlayerKarmaGriefEvent.GriefType.IgniteOthers} lossing {(int) dif} karma");
                 _karmaMan.RemoveKarma(netUserId, (int) dif);
                 UpdateAssholeMeter(netUserId, dif);
             }

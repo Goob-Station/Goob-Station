@@ -459,4 +459,9 @@ public enum LogType
     /// GameDirector related game interactions.
     /// </summary>
     GameDirector = 99, // Goobstation
+
+    /// <summary>
+    /// Karma related game interactions.
+    /// </summary>
+    Karma = 100, // TBDStation
 }
