@@ -2,7 +2,7 @@
   parent: [ SmokeGrenade , BaseSyndicateContraband ]
   id: SarinGasGrenade
   name: sarin gas grenade
-  description: A brutal neurotoxin gas that stuns, blinds, poisons and burns anybody unlucky enough to catch a whiff or not be in a voidsuit.
+  description: A brutal neurotoxin gas that stuns, blinds, poisons anybody unlucky enough to catch a whiff and burns anyone not in a voidsuit.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/tear_gas.rsi

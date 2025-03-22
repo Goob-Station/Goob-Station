@@ -40,6 +40,15 @@
   categories:
     - UplinkDisruption
 
+- type: listing
+  id: UplinkSarinGasGrenade
+  name: uplink-sarin-gas-grenade-name
+  description: uplink-sarin-gas-grenade-desc
+  productEntity: SarinGasGrenade
+  cost:
+    Telecrystal: 12
+  categories:
+    -  UplinkDisruption
 
 # Weaponry
 
@@ -187,26 +196,6 @@
     Telecrystal: 25
   categories:
     - UplinkWeaponry
-
-- type: listing
-  id: UplinkGlovesKravmaga
-  name: uplink-kravgloves-name
-  description: uplink-kravgloves-desc
-  productEntity: ClothingHandsGlovesKravMagaStealthy
-  cost:
-    Telecrystal: 35
-  categories:
-  - UplinkWeaponry
-
-- type: listing
-  id: UplinkGlovesGuerilla
-  name: uplink-guerrillagloves-name
-  description: uplink-guerrillagloves-desc
-  productEntity: ClothingHandsGlovesGuerrilla
-  cost:
-    Telecrystal: 40
-  categories:
-  - UplinkWeaponry
 
 # Wearables
 
@@ -481,7 +470,7 @@
   icon: { sprite: /Textures/_Goobstation/Actions/syndicateswap.rsi, state: icon }
   productEntity: JaunterImplanter
   cost:
-    Telecrystal: 100
+    Telecrystal: 30
   categories:
   - UplinkImplants
   conditions:
@@ -489,6 +478,17 @@
     blacklist:
       tags:
       - NukeOpsUplink
+
+- type: listing
+  id: UplinkKravMagaImplanter
+  name: uplink-krav-maga-implant-name
+  description: uplink-krav-maga-implant-desc
+  icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/kravgloves.rsi, state: icon }
+  productEntity: KravMagaImplanter
+  cost:
+    Telecrystal: 40
+  categories:
+    - UplinkImplants
 
 # Deception
 
