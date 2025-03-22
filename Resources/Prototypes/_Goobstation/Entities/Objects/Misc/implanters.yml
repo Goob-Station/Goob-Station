@@ -94,6 +94,14 @@
     implant: FreedomImplant
 
 - type: entity
+  id: CentcommMindShieldImplanter
+  suffix: mindshield
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: MindShieldImplant
+
+- type: entity
   id: CentcommStorageImplanter
   suffix: storage implant
   parent: BaseImplantOnlyImplanterCentcomm

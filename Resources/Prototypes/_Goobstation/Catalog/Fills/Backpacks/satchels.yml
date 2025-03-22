@@ -7,6 +7,7 @@
     - id: HandheldFaxOfficial
     - id: HyperFlash
     - id: WeaponPulsePistol
+    - id: CentcommMindShieldImplanter # Setoutfit doesn't apply implants.
 
 - type: entity
   parent: ClothingBackpackSatchelLeather
@@ -20,6 +21,7 @@
     - id: MagazineLightRifleUranium
     - id: MagazineLightRifleUranium
     - id: HyperFlash
+    - id: CentcommMindShieldImplanter
 
 - type: entity
   parent: ClothingBackpackChameleon
@@ -32,3 +34,4 @@
     - id: MagazinePistolNeurotoxin
     - id: MagazinePistolNeurotoxin
     - id: HyperFlash
+    - id: CentcommMindShieldImplanter
