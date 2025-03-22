@@ -99,14 +99,26 @@ public sealed partial class ContractorMarkerComponent : Component
     public int TcReward;
 }
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent]
 public sealed partial class ContractorPortalComponent : Component
 {
-    [DataField, AutoNetworkedField]
+    [DataField,]
     public EntityUid Target = EntityUid.Invalid;
 
-    [DataField, AutoNetworkedField]
-    public bool Used = false;
+    [DataField]
+    public TimeSpan LifetimeAfterUse = TimeSpan.FromSeconds(0.5f);
+
+    [DataField]
+    public TimeSpan Lifetime = TimeSpan.FromSeconds(10f);
+
+    [DataField]
+    public TimeSpan TimeToDestroyAfterUse = TimeSpan.Zero;
+
+    [DataField]
+    public TimeSpan TimeToDestroy = TimeSpan.Zero;
+
+    [DataField]
+    public bool PrisonPortal = true;
 }
 
 [Serializable, NetSerializable]

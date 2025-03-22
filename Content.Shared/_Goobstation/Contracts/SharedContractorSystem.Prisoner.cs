@@ -23,12 +23,11 @@ public sealed partial class SharedContractorSystem
             prisonerComponent.TimeLeft = TimeSpan.Zero;
             SpawnReturnPortal(uid, prisonerComponent);
         }
-
     }
+
     private void CheckAndSpawnNukeOpsMap()
     {
         var nukeOpsMap = false;
-
 
         foreach (var map in _mapSystem.GetAllMapIds())
         {
@@ -58,7 +57,7 @@ public sealed partial class SharedContractorSystem
                 false);
     }
 
-        private void StartPrisonTimer(EntityUid target, EntityUid portal)
+    private void StartPrisonTimer(EntityUid target, EntityUid portal)
     {
         var prisonerComp = EnsureComp<ContractorPrisonerComponent>(target);
         prisonerComp.TimeLeft = _gameTiming.CurTime + prisonerComp.PrisonerTime;

@@ -8,6 +8,7 @@ namespace Content.Shared._Goobstation.Contracts;
 
 public sealed partial class  SharedContractorSystem
 {
+
     private void InitializePortal()
     {
         SubscribeLocalEvent<ContractorPortalComponent, PreventCollideEvent>(OnPortalCollide);
@@ -15,17 +16,27 @@ public sealed partial class  SharedContractorSystem
 
     private void UpdatePortal()
     {
+        if(!_net.IsServer)
+            return;
+
         var contractorPortalQuery = EntityQueryEnumerator<ContractorPortalComponent>();
         while (contractorPortalQuery.MoveNext(out var uid, out var contractorPortalComponent))
         {
-            if (contractorPortalComponent.Used)
-                QueueDel(uid);
+            if(contractorPortalComponent.TimeToDestroyAfterUse == TimeSpan.Zero || _gameTiming.CurTime < contractorPortalComponent.TimeToDestroyAfterUse)
+                continue;
+
+            contractorPortalComponent.TimeToDestroyAfterUse = TimeSpan.Zero;
+            QueueDel(uid);
         }
     }
 
     private void CreatePortalAndLink(ContractorUplinkComponent comp)
     {
-        var extractPortal = Spawn("PortalRed", GetEntity(comp.FlareUid).ToCoordinates());
+        var flareCoords = Transform(GetEntity(comp.FlareUid)).Coordinates;
+        QueueDel(GetEntity(comp.FlareUid));
+        comp.FlareUid = NetEntity.Invalid;
+
+        var extractPortal = Spawn("PortalRed", flareCoords);
 
         if (!TryComp<PortalComponent>(extractPortal, out var portalComp))
             return;
@@ -39,9 +50,6 @@ public sealed partial class  SharedContractorSystem
 
         var contractorPortalComponent = EnsureComp<ContractorPortalComponent>(extractPortal);
         contractorPortalComponent.Target = GetEntity(contractorComp.CurrentTarget);
-
-        QueueDel(GetEntity(comp.FlareUid));
-        comp.FlareUid = NetEntity.Invalid;
 
         CheckAndSpawnNukeOpsMap();
         var warpMarker = SelectRandomWarp();
@@ -70,24 +78,35 @@ public sealed partial class  SharedContractorSystem
     // prevent portal from colliding with the contractor or a non targetted entity
     private void OnPortalCollide(Entity<ContractorPortalComponent> ent, ref PreventCollideEvent args)
     {
+        if(!_net.IsServer)
+            return;
+
         if (args.OtherEntity != ent.Comp.Target)
         {
             args.Cancelled = true;
             return;
         }
 
-        if (args.OtherEntity == ent.Comp.Target)
-            args.Cancelled = false;
+        args.Cancelled = false;
+        if(ent.Comp.PrisonPortal)
+            StartPrisonTimer(args.OtherEntity, args.OurEntity);
+        else
+        {
+            if(TryComp<ContractorPrisonerComponent>(args.OtherEntity, out var prisonerComp))
+                _handsSystem.TryForcePickupAnyHand(args.OtherEntity, prisonerComp.Gear);
+        }
 
-        StartPrisonTimer(args.OtherEntity, args.OurEntity);
-        ent.Comp.Used = true;
+        ent.Comp.TimeToDestroyAfterUse = _gameTiming.CurTime + ent.Comp.LifetimeAfterUse;
     }
+
     private void SpawnReturnPortal(EntityUid uid, ContractorPrisonerComponent prisonerComponent)
     {
         // Spawn the return portal
         var returnPortal = Spawn("PortalBlue", GetTileInFrontOfEntity(uid));
         var contractorPortalComp = EnsureComp<ContractorPortalComponent>(returnPortal);
         contractorPortalComp.Target = uid;
+        contractorPortalComp.PrisonPortal = false;
+        contractorPortalComp.TimeToDestroy = _gameTiming.CurTime + contractorPortalComp.Lifetime;
 
         if (!TryComp<PortalComponent>(returnPortal, out var portalComp))
             return;
