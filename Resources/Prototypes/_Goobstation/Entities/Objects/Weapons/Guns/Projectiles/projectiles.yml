@@ -184,6 +184,7 @@
       types:
         Heat: 13
         Shock: 5
+        Structural: 20
 
 - type: entity
   name: heavy laser barrage
