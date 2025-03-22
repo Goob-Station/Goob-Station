@@ -21,6 +21,15 @@
     },
     {
       "name": "hud_wanted"
+    },
+    {
+      "name": "hud_search"
+    },
+    {
+      "name": "hud_dangerous"
+    },
+    {
+      "name": "hud_perma"
     }
   ]
 }
