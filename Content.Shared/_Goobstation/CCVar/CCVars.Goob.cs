@@ -1,3 +1,4 @@
+using Content.Shared._Goobstation.MisandryBox;
 using Robust.Shared.Configuration;
 
 namespace Content.Shared._Goobstation.CCVar;
@@ -127,6 +128,65 @@ public sealed partial class GoobCVars
         CVarDef.Create("ragequit.discord_webhook", "", CVar.SERVERONLY | CVar.CONFIDENTIAL);
 
     #endregion PlayerListener
+
+    #region MisandryBox
+
+    /// <summary>
+    /// Enforce Blueshield Officer roleplay
+    /// </summary>
+    public static readonly CVarDef<bool> BSOEnforcement =
+        CVarDef.Create("bsoenforcement.enable", true, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Blueshield Job prototype for BSO Enforcement
+    /// </summary>
+    public static readonly CVarDef<string> BSOJobProto =
+        CVarDef.Create("bsoenforcement.jobproto", "BlueshieldOfficer", CVar.SERVERONLY);
+
+    /// <summary>
+    /// Tile distance permitted from closest command member
+    /// </summary>
+    public static readonly CVarDef<int> BSORange =
+        CVarDef.Create("bsoenforcement.range", 15, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Check same grid only
+    /// </summary>
+    public static readonly CVarDef<bool> BSOMapRelevance =
+        CVarDef.Create("bsoenforcement.map", true, CVar.SERVERONLY, "Check for command members on the same map only.");
+
+    /// <summary>
+    /// Time between checks.
+    /// </summary>
+    public static readonly CVarDef<float> BSOTime =
+        CVarDef.Create("bsoenforcement.timespan", 10f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// How many failed checks will cause an action.
+    /// </summary>
+    public static readonly CVarDef<int> BSOThreshold =
+        CVarDef.Create("bsoenforcement.threshold", 12, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Enable grace period - time before proximity checks start?
+    /// Grace period is time * threshold * 2, in seconds.
+    /// </summary>
+    public static readonly CVarDef<bool> BSOGrace =
+        CVarDef.Create("bsoenforcement.grace", true, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Punishment for BSO players if threshold reached.
+    /// </summary>
+    public static readonly CVarDef<string> BSOPunishment =
+        CVarDef.Create("bsoenforcement.punishment", BSOEnforcementPunishmentEnum.Pacifist.ToString(), CVar.SERVERONLY);
+
+    /// <summary>
+    /// If punishment includes roleban - for how long?
+    /// </summary>
+    public static readonly CVarDef<int> BSORoleBanTime =
+        CVarDef.Create("bsoenforcement.bantime", 120, CVar.SERVERONLY);
+
+    #endregion
 
     #region Surgery
 
