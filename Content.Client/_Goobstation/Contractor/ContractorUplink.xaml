@@ -1,0 +1,42 @@
+<controls:ContractorUplink
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client._Goobstation.Contractor"
+    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
+    Access="Public"
+    MinSize="700 600" Resizable="False" Title="Syndicate Contractor Uplink">
+    <PanelContainer>
+        <BoxContainer Orientation="Vertical" Margin="5">
+            <PanelContainer>
+                <PanelContainer.PanelOverride>
+                    <graphics:StyleBoxFlat BackgroundColor="#202023"/>
+                </PanelContainer.PanelOverride>
+                <BoxContainer Orientation="Vertical" Margin="5">
+                    <Label Text="Summary" />
+                    <customControls:HSeparator Margin="3 0" />
+                    <BoxContainer Orientation="Horizontal">
+                        <Label Margin="0 0 5 0" Text="TC Available: 0 TC" />
+                        <Button Margin="0 0 20 0" Text="Claim" />
+                        <Label Text="Contracts Completed: 1" />
+                    </BoxContainer>
+                    <BoxContainer Orientation="Horizontal">
+                        <Label Margin="0 0 110 0" Text="TC Earned: 0 TC" />
+                        <Label Margin="0 0 0 0"  Text="Contractor Status: ACTIVE" />
+                    </BoxContainer>
+                </BoxContainer>
+            </PanelContainer>
+
+            <BoxContainer Orientation="Horizontal">
+                <Label Margin="0 0 500 0" Text="Available Contracts" />
+                <Button Name="ExtractionButton" Text="Call Extraction" />
+            </BoxContainer>
+            <customControls:HSeparator Margin="3 0" />
+
+            <ScrollContainer VerticalExpand="true">
+                <BoxContainer Access="Public" Name="ContractContainer" Orientation="Vertical">
+                </BoxContainer>
+            </ScrollContainer>
+        </BoxContainer>
+    </PanelContainer>
+
+</controls:ContractorUplink>

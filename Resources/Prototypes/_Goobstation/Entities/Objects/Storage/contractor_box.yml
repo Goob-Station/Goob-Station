@@ -1,0 +1,17 @@
+- type: entity
+  id: ContractorLoadoutBox
+  name: contractor standard loadout box
+  description: A standard issue box included in a contractor kit.
+  parent: BoxCardboard
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/boxes_paradise.rsi
+    layers:
+    - state: doom_box
+  - type: Item
+    size: Normal
+  - type: EmitSoundOnLand
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,3,4

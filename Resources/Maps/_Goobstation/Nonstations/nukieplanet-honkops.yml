@@ -77,7 +77,7 @@ entities:
   - uid: 2
     components:
     - type: MetaData
-      name: Syndicate Outpost
+      name: Syndicate Clownpost
     - type: Transform
       pos: -4.024322,5.604384
       parent: 1

@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/6a63097109e98ff02811ac32c01b9a1be64a429a/icons/mob/clothing/suit.dmi, https://github.com/ParadiseSS13/Paradise/blob/6a63097109e98ff02811ac32c01b9a1be64a429a/icons/obj/clothing/suits.dmi, https://github.com/ParadiseSS13/Paradise/blob/e6f99049f6fd75bcf1d7fd681dd57b17cb282720/icons/mob/inhands/clothing_lefthand.dmi, https://github.com/ParadiseSS13/Paradise/blob/e6f99049f6fd75bcf1d7fd681dd57b17cb282720/icons/mob/inhands/clothing_lefthand.dmi, https://github.com/ParadiseSS13/Paradise/blob/e6f99049f6fd75bcf1d7fd681dd57b17cb282720/icons/mob/inhands/clothing_lefthand.dmi, https://github.com/ParadiseSS13/Paradise/blob/e6f99049f6fd75bcf1d7fd681dd57b17cb282720/icons/mob/inhands/clothing_righthand.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-vox",
+      "directions": 4
+    },
+    {
+      "name": "icon"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}
