@@ -42,10 +42,7 @@ public sealed class GoobLifelineSystem : EntitySystem
         _pullingSystem.StopAllPulls(parentUid);
 
         var coords = _transform.GetMapCoordinates(location.Value);
-        if (transform.MapID != coords.MapId)
-        {
-            _transform.SetMapCoordinates(parentUid, coords);
-        }
+        _transform.SetMapCoordinates(parentUid, coords);
 
         QueueDel(uid);
     }
