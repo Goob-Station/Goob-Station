@@ -15,16 +15,18 @@
     slots:
     - Back
     - suitStorage
+  - type: Battery
+    maxCharge: 800
+    startingCharge: 800
   - type: Gun
     minAngle: 2
     maxAngle: 16
-    fireRate: 8
-    burstFireRate: 8
+    fireRate: 4
+    burstFireRate: 6
     angleIncrease: 3
     angleDecay: 16
     selectedMode: FullAuto
     availableModes:
-    - SemiAuto
     - FullAuto
     - Burst
     soundGunshot:
@@ -32,10 +34,10 @@
     defaultDirection: 1, 0
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 10
+    autoRechargeRate: 5
   - type: ProjectileBatteryAmmoProvider
     proto: BulletLaserHeavy
-    fireCost: 10
+    fireCost: 32
   - type: StaticPrice
     price: 2500
 
@@ -59,7 +61,7 @@
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun_inhands_64x.rsi
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 10
+    autoRechargeRate: 5
   - type: Gun
     fireRate: 0.75
     soundGunshot:
@@ -91,7 +93,7 @@
     - suitStorage
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 10
+    autoRechargeRate: 5
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
