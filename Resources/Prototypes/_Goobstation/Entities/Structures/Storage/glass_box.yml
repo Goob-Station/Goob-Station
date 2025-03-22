@@ -8,7 +8,7 @@
     sprite: Structures/Storage/glassbox.rsi
     layers:
     - state: base
-    - state: caplaser # TODO: change to lawbringer
+    - state: lawbringer
       map: [ "enum.ItemCabinetVisuals.Layer" ]
       visible: true
     - state: glass
@@ -33,7 +33,7 @@
 - type: entity
   id: GlassBoxLawbringerFilled
   parent: GlassBoxLawbringer
-  suffix: AntiqueLaser, Filled
+  suffix: Lawbringer, Filled
   components:
   - type: ContainerFill
     containers:
