@@ -8,10 +8,14 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/sniper.rsi
-    state: base
+    state: icon
   - type: Appearance
   - type: Clothing
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/sniper.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
   - type: Gun
     selectedMode: SemiAuto
     availableModes:
