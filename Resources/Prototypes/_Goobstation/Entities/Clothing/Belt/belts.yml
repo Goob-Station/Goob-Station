@@ -112,7 +112,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/hossheath.rsi
-    state: icon
+    state: sheath
   - type: Clothing
     sprite: _Goobstation/Clothing/Belt/hossheath.rsi
   - type: Item
