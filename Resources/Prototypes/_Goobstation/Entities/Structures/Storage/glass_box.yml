@@ -3,6 +3,19 @@
   parent: GlassBox
   suffix: Lawbringer
   components:
+  - type: Sprite
+    noRot: true
+    sprite: Structures/Storage/glassbox.rsi
+    layers:
+    - state: base
+    - state: caplaser # TODO: change to lawbringer
+      map: [ "enum.ItemCabinetVisuals.Layer" ]
+      visible: true
+    - state: glass
+      map: [ "enum.OpenableVisuals.Layer" ]
+    - state: locked
+      shader: unshaded
+      map: [ "enum.LockVisualLayers.Lock" ]
   - type: AccessReader
     access: [["HeadOfSecurity"]]
   - type: Construction
