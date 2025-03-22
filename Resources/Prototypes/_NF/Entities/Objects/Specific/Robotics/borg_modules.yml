@@ -14,6 +14,5 @@
     - MiningDrillDiamond
     - AdvancedMineralScannerUnpowered
     - OreBagOfHolding
-    - JawsOfLife
   - type: BorgModuleIcon
     icon: { sprite: _NF/Actions/actions_borg.rsi, state: advanced-mining-module }
