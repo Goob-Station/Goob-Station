@@ -53,6 +53,8 @@ public sealed partial class BSOAutoFailSystem : EntitySystem
 
     private CancellationTokenSource _cts = default!;
 
+    [ViewVariables(VVAccess.ReadOnly)]
+    public bool Started = false;
 
     public override void Initialize()
     {
@@ -110,11 +112,12 @@ public sealed partial class BSOAutoFailSystem : EntitySystem
         if (!CheckCommand())
             return;
 
-        Timer.Spawn(TimeSpan.FromSeconds(_grace ? _threshold * _timespan * 2 : 0), Grace);
+        Timer.Spawn(TimeSpan.FromSeconds(GetGraceTime()), Grace);
     }
 
     private void Grace()
     {
+        Started = true;
         Timer.SpawnRepeating(TimeSpan.FromSeconds(_timespan), Recheck, _cts.Token);
     }
 
@@ -271,9 +274,22 @@ public sealed partial class BSOAutoFailSystem : EntitySystem
         return true;
     }
 
+    private float GetGraceTime(bool force = false)
+    {
+        if (!_grace && !force)
+            return 0;
+
+        return _threshold * _timespan * 2;
+    }
+
     private void Cleanup(RoundRestartCleanupEvent ev)
     {
-        _apostles.Clear();
-        _cts.Cancel();
+        try
+        {
+            _apostles.Clear();
+            _cts.Cancel();
+        }
+        catch (ObjectDisposedException) {}
     }
 }
+/// (configurable)
