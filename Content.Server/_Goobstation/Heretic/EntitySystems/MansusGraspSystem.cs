@@ -1,8 +1,10 @@
 using Content.Server.Chat.Systems;
+using Content.Server.Explosion.EntitySystems;
 using Content.Server.Hands.Systems;
 using Content.Server.Heretic.Abilities;
 using Content.Server.Heretic.Components;
 using Content.Server.Heretic.Components.PathSpecific;
+using Content.Server.Popups;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
@@ -68,6 +70,7 @@ public sealed class MansusGraspSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly HereticAbilitySystem _ability = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -77,11 +80,23 @@ public sealed class MansusGraspSystem : EntitySystem
         SubscribeLocalEvent<TagComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<RustGraspComponent, AfterInteractEvent>(OnRustInteract);
         SubscribeLocalEvent<HereticComponent, DrawRitualRuneDoAfterEvent>(OnRitualRuneDoAfter);
+        SubscribeLocalEvent<MansusGraspBlockTriggerComponent, TriggerAttemptEvent>(OnTriggerAttempt);
 
         SubscribeLocalEvent<MansusInfusedComponent, ExaminedEvent>(OnInfusedExamine);
         SubscribeLocalEvent<MansusInfusedComponent, InteractHandEvent>(OnInfusedInteract);
         SubscribeLocalEvent<MansusInfusedComponent, MeleeHitEvent>(OnInfusedMeleeHit);
         // todo add more mansus infused item interactions
+    }
+
+    private void OnTriggerAttempt(Entity<MansusGraspBlockTriggerComponent> ent, ref TriggerAttemptEvent args)
+    {
+        if (HasComp<MansusGraspAffectedComponent>(args.User))
+        {
+            args.Cancel();
+            _popup.PopupEntity(Loc.GetString("mansus-grasp-trigger-fail"), args.User.Value, args.User.Value);
+        }
+        else if (HasComp<MansusGraspAffectedComponent>(Transform(ent).ParentUid))
+            args.Cancel();
     }
 
     private void OnRustInteract(EntityUid uid, RustGraspComponent comp, AfterInteractEvent args)
@@ -198,6 +213,11 @@ public sealed class MansusGraspSystem : EntitySystem
             _stun.KnockdownOrStun(target, comp.KnockdownTime, true, status);
             _stamina.TakeStaminaDamage(target, comp.StaminaDamage);
             _language.DoRatvarian(target, comp.SpeechTime, true, status);
+            _statusEffect.TryAddStatusEffect<MansusGraspAffectedComponent>(target,
+                "MansusGraspAffected",
+                ent.Comp.AffectedTime,
+                true,
+                status);
         }
 
         _actions.SetCooldown(hereticComp.MansusGrasp, ent.Comp.CooldownAfterUse);

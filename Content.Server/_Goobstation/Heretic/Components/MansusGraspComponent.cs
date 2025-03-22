@@ -26,6 +26,9 @@ public sealed partial class MansusGraspComponent : Component
     public TimeSpan SpeechTime = TimeSpan.FromSeconds(10f);
 
     [DataField]
+    public TimeSpan AffectedTime = TimeSpan.FromMinutes(5);
+
+    [DataField]
     public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/Items/welder.ogg");
 
     [DataField]

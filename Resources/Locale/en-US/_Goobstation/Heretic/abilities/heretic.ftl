@@ -8,6 +8,8 @@ heretic-ability-fail-rust-stage-low = You are not powerful enough to rust this s
 
 heretic-magicitem-examine = [color=yellow]Allows you to use advanced spells while held or equipped.[/color]
 
+mansus-grasp-trigger-fail = Something prevents you from activating this!
+
 ## blade
 heretic-blade-examine = [color=yellow]Using it while it's in your hand will break the blade and teleport you away from danger.[/color]
 heretic-blade-use = The blade shatters, and you feel the voices pulling you away.
