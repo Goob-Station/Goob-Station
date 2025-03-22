@@ -64,14 +64,14 @@
     cost: 1250
   - id: LavalandWeaponKineticClaws
     cost: 1250
-  - id: WeaponProtoKineticShotgun
-    cost: 1250
   - id: WeaponProtoKineticRepeater
     cost: 1250
   - id: WeaponProtoKineticPistol
     cost: 1250
   - id: ClothingBackpackDuffelSalvageConscription
     cost: 1250
+  - id: WeaponProtoKineticShotgun
+    cost: 1500
   - id: LuxuryMedipen
     cost: 1600
   - id: WeaponPlasmaCutter
@@ -79,6 +79,8 @@
   - id: ShelterCapsule
     cost: 2000
   - id: OreBagOfHolding
+    cost: 2000
+  - id: BorgModuleAdvancedMining
     cost: 2000
   # TODO: super resonator for 2500
   # TODO: jump boots for 2500

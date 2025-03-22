@@ -89,6 +89,9 @@
   - Supply
   - Science
 
+  addComponents: # Goobstation
+  - type: NoWieldNeeded
+
   # Visual
   inventoryTemplateId: borgTall
   spriteBodyState: miner
@@ -153,7 +156,7 @@
 
   defaultModules:
   - BorgModuleTreatment
-  - BorgModuleLollipop # Goobstation.
+  - BorgModuleLollipop # Goobstation
 
   radioChannels:
   - Science
