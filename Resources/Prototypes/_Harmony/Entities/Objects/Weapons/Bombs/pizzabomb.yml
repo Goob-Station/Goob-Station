@@ -3,7 +3,7 @@
 
 - type: entity
   parent: [GrenadeBase, FoodBoxPizza]
-  id: Pizzabomb
+  id: FoodBoxPizzaBomb
   name: pizza box
   suffix: Bomb
   description: A cardboard box for storing things.

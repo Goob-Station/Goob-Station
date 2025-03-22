@@ -408,11 +408,23 @@
   id: UplinkPizzaBomb   # Harmony
   name: uplink-pizza-bomb-name
   description: uplink-pizza-bomb-desc
-  productEntity: Pizzabomb
+  productEntity: FoodBoxPizzaBomb
   cost:
-    Telecrystal: 20  # Goob
+    Telecrystal: 10  # Goob
   categories:
   - UplinkExplosives
+
+
+- type: listing
+  id: UplinkPizzaParty
+  name: uplink-pizza-party-crate-name
+  description: uplink-pizza-party-crate-desc
+  productEntity: CratePizzaParty
+  cost:
+    Telecrystal: 50  # Goob Bundle, get 8 pizza bombs and 7 regular pizzas. Bundle + Pizza boxes not telling the dangerous ones justifies the discount.
+  categories:
+  - UplinkExplosives
+
 
 # Ammo
 

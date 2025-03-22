@@ -58,3 +58,20 @@
       - id: ClothingHandsGlovesCombat
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
+
+- type: entity
+  id: CratePizzaParty
+  parent: CratePlastic
+  name: disaster pizza delivery
+  description: Help do your part to end station hunger by distributing pizza to underfunded departments! Includes 4 pizzas.
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodBoxPizzaFilled
+      amount: 5
+    - id: FoodBoxPizzaCotton
+      amount : 2
+    - id: FoodBoxPizzaBomb
+      amount : 8
+    - id: LidSalami
+      prob: 0.01
