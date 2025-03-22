@@ -102,6 +102,14 @@
     implant: StorageImplant
 
 - type: entity
+  id: CentcommMindShieldImplanter
+  suffix: mindshield
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: MindShieldImplant
+
+- type: entity
   parent: BaseImplantOnlyImplanter
   id: PacifismImplanter
   suffix: pacifism

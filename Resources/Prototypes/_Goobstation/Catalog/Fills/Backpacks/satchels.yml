@@ -9,6 +9,8 @@
     - id: TelescopicBatonAdvanced
     - id: CentralCommandBusinessCard
     - id: BoxFolderCentCom
+    - id: CentcommMindShieldImplanter # SetOutfit doesn't apply implants.
+    - id: BluespaceLifelineImplanter # As much as i hate cramming bags with implants...
 
 - type: entity
   parent: ClothingBackpackSatchelLeather
@@ -24,6 +26,8 @@
     - id: MagazineLightRifleUranium
     - id: HyperFlash
     - id: CentralCommandBusinessCard
+    - id: CentcommMindShieldImplanter
+    - id: BluespaceLifelineImplanter
 
 - type: entity
   parent: ClothingBackpackChameleon
@@ -37,6 +41,8 @@
     - id: MagazinePistolNeurotoxin
     - id: HyperFlash
     - id: CentralCommandBusinessCard
+    - id: CentcommMindShieldImplanter
+    - id: BluespaceLifelineImplanter
 
 - type: entity
   parent: ClothingBackpackSatchelLeather
@@ -49,3 +55,5 @@
     - id: TelescopicBatonAdvanced
     - id: CentralCommandBusinessCard
     - id: BoxFolderCentCom
+    - id: CentcommMindShieldImplanter
+    - id: BluespaceLifelineImplanter
