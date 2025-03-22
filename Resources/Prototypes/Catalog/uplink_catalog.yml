@@ -938,10 +938,6 @@
   categories:
   - UplinkDisruption
   conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
   - !type:BuyerWhitelistCondition
     blacklist:
       components:
@@ -957,10 +953,6 @@
   categories:
   - UplinkDisruption
   conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
   - !type:BuyerWhitelistCondition
     blacklist:
       components:
