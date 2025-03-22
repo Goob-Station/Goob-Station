@@ -1,7 +1,7 @@
 # I don't want to clutter battery guns with these ones.
 
 - type: entity
-  name: X-18 "Threadcutter"
+  name: X-18 "Ranought"
   parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponHeadOfSecuritySniper
   description: An elaborately designed sniper rifle, firing shots of pure phoron. You won't want to get hit by this.
