@@ -18,6 +18,9 @@
   - CentralCommand
   - NanotrasenRepresentative
   - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, VaporizeImplant ]
 
 - type: startingGear
   id: NavyOfficerGear
@@ -32,8 +35,8 @@
     neck: ExecutiveIDCard
     id: NavyOfficerPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltHolsterFilledCentComm # Todo - Give the officer a sabre
-    pocket1: BoxFolderCentCom
+    belt: ClothingBeltSheathFilledNavyOfficer
+    pocket1: HyperFlash
     pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
 
 # Navy Captain
@@ -57,6 +60,9 @@
     - CentralCommand
     - NanotrasenRepresentative
     - BlueshieldOfficer
+  special:
+   - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, VaporizeImplant ]
 
 - type: startingGear
   id: NavyCaptainGear
@@ -96,6 +102,9 @@
     - CentralCommand
     - NanotrasenRepresentative
     - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, VaporizeImplant ]
 
 - type: startingGear
   id: NavyOfficerUndercoverGear
@@ -136,6 +145,9 @@
     - CentralCommand
     - NanotrasenRepresentative
     - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
 
 - type: startingGear
   id: SpecialOperationsOfficerGear
@@ -176,6 +188,9 @@
   - CentralCommand
   - NanotrasenRepresentative
   - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
 
 - type: startingGear
   id: DiplomatGear
@@ -190,8 +205,48 @@
     id: DiplomatPDA
     ears: ClothingHeadsetAltCentCom
     # belt: ClothingBeltHolsterFilledCentComm - SOMEONE wouldn't stop bitching until i removed this
-    pocket1: TelescopicBaton
+    pocket1: TelescopicBatonAdvanced
     pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
+
+# Inspector
+
+- type: job
+  id: Inspector
+  name: job-name-inspector
+  description: job-description-inspector
+  playTimeTracker: JobInspector
+  setPreference: false
+  startingGear: InspectorGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-commander
+  canBeAntag: false
+  requirements:
+  - !type:AgeRequirement
+    requiredAge: 21
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
+
+- type: startingGear
+  id: InspectorGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNavyGold
+    shoes: ClothingShoesBootsLaceup
+    eyes: ClothingEyesGlassesCentComm
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
+    back: ClothingBackpackSatchelLeatherFilledInspector
+    outerClothing: ClothingOuterArmourInvisible
+    neck: ExecutiveIDCard
+    id: InspectorPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: BoxFolderCentComClipboard
+    pocket1: AmnestizineHypospray
 
 ## Half-life stolen roles
 
@@ -232,6 +287,6 @@
     id: GmanPDA
     ears: ClothingHeadsetChronolegioneer
     pocket1: SonicScrewdriver
-    pocket2: AmnestizineHypospray # Todo - Make this an ability. It'd be funny.
+    pocket2: AmnestizineHypospray
   inhand:
   - BriefcaseCentcomm

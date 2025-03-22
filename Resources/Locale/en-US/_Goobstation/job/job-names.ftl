@@ -12,6 +12,8 @@ job-name-navyofficer = Navy Officer
 job-name-navy-officer-undercover = Undercover Navy Officer
 job-name-navycaptain = Navy Captain
 job-name-diplomat = Diplomat
+job-name-inspector = Central Command Auditor
+job-name-nct = Nanotrasen Career Trainer
 
 # Half Life
 
@@ -22,9 +24,11 @@ job-name-gman = The G-Man
 
 JobBlueshieldOfficer = Blueshield Officer
 JobNanotrasenRepresentative = Nanotrasen Representative
+JobNanotrasenCareerTrainer = Nanotrasen Career Trainer
 JobHecuOperative = HECU Operative
 JobNavyOfficer = Navy Officer
 JobNavyOfficerUndercover = Undercover Navy Officer
 JobNavyCaptain = Navy Captain
 JobDiplomat = Diplomat
 JobGovernmentMan = The G-Man
+JobInspector = Central Command Auditor

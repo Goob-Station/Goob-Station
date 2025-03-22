@@ -1,4 +1,5 @@
 ## Random humanoids
+## All role time requirements are from goobstation.
 
 - type: randomHumanoidSettings
   id: EventHumanoid
@@ -58,7 +59,7 @@
   parent: EventHumanoidMindShielded
   randomizeName: false
   components:
-    - type: GrantImplant
+    - type: AutoImplant
       implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ] # Goobstation
     - type: GhostRole
       name: ghost-role-information-Death-Squad-name
@@ -66,6 +67,13 @@
       rules: ghost-role-information-Death-Squad-rules
       raffle:
         settings: short
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 48000 # Goobstation
+      - !type:DepartmentTimeRequirement
+        department: Command
+        time: 18000 # Goobstation
     - type: Loadout
       prototypes: [ DeathSquadGear ]
       roleLoadout: [ RoleSurvivalEVA ]
@@ -104,6 +112,13 @@
       raffle:
         settings: short
       job: ERTLeader
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 36000 # ten hours
+      - !type:DepartmentTimeRequirement
+        department: Command
+        time: 18000 # five hours
     - type: Loadout
       prototypes: [ ERTLeaderGear ]
       roleLoadout: [ RoleSurvivalExtended ]
@@ -137,29 +152,6 @@
       job: ERTLeader
     - type: Loadout
       prototypes: [ ERTLeaderGearEVA ]
-      roleLoadout: [ RoleSurvivalEVA ]
-
-- type: entity
-  id: RandomHumanoidSpawnerERTLeaderEVAAnnie
-  parent: RandomHumanoidSpawnerERTLeaderEVA
-  suffix: ERTRole, Annie, EVA
-  components:
-    - type: RandomHumanoidSpawner
-      settings: ERTLeaderEVAAnnie
-
-- type: randomHumanoidSettings
-  id: ERTLeaderEVAAnnie
-  parent: ERTLeaderEVA
-  components:
-    - type: GhostRole
-      name: ghost-role-information-ert-leader-name
-      description: ghost-role-information-ert-leader-description
-      rules: ghost-role-information-nonantagonist-rules
-      raffle:
-        settings: short
-      job: ERTLeader
-    - type: Loadout
-      prototypes: [ ERTLeaderGearEVAAnnie ]
       roleLoadout: [ RoleSurvivalEVA ]
 
 ## ERT Chaplain
@@ -321,6 +313,13 @@
       raffle:
         settings: short
       job: ERTEngineer
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Engineering
+        time: 36000 # ten hours
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 18000 # five hours
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitary
@@ -503,6 +502,13 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Medical
+        time: 36000 # ten hours
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 18000 # five hours
       job: ERTMedical
     - type: Loadout
       prototypes: [ ERTMedicalGearEVA ]
@@ -525,7 +531,7 @@
   id: CBURNAgent
   parent: EventHumanoidMindShielded
   components:
-    - type: GrantImplant
+    - type: AutoImplant
       implants: [ FreedomImplant, RadioImplantCentcomm ]
     - type: Loadout
       prototypes: [CBURNGear]
@@ -536,6 +542,13 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 36000 # ten hours
+      - !type:DepartmentTimeRequirement
+        department: Command
+        time: 18000 # five hours
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitary
@@ -557,7 +570,7 @@
   id: CentcomOfficial
   parent: EventHumanoidMindShielded
   components:
-    - type: GrantImplant
+    - type: AutoImplant
       implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
     - type: GhostRole
       name: ghost-role-information-centcom-official-name

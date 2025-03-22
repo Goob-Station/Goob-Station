@@ -42,6 +42,9 @@ ghost-role-information-navy-officer-undercover-rules = Follow the orders of the 
 ghost-role-information-diplomat-name = Diplomat
 ghost-role-information-diplomat-description = Represent Central Command, managing relationships with other factions aboard the station. Cleanup the issues the captain has likely caused.
 
+ghost-role-information-inspector-name = Central Command Auditor
+ghost-role-information-inspector-description = Perform inspections on the stations assets and its crew. Probably die in a horrific accident and get a deathsquad called.
+
 ghost-role-information-sentient-shark-name = Sentient Sharkminnow
 
 # Half Life
@@ -49,3 +52,17 @@ ghost-role-information-sentient-shark-name = Sentient Sharkminnow
 ghost-role-information-Gman-name = The G-Man
 ghost-role-information-Gman-description = The right man in the wrong place can make all the difference in the world.
 ghost-role-information-Gman-rules = You are beholden to no rules or boundaries. Death cannot hold you, and neither can Nanotrasen.
+
+# Token Roles
+
+ghost-role-information-description-token-generic = Don't take this role unless you redeemed the token!
+
+ghost-role-information-space-ninja-name-token = Space Ninja (Token)
+ghost-role-information-space-dragon-name-token = Space Dragon (Token)
+ghost-role-information-revenant-name-token = Revenant (Token)
+ghost-role-information-loneop-name-token = Lone Operative (Token)
+ghost-role-information-derelict-cyborg-syndicate-name-token = Derelict Assault Cyborg (Token)
+ghost-role-information-bingle-name-token = Bingle (Token)
+blob-carrier-role-name-token = Blob Carrier (Token)
+abductor-lone-ghost-role-name-token = Lone Abductor (Token)
+roles-wizard-name-token = Wizard (Token)

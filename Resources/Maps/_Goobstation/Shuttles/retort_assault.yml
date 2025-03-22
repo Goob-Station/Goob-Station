@@ -1788,7 +1788,7 @@ entities:
     - type: Transform
       pos: 2.5,-6.5
       parent: 1
-- proto: RandomHumanoidSpawnerERTLeaderEVAAnnie
+- proto: RandomHumanoidSpawnerERTLeaderEVA
   entities:
   - uid: 214
     components:
@@ -1802,7 +1802,7 @@ entities:
     - type: Transform
       pos: 2.5057218,-4.4959784
       parent: 1
-- proto: RandomHumanoidSpawnerERTSecurityEVAAnnie
+- proto: RandomHumanoidSpawnerERTSecurityEVA
   entities:
   - uid: 216
     components:
