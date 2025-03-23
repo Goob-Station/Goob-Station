@@ -335,6 +335,15 @@
     stackType: Bloodpack
     count: 1
 
+- type: entity
+  parent: Bloodpack
+  id: Bloodpack1
+  suffix: Single
+  components:
+  - type: Stack
+    stackType: Bloodpack
+    count: 1
+
 # Shitmed Change - yeah this thing is effectively an entirely different tool now.
 - type: entity
   parent: BaseHealingItem
