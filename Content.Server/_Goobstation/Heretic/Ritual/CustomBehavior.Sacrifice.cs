@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server.Body.Systems;
 using Content.Server.Heretic.Components;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Mobs.Components;
@@ -11,6 +12,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic;
 using Content.Server.Heretic.EntitySystems;
+using Content.Shared.Gibbing.Events;
 
 namespace Content.Server.Heretic.Ritual;
 
@@ -36,15 +38,10 @@ namespace Content.Server.Heretic.Ritual;
     /// </summary>
     [DataField] public bool OnlyTargets;
 
-    /// <summary>
-    ///     Whether sec and command members will always be sacrificed even if <see cref="OnlyTargets"/> is true
-    /// </summary>
-    [DataField] public bool SecAndCommandValid = true;
-
     // this is awful but it works so i'm not complaining
     protected SharedMindSystem _mind = default!;
     protected HereticSystem _heretic = default!;
-    protected DamageableSystem _damage = default!;
+    protected BodySystem _body = default!;
     protected EntityLookupSystem _lookup = default!;
     [Dependency] protected IPrototypeManager _proto = default!;
 
@@ -54,7 +51,7 @@ namespace Content.Server.Heretic.Ritual;
     {
         _mind = args.EntityManager.System<SharedMindSystem>();
         _heretic = args.EntityManager.System<HereticSystem>();
-        _damage = args.EntityManager.System<DamageableSystem>();
+        _body = args.EntityManager.System<BodySystem>();
         _lookup = args.EntityManager.System<EntityLookupSystem>();
         _proto = IoCManager.Resolve<IPrototypeManager>();
 
@@ -76,11 +73,9 @@ namespace Content.Server.Heretic.Ritual;
         // get all the dead ones
         foreach (var look in lookup)
         {
-            var (isCommand, isSec) = IsCommandOrSec(look, args.EntityManager);
             if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate) // only mobs
             || !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(look) // only humans
-            || OnlyTargets && hereticComp.SacrificeTargets.All(x => x.Entity != args.EntityManager.GetNetEntity(look)) && // only targets
-            (!SecAndCommandValid || !(isCommand || isSec))) // sec or command
+            || OnlyTargets && hereticComp.SacrificeTargets.All(x => x.Entity != args.EntityManager.GetNetEntity(look))) // only targets
                 continue;
 
             if (mobstate.CurrentState == Shared.Mobs.MobState.Dead)
@@ -113,15 +108,10 @@ namespace Content.Server.Heretic.Ritual;
             var (isCommand, isSec) = IsCommandOrSec(uids[i], args.EntityManager);
             var knowledgeGain = heretic.SacrificeTargets.Any(x => x.Entity == args.EntityManager.GetNetEntity(uids[i]))
                 ? (isCommand || isSec ? 3f : 2f)
-                : ((isCommand || isSec) && SecAndCommandValid ? 1f : 0f);
+                : 0f;
 
             // YES!!! GIB!!!
-            if (args.EntityManager.TryGetComponent<DamageableComponent>(uids[i], out var dmg))
-            {
-                var prot = (ProtoId<DamageGroupPrototype>) "Brute";
-                var dmgtype = _proto.Index(prot);
-                _damage.TryChangeDamage(uids[i], new DamageSpecifier(dmgtype, 1984f), true);
-            }
+            _body.GibBody(uids[i], contents: GibContentsOption.Gib);
 
             if (knowledgeGain > 0)
                 _heretic.UpdateKnowledge(args.Performer, heretic, knowledgeGain);
