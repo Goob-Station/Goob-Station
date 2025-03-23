@@ -171,3 +171,9 @@
   name: Jonathan Coulton - The Future Soon
   path:
     path: /Audio/Lobby/the_future_soon.ogg
+
+- type: jukebox
+  id: running_in
+  name: Q/\ntum - Running In (feat Z.W.E.I.)
+  path:
+    path: /Audio/_Goobstation/Music/running_in.ogg
