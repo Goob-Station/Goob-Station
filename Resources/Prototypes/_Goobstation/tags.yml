@@ -329,3 +329,5 @@
 - type: Tag
   id: HudMedicalSecurity
 
+- type: Tag
+  id: HiddenBlade
