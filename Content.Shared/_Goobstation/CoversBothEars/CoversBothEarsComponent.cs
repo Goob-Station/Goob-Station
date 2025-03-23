@@ -1,7 +1,7 @@
 namespace Content.Shared._Goobstation.CoversBothEars;
 
 /// <summary>
-/// This is used for...
+/// This is used for storing the virutal entity for the CoversBothEars system.
 /// </summary>
 [RegisterComponent]
 public sealed partial class CoversBothEarsComponent : Component

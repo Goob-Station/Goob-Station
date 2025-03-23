@@ -5,7 +5,7 @@ using Content.Shared.Inventory.VirtualItem;
 namespace Content.Server._Goobstation.CoversBothEars;
 
 /// <summary>
-/// This handles...
+/// This handles spawning a virtual item on the opposite ear for items like headsets.
 /// </summary>
 public sealed class CoversBothEarsSystem : EntitySystem
 {
@@ -41,6 +41,5 @@ public sealed class CoversBothEarsSystem : EntitySystem
         if (args.Clothing.InSlot == CoversBothEarsComponent.Ears2Slot)
             if(_virtualItemSystem.TrySpawnVirtualItemInInventory(ent, args.Wearer, CoversBothEarsComponent.EarsSlot, true, out var virtualEntity))
                 ent.Comp.VirtualEnt = virtualEntity.Value;
-
     }
 }
