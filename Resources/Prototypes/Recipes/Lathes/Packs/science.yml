@@ -67,7 +67,7 @@
   - FauxTileAstroAsteroidSand
 
 # Only contains parts for making basic modular grenades, no actual explosives
-- #type: latheRecipePack
+#- type: latheRecipePack
   #id: ScienceExplosives - Goobstation, stuff moved for roundstart explosives tech
   #recipes:
   #-Advanced

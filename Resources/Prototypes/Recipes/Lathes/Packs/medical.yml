@@ -12,6 +12,7 @@
   recipes:
   - Beaker
   - LargeBeaker
+  - ChemicalPayload # Goobstation, roundstart chemical payloads
   - Syringe
   - PillCanister
   - HandLabeler
@@ -21,7 +22,6 @@
   id: ChemistryStatic
   recipes:
   - Jug
-  - ChemicalPayload # Goobstation, roundstart chemical payloads
   - ChemistryEmptyBottle01
   - ClothingEyesGlassesChemical
 

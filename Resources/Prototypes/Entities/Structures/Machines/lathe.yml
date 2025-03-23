@@ -267,12 +267,12 @@
     idleState: icon
     runningState: building
     staticPacks:
+    - CircuitFloorsStatic
     #- ScienceBoardsStatic - Goobstation - Moved to Scifab
     - ServiceBoardsStatic
     - CargoBoardsStatic
     #- MedicalBoardsStatic - Goobstation - Moved to Scifab and Medfab
     #- EngineeringBoardsStatic - Goobstation - Moved to Scifab and Engifab
-    - CircuitFloorsStatic
     # Goobstation Packs
     - SharedBoardsStatic
     - MedicalBoardsStaticGoob
