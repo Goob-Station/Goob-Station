@@ -1,8 +1,8 @@
 - type: entity
-  name: Fall Laser SMG
+  name: ER-5 Torrent
   parent: [ BaseWeaponPowerCell, BaseSecurityContraband ]
-  id: WeaponLaserCellTest
-  description: A Focused Ablation Low-energy Laser (FALL), it's compatible with specialized SMG power cells.
+  id: WeaponLaserCellSMG
+  description: A high-tech laser SMG, compatible with specialized SMG power cells.
   components:
   - type: Item
     size: Large
@@ -47,3 +47,61 @@
     slots:
     - back
     - suitStorage
+
+
+- type: entity
+  name:  ES-7 Multilens
+  parent: [ BaseWeaponPowerCell, BaseGunWieldable, BaseSecurityContraband ]
+  id: WeaponLaserCellSniper
+  description: A high-tech burst laser sniper rifle, compatible with specialized sniper power cells.
+  components:
+  - type: Item
+    size: Huge
+  - type: Gun
+    burstFireRate: 12
+    shotsPerBurst: 3
+    fireRate: 0.5
+    lockOnTargetBurst: true
+    selectedMode: Burst
+    availableModes:
+    - Burst
+    soundGunshot:
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/laser_lmg.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        whitelist:
+          tags:
+          - MilitaryPowerCellSniper
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_sniper.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: true
+    zeroNoAmmo: true
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 800
+      Silver: 300
+      Gold: 200
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_sniper.rsi
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+  - type: GunRequiresWield
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 3
+    pvsIncrease: 0.3
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.5
+    sprintModifier: 0.5
