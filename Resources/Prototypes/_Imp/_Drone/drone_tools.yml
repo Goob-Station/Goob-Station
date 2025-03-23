@@ -9,13 +9,6 @@
   - type: Unremoveable
   - type: Sprite
     sprite: _Imp/Drone/dronesatchel.rsi
-  - type: StorageFill
-    contents:
-      - id: ClothingOuterHardsuitSyndie
-      - id: ClothingMaskGasSyndicate
-      - id: ClothingHandsGlovesCombat
-      - id: DoubleEmergencyOxygenTankFilled
-      - id: DoubleEmergencyNitrogenTankFilled
 
 - type: entity
   parent: trayScanner
