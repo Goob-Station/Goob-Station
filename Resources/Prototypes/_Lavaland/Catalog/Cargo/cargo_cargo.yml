@@ -4,6 +4,6 @@
     sprite:  /Textures/Structures/Machines/gateway.rsi
     state: frame
   product: GatewayFlatpackLavaland
-  cost: 30000
+  cost: 20000
   category: cargoproduct-category-name-cargo
   group: market
