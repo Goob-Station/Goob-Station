@@ -161,9 +161,10 @@ public sealed partial class AdminVerbSystem
         args.Verbs.Add(thief);
 
         // Goobstation - changelings
+        var lingName = Loc.GetString("admin-verb-text-make-changeling");
         Verb ling = new()
         {
-            Text = Loc.GetString("admin-verb-text-make-changeling"),
+            Text = lingName,
             Category = VerbCategory.Antag,
             Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/_Goobstation/Changeling/changeling_abilities.rsi"), "transform"),
             Act = () =>
@@ -172,15 +173,16 @@ public sealed partial class AdminVerbSystem
                     _antag.ForceMakeAntag<ChangelingRuleComponent>(targetPlayer, "Changeling");
             },
             Impact = LogImpact.High,
-            Message = Loc.GetString("admin-verb-make-changeling"),
+            Message = string.Join(": ", lingName, Loc.GetString("admin-verb-make-changeling")),
         };
         if (!HasComp<SiliconComponent>(args.Target))
             args.Verbs.Add(ling);
 
         // goobstation - heretics
+        var hereticName = Loc.GetString("admin-verb-text-make-heretic");
         Verb heretic = new()
         {
-            Text = Loc.GetString("admin-verb-make-heretic"),
+            Text = hereticName,
             Category = VerbCategory.Antag,
             Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/_Goobstation/Heretic/Blades/blade_blade.rsi"), "icon"),
             Act = () =>
@@ -188,14 +190,15 @@ public sealed partial class AdminVerbSystem
                 _antag.ForceMakeAntag<HereticRuleComponent>(targetPlayer, "Heretic");
             },
             Impact = LogImpact.High,
-            Message = Loc.GetString("admin-verb-make-heretic"),
+            Message = string.Join(": ", hereticName, Loc.GetString("admin-verb-make-heretic")),
         };
         args.Verbs.Add(heretic);
 
         // Goobstation - Blob
+        var blobName = Loc.GetString("admin-verb-text-make-blob");
         Verb blobAntag = new()
         {
-            Text = Loc.GetString("admin-verb-text-make-blob"),
+            Text = blobName,
             Category = VerbCategory.Antag,
             Icon = new SpriteSpecifier.Rsi(new("/Textures/_Goobstation/Blob/Actions/blob.rsi"), "blobFactory"),
             Act = () =>
@@ -203,14 +206,15 @@ public sealed partial class AdminVerbSystem
                 EnsureComp<Shared._Goobstation.Blob.Components.BlobCarrierComponent>(args.Target).HasMind = HasComp<ActorComponent>(args.Target);
             },
             Impact = LogImpact.High,
-            Message = Loc.GetString("admin-verb-text-make-blob"),
-	    };
+            Message = string.Join(": ", blobName, Loc.GetString("admin-verb-make-blob")),
+        };
         args.Verbs.Add(blobAntag);
 
         // Goobstation - Wizard
+        var wizardName = Loc.GetString("admin-verb-make-wizard");
         Verb wizard = new()
         {
-            Text = Loc.GetString("admin-verb-make-wizard"),
+            Text = wizardName,
             Category = VerbCategory.Antag,
             Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Clothing/Head/Hats/wizardhat.rsi"), "icon"),
             Act = () =>
@@ -218,7 +222,7 @@ public sealed partial class AdminVerbSystem
                 _antag.ForceMakeAntag<WizardRuleComponent>(targetPlayer, "Wizard");
             },
             Impact = LogImpact.High,
-            Message = Loc.GetString("admin-verb-text-make-wizard"),
+            Message = string.Join(": ", wizardName, Loc.GetString("admin-verb-text-make-wizard")),
         };
         args.Verbs.Add(wizard);
     }
