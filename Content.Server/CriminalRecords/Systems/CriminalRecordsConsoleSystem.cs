@@ -14,7 +14,6 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Security.Components;
 using System.Linq;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.CriminalRecords.Systems;
 
@@ -86,11 +85,12 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
     private void OnChangeStatus(Entity<CriminalRecordsConsoleComponent> ent, ref CriminalRecordChangeStatus msg)
     {
         // prevent malf client violating wanted/reason nullability
-        if (msg.Status == SecurityStatus.Wanted != (msg.Reason != null) &&
-            msg.Status == SecurityStatus.Suspected != (msg.Reason != null) &&
-            msg.Status == SecurityStatus.Dangerous != (msg.Reason != null) &&
-            msg.Status == SecurityStatus.Search != (msg.Reason != null)
-            )
+        var requireReason = msg.Status is SecurityStatus.Wanted
+            or SecurityStatus.Suspected
+            or SecurityStatus.Search
+            or SecurityStatus.Dangerous;
+
+        if (requireReason != (msg.Reason != null))
             return;
 
         if (!CheckSelected(ent, msg.Actor, out var mob, out var key))

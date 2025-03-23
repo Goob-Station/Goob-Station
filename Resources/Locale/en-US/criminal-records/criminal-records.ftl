@@ -48,12 +48,12 @@ criminal-records-console-detained = {$name} ({$job}) has been detained by {$offi
 criminal-records-console-released = {$name} ({$job}) has been released by {$officer}.
 criminal-records-console-paroled = {$name} ({$job}) has been released on parole by {$officer}.
 criminal-records-console-not-parole = {$officer} cleared the parole status of {$name} ({$job}).
-criminal-records-console-search = {$officer} marked {$name} ({$job}) as search because of: {$reason}
+criminal-records-console-search = {$officer} marked {$name} ({$job}) for search because of: {$reason}
 criminal-records-console-not-search = {$officer} cleared the search status of {$name} ({$job}).
 criminal-records-console-perma = {$name} ({$job}) has been sentenced to perma by {$officer}.
 criminal-records-console-not-perma = {$name} ({$job}) has been released from perma by {$officer}.
-criminal-records-console-dangerous =  {$officer} marked {$name} ({$job}) as dangerous because of: {$reason}.
-criminal-records-console-not-dangerous =  {$name} ({$job}) is no longer a threat by {$officer}.
+criminal-records-console-dangerous = {$officer} marked {$name} ({$job}) as dangerous because of: {$reason}.
+criminal-records-console-not-dangerous = {$name} ({$job}) is no longer a threat by {$officer}.
 
 criminal-records-console-unknown-officer = <unknown>
 
