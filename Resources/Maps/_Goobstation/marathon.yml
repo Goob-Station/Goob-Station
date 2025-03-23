@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/14/2025 02:00:13
-  entityCount: 22582
+  time: 03/23/2025 01:30:05
+  entityCount: 22580
 maps:
 - 1
 grids:
@@ -43464,6 +43464,14 @@ entities:
     components:
     - type: Transform
       pos: 2.6220274,21.009964
+      parent: 2
+- proto: CapsaicinDispenser
+  entities:
+  - uid: 15356
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -49.5,46.5
       parent: 2
 - proto: CarbonDioxideCanister
   entities:
@@ -89495,6 +89503,14 @@ entities:
     - type: Transform
       pos: -21.5,34.5
       parent: 2
+- proto: GlassBoxLawbringerFilled
+  entities:
+  - uid: 15357
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -22.5,53.5
+      parent: 2
 - proto: GlowstickRed
   entities:
   - uid: 13481
@@ -100818,18 +100834,6 @@ entities:
     components:
     - type: Transform
       pos: -6.5,-12.5
-      parent: 2
-- proto: MagazinePistolSubMachineGunTopMounted
-  entities:
-  - uid: 15356
-    components:
-    - type: Transform
-      pos: -22.54349,53.796127
-      parent: 2
-  - uid: 15357
-    components:
-    - type: Transform
-      pos: -22.54349,53.796127
       parent: 2
 - proto: MailMetricsCartridge
   entities:
@@ -123238,11 +123242,6 @@ entities:
     - type: Transform
       pos: -23.5,53.5
       parent: 2
-  - uid: 18982
-    components:
-    - type: Transform
-      pos: -22.5,53.5
-      parent: 2
   - uid: 18983
     components:
     - type: Transform
@@ -140840,13 +140839,6 @@ entities:
     components:
     - type: Transform
       pos: -41.445473,54.621906
-      parent: 2
-- proto: WeaponSubMachineGunWt550
-  entities:
-  - uid: 22246
-    components:
-    - type: Transform
-      pos: -22.590364,53.546127
       parent: 2
 - proto: Welder
   entities:
