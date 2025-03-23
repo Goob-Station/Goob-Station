@@ -98,15 +98,15 @@
   - type: MeleeWeapon
     damage:
       types:
-       Slash: 10
-       Piercing: 5
+       Slash: 15
+       Piercing: 20
     angle: 0
     wideAnimationRotation: 135
     animation: WeaponArcThrust
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: StaminaDamageOnHit
-    damage: 75
+    damage: 35
   - type: MeleeRequiresWield
   - type: MeleeSpeech
   - type: ActivatableUI
