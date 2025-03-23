@@ -90,10 +90,15 @@ public abstract class SharedFishingSystem : EntitySystem
                 var elapsedTime = currentTime - fisherComp.StartTime;
                 var totalDuration = fisherComp.EndTime - fisherComp.StartTime;
 
-                // Client works faster than the server, so we apply that to also count lag.
-                // TODO: fix this thing raaaaaagh
+                // TODO: Implement proper client/server synchronization
+                // This is a temporary solution to account for network latency
+                // P.S. Wow, coderabbit actually knows code better than me
                 if (Timing.InPrediction)
-                    totalDuration += TimeSpan.FromSeconds(1f / Math.Abs(activeSpotComp.FishDifficulty) * 0.1f);
+                {
+                    // Add a small adjustment based on difficulty to compensate for network delay
+                    var compensationFactor = 0.2f;
+                    totalDuration += TimeSpan.FromSeconds(1f / Math.Max(0.01f, Math.Abs(activeSpotComp.FishDifficulty)) * compensationFactor);
+                }
 
                 fisherComp.TotalProgress = (float) (elapsedTime.Value.TotalSeconds / totalDuration.Value.TotalSeconds);
             }
@@ -199,7 +204,7 @@ public abstract class SharedFishingSystem : EntitySystem
             return;
 
         // Dividing by zero is bad.
-        if (Math.Abs(activeSpotComp.FishDifficulty) == 0)
+        if (Math.Abs(activeSpotComp.FishDifficulty) == 0f)
             return;
 
         var rand = new System.Random((int) Timing.CurTick.Value);
