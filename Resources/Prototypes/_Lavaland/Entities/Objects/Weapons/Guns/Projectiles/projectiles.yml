@@ -28,7 +28,7 @@
   parent: WeakBulletKinetic
   components:
   - type: GatheringProjectile
-    probability: 1
+    probability: 0.5
 
 - type: entity
   id: PelletKineticSpread
