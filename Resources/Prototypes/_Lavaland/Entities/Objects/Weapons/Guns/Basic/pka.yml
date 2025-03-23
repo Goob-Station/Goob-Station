@@ -2,7 +2,7 @@
   name: proto-kinetic shotgun
   id: WeaponProtoKineticShotgun
   parent: [ BaseGunWieldable, WeaponProtoKineticAcceleratorBase, BaseCargoContraband ]
-  description: Fires a spread of low-damage kinetic bolts.
+  description: Fires a spread of low-damage kinetic bolts that are half as effective for mining.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
