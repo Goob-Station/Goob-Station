@@ -18,15 +18,15 @@ public sealed partial class GatherableSystem
         if (!args.OtherFixture.Hard ||
             args.OurFixtureId != SharedProjectileSystem.ProjectileFixture ||
             gathering.Comp.Amount <= 0 ||
-            !_robustRandom.Prob(gathering.Comp.Probability) || // Goobstation
-            !TryComp<GatherableComponent>(args.OtherEntity, out var gatherable) || // Goobstation
-            gatherable.IsGathered) // Goobstation
+            !TryComp<GatherableComponent>(args.OtherEntity, out var gatherable) || // Goobstation edit
+            gatherable.IsGathered || // Goobstation
+            !_robustRandom.Prob(gathering.Comp.Probability)) || // Goobstation
         {
             return;
         }
 
         Gather(args.OtherEntity, gathering, gatherable);
-        gatherable.IsGathered = true;
+        gatherable.IsGathered = true; // Goobstation
         gathering.Comp.Amount--;
 
         if (gathering.Comp.Amount <= 0)
