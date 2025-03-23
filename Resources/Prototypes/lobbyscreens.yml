@@ -1,23 +1,29 @@
 - type: lobbyBackground
-  id: Revenant
-  background: /Textures/_ShibaStation/LobbyScreens/revenant.webp
-  name: Revenant of Safety Violations
-  artist: Wolfio
+  id: DonotTouch
+  background: /Textures/LobbyScreens/donottouch.webp
+  name: Do Not Touch
+  artist: Unknown
 
 - type: lobbyBackground
-  id: Singuloose
-  background: /Textures/_ShibaStation/LobbyScreens/singuloose.webp
-  name: Singuloose
-  artist: Wolfio
+  id: LostPAI
+  background: /Textures/LobbyScreens/lostpai.webp
+  name: Lost PAI
+  artist: Cattom
 
 - type: lobbyBackground
-  id: Eating_Bullets
-  background: /Textures/_ShibaStation/LobbyScreens/eating_bullets.webp
-  name: Eating Bullets
-  artist: TazerPones
+  id: amos
+  background: /Textures/LobbyScreens/amos.webp
+  name: Atmosia
+  artist: asardonicsailor
 
 - type: lobbyBackground
-  id: Police_Brutality
-  background: /Textures/_ShibaStation/LobbyScreens/police_brutality.webp
-  name: Police Brutality
-  artist: TazerPones
+  id: cqcm
+  background: /Textures/_Ouroboros/LobbyScreens/cqcm-adjusted.webp
+  name: CQC Mime
+  artist: blooodyspy, downscaled by Piras314, edited by ngx370
+
+- type: lobbyBackground
+  id: pogboros
+  background: /Textures/_Ouroboros/LobbyScreens/pogboros.webp
+  name: Pogboros
+  artist: ngx370
