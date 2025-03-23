@@ -5,4 +5,4 @@
   description: A flatpack used to bluespace in a gateway for travel to Lavaland.
   components:
   - type: Flatpack
-    entity: GatewayLavaland
+    entity: GatewayLavalandStation
