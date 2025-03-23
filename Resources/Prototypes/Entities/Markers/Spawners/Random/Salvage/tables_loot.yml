@@ -301,7 +301,7 @@
     # - id: BlueprintSeismicCharge # Goobstation - emag locked
     - id: WeaponCrusherGlaive
     - id: ClothingOuterHardsuitSalvage
-    - id: OmnizineChemistryBottle
+    - id: ChemistryBottleOmnizine
     - id: FoodSnackLollypopWrappedCarpEvil # Goobstation
     - !type:GroupSelector
       children:
