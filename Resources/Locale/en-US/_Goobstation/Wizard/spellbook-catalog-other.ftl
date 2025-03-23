@@ -33,11 +33,13 @@ spellbook-event-dimension-shift-desc =
     Shift dimensions of the target ponyville, making space atmosphere safe for humanoid beings but still non-breathable. Useful if you are afraid of space, but this also prevents crew from dying to it as well.
     This spell goes into effect immediately the moment you buy it.
     Cannot be refunded.
+spellbook-event-global-tile-toggle-name = Global Tile Movement
+spellbook-event-global-tile-toggle-description = The station will not like this.
 spellbook-apprentice-name = Contract of Apprenticeship
 spellbook-apprentice-desc =
     A magical contract binding an apprentice discord to your sugarcube corner, using it will summon them to your side.
     Can only be purchased once.
-    
+
     You can choose between 8 set of spells for your apprentice to learn:
     Destruction: Fireball and Mutate.
     Ethereal: Ethereal Jaunt and Teleport.

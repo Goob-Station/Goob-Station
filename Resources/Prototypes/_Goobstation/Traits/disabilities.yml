@@ -10,3 +10,11 @@
     - type: BuckleOnMapInit
       prototype: VehicleWheelchair
     - type: LegsStartParalyzed
+
+- type: trait
+  id: ByondYourPrime
+  name: trait-tile-movement-name
+  description: trait-tile-movement-desc
+  category: Disabilities
+  components:
+  - type: TileMovement

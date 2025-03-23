@@ -123,6 +123,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
         else if (TryComp<LavalandGridGrantComponent>(Transform(ent.Owner).GridUid, out var toGrant))
             EntityManager.AddComponents(ent.Owner, toGrant.ComponentsToGrant);
     }
+
     public Entity<LavalandPreloaderComponent>? GetPreloaderEntity()
     {
         var query = AllEntityQuery<LavalandPreloaderComponent>();

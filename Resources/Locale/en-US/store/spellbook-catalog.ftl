@@ -32,8 +32,6 @@ spellbook-mind-swap-description =
     Doesn't require discord's robe and hat to cast.
 spellbook-tile-toggle-name = Tile Movement
 spellbook-tile-toggle-description = The assistant will not like this.
-spellbook-global-tile-toggle-name = Global Tile Movement
-spellbook-global-tile-toggle-description = The station will not like this.
 spellbook-curse-of-byond-name = Curse of Byond
 spellbook-curse-of-byond-description = Condemn your target to an eternity of suffering.
 

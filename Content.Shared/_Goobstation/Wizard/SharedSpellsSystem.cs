@@ -167,7 +167,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<ChargeMagicEvent>(OnCharge);
         SubscribeLocalEvent<BlinkSpellEvent>(OnBlink);
         SubscribeLocalEvent<TileToggleSpellEvent>(OnTileToggle);
-        SubscribeLocalEvent<GlobalTileToggleSpellEvent>(OnGlobalTileToggle);
         SubscribeLocalEvent<PredictionToggleSpellEvent>(OnPredictionToggle);
         SubscribeAllEvent<SetSwapSecondaryTarget>(OnSwapSecondaryTarget);
     }
@@ -1176,23 +1175,10 @@ public abstract class SharedSpellsSystem : EntitySystem
             || TerminatingOrDeleted(ev.Target))
             return;
 
-        ToggleHierophantBeat(ev.Target);
-        _magic.Speak(ev);
-        ev.Handled = true;
-    }
-
-    private void OnGlobalTileToggle(GlobalTileToggleSpellEvent ev)
-    {
-        if (ev.Handled
-            || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        var mapId = Transform(ev.Performer).MapID;
-        var entities = new HashSet<Entity<MobStateComponent, MindContainerComponent>>();
-        Lookup.GetEntitiesOnMap<MobStateComponent, MindContainerComponent>(mapId, entities);
-        foreach (var (uid, _, _) in entities)
-            if (!TerminatingOrDeleted(uid))
-                ToggleHierophantBeat(uid);
+        if (HasComp<HierophantBeatComponent>(ev.Target))
+            RemComp<HierophantBeatComponent>(ev.Target);
+        else
+            EnsureComp<HierophantBeatComponent>(ev.Target);
 
         _magic.Speak(ev);
         ev.Handled = true;
@@ -1455,15 +1441,6 @@ public abstract class SharedSpellsSystem : EntitySystem
                 EnsureComp<UnremoveableComponent>(ent);
         }
     }
-
-    protected void ToggleHierophantBeat(EntityUid uid)
-    {
-        if (HasComp<HierophantBeatComponent>(uid))
-            RemComp<HierophantBeatComponent>(uid);
-        else
-            EnsureComp<HierophantBeatComponent>(uid);
-    }
-
     #endregion
 
     #region ServerMethods

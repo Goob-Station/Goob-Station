@@ -558,13 +558,11 @@ public sealed partial class TileToggleSpellEvent : EntityTargetActionEvent, ISpe
     public SoundSpecifier? Sound;
 }
 
-public sealed partial class GlobalTileToggleSpellEvent : InstantActionEvent, ISpeakSpell
+[DataDefinition]
+public sealed partial class GlobalTileToggleEvent : EntityEventArgs
 {
     [DataField]
-    public string? Speech { get; private set; }
-
-    [DataField]
-    public SoundSpecifier? Sound;
+    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goobstation/Wizard/ghost.ogg");
 }
 
 public sealed partial class PredictionToggleSpellEvent : EntityTargetActionEvent, ISpeakSpell

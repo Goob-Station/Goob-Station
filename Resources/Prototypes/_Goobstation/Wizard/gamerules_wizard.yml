@@ -159,6 +159,12 @@
   components:
   - type: GhostsVisibleRule
 
+- type: entity
+  parent: BaseGameRule
+  id: GlobalTileMovement
+  components:
+  - type: GlobalTileMovementRule
+
 - type: gamePreset
   id: Wizard
   alias:

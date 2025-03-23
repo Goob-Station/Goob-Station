@@ -979,33 +979,13 @@
       components:
       - MobState
       - Body
-      - MindContainer  
+      - MindContainer
     range: 40
     icon:
       sprite: _Goobstation/Wizard/actions.rsi
       state: tile
     event: !type:TileToggleSpellEvent
       speech: action-speech-spell-tile-toggle
-      sound:
-        path: /Audio/_Goobstation/Wizard/phasein.ogg
-  - type: Magic
-    requiresSpeech: true
-    school: Conjuration
-
-- type: entity
-  id: ActionGlobalTileToggle
-  name: Toggle global tile movement
-  description: Toggle tile movement for everyone on this map.
-  components:
-  - type: InstantAction
-    raiseOnUser: true
-    useDelay: 100
-    itemIconStyle: BigAction
-    icon:
-      sprite: _Goobstation/Wizard/actions.rsi
-      state: tileglobal
-    event: !type:GlobalTileToggleSpellEvent
-      speech: action-speech-spell-global-tile-toggle
       sound:
         path: /Audio/_Goobstation/Wizard/phasein.ogg
   - type: Magic
@@ -1028,7 +1008,7 @@
       components:
       - MobState
       - Body
-      - MindContainer  
+      - MindContainer
     itemIconStyle: BigAction
     icon:
       sprite: _Goobstation/Wizard/actions.rsi
