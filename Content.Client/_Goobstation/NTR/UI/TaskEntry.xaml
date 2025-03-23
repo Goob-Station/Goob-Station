@@ -12,8 +12,8 @@
                     <RichTextLabel Name="ManifestLabel"/>
                 </BoxContainer>
                 <Control MinWidth="10"/>
-                <BoxContainer Orientation="Vertical" MinWidth="180">
-                    <BoxContainer Orientation="Horizontal" MinWidth="180">
+                <BoxContainer Orientation="Vertical" MinWidth="120">
+                    <BoxContainer Orientation="Horizontal" MinWidth="120">
                         <Button Name="PrintButton"
                                 Text="{Loc 'bounty-console-label-button-text'}"
                                 HorizontalExpand="False"

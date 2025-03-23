@@ -1,0 +1,32 @@
+- type: ntrTask
+  id: TaskTest
+  reward: 60000
+  description: Test
+  entries:
+  - name: Test
+    amount: 1
+    whitelist:
+      tags:
+      - Paper
+
+- type: ntrTask
+  id: TaskNew
+  reward: 1
+  description: New
+  entries:
+  - name: New
+    amount: 1
+    whitelist:
+      tags:
+      - Paper
+
+- type: ntrTask
+  id: TaskStampHos
+  reward: 1
+  description: Need a paper with HOS stamp
+  entries:
+  - name: StampHOS
+    amount: 1
+    whitelist:
+      tags:
+      - Paper

@@ -1,13 +1,15 @@
 using Robust.Shared.Serialization;
+using Content.Shared.Cargo.Prototypes;
+using Content.Shared.NTR;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Goobstation.NTR;
 
 /// <summary>
-/// A data structure for storing currently available NTR bounties.
+/// A data structure for storing currently available bounties.
 /// </summary>
 [DataDefinition, NetSerializable, Serializable]
-public readonly partial record struct NTRBountyData
+public readonly partial record struct NtrTaskData
 {
     /// <summary>
     /// A unique id used to identify the bounty
@@ -20,11 +22,11 @@ public readonly partial record struct NTRBountyData
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField(required: true)]
-    public ProtoId<NTRBountyPrototype> Bounty { get; init; } = string.Empty;
+    public ProtoId<NtrTaskPrototype> Task { get; init; } = string.Empty;
 
-    public NTRBountyData(NTRBountyPrototype bounty, int uniqueIdentifier)
+    public NtrTaskData(NtrTaskPrototype task, int uniqueIdentifier)
     {
-        Bounty = bounty.ID;
-        Id = $"{bounty.IdPrefix}{uniqueIdentifier:D3}";
+        Task = task.ID;
+        Id = $"{task.IdPrefix}{uniqueIdentifier:D3}";
     }
 }

@@ -1,4 +1,5 @@
 using Content.Shared.Cargo.Prototypes;
+using Content.Shared.NTR;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -8,7 +9,7 @@ namespace Content.Shared._Goobstation.NTR;
 /// A data structure for storing historical information about bounties.
 /// </summary>
 [DataDefinition, NetSerializable, Serializable]
-public readonly partial record struct NTRBountyHistoryData
+public readonly partial record struct NtrTaskHistoryData
 {
     /// <summary>
     /// A unique id used to identify the bounty
@@ -20,7 +21,7 @@ public readonly partial record struct NTRBountyHistoryData
     /// Whether this bounty was completed or skipped.
     /// </summary>
     [DataField]
-    public BountyResult Result { get; init; } = BountyResult.Completed;
+    public TaskResult Result { get; init; } = TaskResult.Completed;
 
     /// <summary>
     /// Optional name of the actor that completed/skipped the bounty.
@@ -38,13 +39,13 @@ public readonly partial record struct NTRBountyHistoryData
     /// The prototype containing information about the bounty.
     /// </summary>
     [DataField(required: true)]
-    public ProtoId<NTRBountyPrototype> Bounty { get; init; } = string.Empty;
+    public ProtoId<NtrTaskPrototype> Task { get; init; } = string.Empty;
 
-    public NTRBountyHistoryData(NTRBountyData bounty, BountyResult result, TimeSpan timestamp, string? actorName)
+    public NtrTaskHistoryData(NtrTaskData task, TaskResult result, TimeSpan timestamp, string? actorName)
     {
-        Bounty = bounty.Bounty;
+        Task = task.Task;
         Result = result;
-        Id = bounty.Id;
+        Id = task.Id;
         ActorName = actorName;
         Timestamp = timestamp;
     }
@@ -52,10 +53,10 @@ public readonly partial record struct NTRBountyHistoryData
     /// <summary>
     /// Covers how a bounty was actually finished.
     /// </summary>
-    public enum BountyResult
+    public enum TaskResult
     {
         /// <summary>
-        /// Bounty was actually fulfilled
+        /// Bounty was actually fulfilled and the goods sold
         /// </summary>
         Completed = 0,
 
