@@ -25,9 +25,9 @@
                       PlaceHolder="server address:port"
                       HorizontalExpand="True" />
         </GridContainer>
-        <Button Name="DirectConnectButton"
+        <Button Name="QuitButton"
                 Access="Public"
-                Text="{Loc 'main-menu-direct-connect-button'}"
+                Text="{Loc 'main-menu-quit-button'}"
                 TextAlign="Center"
                 StyleIdentifier="mainMenu"/>
         <Button Name="OptionsButton"
@@ -35,9 +35,9 @@
                 Text="{Loc 'main-menu-options-button'}"
                 TextAlign="Center"
                 StyleIdentifier="mainMenu"/>
-        <Button Name="QuitButton"
+        <Button Name="DirectConnectButton"
                 Access="Public"
-                Text="{Loc 'main-menu-quit-button'}"
+                Text="{Loc 'main-menu-direct-connect-button'}"
                 TextAlign="Center"
                 StyleIdentifier="mainMenu"/>
         <clog:ChangelogButton
