@@ -1852,7 +1852,6 @@
     solution: melee
   - type: GibThisGuy
     ocNames:
-    - BombasterDS
     - Gallagin
   - type: DodgeWideswing
     staminaRatio: 1 # mice are small so can probably evade without much stamina drain
