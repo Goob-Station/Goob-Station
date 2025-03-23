@@ -1,5 +1,5 @@
-# Goob porter comment TODO: make it so it can work with a wire system like in paradise
-# Ported from DieselMohawk's work on Harmony
+# Goob porter comment, could be nice to make it so it can work with a wire system like in paradise
+# Ported from Harmony
 
 - type: entity
   parent: [GrenadeBase, FoodBoxPizza]
@@ -9,12 +9,12 @@
   description: A cardboard box for storing things.
   components:
   - type: Sprite
-    sprite: _Harmony/Objects/Weapons/Bombs/Pizzabomb.rsi
+    sprite: _Goobstation/Objects/Weapons/Bombs/Pizzabomb.rsi
     layers:
     - state: icon
     - state: primed
       map: ["enum.TriggerVisualLayers.Base"]
-  - type: OnUseTimerTrigger # todo: make it activate through welder/lighter/fire instead
+  - type: OnUseTimerTrigger
     delay: 100
     examinable: false
     initialBeepDelay: 0
