@@ -182,7 +182,7 @@
   parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseSecurityContraband]
   id: ClothingBeltCorporateJudo
   name: Corporate Judo Belt
-  description: Teaches the wearer NT Corporate Judo.
+  description: Teaches the wearer NT Corporate Judo, must be worn in the armor slot.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/judobelt.rsi
