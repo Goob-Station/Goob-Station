@@ -26,6 +26,7 @@
   - type: GuideHelp
     guides:
     - Radio
+  - type: ClothingLimit # RMC14
 
 - type: entity
   parent: ClothingHeadset
