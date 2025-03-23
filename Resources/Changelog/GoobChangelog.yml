@@ -6572,3 +6572,17 @@ Entries:
       message: Spesos can now burn and be eaten.
   id: 763
   time: '2025-03-23T00:41:28.0000000+00:00'
+- author: pheenty, Mocho
+  changes:
+    - type: Add
+      message: Salvage borgs can now be upgraded with advanced mining module.
+    - type: Tweak
+      message: Rebalanced proto-kinetic weapons.
+    - type: Fix
+      message: Fixed salvage borg not being able to shoot proto-kinetic shotgun.
+    - type: Fix
+      message: >-
+        Multiple kinetic projectiles hitting a rock at the same time won't yield
+        more ore.
+  id: 764
+  time: '2025-03-23T06:19:39.0000000+00:00'
