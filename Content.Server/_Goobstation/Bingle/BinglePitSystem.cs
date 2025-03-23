@@ -8,6 +8,7 @@ using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Destructible;
+using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Stunnable;
 using Content.Shared.Humanoid;
 using Content.Shared.Weapons.Melee.Events;
@@ -40,6 +41,7 @@ public sealed class BinglePitSystem : EntitySystem
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly StepTriggerSystem _step = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ITileDefinitionManager _tiledef = default!;
     [Dependency] private readonly TileSystem _tile = default!;
@@ -161,6 +163,10 @@ public sealed class BinglePitSystem : EntitySystem
 
         if (component.Level <= component.MaxSize)
             ScaleUpPit(uid, component);
+
+        // make max-size bingle pit ignore gravity
+        if (component.Level == component.MaxSize)
+            _step.SetIgnoreWeightless(uid, true);
 
         _popup.PopupEntity(Loc.GetString("bingle-pit-grow"), uid);
     }
