@@ -60,3 +60,55 @@
   - type: UseDelay
     delay: 0.1
   - type: UseDelayBlockShoot
+
+- type: entity
+  name: TideBreaker
+  parent: [ BaseWeaponShotgun, BaseGunWieldable, BaseSyndicateContraband ]
+  id: WeaponLeverTidebreaker
+  description: Evil mode
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Lever/tidebreaker.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Lever/tidebreaker.rsi
+  - type: Gun
+    fireRate: 3
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - ShellShotgun
+    capacity: 4
+    proto: ShellShotgun
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+  - type: Appearance
+  - type: UseDelay
+    delay: 0.1
+  - type: UseDelayBlockShoot
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: MeleeWeapon
+    damage:
+      types:
+       Slash: 12
+       Piercing: 13
+    angle: 0
+    wideAnimationRotation: 135
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: MeleeRequiresWield
+  - type: MeleeSpeech
+  - type: ActivatableUI
+    key: enum.MeleeSpeechUiKey.Key
+    verbOnly: true
+  - type: Actions
+  - type: UserInterface
+    interfaces:
+      enum.MeleeSpeechUiKey.Key:
+        type: MeleeSpeechBoundUserInterface

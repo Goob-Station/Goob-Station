@@ -188,6 +188,16 @@
   categories:
     - UplinkWeaponry
 
+- type: listing
+  id: UplinkTidebreaker
+  name: "TideBreaker"
+  description: "Low capacity pump shotgun with a charge attack."
+  productEntity: WeaponLeverTidebreaker
+  cost:
+    Telecrystal: 50
+  categories:
+    - UplinkWeaponry
+
 # Wearables
 
 - type: listing

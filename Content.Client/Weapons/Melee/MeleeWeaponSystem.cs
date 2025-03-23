@@ -112,31 +112,6 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         {
             coordinates = TransformSystem.ToCoordinates(_map.GetMap(mousePos.MapId), mousePos);
         }
-
-        // If the gun has AltFireComponent, it can be used to attack.
-        if (TryComp<GunComponent>(weaponUid, out var gun) && gun.UseKey)
-        {
-            if (!TryComp<AltFireMeleeComponent>(weaponUid, out var altFireComponent) || altDown != BoundKeyState.Down)
-                return;
-
-            switch(altFireComponent.AttackType)
-            {
-                case AltFireAttackType.Light:
-                    ClientLightAttack(entity, mousePos, coordinates, weaponUid, weapon);
-                    break;
-
-                case AltFireAttackType.Heavy:
-                    ClientHeavyAttack(entity, coordinates, weaponUid, weapon);
-                    break;
-
-                case AltFireAttackType.Disarm:
-                    ClientDisarm(entity, mousePos, coordinates);
-                    break;
-            }
-
-            return;
-        }
-
         // Heavy attack.
         if (altDown == BoundKeyState.Down)
         {
@@ -166,7 +141,31 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                     RaisePredictiveEvent(new MeleeDashEvent(GetNetEntity(weaponUid), direction));
                 return;
             }
+// If the gun has AltFireComponent, it can be used to attack.
+            if (TryComp<GunComponent>(weaponUid, out var gun) && gun.UseKey &&
+                TryComp<AltFireMeleeComponent>(weaponUid, out var altFireComponent))
+            {
+                switch (altFireComponent.AttackType)
+                {
+                    case AltFireAttackType.Light:
+                        ClientLightAttack(entity, mousePos, coordinates, weaponUid, weapon);
+                        break;
 
+                    case AltFireAttackType.Heavy:
+                        ClientHeavyAttack(entity, coordinates, weaponUid, weapon);
+                        break;
+
+                    case AltFireAttackType.Disarm:
+                        ClientDisarm(entity, mousePos, coordinates);
+                        break;
+                }
+
+                return;
+            }
+
+             // Helper func
+             Vector2 GetDirection()
+             {
             // Helper func
             Vector2 GetDirection()
             {
