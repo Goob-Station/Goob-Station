@@ -284,12 +284,8 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
         StatusOptionButton.SelectId((int)criminalRecord.Status);
         if (criminalRecord.Reason is { } reason)
         {
-            var message = FormattedMessage.FromMarkupOrThrow(Loc.GetString("criminal-records-console-wanted-reason"));
 
-            if (criminalRecord.Status == SecurityStatus.Suspected)
-            {
-                message = FormattedMessage.FromMarkupOrThrow(Loc.GetString("criminal-records-console-suspected-reason"));
-            }
+            var message = FormattedMessage.FromMarkupOrThrow(Loc.GetString($"criminal-records-console-{criminalRecord.Status.ToString().ToLower()}-reason"));
             message.AddText($": {reason}");
 
             WantedReason.SetMessage(message);

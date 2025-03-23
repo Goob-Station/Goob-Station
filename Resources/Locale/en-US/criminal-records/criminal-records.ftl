@@ -16,7 +16,6 @@ criminal-records-status-detained = Detained
 criminal-records-status-suspected = Suspect
 criminal-records-status-discharged = Discharged
 criminal-records-status-paroled = Paroled
-
 criminal-records-status-dangerous = Dangerous
 criminal-records-status-search = Search
 criminal-records-status-perma = Perma
