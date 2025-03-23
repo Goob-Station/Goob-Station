@@ -20,7 +20,7 @@ public sealed partial class GatherableSystem
             gathering.Comp.Amount <= 0 ||
             !TryComp<GatherableComponent>(args.OtherEntity, out var gatherable) || // Goobstation edit
             gatherable.IsGathered || // Goobstation
-            !_robustRandom.Prob(gathering.Comp.Probability)) || // Goobstation
+            !_robustRandom.Prob(gathering.Comp.Probability)) // Goobstation
         {
             return;
         }
