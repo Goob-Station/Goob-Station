@@ -23,7 +23,7 @@ accent-tide-words-8 = little
 accent-tide-words-replace-8 = litta
 
 accent-tide-words-9 = i
-accent-tide-words-replace-9 = me
+accent-tide-words-replace-9 = mesa
 
 accent-tide-words-10 = man
 accent-tide-words-replace-10 = manen
