@@ -10,6 +10,7 @@
   - type: Clothing
     equippedPrefix: alt
   - type: FlashSoundSuppression # Goobstation
+  - type: CoversBothEars
 
 - type: entity
   parent: [ClothingHeadsetAlt, BaseCommandContraband] # Goobstation
