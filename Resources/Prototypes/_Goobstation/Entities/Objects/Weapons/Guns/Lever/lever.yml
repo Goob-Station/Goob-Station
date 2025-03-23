@@ -98,7 +98,7 @@
   - type: MeleeWeapon
     damage:
       types:
-       Slash: 15
+       Slash: 20
        Piercing: 20
     angle: 0
     wideAnimationRotation: 135
