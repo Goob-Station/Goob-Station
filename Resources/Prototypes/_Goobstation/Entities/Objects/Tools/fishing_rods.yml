@@ -84,6 +84,7 @@
   parent: BaseItem
   name: fishing lure
   description: fish come here
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     noRot: true
@@ -99,6 +100,7 @@
   parent: FishingLure
   name: fishing lure
   description: fish come here
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     noRot: true
