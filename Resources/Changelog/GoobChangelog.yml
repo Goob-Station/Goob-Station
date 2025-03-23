@@ -6560,3 +6560,9 @@ Entries:
         Glass
   id: 761
   time: '2025-03-22T16:08:44.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Tweak
+      message: Blob Carriers now have 10 minutes to prepare instead of 4.
+  id: 762
+  time: '2025-03-23T00:34:37.0000000+00:00'
