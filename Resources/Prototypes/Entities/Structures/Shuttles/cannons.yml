@@ -328,7 +328,7 @@
           acts: ["Destruction"]
   - type: Gun
     # projectileSpeed: 20 # Goobstation edit
-    fireRate: 1
+    fireRate: 1 # Goobstation edit
     selectedMode: SemiAuto
     angleDecay: 45
     minAngle: 5
