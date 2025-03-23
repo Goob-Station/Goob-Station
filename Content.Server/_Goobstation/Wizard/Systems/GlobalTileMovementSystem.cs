@@ -3,15 +3,14 @@ using Content.Server._Goobstation.Wizard.Systems;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.EventSpells;
 using Content.Shared._Lavaland.Mobs.Components;
-using Content.Shared._vg.TileMovement;
 using Content.Shared.Chat;
 using Content.Server.Chat.Managers;
+using Content.Shared.GameTicking;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Database;
 using Content.Server.GameTicking;
 using Content.Shared.GameTicking.Components;
-using Content.Shared.Magic;
 using Robust.Server.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -33,6 +32,7 @@ public sealed class GlobalTileMovementSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<GlobalTileToggleEvent>(OnGlobalTileToggle);
         SubscribeLocalEvent<GlobalTileMovementRuleComponent, GameRuleStartedEvent>(OnRuleStarted);
+        SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawn);
     }
     public bool GlobalTileMovementIsActive()
     {
@@ -75,5 +75,15 @@ public sealed class GlobalTileMovementSystem : EntitySystem
 
             EnsureComp<HierophantBeatComponent>(uid);
         }
+    }
+
+    private void OnPlayerSpawn(PlayerSpawnCompleteEvent ev)
+    {
+        if (!GlobalTileMovementIsActive()
+            || !ev.LateJoin
+            || TerminatingOrDeleted(ev.Mob))
+            return;
+
+        EnsureComp<HierophantBeatComponent>(ev.Mob);
     }
 }
