@@ -1,5 +1,5 @@
-server-currency-name-singular = Shiba Shilling
-server-currency-name-plural = Shiba Shillings
+server-currency-name-singular = Credit
+server-currency-name-plural = Credits
 
 ## Commands
 
