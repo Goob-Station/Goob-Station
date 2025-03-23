@@ -130,3 +130,27 @@
   - type: FlashSoundSuppression
   - type: SpeechSoundsReplacer
     speechSounds: Chrono # why? its badass.
+
+#Binglesuit
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ClothingHeadHelmetHardsuitBingle
+  name: binglesuit helmet
+  description: Helmet for the bingle suit dumbass, what else did you think it was?
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PressureProtection
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.2
+    coolingCoefficient: 0.2
+  - type: BreathMask
+  # this is on the hood so you only fool the fish if you wear the whole set
+  # wear carp suit and security helmet, they'll know you are fake
+  - type: Bingle
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hardsuits/bingle.rsi
+    state: equipped-HELMET
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hardsuits/bingle.rsi

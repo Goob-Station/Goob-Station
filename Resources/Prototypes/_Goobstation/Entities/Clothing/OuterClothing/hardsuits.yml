@@ -224,3 +224,39 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 6
     knockdownTimeDelta: -4
+
+#Binglesuit
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitBingle
+  name: binglesuit
+  description: A special suit that makes you look just like a bingle, they probably wont throw you in the hole...
+  suffix: Hardsuit, DO NOT MAP
+  categories: [ DoNotMap ]
+  components:
+  - type: PressureProtection
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.01
+    coolingCoefficient: 0.01
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitBingle
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bingle.rsi
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bingle.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+        Radiation: 0.9
+        Caustic: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
