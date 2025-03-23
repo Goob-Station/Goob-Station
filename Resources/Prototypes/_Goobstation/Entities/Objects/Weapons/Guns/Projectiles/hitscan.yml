@@ -1,0 +1,14 @@
+- type: hitscan
+  id: ShrimpLaser
+  damage:
+    types:
+      Genetic: 1
+  muzzleFlash:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/lasers.rsi
+    state: muzzle_shrimp
+  travelFlash:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/lasers.rsi
+    state: beam_shrimp
+  impactFlash:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/lasers.rsi
+    state: impact_shrimp
