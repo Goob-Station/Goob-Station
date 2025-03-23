@@ -141,7 +141,8 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                     RaisePredictiveEvent(new MeleeDashEvent(GetNetEntity(weaponUid), direction));
                 return;
             }
-// If the gun has AltFireComponent, it can be used to attack.
+
+            // If the gun has AltFireComponent, it can be used to attack.
             if (TryComp<GunComponent>(weaponUid, out var gun) && gun.UseKey &&
                 TryComp<AltFireMeleeComponent>(weaponUid, out var altFireComponent))
             {
@@ -163,9 +164,6 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 return;
             }
 
-             // Helper func
-             Vector2 GetDirection()
-             {
             // Helper func
             Vector2 GetDirection()
             {

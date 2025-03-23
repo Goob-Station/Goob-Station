@@ -7,6 +7,7 @@ using Content.Shared.Throwing;
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Wieldable.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics;
@@ -103,7 +104,8 @@ public sealed class MeleeDashSystem : EntitySystem
         var weapon = GetEntity(msg.Weapon);
 
         if (!TryComp(weapon, out MeleeDashComponent? dash) ||
-            !TryComp(weapon, out UseDelayComponent? delay) || _useDelay.IsDelayed((weapon, delay)))
+            !TryComp(weapon, out UseDelayComponent? delay) || _useDelay.IsDelayed((weapon, delay), dash.Delay) ||
+            dash.RequiresWield && (!TryComp(weapon, out WieldableComponent? wieldable) || !wieldable.Wielded))
             return;
 
         var length = MathF.Min(msg.Direction.Length(), dash.MaxDashLength);
@@ -111,7 +113,7 @@ public sealed class MeleeDashSystem : EntitySystem
             return;
         var dir = msg.Direction.Normalized() * length;
 
-        _useDelay.TryResetDelay((weapon, delay));
+        _useDelay.TryResetDelay((weapon, delay), false, dash.Delay);
 
         var dashing = EnsureComp<DashingComponent>(user);
 

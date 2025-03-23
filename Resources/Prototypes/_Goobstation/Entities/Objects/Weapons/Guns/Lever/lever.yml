@@ -89,6 +89,9 @@
   - type: Appearance
   - type: UseDelay
     delay: 0.1
+    delays:
+      dash:
+        length: 2
   - type: UseDelayBlockShoot
   - type: AltFireMelee
     attackType: Heavy
@@ -112,3 +115,8 @@
     interfaces:
       enum.MeleeSpeechUiKey.Key:
         type: MeleeSpeechBoundUserInterface
+  - type: MeleeDash
+    emoteOnDash: null
+    delay: dash
+    maxDashLength: 6
+    requiresWield: true

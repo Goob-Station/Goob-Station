@@ -14,6 +14,12 @@ public sealed partial class MeleeDashComponent : Component
     public ProtoId<EmotePrototype>? EmoteOnDash = "Flip";
 
     [DataField]
+    public string Delay = "default";
+
+    [DataField]
+    public bool RequiresWield;
+
+    [DataField]
     public SoundSpecifier? DashSound = new SoundPathSpecifier("/Audio/_Goobstation/Weapons/Effects/throwhard.ogg");
 
     [DataField]
