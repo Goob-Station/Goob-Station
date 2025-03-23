@@ -104,7 +104,7 @@
       Female: FemaleRodentia
       Unsexed: MaleRodentia
   - type: Rummager
-  # - type: AlwaysTriggerMousetrap # ShibaStation - funny meme but disabled due to feedback
+  - type: AlwaysTriggerMousetrap # ShibaStation - funny meme but disabled due to feedback # Ouroboros - Re-enabled
   - type: PseudoItem
     storedOffset: -10,0
     shape:

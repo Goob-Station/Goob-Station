@@ -77,7 +77,7 @@
     sprite: Mobs/Species/Human/parts.rsi
     state: "l_hand"
   - type: DoAfterDelayMultiplier # Goobstation
-    multiplier: 0.9
+    multiplier: 1.0 # Ouroboros - Unbuff your buff
 
 - type: entity
   id: RightHandHuman
@@ -88,7 +88,7 @@
     sprite: Mobs/Species/Human/parts.rsi
     state: "r_hand"
   - type: DoAfterDelayMultiplier # Goobstation
-    multiplier: 0.9
+    multiplier: 1.0 # Ouroboros - Unbuff your buff
 
 - type: entity
   id: LeftLegHuman
