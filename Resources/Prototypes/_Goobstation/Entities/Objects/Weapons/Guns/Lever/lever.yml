@@ -91,20 +91,22 @@
     delay: 0.1
     delays:
       dash:
-        length: 2
+        length: 3
   - type: UseDelayBlockShoot
   - type: AltFireMelee
     attackType: Heavy
   - type: MeleeWeapon
     damage:
       types:
-       Slash: 12
-       Piercing: 13
+       Slash: 10
+       Piercing: 5
     angle: 0
     wideAnimationRotation: 135
     animation: WeaponArcThrust
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  - type: StaminaDamageOnHit
+    damage: 75
   - type: MeleeRequiresWield
   - type: MeleeSpeech
   - type: ActivatableUI
@@ -118,5 +120,5 @@
   - type: MeleeDash
     emoteOnDash: null
     delay: dash
-    maxDashLength: 6
+    maxDashLength: 3
     requiresWield: true
