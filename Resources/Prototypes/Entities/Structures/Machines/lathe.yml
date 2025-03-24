@@ -369,7 +369,7 @@
 
 - type: entity
   id: Biofabricator
-  parent: BaseLathe
+  parent: BaseLatheLube
   name: biocube fabricator
   description: Produces animal cubes using biomass.
   components:

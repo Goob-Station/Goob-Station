@@ -1,8 +1,8 @@
 - type: entity
   name: proto-kinetic shotgun
   id: WeaponProtoKineticShotgun
-  parent: [WeaponProtoKineticAcceleratorBase, BaseGunWieldable, BaseCargoContraband]
-  description: Fires a spread of low-damage kinetic bolts.
+  parent: [ BaseGunWieldable, WeaponProtoKineticAcceleratorBase, BaseCargoContraband ]
+  description: Fires a spread of low-damage kinetic bolts that are half as effective for mining.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
@@ -21,32 +21,26 @@
     - state: animation-shotgun
       visible: false
       map: [ "empty-icon" ]
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 1.50
-    rechargeSound:
-      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: BasicEntityAmmoProvider
     proto: PelletKineticSpread
     capacity: 1
     count: 1
   - type: UpgradeableGun
-    maxUpgradeCapacity: 60
+    maxUpgradeCapacity: 70
     whitelist:
       tags:
       - PKAUpgrade
-  - type: GunWieldBonus
-    minAngle: 0
-    maxAngle: 0
   - type: GunRequiresWield
   - type: Item
     shape:
     - 0,0,4,0
-  
+
+# Repeater is balanced around dual wielding not affecting burst fire rate. If someone changes that, repeater should probably be buffed.
 - type: entity
   name: proto-kinetic repeater
   id: WeaponProtoKineticRepeater
-  parent: [WeaponProtoKineticAcceleratorBase, BaseCargoContraband]
-  description: Fires a barrage of kinetic bolts at a short range.
+  parent: [ WeaponProtoKineticAcceleratorBase, BaseCargoContraband ]
+  description: Fires a barrage of medium-damage kinetic bolts at a short range.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
@@ -66,25 +60,21 @@
       visible: false
       map: [ "empty-icon" ]
   - type: Gun
-    fireRate: 2.5
-    selectedMode: SemiAuto
+    selectedMode: Burst
     minAngle: 10
-    maxAngle: 30
-    projectileSpeed: 30
+    maxAngle: 20
+    burstFireRate: 3
+    burstCooldown: 2
     availableModes:
-    - SemiAuto
+    - Burst
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 2.5
-    rechargeSound:
-      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: BasicEntityAmmoProvider
     proto: RapidBulletKinetic
     capacity: 3
     count: 3
   - type: UpgradeableGun
-    maxUpgradeCapacity: 60
+    maxUpgradeCapacity: 70
     whitelist:
       tags:
       - PKAUpgrade
@@ -95,7 +85,7 @@
 - type: entity
   name: proto-kinetic pistol
   id: WeaponProtoKineticPistol
-  parent: [WeaponProtoKineticAcceleratorBase, BaseCargoContraband]
+  parent: [ WeaponProtoKineticAcceleratorBase, BaseCargoContraband ]
   description: Fires low-damage kinetic bolts, has a higher mod capacity.
   components:
   - type: Sprite
@@ -124,6 +114,10 @@
     whitelist:
       tags:
       - PKAUpgrade
+  - type: Gun
+    availableModes:
+    - FullAuto
+    - SemiAuto
   - type: Item
     size: Small
     shape:

@@ -231,6 +231,8 @@
     - OreBagOfHolding
     - MiningDrillDiamond
     - AdvancedMineralScannerEmpty
+    - MechEquipmentDrillDiamond # Goobstation
+    - BorgModuleAdvancedMining # Goobstation
     - MechEquipmentDrillDiamond
   # Goobstation R&D Console rework start
   position: 3,-2

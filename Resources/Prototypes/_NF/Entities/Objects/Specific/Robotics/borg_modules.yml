@@ -1,0 +1,18 @@
+- type: entity
+  id: BorgModuleAdvancedMining
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  name: advanced mining cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: cargo
+    - state: icon-advanced-mining
+      sprite: _NF/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    moduleId: AdvancedMining
+    items:
+    - MiningDrillDiamond
+    - AdvancedMineralScannerUnpowered
+    - OreBagOfHolding
+  - type: BorgModuleIcon
+    icon: { sprite: _NF/Actions/actions_borg.rsi, state: advanced-mining-module }
