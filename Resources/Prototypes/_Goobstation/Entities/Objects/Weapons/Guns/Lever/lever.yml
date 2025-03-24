@@ -65,7 +65,7 @@
   name: TideBreaker
   parent: [ BaseWeaponShotgun, BaseGunWieldable, BaseSyndicateContraband ]
   id: WeaponLeverTidebreaker
-  description: This thing looks downright evil.
+  description: Our excitement shows the way.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Lever/tidebreaker.rsi

@@ -190,8 +190,8 @@
 
 - type: listing
   id: UplinkTidebreaker
-  name: "TideBreaker"
-  description: "Low capacity pump shotgun with a charge attack."
+  name: uplink-tidebreaker-name
+  description: uplink-tidebreaker-desc
   productEntity: WeaponLeverTidebreaker
   cost:
     Telecrystal: 50
