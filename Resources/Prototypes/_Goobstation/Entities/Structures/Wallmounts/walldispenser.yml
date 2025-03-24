@@ -2,6 +2,7 @@
   parent: CleanerDispenser
   id: CapsaicinDispenser
   name: capsaicin dispenser
+  description: A wallmount dispenser capable of dispensing capsaicin. Refill your pepperspray here.
   components:
   - type: Sprite
     sprite: Structures/Storage/tanks.rsi

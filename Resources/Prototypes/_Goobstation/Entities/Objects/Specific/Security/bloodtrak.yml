@@ -1,0 +1,39 @@
+- type: entity
+  name: bloodtrak
+  description: A handheld tracking device, capable of finding someone from their blood. For best results, use on fresh blood.
+  parent: PinpointerBase
+  id: BloodTrak
+  components:
+  - type: Transform
+    noRot: True
+  - type: Sprite
+    noRot: True
+    sprite: Objects/Devices/pinpointer.rsi
+    layers:
+    - state: pinpointer
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    sprite: Objects/Devices/pinpointer.rsi
+    state: pinpointer
+  - type: Item
+    sprite: Objects/Devices/pinpointer.rsi
+  - type: Pinpointer
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PinpointerVisuals.IsActive:
+        enum.PinpointerLayers.Screen:
+          True: { visible: True }
+          False: { visible: False }
+      enum.PinpointerVisuals.TargetDistance:
+        enum.PinpointerLayers.Screen:
+          Unknown: { state: pinonnull }
+          Reached: { state: pinondirect }
+          Close: { state: pinonclose }
+          Medium: { state: pinonmedium }
+          Far: { state: pinonfar }
+  - type: AnimationPlayer
