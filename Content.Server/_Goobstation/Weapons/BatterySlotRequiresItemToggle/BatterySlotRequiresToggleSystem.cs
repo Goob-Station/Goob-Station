@@ -20,6 +20,6 @@ public sealed class BatterySlotRequiresToggleSystem : EntitySystem
             || !_itemSlotsSystem.TryGetSlot(ent, ent.Comp.ItemSlot, out var slot, itemslots))
             return;
 
-        _itemSlotsSystem.SetLock(ent, slot, !args.Activated, itemslots);
+        _itemSlotsSystem.SetLock(ent, slot, args.Activated ^ ent.Comp.Inverted, itemslots);
     }
 }

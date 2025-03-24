@@ -62,7 +62,6 @@ public sealed partial class PowerCellSystem : SharedPowerCellSystem
             return;
         }
 
-        _sharedAppearanceSystem.SetData(uid, PowerCellVisuals.HasCharge, args.Charge > 0f); // Goobstation
         var frac = args.Charge / args.MaxCharge;
         var level = (byte)ContentHelpers.RoundToNearestLevels(frac, 1, component.PowerCellVisualsLevels); // Goob edit
         _sharedAppearanceSystem.SetData(uid, PowerCellVisuals.ChargeLevel, level);

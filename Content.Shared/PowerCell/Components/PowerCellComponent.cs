@@ -20,7 +20,6 @@ public sealed partial class PowerCellComponent : Component
 [Serializable, NetSerializable]
 public enum PowerCellVisuals : byte
 {
-    HasCharge, // Goobstation
     ChargeLevel
 }
 [Serializable, NetSerializable]

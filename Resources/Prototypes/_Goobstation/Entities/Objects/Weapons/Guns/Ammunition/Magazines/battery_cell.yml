@@ -225,3 +225,148 @@
   - type: HitscanBatteryAmmoProvider
     proto: MediumIonLaser
     fireCost: 33
+
+
+- type: entity
+  id: BaseMilitaryPowerCellRevolver
+  abstract: true
+  parent: BaseMilitaryPowerCell
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_revolver.rsi
+  - type: Battery
+    maxCharge: 500
+    startingCharge: 500
+  - type: Tag
+    tags:
+    - MilitaryPowerCellRevolver
+
+- type: entity
+  name: revolver power cell
+  description: A militarized power cell compatible with laser revolvers.
+  id: PowerCellIRRevolver
+  suffix: Full
+  parent: BaseMilitaryPowerCellRevolver
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "base" ]
+      state: lethal_charge
+      shader: unshaded
+  - type: GenericVisualizer
+    visuals:
+      enum.AmmoVisuals.HasAmmo:
+        base:
+          True:
+            state: lethal_charge
+            shader: unshaded
+          False:
+            state: lethal
+            shader: null
+  - type: HitscanBatteryAmmoProvider
+    proto: MediumRedLaser
+    fireCost: 41.5
+
+- type: entity
+  name: x-ray revolver power cell
+  description: A militarized power cell compatible with laser revolvers that fires x-rays.
+  id: PowerCellXrayRevolver
+  suffix: Full
+  parent: BaseMilitaryPowerCellRevolver
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "base" ]
+      state: xray_charge
+      shader: unshaded
+  - type: GenericVisualizer
+    visuals:
+      enum.AmmoVisuals.HasAmmo:
+        base:
+          True:
+            state: xray_charge
+            shader: unshaded
+          False:
+            state: xray
+            shader: null
+  - type: HitscanBatteryAmmoProvider
+    proto: MediumXrayLaser
+    fireCost: 41.5
+
+- type: entity
+  name: overclocked revolver power cell
+  description: A militarized power cell compatible with laser revolvers that has been overclocked.
+  id: PowerCellOverchargedRevolver
+  suffix: Full
+  parent: BaseMilitaryPowerCellRevolver
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "base" ]
+      state: overcharge_charge
+      shader: unshaded
+  - type: GenericVisualizer
+    visuals:
+      enum.AmmoVisuals.HasAmmo:
+        base:
+          True:
+            state: overcharge_charge
+            shader: unshaded
+          False:
+            state: overcharge
+            shader: null
+  - type: HitscanBatteryAmmoProvider
+    proto: MediumOverchargedLaser
+    fireCost: 83
+
+- type: entity
+  name: pulse revolver power cell
+  description: A militarized power cell compatible with laser revolvers that fires pulse beams.
+  id: PowerCellPulseRevolver
+  suffix: Full
+  parent: BaseMilitaryPowerCellRevolver
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "base" ]
+      state: pulse_charge
+      shader: unshaded
+  - type: GenericVisualizer
+    visuals:
+      enum.AmmoVisuals.HasAmmo:
+        base:
+          True:
+            state: pulse_charge
+            shader: unshaded
+          False:
+            state: pulse
+            shader: null
+  - type: HitscanBatteryAmmoProvider
+    proto: MediumPulseLaser
+    fireCost: 41.5
+
+- type: entity
+  name: ion revolver power cell
+  description: A militarized power cell compatible with laser revolvers that fires ion beams.
+  id: PowerCellIonRevolver
+  suffix: Full
+  parent: BaseMilitaryPowerCellRevolver
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "base" ]
+      state: ion_charge
+      shader: unshaded
+  - type: GenericVisualizer
+    visuals:
+      enum.AmmoVisuals.HasAmmo:
+        base:
+          True:
+            state: ion_charge
+            shader: unshaded
+          False:
+            state: ion
+            shader: null
+  - type: HitscanBatteryAmmoProvider
+    proto: MediumIonLaser
+    fireCost: 41.5

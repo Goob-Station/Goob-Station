@@ -8,4 +8,6 @@ namespace Content.Shared._Goobstation.Weapons.FoldingWeapon;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class FoldingWeaponComponent : Component
 {
+    [DataField]
+    public bool SetPrefix = true;
 }

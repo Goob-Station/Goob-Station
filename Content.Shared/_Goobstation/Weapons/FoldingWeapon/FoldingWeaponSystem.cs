@@ -33,6 +33,9 @@ public sealed class FoldingWeaponSystem : EntitySystem
         if (args.User != null && TryComp(ent, out WieldableComponent? wieldable))
             _wieldable.TryUnwield(ent, wieldable, args.User.Value, true);
 
+        if (!ent.Comp.SetPrefix)
+            return;
+
         var prefix = args.Activated ? "unfolded" : "folded";
 
         _item.SetHeldPrefix(ent, prefix);

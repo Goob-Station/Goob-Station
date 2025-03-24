@@ -105,3 +105,74 @@
   - type: SpeedModifiedOnWield
     walkModifier: 0.5
     sprintModifier: 0.5
+
+
+- type: entity
+  name: EG-1 Taro
+  parent: [ BaseWeaponPowerCellSmall, BaseSecurityContraband ]
+  id: WeaponLaserCellRevolver
+  description: A high-tech laser revolver, compatible with specialized revolver power cells.
+  components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  - type: Tag
+    tags:
+    - Sidearm
+  - type: Gun
+    selectedMode: SemiAuto
+    fireRate: 1.5 # Goobstation
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        whitelist:
+          tags:
+          - MilitaryPowerCellRevolver
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_revolver.rsi
+    layers:
+    - state: mag-0
+      visible: false
+      shader: unshaded
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: off
+      map: ["base"]
+  - type: Multishot
+    spreadMultiplier: 1.2
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 250
+      Silver: 50
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_revolver.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - belt
+  - type: ItemToggle
+    wieldToggle: false
+    soundActivate: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
+    soundDeactivate: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: true
+    zeroNoAmmo: true
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        base:
+          True: { state: on }
+          False: { state: off }
+  - type: FoldingWeapon
+    setPrefix: false
+  - type: BatterySlotRequiresToggle
+    itemSlot: gun_magazine
+
