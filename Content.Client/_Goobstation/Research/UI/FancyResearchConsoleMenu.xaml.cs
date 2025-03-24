@@ -81,6 +81,34 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
         DragContainer.OnKeyBindDown += OnKeybindDown;
         DragContainer.OnKeyBindUp += OnKeybindUp;
         RecenterButton.OnPressed += _ => Recenter();
+
+        DisciplinesContainer.RemoveAllChildren();
+
+        var disciplines = _prototype.EnumeratePrototypes<TechDisciplinePrototype>()
+                .ToList()
+                .OrderBy(x => x.UiName);
+
+        var disciplineGroup = new ButtonGroup(false);
+
+        foreach (var proto in disciplines)
+        {
+            var discipline = new DisciplineButton(proto)
+            {
+                ToggleMode = true,
+                HorizontalExpand = true,
+                VerticalExpand = true,
+                Text = Loc.GetString(proto.UiName),
+                Margin = new(5)
+            };
+
+            discipline.Group = disciplineGroup;
+            if (proto.ID == CurrentDiscipline)
+                discipline.Pressed = true;
+
+            DisciplinesContainer.AddChild(discipline);
+
+            discipline.OnPressed += SelectDiscipline;
+        }
     }
 
     public void SetEntity(EntityUid entity)
@@ -91,32 +119,8 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
     public void UpdatePanels(ResearchConsoleBoundInterfaceState state)
     {
         DragContainer.RemoveAllChildren();
-        DisciplinesContainer.RemoveAllChildren();
         List = state.Researches;
         LocalState.Researches = state.Researches;
-
-        // Добавляем к верхней панели все дисциплины
-        var disciplines = _prototype.EnumeratePrototypes<TechDisciplinePrototype>()
-                .ToList()
-                .OrderBy(x => x.UiName);
-
-        foreach (var proto in disciplines)
-        {
-            var discipline = new DisciplineButton(proto)
-            {
-                ToggleMode = true,
-                HorizontalExpand = true,
-                VerticalExpand = true,
-                MuteSounds = true,  // idk why, but when closed UI spams this buttons
-                Text = Loc.GetString(proto.UiName),
-                Margin = new(5)
-            };
-
-            discipline.SetClickPressed(proto.ID == CurrentDiscipline);
-            DisciplinesContainer.AddChild(discipline);
-
-            discipline.OnPressed += SelectDiscipline;
-        }
 
         foreach (var tech in _prototype.EnumeratePrototypes<TechnologyPrototype>().Where(x => x.Discipline == CurrentDiscipline))
         {
@@ -247,8 +251,6 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
         var proto = discipline.Proto;
 
         CurrentDiscipline = proto.ID;
-        discipline.SetClickPressed(false);
-        UserInterfaceManager.ClickSound();
         UpdatePanels(LocalState);
         Recenter();
     }

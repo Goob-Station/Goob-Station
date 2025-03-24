@@ -26,6 +26,7 @@ public sealed class ResearchConsoleBoundUserInterface : BoundUserInterface
 
         _consoleMenu = this.CreateWindow<FancyResearchConsoleMenu>();   // Goobstation R&D Console rework - ResearchConsoleMenu -> FancyResearchConsoleMenu
         _consoleMenu.SetEntity(owner);
+        _consoleMenu.OnClose += () => _consoleMenu = null;
 
         _consoleMenu.OnTechnologyCardPressed += id =>
         {
