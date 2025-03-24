@@ -136,10 +136,10 @@
 
 - type: reagent
   id: BlueRot
-  name: "Blue Rot"
+  name: reagent-name-blue-rot
   group: Toxins
-  desc: "Disgusting blue liquis that painfully transforms someone into a bingle pit."
-  physicalDesc: "Disturbing"
+  desc: reagent-desc-blue-rot
+  physicalDesc: disturbing
   flavor: salty
   color: "#174576"
   metabolisms:
@@ -163,10 +163,10 @@
 
 - type: reagent
   id: MaturingRot
-  name: "Maturing Rot"
+  name: reagent-name-maturing-rot
   group: Toxins
-  desc: "The process is underway."
-  physicalDesc: "Disturbing"
+  desc: reagent-desc-maturing-rot
+  physicalDesc: disturbing
   flavor: salty
   color: "#174576"
   metabolisms:

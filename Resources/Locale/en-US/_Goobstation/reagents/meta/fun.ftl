@@ -32,3 +32,8 @@ reagent-popup-copium-12 = You could take him.
 reagent-name-cat-drugs = cat drugs
 reagent-desc-cat-drugs = Cat drugs? Drugs for cats? Drugs from cats? Better not to ask.
 
+reagent-name-blue-rot = blue rot
+reagent-desc-blue-rot = Disgusting blue liquis that painfully transforms someone into a bingle pit.
+
+reagent-name-maturing-rot = maturing rot
+reagent-desc-maturing-rot = You're turning.

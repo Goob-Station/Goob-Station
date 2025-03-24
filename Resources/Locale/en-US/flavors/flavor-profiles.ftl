@@ -51,6 +51,7 @@ flavor-base-horrible = horrible
 # lmao
 flavor-base-terrible = terrible
 flavor-base-mindful = mindful
+flavor-base-disturbing = disturbing
 flavor-base-chewy = chewy
 
 # Complex flavors. Put a flavor here when you want something that's more
