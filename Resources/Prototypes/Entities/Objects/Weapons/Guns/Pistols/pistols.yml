@@ -184,6 +184,7 @@
           tags:
             - CartridgeCaselessMagnum127 # Goobstation
             - CartridgeCaselessMagnum127MinusP # Goobstation
+            - CartridgeCaselessMagnum127SAPHE # Goobstation
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
