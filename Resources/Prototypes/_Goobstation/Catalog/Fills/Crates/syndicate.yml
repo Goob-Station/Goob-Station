@@ -58,3 +58,15 @@
       - id: ClothingHandsGlovesCombat
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
+
+- type: entity
+  parent: CrateSyndicate
+  id: CrateSyndicateBingle
+  name: tigercoorp B1-NG bundle
+  description: "An sabotage bundle made by the Tiger Cooperative."
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterHardsuitBingle
+      - id: SyringeBlueRot
+

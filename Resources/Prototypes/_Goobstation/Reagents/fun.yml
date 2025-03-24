@@ -133,3 +133,48 @@
         conditions:
         - !type:ReagentThreshold
           min: 50
+
+- type: reagent
+  id: BlueRot
+  name: "Blue Rot"
+  group: Toxins
+  desc: "Disgusting blue liquis that painfully transforms someone into a bingle pit."
+  physicalDesc: "Disturbing"
+  flavor: salty
+  color: "#174576"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.25
+      effects:
+        - !type:PopupMessage
+            type: Local
+            messages: [ "Your bones break as your body transforms." ]
+            probability: 0.2
+        - !type:AdjustReagent
+          reagent: MaturingRot
+          amount: 0.6
+        - !type:Emote # Now a bunch of emotes
+          emote: Scream
+          probability: 0.7
+        - !type:Jitter
+        - !type:Emote # Now a bunch of emotes
+          emote: Gasp
+          probability: 0.7
+
+- type: reagent
+  id: MaturingRot
+  name: "Maturing Rot"
+  group: Toxins
+  desc: "The process is underway."
+  physicalDesc: "Disturbing"
+  flavor: salty
+  color: "#174576"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.01
+      effects:
+      - !type:Polymorph
+        prototype: BinglePit
+        conditions:
+        - !type:ReagentThreshold
+          min: 13

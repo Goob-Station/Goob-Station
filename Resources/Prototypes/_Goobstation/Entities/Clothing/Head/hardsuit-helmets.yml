@@ -154,3 +154,7 @@
     state: equipped-HELMET
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hardsuits/bingle.rsi
+  - type: NightVision
+    flashDurationMultiplier: 2
+    isEquipment: true
+    color: "#008080"

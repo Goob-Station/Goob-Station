@@ -654,6 +654,16 @@
   categories:
   - UplinkDisruption
 
+- type: listing
+  id: UplinkSyndicateBingleBundle
+  name: "B1-NG Bundle"
+  description: "A state of the art Tiger Cooperative hardsuit that disguises you as a bingle, and a syringe of blue rot, which if injected into an individual will turn them into a bingle pit."
+  productEntity: CrateSyndicateBingle
+  cost:
+    Telecrystal: 50 # goob
+  categories:
+  - UplinkDisruption
+
 # Mechs
 
 - type: listing
