@@ -1,5 +1,4 @@
 using Content.Shared._Goobstation.Heretic.Components;
-using Content.Shared._Goobstation.Wizard;
 using Content.Shared.Inventory.Events;
 
 namespace Content.Shared.Heretic.Systems;

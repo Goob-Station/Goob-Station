@@ -1,7 +1,6 @@
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Changeling;
-using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
