@@ -6586,3 +6586,30 @@ Entries:
         more ore.
   id: 764
   time: '2025-03-23T06:19:39.0000000+00:00'
+- author: gluesniffler
+  changes:
+    - type: Remove
+      message: >-
+        The syndicate has decided to pull the Syndicate Jaunter Implant from its
+        shelves after its only buyer was arrested. Their reported last words
+        were "I did not run modded clients on that syndicate outpost"
+  id: 765
+  time: '2025-03-23T23:40:43.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed many events not happening.
+  id: 766
+  time: '2025-03-24T01:30:27.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Maintenance drones now have an experimental RCD.
+    - type: Add
+      message: Maintenance drones now have their own collective mind channel on +d.
+    - type: Tweak
+      message: >-
+        The maintenance drone omnitool no longer has a cooldown between tool
+        changes.
+  id: 767
+  time: '2025-03-24T08:41:42.0000000+00:00'
