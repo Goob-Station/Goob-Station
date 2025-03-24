@@ -59,6 +59,7 @@
     animation: WeaponArcBite
   - type: Body
     prototype: Animal
+    requiredLegs: 2
   - type: Climbing
   - type: NameIdentifier
     group: GenericNumber
