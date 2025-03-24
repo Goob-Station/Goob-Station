@@ -427,4 +427,5 @@
     damage:
       types:
         Slash: 10
-
+  - type: Item
+    size: Tiny
