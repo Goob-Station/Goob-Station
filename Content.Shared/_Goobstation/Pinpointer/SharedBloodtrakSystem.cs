@@ -1,11 +1,7 @@
 using Content.Shared._Goobstation.Pinpointer;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Database;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
-using Content.Shared.IdentityManagement;
-using Content.Shared.Interaction;
-using Content.Shared.Tag;
 
 namespace Content.Shared._Gobostation.Pinpointer;
 
@@ -14,26 +10,12 @@ public abstract class SharedBloodtrakSystem : EntitySystem
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-        SubscribeLocalEvent<BloodtrakComponent, ExaminedEvent>(OnExamined);
-    }
-
     /// <summary>
     ///     Update direction from pinpointer to selected target (if it was set)
     /// </summary>
     protected virtual void UpdateDirectionToTarget(EntityUid uid, BloodtrakComponent? pinpointer = null)
     {
 
-    }
-
-    private void OnExamined(EntityUid uid, BloodtrakComponent component, ExaminedEvent args)
-    {
-        if (!args.IsInDetailsRange || component.TargetName == null)
-            return;
-
-        args.PushMarkup(Loc.GetString("examine-pinpointer-linked", ("target", component.TargetName)));
     }
 
     /// <summary>

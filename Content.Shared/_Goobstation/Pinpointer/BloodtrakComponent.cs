@@ -30,24 +30,6 @@ public sealed partial class BloodtrakComponent : Component
     [DataField]
     public double Precision = 0.09;
 
-    /// <summary>
-    ///     Name to display of the target being tracked.
-    /// </summary>
-    [DataField]
-    public string? TargetName;
-
-    /// <summary>
-    ///     Whether or not the target name should be updated when the target is updated.
-    /// </summary>
-    [DataField]
-    public bool UpdateTargetName;
-
-    /// <summary>
-    ///     Whether or not the target can be reassigned.
-    /// </summary>
-    [DataField]
-    public bool CanRetarget;
-
     [ViewVariables]
     public EntityUid? Target = null;
 

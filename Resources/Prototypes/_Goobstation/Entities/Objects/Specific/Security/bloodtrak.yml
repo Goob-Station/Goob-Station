@@ -1,7 +1,7 @@
 - type: entity
   name: bloodtrak
   description: A handheld tracking device, capable of finding someone from their blood. For best results, use on fresh blood.
-  parent: PinpointerBase
+  parent: BaseItem
   id: BloodTrak
   components:
   - type: Transform
@@ -21,7 +21,7 @@
     state: pinpointer
   - type: Item
     sprite: Objects/Devices/pinpointer.rsi
-  - type: Pinpointer
+  - type: Bloodtrak
   - type: Appearance
   - type: GenericVisualizer
     visuals:
