@@ -185,7 +185,7 @@
   description: Teaches the wearer NT Corporate Judo, must be worn in the armor slot.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Belt/judobelt.rsi
+    sprite: _Goobstation/Clothing/Armor/judovest.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Belt/judobelt.rsi
+    sprite: _Goobstation/Clothing/Armor/judovest.rsi
   - type: GrantCorporateJudo
