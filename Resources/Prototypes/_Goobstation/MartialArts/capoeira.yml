@@ -13,7 +13,7 @@
 
 - type: combo
   id: PushKick
-  name: Pish Kick
+  name: Push Kick
   martialArtsForm: Capoeira
   attacks:
   - Grab
