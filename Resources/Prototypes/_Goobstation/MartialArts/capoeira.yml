@@ -22,7 +22,6 @@
   event: !type:PushKickPerformedEvent
     sound:
       path: /Audio/Weapons/genhit3.ogg
-  throwSpeed: 10
   extraDamage: 5
   paralyzeTime: 1
   dropHeldItemsBehavior: NoDrop
