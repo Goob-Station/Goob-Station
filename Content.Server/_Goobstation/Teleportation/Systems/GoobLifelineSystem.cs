@@ -1,5 +1,6 @@
 using Content.Server._Goobstation.Teleportation.Components;
 using Content.Server.Explosion.EntitySystems;
+using Content.Server.Mind;
 using Content.Server.Warps;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Systems;
@@ -13,6 +14,7 @@ public sealed class GoobLifelineSystem : EntitySystem
 {
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly MindSystem _mindSystem = default!;
 
     public override void Initialize()
     {
@@ -41,6 +43,16 @@ public sealed class GoobLifelineSystem : EntitySystem
         RaiseLocalEvent(parentUid, new DropHandItemsEvent());
         _pullingSystem.StopAllPulls(parentUid);
 
+        // Reset mind
+        if (_mindSystem.TryGetMind(parentUid, out var mindId, out var mind))
+        {
+            var userId = mind.UserId;
+            var name = mind.CharacterName;
+            _mindSystem.WipeMind(parentUid);
+            var newMindId = _mindSystem.CreateMind(userId, name).Owner;
+            _mindSystem.TransferTo(newMindId, parentUid, true);
+        }
+
         var coords = _transform.GetMapCoordinates(location.Value);
         _transform.SetMapCoordinates(parentUid, coords);
 
@@ -58,4 +70,5 @@ public sealed class GoobLifelineSystem : EntitySystem
 
         return null;
     }
+
 }
