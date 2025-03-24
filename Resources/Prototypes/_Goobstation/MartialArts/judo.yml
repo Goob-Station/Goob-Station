@@ -22,6 +22,7 @@
   staminaDamage: 30
   paralyzeTime: 3
   dropHeldItemsBehavior: NoDrop
+  canDoWhileProne: false
 
 - type: combo
   id: JudoArmbar
@@ -34,6 +35,7 @@
   staminaDamage: 70
   paralyzeTime: 7
   dropHeldItemsBehavior: NoDrop
+  canDoWhileProne: false
 
 - type: combo
   id: JudoEyepoke
@@ -44,4 +46,5 @@
   - Harm
   event: !type:JudoEyePokePerformedEvent
   extraDamage: 5
+  canDoWhileProne: false
 

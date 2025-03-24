@@ -1,8 +1,8 @@
 - type: entity
   parent: [BaseItem, BaseCentcommContraband]
   id: BSOManual
-  name: Nanotrasen CQC Manual
-  description: A small, blue manual. There are drawn instructions of tactical hand-to-hand combat.
+  name: Nanotrasen Capoeira Manual
+  description: A small, blue manual. There are drawn instructions of Capoeira, a dance-like style with its roots in Brazilian slavery, focused on fluid movement and sweeping kicks.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/cqc_manual.rsi
@@ -12,4 +12,4 @@
     size: Small
   - type: StaticPrice
     price: 3000
-  - type: GrantCqc
+  - type: GrantCapoeira

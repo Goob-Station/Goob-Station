@@ -36,4 +36,5 @@ public enum MartialArtsForms
     CorporateJudo,
     CloseQuartersCombat,
     SleepingCarp,
+    Capoeira,
 }
