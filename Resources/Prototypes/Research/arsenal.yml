@@ -107,7 +107,7 @@
   - HoloprojectorSecurity
   - WeaponDisablerSMG
 
-# Goobstation - signaller > advanced tools, flash payload > riot control, explosive payload > shuttle armament, all others roundstart
+# Goobstation - signaller > advanced tools, flash payload > riot control, all others roundstart
 #- type: technology
 #  id: ExplosiveTechnology
 #  name: research-technology-explosive-technology
@@ -180,7 +180,6 @@
   - PowerCageSmall
   - PowerCageMedium
   - MagazineGrenadeEmpty
-  - ExplosivePayload # Goobstation - This goes here because it feels weird moving it anywhere else
   - GrenadeFlash
   - GrenadeBlast
   - ShuttleGunSvalinnMachineGunCircuitboard

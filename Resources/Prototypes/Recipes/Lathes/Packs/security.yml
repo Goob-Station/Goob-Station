@@ -49,6 +49,7 @@
   - MagazineShotgunSlug
   - SpeedLoaderMagnum
   - SpeedLoaderMagnumEmpty
+  - ExplosivePayload # Goobstation - Moved here for roundstart availability, feels wrong anywhere else
 
 - type: latheRecipePack
   id: SecurityWeaponsStatic
@@ -84,7 +85,7 @@
   #- ScienceExplosives - Goobstation - Flash payload and triggers will be available roundstart
   id: SecurityExplosives
   recipes:
-  - ExplosivePayload
+  #- ExplosivePayload - Goobstation - Moved to SecurityAmmoStatic, so it's available roundstart
   - GrenadeBlast
   - GrenadeEMP
   - GrenadeFlash
