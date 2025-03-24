@@ -6595,3 +6595,9 @@ Entries:
         were "I did not run modded clients on that syndicate outpost"
   id: 765
   time: '2025-03-23T23:40:43.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed many events not happening.
+  id: 766
+  time: '2025-03-24T01:30:27.0000000+00:00'
