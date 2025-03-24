@@ -17,6 +17,9 @@ ghost-role-information-Hecu-rules = You are required to obey orders given by you
 ghost-role-information-lootbug-name = LootBug
 ghost-role-information-lootbug-description = Try not to be butchered by tiders.
 
+ghost-role-information-homunculus-name = homunculus
+ghost-role-information-homunculus-description = Obey the one who has created you, if there are nowhere to be found, do as you will.
+
 ghost-role-information-c4-name = Composition C-4
 ghost-role-information-c4-description = Assist your user with bombing things.
 
