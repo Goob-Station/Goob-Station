@@ -119,7 +119,7 @@ public partial class SharedMartialArtsSystem
             return;
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
+        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
@@ -162,7 +162,7 @@ public partial class SharedMartialArtsSystem
             || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out _))
             return;
 
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
+        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent, applyResistances: true);
         ComboPopup(ent, target, proto.Name);
     }

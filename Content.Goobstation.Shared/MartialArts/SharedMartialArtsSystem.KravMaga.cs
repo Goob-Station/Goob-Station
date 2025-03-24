@@ -10,9 +10,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Common.Standing;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Weapons.Melee.Events;
@@ -59,7 +59,7 @@ public abstract partial class SharedMartialArtsSystem
             case KravMagaMoves.LegSweep:
                 if(_netManager.IsClient)
                     return;
-                _stun.TryKnockdown(hitEntity, TimeSpan.FromSeconds(4), true); // okay buddy
+                _stun.TryKnockdown(hitEntity, TimeSpan.FromSeconds(4), true, DropHeldItemsBehavior.NoDrop); // okay buddy
                 _stamina.TakeStaminaDamage(hitEntity, 25f, applyResistances: true);
                 break;
             case KravMagaMoves.NeckChop:
