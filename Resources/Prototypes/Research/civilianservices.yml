@@ -44,6 +44,7 @@
   position: 4,0
   technologyPrerequisites:
   - AdvancedEntertainment
+  - RipleyAPLU
   # Goobstation R&D Console rework end
 
 - type: technology
@@ -103,6 +104,7 @@
   position: 2,0
   technologyPrerequisites:
   - AdvancedEntertainment
+  - BasicRobotics
   # Goobstation R&D Console rework end
 
 - type: technology
@@ -163,9 +165,9 @@
   - CryostasisBeaker
   - SyringeCryostasis
   # Goobstation R&D Console rework start
-  position: 3,1
+  position: 3,2
   technologyPrerequisites:
-  - AdvancedEntertainment
+  - AccessibilityTech
   # Goobstation R&D Console rework end
 
 - type: technology
@@ -209,6 +211,7 @@
   position: 5,0
   technologyPrerequisites:
   - CritterMechs
+  - RipleyAPLU
   # Goobstation R&D Console rework end
 
 - type: technology
@@ -279,7 +282,7 @@
   - BluespaceBeaker
   - SyringeBluespace
   # Goobstation R&D Console rework start
-  position: 3,2
+  position: 3,3
   technologyPrerequisites:
   - BiochemicalStasis
   # Goobstation R&D Console rework end

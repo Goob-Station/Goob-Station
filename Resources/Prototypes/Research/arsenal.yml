@@ -58,9 +58,9 @@
   - WeaponTemperatureGun # Goobstation
   - WeaponMechCombatFiredartLaser # Goobstation
   # Goobstation R&D Console rework start
-  position: 2,-1
+  position: 3,-1
   technologyPrerequisites:
-  - DraconicMunitions
+  - WeaponPlasmaRifleTech
   # Goobstation R&D Console rework end
 
 - type: technology
@@ -107,7 +107,7 @@
   - BoxShotgunUranium
   - MagazineBoxShotgunUraniumHighCaliber # Goobstation
   # Goobstation R&D Console rework start
-  position: 1,-2
+  position: 2,-2
   technologyPrerequisites:
   - DraconicMunitions
   # Goobstation R&D Console rework end
@@ -185,7 +185,7 @@
   - WeaponLaserCannon
   - WeaponMechCombatSolarisLaser # Goobstation
   # Goobstation R&D Console rework start
-  position: 3,-1
+  position: 4,-1
   technologyPrerequisites:
   - WeaponizedLaserManipulation
   # Goobstation R&D Console rework end
@@ -224,7 +224,8 @@
   - ShuttleGunFriendshipCircuitboard
   technologyPrerequisites:
   - ExplosiveTechnology # Goobstation R&D Console rework
-  position: 2,1  # Goobstation R&D Console rework
+  - Shuttlecraft  # Goobstation R&D Console rework
+  position: 1,2  # Goobstation R&D Console rework
 
 # Tier 3
 
@@ -244,25 +245,21 @@
   # Goobstation R&D Console rework start
   position: 5,-1
   technologyPrerequisites:
-  - ExperimentalBatteryAmmo
-  # Goobstation R&D Console rework end
-
-- type: technology
-  id: ExperimentalBatteryAmmo
-  name: research-technology-experimental-battery-ammo
-  icon:
-    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
-    state: icon
-  discipline: Arsenal
-  tier: 3
-  cost: 20000 # Goobstation 15000 -> 20000
-  recipeUnlocks:
-  - WeaponLaserSvalinn
-  # Goobstation R&D Console rework start
-  position: 4,-1
-  technologyPrerequisites:
   - ConcentratedLaserWeaponry
   # Goobstation R&D Console rework end
+
+# Goobstation commented
+# - type: technology
+#   id: ExperimentalBatteryAmmo
+#   name: research-technology-experimental-battery-ammo
+#   icon:
+#     sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
+#     state: icon
+#   discipline: Arsenal
+#   tier: 3
+#   cost: 20000
+#   recipeUnlocks:
+#   - WeaponLaserSvalinn
 
 - type: technology
   id: AdvancedShuttleWeapon
@@ -279,5 +276,5 @@
   - ShuttleGunDusterCircuitboard
   technologyPrerequisites:
   - BasicShuttleArmament
-  - ExperimentalBatteryAmmo
-  position: 4,1  # Goobstation R&D Console rework
+  - Shuttlecraft  # Goobstation R&D Console rework
+  position: 1,3  # Goobstation R&D Console rework

@@ -86,7 +86,7 @@
   - ClothingShoesBootsMagSci
   - ClothingShoesBootsMoon
   # Goobstation R&D Console rework start
-  position: 0,-1
+  position: 1,-1
   technologyPrerequisites:
   - AlternativeResearch
   # Goobstation R&D Console rework end
@@ -157,7 +157,7 @@
   - WeaponParticleDecelerator
   - HoloprojectorField
   # Goobstation R&D Console rework start
-  position: 0,1
+  position: 1,1
   technologyPrerequisites:
   - AlternativeResearch
   # Goobstation R&D Console rework end
