@@ -15,7 +15,6 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared._White.Grab;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
@@ -260,7 +259,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     }
 
     private bool TryUseMartialArt(Entity<CanPerformComboComponent> ent,
-        MartialArtsForms form,
+        ComboPrototype proto,
         out EntityUid target,
         out bool downed)
     {
@@ -273,25 +272,36 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         if (!TryComp<MartialArtsKnowledgeComponent>(ent, out var knowledgeComponent))
             return false;
 
-        if (!TryComp<RequireProjectileTargetComponent>(ent.Comp.CurrentTarget, out var isDowned))
+        if (!proto.CanDoWhileProne && IsDown(ent))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("martial-arts-fail-prone"), ent, ent);
             return false;
+        }
 
-        downed = isDowned.Active;
+        downed = IsDown(ent.Comp.CurrentTarget.Value);
         target = ent.Comp.CurrentTarget.Value;
 
-        if (knowledgeComponent.MartialArtsForm == form && !knowledgeComponent.Blocked)
-        {
+        if (knowledgeComponent.MartialArtsForm == proto.MartialArtsForm && !knowledgeComponent.Blocked)
             return true;
-        }
 
         foreach (var entInRange in _lookup.GetEntitiesInRange(ent, 8f))
         {
-            if (!TryPrototype(entInRange, out var proto) || proto.ID != "SpawnPointChef" || !knowledgeComponent.Blocked)
+            if (!TryPrototype(entInRange, out var entProto) || entProto.ID != "SpawnPointChef" ||
+                !knowledgeComponent.Blocked)
                 continue;
+
             return true;
         }
 
         return false;
+
+        bool IsDown(EntityUid uid)
+        {
+            if (!TryComp<StandingStateComponent>(uid, out var standingState))
+                return false;
+
+            return standingState.CurrentState != StandingState.Standing;
+        }
     }
 
     private void DoDamage(EntityUid ent,

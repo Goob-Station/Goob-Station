@@ -43,6 +43,8 @@ krav-maga-ready = You ready a {$action}
 martial-arts-action-sender = You hit {$name} with {$move}
 martial-arts-action-receiver = {$name} hit you with {$move}
 
+martial-arts-fail-prone = You can't use this combo while lying down!
+
 uplink-cqc-name = CQC Manual
 uplink-cqc-desc = A manual that teaches a single user tactical Close-Quarters Combat before self-destructing. Does not restrict weapon usage. Your disarms will inflict some stamina damage while making people temporarily slur their words, your grabs will immobilize for a second making it easier to reinforce them, your harm attacks will deal moderate stamina damage, and you will get a set of combos that allow you to efficiently knockdown, disarm or stun your opponent. You can find more information on CQC and its combos here.
 

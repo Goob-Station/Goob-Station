@@ -42,6 +42,12 @@ public sealed partial class ComboPrototype : IPrototype
     public int ParalyzeTime;
 
     /// <summary>
+    /// Can a lying person perform this combo
+    /// </summary>
+    [DataField]
+    public bool CanDoWhileProne = true;
+
+    /// <summary>
     /// Should the target drop items on knockdown?
     /// </summary>
     [DataField]

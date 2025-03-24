@@ -76,7 +76,7 @@ public partial class SharedMartialArtsSystem
     private void OnJudoThrow(Entity<CanPerformComboComponent> ent, ref JudoThrowPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed)
+            || !TryUseMartialArt(ent, proto, out var target, out var downed)
             || downed)
             return;
 
@@ -91,7 +91,7 @@ public partial class SharedMartialArtsSystem
     private void OnJudoEyepoke(Entity<CanPerformComboComponent> ent, ref JudoEyePokePerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out _))
+            || !TryUseMartialArt(ent, proto, out var target, out _))
             return;
 
         if (!TryComp(target, out StatusEffectsComponent? status))
@@ -115,7 +115,7 @@ public partial class SharedMartialArtsSystem
     private void OnJudoArmbar(Entity<CanPerformComboComponent> ent, ref JudoArmbarPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed))
+            || !TryUseMartialArt(ent, proto, out var target, out var downed))
             return;
 
         switch (downed)

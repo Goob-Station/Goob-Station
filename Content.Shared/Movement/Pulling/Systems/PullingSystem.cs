@@ -204,6 +204,7 @@ public sealed class PullingSystem : EntitySystem
         SubscribeLocalEvent<PullerComponent, StopPullingAlertEvent>(OnStopPullingAlert);
         SubscribeLocalEvent<PullerComponent, VirtualItemThrownEvent>(OnVirtualItemThrown); // Goobstation - Grab Intent
         SubscribeLocalEvent<PullerComponent, AddCuffDoAfterEvent>(OnAddCuffDoAfterEvent); // Goobstation - Grab Intent
+        SubscribeLocalEvent<PullerComponent, AttackedEvent>(OnAttacked); // Goobstation
 
         SubscribeLocalEvent<PullableComponent, StrappedEvent>(OnBuckled);
         SubscribeLocalEvent<PullableComponent, BuckledEvent>(OnGotBuckled);
@@ -212,7 +213,23 @@ public sealed class PullingSystem : EntitySystem
             .Bind(ContentKeyFunctions.ReleasePulledObject, InputCmdHandler.FromDelegate(OnReleasePulledObject, handle: false))
             .Register<PullingSystem>();
     }
+
     // Goobstation - Grab Intent
+    private void OnAttacked(Entity<PullerComponent> ent, ref AttackedEvent args)
+    {
+        if (ent.Comp.Pulling != args.User)
+            return;
+
+        if (ent.Comp.GrabStage < GrabStage.Soft)
+            return;
+
+        if (!TryComp(args.User, out PullableComponent? pullable))
+            return;
+
+        if (_random.Prob(pullable.GrabEscapeChance))
+            TryLowerGrabStage((args.User, pullable), (ent.Owner, ent.Comp), true);
+    }
+
     private void OnAddCuffDoAfterEvent(Entity<PullerComponent> ent, ref AddCuffDoAfterEvent args)
     {
         if (args.Handled)
@@ -952,7 +969,7 @@ public sealed class PullingSystem : EntitySystem
         RaiseLocalEvent(pullable, beforeEvent);
         if (beforeEvent.Cancelled)
             return false;
-            
+
         // It's blocking stage update, maybe better UX?
         if (puller.Comp.GrabStage == GrabStage.Suffocate)
         {

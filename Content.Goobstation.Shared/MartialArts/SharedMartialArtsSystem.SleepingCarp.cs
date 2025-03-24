@@ -111,7 +111,7 @@ public partial class SharedMartialArtsSystem
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
             || !_proto.TryIndex<MartialArtPrototype>(proto.MartialArtsForm.ToString(), out var martialArtProto)
-            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed))
+            || !TryUseMartialArt(ent, proto, out var target, out var downed))
             return;
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage + ent.Comp.ConsecutiveGnashes * 5, out _);
@@ -137,7 +137,7 @@ public partial class SharedMartialArtsSystem
         ref SleepingCarpKneeHaulPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed))
+            || !TryUseMartialArt(ent, proto, out var target, out var downed))
             return;
 
         if (!downed)
@@ -162,7 +162,7 @@ public partial class SharedMartialArtsSystem
         ref SleepingCarpCrashingWavesPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed)
+            || !TryUseMartialArt(ent, proto, out var target, out var downed)
             || downed)
             return;
 
