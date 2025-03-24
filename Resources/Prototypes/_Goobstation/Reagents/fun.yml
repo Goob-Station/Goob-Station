@@ -139,7 +139,7 @@
   name: reagent-name-blue-rot
   group: Toxins
   desc: reagent-desc-blue-rot
-  physicalDesc: disturbing
+  physicalDesc: reagent-physical-desc-disturbing
   flavor: salty
   color: "#174576"
   metabolisms:
@@ -166,7 +166,7 @@
   name: reagent-name-maturing-rot
   group: Toxins
   desc: reagent-desc-maturing-rot
-  physicalDesc: disturbing
+  physicalDesc: reagent-physical-desc-disturbing
   flavor: salty
   color: "#174576"
   metabolisms:
