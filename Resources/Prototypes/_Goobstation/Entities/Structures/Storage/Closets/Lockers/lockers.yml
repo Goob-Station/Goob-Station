@@ -27,3 +27,20 @@
     stateBaseClosed: ntr
     stateDoorOpen: ntr_open
     stateDoorClosed: ntr_door
+
+- type: entity
+  parent: LockerFreezer
+  name: shrimp bag
+  id: ShrimpBag
+  description: The beasts are escaping.
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: shrimp_icon
+    stateDoorOpen: shrimp_open
+    stateDoorClosed: shrimp_door
+  - type: StorageFill
+    contents:
+    - id: MobShrimp
+      amount: 9
+    - id: MobMeleeShrimp
+      amount: 9

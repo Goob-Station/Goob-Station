@@ -2,7 +2,8 @@
   id: ShrimpLaser
   damage:
     types:
-      Genetic: 1
+      Cellular: 1
+      Ion: 1
   muzzleFlash:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/lasers.rsi
     state: muzzle_shrimp

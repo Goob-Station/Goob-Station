@@ -364,7 +364,7 @@
 
 - type: entity
   name: shrimp
-  parent: [ SimpleMobBase, FlyingMobBase, MobCombat, EdibleBase ]
+  parent: [ SimpleMobBase, FlyingMobBase, EdibleBase ]
   id: MobShrimp
   description: Kill the beast.
   components:
@@ -378,19 +378,10 @@
       state: shrimp
       sprite: _Goobstation/Mobs/Animals/shrimp.rsi
   - type: Speech
-    speechSounds: Squeak
+    speechSounds: Shrimp
     speechVerb: SmallMob
-    allowedEmotes: ['Squeak']
   - type: Bloodstream
     bloodMaxVolume: 50
-  - type: MeleeWeapon
-    soundHit:
-        path: /Audio/Effects/bite.ogg
-    angle: 0
-    animation: WeaponArcBite
-    damage:
-      types:
-        Piercing: 1
   - type: Tag
     tags:
     - VimPilot
@@ -399,7 +390,7 @@
     - SimpleHostile
   - type: HTN
     rootTask:
-      task: SimpleHostileCompound
+      task: SimpleRangedHostileCompound
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -426,10 +417,10 @@
     - meaty
   - type: GhostRole
     prob: 1
-    name: ghost-role-information-BreadDog-name
+    name: "shrimp"
     allowMovement: true
-    description: ghost-role-information-BreadDog-description
-    rules: ghost-role-information-nonantagonist-rules
+    description: "shrimp around"
+    rules: "get shrimpy with it"
     raffle:
       settings: short
   - type: GhostTakeoverAvailable
@@ -437,7 +428,7 @@
     baseResistTime: 2
   - type: VentCrawler
   - type: HitscanBatteryAmmoProvider
-    proto: RedLightLaser
+    proto: ShrimpLaser
     fireCost: 50
   - type: BatterySelfRecharger
     autoRecharge: true
@@ -450,4 +441,26 @@
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
-    soundGunshot: /Audio/_Goobstation/Animals/skibidi.wav
+    soundGunshot: /Audio/_Goobstation/Animals/shrimp.ogg
+  - type: Hands
+  - type: ComplexInteraction
+
+- type: entity
+  name: shrimp
+  parent: MobShrimp
+  id: MobMeleeShrimp
+  suffix: melee
+  components:
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/_Goobstation/Animals/shrimp.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Slash: 1
+        Ion: 1
+        Structural: 11

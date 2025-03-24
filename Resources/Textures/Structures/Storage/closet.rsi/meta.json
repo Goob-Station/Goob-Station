@@ -492,6 +492,15 @@
       "name": "shotguncase_open"
     },
     {
+      "name": "shrimp_door"
+    },
+    {
+      "name": "shrimp_icon"
+    },
+    {
+      "name": "shrimp_open"
+    },
+    {
       "name": "sparking",
       "delays": [
         [
