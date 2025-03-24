@@ -135,7 +135,7 @@
 - type: entity
   parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitBingle
-  name: binglesuit helmet
+  name: B1-NG helmet
   description: Helmet for the bingle suit dumbass, what else did you think it was?
   categories: [ HideSpawnMenu ]
   components:

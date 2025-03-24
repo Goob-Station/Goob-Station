@@ -230,7 +230,7 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitBingle
-  name: binglesuit
+  name: B1-NG Hardsuit
   description: A special suit that makes you look just like a bingle, they probably wont throw you in the hole...
   suffix: Hardsuit, DO NOT MAP
   categories: [ DoNotMap ]
