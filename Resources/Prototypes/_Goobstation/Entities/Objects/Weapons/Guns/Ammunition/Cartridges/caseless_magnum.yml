@@ -1,0 +1,54 @@
+- type: entity
+  id: BaseCartridgeCaselessMagnum
+  name: cartridge (.25 rifle)
+  parent: [ BaseCartridge, BaseSecurityContraband ]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - Cartridge
+      - CartridgeCaselessMagnum127
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 10
+
+- type: entity
+  id: CartridgeCaselessMagnum127
+  name: cartridge (12.7mm caseless magnum)
+  parent: BaseCartridgeCaselessMagnum
+  components:
+  - type: CartridgeAmmo
+    proto: BulletCaselessMagnum127
+
+- type: entity
+  id: CartridgeCaselessMagnum127MinusP
+  name: cartridge (12.7mm caseless magnum -P)
+  parent: BaseCartridgeCaselessMagnum
+  components:
+  - type: Tag
+    tags:
+      - Cartridge
+      - CartridgeCaselessMagnum127
+  - type: CartridgeAmmo
+    proto: BulletCaselessMagnum127MinusP
+
+- type: entity
+  id: CartridgeCaselessMagnum127SAPHE
+  name: cartridge (12.7mm caseless magnum SAP-HE)
+  parent: BaseCartridgeCaselessMagnum
+  components:
+  - type: Tag
+    tags:
+      - Cartridge
+      - CartridgeCaselessMagnum127
+  - type: CartridgeAmmo
+    proto: BulletCaselessMagnum127SAPHE

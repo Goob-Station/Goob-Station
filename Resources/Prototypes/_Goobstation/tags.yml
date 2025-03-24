@@ -30,6 +30,15 @@
   id: CartridgeSmart
 
 - type: Tag
+  id: CartridgeCaselessMagnum127
+
+- type: Tag
+  id: CartridgeCaselessMagnum127MinusP
+
+- type: Tag
+  id: CartridgeCaselessMagnum127SAPHE
+
+- type: Tag
   id: Clarke
 
 - type: Tag
@@ -208,6 +217,9 @@
 
 - type: Tag
   id: MagazineSmart
+
+- type: Tag
+  id: MagazineCaselessMagnum127
 
 - type: Tag
   id: Mask

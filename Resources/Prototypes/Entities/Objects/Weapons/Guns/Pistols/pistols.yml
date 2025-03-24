@@ -161,28 +161,29 @@
       path: /Audio/Weapons/Guns/Gunshots/silenced.ogg
       params:
         volume: -14
-    projectileSpeed: 20 # Goobstation
+    projectileSpeed: 30 # Goobstation
     availableModes:
     - SemiAuto
   - type: ItemSlots
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazinePistolCaselessRifle
+        startingItem: MagazinePistolCaselessMagnumMinusP  # Goobstation
         insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
         priority: 2
         whitelist:
           tags:
-            - MagazinePistolCaselessRifle
+            - MagazineCaselessMagnum127  # Goobstation
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeCaselessRifle
+        startingItem: CartridgeCaselessMagnum127MinusP # Goobstation
         priority: 1
         whitelist:
           tags:
-            - CartridgeCaselessRifle
+            - CartridgeCaselessMagnum127 # Goobstation
+            - CartridgeCaselessMagnum127MinusP # Goobstation
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
