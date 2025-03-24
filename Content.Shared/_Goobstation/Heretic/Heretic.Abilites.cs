@@ -26,7 +26,6 @@ public sealed partial class HereticActionComponent : Component
 
 [Serializable, NetSerializable] public sealed partial class EldritchInfluenceDoAfterEvent : SimpleDoAfterEvent
 {
-    public bool MagicItemActive = false;
 }
 [Serializable, NetSerializable] public sealed partial class DrawRitualRuneDoAfterEvent : SimpleDoAfterEvent
 {

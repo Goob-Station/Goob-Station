@@ -23,10 +23,10 @@ public abstract partial class SharedVoidCurseSystem : EntitySystem
         {
             if (!curse.Drain)
             {
-                // we keep adding curse time until we reach ~1 minute
+                // we keep adding curse time until we reach ~30 seconds
                 // when the time is reached it can't add any more time to the curse and just locks itself out until it's gone
                 // which is very balanced :+1:
-                curse.Lifetime = Math.Clamp(curse.Lifetime + 10f, 0f, curse.MaxLifetime);
+                curse.Lifetime = Math.Clamp(curse.Lifetime + 5f, 0f, curse.MaxLifetime);
                 if (curse.Lifetime >= curse.MaxLifetime)
                     curse.Drain = true;
             }

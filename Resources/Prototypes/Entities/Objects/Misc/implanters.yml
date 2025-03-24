@@ -46,7 +46,6 @@
       - DeathRattleImplant
       - MindShieldImplant
       # Goob implants
-      - SyndicateJaunterImplant
       - MindcontrolImplant
       - KravMagaImplant
       deimplantFailureDamage:

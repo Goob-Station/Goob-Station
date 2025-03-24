@@ -248,12 +248,24 @@ public sealed class MansusGraspSystem : EntitySystem
         var tags = ent.Comp.Tags;
 
         if (!args.CanReach
-        || !args.ClickLocation.IsValid(EntityManager)
-        || !TryComp<HereticComponent>(args.User, out var heretic) // not a heretic - how???
-        || heretic.MansusGrasp == EntityUid.Invalid // no grasp - not special
-        || HasComp<ActiveDoAfterComponent>(args.User) // prevent rune shittery
-        || !tags.Contains("Write") || !tags.Contains("Pen")) // not a pen
+            || !args.ClickLocation.IsValid(EntityManager)
+            || !TryComp<HereticComponent>(args.User, out var heretic) // not a heretic - how???
+            || HasComp<ActiveDoAfterComponent>(args.User)) // prevent rune shittery
             return;
+
+        var runeProto = "HereticRuneRitualDrawAnimation";
+        float time = 14;
+
+        if (TryComp(ent, out TransmutationRuneScriberComponent? scriber)) // if it is special rune scriber
+        {
+            runeProto = scriber.RuneDrawingEntity;
+            time = scriber.Time;
+        }
+        else if (heretic.MansusGrasp == EntityUid.Invalid // no grasp - not special
+                 || !tags.Contains("Write") || !tags.Contains("Pen")) // not a pen
+            return;
+
+        args.Handled = true;
 
         // remove our rune if clicked
         if (args.Target != null && HasComp<HereticRitualRuneComponent>(args.Target))
@@ -264,9 +276,9 @@ public sealed class MansusGraspSystem : EntitySystem
         }
 
         // spawn our rune
-        var rune = Spawn("HereticRuneRitualDrawAnimation", args.ClickLocation);
+        var rune = Spawn(runeProto, args.ClickLocation);
         _transform.AttachToGridOrMap(rune);
-        var dargs = new DoAfterArgs(EntityManager, args.User, 14f, new DrawRitualRuneDoAfterEvent(rune, args.ClickLocation), args.User)
+        var dargs = new DoAfterArgs(EntityManager, args.User, time, new DrawRitualRuneDoAfterEvent(rune, args.ClickLocation), args.User)
         {
             BreakOnDamage = true,
             BreakOnHandChange = true,

@@ -32,6 +32,7 @@
     sprite: _Goobstation/Heretic/items.rsi
     state: living_heart
   requiredTags:
+    Document: 1
     Heart: 1
     Pen: 1
   outputEvent: !type:EventHereticRerollTargets
@@ -44,7 +45,7 @@
     sprite: _Goobstation/Heretic/book.rsi
     state: icon-on
   requiredTags:
-    Eyes: 1
+    Meat: 1
     Book: 1
     Pen: 1
   output:
