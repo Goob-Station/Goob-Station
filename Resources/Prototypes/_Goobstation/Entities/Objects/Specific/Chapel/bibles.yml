@@ -35,9 +35,9 @@
 
 - type: entity
   parent: Bible
-  name: Torah
+  name: Tanakh
   description: "Choose life, that you and your offspring may live."
-  id: BibleTorah
+  id: BibleTanakh
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Objects/scroll.rsi
