@@ -44,3 +44,5 @@
       amount: 9
     - id: MobMeleeShrimp
       amount: 9
+  - type: EntityStorage
+    airtight: false
