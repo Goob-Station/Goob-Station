@@ -6601,3 +6601,15 @@ Entries:
       message: Fixed many events not happening.
   id: 766
   time: '2025-03-24T01:30:27.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Maintenance drones now have an experimental RCD.
+    - type: Add
+      message: Maintenance drones now have their own collective mind channel on +d.
+    - type: Tweak
+      message: >-
+        The maintenance drone omnitool no longer has a cooldown between tool
+        changes.
+  id: 767
+  time: '2025-03-24T08:41:42.0000000+00:00'
