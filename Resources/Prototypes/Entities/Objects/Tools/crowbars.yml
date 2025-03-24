@@ -10,6 +10,7 @@
   - type: Tag
     tags:
     - Crowbar
+    - DroneUsable # Goobstation
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
