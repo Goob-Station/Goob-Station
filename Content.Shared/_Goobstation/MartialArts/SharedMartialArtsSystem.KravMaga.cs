@@ -1,5 +1,6 @@
 using Content.Shared._Goobstation.MartialArts.Components;
 using Content.Shared._Goobstation.MartialArts.Events;
+using Content.Shared._White.Standing;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Mobs.Components;
@@ -47,7 +48,7 @@ public abstract partial class SharedMartialArtsSystem
             case KravMagaMoves.LegSweep:
                 if(_netManager.IsClient)
                     return;
-                _stun.TryKnockdown(hitEntity, TimeSpan.FromSeconds(4), true); // okay buddy
+                _stun.TryKnockdown(hitEntity, TimeSpan.FromSeconds(4), true, DropHeldItemsBehavior.NoDrop); // okay buddy
                 _stamina.TryTakeStamina(hitEntity, 25f);
                 break;
             case KravMagaMoves.NeckChop:

@@ -1,5 +1,6 @@
 using Content.Shared._Goobstation.MartialArts.Components;
 using Content.Shared._Goobstation.MartialArts.Events;
+using Content.Shared._White.Standing;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -33,6 +34,12 @@ public sealed partial class ComboPrototype : IPrototype
     /// </summary>
     [DataField]
     public int ParalyzeTime;
+
+    /// <summary>
+    /// Should the target drop items on knockdown?
+    /// </summary>
+    [DataField]
+    public DropHeldItemsBehavior DropHeldItemsBehavior = DropHeldItemsBehavior.DropIfStanding;
 
     /// <summary>
     /// How much stamina damage should this move do on perform.

@@ -21,6 +21,7 @@
   event: !type:JudoThrowPerformedEvent
   staminaDamage: 30
   paralyzeTime: 3
+  dropHeldItemsBehavior: NoDrop
 
 - type: combo
   id: JudoArmbar
@@ -32,6 +33,7 @@
   event: !type:JudoArmbarPerformedEvent
   staminaDamage: 70
   paralyzeTime: 7
+  dropHeldItemsBehavior: NoDrop
 
 - type: combo
   id: JudoEyepoke
