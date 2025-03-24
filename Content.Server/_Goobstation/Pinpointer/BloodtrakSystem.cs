@@ -18,7 +18,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
-    private EntityQuery<ForensicsComponent> _forensicsQuery;
+    private EntityQueryEnumerator<ForensicsComponent> _forensicsQuery;
     private EntityQuery<TransformComponent> _xformQuery;
 
     public override void Initialize()
@@ -29,7 +29,6 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
 
         SubscribeLocalEvent<BloodtrakComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<BloodtrakComponent, ActivateInWorldEvent>(OnActivate);
-        SubscribeLocalEvent<FTLCompletedEvent>(OnLocateTarget);
     }
 
     private EntityUid GetBloodTarget(EntityUid uid, BloodtrakComponent comp, AfterInteractEvent args)
@@ -40,19 +39,13 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
             return default!;
         }
 
-        _forensicsQuery = GetEntityQuery<ForensicsComponent>();
-        _forensicsQuery.TryGetComponent(args.Target, out var forensics);
-
-        if (forensics == null)
+        while (_forensicsQuery.MoveNext(out var forensicsComponent))
         {
-            args.Handled = true;
-            return default!;
-        }
-
-        foreach (var dna in _forensicsSystem.GetSolutionsDNA(args.Target.Value))
-        {
-            if (forensics.DNAs.Contains(dna))
-                return forensics.Owner;
+            foreach (var dna in _forensicsSystem.GetSolutionsDNA(args.Target.Value))
+            {
+                if (forensicsComponent.DNAs.Contains(dna))
+                    return forensicsComponent.Owner;
+            }
         }
         return default!;
     }
@@ -116,20 +109,6 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         LocateTarget(uid, component);
 
         args.Handled = true;
-    }
-
-    private void OnLocateTarget(ref FTLCompletedEvent ev)
-    {
-        // This feels kind of expensive, but it only happens once per hyperspace jump
-
-        // todo: ideally, you would need to raise this event only on jumped entities
-        // this code update ALL pinpointers in game
-        var query = EntityQueryEnumerator<BloodtrakComponent>();
-
-        while (query.MoveNext(out var uid, out var pinpointer))
-        {
-            LocateTarget(uid, pinpointer);
-        }
     }
 
     private void LocateTarget(EntityUid uid, BloodtrakComponent component)
