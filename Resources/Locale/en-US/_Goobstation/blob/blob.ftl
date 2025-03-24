@@ -26,7 +26,7 @@ objective-issuer-blob = Blob
 
 
 ghost-role-information-blobbernaut-name = Blobbernaut
-ghost-role-information-blobbernaut-description = You are a Blobbernaut. You must defend the blob core.
+ghost-role-information-blobbernaut-description = You are a Blobbernaut. You must defend the blob core. Use + or +e in chat to talk in the Blobmind.
 
 ghost-role-information-blob-name = Blob
 ghost-role-information-blob-description = You are the Blob Infection. Consume the station.
@@ -123,7 +123,7 @@ blob-downgrade-action-desc = Turns the selected tile back into a normal blob to 
 # Ghost role
 blob-carrier-role-name = Blob carrier
 blob-carrier-role-desc =  A blob-infected creature.
-blob-carrier-role-rules = You are an antagonist. You have 4 minutes before you transform into a blob.
+blob-carrier-role-rules = You are an antagonist. You have 10 minutes before you transform into a blob.
                         Use this time to find a safe spot on the station. Keep in mind that you will be very weak right after the transformation.
 blob-carrier-role-greeting = You are a carrier of Blob. Find a secluded place at the station and transform into a Blob. Turn the station into a mass and its inhabitants into your servants. We are all Blobs.
 
@@ -143,11 +143,12 @@ blob-health-alert-desc = Your core's health. You will die if it reaches zero.
 blob-role-greeting =
     You are blob - a parasitic space creature capable of destroying entire stations.
         Your goal is to survive and grow as large as possible.
-    	You are almost invulnerable to physical damage, but heat can still hurt you.
+        You are almost invulnerable to physical damage, but heat can still hurt you.
         Use Alt+LMB to upgrade normal blob tiles to strong blob and strong blob to reflective blob.
-    	Make sure to place resource blobs to generate resources.
+        Make sure to place resource blobs to generate resources.
         Keep in mind that resource blobs and factories will only work when next to node blobs or cores.
-blob-zombie-greeting = You were infected and raised by a blob spore. Now you must help the blob take over the station.
+        You may use + or +e in chat to use the Blobmind to talk to your minions.
+blob-zombie-greeting = You were infected and raised by a blob spore. Now you must help the blob take over the station. Use +e in chat to talk in the Blobmind.
 
 # End round
 blob-round-end-result =

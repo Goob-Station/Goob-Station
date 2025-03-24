@@ -8,4 +8,22 @@
   id: JobHecuOperative
 
 - type: playTimeTracker
+  id: JobNavyOfficer
+
+- type: playTimeTracker
+  id: JobNavyCaptain
+
+- type: playTimeTracker
+  id: JobNavyOfficerUndercover
+
+- type: playTimeTracker
+  id: JobSpecialOperationsOfficer
+
+- type: playTimeTracker
+  id: JobDiplomat
+
+- type: playTimeTracker
+  id: JobGovernmentMan
+
+- type: playTimeTracker
   id: JobRoboticist

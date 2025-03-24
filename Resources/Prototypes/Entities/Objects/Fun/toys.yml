@@ -710,6 +710,14 @@
       path: /Audio/Effects/bite.ogg
     angle: 0
     animation: WeaponArcBite # Rrrr!
+  - type: GibThisGuy  #Goobstation
+    requireBoth: true
+    icNames:
+    - Audrey White
+    - Aubrey White
+    ocNames:
+    - rosef
+    - SolsticeOfTheWinter
   - type: Tag
     tags:
       - Payload
@@ -1258,11 +1266,17 @@
     damage:
       types:
         Blunt: 0
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg #spoooky
   - type: Item
     size: Small
     sprite: Objects/Fun/toys.rsi
     heldPrefix: foamblade
   - type: UseDelay
+    delay: 1.5
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Effects/gib1.ogg #spoooky x2
 
 # MISC
 
