@@ -385,6 +385,7 @@
   - type: Tag
     tags:
     - VimPilot
+    - DoorBumpOpener
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -444,6 +445,13 @@
     soundGunshot: /Audio/_Goobstation/Animals/shrimp.ogg
   - type: Hands
   - type: ComplexInteraction
+  - type: Stripping
+  - type: Puller
+    needsHands: false
+  - type: Targeting
+  - type: Body # Shitmed Change
+    prototype: Monkey
+    requiredLegs: 0
 
 - type: entity
   name: shrimp
