@@ -6613,3 +6613,11 @@ Entries:
         changes.
   id: 767
   time: '2025-03-24T08:41:42.0000000+00:00'
+- author: Misandry
+  changes:
+    - type: Add
+      message: >-
+        Custom goobstation module for faster compile times and shitcod
+        generation
+  id: 768
+  time: '2025-03-24T18:12:52.0000000+00:00'
