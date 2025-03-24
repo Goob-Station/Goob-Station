@@ -1,0 +1,12 @@
+- type: entity
+  id: ActionActivateMedigunUber
+  name: activate-medigun-uber-action-name
+  description: activate-medigun-uber-action-desc
+  components:
+    - type: InstantAction
+      icon:
+        sprite: _Goobstation/Actions/medigun.rsi
+        state: activate
+      event: !type:MediGunUberActivateActionEvent
+      #itemIconStyle: BigAction
+      useDelay: 10.0

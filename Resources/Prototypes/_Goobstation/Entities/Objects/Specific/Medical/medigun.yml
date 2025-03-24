@@ -1,0 +1,67 @@
+- type: entity
+  name: medical beam gun
+  parent: BaseItem
+  description: MEEEEDIIIC
+  id: MedicalBeamGun
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/medigun.rsi
+    layers:
+    - state: icon
+    - state: active_gun
+      map: [ "enum.ToggleVisuals.Layer" ]
+      visible: false
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Medical/medigun.rsi
+  - type: MediGun
+    healing:
+      types:
+        Blunt: -3
+        Slash: -3
+        Piercing: -3
+        Heat: -3
+    uberHealing:
+      types:
+        Blunt: -9
+        Slash: -9
+        Piercing: -9
+        Heat: -9
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 3.4
+    intensitySlope: 3
+    totalIntensity: 20
+    canCreateVacuum: false
+  # Power cell things
+  - type: ItemToggle
+    predictable: false # issues between ToggleCellDraw and ItemToggleActiveSound
+    soundActivate:
+      path: /Audio/Items/flashlight_on.ogg
+    soundDeactivate:
+      path: /Audio/Items/flashlight_off.ogg
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellSmall
+  - type: ToggleCellDraw
+  - type: PowerCellDraw
+    drawRate: 2.4 # ~5 minutes on a medium power cell.
+    useRate: 0
+  - type: UseDelay
+    delay: 1.0
+  # Visuals
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+     enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true}
+          False: { visible: false}
