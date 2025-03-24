@@ -33,7 +33,7 @@ public sealed partial class FancyTechnologyInfoPanel : Control
         TechnologyTexture.Texture = sprite.Frame0(proto.Icon);
 
         // Tech requirements
-        RequiredTechContainer.DisposeAllChildren();
+        RequiredTechContainer.RemoveAllChildren();
         if (proto.TechnologyPrerequisites.Count == 0)
         {
             NoPrereqLabel.Visible = true;
@@ -53,7 +53,7 @@ public sealed partial class FancyTechnologyInfoPanel : Control
         }
 
         // There goes recipe unlocks
-        UnlocksContainer.DisposeAllChildren();
+        UnlocksContainer.RemoveAllChildren();
         foreach (var item in proto.RecipeUnlocks)
         {
             var recipe = _proto.Index(item);

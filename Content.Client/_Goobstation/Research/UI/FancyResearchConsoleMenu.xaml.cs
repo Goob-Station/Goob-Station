@@ -90,8 +90,8 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
 
     public void UpdatePanels(ResearchConsoleBoundInterfaceState state)
     {
-        DragContainer.DisposeAllChildren();
-        DisciplinesContainer.DisposeAllChildren();
+        DragContainer.RemoveAllChildren();
+        DisciplinesContainer.RemoveAllChildren();
         List = state.Researches;
         LocalState.Researches = state.Researches;
 
@@ -147,7 +147,7 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
         if (!_entity.TryGetComponent(Entity, out TechnologyDatabaseComponent? database))
             return;
 
-        TierDisplayContainer.DisposeAllChildren();
+        TierDisplayContainer.RemoveAllChildren();
         foreach (var disciplineId in database.SupportedDisciplines)
         {
             var discipline = _prototype.Index<TechDisciplinePrototype>(disciplineId);
@@ -227,7 +227,7 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
     /// <param name="availability">Tech availablity</param>
     public void SelectTech(TechnologyPrototype proto, ResearchAvailability availability)
     {
-        InfoContainer.DisposeAllChildren();
+        InfoContainer.RemoveAllChildren();
         if (!_player.LocalEntity.HasValue)
             return;
 
@@ -270,23 +270,10 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
     public override void Close()
     {
         base.Close();
-    }
 
-    protected override void ExitedTree()
-    {
-        base.ExitedTree();
-
-        DragContainer.OnKeyBindDown -= OnKeybindDown;
-        DragContainer.OnKeyBindUp -= OnKeybindUp;
-
-        InfoContainer.DisposeAllChildren();
-
-        foreach (var item in DisciplinesContainer.Children)
-        {
-            if (item is not DisciplineButton button)
-                continue;
-            button.OnPressed -= SelectDiscipline;
-        }
+        DisciplinesContainer.RemoveAllChildren();
+        DragContainer.RemoveAllChildren();
+        InfoContainer.RemoveAllChildren();
     }
 
     private sealed partial class DisciplineButton(TechDisciplinePrototype proto) : Button
