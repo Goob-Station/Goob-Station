@@ -44,14 +44,14 @@
     soundHit:
       collection: MetalThud
   - type: StaminaDamageOnHit
-    damage: 40
-    overtime: 40
-    lightAttackDamageMultiplier: 2
-    lightAttackOvertimeDamageMultiplier: 0.5
+    damage: 20
+    overtime: 50
+    lightAttackDamageMultiplier: 3
+    lightAttackOvertimeDamageMultiplier: 0
     sound: /Audio/Weapons/egloves.ogg
   - type: StaminaDamageOnCollide
-    damage: 15
-    overtime: 40
+    damage: 20
+    overtime: 50
     sound: /Audio/Weapons/egloves.ogg
   - type: LandAtCursor
   - type: Battery
@@ -59,8 +59,11 @@
     startingCharge: 1000
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 20
+    autoRechargeRate: 10
   - type: UseDelay
+    delays:
+      stunbaton:
+        length: 2
   - type: Item
     heldPrefix: off
     size: Normal

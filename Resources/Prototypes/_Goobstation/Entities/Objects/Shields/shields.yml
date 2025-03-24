@@ -59,7 +59,6 @@
       color: "#678AD9"
     - type: ItemTogglePointLight
     - type: Blocking
-      passiveBlockFraction: 0.7
       passiveBlockModifier:
         coefficients:
           Blunt: 1
@@ -83,13 +82,13 @@
     - type: StaticPrice
       price: 350
     - type: Battery
-      maxCharge: 180
-      startingCharge: 180
+      maxCharge: 60
+      startingCharge: 60
     - type: RechargeableBlocking
-      dischargedRechargeRate: 10
-      chargedRechargeRate: 15
+      dischargedRechargeRate: 1
+      chargedRechargeRate: 1.5
     - type: BatterySelfRecharger
-      autoRechargeRate: 15
+      autoRechargeRate: 1.5
       autoRecharge: true
     - type: ItemSlots
       slots:
