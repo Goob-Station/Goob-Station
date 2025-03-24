@@ -90,16 +90,6 @@
     - id: RadioHandheldSecurity
     - id: WeaponDisabler #Goobstation
 
-- type: entity
-  id: ClothingBeltCorporateJudoFilled
-  parent: ClothingBeltCorporateJudo
-  suffix: Filled
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:NestedSelector
-        tableId: BeltSecurityNoBatonEntityTable
-
 - type: entityTable
   id: BeltAssaultBSOEntityTable
   table: !type:AllSelector
