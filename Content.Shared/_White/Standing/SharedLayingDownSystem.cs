@@ -114,7 +114,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
             TerminatingOrDeleted(uid) ||
             // Shitmed Change
             !TryComp<BodyComponent>(uid, out var body) ||
-            body.LegEntities.Count < body.RequiredLegs ||
+            body.LegEntities.Count == 0 && body.RequiredLegs > 0 ||
             HasComp<DebrainedComponent>(uid))
             return false;
 

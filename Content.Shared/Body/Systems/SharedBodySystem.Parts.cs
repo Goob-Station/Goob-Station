@@ -17,6 +17,7 @@ using Content.Shared._Shitmed.BodyEffects;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Random;
+using Content.Shared.Stunnable;
 
 namespace Content.Shared.Body.Systems;
 
@@ -24,6 +25,7 @@ public partial class SharedBodySystem
 {
     [Dependency] private readonly RandomHelperSystem _randomHelper = default!; // Shitmed Change
     [Dependency] private readonly InventorySystem _inventorySystem = default!; // Shitmed Change
+    [Dependency] private readonly SharedStunSystem _stun = default!; // Goobstatuin
 
     private void InitializeParts()
     {
@@ -142,7 +144,7 @@ public partial class SharedBodySystem
         if (!TryComp(partEnt.Comp.Body, out BodyComponent? body))
             return;
 
-        if (partEnt.Comp.PartType == BodyPartType.Leg)
+        if (partEnt.Comp.PartType == BodyPartType.Leg || partEnt.Comp.PartType == BodyPartType.Foot)
             RemoveLeg(partEnt, (partEnt.Comp.Body.Value, body));
 
         if (partEnt.Comp.PartType == BodyPartType.Arm)
@@ -378,13 +380,21 @@ public partial class SharedBodySystem
         if (!Resolve(bodyEnt, ref bodyEnt.Comp, logMissing: false))
             return;
 
+        // Goob edit start
+        var stunTime = TimeSpan.Zero;
         if (legEnt.Comp.PartType == BodyPartType.Leg)
         {
             bodyEnt.Comp.LegEntities.Remove(legEnt);
             UpdateMovementSpeed(bodyEnt);
             Dirty(bodyEnt, bodyEnt.Comp);
-            Standing.Down(bodyEnt); // Shitmed Change
+            stunTime = TimeSpan.FromSeconds(10);
         }
+        else if (legEnt.Comp.PartType == BodyPartType.Foot)
+            stunTime = TimeSpan.FromSeconds(5);
+
+        if (stunTime > TimeSpan.Zero)
+            _stun.KnockdownOrStun(bodyEnt, stunTime, true);
+        // Goob edit end
     }
 
     // Shitmed Change: made virtual, bleeding damage is done on server
