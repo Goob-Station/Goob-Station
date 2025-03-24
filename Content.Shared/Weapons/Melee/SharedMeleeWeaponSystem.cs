@@ -118,7 +118,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
-using Content.Goobstation.Common.MartialArts; // Goobstation - Martial Arts
+using Content.Goobstation.Common.MartialArts;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CombatMode;
@@ -516,6 +516,21 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         // Windup time checked elsewhere.
         var fireRate = TimeSpan.FromSeconds(1f / GetAttackRate(weaponUid, user, weapon));
         var swings = 0;
+
+        // Goobstation start
+        if (user == weaponUid && TryComp(user, out MeleeAttackRateMultiplierComponent? multiplierComp))
+        {
+            var mult = 1f;
+            foreach (var data in multiplierComp.Data)
+            {
+                mult *= data.Multiplier;
+            }
+
+            mult = Math.Clamp(mult, multiplierComp.MinMultiplier, multiplierComp.MaxMultiplier);
+
+            fireRate *= mult;
+        }
+        // Goobstation end
 
         // TODO: If we get autoattacks then probably need a shotcounter like guns so we can do timing properly.
         if (weapon.NextAttack < curTime)

@@ -32,6 +32,7 @@
   staminaDamage: 30
   paralyzeTime: 3
   dropHeldItemsBehavior: NoDrop
+  canDoWhileProne: false
 
 - type: combo
   id: JudoArmbar

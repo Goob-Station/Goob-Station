@@ -67,6 +67,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         InitializeSleepingCarp();
         InitializeCqc();
         InitializeCorporateJudo();
+        InitializeCapoeira();
         InitializeCanPerformCombo();
 
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComponentShutdown>(OnShutdown);
@@ -94,7 +95,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         {
             if (_timing.CurTime < comp.SilencedTime)
                 continue;
-            RemComp<KravMagaSilencedComponent>(ent);
+            RemCompDeferred(ent, comp);
         }
 
         var kravBlockedQuery = EntityQueryEnumerator<KravMagaBlockedBreathingComponent>();
@@ -102,7 +103,18 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         {
             if (_timing.CurTime < comp.BlockedTime)
                 continue;
-            RemComp<KravMagaBlockedBreathingComponent>(ent);
+            RemCompDeferred(ent, comp);
+        }
+
+        var meleeAttackRateMultiplierQuery = EntityQueryEnumerator<Components.MeleeAttackRateMultiplierComponent>();
+        while (meleeAttackRateMultiplierQuery.MoveNext(out var ent, out var multiplier))
+        {
+            var count = multiplier.Data.Count;
+            multiplier.Data = multiplier.Data.Where(x => _timing.CurTime < x.EndTime).ToList();
+            if (multiplier.Data.Count == 0)
+                RemCompDeferred(ent, multiplier);
+            else if (multiplier.Data.Count == count)
+                Dirty(ent, multiplier);
         }
     }
 
@@ -307,7 +319,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     private void DoDamage(EntityUid ent,
         EntityUid target,
         string damageType,
-        int damageAmount,
+        float damageAmount,
         out DamageSpecifier damage,
         TargetBodyPart? targetBodyPart = null)
     {

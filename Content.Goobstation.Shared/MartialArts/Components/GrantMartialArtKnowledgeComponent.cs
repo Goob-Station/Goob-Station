@@ -18,6 +18,12 @@ public abstract partial class GrantMartialArtKnowledgeComponent : Component
 
     [DataField]
     public virtual MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.CloseQuartersCombat;
+
+    [DataField]
+    public virtual LocId LearnMessage { get; set; } = "cqc-success-learned";
+
+    [DataField]
+    public virtual LocId LearnFailMessage { get; set; } = "cqc-fail-used";
 }
 
 [RegisterComponent]
@@ -32,6 +38,15 @@ public sealed partial class GrantCorporateJudoComponent : GrantMartialArtKnowled
 {
     [DataField]
     public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.CorporateJudo;
+}
+
+[RegisterComponent]
+public sealed partial class GrantCapoeiraComponent : GrantMartialArtKnowledgeComponent
+{
+    [DataField]
+    public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.Capoeira;
+
+    public override LocId LearnMessage { get; set; } = "capoeira-success-learned";
 }
 
 [RegisterComponent]

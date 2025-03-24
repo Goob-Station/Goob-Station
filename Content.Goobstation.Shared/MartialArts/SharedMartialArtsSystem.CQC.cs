@@ -19,6 +19,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Standing;
 using Robust.Shared.Audio;
 
 namespace Content.Goobstation.Shared.MartialArts;
@@ -54,28 +55,28 @@ public partial class SharedMartialArtsSystem
                 knowledge.Blocked = true;
         }
 
-    private void OnGrantCQCUse(Entity<GrantCqcComponent> ent, ref UseInHandEvent args)
+    private void OnGrantCQCUse(EntityUid ent, GrantMartialArtKnowledgeComponent comp, UseInHandEvent args)
     {
         if (!_netManager.IsServer)
             return;
 
-        if (ent.Comp.Used)
+        if (comp.Used)
         {
-            _popupSystem.PopupEntity(Loc.GetString("cqc-fail-used", ("manual", Identity.Entity(ent, EntityManager))),
+            _popupSystem.PopupEntity(Loc.GetString(comp.LearnFailMessage, ("manual", Identity.Entity(ent, EntityManager))),
                 args.User,
                 args.User);
             return;
         }
 
-        if (!TryGrantMartialArt(args.User, ent.Comp))
+        if (!TryGrantMartialArt(args.User, comp))
             return;
-        _popupSystem.PopupEntity(Loc.GetString("cqc-success-learned"), args.User, args.User);
-        ent.Comp.Used = true;
+        _popupSystem.PopupEntity(Loc.GetString(comp.LearnMessage), args.User, args.User);
+        comp.Used = true;
     }
 
-    private void OnGrantCQCExamine(Entity<GrantCqcComponent> ent, ref ExaminedEvent args)
+    private void OnGrantCQCExamine(EntityUid ent, GrantMartialArtKnowledgeComponent comp, ExaminedEvent args)
     {
-        if (ent.Comp.Used)
+        if (comp.Used)
             args.PushMarkup(Loc.GetString("cqc-manual-used", ("manual", Identity.Entity(ent, EntityManager))));
     }
 
@@ -96,15 +97,13 @@ public partial class SharedMartialArtsSystem
                 _stamina.TakeStaminaDamage(args.Target, 25f, applyResistances: true);
                 break;
             case ComboAttackType.Harm:
-                if (!TryComp<RequireProjectileTargetComponent>(ent, out var standing)
-                    || !standing.Active)
+                if (!TryComp<StandingStateComponent>(ent, out var standing)
+                    || standing.CurrentState == StandingState.Standing)
                     return;
                 _stun.TryKnockdown(args.Target, TimeSpan.FromSeconds(5), true);
                 _standingState.Stand(ent);
                 break;
         }
-
-
     }
 
     #endregion

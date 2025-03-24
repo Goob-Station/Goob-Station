@@ -33,7 +33,7 @@ public sealed partial class ComboPrototype : IPrototype
     /// How much extra damage should this move do on perform?
     /// </summary>
     [DataField]
-    public int ExtraDamage;
+    public float ExtraDamage;
 
     /// <summary>
     /// Stun time in seconds
