@@ -6613,3 +6613,32 @@ Entries:
         changes.
   id: 767
   time: '2025-03-24T08:41:42.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Remove
+      message: >-
+        Codex cicatrix and heart removed from roundstart heretic gear. You still
+        can transmute codex, check guidebook for recipe.
+    - type: Add
+      message: >-
+        Codex cicatrix gives 2x knowledge from reality shifts again and also
+        scribes runes much faster.
+    - type: Tweak
+      message: >-
+        Some roundstart knowledge transmutation recipes changed, see guidebook
+        for details.
+    - type: Fix
+      message: >-
+        Ritual of knowledge is now unique for every heretic and resets on round
+        restart.
+    - type: Fix
+      message: >-
+        Improved living heart: now it shows special messages if target is in
+        cryo or on another map. Also fixed targets showing up as unknown if they
+        are too far away.
+    - type: Tweak
+      message: There are slightly less reality shifts.
+    - type: Add
+      message: Eldritch water for priest ritual.
+  id: 768
+  time: '2025-03-24T23:28:42.0000000+00:00'
