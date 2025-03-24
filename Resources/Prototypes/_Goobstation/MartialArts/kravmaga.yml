@@ -11,6 +11,7 @@
       useDelay: 3
     event: !type:KravMagaActionEvent { }
   - type: KravMagaAction
+    staminaDamage: 25
     configuration: LegSweep
     name: Leg Sweep
 

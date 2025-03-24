@@ -66,7 +66,7 @@ public partial class SharedMartialArtsSystem
             return;
 
         _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), false, proto.DropHeldItemsBehavior);
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
@@ -111,7 +111,7 @@ public partial class SharedMartialArtsSystem
                     _hands.TryDrop(target, item.Value);
                 break;
             case true:
-                _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
+                _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
                 _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), false, proto.DropHeldItemsBehavior);
                 break;
         }
