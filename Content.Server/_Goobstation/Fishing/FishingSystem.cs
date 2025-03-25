@@ -60,10 +60,10 @@ public sealed class FishingSystem : SharedFishingSystem
         // Assign things that depend on the fish
         var activeFishSpot = EnsureComp<ActiveFishingSpotComponent>(attachedEnt);
         activeFishSpot.Fish = fish;
-        activeFishSpot.FishDifficulty = difficulty + rand.NextFloat(-variety, variety);
+        activeFishSpot.FishDifficulty = difficulty + _random.NextFloat(-variety, variety);
 
         // Assign things that depend on the spot
-        var time = spotComp.FishDefaultTimer + rand.NextFloat(-spotComp.FishTimerVariety, spotComp.FishTimerVariety);
+        var time = spotComp.FishDefaultTimer + _random.NextFloat(-spotComp.FishTimerVariety, spotComp.FishTimerVariety);
         activeFishSpot.FishingStartTime = Timing.CurTime + TimeSpan.FromSeconds(time);
         activeFishSpot.AttachedFishingLure = uid;
 
