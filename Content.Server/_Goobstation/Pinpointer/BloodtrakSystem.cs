@@ -7,6 +7,7 @@ using Content.Shared._Goobstation.Pinpointer;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Pinpointer;
+using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -20,6 +21,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
     private EntityQuery<TransformComponent> _xformQuery;
 
@@ -44,6 +46,8 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
 
         // Get the DNAs of the solution.
         var solutionsDna = _forensicsSystem.GetSolutionsDNA(targetEntity);
+        var popupText = Loc.GetString("bloodtrak-dna-saved", ("dna", solutionsDna));
+        _popupSystem.PopupClient(popupText, args.User, args.User);
 
         // Early exit if no DNA found
         if (solutionsDna?.Count == 0)
@@ -80,22 +84,6 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
 
         args.Handled = true;
         component.Target = GetBloodTarget(uid, component, args);
-    }
-
-    /// <summary>
-    ///     Set pinpointers target to track
-    /// </summary>
-    private void SetTarget(EntityUid uid, EntityUid? target, BloodtrakComponent? pinpointer = null)
-    {
-        if (!Resolve(uid, ref pinpointer))
-            return;
-
-        if (pinpointer.Target == target)
-            return;
-
-        pinpointer.Target = target;
-        if (pinpointer.IsActive)
-            UpdateDirectionToTarget(uid, pinpointer);
     }
 
     public override bool TogglePinpointer(EntityUid uid, BloodtrakComponent? pinpointer = null)
@@ -143,6 +131,10 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
             // Check expiration using cached time.
             if (_gameTiming.CurTime <= tracker.NextExecutionTime)
                 continue;
+
+            // Display popup
+            var popupText = Loc.GetString("bloodtrak-target-lost");
+            _popupSystem.PopupEntity(popupText, tracker.Owner, tracker.Owner);
 
             // Deactivate and schedule next activation.
             TogglePinpointer(uid, tracker);
