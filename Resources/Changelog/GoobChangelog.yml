@@ -6684,3 +6684,15 @@ Entries:
       message: Lone Operative now can buy sleeping carp scroll in his uplink
   id: 775
   time: '2025-03-25T05:33:08.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: New heretic Rust path.
+    - type: Add
+      message: 4 new heretic side knowledge.
+    - type: Add
+      message: You can now extract organs via surgery using blade + mansus grasp.
+    - type: Add
+      message: Animal and IPC organs are now valid for heretic rituals.
+  id: 776
+  time: '2025-03-25T11:22:06.0000000+00:00'
