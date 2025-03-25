@@ -6654,3 +6654,9 @@ Entries:
       message: Monkies can no longer loot the syndicate armory unscathed.
   id: 770
   time: '2025-03-25T05:09:03.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added piepmind. Mice can now talk to each other using +p in chat.
+  id: 771
+  time: '2025-03-25T05:14:41.0000000+00:00'
