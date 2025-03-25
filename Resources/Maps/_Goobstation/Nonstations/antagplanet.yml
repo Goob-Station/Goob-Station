@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/25/2025 00:51:15
-  entityCount: 1968
+  time: 03/25/2025 02:15:10
+  entityCount: 2063
 maps:
 - 1
 grids:
@@ -379,6 +379,36 @@ entities:
           decals:
             61: 11,12
         - node:
+            cleanable: True
+            color: '#FF0000FF'
+            id: a
+          decals:
+            97: -3.7957604,-0.056889296
+        - node:
+            cleanable: True
+            color: '#FF0000FF'
+            id: arrow
+          decals:
+            96: -2.0441349,-0.55743873
+        - node:
+            cleanable: True
+            color: '#FF0000FF'
+            id: d
+          decals:
+            95: -3.346344,-0.1382772
+        - node:
+            cleanable: True
+            color: '#FF0000FF'
+            id: e
+          decals:
+            98: -4.2298307,-0.041919142
+        - node:
+            cleanable: True
+            color: '#FF0000FF'
+            id: r
+          decals:
+            99: -4.633965,0.03293097
+        - node:
             color: '#980000FF'
             id: rune1
           decals:
@@ -510,7 +540,7 @@ entities:
           0,0:
             0: 65535
           0,-1:
-            0: 65534
+            0: 65535
           -1,0:
             0: 65535
           0,1:
@@ -562,17 +592,21 @@ entities:
           -5,0:
             0: 255
             1: 32768
-            2: 8192
+            3: 8192
           -5,1:
             1: 8
-            2: 2
+            2: 32768
+            3: 2
           -4,1:
+            2: 32
             0: 57480
           -4,2:
             0: 61438
           -5,2:
             0: 3808
+            2: 8194
           -4,3:
+            2: 1
             0: 65508
           -5,3:
             0: 65280
@@ -656,6 +690,8 @@ entities:
             0: 119
           -5,4:
             0: 15
+          -3,4:
+            2: 16
           4,-1:
             0: 61152
           4,0:
@@ -685,6 +721,26 @@ entities:
           moles:
           - 0
           - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          immutable: True
+          temperature: 293.15
+          moles:
+          - 21.82478
+          - 82.10312
           - 0
           - 0
           - 0
@@ -1016,7 +1072,7 @@ entities:
       pos: -15.5,9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -15976.328
+      secondsUntilStateChange: -18027.693
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -1231,6 +1287,11 @@ entities:
       rot: 3.141592653589793 rad
       pos: 10.5,-1.5
       parent: 2
+  - uid: 2044
+    components:
+    - type: Transform
+      pos: 13.5,-1.5
+      parent: 2
 - proto: AtmosFixNitrogenMarker
   entities:
   - uid: 1826
@@ -1270,6 +1331,8 @@ entities:
       angularDamping: 0
       linearDamping: 0
       bodyType: Static
+    missingComponents:
+    - Anchorable
 - proto: Bible
   entities:
   - uid: 805
@@ -1307,6 +1370,39 @@ entities:
     - type: Transform
       pos: -10.5,-6.5
       parent: 2
+- proto: BookWatched
+  entities:
+  - uid: 2063
+    components:
+    - type: MetaData
+      name: The Way of The Planet
+    - type: Transform
+      anchored: True
+      pos: -1.5,0.5
+      parent: 2
+    - type: Paper
+      content: >-
+        Hello!
+
+        This area allows you to use and test out almost every antag and their items, however this does not give you leeway to kill everyone here and destroy the base. Be respectful to your fellow ghosts.
+
+
+        Murderboning and Griefing - Do not constantly and needlessly kill people that are here, and try not to damage the base too much.
+
+
+        Share - For right now, we have limited antag items on this base, so be sure to put away the items once you are done. Do not hog all of the equipment and TC.
+
+
+        Explosives - If what you are doing involves explosives, please take it outside, there are airlocks in the wizard and syndicate room.
+    - type: MovedByPressure
+      enabled: False
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+      bodyType: Static
+    - type: Godmode
+      wasMovedByPressure: True
 - proto: ButtonFrameCautionSecurity
   entities:
   - uid: 92
@@ -1376,18 +1472,18 @@ entities:
     - type: Transform
       pos: 14.5,3.5
       parent: 2
+- proto: CableApcExtensionUncuttable
+  entities:
   - uid: 1106
     components:
     - type: Transform
-      pos: 13.5,-0.5
+      pos: 13.5,-3.5
       parent: 2
   - uid: 1107
     components:
     - type: Transform
-      pos: 14.5,-0.5
+      pos: 13.5,-2.5
       parent: 2
-- proto: CableApcExtensionUncuttable
-  entities:
   - uid: 1166
     components:
     - type: Transform
@@ -2407,6 +2503,36 @@ entities:
     components:
     - type: Transform
       pos: -16.5,-0.5
+      parent: 2
+  - uid: 2057
+    components:
+    - type: Transform
+      pos: 13.5,-1.5
+      parent: 2
+  - uid: 2058
+    components:
+    - type: Transform
+      pos: 12.5,-3.5
+      parent: 2
+  - uid: 2059
+    components:
+    - type: Transform
+      pos: 11.5,-3.5
+      parent: 2
+  - uid: 2060
+    components:
+    - type: Transform
+      pos: 10.5,-3.5
+      parent: 2
+  - uid: 2061
+    components:
+    - type: Transform
+      pos: 9.5,-3.5
+      parent: 2
+  - uid: 2062
+    components:
+    - type: Transform
+      pos: 14.5,-3.5
       parent: 2
 - proto: CableHV
   entities:
@@ -3559,6 +3685,66 @@ entities:
     - type: Transform
       pos: -8.5,3.5
       parent: 2
+  - uid: 2045
+    components:
+    - type: Transform
+      pos: 5.5,-4.5
+      parent: 2
+  - uid: 2046
+    components:
+    - type: Transform
+      pos: 6.5,-4.5
+      parent: 2
+  - uid: 2047
+    components:
+    - type: Transform
+      pos: 7.5,-4.5
+      parent: 2
+  - uid: 2048
+    components:
+    - type: Transform
+      pos: 8.5,-4.5
+      parent: 2
+  - uid: 2049
+    components:
+    - type: Transform
+      pos: 9.5,-4.5
+      parent: 2
+  - uid: 2050
+    components:
+    - type: Transform
+      pos: 10.5,-4.5
+      parent: 2
+  - uid: 2051
+    components:
+    - type: Transform
+      pos: 11.5,-4.5
+      parent: 2
+  - uid: 2052
+    components:
+    - type: Transform
+      pos: 12.5,-4.5
+      parent: 2
+  - uid: 2053
+    components:
+    - type: Transform
+      pos: 13.5,-4.5
+      parent: 2
+  - uid: 2054
+    components:
+    - type: Transform
+      pos: 13.5,-3.5
+      parent: 2
+  - uid: 2055
+    components:
+    - type: Transform
+      pos: 13.5,-2.5
+      parent: 2
+  - uid: 2056
+    components:
+    - type: Transform
+      pos: 13.5,-1.5
+      parent: 2
 - proto: CableMVUncuttable
   entities:
   - uid: 1363
@@ -3650,6 +3836,18 @@ entities:
     - type: Transform
       pos: 13.489565,-12.620093
       parent: 2
+- proto: CargoTelepad
+  entities:
+  - uid: 132
+    components:
+    - type: MetaData
+      desc: A machine that projects holograms.
+      name: hologram projector
+    - type: Transform
+      pos: 0.5,-3.5
+      parent: 2
+    missingComponents:
+    - Anchorable
 - proto: CarpetBlue
   entities:
   - uid: 245
@@ -8369,10 +8567,10 @@ entities:
   - uid: 30
     components:
     - type: MetaData
-      desc: a hologram rapidly changing to different species, representing a changeling.
+      desc: A hologram rapidly changing into different species, representing a changeling.
       name: changeling hologram
     - type: Transform
-      pos: 0.5305231,-3.4025488
+      pos: 0.5,-3.1528826
       parent: 2
 - proto: HarpyCube
   entities:
@@ -8547,6 +8745,8 @@ entities:
           occludes: False
           ent: 29
     - type: ReflectUser
+    missingComponents:
+    - Anchorable
   - uid: 36
     components:
     - type: MetaData
@@ -8594,6 +8794,8 @@ entities:
           showEnts: False
           occludes: False
           ent: null
+    missingComponents:
+    - Anchorable
   - uid: 623
     components:
     - type: MetaData
@@ -8641,6 +8843,8 @@ entities:
       angularDamping: 0
       linearDamping: 0
       bodyType: Static
+    missingComponents:
+    - Anchorable
 - proto: MedicalBed
   entities:
   - uid: 916
@@ -8817,6 +9021,20 @@ entities:
       name: enchanted lizard plushie
     - type: Transform
       pos: 10.496534,-11.431386
+      parent: 2
+- proto: PosterContrabandBeachStarYamamoto
+  entities:
+  - uid: 1988
+    components:
+    - type: Transform
+      pos: 10.5,14.5
+      parent: 2
+- proto: PosterContrabandLustyExomorph
+  entities:
+  - uid: 2021
+    components:
+    - type: Transform
+      pos: 14.5,10.5
       parent: 2
 - proto: PottedPlantRandom
   entities:
@@ -9429,6 +9647,367 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 2.5,2.5
       parent: 2
+- proto: RandomPosterAny
+  entities:
+  - uid: 2022
+    components:
+    - type: Transform
+      pos: 6.5,12.5
+      parent: 2
+  - uid: 2023
+    components:
+    - type: Transform
+      pos: 11.5,6.5
+      parent: 2
+  - uid: 2024
+    components:
+    - type: Transform
+      pos: 12.5,-1.5
+      parent: 2
+  - uid: 2025
+    components:
+    - type: Transform
+      pos: 13.5,4.5
+      parent: 2
+  - uid: 2026
+    components:
+    - type: Transform
+      pos: 8.5,3.5
+      parent: 2
+  - uid: 2027
+    components:
+    - type: Transform
+      pos: -7.5,3.5
+      parent: 2
+  - uid: 2028
+    components:
+    - type: Transform
+      pos: -7.5,-3.5
+      parent: 2
+  - uid: 2029
+    components:
+    - type: Transform
+      pos: -14.5,12.5
+      parent: 2
+  - uid: 2030
+    components:
+    - type: Transform
+      pos: -7.5,14.5
+      parent: 2
+  - uid: 2031
+    components:
+    - type: Transform
+      pos: -13.5,17.5
+      parent: 2
+  - uid: 2032
+    components:
+    - type: Transform
+      pos: -16.5,8.5
+      parent: 2
+  - uid: 2033
+    components:
+    - type: Transform
+      pos: -12.5,3.5
+      parent: 2
+  - uid: 2034
+    components:
+    - type: Transform
+      pos: -20.5,1.5
+      parent: 2
+  - uid: 2035
+    components:
+    - type: Transform
+      pos: -17.5,-7.5
+      parent: 2
+  - uid: 2036
+    components:
+    - type: Transform
+      pos: -11.5,-12.5
+      parent: 2
+  - uid: 2037
+    components:
+    - type: Transform
+      pos: -7.5,-12.5
+      parent: 2
+  - uid: 2038
+    components:
+    - type: Transform
+      pos: -5.5,-8.5
+      parent: 2
+  - uid: 2039
+    components:
+    - type: Transform
+      pos: 10.5,-5.5
+      parent: 2
+  - uid: 2040
+    components:
+    - type: Transform
+      pos: 16.5,-3.5
+      parent: 2
+  - uid: 2041
+    components:
+    - type: Transform
+      pos: -1.5,12.5
+      parent: 2
+  - uid: 2042
+    components:
+    - type: Transform
+      pos: 4.5,11.5
+      parent: 2
+  - uid: 2043
+    components:
+    - type: Transform
+      pos: 0.5,14.5
+      parent: 2
+- proto: RandomSpawner
+  entities:
+  - uid: 1978
+    components:
+    - type: Transform
+      pos: -5.5,0.5
+      parent: 2
+  - uid: 1979
+    components:
+    - type: Transform
+      pos: 2.5,5.5
+      parent: 2
+  - uid: 1980
+    components:
+    - type: Transform
+      pos: 6.5,-0.5
+      parent: 2
+  - uid: 1981
+    components:
+    - type: Transform
+      pos: -5.5,-3.5
+      parent: 2
+  - uid: 1982
+    components:
+    - type: Transform
+      pos: 4.5,1.5
+      parent: 2
+  - uid: 1983
+    components:
+    - type: Transform
+      pos: -1.5,-5.5
+      parent: 2
+  - uid: 1984
+    components:
+    - type: Transform
+      pos: -4.5,6.5
+      parent: 2
+  - uid: 1985
+    components:
+    - type: Transform
+      pos: -9.5,11.5
+      parent: 2
+  - uid: 1986
+    components:
+    - type: Transform
+      pos: -12.5,9.5
+      parent: 2
+  - uid: 1987
+    components:
+    - type: Transform
+      pos: 2.5,11.5
+      parent: 2
+  - uid: 1989
+    components:
+    - type: Transform
+      pos: 13.5,8.5
+      parent: 2
+  - uid: 1990
+    components:
+    - type: Transform
+      pos: 9.5,9.5
+      parent: 2
+  - uid: 1991
+    components:
+    - type: Transform
+      pos: 12.5,12.5
+      parent: 2
+  - uid: 1992
+    components:
+    - type: Transform
+      pos: 14.5,3.5
+      parent: 2
+  - uid: 1993
+    components:
+    - type: Transform
+      pos: 11.5,1.5
+      parent: 2
+  - uid: 1994
+    components:
+    - type: Transform
+      pos: 15.5,-0.5
+      parent: 2
+  - uid: 1995
+    components:
+    - type: Transform
+      pos: 11.5,3.5
+      parent: 2
+  - uid: 1996
+    components:
+    - type: Transform
+      pos: 14.5,-3.5
+      parent: 2
+  - uid: 1997
+    components:
+    - type: Transform
+      pos: 9.5,-4.5
+      parent: 2
+  - uid: 1998
+    components:
+    - type: Transform
+      pos: 14.5,-7.5
+      parent: 2
+  - uid: 1999
+    components:
+    - type: Transform
+      pos: 8.5,-12.5
+      parent: 2
+  - uid: 2000
+    components:
+    - type: Transform
+      pos: 7.5,-9.5
+      parent: 2
+  - uid: 2001
+    components:
+    - type: Transform
+      pos: 14.5,-9.5
+      parent: 2
+  - uid: 2002
+    components:
+    - type: Transform
+      pos: 10.5,-8.5
+      parent: 2
+  - uid: 2003
+    components:
+    - type: Transform
+      pos: -1.5,-10.5
+      parent: 2
+  - uid: 2004
+    components:
+    - type: Transform
+      pos: 2.5,-11.5
+      parent: 2
+  - uid: 2005
+    components:
+    - type: Transform
+      pos: -2.5,-11.5
+      parent: 2
+  - uid: 2006
+    components:
+    - type: Transform
+      pos: 1.5,-9.5
+      parent: 2
+  - uid: 2007
+    components:
+    - type: Transform
+      pos: -7.5,-9.5
+      parent: 2
+  - uid: 2008
+    components:
+    - type: Transform
+      pos: -14.5,-7.5
+      parent: 2
+  - uid: 2009
+    components:
+    - type: Transform
+      pos: -16.5,-10.5
+      parent: 2
+  - uid: 2010
+    components:
+    - type: Transform
+      pos: -9.5,-1.5
+      parent: 2
+  - uid: 2011
+    components:
+    - type: Transform
+      pos: -8.5,-4.5
+      parent: 2
+  - uid: 2012
+    components:
+    - type: Transform
+      pos: -10.5,-2.5
+      parent: 2
+  - uid: 2013
+    components:
+    - type: Transform
+      pos: -11.5,2.5
+      parent: 2
+  - uid: 2014
+    components:
+    - type: Transform
+      pos: -17.5,0.5
+      parent: 2
+  - uid: 2015
+    components:
+    - type: Transform
+      pos: -9.5,1.5
+      parent: 2
+  - uid: 2016
+    components:
+    - type: Transform
+      pos: -10.5,5.5
+      parent: 2
+  - uid: 2017
+    components:
+    - type: Transform
+      pos: -9.5,4.5
+      parent: 2
+  - uid: 2018
+    components:
+    - type: Transform
+      pos: 5.5,15.5
+      parent: 2
+  - uid: 2019
+    components:
+    - type: Transform
+      pos: -1.5,15.5
+      parent: 2
+  - uid: 2020
+    components:
+    - type: Transform
+      pos: 5.5,10.5
+      parent: 2
+- proto: RandomVending
+  entities:
+  - uid: 1969
+    components:
+    - type: Transform
+      pos: -6.5,-4.5
+      parent: 2
+  - uid: 1970
+    components:
+    - type: Transform
+      pos: -2.5,7.5
+      parent: 2
+  - uid: 1971
+    components:
+    - type: Transform
+      pos: 7.5,4.5
+      parent: 2
+  - uid: 1972
+    components:
+    - type: Transform
+      pos: 3.5,-6.5
+      parent: 2
+  - uid: 1973
+    components:
+    - type: Transform
+      pos: 7.5,-1.5
+      parent: 2
+  - uid: 1974
+    components:
+    - type: Transform
+      pos: 4.5,7.5
+      parent: 2
+  - uid: 1975
+    components:
+    - type: Transform
+      pos: -2.5,-6.5
+      parent: 2
 - proto: RCDEmpty
   entities:
   - uid: 802
@@ -9599,6 +10178,14 @@ entities:
     - type: Transform
       pos: -12.5,12.5
       parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        27:
+        - Pressed: Toggle
+        26:
+        - Pressed: Toggle
+        25:
+        - Pressed: Toggle
 - proto: SignAtmos
   entities:
   - uid: 1947
@@ -10737,12 +11324,26 @@ entities:
           - 404
           - 405
           - 406
+- proto: VendingMachineEngivend
+  entities:
+  - uid: 1977
+    components:
+    - type: Transform
+      pos: 10.5,3.5
+      parent: 2
 - proto: VendingMachineMagivend
   entities:
   - uid: 225
     components:
     - type: Transform
       pos: -16.5,-6.5
+      parent: 2
+- proto: VendingMachineMedical
+  entities:
+  - uid: 1976
+    components:
+    - type: Transform
+      pos: 9.5,-2.5
       parent: 2
 - proto: WallBasaltCobblebrick
   entities:
@@ -12809,15 +13410,6 @@ entities:
     - type: Transform
       pos: 0.5,0.5
       parent: 2
-- proto: Window
-  entities:
-  - uid: 132
-    components:
-    - type: Transform
-      pos: 0.5,-3.5
-      parent: 2
-    - type: Godmode
-      oldDamage: {}
 - proto: WizardMirror
   entities:
   - uid: 315
