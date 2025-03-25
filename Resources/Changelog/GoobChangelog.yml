@@ -6772,3 +6772,9 @@ Entries:
       message: The Torah, Quran, and Imam headwrap to Pietyvend,
   id: 786
   time: '2025-03-25T13:23:30.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: 'Max-size bingle pit now ignores gravity. '
+  id: 787
+  time: '2025-03-25T13:29:54.0000000+00:00'
