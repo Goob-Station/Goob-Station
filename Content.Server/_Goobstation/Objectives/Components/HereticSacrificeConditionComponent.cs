@@ -1,4 +1,4 @@
-namespace Content.Server.Objectives.Components;
+namespace Content.Server._Goobstation.Objectives.Components;
 
 [RegisterComponent]
 public sealed partial class HereticSacrificeConditionComponent : Component

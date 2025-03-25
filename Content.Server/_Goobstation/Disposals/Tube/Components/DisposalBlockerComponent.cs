@@ -5,6 +5,4 @@ namespace Content.Server._Goobstation.Disposals.Tube.Components;
 
 [RegisterComponent]
 [Access(typeof(DisposalTubeSystem))]
-public sealed partial class DisposalBlockerComponent : DisposalTransitComponent
-{
-}
+public sealed partial class DisposalBlockerComponent : DisposalTransitComponent;

@@ -1,5 +1,6 @@
 using System.Linq;
-using Content.Shared._Goobstation.CCVar;
+using Content.Goobstation.Common.CCVar;
+using Content.Goobstation.Common.Silo;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Materials;

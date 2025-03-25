@@ -1,9 +1,9 @@
 using System.Linq;
+using Content.Goobstation.Common.CCVar;
 using Content.Server.Atmos.Components;
 using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.Nodes;
 using Content.Server.Popups;
-using Content.Shared._Goobstation.CCVar;
 using Content.Shared.Atmos;
 using Content.Shared.Construction.Components;
 using JetBrains.Annotations;

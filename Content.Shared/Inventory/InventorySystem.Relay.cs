@@ -1,5 +1,4 @@
 using Content.Shared._Goobstation.Clothing;
-using Content.Shared._Goobstation.Clothing.Components;
 using Content.Shared._Goobstation.Flashbang;
 using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._White.Overlays;
@@ -26,7 +25,6 @@ using Content.Shared.Slippery;
 using Content.Shared.Strip.Components;
 using Content.Shared.Temperature;
 using Content.Shared.Verbs;
-using Content.Shared.Chat;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Ranged.Events;
 
@@ -171,7 +169,7 @@ public interface IClothingSlots
 /// <summary>
 ///     Events that should be relayed to inventory slots should implement this interface.
 /// </summary>
-public interface IInventoryRelayEvent
+public interface IInventoryRelayEvent // this needs to get moved to common...
 {
     /// <summary>
     ///     What inventory slots should this event be relayed to, if any?

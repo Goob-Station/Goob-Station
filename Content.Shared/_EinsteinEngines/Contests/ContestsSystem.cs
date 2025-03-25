@@ -1,4 +1,4 @@
-using Content.Shared._Goobstation.CCVar; // Goob Edit
+using Content.Goobstation.Common.CCVar; // Goob Edit
 using Robust.Shared.Configuration;
 using Robust.Shared.Physics.Components;
 

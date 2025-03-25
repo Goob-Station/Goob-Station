@@ -1,10 +1,10 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading;
+using Content.Goobstation.Common.CCVar;
 using Content.Server.Afk;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking.Events;
-using Content.Shared._Goobstation.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs;

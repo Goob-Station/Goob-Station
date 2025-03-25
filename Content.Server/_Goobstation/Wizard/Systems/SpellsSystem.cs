@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Goobstation.Common.Actions;
 using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Abilities.Mime;
 using Content.Server.Antag;
@@ -21,7 +22,6 @@ using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
 using Content.Server.Teleportation;
 using Content.Server.Weapons.Ranged.Systems;
-using Content.Shared._Goobstation.Actions;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.Chuuni;

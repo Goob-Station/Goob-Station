@@ -3,6 +3,7 @@ using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.Revolutionary.Components; // GoobStation
 using Content.Server.Roles;
+using Content.Shared._Goobstation.Mindcontrol;
 using Content.Shared.Database;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
@@ -10,7 +11,6 @@ using Content.Shared.Mindshield.Components;
 using Content.Shared.Revolutionary; // GoobStation
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Tag;
-using Content.Shared.Mindcontrol;  //Goobstation - Mindcontrol Implant
 
 namespace Content.Server.Mindshield;
 

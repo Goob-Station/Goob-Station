@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Goobstation.Common.Actions;
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Server.Changeling.Objectives.Components;
 using Content.Goobstation.Shared.Changeling.Actions;
@@ -22,7 +23,6 @@ using Content.Server.Popups;
 using Content.Server.Store.Systems;
 using Content.Server.Stunnable;
 using Content.Server.Zombies;
-using Content.Shared._Goobstation.Actions;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
 using Content.Shared._White.Overlays;
 using Content.Shared.Actions;

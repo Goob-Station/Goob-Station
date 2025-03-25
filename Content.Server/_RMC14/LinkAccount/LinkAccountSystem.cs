@@ -1,9 +1,9 @@
-﻿using Content.Server.Chat.Managers;
+﻿using Content.Goobstation.Common.CCVar;
+using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.Database;
 using Content.Server.GameTicking;
 using Content.Server.RoundEnd;
-using Content.Shared._Goobstation.CCVar;
 using Content.Shared._RMC14.GhostColor;
 using Content.Shared._RMC14.LinkAccount;
 using Content.Shared.GameTicking;

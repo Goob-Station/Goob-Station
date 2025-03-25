@@ -1,6 +1,4 @@
-using Robust.Shared.GameObjects;
-
-namespace Content.Shared.Weapons.Ranged.Events;
+namespace Content.Shared._Goobstation.Weapons.Ranged;
 
 // todo: get event names closer to the length of the bible
 [ByRefEvent]

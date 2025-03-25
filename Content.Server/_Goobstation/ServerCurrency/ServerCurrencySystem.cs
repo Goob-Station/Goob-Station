@@ -1,4 +1,4 @@
-using Content.Shared.GameTicking;
+using Content.Goobstation.Common.CCVar;
 using Content.Shared._Goobstation.ServerCurrency.Events;
 using Content.Server.Popups;
 using Content.Shared.Popups;
@@ -8,7 +8,6 @@ using Content.Server.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Silicons.Borgs.Components;
-using Content.Shared._Goobstation.CCVar;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 namespace Content.Server._Goobstation.ServerCurrency

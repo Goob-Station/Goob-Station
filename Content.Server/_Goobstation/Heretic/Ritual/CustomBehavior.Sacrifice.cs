@@ -1,3 +1,4 @@
+using Content.Server._Goobstation.Objectives.Components;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;

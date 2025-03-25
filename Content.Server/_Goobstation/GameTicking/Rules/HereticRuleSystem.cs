@@ -14,6 +14,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Text;
+using Content.Server._Goobstation.Objectives.Components;
 
 namespace Content.Server.GameTicking.Rules;
 

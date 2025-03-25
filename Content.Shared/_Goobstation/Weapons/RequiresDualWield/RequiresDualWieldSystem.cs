@@ -1,17 +1,13 @@
 using System.Linq;
+using Content.Shared._Goobstation.Weapons.Multishot;
 using Content.Shared.Examine;
-using Content.Shared.Weapons.Ranged.Components;
-using Content.Shared.Weapons.Ranged.Events;
-using Content.Shared.Weapons.Ranged.Systems;
-using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
-using Robust.Shared.Timing;
-using Content.Shared._Goobstation.Weapons.RequiresDualWield;
-using Content.Shared._Goobstation.Weapons.Multishot;
-using Content.Shared.Research.Components;
+using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Whitelist;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._Goobstation.Weapons.RequiresDualWield;
 

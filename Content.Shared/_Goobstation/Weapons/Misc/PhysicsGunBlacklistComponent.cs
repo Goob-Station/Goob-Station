@@ -1,4 +1,4 @@
-namespace Content.Shared.Weapons.Misc;
+namespace Content.Shared._Goobstation.Weapons.Misc;
 
 /// <summary>
 ///     Marks an entity as unable to be tether or force gunned
