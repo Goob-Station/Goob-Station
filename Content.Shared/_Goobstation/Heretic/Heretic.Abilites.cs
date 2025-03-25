@@ -190,8 +190,10 @@ public sealed partial class EventHereticAggressiveSpread : InstantActionEvent
 // side
 public sealed partial class EventHereticCleave : WorldTargetActionEvent
 {
+    [DataField]
     public float Range = 1f;
 
+    [DataField]
     public DamageSpecifier Damage = new()
     {
         DamageDict =
@@ -201,10 +203,13 @@ public sealed partial class EventHereticCleave : WorldTargetActionEvent
         },
     };
 
+    [DataField]
     public FixedPoint2 BloodModifyAmount = -50f;
 
+    [DataField]
     public EntProtoId Effect = "EffectCleave";
 
+    [DataField]
     public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/blood3.ogg");
 }
 
