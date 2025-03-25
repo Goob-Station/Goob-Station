@@ -15,7 +15,7 @@ using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Blob.StationEvents;
 
-public sealed class BlobSpawnRule : StationEventSystem<Goobstation.Server.Blob.StationEvents.BlobSpawnRuleComponent>
+public sealed class BlobSpawnRule : StationEventSystem<BlobSpawnRuleComponent>
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPlayerManager _playerSystem = default!;
@@ -27,7 +27,7 @@ public sealed class BlobSpawnRule : StationEventSystem<Goobstation.Server.Blob.S
     }
 
     protected override void Started(EntityUid uid,
-        Goobstation.Server.Blob.StationEvents.BlobSpawnRuleComponent component,
+        BlobSpawnRuleComponent component,
         GameRuleComponent gameRule,
         GameRuleStartedEvent args)
     {
