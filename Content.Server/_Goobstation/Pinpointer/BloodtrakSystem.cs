@@ -133,17 +133,18 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         var query = EntityQueryEnumerator<BloodtrakComponent>();
         while (query.MoveNext(out var uid, out var tracker))
         {
-            // Skip inactive trackers immediately
-            if (!tracker.IsActive) continue;
+            // Skip inactive trackers immediately.
+            if (!tracker.IsActive)
+                continue;
 
-            // Update direction only for active trackers
+            // Update direction only for active trackers.
             UpdateDirectionToTarget(uid, tracker);
 
-            // Check expiration using cached time
+            // Check expiration using cached time.
             if (_gameTiming.CurTime <= tracker.NextExecutionTime)
                 continue;
 
-            // Deactivate and schedule next activation
+            // Deactivate and schedule next activation.
             tracker.IsActive = false;
             tracker.NextExecutionTime = _gameTiming.CurTime + tracker.TrackingDuration;
             Dirty(uid, tracker);
