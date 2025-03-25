@@ -5,22 +5,34 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._Goobstation.Pinpointer;
 
 /// <summary>
-/// Displays a sprite on the item that points towards the target component.
+/// Allows an item to track another entity based on DNA from a solution.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState]
 [Access(typeof(SharedBloodtrakSystem))]
 public sealed partial class BloodtrakComponent : Component
 {
+    /// <summary>
+    /// The duration the tracker will remain on, before shutting off automatically.
+    /// </summary>
     [DataField]
-    public string? Component;
+    public TimeSpan TrackingDuration = TimeSpan.FromSeconds(30);
 
+    /// <summary>
+    /// The distance defined as being a medium distance away.
+    /// </summary>
     [DataField]
     public float MediumDistance = 16f;
 
+    /// <summary>
+    /// The distance defined as being a short distance away.
+    /// </summary>
     [DataField]
     public float CloseDistance = 8f;
 
+    /// <summary>
+    /// The distance defined as being close.
+    /// </summary>
     [DataField]
     public float ReachedDistance = 1f;
 
@@ -30,20 +42,33 @@ public sealed partial class BloodtrakComponent : Component
     [DataField]
     public double Precision = 0.09;
 
+    /// <summary>
+    /// The current target of the tracker.
+    /// </summary>
     [ViewVariables]
     public EntityUid? Target = null;
 
+    /// <summary>
+    /// Whether the tracker is currently active.
+    /// </summary>
     [ViewVariables, AutoNetworkedField]
     public bool IsActive = false;
 
+    /// <summary>
+    /// The current angle of the trackers arrow.
+    /// </summary>
     [ViewVariables, AutoNetworkedField]
     public Angle ArrowAngle;
 
+    /// <summary>
+    /// The current distance to the target.
+    /// </summary>
     [ViewVariables, AutoNetworkedField]
     public Distance DistanceToTarget = Distance.Unknown;
 
     [ViewVariables]
     public bool HasTarget => DistanceToTarget != Distance.Unknown;
+
 }
 
 [Serializable, NetSerializable]

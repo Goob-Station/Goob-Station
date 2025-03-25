@@ -8,6 +8,7 @@ using Content.Shared.Forensics.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Pinpointer;
 using Content.Shared.Tag;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Server._Goobstation.Pinpointer;
@@ -18,6 +19,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
     [Dependency] private readonly ForensicsSystem _forensicsSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
 
     private EntityQuery<TransformComponent> _xformQuery;
 
@@ -83,7 +85,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
     /// <summary>
     ///     Set pinpointers target to track
     /// </summary>
-    public void SetTarget(EntityUid uid, EntityUid? target, BloodtrakComponent? pinpointer = null)
+    private void SetTarget(EntityUid uid, EntityUid? target, BloodtrakComponent? pinpointer = null)
     {
         if (!Resolve(uid, ref pinpointer))
             return;
@@ -121,26 +123,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
             return;
 
         TogglePinpointer(uid, component);
-        LocateTarget(uid, component);
-
         args.Handled = true;
-    }
-
-    private void LocateTarget(EntityUid uid, BloodtrakComponent component)
-    {
-        // try to find target from whitelist
-        if (component.IsActive && component.Component != null)
-        {
-            if (!EntityManager.ComponentFactory.TryGetRegistration(component.Component, out var reg))
-            {
-                Log.Error($"Unable to find component registration for {component.Component} for bloodtrak!");
-                DebugTools.Assert(false);
-                return;
-            }
-
-            var target = FindTargetFromComponent(uid, reg.Type);
-            SetTarget(uid, target, component);
-        }
     }
 
     public override void Update(float frameTime)
@@ -153,7 +136,13 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         while (query.MoveNext(out var uid, out var pinpointer))
         {
             UpdateDirectionToTarget(uid, pinpointer);
+
+            // If the current time is greater than the tracking duration, turn off the tracker.
+            if (_gameTiming.CurTime > pinpointer.TrackingDuration)
+                pinpointer.IsActive = false;
+
         }
+
     }
 
     /// <summary>
