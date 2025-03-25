@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/25/2025 04:01:45
-  entityCount: 2153
+  time: 03/25/2025 08:37:13
+  entityCount: 2138
 maps:
 - 1
 grids:
@@ -281,12 +281,6 @@ entities:
             id: ConcreteTrimLineW
           decals:
             81: 9,-4
-        - node:
-            color: '#FFFFFFFF'
-            id: StairsWoodE
-          decals:
-            3: -14,7
-            4: -15,7
         - node:
             color: '#FFFFFFFF'
             id: WarnLineE
@@ -1033,7 +1027,7 @@ entities:
       pos: -15.5,9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -18616.672
+      secondsUntilStateChange: -19191.059
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -10898,7 +10892,7 @@ entities:
   - uid: 133
     components:
     - type: Transform
-      pos: -12.5,7.5
+      pos: -10.5,7.5
       parent: 2
   - uid: 134
     components:
@@ -11195,98 +11189,6 @@ entities:
     components:
     - type: Transform
       pos: -19.5,16.5
-      parent: 2
-- proto: Telecrystal500
-  entities:
-  - uid: 135
-    components:
-    - type: Transform
-      pos: -12.744861,7.372062
-      parent: 2
-  - uid: 136
-    components:
-    - type: Transform
-      pos: -12.565246,7.372062
-      parent: 2
-  - uid: 137
-    components:
-    - type: Transform
-      pos: -12.370663,7.357092
-      parent: 2
-  - uid: 138
-    components:
-    - type: Transform
-      pos: -12.191048,7.357092
-      parent: 2
-  - uid: 139
-    components:
-    - type: Transform
-      pos: -11.996464,7.372062
-      parent: 2
-  - uid: 140
-    components:
-    - type: Transform
-      pos: -11.816849,7.372062
-      parent: 2
-  - uid: 141
-    components:
-    - type: Transform
-      pos: -11.622266,7.372062
-      parent: 2
-  - uid: 142
-    components:
-    - type: Transform
-      pos: -11.412715,7.372062
-      parent: 2
-  - uid: 143
-    components:
-    - type: Transform
-      pos: -11.2331,7.372062
-      parent: 2
-  - uid: 144
-    components:
-    - type: Transform
-      pos: -12.759829,7.6668835
-      parent: 2
-  - uid: 145
-    components:
-    - type: Transform
-      pos: -12.580214,7.6668835
-      parent: 2
-  - uid: 146
-    components:
-    - type: Transform
-      pos: -12.400599,7.6668835
-      parent: 2
-  - uid: 147
-    components:
-    - type: Transform
-      pos: -12.220983,7.6668835
-      parent: 2
-  - uid: 148
-    components:
-    - type: Transform
-      pos: -12.026401,7.681853
-      parent: 2
-  - uid: 149
-    components:
-    - type: Transform
-      pos: -11.846786,7.681853
-      parent: 2
-  - uid: 150
-    components:
-    - type: Transform
-      pos: -11.6821375,7.651913
-      parent: 2
-  - uid: 151
-    components:
-    - type: Transform
-      pos: -11.502522,7.696823
-      parent: 2
-  - uid: 152
-    components:
-    - type: Transform
-      pos: -11.3079405,7.681853
       parent: 2
 - proto: ToolboxThief
   entities:
@@ -11833,6 +11735,31 @@ entities:
     components:
     - type: Transform
       pos: 9.5,-2.5
+      parent: 2
+- proto: VendingMachineSyndieContraband
+  entities:
+  - uid: 135
+    components:
+    - type: Transform
+      pos: -12.5,7.5
+      parent: 2
+    - type: Store
+      balance:
+        Telecrystal: 1000099
+  - uid: 136
+    components:
+    - type: Transform
+      pos: -14.5,7.5
+      parent: 2
+    - type: Store
+      balance:
+        Telecrystal: 1000099
+- proto: VendingMachineYouTool
+  entities:
+  - uid: 137
+    components:
+    - type: Transform
+      pos: 7.5,-0.5
       parent: 2
 - proto: WallBasaltCobblebrick
   entities:
