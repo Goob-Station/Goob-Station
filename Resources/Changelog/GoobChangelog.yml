@@ -6758,3 +6758,11 @@ Entries:
       message: Atropine now purges sarin
   id: 784
   time: '2025-03-25T13:20:36.0000000+00:00'
+- author: soup123
+  changes:
+    - type: Add
+      message: >-
+        Security now has access to three new security status signs to help
+        prevent confusion.
+  id: 785
+  time: '2025-03-25T13:22:51.0000000+00:00'
