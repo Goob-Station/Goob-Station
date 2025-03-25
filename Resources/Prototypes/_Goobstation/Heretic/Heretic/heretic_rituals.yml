@@ -32,6 +32,7 @@
     sprite: _Goobstation/Heretic/items.rsi
     state: living_heart
   requiredTags:
+    Document: 1
     Heart: 1
     Pen: 1
   outputEvent: !type:EventHereticRerollTargets
@@ -44,7 +45,7 @@
     sprite: _Goobstation/Heretic/book.rsi
     state: icon-on
   requiredTags:
-    Eyes: 1
+    Meat: 1
     Book: 1
     Pen: 1
   output:
@@ -229,7 +230,33 @@
   outputKnowledge: WaltzAtTheEndOfTime
   outputEvent: !type:EventHereticAscension
 
+### rust path
+- type: hereticRitual
+  id: BladeRust
+  locName: knowledge-path-rust-s1-name
+  locDesc: knowledge-path-rust-s1-desc
+  icon:
+    sprite: _Goobstation/Heretic/Blades/blade_rust.rsi
+    state: icon
+  requiredTags:
+    Knife: 1
+    Trash: 1
+  output:
+    HereticBladeRust: 1
 
+- type: hereticRitual
+  id: AscensionRust
+  locName: knowledge-path-rust-s9-name
+  locDesc: knowledge-path-rust-s9-desc
+  icon:
+    sprite: _Goobstation/Heretic/abilities_heretic.rsi
+    state: ascension_rust
+  customBehaviors:
+  - !type:RitualRustAscendBehavior
+    min: 3
+    max: 3
+  outputKnowledge: RustbringersOath
+  outputEvent: !type:EventHereticAscension
 
 ### side knowledge
 - type: hereticRitual
@@ -283,4 +310,48 @@
   output:
     ClothingEldritchMedalion: 1
 
-## stage 7
+- type: hereticRitual
+  id: VoidCloak
+  locName: knowledge-path-side-s3-void-cloak-name
+  locDesc: knowledge-path-side-s3-void-cloak-desc
+  icon:
+    sprite: _Goobstation/Heretic/void_cloak.rsi
+    state: icon
+  requiredTags:
+    GlassShard: 1
+    Bedsheet: 1
+    WinterCoat: 1
+  output:
+    ClothingOuterArmorCloakVoid: 1
+
+## stage 6
+
+- type: hereticRitual
+  id: RustedRitual
+  locName: knowledge-path-side-s6-rustwalker-name
+  locDesc: knowledge-path-side-s6-rustwalker-desc
+  icon:
+    sprite: _Goobstation/Heretic/eldritch_mobs.rsi
+    state: rust_walker
+  customBehaviors:
+  - !type:RitualReagentPuddleBehavior
+    reagent: Vomit
+  requiredTags:
+    Steel: 10
+    CableCoil: 15
+  output:
+    MobGhoulRustWalker: 1
+
+- type: hereticRitual
+  id: CarvingKnife
+  locName: knowledge-path-side-s6-knife-name
+  locDesc: knowledge-path-side-s6-knife-desc
+  icon:
+    sprite: _Goobstation/Heretic/items.rsi
+    state: rune_carver
+  requiredTags:
+    GlassShard: 1
+    Document: 1
+    Knife: 1
+  output:
+    CarvingKnife: 1

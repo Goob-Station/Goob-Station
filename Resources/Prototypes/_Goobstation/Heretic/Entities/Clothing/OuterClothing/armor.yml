@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ ClothingOuterBaseMedium, ClothingOuterStorageToggleableBase, BaseMagicContraband ]
+  parent: [ ClothingOuterBaseMedium, ClothingOuterStorageToggleableBase, AllowSuitStorageClothing, BaseMagicContraband ]
   id: ClothingOuterArmorHeretic
   name: ominous armor
   description: A ragged, dusty set of robes. Strange eyes line the inside.
@@ -25,3 +25,66 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 1.5
     knockdownTimeDelta: -1.5
+
+- type: entity
+  parent: [ ClothingOuterBaseMedium, ClothingOuterStorageToggleableBase, AllowSuitStorageClothing, BaseMagicContraband ]
+  id: ClothingOuterArmorCloakVoid
+  name: void cloak
+  description: Black like tar, reflecting no light. Runic symbols line the outside. With each flash you lose comprehension of what you are seeing.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/void_cloak.rsi
+    layers:
+    - state: icon
+      map: [ "base" ]
+  - type: Clothing
+    sprite: _Goobstation/Heretic/void_cloak.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.70
+        Caustic: 0.70
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    stripDelay: null
+    clothingPrototypes:
+      head: ClothingHeadHatHoodVoidCloakHeretic
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1
+    knockdownTimeDelta: -1
+  - type: HideContrabandContent #Goobstation Contraband detector
+  - type: UndetectableContraband #Goobstation Contraband detector
+  - type: Storage
+    storageOpenSound: null
+    maxItemSize: Normal
+    grid:
+    - 0,0,0,1
+    - 2,0,2,1
+    - 4,0,5,1
+    - 7,0,7,1
+    - 9,0,9,1
+    whitelist:
+      tags:
+        - HereticItem
+        - Knife
+        - Meat
+      components:
+        - Organ
+        - BodyPart
+        - HereticBlade
+        - CarvingKnife
+        - HereticMagicItem
+  - type: HereticClothing
+  - type: PressureProtection
+  - type: VoidCloak
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.VoidCloakVisuals.Transparent:
+        base:
+          True: { state: transparent-icon }
+          False: { state: icon }

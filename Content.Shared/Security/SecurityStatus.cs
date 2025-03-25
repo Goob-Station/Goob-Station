@@ -9,6 +9,9 @@
 /// Detained - the person is detained by security
 /// Paroled - the person is on parole
 /// Discharged - the person has been released from prison
+/// Search - the person needs to be searched
+/// Perma - the person has been sentenced to permanent imprisonment
+/// Dangerous - the person is highly dangerous and may resist arrest
 /// </summary>
 public enum SecurityStatus : byte
 {
@@ -17,5 +20,8 @@ public enum SecurityStatus : byte
     Wanted,
     Detained,
     Paroled,
-    Discharged
+    Discharged,
+    Search,
+    Perma,
+    Dangerous
 }

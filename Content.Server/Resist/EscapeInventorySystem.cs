@@ -77,9 +77,9 @@ public sealed class EscapeInventorySystem : EntitySystem
 
         var doAfterEventArgs = new DoAfterArgs(EntityManager, user, component.BaseResistTime * multiplier, new EscapeInventoryEvent(), user, target: container)
         {
-            BreakOnMove = true,
             BreakOnDamage = true,
-            NeedHand = false
+            NeedHand = false,
+            CancelDuplicate = false, // Goobstation
         };
 
         if (!_doAfterSystem.TryStartDoAfter(doAfterEventArgs, out component.DoAfter))

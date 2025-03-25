@@ -1,3 +1,4 @@
+using Content.Shared.Materials;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
