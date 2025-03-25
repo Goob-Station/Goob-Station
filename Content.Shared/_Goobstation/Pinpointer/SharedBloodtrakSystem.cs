@@ -1,11 +1,9 @@
 using Content.Shared._Goobstation.Pinpointer;
-using Content.Shared.Administration.Logs;
 
 namespace Content.Shared._Gobostation.Pinpointer;
 
 public abstract class SharedBloodtrakSystem : EntitySystem
 {
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
     /// <summary>
     ///     Update direction from pinpointer to selected target (if it was set)

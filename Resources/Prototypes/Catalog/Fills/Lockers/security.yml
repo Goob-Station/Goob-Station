@@ -156,6 +156,7 @@
       - id: DrinkDetFlask
       - id: ClothingHandsGlovesForensic
       - id: RubberStampDetective
+      - id: BloodTrak # Goobstation
       - id: HoloprojectorSecurity
       - id: BoxEvidenceMarkers
       - id: HandLabeler

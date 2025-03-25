@@ -29,9 +29,15 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         SubscribeLocalEvent<BloodtrakComponent, ActivateInWorldEvent>(OnActivate);
     }
 
-    private EntityUid GetBloodTarget(EntityUid uid, BloodtrakComponent comp, AfterInteractEvent args)
+    /// <summary>
+    /// Checks the DNA of the puddle against the DNA of every entity with DNA.
+    /// </summary>
+    /// <param name="args"></param>
+    /// <returns>The UID of the entity with matching DNA.</returns>
+    public EntityUid GetPuddleDnaOwner(AfterInteractEvent args)
     {
-        // Check if the solution being scanned has DNA associated with it.
+        // Cancel if the target is not valid, if the puddle is not scannable, or if it is not a puddle.
+        // The reason it is puddle only is to prevent cheese with a via.
         if (args.Target is not { Valid: true } targetEntity || !_tag.HasTag(targetEntity, "DNASolutionScannable") || !HasComp<PuddleComponent>(targetEntity) )
         {
             _popupSystem.PopupEntity(Loc.GetString("bloodtrak-scan-failed"), args.User, args.User);
@@ -77,7 +83,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
             return;
 
         args.Handled = true;
-        component.Target = GetBloodTarget(uid, component, args);
+        component.Target = GetPuddleDnaOwner(args);
     }
 
     public override bool TogglePinpointer(EntityUid uid, BloodtrakComponent? pinpointer = null)
