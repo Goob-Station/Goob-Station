@@ -1,0 +1,14 @@
+- type: entity
+  id: MailTeleporterMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: mail teleporter machine board
+  components:
+    - type: Sprite
+      state: supply
+    - type: MachineBoard
+      prototype: MailTeleporter
+      stackRequirements:
+        Capacitor: 1
+        MatterBin: 1
+        Steel: 4
+        Cable: 4

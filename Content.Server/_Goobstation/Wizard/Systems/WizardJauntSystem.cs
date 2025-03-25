@@ -30,20 +30,22 @@ public sealed class WizardJauntSystem : EntitySystem
         var query = EntityQueryEnumerator<WizardJauntComponent, PolymorphedEntityComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var jaunt, out var polymorphed, out var xform))
         {
-            if (jaunt.JauntEndEffectSpawned)
+            if (jaunt.JauntEndEffectEntity is {} endEffect)
+            {
+                _transform.SetMapCoordinates(endEffect, _transform.GetMapCoordinates(xform));
                 continue;
+            }
 
             jaunt.DurationBetweenEffects -= frameTime;
 
             if (jaunt.DurationBetweenEffects > 0f)
                 continue;
 
-            jaunt.JauntEndEffectSpawned = true;
             var ent = Spawn(jaunt.JauntEndEffect,
                 _transform.GetMapCoordinates(uid, xform),
                 rotation: _transform.GetWorldRotation(xform));
             _audio.PlayEntity(jaunt.JauntEndSound, Filter.Pvs(ent), ent, true);
-            _transform.SetParent(ent, Transform(ent), uid, xform);
+            jaunt.JauntEndEffectEntity = ent;
 
             if (!trailQuery.TryComp(ent, out var trail))
                 continue;
@@ -58,10 +60,7 @@ public sealed class WizardJauntSystem : EntitySystem
         var (uid, comp) = ent;
 
         if (args.IsRevert)
-        {
-            _transform.ReparentChildren(uid, args.OldEntity);
             return;
-        }
 
         var startEffect = Spawn(comp.JauntStartEffect,
             _transform.GetMapCoordinates(uid),

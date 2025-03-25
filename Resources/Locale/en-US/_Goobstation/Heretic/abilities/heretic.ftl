@@ -2,8 +2,13 @@ heretic-ability-fail = Failed to cast
 heretic-ability-fail-magicitem = You cannot cast it without a focus!
 heretic-ability-fail-notarget = Couldn't find a valid target!
 heretic-ability-fail-lowhealth = This spell deals {$damage} damage, it would put you in critical condition if you casted it!
+heretic-ability-fail-tile-not-rusted = Targeted tile must be rusted to use this ability!
+heretic-ability-fail-tile-occupied = Targeted tile is occupied!
+heretic-ability-fail-rust-stage-low = You are not powerful enough to rust this surface!
 
 heretic-magicitem-examine = [color=yellow]Allows you to use advanced spells while held or equipped.[/color]
+
+mansus-grasp-trigger-fail = Something prevents you from activating this!
 
 ## blade
 heretic-blade-examine = [color=yellow]Using it while it's in your hand will break the blade and teleport you away from danger.[/color]
@@ -28,6 +33,7 @@ heretic-livingheart-notargets = No available targets, visit the rune.
 heretic-livingheart-offstation = It's {$state}, off station, {$direction}!
 heretic-livingheart-onstation = It's {$state}, {$direction}!
 heretic-livingheart-unknown = It's... not in this plain of reality.
+heretic-livingheart-faraway = It's {$state}, extremely far away!
 
 ## speech
 heretic-speech-mansusgrasp = R'CH T'H TR'TH!
