@@ -145,39 +145,10 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
                 continue;
 
             // Deactivate and schedule next activation.
-            tracker.IsActive = false;
+            TogglePinpointer(uid, tracker);
             tracker.NextExecutionTime = _gameTiming.CurTime + tracker.TrackingDuration;
             Dirty(uid, tracker);
         }
-    }
-
-    /// <summary>
-    ///     Try to find the closest entity from whitelist on a current map
-    ///     Will return null if can't find anything
-    /// </summary>
-    private EntityUid? FindTargetFromComponent(EntityUid uid, Type whitelist, TransformComponent? transform = null)
-    {
-        _xformQuery.Resolve(uid, ref transform, false);
-
-        if (transform == null)
-            return null;
-
-        // sort all entities in distance increasing order
-        var mapId = transform.MapID;
-        var l = new SortedList<float, EntityUid>();
-        var worldPos = _transform.GetWorldPosition(transform);
-
-        foreach (var (otherUid, _) in EntityManager.GetAllComponents(whitelist))
-        {
-            if (!_xformQuery.TryGetComponent(otherUid, out var compXform) || compXform.MapID != mapId)
-                continue;
-
-            var dist = (_transform.GetWorldPosition(compXform) - worldPos).LengthSquared();
-            l.TryAdd(dist, otherUid);
-        }
-
-        // return uid with a smallest distance
-        return l.Count > 0 ? l.First().Value : null;
     }
 
     /// <summary>
