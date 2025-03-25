@@ -66,6 +66,12 @@ public sealed partial class BloodtrakComponent : Component
     [ViewVariables, AutoNetworkedField]
     public Distance DistanceToTarget = Distance.Unknown;
 
+    /// <summary>
+    /// How long until the next execution.
+    /// </summary>
+    [ViewVariables]
+    public TimeSpan NextExecutionTime = TimeSpan.FromSeconds(30);
+
     [ViewVariables]
     public bool HasTarget => DistanceToTarget != Distance.Unknown;
 
