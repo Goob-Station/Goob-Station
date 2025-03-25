@@ -11,4 +11,11 @@ public sealed partial class GatheringProjectileComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("amount")]
     public int Amount = 1;
+
+    /// <summary>
+    /// Goobstation
+    /// The probability that the given projectile will actually be gathering
+    /// </summary>
+    [DataField]
+    public float Probability = 1f;
 }
