@@ -24,6 +24,11 @@
   priority: 2
 
 - type: storeCategory
+  id: SpellbookUtilityGhost
+  name: store-caregory-spellbook-utility
+  priority: 2
+
+- type: storeCategory
   id: SpellbookEquipment
   name: store-caregory-spellbook-equipment
   priority: 3
@@ -36,6 +41,12 @@
 # Goobstation
 - type: storeCategory
   id: SpellbookSummons
+  name: store-caregory-spellbook-summons
+  priority: 5
+
+# Goobstation
+- type: storeCategory
+  id: SpellbookSummonsGhost
   name: store-caregory-spellbook-summons
   priority: 5
 

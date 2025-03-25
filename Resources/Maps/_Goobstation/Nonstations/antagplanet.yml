@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/25/2025 02:15:10
-  entityCount: 2063
+  time: 03/25/2025 04:01:45
+  entityCount: 2153
 maps:
 - 1
 grids:
@@ -88,89 +88,50 @@ entities:
     - type: Biome
       forcedMarkerLayers: []
       markerLayers:
-      - OreArtifactFragment
-      - OreCoal
-      - OreUranium
+      - OreSilver
       - OreSalt
-      - OreIron
+      - OrePlasma
+      - OreUranium
+      - OreCoal
       - OreDiamond
       - OreQuartz
+      - OreIron
       - OreGold
-      - OreSilver
-      - OrePlasma
+      - OreArtifactFragment
       loadedMarkers: {}
       pendingMarkers: {}
       loadedChunks: []
       entities: {}
       decals: {}
       modifiedTiles: {}
-      template: Shadow
+      template: Continental
       layers:
-      - !type:BiomeEntityLayer
-        threshold: 0.7
+      - !type:BiomeMetaLayer
         noise:
-          frequency: 1
-          seed: 3
-        allowedTiles:
-        - FloorChromite
-        entities:
-        - ShadowBasaltOne
-        - ShadowBasaltTwo
-        - ShadowBasaltThree
-        - ShadowBasaltFour
-        - ShadowBasaltFive
-      - !type:BiomeEntityLayer
-        threshold: 0.97
-        noise:
-          frequency: 1
-          seed: 2
-        allowedTiles:
-        - FloorChromite
-        entities:
-        - CrystalPink
-      - !type:BiomeEntityLayer
-        threshold: 0.97
-        noise:
-          frequency: 1
-          seed: 1
-        allowedTiles:
-        - FloorChromite
-        entities:
-        - ShadowTree
-      - !type:BiomeEntityLayer
-        invert: True
-        threshold: -0.2
-        noise:
-          frequency: 0.1
-          noiseType: Perlin
-          fractalType: Ridged
-          octaves: 1
-          gain: 0
           seed: 0
-        allowedTiles:
-        - FloorChromite
-        entities:
-        - WallRockChromite
-      - !type:BiomeEntityLayer
-        threshold: 0.2
+        template: Lava
+      - !type:BiomeMetaLayer
+        threshold: -0.5
         noise:
-          frequency: 0.1
+          frequency: 0.001
           fractalType: FBm
-          octaves: 5
-          gain: 0.4
-          seed: 3
-        allowedTiles:
-        - FloorChromite
-        entities:
-        - FloorChromiteChasm
-      - !type:BiomeDummyLayer
-        id: Loot
-      - !type:BiomeTileLayer
-        threshold: -1
+          octaves: 2
+        template: Caves
+      - !type:BiomeMetaLayer
+        threshold: 0
         noise:
-          seed: 0
-        tile: FloorChromite
-      seed: 774546089
+          frequency: 0.001
+          fractalType: FBm
+          octaves: 2
+        template: Grasslands
+      - !type:BiomeMetaLayer
+        threshold: 0.5
+        noise:
+          frequency: 0.001
+          fractalType: FBm
+          octaves: 2
+        template: Snow
+      seed: 537960494
     - type: MapLight
       ambientLightColor: '#D8B059FF'
     - type: Roof
@@ -592,21 +553,21 @@ entities:
           -5,0:
             0: 255
             1: 32768
-            3: 8192
+            2: 8192
           -5,1:
             1: 8
-            2: 32768
-            3: 2
+            3: 32768
+            2: 2
           -4,1:
-            2: 32
+            3: 32
             0: 57480
           -4,2:
             0: 61438
           -5,2:
             0: 3808
-            2: 8194
+            3: 8194
           -4,3:
-            2: 1
+            3: 1
             0: 65508
           -5,3:
             0: 65280
@@ -691,7 +652,7 @@ entities:
           -5,4:
             0: 15
           -3,4:
-            2: 16
+            3: 16
           4,-1:
             0: 61152
           4,0:
@@ -736,11 +697,10 @@ entities:
           - 0
           - 0
         - volume: 2500
-          immutable: True
           temperature: 293.15
           moles:
-          - 21.82478
-          - 82.10312
+          - 6666.982
+          - 0
           - 0
           - 0
           - 0
@@ -756,10 +716,11 @@ entities:
           - 0
           - 0
         - volume: 2500
+          immutable: True
           temperature: 293.15
           moles:
-          - 6666.982
-          - 0
+          - 21.82478
+          - 82.10312
           - 0
           - 0
           - 0
@@ -1072,7 +1033,7 @@ entities:
       pos: -15.5,9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -18027.693
+      secondsUntilStateChange: -18616.672
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -1331,6 +1292,8 @@ entities:
       angularDamping: 0
       linearDamping: 0
       bodyType: Static
+    - type: Godmode
+      oldDamage: {}
     missingComponents:
     - Anchorable
 - proto: Bible
@@ -2533,6 +2496,16 @@ entities:
     components:
     - type: Transform
       pos: 14.5,-3.5
+      parent: 2
+  - uid: 2064
+    components:
+    - type: Transform
+      pos: -17.5,-9.5
+      parent: 2
+  - uid: 2065
+    components:
+    - type: Transform
+      pos: -18.5,-9.5
       parent: 2
 - proto: CableHV
   entities:
@@ -3846,6 +3819,8 @@ entities:
     - type: Transform
       pos: 0.5,-3.5
       parent: 2
+    - type: Godmode
+      oldDamage: {}
     missingComponents:
     - Anchorable
 - proto: CarpetBlue
@@ -4611,6 +4586,195 @@ entities:
     - type: Transform
       pos: 13.524943,12.72918
       parent: 2
+- proto: ClothingHandsGlovesWizard
+  entities:
+  - uid: 2129
+    components:
+    - type: Transform
+      pos: -15.2281685,-6.741051
+      parent: 2
+  - uid: 2130
+    components:
+    - type: Transform
+      pos: -15.2281685,-6.741051
+      parent: 2
+  - uid: 2131
+    components:
+    - type: Transform
+      pos: -15.2281685,-6.741051
+      parent: 2
+  - uid: 2132
+    components:
+    - type: Transform
+      pos: -15.2281685,-6.741051
+      parent: 2
+  - uid: 2133
+    components:
+    - type: Transform
+      pos: -15.2281685,-6.741051
+      parent: 2
+- proto: ClothingHeadHatBlackwizardReal
+  entities:
+  - uid: 273
+    components:
+    - type: Transform
+      pos: -15.722111,-6.2021294
+      parent: 2
+  - uid: 274
+    components:
+    - type: Transform
+      pos: -15.722111,-6.2021294
+      parent: 2
+  - uid: 275
+    components:
+    - type: Transform
+      pos: -15.722111,-6.2021294
+      parent: 2
+  - uid: 293
+    components:
+    - type: Transform
+      pos: -15.722111,-6.2021294
+      parent: 2
+  - uid: 294
+    components:
+    - type: Transform
+      pos: -15.722111,-6.2021294
+      parent: 2
+- proto: ClothingHeadHatChanterelleReal
+  entities:
+  - uid: 2074
+    components:
+    - type: Transform
+      pos: -15.2281685,-6.2021294
+      parent: 2
+  - uid: 2085
+    components:
+    - type: Transform
+      pos: -15.213201,-6.217099
+      parent: 2
+  - uid: 2086
+    components:
+    - type: Transform
+      pos: -15.213201,-6.217099
+      parent: 2
+  - uid: 2087
+    components:
+    - type: Transform
+      pos: -15.213201,-6.217099
+      parent: 2
+  - uid: 2088
+    components:
+    - type: Transform
+      pos: -15.213201,-6.217099
+      parent: 2
+- proto: ClothingHeadHatClownReal
+  entities:
+  - uid: 2099
+    components:
+    - type: Transform
+      pos: -13.446986,-6.2620096
+      parent: 2
+  - uid: 2100
+    components:
+    - type: Transform
+      pos: -13.446986,-6.2620096
+      parent: 2
+  - uid: 2101
+    components:
+    - type: Transform
+      pos: -13.446986,-6.2620096
+      parent: 2
+  - uid: 2102
+    components:
+    - type: Transform
+      pos: -13.446986,-6.2620096
+      parent: 2
+  - uid: 2103
+    components:
+    - type: Transform
+      pos: -13.446986,-6.2620096
+      parent: 2
+- proto: ClothingHeadHatPaperWizard
+  entities:
+  - uid: 2075
+    components:
+    - type: Transform
+      pos: -14.704291,-6.32189
+      parent: 2
+  - uid: 2081
+    components:
+    - type: Transform
+      pos: -14.704291,-6.2919493
+      parent: 2
+  - uid: 2082
+    components:
+    - type: Transform
+      pos: -14.704291,-6.2919493
+      parent: 2
+  - uid: 2083
+    components:
+    - type: Transform
+      pos: -14.704291,-6.2919493
+      parent: 2
+  - uid: 2084
+    components:
+    - type: Transform
+      pos: -14.704291,-6.2919493
+      parent: 2
+- proto: ClothingHeadHatPsyReal
+  entities:
+  - uid: 2089
+    components:
+    - type: Transform
+      pos: -14.030735,-6.1721888
+      parent: 2
+  - uid: 2090
+    components:
+    - type: Transform
+      pos: -14.030735,-6.1721888
+      parent: 2
+  - uid: 2091
+    components:
+    - type: Transform
+      pos: -14.030735,-6.1721888
+      parent: 2
+  - uid: 2092
+    components:
+    - type: Transform
+      pos: -14.030735,-6.1721888
+      parent: 2
+  - uid: 2093
+    components:
+    - type: Transform
+      pos: -14.030735,-6.1721888
+      parent: 2
+- proto: ClothingHeadHatRedwizardReal
+  entities:
+  - uid: 2104
+    components:
+    - type: Transform
+      pos: -13.012916,-6.2620096
+      parent: 2
+  - uid: 2105
+    components:
+    - type: Transform
+      pos: -13.012916,-6.2620096
+      parent: 2
+  - uid: 2106
+    components:
+    - type: Transform
+      pos: -13.012916,-6.2620096
+      parent: 2
+  - uid: 2107
+    components:
+    - type: Transform
+      pos: -13.012916,-6.2620096
+      parent: 2
+  - uid: 2108
+    components:
+    - type: Transform
+      pos: -13.012916,-6.2620096
+      parent: 2
 - proto: ClothingHeadHatWarden
   entities:
   - uid: 799
@@ -4618,6 +4782,33 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -3.2953777,13.314887
+      parent: 2
+- proto: ClothingHeadHatWitchReal
+  entities:
+  - uid: 2119
+    components:
+    - type: Transform
+      pos: -12.459103,-6.2620096
+      parent: 2
+  - uid: 2120
+    components:
+    - type: Transform
+      pos: -12.459103,-6.2620096
+      parent: 2
+  - uid: 2121
+    components:
+    - type: Transform
+      pos: -12.459103,-6.2620096
+      parent: 2
+  - uid: 2122
+    components:
+    - type: Transform
+      pos: -12.459103,-6.2620096
+      parent: 2
+  - uid: 2123
+    components:
+    - type: Transform
+      pos: -12.459103,-6.2620096
       parent: 2
 - proto: ClothingHeadHatWizard
   entities:
@@ -4629,6 +4820,60 @@ entities:
       angularDamping: 0
       linearDamping: 0
       canCollide: False
+- proto: ClothingHeadHatWizardReal
+  entities:
+  - uid: 2134
+    components:
+    - type: Transform
+      pos: -14.554612,-6.0973387
+      parent: 2
+  - uid: 2135
+    components:
+    - type: Transform
+      pos: -14.554612,-6.0973387
+      parent: 2
+  - uid: 2136
+    components:
+    - type: Transform
+      pos: -14.554612,-6.0973387
+      parent: 2
+  - uid: 2137
+    components:
+    - type: Transform
+      pos: -14.554612,-6.0973387
+      parent: 2
+  - uid: 2138
+    components:
+    - type: Transform
+      pos: -14.554612,-6.0973387
+      parent: 2
+- proto: ClothingHeadHatYellowwizardReal
+  entities:
+  - uid: 2144
+    components:
+    - type: Transform
+      pos: -12.099873,-6.2769794
+      parent: 2
+  - uid: 2145
+    components:
+    - type: Transform
+      pos: -12.099873,-6.2769794
+      parent: 2
+  - uid: 2146
+    components:
+    - type: Transform
+      pos: -12.099873,-6.2769794
+      parent: 2
+  - uid: 2147
+    components:
+    - type: Transform
+      pos: -12.099873,-6.2769794
+      parent: 2
+  - uid: 2148
+    components:
+    - type: Transform
+      pos: -12.099873,-6.2769794
+      parent: 2
 - proto: ClothingHeadHelmetAbductor
   entities:
   - uid: 37
@@ -4856,6 +5101,33 @@ entities:
     - type: Transform
       pos: 13.524943,13.627384
       parent: 2
+- proto: ClothingOuterSuitWitchRobesReal
+  entities:
+  - uid: 2124
+    components:
+    - type: Transform
+      pos: -12.414199,-6.7111115
+      parent: 2
+  - uid: 2125
+    components:
+    - type: Transform
+      pos: -12.414199,-6.7111115
+      parent: 2
+  - uid: 2126
+    components:
+    - type: Transform
+      pos: -12.414199,-6.6961412
+      parent: 2
+  - uid: 2127
+    components:
+    - type: Transform
+      pos: -12.414199,-6.6961412
+      parent: 2
+  - uid: 2128
+    components:
+    - type: Transform
+      pos: -12.414199,-6.6961412
+      parent: 2
 - proto: ClothingOuterWizard
   entities:
   - uid: 624
@@ -4866,6 +5138,195 @@ entities:
       angularDamping: 0
       linearDamping: 0
       canCollide: False
+- proto: ClothingOuterWizardBlackReal
+  entities:
+  - uid: 272
+    components:
+    - type: Transform
+      pos: -15.722111,-6.6811714
+      parent: 2
+  - uid: 2070
+    components:
+    - type: Transform
+      pos: -15.722111,-6.6811714
+      parent: 2
+  - uid: 2071
+    components:
+    - type: Transform
+      pos: -15.722111,-6.6811714
+      parent: 2
+  - uid: 2072
+    components:
+    - type: Transform
+      pos: -15.722111,-6.6811714
+      parent: 2
+  - uid: 2073
+    components:
+    - type: Transform
+      pos: -15.722111,-6.6811714
+      parent: 2
+- proto: ClothingOuterWizardPaperReal
+  entities:
+  - uid: 2076
+    components:
+    - type: Transform
+      pos: -14.6743555,-6.666201
+      parent: 2
+  - uid: 2077
+    components:
+    - type: Transform
+      pos: -14.689323,-6.651231
+      parent: 2
+  - uid: 2078
+    components:
+    - type: Transform
+      pos: -14.689323,-6.651231
+      parent: 2
+  - uid: 2079
+    components:
+    - type: Transform
+      pos: -14.689323,-6.651231
+      parent: 2
+  - uid: 2080
+    components:
+    - type: Transform
+      pos: -14.689323,-6.651231
+      parent: 2
+- proto: ClothingOuterWizardPsyReal
+  entities:
+  - uid: 2094
+    components:
+    - type: Transform
+      pos: -14.030735,-6.800932
+      parent: 2
+  - uid: 2095
+    components:
+    - type: Transform
+      pos: -14.030735,-6.800932
+      parent: 2
+  - uid: 2096
+    components:
+    - type: Transform
+      pos: -14.030735,-6.800932
+      parent: 2
+  - uid: 2097
+    components:
+    - type: Transform
+      pos: -14.030735,-6.800932
+      parent: 2
+  - uid: 2098
+    components:
+    - type: Transform
+      pos: -14.030735,-6.800932
+      parent: 2
+- proto: ClothingOuterWizardReal
+  entities:
+  - uid: 2139
+    components:
+    - type: Transform
+      pos: -14.404933,-6.726081
+      parent: 2
+  - uid: 2140
+    components:
+    - type: Transform
+      pos: -14.404933,-6.726081
+      parent: 2
+  - uid: 2141
+    components:
+    - type: Transform
+      pos: -14.404933,-6.726081
+      parent: 2
+  - uid: 2142
+    components:
+    - type: Transform
+      pos: -14.404933,-6.726081
+      parent: 2
+  - uid: 2143
+    components:
+    - type: Transform
+      pos: -14.404933,-6.726081
+      parent: 2
+- proto: ClothingOuterWizardRedReal
+  entities:
+  - uid: 2109
+    components:
+    - type: Transform
+      pos: -12.997948,-6.6961412
+      parent: 2
+  - uid: 2110
+    components:
+    - type: Transform
+      pos: -12.997948,-6.6961412
+      parent: 2
+  - uid: 2111
+    components:
+    - type: Transform
+      pos: -12.997948,-6.6961412
+      parent: 2
+  - uid: 2112
+    components:
+    - type: Transform
+      pos: -12.997948,-6.6961412
+      parent: 2
+  - uid: 2113
+    components:
+    - type: Transform
+      pos: -12.997948,-6.6961412
+      parent: 2
+- proto: ClothingOuterWizardVioletReal
+  entities:
+  - uid: 2114
+    components:
+    - type: Transform
+      pos: -13.446986,-6.666201
+      parent: 2
+  - uid: 2115
+    components:
+    - type: Transform
+      pos: -13.446986,-6.666201
+      parent: 2
+  - uid: 2116
+    components:
+    - type: Transform
+      pos: -13.446986,-6.666201
+      parent: 2
+  - uid: 2117
+    components:
+    - type: Transform
+      pos: -13.446986,-6.666201
+      parent: 2
+  - uid: 2118
+    components:
+    - type: Transform
+      pos: -13.446986,-6.666201
+      parent: 2
+- proto: ClothingOuterWizardYellowReal
+  entities:
+  - uid: 2149
+    components:
+    - type: Transform
+      pos: -12.099873,-6.7859616
+      parent: 2
+  - uid: 2150
+    components:
+    - type: Transform
+      pos: -12.099873,-6.7859616
+      parent: 2
+  - uid: 2151
+    components:
+    - type: Transform
+      pos: -12.099873,-6.7859616
+      parent: 2
+  - uid: 2152
+    components:
+    - type: Transform
+      pos: -12.099873,-6.7859616
+      parent: 2
+  - uid: 2153
+    components:
+    - type: Transform
+      pos: -12.099873,-6.7859616
+      parent: 2
 - proto: ClothingShoesSpaceNinja
   entities:
   - uid: 733
@@ -5916,6 +6377,7 @@ entities:
     - type: Transform
       pos: 4.5,-3.5
       parent: 2
+    - type: Godmode
 - proto: EnergyKatana
   entities:
   - uid: 29
@@ -8384,6 +8846,7 @@ entities:
     - type: Transform
       pos: 0.5,0.5
       parent: 2
+    - type: Godmode
 - proto: GeneratorBasic15kW
   entities:
   - uid: 1013
@@ -8745,6 +9208,8 @@ entities:
           occludes: False
           ent: 29
     - type: ReflectUser
+    - type: Godmode
+      oldDamage: {}
     missingComponents:
     - Anchorable
   - uid: 36
@@ -8794,6 +9259,8 @@ entities:
           showEnts: False
           occludes: False
           ent: null
+    - type: Godmode
+      oldDamage: {}
     missingComponents:
     - Anchorable
   - uid: 623
@@ -8843,6 +9310,8 @@ entities:
       angularDamping: 0
       linearDamping: 0
       bodyType: Static
+    - type: Godmode
+      oldDamage: {}
     missingComponents:
     - Anchorable
 - proto: MedicalBed
@@ -10677,6 +11146,26 @@ entities:
     components:
     - type: Transform
       pos: 7.5,11.5
+      parent: 2
+  - uid: 2066
+    components:
+    - type: Transform
+      pos: -15.5,-6.5
+      parent: 2
+  - uid: 2067
+    components:
+    - type: Transform
+      pos: -14.5,-6.5
+      parent: 2
+  - uid: 2068
+    components:
+    - type: Transform
+      pos: -13.5,-6.5
+      parent: 2
+  - uid: 2069
+    components:
+    - type: Transform
+      pos: -12.5,-6.5
       parent: 2
 - proto: TargetClown
   entities:
@@ -13424,122 +13913,95 @@ entities:
       rot: 3.141592653589793 rad
       pos: -9.5,-5.5
       parent: 2
-- proto: WizardsGrimoire
+- proto: WizardsGrimoireGhost
   entities:
   - uid: 202
     components:
     - type: Transform
-      pos: -11.584126,-11.438062
+      pos: -16.381445,-11.449699
       parent: 2
   - uid: 203
     components:
     - type: Transform
-      pos: -12.422331,-11.423092
-      parent: 2
-  - uid: 272
-    components:
-    - type: Transform
-      pos: -16.645214,-11.442757
-      parent: 2
-  - uid: 273
-    components:
-    - type: Transform
-      pos: -16.360823,-11.442757
-      parent: 2
-  - uid: 274
-    components:
-    - type: Transform
-      pos: -16.031528,-11.427788
-      parent: 2
-  - uid: 275
-    components:
-    - type: Transform
-      pos: -15.702232,-11.442757
+      pos: -16.141958,-11.43473
       parent: 2
   - uid: 276
     components:
     - type: Transform
-      pos: -15.357971,-11.442757
+      pos: -11.7114525,-11.47964
       parent: 2
   - uid: 277
     components:
     - type: Transform
-      pos: -15.043644,-11.442757
+      pos: -11.307319,-11.47964
       parent: 2
   - uid: 278
     components:
     - type: Transform
-      pos: -14.729319,-11.442757
+      pos: -12.474816,-11.464669
       parent: 2
   - uid: 279
     components:
     - type: Transform
-      pos: -14.355121,-11.457727
+      pos: -12.849015,-11.49461
       parent: 2
   - uid: 280
     components:
     - type: Transform
-      pos: -13.995891,-11.442757
+      pos: -13.89677,-11.464669
       parent: 2
   - uid: 281
     components:
     - type: Transform
-      pos: -13.666595,-11.457727
+      pos: -13.5375395,-11.47964
       parent: 2
   - uid: 282
     components:
     - type: Transform
-      pos: -13.322333,-11.457727
+      pos: -14.6301985,-11.449699
       parent: 2
   - uid: 283
     components:
     - type: Transform
-      pos: -12.963103,-11.442757
+      pos: -14.959492,-11.464669
       parent: 2
   - uid: 284
     components:
     - type: Transform
-      pos: -12.573936,-11.427788
+      pos: -15.273819,-11.43473
       parent: 2
   - uid: 285
     components:
     - type: Transform
-      pos: -12.214706,-11.427788
+      pos: -15.603113,-11.43473
       parent: 2
   - uid: 286
     components:
     - type: Transform
-      pos: -11.8255415,-11.427788
+      pos: -15.887503,-11.43473
       parent: 2
   - uid: 287
     components:
     - type: Transform
-      pos: -11.436375,-11.412817
+      pos: -16.605965,-11.43473
       parent: 2
   - uid: 290
     components:
     - type: Transform
-      pos: -13.170728,-11.468002
+      pos: -14.270968,-11.464669
       parent: 2
   - uid: 291
     components:
     - type: Transform
-      pos: -13.993962,-11.468002
+      pos: -13.148374,-11.386908
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 292
     components:
     - type: Transform
-      pos: -14.607648,-11.468002
-      parent: 2
-  - uid: 293
-    components:
-    - type: Transform
-      pos: -15.341076,-11.4530325
-      parent: 2
-  - uid: 294
-    components:
-    - type: Transform
-      pos: -16.074505,-11.423092
+      pos: -12.100619,-11.47964
       parent: 2
 - proto: Wonderprod
   entities:

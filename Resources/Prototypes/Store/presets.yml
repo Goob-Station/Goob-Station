@@ -46,3 +46,19 @@
     - SpellbookBundles      #Goobstation
     currencyWhitelist:
     - WizCoin
+
+- type: entity
+  id: StorePresetSpellbookGhost
+  abstract: true
+  components:
+  - type: Store
+    name: store-preset-name-spellbook
+    categories:
+    - SpellbookOffensive    #Fireball, Rod Form
+    - SpellbookDefensive    #Magic Missile, Wall of Force
+    - SpellbookUtilityGhost      #Body Swap, Lich, Teleport, Knock, Polymorph
+    - SpellbookEquipment    #Battlemage Robes, Staff of Locker
+    - SpellbookSummonsGhost      #Goobstation
+    - SpellbookBundles      #Goobstation
+    currencyWhitelist:
+    - WizCoin

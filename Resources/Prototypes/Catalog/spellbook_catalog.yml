@@ -79,6 +79,7 @@
     WizCoin: 1
   categories:
   - SpellbookUtility
+  - SpellbookUtilityGhost
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -97,6 +98,7 @@
     WizCoin: 1
   categories:
   - SpellbookUtility
+  - SpellbookUtilityGhost
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -115,6 +117,7 @@
     WizCoin: 2
   categories:
   - SpellbookUtility
+  - SpellbookUtilityGhost
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -133,6 +136,7 @@
     WizCoin: 2
   categories:
   - SpellbookUtility
+  - SpellbookUtilityGhost
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
