@@ -6747,3 +6747,14 @@ Entries:
       message: Add Number lookup to NanoChat
   id: 783
   time: '2025-03-25T13:19:33.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: >-
+        Added sarin, a neurotoxin that deals caustic on skin contact and
+        paralyzes and poisons when breathed in, nukies can buy gas grenades of
+        them
+    - type: Tweak
+      message: Atropine now purges sarin
+  id: 784
+  time: '2025-03-25T13:20:36.0000000+00:00'
