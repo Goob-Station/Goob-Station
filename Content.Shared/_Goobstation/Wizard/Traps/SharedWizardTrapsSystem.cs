@@ -12,8 +12,11 @@ using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Traits.Assorted;
+using Content.Shared.Whitelist;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Events;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._Goobstation.Wizard.Traps;
 
@@ -28,6 +31,8 @@ public abstract class SharedWizardTrapsSystem : EntitySystem
     [Dependency] private   readonly SharedStunSystem _stun = default!;
     [Dependency] private   readonly StatusEffectsSystem _status = default!;
     [Dependency] private   readonly DamageableSystem _damageable = default!;
+    [Dependency] private   readonly SharedAudioSystem _audio = default!;
+    [Dependency] private   readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private   readonly INetManager _net = default!;
 
     public override void Initialize()
@@ -98,11 +103,15 @@ public abstract class SharedWizardTrapsSystem : EntitySystem
         if (IsEntityMindIgnored(args.OtherEntity, comp))
             return;
 
-        _popup.PopupClient(Loc.GetString("trap-triggered-message", ("trap", uid)),
-            args.OtherEntity,
-            PopupType.LargeCaution);
+        if (!comp.Silent)
+        {
+            _popup.PopupClient(Loc.GetString("trap-triggered-message", ("trap", uid)),
+                args.OtherEntity,
+                PopupType.LargeCaution);
+        }
 
         comp.Triggered = true;
+        comp.Charges--;
         Dirty(ent);
 
         if (HasComp<FadingTimedDespawnComponent>(uid))
@@ -113,7 +122,17 @@ public abstract class SharedWizardTrapsSystem : EntitySystem
 
         RaiseLocalEvent(uid, new TrapTriggeredEvent(args.OtherEntity));
 
-        _spark.DoSparks(Transform(uid).Coordinates, comp.MinSparks, comp.MaxSparks, comp.MinVelocity, comp.MaxVelocity);
+        if (comp.Sparks)
+        {
+            _spark.DoSparks(Transform(uid).Coordinates,
+                comp.MinSparks,
+                comp.MaxSparks,
+                comp.MinVelocity,
+                comp.MaxVelocity,
+                comp.TriggerSound == null);
+        }
+
+        _audio.PlayPredicted(comp.TriggerSound, args.OtherEntity, args.OtherEntity);
 
         if (_net.IsClient)
             return;
@@ -121,7 +140,21 @@ public abstract class SharedWizardTrapsSystem : EntitySystem
         if (comp.Effect != null)
             Spawn(comp.Effect.Value, _transform.GetMapCoordinates(uid));
 
-        QueueDel(uid);
+        if (comp.Charges <= 0)
+        {
+            QueueDel(uid);
+            return;
+        }
+
+        Timer.Spawn(comp.TimeBetweenTriggers,
+            () =>
+            {
+                if (!TryComp(uid, out WizardTrapComponent? trap))
+                    return;
+
+                trap.Triggered = false;
+                Dirty(uid, trap);
+            });
     }
 
     private void OnPreventCollide(Entity<WizardTrapComponent> ent, ref PreventCollideEvent args)
@@ -133,6 +166,9 @@ public abstract class SharedWizardTrapsSystem : EntitySystem
     private void OnExamine(Entity<WizardTrapComponent> ent, ref ExaminedEvent args)
     {
         var (uid, comp) = ent;
+
+        if (!comp.CanReveal)
+            return;
 
         if (TerminatingOrDeleted(uid))
             return;
@@ -168,16 +204,23 @@ public abstract class SharedWizardTrapsSystem : EntitySystem
         if (IsEntityMindIgnored(args.Examiner, comp))
             return;
 
-        if (HasComp<TemporaryBlindnessComponent>(args.Examiner) || HasComp<PermanentBlindnessComponent>(args.Examiner))
+        if (!comp.CanReveal)
             args.Cancel();
-
-        if (!_transform.InRange(uid, args.Examiner, comp.ExamineRange))
+        else if (HasComp<TemporaryBlindnessComponent>(args.Examiner) || HasComp<PermanentBlindnessComponent>(args.Examiner))
+            args.Cancel();
+        else if (!_transform.InRange(uid, args.Examiner, comp.ExamineRange))
             args.Cancel();
     }
 
     private bool IsEntityMindIgnored(EntityUid user, WizardTrapComponent trap)
     {
         if (HasComp<GhostComponent>(user) || HasComp<SpectralComponent>(user) || !HasComp<MobStateComponent>(user))
+            return true;
+
+        if (trap.TargetedEntityWhitelist != null && !_whitelist.IsWhitelistPass(trap.TargetedEntityWhitelist, user))
+            return true;
+
+        if (_whitelist.IsWhitelistPass(trap.IgnoredEntityWhitelist, user))
             return true;
 
         return _mind.TryGetMind(user, out var mind, out _) && trap.IgnoredMinds.Contains(mind);

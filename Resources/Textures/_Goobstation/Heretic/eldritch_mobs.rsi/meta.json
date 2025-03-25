@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from TG station",
+  "copyright": "Taken from TG station. rust_walker left and right direction sprites made by Armok.",
   "size": {
     "x": 32,
     "y": 32
@@ -42,7 +42,8 @@
       "directions": 4
     },
     {
-      "name": "rust_walker_s",
+      "name": "rust_walker",
+      "directions": 4,
       "delays": [
         [
           0.1,
@@ -51,12 +52,23 @@
           0.1,
           0.1,
           0.2
-        ]
-      ]
-    },
-    {
-      "name": "rust_walker_n",
-      "delays": [
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ],
         [
           0.1,
           0.1,
