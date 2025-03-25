@@ -80,12 +80,6 @@ uplink-dualetta-bundle-desc = Comes with 2 Dualetta pistols, 2 machine pistol ma
 uplink-anaconda-name = Anaconda
 uplink-anaconda-desc = The pride of the Cybersun arms concern, this heavy pistol is designed to feed itself with the built-in fabricator.
 
-uplink-kravgloves-name = Krav maga gloves
-uplink-kravgloves-desc = Gloves with krav maga nanites installed while disguised as regular black gloves.
-
-uplink-guerrillagloves-name = Guerrilla gloves
-uplink-guerrillagloves-desc = Insulated combat gloves that allow the wearer to perform krav maga.
-
 uplink-bulk-mosin-name = Syndicate bulk rifle crate
 uplink-bulk-mosin-desc = 10 WW4-era rifles to arm you, your friends, and your cat. Saves 40% on shipping costs by buying in bulk.
 
@@ -127,6 +121,11 @@ uplink-high-caliber-box-desc = A box of 30 .50 caliber anti-materiel rounds.
 uplink-highcap-pistol-mag-name = High Capacity .35 Pistol Magazine
 uplink-highcap-pistol-mag-desc = High capacity pistol magazine holds 4 extra bullets for a total of 16 rounds.
 
+# Grenades
+
+uplink-sarin-gas-grenade-name = Sarin gas grenade
+uplink-sarin-gas-grenade-desc = A brutal neurotoxin gas that stuns, blinds, and poisons anybody unlucky enough to catch a whiff aswell as burning anyone not in a voidsuit, leaving them writhing on the floor begging to be finished off
+
 # Mechs
 
 uplink-mech-teleporter-heavy-name = Heavy Mech teleporter
@@ -151,6 +150,9 @@ uplink-smoke-implant-desc = Releases a cloud of smoke when activated.
 uplink-jaunter-implanter-name = Jaunter Implanter
 uplink-jaunter-implanter-desc = Swaps position of the user and target upon activation. Recharges passively.
 
+uplink-krav-maga-implant-name = Krav Maga Implanter
+uplink-krav-maga-implant-desc = Allows the user to perform various Krav Maga moves.
+
 # Wearables
 
 uplink-helmet-swat-name = Syndicate SWAT Helmet
@@ -173,3 +175,9 @@ uplink-syndicate-weapon-module-advanced-desc = Upgrades a cyborg with an energy 
 
 uplink-dimension-pot-name = Dimension Pot
 uplink-dimension-pot-desc = A portal to your own pocket dimension disguised in the form of a potted plant, for when stashing one item isn't quite enough.
+
+uplink-pizza-bomb-name = Nefarious Pizza bomb
+uplink-pizza-bomb-desc = First pioneered by terrorists, now is used by the syndicate for eliminating high value targets. Do not open before explosion.
+
+uplink-pizza-party-crate-name = Pizza Party Crate
+uplink-pizza-party-crate-desc = A crate coming in the form of disaster pizza delivery. Filled with pizzas and pizza bombs to throw the most explosive pizza party ever. Unfortunately you can't seem to remember which one is which.

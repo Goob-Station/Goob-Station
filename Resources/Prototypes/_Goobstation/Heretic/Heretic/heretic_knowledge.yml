@@ -293,6 +293,72 @@
   path: Void
   event: !type:HereticAscensionVoidEvent
 
+## rust path
+- type: hereticKnowledge
+  id: BlacksmithTale
+  path: Rust
+  stage: 1
+  ritualPrototypes:
+  - BladeRust
+
+- type: hereticKnowledge
+  id: GraspOfRust
+  path: Rust
+  stage: 2
+
+- type: hereticKnowledge
+  id: LeechingWalk
+  path: Rust
+  sideKnowledge: true
+  stage: 3
+  event: !type:HereticLeechingWalkEvent
+
+- type: hereticKnowledge
+  id: MarkOfRust
+  path: Rust
+  stage: 4
+
+- type: hereticKnowledge
+  id: RustConstruction
+  path: Rust
+  stage: 5
+  actionPrototypes:
+  - ActionHereticRustConstruction
+
+- type: hereticKnowledge
+  id: AggressiveSpread
+  path: Rust
+  sideKnowledge: true
+  stage: 6
+  actionPrototypes:
+  - ActionHereticAggressiveSpread
+
+- type: hereticKnowledge
+  id: ToxicBlade
+  path: Rust
+  stage: 7
+
+- type: hereticKnowledge
+  id: EntropicPlume
+  path: Rust
+  sideKnowledge: true
+  stage: 8
+  actionPrototypes:
+  - ActionHereticEntropicPlume
+
+- type: hereticKnowledge
+  id: AscensionRust
+  stage: 9
+  path: Rust
+  ritualPrototypes:
+  - AscensionRust
+
+- type: hereticKnowledge
+  id: RustbringersOath
+  stage: 10
+  path: Rust
+  event: !type:HereticAscensionRustEvent
+
 ### side paths
 - type: hereticKnowledge
   id: RitualOfKnowledge
@@ -322,4 +388,32 @@
   ritualPrototypes:
   - PriestRitual
 
-## stage 7
+- type: hereticKnowledge
+  id: VoidCloak
+  sideKnowledge: true
+  stage: 3
+  ritualPrototypes:
+  - VoidCloak
+
+## stage 6
+- type: hereticKnowledge
+  id: RustedRitual
+  sideKnowledge: true
+  stage: 6
+  ritualPrototypes:
+  - RustedRitual
+
+- type: hereticKnowledge
+  id: CarvingKnife
+  sideKnowledge: true
+  stage: 6
+  ritualPrototypes:
+  - CarvingKnife
+
+## stage 8
+- type: hereticKnowledge
+  id: Cleave
+  sideKnowledge: true
+  stage: 8
+  actionPrototypes:
+  - ActionHereticCleave

@@ -38,6 +38,7 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+      - type: SecurityStaff # goobstation
 
 - type: startingGear
   id: HoSGear

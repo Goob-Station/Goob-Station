@@ -11,6 +11,8 @@ public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior { 
 public sealed partial class RitualBladeAscendBehavior : RitualSacrificeBehavior { }
 public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior { }
 
+public sealed partial class RitualRustAscendBehavior : RitualSacrificeBehavior { }
+
 [Virtual] public partial class RitualSacrificeBehavior : RitualCustomBehavior
 {
     public override bool Execute(RitualData args, out string? outstr)

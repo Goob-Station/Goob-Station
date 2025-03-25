@@ -20,6 +20,7 @@
     - Flesh
     - Lock
     - Void
+    - Rust
 
 - type: listing
   id: HereticAshPath2
@@ -28,7 +29,7 @@
   icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
   productHereticKnowledge: GraspOfAsh
   cost:
-    KnowledgePoint: 2
+    KnowledgePoint: 1
   categories:
   - HereticPathAsh
   conditions:

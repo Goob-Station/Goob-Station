@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 03/12/2025 21:34:23
-  entityCount: 15672
+  entityCount: 15674
 maps:
 - 1
 grids:
@@ -51999,6 +51999,13 @@ entities:
       parent: 2
     - type: GasMiner
       maxExternalPressure: 4000
+- proto: GasMinerPlasma
+  entities:
+  - uid: 15704
+    components:
+    - type: Transform
+      pos: -89.5,43.5
+      parent: 2
 - proto: GasOutletInjector
   entities:
   - uid: 6963

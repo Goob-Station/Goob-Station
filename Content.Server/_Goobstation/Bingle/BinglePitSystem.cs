@@ -208,13 +208,24 @@ public sealed class BinglePitSystem : EntitySystem
 
         appearance.SetData(uid, ScaleVisuals.Scale, Vector2.One * component.Level, appearanceComponent);
     }
+
     private void OnRoundEndTextAppend(RoundEndTextAppendEvent ev)
     {
-
+        var pits = new List<Entity<BinglePitComponent>>();
         var query = AllEntityQuery<BinglePitComponent>();
+
         while (query.MoveNext(out var uid, out var comp))
+            pits.Add((uid, comp));
+
+        if (pits.Count == 0)
+            return;
+
+        ev.AddLine("");
+
+        foreach (var ent in pits)
         {
-            // nears beacon
+            var (uid, comp) = ent;
+
             var location = "Unknown";
             var mapCoords = _transform.ToMapCoordinates(Transform(uid).Coordinates);
             if (_navMap.TryGetNearestBeacon(mapCoords, out var beacon, out _))
@@ -226,9 +237,9 @@ public sealed class BinglePitSystem : EntitySystem
                 ("location", location),
                 ("level", comp.Level),
                 ("points", points)));
-
         }
 
+        ev.AddLine("");
     }
 
     private void OnSpawnTile(EntityUid uid,

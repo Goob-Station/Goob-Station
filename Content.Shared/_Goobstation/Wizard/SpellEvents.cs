@@ -486,6 +486,9 @@ public sealed partial class SwapSpellEvent : EntityTargetActionEvent, ISpeakSpel
 
     [DataField]
     public EntProtoId Effect = "SwapSpellEffect";
+
+    [DataField]
+    public bool ThroughWalls = true;
 }
 
 public sealed partial class SoulTapEvent : InstantActionEvent, ISpeakSpell
@@ -588,7 +591,7 @@ public sealed partial class DimensionShiftEvent : EntityEventArgs
     public float CarbonDioxideMoles = 10f;
 
     [DataField]
-    public float Temperature = Atmospherics.T20C;
+    public float Temperature = Atmospherics.T0C - 5f;
 
     [DataField]
     public string? Parallax = "Wizard";

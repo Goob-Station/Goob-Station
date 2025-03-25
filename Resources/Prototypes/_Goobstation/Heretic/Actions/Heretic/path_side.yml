@@ -1,1 +1,19 @@
-# actions
+- type: entity
+  id: ActionHereticCleave
+  name: Cleave
+  description: Causes severe bleeding on a target and several targets around them.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    range: 4
+    useDelay: 45
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: cleave
+    event: !type:EventHereticCleave
+    checkCanAccess: false
+    checkCanInteract: false
+  - type: HereticAction
+    requireMagicItem: true
+    messageLoc: heretic-speech-cleave
