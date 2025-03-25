@@ -78,8 +78,13 @@
           Quantity: 7
         - ReagentId: Carbon
           Quantity: 2
-        - ReagentId: Lead 
+        - ReagentId: Lead
           Quantity: 1
+  - type: Tag # Goobstation
+    tags:
+    - Sheet
+    - Metal
+    - Steel
 
 - type: entity
   parent: SheetSteel
