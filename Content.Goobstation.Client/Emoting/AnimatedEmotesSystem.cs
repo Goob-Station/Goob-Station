@@ -3,7 +3,6 @@ using System.Numerics;
 using Content.Client.Animations;
 using Content.Client.DamageState;
 using Content.Goobstation.Shared.Emoting;
-using Content.Shared._Goobstation.Emoting;
 using Content.Shared._Goobstation.Wizard.SupermatterHalberd;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Emoting;
