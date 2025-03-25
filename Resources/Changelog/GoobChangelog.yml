@@ -6660,3 +6660,9 @@ Entries:
       message: Added piepmind. Mice can now talk to each other using +p in chat.
   id: 771
   time: '2025-03-25T05:14:41.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Tweak
+      message: Lilies have Styptic Powder and Aloe has Silver Sulfadiazine
+  id: 772
+  time: '2025-03-25T05:16:00.0000000+00:00'
