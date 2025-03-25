@@ -1,7 +1,6 @@
-using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Wires.Components;
+namespace Content.Goobstation.Shared.Wires.Components;
 
 /// <summary>
 /// This is used for items slots that require entity to have wire panel for interactions

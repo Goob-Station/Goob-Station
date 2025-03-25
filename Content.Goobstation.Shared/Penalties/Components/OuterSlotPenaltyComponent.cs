@@ -1,7 +1,7 @@
 using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Penalties.Components;
+namespace Content.Goobstation.Shared.Penalties.Components;
 /// <summary>
 /// This will apply a movespeed multiplier and damage on an entity when outerlayer item is equipped
 /// Additionally, length of the doafters for equipping and unequipping these will be increased

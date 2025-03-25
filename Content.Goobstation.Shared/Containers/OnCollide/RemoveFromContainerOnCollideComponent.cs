@@ -1,7 +1,7 @@
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Containers.OnCollide;
+namespace Content.Goobstation.Shared.Containers.OnCollide;
 
 /// <summary>
 /// When this component is added we remove everything from the container

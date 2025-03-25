@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Emoting;
+namespace Content.Goobstation.Shared.Emoting;
 public abstract class SharedFartSystem : EntitySystem
 {
     public override void Initialize()

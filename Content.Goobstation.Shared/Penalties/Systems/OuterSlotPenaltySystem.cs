@@ -1,14 +1,14 @@
-using Content.Shared._Goobstation.Penalties.Components;
+using Content.Goobstation.Shared.Penalties.Components;
 using Content.Shared.Clothing;
-using Content.Shared.Movement.Systems;
 using Content.Shared.Clothing.Components;
-using Robust.Shared.Containers;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Damage;
-using Content.Shared.Popups;
 using Content.Shared.Inventory;
+using Content.Shared.Movement.Systems;
+using Content.Shared.Popups;
+using Robust.Shared.Containers;
 
-namespace Content.Shared._Goobstation.Penalties.Systems;
+namespace Content.Goobstation.Shared.Penalties.Systems;
 
 public sealed partial class OuterSlotPenaltySystem : EntitySystem
 {

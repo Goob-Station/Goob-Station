@@ -3,7 +3,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 
-namespace Content.Shared._Goobstation.Emp;
+namespace Content.Goobstation.Shared.Emp;
 
 public sealed class EmpDisableSystem : EntitySystem
 {

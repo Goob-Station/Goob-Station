@@ -1,7 +1,6 @@
 using Content.Shared.Damage;
-using System;
 
-namespace Content.Shared.Electrocution;
+namespace Content.Goobstation.Shared.Electrocution;
 
 [RegisterComponent]
 public sealed partial class ExplosiveShockComponent : Component

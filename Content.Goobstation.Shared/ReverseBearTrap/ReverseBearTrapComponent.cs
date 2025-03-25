@@ -1,7 +1,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.ReverseBearTrap;
+namespace Content.Goobstation.Shared.ReverseBearTrap;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ReverseBearTrapComponent : Component

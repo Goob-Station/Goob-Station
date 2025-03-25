@@ -5,7 +5,7 @@ using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee.Events;
 
-namespace Content.Shared._Goobstation.ContractorBaton;
+namespace Content.Goobstation.Shared.ContractorBaton;
 
 public sealed class StungBorgsOnHitSystem : EntitySystem
 {

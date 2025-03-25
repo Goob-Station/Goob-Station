@@ -1,6 +1,4 @@
-using System;
-
-namespace Content.Shared.Electrocution;
+namespace Content.Goobstation.Shared.Electrocution;
 
 [RegisterComponent]
 public sealed partial class ExplosiveShockIgnitedComponent : Component

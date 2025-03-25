@@ -1,4 +1,4 @@
-using Content.Shared._Goobstation.Emoting;
+using Content.Goobstation.Shared.Emoting;
 using Content.Shared.Chat.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -19,7 +19,7 @@ public sealed partial class FartSystem : SharedFartSystem
     private void OnHandleState(EntityUid uid, FartComponent component, ref ComponentHandleState args)
     {
         if (args.Current is not FartComponentState state
-        || !_prot.TryIndex<EmotePrototype>(state.Emote, out var emote))
+        || !_prot.TryIndex(state.Emote, out var emote))
             return;
 
         if (emote.Event != null)

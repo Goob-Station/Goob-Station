@@ -1,10 +1,10 @@
 using System.Linq;
 using Content.Shared.Destructible;
-using Robust.Shared.Containers;
-using Robust.Shared.Audio.Systems;
 using Content.Shared.Whitelist;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
 
-namespace Content.Shared._Goobstation.Containers.ExtendedContainer;
+namespace Content.Goobstation.Shared.Containers.ExtendedContainer;
 
 public sealed partial class ExtendedContainerSystem : EntitySystem
 {

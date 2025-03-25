@@ -1,6 +1,6 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Projectiles.SpawnEntitiesOnHit;
+namespace Content.Goobstation.Shared.Projectiles.SpawnEntitiesOnHit;
 
 [RegisterComponent]
 public sealed partial class SpawnEntitiesOnHitComponent : Component

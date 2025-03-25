@@ -1,6 +1,4 @@
-using Robust.Shared.GameStates;
-
-namespace Content.Shared._Goobstation.TableSlam;
+namespace Content.Goobstation.Shared.TableSlam;
 
 /// <summary>
 /// This is used for...

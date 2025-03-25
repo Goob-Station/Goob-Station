@@ -2,12 +2,12 @@ using System.Linq;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Throwing;
+using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Random;
-using Content.Shared.Whitelist;
 
-namespace Content.Shared._Goobstation.Containers.OnCollide;
+namespace Content.Goobstation.Shared.Containers.OnCollide;
 
 public sealed class RemoveFromContainerOnCollideSystem : EntitySystem
 {

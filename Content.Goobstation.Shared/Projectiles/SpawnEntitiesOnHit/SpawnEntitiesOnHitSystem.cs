@@ -3,7 +3,7 @@ using Content.Shared.Projectiles;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Events;
 
-namespace Content.Shared._Goobstation.Projectiles.SpawnEntitiesOnHit;
+namespace Content.Goobstation.Shared.Projectiles.SpawnEntitiesOnHit;
 
 public sealed class SpawnEntitiesOnHitSystem : EntitySystem
 {

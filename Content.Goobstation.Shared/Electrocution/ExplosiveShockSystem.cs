@@ -1,6 +1,6 @@
 using Content.Shared.Administration.Logs;
-using Content.Shared.Body.Systems;
 using Content.Shared.Body.Part;
+using Content.Shared.Body.Systems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Damage;
 using Content.Shared.Database;
@@ -10,11 +10,9 @@ using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using System;
 
-namespace Content.Shared.Electrocution;
+namespace Content.Goobstation.Shared.Electrocution;
 
 public sealed class ExplosiveShockSystem : EntitySystem
 {

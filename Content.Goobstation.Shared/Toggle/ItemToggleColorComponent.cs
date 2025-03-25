@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Toggle;
+namespace Content.Goobstation.Shared.Toggle;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ItemToggleColorComponent : Component

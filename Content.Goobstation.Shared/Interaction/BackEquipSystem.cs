@@ -1,18 +1,13 @@
 using Content.Shared.ActionBlocker;
-using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Input;
-using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
-using Content.Shared.Storage.EntitySystems;
-using Content.Shared.Whitelist;
-using Robust.Shared.Containers;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Player;
 
-namespace Content.Shared._Goobstation.Interaction;
+namespace Content.Goobstation.Shared.Interaction;
 
 public sealed class BackEquipSystem : EntitySystem
 {

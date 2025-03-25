@@ -1,7 +1,7 @@
 using Content.Shared.Damage.Events;
 using Content.Shared.Item.ItemToggle;
 
-namespace Content.Shared._Goobstation.ContractorBaton;
+namespace Content.Goobstation.Shared.ContractorBaton;
 
 public sealed class TogglePreventStaminaDamageSystem : EntitySystem
 {

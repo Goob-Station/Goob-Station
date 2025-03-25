@@ -1,12 +1,10 @@
 using Content.Shared.Chat.Prototypes;
-using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Goobstation.Emoting;
+namespace Content.Goobstation.Shared.Emoting;
 
 // use as a template
 //[Serializable, NetSerializable, DataDefinition] public sealed partial class AnimationNameEmoteEvent : EntityEventArgs { }

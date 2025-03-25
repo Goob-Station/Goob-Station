@@ -1,29 +1,29 @@
+using System.Linq;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
-using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
+using Content.Shared.Tag;
 using Content.Shared.Tools.Systems;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
+using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
-using System.Linq;
-using Content.Shared.Tag;
-using Content.Shared.IdentityManagement;
-using Robust.Shared.Player;
 
-namespace Content.Shared.ReverseBearTrap;
+namespace Content.Goobstation.Shared.ReverseBearTrap;
 
 public sealed partial class ReverseBearTrapSystem : EntitySystem
 {
@@ -278,7 +278,7 @@ public sealed partial class ReverseBearTrapSystem : EntitySystem
 
         var damage = new DamageSpecifier();
         damage.DamageDict.Add("Heat", 50);
-        _damageable.TryChangeDamage(trap.Wearer, damage, true, origin: args.Used, targetPart: _Shitmed.Targeting.TargetBodyPart.Head);
+        _damageable.TryChangeDamage(trap.Wearer, damage, true, origin: args.Used, targetPart: Content.Shared._Shitmed.Targeting.TargetBodyPart.Head);
 
         _popup.PopupEntity(Loc.GetString("reverse-bear-trap-component-trap-fall-observer",
                     ("user", Identity.Name(trap.Wearer.Value, EntityManager))),
@@ -400,7 +400,7 @@ public sealed partial class ReverseBearTrapSystem : EntitySystem
 
         var damage = new DamageSpecifier();
         damage.DamageDict.Add("Blunt", 300);
-        _damageable.TryChangeDamage(wearer, damage, true, origin: uid, targetPart: _Shitmed.Targeting.TargetBodyPart.Head);
+        _damageable.TryChangeDamage(wearer, damage, true, origin: uid, targetPart: Content.Shared._Shitmed.Targeting.TargetBodyPart.Head);
     }
 
     private void AttemptEscape(EntityUid uid, ReverseBearTrapComponent trap, EntityUid user)

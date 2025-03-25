@@ -1,7 +1,7 @@
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Toggleable;
 
-namespace Content.Shared._Goobstation.Toggle;
+namespace Content.Goobstation.Shared.Toggle;
 
 public sealed class ItemToggleColorSystem : EntitySystem
 {
