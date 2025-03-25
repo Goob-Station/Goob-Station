@@ -6794,3 +6794,9 @@ Entries:
         of four for 3000.
   id: 789
   time: '2025-03-25T14:36:45.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Buff Full SMES Price by 3x
+  id: 790
+  time: '2025-03-25T14:37:49.0000000+00:00'
