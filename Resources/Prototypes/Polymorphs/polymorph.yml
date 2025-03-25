@@ -215,6 +215,6 @@
     allowRepeatedMorphs: false
     # polymorphSound: /Audio/Magic/ethereal_enter.ogg # Goob edit
     # exitPolymorphSound: /Audio/Magic/ethereal_exit.ogg # Goob edit
-    duration: 5 # Gppb edot
+    duration: 5 # Goob edot
     showPopup: false # Goobstation
     attachToGridOrMap: true # Goobstation
