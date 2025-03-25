@@ -14,10 +14,6 @@
       <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj" Private="false"/>
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Pirates\" />
-    </ItemGroup>
-
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
 
 </Project>
