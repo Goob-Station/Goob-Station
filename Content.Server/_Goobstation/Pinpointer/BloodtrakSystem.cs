@@ -47,7 +47,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         // Get the DNAs of the solution.
         var solutionsDna = _forensicsSystem.GetSolutionsDNA(targetEntity);
         var popupText = Loc.GetString("bloodtrak-dna-saved", ("dna", solutionsDna));
-        _popupSystem.PopupClient(popupText, args.User, args.User);
+        _popupSystem.PopupPredicted(popupText, args.User, args.User);
 
         // Early exit if no DNA found
         if (solutionsDna?.Count == 0)
