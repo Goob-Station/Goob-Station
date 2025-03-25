@@ -187,6 +187,9 @@ public sealed partial class ChatSystem : SharedChatSystem
         string wrappedMessagePostfix = "" // Goobstation
         )
     {
+        if (message.Contains("/"))
+            return;
+
         if (HasComp<GhostComponent>(source))
         {
             // Ghosts can only send dead chat messages, so we'll forward it to InGame OOC.
