@@ -46,7 +46,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
 
         // Get the DNAs of the solution.
         var solutionsDna = _forensicsSystem.GetSolutionsDNA(targetEntity);
-        var popupText = Loc.GetString("bloodtrak-dna-saved", ("dna", solutionsDna));
+        var popupText = Loc.GetString("bloodtrak-dna-saved");
         _popupSystem.PopupEntity(popupText, args.User, args.User);
 
         // Early exit if no DNA found
@@ -134,7 +134,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
 
             // Display popup
             var popupText = Loc.GetString("bloodtrak-target-lost");
-            _popupSystem.PopupEntity(popupText, tracker.Owner, tracker.Owner);
+            _popupSystem.PopupEntity(popupText, tracker.Owner, tracker.Owner, PopupType.MediumCaution);
 
             // Deactivate and schedule next activation.
             TogglePinpointer(uid, tracker);
