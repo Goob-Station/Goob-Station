@@ -35,6 +35,8 @@ surgery-popup-step-SurgeryStepRemoveItem = {$user} is removing something from {$
 surgery-popup-step-SurgeryStepRemoveOrgan = {$user} is removing an organ from {$target}'s {$part}!
 surgery-popup-step-SurgeryStepInsertOrgan = {$user} is inserting an organ into {$target}'s {$part}!
 
+surgery-popup-step-SurgeryStepOpenOrganSlot = {$user} is opening a cavity in {$target}'s {$part}!
+
 surgery-popup-procedure-SurgeryRemoveBrain-step-SurgeryStepRemoveOrgan = {$user} is removing the brain from {$target}'s {$part}!
 surgery-popup-procedure-SurgeryRemoveHeart-step-SurgeryStepRemoveOrgan = {$user} is removing the heart from {$target}'s {$part}!
 surgery-popup-procedure-SurgeryRemoveLiver-step-SurgeryStepRemoveOrgan = {$user} is removing the liver from {$target}'s {$part}!
