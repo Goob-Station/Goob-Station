@@ -54,7 +54,7 @@
   - type: Store
     name: store-preset-name-spellbook
     categories:
-    - SpellbookOffensive    #Fireball, Rod Form
+    - SpellbookOffensiveGhost   #Fireball, Rod Form
     - SpellbookDefensive    #Magic Missile, Wall of Force
     - SpellbookUtilityGhost      #Body Swap, Lich, Teleport, Knock, Polymorph
     - SpellbookEquipment    #Battlemage Robes, Staff of Locker

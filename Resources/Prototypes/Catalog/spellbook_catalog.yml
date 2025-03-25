@@ -9,6 +9,7 @@
     WizCoin: 2
   categories:
   - SpellbookOffensive
+  - SpellbookOffensiveGhost
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1

@@ -1,0 +1,42 @@
+- type: entity
+  parent: [StorePresetUplink, VendingMachine]
+  id: VendingMachineSyndieContraband # Ported from Frontier
+  name: ContraVend
+  description: Wanted across multiple sectors!
+  components:
+  - type: VendingMachine
+    cashSlot: Null
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
+    screenState: screen
+  - type: Advertise
+    pack: SyndieDrobeAds
+  - type: Sprite
+    sprite: _NF/Structures/Machines/VendingMachines/contravend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: "screen"
+      map: ["enum.VendingMachineVisualLayers.Screen"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.3
+    color: "#ad2c2b"
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    balance:
+      Telecrystal: 100

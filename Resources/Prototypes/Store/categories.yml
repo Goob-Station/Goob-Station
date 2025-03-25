@@ -14,53 +14,58 @@
   priority: 0
 
 - type: storeCategory
+  id: SpellbookOffensiveGhost
+  name: store-caregory-spellbook-offensive
+  priority: 1
+
+- type: storeCategory
   id: SpellbookDefensive
   name: store-caregory-spellbook-defensive
-  priority: 1
+  priority: 2
 
 - type: storeCategory
   id: SpellbookUtility
   name: store-caregory-spellbook-utility
-  priority: 2
+  priority: 3
 
 - type: storeCategory
   id: SpellbookUtilityGhost
   name: store-caregory-spellbook-utility
-  priority: 2
+  priority: 4
 
 - type: storeCategory
   id: SpellbookEquipment
   name: store-caregory-spellbook-equipment
-  priority: 3
+  priority: 5
 
 - type: storeCategory
   id: SpellbookEvents
   name: store-caregory-spellbook-events
-  priority: 4
+  priority: 6
 
 # Goobstation
 - type: storeCategory
   id: SpellbookSummons
   name: store-caregory-spellbook-summons
-  priority: 5
+  priority: 7
 
 # Goobstation
 - type: storeCategory
   id: SpellbookSummonsGhost
   name: store-caregory-spellbook-summons
-  priority: 5
+  priority: 8
 
 # Goobstation
 - type: storeCategory
   id: SpellbookSpecial
   name: store-caregory-spellbook-special
-  priority: 6
+  priority: 9
 
 # Goobstation
 - type: storeCategory
   id: SpellbookBundles
   name: store-caregory-spellbook-bundles
-  priority: 7
+  priority: 10
 
 #uplink categoires
 - type: storeCategory
