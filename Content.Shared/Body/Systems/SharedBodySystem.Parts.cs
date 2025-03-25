@@ -387,6 +387,7 @@ public partial class SharedBodySystem
             bodyEnt.Comp.LegEntities.Remove(legEnt);
             UpdateMovementSpeed(bodyEnt);
             Dirty(bodyEnt, bodyEnt.Comp);
+            Standing.Down(bodyEnt); // Shitmed Change
             stunTime = TimeSpan.FromSeconds(10);
         }
         else if (legEnt.Comp.PartType == BodyPartType.Foot)
