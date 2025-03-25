@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.ChronoLegionnaire.Components;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
@@ -25,7 +26,7 @@ public sealed class StasisOverlay : Overlay
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
     {
-        if (_entityManager.HasComponent<Shared.ChronoLegionnaire.Components.InsideStasisComponent>(_playerManager.LocalSession?.AttachedEntity))
+        if (_entityManager.HasComponent<InsideStasisComponent>(_playerManager.LocalSession?.AttachedEntity))
             return true;
 
         return false;

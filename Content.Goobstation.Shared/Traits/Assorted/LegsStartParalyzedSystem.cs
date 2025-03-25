@@ -1,8 +1,9 @@
+using Content.Goobstation.Common.Traits;
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 
-namespace Content.Shared._Goobstation.Traits.Assorted;
+namespace Content.Goobzstation.Shared.Traits.Assorted;
 
 public sealed class LegsStartParalyzedSystem : EntitySystem
 {

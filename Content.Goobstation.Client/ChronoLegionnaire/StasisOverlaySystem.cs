@@ -1,4 +1,5 @@
 using Content.Goobstation.Client.ChronoLegionnaire.Overlays;
+using Content.Goobstation.Shared.ChronoLegionnaire.Components;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Player;
@@ -16,32 +17,32 @@ public sealed class StasisOverlaySystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<Shared.ChronoLegionnaire.Components.InsideStasisComponent, ComponentInit>(OnStasisInit);
-        SubscribeLocalEvent<Shared.ChronoLegionnaire.Components.InsideStasisComponent, ComponentShutdown>(OnStasisShutdown);
+        SubscribeLocalEvent<InsideStasisComponent, ComponentInit>(OnStasisInit);
+        SubscribeLocalEvent<InsideStasisComponent, ComponentShutdown>(OnStasisShutdown);
 
-        SubscribeLocalEvent<Shared.ChronoLegionnaire.Components.InsideStasisComponent, LocalPlayerAttachedEvent>(OnPlayerAttached);
-        SubscribeLocalEvent<Shared.ChronoLegionnaire.Components.InsideStasisComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
+        SubscribeLocalEvent<InsideStasisComponent, LocalPlayerAttachedEvent>(OnPlayerAttached);
+        SubscribeLocalEvent<InsideStasisComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
 
         _overlay = new();
     }
 
-    private void OnPlayerAttached(Entity<Shared.ChronoLegionnaire.Components.InsideStasisComponent> stasised, ref LocalPlayerAttachedEvent args)
+    private void OnPlayerAttached(Entity<InsideStasisComponent> stasised, ref LocalPlayerAttachedEvent args)
     {
         _overlayManager.AddOverlay(_overlay);
     }
 
-    private void OnPlayerDetached(Entity<Shared.ChronoLegionnaire.Components.InsideStasisComponent> stasised, ref LocalPlayerDetachedEvent args)
+    private void OnPlayerDetached(Entity<InsideStasisComponent> stasised, ref LocalPlayerDetachedEvent args)
     {
         _overlayManager.RemoveOverlay(_overlay);
     }
 
-    private void OnStasisInit(Entity<Shared.ChronoLegionnaire.Components.InsideStasisComponent> stasised, ref ComponentInit args)
+    private void OnStasisInit(Entity<InsideStasisComponent> stasised, ref ComponentInit args)
     {
         if (_player.LocalEntity == stasised)
             _overlayManager.AddOverlay(_overlay);
     }
 
-    private void OnStasisShutdown(Entity<Shared.ChronoLegionnaire.Components.InsideStasisComponent> stasised, ref ComponentShutdown args)
+    private void OnStasisShutdown(Entity<InsideStasisComponent> stasised, ref ComponentShutdown args)
     {
         if (_player.LocalEntity == stasised)
         {

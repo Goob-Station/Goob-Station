@@ -1,4 +1,3 @@
-using Content.Shared.Mindcontrol;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
 

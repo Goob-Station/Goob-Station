@@ -1,3 +1,4 @@
+using Content.Shared._Goobstation.Chemistry.SolutionCartridge;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Interaction;
@@ -5,7 +6,7 @@ using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 
-namespace Content.Shared._Goobstation.Chemistry.SolutionCartridge;
+namespace Content.Goobstation.Shared.Chemistry.SolutionCartridge;
 
 public sealed class SolutionCartridgeSystem : EntitySystem
 {

@@ -3,7 +3,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Chemistry.SolutionCartridge;
+namespace Content.Goobstation.Shared.Chemistry.SolutionCartridge;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SolutionCartridgeReceiverComponent : Component

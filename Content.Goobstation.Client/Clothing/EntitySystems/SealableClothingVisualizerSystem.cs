@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Client.Clothing;
+using Content.Goobstation.Client.Clothing.Components;
 using Content.Goobstation.Shared.Clothing;
 using Content.Shared.Clothing;
 using Content.Shared.Item;
@@ -7,17 +8,17 @@ using Robust.Client.GameObjects;
 
 namespace Content.Goobstation.Client.Clothing.EntitySystems;
 
-public sealed class SealableClothingVisualizerSystem : VisualizerSystem<Components.SealableClothingVisualsComponent>
+public sealed class SealableClothingVisualizerSystem : VisualizerSystem<SealableClothingVisualsComponent>
 {
     [Dependency] private readonly SharedItemSystem _itemSystem = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<Components.SealableClothingVisualsComponent, GetEquipmentVisualsEvent>(OnGetEquipmentVisuals, after: new[] { typeof(ClientClothingSystem) });
+        SubscribeLocalEvent<SealableClothingVisualsComponent, GetEquipmentVisualsEvent>(OnGetEquipmentVisuals, after: new[] { typeof(ClientClothingSystem) });
     }
 
-    protected override void OnAppearanceChange(EntityUid uid, Components.SealableClothingVisualsComponent component, ref AppearanceChangeEvent args)
+    protected override void OnAppearanceChange(EntityUid uid, SealableClothingVisualsComponent component, ref AppearanceChangeEvent args)
     {
         if (!AppearanceSystem.TryGetData<bool>(uid, SealableClothingVisuals.Sealed, out var isSealed, args.Component))
             return;
@@ -30,7 +31,7 @@ public sealed class SealableClothingVisualizerSystem : VisualizerSystem<Componen
         _itemSystem.VisualsChanged(uid);
     }
 
-    private void OnGetEquipmentVisuals(Entity<Components.SealableClothingVisualsComponent> sealable, ref GetEquipmentVisualsEvent args)
+    private void OnGetEquipmentVisuals(Entity<SealableClothingVisualsComponent> sealable, ref GetEquipmentVisualsEvent args)
     {
         var (uid, comp) = sealable;
 
