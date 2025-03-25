@@ -76,3 +76,21 @@
   - type: Tag
     tags:
     - HighRiskItem
+
+- type: entity
+  name: syringe pistol
+  parent: [ BaseSyringeGun, BaseSyndicateContraband ]
+  id: SyringePistol
+  description: An illegally modified syringe gun that pierces the skin better and can fit in pockets.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+    layers:
+    - state: syringe_gun
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  - type: SyringeGun
+    injectionSpeedMultiplier: 2

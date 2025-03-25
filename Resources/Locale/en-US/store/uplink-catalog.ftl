@@ -223,9 +223,6 @@ uplink-decoy-kit-desc = State-of-the-art distraction technology straight from RN
 uplink-chemistry-kit-name = Chemical Synthesis Kit
 uplink-chemistry-kit-desc = A starter kit for the aspiring chemist, notably includes a chemical payload and timer, a hyperzine syringe, and two vials of vestine for all your criminal needs!
 
-uplink-dart-syringe-gun-name = Dart Gun
-uplink-dart-syringe-gun-desc = This gun applies inside chemicals to its regenerating dart supply, allowing distantly heal allies or commit war crimes by poisoning foes.
-
 uplink-knives-kit-name = Throwing Knives Kit
 uplink-knives-kit-desc = A set of 4 syndicate branded throwing knives, perfect for embedding into the body of your victims.
 
@@ -466,6 +463,3 @@ uplink-business-card-desc = A business card that you can give to someone to demo
 
 uplink-fake-mindshield-name = Fake Mindshield
 uplink-fake-mindshield-desc = A togglable implant capable of mimicking the same transmissions a real mindshield puts out when on, tricking capable Heads-up displays into thinking you have a mindshield (Nanotrasen brand implanter not provided.)
-
-uplink-beenades-name = Beenades
-uplink-beenades-desc = A non-explosive grenade full of... bees?! NOT THE BEES!!!

@@ -146,7 +146,7 @@
     - id: Jug
     - id: LargeBeaker
     - id: OmnimedToolSyndie
-    - id: DartSyringeGun
+    - id: DartGun
     - id: EpinephrineChemistryBottle
       amount: 2
     - id: EphedrineChemistryBottle

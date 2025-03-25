@@ -1,0 +1,14 @@
+- type: entity
+  parent: BaseUplinkRadio
+  id: LoneOpsUplink350TC
+  suffix: LoneOp
+  components:
+  - type: Store
+    balance:
+      Telecrystal: 350
+  - type: Tag
+    tags:
+    - NukeOpsUplink
+    - NukeOpsCommanderUplink
+    - LoneOpsUplink
+s

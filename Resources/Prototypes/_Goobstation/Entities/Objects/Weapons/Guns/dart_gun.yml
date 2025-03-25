@@ -1,7 +1,7 @@
 - type: entity
   name: dart gun
   parent: [ BaseItem, BaseSyndicateContraband ]
-  id: DartSyringeGun
+  id: DartGun
   description: 'The label reads: "Interdyne Pharmaceutics is not responsible for Geneva Convention violations caused by improper use."'
   components:
   - type: Sprite
@@ -30,7 +30,7 @@
   - type: SolutionContainerManager
     solutions:
       solution:
-        maxVol: 100
+        maxVol: 25
   - type: RefillableSolution
     solution: solution
   - type: ExaminableSolution
