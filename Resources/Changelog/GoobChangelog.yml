@@ -6648,3 +6648,9 @@ Entries:
       message: Hammer recipe to lathes, good for bashing skulls in.
   id: 769
   time: '2025-03-25T05:07:21.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Monkies can no longer loot the syndicate armory unscathed.
+  id: 770
+  time: '2025-03-25T05:09:03.0000000+00:00'
