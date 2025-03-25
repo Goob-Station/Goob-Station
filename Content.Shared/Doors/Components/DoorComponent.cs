@@ -296,6 +296,26 @@ public sealed partial class DoorComponent : Component
 
     [DataField(customTypeSerializer: typeof(ConstantSerializer<DrawDepthTag>))]
     public int ClosedDrawDepth = (int) DrawDepth.DrawDepth.Doors;
+
+    // <Goobstation>
+    /// <summary>
+    /// Fixture id collisions with which open the door. Used for predictive door opening. Unused if null.
+    /// </summary>
+    [DataField]
+    public string? ProximityFixtureId = null; // unused if null
+
+    /// <summary>
+    /// Affects how towards the door we have to be going for it to proximity open
+    /// </summary>
+    [DataField]
+    public float ProximityOpenThreshold = 0.7f;
+
+    /// <summary>
+    /// How fast you have to be going for the door to proximity open
+    /// </summary>
+    [DataField]
+    public float ProximityOpenSpeedThreshold = 1.5f; // doesn't proximity open if you're crawling
+    // </Goobstation>
 }
 
 [Serializable, NetSerializable]
