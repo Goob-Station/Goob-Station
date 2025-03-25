@@ -431,6 +431,7 @@
   - type: Access
     groups:
     - AllAccess
+    - Silicon
   - type: Eye
     drawFov: false
   - type: Examiner
@@ -443,6 +444,9 @@
     - HideContextMenu
     - StationAi
     - NoConsoleSound
+  - type: StartingMindRole
+    mindRole: "MindRoleSiliconBrain"
+    silent: true
 
 # Hologram projection that the AI's eye tracks.
 - type: entity
@@ -504,6 +508,9 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
+  - type: StartingMindRole
+    mindRole: "MindRoleSiliconBrain"
+    silent: true
 
 - type: entity
   id: PlayerBorgSyndicateAssaultBattery
@@ -606,7 +613,7 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHigh
   - type: RandomMetadata
-    nameSegments: [names_borg]
+    nameSegments: [NamesBorg]
 
 - type: entity
   id: PlayerBorgDerelictGhostRole

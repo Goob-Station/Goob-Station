@@ -36,9 +36,6 @@ namespace Content.Shared.Chemistry.Components
         public string? SolutionName;
 
         [DataField]
-        public string InitialName = string.Empty;
-
-        [DataField]
         public string InitialDescription = string.Empty;
 
         /// <summary>

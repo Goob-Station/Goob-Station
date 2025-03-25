@@ -46,6 +46,8 @@
       name: blob-carrier-role-name
       description: blob-carrier-role-desc
       rules: blob-carrier-role-rules
+      mindRoles:
+      - MindRoleGhostRoleSoloAntagonist
       raffle:
         settings: default
       requirements:

@@ -126,6 +126,8 @@
       name: ghost-role-information-blobbernaut-name
       description: ghost-role-information-blobbernaut-description
       rules: You are an antagonist, defend your blob core!
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
       raffle:
         settings: short
     - type: GhostTakeoverAvailable
@@ -232,6 +234,8 @@
       name: ghost-role-information-blob-name
       description: ghost-role-information-blob-description
       rules: You are an antagonist, destroy the station!
+      mindRoles:
+      - MindRoleGhostRoleSoloAntagonist
       requirements:
       - !type:OverallPlaytimeRequirement
         time: 18000 #5 hours

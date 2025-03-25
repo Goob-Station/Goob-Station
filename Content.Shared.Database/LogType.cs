@@ -456,7 +456,12 @@ public enum LogType
     AdminCommands = 98,
 
     /// <summary>
+    /// A player was selected or assigned antag status
+    /// </summary>
+    AntagSelection = 99,
+
+    /// <summary>
     /// GameDirector related game interactions.
     /// </summary>
-    GameDirector = 99, // Goobstation
+    GameDirector = 100, // Goobstation
 }

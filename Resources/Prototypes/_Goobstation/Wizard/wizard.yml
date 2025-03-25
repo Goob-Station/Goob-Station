@@ -45,6 +45,8 @@
     name: roles-wizard-name
     description: roles-wizard-objective
     rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:

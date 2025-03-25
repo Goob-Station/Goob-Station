@@ -6,8 +6,11 @@
     head: ClothingHeadHatWizard
     outerClothing: ClothingOuterWizard
     shoes: ClothingShoesWizard
-    id: PassengerPDA
-    ears: ClothingHeadsetService
+    id: WizardPDA
+    ears: ClothingHeadsetAltCommand
+    belt: ClothingBeltWand
+    # pocket1: TODO: Include wizard teleport scroll
+    pocket2: WizardsGrimoire
   storage:
     back:
     - BoxSurvivalSlots # Goobstation - Slots Based Survival Boxes

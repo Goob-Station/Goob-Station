@@ -23,12 +23,6 @@
     count: 3
 
 - type: localizedDataset
-  id: MailDrobeAds
-  values:
-    prefix: advertisement-maildrobe-
-    count: 2
-
-- type: localizedDataset
   id: SweetToofAds
   values:
     prefix: advertisement-sweettoof-
