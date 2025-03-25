@@ -41,13 +41,19 @@ public sealed class GhostBarSystem : EntitySystem
         SubscribeLocalEvent<GhostBarPlayerComponent, MindRemovedMessage>(OnPlayerGhosted);
     }
 
-    const string MapPath = "Maps/_Goobstation/Nonstations/ghostbar.yml";
+    const string GhostbarMap = "Maps/_Goobstation/Nonstations/ghostbar.yml";
+    const string AntagplanetMap = "Maps/_Goobstation/Nonstations/antagplanet.yml";
     private void OnRoundStart(RoundStartingEvent ev)
     {
-        var resPath = new ResPath(MapPath);
+        var resPath = new ResPath(GhostbarMap);
+        var AntagMapPath = new ResPath(AntagplanetMap);
 
         if (_mapLoader.TryLoadMap(resPath, out var map, out _, new DeserializationOptions { InitializeMaps = true }))
             _mapSystem.SetPaused(map.Value.Comp.MapId, false);
+
+
+        if (_mapLoader.TryLoadMap(AntagMapPath, out var antagmap, out _, new DeserializationOptions { InitializeMaps = true }))
+            _mapSystem.SetPaused(antagmap.Value.Comp.MapId, false);
     }
 
     public void SpawnPlayer(GhostBarSpawnEvent msg, EntitySessionEventArgs args)
