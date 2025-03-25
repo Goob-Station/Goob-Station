@@ -6725,3 +6725,13 @@ Entries:
       message: Access-less doors now open ahead of time when approached.
   id: 780
   time: '2025-03-25T13:16:38.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Spears are no longer destructible.
+    - type: Tweak
+      message: >-
+        Spears can now contain up to 5u of chemicals, but inject 1u on melee and
+        2u on throw.
+  id: 781
+  time: '2025-03-25T13:17:50.0000000+00:00'
