@@ -34,4 +34,4 @@
         - MedicalPatch # Goobstation
   #- type: Dumpable # Goobstation edit
   - type: ExplosionResistance # Goobstation
-    damageCoefficient: 0.5
+    damageCoefficient: 0.25

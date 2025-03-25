@@ -39,7 +39,7 @@
         - Defibrillator # Goobstation
         - GunApplySolution # Goobstation - Syndicate dart gun
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.25
 
 - type: entity
   parent: [ ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCentcommContraband ]
@@ -118,7 +118,7 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Belt/evil_chem_bag.rsi
   - type: ExplosionResistance
-    damageCoefficient: 0.05
+    damageCoefficient: 0.01
   - type: Storage
     whitelist:
       tags:
