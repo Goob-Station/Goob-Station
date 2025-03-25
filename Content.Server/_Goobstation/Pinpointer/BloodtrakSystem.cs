@@ -34,7 +34,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
     /// </summary>
     /// <param name="args"></param>
     /// <returns>The UID of the entity with matching DNA.</returns>
-    public EntityUid GetPuddleDnaOwner(AfterInteractEvent args)
+    private EntityUid GetPuddleDnaOwner(AfterInteractEvent args)
     {
         // Cancel if the target is not valid, if the puddle is not scannable, or if it is not a puddle.
         // The reason it is puddle only is to prevent cheese with a via.
