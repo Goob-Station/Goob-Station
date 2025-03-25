@@ -392,6 +392,55 @@
     tags:
     - AthiestsFedora
 
+- type: entity
+  name: Honkermother's Maw
+  parent: BaseNullrod
+  id: HonkmotherMaw
+  description: a-HEAD of you lies a path most hilarious.
+  components:
+  - type: Item
+    size: Huge
+    sprite: _ShitChap/Objects/Weapons/Nullrod/honkmother.rsi
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/honkmother.rsi
+    state: icon
+  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
+    DamageOnUntrainedUse:
+      types:
+        Heat: 15
+        Holy: 25
+    UntrainedUseString: nullrod-honkmother-untrained-usage-popup
+  - type: Reflect # Only blocks magic projectiles
+    reflectProb: 0.9
+    reflects:
+    - Magic
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Blunt: 3
+        Holy: 10
+    soundHit:
+        collection: RubberHammer
+        params:
+            variation: 0.03
+            volume: 3
+  - type: KnockdownOnHit
+    duration: 0.2
+    dropHeldItemsBehavior: DropIfStanding # Goob edit
+  - type: UseDelay
+    delay: 0.5
+  - type: EmitSoundOnUse
+    sound:
+      collection: BikeHorn
+      params:
+        variation: 0.125
+  - type: DisarmMalus
+    malus: 0
+  - type: Tag
+    tags:
+    - Nullrod
+
 # Casul & Jackal
 - type: entity
   name: casul

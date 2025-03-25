@@ -118,10 +118,6 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: toolbox
-  - type: AltarSource
-    rodProto: Throngler
-    effectProto: EffectSpark
-    soundPath: /Audio/Effects/hallelujah.ogg
 
 - type: entity
   id: AltarSpaceChristian
@@ -453,4 +449,8 @@
     state: full
   - type: Construction
     graph: BananiumAltarGraph
-    node: bananiumAltar
+    node: bananiumAltar'
+  - type: AltarSource
+    rodProto: HonkmotherMaw # Shitchap
+    effectProto: EffectSpark
+    soundPath: /Audio/Items/bikehorn.ogg

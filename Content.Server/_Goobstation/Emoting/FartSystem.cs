@@ -14,7 +14,7 @@ using Content.Shared.Camera;
 using System.Numerics;
 using Content.Server.Afk.Events;
 using Content.Shared._Goobstation.Religion;
-using Content.Server.Bible.Components;
+using Content.Shared.Bible.Components;
 using Content.Shared.Gibbing.Systems;
 using Content.Shared.Species;
 using Content.Shared.Body.Systems;
