@@ -6719,3 +6719,9 @@ Entries:
       message: Pizza party in the uplink
   id: 779
   time: '2025-03-25T13:04:35.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Access-less doors now open ahead of time when approached.
+  id: 780
+  time: '2025-03-25T13:16:38.0000000+00:00'
