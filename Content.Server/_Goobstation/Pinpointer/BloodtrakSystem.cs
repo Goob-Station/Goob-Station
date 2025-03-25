@@ -132,6 +132,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
 
             // Deactivate and schedule next activation.
             TogglePinpointer(uid, tracker);
+            tracker.Target = null;
             tracker.NextExecutionTime = _gameTiming.CurTime + tracker.TrackingDuration;
             Dirty(uid, tracker);
         }
