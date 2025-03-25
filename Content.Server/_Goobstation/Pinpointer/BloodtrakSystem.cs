@@ -130,23 +130,24 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
     {
         base.Update(frameTime);
 
-
-        // because target or pinpointer can move
-        // we need to update pinpointers arrow each frame
         var query = EntityQueryEnumerator<BloodtrakComponent>();
-        while (query.MoveNext(out var uid, out var pinpointer))
+        while (query.MoveNext(out var uid, out var tracker))
         {
-            UpdateDirectionToTarget(uid, pinpointer);
+            // Skip inactive trackers immediately
+            if (!tracker.IsActive) continue;
 
-            // If the current time is greater than the tracking duration, turn off the tracker.
-            if (_gameTiming.CurTime <= pinpointer.NextExecutionTime)
+            // Update direction only for active trackers
+            UpdateDirectionToTarget(uid, tracker);
+
+            // Check expiration using cached time
+            if (_gameTiming.CurTime <= tracker.NextExecutionTime)
                 continue;
 
-            pinpointer.IsActive = false;
-            pinpointer.NextExecutionTime = _gameTiming.CurTime + pinpointer.TrackingDuration;
-
+            // Deactivate and schedule next activation
+            tracker.IsActive = false;
+            tracker.NextExecutionTime = _gameTiming.CurTime + tracker.TrackingDuration;
+            Dirty(uid, tracker);
         }
-
     }
 
     /// <summary>
