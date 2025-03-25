@@ -6,6 +6,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Light.Components;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Whitelist;
+using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 
@@ -110,11 +111,15 @@ public abstract partial class SharedWeaponAttachmentSystem : EntitySystem
         if (attached)
         {
             meleeComp.Damage = new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>("Slash"), 12);
+            meleeComp.AttackRate = 1.5f;
+            meleeComp.HitSound = new SoundPathSpecifier("/Audio/Weapons/bladeslice.ogg");
             AddSharp(uid);
         }
         else
         {
             meleeComp.Damage = new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>("Blunt"), 5);
+            meleeComp.AttackRate = 1f;
+            meleeComp.HitSound = null;
             RemSharp(uid);
         }
 
