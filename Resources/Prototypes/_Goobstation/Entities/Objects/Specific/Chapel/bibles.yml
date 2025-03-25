@@ -21,3 +21,35 @@
   - type: Item
     sprite: _Goobstation/Objects/Specific/Chapel/tripitaka.rsi
 ## Public Domain YAML Ends
+
+- type: entity
+  parent: Bible
+  name: Quaran
+  description: "Inshallah."
+  id: BibleQuaran
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Chapel/allah.rsi
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Chapel/allah.rsi
+
+- type: entity
+  parent: Bible
+  name: Tanakh
+  description: "Choose life, that you and your offspring may live."
+  id: BibleTanakh
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    layers:
+    - state: scroll2
+  - type: Item
+    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    size: Small
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    damage:
+      types:
+        Holy: 25
+        Slash: 1
