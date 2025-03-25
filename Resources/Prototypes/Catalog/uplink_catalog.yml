@@ -1988,10 +1988,9 @@
   id: UplinkDartSyringeGun
   name: uplink-dart-syringe-gun-name
   description: uplink-dart-syringe-gun-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi, state: icon-dart }
   productEntity: DartSyringeGun
   cost:
-    Telecrystal: 20 # Hypopen is better
+    Telecrystal: 20
   categories:
   - UplinkJob
   conditions:

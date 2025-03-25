@@ -81,24 +81,25 @@
   id: SyndicateOperativeMedicFull
   parent: SyndicateOperativeGearFullNoUplink
   equipment:
+    back: ClothingBackpackDuffelSyndicateMedical # Goobstation
     eyes: ClothingEyesHudSyndicateAgent
     #outerClothing: ClothingOuterHardsuitSyndieMedic # goobstation - duke nukies
     shoes: ClothingShoesBootsMagSyndie
     id: SyndiAgentPDA
-    belt: ClothingBeltMilitaryWebbingMedFilled
+    belt: ClothingBeltChemBagSyndiFilled # Goobstation
     pocket2: BaseUplinkRadio225TCMedic
   storage:
     back:
     - SyndiHypo
-    - SawAdvanced
-    - Cautery
+    #- SawAdvanced # Shitmed
+    #- Cautery # Shitmed
     - CombatKnife
     - WeaponPistolViper
     - PinpointerSyndicateNuclear
-    - HandheldHealthAnalyzer
+    #- HandheldHealthAnalyzer # Goobstation
     - CombatMedipen
     - DeathAcidifierImplanter
-    - OmnimedToolSyndie # Shitmed
+    - MedkitCombatFilled # Goobstation
 
 #Lone Operative Gear
 - type: startingGear

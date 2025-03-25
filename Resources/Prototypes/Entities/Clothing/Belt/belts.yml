@@ -288,6 +288,7 @@
         - SurgeryTool # Shitmed Change
         - Defibrillator # Goobstation
         - SyringeGun # Goobstation
+        - GunApplySolution # Goobstation - Syndicate dart gun
   - type: ItemMapper
     mapLayers:
       bottle:
@@ -669,7 +670,7 @@
   - type: Clothing
     sprite: Clothing/Belt/militarywebbing.rsi
   - type: ExplosionResistance
-    damageCoefficient: 0.05 #goobstation
+    damageCoefficient: 0.1 # Goobstation
 
 - type: entity
   parent: ClothingBeltMilitaryWebbing
