@@ -70,6 +70,9 @@
   id: CursedAnimalMask
 
 - type: Tag
+  id: DroneMind
+
+- type: Tag
   id: Durand
 
 - type: Tag
@@ -185,6 +188,9 @@
 
 - type: Tag
   id: Heart
+
+- type: Tag
+  id: HereticItem
 
 - type: Tag
   id: HEVSuit
@@ -313,6 +319,9 @@
   id: StasisCage
 
 - type: Tag
+  id: Steel
+
+- type: Tag
   id: Stomach
 
 - type: Tag
@@ -362,6 +371,9 @@
 
 - type: Tag
   id: WeaponPistolJackal
+
+- type: Tag
+  id: WinterCoat
 
 - type: Tag
   id: WizardHat

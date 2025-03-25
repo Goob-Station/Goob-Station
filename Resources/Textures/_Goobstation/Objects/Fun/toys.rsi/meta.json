@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-4.0",
-    "copyright": "BeeRobynn, plyush, and bellcatsu",
+    "copyright": "BeeRobynn, plyush, bellcatsu , George Gimme, and Ahti",
     "size": {
         "x": 32,
         "y": 32
@@ -30,6 +30,17 @@
                     0.25
                 ]
             ]
+        },
+        {
+            "name": "bingleing"
+        },
+        {
+            "name": "bongle",
+            "directions": 4
+        },
+        {
+            "name": "bingle_pony",
+            "directions": 4
         }
     ]
 }

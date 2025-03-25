@@ -54,6 +54,16 @@
         - FullTileMask
         layer:
         - AirlockLayer
+      # Goobstation
+      proximity:
+        shape:
+          !type:PhysShapeCircle
+          radius: 2.5
+        hard: false
+        layer:
+        - LowImpassable
+        - MidImpassable
+        - HighImpassable
   - type: LayerChangeOnWeld
     unWeldedLayer: AirlockLayer
     weldedLayer: WallLayer
@@ -72,6 +82,8 @@
       path: /Audio/Machines/airlock_close.ogg
     denySound:
       path: /Audio/Machines/airlock_deny.ogg
+    # Goobstation
+    proximityFixtureId: proximity
   - type: ContainerContainer
     containers:
       board: !type:Container
@@ -214,6 +226,16 @@
         - FullTileMask
         layer:     #removed opaque from the layer, allowing lasers to pass through glass airlocks
         - GlassAirlockLayer
+      # Goobstation
+      proximity:
+        shape:
+          !type:PhysShapeCircle
+          radius: 2.5
+        hard: false
+        layer:
+        - LowImpassable
+        - MidImpassable
+        - HighImpassable
   - type: LayerChangeOnWeld
     unWeldedLayer: GlassAirlockLayer
     weldedLayer: GlassLayer

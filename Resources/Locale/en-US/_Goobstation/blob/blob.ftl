@@ -123,7 +123,7 @@ blob-downgrade-action-desc = Turns the selected tile back into a normal blob to 
 # Ghost role
 blob-carrier-role-name = Blob carrier
 blob-carrier-role-desc =  A blob-infected creature.
-blob-carrier-role-rules = You are an antagonist. You have 4 minutes before you transform into a blob.
+blob-carrier-role-rules = You are an antagonist. You have 10 minutes before you transform into a blob.
                         Use this time to find a safe spot on the station. Keep in mind that you will be very weak right after the transformation.
 blob-carrier-role-greeting = You are a carrier of Blob. Find a secluded place at the station and transform into a Blob. Turn the station into a mass and its inhabitants into your servants. We are all Blobs.
 

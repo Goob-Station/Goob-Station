@@ -97,6 +97,7 @@
     - type: StationLimitedNetwork
     - type: WirelessNetworkConnection
       range: 500
+    - type: MansusGraspBlockTrigger # Goobstation
     - type: TriggerOnMobstateChange
       mobState:
       - Critical
@@ -323,6 +324,7 @@
       whitelist:
         components:
         - MobState # admeme implanting a chair with rattle implant needs to give the chair mobstate so it can die first
+    - type: MansusGraspBlockTrigger # Goobstation
     - type: TriggerOnMobstateChange
       mobState:
       - Critical

@@ -30,7 +30,8 @@ ghost-role-information-silicon-rules = You are a [color=#6495ed][bold]Silicon[/b
                                        You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
 
 ghost-role-information-mouse-name = Mouse
-ghost-role-information-mouse-description = A hungry and mischievous mouse.
+# Goobstation
+ghost-role-information-mouse-description = A hungry and mischievous mouse. Use +p to talk to other mice.
 
 ghost-role-information-mothroach-name = Mothroach
 ghost-role-information-mothroach-description = A cute but mischievous mothroach.

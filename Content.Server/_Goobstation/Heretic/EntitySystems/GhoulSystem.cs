@@ -67,7 +67,7 @@ public sealed partial class GhoulSystem : EntitySystem
         if (TryComp<MobThresholdsComponent>(ent, out var th))
         {
             _threshold.SetMobStateThreshold(ent, ent.Comp.TotalHealth, MobState.Dead, th);
-            _threshold.SetMobStateThreshold(ent, ent.Comp.TotalHealth / 1.25f, MobState.Critical, th);
+            _threshold.SetMobStateThreshold(ent, ent.Comp.TotalHealth * 0.99f, MobState.Critical, th);
         }
 
         MakeSentientCommand.MakeSentient(ent, EntityManager);
@@ -119,13 +119,6 @@ public sealed partial class GhoulSystem : EntitySystem
 
     private void OnInit(Entity<GhoulComponent> ent, ref ComponentInit args)
     {
-        foreach (var look in _lookup.GetEntitiesInRange<HereticComponent>(Transform(ent).Coordinates, 1.5f))
-        {
-            if (ent.Comp.BoundHeretic == null)
-                ent.Comp.BoundHeretic = GetNetEntity(look);
-            else break;
-        }
-
         GhoulifyEntity(ent);
     }
     private void OnTakeGhostRole(Entity<GhoulComponent> ent, ref TakeGhostRoleEvent args)
