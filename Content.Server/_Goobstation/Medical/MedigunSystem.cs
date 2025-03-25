@@ -1,10 +1,13 @@
 ﻿using System.Numerics;
 using Content.Server.Body.Systems;
+using Content.Server.Power.EntitySystems;
+using Content.Server.PowerCell;
 using Content.Shared._Goobstation.Medical;
 using Content.Shared._Goobstation.Medical.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
+using Content.Shared.Examine;
 using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Item.ItemToggle;
@@ -26,11 +29,13 @@ public sealed class MedigunSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedActionsSystem _action = default!;
     [Dependency] private readonly SharedExplosionSystem _explosion = default!;
+    [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
+    [Dependency] private readonly PowerCellSystem _powerCell = default!;
 
     private EntityQuery<DamageableComponent> _damageableQuery;
 
@@ -94,7 +99,7 @@ public sealed class MedigunSystem : EntitySystem
     }
 
     /// <summary>
-    /// Returns false if target had failed to be
+    /// Returns false if target had failed to be healed.
     /// </summary>
     private bool MediGunHealingTick(Entity<MediGunComponent> ent, EntityUid healed)
     {
@@ -105,9 +110,17 @@ public sealed class MedigunSystem : EntitySystem
         var mediGunPos = _xform.GetMapCoordinates(ent);
         var distance = (mediGunPos.Position - healedPos.Position).Length();
 
-        if (distance > comp.MaxRange || healedPos.MapId != mediGunPos.MapId)
+        if (distance > comp.MaxRange ||
+            healedPos.MapId != mediGunPos.MapId)
         {
             // Disable
+            return false;
+        }
+
+        var batteryToWithdraw = comp.UberActivated ? comp.UberBatteryWithdraw: comp.BatteryWithdraw;
+        if (!_battery.TryUseCharge(ent, batteryToWithdraw))
+        {
+            _battery.SetCharge(ent, 0f); // because it works wonky
             return false;
         }
 
@@ -153,7 +166,7 @@ public sealed class MedigunSystem : EntitySystem
 
     private void OnActivate(EntityUid uid, MediGunComponent component, AfterInteractEvent args)
     {
-        if (args.Handled || args.Target == null)
+        if (args.Handled || args.Target == null || args.Target.Value == args.User)
             return;
 
         if (_useDelay.IsDelayed(uid))
@@ -213,6 +226,11 @@ public sealed class MedigunSystem : EntitySystem
 
         // Disable our gun
         DisableAllConnections((uid, component));
+    }
+
+    private void OnMedigunExamined(EntityUid uid, MediGunComponent component, ExaminedEvent args)
+    {
+        _powerCell.OnBatteryExamined(uid, null, args); // Goobstation
     }
 
     private void OnUber(EntityUid uid, MediGunComponent component, MediGunUberActivateActionEvent args)

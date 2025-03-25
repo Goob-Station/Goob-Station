@@ -14,6 +14,8 @@
   - type: Item
     sprite: _Goobstation/Objects/Specific/Medical/medigun.rsi
   - type: MediGun
+    batteryWithdraw: 0.5 # 40 seconds
+    uberBatteryWithdraw: 0.5
     healing:
       types:
         Blunt: -3
@@ -32,29 +34,23 @@
     intensitySlope: 3
     totalIntensity: 20
     canCreateVacuum: false
-  # Power cell things
   - type: ItemToggle
-    predictable: false # issues between ToggleCellDraw and ItemToggleActiveSound
+    predictable: false
     soundActivate:
       path: /Audio/Items/flashlight_on.ogg
     soundDeactivate:
       path: /Audio/Items/flashlight_off.ogg
     soundFailToActivate:
       path: /Audio/Machines/button.ogg
-  - type: PowerCellSlot
-    cellSlotId: cell_slot
-  - type: ContainerContainer
-    containers:
-      cell_slot: !type:ContainerSlot
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellSmall
-  - type: ToggleCellDraw
-  - type: PowerCellDraw
-    drawRate: 2.4 # ~5 minutes on a medium power cell.
-    useRate: 0
+  - type: Battery
+    maxCharge: 20
+    startingCharge: 20
+  - type: RechargeableBlocking
+    chargedRechargeRate: 0
+    dischargedRechargeRate: 1.5
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 0
   - type: UseDelay
     delay: 1.0
   # Visuals

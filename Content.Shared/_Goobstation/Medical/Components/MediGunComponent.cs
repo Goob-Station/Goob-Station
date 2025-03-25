@@ -116,6 +116,19 @@ public sealed partial class MediGunComponent : Component
     [DataField]
     public float MaxRange = 6f;
 
+    /// <summary>
+    /// Charge that is removed from the battery every healing tick for one entity.
+    /// </summary>
+    [DataField]
+    public float BatteryWithdraw = 10f;
+
+    /// <summary>
+    /// Charge that is removed from the battery every
+    /// healing tick for one entity While uber mode is active.
+    /// </summary>
+    [DataField]
+    public float UberBatteryWithdraw = 15f;
+
     [DataField, ViewVariables]
     public SpriteSpecifier BeamSprite =
         new SpriteSpecifier.Rsi(new ResPath("_Goobstation/Objects/Specific/Medical/medigun.rsi"), "beam");
