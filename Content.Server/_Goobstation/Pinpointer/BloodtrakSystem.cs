@@ -1,16 +1,14 @@
-using System.Linq;
 using System.Numerics;
 using Content.Server.Forensics;
-using Content.Server.Shuttles.Events;
 using Content.Shared._Gobostation.Pinpointer;
 using Content.Shared._Goobstation.Pinpointer;
+using Content.Shared.Fluids.Components;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Pinpointer;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 
 namespace Content.Server._Goobstation.Pinpointer;
 
@@ -23,13 +21,9 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
-    private EntityQuery<TransformComponent> _xformQuery;
-
     public override void Initialize()
     {
         base.Initialize();
-
-        _xformQuery = GetEntityQuery<TransformComponent>();
 
         SubscribeLocalEvent<BloodtrakComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<BloodtrakComponent, ActivateInWorldEvent>(OnActivate);
@@ -48,6 +42,9 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         var solutionsDna = _forensicsSystem.GetSolutionsDNA(targetEntity);
         var popupText = Loc.GetString("bloodtrak-dna-saved");
         _popupSystem.PopupEntity(popupText, args.User, args.User);
+
+        if (!TryComp<PuddleComponent>(args.Target, out var puddle))
+            return default;
 
         // Early exit if no DNA found
         if (solutionsDna?.Count == 0)
