@@ -1,9 +1,6 @@
 using System.Linq;
-using Content.Shared._Goobstation.MartialArts.Components;
-using Content.Shared._Goobstation.MartialArts.Events;
-using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Components;
+using Content.Goobstation.Shared.MartialArts.Components;
+using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
@@ -11,7 +8,7 @@ using Content.Shared.Popups;
 using Content.Shared.Weapons.Reflect;
 using Robust.Shared.Audio;
 
-namespace Content.Shared._Goobstation.MartialArts;
+namespace Content.Goobstation.Shared.MartialArts;
 
 public partial class SharedMartialArtsSystem
 {
@@ -112,16 +109,14 @@ public partial class SharedMartialArtsSystem
         if (!downed)
         {
             var saying =
-                martialArtProto.RandomSayings.ElementAt(
-                    _random.Next(martialArtProto.RandomSayings.Count));
+                Enumerable.ElementAt<LocId>(martialArtProto.RandomSayings, (int)_random.Next(martialArtProto.RandomSayings.Count));
             var ev = new SleepingCarpSaying(saying);
             RaiseLocalEvent(ent, ev);
         }
         else
         {
             var saying =
-                martialArtProto.RandomSayingsDowned.ElementAt(
-                    _random.Next(martialArtProto.RandomSayingsDowned.Count));
+                Enumerable.ElementAt<LocId>(martialArtProto.RandomSayingsDowned, (int)_random.Next(martialArtProto.RandomSayingsDowned.Count));
             var ev = new SleepingCarpSaying(saying);
             RaiseLocalEvent(ent, ev);
         }
@@ -138,7 +133,7 @@ public partial class SharedMartialArtsSystem
         {
             DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
             _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
-            _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
+            _stun.TryKnockdown(target, TimeSpan.FromSeconds((long)proto.ParalyzeTime), true);
         }
         else
         {

@@ -1,6 +1,6 @@
-using Content.Shared._Goobstation.MartialArts;
+using Content.Goobstation.Shared.MartialArts;
 
-namespace Content.Client._Goobstation.MartialArts;
+namespace Content.Goobstation.Client.MartialArts;
 
 /// <summary>
 /// This handles...

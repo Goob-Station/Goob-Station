@@ -1,9 +1,9 @@
+using Content.Goobstation.Shared.MartialArts;
+using Content.Goobstation.Shared.MartialArts.Components;
+using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Server.Chat.Systems;
-using Content.Shared._Goobstation.MartialArts;
-using Content.Shared._Goobstation.MartialArts.Components;
-using Content.Shared._Goobstation.MartialArts.Events;
 
-namespace Content.Server._Goobstation.MartialArts;
+namespace Content.Goobstation.Server.MartialArts;
 
 /// <summary>
 /// Just handles carp sayings for now.

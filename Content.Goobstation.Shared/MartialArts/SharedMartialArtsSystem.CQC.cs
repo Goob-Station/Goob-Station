@@ -1,5 +1,6 @@
-using Content.Shared._Goobstation.MartialArts.Components;
-using Content.Shared._Goobstation.MartialArts.Events;
+using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Shared.MartialArts.Components;
+using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Damage.Components;
@@ -10,7 +11,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Robust.Shared.Audio;
 
-namespace Content.Shared._Goobstation.MartialArts;
+namespace Content.Goobstation.Shared.MartialArts;
 
 public partial class SharedMartialArtsSystem
 {
@@ -62,7 +63,7 @@ public partial class SharedMartialArtsSystem
         ent.Comp.Used = true;
     }
 
-    private void OnGrantCQCExamine(Entity<GrantCqcComponent> ent, ref ExaminedEvent args)
+    private void OnGrantCQCExamine(Entity<Goobstation.Shared.MartialArts.Components.GrantCqcComponent> ent, ref ExaminedEvent args)
     {
         if (ent.Comp.Used)
             args.PushMarkup(Loc.GetString("cqc-manual-used", ("manual", Identity.Entity(ent, EntityManager))));

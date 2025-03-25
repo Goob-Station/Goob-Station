@@ -2,6 +2,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Actions;
 using Content.Goobstation.Common.Changeling;
+using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Server.Changeling.Objectives.Components;
 using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;

@@ -1,14 +1,16 @@
-using Content.Shared._Goobstation.MartialArts.Components;
-using Content.Shared._Goobstation.MartialArts.Events;
+using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Shared.MartialArts.Components;
+using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared.Clothing;
 using Content.Shared.Damage;
 using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.FixedPoint;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio;
 
-namespace Content.Shared._Goobstation.MartialArts;
+namespace Content.Goobstation.Shared.MartialArts;
 
 public partial class SharedMartialArtsSystem
 {
@@ -48,7 +50,9 @@ public partial class SharedMartialArtsSystem
         if(!TryComp<MeleeWeaponComponent>(args.Wearer, out var meleeWeaponComponent))
             return;
 
-        meleeWeaponComponent.Damage = martialArtsKnowledge.OriginalFistDamage;
+        var originalDamage = new DamageSpecifier();
+        originalDamage.DamageDict[martialArtsKnowledge.OriginalFistDamageType] = FixedPoint2.New(martialArtsKnowledge.OriginalFistDamage);
+        meleeWeaponComponent.Damage = originalDamage;
 
         RemComp<MartialArtsKnowledgeComponent>(user);
         RemComp<CanPerformComboComponent>(user);

@@ -1,6 +1,6 @@
 using Content.Shared.Actions;
 
-namespace Content.Shared._Goobstation.MartialArts.Events;
+namespace Content.Goobstation.Shared.MartialArts.Events;
 
 /// <summary>
 /// This handles selecting your krav maga action

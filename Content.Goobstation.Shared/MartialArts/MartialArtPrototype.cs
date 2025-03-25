@@ -1,8 +1,9 @@
-using Content.Shared._Goobstation.MartialArts.Components;
+using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.MartialArts;
+namespace Content.Goobstation.Shared.MartialArts;
 
 [Prototype("martialArt")]
 public sealed class MartialArtPrototype : IPrototype

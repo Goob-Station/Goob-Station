@@ -1,4 +1,6 @@
-using Content.Shared._Goobstation.MartialArts.Components;
+using System.Linq;
+using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._White.Grab;
 using Content.Shared.Actions;
@@ -24,7 +26,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._Goobstation.MartialArts;
+namespace Content.Goobstation.Shared.MartialArts;
 
 /// <summary>
 /// Handles most of Martial Arts Systems.
@@ -220,7 +222,14 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         martialArtsKnowledgeComponent.Blocked = false;
         pullerComponent.StageChangeCooldown /= 2;
 
-        martialArtsKnowledgeComponent.OriginalFistDamage = meleeWeaponComponent.Damage;
+        if (meleeWeaponComponent.Damage.DamageDict.Count != 0)
+        {
+            martialArtsKnowledgeComponent.OriginalFistDamage =
+                meleeWeaponComponent.Damage.DamageDict.Values.ElementAt(0).Float();
+            martialArtsKnowledgeComponent.OriginalFistDamageType =
+                meleeWeaponComponent.Damage.DamageDict.Keys.ElementAt(0);
+        }
+
         var newDamage = new DamageSpecifier();
         newDamage.DamageDict.Add("Blunt", martialArtsPrototype.BaseDamageModifier);
         meleeWeaponComponent.Damage += newDamage;

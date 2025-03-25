@@ -1,5 +1,4 @@
-using Content.Shared.Movement.Components;
-using Content.Shared.Movement.Pulling.Systems;
+using Content.Goobstation.Common.MartialArts;
 
 namespace Content.Shared.Movement.Pulling.Events;
 

@@ -1,6 +1,8 @@
+using System;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Goobstation.MartialArts.Events;
+namespace Content.Goobstation.Common.MartialArts;
 
 /// <summary>
 ///     Raised when a martial arts combo attack is performed. Contains information about

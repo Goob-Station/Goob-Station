@@ -1,8 +1,6 @@
-using Content.Shared._Goobstation.Grab; // Goobstation - Martial Arts
-using Content.Shared._Goobstation.MartialArts.Events; // Goobstation - Martial Arts
-using Content.Shared._EinsteinEngines.Contests; // Goobstation - Grab Intent
-using Content.Shared._Goobstation.Grab;
-using Content.Shared._Goobstation.MartialArts.Components; // Goobstation - Grab Intent
+using Content.Goobstation.Common.MartialArts;
+using Content.Shared._EinsteinEngines.Contests;
+using Content.Shared._Goobstation.Grab; // Goobstation - Grab Intent
 using Content.Shared._White.Grab; // Goobstation
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
@@ -1059,20 +1057,6 @@ public sealed class PullingSystem : EntitySystem
         TrySetGrabStages((puller.Owner, puller.Comp), (pullable.Owner, pullable.Comp), newStage);
         return true;
     }
-}
-
-public enum GrabStage
-{
-    No = 0,
-    Soft = 1,
-    Hard = 2,
-    Suffocate = 3,
-}
-
-public enum GrabStageDirection
-{
-    Increase,
-    Decrease,
 }
 
 // Goobstation

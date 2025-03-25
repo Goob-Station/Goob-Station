@@ -1,6 +1,6 @@
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Goobstation.MartialArts.Events;
+namespace Content.Goobstation.Shared.MartialArts.Events;
 
 [Serializable, NetSerializable, DataDefinition]
 public sealed partial class SleepingCarpGnashingTeethPerformedEvent : EntityEventArgs;

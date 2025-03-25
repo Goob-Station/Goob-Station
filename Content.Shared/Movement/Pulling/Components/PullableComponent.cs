@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.MartialArts;
 using Content.Shared.Alert;
 using Content.Shared.Movement.Pulling.Systems; // Goobstation
 using Robust.Shared.GameStates;

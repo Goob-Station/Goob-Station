@@ -1,16 +1,19 @@
-using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
+using Robust.Shared.Analyzers;
+using Robust.Shared.GameObjects;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.Manager.Attributes;
 
-namespace Content.Shared._Goobstation.MartialArts.Components;
+namespace Content.Goobstation.Common.MartialArts;
 
 [RegisterComponent]
 public sealed partial class MartialArtBlockedComponent : Component
 {
     [DataField]
     public MartialArtsForms Form;
+}
+public abstract partial class GrabStagesOverrideComponent : Component
+{
+    public GrabStage StartingStage = GrabStage.Hard;
 }
 
 [RegisterComponent]
@@ -28,7 +31,11 @@ public sealed partial class MartialArtsKnowledgeComponent : GrabStagesOverrideCo
 
     [DataField]
     [AutoNetworkedField]
-    public DamageSpecifier OriginalFistDamage;
+    public float OriginalFistDamage;
+
+    [DataField]
+    [AutoNetworkedField]
+    public string OriginalFistDamageType;
 }
 
 public enum MartialArtsForms

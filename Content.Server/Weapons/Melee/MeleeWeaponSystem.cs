@@ -23,7 +23,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Numerics;
-using Content.Shared._Goobstation.MartialArts.Events;
+using Content.Goobstation.Common.MartialArts;
 
 namespace Content.Server.Weapons.Melee;
 

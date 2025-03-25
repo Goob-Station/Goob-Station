@@ -1,11 +1,12 @@
-using Content.Shared._Goobstation.MartialArts.Components;
-using Content.Shared._Goobstation.MartialArts.Events;
+using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Shared.MartialArts.Components;
+using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Weapons.Melee.Events;
 
-namespace Content.Shared._Goobstation.MartialArts;
+namespace Content.Goobstation.Shared.MartialArts;
 
 /// <summary>
 /// This handles...

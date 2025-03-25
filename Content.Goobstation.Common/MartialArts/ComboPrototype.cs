@@ -1,9 +1,10 @@
-using Content.Shared._Goobstation.MartialArts.Components;
-using Content.Shared._Goobstation.MartialArts.Events;
+using System;
+using System.Collections.Generic;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.Manager.Attributes;
 
-namespace Content.Shared._Goobstation.MartialArts;
+namespace Content.Goobstation.Common.MartialArts;
 
 [Prototype("combo")]
 [Serializable, NetSerializable, DataDefinition]

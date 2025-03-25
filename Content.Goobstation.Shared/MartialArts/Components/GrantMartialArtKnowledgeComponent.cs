@@ -1,6 +1,6 @@
-using Robust.Shared.GameStates;
+using Content.Goobstation.Common.MartialArts;
 
-namespace Content.Shared._Goobstation.MartialArts.Components;
+namespace Content.Goobstation.Shared.MartialArts.Components;
 
 public abstract partial class GrantMartialArtKnowledgeComponent : Component
 {
