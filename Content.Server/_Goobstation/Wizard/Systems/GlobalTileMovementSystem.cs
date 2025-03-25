@@ -1,15 +1,16 @@
-using Content.Server.Administration.Logs;
 using Content.Server._Goobstation.Wizard.Systems;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.EventSpells;
 using Content.Shared._Lavaland.Mobs.Components;
-using Content.Shared.Chat;
+using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
+using Content.Server.GameTicking;
+using Content.Server.Ghost.Roles.Events;
+using Content.Shared.Chat;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Database;
-using Content.Server.GameTicking;
 using Content.Shared.GameTicking.Components;
 using Robust.Server.Audio;
 using Robust.Shared.Player;
@@ -32,6 +33,7 @@ public sealed class GlobalTileMovementSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<GlobalTileToggleEvent>(OnGlobalTileToggle);
         SubscribeLocalEvent<GlobalTileMovementRuleComponent, GameRuleStartedEvent>(OnRuleStarted);
+        SubscribeLocalEvent<GhostRoleSpawnerUsedEvent>(OnGhostRoleSpawnerUsed);
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawn);
     }
     public bool GlobalTileMovementIsActive()
@@ -75,6 +77,14 @@ public sealed class GlobalTileMovementSystem : EntitySystem
 
             EnsureComp<HierophantBeatComponent>(uid);
         }
+    }
+
+    private void OnGhostRoleSpawnerUsed(GhostRoleSpawnerUsedEvent args)
+    {
+        if (!GlobalTileMovementIsActive())
+            return;
+
+        EnsureComp<HierophantBeatComponent>(args.Spawned);
     }
 
     private void OnPlayerSpawn(PlayerSpawnCompleteEvent ev)
