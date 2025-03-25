@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server._Goobstation.Objectives.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Heretic.Components;
 using Content.Shared.Heretic.Prototypes;
@@ -6,10 +7,7 @@ using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Humanoid;
 using Content.Server.Revolutionary.Components;
-using Content.Server.Objectives.Components;
 using Content.Shared.Mind;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic;
 using Content.Server.Heretic.EntitySystems;
 using Content.Shared.Gibbing.Events;

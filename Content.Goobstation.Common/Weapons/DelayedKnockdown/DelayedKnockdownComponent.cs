@@ -1,4 +1,7 @@
-namespace Content.Goobstation.Server.Weapons.DelayedKnockdown;
+using Robust.Shared.GameObjects;
+using Robust.Shared.ViewVariables;
+
+namespace Content.Goobstation.Common.Weapons.DelayedKnockdown;
 
 [RegisterComponent]
 public sealed partial class DelayedKnockdownComponent : Component
