@@ -130,3 +130,16 @@
   - type: FlashSoundSuppression
   - type: SpeechSoundsReplacer
     speechSounds: Chrono # why? its badass.
+
+- type: entity
+  parent: ClothingHeadEVAHelmetBase
+  id: ClothingHeadHelmetContractor
+  name: contractor helmet
+  description: A specialised black and gold helmet that's more compact than its standard Syndicate counterpart. It is made of an exotic military-grade fabric for added protection, and can be ultra-compressed into even the tightest of spaces.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Helmets/contractor.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Helmets/contractor.rsi
+  - type: Item
+    size: Small

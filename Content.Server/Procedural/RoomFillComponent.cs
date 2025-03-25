@@ -2,9 +2,9 @@ using Content.Shared.Whitelist;
 
 namespace Content.Server.Procedural;
 
-/// <summary>
-/// Marker that indicates the specified room prototype should occupy this space.
-/// </summary>
+    /// <summary>
+    /// Marker that indicates the specified room prototype should occupy this space.
+    /// </summary>
 [RegisterComponent]
 public sealed partial class RoomFillComponent : Component
 {

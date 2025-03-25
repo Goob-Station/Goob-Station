@@ -1,0 +1,45 @@
+- type: entity
+  abstract: true
+  id: BaseContractorMarker
+  parent: MarkerBase
+  categories: [HideSpawnMenu]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+
+- type: entity
+  name: contractor temp marker
+  id: ContractorTempMarker
+  parent: BaseContractorMarker
+
+- type: entity
+  name: contractor marker
+  id: ContractorMarker
+  parent: BaseContractorMarker
+  components:
+  - type: ContractorMarker
+
+- type: entity
+  name: contractor prison warp marker
+  id: ContractorPrisonMarker
+  parent: BaseContractorMarker
+  components:
+  - type: ContractorWarpMarker
+
+- type: entity # Need to move this lol
+  parent: BaseItem
+  name: Prisoner Item Storage
+  id: ContractorPrisonerBox
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/boxes_paradise.rsi
+    layers:
+    - state: large_box
+  - type: ContainerContainer
+    containers:
+      storage: !type:Container
+  - type: DumpContainerOnUse
+  - type: Appearance
+
