@@ -9,6 +9,7 @@
     state: icon
   - type: Item
     size: Small
+    storedRotation: 90
   - type: Gun
     fireRate: 2
     soundGunshot:

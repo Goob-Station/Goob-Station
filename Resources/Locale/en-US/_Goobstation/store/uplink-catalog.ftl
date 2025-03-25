@@ -139,8 +139,8 @@ uplink-lollypop-bundle-big-desc = Contains an ungodly amount of candy. What coul
 uplink-advanced-combat-medipen-name = Advanced Combat Medipen
 uplink-advanced-combat-medipen-desc = An advanced single-use medipen containing chemicals that will rapidly heal most types of damage taken in a fight.
 
-uplink-syringe-gun-name = Syringe Pistol
-uplink-syringe-gun-desc = A gun that takes syringes as ammunition, and injects their contents to its victims. Injects faster than normal syringe guns and can fit in pockets.
+uplink-syringe-pistol-name = Syringe Pistol
+uplink-syringe-pistol-desc = A gun that takes syringes as ammunition, and injects their contents to its victims. Injects faster than normal syringe guns and can fit in pockets.
 
 # Implants
 
