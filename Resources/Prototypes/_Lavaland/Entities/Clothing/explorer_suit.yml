@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ ClothingOuterBaseMedium, AllowSuitStorageClothing ]
+  parent: [ ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseCargoContraband ]
   id: LavalandEquipmentExplorerSuit
   suffix: Lava
   name: explorer suit
@@ -16,7 +16,7 @@
         Blunt: 0.70
         Slash: 0.70
         Piercing: 0.70
-        Heat: 0.75 # parity with 13 :) 
+        Heat: 0.75 # parity with 13 :)
         Caustic: 0.50
   - type: ExplosionResistance
     damageCoefficient: 0.50
@@ -29,6 +29,9 @@
   - type: Construction
     graph: ExplorerSuit
     node: start
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1.5
+    knockdownTimeDelta: -1.5
 
 - type: entity
   parent: ClothingHeadBase
@@ -56,7 +59,7 @@
         Blunt: 0.90
         Slash: 0.90
         Piercing: 0.90
-        Heat: 0.70 # parity with 13 :) 
+        Heat: 0.70 # parity with 13 :)
         Caustic: 0.90
 
 - type: entity
