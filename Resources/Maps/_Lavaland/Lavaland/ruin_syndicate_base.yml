@@ -17502,13 +17502,6 @@ entities:
     - type: AccessReader
       access:
       - - SyndicateAgent
-- proto: JaunterImplanter
-  entities:
-  - uid: 1760
-    components:
-    - type: Transform
-      pos: 30.55391,-3.4978952
-      parent: 2
 - proto: KitchenReagentGrinder
   entities:
   - uid: 1524
