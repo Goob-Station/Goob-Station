@@ -39457,6 +39457,161 @@ entities:
       rot: 3.141592653589793 rad
       pos: -78.28054,21.356312
       parent: 2
+- proto: ChairOfficeDark
+  entities:
+  - uid: 6271
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -19.563465,72.61863
+      parent: 2
+  - uid: 6272
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -18.496109,40.761044
+      parent: 2
+  - uid: 6273
+    components:
+    - type: Transform
+      pos: -32.505547,42.656483
+      parent: 2
+  - uid: 6274
+    components:
+    - type: Transform
+      pos: -15.448621,87.66424
+      parent: 2
+  - uid: 6275
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 7.500065,39.662216
+      parent: 2
+  - uid: 6276
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 21.597977,43.849842
+      parent: 2
+  - uid: 6277
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 19.566727,43.818592
+      parent: 2
+  - uid: 6278
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -35.363758,63.695774
+      parent: 2
+  - uid: 6279
+    components:
+    - type: Transform
+      pos: -28.451696,6.5310707
+      parent: 2
+  - uid: 6280
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -9.460061,4.5917788
+      parent: 2
+  - uid: 6281
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -14.515135,17.655678
+      parent: 2
+  - uid: 6282
+    components:
+    - type: Transform
+      pos: -22.32909,73.603004
+      parent: 2
+  - uid: 6283
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -21.39159,71.74363
+      parent: 2
+  - uid: 6284
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -24.563465,72.634254
+      parent: 2
+  - uid: 6285
+    components:
+    - type: Transform
+      pos: -20.51659,73.603004
+      parent: 2
+  - uid: 6286
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -23.469715,71.83738
+      parent: 2
+  - uid: 6287
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.3776512,17.680063
+      parent: 2
+  - uid: 6288
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 0.54984474,72.83825
+      parent: 2
+  - uid: 6289
+    components:
+    - type: Transform
+      pos: -2.4808834,40.56486
+      parent: 2
+  - uid: 6290
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.427639,66.733505
+      parent: 2
+- proto: ChairOfficeLight
+  entities:
+  - uid: 6291
+    components:
+    - type: Transform
+      pos: -41.450005,66.61128
+      parent: 2
+  - uid: 6292
+    components:
+    - type: Transform
+      pos: -39.33168,28.640572
+      parent: 2
+  - uid: 6293
+    components:
+    - type: Transform
+      pos: -36.45098,32.69692
+      parent: 2
+  - uid: 6294
+    components:
+    - type: Transform
+      pos: -41.51348,32.48598
+      parent: 2
+  - uid: 6295
+    components:
+    - type: Transform
+      pos: -26.492,24.705412
+      parent: 2
+  - uid: 6296
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -3.381362,32.744434
+      parent: 2
+  - uid: 6297
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -6.325226,24.876038
+      parent: 2
 - proto: ChairRitual
   entities:
   - uid: 6298
@@ -53160,6 +53315,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 15.5,17.5
+      parent: 2
+- proto: GasMinerPlasma
+  entities:
+  - uid: 17863
+    components:
+    - type: Transform
+      pos: 15.5,7.5
       parent: 2
 - proto: GasMinerWaterVapor
   entities:

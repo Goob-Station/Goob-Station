@@ -48421,9 +48421,6 @@ entities:
     - type: Transform
       pos: -60.38294,64.36255
       parent: 2
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
   - uid: 6438
     components:
     - type: Transform
@@ -48446,9 +48443,6 @@ entities:
     - type: Transform
       pos: -60.685024,64.477135
       parent: 2
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
 - proto: DrinkWhiskeyGlass
   entities:
   - uid: 6442
@@ -52005,6 +51999,13 @@ entities:
       parent: 2
     - type: GasMiner
       maxExternalPressure: 4000
+- proto: GasMinerPlasma
+  entities:
+  - uid: 15704
+    components:
+    - type: Transform
+      pos: -89.5,43.5
+      parent: 2
 - proto: GasOutletInjector
   entities:
   - uid: 6963
@@ -75139,8 +75140,6 @@ entities:
           ents:
           - 5
     - type: Physics
-      angularDamping: 0
-      linearDamping: 0
       canCollide: True
     - type: ActionsContainer
   - uid: 10252
