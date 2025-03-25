@@ -1,5 +1,5 @@
-using Content.Server._Goobstation._Pirates.Pirates.Siphon;
-using Content.Server._Goobstation._Pirates.Roles;
+using Content.Goobstation.Common.Pirates;
+using Content.Goobstation.Server.Pirates.Roles;
 using Content.Server.Antag;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
@@ -10,7 +10,7 @@ using Content.Shared.NPC.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation._Pirates.GameTicking.Rules;
+namespace Content.Goobstation.Server.Pirates.GameTicking.Rules;
 
 public sealed partial class ActivePirateRuleSystem : GameRuleSystem<ActivePirateRuleComponent>
 {

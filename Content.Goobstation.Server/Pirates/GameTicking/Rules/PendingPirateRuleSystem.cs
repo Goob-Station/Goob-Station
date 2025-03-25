@@ -11,9 +11,8 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Station.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using System.Collections.Generic;
 
-namespace Content.Server._Goobstation._Pirates.GameTicking.Rules;
+namespace Content.Goobstation.Server.Pirates.GameTicking.Rules;
 
 public sealed partial class PendingPirateRuleSystem : GameRuleSystem<PendingPirateRuleComponent>
 {

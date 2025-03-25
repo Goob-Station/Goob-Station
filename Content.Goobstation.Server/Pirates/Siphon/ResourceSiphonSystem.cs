@@ -1,5 +1,7 @@
-using Content.Server._Goobstation._Pirates.GameTicking.Rules;
-using Content.Server._Goobstation._Pirates.Objectives;
+using System.Numerics;
+using Content.Goobstation.Common.Pirates;
+using Content.Goobstation.Server.Pirates.GameTicking.Rules;
+using Content.Goobstation.Server.Pirates.Objectives;
 using Content.Server.Cargo.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.Chat.Systems;
@@ -14,9 +16,8 @@ using Content.Shared.Interaction;
 using Content.Shared.Mind;
 using Content.Shared.Stacks;
 using Robust.Server.GameObjects;
-using System.Numerics;
 
-namespace Content.Server._Goobstation._Pirates.Pirates.Siphon;
+namespace Content.Goobstation.Server.Pirates.Siphon;
 
 public sealed partial class ResourceSiphonSystem : EntitySystem
 {
