@@ -41,7 +41,7 @@
   - type: Sprite
     state: icon-disabling
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisabler
+    proto: BulletEnergyGunDisabler
     fireCost: 50
   - type: Tag
     tags:
