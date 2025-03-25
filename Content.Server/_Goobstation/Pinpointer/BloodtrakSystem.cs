@@ -4,6 +4,7 @@ using Content.Server.Forensics;
 using Content.Server.Shuttles.Events;
 using Content.Shared._Gobostation.Pinpointer;
 using Content.Shared._Goobstation.Pinpointer;
+using Content.Shared.Forensics.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Pinpointer;
 using Content.Shared.Tag;
@@ -47,19 +48,15 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
             return default;
         }
 
-        // Use a local enumerator for the query
-        var query = EntityManager.EntityQueryEnumerator<ForensicsComponent>();
-        while (query.MoveNext(out var forensicsUid, out var forensicsComponent))
+        var query = EntityManager.EntityQueryEnumerator<DnaComponent>();
+        while (query.MoveNext(out var dnaUid, out var dnaComponent))
         {
-            // Safely retrieve the DNA list, checking for null
             var solutionsDna = _forensicsSystem.GetSolutionsDNA(targetEntity);
-            if (solutionsDna == null)
-                continue;
 
             foreach (var dna in solutionsDna)
             {
-                if (forensicsComponent.DNAs.Contains(dna))
-                    return forensicsUid;
+                if (dnaComponent.DNA == dna)
+                    return dnaUid;
             }
         }
         return default;
