@@ -33,32 +33,35 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
 
     private EntityUid GetBloodTarget(EntityUid uid, BloodtrakComponent comp, AfterInteractEvent args)
     {
-        if (args.Target == null || !_tag.HasTag(args.Target.Value, "DNASolutionScannable"))
+        // Check if the solution being scanned has DNA associated with it.
+        if (args.Target is not { Valid: true } targetEntity || !_tag.HasTag(targetEntity, "DNASolutionScannable"))
         {
             args.Handled = true;
             return default;
         }
 
-        var targetEntity = args.Target.Value;
+        // Get the DNAs of the solution.
+        var solutionsDna = _forensicsSystem.GetSolutionsDNA(targetEntity);
 
-        // Check if the target entity is still valid
-        if (!Exists(targetEntity))
+        // Early exit if no DNA found
+        if (solutionsDna?.Count == 0)
         {
             args.Handled = true;
             return default;
         }
 
+        // Convert to HashSet for O(1) lookups
+        var dnaSet = new HashSet<string>(solutionsDna!);
+
+        // Use cached query and avoid closure allocation
         var query = EntityManager.EntityQueryEnumerator<DnaComponent>();
         while (query.MoveNext(out var dnaUid, out var dnaComponent))
         {
-            var solutionsDna = _forensicsSystem.GetSolutionsDNA(targetEntity);
-
-            foreach (var dna in solutionsDna)
-            {
-                if (dnaComponent.DNA == dna)
-                    return dnaUid;
-            }
+            // HashSet.Contains is much faster than iterating through list
+            if (dnaSet.Contains(dnaComponent.DNA))
+                return dnaUid;
         }
+
         return default;
     }
 
