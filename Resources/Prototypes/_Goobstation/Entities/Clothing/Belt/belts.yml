@@ -121,17 +121,20 @@
     damageCoefficient: 0.05
   - type: Storage
     whitelist:
+      tags:
+        - PillCanister
+        - Syringe
+        - Dropper
+        - MedicalPatch
+        - Brutepack
+        - Bloodpack
+        - Gauze
+        - Ointment
       components:
         - Pill
-        - Healing
         - Hypospray
         - SyringeGun
         - SurgeryTool
         - Defibrillator
         - SolutionTransfer
         - GunApplySolution # Dart gun
-      tags:
-        - PillCanister
-        - Syringe
-        - Dropper
-        - MedicalPatch
