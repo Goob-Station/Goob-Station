@@ -6666,3 +6666,9 @@ Entries:
       message: Lilies have Styptic Powder and Aloe has Silver Sulfadiazine
   id: 772
   time: '2025-03-25T05:16:00.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Defib added to lavaland outpost
+  id: 773
+  time: '2025-03-25T05:24:01.0000000+00:00'
