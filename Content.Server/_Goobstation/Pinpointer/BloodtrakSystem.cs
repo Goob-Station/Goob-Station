@@ -18,7 +18,6 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
-    private EntityQueryEnumerator<ForensicsComponent> _forensicsQuery;
     private EntityQuery<TransformComponent> _xformQuery;
 
     public override void Initialize()
@@ -33,21 +32,37 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
 
     private EntityUid GetBloodTarget(EntityUid uid, BloodtrakComponent comp, AfterInteractEvent args)
     {
-        if (args.Target == null || !_tag.HasTag((EntityUid)args.Target, "DNASolutionScannable"))
+        if (args.Target == null || !_tag.HasTag(args.Target.Value, "DNASolutionScannable"))
         {
             args.Handled = true;
-            return default!;
+            return default;
         }
 
-        while (_forensicsQuery.MoveNext(out var forensicsComponent))
+        var targetEntity = args.Target.Value;
+
+        // Check if the target entity is still valid
+        if (!Exists(targetEntity))
         {
-            foreach (var dna in _forensicsSystem.GetSolutionsDNA(args.Target.Value))
+            args.Handled = true;
+            return default;
+        }
+
+        // Use a local enumerator for the query
+        var query = EntityManager.EntityQueryEnumerator<ForensicsComponent>();
+        while (query.MoveNext(out var forensicsUid, out var forensicsComponent))
+        {
+            // Safely retrieve the DNA list, checking for null
+            var solutionsDna = _forensicsSystem.GetSolutionsDNA(targetEntity);
+            if (solutionsDna == null)
+                continue;
+
+            foreach (var dna in solutionsDna)
             {
                 if (forensicsComponent.DNAs.Contains(dna))
-                    return forensicsComponent.Owner;
+                    return forensicsUid;
             }
         }
-        return default!;
+        return default;
     }
 
     /// <summary>
