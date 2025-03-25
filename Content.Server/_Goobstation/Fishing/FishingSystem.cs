@@ -14,6 +14,7 @@ public sealed class FishingSystem : SharedFishingSystem
     // works janky on clientside so we can't predict when fishing starts.
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {
@@ -48,10 +49,8 @@ public sealed class FishingSystem : SharedFishingSystem
         Xform.AnchorEntity(uid);
         component.AttachedEntity = attachedEnt;
 
-        var rand = new Random((int) Timing.CurTick.Value); // evil random prediction hack
-
         // Currently we don't support multiple loots from this
-        var fish = spotComp.FishList.GetSpawns(rand, EntityManager, _proto).First();
+        var fish = spotComp.FishList.GetSpawns(_random.GetRandom(), EntityManager, _proto).First();
 
         // Get fish difficulty
         _proto.Index(fish).TryGetComponent(out FishComponent? fishComp, _compFactory);

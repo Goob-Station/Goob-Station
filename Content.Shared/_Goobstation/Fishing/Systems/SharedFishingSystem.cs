@@ -108,9 +108,10 @@ public abstract class SharedFishingSystem : EntitySystem
                 _popup.PopupEntity(Loc.GetString("fishing-progress-lost-rod", ("ent", Name(fishRod))), fisher, fisher);
 
                 // Cleanup entities and their connections
-                RemComp(fisher, fisherComp);
-                RemComp(fishSpot, activeSpotComp);
-                QueueDel(fishingLure);
+                RemCompDeferred(fisher, fisherComp);
+                RemCompDeferred(fishSpot, activeSpotComp);
+                if (_net.IsServer)
+                    QueueDel(fishingLure);
                 _actions.RemoveAction(fishingRodComp.PullLureActionEntity);
                 _actions.AddAction(fisher, ref fishingRodComp.ThrowLureActionEntity, fishingRodComp.ThrowLureActionId, fishRod);
                 fishingRodComp.FishingLure = null;
@@ -126,8 +127,8 @@ public abstract class SharedFishingSystem : EntitySystem
                     QueueDel(fishingLure);
 
                 // Cleanup entities and their connections
-                RemComp(fisher, fisherComp);
-                RemComp(fishSpot, activeSpotComp);
+                RemCompDeferred(fisher, fisherComp);
+                RemCompDeferred(fishSpot, activeSpotComp);
                 _actions.RemoveAction(fishingRodComp.PullLureActionEntity);
                 _actions.AddAction(fisher, ref fishingRodComp.ThrowLureActionEntity, fishingRodComp.ThrowLureActionId, fishRod);
                 fishingRodComp.FishingLure = null;
@@ -154,12 +155,13 @@ public abstract class SharedFishingSystem : EntitySystem
 
                     // Message
                     _popup.PopupPredicted(Loc.GetString("fishing-progress-success"), fisher, fisher);
-                    QueueDel(fishingLure);
+                    if (_net.IsServer)
+                        QueueDel(fishingLure);
                 }
 
                 // Cleanup entities and their connections
-                RemComp(fisher, fisherComp);
-                RemComp(fishSpot, activeSpotComp);
+                RemCompDeferred(fisher, fisherComp);
+                RemCompDeferred(fishSpot, activeSpotComp);
                 _actions.RemoveAction(fishingRodComp.PullLureActionEntity);
                 _actions.AddAction(fisher, ref fishingRodComp.ThrowLureActionEntity, fishingRodComp.ThrowLureActionId, fishRod);
                 fishingRodComp.FishingLure = null;
