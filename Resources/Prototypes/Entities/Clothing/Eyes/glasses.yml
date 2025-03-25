@@ -183,6 +183,15 @@
     - Antagonists
   - type: IdentityBlocker
     coverage: EYES
+  - type: Armor # provide more coverage than default ones. you know, it's a sec one
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Heat: 0.9
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
 
 - type: entity
   parent: [ClothingEyesBase, BaseCommandContraband]
@@ -220,6 +229,15 @@
     protectionTime: 5
   - type: IdentityBlocker
     coverage: EYES
+  - type: Armor # the same as SEC
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Heat: 0.9
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
 
 #Make a scanner category when these actually function and we get the trayson
 - type: entity
@@ -233,9 +251,14 @@
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/thermal.rsi
   - type: Armor
+    coverage: # defends you well only against heat lol
+    - Head
     modifiers:
       coefficients:
-        Heat: 0.95
+        Heat: 0.8
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
   - type: GroupExamine
   - type: IdentityBlocker
     coverage: EYES
@@ -274,3 +297,12 @@
   - type: FlashImmunity
   - type: NightVision
     isEquipment: true
+  - type: Armor
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Heat: 0.9
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9

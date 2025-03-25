@@ -123,10 +123,10 @@ public sealed class GibbingSystem : EntitySystem
         foreach (var container in _containerSystem.GetAllContainers(gibbable))
         {
             var valid = true;
-            if (allowedContainers != null)
-                valid = allowedContainers.Contains(container.ID);
-            if (excludedContainers != null)
-                valid = valid && !excludedContainers.Contains(container.ID);
+            if (gibContentsAttempt.AllowedContainers != null)
+                valid = gibContentsAttempt.AllowedContainers.Contains(container.ID);
+            if (gibContentsAttempt.ExcludedContainers != null)
+                valid = valid && !gibContentsAttempt.ExcludedContainers.Contains(container.ID);
             if (valid)
                 validContainers.Add(container);
         }

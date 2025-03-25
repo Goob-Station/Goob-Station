@@ -24,6 +24,11 @@ using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared._Shitmed.Targeting;
 using System.Linq;
+using Content.Server.Traits.Assorted;
+using Content.Shared._Shitmed.Surgery.Traumas.Components;
+using Content.Shared._Shitmed.Surgery.Wounds;
+using Content.Shared._Shitmed.Surgery.Wounds.Systems;
+using Content.Shared.Body.Components;
 
 namespace Content.Server.Medical;
 
@@ -39,6 +44,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly WoundSystem _woundSystem = default!;
 
     public override void Initialize()
     {
@@ -238,9 +244,6 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         if (!_uiSystem.HasUi(healthAnalyzer, HealthAnalyzerUiKey.Key))
             return;
 
-        if (!HasComp<DamageableComponent>(target))
-            return;
-
         var bodyTemperature = float.NaN;
 
         if (TryComp<TemperatureComponent>(target, out var temp))
@@ -259,9 +262,9 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         }
 
         // Shitmed Change Start
-        Dictionary<TargetBodyPart, TargetIntegrity>? body = null;
-        if (HasComp<TargetingComponent>(target))
-            body = _bodySystem.GetBodyPartStatus(target);
+        Dictionary<TargetBodyPart, WoundableSeverity>? body = null;
+        if (HasComp<BodyComponent>(target))
+            body = _woundSystem.GetWoundableStatesOnBody(target);
         // Shitmed Change End
         if (TryComp<UnrevivableComponent>(target, out var unrevivableComp) && unrevivableComp.Analyzable)
             unrevivable = true;

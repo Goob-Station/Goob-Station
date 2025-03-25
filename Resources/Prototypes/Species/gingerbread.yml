@@ -15,7 +15,8 @@
     Head: MobGingerbreadHead
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
-    Chest: MobGingerbreadTorso
+    Chest: MobGingerbreadChest
+    Groin: MobGingerbreadGroin
     Eyes: MobGingerbreadEyes
     LArm: MobGingerbreadLArm
     RArm: MobGingerbreadRArm
@@ -51,22 +52,40 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobGingerbreadTorso
+  id: MobGingerbreadChest
   baseSprite:
     sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobGingerbreadTorsoMale
+  id: MobGingerbreadChestMale
   baseSprite:
     sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobGingerbreadTorsoFemale
+  id: MobGingerbreadChestFemale
   baseSprite:
     sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: torso_f
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobGingerbreadGroin
+  baseSprite:
+    sprite: Mobs/Species/Gingerbread/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobGingerbreadGroinMale
+  baseSprite:
+    sprite: Mobs/Species/Gingerbread/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobGingerbreadGroinFemale
+  baseSprite:
+    sprite: Mobs/Species/Gingerbread/parts.rsi
+    state: groin_f
 
 - type: humanoidBaseSprite
   id: MobGingerbreadLLeg

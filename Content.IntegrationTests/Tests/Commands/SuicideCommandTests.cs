@@ -15,6 +15,7 @@ using Robust.Server.Player;
 using Robust.Shared.Console;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
+using Content.Shared._Shitmed.Surgery.Consciousness.Components; // Shitmed Change
 
 namespace Content.IntegrationTests.Tests.Commands;
 
@@ -76,6 +77,9 @@ public sealed class SuicideCommandTests
         // We need to know the player and whether they can be hurt, killed, and whether they have a mind
         var player = playerMan.Sessions.First().AttachedEntity!.Value;
         var mind = mindSystem.GetMind(player);
+
+        if (entManager.HasComponent<ConsciousnessComponent>(player))
+            return; // Consciousness entities don't use damage to die
 
         MindComponent mindComponent = default;
         MobStateComponent mobStateComp = default;

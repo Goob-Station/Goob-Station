@@ -88,8 +88,10 @@ namespace Content.Shared.Humanoid
             {
                 case BodyPartType.Other:
                     break;
-                case BodyPartType.Torso:
+                case BodyPartType.Chest:
                     return HumanoidVisualLayers.Chest;
+                case BodyPartType.Groin:
+                    return HumanoidVisualLayers.Groin;
                 case BodyPartType.Tail:
                     return HumanoidVisualLayers.Tail;
                 case BodyPartType.Head:

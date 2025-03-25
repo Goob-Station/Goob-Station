@@ -243,7 +243,8 @@ namespace Content.Client.Options.UI.Tabs
             // Shitmed Change Start - TODO: Add hands, feet and groin targeting.
             AddHeader("ui-options-header-targeting");
             AddButton(ContentKeyFunctions.TargetHead);
-            AddButton(ContentKeyFunctions.TargetTorso);
+            AddButton(ContentKeyFunctions.TargetChest);
+            AddButton(ContentKeyFunctions.TargetGroin);
             AddButton(ContentKeyFunctions.TargetLeftArm);
             AddButton(ContentKeyFunctions.TargetLeftHand);
             AddButton(ContentKeyFunctions.TargetRightArm);

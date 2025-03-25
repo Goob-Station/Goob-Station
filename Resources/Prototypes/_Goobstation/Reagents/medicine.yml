@@ -817,6 +817,14 @@
     Medicine:
       metabolismRate: 0.1
       effects:
+      - !type:SuppressPain
+        amount: 1.2
+        time: 30 # it REFRESHES. Not accumulates
+      - !type:AdjustPainFeels
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        amount: 0.04
       - !type:HealthChange
         damage:
           groups:

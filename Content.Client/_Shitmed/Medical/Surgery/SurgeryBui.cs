@@ -124,14 +124,15 @@ public sealed class SurgeryBui : BoundUserInterface
                 return partType switch
                 {
                     BodyPartType.Head => 1,
-                    BodyPartType.Torso => 2,
-                    BodyPartType.Arm => 3,
-                    BodyPartType.Hand => 4,
-                    BodyPartType.Leg => 5,
-                    BodyPartType.Foot => 6,
-                    // BodyPartType.Tail => 7, No tails yet!
-                    BodyPartType.Other => 8,
-                    _ => 9
+                    BodyPartType.Chest => 2,
+                    BodyPartType.Groin => 3,
+                    BodyPartType.Arm => 4,
+                    BodyPartType.Hand => 5,
+                    BodyPartType.Leg => 6,
+                    BodyPartType.Foot => 7,
+                    // BodyPartType.Tail => 8, No tails yet!
+                    BodyPartType.Other => 9,
+                    _ => 10
                 };
             }
 

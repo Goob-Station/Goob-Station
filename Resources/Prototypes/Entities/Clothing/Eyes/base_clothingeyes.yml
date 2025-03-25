@@ -10,6 +10,15 @@
   - type: Item
     size: Small
     storedRotation: -90
+  - type: Armor # provide minimal covering to your head
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Heat: 0.95
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
 
 - type: entity
   parent: [ClothingEyesBase, BaseFoldable]

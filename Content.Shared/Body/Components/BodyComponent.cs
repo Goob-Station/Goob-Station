@@ -46,4 +46,9 @@ public sealed partial class BodyComponent : Component
     [DataField, AutoNetworkedField]
     public bool ThermalVisibility = true;
     // WD EDIT END
+
+    // Shitmed Change - Evil.
+    [ViewVariables]
+    [DataField, AutoNetworkedField]
+    public HashSet<EntityUid> DroppedBodyParts = new();
 }

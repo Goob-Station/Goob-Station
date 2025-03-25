@@ -1,3 +1,4 @@
+using Content.Shared.FixedPoint; // Shitmed Change
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Damage.Prototypes
@@ -28,5 +29,11 @@ namespace Content.Shared.Damage.Prototypes
         /// </summary>
         [DataField("armorFlatPrice")]
         public double ArmorPriceFlat { get; set; }
+
+        /// <summary>
+        /// Shitmed Change: Wounds with the said damage type will be having this multiplier
+        /// </summary>
+        [DataField, ViewVariables(VVAccess.ReadOnly)]
+        public FixedPoint2 WoundHealingMultiplier { get; set; } = 1;
     }
 }

@@ -118,7 +118,7 @@ public sealed class TableSlamSystem : EntitySystem
         var modifierOnGlassBreak = 1;
         if (TryComp<GlassTableComponent>(args.OtherEntity, out var glassTableComponent))
         {
-            _damageableSystem.TryChangeDamage(args.OtherEntity, glassTableComponent.TableDamage, origin: ent, targetPart: TargetBodyPart.Torso);
+            _damageableSystem.TryChangeDamage(args.OtherEntity, glassTableComponent.TableDamage, origin: ent, targetPart: TargetBodyPart.Chest);
             _damageableSystem.TryChangeDamage(args.OtherEntity, glassTableComponent.ClimberDamage, origin: ent);
             modifierOnGlassBreak = 2;
         }
@@ -129,7 +129,7 @@ public sealed class TableSlamSystem : EntitySystem
                 {
                     DamageDict = new Dictionary<string, FixedPoint2> { { "Blunt", ent.Comp.TabledDamage } },
                 },
-                targetPart: TargetBodyPart.Torso);
+                targetPart: TargetBodyPart.Chest);
             _damageableSystem.TryChangeDamage(ent,
                 new DamageSpecifier()
                 {
