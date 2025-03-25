@@ -5,7 +5,7 @@
   description: Wanted across multiple sectors!
   components:
   - type: VendingMachine
-    cashSlot: Null
+    pack: EmptyVendingMachineInventory
     offState: off
     brokenState: broken
     normalState: normal-unshaded
