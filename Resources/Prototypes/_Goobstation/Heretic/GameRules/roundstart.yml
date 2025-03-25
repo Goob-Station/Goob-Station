@@ -20,7 +20,6 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleHeretic
-      startingGear: HereticGear # see Roles/Antags/heretic.yml
   - type: Tag
     tags:
       - RoundstartAntag
@@ -47,7 +46,6 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleHeretic
-      startingGear: HereticGear # see Roles/Antags/heretic.yml
   - type: Tag
     tags:
       - CalmAntag

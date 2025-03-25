@@ -20,6 +20,7 @@
     - id: SalvageShuttleConsoleCircuitboard
     - id: AstroNavCartridge
     - id: CargoTechFabCircuitboard # Goobstation - Cargo Techfab
+    - id: MailTeleporterMachineCircuitboard # GoobStation port of DeltaV mail
 
 - type: entity
   id: LockerQuarterMasterFilled
