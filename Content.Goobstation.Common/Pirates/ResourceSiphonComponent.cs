@@ -1,6 +1,11 @@
-namespace Content.Server._Goobstation._Pirates.Pirates.Siphon;
+using Robust.Shared.Analyzers;
+using Robust.Shared.GameObjects;
+using Robust.Shared.Serialization.Manager.Attributes;
+using Robust.Shared.ViewVariables;
 
-[RegisterComponent, Access(typeof(ResourceSiphonSystem), Other = AccessPermissions.Read)]
+namespace Content.Goobstation.Common.Pirates;
+
+[RegisterComponent]
 public sealed partial class ResourceSiphonComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite)] public EntityUid? BoundGamerule;

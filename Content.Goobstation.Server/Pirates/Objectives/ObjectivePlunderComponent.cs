@@ -1,6 +1,4 @@
-using Content.Server._Goobstation._Pirates.Pirates.Siphon;
-
-namespace Content.Server._Goobstation._Pirates.Objectives;
+namespace Content.Goobstation.Server.Pirates.Objectives;
 
 [RegisterComponent]
 public sealed partial class ObjectivePlunderComponent : Component

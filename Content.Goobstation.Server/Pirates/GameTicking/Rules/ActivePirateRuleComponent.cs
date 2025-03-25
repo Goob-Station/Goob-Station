@@ -1,6 +1,6 @@
 using Content.Shared.Mind;
 
-namespace Content.Server._Goobstation._Pirates.GameTicking.Rules;
+namespace Content.Goobstation.Server.Pirates.GameTicking.Rules;
 
 [RegisterComponent]
 public sealed partial class ActivePirateRuleComponent : Component

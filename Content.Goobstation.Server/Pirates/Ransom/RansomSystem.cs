@@ -1,8 +1,9 @@
-using Content.Server._Goobstation._Pirates.GameTicking.Rules;
+using Content.Goobstation.Common.Pirates;
+using Content.Goobstation.Server.Pirates.GameTicking.Rules;
 using Content.Server.GameTicking;
 using Content.Shared.GameTicking.Components;
 
-namespace Content.Server._Goobstation._Pirates.Pirates;
+namespace Content.Goobstation.Server.Pirates.Ransom;
 
 public sealed partial class RansomSystem : EntitySystem
 {

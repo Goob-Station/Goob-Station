@@ -2,7 +2,7 @@ using Content.Shared.Cargo;
 using Content.Shared.Dataset;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation._Pirates.GameTicking.Rules;
+namespace Content.Goobstation.Server.Pirates.GameTicking.Rules;
 
 [RegisterComponent]
 public sealed partial class PendingPirateRuleComponent : Component
