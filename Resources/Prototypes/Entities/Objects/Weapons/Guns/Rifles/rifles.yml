@@ -54,7 +54,7 @@
     spreadMultiplier: 1.6
 
 - type: entity
-  name: AKMS
+  name: AKM
   parent: [BaseWeaponRifle, BaseSecurityContraband]
   id: WeaponRifleAk
   description: An iconic weapon of war. Uses .30 rifle ammo.

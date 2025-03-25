@@ -47,6 +47,7 @@
     tags:
       - Mop
       - MopBasic
+      - DroneUsable # Goobstation
   - type: GuideHelp
     guides:
     - Janitorial
@@ -110,6 +111,7 @@
       tags:
         - Mop
         - MopAdv
+        - DroneUsable # Goobstation
     - type: DnaSubstanceTrace
     - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
@@ -336,6 +338,7 @@
     - type: Tag
       tags:
         - Mop
+        - DroneUsable # Goobstation
     - type: CleansForensics
     - type: Fiber
       fiberColor: fibers-white

@@ -12,6 +12,12 @@ using Robust.Shared.Map;
 using Robust.Server.Player;
 using Content.Shared.Camera;
 using System.Numerics;
+using Content.Server.Afk.Events;
+using Content.Shared._Goobstation.Religion;
+using Content.Server.Bible.Components;
+using Content.Shared.Gibbing.Systems;
+using Content.Shared.Species;
+using Content.Shared.Body.Systems;
 
 namespace Content.Server._Goobstation.Emoting;
 
@@ -25,6 +31,9 @@ public sealed partial class FartSystem : SharedFartSystem
     [Dependency] private readonly IEntityManager _entMan = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _recoilSystem = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly SharedBodySystem _bodySystem = default!;
+
 
     private readonly string[] _fartSounds = [
         "/Audio/Effects/Emotes/parp1.ogg",
@@ -50,6 +59,7 @@ public sealed partial class FartSystem : SharedFartSystem
         base.Initialize();
 
         SubscribeLocalEvent<FartComponent, EmoteEvent>(OnEmote);
+        SubscribeLocalEvent<FartComponent, PostFartEvent>(OnBibleFart);
     }
 
     private void OnEmote(EntityUid uid, FartComponent component, ref EmoteEvent args)
@@ -98,6 +108,8 @@ public sealed partial class FartSystem : SharedFartSystem
             {
                 component.FartTimeout = false;
             });
+            var ev = new PostFartEvent(uid);
+            RaiseLocalEvent(uid, ev);
         }
         else if (args.Emote.ID == "FartInhale")
         {
@@ -168,6 +180,8 @@ public sealed partial class FartSystem : SharedFartSystem
             {
                 component.FartTimeout = false;
             });
+            var ev = new PostFartEvent(uid, true);
+            RaiseLocalEvent(uid, ev);
         }
     }
 
@@ -191,6 +205,36 @@ public sealed partial class FartSystem : SharedFartSystem
             var effect = 5 * MathF.Pow(totalIntensity, 0.5f) * (1 - distance / range);
             if (effect > 0.01f)
                 _recoilSystem.KickCamera(uid, -delta.Normalized() * effect);
+        }
+    }
+
+    /// <summary>
+    ///     Bible fart
+    /// </summary>
+    private void OnBibleFart(Entity<FartComponent> ent, ref PostFartEvent args)
+    {
+        foreach (var near in _lookup.GetEntitiesInRange(ent, 0.4f, LookupFlags.Sundries | LookupFlags.Dynamic)){
+
+            if (!HasComp<BibleComponent>(near))
+                continue;
+
+            var ev = new BibleFartSmiteEvent(GetNetEntity(near));
+            RaiseNetworkEvent(ev);
+            _bodySystem.GibBody(ent, splatModifier: 15);
+            _audio.PlayEntity(ent.Comp.BibleSmiteSnd, Filter.Pvs(near), near, true);
+            if (!ent.Comp.SuperFarted)
+            {
+                _rng.Shuffle(_fartSounds);
+                _audio.PlayEntity(_fartSounds[0], Filter.Pvs(near), near, true); // Must replay it because gib body makes the original fart sound stop immediately
+            }
+            else
+            {
+                _rng.Shuffle(_superFartSounds);
+                _audio.PlayEntity(_superFartSounds[0], Filter.Pvs(near), near, true, AudioParams.Default.WithVolume(0f));
+            }
+            var xformSystem = _entMan.System<SharedTransformSystem>();
+            CameraShake(10f, xformSystem.GetMapCoordinates(near), 1.5f);
+            return;
         }
     }
 }

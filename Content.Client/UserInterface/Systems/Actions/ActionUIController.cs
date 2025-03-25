@@ -435,6 +435,9 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (!_entMan.TryGetComponent(actionId, out SwapSpellComponent? swap))
             return false;
 
+        if (!swap.AllowSecondaryTarget)
+            return false;
+
         if (_actionsSystem == null || _spells == null)
             return false;
 
@@ -1184,7 +1187,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         var range = entityAction.CheckCanAccess ? action.Range : -1;
 
         _interactionOutline?.SetEnabled(false);
-        _targetOutline?.Enable(range, entityAction.CheckCanAccess, predicate, entityAction.Whitelist, null);
+        _targetOutline?.Enable(range, entityAction.CheckCanAccess, predicate, entityAction.Whitelist, entityAction.Blacklist, null);
     }
 
     /// <summary>

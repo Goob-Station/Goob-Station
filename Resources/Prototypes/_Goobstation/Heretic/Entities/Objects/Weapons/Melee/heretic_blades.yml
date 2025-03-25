@@ -22,6 +22,9 @@
     sprite: _Goobstation/Heretic/Blades/blade_blade-inhand.rsi
   - type: ItemToggle
   - type: RandomTeleport
+    radius:
+      min: 10
+      max: 100
   - type: Scalpel # Shitmed
     speed: 0.75
 

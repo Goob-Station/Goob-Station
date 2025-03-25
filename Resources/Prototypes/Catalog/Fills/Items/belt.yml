@@ -119,9 +119,9 @@
       - id: EmergencyMedipen #You never know what people are going to latejoin into
       - id: HandheldCrewMonitor # Goobstation - start
       - id: ParamedHypo
-      - id: CartridgeAtropine
       - id: CartridgeBicaridine
-      - id: CartridgeDermaline # Goobstation - end
+      - id: CartridgeDermaline
+      - id: CartridgeSaline # Goobstation - end
 
 - type: entity
   id: ClothingBeltPlantFilled

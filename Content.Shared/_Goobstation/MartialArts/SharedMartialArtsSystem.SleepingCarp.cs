@@ -4,6 +4,7 @@ using Content.Shared._Goobstation.MartialArts.Events;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
@@ -30,15 +31,23 @@ public partial class SharedMartialArtsSystem
         if (!_netManager.IsServer)
             return;
 
-        if (ent.Comp.Used)
-            return;
-        if (ent.Comp.UseAgainTime == TimeSpan.Zero)
+        if (ent.Comp.MaximumUses == ent.Comp.CurrentUses)
         {
-            CarpScrollDelay(ent, args.User);
+            _popupSystem.PopupEntity(Loc.GetString("cqc-fail-used", ("manual", Identity.Entity(ent, EntityManager))),
+            args.User,
+            args.User);
             return;
         }
 
-        if (_timing.CurTime < ent.Comp.UseAgainTime)
+        var studentComp = EnsureComp<SleepingCarpStudentComponent>(args.User);
+
+        if (studentComp.UseAgainTime == TimeSpan.Zero)
+        {
+            CarpScrollDelay((args.User, studentComp));
+            return;
+        }
+
+        if (_timing.CurTime < studentComp.UseAgainTime)
         {
             _popupSystem.PopupEntity(
                 Loc.GetString("carp-scroll-waiting"),
@@ -48,29 +57,32 @@ public partial class SharedMartialArtsSystem
             return;
         }
 
-        switch (ent.Comp.Stage)
+        switch (studentComp.Stage)
         {
             case < 3:
-                CarpScrollDelay(ent, args.User);
+                CarpScrollDelay((args.User, studentComp));
                 break;
             case >= 3:
-                if (!TryGrant(ent.Comp, args.User))
+                if (!TryGrantMartialArt(args.User, ent.Comp))
                     return;
                 var userReflect = EnsureComp<ReflectComponent>(args.User);
                 userReflect.ReflectProb = 1;
                 userReflect.Spread = 60;
                 userReflect.OtherTypeReflectProb = 0.25f;
-                ent.Comp.Used = true;
                 _popupSystem.PopupEntity(
                     Loc.GetString("carp-scroll-complete"),
                     ent,
                     args.User,
                     PopupType.LargeCaution);
-                return;
+                ent.Comp.CurrentUses++;
+                break;
         }
+
+        if (ent.Comp.MaximumUses == ent.Comp.CurrentUses)
+            return;
     }
 
-    private void CarpScrollDelay(Entity<GrantSleepingCarpComponent> ent, EntityUid user)
+    private void CarpScrollDelay(Entity<SleepingCarpStudentComponent> ent)
     {
         var time = new System.Random().Next(ent.Comp.MinUseDelay, ent.Comp.MaxUseDelay);
         ent.Comp.UseAgainTime = _timing.CurTime + TimeSpan.FromSeconds(time);
@@ -78,7 +90,7 @@ public partial class SharedMartialArtsSystem
         _popupSystem.PopupEntity(
             Loc.GetString("carp-scroll-advance"),
             ent,
-            user,
+            ent,
             PopupType.Medium);
     }
 
@@ -90,7 +102,7 @@ public partial class SharedMartialArtsSystem
         ref SleepingCarpGnashingTeethPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !_proto.TryIndex<MartialArtPrototype>(ent.Comp.BeingPerformed.ToString(), out var martialArtProto)
+            || !_proto.TryIndex<MartialArtPrototype>(proto.MartialArtsForm.ToString(), out var martialArtProto)
             || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed))
             return;
 

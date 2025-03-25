@@ -1,0 +1,43 @@
+- type: body
+  id: Drone
+  name: "drone"
+  root: torso
+  slots:
+    torso:
+      part: TorsoBorg
+      connections:
+      - right arm
+      - right arm 2
+      - right arm 3 # Goobstation
+      - left arm
+      - left arm 2
+    right arm:
+      part: RightArmBorg
+      connections:
+      - right hand
+    right arm 2:
+      part: RightArmBorg
+      connections:
+      - right hand 2
+    right arm 3: # Goobstation
+      part: RightArmBorg
+      connections:
+      - right hand 3
+    left arm:
+      part: LeftArmBorg
+      connections:
+      - left hand
+    left arm 2:
+      part: LeftArmBorg
+      connections:
+      - left hand 2
+    right hand:
+      part: RightHandHuman # shitmed moment
+    right hand 2:
+      part: RightHandHuman
+    right hand 3: # Goobstation
+      part: RightHandHuman
+    left hand:
+      part: LeftHandHuman
+    left hand 2:
+      part: LeftHandHuman

@@ -30,10 +30,18 @@ public sealed partial class GrantSleepingCarpComponent : GrantMartialArtKnowledg
 {
     [DataField]
     public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.SleepingCarp;
+    [DataField]
+    public int MaximumUses = 1;
+    public int CurrentUses = 0;
+}
 
+[RegisterComponent]
+public sealed partial class SleepingCarpStudentComponent : Component
+{
     [DataField]
     public int Stage = 1;
 
+    [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan UseAgainTime = TimeSpan.Zero;
 
     [DataField]
@@ -42,3 +50,4 @@ public sealed partial class GrantSleepingCarpComponent : GrantMartialArtKnowledg
     [DataField]
     public int MinUseDelay = 30;
 }
+

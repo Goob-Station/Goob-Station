@@ -44,3 +44,17 @@
           amount: 5
         - id: DrinkVodkaBottleFull
           amount: 3
+
+- type: entity
+  parent: CrateSyndicate
+  id: CrateSyndicateDreadnought
+  name: cybersun dreadnought bundle
+  description: "An advanced cybersun dreadnought bundle."
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterHardsuitCybersunDreadnought
+      - id: ClothingMaskGasSyndicate
+      - id: ClothingHandsGlovesCombat
+      - id: DoubleEmergencyOxygenTankFilled
+      - id: DoubleEmergencyNitrogenTankFilled

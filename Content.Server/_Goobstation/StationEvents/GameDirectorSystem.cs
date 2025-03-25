@@ -240,7 +240,14 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
 
         if (!scheduler.DualAntags)
         {
-            EntProtoId pick = weightList.Pick(_random);
+            var pick = weightList.Pick(_random);
+            var pickProto = _prototypeManager.Index(pick);
+            if(!pickProto.TryGetComponent<GameRuleComponent>(out var pickGameRule, _factory) ||
+               pickGameRule.MinPlayers > count)
+            {
+                LogMessage("Not enough players for roundstart antags selected...");
+                return;
+            }
             LogMessage("Choosing roundstart antag");
             LogMessage($"Roundstart antag chosen: {pick}");
             GameTicker.AddGameRule(pick);
@@ -249,6 +256,15 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
         {
             var pick = weightList.Pick(_random);
             var pick2 = weightList.Pick(_random);
+            var pick1Proto = _prototypeManager.Index(pick);
+            var pick2Proto = _prototypeManager.Index(pick2);
+            if (!pick2Proto.TryGetComponent<GameRuleComponent>(out var pick2GameRule, _factory) ||
+                !pick1Proto.TryGetComponent<GameRuleComponent>(out var pick1GameRule, _factory) ||
+                pick1GameRule.MinPlayers > count || pick2GameRule.MinPlayers > count)
+            {
+                LogMessage("Not enough players for roundstart antags selected...");
+                return;
+            }
             LogMessage("Choosing roundstart antag");
             LogMessage($"Roundstart antag chosen: {pick}");
             LogMessage($"Roundstart antag chosen: {pick2}");

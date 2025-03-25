@@ -194,3 +194,92 @@
     size: Small
   - type: DisarmMalus
     malus: 0
+    
+- type: entity
+  parent: BasePlushie
+  id: PlushieBingle
+  name: bingle plushie
+  description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
+  components:
+  - type: Sprite
+    norot: true
+    sprite: _Goobstation/Mobs/Bingle/bingle.rsi
+    state: alive
+
+- type: entity
+  id: GrenadeToy
+  name: prank grenade
+  parent: BaseGrenade
+  components:
+  - type: CartridgeAmmo
+    proto: BulletGrenadeToy
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: frag
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: frag
+    suffix: false
+  - type: Tag
+    tags:
+    - Grenade
+    - ToyGrenade
+  - type: Construction
+    graph: ToyGrenade
+    node: toygrenade
+
+- type: entity
+  id: BulletGrenadeToy
+  name: prank grenade
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    # same as a snap pop
+    maxIntensity: 0.01
+    intensitySlope: 1
+    totalIntensity: 0.01
+  - type: SoundOnTrigger
+    sound:
+      collection: Explosion
+
+- type: entity
+  name: taiwan pond # we ball
+  parent: [BaseWeaponLauncher, BaseGunWieldable]
+  id: WeaponLauncherTaiwanPond
+  description: PLOOP.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/taiwan_pond.rsi
+    layers:
+      - state: icon
+        map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: _Goobstation/Objects/Fun/taiwan_pond.rsi
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 0.6
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - ToyGrenade
+    capacity: 3
+    proto: GrenadeToy
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg

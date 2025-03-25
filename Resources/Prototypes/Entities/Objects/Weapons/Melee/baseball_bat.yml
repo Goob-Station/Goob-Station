@@ -22,9 +22,6 @@
       types:
         Blunt: 5
         Structural: 10
-  - type: MeleeThrowOnHit # goob - home run!
-    speed: 5
-    lifetime: 0.25
   - type: StaminaDamageOnHit # goob - bat makes you hurt and tired (but not as much as the real stun stick)
     damage: 7.5 # goob - 9 hits to stamcrit someone with armor vest + helmet
   - type: Item

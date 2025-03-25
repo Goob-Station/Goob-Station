@@ -63,6 +63,9 @@
   id: CursedAnimalMask
 
 - type: Tag
+  id: DroneMind
+
+- type: Tag
   id: Durand
 
 - type: Tag
@@ -100,6 +103,18 @@
 
 - type: Tag
   id: EmergencyOxygenTank
+
+- type: Tag
+  id: EnergySpeedloader
+
+- type: Tag
+  id: EnergySpeedloaderDisabler
+
+- type: Tag
+  id: EnergySpeedloaderLethal
+
+- type: Tag
+  id: EnergySpeedloaderTerminate
 
 - type: Tag
   id: ExtendedEmergencyOxygenTank
@@ -301,6 +316,9 @@
 
 - type: Tag
   id: Tourniquet
+
+- type: Tag
+  id: ToyGrenade
 
 - type: Tag
   id: ToySword
