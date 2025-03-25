@@ -134,7 +134,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
 
             // Display popup
             var popupText = Loc.GetString("bloodtrak-target-lost");
-            _popupSystem.PopupEntity(popupText, tracker.Owner, tracker.Owner, PopupType.MediumCaution);
+            _popupSystem.PopupPredicted(popupText, tracker.Owner, tracker.Owner, PopupType.MediumCaution);
 
             // Deactivate and schedule next activation.
             TogglePinpointer(uid, tracker);
