@@ -6678,3 +6678,9 @@ Entries:
       message: Added circuit for mail teleporter to QM's locker.
   id: 774
   time: '2025-03-25T05:32:35.0000000+00:00'
+- author: terminatorbo
+  changes:
+    - type: Add
+      message: Lone Operative now can buy sleeping carp scroll in his uplink
+  id: 775
+  time: '2025-03-25T05:33:08.0000000+00:00'
