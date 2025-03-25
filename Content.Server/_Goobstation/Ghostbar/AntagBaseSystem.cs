@@ -1,4 +1,6 @@
-using Robust.Shared.Map
+using Robust.Shared.Map;
+
+namespace Content.Server._Goobstation.AntagBase;
 
 const string AntagMapDIR = "Maps/_Goobstation/Nonstations/antagplanet.yml";
 private void OnRoundStart(RoundStartingEvent ev)
