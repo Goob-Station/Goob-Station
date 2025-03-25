@@ -6696,3 +6696,12 @@ Entries:
       message: Animal and IPC organs are now valid for heretic rituals.
   id: 776
   time: '2025-03-25T11:22:06.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        PTK-800 and mech proto-kinetic launcher now deal more damage in low
+        pressure and less damage in a normal athosphere, and are upgradeable
+        with modkits.
+  id: 777
+  time: '2025-03-25T11:34:24.0000000+00:00'
