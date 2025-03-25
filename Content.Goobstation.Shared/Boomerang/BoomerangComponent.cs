@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Boomerang;
+namespace Content.Goobstation.Shared.Boomerang;
 
 [NetworkedComponent, RegisterComponent, AutoGenerateComponentState]
 public sealed partial class BoomerangComponent : Component

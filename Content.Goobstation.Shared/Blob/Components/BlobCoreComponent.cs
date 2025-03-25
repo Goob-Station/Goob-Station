@@ -52,7 +52,7 @@ public sealed partial class BlobCoreComponent : Component
     #region Damage Specifiers
 
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public BlobChemDamage ChemDamageDict { get; set; } = new()
+    public Goobstation.Shared.Blob.BlobChemDamage ChemDamageDict { get; set; } = new()
     {
         {
             BlobChemType.BlazingOil, new DamageSpecifier()
@@ -113,7 +113,7 @@ public sealed partial class BlobCoreComponent : Component
     #region Blob Chems
 
     [ViewVariables]
-    public readonly BlobChemColors ChemСolors = new()
+    public readonly Goobstation.Shared.Blob.BlobChemColors ChemСolors = new()
     {
         {BlobChemType.ReactiveSpines, Color.FromHex("#637b19")},
         {BlobChemType.BlazingOil, Color.FromHex("#937000")},
@@ -136,7 +136,7 @@ public sealed partial class BlobCoreComponent : Component
     public FixedPoint2 AttackCost = 4;
 
     [DataField]
-    public BlobTileCosts BlobTileCosts = new()
+    public Goobstation.Shared.Blob.BlobTileCosts BlobTileCosts = new()
     {
         {BlobTileType.Core, 0},
         {BlobTileType.Invalid, 0},
@@ -178,7 +178,7 @@ public sealed partial class BlobCoreComponent : Component
     #region Prototypes
 
     [DataField]
-    public BlobTileProto TilePrototypes = new()
+    public Goobstation.Shared.Blob.BlobTileProto TilePrototypes = new()
     {
         {BlobTileType.Resource, "ResourceBlobTile"},
         {BlobTileType.Factory, "FactoryBlobTile"},

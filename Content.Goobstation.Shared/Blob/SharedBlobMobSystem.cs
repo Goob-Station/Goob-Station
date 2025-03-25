@@ -7,7 +7,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Blob;
+namespace Content.Goobstation.Shared.Blob;
 
 public abstract class SharedBlobMobSystem : EntitySystem
 {

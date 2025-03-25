@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Goobstation.Common.Standing;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 using Robust.Shared.Map;
@@ -25,7 +26,7 @@ public sealed class TelefragSystem : EntitySystem
         var entities = _lookup.GetEntitiesInRange(coords, range, LookupFlags.Dynamic);
         foreach (var ent in entities.Where(ent => ent != uid && !_standing.IsDown(ent)))
         {
-            if (knockdownTime > TimeSpan.Zero && _stun.TryKnockdown(ent, knockdownTime, true, behavior))
+            if (knockdownTime > TimeSpan.Zero && _stun.TryKnockdown(ent, knockdownTime, true, behavior, null))
                 continue;
 
             if (_layingDown.TryLieDown(ent, behavior: behavior) && autoStandUp)

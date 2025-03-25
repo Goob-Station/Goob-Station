@@ -1,4 +1,5 @@
 ﻿using Content.Goobstation.Common.Blob;
+using Content.Goobstation.Shared.Blob;
 using Content.Goobstation.Shared.Blob.Events;
 using Content.Server.Actions;
 using Content.Server.Body.Systems;

@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Goobstation.Shared.Blob;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared._Goobstation.Blob;

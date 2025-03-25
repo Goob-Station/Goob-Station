@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Goobstation.Server.Blob.Components;
+using Content.Goobstation.Shared.Blob;
 using Content.Server.Actions;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking.Rules.Components;

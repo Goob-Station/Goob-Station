@@ -3,7 +3,7 @@ using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.Interaction;
 using Robust.Shared.Map;
 
-namespace Content.Shared._Goobstation.Blob;
+namespace Content.Goobstation.Shared.Blob;
 
 public abstract class SharedBlobObserverSystem : EntitySystem
 {

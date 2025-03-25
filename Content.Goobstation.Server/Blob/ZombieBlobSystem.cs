@@ -1,4 +1,5 @@
-﻿using Content.Server.Atmos.Components;
+﻿using Content.Goobstation.Shared.Blob;
+using Content.Server.Atmos.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Managers;
 using Content.Server.Explosion.EntitySystems;

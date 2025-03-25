@@ -5,7 +5,7 @@ using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 
-namespace Content.Shared._Goobstation.Weapons.Multishot;
+namespace Content.Goobstation.Shared.Weapons.Multishot;
 
 public sealed partial class SharedMultishotSystem : EntitySystem
 {
@@ -16,13 +16,13 @@ public sealed partial class SharedMultishotSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MultishotComponent, GotEquippedHandEvent>(OnEquipWeapon);
-        SubscribeLocalEvent<MultishotComponent, GotUnequippedHandEvent>(OnUnequipWeapon);
-        SubscribeLocalEvent<MultishotComponent, GunRefreshModifiersEvent>(OnRefreshModifiers);
-        SubscribeLocalEvent<MultishotComponent, GunShotEvent>(OnShotAttempt);
+        SubscribeLocalEvent<Goobstation.Shared.Weapons.Multishot.MultishotComponent, GotEquippedHandEvent>(OnEquipWeapon);
+        SubscribeLocalEvent<Goobstation.Shared.Weapons.Multishot.MultishotComponent, GotUnequippedHandEvent>(OnUnequipWeapon);
+        SubscribeLocalEvent<Goobstation.Shared.Weapons.Multishot.MultishotComponent, GunRefreshModifiersEvent>(OnRefreshModifiers);
+        SubscribeLocalEvent<Goobstation.Shared.Weapons.Multishot.MultishotComponent, GunShotEvent>(OnShotAttempt);
     }
 
-    private void OnShotAttempt(Entity<MultishotComponent> multishotWeapon, ref GunShotEvent args)
+    private void OnShotAttempt(Entity<Goobstation.Shared.Weapons.Multishot.MultishotComponent> multishotWeapon, ref GunShotEvent args)
     {
         var comp = multishotWeapon.Comp;
 
@@ -49,7 +49,7 @@ public sealed partial class SharedMultishotSystem : EntitySystem
         relatedGun.NextFire -= reloadDelta.Duration();
     }
 
-    private void OnRefreshModifiers(Entity<MultishotComponent> multishotWeapon, ref GunRefreshModifiersEvent args)
+    private void OnRefreshModifiers(Entity<Goobstation.Shared.Weapons.Multishot.MultishotComponent> multishotWeapon, ref GunRefreshModifiersEvent args)
     {
         var comp = multishotWeapon.Comp;
 
@@ -61,7 +61,7 @@ public sealed partial class SharedMultishotSystem : EntitySystem
         args.FireRate /= comp.SpreadMultiplier;
     }
 
-    private void OnEquipWeapon(Entity<MultishotComponent> multishotWeapon, ref GotEquippedHandEvent args)
+    private void OnEquipWeapon(Entity<Goobstation.Shared.Weapons.Multishot.MultishotComponent> multishotWeapon, ref GotEquippedHandEvent args)
     {
         var comp = multishotWeapon.Comp;
 
@@ -77,7 +77,7 @@ public sealed partial class SharedMultishotSystem : EntitySystem
             if (held == multishotWeapon.Owner)
                 continue;
 
-            if (!TryComp<MultishotComponent>(held, out var multishotHeld))
+            if (!TryComp<Goobstation.Shared.Weapons.Multishot.MultishotComponent>(held, out var multishotHeld))
                 continue;
 
             comp.RelatedWeapon = held;
@@ -93,14 +93,14 @@ public sealed partial class SharedMultishotSystem : EntitySystem
         }
     }
 
-    private void OnUnequipWeapon(Entity<MultishotComponent> multishotWeapon, ref GotUnequippedHandEvent args)
+    private void OnUnequipWeapon(Entity<Goobstation.Shared.Weapons.Multishot.MultishotComponent> multishotWeapon, ref GotUnequippedHandEvent args)
     {
         var comp = multishotWeapon.Comp;
 
         if (comp.RelatedWeapon == null)
             return;
 
-        if (!TryComp<MultishotComponent>(comp.RelatedWeapon.Value, out var relatedMultishot))
+        if (!TryComp<Goobstation.Shared.Weapons.Multishot.MultishotComponent>(comp.RelatedWeapon.Value, out var relatedMultishot))
         {
             comp.RelatedWeapon = null;
             return;

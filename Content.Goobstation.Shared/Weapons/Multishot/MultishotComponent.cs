@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Weapons.Multishot;
+namespace Content.Goobstation.Shared.Weapons.Multishot;
 
 /// <summary>
 /// Component that allows guns to be shooted with another weapon by holding it in second hand

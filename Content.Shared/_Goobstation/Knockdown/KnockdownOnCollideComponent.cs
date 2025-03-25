@@ -1,6 +1,6 @@
-using Content.Shared._White.Standing;
+using Content.Goobstation.Common.Standing;
 
-namespace Content.Shared._White.Collision.Knockdown;
+namespace Content.Shared._Goobstation.Knockdown;
 
 [RegisterComponent]
 public sealed partial class KnockdownOnCollideComponent : Component

@@ -1,6 +1,7 @@
 //using Content.Server.Language;
 //using Content.Server.Language.Events;
 
+using Content.Goobstation.Shared.Blob;
 using Content.Server.Radio.EntitySystems;
 using Content.Shared._Goobstation.Blob;
 using Content.Shared._Goobstation.Blob.Components;

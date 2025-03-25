@@ -4,7 +4,7 @@ using Content.Shared.Popups;
 using Content.Shared.UserInterface;
 using Content.Shared.Weapons.Ranged.Events;
 
-namespace Content.Shared._Goobstation.Blob;
+namespace Content.Goobstation.Shared.Blob;
 
 public abstract class SharedZombieBlobSystem : EntitySystem
 {

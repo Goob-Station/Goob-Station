@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Shared._Goobstation.Weapons.Multishot;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -9,7 +8,7 @@ using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Whitelist;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._Goobstation.Weapons.RequiresDualWield;
+namespace Content.Goobstation.Shared.Weapons.RequiresDualWield;
 
 public sealed class RequiresDualWieldSystem : EntitySystem
 {
@@ -23,11 +22,11 @@ public sealed class RequiresDualWieldSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RequiresDualWieldComponent, ExaminedEvent>(OnExamineRequires);
-        SubscribeLocalEvent<RequiresDualWieldComponent, ShotAttemptedEvent>(OnShootAttempt);
+        SubscribeLocalEvent<Goobstation.Shared.Weapons.RequiresDualWield.RequiresDualWieldComponent, ExaminedEvent>(OnExamineRequires);
+        SubscribeLocalEvent<Goobstation.Shared.Weapons.RequiresDualWield.RequiresDualWieldComponent, ShotAttemptedEvent>(OnShootAttempt);
     }
 
-    private void OnShootAttempt(EntityUid uid, RequiresDualWieldComponent component, ref ShotAttemptedEvent args)
+    private void OnShootAttempt(EntityUid uid, Goobstation.Shared.Weapons.RequiresDualWield.RequiresDualWieldComponent component, ref ShotAttemptedEvent args)
     {
         var comp = args.Used.Comp;
 
@@ -50,7 +49,7 @@ public sealed class RequiresDualWieldSystem : EntitySystem
             if (held == uid)
                 continue;
 
-            if (HasComp<MultishotComponent>(held))
+            if (HasComp<Goobstation.Shared.Weapons.Multishot.MultishotComponent>(held))
             {
                 if (CheckGun(held,component.Whitelist))
                     continue;
@@ -63,13 +62,13 @@ public sealed class RequiresDualWieldSystem : EntitySystem
         }
     }
 
-    private void OnExamineRequires(Entity<RequiresDualWieldComponent> entity, ref ExaminedEvent args)
+    private void OnExamineRequires(Entity<Goobstation.Shared.Weapons.RequiresDualWield.RequiresDualWieldComponent> entity, ref ExaminedEvent args)
     {
         if (entity.Comp.WieldRequiresExamineMessage != null)
             args.PushText(Loc.GetString(entity.Comp.WieldRequiresExamineMessage));
     }
 
-    private void DualWieldPopup(RequiresDualWieldComponent component, ref ShotAttemptedEvent args)
+    private void DualWieldPopup(Goobstation.Shared.Weapons.RequiresDualWield.RequiresDualWieldComponent component, ref ShotAttemptedEvent args)
     {
         var time = _timing.CurTime;
 

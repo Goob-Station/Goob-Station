@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Goobstation.Common.CCVar;
+using Content.Goobstation.Shared.Blob;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Destructible;

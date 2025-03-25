@@ -1,4 +1,3 @@
-using System.Numerics;
 using Content.Shared.Coordinates;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Throwing;
@@ -7,7 +6,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._Goobstation.Boomerang;
+namespace Content.Goobstation.Shared.Boomerang;
 
 /// <summary>
 /// This system handles boomerang-like behavior to make entities return to the thrower

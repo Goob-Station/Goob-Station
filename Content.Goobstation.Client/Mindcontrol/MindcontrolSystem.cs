@@ -1,3 +1,4 @@
+using Content.Shared._Goobstation.Mindcontrol;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
 
@@ -9,9 +10,9 @@ public sealed class MindcontrolSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<Content.Shared._Goobstation.Mindcontrol.MindcontrolledComponent, GetStatusIconsEvent>(OnGetStatusIconsEvent);
+        SubscribeLocalEvent<MindcontrolledComponent, GetStatusIconsEvent>(OnGetStatusIconsEvent);
     }
-    private void OnGetStatusIconsEvent(Entity<Content.Shared._Goobstation.Mindcontrol.MindcontrolledComponent> ent, ref GetStatusIconsEvent args)
+    private void OnGetStatusIconsEvent(Entity<MindcontrolledComponent> ent, ref GetStatusIconsEvent args)
     {
         if (_prototype.TryIndex(ent.Comp.MindcontrolIcon, out var iconPrototype))
             args.StatusIcons.Add(iconPrototype);

@@ -1,7 +1,12 @@
+using System;
+using Robust.Shared.Analyzers;
+using Robust.Shared.GameObjects;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.Manager.Attributes;
+using Robust.Shared.ViewVariables;
 
-namespace Content.Shared._White.Standing;
+namespace Content.Goobstation.Common.Standing;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class LayingDownComponent : Component
@@ -15,9 +20,8 @@ public sealed partial class LayingDownComponent : Component
     [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
     public bool AutoGetUp = true;
 }
+
 [Serializable, NetSerializable]
 public sealed class ChangeLayingDownEvent : CancellableEntityEventArgs;
 
-public sealed class CheckAutoGetUpEvent : EntityEventArgs
-{
-}
+public sealed class CheckAutoGetUpEvent : EntityEventArgs;

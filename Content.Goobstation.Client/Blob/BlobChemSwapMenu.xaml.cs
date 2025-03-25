@@ -19,7 +19,7 @@ public sealed partial class BlobChemSwapMenu : DefaultWindow
     private readonly SpriteSystem _sprite;
     public event Action<BlobChemType>? OnIdSelected;
 
-    private BlobChemColors _possibleChems = new();
+    private Shared.Blob.BlobChemColors _possibleChems = new();
     private BlobChemType _selectedId;
 
     public BlobChemSwapMenu()
@@ -29,7 +29,7 @@ public sealed partial class BlobChemSwapMenu : DefaultWindow
         _sprite = _entityManager.System<SpriteSystem>();
     }
 
-    public void UpdateState(BlobChemColors chemList, BlobChemType selectedChem)
+    public void UpdateState(Shared.Blob.BlobChemColors chemList, BlobChemType selectedChem)
     {
         _possibleChems = chemList;
         _selectedId = selectedChem;
