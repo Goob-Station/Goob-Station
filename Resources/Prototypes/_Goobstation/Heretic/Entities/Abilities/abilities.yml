@@ -1,0 +1,68 @@
+- type: entity
+  id: EntropicPlume
+  name: entropic plume
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: MovementIgnoreGravity
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Effects/effects160x160.rsi
+    layers:
+    - state: entropic_plume
+      shader: unshaded
+    noRot: false
+  - type: Physics
+    bodyType: Dynamic
+    linearDamping: 1
+    angularDamping: 0
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-2.5,1.5,2.5"
+        density: 1
+        hard: false
+        mask:
+        - BulletImpassable
+        - Opaque
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-2.5,-1.5,2.5,1.5"
+        density: 1
+        hard: false
+        mask:
+        - BulletImpassable
+        - Opaque
+  - type: Projectile
+    impactEffect: null
+    deleteOnCollide: false
+    penetrate: true
+    damage:
+      types:
+        Heat: 0
+    soundHit: null
+    forceSound: true
+  - type: TimedDespawn
+    lifetime: 1.4
+  - type: EntropicPlume
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: EffectCleave
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects
+    layers:
+      - shader: unshaded
+        sprite: _Goobstation/Heretic/Effects/effects.rsi
+        state: cleave
+  - type: Tag
+    tags:
+      - HideContextMenu

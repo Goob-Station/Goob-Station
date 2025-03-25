@@ -182,3 +182,82 @@
       - !type:AdjustReagent
         amount: -25
         reagent: Aluite
+
+- type: reagent
+  id: Sarin
+  name: reagent-name-sarin
+  group: Toxins
+  desc: reagent-desc-sarin
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: salty
+  color: "#ff8239"
+  boilingPoint: 255.0
+  meltingPoint: 36.0
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.25
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 2
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.7
+        sprintSpeedModifier: 0.7
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+      - !type:Jitter
+      - !type:Paralyze
+        probability: 0.5
+        paralyzeTime: 4
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+      - !type:PopupMessage
+        type: Local
+        probability: 0.08
+        messages:
+        - generic-reagent-effect-burning-eyes
+        - generic-reagent-effect-burning-eyes-a-bit
+        - generic-reagent-effect-tearing-up
+        - norepinephricacid-effect-eyelids
+        - norepinephricacid-effect-eyes-itch
+        - norepinephricacid-effect-vision-fade
+        - norepinephricacid-effect-vision-fail
+      - !type:PopupMessage
+        type: Local
+        visualType: MediumCaution
+        probability: 0.03
+        messages:
+        - norepinephricacid-effect-eye-disconnect
+        - norepinephricacid-effect-eye-pain
+        - norepinephricacid-effect-darkness
+        - norepinephricacid-effect-blindness
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+      - !type:Emote
+        emote: Scream
+        probability: 0.08
+      - !type:GenericStatusEffect
+        key: TemporaryBlindness
+        component: TemporaryBlindness
+        conditions:
+        - !type:ReagentThreshold
+          min: 2.5
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Caustic: 3 # any less and you wont crit from the full duration if you have internals
+        conditions:
+        - !type:HasComponentOnEquipmentCondition
+          components:
+          - type: PressureProtection # can't get through this to reach the bodyparts!
+          invert: true

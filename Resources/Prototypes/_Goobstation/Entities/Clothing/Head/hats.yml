@@ -101,6 +101,24 @@
 
 - type: entity
   parent: ClothingHeadBase
+  id: ClothingHeadHatImam
+  name: imam head wrap
+  description: Praise Allah.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/imam.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/imam.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    slots:
+    - Hair
+
+- type: entity
+  parent: ClothingHeadBase
   id: ClothingHeadHatTrainer
   name: NCT's hat
   description: A hat issued to Nanotrasen Career Trainers. Makes you feel stylish.
@@ -120,3 +138,4 @@
     sprite: _Goobstation/Clothing/Head/Hats/trainer_beret.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hats/trainer_beret.rsi
+

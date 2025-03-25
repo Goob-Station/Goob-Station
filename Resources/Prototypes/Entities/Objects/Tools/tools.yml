@@ -489,7 +489,7 @@
   - type: Prying
     enabled: false
   - type: UseDelay # Goobstation - For insta prying
-    delay: 1
+    delay: 0 # Goobstation - no switch CD
   - type: Tool
     qualities:
       - Screwing

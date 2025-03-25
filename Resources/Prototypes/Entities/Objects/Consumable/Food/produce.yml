@@ -1608,12 +1608,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20 ##I'm pretty sure this has to match the total of 100 potency yields
+        maxVol: 25 ##I'm pretty sure this has to match the total of 100 potency yields
         reagents:
         - ReagentId: Aloe
-          Quantity: 10
-        - ReagentId: Dermaline
-          Quantity: 10
+          Quantity: 5 # Goobstation edit
+        - ReagentId: SilverSulfadiazine # Goobstation edit
+          Quantity: 20
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/aloe.rsi
   - type: Produce
@@ -1677,9 +1677,9 @@
 
 - type: entity
   name: lily
-  parent: FoodPoppy
+  parent: FoodProduceBase
   id: FoodLily
-  description: A beautiful orange flower.
+  description: A beautiful orange flower containing topical medicine.
   components:
   - type: FlavorProfile
     flavors:
@@ -1691,7 +1691,7 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
-        - ReagentId: Bicaridine
+        - ReagentId: StypticPowder
           Quantity: 20
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/lily.rsi
