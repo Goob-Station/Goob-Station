@@ -6642,3 +6642,9 @@ Entries:
       message: Eldritch water for priest ritual.
   id: 768
   time: '2025-03-24T23:28:42.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Hammer recipe to lathes, good for bashing skulls in.
+  id: 769
+  time: '2025-03-25T05:07:21.0000000+00:00'
