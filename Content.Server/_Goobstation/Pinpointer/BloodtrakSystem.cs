@@ -43,9 +43,6 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         var popupText = Loc.GetString("bloodtrak-dna-saved");
         _popupSystem.PopupEntity(popupText, args.User, args.User);
 
-        if (!TryComp<PuddleComponent>(args.Target, out var puddle))
-            return default;
-
         // Early exit if no DNA found
         if (solutionsDna?.Count == 0)
         {
