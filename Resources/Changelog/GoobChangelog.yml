@@ -6778,3 +6778,11 @@ Entries:
       message: 'Max-size bingle pit now ignores gravity. '
   id: 787
   time: '2025-03-25T13:29:54.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Blobbernauts now properly make explosions for explosive blob and EMP for
+        EMP blob.
+  id: 788
+  time: '2025-03-25T13:59:11.0000000+00:00'
