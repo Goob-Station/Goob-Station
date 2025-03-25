@@ -6735,3 +6735,9 @@ Entries:
         2u on throw.
   id: 781
   time: '2025-03-25T13:17:50.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Add
+      message: Added loot for destroying the bingle pit
+  id: 782
+  time: '2025-03-25T13:18:36.0000000+00:00'
