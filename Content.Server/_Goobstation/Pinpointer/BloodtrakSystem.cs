@@ -32,16 +32,16 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
     private EntityUid GetBloodTarget(EntityUid uid, BloodtrakComponent comp, AfterInteractEvent args)
     {
         // Check if the solution being scanned has DNA associated with it.
-        if (args.Target is not { Valid: true } targetEntity || !_tag.HasTag(targetEntity, "DNASolutionScannable"))
+        if (args.Target is not { Valid: true } targetEntity || !_tag.HasTag(targetEntity, "DNASolutionScannable") || !HasComp<PuddleComponent>(targetEntity) )
         {
+            _popupSystem.PopupEntity(Loc.GetString("bloodtrak-scan-failed"), args.User, args.User);
             args.Handled = true;
             return default;
         }
 
         // Get the DNAs of the solution.
         var solutionsDna = _forensicsSystem.GetSolutionsDNA(targetEntity);
-        var popupText = Loc.GetString("bloodtrak-dna-saved");
-        _popupSystem.PopupEntity(popupText, args.User, args.User);
+        _popupSystem.PopupEntity(Loc.GetString("bloodtrak-dna-saved"), args.User, args.User);
 
         // Early exit if no DNA found
         if (solutionsDna?.Count == 0)
