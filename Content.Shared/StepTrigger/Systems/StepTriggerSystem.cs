@@ -245,15 +245,15 @@ public sealed class StepTriggerSystem : EntitySystem
     }
 
     // Goobstation
-    public void SetIgnoreWeightless(EntityUid uid, bool to, StepTriggerComponent? component = null)
+    public void SetIgnoreWeightless(EntityUid uid, bool ignore, StepTriggerComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return;
 
-        if (to == component.IgnoreWeightless)
+        if (ignore == component.IgnoreWeightless)
             return;
 
-        component.IgnoreWeightless = to;
+        component.IgnoreWeightless = ignore;
         Dirty(uid, component);
     }
 }
