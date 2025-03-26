@@ -8,6 +8,7 @@
   - type: SubdermalImplant
     permanent: true
     implantAction: ActionActivateBluespaceLifeline
+  - type: MansusGraspBlockTrigger
   - type: TriggerOnMobstateChange
     mobState:
     - Dead
@@ -48,20 +49,6 @@
       duration: 15
     - type: SoundOnTrigger
       sound: /Audio/Effects/smoke.ogg
-
-- type: entity
-  parent: BaseSubdermalImplant
-  id: SyndicateJaunterImplant
-  name: syndicate jaunter implant
-  description: This implants allows the user to swap positions with a target individual. Recharges over time.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: SubdermalImplant
-    implantAction: ActionSwapImplant
-  - type: Tag
-    tags:
-    - SubdermalImplant
-    - HideContextMenu
 
 - type: entity
   parent: BaseSubdermalImplant

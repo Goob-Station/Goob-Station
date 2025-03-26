@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/09/2025 09:13:22
-  entityCount: 22562
+  time: 03/12/2025 15:28:53
+  entityCount: 22563
 maps:
 - 1
 grids:
@@ -76628,6 +76628,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 16.5,-3.5
+      parent: 2
+- proto: GasMinerPlasma
+  entities:
+  - uid: 22563
+    components:
+    - type: Transform
+      pos: 24.5,-3.5
       parent: 2
 - proto: GasMinerWaterVapor
   entities:

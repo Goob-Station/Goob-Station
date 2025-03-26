@@ -24,6 +24,9 @@
     SpectralLocator: 1
     TemplarArmor: 1 #goob
     ClothingHeadHelmetTemplar: 1 #goob
+    BibleQuaran: 1 #goob
+    BibleTanakh: 1 #goob
+    ClothingHeadHatImam: 1 #goob
   contrabandInventory:
     FoodBakedBunHotX: 2
     DrinkWineBottleFull: 1
