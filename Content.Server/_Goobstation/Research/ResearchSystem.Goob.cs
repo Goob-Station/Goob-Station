@@ -13,50 +13,37 @@ public sealed partial class ResearchSystem
         if (!Resolve(uid, ref component, ref clientComponent, false))
             return;
 
-        ResearchConsoleBoundInterfaceState state;
+        var allTechs = PrototypeManager.EnumeratePrototypes<TechnologyPrototype>().ToList();
+        Dictionary<string, ResearchAvailability> techList;
+        var points = 0;
 
-        Dictionary<string, ResearchAvailability> list = new();
-        foreach (var proto in PrototypeManager.EnumeratePrototypes<TechnologyPrototype>().ToList())
+        if (TryGetClientServer(uid, out var serverUid, out var server, clientComponent) &&
+            TryComp<TechnologyDatabaseComponent>(serverUid, out var db))
         {
-            list.Add(proto.ID, ResearchAvailability.Unavailable);
-        }
-
-        if (TryGetClientServer(uid, out var serverUid, out var serverComponent, clientComponent))
-        {
-            if (clientComponent.Server.HasValue && TryComp<TechnologyDatabaseComponent>(clientComponent.Server.Value, out var db))
-            {
-                var toList = list.ToList();
-                for (var i = 0; i < toList.Count; i++)
+            var unlockedTechs = new HashSet<string>(db.UnlockedTechnologies);
+            techList = allTechs.ToDictionary(
+                proto => proto.ID,
+                proto =>
                 {
-                    var item = PrototypeManager.Index<TechnologyPrototype>(toList[i].Key);
-                    if (CompOrNull<TechnologyDatabaseComponent>(serverUid)?.UnlockedTechnologies.Contains(item.ID) ?? false)
-                        list[item.ID] = ResearchAvailability.Researched;
-                    else if (item.TechnologyPrerequisites.Count <= 0)
-                        list[item.ID] = serverComponent.Points >= item.Cost ? ResearchAvailability.Available : ResearchAvailability.Unavailable;
-                    else
-                    {
-                        var success = true;
-                        foreach (var required in item.TechnologyPrerequisites)
-                        {
-                            if (!db.UnlockedTechnologies.Contains(required))
-                                success = false;
-                        }
+                    if (unlockedTechs.Contains(proto.ID))
+                        return ResearchAvailability.Researched;
 
-                        var available = success && serverComponent.Points >= item.Cost;
-                        if (success)
-                            list[item.ID] = available ? ResearchAvailability.Available : ResearchAvailability.Unavailable;
-                    }
-                }
-            }
+                    var prereqsMet = proto.TechnologyPrerequisites.All(p => unlockedTechs.Contains(p));
+                    var canAfford = server.Points >= proto.Cost;
 
-            var points = clientComponent.ConnectedToServer ? serverComponent.Points : 0;
-            state = new ResearchConsoleBoundInterfaceState(points, list);
+                    return prereqsMet && canAfford
+                        ? ResearchAvailability.Available
+                        : ResearchAvailability.Unavailable;
+                });
+
+            points = clientComponent.ConnectedToServer ? server.Points : 0;
         }
         else
         {
-            state = new ResearchConsoleBoundInterfaceState(default, list);
+            techList = allTechs.ToDictionary(proto => proto.ID, _ => ResearchAvailability.Unavailable);
         }
 
-        _uiSystem.SetUiState(uid, ResearchConsoleUiKey.Key, state);
+        _uiSystem.SetUiState(uid, ResearchConsoleUiKey.Key,
+            new ResearchConsoleBoundInterfaceState(points, techList));
     }
 }
