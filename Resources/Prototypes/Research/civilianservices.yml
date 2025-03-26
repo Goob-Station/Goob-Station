@@ -121,7 +121,7 @@
   - BiofabricatorMachineCircuitboard
   - BiomassReclaimerMachineCircuitboard
   # Goobstation R&D Console rework start
-  position: -2,5
+  position: -3,5
   technologyPrerequisites:
   - Hydroponics
   # Goobstation R&D Console rework end
