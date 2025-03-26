@@ -262,6 +262,5 @@
     knockdownTimeDelta: -2
   - type: ClothingGrantComponent # Holy shit this is an awful way to do this.
     component:
-    - type: SubdermalImplant
-      implantAction: ActionActivateAutoinjector
+    - type: AutoinjectorImplant
 
