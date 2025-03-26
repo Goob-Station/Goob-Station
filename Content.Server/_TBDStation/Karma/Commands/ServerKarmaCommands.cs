@@ -37,7 +37,7 @@ namespace Content.Server._TBDStation.ServerKarma.Commands
         }
     }
 
-    [AdminCommand(AdminFlags.Host)]
+    [AdminCommand(AdminFlags.FullAdmin)]
     public sealed class AddServerKarmaCommand : IConsoleCommand
     {
         [Dependency] private readonly ServerKarmaManager _KarmaMan = default!;
@@ -82,7 +82,7 @@ namespace Content.Server._TBDStation.ServerKarma.Commands
         }
     }
 
-    [AdminCommand(AdminFlags.Host)]
+    [AdminCommand(AdminFlags.FullAdmin)]
     public sealed class RemoveServerKarmaCommand : IConsoleCommand
     {
         [Dependency] private readonly ServerKarmaManager _KarmaMan = default!;
@@ -127,7 +127,7 @@ namespace Content.Server._TBDStation.ServerKarma.Commands
         }
     }
 
-    [AdminCommand(AdminFlags.Host)]
+    [AdminCommand(AdminFlags.FullAdmin)]
     public sealed class SetServerKarmaCommand : IConsoleCommand
     {
         [Dependency] private readonly ServerKarmaManager _KarmaMan = default!;
@@ -172,7 +172,7 @@ namespace Content.Server._TBDStation.ServerKarma.Commands
         }
     }
 
-    [AdminCommand(AdminFlags.Host)]
+    [AdminCommand(AdminFlags.FullAdmin)]
     public sealed class GetServerKarmaCommand : IConsoleCommand
     {
         [Dependency] private readonly ServerKarmaManager _KarmaMan = default!;
