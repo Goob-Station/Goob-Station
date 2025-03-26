@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Numerics;
 using Content.Server.Forensics;
 using Content.Shared._Goobstation.Pinpointer;
@@ -74,7 +75,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         {
             if (_dnaMap.TryGetValue(dna, out var uid))
             {
-                _popupSystem.PopupPredicted(Loc.GetString("bloodtrak-dna-saved"), args.User, args.User);
+                _popupSystem.PopupEntity(Loc.GetString("bloodtrak-dna-saved"), args.User, args.User);
                 return uid;
             }
         }
@@ -107,7 +108,8 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
             // 2. Has valid target
             if (_gameTiming.CurTime < pinpointer.CooldownEndTime)
             {
-                var popUp = Loc.GetString("bloodtrak-cooldown-active", ("num", pinpointer.CooldownEndTime));
+                var decimalTime = Convert.ToDecimal(pinpointer.CooldownEndTime);
+                var popUp = Loc.GetString("bloodtrak-cooldown-active", ("num", Math.Round(decimalTime)));
                 _popupSystem.PopupPredicted(popUp,
                     pinpointer.Owner,
                     pinpointer.Owner);
