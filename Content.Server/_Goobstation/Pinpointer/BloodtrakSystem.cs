@@ -109,8 +109,8 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
             if (_gameTiming.CurTime < pinpointer.CooldownEndTime)
             {
                 // Convert the timespan to a float to display it properly.
-                var totalTime = (float) pinpointer.CooldownEndTime.TotalSeconds;
-                var popUp = Loc.GetString("bloodtrak-cooldown-active", ("num", totalTime));
+                var totalTime = (float) pinpointer.CooldownDuration.TotalSeconds;
+                var popUp = Loc.GetString("bloodtrak-cooldown-active", ("num", Math.Round(totalTime)));
                 _popupSystem.PopupPredicted(popUp,
                     pinpointer.Owner,
                     pinpointer.Owner);
