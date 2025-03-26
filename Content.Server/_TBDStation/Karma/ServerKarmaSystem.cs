@@ -268,6 +268,9 @@ namespace Content.Server._TBDStation.ServerKarma
 
         private void OnKarmaHit(PlayerKarmaHitEvent ev)
         {
+            if (ev.User == ev.Target)
+                return;
+
             if (!_actors.TryGetSession(new EntityUid(ev.User), out ICommonSession? session))
                 return;
             if (session == null)
@@ -286,10 +289,10 @@ namespace Content.Server._TBDStation.ServerKarma
                         delta *= 3;
                     else if (_mobStateSystem.IsDead(target)) // less if dead
                         delta *= 0.5f;
+
                     _adminLogger.Add(LogType.Karma,
                     LogImpact.Medium,
                     $"{ToPrettyString(new EntityUid(ev.User)):actor} hit {ToPrettyString(target):subject} lossing {(int) delta} karma");
-
                     _karmaMan.RemoveKarma(netUserId, (int) delta);
                 }
             }
