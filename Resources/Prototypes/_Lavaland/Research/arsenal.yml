@@ -4,10 +4,13 @@
   icon:
     sprite: _Lavaland/Objects/Weapons/upgrade.rsi
     state: display
-  discipline: Arsenal
+  discipline: Industrial
   tier: 2
-  cost: 7500
+  cost: 10000
   recipeUnlocks:
   - PKAUpgradeDamage
   - PKAUpgradeRange
   - PKAUpgradeFireRate
+  position: 0,-7
+  technologyPrerequisites:
+  - MassExcavation
