@@ -1,5 +1,5 @@
 ﻿using System.Numerics;
-using Content.Shared._Goobstation.Blob.Components;
+using Content.Goobstation.Shared.Blob.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Content.Shared.Radio;

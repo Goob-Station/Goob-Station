@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using Content.Shared._Goobstation.Blob.Components;
+using Content.Goobstation.Shared.Blob.Components;
 using Content.Shared.ActionBlocker;
 using Robust.Shared.CPUJob.JobQueues;
 using Robust.Shared.Map;

@@ -1,6 +1,6 @@
 using Content.Goobstation.Server.Blob.Components;
+using Content.Goobstation.Shared.Blob.Components;
 using Content.Server.GameTicking;
-using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.Popups;
 
 namespace Content.Goobstation.Server.Blob;

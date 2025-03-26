@@ -1,7 +1,7 @@
-using Content.Server.Implants.Components;
+using Content.Goobstation.Server.Implants.Components;
 using Content.Shared.Implants;
 
-namespace Content.Server.Implants.Systems;
+namespace Content.Goobstation.Server.Implants.Systems;
 
 /// <summary>
 /// Adds implants on spawn to the entity
@@ -13,10 +13,10 @@ public sealed class GrantImplantSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<Goobstation.Server.Implants.Components.GrantImplantComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<GrantImplantComponent, ComponentInit>(OnInit);
     }
 
-    public void OnInit(EntityUid uid, Goobstation.Server.Implants.Components.GrantImplantComponent comp, ComponentInit args)
+    public void OnInit(EntityUid uid, GrantImplantComponent comp, ComponentInit args)
     {
         _implantSystem.AddImplants(uid, comp.Implants);
     }

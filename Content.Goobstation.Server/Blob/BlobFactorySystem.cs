@@ -1,6 +1,6 @@
 using Content.Goobstation.Server.Blob.Components;
+using Content.Goobstation.Shared.Blob.Components;
 using Content.Server.Popups;
-using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;

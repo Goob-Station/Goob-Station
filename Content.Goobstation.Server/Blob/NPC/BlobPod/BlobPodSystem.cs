@@ -1,10 +1,10 @@
+using Content.Goobstation.Shared.Blob.Components;
+using Content.Goobstation.Shared.Blob.NPC.BlobPod;
 using Content.Server.DoAfter;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Server.Popups;
-using Content.Shared._Goobstation.Blob.Components;
-using Content.Shared._Goobstation.Blob.NPC.BlobPod;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
@@ -41,7 +41,7 @@ public sealed class BlobPodSystem : SharedBlobPodSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BlobPodComponent, BlobPodZombifyDoAfterEvent>(OnZombify);
+        SubscribeLocalEvent<BlobPodComponent, Shared.Blob.NPC.BlobPod.BlobPodZombifyDoAfterEvent>(OnZombify);
         SubscribeLocalEvent<BlobPodComponent, DestructionEventArgs>(OnDestruction);
         SubscribeLocalEvent<BlobPodComponent, EntGotRemovedFromContainerMessage>(OnUnequip);
         SubscribeLocalEvent<BlobPodComponent, BeforeDamageChangedEvent>(OnGetDamage);
@@ -131,7 +131,7 @@ public sealed class BlobPodSystem : SharedBlobPodSystem
         return true;
     }
 
-    private void OnZombify(EntityUid uid, BlobPodComponent component, BlobPodZombifyDoAfterEvent args)
+    private void OnZombify(EntityUid uid, BlobPodComponent component, Shared.Blob.NPC.BlobPod.BlobPodZombifyDoAfterEvent args)
     {
         component.IsZombifying = false;
         if (args.Handled || args.Args.Target == null)
@@ -178,7 +178,7 @@ public sealed class BlobPodSystem : SharedBlobPodSystem
         component.ZombifyStingStream = _audioSystem.PlayPvs(component.ZombifySoundPath, target);
         component.IsZombifying = true;
 
-        var ev = new BlobPodZombifyDoAfterEvent();
+        var ev = new Shared.Blob.NPC.BlobPod.BlobPodZombifyDoAfterEvent();
         var args = new DoAfterArgs(EntityManager, uid, component.ZombifyDelay, ev, uid, target: target)
         {
             BreakOnMove = true,
