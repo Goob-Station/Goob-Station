@@ -210,13 +210,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 Entries:
-- author: thetolbean
-  changes:
-  - message: The Quartermaster's requisition digi-board can no longer be recycled.
-    type: Fix
-  id: 7610
-  time: '2024-11-15T06:54:53.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/33315
 - author: RedBookcase
   changes:
   - message: Mixing up a Snow White no longer creates extra liquid out of thin air.
@@ -4085,3 +4078,10 @@ Entries:
   id: 8109
   time: '2025-03-26T15:34:19.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/35910
+- author: slarticodefast
+  changes:
+  - message: Further improved item copying for paradox clones.
+    type: Tweak
+  id: 8110
+  time: '2025-03-26T16:13:03.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/35993
