@@ -1,4 +1,6 @@
 using Robust.Shared.GameStates;
+using Content.Shared.DoAfter;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Containers;
 
@@ -17,4 +19,22 @@ public sealed partial class DragInsertContainerComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool UseVerbs = true;
+
+    /// <summary>
+    /// The delay in seconds before a drag will be completed.
+    /// </summary>
+    [DataField]
+    public TimeSpan EntryDelay = TimeSpan.Zero;
+
+    /// <summary>
+    /// If entry delay isn't zero, this sets whether an entity dragging itself into the container should be delayed.
+    /// </summary>
+    [DataField]
+    public bool DelaySelfEntry = false;
+
+}
+
+[Serializable, NetSerializable, ByRefEvent]
+public sealed partial class InsertOnDragDoAfterEvent : SimpleDoAfterEvent
+{
 }

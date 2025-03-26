@@ -12,6 +12,7 @@
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
 
+
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateStealthHardsuitBundle
@@ -60,7 +61,7 @@
   - type: StorageFill
     contents:
       - id: WeaponRifleWSPR
-      - id: MagazineLightRifleSubsonic
+      - id: MagazineCaselessRifle
         amount: 2
 
 - type: entity

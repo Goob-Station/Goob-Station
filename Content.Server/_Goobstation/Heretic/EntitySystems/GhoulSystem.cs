@@ -67,7 +67,7 @@ public sealed partial class GhoulSystem : EntitySystem
         if (TryComp<MobThresholdsComponent>(ent, out var th))
         {
             _threshold.SetMobStateThreshold(ent, ent.Comp.TotalHealth, MobState.Dead, th);
-            _threshold.SetMobStateThreshold(ent, ent.Comp.TotalHealth / 1.25f, MobState.Critical, th);
+            _threshold.SetMobStateThreshold(ent, ent.Comp.TotalHealth * 0.99f, MobState.Critical, th);
         }
 
         MakeSentientCommand.MakeSentient(ent, EntityManager);
@@ -90,9 +90,11 @@ public sealed partial class GhoulSystem : EntitySystem
     private void SendBriefing(Entity<GhoulComponent> ent, EntityUid mindId, MindComponent? mind)
     {
         var brief = Loc.GetString("heretic-ghoul-greeting-noname");
+        EntityUid? master = EntityManager.GetEntity(ent.Comp.BoundHeretic);
 
-        if (ent.Comp.BoundHeretic != null)
-            brief = Loc.GetString("heretic-ghoul-greeting", ("ent", Identity.Entity((EntityUid) ent.Comp.BoundHeretic, EntityManager)));
+        if (master.HasValue)
+            brief = Loc.GetString("heretic-ghoul-greeting", ("ent", Identity.Entity(master.Value, EntityManager)));
+
         var sound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
         _antag.SendBriefing(ent, brief, Color.MediumPurple, sound);
 
@@ -117,13 +119,6 @@ public sealed partial class GhoulSystem : EntitySystem
 
     private void OnInit(Entity<GhoulComponent> ent, ref ComponentInit args)
     {
-        foreach (var look in _lookup.GetEntitiesInRange<HereticComponent>(Transform(ent).Coordinates, 1.5f))
-        {
-            if (ent.Comp.BoundHeretic == null)
-                ent.Comp.BoundHeretic = look;
-            else break;
-        }
-
         GhoulifyEntity(ent);
     }
     private void OnTakeGhostRole(Entity<GhoulComponent> ent, ref TakeGhostRoleEvent args)

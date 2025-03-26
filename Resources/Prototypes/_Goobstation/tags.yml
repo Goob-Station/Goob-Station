@@ -24,9 +24,6 @@
   id: CartridgeHighCaliber
 
 - type: Tag
-  id: CartridgeLightRifleSubsonic
-
-- type: Tag
   id: CartridgeMagicBullet
 
 - type: Tag
@@ -66,6 +63,9 @@
   id: CursedAnimalMask
 
 - type: Tag
+  id: DroneMind
+
+- type: Tag
   id: Durand
 
 - type: Tag
@@ -103,6 +103,18 @@
 
 - type: Tag
   id: EmergencyOxygenTank
+
+- type: Tag
+  id: EnergySpeedloader
+
+- type: Tag
+  id: EnergySpeedloaderDisabler
+
+- type: Tag
+  id: EnergySpeedloaderLethal
+
+- type: Tag
+  id: EnergySpeedloaderTerminate
 
 - type: Tag
   id: ExtendedEmergencyOxygenTank
@@ -159,10 +171,16 @@
   id: GunCanAimShooter
 
 - type: Tag
+  id: HandheldCrewMonitor
+
+- type: Tag
   id: HarpyEmotes
 
 - type: Tag
   id: Heart
+
+- type: Tag
+  id: HereticItem
 
 - type: Tag
   id: HEVSuit
@@ -190,9 +208,6 @@
 
 - type: Tag
   id: MagazineHighCaliber
-
-- type: Tag
-  id: MagazineLightRifleSubsonic
 
 - type: Tag
   id: MagazineMagnumLeverRifle
@@ -282,6 +297,9 @@
   id: StasisCage
 
 - type: Tag
+  id: Steel
+
+- type: Tag
   id: Stomach
 
 - type: Tag
@@ -306,6 +324,9 @@
   id: Tourniquet
 
 - type: Tag
+  id: ToyGrenade
+
+- type: Tag
   id: ToySword
 
 - type: Tag
@@ -324,8 +345,40 @@
   id: WeaponPistolDualetta
 
 - type: Tag
+  id: WinterCoat
+
+- type: Tag
   id: WizardHat
 
 - type: Tag
   id: HudMedicalSecurity
 
+- type: Tag
+  id: HudDiagnostic
+
+- type: Tag
+  id: HudMedicalDiagnostic
+
+- type: Tag
+  id: ReverseBearTrapKey
+
+- type: Tag
+  id: Bomb
+
+- type: Tag
+  id: Rifle
+
+- type: Tag
+  id: Hacking
+
+- type: Tag
+  id: Jetpack
+
+- type: Tag
+  id: RoundstartAntag
+
+- type: Tag
+  id: CalmAntag
+
+- type: Tag
+  id: MidroundAntag

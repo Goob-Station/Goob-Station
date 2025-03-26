@@ -11,6 +11,7 @@
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos
   canBeAntag: false
+  goobcoins: 30 #Goob content
   access:
   - Security
   - Brig
@@ -21,6 +22,9 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial # goobstation
+    components:
+      - type: SecurityStaff
 
 - type: startingGear
   id: SecurityOfficerGear
@@ -33,3 +37,4 @@
     - Flash
     - MagazinePistol
     - SecHypo # Goobstation
+    - ClothingMaskGasSecurity # Goobstation

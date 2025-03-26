@@ -15,6 +15,11 @@
     key: walls
     base: hierophant
   - type: SyncSprite
+  - type: PointLight
+    radius: 3.0
+    energy: 1.5
+  - type: RustRequiresPathStage
+    pathStage: 11 # Can't rust
 
 - type: entity
   parent: BaseWall
@@ -36,3 +41,5 @@
     shader: unshaded
   - type: Occluder
     enabled: false
+  - type: RustRequiresPathStage
+    pathStage: 11 # Can't rust

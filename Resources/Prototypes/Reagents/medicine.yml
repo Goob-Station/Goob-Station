@@ -138,7 +138,7 @@
           types:
             Radiation: -3
           groups:
-            Brute: 0.5
+            Brute: 1.5
 
 - type: reagent
   id: Bicaridine
@@ -194,6 +194,7 @@
   - !type:PlantAdjustHealth
     amount: 5
   - !type:PlantCryoxadone {}
+  worksOnTheDead: true # Goobstation
   metabolisms:
     Medicine:
       effects:
@@ -202,13 +203,15 @@
           - !type:Temperature
             # this is a little arbitrary but they gotta be pretty cold
             max: 213.0
+          scaleByTemperature: # Shitmed Change
+            min: 100.0
+            max: 213.0
+            scale: 1.6
           damage:
-          # todo scale with temp like SS13
-            groups:
-              Airloss: -6
-              Brute: -4
-              Burn: -6
-              Toxin: -4
+            groups: # Goobstation - Cryo rebalance
+              Airloss: -3
+              Brute: -3
+              Burn: -3
 
 - type: reagent
   id: Doxarubixadone
@@ -218,6 +221,7 @@
   physicalDesc: reagent-physical-desc-bubbling
   flavor: medicine
   color: "#32cd32"
+  worksOnTheDead: true # Goobstation - Cryo rebalance
   metabolisms:
     Medicine:
       effects:
@@ -225,6 +229,10 @@
           conditions:
           - !type:Temperature
             max: 213.0
+          scaleByTemperature: # Shitmed Change
+            min: 100.0
+            max: 213.0
+            scale: 1.6
           damage:
             types:
              Cellular: -2
@@ -613,18 +621,29 @@
         min: 4
   metabolisms:
     Medicine:
+      metabolismRate: 0.1
       effects:
       - !type:HealthChange
         damage:
           types:
-            Cellular: -1
-            Radiation: 1
-      - !type:ChemVomit
+            Cellular: -0.3
+            Radiation: 0.15
+            Caustic: 0.15
+      - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        probability: 0.05
+        - !type:ReagentThreshold
+          min: 11
+        damage:
+          types:
+            Radiation: 0.2
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Arithrazine
+          min: 1
+        damage:
+          types:
+            Caustic: 0.3
 
 - type: reagent
   id: PolypyryliumOligomers
@@ -717,7 +736,7 @@
         - !type:SatiateThirst
           factor: 6
         - !type:ModifyBloodLevel
-          amount: 6
+          amount: 12 # Goobstation - buffed by two times due to shitmed changes
 
 - type: reagent
   id: Siderlac
@@ -1046,6 +1065,24 @@
         - !type:ReagentThreshold
           min: 30
         probability: 0.02
+      - !type:ChemVomit
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Arithrazine
+          min: 1
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        probability: 0.1
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Arithrazine
+          min: 1
+        type: Local
+        visualType: Medium
+        messages: [ "generic-reagent-effect-nauseous" ]
+        probability: 0.2
 
 - type: reagent
   id: Lacerinol
@@ -1303,16 +1340,25 @@
   metabolisms:
     Medicine:
       effects:
+        - !type:ModifyBloodLevel # Goobstation - Cryo rebalance
+          conditions:
+          - !type:Temperature
+            max: 213.0
+          amount: 10
         - !type:HealthChange
           conditions:
           - !type:Temperature
             max: 213.0
-          damage:
+          scaleByTemperature: # Shitmed Change
+            min: 100.0
+            max: 213.0
+            scale: 1.6
+          damage: # Goobstation - Cryo rebalance
             groups:
-              Brute: -4
-              Burn: -5
-            types:
-              Poison: -2
+              Airloss: -10.0
+              Brute: -5.0
+              Burn: -5.0
+              Toxin: -5.0
 
 - type: reagent
   id : Aloxadone
@@ -1330,11 +1376,15 @@
         conditions:
         - !type:Temperature
           max: 213.0
-        damage:
+        scaleByTemperature: # Shitmed Change
+          min: 100.0
+          max: 213.0
+          scale: 1.6
+        damage: # Goobstation - Cryo rebalance
           types:
-            Heat: -3.0
-            Shock: -3.0
-            Caustic: -1.0
+            Heat: -10.0
+            Shock: -10.0
+            Caustic: -10.0
 
 - type: reagent
   id : Mannitol # currently this is just a way to create psicodine

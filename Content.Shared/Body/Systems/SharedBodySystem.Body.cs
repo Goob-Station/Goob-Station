@@ -19,6 +19,7 @@ using Robust.Shared.Utility;
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Body.Part;
 using Content.Shared._Shitmed.Humanoid.Events;
+using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Humanoid;
@@ -136,6 +137,7 @@ public partial class SharedBodySystem
         // Obviously can't run in Init to avoid double-spawns on save / load.
         var prototype = Prototypes.Index(ent.Comp.Prototype.Value);
         MapInitBody(ent, prototype);
+        EnsureComp<SurgeryTargetComponent>(ent); // Shitmed change
     }
 
     private void MapInitBody(EntityUid bodyEntity, BodyPrototype prototype)

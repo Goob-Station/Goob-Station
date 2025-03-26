@@ -1,3 +1,6 @@
+using System.Linq;
+using Content.Server.Body.Systems;
+using Content.Server.Heretic.Components;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
@@ -9,6 +12,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic;
 using Content.Server.Heretic.EntitySystems;
+using Content.Shared.Gibbing.Events;
 
 namespace Content.Server.Heretic.Ritual;
 
@@ -32,12 +36,12 @@ namespace Content.Server.Heretic.Ritual;
     /// <summary>
     ///     Should we count only targets?
     /// </summary>
-    [DataField] public bool OnlyTargets = false;
+    [DataField] public bool OnlyTargets;
 
     // this is awful but it works so i'm not complaining
     protected SharedMindSystem _mind = default!;
     protected HereticSystem _heretic = default!;
-    protected DamageableSystem _damage = default!;
+    protected BodySystem _body = default!;
     protected EntityLookupSystem _lookup = default!;
     [Dependency] protected IPrototypeManager _proto = default!;
 
@@ -47,9 +51,11 @@ namespace Content.Server.Heretic.Ritual;
     {
         _mind = args.EntityManager.System<SharedMindSystem>();
         _heretic = args.EntityManager.System<HereticSystem>();
-        _damage = args.EntityManager.System<DamageableSystem>();
+        _body = args.EntityManager.System<BodySystem>();
         _lookup = args.EntityManager.System<EntityLookupSystem>();
         _proto = IoCManager.Resolve<IPrototypeManager>();
+
+        uids = new();
 
         if (!args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
         {
@@ -57,8 +63,8 @@ namespace Content.Server.Heretic.Ritual;
             return false;
         }
 
-        var lookup = _lookup.GetEntitiesInRange(args.Platform, .75f);
-        if (lookup.Count == 0 || lookup == null)
+        var lookup = _lookup.GetEntitiesInRange(args.Platform, 1.5f);
+        if (lookup.Count == 0)
         {
             outstr = Loc.GetString("heretic-ritual-fail-sacrifice");
             return false;
@@ -69,7 +75,7 @@ namespace Content.Server.Heretic.Ritual;
         {
             if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate) // only mobs
             || !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(look) // only humans
-            || (OnlyTargets && !hereticComp.SacrificeTargets.Contains(args.EntityManager.GetNetEntity(look)))) // only targets
+            || OnlyTargets && hereticComp.SacrificeTargets.All(x => x.Entity != args.EntityManager.GetNetEntity(look))) // only targets
                 continue;
 
             if (mobstate.CurrentState == Shared.Mobs.MobState.Dead)
@@ -88,21 +94,27 @@ namespace Content.Server.Heretic.Ritual;
 
     public override void Finalize(RitualData args)
     {
-        for (int i = 0; i < Max; i++)
+        if (!args.EntityManager.TryGetComponent(args.Performer, out HereticComponent? heretic))
         {
-            var isCommand = args.EntityManager.HasComponent<CommandStaffComponent>(uids[i]);
-            var knowledgeGain = isCommand ? 3f : 2f;
+            uids = new();
+            return;
+        }
+
+        for (var i = 0; i < Max && i < uids.Count; i++)
+        {
+            if (!args.EntityManager.EntityExists(uids[i]))
+                continue;
+
+            var (isCommand, isSec) = IsCommandOrSec(uids[i], args.EntityManager);
+            var knowledgeGain = heretic.SacrificeTargets.Any(x => x.Entity == args.EntityManager.GetNetEntity(uids[i]))
+                ? (isCommand || isSec ? 3f : 2f)
+                : 0f;
 
             // YES!!! GIB!!!
-            if (args.EntityManager.TryGetComponent<DamageableComponent>(uids[i], out var dmg))
-            {
-                var prot = (ProtoId<DamageGroupPrototype>) "Brute";
-                var dmgtype = _proto.Index(prot);
-                _damage.TryChangeDamage(uids[i], new DamageSpecifier(dmgtype, 1984f), true);
-            }
+            _body.GibBody(uids[i], contents: GibContentsOption.Gib);
 
-            if (args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
-                _heretic.UpdateKnowledge(args.Performer, hereticComp, knowledgeGain);
+            if (knowledgeGain > 0)
+                _heretic.UpdateKnowledge(args.Performer, heretic, knowledgeGain);
 
             // update objectives
             if (_mind.TryGetMind(args.Performer, out var mindId, out var mind))
@@ -122,5 +134,11 @@ namespace Content.Server.Heretic.Ritual;
         // reset it because it refuses to work otherwise.
         uids = new();
         args.EntityManager.EventBus.RaiseLocalEvent(args.Performer, new EventHereticUpdateTargets());
+    }
+
+    protected (bool isCommand, bool isSec) IsCommandOrSec(EntityUid uid, IEntityManager entityManager)
+    {
+        return (entityManager.HasComponent<CommandStaffComponent>(uid),
+            entityManager.HasComponent<SecurityStaffComponent>(uid));
     }
 }

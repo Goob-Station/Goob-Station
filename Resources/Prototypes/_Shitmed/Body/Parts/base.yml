@@ -42,6 +42,10 @@
         Quantity: 3
       - ReagentId: Blood
         Quantity: 10
+  - type: Tag # Goobstation
+    tags:
+    - Trash
+    - Meat
 
 # organic torsos have higher health
 # this doesn't affect gibbing bodies as there is code to prevent torso gibbing while part of a body

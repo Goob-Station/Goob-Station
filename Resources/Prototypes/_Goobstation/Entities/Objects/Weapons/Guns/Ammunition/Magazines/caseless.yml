@@ -1,0 +1,15 @@
+- type: entity
+  id: MagazinePistolCaselessRifleEmpty
+  name: pistol magazine (.25 caseless any)
+  parent: BaseMagazinePistolCaselessRifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+
+- type: entity
+  id: MagazineCaselessRifleEmpty
+  name: magazine (.25 caseless any)
+  parent: BaseMagazineCaselessRifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: null

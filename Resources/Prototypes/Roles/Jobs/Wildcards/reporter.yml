@@ -5,6 +5,7 @@
   playTimeTracker: JobReporter
   startingGear: ReporterGear
   icon: "JobIconReporter"
+  goobcoins: 15 #Goob content
   supervisors: job-supervisors-hop
   access:
   - Service
