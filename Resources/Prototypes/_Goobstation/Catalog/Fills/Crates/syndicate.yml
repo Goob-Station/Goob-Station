@@ -58,3 +58,36 @@
       - id: ClothingHandsGlovesCombat
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
+
+- type: entity
+  id: CratePizzaParty
+  parent: CratePlastic
+  name: disaster pizza delivery
+  description: In the ultimate event that all else has failed, Find comfort in that more pizza solves everything. Includes 16 pizzas.
+  components:
+  - type: StorageFill
+    contents:     #to avoid them from being easily identifiable (8 pizza bomb + 8 regular pizzas)
+    - id: FoodBoxPizzaFilled
+      amount: 1
+    - id: FoodBoxPizzaBomb
+      amount: 2
+    - id: FoodBoxPizzaFilled
+      amount: 2
+    - id: FoodBoxPizzaBomb
+      amount : 1
+    - id: FoodBoxPizzaCotton
+      amount : 1
+    - id: FoodBoxPizzaBomb
+      amount : 2
+    - id: FoodBoxPizzaFilled
+      amount: 2
+    - id: FoodBoxPizzaBomb
+      amount : 2
+    - id: FoodBoxPizzaFilled
+      amount: 1
+    - id: FoodBoxPizzaBomb
+      amount: 1
+    - id: FoodBoxPizzaFilled
+      amount: 1
+    - id: LidSalami
+      prob: 0.01

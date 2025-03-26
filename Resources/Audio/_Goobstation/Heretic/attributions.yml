@@ -3,6 +3,31 @@
   copyright: "Taken from /tg/station"
   source: "https://github.com/tgstation/tgstation/tree/master/sound/effects/magic"
 
+- files: ["constructform.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/effects/constructform.ogg"
+
+- files: ["crack2.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/effects/wounds/crack2.ogg"
+
+- files: ["blood3.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/effects/wounds/blood3.ogg"
+
+- files: ["sheath.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/items/sheath.ogg"
+
+- files: ["demon_attack1.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/effects/magic/demon_attack1.ogg"
+
 - files: ["heartbeat.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "made by whateverusername0"

@@ -2,7 +2,7 @@
   parent: [ BaseItem, BaseMagicContraband ]
   id: CodexCicatrix
   name: codex cicatrix
-  description: An ominous book you've never seen before. The letters seem to be contantly rearranging themselves.
+  description: This heavy tome is full of cryptic scribbles and impossible diagrams. According to legend, it can be deciphered to reveal the secrets of the veil between worlds.
   components:
   - type: Sprite
     sprite: _Goobstation/Heretic/book.rsi
@@ -11,31 +11,30 @@
       map: [ "base" ]
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
+      enum.ToggleAnimationVisuals.ToggleState:
         base:
-          True: { state: icon-on }
-          False: { state: icon }
+          On: { state: icon-on }
+          Off: { state: icon }
+          TogglingOn: { state: icon-opening }
+          TogglingOff: { state: icon-closing }
   - type: Item
     size: Small
     sprite: _Goobstation/Heretic/book.rsi
   - type: UseDelay
-    delay: 1.0
-  - type: PointLight
-    enabled: false
-    radius: 2
-    energy: 1
-    color: "#6e7500"
-    netsync: false
+    delay: 2.0
   - type: Appearance
   - type: ItemToggle
-    predictable: false
   - type: ComponentToggler
     components:
     - type: HereticMagicItem
-  - type: ItemTogglePointLight
-  - type: ToggleableLightVisuals
+    - type: EldritchInfluenceDrainer
+    - type: TransmutationRuneScriber
   - type: ItemToggleSize
     activatedSize: Normal
+  - type: ToggleAnimation
+  - type: Tag
+    tags:
+    - HereticItem
 
 - type: entity
   parent: [ DrinkBase, BaseMagicContraband ]
@@ -54,11 +53,14 @@
       drink:
         # it's a cryostasis flash filled with healing goodies what could possibly go wrong?
         # i will certainly not abuse it as a heretic chemist
-        maxVol: 30
+        maxVol: 100
         canReact: false
         reagents:
-        - ReagentId: Ichor
-          Quantity: 30
+        - ReagentId: EldritchEssence
+          Quantity: 100
+  - type: Tag
+    tags:
+    - HereticItem
 
 - type: entity
   id: HereticProtectiveBlade
