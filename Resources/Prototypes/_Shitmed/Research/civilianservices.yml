@@ -75,5 +75,5 @@
   recipeUnlocks:
   - OmnimedTool
   technologyPrerequisites:
-  - AdvancedTreatment
+  - Autodoc
   position: -2,7
