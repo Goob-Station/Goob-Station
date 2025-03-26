@@ -1,3 +1,4 @@
+using Content.Server.Popups;
 using Content.Shared._Goobstation.Clothing;
 using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
@@ -12,6 +13,7 @@ public sealed partial class ClothingAutoinjectorSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -20,12 +22,20 @@ public sealed partial class ClothingAutoinjectorSystem : EntitySystem
         SubscribeLocalEvent<ClothingAutoInjectComponent, ComponentShutdown>(OnShutdown);
     }
 
-    public void OnInjectorActivated(EntityUid uid, ClothingAutoInjectComponent component, ActionActivateAutoInjectorEvent args)
+    public void OnInjectorActivated(EntityUid uid, ClothingAutoInjectComponent component, ref ActionActivateAutoInjectorEvent args)
     {
+        if (args.Handled)
+            return;
+
         if (!_proto.TryIndex(component.Proto, out var proto))
             return;
 
-        TryInjectReagents(args.Performer, proto.Reagents);
+        if (!TryInjectReagents(args.Performer, proto.Reagents))
+            return;
+
+        _popup.PopupEntity(Loc.GetString("autoinjector-injection-hardsuit"), uid, uid);
+        args.Handled = true;
+
     }
 
     public bool TryInjectReagents(EntityUid uid, Dictionary<string, FixedPoint2> reagents)
