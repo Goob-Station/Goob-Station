@@ -25,6 +25,7 @@
     autoRechargeRate: 5
   - type: DisarmMalus
   - type: UseDelay
+    delay: 0.2
   - type: Tag
     tags:
     - HighRiskItem
