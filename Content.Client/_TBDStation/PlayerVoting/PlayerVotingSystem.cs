@@ -33,13 +33,23 @@ public sealed partial class PlayerVotingSystem : EntitySystem
 
         Verb verb = new()
         {
-            Text = "Vote",
-            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/point.svg.192dpi.png")),
+            Text = "Vote: Postive",
+            Icon = new SpriteSpecifier.Texture(new ("Resources/Textures/Effects/crayondecals.rsi/heart.png")),
             ClientExclusive = true,
             Act = () => RaiseNetworkEvent(new PlayerVoteEvent(voter.Value, target.Value, 1))
         };
 
         args.Verbs.Add(verb);
+
+        Verb verb2 = new()
+        {
+            Text = "Vote: Negative",
+            Icon = new SpriteSpecifier.Texture(new ("Resources/Textures/_Goobstation/Objects/Consumable/Food/bay_food.rsi/badrecipe.png")),
+            ClientExclusive = true,
+            Act = () => RaiseNetworkEvent(new PlayerVoteEvent(voter.Value, target.Value, -1))
+        };
+
+        args.Verbs.Add(verb2);
     }
 
     private NetUserId? GetNetIdFromEntId(EntityUid entity)

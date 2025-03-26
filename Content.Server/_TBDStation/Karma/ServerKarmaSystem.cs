@@ -268,7 +268,7 @@ namespace Content.Server._TBDStation.ServerKarma
 
         private void OnKarmaHit(PlayerKarmaHitEvent ev)
         {
-            if (ev.User == ev.Target)
+            if (ev.User == ev.Target) // Don't lose karma for hitting yourself
                 return;
 
             if (!_actors.TryGetSession(new EntityUid(ev.User), out ICommonSession? session))
