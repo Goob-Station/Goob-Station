@@ -21,65 +21,73 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
+    private readonly Dictionary<string, EntityUid> _dnaMap = new();
+
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<BloodtrakComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<BloodtrakComponent, ActivateInWorldEvent>(OnActivate);
+        SubscribeLocalEvent<DnaComponent, ComponentStartup>(OnDnaStartup);
+        SubscribeLocalEvent<DnaComponent, ComponentRemove>(OnDnaRemoved);
+        SubscribeLocalEvent<DnaComponent, EntityTerminatingEvent>(OnDnaTerminating);
+    }
+
+    private void OnDnaStartup(EntityUid uid, DnaComponent component, ComponentStartup args)
+    {
+        _dnaMap[component.DNA] = uid;
+    }
+
+    private void OnDnaRemoved(EntityUid uid, DnaComponent component, ComponentRemove args)
+    {
+        _dnaMap.Remove(component.DNA);
+    }
+
+    private void OnDnaTerminating(EntityUid uid, DnaComponent component, ref EntityTerminatingEvent args)
+    {
+        _dnaMap.Remove(component.DNA);
     }
 
     /// <summary>
-    /// Checks the DNA of the puddle against the DNA of every entity with DNA.
+    /// Checks the DNA of the puddle against known DNA entries to find a matching entity.
     /// </summary>
-    /// <param name="args"></param>
-    /// <returns>The UID of the entity with matching DNA.</returns>
-    private EntityUid GetPuddleDnaOwner(AfterInteractEvent args)
+    private EntityUid? GetPuddleDnaOwner(AfterInteractEvent args)
     {
-        // Cancel if the target is not valid, if the puddle is not scannable, or if it is not a puddle.
-        // The reason it is puddle only is to prevent cheese with a via.
-        if (args.Target is not { Valid: true } targetEntity || !_tag.HasTag(targetEntity, "DNASolutionScannable") || !HasComp<PuddleComponent>(targetEntity) )
+        if (args.Target is not { Valid: true } targetEntity ||
+            !_tag.HasTag(targetEntity, "DNASolutionScannable") ||
+            !HasComp<PuddleComponent>(targetEntity))
         {
             _popupSystem.PopupEntity(Loc.GetString("bloodtrak-scan-failed"), args.User, args.User);
             args.Handled = true;
-            return default;
+            return null;
         }
 
-        // Get the DNAs of the solution.
         var solutionsDna = _forensicsSystem.GetSolutionsDNA(targetEntity);
-        _popupSystem.PopupEntity(Loc.GetString("bloodtrak-dna-saved"), args.User, args.User);
-
-        // Early exit if no DNA found
-        if (solutionsDna?.Count == 0)
+        if (solutionsDna == null || solutionsDna.Count == 0)
         {
+            _popupSystem.PopupEntity(Loc.GetString("bloodtrak-no-dna"), args.User, args.User);
             args.Handled = true;
-            return default;
+            return null;
         }
 
-        // Convert to HashSet for O(1) lookups
-        var dnaSet = new HashSet<string>(solutionsDna!);
-
-        // Use cached query and avoid closure allocation
-        var query = EntityManager.EntityQueryEnumerator<DnaComponent>();
-        while (query.MoveNext(out var dnaUid, out var dnaComponent))
+        foreach (var dna in solutionsDna)
         {
-            // HashSet.Contains is much faster than iterating through list
-            if (dnaSet.Contains(dnaComponent.DNA))
-                return dnaUid;
+            if (_dnaMap.TryGetValue(dna, out var uid))
+            {
+                _popupSystem.PopupEntity(Loc.GetString("bloodtrak-dna-saved"), args.User, args.User);
+                return uid;
+            }
         }
 
-        return default;
+        _popupSystem.PopupEntity(Loc.GetString("bloodtrak-no-match"), args.User, args.User);
+        args.Handled = true;
+        return null;
     }
 
-    /// <summary>
-    ///     Set the target if capable
-    /// </summary>
     private void OnAfterInteract(EntityUid uid, BloodtrakComponent component, AfterInteractEvent args)
     {
-        if (!args.CanReach || args.Target is not { } target)
-            return;
-
-        if (component.IsActive)
+        if (!args.CanReach || args.Target is not { } target || component.IsActive)
             return;
 
         args.Handled = true;
@@ -101,6 +109,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
     {
         if (!Resolve(uid, ref appearance))
             return;
+
         _appearance.SetData(uid, PinpointerVisuals.IsActive, pinpointer.IsActive, appearance);
         _appearance.SetData(uid, PinpointerVisuals.TargetDistance, pinpointer.DistanceToTarget, appearance);
     }
@@ -121,22 +130,15 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         var query = EntityQueryEnumerator<BloodtrakComponent>();
         while (query.MoveNext(out var uid, out var tracker))
         {
-            // Skip inactive trackers immediately.
             if (!tracker.IsActive)
                 continue;
 
-            // Update direction only for active trackers.
             UpdateDirectionToTarget(uid, tracker);
 
-            // Check expiration using cached time.
             if (_gameTiming.CurTime <= tracker.NextExecutionTime)
                 continue;
 
-            // Display popup
-            var popupText = Loc.GetString("bloodtrak-target-lost");
-            _popupSystem.PopupPredicted(popupText, tracker.Owner, tracker.Owner, PopupType.MediumCaution);
-
-            // Deactivate and schedule next activation.
+            _popupSystem.PopupPredicted(Loc.GetString("bloodtrak-target-lost"), uid, uid, PopupType.MediumCaution);
             TogglePinpointer(uid, tracker);
             tracker.Target = null;
             tracker.NextExecutionTime = _gameTiming.CurTime + tracker.TrackingDuration;
@@ -144,74 +146,60 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         }
     }
 
-    /// <summary>
-    ///     Update direction from pinpointer to selected target (if it was set)
-    /// </summary>
     protected override void UpdateDirectionToTarget(EntityUid uid, BloodtrakComponent? pinpointer = null)
     {
-        if (!Resolve(uid, ref pinpointer))
+        if (!Resolve(uid, ref pinpointer) || !pinpointer.IsActive)
             return;
 
-        if (!pinpointer.IsActive)
-            return;
-
+        var oldDist = pinpointer.DistanceToTarget;
         var target = pinpointer.Target;
-        if (target == null || !EntityManager.EntityExists(target.Value))
+
+        if (target == null || !Exists(target.Value))
         {
             SetDistance(uid, Shared._Goobstation.Pinpointer.Distance.Unknown, pinpointer);
             return;
         }
 
         var dirVec = CalculateDirection(uid, target.Value);
-        var oldDist = pinpointer.DistanceToTarget;
-        if (dirVec != null)
-        {
-            var angle = dirVec.Value.ToWorldAngle();
-            TrySetArrowAngle(uid, angle, pinpointer);
-            var dist = CalculateDistance(dirVec.Value, pinpointer);
-            SetDistance(uid, dist, pinpointer);
-        }
-        else
+        if (dirVec == null)
         {
             SetDistance(uid, Shared._Goobstation.Pinpointer.Distance.Unknown, pinpointer);
+            return;
         }
+
+        var angle = dirVec.Value.ToWorldAngle();
+        TrySetArrowAngle(uid, angle, pinpointer);
+        var dist = CalculateDistance(dirVec.Value, pinpointer);
+        SetDistance(uid, dist, pinpointer);
+
         if (oldDist != pinpointer.DistanceToTarget)
             UpdateAppearance(uid, pinpointer);
     }
 
-    /// <summary>
-    ///     Calculate direction from pinUid to trgUid
-    /// </summary>
-    /// <returns>Null if failed to calculate distance between two entities</returns>
     private Vector2? CalculateDirection(EntityUid pinUid, EntityUid trgUid)
     {
         var xformQuery = GetEntityQuery<TransformComponent>();
 
-        // check if entities have transform component
-        if (!xformQuery.TryGetComponent(pinUid, out var pin))
-            return null;
-        if (!xformQuery.TryGetComponent(trgUid, out var trg))
-            return null;
-
-        // check if they are on same map
-        if (pin.MapID != trg.MapID)
+        if (!xformQuery.TryGetComponent(pinUid, out var pin) ||
+            !xformQuery.TryGetComponent(trgUid, out var trg) ||
+            pin.MapID != trg.MapID)
             return null;
 
-        // get world direction vector
-        var dir = _transform.GetWorldPosition(trg, xformQuery) - _transform.GetWorldPosition(pin, xformQuery);
-        return dir;
+        return _transform.GetWorldPosition(trg, xformQuery) - _transform.GetWorldPosition(pin, xformQuery);
     }
 
     private Shared._Goobstation.Pinpointer.Distance CalculateDistance(Vector2 vec, BloodtrakComponent pinpointer)
     {
         var dist = vec.Length();
+
+        // Check from smallest to largest threshold
         if (dist <= pinpointer.ReachedDistance)
             return Shared._Goobstation.Pinpointer.Distance.Reached;
-        else if (dist <= pinpointer.CloseDistance)
+        if (dist <= pinpointer.CloseDistance)
             return Shared._Goobstation.Pinpointer.Distance.Close;
-        else if (dist <= pinpointer.MediumDistance)
+        if (dist <= pinpointer.MediumDistance)
             return Shared._Goobstation.Pinpointer.Distance.Medium;
-        else
-            return Shared._Goobstation.Pinpointer.Distance.Far;
+
+        return Shared._Goobstation.Pinpointer.Distance.Far;
     }
 }
