@@ -1,4 +1,3 @@
-using Content.Shared._Gobostation.Pinpointer;
 using Content.Shared._Goobstation.Pinpointer;
 using Content.Shared.Pinpointer;
 using Robust.Client.GameObjects;
