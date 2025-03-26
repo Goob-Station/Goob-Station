@@ -263,5 +263,5 @@
   - type: ClothingGrantComponent
     component:
     - type: ClothingAutoInject
-      proto: Epinephrine
+      proto: Stimulants
 

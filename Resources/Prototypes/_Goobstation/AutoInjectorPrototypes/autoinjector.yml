@@ -1,4 +1,5 @@
 - type: autoInjector
-  id: Epinephrine
+  id: Stimulants
   reagents:
     Epinephrine: 10
+    Desoxyephedrine: 10
