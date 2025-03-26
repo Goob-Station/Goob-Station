@@ -80,13 +80,8 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
 
         var energyPerUse = state.EnergyPerUse;
 
-        // If the battery component does not exist, or if the current charge is less than the energy per use, it is not powered.
-        if (batteryComponent == null || batteryComponent.CurrentCharge < energyPerUse)
-            comp.IsPowered = false;
-
-        // If the battery component is not null, and the current charge is greater than the energy per use, it is powered.
-        if (batteryComponent != null && batteryComponent.CurrentCharge > energyPerUse)
-            comp.IsPowered = true;
+        // Update the powered state according to the batteries charge.
+        comp.IsPowered = batteryComponent != null && batteryComponent.CurrentCharge >= energyPerUse;
 
         // If the default state exists, and the item is not powered, set to default state and lock it there. (Locking is handled in SharedItemSwitchSystem)
         if (ent.Comp.DefaultState != null && comp.IsPowered == false)

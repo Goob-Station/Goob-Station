@@ -26,7 +26,7 @@ public sealed partial class GoobTriggerSystem : EntitySystem
 
     private void HandleDropOnTrigger(Entity<DropOnTriggerComponent> entity, ref TriggerEvent args)
     {
-        if (!TryComp(entity.Comp.Owner, out HandsComponent? hands))
+        if (!TryComp(entity, out HandsComponent? hands))
             return;
 
         foreach (var hand in _hands.EnumerateHands(entity, hands))
@@ -34,7 +34,8 @@ public sealed partial class GoobTriggerSystem : EntitySystem
             if (hand.HeldEntity == null)
                 continue;
 
-            _hands.TryDrop(entity.Comp.Owner, hand, handsComp: hands);
+            _hands.TryDrop(entity, hand, handsComp: hands);
         }
+        args.Handled = true;
     }
 }

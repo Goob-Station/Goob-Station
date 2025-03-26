@@ -43,7 +43,7 @@ namespace Content.Server.Explosion.EntitySystems
                 _adminLogger.Add(LogType.Trigger, LogImpact.High,
                         $"An ID locked voice-trigger on {ToPrettyString(ent):entity} was triggered by {ToPrettyString(args.Source):speaker} speaking the key-phrase {comp.KeyPhrase}.");
 
-                _triggerSystem.Trigger(ent, ent.Comp.Owner);
+                _triggerSystem.Trigger(ent, comp.Owner);
             }
         }
     }

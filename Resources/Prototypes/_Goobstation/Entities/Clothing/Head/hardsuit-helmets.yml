@@ -136,7 +136,7 @@
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitHeadOfSecurityExperimental
   name: head of security's advanced hardsuit helmet
-  description: Security hardsuit helmet with the latest top secret NT-HUD software. This one seems more durable than the other.
+  description: Security hardsuit helmet with the latest top secret NT-HUD software. This one seems more durable than stand issue helmets.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hardsuits/hos-expi.rsi

@@ -1,7 +1,7 @@
 using Content.Shared.Whitelist;
 using Robust.Shared.Physics.Events;
 
-namespace Content.Shared._Goobstation.Weapons.Ranged;
+namespace Content.Shared._Goobstation.Weapons.Ranged.ProjectileRequireWhitelist;
 
 public sealed class ProjectileRequireWhitelistSystem : EntitySystem
 {
@@ -26,6 +26,7 @@ public sealed class ProjectileRequireWhitelistSystem : EntitySystem
         if (comp.Whitelist == null)
         {
             args.Cancelled = true;
+            Dirty(ent);
             return;
         }
 
@@ -38,6 +39,7 @@ public sealed class ProjectileRequireWhitelistSystem : EntitySystem
 
         // Prevent collision in all other cases
         args.Cancelled = true;
+        Dirty(ent);
     }
 
 }

@@ -38,6 +38,9 @@ public sealed partial class BloodtrakComponent : Component
     /// <summary>
     ///     Pinpointer arrow precision in radians.
     /// </summary>
+    /// <remarks>
+    /// 0.09 radians ≈ 5.16 degrees
+    /// </remarks>
     [DataField]
     public double Precision = 0.09;
 
@@ -84,7 +87,7 @@ public sealed partial class BloodtrakComponent : Component
     public TimeSpan CooldownEndTime = TimeSpan.Zero;
 
     [ViewVariables]
-    public bool HasTarget => DistanceToTarget != Distance.Unknown;
+    public bool HasTarget => Target != null && DistanceToTarget != Distance.Unknown;
 
 }
 

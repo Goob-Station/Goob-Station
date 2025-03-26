@@ -1,17 +1,21 @@
 using Content.Shared.Whitelist;
+using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Weapons.Ranged;
+namespace Content.Shared._Goobstation.Weapons.Ranged.ProjectileRequireWhitelist;
 
 /// <summary>
 /// Allows a projectile to only hit entities on a whitelist.
 /// </summary>
 [RegisterComponent]
+[Access(typeof(ProjectileRequireWhitelistSystem))]
+[NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ProjectileRequireWhitelistComponent : Component
 {
     /// <summary>
     /// The whitelist for what the projectile can affect.
     /// </summary>
     [DataField]
+    [AutoNetworkedField]
     public EntityWhitelist? Whitelist;
 
     /// <summary>
@@ -21,5 +25,6 @@ public sealed partial class ProjectileRequireWhitelistComponent : Component
     /// If this is true, and the whitelist is set to clumsy, the projectile will affect anyone that does *not* have the clumsy component.
     /// </remarks>
     [DataField]
+    [AutoNetworkedField]
     public bool Invert = false;
 }
