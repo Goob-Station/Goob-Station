@@ -1,7 +1,7 @@
 - type: entity
   name: medical beam gun
   parent: BaseItem
-  description: MEEEEDIIIC
+  description: Delivers volatile medical nanites in a focused beam. Don't cross the beams!
   id: MedicalBeamGun
   components:
   - type: Sprite
@@ -18,22 +18,16 @@
     uberBatteryWithdraw: 0.5
     healing:
       types:
-        Blunt: -3
-        Slash: -3
-        Piercing: -3
-        Heat: -3
+        Blunt: -1.5
+        Slash: -1.5
+        Piercing: -1.5
+        Heat: -1.5
     uberHealing:
       types:
-        Blunt: -9
-        Slash: -9
-        Piercing: -9
-        Heat: -9
-  - type: Explosive
-    explosionType: Default
-    maxIntensity: 3.4
-    intensitySlope: 3
-    totalIntensity: 20
-    canCreateVacuum: false
+        Blunt: -4
+        Slash: -4
+        Piercing: -4
+        Heat: -4
   - type: ItemToggle
     predictable: false
     soundActivate:

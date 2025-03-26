@@ -1,14 +1,12 @@
 ﻿using System.Numerics;
 using Content.Server.Body.Systems;
+using Content.Server.Explosion.EntitySystems;
 using Content.Server.Power.EntitySystems;
-using Content.Server.PowerCell;
 using Content.Shared._Goobstation.Medical;
 using Content.Shared._Goobstation.Medical.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
-using Content.Shared.Examine;
-using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
@@ -28,14 +26,13 @@ public sealed class MedigunSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedActionsSystem _action = default!;
-    [Dependency] private readonly SharedExplosionSystem _explosion = default!;
+    [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
 
     private EntityQuery<DamageableComponent> _damageableQuery;
 
@@ -177,7 +174,6 @@ public sealed class MedigunSystem : EntitySystem
 
         if (!_toggle.TryActivate(uid, args.User))
         {
-            _popup.PopupEntity(Loc.GetString("power-cell-no-battery"), uid, args.User);
             return;
         }
 
@@ -190,7 +186,8 @@ public sealed class MedigunSystem : EntitySystem
         if (HasComp<MediGunHealedComponent>(target))
         {
             // boom
-            _explosion.TriggerExplosive(uid, user: args.User);
+            _explosion.QueueExplosion(uid, "Default", 20, 3, 3.4f, 1f, 0, false, args.User);
+            QueueDel(uid);
             return;
         }
 
@@ -226,11 +223,6 @@ public sealed class MedigunSystem : EntitySystem
 
         // Disable our gun
         DisableAllConnections((uid, component));
-    }
-
-    private void OnMedigunExamined(EntityUid uid, MediGunComponent component, ExaminedEvent args)
-    {
-        _powerCell.OnBatteryExamined(uid, null, args); // Goobstation
     }
 
     private void OnUber(EntityUid uid, MediGunComponent component, MediGunUberActivateActionEvent args)
