@@ -4,7 +4,7 @@
   name: X-6 "Threadripper"
   parent: BaseWeaponBattery
   id: WeaponHeadOfSecuritySMG
-  description: An elaborately designed SMG, firing shots of pure phoron. Great for disintegrating tiders.
+  description: An elaborately designed SMG, firing shots of pure phoron. Amazing for laying down suppressive fire.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/smg.rsi

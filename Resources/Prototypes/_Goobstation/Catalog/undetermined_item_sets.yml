@@ -85,11 +85,31 @@
 # Head of Security
 
 - type: thiefBackpackSet
-  id: MultiphaseSet
-  name: blueshield-box-category-blueshield-name
-  description: blueshield-box-category-blueshield-description
+  id: SmgSet
+  name: hos-box-category-smg-name
+  description: hos-box-category-smg-description
   sprite:
-    sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
-    state: icon-on
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/smg.rsi
+    state: icon
   content:
-  - WeaponEnergyGunMultiphase
+  - WeaponHeadOfSecuritySMG
+
+- type: thiefBackpackSet
+  id: ShotgunSet
+  name: hos-box-category-shotgun-name
+  description: hos-box-category-shotgun-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun.rsi
+    state: icon
+  content:
+  - WeaponHeadOfSecurityShotgun
+
+- type: thiefBackpackSet
+  id: SniperSet
+  name: hos-box-category-sniper-name
+  description: hos-box-category-sniper-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/sniper.rsi
+    state: icon
+  content:
+  - WeaponHeadOfSecuritySniper
