@@ -1,6 +1,6 @@
+using Content.Goobstation.Shared.Flashbang;
 using Content.Server.Flash;
 using Content.Server.Stunnable;
-using Content.Shared._Goobstation.Flashbang;
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
 using Content.Shared.Tag;

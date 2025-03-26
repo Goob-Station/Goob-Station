@@ -1,6 +1,6 @@
 using Content.Shared.Inventory;
 
-namespace Content.Shared._Goobstation.Flashbang;
+namespace Content.Goobstation.Shared.Flashbang;
 
 public sealed class GetFlashbangedEvent(float range) : EntityEventArgs, IInventoryRelayEvent
 {

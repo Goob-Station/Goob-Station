@@ -1,6 +1,6 @@
+using Content.Goobstation.Common.Weapons.DelayedKnockdown;
 using Content.Goobstation.Shared.Clothing;
 using Content.Server.Stunnable;
-using Content.Shared._Goobstation.Clothing;
 using Content.Shared.Armor;
 using Content.Shared.Damage.Events;
 using Content.Shared.Inventory;

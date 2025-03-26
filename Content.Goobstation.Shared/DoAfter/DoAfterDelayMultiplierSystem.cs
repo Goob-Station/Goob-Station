@@ -1,8 +1,10 @@
+using Content.Goobstation.Common.DoAfter;
 using Content.Shared._Shitmed.Cybernetics;
+using Content.Shared._Shitmed.DoAfter;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 
-namespace Content.Shared._Goobstation.DoAfter;
+namespace Content.Goobstation.Shared.DoAfter;
 
 public sealed class DoAfterDelayMultiplierSystem : EntitySystem
 {
@@ -28,11 +30,4 @@ public sealed class DoAfterDelayMultiplierSystem : EntitySystem
     {
         args.Multiplier *= ent.Comp.Multiplier;
     }
-}
-
-public sealed class GetDoAfterDelayMultiplierEvent(float multiplier = 1f) : EntityEventArgs, IBodyPartRelayEvent
-{
-    public float Multiplier = multiplier;
-
-    public BodyPartType TargetBodyPart => BodyPartType.Hand;
 }

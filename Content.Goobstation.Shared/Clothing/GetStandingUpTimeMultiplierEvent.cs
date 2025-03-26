@@ -1,6 +1,6 @@
 using Content.Shared.Inventory;
 
-namespace Content.Shared._Goobstation.Clothing;
+namespace Content.Goobstation.Shared.Clothing;
 
 public sealed class GetStandingUpTimeMultiplierEvent : EntityEventArgs, IInventoryRelayEvent
 {
