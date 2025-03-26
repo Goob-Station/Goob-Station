@@ -475,7 +475,7 @@
   icon: { sprite: /Textures/_Goobstation/Actions/syndicateswap.rsi, state: icon }
   productEntity: JaunterImplanter
   cost:
-    Telecrystal: 30
+    Telecrystal: 100
   categories:
   - UplinkImplants
   conditions:

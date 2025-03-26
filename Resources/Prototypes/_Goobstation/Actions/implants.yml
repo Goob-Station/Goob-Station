@@ -7,14 +7,15 @@
     checkCanAccess: false
     raiseOnUser: true
     checkCanInteract: false
-    useDelay: 60
+    useDelay: 5
     itemIconStyle: BigAction
     whitelist:
       requireAll: true
       components:
       - Transform
       - MobState
-    canTargetSelf: false
+    canTargetSelf: true
+    interactOnMiss: false
     range: 15
     icon:
       sprite: /Textures/_Goobstation/Actions/syndicateswap.rsi
@@ -22,6 +23,4 @@
     event: !type:SwapSpellEvent
       sound:
         path: /Audio/Effects/Lightning/lightningbolt.ogg
-      throughWalls: false
   - type: SwapSpell
-    allowSecondaryTarget: false
