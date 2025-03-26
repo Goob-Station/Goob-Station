@@ -108,10 +108,13 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
             // 2. Has valid target
             if (_gameTiming.CurTime < pinpointer.CooldownEndTime)
             {
-                // Convert the timespan to a float to display it properly.
-                var totalTime = pinpointer.CooldownDuration - _gameTiming.CurTime;
-                var cooldownDuration = (float) totalTime.TotalSeconds;
-                var popUp = Loc.GetString("bloodtrak-cooldown-active", ("num", Math.Round(cooldownDuration)));
+                // Math that i don't feel like explaining!
+                var remaining = pinpointer.CooldownEndTime - _gameTiming.CurTime;
+                var secondsLeft = (float)Math.Max(0, remaining.TotalSeconds); // Ensure non-negative
+
+                var displaySeconds = Math.Ceiling(secondsLeft);
+                var popUp = Loc.GetString("bloodtrak-cooldown-active", ("num", displaySeconds));
+
                 _popupSystem.PopupPredicted(popUp,
                     pinpointer.Owner,
                     pinpointer.Owner);
