@@ -32,7 +32,7 @@ public sealed partial class FishingRodComponent : Component
     public Vector2 RopeUserOffset = new (0f, 0f);
 
     [DataField, ViewVariables]
-    public Vector2 RopeLureOffset = new (-0.2f, 0f);
+    public Vector2 RopeLureOffset = new (0f, 0f);
 
     [DataField, AutoNetworkedField]
     public EntityUid? FishingLure;
