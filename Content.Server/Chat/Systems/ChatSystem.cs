@@ -2,6 +2,7 @@ using System.Collections.Immutable; // Goobstation - Starlight collective mind p
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using Content.Server._Goobstation.Chat;
 using Content.Server._Goobstation.Wizard.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
@@ -186,8 +187,16 @@ public sealed partial class ChatSystem : SharedChatSystem
         string wrappedMessagePostfix = "" // Goobstation
         )
     {
+        BeforeChatMessageSentEvent beforeMessageSentEv; // Goobstation
         if (HasComp<GhostComponent>(source))
         {
+            // Goobstation start
+            beforeMessageSentEv = new BeforeChatMessageSentEvent(message, false, null, InGameOOCChatType.Dead);
+            RaiseLocalEvent(source, beforeMessageSentEv);
+            if (beforeMessageSentEv.Cancelled)
+                return;
+            message = beforeMessageSentEv.Message;
+            // Goobstation end
             // Ghosts can only send dead chat messages, so we'll forward it to InGame OOC.
             TrySendInGameOOCMessage(source, message, InGameOOCChatType.Dead, range == ChatTransmitRange.HideChat, shell, player);
             return;
@@ -231,13 +240,26 @@ public sealed partial class ChatSystem : SharedChatSystem
             message = message[1..];
         }
 
-        bool shouldCapitalize = (desiredType != InGameICChatType.Emote);
-        bool shouldPunctuate = _configurationManager.GetCVar(CCVars.ChatPunctuation);
-        // Capitalizing the word I only happens in English, so we check language here
-        bool shouldCapitalizeTheWordI = (!CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Parent.Name == "en")
-            || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en");
+        // Goobstation start
+        beforeMessageSentEv = new BeforeChatMessageSentEvent(message.Trim(), checkRadioPrefix, desiredType, null);
+        RaiseLocalEvent(source, beforeMessageSentEv);
+        if (beforeMessageSentEv.Cancelled)
+            return;
+        message = beforeMessageSentEv.Message;
+        checkRadioPrefix = beforeMessageSentEv.HasRadioPrefix;
 
-        message = SanitizeInGameICMessage(source, message, out var emoteStr, shouldCapitalize, shouldPunctuate, shouldCapitalizeTheWordI);
+        string? emoteStr = null;
+        if (beforeMessageSentEv.ShouldSanitize)
+        {
+            bool shouldCapitalize = (desiredType != InGameICChatType.Emote);
+            bool shouldPunctuate = _configurationManager.GetCVar(CCVars.ChatPunctuation);
+            // Capitalizing the word I only happens in English, so we check language here
+            bool shouldCapitalizeTheWordI = (!CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Parent.Name == "en")
+                || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en");
+
+            message = SanitizeInGameICMessage(source, message, out emoteStr, shouldCapitalize, shouldPunctuate, shouldCapitalizeTheWordI);
+        }
+        // Goobstation end
 
         // Was there an emote in the message? If so, send it.
         if (player != null && emoteStr != message && emoteStr != null)
@@ -329,6 +351,14 @@ public sealed partial class ChatSystem : SharedChatSystem
         // If crit player LOOC is disabled, don't send the message at all.
         if (!_critLoocEnabled && _mobStateSystem.IsCritical(source))
             return;
+
+        // Goobstation start
+        var beforeMessageSentEv = new BeforeChatMessageSentEvent(message, false, null, sendType);
+        RaiseLocalEvent(source, beforeMessageSentEv);
+        if (beforeMessageSentEv.Cancelled)
+            return;
+        message = beforeMessageSentEv.Message;
+        // Goobstation end
 
         switch (sendType)
         {
