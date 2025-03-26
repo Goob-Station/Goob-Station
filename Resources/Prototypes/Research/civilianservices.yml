@@ -264,7 +264,7 @@
   recipeUnlocks:
   - ClothingShoesBootsSpeed
   # Goobstation R&D Console rework start
-  position: 1,8
+  position: 1,9
   technologyPrerequisites:
   - BluespaceCargoTransport
   # Goobstation R&D Console rework end
