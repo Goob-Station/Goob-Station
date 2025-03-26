@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.Weapons.MeleeDash;
 using Content.Shared.Emoting;
 using Content.Shared.Hands.Components;
 using Content.Shared.Mobs.Components;
@@ -137,10 +138,10 @@ public sealed class MeleeDashSystem : EntitySystem
         _throwing.TryThrow(user, dir, dash.DashForce, null, 0f, null, false, false, false, false, false);
         _audio.PlayPredicted(dash.DashSound, user, user);
 
-        if (dash.EmoteOnDash == null || !TryComp(user, out AnimatedEmotesComponent? emotes))
+        if (dash.EmoteOnDash == null || !TryComp(user, out Emoting.AnimatedEmotesComponent? emotes))
             return;
 
-        emotes.Emote = dash.EmoteOnDash.Value;
+        emotes.Emote = dash.EmoteOnDash;
         Dirty(user, emotes);
     }
 }

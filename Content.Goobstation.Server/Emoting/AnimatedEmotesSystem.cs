@@ -12,15 +12,15 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<AnimatedEmotesComponent, EmoteEvent>(OnEmote);
+        SubscribeLocalEvent<Shared.Emoting.AnimatedEmotesComponent, EmoteEvent>(OnEmote);
     }
 
-    private void OnEmote(EntityUid uid, AnimatedEmotesComponent component, ref EmoteEvent args)
+    private void OnEmote(EntityUid uid, Shared.Emoting.AnimatedEmotesComponent component, ref EmoteEvent args)
     {
         PlayEmoteAnimation(uid, component, args.Emote.ID);
     }
 
-    public void PlayEmoteAnimation(EntityUid uid, AnimatedEmotesComponent component, ProtoId<EmotePrototype> prot)
+    public void PlayEmoteAnimation(EntityUid uid, Shared.Emoting.AnimatedEmotesComponent component, ProtoId<EmotePrototype> prot)
     {
         component.Emote = prot;
         Dirty(uid, component);
