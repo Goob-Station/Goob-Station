@@ -54,7 +54,6 @@
         components:
         - type: Item
           sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
-          prefix: off
           storedRotation: -90
           size: Huge
         - type: MeleeWeapon
