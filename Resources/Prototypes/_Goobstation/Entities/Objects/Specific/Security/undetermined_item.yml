@@ -47,7 +47,7 @@
 - type: entity
   id: HeadOfSecurityUndetermined
   name: X-00 Series Box
-  description: A small box utilizing bluespace technology to drop in a weapon from the X-00 series to you. Choose wisely.
+  description: A small remote utilizing bluespace technology to drop in a weapon from the X-00 series to you. Choose wisely.
   parent: [ BaseItem, BaseCommandContraband ]
   components:
   - type: Sprite
@@ -58,6 +58,7 @@
     - SmgSet
     - ShotgunSet
     - SniperSet
+    - EquipmentSet # Temporary
     maxSelectedSets: 1
   - type: ActivatableUI
     key: enum.ThiefBackpackUIKey.Key
