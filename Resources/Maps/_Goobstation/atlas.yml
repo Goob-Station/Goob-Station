@@ -38301,7 +38301,7 @@ entities:
       parent: 2
 - proto: GlassBoxLawbringerFilled
   entities:
-  - uid: 222222
+  - uid: 2222222
     components:
     - type: Transform
       rot: 3.141592653589793 rad
