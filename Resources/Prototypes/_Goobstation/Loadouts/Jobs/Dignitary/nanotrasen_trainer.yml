@@ -57,7 +57,7 @@
 - type: loadout
   id: NanotrasenTrainerGloves
   equipment:
-    gloves: ClothingHandsGlovesGoldenTrim
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
 
 # Shoes
 - type: loadout
