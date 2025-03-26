@@ -230,7 +230,7 @@
   parent: [ClothingOuterHardsuitBase, BaseSecurityCommandContraband]
   id: ClothingOuterHardsuitHeadOfSecurityExperimental
   name: FI-52 "Honor Guard" parade hardsuit
-  description: A special suit that protects against hazardous, low pressure environments. Has an experimental inbuilt autoinjector system. # Todo- autoinjector
+  description: A special suit that protects against hazardous, low pressure environments. Has an experimental inbuilt stimulant autoinjector system.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/hos-expi.rsi

@@ -5,11 +5,11 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 60
+    useDelay: 45
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Changeling/changeling_abilities.rsi
-      state: epinephrine_overdose
+      sprite: _Goobstation/Actions/modsuit.rsi
+      state: stim
     event: !type:ActionActivateAutoInjectorEvent {}

@@ -1,4 +1,3 @@
-using Content.Shared._Goobstation.MartialArts.Components;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 
