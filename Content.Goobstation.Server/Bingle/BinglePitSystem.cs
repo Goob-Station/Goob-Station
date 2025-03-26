@@ -151,10 +151,10 @@ public sealed class BinglePitSystem : EntitySystem
 
     }
 
-    private void OnStepTriggerAttempt(EntityUid uid, Common.Bingle.BinglePitComponent component, ref StepTriggerAttemptEvent args)
+    private void OnStepTriggerAttempt(EntityUid uid, BinglePitComponent component, ref StepTriggerAttemptEvent args)
         => args.Continue = true;
 
-    public void SpawnBingle(EntityUid uid, Common.Bingle.BinglePitComponent component)
+    public void SpawnBingle(EntityUid uid, BinglePitComponent component)
     {
         Spawn(component.GhostRoleToSpawn, Transform(uid).Coordinates);
         OnSpawnTile(uid,component.Level*2, "FloorBingle");
@@ -168,7 +168,7 @@ public sealed class BinglePitSystem : EntitySystem
         }
     }
 
-    public void UpgradeBingles(EntityUid uid, Common.Bingle.BinglePitComponent component)
+    public void UpgradeBingles(EntityUid uid, BinglePitComponent component)
     {
         var query = EntityQueryEnumerator<BingleComponent>();
         while (query.MoveNext(out var queryUid, out var queryBingleComp))
@@ -185,7 +185,7 @@ public sealed class BinglePitSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("bingle-pit-grow"), uid);
     }
 
-    private void OnDestruction(EntityUid uid, Common.Bingle.BinglePitComponent component, DestructionEventArgs args)
+    private void OnDestruction(EntityUid uid, BinglePitComponent component, DestructionEventArgs args)
     {
         if (component.Pit != null)
             foreach (var pitUid in _containerSystem.EmptyContainer(component.Pit))
@@ -202,7 +202,7 @@ public sealed class BinglePitSystem : EntitySystem
             RemCompDeferred(fallingUid, fallingComp);
     }
 
-    public void RemoveAllBingleGhostRoles(EntityUid uid, Common.Bingle.BinglePitComponent component)
+    public void RemoveAllBingleGhostRoles(EntityUid uid, BinglePitComponent component)
     {
         var query = EntityQueryEnumerator<GhostRoleMobSpawnerComponent>();
         while (query.MoveNext(out var queryGRMSUid, out var queryGRMScomp))
@@ -210,7 +210,7 @@ public sealed class BinglePitSystem : EntitySystem
                 if (Transform(uid).Coordinates == Transform(queryGRMSUid).Coordinates)
                     QueueDel(queryGRMSUid); // remove any unspanned bingle when pit is destroyed
     }
-    private void OnAttacked(EntityUid uid, Common.Bingle.BinglePitComponent component, AttackedEvent args)
+    private void OnAttacked(EntityUid uid, BinglePitComponent component, AttackedEvent args)
     {
         if (_containerSystem.ContainsEntity(uid, args.User))
             EnsureComp<StunnedComponent>(args.User);
@@ -219,7 +219,7 @@ public sealed class BinglePitSystem : EntitySystem
     private void OnUpdateCanMove(EntityUid uid, BinglePitFallingComponent component, UpdateCanMoveEvent args)
         => args.Cancel();
 
-    private void ScaleUpPit(EntityUid uid, Common.Bingle.BinglePitComponent component)
+    private void ScaleUpPit(EntityUid uid, BinglePitComponent component)
     {
         if (!TryComp<AppearanceComponent>(uid, out var appearanceComponent))
             appearanceComponent = _entityManager.EnsureComponent<AppearanceComponent>(uid);

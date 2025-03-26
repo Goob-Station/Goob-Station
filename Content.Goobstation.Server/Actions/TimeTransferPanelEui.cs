@@ -43,7 +43,7 @@ public sealed class TimeTransferPanelEui : BaseEui
         TransferTime(message.PlayerId, message.TimeData, message.Overwrite);
     }
 
-    public async void TransferTime(string playerId, List<Shared.Administration.TimeTransferData> timeData, bool overwrite)
+    public async void TransferTime(string playerId, List<TimeTransferData> timeData, bool overwrite)
     {
         if (!_adminMan.HasAdminFlag(Player, AdminFlags.Moderator))
         {
@@ -65,7 +65,7 @@ public sealed class TimeTransferPanelEui : BaseEui
             AddTime(playerData.UserId, timeData);
     }
 
-    public async void SetTime(NetUserId userId, List<Shared.Administration.TimeTransferData> timeData)
+    public async void SetTime(NetUserId userId, List<TimeTransferData> timeData)
     {
         var updateList = new List<PlayTimeUpdate>();
 
@@ -82,7 +82,7 @@ public sealed class TimeTransferPanelEui : BaseEui
         SendMessage(new TimeTransferWarningEuiMessage(Loc.GetString("time-transfer-panel-warning-set-success"), Color.LightGreen));
     }
 
-    public async void AddTime(NetUserId userId, List<Shared.Administration.TimeTransferData> timeData)
+    public async void AddTime(NetUserId userId, List<TimeTransferData> timeData)
     {
         var playTimeList = await _databaseMan.GetPlayTimes(userId);
 

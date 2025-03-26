@@ -54,11 +54,11 @@ public sealed partial class FartSystem : SharedFartSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<Shared.Emoting.FartComponent, EmoteEvent>(OnEmote);
-        SubscribeLocalEvent<Shared.Emoting.FartComponent, PostFartEvent>(OnBibleFart);
+        SubscribeLocalEvent<FartComponent, EmoteEvent>(OnEmote);
+        SubscribeLocalEvent<FartComponent, PostFartEvent>(OnBibleFart);
     }
 
-    private void OnEmote(EntityUid uid, Shared.Emoting.FartComponent component, ref EmoteEvent args)
+    private void OnEmote(EntityUid uid, FartComponent component, ref EmoteEvent args)
     {
         if (args.Handled)
             return;
@@ -207,7 +207,7 @@ public sealed partial class FartSystem : SharedFartSystem
     /// <summary>
     ///     Bible fart
     /// </summary>
-    private void OnBibleFart(Entity<Shared.Emoting.FartComponent> ent, ref PostFartEvent args)
+    private void OnBibleFart(Entity<FartComponent> ent, ref PostFartEvent args)
     {
         foreach (var near in _lookup.GetEntitiesInRange(ent, 0.4f, LookupFlags.Sundries | LookupFlags.Dynamic)){
 

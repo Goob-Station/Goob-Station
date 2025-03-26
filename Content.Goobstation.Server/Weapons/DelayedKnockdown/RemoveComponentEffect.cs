@@ -9,7 +9,7 @@ public sealed partial class RemoveComponentEffect : EntityEffect
     public string? Locale;
 
     [DataField(required: true)]
-    public string Component;
+    public string Component = string.Empty; // riders yelling at me
 
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
     {

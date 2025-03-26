@@ -1,7 +1,6 @@
 using Content.Goobstation.Shared.Emoting;
 using Content.Server.Chat.Systems;
 using Content.Shared.Chat.Prototypes;
-using Content.Shared.Emoting;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Emoting;
@@ -12,15 +11,15 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<Shared.Emoting.AnimatedEmotesComponent, EmoteEvent>(OnEmote);
+        SubscribeLocalEvent<AnimatedEmotesComponent, EmoteEvent>(OnEmote);
     }
 
-    private void OnEmote(EntityUid uid, Shared.Emoting.AnimatedEmotesComponent component, ref EmoteEvent args)
+    private void OnEmote(EntityUid uid, AnimatedEmotesComponent component, ref EmoteEvent args)
     {
         PlayEmoteAnimation(uid, component, args.Emote.ID);
     }
 
-    public void PlayEmoteAnimation(EntityUid uid, Shared.Emoting.AnimatedEmotesComponent component, ProtoId<EmotePrototype> prot)
+    public void PlayEmoteAnimation(EntityUid uid, AnimatedEmotesComponent component, ProtoId<EmotePrototype> prot)
     {
         component.Emote = prot;
         Dirty(uid, component);

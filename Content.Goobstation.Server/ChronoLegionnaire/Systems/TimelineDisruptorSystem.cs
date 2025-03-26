@@ -22,16 +22,16 @@ public sealed class TimelineDisruptorSystem : SharedTimelineDisruptorSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<Shared.ChronoLegionnaire.Components.TimelineDisruptorComponent, ActivateInWorldEvent>(OnActivate);
-        SubscribeLocalEvent<Shared.ChronoLegionnaire.Components.TimelineDisruptorComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<Shared.ChronoLegionnaire.Components.TimelineDisruptorComponent, EntInsertedIntoContainerMessage>(OnContainerChanged);
-        SubscribeLocalEvent<Shared.ChronoLegionnaire.Components.TimelineDisruptorComponent, EntRemovedFromContainerMessage>(OnContainerChanged);
+        SubscribeLocalEvent<TimelineDisruptorComponent, ActivateInWorldEvent>(OnActivate);
+        SubscribeLocalEvent<TimelineDisruptorComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<TimelineDisruptorComponent, EntInsertedIntoContainerMessage>(OnContainerChanged);
+        SubscribeLocalEvent<TimelineDisruptorComponent, EntRemovedFromContainerMessage>(OnContainerChanged);
     }
 
     /// <summary>
     /// Making verb to start disrupting procedure
     /// </summary>
-    private void OnActivate(Entity<Shared.ChronoLegionnaire.Components.TimelineDisruptorComponent> ent, ref ActivateInWorldEvent args)
+    private void OnActivate(Entity<TimelineDisruptorComponent> ent, ref ActivateInWorldEvent args)
     {
         var comp = ent.Comp;
 
@@ -49,7 +49,7 @@ public sealed class TimelineDisruptorSystem : SharedTimelineDisruptorSystem
         args.Handled = true;
     }
 
-    private bool TryCheckContainer(Entity<Shared.ChronoLegionnaire.Components.TimelineDisruptorComponent> ent)
+    private bool TryCheckContainer(Entity<TimelineDisruptorComponent> ent)
     {
         if (!_containerSystem.TryGetContainer(ent, ent.Comp.DisruptionSlot, out var container))
             return false;
@@ -60,14 +60,14 @@ public sealed class TimelineDisruptorSystem : SharedTimelineDisruptorSystem
         return true;
     }
 
-    private void OnMapInit(Entity<Shared.ChronoLegionnaire.Components.TimelineDisruptorComponent> ent, ref MapInitEvent args)
+    private void OnMapInit(Entity<TimelineDisruptorComponent> ent, ref MapInitEvent args)
     {
         bool isContain = TryCheckContainer(ent);
 
         UpdateContainerAppearance(ent, isContain);
     }
 
-    private void UpdateContainerAppearance(Entity<Shared.ChronoLegionnaire.Components.TimelineDisruptorComponent> ent, bool isContain, AppearanceComponent? appearance = null)
+    private void UpdateContainerAppearance(Entity<TimelineDisruptorComponent> ent, bool isContain, AppearanceComponent? appearance = null)
     {
         if (!Resolve(ent, ref appearance, false))
             return;
@@ -75,14 +75,14 @@ public sealed class TimelineDisruptorSystem : SharedTimelineDisruptorSystem
         _appearanceSystem.SetData(ent, TimelineDisruptiorVisuals.ContainerInserted, isContain, appearance);
     }
 
-    private void OnContainerChanged(EntityUid uid, Shared.ChronoLegionnaire.Components.TimelineDisruptorComponent component, ContainerModifiedMessage args)
+    private void OnContainerChanged(EntityUid uid, TimelineDisruptorComponent component, ContainerModifiedMessage args)
     {
         bool isContain = TryCheckContainer((uid, component));
 
         UpdateContainerAppearance((uid, component), isContain);
     }
 
-    private void StartDisrupting(Entity<Shared.ChronoLegionnaire.Components.TimelineDisruptorComponent> ent)
+    private void StartDisrupting(Entity<TimelineDisruptorComponent> ent)
     {
         var (uid, disruptor) = ent;
 
@@ -98,7 +98,7 @@ public sealed class TimelineDisruptorSystem : SharedTimelineDisruptorSystem
         Dirty(uid, disruptor);
     }
 
-    protected void StopDisrupting(Entity<Shared.ChronoLegionnaire.Components.TimelineDisruptorComponent> ent)
+    protected void StopDisrupting(Entity<TimelineDisruptorComponent> ent)
     {
         var (_, disruptor) = ent;
 
@@ -110,7 +110,7 @@ public sealed class TimelineDisruptorSystem : SharedTimelineDisruptorSystem
 
         Dirty(ent, ent.Comp);
     }
-    private void FinishDisrupting(Entity<Shared.ChronoLegionnaire.Components.TimelineDisruptorComponent> ent)
+    private void FinishDisrupting(Entity<TimelineDisruptorComponent> ent)
     {
         var (_, disruptor) = ent;
         StopDisrupting(ent);
@@ -145,7 +145,7 @@ public sealed class TimelineDisruptorSystem : SharedTimelineDisruptorSystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<Shared.ChronoLegionnaire.Components.TimelineDisruptorComponent>();
+        var query = EntityQueryEnumerator<TimelineDisruptorComponent>();
         while (query.MoveNext(out var uid, out var disruptor))
         {
             if (!disruptor.Disruption)

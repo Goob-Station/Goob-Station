@@ -27,14 +27,14 @@ public sealed class ContrabandDetectorSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<Goobstation.Server.Contraband.ContrabandDetectorComponent, StepTriggeredOnEvent>(HandleStepOnTriggered);
-        SubscribeLocalEvent<Goobstation.Server.Contraband.ContrabandDetectorComponent, StepTriggerAttemptEvent>(HandleStepTriggerAttempt);
-        SubscribeLocalEvent<Goobstation.Server.Contraband.ContrabandDetectorComponent, PowerChangedEvent>(OnPowerchange);
+        SubscribeLocalEvent<ContrabandDetectorComponent, StepTriggeredOnEvent>(HandleStepOnTriggered);
+        SubscribeLocalEvent<ContrabandDetectorComponent, StepTriggerAttemptEvent>(HandleStepTriggerAttempt);
+        SubscribeLocalEvent<ContrabandDetectorComponent, PowerChangedEvent>(OnPowerchange);
     }
 
     public override void Update(float frameTime)
     {
-        var query = EntityQueryEnumerator<Goobstation.Server.Contraband.ContrabandDetectorComponent>();
+        var query = EntityQueryEnumerator<ContrabandDetectorComponent>();
         while (query.MoveNext(out var _, out var detectors))
         {
             if (detectors.Scanned.Count == 0)// go to next if there are no scanned
@@ -55,7 +55,7 @@ public sealed class ContrabandDetectorSystem : EntitySystem
         }
     }
 
-    private void HandleStepOnTriggered(EntityUid uid, Goobstation.Server.Contraband.ContrabandDetectorComponent component, ref StepTriggeredOnEvent args)
+    private void HandleStepOnTriggered(EntityUid uid, ContrabandDetectorComponent component, ref StepTriggeredOnEvent args)
     {
         if (component.Scanned.ContainsKey(args.Tripper))
             return;
@@ -86,7 +86,7 @@ public sealed class ContrabandDetectorSystem : EntitySystem
         }
     }
 
-    private static void HandleStepTriggerAttempt(EntityUid uid, Goobstation.Server.Contraband.ContrabandDetectorComponent component, ref StepTriggerAttemptEvent args)
+    private static void HandleStepTriggerAttempt(EntityUid uid, ContrabandDetectorComponent component, ref StepTriggerAttemptEvent args)
         => args.Continue = component.IsPowered;
 
 
@@ -130,7 +130,7 @@ public sealed class ContrabandDetectorSystem : EntitySystem
         return nonApprovedlist;
     }
 
-    private void OnPowerchange(EntityUid uid, Goobstation.Server.Contraband.ContrabandDetectorComponent component, PowerChangedEvent args)
+    private void OnPowerchange(EntityUid uid, ContrabandDetectorComponent component, PowerChangedEvent args)
     {
         component.IsPowered = args.Powered;
         _pointLight.SetEnabled(uid, false);

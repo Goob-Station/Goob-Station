@@ -561,7 +561,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         var target = args.OtherEntity;
         if (args.OtherBody.BodyType == BodyType.Static
-            || HasComp<Shared.Supermatter.Components.SupermatterImmuneComponent>(target)
+            || HasComp<SupermatterImmuneComponent>(target)
             || _container.IsEntityInContainer(uid))
             return;
 
@@ -590,7 +590,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         var target = args.User;
 
-        if (HasComp<Shared.Supermatter.Components.SupermatterImmuneComponent>(target))
+        if (HasComp<SupermatterImmuneComponent>(target))
             return;
 
         sm.MatterPower += 200;

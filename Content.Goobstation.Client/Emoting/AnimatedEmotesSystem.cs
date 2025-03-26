@@ -5,7 +5,6 @@ using Content.Client.DamageState;
 using Content.Goobstation.Shared.Emoting;
 using Content.Shared._Goobstation.Wizard.SupermatterHalberd;
 using Content.Shared.Chat.Prototypes;
-using Content.Shared.Emoting;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -30,12 +29,12 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<Shared.Emoting.AnimatedEmotesComponent, ComponentHandleState>(OnHandleState);
+        SubscribeLocalEvent<AnimatedEmotesComponent, ComponentHandleState>(OnHandleState);
 
-        SubscribeLocalEvent<Shared.Emoting.AnimatedEmotesComponent, Shared.Emoting.AnimationFlipEmoteEvent>(OnFlip);
-        SubscribeLocalEvent<Shared.Emoting.AnimatedEmotesComponent, Shared.Emoting.AnimationSpinEmoteEvent>(OnSpin);
-        SubscribeLocalEvent<Shared.Emoting.AnimatedEmotesComponent, Shared.Emoting.AnimationJumpEmoteEvent>(OnJump);
-        SubscribeLocalEvent<Shared.Emoting.AnimatedEmotesComponent, Shared.Emoting.AnimationTweakEmoteEvent>(OnTweak);
+        SubscribeLocalEvent<AnimatedEmotesComponent, AnimationFlipEmoteEvent>(OnFlip);
+        SubscribeLocalEvent<AnimatedEmotesComponent, AnimationSpinEmoteEvent>(OnSpin);
+        SubscribeLocalEvent<AnimatedEmotesComponent, AnimationJumpEmoteEvent>(OnJump);
+        SubscribeLocalEvent<AnimatedEmotesComponent, AnimationTweakEmoteEvent>(OnTweak);
         SubscribeNetworkEvent<BibleFartSmiteEvent>(OnBibleSmite);
     }
 
@@ -70,7 +69,7 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
         _anim.Play(uid, anim, animationKey);
     }
 
-    private void OnHandleState(EntityUid uid, Shared.Emoting.AnimatedEmotesComponent component, ref ComponentHandleState args)
+    private void OnHandleState(EntityUid uid, AnimatedEmotesComponent component, ref ComponentHandleState args)
     {
         if (args.Current is not AnimatedEmotesComponentState state
         || !_prot.TryIndex<EmotePrototype>(state.Emote, out var emote))
@@ -80,7 +79,7 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
             RaiseLocalEvent(uid, emote.Event);
     }
 
-    private void OnFlip(Entity<Shared.Emoting.AnimatedEmotesComponent> ent, ref Shared.Emoting.AnimationFlipEmoteEvent args)
+    private void OnFlip(Entity<AnimatedEmotesComponent> ent, ref AnimationFlipEmoteEvent args)
     {
         var a = new Animation
         {
@@ -103,7 +102,7 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
         };
         PlayEmote(ent, a);
     }
-    private void OnSpin(Entity<Shared.Emoting.AnimatedEmotesComponent> ent, ref Shared.Emoting.AnimationSpinEmoteEvent args)
+    private void OnSpin(Entity<AnimatedEmotesComponent> ent, ref AnimationSpinEmoteEvent args)
     {
         var a = new Animation
         {
@@ -132,7 +131,7 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
         };
         PlayEmote(ent, a, "emoteAnimSpin");
     }
-    private void OnJump(Entity<Shared.Emoting.AnimatedEmotesComponent> ent, ref Shared.Emoting.AnimationJumpEmoteEvent args)
+    private void OnJump(Entity<AnimatedEmotesComponent> ent, ref AnimationJumpEmoteEvent args)
     {
         var a = new Animation
         {
@@ -155,7 +154,7 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
         };
         PlayEmote(ent, a);
     }
-    private void OnTweak(Entity<Shared.Emoting.AnimatedEmotesComponent> ent, ref Shared.Emoting.AnimationTweakEmoteEvent args)
+    private void OnTweak(Entity<AnimatedEmotesComponent> ent, ref AnimationTweakEmoteEvent args)
     {
         NetEntity netEntity = EntityManager.GetNetEntity(ent.Owner);
 

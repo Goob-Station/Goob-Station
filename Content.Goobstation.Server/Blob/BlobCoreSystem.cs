@@ -260,7 +260,7 @@ public sealed class BlobCoreSystem : EntitySystem
         if (!Resolve(blobCoreUid, ref core))
             return false;
 
-        var blobRule = EntityQuery<GameTicking.BlobRuleComponent>().FirstOrDefault();
+        var blobRule = EntityQuery<BlobRuleComponent>().FirstOrDefault();
         if (blobRule == null)
         {
             _gameTicker.StartGameRule("BlobRule", out _);
@@ -556,7 +556,7 @@ public sealed class BlobCoreSystem : EntitySystem
 
         if (aliveBlobs == 0)
         {
-            var blobRuleQuery = EntityQueryEnumerator<GameTicking.BlobRuleComponent, ActiveGameRuleComponent>();
+            var blobRuleQuery = EntityQueryEnumerator<BlobRuleComponent, ActiveGameRuleComponent>();
             while (blobRuleQuery.MoveNext(out _, out var blobRuleComp, out _))
             {
                 if (blobRuleComp.Stage is BlobStage.TheEnd or BlobStage.Default)

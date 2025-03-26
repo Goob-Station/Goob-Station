@@ -9,10 +9,10 @@ namespace Content.Goobstation.Server.StationEvents.Metric;
 ///
 ///   Writes this to the Anomaly chaos value.
 /// </summary>
-public sealed class AnomalyMetric : ChaosMetricSystem<Goobstation.Server.StationEvents.Metric.Components.AnomalyMetricComponent>
+public sealed class AnomalyMetric : ChaosMetricSystem<Components.AnomalyMetricComponent>
 {
     public override ChaosMetrics CalculateChaos(EntityUid metricUid,
-        Goobstation.Server.StationEvents.Metric.Components.AnomalyMetricComponent component,
+        Components.AnomalyMetricComponent component,
         CalculateChaosEvent args)
     {
         double anomalyChaos = 0;
