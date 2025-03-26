@@ -229,8 +229,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSecurityCommandContraband]
   id: ClothingOuterHardsuitHeadOfSecurityExperimental
-  name: head of security's advanced hardsuit
-  description: A special suit that protects against hazardous, low pressure environments. Has an experimental inbuilt autoinjector system.
+  name: FI-52 "Honor Guard" parade hardsuit
+  description: A special suit that protects against hazardous, low pressure environments. Has an experimental inbuilt autoinjector system. # Todo- autoinjector
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/hos-expi.rsi
