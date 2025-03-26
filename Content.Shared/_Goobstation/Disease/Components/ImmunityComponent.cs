@@ -1,6 +1,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using System;
+using System.Collections.Generic;
 
 namespace Content.Shared.Disease;
 
@@ -24,10 +25,16 @@ public sealed partial class ImmunityComponent : Component
     public float ImmunityStrength = 0.02f;
 
     /// <summary>
+    /// Which disease types can this affect the immunity strength against and gain immunity to
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<DiseaseTypePrototype>> AffectedTypes = new();
+
+    /// <summary>
     /// Genotypes we have gained immunity against from getting sick by them or having taken a vaccine for
     /// </summary>
     [DataField]
-    public List<int> ImmuneTo = new();
+    public HashSet<int> ImmuneTo = new();
 
     /// <summary>
     /// Whether to still work while dead

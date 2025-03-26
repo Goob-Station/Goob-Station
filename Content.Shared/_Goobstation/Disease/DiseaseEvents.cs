@@ -140,8 +140,15 @@ public sealed class DiseaseCheckConditionsEvent : EntityEventArgs
 [ByRefEvent]
 public sealed class GetImmunityEvent : EntityEventArgs
 {
+    public readonly Entity<DiseaseComponent> Disease;
+
     public float ImmunityGainRate = 0f;
     public float ImmunityStrength = 0f;
+
+    public GetImmunityEvent(Entity<DiseaseComponent> disease)
+    {
+        Disease = disease;
+    }
 }
 
 /// <summary>

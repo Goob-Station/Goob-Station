@@ -73,6 +73,7 @@ using Content.Shared.Atmos;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Disease; // Goobstation - viro
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
@@ -289,6 +290,12 @@ namespace Content.Client.HealthAnalyzer.UI
             IReadOnlyDictionary<string, FixedPoint2> damagePerType = damageable.Damage.DamageDict;
 
             DrawDiagnosticGroups(damageSortedGroups, damagePerType);
+
+            // Goobstation
+            if (_entityManager.TryGetComponent<DiseaseCarrierComponent>(_target, out var carrier))
+            {
+                DrawDiseases(carrier.Diseases);
+            }
 
             ConditionsListContainer.RemoveAllChildren();
 
@@ -584,6 +591,49 @@ namespace Content.Client.HealthAnalyzer.UI
 
                     groupContainer.AddChild(CreateDiagnosticItemLabel(reagentString.Insert(0, " · ")));
                 }
+            }
+        }
+
+        // Goobstation
+        private void DrawDiseases(List<EntityUid> diseases)
+        {
+            DiseasesContainer.RemoveAllChildren();
+
+            if (diseases.Count == 0)
+            {
+                DiseasesDivider.Visible = false;
+                DiseasesContainer.Visible = false;
+                return;
+            }
+            DiseasesDivider.Visible = true;
+            DiseasesContainer.Visible = true;
+
+            DiseasesContainer.AddChild(new RichTextLabel
+            {
+                Text = Loc.GetString("health-analyzer-window-diseases"),
+            });
+
+            foreach (var diseaseUid in diseases)
+            {
+                if (!_entityManager.TryGetComponent<DiseaseComponent>(diseaseUid, out var disease))
+                    continue;
+
+                var diseaseInfoContainer = new BoxContainer
+                {
+                    Align = BoxContainer.AlignMode.Begin,
+                    Orientation = BoxContainer.LayoutOrientation.Vertical,
+                };
+                diseaseInfoContainer.AddChild(CreateDiagnosticItemLabel(Loc.GetString("health-analyzer-window-disease-type-text", ("type", disease.Genotype))));
+                diseaseInfoContainer.AddChild(CreateDiagnosticItemLabel(" · " + Loc.GetString(
+                    "health-analyzer-window-disease-progress-text",
+                    ("progress", disease.InfectionProgress)
+                )));
+                diseaseInfoContainer.AddChild(CreateDiagnosticItemLabel(" · " + Loc.GetString(
+                    "health-analyzer-window-immunity-progress-text",
+                    ("progress", disease.ImmunityProgress)
+                )));
+
+                DiseasesContainer.AddChild(diseaseInfoContainer);
             }
         }
 
