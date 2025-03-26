@@ -42,6 +42,7 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
     /// Exsists for better UI refreshing
     /// </summary>
     public ProtoId<TechnologyPrototype>? CurrentTech;
+
     /// <summary>
     /// All technologies and their availablity
     /// </summary>
@@ -154,15 +155,15 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
     {
         base.MouseMove(args);
 
-        if (_draggin)
-        {
-            _position += args.Relative;
+        if (!_draggin)
+            return;
 
-            // Move all tech
-            foreach (var child in DragContainer.Children)
-            {
-                LayoutContainer.SetPosition(child, child.Position + args.Relative);
-            }
+        _position += args.Relative;
+
+        // Move all tech
+        foreach (var child in DragContainer.Children)
+        {
+            LayoutContainer.SetPosition(child, child.Position + args.Relative);
         }
     }
 
@@ -215,7 +216,8 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
         {
             if (item is not FancyResearchConsoleItem research)
                 continue;
-            LayoutContainer.SetPosition(item, _position + (research.Prototype.Position * 150));
+
+            LayoutContainer.SetPosition(item, _position + research.Prototype.Position * 150);
         }
     }
 
