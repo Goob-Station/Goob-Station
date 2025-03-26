@@ -11,12 +11,18 @@
   - type: Item
     sprite: Objects/Weapons/Guns/Basic/extinguishernozzle.rsi
     size: Normal
+  - type: FirefightingNozzle
+    externalContainer: true
+    targetSlot: BACK
+    providerWhitelist:
+      tags:
+      - AtmosBackTank
   - type: Tag
     tags:
     - AtmosBackTank
     
   - type: Spray
-    transferAmount: 20
+    transferAmount: 15
     pushbackAmount: 60
     spraySound:
       path: /Audio/Effects/extinguish.ogg
@@ -67,4 +73,5 @@
   - type: ActiveTimerTrigger
     timeRemaining: 0.3
   - type: DeleteOnTrigger
+  
   
