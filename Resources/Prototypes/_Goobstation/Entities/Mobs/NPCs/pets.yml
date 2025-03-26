@@ -1,0 +1,56 @@
+- type: entity
+  name: car
+  parent: [SimpleMobBase, StripableInventoryBase]
+  id: CarMobPet
+  description: Car. Dont ride it though.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Pets/carmob.rsi
+    state: car
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 12
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Inventory
+    speciesId: cat
+    templateId: pet
+# no.
+#  - type: Butcherable
+#    spawned:
+#    - id: FoodMeat
+#      ammount: 6
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: car
+      critical:
+        Base: car_dead
+      Dead:
+        Base: car_dead
+  - type: InteractionPopup
+    successChance: 0.1 # its loud af so 10%
+    interactSuccessString: petting-success-car
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: Audio\_Goobstation\Animals\Car3.ogg
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - VimPilot
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-car-name
+    description: ghost-role-information-car-desc
+    rules: ghost-role-information-car-rules
+  - type: GhostTakeoverAvailable
