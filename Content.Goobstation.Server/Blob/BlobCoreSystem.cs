@@ -4,15 +4,17 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Goobstation.Server.Blob.Components;
 using Content.Goobstation.Server.Blob.GameTicking;
-using Content.Goobstation.Shared.Blob.Components;
-using Content.Goobstation.Shared.Blob.Events;
 using Content.Server.Actions;
 using Content.Server.AlertLevel;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.GameTicking;
+using Content.Server.GameTicking.Rules.Components;
+using Content.Server.Objectives;
 using Content.Server.RoundEnd;
 using Content.Server.Station.Systems;
 using Content.Server.Store.Systems;
+using Content.Shared._Goobstation.Blob;
+using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
 using Content.Shared.Damage;
@@ -260,7 +262,7 @@ public sealed class BlobCoreSystem : EntitySystem
         if (!Resolve(blobCoreUid, ref core))
             return false;
 
-        var blobRule = EntityQuery<BlobRuleComponent>().FirstOrDefault();
+        var blobRule = EntityQuery<GameTicking.BlobRuleComponent>().FirstOrDefault();
         if (blobRule == null)
         {
             _gameTicker.StartGameRule("BlobRule", out _);
@@ -556,7 +558,7 @@ public sealed class BlobCoreSystem : EntitySystem
 
         if (aliveBlobs == 0)
         {
-            var blobRuleQuery = EntityQueryEnumerator<BlobRuleComponent, ActiveGameRuleComponent>();
+            var blobRuleQuery = EntityQueryEnumerator<GameTicking.BlobRuleComponent, ActiveGameRuleComponent>();
             while (blobRuleQuery.MoveNext(out _, out var blobRuleComp, out _))
             {
                 if (blobRuleComp.Stage is BlobStage.TheEnd or BlobStage.Default)

@@ -1,4 +1,3 @@
-using Content.Goobstation.Shared.Revolutionary;
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Revolutionary;
 using Content.Shared.StatusIcon.Components;

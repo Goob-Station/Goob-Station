@@ -1,6 +1,6 @@
 using System.IO;
 using System.Linq;
-using Content.Goobstation.Common.Actions;
+using Content.Shared._Goobstation.Actions;
 using Content.Shared.Actions;
 using JetBrains.Annotations;
 using Robust.Client.Player;

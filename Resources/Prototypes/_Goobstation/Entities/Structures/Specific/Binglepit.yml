@@ -66,5 +66,3 @@
       groups:
         Brute: -1
   - type: AntiRottingContainer
-  - type: SpawnOnDespawn
-    prototype: CrateFunBingleLoot

@@ -1,4 +1,3 @@
-using Content.Goobstation.Common.Stack;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Content.Shared.Verbs;
@@ -215,8 +214,20 @@ namespace Content.Server.Stack
             args.Verbs.Add(custom);
         }
 
-        // Goob Modularity - Edit made Public
-        public void UserSplit(EntityUid uid, EntityUid userUid, int amount,
+        // Goobstation - Custom stack splitting dialog
+        protected override void OnCustomSplitMessage(Entity<StackComponent> ent, ref StackCustomSplitAmountMessage message)
+        {
+            var (uid, comp) = ent;
+
+            // digital ghosts shouldn't be allowed to split stacks
+            if (!(message.Actor is { Valid: true } user))
+                return;
+
+            var amount = message.Amount;
+            UserSplit(uid, user, amount, comp);
+        }
+
+        private void UserSplit(EntityUid uid, EntityUid userUid, int amount,
             StackComponent? stack = null,
             TransformComponent? userTransform = null)
         {

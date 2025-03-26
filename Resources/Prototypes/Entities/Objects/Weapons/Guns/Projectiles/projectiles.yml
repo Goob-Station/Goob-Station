@@ -473,12 +473,12 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 80 # Goobstation edit
-        # Structural: 35 # Goobstation edit
+        Blunt: 30
+        Structural: 35
   - type: Ammo
     muzzleFlash: HitscanEffect
   - type: TimedDespawn
-    lifetime: 0.3 # Goobstation edit
+    lifetime: 1.5
   - type: PointLight
     radius: 2.5
     color: white

@@ -26,11 +26,6 @@
   priority: 0
 
 - type: storeCategory
-  id: HereticPathRust
-  name: store-heretic-path-rust
-  priority: 0
-
-- type: storeCategory
   id: HereticPathSide
   name: store-heretic-path-side
   priority: 999 # lowest possible

@@ -1,0 +1,6 @@
+## Public Domain YAML Begins
+- type: traitCategory
+  id: Religion
+  name: trait-category-religion
+  maxTraitPoints: 1
+## Public Domain YAML Ends

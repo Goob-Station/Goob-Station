@@ -1,9 +1,9 @@
 //using Content.Server.Language;
 //using Content.Server.Language.Events;
 
-using Content.Goobstation.Shared.Blob;
-using Content.Goobstation.Shared.Blob.Components;
 using Content.Server.Radio.EntitySystems;
+using Content.Shared._Goobstation.Blob;
+using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.Damage;
 using Robust.Shared.Network;
 //using Content.Shared.Language;

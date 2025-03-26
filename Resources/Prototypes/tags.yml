@@ -666,9 +666,6 @@
   id: HelmetEVA
 
 - type: Tag
-  id: HereticCarving
-
-- type: Tag
   id: HideContextMenu
 
 - type: Tag
@@ -926,9 +923,6 @@
 
 - type: Tag
   id: NukeOpsUplink
-
-- type: Tag
-  id: LoneOpsUplink
 
 - type: Tag
   id: Ointment

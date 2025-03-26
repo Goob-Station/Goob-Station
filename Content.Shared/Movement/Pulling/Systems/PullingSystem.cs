@@ -1,5 +1,8 @@
-using Content.Goobstation.Common.MartialArts;
-using Content.Shared._EinsteinEngines.Contests;
+using Content.Shared._Goobstation.Grab; // Goobstation - Martial Arts
+using Content.Shared._Goobstation.MartialArts.Events; // Goobstation - Martial Arts
+using Content.Shared._EinsteinEngines.Contests; // Goobstation - Grab Intent
+using Content.Shared._Goobstation.Grab;
+using Content.Shared._Goobstation.MartialArts.Components; // Goobstation - Grab Intent
 using Content.Shared._White.Grab; // Goobstation
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
@@ -64,6 +67,7 @@ public sealed class PullingSystem : EntitySystem
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly HeldSpeedModifierSystem _clothingMoveSpeed = default!;
+    [Dependency] private readonly GrabbingItemSystem _grabbingItem = default!; // Goobstation
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
@@ -528,7 +532,8 @@ public sealed class PullingSystem : EntitySystem
             && !_handsSystem.TryGetEmptyHand(puller, out _)
             && pullerComp.Pulling == null)
         {
-            return false;
+            if (!_grabbingItem.TryGetGrabbingItem(puller, out _)) // Goobstation
+                return false;
         }
 
         if (!_blocker.CanInteract(puller, pullableUid))
@@ -592,7 +597,7 @@ public sealed class PullingSystem : EntitySystem
     }
 
     public bool TryStartPull(EntityUid pullerUid, EntityUid pullableUid,
-        PullerComponent? pullerComp = null, PullableComponent? pullableComp = null, GrabStage? grabStageOverride = null, float escapeAttemptModifier = 1.0f)
+        PullerComponent? pullerComp = null, PullableComponent? pullableComp = null)
     {
         if (!Resolve(pullerUid, ref pullerComp, false) ||
             !Resolve(pullableUid, ref pullableComp, false))
@@ -720,10 +725,9 @@ public sealed class PullingSystem : EntitySystem
         _adminLogger.Add(LogType.Action, LogImpact.Low,
             $"{ToPrettyString(pullerUid):user} started pulling {ToPrettyString(pullableUid):target}");
 
-        if (_combatMode.IsInCombatMode(pullerUid) && grabStageOverride == null) // Goobstation
-            TryGrab(pullableUid, pullerUid, escapeAttemptModifier: escapeAttemptModifier); // Goobstation
-        if(_combatMode.IsInCombatMode(pullerUid) && grabStageOverride != null)
-            TryGrab(pullableUid, pullerUid, grabStageOverride: grabStageOverride, escapeAttemptModifier: escapeAttemptModifier);
+        if (_combatMode.IsInCombatMode(pullerUid)) // Goobstation
+            TryGrab(pullableUid, pullerUid); // Goobstation
+
         return true;
     }
 
@@ -793,11 +797,9 @@ public sealed class PullingSystem : EntitySystem
     /// <param name="pullable">Target that would be grabbed</param>
     /// <param name="puller">Performer of the grab</param>
     /// <param name="ignoreCombatMode">If true, will ignore disabled combat mode</param>
-    /// <param name="grabStageOverride">What stage to set the grab too from the start</param>
-    /// <param name="escapeAttemptModifier">if anything what to modify the escape chance by</param>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
     /// <returns></returns>
-    public bool TryGrab(Entity<PullableComponent?> pullable, Entity<PullerComponent?> puller, bool ignoreCombatMode = false, GrabStage? grabStageOverride = null, float escapeAttemptModifier = 1f)
+    public bool TryGrab(Entity<PullableComponent?> pullable, Entity<PullerComponent?> puller, bool ignoreCombatMode = false)
     {
         if (!Resolve(pullable.Owner, ref pullable.Comp))
             return false;
@@ -853,7 +855,7 @@ public sealed class PullingSystem : EntitySystem
 
         var newStage = puller.Comp.GrabStage + nextStageAddition;
 
-        if (HasComp<MartialArtsKnowledgeComponent>(puller) // i really hate this solution holy fuck
+        if (HasComp<MartialArtsKnowledgeComponent>(puller)
             && TryComp<RequireProjectileTargetComponent>(pullable, out var layingDown)
             && layingDown.Active)
         {
@@ -862,19 +864,14 @@ public sealed class PullingSystem : EntitySystem
             newStage = ev.Stage;
         }
 
-        if (grabStageOverride != null)
-        {
-            newStage = grabStageOverride.Value;
-        }
-
-        if (!TrySetGrabStages((puller, puller.Comp), (pullable, pullable.Comp), newStage, escapeAttemptModifier))
+        if (!TrySetGrabStages((puller, puller.Comp), (pullable, pullable.Comp), newStage))
             return false;
 
         _color.RaiseEffect(Color.Yellow, new List<EntityUid> { pullable }, Filter.Pvs(pullable, entityManager: EntityManager));
         return true;
     }
 
-    private bool TrySetGrabStages(Entity<PullerComponent> puller, Entity<PullableComponent> pullable, GrabStage stage, float escapeAttemptModifier = 1f)
+    private bool TrySetGrabStages(Entity<PullerComponent> puller, Entity<PullableComponent> pullable, GrabStage stage)
     {
         puller.Comp.GrabStage = stage;
         pullable.Comp.GrabStage = stage;
@@ -897,7 +894,7 @@ public sealed class PullingSystem : EntitySystem
         };
 
         var massModifier = _contests.MassContest(puller, pullable);
-        pullable.Comp.GrabEscapeChance = Math.Clamp(puller.Comp.EscapeChances[stage] / massModifier * escapeAttemptModifier, 0f, 1f);
+        pullable.Comp.GrabEscapeChance = Math.Clamp(puller.Comp.EscapeChances[stage] / massModifier, 0f, 1f);
 
         _alertsSystem.ShowAlert(puller, puller.Comp.PullingAlert, puller.Comp.PullingAlertSeverity[stage]);
         _alertsSystem.ShowAlert(pullable, pullable.Comp.PulledAlert, pullable.Comp.PulledAlertAlertSeverity[stage]);
@@ -1062,6 +1059,20 @@ public sealed class PullingSystem : EntitySystem
         TrySetGrabStages((puller.Owner, puller.Comp), (pullable.Owner, pullable.Comp), newStage);
         return true;
     }
+}
+
+public enum GrabStage
+{
+    No = 0,
+    Soft = 1,
+    Hard = 2,
+    Suffocate = 3,
+}
+
+public enum GrabStageDirection
+{
+    Increase,
+    Decrease,
 }
 
 // Goobstation

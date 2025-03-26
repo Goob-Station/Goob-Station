@@ -6,6 +6,7 @@ using Content.Server.Nutrition.Components;
 using Content.Server.Station.Components;
 using Content.Server.StationEvents.Components;
 using Content.Server.StationEvents.Events;
+using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Station.Components;
 using Robust.Server.Player;

@@ -1,6 +1,6 @@
 - type: entity
   id: MailTeleporter
-  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  parent: BaseStructureDynamic
   name: mail teleporter
   description: Teleports mail addressed to the crew of this station.
   components:
@@ -37,11 +37,11 @@
         !type:DamageTrigger
         damage: 75
       behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalGlassBreak
-      - !type:ChangeConstructionNodeBehavior
-        node: machineFrame
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 1
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: ApcPowerReceiver
@@ -56,5 +56,3 @@
           True: {visible: true}
           False: {visible: false}
   - type: PowerSwitch
-  - type: Machine
-    board: MailTeleporterMachineCircuitboard

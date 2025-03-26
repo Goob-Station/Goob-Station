@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Goobstation.Common.CCVar; // Goob Edit
 using Content.Shared.Access.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
@@ -22,6 +21,8 @@ using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 
+// Goobstation Change
+using Content.Shared._Goobstation.CCVar;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Hands.Components;

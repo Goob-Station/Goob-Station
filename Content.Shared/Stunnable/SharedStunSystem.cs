@@ -20,11 +20,9 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Containers;
+using Content.Shared._White.Standing;
 using Content.Shared.Jittering;
 using Content.Shared.Speech.EntitySystems;
-using Content.Goobstation.Common.Standing;
-using Content.Goobstation.Common.Stunnable;
-using Content.Shared._White.Standing;
 
 namespace Content.Shared.Stunnable;
 
@@ -44,6 +42,7 @@ public abstract class SharedStunSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!; // WD EDIT
     [Dependency] private readonly SharedStutteringSystem _stutter = default!; // goob edit
     [Dependency] private readonly SharedJitteringSystem _jitter = default!; // goob edit
+    [Dependency] private readonly ClothingModifyStunTimeSystem _modify = default!; // goob edit
 
     /// <summary>
     /// Friction modifier for knocked down players.
@@ -201,9 +200,7 @@ public abstract class SharedStunSystem : EntitySystem
     public bool TryStun(EntityUid uid, TimeSpan time, bool refresh,
         StatusEffectsComponent? status = null)
     {
-        var modifierEv = new GetClothingStunModifierEvent(uid);
-        RaiseLocalEvent(modifierEv);
-        time *= modifierEv.Modifier;
+        time *= _modify.GetModifier(uid); // Goobstation
 
         if (time <= TimeSpan.Zero)
             return false;
@@ -232,9 +229,7 @@ public abstract class SharedStunSystem : EntitySystem
     public bool TryKnockdown(EntityUid uid, TimeSpan time, bool refresh,
         DropHeldItemsBehavior behavior, StatusEffectsComponent? status = null)
     {
-        var modifierEv = new GetClothingStunModifierEvent(uid);
-        RaiseLocalEvent(modifierEv);
-        time *= modifierEv.Modifier;
+        time *= _modify.GetModifier(uid); // Goobstation
 
         if (!HasComp<LayingDownComponent>(uid)) // Goobstation - only knockdown mobs that can lie down
             return false;
@@ -267,9 +262,7 @@ public abstract class SharedStunSystem : EntitySystem
     public bool TryKnockdown(EntityUid uid, TimeSpan time, bool refresh,
         StatusEffectsComponent? status = null)
     {
-        var modifierEv = new GetClothingStunModifierEvent(uid);
-        RaiseLocalEvent(modifierEv);
-        time *= modifierEv.Modifier;
+        time *= _modify.GetModifier(uid); // Goobstation
 
         if (!HasComp<LayingDownComponent>(uid)) // Goobstation - only knockdown mobs that can lie down
             return false;

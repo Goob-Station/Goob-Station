@@ -1,5 +1,4 @@
 using Content.Client._White.Animations;
-using Content.Goobstation.Common.Standing;
 using Content.Shared._White.Standing;
 using Content.Shared.Buckle;
 using Content.Shared.Rotation;

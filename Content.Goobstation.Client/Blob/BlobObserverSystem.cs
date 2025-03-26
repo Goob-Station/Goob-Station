@@ -1,6 +1,6 @@
 ﻿using Content.Goobstation.Common.Blob;
-using Content.Goobstation.Shared.Blob;
-using Content.Goobstation.Shared.Blob.Components;
+using Content.Shared._Goobstation.Blob;
+using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;

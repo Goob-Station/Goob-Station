@@ -1,5 +1,4 @@
-﻿using Content.Goobstation.Shared.Blob.Components;
-using JetBrains.Annotations;
+﻿using Content.Shared._Goobstation.Blob.Components;
 
 namespace Content.Goobstation.Client.Blob;
 

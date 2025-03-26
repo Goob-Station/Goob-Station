@@ -1,5 +1,7 @@
-﻿using Content.Goobstation.Common.MartialArts;
+﻿using Content.Shared._Goobstation.MartialArts;
+using Content.Shared._Goobstation.TableSlam; // Goobstation - Table Slam
 using Content.Shared.Alert;
+using Content.Shared.Movement.Pulling.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -10,6 +12,7 @@ namespace Content.Shared.Movement.Pulling.Components;
 /// Specifies an entity as being able to pull another entity with <see cref="PullableComponent"/>
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
+[Access(typeof(PullingSystem), typeof(TableSlamSystem), typeof(SharedMartialArtsSystem))] // Goobstation - Table Slam
 public sealed partial class PullerComponent : Component
 {
     // My raiding guild

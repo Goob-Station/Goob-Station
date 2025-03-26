@@ -20,7 +20,3 @@
 
 - type: statusEffect
   id: Dementia
-
-- type: statusEffect
-  id: MansusGraspAffected
-  alwaysAllowed: true

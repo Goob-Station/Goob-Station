@@ -12,9 +12,9 @@
   id: CrateNPCLootbug
   parent: CrateLivestock
   name: crate of lootbugs
-  description: A crate containing three lootbugs.
+  description: A crate containing four lootbugs.
   components:
   - type: StorageFill
     contents:
       - id: MobLootbug
-        amount: 3
+        amount: 4

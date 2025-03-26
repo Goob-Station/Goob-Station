@@ -1,5 +1,8 @@
+using System.Numerics;
+using Content.Shared._Goobstation.Boomerang;
 using Robust.Shared.GameStates;
-// goobstation - removed unused usings
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.Weapons.Melee.Components;
 
@@ -8,7 +11,7 @@ namespace Content.Shared.Weapons.Melee.Components;
 /// until it hits a wall or a time limit is exhausted.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-// Goobstation - Modularity Explicit Access is GONE
+[Access(typeof(MeleeThrowOnHitSystem), typeof(BoomerangSystem))] // Goobstation Edit
 public sealed partial class MeleeThrowOnHitComponent : Component
 {
     /// <summary>

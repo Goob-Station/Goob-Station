@@ -1,4 +1,3 @@
-using Content.Shared.Lock;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Containers.ItemSlots;

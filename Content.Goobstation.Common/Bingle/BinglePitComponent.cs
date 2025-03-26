@@ -44,5 +44,4 @@ public sealed partial class BinglePitComponent : Component
     public float MaxSize = 3f;
     public SoundSpecifier FallingSound = new SoundPathSpecifier("/Audio/Effects/falling.ogg");
     public EntProtoId GhostRoleToSpawn = "SpawnPointGhostBingle";
-
 }

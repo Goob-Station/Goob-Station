@@ -60,9 +60,8 @@
   - type: SolutionContainerManager
     solutions:
       melee:
-        maxVol: 5 # Goobstation
+        maxVol: 2
   - type: MeleeChemicalInjector
-    transferAmount: 1 # Goobstation
     solution: melee
   - type: RefillableSolution
     solution: melee
@@ -78,37 +77,36 @@
     damage:
       types:
         Piercing: 4
-  # Goobstation - nuh uh
-  #- type: Damageable
-  #  damageContainer: Inorganic
-  #- type: Destructible
-  #  thresholds:
-  #  - trigger:
-  #      !type:DamageTrigger
-  #      damage: 40 # Goob edit, excess damage avoids cost of spawning entities.
-  #    behaviors:
-  #    - !type:DoActsBehavior
-  #      acts: [ "Destruction" ]
-  #  - trigger:
-  #      !type:DamageTrigger
-  #      damage: 20
-  #    behaviors:
-  #    - !type:PlaySoundBehavior
-  #      sound:
-  #        collection: GlassBreak
-  #        params:
-  #          volume: -4
-  #    - !type:SpawnEntitiesBehavior
-  #      spawn:
-  #        PartRodMetal1:
-  #          min: 1
-  #          max: 1
-  #    - !type:DoActsBehavior
-  #      acts: [ "Destruction" ]
-  #- type: DamageOnLand
-  #  damage:
-  #    types:
-  #      Blunt: 5
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 40 # Goob edit, excess damage avoids cost of spawning entities.
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 5
   - type: UseDelay
   - type: Appearance
   - type: SolutionContainerVisuals
@@ -119,6 +117,10 @@
     equippedFillBaseName: -fill-
     equippedMaxFillLevels: 1
   - type: ThrowableBlocked # Goobstation
+    behavior: Damage
+    damage:
+      types:
+        Blunt: 20
   - type: UndetectableContraband #Goobstation-Contraband detector
 
 

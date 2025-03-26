@@ -1,4 +1,3 @@
-using Content.Goobstation.Common.Silo;
 using Content.Shared._DV.Salvage.Components;
 using Content.Shared._Lavaland.UnclaimedOre;
 using Content.Shared.Access.Systems;
@@ -7,6 +6,7 @@ using Content.Shared.Materials;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
+using Content.Shared._Goobstation.Silo;
 
 namespace Content.Shared._DV.Salvage.Systems;
 

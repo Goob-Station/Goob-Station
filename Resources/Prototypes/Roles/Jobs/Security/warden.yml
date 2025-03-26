@@ -24,9 +24,6 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
-  - !type:AddComponentSpecial # goobstation
-    components:
-      - type: SecurityStaff
 
 - type: startingGear
   id: WardenGear

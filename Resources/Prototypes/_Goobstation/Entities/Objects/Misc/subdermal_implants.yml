@@ -8,7 +8,6 @@
   - type: SubdermalImplant
     permanent: true
     implantAction: ActionActivateBluespaceLifeline
-  - type: MansusGraspBlockTrigger
   - type: TriggerOnMobstateChange
     mobState:
     - Dead

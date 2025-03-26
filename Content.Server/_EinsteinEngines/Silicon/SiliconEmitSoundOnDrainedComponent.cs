@@ -1,4 +1,3 @@
-using Content.Shared.Sound.Components;
 using Robust.Shared.Audio;
 
 namespace Content.Server._EinsteinEngines.Silicon;

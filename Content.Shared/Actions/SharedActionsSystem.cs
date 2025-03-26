@@ -685,9 +685,6 @@ public abstract class SharedActionsSystem : EntitySystem
 
     public void PerformAction(EntityUid performer, ActionsComponent? component, EntityUid actionId, BaseActionComponent action, BaseActionEvent? actionEvent, TimeSpan curTime, bool predicted = true)
     {
-        if (!action.Predicted) // Goobstation
-            predicted = false;
-
         var handled = false;
 
         var toggledBefore = action.Toggled;

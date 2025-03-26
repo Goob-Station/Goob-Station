@@ -319,10 +319,10 @@ public sealed class SpreaderSystem : EntitySystem
         var anchored = _map.GetAnchoredEntitiesEnumerator(ent, grid, tile);
         while (anchored.MoveNext(out var entity))
         {
-            if (entity == uid) // Goob edit
+            if (entity == ent)
                 continue;
             DebugTools.Assert(Transform(entity.Value).Anchored);
-            if (_query.HasComponent(entity) && !TerminatingOrDeleted(entity.Value)) // Goob edit
+            if (_query.HasComponent(ent) && !TerminatingOrDeleted(entity.Value))
                 EnsureComp<ActiveEdgeSpreaderComponent>(entity.Value);
         }
 
@@ -335,7 +335,7 @@ public sealed class SpreaderSystem : EntitySystem
             while (anchored.MoveNext(out var entity))
             {
                 DebugTools.Assert(Transform(entity.Value).Anchored);
-                if (_query.HasComponent(entity) && !TerminatingOrDeleted(entity.Value)) // Goob edit
+                if (_query.HasComponent(ent) && !TerminatingOrDeleted(entity.Value))
                     EnsureComp<ActiveEdgeSpreaderComponent>(entity.Value);
             }
         }

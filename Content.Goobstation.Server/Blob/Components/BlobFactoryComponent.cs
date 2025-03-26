@@ -1,4 +1,4 @@
-using Content.Goobstation.Shared.Blob.Components;
+using Content.Shared._Goobstation.Blob.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Blob.Components;

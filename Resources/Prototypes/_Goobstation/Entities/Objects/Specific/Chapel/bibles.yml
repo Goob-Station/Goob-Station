@@ -1,31 +1,23 @@
+## Public Domain YAML Begins
 - type: entity
   parent: Bible
-  name: Quaran
-  description: "Inshallah."
-  id: BibleQuaran
+  name: goobbit
+  description: "This weird book smells awful for some reason."
+  id: BibleAtheist
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Chapel/allah.rsi
+    sprite: _Goobstation/Objects/Specific/Chapel/atheism.rsi
   - type: Item
-    sprite: _Goobstation/Objects/Specific/Chapel/allah.rsi
+    sprite: _Goobstation/Objects/Specific/Chapel/atheism.rsi
 
 - type: entity
   parent: Bible
-  name: Tanakh
-  description: "Choose life, that you and your offspring may live."
-  id: BibleTanakh
+  name: tripitaka
+  description: "This book is an ancient collection of Buddhist sacred scriptures."
+  id: BibleBhuddhist
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Objects/scroll.rsi
-    layers:
-    - state: scroll2
+    sprite: _Goobstation/Objects/Specific/Chapel/tripitaka.rsi
   - type: Item
-    sprite: _Goobstation/Wizard/Objects/scroll.rsi
-    size: Small
-  - type: MeleeWeapon
-    soundHit:
-      collection: AlienClaw
-    damage:
-      types:
-        Holy: 25
-        Slash: 1
+    sprite: _Goobstation/Objects/Specific/Chapel/tripitaka.rsi
+## Public Domain YAML Ends

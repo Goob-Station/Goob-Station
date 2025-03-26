@@ -82,8 +82,6 @@
   - type: IconSmooth
     key: bricks
     base: brick
-  - type: RustRequiresPathStage # Goobstation
-    pathStage: 4 # Mark of rust
 
 - type: entity
   parent: BaseWall
@@ -116,8 +114,6 @@
   - type: IconSmooth
     key: walls
     base: clock
-  - type: RustRequiresPathStage # Goobstation
-    pathStage: 4 # Mark of rust
 
 - type: entity
   parent: BaseWall
@@ -154,8 +150,6 @@
   - type: IconSmooth
     key: walls
     base: clown
-  - type: RustRequiresPathStage # Goobstation
-    pathStage: 4 # Mark of rust
 
 - type: entity
   parent: BaseWall
@@ -219,8 +213,6 @@
   - type: IconSmooth
     key: walls
     base: cult
-  - type: RustRequiresPathStage # Goobstation
-    pathStage: 4 # Mark of rust
 
 - type: entity
   parent: BaseWall
@@ -252,8 +244,6 @@
   - type: IconSmooth
     key: walls
     base: debug
-  - type: RustRequiresPathStage # Goobstation
-    pathStage: 4 # Mark of rust
 
 - type: entity
   parent: BaseWall
@@ -287,8 +277,6 @@
   - type: IconSmooth
     key: walls
     base: diamond
-  - type: RustRequiresPathStage # Goobstation
-    pathStage: 4 # Mark of rust
 
 - type: entity
   parent: BaseWall
@@ -363,8 +351,6 @@
   - type: IconSmooth
     key: walls
     base: ice
-  - type: RustRequiresPathStage # Goobstation
-    pathStage: 4 # Mark of rust
 
 - type: entity
   parent: BaseWall
@@ -474,8 +460,6 @@
     - type: IconSmooth
       key: walls
       base: plastitanium
-    - type: RustRequiresPathStage # Goobstation
-      pathStage: 11 # Can't rust
 
 - type: entity
   parent: WallPlastitaniumIndestructible
@@ -499,8 +483,6 @@
                   max: 1
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
-    - type: RustRequiresPathStage # Goobstation
-      pathStage: 10 # Ascension
 
 - type: entity
   parent: WallShuttleDiagonal
@@ -545,8 +527,6 @@
           collection: MetalSlam
       - !type:DoActsBehavior
         acts: ["Destruction"]
-  - type: RustRequiresPathStage # Goobstation
-    pathStage: 10 # Ascension
 
 - type: entity
   id: WallPlastitaniumDiagonalIndestructible
@@ -596,8 +576,6 @@
         - FullTileMask
         layer:
         - WallLayer
-  - type: RustRequiresPathStage # Goobstation
-    pathStage: 11 # Can't rust
 
 - type: entity
   parent: BaseWall
@@ -657,8 +635,6 @@
     price: 250
   - type: RadiationBlocker
     resistance: 5
-  - type: RustRequiresPathStage # Goobstation
-    pathStage: 7 # Toxic blade
 
 - type: entity
   parent: WallReinforced
@@ -676,7 +652,6 @@
   - type: IconSmooth
     key: walls
     base: reinf_over
-  - type: RustedWall # Goobstation
   - type: Destructible
     thresholds:
     - trigger:
@@ -713,7 +688,6 @@
   components:
   - type: Tag
     tags:
-    - Wall # Goobstation
     - Diagonal
   - type: Sprite
     drawdepth: Walls
@@ -726,8 +700,6 @@
   - type: Icon
     sprite: Structures/Walls/reinforced_diagonal.rsi
     state: state0
-  - type: RustRequiresPathStage # Goobstation
-    pathStage: 7 # Toxic blade
 
 # Riveting
 - type: entity
@@ -763,8 +735,6 @@
     base: riveted
   - type: StaticPrice
     price: 150
-  - type: RustRequiresPathStage # Goobstation
-    pathStage: 10 # Ascension
 
 - type: entity
   parent: BaseWall
@@ -922,8 +892,6 @@
   - type: Construction
     graph: Girder
     node: diagonalshuttleWall
-  - type: RustRequiresPathStage # Goobstation
-    pathStage: 7 # Toxic blade
 
 - type: entity
   parent: BaseWall
@@ -983,8 +951,6 @@
           3: { state: shuttle_construct-3, visible: true}
           4: { state: shuttle_construct-4, visible: true}
           5: { state: shuttle_construct-5, visible: true}
-  - type: RustRequiresPathStage # Goobstation
-    pathStage: 7 # Toxic blade
 
 - type: entity
   parent: BaseWall
@@ -1113,7 +1079,6 @@
   - type: IconSmooth
     key: walls
     base: solid
-  - type: RustedWall # Goobstation
   - type: Destructible
     thresholds:
     - trigger:
@@ -1286,8 +1251,6 @@
   - type: IconSmooth
     key: walls
     base: necropolis
-  - type: RustRequiresPathStage # Goobstation
-    pathStage: 10 # Ascension
 
 - type: entity
   parent: BaseWall
@@ -1317,8 +1280,6 @@
     - mining
     - miningB
   - type: Appearance
-  - type: RustRequiresPathStage # Goobstation
-    pathStage: 7 # Toxic blade
 
 - type: entity
   parent: WallShuttleDiagonal
@@ -1365,8 +1326,6 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: RustRequiresPathStage # Goobstation
-    pathStage: 7 # Toxic blade
 
 - type: entity
   parent: WallVaultAlien
@@ -1416,8 +1375,6 @@
         layer:
         - GlassLayer
   - type: Airtight
-  - type: RustRequiresPathStage # Goobstation
-    pathStage: 11 # Can't rust
 
 - type: entity
   id: WallForce
@@ -1464,8 +1421,6 @@
           base:
             True: { state: forcewall }
             False: { state: forcewallspawn }
-    - type: RustRequiresPathStage
-      pathStage: 11 # Can't rust
     - type: PreventCollide
       whitelist:
         components:

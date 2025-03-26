@@ -1,12 +1,12 @@
 ﻿using Content.Goobstation.Common.Blob;
-using Content.Goobstation.Shared.Blob;
-using Content.Goobstation.Shared.Blob.Components;
 using Content.Goobstation.Shared.Blob.Events;
 using Content.Server.Actions;
 using Content.Server.Body.Systems;
 using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Mind;
+using Content.Shared._Goobstation.Blob;
+using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Robust.Shared.Map.Components;

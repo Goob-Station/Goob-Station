@@ -1,4 +1,4 @@
-using Content.Shared._Shitmed.DoAfter;
+using Content.Shared._Goobstation.DoAfter;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 
@@ -9,8 +9,6 @@ public partial class SharedBodySystem
     private void InitializeRelay()
     {
         SubscribeLocalEvent<BodyComponent, GetDoAfterDelayMultiplierEvent>(RelayBodyPartEvent);
-
-
     }
 
     protected void RefRelayBodyPartEvent<T>(EntityUid uid, BodyComponent component, ref T args) where T : IBodyPartRelayEvent

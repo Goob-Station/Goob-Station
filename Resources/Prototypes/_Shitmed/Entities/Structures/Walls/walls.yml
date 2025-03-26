@@ -15,7 +15,6 @@
   - type: Tag
     tags:
     - Wall
-    - Diagonal
   - type: Sprite
     drawdepth: Walls
     sprite: _Shitmed/Structures/Walls/abductor_diagonal.rsi
@@ -56,8 +55,6 @@
   - type: Construction
     graph: Girder
     node: diagonalshuttleWall
-  - type: RustRequiresPathStage
-    pathStage: 10 # Ascension
 
 - type: entity
   parent: BaseWall
@@ -87,5 +84,3 @@
   - type: Appearance
   - type: Reflect
     reflectProb: 1
-  - type: RustRequiresPathStage
-    pathStage: 10 # Ascension

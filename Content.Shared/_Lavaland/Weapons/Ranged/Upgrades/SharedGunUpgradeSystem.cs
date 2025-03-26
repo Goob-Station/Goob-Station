@@ -17,7 +17,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Configuration;
 using System.Linq;
-using Content.Shared._Goobstation.Weapons.Ranged;
 
 namespace Content.Shared._Lavaland.Weapons.Ranged.Upgrades;
 

@@ -20,7 +20,6 @@
     - Flesh
     - Lock
     - Void
-    - Rust
 
 - type: listing
   id: HereticBladePath2
@@ -29,7 +28,7 @@
   icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
   productHereticKnowledge: GraspOfBlade
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathBlade
   conditions:

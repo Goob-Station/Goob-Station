@@ -1,4 +1,3 @@
-using Content.Goobstation.Common.Traits;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Chat;

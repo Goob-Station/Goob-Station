@@ -1,9 +1,9 @@
 ﻿using System.Numerics;
-using Content.Goobstation.Shared.Blob.Components;
+using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.Interaction;
 using Robust.Shared.Map;
 
-namespace Content.Goobstation.Shared.Blob;
+namespace Content.Shared._Goobstation.Blob;
 
 public abstract class SharedBlobObserverSystem : EntitySystem
 {

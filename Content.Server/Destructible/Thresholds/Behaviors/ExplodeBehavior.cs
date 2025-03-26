@@ -1,4 +1,3 @@
-using Content.Shared.Explosion.Components;
 using JetBrains.Annotations;
 
 namespace Content.Server.Destructible.Thresholds.Behaviors

@@ -20,17 +20,13 @@ namespace Content.Client._Shitmed.Autodoc;
 [GenerateTypedNameReferences]
 public sealed partial class AutodocWindow : FancyWindow
 {
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly IFileDialogManager _dialogMan = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly ISerializationManager _serMan = default!;
-    [Dependency] private readonly ILogManager _logMan = default!;
+    private IEntityManager _entMan;
+    private IPlayerManager _player;
     private SharedAutodocSystem _autodoc;
 
     private EntityUid _owner;
     private bool _active;
     private int _programCount = 0;
-    private ISawmill _sawmill;
 
     public event Action<string>? OnCreateProgram;
     public event Action<int>? OnToggleProgramSafety;
@@ -47,12 +43,10 @@ public sealed partial class AutodocWindow : FancyWindow
     public AutodocWindow(EntityUid owner, IEntityManager entMan, IPlayerManager player)
     {
         RobustXamlLoader.Load(this);
-        IoCManager.InjectDependencies(this);
 
         _entMan = entMan;
         _player = player;
         _autodoc = entMan.System<SharedAutodocSystem>();
-        _sawmill = _logMan.GetSawmill("autodoc-ui");
 
         _owner = owner;
 
@@ -160,21 +154,27 @@ public sealed partial class AutodocWindow : FancyWindow
 
     private async void ImportProgram()
     {
-        if (await _dialogMan.OpenFile(new FileDialogFilters(new FileDialogFilters.Group("yml"))) is not {} file)
+        var dialogManager = IoCManager.Resolve<IFileDialogManager>();
+        var file = await dialogManager.OpenFile(new FileDialogFilters(new FileDialogFilters.Group("yml")));
+
+        if (file == null)
             return;
 
         try
         {
+            var serializationManager = IoCManager.Resolve<ISerializationManager>();
             using var reader = new StreamReader(file, EncodingHelpers.UTF8);
             var yamlStream = new YamlStream();
             yamlStream.Load(reader);
             var root = yamlStream.Documents[0].RootNode;
-            var program = _serMan.Read<AutodocProgram>(root.ToDataNode(), notNullableOverride: true);
+            var program = serializationManager.Read<AutodocProgram>(root.ToDataNode(), notNullableOverride: true);
             OnImportProgram?.Invoke(program);
         }
-        catch (Exception e)
+        catch (Exception exc)
         {
-            _sawmill.Error($"Error when importing program: {e}");
+            ILogManager logManager = IoCManager.Resolve<ILogManager>(); // Using automatic dependancy doesn't work here
+            ISawmill sawmill = logManager.GetSawmill("autodoc-ui");
+            sawmill.Error($"Error when importing program\n{exc.StackTrace}");
         }
 
     }

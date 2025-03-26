@@ -1,8 +1,6 @@
 using System.Linq;
 using System.Numerics;
-using Content.Goobstation.Common.Actions;
 using Content.Goobstation.Common.Changeling;
-using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Server.Changeling.Objectives.Components;
 using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;
@@ -24,7 +22,9 @@ using Content.Server.Popups;
 using Content.Server.Store.Systems;
 using Content.Server.Stunnable;
 using Content.Server.Zombies;
+using Content.Shared._Goobstation.Actions;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
+using Content.Shared._White.Overlays;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
 using Content.Shared.Camera;
@@ -180,7 +180,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         EnsureComp<FlashImmunityComponent>(uid);
         EnsureComp<EyeProtectionComponent>(uid);
 
-        var thermalVision = _compFactory.GetComponent<Shared.Overlays.ThermalVisionComponent>();
+        var thermalVision = _compFactory.GetComponent<ThermalVisionComponent>();
         thermalVision.Color = Color.FromHex("#FB9898");
         thermalVision.LightRadius = 15f;
         thermalVision.FlashDurationMultiplier = 2f;
@@ -666,8 +666,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             typeof(StoreComponent),
             typeof(FlashImmunityComponent),
             typeof(EyeProtectionComponent),
-            typeof(Shared.Overlays.NightVisionComponent),
-            typeof(Shared.Overlays.ThermalVisionComponent),
+            typeof(NightVisionComponent),
+            typeof(ThermalVisionComponent),
             // ADD MORE TYPES HERE
         };
         foreach (var type in types)

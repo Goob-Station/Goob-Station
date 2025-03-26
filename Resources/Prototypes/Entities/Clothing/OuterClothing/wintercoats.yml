@@ -32,7 +32,6 @@
     tags:
     - ClothMade
     - WhitelistChameleon
-    - WinterCoat # Goobstation
   - type: StaticPrice
     price: 50
   - type: PhysicalComposition #Goobstation - Recycle update
@@ -49,11 +48,6 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterDefault
-  - type: Tag # Goobstation
-    tags:
-    - ClothMade
-    - WhitelistChameleon
-    - WinterCoat
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable

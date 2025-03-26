@@ -1,4 +1,3 @@
-using Content.Client._durkcode.ServerCurrency;
 using Content.Client._RMC14.LinkAccount;
 using Content.Client.Administration.Managers;
 using Content.Client.Changelog;
@@ -26,6 +25,7 @@ using Content.Shared.Administration.Managers;
 using Content.Shared.Chat;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Players.RateLimiting;
+using Content.Client._Goobstation.ServerCurrency; // Goob Station - Goob Coin
 
 namespace Content.Client.IoC
 {

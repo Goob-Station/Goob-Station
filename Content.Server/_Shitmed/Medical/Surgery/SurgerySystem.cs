@@ -1,4 +1,3 @@
-using Content.Goobstation.Common.CCVar;
 using Content.Server.Atmos.Rotting;
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Systems;
@@ -16,6 +15,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Content.Shared.Verbs;
+using Content.Shared._Goobstation.CCVar;
 
 namespace Content.Server._Shitmed.Medical.Surgery;
 

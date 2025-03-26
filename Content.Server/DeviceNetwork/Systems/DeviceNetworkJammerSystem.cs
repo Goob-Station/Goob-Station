@@ -1,4 +1,3 @@
-using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.DeviceNetwork.Systems;
 using Robust.Server.GameObjects;
@@ -22,12 +21,6 @@ public sealed class DeviceNetworkJammerSystem : SharedDeviceNetworkJammerSystem
     {
         if (ev.Cancelled)
             return;
-
-        if (HasComp<MansusGraspAffectedComponent>(ev.SenderTransform.ParentUid)) // Goobstation
-        {
-            ev.Cancel();
-            return;
-        }
 
         var query = EntityQueryEnumerator<DeviceNetworkJammerComponent, TransformComponent>();
 

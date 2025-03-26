@@ -16,8 +16,6 @@ public sealed partial class AutodocProgramWindow : FancyWindow
 {
     [Dependency] private readonly IEntityManager _entMan = default!;
     [Dependency] private readonly IFileDialogManager _dialogManager = default!;
-    [Dependency] private readonly ILogManager _logMan = default!;
-    [Dependency] private readonly ISerializationManager _serMan = default!;
     private SharedAutodocSystem _autodoc = default!;
 
     public event Action? OnToggleSafety;
@@ -26,11 +24,11 @@ public sealed partial class AutodocProgramWindow : FancyWindow
     public event Action<int>? OnRemoveStep;
     public event Action? OnStart;
 
+
     private EntityUid _owner;
     private AutodocProgram _program;
     private int _steps;
     private bool _safety = true;
-    private ISawmill _sawmill;
 
     private int? _selected;
     private AddStepWindow? _addStep;
@@ -44,7 +42,6 @@ public sealed partial class AutodocProgramWindow : FancyWindow
 
         _owner = owner;
         _program = program;
-        _sawmill = _logMan.GetSawmill("autodoc-ui");
 
         OnClose += () => _addStep?.Close();
 
@@ -128,22 +125,27 @@ public sealed partial class AutodocProgramWindow : FancyWindow
 
     private async void ExportProgram()
     {
-        if (await _dialogManager.SaveFile(new FileDialogFilters(new FileDialogFilters.Group("yml"))) is not {} file)
+        var file = await _dialogManager.SaveFile(new FileDialogFilters(new FileDialogFilters.Group("yml")));
+
+        if (file == null)
             return;
 
         try
         {
-            var node = _serMan.WriteValue(_program.GetType(), _program);
-            await using var writer = new StreamWriter(file.fileStream);
+            var serializationManager = IoCManager.Resolve<ISerializationManager>();
+            var node = serializationManager.WriteValue(_program.GetType(), _program);
+            await using var writer = new StreamWriter(file.Value.fileStream);
             node.Write(writer);
         }
-        catch (Exception e)
+        catch (Exception exc)
         {
-            _sawmill.Error($"Error when exporting program: {e}");
+            ILogManager logManager = IoCManager.Resolve<ILogManager>(); // Using automatic dependancy doesn't work here
+            ISawmill sawmill = logManager.GetSawmill("autodoc-ui");
+            sawmill.Error($"Error when exporting program\n{exc.StackTrace}");
         }
         finally
         {
-            await file.fileStream.DisposeAsync();
+            await file.Value.fileStream.DisposeAsync();
         }
     }
 

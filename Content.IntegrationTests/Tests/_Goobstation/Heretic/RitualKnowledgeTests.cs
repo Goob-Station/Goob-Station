@@ -11,8 +11,6 @@ namespace Content.IntegrationTests.Tests._Goobstation.Heretic;
 [TestFixture, TestOf(typeof(RitualKnowledgeBehavior))]
 public sealed class RitualKnowledgeTests
 {
-    private static readonly ProtoId<DatasetPrototype> KnowledgeDataset = "EligibleTags";
-
     [Test]
     public async Task ValidateEligibleTags()
     {
@@ -29,7 +27,7 @@ public sealed class RitualKnowledgeTests
         await server.WaitAssertion(() =>
         {
             // Get the eligible tags prototype
-            var dataset = protoMan.Index(KnowledgeDataset);
+            var dataset = protoMan.Index<DatasetPrototype>(RitualKnowledgeBehavior.EligibleTagsDataset);
 
             // Validate that every value is a valid tag
             Assert.Multiple(() =>
@@ -57,7 +55,7 @@ public sealed class RitualKnowledgeTests
         await server.WaitAssertion(() =>
         {
             // Get the eligible tags prototype
-            var dataset = protoMan.Index(KnowledgeDataset).Values.ToHashSet();
+            var dataset = protoMan.Index<DatasetPrototype>(RitualKnowledgeBehavior.EligibleTagsDataset).Values.ToHashSet();
 
             // Loop through every entity prototype and assemble a used tags set
             var usedTags = new HashSet<string>();

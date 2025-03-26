@@ -4,23 +4,13 @@ using Content.Goobstation.Common.Bingle;
 using Content.Goobstation.Shared.Bingle;
 using Content.Server.GameTicking;
 using Content.Server.Pinpointer;
-using Content.Goobstation.Common.Bingle;
-using Content.Goobstation.Shared.Bingle;
-using Content.Server.GameTicking;
-using Content.Server.Pinpointer;
 using Content.Server.Stunnable;
-using Content.Shared.Destructible;
 using Content.Shared.Destructible;
 using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Maps;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Destructible;
-using Content.Shared.StepTrigger.Systems;
-using Content.Shared.Stunnable;
-using Content.Shared.Humanoid;
-using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
@@ -55,7 +45,6 @@ public sealed class BinglePitSystem : EntitySystem
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly StepTriggerSystem _step = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ITileDefinitionManager _tiledef = default!;
     [Dependency] private readonly TileSystem _tile = default!;
@@ -74,7 +63,7 @@ public sealed class BinglePitSystem : EntitySystem
         SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndTextAppend);
     }
 
-    private void OnRemovedFromContainer(Entity<BinglePitComponent> ent, ref EntRemovedFromContainerMessage args)
+    private void OnRemovedFromContainer(Entity<Common.Bingle.BinglePitComponent> ent, ref EntRemovedFromContainerMessage args)
     {
         RemCompDeferred<StunnedComponent>(args.Entity);
     }
@@ -95,14 +84,14 @@ public sealed class BinglePitSystem : EntitySystem
         }
     }
 
-    private void OnInit(EntityUid uid, BinglePitComponent component, MapInitEvent args)
+    private void OnInit(EntityUid uid, Common.Bingle.BinglePitComponent component, MapInitEvent args)
     {
         if (!Transform(uid).Coordinates.IsValid(EntityManager))
             QueueDel(uid);
         component.Pit = _containerSystem.EnsureContainer<Container>(uid, "pit");
     }
 
-    private void OnStepTriggered(EntityUid uid, BinglePitComponent component, ref StepTriggeredOffEvent args)
+    private void OnStepTriggered(EntityUid uid, Common.Bingle.BinglePitComponent component, ref StepTriggeredOffEvent args)
     {
         // dont accept if they are already falling
         if (HasComp<BinglePitFallingComponent>(args.Tripper))
@@ -126,7 +115,7 @@ public sealed class BinglePitSystem : EntitySystem
         }
     }
 
-    private void StartFalling(EntityUid uid, BinglePitComponent component, EntityUid tripper, bool playSound = true)
+    private void StartFalling(EntityUid uid, Common.Bingle.BinglePitComponent component, EntityUid tripper, bool playSound = true)
     {
         if (TryComp<MobStateComponent>(tripper, out var mobState) && mobState.CurrentState is MobState.Alive or MobState.Critical)
             component.BinglePoints += component.PointsForAlive;
@@ -151,10 +140,10 @@ public sealed class BinglePitSystem : EntitySystem
 
     }
 
-    private void OnStepTriggerAttempt(EntityUid uid, BinglePitComponent component, ref StepTriggerAttemptEvent args)
+    private void OnStepTriggerAttempt(EntityUid uid, Common.Bingle.BinglePitComponent component, ref StepTriggerAttemptEvent args)
         => args.Continue = true;
 
-    public void SpawnBingle(EntityUid uid, BinglePitComponent component)
+    public void SpawnBingle(EntityUid uid, Common.Bingle.BinglePitComponent component)
     {
         Spawn(component.GhostRoleToSpawn, Transform(uid).Coordinates);
         OnSpawnTile(uid,component.Level*2, "FloorBingle");
@@ -168,7 +157,7 @@ public sealed class BinglePitSystem : EntitySystem
         }
     }
 
-    public void UpgradeBingles(EntityUid uid, BinglePitComponent component)
+    public void UpgradeBingles(EntityUid uid, Common.Bingle.BinglePitComponent component)
     {
         var query = EntityQueryEnumerator<BingleComponent>();
         while (query.MoveNext(out var queryUid, out var queryBingleComp))
@@ -178,14 +167,10 @@ public sealed class BinglePitSystem : EntitySystem
         if (component.Level <= component.MaxSize)
             ScaleUpPit(uid, component);
 
-        // make max-size bingle pit ignore gravity
-        if (component.Level == component.MaxSize)
-            _step.SetIgnoreWeightless(uid, true);
-
         _popup.PopupEntity(Loc.GetString("bingle-pit-grow"), uid);
     }
 
-    private void OnDestruction(EntityUid uid, BinglePitComponent component, DestructionEventArgs args)
+    private void OnDestruction(EntityUid uid, Common.Bingle.BinglePitComponent component, DestructionEventArgs args)
     {
         if (component.Pit != null)
             foreach (var pitUid in _containerSystem.EmptyContainer(component.Pit))
@@ -202,7 +187,7 @@ public sealed class BinglePitSystem : EntitySystem
             RemCompDeferred(fallingUid, fallingComp);
     }
 
-    public void RemoveAllBingleGhostRoles(EntityUid uid, BinglePitComponent component)
+    public void RemoveAllBingleGhostRoles(EntityUid uid, Common.Bingle.BinglePitComponent component)
     {
         var query = EntityQueryEnumerator<GhostRoleMobSpawnerComponent>();
         while (query.MoveNext(out var queryGRMSUid, out var queryGRMScomp))
@@ -210,7 +195,7 @@ public sealed class BinglePitSystem : EntitySystem
                 if (Transform(uid).Coordinates == Transform(queryGRMSUid).Coordinates)
                     QueueDel(queryGRMSUid); // remove any unspanned bingle when pit is destroyed
     }
-    private void OnAttacked(EntityUid uid, BinglePitComponent component, AttackedEvent args)
+    private void OnAttacked(EntityUid uid, Common.Bingle.BinglePitComponent component, AttackedEvent args)
     {
         if (_containerSystem.ContainsEntity(uid, args.User))
             EnsureComp<StunnedComponent>(args.User);
@@ -219,7 +204,7 @@ public sealed class BinglePitSystem : EntitySystem
     private void OnUpdateCanMove(EntityUid uid, BinglePitFallingComponent component, UpdateCanMoveEvent args)
         => args.Cancel();
 
-    private void ScaleUpPit(EntityUid uid, BinglePitComponent component)
+    private void ScaleUpPit(EntityUid uid, Common.Bingle.BinglePitComponent component)
     {
         if (!TryComp<AppearanceComponent>(uid, out var appearanceComponent))
             appearanceComponent = _entityManager.EnsureComponent<AppearanceComponent>(uid);
@@ -228,24 +213,13 @@ public sealed class BinglePitSystem : EntitySystem
 
         appearance.SetData(uid, ScaleVisuals.Scale, Vector2.One * component.Level, appearanceComponent);
     }
-
     private void OnRoundEndTextAppend(RoundEndTextAppendEvent ev)
     {
-        var pits = new List<Entity<BinglePitComponent>>();
-        var query = AllEntityQuery<BinglePitComponent>();
 
+        var query = AllEntityQuery<Common.Bingle.BinglePitComponent>();
         while (query.MoveNext(out var uid, out var comp))
-            pits.Add((uid, comp));
-
-        if (pits.Count == 0)
-            return;
-
-        ev.AddLine("");
-
-        foreach (var ent in pits)
         {
-            var (uid, comp) = ent;
-
+            // nears beacon
             var location = "Unknown";
             var mapCoords = _transform.ToMapCoordinates(Transform(uid).Coordinates);
             if (_navMap.TryGetNearestBeacon(mapCoords, out var beacon, out _))
@@ -257,9 +231,9 @@ public sealed class BinglePitSystem : EntitySystem
                 ("location", location),
                 ("level", comp.Level),
                 ("points", points)));
+
         }
 
-        ev.AddLine("");
     }
 
     private void OnSpawnTile(EntityUid uid,

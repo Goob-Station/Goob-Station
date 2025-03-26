@@ -92,6 +92,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
         SubscribeLocalEvent<EmergencyShuttleComponent, FTLCompletedEvent>(OnEmergencyFTLComplete);
         SubscribeNetworkEvent<EmergencyShuttleRequestPositionMessage>(OnShuttleRequestPosition);
         InitializeEmergencyConsole();
+        InitializeEmag(); // Goobstation
     }
 
     private void OnRoundStart(RoundStartingEvent ev)
@@ -363,7 +364,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
             result.Station,
             Loc.GetString(
                 locKey,
-                ("time", $"{ConsoleAccumulator:0}"),
+                ("time", $"{_consoleAccumulator:0}"),
                 ("direction", direction),
                 ("location", location),
                 ("extended", extendedText)),
@@ -371,7 +372,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
 
         // Trigger shuttle timers on the shuttle.
 
-        var time = TimeSpan.FromSeconds(ConsoleAccumulator);
+        var time = TimeSpan.FromSeconds(_consoleAccumulator);
         if (TryComp<DeviceNetworkComponent>(shuttle, out var netComp))
         {
             var payload = new NetworkPayload
@@ -436,7 +437,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
             return;
         }
 
-        ConsoleAccumulator = _configManager.GetCVar(CCVars.EmergencyShuttleDockTime);
+        _consoleAccumulator = _configManager.GetCVar(CCVars.EmergencyShuttleDockTime);
         EmergencyShuttleArrived = true;
 
         var query = AllEntityQuery<StationEmergencyShuttleComponent>();
@@ -464,7 +465,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
             _ => 1,
         };
 
-        ConsoleAccumulator *= multiplier;
+        _consoleAccumulator *= multiplier;
 
         foreach (var shuttleDockResult in dockResults)
         {

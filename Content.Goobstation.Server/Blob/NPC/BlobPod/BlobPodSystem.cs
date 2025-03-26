@@ -1,10 +1,10 @@
-using Content.Goobstation.Shared.Blob.Components;
-using Content.Goobstation.Shared.Blob.NPC.BlobPod;
 using Content.Server.DoAfter;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Server.Popups;
+using Content.Shared._Goobstation.Blob.Components;
+using Content.Shared._Goobstation.Blob.NPC.BlobPod;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
