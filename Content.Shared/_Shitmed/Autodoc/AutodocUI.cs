@@ -48,4 +48,10 @@ public sealed class AutodocStartMessage(int program) : BoundUserInterfaceMessage
 }
 
 [Serializable, NetSerializable]
+public sealed class AutodocImportProgramMessage(AutodocProgram program) : BoundUserInterfaceMessage
+{
+    public readonly AutodocProgram Program = program;
+}
+
+[Serializable, NetSerializable]
 public sealed class AutodocStopMessage : BoundUserInterfaceMessage;

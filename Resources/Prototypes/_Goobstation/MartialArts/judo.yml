@@ -19,8 +19,8 @@
   - Grab
   - Disarm
   event: !type:JudoThrowPerformedEvent
-  staminaDamage: 50
-  paralyzeTime: 7
+  staminaDamage: 30
+  paralyzeTime: 3
 
 - type: combo
   id: JudoArmbar
@@ -28,11 +28,10 @@
   martialArtsForm: CorporateJudo
   attacks:
   - Disarm
-  - Disarm
   - Grab
   event: !type:JudoArmbarPerformedEvent
-  staminaDamage: 45
-  paralyzeTime: 5
+  staminaDamage: 70
+  paralyzeTime: 7
 
 - type: combo
   id: JudoEyepoke
@@ -43,3 +42,4 @@
   - Harm
   event: !type:JudoEyePokePerformedEvent
   extraDamage: 5
+

@@ -51,18 +51,15 @@ public sealed class GrabThrownSystem : EntitySystem
 
         ent.Comp.IgnoreEntity.Add(args.OtherEntity);
 
-        var velocity = args.OurBody.LinearVelocity.Length();
         var velocitySquared = args.OurBody.LinearVelocity.LengthSquared();
         var mass = physicsComponent.Mass;
         var kineticEnergy = 0.5f * mass * velocitySquared;
-
-        if (ent.Comp.StaminaDamageOnCollide != null)
-            _stamina.TakeStaminaDamage(ent, ent.Comp.StaminaDamageOnCollide.Value);
-
         var kineticEnergyDamage = new DamageSpecifier();
         kineticEnergyDamage.DamageDict.Add("Blunt", 1);
-        kineticEnergyDamage *= Math.Floor(kineticEnergy / 100) / 2 + 3;
+        var modNumber = Math.Floor(kineticEnergy / 100);
+        kineticEnergyDamage *= Math.Floor(modNumber / 3);
         _damageable.TryChangeDamage(args.OtherEntity, kineticEnergyDamage);
+        _stamina.TakeStaminaDamage(ent, (float) Math.Floor(modNumber / 2));
 
         _layingDown.TryLieDown(args.OtherEntity, behavior: DropHeldItemsBehavior.AlwaysDrop);
 
@@ -92,11 +89,9 @@ public sealed class GrabThrownSystem : EntitySystem
         EntityUid thrower,
         Vector2 vector,
         float grabThrownSpeed,
-        float? staminaDamage = null,
         DamageSpecifier? damageToUid = null)
     {
         var comp = EnsureComp<GrabThrownComponent>(uid);
-        comp.StaminaDamageOnCollide = staminaDamage;
         comp.IgnoreEntity.Add(thrower);
         comp.DamageOnCollide = damageToUid;
 

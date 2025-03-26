@@ -14,7 +14,6 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Security.Components;
 using System.Linq;
-using Content.Shared.Roles.Jobs;
 
 namespace Content.Server.CriminalRecords.Systems;
 
@@ -86,8 +85,12 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
     private void OnChangeStatus(Entity<CriminalRecordsConsoleComponent> ent, ref CriminalRecordChangeStatus msg)
     {
         // prevent malf client violating wanted/reason nullability
-        if (msg.Status == SecurityStatus.Wanted != (msg.Reason != null) &&
-            msg.Status == SecurityStatus.Suspected != (msg.Reason != null))
+        var requireReason = msg.Status is SecurityStatus.Wanted
+            or SecurityStatus.Suspected
+            or SecurityStatus.Search
+            or SecurityStatus.Dangerous;
+
+        if (requireReason != (msg.Reason != null))
             return;
 
         if (!CheckSelected(ent, msg.Actor, out var mob, out var key))
@@ -154,6 +157,12 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
             (_, SecurityStatus.Discharged) => "released",
             // going from any other state to wanted, AOS or prisonbreak / lazy secoff never set them to released and they reoffended
             (_, SecurityStatus.Wanted) => "wanted",
+            // person has been sentenced to perma
+            (_, SecurityStatus.Perma) => "perma",
+            // person needs to be searched
+            (_, SecurityStatus.Search) => "search",
+            // person is very dangerous
+            (_, SecurityStatus.Dangerous) => "dangerous",
             // person is no longer sus
             (SecurityStatus.Suspected, SecurityStatus.None) => "not-suspected",
             // going from wanted to none, must have been a mistake
@@ -162,6 +171,12 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
             (SecurityStatus.Detained, SecurityStatus.None) => "released",
             // criminal is no longer on parole
             (SecurityStatus.Paroled, SecurityStatus.None) => "not-parole",
+            // criminal is no longer in perma
+            (SecurityStatus.Perma, SecurityStatus.None) => "not-perma",
+            // person no longer needs to be searched
+            (SecurityStatus.Search, SecurityStatus.None) => "not-search",
+            // person is no longer dangerous
+            (SecurityStatus.Dangerous, SecurityStatus.None) => "not-dangerous",
             // this is impossible
             _ => "not-wanted"
         };
@@ -251,7 +266,6 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
     {
         key = null;
         mob = null;
-
         if (!_access.IsAllowed(user, ent))
         {
             _popup.PopupEntity(Loc.GetString("criminal-records-permission-denied"), ent, user);

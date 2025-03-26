@@ -45,6 +45,18 @@
   - witnessing someone changing their appearance
   - being a changeling
 
+  ## Heretics
+
+  To normal people, heretics are generally unknown. Security and Command may be aware that a group of people following a rogue god exists, but it's an absurd reality.
+  This metashield prohibits normal players from knowing what runes or reality fractures are. Security may be suspicious of them. 
+
+  Knowledge about the ability of heretics is not shielded.
+
+  The revealing condition for this shield is any of the following:
+  - witnessing a crewmember drawing a rune  
+  - witnessing a crewmember harvesting a reality fracture 
+  - witnessing a crewmember using their powers
+   
   ## Implanted Implants
 
   Implanted implants are shielded.
@@ -110,4 +122,5 @@
   - The fact that the Syndicate are enemies of Nanotrasen, and that they regularly attempt to send covert agents to spy on, sabotage, or attack Nanotrasen.
   - A character's typical appearance. Though you should keep in mind that multiple characters can share the same name.
   - The fact that the Syndicate have covert items capable of getting items to them, and that these items are known as uplinks.
+  - Wizards are not metashielded as the wizards federation is well rumoured about.
 </Document>

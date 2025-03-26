@@ -18,6 +18,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared._DV.Harpy.Components;
 using Content.Shared.Bed.Sleep;
+using Content.Shared.Clothing.Components;
+using Content.Shared.Clothing;
 
 namespace Content.Server._DV.Harpy
 {
@@ -37,11 +39,10 @@ namespace Content.Server._DV.Harpy
             SubscribeLocalEvent<InstrumentComponent, MobStateChangedEvent>(OnMobStateChangedEvent);
             SubscribeLocalEvent<GotEquippedEvent>(OnEquip);
             SubscribeLocalEvent<EntityZombifiedEvent>(OnZombified);
-            SubscribeLocalEvent<InstrumentComponent, KnockedDownEvent>(OnKnockedDown);
             SubscribeLocalEvent<InstrumentComponent, StunnedEvent>(OnStunned);
             SubscribeLocalEvent<InstrumentComponent, SleepStateChangedEvent>(OnSleep);
             SubscribeLocalEvent<InstrumentComponent, StatusEffectAddedEvent>(OnStatusEffect);
-            SubscribeLocalEvent<InstrumentComponent, DamageChangedEvent>(OnDamageChanged);
+            SubscribeLocalEvent<HarpySingerComponent, BeforeDamageChangedEvent>(OnBeforeDamageChanged);
             SubscribeLocalEvent<HarpySingerComponent, BoundUIClosedEvent>(OnBoundUIClosed);
             SubscribeLocalEvent<HarpySingerComponent, BoundUIOpenedEvent>(OnBoundUIOpened);
 
@@ -55,7 +56,7 @@ namespace Content.Server._DV.Harpy
             // Check if an item that makes the singer mumble is equipped to their face
             // (not their pockets!). As of writing, this should just be the muzzle.
             if (TryComp<AddAccentClothingComponent>(args.Equipment, out var accent) &&
-                accent.ReplacementPrototype == "mumble" &&
+                (accent.ReplacementPrototype == "mumble" || accent.Accent == "MumbleAccent") &&
                 args.Slot == "mask")
             {
                 CloseMidiUi(args.Equipee);
@@ -71,11 +72,6 @@ namespace Content.Server._DV.Harpy
         private void OnZombified(ref EntityZombifiedEvent args)
         {
             CloseMidiUi(args.Target);
-        }
-
-        private void OnKnockedDown(EntityUid uid, InstrumentComponent component, ref KnockedDownEvent args)
-        {
-            CloseMidiUi(uid);
         }
 
         private void OnStunned(EntityUid uid, InstrumentComponent component, ref StunnedEvent args)
@@ -102,25 +98,19 @@ namespace Content.Server._DV.Harpy
         /// and maintenance overhead. It still reuses the values from DamageForceSayComponent, so
         /// any tweaks to that will keep ForceSay consistent with singing interruptions.
         /// </summary>
-        private void OnDamageChanged(EntityUid uid, InstrumentComponent instrumentComponent, DamageChangedEvent args)
+        private void OnBeforeDamageChanged(EntityUid uid, HarpySingerComponent harpySingerComponent, BeforeDamageChangedEvent args)
         {
-            if (!TryComp<DamageForceSayComponent>(uid, out var component) ||
-                args.DamageDelta == null ||
-                !args.DamageIncreased ||
-                args.DamageDelta.GetTotal() < component.DamageThreshold ||
-                component.ValidDamageGroups == null)
+            if (!harpySingerComponent.ShutUpDamageThreshold.HasValue ||
+                !args.Damage.AnyPositive())
                 return;
 
             var totalApplicableDamage = FixedPoint2.Zero;
-            foreach (var (group, value) in args.DamageDelta.GetDamagePerGroup(_prototype))
+            foreach (var (group, value) in args.Damage.GetDamagePerGroup(_prototype))
             {
-                if (!component.ValidDamageGroups.Contains(group))
-                    continue;
-
                 totalApplicableDamage += value;
             }
 
-            if (totalApplicableDamage >= component.DamageThreshold)
+            if (totalApplicableDamage >= harpySingerComponent.ShutUpDamageThreshold)
                 CloseMidiUi(uid);
         }
 
@@ -151,7 +141,7 @@ namespace Content.Server._DV.Harpy
             var zombified = TryComp<ZombieComponent>(uid, out var _);
             var muzzled = _inventorySystem.TryGetSlotEntity(uid, "mask", out var maskUid) &&
                 TryComp<AddAccentClothingComponent>(maskUid, out var accent) &&
-                accent.ReplacementPrototype == "mumble";
+                (accent.ReplacementPrototype == "mumble" || accent.Accent == "MumbleAccent");
 
             // Set this event as handled when the singer should be incapable of singing in order
             // to stop the ActivatableUISystem event from opening the MIDI UI.

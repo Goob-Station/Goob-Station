@@ -84,7 +84,7 @@ public sealed class BlobbernautSystem : SharedBlobbernautSystem
 
     private void OnMeleeHit(EntityUid uid, BlobbernautComponent component, MeleeHitEvent args)
     {
-        if (args.HitEntities.Count >= 1)
+        if (args.HitEntities.Count < 1)
             return;
         if (!_tileQuery.TryComp(component.Factory, out var blobTileComponent))
             return;

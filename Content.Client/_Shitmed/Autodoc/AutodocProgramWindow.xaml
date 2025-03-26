@@ -11,6 +11,7 @@
             <Button Name="AddStepButton" Text="{Loc 'autodoc-add-step'}"/>
             <Button Name="RemoveStepButton" StyleClasses="Caution" Text="{Loc 'autodoc-remove-step'}" Disabled="True"/>
             <Button Name="StartButton" StyleClasses="Caution" Text="{Loc 'autodoc-start-program'}"/>
+            <Button Name="ExportProgramButton" Text="{Loc 'autodoc-export-program'}"/>
         </BoxContainer>
         <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
               <ItemList Name="Steps"/> <!-- Set to Program.Steps -->

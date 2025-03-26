@@ -15,6 +15,7 @@
     interfaces:
        enum.HereticRitualRuneUiKey.Key:
         type: HereticRitualRuneBoundUserInterface
+  - type: IgnoresFingerprints
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -41,6 +42,17 @@
     drawdepth: WallMountedItems
     sprite: _Goobstation/Heretic/ritual_rune.rsi
     state: icon_drawanim
+
+- type: entity
+  parent: HereticRuneRitualDrawAnimation
+  id: HereticRuneRitualDrawAnimationCicatrix
+  categories: [ HideSpawnMenu ]
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/ritual_rune.rsi
+    state: icon_drawanim_cicatrix
 
 - type: entity
   id: HereticRuneRitualAnimation
