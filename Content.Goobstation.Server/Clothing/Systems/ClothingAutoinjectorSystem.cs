@@ -1,12 +1,13 @@
+using Content.Goobstation.Server.Clothing.Components;
+using Content.Goobstation.Shared.Clothing;
 using Content.Server.Popups;
-using Content.Shared._Goobstation.Clothing;
 using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.Clothing;
+namespace Content.Goobstation.Server.Clothing.Systems;
 
 /// <summary>
 /// This can be used for modsuit modules in the future.

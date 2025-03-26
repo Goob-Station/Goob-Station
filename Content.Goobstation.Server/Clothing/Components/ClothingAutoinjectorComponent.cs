@@ -1,7 +1,7 @@
-using Content.Shared._Goobstation.Clothing;
+using Content.Goobstation.Shared.Clothing;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.Clothing;
+namespace Content.Goobstation.Server.Clothing.Components;
 /// <summary>
 /// Component applied by clothing that allows the wearer to inject themselves with a reagent on a cooldown.
 /// Used for auto-injection mechanisms like emergency epi-pens or stimulants. Possible uses for a modsuit in the future.

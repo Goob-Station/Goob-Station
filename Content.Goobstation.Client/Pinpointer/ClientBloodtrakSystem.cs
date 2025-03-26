@@ -1,9 +1,9 @@
-using Content.Shared._Goobstation.Pinpointer;
+using Content.Goobstation.Shared.Pinpointer;
 using Content.Shared.Pinpointer;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 
-namespace Content.Client._Goobstation.Pinpointer;
+namespace Content.Goobstation.Client.Pinpointer;
 
 public sealed class ClientBloodtrakSystem : SharedBloodtrakSystem
 {
@@ -26,17 +26,12 @@ public sealed class ClientBloodtrakSystem : SharedBloodtrakSystem
             var eye = _eyeManager.CurrentEye;
             var angle = pinpointer.ArrowAngle + eye.Rotation;
 
-            switch (pinpointer.DistanceToTarget)
-            {
-                case Shared._Goobstation.Pinpointer.Distance.Close:
-                case Shared._Goobstation.Pinpointer.Distance.Medium:
-                case Shared._Goobstation.Pinpointer.Distance.Far:
-                    sprite.LayerSetRotation(PinpointerLayers.Screen, angle);
-                    break;
-                default:
-                    sprite.LayerSetRotation(PinpointerLayers.Screen, Angle.Zero);
-                    break;
-            }
+            if (pinpointer.DistanceToTarget is Shared.Pinpointer.Distance.Close
+                or Shared.Pinpointer.Distance.Medium
+                or Shared.Pinpointer.Distance.Far)
+                sprite.LayerSetRotation(PinpointerLayers.Screen, angle);
+            else
+                sprite.LayerSetRotation(PinpointerLayers.Screen, Angle.Zero);
         }
     }
 }

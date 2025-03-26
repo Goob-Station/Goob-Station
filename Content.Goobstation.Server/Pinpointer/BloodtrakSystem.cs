@@ -1,7 +1,6 @@
-using System.ComponentModel;
 using System.Numerics;
+using Content.Goobstation.Shared.Pinpointer;
 using Content.Server.Forensics;
-using Content.Shared._Goobstation.Pinpointer;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Interaction;
@@ -10,7 +9,7 @@ using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Timing;
 
-namespace Content.Server._Goobstation.Pinpointer;
+namespace Content.Goobstation.Server.Pinpointer;
 
 public sealed class BloodtrakSystem : SharedBloodtrakSystem
 {
@@ -203,14 +202,14 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
 
         if (target == null || !Exists(target.Value))
         {
-            SetDistance(uid, Shared._Goobstation.Pinpointer.Distance.Unknown, pinpointer);
+            SetDistance(uid, Shared.Pinpointer.Distance.Unknown, pinpointer);
             return;
         }
 
         var dirVec = CalculateDirection(uid, target.Value);
         if (dirVec == null)
         {
-            SetDistance(uid, Shared._Goobstation.Pinpointer.Distance.Unknown, pinpointer);
+            SetDistance(uid, Shared.Pinpointer.Distance.Unknown, pinpointer);
             return;
         }
 
@@ -235,18 +234,15 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         return _transform.GetWorldPosition(trg, xformQuery) - _transform.GetWorldPosition(pin, xformQuery);
     }
 
-    private Shared._Goobstation.Pinpointer.Distance CalculateDistance(Vector2 vec, BloodtrakComponent pinpointer)
+    private Shared.Pinpointer.Distance CalculateDistance(Vector2 vec, BloodtrakComponent pinpointer)
     {
         var dist = vec.Length();
 
         // Check from smallest to largest threshold
         if (dist <= pinpointer.ReachedDistance)
-            return Shared._Goobstation.Pinpointer.Distance.Reached;
+            return Shared.Pinpointer.Distance.Reached;
         if (dist <= pinpointer.CloseDistance)
-            return Shared._Goobstation.Pinpointer.Distance.Close;
-        if (dist <= pinpointer.MediumDistance)
-            return Shared._Goobstation.Pinpointer.Distance.Medium;
-
-        return Shared._Goobstation.Pinpointer.Distance.Far;
+            return Shared.Pinpointer.Distance.Close;
+        return dist <= pinpointer.MediumDistance ? Shared.Pinpointer.Distance.Medium : Shared.Pinpointer.Distance.Far;
     }
 }

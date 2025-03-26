@@ -1,13 +1,13 @@
+using Content.Goobstation.Shared.Restriction.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
-using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 
-namespace Content.Shared._Goobstation.Items
-{
+namespace Content.Goobstation.Shared.Restriction.Systems;
+
     public sealed partial class RestrictByIdSystem : EntitySystem
     {
         [Dependency] private readonly AccessReaderSystem _accessReader = default!;
@@ -106,4 +106,4 @@ namespace Content.Shared._Goobstation.Items
             _popupSystem.PopupClient(args.Message, item, PopupType.MediumCaution);
         }
     }
-}
+

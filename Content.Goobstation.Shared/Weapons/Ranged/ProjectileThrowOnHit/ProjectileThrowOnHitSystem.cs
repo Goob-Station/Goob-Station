@@ -4,7 +4,7 @@ using Content.Shared.Throwing;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 
-namespace Content.Shared._Goobstation.Weapons.Ranged.ProjectileThrowOnHit;
+namespace Content.Goobstation.Shared.Weapons.Ranged.ProjectileThrowOnHit;
 
 /// <summary>
 /// This handles <see cref="ProjectileThrowOnHitComponent"/>
@@ -28,6 +28,12 @@ public sealed class ProjectileThrowOnHitSystem : EntitySystem
         var targetPos = _transform.GetMapCoordinates(args.OtherEntity).Position;
         var direction = targetPos - projectilePos;
         ThrowOnHitHelper(projectile, args.OurEntity, args.OtherEntity, direction);
+
+        if (!projectile.Comp.DeleteOnCollide)
+            return;
+
+        QueueDel(args.OurEntity);
+
     }
 
     private void OnThrowHit(Entity<ProjectileThrowOnHitComponent> projectile, ref ThrowDoHitEvent args)

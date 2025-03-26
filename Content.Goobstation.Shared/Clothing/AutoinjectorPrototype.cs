@@ -1,7 +1,7 @@
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Clothing;
+namespace Content.Goobstation.Shared.Clothing;
 
 /// <summary>
 /// Prototype for clothing-integrated autoinjectors. Could be used for modsuits in the future.

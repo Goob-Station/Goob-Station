@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Weapons.Ranged.ProjectileThrowOnHit;
+namespace Content.Goobstation.Shared.Weapons.Ranged.ProjectileThrowOnHit;
 
 /// <summary>
 /// This is used for a projectile that tosses entities it hits.
@@ -22,10 +22,16 @@ public sealed partial class ProjectileThrowOnHitComponent : Component
     public float Distance = 20f;
 
     /// <summary>
-    /// Whether or not anchorable entities should be unanchored when hit.
+    /// Whether anchorable entities should be unanchored when hit.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool UnanchorOnHit;
+
+    /// <summary>
+    /// Whether the projectile should delete itself after its first colision.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool DeleteOnCollide = true;
 
     /// <summary>
     /// How long should this stun the target, if applicable?
