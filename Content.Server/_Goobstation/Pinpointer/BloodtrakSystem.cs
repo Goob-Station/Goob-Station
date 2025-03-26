@@ -1,6 +1,5 @@
 using System.Numerics;
 using Content.Server.Forensics;
-using Content.Shared._Gobostation.Pinpointer;
 using Content.Shared._Goobstation.Pinpointer;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Forensics.Components;
@@ -103,9 +102,22 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
 
         if (isActive)
         {
-            // Only allow activation if not in cooldown
+            // Allow activation only if BOTH conditions are met:
+            // 1. Not in cooldown
+            // 2. Has valid target
             if (_gameTiming.CurTime < pinpointer.CooldownEndTime)
+            {
+                _popupSystem.PopupEntity(Loc.GetString("bloodtrak-cooldown-active"),
+                    uid, uid);
                 return false;
+            }
+
+            if (pinpointer.Target == null || !Exists(pinpointer.Target.Value))
+            {
+                _popupSystem.PopupEntity(Loc.GetString("bloodtrak-no-target"),
+                    uid, uid);
+                return false;
+            }
 
             pinpointer.ExpirationTime = _gameTiming.CurTime + pinpointer.TrackingDuration;
         }
@@ -136,34 +148,35 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-
-        var query = EntityQueryEnumerator<BloodtrakComponent>();
         var currentTime = _gameTiming.CurTime;
 
+        var query = EntityQueryEnumerator<BloodtrakComponent>();
         while (query.MoveNext(out var uid, out var tracker))
         {
             if (!tracker.IsActive)
                 continue;
 
-            // Update target validity first
+            // Check target validity first
             var targetValid = tracker.Target != null && Exists(tracker.Target.Value);
 
-            // Check expiration only if target is valid
             if (targetValid)
             {
                 UpdateDirectionToTarget(uid, tracker);
 
-                // Only check timer if we have a valid target
+                // Only check expiration time if target is valid
                 if (currentTime < tracker.ExpirationTime)
                     continue;
             }
 
-            // Handle target loss or expiration
-            _popupSystem.PopupPredicted(Loc.GetString("bloodtrak-target-lost"), uid, uid);
+            // Handle deactivation
+            _popupSystem.PopupEntity(Loc.GetString(targetValid // Popups are the bane of me vro.
+                ? "bloodtrak-tracking-expired"
+                : "bloodtrak-target-lost"),
+                tracker.Owner,
+                tracker.Owner);
+
             TogglePinpointer(uid, tracker);
             tracker.Target = null;
-
-            // Set cooldown (not expiration time)
             tracker.CooldownEndTime = currentTime + tracker.CooldownDuration;
             Dirty(uid, tracker);
         }

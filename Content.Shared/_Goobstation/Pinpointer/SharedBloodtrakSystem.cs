@@ -1,6 +1,4 @@
-using Content.Shared._Goobstation.Pinpointer;
-
-namespace Content.Shared._Gobostation.Pinpointer;
+namespace Content.Shared._Goobstation.Pinpointer;
 
 public abstract class SharedBloodtrakSystem : EntitySystem
 {

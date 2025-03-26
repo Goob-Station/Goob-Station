@@ -1,4 +1,4 @@
-using Content.Shared._Gobostation.Pinpointer;
+using Content.Shared._Goobstation.Pinpointer;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
@@ -82,7 +82,7 @@ public sealed partial class BloodtrakComponent : Component
     /// When cooldown ends
     /// </summary>
     [ViewVariables]
-    public TimeSpan CooldownEndTime;
+    public TimeSpan CooldownEndTime = TimeSpan.Zero;
 
     [ViewVariables]
     public bool HasTarget => DistanceToTarget != Distance.Unknown;
