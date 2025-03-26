@@ -469,22 +469,6 @@
     - UplinkImplants
 
 - type: listing
-  id: UplinkJaunterImplanter
-  name: uplink-jaunter-implanter-name
-  description: uplink-jaunter-implanter-desc
-  icon: { sprite: /Textures/_Goobstation/Actions/syndicateswap.rsi, state: icon }
-  productEntity: JaunterImplanter
-  cost:
-    Telecrystal: 100
-  categories:
-  - UplinkImplants
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
-
-- type: listing
   id: UplinkKravMagaImplanter
   name: uplink-krav-maga-implant-name
   description: uplink-krav-maga-implant-desc
