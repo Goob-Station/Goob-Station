@@ -9,7 +9,7 @@
     state: icon
   - type: Item
     size: Small
-    storedRotation: 90
+    storedRotation: -90
   - type: Gun
     fireRate: 2
     soundGunshot:
@@ -31,7 +31,7 @@
   - type: SolutionContainerManager
     solutions:
       solution:
-        maxVol: 25
+        maxVol: 30
   - type: RefillableSolution
     solution: solution
   - type: ExaminableSolution
