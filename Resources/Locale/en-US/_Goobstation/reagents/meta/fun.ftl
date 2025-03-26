@@ -32,3 +32,8 @@ reagent-popup-copium-12 = You could take him.
 reagent-name-cat-drugs = cat drugs
 reagent-desc-cat-drugs = Cat drugs? Drugs for cats? Drugs from cats? Better not to ask.
 
+reagent-name-nostalgia = nostalgia
+reagent-desc-nostalgia = Why is this here?
+
+reagent-name-tilenol = tilenol
+reagent-desc-tilenol = You can feel yourself becoming more robust just by holding this.
