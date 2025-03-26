@@ -1,13 +1,13 @@
 using Content.Shared.Radio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.Security
+namespace Content.Goobstation.Server.Security
 {
     [RegisterComponent]
     public sealed partial class PanicButtonComponent : Component
     {
         /// <summary>
-        /// What message to send over the radio.
+        /// Which message to send over the radio.
         /// </summary>
         [DataField]
         public LocId DistressMessage = "panic-button-distress";

@@ -9,9 +9,9 @@ using Content.Shared.Timing;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Server._Goobstation.Security
-{
-    public sealed partial class PanicButtonSystem : EntitySystem
+namespace Content.Goobstation.Server.Security;
+
+    public sealed class PanicButtonSystem : EntitySystem
     {
         [Dependency] private readonly NavMapSystem _navMap = default!;
         [Dependency] private readonly RadioSystem _radioSystem = default!;
@@ -84,4 +84,4 @@ namespace Content.Server._Goobstation.Security
 
         }
     }
-}
+
