@@ -74,12 +74,12 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         {
             if (_dnaMap.TryGetValue(dna, out var uid))
             {
-                _popupSystem.PopupEntity(Loc.GetString("bloodtrak-dna-saved"), args.User, args.User);
+                _popupSystem.PopupPredicted(Loc.GetString("bloodtrak-dna-saved"), args.User, args.User);
                 return uid;
             }
         }
 
-        _popupSystem.PopupEntity(Loc.GetString("bloodtrak-no-match"), args.User, args.User);
+        _popupSystem.PopupPredicted(Loc.GetString("bloodtrak-no-match"), args.User, args.User);
         args.Handled = true;
         return null;
     }
@@ -108,16 +108,17 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
             if (_gameTiming.CurTime < pinpointer.CooldownEndTime)
             {
                 var popUp = Loc.GetString("bloodtrak-cooldown-active", ("num", pinpointer.CooldownEndTime));
-                _popupSystem.PopupEntity(Loc.GetString("bloodtrak-cooldown-active"),
-                    uid,
-                    uid);
+                _popupSystem.PopupPredicted(popUp,
+                    pinpointer.Owner,
+                    pinpointer.Owner);
                 return false;
             }
 
             if (pinpointer.Target == null || !Exists(pinpointer.Target.Value))
             {
-                _popupSystem.PopupEntity(Loc.GetString("bloodtrak-no-target"),
-                    uid, uid);
+                _popupSystem.PopupPredicted(Loc.GetString("bloodtrak-no-target"),
+                    pinpointer.Owner,
+                    pinpointer.Owner);
                 return false;
             }
 
@@ -171,7 +172,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
             }
 
             // Handle deactivation
-            _popupSystem.PopupEntity(Loc.GetString(targetValid // Popups are the bane of me vro.
+            _popupSystem.PopupPredicted(Loc.GetString(targetValid // Popups are the bane of me vro.
                 ? "bloodtrak-tracking-expired"
                 : "bloodtrak-target-lost"),
                 tracker.Owner,
