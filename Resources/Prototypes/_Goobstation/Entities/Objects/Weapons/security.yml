@@ -70,7 +70,6 @@
           Quantity: 50
   - type: Spray
     transferAmount: 10
-    sprayedPrototype: BigVapor
     sprayVelocity: 3
     sprayDistance: 2.5
     spraySound:
