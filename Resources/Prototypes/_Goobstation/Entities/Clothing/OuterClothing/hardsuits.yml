@@ -260,9 +260,8 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 2
     knockdownTimeDelta: -2
-  - type: ClothingGrantComponent # Holy shit this is an awful way to do this.
+  - type: ClothingGrantComponent
     component:
-    - type: ActionGrant
-      actions:
-      - ActionEphedrineOverdose
+    - type: ClothingAutoInject
+      proto: Epinephrine
 

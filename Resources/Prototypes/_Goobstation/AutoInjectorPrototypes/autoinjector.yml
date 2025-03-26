@@ -1,0 +1,4 @@
+- type: autoInjector
+  id: Epinephrine
+  reagents:
+    Epinephrine: 10

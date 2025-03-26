@@ -12,4 +12,4 @@
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: epinephrine_overdose
-    event: !type:ActionEphedrineOverdoseEvent {}
+    event: !type:ActionActivateAutoInjectorEvent {}
