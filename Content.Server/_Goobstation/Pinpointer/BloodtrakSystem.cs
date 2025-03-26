@@ -108,6 +108,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
             // 2. Has valid target
             if (_gameTiming.CurTime < pinpointer.CooldownEndTime)
             {
+                // Convert the timespan to a float to display it properly.
                 var totalTime = (float) pinpointer.CooldownEndTime.TotalSeconds;
                 var popUp = Loc.GetString("bloodtrak-cooldown-active", ("num", totalTime));
                 _popupSystem.PopupPredicted(popUp,
@@ -116,6 +117,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
                 return false;
             }
 
+            // If the targrt does not exist anymore (deleted, etc), display no target.
             if (pinpointer.Target == null || !Exists(pinpointer.Target.Value))
             {
                 _popupSystem.PopupPredicted(Loc.GetString("bloodtrak-no-target"),
