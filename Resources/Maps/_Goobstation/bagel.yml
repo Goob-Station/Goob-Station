@@ -132257,7 +132257,7 @@ entities:
       parent: 2
 - proto: SpawnPointNanotrasenCareerTrainer
   entities:
-  - uid: 8957
+  - uid: 223004
     components:
     - type: Transform
       pos: 0.5,0.5
