@@ -2,7 +2,7 @@ using Content.Shared._Goobstation.Wizard.MagicMirror;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 
-namespace Content.Client._Shitcode.Wizard.MagicMirror;
+namespace Content.Client._Goobstation.Wizard.MagicMirror;
 
 [UsedImplicitly]
 public sealed class WizardMirrorBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)

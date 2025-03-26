@@ -2,7 +2,7 @@ using System.Linq;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Robust.Client.GameObjects;
 
-namespace Content.Client._Shitcode.Wizard.Systems;
+namespace Content.Client._Goobstation.Wizard.Systems;
 
 public sealed class BindSoulSystem : SharedBindSoulSystem
 {

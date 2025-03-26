@@ -1,13 +1,13 @@
-using System.Numerics;
 using Content.Client.UserInterface.Controls;
-using Content.Shared._Goobstation.Heretic.Components;
-using Content.Shared.Heretic.Prototypes;
-using Robust.Client.GameObjects;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
+using System.Numerics;
+using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared.Heretic.Prototypes;
+using Robust.Client.GameObjects;
 
-namespace Content.Client._Shitcode.Heretic.UI;
+namespace Content.Client._Goobstation.Heretic.UI;
 
 public sealed class CarvingKnifeMenu : RadialMenu
 {

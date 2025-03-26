@@ -3,7 +3,7 @@ using Content.Shared._Goobstation.Heretic.Systems;
 using Robust.Client.GameObjects;
 using Robust.Shared.Utility;
 
-namespace Content.Client._Shitcode.Heretic;
+namespace Content.Client._Goobstation.Heretic;
 
 public sealed partial class VoidCurseSystem : SharedVoidCurseSystem
 {

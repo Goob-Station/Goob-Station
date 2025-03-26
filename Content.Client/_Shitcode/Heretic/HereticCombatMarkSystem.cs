@@ -2,7 +2,7 @@ using Content.Shared.Heretic;
 using Robust.Client.GameObjects;
 using Robust.Shared.Utility;
 
-namespace Content.Client._Shitcode.Heretic;
+namespace Content.Client.Heretic;
 
 public sealed partial class HereticCombatMarkSystem : EntitySystem
 {

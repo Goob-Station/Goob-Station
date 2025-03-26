@@ -2,7 +2,7 @@ using Content.Shared._Goobstation.Wizard.Refund;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 
-namespace Content.Client._Shitcode.Wizard.Refund;
+namespace Content.Client._Goobstation.Wizard.Refund;
 
 [UsedImplicitly]
 public sealed class StoreRefundBoundUserInterface : BoundUserInterface

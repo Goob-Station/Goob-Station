@@ -1,4 +1,3 @@
-using System.Numerics;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
@@ -7,8 +6,9 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using System.Numerics;
 
-namespace Content.Client._Shitcode.Heretic.UI;
+namespace Content.Client._Goobstation.Heretic.UI;
 
 public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
 {

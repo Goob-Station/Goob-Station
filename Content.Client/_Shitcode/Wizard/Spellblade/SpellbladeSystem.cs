@@ -1,7 +1,7 @@
 using Content.Shared._Goobstation.Wizard.Spellblade;
 using Robust.Client.GameObjects;
 
-namespace Content.Client._Shitcode.Wizard.Spellblade;
+namespace Content.Client._Goobstation.Wizard.Spellblade;
 
 public sealed class SpellbladeSystem : SharedSpellbladeSystem
 {

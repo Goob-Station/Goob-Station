@@ -4,7 +4,7 @@ using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Tag;
 using Robust.Client.GameObjects;
 
-namespace Content.Client._Shitcode.Heretic;
+namespace Content.Client._Goobstation.Heretic;
 
 public sealed class RustRuneSystem : EntitySystem
 {

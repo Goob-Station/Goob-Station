@@ -2,7 +2,7 @@ using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Goobstation.Heretic.Systems;
 using Robust.Client.GameObjects;
 
-namespace Content.Client._Shitcode.Heretic;
+namespace Content.Client._Goobstation.Heretic;
 
 public sealed class EntropicPlumeSystem : SharedEntropicPlumeSystem
 {
