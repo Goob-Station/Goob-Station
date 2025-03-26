@@ -2,16 +2,19 @@
   parent: [ BaseItem, BaseMagicContraband ]
   id: HereticBladeBase
   name: eldritch blade
-  description: The sickly blade used by sinister individuals for rituals and sacrifices.
+  description: A sickly green crescent blade, decorated with an ornamental eye. You feel like you're being watched...
   components:
   - type: HereticBlade
   - type: Sharp
   - type: Sprite
-    sprite: _Goobstation/Heretic/Blades/blade_blade.rsi
+    sprite: _Goobstation/Heretic/Blades/eldritch_blade.rsi
     state: icon
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Belt
   - type: MeleeWeapon
     wideAnimationRotation: -125
-    attackRate: 1
     damage:
       types:
         Slash: 17.5
@@ -19,16 +22,24 @@
       path: /Audio/Weapons/bladeslice.ogg
   - type: Item
     size: Normal
-    sprite: _Goobstation/Heretic/Blades/blade_blade-inhand.rsi
-  - type: ItemToggle
+    sprite: _Goobstation/Heretic/Blades/eldritch_blade-inhand.rsi
   - type: RandomTeleport
-  - type: Scalpel # Shitmed
-    speed: 0.75
+    radius:
+      min: 10
+      max: 100
+  - type: Scalpel
+    speed: 1.5
+  - type: BoneSaw
+    speed: 1.5
+  - type: Tag
+    tags:
+    - HereticItem
 
 - type: entity
   parent: HereticBladeBase
   id: HereticBladeAsh
   name: ashen blade
+  description: Molten and unwrought, a hunk of metal warped to cinders and slag. Unmade, it aspires to be more than it is, and shears soot-filled wounds with a blunt edge.
   suffix: Ash
   components:
   - type: HereticBlade
@@ -39,28 +50,31 @@
   - type: Item
     sprite: _Goobstation/Heretic/Blades/blade_ash-inhand.rsi
   - type: MeleeWeapon
-    wideAnimationRotation: -125
-    attackRate: 1
     damage:
       types:
         Heat: 10
         Slash: 7.5
-    soundHit:
-      path: /Audio/Weapons/bladeslice.ogg
 
 - type: entity
   parent: HereticBladeBase
   id: HereticBladeBlade
   name: sundered blade
+  description: A galliant blade, sundered and torn. Furiously, the blade cuts. Silver scars bind it forever to its dark purpose.
   suffix: Blade
   components:
   - type: HereticBlade
     path: Blade
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Blades/blade_blade.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Heretic/Blades/blade_blade-inhand.rsi
 
 - type: entity
   parent: HereticBladeBase
   id: HereticBladeFlesh
   name: bloody blade
+  description: A crescent blade born from a fleshwarped creature. Keenly aware, it seeks to spread to others the suffering it has endured from its dreadful origins.
   suffix: Flesh
   components:
   - type: HereticBlade
@@ -75,6 +89,7 @@
   parent: HereticBladeBase
   id: HereticBladeLock
   name: key blade
+  description: A blade and a key, a key to what? What grand gates does it open?
   suffix: Lock
   components:
   - type: HereticBlade
@@ -88,7 +103,8 @@
 - type: entity
   parent: HereticBladeBase
   id: HereticBladeRust
-  name: rusty blade
+  name: rusted blade
+  description: This crescent blade is decrepit, wasting to rust. Yet still it bites, ripping flesh and bone with jagged, rotten teeth.
   suffix: Rust
   components:
   - type: HereticBlade
@@ -103,6 +119,7 @@
   parent: HereticBladeBase
   id: HereticBladeVoid
   name: void blade
+  description: Devoid of any substance, this blade reflects nothingness. It is a real depiction of purity, and chaos that ensues after its implementation.
   suffix: Void
   components:
   - type: HereticBlade
@@ -113,11 +130,7 @@
   - type: Item
     sprite: _Goobstation/Heretic/Blades/blade_void-inhand.rsi
   - type: MeleeWeapon
-    wideAnimationRotation: -125
-    attackRate: 1
     damage:
       types:
         Cold: 10
         Slash: 7.5
-    soundHit:
-      path: /Audio/Weapons/bladeslice.ogg

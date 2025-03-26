@@ -192,7 +192,7 @@ namespace Content.Server.Atmos.EntitySystems
         }
 
         public bool TryGetPressureProtectionValues(
-            Entity<PressureProtectionComponent?> ent,
+            EntityUid ent, // Goob edit
             [NotNullWhen(true)] out float? highMultiplier,
             [NotNullWhen(true)] out float? highModifier,
             [NotNullWhen(true)] out float? lowMultiplier,
@@ -202,17 +202,25 @@ namespace Content.Server.Atmos.EntitySystems
             highModifier = null;
             lowMultiplier = null;
             lowModifier = null;
-            if (!Resolve(ent, ref ent.Comp, false))
-                return false;
 
-            var comp = ent.Comp;
+            // Goob edit start
             var ev = new GetPressureProtectionValuesEvent
             {
-                HighPressureMultiplier = comp.HighPressureMultiplier,
-                HighPressureModifier = comp.HighPressureModifier,
-                LowPressureMultiplier = comp.LowPressureMultiplier,
-                LowPressureModifier = comp.LowPressureModifier
+                HighPressureMultiplier = 1f,
+                HighPressureModifier = 0f,
+                LowPressureMultiplier = 1f,
+                LowPressureModifier = 0f
             };
+
+            if (TryComp(ent, out PressureProtectionComponent? comp))
+            {
+                ev.HighPressureMultiplier = comp.HighPressureMultiplier;
+                ev.HighPressureModifier = comp.HighPressureModifier;
+                ev.LowPressureMultiplier = comp.LowPressureMultiplier;
+                ev.LowPressureModifier = comp.LowPressureModifier;
+            }
+            // Goob edit end
+
             RaiseLocalEvent(ent, ref ev);
             highMultiplier = ev.HighPressureMultiplier;
             highModifier = ev.HighPressureModifier;
