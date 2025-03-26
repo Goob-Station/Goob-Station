@@ -82,9 +82,7 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
     }
 
     public void SetEntity(EntityUid entity)
-    {
-        Entity = entity;
-    }
+        => Entity = entity;
 
     public void UpdatePanels(Dictionary<string, ResearchAvailability> dict)
     {
@@ -187,9 +185,7 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
     }
 
     protected override DragMode GetDragModeFor(Vector2 relativeMousePos)
-    {
-        return _draggin ? DragMode.None : base.GetDragModeFor(relativeMousePos);
-    }
+        => _draggin ? DragMode.None : base.GetDragModeFor(relativeMousePos);
     #endregion
 
     /// <summary>
