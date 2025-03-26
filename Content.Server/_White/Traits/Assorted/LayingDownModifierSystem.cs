@@ -1,4 +1,4 @@
-using Content.Shared._White.Standing;
+using Content.Goobstation.Common.Standing;
 
 namespace Content.Server._White.Traits.Assorted;
 

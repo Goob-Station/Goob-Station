@@ -1,4 +1,4 @@
-using Content.Client._Goobstation.Wizard.Systems;
+using Content.Client._Shitcode.Wizard.Systems;
 using Content.Client.Movement.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Ghost;
