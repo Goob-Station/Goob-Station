@@ -167,7 +167,7 @@
     node: glassesMedDiag
 
 - type: entity
-  parent: [ClothingEyesBase, ShowSecurityIcons, BaseCommandSecurityContraband]
+  parent: [ClothingEyesBase, ShowSecurityIcons, BaseSecurityCommandContraband]
   id: ClothingEyesGlassesSecurityAdvanced
   name: advanced security glasses
   description: Further upgraded sunglasses that provide flash immunity, a security HUD, and basic thermal vision.
