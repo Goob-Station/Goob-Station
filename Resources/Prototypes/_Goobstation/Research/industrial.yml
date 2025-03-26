@@ -12,6 +12,7 @@
   - RipleyUpgradeKit
   technologyPrerequisites:
   - RipleyAPLU
+  position: -1,-6
 
 - type: technology
   id: Clarke
@@ -32,3 +33,4 @@
   - ClarkePeripheralsElectronics
   technologyPrerequisites:
   - Ripley2
+  position: -1,-7

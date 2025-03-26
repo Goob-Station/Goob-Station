@@ -11,7 +11,7 @@
   recipeUnlocks:
   - WeaponPlasmaRifle
   - WeaponLaserSvalinn
-  position: 2,-1
+  position: 3,0
   technologyPrerequisites:
   - DraconicMunitions
 
@@ -39,9 +39,9 @@
   - GygaxTargetingElectronics
   - WeaponMechCombatUltraRifle
   technologyPrerequisites:
-  - Ripley2
+  - RipleyAPLU
   - ExplosiveTechnology
-  position: 2,1
+  position: 3,-1
 
 - type: technology
   id: AdvancedWeaponry
@@ -57,6 +57,7 @@
   - WeaponXrayCannon
   technologyPrerequisites:
   - WeaponizedLaserManipulation
+  position: 5,1
 
 # Tier 3
 
@@ -73,7 +74,7 @@
   - WeaponMechCombatMissileRack8
   technologyPrerequisites:
   - Gygax
-  position: 2,2
+  position: 4,-2
 
 - type: technology
   id: Durand
@@ -99,7 +100,7 @@
   - WeaponMechCombatShotgunIncendiary
   technologyPrerequisites:
   - Gygax
-  position: 3,1
+  position: 4,-1
 
 - type: technology
   id: SmartWeaponry
@@ -115,4 +116,4 @@
   - MagazineSmart
   technologyPrerequisites:
   - UraniumMunitions
-  position: 3,-2
+  position: 4,2
