@@ -12,20 +12,31 @@ public sealed partial class ProjectileRequireWhitelistSystem : EntitySystem
         SubscribeLocalEvent<ProjectileRequireWhitelistComponent, PreventCollideEvent>(OnProjectileCollide);
     }
 
+    /// <summary>
+    /// Handles projectile collision events based on whitelist validation.
+    /// </summary>
+    /// <param name="ent">The entity with the whitelist component</param>
+    /// <param name="args">The collision event arguments</param>
     private void OnProjectileCollide(Entity<ProjectileRequireWhitelistComponent> ent, ref PreventCollideEvent args)
     {
         var uid = args.OtherEntity;
         var comp = ent.Comp;
 
-        // Check if the whitelist exists, and if it is valid. If both are true, return.
-        if ((comp.Whitelist != null) && _whitelist.IsValid(comp.Whitelist, uid) && !comp.Invert)
+        // If whitelist doesn't exist, always cancel collision
+        if (comp.Whitelist == null)
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        // Check if entity is valid against whitelist
+        var isValid = _whitelist.IsValid(comp.Whitelist, uid);
+
+        // Allow collision if (valid && !invert) OR (!valid && invert)
+        if ((isValid && !comp.Invert) || (!isValid && comp.Invert))
             return;
 
-        // If invert is true, and the whitelist is invalid, return.
-        if ((comp.Whitelist != null) && !_whitelist.IsValid(comp.Whitelist, uid) && comp.Invert)
-            return;
-
-        // Prevent the collision
+        // Prevent collision in all other cases
         args.Cancelled = true;
     }
 
