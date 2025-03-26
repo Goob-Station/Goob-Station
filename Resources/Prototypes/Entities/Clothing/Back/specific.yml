@@ -119,9 +119,6 @@
     solution: tank
   - type: ExaminableSolution
     solution: tank
-    whitelist:
-      tags:
-      - AtmosBackTank
   - type: ContainerFill
     containers:
       item:
