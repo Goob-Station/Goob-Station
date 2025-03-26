@@ -211,7 +211,7 @@
     maxCharge: 800
     startingCharge: 800
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletEnergyGunDetain
+    proto: BulletDetain
     fireCost: 80
   - type: AmmoSelector
     prototypes:
