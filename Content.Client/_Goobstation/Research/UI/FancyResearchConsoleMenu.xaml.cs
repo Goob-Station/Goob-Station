@@ -38,11 +38,6 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
     public EntityUid Entity;
 
     /// <summary>
-    /// Currently selected discipline
-    /// </summary>
-    public ProtoId<TechDisciplinePrototype> CurrentDiscipline = "Industrial";
-
-    /// <summary>
     /// Currently selected tech
     /// Exsists for better UI refreshing
     /// </summary>
