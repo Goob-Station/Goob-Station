@@ -223,7 +223,7 @@ public abstract class SharedFishingSystem : EntitySystem
         if (fisherComp.NextStruggle != null && fisherComp.NextStruggle <= Timing.CurTime)
         {
             fisherComp.EndTime += TimeSpan.FromSeconds(rand.NextFloat(0, 0.01f) / Math.Abs(activeSpotComp.FishDifficulty));
-            fisherComp.NextStruggle = Timing.CurTime + TimeSpan.FromSeconds(rand.NextFloat(0.5f, 2) * activeSpotComp.FishDifficulty);
+            fisherComp.NextStruggle = Timing.CurTime + TimeSpan.FromSeconds(rand.NextFloat(0.1f, 1) * activeSpotComp.FishDifficulty);
         }
     }
 
