@@ -1,4 +1,5 @@
 using Content.Shared._Goobstation.Clothing;
+using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
@@ -10,10 +11,13 @@ public sealed partial class ClothingAutoinjectorSystem : EntitySystem
 {
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<ClothingAutoInjectComponent, ActionActivateAutoInjectorEvent>(OnInjectorActivated);
+        SubscribeLocalEvent<ClothingAutoInjectComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<ClothingAutoInjectComponent, ComponentShutdown>(OnShutdown);
     }
 
     public void OnInjectorActivated(EntityUid uid, ClothingAutoInjectComponent component, ActionActivateAutoInjectorEvent args)
@@ -38,4 +42,16 @@ public sealed partial class ClothingAutoinjectorSystem : EntitySystem
 
         return true;
     }
+
+    private void OnMapInit(Entity<ClothingAutoInjectComponent> ent, ref MapInitEvent args)
+    {
+        _actions.AddAction(ent.Owner, ent.Comp.Action);
+        Dirty(ent);
+    }
+
+    private void OnShutdown(Entity<ClothingAutoInjectComponent> ent, ref ComponentShutdown args)
+    {
+        _actions.RemoveAction(ent.Owner, ent.Owner);
+    }
+
 }

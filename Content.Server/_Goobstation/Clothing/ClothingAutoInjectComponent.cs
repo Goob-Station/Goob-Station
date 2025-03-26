@@ -9,4 +9,7 @@ public sealed partial class ClothingAutoInjectComponent : Component
 {
     [DataField(required: true)]
     public ProtoId<AutoInjectorPrototype> Proto;
+
+    [DataField]
+    public EntProtoId Action = "ActionActivateAutoinjector";
 }
