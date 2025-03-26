@@ -113,3 +113,16 @@
     state: icon
   content:
   - WeaponHeadOfSecuritySniper
+
+- type: thiefBackpackSet
+  id: EquipmentSet
+  name: hos-box-category-equipment-name
+  description: hos-box-category-equipment-description
+  sprite:
+    sprite: _Goobstation/Clothing/Head/Hats/hos-expi.rsi
+    state: icon
+  content:
+  - ClothingHeadHatBeretHeadOfSecurityAdvanced
+  - ClothingEyesGlassesSecurityAdvanced
+  - ClothingOuterHardsuitHeadOfSecurityExperimental
+  - ClothingOuterArmorHoSExperimental
