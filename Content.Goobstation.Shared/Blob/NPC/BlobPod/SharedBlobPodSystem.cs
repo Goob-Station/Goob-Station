@@ -1,4 +1,4 @@
-﻿using Content.Shared._Goobstation.Blob.Components;
+﻿using Content.Goobstation.Shared.Blob.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.DragDrop;
 using Content.Shared.Hands.Components;
@@ -9,7 +9,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Verbs;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Goobstation.Blob.NPC.BlobPod;
+namespace Content.Goobstation.Shared.Blob.NPC.BlobPod;
 
 public abstract class SharedBlobPodSystem : EntitySystem
 {

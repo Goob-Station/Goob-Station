@@ -284,12 +284,8 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
         StatusOptionButton.SelectId((int)criminalRecord.Status);
         if (criminalRecord.Reason is { } reason)
         {
-            var message = FormattedMessage.FromMarkupOrThrow(Loc.GetString("criminal-records-console-wanted-reason"));
 
-            if (criminalRecord.Status == SecurityStatus.Suspected)
-            {
-                message = FormattedMessage.FromMarkupOrThrow(Loc.GetString("criminal-records-console-suspected-reason"));
-            }
+            var message = FormattedMessage.FromMarkupOrThrow(Loc.GetString($"criminal-records-console-{criminalRecord.Status.ToString().ToLower()}-reason"));
             message.AddText($": {reason}");
 
             WantedReason.SetMessage(message);
@@ -314,7 +310,10 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
 
     private void SetStatus(SecurityStatus status)
     {
-        if (status == SecurityStatus.Wanted || status == SecurityStatus.Suspected)
+        if (status == SecurityStatus.Wanted
+            || status == SecurityStatus.Suspected
+            || status == SecurityStatus.Search
+            || status == SecurityStatus.Dangerous)
         {
             GetReason(status);
             return;
@@ -360,6 +359,9 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
             SecurityStatus.Detained => "hud_incarcerated",
             SecurityStatus.Discharged => "hud_discharged",
             SecurityStatus.Suspected => "hud_suspected",
+            SecurityStatus.Search => "hud_search",
+            SecurityStatus.Perma => "hud_perma",
+            SecurityStatus.Dangerous => "hud_dangerous",
             _ => "SecurityIconNone"
         };
     }

@@ -1,7 +1,7 @@
 ﻿using System.Numerics;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Goobstation.Blob;
+namespace Content.Goobstation.Shared.Blob.Events;
 
 
 [Serializable, NetSerializable]

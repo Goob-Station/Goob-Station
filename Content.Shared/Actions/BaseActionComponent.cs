@@ -188,9 +188,16 @@ public abstract partial class BaseActionComponent : Component
     [DataField("sound")] public SoundSpecifier? Sound;
 
     /// <summary>
+    ///     Goobstation.
     ///     If true, ghosts will be granted this action.
     /// </summary>
     [DataField] public bool AllowGhostAction;
+
+    /// <summary>
+    ///     Goobstation.
+    ///     Is this action predicted.
+    /// </summary>
+    [DataField] public bool Predicted = true;
 }
 
 [Serializable, NetSerializable]

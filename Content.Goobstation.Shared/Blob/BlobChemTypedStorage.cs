@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Diagnostics.Contracts;
-using Content.Shared._Goobstation.Blob.Components;
+using Content.Goobstation.Shared.Blob.Components;
 using Content.Shared.Damage;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Goobstation.Blob;
+namespace Content.Goobstation.Shared.Blob;
 
 #region BlobChemTypedStorage
 [DataDefinition, Serializable, NetSerializable]

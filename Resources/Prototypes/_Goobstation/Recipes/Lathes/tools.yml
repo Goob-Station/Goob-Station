@@ -22,3 +22,11 @@
   completetime: 1
   materials:
     Steel: 25 # should probably cost less than matter bins or whatever
+
+- type: latheRecipe
+  id: WeaponHammer
+  result: MeleeHammer
+  completetime: 6
+  materials:
+    Steel: 300
+    Wood: 200

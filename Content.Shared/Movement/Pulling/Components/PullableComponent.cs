@@ -1,4 +1,4 @@
-using Content.Shared._Goobstation.TableSlam; // Goobstation - Table SLam
+using Content.Goobstation.Common.MartialArts;
 using Content.Shared.Alert;
 using Content.Shared.Movement.Pulling.Systems; // Goobstation
 using Robust.Shared.GameStates;
@@ -10,7 +10,7 @@ namespace Content.Shared.Movement.Pulling.Components;
 /// Specifies an entity as being pullable by an entity with <see cref="PullerComponent"/>
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(Systems.PullingSystem), typeof(TableSlamSystem))]
+// GOob edit modularity delted explit access
 public sealed partial class PullableComponent : Component
 {
     /// <summary>

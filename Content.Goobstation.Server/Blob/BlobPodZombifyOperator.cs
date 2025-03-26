@@ -1,8 +1,8 @@
 using Content.Goobstation.Server.Blob.NPC.BlobPod;
+using Content.Goobstation.Shared.Blob.Components;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
-using Content.Shared._Goobstation.Blob.Components;
 
 namespace Content.Goobstation.Server.Blob;
 
