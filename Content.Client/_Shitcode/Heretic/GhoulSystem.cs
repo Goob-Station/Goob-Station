@@ -3,7 +3,7 @@ using Content.Shared.StatusIcon.Components;
 using Robust.Client.Player;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client._Goobstation.Heretic;
+namespace Content.Client._Shitcode.Heretic;
 
 public sealed partial class GhoulSystem : EntitySystem
 {

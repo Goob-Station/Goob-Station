@@ -5,7 +5,7 @@ using Content.Shared._Goobstation.Wizard.SupermatterHalberd;
 using Content.Shared.StatusIcon.Components;
 using Robust.Client.Player;
 
-namespace Content.Client._Goobstation.Wizard.Systems;
+namespace Content.Client._Shitcode.Wizard.Systems;
 
 public sealed class SpellsSystem : SharedSpellsSystem
 {

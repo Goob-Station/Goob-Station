@@ -3,7 +3,7 @@ using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.UserInterface;
 
-namespace Content.Client._Goobstation.Heretic.UI;
+namespace Content.Client._Shitcode.Heretic.UI;
 
 public sealed partial class LivingHeartMenuBoundUserInterface : BoundUserInterface
 {

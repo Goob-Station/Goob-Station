@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Client._Goobstation.Silo;
+using Content.Client._Shitcode.Silo;
 using Content.Goobstation.Common.Silo;
 using Content.Shared.Materials;
 using Content.Shared.Tag; // Goobstation

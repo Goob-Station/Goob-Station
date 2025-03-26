@@ -7,7 +7,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
 
-namespace Content.Client._Goobstation.Wizard.Trail;
+namespace Content.Client._Shitcode.Wizard.Trail;
 
 public sealed class TrailOverlay : Overlay
 {

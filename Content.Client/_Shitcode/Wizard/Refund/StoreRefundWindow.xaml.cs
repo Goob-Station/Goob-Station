@@ -6,7 +6,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
 
-namespace Content.Client._Goobstation.Wizard.Refund
+namespace Content.Client._Shitcode.Wizard.Refund
 {
     [GenerateTypedNameReferences]
     public sealed partial class StoreRefundWindow : DefaultWindow

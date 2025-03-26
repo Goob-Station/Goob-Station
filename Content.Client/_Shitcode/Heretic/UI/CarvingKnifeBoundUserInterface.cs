@@ -1,5 +1,4 @@
 using Content.Shared._Goobstation.Heretic.Components;
-using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
@@ -7,7 +6,7 @@ using Robust.Client.Input;
 using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client._Goobstation.Heretic.UI;
+namespace Content.Client._Shitcode.Heretic.UI;
 
 [UsedImplicitly]
 public sealed class CarvingKnifeBoundUserInterface : BoundUserInterface

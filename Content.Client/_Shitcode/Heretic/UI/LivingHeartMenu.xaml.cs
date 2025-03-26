@@ -1,13 +1,13 @@
+using System.Numerics;
+using Content.Client.Lobby;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Heretic;
 using Robust.Client.Player;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
-using System.Numerics;
-using Content.Client.Lobby;
 
-namespace Content.Client._Goobstation.Heretic.UI;
+namespace Content.Client._Shitcode.Heretic.UI;
 
 public sealed class LivingHeartMenu : RadialMenu
 {

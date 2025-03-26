@@ -2,7 +2,7 @@ using Content.Shared.GameTicking;
 using Robust.Client.GameObjects;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client._Goobstation.Wizard.Systems;
+namespace Content.Client._Shitcode.Wizard.Systems;
 
 public sealed class ActionTargetMarkSystem : EntitySystem
 {
