@@ -27,11 +27,6 @@ public sealed partial class ResearchesContainerPanel : LayoutContainer
             var list = Children.Where(x => x is FancyResearchConsoleItem second && item.Prototype.TechnologyPrerequisites.Contains(second.Prototype.ID));
             foreach (var second in list)
             {
-                var leftOffset = second.PixelPosition.Y;
-                var rightOffset = item.PixelPosition.Y;
-
-                var y1 = second.PixelPosition.Y + second.PixelHeight / 2;
-                var y2 = item.PixelPosition.Y + item.PixelHeight / 2;
 
                 var startCoords = new Vector2(item.PixelPosition.X + item.PixelWidth / 2, item.PixelPosition.Y + item.PixelHeight / 2);
                 var endCoords = new Vector2(second.PixelPosition.X + second.PixelWidth / 2, second.PixelPosition.Y + second.PixelHeight / 2);
