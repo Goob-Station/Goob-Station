@@ -50,6 +50,8 @@
     speechVerb: Skeleton
   - type: ZombieImmune
   - type: Vocal
+    wilhelm: "/Audio/_Goobstation/Voice/badtothebone.ogg" # Goobstation
+    wilhelmProbability: 0.1 # Goobstation
     sounds:
       Male: Skeleton
       Female: Skeleton

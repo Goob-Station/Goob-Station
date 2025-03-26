@@ -110,6 +110,10 @@
     endSound:
       path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
   - type: Scalpel
+  - type: Tag # Goobstation
+    tags:
+    - SurgeryTool
+    - Knife
 
 - type: entity
   name: shiv

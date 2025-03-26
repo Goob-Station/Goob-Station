@@ -119,11 +119,11 @@
 
 - type: entity
   parent: BaseImplantOnlyImplanterSyndi
-  id: JaunterImplanter
-  suffix: jaunter
+  id: KravMagaImplanter
+  suffix: krav maga
   components:
   - type: Implanter
-    implant: SyndicateJaunterImplant
+    implant: KravMagaImplant
 
 # Admeme
 

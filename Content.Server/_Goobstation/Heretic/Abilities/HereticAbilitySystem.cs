@@ -32,7 +32,12 @@ using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
 using Content.Server.Heretic.EntitySystems;
 using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
+using Content.Server.Body.Systems;
+using Content.Server.Temperature.Systems;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Server.Heretic.Components;
+using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared._Goobstation.Heretic.Systems;
 using Content.Shared.Hands.Components;
 using Content.Shared.Tag;
 
@@ -67,10 +72,18 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
+    [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly ProtectiveBladeSystem _pblade = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
+    [Dependency] private readonly BloodstreamSystem _blood = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private readonly TemperatureSystem _temperature = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private readonly GunSystem _gun = default!;
+    [Dependency] private readonly RespiratorSystem _respirator = default!;
+    [Dependency] private readonly RustbringerSystem _rustbringer = default!;
 
     private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
     {
@@ -110,6 +123,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         SubscribeVoid();
         SubscribeBlade();
         SubscribeLock();
+        SubscribeRust();
+        SubscribeSide();
     }
 
     private bool TryUseAbility(EntityUid ent, BaseActionEvent args)
@@ -166,7 +181,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
         }
 
-        var st = Spawn("TouchSpellMansus", Transform(ent).Coordinates);
+        var st = Spawn(GetMansusGraspProto(ent), Transform(ent).Coordinates);
+
         if (!_hands.TryForcePickupAnyHand(ent, st))
         {
             _popup.PopupEntity(Loc.GetString("heretic-ability-fail"), ent, ent);
@@ -177,6 +193,15 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         ent.Comp.MansusGrasp = args.Action.Owner;
         args.Handled = true;
     }
+
+    private string GetMansusGraspProto(Entity<HereticComponent> ent)
+    {
+        if (ent.Comp is { CurrentPath: "Rust", PathStage: >= 2 })
+            return "TouchSpellMansusRust";
+
+        return "TouchSpellMansus";
+    }
+
     private void OnLivingHeart(Entity<HereticComponent> ent, ref EventHereticLivingHeart args)
     {
         if (!TryUseAbility(ent, args))
@@ -206,26 +231,35 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (!TryComp<MobStateComponent>(target, out var mobstate))
             return;
         var state = mobstate.CurrentState;
-
-        var xquery = GetEntityQuery<TransformComponent>();
-        var targetStation = _station.GetOwningStation(target);
-        var ownStation = _station.GetOwningStation(ent);
-
-        var isOnStation = targetStation != null && targetStation == ownStation;
-
-        var ang = Angle.Zero;
-        if (_mapMan.TryFindGridAt(_transform.GetMapCoordinates(Transform(ent)), out var grid, out var _))
-            ang = Transform(grid).LocalRotation;
-
-        var vector = _transform.GetWorldPosition((EntityUid) target, xquery) - _transform.GetWorldPosition(ent, xquery);
-        var direction = (vector.ToWorldAngle() - ang).GetDir();
-
-        var locdir = ContentLocalizationManager.FormatDirection(direction).ToLower();
         var locstate = state.ToString().ToLower();
 
-        if (isOnStation)
-            loc = Loc.GetString("heretic-livingheart-onstation", ("state", locstate), ("direction", locdir));
-        else loc = Loc.GetString("heretic-livingheart-offstation", ("state", locstate), ("direction", locdir));
+        var ourMapCoords = _transform.GetMapCoordinates(ent);
+        var targetMapCoords = _transform.GetMapCoordinates(target.Value);
+
+        if (_map.IsPaused(targetMapCoords.MapId))
+            loc = Loc.GetString("heretic-livingheart-unknown");
+        else if (targetMapCoords.MapId != ourMapCoords.MapId)
+            loc = Loc.GetString("heretic-livingheart-faraway", ("state", locstate));
+        else
+        {
+            var targetStation = _station.GetOwningStation(target);
+            var ownStation = _station.GetOwningStation(ent);
+
+            var isOnStation = targetStation != null && targetStation == ownStation;
+
+            var ang = Angle.Zero;
+            if (_mapMan.TryFindGridAt(_transform.GetMapCoordinates(Transform(ent)), out var grid, out var _))
+                ang = Transform(grid).LocalRotation;
+
+            var vector = targetMapCoords.Position - ourMapCoords.Position;
+            var direction = (vector.ToWorldAngle() - ang).GetDir();
+
+            var locdir = ContentLocalizationManager.FormatDirection(direction).ToLower();
+
+            loc = Loc.GetString(isOnStation ? "heretic-livingheart-onstation" : "heretic-livingheart-offstation",
+                ("state", locstate),
+                ("direction", locdir));
+        }
 
         _popup.PopupEntity(loc, ent, ent, PopupType.Medium);
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/heartbeat.ogg"), ent, AudioParams.Default.WithVolume(-3f));

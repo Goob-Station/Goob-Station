@@ -1,0 +1,64 @@
+- type: entity
+  id: ActionHereticRustConstruction
+  name: Rust Formation
+  description: Transforms a rusted floor into a full wall of rust. Creating a wall underneath a mob will harm it.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    range: 4
+    useDelay: 8
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: construction
+    event: !type:EventHereticRustConstruction
+    checkCanAccess: false
+    checkCanInteract: false
+    repeat: true
+  - type: HereticAction
+    requireMagicItem: true
+
+- type: entity
+  id: ActionHereticAggressiveSpread
+  name: Aggressive Spread
+  description: Spreads rust onto nearby surfaces.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 30
+    itemIconStyle: NoItem
+    sound:
+      path: /Audio/Items/welder.ogg
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: aggressive_spread
+    event: !type:EventHereticAggressiveSpread
+    checkCanInteract: false
+    predicted: false
+  - type: HereticAction
+    requireMagicItem: true
+    messageLoc: heretic-speech-rust-spread
+  - type: ChangeUseDelayOnAscension
+    newUseDelay: 15
+    requiredPath: Rust
+
+- type: entity
+  id: ActionHereticEntropicPlume
+  name: Entropic Plume
+  description: Spews forth a disorienting plume that causes enemies to strike each other, briefly blinds them and poisons them. Also spreads rust in the path of the plume.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 30
+    itemIconStyle: NoItem
+    sound:
+      path: /Audio/_Goobstation/Wizard/smoke.ogg
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: entropic_plume
+    event: !type:EventHereticEntropicPlume
+    checkCanInteract: false
+    predicted: false
+  - type: HereticAction
+    requireMagicItem: true
+    messageLoc: heretic-speech-rust-plume

@@ -435,6 +435,9 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (!_entMan.TryGetComponent(actionId, out SwapSpellComponent? swap))
             return false;
 
+        if (!swap.AllowSecondaryTarget)
+            return false;
+
         if (_actionsSystem == null || _spells == null)
             return false;
 

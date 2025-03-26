@@ -1,3 +1,5 @@
+using Content.Shared.Whitelist;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -14,10 +16,34 @@ public sealed partial class WizardTrapComponent : Component
     public bool Triggered;
 
     [DataField]
+    public EntityWhitelist? TargetedEntityWhitelist;
+
+    [DataField]
+    public EntityWhitelist IgnoredEntityWhitelist = new();
+
+    [DataField]
+    public TimeSpan TimeBetweenTriggers = TimeSpan.FromSeconds(5);
+
+    [DataField, AutoNetworkedField]
+    public int Charges = 1;
+
+    [DataField]
     public EntProtoId? Effect;
 
     [DataField]
+    public SoundSpecifier? TriggerSound;
+
+    [DataField]
+    public bool CanReveal = true;
+
+    [DataField]
+    public bool Silent;
+
+    [DataField]
     public TimeSpan StunTime = TimeSpan.FromSeconds(2);
+
+    [DataField]
+    public bool Sparks = true;
 
     [DataField]
     public float ExamineRange = 1.2f;

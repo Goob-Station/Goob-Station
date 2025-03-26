@@ -3,10 +3,10 @@
   weights:
     Traitor: 0.25
     Changeling: 0.10
-    Nukeops: 0.02
+    Nukeops: 0.05
     Revolutionary: 0.04
     Zombie: 0.03
     Heretic: 0.10
     BlobGameMode: 0.04
-    Wizard: 0.08
+    Wizard: 0.05
     HonkOps: 0.01

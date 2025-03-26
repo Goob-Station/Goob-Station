@@ -22,5 +22,5 @@ public sealed partial class WizardJauntComponent : Component
     public float DurationBetweenEffects = 2.8f;
 
     [DataField]
-    public bool JauntEndEffectSpawned;
+    public EntityUid? JauntEndEffectEntity;
 }

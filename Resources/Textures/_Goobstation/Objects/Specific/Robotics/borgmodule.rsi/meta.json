@@ -7,14 +7,6 @@
     "y": 32
   },
   "states": [
-    {
-      "name": "generic",
-	  "_comment": "YAML linter appeasement regarding modules, removal TODO. Refer to /Resources/Textures/Objects/Specific/borgmodule.rsi/meta.json for licensing information"
-    },
-    {
-      "name": "cargo",
-      "_comment": "YAML linter appeasement regarding modules, removal TODO. Refer to /Resources/Textures/Objects/Specific/borgmodule.rsi/meta.json for licensing information"
-    },
 	{
       "name": "icon-lollypop"
     },

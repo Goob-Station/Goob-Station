@@ -22,7 +22,7 @@ public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
 
         _lookup = args.EntityManager.System<EntityLookupSystem>();
 
-        var lookup = _lookup.GetEntitiesInRange(args.Platform, .75f);
+        var lookup = _lookup.GetEntitiesInRange(args.Platform, 1.5f);
 
         foreach (var ent in lookup)
         {

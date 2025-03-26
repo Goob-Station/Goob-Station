@@ -16,3 +16,19 @@
   - type: HideLayerClothing
     slots:
     - Hair
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatHoodVoidCloakHeretic
+  name: void hood
+  description: Black like tar, reflecting no light. Runic symbols line the outside. With each flash you lose comprehension of what you are seeing.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/void_hood.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/void_hood.rsi
+  - type: Tag
+    tags: []
+  - type: StripMenuInvisible
+  - type: VoidCloakHood

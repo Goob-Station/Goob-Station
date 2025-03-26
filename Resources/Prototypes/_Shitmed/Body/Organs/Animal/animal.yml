@@ -18,6 +18,8 @@
   - type: Tag
     tags:
       - Meat
+      - Organ
+      - Brain
   - type: SolutionContainerManager
     solutions:
       organ:
@@ -60,3 +62,8 @@
   - type: Item
     size: Small
     heldPrefix: eyeballs
+  - type: Tag
+    tags:
+      - Meat
+      - Organ
+      - Eyes

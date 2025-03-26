@@ -103,6 +103,8 @@ namespace Content.Server._Goobstation.ServerCurrency
         public int SetBalance(NetUserId userId, int amount)
         {
             var oldBalance = Task.Run(() => SetBalanceAsync(userId, amount)).GetAwaiter().GetResult();
+            if (_player.TryGetSessionById(userId, out var userSession))
+                BalanceChange?.Invoke(new PlayerBalanceChangeEvent(userSession, userId, amount, oldBalance));
             _sawmill.Info($"Setting {userId} account balance to {amount} from {oldBalance}");
             return oldBalance;
         }
@@ -128,7 +130,10 @@ namespace Content.Server._Goobstation.ServerCurrency
         /// <remarks>Use the return value instead of calling <see cref="GetBalance(NetUserId)"/> after to this.</remarks>
         private int ModifyBalance(NetUserId userId, int amountDelta)
         {
-            return Task.Run(() => ModifyBalanceAsync(userId, amountDelta)).GetAwaiter().GetResult();
+            var result = Task.Run(() => ModifyBalanceAsync(userId, amountDelta)).GetAwaiter().GetResult();
+            if (_player.TryGetSessionById(userId, out var userSession))
+                BalanceChange?.Invoke(new PlayerBalanceChangeEvent(userSession, userId, result, result - amountDelta));
+            return result;
         }
 
         /// <summary>
@@ -143,8 +148,6 @@ namespace Content.Server._Goobstation.ServerCurrency
             var task = Task.Run(() => _db.SetServerCurrency(userId, amount));
             TrackPending(task);
             await task;
-            if (_player.TryGetSessionById(userId, out var userSession))
-                BalanceChange?.Invoke(new PlayerBalanceChangeEvent(userSession, userId, amount, oldAmount));
         }
 
         /// <summary>
@@ -180,8 +183,6 @@ namespace Content.Server._Goobstation.ServerCurrency
         {
             var task = Task.Run(() => _db.ModifyServerCurrency(userId, amountDelta));
             TrackPending(task);
-            if (_player.TryGetSessionById(userId, out var userSession))
-                BalanceChange?.Invoke(new PlayerBalanceChangeEvent(userSession, userId, await task, await task - amountDelta));
             return await task;
         }
 

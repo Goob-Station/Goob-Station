@@ -194,17 +194,61 @@
     size: Small
   - type: DisarmMalus
     malus: 0
-    
+
 - type: entity
   parent: BasePlushie
   id: PlushieBingle
-  name: bingle plushie
+  name: full size bingle plushie
   description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
   components:
   - type: Sprite
     norot: true
     sprite: _Goobstation/Mobs/Bingle/bingle.rsi
     state: alive
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieBingleSmall
+  name: bingle plushie
+  description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
+  components:
+  - type: Sprite
+    norot: true
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: bingleing
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieBingleYakub
+  name: yakub bingle plushie
+  description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
+  components:
+  - type: Sprite
+    norot: true
+    sprite: _Goobstation/Objects/Fun/yakub_bingle.rsi
+    state: yakubbingle
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieBongle
+  name: bongle plushie
+  description: A cute stuffed toy that resembles a red alien. You feel a strange compulsion to say bongle
+  components:
+  - type: Sprite
+    norot: true
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: bongle
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieBinglePony
+  name: bingle pony plushie
+  description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
+  components:
+  - type: Sprite
+    norot: true
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: bingle_pony
 
 - type: entity
   id: GrenadeToy

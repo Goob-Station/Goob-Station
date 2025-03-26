@@ -56,6 +56,8 @@
     snap:
     - Wall
   components:
+  - type: TimedDespawn
+    lifetime: 30
   - type: StepTrigger
     requiredTriggeredSpeed: 0
     intersectRatio: 0.1
@@ -89,3 +91,79 @@
   - type: Tag
     tags:
       - HideContextMenu
+
+- type: entity
+  id: TileHereticRustRune
+  name: rune
+  description: Rusty...
+  components:
+  - type: Sprite
+    drawdepth: FloorEffects
+    sprite: _Goobstation/Heretic/Effects/effects.rsi
+    layers:
+      - state: small_rune_1
+        shader: unshaded
+        map: [ "base" ]
+  - type: RandomSprite
+    available:
+      - base:
+          small_rune_1: ""
+          small_rune_2: ""
+          small_rune_3: ""
+          small_rune_4: ""
+          small_rune_5: ""
+          small_rune_6: ""
+          small_rune_7: ""
+          small_rune_8: ""
+          small_rune_9: ""
+          small_rune_10: ""
+          small_rune_11: ""
+          small_rune_12: ""
+  - type: Transform
+    anchored: true
+  - type: Physics
+    canCollide: false
+    bodyType: Static
+  - type: RequiresTile
+  - type: SpriteRandomOffset
+  - type: Appearance
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: HereticRustAscensionSpreader
+  name: rust
+  description: It grows...
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    canCollide: false
+    bodyType: Static
+  - type: ActiveEdgeSpreader
+  - type: EdgeSpreader
+    id: Rust
+  - type: RustSpreader
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: tile
+  id: PlatingRust
+  name: tiles-plating-rust
+  sprite: /Textures/_Goobstation/Heretic/tiles.rsi/plating_rust.png
+  baseTurf: Plating
+  isSubfloor: true
+  deconstructTools: [ Prying ]
+  deconstructTimeMultiplier: 5
+  footstepSounds:
+    collection: FootstepPlating
+  friction: 0.3
+  heatCapacity: 10000
+
+- type: edgeSpreader
+  id: Rust
+  updatesPerSecond: 16
+  preventSpreadOnSpaced: false

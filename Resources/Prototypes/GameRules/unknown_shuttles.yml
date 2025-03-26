@@ -51,6 +51,9 @@
     reoccurrenceDelay: 30
     duration: 1
     maxOccurrences: 1 # should be the same as [copies] in shuttle_incoming_event.yml
+    chaos: # Goobstation
+      Friend: -20
+      Power: -10 # can be salvaged for power
   - type: RuleGrids
   - type: LoadMapRule
 
@@ -91,6 +94,9 @@
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming #!!
     weight: 2
+    chaos: # Goobstation
+      Friend: -10
+      Mess: 20
   - type: LoadMapRule
     preloadedGrid: Honki
 
@@ -124,6 +130,8 @@
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming #!!
     weight: 2 # Its just a big ship, so it needs to be rarer to be interesting.
+    chaos: # Goobstation
+      Friend: -60
   - type: LoadMapRule
     preloadedGrid: Cruiser
 
@@ -151,6 +159,9 @@
   components:
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming #!!
+    chaos: # Goobstation
+      Friend: -20
+      Medical: -20
   - type: LoadMapRule
     preloadedGrid: Flatline
 
@@ -172,6 +183,8 @@
     startAnnouncement: station-event-unknown-shuttle-incoming #!!
     weight: 2 # Its just a big ship, so it needs to be rarer to be interesting.
     earliestStart: 45 # late to hopefully have enough ghosts to fill all roles quickly. (5-6)
+    chaos: # Goobstation
+      Friend: -50
   - type: LoadMapRule
     preloadedGrid: NTIncorporation
 
@@ -183,6 +196,11 @@
     startAnnouncement: null #dont nark on antags
     weight: 1 #  lower because antags.
     earliestStart: 50 # late to hopefully have enough ghosts to fill all roles quickly (3) and because antags
+    chaos: # Goobstation
+      # holy mini-nukies
+      Hostile: 80
+      Death: 100
+      Medical: 100
   - type: LoadMapRule
     preloadedGrid: Instigator
 
@@ -212,6 +230,11 @@
     startAnnouncement: station-event-unknown-shuttle-incoming #Leaving this one because theyre like primitives and its funnier
     weight: 1 # lower because antags
     earliestStart: 50 # late to hopefully have enough ghosts to fill all roles quickly. (4) & antags
+    chaos: # Goobstation
+      # it's 4 free agent barely-equipped dudes
+      Hostile: 60
+      Medical: 20
+      Death: 20
   - type: LoadMapRule
     preloadedGrid: ManOWar
 

@@ -25,12 +25,10 @@
         "name": "icon"
     },
     {
-        "name": "dead",
-        "directions": 4
+        "name": "dead"
     },
     {
-         "name": "dead_upgraded",
-        "directions": 4
+         "name": "dead_upgraded"
     },
     {
         "name": "Upgraded",

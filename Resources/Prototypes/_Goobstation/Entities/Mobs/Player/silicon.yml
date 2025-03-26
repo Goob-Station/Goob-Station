@@ -45,8 +45,8 @@
       borg_brain:
       - PositronicBrain
       borg_module:
+      - BorgModuleOperative
       - BorgModuleSyndicateWeaponAdvanced
-      - BorgModuleOperativeUniversal
       # - BorgModuleL6C - No L6 for the derelicts
       # - BorgModuleEsword - Replaced
       - BorgModuleTool

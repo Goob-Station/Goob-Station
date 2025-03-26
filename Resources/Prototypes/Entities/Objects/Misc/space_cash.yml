@@ -49,6 +49,44 @@
         mask:
         - ItemMask
   - type: Appearance
+  # <Goobstation>
+  - type: Flammable # it's about sending a message
+    fireSpread: true
+    alwaysCombustible: true
+    firestackFade: 0 # keeps burning since high hp
+    damage:
+      types:
+        Heat: 0.5 # burns long
+  - type: FireVisuals
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      # doesn't spawn anything for probably obvious reasons
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Food
+    solution: food
+    delay: 1
+    forceFeedDelay: 1
+  - type: FlavorProfile
+    flavors:
+    - paper
+  - type: BadFood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 1
+  # </Goobstation>
 
 - type: material
   id: Credit

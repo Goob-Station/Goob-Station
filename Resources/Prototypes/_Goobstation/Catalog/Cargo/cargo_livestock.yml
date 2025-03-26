@@ -4,6 +4,6 @@
     sprite: _Goobstation/Mobs/Animals/lootbug.rsi
     state: icon
   product: CrateNPCLootbug
-  cost: 3000
+  cost: 2200
   category: cargoproduct-category-name-livestock
   group: market

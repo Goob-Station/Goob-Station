@@ -50,6 +50,20 @@ namespace Content.Server.Explosion.EntitySystems
         }
     }
 
+    // Goobstation start
+    public sealed class TriggerAttemptEvent : CancellableEntityEventArgs
+    {
+        public EntityUid Triggered { get; }
+        public EntityUid? User { get; }
+
+        public TriggerAttemptEvent(EntityUid triggered, EntityUid? user = null)
+        {
+            Triggered = triggered;
+            User = user;
+        }
+    }
+    // Goobstation end
+
     /// <summary>
     /// Raised when timer trigger becomes active.
     /// </summary>
@@ -272,6 +286,12 @@ namespace Content.Server.Explosion.EntitySystems
 
         public bool Trigger(EntityUid trigger, EntityUid? user = null)
         {
+            // Goobstation start
+            var attemptEv = new TriggerAttemptEvent(trigger, user);
+            RaiseLocalEvent(trigger, attemptEv, true);
+            if (attemptEv.Cancelled)
+                return false;
+            // Goobstation end
             var triggerEvent = new TriggerEvent(trigger, user);
             EntityManager.EventBus.RaiseLocalEvent(trigger, triggerEvent, true);
             return triggerEvent.Handled;

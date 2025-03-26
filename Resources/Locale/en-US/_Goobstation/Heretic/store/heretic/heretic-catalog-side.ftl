@@ -25,6 +25,30 @@ knowledge-path-side-s3-ashen-eyes-desc =
     Allows you to transmute a pair of eyes, a flare, and a glass shard into an Eldritch Medallion.
     The Eldritch Medallion grants you thermal vision while worn, and also functions as a focus.
 
+knowledge-path-side-s3-void-cloak-name = Void Cloak
+knowledge-path-side-s3-void-cloak-desc =
+    The Owl is the keeper of things that are not quite in practice, but in theory are. Many things are.
+
+    Allows you to transmute a glass shard, a bedsheet, and any winter coat to create a Void Cloak.
+    While the hood is down, the cloak functions as a focus and provides low pressure protection, and while the hood is up, the cloak is completely invisible.
+    It also provide decent armor and has pockets which can hold one of your blades, various ritual components (such as organs), and small heretical trinkets.
+
+## stage 6
+knowledge-path-side-s6-rustwalker-name = Rusted Ritual
+knowledge-path-side-s6-rustwalker-desc =
+    I combined my knowledge of creation with my desire for corruption. The Marshal knew my name, and the Rusted Hills echoed out.
+
+    Allows you to transmute a pool of vomit, 15 cable coil, and 10 sheets of iron into a Rust Walker.
+    Rust Walkers excel at spreading rust and are moderately strong in combat.
+
+knowledge-path-side-s6-knife-name = Carving Knife
+knowledge-path-side-s6-knife-desc =
+    Etched, carved... eternal. There is power hidden in everything. I can unveil it! I can carve the monolith to reveal the chains!
+
+    Allows you to transmute a knife, a shard of glass, and a piece of paper to create a Carving Knife.
+    The Carving Knife allows you to etch difficult to see traps that trigger on heathens who walk overhead.
+    Also makes for a handy throwing weapon.
+
 ## stage 7
 knowledge-path-side-s7-uncuff-name = Wave of Desperation
 knowledge-path-side-s7-uncuff-desc =
@@ -41,13 +65,6 @@ knowledge-path-side-s7-siphon-desc =
     Grants Blood Siphon, a ranged spell that steals a bit of life from your target, healing your bruises and restoring blood.
     Additionally, you have a chance of transferring wounds you are experiencing to the target.
 
-knowledge-path-side-s7-knife-name = Carving Knife
-knowledge-path-side-s7-knife-desc =
-    Etched, carved... eternal. There is power hidden in everything. I can unveil it! I can carve the monolith to reveal the chains!
-
-    Transmute a knife, a glass shard and a piece of paper to create a Carving Knife.
-    The knife allows you to create up to 3 carvings on the floor that have various effects on nonbelievers who walk over them.
-
 knowledge-path-side-s7-crucible-name = Mawed Crucible
 knowledge-path-side-s7-crucible-desc =
     This is pure agony. I wasn't able to summon the figure of the Aristocrat,
@@ -55,6 +72,13 @@ knowledge-path-side-s7-crucible-desc =
 
     Allows you to transmute a portable water tank and a table to create a Mawed Crucible.
     The Mawed Crucible can brew powerful potions for combat and utility, but must be fed bodyparts and organs between uses.
+
+# stage 8
+knowledge-path-side-s8-cleave-name = Blood Cleave
+knowledge-path-side-s8-cleave-desc =
+    At first I didn't understand these instruments of war, but the Priest told me to use them regardless. Soon, he said, I would know them well.
+
+    Grants you Cleave, an area-of-effect targeted spell that causes heavy bleeding and blood loss to anyone afflicted.
 
 ## stage 9
 knowledge-path-side-s9-coin-name = Eldritch Coin
@@ -70,9 +94,3 @@ knowledge-path-side-s9-ashman-name = Ashen Ritual
 knowledge-path-side-s9-ashman-desc =
     Transmute a pile of ash, a brain and a book to summon an Ashman.
     Ashmen can jaunt, cause bleeding wounds, and can release large waves of fire.
-
-knowledge-path-side-s9-cleave-name = Blood Cleave
-knowledge-path-side-s9-cleave-desc =
-    At first I didn't understand these instruments of war, but the Priest told me to use them regardless. Soon, he said, I would know them well.
-
-    Grants you Cleave, an area-of-effect targeted spell that causes heavy bleeding and blood loss to anyone afflicted.

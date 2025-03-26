@@ -55,3 +55,19 @@
   color: "#5ed7aa"
   requiredTags:
   - BinaryMind
+
+- type: collectiveMind
+  id: Dronemind
+  name: collective-mind-dronemind
+  keycode: 'd'
+  color: "#6e979a" # like binary but more gray
+  requiredTags:
+  - DroneMind
+
+- type: collectiveMind
+  id: Mousemind
+  name: collective-mind-mousemind
+  keycode: 'p'
+  color: "#c18851"
+  requiredTags:
+  - MouseMind

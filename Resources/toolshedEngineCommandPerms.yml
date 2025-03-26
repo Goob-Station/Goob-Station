@@ -1,4 +1,4 @@
-﻿- Flags: QUERY
+- Flags: QUERY
   Commands:
     - entities
     - nearby
@@ -181,3 +181,9 @@
     - realtime
     - servertime
     - more
+
+- Flags: FULLADMIN # Goobstation
+  Commands:
+  - self
+  - entities
+  - nearby

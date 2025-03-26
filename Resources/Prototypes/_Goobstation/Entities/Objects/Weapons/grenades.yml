@@ -1,0 +1,15 @@
+- type: entity
+  parent: [ SmokeGrenade , BaseSyndicateContraband ]
+  id: SarinGasGrenade
+  name: sarin gas grenade
+  description: A brutal neurotoxin gas that stuns, blinds, and poisons anybody unlucky enough to catch a whiff aswell as burning anyone not in a voidsuit.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/tear_gas.rsi
+  - type: SmokeOnTrigger # drop duration to 15 if it's a problem (wont crit from caustic) btw lab coats reduce the caustic damage
+    duration: 20 # Lower and you wont even crit from the caustic if you have internals on, also useful for area denial
+    spreadAmount: 30
+    solution:
+      reagents:
+      - ReagentId: Sarin
+        Quantity: 50

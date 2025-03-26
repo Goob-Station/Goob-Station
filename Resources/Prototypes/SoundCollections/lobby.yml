@@ -1,7 +1,32 @@
 - type: soundCollection
   id: LobbyMusic
   files:
-    - /Audio/Lobby/silverpony.ogg
-    - /Audio/Lobby/drillpony.ogg
-    - /Audio/Lobby/ponysong.ogg
-    - /Audio/Lobby/luckyhorse.ogg
+    - /Audio/Lobby/thunderdome.ogg
+    - /Audio/Lobby/absconditus.ogg
+    - /Audio/Lobby/space_asshole.ogg
+    - /Audio/Lobby/endless_space.ogg
+    - /Audio/Lobby/singuloose.ogg
+    - /Audio/Lobby/comet_haley.ogg
+    - /Audio/Lobby/title2.ogg
+    - /Audio/Lobby/title3.ogg
+    - /Audio/Lobby/mod.flip-flap.ogg
+    - /Audio/Lobby/Spac_Stac.ogg
+    - /Audio/Lobby/pwmur.ogg
+    - /Audio/Lobby/lasers_rip_apart_the_bulkhead.ogg
+    - /Audio/Lobby/every_light_is_blinking_at_once.ogg
+    - /Audio/Lobby/atomicamnesiammx.ogg
+    # Goobstation - Custom lobby music
+    - /Audio/Lobby/skubstep.ogg
+    - /Audio/Lobby/sneedsfeedandseed.ogg
+    - /Audio/Lobby/clownalwayswins.ogg
+    - /Audio/Lobby/clownwmv.ogg
+    - /Audio/Lobby/dawsonschristian.ogg
+    - /Audio/Lobby/thewizard.ogg
+    - /Audio/Lobby/skubstub.ogg
+    - /Audio/Lobby/space_radiation.ogg
+    - /Audio/Lobby/redsun.ogg
+    - /Audio/Lobby/chollima.ogg
+    - /Audio/Lobby/monument.ogg
+    - /Audio/Lobby/marhaba.ogg
+    - /Audio/Lobby/the_future_soon.ogg
+    - /Audio/Lobby/horn.ogg
