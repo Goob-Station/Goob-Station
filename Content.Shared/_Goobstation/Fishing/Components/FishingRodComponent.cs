@@ -11,8 +11,15 @@ public sealed partial class FishingRodComponent : Component
     /// <summary>
     /// Higher value will make every interact more productive.
     /// </summary>
-    [DataField, ViewVariables]
+    [DataField]
     public float Efficiency = 1f;
+
+    /// <summary>
+    /// If lure moves bigger than this distance away from the rod,
+    /// it will force it to reel instantly.
+    /// </summary>
+    [DataField]
+    public float BreakOnDistance = 8f;
 
     [DataField]
     public EntProtoId FloatPrototype = "FishingLure";

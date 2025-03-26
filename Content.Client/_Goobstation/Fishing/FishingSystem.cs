@@ -1,8 +1,11 @@
 ﻿using Content.Client._Goobstation.Fishing.Overlays;
 using Content.Client.DoAfter;
+using Content.Shared._Goobstation.Fishing.Components;
 using Content.Shared._Goobstation.Fishing.Systems;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
+using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 
 namespace Content.Client._Goobstation.Fishing;
 
@@ -22,4 +25,10 @@ public sealed class FishingSystem : SharedFishingSystem
         base.Shutdown();
         _overlay.RemoveOverlay<DoAfterOverlay>();
     }
+
+    // Does nothing on client, because can't spawn entities in prediction
+    protected override void SetupFishingFloat(Entity<FishingRodComponent> fishingRod, EntityUid player, EntityCoordinates target) {}
+
+    // Does nothing on client, because can't delete entities in prediction
+    protected override void ThrowFishReward(EntProtoId fishId, EntityUid fishSpot, EntityUid target) {}
 }
