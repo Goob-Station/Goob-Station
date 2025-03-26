@@ -82,33 +82,8 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
         DragContainer.OnKeyBindUp += OnKeybindUp;
         RecenterButton.OnPressed += _ => Recenter();
 
-        DisciplinesContainer.RemoveAllChildren();
-
-        var disciplines = _prototype.EnumeratePrototypes<TechDisciplinePrototype>()
-                .ToList()
-                .OrderBy(x => x.UiName);
-
-        var disciplineGroup = new ButtonGroup(false);
-
-        foreach (var proto in disciplines)
-        {
-            var discipline = new DisciplineButton(proto)
-            {
-                ToggleMode = true,
-                HorizontalExpand = true,
-                VerticalExpand = true,
-                Text = Loc.GetString(proto.UiName),
-                Margin = new(5)
-            };
-
-            discipline.Group = disciplineGroup;
-            if (proto.ID == CurrentDiscipline)
-                discipline.Pressed = true;
-
-            DisciplinesContainer.AddChild(discipline);
-
-            discipline.OnPressed += SelectDiscipline;
-        }
+        UpdatePanels(LocalState);
+        Recenter();
     }
 
     public void SetEntity(EntityUid entity)
@@ -122,7 +97,7 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
         List = state.Researches;
         LocalState.Researches = state.Researches;
 
-        foreach (var tech in _prototype.EnumeratePrototypes<TechnologyPrototype>().Where(x => x.Discipline == CurrentDiscipline))
+        foreach (var tech in _prototype.EnumeratePrototypes<TechnologyPrototype>())
         {
             if (!List.ContainsKey(tech.ID))
                 continue;
@@ -242,20 +217,6 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
     }
 
     /// <summary>
-    /// Selects the discipline and updates visible tech
-    /// </summary>
-    public void SelectDiscipline(BaseButton.ButtonEventArgs args)
-    {
-        if (args.Button is not DisciplineButton discipline)
-            return;
-        var proto = discipline.Proto;
-
-        CurrentDiscipline = proto.ID;
-        UpdatePanels(LocalState);
-        Recenter();
-    }
-
-    /// <summary>
     /// Sets <see cref="_position"/> to its default value
     /// </summary>
     public void Recenter()
@@ -273,7 +234,6 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
     {
         base.Close();
 
-        DisciplinesContainer.RemoveAllChildren();
         DragContainer.RemoveAllChildren();
         InfoContainer.RemoveAllChildren();
     }

@@ -16,7 +16,7 @@
   - HydroponicsTrayMachineCircuitboard
   - ReagentGrinderIndustrialMachineCircuitboard
   # Goobstation R&D Console rework start
-  position: 2,-1
+  position: -2,4
   technologyPrerequisites:
   - AdvancedEntertainment
   # Goobstation R&D Console rework end
@@ -41,7 +41,7 @@
   - MechEquipmentGrabberSmall
   - VimHarness
   # Goobstation R&D Console rework start
-  position: 4,0
+  position: 0,4
   technologyPrerequisites:
   - AdvancedEntertainment
   - RipleyAPLU
@@ -66,7 +66,7 @@
   - TelecomServerCircuitboard
   - HolopadMachineCircuitboard
   # Goobstation R&D Console rework start
-  position: 4,-1
+  position: 1,4
   technologyPrerequisites:
   - AdvancedEntertainment
   # Goobstation R&D Console rework end
@@ -87,7 +87,7 @@
     - MassMediaCircuitboard
     - JukeboxCircuitBoard
     - BorgModuleLollipop # Goobstation
-  position: 3,0 # Goobstation R&D Console rework
+  position: 0,2
 
 - type: technology
   id: RoboticCleanliness
@@ -101,7 +101,7 @@
   recipeUnlocks:
   - BorgModuleAdvancedCleaning
   # Goobstation R&D Console rework start
-  position: 2,0
+  position: -1,4
   technologyPrerequisites:
   - AdvancedEntertainment
   - BasicRobotics
@@ -121,7 +121,7 @@
   - BiofabricatorMachineCircuitboard
   - BiomassReclaimerMachineCircuitboard
   # Goobstation R&D Console rework start
-  position: 2,-2
+  position: -2,5
   technologyPrerequisites:
   - Hydroponics
   # Goobstation R&D Console rework end
@@ -145,7 +145,7 @@
   - FauxTileAstroSnow
   - FauxTileAstroAsteroidSand
   # Goobstation R&D Console rework start
-  position: 4,-2
+  position: 1,5
   technologyPrerequisites:
   - AudioVisualCommunication
   # Goobstation R&D Console rework end
@@ -165,7 +165,7 @@
   - CryostasisBeaker
   - SyringeCryostasis
   # Goobstation R&D Console rework start
-  position: 3,2
+  position: 3,5
   technologyPrerequisites:
   - AccessibilityTech
   # Goobstation R&D Console rework end
@@ -183,7 +183,7 @@
   - AdvMopItem
   - MegaSprayBottle
   # Goobstation R&D Console rework start
-  position: 2,1
+  position: -1,5
   technologyPrerequisites:
   - RoboticCleanliness
   # Goobstation R&D Console rework end
@@ -208,7 +208,7 @@
   - HonkerTargetingElectronics
   - MechEquipmentHorn
   # Goobstation R&D Console rework start
-  position: 5,0
+  position: 0,5
   technologyPrerequisites:
   - CritterMechs
   - RipleyAPLU
@@ -227,7 +227,7 @@
   - WeaponSprayNozzle
   - ClothingBackpackWaterTank
   # Goobstation R&D Console rework start
-  position: 1,0
+  position: -1,6
   technologyPrerequisites:
   - AdvancedCleaning
   # Goobstation R&D Console rework end
@@ -244,7 +244,7 @@
   recipeUnlocks:
   - CargoTelepadMachineCircuitboard
   # Goobstation R&D Console rework start
-  position: 3,-3
+  position: 1,7
   technologyPrerequisites:
   - MeatManipulation
   - FauxAstroTiles
@@ -264,7 +264,7 @@
   recipeUnlocks:
   - ClothingShoesBootsSpeed
   # Goobstation R&D Console rework start
-  position: 3,-4
+  position: 1,8
   technologyPrerequisites:
   - BluespaceCargoTransport
   # Goobstation R&D Console rework end
@@ -282,7 +282,7 @@
   - BluespaceBeaker
   - SyringeBluespace
   # Goobstation R&D Console rework start
-  position: 3,3
+  position: 2,6
   technologyPrerequisites:
   - BiochemicalStasis
   # Goobstation R&D Console rework end

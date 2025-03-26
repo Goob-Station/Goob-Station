@@ -4,20 +4,10 @@
                       xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
                       xmlns:goob="clr-namespace:Content.Client._Goobstation.Research.UI"
                       Title="{Loc 'research-console-menu-title'}"
-                      MinSize="1000 650"
-                      MaxSize="1360 950"
                       SetSize="1260 850">
     <BoxContainer Orientation="Vertical"
                   HorizontalExpand="True"
                   VerticalExpand="True">
-        <controls:StripeBack Name="StationNameContainer" MinSize="52 52">
-            <BoxContainer Name="DisciplinesContainer"
-                        Orientation="Horizontal"
-                        HorizontalAlignment="Stretch"
-                        MinSize="52 52"
-                        Margin="5"/>
-            <!--Disciplines populated in .cs-->
-        </controls:StripeBack>
         <BoxContainer Orientation="Horizontal"
                       HorizontalExpand="True"
                       VerticalExpand="False"

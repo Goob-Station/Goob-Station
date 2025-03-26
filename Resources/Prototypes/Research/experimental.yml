@@ -12,7 +12,7 @@
   recipeUnlocks:
   - ProximitySensor
   - Drone # Goobstation
-  position: 2,0  # Goobstation R&D Console rework
+  position: -1,0
 
 - type: technology
   id: BasicAnomalousResearch
@@ -31,7 +31,7 @@
   - APECircuitboard
   - AnomalyVesselCircuitboard
   # Goobstation R&D Console rework start
-  position: 3,-1
+  position: -2,0
   technologyPrerequisites:
   - BasicRobotics
   # Goobstation R&D Console rework end
@@ -51,7 +51,7 @@
   - AnalysisComputerCircuitboard
   - ArtifactAnalyzerMachineCircuitboard
   # Goobstation R&D Console rework start
-  position: 3,1
+  position: -2,2
   technologyPrerequisites:
   - BasicRobotics
   # Goobstation R&D Console rework end
@@ -70,7 +70,7 @@
   # Goobstation R&D Console rework start
   technologyPrerequisites:
   - BasicRobotics
-  position: 1,0
+  position: -2,-1
   # Goobstation R&D Console rework end
 
 - type: technology
@@ -86,7 +86,7 @@
   - ClothingShoesBootsMagSci
   - ClothingShoesBootsMoon
   # Goobstation R&D Console rework start
-  position: 1,-1
+  position: -3,-1
   technologyPrerequisites:
   - AlternativeResearch
   # Goobstation R&D Console rework end
@@ -103,7 +103,7 @@
   recipeUnlocks:
   - WeaponGauntletGorilla
   # Goobstation R&D Console rework start
-  position: 4,-1
+  position: -3,1
   technologyPrerequisites:
   - BasicAnomalousResearch
   # Goobstation R&D Console rework end
@@ -122,7 +122,7 @@
   recipeUnlocks:
   - ArtifactCrusherMachineCircuitboard
   # Goobstation R&D Console rework start
-  position: 4,1
+  position: -3,2
   technologyPrerequisites:
   - BasicXenoArcheology
   # Goobstation R&D Console rework end
@@ -142,7 +142,7 @@
   - AnomalyVesselExperimentalCircuitboard
   technologyPrerequisites:
   - BasicAnomalousResearch
-  position: 3,-2  # Goobstation R&D Console rework
+  position: -3,0
 
 - type: technology
   id: DeterrenceTechnologies
@@ -157,7 +157,7 @@
   - WeaponParticleDecelerator
   - HoloprojectorField
   # Goobstation R&D Console rework start
-  position: 1,1
+  position: -3,-2
   technologyPrerequisites:
   - AlternativeResearch
   # Goobstation R&D Console rework end
@@ -177,7 +177,7 @@
     - WeaponForceGun
     - WeaponTetherGun
   # Goobstation R&D Console rework start
-  position: 5,0
+  position: -4,2
   technologyPrerequisites:
   - AbnormalArtifactManipulation
   - AnomalyCoreHarnessing
@@ -195,7 +195,7 @@
   recipeUnlocks:
   - DeviceQuantumSpinInverter
   # Goobstation R&D Console rework start
-  position: 6,0
+  position: -5,2
   technologyPrerequisites:
   - GravityManipulation
   # Goobstation R&D Console rework end

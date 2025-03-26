@@ -14,7 +14,7 @@
   - ModsuitGauntlets
   - ModsuitShell
   - ModsuitPlatingExternal
-  position: 0,-1
+  position: -4,-1
   technologyPrerequisites:
   - MagnetsTech
 
@@ -29,6 +29,6 @@
   cost: 5000
   recipeUnlocks:
   - MaterialBSCrystal
-  position: 0,1
+  position: -4,-2
   technologyPrerequisites:
   - DeterrenceTechnologies
