@@ -24,6 +24,7 @@ public sealed partial class FancyTechnologyInfoPanel : Control
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
+
         var lathe = _ent.System<LatheSystem>();
         var research = _ent.System<ResearchSystem>();
         Prototype = proto;
@@ -32,39 +33,17 @@ public sealed partial class FancyTechnologyInfoPanel : Control
         DisciplineTexture.Texture = sprite.Frame0(_proto.Index(proto.Discipline).Icon);
         TechnologyTexture.Texture = sprite.Frame0(proto.Icon);
 
-        // Tech requirements
-        RequiredTechContainer.RemoveAllChildren();
-        if (proto.TechnologyPrerequisites.Count == 0)
-        {
-            NoPrereqLabel.Visible = true;
-            PrereqsContainer.Visible = false;
-        }
-        else
-        {
-            NoPrereqLabel.Visible = false;
-            PrereqsContainer.Visible = true;
+        InitializePrerequisites(proto, research, sprite);
 
-            foreach (var item in proto.TechnologyPrerequisites)
-            {
-                var prereq = _proto.Index(item);
-                var control = new MiniTechnologyCardControl(prereq, _proto, sprite, research.GetTechnologyDescription(prereq, true, false, true));
-                RequiredTechContainer.AddChild(control);
-            }
-        }
+        InitializeRecipeUnlocks(proto, lathe, sprite);
 
-        // There goes recipe unlocks
-        UnlocksContainer.RemoveAllChildren();
-        foreach (var item in proto.RecipeUnlocks)
-        {
-            var recipe = _proto.Index(item);
-            var control = new MiniRecipeCardControl(proto, recipe, _proto, sprite, lathe);
-            UnlocksContainer.AddChild(control);
-        }
-        if (!hasAccess)
-            ResearchButton.ToolTip = Loc.GetString("research-console-no-access-popup");
+        ResearchButton.ToolTip = !hasAccess 
+            ? Loc.GetString("research-console-no-access-popup") 
+            : null;
 
-        if (availability == ResearchAvailability.Researched)
-            ResearchButton.Text = Loc.GetString("research-console-menu-server-researched-button");
+        ResearchButton.Text = availability == ResearchAvailability.Researched 
+            ? Loc.GetString("research-console-menu-server-researched-button") 
+            : ResearchButton.Text;
 
         Color? color = availability switch
         {
@@ -72,14 +51,37 @@ public sealed partial class FancyTechnologyInfoPanel : Control
             ResearchAvailability.Unavailable => Color.Crimson,
             _ => null
         };
-
-        TechnologyCostLabel.SetMessage(Loc.GetString("research-console-tech-cost-label", ("cost", proto.Cost)), defaultColor: color);
-
-        if (availability == ResearchAvailability.Researched)
-            ResearchButton.Text = Loc.GetString("research-console-menu-server-researched-button");
+        TechnologyCostLabel.SetMessage(
+            Loc.GetString("research-console-tech-cost-label", ("cost", proto.Cost)),
+            defaultColor: color
+        );
 
         ResearchButton.Disabled = !hasAccess || availability != ResearchAvailability.Available;
         ResearchButton.OnPressed += Bought;
+    }
+
+    private void InitializePrerequisites(TechnologyPrototype proto, ResearchSystem research, SpriteSystem sprite)
+    {
+        NoPrereqLabel.Visible = proto.TechnologyPrerequisites.Count == 0;
+        PrereqsContainer.Visible = !NoPrereqLabel.Visible;
+
+        RequiredTechContainer.RemoveAllChildren();
+        foreach (var techId in proto.TechnologyPrerequisites)
+        {
+            var tech = _proto.Index(techId);
+            var description = research.GetTechnologyDescription(tech, true, false, true);
+            RequiredTechContainer.AddChild(new MiniTechnologyCardControl(tech, _proto, sprite, description));
+        }
+    }
+
+    private void InitializeRecipeUnlocks(TechnologyPrototype proto, LatheSystem lathe, SpriteSystem sprite)
+    {
+        UnlocksContainer.RemoveAllChildren();
+        foreach (var recipeId in proto.RecipeUnlocks)
+        {
+            var recipe = _proto.Index(recipeId);
+            UnlocksContainer.AddChild(new MiniRecipeCardControl(proto, recipe, _proto, sprite, lathe));
+        }
     }
 
     protected override void ExitedTree()
