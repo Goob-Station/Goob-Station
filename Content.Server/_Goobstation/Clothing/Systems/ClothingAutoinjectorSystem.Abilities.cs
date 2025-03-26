@@ -46,7 +46,6 @@ public sealed partial class ClothingAutoinjectorSystem : EntitySystem
     private void OnCompInit(Entity<ClothingAutoInjectComponent> ent, ref ComponentInit args)
     {
         _actions.AddAction(ent.Owner, ent.Comp.Action);
-        Dirty(ent);
     }
 
     private void OnShutdown(Entity<ClothingAutoInjectComponent> ent, ref ComponentShutdown args)
