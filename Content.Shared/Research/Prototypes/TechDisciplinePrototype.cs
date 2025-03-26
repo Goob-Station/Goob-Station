@@ -50,6 +50,6 @@ public sealed partial class TechDisciplinePrototype : IPrototype
     /// Goobstation R&D console rework field
     /// Name that appears on this discipline's button in console
     /// </summary>
-    [DataField("uiName", required: true)]
+    [DataField(required: true)]
     public string UiName = string.Empty;
 }
