@@ -20,11 +20,11 @@
     startingCharge: 800
   - type: Gun
     minAngle: 2
-    maxAngle: 16
+    maxAngle: 10
     fireRate: 4
     burstFireRate: 6
     angleIncrease: 3
-    angleDecay: 16
+    angleDecay: 10
     selectedMode: FullAuto
     availableModes:
     - FullAuto
