@@ -48,6 +48,7 @@ public sealed partial class FancyTechnologyInfoPanel : Control
         Color? color = availability switch
         {
             ResearchAvailability.Researched => Color.LimeGreen,
+            ResearchAvailability.PrereqsMet => Color.Crimson,
             ResearchAvailability.Unavailable => Color.Crimson,
             _ => null
         };
