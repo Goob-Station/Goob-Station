@@ -64,7 +64,6 @@ public sealed partial class ClothingAutoinjectorSystem : EntitySystem
 
     private void OnShutdown(Entity<ClothingAutoInjectComponent> ent, ref ComponentShutdown args)
     {
-        // Corrected: Use the component's Action property to remove the specific action
         _actions.RemoveAction(ent.Owner, ent.Comp.ActionEntity);
     }
 }
