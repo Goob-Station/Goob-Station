@@ -138,7 +138,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
             if (_gameTiming.CurTime <= tracker.NextExecutionTime)
                 continue;
 
-            _popupSystem.PopupPredicted(Loc.GetString("bloodtrak-target-lost"), uid, uid, PopupType.MediumCaution);
+            _popupSystem.PopupPredicted(Loc.GetString("bloodtrak-target-lost"), tracker.Owner, tracker.Owner, PopupType.MediumCaution);
             TogglePinpointer(uid, tracker);
             tracker.Target = null;
             tracker.NextExecutionTime = _gameTiming.CurTime + tracker.TrackingDuration;
