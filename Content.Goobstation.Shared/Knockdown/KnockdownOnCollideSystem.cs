@@ -4,7 +4,7 @@ using Content.Shared._White.Standing;
 using Content.Shared.Projectiles;
 using Content.Shared.Throwing;
 
-namespace Content.Shared._Goobstation.Knockdown;
+namespace Content.Goobstation.Shared.Knockdown;
 
 public sealed class KnockdownOnCollideSystem : EntitySystem
 {

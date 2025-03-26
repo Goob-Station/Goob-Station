@@ -14,7 +14,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 
-namespace Content.Shared._Goobstation.Weapons.MeleeDash;
+namespace Content.Goobstation.Shared.Weapons.MeleeDash;
 
 public sealed class MeleeDashSystem : EntitySystem
 {

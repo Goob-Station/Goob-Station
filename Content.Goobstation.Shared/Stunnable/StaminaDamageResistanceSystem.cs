@@ -2,7 +2,7 @@ using Content.Shared.Armor;
 using Content.Shared.Damage.Events;
 using Content.Shared.Inventory;
 
-namespace Content.Shared.Stunnable;
+namespace Content.Goobstation.Shared.Stunnable;
 
 public sealed partial class StaminaDamageResistanceSystem : EntitySystem
 {

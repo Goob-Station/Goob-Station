@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Stunnable;
+namespace Content.Goobstation.Shared.Stunnable;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ClothingModifyStunTimeComponent : Component

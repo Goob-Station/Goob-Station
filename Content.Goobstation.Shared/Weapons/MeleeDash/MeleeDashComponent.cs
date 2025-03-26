@@ -5,7 +5,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Goobstation.Weapons.MeleeDash;
+namespace Content.Goobstation.Shared.Weapons.MeleeDash;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class MeleeDashComponent : Component

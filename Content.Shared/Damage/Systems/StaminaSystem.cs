@@ -1,5 +1,6 @@
 using System.Linq;
-using Content.Goobstation.Common.MartialArts; // Goobstation - Martial Arts
+using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Common.Stunnable; // Goobstation - Martial Arts
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
 using Content.Shared.CombatMode;

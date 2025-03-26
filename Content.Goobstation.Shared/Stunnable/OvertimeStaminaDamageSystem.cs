@@ -1,7 +1,8 @@
+using Content.Goobstation.Common.Stunnable;
 using Content.Shared.Damage.Systems;
 using Robust.Shared.Network;
 
-namespace Content.Shared.Stunnable;
+namespace Content.Goobstation.Shared.Stunnable;
 
 public sealed partial class OvertimeStaminaDamageSystem : EntitySystem
 {

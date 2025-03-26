@@ -11,7 +11,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 
-namespace Content.Shared._Goobstation.Weapons.ThrowableBlocker;
+namespace Content.Goobstation.Shared.Weapons.ThrowableBlocker;
 
 public sealed class ThrowableBlockerSystem : EntitySystem
 {

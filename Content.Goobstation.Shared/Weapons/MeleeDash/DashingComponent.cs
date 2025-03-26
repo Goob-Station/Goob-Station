@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Weapons.MeleeDash;
+namespace Content.Goobstation.Shared.Weapons.MeleeDash;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class DashingComponent : Component

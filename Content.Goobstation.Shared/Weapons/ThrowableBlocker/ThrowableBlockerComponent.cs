@@ -1,7 +1,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Weapons.ThrowableBlocker;
+namespace Content.Goobstation.Shared.Weapons.ThrowableBlocker;
 
 /// <summary>
 /// Added to items that are able to block thrown objects. These items must be able to reflect projectiles for it to work.
