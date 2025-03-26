@@ -244,7 +244,7 @@
   recipeUnlocks:
   - CargoTelepadMachineCircuitboard
   # Goobstation R&D Console rework start
-  position: 1,7
+  position: 1,8
   technologyPrerequisites:
   - MeatManipulation
   - FauxAstroTiles
