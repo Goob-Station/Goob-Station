@@ -139,6 +139,7 @@
         - FakeMindShieldImplanter
         - EmpImplanter
         - ScramImplanter
+        - JaunterImplanter
         - StorageImplanter
         - FreedomImplanter
         - DeathAcidifierImplanter
