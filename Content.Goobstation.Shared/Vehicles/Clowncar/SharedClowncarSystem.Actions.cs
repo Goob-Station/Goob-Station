@@ -5,7 +5,7 @@ public abstract partial class SharedClowncarSystem
     /// <summary>
     /// Handles activating/deactivating the cannon when requested
     /// </summary>
-    private void OnClowncarFireModeAction(EntityUid uid, Goobstation.Shared.Vehicles.Clowncar.ClowncarComponent component, ClowncarFireModeActionEvent args)
+    private void OnClowncarFireModeAction(EntityUid uid, ClowncarComponent component, ClowncarFireModeActionEvent args)
     {
         if (args.Handled)
             return;

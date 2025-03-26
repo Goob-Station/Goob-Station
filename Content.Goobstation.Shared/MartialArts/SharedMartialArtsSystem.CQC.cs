@@ -63,7 +63,7 @@ public partial class SharedMartialArtsSystem
         ent.Comp.Used = true;
     }
 
-    private void OnGrantCQCExamine(Entity<Goobstation.Shared.MartialArts.Components.GrantCqcComponent> ent, ref ExaminedEvent args)
+    private void OnGrantCQCExamine(Entity<GrantCqcComponent> ent, ref ExaminedEvent args)
     {
         if (ent.Comp.Used)
             args.PushMarkup(Loc.GetString("cqc-manual-used", ("manual", Identity.Entity(ent, EntityManager))));

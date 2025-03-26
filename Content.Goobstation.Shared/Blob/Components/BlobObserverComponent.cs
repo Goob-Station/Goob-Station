@@ -35,11 +35,11 @@ public sealed partial class BlobObserverComponent : Component
 
 [Serializable, NetSerializable]
 public sealed class BlobChemSwapBoundUserInterfaceState(
-    Goobstation.Shared.Blob.BlobChemColors chemList,
+    BlobChemColors chemList,
     BlobChemType selectedId)
     : BoundUserInterfaceState
 {
-    public readonly Goobstation.Shared.Blob.BlobChemColors ChemList = chemList;
+    public readonly BlobChemColors ChemList = chemList;
     public readonly BlobChemType SelectedChem = selectedId;
 }
 

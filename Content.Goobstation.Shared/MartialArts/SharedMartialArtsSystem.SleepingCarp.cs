@@ -81,7 +81,7 @@ public partial class SharedMartialArtsSystem
 
     private void CarpScrollDelay(Entity<SleepingCarpStudentComponent> ent)
     {
-        var time = new System.Random().Next(ent.Comp.MinUseDelay, ent.Comp.MaxUseDelay);
+        var time = new Random().Next(ent.Comp.MinUseDelay, ent.Comp.MaxUseDelay);
         ent.Comp.UseAgainTime = _timing.CurTime + TimeSpan.FromSeconds(time);
         ent.Comp.Stage++;
         _popupSystem.PopupEntity(

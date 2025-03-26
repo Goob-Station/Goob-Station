@@ -22,11 +22,11 @@ public sealed class RequiresDualWieldSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<Goobstation.Shared.Weapons.RequiresDualWield.RequiresDualWieldComponent, ExaminedEvent>(OnExamineRequires);
-        SubscribeLocalEvent<Goobstation.Shared.Weapons.RequiresDualWield.RequiresDualWieldComponent, ShotAttemptedEvent>(OnShootAttempt);
+        SubscribeLocalEvent<RequiresDualWieldComponent, ExaminedEvent>(OnExamineRequires);
+        SubscribeLocalEvent<RequiresDualWieldComponent, ShotAttemptedEvent>(OnShootAttempt);
     }
 
-    private void OnShootAttempt(EntityUid uid, Goobstation.Shared.Weapons.RequiresDualWield.RequiresDualWieldComponent component, ref ShotAttemptedEvent args)
+    private void OnShootAttempt(EntityUid uid, RequiresDualWieldComponent component, ref ShotAttemptedEvent args)
     {
         var comp = args.Used.Comp;
 
@@ -49,7 +49,7 @@ public sealed class RequiresDualWieldSystem : EntitySystem
             if (held == uid)
                 continue;
 
-            if (HasComp<Goobstation.Shared.Weapons.Multishot.MultishotComponent>(held))
+            if (HasComp<Multishot.MultishotComponent>(held))
             {
                 if (CheckGun(held,component.Whitelist))
                     continue;
@@ -62,13 +62,13 @@ public sealed class RequiresDualWieldSystem : EntitySystem
         }
     }
 
-    private void OnExamineRequires(Entity<Goobstation.Shared.Weapons.RequiresDualWield.RequiresDualWieldComponent> entity, ref ExaminedEvent args)
+    private void OnExamineRequires(Entity<RequiresDualWieldComponent> entity, ref ExaminedEvent args)
     {
         if (entity.Comp.WieldRequiresExamineMessage != null)
             args.PushText(Loc.GetString(entity.Comp.WieldRequiresExamineMessage));
     }
 
-    private void DualWieldPopup(Goobstation.Shared.Weapons.RequiresDualWield.RequiresDualWieldComponent component, ref ShotAttemptedEvent args)
+    private void DualWieldPopup(RequiresDualWieldComponent component, ref ShotAttemptedEvent args)
     {
         var time = _timing.CurTime;
 
