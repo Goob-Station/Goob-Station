@@ -107,8 +107,10 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
             // 2. Has valid target
             if (_gameTiming.CurTime < pinpointer.CooldownEndTime)
             {
+                var popUp = Loc.GetString("bloodtrak-cooldown-active", ("num", pinpointer.CooldownEndTime));
                 _popupSystem.PopupEntity(Loc.GetString("bloodtrak-cooldown-active"),
-                    uid, uid);
+                    uid,
+                    uid);
                 return false;
             }
 
