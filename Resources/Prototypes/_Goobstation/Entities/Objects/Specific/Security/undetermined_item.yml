@@ -58,6 +58,7 @@
     - SmgSet
     - ShotgunSet
     - SniperSet
+    maxSelectedSets: 1
   - type: ActivatableUI
     key: enum.ThiefBackpackUIKey.Key
   - type: UserInterface
