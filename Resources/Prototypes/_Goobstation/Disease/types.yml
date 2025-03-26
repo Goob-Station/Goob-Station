@@ -1,23 +1,23 @@
 - type: diseaseType
   id: Viral
-  name: Viral
+  name: disease-type-viral
 
 - type: diseaseType
   id: Bacterial
-  name: Bacterial
+  name: disease-type-bacterial
 
 - type: diseaseType
   id: OwnCells
-  name: Autoimmune
+  name: disease-type-owncells
 
 - type: diseaseType
   id: Prion
-  name: Prion
+  name: disease-type-prion
 
 - type: diseaseType
   id: Parasite
-  name: Parasite
+  name: disease-type-parasite
 
 - type: diseaseType
   id: Debug
-  name: Debug
+  name: disease-type-debug

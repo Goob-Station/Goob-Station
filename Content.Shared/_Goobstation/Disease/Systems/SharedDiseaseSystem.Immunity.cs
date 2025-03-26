@@ -11,17 +11,16 @@ public partial class SharedDiseaseSystem
 
     private void OnGetImmunity(EntityUid uid, ImmunityComponent immunity, ref GetImmunityEvent args)
     {
-        if (!_mobState.IsDead(uid) || immunity.InDead)
-        {
-            args.ImmunityGainRate += immunity.ImmunityGainRate;
-            args.ImmunityStrength += immunity.ImmunityStrength;
-        }
+        args.ImmunityGainRate += immunity.ImmunityGainRate;
+        args.ImmunityStrength += immunity.ImmunityStrength;
     }
 
     private void OnImmunityDiseaseGained(EntityUid uid, ImmunityComponent immunity, DiseaseGainedEvent args)
     {
-        if (args.DiseaseGained.Comp.CanGainImmunity)
-            TryAddImmunity(uid, args.DiseaseGained.Owner, immunity, args.DiseaseGained.Comp);
+        if (!args.DiseaseGained.Comp.CanGainImmunity)
+            return;
+
+        TryAddImmunity(uid, args.DiseaseGained.Owner, immunity, args.DiseaseGained.Comp);
     }
 
     private void OnImmunityInfectAttempt(EntityUid uid, ImmunityComponent immunity, DiseaseInfectAttemptEvent args)
@@ -80,6 +79,22 @@ public partial class SharedDiseaseSystem
             return false;
 
         return TryAddImmunity(uid, diseaseComp.Genotype, immunity);
+    }
+
+    public bool CanImmunityAffect(EntityUid uid, DiseaseComponent disease, ImmunityComponent? immunity = null)
+    {
+        if (!Resolve(uid, ref immunity, false))
+            return false;
+
+        return CanImmunityAffect((uid, immunity), disease);
+    }
+
+    public bool CanImmunityAffect(Entity<ImmunityComponent> immunity, DiseaseComponent disease)
+    {
+        if (_mobState.IsDead(immunity.Owner) && !immunity.Comp.InDead)
+            return false;
+
+        return immunity.Comp.AffectedTypes.Contains(disease.DiseaseType);
     }
 
     #endregion

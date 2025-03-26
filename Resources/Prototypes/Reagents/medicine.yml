@@ -838,6 +838,10 @@
         damage:
           types:
             Caustic: 0.3
+      # Goobstation
+      - !type:DiseaseProgressChange
+        affectedType: OwnCells
+        progressModifier: -0.07 # anti-cancer
 
 - type: reagent
   id: PolypyryliumOligomers

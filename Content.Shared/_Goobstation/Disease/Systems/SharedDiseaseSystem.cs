@@ -136,10 +136,10 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
             }
         }
 
-        var ev = new GetImmunityEvent();
-        RaiseLocalEvent(args.Ent.Owner, ref ev);
-
-        var immunityStrength = ev.ImmunityStrength * disease.ImmunityProgress;
+        var ev = new GetImmunityEvent((uid, disease));
+        // don't even check immunity if we can't affect this disease
+        if (CanImmunityAffect(args.Ent.Owner, disease))
+            RaiseLocalEvent(args.Ent.Owner, ref ev);
 
         // infection progression
         if (alive)
@@ -151,7 +151,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
         ChangeInfectionProgress(uid, -timeDelta * ev.ImmunityStrength * disease.ImmunityProgress, disease);
         ChangeImmunityProgress(uid, timeDelta * (ev.ImmunityGainRate * disease.ImmunityGainRate), disease);
 
-        if (disease.InfectionProgress == 0f)
+        if (disease.InfectionProgress <= 0f)
         {
             var curedEv = new DiseaseCuredEvent((uid, disease));
             RaiseLocalEvent(args.Ent.Owner, curedEv);
@@ -170,7 +170,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
         if (!Resolve(uid, ref comp))
             return;
 
-        comp.InfectionProgress = Math.Clamp(comp.InfectionProgress + amount, 0f, 1f);
+        comp.InfectionProgress = Math.Min(comp.InfectionProgress + amount, 1f);
         Dirty(uid, comp);
     }
 
@@ -189,6 +189,14 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
     #endregion
 
     #region disease carriers
+
+    public bool HasAnyDisease(EntityUid uid, DiseaseCarrierComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp, false))
+            return false;
+
+        return comp.Diseases.Count != 0;
+    }
 
     /// <summary>
     /// Finds a disease of specified genotype, if any

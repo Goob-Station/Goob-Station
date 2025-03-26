@@ -9,6 +9,7 @@
   parent: DiseaseBase
   components:
   - type: Disease
+    diseaseType: Bacterial # TODO: make it roll the disease type
     effects:
       DiseaseBehaviorCough: 1 # guaranteed cough
       DiseaseBehaviorFeelUnwell: 1 # gotta mutate to be stealthy
