@@ -229,7 +229,6 @@ public sealed class BinglePitSystem : EntitySystem
 
         var query = AllEntityQuery<Common.Bingle.BinglePitComponent>();
         var pits = new List<Entity<BinglePitComponent>>();
-        var query = AllEntityQuery<BinglePitComponent>();
 
         while (query.MoveNext(out var uid, out var comp))
             pits.Add((uid, comp));
