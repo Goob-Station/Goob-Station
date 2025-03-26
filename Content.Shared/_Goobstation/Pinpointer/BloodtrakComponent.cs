@@ -15,7 +15,7 @@ public sealed partial class BloodtrakComponent : Component
     /// The duration the tracker will remain on, before shutting off automatically.
     /// </summary>
     [DataField]
-    public TimeSpan TrackingDuration = TimeSpan.FromSeconds(30);
+    public TimeSpan TrackingDuration = TimeSpan.FromSeconds(30f);
 
     /// <summary>
     /// The distance defined as being a medium distance away.
@@ -69,7 +69,7 @@ public sealed partial class BloodtrakComponent : Component
     /// How long until the next execution.
     /// </summary>
     [ViewVariables]
-    public TimeSpan CooldownDuration = TimeSpan.FromSeconds(30);
+    public TimeSpan CooldownDuration = TimeSpan.FromSeconds(30f);
 
     /// <summary>
     /// When active tracking ends

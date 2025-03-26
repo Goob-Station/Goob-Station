@@ -108,8 +108,8 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
             // 2. Has valid target
             if (_gameTiming.CurTime < pinpointer.CooldownEndTime)
             {
-                var decimalTime = Convert.ToDecimal(pinpointer.CooldownEndTime);
-                var popUp = Loc.GetString("bloodtrak-cooldown-active", ("num", Math.Round(decimalTime)));
+                var totalTime = (float) pinpointer.CooldownEndTime.TotalSeconds;
+                var popUp = Loc.GetString("bloodtrak-cooldown-active", ("num", totalTime));
                 _popupSystem.PopupPredicted(popUp,
                     pinpointer.Owner,
                     pinpointer.Owner);
