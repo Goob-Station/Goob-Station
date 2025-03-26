@@ -8,6 +8,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Goobstation.Clothing;
 
+/// <summary>
+/// This can be used for modsuit modules in the future.
+/// Currently, it allows you to have an entity inject regeants into itself, defined by a prototype.
+/// </summary>
 public sealed partial class ClothingAutoinjectorSystem : EntitySystem
 {
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
