@@ -128,6 +128,8 @@ namespace Content.Server._TBDStation.ServerKarma
             // TODO: renable
             // if (_players.PlayerCount < _goobcoinsMinPlayers)
             //     return;
+            if (ev.RoundDuration > TimeSpan.FromMinutes(10))
+                return;
 
             var query = EntityQueryEnumerator<MindContainerComponent>();
             var departmentProtos = _prototypeManager.EnumeratePrototypes<DepartmentPrototype>();
@@ -232,11 +234,13 @@ namespace Content.Server._TBDStation.ServerKarma
                 }
                 if (departments.Count != 0)
                     karma += jobSuccessKarma / departments.Count;
-
                 karma *= _karmaEndRoundMultiplier;
+                if (ev.RoundDuration > TimeSpan.FromMinutes(30))
+                    karma *= 0.6f; // Thirty minuate less karma change
+
                 _adminLogger.Add(LogType.Karma,
                 LogImpact.Medium,
-                $"{ToPrettyString(player.Item2):actor} end round gaining or lossing {(int) karma} karma");
+                $"end round {ToPrettyString(player.Item2):actor} gaining or lossing {(int) karma} karma");
                 _karmaMan.AddKarma(player.Item1, (int) karma);
             }
         }
