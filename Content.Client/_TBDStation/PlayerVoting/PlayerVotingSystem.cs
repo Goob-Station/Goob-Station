@@ -28,7 +28,7 @@ public sealed partial class PlayerVotingSystem : EntitySystem
 
         var voter = GetNetIdFromEntId(args.User);
         var target = GetNetIdFromEntId(args.Target);
-        if (voter == null || target == null)
+        if (voter == null || target == null || voter == target)
             return;
 
         Verb verb = new()

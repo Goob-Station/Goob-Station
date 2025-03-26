@@ -13,7 +13,7 @@ namespace Content.Server._TBDStation.SlurFilter
         private static readonly string[] Words = new string[] { "molest", "cum" };
         private static readonly string Pattern = string.Join("|", Words);
         // private static readonly string Pattern = @""
-        private static readonly Regex _slurRegex = new Regex(Pattern, RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace | RegexOptions.Compiled);
+        private static readonly Regex _slurRegex = new Regex(Pattern, RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
         public void PostInject()
         {
