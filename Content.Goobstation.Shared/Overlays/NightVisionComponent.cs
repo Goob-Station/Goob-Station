@@ -2,7 +2,7 @@ using Content.Shared.Actions;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._White.Overlays;
+namespace Content.Goobstation.Shared.Overlays;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class NightVisionComponent : SwitchableVisionOverlayComponent

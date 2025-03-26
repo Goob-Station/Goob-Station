@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Goobstation.Shared.Flashbang;
 using Content.Server.Flash.Components;
 using Content.Shared.Flash.Components;
 using Content.Server.Light.EntitySystems;

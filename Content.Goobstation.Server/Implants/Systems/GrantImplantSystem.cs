@@ -13,10 +13,10 @@ public sealed class GrantImplantSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<GrantImplantComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<Goobstation.Server.Implants.Components.GrantImplantComponent, ComponentInit>(OnInit);
     }
 
-    public void OnInit(EntityUid uid, GrantImplantComponent comp, ComponentInit args)
+    public void OnInit(EntityUid uid, Goobstation.Server.Implants.Components.GrantImplantComponent comp, ComponentInit args)
     {
         _implantSystem.AddImplants(uid, comp.Implants);
     }

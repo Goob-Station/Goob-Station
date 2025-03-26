@@ -1,4 +1,4 @@
-namespace Content.Shared._White.Overlays;
+namespace Content.Goobstation.Shared.Overlays;
 
 public abstract partial class BaseVisionOverlayComponent : Component
 {

@@ -1,10 +1,10 @@
 using System.Numerics;
-using Content.Shared._White.Overlays;
+using Content.Goobstation.Shared.Overlays;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client._White.Overlays;
+namespace Content.Goobstation.Client.Overlays;
 
 public sealed class BaseSwitchableOverlay<TComp> : Overlay where TComp : SwitchableVisionOverlayComponent
 {

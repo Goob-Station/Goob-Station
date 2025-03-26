@@ -1,4 +1,5 @@
 using Content.Goobstation.Shared.Clothing.Components;
+using Content.Shared._White.Standing;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Examine;
 using Content.Shared.Inventory;

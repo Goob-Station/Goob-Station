@@ -1,10 +1,10 @@
 using Content.Client.Overlays;
-using Content.Shared._White.Overlays;
+using Content.Goobstation.Shared.Overlays;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Robust.Client.Graphics;
 
-namespace Content.Client._White.Overlays;
+namespace Content.Goobstation.Client.Overlays;
 
 public sealed class NightVisionSystem : EquipmentHudSystem<NightVisionComponent>
 {

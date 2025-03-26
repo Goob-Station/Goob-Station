@@ -5,7 +5,6 @@ using Content.Goobstation.Shared.Changeling.Components;
 using Content.Server.Light.Components;
 using Content.Server.Nutrition.Components;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
-using Content.Shared._White.Overlays;
 using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -578,7 +577,7 @@ public sealed partial class ChangelingSystem
         eggComp.lingComp = comp;
         eggComp.lingMind = (EntityUid) mind;
         eggComp.lingStore = _serialization.CreateCopy(storeComp, notNullableOverride: true);
-        eggComp.AugmentedEyesightPurchased = HasComp<ThermalVisionComponent>(uid);
+        eggComp.AugmentedEyesightPurchased = HasComp<Shared.Overlays.ThermalVisionComponent>(uid);
 
         EnsureComp<AbsorbedComponent>(target);
         var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 200);

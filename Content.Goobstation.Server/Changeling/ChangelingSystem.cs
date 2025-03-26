@@ -25,7 +25,6 @@ using Content.Server.Store.Systems;
 using Content.Server.Stunnable;
 using Content.Server.Zombies;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
-using Content.Shared._White.Overlays;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
 using Content.Shared.Camera;
@@ -181,7 +180,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         EnsureComp<FlashImmunityComponent>(uid);
         EnsureComp<EyeProtectionComponent>(uid);
 
-        var thermalVision = _compFactory.GetComponent<ThermalVisionComponent>();
+        var thermalVision = _compFactory.GetComponent<Shared.Overlays.ThermalVisionComponent>();
         thermalVision.Color = Color.FromHex("#FB9898");
         thermalVision.LightRadius = 15f;
         thermalVision.FlashDurationMultiplier = 2f;
@@ -667,8 +666,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             typeof(StoreComponent),
             typeof(FlashImmunityComponent),
             typeof(EyeProtectionComponent),
-            typeof(NightVisionComponent),
-            typeof(ThermalVisionComponent),
+            typeof(Shared.Overlays.NightVisionComponent),
+            typeof(Shared.Overlays.ThermalVisionComponent),
             // ADD MORE TYPES HERE
         };
         foreach (var type in types)

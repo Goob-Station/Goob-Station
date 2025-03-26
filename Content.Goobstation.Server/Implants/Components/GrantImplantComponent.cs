@@ -1,4 +1,4 @@
-namespace Content.Server.Implants.Components;
+namespace Content.Goobstation.Server.Implants.Components;
 
 [RegisterComponent]
 public sealed partial class GrantImplantComponent : Component

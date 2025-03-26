@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.Flashbang;
 using Content.Shared.Actions;
 using Content.Shared.Inventory;
 using Robust.Shared.Audio.Systems;
@@ -6,9 +7,9 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._White.Overlays;
+namespace Content.Goobstation.Shared.Overlays;
 
-public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
+public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem // this should get move to a white module if we ever do anything with forks..
     where TComp : SwitchableVisionOverlayComponent
     where TEvent : InstantActionEvent
 {
@@ -26,6 +27,29 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
         SubscribeLocalEvent<TComp, GetItemActionsEvent>(OnGetItemActions);
         SubscribeLocalEvent<TComp, ComponentGetState>(OnGetState);
         SubscribeLocalEvent<TComp, ComponentHandleState>(OnHandleState);
+        SubscribeLocalEvent<TComp, FlashDurationMultiplierEvent>(OnGetFlashMultiplier);
+        SubscribeLocalEvent<TComp, InventoryRelayedEvent<FlashDurationMultiplierEvent>>(OnGetInventoryFlashMultiplier);
+    }
+
+    private void OnGetFlashMultiplier(Entity<TComp> ent, ref FlashDurationMultiplierEvent args)
+    {
+        if (!ent.Comp.IsEquipment)
+            args.Multiplier *= GetFlashMultiplier(ent);
+    }
+
+    private void OnGetInventoryFlashMultiplier(Entity<TComp> ent,
+        ref InventoryRelayedEvent<FlashDurationMultiplierEvent> args)
+    {
+        if (ent.Comp.IsEquipment)
+            args.Args.Multiplier *= GetFlashMultiplier(ent);
+    }
+
+    private float GetFlashMultiplier(TComp comp)
+    {
+        if (!comp.IsActive && (comp.PulseTime <= 0f || comp.PulseAccumulator >= comp.PulseTime))
+            return 1f;
+
+        return comp.FlashDurationMultiplier;
     }
 
     public override void FrameUpdate(float frameTime)

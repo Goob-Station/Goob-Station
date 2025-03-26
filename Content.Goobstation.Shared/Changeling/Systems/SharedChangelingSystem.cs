@@ -1,5 +1,5 @@
 using Content.Goobstation.Shared.Changeling.Components;
-using Content.Shared._White.Overlays;
+using Content.Goobstation.Shared.Overlays;
 using Content.Shared.Eye.Blinding.Components;
 
 namespace Content.Goobstation.Shared.Changeling.Systems;

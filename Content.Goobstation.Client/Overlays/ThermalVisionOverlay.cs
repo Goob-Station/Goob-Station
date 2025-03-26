@@ -1,7 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Client.Stealth;
-using Content.Shared._White.Overlays;
+using Content.Goobstation.Shared.Overlays;
 using Content.Shared.Body.Components;
 using Content.Shared.Stealth.Components;
 using Robust.Client.GameObjects;
@@ -11,7 +11,7 @@ using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
-namespace Content.Client._White.Overlays;
+namespace Content.Goobstation.Client.Overlays;
 
 public sealed class ThermalVisionOverlay : Overlay
 {

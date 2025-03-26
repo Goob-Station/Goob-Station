@@ -1,6 +1,5 @@
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Common.Standing;
-using Content.Shared._Goobstation.Clothing;
 using Content.Shared._Goobstation.Wizard.TimeStop;
 using Content.Shared._Goobstation.Wizard.Traps;
 using Content.Shared._Shitmed.Body.Organ;
