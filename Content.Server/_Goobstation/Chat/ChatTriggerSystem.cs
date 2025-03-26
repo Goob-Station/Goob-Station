@@ -35,7 +35,7 @@ public sealed class ChatTriggerSystem : EntitySystem
         ev.Performer = ent;
         ev.Message = msg;
 
-        RaiseLocalEvent(ent, ev, true);
+        RaiseLocalEvent(ent, (object) ev, true);
 
         return;
 

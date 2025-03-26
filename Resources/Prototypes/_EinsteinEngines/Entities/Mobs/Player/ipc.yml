@@ -132,6 +132,24 @@
   - type: EmitBuzzWhileDamaged
   - type: CanHostGuardian
   - type: WeldingHealable
+  - type: ChatTrigger # Goobstation - THE SWAP
+    messageData:
+    - allowedMessages:
+        chat-trigger-the-swap:
+          ignoreCase: false
+          checkFullMessage: true
+      shouldSanitize: false
+      desiredICMessageTypes: [ Speak ]
+      event: !type:BecomeTheSwapEvent
+
+- type: entity
+  save: false
+  parent: MobIPC
+  id: MobTheSwap
+  name: THE SWAP
+  components:
+  - type: RandomHumanoidAppearance
+  - type: TheSwap
 
 - type: entity
   save: false

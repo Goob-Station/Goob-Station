@@ -8,6 +8,9 @@
     renderOver: East, SouthEast, South, SouthWest, West
   - type: Strap
     position: Stand
+    blacklist:
+      components:
+      - TheSwap # Can't cheese it
   - type: Appearance
   - type: AmbientSound
     sound: "/Audio/Effects/Vehicle/vehicleengineidle.ogg"

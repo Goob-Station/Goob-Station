@@ -99,6 +99,10 @@ public sealed partial class MechComponent : Component
     [DataField]
     public EntityWhitelist? PilotWhitelist;
 
+    // Goobstation
+    [DataField]
+    public EntityWhitelist? PilotBlacklist;
+
     /// <summary>
     /// A container for storing the equipment entities.
     /// </summary>
@@ -148,7 +152,7 @@ public sealed partial class MechComponent : Component
     [DataField]
     public EntProtoId MechCycleAction = "ActionMechCycleEquipment";
     [DataField]
-    public EntProtoId ToggleAction = "ActionToggleLight"; //Goobstation Mech Lights toggle action 
+    public EntProtoId ToggleAction = "ActionToggleLight"; //Goobstation Mech Lights toggle action
     [DataField]
     public EntProtoId MechUiAction = "ActionMechOpenUI";
     [DataField]
@@ -167,5 +171,5 @@ public sealed partial class MechComponent : Component
     [DataField] public EntityUid? MechCycleActionEntity;
     [DataField] public EntityUid? MechUiActionEntity;
     [DataField] public EntityUid? MechEjectActionEntity;
-    [DataField, AutoNetworkedField] public EntityUid? ToggleActionEntity; //Goobstation Mech Lights toggle action 
+    [DataField, AutoNetworkedField] public EntityUid? ToggleActionEntity; //Goobstation Mech Lights toggle action
 }

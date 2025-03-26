@@ -233,7 +233,8 @@ public sealed partial class MechSystem : SharedMechSystem
         if (args.Cancelled || args.Handled)
             return;
 
-        if (_whitelistSystem.IsWhitelistFail(component.PilotWhitelist, args.User))
+        if (_whitelistSystem.IsWhitelistFail(component.PilotWhitelist, args.User) ||
+            _whitelistSystem.IsBlacklistPass(component.PilotBlacklist, args.User)) // Goob edit
         {
             _popup.PopupEntity(Loc.GetString("mech-no-enter", ("item", uid)), args.User);
             return;

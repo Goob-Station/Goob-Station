@@ -35,7 +35,7 @@ public sealed partial class ChatTriggerData
     /// In game IC Message types to check for.
     /// </summary>
     [DataField]
-    public HashSet<InGameICChatType> DesiredICMessageTypes = new(); // This really should have Flags attribute but I'm not going to modify it
+    public HashSet<InGameICChatType> DesiredICMessageTypes = new(); // This really should have Flags attribute, but I'm not going to modify it
 
     /// <summary>
     /// In game OOC Message types to check for.
@@ -51,7 +51,7 @@ public sealed partial class ChatTriggerData
 }
 
 [DataDefinition]
-public abstract partial class MessageCheckData
+public sealed partial class MessageCheckData
 {
     [DataField]
     public bool IgnoreCase = true;

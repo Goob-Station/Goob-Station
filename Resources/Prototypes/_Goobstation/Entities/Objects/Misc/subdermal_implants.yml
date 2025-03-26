@@ -58,6 +58,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
+    permanent: true # There is no going back.
     implantAction: ActionSwapImplant
   - type: Tag
     tags:

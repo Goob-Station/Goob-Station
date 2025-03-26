@@ -133,6 +133,10 @@
     connection: legs
     part: Leg
     symmetry: None
+  - type: SurgeryBodyComponentCondition
+    inverse: true
+    components:
+    - type: TheSwap # No going back
 
 - type: entity
   parent: SurgeryBase
@@ -151,6 +155,10 @@
     connection: left leg
     part: Leg
     symmetry: Left
+  - type: SurgeryBodyComponentCondition
+    inverse: true
+    components:
+    - type: TheSwap # No going back
 
 - type: entity
   parent: SurgeryBase
@@ -169,6 +177,10 @@
     connection: right leg
     part: Leg
     symmetry: Right
+  - type: SurgeryBodyComponentCondition
+    inverse: true
+    components:
+    - type: TheSwap # No going back
 
 - type: entity
   parent: SurgeryBase
