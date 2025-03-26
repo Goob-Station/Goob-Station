@@ -1,4 +1,3 @@
-using Content.Shared._Goobstation.Pinpointer;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
