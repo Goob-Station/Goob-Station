@@ -32,7 +32,6 @@ public sealed class ServerPlayerVotingSystem : EntitySystem
 
     private void OnRoundEndCleanup(RoundRestartCleanupEvent ev)
     {
-        _storedVotes = new Dictionary<NetUserId, Dictionary<NetUserId, int>>();
         foreach (var player in _storedVotes.Keys)
         {
             var postiveVotes = 0;
@@ -57,5 +56,6 @@ public sealed class ServerPlayerVotingSystem : EntitySystem
             $"Voting lost/gained Player {player}: {karmaChange} karma, from {postiveVotes} postives and {negativeVotes} negative votes.");
             _karmaMan.AddKarma(player, karmaChange);
         }
+        _storedVotes = new Dictionary<NetUserId, Dictionary<NetUserId, int>>();
     }
 }

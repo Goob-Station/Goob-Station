@@ -34,7 +34,6 @@ public sealed partial class PlayerVotingSystem : EntitySystem
         Verb verb = new()
         {
             Text = "Vote: Postive",
-            Icon = new SpriteSpecifier.Texture(new ("Resources/Textures/Effects/crayondecals.rsi/heart.png")),
             ClientExclusive = true,
             Act = () => RaiseNetworkEvent(new PlayerVoteEvent(voter.Value, target.Value, 1))
         };
@@ -44,7 +43,6 @@ public sealed partial class PlayerVotingSystem : EntitySystem
         Verb verb2 = new()
         {
             Text = "Vote: Negative",
-            Icon = new SpriteSpecifier.Texture(new ("Resources/Textures/_Goobstation/Objects/Consumable/Food/bay_food.rsi/badrecipe.png")),
             ClientExclusive = true,
             Act = () => RaiseNetworkEvent(new PlayerVoteEvent(voter.Value, target.Value, -1))
         };
