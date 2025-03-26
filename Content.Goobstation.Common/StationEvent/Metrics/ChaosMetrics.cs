@@ -1,7 +1,11 @@
+using System;
+using System.Collections.Generic;
 using System.Linq;
-using Content.Shared.FixedPoint;
+using Robust.Shared.GameObjects;
+using Robust.Shared.Serialization.Manager.Attributes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Generic;
 using Robust.Shared.Utility;
+using Robust.Shared.ViewVariables;
 
 namespace Content.Goobstation.Server.StationEvents.Metric;
 
@@ -46,8 +50,8 @@ public sealed partial class ChaosMetrics : IEquatable<ChaosMetrics>
     /// <summary>
     ///   Main chaos dictionary. Most ChaosMetrics functions exist to somehow modifying this.
     /// </summary>
-    [IncludeDataField(customTypeSerializer:typeof(DictionarySerializer<ChaosMetric, FixedPoint2>)), ViewVariables(VVAccess.ReadWrite)]
-    public Dictionary<ChaosMetric, FixedPoint2> ChaosDict { get; set; } = new();
+    [IncludeDataField(customTypeSerializer:typeof(DictionarySerializer<ChaosMetric, double>)), ViewVariables(VVAccess.ReadWrite)]
+    public Dictionary<ChaosMetric, double> ChaosDict { get; set; } = new();
 
     /// <summary>
     ///   Whether this chaos specifier has any entries.
@@ -85,7 +89,7 @@ public sealed partial class ChaosMetrics : IEquatable<ChaosMetrics>
     /// <summary>
     ///   Constructor that takes another ChaosMetrics instance and copies it.
     /// </summary>
-    public ChaosMetrics(Dictionary<ChaosMetric, FixedPoint2> chaos)
+    public ChaosMetrics(Dictionary<ChaosMetric, double> chaos)
     {
         ChaosDict = new(chaos);
     }
@@ -106,7 +110,7 @@ public sealed partial class ChaosMetrics : IEquatable<ChaosMetrics>
     /// <remarks>
     ///   Note that this only acts on chaos types present in the dictionary. It will not add new chaos types.
     /// </remarks>
-    public void ClampMin(FixedPoint2 minValue)
+    public void ClampMin(double minValue)
     {
         foreach (var (key, value) in ChaosDict)
         {
@@ -119,7 +123,7 @@ public sealed partial class ChaosMetrics : IEquatable<ChaosMetrics>
     ///   Sets all chaos values to be at most some number. Note that if a chaos type is not present in the
     ///   dictionary, these will not be added.
     /// </summary>
-    public void ClampMax(FixedPoint2 maxValue)
+    public void ClampMax(double maxValue)
     {
         foreach (var (key, value) in ChaosDict)
         {
@@ -161,7 +165,7 @@ public sealed partial class ChaosMetrics : IEquatable<ChaosMetrics>
     }
 
     // Here we define the subtraction operator explicitly, rather than implicitly via something like X + (-1 * Y).
-    // This is faster because FixedPoint2 multiplication is somewhat involved.
+    // This is faster because double multiplication is somewhat involved.
     public static ChaosMetrics operator -(ChaosMetrics chaosA, ChaosMetrics chaosB)
     {
         ChaosMetrics newDamage = new(chaosA);

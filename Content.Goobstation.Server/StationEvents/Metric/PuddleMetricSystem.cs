@@ -1,6 +1,7 @@
 ﻿using Content.Goobstation.Server.StationEvents.Metric.Components;
 using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Fluids.Components;
 
@@ -13,32 +14,31 @@ namespace Content.Goobstation.Server.StationEvents.Metric;
 /// </summary>
 public sealed class PuddleMetricSystem : ChaosMetricSystem<PuddleMetricComponent>
 {
-    [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
 
-    public override ChaosMetrics CalculateChaos(EntityUid metric_uid, PuddleMetricComponent component,
-        CalculateChaosEvent args)
+    public override ChaosMetrics CalculateChaos(EntityUid uid, PuddleMetricComponent component, CalculateChaosEvent args)
     {
         // Add up the pain of all the puddles
         var query = EntityQueryEnumerator<PuddleComponent, SolutionContainerManagerComponent>();
-        var mess = FixedPoint2.Zero;
+        double mess = 0;
         while (query.MoveNext(out var puddleUid, out var puddle, out var solutionMgr))
         {
             if (!_solutionContainerSystem.TryGetSolution(puddleUid, puddle.SolutionName, out var puddleSolution))
                 continue;
 
-            FixedPoint2 puddleChaos = 0.0f;
+            double puddleChaos = 0.0f;
             foreach (var substance in puddleSolution.Value.Comp.Solution.Contents)
             {
-                FixedPoint2 substanceChaos = component.Puddles.GetValueOrDefault(substance.Reagent.Prototype, component.PuddleDefault);
-                puddleChaos += substanceChaos * substance.Quantity;
+                var substanceChaos = component.Puddles.GetValueOrDefault(substance.Reagent.Prototype, component.PuddleDefault).Double();
+                puddleChaos += Math.Round(substanceChaos * substance.Quantity.Double());
             }
 
             mess += puddleChaos;
         }
 
-        var chaos = new ChaosMetrics(new Dictionary<ChaosMetric, FixedPoint2>()
+        var chaos = new ChaosMetrics(new Dictionary<ChaosMetric, double>()
         {
-            {ChaosMetric.Mess, mess}
+            {ChaosMetric.Mess, mess},
         });
         return chaos;
     }

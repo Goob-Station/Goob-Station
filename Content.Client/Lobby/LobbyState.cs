@@ -1,3 +1,4 @@
+using Content.Client._durkcode.ServerCurrency;
 using Content.Client._RMC14.LinkAccount;
 using Content.Client.Audio;
 using Content.Client.GameTicking.Managers;
@@ -14,7 +15,6 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
-using Content.Client._Goobstation.ServerCurrency;
 
 namespace Content.Client.Lobby
 {

@@ -1,5 +1,6 @@
 using Content.Goobstation.Server.Implants.Components;
 using Content.Goobstation.Server.Mindcontrol;
+using Content.Goobstation.Shared.Mindcontrol;
 using Content.Shared.Implants;
 using Robust.Shared.Containers;
 
@@ -21,12 +22,12 @@ public sealed class MindcontrolImplantSystem : EntitySystem
             component.HolderUid = Transform(component.ImplanterUid.Value).ParentUid;
         }
         if (args.Implanted != null)
-            EnsureComp<Content.Shared._Goobstation.Mindcontrol.MindcontrolledComponent>(args.Implanted.Value);
+            EnsureComp<MindcontrolledComponent>(args.Implanted.Value);
 
         component.ImplanterUid = null;
         if (args.Implanted == null)
             return;
-        if (!TryComp<Content.Shared._Goobstation.Mindcontrol.MindcontrolledComponent>(args.Implanted.Value, out var implanted))
+        if (!TryComp<MindcontrolledComponent>(args.Implanted.Value, out var implanted))
             return;
         implanted.Master = component.HolderUid;
         _mindcontrol.Start(args.Implanted.Value, implanted);
@@ -43,8 +44,8 @@ public sealed class MindcontrolImplantSystem : EntitySystem
     {
         if (args.Container.ID == "implant") //when implant is removed
         {
-            if (HasComp<Content.Shared._Goobstation.Mindcontrol.MindcontrolledComponent>(args.Container.Owner))
-                RemComp<Content.Shared._Goobstation.Mindcontrol.MindcontrolledComponent>(args.Container.Owner);
+            if (HasComp<MindcontrolledComponent>(args.Container.Owner))
+                RemComp<MindcontrolledComponent>(args.Container.Owner);
         }
     }
 }

@@ -1,11 +1,11 @@
 using System.Threading.Tasks;
-using Content.Goobstation.Shared.ServerCurrency;
 using Content.Server.Database;
+using Content.Shared._durkcode.ServerCurrency;
 using Robust.Server.Player;
 using Robust.Shared.Asynchronous;
 using Robust.Shared.Network;
 
-namespace Content.Goobstation.Server.ServerCurrency
+namespace Content.Server._durkcode.ServerCurrency
 {
     public sealed class ServerCurrencyManager
     {

@@ -26,14 +26,14 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
         var airlockQ = GetEntityQuery<AirlockComponent>();
 
         // Keep counters to calculate average at the end.
-        var doorCounter = FixedPoint2.Zero;
-        var firelockCounter = FixedPoint2.Zero;
-        var airlockCounter = FixedPoint2.Zero;
+        double doorCounter = 0;
+        double firelockCounter = 0;
+        double airlockCounter = 0;
 
-        var fireCount = FixedPoint2.Zero;
-        var pressureCount = FixedPoint2.Zero;
-        var emagCount = FixedPoint2.Zero;
-        var powerCount = FixedPoint2.Zero;
+        double fireCount = 0;
+        double pressureCount = 0;
+        double emagCount = 0;
+        double powerCount = 0;
 
         // Add up the pain of all the doors
         // Restrict to just doors on the main station
@@ -78,24 +78,24 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
             doorCounter += 1;
         }
 
-        var emagChaos = FixedPoint2.Zero;
-        var atmosChaos = FixedPoint2.Zero;
-        var powerChaos = FixedPoint2.Zero;
+        double emagChaos = 0;
+        double atmosChaos = 0;
+        double powerChaos = 0;
         // Calculate each stat as a fraction of all doors in the station.
         //   That way the metrics do not "scale up"  on large stations.
 
-        if (airlockCounter > FixedPoint2.Zero)
-            emagChaos = (emagCount / airlockCounter) * component.EmagCost;
+        if (airlockCounter > 0)
+            emagChaos = Math.Round((emagCount / airlockCounter) * component.EmagCost);
 
-        if (firelockCounter > FixedPoint2.Zero)
-            atmosChaos = (fireCount / firelockCounter) * component.FireCost +
-                         (pressureCount / firelockCounter) * component.PressureCost;
+        if (firelockCounter > 0)
+            atmosChaos = Math.Round((fireCount / firelockCounter) * component.FireCost +
+                                    (pressureCount / firelockCounter) * component.PressureCost);
 
-        if (doorCounter > FixedPoint2.Zero)
-            powerChaos = (powerCount / doorCounter) * component.PowerCost;
+        if (doorCounter > 0)
+            powerChaos = Math.Round((powerCount / doorCounter) * component.PowerCost);
 
 
-        var chaos = new ChaosMetrics(new Dictionary<ChaosMetric, FixedPoint2>()
+        var chaos = new ChaosMetrics(new Dictionary<ChaosMetric, double>()
         {
             {ChaosMetric.Security, emagChaos},
             {ChaosMetric.Atmos, atmosChaos},

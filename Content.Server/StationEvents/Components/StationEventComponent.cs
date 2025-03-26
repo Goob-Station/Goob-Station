@@ -1,5 +1,4 @@
-using Content.Server._Goobstation.StationEvents;
-using Content.Server._Goobstation.StationEvents.Metric; // Goobstation
+using Content.Goobstation.Server.StationEvents.Metric;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 

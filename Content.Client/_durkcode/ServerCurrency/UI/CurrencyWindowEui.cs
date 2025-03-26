@@ -1,9 +1,9 @@
 using Content.Client.Eui;
-using Content.Goobstation.Shared.ServerCurrency;
-using Content.Goobstation.Shared.ServerCurrency.UI;
+using Content.Shared._durkcode.ServerCurrency;
+using Content.Shared._durkcode.ServerCurrency.UI;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Client.ServerCurrency.UI
+namespace Content.Client._durkcode.ServerCurrency.UI
 {
     public class CurrencyEui : BaseEui
     {

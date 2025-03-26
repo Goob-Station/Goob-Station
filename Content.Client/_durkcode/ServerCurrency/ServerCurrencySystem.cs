@@ -1,6 +1,6 @@
-using Content.Goobstation.Shared.ServerCurrency;
+using Content.Shared._durkcode.ServerCurrency;
 
-namespace Content.Goobstation.Client.ServerCurrency;
+namespace Content.Client._durkcode.ServerCurrency;
 
 public sealed class ServerCurrencySystem : EntitySystem
 {

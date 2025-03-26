@@ -5,7 +5,7 @@ using Content.Shared.Chat;
 using Robust.Server.Player;
 using Robust.Shared.Console;
 
-namespace Content.Goobstation.Server.ServerCurrency.Commands
+namespace Content.Server._durkcode.ServerCurrency.Commands
 {
     [AnyCommand]
     public sealed class BalanceServerCurrencyCommand : IConsoleCommand

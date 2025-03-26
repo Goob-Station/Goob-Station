@@ -22,9 +22,9 @@ public sealed class FoodMetricSystem : ChaosMetricSystem<FoodMetricComponent>
     {
         // Gather hunger and thirst scores
         var query = EntityQueryEnumerator<MindContainerComponent, MobStateComponent>();
-        var hungerSc = FixedPoint2.Zero;
-        var thirstSc = FixedPoint2.Zero;
-        var chargeSc = FixedPoint2.Zero;
+        double hungerSc = 0;
+        double thirstSc = 0;
+        double chargeSc = 0;
 
         var thirstQ = GetEntityQuery<ThirstComponent>();
         var hungerQ = GetEntityQuery<HungerComponent>();
@@ -41,22 +41,22 @@ public sealed class FoodMetricSystem : ChaosMetricSystem<FoodMetricComponent>
 
             if (thirstQ.TryGetComponent(uid, out var thirst))
             {
-                thirstSc += component.ThirstScores.GetValueOrDefault(thirst.CurrentThirstThreshold);
+                thirstSc += component.ThirstScores.GetValueOrDefault(thirst.CurrentThirstThreshold).Double();
             }
 
             if (hungerQ.TryGetComponent(uid, out var hunger))
             {
-                hungerSc += component.HungerScores.GetValueOrDefault(hunger.CurrentThreshold);
+                hungerSc += component.HungerScores.GetValueOrDefault(hunger.CurrentThreshold).Double();
             }
 
             if (siliconQ.TryGetComponent(uid, out var silicon))
             {
                 var chargeState = GetChargeState(silicon.ChargeState);
-                chargeSc += component.ChargeScores.GetValueOrDefault(chargeState);
+                chargeSc += component.ChargeScores.GetValueOrDefault(chargeState).Double();
             }
         }
 
-        var chaos = new ChaosMetrics(new Dictionary<ChaosMetric, FixedPoint2>()
+        var chaos = new ChaosMetrics(new Dictionary<ChaosMetric, double>()
         {
             {ChaosMetric.Hunger, hungerSc},
             {ChaosMetric.Thirst, thirstSc},

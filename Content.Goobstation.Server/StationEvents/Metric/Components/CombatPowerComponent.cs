@@ -12,5 +12,5 @@ public sealed partial class CombatPowerComponent : Component
     ///   Threat, expressed as a multiplier (1x is similar to a single player)
     /// </summary>
     [DataField("factor")]
-    public FixedPoint2 Threat = 1.0f;
+    public double Threat = 1.0f;
 }

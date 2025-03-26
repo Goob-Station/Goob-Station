@@ -32,11 +32,11 @@ public sealed class CombatMetricSystem : ChaosMetricSystem<CombatMetricComponent
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
 
-    public FixedPoint2 InventoryPower(EntityUid uid, CombatMetricComponent component)
+    public double InventoryPower(EntityUid uid, CombatMetricComponent component)
     {
         // Iterate through items to determine how powerful the entity is
         // Having a good range of offensive items in your inventory makes you more dangerous
-        var threat = FixedPoint2.Zero;
+        double threat = 0;
 
         var tagsQ = GetEntityQuery<TagComponent>();
         var allTags = new HashSet<ProtoId<TagPrototype>>();
@@ -65,11 +65,11 @@ public sealed class CombatMetricSystem : ChaosMetricSystem<CombatMetricComponent
     {
         // Add up the pain of all the puddles
         var query = EntityQueryEnumerator<MindContainerComponent, MobStateComponent, DamageableComponent, TransformComponent>();
-        var hostiles = FixedPoint2.Zero;
-        var friendlies = FixedPoint2.Zero;
+        double hostiles = 0;
+        double friendlies = 0;
 
-        var medical = FixedPoint2.Zero;
-        var death = FixedPoint2.Zero;
+        double medical = 0;
+        double death = 0;
 
         var powerQ = GetEntityQuery<CombatPowerComponent>();
 
@@ -92,7 +92,7 @@ public sealed class CombatMetricSystem : ChaosMetricSystem<CombatMetricComponent
             powerQ.TryGetComponent(uid, out var power);
             var threatMultiple = power?.Threat ?? 1.0f;
 
-            var entityThreat = FixedPoint2.Zero;
+            double entityThreat = 0;
 
             var antag = _roles.MindIsAntagonist(mind.Mind);
             if (antag)
@@ -110,7 +110,7 @@ public sealed class CombatMetricSystem : ChaosMetricSystem<CombatMetricComponent
                 }
                 else
                 {
-                    medical += damage.Damage.GetTotal() * combatMetric.MedicalMultiplier;
+                    medical += damage.Damage.GetTotal().Double() * combatMetric.MedicalMultiplier;
                     if (mobState.CurrentState == MobState.Critical)
                     {
                         medical += combatMetric.CritScore;
@@ -127,7 +127,7 @@ public sealed class CombatMetricSystem : ChaosMetricSystem<CombatMetricComponent
                 friendlies += (entityThreat + combatMetric.FriendlyScore) * threatMultiple;
         }
 
-        var chaos = new ChaosMetrics(new Dictionary<ChaosMetric, FixedPoint2>()
+        var chaos = new ChaosMetrics(new Dictionary<ChaosMetric, double>()
         {
             {ChaosMetric.Friend, -friendlies}, // Friendlies are good, so make a negative chaos score
             {ChaosMetric.Hostile, hostiles},

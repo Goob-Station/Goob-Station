@@ -1,8 +1,9 @@
+using Content.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Server.Teleportation;
+namespace Content.Goobstation.Shared.Teleportation.Components;
 
 /// <summary>
 /// Creates a map for a pocket dimension on spawn.

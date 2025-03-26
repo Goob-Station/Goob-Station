@@ -1,9 +1,9 @@
-using Content.Goobstation.Server.ServerCurrency.UI;
+using Content.Server._durkcode.ServerCurrency.UI;
 using Content.Server.EUI;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 
-namespace Content.Goobstation.Server.ServerCurrency.Commands
+namespace Content.Server._durkcode.ServerCurrency.Commands
 {
     [AnyCommand]
     public sealed class CurrencyUiCommand : IConsoleCommand

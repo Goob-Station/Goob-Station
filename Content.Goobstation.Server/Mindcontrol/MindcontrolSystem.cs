@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.Mindcontrol;
 using Content.Server.Administration.Logs;
 using Content.Server.Antag;
 using Content.Server.Mind;
@@ -27,17 +28,17 @@ public sealed class MindcontrolSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<Content.Shared._Goobstation.Mindcontrol.MindcontrolledComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<Content.Shared._Goobstation.Mindcontrol.MindcontrolledComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<Content.Shared._Goobstation.Mindcontrol.MindcontrolledComponent, MindAddedMessage>(OnMindAdded);
-        SubscribeLocalEvent<Content.Shared._Goobstation.Mindcontrol.MindcontrolledComponent, MindRemovedMessage>(OnMindRemoved);
+        SubscribeLocalEvent<MindcontrolledComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<MindcontrolledComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<MindcontrolledComponent, MindAddedMessage>(OnMindAdded);
+        SubscribeLocalEvent<MindcontrolledComponent, MindRemovedMessage>(OnMindRemoved);
         SubscribeLocalEvent<MindcontrolledRoleComponent, GetBriefingEvent>(OnGetBriefing);
     }
-    public void OnStartup(EntityUid uid, Content.Shared._Goobstation.Mindcontrol.MindcontrolledComponent component, ComponentStartup arg)
+    public void OnStartup(EntityUid uid, MindcontrolledComponent component, ComponentStartup arg)
     {
         _stun.TryParalyze(uid, TimeSpan.FromSeconds(5f), true); //dont need this but, but its a still a good indicator from how Revulution and subverted silicone does it
     }
-    public void OnShutdown(EntityUid uid, Content.Shared._Goobstation.Mindcontrol.MindcontrolledComponent component, ComponentShutdown arg)
+    public void OnShutdown(EntityUid uid, MindcontrolledComponent component, ComponentShutdown arg)
     {
         _stun.TryParalyze(uid, TimeSpan.FromSeconds(5f), true);
         if (_mindSystem.TryGetMind(uid, out var mindId, out _))
@@ -45,7 +46,7 @@ public sealed class MindcontrolSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("mindcontrol-popup-stop"), uid, PopupType.Large);
         _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(uid)} is no longer Mindcontrolled.");
     }
-    public void Start(EntityUid uid, Content.Shared._Goobstation.Mindcontrol.MindcontrolledComponent component)
+    public void Start(EntityUid uid, MindcontrolledComponent component)
     {
         if (component.Master == null)
             return;
@@ -69,12 +70,12 @@ public sealed class MindcontrolSystem : EntitySystem
         }
         _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(uid)} is Mindcontrolled by {ToPrettyString(component.Master.Value)}.");
     }
-    private void OnMindAdded(EntityUid uid, Content.Shared._Goobstation.Mindcontrol.MindcontrolledComponent component, MindAddedMessage args)  //  OnMindAdded is if somone whit out a mind gets implanted, like Ian before given cognezine or somone dead ghost.
+    private void OnMindAdded(EntityUid uid, MindcontrolledComponent component, MindAddedMessage args)  //  OnMindAdded is if somone whit out a mind gets implanted, like Ian before given cognezine or somone dead ghost.
     {
         if (!_roleSystem.MindHasRole<MindcontrolledRoleComponent>(args.Mind.Owner))
             Start(uid, component); //goes agein if comp added before mind.
     }
-    private void OnMindRemoved(EntityUid uid, Content.Shared._Goobstation.Mindcontrol.MindcontrolledComponent component, MindRemovedMessage args)
+    private void OnMindRemoved(EntityUid uid, MindcontrolledComponent component, MindRemovedMessage args)
     {
         _roleSystem.MindTryRemoveRole<MindcontrolledRoleComponent>(args.Mind.Owner);
     }

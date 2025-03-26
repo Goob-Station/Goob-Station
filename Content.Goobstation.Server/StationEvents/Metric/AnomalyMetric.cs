@@ -15,7 +15,7 @@ public sealed class AnomalyMetric : ChaosMetricSystem<Goobstation.Server.Station
         Goobstation.Server.StationEvents.Metric.Components.AnomalyMetricComponent component,
         CalculateChaosEvent args)
     {
-        var anomalyChaos = FixedPoint2.Zero;
+        double anomalyChaos = 0;
 
         // Consider each anomaly and add its stability and growth to the accumulator
         var anomalyQ = EntityQueryEnumerator<AnomalyComponent>();
@@ -40,7 +40,7 @@ public sealed class AnomalyMetric : ChaosMetricSystem<Goobstation.Server.Station
             anomalyChaos += 0.25f;
         }
 
-    var chaos = new ChaosMetrics(new Dictionary<ChaosMetric, FixedPoint2>()
+    var chaos = new ChaosMetrics(new Dictionary<ChaosMetric, double>()
         {
             {ChaosMetric.Anomaly, anomalyChaos},
         });

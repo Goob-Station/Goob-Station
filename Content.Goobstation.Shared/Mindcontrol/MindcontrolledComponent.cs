@@ -3,7 +3,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Mindcontrol;
+namespace Content.Goobstation.Shared.Mindcontrol;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class MindcontrolledComponent : Component
@@ -14,6 +14,7 @@ public sealed partial class MindcontrolledComponent : Component
     public SoundSpecifier MindcontrolStartSound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/mindcontrol_start.ogg");
     [DataField]
     public bool BriefingSent = false;
+
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public ProtoId<FactionIconPrototype> MindcontrolIcon { get; set; } = "MindcontrolledFaction";
 }

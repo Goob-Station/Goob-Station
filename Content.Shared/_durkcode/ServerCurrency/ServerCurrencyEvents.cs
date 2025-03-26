@@ -2,7 +2,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Shared.ServerCurrency;
+namespace Content.Shared._durkcode.ServerCurrency;
 
 /// <summary>
 ///     Arguments for when a player's currency is changed.
