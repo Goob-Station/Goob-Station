@@ -653,6 +653,22 @@
   categories:
   - UplinkDisruption
 
+- type: listing
+  id: UplinkMagazinePistolCaselessMagnumSAPHE
+  name: uplink-caseless-magnum-pistol-mag-saphe-name
+  description: uplink-caseless-magnum-pistol-mag-saphe-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: red-icon }
+  productEntity: MagazinePistolCaselessMagnumSAPHE
+  cost:
+    Telecrystal: 5 # 23 total damage but ~1/3 of a rifle magazine and semi armor piercing, remember the damage is 13 pierce 10 explosive
+  categories:
+  - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
 # Mechs
 
 - type: listing

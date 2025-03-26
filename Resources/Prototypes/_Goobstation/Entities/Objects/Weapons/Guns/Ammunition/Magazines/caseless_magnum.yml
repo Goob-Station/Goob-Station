@@ -18,11 +18,11 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-  - type: MagazineVisuals
-    magState: mag
-    steps: 6
-    zeroVisible: false
-  - type: Appearance
+# - type: MagazineVisuals
+#   magState: mag
+#   steps: 6
+#   zeroVisible: false
+# - type: Appearance
 
 - type: entity
   id: MagazinePistolCaselessMagnumMinusP
@@ -40,19 +40,19 @@
     capacity: 12
   - type: Sprite
     slayers:
-    - state: red
+    - state: rubber
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-  - type: MagazineVisuals
-    magState: mag
-    steps: 6
-    zeroVisible: false
-  - type: Appearance
+# - type: MagazineVisuals
+#   magState: mag
+#   steps: 6
+#   zeroVisible: false
+# - type: Appearance
 
 - type: entity
   id: MagazinePistolCaselessMagnumSAPHE
-  name: "pistol magazine (12.7mm caseless magnum SAPHE)"
+  name: "pistol magazine (12.7mm caseless magnum SAP-HE)"
   parent: BaseMagazinePistolCaselessRifle
   components:
   - type: Tag
@@ -66,12 +66,12 @@
     capacity: 12
   - type: Sprite
     slayers:
-    - state: red
+    - state: practice
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-  - type: MagazineVisuals
-    magState: mag
-    steps: 6
-    zeroVisible: false
-  - type: Appearance
+# - type: MagazineVisuals
+#   magState: mag
+#   steps: 6
+#   zeroVisible: false
+# - type: Appearance

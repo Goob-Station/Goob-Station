@@ -431,13 +431,13 @@
 
 # For the Cobra
 - type: listing
-  id: UplinkMagazinePistolCaselessRifle
-  name: uplink-pistol-magazine-caseless-name
-  description: uplink-pistol-magazine-caseless-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: red-icon }
-  productEntity: MagazinePistolCaselessRifle
+  id: UplinkMagazinePistolCaselessMagnumMinusP
+  name: uplink-caseless-magnum-pistol-mag-minusp-name
+  description: uplink-caseless-magnum-pistol-mag-minusp-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: rubber }
+  productEntity: MagazinePistolCaselessMagnumMinusP
   cost:
-    Telecrystal: 2 # goob - Same price as .35, more damage but less ammo in mag
+    Telecrystal: 3 # goob - 5 shots to crit
   categories:
   - UplinkAmmo
 
