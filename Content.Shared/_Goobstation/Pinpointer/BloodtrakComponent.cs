@@ -70,7 +70,19 @@ public sealed partial class BloodtrakComponent : Component
     /// How long until the next execution.
     /// </summary>
     [ViewVariables]
-    public TimeSpan NextExecutionTime = TimeSpan.FromSeconds(30);
+    public TimeSpan CooldownDuration = TimeSpan.FromSeconds(30);
+
+    /// <summary>
+    /// When active tracking ends
+    /// </summary>
+    [ViewVariables]
+    public TimeSpan ExpirationTime;
+
+    /// <summary>
+    /// When cooldown ends
+    /// </summary>
+    [ViewVariables]
+    public TimeSpan CooldownEndTime;
 
     [ViewVariables]
     public bool HasTarget => DistanceToTarget != Distance.Unknown;

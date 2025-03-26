@@ -100,6 +100,16 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
             return false;
 
         var isActive = !pinpointer.IsActive;
+
+        if (isActive)
+        {
+            // Only allow activation if not in cooldown
+            if (_gameTiming.CurTime < pinpointer.CooldownEndTime)
+                return false;
+
+            pinpointer.ExpirationTime = _gameTiming.CurTime + pinpointer.TrackingDuration;
+        }
+
         SetActive(uid, isActive, pinpointer);
         UpdateAppearance(uid, pinpointer);
         return isActive;
@@ -128,20 +138,33 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         base.Update(frameTime);
 
         var query = EntityQueryEnumerator<BloodtrakComponent>();
+        var currentTime = _gameTiming.CurTime;
+
         while (query.MoveNext(out var uid, out var tracker))
         {
             if (!tracker.IsActive)
                 continue;
 
-            UpdateDirectionToTarget(uid, tracker);
+            // Update target validity first
+            var targetValid = tracker.Target != null && Exists(tracker.Target.Value);
 
-            if (_gameTiming.CurTime <= tracker.NextExecutionTime)
-                continue;
+            // Check expiration only if target is valid
+            if (targetValid)
+            {
+                UpdateDirectionToTarget(uid, tracker);
 
-            _popupSystem.PopupPredicted(Loc.GetString("bloodtrak-target-lost"), tracker.Owner, tracker.Owner, PopupType.MediumCaution);
+                // Only check timer if we have a valid target
+                if (currentTime < tracker.ExpirationTime)
+                    continue;
+            }
+
+            // Handle target loss or expiration
+            _popupSystem.PopupPredicted(Loc.GetString("bloodtrak-target-lost"), uid, uid);
             TogglePinpointer(uid, tracker);
             tracker.Target = null;
-            tracker.NextExecutionTime = _gameTiming.CurTime + tracker.TrackingDuration;
+
+            // Set cooldown (not expiration time)
+            tracker.CooldownEndTime = currentTime + tracker.CooldownDuration;
             Dirty(uid, tracker);
         }
     }
