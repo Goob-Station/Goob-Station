@@ -37,12 +37,12 @@ public sealed partial class FancyTechnologyInfoPanel : Control
 
         InitializeRecipeUnlocks(proto, lathe, sprite);
 
-        ResearchButton.ToolTip = !hasAccess 
-            ? Loc.GetString("research-console-no-access-popup") 
+        ResearchButton.ToolTip = !hasAccess
+            ? Loc.GetString("research-console-no-access-popup")
             : null;
 
-        ResearchButton.Text = availability == ResearchAvailability.Researched 
-            ? Loc.GetString("research-console-menu-server-researched-button") 
+        ResearchButton.Text = availability == ResearchAvailability.Researched
+            ? Loc.GetString("research-console-menu-server-researched-button")
             : ResearchButton.Text;
 
         Color? color = availability switch

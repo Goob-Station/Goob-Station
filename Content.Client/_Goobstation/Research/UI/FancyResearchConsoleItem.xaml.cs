@@ -39,10 +39,11 @@ public sealed partial class FancyResearchConsoleItem : LayoutContainer
 
         (Color, HoveredColor, BorderColor) = availability switch
         {
-            ResearchAvailability.Researched => (Color.PaleGreen, Color.PaleGreen, Color.LimeGreen),
-            ResearchAvailability.Available => (Color.DarkOliveGreen, Color.PaleGreen, Color.LimeGreen),
+            ResearchAvailability.Researched => (Color.DarkOliveGreen, Color.PaleGreen, Color.LimeGreen),
+            ResearchAvailability.Available => (Color.FromHex("#7c7d2a"), Color.FromHex("#ecfa52"), Color.FromHex("#e8fa25")),
+            ResearchAvailability.PrereqsMet => (Color.FromHex("#6b572f"), Color.FromHex("#fad398"), Color.FromHex("#cca031")),
             ResearchAvailability.Unavailable => (Color.DarkRed, Color.PaleVioletRed, Color.Crimson),
-            _ => (Color.White, Color.White, Color.White)
+            _ => (Color.DarkRed, Color.PaleVioletRed, Color.Crimson)
         };
 
         UpdateColor();

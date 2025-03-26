@@ -31,8 +31,8 @@ public sealed partial class ResearchSystem
                     var prereqsMet = proto.TechnologyPrerequisites.All(p => unlockedTechs.Contains(p));
                     var canAfford = server.Points >= proto.Cost;
 
-                    return prereqsMet && canAfford
-                        ? ResearchAvailability.Available
+                    return prereqsMet ?
+                        (canAfford ? ResearchAvailability.Available : ResearchAvailability.PrereqsMet)
                         : ResearchAvailability.Unavailable;
                 });
 
