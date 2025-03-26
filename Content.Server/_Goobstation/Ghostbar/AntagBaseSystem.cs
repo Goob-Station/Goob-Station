@@ -1,12 +1,30 @@
-using Robust.Shared.Map;
+using Content.Server.GameTicking.Events;
+using Robust.Shared.EntitySerialization;
+using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.Utility;
 
-namespace Content.Server._Goobstation.AntagBase;
+namespace Content.Server._Goobstation.Ghostbar;
 
-const string AntagMapDIR = "Maps/_Goobstation/Nonstations/antagplanet.yml";
-private void OnRoundStart(RoundStartingEvent ev)
+public sealed class AntagBaseSystem : EntitySystem
 {
-    var DirPath = new ResPath(AntagMapDIR);
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
 
-    if (_mapLoader.TryLoadMap(DirPath, out var MapStat, out _, new DeserializationOptions { InitializeMaps = true }))
-        _mapSystem.SetPaused(MapStat.Value.Comp.MapId, false);
+    public override void Initialize()
+    {
+        SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
+    }
+
+    const string AntagMapDIR = "Maps/_Goobstation/Nonstations/antagplanet.yml";
+
+    void OnRoundStart(RoundStartingEvent ev)
+    {
+        var DirPath = new ResPath(AntagMapDIR);
+
+        if (_mapLoader.TryLoadMap(DirPath,
+                out var MapStat,
+                out _,
+                new DeserializationOptions { InitializeMaps = true }))
+            _mapSystem.SetPaused(MapStat.Value.Comp.MapId, false);
+    }
 }
