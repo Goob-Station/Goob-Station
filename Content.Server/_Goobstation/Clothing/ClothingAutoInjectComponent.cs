@@ -12,4 +12,7 @@ public sealed partial class ClothingAutoInjectComponent : Component
 
     [DataField]
     public EntProtoId Action = "ActionActivateAutoinjector";
+
+    [DataField]
+    public EntityUid? ActionEntity;
 }

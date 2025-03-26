@@ -14,6 +14,7 @@ public sealed partial class ClothingAutoinjectorSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -35,7 +36,6 @@ public sealed partial class ClothingAutoinjectorSystem : EntitySystem
 
         _popup.PopupEntity(Loc.GetString("autoinjector-injection-hardsuit"), uid, uid);
         args.Handled = true;
-
     }
 
     public bool TryInjectReagents(EntityUid uid, Dictionary<string, FixedPoint2> reagents)
@@ -55,12 +55,12 @@ public sealed partial class ClothingAutoinjectorSystem : EntitySystem
 
     private void OnCompInit(Entity<ClothingAutoInjectComponent> ent, ref ComponentInit args)
     {
-        _actions.AddAction(ent.Owner, ent.Comp.Action);
+        ent.Comp.ActionEntity = _actions.AddAction(ent.Owner, ent.Comp.Action);
     }
 
     private void OnShutdown(Entity<ClothingAutoInjectComponent> ent, ref ComponentShutdown args)
     {
-        _actions.RemoveAction(ent.Owner, ent.Owner);
+        // Corrected: Use the component's Action property to remove the specific action
+        _actions.RemoveAction(ent.Owner, ent.Comp.ActionEntity);
     }
-
 }
