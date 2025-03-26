@@ -59,6 +59,20 @@
   components:
   - type: KravMagaImplant
 
+- type: entity
+  parent: BaseSubdermalImplant
+  id: AutoinjectorImplant
+  name: autoinjector implant
+  description: This implant allows the user to inject themselves with a chemical on use. Ephedrine by default.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionActivateAutoinjector
+  - type: Tag
+    tags:
+    - SubdermalImplant
+    - HideContextMenu
+
 # Admeme
 
 - type: entity

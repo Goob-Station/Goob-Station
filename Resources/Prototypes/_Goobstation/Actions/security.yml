@@ -1,0 +1,15 @@
+- type: entity
+  id: ActionActivateAutoinjector
+  name: Active Autoinjector
+  description: Inject some stimulants into yourself.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 60
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: epinephrine_overdose
+    event: !type:ActionEphedrineOverdoseEvent {}
