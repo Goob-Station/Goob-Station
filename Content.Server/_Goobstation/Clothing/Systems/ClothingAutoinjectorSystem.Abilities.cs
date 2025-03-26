@@ -16,7 +16,7 @@ public sealed partial class ClothingAutoinjectorSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<ClothingAutoInjectComponent, ActionActivateAutoInjectorEvent>(OnInjectorActivated);
-        SubscribeLocalEvent<ClothingAutoInjectComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<ClothingAutoInjectComponent, ComponentInit>(OnCompInit);
         SubscribeLocalEvent<ClothingAutoInjectComponent, ComponentShutdown>(OnShutdown);
     }
 
@@ -43,7 +43,7 @@ public sealed partial class ClothingAutoinjectorSystem : EntitySystem
         return true;
     }
 
-    private void OnMapInit(Entity<ClothingAutoInjectComponent> ent, ref MapInitEvent args)
+    private void OnCompInit(Entity<ClothingAutoInjectComponent> ent, ref ComponentInit args)
     {
         _actions.AddAction(ent.Owner, ent.Comp.Action);
         Dirty(ent);
