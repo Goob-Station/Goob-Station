@@ -48,9 +48,9 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
     public Dictionary<string, ResearchAvailability> List = new();
 
     /// <summary>
-    /// Contains BUI state for some stuff
+    /// Cached research points
     /// </summary>
-    public ResearchConsoleBoundInterfaceState LocalState = new(0, new());
+    public int Points = 0;
 
     /// <summary>
     /// Is tech currently being dragged
@@ -77,7 +77,7 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
         DragContainer.OnKeyBindUp += OnKeybindUp;
         RecenterButton.OnPressed += _ => Recenter();
 
-        UpdatePanels(LocalState);
+        UpdatePanels(List);
         Recenter();
     }
 
@@ -86,36 +86,34 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
         Entity = entity;
     }
 
-    public void UpdatePanels(ResearchConsoleBoundInterfaceState state)
+    public void UpdatePanels(Dictionary<string, ResearchAvailability> dict)
     {
         DragContainer.RemoveAllChildren();
-        List = state.Researches;
-        LocalState.Researches = state.Researches;
+        List = dict;
 
-        foreach (var tech in _prototype.EnumeratePrototypes<TechnologyPrototype>())
+        foreach (var tech in List)
         {
-            if (!List.ContainsKey(tech.ID))
-                continue;
+            var proto = _prototype.Index<TechnologyPrototype>(tech.Key);
 
-            var control = new FancyResearchConsoleItem(tech, _sprite, List[tech.ID]);
+            var control = new FancyResearchConsoleItem(proto, _sprite, tech.Value);
             DragContainer.AddChild(control);
 
             // Set position for all tech, relating to _position
-            LayoutContainer.SetPosition(control, _position + tech.Position * 150);
+            LayoutContainer.SetPosition(control, _position + proto.Position * 150);
             control.SelectAction += SelectTech;
 
-            if (tech.ID == CurrentTech)
-                SelectTech(tech, List[tech.ID]);
+            if (tech.Key == CurrentTech)
+                SelectTech(proto, tech.Value);
         }
     }
 
-    public void UpdateInformationPanel(ResearchConsoleBoundInterfaceState state)
+    public void UpdateInformationPanel(int points)
     {
-        LocalState.Points = state.Points;
+        Points = points;
 
         var amountMsg = new FormattedMessage();
         amountMsg.AddMarkupOrThrow(Loc.GetString("research-console-menu-research-points-text",
-            ("points", state.Points)));
+            ("points", points)));
         ResearchAmountLabel.SetMessage(amountMsg);
 
         if (!_entity.TryGetComponent(Entity, out TechnologyDatabaseComponent? database))

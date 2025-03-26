@@ -49,8 +49,8 @@ public sealed class ResearchConsoleBoundUserInterface : BoundUserInterface
         if (State is not ResearchConsoleBoundInterfaceState rState)
             return;
 
-        _consoleMenu?.UpdatePanels(rState);
-        _consoleMenu?.UpdateInformationPanel(rState);
+        _consoleMenu?.UpdatePanels(rState.Researches);
+        _consoleMenu?.UpdateInformationPanel(rState.Points);
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -64,9 +64,9 @@ public sealed class ResearchConsoleBoundUserInterface : BoundUserInterface
         // Thats for avoiding refresh spam when only points are updated
         if (_consoleMenu == null)
             return;
-        if (!_consoleMenu.LocalState.Researches.SequenceEqual(castState.Researches))
-            _consoleMenu.UpdatePanels(castState);
-        if (_consoleMenu.LocalState.Points != castState.Points)
-            _consoleMenu.UpdateInformationPanel(castState);
+        if (!_consoleMenu.List.SequenceEqual(castState.Researches))
+            _consoleMenu.UpdatePanels(castState.Researches);
+        if (_consoleMenu.Points != castState.Points)
+            _consoleMenu.UpdateInformationPanel(castState.Points);
     }
 }
