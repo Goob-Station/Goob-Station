@@ -94,9 +94,8 @@ public abstract class SharedFishingSystem : EntitySystem
                 {
                     // Add a small adjustment based on difficulty to compensate for network delay
                     var compensationFactor = 0.5f;
-                    totalDuration += TimeSpan.FromSeconds(1f / Math.Max(0.01f, Math.Abs(activeSpotComp.FishDifficulty)) * compensationFactor);
+                    totalDuration += TimeSpan.FromSeconds(1f / Math.Max(0.01f, Math.Abs(activeSpotComp.FishDifficulty)) * compensationFactor * fishingRodComp.Efficiency);
                 }
-
 
                 fisherComp.TotalProgress = (float) (elapsedTime.Value.TotalSeconds / totalDuration.Value.TotalSeconds);
             }
@@ -164,6 +163,11 @@ public abstract class SharedFishingSystem : EntitySystem
         var fishingLures = EntityQueryEnumerator<FishingLureComponent>();
         while (fishingLures.MoveNext(out var fishingLure, out var lureComp))
         {
+            if (lureComp.NextUpdate > Timing.CurTime)
+                continue;
+
+            lureComp.NextUpdate = Timing.CurTime + TimeSpan.FromSeconds(lureComp.UpdateInterval);
+
             if (!FishRodQuery.TryComp(lureComp.FishingRod, out var fishingRodComp))
                 continue;
 

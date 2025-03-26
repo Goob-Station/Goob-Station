@@ -10,4 +10,10 @@ public sealed partial class FishingLureComponent : Component
 
     [DataField, AutoNetworkedField]
     public EntityUid? AttachedEntity;
+
+    [ViewVariables]
+    public TimeSpan NextUpdate;
+
+    [DataField]
+    public float UpdateInterval = 1f;
 }
