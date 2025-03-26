@@ -1,13 +1,14 @@
+using Content.Goobstation.Common.MartialArts;
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Grab;
+namespace Content.Goobstation.Server.Grab;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent]
 public sealed partial class GrabbingItemComponent : Component
 {
-    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
-    public EntityUid? GrabbedEntity;
+    [DataField]
+    public GrabStage GrabStageOverride = GrabStage.Hard;
 
     [DataField]
-    public TimeSpan GrabBreakDelay = TimeSpan.FromSeconds(5);
+    public float EscapeAttemptModifier = 2f;
 }
