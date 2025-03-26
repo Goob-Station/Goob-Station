@@ -51,11 +51,13 @@
   parent: [ BaseItem, BaseCommandContraband ]
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Security/blueshieldundetermined.rsi # Todo - Change This
+    sprite: _Goobstation/Objects/Specific/Security/hosundetermined.rsi # Todo - Change This
     state: icon
   - type: ThiefUndeterminedBackpack # Someone should rename this.
     possibleSets:
-    - MultiphaseSet
+    - SmgSet
+    - ShotgunSet
+    - SniperSet
   - type: ActivatableUI
     key: enum.ThiefBackpackUIKey.Key
   - type: UserInterface
