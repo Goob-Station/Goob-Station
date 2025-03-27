@@ -50,9 +50,6 @@ public sealed class MedigunSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
         var query = EntityQueryEnumerator<MediGunComponent>();
         while (query.MoveNext(out var medical, out var component))
         {
@@ -227,6 +224,9 @@ public sealed class MedigunSystem : EntitySystem
         EnableUber((uid, component));
     }
 
+    /// <summary>
+    /// Activates uber mode for this medigun and changes all visuals.
+    /// </summary>
     private void EnableUber(Entity<MediGunComponent> ent)
     {
         var comp = ent.Comp;
@@ -241,6 +241,9 @@ public sealed class MedigunSystem : EntitySystem
         Dirty(ent, visuals);
     }
 
+    /// <summary>
+    /// Removes all uber related values and restores normal visuals.
+    /// </summary>
     private void DisableUber(Entity<MediGunComponent> ent)
     {
         var comp = ent.Comp;

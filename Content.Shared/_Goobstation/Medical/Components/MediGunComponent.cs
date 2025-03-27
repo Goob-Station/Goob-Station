@@ -61,12 +61,6 @@ public sealed partial class MediGunComponent : Component
     public float UberDefaultLenght = 10f;
 
     /// <summary>
-    /// How many entities this can heal at once.
-    /// </summary>
-    [DataField]
-    public int MaxHealedEntitiesAmount = 1;
-
-    /// <summary>
     /// This gun will work only with entities that are in this whitelist.
     /// </summary>
     [DataField]
