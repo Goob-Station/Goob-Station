@@ -12,7 +12,9 @@
       <Nullable>enable</Nullable>
       <ServerGarbageCollection>true</ServerGarbageCollection>
     </PropertyGroup>
-
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" PrivateAssets="All" />
+  </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\Content.Goobstation.Shared\Content.Goobstation.Shared.csproj" />
       <ProjectReference Include="..\Content.Server\Content.Server.csproj" />

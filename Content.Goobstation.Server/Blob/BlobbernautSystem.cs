@@ -1,8 +1,8 @@
 using System.Linq;
+using Content.Goobstation.Shared.Blob;
+using Content.Goobstation.Shared.Blob.Components;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
-using Content.Shared._Goobstation.Blob;
-using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -84,7 +84,7 @@ public sealed class BlobbernautSystem : SharedBlobbernautSystem
 
     private void OnMeleeHit(EntityUid uid, BlobbernautComponent component, MeleeHitEvent args)
     {
-        if (args.HitEntities.Count >= 1)
+        if (args.HitEntities.Count < 1)
             return;
         if (!_tileQuery.TryComp(component.Factory, out var blobTileComponent))
             return;

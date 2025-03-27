@@ -19,7 +19,6 @@ public sealed class ContrabandDetectorSystem : SharedContrabandDetectorSystem
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<ContrabandDetectorComponent, StartCollideEvent>(OnStartCollide);
     }
 

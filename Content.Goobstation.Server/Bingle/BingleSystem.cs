@@ -4,13 +4,10 @@ using Content.Goobstation.Shared.Bingle;
 using Content.Server.Flash.Components;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
-using Content.Shared._White.Overlays;
 using Content.Shared.CombatMode;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
-using Robust.Shared.GameObjects;
-using Robust.Shared.IoC;
 using Robust.Shared.Map;
 
 namespace Content.Goobstation.Server.Bingle;
@@ -25,7 +22,7 @@ public sealed class BingleSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<BingleComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BingleComponent, AttackAttemptEvent>(OnAttackAttempt);
-        SubscribeLocalEvent<BingleComponent, ToggleNightVisionEvent>(OnNightvision);
+        SubscribeLocalEvent<BingleComponent, Shared.Overlays.ToggleNightVisionEvent>(OnNightvision);
         SubscribeLocalEvent<BingleComponent, ToggleCombatActionEvent>(OnCombatToggle);
     }
 
@@ -70,7 +67,7 @@ public sealed class BingleSystem : EntitySystem
             args.Cancel();
     }
 
-    private void OnNightvision(EntityUid uid, BingleComponent component, ToggleNightVisionEvent args)
+    private void OnNightvision(EntityUid uid, BingleComponent component, Shared.Overlays.ToggleNightVisionEvent args)
     {
         if (!TryComp<FlashImmunityComponent>(uid, out var flashComp))
             return;

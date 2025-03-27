@@ -1,5 +1,6 @@
 ﻿using Content.Client.Weapons.Melee;
-using Content.Shared._Goobstation.Blob;
+using Content.Goobstation.Shared.Blob;
+using Content.Goobstation.Shared.Blob.Events;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Client.Blob;
