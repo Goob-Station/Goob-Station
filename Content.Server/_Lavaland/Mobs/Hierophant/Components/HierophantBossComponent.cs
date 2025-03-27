@@ -26,19 +26,19 @@ public sealed partial class HierophantBossComponent : MegafaunaComponent
     /// Max cap for anger.
     /// </summary>
     [DataField]
-    public float MaxAnger = 3f;
+    public float MaxAnger = 6f;
 
     [DataField]
-    public float InterActionDelay = 3 * TileDamageDelay * 1000f;
+    public float InterActionDelay = 1.5f * TileDamageDelay * 1000f;
 
     [DataField]
-    public float AttackCooldown = 6f * TileDamageDelay;
+    public float AttackCooldown = 4.5f * TileDamageDelay;
 
     [ViewVariables]
-    public float AttackTimer = 4f * TileDamageDelay;
+    public float AttackTimer = 2.5f * TileDamageDelay;
 
     [DataField]
-    public float MinAttackCooldown = 2f * TileDamageDelay;
+    public float MinAttackCooldown = 1f * TileDamageDelay;
 
     /// <summary>
     /// Amount of anger to adjust on a hit.
