@@ -227,6 +227,7 @@
           types:
             Poison: 0.5
 
+- type: reagent
   id: Sarin
   name: reagent-name-sarin
   group: Toxins
