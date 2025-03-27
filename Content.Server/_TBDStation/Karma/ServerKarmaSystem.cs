@@ -29,6 +29,7 @@ using Content.Shared.Lathe;
 using Content.Server.Research.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
+using Content.Server.Administration.Components;
 
 namespace Content.Server._TBDStation.ServerKarma
 {
@@ -280,6 +281,10 @@ namespace Content.Server._TBDStation.ServerKarma
             if (session == null)
                 return;
             var netUserId = session.UserId;
+
+            if (HasComp<KillSignComponent>(new EntityUid(ev.Target)))
+                return; // Don't lose karma for hitting a person with the big RED KILL sign above them. Mayhaps we add karma.
+
             // Should not lose karma attacking someone you attacked
             // Should lose extra 3x karma if said person is crit and less 0.5x karma if their full health.
             // Should not lose karma if you attack nukie, should lose karma if you unprovoked attack heratic/traitor unless they have killed someone.
