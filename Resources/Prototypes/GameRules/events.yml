@@ -5,9 +5,9 @@
     - id: AnomalySpawn
     - id: BluespaceArtifact
     - id: BluespaceLocker
-    - id: BreakerFlip
-    - id: BureaucraticError
-    - id: ClericalError
+#    - id: BreakerFlip
+#    - id: BureaucraticError
+#    - id: ClericalError
     - id: CockroachMigration
     - id: GasLeak
     - id: GreytideVirus
@@ -83,6 +83,7 @@
     startAudio:
       path: /Audio/Announcements/announce.ogg
     weight: 8
+    reoccurrenceDelay: 60
     duration: 35
     chaos: # Goobstation
       Anomaly: 100
@@ -112,48 +113,48 @@
   components:
   - type: StationEvent
     weight: 2
-    reoccurrenceDelay: 5
+    reoccurrenceDelay: 200
     earliestStart: 1
     duration: 1
     chaos: # Goobstation
       Anomaly: 40
   - type: BluespaceLockerRule
 
-- type: entity
-  id: BreakerFlip
-  parent: BaseGameRule
-  components:
-  - type: StationEvent
-    weight: 7
-    duration: 1
-    minimumPlayers: 15
-    chaos: # Goobstation
-      Power: 100
-  - type: BreakerFlipRule
+#- type: entity
+#  id: BreakerFlip
+#  parent: BaseGameRule
+#  components:
+#  - type: StationEvent
+#    weight: 7
+#    duration: 1
+#    minimumPlayers: 15
+#    chaos: # Goobstation
+#      Power: 100
+#  - type: BreakerFlipRule
 
-- type: entity
-  id: BureaucraticError
-  parent: BaseGameRule
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-bureaucratic-error-announcement
-    minimumPlayers: 25
-    weight: 3
-    duration: 1
-  - type: BureaucraticErrorRule
-    ignoredJobs:
-    - StationAi
+#- type: entity
+#  id: BureaucraticError
+#  parent: BaseGameRule
+#  components:
+#  - type: StationEvent
+#    startAnnouncement: station-event-bureaucratic-error-announcement
+#    minimumPlayers: 25
+#    weight: 3
+#    duration: 1
+#  - type: BureaucraticErrorRule
+#    ignoredJobs:
+#    - StationAi
 
-- type: entity
-  id: ClericalError
-  parent: BaseGameRule
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-clerical-error-announcement
-    minimumPlayers: 15
-    weight: 5
-    duration: 1
-  - type: ClericalErrorRule
+#- type: entity
+#  id: ClericalError
+#  parent: BaseGameRule
+#  components:
+#  - type: StationEvent
+#    startAnnouncement: station-event-clerical-error-announcement
+#    minimumPlayers: 15
+#    weight: 5
+#    duration: 1
+#  - type: ClericalErrorRule
 
 - type: entity
   parent: BaseGameRule
@@ -172,9 +173,9 @@
   components:
   - type: StationEvent
     weight: 2
-    earliestStart: 75
+    earliestStart: 10
     reoccurrenceDelay: 20
-    minimumPlayers: 60
+    minimumPlayers: 1
     duration: null
     chaos: # Goobstation
       Hostile: 20
@@ -208,9 +209,9 @@
   - type: StationEvent
     weight: 6
     duration: null
-    earliestStart: 45
+    earliestStart: 10
     reoccurrenceDelay: 20
-    minimumPlayers: 30
+    minimumPlayers: 1
     chaos: # Goobstation
       Hostile: 20
       Friend: 20
@@ -272,8 +273,8 @@
   - type: StationEvent
     weight: 3.5
     duration: 1
-    earliestStart: 30
-    minimumPlayers: 20
+    earliestStart: 1
+    minimumPlayers: 1
     chaos: # Goobstation
       Hostile: 20
       Friend: 20
@@ -313,8 +314,8 @@
   parent: BaseStationEventLongDelay
   components:
   - type: StationEvent
-    earliestStart: 15
-    minimumPlayers: 15
+    earliestStart: 30
+    minimumPlayers: 1
     weight: 7
     duration: 240
     chaos:
@@ -378,7 +379,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     earliestStart: 15
-    minimumPlayers: 15
+    minimumPlayers: 1
     weight: 5
     duration: 60
     chaos: # Goobstation
@@ -393,8 +394,8 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/aliens.ogg
-    earliestStart: 20
-    minimumPlayers: 15
+    earliestStart: 30
+    minimumPlayers: 1
     weight: 5
     duration: 30 # DeltaV: was 60, used as a delay now
     chaos: # Goobstation
@@ -417,8 +418,8 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    earliestStart: 20
-    minimumPlayers: 15
+    earliestStart: 30
+    minimumPlayers: 1
     weight: 5
     duration: 30 # DeltaV: was 60, used as a delay now
     chaos: # Goobstation
@@ -441,8 +442,8 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/aliens.ogg
-    earliestStart: 20
-    minimumPlayers: 15
+    earliestStart: 30
+    minimumPlayers: 1
     weight: 5
     duration: 30 # DeltaV: was 60, used as a delay now
     chaos: # Goobstation
@@ -462,7 +463,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     earliestStart: 45 # DeltaV - was 20
-    minimumPlayers: 30 # DeltaV - was 20
+    minimumPlayers: 1 # DeltaV - was 20
     weight: 1 # DeltaV - was 1.5
     duration: 30 # DeltaV: was 60, used as a delay now
     chaos: # Goobstation
@@ -480,7 +481,7 @@
   components:
   - type: StationEvent
     earliestStart: 90
-    minimumPlayers: 40
+    minimumPlayers: 1
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
     chaos: # Goobstation
@@ -516,9 +517,9 @@
   id: LoneOpsSpawn
   components:
   - type: StationEvent
-    earliestStart: 35
+    earliestStart: 10
     weight: 5.5
-    minimumPlayers: 20
+    minimumPlayers: 1
     duration: 1
     chaos: # Goobstation
       Hostile: 60
@@ -559,9 +560,9 @@
   id: SleeperAgents
   components:
   - type: StationEvent
-    earliestStart: 30
+    earliestStart: 40
     weight: 8
-    minimumPlayers: 15
+    minimumPlayers: 1
     maxOccurrences: 1 # can only happen once per round
     startAnnouncement: station-event-communication-interception
     startAudio:
@@ -590,7 +591,7 @@
     weight: 7
     duration: 150
     maxDuration: 300
-    reoccurrenceDelay: 30
+    reoccurrenceDelay: 40
     chaos: # Goobstation
       Friend: 20
   - type: MassHallucinationsRule
@@ -620,7 +621,7 @@
   components:
   - type: StationEvent
     earliestStart: 0
-    minimumPlayers: 20
+    minimumPlayers: 1
     maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
     weight: 5
     chaos: # Goobstation
@@ -637,8 +638,8 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 5
-    minimumPlayers: 25
-    reoccurrenceDelay: 20
+    minimumPlayers: 1
+    maxOccurrences: 1 # can only happen once per round
     chaos: # Goobstation
       Atmos: 15
       Mess: 30
@@ -660,8 +661,8 @@
   - type: StationEvent
     weight: 5
     earliestStart: 15
-    reoccurrenceDelay: 20
-    minimumPlayers: 4
+    reoccurrenceDelay: 200
+    minimumPlayers: 1
     duration: null
     chaos: # Goobstation
       # can be both hostile and friendly

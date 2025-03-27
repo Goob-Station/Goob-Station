@@ -830,7 +830,7 @@
     fireCost: 150
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 40
+    autoRechargeRate: 10
   # Goob edit start
   #- type: BatteryWeaponFireModes
   #  fireModes:
@@ -909,7 +909,7 @@
     fireCost: 50 # Goob edit
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 40
+    autoRechargeRate: 10
   # Goob edit start
   #- type: EnergyGun
   #  fireModes:
