@@ -100,3 +100,14 @@
   - type: SubdermalImplant
     implantAction: ActionStopTimeFreeman
 
+# Antag Planet
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: AntagImplantChangeling
+  name: antag implant
+  description: This implant allows the user to shift their bodies like a changeling
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: AntagImplant
+    antag: ChangelingComponent
