@@ -253,7 +253,7 @@ namespace Content.Server.Zombies
                     }
                 }
 
-                if (_mobState.IsIncapacitated(entity, mobState) && !HasComp<ZombieComponent>(entity) && !HasComp<ZombieImmuneComponent>(entity))
+                if (_mobState.IsIncapacitated(entity, mobState) && !HasComp<ZombieComponent>(entity) && !HasComp<ZombieImmuneComponent>(entity) && !HasComp<InitialInfectedComponent>(entity)) // Goobstation edit - prevent zombies from damaging IIs
                 {
                     ZombifyEntity(entity);
                     args.BonusDamage = -args.BaseDamage;
