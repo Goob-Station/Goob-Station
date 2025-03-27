@@ -32,7 +32,12 @@ using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
 using Content.Server.Heretic.EntitySystems;
 using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
+using Content.Server.Body.Systems;
+using Content.Server.Temperature.Systems;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Server.Heretic.Components;
+using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared._Goobstation.Heretic.Systems;
 using Content.Shared.Hands.Components;
 using Content.Shared.Tag;
 
@@ -67,10 +72,18 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
+    [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly ProtectiveBladeSystem _pblade = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
+    [Dependency] private readonly BloodstreamSystem _blood = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private readonly TemperatureSystem _temperature = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private readonly GunSystem _gun = default!;
+    [Dependency] private readonly RespiratorSystem _respirator = default!;
+    [Dependency] private readonly RustbringerSystem _rustbringer = default!;
 
     private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
     {
@@ -110,6 +123,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         SubscribeVoid();
         SubscribeBlade();
         SubscribeLock();
+        SubscribeRust();
+        SubscribeSide();
     }
 
     private bool TryUseAbility(EntityUid ent, BaseActionEvent args)
@@ -166,7 +181,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
         }
 
-        var st = Spawn("TouchSpellMansus", Transform(ent).Coordinates);
+        var st = Spawn(GetMansusGraspProto(ent), Transform(ent).Coordinates);
+
         if (!_hands.TryForcePickupAnyHand(ent, st))
         {
             _popup.PopupEntity(Loc.GetString("heretic-ability-fail"), ent, ent);
@@ -177,6 +193,15 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         ent.Comp.MansusGrasp = args.Action.Owner;
         args.Handled = true;
     }
+
+    private string GetMansusGraspProto(Entity<HereticComponent> ent)
+    {
+        if (ent.Comp is { CurrentPath: "Rust", PathStage: >= 2 })
+            return "TouchSpellMansusRust";
+
+        return "TouchSpellMansus";
+    }
+
     private void OnLivingHeart(Entity<HereticComponent> ent, ref EventHereticLivingHeart args)
     {
         if (!TryUseAbility(ent, args))
