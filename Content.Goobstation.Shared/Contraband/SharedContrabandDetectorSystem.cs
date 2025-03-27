@@ -1,17 +1,13 @@
-using Robust.Shared.Audio.Systems;
 using Content.Shared.Contraband;
 using Content.Shared.Power;
 using Robust.Shared.Timing;
-using Robust.Shared.Physics.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Storage;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.DeviceLinking;
 using Robust.Shared.Random;
 using Content.Shared.Power.EntitySystems;
-using System.Threading.Channels;
 
-namespace Content.Shared._Goobstation.Contraband;
+namespace Content.Goobstation.Shared.Contraband;
 
 public abstract class SharedContrabandDetectorSystem : EntitySystem
 {
@@ -21,7 +17,6 @@ public abstract class SharedContrabandDetectorSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _powerReceiverSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {

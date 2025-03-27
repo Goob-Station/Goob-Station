@@ -1,8 +1,8 @@
 using Content.Server.Wires;
-using Content.Shared._Goobstation.Contraband;
+using Content.Goobstation.Shared.Contraband;
 using Content.Shared.Wires;
 
-namespace Content.Server._Goobstation.Contraband;
+namespace Content.Goobstation.Server.Contraband;
 
 [DataDefinition]
 public sealed partial class ContrabandDetectorBadChanceWireAction : BaseToggleWireAction

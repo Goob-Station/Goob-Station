@@ -3,11 +3,8 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared._Goobstation.Contraband;
+namespace Content.Goobstation.Shared.Contraband;
 
-/// <summary>
-/// comonent added to contraband detector.
-/// </summary>
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class ContrabandDetectorComponent : Component
@@ -25,8 +22,7 @@ public sealed partial class ContrabandDetectorComponent : Component
     public SoundSpecifier? Detect;
 
     /// <summary>
-    ///  random chance for false triggering or not.
-    /// number between 0 and 100
+    /// Chance for false triggering.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float FalseDetectingChance = 0.05f;
