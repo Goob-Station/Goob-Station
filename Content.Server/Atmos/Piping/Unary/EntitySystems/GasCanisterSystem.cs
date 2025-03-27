@@ -143,8 +143,8 @@ public sealed class GasCanisterSystem : EntitySystem
             $"{ToPrettyString(args.Actor):player} {(args.Valve ? "opened" : "closed")} the valve on {ToPrettyString(uid):canister} to {(hasItem ? "inserted tank" : "environment")} while it contained [{GetContainedGasesString((uid, canister))}]");
         var isOpenToEnviroment = impact == LogImpact.High && args.Valve; // TBDStation
         var sumGoodGas = canister.Air.GetMoles(Gas.Oxygen) + canister.Air.GetMoles(Gas.Nitrogen); // TBDStation
-        var isMostlyGoodGas = sumGoodGas > 0.98 * canister.Air.TotalMoles; // TBDStation
-        if (isOpenToEnviroment && isMostlyGoodGas) // TBDStation
+        var isMostlyBadGas = sumGoodGas < 0.98 * canister.Air.TotalMoles; // TBDStation
+        if (isOpenToEnviroment && isMostlyBadGas) // TBDStation
         {
             RaiseLocalEvent(new PlayerKarmaGriefEvent(args.Actor, PlayerKarmaGriefEvent.GriefType.OpenToxicCanister));
         }
