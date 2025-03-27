@@ -1,9 +1,9 @@
 <Document>
-  # Space Law: Crime Listing
-  Crime codes are colored by linked crime groups, which are collections of non-stackable crimes. Suffixes are also included in the Quick Crime Guide to identify linked crimes.
+  # Space Law: Crime Listings
+
 
   ## Quick Crime Guide
-  <Table Columns="6">
+  <Table Columns="5">
     <ColorBox>
       <Box>
         I Degree
@@ -30,111 +30,91 @@
       </Box>
     </ColorBox>
     <ColorBox>
-      <Box>
-        Code
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#593a4e">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Disturbance
       </Box>
     </ColorBox>
-    <ColorBox Color="#593a4e">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Animal Cruelty
       </Box>
     </ColorBox>
-    <ColorBox Color="#593a4e">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Assault/Battery
       </Box>
     </ColorBox>
-    <ColorBox Color="#593a4e">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Attempted Murder
       </Box>
     </ColorBox>
-    <ColorBox Color="#593a4e">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Mass Murder
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        I
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#2f3832">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Petty Theft
       </Box>
     </ColorBox>
-    <ColorBox Color="#2f3832">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Damage/Destruction of Property
       </Box>
     </ColorBox>
-    <ColorBox Color="#2f3832">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Breach of Arrest
       </Box>
     </ColorBox>
-    <ColorBox Color="#2f3832">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Unlawful Control/Kidnapping/Hostage Taking
       </Box>
     </ColorBox>
-    <ColorBox Color="#2f3832">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Prevention of Revival
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        II
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#2e422e">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Possession/Use of Illegal Substances
       </Box>
     </ColorBox>
-    <ColorBox Color="#2e422e">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Endangerment
       </Box>
     </ColorBox>
-    <ColorBox Color="#2e422e">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Grand Theft
       </Box>
     </ColorBox>
-    <ColorBox Color="#2e422e">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Murder
       </Box>
     </ColorBox>
-    <ColorBox Color="#2e422e">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Refusal of Mental Shielding
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        III
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#453a59">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Trespass
       </Box>
     </ColorBox>
-    <ColorBox Color="#453a59">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Failure to Comply
       </Box>
     </ColorBox>
-    <ColorBox Color="#453a59">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Manslaughter
       </Box>
@@ -143,27 +123,22 @@
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
-    <ColorBox Color="#453a59">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Terrorism
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        IV
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#59563a">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Vandalism
       </Box>
     </ColorBox>
-    <ColorBox Color="#59563a">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Possession of Restricted Gear
       </Box>
     </ColorBox>
-    <ColorBox Color="#59563a">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Mass Destruction
       </Box>
@@ -178,19 +153,14 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        V
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#4d2e2e">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Rioting
       </Box>
     </ColorBox>
-    <ColorBox Color="#4d2e2e">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Possession of Restricted Weaponry
       </Box>
@@ -205,7 +175,6 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        VI
       </Box>
     </ColorBox>
     <ColorBox>
@@ -213,10 +182,6 @@
       </Box>
     </ColorBox>
     <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#4d2e2e">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Secure Trespass
       </Box>
@@ -231,7 +196,6 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        VII
       </Box>
     </ColorBox>
     <ColorBox>
@@ -239,10 +203,6 @@
       </Box>
     </ColorBox>
     <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#3b4354">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Breach of Custody
       </Box>
@@ -254,19 +214,14 @@
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        VIII
-      </Box>
-    </ColorBox>
+	</ColorBox>
   </Table>
-
+  
   # Sentencing
 
   - All sentencing is to be handled by the Warden, if no Warden is available the HoS is to take over that duty, if there's no HoS it falls onto the highest ranking command member.
 
-  - Use common sense and humanity when issuing punishments. You should not always seek out the highest punishment you can; maximum time should be understood as the maximum time allowed to imprison somebody for the appropriate crime. If the warden believes the prisoner can serve less, they may allow it. You do not always need to demote someone. Always take into account the severity and only charge for what is needed for someone to learn their lesson.
+  - Use common sense and humanity when issuing punishments. You should not always seek out the highest punishment you can, you don’t have to always give the maximum time or always look to demote someone. Always take in account the severity and only charge for what is needed for someone to learn their lesson.
 
   - Accessory, Attempting, And Intention: If someone intentionally, knowingly and substantially assists someone in enacting a crime they can be charged with the relevant crimes, such as an engineer giving someone tools, who says they are going to break into an area. Same goes for a clear and solid attempt at a crime, or a person who shows clear intent to act out a crime, such as a syndicate nuclear operative arming a nuke but getting arrested before it goes off, they can still be charged with terrorism. Does not apply to crimes that have an attempted listing already, like attempted murder.
 
@@ -278,15 +233,10 @@
 
   ## I Degree
   - For minor crimes, fix the issue then warn the person to not attempt the crime again, if they still proceed to do it at a later date, a brig time may be better.
-  <Table Columns="5">
+  <Table Columns="4">
     <ColorBox>
       <Box>
         Offense
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box>
-        Max Time
       </Box>
     </ColorBox>
     <ColorBox>
@@ -296,22 +246,17 @@
     </ColorBox>
     <ColorBox>
       <Box>
-        Notes
+        Max Time
       </Box>
     </ColorBox>
     <ColorBox>
       <Box>
-        Code
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#593a4e">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Disturbance
+        Notes
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        2:00
+        Disturbance
       </Box>
     </ColorBox>
     <ColorBox>
@@ -321,22 +266,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        2:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Sometimes referred to as hooliganism. The catch-all for obnoxious crewmates. Covers things such as public nudity, needless insults, obstructing authorities, threatening, and inciting crime or violence.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        I-I
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#2f3832">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Petty Theft
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        3:00
       </Box>
     </ColorBox>
     <ColorBox>
@@ -346,22 +286,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Petty theft refers to the replaceability and importance of the item stolen.
+        3:00
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        I-II
+        The difference between petty theft and grand theft is based on how crucial the stolen item is, things like instruments, clothing and tools fall under petty theft. In most cases all you need to do is detain the thief, return the stolen item and let them go with a warning.
       </Box>
     </ColorBox>
-    <ColorBox Color="#2e422e">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Possession/Use of Illegal Substances
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        3:00
       </Box>
     </ColorBox>
     <ColorBox>
@@ -371,22 +306,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        3:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         This is to be followed in accordance with Standard Operating Procedure. If anything questionable is not brought up in SOP the captain or highest standing command staff may publicly restrict it.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        I-III
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#453a59">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Trespass
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        2:00
       </Box>
     </ColorBox>
     <ColorBox>
@@ -396,22 +326,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        2:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         It's best to just remove them from the area unless this is a repeated crime.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        I-IV
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#59563a">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Vandalism
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        2:00
       </Box>
     </ColorBox>
     <ColorBox>
@@ -421,31 +346,31 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Painting graffiti, smashing bar glasses, and cracking internal windows is vandalism, breaking a window into space or secure areas is not.
+        2:00
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-       I-V
+        Painting graffiti, smashing bar glasses, and cracking internal windows is vandalism, breaking a window into space or secure areas is not.
       </Box>
     </ColorBox>
   </Table>
 
   ## II Degree
   - Depending on the situation you may want to issue a warning instead of a detaining.
-  <Table Columns="5">
+  <Table Columns="4">
     <ColorBox>
       <Box>
         Offense
       </Box>
     </ColorBox><ColorBox>
       <Box>
-        Max Time
+        Description
       </Box>
     </ColorBox>
     <ColorBox>
       <Box>
-        Description
+        Max Time
       </Box>
     </ColorBox>
     <ColorBox>
@@ -454,22 +379,18 @@
       </Box>
     </ColorBox>
     <ColorBox>
-      <Box>
-        Code
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#593a4e">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Animal Cruelty
       </Box>
-    </ColorBox><ColorBox>
+    </ColorBox>
+	<ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        3:00
+        To inflict unnecessary suffering or harm on a non-sapient being with malicious intent.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        To inflict unnecessary suffering or harm on a non-sapient being with malicious intent.
+        3:00
       </Box>
     </ColorBox>
     <ColorBox>
@@ -479,17 +400,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        II-I
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#2f3832">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Damage/Destruction of Property
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        4:00
       </Box>
     </ColorBox>
     <ColorBox>
@@ -499,22 +410,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        4:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Step up from vandalism but a step down from mass destruction.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        II-II
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#2e422e">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Endangerment
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        4:00
       </Box>
     </ColorBox>
     <ColorBox>
@@ -524,22 +430,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        4:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Covers industrial accidents, industrial negligence, industrial sabotage, self-experimentation, or even medical malpractice.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        II-III
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#453a59">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Failure to Comply
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        2:00
       </Box>
     </ColorBox>
     <ColorBox>
@@ -549,22 +450,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        2:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         The order has to be reasonable and the person has to receive a good amount of warning before the arrest is issued.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        II-IV
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#59563a">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Possession of Restricted Gear
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        4:00
       </Box>
     </ColorBox>
     <ColorBox>
@@ -574,22 +470,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        5:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         This is mostly for syndicate contraband; EMAGs, syndicate gas masks, bloodred hardsuits, hijacked PDAs, or implants, however can sometimes extend to things the individual shouldn't possess like kevlar vests and security gear.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        II-V
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#4d2e2e">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Rioting
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        4:00
       </Box>
     </ColorBox>
     <ColorBox>
@@ -599,12 +490,12 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Crimes like damage of property or battery are expected to be thrown on top of this charge. Leaders of a riot can be charged with all crimes that happen under their lead.
+        4:00
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        II-VI
+        Crimes like damage of property or battery are expected to be thrown on top of this charge. Leaders of a riot can be charged with all crimes that happen under their lead.
       </Box>
     </ColorBox>
   </Table>
@@ -612,15 +503,10 @@
   ## III Degree
   - Assault and Manslaughter are linked crimes, and cannot be stacked against a suspect.
   - It is recommended to not use maximum sentences for those being compliant.
-  <Table Columns="5">
+  <Table Columns="4">
     <ColorBox>
       <Box>
         Offense
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box>
-        Max Time
       </Box>
     </ColorBox>
     <ColorBox>
@@ -630,22 +516,17 @@
     </ColorBox>
     <ColorBox>
       <Box>
-        Notes
+        Max Time
       </Box>
     </ColorBox>
     <ColorBox>
       <Box>
-        Code
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#593a4e">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Assault/Battery
+        Notes
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        6:00
+        Assault/Battery
       </Box>
     </ColorBox>
     <ColorBox>
@@ -655,22 +536,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Attempted murder and battery are different.
+        6:00
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        III-I
+        Attempted murder and battery are different, make sure you’ve got it right.
       </Box>
     </ColorBox>
-    <ColorBox Color="#2f3832">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Breach of Arrest
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        4:00
       </Box>
     </ColorBox>
     <ColorBox>
@@ -680,22 +556,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        4:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         This only applies if the person is actively being physically arrested. Includes people uncuffing or assisting others out of an arrest. Breach of custody is a separate crime.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        III-II
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#2e422e">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Grand Theft
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        6:00
       </Box>
     </ColorBox>
     <ColorBox>
@@ -705,22 +576,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        The theft of an irreplacable item. Examples of such items would be the Quarter Masters Digiboard, or the Chef Engineers advanced mag boots; however this may include the Captains ID.
+        6:00
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        III-III
+        The difference between petty theft and grand theft is based on how crucial the stolen item is, this mostly is used for the theft of command staff items, things like door remotes, hardsuits, jetpacks, and unreplaceable machine parts.
       </Box>
     </ColorBox>
-    <ColorBox Color="#453a59">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Manslaughter
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        10:00
       </Box>
     </ColorBox>
     <ColorBox>
@@ -730,22 +596,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        8:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Includes manslaughter in self-defense and negligent manslaughter.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        III-IV
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#59563a">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Mass Destruction
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        6:00
       </Box>
     </ColorBox>
     <ColorBox>
@@ -755,22 +616,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Deadly bombings or massive damage to station departments and functions may fall under mass destruction.
+        10:00
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        III-V
+        This is mostly used for deadly bombings or sabotage of major station systems such as power production, cloning, substations, or atmos.
       </Box>
     </ColorBox>
-    <ColorBox Color="#4d2e2e">
+	<ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Possession of Restricted Weaponry
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        6:00
       </Box>
     </ColorBox>
     <ColorBox>
@@ -780,47 +636,37 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Everything from guns without a permit, deadly blades, explosives, syndicate firearms to explosive implants.
+        6:00
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        III-VI
+        Everything from guns without a permit, deadly blades, explosives, syndicate firearms to explosive implants.
       </Box>
     </ColorBox>
-    <ColorBox Color="#4d2e2e">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Secure Trespass
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        8:00
+        To enter a secured area without permission.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        TTo enter a secured area without permission
+        6:00
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Secure trespass generally refers to all command areas; but may also include engineering, atmospherics, telecomms, vault, AI, security and armory.
+        This covers places like telecomms, head offices, security zones, command areas, the vault and armory.
       </Box>
     </ColorBox>
     <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        III-VII
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#3b4354">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Breach of Custody
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        4:00
       </Box>
     </ColorBox>
     <ColorBox>
@@ -830,12 +676,12 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Additional time may be added to any escapee. While rare, this charge can be bumped to permanent brig if the suspect has repeatedly attempted to break out; Includes crew breaking others out.
+        5:00
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        III-VIII
+        This time should be added on top of a prisoners current brig time. While rare, this charge can be bumped to permanent brig if the suspect has repeatedly attempted to break out of the permanent brig. Includes people breaking others out.
       </Box>
     </ColorBox>
   </Table>
@@ -844,15 +690,10 @@
   - Particularly violent offenders may be placed in perma. (Attacking officers in an attempt to escape prison)
   - Attempted murder and murder are linked crimes and cannot be stacked together.
   - Attempted murderers should be granted a more lenient sentence than a murderer.
-  <Table Columns="5">
+  <Table Columns="4">
     <ColorBox>
       <Box>
         Offense
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box>
-        Max Time
       </Box>
     </ColorBox>
     <ColorBox>
@@ -862,22 +703,17 @@
     </ColorBox>
     <ColorBox>
       <Box>
-        Notes
+        Max Time
       </Box>
     </ColorBox>
     <ColorBox>
       <Box>
-        Code
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#593a4e">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Attempted Murder
+        Notes
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        5:00
+        Attempted Murder
       </Box>
     </ColorBox>
     <ColorBox>
@@ -887,22 +723,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Undeniable proof that there was an attempt on somebody elses life. Purposely causing a member of crew to fall into a critical state is attempted murder.
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        IV-I
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#2f3832">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Unlawful Control/Kidnapping/Hostage Taking
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         10:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Make sure you’ve got the proof to back up the intention claims.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Unlawful Control/Kidnapping/Hostage Taking.
       </Box>
     </ColorBox>
     <ColorBox>
@@ -912,17 +743,22 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Usually refers to forced cuffing, or trapping of a crew member; Locking a person in a room or locker could fall under kidnapping.
+        10:00
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        IV-II
+        A large range of things, used mostly as a catch all when dealing with unlawful control of another being.
       </Box>
     </ColorBox>
-    <ColorBox Color="#2e422e">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Murder
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        To kill a sapient being with malicious intent.
       </Box>
     </ColorBox>
     <ColorBox>
@@ -932,32 +768,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        To kill a sapient being with malicious intent
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        To purposely cause another member of crew to die.
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        IV-III
+        This only changes from attempted to full on murder if the victim enters a state of being deceased, having to be resurrected.
       </Box>
     </ColorBox>
   </Table>
 
   ## V Degree
   - [bold]All executions are to be confirmed and overseen by the Captain. A prisoner may request a specific execution method, if reasonable. Otherwise the most humane method is prefered. Refer to Standard Operating Procedure to further understand any guidelines applied to execution.[/bold]
-  <Table Columns="5">
+  <Table Columns="4">
     <ColorBox>
       <Box>
         Offense
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box>
-        Max Time
       </Box>
     </ColorBox>
     <ColorBox>
@@ -967,47 +788,37 @@
     </ColorBox>
     <ColorBox>
       <Box>
-        Notes
+        Max Time
       </Box>
     </ColorBox>
     <ColorBox>
       <Box>
-        Code
+        Notes
       </Box>
     </ColorBox>
-    <ColorBox Color="#593a4e">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Mass Murder
       </Box>
     </ColorBox>
   <ColorBox>
     <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-      Death
+      To kill three or more sapient beings with malicious intent.
     </Box>
   </ColorBox>
-    <ColorBox >
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        To kill three or more sapient beings with malicious intent.
+        Permanent
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Applies if the suspect is excessively uncooperative or the implant fails to function due to the mental state of the prisoner already being too far gone. If the implant fails execution is heavily recommended.
+        Only applies when there have been multiple killings with intention.
       </Box>
     </ColorBox>
     <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        V-I
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#2f3832">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Prevention of Revival
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Death
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1017,22 +828,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Gibbing, hiding or disallowing medical to revive another member of crew may fall under prevention of revival.
+        Permanent
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        V-II
+        This covers gibbing, spacing, intentionally hiding a body leading to it rotting, or other ways of preventing a body with a soul from being resurrected.
       </Box>
     </ColorBox>
-    <ColorBox Color="#2e422e">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Refusal of Mental Shielding
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Death
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1042,22 +848,17 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Applies if the suspect is excessively uncooperative or the implant fails to function due to the mental state of the prisoner already being too far gone. If the implant fails the maximum punishment is upped to Expedited Execution. Captains approval is not required.
+        Permanent
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        V-III
+        Applies if the suspect is excessively uncooperative or the implant fails to function due to the mental state of the prisoner already being too far gone. If the implant fails the maximum punishment is upped to Expedited Execution.
       </Box>
     </ColorBox>
-    <ColorBox Color="#453a59">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Terrorism
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Death
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1067,12 +868,12 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Multiple cases of extreme sabotage of station systems or setting off self-destruction systems. Plasma flooding or loosing may fall under this.
+        Execution
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        V-IV
+        Summed up; extreme sabotage of station systems or setting off self-destruction systems.
       </Box>
     </ColorBox>
   </Table>
