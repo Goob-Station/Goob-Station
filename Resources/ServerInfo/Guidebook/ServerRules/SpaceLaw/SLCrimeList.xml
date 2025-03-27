@@ -71,7 +71,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Unlawful Control/Kidnapping/Hostage Taking
+        Unlawful Control, Kidnapping, Hostage Taking
       </Box>
     </ColorBox>
     <ColorBox>
@@ -219,13 +219,13 @@
   
   # Sentencing
 
-  - All sentencing is to be handled by the Warden, if no Warden is available the HoS is to take over that duty, if there's no HoS it falls onto the highest ranking command member.
+  - [bold]All sentencing is to be handled by the Warden[/bold], if no Warden is available the HoS is to take over that duty, if there's no HoS it falls onto the highest ranking command member.
 
-  - Use common sense and humanity when issuing punishments. You should not always seek out the highest punishment you can, you don’t have to always give the maximum time or always look to demote someone. Always take in account the severity and only charge for what is needed for someone to learn their lesson.
+  - [bold]Use common sense and humanity when issuing punishments:[/bold] You should not always seek out the highest punishment you can, you don’t have to always give the maximum time or always look to demote someone. Always take in account the severity and only charge for what is needed for someone to learn their lesson.
 
-  - Accessory, Attempting, And Intention: If someone intentionally, knowingly and substantially assists someone in enacting a crime they can be charged with the relevant crimes, such as an engineer giving someone tools, who says they are going to break into an area. Same goes for a clear and solid attempt at a crime, or a person who shows clear intent to act out a crime, such as a syndicate nuclear operative arming a nuke but getting arrested before it goes off, they can still be charged with terrorism. Does not apply to crimes that have an attempted listing already, like attempted murder.
+  - [bold]Accessory, Attempting, And Intention:[/bold] If someone intentionally, knowingly and substantially assists someone in enacting a crime they can be charged with the relevant crimes, such as an engineer giving someone tools, who says they are going to break into an area. Same goes for a clear and solid attempt at a crime, or a person who shows clear intent to act out a crime, such as a syndicate nuclear operative arming a nuke but getting arrested before it goes off, they can still be charged with terrorism. Does not apply to crimes that have an attempted listing already, like attempted murder.
 
-  - Stackable Crimes: Crimes are to be considered 'stackable' in the sense that if you charge someone with two or more different crimes, you should combine the times you would give them for each crime.
+  - [bold]Stackable Crimes:[/bold] Crimes are to be considered 'stackable' in the sense that if you charge someone with two or more different crimes, you should combine the times you would give them for each crime.
 
   [bold]Any total brig time that adds up to above 10 minutes will be shortened to meet this limit.[/bold]
 
@@ -733,7 +733,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Unlawful Control/Kidnapping/Hostage Taking.
+        Unlawful Control, Kidnapping, Hostage Taking
       </Box>
     </ColorBox>
     <ColorBox>
