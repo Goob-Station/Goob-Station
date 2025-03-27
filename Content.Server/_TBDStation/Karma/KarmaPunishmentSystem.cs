@@ -25,14 +25,11 @@ using Content.Server.Speech.Components;
 using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
 using Content.Server.Tabletop;
-using Content.Server.Tabletop.Components;
 using Content.Server.Temperature.Components;
 using Content.Shared._Goobstation.Wizard.Traps;
-using Content.Shared.Administration;
 using Content.Shared.Administration.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
-using static Robust.Shared.GameObjects.EntitySystem;
 using Content.Shared.Clumsy;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Cluwne;
@@ -50,51 +47,17 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Slippery;
-using Content.Shared.Tabletop.Components;
 using Content.Shared.Tools.Systems;
-using Content.Shared.Verbs;
-using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
-using Robust.Shared.Utility;
 using Timer = Robust.Shared.Timing.Timer;
-using Content.Server.Speech.EntitySystems;
 using Content.Shared.Speech.Components;
 using Content.Server.Administration.Systems;
 using Content.Shared.Administration.Logs;
-using Content.Server.Administration.Logs;
-using Content.Server.Administration.Managers;
-using Content.Server.Administration.UI;
-using Content.Server.Disposal.Tube;
-using Content.Server.Disposal.Tube.Components;
-using Content.Server.EUI;
-using Content.Server.GameTicking;
-using Content.Server.Ghost.Roles;
-using Content.Server.Mind;
-using Content.Server.Mind.Commands;
-using Content.Server.Prayer;
-using Content.Server.Station.Systems;
-using Content.Server.Xenoarchaeology.XenoArtifacts;
-using Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Components;
-using Content.Shared.Chemistry.Components.SolutionManager;
-using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Configurable;
-using Content.Shared.Examine;
-using Content.Shared.GameTicking;
-using Content.Shared.Mind.Components;
-using Robust.Server.Console;
-using Robust.Server.GameObjects;
-using Robust.Shared.Console;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Toolshed;
-using System.Linq;
-using Content.Server.Silicons.Laws;
-using Content.Shared.Silicons.Laws.Components;
-using Content.Shared.Silicons.StationAi;
-using static Content.Shared.Configurable.ConfigurationComponent;
+using Content.Server.Chat.Managers;
 
 namespace Content.Server._TBDStation.ServerKarma;
 public sealed partial class KarmaPunishmentSystem : EntitySystem
@@ -116,7 +79,6 @@ public sealed partial class KarmaPunishmentSystem : EntitySystem
     [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly TabletopSystem _tabletopSystem = default!;
     [Dependency] private readonly VomitSystem _vomitSystem = default!;
     [Dependency] private readonly WeldableSystem _weldableSystem = default!;
     [Dependency] private readonly SharedContentEyeSystem _eyeSystem = default!;
@@ -127,6 +89,7 @@ public sealed partial class KarmaPunishmentSystem : EntitySystem
     [Dependency] private readonly ServerKarmaManager _karmaMan = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly IChatManager _chatManager = default!;
     // public void PostInject()
     // {
     // }
@@ -185,10 +148,19 @@ public sealed partial class KarmaPunishmentSystem : EntitySystem
 
         bool got_smitted = false;
         int attempts = 0;
+        int i = _random.Next(38);
         while (!got_smitted && attempts++ < 9)
         {
-            int i = _random.Next(38);
             AnySmite(i, target, ref got_smitted);
+            i = _random.Next(38);
+        }
+        if (got_smitted)
+        {
+            _popupSystem.PopupEntity("Your actions have consequences!", target, target, PopupType.LargeCaution);
+            _chatManager.DispatchServerMessage(player, "Your actions have consequences!", true);
+            _adminLogger.Add(LogType.Karma,
+                LogImpact.High,
+                $"{ToPrettyString(target):actor} got smitted by AnySmite({i}) from too much karma loss.");
         }
     }
     private void AnySmite(int i, EntityUid target, ref bool got_smitted)
@@ -216,8 +188,8 @@ public sealed partial class KarmaPunishmentSystem : EntitySystem
                         target, PopupType.LargeCaution);
                     _popupSystem.PopupCoordinates(Loc.GetString("admin-smite-set-alight-others", ("name", target)), xform5.Coordinates,
                         Filter.PvsExcept(target), true, PopupType.MediumCaution);
+                    got_smitted = true;
                 }
-                got_smitted = true;
                 break;
             case 2:
                 _polymorphSystem.PolymorphEntity(target, "AdminMonkeySmite");
@@ -260,15 +232,15 @@ public sealed partial class KarmaPunishmentSystem : EntitySystem
 
                     _electrocutionSystem.TryDoElectrocution(target, null, damageToDeal,
                         TimeSpan.FromSeconds(30), refresh: true, ignoreInsulation: true);
+                    got_smitted = true;
                 }
-                got_smitted = true;
                 break;
             case 5:
                 if (TryComp<CreamPiedComponent>(target, out var creamPied))
                 {
                     _creamPieSystem.SetCreamPied(target, creamPied, true);
+                    got_smitted = true;
                 }
-                got_smitted = true;
                 break;
             case 6:
                 if (TryComp<BloodstreamComponent>(target, out var bloodstream))
@@ -279,8 +251,8 @@ public sealed partial class KarmaPunishmentSystem : EntitySystem
                         target, PopupType.LargeCaution);
                     _popupSystem.PopupCoordinates(Loc.GetString("admin-smite-remove-blood-others", ("name", target)), xform4.Coordinates,
                         Filter.PvsExcept(target), true, PopupType.MediumCaution);
+                    got_smitted = true;
                 }
-                got_smitted = true;
                 break;
             case 7:
                 if (TryComp<BodyComponent>(target, out var body))
@@ -300,8 +272,8 @@ public sealed partial class KarmaPunishmentSystem : EntitySystem
                         target, PopupType.LargeCaution);
                     _popupSystem.PopupCoordinates(Loc.GetString("admin-smite-vomit-organs-others", ("name", target)), baseXform.Coordinates,
                         Filter.PvsExcept(target), true, PopupType.MediumCaution);
+                    got_smitted = true;
                 }
-                got_smitted = true;
                 break;
             case 8:
                 var baseXform2 = Transform(target);
@@ -328,8 +300,8 @@ public sealed partial class KarmaPunishmentSystem : EntitySystem
                         target, PopupType.LargeCaution);
                     _popupSystem.PopupCoordinates(Loc.GetString("admin-smite-remove-hands-other", ("name", target)), baseXform1.Coordinates,
                         Filter.PvsExcept(target), true, PopupType.Medium);
+                    got_smitted = true;
                 }
-                got_smitted = true;
                 break;
             case 10:
                 if (TryComp<BodyComponent>(target, out var body2))
@@ -341,8 +313,8 @@ public sealed partial class KarmaPunishmentSystem : EntitySystem
 
                     _popupSystem.PopupEntity(Loc.GetString("admin-smite-stomach-removal-self"), target,
                         target, PopupType.LargeCaution);
+                    got_smitted = true;
                 }
-                got_smitted = true;
                 break;
             case 11:
                 if (TryComp<BodyComponent>(target, out var body3))
@@ -354,8 +326,8 @@ public sealed partial class KarmaPunishmentSystem : EntitySystem
 
                     _popupSystem.PopupEntity(Loc.GetString("admin-smite-lung-removal-self"), target,
                         target, PopupType.LargeCaution);
+                    got_smitted = true;
                 }
-                got_smitted = true;
                 break;
             case 12:
                 if (TryComp<PhysicsComponent>(target, out var physics))
@@ -381,8 +353,8 @@ public sealed partial class KarmaPunishmentSystem : EntitySystem
                     _physics.SetAngularVelocity(target, MathF.PI * 12, manager: fixtures, body: physics);
                     _physics.SetLinearDamping(target, physics, 0f);
                     _physics.SetAngularDamping(target, physics, 0f);
+                    got_smitted = true;
                 }
-                got_smitted = true;
                 break;
             case 13:
                 if (TryComp<PhysicsComponent>(target, out physics))
@@ -404,8 +376,8 @@ public sealed partial class KarmaPunishmentSystem : EntitySystem
                     _physics.SetAngularVelocity(target, MathF.PI * 12, manager: fixtures, body: physics);
                     _physics.SetLinearDamping(target, physics, 0f);
                     _physics.SetAngularDamping(target, physics, 0f);
+                    got_smitted = true;
                 }
-                got_smitted = true;
                 break;
             case 14:
                 _polymorphSystem.PolymorphEntity(target, "AdminBreadSmite");
@@ -424,8 +396,10 @@ public sealed partial class KarmaPunishmentSystem : EntitySystem
             //     break;
             case 17:
                 if (HasComp<TemperatureComponent>(target))
+                {
                     EnsureComp<IceCubeComponent>(target);
-                got_smitted = true;
+                    got_smitted = true;
+                }
                 break;
             case 18:
                 if (TryComp<InventoryComponent>(target, out var inventory))
@@ -434,8 +408,8 @@ public sealed partial class KarmaPunishmentSystem : EntitySystem
                     EnsureComp<UnremoveableComponent>(ears);
                     _inventorySystem.TryUnequip(target, "head", true, true, false, inventory);
                     _inventorySystem.TryEquip(target, ears, "head", true, true, false, inventory);
+                    got_smitted = true;
                 }
-                got_smitted = true;
                 break;
             case 19:
                 EnsureComp<KillSignComponent>(target);
@@ -580,106 +554,7 @@ public sealed partial class KarmaPunishmentSystem : EntitySystem
                 got_smitted = true;
                 break;
             default:
-                got_smitted = true;
                 break;
         }
-        if (got_smitted)
-            _adminLogger.Add(LogType.Karma,
-            LogImpact.Medium,
-            $"{ToPrettyString(target):actor} got smitted by AnySmite({i}) from too much karma loss.");
     }
-
-        // SmiteKill();
-    //     int i = _rnd.Next(10);
-    //     switch (i)
-    //     {
-    //         case 0:
-    //             var coords = _transformSystem.GetMapCoordinates(target);
-    //             Timer.Spawn(_gameTiming.TickPeriod,
-    //                 () => _explosionSystem.QueueExplosion(coords, ExplosionSystem.DefaultExplosionPrototypeId,
-    //                     4, 1, 2, target, maxTileBreak: 0), // it gibs, damage doesn't need to be high.
-    //                 CancellationToken.None);
-
-    //             _bodySystem.GibBody(target);
-    //             break;
-    //         case 1:
-    //             _polymorphSystem.PolymorphEntity(target, "AdminMonkeySmite");
-    //             break;
-    //         case 2:
-    //             _polymorphSystem.PolymorphEntity(target, "AdminDisposalsSmite");
-    //             break;
-    //         case 3:
-    //             _polymorphSystem.PolymorphEntity(target, "AdminBreadSmite");
-    //             break;
-    //         case 4:
-    //             _polymorphSystem.PolymorphEntity(target, "AdminMouseSmite");
-    //             break;
-    //         case 5:
-    //             EnsureComp<PointingArrowAngeringComponent>(target);
-    //             break;
-    //         case 6:
-    //             if (TryComp<FlammableComponent>(target, out var flammable))
-    //             {
-    //                 // Fuck you. Burn Forever.
-    //                 flammable.FireStacks = flammable.MaximumFireStacks;
-    //                 _flammableSystem.Ignite(target, args.User);
-    //                 var xform = Transform(target);
-    //                 _popupSystem.PopupEntity(Loc.GetString("admin-smite-set-alight-self"), target,
-    //                     target, PopupType.LargeCaution);
-    //                 _popupSystem.PopupCoordinates(Loc.GetString("admin-smite-set-alight-others", ("name", target)), xform.Coordinates,
-    //                     Filter.PvsExcept(target), true, PopupType.MediumCaution);
-    //             }
-    //             break;
-    //         case 7:
-    //             if (TryComp<DamageableComponent>(target, out var damageable) &&
-    //                 HasComp<MobStateComponent>(target))
-    //             {
-    //                 int damageToDeal;
-    //                 if (!_mobThresholdSystem.TryGetThresholdForState(target, MobState.Critical, out var criticalThreshold)) {
-    //                     // We can't crit them so try killing them.
-    //                     if (!_mobThresholdSystem.TryGetThresholdForState(target, MobState.Dead,
-    //                             out var deadThreshold))
-    //                         return;// whelp.
-    //                     damageToDeal = deadThreshold.Value.Int() - (int) damageable.TotalDamage;
-    //                 }
-    //                 else
-    //                 {
-    //                     damageToDeal = criticalThreshold.Value.Int() - (int) damageable.TotalDamage;
-    //                 }
-
-    //                 if (damageToDeal <= 0)
-    //                     damageToDeal = 100; // murder time.
-
-    //                 if (_inventorySystem.TryGetSlots(target, out var slotDefinitions))
-    //                 {
-    //                     foreach (var slot in slotDefinitions)
-    //                     {
-    //                         if (!_inventorySystem.TryGetSlotEntity(target, slot.Name, out var slotEnt))
-    //                             continue;
-
-    //                         RemComp<InsulatedComponent>(slotEnt.Value); // Fry the gloves.
-    //                     }
-    //                 }
-
-    //                 _electrocutionSystem.TryDoElectrocution(target, null, damageToDeal,
-    //                     TimeSpan.FromSeconds(30), refresh: true, ignoreInsulation: true);
-    //             }
-    //             break;
-    //         case 8:
-    //             if (TryComp<CreamPiedComponent>(target, out var creamPied))
-    //             {
-    //                 Text = creamPieName,
-    //                 Category = VerbCategory.Smite,
-    //                 Icon = new SpriteSpecifier.Rsi(new ("/Textures/Objects/Consumable/Food/Baked/pie.rsi"), "plain-slice"),
-    //                 Act = () =>
-    //                 {
-    //                     _creamPieSystem.SetCreamPied(target, creamPied, true);
-    //                 },
-    //                 Impact = LogImpact.Extreme,
-    //                 Message = string.Join(": ", creamPieName, Loc.GetString("admin-smite-creampie-description"))
-    //             }
-    //             break;
-    //         case 9:
-    //             break;
-    //     }
 }
