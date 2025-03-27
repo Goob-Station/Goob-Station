@@ -1,0 +1,49 @@
+- type: entity
+  name: Corporate Document
+  id: CorporateDocument
+  abscract: true
+  parent: Paper
+  description: An official NanoTrasen document. Looks like a ton of spam, as always.
+  components:
+    - type: RandomDocument
+      dtype: Service
+
+- type: entity
+  name: Service Department Document
+  id: ServiceDocument
+  parent: CorporateDocument
+  components:
+    - type: RandomDocument
+      dtype: Service
+
+- type: entity
+  name: Security Department Document
+  id: SecurityDocument
+  parent: CorporateDocument
+  components:
+    - type: RandomDocument
+      dtype: Security
+
+- type: entity
+  name: Cargo Department Document
+  id: CargoDocument
+  parent: CorporateDocument
+  components:
+    - type: RandomDocument
+      dtype: Cargo
+
+- type: entity
+  name: Medical Department Document
+  id: MedicalDocument
+  parent: CorporateDocument
+  components:
+    - type: RandomDocument
+      dtype: Medical
+
+- type: entity
+  name: Engineering Department Document
+  id: EngineeringDocument
+  parent: CorporateDocument
+  components:
+    - type: RandomDocument
+      dtype: Engineering
