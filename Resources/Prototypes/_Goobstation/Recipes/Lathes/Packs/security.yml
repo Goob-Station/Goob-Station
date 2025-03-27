@@ -24,6 +24,15 @@
   - CartridgeSaline
   - SecHypo
 
+- type: latheRecipePack
+  id: SecurityBluespaceMags
+  recipes:
+  - MagazineBluespacePistol
+  - MagazineBluespaceSMG
+  - MagazineBluespaceWT550
+  - MagazineBluespaceRifle
+  - MagazineBluespaceShotgun
+
 ## Dynamic
 - type: latheRecipePack
   id: SecurityWeaponsGoob

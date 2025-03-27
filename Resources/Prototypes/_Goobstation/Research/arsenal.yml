@@ -52,6 +52,21 @@
   technologyPrerequisites:
   - WeaponizedLaserManipulation
 
+- type: technology
+  id: BluespaceMagazines
+  name: research-technology-bluespacemagazines
+  icon:
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi
+    state: bluespace
+  discipline: Arsenal
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - MagazineBluespacePistol
+  - MagazineBluespaceSMG
+  - MagazineBluespaceWT550
+  - MagazineBluespaceRifle
+  - MagazineBluespaceShotgun
 # Tier 3
 
 - type: technology

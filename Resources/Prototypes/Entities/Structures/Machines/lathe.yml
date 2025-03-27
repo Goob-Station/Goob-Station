@@ -230,7 +230,7 @@
     - SecurityWeapons
     # Goobstation Packs
     - SecurityAmmoGoob
-
+    - SecurityBluespaceMags
 - type: entity
   id: ProtolatheHyperConvection
   parent: [Protolathe, BaseHyperlathe]
@@ -464,6 +464,7 @@
     - SecurityMechElectronicsGoob
     - PowerCells
     - SecurityWeaponsEinsteinEngines # Einstein Engines
+    - SecurityBluespaceMags
   - type: EmagLatheRecipes # Goobstation
     emagStaticPacks:
     - SyndicateAmmoStatic
@@ -506,6 +507,7 @@
     - type: EmagLatheRecipes # Goobstation Packs
       emagStaticPacks:
       - SyndicateAmmoStatic
+      - SecurityBluespaceMags
     - type: MaterialStorage
       whitelist:
         tags:

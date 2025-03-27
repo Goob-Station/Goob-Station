@@ -44,19 +44,15 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  id: BluespaceMagazinePistolSubMachineGun
-  name: Bluespace SMG magazine (.35 auto)
-  parent: BaseMagazinePistolSubMachineGun
-  abstract: true
+  id: BluespaceMagazinePistolSubMachineGunEmpty
+  name: bluespace SMG magazine (.35 auto any)
+  suffix: empty
+  parent: MagazinePistolSubMachineGunEmpty
   components:
   - type: BallisticAmmoProvider
-    mayTransfer: true
-    whitelist:
-      tags:
-        - CartridgePistol
-    capacity: 95
+    proto: null
+    capacity: 90
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi
     layers:
     - state: bluespace
       map: ["enum.GunVisualLayers.Base"]
@@ -64,16 +60,12 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  id: MagazinePistolSubMachineGunTopMountedBluespace
-  name: Bluespace WT550 magazine (.35 auto top-mounted)
-  parent: MagazinePistolSubMachineGunTopMountedEmpty
+  id: BluespaceMagazinePistolSubMachineGunTopMountedEmpty
+  name: WT550 bluespace magazine (.35 auto top-mounted any)
+  parent: MagazinePistolSubMachineGunTopMounted
   components:
   - type: BallisticAmmoProvider
-    mayTransfer: true
-    proto: CartridgePistol
-    whitelist:
-      tags:
-      - CartridgePistol
+    proto: null
     capacity: 95
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag_top_mounted.rsi

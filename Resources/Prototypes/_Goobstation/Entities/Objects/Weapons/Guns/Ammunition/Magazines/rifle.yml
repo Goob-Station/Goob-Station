@@ -1,0 +1,15 @@
+- type: entity
+  id: BluespaceMagazineRifleEmpty
+  name: "bluespace magazine (.20 rifle any)"
+  suffix: empty
+  parent: MagazineRifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+    capacity: 75
+  - type: Sprite
+    layers:
+    - state: bluespace
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
