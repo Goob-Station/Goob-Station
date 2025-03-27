@@ -75,10 +75,8 @@ public sealed partial class MeleeWeaponSystem
                 if (flippedAnimation
                     && (GetEntityDirection(user) == Direction.South
                     || GetEntityDirection(user) == Direction.West))
-                {
-                    Log.Info("2 flipped animation");
                     spriteRotation = 360 - spriteRotation;
-                }
+
                 // Goobstation End
                 Log.Info(spriteRotation.ToString());
                 _animation.Play(animationUid, GetThrustAnimation(sprite, distance, spriteRotation), ThrustAnimationKey);

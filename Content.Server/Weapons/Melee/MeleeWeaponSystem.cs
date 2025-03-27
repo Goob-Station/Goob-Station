@@ -50,12 +50,38 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
     [Dependency] private readonly StaminaSystem _stamina = default!; // WWDP
     [Dependency] private readonly SharedTransformSystem _transform = default!; // Goob - Shove
 
+    //Goob - Shove
+    private float _shoveRange;
+    private float _shoveSpeed;
+    private float _shoveMass;
+    //Goob - Shove
+
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<MeleeSpeechComponent, MeleeHitEvent>(OnSpeechHit);
         SubscribeLocalEvent<MeleeWeaponComponent, DamageExamineEvent>(OnMeleeExamineDamage);
+        Subs.CVar(_config, GoobCVars.ShoveRange, SetShoveRange, true);
+        Subs.CVar(_config, GoobCVars.ShoveSpeed, SetShoveSpeed, true);
+        Subs.CVar(_config, GoobCVars.ShoveMassFactor, SetShoveMass, true);
     }
+
+    // Goobstation - Shove
+    private void SetShoveRange(float value)
+    {
+        _shoveRange = value;
+    }
+
+    private void SetShoveSpeed(float value)
+    {
+        _shoveSpeed = value;
+    }
+
+    private void SetShoveMass(float value)
+    {
+        _shoveMass = value;
+    }
+    //Goob - Shove
 
     private void OnMeleeExamineDamage(EntityUid uid, MeleeWeaponComponent component, ref DamageExamineEvent args)
     {
@@ -230,11 +256,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
     private void PhysicalShove(EntityUid user, EntityUid target)
     {
-        var shoveRange = _config.GetCVar(GoobCVars.ShoveRange);
-        var shoveSpeed = _config.GetCVar(GoobCVars.ShoveSpeed);
-        var shoveMass = _config.GetCVar(GoobCVars.ShoveMassFactor);
-
-        var force = shoveRange * _contests.MassContest(user, target, rangeFactor: shoveMass);
+        var force = _shoveRange * _contests.MassContest(user, target, rangeFactor: _shoveMass);
 
         var userPos = _transform.ToMapCoordinates(user.ToCoordinates()).Position;
         var targetPos = _transform.ToMapCoordinates(target.ToCoordinates()).Position;
@@ -249,7 +271,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             throwInAir = true;
         }
 
-        _throwing.TryThrow(target, pushVector, force * shoveSpeed, animated: animated, throwInAir: throwInAir);
+        _throwing.TryThrow(target, pushVector, force * _shoveSpeed, animated: animated, throwInAir: throwInAir);
     }
     protected override void DoDamageEffect(List<EntityUid> targets, EntityUid? user, TransformComponent targetXform)
     {

@@ -76,7 +76,6 @@
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Weapons/guitarsmash.ogg
-    range: 1.85
     attackRate: .8
     animationRotation: -45 # WWDP
     wideAnimationRotation: 45
