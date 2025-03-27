@@ -103,10 +103,11 @@ evolutionmenu-sting-armblade-desc =
     Costs 50 chemicals.
 
 # utility
+
 evolutionmenu-utility-panacea-name = Anatomic Panacea
 evolutionmenu-utility-panacea-desc =
     Cure yourself of diseases, disabilities, radiation, toxins, drunkenness, and brain damage. Generally covers the things that fleshmend doesn't.
-    Costs 30 chemicals.
+    Costs 35 chemicals.
 
 evolutionmenu-utility-eyesight-name = Augmented Eyesight
 evolutionmenu-utility-eyesight-desc =
@@ -116,24 +117,33 @@ evolutionmenu-utility-eyesight-desc =
 evolutionmenu-utility-biodegrade-name = Biodegrade
 evolutionmenu-utility-biodegrade-desc =
     Vomit a caustic substance onto any restraints you may be wearing, allowing yourself to break free.
-    Using this ability while being grabbed will spit acid in your attackers face.
+    Using this ability while being grabbed will spit acid in your attackers face, blinding them and knocking them down.
     Costs 30 chemicals.
 
 evolutionmenu-utility-chameleon-name = Chameleon Skin
 evolutionmenu-utility-chameleon-desc =
     Alter the pigment in your skin to match your surroundings, rendering you invisible.
+    Maintaining this chameleon state slows chemical generation.
     Costs 20 chemicals.
 
-evolutionmenu-utility-stims-name = Ephedrine Overdose
+evolutionmenu-utility-voidadapt-name = Void Adaption
+evolutionmenu-utility-voidadapt-desc =
+    Alter your cells and organs to resist cold, low pressure and the need for oxygen.
+    Maintaining this state slows chemical regeneration.
+    WARNING: Requires you to absorb at least 2 organics to use the ability.
+    Cost-free.
+
+evolutionmenu-utility-stims-name = Adrenaline reserves
 evolutionmenu-utility-stims-desc =
-    Inject a cocktail of stimulants into yourself, quickly removing any stuns and giving yourself a speed boost.
+    Releases additional adrenaline into your bloodstream, making you nigh-impervious to fatigue, knockdown and stuns.
     Continuous injection is poisonous.
     Costs 30 chemicals.
 
 evolutionmenu-utility-fleshmend-name = Fleshmend
 evolutionmenu-utility-fleshmend-desc =
-    Rapidly heal yourself of all bruises and burns.
-    Costs 35 chemicals.
+    Rapidly heal your brute damage.
+    Burn and oxygen damage healed at a lower amount.
+    Costs 40 chemicals.
 
 evolutionmenu-utility-lastresort-name = Last Resort
 evolutionmenu-utility-lastresort-desc =

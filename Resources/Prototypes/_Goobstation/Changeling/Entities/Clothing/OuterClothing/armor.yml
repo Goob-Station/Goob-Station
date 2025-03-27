@@ -9,6 +9,8 @@
     sprite: _Goobstation/Changeling/ling_armor.rsi
   - type: Clothing
     sprite: _Goobstation/Changeling/ling_armor.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.35 # solid protection, resists WEAKER fires
   - type: Armor
     modifiers:
       coefficients:
@@ -18,6 +20,8 @@
         Heat: 0.5
         Radiation: 0.5
         Caustic: 0.5
+  - type: FireProtection
+    reduction: 0.65 # made to help protect changelings against fire. gives it a real purpose to use over regular armor
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85
