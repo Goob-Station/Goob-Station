@@ -19,6 +19,7 @@
   - HandheldStationMap
   - ClothingHeadHatWelding
   - ClothingHeadHatCone
+  - WeaponHammer
 
 - type: latheRecipePack
   id: AtmosStatic
