@@ -5,14 +5,17 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 using System.Numerics;
+using Content.Client.Lobby;
 
 namespace Content.Client._Goobstation.Heretic.UI;
 
-public sealed partial class LivingHeartMenu : RadialMenu
+public sealed class LivingHeartMenu : RadialMenu
 {
     [Dependency] private readonly EntityManager _ent = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
+
+    private readonly LobbyUIController _controller;
 
     public EntityUid Entity { get; private set; }
 
@@ -22,6 +25,8 @@ public sealed partial class LivingHeartMenu : RadialMenu
     {
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
+
+        _controller = UserInterfaceManager.GetUIController<LobbyUIController>();
     }
 
     public void SetEntity(EntityUid ent)
@@ -42,17 +47,14 @@ public sealed partial class LivingHeartMenu : RadialMenu
 
         foreach (var target in heretic.SacrificeTargets)
         {
-            if (target == null) continue;
-
-            var ent = _ent.GetEntity(target);
-            if (ent == null)
-                continue;
+            if (!_ent.TryGetEntity(target.Entity, out var ent) || !_ent.EntityExists(ent))
+                ent = _controller.LoadProfileEntity(target.Profile, _prot.Index(target.Job), true);
 
             var button = new EmbeddedEntityMenuButton
             {
                 SetSize = new Vector2(64, 64),
-                ToolTip = _ent.TryGetComponent<MetaDataComponent>(ent.Value, out var md) ? md.EntityName : "Unknown",
-                NetEntity = (NetEntity) target,
+                ToolTip = target.Profile.Name,
+                NetEntity = target.Entity,
             };
 
             var texture = new SpriteView(ent.Value, _ent)

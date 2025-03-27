@@ -454,21 +454,6 @@
   categories:
     - UplinkImplants
 
-- type: listing
-  id: UplinkJaunterImplanter
-  name: uplink-jaunter-implanter-name
-  description: uplink-jaunter-implanter-desc
-  icon: { sprite: /Textures/_Goobstation/Actions/syndicateswap.rsi, state: icon }
-  productEntity: JaunterImplanter
-  cost:
-    Telecrystal: 30
-  categories:
-  - UplinkImplants
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
 
 - type: listing
   id: UplinkKravMagaImplanter
@@ -725,3 +710,18 @@
     Telecrystal: 40
   categories:
   - UplinkDeception
+
+- type: listing
+  id: NukieMysteriousScroll
+  name: uplink-sleeping-carp-name
+  description: uplink-sleeping-carp-desc
+  productEntity: SleepingCarpScroll
+  cost:
+    Telecrystal: 70
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - LoneOpsUplink

@@ -56,6 +56,8 @@
     snap:
     - Wall
   components:
+  - type: TimedDespawn
+    lifetime: 30
   - type: StepTrigger
     requiredTriggeredSpeed: 0
     intersectRatio: 0.1
