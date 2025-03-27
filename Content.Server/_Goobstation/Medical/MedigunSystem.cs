@@ -11,7 +11,6 @@ using Content.Shared.Interaction;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Physics;
-using Content.Shared.Popups;
 using Content.Shared.Timing;
 using Content.Shared.Whitelist;
 using Robust.Shared.Map;
@@ -24,7 +23,6 @@ public sealed class MedigunSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedActionsSystem _action = default!;
     [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
@@ -205,7 +203,6 @@ public sealed class MedigunSystem : EntitySystem
         mediGunned.Source = uid;
         Dirty(target, mediGunned);
 
-        // TODO: visuals do not support multiple beams
         var visuals = EnsureComp<JointVisualsComponent>(uid);
         visuals.Sprite = component.BeamSprite;
         visuals.OffsetA = new Vector2(0f, 0f);
@@ -242,8 +239,6 @@ public sealed class MedigunSystem : EntitySystem
         var visuals = EnsureComp<JointVisualsComponent>(ent);
         visuals.Sprite = comp.UberBeamSprite;
         Dirty(ent, visuals);
-
-        // TODO Uber Visuals
     }
 
     private void DisableUber(Entity<MediGunComponent> ent)
@@ -256,8 +251,6 @@ public sealed class MedigunSystem : EntitySystem
         var visuals = EnsureComp<JointVisualsComponent>(ent);
         visuals.Sprite = comp.BeamSprite;
         Dirty(ent, visuals);
-
-        // TODO Uber Visuals
     }
 
     /// <summary>
