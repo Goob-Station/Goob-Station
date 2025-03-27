@@ -79,9 +79,9 @@ public sealed class BoomerangSystem : EntitySystem
 
         _physicsSystem.SetBodyStatus(uid, boomerangPhysicsComponent, BodyStatus.InAir);
         _throwingSystem.TryThrow(uid, throwerCoords, user: component.Thrower.Value);
+        component.SendBack = false;
         if(!TryComp<MeleeThrowOnHitComponent>(uid, out var meleeThrowOnHitComponent))
             return;
         meleeThrowOnHitComponent.ActivateOnThrown = false;
-        component.SendBack = false;
     }
 }

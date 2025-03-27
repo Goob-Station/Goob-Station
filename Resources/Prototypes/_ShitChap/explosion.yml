@@ -1,0 +1,14 @@
+- type: explosion
+  id: Holy
+  damagePerIntensity:
+    types:
+      Heat: 4
+      Blunt: 7
+      Piercing: 4
+      Holy: 10
+  tileBreakChance: [0, 0.5, 1]
+  tileBreakIntensity: [0, 10, 30]
+  tileBreakRerollReduction: 20
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 3

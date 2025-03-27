@@ -18,6 +18,7 @@ using Content.Server.Revolutionary.Components;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Preferences;
 using Content.Shared.Random.Helpers;
+using Content.Shared._Goobstation.Religion;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Tag;
 using Robust.Shared.Player;
@@ -107,6 +108,7 @@ public sealed class HereticSystem : EntitySystem
 
     private void OnCompInit(Entity<HereticComponent> ent, ref ComponentInit args)
     {
+
         // add influence layer
         if (TryComp<EyeComponent>(ent, out var eye))
             _eye.SetVisibilityMask(ent, eye.VisibilityMask | EldritchInfluenceComponent.LayerMask);
@@ -116,6 +118,9 @@ public sealed class HereticSystem : EntitySystem
 
         GenerateRequiredKnowledgeTags(ent);
         RaiseLocalEvent(ent, new EventHereticRerollTargets());
+
+
+        EnsureComp<WeakToHolyComponent>(ent);
     }
 
     #region Internal events (target reroll, ascension, etc.)

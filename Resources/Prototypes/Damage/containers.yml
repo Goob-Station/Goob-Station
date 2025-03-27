@@ -28,7 +28,7 @@
   id: Silicon
   supportedGroups:
     - Brute
-    - Electronic #Goobstation
+    - Electronic # Goobstation
   supportedTypes:
     - Heat
     - Shock
@@ -67,9 +67,9 @@
 - type: damageContainer
   id: BiologicalMetaphysical
   supportedGroups:
-  - Brute
-  - Burn
-  - Toxin
-  - Airloss
-  - Genetic
-  - Metaphysical
+    - Brute
+    - Burn
+    - Toxin
+    - Airloss
+    - Genetic
+    - Metaphysical

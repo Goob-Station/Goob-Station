@@ -2,7 +2,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Server.Bible.Components
+namespace Content.Shared.Bible.Components
 {
     /// <summary>
     /// This lets you summon a mob or item with an alternative verb on the item

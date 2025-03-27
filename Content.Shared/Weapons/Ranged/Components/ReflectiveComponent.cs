@@ -11,5 +11,5 @@ namespace Content.Shared.Weapons.Ranged.Components;
 public sealed partial class ReflectiveComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite), DataField("reflective")]
-    public ReflectType Reflective = ReflectType.NonEnergy;
+    public ReflectType Reflective = ReflectType.NonEnergy | ReflectType.Magic; //Goob change to allow Nullrod to reflect magic
 }
