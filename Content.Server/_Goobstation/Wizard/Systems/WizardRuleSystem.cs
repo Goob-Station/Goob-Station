@@ -87,7 +87,7 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         _faction.AddFaction(args.Target, Faction);
     }
 
-    private void OnDimensionShift(DimensionShiftEvent ev)
+    public EntityUid? GetTargetMap()
     {
         var rule = GameTicker.GetActiveGameRules().Where(HasComp<WizardRuleComponent>).FirstOrNull();
         EntityUid? map;
@@ -105,6 +105,18 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         else
             map = GetRandomTargetMap();
 
+        return map;
+    }
+
+    private EntityUid? GetRandomTargetMap()
+    {
+        var grid = GetWizardTargetRandomStationGrid();
+        return grid == null ? null : Transform(grid.Value).MapUid;
+    }
+
+    private void OnDimensionShift(DimensionShiftEvent ev)
+    {
+        var map = GetTargetMap();
         if (map == null)
             return;
 
@@ -132,12 +144,6 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         _log.Add(LogType.EventRan, LogImpact.Extreme, $"Station map changed via wizard spellbook dimension shift.");
 
         return;
-
-        EntityUid? GetRandomTargetMap()
-        {
-            var grid = GetWizardTargetRandomStationGrid();
-            return grid == null ? null : Transform(grid.Value).MapUid;
-        }
     }
 
     private void OnParentChanged(ref EntParentChangedMessage args)
