@@ -651,3 +651,11 @@
     accent-medieval-words-236: accent-medieval-words-replace-236
     accent-medieval-words-237: accent-medieval-words-replace-237
     accent-medieval-words-238: accent-medieval-words-replace-238
+
+- type: accent
+  id: hawkeye
+  wordReplacements:
+    accent-hawkeye-words-1: accent-hawkeye-words-replace-1
+    accent-hawkeye-words-2: accent-hawkeye-words-replace-2
+    accent-hawkeye-words-3: accent-hawkeye-words-replace-3
+    accent-hawkeye-words-4: accent-hawkeye-words-replace-4

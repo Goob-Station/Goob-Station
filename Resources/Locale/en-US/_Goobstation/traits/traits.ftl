@@ -14,3 +14,6 @@ poor-vision-trait-examined = [color=lightblue]{CAPITALIZE(POSS-ADJ($target))} ey
 
 trait-medieval-accent-name = Medieval accent
 trait-medieval-accent-desc = Hark! Thy manner o' speech, 'tis most unusual!
+
+trait-hawkeye-name = Hawkeye Slang
+trait-hawkeye-desc = Damned be the IPC, poor souls.
