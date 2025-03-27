@@ -144,15 +144,6 @@
 
 - type: entity
   save: false
-  parent: MobIPC
-  id: MobTheSwap
-  name: THE SWAP
-  components:
-  - type: RandomHumanoidAppearance
-  - type: TheSwap
-
-- type: entity
-  save: false
   name: Urist McPositronic
   parent: MobHumanDummy
   id: MobIPCDummy

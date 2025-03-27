@@ -1,4 +1,3 @@
-using System.Collections.Immutable; // Goobstation - Starlight collective mind port
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -8,9 +7,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
-using Content.Server.Players.RateLimiting;
 using Content.Server.Speech.Prototypes;
-using Content.Server.Speech.Components;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
@@ -187,16 +184,10 @@ public sealed partial class ChatSystem : SharedChatSystem
         string wrappedMessagePostfix = "" // Goobstation
         )
     {
-        BeforeChatMessageSentEvent beforeMessageSentEv; // Goobstation
         if (HasComp<GhostComponent>(source))
         {
-            // Goobstation start
-            beforeMessageSentEv = new BeforeChatMessageSentEvent(message, false, null, InGameOOCChatType.Dead);
-            RaiseLocalEvent(source, beforeMessageSentEv);
-            if (beforeMessageSentEv.Cancelled)
+            if (!this.BeforeInGameOOCMessageSent(source, InGameOOCChatType.Dead, ref message, EntityManager)) // Goobstation
                 return;
-            message = beforeMessageSentEv.Message;
-            // Goobstation end
             // Ghosts can only send dead chat messages, so we'll forward it to InGame OOC.
             TrySendInGameOOCMessage(source, message, InGameOOCChatType.Dead, range == ChatTransmitRange.HideChat, shell, player);
             return;
@@ -241,15 +232,10 @@ public sealed partial class ChatSystem : SharedChatSystem
         }
 
         // Goobstation start
-        beforeMessageSentEv = new BeforeChatMessageSentEvent(message.Trim(), checkRadioPrefix, desiredType, null);
-        RaiseLocalEvent(source, beforeMessageSentEv);
-        if (beforeMessageSentEv.Cancelled)
+        if (!this.BeforeInGameICMessageSent(source, desiredType, ref message, ref checkRadioPrefix, out var shouldSanitize, EntityManager))
             return;
-        message = beforeMessageSentEv.Message;
-        checkRadioPrefix = beforeMessageSentEv.HasRadioPrefix;
-
         string? emoteStr = null;
-        if (beforeMessageSentEv.ShouldSanitize)
+        if (shouldSanitize)
         {
             bool shouldCapitalize = (desiredType != InGameICChatType.Emote);
             bool shouldPunctuate = _configurationManager.GetCVar(CCVars.ChatPunctuation);
@@ -352,13 +338,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (!_critLoocEnabled && _mobStateSystem.IsCritical(source))
             return;
 
-        // Goobstation start
-        var beforeMessageSentEv = new BeforeChatMessageSentEvent(message, false, null, sendType);
-        RaiseLocalEvent(source, beforeMessageSentEv);
-        if (beforeMessageSentEv.Cancelled)
+        if (!this.BeforeInGameOOCMessageSent(source, sendType, ref message, EntityManager)) // Goobstation
             return;
-        message = beforeMessageSentEv.Message;
-        // Goobstation end
 
         switch (sendType)
         {
