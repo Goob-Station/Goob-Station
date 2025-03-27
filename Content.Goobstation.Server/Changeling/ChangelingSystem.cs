@@ -226,7 +226,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (comp.BiomassUpdateTimer >= comp.BiomassUpdateCooldown)
         {
             comp.BiomassUpdateTimer = 0;
-            UpdateBiomass(uid, comp);
+            UpdateBiomass(uid, comp, comp.BiomassDrain);
         }
 
         UpdateAbilities(uid, comp);
@@ -241,12 +241,9 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         Dirty(uid, comp);
         _alerts.ShowAlert(uid, "ChangelingChemicals");
     }
-    private void UpdateBiomass(EntityUid uid, ChangelingIdentityComponent comp, float? amount = null)
+    private void UpdateBiomass(EntityUid uid, ChangelingComponent comp, float amount)
     {
-        if (!comp.BiomassEnabled)
-            return;
-
-        float amt = amount ?? -1f;
+        float amt = amount;
         comp.Biomass += amt;
         comp.Biomass = Math.Clamp(comp.Biomass, 0, comp.MaxBiomass);
         Dirty(uid, comp);
