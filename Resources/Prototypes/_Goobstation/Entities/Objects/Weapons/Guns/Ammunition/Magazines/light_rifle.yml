@@ -1,0 +1,33 @@
+- type: entity
+  id: BluespaceBaseMagazineLightRifle
+  name: "bluespace magazine (.30 rifle)"
+  parent: [ BaseItem, BaseSecurityContraband ]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - MagazineLightRifle
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeLightRifle
+    proto: CartridgeLightRifle
+    capacity: 90
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi
+    layers:
+    - state: bluespace
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance

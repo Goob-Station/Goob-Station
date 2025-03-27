@@ -1,0 +1,20 @@
+- type: entity
+  id: BluespaceMagazineShotgun
+  name: bluespace ammo drum (.50 shells)
+  parent: BaseMagazineShotgun
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - ShellShotgun
+    capacity: 24
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/smg_cock.ogg
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi
+    layers:
+    - state: bluespace
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
