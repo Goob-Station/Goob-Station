@@ -694,7 +694,7 @@ public sealed class GhostRoleSystem : EntitySystem
         _transform.AttachToGridOrMap(mob);
 
         var spawnedEvent = new GhostRoleSpawnerUsedEvent(uid, mob);
-        RaiseLocalEvent(mob, spawnedEvent);
+        RaiseLocalEvent(mob, spawnedEvent, true); // Goob Edit: Broadcast
 
         if (ghostRole.MakeSentient)
             MakeSentientCommand.MakeSentient(mob, EntityManager, ghostRole.AllowMovement, ghostRole.AllowSpeech);
