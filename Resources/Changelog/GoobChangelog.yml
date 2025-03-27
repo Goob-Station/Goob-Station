@@ -6800,3 +6800,51 @@ Entries:
       message: Buff Full SMES Price by 3x
   id: 790
   time: '2025-03-25T14:37:49.0000000+00:00'
+- author: Mocho,
+  changes:
+    - type: Add
+      message: >-
+        April fools came early to Hierophant's Arena. Be sure to bring your
+        finest BYOND membership.
+    - type: Add
+      message: >-
+        You can now curse yourself with a tile movement trait. Whether or not it
+        gets 1984d is up to durk :trollface:
+    - type: Add
+      message: >-
+        Wizards now have obtained powerful curses that may affect your
+        mobility...
+    - type: Add
+      message: Tilenol is back. Show them who's the most robust by chugging 100u of it.
+    - type: Add
+      message: Mobs can also now spawn naturally at random in lavaland.
+    - type: Tweak
+      message: >-
+        Hierophant may or may not be more aggressive now. Also he deals more
+        damage :blunt:
+    - type: Tweak
+      message: Players get a 25% speed boost while on the Hierophant's arena now.
+    - type: Tweak
+      message: >-
+        Mass Scanner now displays grids in Lavaland. Temporary change until
+        Rouden finishes the GPS refactor :tm:
+    - type: Tweak
+      message: >-
+        Hierophant's club now deals more damage, and can teleport across maps or
+        grids without an issue.
+    - type: Tweak
+      message: >-
+        Hierophant's club now can toggle between free and tile movement for a
+        given target entity.
+    - type: Tweak
+      message: Hierophant's club can now be equipped to your back and suit storage.
+    - type: Tweak
+      message: >-
+        Alert icons for separate (OG) layout now start from the top right of
+        your screen instead of the middle right, just like in MRP. 
+    - type: Tweak
+      message: >-
+        Ore redemption/processing machines now display if you will obtain points
+        by dumping ore or not at that point in time.
+  id: 791
+  time: '2025-03-26T23:58:47.0000000+00:00'
