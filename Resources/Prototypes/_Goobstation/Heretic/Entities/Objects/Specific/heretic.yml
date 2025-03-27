@@ -32,7 +32,9 @@
   - type: ItemToggleSize
     activatedSize: Normal
   - type: ToggleAnimation
-  - type: Tag # Drawing runes checks for tag component so this has to be here
+  - type: Tag
+    tags:
+    - HereticItem
 
 - type: entity
   parent: [ DrinkBase, BaseMagicContraband ]
@@ -56,6 +58,9 @@
         reagents:
         - ReagentId: EldritchEssence
           Quantity: 100
+  - type: Tag
+    tags:
+    - HereticItem
 
 - type: entity
   id: HereticProtectiveBlade

@@ -1,8 +1,12 @@
 using Content.Shared.Actions;
+using Content.Shared.Damage;
 using Content.Shared.DoAfter;
+using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Heretic;
@@ -110,10 +114,110 @@ public sealed partial class EventHereticFuriousSteel : InstantActionEvent { }
 public sealed partial class EventHereticBulglarFinesse : InstantActionEvent { }
 public sealed partial class EventHereticLastRefugee : InstantActionEvent { }
 
+// rust
+[Serializable, NetSerializable, DataDefinition]
+public sealed partial class HereticLeechingWalkEvent : EntityEventArgs;
+
+public sealed partial class EventHereticRustConstruction : WorldTargetActionEvent
+{
+    [DataField]
+    public EntProtoId RustedWall = "WallSolidRust";
+
+    [DataField]
+    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/constructform.ogg");
+
+    [DataField]
+    public float ObstacleCheckRange = 0.05f;
+
+    [DataField]
+    public float MobCheckRange = 0.6f;
+
+    [DataField]
+    public float ThrowSpeed = 15f;
+
+    [DataField]
+    public float ThrowRange = 5f;
+
+    [DataField]
+    public TimeSpan KnockdownTime = TimeSpan.FromSeconds(5f);
+
+    [DataField]
+    public DamageSpecifier Damage = new()
+    {
+        DamageDict =
+        {
+            { "Blunt", 20 },
+        },
+    };
+}
+
+public sealed partial class EventHereticEntropicPlume : InstantActionEvent
+{
+    [DataField]
+    public EntProtoId Proto = "EntropicPlume";
+
+    [DataField]
+    public float Offset = 2.5f;
+
+    [DataField]
+    public float Speed = 0.1f;
+
+    [DataField]
+    public float Radius = 2.5f;
+
+    [DataField]
+    public float LookupRange = 0.1f;
+
+    [DataField]
+    public EntProtoId TileRune = "TileHereticRustRune";
+}
+
+public sealed partial class EventHereticAggressiveSpread : InstantActionEvent
+{
+    [DataField]
+    public float AoeRadius = 2f;
+
+    [DataField]
+    public float Range = 4f;
+
+    [DataField]
+    public float LookupRange = 0.1f;
+
+    [DataField]
+    public EntProtoId TileRune = "TileHereticRustRune";
+}
+
+// side
+public sealed partial class EventHereticCleave : WorldTargetActionEvent
+{
+    [DataField]
+    public float Range = 1f;
+
+    [DataField]
+    public DamageSpecifier Damage = new()
+    {
+        DamageDict =
+        {
+            {"Heat", 20f},
+            {"Bloodloss", 10f},
+        },
+    };
+
+    [DataField]
+    public FixedPoint2 BloodModifyAmount = -50f;
+
+    [DataField]
+    public EntProtoId Effect = "EffectCleave";
+
+    [DataField]
+    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/blood3.ogg");
+}
+
 // ascensions
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionAshEvent : EntityEventArgs { }
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionVoidEvent : EntityEventArgs { }
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionFleshEvent : EntityEventArgs { }
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionLockEvent : EntityEventArgs { }
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionBladeEvent : EntityEventArgs { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionRustEvent : EntityEventArgs { }
 #endregion

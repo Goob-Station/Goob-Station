@@ -11,6 +11,7 @@ using Content.Server.Heretic.Components;
 using Content.Server.Antag;
 using Robust.Shared.Random;
 using System.Linq;
+using Content.Server.Actions;
 using Content.Shared.Humanoid;
 using Robust.Server.Player;
 using Content.Server.Revolutionary.Components;
@@ -34,6 +35,7 @@ public sealed class HereticSystem : EntitySystem
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly SharedJobSystem _job = default!;
+    [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly IPlayerManager _playerMan = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
@@ -244,7 +246,14 @@ public sealed class HereticSystem : EntitySystem
         if (ent.Comp.CurrentPath == null)
             return;
 
-        var pathLoc = ent.Comp.CurrentPath!.ToLower();
+        foreach (var (action, _) in _actions.GetActions(ent))
+        {
+            if (TryComp(action, out ChangeUseDelayOnAscensionComponent? changeUseDelay) &&
+                (changeUseDelay.RequiredPath == null || changeUseDelay.RequiredPath == ent.Comp.CurrentPath))
+                _actions.SetUseDelay(action, changeUseDelay.NewUseDelay);
+        }
+
+        var pathLoc = ent.Comp.CurrentPath.ToLower();
         var ascendSound = new SoundPathSpecifier($"/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_{pathLoc}.ogg");
         _chat.DispatchGlobalAnnouncement(Loc.GetString($"heretic-ascension-{pathLoc}"), Name(ent), true, ascendSound, Color.Pink);
     }

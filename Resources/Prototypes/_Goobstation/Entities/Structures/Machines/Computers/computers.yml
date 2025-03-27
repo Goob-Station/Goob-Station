@@ -1,0 +1,21 @@
+- type: entity
+  id: ComputerNTRTasks
+  parent: [BaseComputer]
+  name: NTR tasks computer
+  description: Hi
+  components:
+  - type: UserInterface
+    interfaces:
+      enum.NtrTaskUiKey.Key:
+        type: NtrTaskBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ActivatableUI
+    key: enum.NtrTaskUiKey.Key
+  - type: NtrTaskProvider
+  - type: ItemSlots
+    slots:
+      item:
+        whitelist:
+          tags:
+          - Paper
