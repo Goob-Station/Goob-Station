@@ -1,26 +1,26 @@
+# Empty mags
 - type: entity
-  id: BluespaceBaseMagazineLightRifle
-  name: "bluespace magazine (.30 rifle)"
+  id: BluespaceMagazineRifle
+  name: "magazine (.20 rifle)"
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:
   - type: Tag
     tags:
-      - MagazineLightRifle
+      - MagazineRifle
+  - type: Item
+    size: Small
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:
       tags:
-        - CartridgeLightRifle
-    proto: CartridgeLightRifle
-    capacity: 90
-  - type: Item
-    size: Small
+        - CartridgeRifle
+    capacity: 75
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi
     layers:
     - state: bluespace
       map: ["enum.GunVisualLayers.Base"]
