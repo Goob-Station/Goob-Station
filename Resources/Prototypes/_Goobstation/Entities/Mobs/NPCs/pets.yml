@@ -31,7 +31,7 @@
     states:
       Alive:
         Base: car
-      critical:
+      Critical:
         Base: car_dead
       Dead:
         Base: car_dead
