@@ -37,3 +37,9 @@ reagent-desc-blue-rot = Disgusting blue liquis that painfully transforms someone
 
 reagent-name-maturing-rot = maturing rot
 reagent-desc-maturing-rot = You're turning.
+=======
+reagent-name-nostalgia = nostalgia
+reagent-desc-nostalgia = Why is this here?
+
+reagent-name-tilenol = tilenol
+reagent-desc-tilenol = You can feel yourself becoming more robust just by holding this.

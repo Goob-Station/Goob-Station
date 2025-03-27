@@ -9,32 +9,32 @@ using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
+using Content.Server.Atmos.Rotting;
+using Content.Shared.Mobs.Systems;
 
 namespace Content.Server.Heretic.EntitySystems;
 
-public sealed partial class HereticBladeSystem : EntitySystem
+public sealed class HereticBladeSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly HereticCombatMarkSystem _combatMark = default!;
     [Dependency] private readonly FlammableSystem _flammable = default!;
     [Dependency] private readonly BloodstreamSystem _blood = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly TemperatureSystem _temp = default!;
     [Dependency] private readonly TeleportSystem _teleport = default!;
+    [Dependency] private readonly RottingSystem _rotting = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -44,7 +44,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
         SubscribeLocalEvent<HereticBladeComponent, MeleeHitEvent>(OnMeleeHit);
     }
 
-    public void ApplySpecialEffect(EntityUid performer, EntityUid target)
+    public void ApplySpecialEffect(EntityUid performer, EntityUid target, MeleeHitEvent args)
     {
         if (!TryComp<HereticComponent>(performer, out var hereticComp))
             return;
@@ -73,6 +73,11 @@ public sealed partial class HereticBladeSystem : EntitySystem
             case "Void":
                 if (TryComp<TemperatureComponent>(target, out var temp))
                     _temp.ForceChangeTemperature(target, temp.CurrentTemperature - 5f, temp);
+                break;
+
+            case "Rust":
+                if (_mobState.IsDead(target))
+                    _rotting.ReduceAccumulator(target, -TimeSpan.FromMinutes(1f));
                 break;
 
             default:
@@ -134,11 +139,25 @@ public sealed partial class HereticBladeSystem : EntitySystem
         if (!TryComp<HereticComponent>(args.User, out var hereticComp))
             return;
 
+        if (ent.Comp.Path != hereticComp.CurrentPath)
+            return;
+
+        if (hereticComp is { CurrentPath: "Rust", PathStage: >= 7 })
+        {
+            args.BonusDamage += new DamageSpecifier
+            {
+                DamageDict =
+                {
+                    { "Poison", 7.5f },
+                },
+            };
+        }
+
         foreach (var hit in args.HitEntities)
         {
-            // does not work on other heretics
-            if (HasComp<HereticComponent>(hit))
-                continue;
+            // does not work on other heretics (Edit: yes it does)
+            // if (HasComp<HereticComponent>(hit))
+            //    continue;
 
             if (TryComp<HereticCombatMarkComponent>(hit, out var mark))
             {
@@ -147,7 +166,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
             }
 
             if (hereticComp.PathStage >= 7)
-                ApplySpecialEffect(args.User, hit);
+                ApplySpecialEffect(args.User, hit, args);
         }
 
         // blade path exclusive.

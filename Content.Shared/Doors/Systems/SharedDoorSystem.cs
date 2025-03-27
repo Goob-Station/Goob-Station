@@ -1,4 +1,6 @@
 using System.Linq;
+using System.Numerics; // Goobstation
+using Content.Shared.Access; // Goobstation
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Administration.Logs;
@@ -12,6 +14,7 @@ using Content.Shared.Popups;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Prying.Components;
 using Content.Shared.Prying.Systems;
+using Content.Shared.StationRecords; // Goobstation
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Content.Shared.Tools.Systems;
@@ -23,6 +26,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Prototypes; // Goobstation
 
 namespace Content.Shared.Doors.Systems;
 
@@ -609,6 +613,12 @@ public abstract partial class SharedDoorSystem : EntitySystem
         }
     }
 
+    // Goobstation - because of course access reader system has no easy way to check if something has empty accesses
+    // if you find yourself having to copy this, please do not, and instead just add a method to AccessReaderSystem that does what you want
+    // also rewrite this if you do
+    private List<ProtoId<AccessLevelPrototype>> EmptyAccessList = new();
+    private List<StationRecordKey> EmptyRecordList = new();
+
     /// <summary>
     ///     Open a door if a player or door-bumper (PDA, ID-card) collide with the door. Sadly, bullets no longer
     ///     generate "access denied" sounds as you fire at a door.
@@ -623,8 +633,21 @@ public abstract partial class SharedDoorSystem : EntitySystem
 
         var otherUid = args.OtherEntity;
 
+        // Goobstation
+        bool isProximity = args.OurFixtureId == door.ProximityFixtureId;
+        if (isProximity && TryComp<PhysicsComponent>(args.OtherEntity, out var otherPhysics) &&
+            (
+                otherPhysics.LinearVelocity.Length() < door.ProximityOpenSpeedThreshold // only proximity open us if the other entity is going fast enough
+                || Vector2.Dot((Transform(uid).WorldPosition - Transform(args.OtherEntity).WorldPosition).Normalized(), otherPhysics.LinearVelocity.Normalized()) < door.ProximityOpenThreshold // only proximity open us if the other entity is going towards us
+            )
+        )
+            return;
+        // only proximity open us if we're an access-less door
+        if (isProximity && TryComp<AccessReaderComponent>(uid, out var reader) && !_accessReaderSystem.IsAllowed(EmptyAccessList, EmptyRecordList, uid, reader))
+            return;
+
         if (Tags.HasTag(otherUid, DoorBumpTag))
-            TryOpen(uid, door, otherUid, quiet: door.State == DoorState.Denying, predicted: true);
+            TryOpen(uid, door, otherUid, quiet: door.State == DoorState.Denying || isProximity, predicted: true); // Goobstation
     }
     #endregion
 

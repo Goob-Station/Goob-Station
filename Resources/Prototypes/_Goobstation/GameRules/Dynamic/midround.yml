@@ -98,7 +98,6 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleHeretic
-      startingGear: HereticGear # see Roles/Antags/heretic.yml
 
 # Midround Revolutionaries
 - type: entity
