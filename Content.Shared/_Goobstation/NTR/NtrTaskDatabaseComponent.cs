@@ -1,0 +1,56 @@
+using Content.Shared._Goobstation.NTR;
+using Content.Shared.Cargo;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+
+namespace Content.Server._Goobstation.NTR;
+
+/// <summary>
+/// Stores all active cargo bounties for a particular station.
+/// </summary>
+[RegisterComponent]
+public sealed partial class NtrTaskDatabaseComponent : Component
+{
+    /// <summary>
+    /// Maximum amount of bounties a station can have.
+    /// </summary>
+    [DataField]
+    public int MaxTasks = 6;
+
+    /// <summary>
+    /// A list of all the bounties currently active for a station.
+    /// </summary>
+    [DataField]
+    public List<NtrTaskData> Tasks = new();
+
+    /// <summary>
+    /// A list of all the bounties that have been completed or
+    /// skipped for a station.
+    /// </summary>
+    [DataField]
+    public List<NtrTaskHistoryData> History = new();
+
+    /// <summary>
+    /// Used to determine unique order IDs
+    /// </summary>
+    [DataField]
+    public int TotalTasks;
+
+    /// <summary>
+    /// A list of bounty IDs that have been checked this tick.
+    /// Used to prevent multiplying bounty prices.
+    /// </summary>
+    [DataField]
+    public HashSet<string> CheckedTasks = new();
+
+    /// <summary>
+    /// The time at which players will be able to skip the next bounty.
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan NextSkipTime = TimeSpan.Zero;
+
+    /// <summary>
+    /// The time between skipping bounties.
+    /// </summary>
+    [DataField]
+    public TimeSpan SkipDelay = TimeSpan.FromMinutes(15);
+}
