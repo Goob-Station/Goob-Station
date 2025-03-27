@@ -3,6 +3,7 @@ using Content.Client.Animations;
 using Content.Client.Gameplay;
 using Content.Client.Items;
 using Content.Client.Weapons.Ranged.Components;
+using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Camera;
 using Content.Shared.CombatMode;
 using Content.Shared.Mech.Components; // Goobstation
@@ -38,6 +39,7 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly InputSystem _inputSystem = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private readonly SharedMapSystem _maps = default!;
+    [Dependency] private readonly SharedTransformSystem _xform = default!;
 
     [ValidatePrototypeId<EntityPrototype>]
     public const string HitscanProto = "HitscanEffect";
@@ -103,6 +105,13 @@ public sealed partial class GunSystem : SharedGunSystem
     private void OnHitscan(HitscanEvent ev)
     {
         // ALL I WANT IS AN ANIMATED EFFECT
+
+        // TODO EFFECTS
+        // This is very jank
+        // because the effect consists of three unrelatd entities, the hitscan beam can be split appart.
+        // E.g., if a grid rotates while part of the beam is parented to the grid, and part of it is parented to the map.
+        // Ideally, there should only be one entity, with one sprite that has multiple layers
+        // Or at the very least, have the other entities parented to the same entity to make sure they stick together.
         foreach (var a in ev.Sprites)
         {
             if (a.Sprite is not SpriteSpecifier.Rsi rsi)
@@ -110,13 +119,17 @@ public sealed partial class GunSystem : SharedGunSystem
 
             var coords = GetCoordinates(a.coordinates);
 
-            if (Deleted(coords.EntityId))
+            if (!TryComp(coords.EntityId, out TransformComponent? relativeXform))
                 continue;
 
             var ent = Spawn(HitscanProto, coords);
             var sprite = Comp<SpriteComponent>(ent);
+
             var xform = Transform(ent);
-            xform.LocalRotation = a.angle;
+            var targetWorldRot = a.angle + _xform.GetWorldRotation(relativeXform);
+            var delta = targetWorldRot - _xform.GetWorldRotation(xform);
+            _xform.SetLocalRotationNoLerp(ent, xform.LocalRotation + delta, xform);
+
             sprite[EffectLayers.Unshaded].AutoAnimated = false;
             sprite.LayerSetSprite(EffectLayers.Unshaded, rsi);
             sprite.LayerSetState(EffectLayers.Unshaded, rsi.RsiState);
@@ -164,6 +177,10 @@ public sealed partial class GunSystem : SharedGunSystem
         {
             return;
         }
+
+        if (TryComp<EntropicPlumeAffectedComponent>(entity, out var affected) &&
+            affected.NextAttack + TimeSpan.FromSeconds(0.1f) > Timing.CurTime) // Goobstation
+            return;
 
         var useKey = gun.UseKey ? EngineKeyFunctions.Use : EngineKeyFunctions.UseSecondary;
 

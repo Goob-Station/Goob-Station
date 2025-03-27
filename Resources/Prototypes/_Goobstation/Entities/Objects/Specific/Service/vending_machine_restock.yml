@@ -1,0 +1,16 @@
+- type: entity
+  parent: BaseVendingMachineRestock
+  id: VendingMachineRestockSweetToof
+  name: SweetToof restock box
+  description: A box jampacked with a heinous amount of candy. Load it into a SweetToof vendor to begin.
+  components:
+  - type: VendingMachineRestock
+    canRestock:
+    - SweetToofInventory
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Service/vending_machine_restock.rsi
+    layers:
+    - state: base
+    - state: green_bit
+      shader: unshaded
+    - state: refill_sweettoof

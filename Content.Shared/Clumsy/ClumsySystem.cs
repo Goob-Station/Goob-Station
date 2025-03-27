@@ -117,7 +117,10 @@ public sealed class ClumsySystem : EntitySystem
         var rand = new System.Random((int)_timing.CurTick.Value);
 
         // If someone is putting you on the table, always get past the guard.
-        if (!_cfg.GetCVar(CCVars.GameTableBonk) && args.PuttingOnTable == ent.Owner && !rand.Prob(ent.Comp.ClumsyDefaultCheck))
+        // Goobstation - Fix bugged table bonks.
+        if (!_cfg.GetCVar(CCVars.GameTableBonk)
+            || args.PuttingOnTable != ent.Owner
+            || !rand.Prob(ent.Comp.ClumsyDefaultCheck))
             return;
 
         HitHeadClumsy(ent, args.BeingClimbedOn);

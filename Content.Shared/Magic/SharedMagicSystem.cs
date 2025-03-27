@@ -430,24 +430,11 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         ev.Handled = true;
-        Speak(ev);
+        if (ev.DoSpeech)
+            Speak(ev);
 
-        foreach (var toRemove in ev.ToRemove)
-        {
-            if (_compFact.TryGetRegistration(toRemove, out var registration))
-                RemComp(ev.Target, registration.Type);
-        }
-
-        foreach (var (name, data) in ev.ToAdd)
-        {
-            if (HasComp(ev.Target, data.Component.GetType()))
-                continue;
-
-            var component = (Component)_compFact.GetComponent(name);
-            var temp = (object)component;
-            _seriMan.CopyTo(data.Component, ref temp);
-            EntityManager.AddComponent(ev.Target, (Component)temp!);
-        }
+        RemoveComponents(ev.Target, ev.ToRemove);
+        AddComponents(ev.Target, ev.ToAdd);
     }
     // End Change Component Spells
     #endregion
@@ -492,6 +479,29 @@ public abstract class SharedMagicSystem : EntitySystem
         {
             var comp = EnsureComp<PreventCollideComponent>(ent);
             comp.Uid = performer;
+        }
+    }
+
+    private void AddComponents(EntityUid target, ComponentRegistry comps)
+    {
+        foreach (var (name, data) in comps)
+        {
+            if (HasComp(target, data.Component.GetType()))
+                continue;
+
+            var component = (Component)_compFact.GetComponent(name);
+            var temp = (object)component;
+            _seriMan.CopyTo(data.Component, ref temp);
+            EntityManager.AddComponent(target, (Component)temp!);
+        }
+    }
+
+    private void RemoveComponents(EntityUid target, HashSet<string> comps)
+    {
+        foreach (var toRemove in comps)
+        {
+            if (_compFact.TryGetRegistration(toRemove, out var registration))
+                RemComp(target, registration.Type);
         }
     }
     // End Spell Helpers

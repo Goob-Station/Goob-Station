@@ -2,6 +2,7 @@
   name: sonic screwdriver
   parent: BaseItem
   id: SonicScrewdriver
+  suffix: DO NOT MAP
   description: Wzzzzz....
   components:
   - type: Sprite
@@ -13,6 +14,16 @@
   - type: Tag
     tags:
     - Multitool
+  - type: Flash
+    duration: 20000
+    aoeFlashDuration: 10000
+    slowTo: 0.2
+    range: 15
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    damage:
+      types:
+        Blunt: 0 # melee weapon to allow flashing individual targets
   - type: Prying
     enabled: false
   - type: UseDelay # For insta prying
@@ -141,7 +152,6 @@
   - type: ContainerContainer
     containers:
       Paper: !type:ContainerSlot
-  - type: MultiHandedItem
 
 - type: entity
   name: nanotrasen representative handheld fax
@@ -159,3 +169,44 @@
       map: [ "enum.FaxMachineVisuals.VisualState" ]
     - state: scanner
       shader: unshaded
+  - type: Prayable
+    sentMessage: prayer-popup-notify-centcom-sent
+    notificationPrefix: prayer-chat-notify-centcom
+    verb: prayer-verbs-call
+    verbImage: null
+  - type: MultiHandedItem
+
+- type: entity
+  name: CentComm official handheld fax
+  parent: HandheldFax
+  id: HandheldFaxOfficial
+  suffix: CentComm Official
+  components:
+  - type: FaxMachine
+    name: "CentComm Official"
+  - type: Item
+    size: Normal
+    sprite: _Goobstation/Objects/Tools/official_fax.rsi
+  - type: Prayable
+    sentMessage: prayer-popup-notify-centcom-sent
+    notificationPrefix: prayer-chat-notify-centcom
+    verb: prayer-verbs-call
+    verbImage: null
+  - type: Sprite
+    sprite: _Goobstation/Objects/Tools/official_fax.rsi
+    drawdepth: SmallObjects
+    layers:
+    - state: icon
+      map: [ "enum.FaxMachineVisuals.VisualState" ]
+    - state: scanner
+      shader: unshaded
+
+- type: entity
+  name: borg multitool
+  parent: Multitool
+  id: MultitoolBorg
+  description: An advanced tool to copy, store, and send electrical pulses and signals through wires and machines.
+  components:
+  - type: Tool
+    qualities:
+    - Pulsing

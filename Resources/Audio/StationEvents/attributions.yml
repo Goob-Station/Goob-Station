@@ -18,6 +18,11 @@
   license: "CC-BY-3.0"
   copyright: "Moranbong Band"
   source: "https://goobstation.com"
+  
+- files: ["rescue_imminent.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Created by mrjajkes"
+  source: "https://www.youtube.com/watch?v=DjV0OMskwiE"
 
 - files: ["blobin_time.ogg"]
   license: "CC-BY-3.0"

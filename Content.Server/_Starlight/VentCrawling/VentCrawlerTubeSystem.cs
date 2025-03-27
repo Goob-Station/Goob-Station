@@ -171,6 +171,9 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
 
         tube.Connected = false;
 
+        if (tube.Contents is null)
+            return; //runtime error on map load with prospector shuttle 4 some reason
+
         var query = GetEntityQuery<VentCrawlerHolderComponent>();
         foreach (var entity in tube.Contents.ContainedEntities.ToArray())
         {

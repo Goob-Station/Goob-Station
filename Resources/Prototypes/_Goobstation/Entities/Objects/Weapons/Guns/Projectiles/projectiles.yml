@@ -138,3 +138,61 @@
     damage:
       types:
         Piercing: 25
+
+- type: hitscan
+  id: HeavyPulse
+  damage:
+    types:
+      Heat: 35 # Damage nerfed slightly to give you a BIT of a chance. You're still fucked though.
+      Blunt: 10
+      Structural: 80
+  muzzleFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_blue
+  travelFlash:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/heavy_pulse.rsi
+    state: beam_blue_heavy
+  impactFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_blue
+
+- type: entity
+  id: BulletTemperatureCold
+  name: cold temperature bolt
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  description: Chilling!
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Cold: 3
+  - type: PointLight
+    radius: 2
+    color: blue
+    energy: 1
+  - type: ChangeTemperatureOnCollide
+    heat: -35000
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser
+      shader: unshaded
+
+- type: entity
+  id: BulletTemperatureHot
+  name: hot temperature bolt
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  description: Burning!
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Heat: 3
+  - type: PointLight
+    radius: 2
+    color: red
+    energy: 1
+  - type: ChangeTemperatureOnCollide # This will probably be tweaked.
+    heat: 35000

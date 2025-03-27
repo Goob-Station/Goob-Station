@@ -14,3 +14,12 @@
     - Heat
     - Shock
     - Radiation
+
+# based on inorganic
+- type: damageContainer
+  id: ClowncarDamageContainer
+  supportedGroups:
+  - Brute
+  supportedTypes:
+  - Heat
+  - Shock

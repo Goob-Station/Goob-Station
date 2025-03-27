@@ -33,7 +33,7 @@
     muzzleFlash: null
   - type: FlashOnTrigger # Goobstation
     duration: 4
-    range: 2
+    range: 1.8
   - type: Flashbang # Goobstation
     stunTime: 1
     knockdownTime: 6

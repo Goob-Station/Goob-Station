@@ -20,16 +20,16 @@ public sealed partial class LavalandRuinPoolPrototype : IPrototype
     public float MaxDistance = 336;
 
     /// <summary>
-    /// List of all huge ruins and their count. Should contain only really
-    /// important and big ruins, that have the highest priority.
+    /// List of all grid ruins and their count.
+    /// Used for ruins that are loaded as proper grids.
     /// </summary>
     [DataField]
-    public Dictionary<ProtoId<LavalandRuinPrototype>, ushort> HugeRuins = new();
+    public Dictionary<ProtoId<LavalandGridRuinPrototype>, ushort> GridRuins = new();
 
     /// <summary>
-    /// List of all small ruins and their count. Contains ruins
-    /// that aren't that important and can be easily skipped.
+    /// List of all dungeon ruins and their count.
+    /// Used for ruins that are generated with Dungeon markers.
     /// </summary>
     [DataField]
-    public Dictionary<ProtoId<LavalandRuinPrototype>, ushort> SmallRuins = new();
+    public Dictionary<ProtoId<LavalandDungeonRuinPrototype>, ushort> DungeonRuins = new();
 }

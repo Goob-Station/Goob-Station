@@ -151,6 +151,69 @@
         refresh: false
 
 - type: reagent
+  id: Amnestizine
+  name: reagent-name-amnestizine
+  group: Narcotics
+  desc: reagent-desc-amnestizine
+  physicalDesc: reagent-physical-desc-milky
+  color: "#FFF1DE"
+  boilingPoint: 255.0
+  meltingPoint: 36.0
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.05
+      effects:
+      - !type:GenericStatusEffect
+        key: Dementia
+        component: DementiaAccent
+      - !type:PopupMessage
+        visualType: MediumCaution
+        type: Local
+        messages: # Flavor text, you're supposed to forget what's happening.
+        - amnestizine-effect-forget
+        - amnestizine-effect-hole
+        - amnestizine-effect-blank
+        - amnestizine-effect-distracted
+        - amnestizine-effect-widen
+        - amnestizine-effect-soul
+        - amnestizine-effect-peaceful
+        - amnestizine-effect-leave
+        - amnestizine-effect-listen
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
+        probability: 0.35
+      - !type:GenericStatusEffect # You can't remember how to fire a gun, or swing a sword.
+        key: Pacified
+        component: Pacified
+        type: Add
+        time: 4
+      - !type:MovespeedModifier # You can't quite remember how to walk properly.
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
+          reagent: Amnestizine
+          min: 4
+        walkSpeedModifier: 0.4
+        sprintSpeedModifier: 0.4
+      - !type:GenericStatusEffect # It's all... blurry...
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        key: TemporaryBlindness
+        component: TemporaryBlindness
+        type: Add
+        time: 2
+        refresh: false
+      - !type:Jitter
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+
+- type: reagent
   id: Aranesp
   name: reagent-name-aranesp
   group: Narcotics

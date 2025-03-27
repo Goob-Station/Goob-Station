@@ -10,6 +10,23 @@
       amount: 2
 
 - type: entity
+  name: Box of lube & glue grenades
+  parent: BoxCardboard
+  id: BoxReagentGrenades
+  description: A box full of lube & glue grenades.
+  components:
+  - type: StorageFill
+    contents:
+    - id: LubeGrenade
+      amount: 2
+    - id: GlueGrenade
+      amount: 2
+  - type: Sprite
+    layers:
+    - state: box
+    - state: flashbang
+
+- type: entity
   name: box of lollypops
   parent: [BoxCardboard, BaseSyndicateContraband]
   id: SyndicateLollypopBundle

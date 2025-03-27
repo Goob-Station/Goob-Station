@@ -2,10 +2,15 @@
 - type: entity
   parent: CandyBowl
   id: CandyBowlFilledLollypopsMystery
-  suffix: mystery
+  suffix: mystery, good
   components:
   - type: Bin
     initialContents:
+    - FoodSnackLollypopWrappedMystery
+    - FoodSnackLollypopWrappedMystery
+    - FoodSnackLollypopWrappedMystery
+    - FoodSnackLollypopWrappedMystery
+    - FoodSnackLollypopWrappedMystery
     - FoodSnackLollypopWrappedMystery
     - FoodSnackLollypopWrappedMystery
     - FoodSnackLollypopWrappedMystery

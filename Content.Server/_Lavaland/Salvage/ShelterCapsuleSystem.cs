@@ -1,12 +1,13 @@
-﻿using System.Linq;
 using Content.Server._Lavaland.Procedural.Components;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.GridPreloader;
 using Content.Shared._Lavaland.Shelter;
 using Content.Shared.Chemistry.Components;
 using Robust.Server.GameObjects;
+using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Server._Lavaland.Salvage;
 
@@ -18,7 +19,6 @@ public sealed class ShelterCapsuleSystem : SharedShelterCapsuleSystem
     [Dependency] private readonly SmokeSystem _smoke = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
 
     public override void Initialize()
     {
@@ -52,7 +52,7 @@ public sealed class ShelterCapsuleSystem : SharedShelterCapsuleSystem
             return false;
 
         // Load and place shelter
-        var path = proto.Path.CanonPath;
+        var path = proto.Path;
         var mapEnt = xform.MapUid.Value;
         var posFixed = new MapCoordinates((worldPos.Position + comp.Offset).Rounded(), worldPos.MapId);
 
@@ -64,17 +64,14 @@ public sealed class ShelterCapsuleSystem : SharedShelterCapsuleSystem
         if (!_preloader.TryGetPreloadedGrid(comp.PreloadedGrid, out var shelter))
         {
             _mapSystem.CreateMap(out var dummyMap);
-            if (!_mapLoader.TryLoad(dummyMap, path, out var roots) || roots.Count != 1)
+            if (!_mapLoader.TryLoadGrid(dummyMap, path, out var shelterEnt))
             {
                 Log.Error("Failed to load Shelter grid properly on it's deployment.");
                 return false;
             }
 
-            var shelters = _mapMan.GetAllGrids(dummyMap);
-            shelter = shelters.FirstOrDefault(x => !TerminatingOrDeleted(x));
-
-            SetupShelter(shelter.Value, new EntityCoordinates(mapEnt, posFixed.Position));
-            _mapMan.DeleteMap(dummyMap);
+            SetupShelter(shelterEnt.Value.Owner, new EntityCoordinates(mapEnt, posFixed.Position));
+            _mapSystem.DeleteMap(dummyMap);
             return true;
         }
 

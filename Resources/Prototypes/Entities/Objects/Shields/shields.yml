@@ -87,7 +87,7 @@
   name: laser shield
   parent: [ BaseShield, BaseSecurityContraband ]
   id: RiotLaserShield
-  description: A riot shield built for withstanding lasers, but not much else.
+  description: A shield built for withstanding lasers, but not much else.
   components:
     - type: Sprite
       state: riot_laser-icon
@@ -107,7 +107,7 @@
   name: ballistic shield
   parent: [ BaseShield, BaseSecurityContraband ]
   id: RiotBulletShield
-  description: A ballistic riot shield built for withstanding bullets, but not much else.
+  description: A shield built for protecting against ballistics, but not much else.
   components:
     - type: Sprite
       sprite: Objects/Weapons/Melee/shields.rsi

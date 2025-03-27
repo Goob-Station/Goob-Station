@@ -16,11 +16,12 @@ public sealed class HierophantChaserSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
 
-    private static readonly Vector2i[] Directions = {
-        new Vector2i( 1,  0),
-        new Vector2i( 0,  1),
-        new Vector2i(-1,  0),
-        new Vector2i( 0, -1)
+    private static readonly Vector2i[] Directions =
+    {
+        new( 1,  0),
+        new( 0,  1),
+        new(-1,  0),
+        new ( 0, -1),
     };
 
     public override void Update(float frameTime)
@@ -54,7 +55,7 @@ public sealed class HierophantChaserSystem : EntitySystem
         if (!Resolve<TransformComponent>(ent, ref ent.Comp2, false))
             return;
 
-        var xform = Transform(ent);
+        var xform = ent.Comp2;
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
             return;
 
@@ -118,15 +119,10 @@ public sealed class HierophantChaserSystem : EntitySystem
     /// </summary>
     private Vector2i TranslateDelta(Vector2 delta)
     {
-        var x = (int) Math.Clamp(MathF.Round(delta.X, 0), -1, 1);
-        var y = (int) Math.Clamp(MathF.Round(delta.Y, 0), -1, 1);
+        delta = Vector2.Clamp(Vector2.Round(delta), new Vector2(-1, -1), new Vector2(1, 1));
 
-        // Prefer movement along the dominant axis.
-        if (Math.Abs(x) >= Math.Abs(y))
-            y = 0;
-        else
-            x = 0;
-
-        return new Vector2i(x, y);
+        return Math.Abs(delta.X) >= Math.Abs(delta.Y) 
+            ? new Vector2i((int)delta.X, 0) 
+            : new Vector2i(0, (int)delta.Y);
     }
 }

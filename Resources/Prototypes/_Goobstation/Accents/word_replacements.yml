@@ -112,6 +112,13 @@
     accent-dementia-words-25: accent-dementia-words-replace-25
     accent-dementia-words-26: accent-dementia-words-replace-26
     accent-dementia-words-27: accent-dementia-words-replace-27
+    accent-dementia-words-28: accent-dementia-words-replace-28
+    accent-dementia-words-29: accent-dementia-words-replace-29
+    accent-dementia-words-30: accent-dementia-words-replace-30
+    accent-dementia-words-31: accent-dementia-words-replace-31
+    accent-dementia-words-32: accent-dementia-words-replace-32
+    accent-dementia-words-33: accent-dementia-words-replace-33
+    accent-dementia-words-34: accent-dementia-words-replace-34
 
 - type: accent
   id: ohio

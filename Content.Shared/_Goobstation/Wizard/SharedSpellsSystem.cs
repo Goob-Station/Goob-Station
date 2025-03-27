@@ -3,6 +3,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Shared._DV.Carrying;
 using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared._Goobstation.Bingle;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._Goobstation.Wizard.Components;
@@ -14,6 +15,7 @@ using Content.Shared._Goobstation.Wizard.SpellCards;
 using Content.Shared._Goobstation.Wizard.Teleport;
 using Content.Shared._Goobstation.Wizard.TeslaBlast;
 using Content.Shared._Goobstation.Wizard.Traps;
+using Content.Shared._Lavaland.Mobs.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Access.Components;
 using Content.Shared.Actions;
@@ -42,6 +44,7 @@ using Content.Shared.Magic;
 using Content.Shared.Magic.Components;
 using Content.Shared.Maps;
 using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -163,7 +166,8 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<ThrownLightningEvent>(OnThrownLightning);
         SubscribeLocalEvent<ChargeMagicEvent>(OnCharge);
         SubscribeLocalEvent<BlinkSpellEvent>(OnBlink);
-
+        SubscribeLocalEvent<TileToggleSpellEvent>(OnTileToggle);
+        SubscribeLocalEvent<PredictionToggleSpellEvent>(OnPredictionToggle);
         SubscribeAllEvent<SetSwapSecondaryTarget>(OnSwapSecondaryTarget);
     }
 
@@ -173,6 +177,9 @@ public abstract class SharedSpellsSystem : EntitySystem
         var target = GetEntity(ev.Target);
 
         if (!TryComp(action, out SwapSpellComponent? swap))
+            return;
+
+        if (!swap.AllowSecondaryTarget)
             return;
 
         swap.SecondaryTarget = target;
@@ -988,6 +995,9 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (!TryComp(ev.Action, out SwapSpellComponent? swap))
             return;
 
+        if (!ev.ThroughWalls && !_examine.InRangeUnOccluded(ev.Performer, ev.Target, ev.Range))
+            return;
+
         var userXform = Transform(ev.Performer);
         var targetXform = Transform(ev.Target);
 
@@ -1164,6 +1174,38 @@ public abstract class SharedSpellsSystem : EntitySystem
         ev.Handled = true;
     }
 
+    private void OnTileToggle(TileToggleSpellEvent ev)
+    {
+        if (ev.Handled
+            || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer)
+            || TerminatingOrDeleted(ev.Target))
+            return;
+
+        if (HasComp<HierophantBeatComponent>(ev.Target))
+            RemComp<HierophantBeatComponent>(ev.Target);
+        else
+            EnsureComp<HierophantBeatComponent>(ev.Target);
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
+    private void OnPredictionToggle(PredictionToggleSpellEvent ev)
+    {
+        if (ev.Handled
+            || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer)
+            || TerminatingOrDeleted(ev.Target))
+            return;
+
+        if (HasComp<CurseOfByondComponent>(ev.Target))
+            RemComp<CurseOfByondComponent>(ev.Target);
+        else
+            EnsureComp<CurseOfByondComponent>(ev.Target);
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
     #endregion
 
     #region Helpers
@@ -1251,9 +1293,10 @@ public abstract class SharedSpellsSystem : EntitySystem
         var bodyPartQuery = GetEntityQuery<BodyPartComponent>();
         var inventoryQuery = GetEntityQuery<InventoryComponent>();
         var handsQuery = GetEntityQuery<HandsComponent>();
+        var binglePitQuery = GetEntityQuery<BinglePitComponent>();
 
         while (parent.IsValid() && !bodyQuery.HasComp(parent) && !bodyPartQuery.HasComp(parent) &&
-               !inventoryQuery.HasComp(parent) && !handsQuery.HasComp(parent))
+               !inventoryQuery.HasComp(parent) && !handsQuery.HasComp(parent) && !binglePitQuery.HasComp(parent))
         {
             if (((EntityManager.MetaQuery.GetComponent(child).Flags & MetaDataFlags.InContainer) ==
                  MetaDataFlags.InContainer) && managerQuery.TryGetComponent(parent, out var conManager) &&
@@ -1404,7 +1447,6 @@ public abstract class SharedSpellsSystem : EntitySystem
                 EnsureComp<UnremoveableComponent>(ent);
         }
     }
-
     #endregion
 
     #region ServerMethods

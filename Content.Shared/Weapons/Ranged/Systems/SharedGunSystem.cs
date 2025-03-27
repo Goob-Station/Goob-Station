@@ -124,7 +124,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (melee.NextAttack > component.NextFire)
         {
             component.NextFire = melee.NextAttack;
-            EntityManager.DirtyField(uid, component, nameof(MeleeWeaponComponent.NextAttack));
+            EntityManager.DirtyField(uid, component, nameof(GunComponent.NextFire));
         }
     }
 
@@ -307,13 +307,15 @@ public abstract partial class SharedGunSystem : EntitySystem
         var fireRate = TimeSpan.FromSeconds(1f / gun.FireRateModified);
 
         if (gun.SelectedMode == SelectiveFire.Burst || gun.BurstActivated)
-            fireRate = TimeSpan.FromSeconds(1f / gun.BurstFireRate);
+            fireRate = TimeSpan.FromSeconds(1f / gun.BurstFireRateModified);  // Goobstation edit
 
         // First shot
         // Previously we checked shotcounter but in some cases all the bullets got dumped at once
         // curTime - fireRate is insufficient because if you time it just right you can get a 3rd shot out slightly quicker.
         if (gun.NextFire < curTime - fireRate || gun.ShotCounter == 0 && gun.NextFire < curTime)
             gun.NextFire = curTime;
+
+        bool isRechargingGun = HasComp<RechargeBasicEntityAmmoComponent>(gunUid); // Goobstation
 
         var shots = 0;
         var lastFire = gun.NextFire;
@@ -390,11 +392,18 @@ public abstract partial class SharedGunSystem : EntitySystem
             var emptyGunShotEvent = new OnEmptyGunShotEvent();
             RaiseLocalEvent(gunUid, ref emptyGunShotEvent);
 
+            // Goobstation
+            if (isRechargingGun)
+            {
+                gun.NextFire = lastFire; // for empty PKAs, don't play no-ammo sound and don't trigger the reload
+                return;
+            }
+
             if (!gun.LockOnTargetBurst || gun.ShootCoordinates == null) // Goobstation
                 gun.Target = null;
             gun.BurstActivated = false;
             gun.BurstShotsCount = 0;
-            gun.NextFire += TimeSpan.FromSeconds(gun.BurstCooldown);
+            gun.NextFire += TimeSpan.FromSeconds(gun.BurstCooldownModified); // Goobstation edit
 
             // Play empty gun sounds if relevant
             // If they're firing an existing clip then don't play anything.
@@ -425,7 +434,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             gun.BurstShotsCount += shots;
             if (gun.BurstShotsCount >= gun.ShotsPerBurstModified)
             {
-                gun.NextFire += TimeSpan.FromSeconds(gun.BurstCooldown);
+                gun.NextFire += TimeSpan.FromSeconds(gun.BurstCooldownModified); // Goobstation edit
                 if (!gun.LockOnTargetBurst || gun.ShootCoordinates == null) // Goobstation
                     gun.Target = null;
                 gun.BurstActivated = false;
@@ -594,6 +603,8 @@ public abstract partial class SharedGunSystem : EntitySystem
             comp.ShotsPerBurst,
             comp.FireRate,
             comp.ProjectileSpeed,
+            comp.BurstFireRate, // Goobstation
+            comp.BurstCooldown, // Goobstation
             User // GoobStation change - User for NoWieldNeeded
         );
 
@@ -652,6 +663,18 @@ public abstract partial class SharedGunSystem : EntitySystem
             comp.ProjectileSpeedModified = ev.ProjectileSpeed;
             DirtyField(gun, nameof(GunComponent.ProjectileSpeedModified));
         }
+
+        if (!MathHelper.CloseTo(comp.BurstFireRateModified, ev.BurstFireRate)) // Goobstation - start
+        {
+            comp.BurstFireRateModified = ev.BurstFireRate;
+            DirtyField(gun, nameof(GunComponent.BurstFireRateModified));
+        }
+
+        if (!MathHelper.CloseTo(comp.BurstCooldownModified, ev.BurstCooldown))
+        {
+            comp.BurstCooldownModified = ev.BurstCooldown;
+            DirtyField(gun, nameof(GunComponent.BurstCooldownModified));
+        }  // Goobstation - end
     }
 
      // Goobstation

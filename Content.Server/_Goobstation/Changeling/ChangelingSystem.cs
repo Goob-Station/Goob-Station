@@ -41,6 +41,7 @@ using Content.Shared.Mind;
 using Content.Server.Objectives.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Shared.StatusEffect;
+using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Cuffs;
 using Content.Shared.Fluids;
@@ -63,6 +64,8 @@ using Content.Shared._Goobstation.Weapons.AmmoSelector;
 using Content.Shared.Projectiles;
 using Content.Shared._White.Overlays;
 using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Tag;
+using Content.Shared.Forensics.Components;
 
 namespace Content.Server.Changeling;
 
@@ -109,6 +112,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly RejuvenateSystem _rejuv = default!;
     [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -338,7 +342,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     }
 
     /// <summary>
-    ///     Check if a target is crit/dead or cuffed. For absorbing.
+    ///     Check if the target is crit/dead or cuffed, for absorbing.
     /// </summary>
     public bool IsIncapacitated(EntityUid uid)
     {
@@ -347,6 +351,14 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             return true;
 
         return false;
+    }
+
+    /// <summary>
+    ///     Check if the target is hard-grabbed, for absorbing.
+    /// </summary>
+    public bool IsHardGrabbed(EntityUid uid)
+    {
+        return (TryComp<PullableComponent>(uid, out var pullable) && pullable.GrabStage > GrabStage.Soft);
     }
 
     public float? GetEquipmentChemCostOverride(ChangelingComponent comp, EntProtoId proto)

@@ -9,7 +9,7 @@ namespace Content.Shared._Shitmed.OnHit;
 public sealed partial class CuffsOnHitComponent : Component
 {
     [DataField("proto")]
-    public ProtoId<EntityPrototype>? HandcuffPrototype;
+    public EntProtoId? HandcuffPrototype;
 
     [DataField]
     public TimeSpan Duration = TimeSpan.FromSeconds(1);

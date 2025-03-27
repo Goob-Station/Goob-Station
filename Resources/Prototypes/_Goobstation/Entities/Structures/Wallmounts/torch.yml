@@ -1,0 +1,56 @@
+- type: entity
+  id: TorchWall
+  name: torch
+  description: "A torch"
+  components:
+  - type: Construction
+    graph: WallTorchGraph
+    node: wallTorch
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        collection: WoodDestroyHeavy
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Goobstation/Structures/Wallmounts/torch.rsi
+    state: torch
+  - type: PointLight
+    enabled: true
+    color: "#E25822"
+    radius: 4.0
+    energy: 5.0
+  - type: Damageable
+    damageModifierSet: Wood
+    damageContainer: StructuralInorganic
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,0.5,0.4,0.35"
+        density: 190
+        mask:
+        - TabletopMachineMask
+        layer:
+        - TabletopMachineLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroyHeavy
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
+

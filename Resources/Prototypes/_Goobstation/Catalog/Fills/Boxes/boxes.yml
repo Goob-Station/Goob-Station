@@ -1,0 +1,37 @@
+- type: entity
+  name: reverse bear trap pack
+  parent: BoxCardboard
+  id: BoxReverseBearTrap
+  description: A box full of completely legal stuff.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ReverseBearTrap
+        amount: 1
+      - id: ReverseBearTrapKey
+        amount: 1
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/boxes.rsi
+
+- type: entity
+  name: combat injector box
+  parent: BoxCardboard
+  id: BoxCombatInjector
+  description: A box containing a combat injector and a few healing chemicals.
+  components:
+  - type: StorageFill
+    contents:
+      - id: CombatInjector
+        amount: 1
+      - id: TirimolChemistryVial
+        amount: 1
+      - id: OmnizineChemistryVial
+        amount: 1
+      - id: SyriniverChemistryVial
+        amount: 1
+      - id: ProcenylLazideChemistryVial
+        amount: 1
+      - id: EbifinlLazideChemistryVial
+        amount: 1
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/boxes.rsi

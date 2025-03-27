@@ -160,12 +160,18 @@
     tags:
     - CannotSuicide
     - DoorBumpOpener
+    - DragonMind # Goobstation - Collective mind
+  # Goobstation - Collective mind
+  - type: CollectiveMind
+    defaultChannel: Dragonmind
   - type: Puller
     needsHands: false
   - type: NightVision # Goobstation - Nigthvision
     color: "#808080"
     activateSound: null
     deactivateSound: null
+  - type: CombatPower # Goobstation
+    factor: 4 # times more dangerous than a crew-member
 
 - type: entity
   parent: BaseMobDragon
@@ -176,6 +182,7 @@
   - type: GuideHelp
     guides:
     - MinorAntagonists
+  - type: Fauna # Lavaland Change
 
 - type: entity
   categories: [ HideSpawnMenu ]

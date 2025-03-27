@@ -70,3 +70,13 @@
       emergencyLightColor: DarkViolet
       forceEnableEmergencyLights: true
       shuttleTime: 1200
+    omicron: # Goobstation
+      announcement: alert-level-omicron-announcement
+      selectable: false
+      sound:
+        path: /Audio/_Goobstation/Misc/omicron.ogg
+      disableSelection: true
+      color: Ivory
+      emergencyLightColor: Ivory
+      forceEnableEmergencyLights: true
+      shuttleTime: 2400

@@ -7,9 +7,10 @@
     FoodSnackPistachios: 3
     FoodSnackSus: 3
     FoodSnackSemki: 3
+  contrabandInventory:
     FoodSnackLollypopWrapped: 3
-  emaggedInventory:
     FoodSnackSyndi: 3
+  emaggedInventory:
     FoodSnackLollypopWrappedMysteryEvil: 2 # Goobstation
 
 

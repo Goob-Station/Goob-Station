@@ -52,7 +52,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      2500: Dead
+      2500: Dead #
   - type: Tag
     tags:
     - CannotSuicide
@@ -70,6 +70,7 @@
 - type: entity
   id: LavalandHierophantSquare
   suffix: DO NOT MAP
+  categories: [ DoNotMap ]
   name: hierophant square
   placement:
     mode: SnapgridCenter
@@ -115,14 +116,15 @@
   - type: DamageSquare
     damage:
       types:
-        Blunt: 6
-        Heat: 6
+        Blunt: 10
+        Heat: 10
     sound:
       path: /Audio/_Lavaland/Mobs/Bosses/hiero_blast.ogg
 
 - type: entity
   id: LavalandHierophantChaser
   suffix: DO NOT MAP
+  categories: [ DoNotMap ]
   name: hierophant chaser
   placement:
     mode: SnapgridCenter

@@ -1,93 +1,147 @@
 - type: entity
-  name: syringe gun
-  parent: [ BaseStorageItem, BaseMedicalContraband ]
-  id: SyringeGun
-  description: A gun that allows you to fire syringes and instantly inject their contents on a target.
+  name: regenerating pie cannon
+  parent: BaseStorageItem
+  id: LauncherCreamPieRegenerating
+  description: A self-regenerating pie cannon.
+  suffix: Regenerating
   components:
+  - type: PacifismAllowedGun
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+    sprite: Objects/Weapons/Guns/Cannons/pie_cannon.rsi
     layers:
-    - state: syringe-gun
-  - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
-    slots:
-    - back
-    - suitStorage
-    quickEquip: false
-  - type: Storage
-    maxItemSize: Tiny
-    grid:
-    - 0,0,0,0
-    whitelist:
-      tags:
-      - SyringeGunAmmo
+    - state: piecannon
   - type: Gun
-    fireRate: 1
+    fireRate: 2 # Lower fire-rate than the old one
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/syringe_gun.ogg
+      path: /Audio/Effects/thunk.ogg
     soundEmpty:
-      path: /Audio/Weapons/Guns/Empty/empty.ogg
-    clumsyProof: true
-  - type: ContainerAmmoProvider
-    container: storagebase
+      path: /Audio/Items/hiss.ogg
+    clumsyProof: true # It would be extremely, nay, extraordinarily funny if this was false
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 10
+    rechargeSound:
+      path: /Audio/Items/bikehorn.ogg
+  - type: BasicEntityAmmoProvider
+    proto: FoodPieBananaCream
+    capacity: 2
+    count: 2
   - type: Item
     size: Large
-    shape:
-    - 0,0,4,0
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
         ents: []
-  - type: SyringeGun
-  - type: PacifismAllowedGun
+
+# Lollypop stuff
 
 - type: entity
-  name: rapid syringe gun
-  parent: SyringeGun
-  id: RapidSyringeGun
-  description: An upgraded version of the syringe gun featuring a faster fire rate and a bigger magazine.
+  name: tricordrazine lollypop dispenser
+  parent: LauncherLollypopRegenerating
+  id: LauncherLollypopRegeneratingTricordazine
+  description: Utilizes a in-built fabricator to generate tricordrazine lollypops from energy.
+  suffix: Regenerating, DO NOT MAP
+  categories: [ DoNotMap ]
   components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
-    layers:
-    - state: rapid-syringe-gun
-  - type: Storage
-    maxItemSize: Tiny
-    grid:
-    - 0,0,2,1
-    whitelist:
-      tags:
-      - SyringeGunAmmo
-  - type: Gun
-    fireRate: 1.5
-  - type: PacifismAllowedGun
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 30
+    rechargeSound:
+      path: /Audio/Items/pen_click.ogg
+  - type: BasicEntityAmmoProvider
+    proto: FoodSnackLollypopWrappedTricordrazine
+    capacity: 3
+    count: 3
 
 - type: entity
-  name: dart syringe gun
-  parent: [ BaseSyndicateContraband, SyringeGun ]
-  id: DartSyringeGun
-  description: An illegally modified version of the syringe gun that allows projectiles to pierce through armor. Also piereces skin better, resulting in faster injection.
+  name: omnizine lollypop dispenser
+  parent: LauncherLollypopRegenerating
+  id: LauncherLollypopRegeneratingOmnizine
+  description: Utilizes a in-built fabricator to generate omnizine lollypops from energy.
+  suffix: Regenerating, DO NOT MAP
+  categories: [ DoNotMap ]
   components:
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 90
+    rechargeSound:
+      path: /Audio/Items/pen_click.ogg
+  - type: BasicEntityAmmoProvider
+    proto: FoodSnackLollypopWrappedOmnizine
+    capacity: 2
+    count: 2
+
+- type: entity
+  name: weh! lollypop dispenser
+  parent: LauncherLollypopRegenerating
+  id: LauncherLollypopRegeneratingWeh
+  description: Utilizes a in-built fabricator to generate Weh! lollypops from energy. Weh!
+  suffix: Regenerating, DO NOT MAP
+  categories: [ DoNotMap ]
+  components:
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 20
+    rechargeSound:
+      path: /Audio/Items/pen_click.ogg
+  - type: BasicEntityAmmoProvider
+    proto: FoodSnackLollypopWrappedWeh
+    capacity: 3
+    count: 3
+
+- type: entity
+  name: mystery lollypop dispenser
+  parent: LauncherLollypopRegenerating
+  id: LauncherLollypopRegeneratingMystery
+  description: Utilizes a in-built fabricator to generate randomized lollypops from energy.
+  suffix: Regenerating, DO NOT MAP
+  categories: [ DoNotMap ]
+  components:
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 20
+    rechargeSound:
+      path: /Audio/Items/pen_click.ogg
+  - type: BasicEntityAmmoProvider
+    proto: FoodSnackLollypopWrappedMystery
+    capacity: 3
+    count: 3
+
+- type: entity
+  name: lollypop dispenser
+  parent: BaseStorageItem
+  id: LauncherLollypopRegenerating
+  description: Utilizes a in-built fabricator to generate lollypops from energy.
+  suffix: Regenerating, DO NOT MAP
+  categories: [ DoNotMap ]
+  components:
+  - type: PacifismAllowedGun
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
-    layers:
-    - state: dart-syringe-gun
-  - type: Storage
-    maxItemSize: Tiny
-    grid:
-    - 0,0,0,0
-    whitelist:
-      tags:
-      - SyringeGunAmmo
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-dispenser
   - type: Gun
-    fireRate: 1
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Effects/thunk.ogg
+    soundEmpty:
+      path: /Audio/Items/hiss.ogg
+    clumsyProof: true
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 10
+    rechargeSound:
+      path: /Audio/Items/pen_click.ogg
+  - type: BasicEntityAmmoProvider
+    proto: FoodSnackLollypopWrapped
+    capacity: 5
+    count: 5
   - type: Item
-    size: Small
-    shape:
-    - 0,0,1,0
-  - type: SyringeGun
-    pierceArmor: true
-    injectionSpeedMultiplier: 1.5
-  - type: PacifismAllowedGun
+    size: Large
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
 
-# TODO: Add the proper dart gun that regenerates every 25s, and draws from a 100u reservoir
+

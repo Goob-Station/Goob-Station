@@ -16,6 +16,9 @@
   id: AirSensor
 
 - type: Tag
+  id: AllowGhostShownByEvent
+
+- type: Tag
   id: Ambrosia
 
 - type: Tag
@@ -663,6 +666,9 @@
   id: HelmetEVA
 
 - type: Tag
+  id: HereticCarving
+
+- type: Tag
   id: HideContextMenu
 
 - type: Tag
@@ -838,6 +844,9 @@
   id: MailingUnitElectronics
 
 - type: Tag
+  id: Maints
+
+- type: Tag
   id: Matchstick
 
 - type: Tag
@@ -919,7 +928,13 @@
   id: NukeOpsUplink
 
 - type: Tag
+  id: LoneOpsUplink
+
+- type: Tag
   id: Ointment
+
+- type: Tag
+  id: Oni
 
 - type: Tag
   id: Ore
@@ -992,6 +1007,9 @@
 
 - type: Tag
   id: PlushieGhost
+
+- type: Tag
+  id: PlushieLizard
 
 - type: Tag
   id: PlushieSharkBlue
@@ -1187,6 +1205,9 @@
 
 - type: Tag
   id: Spray
+
+- type: Tag
+  id: SprayNozzle
 
 - type: Tag
   id: SpreaderIgnore

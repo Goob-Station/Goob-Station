@@ -17,6 +17,9 @@
     sound: /Audio/Weapons/star_hit.ogg
   - type: Stack
     count: 1
+  - type: Tag
+    tags:
+      - DroneUsable # Goobstation
   # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
@@ -55,6 +58,11 @@
   - type: GuideHelp
     guides:
     - ExpandingRepairingStation
+  - type: Extractable # Goobstation - Tilenol
+    juiceSolution:
+      reagents:
+      - ReagentId: Nostalgia
+        Quantity: 1
 
 - type: entity
   name: steel dark checker tile

@@ -8,6 +8,9 @@
     weight: 7.5
     minimumPlayers: 10
     duration: 1
+    chaos: # Goobstation
+      Hostile: 75
+      Medical: 75
   - type: RuleGrids
   - type: LoadMapRule
     mapPath: /Maps/_Shitmed/Shuttles/ShuttleEvent/abductor_shuttle.yml
@@ -62,6 +65,7 @@
           - CanPilot
           - FootstepSound
           - DoorBumpOpener
+          - AbductorMind
       - type: AbductorScientist
       - type: SurgeryIgnoreClothing
       - type: Sanitized
@@ -99,6 +103,9 @@
     weight: 7.5
     minimumPlayers: 20
     duration: 1
+    chaos: # Goobstation
+      Hostile: 150
+      Medical: 150
   - type: RuleGrids
   - type: LoadMapRule
     mapPath: /Maps/_Shitmed/Shuttles/ShuttleEvent/duo_abductor_shuttle.yml
@@ -150,6 +157,7 @@
           - CanPilot
           - FootstepSound
           - DoorBumpOpener
+          - AbductorMind
       - type: AbductorScientist
       - type: SurgeryIgnoreClothing
       - type: Sanitized

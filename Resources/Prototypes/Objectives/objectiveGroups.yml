@@ -12,7 +12,8 @@
   weights:
     CaptainIDStealObjective: 1
     CMOHyposprayStealObjective: 1
-    CMOCrewMonitorStealObjective: 1
+    # CMOCrewMonitorStealObjective: 1 # Goobstation
+    CMORapidSyringeGunStealObjective: 1
     RDHardsuitStealObjective: 1
     NukeDiskStealObjective: 1
     MagbootsStealObjective: 1
@@ -21,9 +22,8 @@
     CaptainGunStealObjective: 0.5
     CaptainJetpackStealObjective: 0.5
     HandTeleporterStealObjective: 0.5
-    # SecretDocumentsStealObjective: 0.5 # Goob edit
-    StealSupermatterSliverObjective: 0.5 # Goobstation - supermatter
     EnergyShotgunStealObjective: 0.5
+    StealSupermatterSliverObjective: 0.5 # Goobstation - supermatter
     MultiphaseStealObjective: 0.5 # Goobstation
 
 - type: weightedRandom

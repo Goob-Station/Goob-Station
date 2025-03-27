@@ -11,6 +11,10 @@ uplink-hardsuit-syndiecommander-desc = A surplus commander hardsuit, from the Go
 uplink-hardsuit-cybersun-stealth-name = Cybersun Stealth Hardsuit
 uplink-hardsuit-cybersun-stealth-desc = Reversed engineered from Spider Clan technology, this hardsuit has stealth plating in it for those special ops. Slightly slower and less armor than the default hardsuits.
 
+# Cybersun Dreadnought suit
+uplink-hardsuit-cybersun-dreadnought-name = Cybersun Dreadnought suit
+uplink-hardsuit-cybersun-dreadnought-desc = An insanely tough combat hardsuit utilizing hyper-bluespace enhanced plasteel to make an almost impenetrable wall out of the wearer. However, only the absolutely insane syndicate followers will put this on. Because of its weight, it must be tightened very hard, to the point of impaling the user and being unable to be taken off without completely ripping off their skin. The syndicate sends their regards.
+
 # Misc
 
 uplink-gondola-name = Gondola Crate
@@ -117,6 +121,11 @@ uplink-high-caliber-box-desc = A box of 30 .50 caliber anti-materiel rounds.
 uplink-highcap-pistol-mag-name = High Capacity .35 Pistol Magazine
 uplink-highcap-pistol-mag-desc = High capacity pistol magazine holds 4 extra bullets for a total of 16 rounds.
 
+# Grenades
+
+uplink-sarin-gas-grenade-name = Sarin gas grenade
+uplink-sarin-gas-grenade-desc = A brutal neurotoxin gas that stuns, blinds, and poisons anybody unlucky enough to catch a whiff aswell as burning anyone not in a voidsuit, leaving them writhing on the floor begging to be finished off
+
 # Mechs
 
 uplink-mech-teleporter-heavy-name = Heavy Mech teleporter
@@ -138,10 +147,19 @@ uplink-lollypop-bundle-big-desc = Contains an ungodly amount of candy. What coul
 uplink-smoke-implant-name = Smoke Implant
 uplink-smoke-implant-desc = Releases a cloud of smoke when activated.
 
+uplink-jaunter-implanter-name = Jaunter Implanter
+uplink-jaunter-implanter-desc = Swaps position of the user and target upon activation. Recharges passively.
+
+uplink-krav-maga-implant-name = Krav Maga Implanter
+uplink-krav-maga-implant-desc = Allows the user to perform various Krav Maga moves.
+
 # Wearables
 
 uplink-helmet-swat-name = Syndicate SWAT Helmet
 uplink-helmet-swat-desc = Robust helmet that offers good protection and also suppresses flashbang sounds to some extent.
+
+uplink-reverse-bear-trap-name = Reverse bear trap
+uplink-reverse-bear-trap-desc = An ingenious execution device worn on (or forced onto) the head. Arming it starts a configurable timer (30-120 seconds) mounted on the bear trap. When it goes off, the trap's jaws will violently open, instantly killing anyone wearing it by tearing their jaws in half. To arm, attack someone with it while they're not wearing headgear.
 
 # Deception
 
@@ -157,3 +175,9 @@ uplink-syndicate-weapon-module-advanced-desc = Upgrades a cyborg with an energy 
 
 uplink-dimension-pot-name = Dimension Pot
 uplink-dimension-pot-desc = A portal to your own pocket dimension disguised in the form of a potted plant, for when stashing one item isn't quite enough.
+
+uplink-pizza-bomb-name = Nefarious Pizza bomb
+uplink-pizza-bomb-desc = First pioneered by terrorists, now is used by the syndicate for eliminating high value targets. Do not open before explosion.
+
+uplink-pizza-party-crate-name = Pizza Party Crate
+uplink-pizza-party-crate-desc = A crate coming in the form of disaster pizza delivery. Filled with pizzas and pizza bombs to throw the most explosive pizza party ever. Unfortunately you can't seem to remember which one is which.

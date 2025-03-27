@@ -558,6 +558,7 @@
     AntimovLawset: 0.25
     NutimovLawset: 0.5
     ZooimovLawset: 0.5 #silly lawsets down here
+    HelpimovLawset: 0.6
     Drone: 0.5
     Ninja: 0.25
     JermovLawset: 0.25

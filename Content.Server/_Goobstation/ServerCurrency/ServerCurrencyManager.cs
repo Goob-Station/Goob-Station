@@ -1,48 +1,24 @@
-using System.Threading;
 using System.Threading.Tasks;
 using Robust.Shared.Network;
-using Robust.Shared.Player;
 using Robust.Shared.Asynchronous;
-using Robust.Shared.Timing;
 using Content.Server.Database;
 using Robust.Server.Player;
 using Content.Shared._Goobstation.ServerCurrency.Events;
 
 namespace Content.Server._Goobstation.ServerCurrency
 {
-    public sealed class ServerCurrencyManager : IPostInjectInit
+    public sealed class ServerCurrencyManager
     {
         [Dependency] private readonly IServerDbManager _db = default!;
-        [Dependency] private readonly UserDbDataManager _userDb = default!;
         [Dependency] private readonly ITaskManager _task = default!;
-        [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly IPlayerManager _player = default!;
-        private ISawmill _sawmill = default!;
-        private Dictionary<NetUserId, BalanceData> _balances = new();
         private readonly List<Task> _pendingSaveTasks = new();
-        private TimeSpan _saveInterval = TimeSpan.FromSeconds(600); // Yeah, players will only gain coins mid round from gifting/admins, so we dont need to update often.
-        private TimeSpan _lastSave;
         public event Action<PlayerBalanceChangeEvent>? BalanceChange;
+        private ISawmill _sawmill = default!;
 
         public void Initialize()
         {
             _sawmill = Logger.GetSawmill("server_currency");
-        }
-
-        void IPostInjectInit.PostInject()
-        {
-            _userDb.AddOnLoadPlayer(PlayerConnected);
-            _userDb.AddOnPlayerDisconnect(PlayerDisconnected);
-        }
-
-        /// <summary>
-        /// Saves player data at set intervals.
-        /// </summary>
-        public void Update()
-        {
-            if (_timing.RealTime < _lastSave + _saveInterval)
-                return;
-            Save();
         }
 
         /// <summary>
@@ -50,54 +26,7 @@ namespace Content.Server._Goobstation.ServerCurrency
         /// </summary>
         public void Shutdown()
         {
-            Save();
             _task.BlockWaitOnTask(Task.WhenAll(_pendingSaveTasks));
-        }
-
-        /// <summary>
-        /// Loads player's balance when they connect
-        /// </summary>
-        public async Task PlayerConnected(ICommonSession session, CancellationToken cancel)
-        {
-            var user = session.UserId;
-            var data = new BalanceData();
-            _balances.Add(user, data);
-
-            data.Balance = await GetBalanceAsync(user);
-            cancel.ThrowIfCancellationRequested();
-
-            data.Initialized = true;
-        }
-
-        /// <summary>
-        /// Saves player's balance when they disconnect
-        /// </summary>
-        public void PlayerDisconnected(ICommonSession session)
-        {
-            SavePlayer(session.UserId);
-            _balances.Remove(session.UserId);
-        }
-
-        /// <summary>
-        ///  Saves player balances to the database.
-        /// </summary>
-        public async void Save()
-        {
-            foreach (var player in _balances)
-                SavePlayer(player.Key);
-
-            _lastSave = _timing.RealTime;
-        }
-
-        /// <summary>
-        /// Save balance for a player to the database.
-        /// </summary>
-        public async void SavePlayer(NetUserId player)
-        {
-            if (!_balances[player].IsDirty)
-                return;
-            _balances[player].IsDirty = false;
-            TrackPending(SetBalanceAsync(player, _balances[player].Balance));
         }
 
         /// <summary>
@@ -129,7 +58,12 @@ namespace Content.Server._Goobstation.ServerCurrency
         /// <param name="userId">The player's NetUserId</param>
         /// <param name="amount">The amount of currency to add.</param>
         /// <returns>An integer containing the new amount of currency attributed to the player.</returns>
-        public int AddCurrency(NetUserId userId, int amount) => SetBalance(userId, GetBalance(userId) + amount);
+        public int AddCurrency(NetUserId userId, int amount)
+        {
+            var newBalance = ModifyBalance(userId, amount);
+            _sawmill.Info($"Added {amount} currency to {userId} account. Current balance: {newBalance}");
+            return newBalance;
+        }
 
         /// <summary>
         /// Removes currency from a player.
@@ -137,30 +71,42 @@ namespace Content.Server._Goobstation.ServerCurrency
         /// <param name="userId">The player's NetUserId</param>
         /// <param name="amount">The amount of currency to remove.</param>
         /// <returns>An integer containing the new amount of currency attributed to the player.</returns>
-        public int RemoveCurrency(NetUserId userId, int amount) => SetBalance(userId, GetBalance(userId) - amount);
+        public int RemoveCurrency(NetUserId userId, int amount)
+        {
+            var newBalance = ModifyBalance(userId, -amount);
+            _sawmill.Info($"Removed {amount} currency from {userId} account. Current balance: {newBalance}");
+            return newBalance;
+        }
 
         /// <summary>
-        /// Sets a player's currency.
+        /// Transfers currency from player to another player.
+        /// </summary>
+        /// <param name="sourceUserId">The source player's NetUserId</param>
+        /// <param name="targetUserId">The target player's NetUserId</param>
+        /// <param name="amount">The amount of currency to add.</param>
+        /// <returns>A pair of integers containing the new amount of currencies attributed to the players</returns>
+        /// <remarks>Purely convenience function, but lessens log load</remarks>
+        public (int, int) TransferCurrency(NetUserId sourceUserId, NetUserId targetUserId, int amount)
+        {
+            var newAccountValues = (ModifyBalance(sourceUserId, -amount), ModifyBalance(targetUserId, amount));
+            _sawmill.Info($"Transferring {amount} currency from {sourceUserId} to {targetUserId}. Current balances: {newAccountValues.Item1}, {newAccountValues.Item2}");
+            return newAccountValues;
+        }
+
+        /// <summary>
+        /// Sets a player's balance.
         /// </summary>
         /// <param name="userId">The player's NetUserId</param>
         /// <param name="amount">The amount of currency that will be set.</param>
-        /// <returns>An integer containing the new amount of currency attributed to the player.</returns>
+        /// <returns>An integer containing the old amount of currency attributed to the player.</returns>
+        /// <remarks>Use the return value instead of calling <see cref="GetBalance(NetUserId)"/> prior to this.</remarks>
         public int SetBalance(NetUserId userId, int amount)
         {
-            if (!_balances.TryGetValue(userId, out var data) || !data.Initialized)
-            {
-                _sawmill.Warning($"Attempted to set balance, which was not loaded for player {userId.ToString()}");
-                return 0;
-            }
-
-            var balanceData = _balances[userId];
-
-            if(_player.TryGetSessionById(userId, out var userSession))
-                BalanceChange?.Invoke(new PlayerBalanceChangeEvent(userSession, userId, amount, balanceData.Balance));
-
-            balanceData.Balance = amount;
-            balanceData.IsDirty = true;
-            return amount;
+            var oldBalance = Task.Run(() => SetBalanceAsync(userId, amount)).GetAwaiter().GetResult();
+            if (_player.TryGetSessionById(userId, out var userSession))
+                BalanceChange?.Invoke(new PlayerBalanceChangeEvent(userSession, userId, amount, oldBalance));
+            _sawmill.Info($"Setting {userId} account balance to {amount} from {oldBalance}");
+            return oldBalance;
         }
 
         /// <summary>
@@ -170,41 +116,75 @@ namespace Content.Server._Goobstation.ServerCurrency
         /// <returns>The players balance.</returns>
         public int GetBalance(NetUserId userId)
         {
-            if (!_balances.TryGetValue(userId, out var data) || !data.Initialized)
-            {
-                _sawmill.Warning($"Attempted to get balance, which was not loaded for player {userId.ToString()}");
-                return 0;
-            }
-
-            return data.Balance;
+            return Task.Run(() => GetBalanceAsync(userId)).GetAwaiter().GetResult();
         }
+
+        #region Internal/Async tasks
 
         /// <summary>
-        /// Balance info for a particular player.
+        /// Modifies a player's balance.
         /// </summary>
-        private sealed class BalanceData
+        /// <param name="userId">The player's NetUserId</param>
+        /// <param name="amountDelta">The amount of currency that will be set.</param>
+        /// <returns>An integer containing the new amount of currency attributed to the player.</returns>
+        /// <remarks>Use the return value instead of calling <see cref="GetBalance(NetUserId)"/> after to this.</remarks>
+        private int ModifyBalance(NetUserId userId, int amountDelta)
         {
-            public int Balance = new();
-            public bool IsDirty = false;
-            public bool Initialized = false;
+            var result = Task.Run(() => ModifyBalanceAsync(userId, amountDelta)).GetAwaiter().GetResult();
+            if (_player.TryGetSessionById(userId, out var userSession))
+                BalanceChange?.Invoke(new PlayerBalanceChangeEvent(userSession, userId, result, result - amountDelta));
+            return result;
         }
-
-        // Async Tasks
 
         /// <summary>
         /// Sets a player's balance.
         /// </summary>
         /// <param name="userId">The player's NetUserId</param>
         /// <param name="amount">The amount of currency that will be set.</param>
-        /// <returns>An integer containing the new amount of currency attributed to the player.</returns>
-        public async Task SetBalanceAsync(NetUserId userId, int amount) => await _db.SetServerCurrency(userId, amount);
+        /// <param name="oldAmount">The amount of currency that will be set.</param>
+        /// <remarks>This and its calees will block server shutdown until execution finishes.</remarks>
+        private async Task SetBalanceAsyncInternal(NetUserId userId, int amount, int oldAmount)
+        {
+            var task = Task.Run(() => _db.SetServerCurrency(userId, amount));
+            TrackPending(task);
+            await task;
+        }
+
+        /// <summary>
+        /// Sets a player's balance.
+        /// </summary>
+        /// <param name="userId">The player's NetUserId</param>
+        /// <param name="amount">The amount of currency that will be set.</param>
+        /// <returns>An integer containing the old amount of currency attributed to the player.</returns>
+        /// <remarks>Use the return value instead of calling <see cref="GetBalance(NetUserId)"/> prior to this.</remarks>
+        private async Task<int> SetBalanceAsync(NetUserId userId, int amount)
+        {
+            // We need to block it first to ensure we don't read our own amount, hence sync function
+            var oldAmount = GetBalance(userId);
+            await SetBalanceAsyncInternal(userId, amount, oldAmount);
+            return oldAmount;
+        }
 
         /// <summary>
         /// Gets a player's balance.
         /// </summary>
         /// <param name="userId">The player's NetUserId</param>
         /// <returns>An integer containing the amount of currency attributed to the player.</returns>
-        public async Task<int> GetBalanceAsync(NetUserId userId) => await _db.GetServerCurrency(userId);
+        private async Task<int> GetBalanceAsync(NetUserId userId) => await _db.GetServerCurrency(userId);
+
+        /// <summary>
+        /// Modifies a player's balance.
+        /// </summary>
+        /// <param name="userId">The player's NetUserId</param>
+        /// <param name="amountDelta">The amount of currency that will be given or taken.</param>
+        /// <returns>An integer containing the new amount of currency attributed to the player.</returns>
+        /// <remarks>This and its calees will block server shutdown until execution finishes.</remarks>
+        private async Task<int> ModifyBalanceAsync(NetUserId userId, int amountDelta)
+        {
+            var task = Task.Run(() => _db.ModifyServerCurrency(userId, amountDelta));
+            TrackPending(task);
+            return await task;
+        }
 
         /// <summary>
         /// Track a database save task to make sure we block server shutdown on it.
@@ -223,5 +203,6 @@ namespace Content.Server._Goobstation.ServerCurrency
             }
         }
 
+        #endregion
     }
 }
