@@ -1,0 +1,7 @@
+- type: entity
+  parent: ClothingEyesGlassesGar
+  id: ClothingEyesGlassesGarMeson
+  name: gar mesons
+  description: Do the impossible, see the invisible!
+  components:
+  - type: EyeProtection

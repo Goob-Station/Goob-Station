@@ -1,0 +1,88 @@
+<DefaultWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:style="clr-namespace:Content.Client.Stylesheets"
+    VerticalExpand="True" HorizontalExpand="True"
+    Title="{Loc gs-balanceui-title}"
+    SetSize="430 580" >
+    <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
+        <controls:StripeBack>
+            <PanelContainer>
+                <Label Name="Header" Text=" " StyleClasses="LabelHeading"
+                    VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10 10 10 10" ReservesSpace="False"/>
+            </PanelContainer>
+        </controls:StripeBack>
+
+        <!-- Gift -->
+        <Label Name="GiftLabel" Text="{Loc gs-balanceui-gift-label}" />
+        <BoxContainer HorizontalAlignment="Center">
+            <LineEdit Name="GiftPlayer" PlaceHolder="{Loc gs-balanceui-gift-player}" ToolTip="{Loc gs-balanceui-gift-player-tooltip}" MinWidth="220" />
+            <LineEdit Name="GiftAmmount" PlaceHolder="{Loc gs-balanceui-gift-value}" ToolTip="{Loc gs-balanceui-gift-value-tooltip}" MinWidth="80" />
+            <Button Name="GiftButton" Text="{Loc gs-balanceui-confirm}" StyleClasses="ButtonColorRed" />
+        </BoxContainer>
+
+
+        <controls:HSpacer Spacing="15" />
+        <controls:HLine Thickness="2" Access="Public" />
+        <controls:HSpacer Spacing="15" />
+
+
+        <!-- Store -->
+        <controls:StripeBack>
+            <PanelContainer>
+                <Label Text="{Loc gs-balanceui-shop-label}" StyleClasses="LabelHeading"
+                    VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5 5 5 5" ReservesSpace="False"/>
+            </PanelContainer>
+        </controls:StripeBack>
+
+        <!-- Purchase Options -->
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="8 8 8 8">
+            <PanelContainer HorizontalExpand="True" VerticalExpand="True">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#1b1b1e" />
+                </PanelContainer.PanelOverride>
+
+                <ScrollContainer HorizontalExpand="True" VerticalExpand="True" Margin="10">
+                    <!-- hard coded bua bua bua -->
+                    <!-- todo: store prototype and those nerd things -->
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="0" VerticalExpand="True">
+
+                        <controls:StripeBack> <!-- tokens -->
+                            <Label Text="{Loc gs-balanceui-shop-token-label}" Margin="2" HorizontalAlignment="Center"/>
+                        </controls:StripeBack>
+                        <BoxContainer Name="TokenListingsContainer" Orientation="Vertical" HorizontalExpand="True">
+                            <!-- Buttons will be added here dynamically -->
+                        </BoxContainer>
+
+                        <controls:HSpacer Spacing="10" />
+                        <controls:HLine Thickness="2" Access="Public" />
+                        <controls:HSpacer Spacing="10" />
+
+                        <!--<controls:StripeBack>
+                            <Label Text="{Loc gs-balanceui-shop-tittle-label}" Margin="2" HorizontalAlignment="Center"/>
+                        </controls:StripeBack>
+                        <controls:HSpacer Spacing="5" />
+                        <Label Text="{Loc gs-balanceui-shop-empty}"  HorizontalAlignment="Center" />-->
+                    </BoxContainer>
+                </ScrollContainer>
+            </PanelContainer>
+            <Label Name="ConfirmationMessage" Text="" HorizontalAlignment="Center"/>
+            <Label Text="{Loc gs-balanceui-shop-footer}" />
+        </BoxContainer>
+
+
+
+        <!-- Admin Panel -->
+        <BoxContainer Name="Admin" Visible="True" Orientation="Vertical">
+            <Label Text="Admin:" StyleClasses="LabelHeading" />
+            <Label Text="{Loc gs-balanceui-admin-add-label}" />
+            <BoxContainer HorizontalAlignment="Center">
+                <LineEdit Name="AdminAddPlayer" PlaceHolder="{Loc gs-balanceui-admin-add-player}" MinWidth="220" />
+                <LineEdit Name="AdminAddAmmount" PlaceHolder="{Loc gs-balanceui-admin-add-value}" MinWidth="80" />
+                <Button Name="AdminAddButton" Text="{Loc gs-balanceui-confirm}" StyleClasses="ButtonColorRed" />
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</DefaultWindow>

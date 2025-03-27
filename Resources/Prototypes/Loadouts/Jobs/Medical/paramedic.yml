@@ -15,6 +15,11 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtParamedic
 
+- type: loadout # goob
+  id: ParamedMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryParamedic
+
 # Outer clothing
 - type: loadout
   id: ParamedicWindbreaker

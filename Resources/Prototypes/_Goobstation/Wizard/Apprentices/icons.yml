@@ -1,0 +1,12 @@
+- type: entity
+  id: ApprenticeIconChaos
+  name: chaos
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Wizard/Icons/apprentices.rsi
+      state: chaos
+    - type: Transform
+    - type: Tag
+      tags:
+        - HideContextMenu

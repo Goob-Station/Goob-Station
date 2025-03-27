@@ -253,6 +253,9 @@ binds:
   type: State
   key: E
   mod1: Shift
+- function: SmartEquipBack # Goobstation - Smart equip to back
+  type: State # Goobstation - Smart equip to back
+  key: F # Goobstation - Smart equip to back
 - function: OpenBackpack
   type: State
   key: V

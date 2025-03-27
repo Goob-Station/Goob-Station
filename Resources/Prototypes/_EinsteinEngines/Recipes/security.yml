@@ -1,0 +1,8 @@
+- type: latheRecipe
+  id: Terminus
+  result: Terminus
+  completetime: 6
+  materials:
+    Steel: 1250
+    Plastic: 750
+    Gold: 500

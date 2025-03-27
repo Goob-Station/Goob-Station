@@ -23,7 +23,7 @@
 
 #Basic Helmet (Security Helmet)
 - type: entity
-  parent: [ClothingHeadHelmetBase, BaseRestrictedContraband]
+  parent: [ClothingHeadHelmetBase, BaseSecurityContraband]
   id: ClothingHeadHelmetBasic
   name: helmet
   description: Standard security gear. Protects the head from impacts.
@@ -51,7 +51,7 @@
 
 #SWAT Helmet
 - type: entity
-  parent: [ClothingHeadBase, BaseRestrictedContraband]
+  parent: [ClothingHeadBase, BaseSecurityContraband]
   id: ClothingHeadHelmetSwat
   name: SWAT helmet
   description: An extremely robust helmet, commonly used by paramilitary forces. This one has the Nanotrasen logo emblazoned on the top.
@@ -87,7 +87,7 @@
 
 #Light Riot Helmet
 - type: entity
-  parent: [ClothingHeadBase, BaseRestrictedContraband]
+  parent: [ClothingHeadBase, BaseSecurityContraband]
   id: ClothingHeadHelmetRiot
   name: light riot helmet
   description: It's a helmet specifically designed to protect against close range attacks.
@@ -137,7 +137,7 @@
   id: ClothingHeadHelmetJanitorBombSuit
   name: janitorial bombsuit helmet
   description: A heavy helmet designed to withstand explosions formed from reactions between chemicals.
-  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/janitor_bombsuit.rsi
@@ -215,10 +215,10 @@
 
 #Wizard Helmet
 - type: entity
-  parent: ClothingHeadBase
+  parent: [ClothingHeadBase, ClothingHeadHatWizardBaseArmor, BaseMagicContraband] # Goob edit
   id: ClothingHeadHelmetWizardHelm
   name: wizard helm
-  description: Strange-looking helmet that most certainly belongs to a real magic user.
+  description: Strange-looking helmet that most certainly belongs to a real magic user. Doesn't count as wizard hat. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/wizardhelm.rsi
@@ -226,6 +226,15 @@
     sprite: Clothing/Head/Helmets/wizardhelm.rsi
   - type: IngestionBlocker
   - type: IdentityBlocker
+  - type: Armor # Goobstation
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.85
+        Caustic: 0.9
+        Radiation: 0.9
 
 #Fire Helmet
 - type: entity
@@ -417,7 +426,7 @@
 
 #Justice Helmet
 - type: entity
-  parent: [ ClothingHeadHelmetBase, BaseRestrictedContraband ]
+  parent: [ ClothingHeadHelmetBase, BaseSecurityContraband ]
   id: ClothingHeadHelmetJustice
   name: justice helm
   description: Advanced security gear. Protects the station from ne'er-do-wells.

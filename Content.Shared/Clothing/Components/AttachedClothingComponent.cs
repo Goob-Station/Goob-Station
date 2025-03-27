@@ -29,6 +29,6 @@ public sealed partial class AttachedClothingComponent : Component
     [DataField, AutoNetworkedField]
     public string ClothingContainerId = DefaultClothingContainerId;
 
-    [ViewVariables, NonSerialized]
-    public ContainerSlot? ClothingContainer;
+    [ViewVariables]
+    public ContainerSlot ClothingContainer = default!;
 }

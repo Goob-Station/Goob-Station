@@ -1,0 +1,28 @@
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseWizardObjective
+  components:
+  - type: Objective
+    difficulty: 1.5
+    issuer: objective-issuer-wizard-federation
+    icon:
+      sprite: Clothing/Head/Hats/wizardhat.rsi
+      state: icon
+
+- type: entity
+  parent: [BaseWizardObjective, BaseSurviveObjective]
+  id: WizardSurviveObjective
+  name: Survive, causing as much chaos as possible
+  description: Space Wizard Federation has sent you to wreck havoc on the station. Don't dissapoint them.
+
+- type: entity
+  parent: [BaseWizardObjective, BaseKeepAliveObjective]
+  id: KeepWizardAliveObjective
+  name: Make sure the wizard survives
+  description: Protect the person who has summoned you at all costs.
+  components:
+  - type: TargetObjective
+    title: objective-condition-wizard-alive-title
+    dynamicName: true
+    showJobTitle: false

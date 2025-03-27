@@ -15,7 +15,7 @@
   parent: [BoxVial, BaseSyndicateContraband]
   id: ChemicalSynthesisKit
   name: chemical synthesis kit
-  description: A starter kit for the aspiring chemist, includes toxin and vestine for all your criminal needs!
+  description: A starter kit for the aspiring chemist, notably includes a chemical payload and timer, a hyperzine syringe, and two vials of vestine for all your criminal needs! # Goobstation
   components:
   - type: Storage
     grid:
@@ -23,13 +23,13 @@
   - type: StorageFill
     contents:
       - id: Beaker
-        amount: 2
+      - id: TimerTrigger # Goobstation
       - id: Dropper
       # It would be cool to have special "syndicate" chemical analysis goggles
       - id: ClothingEyesGlassesChemical
       - id: VestineChemistryVial
         amount: 2
-      - id: BaseChemistryEmptyVial
+      - id: ChemicalPayload # Goobstation
       - id: SyringeStimulants
 
 - type: entity

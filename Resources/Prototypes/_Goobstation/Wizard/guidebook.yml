@@ -1,0 +1,11 @@
+- type: guideEntry
+  id: Wizard
+  name: guide-entry-wizard
+  text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/Wizard.xml"
+  children:
+  - WizardSpells
+
+- type: guideEntry
+  id: WizardSpells
+  name: guide-entry-wizard-spells
+  text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/WizardSpells.xml"

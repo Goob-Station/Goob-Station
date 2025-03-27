@@ -1,0 +1,35 @@
+- type: selectableAmmo
+  id: StingBlind
+  desc: Blind sting.
+  icon:
+    sprite: _Goobstation/Changeling/changeling_abilities.rsi
+    state: sting_blind
+  protoId: ChangelingDartBlind
+  fireCost: 7
+
+- type: selectableAmmo
+  id: StingMute
+  desc: Mute sting.
+  icon:
+    sprite: _Goobstation/Changeling/changeling_abilities.rsi
+    state: sting_mute
+  protoId: ChangelingDartMute
+  fireCost: 7
+
+- type: selectableAmmo
+  id: StingCryo
+  desc: Cryo sting.
+  icon:
+    sprite: _Goobstation/Changeling/changeling_abilities.rsi
+    state: sting_cryo
+  protoId: ChangelingDartCryo
+  fireCost: 7
+
+- type: selectableAmmo
+  id: StingLethargic
+  desc: Lethargic sting.
+  icon:
+    sprite: _Goobstation/Changeling/changeling_abilities.rsi
+    state: sting_lethargic
+  protoId: ChangelingDartLethargic
+  fireCost: 10

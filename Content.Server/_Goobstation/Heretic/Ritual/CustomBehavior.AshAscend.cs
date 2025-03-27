@@ -32,21 +32,4 @@ public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior
         outstr = null;
         return true;
     }
-
-    public override void Finalize(RitualData args)
-    {
-        for (int i = 0; i < Max; i++)
-        {
-            // YES!!! ASH!!!
-            if (args.EntityManager.TryGetComponent<DamageableComponent>(uids[i], out var dmg))
-            {
-                var prot = (ProtoId<DamageGroupPrototype>) "Burn";
-                var dmgtype = _proto.Index(prot);
-                _damage.TryChangeDamage(uids[i], new DamageSpecifier(dmgtype, 3984f), true);
-            }
-        }
-
-        // reset it because blehhh
-        uids = new();
-    }
 }

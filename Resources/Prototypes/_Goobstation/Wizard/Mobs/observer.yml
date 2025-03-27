@@ -1,0 +1,8 @@
+- type: entity
+  parent: MobObserver
+  id: MobObserverWizard
+  components:
+  - type: Spectral
+  - type: Ghost
+    canEnterGhostBar: false
+    canTakeGhostRoles: false

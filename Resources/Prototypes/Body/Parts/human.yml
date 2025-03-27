@@ -6,6 +6,10 @@
   name: "human body part"
   abstract: true
   components:
+  - type: Icon # Shitmed Change
+    sprite: Mobs/Species/Human/parts.rsi
+  - type: BodyPart # Shitmed Change
+    species: Human
   - type: Extractable
     juiceSolution:
       reagents:

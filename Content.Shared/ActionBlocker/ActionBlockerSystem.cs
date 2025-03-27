@@ -13,6 +13,11 @@ using Content.Shared.Weapons.Melee;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
 
+// Shitmed Change
+using Content.Shared._Shitmed.Antags.Abductor;
+using Content.Shared.Silicons.StationAi;
+using Content.Shared.Body.Events;
+
 namespace Content.Shared.ActionBlocker
 {
     /// <summary>
@@ -84,6 +89,10 @@ namespace Content.Shared.ActionBlocker
             if (!CanConsciouslyPerformAction(user))
                 return false;
 
+            // Shitmed Change
+            if (HasComp<StationAiOverlayComponent>(user) && HasComp<AbductorScientistComponent>(user))
+                return false;
+
             var ev = new InteractionAttemptEvent(user, target);
             RaiseLocalEvent(user, ref ev);
 
@@ -109,10 +118,16 @@ namespace Content.Shared.ActionBlocker
         /// </remarks>
         public bool CanUseHeldEntity(EntityUid user, EntityUid used)
         {
-            var ev = new UseAttemptEvent(user, used);
-            RaiseLocalEvent(user, ev);
+            var useEv = new UseAttemptEvent(user, used);
+            RaiseLocalEvent(user, useEv);
 
-            return !ev.Cancelled;
+            if (useEv.Cancelled)
+                return false;
+
+            var usedEv = new GettingUsedAttemptEvent(user);
+            RaiseLocalEvent(used, usedEv);
+
+            return !usedEv.Cancelled;
         }
 
 
@@ -199,11 +214,14 @@ namespace Content.Shared.ActionBlocker
             {
                 var containerEv = new CanAttackFromContainerEvent(uid, target);
                 RaiseLocalEvent(uid, containerEv);
-                return containerEv.CanAttack;
+                if (!containerEv.CanAttack)
+                    return false;
             }
 
             var ev = new AttackAttemptEvent(uid, target, weapon, disarm);
             RaiseLocalEvent(uid, ev);
+            if (weapon != null) // Goobstation
+                RaiseLocalEvent(weapon.Value, ev);
 
             if (ev.Cancelled)
                 return false;
@@ -239,5 +257,15 @@ namespace Content.Shared.ActionBlocker
 
             return !ev.Cancelled;
         }
+
+        // Shitmed Change Start - Starlight Abductors
+        public bool CanInstrumentInteract(EntityUid user, EntityUid used, EntityUid? target)
+        {
+            var ev = new InteractionAttemptEvent(user, target);
+            RaiseLocalEvent(used, ref ev);
+
+            return !ev.Cancelled;
+        }
+        // Shitmed Change End - Starlight Abductors
     }
 }

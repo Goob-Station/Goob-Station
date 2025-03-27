@@ -11,3 +11,375 @@
       amount: 1
   products:
     Barozine: 1
+
+- type: reaction
+  id: Probital
+  reactants:
+    Acetone:
+      amount: 2
+    Copper:
+      amount: 1
+    Phosphorus:
+      amount: 1
+  products:
+    Probital: 4
+
+- type: reaction
+  id: MitotrophinNutriment
+  sound:
+    path: /Audio/Effects/Chemistry/bubbles.ogg # non nullable, sadly
+    params:
+      volume: -30
+      maxDistance: 1
+  reactants:
+    Mitogen:
+      amount: 1
+      catalyst: true
+    Nutriment:
+      amount: 1
+  products:
+    Mitotrophin: 1
+
+- type: reaction
+  id: MitotrophinProtein
+  sound:
+    path: /Audio/Effects/Chemistry/bubbles.ogg
+    params:
+      volume: -30
+      maxDistance: 1
+  reactants:
+    Mitogen:
+      amount: 1
+      catalyst: true
+    Protein:
+      amount: 2
+  products:
+    Mitotrophin: 3
+
+- type: reaction
+  id: MitotrophinVitamin
+  sound:
+    path: /Audio/Effects/Chemistry/bubbles.ogg
+    params:
+      volume: -30
+      maxDistance: 1
+  reactants:
+    Mitogen:
+      amount: 1
+      catalyst: true
+    Vitamin:
+      amount: 1
+  products:
+    Mitotrophin: 2
+
+- type: reaction
+  id: Tirimol
+  reactants:
+    Acetone:
+      amount: 2
+    SodiumPolyacrylate:
+      amount: 1
+    SulfuricAcid:
+      amount: 1
+  products:
+    Tirimol: 4
+
+- type: reaction
+  id: Syriniver
+  maxTemp: 200
+  reactants:
+    Silver: # check 1
+      amount: 2
+    Diphenhydramine: # check 2
+      amount: 2
+    Fluorine:
+      amount: 1
+    Aluite:
+      amount: 5
+  products:
+    Syriniver: 5
+
+- type: reaction
+  id: Ebifin
+  impact: Medium # more dangerous OD than its contemporaries
+  minTemp: 500 # actually hotbeakerable
+  reactants:
+    Gold: # check 1
+      amount: 2
+    Sigynate: # check 2
+      amount: 2
+    Silicon: 
+      amount: 1
+    Aluite:
+      amount: 5
+  products:
+    Ebifin: 5
+
+- type: reaction
+  id: ProcenylLazideSludge
+  minTemp: 400
+  reactants:
+    Uranium: # check 1
+      amount: 2
+    Phenol:
+      amount: 1
+    SodiumCarbonate:
+      amount: 2
+    Aluite:
+      amount: 5
+  products:
+    ProcenylLazideSludge: 10 # check 2
+
+- type: reaction
+  id: ProcenylLazide
+  maxTemp: 200
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    ProcenylLazideSludge:
+      amount: 10
+  products:
+    ProcenylLazide: 5
+    Aluite: 2
+    Uranium: 1
+    SodiumCarbonate: 1
+    Aluminium: 1
+
+- type: reaction
+  id: Multiver
+  maxTemp: 320
+  reactants:
+    Charcoal:
+      amount: 1
+    TableSalt:
+      amount: 1
+  products:
+    Multiver: 2
+
+- type: reaction
+  id: Monover
+  minTemp: 330
+  reactants:
+    Charcoal:
+      amount: 2
+    Chlorine: # OK, this is REALLY stupid, but basically tests don't check for overlap accounting for temperatures. Treat this as "if you hotbeaker it you get this"
+      amount: 1
+    Sodium:
+      amount: 1
+  products:
+    Monover: 4
+
+- type: reaction
+  id: Calomel
+  minTemp: 370
+  reactants:
+    Mercury:
+      amount: 1
+    Lithium:
+      amount: 1
+  products:
+    Calomel: 2
+
+- type: reaction
+  id: AmmoniatedMercury
+  reactants:
+    Calomel:
+      amount: 1
+    Ammonia:
+      amount: 1
+  products:
+    AmmoniatedMercury: 2
+
+- type: reaction
+  id: Antihol
+  reactants:
+    Charcoal:
+      amount: 2
+    Ethanol:
+      amount: 1
+  products:
+    Antihol: 3
+
+- type: reaction # This will do until we get molecular chemistry in
+  id: Ibuprofen 
+  reactants:
+    Charcoal:
+      amount: 1
+    Benzene:
+      amount: 1
+    Fluorine:
+      amount: 1
+      # catalyst: true # Technically could be catalyst, but fluorine catalyst feels weird
+  products:
+    Ibuprofen: 3
+
+- type: reaction
+  id: SilverSulfadiazine
+  minTemp: 500
+  reactants:
+    Silver: # actually using silver cuz it's just strong
+      amount: 1
+    Chlorine:
+      amount: 1
+    Ammonia:
+      amount: 1
+    Oxygen:
+      amount: 1
+    Sulfur:
+      amount: 1
+  products:
+    SilverSulfadiazine: 5 # might need to be lowered
+
+- type: reaction
+  id: StypticCrystalCatalyst
+  reactants:
+    Aluminium:
+      amount: 1
+    Hydroxide:
+      amount: 1
+    SulfuricAcid:
+      amount: 1
+    Silicon:
+      amount: 1
+  products:
+    StypticCrystalCatalyst: 2
+
+- type: reaction
+  id: StypticCrystalCreation
+  quantized: true
+  conserveEnergy: false
+  reactants:
+    StypticCrystalCatalyst:
+      amount: 5
+    Blood:
+      amount: 10
+    Sodium:
+      amount: 10
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: ShardCrystalStyptic
+
+- type: reaction
+  id: MeatSynth
+  quantized: true
+  reactants:
+    SodiumPolyacrylate:
+      amount: 10
+    Phenol:
+      amount: 10
+    Blood:
+      amount: 10
+    Carbon:
+      amount: 10
+  products:
+    Hydroxide: 5 # frankly it's there so that this recipe appears in the guidebook at all
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: FoodMeatSynth
+
+- type: reaction
+  id: Synthcells
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    Synthflesh:
+      amount: 6
+  products:
+    Synthcells: 4
+    Sodium: 1
+    Carbon: 1
+
+- type: reaction
+  id: SalicylicAcid
+  minTemp: 370
+  reactants:
+    TranexamicAcid:
+      amount: 1
+    FluorosulfuricAcid:
+      amount: 1
+    SodiumHydroxide:
+      amount: 1
+    Bicaridine:
+      amount: 1
+  products:
+    SalicylicAcid: 4
+
+- type: reaction
+  id: Oxandrolone
+  reactants:
+    SodiumCarbonate:
+      amount: 1
+    Dermaline:
+      amount: 1
+    Phenol:
+      amount: 1
+    Leporazine:
+      amount: 1
+  products:
+    Oxandrolone: 4
+
+- type: reaction
+  id: PentenicAcid
+  reactants:
+    PolytrinicAcid:
+      amount: 1
+    PotassiumIodide:
+      amount: 1
+    Haloperidol:
+      amount: 1
+    Cyanide:
+      amount: 1
+  products:
+    PentenicAcid: 4
+
+- type: reaction
+  id: Atropine
+  reactants:
+    Acetone:
+      amount: 1
+    Diethylamine:
+      amount: 1
+    Phenol:
+      amount: 1
+    Ethanol:
+      amount: 1
+  products:
+    Atropine: 4
+
+- type: reaction
+  id: Genecide
+  impact: Medium # even if it's not very dangerous
+  reactants:
+    Phalanximine:
+      amount: 1
+    ChlorineTrifluoride:
+      amount: 1 # funny
+    Benzene:
+      amount: 1
+  products:
+    Genecide: 3
+
+- type: reaction
+  id: Hercuri
+  maxTemp: 100
+  reactants:
+    Cryostylane:
+      amount: 3
+    SodiumHydroxide:
+      amount: 1
+    PotassiumIodide:
+      amount: 1
+  products:
+    Hercuri: 5  
+
+- type: reaction
+  id: Herignis
+  impact: Medium # potentially dangerous ingredient
+  minTemp: 600
+  reactants:
+    Hercuri:
+      amount: 3
+    Phlogiston:
+      amount: 2
+  products:
+    Herignis: 5  

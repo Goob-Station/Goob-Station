@@ -1,0 +1,41 @@
+- type: entity
+  id: RapidBulletKinetic
+  name: rapid kinetic bolt
+  parent: BulletKinetic
+  categories: [ HideSpawnMenu ]
+  description: Not too bad, but you still don't want to get hit by it.
+  components:
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 25
+
+- type: entity
+  id: WeakBulletKinetic
+  categories: [ HideSpawnMenu ]
+  parent: BulletKinetic
+  components:
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 15
+
+- type: entity
+  id: PelletKinetic
+  categories: [ HideSpawnMenu ]
+  parent: WeakBulletKinetic
+  components:
+  - type: GatheringProjectile
+    probability: 0.5
+
+- type: entity
+  id: PelletKineticSpread
+  categories: [ HideSpawnMenu ]
+  parent: PelletKinetic
+  components:
+  - type: ProjectileSpread
+    proto: PelletKinetic
+    count: 6
+    spread: 30

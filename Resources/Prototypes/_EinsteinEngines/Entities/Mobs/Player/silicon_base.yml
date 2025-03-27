@@ -23,7 +23,7 @@
       soundHit:
         path: /Audio/Effects/hit_kick.ogg
     - type: Damageable
-      damageContainer: Silicon
+      damageContainer: SiliconRadiation # Goobstation - Make IPCs take radiation
       damageModifierSet: IPC
     - type: InteractionOutline
     - type: MovementSpeedModifier
@@ -44,7 +44,7 @@
           shape:
             !type:PhysShapeCircle
             radius: 0.35
-          density: 185
+          density: 300 # goob edit - metal is dense
           restitution: 0.0
           mask:
           - MobMask
@@ -153,6 +153,7 @@
     - type: CanEnterCryostorage # Goobstation
     - type: StatusIcon # Goobstation
       bounds: -0.5,-0.5,0.5,0.5
+    - type: HasJobIcons # Goobstation
     #- type: Bloodstream This is left commented out because it's not necessary for a robot, but you may want it.
     #  damageBleedModifiers: BloodlossIPC
     #  bloodReagent: Oil
@@ -223,8 +224,9 @@
           type: StoreBoundUserInterface
         enum.HereticLivingHeartKey.Key: # goob edit - heretics
           type: LivingHeartMenuBoundUserInterface
-        enum.SurgeryUIKey.Key: # Shitmed
-          type: SurgeryBui
+        enum.WizardTeleportUiKey.Key: # Goobstation - wizard
+          type: WizardTeleportBoundUserInterface
+          requireInputValidation: false
     - type: Emoting
     - type: Grammar
       attributes:
@@ -311,11 +313,10 @@
     - type: FireVisuals
       alternateState: Standing
     - type: LightningTarget
-      priority: 1
+      priority: 2 # Goobstation
       lightningExplode: false
     - type: ComplexInteraction
     - type: FootPrints
     - type: Carriable
     - type: Targeting
-    - type: SurgeryTarget
     - type: LayingDown

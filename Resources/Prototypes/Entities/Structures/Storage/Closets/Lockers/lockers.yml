@@ -425,6 +425,7 @@
   parent: LockerSyndicatePersonal
   description: Advanced locker technology.
   components:
+    - type: ArrivalsBlacklist
     - type: BluespaceLocker
       minBluespaceLinks: 1
       behaviorProperties:
@@ -456,6 +457,9 @@
     stateBaseClosed: clown
     stateDoorOpen: clown_open
     stateDoorClosed: clown_door
+  - type: StorageFill #Goobstation - clowncar
+    contents:
+    - id: VehicleClowncarTrainee
 
 # Mime
 - type: entity

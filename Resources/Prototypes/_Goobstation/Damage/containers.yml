@@ -5,3 +5,21 @@
   - Brute
   - Burn
 
+- type: damageContainer
+  id: SiliconRadiation
+  supportedGroups:
+    - Brute
+    - Electronic
+  supportedTypes:
+    - Heat
+    - Shock
+    - Radiation
+
+# based on inorganic
+- type: damageContainer
+  id: ClowncarDamageContainer
+  supportedGroups:
+  - Brute
+  supportedTypes:
+  - Heat
+  - Shock

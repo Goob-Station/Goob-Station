@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Server._Goobstation._Pirates.Pirates.Siphon;
 using Content.Server.Cargo.Components;
 using Content.Server.Labels.Components;
 using Content.Server.Station.Components;
@@ -8,7 +9,7 @@ using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Events;
 using Content.Shared.Cargo.Prototypes;
 using Content.Shared.Database;
-using Content.Shared.Emag.Components;
+using Content.Shared.Emag.Systems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Paper;
@@ -21,6 +22,7 @@ namespace Content.Server.Cargo.Systems
     public sealed partial class CargoSystem
     {
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+        [Dependency] private readonly EmagSystem _emag = default!;
 
         /// <summary>
         /// How much time to wait (in seconds) before increasing bank accounts balance.
@@ -41,6 +43,7 @@ namespace Content.Server.Cargo.Systems
             SubscribeLocalEvent<CargoOrderConsoleComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<CargoOrderConsoleComponent, InteractUsingEvent>(OnInteractUsing);
             SubscribeLocalEvent<CargoOrderConsoleComponent, BankBalanceUpdatedEvent>(OnOrderBalanceUpdated);
+            SubscribeLocalEvent<CargoOrderConsoleComponent, GotEmaggedEvent>(OnEmagged);
             Reset();
         }
 
@@ -62,6 +65,7 @@ namespace Content.Server.Cargo.Systems
             _audio.PlayPvs(component.ConfirmSound, uid);
             UpdateBankAccount(stationUid.Value, bank, (int) price);
             QueueDel(args.Used);
+            args.Handled = true;
         }
 
         private void OnInit(EntityUid uid, CargoOrderConsoleComponent orderConsole, ComponentInit args)
@@ -75,6 +79,17 @@ namespace Content.Server.Cargo.Systems
             _timer = 0;
         }
 
+        private void OnEmagged(Entity<CargoOrderConsoleComponent> ent, ref GotEmaggedEvent args)
+        {
+            if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+                return;
+
+            if (_emag.CheckFlag(ent, EmagType.Interaction))
+                return;
+
+            args.Handled = true;
+        }
+
         private void UpdateConsole(float frameTime)
         {
             _timer += frameTime;
@@ -85,9 +100,11 @@ namespace Content.Server.Cargo.Systems
             {
                 _timer -= Delay;
 
-                foreach (var account in EntityQuery<StationBankAccountComponent>())
+                var stationQuery = EntityQueryEnumerator<StationBankAccountComponent>();
+                while (stationQuery.MoveNext(out var uid, out var bank))
                 {
-                    account.Balance += account.IncreasePerSecond * Delay;
+                    var balanceToAdd = bank.IncreasePerSecond * Delay;
+                    UpdateBankAccount(uid, bank, balanceToAdd);
                 }
 
                 var query = EntityQueryEnumerator<CargoOrderConsoleComponent>();
@@ -114,6 +131,20 @@ namespace Content.Server.Cargo.Systems
                 PlayDenySound(uid, component);
                 return;
             }
+
+            // goob edit - resource siphon blocking access
+            var eqe = EntityQueryEnumerator<ResourceSiphonComponent>();
+            while (eqe.MoveNext(out var sip))
+            {
+                // it's over. the crew won't know what hit em.
+                if (sip.Active)
+                {
+                    ConsolePopup(args.Actor, Loc.GetString("console-block-something"));
+                    PlayDenySound(uid, component);
+                    return;
+                }
+            }
+            // goob edit end
 
             var station = _station.GetOwningStation(uid);
 
@@ -217,7 +248,7 @@ namespace Content.Server.Cargo.Systems
             order.Approved = true;
             _audio.PlayPvs(component.ConfirmSound, uid);
 
-            if (!HasComp<EmaggedComponent>(uid))
+            if (!_emag.CheckFlag(uid, EmagType.Interaction))
             {
                 var tryGetIdentityShortInfoEvent = new TryGetIdentityShortInfoEvent(uid, player);
                 RaiseLocalEvent(tryGetIdentityShortInfoEvent);
@@ -238,7 +269,7 @@ namespace Content.Server.Cargo.Systems
                 $"{ToPrettyString(player):user} approved order [orderId:{order.OrderId}, quantity:{order.OrderQuantity}, product:{order.ProductId}, requester:{order.Requester}, reason:{order.Reason}] with balance at {bank.Balance}");
 
             orderDatabase.Orders.Remove(order);
-            DeductFunds(bank, cost);
+            UpdateBankAccount(station.Value, bank, -cost);
             UpdateOrders(station.Value);
         }
 
@@ -378,7 +409,7 @@ namespace Content.Server.Cargo.Systems
 
         private void PlayDenySound(EntityUid uid, CargoOrderConsoleComponent component)
         {
-            _audio.PlayPvs(_audio.GetSound(component.ErrorSound), uid);
+            _audio.PlayPvs(_audio.ResolveSound(component.ErrorSound), uid);
         }
 
         private static CargoOrderData GetOrderData(CargoConsoleAddOrderMessage args, CargoProductPrototype cargoProduct, int id)
@@ -461,14 +492,14 @@ namespace Content.Server.Cargo.Systems
             return TryAddOrder(dbUid, order, component) && TryFulfillOrder(stationData, order, component).HasValue;
         }
 
-        private bool TryAddOrder(EntityUid dbUid, CargoOrderData data, StationCargoOrderDatabaseComponent component)
+        public bool TryAddOrder(EntityUid dbUid, CargoOrderData data, StationCargoOrderDatabaseComponent component)
         {
             component.Orders.Add(data);
             UpdateOrders(dbUid);
             return true;
         }
 
-        private static int GenerateOrderId(StationCargoOrderDatabaseComponent orderDB)
+        public static int GenerateOrderId(StationCargoOrderDatabaseComponent orderDB)
         {
             // We need an arbitrary unique ID to identify orders, since they may
             // want to be cancelled later.
@@ -516,7 +547,7 @@ namespace Content.Server.Cargo.Systems
         /// <summary>
         /// Tries to fulfill the next outstanding order.
         /// </summary>
-        private bool FulfillNextOrder(StationCargoOrderDatabaseComponent orderDB, EntityCoordinates spawn, string? paperProto)
+        public bool FulfillNextOrder(StationCargoOrderDatabaseComponent orderDB, EntityCoordinates spawn, string? paperProto)
         {
             if (!PopFrontOrder(orderDB, out var order))
                 return false;
@@ -527,7 +558,7 @@ namespace Content.Server.Cargo.Systems
         /// <summary>
         /// Fulfills the specified cargo order and spawns paper attached to it.
         /// </summary>
-        private bool FulfillOrder(CargoOrderData order, EntityCoordinates spawn, string? paperProto)
+        public bool FulfillOrder(CargoOrderData order, EntityCoordinates spawn, string? paperProto)
         {
             // Create the item itself
             var item = Spawn(order.ProductId, spawn);
@@ -563,14 +594,14 @@ namespace Content.Server.Cargo.Systems
 
         }
 
-        private void DeductFunds(StationBankAccountComponent component, int amount)
+        public void DeductFunds(StationBankAccountComponent component, int amount)
         {
-            component.Balance = Math.Max(0, component.Balance - amount);
+            var bal = Math.Max(0, component.Balance - amount);
+            component.Balance = bal;
         }
-
         #region Station
 
-        private bool TryGetOrderDatabase([NotNullWhen(true)] EntityUid? stationUid, [MaybeNullWhen(false)] out StationCargoOrderDatabaseComponent dbComp)
+        public bool TryGetOrderDatabase([NotNullWhen(true)] EntityUid? stationUid, [MaybeNullWhen(false)] out StationCargoOrderDatabaseComponent dbComp)
         {
             return TryComp(stationUid, out dbComp);
         }

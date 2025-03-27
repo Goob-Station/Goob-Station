@@ -14,6 +14,15 @@ public static class SkinColor
     public const float MinFeathersValue = 36f / 100;
     public const float MaxFeathersValue = 55f / 100;
 
+    // Goobstation Section Start - Tajaran
+    public const float MinAnimalFurHue = 20f / 360;
+    public const float MaxAnimalFurHue = 45f / 360;
+    public const float MinAnimalFurSaturation = 0f / 100;
+    public const float MaxAnimalFurSaturation = 100f / 100;
+    public const float MinAnimalFurValue = 0f / 100;
+    public const float MaxAnimalFurValue = 100f / 100;
+    // Goobstation Section End - Tajaran
+
     public static Color ValidHumanSkinTone => Color.FromHsv(new Vector4(0.07f, 0.2f, 1f, 1f));
 
     /// <summary>
@@ -201,6 +210,62 @@ public static class SkinColor
         return true;
     }
 
+    /// Goobstation Section Start - Tajaran
+    /// <summary>
+    ///     Converts a Color proportionally to the allowed animal fur color range.
+    ///     Will NOT preserve the specific input color even if it is within the allowed animal fur color range.
+    /// </summary>
+    /// <param name="color">Color to convert</param>
+    /// <returns>Animal fur coloration</returns>
+    public static Color ProportionalAnimalFurColor(Color color)
+    {
+        var newColor = Color.ToHsv(color);
+
+        newColor.X = newColor.X * (MaxAnimalFurHue - MinAnimalFurHue) + MinAnimalFurHue;
+        newColor.Y = newColor.Y * (MaxAnimalFurSaturation - MinAnimalFurSaturation) + MinAnimalFurSaturation;
+        newColor.Z = newColor.Z * (MaxAnimalFurValue - MinAnimalFurValue) + MinAnimalFurValue;
+
+        return Color.FromHsv(newColor);
+    }
+
+    // /// <summary>
+    // ///      Ensures the input Color is within the allowed animal fur color range.
+    // /// </summary>
+    // /// <param name="color">Color to convert</param>
+    // /// <returns>The same Color if it was within the allowed range, or the closest matching Color otherwise</returns>
+    public static Color ClosestAnimalFurColor(Color color)
+    {
+        var hsv = Color.ToHsv(color);
+
+        hsv.X = Math.Clamp(hsv.X, MinAnimalFurHue, MaxAnimalFurHue);
+        hsv.Y = Math.Clamp(hsv.Y, MinAnimalFurSaturation, MaxAnimalFurSaturation);
+        hsv.Z = Math.Clamp(hsv.Z, MinAnimalFurValue, MaxAnimalFurValue);
+
+        return Color.FromHsv(hsv);
+    }
+
+    /// <summary>
+    ///     Verify if this color is a valid animal fur coloration, or not.
+    /// </summary>
+    /// <param name="color">The color to verify</param>
+    /// <returns>True if valid, false otherwise</returns>
+    public static bool VerifyAnimalFur(Color color)
+    {
+        var colorHsv = Color.ToHsv(color);
+
+        if (colorHsv.X < MinAnimalFurHue || colorHsv.X > MaxAnimalFurHue)
+            return false;
+
+        if (colorHsv.Y < MinAnimalFurSaturation || colorHsv.Y > MaxAnimalFurSaturation)
+            return false;
+
+        if (colorHsv.Z < MinAnimalFurValue || colorHsv.Z > MaxAnimalFurValue)
+            return false;
+
+        return true;
+    }
+    /// Goobstation Section End - Tajaran
+
     /// <summary>
     ///     This takes in a color, and returns a color guaranteed to be above MinHuesLightness
     /// </summary>
@@ -231,6 +296,7 @@ public static class SkinColor
             HumanoidSkinColor.TintedHues => VerifyTintedHues(color),
             HumanoidSkinColor.Hues => VerifyHues(color),
             HumanoidSkinColor.VoxFeathers => VerifyVoxFeathers(color),
+            HumanoidSkinColor.AnimalFur => VerifyAnimalFur(color),
             _ => false,
         };
     }
@@ -243,6 +309,7 @@ public static class SkinColor
             HumanoidSkinColor.TintedHues => ValidTintedHuesSkinTone(color),
             HumanoidSkinColor.Hues => MakeHueValid(color),
             HumanoidSkinColor.VoxFeathers => ClosestVoxColor(color),
+            HumanoidSkinColor.AnimalFur => ClosestAnimalFurColor(color),
             _ => color
         };
     }
@@ -255,4 +322,5 @@ public enum HumanoidSkinColor : byte
     VoxFeathers, // Vox feathers are limited to a specific color range
     TintedHues, //This gives a color tint to a humanoid's skin (10% saturation with full hue range).
     NoColor, // Goob #1161
+    AnimalFur, // Goob - Tajaran
 }

@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._Starlight.CollectiveMind; // Goobstation - Starlight collective mind port
 using Content.Shared.Chat;
 
 namespace Content.Client.UserInterface.Systems.Chat.Controls;
@@ -64,13 +65,28 @@ public sealed class ChannelSelectorButton : ChatPopupButton<ChannelSelectorPopup
             ChatSelectChannel.OOC => Color.LightSkyBlue,
             ChatSelectChannel.Dead => Color.MediumPurple,
             ChatSelectChannel.Admin => Color.HotPink,
+            ChatSelectChannel.Telepathic => Color.PaleVioletRed, //Nyano - Summary: determines the color for the chat.
             _ => Color.DarkGray
         };
     }
 
-    public void UpdateChannelSelectButton(ChatSelectChannel channel, Shared.Radio.RadioChannelPrototype? radio)
+    // Goobstation - Starlight collective mind port
+    public void UpdateChannelSelectButton(ChatSelectChannel channel, Shared.Radio.RadioChannelPrototype? radio, CollectiveMindPrototype? collectiveMind = null)
     {
-        Text = radio != null ? Loc.GetString(radio.Name) : ChannelSelectorName(channel);
-        Modulate = radio?.Color ?? ChannelSelectColor(channel);
+        if (radio != null)
+        {
+            Text = Loc.GetString(radio.Name);
+            Modulate = radio?.Color ?? ChannelSelectColor(channel);
+        }
+        else if (collectiveMind != null)
+        {
+            Text = Loc.GetString(collectiveMind.Name);
+            Modulate = collectiveMind.Color;
+        }
+        else
+        {
+            Text = ChannelSelectorName(channel);
+            Modulate = ChannelSelectColor(channel);
+        }
     }
 }

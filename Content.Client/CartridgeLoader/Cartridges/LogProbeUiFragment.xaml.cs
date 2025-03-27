@@ -11,14 +11,24 @@ namespace Content.Client.CartridgeLoader.Cartridges;
 [GenerateTypedNameReferences]
 public sealed partial class LogProbeUiFragment : BoxContainer
 {
+    /// <summary>
+    /// Action invoked when the print button gets pressed.
+    /// </summary>
+    public Action? OnPrintPressed;
+
     public LogProbeUiFragment()
     {
         RobustXamlLoader.Load(this);
+
+        PrintButton.OnPressed += _ => OnPrintPressed?.Invoke();
     }
 
     // DeltaV begin - Update to handle both types of data
     public void UpdateState(LogProbeUiState state)
     {
+        EntityName.Text = state.EntityName;
+        PrintButton.Disabled = string.IsNullOrEmpty(state.EntityName);
+
         ProbedDeviceContainer.RemoveAllChildren();
 
         if (state.NanoChatData != null)

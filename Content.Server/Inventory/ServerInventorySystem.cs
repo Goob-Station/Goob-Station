@@ -23,7 +23,7 @@ namespace Content.Server.Inventory
             }
         }
 
-        public void TransferEntityInventories(Entity<InventoryComponent?> source, Entity<InventoryComponent?> target)
+        public void TransferEntityInventories(Entity<InventoryComponent?> source, Entity<InventoryComponent?> target, bool force = true) // Goob edit
         {
             if (!Resolve(source.Owner, ref source.Comp) || !Resolve(target.Owner, ref target.Comp))
                 return;
@@ -37,8 +37,8 @@ namespace Content.Server.Inventory
             }
             foreach (var (item, slot) in items)
             {
-                TryUnequip(source, slot.Name, true, true, inventory: source.Comp);
-                TryEquip(target, item, slot.Name , true, true, inventory: target.Comp);
+                TryUnequip(source, slot.Name, true, force, inventory: source.Comp);
+                TryEquip(target, item, slot.Name , true, force, inventory: target.Comp);
             }
             // Goob edit end
         }

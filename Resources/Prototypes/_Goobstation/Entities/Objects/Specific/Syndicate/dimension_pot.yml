@@ -1,0 +1,32 @@
+- type: entity
+  id: DimensionPot
+  parent: PottedPlant27
+  suffix: Dimension
+  components:
+  - type: PocketDimension
+  # no (easily) deleting items with it
+  - type: Destructible
+    thresholds: []
+  # nuh uh
+  - type: CargoSellBlacklist
+  - type: Portal
+    canTeleportToOtherMaps: true
+    randomTeleport: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.1
+        density: 190
+        mask:
+        - HighImpassable
+      portalFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        hard: false

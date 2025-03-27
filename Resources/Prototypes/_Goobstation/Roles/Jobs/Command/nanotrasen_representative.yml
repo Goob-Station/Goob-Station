@@ -16,8 +16,9 @@
   joinNotifyCrew: true
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  goobcoins: 40
   access:
-  - CentralCommand
+  - Security
   - Brig
   - External
   - Cryogenics
@@ -26,6 +27,12 @@
   - Medical
   - Research
   - Command
+  - CentralCommand
+  - Service
+  - Hydroponics
+  - Kitchen
+  - Cargo
+  - Theatre
   - NanotrasenRepresentative
   special:
   - !type:AddImplantSpecial
@@ -37,10 +44,11 @@
 - type: startingGear
   id: NanotrasenRepresentativeGear
   equipment:
-    id: CentcomPDA
+    id: NanotrasenRepresentativePDA
     ears: ClothingHeadsetAltCentCom
+    gloves: ClothingHandsGlovesGoldenTrim # Psst. I might as well add this here.
     pocket1: UniqueNanorepLockerTeleporter
   storage:
     back:
     - Flash
-    - TelescopicBaton # Goobstation
+    - TelescopicBaton

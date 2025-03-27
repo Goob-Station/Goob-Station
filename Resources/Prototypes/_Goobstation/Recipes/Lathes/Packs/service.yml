@@ -1,0 +1,4 @@
+- type: latheRecipePack
+  id: ServiceWeapons
+  recipes:
+  - WeaponLaserSvalinn

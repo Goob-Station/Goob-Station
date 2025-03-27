@@ -9,10 +9,10 @@ public sealed partial class ThermalVisionComponent : SwitchableVisionOverlayComp
 {
     public override EntProtoId? ToggleAction { get; set; } = "ToggleThermalVision";
 
-    public override Color Color { get; set; } = Color.FromHex("#F84742");
+    public override Color Color { get; set; } = Color.FromHex("#d06764");
 
     [DataField]
-    public float LightRadius = 5f;
+    public float LightRadius = 2f;
 }
 
 public sealed partial class ToggleThermalVisionEvent : InstantActionEvent;

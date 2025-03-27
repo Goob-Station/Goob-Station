@@ -1,6 +1,6 @@
 - type: entity
   name: miniature energy crossbow
-  parent: BaseWeaponBatterySmall
+  parent: [ BaseWeaponBatterySmall, BaseSyndicateContraband ]
   id: MiniatureEnergyCrossbow
   description: The syndicate's energy crossbow, small, silent and deadly.
   components:
@@ -22,7 +22,8 @@
     fireCost: 900
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 300
+    autoRechargeRate: 900
+  - type: Appearance
   - type: MagazineVisuals
     magState: mag
     steps: 2
@@ -61,6 +62,7 @@
   - type: WeaponRandomExplode
     explosionChance: 0.05 # 1d20 roll
     multiplyByCharge: 1.0
+  - type: Appearance
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -83,64 +85,102 @@
 
 - type: entity
   name: EG-4 energy revolver
-  parent: [ BaseWeaponBatterySmall, BaseCentcommContraband ]
+  parent: [ BaseWeaponPowerCellSmall, BaseCentcommContraband ]
   id: WeaponEnergyRevolver
-  description: A highly advanced energy revolver capable of firing both lethal and disabling bullets.
+  description: A highly advanced energy revolver capable of firing various bolts depending on the power cell.
   components:
+  - type: Item
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+    heldPrefix: lethal
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-    - state: mode-disabler
-      shader: unshaded
-      map: [ "Firemode" ]
-    - state: mag-unshaded-4
-      map: ["enum.GunVisualLayers.MagUnshaded"]
-      shader: unshaded
+  - type: ItemMapper
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
+    mapLayers:
+      mag-unshaded-4:
+        whitelist:
+          tags:
+          - EnergySpeedloaderLethal
+      mode-disabler:
+        whitelist:
+          tags:
+          - EnergySpeedloaderDisabler
   - type: Clothing
-    quickEquip: false
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
     slots:
     - Belt
     - suitStorage
-    - Back
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
   - type: Gun
-    fireRate: 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
-  - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: EnergySpeedloaderLethal
+        insertSound: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
+        whitelist:
+          tags:
+            - EnergySpeedloader
+
+- type: entity
+  name: temperature gun
+  parent: [BaseWeaponBattery, BaseSecurityContraband]
+  id: WeaponTemperatureGun
+  description: An energy-efficient gun capable of modifying the temperature of creatures. Just point and click!
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/tempgun.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mode-cooling
+      shader: unshaded
+      map: [ "Firemode" ]
+    - state: mag-unshaded-4
+      map: [ "enum.GunVisualLayers.MagUnshaded" ]
+      shader: unshaded
+  - type: Item
+    size: Large
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/tempgun.rsi
+  - type: Gun
+    fireRate: 2
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisabler
-    fireCost: 100
+    proto: BulletTemperatureHot
   - type: EnergyGun
     fireModes:
-    - proto: BulletDisabler
-      fireCost: 55
-      name: disabling
-      state: disabler
-    - proto: BulletEnergyGunMagnum
-      fireCost: 125
-      name: lethal
-      state: lethal
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: true
-  - type: Appearance
+    - proto: BulletTemperatureCold
+      fireCost: 100
+      name: cooling
+      state: cooling
+    - proto: BulletTemperatureHot
+      fireCost: 100
+      name: heating
+      state: heating
   - type: GenericVisualizer
     visuals:
       enum.EnergyGunFireModeVisuals.State:
         Firemode:
-          Disabler: { state: mode-disabler }
-          Lethal: { state: mode-lethal }
-  - type: Tag
-    tags:
-    - Sidearm
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 22
+          Cooling: { state: mode-cooling }
+          Heating: { state: mode-heating }
+  - type: Battery
+    maxCharge: 2500
+    startingCharge: 2500
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true

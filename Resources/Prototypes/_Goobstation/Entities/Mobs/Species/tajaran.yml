@@ -1,0 +1,123 @@
+- type: entity
+  name: Urist McTajaran
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobTajaran
+  abstract: true
+  components:
+  - type: Hunger
+  - type: Thirst
+  - type: Sprite # smaller size
+    scale: 0.8, 0.8
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.28
+        density: 140
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeat
+      amount: 5
+  - type: HumanoidAppearance
+    species: Tajaran
+  - type: Body
+    prototype: Tajaran
+    requiredLegs: 2
+  - type: Damageable
+    damageModifierSet: Tajaran
+  - type: TemperatureProtection # fur is a good insulator, actually
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+  - type: Flammable
+    firestackFade: -0.08 # until you light it up, cuz it's oily too. 20% lower than default
+  - type: Temperature
+    coldDamageThreshold: 248.15 # -25 degrees centigrade, like 12 degrees below normal "takes cold damage"
+    currentTemperature: 311.76  # Body temperature of cat
+    coldDamage:
+      types:
+        Cold: 0.080 # in line with cold resist
+    heatDamage:
+      types:
+        Heat: 1.80 # in line with heat dmg received up
+  - type: ThermalRegulator
+    normalBodyTemperature: 311.76
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: petting-success-soft-floofy
+    interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+    messagePerceivedByOthers: hugging-success-generic-others
+  - type: Input
+    context: "human"
+  - type: Speech
+    speechVerb: Felinid
+    speechSounds: Alto
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+    reactions:
+    - reagents: [ Water, SpaceCleaner ]
+      methods: [ Touch ]
+      effects:
+      - !type:WashCreamPieReaction
+    - reagents: [ Water ]
+      methods: [ Touch ]
+      effects:
+      - !type:Emote
+        emote: Scream
+        probability: 0.2
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 4
+        Piercing: 1
+  - type: DamageOnHighSpeedImpact # Landing on all fours!
+    damage:
+      types:
+        Blunt: 1
+  - type: Stamina
+    critThreshold: 75 # Goobstation - Siouxcide, felinids take 3 disabler shots to down
+  - type: TypingIndicator
+    proto: felinid
+  - type: PseudoItem
+    storedOffset: 0,17
+    shape:
+      - 0,0,1,4
+      - 0,2,3,4
+      - 4,0,5,4
+  - type: Vocal
+    wilhelm: "/Audio/Nyanotrasen/Voice/Felinid/cat_wilhelm.ogg"
+    sounds:
+      Male: MaleFelinid
+      Female: FemaleFelinid
+      Unsexed: MaleFelinid
+  - type: NoShoesSilentFootsteps
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - FelinidEmotes # Since we need to add this, we also need to rewrite all others
+    - AnomalyHost
+  - type: FootPrints # WD EDIT
+
+- type: entity
+  save: false
+  name: Urist McHands
+  parent: MobHumanDummy
+  id: MobTajaranDummy
+  categories: [ HideSpawnMenu ]
+  description: A dummy tajaran meant to be used in character setup.
+  components:
+  - type: HumanoidAppearance
+    species: Tajaran

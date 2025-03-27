@@ -7,6 +7,7 @@
     ClothingUniformJumpsuitEngineering: 3
     ClothingUniformJumpskirtEngineering: 3
     ClothingUniformJumpsuitEngineeringHazard: 3
+    ClothingUniformJumpsuitCasualEngineer: 3 # Goobstation
     ClothingShoesColorBlack: 3
     ClothingOuterVestHazard: 3
     ClothingShoesBootsWork: 3
@@ -16,3 +17,6 @@
     ClothingOuterWinterEngi: 2
     ClothingNeckScarfStripedOrange: 3
     ClothingShoesBootsWinterEngi: 2
+  contrabandInventory:
+    ToyFigurineEngineer: 1
+    ToyFigurineChiefEngineer: 1

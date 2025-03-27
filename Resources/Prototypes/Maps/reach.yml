@@ -1,9 +1,9 @@
 - type: gameMap
   id: Reach
   mapName: 'Reach'
-  mapPath: /Maps/reach.yml
+  mapPath: /Maps/_Goobstation/reach.yml
   minPlayers: 0
-  maxPlayers: 7
+  maxPlayers: 10
   stations:
     Reach:
       stationProto: StandardNanotrasenStation
@@ -14,15 +14,16 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'SC'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency.yml
+          emergencyShuttlePath: /Maps/Shuttles/emergency_cluster.yml
         - type: StationJobs
           availableJobs:
-            # Goobstation - TODO: add bso and ntr
+            NanotrasenRepresentative: [ 1, 1 ]
+            BlueshieldOfficer: [ 1, 1 ]
             Captain: [ 1, 1 ]
             HeadOfSecurity: [ 1, 1 ]
-            SecurityOfficer: [ 1, 3 ]
+            SecurityOfficer: [ 1, 2 ]
             CargoTechnician: [ 1, 1 ]
-            SalvageSpecialist: [ 1, 1 ]
+            SalvageSpecialist: [ 1, 2 ]
             Bartender: [ 1, 1 ]
             Botanist: [ 1, 1 ]
             Chef: [ 1, 1 ]
@@ -41,5 +42,3 @@
           stageCritical: 200
           stageTheEnd: 400
         # Goobstation blob-config-end
-
-

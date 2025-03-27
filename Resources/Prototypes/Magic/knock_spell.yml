@@ -1,15 +1,25 @@
-﻿- type: entity
+- type: entity
   id: ActionKnock
   name: Knock
-  description: This spell opens nearby doors.
+  description: Opens nearby doors and lockers. # Goob edit
   components:
   - type: InstantAction
+    raiseOnUser: true # Goobstation
+    checkCanInteract: false # Goobstation
     useDelay: 10
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/knock.ogg
     icon:
-      sprite: Objects/Magic/magicactions.rsi
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
       state: knock
     event: !type:KnockSpellEvent
+      range: 3 # Goob edit
       speech: action-speech-spell-knock
+  - type: Magic # Goobstation
+    requiresSpeech: true
+    school: Transmutation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionKnockII
+      3: ActionKnockIII

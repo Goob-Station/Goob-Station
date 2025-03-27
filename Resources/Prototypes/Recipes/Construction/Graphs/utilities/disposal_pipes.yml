@@ -68,6 +68,12 @@
       - material: Cable
         amount: 1
         doAfter: 1
+    # Goobstation - DisposalBlocker
+    - to: blocker
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
   - node: broken
     entity: DisposalPipeBroken
     edges:
@@ -230,6 +236,19 @@
         amount: 2
       - !type:SpawnPrototype
         prototype: CableApcStack1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+  # Goobstation - DisposalBlocker
+  - node: blocker
+    entity: DisposalBlocker
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
       - !type:DeleteEntity
       steps:
       - tool: Welding

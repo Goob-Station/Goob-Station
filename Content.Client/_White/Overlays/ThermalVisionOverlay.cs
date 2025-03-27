@@ -144,9 +144,9 @@ public sealed class ThermalVisionOverlay : Overlay
                                   _stealth.GetVisibility(uid, stealth) > 0.5f);
     }
 
-    public void ResetLight()
+    public void ResetLight(bool checkFirstTimePredicted = true)
     {
-        if (_lightEntity == null || !_timing.IsFirstTimePredicted)
+        if (_lightEntity == null || checkFirstTimePredicted && !_timing.IsFirstTimePredicted)
             return;
 
         _entity.DeleteEntity(_lightEntity);

@@ -1,0 +1,210 @@
+- type: entity
+  parent: BaseGameRule
+  id: LoneAbductorSpawn
+  components:
+  - type: StationEvent
+    earliestStart: 15
+    reoccurrenceDelay: 45
+    weight: 7.5
+    minimumPlayers: 10
+    duration: 1
+    chaos: # Goobstation
+      Hostile: 75
+      Medical: 75
+  - type: RuleGrids
+  - type: LoadMapRule
+    mapPath: /Maps/_Shitmed/Shuttles/ShuttleEvent/abductor_shuttle.yml
+  - type: AntagObjectives
+    objectives:
+    - AbductObjective
+  - type: AntagLoadProfileRule
+    speciesHardOverride: Abductor
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: LoneAbductorSpawner
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: LoneAbductorGear
+      briefing:
+        text: abductor-role-greeting
+        color: Green
+        sound: /Audio/_Shitmed/Misc/abductor.ogg
+      components:
+      - type: Abductor
+      - type: ActionGrant
+        actions:
+          - ActionReturnToShip
+      - type: GhostRole
+        name: abductor-lone-ghost-role-name
+        description: abductor-lone-ghost-role-desc
+        rules: abductors-ghost-role-rules
+        raffle:
+          settings: default
+        requirements:
+        - !type:OverallPlaytimeRequirement
+          time: 18000 #5 hours
+        - !type:DepartmentTimeRequirement
+          department: Medical
+          time: 7200 #2 hours
+        - !type:DepartmentTimeRequirement
+          department: Security
+          time: 7200 #2 hours
+      - type: GhostTakeoverAvailable
+      - type: NpcFactionMember
+        factions:
+          - SimpleHostile
+      - type: RandomMetadata
+        nameSegments:
+          - AbductorScientistPrefix
+          - AbductorNames
+      - type: Tag
+        tags:
+          - Abductor
+          - AbductorScientist
+          - CanPilot
+          - FootstepSound
+          - DoorBumpOpener
+          - AbductorMind
+      - type: AbductorScientist
+      - type: SurgeryIgnoreClothing
+      - type: Sanitized
+      - type: SurgerySpeedModifier
+        speedModifier: 1.5
+      mindRoles:
+      - MindRoleLoneAbductor
+
+- type: entity
+  parent: BaseGameRule
+  id: AbductorVictim
+  components:
+  - type: AbductorVictimRule
+  - type: AntagSelection
+    definitions:
+    - mindRoles:
+      - MindRoleAbductorVictim
+      briefing:
+        text: abductor-victim-role-greeting
+        color: Red
+        sound: /Audio/_Shitmed/Misc/abducted.ogg
+  - type: AntagRandomObjectives
+    maxDifficulty: 1
+    sets:
+    - maxPicks: 1
+      groups: AbductorVictimObjectiveGroups
+
+- type: entity
+  parent: BaseGameRule
+  id: DuoAbductorSpawn
+  components:
+  - type: StationEvent
+    earliestStart: 15
+    reoccurrenceDelay: 45
+    weight: 7.5
+    minimumPlayers: 20
+    duration: 1
+    chaos: # Goobstation
+      Hostile: 150
+      Medical: 150
+  - type: RuleGrids
+  - type: LoadMapRule
+    mapPath: /Maps/_Shitmed/Shuttles/ShuttleEvent/duo_abductor_shuttle.yml
+  - type: AntagObjectives
+    objectives:
+    - AbductObjective
+  - type: AntagLoadProfileRule
+    speciesHardOverride: Abductor
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: AbductorScientistSpawner
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: AbductorScientistGear
+      briefing:
+        text: abductor-role-greeting
+        color: Green
+        sound: /Audio/_Shitmed/Misc/abductor.ogg
+      components:
+      - type: Abductor
+      - type: ActionGrant
+        actions:
+          - ActionReturnToShip
+      - type: GhostRole
+        name: abductor-scientist-ghost-role-name
+        description: abductor-scientist-ghost-role-desc
+        rules: abductors-ghost-role-rules
+        raffle:
+          settings: default
+        requirements:
+        - !type:OverallPlaytimeRequirement
+          time: 18000 #5 hours
+        - !type:DepartmentTimeRequirement
+          department: Medical
+          time: 10800 #3 hours
+      - type: GhostTakeoverAvailable
+      - type: NpcFactionMember
+        factions:
+          - SimpleHostile
+      - type: RandomMetadata
+        nameSegments:
+          - AbductorScientistPrefix
+          - AbductorNames
+      - type: Tag
+        tags:
+          - Abductor
+          - AbductorScientist
+          - CanPilot
+          - FootstepSound
+          - DoorBumpOpener
+          - AbductorMind
+      - type: AbductorScientist
+      - type: SurgeryIgnoreClothing
+      - type: Sanitized
+      - type: SurgerySpeedModifier
+        speedModifier: 1.5
+      mindRoles:
+      - MindRoleAbductorScientist
+    - spawnerPrototype: AbductorAgentSpawner
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: AbductorAgentGear
+      briefing:
+        text: abductor-role-greeting
+        color: Green
+        sound: /Audio/_Shitmed/Misc/abductor.ogg
+      components:
+      - type: Abductor
+      - type: ActionGrant
+        actions:
+          - ActionReturnToShip
+      - type: GhostRole
+        name: abductor-agent-ghost-role-name
+        description: abductor-agent-ghost-role-desc
+        rules: abductors-ghost-role-rules
+        raffle:
+          settings: default
+        requirements:
+        - !type:OverallPlaytimeRequirement
+          time: 18000 #5 hours
+        - !type:DepartmentTimeRequirement
+          department: Security
+          time: 10800 #3 hours
+      - type: GhostTakeoverAvailable
+      - type: NpcFactionMember
+        factions:
+          - SimpleHostile
+      - type: RandomMetadata
+        nameSegments:
+          - AbductorAgentPrefix
+          - AbductorNames
+      - type: Tag
+        tags:
+          - Abductor
+          - CanPilot
+          - FootstepSound
+          - DoorBumpOpener
+      - type: AbductorScientist # Should be removed when we have proper teleportation system
+      mindRoles:
+      - MindRoleAbductorAgent

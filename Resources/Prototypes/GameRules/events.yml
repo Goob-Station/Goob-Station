@@ -5,18 +5,18 @@
     - id: AnomalySpawn
     - id: BluespaceArtifact
     - id: BluespaceLocker
-#    - id: BreakerFlip
-#    - id: BureaucraticError
-#    - id: ClericalError
+    - id: BreakerFlip
+    - id: BureaucraticError
+    - id: ClericalError
     - id: CockroachMigration
     - id: GasLeak
-#    - id: GreytideVirus
+    - id: GreytideVirus
     - id: IonStorm # its calm like 90% of the time smh
     - id: KudzuGrowth
     - id: MassHallucinations
     - id: MimicVendorRule
     - id: MouseMigration
-#    - id: PowerGridCheck
+    - id: PowerGridCheck
     - id: RandomSentience
     - id: SlimesSpawn
     - id: SolarFlare
@@ -24,6 +24,7 @@
     - id: SpiderClownSpawn
     - id: SpiderSpawn
     - id: VentClog
+    - id: TidemindDevelop # Goobstation - Tidemind
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -39,6 +40,9 @@
     - id: LoneOpsSpawn
     - id: DerelictCyborgSpawn
     - id: BlobSpawn # Goobstation - Blob
+    - id: LoneAbductorSpawn # Shitmed - Starlight Abductors
+    - id: DuoAbductorSpawn # Shitmed - Starlight Abductors
+    - id: BingleSpawn #Goobstation - Bingle
 
 - type: entity
   id: BaseStationEvent
@@ -80,6 +84,8 @@
       path: /Audio/Announcements/announce.ogg
     weight: 8
     duration: 35
+    chaos: # Goobstation
+      Anomaly: 100
   - type: AnomalySpawnRule
 
 - type: entity
@@ -96,6 +102,8 @@
       path: /Audio/Announcements/announce.ogg
     weight: 8
     duration: 35
+    chaos: # Goobstation
+      Anomaly: 40
   - type: BluespaceArtifactRule
 
 - type: entity
@@ -104,44 +112,48 @@
   components:
   - type: StationEvent
     weight: 2
-    reoccurrenceDelay: 1000
+    reoccurrenceDelay: 5
     earliestStart: 1
     duration: 1
+    chaos: # Goobstation
+      Anomaly: 40
   - type: BluespaceLockerRule
 
-#- type: entity
-#  id: BreakerFlip
-#  parent: BaseGameRule
-#  components:
-#  - type: StationEvent
-#    weight: 7
-#    duration: 1
-#    minimumPlayers: 15
-#  - type: BreakerFlipRule
+- type: entity
+  id: BreakerFlip
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 7
+    duration: 1
+    minimumPlayers: 15
+    chaos: # Goobstation
+      Power: 100
+  - type: BreakerFlipRule
 
-#- type: entity
-#  id: BureaucraticError
-#  parent: BaseGameRule
-#  components:
-#  - type: StationEvent
-#    startAnnouncement: station-event-bureaucratic-error-announcement
-#    minimumPlayers: 25
-#    weight: 3
-#    duration: 1
-#  - type: BureaucraticErrorRule
-#    ignoredJobs:
-#    - StationAi
+- type: entity
+  id: BureaucraticError
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-bureaucratic-error-announcement
+    minimumPlayers: 25
+    weight: 3
+    duration: 1
+  - type: BureaucraticErrorRule
+    ignoredJobs:
+    - StationAi
 
-#- type: entity
-#  id: ClericalError
-#  parent: BaseGameRule
-#  components:
-#  - type: StationEvent
-#    startAnnouncement: station-event-clerical-error-announcement
-#    minimumPlayers: 15
-#    weight: 5
-#    duration: 1
-#  - type: ClericalErrorRule
+- type: entity
+  id: ClericalError
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-clerical-error-announcement
+    minimumPlayers: 15
+    weight: 5
+    duration: 1
+  - type: ClericalErrorRule
 
 - type: entity
   parent: BaseGameRule
@@ -150,7 +162,7 @@
   - type: StationEvent
     weight: 5
     duration: 1
-    minimumPlayers: 20
+    minimumPlayers: 10
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
 
@@ -164,6 +176,12 @@
     reoccurrenceDelay: 20
     minimumPlayers: 60
     duration: null
+    chaos: # Goobstation
+      Hostile: 20
+      Friend: 20
+      Combat: 40
+      Death: 100
+      Medical: 100
   - type: SpaceSpawnRule
     spawnDistance: 0
   - type: AntagSpawner
@@ -192,12 +210,23 @@
     duration: null
     earliestStart: 45
     reoccurrenceDelay: 20
-    minimumPlayers: 1
+    minimumPlayers: 30
+    chaos: # Goobstation
+      Hostile: 20
+      Friend: 20
+      Combat: 40
+      Death: 40
+      Medical: 40
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
     # Goobstation start
     speciesOverride: Human
-    alwaysUseSpeciesOverride: true
+    speciesOverrideBlacklist:
+    - Yowie
+    - IPC
+    - Diona
+    - Abductor
+    - Harpy
     # Goobstation end
   - type: AntagObjectives
     objectives:
@@ -245,6 +274,12 @@
     duration: 1
     earliestStart: 30
     minimumPlayers: 20
+    chaos: # Goobstation
+      Hostile: 20
+      Friend: 20
+      Combat: 40
+      Death: 100
+      Medical: 100
   - type: RandomSpawnRule
     prototype: MobRevenant
 
@@ -268,6 +303,9 @@
       path: /Audio/Announcements/attention.ogg
     endAnnouncement: station-event-gas-leak-end-announcement
     weight: 8
+    chaos:
+      Atmos: 100
+      Medical: 50
   - type: GasLeakRule
 
 - type: entity
@@ -279,23 +317,27 @@
     minimumPlayers: 15
     weight: 7
     duration: 240
+    chaos:
+      Hostile: 20
+      Friend: 20
+      Medical: 100
   - type: KudzuGrowthRule
 
-#- type: entity
-#  id: PowerGridCheck
-#  parent: BaseStationEventShortDelay
-#  components:
-#  - type: StationEvent
-#    weight: 5
-#    startAnnouncement: station-event-power-grid-check-start-announcement
-#    endAnnouncement: station-event-power-grid-check-end-announcement
-#    startAudio:
-#      path: /Audio/Announcements/power_off.ogg
-#      params:
-#        volume: -4
-#    duration: 60
-#    maxDuration: 120
-#  - type: PowerGridCheckRule
+- type: entity
+  id: PowerGridCheck
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    weight: 5
+    startAnnouncement: station-event-power-grid-check-start-announcement
+    endAnnouncement: station-event-power-grid-check-end-announcement
+    startAudio:
+      path: /Audio/Announcements/power_off.ogg
+      params:
+        volume: -4
+    duration: 60
+    maxDuration: 120
+  - type: PowerGridCheckRule
 
 - type: entity
   parent: BaseGameRule
@@ -309,6 +351,8 @@
       path: /Audio/Announcements/attention.ogg
     duration: 120
     maxDuration: 240
+    chaos: # Goobstation
+      Friend: 20
   - type: SolarFlareRule
     onlyJamHeadsets: true
     affectedChannels:
@@ -337,6 +381,8 @@
     minimumPlayers: 15
     weight: 5
     duration: 60
+    chaos: # Goobstation
+      Mess: 200
   - type: VentClogRule
 
 - type: entity
@@ -347,10 +393,13 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/aliens.ogg
-    earliestStart: 40
-    minimumPlayers: 1
-    weight: 1 # GoobStation: was 5, vent critters bad
-    duration: 120
+    earliestStart: 20
+    minimumPlayers: 15
+    weight: 5
+    duration: 30 # DeltaV: was 60, used as a delay now
+    chaos: # Goobstation
+      Hostile: 20
+      Medical: 50
   - type: VentCrittersRule
     entries:
     - id: MobAdultSlimesBlueAngry
@@ -368,10 +417,13 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    earliestStart: 40
-    minimumPlayers: 1
-    weight: 2 # GoobStation: was 5, critters because bad
-    duration: 60
+    earliestStart: 20
+    minimumPlayers: 15
+    weight: 5
+    duration: 30 # DeltaV: was 60, used as a delay now
+    chaos: # Goobstation
+      Hostile: 20
+      Medical: 50
   - type: VentCrittersRule
     entries:
     - id: MobPurpleSnake
@@ -390,9 +442,12 @@
     startAudio:
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
-    minimumPlayers: 1
-    weight: 1 # GoobStation: was 1, vent critters bad
-    duration: 80
+    minimumPlayers: 15
+    weight: 5
+    duration: 30 # DeltaV: was 60, used as a delay now
+    chaos: # Goobstation
+      Hostile: 20
+      Medical: 50
   - type: VentCrittersRule
     entries:
     - id: MobGiantSpiderAngry
@@ -405,12 +460,16 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/aliens.ogg
-    earliestStart: 120
-    minimumPlayers: 1
-    weight: 0.5 # GoobStation: was 1.5, vent critters bad
-    duration: 80
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 45 # DeltaV - was 20
+    minimumPlayers: 30 # DeltaV - was 20
+    weight: 1 # DeltaV - was 1.5
+    duration: 30 # DeltaV: was 60, used as a delay now
+    chaos: # Goobstation
+      Hostile: 20
+      Medical: 50
   - type: VentCrittersRule
+    playerRatio: 35 # DeltaV: Clown spiders are very robust
     entries:
     - id: MobClownSpider
       prob: 0.05
@@ -421,9 +480,13 @@
   components:
   - type: StationEvent
     earliestStart: 90
-    minimumPlayers: 1
+    minimumPlayers: 40
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
+    chaos: # Goobstation
+      Hostile: 100
+      Medical: 200
+      Death: 200
   - type: ZombieRule
   - type: AntagSelection
     definitions:
@@ -455,12 +518,15 @@
   - type: StationEvent
     earliestStart: 35
     weight: 5.5
-    minimumPlayers: 1
-    maxOccurrences: 3
+    minimumPlayers: 20
     duration: 1
+    chaos: # Goobstation
+      Hostile: 60
+      Medical: 75
+      Death: 100
   - type: RuleGrids
   - type: LoadMapRule
-    mapPath: /Maps/Shuttles/ShuttleEvent/striker.yml
+    gridPath: /Maps/Shuttles/ShuttleEvent/striker.yml
   - type: NukeopsRule
     roundEndBehavior: Nothing
   - type: AntagSelection
@@ -470,6 +536,7 @@
       max: 1
       pickPlayer: false
       startingGear: SyndicateLoneOperativeGearFull
+      unequipOldGear: true
       roleLoadout:
       - RoleSurvivalNukie
       components:
@@ -494,7 +561,7 @@
   - type: StationEvent
     earliestStart: 30
     weight: 8
-    minimumPlayers: 1
+    minimumPlayers: 15
     maxOccurrences: 1 # can only happen once per round
     startAnnouncement: station-event-communication-interception
     startAudio:
@@ -524,6 +591,8 @@
     duration: 150
     maxDuration: 300
     reoccurrenceDelay: 30
+    chaos: # Goobstation
+      Friend: 20
   - type: MassHallucinationsRule
     minTimeBetweenIncidents: 0.1
     maxTimeBetweenIncidents: 300
@@ -539,6 +608,10 @@
     weight: 8
     reoccurrenceDelay: 20
     duration: 1
+    chaos: # Goobstation
+      Hostile: 10
+      Friend: 20
+      Mess: 30
   - type: IonStormRule
 
 - type: entity
@@ -550,28 +623,35 @@
     minimumPlayers: 20
     maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
     weight: 5
+    chaos: # Goobstation
+      Hostile: 20 # for when they're actually properly hostile
+      Hunger: 10
+      Thirst: 10
   - type: MobReplacementRule
 
-#- type: entity
-#  id: GreytideVirus
-#  parent: BaseStationEventShortDelay
-#  components:
-#  - type: StationEvent
-#    startAudio:
-#      path: /Audio/Announcements/attention.ogg
-#    weight: 5
-#    minimumPlayers: 25
-#    reoccurrenceDelay: 20
-#  - type: GreytideVirusRule
-#    accessGroups:
-#    - Cargo
-#    - Command
-#    - Engineering
-#    - Research
-#    - Security
-#    - Service
-#    blacklist:
-#    - External # don't space everything
+- type: entity
+  id: GreytideVirus
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    weight: 5
+    minimumPlayers: 25
+    reoccurrenceDelay: 20
+    chaos: # Goobstation
+      Atmos: 15
+      Mess: 30
+  - type: GreytideVirusRule
+    accessGroups:
+    - Cargo
+    - Command
+    - Engineering
+    - Research
+    - Security
+    - Service
+    blacklist:
+    - External # don't space everything
 
 - type: entity
   parent: BaseGameRule
@@ -583,6 +663,10 @@
     reoccurrenceDelay: 20
     minimumPlayers: 4
     duration: null
+    chaos: # Goobstation
+      # can be both hostile and friendly
+      Hostile: 10
+      Friend: -10
   - type: SpaceSpawnRule
     spawnDistance: 0
   - type: AntagSpawner

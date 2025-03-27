@@ -20,7 +20,7 @@
   description: uplink-revolver-python-desc
   productEntity: WeaponRevolverPythonAP
   cost:
-    Telecrystal: 24 # goob - Originally was 65 TC but was not used due to high cost. and the same happened at 40 TC. +2 mags = 34 TC.
+    Telecrystal: 20 # goob - Originally was 65 TC but was not used due to high cost. and the same happened at 40 TC. +2 mags = 30 TC.
   categories:
   - UplinkWeaponry
 
@@ -131,7 +131,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Snipers/heavy_sniper.rsi, state: base }
   productEntity: BriefcaseSyndieSniperBundleFilled
   cost:
-    Telecrystal: 80 # goob - increase price by a lot when the thing has a scope
+    Telecrystal: 60 # goob
   categories:
   - UplinkWeaponry
 
@@ -460,7 +460,7 @@
   description: uplink-mosin-ammo-desc
   productEntity: MagazineBoxLightRifle
   cost:
-    Telecrystal: 15 # goob - l6 exists
+    Telecrystal: 12 # goob - l6 exists
   categories:
   - UplinkAmmo
 
@@ -471,7 +471,7 @@
   description: uplink-sniper-ammo-desc
   productEntity: MagazineBoxAntiMateriel
   cost:
-    Telecrystal: 20 # goob - Calculated to have about the same amount/damage ratio as AP speedloader
+    Telecrystal: 8 # goob
   categories:
   - UplinkAmmo
 
@@ -773,12 +773,22 @@
 # Disruption
 
 - type: listing
+  id: UplinkAccessBreaker
+  name: uplink-access-breaker-name
+  description: uplink-access-breaker-desc
+  productEntity: AccessBreaker
+  cost:
+    Telecrystal: 25 # goob - keeping the 25 price since it's just damn good
+  categories:
+  - UplinkDisruption
+
+- type: listing
   id: UplinkEmag
   name: uplink-emag-name
   description: uplink-emag-desc
   productEntity: Emag
   cost:
-    Telecrystal: 40 # goob
+    Telecrystal: 15 # goob - I'm tempted to set it to 10, since it's pretty bad unless you have a good plan, but we'll keep it at 15 and see
   categories:
   - UplinkDisruption
 
@@ -1192,6 +1202,17 @@
     - UplinkImplants
 
 - type: listing
+  id: UplinkRadioImplanter
+  name: uplink-radio-implanter-name
+  description: uplink-radio-implanter-desc
+  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
+  productEntity: RadioImplanter
+  cost:
+    Telecrystal: 10 # goob
+  categories:
+  - UplinkImplants
+
+- type: listing
   id: UplinkMicroBombImplanter
   name: uplink-micro-bomb-implanter-name
   description: uplink-micro-bomb-implanter-desc
@@ -1225,16 +1246,27 @@
     - UplinkImplants
   restockTime: 1800
   conditions:
-    # goob - traitor suicide implants
-    #- !type:StoreWhitelistCondition
-    #  whitelist:
-    #    tags:
-    #      - NukeOpsUplink
-    #- !type:BuyerWhitelistCondition
-    #  blacklist:
-    #    components:
-    #      - SurplusBundle
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+        - NukeOpsUplink
 
+# Goobstation - Fix nukeops macrobomb restock
+- type: listing
+  id: UplinkMacroBombImplanterNukeops
+  name: uplink-macro-bomb-implanter-name
+  description: uplink-macro-bomb-implanter-desc
+  icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: explosive }
+  productEntity: MacroBombImplanter
+  cost:
+    Telecrystal: 65
+  categories:
+    - UplinkImplants
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+        - NukeOpsUplink
 
 - type: listing
   id: UplinkDeathAcidifierImplanter
@@ -1252,7 +1284,6 @@
   #    whitelist:
   #      tags:
   #        - NukeOpsUplink
-
 
 - type: listing
   id: UplinkUplinkImplanter # uplink uplink real
@@ -1289,6 +1320,17 @@
       blacklist:
         components:
           - SurplusBundle
+
+- type: listing
+  id: UplinkFakeMindshield
+  name: uplink-fake-mindshield-name
+  description: uplink-fake-mindshield-desc
+  icon: { sprite: Interface/Actions/actions_fakemindshield.rsi, state: icon-on }
+  productEntity: FakeMindShieldImplanter
+  cost:
+    Telecrystal: 15 # goob, I don't like security so x4 instead of x5
+  categories:
+  - UplinkImplants
 
 
 # Wearables
@@ -1485,16 +1527,16 @@
         tags:
           - NukeOpsUplink
 
-
-- type: listing
-  id: UplinkClothingConductingGloves
-  name: uplink-clothing-conducting-gloves-name
-  description: uplink-clothing-conducting-gloves-desc
-  productEntity: ClothingHandsGlovesConducting
-  cost:
-    Telecrystal: 10 # goob
-  categories:
-  - UplinkWearables
+# Goobstation - Explosive gloves
+#- type: listing
+#  id: UplinkClothingConductingGloves
+#  name: uplink-clothing-conducting-gloves-name
+#  description: uplink-clothing-conducting-gloves-desc
+#  productEntity: ClothingHandsGlovesConducting
+#  cost:
+#    Telecrystal: 10 # goob
+#  categories:
+#  - UplinkWearables
 
 
 - type: listing
@@ -1762,7 +1804,7 @@
   description: uplink-revolver-cap-gun-fake-desc
   productEntity: RevolverCapGunFake
   cost:
-    Telecrystal: 28 # goob
+    Telecrystal: 20 # goob
   categories:
   - UplinkJob
   conditions:
@@ -1917,7 +1959,7 @@
   icon: { sprite:  Objects/Consumable/Food/Baked/bread.rsi, state: baguette}
   productEntity: CombatBakeryKit
   cost:
-    Telecrystal: 30 # goob
+    Telecrystal: 20 # goob
   categories:
   - UplinkJob
   conditions:
@@ -1946,17 +1988,13 @@
   id: UplinkDartSyringeGun
   name: uplink-dart-syringe-gun-name
   description: uplink-dart-syringe-gun-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi, state: dart-syringe-gun }
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi, state: icon-dart }
   productEntity: DartSyringeGun
   cost:
-    Telecrystal: 30 # goob
+    Telecrystal: 20 # Hypopen is better
   categories:
-  - UplinkChemicals
+  - UplinkJob
   conditions:
-  - !type:BuyerJobCondition
+  - !type:BuyerDepartmentCondition
     whitelist:
-    - MedicalDoctor
-    - MedicalIntern
-    - Psychologist
-    - Chemist
-    - Paramedic
+    - Medical

@@ -44,7 +44,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         {
             _vomit.Vomit(args.Target, -1000, -1000); // You feel hollow!
 
-            switch (_random.Next(0, 2))
+            switch (_random.Next(0, 3))
             {
                 // remove stomach
                 case 0:

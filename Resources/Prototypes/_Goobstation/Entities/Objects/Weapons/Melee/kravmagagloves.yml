@@ -1,0 +1,16 @@
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesKravMaga
+  name: Krav Maga gloves
+  description: These gloves can teach you to perform Krav Maga using nanochips for as long as you're wearing them.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/kravgloves.rsi
+  - type: Item
+  - type: Clothing
+  - type: Fiber
+    fiberMaterial: fibers-leather
+    fiberColor: fibers-red
+  - type: ClothingGrantComponent
+    component:
+    - type: KravMaga

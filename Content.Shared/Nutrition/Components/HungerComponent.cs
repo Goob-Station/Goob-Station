@@ -10,7 +10,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Generic;
 namespace Content.Shared.Nutrition.Components;
 
 [RegisterComponent, NetworkedComponent, Access(typeof(HungerSystem))]
-[AutoGenerateComponentState, AutoGenerateComponentPause]
+[AutoGenerateComponentState(fieldDeltas: true), AutoGenerateComponentPause]
 public sealed partial class HungerComponent : Component
 {
     /// <summary>
@@ -60,6 +60,13 @@ public sealed partial class HungerComponent : Component
     [DataField("currentThreshold"), ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
     public HungerThreshold CurrentThreshold;
+
+    /// <summary>
+    /// Goobstation
+    /// Starting hunger value the entity should be at, if set then it overrides the default hunger value randomization behaviour.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public float? StartingHunger = null;
 
     /// <summary>
     /// A dictionary relating HungerThreshold to the amount of <see cref="HungerSystem.GetHunger">current hunger</see> needed for each one

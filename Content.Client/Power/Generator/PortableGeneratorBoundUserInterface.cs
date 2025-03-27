@@ -16,7 +16,7 @@ public sealed class PortableGeneratorBoundUserInterface : BoundUserInterface
     protected override void Open()
     {
         base.Open();
-        _window = this.CreateWindow<GeneratorWindow>();
+        _window = this.CreateWindowCenteredLeft<GeneratorWindow>();
         _window.SetEntity(Owner);
         _window.OnState += args =>
         {
@@ -33,8 +33,6 @@ public sealed class PortableGeneratorBoundUserInterface : BoundUserInterface
         _window.OnPower += SetTargetPower;
         _window.OnEjectFuel += EjectFuel;
         _window.OnSwitchOutput += SwitchOutput;
-
-        _window.OpenCenteredLeft();
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)

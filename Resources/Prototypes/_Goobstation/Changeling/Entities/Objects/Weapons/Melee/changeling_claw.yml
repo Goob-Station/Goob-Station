@@ -1,0 +1,29 @@
+- type: entity
+  parent: BaseItem
+  id: ArmClawChangeling
+  name: hand claw
+  description: A grotesque claw made out of bone and flesh that cleaves through people as a hot knife through butter.
+  suffix: Unremoveable
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Changeling/claw.rsi
+    state: icon
+  - type: MeleeWeapon
+    angle: 0
+    wideAnimationRotation: 180
+    attackRate: 1
+    heavyStaminaCost: 8
+    damage:
+      types:
+        Slash: 5
+        Piercing: 15
+        Structural: 10
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    size: Ginormous
+    sprite: _Goobstation/Changeling/claw.rsi
+  - type: Unremoveable
+  - type: DisarmMalus
+    malus: 0
+  - type: GrabbingItem

@@ -50,6 +50,17 @@
         - !type:HTNCompoundTask
           task: PickupMeleeCompound
 
+    # Goobstation - wield an item if it's wieldable
+    - preconditions:
+        - !type:ActiveHandComponentPrecondition
+          components:
+          - type: Wieldable
+      tasks:
+        - !type:HTNPrimitiveTask
+          preconditions:
+          - !type:UnwieldedEntityInHandsPrecondition
+          operator: !type:WieldOperator
+
     # Melee combat (unarmed or otherwise)
     - tasks:
         - !type:HTNCompoundTask

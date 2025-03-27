@@ -52,6 +52,15 @@
         Blunt: 10
     soundHit:
       collection: MetalThud
+  - type: Tweezers # Shitmed
+    speed: 0.6
+  - type: Retractor # Shitmed
+    speed: 0.45
+  - type: Hemostat # Shitmed
+    speed: 0.7
+  - type: SurgeryTool # Shitmed
+    startSound: /Audio/Items/change_jaws.ogg
+    endSound: /Audio/Items/change_jaws.ogg
 
 - type: entity # Goobstation - Recycler Update
   parent: JawsOfLifeBase

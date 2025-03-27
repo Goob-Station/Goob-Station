@@ -1,4 +1,6 @@
 using System.Linq;
+using System.Numerics; // Goobstation
+using Content.Shared.Access; // Goobstation
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Administration.Logs;
@@ -12,6 +14,7 @@ using Content.Shared.Popups;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Prying.Components;
 using Content.Shared.Prying.Systems;
+using Content.Shared.StationRecords; // Goobstation
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Content.Shared.Tools.Systems;
@@ -23,6 +26,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Prototypes; // Goobstation
 
 namespace Content.Shared.Doors.Systems;
 
@@ -33,6 +37,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] protected readonly SharedPhysicsSystem PhysicsSystem = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] protected readonly TagSystem Tags = default!;
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
@@ -76,8 +81,6 @@ public abstract partial class SharedDoorSystem : EntitySystem
         SubscribeLocalEvent<DoorComponent, WeldableAttemptEvent>(OnWeldAttempt);
         SubscribeLocalEvent<DoorComponent, WeldableChangedEvent>(OnWeldChanged);
         SubscribeLocalEvent<DoorComponent, GetPryTimeModifierEvent>(OnPryTimeModifier);
-
-        SubscribeLocalEvent<DoorComponent, OnAttemptEmagEvent>(OnAttemptEmag);
         SubscribeLocalEvent<DoorComponent, GotEmaggedEvent>(OnEmagged);
     }
 
@@ -117,31 +120,24 @@ public abstract partial class SharedDoorSystem : EntitySystem
         _activeDoors.Remove(door);
     }
 
-    private void OnAttemptEmag(EntityUid uid, DoorComponent door, ref OnAttemptEmagEvent args)
-    {
-        if (!TryComp<AirlockComponent>(uid, out var airlock))
-        {
-            args.Handled = true;
-            return;
-        }
-
-        if (IsBolted(uid) || !airlock.Powered)
-        {
-            args.Handled = true;
-            return;
-        }
-
-        if (door.State != DoorState.Closed)
-        {
-            args.Handled = true;
-        }
-    }
-
     private void OnEmagged(EntityUid uid, DoorComponent door, ref GotEmaggedEvent args)
     {
+        if (!_emag.CompareFlag(args.Type, EmagType.Access))
+            return;
+
+        if (!TryComp<AirlockComponent>(uid, out var airlock))
+            return;
+
+        if (IsBolted(uid) || !airlock.Powered)
+            return;
+
+        if (door.State != DoorState.Closed)
+            return;
+
         if (!SetState(uid, DoorState.Emagging, door))
             return;
-        Audio.PlayPredicted(door.SparkSound, uid, args.UserUid, AudioParams.Default.WithVolume(8));
+
+        args.Repeatable = true;
         args.Handled = true;
     }
 
@@ -157,7 +153,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
         RaiseLocalEvent(ent, new DoorStateChangedEvent(door.State));
     }
 
-    protected bool SetState(EntityUid uid, DoorState state, DoorComponent? door = null)
+    public bool SetState(EntityUid uid, DoorState state, DoorComponent? door = null)
     {
         if (!Resolve(uid, ref door))
             return false;
@@ -435,7 +431,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
     /// <param name="uid"> The uid of the door</param>
     /// <param name="door"> The doorcomponent of the door</param>
     /// <param name="user"> The user (if any) opening the door</param>
-    public bool CanClose(EntityUid uid, DoorComponent? door = null, EntityUid? user = null)
+    public bool CanClose(EntityUid uid, DoorComponent? door = null, EntityUid? user = null, bool partial = false)
     {
         if (!Resolve(uid, ref door))
             return false;
@@ -445,7 +441,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
         if (door.State is DoorState.Welded or DoorState.Closed)
             return false;
 
-        var ev = new BeforeDoorClosedEvent(door.PerformCollisionCheck);
+        var ev = new BeforeDoorClosedEvent(door.PerformCollisionCheck, partial);
         RaiseLocalEvent(uid, ev);
         if (ev.Cancelled)
             return false;
@@ -483,7 +479,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
         door.Partial = true;
 
         // Make sure no entity walked into the airlock when it started closing.
-        if (!CanClose(uid, door))
+        if (!CanClose(uid, door, partial: true))
         {
             door.NextStateChange = GameTiming.CurTime + door.OpenTimeTwo;
             door.State = DoorState.Open;
@@ -594,8 +590,8 @@ public abstract partial class SharedDoorSystem : EntitySystem
             if (otherPhysics.Comp.CollisionLayer == (int) CollisionGroup.GlassLayer || otherPhysics.Comp.CollisionLayer == (int) CollisionGroup.GlassAirlockLayer || otherPhysics.Comp.CollisionLayer == (int) CollisionGroup.TableLayer)
                 continue;
 
-            //If the colliding entity is a slippable item ignore it by the airlock
-            if (otherPhysics.Comp.CollisionLayer == (int) CollisionGroup.SlipLayer && otherPhysics.Comp.CollisionMask == (int) CollisionGroup.ItemMask)
+            // Ignore low-passable entities.
+            if ((otherPhysics.Comp.CollisionMask & (int)CollisionGroup.LowImpassable) == 0)
                 continue;
 
             //For when doors need to close over conveyor belts
@@ -617,6 +613,12 @@ public abstract partial class SharedDoorSystem : EntitySystem
         }
     }
 
+    // Goobstation - because of course access reader system has no easy way to check if something has empty accesses
+    // if you find yourself having to copy this, please do not, and instead just add a method to AccessReaderSystem that does what you want
+    // also rewrite this if you do
+    private List<ProtoId<AccessLevelPrototype>> EmptyAccessList = new();
+    private List<StationRecordKey> EmptyRecordList = new();
+
     /// <summary>
     ///     Open a door if a player or door-bumper (PDA, ID-card) collide with the door. Sadly, bullets no longer
     ///     generate "access denied" sounds as you fire at a door.
@@ -631,8 +633,21 @@ public abstract partial class SharedDoorSystem : EntitySystem
 
         var otherUid = args.OtherEntity;
 
+        // Goobstation
+        bool isProximity = args.OurFixtureId == door.ProximityFixtureId;
+        if (isProximity && TryComp<PhysicsComponent>(args.OtherEntity, out var otherPhysics) &&
+            (
+                otherPhysics.LinearVelocity.Length() < door.ProximityOpenSpeedThreshold // only proximity open us if the other entity is going fast enough
+                || Vector2.Dot((Transform(uid).WorldPosition - Transform(args.OtherEntity).WorldPosition).Normalized(), otherPhysics.LinearVelocity.Normalized()) < door.ProximityOpenThreshold // only proximity open us if the other entity is going towards us
+            )
+        )
+            return;
+        // only proximity open us if we're an access-less door
+        if (isProximity && TryComp<AccessReaderComponent>(uid, out var reader) && !_accessReaderSystem.IsAllowed(EmptyAccessList, EmptyRecordList, uid, reader))
+            return;
+
         if (Tags.HasTag(otherUid, DoorBumpTag))
-            TryOpen(uid, door, otherUid, quiet: door.State == DoorState.Denying, predicted: true);
+            TryOpen(uid, door, otherUid, quiet: door.State == DoorState.Denying || isProximity, predicted: true); // Goobstation
     }
     #endregion
 

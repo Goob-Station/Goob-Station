@@ -417,9 +417,9 @@ FoodDonutBlumpkin: FoodDonutBluePumpkin
 FoodDonutJellyBlumpkin: FoodDonutJellyBluePumpkin
 
 # 2024-02-19
-Drone: null
-SpawnMobDrone: null
-Onestar: null # I dont think this is even mapped, but just in case
+#Drone: null
+#SpawnMobDrone: null
+#Onestar: null # I dont think this is even mapped, but just in case
 
 # 2024-02-22
 SolarAssemblyPart: SolarAssemblyFlatpack
@@ -527,7 +527,6 @@ BoxMagazineCaselessRifleRubber: BoxMagazinePistolCaselessRifle
 BoxMagazineMagnumSubMachineGunRubber: BoxMagazineMagnumSubMachineGun
 WeaponPistolMk58Nonlethal: WeaponPistolMk58
 WeaponPistolN1984Nonlethal: WeaponPistolN1984
-WeaponSubMachineGunVectorRubber: WeaponSubMachineGunVector
 WeaponSubMachineGunDrozdRubber: WeaponSubMachineGunDrozd
 WeaponRifleLecterRubber: WeaponRifleLecter
 
@@ -731,3 +730,21 @@ LightTree03: LightTree
 LightTree04: LightTree
 LightTree05: LightTree
 LightTree06: LightTree
+
+# 2024-12-22 # Lavaland Change: Migrations
+VendingMachineRestockSalvageEquipment: null
+ComputerSalvageExpedition: ComputerShuttleMiningLavaland
+SalvageExpeditionsComputerCircuitboard: LavalandShuttleConsoleCircuitboard
+
+# 2025-01-27
+FoodCondimentPacketFrostoil: FoodCondimentPacketColdsauce
+
+#2025-02-05
+WeaponSubMachineGunVector: null
+WeaponSubMachineGunVectorRubber: null
+
+# 2025-02-20
+MagazineBoxAntiMaterielBig: null
+MagazineBoxCaselessRifle10x24: null
+MagazineBoxCaselessRifleBig: null
+MagazinePistolHighCapacityRubber: null

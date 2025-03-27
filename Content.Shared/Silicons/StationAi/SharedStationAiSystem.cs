@@ -186,10 +186,17 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     private void OnAiInRange(Entity<StationAiOverlayComponent> ent, ref InRangeOverrideEvent args)
     {
         args.Handled = true;
-        var targetXform = Transform(args.Target);
+
+        // Shitmed - Starlight Abductors Change Start
+        var target = args.Target;
+        if (ent.Comp.AllowCrossGrid && TryComp(ent, out RelayInputMoverComponent? relay))
+            target = relay.RelayEntity;
+        // Shitmed Change End
+
+        var targetXform = Transform(target);
 
         // No cross-grid
-        if (targetXform.GridUid != Transform(args.User).GridUid)
+        if (targetXform.GridUid != Transform(args.User).GridUid && !ent.Comp.AllowCrossGrid) // Shitmed Change
         {
             return;
         }
@@ -273,7 +280,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
             return;
         }
 
-        if (TryGetHeldFromHolder((args.Target.Value, targetHolder), out var held) && _timing.CurTime > intelliComp.NextWarningAllowed)
+        if (TryGetHeld((args.Target.Value, targetHolder), out var held) && _timing.CurTime > intelliComp.NextWarningAllowed)
         {
             intelliComp.NextWarningAllowed = _timing.CurTime + intelliComp.WarningDelay;
             AnnounceIntellicardUsage(held, intelliComp.WarningSound);
@@ -349,10 +356,12 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         AttachEye(ent);
     }
 
-    public void SwitchRemoteEntityMode(Entity<StationAiCoreComponent> ent, bool isRemote)
+    public void SwitchRemoteEntityMode(Entity<StationAiCoreComponent?> entity, bool isRemote)
     {
-        if (isRemote == ent.Comp.Remote)
+        if (entity.Comp?.Remote == null || entity.Comp.Remote == isRemote)
             return;
+
+        var ent = new Entity<StationAiCoreComponent>(entity.Owner, entity.Comp);
 
         ent.Comp.Remote = isRemote;
 
@@ -529,36 +538,6 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         }
 
         return _blocker.CanComplexInteract(entity.Owner);
-    }
-
-    public bool TryGetStationAiCore(Entity<StationAiHeldComponent?> ent, [NotNullWhen(true)] out Entity<StationAiCoreComponent>? parentEnt)
-    {
-        parentEnt = null;
-        var parent = Transform(ent).ParentUid;
-
-        if (!parent.IsValid())
-            return false;
-
-        if (!TryComp<StationAiCoreComponent>(parent, out var stationAiCore))
-            return false;
-
-        parentEnt = new Entity<StationAiCoreComponent>(parent, stationAiCore);
-
-        return true;
-    }
-
-    public bool TryGetInsertedAI(Entity<StationAiCoreComponent> ent, [NotNullWhen(true)] out Entity<StationAiHeldComponent>? insertedAi)
-    {
-        insertedAi = null;
-        var insertedEnt = GetInsertedAI(ent);
-
-        if (TryComp<StationAiHeldComponent>(insertedEnt, out var stationAiHeld))
-        {
-            insertedAi = (insertedEnt.Value, stationAiHeld);
-            return true;
-        }
-
-        return false;
     }
 }
 

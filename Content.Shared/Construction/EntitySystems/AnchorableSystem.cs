@@ -144,7 +144,7 @@ public sealed partial class AnchorableSystem : EntitySystem
 
         if (TryComp<PullableComponent>(uid, out var pullable) && pullable.Puller != null)
         {
-            _pulling.TryStopPull(uid, pullable);
+            _pulling.TryStopPull(uid, pullable, ignoreGrab: true); // goobstation edit
         }
 
         // TODO: Anchoring snaps rn anyway!

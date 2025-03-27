@@ -38,7 +38,7 @@
       board: [ DoorElectronicsChapel ]
 
 - type: entity
-  parent: AirlockServiceLocked
+  parent: AirlockJanitor # Goobstation - Sweet new jani door
   id: AirlockJanitorLocked
   suffix: Janitor, Locked
   components:
@@ -63,6 +63,15 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsBar ]
+
+- type: entity
+  parent: AirlockServiceLocked
+  id: AirlockBarKitchenLocked
+  suffix: Bar&Kitchen, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBarKitchen ]
 
 - type: entity
   parent: AirlockHydroponics
@@ -471,6 +480,16 @@
       board: [ DoorElectronicsBar ]
 
 - type: entity
+  parent: AirlockServiceGlassLocked
+  id: AirlockBarKitchenGlassLocked
+  suffix: Bar&Kitchen, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBarKitchen ]
+
+
+- type: entity
   parent: AirlockExternalGlass
   id: AirlockExternalGlassLocked
   suffix: External, Glass, Locked
@@ -544,7 +563,7 @@
       board: [ DoorElectronicsKitchen ]
 
 - type: entity
-  parent: AirlockServiceGlassLocked
+  parent: AirlockJanitorGlass # Goobstation - Sweet new jani door
   id: AirlockJanitorGlassLocked
   suffix: Janitor, Locked
   components:
@@ -906,6 +925,15 @@
 
 - type: entity
   parent: AirlockMaintServiceLocked
+  id: AirlockMaintBarKitchenLocked
+  suffix: Bar&Kitchen, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBarKitchen ]
+
+- type: entity
+  parent: AirlockMaintServiceLocked
   id: AirlockMaintChapelLocked
   suffix: Chapel, Locked
   components:
@@ -968,6 +996,15 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsKitchen ]
+
+- type: entity
+  parent: AirlockMaintServiceLocked
+  id: AirlockMaintKitchenHydroLocked
+  suffix: Kitchen/Hydroponics, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsKitchenHydroponics ]
 
 - type: entity
   parent: AirlockMaint

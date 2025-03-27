@@ -1,7 +1,6 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
 using Content.Server.Popups;
-using Content.Server.Temperature.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
@@ -13,8 +12,9 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
 using Content.Shared.Humanoid;
-using Content.Server.Temperature.Components;
 using Content.Server.Body.Components;
+using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
+using Content.Server.Medical;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -25,11 +25,12 @@ public sealed partial class HereticCombatMarkSystem : EntitySystem
     [Dependency] private readonly SharedDoorSystem _door = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly TemperatureSystem _temperature = default!;
     [Dependency] private readonly BloodstreamSystem _blood = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly ProtectiveBladeSystem _pbs = default!;
+    [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
+    [Dependency] private readonly VomitSystem _vomit = default!;
 
     public bool ApplyMarkEffect(EntityUid target, string? path, EntityUid user)
     {
@@ -68,29 +69,13 @@ public sealed partial class HereticCombatMarkSystem : EntitySystem
                 break;
 
             case "Rust":
-                // TODO: add item damage, for now just break a random item
-                if (!TryComp<InventoryComponent>(target, out var inv))
-                    break;
-
-                var contrandom = _random.Next(0, inv.Containers.Length - 1);
-                if (contrandom < 0)
-                    break;
-                var cont = inv.Containers[contrandom];
-
-                var itemrandom = _random.Next(0, cont.ContainedEntities.Count - 1);
-                if (itemrandom < 0)
-                    break;
-                var item = cont.ContainedEntities[itemrandom];
-
-                _popup.PopupEntity(Loc.GetString("heretic-rust-mark-itembreak", ("name", Name(item))), target, PopupType.LargeCaution);
-                QueueDel(item);
+                _vomit.Vomit(target);
                 break;
 
             case "Void":
                 // set target's temperature to -40C
                 // is really OP with the new temperature slowing thing :godo:
-                if (TryComp<TemperatureComponent>(target, out var temp))
-                    _temperature.ForceChangeTemperature(target, temp.CurrentTemperature - 100f, temp);
+                _voidcurse.DoCurse(target);
                 break;
 
             default:
@@ -98,7 +83,7 @@ public sealed partial class HereticCombatMarkSystem : EntitySystem
         }
 
         // transfers the mark to the next nearby person
-        var look = _lookup.GetEntitiesInRange(target, 2.5f);
+        var look = _lookup.GetEntitiesInRange(target, 5f);
         if (look.Count != 0)
         {
             var lookent = look.ToArray()[0];

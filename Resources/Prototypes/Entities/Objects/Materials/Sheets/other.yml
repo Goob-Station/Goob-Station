@@ -12,6 +12,7 @@
   - type: Tag
     tags:
     - Sheet
+    - DroneUsable # Goobstation
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -152,6 +153,7 @@
     tags:
     - Plastic
     - Sheet
+    - DroneUsable # Goobstation
   - type: Material
   - type: PhysicalComposition
     materialComposition:
@@ -211,7 +213,7 @@
     count: 1
 
 - type: entity
-  parent: [SheetOtherBase, FoodBase]
+  parent: [SheetOtherBase, EdibleBase]
   id: SheetUranium
   name: uranium
   suffix: Full
@@ -254,6 +256,14 @@
         - ReagentId: Radium
           Quantity: 2
         canReact: false
+  - type: RadiationSource
+    intensity: 0.1
+    slope: 3
+  - type: PointLight
+    radius: 1.2
+    energy: 0.8
+    castShadows: false
+    color: "#9be792"
 
 - type: entity
   parent: SheetUranium
@@ -278,6 +288,7 @@
     - type: Tag
       tags:
       - Sheet
+      - DroneUsable # Goobstation
     - type: Material
     - type: PhysicalComposition
       materialComposition:

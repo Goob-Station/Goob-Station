@@ -19,11 +19,14 @@ using Robust.Shared.Utility;
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Body.Part;
 using Content.Shared._Shitmed.Humanoid.Events;
+using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory.Events;
+using Content.Shared.Pulling.Events;
 using Content.Shared.Standing;
+using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Body.Systems;
@@ -58,7 +61,21 @@ public partial class SharedBodySystem
         SubscribeLocalEvent<BodyComponent, StandAttemptEvent>(OnStandAttempt); // Shitmed Change
         SubscribeLocalEvent<BodyComponent, ProfileLoadFinishedEvent>(OnProfileLoadFinished); // Shitmed change
         SubscribeLocalEvent<BodyComponent, IsEquippingAttemptEvent>(OnBeingEquippedAttempt); // Shitmed Change
+        SubscribeLocalEvent<BodyComponent, AttemptStopPullingEvent>(OnAttemptStopPulling); // Goobstation
+    }
 
+    private void OnAttemptStopPulling(Entity<BodyComponent> ent, ref AttemptStopPullingEvent args) // Goobstation
+    {
+        if (args.User == null || !Exists(args.User.Value))
+            return;
+
+        if (args.User.Value != ent.Owner)
+            return;
+
+        if (ent.Comp.LegEntities.Count > 0 || ent.Comp.RequiredLegs == 0)
+            return;
+
+        args.Cancelled = true;
     }
 
     private void OnBodyInserted(Entity<BodyComponent> ent, ref EntInsertedIntoContainerMessage args)
@@ -120,6 +137,7 @@ public partial class SharedBodySystem
         // Obviously can't run in Init to avoid double-spawns on save / load.
         var prototype = Prototypes.Index(ent.Comp.Prototype.Value);
         MapInitBody(ent, prototype);
+        EnsureComp<SurgeryTargetComponent>(ent); // Shitmed change
     }
 
     private void MapInitBody(EntityUid bodyEntity, BodyPrototype prototype)
@@ -438,7 +456,8 @@ public partial class SharedBodySystem
                 foreach (var item in _inventory.GetHandOrInventoryEntities(partId))
                     SharedTransform.AttachToGridOrMap(item);
 
-            QueueDel(partId);
+            if (_net.IsServer) // Goob edit
+                QueueDel(partId);
             return true;
         }
 

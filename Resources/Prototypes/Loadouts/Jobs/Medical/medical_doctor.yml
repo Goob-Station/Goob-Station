@@ -114,6 +114,11 @@
   equipment:
     jumpsuit: UniformScrubsColorPurple
 
+- type: loadout # goob
+  id: MedicMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryMedicalDoctor
+
 # Back
 - type: loadout
   id: MedicalDoctorBackpack

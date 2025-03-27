@@ -6,6 +6,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Map.Components;
+using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
 
 namespace Content.Server.Magic;
 
@@ -16,6 +17,7 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
     [Dependency] private readonly TileSystem _tile = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly IEntityManager _ent = default!;
+    [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
 
     public override void Update(float frameTime)
     {
@@ -61,6 +63,7 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
             power += ent.Comp.User.Value.Comp.PathStage / 2f;
 
         _stun.TryParalyze(args.OtherEntity, TimeSpan.FromSeconds(power), false);
+        _voidcurse.DoCurse(args.OtherEntity);
 
         TryComp<TagComponent>(args.OtherEntity, out var tag);
         var tags = tag?.Tags ?? new();

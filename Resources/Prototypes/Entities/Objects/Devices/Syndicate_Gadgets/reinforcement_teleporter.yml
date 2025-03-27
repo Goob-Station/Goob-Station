@@ -28,6 +28,9 @@
     rules: ghost-role-information-syndicate-reinforcement-rules
     raffle:
       settings: default
+    requirements: # Goobstation - ghost roles requirements
+    - !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
   - type: GhostRoleMobSpawner
     prototype: MobHumanSyndicateAgentSpy
     selectablePrototypes: ["SyndicateAgentMedic", "SyndicateAgentSpy", "SyndicateAgentThief"]
@@ -46,6 +49,9 @@
     rules: ghost-role-information-nukeop-reinforcement-rules
     raffle:
       settings: default
+    requirements: # Goobstation - ghost roles requirements
+    - !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
   - type: GhostRoleMobSpawner
     prototype: MobHumanSyndicateAgentNukeops
 
@@ -61,6 +67,9 @@
     rules: ghost-role-information-syndicate-reinforcement-rules
     raffle:
       settings: default
+    requirements: # Goobstation - ghost roles requirements
+    - !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
   - type: GhostRoleMobSpawner
     prototype: MobMonkeySyndicateAgent
     selectablePrototypes: ["SyndicateMonkey", "SyndicateKobold"]
@@ -88,6 +97,9 @@
     rules: ghost-role-information-syndicate-reinforcement-rules
     raffle:
       settings: default
+    requirements: # Goobstation - ghost roles requirements
+    - !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
   - type: GhostRoleMobSpawner
     prototype: MobCatSyndy
   - type: EmitSoundOnUse
@@ -106,5 +118,8 @@
       rules: ghost-role-information-silicon-rules
       raffle:
         settings: default
+      requirements: # Goobstation - ghost roles requirements
+      - !type:OverallPlaytimeRequirement
+        time: 18000 #5 hours
     - type: GhostRoleMobSpawner
       prototype: PlayerBorgSyndicateAssaultBattery

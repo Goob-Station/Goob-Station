@@ -41,9 +41,14 @@ public sealed partial class GhostGui : UIWidget
         Visible = false;
     }
 
-    public void Update(int? roles, bool? canReturnToBody)
+    // Ghoob edit
+    public void Update(int? roles, bool? canReturnToBody, bool? canEnterGhostBar = true, bool? canTakeGhostRoles = true)
     {
         ReturnToBodyButton.Disabled = !canReturnToBody ?? true;
+        // Goobstation start
+        GhostBarButton.Disabled = !canEnterGhostBar ?? true;
+        GhostRolesButton.Disabled = !canTakeGhostRoles ?? true;
+        // Goobstation end
 
         if (roles != null)
         {

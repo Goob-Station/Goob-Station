@@ -206,6 +206,7 @@
       weight: 0.5
     - id: OxygenTankFilled
     - id: WelderIndustrial
+    - id: FoodSnackLollypopWrappedMystery # Goobstation
     - id: WeaponGrapplingGun
     - !type:GroupSelector
       children:
@@ -221,17 +222,20 @@
   id: SalvageEquipmentRare
   table: !type:GroupSelector
     children:
+    - id: BlueprintDoubleEmergencyTank
     - id: FultonBeacon
     - id: Fulton
       amount: !type:RangeNumberSelector
         range: 1, 3
-    - id: HandHeldMassScanner
+    #- id: HandHeldMassScanner - Removed by Lavaland
     - id: WeaponCrusherDagger
     - id: MiningDrill
     - id: ClothingEyesGlassesMeson
     - id: ClothingBeltSalvageWebbing
     - id: SeismicCharge
     - id: MineralScanner
+    - id: FoodSnackLollypopWrappedMysteryEvil # Goobstation
+    - id: FoodSnackLollypopWrappedOmnizine # Goobstation
       weight: 0.5
     - id: WeaponCrusher
       weight: 0.5
@@ -250,6 +254,7 @@
     - id: WeaponCrusherGlaive
     - id: ClothingOuterHardsuitSalvage
     - id: OmnizineChemistryBottle
+    - id: FoodSnackLollypopWrappedCarpEvil # Goobstation
     - !type:GroupSelector
       children:
       - id: JetpackBlueFilled

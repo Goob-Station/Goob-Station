@@ -1132,7 +1132,8 @@ entities:
           3,3:
             0: 4115
           3,-1:
-            0: 53725
+            2: 1
+            0: 53724
           3,4:
             1: 1
           4,0:
@@ -1174,8 +1175,8 @@ entities:
           2,-2:
             0: 61687
           2,-4:
-            2: 6
-            3: 1536
+            3: 6
+            4: 1536
           3,-4:
             1: 8737
             0: 256
@@ -1249,6 +1250,10 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           immutable: True
           moles:
@@ -1264,6 +1269,29 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 20.078888
+          - 75.53487
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
@@ -1279,10 +1307,18 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
           - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -1964,6 +2000,24 @@ entities:
     - type: Transform
       pos: 19.5,4.5
       parent: 2
+- proto: Biogenerator
+  entities:
+  - uid: 2510
+    components:
+    - type: Transform
+      pos: -14.5,5.5
+      parent: 2
+- proto: BiomassReclaimerMachineCircuitboard
+  entities:
+  - uid: 2505
+    components:
+    - type: Transform
+      parent: 2502
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: BlastDoor
   entities:
   - uid: 910
@@ -5972,12 +6026,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 23.5,1.5
       parent: 2
-  - uid: 872
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 23.5,-0.5
-      parent: 2
 - proto: ChemDispenser
   entities:
   - uid: 873
@@ -6013,6 +6061,28 @@ entities:
     - type: Transform
       pos: -3.5,-5.5
       parent: 2
+- proto: CloningConsoleComputerCircuitboard
+  entities:
+  - uid: 2506
+    components:
+    - type: Transform
+      parent: 2502
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+    - type: InsideEntityStorage
+- proto: CloningPodMachineCircuitboard
+  entities:
+  - uid: 2507
+    components:
+    - type: Transform
+      parent: 2502
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: ClosetChefFilled
   entities:
   - uid: 878
@@ -6168,6 +6238,17 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
+- proto: ClothingBackpackDuffelSurgeryFilled
+  entities:
+  - uid: 2501
+    components:
+    - type: Transform
+      pos: 10.528191,-4.1092772
+      parent: 2
 - proto: ClothingBackpackERTJanitor
   entities:
   - uid: 887
@@ -11665,6 +11746,50 @@ entities:
     - type: Transform
       pos: 4.5,-4.5
       parent: 2
+- proto: LockerMedicine
+  entities:
+  - uid: 2502
+    components:
+    - type: Transform
+      pos: 12.5,-3.5
+      parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 2503
+          - 2504
+          - 2505
+          - 2506
+          - 2507
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: LockerMedicineFilled
   entities:
   - uid: 1655
@@ -11721,6 +11846,13 @@ entities:
     - type: Transform
       pos: 8.5,-8.5
       parent: 2
+- proto: MaterialSilo
+  entities:
+  - uid: 872
+    components:
+    - type: Transform
+      pos: 23.5,-0.5
+      parent: 2
 - proto: MedicalBed
   entities:
   - uid: 1663
@@ -11738,6 +11870,28 @@ entities:
     - type: Transform
       pos: 9.5,-4.5
       parent: 2
+- proto: MedicalBiofabMachineBoard
+  entities:
+  - uid: 2504
+    components:
+    - type: Transform
+      parent: 2502
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+    - type: InsideEntityStorage
+- proto: MedicalScannerMachineCircuitboard
+  entities:
+  - uid: 2503
+    components:
+    - type: Transform
+      parent: 2502
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: MedicalTechFab
   entities:
   - uid: 1666
@@ -11791,6 +11945,13 @@ entities:
     components:
     - type: Transform
       pos: 11.5,-10.5
+      parent: 2
+- proto: OperatingTable
+  entities:
+  - uid: 2508
+    components:
+    - type: Transform
+      pos: 11.5,-4.5
       parent: 2
 - proto: OreProcessor
   entities:
@@ -12777,6 +12938,11 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 11.5,-6.5
+      parent: 2
+  - uid: 2417
+    components:
+    - type: Transform
+      pos: 0.5,16.5
       parent: 2
 - proto: ReinforcedPlasmaWindow
   entities:
@@ -14575,6 +14741,17 @@ entities:
         - Left: Reverse
         - Right: Forward
         - Middle: Off
+  - uid: 2509
+    components:
+    - type: Transform
+      pos: 0.5,15.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        2417:
+        - Left: Forward
+        - Right: Reverse
+        - Middle: Off
 - proto: VendingMachineBooze
   entities:
   - uid: 2108
@@ -16163,13 +16340,6 @@ entities:
     components:
     - type: Transform
       pos: 8.5,-12.5
-      parent: 2
-- proto: WaterTankHighCapacity
-  entities:
-  - uid: 2417
-    components:
-    - type: Transform
-      pos: -14.5,5.5
       parent: 2
 - proto: WeaponCapacitorRecharger
   entities:

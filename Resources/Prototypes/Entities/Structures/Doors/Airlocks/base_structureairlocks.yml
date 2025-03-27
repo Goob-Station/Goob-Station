@@ -31,11 +31,16 @@
       shader: unshaded
     - state: panel_open
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
-    - state: electrified
+    - state: electrified_ai
       sprite: Interface/Misc/ai_hud.rsi
       shader: unshaded
       visible: false
       map: ["enum.ElectrifiedLayers.HUD"]
+    - state: electrified
+      sprite: Effects/electricity.rsi
+      shader: unshaded
+      visible: false
+      map: ["enum.ElectrifiedLayers.Sparks"]
   - type: AnimationPlayer
   - type: Physics
   - type: Fixtures
@@ -49,6 +54,16 @@
         - FullTileMask
         layer:
         - AirlockLayer
+      # Goobstation
+      proximity:
+        shape:
+          !type:PhysShapeCircle
+          radius: 2.5
+        hard: false
+        layer:
+        - LowImpassable
+        - MidImpassable
+        - HighImpassable
   - type: LayerChangeOnWeld
     unWeldedLayer: AirlockLayer
     weldedLayer: WallLayer
@@ -67,6 +82,8 @@
       path: /Audio/Machines/airlock_close.ogg
     denySound:
       path: /Audio/Machines/airlock_deny.ogg
+    # Goobstation
+    proximityFixtureId: proximity
   - type: ContainerContainer
     containers:
       board: !type:Container
@@ -77,6 +94,12 @@
   - type: NavMapDoor
   - type: DoorBolt
   - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ElectrifiedVisuals.ShowSparks:
+        enum.ElectrifiedLayers.Sparks:
+          True: { visible: True }
+          False: { visible: False }
   - type: WiresVisuals
   - type: ElectrocutionHUDVisuals
   - type: ApcPowerReceiver
@@ -160,6 +183,11 @@
       # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
   - type: PryUnpowered
   - type: BlockWeather
+  - type: GuideHelp
+    guides:
+    - Airlocks
+    - WirePanels
+    - Networking
   placement:
     mode: SnapgridCenter
 
@@ -198,6 +226,16 @@
         - FullTileMask
         layer:     #removed opaque from the layer, allowing lasers to pass through glass airlocks
         - GlassAirlockLayer
+      # Goobstation
+      proximity:
+        shape:
+          !type:PhysShapeCircle
+          radius: 2.5
+        hard: false
+        layer:
+        - LowImpassable
+        - MidImpassable
+        - HighImpassable
   - type: LayerChangeOnWeld
     unWeldedLayer: GlassAirlockLayer
     weldedLayer: GlassLayer

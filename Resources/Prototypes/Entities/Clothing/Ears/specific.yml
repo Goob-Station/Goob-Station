@@ -18,3 +18,4 @@
       interfaces:
         enum.ChameleonUiKey.Key:
           type: ChameleonBoundUserInterface
+    - type: HideContrabandContent #Goobstation-Contraband detector

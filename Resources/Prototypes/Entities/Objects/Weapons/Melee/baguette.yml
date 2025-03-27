@@ -4,6 +4,7 @@
   suffix: Weapon
   components:
   - type: MeleeWeapon
+    attackRate: 1.4
     wideAnimationRotation: -120
     damage:
       types:
@@ -13,3 +14,5 @@
   - type: Reflect
     reflectProb: 0.05
     spread: 90
+  - type: GibThisGuy #Goobstation
+    ocNames: []

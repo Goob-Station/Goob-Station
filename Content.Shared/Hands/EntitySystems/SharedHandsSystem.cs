@@ -9,11 +9,13 @@ using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Containers;
 using Robust.Shared.Input.Binding;
+using Robust.Shared.Network;
 
 namespace Content.Shared.Hands.EntitySystems;
 
 public abstract partial class SharedHandsSystem
 {
+    [Dependency] private readonly INetManager _net = default!; // Goobstation
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] protected readonly SharedContainerSystem ContainerSystem = default!;
@@ -314,11 +316,14 @@ public abstract partial class SharedHandsSystem
         return hands.Hands.TryGetValue(handId, out hand);
     }
 
-    public int CountFreeableHands(Entity<HandsComponent> hands)
+    public int CountFreeableHands(Entity<HandsComponent> hands, bool excludeActiveHand = false) // Goob edit
     {
         var freeable = 0;
         foreach (var hand in hands.Comp.Hands.Values)
         {
+            if (excludeActiveHand && hands.Comp.ActiveHand != null && hand == hands.Comp.ActiveHand)
+                continue;
+
             if (hand.IsEmpty || CanDropHeld(hands, hand))
                 freeable++;
         }

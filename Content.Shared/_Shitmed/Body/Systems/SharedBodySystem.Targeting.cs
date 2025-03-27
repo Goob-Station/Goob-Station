@@ -278,7 +278,7 @@ public partial class SharedBodySystem
 
     public TargetBodyPart? GetRandomBodyPart(EntityUid uid, TargetingComponent? target = null)
     {
-        if (!Resolve(uid, ref target))
+        if (!Resolve(uid, ref target, false))
             return null;
 
         var rand = new System.Random((int) _timing.CurTick.Value);

@@ -1,11 +1,11 @@
 <Document>
-# Part Manipulation
-This is how you will turn felinids into humans, or vice versa if you're feeling particularly cruel.
+  # Part Manipulation
+  This is how you will turn Tajaran into humans, or vice versa if you're feeling particularly cruel.
 
-## Anatomy
-Normally a body has 10 main parts. Those being:
+  ## Anatomy
+  Normally a body has 10 main parts. Those being:
 
-<Box>
+  <Box>
 <GuideEntityEmbed Entity="HeadHuman" Caption="head"/>
 </Box>
 <Box>

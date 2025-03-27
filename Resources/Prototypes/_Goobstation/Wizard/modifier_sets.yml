@@ -1,0 +1,14 @@
+- type: damageModifierSet
+  id: PaperCreature
+  coefficients:
+    Blunt: 0.5
+    Slash: 2.0
+    Piercing: 1.0
+    Heat: 2.5
+    Cold: 0.2
+    Poison: 0.0
+    Radiation: 0.0
+    Asphyxiation: 0.0
+    Bloodloss: 0.0
+  flatReductions:
+    Blunt: 5

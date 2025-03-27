@@ -1,0 +1,10 @@
+- type: tile
+  id: LavalandFloorHierophantArena
+  name: tiles-basalt-floor
+  sprite: /Textures/Tiles/Planet/basalt.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  heatCapacity: 10000
+  weather: true
+  indestructible: true

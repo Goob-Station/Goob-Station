@@ -2,12 +2,13 @@
   parent: BaseSubdermalImplant
   id: BluespaceLifelineImplant
   name: bluespace lifeline implant
-  description: This implants teleport user body to safe place, forcing him to leave current location so he won't be able to come back.
+  description: Teleports the hosts body to Central Command on activation. They will not be able to return.
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
     permanent: true
     implantAction: ActionActivateBluespaceLifeline
+  - type: MansusGraspBlockTrigger
   - type: TriggerOnMobstateChange
     mobState:
     - Dead
@@ -48,3 +49,55 @@
       duration: 15
     - type: SoundOnTrigger
       sound: /Audio/Effects/smoke.ogg
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: KravMagaImplant
+  name: krav maga implant
+  description: This implant allows the user to perform various Krav Maga moves.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: KravMagaImplant
+
+# Admeme
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: BlinkImplant
+  name: blink implant
+  description: This implant allows the user temporarily blink into a higher dimension.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionBlinkFreeman
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: VaporizeImplant
+  name: vaporize implant
+  description: This implant allows the user to vaporize targets with the power of their mind.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionVaporizeFreeman
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ShiftImplant
+  name: shift implant
+  description: This implant allows the user to teleport to a point in range.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionShiftFreeman
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: StopTimeImplant
+  name: stop time implant
+  description: This implant allows the user to stop time in an area briefly.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionStopTimeFreeman
+

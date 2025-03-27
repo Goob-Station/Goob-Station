@@ -36,6 +36,8 @@
       collection: FelinidGrowls
     Purr:
       collection: FelinidPurrs
+    CatMeow:
+      collection: CatMeows # Goobstation - effect standardization
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -78,6 +80,8 @@
       collection: FelinidGrowls
     Purr:
       collection: FelinidPurrs
+    CatMeow:
+      collection: CatMeows # Goobstation - effect standardization
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:

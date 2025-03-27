@@ -11,6 +11,7 @@
     tags:
     - PlantSampleTaker
     - Wirecutter
+    - DroneUsable # Goobstation
   - type: Sprite
     sprite: Objects/Tools/wirecutters.rsi
     layers:
@@ -69,6 +70,7 @@
   - type: Tag
     tags:
     - Screwdriver
+    - DroneUsable # Goobstation
   - type: Sprite
     sprite: Objects/Tools/screwdriver.rsi
     layers:
@@ -122,6 +124,7 @@
   - type: Tag
     tags:
     - Wrench
+    - DroneUsable # Goobstation
   - type: Sprite
     sprite: Objects/Tools/wrench.rsi
     state: icon
@@ -148,6 +151,9 @@
       Steel: 100
   - type: StaticPrice
     price: 22
+  - type: GuideHelp
+    guides:
+    - Construction
 
 - type: entity
   name: multitool
@@ -190,12 +196,19 @@
     tags:
       - Multitool
       - DoorElectronicsConfigurator
+      - DroneUsable # Goobstation
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
       Plastic: 100
   - type: StaticPrice
     price: 56
+  - type: GuideHelp
+    guides:
+    - Networking
+    - WirePanels
+    - Airlocks
+    - InspectingPower
 
 - type: entity
   name: network configurator
@@ -246,7 +259,7 @@
       price: 56
     - type: GuideHelp
       guides:
-      - NetworkConfigurator
+      - Networking
     - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
         Steel: 25
@@ -307,6 +320,12 @@
         Piercing: 10
     soundHit:
       path: "/Audio/Items/drill_hit.ogg"
+  - type: Tending # Shitmed
+    speed: 0.75
+  - type: Drill # Shitmed
+    speed: 1
+  - type: SurgeryTool # Shitmed
+    startSound: /Audio/Items/drill_use.ogg
 
 - type: entity
   id: RCD
@@ -338,7 +357,6 @@
   - type: LimitedCharges
     maxCharges: 30
     charges: 30
-  - type: UseDelay
   - type: Sprite
     sprite: Objects/Tools/rcd.rsi
     state: icon
@@ -362,6 +380,9 @@
   - type: ActivatableUI
     inHandsOnly: true
     key: enum.RcdUiKey.Key
+  - type: Tag
+    tags:
+      - DroneUsable # Goobstation
 
 - type: entity
   id: RPD
@@ -387,6 +408,7 @@
     - VentPassive
     - MixerGas
     - Radiator
+    - RadiatorBend
     - SignalValve
     - CanisterPort
     - FilterGas
@@ -467,7 +489,7 @@
   - type: Prying
     enabled: false
   - type: UseDelay # Goobstation - For insta prying
-    delay: 1
+    delay: 0 # Goobstation - no switch CD
   - type: Tool
     qualities:
       - Screwing

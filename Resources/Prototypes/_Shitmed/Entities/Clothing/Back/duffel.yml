@@ -1,0 +1,13 @@
+- type: entity
+  parent: [ ClothingBackpackDuffel, BaseMajorContraband ]
+  id: ClothingBackpackDuffelAbductor
+  name: alien duffel bag
+  description: An ordinary duffel bag woven from a durable fiber.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Clothing/Back/Duffels/abductor.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: Storage
+    grid:
+    - 0,0,8,4

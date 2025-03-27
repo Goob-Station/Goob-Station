@@ -163215,7 +163215,7 @@ entities:
     - type: Transform
       pos: -3.5,-43.5
       parent: 2
-  - uid: 2176
+  - uid: 55551
     components:
     - type: Transform
       pos: -7.5,-52.5

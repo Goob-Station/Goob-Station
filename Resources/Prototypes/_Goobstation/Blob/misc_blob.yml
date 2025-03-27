@@ -10,6 +10,7 @@
     - Revolutionary
     - Changeling
     - Heretic
+    - Wizard
 
 - type: explosion
   id: Blob
@@ -47,6 +48,9 @@
       rules: blob-carrier-role-rules
       raffle:
         settings: default
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 18000 #5 hours
     - type: Sprite
       sprite: Markers/jobs.rsi
       layers:

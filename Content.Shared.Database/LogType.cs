@@ -439,4 +439,24 @@ public enum LogType
     /// A ghost warped to an entity through the ghost warp menu.
     /// </summary>
     GhostWarp = 95,
+
+    /// <summary>
+    /// A player interacted with a PDA or its cartridge component
+    /// </summary>
+    PdaInteract = 96,
+
+    /// <summary>
+    /// An atmos networked device (such as a vent or pump) has had its settings changed, usually through an air alarm
+    /// </summary>
+    AtmosDeviceSetting = 97,
+
+    /// <summary>
+    /// Commands related to admemes. Stuff like config changes, etc.
+    /// </summary>
+    AdminCommands = 98,
+
+    /// <summary>
+    /// GameDirector related game interactions.
+    /// </summary>
+    GameDirector = 99, // Goobstation
 }

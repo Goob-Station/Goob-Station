@@ -34,6 +34,6 @@ public sealed class AmmoSelectorMenuBoundUserInterface : BoundUserInterface
 
     public void SendAmmoSelectorSystemMessage(ProtoId<SelectableAmmoPrototype> protoId)
     {
-        SendMessage(new AmmoSelectedMessage(protoId));
+        SendPredictedMessage(new AmmoSelectedMessage(protoId));
     }
 }

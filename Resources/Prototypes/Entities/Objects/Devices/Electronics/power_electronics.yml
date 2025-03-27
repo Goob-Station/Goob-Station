@@ -32,6 +32,7 @@
     - type: Tag
       tags:
         - WallmountSubstationElectronics
+        - DroneUsable # Goobstation
 
 # Wallmount Generator
 - type: entity
@@ -51,6 +52,7 @@
   - type: Tag
     tags:
       - WallmountGeneratorElectronics
+      - DroneUsable # Goobstation
 
 # APU
 - type: entity
@@ -67,6 +69,7 @@
     - type: Tag
       tags:
         - WallmountGeneratorAPUElectronics
+        - DroneUsable # Goobstation
 
 # Solar Tracker Electronics
 - type: entity
@@ -77,9 +80,10 @@
   components:
     - type: Sprite
       sprite: Objects/Misc/module.rsi
-      state: generic
+      state: engineering
     - type: StaticPrice
       price: 85
     - type: Tag
       tags:
         - SolarTrackerElectronics
+        - DroneUsable # Goobstation

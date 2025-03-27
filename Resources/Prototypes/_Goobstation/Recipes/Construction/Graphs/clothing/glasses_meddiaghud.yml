@@ -1,0 +1,37 @@
+- type: constructionGraph
+  id: GlassesMedDiagHUD
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: glassesMedDiag
+          steps:
+            - tag: Sunglasses
+              name: sun glasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+                state: icon
+              doAfter: 5
+            - tag: HudMedicalDiagnostic
+              name: meddiag hud
+              icon:
+                sprite: _Goobstation/Clothing/Eyes/Hud/meddiag.rsi
+                state: icon
+              doAfter: 5
+            - material: Cable
+              amount: 5
+              doAfter: 5
+
+    - node: glassesMedDiag
+      entity: ClothingEyesGlassesMedDiag
+      edges:
+      - to: start
+        steps:
+          - tool: Screwing
+            doAfter: 5
+        completed:
+        - !type:SpawnPrototype
+          prototype: ClothingEyesGlassesSunglasses
+        - !type:SpawnPrototype
+          prototype: ClothingEyesHudDiagnosticMedical
+        - !type:DeleteEntity

@@ -61,6 +61,7 @@ namespace Content.Server.Cloning
         [Dependency] private readonly SharedMindSystem _mindSystem = default!;
         [Dependency] private readonly MetaDataSystem _metaSystem = default!;
         [Dependency] private readonly SharedJobSystem _jobs = default!;
+        [Dependency] private readonly EmagSystem _emag = default!;
 
         public readonly Dictionary<MindComponent, EntityUid> ClonesWaitingForMind = new();
         public const float EasyModeCloningCost = 0.7f;
@@ -292,10 +293,15 @@ namespace Content.Server.Cloning
         /// </summary>
         private void OnEmagged(EntityUid uid, CloningPodComponent clonePod, ref GotEmaggedEvent args)
         {
+            if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+                return;
+
+            if (_emag.CheckFlag(uid, EmagType.Interaction))
+                return;
+
             if (!this.IsPowered(uid, EntityManager))
                 return;
 
-            _audio.PlayPvs(clonePod.SparkSound, uid);
             _popupSystem.PopupEntity(Loc.GetString("cloning-pod-component-upgrade-emag-requirement"), uid);
             args.Handled = true;
         }
@@ -325,7 +331,7 @@ namespace Content.Server.Cloning
             var indices = _transformSystem.GetGridTilePositionOrDefault((uid, transform));
             var tileMix = _atmosphereSystem.GetTileMixture(transform.GridUid, null, indices, true);
 
-            if (HasComp<EmaggedComponent>(uid))
+            if (_emag.CheckFlag(uid, EmagType.Interaction))
             {
                 _audio.PlayPvs(clonePod.ScreamSound, uid);
                 Spawn(clonePod.MobSpawnId, transform.Coordinates);
@@ -343,7 +349,7 @@ namespace Content.Server.Cloning
             }
             _puddleSystem.TrySpillAt(uid, bloodSolution, out _);
 
-            if (!HasComp<EmaggedComponent>(uid))
+            if (!_emag.CheckFlag(uid, EmagType.Interaction))
             {
                 _material.SpawnMultipleFromMaterial(_robustRandom.Next(1, (int) (clonePod.UsedBiomass / 2.5)), clonePod.RequiredMaterial, Transform(uid).Coordinates);
             }

@@ -108,6 +108,7 @@
   - type: WeldingHealing # EE IPCs
     damageContainers:
       - Silicon
+      - SiliconRadiation # Goobstation - Make IPCs take radiation
     fuelCost: 5
     damage:
       types:
@@ -121,6 +122,9 @@
       collection: Welder
     endSound:
       collection: WelderOff
+  - type: Tag
+    tags:
+    - DroneUsable # Goobstation
 
 - type: entity
   name: industrial welding tool
@@ -187,6 +191,8 @@
       reagents:
       - ReagentId: WeldingFuel
         Quantity: 1
+  - type: RequiresEyeProtection
+    statusEffectTime: 5 # less harmful; sunglasses can block it
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 200

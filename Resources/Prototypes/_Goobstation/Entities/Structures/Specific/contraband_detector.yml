@@ -1,0 +1,215 @@
+- type: entity
+  name: contraband detector
+  description: Walk in with confidence, walk out with security chasing you.
+  parent: BaseMachinePowered
+  id: ContrabandDetector
+  suffix: unlocked
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Transform
+    anchored: true
+    noRot: false
+  - type: Anchorable
+    delay: 2
+  - type: Pullable
+  - type: MovedByPressure
+  - type: Physics
+    bodyType: Static
+    fixedRotation: true
+  - type: Fixtures
+    fixtures:
+      slips:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        layer:
+          - Impassable
+          - MidImpassable
+          - LowImpassable
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,-0.36,0.49"
+        density: 1500
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.49,0.49,0.36,-0.49"
+        density: 1500
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: Sprite
+    noRot: true
+    drawdepth: OverMobs
+    sprite: _Goobstation/Structures/Machines/contraband_detector.rsi
+    state: base
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel:
+            min: 5
+            max: 5
+          ContrabandDetectorCircuitboard:
+            min: 1
+            max: 1
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    stepOn: true
+    ignoreWeightless: true
+    triggerGroups: # Goobstation
+      types:
+      - ContrabandDetector
+  - type: ContrabandDetector
+    noDetect:
+        path: /Audio/Effects/beep_landmine.ogg
+        params:
+            maxDistance: 10
+    detect:
+        path: /Audio/Effects/chime.ogg
+        params:
+            maxDistance: 10
+  - type: Rotatable
+    rotateWhileAnchored: false
+    rotateWhilePulling: true
+  - type: Repairable
+  - type: LockedAnchorable
+  - type: AccessReader
+    access: [["Security"]]
+  - type: Lock
+    locked: false
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+  - type: WirelessNetworkConnection
+    range: 1000
+  - type: DeviceLinkSource
+    range: 1000
+    ports:
+      - SignalContrabandDetected
+  - type: Construction
+    graph: ContrabandDetector
+    node: complete
+  - type: PointLight
+    color: red
+    enabled: false
+    energy: 5
+    radius: 1.5
+
+- type: entity
+  parent: ContrabandDetector
+  id: ContrabandDetectorAnchored
+  suffix: locked
+  components:
+  - type: Transform
+    anchored: true
+    noRot: false
+  - type: Lock
+    locked: true
+
+
+- type: entity
+  id: ContrabandDetectorFrame
+  name: contraband detector frame
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    drawdepth: OverMobs
+    sprite: _Goobstation/Structures/Machines/contraband_detector.rsi
+    state: base
+  - type: Physics
+    bodyType: Static
+    fixedRotation: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,-0.36,0.49"
+        density: 1500
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.49,0.49,0.36,-0.49"
+        density: 1500
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel:
+            min: 5
+            max: 5
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    graph: ContrabandDetector
+    node: frame
+
+- type: entity
+  id: ContrabandDetectorCircuitboard
+  parent: BaseElectronics
+  name: contraband detector electronics
+  description: An electronics board used in contraband detector.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: security
+  - type: Tag
+    tags:
+    - ContrabandDetectorCircuitboard
+  - type: StaticPrice
+    price: 25

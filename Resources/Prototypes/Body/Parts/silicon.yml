@@ -1,24 +1,20 @@
+# Shitmed Change: this file is mostly reorganized by shitmed to use composition
 - type: entity
-  id: PartSilicon
-  parent: BaseItem
   abstract: true
+  parent: BasePartInorganic
+  id: PartSiliconBase
   components:
   - type: Sprite
     sprite: Objects/Specific/Robotics/cyborg_parts.rsi
   - type: Icon
     sprite: Objects/Specific/Robotics/cyborg_parts.rsi
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: BodyPart
-  - type: ContainerContainer
-    containers:
-      bodypart: !type:Container
-        ents: []
   - type: StaticPrice
     price: 15 #Goobstation - Increased price
+  - type: BodyPart # Shitmed Change
+    species: Cyborg
   - type: Tag
     tags:
-      - Trash
+    - Trash
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 62
@@ -27,28 +23,12 @@
     guides:
     - Cyborgs
     - Robotics
-  # Shitmed Change Start
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/organ1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/organ2.ogg
-  - type: Gibbable
-  # Shitmed Change End
 
 - type: entity
+  parent: [ PartSiliconBase, BaseLeftArm ]
   id: LeftArmBorg
-  parent: PartSilicon
   name: cyborg left arm
   components:
-  - type: BodyPart
-    partType: Arm # Shitmed Change
-    symmetry: Left
-    toolName: "a left arm" # Shitmed Change
-    children: # Shitmed Change
-      left hand:
-        id: "left hand"
-        type: Hand
   - type: Sprite
     state: borg_l_arm
   - type: Icon
@@ -60,18 +40,10 @@
     - BorgLArm
 
 - type: entity
+  parent: [ PartSiliconBase, BaseRightArm ]
   id: RightArmBorg
-  parent: PartSilicon
   name: cyborg right arm
   components:
-  - type: BodyPart
-    partType: Arm # Shitmed Change
-    symmetry: Right
-    toolName: "a right arm" # Shitmed Change
-    children: # Shitmed Change
-      right hand:
-        id: "right hand"
-        type: Hand
   - type: Sprite
     state: borg_r_arm
   - type: Icon
@@ -83,19 +55,10 @@
     - BorgRArm
 
 - type: entity
+  parent: [ PartSiliconBase, BaseLeftLeg ]
   id: LeftLegBorg
-  parent: PartSilicon
   name: cyborg left leg
   components:
-  - type: BodyPart
-    partType: Leg
-    symmetry: Left
-    toolName: "a left leg" # Shitmed Change
-    children: # Shitmed Change
-      left foot:
-        id: "left foot"
-        type: Foot
-  - type: MovementBodyPart
   - type: Sprite
     state: borg_l_leg
   - type: Icon
@@ -107,19 +70,10 @@
     - BorgLLeg
 
 - type: entity
+  parent: [ PartSiliconBase, BaseRightLeg ]
   id: RightLegBorg
-  parent: PartSilicon
   name: cyborg right leg
   components:
-  - type: BodyPart
-    partType: Leg
-    symmetry: Right
-    toolName: "a right leg" # Shitmed Change
-    children: # Shitmed Change
-      right foot:
-        id: "right foot"
-        type: Foot
-  - type: MovementBodyPart
   - type: Sprite
     state: borg_r_leg
   - type: Icon
@@ -131,13 +85,10 @@
     - BorgRLeg
 
 - type: entity
+  parent: [ PartSiliconBase, BaseHead ]
   id: LightHeadBorg
-  parent: PartSilicon
   name: cyborg head
   components:
-  - type: BodyPart
-    partType: Head
-    toolName: "a head" # Shitmed Change
   - type: Sprite
     state: borg_head
   - type: Icon
@@ -148,13 +99,10 @@
     - BorgHead
 
 - type: entity
+  parent: [ PartSiliconBase, BaseTorsoInorganic ]
   id: TorsoBorg
-  parent: PartSilicon
   name: cyborg torso
   components:
-  - type: BodyPart
-    partType: Torso
-    toolName: "a torso" # Shitmed Change
   - type: Sprite
     state: borg_chest
   - type: Icon

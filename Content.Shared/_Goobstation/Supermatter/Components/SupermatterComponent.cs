@@ -89,7 +89,7 @@ public sealed partial class SupermatterComponent : Component
     public SharedSupermatterSystem.SuperMatterSound? SmSound;
 
     [DataField("dustSound")]
-    public SoundSpecifier DustSound = new SoundPathSpecifier("/Audio/Effects/Grenades/Supermatter/supermatter_start.ogg");
+    public SoundSpecifier DustSound = new SoundPathSpecifier("/Audio/_Goobstation/Wizard/supermatter.ogg");
 
     [DataField("delamSound")]
     public SoundSpecifier DelamSound = new SoundPathSpecifier("/Audio/_Goobstation/Supermatter/delamming.ogg");

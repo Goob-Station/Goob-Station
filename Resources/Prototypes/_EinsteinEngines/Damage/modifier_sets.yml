@@ -5,3 +5,4 @@
     Cold: 0.2
     Heat: 2
     Shock: 2.5
+    Radiation: 0.5 # Goobstation - Make IPCs take radiation
