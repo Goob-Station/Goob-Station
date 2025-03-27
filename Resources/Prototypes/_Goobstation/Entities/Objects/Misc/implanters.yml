@@ -127,6 +127,14 @@
 
 - type: entity
   parent: BaseImplantOnlyImplanterSyndi
+  id: MimeSmokeImplant
+  suffix: Mimesmoke
+  components:
+  - type: Implanter
+    implant: SyndicateMimeSmokeImplant
+
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
   id: KravMagaImplanter
   suffix: krav maga
   components:

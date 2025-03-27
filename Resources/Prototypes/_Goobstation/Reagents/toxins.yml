@@ -201,7 +201,7 @@
           invert: true
         emote: Cough
         showInChat: true
-        probability: 0.2
+        probability: 0.4
       - !type:DropItemsEntityEffect
         conditions:
         - !type:OrganType
@@ -225,4 +225,4 @@
           invert: true
         damage:
           types:
-            Poison: 2
+            Poison: 0.5

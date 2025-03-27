@@ -208,6 +208,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
 
         _smoke.StartSmoke(ent, new Solution("MimeSmoke", 50), ev.Duration, ev.SpreadAmount, smoke);
     }
+
     protected override void Repulse(RepulseEvent ev)
     {
         var mapPos = TransformSystem.GetMapCoordinates(ev.Performer);

@@ -34,11 +34,9 @@
   - type: InstantAction
     raiseOnUser: true
     checkCanInteract: false
-    useDelay: 15
+    useDelay: 30
     itemIconStyle: BigAction
-    sound: !type:SoundPathSpecifier
-      path: /Audio/_Goobstation/Wizard/smoke.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
-      state: smoke
+      sprite: _Goobstation/Actions/mimesmoke.rsi
+      state: icon
     event: !type:MimeSmokeSpellEvent
