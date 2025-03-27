@@ -57,6 +57,23 @@
         },
         {
             "name": "chitinid2"
+        },
+        {
+            "name": "feroxi0",
+            "delays": [
+                [
+                    0.2,
+                    0.3,
+                    0.3,
+                    0.3
+                ]
+            ]
+        },
+        {
+            "name": "feroxi1"
+        },
+        {
+            "name": "feroxi2"
         }
     ]
 }

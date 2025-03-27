@@ -268,6 +268,7 @@
   - EmergencyPlasma
   - LoadoutSpeciesVoxNitrogen
   - LoadoutSpeciesPlasma # Goobstation
+  - EmergencyWaterVapor # Delta-V
 
 # nitrogen or oxygen tank, depending on what your species needs
 - type: loadoutGroup
@@ -277,6 +278,7 @@
   loadouts:
   - LoadoutSpeciesEVANitrogen
   - LoadoutSpeciesEVAOxygen
+  - LoadoutSpeciesEVAWaterVapor
 
 # vox get a nitrogen tank, other species get nothing
 - type: loadoutGroup
@@ -293,6 +295,7 @@
   loadouts:
   - LoadoutSpeciesPocketDoubleNitrogen
   - LoadoutSpeciesPocketDoubleOxygen
+  - LoadoutSpeciesPocketDoubleWaterVapor
 
 # Command
 - type: loadoutGroup
@@ -713,6 +716,7 @@
   - EmergencyPlasmaClown
   - LoadoutSpeciesVoxNitrogen
   - LoadoutSpeciesPlasma # Goobstation
+  - EmergencyWaterVaporClown # Delta-V
 
 - type: loadoutGroup
   id: MimeHead
@@ -773,6 +777,7 @@
   - EmergencyPlasmaMime
   - LoadoutSpeciesVoxNitrogen
   - LoadoutSpeciesPlasma # Goobstation
+  - EmergencyWaterVaporMime # Delta-V
 
 - type: loadoutGroup
   id: MusicianJumpsuit
@@ -1084,6 +1089,7 @@
   - EmergencyPlasmaExtended
   - LoadoutSpeciesVoxNitrogen
   - LoadoutSpeciesPlasma # Goobstation
+  - EmergencyWaterVaporExtended # Delta-V
 
 # Science
 - type: loadoutGroup
@@ -1381,6 +1387,7 @@
   - EmergencyPlasmaSecurity
   - LoadoutSpeciesVoxNitrogen
   - LoadoutSpeciesPlasma # Goobstation
+  - EmergencyWaterVaporSecurity # Delta-V
 
 - type: loadoutGroup
   id: SecurityStar
@@ -1600,6 +1607,7 @@
   - EmergencyPlasmaMedical
   - LoadoutSpeciesVoxNitrogen
   - LoadoutSpeciesPlasma # Goobstation
+  - EmergencyWaterVaporMedical # Delta-V
 
 # Wildcards
 - type: loadoutGroup
@@ -1645,6 +1653,7 @@
   - EmergencyPlasmaSyndicate
   - LoadoutSpeciesVoxNitrogen
   - LoadoutSpeciesPlasma # Goobstation
+  - EmergencyWaterVaporSyndicate # Delta-V
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool

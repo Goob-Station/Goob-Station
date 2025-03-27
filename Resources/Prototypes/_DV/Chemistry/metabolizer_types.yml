@@ -1,0 +1,10 @@
+# If your species wants to metabolize stuff differently,
+# you'll likely have to tag its metabolizers with something other than Human.
+
+- type: metabolizerType
+  id: Feroxi
+  name: metabolizer-type-feroxi
+
+- type: metabolizerType
+  id: FeroxiDehydrated
+  name: metabolizer-type-feroxi-dehydrated

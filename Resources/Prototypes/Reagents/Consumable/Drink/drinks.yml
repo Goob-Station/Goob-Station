@@ -512,7 +512,7 @@
       effects:
       - !type:SatiateThirst
         factor: 4
-    Gas:
+    Gas: # DeltaV - Feroxi get to breathe with this too!
       effects:
       - !type:HealthChange
         scaleByQuantity: true
@@ -524,6 +524,39 @@
         damage:
           types:
             Heat: 3
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Feroxi
+      - !type:SatiateThirst
+        conditions:
+        - !type:OrganType
+          type: Feroxi
+        factor: 2
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: FeroxiDehydrated
+      - !type:SatiateThirst
+        conditions:
+        - !type:OrganType
+          type: FeroxiDehydrated
+        factor: 2
+      # DeltaV Converts H2O into CO2 for Feroxi
+      - !type:ModifyLungGas
+        conditions:
+        - !type:OrganType
+          type: Feroxi
+        ratios: # DeltaV no duplicating O2 >:3
+          CarbonDioxide: 0.5
+          WaterVapor: -1.0
+      - !type:ModifyLungGas
+        conditions:
+        - !type:OrganType
+          type: FeroxiDehydrated
+        ratios: # DeltaV no duplicating O2 >:3
+          CarbonDioxide: 0.5
+          WaterVapor: -1.0
 
 - type: reagent
   id: Ice

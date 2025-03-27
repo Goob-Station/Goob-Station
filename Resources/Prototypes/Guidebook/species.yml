@@ -31,8 +31,6 @@
     - Moth
     - Reptilian
     - SlimePerson
-    # Goobstation
-    # - Felinid
     - Gingerbread
     - Harpy
     - Vox
@@ -45,6 +43,7 @@
     - Tajaran
     - Chitinid
     - Plasmaman
+    - Feroxi
 
 - type: guideEntry
   id: Arachnid

@@ -19,7 +19,7 @@
   id: ScarEyeRight
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni
+  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Feroxi] # Delta V - Felinid, Harpy, Rodentia, Feroxi; Goob - Tajaran; EE- Oni
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -29,7 +29,7 @@
   id: ScarEyeLeft
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni
+  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Feroxi] # Delta V - Felinid, Harpy, Rodentia, Feroxi; Goob - Tajaran; EE- Oni
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -39,7 +39,7 @@
   id: ScarTopSurgeryShort
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Dwarf, Oni ]
+  speciesRestriction: [ Human, Dwarf, Oni, Feroxi ] # DeltaV - Feroxi
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -49,7 +49,7 @@
   id: ScarTopSurgeryLong
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Oni]
+  speciesRestriction: [Human, Dwarf, Oni, Feroxi] # DeltaV - Feroxi
   sexRestriction: [Male]
   followSkinColor: true
   sprites:
@@ -60,12 +60,12 @@
   id: ScarChest
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Oni]
+  speciesRestriction: [Human, Dwarf, Oni, Feroxi] # DeltaV - Feroxi
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
     state: scar_chest
-    
+
 - type: marking
   id: ScarNeck
   bodyPart: Head

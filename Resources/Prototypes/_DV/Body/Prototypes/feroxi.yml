@@ -1,0 +1,49 @@
+- type: body
+  name: species-name-feroxi
+  id: Feroxi
+  root: torso
+  slots:
+    head:
+      part: HeadFeroxi
+      connections:
+      - torso
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+    torso:
+      part: TorsoFeroxi
+      organs:
+        heart: OrganAnimalHeart
+        lungs: OrganFeroxiLungs
+        stomach: OrganFeroxiStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganHumanKidneys
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+    right arm:
+      part: RightArmFeroxi
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmFeroxi
+      connections:
+      - left hand
+    right hand:
+      part: RightHandFeroxi
+    left hand:
+      part: LeftHandFeroxi
+    right leg:
+      part: RightLegFeroxi
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegFeroxi
+      connections:
+      - left foot
+    right foot:
+      part: RightFootFeroxi
+    left foot:
+      part: LeftFootFeroxi

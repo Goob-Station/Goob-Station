@@ -278,6 +278,7 @@
   - type: Tag
     tags:
     - Meat
+    - FoodTinMRE # Goobstation - For survival boxes
 
 - type: entity
   parent: FoodTinBaseTrash

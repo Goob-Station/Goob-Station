@@ -1,0 +1,64 @@
+- type: entity
+  parent: OrganAnimalStomach
+  id: OrganFeroxiStomach
+  name: feroxian stomach
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Stomach
+    specialDigestible:
+      tags:
+      - ReptilianFood
+      - Meat
+      - Pill
+      - Crayon
+      - Paper
+  - type: Metabolizer
+    maxReagents: 2
+    metabolizerTypes: [ Feroxi, Animal ]
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 50
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+
+- type: entity
+  parent: BaseHumanOrgan
+  id: OrganFeroxiLungs
+  name: feroxian lungs and gills
+  description: "A pair of amphibious lungs along with gills, filtering oxygen out of the air continuously."
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+    layers:
+    - state: lung-l
+    - state: lung-r
+  - type: Organ
+    removable: false
+  - type: Lung
+  - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "Lung"
+    metabolizerTypes: [ Feroxi ]
+    groups:
+    - id: Gas
+      rateModifier: 100.0
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      Lung:
+        maxVol: 100
+        canReact: False
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5

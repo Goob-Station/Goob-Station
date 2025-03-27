@@ -45,3 +45,10 @@
     Cold: 1.1
     Shock: 1.15
     Radiation: 0.2
+
+- type: damageModifierSet
+  id: Feroxi
+  coefficients:
+    Cold: 0.9
+    Blunt: 0.9
+    Slash: 1.1

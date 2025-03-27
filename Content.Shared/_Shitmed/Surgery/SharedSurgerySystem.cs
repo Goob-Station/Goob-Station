@@ -46,6 +46,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared.Body.Organ;
 
 namespace Content.Shared._Shitmed.Medical.Surgery;
 
@@ -314,6 +315,11 @@ public abstract partial class SharedSurgerySystem : EntitySystem
                     || ent.Comp.Reattaching
                     && !organs.Any(organ => HasComp<OrganReattachedComponent>(organ.Id))))
                     args.Cancelled = true;
+                // Start of DeltaV Additions - Checks if any organ has the removable component set to true, hiding it from the surgery UI
+                if (!organs.Any(organ => !TryComp<OrganComponent>(organ.Id, out var organComp)
+                    || organComp.Removable))
+                    args.Cancelled = true;
+                // End of DeltaV Additions
             }
             else if (!ent.Comp.Inverse)
                 args.Cancelled = true;
