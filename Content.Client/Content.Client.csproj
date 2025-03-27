@@ -29,5 +29,8 @@
     <EmbeddedResource Update="_Goobstation\Heretic\UI\HereticRitualRuneRadialMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="_Goobstation\Radio\UI\HandheldRadioMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
