@@ -15,6 +15,7 @@ using Content.Shared._Goobstation.Wizard.SpellCards;
 using Content.Shared._Goobstation.Wizard.Teleport;
 using Content.Shared._Goobstation.Wizard.TeslaBlast;
 using Content.Shared._Goobstation.Wizard.Traps;
+using Content.Shared._Lavaland.Mobs.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Access.Components;
 using Content.Shared.Actions;
@@ -43,6 +44,7 @@ using Content.Shared.Magic;
 using Content.Shared.Magic.Components;
 using Content.Shared.Maps;
 using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -164,7 +166,8 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<ThrownLightningEvent>(OnThrownLightning);
         SubscribeLocalEvent<ChargeMagicEvent>(OnCharge);
         SubscribeLocalEvent<BlinkSpellEvent>(OnBlink);
-
+        SubscribeLocalEvent<TileToggleSpellEvent>(OnTileToggle);
+        SubscribeLocalEvent<PredictionToggleSpellEvent>(OnPredictionToggle);
         SubscribeAllEvent<SetSwapSecondaryTarget>(OnSwapSecondaryTarget);
     }
 
@@ -1171,6 +1174,38 @@ public abstract class SharedSpellsSystem : EntitySystem
         ev.Handled = true;
     }
 
+    private void OnTileToggle(TileToggleSpellEvent ev)
+    {
+        if (ev.Handled
+            || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer)
+            || TerminatingOrDeleted(ev.Target))
+            return;
+
+        if (HasComp<HierophantBeatComponent>(ev.Target))
+            RemComp<HierophantBeatComponent>(ev.Target);
+        else
+            EnsureComp<HierophantBeatComponent>(ev.Target);
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
+    private void OnPredictionToggle(PredictionToggleSpellEvent ev)
+    {
+        if (ev.Handled
+            || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer)
+            || TerminatingOrDeleted(ev.Target))
+            return;
+
+        if (HasComp<CurseOfByondComponent>(ev.Target))
+            RemComp<CurseOfByondComponent>(ev.Target);
+        else
+            EnsureComp<CurseOfByondComponent>(ev.Target);
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
     #endregion
 
     #region Helpers
@@ -1412,7 +1447,6 @@ public abstract class SharedSpellsSystem : EntitySystem
                 EnsureComp<UnremoveableComponent>(ent);
         }
     }
-
     #endregion
 
     #region ServerMethods
