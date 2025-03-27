@@ -25,3 +25,18 @@
       throughWalls: false
   - type: SwapSpell
     allowSecondaryTarget: false
+
+- type: entity
+  id: ActionMimeSmoke
+  name: Silent But Deadly
+  description: Spawns a cloud of choking "smoke" at your location.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 30
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Actions/mimesmoke.rsi
+      state: icon
+    event: !type:MimeSmokeSpellEvent
