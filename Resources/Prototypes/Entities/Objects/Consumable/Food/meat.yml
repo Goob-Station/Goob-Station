@@ -1008,6 +1008,9 @@
     - Meat
   - type: Sprite
     state: meatball
+  - type: Construction
+    graph: MeatMeatballCooked
+    node: start
   - type: FoodSequenceElement
     sprite:
       sprite: Objects/Consumable/Food/meat.rsi
@@ -1649,6 +1652,9 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-meat
+  - type: Construction
+    graph: MeatMeatballCooked
+    node: meatball cooked
 
 - type: entity
   name: boiled snail
