@@ -567,6 +567,31 @@ public sealed partial class BlinkSpellEvent : InstantActionEvent, ISpeakSpell
     public MinMax Radius = new(0, 6);
 }
 
+public sealed partial class TileToggleSpellEvent : EntityTargetActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public SoundSpecifier? Sound;
+}
+
+[DataDefinition]
+public sealed partial class GlobalTileToggleEvent : EntityEventArgs
+{
+    [DataField]
+    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goobstation/Wizard/ghost.ogg");
+}
+
+public sealed partial class PredictionToggleSpellEvent : EntityTargetActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public SoundSpecifier? Sound;
+}
+
 [DataDefinition]
 public sealed partial class SummonSimiansMaxedOutEvent : EntityEventArgs
 {
@@ -606,7 +631,7 @@ public sealed partial class DimensionShiftEvent : EntityEventArgs
     public float CarbonDioxideMoles = 10f;
 
     [DataField]
-    public float Temperature = Atmospherics.T20C;
+    public float Temperature = Atmospherics.T0C - 5f;
 
     [DataField]
     public string? Parallax = "Wizard";

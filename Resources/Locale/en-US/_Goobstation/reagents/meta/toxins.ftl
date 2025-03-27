@@ -16,3 +16,7 @@ reagent-desc-aluite = Non-reactive molecule that binds with other chemicals at l
 reagent-name-mime-smoke = mime smoke
 reagent-desc-mime-smoke = You don't want to inhale it.
 reagent-comp-condition-mime = a mime
+
+reagent-name-sarin = sarin
+reagent-desc-sarin = A brutal neurotoxin that creates nasty caustic burns on contact with the skin. Poisonous when breathed in, and causes paralysis.
+
