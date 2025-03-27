@@ -1,0 +1,122 @@
+- type: entity
+  name: welder energy sword
+  parent: [BaseMeleeWeaponEnergy, BaseMinorContraband]
+  id: EnergySwordWelder
+  description: Roughly converted from a welding tool, this energy sword hums an unstable flame. It looks like it's about to fall apart.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi
+    layers:
+    - state: welder_sword
+    - state: welder_sword_blade
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
+  - type: Item
+    sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder-inhands.rsi
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+        types:
+            Heat: 11
+  - type: Welder
+    fuelConsumption: 3
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 100
+        maxVol: 100
+  - type: Tag # WD EDIT
+    tags:
+    - EnergySword
+  - type: ThrowableBlocker
+    blockSound:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -2
+  - type: RefillableSolution
+    solution: Welder
+  - type: Construction
+    graph: WelderSword
+    node: welderSword
+
+- type: entity
+  name: welder energy sword
+  parent: [BaseMeleeWeaponEnergy, BaseMinorContraband, EnergySwordWelder]
+  categories: [ HideSpawnMenu ]
+  id: EnergySwordWelderIndustrial
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi
+    state: icon_industrial
+    layers:
+    - state: welder_sword_industrial
+    - state: welder_sword_blade
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 250
+        maxVol: 250
+  - type: Construction
+    graph: WelderSwordIndustrial
+    node: welderSwordIndustrial
+
+- type: entity
+  name: welder energy sword
+  parent: [BaseMeleeWeaponEnergy, BaseMinorContraband, EnergySwordWelder]
+  categories: [ HideSpawnMenu ]
+  id: EnergySwordWelderExperimental
+  description: A very loud & dangerous sword with a beam made of pure, concentrated plasma. Cuts through unarmored targets like butter.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi
+    state: icon_experimental
+    layers:
+    - state: welder_sword_experimental
+    - state: welder_sword_blade
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 1000
+        maxVol: 1000
+  - type: Construction
+    graph: WelderSwordExperimental
+    node: welderSwordExperimental
+
+- type: entity
+  name: welder energy sword
+  parent: [BaseMeleeWeaponEnergy, BaseMinorContraband, EnergySwordWelder]
+  categories: [ HideSpawnMenu ]
+  id: EnergySwordWelderMini
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi
+    state: icon_mini
+    layers:
+    - state: welder_sword_mini
+    - state: welder_sword_blade
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 50
+        maxVol: 50
+  - type: Construction
+    graph: WelderSwordMini
+    node: welderSwordMini
