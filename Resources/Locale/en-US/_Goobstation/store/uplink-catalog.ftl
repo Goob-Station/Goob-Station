@@ -142,6 +142,9 @@ uplink-lollypop-bundle-desc = Contains 9 completely random lollypops. What could
 uplink-lollypop-bundle-big-name = Donk Co. Candy Bundle
 uplink-lollypop-bundle-big-desc = Contains an ungodly amount of candy. What could they contain?
 
+uplink-medical-beam-gun-name = Medical Beam Gun
+uplink-medical-beam-gun-desc = Heal your teammates with this new device! Runs on internal battery, and automatically recharges after discharging. You can heal only one teammate at once.
+
 # Implants
 
 uplink-smoke-implant-name = Smoke Implant
