@@ -133,6 +133,9 @@ public sealed partial class ChangelingIdentityComponent : Component
 
     [ViewVariables(VVAccess.ReadOnly)]
     public TransformData? SelectedForm;
+
+    [DataField]
+    public bool BiomassEnabled = false;
 }
 
 [DataDefinition]

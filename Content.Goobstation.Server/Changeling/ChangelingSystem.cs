@@ -243,6 +243,9 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     }
     private void UpdateBiomass(EntityUid uid, ChangelingIdentityComponent comp, float? amount = null)
     {
+        if (!comp.BiomassEnabled)
+            return;
+
         float amt = amount ?? -1f;
         comp.Biomass += amt;
         comp.Biomass = Math.Clamp(comp.Biomass, 0, comp.MaxBiomass);
