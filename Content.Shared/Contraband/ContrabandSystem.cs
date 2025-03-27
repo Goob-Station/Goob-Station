@@ -119,36 +119,4 @@ public sealed class ContrabandSystem : EntitySystem
     {
         _contrabandExamineEnabled = val;
     }
-
-    // Goobstation - Contraband detector
-    /// <summary>
-    /// Checks permission for user to have contraband. 
-    /// </summary>
-    /// <param name="contraband"></param>
-    /// <param name="user"></param>
-    /// <returns></returns>
-    public bool CheckContrabandPermission(EntityUid contraband, EntityUid user, ContrabandComponent? component = null)
-    {
-        // No contraband = have permission 
-        if (!Resolve(contraband, ref component))
-            return true;
-
-        var jobs = component.AllowedJobs.Select(p => _proto.Index(p).LocalizedName).ToArray();
-
-        var job = "";
-        List<ProtoId<DepartmentPrototype>> departments = new();
-        if (_id.TryFindIdCard(user, out var id))
-        {
-            departments = id.Comp.JobDepartments;
-            if (id.Comp.LocalizedJobTitle is not null)
-            {
-                job = id.Comp.LocalizedJobTitle;
-            }
-        }
-
-        if (departments.Intersect(component.AllowedDepartments).Any() || jobs.Contains(job))
-            return true;
-
-        return false;
-    }
 }
