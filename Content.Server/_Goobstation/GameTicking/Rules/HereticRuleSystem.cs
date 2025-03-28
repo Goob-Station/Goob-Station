@@ -14,6 +14,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Text;
+using Content.Server.Station.Components;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -48,9 +49,17 @@ public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
     {
         TryMakeHeretic(args.EntityUid, ent.Comp);
 
+        if (!TryGetRandomStation(out var station))
+            return;
+
+        var grid = GetStationMainGrid(Comp<StationDataComponent>(station.Value));
+
+        if (grid == null)
+            return;
+
         for (var i = 0; i < ent.Comp.RealityShiftPerHeretic.Next(_rand); i++)
         {
-            if (TryFindRandomTile(out _, out _, out _, out var coords))
+            if (TryFindTileOnGrid(grid.Value, out _, out var coords))
                 Spawn(ent.Comp.RealityShift, coords);
         }
     }

@@ -8,6 +8,7 @@ using Robust.Shared.Collections;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
+using Robust.Shared.Utility;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -78,7 +79,7 @@ public abstract partial class GameRuleSystem<T> where T: IComponent
     }
 
     // Goobstation start
-    // Goobstation - refactored this method. Split into 2 smaller methods and made it so that it only picks largest grid.
+    // Goobstation - refactored this method. Split into 3 smaller methods and made it so that it picks main station grid.
     protected bool TryFindRandomTileOnStation(Entity<StationDataComponent> station,
         out Vector2i tile,
         out EntityUid targetGrid,
@@ -88,11 +89,20 @@ public abstract partial class GameRuleSystem<T> where T: IComponent
         targetCoords = EntityCoordinates.Invalid;
         targetGrid = EntityUid.Invalid;
 
-        if (_station.GetLargestGrid(station.Comp) is not { } grid || !TryComp(grid, out MapGridComponent? gridComp))
+        if (GetStationMainGrid(station.Comp) is not { } grid)
             return false;
 
-        targetGrid = grid;
-        return TryFindTileOnGrid((grid, gridComp), out tile, out targetCoords);
+        targetGrid = grid.Owner;
+        return TryFindTileOnGrid(grid, out tile, out targetCoords);
+    }
+
+    protected Entity<MapGridComponent>? GetStationMainGrid(StationDataComponent station)
+    {
+        if ((station.Grids.FirstOrNull(HasComp<BecomesStationComponent>) ?? _station.GetLargestGrid(station)) is not
+            { } grid || !TryComp(grid, out MapGridComponent? gridComp))
+            return null;
+
+        return (grid, gridComp);
     }
 
     protected bool TryFindTileOnGrid(Entity<MapGridComponent> grid,
