@@ -108,36 +108,55 @@ public sealed partial class KarmaPunishmentSystem : EntitySystem
     {
         if (!ev.UserSes.AttachedEntity.HasValue)
             return;
-        EntityUid player = ev.UserSes.AttachedEntity.Value;
+        EntityUid target = ev.UserSes.AttachedEntity.Value;
+        // Wheights
+        int nothing = 0, bitter = 0, harsh = 0, nasty = 0, harm = 0, kill = 0;
         switch (ev.NewKarma)
         {
             case > 0:
                 return;
             case > -200 and <= 0:
+                nothing = 90;
+                bitter = 10;
                 break;
             case > -600 and <= -200:
+                nothing = 75;
+                bitter = 15;
+                harsh = 5;
+                harm = 5;
                 break;
             case > -850 and <= -600:
+                nothing = 60;
+                bitter = 15;
+                harsh = 10;
+                nasty = 2;
+                harm = 10;
+                kill = 3;
                 break;
             case > -1000 and <= -850:
-                Harsh(player);
+                nothing = 40;
+                bitter = 15;
+                harsh = 15;
+                nasty = 10;
+                harm = 10;
+                kill = 10;
                 break;
-            case < -1100:
-                Kill(player);
+            case > -1200 and <= -1100:
+                nothing = 40;
+                bitter = 20;
+                harsh = 20;
+                harm = 10;
+                kill = 10;
+                break;
+            case <= -1200:
+                nothing = 25;
+                harsh = 25;
+                nasty = 25;
+                kill = 25;
                 break;
             default:
                 break;
         }
-    }
-
-    internal void Harsh(EntityUid player)
-    {
-        var i = 2;
-        i /= 2;
-    }
-
-    private void Kill(EntityUid target)
-    {
         if (!EntityManager.TryGetComponent(target, out ActorComponent? actor))
             return;
 
@@ -146,415 +165,707 @@ public sealed partial class KarmaPunishmentSystem : EntitySystem
         if (HasComp<MapComponent>(target) || HasComp<MapGridComponent>(target))
             return;
 
+        int totalWheight = nothing + bitter + harsh + nasty + harm + kill;
+        int attempts = 0, i = 0;
         bool got_smitted = false;
-        int attempts = 0;
-        int i = _random.Next(38);
         while (!got_smitted && attempts++ < 9)
         {
-            AnySmite(i, target, ref got_smitted);
-            i = _random.Next(38);
+            i = _random.Next(totalWheight);
+            if (i < nothing)
+                return;
+            i -= nothing;
+            if (i < bitter)
+                AnyBitterSmite(i, target, ref got_smitted);
+            i -= bitter;
+            if (i < harsh)
+                AnyHarshSmite(i, target, ref got_smitted);
+            i -= harsh;
+            if (i < nasty)
+                AnyNastySmite(i, target, ref got_smitted);
+            i -= nasty;
+            if (i < harm)
+                AnyHarmSmite(i, target, ref got_smitted);
+            i -= harm;
+            if (i < kill)
+                AnyKillSmite(i, target, ref got_smitted);
+            i -= kill;
         }
+
         if (got_smitted)
         {
-            _popupSystem.PopupEntity("Your actions have consequences!", target, target, PopupType.LargeCaution);
+            // _popupSystem.PopupEntity("Your actions have consequences!", target, target, PopupType.LargeCaution); // Don't popup since SOME punishments have some popups.
             _chatManager.DispatchServerMessage(player, "Your actions have consequences!", true);
             _adminLogger.Add(LogType.Karma,
                 LogImpact.High,
-                $"{ToPrettyString(target):actor} got smitted by AnySmite({i}) from too much karma loss.");
+                $"{ToPrettyString(target):actor} got smitted by {i}(AnyLevelSmite). from too much karma loss.");
         }
     }
-    private void AnySmite(int i, EntityUid target, ref bool got_smitted)
+
+    // internal void Harsh(EntityUid player)
+    // {
+    //     var i = 2;
+    //     i /= 2;
+    // }
+
+    // private void Kill(EntityUid target)
+    // {
+    //     if (!EntityManager.TryGetComponent(target, out ActorComponent? actor))
+    //         return;
+
+    //     var player = actor.PlayerSession;
+    //     // 1984.
+    //     if (HasComp<MapComponent>(target) || HasComp<MapGridComponent>(target))
+    //         return;
+
+    //     bool got_smitted = false;
+    //     int attempts = 0;
+    //     int i = _random.Next(38);
+    //     while (!got_smitted && attempts++ < 9)
+    //     {
+    //         // AnySmite(i, target, ref got_smitted);
+    //         i = _random.Next(38);
+    //     }
+    //     if (got_smitted)
+    //     {
+    //         // _popupSystem.PopupEntity("Your actions have consequences!", target, target, PopupType.LargeCaution); // Don't popup since SOME punishments have some popups.
+    //         _chatManager.DispatchServerMessage(player, "Your actions have consequences!", true);
+    //         _adminLogger.Add(LogType.Karma,
+    //             LogImpact.High,
+    //             $"{ToPrettyString(target):actor} got smitted by AnySmite({i}) from too much karma loss.");
+    //     }
+    // }
+
+    #region Bitter
+    /// Stuff that hardly sucks and is easily fixable
+    private void AnyBitterSmite(int i, EntityUid target, ref bool got_smitted)
     {
+        i = _random.Next(6);
         switch (i)
         {
             case 0:
-                var coords = _transformSystem.GetMapCoordinates(target);
-                Timer.Spawn(_gameTiming.TickPeriod,
-                    () => _explosionSystem.QueueExplosion(coords, ExplosionSystem.DefaultExplosionPrototypeId,
-                        4, 1, 2, target, maxTileBreak: 0), // it gibs, damage doesn't need to be high.
-                    CancellationToken.None);
-
-                _bodySystem.GibBody(target);
-                got_smitted = true;
-                break;
-            case 1:
-                if (TryComp<FlammableComponent>(target, out var flammable))
-                {
-                    // Fuck you. Burn Forever.
-                    flammable.FireStacks = flammable.MaximumFireStacks;
-                    _flammableSystem.Ignite(target, target);
-                    var xform5 = Transform(target);
-                    _popupSystem.PopupEntity(Loc.GetString("admin-smite-set-alight-self"), target,
-                        target, PopupType.LargeCaution);
-                    _popupSystem.PopupCoordinates(Loc.GetString("admin-smite-set-alight-others", ("name", target)), xform5.Coordinates,
-                        Filter.PvsExcept(target), true, PopupType.MediumCaution);
-                    got_smitted = true;
-                }
-                break;
-            case 2:
-                _polymorphSystem.PolymorphEntity(target, "AdminMonkeySmite");
-                got_smitted = true;
-                break;
-            case 3:
-                _polymorphSystem.PolymorphEntity(target, "AdminDisposalsSmite");
-                got_smitted = true;
-                break;
-            case 4:
-                if (TryComp<DamageableComponent>(target, out var damageable) &&
-                    HasComp<MobStateComponent>(target))
-                {
-                    int damageToDeal;
-                    if (!_mobThresholdSystem.TryGetThresholdForState(target, MobState.Critical, out var criticalThreshold)) {
-                        // We can't crit them so try killing them.
-                        if (!_mobThresholdSystem.TryGetThresholdForState(target, MobState.Dead,
-                                out var deadThreshold))
-                            return;// whelp.
-                        damageToDeal = deadThreshold.Value.Int() - (int) damageable.TotalDamage;
-                    }
-                    else
-                    {
-                        damageToDeal = criticalThreshold.Value.Int() - (int) damageable.TotalDamage;
-                    }
-
-                    if (damageToDeal <= 0)
-                        damageToDeal = 100; // murder time.
-
-                    if (_inventorySystem.TryGetSlots(target, out var slotDefinitions))
-                    {
-                        foreach (var slot in slotDefinitions)
-                        {
-                            if (!_inventorySystem.TryGetSlotEntity(target, slot.Name, out var slotEnt))
-                                continue;
-
-                            RemComp<InsulatedComponent>(slotEnt.Value); // Fry the gloves.
-                        }
-                    }
-
-                    _electrocutionSystem.TryDoElectrocution(target, null, damageToDeal,
-                        TimeSpan.FromSeconds(30), refresh: true, ignoreInsulation: true);
-                    got_smitted = true;
-                }
-                break;
-            case 5:
                 if (TryComp<CreamPiedComponent>(target, out var creamPied))
                 {
                     _creamPieSystem.SetCreamPied(target, creamPied, true);
                     got_smitted = true;
                 }
                 break;
-            case 6:
-                if (TryComp<BloodstreamComponent>(target, out var bloodstream))
-                {
-                    _bloodstreamSystem.SpillAllSolutions(target, bloodstream);
-                    var xform4 = Transform(target);
-                    _popupSystem.PopupEntity(Loc.GetString("admin-smite-remove-blood-self"), target,
-                        target, PopupType.LargeCaution);
-                    _popupSystem.PopupCoordinates(Loc.GetString("admin-smite-remove-blood-others", ("name", target)), xform4.Coordinates,
-                        Filter.PvsExcept(target), true, PopupType.MediumCaution);
-                    got_smitted = true;
-                }
-                break;
-            case 7:
-                if (TryComp<BodyComponent>(target, out var body))
-                {
-                    _vomitSystem.Vomit(target, -1000, -1000); // You feel hollow!
-                    var organs = _bodySystem.GetBodyOrganEntityComps<TransformComponent>((target, body));
-                    var baseXform = Transform(target);
-                    foreach (var organ in organs)
-                    {
-                        if (HasComp<BrainComponent>(organ.Owner) || HasComp<EyeComponent>(organ.Owner))
-                            continue;
-
-                        _transformSystem.PlaceNextTo((organ.Owner, organ.Comp1), (target, baseXform));
-                    }
-
-                    _popupSystem.PopupEntity(Loc.GetString("admin-smite-vomit-organs-self"), target,
-                        target, PopupType.LargeCaution);
-                    _popupSystem.PopupCoordinates(Loc.GetString("admin-smite-vomit-organs-others", ("name", target)), baseXform.Coordinates,
-                        Filter.PvsExcept(target), true, PopupType.MediumCaution);
-                    got_smitted = true;
-                }
-                break;
-            case 8:
-                var baseXform2 = Transform(target);
-                foreach (var part in _bodySystem.GetBodyChildrenOfType(target, BodyPartType.Hand))
-                {
-                    _transformSystem.AttachToGridOrMap(part.Id);
-                }
-                _popupSystem.PopupEntity(Loc.GetString("admin-smite-remove-hands-self"), target,
-                    target, PopupType.LargeCaution);
-                _popupSystem.PopupCoordinates(Loc.GetString("admin-smite-remove-hands-other", ("name", target)), baseXform2.Coordinates,
-                    Filter.PvsExcept(target), true, PopupType.Medium);
-                got_smitted = true;
-                break;
-            case 9:
-                if (TryComp<BodyComponent>(target, out var body1))
-                {
-                    var baseXform1 = Transform(target);
-                    foreach (var part in _bodySystem.GetBodyChildrenOfType(target, BodyPartType.Hand, body1))
-                    {
-                        _transformSystem.AttachToGridOrMap(part.Id);
-                        break;
-                    }
-                    _popupSystem.PopupEntity(Loc.GetString("admin-smite-remove-hands-self"), target,
-                        target, PopupType.LargeCaution);
-                    _popupSystem.PopupCoordinates(Loc.GetString("admin-smite-remove-hands-other", ("name", target)), baseXform1.Coordinates,
-                        Filter.PvsExcept(target), true, PopupType.Medium);
-                    got_smitted = true;
-                }
-                break;
-            case 10:
-                if (TryComp<BodyComponent>(target, out var body2))
-                {
-                    foreach (var entity in _bodySystem.GetBodyOrganEntityComps<StomachComponent>((target, body2)))
-                    {
-                        QueueDel(entity.Owner);
-                    }
-
-                    _popupSystem.PopupEntity(Loc.GetString("admin-smite-stomach-removal-self"), target,
-                        target, PopupType.LargeCaution);
-                    got_smitted = true;
-                }
-                break;
-            case 11:
-                if (TryComp<BodyComponent>(target, out var body3))
-                {
-                    foreach (var entity in _bodySystem.GetBodyOrganEntityComps<LungComponent>((target, body3)))
-                    {
-                        QueueDel(entity.Owner);
-                    }
-
-                    _popupSystem.PopupEntity(Loc.GetString("admin-smite-lung-removal-self"), target,
-                        target, PopupType.LargeCaution);
-                    got_smitted = true;
-                }
-                break;
-            case 12:
-                if (TryComp<PhysicsComponent>(target, out var physics))
-                {
-                    var xform3 = Transform(target);
-                    var fixtures = Comp<FixturesComponent>(target);
-                    xform3.Anchored = false; // Just in case.
-                    _physics.SetBodyType(target, BodyType.Dynamic, manager: fixtures, body: physics);
-                    _physics.SetBodyStatus(target, physics, BodyStatus.InAir);
-                    _physics.WakeBody(target, manager: fixtures, body: physics);
-
-                    foreach (var fixture in fixtures.Fixtures.Values)
-                    {
-                        if (!fixture.Hard)
-                            continue;
-
-                        _physics.SetRestitution(target, fixture, 1.1f, false, fixtures);
-                    }
-
-                    _fixtures.FixtureUpdate(target, manager: fixtures, body: physics);
-
-                    _physics.SetLinearVelocity(target, _random.NextVector2(1.5f, 1.5f), manager: fixtures, body: physics);
-                    _physics.SetAngularVelocity(target, MathF.PI * 12, manager: fixtures, body: physics);
-                    _physics.SetLinearDamping(target, physics, 0f);
-                    _physics.SetAngularDamping(target, physics, 0f);
-                    got_smitted = true;
-                }
-                break;
-            case 13:
-                if (TryComp<PhysicsComponent>(target, out physics))
-                {
-                    var xform2 = Transform(target);
-                    var fixtures = Comp<FixturesComponent>(target);
-                    xform2.Anchored = false; // Just in case.
-
-                    _physics.SetBodyType(target, BodyType.Dynamic, body: physics);
-                    _physics.SetBodyStatus(target, physics, BodyStatus.InAir);
-                    _physics.WakeBody(target, manager: fixtures, body: physics);
-
-                    foreach (var fixture in fixtures.Fixtures.Values)
-                    {
-                        _physics.SetHard(target, fixture, false, manager: fixtures);
-                    }
-
-                    _physics.SetLinearVelocity(target, _random.NextVector2(8.0f, 8.0f), manager: fixtures, body: physics);
-                    _physics.SetAngularVelocity(target, MathF.PI * 12, manager: fixtures, body: physics);
-                    _physics.SetLinearDamping(target, physics, 0f);
-                    _physics.SetAngularDamping(target, physics, 0f);
-                    got_smitted = true;
-                }
-                break;
-            case 14:
-                _polymorphSystem.PolymorphEntity(target, "AdminBreadSmite");
-                got_smitted = true;
-                break;
-            case 15:
-                _polymorphSystem.PolymorphEntity(target, "AdminMouseSmite");
-                got_smitted = true;
-                break;
-            // case 16: // Simply too mean
-            //     if (TryComp<ActorComponent>(target, out var actorComponent))
-            //     {
-            //         _ghostKickManager.DoDisconnect(actorComponent.PlayerSession.Channel, "Smitten.");
-            //     }
-            //     got_smitted = true;
-            //     break;
-            case 17:
+            case 1:
                 if (HasComp<TemperatureComponent>(target))
                 {
                     EnsureComp<IceCubeComponent>(target);
                     got_smitted = true;
                 }
                 break;
-            case 18:
-                if (TryComp<InventoryComponent>(target, out var inventory))
-                {
-                    var ears = Spawn("ClothingHeadHatCatEars", Transform(target).Coordinates);
-                    EnsureComp<UnremoveableComponent>(ears);
-                    _inventorySystem.TryUnequip(target, "head", true, true, false, inventory);
-                    _inventorySystem.TryEquip(target, ears, "head", true, true, false, inventory);
-                    got_smitted = true;
-                }
+            case 2:
+                got_smitted = BitterSlip(target);
                 break;
-            case 19:
-                EnsureComp<KillSignComponent>(target);
-                got_smitted = true;
+            case 3:
+                got_smitted = BitterSlow(target);
                 break;
-            case 20:
+            case 4:
+                got_smitted = BitterSpeakBackwards(target);
+                break;
+            case 5:
+                got_smitted = BitterZoom(target);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private bool BitterZoom(EntityUid target)
+    {
+        bool got_smitted;
+        var eye = EnsureComp<ContentEyeComponent>(target);
+        _eyeSystem.SetZoom(target, eye.TargetZoom * -1, ignoreLimits: true);
+        got_smitted = true;
+        return got_smitted;
+    }
+
+    private bool BitterSlip(EntityUid target)
+    {
+        bool got_smitted;
+        var hadSlipComponent = EnsureComp(target, out SlipperyComponent slipComponent);
+        if (!hadSlipComponent)
+        {
+            slipComponent.SuperSlippery = true;
+            slipComponent.ParalyzeTime = 5;
+            slipComponent.LaunchForwardsMultiplier = 20;
+        }
+
+        _slipperySystem.TrySlip(target, slipComponent, target, requiresContact: false);
+        if (!hadSlipComponent)
+        {
+            RemComp(target, slipComponent);
+        }
+        got_smitted = true;
+        return got_smitted;
+    }
+
+    private bool BitterSlow(EntityUid target)
+    {
+        float slowDown = 0.95f;
+        var movementSpeed = EnsureComp<MovementSpeedModifierComponent>(target);
+        (movementSpeed.BaseSprintSpeed, movementSpeed.BaseWalkSpeed) = (movementSpeed.BaseSprintSpeed * slowDown, movementSpeed.BaseWalkSpeed * slowDown);
+
+        Dirty(target, movementSpeed);
+
+        _popupSystem.PopupEntity("You feel a bit slower", target,
+            target, PopupType.LargeCaution);
+        return true;
+    }
+
+    private bool BitterSpeakBackwards(EntityUid target)
+    {
+        EnsureComp<BackwardsAccentComponent>(target);
+        return true;
+    }
+    #endregion
+    #region Harsh
+    private void AnyHarshSmite(int i, EntityUid target, ref bool got_smitted)
+    {
+        i = _random.Next(7);
+        switch (i)
+        {
+            case 0:
                 EnsureComp<CluwneComponent>(target);
                 got_smitted = true;
                 break;
-            case 21:
-                SetOutfitCommand.SetOutfit(target, "JanitorMaidGear", EntityManager, (_, clothing) =>
-                {
-                    if (HasComp<ClothingComponent>(clothing))
-                        EnsureComp<UnremoveableComponent>(clothing);
-                    EnsureComp<ClumsyComponent>(target);
-                });
+            case 1:
+                got_smitted = HarshByeHand(target);
+                break;
+            case 2:
+                got_smitted = HarshLockInLocker(target);
+                break;
+            case 3:
+                got_smitted = HarshMaid(target);
+                break;
+            case 4:
+                got_smitted = HarshMessySpeach(target);
+                break;
+            case 5:
+                got_smitted = HarshSlow(target);
+                break;
+            case 6:
+                got_smitted = HarshSwapRunAndWalk(target);
+                break;
+            default:
+                break;
+        }
+    }
+
+
+    private bool HarshMessySpeach(EntityUid target)
+    {
+        bool got_smitted;
+        EnsureComp<BarkAccentComponent>(target);
+        EnsureComp<BleatingAccentComponent>(target);
+        EnsureComp<FrenchAccentComponent>(target);
+        EnsureComp<GermanAccentComponent>(target);
+        EnsureComp<LizardAccentComponent>(target);
+        EnsureComp<MobsterAccentComponent>(target);
+        EnsureComp<MothAccentComponent>(target);
+        EnsureComp<OwOAccentComponent>(target);
+        EnsureComp<SkeletonAccentComponent>(target);
+        EnsureComp<SouthernAccentComponent>(target);
+        EnsureComp<SpanishAccentComponent>(target);
+        EnsureComp<StutteringAccentComponent>(target);
+        EnsureComp<MedievalAccentComponent>(target); // Goobtation
+        EnsureComp<MaoistAccentComponent>(target); // Goobtation
+        EnsureComp<OhioAccentComponent>(target); // Goobtation
+        EnsureComp<PirateAccentComponent>(target); // Goobtation
+        EnsureComp<VulgarAccentComponent>(target); // Goobtation
+
+        if (_random.Next(0, 8) == 0)
+        {
+            EnsureComp<BackwardsAccentComponent>(target); // was asked to make this at a low chance idk
+        }
+        got_smitted = true;
+        return got_smitted;
+    }
+    // Quite annoying things that can be immpossible to fix
+    private bool HarshByeHand(EntityUid target)
+    {
+        if (TryComp<BodyComponent>(target, out var body1))
+        {
+            var baseXform1 = Transform(target);
+            foreach (var part in _bodySystem.GetBodyChildrenOfType(target, BodyPartType.Hand, body1))
+            {
+                _transformSystem.AttachToGridOrMap(part.Id);
+                break;
+            }
+            _popupSystem.PopupEntity(Loc.GetString("admin-smite-remove-hands-self"), target,
+                target, PopupType.LargeCaution);
+            _popupSystem.PopupCoordinates(Loc.GetString("admin-smite-remove-hands-other", ("name", target)), baseXform1.Coordinates,
+                Filter.PvsExcept(target), true, PopupType.Medium);
+            return true;
+        }
+        return false;
+    }
+
+    private bool HarshMaid(EntityUid target)
+    {
+        SetOutfitCommand.SetOutfit(target, "JanitorMaidGear", EntityManager, (_, clothing) =>
+        {
+            if (HasComp<ClothingComponent>(clothing))
+                EnsureComp<UnremoveableComponent>(clothing);
+            EnsureComp<ClumsyComponent>(target);
+        });
+        return true;
+    }
+
+    private bool HarshSwapRunAndWalk(EntityUid target)
+    {
+        var movementSpeed = EnsureComp<MovementSpeedModifierComponent>(target);
+        (movementSpeed.BaseSprintSpeed, movementSpeed.BaseWalkSpeed) = (movementSpeed.BaseWalkSpeed, movementSpeed.BaseSprintSpeed);
+
+        Dirty(target, movementSpeed);
+
+        _popupSystem.PopupEntity(Loc.GetString("admin-smite-run-walk-swap-prompt"), target,
+            target, PopupType.LargeCaution);
+        return true;
+    }
+
+    private bool HarshLockInLocker(EntityUid target)
+    {
+        bool got_smitted;
+        var xform = Transform(target);
+        var locker = Spawn("ClosetMaintenance", xform.Coordinates);
+        if (TryComp<EntityStorageComponent>(locker, out var storage))
+        {
+            _entityStorageSystem.ToggleOpen(target, locker, storage);
+            _entityStorageSystem.Insert(target, locker, storage);
+            _entityStorageSystem.ToggleOpen(target, locker, storage);
+        }
+        _weldableSystem.SetWeldedState(locker, true);
+        got_smitted = true;
+        return got_smitted;
+    }
+
+    private bool HarshSlow(EntityUid target)
+    {
+        float slowDown = 0.6f;
+        var movementSpeed = EnsureComp<MovementSpeedModifierComponent>(target);
+        (movementSpeed.BaseSprintSpeed, movementSpeed.BaseWalkSpeed) = (movementSpeed.BaseSprintSpeed * slowDown, movementSpeed.BaseWalkSpeed * slowDown);
+
+        Dirty(target, movementSpeed);
+
+        _popupSystem.PopupEntity("You feel a quite a bit slower", target,
+            target, PopupType.LargeCaution);
+        return true;
+    }
+    #endregion
+    #region Nasty
+    private void AnyNastySmite(int i, EntityUid target, ref bool got_smitted)
+    {
+        i = _random.Next(10);
+        switch (i)
+        {
+            case 0:
+                _polymorphSystem.PolymorphEntity(target, "AdminMonkeySmite");
                 got_smitted = true;
                 break;
-            case 22:
+            case 1:
+                _polymorphSystem.PolymorphEntity(target, "AdminDisposalsSmite");
+                got_smitted = true;
+                break;
+            case 2:
+                _polymorphSystem.PolymorphEntity(target, "AdminBreadSmite");
+                got_smitted = true;
+                break;
+            case 3:
+                _polymorphSystem.PolymorphEntity(target, "AdminMouseSmite");
+                got_smitted = true;
+                break;
+            case 4:
+                got_smitted = NastyByeHands(target);
+                break;
+            case 5:
+                got_smitted = NastyByeStomach(target);
+                break;
+            case 6:
+                got_smitted = NastyPinball(target);
+                break;
+            case 7:
+                break;
+            case 8:
+                break;
+            case 9:
+                break;
+            default:
+                break;
+        }
+    }
+
+    // Fate worse then or about as bad as death
+    private bool NastyByeHands(EntityUid target)
+    {
+        bool got_smitted;
+        var baseXform2 = Transform(target);
+        foreach (var part in _bodySystem.GetBodyChildrenOfType(target, BodyPartType.Hand))
+        {
+            _transformSystem.AttachToGridOrMap(part.Id);
+        }
+        _popupSystem.PopupEntity(Loc.GetString("admin-smite-remove-hands-self"), target,
+            target, PopupType.LargeCaution);
+        _popupSystem.PopupCoordinates(Loc.GetString("admin-smite-remove-hands-other", ("name", target)), baseXform2.Coordinates,
+            Filter.PvsExcept(target), true, PopupType.Medium);
+        got_smitted = true;
+        return got_smitted;
+    }
+
+    private bool NastyByeStomach(EntityUid target)
+    {
+        if (TryComp<BodyComponent>(target, out var body2))
+        {
+            foreach (var entity in _bodySystem.GetBodyOrganEntityComps<StomachComponent>((target, body2)))
+            {
+                QueueDel(entity.Owner);
+            }
+
+            _popupSystem.PopupEntity(Loc.GetString("admin-smite-stomach-removal-self"), target,
+                target, PopupType.LargeCaution);
+            return true;
+        }
+
+        return false;
+    }
+
+    private bool NastyPinball(EntityUid target) // Caused server error on restart
+    {
+        PhysicsComponent? physics;
+        if (TryComp<PhysicsComponent>(target, out physics))
+        {
+            var xform2 = Transform(target);
+            var fixtures = Comp<FixturesComponent>(target);
+            xform2.Anchored = false; // Just in case.
+
+            _physics.SetBodyType(target, BodyType.Dynamic, body: physics);
+            _physics.SetBodyStatus(target, physics, BodyStatus.InAir);
+            _physics.WakeBody(target, manager: fixtures, body: physics);
+
+            foreach (var fixture in fixtures.Fixtures.Values)
+            {
+                _physics.SetHard(target, fixture, false, manager: fixtures);
+            }
+
+            _physics.SetLinearVelocity(target, _random.NextVector2(8.0f, 8.0f), manager: fixtures, body: physics);
+            _physics.SetAngularVelocity(target, MathF.PI * 12, manager: fixtures, body: physics);
+            _physics.SetLinearDamping(target, physics, 0f);
+            _physics.SetAngularDamping(target, physics, 0f);
+            return true;
+        }
+        return false;
+    }
+    #endregion
+    #region Harm
+    private void AnyHarmSmite(int i, EntityUid target, ref bool got_smitted)
+    {
+        i = _random.Next(4);
+        switch (i)
+        {
+            case 0:
+                got_smitted = HarmBleeding(target);
+                break;
+            case 1:
+                got_smitted = HarmBurn(target);
+                break;
+            case 2:
+                got_smitted = HarmElectricute(target);
+                break;
+            case 3:
+                got_smitted = HarmBleeding(target);
+                break;
+            default:
+                break;
+        }
+    }
+
+    // Stuff that damages the player without a kill
+    private bool HarmBurn(EntityUid target)
+    {
+        if (TryComp<FlammableComponent>(target, out var flammable))
+        {
+            // Fuck you. Burn Forever.
+            flammable.FireStacks = flammable.MaximumFireStacks;
+            _flammableSystem.Ignite(target, target);
+            var xform5 = Transform(target);
+            _popupSystem.PopupEntity(Loc.GetString("admin-smite-set-alight-self"), target,
+                target, PopupType.LargeCaution);
+            _popupSystem.PopupCoordinates(Loc.GetString("admin-smite-set-alight-others", ("name", target)), xform5.Coordinates,
+                Filter.PvsExcept(target), true, PopupType.MediumCaution);
+            return true;
+        }
+        return false;
+    }
+
+    private bool HarmBleeding(EntityUid target)
+    {
+        if (TryComp<BloodstreamComponent>(target, out var bloodstream))
+        {
+            _bloodstreamSystem.TryModifyBleedAmount(target, 8);
+            var xform4 = Transform(target);
+            _popupSystem.PopupEntity(Loc.GetString("You feel a sharpness in the air, blood rushes out!"), target,
+                target, PopupType.MediumCaution);
+            return true;
+        }
+        return false;
+    }
+
+    private bool HarmElectricute(EntityUid target)
+    {
+        if (TryComp<DamageableComponent>(target, out var damageable) &&
+                            HasComp<MobStateComponent>(target))
+        {
+            int damageToDeal = 35;
+
+            if (_inventorySystem.TryGetSlots(target, out var slotDefinitions))
+            {
+                foreach (var slot in slotDefinitions)
+                {
+                    if (!_inventorySystem.TryGetSlotEntity(target, slot.Name, out var slotEnt))
+                        continue;
+
+                    RemComp<InsulatedComponent>(slotEnt.Value); // Fry the gloves.
+                }
+            }
+
+            _electrocutionSystem.TryDoElectrocution(target, null, damageToDeal,
+                TimeSpan.FromSeconds(30), refresh: true, ignoreInsulation: true);
+            return true;
+        }
+        return false;
+    }
+    #endregion
+    #region Kill
+    private void AnyKillSmite(int i, EntityUid target, ref bool got_smitted)
+    {
+        i = _random.Next(10);
+        switch (i)
+        {
+            case 0:
+                got_smitted = KillAsh(target);
+                break;
+            case 1:
+                got_smitted = KillByeBlood(target);
+                break;
+            case 2:
+                got_smitted = KillByeLungs(target);
+                break;
+            case 3:
+                got_smitted = KillByeOrgans(target);
+                break;
+            case 4:
+                got_smitted = KillElectricute(target);
+                break;
+            case 5:
+                got_smitted = KillGibBoom(target);
+                break;
+            case 6:
+                got_smitted = KillTooFast(target);
+                break;
+            case 7:
+                got_smitted = KillYeet(target);
+                break;
+            case 8:
+                EnsureComp<KillSignComponent>(target);
+                got_smitted = true;
+                break;
+            case 9:
                 EnsureComp<PointingArrowAngeringComponent>(target);
-                got_smitted = true;
-                break;
-            case 23:
-                EntityManager.QueueDeleteEntity(target);
-                Spawn("Ash", Transform(target).Coordinates);
-                _popupSystem.PopupEntity(Loc.GetString("admin-smite-turned-ash-other", ("name", target)), target, PopupType.LargeCaution);
-                got_smitted = true;
-                break;
-            case 24:
-                EnsureComp<BufferingComponent>(target);
-                got_smitted = true;
-                break;
-            case 25:
-                _polymorphSystem.PolymorphEntity(target, "AdminInstrumentSmite");
-                got_smitted = true;
-                break;
-            case 26:
-                var grav = EnsureComp<MovementIgnoreGravityComponent>(target);
-                grav.Weightless = true;
-
-                Dirty(target, grav);
-                got_smitted = true;
-                break;
-            case 27:
-                _polymorphSystem.PolymorphEntity(target, "AdminLizardSmite");
-                got_smitted = true;
-                break;
-            case 28:
-                var xform = Transform(target);
-                var locker = Spawn("ClosetMaintenance", xform.Coordinates);
-                if (TryComp<EntityStorageComponent>(locker, out var storage))
-                {
-                    _entityStorageSystem.ToggleOpen(target, locker, storage);
-                    _entityStorageSystem.Insert(target, locker, storage);
-                    _entityStorageSystem.ToggleOpen(target, locker, storage);
-                }
-                _weldableSystem.SetWeldedState(locker, true);
-                got_smitted = true;
-                break;
-            case 29:
-                EnsureComp<HeadstandComponent>(target);
-                got_smitted = true;
-                break;
-            case 30:
-                var eye = EnsureComp<ContentEyeComponent>(target);
-                _eyeSystem.SetZoom(target, eye.TargetZoom * -1, ignoreLimits: true);
-                got_smitted = true;
-                break;
-            case 31:
-                var movementSpeed = EnsureComp<MovementSpeedModifierComponent>(target);
-                (movementSpeed.BaseSprintSpeed, movementSpeed.BaseWalkSpeed) = (movementSpeed.BaseWalkSpeed, movementSpeed.BaseSprintSpeed);
-
-                Dirty(target, movementSpeed);
-
-                _popupSystem.PopupEntity(Loc.GetString("admin-smite-run-walk-swap-prompt"), target,
-                    target, PopupType.LargeCaution);
-                got_smitted = true;
-                break;
-            case 32:
-                EnsureComp<BackwardsAccentComponent>(target);
-                got_smitted = true;
-                break;
-            case 33:
-                EnsureComp<DisarmProneComponent>(target);
-                got_smitted = true;
-                break;
-            case 34:
-                movementSpeed = EnsureComp<MovementSpeedModifierComponent>(target);
-                _movementSpeedModifierSystem?.ChangeBaseSpeed(target, 400, 8000, 40, movementSpeed);
-
-                _popupSystem.PopupEntity(Loc.GetString("admin-smite-super-speed-prompt"), target,
-                    target, PopupType.LargeCaution);
-                got_smitted = true;
-                break;
-            case 35:
-                _superBonkSystem.StartSuperBonk(target, stopWhenDead: true);
-                got_smitted = true;
-                break;
-            case 36:
-                _superBonkSystem.StartSuperBonk(target);
-                got_smitted = true;
-                break;
-            case 37:
-                var hadSlipComponent = EnsureComp(target, out SlipperyComponent slipComponent);
-                if (!hadSlipComponent)
-                {
-                    slipComponent.SuperSlippery = true;
-                    slipComponent.ParalyzeTime = 5;
-                    slipComponent.LaunchForwardsMultiplier = 20;
-                }
-
-                _slipperySystem.TrySlip(target, slipComponent, target, requiresContact: false);
-                if (!hadSlipComponent)
-                {
-                    RemComp(target, slipComponent);
-                }
-                got_smitted = true;
-                break;
-            case 38:
-                EnsureComp<BarkAccentComponent>(target);
-                EnsureComp<BleatingAccentComponent>(target);
-                EnsureComp<FrenchAccentComponent>(target);
-                EnsureComp<GermanAccentComponent>(target);
-                EnsureComp<LizardAccentComponent>(target);
-                EnsureComp<MobsterAccentComponent>(target);
-                EnsureComp<MothAccentComponent>(target);
-                EnsureComp<OwOAccentComponent>(target);
-                EnsureComp<SkeletonAccentComponent>(target);
-                EnsureComp<SouthernAccentComponent>(target);
-                EnsureComp<SpanishAccentComponent>(target);
-                EnsureComp<StutteringAccentComponent>(target);
-                EnsureComp<MedievalAccentComponent>(target); // Goobtation
-                EnsureComp<MaoistAccentComponent>(target); // Goobtation
-                EnsureComp<OhioAccentComponent>(target); // Goobtation
-                EnsureComp<PirateAccentComponent>(target); // Goobtation
-                EnsureComp<VulgarAccentComponent>(target); // Goobtation
-
-                if (_random.Next(0, 8) == 0)
-                {
-                    EnsureComp<BackwardsAccentComponent>(target); // was asked to make this at a low chance idk
-                }
                 got_smitted = true;
                 break;
             default:
                 break;
         }
     }
+
+    private bool KillByeBlood(EntityUid target)
+    {
+        if (TryComp<BloodstreamComponent>(target, out var bloodstream))
+        {
+            _bloodstreamSystem.SpillAllSolutions(target, bloodstream);
+            var xform4 = Transform(target);
+            _popupSystem.PopupEntity(Loc.GetString("admin-smite-remove-blood-self"), target,
+                target, PopupType.LargeCaution);
+            _popupSystem.PopupCoordinates(Loc.GetString("admin-smite-remove-blood-others", ("name", target)), xform4.Coordinates,
+                Filter.PvsExcept(target), true, PopupType.MediumCaution);
+            return true;
+        }
+        return false;
+    }
+
+    private bool KillElectricute(EntityUid target)
+    {
+        if (TryComp<DamageableComponent>(target, out var damageable) &&
+                            HasComp<MobStateComponent>(target))
+        {
+            int damageToDeal;
+            if (!_mobThresholdSystem.TryGetThresholdForState(target, MobState.Critical, out var criticalThreshold))
+            {
+                // We can't crit them so try killing them.
+                if (!_mobThresholdSystem.TryGetThresholdForState(target, MobState.Dead,
+                        out var deadThreshold))
+                    return false;// whelp.
+                damageToDeal = deadThreshold.Value.Int() - (int) damageable.TotalDamage;
+            }
+            else
+            {
+                damageToDeal = criticalThreshold.Value.Int() - (int) damageable.TotalDamage;
+            }
+
+            if (damageToDeal <= 0)
+                damageToDeal = 100; // murder time.
+
+            if (_inventorySystem.TryGetSlots(target, out var slotDefinitions))
+            {
+                foreach (var slot in slotDefinitions)
+                {
+                    if (!_inventorySystem.TryGetSlotEntity(target, slot.Name, out var slotEnt))
+                        continue;
+
+                    RemComp<InsulatedComponent>(slotEnt.Value); // Fry the gloves.
+                }
+            }
+
+            _electrocutionSystem.TryDoElectrocution(target, null, damageToDeal,
+                TimeSpan.FromSeconds(30), refresh: true, ignoreInsulation: true);
+            return true;
+        }
+        return false;
+    }
+
+    private bool KillByeOrgans(EntityUid target)
+    {
+        if (TryComp<BodyComponent>(target, out var body))
+        {
+            _vomitSystem.Vomit(target, -1000, -1000); // You feel hollow!
+            var organs = _bodySystem.GetBodyOrganEntityComps<TransformComponent>((target, body));
+            var baseXform = Transform(target);
+            foreach (var organ in organs)
+            {
+                if (HasComp<BrainComponent>(organ.Owner) || HasComp<EyeComponent>(organ.Owner))
+                    continue;
+
+                _transformSystem.PlaceNextTo((organ.Owner, organ.Comp1), (target, baseXform));
+            }
+
+            _popupSystem.PopupEntity(Loc.GetString("admin-smite-vomit-organs-self"), target,
+                target, PopupType.LargeCaution);
+            _popupSystem.PopupCoordinates(Loc.GetString("admin-smite-vomit-organs-others", ("name", target)), baseXform.Coordinates,
+                Filter.PvsExcept(target), true, PopupType.MediumCaution);
+            return true;
+        }
+        return false;
+    }
+
+    private bool KillGibBoom(EntityUid target)
+    {
+        bool got_smitted;
+        var coords = _transformSystem.GetMapCoordinates(target);
+        Timer.Spawn(_gameTiming.TickPeriod,
+            () => _explosionSystem.QueueExplosion(coords, ExplosionSystem.DefaultExplosionPrototypeId,
+                4, 1, 2, target, maxTileBreak: 0), // it gibs, damage doesn't need to be high.
+            CancellationToken.None);
+
+        _bodySystem.GibBody(target);
+        got_smitted = true;
+        return got_smitted;
+    }
+
+    private bool KillYeet(EntityUid target)
+    {
+        if (TryComp<PhysicsComponent>(target, out var physics))
+        {
+            var xform3 = Transform(target);
+            var fixtures = Comp<FixturesComponent>(target);
+            xform3.Anchored = false; // Just in case.
+            _physics.SetBodyType(target, BodyType.Dynamic, manager: fixtures, body: physics);
+            _physics.SetBodyStatus(target, physics, BodyStatus.InAir);
+            _physics.WakeBody(target, manager: fixtures, body: physics);
+
+            foreach (var fixture in fixtures.Fixtures.Values)
+            {
+                if (!fixture.Hard)
+                    continue;
+
+                _physics.SetRestitution(target, fixture, 1.1f, false, fixtures);
+            }
+
+            _fixtures.FixtureUpdate(target, manager: fixtures, body: physics);
+
+            _physics.SetLinearVelocity(target, _random.NextVector2(1.5f, 1.5f), manager: fixtures, body: physics);
+            _physics.SetAngularVelocity(target, MathF.PI * 12, manager: fixtures, body: physics);
+            _physics.SetLinearDamping(target, physics, 0f);
+            _physics.SetAngularDamping(target, physics, 0f);
+            return true;
+        }
+        return false;
+    }
+
+    private bool KillByeLungs(EntityUid target) // Not guranteed kill, super annoying if it doesn't kill you
+    {
+        if (TryComp<BodyComponent>(target, out var body3))
+        {
+            foreach (var entity in _bodySystem.GetBodyOrganEntityComps<LungComponent>((target, body3)))
+            {
+                QueueDel(entity.Owner);
+            }
+
+            _popupSystem.PopupEntity(Loc.GetString("admin-smite-lung-removal-self"), target,
+                target, PopupType.LargeCaution);
+            return true;
+        }
+        return false;
+    }
+
+    private bool KillAsh(EntityUid target)
+    {
+        bool got_smitted;
+        EntityManager.QueueDeleteEntity(target);
+        Spawn("Ash", Transform(target).Coordinates);
+        _popupSystem.PopupEntity(Loc.GetString("admin-smite-turned-ash-other", ("name", target)), target, PopupType.LargeCaution);
+        got_smitted = true;
+        return got_smitted;
+    }
+
+    private bool KillTooFast(EntityUid target)
+    {
+        var movementSpeed = EnsureComp<MovementSpeedModifierComponent>(target);
+        _movementSpeedModifierSystem?.ChangeBaseSpeed(target, 400, 8000, 40, movementSpeed);
+
+        _popupSystem.PopupEntity(Loc.GetString("admin-smite-super-speed-prompt"), target,
+            target, PopupType.LargeCaution);
+        return true;
+    }
+    #endregion
+    #region Removed
+
+    // private bool HarshWeightlessness(EntityUid target) // Doesn't work makes them jitter a bunch not fun
+    // {
+    //     bool got_smitted;
+    //     var grav = EnsureComp<MovementIgnoreGravityComponent>(target);
+    //     grav.Weightless = true;
+
+    //     Dirty(target, grav);
+    //     got_smitted = true;
+    //     return got_smitted;
+    // }
+
+
+
+    // private bool BitterCatEars(EntityUid target, bool got_smitted) // Some people might like this
+    // {
+    //     if (TryComp<InventoryComponent>(target, out var inventory))
+    //     {
+    //         var ears = Spawn("ClothingHeadHatCatEars", Transform(target).Coordinates);
+    //         EnsureComp<UnremoveableComponent>(ears);
+    //         _inventorySystem.TryUnequip(target, "head", true, true, false, inventory);
+    //         _inventorySystem.TryEquip(target, ears, "head", true, true, false, inventory);
+    //         got_smitted = true;
+    //     }
+
+    //     return got_smitted;
+    // }
+    #endregion
 }
