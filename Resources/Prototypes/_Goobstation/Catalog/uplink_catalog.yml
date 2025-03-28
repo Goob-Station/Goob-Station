@@ -655,6 +655,7 @@
     Telecrystal: 400
   categories:
   - UplinkAllies
+  - UplinkAlliesContravend
 
 - type: listing
   id: UplinkMauler
