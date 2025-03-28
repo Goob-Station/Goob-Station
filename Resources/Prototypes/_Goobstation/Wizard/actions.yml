@@ -962,3 +962,61 @@
   - type: Magic
     requiresSpeech: true
     school: Conjuration
+
+- type: entity
+  id: ActionTileToggle
+  name: Toggle tile movement
+  description: Toggle tile movement for the target.
+  components:
+  - type: EntityTargetAction
+    raiseOnUser: true
+    checkCanInteract: false
+    checkCanAccess: false
+    useDelay: 10
+    itemIconStyle: BigAction
+    whitelist:
+      requireAll: true
+      components:
+      - MobState
+      - Body
+      - MindContainer
+    range: 40
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: tile
+    event: !type:TileToggleSpellEvent
+      speech: action-speech-spell-tile-toggle
+      sound:
+        path: /Audio/_Goobstation/Wizard/phasein.ogg
+  - type: Magic
+    requiresSpeech: true
+    school: Conjuration
+
+- type: entity
+  id: ActionCurseOfByond
+  name: Curse of Byond
+  description: Curse the target, causing them to be unable to move properly.
+  components:
+  - type: EntityTargetAction
+    raiseOnUser: true
+    checkCanAccess: false
+    checkCanInteract: false
+    useDelay: 30
+    range: 40
+    whitelist:
+      requireAll: true
+      components:
+      - MobState
+      - Body
+      - MindContainer
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: curseofbyond
+    event: !type:PredictionToggleSpellEvent
+      speech: action-speech-spell-curse-of-byond
+      sound:
+        path: /Audio/_Goobstation/Wizard/phasein.ogg
+  - type: Magic
+    requiresSpeech: true
+    school: Conjuration

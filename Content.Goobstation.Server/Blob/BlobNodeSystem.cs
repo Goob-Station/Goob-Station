@@ -2,7 +2,7 @@ using System.Linq;
 using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
-using Content.Shared._Goobstation.Blob.Components;
+using Content.Goobstation.Shared.Blob.Components;
 using Content.Shared.Destructible;
 using Content.Shared.Mobs.Systems;
 using Robust.Server.GameObjects;
