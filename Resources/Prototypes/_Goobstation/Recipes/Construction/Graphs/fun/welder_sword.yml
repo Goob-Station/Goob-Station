@@ -76,28 +76,3 @@
   - node: welderSwordExperimental
     entity: EnergySwordWelderExperimental
 
-- type: constructionGraph
-  id: WelderSwordMini
-  start: start
-  graph:
-  - node: start
-    edges:
-    - to: welderSwordMini
-      steps:
-      - tag: WelderMini
-        name: emergency welding tool
-        icon:
-          sprite: Objects/Tools/welder_mini.rsi
-          state: icon
-        doAfter: 2
-      - component: GasTank
-        name: gas tank
-        icon:
-          sprite: Objects/Tanks/oxygen.rsi
-          state: icon
-        doAfter: 2
-      - material: Cable
-        amount: 5
-        doAfter: 2
-  - node: welderSwordMini
-    entity: EnergySwordWelderMini
