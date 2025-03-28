@@ -16,7 +16,6 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
 using System.Numerics;
-using Content.Server.Flash;
 using Content.Server.Flash.Components;
 using Content.Shared.Inventory;
 
