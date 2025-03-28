@@ -217,3 +217,49 @@ funny-engi4-7 = certify that the station has [bold]more air inside than outside.
 funny-engi4-8 = declare that [bold]no engineers are in deep space "by accident".[/bold]
 funny-engi4-9 = admit that [bold]cutting random wires is a terrible troubleshooting method.[/bold]
 funny-engi4-10 = solemnly swear that [bold]at least one containment field is active.[/bold]
+
+# SCIENCE
+# funny verbs SCIENCE 1 (Corporate has been closely monitoring the Research Department, and the findings are unsettling.)
+funny-sci1-1 = It seems that every scientific breakthough is followed by at least [bold]one[/bold] catastrophic incident, including
+funny-sci1-2 = It seems that R&D is pushing the boundaries of what can legally be called "progress", recent events include
+funny-sci1-3 = Upon review, it has been discovered, that anomalies are being stored inside [bold]living people[/bold], and recent events include
+
+# funny verbs SCIENCE 2
+funny-sci2-1 = a scientist [bold]accidentally teleporting themselves into the singularity.[/bold]
+funny-sci2-2 = an anomaly reaction that turned jani into a puddle.
+funny-sci2-3 = a robotics experiment that resulted in a [bold]cyborg, demanding working rights.[/bold]
+funny-sci2-4 = the AI having an existential crisis because [bold]someone uploaded 1984 into their database.[/bold]
+funny-sci2-5 = clown being teleported into the artifact chamber [bold]while it was on fire.[/bold]
+funny-sci2-6 = a harmless testing chamber that somehow [bold]breached three different space-time laws.[/bold]
+funny-sci2-7 = the accidental discovery of a chemical that melts clothing instead of skin.
+funny-sci2-8 = a prototype weapon that lobotomizes the person [bold]that is shooting the gun, somehow.[/bold]
+funny-sci2-9 = a research grant mysteriously labeled as "do not ask, just approve".
+funny-sci2-10 = some scientist helping bingles in their conquest of the station, instead of researching them.
+
+# funny verbs SCIENCE 3 (due to everything above, we want you to ensure)
+funny-sci3-1 = that all research is conducted in a way, that does [bold]not[/bold]endanger reality itself.
+funny-sci3-2 = that no new invention gains sentience without corporate approval.
+funny-sci3-3 = that there is no living abominations roaming the station that science cant explain.
+funny-sci3-4 = that any teleportation experiments do not result in "missing persons" reports.
+funny-sci3-5 = that no single scientist is responsible for more than three major explosions per shift.
+funny-sci3-6 = that there is no artifact that could destroy the station.
+funny-sci3-7 = that any plasma-based research does not lead to station-wide fires.
+funny-sci3-8 = that the [bold]Research Director[/bold] is atleast [italic]aware[/bold] of what is happening in their own department.
+funny-sci3-9 = that no experiment should have a "non-zero" chance of planetary destruction.
+funny-sci3-10 = that any discovery that warps time must be reported [italic]before[/italic] it is used to extend the duration of the shift.
+funny-sci3-11 = that no scientist should replace [italic]both[/italic]of their arms with cybernetic attachments [bold]at once.[/bold]
+funny-sci3-12 = that no project exists [italic]solely[/italic] because someone lost a bet.
+funny-sci3-13 = that no research team has a suspiciously high body count.
+funny-sci3-14 = that all robotics projects actually follow Asimov's Laws. (or at least pretend to.)
+funny-sci3-15 = that no machine actively fights against being turned off.
+funny-sci3-16 = that the lolipops being disposed from the mediborg are not poison.
+
+# funny verbs SCIENCE 4 (stamps below confirm)
+funny-sci4-1 = that you will not sue us.
+funny-sci4-2 = that you will not resign.
+funny-sci4-3 = that there is nothing to worry about.
+funny-sci4-4 = that you are granting permission to examine your body when you are dead.
+funny-sci4-5 = that the AI has not malfunctioned.
+funny-sci4-6 = that bong bing bung being bing boongl
+funny-sci4-7 = that sci is not doing arms race with sec.
+funny-sci5-8 = that all discoveries are less likely to cause panic than excitement.

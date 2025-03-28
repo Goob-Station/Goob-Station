@@ -47,6 +47,16 @@
     text3: engineering_text3_dataset
     text4: engineering_text4_dataset
 
+- type: storyTemplate
+  id: ScienceDocumentTemplate
+  locId: science-document-text
+  variables:
+    start: placeholder
+    text1: science_text1_dataset
+    text2: science_text2_dataset
+    text3: science_text3_dataset
+    text4: science_text4_dataset
+
 - type: localizedDataset
   id: department_dataset
   values:
@@ -81,6 +91,12 @@
   id: engineering_starting_dataset
   values:
     prefix: engineering-starting-text
+    count: 1
+
+- type: localizedDataset
+  id: science_starting_dataset
+  values:
+    prefix: science-starting-text
     count: 1
 
 - type: localizedDataset
@@ -197,3 +213,27 @@
   values:
     prefix: funny-engi4-
     count: 10
+
+- type: localizedDataset
+  id: science_text1_dataset
+  values: 
+    prefix: funny-sci1-
+    count: 3
+
+- type: localizedDataset
+  id: science_text2_dataset
+  values:
+    prefix: funny-sci2-
+    count: 10
+
+- type: localizedDataset
+  id: science_text3_dataset
+  values:
+    prefix: funny-sci3-
+    count: 16
+
+- type: localizedDataset
+  id: science_text4_dataset
+  values:
+    prefix: funny-sci4-
+    values: 8
