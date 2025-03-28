@@ -354,9 +354,6 @@
   id: WelderIndustrial
 
 - type: Tag
-  id: WelderMini
-  
-- type: Tag
   id: WinterCoat
 
 - type: Tag
