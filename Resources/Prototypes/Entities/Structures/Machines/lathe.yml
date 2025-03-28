@@ -357,7 +357,7 @@
     - Cybernetics
     - PowerCells
     - MechBoards
-    - type: EmagLatheRecipes
+  - type: EmagLatheRecipes
     emagStaticPacks:
     - MechWeaponsStatic
     emagDynamicPacks:
@@ -371,7 +371,6 @@
   - type: GuideHelp
     guides:
     - Robotics
-
 
 - type: entity
   id: Biofabricator
