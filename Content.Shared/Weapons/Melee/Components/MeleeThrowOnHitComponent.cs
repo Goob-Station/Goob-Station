@@ -1,4 +1,4 @@
-using Content.Shared._Goobstation.Boomerang;
+// using Content.Shared._Goobstation.Boomerang; NO!!
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Weapons.Melee.Components;
