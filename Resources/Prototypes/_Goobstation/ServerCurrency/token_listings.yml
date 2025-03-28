@@ -11,7 +11,7 @@
   name: gs-balanceui-shop-buy-token-midtier-antag
   label: gs-balanceui-shop-token-midtier-antag
   description: gs-balanceui-shop-buy-token-midtier-antag-desc
-  price: 1000
+  price: 500
   adminNote: gs-balanceui-remark-token-midtier-antag
 
 - type: tokenListing
@@ -19,7 +19,7 @@
   name: gs-balanceui-shop-buy-token-lowtier-antag
   label: gs-balanceui-shop-token-lowtier-antag
   description: gs-balanceui-shop-buy-token-lowtier-antag-desc
-  price: 500
+  price: 250
   adminNote: gs-balanceui-remark-token-lowtier-antag
 
 - type: tokenListing
