@@ -7,13 +7,38 @@
   - type: Unremoveable
   - type: Item
   - type: MansusGrasp
+    blacklist:
+      components:
+      - Puddle # Ruins rust path tile rusting and is annoying in general.
+      - HereticRitualRune # This is handled by HereticRitualSystem, blacklisting rune makes it so grasp doesn't disappear when interacting with it.
   - type: Sprite
     sprite: _Goobstation/Heretic/mansus_grasp.rsi
     state: icon
   - type: Appearance
   - type: UseDelay
+    delays: # For rust path
+      rust:
+        length: 3
   - type: PointLight
     enabled: true
     radius: 2
     energy: 1
     color: "#329a00"
+  - type: SurgeryTool # For organ removal
+    startSound:
+      path: /Audio/_Goobstation/Heretic/crack2.ogg
+    endSound:
+      path: /Audio/Items/welder.ogg
+  - type: Hemostat
+    speed: 1.5
+  - type: Retractor
+    speed: 1.5
+  - type: Tweezers
+    speed: 1.5
+
+- type: entity
+  id: TouchSpellMansusRust
+  parent: TouchSpellMansus
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RustGrasp

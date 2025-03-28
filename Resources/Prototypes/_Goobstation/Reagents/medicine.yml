@@ -1229,6 +1229,9 @@
         amount: 5
       - !type:ModifyBleedAmount
         amount: -1
+      - !type:AdjustReagent
+        reagent: Sarin
+        amount: -3
 
 # Niche/crazy/experimental meds
 
