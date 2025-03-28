@@ -1,12 +1,13 @@
 using Content.Server.Heretic.Components;
 using Content.Server.Popups;
+using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 
 namespace Content.Server.Heretic.EntitySystems;
 
-public sealed partial class EldritchInfluenceSystem : EntitySystem
+public sealed class EldritchInfluenceSystem : EntitySystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doafter = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -25,15 +26,11 @@ public sealed partial class EldritchInfluenceSystem : EntitySystem
         if (influence.Comp.Spent)
             return false;
 
-        var ev = new CheckMagicItemEvent();
-        RaiseLocalEvent(user, ev);
-        if (used != null) RaiseLocalEvent((EntityUid) used, ev);
+        var (time, hidden) = TryComp<EldritchInfluenceDrainerComponent>(used, out var drainer)
+            ? (drainer.Time, drainer.Hidden)
+            : (10f, true);
 
-        var doAfter = new EldritchInfluenceDoAfterEvent()
-        {
-            MagicItemActive = ev.Handled,
-        };
-        var time = doAfter.MagicItemActive ? 5f : 10f;
+        var doAfter = new EldritchInfluenceDoAfterEvent();
         var dargs = new DoAfterArgs(EntityManager, user, time, doAfter, influence, influence, used)
         {
             NeedHand = true,
@@ -42,7 +39,7 @@ public sealed partial class EldritchInfluenceSystem : EntitySystem
             BreakOnMove = true,
             BreakOnWeightlessMove = false,
             MultiplyDelay = false,
-            Hidden = doAfter.MagicItemActive ? false : true,
+            Hidden = hidden,
         };
         _popup.PopupEntity(Loc.GetString("heretic-influence-start"), influence, user);
         return _doafter.TryStartDoAfter(dargs);
@@ -71,9 +68,13 @@ public sealed partial class EldritchInfluenceSystem : EntitySystem
         || !TryComp<HereticComponent>(args.User, out var heretic))
             return;
 
-        _heretic.UpdateKnowledge(args.User, heretic, 1);
+        var knowledge = TryComp(args.Used, out EldritchInfluenceDrainerComponent? drainer)
+            ? drainer.KnowledgePerInfluence
+            : 1f;
 
-        Spawn("EldritchInfluenceIntermediate", Transform((EntityUid) args.Target).Coordinates);
+        _heretic.UpdateKnowledge(args.User, heretic, knowledge);
+
+        Spawn("EldritchInfluenceIntermediate", Transform(args.Target.Value).Coordinates);
         QueueDel(args.Target);
     }
 }

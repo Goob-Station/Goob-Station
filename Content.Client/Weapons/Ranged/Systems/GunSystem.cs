@@ -3,6 +3,7 @@ using Content.Client.Animations;
 using Content.Client.Gameplay;
 using Content.Client.Items;
 using Content.Client.Weapons.Ranged.Components;
+using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Camera;
 using Content.Shared.CombatMode;
 using Content.Shared.Mech.Components; // Goobstation
@@ -176,6 +177,10 @@ public sealed partial class GunSystem : SharedGunSystem
         {
             return;
         }
+
+        if (TryComp<EntropicPlumeAffectedComponent>(entity, out var affected) &&
+            affected.NextAttack + TimeSpan.FromSeconds(0.1f) > Timing.CurTime) // Goobstation
+            return;
 
         var useKey = gun.UseKey ? EngineKeyFunctions.Use : EngineKeyFunctions.UseSecondary;
 

@@ -78,3 +78,4 @@
   - type: RadiationBlocker
     resistance: 1
   - type: BlockWeather
+  - type: RustedWall # For rust heretic. I'm too lazy to make this wall rustable so it counts as already rusted.
