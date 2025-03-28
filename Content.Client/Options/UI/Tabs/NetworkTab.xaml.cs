@@ -35,6 +35,13 @@ namespace Content.Client.Options.UI.Tabs
             Reset();
         }
 
+        // Goobstation Change: Reload values when the tab is opened, mostly for CurseOfByond
+        protected override void EnteredTree()
+        {
+            base.EnteredTree();
+            Reset();
+        }
+
         protected override void Dispose(bool disposing)
         {
             ApplyButton.OnPressed -= OnApplyButtonPressed;

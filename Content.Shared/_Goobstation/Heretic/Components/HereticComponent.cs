@@ -1,6 +1,11 @@
+using Content.Shared.Dataset;
 using Content.Shared.Heretic.Prototypes;
+using Content.Shared.Preferences;
+using Content.Shared.Roles;
+using Content.Shared.Tag;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Heretic;
 
@@ -26,7 +31,7 @@ public sealed partial class HereticComponent : Component
     /// <summary>
     ///     Contains the list of targets that are eligible for sacrifice.
     /// </summary>
-    [DataField, AutoNetworkedField] public List<NetEntity?> SacrificeTargets = new();
+    [DataField, AutoNetworkedField] public List<SacrificeTargetData> SacrificeTargets = new();
 
     /// <summary>
     ///     How much targets can a heretic have?
@@ -47,6 +52,15 @@ public sealed partial class HereticComponent : Component
 
     [DataField, AutoNetworkedField] public bool Ascended = false;
 
+    [DataField]
+    public ProtoId<DatasetPrototype> KnowledgeDataset = "EligibleTags";
+
+    /// <summary>
+    ///     Required tags for ritual of knowledge
+    /// </summary>
+    [DataField(serverOnly: true), NonSerialized]
+    public HashSet<ProtoId<TagPrototype>> KnowledgeRequiredTags = new();
+
     /// <summary>
     ///     Used to prevent double casting mansus grasp.
     /// </summary>
@@ -59,4 +73,17 @@ public sealed partial class HereticComponent : Component
     [ViewVariables(VVAccess.ReadWrite)] public bool CanCastSpells = false;
 
     [ViewVariables(VVAccess.ReadWrite)] public bool CanShootGuns = true;
+}
+
+[DataDefinition, Serializable, NetSerializable]
+public sealed partial class SacrificeTargetData
+{
+    [DataField]
+    public NetEntity Entity;
+
+    [DataField]
+    public HumanoidCharacterProfile Profile;
+
+    [DataField]
+    public ProtoId<JobPrototype> Job;
 }

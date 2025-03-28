@@ -1,1 +1,1 @@
-species-name-monkey = Monkey Pony
+species-name-monkey = Monkey

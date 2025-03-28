@@ -1,7 +1,10 @@
 verb-system-null-server-response = Entity not in view. You should not see this.
+
+
 # if verbs have a range of targets (e.g., multiple ejectables) you can
 # usually just use Entity.Name. But it is a bit odd when targeting yourself
 verb-self-target-pronoun = Yourself
+
 
 # verb categories & common verbs. These appear across multiple systems, so they may as well go here.
 
@@ -25,6 +28,7 @@ verb-categories-lever = Lever
 verb-categories-select-type = Select Type
 verb-categories-fax = Set Destination
 verb-categories-power-level = Power Level
+
 verb-common-toggle-light = Toggle light
 verb-common-close = Close
 verb-common-open = Open

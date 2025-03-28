@@ -1,5 +1,5 @@
-flavor-profile = Tastes { $flavor }.
-flavor-profile-multiple = Tastes { $flavors } and { $lastFlavor }.
+flavor-profile = Tastes {$flavor}.
+flavor-profile-multiple = Tastes {$flavors} and {$lastFlavor}.
 flavor-profile-unknown = Tastes indescribable.
 
 # Base flavors. Use these when you can't think of anything.
@@ -65,22 +65,19 @@ flavor-complex-ketchunaise = like tomatoes and mayonnaise
 flavor-complex-mayonnaise = like mayonnaise
 flavor-complex-mustard = like mustard
 
+
 # Food-specific flavors.
 
-
 ## Food chemicals. In case you get something that has this inside.
-
 flavor-complex-nutriment = like nutrition
 flavor-complex-vitamin = like vitamins
 flavor-complex-protein = like protein
 
 ## Generic food taste. This should be replaced with an actual flavor profile,
 ## if you have food that looks like this.
-
 flavor-complex-food = like food
 
 ## Basic foodstuffs (ingredients, generic flavors)
-
 flavor-complex-bun = like bun
 flavor-complex-bread = like bread
 flavor-complex-batter = like batter
@@ -129,9 +126,7 @@ flavor-complex-nettles = like nettles
 flavor-complex-jungle = like jungle
 flavor-complex-vegetables = like vegetables
 flavor-complex-cherry = like cherries
-
 # use it when there multiple types of veggies
-
 
 ## Complex foodstuffs (cooked foods, joke flavors, etc)
 
@@ -156,7 +151,7 @@ flavor-complex-bad-joke = like a bad joke
 flavor-complex-memory-leek = like a fork bomb
 flavor-complex-gunpowder = like gunpowder
 flavor-complex-validhunting = like validhunting
-flavor-complex-people = like ponies
+flavor-complex-people = like people
 flavor-complex-cat = like cat
 flavor-complex-homerun = like a home run
 flavor-complex-grass = like grass
@@ -188,16 +183,13 @@ flavor-complex-compressed-meat = like compressed meat
 
 # Drink-specific flavors.
 
-
 ## Generic alcohol/soda taste. This should be replaced with an actual flavor profile.
-
 flavor-complex-alcohol = like alcohol
 flavor-complex-soda = like soda
 flavor-complex-juice = like juice
 flavor-complex-rocksandstones = like rocks and stones
 
 ## Basic drinks
-
 flavor-complex-water = like water
 flavor-complex-beer = like piss
 flavor-complex-cognac = like dry spicy alcohol
@@ -235,7 +227,6 @@ flavor-complex-mopwata = like stagnant, dirty water
 flavor-complex-gin = like fermented grain with juniper berries
 
 ## Cocktails
-
 flavor-complex-arnold-palmer = like a hole-in-one
 flavor-complex-blue-hawaiian = like the tropics
 flavor-complex-cosmopolitan = sweet and tangy
@@ -289,7 +280,7 @@ flavor-complex-brave-bull = like being ran over by a truck
 flavor-complex-demons-blood = like the seventh circle of Hell
 flavor-complex-devils-kiss = like cannibalism
 flavor-complex-driest-martini = like a drunk mimic
-flavor-complex-erika-surprise = like the bar pony made a mistake
+flavor-complex-erika-surprise = like the bartender made a mistake
 flavor-complex-gin-fizz = refreshing and lemony
 flavor-complex-gildlager = like the Tzar's gold
 flavor-complex-grog = like a sea shanty
@@ -312,15 +303,13 @@ flavor-complex-vodka-tonic = refreshingly bitter
 flavor-complex-coconut-rum = like nutty fermented sugar
 
 ### This is exactly what pilk tastes like. I'm not even joking. I might've been a little drunk though
-
 flavor-complex-pilk = like sweet milk
 
 # Medicine/chemical-specific flavors.
 
-
 ## Generic flavors.
-
 flavor-complex-medicine = like medicine
+
 flavor-complex-carpet = like a handful of fur
 flavor-complex-bee = unbeelievable
 flavor-complex-sax = like jazz

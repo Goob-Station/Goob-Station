@@ -9,7 +9,7 @@ artifact-effect-hint-creation = Matter creation
 artifact-effect-hint-consumption = Energy consumption
 artifact-effect-hint-release = Energy release
 artifact-effect-hint-biochemical = Biochemical disruption
-artifact-effect-hint-destruction = Ponyville-wide destruction
+artifact-effect-hint-destruction = Station-wide destruction
 artifact-effect-hint-gun = Small entity accelerator
 artifact-effect-hint-multitool = Utility conglomerate
 artifact-effect-hint-storage = Internal chamber
@@ -41,3 +41,4 @@ artifact-trigger-hint-plasma = Gaseous plasma
 artifact-trigger-hint-land = Active deceleration
 artifact-trigger-hint-examine = Examination
 artifact-trigger-hint-medical = Therapeutic chemicals
+

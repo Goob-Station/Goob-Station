@@ -13,6 +13,7 @@ badfeeling-artifact-12 = The light seems to flicker.
 badfeeling-artifact-13 = The shadows seem to lengthen.
 badfeeling-artifact-14 = The walls are getting closer.
 badfeeling-artifact-15 = Something is wrong.
+
 badfeeling-artifact-drastic-1 = Someone's trying to kill you!
 badfeeling-artifact-drastic-2 = There's something out there!
 badfeeling-artifact-drastic-3 = What's happening to you?

@@ -5,4 +5,4 @@ entity-storage-component-cannot-open-no-space = There's no room to open it!
 
 ## OpenToggleVerb
 
-open-toggle-verb-welded-shut-message = { $verb } (welded shut)
+open-toggle-verb-welded-shut-message = {$verb} (welded shut)

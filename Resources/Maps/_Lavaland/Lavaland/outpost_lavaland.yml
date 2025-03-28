@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/10/2025 11:35:22
-  entityCount: 2079
+  time: 03/17/2025 00:03:11
+  entityCount: 2077
 maps: []
 grids:
 - 2
@@ -537,7 +537,8 @@ entities:
           6,4:
             0: 62399
           7,0:
-            0: 57297
+            0: 57233
+            2: 64
           7,1:
             0: 56669
           7,2:
@@ -635,6 +636,25 @@ entities:
           moles:
           - 21.824879
           - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 21.6852
+          - 81.57766
           - 0
           - 0
           - 0
@@ -4152,25 +4172,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 30.5,-10.5
       parent: 2
-- proto: ChairOfficeDark
-  entities:
-  - uid: 524
-    components:
-    - type: Transform
-      pos: 8.5,0.5
-      parent: 2
-  - uid: 1173
-    components:
-    - type: Transform
-      pos: 8.5,8.5
-      parent: 2
-- proto: ChairOfficeLight
-  entities:
-  - uid: 300
-    components:
-    - type: Transform
-      pos: 7.5,0.5
-      parent: 2
 - proto: CheapRollerBedSpawnFolded
   entities:
   - uid: 1180
@@ -4401,8 +4402,8 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.7459903
-        - 6.568249
+        - 1.8856695
+        - 7.0937095
         - 0
         - 0
         - 0
@@ -4423,6 +4424,7 @@ entities:
           showEnts: False
           occludes: True
           ents:
+          - 181
           - 1260
         paper_label: !type:ContainerSlot
           showEnts: False
@@ -4442,6 +4444,17 @@ entities:
     - type: Transform
       pos: 11.5,16.5
       parent: 2
+- proto: Defibrillator
+  entities:
+  - uid: 181
+    components:
+    - type: Transform
+      parent: 1259
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: DisposalBend
   entities:
   - uid: 1275

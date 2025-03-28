@@ -1,6 +1,5 @@
 ### Voting system related console commands
 
-
 ## 'createvote' command
 
 cmd-createvote-desc = Creates a vote
@@ -13,8 +12,8 @@ cmd-createvote-arg-vote-type = <vote type>
 
 cmd-customvote-desc = Creates a custom vote
 cmd-customvote-help = Usage: customvote <title> <option1> <option2> [option3...]
-cmd-customvote-on-finished-tie = Tie between { $ties }!
-cmd-customvote-on-finished-win = { $winner } wins!
+cmd-customvote-on-finished-tie = Tie between {$ties}!
+cmd-customvote-on-finished-win = {$winner} wins!
 cmd-customvote-arg-title = <title>
 cmd-customvote-arg-option-n = <option{ $n }>
 
@@ -37,9 +36,8 @@ cmd-listvotes-help = Usage: listvotes
 ## 'cancelvote' command
 
 cmd-cancelvote-desc = Cancels an active vote
-cmd-cancelvote-help =
-    Usage: cancelvote <id>
-    You can get the ID from the listvotes command.
+cmd-cancelvote-help = Usage: cancelvote <id>
+                      You can get the ID from the listvotes command.
 cmd-cancelvote-error-invalid-vote-id = Invalid vote ID
 cmd-cancelvote-error-missing-vote-id = Missing ID
 cmd-cancelvote-arg-id = <id>

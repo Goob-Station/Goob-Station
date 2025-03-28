@@ -1,4 +1,4 @@
 delete-singularities = Delete Singularities
-open-station-events = Ponyville Events
+open-station-events = Station Events
 load-game-prototype = Load Prototype
 load-blueprints = Load Blueprints

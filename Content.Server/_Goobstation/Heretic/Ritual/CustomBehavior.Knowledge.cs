@@ -12,8 +12,6 @@ namespace Content.Server.Heretic.Ritual;
 
 public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
 {
-    // made static so that it doesn't regenerate itself each time
-    private static HashSet<ProtoId<TagPrototype>> _requiredTags = new();
     private HashSet<ProtoId<TagPrototype>> _missingTags = new();
     private List<EntityUid> _toDelete = new();
 
@@ -23,9 +21,6 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
     private HereticSystem _heretic = default!;
     private TagSystem _tag = default!;
     private ContainerSystem _container = default!;
-
-    [ValidatePrototypeId<DatasetPrototype>]
-    public const string EligibleTagsDataset = "EligibleTags";
 
     // this is basically a ripoff from hereticritualsystem
     public override bool Execute(RitualData args, out string? outstr)
@@ -39,17 +34,19 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
 
         outstr = null;
 
-        // generate new set of tags
-        var dataset = _prot.Index<DatasetPrototype>(EligibleTagsDataset);
-        if (_requiredTags.Count == 0)
-            for (int i = 0; i < 4; i++)
-                _requiredTags.Add(_rand.Pick(dataset.Values));
+        if (!args.EntityManager.TryGetComponent(args.Performer, out HereticComponent? heretic))
+            return false;
 
-        var lookup = _lookup.GetEntitiesInRange(args.Platform, .75f);
+        var requiredTags = _heretic.TryGetRequiredKnowledgeTags((args.Performer, heretic));
+
+        if (requiredTags == null)
+            return false;
+
+        var lookup = _lookup.GetEntitiesInRange(args.Platform, 1.5f);
 
         _toDelete.Clear();
         _missingTags.Clear();
-        _missingTags.UnionWith(_requiredTags);
+        _missingTags.UnionWith(requiredTags);
         foreach (var look in lookup)
         {
             if (!args.EntityManager.TryGetComponent<TagComponent>(look, out var tags))
@@ -87,10 +84,10 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
             args.EntityManager.QueueDeleteEntity(ent);
         _toDelete.Clear();
 
-        if (args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
-            _heretic.UpdateKnowledge(args.Performer, hereticComp, 4);
+        if (!args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
+            return;
 
-        // reset tags
-        _requiredTags.Clear();
+        _heretic.UpdateKnowledge(args.Performer, hereticComp, 4);
+        _heretic.GenerateRequiredKnowledgeTags((args.Performer, hereticComp));
     }
 }

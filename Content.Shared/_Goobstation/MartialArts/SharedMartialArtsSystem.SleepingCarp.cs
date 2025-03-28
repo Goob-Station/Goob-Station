@@ -4,6 +4,7 @@ using Content.Shared._Goobstation.MartialArts.Events;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
@@ -29,6 +30,14 @@ public partial class SharedMartialArtsSystem
     {
         if (!_netManager.IsServer)
             return;
+
+        if (ent.Comp.MaximumUses == ent.Comp.CurrentUses)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("cqc-fail-used", ("manual", Identity.Entity(ent, EntityManager))),
+            args.User,
+            args.User);
+            return;
+        }
 
         var studentComp = EnsureComp<SleepingCarpStudentComponent>(args.User);
 
@@ -65,8 +74,12 @@ public partial class SharedMartialArtsSystem
                     ent,
                     args.User,
                     PopupType.LargeCaution);
-                return;
+                ent.Comp.CurrentUses++;
+                break;
         }
+
+        if (ent.Comp.MaximumUses == ent.Comp.CurrentUses)
+            return;
     }
 
     private void CarpScrollDelay(Entity<SleepingCarpStudentComponent> ent)

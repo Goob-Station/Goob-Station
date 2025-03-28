@@ -279,6 +279,21 @@ public sealed partial class GunComponent : Component
     /// </summary>
     [DataField]
     public Angle MuzzleFlashRotationOffset;
+
+    /// <summary>
+    /// Goobstation
+    /// Modified fire rate of the weapon in burst mode
+    /// </summary>
+
+    [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
+    public float BurstFireRateModified;
+
+    /// <summary>
+    /// Goobstation
+    /// Modified burst cooldown of the weapon
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float BurstCooldownModified;
 }
 
 [Flags]

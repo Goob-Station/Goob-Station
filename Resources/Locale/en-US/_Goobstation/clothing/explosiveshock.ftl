@@ -1,1 +1,1 @@
-explosive-shock-sizzle = { THE($item) } sizzle!
+explosive-shock-sizzle = {THE($item)} sizzle!

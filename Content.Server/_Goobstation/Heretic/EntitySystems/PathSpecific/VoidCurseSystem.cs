@@ -44,7 +44,7 @@ public sealed partial class VoidCurseSystem : SharedVoidCurseSystem
         {
             // temperaturesystem is not idiotproof :(
             var t = temp.CurrentTemperature - (2f * ent.Comp.Stacks);
-            _temp.ForceChangeTemperature(ent, Math.Clamp(t, Atmospherics.T0C, float.PositiveInfinity), temp);
+            _temp.ForceChangeTemperature(ent, Math.Clamp(t, Atmospherics.TCMB, Atmospherics.Tmax), temp);
         }
 
         _statusEffect.TryAddStatusEffect<MutedComponent>(ent, "Muted", TimeSpan.FromSeconds(5), true);
