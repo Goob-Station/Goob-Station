@@ -1,6 +1,6 @@
 using System.Linq;
+using Content.Goobstation.Common.Changeling;
 using Content.Shared._Goobstation.Wizard.UserInterface;
-using Content.Shared.Changeling;
 using Content.Shared.Examine;
 using Content.Shared.Popups;
 using Content.Shared.Toggleable;

@@ -26,7 +26,7 @@ using InventoryComponent = Content.Shared.Inventory.InventoryComponent;
 
 namespace Content.Server.Flash
 {
-    internal sealed class FlashSystem : SharedFlashSystem
+    public sealed class FlashSystem : SharedFlashSystem
     {
         [Dependency] private readonly AppearanceSystem _appearance = default!;
         [Dependency] private readonly AudioSystem _audio = default!;
