@@ -342,7 +342,7 @@ public sealed partial class MechSystem : SharedMechSystem
                 var pick = weights.Pick(_random);
                 if (component.MalfunctionChances.TryGetValue(pick, out var malfunctionEvent))
                 {
-                    RaiseLocalEvent(uid, malfunctionEvent);
+                    RaiseLocalEvent(uid, (object) malfunctionEvent);
                 }
             }
         }
