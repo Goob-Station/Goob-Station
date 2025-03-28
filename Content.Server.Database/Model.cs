@@ -47,6 +47,9 @@ namespace Content.Server.Database
         public DbSet<BanTemplate> BanTemplate { get; set; } = null!;
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
 
+        // Goobstation
+        public DbSet<Achievement> Achievement { get; set; } = default!;
+
         // RMC14
         public DbSet<RMCDiscordAccount> RMCDiscordAccounts { get; set; } = default!;
         public DbSet<RMCLinkedAccount> RMCLinkedAccounts { get; set; } = default!;
@@ -382,6 +385,17 @@ namespace Content.Server.Database
                 .Property(p => p.Type)
                 .HasDefaultValue(HwidType.Legacy);
 
+            // Goobstation
+            modelBuilder.Entity<Achievement>()
+                .HasOne(a => a.Player)
+                .WithMany(p => p.Achievements)
+                .HasForeignKey(a => a.PlayerId)
+                .HasPrincipalKey(p => p.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Achievement>()
+                .HasIndex(a => a.AchievementId);
+
             // RMC14
             modelBuilder.Entity<RMCLinkedAccount>()
                 .HasOne(l => l.Player)
@@ -641,8 +655,6 @@ namespace Content.Server.Database
         public List<Round> Rounds { get; set; } = null!;
         public List<AdminLogPlayer> AdminLogs { get; set; } = null!;
 
-        public int ServerCurrency { get; set; } // Goobstation - Goob coin
-
         public DateTime? LastReadRules { get; set; }
 
         public List<AdminNote> AdminNotesReceived { get; set; } = null!;
@@ -662,6 +674,10 @@ namespace Content.Server.Database
         public List<ServerRoleBan> AdminServerRoleBansCreated { get; set; } = null!;
         public List<ServerRoleBan> AdminServerRoleBansLastEdited { get; set; } = null!;
         public List<RoleWhitelist> JobWhitelists { get; set; } = null!;
+
+        // Goobstation
+        public int ServerCurrency { get; set; }
+        public List<Achievement> Achievements { get; set; } = new();
 
         // RMC14
         public RMCLinkedAccount? LinkedAccount { get; set; }

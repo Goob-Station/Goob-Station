@@ -34,3 +34,7 @@ see_own_notes = true
 
 [lavaland] # Lavaland Change
 enabled = false
+
+[console]
+login_host_user = "GoobStation" # I deploy remotely so I need this, change the username and add it to your .gitignore if you care
+loginlocal = true
