@@ -6530,3 +6530,321 @@ Entries:
       message: Biocube Fabricators can be sped up using space lube.
   id: 757
   time: '2025-03-21T10:28:14.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Jaunter Implant now cost 30 TC, but has higher cooldown, no longer works
+        through walls and doesn't let one choose a secondary target.
+  id: 758
+  time: '2025-03-21T17:44:30.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Krav Maga gloves were replaced with Krav Maga implant in the uplink.
+  id: 759
+  time: '2025-03-22T06:02:41.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Syndicate assault cyborgs now have syndicate jaws of life.
+  id: 760
+  time: '2025-03-22T09:17:57.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Add
+      message: Added the Empty Light Replacer to the Service Lathe's Recipe List
+    - type: Tweak
+      message: >-
+        Cost of Light Replacer is now 1 Steel + 3 Glass instead of 1 Steel + 5
+        Glass
+  id: 761
+  time: '2025-03-22T16:08:44.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Tweak
+      message: Blob Carriers now have 10 minutes to prepare instead of 4.
+  id: 762
+  time: '2025-03-23T00:34:37.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Spesos can now burn and be eaten.
+  id: 763
+  time: '2025-03-23T00:41:28.0000000+00:00'
+- author: pheenty, Mocho
+  changes:
+    - type: Add
+      message: Salvage borgs can now be upgraded with advanced mining module.
+    - type: Tweak
+      message: Rebalanced proto-kinetic weapons.
+    - type: Fix
+      message: Fixed salvage borg not being able to shoot proto-kinetic shotgun.
+    - type: Fix
+      message: >-
+        Multiple kinetic projectiles hitting a rock at the same time won't yield
+        more ore.
+  id: 764
+  time: '2025-03-23T06:19:39.0000000+00:00'
+- author: gluesniffler
+  changes:
+    - type: Remove
+      message: >-
+        The syndicate has decided to pull the Syndicate Jaunter Implant from its
+        shelves after its only buyer was arrested. Their reported last words
+        were "I did not run modded clients on that syndicate outpost"
+  id: 765
+  time: '2025-03-23T23:40:43.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed many events not happening.
+  id: 766
+  time: '2025-03-24T01:30:27.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Maintenance drones now have an experimental RCD.
+    - type: Add
+      message: Maintenance drones now have their own collective mind channel on +d.
+    - type: Tweak
+      message: >-
+        The maintenance drone omnitool no longer has a cooldown between tool
+        changes.
+  id: 767
+  time: '2025-03-24T08:41:42.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Remove
+      message: >-
+        Codex cicatrix and heart removed from roundstart heretic gear. You still
+        can transmute codex, check guidebook for recipe.
+    - type: Add
+      message: >-
+        Codex cicatrix gives 2x knowledge from reality shifts again and also
+        scribes runes much faster.
+    - type: Tweak
+      message: >-
+        Some roundstart knowledge transmutation recipes changed, see guidebook
+        for details.
+    - type: Fix
+      message: >-
+        Ritual of knowledge is now unique for every heretic and resets on round
+        restart.
+    - type: Fix
+      message: >-
+        Improved living heart: now it shows special messages if target is in
+        cryo or on another map. Also fixed targets showing up as unknown if they
+        are too far away.
+    - type: Tweak
+      message: There are slightly less reality shifts.
+    - type: Add
+      message: Eldritch water for priest ritual.
+  id: 768
+  time: '2025-03-24T23:28:42.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Hammer recipe to lathes, good for bashing skulls in.
+  id: 769
+  time: '2025-03-25T05:07:21.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Monkies can no longer loot the syndicate armory unscathed.
+  id: 770
+  time: '2025-03-25T05:09:03.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added piepmind. Mice can now talk to each other using +p in chat.
+  id: 771
+  time: '2025-03-25T05:14:41.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Tweak
+      message: Lilies have Styptic Powder and Aloe has Silver Sulfadiazine
+  id: 772
+  time: '2025-03-25T05:16:00.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Defib added to lavaland outpost
+  id: 773
+  time: '2025-03-25T05:24:01.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Add
+      message: Added circuit for mail teleporter to QM's locker.
+  id: 774
+  time: '2025-03-25T05:32:35.0000000+00:00'
+- author: terminatorbo
+  changes:
+    - type: Add
+      message: Lone Operative now can buy sleeping carp scroll in his uplink
+  id: 775
+  time: '2025-03-25T05:33:08.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: New heretic Rust path.
+    - type: Add
+      message: 4 new heretic side knowledge.
+    - type: Add
+      message: You can now extract organs via surgery using blade + mansus grasp.
+    - type: Add
+      message: Animal and IPC organs are now valid for heretic rituals.
+  id: 776
+  time: '2025-03-25T11:22:06.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        PTK-800 and mech proto-kinetic launcher now deal more damage in low
+        pressure and less damage in a normal athosphere, and are upgradeable
+        with modkits.
+  id: 777
+  time: '2025-03-25T11:34:24.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: All maps now have plasma gas miners.
+  id: 778
+  time: '2025-03-25T12:50:34.0000000+00:00'
+- author: Weide
+  changes:
+    - type: Add
+      message: Ported the Pizza Bomb from Harmony
+    - type: Add
+      message: Pizza party in the uplink
+  id: 779
+  time: '2025-03-25T13:04:35.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Access-less doors now open ahead of time when approached.
+  id: 780
+  time: '2025-03-25T13:16:38.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Spears are no longer destructible.
+    - type: Tweak
+      message: >-
+        Spears can now contain up to 5u of chemicals, but inject 1u on melee and
+        2u on throw.
+  id: 781
+  time: '2025-03-25T13:17:50.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Add
+      message: Added loot for destroying the bingle pit
+  id: 782
+  time: '2025-03-25T13:18:36.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: Add Number lookup to NanoChat
+  id: 783
+  time: '2025-03-25T13:19:33.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: >-
+        Added sarin, a neurotoxin that deals caustic on skin contact and
+        paralyzes and poisons when breathed in, nukies can buy gas grenades of
+        them
+    - type: Tweak
+      message: Atropine now purges sarin
+  id: 784
+  time: '2025-03-25T13:20:36.0000000+00:00'
+- author: soup123
+  changes:
+    - type: Add
+      message: >-
+        Security now has access to three new security status signs to help
+        prevent confusion.
+  id: 785
+  time: '2025-03-25T13:22:51.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: The Torah, Quran, and Imam headwrap to Pietyvend,
+  id: 786
+  time: '2025-03-25T13:23:30.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: 'Max-size bingle pit now ignores gravity. '
+  id: 787
+  time: '2025-03-25T13:29:54.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Blobbernauts now properly make explosions for explosive blob and EMP for
+        EMP blob.
+  id: 788
+  time: '2025-03-25T13:59:11.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Lootbugs now come in crates of three for 2200 spesos instead of crates
+        of four for 3000.
+  id: 789
+  time: '2025-03-25T14:36:45.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Buff Full SMES Price by 3x
+  id: 790
+  time: '2025-03-25T14:37:49.0000000+00:00'
+- author: Mocho,
+  changes:
+    - type: Add
+      message: >-
+        April fools came early to Hierophant's Arena. Be sure to bring your
+        finest BYOND membership.
+    - type: Add
+      message: >-
+        You can now curse yourself with a tile movement trait. Whether or not it
+        gets 1984d is up to durk :trollface:
+    - type: Add
+      message: >-
+        Wizards now have obtained powerful curses that may affect your
+        mobility...
+    - type: Add
+      message: Tilenol is back. Show them who's the most robust by chugging 100u of it.
+    - type: Add
+      message: Mobs can also now spawn naturally at random in lavaland.
+    - type: Tweak
+      message: >-
+        Hierophant may or may not be more aggressive now. Also he deals more
+        damage :blunt:
+    - type: Tweak
+      message: Players get a 25% speed boost while on the Hierophant's arena now.
+    - type: Tweak
+      message: >-
+        Mass Scanner now displays grids in Lavaland. Temporary change until
+        Rouden finishes the GPS refactor :tm:
+    - type: Tweak
+      message: >-
+        Hierophant's club now deals more damage, and can teleport across maps or
+        grids without an issue.
+    - type: Tweak
+      message: >-
+        Hierophant's club now can toggle between free and tile movement for a
+        given target entity.
+    - type: Tweak
+      message: Hierophant's club can now be equipped to your back and suit storage.
+    - type: Tweak
+      message: >-
+        Alert icons for separate (OG) layout now start from the top right of
+        your screen instead of the middle right, just like in MRP. 
+    - type: Tweak
+      message: >-
+        Ore redemption/processing machines now display if you will obtain points
+        by dumping ore or not at that point in time.
+  id: 791
+  time: '2025-03-26T23:58:47.0000000+00:00'

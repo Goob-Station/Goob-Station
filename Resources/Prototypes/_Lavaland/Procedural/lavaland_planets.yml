@@ -19,6 +19,7 @@
   - AshfallHeavy
   markers:
   - RandomTendrilLavaland
+  - RandomMobLavaland
   - ChasmLavaland
   - OreIron
   - OreCoal
