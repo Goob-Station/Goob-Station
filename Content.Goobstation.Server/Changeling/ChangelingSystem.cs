@@ -241,7 +241,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         Dirty(uid, comp);
         _alerts.ShowAlert(uid, "ChangelingChemicals");
     }
-    private void UpdateBiomass(EntityUid uid, ChangelingComponent comp, float amount)
+    private void UpdateBiomass(EntityUid uid, ChangelingIdentityComponent comp, float amount)
     {
         float amt = amount;
         comp.Biomass += amt;
