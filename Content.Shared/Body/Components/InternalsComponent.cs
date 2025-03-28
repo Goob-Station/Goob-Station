@@ -1,5 +1,5 @@
 using Content.Shared.Alert;
-using Content.Shared.Disease; // Goobstation
+using Content.Goobstation.Shared.Disease;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 

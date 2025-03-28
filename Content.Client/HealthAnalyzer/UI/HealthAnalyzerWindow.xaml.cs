@@ -73,8 +73,8 @@ using Content.Shared.Atmos;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.Disease; // Goobstation - viro
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Shared.Disease;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.IdentityManagement;
