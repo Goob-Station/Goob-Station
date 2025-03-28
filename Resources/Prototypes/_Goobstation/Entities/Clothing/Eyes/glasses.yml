@@ -169,8 +169,8 @@
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, BaseSecurityCommandContraband]
   id: ClothingEyesGlassesSecurityAdvanced
-  name: advanced security glasses
-  description: Further upgraded sunglasses that provide flash immunity, a security HUD, and basic thermal vision.
+  name: advanced security goggles
+  description: A set of goggles that provide flash protection, a security HUD, and basic thermal vision.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Eyes/Glasses/hos-expi.rsi

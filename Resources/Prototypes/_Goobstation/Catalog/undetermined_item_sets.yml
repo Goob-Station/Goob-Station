@@ -115,14 +115,39 @@
   - WeaponHeadOfSecuritySniper
 
 - type: thiefBackpackSet
-  id: EquipmentSet
-  name: hos-box-category-equipment-name
-  description: hos-box-category-equipment-description
+  id: RifleSet
+  name: hos-box-category-rifle-name
+  description: hos-box-category-rifle-description
   sprite:
-    sprite: _Goobstation/Clothing/Head/Hats/hos-expi.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/smg.rsi # Todo: Change to rifle.
     state: icon
   content:
-  - ClothingHeadHatBeretHeadOfSecurityAdvanced
-  - ClothingEyesGlassesSecurityAdvanced
-  - ClothingOuterHardsuitHeadOfSecurityExperimental
+  - WeaponHeadOfSecurityRifle
+
+## Armor
+
+- type: thiefBackpackSet
+  id: StationSet
+  name: hos-box-category-station-name
+  description: hos-box-category-station-description
+  sprite:
+    sprite: _Goobstation/Clothing/OuterClothing/Armor/hos_experimental_jacket.rsi
+    state: icon
+  content:
   - ClothingOuterArmorHoSExperimental
+  - ClothingShoesBootsJackAdvanced
+  - ClothingEyesGlassesSecurityAdvanced
+  - ClothingHeadHatBeretHeadOfSecurityAdvanced
+  - ClothingOuterHardsuitSecurityRed # This replaces the other hardsuit, so I want it obtainable.
+
+- type: thiefBackpackSet
+  id: SpaceSet
+  name: hos-box-category-space-name
+  description: hos-box-category-space-description
+  sprite:
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/hos-expi.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitHeadOfSecurityExperimental
+  - ClothingShoesBootsJackAdvanced
+  - ClothingEyesGlassesSecurityAdvanced

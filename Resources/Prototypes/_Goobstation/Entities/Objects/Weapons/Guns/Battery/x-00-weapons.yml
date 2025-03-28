@@ -1,6 +1,45 @@
 # I don't want to clutter battery guns with these ones.
 
 - type: entity
+  name: X-8 "Station Sweeper"
+  parent: BaseWeaponBattery
+  id: WeaponHeadOfSecurityRifle
+  description: An elaborately designed rifle, firing shots of pure phoron. Low fire rate, high damage.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/smg.rsi # Todo: Change to rifle sprites.
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/smg.rsi # Todo: Change to rifle sprites.
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Battery
+    maxCharge: 800
+    startingCharge: 800
+  - type: Gun
+    minAngle: 1
+    maxAngle: 2
+    fireRate: 0.7
+    burstFireRate: 6
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    - Single
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+    defaultDirection: 1, 0
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 5
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletLaserHeavy
+    fireCost: 60
+  - type: StaticPrice
+    price: 2500
+
+- type: entity
   name: X-6 "Threadripper"
   parent: BaseWeaponBattery
   id: WeaponHeadOfSecuritySMG
@@ -36,7 +75,7 @@
     autoRecharge: true
     autoRechargeRate: 5
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletLaserHeavy
+    proto: BulletLaserMedium
     fireCost: 32
   - type: StaticPrice
     price: 2500

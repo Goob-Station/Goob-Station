@@ -173,6 +173,20 @@
     state: impact_blue
 
 - type: entity
+  name: medium laser bolt
+  id: BulletLaserMedium
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Heat: 8
+        Shock: 5
+        Structural: 20
+
+- type: entity
   name: heavy laser bolt
   id: BulletLaserHeavy
   parent: BulletLaser

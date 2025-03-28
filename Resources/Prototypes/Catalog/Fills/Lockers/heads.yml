@@ -357,7 +357,7 @@
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
     - id: ClothingBeltSheathHeadOfSecurityFilled # Goobstation - Security Revamp
-    - id: HeadOfSecurityUndetermined # Goobstation - Security Revamp
+    - id: HeadOfSecurityWeaponUndetermined # Goobstation - Security Revamp
     #- id: WeaponDisabler # Goobstation (Disablers in belts)
     - id: WantedListCartridge
     - id: DrinkHosFlask
@@ -368,7 +368,8 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskGasSwat
-    - id: ClothingOuterHardsuitSecurityRed
+    #- id: ClothingOuterHardsuitSecurityRed # Goobstation
+    - id: HeadOfSecurityArmorUndetermined # Goobstation
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
