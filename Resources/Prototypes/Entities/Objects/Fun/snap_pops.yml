@@ -33,6 +33,10 @@
     maxIntensity: 0.01
     intensitySlope: 1
     totalIntensity: 0.01
+  # Goobstation
+  - type: Tag
+    tags:
+    - SnapPop
 
 - type: entity
   parent: BaseStorageItem

@@ -50,9 +50,11 @@ When a node is destroyed, all bound special tiles are destroyed with the return 
 	<GuideEntityEmbed Entity="MobBlobPod" Caption="Blob Pod"/>
   </Box>
 
-Blob factories can produce Blob pods and Blobburnouts.
+Blob factories can produce Blob pods and Blobbernauts.
 - Blob pods have the ability to turn dead humanoids into zombie blobs, which will force them to fight on your side against the rest of the crew.
-- Blobburnouts have a lot of damage, which will come in handy for attacking.
+- Blobbernauts have a lot of damage, which will come in handy for attacking.
+
+You and your minions may use + or +e in chat (just like radio, but with + instead of :) to talk in the Blobbermind.
 
 ## Management
 
