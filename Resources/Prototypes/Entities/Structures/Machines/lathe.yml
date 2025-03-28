@@ -291,7 +291,7 @@
     - MechElectronicsGoob
   - type: EmagLatheRecipes
     emagDynamicPacks:
-    SecurityMechElectronicsGoob
+    - SecurityMechElectronicsGoob
     #- SecurityBoards - Goobstation -  Moved to Secfab
   - type: MaterialStorage
     whitelist:
