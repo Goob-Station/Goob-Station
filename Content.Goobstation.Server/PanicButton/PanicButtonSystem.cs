@@ -9,7 +9,7 @@ using Content.Shared.Timing;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Server._Goobstation.Security
+namespace Content.Goobstation.Server.PanicButton
 {
     public sealed partial class PanicButtonSystem : EntitySystem
     {

@@ -1,7 +1,7 @@
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Weapons.Ranged.ProjectileRequireWhitelist;
+namespace Content.Goobstation.Shared.Weapons.Ranged.ProjectileRequiresWhitelist;
 
 /// <summary>
 /// Allows a projectile to only hit entities on a whitelist.

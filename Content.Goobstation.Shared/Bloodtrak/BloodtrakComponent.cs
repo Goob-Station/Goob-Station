@@ -1,7 +1,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Goobstation.Pinpointer;
+namespace Content.Goobstation.Shared.Bloodtrak;
 
 /// <summary>
 /// Allows an item to track another entity based on DNA from a solution.

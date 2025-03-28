@@ -4,7 +4,7 @@ using Content.Shared.Throwing;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 
-namespace Content.Shared._Goobstation.Weapons.Ranged.ProjectileThrowOnHit;
+namespace Content.Goobstation.Shared.Weapons.Ranged.ProjectileThrowOnHit;
 
 /// <summary>
 /// This handles <see cref="ProjectileThrowOnHitComponent"/>

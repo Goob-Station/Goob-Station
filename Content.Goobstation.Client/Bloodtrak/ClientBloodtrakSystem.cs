@@ -1,9 +1,9 @@
-using Content.Shared._Goobstation.Pinpointer;
+using Content.Goobstation.Shared.Bloodtrak;
 using Content.Shared.Pinpointer;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 
-namespace Content.Client._Goobstation.Pinpointer;
+namespace Content.Goobstation.Client.Bloodtrak;
 
 public sealed class ClientBloodtrakSystem : SharedBloodtrakSystem
 {
@@ -18,7 +18,7 @@ public sealed class ClientBloodtrakSystem : SharedBloodtrakSystem
 
         // because eye can change it rotation anytime
         // we need to update this arrow in a update loop
-        var query = EntityQueryEnumerator<BloodtrakComponent, SpriteComponent>();
+        var query = EntityQueryEnumerator<Shared.Bloodtrak.BloodtrakComponent, SpriteComponent>();
         while (query.MoveNext(out var _, out var pinpointer, out var sprite))
         {
             if (!pinpointer.HasTarget)
@@ -28,9 +28,9 @@ public sealed class ClientBloodtrakSystem : SharedBloodtrakSystem
 
             switch (pinpointer.DistanceToTarget)
             {
-                case Shared._Goobstation.Pinpointer.Distance.Close:
-                case Shared._Goobstation.Pinpointer.Distance.Medium:
-                case Shared._Goobstation.Pinpointer.Distance.Far:
+                case Shared.Bloodtrak.Distance.Close:
+                case Shared.Bloodtrak.Distance.Medium:
+                case Shared.Bloodtrak.Distance.Far:
                     sprite.LayerSetRotation(PinpointerLayers.Screen, angle);
                     break;
                 default:

@@ -1,12 +1,11 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Weapons.Ranged.ProjectileThrowOnHit;
+namespace Content.Goobstation.Shared.Weapons.Ranged.ProjectileThrowOnHit;
 
 /// <summary>
 /// This is used for a projectile that tosses entities it hits.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(ProjectileThrowOnHitSystem))]
 public sealed partial class ProjectileThrowOnHitComponent : Component
 {
     /// <summary>

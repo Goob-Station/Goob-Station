@@ -1,7 +1,7 @@
 using Content.Shared.Radio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.Security
+namespace Content.Goobstation.Server.PanicButton
 {
     [RegisterComponent]
     public sealed partial class PanicButtonComponent : Component

@@ -1,7 +1,7 @@
 using Content.Shared.Access;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Items;
+namespace Content.Goobstation.Shared.Restriction.RestrictById;
 
 
 /// <summary>

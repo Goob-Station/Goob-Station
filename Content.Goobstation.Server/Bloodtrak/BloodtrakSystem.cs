@@ -1,7 +1,6 @@
-using System.ComponentModel;
 using System.Numerics;
+using Content.Goobstation.Shared.Bloodtrak;
 using Content.Server.Forensics;
-using Content.Shared._Goobstation.Pinpointer;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Interaction;
@@ -10,7 +9,7 @@ using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Timing;
 
-namespace Content.Server._Goobstation.Pinpointer;
+namespace Content.Goobstation.Server.Bloodtrak;
 
 public sealed class BloodtrakSystem : SharedBloodtrakSystem
 {
@@ -27,8 +26,8 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BloodtrakComponent, AfterInteractEvent>(OnAfterInteract);
-        SubscribeLocalEvent<BloodtrakComponent, ActivateInWorldEvent>(OnActivate);
+        SubscribeLocalEvent<Shared.Bloodtrak.BloodtrakComponent, AfterInteractEvent>(OnAfterInteract);
+        SubscribeLocalEvent<Shared.Bloodtrak.BloodtrakComponent, ActivateInWorldEvent>(OnActivate);
         SubscribeLocalEvent<DnaComponent, ComponentStartup>(OnDnaStartup);
         SubscribeLocalEvent<DnaComponent, ComponentRemove>(OnDnaRemoved);
         SubscribeLocalEvent<DnaComponent, EntityTerminatingEvent>(OnDnaTerminating);
@@ -85,7 +84,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         return null;
     }
 
-    private void OnAfterInteract(EntityUid uid, BloodtrakComponent component, AfterInteractEvent args)
+    private void OnAfterInteract(EntityUid uid, Shared.Bloodtrak.BloodtrakComponent component, AfterInteractEvent args)
     {
         if (!args.CanReach || args.Target is not { } target || component.IsActive)
             return;
@@ -94,7 +93,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         component.Target = GetPuddleDnaOwner(args);
     }
 
-    public override bool TogglePinpointer(EntityUid uid, BloodtrakComponent? pinpointer = null)
+    public override bool TogglePinpointer(EntityUid uid, Shared.Bloodtrak.BloodtrakComponent? pinpointer = null)
     {
         if (!Resolve(uid, ref pinpointer))
             return false;
@@ -138,7 +137,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         return isActive;
     }
 
-    private void UpdateAppearance(EntityUid uid, BloodtrakComponent pinpointer, AppearanceComponent? appearance = null)
+    private void UpdateAppearance(EntityUid uid, Shared.Bloodtrak.BloodtrakComponent pinpointer, AppearanceComponent? appearance = null)
     {
         if (!Resolve(uid, ref appearance))
             return;
@@ -147,7 +146,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         _appearance.SetData(uid, PinpointerVisuals.TargetDistance, pinpointer.DistanceToTarget, appearance);
     }
 
-    private void OnActivate(EntityUid uid, BloodtrakComponent component, ActivateInWorldEvent args)
+    private void OnActivate(EntityUid uid, Shared.Bloodtrak.BloodtrakComponent component, ActivateInWorldEvent args)
     {
         if (args.Handled || !args.Complex)
             return;
@@ -161,7 +160,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         base.Update(frameTime);
         var currentTime = _gameTiming.CurTime;
 
-        var query = EntityQueryEnumerator<BloodtrakComponent>();
+        var query = EntityQueryEnumerator<Shared.Bloodtrak.BloodtrakComponent>();
         while (query.MoveNext(out var uid, out var tracker))
         {
             if (!tracker.IsActive)
@@ -193,7 +192,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         }
     }
 
-    protected override void UpdateDirectionToTarget(EntityUid uid, BloodtrakComponent? pinpointer = null)
+    protected override void UpdateDirectionToTarget(EntityUid uid, Shared.Bloodtrak.BloodtrakComponent? pinpointer = null)
     {
         if (!Resolve(uid, ref pinpointer) || !pinpointer.IsActive)
             return;
@@ -203,14 +202,14 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
 
         if (target == null || !Exists(target.Value))
         {
-            SetDistance(uid, Shared._Goobstation.Pinpointer.Distance.Unknown, pinpointer);
+            SetDistance(uid, Shared.Bloodtrak.Distance.Unknown, pinpointer);
             return;
         }
 
         var dirVec = CalculateDirection(uid, target.Value);
         if (dirVec == null)
         {
-            SetDistance(uid, Shared._Goobstation.Pinpointer.Distance.Unknown, pinpointer);
+            SetDistance(uid, Shared.Bloodtrak.Distance.Unknown, pinpointer);
             return;
         }
 
@@ -235,18 +234,18 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         return _transform.GetWorldPosition(trg, xformQuery) - _transform.GetWorldPosition(pin, xformQuery);
     }
 
-    private Shared._Goobstation.Pinpointer.Distance CalculateDistance(Vector2 vec, BloodtrakComponent pinpointer)
+    private Shared.Bloodtrak.Distance CalculateDistance(Vector2 vec, Shared.Bloodtrak.BloodtrakComponent pinpointer)
     {
         var dist = vec.Length();
 
         // Check from smallest to largest threshold
         if (dist <= pinpointer.ReachedDistance)
-            return Shared._Goobstation.Pinpointer.Distance.Reached;
+            return Shared.Bloodtrak.Distance.Reached;
         if (dist <= pinpointer.CloseDistance)
-            return Shared._Goobstation.Pinpointer.Distance.Close;
+            return Shared.Bloodtrak.Distance.Close;
         if (dist <= pinpointer.MediumDistance)
-            return Shared._Goobstation.Pinpointer.Distance.Medium;
+            return Shared.Bloodtrak.Distance.Medium;
 
-        return Shared._Goobstation.Pinpointer.Distance.Far;
+        return Shared.Bloodtrak.Distance.Far;
     }
 }

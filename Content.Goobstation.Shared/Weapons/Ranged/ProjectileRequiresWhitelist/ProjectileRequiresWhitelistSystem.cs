@@ -1,7 +1,7 @@
 using Content.Shared.Whitelist;
 using Robust.Shared.Physics.Events;
 
-namespace Content.Shared._Goobstation.Weapons.Ranged.ProjectileRequireWhitelist;
+namespace Content.Goobstation.Shared.Weapons.Ranged.ProjectileRequiresWhitelist;
 
 public sealed class ProjectileRequireWhitelistSystem : EntitySystem
 {
