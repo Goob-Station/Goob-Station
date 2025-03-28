@@ -1,3 +1,4 @@
+using Content.Server._durkcode.ServerCurrency;
 using Content.Server._RMC14.LinkAccount; // RMC - Patreon
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
@@ -30,8 +31,6 @@ using Content.Shared.Chat;
 using Content.Shared.Kitchen;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Players.RateLimiting;
-using Content.Server._Goobstation.ServerCurrency; // Goobstation - Server Currency
-using Content.Server._Goobstation.Redial; // Goobstation - Redialing
 
 namespace Content.Server.IoC
 {
@@ -81,7 +80,6 @@ namespace Content.Server.IoC
             IoCManager.Register<MultiServerKickManager>();
             IoCManager.Register<CVarControlManager>();
             IoCManager.Register<ServerCurrencyManager>(); // Goobstation - Server Currency
-            IoCManager.Register<RedialManager>(); // Goobstation - Redialing
             IoCManager.Register<LinkAccountManager>(); // RMC - Patreon
         }
     }

@@ -1,8 +1,5 @@
-using Content.Shared._Goobstation.Weapons.Multishot;
 using System.Numerics;
-using Content.Shared.Nyanotrasen.Abilities.Oni; // Oni Port from DeltaV makes Onis less accurate shooters
 using Content.Shared.Weapons.Ranged.Events;
-using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
@@ -11,7 +8,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Shared.Weapons.Ranged.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true), AutoGenerateComponentPause]
-[Access(typeof(SharedGunSystem), typeof(SharedMultishotSystem), typeof(SharedOniSystem))] // GoobStation - Multishot v
+// Goob modularity - rip explicit access
 public sealed partial class GunComponent : Component
 {
     #region Sound
