@@ -95,28 +95,3 @@
     graph: WelderSwordExperimental
     node: welderSwordExperimental
 
-- type: entity
-  name: welder energy sword
-  parent: [BaseMeleeWeaponEnergy, BaseMinorContraband, EnergySwordWelder]
-  categories: [ HideSpawnMenu ]
-  id: EnergySwordWelderMini
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi
-    state: icon_mini
-    layers:
-    - state: welder_sword_mini
-    - state: welder_sword_blade
-      visible: false
-      shader: unshaded
-      map: [ "blade" ]
-  - type: SolutionContainerManager
-    solutions:
-      Welder:
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 50
-        maxVol: 50
-  - type: Construction
-    graph: WelderSwordMini
-    node: welderSwordMini
