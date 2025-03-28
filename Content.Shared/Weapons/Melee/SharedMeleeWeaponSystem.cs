@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
-using Content.Shared._Goobstation.MartialArts.Events; // Goobstation - Martial Arts
+using Content.Goobstation.Common.MartialArts; // Goobstation - Martial Arts
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CombatMode;
