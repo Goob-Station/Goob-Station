@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseShield
   id: ChangelingShield
-  name: oraganic shield
+  name: organic shield
   description: A large, fleshy shield.
   suffix: Unremoveable
   components:
