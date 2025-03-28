@@ -233,6 +233,3 @@
     enabled: false
     radius: 1.0
     color: orange
-  - type: Tag # Goobstation-WelderSword
-    tags:
-    - WelderMini
