@@ -30,8 +30,8 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 5
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletLaserHeavy
+  - type: HitscanBatteryAmmoProvider
+    proto: RedMediumSplitLaser
     fireCost: 60
   - type: StaticPrice
     price: 2500
@@ -52,8 +52,8 @@
     - Back
     - suitStorage
   - type: Battery
-    maxCharge: 800
-    startingCharge: 800
+    maxCharge: 600
+    startingCharge: 600
   - type: Gun
     minAngle: 2
     maxAngle: 10
@@ -72,8 +72,8 @@
     autoRecharge: true
     autoRechargeRate: 5
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletLaserMedium
-    fireCost: 32
+    proto: BulletLaserHeavy
+    fireCost: 30
   - type: StaticPrice
     price: 2500
 
