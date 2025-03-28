@@ -1,4 +1,5 @@
 using Content.Server.GameTicking.Events;
+using Content.Shared.Tiles;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Utility;
@@ -25,6 +26,9 @@ public sealed class AntagBaseSystem : EntitySystem
                 out var MapStat,
                 out _,
                 new DeserializationOptions { InitializeMaps = true }))
+        {
             _mapSystem.SetPaused(MapStat.Value.Comp.MapId, false);
+            EnsureComp<ProtectedGridComponent>(MapStat.Value.Comp.Owner);
+        }
     }
 }

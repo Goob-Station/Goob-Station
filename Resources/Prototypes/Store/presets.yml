@@ -48,11 +48,11 @@
     - WizCoin
 
 - type: entity
-  id: StorePresetSpellbookGhost
-  abstract: true
+  id: GhostAntagSpellPreset
+  abstract: false
   components:
   - type: Store
-    name: store-preset-name-spellbook
+    name: Ghostly Spellshop
     categories:
     - SpellbookOffensiveGhost   #Fireball, Rod Form
     - SpellbookDefensive    #Magic Missile, Wall of Force
@@ -62,3 +62,26 @@
     - SpellbookBundles      #Goobstation
     currencyWhitelist:
     - WizCoin
+
+- type: entity
+  id: AntagPlanetContravendPreset
+  abstract: false
+  components:
+  - type: Store
+    name: Contravend Uplink
+    categories:
+    - UplinkWeaponry
+    - UplinkAmmo
+    - UplinkExplosives
+    - UplinkChemicals
+    - UplinkDeceptionContravend
+    - UplinkDisruption
+    - UplinkImplantsContravend
+    - UplinkAlliesContravend
+    - UplinkWearables
+    - UplinkJob
+    - UplinkPointless
+    currencyWhitelist:
+    - Telecrystal
+    balance:
+      Telecrystal: 0

@@ -1,5 +1,5 @@
 - type: entity
-  parent: [StorePresetUplink, VendingMachine]
+  parent: [AntagPlanetContravendPreset, VendingMachine]
   id: VendingMachineSyndieContraband # Ported from Frontier
   name: ContraVend
   description: Wanted across multiple sectors!

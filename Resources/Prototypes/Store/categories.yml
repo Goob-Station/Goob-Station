@@ -14,58 +14,42 @@
   priority: 0
 
 - type: storeCategory
-  id: SpellbookOffensiveGhost
-  name: store-caregory-spellbook-offensive
-  priority: 1
-
-- type: storeCategory
   id: SpellbookDefensive
   name: store-caregory-spellbook-defensive
-  priority: 2
+  priority: 1
 
 - type: storeCategory
   id: SpellbookUtility
   name: store-caregory-spellbook-utility
-  priority: 3
-
-- type: storeCategory
-  id: SpellbookUtilityGhost
-  name: store-caregory-spellbook-utility
-  priority: 4
+  priority: 2
 
 - type: storeCategory
   id: SpellbookEquipment
   name: store-caregory-spellbook-equipment
-  priority: 5
+  priority: 3
 
 - type: storeCategory
   id: SpellbookEvents
   name: store-caregory-spellbook-events
-  priority: 6
+  priority: 4
 
 # Goobstation
 - type: storeCategory
   id: SpellbookSummons
   name: store-caregory-spellbook-summons
-  priority: 7
-
-# Goobstation
-- type: storeCategory
-  id: SpellbookSummonsGhost
-  name: store-caregory-spellbook-summons
-  priority: 8
+  priority: 5
 
 # Goobstation
 - type: storeCategory
   id: SpellbookSpecial
   name: store-caregory-spellbook-special
-  priority: 9
+  priority: 6
 
 # Goobstation
 - type: storeCategory
   id: SpellbookBundles
   name: store-caregory-spellbook-bundles
-  priority: 10
+  priority: 7
 
 #uplink categoires
 - type: storeCategory
@@ -132,3 +116,37 @@
   id: DiscountedItems
   name: store-discounted-items
   priority: 200
+
+#antag planet uplink
+
+- type: storeCategory
+  id: UplinkDeceptionContravend
+  name: ContraDeception
+  priority: 5
+
+- type: storeCategory
+  id: UplinkImplantsContravend
+  name: ContraImplants
+  priority: 7
+
+- type: storeCategory
+  id: UplinkAlliesContravend
+  name: ContraAllies
+  priority: 8
+
+#antag planet spellbook
+
+- type: storeCategory
+  id: SpellbookOffensiveGhost
+  name: Ghostly Offensives
+  priority: 0
+
+- type: storeCategory
+  id: SpellbookUtilityGhost
+  name: Ghostly Utilities
+  priority: 2
+
+- type: storeCategory
+  id: SpellbookSummonsGhost
+  name: Ghostly Summons
+  priority: 5

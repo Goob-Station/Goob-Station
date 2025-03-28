@@ -649,6 +649,7 @@
     Telecrystal: 15 # goob
   categories:
   - UplinkDeception
+  - UplinkDeceptionContravend
 
 
 - type: listing
@@ -660,6 +661,7 @@
     Telecrystal: 20 # goob - 20 TC's a balance tier, and the stealth box's not good enough to lose a 20/40/80 TC item for.
   categories:
   - UplinkDeception
+  - UplinkDeceptionContravend
 
 
 - type: listing
@@ -671,6 +673,7 @@
     Telecrystal: 30 # goob - Basically a meme item at 35 TC to be real.
   categories:
   - UplinkDeception
+  - UplinkDeceptionContravend
 
 
 - type: listing
@@ -705,6 +708,7 @@
     Telecrystal: 5 # goob
   categories:
   - UplinkDeception
+  - UplinkDeceptionContravend
 
 - type: listing
   id: UplinkDecoyDisk
@@ -715,6 +719,7 @@
     Telecrystal: 2 # goob - Pointless class item.
   categories:
   - UplinkDeception
+  - UplinkDeceptionContravend
 
 - type: listing
   id: UplinkUltrabrightLantern
@@ -725,6 +730,7 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkDeception
+  - UplinkDeceptionContravend
 
 
 - type: listing
@@ -736,6 +742,7 @@
     Telecrystal: 20 # goob
   categories:
     - UplinkDeception
+    - UplinkDeceptionContravend
 
 
 # - type: listing
@@ -758,6 +765,7 @@
     Telecrystal: 20 # goob - total meme item.
   categories:
   - UplinkDeception
+  - UplinkDeceptionContravend
 
 
 - type: listing
@@ -769,6 +777,7 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkDeception
+  - UplinkDeceptionContravend
 
 # Disruption
 
@@ -1101,6 +1110,7 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkAllies
+  - UplinkAlliesContravend
   conditions:
   - !type:StoreWhitelistCondition
     blacklist:
@@ -1147,6 +1157,7 @@
     Telecrystal: 40 # goob
   categories:
     - UplinkImplants
+    - UplinkImplantsContravend
   conditions:
     - !type:StoreWhitelistCondition
       blacklist:
@@ -1164,6 +1175,7 @@
     Telecrystal: 25 # goob
   categories:
     - UplinkImplants
+    - UplinkImplantsContravend
 
 
 - type: listing
@@ -1176,6 +1188,7 @@
     Telecrystal: 20 # goob - it's a gamble that may kill you easily but can also save an agent. and that's why the 20 TC Balance tier makes sense.
   categories:
     - UplinkImplants
+    - UplinkImplantsContravend
 
 
 - type: listing
@@ -1188,6 +1201,7 @@
     Telecrystal: 25 # goob
   categories:
     - UplinkImplants
+    - UplinkImplantsContravend
 
 
 - type: listing
@@ -1200,6 +1214,7 @@
     Telecrystal: 10 # goob
   categories:
     - UplinkImplants
+    - UplinkImplantsContravend
 
 - type: listing
   id: UplinkRadioImplanter
@@ -1222,6 +1237,7 @@
     Telecrystal: 20 # goob
   categories:
   - UplinkImplants
+  - UplinkImplantsContravend
   conditions:
   # goob - traitor suicide implants
   #- !type:StoreWhitelistCondition
@@ -1244,6 +1260,7 @@
     Telecrystal: 65 # goob
   categories:
     - UplinkImplants
+    - UplinkImplantsContravend
   restockTime: 1800
   conditions:
   - !type:StoreWhitelistCondition
@@ -1278,6 +1295,7 @@
     Telecrystal: 20 # goob # goob - traitor suicide implants
   categories:
     - UplinkImplants
+    - UplinkImplantsContravend
   # goob - traitor suicide implants
   #conditions:
   #  - !type:StoreWhitelistCondition
@@ -1295,6 +1313,7 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkImplants
+  - UplinkImplantsContravend
   conditions:
     - !type:StoreWhitelistCondition
       blacklist:
@@ -1331,6 +1350,7 @@
     Telecrystal: 15 # goob, I don't like security so x4 instead of x5
   categories:
   - UplinkImplants
+  - UplinkImplantsContravend
 
 
 # Wearables

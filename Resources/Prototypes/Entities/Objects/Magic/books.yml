@@ -58,9 +58,9 @@
 - type: entity
   id: WizardsGrimoireGhost
   name: ghostly grimoire
-  description: A modified wizard grimoire that can by used by more than one person and has more wizcoins, but can't buy teleport, apprentice, or events.
+  description: A modified wizard grimoire that can by used by more than one person and has more wizcoins, but can't buy certain spells.
   suffix: Wizard
-  parent: [ BaseItem, BaseMagicContraband, StorePresetSpellbookGhost ] # Goob edit
+  parent: [ BaseItem, BaseMagicContraband, GhostAntagSpellPreset ] # Goob edit
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
