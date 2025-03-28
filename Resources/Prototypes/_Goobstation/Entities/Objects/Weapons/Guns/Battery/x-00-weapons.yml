@@ -7,10 +7,10 @@
   description: An elaborately designed rifle, firing shots of pure phoron. Low fire rate, high damage.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/smg.rsi # Todo: Change to rifle sprites.
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/rifle.rsi
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/smg.rsi # Todo: Change to rifle sprites.
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/rifle.rsi
     quickEquip: false
     slots:
     - Back
@@ -70,7 +70,7 @@
     defaultDirection: 1, 0
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 5
+    autoRechargeRate: 7
   - type: ProjectileBatteryAmmoProvider
     proto: BulletLaserHeavy
     fireCost: 30

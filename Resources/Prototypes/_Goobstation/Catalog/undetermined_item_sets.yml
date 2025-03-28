@@ -119,10 +119,20 @@
   name: hos-box-category-rifle-name
   description: hos-box-category-rifle-description
   sprite:
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/smg.rsi # Todo: Change to rifle.
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/rifle.rsi
     state: icon
   content:
   - WeaponHeadOfSecurityRifle
+
+- type: thiefBackpackSet
+  id: RifleSet
+  name: hos-box-category-rifle-name
+  description: hos-box-category-rifle-description
+  sprite:
+    sprite: _Goobstation/Objects/Misc/cqc_manual.rsi
+    state: icon-hos
+  content:
+  - HOSManual
 
 ## Armor
 

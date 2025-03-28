@@ -18,10 +18,12 @@ hos-box-category-rifle-description =
     An elaborately designed rifle, firing shots of pure phoron.
     Low fire rate, high damage.
 
-hos-box-category-station-name = X-8 "Station Sweeper"
+hos-box-category-station-name = Urban-Environment Set
 hos-box-category-station-description =
     A set of equipment designed to fight in areas with an atmosphere.
+    Contains: Advanced equipment, Armored beret & Jacket
 
-hos-box-category-space-name = X-8 "Station Sweeper"
+hos-box-category-space-name = Ground-shaker Set
 hos-box-category-space-description =
     A set of equipment designed to fight in areas with no atmosphere.
+    Contains: Advanced equipment, specialized suit.
