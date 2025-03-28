@@ -6,7 +6,7 @@ using System.Linq;
 using Robust.Shared.GameStates;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
-
+// todo: clean these usings
 namespace Content.Server._Goobstation.NTR
 {
     public sealed class RandomDocumentSystem : EntitySystem
@@ -37,6 +37,7 @@ namespace Content.Server._Goobstation.NTR
                 RandomDocumentComponent.DocumentType.Cargo => "cargo-document-text",
                 RandomDocumentComponent.DocumentType.Medical => "medical-document-text",
                 RandomDocumentComponent.DocumentType.Engineering => "engineering-document-text",
+                RandomDocumentComponent.DocumentType.Science => "science-document-text",
                 _ => "service-document-text" // if not specified, use service
             };
 
@@ -46,6 +47,7 @@ namespace Content.Server._Goobstation.NTR
                 RandomDocumentComponent.DocumentType.Cargo => GetCargoArgs(),
                 RandomDocumentComponent.DocumentType.Medical => GetMedicalArgs(),
                 RandomDocumentComponent.DocumentType.Engineering => GetEngineeringArgs(),
+                RandomDocumentComponent.DocumentType.Science => GetScienceArgs(),
                 _ => GetServiceArgs()
             };
 
@@ -118,6 +120,17 @@ namespace Content.Server._Goobstation.NTR
                 ("text2", _loc.GetString($"funny-engi2-{_random.Next(1, 11)}")),
                 ("text3", _loc.GetString($"funny-engi3-{_random.Next(1, 10)}")),
                 ("text4", _loc.GetString($"funny-engi4-{_random.Next(1, 11)}")),
+            };
+        }
+        private (string, object)[] GetScienceArgs()
+        {
+            return new (string, object)[]
+            {
+                ("start", _loc.GetString("science-starting-text")),
+                ("text1", _loc.GetString($"funny-sci1-{_random.Next(1, 8)}")),
+                ("text2", _loc.GetString($"funny-sci2-{_random.Next(1, 10)}")),
+                ("text3", _loc.GetString($"funny-sci3-{_random.Next(1, 16)}")),
+                ("text4", _loc.GetString($"funny-sci4-{_random.Next(1, 8)}")),
             };
         }
     }

@@ -9,7 +9,7 @@
       dtype: Service
 
 - type: entity
-  name: Service Department Document
+  suffix: Service
   id: ServiceDocument
   parent: CorporateDocument
   components:
@@ -17,7 +17,7 @@
       dtype: Service
 
 - type: entity
-  name: Security Department Document
+  suffix: Security
   id: SecurityDocument
   parent: CorporateDocument
   components:
@@ -25,7 +25,7 @@
       dtype: Security
 
 - type: entity
-  name: Cargo Department Document
+  suffix: Cargo
   id: CargoDocument
   parent: CorporateDocument
   components:
@@ -33,7 +33,7 @@
       dtype: Cargo
 
 - type: entity
-  name: Medical Department Document
+  suffix: Medical
   id: MedicalDocument
   parent: CorporateDocument
   components:
@@ -41,9 +41,17 @@
       dtype: Medical
 
 - type: entity
-  name: Engineering Department Document
+  suffix: Engineering
   id: EngineeringDocument
   parent: CorporateDocument
   components:
     - type: RandomDocument
       dtype: Engineering
+
+- type: entity
+  suffix: Science
+  id: ScienceDocument
+  parent: CorporateDocument
+  components:
+    - type: RandomDocument
+      dtype: Science

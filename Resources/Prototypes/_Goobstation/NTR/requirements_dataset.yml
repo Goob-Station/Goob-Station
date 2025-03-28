@@ -216,9 +216,9 @@
 
 - type: localizedDataset
   id: science_text1_dataset
-  values: 
+  values:
     prefix: funny-sci1-
-    count: 3
+    count: 8
 
 - type: localizedDataset
   id: science_text2_dataset

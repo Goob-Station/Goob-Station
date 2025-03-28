@@ -219,10 +219,15 @@ funny-engi4-9 = admit that [bold]cutting random wires is a terrible troubleshoot
 funny-engi4-10 = solemnly swear that [bold]at least one containment field is active.[/bold]
 
 # SCIENCE
-# funny verbs SCIENCE 1 (Corporate has been closely monitoring the Research Department, and the findings are unsettling.)
+# funny verbs SCIENCE 1 (We has been closely monitoring the Research Department. )
 funny-sci1-1 = It seems that every scientific breakthough is followed by at least [bold]one[/bold] catastrophic incident, including
 funny-sci1-2 = It seems that R&D is pushing the boundaries of what can legally be called "progress", recent events include
 funny-sci1-3 = Upon review, it has been discovered, that anomalies are being stored inside [bold]living people[/bold], and recent events include
+funny-sci1-4 = Despite having an enitre department dedicated to tech advancement, [bold]most of the breakthoughs appear to be either accidental or morally questionable.[/bold] examples include
+funny-sci1-5 = It appears that instead of solving existing problems, R&D has been creating entirely new and significanlty worse ones, examples include
+funny-sci1-6 = Scientific innovation is encouraged, but many recent developments pose a direct threat to the station, its crew, and some fundamental laws of physics, including
+funny-sci1-7 = But it appears that instead of improving the station, most research project have resulted in chaos, notable examples include
+funny-sci1-8 = Rather than producing meaningful discoveries, many project have resulted in disasters that range from "mildly inconvenient" to "catastrophic", some examples include
 
 # funny verbs SCIENCE 2
 funny-sci2-1 = a scientist [bold]accidentally teleporting themselves into the singularity.[/bold]
@@ -262,4 +267,4 @@ funny-sci4-4 = that you are granting permission to examine your body when you ar
 funny-sci4-5 = that the AI has not malfunctioned.
 funny-sci4-6 = that bong bing bung being bing boongl
 funny-sci4-7 = that sci is not doing arms race with sec.
-funny-sci5-8 = that all discoveries are less likely to cause panic than excitement.
+funny-sci4-8 = that all discoveries are less likely to cause panic than excitement.

@@ -9,7 +9,7 @@ namespace Content.Server._Goobstation.NTR
     public sealed partial class RandomDocumentComponent : Component
     {
         [DataField]
-        public DocumentType dtype = DocumentType.Service;
+        public DocumentType dtype = DocumentType.Service; //default to service
 
         public enum DocumentType
         {
@@ -17,7 +17,8 @@ namespace Content.Server._Goobstation.NTR
             Security,
             Cargo,
             Medical,
-            Engineering
+            Engineering,
+            Science,
         }
     }
 }

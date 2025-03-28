@@ -27,6 +27,12 @@ engineering-starting-text = [color=#a15000]█▄ █ ▀█▀    [head=3]NanoT
                            From: CentComm[/color]
     ──────────────────────────────────────────
 
+# science
+science-starting-text = [color=#94196f]░             █▄ █ ▀█▀    [head=3]NanoTrasen Document[/head]                 ░
+    █             █ ▀█     █        To: Science department                         █
+    ░                                    From: CentComm[/color]                                     ░
+    ──────────────────────────────────────────
+
 service-document-text =
     {$start}
     Corporate wants you to know that you are not {$text1} {$text2}
@@ -56,3 +62,9 @@ engineering-document-text =
     {$text1} {$text2}
     {$text3}
     By stamping here, you {$text4}
+
+science-document-text =
+    {$start}
+    We have been closely monitoring the Research Department. {$text1} {$text2}
+    due to everything above, we want you to ensure {$text3}
+    stamps below confirm {$text4}
