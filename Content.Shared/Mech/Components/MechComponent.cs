@@ -1,6 +1,9 @@
+using Content.Shared.Actions;
 using Content.Shared.FixedPoint;
 using Content.Shared.Whitelist;
 using Content.Shared.Damage;
+using Content.Shared.Mech.Components.Malfunctions;
+using Content.Shared.Random;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -32,6 +35,12 @@ public sealed partial class MechComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
     public FixedPoint2 MaxIntegrity = 250;
+
+    /// <summary>
+    /// How much "health" the mech has left.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public float IntegrityPoint = 0.5f;
 
     /// <summary>
     /// How much energy the mech has.
@@ -74,27 +83,23 @@ public sealed partial class MechComponent : Component
         }
     };
 
-    [ViewVariables]
-    public readonly float MalfunctionProbability = 0.2f;
+    [DataField]
+    public float MalfunctionProbability = 1.0f;
 
-    [ViewVariables]
-    public Dictionary<string, float> MalfunctionChances = new()
+    [DataField]
+    public ProtoId<WeightedRandomPrototype> MalfunctionWeights = "MechMalfunctionWeights";
+
+    [DataField("malfunctionChances"), ViewVariables]
+    public Dictionary<string, BaseMalfunctionEvent> MalfunctionChances = new()
     {
-        { "CabinOnFire", 0.4f },
-        { "EngineBroken", 0.2f },
-        { "CabinBreach", 0.2f },
-        { "ShortCircuit", 0.6f },
-        { "EquipmentLoss", 0.1f }
+        { "ShortCircuit", new ShortCircuitEvent() },
+        { "CabinOnFire", new CabinOnFireEvent() },
+        { "EngineBroken", new EngineBrokenEvent() },
+        { "CabinBreach", new CabinBreachEvent() },
+        { "EquipmentLoss", new EquipmentLossEvent() },
     };
 
-    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public bool isEngineBroken = false;
-    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public bool isCabinOnFire = false;
-    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public bool isCabinBreach = false;
-
-    [ViewVariables]
+    [DataField, ViewVariables]
     public FixedPoint2 EnergyLoss = 30;
 
     /// <summary>
@@ -219,3 +224,6 @@ public sealed partial class MechComponent : Component
     [DataField] public EntityUid? MechEjectActionEntity;
     [DataField, AutoNetworkedField] public EntityUid? ToggleActionEntity; //Goobstation Mech Lights toggle action
 }
+
+[ImplicitDataDefinitionForInheritors]
+public abstract partial class BaseMalfunctionEvent;

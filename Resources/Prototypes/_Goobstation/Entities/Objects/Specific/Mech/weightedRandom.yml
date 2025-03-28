@@ -1,0 +1,8 @@
+- type: weightedRandom
+  id: MechMalfunctionWeights
+  weights:
+    ShortCircuit: 0.6
+    CabinOnFire: 0.4
+    EngineBroken: 0.2
+    CabinBreach: 0.2
+    EquipmentLoss: 1.0

@@ -251,7 +251,7 @@ public abstract class SharedMechSystem : EntitySystem
             return;
 
         equipmentComponent.EquipmentOwner = uid;
-        if (_tagSystem.HasTag(toInsert, "ArmorPlate"))
+        if (TryComp<ArmorPlateComponent>(toInsert, out var _))
         {
             if (component.ArmorContainer.ContainedEntities.Count >= component.MaxArmorAmount)
                 return;
