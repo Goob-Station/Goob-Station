@@ -175,9 +175,10 @@
     MobTick: 1
     MobLaserRaptor: 1
     MobMimic: 1
-    MobLuminousPerson: 0.33
-    MobLuminousObject: 0.33
-    MobLuminousEntity: 0.33
+    # These aren't polymorphable
+    # MobLuminousPerson: 0.33
+    # MobLuminousObject: 0.33
+    # MobLuminousEntity: 0.33
     MobPurpleSnake: 0.5
     MobSmallPurpleSnake: 0.5
     MobStickman: 1

@@ -126,7 +126,6 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleHeretic
-      startingGear: HereticGear # see Roles/Antags/heretic.yml
 
 # Revolution
 - type: entity
