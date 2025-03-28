@@ -290,7 +290,8 @@
     #- MedicalBoardsGoob - Goobstation - Moved to Scifab and Medfab
     - MechElectronicsGoob
   - type: EmagLatheRecipes
-    #emagDynamicPacks:
+    emagDynamicPacks:
+    SecurityMechElectronicsGoob
     #- SecurityBoards - Goobstation -  Moved to Secfab
   - type: MaterialStorage
     whitelist:
@@ -356,7 +357,11 @@
     - Cybernetics
     - PowerCells
     - MechBoards
-    - MechElectronicsGoob
+    - type: EmagLatheRecipes
+    emagStaticPacks:
+    - MechWeaponsStatic
+    emagDynamicPacks:
+    - MechWeapons
   - type: MaterialStorage
     whitelist:
       tags:
