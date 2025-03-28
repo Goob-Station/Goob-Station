@@ -2,7 +2,7 @@
 
 - type: entity
   name: X-8 "Station Sweeper"
-  parent: BaseWeaponBattery
+  parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponHeadOfSecurityRifle
   description: An elaborately designed rifle, firing shots of pure phoron. Low fire rate, high damage.
   components:
@@ -21,7 +21,7 @@
   - type: Gun
     minAngle: 1
     maxAngle: 2
-    fireRate: 0.7
+    fireRate: 1
     burstFireRate: 6
     selectedMode: FullAuto
     availableModes:
