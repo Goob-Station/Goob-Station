@@ -94,4 +94,9 @@
   - type: Construction
     graph: WelderSwordExperimental
     node: welderSwordExperimental
-
+  - type: SolutionRegeneration
+    solution: Welder
+    generated:
+      reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 3 # Cuz fuelConsumption is 3
