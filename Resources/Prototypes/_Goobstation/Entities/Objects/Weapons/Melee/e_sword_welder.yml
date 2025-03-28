@@ -15,9 +15,46 @@
   - type: Item
     sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder-inhands.rsi
   - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnHitNoDamage:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedSoundOnSwing:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/swing.ogg
+      params:
+        variation: 0.125
     activatedDamage:
         types:
             Heat: 11
+  - type: ItemToggle
+    predictable: false
+    soundActivate:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/on.ogg
+    soundDeactivate:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/off.ogg
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/hum.ogg
+  - type: SurgeryTool # Shitmed
+    startSound:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/hum.ogg
+    endSound:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
+      params:
+        variation: 0.250
+  - type: Reflect
+    reflectProb: .1
+    otherTypeReflectProb: .1
+    reflects:
+      - Energy
+    soundOnReflect: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
+    params:
+      variation: 0.125
   - type: Welder
     fuelConsumption: 3
   - type: SolutionContainerManager
@@ -32,7 +69,7 @@
     - EnergySword
   - type: ThrowableBlocker
     blockSound:
-      path: /Audio/Weapons/eblade1.ogg
+      path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
       params:
         variation: 0.250
         volume: -2
