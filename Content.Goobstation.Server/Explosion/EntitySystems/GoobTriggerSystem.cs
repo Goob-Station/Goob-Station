@@ -12,7 +12,7 @@ public sealed partial class GoobTriggerSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<DeleteParentOnTriggerComponent, TriggerEvent>(HandleDeleteParentTrigger);
-        SubscribeLocalEvent<DropOnTriggerComponent, TriggerEvent>(HandleDropOnTrigger);
+        SubscribeLocalEvent<Components.OnTrigger.DropOnTriggerComponent, TriggerEvent>(HandleDropOnTrigger);
     }
 
     private void HandleDeleteParentTrigger(Entity<DeleteParentOnTriggerComponent> entity, ref TriggerEvent args)
@@ -21,7 +21,7 @@ public sealed partial class GoobTriggerSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void HandleDropOnTrigger(Entity<DropOnTriggerComponent> entity, ref TriggerEvent args)
+    private void HandleDropOnTrigger(Entity<Components.OnTrigger.DropOnTriggerComponent> entity, ref TriggerEvent args)
     {
         if (!TryComp(entity, out HandsComponent? hands))
             return;

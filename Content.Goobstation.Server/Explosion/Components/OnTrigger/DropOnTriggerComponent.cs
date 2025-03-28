@@ -1,4 +1,4 @@
-namespace Content.Server._Goobstation.Explosion.Components;
+namespace Content.Goobstation.Server.Explosion.Components.OnTrigger;
 
 /// <summary>
 /// Drops the entities held items on <see cref="TriggerEvent"/>
