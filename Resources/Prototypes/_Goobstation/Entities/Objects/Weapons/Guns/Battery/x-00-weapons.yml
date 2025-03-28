@@ -19,7 +19,7 @@
     maxCharge: 800
     startingCharge: 800
   - type: Gun
-    fireRate: 1.05
+    fireRate: 0.95
     selectedMode: FullAuto
     availableModes:
     - FullAuto
