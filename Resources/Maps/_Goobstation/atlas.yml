@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/22/2025 21:15:49
-  entityCount: 9178
+  time: 03/12/2025 15:20:03
+  entityCount: 9231
 maps:
 - 1
 grids:
@@ -3944,7 +3944,7 @@ entities:
       pos: -24.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1954.9844
+      secondsUntilStateChange: -1857.5349
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -38291,14 +38291,6 @@ entities:
     - type: Transform
       pos: -6.5,20.5
       parent: 2
-- proto: GlassBoxLawbringerFilled
-  entities:
-  - uid: 2222222
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -0.5,22.5
-      parent: 2
 - proto: GravityGenerator
   entities:
   - uid: 5671
@@ -41858,6 +41850,18 @@ entities:
     components:
     - type: Transform
       pos: -1.5,-9.5
+      parent: 2
+- proto: MagazinePistolSubMachineGunTopMounted
+  entities:
+  - uid: 6291
+    components:
+    - type: Transform
+      pos: -0.7405796,22.894815
+      parent: 2
+  - uid: 6292
+    components:
+    - type: Transform
+      pos: -0.3030796,22.832315
       parent: 2
 - proto: MailMetricsCartridge
   entities:
@@ -51666,6 +51670,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,22.5
       parent: 2
+  - uid: 7793
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,22.5
+      parent: 2
   - uid: 7794
     components:
     - type: Transform
@@ -58631,6 +58641,13 @@ entities:
       parent: 2
     - type: Physics
       canCollide: False
+- proto: WeaponSubMachineGunWt550
+  entities:
+  - uid: 9051
+    components:
+    - type: Transform
+      pos: -0.2405796,22.498983
+      parent: 2
 - proto: Welder
   entities:
   - uid: 9052

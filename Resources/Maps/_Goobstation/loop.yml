@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/23/2025 01:29:19
-  entityCount: 17833
+  time: 03/12/2025 15:33:24
+  entityCount: 17863
 maps:
 - 1
 grids:
@@ -7312,7 +7312,7 @@ entities:
       pos: -30.5,13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -58052.85
+      secondsUntilStateChange: -58015.184
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -43865,7 +43865,7 @@ entities:
       pos: -9.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -305808.38
+      secondsUntilStateChange: -305770.72
       state: Opening
   - uid: 6931
     components:
@@ -43873,7 +43873,7 @@ entities:
       pos: -8.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -305809.1
+      secondsUntilStateChange: -305771.44
       state: Opening
   - uid: 6932
     components:
@@ -43881,7 +43881,7 @@ entities:
       pos: -6.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -305807.66
+      secondsUntilStateChange: -305770
       state: Opening
   - uid: 6933
     components:
@@ -43889,7 +43889,7 @@ entities:
       pos: -5.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -305807.03
+      secondsUntilStateChange: -305769.38
       state: Opening
 - proto: CyberPen
   entities:
@@ -70215,14 +70215,6 @@ entities:
     - type: Transform
       pos: -16.5,70.5
       parent: 2
-- proto: GlassBoxLawbringerFilled
-  entities:
-  - uid: 6271
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -34.5,40.5
-      parent: 2
 - proto: GravityGenerator
   entities:
   - uid: 10465
@@ -77924,6 +77916,18 @@ entities:
     components:
     - type: Transform
       pos: 29.182188,37.520115
+      parent: 2
+- proto: MagazinePistolSubMachineGunTopMounted
+  entities:
+  - uid: 11739
+    components:
+    - type: Transform
+      pos: -34.31289,40.249386
+      parent: 2
+  - uid: 11740
+    components:
+    - type: Transform
+      pos: -34.66445,40.03845
       parent: 2
 - proto: MagicDiceBag
   entities:
@@ -96973,6 +96977,11 @@ entities:
     - type: Transform
       pos: -34.5,39.5
       parent: 2
+  - uid: 14973
+    components:
+    - type: Transform
+      pos: -34.5,40.5
+      parent: 2
   - uid: 14974
     components:
     - type: Transform
@@ -111144,6 +111153,13 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
+- proto: WeaponSubMachineGunWt550
+  entities:
+  - uid: 17532
+    components:
+    - type: Transform
+      pos: -34.50039,40.60095
+      parent: 2
 - proto: WeldingFuelTankFull
   entities:
   - uid: 17533

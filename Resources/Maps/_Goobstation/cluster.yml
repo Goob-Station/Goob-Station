@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/22/2025 21:22:25
-  entityCount: 12710
+  time: 03/12/2025 15:27:29
+  entityCount: 12770
 maps:
 - 1
 grids:
@@ -51673,14 +51673,6 @@ entities:
     - type: Transform
       pos: -10.5,-19.5
       parent: 2
-- proto: GlassBoxLawbringerFilled
-  entities:
-  - uid: 4041
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 27.5,12.5
-      parent: 2
 - proto: GravityGenerator
   entities:
   - uid: 7561
@@ -57304,6 +57296,18 @@ entities:
     components:
     - type: Transform
       pos: 29.556211,16.447828
+      parent: 2
+- proto: MagazinePistolSubMachineGunTopMounted
+  entities:
+  - uid: 8530
+    components:
+    - type: Transform
+      pos: 27.625902,12.337759
+      parent: 2
+  - uid: 8531
+    components:
+    - type: Transform
+      pos: 27.579027,12.494009
       parent: 2
 - proto: MagazineRifle
   entities:
@@ -71242,6 +71246,11 @@ entities:
     - type: Transform
       pos: -22.5,-1.5
       parent: 2
+  - uid: 10837
+    components:
+    - type: Transform
+      pos: 27.5,12.5
+      parent: 2
   - uid: 10838
     components:
     - type: Transform
@@ -81404,6 +81413,13 @@ entities:
     components:
     - type: Transform
       pos: 36.459354,13.651509
+      parent: 2
+- proto: WeaponSubMachineGunWt550
+  entities:
+  - uid: 12611
+    components:
+    - type: Transform
+      pos: 27.516527,12.712759
       parent: 2
 - proto: WeaponTurretSyndicateBroken
   entities:

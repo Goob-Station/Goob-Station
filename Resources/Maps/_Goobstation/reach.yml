@@ -1,20 +1,10 @@
 meta:
-  format: 7
-  category: Map
-  engineVersion: 247.2.0
-  forkId: ""
-  forkVersion: ""
-  time: 03/23/2025 01:37:05
-  entityCount: 2522
-maps:
-- 1
-grids:
-- 2
-orphans: []
-nullspace: []
+  format: 6
+  postmapinit: false
 tilemap:
   0: Space
   1: FloorBlueCircuit
+  2: FloorSteelLime
   31: FloorDark
   36: FloorDarkMono
   47: FloorGlass
@@ -27,7 +17,6 @@ tilemap:
   79: FloorReinforced
   80: FloorReinforcedHardened
   93: FloorSteel
-  2: FloorSteelLime
   108: FloorTechMaint
   109: FloorTechMaint2
   110: FloorTechMaint3
@@ -16462,21 +16451,6 @@ entities:
     - type: Transform
       pos: 25.5,2.5
       parent: 2
-- proto: WeaponEnergyGunLawbringer
-  entities:
-  - uid: 2300
-    components:
-    - type: Transform
-      pos: 18.52794,-2.3147314
-      parent: 2
-    - type: AccessReader
-      accessLog: []
-      accessKeys: []
-      access:
-      - - HeadOfSecurity
-      denyTags: []
-    - type: ActiveListener
-      range: 2
 - proto: WeaponEnergyShotgun
   entities:
   - uid: 2446

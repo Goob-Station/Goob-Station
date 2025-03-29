@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/23/2025 01:32:10
-  entityCount: 28721
+  time: 03/12/2025 15:35:10
+  entityCount: 28775
 maps:
 - 1
 grids:
@@ -11795,7 +11795,7 @@ entities:
       pos: 39.5,-20.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -8952.822
+      secondsUntilStateChange: -8910.355
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13529,7 +13529,7 @@ entities:
       pos: 46.5,-40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -445507.12
+      secondsUntilStateChange: -445464.66
       state: Opening
   - uid: 355
     components:
@@ -13959,7 +13959,7 @@ entities:
       pos: -3.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -561674.7
+      secondsUntilStateChange: -561632.25
       state: Opening
   - uid: 422
     components:
@@ -126467,13 +126467,6 @@ entities:
     - type: Transform
       pos: 39.5,11.5
       parent: 2
-- proto: GlassBoxLawbringerFilled
-  entities:
-  - uid: 7708
-    components:
-    - type: Transform
-      pos: 42.5,-41.5
-      parent: 2
 - proto: GlowstickYellow
   entities:
   - uid: 27103
@@ -136706,6 +136699,20 @@ entities:
     components:
     - type: Transform
       pos: 32.59941,-20.510296
+      parent: 2
+- proto: MagazinePistolSubMachineGunTopMounted
+  entities:
+  - uid: 15715
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 42.7493,-41.037598
+      parent: 2
+  - uid: 15716
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 42.702423,-41.412598
       parent: 2
 - proto: MagicDiceBag
   entities:
@@ -161378,6 +161385,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 41.5,-40.5
       parent: 2
+  - uid: 19300
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 42.5,-41.5
+      parent: 2
   - uid: 19301
     components:
     - type: Transform
@@ -181572,6 +181585,14 @@ entities:
     - type: Transform
       pos: 32.609486,-26.580791
       parent: 2
+- proto: WeaponSubMachineGunWt550
+  entities:
+  - uid: 22295
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 42.421173,-41.240723
+      parent: 2
 - proto: WeaponTurretSyndicateBroken
   entities:
   - uid: 22296
@@ -181729,7 +181750,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -8946.689
+      secondsUntilStateChange: -8904.223
       state: Opening
     - type: Airlock
       autoClose: False
@@ -183348,7 +183369,7 @@ entities:
       pos: 24.5,2.5
       parent: 22618
     - type: Door
-      secondsUntilStateChange: -339806.38
+      secondsUntilStateChange: -339763.9
       state: Opening
 - proto: WoodenBench
   entities:

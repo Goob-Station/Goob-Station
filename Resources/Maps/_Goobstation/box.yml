@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/22/2025 21:21:00
-  entityCount: 27817
+  time: 03/12/2025 15:23:31
+  entityCount: 27915
 maps:
 - 1
 grids:
@@ -11624,7 +11624,7 @@ entities:
       pos: 24.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -31461.383
+      secondsUntilStateChange: -31417.283
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -84797,7 +84797,7 @@ entities:
       pos: -34.5,-14.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -25649.918
+      secondsUntilStateChange: -25605.818
       state: Closing
   - uid: 13393
     components:
@@ -85290,7 +85290,7 @@ entities:
       pos: -4.5,-71.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -17397.65
+      secondsUntilStateChange: -17353.55
       state: Closing
 - proto: Fireplace
   entities:
@@ -113897,14 +113897,6 @@ entities:
     - type: Transform
       pos: 55.5,-53.5
       parent: 2
-- proto: GlassBoxLawbringerFilled
-  entities:
-  - uid: 10506
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 16.5,41.5
-      parent: 2
 - proto: GravityGenerator
   entities:
   - uid: 17246
@@ -124180,6 +124172,22 @@ entities:
     - type: Transform
       pos: -52.5,5.5
       parent: 2
+- proto: MagazinePistolSubMachineGunTopMounted
+  entities:
+  - uid: 19005
+    components:
+    - type: Transform
+      pos: 16.383898,41.80004
+      parent: 2
+    - type: BallisticAmmoProvider
+      unspawnedCount: 30
+  - uid: 19006
+    components:
+    - type: Transform
+      pos: 16.383898,41.80004
+      parent: 2
+    - type: BallisticAmmoProvider
+      unspawnedCount: 30
 - proto: MailingUnit
   entities:
   - uid: 19007
@@ -151014,6 +151022,11 @@ entities:
     - type: Transform
       pos: 14.5,39.5
       parent: 2
+  - uid: 23392
+    components:
+    - type: Transform
+      pos: 16.5,41.5
+      parent: 2
   - uid: 23393
     components:
     - type: Transform
@@ -172821,6 +172834,13 @@ entities:
     components:
     - type: Transform
       pos: 21.462696,34.988297
+      parent: 2
+- proto: WeaponSubMachineGunWt550
+  entities:
+  - uid: 27502
+    components:
+    - type: Transform
+      pos: 16.540148,41.51879
       parent: 2
 - proto: WeedSpray
   entities:
