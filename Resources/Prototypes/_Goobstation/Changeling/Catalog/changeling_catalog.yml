@@ -301,11 +301,25 @@
     stock: 1
 
 - type: listing
+  id: EvolutionMenuUtilityAdaption
+  name: evolutionmenu-utility-voidadapt-name
+  description: evolutionmenu-utility-voidadapt-desc
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: void_adaptation }
+  productAction: ActionVoidAdapt
+  cost:
+    EvolutionPoint: 4
+  categories:
+  - ChangelingAbilityUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
   id: EvolutionMenuUtilityOverdose
   name: evolutionmenu-utility-stims-name
   description: evolutionmenu-utility-stims-desc
   icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: epinephrine_overdose }
-  productAction: ActionEphedrineOverdose
+  productAction: ActionAdrenalineReserves
   cost:
     EvolutionPoint: 4
   categories:
@@ -350,20 +364,6 @@
   productAction: ActionToggleLesserForm
   cost:
     EvolutionPoint: 2
-  categories:
-  - ChangelingAbilityUtility
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-
-- type: listing
-  id: EvolutionMenuUtilitySpacesuit
-  name: evolutionmenu-utility-spacesuit-name
-  description: evolutionmenu-utility-spacesuit-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: space_adaptation }
-  productAction: ActionToggleSpacesuit
-  cost:
-    EvolutionPoint: 4
   categories:
   - ChangelingAbilityUtility
   conditions:
