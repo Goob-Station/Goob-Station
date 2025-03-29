@@ -1,4 +1,4 @@
-namespace Content.Goobstation.Server.Contraband;
+namespace Content.Goobstation.Shared.Contraband;
 
 /// <summary>
 /// added to items that will not be detected like shiv
