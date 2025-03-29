@@ -1,15 +1,13 @@
 ﻿using System.Numerics;
 using Content.Client.UserInterface.Systems;
-using Content.Shared._Goobstation.Fishing.Components;
+using Content.Goobstation.Shared.Fishing.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
 using Robust.Client.Player;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-namespace Content.Client._Goobstation.Fishing.Overlays;
+namespace Content.Goobstation.Client.Fishing.Overlays;
 
 public sealed class FishingOverlay : Overlay
 {

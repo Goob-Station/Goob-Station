@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Numerics;
-using Content.Shared._Goobstation.Fishing.Components;
-using Content.Shared._Goobstation.Fishing.Systems;
+using Content.Goobstation.Shared.Fishing.Components;
+using Content.Goobstation.Shared.Fishing.Systems;
 using Content.Shared.Item;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Physics;
@@ -12,7 +12,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-namespace Content.Server._Goobstation.Fishing;
+namespace Content.Goobstation.Server.Fishing;
 
 public sealed class FishingSystem : SharedFishingSystem
 {

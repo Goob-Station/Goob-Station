@@ -1,13 +1,13 @@
-﻿using Content.Client._Goobstation.Fishing.Overlays;
-using Content.Client.DoAfter;
-using Content.Shared._Goobstation.Fishing.Components;
-using Content.Shared._Goobstation.Fishing.Systems;
+﻿using Content.Client.DoAfter;
+using Content.Goobstation.Client.Fishing.Overlays;
+using Content.Goobstation.Shared.Fishing.Components;
+using Content.Goobstation.Shared.Fishing.Systems;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client._Goobstation.Fishing;
+namespace Content.Goobstation.Client.Fishing;
 
 public sealed class FishingSystem : SharedFishingSystem
 {
