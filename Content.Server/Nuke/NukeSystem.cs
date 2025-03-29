@@ -251,6 +251,8 @@ public sealed class NukeSystem : EntitySystem
 
     private void OnArmButtonPressed(EntityUid uid, NukeComponent component, NukeArmedMessage args)
     {
+        var isOverride = GetDiskOverrideStatus(component.DiskSlot.Item);
+
         if (!component.DiskSlot.HasItem)
             return;
 
@@ -259,7 +261,14 @@ public sealed class NukeSystem : EntitySystem
 
         else
         {
+            if (isOverride) // Goobstation
+            {
+                var msg = Loc.GetString("nuke-component-disarm-fail");
+                _popups.PopupEntity(msg, uid, args.Actor, PopupType.MediumCaution);
+                return;
+            }
             DisarmBombDoafter(uid, args.Actor, component);
+
         }
     }
 
@@ -542,7 +551,9 @@ public sealed class NukeSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
-        if (component.Status != NukeStatus.ARMED)
+        var isOverride = GetDiskOverrideStatus(component.DiskSlot.Item); // Goobstation
+
+        if (component.Status != NukeStatus.ARMED || isOverride ) // Goobstation - Extra Safeguard
             return;
 
         var stationUid = _station.GetOwningStation(uid);
