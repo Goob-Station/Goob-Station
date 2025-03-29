@@ -23,7 +23,7 @@ public sealed class FishingSystem : SharedFishingSystem
     public override void Shutdown()
     {
         base.Shutdown();
-        _overlay.RemoveOverlay<DoAfterOverlay>();
+        _overlay.RemoveOverlay<FishingOverlay>();
     }
 
     // Does nothing on client, because can't spawn entities in prediction
