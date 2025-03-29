@@ -1,3 +1,16 @@
+# Static
+- type: latheRecipePack
+  id: ScienceExplosivesTriggers
+  recipes:
+  - TimerTrigger
+  - SignalTrigger
+  - VoiceTrigger
+
+- type: latheRecipePack
+  id: FlashPayloadPack
+  recipes:
+  - FlashPayload # If you hate this, please find another pack to share between sci and sec that won't give someone something they shouldnt have
+
 # Dynamic
 - type: latheRecipePack
   id: BluespaceTheory

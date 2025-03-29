@@ -12,6 +12,7 @@
   recipes:
   - Beaker
   - LargeBeaker
+  - ChemicalPayload # Goobstation, roundstart chemical payloads
   - Syringe
   - PillCanister
   - HandLabeler
@@ -87,7 +88,6 @@
 - type: latheRecipePack
   id: Chemistry
   recipes:
-  - ChemicalPayload
   - CryostasisBeaker
   - SyringeCryostasis
   - BluespaceBeaker
