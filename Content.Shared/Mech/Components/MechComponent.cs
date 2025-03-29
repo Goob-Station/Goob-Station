@@ -1,4 +1,5 @@
-using Content.Shared.Actions;
+using Content.Shared._Goobstation.Components.Malfunctions;
+using Content.Shared._Goobstation.Mech.Components.Malfunctions;
 using Content.Shared.FixedPoint;
 using Content.Shared.Whitelist;
 using Content.Shared.Damage;
@@ -37,7 +38,7 @@ public sealed partial class MechComponent : Component
     public FixedPoint2 MaxIntegrity = 250;
 
     /// <summary>
-    /// How much "health" the mech has left.
+    /// Goobstation: How much “health” must the mech have left to try add a malfunction.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public float IntegrityPoint = 0.5f;
@@ -69,7 +70,7 @@ public sealed partial class MechComponent : Component
     /// Thresholds for pilot damage.
     /// </summary>
     [DataField]
-    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField] // Goobstation
     public DamageSpecifier MechArmor = new()
     {
         DamageDict = new()
@@ -83,14 +84,30 @@ public sealed partial class MechComponent : Component
         }
     };
 
+    // Goobstation-Start
+    /// <summary>
+    /// Probability of malfunction to add.
+    /// </summary>
     [DataField]
-    public float MalfunctionProbability = 1.0f;
+    public float MalfunctionProbability = 0.3f;
+
+    /// <summary>
+    /// How much we should increase the number of firestacks for the pilot by for more damage
+    /// </summary>
+    [DataField]
+    public int FirestacksPilotMultiplier = 3;
+
+    /// <summary>
+    /// How much firestacks will mech gain after CabinOnFire malfunction.
+    /// </summary>
+    [DataField]
+    public float MechFirestacks = 1f;
 
     [DataField]
     public ProtoId<WeightedRandomPrototype> MalfunctionWeights = "MechMalfunctionWeights";
 
-    [DataField("malfunctionChances"), ViewVariables]
-    public Dictionary<string, BaseMalfunctionEvent> MalfunctionChances = new()
+    [DataField, ViewVariables]
+    public Dictionary<string, BaseMalfunctionEvent> Malfunctions = new()
     {
         { "ShortCircuit", new ShortCircuitEvent() },
         { "CabinOnFire", new CabinOnFireEvent() },
@@ -98,9 +115,7 @@ public sealed partial class MechComponent : Component
         { "CabinBreach", new CabinBreachEvent() },
         { "EquipmentLoss", new EquipmentLossEvent() },
     };
-
-    [DataField, ViewVariables]
-    public FixedPoint2 EnergyLoss = 30;
+    // Goobstation-End
 
     /// <summary>
     /// Whether the mech has been destroyed and is no longer pilotable.
@@ -226,4 +241,4 @@ public sealed partial class MechComponent : Component
 }
 
 [ImplicitDataDefinitionForInheritors]
-public abstract partial class BaseMalfunctionEvent;
+public abstract partial class BaseMalfunctionEvent; // Goobstation

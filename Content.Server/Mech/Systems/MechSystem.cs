@@ -10,6 +10,8 @@ using Content.Server.NPC.HTN.PrimitiveTasks.Operators; // Goobstation
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Repairable;
+using Content.Shared._Goobstation.Components.Malfunctions;
+using Content.Shared._Goobstation.Mech.Components.Malfunctions;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
@@ -71,15 +73,22 @@ public sealed partial class MechSystem : SharedMechSystem
         SubscribeLocalEvent<MechComponent, RemoveBatteryEvent>(OnRemoveBattery);
         SubscribeLocalEvent<MechComponent, MechEntryEvent>(OnMechEntry);
         SubscribeLocalEvent<MechComponent, MechExitEvent>(OnMechExit);
-        SubscribeLocalEvent<MechComponent, EmpPulseEvent>(OnEmpPulse); // Goobstation
 
         SubscribeLocalEvent<MechComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<MechComponent, MechEquipmentRemoveMessage>(OnRemoveEquipmentMessage);
-        SubscribeLocalEvent<MechComponent, RepairedEvent>(OnRepaired);
 
         SubscribeLocalEvent<MechComponent, UpdateCanMoveEvent>(OnMechCanMoveEvent);
 
+        // Goobstation-Start
+        SubscribeLocalEvent<MechComponent, EmpPulseEvent>(OnEmpPulse);
+        SubscribeLocalEvent<MechComponent, RepairedEvent>(OnRepaired);
+
+        SubscribeLocalEvent<MechComponent, ShortCircuitEvent>(OnShortCircuit);
+        SubscribeLocalEvent<MechComponent, CabinOnFireEvent>(OnCabinOnFire);
+        SubscribeLocalEvent<MechComponent, EngineBrokenEvent>(OnEngineBroken);
+        SubscribeLocalEvent<MechComponent, CabinBreachEvent>(OnCabinBreach);
         SubscribeLocalEvent<MechComponent, EquipmentLossEvent>(OnEquipmentLoss);
+        // Goobstation-End
 
         SubscribeLocalEvent<MechPilotComponent, ToolUserAttemptUseEvent>(OnToolUseAttempt);
         SubscribeLocalEvent<MechPilotComponent, InhaleLocationEvent>(OnInhale);
@@ -94,6 +103,7 @@ public sealed partial class MechSystem : SharedMechSystem
         #endregion
     }
 
+    // Goobstation-Start
     private void Ignite(EntityUid uid, MechComponent comp, float fireStacks, EntityUid? user = null)
     {
         if (!TryComp<FlammableComponent>(uid, out var flammable))
@@ -114,16 +124,21 @@ public sealed partial class MechSystem : SharedMechSystem
                 if (flammableUser.FireStacks == 0)
                 {
                     flammableUser.OnFire = true;
-                    _flammable.AdjustFireStacks(userEntity, fireStacks * 3);
+                    _flammable.AdjustFireStacks(userEntity, fireStacks * comp.FirestacksPilotMultiplier);
                 }
             }
             _flammable.AdjustFireStacks(uid, fireStacks);
         }
     }
+    // Goobstation-End
     private void OnMechCanMoveEvent(EntityUid uid, MechComponent component, UpdateCanMoveEvent args)
     {
         if (component.Broken || HasComp<EngineBrokenComponent>(uid) || component.Integrity <= 0 || component.Energy <= 0)
             args.Cancel();
+        if (!TryComp<FlammableComponent>(uid, out var flammable))
+            return;
+        if (flammable.FireStacks <= 0 && !flammable.OnFire) // Goobstation
+            RemComp<CabinOnFireComponent>(uid);
     }
 
     private void OnInteractUsing(EntityUid uid, MechComponent component, InteractUsingEvent args)
@@ -283,17 +298,18 @@ public sealed partial class MechSystem : SharedMechSystem
             return;
         }
 
-
         TryInsert(uid, args.Args.User, component);
         _actionBlocker.UpdateCanMove(uid);
         args.Handled = true;
 
+        // Goobstation-Start
         if (HasComp<CabinOnFireComponent>(uid))
         {
-            if (!TryComp<FlammableComponent>(args.Args.User, out var flammable))
+            if (!TryComp<FlammableComponent>(args.Args.User, out var _))
                 return;
-            Ignite(uid, component, 1f, args.Args.User);
+            Ignite(uid, component, component.MechFirestacks, args.Args.User);
         }
+        // Goobstation-End
     }
 
     private void OnMechExit(EntityUid uid, MechComponent component, MechExitEvent args)
@@ -328,7 +344,7 @@ public sealed partial class MechSystem : SharedMechSystem
     {
         var integrity = component.MaxIntegrity - args.Damageable.TotalDamage;
         SetIntegrity(uid, integrity, component);
-
+        // Goobstation-Start
         if (integrity <= component.MaxIntegrity * component.IntegrityPoint)
         {
             if (!TryComp<FlammableComponent>(uid, out var flammable))
@@ -340,7 +356,7 @@ public sealed partial class MechSystem : SharedMechSystem
             {
                 var weights = _prototypeManager.Index(component.MalfunctionWeights);
                 var pick = weights.Pick(_random);
-                if (component.MalfunctionChances.TryGetValue(pick, out var malfunctionEvent))
+                if (component.Malfunctions.TryGetValue(pick, out var malfunctionEvent))
                 {
                     RaiseLocalEvent(uid, (object) malfunctionEvent);
                 }
@@ -392,7 +408,7 @@ public sealed partial class MechSystem : SharedMechSystem
                                 foreach (var (t1, a1) in modifierSet.Coefficients)
                                 {
                                     var damageReductionFactor = Math.Pow(a1, component.ArmorContainer.Count);
-                                    modifierSet.Coefficients[t1] = (float)damageReductionFactor;
+                                    modifierSet.Coefficients[t1] = (float) damageReductionFactor;
                                 }
                                 updatedDamage = DamageSpecifier.ApplyModifierSet(updatedDamage, modifierSet);
                                 modifierSet.Coefficients = origCoeff;
@@ -403,11 +419,12 @@ public sealed partial class MechSystem : SharedMechSystem
                     }
                 }
             }
-            // Gained damage to pilot
             _damageable.TryChangeDamage(component.PilotSlot.ContainedEntity, updatedDamage);
         }
+        // Goobstation-End
     }
 
+    // Goobstation-Start
     private void OnCabinOnFire(EntityUid uid, MechComponent component, CabinOnFireEvent args)
     {
         EnsureComp<CabinOnFireComponent>(uid);
@@ -415,10 +432,12 @@ public sealed partial class MechSystem : SharedMechSystem
             return;
         flammable.OnFire = true;
         _popup.PopupEntity(Loc.GetString("goobstation-mech-cabin-on-fire"), uid);
-        Ignite(uid, component, 1f);
+        Ignite(uid, component, component.MechFirestacks);
     }
     private void OnEngineBroken(EntityUid uid, MechComponent component, EngineBrokenEvent args)
     {
+        if (HasComp<EngineBrokenComponent>(uid))
+            return;
         EnsureComp<EngineBrokenComponent>(uid);
         _actionBlocker.UpdateCanMove(uid);
         _popup.PopupEntity(Loc.GetString("goobstation-mech-engine-broken"), uid);
@@ -429,18 +448,18 @@ public sealed partial class MechSystem : SharedMechSystem
         {
             component.Airtight = false;
             EnsureComp<CabinBreachComponent>(uid);
+            _popup.PopupEntity(Loc.GetString("goobstation-mech-cabin-breach"), uid);
         }
-        _popup.PopupEntity(Loc.GetString("goobstation-mech-cabin-breach"), uid);
     }
     private void OnShortCircuit(EntityUid uid, MechComponent component, ShortCircuitEvent args)
     {
-        component.Energy -= component.EnergyLoss;
+        component.Energy -= args.EnergyLoss;
+        _popup.PopupEntity(Loc.GetString("goobstation-mech-short-circuit"), uid);
+        if (component.PilotSlot.ContainedEntity == null)
+            return;
         DamageSpecifier shock = new DamageSpecifier();
         shock.DamageDict.Add("Shock", 15);
         _damageable.TryChangeDamage(component.PilotSlot.ContainedEntity, shock);
-        if (component.PilotSlot.ContainedEntity == null)
-            return;
-        _popup.PopupEntity(Loc.GetString("goobstation-mech-short-circuit"), uid, component.PilotSlot.ContainedEntity.Value);
     }
     private void OnEquipmentLoss(EntityUid uid, MechComponent component, EquipmentLossEvent args)
     {
@@ -449,7 +468,7 @@ public sealed partial class MechSystem : SharedMechSystem
             return;
         var randompick = _random.Pick(allEquipment);
         RemoveEquipment(uid, randompick, component, forced: true);
-        var range = 3f;
+        var range = args.Range;
         var direction = new Vector2(_random.NextFloat(-range, range), _random.NextFloat(-range, range));
         _throwingSystem.TryThrow(randompick, direction, range);
         _popup.PopupEntity(Loc.GetString("goobstation-mech-equipment-loss"), uid);
@@ -463,6 +482,7 @@ public sealed partial class MechSystem : SharedMechSystem
             RemComp<CabinBreachComponent>(uid);
         }
     }
+    // Goobstation-End
     private void ToggleMechUi(EntityUid uid, MechComponent? component = null, EntityUid? user = null)
     {
         if (!Resolve(uid, ref component))
