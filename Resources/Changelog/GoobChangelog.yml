@@ -6848,3 +6848,11 @@ Entries:
         by dumping ore or not at that point in time.
   id: 791
   time: '2025-03-26T23:58:47.0000000+00:00'
+- author: Misandry, gusxyz
+  changes:
+    - type: Add
+      message: >-
+        Custom goobstation module for faster compile times and shitcod
+        generation
+  id: 792
+  time: '2025-03-28T21:04:41.0000000+00:00'

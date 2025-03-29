@@ -1,4 +1,5 @@
 using System.Threading;
+using Content.Goobstation.Common.Speech;
 using Content.Server.Administration.Commands;
 using Content.Server.Administration.Components;
 using Content.Server.Atmos.Components;
