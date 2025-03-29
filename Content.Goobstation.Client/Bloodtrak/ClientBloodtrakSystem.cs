@@ -18,7 +18,7 @@ public sealed class ClientBloodtrakSystem : SharedBloodtrakSystem
 
         // because eye can change it rotation anytime
         // we need to update this arrow in a update loop
-        var query = EntityQueryEnumerator<Shared.Bloodtrak.BloodtrakComponent, SpriteComponent>();
+        var query = EntityQueryEnumerator<BloodtrakComponent, SpriteComponent>();
         while (query.MoveNext(out var _, out var pinpointer, out var sprite))
         {
             if (!pinpointer.HasTarget)
@@ -26,17 +26,12 @@ public sealed class ClientBloodtrakSystem : SharedBloodtrakSystem
             var eye = _eyeManager.CurrentEye;
             var angle = pinpointer.ArrowAngle + eye.Rotation;
 
-            switch (pinpointer.DistanceToTarget)
-            {
-                case Shared.Bloodtrak.Distance.Close:
-                case Shared.Bloodtrak.Distance.Medium:
-                case Shared.Bloodtrak.Distance.Far:
-                    sprite.LayerSetRotation(PinpointerLayers.Screen, angle);
-                    break;
-                default:
-                    sprite.LayerSetRotation(PinpointerLayers.Screen, Angle.Zero);
-                    break;
-            }
+            if (pinpointer.DistanceToTarget is Shared.Bloodtrak.Distance.Close
+                or Shared.Bloodtrak.Distance.Medium
+                or Shared.Bloodtrak.Distance.Far)
+                sprite.LayerSetRotation(PinpointerLayers.Screen, angle);
+            else
+                sprite.LayerSetRotation(PinpointerLayers.Screen, Angle.Zero);
         }
     }
 }

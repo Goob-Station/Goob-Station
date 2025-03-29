@@ -26,8 +26,8 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<Shared.Bloodtrak.BloodtrakComponent, AfterInteractEvent>(OnAfterInteract);
-        SubscribeLocalEvent<Shared.Bloodtrak.BloodtrakComponent, ActivateInWorldEvent>(OnActivate);
+        SubscribeLocalEvent<BloodtrakComponent, AfterInteractEvent>(OnAfterInteract);
+        SubscribeLocalEvent<BloodtrakComponent, ActivateInWorldEvent>(OnActivate);
         SubscribeLocalEvent<DnaComponent, ComponentStartup>(OnDnaStartup);
         SubscribeLocalEvent<DnaComponent, ComponentRemove>(OnDnaRemoved);
         SubscribeLocalEvent<DnaComponent, EntityTerminatingEvent>(OnDnaTerminating);
@@ -84,7 +84,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         return null;
     }
 
-    private void OnAfterInteract(EntityUid uid, Shared.Bloodtrak.BloodtrakComponent component, AfterInteractEvent args)
+    private void OnAfterInteract(EntityUid uid, BloodtrakComponent component, AfterInteractEvent args)
     {
         if (!args.CanReach || args.Target is not { } target || component.IsActive)
             return;
@@ -93,7 +93,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         component.Target = GetPuddleDnaOwner(args);
     }
 
-    public override bool TogglePinpointer(EntityUid uid, Shared.Bloodtrak.BloodtrakComponent? pinpointer = null)
+    public override bool TogglePinpointer(EntityUid uid, BloodtrakComponent? pinpointer = null)
     {
         if (!Resolve(uid, ref pinpointer))
             return false;
@@ -137,7 +137,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         return isActive;
     }
 
-    private void UpdateAppearance(EntityUid uid, Shared.Bloodtrak.BloodtrakComponent pinpointer, AppearanceComponent? appearance = null)
+    private void UpdateAppearance(EntityUid uid, BloodtrakComponent pinpointer, AppearanceComponent? appearance = null)
     {
         if (!Resolve(uid, ref appearance))
             return;
@@ -146,7 +146,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         _appearance.SetData(uid, PinpointerVisuals.TargetDistance, pinpointer.DistanceToTarget, appearance);
     }
 
-    private void OnActivate(EntityUid uid, Shared.Bloodtrak.BloodtrakComponent component, ActivateInWorldEvent args)
+    private void OnActivate(EntityUid uid, BloodtrakComponent component, ActivateInWorldEvent args)
     {
         if (args.Handled || !args.Complex)
             return;
@@ -160,7 +160,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         base.Update(frameTime);
         var currentTime = _gameTiming.CurTime;
 
-        var query = EntityQueryEnumerator<Shared.Bloodtrak.BloodtrakComponent>();
+        var query = EntityQueryEnumerator<BloodtrakComponent>();
         while (query.MoveNext(out var uid, out var tracker))
         {
             if (!tracker.IsActive)

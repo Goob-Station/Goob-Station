@@ -125,9 +125,9 @@
   - WeaponHeadOfSecurityRifle
 
 - type: thiefBackpackSet
-  id: RifleSet
-  name: hos-box-category-rifle-name
-  description: hos-box-category-rifle-description
+  id: CQCSet
+  name: hos-box-category-cqc-name
+  description: hos-box-category-cqc-description
   sprite:
     sprite: _Goobstation/Objects/Misc/cqc_manual.rsi
     state: icon-hos

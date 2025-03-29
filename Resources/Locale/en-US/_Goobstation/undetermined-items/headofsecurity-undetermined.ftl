@@ -18,6 +18,10 @@ hos-box-category-rifle-description =
     An elaborately designed rifle, firing shots of pure phoron.
     Low fire rate, high damage.
 
+hos-box-category-cqc-name = cqc book
+hos-box-category-cqc-description =
+    A gun? Those are for PANSIES.
+
 hos-box-category-station-name = Urban-Environment Set
 hos-box-category-station-description =
     A set of equipment designed to fight in areas with an atmosphere.

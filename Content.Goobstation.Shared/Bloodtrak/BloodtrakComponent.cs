@@ -86,7 +86,7 @@ public sealed partial class BloodtrakComponent : Component
     public TimeSpan CooldownEndTime = TimeSpan.Zero;
 
     [ViewVariables]
-    public bool HasTarget => Target != null && DistanceToTarget != Distance.Unknown;
+    public bool HasTarget => Target != null;
 
 }
 
