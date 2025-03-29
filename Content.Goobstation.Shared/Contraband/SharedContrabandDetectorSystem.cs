@@ -114,17 +114,24 @@ public abstract class SharedContrabandDetectorSystem : EntitySystem
     /// </summary>
     /// <param name="uid"></param>
     /// <returns></returns>
-    private List<EntityUid> RecursiveFindInStorage(EntityUid uid)
+    private List<EntityUid> RecursiveFindInStorage(EntityUid uid, HashSet<EntityUid>? visited = null)
     {
+        visited ??= new HashSet<EntityUid>();
         List<EntityUid> listToCheck = new();
 
-        if (!TryComp<StorageComponent>(uid, out var storage) || HasComp<HideContrabandContentComponent>(uid) || storage.Container.ContainedEntities.Count == 0)
+        // Prevents rechecking same entity
+        if (!visited.Add(uid))
+            return listToCheck;
+
+        if (!TryComp<StorageComponent>(uid, out var storage)
+            || HasComp<HideContrabandContentComponent>(uid)
+            || storage.Container.ContainedEntities.Count == 0)
             return listToCheck;
 
         foreach (var item in storage.Container.ContainedEntities)
         {
             listToCheck.Add(item);
-            listToCheck.AddRange(RecursiveFindInStorage(item));
+            listToCheck.AddRange(RecursiveFindInStorage(item, visited));
         }
 
         return listToCheck;
