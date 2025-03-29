@@ -102,7 +102,7 @@ public abstract class SharedContrabandDetectorSystem : EntitySystem
 
         foreach (var item in itemsToCheck)
         {
-            if (IsContraband(item) && CheckContrabandPermission(item, uid))
+            if (IsContraband(item) && !CheckContrabandPermission(item, uid))
                 listOfContraband.Add(item);
         }
 
