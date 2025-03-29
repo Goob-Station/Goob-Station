@@ -438,6 +438,22 @@
   categories:
   - UplinkChemicals
 
+- type: listing
+  id: UplinkMedicalBeamGunSyndicate
+  name: uplink-medical-beam-gun-name
+  description: uplink-medical-beam-gun-desc
+  productEntity: MedicalBeamGunSyndicate
+  cost:
+    Telecrystal: 100
+  categories:
+  - UplinkChemicals
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsMedicUplink
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 # Implants
 
