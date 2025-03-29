@@ -1,0 +1,25 @@
+- type: entity
+  parent: BaseItem
+  id: ReinforcementRadioNanotrasenCar
+  name: car keys
+  description: This is a car key, suprisingly, it summons your beloved car-cat.
+  components:
+  - type: GhostRole
+    name: ghost-role-information-car-name
+    description: ghost-role-information-car-desc
+    rules: ghost-role-information-car-rules
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: CarMobPet
+  - type: EmitSoundOnUse
+    sound: /Audio/_Goobstation/Animals/Car3.wav
+  - type: Sprite
+    sprite: _Goobstation\Mobs\Pets\carmob.rsi
+    state: car_key
+  - type: UserInterface
+    interfaces:
+      enum.GhostRoleRadioUiKey.Key:
+        type: GhostRoleRadioBoundUserInterface
+  - type: ActivatableUI
+    key: enum.GhostRoleRadioUiKey.Key

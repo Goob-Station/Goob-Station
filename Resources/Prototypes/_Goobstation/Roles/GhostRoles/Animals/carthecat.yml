@@ -1,0 +1,6 @@
+- type: ghostRole
+  id: NanoTrasenCarMob
+  name: ghost-role-information-car-name
+  description: ghost-role-information-car-desc
+  rules: ghost-role-information-car-rules
+  entityPrototype: CarMobPet
