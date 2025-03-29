@@ -1,8 +1,8 @@
-using Content.Server._Goobstation.Implants.Components;
+using Content.Goobstation.Server.Implants.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Implants;
 
-namespace Content.Server._Goobstation.Implants.Systems;
+namespace Content.Goobstation.Server.Implants.Systems;
 
 public sealed class HereticImplantSystem : EntitySystem
 {

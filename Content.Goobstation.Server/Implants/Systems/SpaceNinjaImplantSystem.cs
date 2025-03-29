@@ -1,8 +1,8 @@
-using Content.Server._Goobstation.Implants.Components;
+using Content.Goobstation.Server.Implants.Components;
 using Content.Shared.Implants;
 using Content.Shared.Ninja.Components;
 
-namespace Content.Server._Goobstation.Implants.Systems;
+namespace Content.Goobstation.Server.Implants.Systems;
 
 public sealed class SpaceNinjaImplantSystem : EntitySystem
 {

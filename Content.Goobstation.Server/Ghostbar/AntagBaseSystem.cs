@@ -4,7 +4,7 @@ using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Utility;
 
-namespace Content.Server._Goobstation.Ghostbar;
+namespace Content.Goobstation.Server.Ghostbar;
 
 public sealed class AntagBaseSystem : EntitySystem
 {
