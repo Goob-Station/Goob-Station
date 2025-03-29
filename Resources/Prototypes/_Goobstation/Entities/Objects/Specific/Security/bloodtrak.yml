@@ -10,7 +10,7 @@
     noRot: True
     sprite: Objects/Devices/pinpointer.rsi
     layers:
-    - state: pinpointer
+    - state: pinpointer-detective
       map: ["enum.PinpointerLayers.Base"]
     - state: pinonnull
       map: ["enum.PinpointerLayers.Screen"]
@@ -18,7 +18,7 @@
       visible: false
   - type: Icon
     sprite: Objects/Devices/pinpointer.rsi
-    state: pinpointer
+    state: pinpointer-detective
   - type: Item
     sprite: Objects/Devices/pinpointer.rsi
   - type: Bloodtrak

@@ -63,7 +63,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         }
 
         var solutionsDna = _forensicsSystem.GetSolutionsDNA(targetEntity);
-        if (solutionsDna == null || solutionsDna.Count == 0)
+        if (solutionsDna.Count == 0)
         {
             _popupSystem.PopupEntity(Loc.GetString("bloodtrak-no-dna"), args.User, args.User);
             args.Handled = true;
@@ -72,11 +72,11 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
 
         foreach (var dna in solutionsDna)
         {
-            if (_dnaMap.TryGetValue(dna, out var uid))
-            {
-                _popupSystem.PopupEntity(Loc.GetString("bloodtrak-dna-saved"), args.User, args.User);
-                return uid;
-            }
+            if (!_dnaMap.TryGetValue(dna, out var uid))
+                continue;
+
+            _popupSystem.PopupEntity(Loc.GetString("bloodtrak-dna-saved"), args.User, args.User);
+            return uid;
         }
 
         _popupSystem.PopupPredicted(Loc.GetString("bloodtrak-no-match"), args.User, args.User);
