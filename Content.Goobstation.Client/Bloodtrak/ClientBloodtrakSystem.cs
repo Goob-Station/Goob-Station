@@ -20,17 +20,18 @@ public sealed class ClientBloodtrakSystem : SharedBloodtrakSystem
                 continue;
 
             var eye = _eyeManager.CurrentEye;
+            var angle = pinpointer.ArrowAngle + eye.Rotation;
 
-            var angle = (pinpointer.ArrowAngle - eye.Rotation).FlipPositive();
-
-            if (pinpointer.DistanceToTarget is Shared.Bloodtrak.Distance.Close or Shared.Bloodtrak.Distance.Medium or Shared.Bloodtrak.Distance.Far)
+            switch (pinpointer.DistanceToTarget)
             {
-                sprite.LayerSetRotation(PinpointerLayers.Screen, angle);
-                sprite.LayerSetVisible(PinpointerLayers.Screen, true);
-            }
-            else
-            {
-                sprite.LayerSetVisible(PinpointerLayers.Screen, false);
+                case Shared.Bloodtrak.Distance.Close:
+                case Shared.Bloodtrak.Distance.Medium:
+                case Shared.Bloodtrak.Distance.Far:
+                    sprite.LayerSetRotation(PinpointerLayers.Screen, angle);
+                    break;
+                default:
+                    sprite.LayerSetRotation(PinpointerLayers.Screen, Angle.Zero);
+                    break;
             }
         }
     }

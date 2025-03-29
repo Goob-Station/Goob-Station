@@ -191,7 +191,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         }
     }
 
-    protected override void UpdateDirectionToTarget(EntityUid uid, BloodtrakComponent? pinpointer)
+    protected override void UpdateDirectionToTarget(EntityUid uid, BloodtrakComponent? pinpointer = null)
     {
         if (!Resolve(uid, ref pinpointer))
             return;

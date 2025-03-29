@@ -6,7 +6,7 @@ public abstract class SharedBloodtrakSystem : EntitySystem
     /// <summary>
     ///     Update direction from pinpointer to selected target (if it was set)
     /// </summary>
-    protected virtual void UpdateDirectionToTarget(EntityUid uid, BloodtrakComponent? pinpointer)
+    protected virtual void UpdateDirectionToTarget(EntityUid uid, BloodtrakComponent? pinpointer = null)
     {
 
     }
@@ -14,7 +14,7 @@ public abstract class SharedBloodtrakSystem : EntitySystem
     /// <summary>
     ///     Manually set distance from pinpointer to target
     /// </summary>
-    public void SetDistance(EntityUid uid, Distance distance, Bloodtrak.BloodtrakComponent? pinpointer = null)
+    protected void SetDistance(EntityUid uid, Distance distance, BloodtrakComponent? pinpointer = null)
     {
         if (!Resolve(uid, ref pinpointer))
             return;
@@ -31,7 +31,7 @@ public abstract class SharedBloodtrakSystem : EntitySystem
     ///     If difference between current angle and new angle is smaller than
     ///     pinpointer precision, new value will be ignored and it will return false.
     /// </summary>
-    public bool TrySetArrowAngle(EntityUid uid, Angle arrowAngle, Bloodtrak.BloodtrakComponent? pinpointer = null)
+    protected bool TrySetArrowAngle(EntityUid uid, Angle arrowAngle, BloodtrakComponent? pinpointer = null)
     {
         if (!Resolve(uid, ref pinpointer))
             return false;
@@ -46,9 +46,9 @@ public abstract class SharedBloodtrakSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Activate/deactivate pinpointer screen. If it has target it will start tracking it.
+    ///     Activate/deactivate pinpointer screen. If it has a target it will start tracking it.
     /// </summary>
-    public void SetActive(EntityUid uid, bool isActive, Bloodtrak.BloodtrakComponent? pinpointer = null)
+    protected void SetActive(EntityUid uid, bool isActive, BloodtrakComponent? pinpointer = null)
     {
         if (!Resolve(uid, ref pinpointer))
             return;
