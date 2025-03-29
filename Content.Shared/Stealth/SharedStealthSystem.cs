@@ -4,11 +4,6 @@ using Content.Shared.Stealth.Components;
 using Robust.Shared.Physics.Components; // Goobstation
 using Robust.Shared.GameStates;
 using Robust.Shared.Timing;
-using Content.Shared.Damage; //Goobstation
-using Content.Shared.Weapons.Melee.Events; //Goobstation
-using Content.Shared.Weapons.Ranged.Events; //Goobstation
-using Content.Shared.Throwing; //Goobstation
-using Content.Shared.Projectiles; //Goobstation
 
 namespace Content.Shared.Stealth;
 
@@ -28,10 +23,6 @@ public abstract class SharedStealthSystem : EntitySystem
         SubscribeLocalEvent<StealthComponent, ExamineAttemptEvent>(OnExamineAttempt);
         SubscribeLocalEvent<StealthComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<StealthComponent, MobStateChangedEvent>(OnMobStateChanged);
-        SubscribeLocalEvent<StealthComponent, MeleeAttackEvent> (OnMeleeAttack); // Goobstation
-        SubscribeLocalEvent<StealthComponent, SelfBeforeGunShotEvent> (OnGunShootAttack); // Goobstation
-        SubscribeLocalEvent<StealthComponent, BeforeDamageChangedEvent>(OnTakeDamage); // Goobstation
-        SubscribeLocalEvent<StealthComponent, BeforeThrowEvent>(OnThrow); // Goobstation
     }
 
     private void OnExamineAttempt(EntityUid uid, StealthComponent component, ExamineAttemptEvent args)
@@ -208,51 +199,7 @@ public abstract class SharedStealthSystem : EntitySystem
             SecondsSinceUpdate = secondsSinceUpdate;
             FlatModifier = flatModifier;
         }
+
     }
-
-    /// Goobstation - Start Stealth reveled on melee throwing and taking damage
-    ///
-    /// <summary>
-    ///  on attacking makes the stealth go away
-    /// </summary>
-
-    private void OnTakeDamage(Entity<StealthComponent> ent, ref BeforeDamageChangedEvent args)
-    {
-        if (!ent.Comp.RevealOnDamage)
-            return;
-
-        if (!args.Damage.AnyPositive()) // being healed does not reveal
-            return;
-
-        if (args.Damage.GetTotal() <= ent.Comp.Threshold) //damage needs to be above threshold
-            return;
-
-        ModifyVisibility(ent.Owner, ent.Comp.MaxVisibility, ent.Comp);
-    }
-
-    private void OnMeleeAttack(Entity<StealthComponent> ent, ref MeleeAttackEvent args)
-    {
-        if (!ent.Comp.RevealOnAttack)
-            return;
-
-        ModifyVisibility(ent.Owner, ent.Comp.MaxVisibility, ent.Comp);
-    }
-
-    private void OnGunShootAttack(Entity<StealthComponent> ent, ref SelfBeforeGunShotEvent args)
-    {
-        if (!ent.Comp.RevealOnAttack)
-            return;
-
-        ModifyVisibility(ent.Owner, ent.Comp.MaxVisibility, ent.Comp);
-    }
-
-    private void OnThrow(Entity<StealthComponent> ent, ref BeforeThrowEvent args)
-    {
-        if (!ent.Comp.RevealOnAttack)
-            return;
-
-        ModifyVisibility(ent.Owner, ent.Comp.MaxVisibility, ent.Comp);
-    }
-    /// Goobstation - end
 
 }
