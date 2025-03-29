@@ -20,10 +20,40 @@ namespace Content.Server.Database.Migrations.Postgres
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.0")
+                .HasAnnotation("ProductVersion", "9.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("Content.Server.Database.Achievement", b =>
+                {
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("player_id");
+
+                    b.Property<string>("AchievementId")
+                        .HasColumnType("text")
+                        .HasColumnName("achievement_id");
+
+                    b.Property<DateTime>("LastUpdatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("last_updated_at");
+
+                    b.Property<float>("Progress")
+                        .HasColumnType("real")
+                        .HasColumnName("progress");
+
+                    b.HasKey("PlayerId", "AchievementId")
+                        .HasName("PK_achievements");
+
+                    b.HasIndex("AchievementId")
+                        .HasDatabaseName("IX_achievements_achievement_id");
+
+                    b.HasIndex("PlayerId")
+                        .HasDatabaseName("IX_achievements_player_id");
+
+                    b.ToTable("achievements", (string)null);
+                });
 
             modelBuilder.Entity("Content.Server.Database.Admin", b =>
                 {
@@ -283,8 +313,7 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("expiration_time");
 
-                    b.Property<DateTime?>("LastEditedAt")
-                        .IsRequired()
+                    b.Property<DateTime>("LastEditedAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("last_edited_at");
 
@@ -418,8 +447,7 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("expiration_time");
 
-                    b.Property<DateTime?>("LastEditedAt")
-                        .IsRequired()
+                    b.Property<DateTime>("LastEditedAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("last_edited_at");
 
@@ -1643,6 +1671,19 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("player_round", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.Achievement", b =>
+                {
+                    b.HasOne("Content.Server.Database.Player", "Player")
+                        .WithMany("Achievements")
+                        .HasForeignKey("PlayerId")
+                        .HasPrincipalKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_achievements_player_player_id1");
+
+                    b.Navigation("Player");
+                });
+
             modelBuilder.Entity("Content.Server.Database.Admin", b =>
                 {
                     b.HasOne("Content.Server.Database.AdminRank", "AdminRank")
@@ -2331,6 +2372,8 @@ namespace Content.Server.Database.Migrations.Postgres
 
             modelBuilder.Entity("Content.Server.Database.Player", b =>
                 {
+                    b.Navigation("Achievements");
+
                     b.Navigation("AdminLogs");
 
                     b.Navigation("AdminMessagesCreated");
