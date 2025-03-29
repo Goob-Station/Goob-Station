@@ -3,5 +3,5 @@
   result: MaterialBSCrystal1
   completetime: 2
   materials:
-    Diamond: 100
-    Plasma: 50
+    Diamond: 20
+    Plasma: 100

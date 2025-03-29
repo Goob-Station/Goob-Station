@@ -19,7 +19,6 @@
   weight: 20
   startingGear: BlueshieldOfficerGear
   icon: "JobIconBlueshield"
-  requireAdminNotify: true
   joinNotifyCrew: true
   supervisors: job-supervisors-ntr-centcom
   canBeAntag: false
@@ -37,12 +36,10 @@
   - BlueshieldOfficer
   - Service
   - Hydroponics
-  - Kitchen
   - Cargo
-  - Theatre
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+    implants: [ MindShieldImplant, BluespaceLifelineImplant ] # Go big, or go home.
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
@@ -53,14 +50,11 @@
     eyes: ClothingEyesGlassesBSO
     gloves: ClothingHandsGlovesCombat
     id: BlueshieldPDA
-    ears: ClothingHeadsetAltCommand
+    ears: ClothingHeadsetAltBlueshield
+    belt: ClothingBeltAssaultFilled
     pocket1: UniqueBlueshieldOfficerLockerTeleporter
-    pocket2: PinpointerNuclear
-    belt: BlueShieldShieldFilled # I felt like einstein after figuring this out.
   storage:
     back:
-    - ClothingMaskGasSecurity 
     - Flash
-    - BluespaceLifelineImplanter
-    - WeaponEnergyRevolver
     - SecHypo
+    - ClothingMaskGasSecurity

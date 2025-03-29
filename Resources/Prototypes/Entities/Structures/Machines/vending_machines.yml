@@ -380,6 +380,9 @@
     color: "#3db83b"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
+  - type: Tag
+    tags:
+      - DroneUsable # Goobstation
 
 - type: entity
   parent: VendingMachine
@@ -413,6 +416,9 @@
     color: "#3db83b"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
+  - type: Tag
+    tags:
+    - DroneUsable # Goobstation
 
 - type: entity
   parent: VendingMachine
@@ -944,6 +950,9 @@
   - type: Rotatable
     rotateWhileAnchored: false
     rotateWhilePulling: true
+  - type: Tag
+    tags:
+    - DroneUsable # Goobstation
 
 - type: entity
   parent: VendingMachine
@@ -1366,6 +1375,9 @@
   - type: Rotatable
     rotateWhileAnchored: false
     rotateWhilePulling: true
+  - type: Tag
+    tags:
+    - DroneUsable # Goobstation
 
 - type: entity
   parent: VendingMachine
@@ -1487,6 +1499,9 @@
   - type: Rotatable
     rotateWhileAnchored: false
     rotateWhilePulling: true
+  - type: Tag
+    tags:
+    - DroneUsable # Goobstation
 
 - type: entity
   parent: VendingMachine

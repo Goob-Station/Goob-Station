@@ -24,6 +24,7 @@
     tags:
       - ClothMade
       - WhitelistChameleon
+      - DroneUsable # Goobstation
 
 - type: entity
   abstract: true

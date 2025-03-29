@@ -10,6 +10,7 @@
       - id: Ointment
       - id: Gauze
       - id: PillCanisterTricordrazine
+      - id: PillCanisterIron # Goobstation
       # see https://github.com/tgstation/blob/master/code/game/objects/items/storage/firstaid.dm for example contents
 
 - type: entity
@@ -21,7 +22,8 @@
     contents:
       - id: Ointment
         amount: 2
-      - id: PillCanisterKelotane
+      - id: SprayBottleSilverSulfadiazine # Goobstation
+      - id: BurnAutoInjector # Goobstation
       - id: PillCanisterDermaline
 
 - type: entity
@@ -33,8 +35,9 @@
     contents:
       - id: Brutepack
       - id: Gauze
+      - id: SprayBottleStypticPowder # Goobstation
+      - id: BruteAutoInjector # Goobstation
       - id: PillCanisterIron
-      - id: PillCanisterCopper
 
 - type: entity
   id: MedkitToxinFilled

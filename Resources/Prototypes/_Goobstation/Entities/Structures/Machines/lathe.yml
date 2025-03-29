@@ -80,6 +80,7 @@
     idleState: icon
     runningState: icon
     staticPacks:
+    - ToolsStatic
     - SharedBoardsStatic
     - CargoBoardsStatic
     - CablesStatic

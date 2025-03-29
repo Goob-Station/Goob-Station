@@ -518,6 +518,39 @@
     containers:
       board: [ DoorElectronicsSyndicateAgent ]
 
+- type: entity #Goob Content Start
+  parent: WindoorSecurePlasma
+  id: PlasmaWindoorSecureSyndicateLockedIndestructable
+  suffix: Syndicate, Locked, Plasma, Indestructable
+  name: secure plasma windoor?
+  description: You have a bad feeling about this.
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateAgent ]
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2000000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 2000000
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlassPlasma:
+            min: 1
+            max: 2
+          SheetPlasteel1:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ] #Goob Content End
+
 - type: entity
   parent: WindoorUranium
   id: UraniumWindoorSyndicateLocked

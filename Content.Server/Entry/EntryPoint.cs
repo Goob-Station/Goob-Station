@@ -1,4 +1,4 @@
-using Content.Server._Goobstation.ServerCurrency;
+using Content.Server._durkcode.ServerCurrency;
 using Content.Server.Acz;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
@@ -178,7 +178,6 @@ namespace Content.Server.Entry
                     _playTimeTracking?.Update();
                     _watchlistWebhookManager.Update();
                     _connectionManager?.Update();
-                    _currencyManager?.Update(); // Goobstation
                     break;
             }
         }

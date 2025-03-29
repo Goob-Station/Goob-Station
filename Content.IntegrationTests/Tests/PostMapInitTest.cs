@@ -10,16 +10,16 @@ using Content.Server.Spawners.Components;
 using Content.Server.Station.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Roles;
+using Content.Shared.Station.Components;
 using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
+using Robust.Shared.EntitySerialization;
+using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.GameObjects;
+using Robust.Shared.IoC;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
-using Content.Shared.Station.Components;
-using Robust.Shared.EntitySerialization;
-using Robust.Shared.EntitySerialization.Systems;
-using Robust.Shared.IoC;
 using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
 
@@ -65,7 +65,12 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Goobstation/Nonstations/wizden.yml", // Obviously
             "/Maps/_Lavaland/Lavaland/ruin_toyshop.yml", // I think we might want to glob these, idk
             "/Maps/loop.yml", // Don't ask me why we are overwriting upstream
-            "/Maps/_Goobstation/Shuttles/consul.yml" // Contains HEINOUS amounts of centcomm contraband. Obviously.
+            "/Maps/_Goobstation/Shuttles/consul.yml", // Contains HEINOUS amounts of centcomm contraband. Obviously.
+            "/Maps/_Goobstation/Shuttles/retort_assault.yml", // ERT ships
+            "/Maps/_Goobstation/Shuttles/retort_medical.yml",
+            "/Maps/_Goobstation/Shuttles/retort_engineering.yml",
+            "/Maps/_Goobstation/Shuttles/retort_janitorial.yml",
+            "/Maps/_Goobstation/Shuttles/retort_cburn.yml",
         };
 
         private static readonly string[] GameMaps =
@@ -102,7 +107,8 @@ namespace Content.IntegrationTests.Tests
             "Amber",
             "Gate", // Goobstation - goob changes
             "Lavatest", // Lavaland Change
-            "Loop"
+            "Loop",
+            "Delta" // Goobstation - add Delta
         };
 
         /// <summary>
@@ -177,9 +183,11 @@ namespace Content.IntegrationTests.Tests
                         }
                         catch (Exception ex)
                         {
-                            throw new Exception($"Failed to load shuttle {path}, was it saved as a map instead of a grid?",
+                            throw new Exception(
+                                $"Failed to load shuttle {path}, was it saved as a map instead of a grid?",
                                 ex);
                         }
+
                         mapSystem.DeleteMap(mapId);
                     }
                 });
@@ -202,7 +210,8 @@ namespace Content.IntegrationTests.Tests
             var mapFolder = new ResPath("/Maps");
             var maps = resourceManager
                 .ContentFindFiles(mapFolder)
-                .Where(filePath => filePath.Extension == "yml" && !filePath.Filename.StartsWith(".", StringComparison.Ordinal))
+                .Where(filePath =>
+                    filePath.Extension == "yml" && !filePath.Filename.StartsWith(".", StringComparison.Ordinal))
                 .ToArray();
 
             var v7Maps = new List<ResPath>();
@@ -244,7 +253,7 @@ namespace Content.IntegrationTests.Tests
                 var yamlEntities = root["entities"];
                 if (!protoManager.TryIndex<EntityCategoryPrototype>("DoNotMap", out var dnmCategory))
                     return;
-                foreach (var yamlEntity in (YamlSequenceNode)yamlEntities)
+                foreach (var yamlEntity in (YamlSequenceNode) yamlEntities)
                 {
                     var protoId = yamlEntity["proto"].AsString();
                     protoManager.TryIndex(protoId, out var proto, false);
@@ -332,7 +341,7 @@ namespace Content.IntegrationTests.Tests
                 MapId mapId;
                 try
                 {
-                    var opts = DeserializationOptions.Default with {InitializeMaps = true};
+                    var opts = DeserializationOptions.Default with { InitializeMaps = true };
                     ticker.LoadGameMap(protoManager.Index<GameMapPrototype>(mapProto), out mapId, opts);
                 }
                 catch (Exception ex)
@@ -412,7 +421,9 @@ namespace Content.IntegrationTests.Tests
 
                     jobs.ExceptWith(spawnPoints);
 
-                    Assert.That(jobs, Is.Empty, $"There is no spawnpoints for {string.Join(", ", jobs)} on {mapProto}.");
+                    Assert.That(jobs,
+                        Is.Empty,
+                        $"There is no spawnpoints for {string.Join(", ", jobs)} on {mapProto}.");
                 }
 
                 try
@@ -430,7 +441,6 @@ namespace Content.IntegrationTests.Tests
         }
 
 
-
         private static int GetCountLateSpawn<T>(List<EntityUid> gridUids, IEntityManager entManager)
             where T : ISpawnPoint, IComponent
         {
@@ -442,8 +452,8 @@ namespace Content.IntegrationTests.Tests
                 var spawner = (ISpawnPoint) comp;
 
                 if (spawner.SpawnType is not SpawnPointType.LateJoin
-                || xform.GridUid == null
-                || !gridUids.Contains(xform.GridUid.Value))
+                    || xform.GridUid == null
+                    || !gridUids.Contains(xform.GridUid.Value))
                 {
                     continue;
                 }
@@ -491,7 +501,8 @@ namespace Content.IntegrationTests.Tests
             var mapFolder = new ResPath("/Maps");
             var maps = resourceManager
                 .ContentFindFiles(mapFolder)
-                .Where(filePath => filePath.Extension == "yml" && !filePath.Filename.StartsWith(".", StringComparison.Ordinal))
+                .Where(filePath =>
+                    filePath.Extension == "yml" && !filePath.Filename.StartsWith(".", StringComparison.Ordinal))
                 .ToArray();
 
             var mapPaths = new List<ResPath>();
@@ -505,6 +516,7 @@ namespace Content.IntegrationTests.Tests
                 {
                     continue;
                 }
+
                 mapPaths.Add(rootedPath);
             }
 

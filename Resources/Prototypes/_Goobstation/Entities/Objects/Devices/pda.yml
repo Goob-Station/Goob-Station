@@ -142,6 +142,15 @@
 
 - type: entity
   parent: CentcomPDA
+  id: NanotrasenRepresentativePDA
+  name: nanotrasen representative's PDA
+  description: The devil's in the details.
+  components:
+  - type: Pda
+    id: NanotrasenRepresentativeIDCard
+
+- type: entity
+  parent: CentcomPDA
   id: NavyCaptainPDA
   name: Navy Captain's PDA
   description: The devil's in the details.

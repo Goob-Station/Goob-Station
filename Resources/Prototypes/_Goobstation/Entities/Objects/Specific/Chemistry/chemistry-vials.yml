@@ -44,3 +44,78 @@
         reagents:
           - ReagentId: Uranium
             Quantity: 30
+
+- type: entity
+  id: TirimolChemistryVial
+  parent: BaseChemistryEmptyVial
+  suffix: tirimol
+  components:
+  - type: Label
+    currentLabel: reagent-name-tirimol
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 30
+        reagents:
+          - ReagentId: Tirimol
+            Quantity: 30
+
+- type: entity
+  id: OmnizineChemistryVial
+  parent: BaseChemistryEmptyVial
+  suffix: omnizine
+  components:
+  - type: Label
+    currentLabel: reagent-name-omnizine
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 30
+        reagents:
+          - ReagentId: Omnizine
+            Quantity: 30
+
+- type: entity
+  id: SyriniverChemistryVial
+  parent: BaseChemistryEmptyVial
+  suffix: syriniver
+  components:
+  - type: Label
+    currentLabel: reagent-name-syriniver
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 30
+        reagents:
+          - ReagentId: Syriniver
+            Quantity: 30
+
+- type: entity
+  id: ProcenylLazideChemistryVial
+  parent: BaseChemistryEmptyVial
+  suffix: procenyl lazide
+  components:
+  - type: Label
+    currentLabel: reagent-name-procenyllazide
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 30
+        reagents:
+          - ReagentId: ProcenylLazide
+            Quantity: 30
+
+- type: entity
+  id: EbifinlLazideChemistryVial
+  parent: BaseChemistryEmptyVial
+  suffix: ebifin
+  components:
+  - type: Label
+    currentLabel: reagent-name-ebifin
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 30
+        reagents:
+          - ReagentId: Ebifin
+            Quantity: 30

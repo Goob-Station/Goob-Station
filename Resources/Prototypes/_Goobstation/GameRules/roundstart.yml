@@ -202,6 +202,10 @@
     earliestStart: 50
     minimumPlayers: 20
     maxOccurrences: 2
+    chaos:
+      Hostile: 200
+      Death: 300
+      Medical: 200
   - type: BlobSpawnRule
     carrierBlobProtos:
     - SpawnPointGhostBlobRat

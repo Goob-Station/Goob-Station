@@ -5,6 +5,5 @@
   components:
   - type: Item
     size: Ginormous # no storage insertion visuals
-  - type: Unremoveable
   - type: HandPlaceholder
   - type: HandPlaceholderVisuals

@@ -1,5 +1,5 @@
 - type: entity
-  parent: [BaseItem, BaseCommandContraband]
+  parent: [BaseItem, BaseCentcommContraband]
   id: BSOManual
   name: Nanotrasen CQC Manual
   description: A small, blue manual. There are drawn instructions of tactical hand-to-hand combat.

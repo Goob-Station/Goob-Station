@@ -46,6 +46,14 @@
     Glass: 300
 
 - type: latheRecipe
+  id: CartridgeSaline
+  result: CartridgeSaline
+  completetime: 1
+  materials:
+    Steel: 100
+    Glass: 300
+
+- type: latheRecipe
   id: CartridgeEphedrine
   result: CartridgeEphedrine
   completetime: 1

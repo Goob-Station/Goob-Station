@@ -502,12 +502,12 @@
     price: 100
   - type: Gun
     fireRate: 2
-    projectileSpeed: 35 # any higher and this causes issues in lag
+    #projectileSpeed: 35 # Goobstation - nuh uh
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerPractice
-    fireCost: 50
+    fireCost: 25 # Goobstation - billions must troll with practice disabler
   - type: Tag
     tags:
     - Taser

@@ -203,6 +203,25 @@
       - ReagentId: TranexamicAcid
         Quantity: 3
 
+- type: entity
+  name: airloss autoinjector cartridge
+  parent: BaseCartridgeAutoinjector
+  description: Contains 7u of saline and 3u of dexalin plus, used in a cartridge autoinjector.
+  id: CartridgeSaline
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
+    state: cartridge-saline
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Saline
+        Quantity: 7
+      - ReagentId: DexalinPlus
+        Quantity: 3
+
 # Medipens
 
 - type: entity

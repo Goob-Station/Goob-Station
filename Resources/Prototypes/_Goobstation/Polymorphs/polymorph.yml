@@ -42,3 +42,14 @@
     revertOnDeath: true
     transferName: true
     revertOnCrit: true
+
+- type: polymorph
+  id: BinglePolymorph
+  configuration:
+    entity: MobBingleUpgraded
+    forced: true
+    transferName: true
+    transferHumanoidAppearance: false
+    inventory: Drop
+    revertOnDeath: false
+    revertOnCrit: false

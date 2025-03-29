@@ -27,7 +27,7 @@
     head: ClothingHeadHatBeretEliteNavyOfficer
     eyes: ClothingEyesGlassesCentComm
     gloves: ClothingHandsGlovesHeavyGoldenTrim
-    back: ClothingBackpackSatchelLeather
+    back: ClothingBackpackSatchelLeatherFilledNavyOfficer
     outerClothing: ClothingOuterArmourInvisible
     neck: ExecutiveIDCard
     id: NavyOfficerPDA
@@ -35,11 +35,6 @@
     belt: ClothingBeltHolsterFilledCentComm # Todo - Give the officer a sabre
     pocket1: BoxFolderCentCom
     pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
-  storage:
-    back:
-    - HandheldFaxOfficial
-    - HyperFlash
-    - WeaponPulsePistol
 
 # Navy Captain
 
@@ -71,19 +66,14 @@
     head: ClothingHeadHatBeretNavyCaptain
     eyes: ClothingEyesGlassesDeathsquad
     gloves: ClothingHandsGlovesHeavyGoldenTrim
-    back: ClothingBackpackSatchelLeather
+    back: ClothingBackpackSatchelLeatherFilledNavyOfficer
     outerClothing: ClothingOuterArmourInvisible
     neck: ExecutiveIDCard
     id: NavyCaptainPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSheathFilledNavyOfficer
-    pocket1: BoxFolderCentCom
+    pocket1: NukeOverride
     pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
-  storage:
-    back:
-      - WeaponPulsePistol
-      - HyperFlash
-      - HandheldFaxOfficial
 
 # Undercover Officer
 
@@ -116,20 +106,14 @@
     eyes: ClothingEyesGlassesDeathsquad
     gloves: ClothingHandsChameleon
     mask: ClothingMaskGasVoiceChameleon
-    back: ClothingBackpackChameleon
+    back: ClothingBackpackChameleonFilledUndercover
     outerClothing: ClothingOuterArmourInvisibleChameleon
     neck: ClothingNeckChameleon
     id: ChameleonPDA
     ears: ClothingHeadsetChameleon
     pocket1: WeaponPistolCentcommAgent
     pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
-  storage:
-    back:
-      - ExecutiveIDCardChameleon
-      - WeaponPulsePistol
-      - MagazinePistolNeurotoxin
-      - MagazinePistolNeurotoxin
-      - HyperFlash
+
 
 # Special Operations Officer
 
@@ -161,7 +145,7 @@
     head: ClothingHeadHatBeretSecurity
     eyes: ClothingEyesGlassesDeathsquad
     gloves: ClothingHandsGlovesCombat
-    back: ClothingBackpackSatchelLeather
+    back: ClothingBackpackSatchelLeatherFilledSpecOps
     outerClothing: ClothingOuterArmourInvisible
     neck: ExecutiveIDCard
     id: SpecialOperationsOfficerPDA
@@ -170,14 +154,6 @@
     suitstorage: WeaponRifleAnnie
     pocket1: WeaponRevolverMateba
     pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
-  storage:
-    back:
-      - WeaponPulsePistol
-      - HandheldFaxOfficial
-      - BoxFolderNuclearCodes # ka-BOOM
-      - MagazineLightRifleUranium
-      - MagazineLightRifleUranium
-      - HyperFlash
 
 # Diplomat
 
@@ -208,7 +184,7 @@
     shoes: ClothingShoesBootsLaceup
     eyes: ClothingEyesGlassesCentComm
     gloves: ClothingHandsGlovesHeavyGoldenTrim
-    back: ClothingBackpackSatchelLeather
+    back: ClothingBackpackSatchelLeatherFilledNavyOfficer
     outerClothing: ClothingOuterArmourInvisible
     neck: ExecutiveIDCard
     id: DiplomatPDA
@@ -216,11 +192,6 @@
     # belt: ClothingBeltHolsterFilledCentComm - SOMEONE wouldn't stop bitching until i removed this
     pocket1: TelescopicBaton
     pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
-  storage:
-    back:
-    - HandheldFaxOfficial
-    - WeaponPulsePistol
-    - HyperFlash
 
 ## Half-life stolen roles
 
@@ -256,7 +227,7 @@
     jumpsuit: ClothingUniformJumpsuitReporter
     shoes: ClothingShoesLeather
     eyes: ClothingEyesGlassesCentComm
-    back: ClothingBackpackSatchelHolding
+    back: ClothingBackpackDuffelGman
     outerClothing: ClothingOuterArmourInvisible
     id: GmanPDA
     ears: ClothingHeadsetChronolegioneer

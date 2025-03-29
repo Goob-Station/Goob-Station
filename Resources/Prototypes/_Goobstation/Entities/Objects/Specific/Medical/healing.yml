@@ -29,3 +29,20 @@
         reagents:
         - ReagentId: Amatoxin
           Quantity: 15
+
+- type: entity
+  suffix: fent
+  parent: PrefilledSyringe
+  name: used fent syringe
+  description: What the fuck?!
+  id: SyringePoisonFent
+  components:
+  - type: Label
+    currentLabel: fentanyl
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Fentanyl
+          Quantity: 7

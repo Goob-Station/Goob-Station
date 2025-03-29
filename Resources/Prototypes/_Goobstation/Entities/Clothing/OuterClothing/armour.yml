@@ -76,27 +76,15 @@
 
 # Blueshield Armour Vest
 - type: entity
-  parent: [ ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseCentcommContraband ]
+  parent: [ BaseCentcommContraband, ClothingOuterArmorCaptainCarapace ]
   id: ClothingBlueshieldArmourVest
   name: blueshield's security armour
-  description: An armoured vest with the badge of the blueshield
+  description: An armoured vest with the badge of the blueshield.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Armor/bso_armour.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Armor/bso_armour.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.60
-        Slash: 0.60
-        Piercing: 0.65
-        Heat: 0.70
-  - type: ExplosionResistance
-    damageCoefficient: 0.8
-  - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 1
-    knockdownTimeDelta: -1
 
 - type: entity
   parent: ClothingBlueshieldArmourVest

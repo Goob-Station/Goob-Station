@@ -991,11 +991,11 @@
       head: ClothingHeadHelmetHardsuitERTJanitor
 
 #Deathsquad
-- type: entity
+- type: entity # Goobstation - Start
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitBase ]
-  id: ClothingOuterHardsuitDeathsquad
-  name: death squad hardsuit
-  description: An advanced hardsuit favored by commandos for use in special operations.
+  id: ClothingOuterHardsuitDeathsquad # Todo - This should be a modsuit when those are done.
+  name: PI-52 "Lucifer" hardsuit
+  description: A highly classified hardsuit for use by Central Commands death-squadrons.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
@@ -1008,34 +1008,36 @@
     heatingCoefficient: 0.001
     coolingCoefficient: 0.001
   - type: ExplosionResistance
-    damageCoefficient: 0.2
+    damageCoefficient: 0.05
   - type: FireProtection
     reduction: 0.8
-  - type: StaminaDamageResistance # Goobstation - Deathsquad Revamp
+  - type: StaminaDamageResistance # Goobstation - Start
     coefficient: 0
-  - type: ClothingSlowOnDamageModifier # Goobstation
+  - type: ClothingSlowOnDamageModifier
     modifier: 0.1
-  - type: ClothingModifyStunTime # Goobstation
+  - type: ClothingModifyStunTime
     modifier: 0.1
-  - type: ModifyStandingUpTime # Goobstation
+  - type: ModifyStandingUpTime
     multiplier: 0.1
   - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.1 # Best armor in the game - Yeah no shit.
         Slash: 0.1
-        Piercing: 0.1
+        Piercing: 0.05 # This is just to fuck over syringes
         Heat: 0.1
+        Cold: 0.1
+        Cellular: 0.1
         Radiation: 0.1
         Caustic: 0.1
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
   - type: HeldSpeedModifier
-  - type: ToggleableClothing # Goobstation - Modsuits change
+  - type: ToggleableClothing
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitDeathsquad
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown # Goobstation - End
     cancel: true
 
 #CBURN Hardsuit
