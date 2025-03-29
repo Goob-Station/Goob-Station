@@ -18,17 +18,17 @@ public sealed class SandboxTest
         // server. This all becomes unnecessary if ever the test becomes non-destructive or the no-server option
         // actually creates a pair without a server.
 
+        // To hell with creating a pair. Sandbox is client only  -Misandrie
+
+        var asm = PoolManager.GetAssemblies(true, false);
+
         var logHandler = new PoolTestLogHandler("CLIENT");
         logHandler.ActivateContext(TestContext.Out);
         var options = new RobustIntegrationTest.ClientIntegrationOptions
         {
             ContentStart = true,
             OverrideLogHandler = () => logHandler,
-            ContentAssemblies = new[]
-            {
-                typeof(Shared.Entry.EntryPoint).Assembly,
-                typeof(Client.Entry.EntryPoint).Assembly
-            },
+            ContentAssemblies = asm,
             Options = new GameControllerOptions { LoadConfigAndUserData = false }
         };
 
@@ -48,7 +48,10 @@ public sealed class SandboxTest
 
         using var client = new RobustIntegrationTest.ClientIntegrationInstance(options);
         await client.WaitIdleAsync();
-        await client.CheckSandboxed(typeof(Client.Entry.EntryPoint).Assembly);
-        await client.CheckSandboxed(typeof(Shared.IoC.SharedContentIoC).Assembly);
+
+        foreach (var assembly in asm)
+        {
+            await client.CheckSandboxed(assembly);
+        }
     }
 }

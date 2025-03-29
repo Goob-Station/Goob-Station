@@ -11,13 +11,13 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
+using Content.Goobstation.Common.CCVar;
+using Content.Server._durkcode.ServerCurrency;
 using Content.Server.Objectives.Commands;
 using Content.Shared.Prototypes;
 using Content.Shared.Roles.Jobs;
 using Robust.Server.Player;
 using Robust.Shared.Utility;
-using Content.Shared._Goobstation.CCVar;
-using Content.Server._Goobstation.ServerCurrency;
 using Robust.Shared.Configuration;
 
 namespace Content.Server.Objectives;
