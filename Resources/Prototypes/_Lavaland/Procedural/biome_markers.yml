@@ -10,3 +10,10 @@
   prototype: FloorChasmEntity
   minGroupSize: 4
   maxGroupSize: 8
+
+- type: biomeMarkerLayer
+  id: RandomMobLavaland
+  prototype: SpawnerRandomMobLavaland
+  radius: 32
+  maxCount: 96
+  size: 128
