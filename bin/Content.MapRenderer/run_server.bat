@@ -1,2 +1,0 @@
-Robust.Server.exe
-pause
