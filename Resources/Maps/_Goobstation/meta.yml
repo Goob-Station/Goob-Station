@@ -50849,13 +50849,6 @@ entities:
     - type: Transform
       pos: 12.327702,-31.798004
       parent: 2
-- proto: CapsaicinDispenser
-  entities:
-  - uid: 9305
-    components:
-    - type: Transform
-      pos: 3.5,33.5
-      parent: 2
 - proto: CaptainIDCard
   entities:
   - uid: 8093

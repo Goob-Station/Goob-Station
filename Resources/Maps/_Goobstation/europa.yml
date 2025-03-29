@@ -21910,14 +21910,6 @@ entities:
       parent: 4497
     - type: Physics
       canCollide: False
-- proto: CapsaicinDispenser
-  entities:
-  - uid: 318
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -21.5,17.5
-      parent: 1
 - proto: CaptainIDCard
   entities:
   - uid: 1657

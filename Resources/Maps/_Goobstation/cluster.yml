@@ -22818,14 +22818,6 @@ entities:
     - type: Transform
       pos: -3.7302828,-31.280602
       parent: 2
-- proto: CapsaicinDispenser
-  entities:
-  - uid: 4042
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 27.5,7.5
-      parent: 2
 - proto: CaptainIDCard
   entities:
   - uid: 3344

@@ -43465,14 +43465,6 @@ entities:
     - type: Transform
       pos: 2.6220274,21.009964
       parent: 2
-- proto: CapsaicinDispenser
-  entities:
-  - uid: 15356
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -49.5,46.5
-      parent: 2
 - proto: CarbonDioxideCanister
   entities:
   - uid: 6795

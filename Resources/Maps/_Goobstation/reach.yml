@@ -5419,14 +5419,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -22.5,2.5
       parent: 2
-- proto: CapsaicinDispenser
-  entities:
-  - uid: 859
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 13.5,1.5
-      parent: 2
 - proto: CargoTechFab
   entities:
   - uid: 1001

@@ -34344,13 +34344,6 @@ entities:
     - type: Transform
       pos: -37.481266,49.508133
       parent: 2
-- proto: CapsaicinDispenser
-  entities:
-  - uid: 5236
-    components:
-    - type: Transform
-      pos: -61.5,56.5
-      parent: 2
 - proto: CargoTechFab
   entities:
   - uid: 551
