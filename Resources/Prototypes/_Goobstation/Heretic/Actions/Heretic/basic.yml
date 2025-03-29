@@ -60,4 +60,4 @@
     event: !type:EventHereticMansusLink {}
   - type: HereticAction
     requireMagicItem: false
-    messageLoc: heretic-speech-link
+    messageLoc: heretic-speech-mansuslink

@@ -651,31 +651,3 @@
     accent-medieval-words-236: accent-medieval-words-replace-236
     accent-medieval-words-237: accent-medieval-words-replace-237
     accent-medieval-words-238: accent-medieval-words-replace-238
-
-- type: accent
-  id: pony
-  wordReplacements:
-    accent-pony-words-1: accent-pony-words-replace-1
-    accent-pony-words-2: accent-pony-words-replace-2
-    accent-pony-words-3: accent-pony-words-replace-3
-    accent-pony-words-4: accent-pony-words-replace-4
-    accent-pony-words-5: accent-pony-words-replace-5
-    accent-pony-words-6: accent-pony-words-replace-6
-    accent-pony-words-7: accent-pony-words-replace-7
-    accent-pony-words-8: accent-pony-words-replace-8
-    accent-pony-words-9: accent-pony-words-replace-9
-    accent-pony-words-10: accent-pony-words-replace-10
-    accent-pony-words-11: accent-pony-words-replace-11
-    accent-pony-words-12: accent-pony-words-replace-12
-    accent-pony-words-13: accent-pony-words-replace-13
-    accent-pony-words-14: accent-pony-words-replace-14
-    accent-pony-words-15: accent-pony-words-replace-15
-    accent-pony-words-16: accent-pony-words-replace-16
-    accent-pony-words-17: accent-pony-words-replace-17
-    accent-pony-words-18: accent-pony-words-replace-18
-    accent-pony-words-19: accent-pony-words-replace-19
-    accent-pony-words-20: accent-pony-words-replace-20
-    accent-pony-words-21: accent-pony-words-replace-21
-    accent-pony-words-22: accent-pony-words-replace-22
-    accent-pony-words-23: accent-pony-words-replace-23
-    accent-pony-words-24: accent-pony-words-replace-24

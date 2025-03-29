@@ -35,6 +35,7 @@
     - type: Battery
       startingCharge: 0
       maxCharge: 16000000 # Goobstation - SMES buff
+      pricePerJoule: .00095
     - type: ExaminableBattery
     - type: NodeContainer
       examinable: true
