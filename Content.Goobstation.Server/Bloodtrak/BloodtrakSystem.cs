@@ -166,32 +166,34 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
             if (!tracker.IsActive)
                 continue;
 
-            // Check target validity first
+            // Check if tracking expired or target is invalid
             var targetValid = tracker.Target != null && Exists(tracker.Target.Value);
+            var expired = currentTime >= tracker.ExpirationTime;
 
-            if (targetValid)
+            if (!targetValid || expired)
             {
+                // Deactivate only if target is invalid or time expired
+                _popupSystem.PopupPredicted(
+                    Loc.GetString(targetValid ? "bloodtrak-tracking-expired" : "bloodtrak-target-lost"),
+                    tracker.Owner,
+                    tracker.Owner
+                );
+                TogglePinpointer(uid, tracker);
+                tracker.Target = null;
+                tracker.CooldownEndTime = currentTime + tracker.CooldownDuration;
+                Dirty(uid, tracker);
+            }
+            else
+            {
+                // Target is valid and tracking is active: update direction
                 UpdateDirectionToTarget(uid, tracker);
             }
-
-            // Handle deactivation
-            _popupSystem.PopupPredicted(Loc.GetString(targetValid // Popups are the bane of me vro.
-                ? "bloodtrak-tracking-expired"
-                : "bloodtrak-target-lost"),
-                tracker.Owner,
-                tracker.Owner);
-
-            TogglePinpointer(uid, tracker);
-            tracker.Target = null;
-            tracker.CooldownEndTime = currentTime + tracker.CooldownDuration;
-            Dirty(uid, tracker);
         }
     }
 
     protected override void UpdateDirectionToTarget(EntityUid uid, BloodtrakComponent pinpointer)
     {
-        if (pinpointer is { IsActive: true })
-            return;
+
 
         var oldDist = pinpointer.DistanceToTarget;
         var target = pinpointer.Target;
