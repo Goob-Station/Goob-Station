@@ -199,7 +199,5 @@ public abstract class SharedStealthSystem : EntitySystem
             SecondsSinceUpdate = secondsSinceUpdate;
             FlatModifier = flatModifier;
         }
-
     }
-
 }
