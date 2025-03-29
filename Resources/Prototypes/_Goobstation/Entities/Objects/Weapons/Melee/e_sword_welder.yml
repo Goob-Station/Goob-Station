@@ -81,7 +81,7 @@
 
 - type: entity
   name: welder energy sword
-  parent: [BaseMeleeWeaponEnergy, BaseMinorContraband, EnergySwordWelder]
+  parent: EnergySwordWelder
   categories: [ HideSpawnMenu ]
   id: EnergySwordWelderIndustrial
   components:
@@ -107,7 +107,7 @@
 
 - type: entity
   name: welder energy sword
-  parent: [BaseMeleeWeaponEnergy, BaseMinorContraband, EnergySwordWelder]
+  parent: EnergySwordWelder
   categories: [ HideSpawnMenu ]
   id: EnergySwordWelderExperimental
   description: A very loud & dangerous sword with a beam made of pure, concentrated plasma. Cuts through unarmored targets like butter.
