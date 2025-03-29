@@ -174,7 +174,9 @@
     sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
-    fireRate: 1
+    fireRate: 2 # Goobstation edit
+  - type: BallisticAmmoProvider
+    capacity: 4 # Goobstation edit
   - type: Tag
     tags:
     - WeaponShotgunKammerer
