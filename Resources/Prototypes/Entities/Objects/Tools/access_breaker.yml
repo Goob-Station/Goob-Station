@@ -23,3 +23,20 @@
   components:
   - type: LimitedCharges
   - type: AutoRecharge
+
+- type: entity
+  parent: [BaseItem, BaseMinorContraband]
+  id: DoorJack
+  name: door jack
+  suffix: Limited
+  description: An ancient device used for hacking doors, its far too old and damaged to last more than a few uses.
+  components:
+  - type: LimitedCharges
+    maxCharges: 3
+  - type: Sprite
+    sprite: _Goobstation/Objects/Tools/doorjack.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Tools/doorjack.rsi
+  - type: Emag
+    emagType: Access
