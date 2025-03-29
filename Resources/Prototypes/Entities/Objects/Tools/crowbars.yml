@@ -18,6 +18,10 @@
         Blunt: 8
     soundHit:
       collection: MetalThud
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 10 # Goobstation
   - type: Tool
     qualities:
       - Prying

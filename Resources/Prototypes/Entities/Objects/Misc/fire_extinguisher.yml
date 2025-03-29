@@ -57,6 +57,10 @@
         Blunt: 10
     soundHit:
       path: /Audio/Weapons/smash.ogg
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 12 # Goobstation
   - type: Tool
     qualities:
     - Rolling

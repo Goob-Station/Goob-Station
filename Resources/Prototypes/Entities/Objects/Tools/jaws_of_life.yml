@@ -52,6 +52,10 @@
         Blunt: 10
     soundHit:
       collection: MetalThud
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 10 # Goobstation
   - type: Tweezers # Shitmed
     speed: 0.6
   - type: Retractor # Shitmed

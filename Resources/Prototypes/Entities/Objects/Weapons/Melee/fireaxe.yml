@@ -32,6 +32,11 @@
       types:
         Slash: 10
         Structural: 40
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 10 # Goobstation
+        Slash: 10 # Goobstation
   - type: Item
     size: Ginormous
   - type: Clothing
