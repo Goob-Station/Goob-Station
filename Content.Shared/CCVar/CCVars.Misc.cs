@@ -19,7 +19,7 @@ public sealed partial class CCVars
     ///     Disabled: Cloning has full biomass cost and reclaimer can reclaim corpses with souls. (Playtested and balanced for MRP+).
     /// </summary>
     public static readonly CVarDef<bool> BiomassEasyMode =
-        CVarDef.Create("biomass.easy_mode", true, CVar.SERVERONLY);
+        CVarDef.Create("biomass.easy_mode", false, CVar.SERVERONLY);
 
     /// <summary>
     ///     A scale factor applied to a grid's bounds when trying to find a spot to randomly generate an anomaly.
