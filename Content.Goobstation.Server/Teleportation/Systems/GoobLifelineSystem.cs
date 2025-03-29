@@ -1,3 +1,4 @@
+using Content.Goobstation.Server.Teleportation.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Mind;
 using Content.Server.Warps;
@@ -17,15 +18,15 @@ public sealed class GoobLifelineSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<Components.WarpParentOnTriggerComponent, TriggerEvent>(OnTrigger);
+        SubscribeLocalEvent<WarpParentOnTriggerComponent, TriggerEvent>(OnTrigger);
     }
 
-    private void OnTrigger(EntityUid uid, Components.WarpParentOnTriggerComponent component, TriggerEvent args)
+    private void OnTrigger(EntityUid uid, WarpParentOnTriggerComponent component, TriggerEvent args)
     {
         WarpParent(uid, component);
         args.Handled = true;
     }
-    private void WarpParent(EntityUid uid, Components.WarpParentOnTriggerComponent component)
+    private void WarpParent(EntityUid uid, WarpParentOnTriggerComponent component)
     {
         var location = FindWarpPoint(component.WarpLocation);
         if (location == null)
