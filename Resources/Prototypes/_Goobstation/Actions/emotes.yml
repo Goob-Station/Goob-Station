@@ -27,6 +27,24 @@
   event: !type:AnimationTweakEmoteEvent
 
 - type: emote
+  id: Flex
+  name: chat-emote-name-flex
+  chatMessages: ["chat-emote-msg-flex"]
+  whitelist:
+    tags:
+    - Blobbernaut
+  chatTriggers:
+  - flex
+  - flexes
+  - flexes muscles
+  - flexes its muscles
+  - shows off
+  - shows off muscles
+  - shows off its muscles
+  - intimidates
+  event: !type:AnimationFlexEmoteEvent
+
+- type: emote
   id: Spin
   name: chat-emote-name-spin
   category: Invalid # Don't show in the emote wheel
