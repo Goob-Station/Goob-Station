@@ -1,0 +1,4 @@
+- type: AccountAppend
+  id: RhmBorsigWT
+  AppendComps:
+  - RussianAccent
