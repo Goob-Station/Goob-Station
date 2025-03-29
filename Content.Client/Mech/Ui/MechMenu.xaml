@@ -35,6 +35,10 @@
                        HorizontalAlignment="Left"
                        Access="Public"
                        HorizontalExpand="True" />
+                <Label Name="ArmorPlatesDisplay"
+                       HorizontalAlignment="Left"
+                       Access="Public"
+                       HorizontalExpand="True" />
             </BoxContainer>
             <SpriteView Name="MechView"
                         Margin="10 0 0 0"
