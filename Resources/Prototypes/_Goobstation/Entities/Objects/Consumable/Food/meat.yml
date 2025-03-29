@@ -48,3 +48,55 @@
   - type: Construction
     graph: GondolaSteak
     node: gondola steak
+
+- type: entity
+  name: raw bingle meat
+  parent: FoodMeatRawBase
+  id: FoodMeatBingle
+  description: Smells like shit.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/bingle.rsi
+    state: binglemeat
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 10
+        - ReagentId: Fat
+          Quantity: 9
+        - ReagentId: BingleJuice
+          Quantity: 1
+  - type: Construction
+    graph: BingleSteak
+    node: start
+    defaultTarget: bingle steak
+
+- type: entity
+  name: bingle steak
+  parent: FoodMeatBase
+  id: FoodMeatBingleCooked
+  description: Still smells like shit.
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+    - Steak
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/bingle.rsi
+    state: cookedbinglemeat
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 9
+        - ReagentId: Protein
+          Quantity: 9
+        - ReagentId: BingleJuice
+          Quantity: 2
+  - type: Construction
+    graph: BingleSteak
+    node: bingle steak
