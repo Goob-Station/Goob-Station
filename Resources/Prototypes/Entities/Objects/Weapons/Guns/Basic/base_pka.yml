@@ -31,6 +31,7 @@
     #angleDecay: 45 # Lavaland Change
     minAngle: 3 # Lavaland Change
     maxAngle: 5 # Lavaland Change
+    projectileSpeed: 25 # Fast Bullet Change
     availableModes:
     - SemiAuto
     soundGunshot:
