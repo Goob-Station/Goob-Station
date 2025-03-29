@@ -181,6 +181,7 @@
         - HandheldCrewMonitor # Goobstation
         - EnergySpeedloader # Goobstation
         - Sidearm # Goobstation
+        - PepperSpray # Goobstation
       components:
         - Stunbaton
         - FlashOnTrigger

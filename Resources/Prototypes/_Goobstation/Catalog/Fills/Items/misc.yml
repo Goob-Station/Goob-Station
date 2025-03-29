@@ -24,3 +24,9 @@
     whitelist:
       tags:
       - FoodSnack
+
+- type: entity
+  id: ClothingShoesBootsJackAdvancedFilled
+  parent:
+  - ClothingShoesBootsJackAdvanced
+  - ClothingShoesBootsSecFilled

@@ -5,7 +5,7 @@
         "y": 32
     },
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/59f2a4e10e5ba36033c9734ddebfbbdc6157472d, station and syndicate pinpointer resprited by Ubaser",
+    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/59f2a4e10e5ba36033c9734ddebfbbdc6157472d, station and syndicate pinpointer resprited by Ubaser, Pinpointer Detective from goobstation by Taro Varne.",
     "states": [
         {
             "name": "pinonalert",
@@ -155,6 +155,10 @@
         },
         {
             "name": "pinpointer-station"
+        },
+		{
+            "name": "pinpointer-detective",
+			"_comment": "Goobstation"
         },
         {
             "name": "inhand-left",

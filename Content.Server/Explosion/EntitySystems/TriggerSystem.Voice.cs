@@ -17,12 +17,13 @@ namespace Content.Server.Explosion.EntitySystems
             SubscribeLocalEvent<TriggerOnVoiceComponent, ListenEvent>(OnListen);
         }
 
-        private void OnVoiceInit(EntityUid uid, TriggerOnVoiceComponent component, ComponentInit args)
+        private void OnVoiceInit(EntityUid uid, TriggerOnVoiceComponent comp, ComponentInit args)
         {
-            if (component.IsListening)
-                EnsureComp<ActiveListenerComponent>(uid).Range = component.ListenRange;
+            if (comp.IsListening)
+                EnsureComp<ActiveListenerComponent>(uid).Range = comp.ListenRange;
             else
                 RemCompDeferred<ActiveListenerComponent>(uid);
+
         }
 
         private void OnListen(Entity<TriggerOnVoiceComponent> ent, ref ListenEvent args)

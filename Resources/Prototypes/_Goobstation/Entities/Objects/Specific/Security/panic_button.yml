@@ -1,0 +1,13 @@
+- type: entity
+  id: PanicButton
+  name: distress signaller
+  description: A small device with a small red button on the top. Press it to send a distress signal over the security channel.
+  parent: [BaseItem, BaseSecurityContraband]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Security/panicbutton.rsi
+    state: icon
+  - type: PanicButton
+    radioChannel: "Security"
+  - type: UseDelay
+    delay: 45
