@@ -6,12 +6,14 @@
   components:
   - type: Item
     size: Large
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -19
+    maxAngle: -16
   - type: Gun
-    minAngle: 2
-    maxAngle: 15
-    angleIncrease: 3
-    angleDecay: 16
-    fireRate: 10
+    minAngle: 21
+    maxAngle: 32
+    fireRate: 6
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -36,7 +38,7 @@
     steps: 5
     zeroVisible: true
   - type: Multishot
-    spreadMultiplier: 1.6
+    spreadMultiplier: 1.2
   - type: PhysicalComposition
     materialComposition:
       Steel: 500
@@ -47,6 +49,9 @@
     slots:
     - back
     - suitStorage
+  - type: SurgeryTool
+    endSound:
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/laser_smg.ogg
 
 
 - type: entity
@@ -105,6 +110,9 @@
   - type: SpeedModifiedOnWield
     walkModifier: 0.5
     sprintModifier: 0.5
+  - type: SurgeryTool
+    endSound:
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/laser_lmg.ogg
 
 
 - type: entity
@@ -175,4 +183,62 @@
     setPrefix: false
   - type: BatterySlotRequiresToggle
     itemSlot: gun_magazine
+  - type: SurgeryTool
+    endSound:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
 
+
+- type: entity
+  name: EL-20 HAMRR
+  parent: [BaseItem, BaseSecurityContraband]
+  id: WeaponLaserLMG
+  description: A high-tech laser LMG, that draws power from specialized backpack.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_lmg.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: light
+      shader: unshaded
+      map: ["enum.GunVisualLayers.BaseUnshaded"]
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,3
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -20
+    maxAngle: -20
+  - type: Gun
+    minAngle: 24
+    maxAngle: 45
+    angleIncrease: 4
+    angleDecay: 16
+    fireRate: 10
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    soundGunshot:
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/laser_lmg.ogg
+  - type: AmmoCounter
+  - type: StaticPrice
+    price: 500
+  - type: UseDelay
+    delay: 1
+  - type: Multishot
+    spreadMultiplier: 1.4
+  - type: Appearance
+  - type: Cautery
+    speed: 0.9
+  - type: SurgeryTool
+    endSound:
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/laser_lmg.ogg
+  - type: ClothingSlotAmmoProvider
+    targetSlot: BACK
+    providerWhitelist:
+      tags:
+      - LaserLMGBackpack
+  - type: Tag
+    tags:
+    - LaserLMG

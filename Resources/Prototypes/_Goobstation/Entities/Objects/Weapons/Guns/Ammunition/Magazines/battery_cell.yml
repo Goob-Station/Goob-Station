@@ -370,3 +370,34 @@
   - type: HitscanBatteryAmmoProvider
     proto: MediumIonLaser
     fireCost: 41.5
+
+
+- type: entity
+  id: MilitaryPowerCellLMG
+  parent: BaseMilitaryPowerCell
+  name: LMG battery
+  description: A car battery compatible with laser LMG, attachable to charge provider backpack.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_lmg.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: icon
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o4
+      shader: unshaded
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,1
+  - type: Battery
+    maxCharge: 3000
+    startingCharge: 3000
+  - type: HitscanBatteryAmmoProvider
+    proto: SmallRedLaser
+    fireCost: 15
+  - type: Tag
+    tags:
+    - MilitaryPowerCellLMG
+  - type: Clothing
+    slots: BELT

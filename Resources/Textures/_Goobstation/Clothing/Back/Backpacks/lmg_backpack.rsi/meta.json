@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "taro_varne on Discord",
+    "copyright": "made by imasleeping on Discord",
     "size": {
         "x": 32,
         "y": 32
@@ -11,31 +11,28 @@
             "name": "icon"
         },
         {
-            "name": "on"
-        },
-        {
-            "name": "off"
-        },
-        {
-            "name": "mag-0"
+            "name": "base"
         },
         {
             "name": "mag-1"
         },
         {
-            "name": "inhand-left",
+            "name": "mag-0"
+        },
+        {
+            "name": "equipped-BACKPACK",
             "directions": 4
         },
         {
-            "name": "inhand-right",
+            "name": "mag-equipped-BACKPACK",
             "directions": 4
         },
         {
-            "name": "equipped-BELT",
+            "name": "red-equipped-BACKPACK",
             "directions": 4
         },
         {
-            "name": "equipped-SUITSTORAGE",
+            "name": "green-equipped-BACKPACK",
             "directions": 4
         }
     ]

@@ -88,3 +88,59 @@
     - 0,0,19,9
   - type: Unremoveable # No looting the gman.
 
+- type: entity
+  parent: [Clothing, ClothingSlotBase]
+  id: ClothingBackpackLMGBattery
+  name: EL-20 storage
+  description: Accepts specialized car batteries to power the EL-20 HAMRR LMG.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Back/Backpacks/lmg_backpack.rsi
+    layers:
+    - state: base
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: true
+    zeroNoAmmo: true
+  - type: Clothing
+    slots: BACK
+    sprite: _Goobstation/Clothing/Back/Backpacks/lmg_backpack.rsi
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK
+      - state: green-equipped-BACKPACK
+        shader: unshaded
+      - state: mag-equipped-BACKPACK
+  - type: MagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        whitelist:
+          tags:
+          - MilitaryPowerCellLMG
+      item:
+        name: LMG
+        priority: 2
+        whitelist:
+          tags:
+          - LaserLMG
+  - type: Appearance
+  - type: StaticPrice
+    price: 500
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+  - type: Item
+    size: Ginormous
+  - type: Tag
+    tags:
+    - LaserLMGBackpack
+    - WhitelistChameleon
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
