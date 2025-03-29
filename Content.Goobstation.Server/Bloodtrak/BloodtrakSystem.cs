@@ -137,9 +137,9 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         return isActive;
     }
 
-    private void UpdateAppearance(EntityUid uid, BloodtrakComponent pinpointer, AppearanceComponent? appearance = null)
+    private void UpdateAppearance(EntityUid uid, BloodtrakComponent? pinpointer, AppearanceComponent? appearance = null)
     {
-        if (!Resolve(uid, ref appearance))
+        if (!Resolve(uid, ref appearance) || !Resolve(uid, ref pinpointer))
             return;
 
         _appearance.SetData(uid, PinpointerVisuals.IsActive, pinpointer.IsActive, appearance);
@@ -191,9 +191,10 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         }
     }
 
-    protected override void UpdateDirectionToTarget(EntityUid uid, BloodtrakComponent pinpointer)
+    protected override void UpdateDirectionToTarget(EntityUid uid, BloodtrakComponent? pinpointer)
     {
-
+        if (!Resolve(uid, ref pinpointer))
+            return;
 
         var oldDist = pinpointer.DistanceToTarget;
         var target = pinpointer.Target;
@@ -232,7 +233,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         return _transform.GetWorldPosition(trg, xformQuery) - _transform.GetWorldPosition(pin, xformQuery);
     }
 
-    private Shared.Bloodtrak.Distance CalculateDistance(Vector2 vec, Shared.Bloodtrak.BloodtrakComponent pinpointer)
+    private Shared.Bloodtrak.Distance CalculateDistance(Vector2 vec, BloodtrakComponent pinpointer)
     {
         var dist = vec.Length();
 

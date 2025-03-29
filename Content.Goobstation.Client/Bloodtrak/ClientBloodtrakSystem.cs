@@ -21,10 +21,8 @@ public sealed class ClientBloodtrakSystem : SharedBloodtrakSystem
 
             var eye = _eyeManager.CurrentEye;
 
-            // Convert server-provided world angle to eye-relative space
             var angle = (pinpointer.ArrowAngle - eye.Rotation).FlipPositive();
 
-            // Update sprite rotation only if needed
             if (pinpointer.DistanceToTarget is Shared.Bloodtrak.Distance.Close or Shared.Bloodtrak.Distance.Medium or Shared.Bloodtrak.Distance.Far)
             {
                 sprite.LayerSetRotation(PinpointerLayers.Screen, angle);
