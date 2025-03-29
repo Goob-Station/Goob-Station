@@ -88652,7 +88652,19 @@ entities:
     components:
     - type: Transform
       pos: -2.5,2.5
-      parent: 2
+      parent: 1
+- proto: SpawnPointRoboticist
+  entities:
+  - uid: 7393
+    components:
+    - type: Transform
+      pos: 1.5,0.5
+      parent: 1
+  - uid: 10739
+    components:
+    - type: Transform
+      pos: 1.5,2.5
+      parent: 1
 - proto: SpawnPointSalvageSpecialist
   entities:
   - uid: 12374

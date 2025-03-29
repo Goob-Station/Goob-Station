@@ -28,3 +28,4 @@ JobNavyOfficerUndercover = Undercover Navy Officer
 JobNavyCaptain = Navy Captain
 JobDiplomat = Diplomat
 JobGovernmentMan = The G-Man
+JobRoboticist = Roboticist

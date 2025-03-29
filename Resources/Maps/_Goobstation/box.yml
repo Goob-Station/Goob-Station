@@ -11624,7 +11624,7 @@ entities:
       pos: 24.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -31417.283
+      secondsUntilStateChange: -30855.637
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -84797,7 +84797,7 @@ entities:
       pos: -34.5,-14.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -25605.818
+      secondsUntilStateChange: -25044.172
       state: Closing
   - uid: 13393
     components:
@@ -85290,7 +85290,7 @@ entities:
       pos: -4.5,-71.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -17353.55
+      secondsUntilStateChange: -16791.904
       state: Closing
 - proto: Fireplace
   entities:
@@ -144513,7 +144513,19 @@ entities:
     components:
     - type: Transform
       pos: 70.5,-34.5
-      parent: 2
+      parent: 8364
+- proto: SpawnPointRoboticist
+  entities:
+  - uid: 3022
+    components:
+    - type: Transform
+      pos: 52.5,-18.5
+      parent: 8364
+  - uid: 7010
+    components:
+    - type: Transform
+      pos: 54.5,-18.5
+      parent: 8364
 - proto: SpawnPointSalvageSpecialist
   entities:
   - uid: 22428

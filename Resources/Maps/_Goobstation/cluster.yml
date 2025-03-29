@@ -68094,6 +68094,18 @@ entities:
     - type: Transform
       pos: -21.5,-0.5
       parent: 2
+- proto: SpawnPointRoboticist
+  entities:
+  - uid: 12741
+    components:
+    - type: Transform
+      pos: -5.5,-11.5
+      parent: 2
+  - uid: 12742
+    components:
+    - type: Transform
+      pos: -5.5,-12.5
+      parent: 2
 - proto: SpawnPointSalvageSpecialist
   entities:
   - uid: 10345

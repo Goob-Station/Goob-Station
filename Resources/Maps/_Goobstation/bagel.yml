@@ -11155,7 +11155,7 @@ entities:
       pos: -29.5,37.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -23285.125
+      secondsUntilStateChange: -21982.344
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -132800,7 +132800,19 @@ entities:
     components:
     - type: Transform
       pos: -40.5,8.5
-      parent: 2
+      parent: 60
+- proto: SpawnPointRoboticist
+  entities:
+  - uid: 24680
+    components:
+    - type: Transform
+      pos: -31.5,12.5
+      parent: 60
+  - uid: 24681
+    components:
+    - type: Transform
+      pos: -33.5,12.5
+      parent: 60
 - proto: SpawnPointSalvageSpecialist
   entities:
   - uid: 20179
