@@ -467,6 +467,7 @@
     Telecrystal: 10
   categories:
     - UplinkImplants
+    - UplinkImplantsContravend
 
 
 - type: listing
@@ -479,6 +480,7 @@
     Telecrystal: 40
   categories:
     - UplinkImplants
+    - UplinkImplantsContravend
 
 # Deception
 
@@ -492,6 +494,7 @@
     Telecrystal: 15
   categories:
   - UplinkDeception
+  - UplinkDeceptionContravend
 
 - type: listing
   id: UplinkClothingExplosiveGloves
@@ -502,6 +505,7 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkDeception
+  - UplinkDeceptionContravend
 
 # Ammo
 
@@ -665,6 +669,7 @@
     Telecrystal: 400
   categories:
   - UplinkAllies
+  - UplinkAlliesContravend
 
 - type: listing
   id: UplinkMauler
@@ -692,6 +697,7 @@
     Telecrystal: 60
   categories:
   - UplinkDeception
+  - UplinkDeceptionContravend
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
@@ -745,6 +751,7 @@
     Telecrystal: 40
   categories:
   - UplinkDeception
+  - UplinkDeceptionContravend
 
 - type: listing
   id: NukieMysteriousScroll
