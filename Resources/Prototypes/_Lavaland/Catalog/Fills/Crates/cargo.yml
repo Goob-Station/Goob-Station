@@ -1,0 +1,9 @@
+- type: entity
+  id: CrateCargoGatewayLavaland
+  parent: CrateGenericSteel
+  name: lavaland gateway crate
+  description: Allows you to teleport straight to Lavaland.
+  components:
+  - type: StorageFill
+    contents:
+    - id: GatewayFlatpackLavaland
