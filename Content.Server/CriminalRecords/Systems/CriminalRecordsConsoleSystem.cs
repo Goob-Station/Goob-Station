@@ -15,7 +15,6 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Security.Components;
 using System.Linq;
-using Content.Shared.Roles.Jobs;
 
 namespace Content.Server.CriminalRecords.Systems;
 
@@ -48,7 +47,7 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
             subs.Event<CriminalRecordSetStatusFilter>(OnStatusFilterPressed);
         });
 
-        Subs.BuiEvents<IdExaminableComponent>(SetWantedVerbMenu.Key, subs =>
+        Subs.BuiEvents<IdExaminableComponent>(SetWantedVerbMenu.Key, subs => // Goobstation-WantedMenu
         {
             subs.Event<BoundUIOpenedEvent>(UpdateUserInterface);
             subs.Event<CriminalRecordChangeStatus>(OnChangeStatus);

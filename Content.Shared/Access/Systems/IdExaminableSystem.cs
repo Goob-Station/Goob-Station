@@ -15,17 +15,23 @@ public sealed class IdExaminableSystem : EntitySystem
 {
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
 
+    [Dependency] private readonly INetManager _net = default!; // Goobstation-WantedMenu
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!; // Goobstation-WantedMenu
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<IdExaminableComponent, GetVerbsEvent<ExamineVerb>>(OnGetExamineVerbs);
+        SubscribeLocalEvent<IdExaminableComponent, GetVerbsEvent<AlternativeVerb>>(OnWantedMenuOpen); // Goobstation-WantedMenu
         SubscribeNetworkEvent<RefreshVerbsEvent>(OnRefreshVerbs);
         SubscribeNetworkEvent<ResetWantedVerbEvent>(OnResetWantedVerb);
     }
 
+    /// <summary>
+    /// Goobstation-WantedMenu: Makes wantedVerb invisible again for next GetVerbsEvent.
+    /// </summary>
+    /// <param name="ev"></param>
+    /// <param name="args"></param>
     private void OnResetWantedVerb(ResetWantedVerbEvent ev, EntitySessionEventArgs args)
     {
         if (!TryGetEntity(ev.Target, out var entity) || !TryComp<IdExaminableComponent>(entity, out var component))
@@ -34,6 +40,11 @@ public sealed class IdExaminableSystem : EntitySystem
         Dirty(entity.Value, component);
     }
 
+    /// <summary>
+    /// Goobstation-WantedMenu: Updates UI state and make wantedVerb visible.
+    /// </summary>
+    /// <param name="ev"></param>
+    /// <param name="args"></param>
     private void OnRefreshVerbs(RefreshVerbsEvent ev, EntitySessionEventArgs args)
     {
         if (!TryGetEntity(ev.Target, out var entity))
@@ -55,7 +66,6 @@ public sealed class IdExaminableSystem : EntitySystem
             RaiseLocalEvent<GetVerbsEvent<ExamineVerb>>(entity.Value, verbArgs, false);
         }
     }
-
     private void OnGetExamineVerbs(EntityUid uid, IdExaminableComponent component, GetVerbsEvent<ExamineVerb> args)
     {
         var detailsRange = _examineSystem.IsInDetailsRange(args.User, uid);
@@ -78,9 +88,7 @@ public sealed class IdExaminableSystem : EntitySystem
                 Dirty(uid, component);
                 if (_net.IsServer)
                 {
-                    // Raising event to update UI state and make wantedVerb visible.
                     RaiseNetworkEvent(new RefreshVerbsEvent(GetNetEntity(uid)), Filter.Pvs(args.Target));
-                    // Raising event to make wantedVerb invisible again for next GetVerbsEvent.
                     RaiseNetworkEvent(new ResetWantedVerbEvent(GetNetEntity(uid)), Filter.Pvs(uid));
                 }
             },
@@ -91,7 +99,7 @@ public sealed class IdExaminableSystem : EntitySystem
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/character.svg.192dpi.png")),
         };
 
-        var wantedVerb = new ExamineVerb()
+        var wantedVerb = new ExamineVerb() // Goobstation-WantedMenu
         {
             Act = () => OpenWantedUI(args.User, uid),
             Text = Loc.GetString("criminal-verb-name"),
@@ -107,7 +115,20 @@ public sealed class IdExaminableSystem : EntitySystem
         args.Verbs.Add(wantedVerb);
     }
 
-    private void OpenWantedUI(EntityUid uid, EntityUid target)
+    private void OnWantedMenuOpen(EntityUid uid, IdExaminableComponent comp, GetVerbsEvent<AlternativeVerb> args) // Goobstation-WantedMenu
+    {
+        if (!args.CanInteract || !args.CanAccess)
+            return;
+        args.Verbs.Add(new AlternativeVerb()
+        {
+            Act = () => OpenWantedUI(args.User, uid),
+            Text = Loc.GetString("criminal-verb-name"),
+            Icon = new SpriteSpecifier.Texture(new("/Textures/_Goobstation/Interface/VerbIcons/wanted.png")),
+            Priority = 3
+        });
+    }
+
+    private void OpenWantedUI(EntityUid uid, EntityUid target) // Goobstation-WantedMenu
     {
         _ui.TryToggleUi(target, SetWantedVerbMenu.Key, uid);
     }

@@ -1,15 +1,13 @@
 using Content.Server.StationRecords;
 using Content.Shared.Access.Components;
-using Content.Shared.Access.Systems;
 using Content.Shared.CriminalRecords;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Inventory;
 using Content.Shared.Security;
 using Content.Shared.StationRecords;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Content.Server.CriminalRecords.Systems;
+namespace Content.Server.CriminalRecords.Systems; // Goobstation-WantedMenu
 
 public sealed partial class CriminalRecordsConsoleSystem
 {
