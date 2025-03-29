@@ -9,7 +9,7 @@
     icon:
       sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
       state: icon
-    itemIconStyle: NoItem
+    itemIconStyle: BigAction
     event: !type:HierophantClubPlaceMarkerEvent
     useDelay: 30
 
@@ -44,3 +44,24 @@
     range: 8
     priority: -21
     useDelay: 1
+
+# Tile Movement
+- type: entity
+  id: ActionHierophantTileMovement
+  name: action-hierophant-tile-movement
+  description: action-hierophant-tile-movement-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    icon:
+      sprite: /Textures/_Lavaland/Interface/Alerts/hierophantbeat.rsi
+      state: hierophant
+    itemIconStyle: NoItem
+    whitelist:
+      requireAll: true
+      components:
+      - MobState
+      - Body
+      - MindContainer
+    event: !type:HierophantClubToggleTileMovementEvent
+    useDelay: 60
