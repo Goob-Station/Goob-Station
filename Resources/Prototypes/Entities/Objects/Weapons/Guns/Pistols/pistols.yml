@@ -142,7 +142,7 @@
   name: cobra
   parent: [ BaseWeaponPistol, BaseSyndicateContraband ]
   id: WeaponPistolCobra
-  description: A rugged, robust operator handgun with inbuilt silencer. Uses .25 caseless ammo.
+  description: A rugged, robust operator handgun with inbuilt silencer. Uses 12.7mm caseless ammo. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
@@ -161,28 +161,30 @@
       path: /Audio/Weapons/Guns/Gunshots/silenced.ogg
       params:
         volume: -14
-    projectileSpeed: 20 # Goobstation
+    projectileSpeed: 40 # Goobstation
     availableModes:
     - SemiAuto
   - type: ItemSlots
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazinePistolCaselessRifle
+        startingItem: MagazinePistolCaselessMagnumMinusP  # Goobstation
         insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
         priority: 2
         whitelist:
           tags:
-            - MagazinePistolCaselessRifle
+            - MagazineCaselessMagnum127  # Goobstation
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeCaselessRifle
+        startingItem: CartridgeCaselessMagnum127MinusP # Goobstation
         priority: 1
         whitelist:
           tags:
-            - CartridgeCaselessRifle
+            - CartridgeCaselessMagnum127 # Goobstation V
+            - CartridgeCaselessMagnum127MinusP
+            - CartridgeCaselessMagnum127SAPHE # Goobstation ^
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot

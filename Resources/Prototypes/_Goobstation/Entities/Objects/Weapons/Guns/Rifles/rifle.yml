@@ -176,6 +176,8 @@
     projectileSpeed: 20
     soundGunshot:
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/bwuh.ogg
+      params:
+        volume: -14
   - type: ItemSlots
     slots:
       gun_magazine:
