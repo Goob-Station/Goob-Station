@@ -1,20 +1,30 @@
-namespace Content.Server._Goobstation.Movement;
+namespace Content.Server.Movement;
 
 [RegisterComponent]
 public sealed partial class RandomizeMovementspeedComponent : Component
 {
     /// <summary>
-    /// How low the movement speed can drop.
+    /// The minimum limit of the modifier.
     /// </summary>
-
-    [DataField("Min", required: true)]
-    public float Min { get; set; } = 2;
+    [DataField]
+    public float Min { get; set; } = 0.6f;
 
     /// <summary>
-    /// How high the movement speed can go
+    /// The max limit of the modifier.
     /// </summary>
+    [DataField]
+    public float Max { get; set; } = 1.6f;
 
-    [DataField("Max", required: true)]
-    public float Max { get; set; } = 4;
+    /// <summary>
+    /// The current modifier.
+    /// </summary>
+    [DataField]
+    public float CurrentModifier { get; set; } = 1f;
+
+    /// <summary>
+    /// The Uid of the entity that picked up the item.
+    /// </summary>
+    [DataField]
+    public EntityUid EntityUid = default!;
 
 }

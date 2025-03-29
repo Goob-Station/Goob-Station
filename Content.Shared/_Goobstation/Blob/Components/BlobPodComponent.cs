@@ -1,6 +1,8 @@
+using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Components;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Goobstation.Blob.Components;
 
@@ -29,4 +31,7 @@ public sealed partial class BlobPodComponent : Component
 
     public Entity<AudioComponent>? ZombifyStingStream;
     public EntityUid? ZombifyTarget;
+
+    [DataField]
+    public ProtoId<TagPrototype> HostTag = "BlobMind";
 }

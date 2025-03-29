@@ -18,6 +18,7 @@
   - FoodPlateTin
   - FoodPlateMuffinTin
   - FoodKebabSkewer
+  - LightReplacer
   - SprayBottle
   - MopItem
   - Holoprojector
@@ -60,3 +61,4 @@
   - ReagentGrinderIndustrialMachineCircuitboard
   - JukeboxCircuitBoard
   - DawInstrumentMachineCircuitboard
+  - SheetifierMachineCircuitboard # Goobstation - Moved from ScienceBoards

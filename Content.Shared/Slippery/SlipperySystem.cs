@@ -116,7 +116,7 @@ public sealed class SlipperySystem : EntitySystem
                 return;
         }
 
-        var hardStun = false;
+        var hardStun = component.SuperSlippery; // Goobstation
         // Goob edit end
 
         var ev = new SlipEvent(other);
@@ -128,7 +128,6 @@ public sealed class SlipperySystem : EntitySystem
 
             if (component.SuperSlippery && requiresContact)
             {
-                hardStun = true; // Goobstation
                 var sliding = EnsureComp<SlidingComponent>(other);
                 sliding.CollidingEntities.Add(uid);
                 DebugTools.Assert(_physics.GetContactingEntities(other, physics).Contains(uid));

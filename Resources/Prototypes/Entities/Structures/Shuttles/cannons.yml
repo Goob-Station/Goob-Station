@@ -327,8 +327,8 @@
         - !type:DoActsBehavior
           acts: ["Destruction"]
   - type: Gun
-    projectileSpeed: 20
-    fireRate: 2
+    # projectileSpeed: 20 # Goobstation edit
+    fireRate: 1 # Goobstation edit
     selectedMode: SemiAuto
     angleDecay: 45
     minAngle: 5
@@ -352,3 +352,9 @@
     count: 5
   - type: Machine
     board: ShuttleGunKineticCircuitboard
+  - type: PressureDamageChange # Goobstation
+  - type: UpgradeableGun # Goobstation
+    maxUpgradeCapacity: 40
+    whitelist:
+      tags:
+      - PKAUpgrade

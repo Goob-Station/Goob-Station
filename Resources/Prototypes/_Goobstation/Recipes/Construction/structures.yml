@@ -1,0 +1,15 @@
+- type: construction
+  name: directional wall
+  id: WallDirectional
+  graph: WallDirectional
+  startNode: start
+  targetNode: wallDirectional
+  category: construction-category-structures
+  description: Cheap and cheerful metal plating.
+  icon:
+    sprite: _Goobstation/Structures/Walls/directional.rsi
+    state: directionalwall
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: true

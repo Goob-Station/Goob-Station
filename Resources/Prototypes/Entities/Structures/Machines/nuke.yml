@@ -90,6 +90,7 @@
         - NukeDisk
     alertLevelOnActivate: delta
     alertLevelOnDeactivate: green
+    alertLevelOnOverride: omicron # Goobstation
   - type: InteractionOutline
   - type: ActivatableUI
     key: enum.NukeUiKey.Key

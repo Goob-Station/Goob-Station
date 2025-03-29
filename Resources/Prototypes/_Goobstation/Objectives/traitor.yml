@@ -76,3 +76,12 @@
   - type: StealCondition
     stealGroup: WeaponEnergyGunMultiphase
     owner: job-name-hos
+
+- type: entity
+  parent: BaseCMOStealObjective
+  id: CMORapidSyringeGunStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: RapidSyringeGun
+  - type: Objective
+    difficulty: 3 # Slightly more than normal as it does not fit into storage implant

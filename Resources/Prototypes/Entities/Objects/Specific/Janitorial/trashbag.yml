@@ -27,6 +27,7 @@
   - type: Tag
     tags:
     - TrashBag
+    - DroneUsable # Goobstation
   - type: Appearance
   - type: StorageFillVisualizer
     maxFillLevels: 4

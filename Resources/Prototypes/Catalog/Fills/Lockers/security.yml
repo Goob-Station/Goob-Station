@@ -9,6 +9,7 @@
       - id: WeaponEnergyShotgun
       #- id: WeaponDisabler #Goobstation (Disablers in belts)
       - id: ClothingBeltSecurityFilled
+      - id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts
       - id: Flash
       - id: ClothingEyesGlassesSecurity
       - id: ClothingHeadsetAltWarden # Goobstation
@@ -43,6 +44,7 @@
       - id: WeaponEnergyShotgun # Goobstation
       #- id: WeaponDisabler #Goobstation (Disablers in belts)
       - id: ClothingBeltSecurityFilled
+      - id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts
       - id: Flash
       - id: ClothingEyesGlassesSecurity
       - id: ClothingHeadsetAltWarden # Goobstation
@@ -79,6 +81,7 @@
       - id: ClothingHeadHelmetBasic
       - id: ClothingOuterArmorBasic
       - id: ClothingBeltSecurityFilled
+      - id: ClothingBeltCorporateJudoFilled # Goobstation - Martial Arts
       - id: Flash
         prob: 0.5
       - id: ClothingEyesGlassesSecurity
@@ -258,3 +261,5 @@
     contents:
     - id: WeaponLaserCarbine
       amount: 3
+    - id: WeaponTemperatureGun # Goobstation
+      amount: 2

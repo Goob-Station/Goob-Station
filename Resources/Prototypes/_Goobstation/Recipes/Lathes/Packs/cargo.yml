@@ -10,12 +10,14 @@
 - type: latheRecipePack
   id: MiningWeapons
   recipes:
+  - WeaponProtoKineticAccelerator
   - WeaponPlasmaCutter
   - WeaponPlasmaRifle
+  - ShuttleGunKineticCircuitboard
 
 - type: latheRecipePack
   id: MiningUpgrades
   recipes:
-    - PKAUpgradeDamage
-    - PKAUpgradeRange
-    - PKAUpgradeFireRate
+  - PKAUpgradeDamage
+  - PKAUpgradeRange
+  - PKAUpgradeFireRate

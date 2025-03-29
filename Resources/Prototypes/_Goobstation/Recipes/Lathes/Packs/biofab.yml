@@ -13,6 +13,7 @@
   - SynthRightArm
   - SynthLeftHand
   - SynthRightHand
+  - SynthHeadEmpty
 
 - type: latheRecipePack
   id: BiofabPartsEmagStatic

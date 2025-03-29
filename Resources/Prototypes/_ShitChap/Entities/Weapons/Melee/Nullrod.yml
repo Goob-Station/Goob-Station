@@ -79,11 +79,11 @@
       groups:
         Brute: -10
   - type: Clothing
-    sprite: Objects/Weapons/Nullrod/claymore.rsi
+    sprite: _ShitChap/Objects/Weapons/Nullrod/holyclaymore.rsi
     slots:
     - back
   - type: Sprite
-    sprite: Objects/Weapons/Nullrod/claymore.rsi # Todo - Give this proper wielded sprites.
+    sprite: _ShitChap/Objects/Weapons/Nullrod/holyclaymore.rsi # Todo - Give this proper wielded sprites.
   - type: AmmoCounter
   - type: UseDelayOnShoot
   - type: UseDelay
@@ -286,8 +286,6 @@
     tags:
     - ArrythmicKnife
   - type: RandomizeMovementspeed
-    Min: 4
-    Max: 6
   - type: Sharp
   - type: Execution
     doAfterDuration: 4.0
@@ -353,10 +351,11 @@
         Holy: 5
     UntrainedUseString: nullrod-atheistfedora-untrained-usage-popup
   - type: LandAtCursor
+  - type: Boomerang
   - type: DamageOtherOnHit
     damage:
       types:
-        Slash: 25
+        Slash: 5
         Holy: 10
   - type: Reflect # Only blocks magic projectiles
     reflectProb: 0.2
@@ -386,11 +385,151 @@
     slots:
     - HEAD
     sprite: _ShitChap/Objects/Weapons/Nullrod/atheist.rsi
-  - type: DisarmMalus
-    malus: 0
   - type: Sharp
   - type: Scalpel
     speed: 0.5
   - type: Tag
     tags:
+    - AthiestsFedora
+
+- type: entity
+  name: Honkermother's Maw
+  parent: BaseNullrod
+  id: HonkmotherMaw
+  description: a-HEAD of you lies a path most hilarious.
+  components:
+  - type: Item
+    size: Huge
+    sprite: _ShitChap/Objects/Weapons/Nullrod/honkmother.rsi
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/honkmother.rsi
+    state: icon
+  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
+    DamageOnUntrainedUse:
+      types:
+        Heat: 15
+        Holy: 25
+    UntrainedUseString: nullrod-honkmother-untrained-usage-popup
+  - type: Reflect # Only blocks magic projectiles
+    reflectProb: 0.9
+    reflects:
+    - Magic
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Blunt: 3
+        Holy: 10
+    soundHit:
+        collection: RubberHammer
+        params:
+            variation: 0.03
+            volume: 3
+  - type: KnockdownOnHit
+    duration: 0.2
+    dropHeldItemsBehavior: DropIfStanding # Goob edit
+  - type: UseDelay
+    delay: 0.5
+  - type: EmitSoundOnUse
+    sound:
+      collection: BikeHorn
+      params:
+        variation: 0.125
+  - type: DisarmMalus
+    malus: 0
+  - type: Tag
+    tags:
     - Nullrod
+
+# Casul & Jackal
+- type: entity
+  name: casul
+  parent: BaseItem
+  id: WeaponPistolCasul
+  description: The first of two huge pistols, capable of firing regenerating silver bullets. Incapable of firing without its sister gun.
+  components:
+    - type: Nullrod
+      DamageOnUntrainedUse:
+        types:
+          Heat: 15
+          Holy: 5
+      UntrainedUseString: nullrod-pistol-untrained-usage-popup
+    - type: Reflect # Only blocks magic projectiles
+      reflectProb: 0.4
+      reflects:
+        - Magic
+    - type: Sprite
+      sprite: _Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi # Todo - Change sprites
+      layers:
+        - state: base
+          map: ["enum.GunVisualLayers.Base"]
+        - state: mag-0
+          map: ["enum.GunVisualLayers.Mag"]
+    - type: Clothing
+      sprite: _Goobstation/Objects/Weapons/Guns/Pistols/anaconda.rsi # Bweh!
+      quickEquip: false
+      slots:
+        - suitStorage
+        - Belt
+    - type: Gun
+      minAngle: 1
+      maxAngle: 5
+      angleIncrease: 1
+      angleDecay: 4
+      fireRate: 8
+      availableModes:
+        - SemiAuto
+        - FullAuto
+      soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/mk58.ogg # Todo - Change this to be less aggressive
+    - type: Item
+      size: Small
+      shape:
+        - 0,0,1,0
+        - 0,1,0,1
+    - type: BasicEntityAmmoProvider
+      proto: BulletPistolSilver
+      capacity: 6
+      count: 6
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 8
+      rechargeSound:
+        path: /Audio/Weapons/Guns/Cock/shotgun_close.ogg
+    - type: AmmoCounter
+    - type: ContainerContainer
+      containers:
+        ballistic-ammo: !type:Container
+    - type: Multishot
+      spreadMultiplier: 1.25
+    - type: Tag
+      tags:
+        - WeaponPistolCasul
+        - Sidearm
+    - type: RequiresDualWield
+      whitelist:
+        tags:
+          - WeaponPistolJackal
+
+- type: entity
+  name: jackal
+  parent: WeaponPistolCasul
+  id: WeaponPistolJackal
+  description: The second of two huge pistols, capable of firing regenerating silver bullets. Incapable of firing without its sister gun.
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi # Todo - Change sprites
+      layers:
+        - state: base
+          map: ["enum.GunVisualLayers.Base"]
+        - state: mag-0
+          map: ["enum.GunVisualLayers.Mag"]
+    - type: Clothing
+      sprite: _Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi # Todo - Change sprites
+    - type: Tag
+      tags:
+        - WeaponPistolJackal
+        - Sidearm
+    - type: RequiresDualWield
+      whitelist:
+        tags:
+          - WeaponPistolCasul

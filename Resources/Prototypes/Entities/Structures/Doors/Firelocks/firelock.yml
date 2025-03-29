@@ -18,7 +18,7 @@
     - type: InteractionOutline
     - type: Damageable
       damageContainer: StructuralInorganic
-      damageModifierSet: StructuralMetallicStrong
+      damageModifierSet: StrongMetallic
     - type: RCDDeconstructable
       cost: 4
       delay: 6

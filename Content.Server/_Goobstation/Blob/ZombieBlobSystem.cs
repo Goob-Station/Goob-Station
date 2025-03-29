@@ -224,6 +224,7 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
     {
         if (args.NewMobState == MobState.Dead)
         {
+            _tagSystem.RemoveTag(uid, component.TagAdded);
             RemComp<ZombieBlobComponent>(uid);
         }
     }

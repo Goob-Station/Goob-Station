@@ -1,0 +1,87 @@
+# Deathsquad
+
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: SpawnDeathsquad
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-deathsquad-enroute
+    startAudio:
+      path: /Audio/StationEvents/rescue_imminent.ogg
+    reoccurrenceDelay: 30
+    duration: null
+    maxOccurrences: 1
+  - type: LoadMapRule
+    preloadedGrid: ConsulShuttle
+
+# CBURN
+
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: SpawnCBURN
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-cburn-enroute
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    duration: 1
+    maxOccurrences: 1
+  - type: LoadMapRule
+    preloadedGrid: RetortShuttleCBURN
+
+# ERT
+
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: SpawnERTSecurity
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-emergencyresponseteam-security-enroute
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    duration: 1
+    maxOccurrences: 1
+  - type: LoadMapRule
+    preloadedGrid: RetortShuttleAssault
+
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: SpawnERTMedical
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-emergencyresponseteam-medical-enroute
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    duration: 1
+    maxOccurrences: 1
+  - type: LoadMapRule
+    preloadedGrid: RetortShuttleMedical
+
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: SpawnERTEngineering
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-emergencyresponseteam-engineering-enroute
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    duration: 1
+    maxOccurrences: 1
+  - type: LoadMapRule
+    preloadedGrid: RetortShuttleEngineering
+
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: SpawnERTJanitorial
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-emergencyresponseteam-generic-enroute
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    duration: 1
+    maxOccurrences: 1
+  - type: LoadMapRule
+    preloadedGrid: RetortShuttleJanitorial
+
+
+

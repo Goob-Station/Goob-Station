@@ -179,6 +179,10 @@
     radius: 1.5
     energy: 1
     color: "#e0ffff"
+  - type: AltarSource # I couldn't remember which rod went here. Change it if this is wrong.
+    rodProto: ClothingBeltHolsterFilledChaplain
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
 
 - type: entity
   id: AltarConvertFestival
@@ -445,4 +449,8 @@
     state: full
   - type: Construction
     graph: BananiumAltarGraph
-    node: bananiumAltar
+    node: bananiumAltar'
+  - type: AltarSource
+    rodProto: HonkmotherMaw # Shitchap
+    effectProto: EffectSpark
+    soundPath: /Audio/Items/bikehorn.ogg

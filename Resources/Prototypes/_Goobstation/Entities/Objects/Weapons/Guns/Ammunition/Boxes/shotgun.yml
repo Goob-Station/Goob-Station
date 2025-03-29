@@ -1,7 +1,20 @@
+- type: entity
+  parent: AmmoProviderShotgunShell
+  id: BaseMagazineBoxShotgunHighCaliber
+  abstract: true
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+    whitelist:
+      tags:
+      - ShellShotgunHeavy
+  - type: Item
+    size: Small
+
 # Carpshot
 - type: entity
   name: shell box (.75 carpshot)
-  parent: AmmoProviderShotgunShell
+  parent: BaseMagazineBoxShotgunHighCaliber
   id: MagazineBoxShotgunHighCaliber
   components:
   - type: BallisticAmmoProvider
@@ -17,7 +30,7 @@
 # Normal Slug
 - type: entity
   name: shell box (.75 slug)
-  parent: AmmoProviderShotgunShell
+  parent: BaseMagazineBoxShotgunHighCaliber
   id: MagazineBoxShotgunSlugHighCaliber
   components:
   - type: BallisticAmmoProvider
@@ -37,7 +50,7 @@
 # Incendiary
 - type: entity
   name: shell box (.75 incendiary)
-  parent: AmmoProviderShotgunShell
+  parent: BaseMagazineBoxShotgunHighCaliber
   id: MagazineBoxShotgunIncendiaryHighCaliber
   components:
   - type: BallisticAmmoProvider
@@ -53,7 +66,7 @@
 # Uranium
 - type: entity
   name: shell box (.75 uranium)
-  parent: AmmoProviderShotgunShell
+  parent: BaseMagazineBoxShotgunHighCaliber
   id: MagazineBoxShotgunUraniumHighCaliber
   components:
   - type: BallisticAmmoProvider
@@ -73,7 +86,7 @@
 # Beanbag
 
 - type: entity
-  parent: AmmoProviderShotgunShell
+  parent: BaseMagazineBoxShotgunHighCaliber
   id: MagazineBoxShotgunBeanbagHighCaliber
   name: shell box (.75 beanbag)
   components:
@@ -91,7 +104,7 @@
 
 - type: entity
   name: shell box (.75 practice)
-  parent: AmmoProviderShotgunShell
+  parent: BaseMagazineBoxShotgunHighCaliber
   id: MagazineBoxShotgunPracticeHighCaliber
   components:
   - type: BallisticAmmoProvider
@@ -108,7 +121,7 @@
 # Ensnaring
 - type: entity
   id: MagazineBoxShotgunHighCaliberEnsnaring
-  parent: AmmoProviderShotgunShell
+  parent: BaseMagazineBoxShotgunHighCaliber
   name: shell box (.75 slug ensnaring)
   components:
   - type: BallisticAmmoProvider
@@ -125,7 +138,7 @@
 # EMP
 - type: entity
   id: MagazineBoxShotgunHighCaliberEMP
-  parent: AmmoProviderShotgunShell
+  parent: BaseMagazineBoxShotgunHighCaliber
   name: shell box (.75 slug EMP)
   components:
   - type: BallisticAmmoProvider
@@ -142,7 +155,7 @@
 # Flash
 - type: entity
   id: MagazineBoxShotgunHighCaliberFlash
-  parent: AmmoProviderShotgunShell
+  parent: BaseMagazineBoxShotgunHighCaliber
   name: shell box (.75 slug flash)
   components:
   - type: BallisticAmmoProvider

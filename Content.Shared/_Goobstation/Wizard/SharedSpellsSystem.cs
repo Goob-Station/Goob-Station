@@ -3,6 +3,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Shared._DV.Carrying;
 using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared._Goobstation.Bingle;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._Goobstation.Wizard.Components;
@@ -173,6 +174,9 @@ public abstract class SharedSpellsSystem : EntitySystem
         var target = GetEntity(ev.Target);
 
         if (!TryComp(action, out SwapSpellComponent? swap))
+            return;
+
+        if (!swap.AllowSecondaryTarget)
             return;
 
         swap.SecondaryTarget = target;
@@ -988,6 +992,9 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (!TryComp(ev.Action, out SwapSpellComponent? swap))
             return;
 
+        if (!ev.ThroughWalls && !_examine.InRangeUnOccluded(ev.Performer, ev.Target, ev.Range))
+            return;
+
         var userXform = Transform(ev.Performer);
         var targetXform = Transform(ev.Target);
 
@@ -1251,9 +1258,10 @@ public abstract class SharedSpellsSystem : EntitySystem
         var bodyPartQuery = GetEntityQuery<BodyPartComponent>();
         var inventoryQuery = GetEntityQuery<InventoryComponent>();
         var handsQuery = GetEntityQuery<HandsComponent>();
+        var binglePitQuery = GetEntityQuery<BinglePitComponent>();
 
         while (parent.IsValid() && !bodyQuery.HasComp(parent) && !bodyPartQuery.HasComp(parent) &&
-               !inventoryQuery.HasComp(parent) && !handsQuery.HasComp(parent))
+               !inventoryQuery.HasComp(parent) && !handsQuery.HasComp(parent) && !binglePitQuery.HasComp(parent))
         {
             if (((EntityManager.MetaQuery.GetComponent(child).Flags & MetaDataFlags.InContainer) ==
                  MetaDataFlags.InContainer) && managerQuery.TryGetComponent(parent, out var conManager) &&

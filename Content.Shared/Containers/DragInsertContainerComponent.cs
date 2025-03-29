@@ -1,4 +1,6 @@
 using Robust.Shared.GameStates;
+using Content.Shared.DoAfter;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Containers;
 
@@ -29,4 +31,10 @@ public sealed partial class DragInsertContainerComponent : Component
     /// </summary>
     [DataField]
     public bool DelaySelfEntry = false;
+
+}
+
+[Serializable, NetSerializable, ByRefEvent]
+public sealed partial class InsertOnDragDoAfterEvent : SimpleDoAfterEvent
+{
 }

@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Server._Goobstation._Pirates.Pirates.Siphon;
 using Content.Server.Cargo.Components;
 using Content.Server.Labels.Components;
 using Content.Server.Station.Components;
@@ -130,6 +131,20 @@ namespace Content.Server.Cargo.Systems
                 PlayDenySound(uid, component);
                 return;
             }
+
+            // goob edit - resource siphon blocking access
+            var eqe = EntityQueryEnumerator<ResourceSiphonComponent>();
+            while (eqe.MoveNext(out var sip))
+            {
+                // it's over. the crew won't know what hit em.
+                if (sip.Active)
+                {
+                    ConsolePopup(args.Actor, Loc.GetString("console-block-something"));
+                    PlayDenySound(uid, component);
+                    return;
+                }
+            }
+            // goob edit end
 
             var station = _station.GetOwningStation(uid);
 
@@ -477,14 +492,14 @@ namespace Content.Server.Cargo.Systems
             return TryAddOrder(dbUid, order, component) && TryFulfillOrder(stationData, order, component).HasValue;
         }
 
-        private bool TryAddOrder(EntityUid dbUid, CargoOrderData data, StationCargoOrderDatabaseComponent component)
+        public bool TryAddOrder(EntityUid dbUid, CargoOrderData data, StationCargoOrderDatabaseComponent component)
         {
             component.Orders.Add(data);
             UpdateOrders(dbUid);
             return true;
         }
 
-        private static int GenerateOrderId(StationCargoOrderDatabaseComponent orderDB)
+        public static int GenerateOrderId(StationCargoOrderDatabaseComponent orderDB)
         {
             // We need an arbitrary unique ID to identify orders, since they may
             // want to be cancelled later.
@@ -532,7 +547,7 @@ namespace Content.Server.Cargo.Systems
         /// <summary>
         /// Tries to fulfill the next outstanding order.
         /// </summary>
-        private bool FulfillNextOrder(StationCargoOrderDatabaseComponent orderDB, EntityCoordinates spawn, string? paperProto)
+        public bool FulfillNextOrder(StationCargoOrderDatabaseComponent orderDB, EntityCoordinates spawn, string? paperProto)
         {
             if (!PopFrontOrder(orderDB, out var order))
                 return false;
@@ -543,7 +558,7 @@ namespace Content.Server.Cargo.Systems
         /// <summary>
         /// Fulfills the specified cargo order and spawns paper attached to it.
         /// </summary>
-        private bool FulfillOrder(CargoOrderData order, EntityCoordinates spawn, string? paperProto)
+        public bool FulfillOrder(CargoOrderData order, EntityCoordinates spawn, string? paperProto)
         {
             // Create the item itself
             var item = Spawn(order.ProductId, spawn);
@@ -579,9 +594,14 @@ namespace Content.Server.Cargo.Systems
 
         }
 
+        public void DeductFunds(StationBankAccountComponent component, int amount)
+        {
+            var bal = Math.Max(0, component.Balance - amount);
+            component.Balance = bal;
+        }
         #region Station
 
-        private bool TryGetOrderDatabase([NotNullWhen(true)] EntityUid? stationUid, [MaybeNullWhen(false)] out StationCargoOrderDatabaseComponent dbComp)
+        public bool TryGetOrderDatabase([NotNullWhen(true)] EntityUid? stationUid, [MaybeNullWhen(false)] out StationCargoOrderDatabaseComponent dbComp)
         {
             return TryComp(stationUid, out dbComp);
         }

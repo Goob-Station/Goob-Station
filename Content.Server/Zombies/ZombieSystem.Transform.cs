@@ -35,7 +35,6 @@ using Content.Shared.Prying.Components;
 using Content.Shared.Traits.Assorted;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Ghost.Roles.Components;
-using Content.Server.Animals.Components;
 
 namespace Content.Server.Zombies;
 
@@ -103,7 +102,6 @@ public sealed partial class ZombieSystem
         RemComp<HungerComponent>(target);
         RemComp<ThirstComponent>(target);
         RemComp<ReproductiveComponent>(target);
-        RemComp<EggLayerComponent>(target); // Goobstation - very funny haha it lags server to hell
         RemComp<ReproductivePartnerComponent>(target);
         RemComp<LegsParalyzedComponent>(target);
         RemComp<ComplexInteractionComponent>(target);

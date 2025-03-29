@@ -457,6 +457,9 @@
     stateBaseClosed: clown
     stateDoorOpen: clown_open
     stateDoorClosed: clown_door
+  - type: StorageFill #Goobstation - clowncar
+    contents:
+    - id: VehicleClowncarTrainee
 
 # Mime
 - type: entity

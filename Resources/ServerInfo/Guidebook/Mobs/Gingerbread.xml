@@ -5,11 +5,10 @@
     <GuideEntityEmbed Entity="MobGingerbread" Caption=""/>
   </Box>
 
-  Gingerbreads are a species of sentient confectionary. They have sugar for blood, and can be butchered for cookies.
+  Gingerbreads are a species of sentient confectionary. They have sugar for blood, and can be butchered for cookies. Being made of dough, they weigh half as much as species made of flesh.
 
   ## Damage stats
 
-  Gingerbreads take 3x less heat damage than Humans, but take a lot of damage from being exposed to water externally.
-  They take 3x more damage from being exposed to water externally than Slimes.
+  Gingerbreads take 3x less fire damage than Humans, do not take Asphyxiation (though they still breathe and are uncomfortable without oxygen), Bloodloss (though again, are uncomfortable without sugar) and Cold damage (though are slowed down by cold), but take 1.5x more Blunt damage and take a lot of Heat damage from being exposed to water externally.
 
 </Document>

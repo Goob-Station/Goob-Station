@@ -46,6 +46,6 @@
 - type: latheRecipePack
   id: Equipment
   recipes:
-  # - HandHeldMassScanner # Goobstation edit
+  #- HandHeldMassScanner - Goobstation - Removed by Lavaland
   - ClothingMaskWeldingGas
   - SignallerAdvanced

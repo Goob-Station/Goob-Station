@@ -1,56 +1,103 @@
-using Content.Server._Goobstation.Movement;
+using Content.Server.Bible;
 using Content.Shared.Hands;
-using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-// This isn't actually functioning yet, but it DOES properly add and remove itself.
-// Once one of the smart people of the ivory tower help me I can get this working probably.
+namespace Content.Server.Movement;
 
-
-public sealed partial class RandomizeMovementSpeedSystem : EntitySystem
+public sealed class RandomizeMovementSpeedSystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _speedModifierSystem = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = null!;
+    [Dependency] private readonly IRobustRandom _random = null!;
+    [Dependency] private readonly IGameTiming _timing = null!;
 
     private TimeSpan _nextExecutionTime = TimeSpan.Zero;
-    private static readonly TimeSpan ExecutionInterval = TimeSpan.FromSeconds(2);
+    private static readonly TimeSpan ExecutionInterval = TimeSpan.FromSeconds(3);
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<RandomizeMovementspeedComponent, EquippedHandEvent>(OnItemInHand);
-        SubscribeLocalEvent<RandomizeMovementspeedComponent, UnequippedHandEvent>(OnUnequipped);
+        SubscribeLocalEvent<RandomizeMovementspeedComponent, GotEquippedHandEvent>(OnGotEquippedHand);
+        SubscribeLocalEvent<RandomizeMovementspeedComponent, GotUnequippedHandEvent>(OnGotUnequippedHand);
+        SubscribeLocalEvent<RandomizeMovementspeedComponent, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshMovementSpeedModifiers);
     }
 
-    public void OnItemInHand(EntityUid uid, RandomizeMovementspeedComponent comp, EquippedHandEvent args)
+    #region Helper Functions
+    private void OnGotEquippedHand(Entity<RandomizeMovementspeedComponent> ent, ref GotEquippedHandEvent args)
     {
-        // When the item is equipped, add the component to the player.
-        EnsureComp<RandomizeMovementspeedComponent>(uid);
+        // Refresh the movement speed modifiers.
+        _movementSpeedModifier.RefreshMovementSpeedModifiers(args.User);
+        // Get the Uid of the entity who picked up the item.
+        GetEntityUid(ent, ref args);
     }
 
-    public void Update(float frameTime, EntityUid uid, RandomizeMovementspeedComponent comp, EquippedHandEvent args)
+    private void OnGotUnequippedHand(Entity<RandomizeMovementspeedComponent> ent, ref GotUnequippedHandEvent args)
     {
+        // Refresh the movement speed modifiers.
+        _movementSpeedModifier.RefreshMovementSpeedModifiers(args.User);
+        // Reset the user Uid.
+        ent.Comp.EntityUid = default!;
+    }
 
+    private void GetEntityUid(Entity<RandomizeMovementspeedComponent> ent, ref GotEquippedHandEvent args)
+    {
+        // Set the entity Uid field of the Component equal to the entity who picked up the item.
+        ent.Comp.EntityUid = args.User;
+    }
+
+    private float GetMovementSpeedModifiers(RandomizeMovementspeedComponent comp)
+    {
+        // Generate a modifier, which is a float between the minimum and maxiumum defined by the component.
+        var modifier = _random.NextFloat(comp.Min, comp.Max);
+        // Return that modifier.
+        return modifier;
+
+    }
+    private static void OnRefreshMovementSpeedModifiers(EntityUid uid, RandomizeMovementspeedComponent  comp, ref HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
+    {
+        // Set the variable modifier equal to the components current modifier field.
+        var modifier = comp.CurrentModifier;
+        // Modify the speed of the entity according to the modifier.
+        args.Args.ModifySpeed(modifier, modifier);
+    }
+
+    #endregion
+
+    #region Update Loop
+    public override void Update(float frameTime)
+    {
         base.Update(frameTime);
 
+        // Check if it's time to execute again.
         if (_timing.CurTime < _nextExecutionTime)
             return;
 
-        var modifier = _random.NextFloat(comp.Min, comp.Max);
+        var query = EntityQueryEnumerator<RandomizeMovementspeedComponent>();
+        while (query.MoveNext(out var comp))
+        {
+            foreach (var ent in EntityQuery<RandomizeMovementspeedComponent>())
+            {
+                // Check if the user is capable of wielding a nullrod.
+                if (!HasComp<BibleUserComponent>(comp.EntityUid))
+                    return;
+
+                // Generate the new modifier.
+                var modifier = GetMovementSpeedModifiers(comp);
+
+                // Set the new modifier.
+                comp.CurrentModifier = modifier;
+
+                // Call the event, and refresh the movement speed modifiers.
+                _movementSpeedModifier.RefreshMovementSpeedModifiers(comp.EntityUid);
+            }
+        }
+        // Set the next execution time.
         _nextExecutionTime = _timing.CurTime + ExecutionInterval;
-
-        _speedModifierSystem.ChangeBaseSpeed(uid, modifier, modifier, modifier);
-        _speedModifierSystem.RefreshMovementSpeedModifiers(uid);
-
     }
 
-    public void OnUnequipped(EntityUid uid, RandomizeMovementspeedComponent comp, UnequippedHandEvent args)
-    {
-        RemCompDeferred<RandomizeMovementspeedComponent>(args.User);
-        args.Handled = true;
-    }
+    #endregion
+
 
 }
+

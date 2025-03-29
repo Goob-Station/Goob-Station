@@ -25,3 +25,48 @@
     - state: fax-machine
   - type: StaticPrice
     price: 500
+
+- type: entity
+  parent: BaseFlatpack
+  id: MedicalScannerFlatpack
+  name: Medical Scanner Flatpack
+  description: A flatpack used for constructing a Medical Scanner
+  components:
+  - type: Flatpack
+    entity: MedicalScanner
+
+- type: entity
+  parent: BaseFlatpack
+  id: CloningpodFlatpack
+  name: Cloning pod Flatpack
+  description: A flatpack used for constructing a Cloning pod
+  components:
+  - type: Flatpack
+    entity: CloningPod
+
+- type: entity
+  parent: BaseFlatpack
+  id: ComputerCloningConsoleFlatpack
+  name: Computer Cloning Console Flatpack
+  description: A flatpack used for constructing a Computer Cloning Console
+  components:
+  - type: Flatpack
+    entity: ComputerCloningConsole
+
+- type: entity
+  parent: BaseFlatpack
+  id: BiomassReclaimerFlatpack
+  name: Biomass Reclaimer Flatpack
+  description: A flatpack used for constructing a Biomass Reclaimer
+  components:
+  - type: Flatpack
+    entity: BiomassReclaimer
+
+- type: entity
+  parent: BaseFlatpack
+  id: MedicalBiofabricatorFlatpack
+  name: Medical Biofabricator Flatpack
+  description: A flatpack used for constructing a Medical Biofabricator
+  components:
+  - type: Flatpack
+    entity: MedicalBiofabricator

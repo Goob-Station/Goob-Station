@@ -156,12 +156,12 @@
   - type: StealCondition
     stealGroup: Hypospray
 
-- type: entity
-  parent: BaseCMOStealObjective
-  id: CMOCrewMonitorStealObjective
-  components:
-  - type: StealCondition
-    stealGroup: HandheldCrewMonitor
+#- type: entity # Goobstation - made this public
+#  parent: BaseCMOStealObjective
+#  id: CMOCrewMonitorStealObjective
+#  components:
+#  - type: StealCondition
+#    stealGroup: HandheldCrewMonitor
 
 ## rd
 

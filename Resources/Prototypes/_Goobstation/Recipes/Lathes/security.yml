@@ -46,6 +46,14 @@
     Glass: 300
 
 - type: latheRecipe
+  id: CartridgeSaline
+  result: CartridgeSaline
+  completetime: 1
+  materials:
+    Steel: 100
+    Glass: 300
+
+- type: latheRecipe
   id: CartridgeEphedrine
   result: CartridgeEphedrine
   completetime: 1
@@ -74,6 +82,18 @@
     Plastic: 800
     Glass: 1200
     Gold: 500
+
+# Guns
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponTemperatureGun
+  result: WeaponTemperatureGun
+  materials:
+    Steel: 1500
+    Glass: 800
+    Plastic: 500
+    Plasma: 500
 
 # Smartgun
 

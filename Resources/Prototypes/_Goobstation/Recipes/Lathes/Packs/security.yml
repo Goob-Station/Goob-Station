@@ -20,16 +20,13 @@
   - CartridgeEpinephrine
   - CartridgeBicaridine
   - CartridgeDermaline
+  - CartridgeAtropine
+  - CartridgeSaline
   - SecHypo
-
-- type: latheRecipePack
-  id: SecurityWeaponsStaticGoob
-  parent: MedicalWeaponsStatic # they should have access to these
 
 ## Dynamic
 - type: latheRecipePack
   id: SecurityWeaponsGoob
-  parent: MedicalWeapons # they should have access to these
   recipes:
   - WeaponSubMachineSmart
 

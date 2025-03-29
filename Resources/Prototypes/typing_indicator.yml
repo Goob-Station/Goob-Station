@@ -3,6 +3,10 @@
   typingState: default0
 
 - type: typingIndicator
+  id: empty
+  typingState: empty0
+
+- type: typingIndicator
   id: robot
   typingState: robot0
 

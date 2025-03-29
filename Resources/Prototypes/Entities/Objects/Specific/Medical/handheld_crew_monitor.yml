@@ -1,8 +1,8 @@
 - type: entity
   name: handheld crew monitor
-  categories: [ DoNotMap ]
-  parent: [ BaseHandheldComputer, BaseGrandTheftContraband ]
-  # CMO-only bud, don't add more.
+#  categories: [ DoNotMap ] # Goobstation
+  parent: [ BaseHandheldComputer, BaseSecurityMedicalContraband ] # Goobstation
+  # CMO-only bud, don't add more. # Goobstation - no lmao
   id: HandheldCrewMonitor
   description: A hand-held crew monitor displaying the status of suit sensors.
   components:
@@ -26,9 +26,10 @@
     price: 500
   - type: Tag
     tags:
-    - HighRiskItem
-  - type: StealTarget
-    stealGroup: HandheldCrewMonitor
+    - HandheldCrewMonitor # Goobstation - start
+    # - HighRiskItem
+  # - type: StealTarget
+  #   stealGroup: HandheldCrewMonitor # Goobstation - end
 
 - type: entity
   id: HandheldCrewMonitorEmpty

@@ -2,6 +2,8 @@ using Content.Server.Emp;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Power.Events;
+using Content.Server.Stunnable.Components;
+using Content.Shared._Goobstation.MartialArts;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage.Events;
 using Content.Shared.Examine;
@@ -48,8 +50,12 @@ namespace Content.Server.Stunnable.Systems
             var energy = entity.Comp.EnergyPerUse;
             if (args.LightAttack)
                 energy *= entity.Comp.LightAttackEnergyMultiplier;
-            if (!_itemToggle.IsActivated(entity.Owner) ||
-            !TryComp<BatteryComponent>(entity.Owner, out var battery) || !_battery.TryUseCharge(entity.Owner, energy, battery)) // Goob edit end
+
+
+
+            if (!_itemToggle.IsActivated(entity.Owner)
+                || !TryComp<BatteryComponent>(entity.Owner, out var battery)
+                || !_battery.TryUseCharge(entity.Owner, energy, battery)) // Goob edit end
             {
                 args.Cancelled = true;
             }

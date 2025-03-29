@@ -381,15 +381,23 @@
   - type: Injector
     injectOnly: false
     # GoobStation Start - Added embeddable properties for syringe gun
+  - type: Projectile
+    deleteOnCollide: false
+    onlyCollideWhenShot: true
+    angle: 45
+    damage:
+      types:
+        Piercing: 3
   - type: EmbeddableProjectile
     offset: "-0.1,0"
     minimumSpeed: 3
     removalTime: 0.25
     embedOnThrow: true
+    sound: /Audio/Weapons/Guns/Hits/bullet_meat1.ogg
   - type: SolutionInjectWhileEmbedded
-    transferAmount: 1
-    updateInterval: 0.5 # done in 7.5 seconds
-    maxInjections: 2 # only inject 2u if thrown
+    transferAmount: 1.5
+    updateInterval: 1 # done in 10 seconds
+    maxInjections: 2 # only inject 3u if thrown
     solution: injector
     pierceArmor: false # 1984
   - type: Fixtures
@@ -410,10 +418,6 @@
         mask:
         - Impassable
         - BulletImpassable
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Piercing: 3
   - type: ThrowingAngle
     angle: 45
   - type: ThrowableBlocked

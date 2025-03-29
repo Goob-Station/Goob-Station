@@ -22,6 +22,7 @@ using Content.Server.Preferences.Managers;
 using Content.Server.ServerInfo;
 using Content.Server.ServerUpdates;
 using Content.Server.Voting.Managers;
+using Content.Server._Goobstation.Redial; // Goobstation - Redialing
 using Content.Shared.CCVar;
 using Content.Shared.Kitchen;
 using Content.Shared.Localizations;
@@ -111,6 +112,7 @@ namespace Content.Server.Entry
                 IoCManager.Resolve<GhostKickManager>().Initialize();
                 IoCManager.Resolve<ServerInfoManager>().Initialize();
                 IoCManager.Resolve<ServerApi>().Initialize();
+                IoCManager.Resolve<RedialManager>().Initialize(); // Goobstation - Redialing
 
                 _voteManager.Initialize();
                 _updateManager.Initialize();
@@ -178,7 +180,6 @@ namespace Content.Server.Entry
                     _playTimeTracking?.Update();
                     _watchlistWebhookManager.Update();
                     _connectionManager?.Update();
-                    _currencyManager?.Update(); // Goobstation
                     break;
             }
         }

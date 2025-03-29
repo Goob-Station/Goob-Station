@@ -3,7 +3,9 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.EntityEffects;
 using Content.Shared.FixedPoint;
 using Content.Shared.Localizations;
+using Content.Shared._Shitmed.EntityEffects.Effects; // Shitmed Change
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
+using Content.Server.Temperature.Components; // Shitmed Change
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using System.Linq;
@@ -33,6 +35,13 @@ namespace Content.Server.EntityEffects.Effects
         [JsonPropertyName("scaleByQuantity")]
         public bool ScaleByQuantity;
 
+        /// <summary>
+        ///     Scales the effect based on the temperature of the entity.
+        /// </summary>
+        [DataField]
+        [JsonPropertyName("scaleByTemperature")]
+        public TemperatureScaling? ScaleByTemperature;
+
         [DataField]
         [JsonPropertyName("ignoreResistances")]
         public bool IgnoreResistances = true;
@@ -45,7 +54,8 @@ namespace Content.Server.EntityEffects.Effects
 
             var damageSpec = new DamageSpecifier(Damage);
 
-            var universalReagentDamageModifier = entSys.GetEntitySystem<DamageableSystem>().UniversalReagentDamageModifier;
+            var universalReagentDamageModifier =
+                entSys.GetEntitySystem<DamageableSystem>().UniversalReagentDamageModifier;
             var universalReagentHealModifier = entSys.GetEntitySystem<DamageableSystem>().UniversalReagentHealModifier;
 
             if (universalReagentDamageModifier != 1 || universalReagentHealModifier != 1)
@@ -56,6 +66,7 @@ namespace Content.Server.EntityEffects.Effects
                     {
                         damageSpec.DamageDict[type] = val * universalReagentHealModifier;
                     }
+
                     if (val > 0f)
                     {
                         damageSpec.DamageDict[type] = val * universalReagentDamageModifier;
@@ -71,7 +82,8 @@ namespace Content.Server.EntityEffects.Effects
                     continue;
 
                 var relevantTypes = damageSpec.DamageDict
-                    .Where(x => x.Value != FixedPoint2.Zero && group.DamageTypes.Contains(x.Key)).ToList();
+                    .Where(x => x.Value != FixedPoint2.Zero && group.DamageTypes.Contains(x.Key))
+                    .ToList();
 
                 if (relevantTypes.Count != group.DamageTypes.Count)
                     continue;
@@ -142,10 +154,20 @@ namespace Content.Server.EntityEffects.Effects
                 scale = ScaleByQuantity ? reagentArgs.Quantity * reagentArgs.Scale : reagentArgs.Scale;
             }
 
-            var universalReagentDamageModifier = args.EntityManager.System<DamageableSystem>().UniversalReagentDamageModifier;
-            var universalReagentHealModifier = args.EntityManager.System<DamageableSystem>().UniversalReagentHealModifier;
+            if (ScaleByTemperature.HasValue)
+            {
+                if (!args.EntityManager.TryGetComponent<TemperatureComponent>(args.TargetEntity, out var temp))
+                    scale = FixedPoint2.Zero;
+                else
+                    scale *= ScaleByTemperature.Value.GetEfficiencyMultiplier(temp.CurrentTemperature, scale, false);
+            }
 
-            if (universalReagentDamageModifier != 1 || universalReagentHealModifier != 1)
+            var universalReagentDamageModifier =
+                args.EntityManager.System<DamageableSystem>().UniversalReagentDamageModifier;
+            var universalReagentHealModifier =
+                args.EntityManager.System<DamageableSystem>().UniversalReagentHealModifier;
+
+            if (Math.Abs(universalReagentDamageModifier - 1) > 1 || Math.Abs(universalReagentHealModifier - 1) > 1)
             {
                 foreach (var (type, val) in damageSpec.DamageDict)
                 {
@@ -153,6 +175,7 @@ namespace Content.Server.EntityEffects.Effects
                     {
                         damageSpec.DamageDict[type] = val * universalReagentHealModifier;
                     }
+
                     if (val > 0f)
                     {
                         damageSpec.DamageDict[type] = val * universalReagentDamageModifier;
@@ -160,16 +183,18 @@ namespace Content.Server.EntityEffects.Effects
                 }
             }
 
-            args.EntityManager.System<DamageableSystem>().TryChangeDamage(
-                args.TargetEntity,
-                damageSpec * scale,
-                IgnoreResistances,
-                interruptsDoAfters: false,
-                // Shitmed Change Start
-                targetPart: TargetBodyPart.All,
-                partMultiplier: 0.5f,
-                canSever: false);
-                // Shitmed Change End
+            args.EntityManager.System<DamageableSystem>()
+                .TryChangeDamage(
+                    args.TargetEntity,
+                    damageSpec * scale,
+                    IgnoreResistances,
+                    interruptsDoAfters: false,
+                    // Shitmed Change Start
+                    targetPart: TargetBodyPart.All,
+                    partMultiplier: 0.5f,
+                    canSever: false);
+            // Shitmed Change End
+
         }
     }
 }

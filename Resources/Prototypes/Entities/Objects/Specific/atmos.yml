@@ -26,6 +26,9 @@
           enabled:
             True: { state: working }
             False: { state: icon }
+  - type: Tag
+    tags:
+      - DroneUsable # Goobstation
   - type: StaticPrice
     price: 80
   - type: PhysicalComposition #Goobstation - Recycle update

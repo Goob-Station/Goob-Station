@@ -5,3 +5,5 @@ nullrod-godhand-untrained-usage-popup = The divine energy crackles, causing your
 nullrod-arrythmicknife-untrained-usage-popup = The blade jerks out of control, inflicting a painful gash on your arm.
 nullrod-monkstaff-untrained-usage-popup = The staff slips from your grasp and hits you in the shoulder.
 nullrod-atheistfedora-untrained-usage-popup = The hat's razor sharp brim begins to hum.
+nullrod-pistol-untrained-usage-popup = The silver grips heat painfully in your hands.
+nullrod-honkmother-untrained-usage-popup = You think you're funny huh?

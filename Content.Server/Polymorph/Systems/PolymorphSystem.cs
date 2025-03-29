@@ -250,8 +250,12 @@ public sealed partial class PolymorphSystem : EntitySystem
         var childXform = Transform(child);
         _transform.SetLocalRotation(child, targetTransformComp.LocalRotation, childXform);
 
-        if (_container.TryGetContainingContainer((uid, targetTransformComp, null), out var cont))
+        // Goob edit start
+        if (configuration.AttachToGridOrMap)
+            _transform.AttachToGridOrMap(child, childXform);
+        else if (_container.TryGetContainingContainer((uid, targetTransformComp, null), out var cont))
             _container.Insert(child, cont);
+        // Goob edit end
 
         //Transfers all damage from the original to the new one
         if (configuration.TransferDamage &&
@@ -325,12 +329,12 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         if (configuration.ComponentsToTransfer.Count > 0) // Goobstation
         {
-            foreach (var comp in configuration.ComponentsToTransfer)
+            foreach (var data in configuration.ComponentsToTransfer)
             {
                 Type type;
                 try
                 {
-                    type = _compFact.GetRegistration(comp).Type;
+                    type = _compFact.GetRegistration(data.Component).Type;
                 }
                 catch (UnknownComponentException e)
                 {
@@ -341,8 +345,20 @@ public sealed partial class PolymorphSystem : EntitySystem
                 if (!EntityManager.TryGetComponent(uid, type, out var component))
                     continue;
 
-                var newComp = (Component) _compFact.GetComponent(type);
-                object? temp = newComp;
+                var newComp = _compFact.GetComponent(type);
+
+                if (data.Mirror)
+                {
+                    if (!HasComp(child, type))
+                        AddComp(child, newComp);
+
+                    continue;
+                }
+
+                if (!data.Override && HasComp(child, type))
+                    continue;
+
+                object? temp = (Component) newComp;
                 _serialization.CopyTo(component, ref temp, notNullableOverride: true);
                 EntityManager.AddComponent(child, (Component) temp!, true);
             }
@@ -372,6 +388,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         // Raise an event to inform anything that wants to know about the entity swap
         var ev = new PolymorphedEvent(uid, child, false);
         RaiseLocalEvent(uid, ref ev);
+        RaiseLocalEvent(child, ref ev);
 
         return child;
     }
@@ -452,6 +469,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         // Raise an event to inform anything that wants to know about the entity swap
         var ev = new PolymorphedEvent(uid, parent, true);
         RaiseLocalEvent(uid, ref ev);
+        RaiseLocalEvent(parent, ref ev);
 
         if (component.Configuration.ShowPopup) // Goob edit
         {

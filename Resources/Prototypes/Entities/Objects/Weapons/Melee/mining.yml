@@ -109,6 +109,7 @@
   components:
   - type: Sharp
   - type: UnpoweredFlashlight
+  - type: MegafaunaWeaponLooter # So that the crusher, glaive, and dagger get this as well
   - type: PointLight
     color: "#ffeead"
     enabled: false

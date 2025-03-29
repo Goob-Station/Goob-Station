@@ -7,6 +7,6 @@
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
-        - id: ClothingOuterHardsuitBlueshield
+        - id: BlueshieldUndeterminedHardsuit
         - id: ClothingMaskBreath
         - id: NitrogenTankFilled

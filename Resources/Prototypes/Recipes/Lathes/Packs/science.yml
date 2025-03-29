@@ -3,9 +3,9 @@
 - type: latheRecipePack
   id: ScienceBoardsStatic
   recipes:
-  - ProtolatheMachineCircuitboard
-  - AutolatheMachineCircuitboard
-  - CircuitImprinterMachineCircuitboard
+  #- ProtolatheMachineCircuitboard - Goobstation - Moved to SharedBoardsStatic
+  #- AutolatheMachineCircuitboard
+  #- CircuitImprinterMachineCircuitboard
   - ExosuitFabricatorMachineCircuitboard
   - CutterMachineCircuitboard
   - BorgChargerCircuitboard
@@ -27,7 +27,7 @@
   - AnomalyLocator
   - AnomalyLocatorWide
   - HoloprojectorField
-  - SignallerAdvanced
+  #- SignallerAdvanced - Goobstation - Removed from there. Still in Equipment.
   - DeviceQuantumSpinInverter
 
 - type: latheRecipePack
@@ -51,8 +51,8 @@
   recipes:
   - WeaponPistolCHIMP
   - WeaponForceGun
-  - WeaponLaserSvalinn
-  - WeaponProtoKineticAccelerator
+  #- WeaponLaserSvalinn - Goobstation - Moved to ServiceWeapons
+  #- WeaponProtoKineticAccelerator - Goobstation - Moved to MiningWeapons
   - WeaponTetherGun
   - WeaponGauntletGorilla
 
@@ -79,14 +79,14 @@
 - type: latheRecipePack
   id: ScienceBoards
   recipes:
-  - TurboItemRechargerCircuitboard
-  - AutolatheHyperConvectionMachineCircuitboard
-  - ProtolatheHyperConvectionMachineCircuitboard
-  - CircuitImprinterHyperConvectionMachineCircuitboard
+  #- TurboItemRechargerCircuitboard - Goobstation - Moved to SharedBoards
+  #- AutolatheHyperConvectionMachineCircuitboard - Moved to SharedBoards
+  #- ProtolatheHyperConvectionMachineCircuitboard - Moved to SharedBoards 
+  #- CircuitImprinterHyperConvectionMachineCircuitboard - Moved to SharedBoards
   - TechDiskComputerCircuitboard
-  - FlatpackerMachineCircuitboard
-  - SheetifierMachineCircuitboard
-  - PowerCageRechargerCircuitboard
+  #- FlatpackerMachineCircuitboard - Moved to SharedBoards
+  #- SheetifierMachineCircuitboard - Moved to ServiceBoards
+  #- PowerCageRechargerCircuitboard - Moved to SharedBoards
   - AnalysisComputerCircuitboard
   - AnomalyVesselCircuitboard
   - AnomalyVesselExperimentalCircuitboard

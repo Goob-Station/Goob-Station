@@ -1,6 +1,7 @@
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Shared.Bible.Components;
+using Content.Server.Bible;
 using Content.Server.Chat.Managers;
 using Content.Server.Popups;
 using Content.Shared.Database;

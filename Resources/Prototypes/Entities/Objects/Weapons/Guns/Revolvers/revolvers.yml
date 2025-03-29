@@ -97,7 +97,7 @@
 
 - type: entity
   name: Mateba
-  parent: [BaseWeaponRevolver, BaseMajorContraband]
+  parent: [BaseWeaponRevolver, BaseCentcommContraband]
   id: WeaponRevolverMateba
   description: The iconic sidearm of the dreaded death squads. Uses .45 magnum ammo.
   components:
@@ -109,6 +109,19 @@
     fireRate: 4 # Goob edit
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeMagnum
+        - SpeedLoaderMagnum
+    proto: CartridgeMagnumAP # Goobstation - Deathsquad revamp
+    capacity: 7 # Goobstation - Deathsquad revamp
+    chambers: [ True, True, True, True, True, True, True ] # Goobstation - Deathsquad revamp
+    ammoSlots: [ null, null, null, null, null, null, null ] # Goobstation - Deathsquad revamp
+    soundEject:
+      path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
 
 - type: entity
   parent: WeaponRevolverMateba

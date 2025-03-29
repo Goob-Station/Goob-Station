@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Containers;
+﻿﻿using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
@@ -47,5 +47,10 @@ public sealed partial class ItemBorgModuleComponent : Component
     /// </summary>
     [DataField("providedContainerId")]
     public string ProvidedContainerId = "provided_container";
-}
 
+    /// <summary>
+    /// Frontier: a module ID to check for equivalence // TODO: why not to make it automatically set itself to the prototype of the component's owner?
+    /// </summary>
+    [DataField(required: true)]
+    public string ModuleId = default!;
+}

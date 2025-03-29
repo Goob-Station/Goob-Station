@@ -59,13 +59,23 @@
   - HonkerCentralElectronics
   - HonkerPeripheralsElectronics
   - HonkerTargetingElectronics
+  - HamtrCentralElectronics
+  - HamtrPeripheralsElectronics
+
+- type: latheRecipePack
+  id: CargoMechElectronicsGoob
+  recipes:
+  - ClarkeCentralElectronics
+  - ClarkePeripheralsElectronics
+
+- type: latheRecipePack
+  id: SecurityMechElectronicsGoob
+  recipes:
+  - ClarkeCentralElectronics
+  - ClarkePeripheralsElectronics
   - GygaxCentralElectronics
   - GygaxPeripheralsElectronics
   - GygaxTargetingElectronics
   - DurandCentralElectronics
   - DurandPeripheralsElectronics
   - DurandTargetingElectronics
-  - ClarkeCentralElectronics
-  - ClarkePeripheralsElectronics
-  - HamtrCentralElectronics
-  - HamtrPeripheralsElectronics

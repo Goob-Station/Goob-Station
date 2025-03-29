@@ -79,7 +79,7 @@
     grid:
     - 0,0,3,3
   - type: SurgerySpeedModifier
-    speedModifier: 0.5 # on par with a surgeon using normal tools
+    speedModifier: 1
   - type: GuideHelp
     guides: [ Autodoc ]
 

@@ -10,6 +10,9 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: generic
+  - type: Tag
+    tags:
+      - DroneUsable # Goobstation
   - type: StaticPrice
     price: 100
   - type: PhysicalComposition #Goobstation - Recycle update
@@ -17,3 +20,4 @@
       Glass: 12
     chemicalComposition:
       Silicon: 2
+  - type: Electronics # Goobstation

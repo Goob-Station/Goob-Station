@@ -174,13 +174,9 @@
     tags:
     - CannotSuicide
     - DoorBumpOpener
-  - type: ActiveRadio
-    channels:
-    - Mansus
-  - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Mansus
+    - MansusLinkMind
+  - type: CollectiveMind
+    defaultChannel: MansusLink
   - type: Examiner
   - type: Pullable
   - type: Reflect

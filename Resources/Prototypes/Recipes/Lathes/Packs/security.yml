@@ -127,6 +127,7 @@
   - WeaponLaserCannon
   - WeaponLaserCarbine
   - WeaponXrayCannon
+  - WeaponTemperatureGun # Goobstation
 
 - type: latheRecipePack
   id: SecurityDisablers
