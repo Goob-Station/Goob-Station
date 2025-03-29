@@ -1,8 +1,3 @@
-using Content.Shared._Goobstation.Clothing;
-using Content.Shared._Goobstation.Clothing.Components;
-using Content.Shared._Goobstation.Flashbang;
-using Content.Shared._Goobstation.Wizard.Chuuni;
-using Content.Shared._White.Overlays;
 using Content.Shared.Armor;
 using Content.Shared.Chat;
 using Content.Shared.Chemistry;
@@ -14,7 +9,6 @@ using Content.Shared.Electrocution;
 using Content.Shared.Explosion;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Gravity;
-using Content.Shared.Heretic;
 using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Movement.Events;
@@ -26,8 +20,6 @@ using Content.Shared.Slippery;
 using Content.Shared.Strip.Components;
 using Content.Shared.Temperature;
 using Content.Shared.Verbs;
-using Content.Shared.Chat;
-using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Ranged.Events;
 
 namespace Content.Shared.Inventory;
@@ -37,7 +29,6 @@ public partial class InventorySystem
     public void InitializeRelay()
     {
         SubscribeLocalEvent<InventoryComponent, DamageModifyEvent>(RelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, TakeStaminaDamageEvent>(RelayInventoryEvent); // goobstation - stun resistance
         SubscribeLocalEvent<InventoryComponent, ElectrocutionAttemptEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, SlipAttemptEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshMovementSpeedModifiersEvent>(RelayInventoryEvent);
@@ -46,13 +37,7 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, ModifyChangedTemperatureEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, GetDefaultRadioChannelEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshNameModifiersEvent>(RelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, DelayedKnockdownAttemptEvent>(RelayInventoryEvent); // goob edit
-        SubscribeLocalEvent<InventoryComponent, CheckMagicItemEvent>(RelayInventoryEvent); // goob edit
-        SubscribeLocalEvent<InventoryComponent, GetFlashbangedEvent>(RelayInventoryEvent); // goob edit
-        SubscribeLocalEvent<InventoryComponent, FlashDurationMultiplierEvent>(RelayInventoryEvent); // goob edit
-        SubscribeLocalEvent<InventoryComponent, GetStandingUpTimeMultiplierEvent>(RelayInventoryEvent); // goob edit
-        SubscribeLocalEvent<InventoryComponent, GetSpellInvocationEvent>(RelayInventoryEvent); // goob edit
-        SubscribeLocalEvent<InventoryComponent, GetMessagePostfixEvent>(RelayInventoryEvent); // goob edit
+
         SubscribeLocalEvent<InventoryComponent, TransformSpeakerNameEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, SelfBeforeHyposprayInjectsEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, TargetBeforeHyposprayInjectsEvent>(RelayInventoryEvent);
@@ -66,7 +51,6 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, GetSpeedModifierContactCapEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, GetSlowedOverSlipperyModifierEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, ModifySlowOnDamageSpeedEvent>(RefRelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, ModifyStunTimeEvent>(RefRelayInventoryEvent); // goob edit
 
         // Eye/vision events
         SubscribeLocalEvent<InventoryComponent, CanSeeAttemptEvent>(RelayInventoryEvent);
@@ -84,8 +68,6 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowSyndicateIconsComponent>>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowCriminalRecordIconsComponent>>(RefRelayInventoryEvent);
 
-        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<NightVisionComponent>>(RefRelayInventoryEvent); // Goobstation
-        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ThermalVisionComponent>>(RefRelayInventoryEvent); // Goobstation
 
         SubscribeLocalEvent<InventoryComponent, GetVerbsEvent<EquipmentVerb>>(OnGetEquipmentVerbs);
     }
@@ -171,7 +153,7 @@ public interface IClothingSlots
 /// <summary>
 ///     Events that should be relayed to inventory slots should implement this interface.
 /// </summary>
-public interface IInventoryRelayEvent
+public interface IInventoryRelayEvent // this needs to get moved to common...
 {
     /// <summary>
     ///     What inventory slots should this event be relayed to, if any?

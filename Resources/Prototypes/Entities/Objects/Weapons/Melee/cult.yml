@@ -23,6 +23,9 @@
     slots:
     - back
   - type: DisarmMalus
+  - type: Tag # Goobstation
+    tags:
+    - Knife
 
 - type: entity
   name: eldritch blade

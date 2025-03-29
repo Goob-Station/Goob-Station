@@ -5,8 +5,8 @@
   components:
   - type: Ghoul
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.00
-    baseSprintSpeed: 3.00
+    baseWalkSpeed: 3.00
+    baseSprintSpeed: 4.00
   - type: InputMover
   - type: MobMover
   - type: Reactive
@@ -119,12 +119,123 @@
     - ActionHereticMansusLink
 
 - type: entity
-  parent: BaseMobGhoul
+  parent:
+  - BaseMob
+  - MobCombat
+  - MobFlammable
+  - MobAtmosExposed
+  - MobPolymorphable
   id: MobGhoulRustWalker
   name: rust walker
   description: A grinding, clanking construct which leaches life from its surroundings with every armoured step.
-  suffix: DO NOT MAP
-  categories: [ DoNotMap ]
   components:
   - type: Ghoul
     totalHealth: 100
+  - type: Sprite
+    sprite: _Goobstation/Heretic/eldritch_mobs.rsi
+    state: rust_walker
+  - type: ActionsProvider
+    actions:
+    - ActionHereticAggressiveSpread
+  - type: LeechingWalk
+  - type: MeleeWeapon
+    soundHit:
+      collection: MetalThud
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 20
+        Ion: 20
+        Structural: 80
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 250
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+    stateAlertDict:
+      Alive: BorgHealth
+      Critical: BorgCrit
+      Dead: BorgDead
+    showOverlays: false
+  - type: CombatMode
+  - type: Pullable
+  - type: Speech
+  - type: TypingIndicator
+  - type: NoSlip
+  - type: Grammar
+    attributes:
+      gender: male
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghostrole-rustwalker-name
+    description: ghostrole-rustwalker-desc
+    rules: ghostrole-ghoul-rules
+    raffle:
+      settings: short
+  - type: Tag
+    tags:
+    - MansusLinkMind
+    - Bot
+  - type: CollectiveMind
+    defaultChannel: MansusLink
+  - type: FactionException
+  - type: NpcFactionMember
+    factions:
+    - Heretic
+  - type: Reactive
+    groups:
+      Flammable: [Touch]
+      Extinguish: [Touch]
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: HealthExaminable
+    examinableTypes:
+    - Blunt
+    - Slash
+    - Piercing
+    - Heat
+    - Shock
+    locPrefix: silicon
+  - type: MovedByPressure
+  - type: StatusEffects
+    allowed:
+    - Stun
+    - KnockedDown
+    - SlowedDown
+    - Stutter
+    - Electrocution
+  - type: Repairable
+    doAfterDelay: 8
+    fuelCost: 15
+  - type: FloatingVisuals
+  - type: Body
+  - type: StatusIcon
+    bounds: -0.5,-0.5,0.5,0.5
+  - type: NameIdentifier
+    group: GenericNumber
+  - type: Insulated

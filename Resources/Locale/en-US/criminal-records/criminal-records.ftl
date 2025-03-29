@@ -16,9 +16,15 @@ criminal-records-status-detained = Detained
 criminal-records-status-suspected = Suspect
 criminal-records-status-discharged = Discharged
 criminal-records-status-paroled = Paroled
+criminal-records-status-dangerous = Dangerous
+criminal-records-status-search = Search
+criminal-records-status-perma = Perma
 
 criminal-records-console-wanted-reason = Wanted Reason
 criminal-records-console-suspected-reason = Suspected Reason
+criminal-records-console-search-reason = Search Reason
+criminal-records-console-dangerous-reason = Dangerous Reason
+
 criminal-records-console-reason = Reason
 criminal-records-console-reason-placeholder = For example: {$placeholder}
 
@@ -42,6 +48,13 @@ criminal-records-console-detained = {$name} ({$job}) has been detained by {$offi
 criminal-records-console-released = {$name} ({$job}) has been released by {$officer}.
 criminal-records-console-paroled = {$name} ({$job}) has been released on parole by {$officer}.
 criminal-records-console-not-parole = {$officer} cleared the parole status of {$name} ({$job}).
+criminal-records-console-search = {$officer} marked {$name} ({$job}) for search because of: {$reason}
+criminal-records-console-not-search = {$officer} cleared the search status of {$name} ({$job}).
+criminal-records-console-perma = {$name} ({$job}) has been sentenced to perma by {$officer}.
+criminal-records-console-not-perma = {$name} ({$job}) has been released from perma by {$officer}.
+criminal-records-console-dangerous = {$officer} marked {$name} ({$job}) as dangerous because of: {$reason}.
+criminal-records-console-not-dangerous = {$name} ({$job}) is no longer a threat by {$officer}.
+
 criminal-records-console-unknown-officer = <unknown>
 
 ## Filters
