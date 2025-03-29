@@ -172,10 +172,6 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
             if (targetValid)
             {
                 UpdateDirectionToTarget(uid, tracker);
-
-                // Only check expiration time if target is valid
-                if (currentTime < tracker.ExpirationTime)
-                    continue;
             }
 
             // Handle deactivation
@@ -192,9 +188,9 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         }
     }
 
-    protected override void UpdateDirectionToTarget(EntityUid uid, Shared.Bloodtrak.BloodtrakComponent? pinpointer = null)
+    protected override void UpdateDirectionToTarget(EntityUid uid, BloodtrakComponent pinpointer)
     {
-        if (!Resolve(uid, ref pinpointer) || !pinpointer.IsActive)
+        if (pinpointer is { IsActive: true })
             return;
 
         var oldDist = pinpointer.DistanceToTarget;

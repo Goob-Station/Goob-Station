@@ -6,7 +6,7 @@ public abstract class SharedBloodtrakSystem : EntitySystem
     /// <summary>
     ///     Update direction from pinpointer to selected target (if it was set)
     /// </summary>
-    protected virtual void UpdateDirectionToTarget(EntityUid uid, Bloodtrak.BloodtrakComponent? pinpointer = null)
+    protected virtual void UpdateDirectionToTarget(EntityUid uid, BloodtrakComponent pinpointer)
     {
 
     }

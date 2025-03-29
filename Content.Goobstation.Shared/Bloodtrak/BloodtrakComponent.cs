@@ -8,7 +8,6 @@ namespace Content.Goobstation.Shared.Bloodtrak;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState]
-[Access(typeof(SharedBloodtrakSystem))]
 public sealed partial class BloodtrakComponent : Component
 {
     /// <summary>
