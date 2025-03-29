@@ -13,7 +13,7 @@
     cost: 4
     scalingCost: 4
   - type: AntagSelection
-    selectionTime: BeforeJobs
+    selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
       max: 1
@@ -48,7 +48,7 @@
       maxPicks: 10
     maxDifficulty: 2.5
   - type: AntagSelection
-    selectionTime: BeforeJobs
+    selectionTime: IntraPlayerSpawn
     agentName: thief-round-end-agent-name
     definitions:
     - prefRoles: [ Thief ]
@@ -82,7 +82,7 @@
     - EscapeIdentityObjective
     - ChangelingSurviveObjective
   - type: AntagSelection
-    selectionTime: BeforeJobs
+    selectionTime: IntraPlayerSpawn
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
@@ -114,7 +114,7 @@
     - HereticSacrificeObjective
     - HereticSacrificeHeadObjective
   - type: AntagSelection
-    selectionTime: BeforeJobs
+    selectionTime: IntraPlayerSpawn
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
@@ -142,7 +142,7 @@
   - type: GameRule
     minPlayers: 20
   - type: AntagSelection
-    selectionTime: BeforeJobs
+    selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ HeadRev ]
       max: 3
