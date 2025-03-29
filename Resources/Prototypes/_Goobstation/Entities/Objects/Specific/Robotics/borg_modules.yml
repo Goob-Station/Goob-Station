@@ -21,10 +21,10 @@
   name: lollipop cyborg module
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Robotics/borgmodule.rsi
     layers:
     - state: generic
     - state: icon-lollypop
+      sprite: _Goobstation/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
     moduleId: Lollipop
     items:
@@ -37,13 +37,13 @@
 - type: entity
   id: BorgModulePKA
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: proto kinetic accelerator cyborg module
+  name: proto-kinetic cyborg module
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Robotics/borgmodule.rsi
     layers:
     - state: cargo
     - state: icon-pka
+      sprite: _Goobstation/Objects/Specific/Robotics/borgmodule.rsi
   - type: DroppableBorgModule
     moduleId: PKA
     items:
