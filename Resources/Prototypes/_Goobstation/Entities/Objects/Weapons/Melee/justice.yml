@@ -25,13 +25,10 @@
     autoRechargeRate: 5
   - type: DisarmMalus
   - type: UseDelay
-    delay: 0.2
+    delay: 1
   - type: Tag
     tags:
-    - HighRiskItem
     - Justice
-  - type: StealTarget
-    stealGroup: WeaponEnergyGunMultiphase # Todo - Change this.
   - type: GuideHelp
     guides:
     - Security
