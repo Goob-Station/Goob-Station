@@ -135,6 +135,50 @@
           min: 50
 
 - type: reagent
+  id: BlueRot
+  name: reagent-name-blue-rot
+  group: Toxins
+  desc: reagent-desc-blue-rot
+  physicalDesc: reagent-physical-desc-disturbing
+  flavor: salty
+  color: "#174576"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.25
+      effects:
+        - !type:PopupMessage
+            type: Local
+            messages: [ "Your bones break as your body transforms." ]
+            probability: 0.2
+        - !type:AdjustReagent
+          reagent: MaturingRot
+          amount: 0.6
+        - !type:Emote # Now a bunch of emotes
+          emote: Scream
+          probability: 0.7
+        - !type:Jitter
+        - !type:Emote # Now a bunch of emotes
+          emote: Gasp
+          probability: 0.7
+
+- type: reagent
+  id: MaturingRot
+  name: reagent-name-maturing-rot
+  group: Toxins
+  desc: reagent-desc-maturing-rot
+  physicalDesc: reagent-physical-desc-disturbing
+  flavor: salty
+  color: "#174576"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.01
+      effects:
+      - !type:Polymorph
+        prototype: BinglePit
+        conditions:
+        - !type:ReagentThreshold
+          min: 13
+
   id: Nostalgia
   name: reagent-name-nostalgia
   group: Special
