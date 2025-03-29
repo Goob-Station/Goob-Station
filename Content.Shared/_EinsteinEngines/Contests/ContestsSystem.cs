@@ -1,4 +1,4 @@
-using Content.Shared._Goobstation.CCVar; // Goob Edit
+using Content.Goobstation.Common.CCVar; // Goob Edit
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Mobs.Systems;

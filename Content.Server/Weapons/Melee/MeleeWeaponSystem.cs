@@ -23,7 +23,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Numerics;
-using Content.Shared._Goobstation.MartialArts.Events;
+using Content.Goobstation.Common.MartialArts;
 using Content.Server.Damage.Components;
 using Content.Shared._EinsteinEngines.Contests;
 using Content.Shared._Goobstation.CCVar;

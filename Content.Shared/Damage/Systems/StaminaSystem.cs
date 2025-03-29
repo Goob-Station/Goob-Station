@@ -1,5 +1,6 @@
 using System.Linq;
-using Content.Shared._Goobstation.MartialArts.Components;
+using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Common.Stunnable; // Goobstation - Martial Arts
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
 using Content.Shared.CombatMode;
@@ -451,7 +452,13 @@ public sealed partial class StaminaSystem : EntitySystem
         component.Critical = true;
         _stunSystem.TryParalyze(uid, component.StunTime, true);
 
-        component.NextUpdate = _timing.CurTime + component.StunTime * _modify.GetModifier(uid) + StamCritBufferTime;
+        // Goobstation - Modularization
+        var modifierEv = new GetClothingStunModifierEvent(uid);
+        RaiseLocalEvent(modifierEv);
+        var clothingModifier= modifierEv.Modifier;
+        // Goobstation - Modularization
+
+        component.NextUpdate = _timing.CurTime + component.StunTime * clothingModifier + StamCritBufferTime; // Goobstation - Modularization
 
         EnsureComp<ActiveStaminaComponent>(uid);
         Dirty(uid, component);

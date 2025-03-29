@@ -228,7 +228,6 @@
   - type: LayingDown # WD EDIT
   - type: Targeting # Shitmed Change
   - type: CanEscapeInventory # GoobStation - Escape being picked up by players
-  - type: PonyAccent
 
 - type: entity
   save: false
