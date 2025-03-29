@@ -197,43 +197,9 @@ public sealed partial class KarmaPunishmentSystem : EntitySystem
             _chatManager.DispatchServerMessage(player, "Your actions have consequences!", true);
             _adminLogger.Add(LogType.Karma,
                 LogImpact.High,
-                $"{ToPrettyString(target):actor} got smitted by {i}(AnyLevelSmite). from too much karma loss.");
+                $"{ToPrettyString(target):actor} got automatically smitted by {i}(AnyLevelSmite). from too much karma loss.");
         }
     }
-
-    // internal void Harsh(EntityUid player)
-    // {
-    //     var i = 2;
-    //     i /= 2;
-    // }
-
-    // private void Kill(EntityUid target)
-    // {
-    //     if (!EntityManager.TryGetComponent(target, out ActorComponent? actor))
-    //         return;
-
-    //     var player = actor.PlayerSession;
-    //     // 1984.
-    //     if (HasComp<MapComponent>(target) || HasComp<MapGridComponent>(target))
-    //         return;
-
-    //     bool got_smitted = false;
-    //     int attempts = 0;
-    //     int i = _random.Next(38);
-    //     while (!got_smitted && attempts++ < 9)
-    //     {
-    //         // AnySmite(i, target, ref got_smitted);
-    //         i = _random.Next(38);
-    //     }
-    //     if (got_smitted)
-    //     {
-    //         // _popupSystem.PopupEntity("Your actions have consequences!", target, target, PopupType.LargeCaution); // Don't popup since SOME punishments have some popups.
-    //         _chatManager.DispatchServerMessage(player, "Your actions have consequences!", true);
-    //         _adminLogger.Add(LogType.Karma,
-    //             LogImpact.High,
-    //             $"{ToPrettyString(target):actor} got smitted by AnySmite({i}) from too much karma loss.");
-    //     }
-    // }
 
     #region Bitter
     /// Stuff that hardly sucks and is easily fixable
@@ -322,6 +288,7 @@ public sealed partial class KarmaPunishmentSystem : EntitySystem
     }
     #endregion
     #region Harsh
+    // Quite annoying things that can be immpossible to fix
     private void AnyHarshSmite(int i, EntityUid target, ref bool got_smitted)
     {
         i = _random.Next(7);
@@ -383,7 +350,7 @@ public sealed partial class KarmaPunishmentSystem : EntitySystem
         got_smitted = true;
         return got_smitted;
     }
-    // Quite annoying things that can be immpossible to fix
+
     private bool HarshByeHand(EntityUid target)
     {
         if (TryComp<BodyComponent>(target, out var body1))
@@ -456,9 +423,10 @@ public sealed partial class KarmaPunishmentSystem : EntitySystem
     }
     #endregion
     #region Nasty
+    // Fate worse then or about as bad as death
     private void AnyNastySmite(int i, EntityUid target, ref bool got_smitted)
     {
-        i = _random.Next(10);
+        i = _random.Next(7);
         switch (i)
         {
             case 0:
@@ -497,7 +465,6 @@ public sealed partial class KarmaPunishmentSystem : EntitySystem
         }
     }
 
-    // Fate worse then or about as bad as death
     private bool NastyByeHands(EntityUid target)
     {
         bool got_smitted;
@@ -559,6 +526,7 @@ public sealed partial class KarmaPunishmentSystem : EntitySystem
     }
     #endregion
     #region Harm
+    // Stuff that damages the player without a kill
     private void AnyHarmSmite(int i, EntityUid target, ref bool got_smitted)
     {
         i = _random.Next(4);
@@ -581,7 +549,6 @@ public sealed partial class KarmaPunishmentSystem : EntitySystem
         }
     }
 
-    // Stuff that damages the player without a kill
     private bool HarmBurn(EntityUid target)
     {
         if (TryComp<FlammableComponent>(target, out var flammable))
@@ -638,6 +605,7 @@ public sealed partial class KarmaPunishmentSystem : EntitySystem
     }
     #endregion
     #region Kill
+    /// Kill should for the most part kill the person and possibly round remove them.
     private void AnyKillSmite(int i, EntityUid target, ref bool got_smitted)
     {
         i = _random.Next(10);
