@@ -13,25 +13,27 @@ public sealed class ClientBloodtrakSystem : SharedBloodtrakSystem
     {
         base.Update(frameTime);
 
-        // we want to show pinpointers arrow direction relative
-        // to players eye rotation (like it was in SS13)
-
-        // because eye can change it rotation anytime
-        // we need to update this arrow in a update loop
         var query = EntityQueryEnumerator<BloodtrakComponent, SpriteComponent>();
-        while (query.MoveNext(out var _, out var pinpointer, out var sprite))
+        while (query.MoveNext(out var uid, out var pinpointer, out var sprite))
         {
             if (!pinpointer.HasTarget)
                 continue;
-            var eye = _eyeManager.CurrentEye;
-            var angle = pinpointer.ArrowAngle + eye.Rotation;
 
-            if (pinpointer.DistanceToTarget is Shared.Bloodtrak.Distance.Close
-                or Shared.Bloodtrak.Distance.Medium
-                or Shared.Bloodtrak.Distance.Far)
+            var eye = _eyeManager.CurrentEye;
+
+            // Convert server-provided world angle to eye-relative space
+            var angle = (pinpointer.ArrowAngle - eye.Rotation).FlipPositive();
+
+            // Update sprite rotation only if needed
+            if (pinpointer.DistanceToTarget is Shared.Bloodtrak.Distance.Close or Shared.Bloodtrak.Distance.Medium or Shared.Bloodtrak.Distance.Far)
+            {
                 sprite.LayerSetRotation(PinpointerLayers.Screen, angle);
+                sprite.LayerSetVisible(PinpointerLayers.Screen, true);
+            }
             else
-                sprite.LayerSetRotation(PinpointerLayers.Screen, Angle.Zero);
+            {
+                sprite.LayerSetVisible(PinpointerLayers.Screen, false);
+            }
         }
     }
 }
