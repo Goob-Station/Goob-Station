@@ -50,7 +50,6 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     [Dependency] private readonly RoleSystem _role = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly PendingAntagSystem _pendingAntag = default!; // Goobstation
     [Dependency] private readonly InventorySystem _inventory = default!; // Goobstation
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
