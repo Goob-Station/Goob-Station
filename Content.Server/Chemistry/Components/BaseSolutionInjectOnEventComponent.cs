@@ -75,10 +75,10 @@ public abstract partial class BaseSolutionInjectOnEventComponent : Component
     public bool? PierceArmorOverride;
 
     /// <summary>
-    /// State: for the next embed, multiply amount transferred by this.
+    /// State: for the next embed, divide injection time by this.
     /// For setting from other code.
     /// </summary>
     [ViewVariables]
-    public float AmountMultiplier = 1f;
+    public float SpeedMultiplier = 1f;
     // </Goobstation>
 }
