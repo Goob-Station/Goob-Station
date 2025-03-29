@@ -20,6 +20,9 @@ ghost-role-information-lootbug-description = Try not to be butchered by tiders.
 ghost-role-information-c4-name = Composition C-4
 ghost-role-information-c4-description = Assist your user with bombing things.
 
+ghost-role-information-gorilla-name = Gorilla
+ghost-role-information-gorilla-description = Dont let yourself be harambed.
+
 ghost-role-information-derelict-cyborg-syndicate-name = Derelict Syndicate Cyborg
 ghost-role-information-derelict-cyborg-syndicate-description = You were lost during an assault on a station. After years of exposure to ion storms you find yourself near a space station.
 
