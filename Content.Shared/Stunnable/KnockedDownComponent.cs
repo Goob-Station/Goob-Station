@@ -1,4 +1,4 @@
-using Content.Shared._White.Standing;
+using Content.Goobstation.Common.Standing;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 

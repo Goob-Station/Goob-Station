@@ -33,6 +33,7 @@
   - type: GunSignalControl
   - type: StaticPrice
     price: 1500
+  - type: UnmannedWeaponry
 
 # ---- Laser weapon branch ----
 # naming: LSE (Laser) + conventional power + suffix (c for PowerCage, e for wired energy) + Name
