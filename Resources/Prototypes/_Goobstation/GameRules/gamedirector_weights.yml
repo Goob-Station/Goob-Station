@@ -3,10 +3,10 @@
   weights:
     Traitor: 0.25
     Changeling: 0.10
-    Nukeops: 0.02
+    Nukeops: 0.05
     Revolutionary: 0.04
     Zombie: 0.03
     Heretic: 0.10
     BlobGameMode: 0.04
-    Wizard: 0.08
-    HonkOps: 0.01
+    Wizard: 0.05
+    #HonkOps: 0.01 # this test fail was real holy shit it was only a preset the entire a time i was lied too by myself

@@ -1,4 +1,4 @@
-using Content.Shared._Goobstation.CCVar;
+using Content.Goobstation.Common.CCVar;
 using Content.Shared.CCVar;
 using Robust.Shared.Configuration;
 

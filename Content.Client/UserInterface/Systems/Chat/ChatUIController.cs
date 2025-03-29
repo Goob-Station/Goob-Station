@@ -41,9 +41,9 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Replays;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Client.CharacterInfo; // Goob - start
+using Content.Client.CharacterInfo;
+using Content.Goobstation.Common.CCVar; // Goob - start
 using static Content.Client.CharacterInfo.CharacterInfoSystem;
-using Content.Shared._Goobstation.CCVar; // Goob - end
 
 namespace Content.Client.UserInterface.Systems.Chat;
 

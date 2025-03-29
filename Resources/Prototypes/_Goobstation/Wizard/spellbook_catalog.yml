@@ -575,6 +575,42 @@
     - SpellbookFullRandom
     - SpellbookSemiRandom
 
+- type: listing
+  id: SpellbookTileToggle
+  name: spellbook-tile-toggle-name
+  description: spellbook-tile-toggle-description
+  productAction: ActionTileToggle
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookCurseOfByond
+  name: spellbook-curse-of-byond-name
+  description: spellbook-curse-of-byond-description
+  productAction: ActionCurseOfByond
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    whitelist:
+      - SpellbookTileToggle
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
 # Equipment
 - type: listing
   id: SpellbookScryingOrb
@@ -776,6 +812,26 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  disableRefund: true
+
+- type: listing
+  id: SpellbookEventGlobalTileToggle
+  name: spellbook-event-global-tile-toggle-name
+  description: spellbook-event-global-tile-toggle-description
+  productEvent: !type:GlobalTileToggleEvent
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: tileglobal
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookEvents
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    whitelist:
+      - SpellbookTileToggle
   disableRefund: true
 
 # Special
