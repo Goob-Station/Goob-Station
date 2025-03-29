@@ -1,0 +1,36 @@
+- files: ["cave.png", "cavedrought.png"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Mojave-Sun, taken at commit 0587dd16e28108bdf0b0a28e2caae4319845e861"
+  source: "https://github.com/Mojave-Sun/mojave-sun-13"
+
+- files: ["grassdark.png", "grasslight.png", "dirt.png"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Fortuna commit 2a9408a47e2f83d945335e4feeeeafb552173e6f, grasslight and dirt by Peptide based on grassdark.png and dirt."
+  source: "https://github.com/FortunaSS13/Fortuna"
+
+- files: ["roadouterturns.png", "roadouterturnn.png", "roadouterturne.png", "roadouterturnw.png", "roadright.png", "roadtop.png", "roadleft.png", "roadbottom.png", "roadinnermiddle.png", "roadoutermiddle.png", "roadcorner1.png", "roadcorner2.png", "roadcorner3.png", "roadcorner4.png", "roadoutercorner1.png", "roadoutercorner2.png", "roadoutercorner3.png", "roadoutercorner4.png", "roadinnerturn1.png", "roadinnerturn2.png", "roadinnerturn3.png", "roadinnerturn4.png", "roadtinycornerhorizontal1.png", "roadtinycornerhorizontal2.png", "roadtinycornerhorizontal3.png", "roadtinycornerhorizontal4.png", "roadtinycornervertical1.png", "roadtinycornervertical2.png", "roadtinycornervertical3.png", "roadtinycornervertical4.png"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Fortuna commit 2a9408a47e2f83d945335e4feeeeafb552173e6f, all modified by Peptide90."
+  source: "https://github.com/FortunaSS13/Fortuna"
+
+# Attributions for tiles added to Nuclear 14 only. For all SS14 attributions see previous directory.
+
+- files: ["carpet.png", "metalblue.png", "metalbluesolid.png", "metalgreen.png", "metalgreensolid.png", "metalgrey.png", "metalgreydark.png", "metalgreydarksolid.png", "metalgreysolid.png", "metalpurple.png", "metalpurplesolid.png", "metalred.png", "metalredsolid.png", "metalteal.png", "metaltealsolid.png", "metalwhite.png", "metalwhitesolid.png", "metalyellow.png", "metalyellowsolid.png", "metalfreezer.png", "housebase.png", "maple.png", "oak.png", "oakbroken.png", "wasteland.png", "woodburnt.png", "woodburntbroken.png", "woodhouse.png", "woodhousebroken.png", "riverwater.png", "tunnelintact.png", "tunnelrusty.png", "tunnelwasteland.png"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Fortuna at commit/2a9408a47e2f83d945335e4feeeeafb552173e6f and edited to work with SS14 by Peptide"
+  source: "https://github.com/FortunaSS13/Fortuna/"
+
+- files: ["concrete.png", "concretedark.png", "concreteroad.png"]
+  license: "CC0-1.0"
+  copyright: "original sprites by Mithrandalf for N14, concrete road modified by Peptide"
+  source: "https://github.com/Vault-Overseers/nuclear-14"
+
+- files: ["dirt.png", "concrete-bay.png", "hexacrete.png", "hexacrete-dark.png"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Taken from Baystation12 at commit https://github.com/Baystation12/Baystation12/commit/fe960417590b6a33b279464551b153b062a9d900"
+  source: "https://github.com/Baystation12/Baystation12"
+
+- files: ["concrete-goon.png"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Taken from goonstation at commit https://github.com/goonstation/goonstation/commit/ddd7f6a0b7a1b2758c0f9dfff09974854e3ef7ed"
+  source: "https://github.com/goonstation/goonstation"

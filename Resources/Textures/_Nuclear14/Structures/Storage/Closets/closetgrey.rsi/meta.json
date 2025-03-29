@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "https://github.com/JustLoveBeingAnOwl/Interstate-80-owlTaken at /commit/a6f9e0a6649e89f0aa731f363e07f541654ecb3d",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "welded"
+    },
+    {
+      "name": "closet"
+    },
+    {
+      "name": "closet_door"
+    },
+    {
+      "name": "closet_open"
+    }
+  ]
+}

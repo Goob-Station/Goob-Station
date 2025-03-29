@@ -1,0 +1,46 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "Taken from MS13 and modified for SS14 by Kill_Me_I_Noobs and Peptide90",
+    "states": [
+        {
+            "name": "full"
+        },
+        {
+            "name": "slantedrockdrought0",
+            "directions": 4
+        },
+        {
+            "name": "slantedrockdrought1",
+            "directions": 4
+        },
+        {
+            "name": "slantedrockdrought2",
+            "directions": 4
+        },
+        {
+            "name": "slantedrockdrought3",
+            "directions": 4
+        },
+        {
+            "name": "slantedrockdrought4",
+            "directions": 4
+        },
+        {
+            "name": "slantedrockdrought5",
+            "directions": 4
+        },
+        {
+            "name": "slantedrockdrought6",
+            "directions": 4
+        },
+        {
+            "name": "slantedrockdrought7",
+            "directions": 4
+        }
+    ]
+}

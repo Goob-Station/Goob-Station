@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from MS13 at commit https://github.com/Mojave-Sun/mojave-sun-13/commit/5e2e8ebe440947bcf947189d5a46bfbb5ae2e8e8",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "workbench_wood",
+      "directions": 4
+    },
+    {
+      "name": "dice_clean"
+    },
+    {
+      "name": "dice_dirty"
+    },
+    {
+      "name": "table_wood_end",
+      "directions": 4
+    },
+    {
+      "name": "table_wood_stand"
+    },
+    {
+      "name": "table_wood_low"
+    },
+    {
+      "name": "table_wood_square"
+    },
+    {
+      "name": "table_wood_round"
+    },
+    {
+      "name": "table_metal_round"
+    },
+    {
+      "name": "table_metal_round-1"
+    },
+    {
+      "name": "table_metal_round-2"
+    },
+    {
+      "name": "cable_reel"
+    },
+    {
+      "name": "table_rolling"
+    },
+    {
+      "name": "tableframe_wood"
+    },
+    {
+      "name": "trableframe_metal"
+    }
+  ]
+}
