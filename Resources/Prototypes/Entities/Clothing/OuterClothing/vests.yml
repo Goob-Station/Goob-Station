@@ -19,8 +19,10 @@
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 1.5
-    knockdownTimeDelta: -1.5
+    delayDelta: 2.5
+    knockdownTimeDelta: -2.5
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.6
 
 #Mercenary web vest
 - type: entity
@@ -43,8 +45,10 @@
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 1.5
-    knockdownTimeDelta: -1.5
+    delayDelta: 2.25
+    knockdownTimeDelta: -2.25
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.65
 
 #Detective's vest
 - type: entity

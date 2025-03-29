@@ -26,7 +26,7 @@
       types:
         Blunt: 10
   - type: StaminaDamageOnCollide
-    damage: 40 # 3 hits to stun
+    damage: 60 # Goob edit
 
 - type: entity
   id: PelletShotgun

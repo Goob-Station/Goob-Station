@@ -7,8 +7,8 @@
     sprite: _Shitmed/Clothing/OuterClothing/Armor/abductor.rsi
   - type: AbductorVest
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 2
-    knockdownTimeDelta: -2
+    delayDelta: 3
+    knockdownTimeDelta: -3
   - type: ItemSwitch
     state: stealth
     states:
