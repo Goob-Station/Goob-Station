@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Goobstation.Common.Interactions;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
@@ -7,7 +8,6 @@ using Content.Shared.Chat;
 using Content.Shared.CombatMode;
 using Content.Shared.Database;
 using Content.Shared.Ghost;
-using Content.Shared._Goobstation.Interaction;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Input;
@@ -1188,7 +1188,7 @@ namespace Content.Shared.Interaction
                 return false;
 
             // Goobstation [
-            var useAttemptEv = new UseInHandAttemptEvent(user); 
+            var useAttemptEv = new UseInHandAttemptEvent(user);
             RaiseLocalEvent(used, useAttemptEv);
 
             if (useAttemptEv.Cancelled)
