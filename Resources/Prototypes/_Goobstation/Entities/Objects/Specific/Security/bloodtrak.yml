@@ -10,7 +10,7 @@
     noRot: True
     sprite: Objects/Devices/pinpointer.rsi
     layers:
-    - state: pinpointer-detective
+    - state: pinpointer
       map: ["enum.PinpointerLayers.Base"]
     - state: pinonnull
       map: ["enum.PinpointerLayers.Screen"]

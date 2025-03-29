@@ -21,7 +21,7 @@ public sealed class ClientBloodtrakSystem : SharedBloodtrakSystem
 
             var eye = _eyeManager.CurrentEye;
 
-            var angle = pinpointer.ArrowAngle;
+            var angle = pinpointer.ArrowAngle + eye.Rotation;
 
             switch (pinpointer.DistanceToTarget)
             {
