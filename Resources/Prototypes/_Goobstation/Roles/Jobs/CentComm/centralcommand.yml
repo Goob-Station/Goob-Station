@@ -20,7 +20,7 @@
   - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, VaporizeImplant ]
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
 
 - type: startingGear
   id: NavyOfficerGear
@@ -62,7 +62,7 @@
     - BlueshieldOfficer
   special:
    - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, VaporizeImplant ]
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
 
 - type: startingGear
   id: NavyCaptainGear
@@ -104,7 +104,7 @@
     - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, VaporizeImplant ]
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
 
 - type: startingGear
   id: NavyOfficerUndercoverGear
