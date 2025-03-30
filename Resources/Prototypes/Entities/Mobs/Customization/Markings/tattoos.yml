@@ -149,7 +149,7 @@
         !type:TattooColoring
       fallbackColor: "#666666"
   sprites:
-  - sprite: _Goobstation\Mobs\Customization\tattoos.rsi
+  - sprite: _Goobstation/Mobs/Customization/tattoos.rsi
     state: tribal1
 
 - type: marking
@@ -163,7 +163,7 @@
         !type:TattooColoring
       fallbackColor: "#666666"
   sprites:
-  - sprite: _Goobstation\Mobs\Customization\tattoos.rsi
+  - sprite: _Goobstation/Mobs/Customization/tattoos.rsi
     state: loops
 
 - type: marking
