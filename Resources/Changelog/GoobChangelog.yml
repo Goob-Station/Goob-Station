@@ -6876,3 +6876,9 @@ Entries:
       message: Fixed map markers and other minor things on Leonid
   id: 795
   time: '2025-03-30T21:30:22.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Air alarms no longer go into danger state due to high oxygen amount.
+  id: 796
+  time: '2025-03-30T21:52:37.0000000+00:00'
