@@ -1,4 +1,4 @@
-using Content.Shared._White.Standing;
+using Content.Goobstation.Common.Standing;
 
 namespace Content.Shared._EinsteinEngines.TelescopicBaton;
 

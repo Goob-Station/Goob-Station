@@ -31,6 +31,7 @@ using Content.Shared.Cuffs.Components;
 using Content.Shared.Revolutionary;
 using Content.Server.Communications;
 using System.Linq;
+using Content.Goobstation.Shared.Revolutionary;
 using Content.Server.Chat.Systems;
 
 namespace Content.Server.GameTicking.Rules;
