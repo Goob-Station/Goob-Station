@@ -77,7 +77,7 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
             if (!TryComp<BloodstreamComponent>(comp.Owner, out var bloodstreamComponent))
                 return;
 
-            _bloodstreamSystem.TryModifyBleedAmount(comp.Owner, -10f, bloodstreamComponent);
+            _bloodstreamSystem.TryModifyBleedAmount(comp.Owner, -25f, bloodstreamComponent);
         }
 
 
