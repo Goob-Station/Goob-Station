@@ -15,11 +15,6 @@
 	{
       "name": "loops",
       "directions": 4
-    },
-	
-	{
-      "name": "tribal2",
-      "directions": 4
-      }
+    }
     ]
   }
