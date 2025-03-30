@@ -1,15 +1,23 @@
 using Content.Goobstation.Server.Implants.Components;
+using Content.Server.Body.Components;
+using Content.Server.Body.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Implants;
 using Robust.Shared.Containers;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Implants.Systems;
 
 public sealed class StypticStimulatorImplantSystem : EntitySystem
 {
+    [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
+
     private readonly Dictionary<EntityUid, FixedPoint2> _originalDamageCaps = new();
     private readonly Dictionary<EntityUid, Dictionary<string, FixedPoint2>> _originalDamageSpecifiers = new();
+    private static readonly TimeSpan ExecutionInterval = TimeSpan.FromSeconds(1f);
+    private TimeSpan _nextExecutionTime = TimeSpan.Zero;
 
     private static readonly string[] AffectedDamageTypes =
     {
@@ -54,6 +62,27 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
         damageComp.DamageCap = FixedPoint2.Zero;
 
         Dirty(user, damageComp);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        if (_nextExecutionTime > _gameTiming.CurTime)
+            return;
+
+        var query = EntityQueryEnumerator<StypticStimulatorImplantComponent>();
+        while (query.MoveNext(out var comp))
+        {
+            if (!TryComp<BloodstreamComponent>(comp.Owner, out var bloodstreamComponent))
+                return;
+
+            _bloodstreamSystem.TryModifyBleedAmount(comp.Owner, -10f, bloodstreamComponent);
+        }
+
+
+        _nextExecutionTime = _gameTiming.CurTime + ExecutionInterval;
+
     }
 
     private void OnUnimplanted(Entity<StypticStimulatorImplantComponent> ent, ref EntGotRemovedFromContainerMessage args)
