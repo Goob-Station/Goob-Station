@@ -158,6 +158,14 @@
     implant: NutrimentPumpImplant
 
 - type: entity
+  id: StypticStimulatorImplanter
+  suffix: styptic stimulator
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+  - type: Implanter
+    implant: StypticStimulatorImplant
+
+- type: entity
   parent: BaseImplantOnlyImplanterSyndi
   id: KravMagaImplanter
   suffix: krav maga
