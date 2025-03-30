@@ -4,8 +4,10 @@ using Content.Server.Body.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Implants;
+using Content.Shared.Mobs;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Implants.Systems;
 
@@ -16,6 +18,7 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
 
     private readonly Dictionary<EntityUid, FixedPoint2> _originalDamageCaps = new();
     private readonly Dictionary<EntityUid, Dictionary<string, FixedPoint2>> _originalDamageSpecifiers = new();
+    private List<MobState> _originalAllowedStates = new();
     private static readonly TimeSpan ExecutionInterval = TimeSpan.FromSeconds(1f);
     private TimeSpan _nextExecutionTime = TimeSpan.Zero;
 
@@ -40,26 +43,34 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
         var user = args.Implanted.Value;
         var damageComp = EnsureComp<PassiveDamageComponent>(user);
 
+        // Store original allowed states.
+        foreach (var state in damageComp.AllowedStates)
+            _originalAllowedStates.Add(state);
+
         // Store original damage cap if not already stored
         if (!_originalDamageCaps.ContainsKey(user))
             _originalDamageCaps[user] = damageComp.DamageCap;
 
         // Store original damage specifiers
         var originalSpecifiers = new Dictionary<string, FixedPoint2>();
+
         foreach (var damage in damageComp.Damage.DamageDict)
-        {
             originalSpecifiers[damage.Key] = damage.Value;
-        }
+
         _originalDamageSpecifiers[user] = originalSpecifiers;
 
+        // Apply new damage modifications
         var damageDict = damageComp.Damage.DamageDict;
         damageDict.Clear();
-        // Apply new damage modifications
         foreach (var damageType in AffectedDamageTypes)
         {
             damageDict[damageType] = -0.5;
         }
         damageComp.DamageCap = FixedPoint2.Zero;
+
+        // Set new allowed states.
+        damageComp.AllowedStates.Clear();
+        damageComp.AllowedStates = [MobState.Alive, MobState.Critical];
 
         Dirty(user, damageComp);
     }
@@ -107,6 +118,10 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
                 }
                 _originalDamageSpecifiers.Remove(implanted);
             }
+
+            // Restore original allowed states.
+            damageComp.AllowedStates.Clear();
+            damageComp.AllowedStates = [MobState.Alive];
         }
     }
 }

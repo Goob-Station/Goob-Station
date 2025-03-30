@@ -250,8 +250,6 @@
   components:
   - type: AutoImplant
     implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, StypticStimulatorImplant]
-  - type: GrantCqc
-    isBlocked: false
   - type: GhostRole
     name: ghost-role-information-navy-officer-name
     description: ghost-role-information-navy-officer-description
@@ -290,8 +288,6 @@
   components:
   - type: AutoImplant
     implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant]
-  - type: GrantCqc
-    isBlocked: false
   - type: GhostRole
     name: ghost-role-information-navy-captain-name
     description: ghost-role-information-navy-captain-description
@@ -330,8 +326,6 @@
   components:
   - type: AutoImplant
     implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant]
-  - type: GrantCqc
-    isBlocked: false
   - type: GhostRole
     name: ghost-role-information-navy-officer-undercover-name
     description: ghost-role-information-navy-officer-undercover-description
@@ -370,8 +364,6 @@
   components:
   - type: AutoImplant
     implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant]
-  - type: GrantCqc
-    isBlocked: false
   - type: GhostRole
     name: ghost-role-information-special-operations-officer-name
     description: ghost-role-information-special-operations-officer-description
