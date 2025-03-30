@@ -1,5 +1,4 @@
 using Content.Goobstation.Server.Implants.Components;
-using Content.Server.Body.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Implants;

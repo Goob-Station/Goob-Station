@@ -7,13 +7,12 @@ namespace Content.Goobstation.Server.Implants.Systems;
 
 public sealed class NutrimentPumpImplantSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<NutrimentPumpImplantComponent, ImplantImplantedEvent>(OnImplant);
-        SubscribeLocalEvent<NutrimentPumpImplantComponent, ImplantRemovedFromEvent>(OnUnimplanted);
+        SubscribeLocalEvent<NutrimentPumpImplantComponent, EntGotRemovedFromContainerMessage>(OnUnimplanted);
     }
 
     private void OnImplant(Entity<NutrimentPumpImplantComponent> ent, ref ImplantImplantedEvent args)
@@ -38,9 +37,9 @@ public sealed class NutrimentPumpImplantSystem : EntitySystem
 
     }
 
-    public void OnUnimplanted(Entity<NutrimentPumpImplantComponent> ent, ref ImplantRemovedFromEvent args)
+    private void OnUnimplanted(Entity<NutrimentPumpImplantComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
-        var user = args.Implanted;
+        var user = args.Container.Owner;
         var comp = ent.Comp;
 
         if (comp.HadHunger)
