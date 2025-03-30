@@ -8,9 +8,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Verbs;
+using Robust.Client.GameObjects;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
-using Robust.Client.UserInterface.XAML;
 using Robust.Client.Utility;
 using Robust.Shared.Utility;
 
@@ -32,14 +32,16 @@ public sealed class ExamineButton : ContainerButton
     public TextureRect Icon;
 
     public ExamineVerb Verb;
+    private SpriteSystem _sprite;
 
-    public ExamineButton(ExamineVerb verb)
+    public ExamineButton(ExamineVerb verb, SpriteSystem spriteSystem)
     {
         Margin = new Thickness(Thickness, Thickness, Thickness, Thickness);
 
         SetOnlyStyleClass(StyleClassExamineButton);
 
         Verb = verb;
+        _sprite = spriteSystem;
 
         if (verb.Disabled)
         {
@@ -66,7 +68,7 @@ public sealed class ExamineButton : ContainerButton
 
         if (verb.Icon != null)
         {
-            Icon.Texture = verb.Icon.Frame0();
+            Icon.Texture = _sprite.Frame0(verb.Icon);
             Icon.Stretch = TextureRect.StretchMode.KeepAspectCentered;
 
             AddChild(Icon);
