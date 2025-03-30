@@ -1,6 +1,7 @@
 using Content.Goobstation.Server.Implants.Components;
 using Content.Shared.Implants;
 using Content.Shared.Nutrition.Components;
+using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Server.Implants.Systems;
 
@@ -11,7 +12,7 @@ public sealed class NutrimentPumpImplantSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<NutrimentPumpImplantComponent, ImplantImplantedEvent>(OnImplant);
-        SubscribeLocalEvent<NutrimentPumpImplantComponent, ImplantRemovedFromEvent>(OnUnimplanted);
+        SubscribeLocalEvent<NutrimentPumpImplantComponent, EntGotRemovedFromContainerMessage>(OnUnimplanted);
     }
 
     private void OnImplant(Entity<NutrimentPumpImplantComponent> ent, ref ImplantImplantedEvent args)
@@ -37,9 +38,9 @@ public sealed class NutrimentPumpImplantSystem : EntitySystem
 
     }
 
-    private void OnUnimplanted(Entity<NutrimentPumpImplantComponent> ent, ref ImplantRemovedFromEvent args)
+    private void OnUnimplanted(Entity<NutrimentPumpImplantComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
-        var user = args.Implanted;
+        var user = args.Container.Owner;
         var comp = ent.Comp;
 
         if (comp.HadHunger)
@@ -47,7 +48,7 @@ public sealed class NutrimentPumpImplantSystem : EntitySystem
         if (comp.HadThirst)
             EnsureComp<ThirstComponent>(user);
 
-        if (HasComp<NutrimentPumpImplantComponent>(args.Implant))
+        if (HasComp<NutrimentPumpImplantComponent>(args.Entity))
             RemComp<NutrimentPumpImplantComponent>(ent);
     }
 }

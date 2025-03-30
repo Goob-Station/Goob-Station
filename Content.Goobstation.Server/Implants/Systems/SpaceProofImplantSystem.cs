@@ -2,6 +2,7 @@ using Content.Goobstation.Server.Implants.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Shared.Implants;
+using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Server.Implants.Systems;
 
@@ -12,7 +13,7 @@ public sealed class SpaceProofImplantSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<SpaceProofImplantComponent, ImplantImplantedEvent>(OnImplant);
-        SubscribeLocalEvent<SpaceProofImplantComponent, ImplantRemovedFromEvent>(OnUnimplanted);
+        SubscribeLocalEvent<SpaceProofImplantComponent, EntGotRemovedFromContainerMessage>(OnUnimplanted);
     }
 
     private void OnImplant(Entity<SpaceProofImplantComponent> ent, ref ImplantImplantedEvent args)
@@ -37,9 +38,9 @@ public sealed class SpaceProofImplantSystem : EntitySystem
 
     }
 
-    private void OnUnimplanted(Entity<SpaceProofImplantComponent> ent, ref ImplantRemovedFromEvent args)
+    private void OnUnimplanted(Entity<SpaceProofImplantComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
-        var user = args.Implanted;
+        var user = args.Container.Owner;
         var comp = ent.Comp;
 
         if (comp.NeededAir)
@@ -47,7 +48,7 @@ public sealed class SpaceProofImplantSystem : EntitySystem
         if (comp.WasSpaceProof)
             EnsureComp<BarotraumaComponent>(user);
 
-        if (HasComp<SpaceProofImplantComponent>(args.Implant))
+        if (HasComp<SpaceProofImplantComponent>(args.Entity))
             RemComp<SpaceProofImplantComponent>(ent);
     }
 }
