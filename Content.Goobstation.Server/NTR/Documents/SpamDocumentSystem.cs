@@ -6,7 +6,7 @@ using Robust.Shared.Localization;
 using System.Collections.Generic;
 using System;
 // mocho please we need content.shitcode asap ;-;
-namespace Content.Server._Goobstation.NTR
+namespace Content.Goobstation.Server.NTR.Documents
 {
     public sealed class SpamDocumentSystem : EntitySystem
     {

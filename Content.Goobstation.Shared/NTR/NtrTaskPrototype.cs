@@ -2,7 +2,7 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.NTR;
+namespace Content.Goobstation.Shared.NTR;
 /// <summary>
 /// This is a prototype for a cargo bounty, a set of items
 /// that must be sold together in a labeled container in order

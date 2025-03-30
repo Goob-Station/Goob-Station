@@ -1,7 +1,7 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Server._Goobstation.NTR
+namespace Content.Goobstation.Server.NTR
 {
     [RegisterComponent]
     public sealed partial class EventTriggerComponent : Component

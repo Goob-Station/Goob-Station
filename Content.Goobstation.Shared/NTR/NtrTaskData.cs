@@ -1,9 +1,9 @@
 using Robust.Shared.Serialization;
 using Content.Shared.Cargo.Prototypes;
-using Content.Shared.NTR;
+using Content.Goobstation.Shared.NTR;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.NTR;
+namespace Content.Goobstation.Shared.NTR;
 
 /// <summary>
 /// A data structure for storing currently available bounties.

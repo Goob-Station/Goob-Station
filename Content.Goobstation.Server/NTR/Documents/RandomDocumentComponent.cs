@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.StoryGen;
 
-namespace Content.Server._Goobstation.NTR
+namespace Content.Goobstation.Server.NTR.Documents
 {
     [RegisterComponent]
     public sealed partial class RandomDocumentComponent : Component

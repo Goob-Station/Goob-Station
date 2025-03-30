@@ -1,4 +1,4 @@
-namespace Content.Server._Goobstation.NTR
+namespace Content.Goobstation.Server.NTR.Documents
 {
     [RegisterComponent]
     public sealed partial class SpamDocumentComponent : Component

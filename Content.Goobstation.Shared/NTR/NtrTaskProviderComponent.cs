@@ -4,7 +4,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Shared._Goobstation.NTR;
+namespace Content.Goobstation.Shared.NTR;
 
 [RegisterComponent]
 public sealed partial class NtrTaskProviderComponent : Component

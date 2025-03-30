@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.NameIdentifier;
-using Content.Shared._Goobstation.NTR;
+using Content.Goobstation.Shared.NTR;
 using Content.Shared.Access.Components;
 using Content.Shared.Cargo.Prototypes;
 using Content.Shared.Database;
@@ -23,12 +23,12 @@ using Content.Shared.Access.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Server.Radio.EntitySystems;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.NTR;
+using Content.Goobstation.Shared.NTR;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.NTR;
+namespace Content.Goobstation.Server.NTR;
 
 public sealed class NTRTaskSystem : EntitySystem
 {

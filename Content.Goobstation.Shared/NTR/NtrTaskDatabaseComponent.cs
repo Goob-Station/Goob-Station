@@ -1,8 +1,8 @@
-using Content.Shared._Goobstation.NTR;
+using Content.Goobstation.Shared.NTR;
 using Content.Shared.Cargo;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Server._Goobstation.NTR;
+namespace Content.Goobstation.Shared.NTR;
 
 /// <summary>
 /// Stores all active cargo bounties for a particular station.

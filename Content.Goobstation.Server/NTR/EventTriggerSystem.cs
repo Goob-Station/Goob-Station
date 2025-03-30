@@ -1,6 +1,6 @@
 using Content.Server.GameTicking;
 
-namespace Content.Server._Goobstation.NTR
+namespace Content.Goobstation.Server.NTR
 {
     public sealed class EventTriggerSystem : EntitySystem
     {

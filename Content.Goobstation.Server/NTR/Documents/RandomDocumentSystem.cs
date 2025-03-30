@@ -7,7 +7,7 @@ using Robust.Shared.GameStates;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 // todo: clean these usings
-namespace Content.Server._Goobstation.NTR
+namespace Content.Goobstation.Server.NTR.Documents
 {
     public sealed class RandomDocumentSystem : EntitySystem
     {

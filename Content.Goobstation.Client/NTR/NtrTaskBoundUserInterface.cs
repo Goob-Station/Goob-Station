@@ -1,11 +1,11 @@
-using Content.Client._Goobstation.NTR.UI;
+using Content.Goobstation.Client.NTR.UI;
 using Content.Client.Cargo.UI;
-using Content.Shared._Goobstation.NTR;
+using Content.Goobstation.Shared.NTR;
 using Content.Shared.Cargo.Components;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 
-namespace Content.Client._Goobstation.NTR;
+namespace Content.Goobstation.Client.NTR;
 
 [UsedImplicitly]
 public sealed class NtrTaskBoundUserInterface : BoundUserInterface
