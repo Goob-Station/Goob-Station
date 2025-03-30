@@ -10,7 +10,7 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
 {
 
     private readonly Dictionary<EntityUid, FixedPoint2> _originalDamageCaps = new();
-    private DamageSpecifier _originalDamageSpecifier = new();
+    private Dictionary<String, FixedPoint2> _originalDamageSpecifier = new();
 
     public override void Initialize()
     {
@@ -29,18 +29,27 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
 
         var damageComp = EnsureComp<PassiveDamageComponent>(user);
 
+        // Store original damage cap.
         if (!_originalDamageCaps.ContainsKey(user))
             _originalDamageCaps[user] = damageComp.DamageCap;
-        _originalDamageSpecifier = damageComp.Damage;
+
+        // Foreach passive damage specifier we have, save it to a dictionary.
+        foreach (var damage in damageComp.Damage.DamageDict)
+        {
+            _originalDamageSpecifier.Add(damage.Key, damage.Value);
+        }
 
         // This is kind of a shit way to do this but... it works!
+        // Clear current dictionary
         damageComp.Damage.DamageDict.Clear();
+        // Add our damage types.
         damageComp.Damage.DamageDict.Add("Heat", -0.5);
         damageComp.Damage.DamageDict.Add("Cold", -0.5);
         damageComp.Damage.DamageDict.Add("Slash", -0.5);
         damageComp.Damage.DamageDict.Add("Blunt", -0.5);
         damageComp.Damage.DamageDict.Add("Piercing", -0.5);
         damageComp.Damage.DamageDict.Add("Poison", -0.5);
+        // Set the damage cap to zero
         damageComp.DamageCap = FixedPoint2.Zero;
         DirtyEntity(user);
 
@@ -52,10 +61,13 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
         {
             if (_originalDamageCaps.TryGetValue(args.Implanted, out var originalCap))
             {
+                // Set the damage cap to the original.
                 damageComp.DamageCap = originalCap;
                 _originalDamageCaps.Remove(args.Implanted);
 
-                damageComp.Damage = _originalDamageSpecifier;
+                // Clear the current damage dictionary, and set it to the original.
+                damageComp.Damage.DamageDict.Clear();
+                damageComp.Damage.DamageDict = _originalDamageSpecifier;
             }
         }
 
