@@ -238,6 +238,13 @@
           min: 30
       - !type:FlammableReaction
         multiplier: 0.3
+      - !type:Paralyze
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        probability: 0.05
+        paralyzeTime: 2
   reactiveEffects:
     Flammable:
       methods: [ Touch ]

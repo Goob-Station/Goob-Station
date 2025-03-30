@@ -26,3 +26,46 @@
       reagents:
       - ReagentId: Artifexium
         Quantity: 5
+
+- type: entity
+  name: nevcotta log
+  description: When planted out of it's native habitat, it grows into an entirely different plant.
+  id: Nevacotta
+  parent: ProduceBase
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Hydroponics/nevcotta.rsi
+    state: icon
+  - type: SolutionContainerManager
+  - type: Produce
+    seedId: towercap # Shhh, I don't want to make this an actual plant yet!
+  - type: Log
+    spawnedPrototype: NevcottaBark
+    spawnCount: 2
+
+- type: entity
+  name: nevcotta bark
+  description: The bark of a Nevcotta tree.
+  id: NevacottaBark
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Hydroponics/Nevcotta/nevcotta.rsi
+    state: bark
+  - type: Stack
+    count: 1
+  - type: SolutionContainerManager
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: NevcottaPowder
+        Quantity: 5
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: NevcottaPowder
+          Quantity: 5
+        - ReagentId: Fiber
+          Quantity: 4
