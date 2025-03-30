@@ -46,6 +46,9 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: Item
+    shape:
+    - 0,0,5,2
 
 - type: entity
   name: M-90
@@ -92,6 +95,9 @@
   - type: Appearance
   - type: Gun
     fireRate: 6
+  - type: Item
+    shape:
+    - 0,0,4,2
 
 - type: entity
   name: Annie
@@ -150,6 +156,9 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: Item
+    shape:
+    - 0,0,4,2
 
 - type: entity
   name: WSPR
@@ -200,3 +209,6 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: Item
+    shape:
+    - 0,0,4,2

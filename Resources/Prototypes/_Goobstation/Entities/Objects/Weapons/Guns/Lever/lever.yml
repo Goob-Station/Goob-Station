@@ -60,3 +60,8 @@
   - type: UseDelay
     delay: 0.1
   - type: UseDelayBlockShoot
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,4,1
+    storedRotation: 45
