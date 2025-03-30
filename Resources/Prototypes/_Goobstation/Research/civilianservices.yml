@@ -11,6 +11,9 @@
   recipeUnlocks:
   - VehicleHoverchairSci
   - PrescriptionGlasses
+  position: 3,4
+  technologyPrerequisites:
+  - AdvancedEntertainment
 
 - type: technology
   id: MedicalDefense
@@ -23,6 +26,9 @@
   cost: 5000
   recipeUnlocks:
   - SyringeGun
+  position: 3,6
+  technologyPrerequisites:
+  - BiochemicalStasis
 
 - type: technology
   id: RescueTechnology
@@ -36,6 +42,9 @@
   recipeUnlocks:
   - HandheldCrewMonitor
   - DefibrillatorCompact
+  position: 4,6
+  technologyPrerequisites:
+  - BiochemicalStasis
 
 # Tier 2
 
@@ -51,5 +60,8 @@
   recipeUnlocks:
   - MechEquipmentHonkerBananaMortar
   - MechEquipmentHonkerMousetrapMortar
+  position: 0,6
+  technologyPrerequisites:
+  - HONKMech
 
 # Tier 3
