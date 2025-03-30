@@ -1,6 +1,6 @@
 using Content.Goobstation.Server.Implants.Components;
 using Content.Server.Atmos.Components;
-using Content.Server.Body.Components;
+using Content.Shared._Shitmed.Body.Components;
 using Content.Shared.Implants;
 using Robust.Shared.Containers;
 
@@ -21,31 +21,18 @@ public sealed class SpaceProofImplantSystem : EntitySystem
         if (!args.Implanted.HasValue)
             return;
 
-        var comp = ent.Comp;
         var user = args.Implanted.Value;
 
-        if (HasComp<RespiratorComponent>(user))
-        {
-            RemComp<RespiratorComponent>(user);
-            comp.NeededAir = true;
-        }
-
-        if (HasComp<BarotraumaComponent>(user))
-        {
-            RemComp<BarotraumaComponent>(user);
-            comp.WasntSpaceProof = true;
-        }
+        EnsureComp<BreathingImmunityComponent>(user);
+        EnsureComp<PressureImmunityComponent>(user); // Add the temperature slow immune comp from the ling update when thats here.
 
     }
 
     private void OnUnimplanted(Entity<SpaceProofImplantComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
         var user = args.Container.Owner;
-        var comp = ent.Comp;
 
-        if (comp.NeededAir)
-            EnsureComp<RespiratorComponent>(user);
-        if (comp.WasntSpaceProof)
-            EnsureComp<BarotraumaComponent>(user);
+        RemCompDeferred<BreathingImmunityComponent>(user);
+        RemCompDeferred<PressureImmunityComponent>(user);
     }
 }
