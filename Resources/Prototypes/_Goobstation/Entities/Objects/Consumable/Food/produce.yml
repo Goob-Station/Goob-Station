@@ -30,7 +30,7 @@
 - type: entity
   name: nevcotta log
   description: When planted out of it's native habitat, it grows into an entirely different plant.
-  id: Nevacotta
+  id: Nevcotta
   parent: ProduceBase
   components:
   - type: Sprite
@@ -46,20 +46,14 @@
 - type: entity
   name: nevcotta bark
   description: The bark of a Nevcotta tree.
-  id: NevacottaBark
+  id: NevcottaBark
   parent: BaseItem
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Hydroponics/Nevcotta/nevcotta.rsi
+    sprite: _Goobstation/Objects/Specific/Hydroponics/nevcotta.rsi
     state: bark
-  - type: Stack
-    count: 1
-  - type: SolutionContainerManager
   - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: NevcottaPowder
-        Quantity: 5
+    grindableSolutionName: food
   - type: SolutionContainerManager
     solutions:
       food:

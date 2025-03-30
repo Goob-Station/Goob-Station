@@ -121,7 +121,7 @@
       effects:
       - !type:TakeStaminaDamage
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType
           type: Yowie
           shouldHave: false
         amount: 15
@@ -141,7 +141,7 @@
       effects:
       - !type:GenericStatusEffect
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType
           type: Yowie
           shouldHave: false
         key: TemporaryBlindness
@@ -166,6 +166,16 @@
       - !type:GenericStatusEffect
         key: Dementia
         component: DementiaAccent
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+      - !type:TakeStaminaDamage
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        amount: 15
+        immediate: false
       - !type:PopupMessage
         visualType: MediumCaution
         type: Local
