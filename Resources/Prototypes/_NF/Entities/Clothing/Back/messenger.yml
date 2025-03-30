@@ -385,7 +385,7 @@
 
 # Security
 - type: entity
-  parent: ClothingBackpackMessengerBase
+  parent: [ BaseSecurityContraband , ClothingBackpackMessengerBase ]
   id: ClothingBackpackMessengerSecurity
   name: security messenger bag
   description: A robust bag for storing extra arrest equipment.
@@ -393,7 +393,9 @@
   - type: Sprite
     layers:
     - state: icon-base
-      color: "#444444"
+      color: "#282828"
+    - state: icon-base-top
+      color: "#4c4b4f"
     - state: icon-sling
       color: "#88242d"
     - state: icon-clasp
@@ -402,7 +404,9 @@
     clothingVisuals:
       back:
       - state: base-equipped-BACKPACK
-        color: "#444444"
+        color: "#282828"
+      - state: base-top-equipped-BACKPACK
+        color: "#4c4b4f"
       - state: sling-equipped-BACKPACK
         color: "#88242d"
       - state: clasp-equipped-BACKPACK
@@ -411,12 +415,16 @@
     inhandVisuals:
       left:
       - state: base-inhand-left
-        color: "#444444"
+        color: "#282828"
+      - state: base-top-inhand-left
+        color: "#4c4b4f"
       - state: clasp-inhand-left
         color: "#eca615"
       right:
       - state: base-inhand-right
-        color: "#444444"
+        color: "#282828"
+      - state: base-top-inhand-right
+        color: "#4c4b4f"
       - state: clasp-inhand-right
         color: "#eca615"
 
@@ -462,31 +470,31 @@
   - type: Sprite
     layers:
     - state: icon-base
-      color: "#333333"
+      color: "#393939"
     - state: icon-sling
-      color: "#7f0101"
+      color: "#b22c20"
     - state: icon-clasp
-      color: "#7f0101"
+      color: "#c60200"
   - type: Clothing
     clothingVisuals:
       back:
       - state: base-equipped-BACKPACK
-        color: "#333333"
+        color: "#393939"
       - state: sling-equipped-BACKPACK
-        color: "#7f0101"
+        color: "#b22c20"
       - state: clasp-equipped-BACKPACK
-        color: "#7f0101"
+        color: "#c60200"
   - type: Item
     inhandVisuals:
       left:
       - state: base-inhand-left
-        color: "#333333"
+        color: "#393939"
       - state: clasp-inhand-left
-        color: "#7f0101"
+        color: "#c60200"
       right:
       - state: base-inhand-right
-        color: "#333333"
+        color: "#393939"
       - state: clasp-inhand-right
-        color: "#7f0101"
+        color: "#c60200"
   - type: ExplosionResistance
     damageCoefficient: 0.1
