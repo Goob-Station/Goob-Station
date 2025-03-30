@@ -1,6 +1,6 @@
 using Content.Goobstation.Server.Implants.Components;
 using Content.Server.Body.Components;
-using Content.Shared.Damage;
+using Content.Server.Body.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Implants;
@@ -9,7 +9,7 @@ namespace Content.Goobstation.Server.Implants.Systems;
 
 public sealed class StypticStimulatorImplantSystem : EntitySystem
 {
-
+    [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
     private readonly Dictionary<EntityUid, FixedPoint2> _originalDamageCaps = new();
     private Dictionary<String, FixedPoint2> _originalDamageSpecifier = new();
 
@@ -54,7 +54,7 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
 
         // Stop any bleeding
         if (TryComp<BloodstreamComponent>(user, out var bloodstream))
-            bloodstream.BleedAmount = 0;
+            _bloodstreamSystem.TryModifyBleedAmount(user, -10, bloodstream);
 
         DirtyEntity(user);
 
