@@ -9,7 +9,6 @@ namespace Content.Goobstation.Server.Implants.Systems;
 
 public sealed class StypticStimulatorImplantSystem : EntitySystem
 {
-    [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
     private readonly Dictionary<EntityUid, FixedPoint2> _originalDamageCaps = new();
     private readonly Dictionary<EntityUid, Dictionary<string, FixedPoint2>> _originalDamageSpecifiers = new();
 

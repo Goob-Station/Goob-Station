@@ -7,12 +7,13 @@ namespace Content.Goobstation.Server.Implants.Systems;
 
 public sealed class NutrimentPumpImplantSystem : EntitySystem
 {
+    [Dependency] private readonly SharedContainerSystem _container = default!;
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<NutrimentPumpImplantComponent, ImplantImplantedEvent>(OnImplant);
-        SubscribeLocalEvent<NutrimentPumpImplantComponent, EntGotRemovedFromContainerMessage>(OnUnimplanted);
+        SubscribeLocalEvent<NutrimentPumpImplantComponent, ImplantRemovedFromEvent>(OnUnimplanted);
     }
 
     private void OnImplant(Entity<NutrimentPumpImplantComponent> ent, ref ImplantImplantedEvent args)
@@ -25,30 +26,26 @@ public sealed class NutrimentPumpImplantSystem : EntitySystem
 
         if (HasComp<HungerComponent>(user))
         {
-            RemComp<HungerComponent>(user);
+            RemCompDeferred<HungerComponent>(user);
             comp.HadHunger = true;
         }
 
         if (HasComp<ThirstComponent>(user))
         {
-            RemComp<ThirstComponent>(user);
+            RemCompDeferred<ThirstComponent>(user);
             comp.HadThirst = true;
         }
 
-
     }
 
-    private void OnUnimplanted(Entity<NutrimentPumpImplantComponent> ent, ref EntGotRemovedFromContainerMessage args)
+    public void OnUnimplanted(Entity<NutrimentPumpImplantComponent> ent, ref ImplantRemovedFromEvent args)
     {
-        var user = args.Container.Owner;
+        var user = args.Implanted;
         var comp = ent.Comp;
 
         if (comp.HadHunger)
             EnsureComp<HungerComponent>(user);
         if (comp.HadThirst)
             EnsureComp<ThirstComponent>(user);
-
-        if (HasComp<NutrimentPumpImplantComponent>(args.Entity))
-            RemComp<NutrimentPumpImplantComponent>(ent);
     }
 }

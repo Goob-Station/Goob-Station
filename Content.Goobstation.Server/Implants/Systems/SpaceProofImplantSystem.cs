@@ -33,7 +33,7 @@ public sealed class SpaceProofImplantSystem : EntitySystem
         if (HasComp<BarotraumaComponent>(user))
         {
             RemComp<BarotraumaComponent>(user);
-            comp.WasSpaceProof = true;
+            comp.WasntSpaceProof = true;
         }
 
     }
@@ -45,10 +45,7 @@ public sealed class SpaceProofImplantSystem : EntitySystem
 
         if (comp.NeededAir)
             EnsureComp<RespiratorComponent>(user);
-        if (comp.WasSpaceProof)
+        if (comp.WasntSpaceProof)
             EnsureComp<BarotraumaComponent>(user);
-
-        if (HasComp<SpaceProofImplantComponent>(args.Entity))
-            RemComp<SpaceProofImplantComponent>(ent);
     }
 }

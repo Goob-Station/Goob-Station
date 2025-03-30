@@ -1,9 +1,4 @@
-
-
 namespace Content.Goobstation.Server.Implants.Components;
 
 [RegisterComponent]
-public sealed partial class StypticStimulatorImplantComponent : Component
-{
-
-}
+public sealed class StypticStimulatorImplantComponent : Component;
