@@ -173,7 +173,7 @@
     selectedMode: Burst
     burstFireRate: 18
     burstCooldown: 0.5
-    projectileSpeed: 20
+    projectileSpeed: 35
     soundGunshot:
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/bwuh.ogg
   - type: ItemSlots
