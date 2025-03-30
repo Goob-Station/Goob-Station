@@ -1779,6 +1779,7 @@
     - ChefPilot
     - Mouse
     - Meat
+    - MouseMind # Goobstation
   - type: Respirator
     damage:
       types:

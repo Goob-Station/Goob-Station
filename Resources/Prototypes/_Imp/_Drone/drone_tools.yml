@@ -31,6 +31,14 @@
   components:
   - type: Unremoveable
 
+# Goobstation
+- type: entity
+  parent: RCDRecharging
+  id: RCDRechargingUnremoveable
+  suffix: Unremovable
+  components:
+  - type: Unremoveable
+
 - type: entity
   parent: PinpointerStation
   id: PinpointerStationUnremoveable
@@ -79,3 +87,4 @@
   inhand:
   - OmnitoolUnremoveable
   - WelderExperimentalUnremoveable
+  - RCDRechargingUnremoveable
