@@ -55,34 +55,30 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
         }
         damageComp.DamageCap = FixedPoint2.Zero;
 
-        // Stop bleeding
-        if (TryComp<BloodstreamComponent>(user, out var bloodstream))
-            _bloodstreamSystem.TryModifyBleedAmount(user, -10, bloodstream);
-
         Dirty(user, damageComp);
     }
 
     private void OnUnimplanted(Entity<StypticStimulatorImplantComponent> ent, ref ImplantRemovedFromEvent args)
     {
-        if (!TryComp<PassiveDamageComponent>(args.Implanted, out var damageComp))
-            return;
-
-        // Restore original damage cap
-        if (_originalDamageCaps.TryGetValue(args.Implanted, out var originalCap))
+        if (TryComp<PassiveDamageComponent>(args.Implanted, out var damageComp))
         {
-            damageComp.DamageCap = originalCap;
-            _originalDamageCaps.Remove(args.Implanted);
-        }
-
-        // Restore original damage specifiers
-        if (_originalDamageSpecifiers.TryGetValue(args.Implanted, out var originalSpecifiers))
-        {
-            damageComp.Damage.DamageDict.Clear();
-            foreach (var kvp in originalSpecifiers)
+            // Restore original damage cap
+            if (_originalDamageCaps.TryGetValue(args.Implanted, out var originalCap))
             {
-                damageComp.Damage.DamageDict[kvp.Key] = kvp.Value;
+                damageComp.DamageCap = originalCap;
+                _originalDamageCaps.Remove(args.Implanted);
             }
-            _originalDamageSpecifiers.Remove(args.Implanted);
+
+            // Restore original damage specifiers
+            if (_originalDamageSpecifiers.TryGetValue(args.Implanted, out var originalSpecifiers))
+            {
+                damageComp.Damage.DamageDict.Clear();
+                foreach (var kvp in originalSpecifiers)
+                {
+                    damageComp.Damage.DamageDict[kvp.Key] = kvp.Value;
+                }
+                _originalDamageSpecifiers.Remove(args.Implanted);
+            }
         }
     }
 }
