@@ -1,0 +1,10 @@
+- type: AccountAppend
+  id: solstice
+  userid: bec01c64-f137-4563-bddf-09a6ce3066cc
+  AppendComps:
+  - FrenchAccent
+
+- type: AccountAppend
+  id: localhost@sol
+  AppendComps:
+  - FrenchAccent
