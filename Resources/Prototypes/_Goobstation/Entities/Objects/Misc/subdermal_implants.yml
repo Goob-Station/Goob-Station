@@ -84,7 +84,7 @@
   description: This implant sends the users regeneration into overdrive.
   categories: [ HideSpawnMenu ]
   components:
-  - type: StypticStimulatorImpplant
+  - type: StypticStimulatorImplant
     allowedStates:
     - Alive
     damage:
