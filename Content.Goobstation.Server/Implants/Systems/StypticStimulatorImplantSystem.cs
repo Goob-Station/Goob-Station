@@ -13,6 +13,7 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
 
     private readonly Dictionary<EntityUid, FixedPoint2> _originalDamageCaps = new();
+    private DamageSpecifier _originalDamageSpecifier = new();
 
     public override void Initialize()
     {
@@ -34,7 +35,9 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
 
         if (!_originalDamageCaps.ContainsKey(user))
             _originalDamageCaps[user] = damageComp.DamageCap;
+        _originalDamageSpecifier = damageComp.Damage;
 
+        // This is kind of a shit way to do this but... it works!
         damageComp.Damage.DamageDict.Clear();
         damageComp.Damage.DamageDict.Add("Heat", -0.5);
         damageComp.Damage.DamageDict.Add("Cold", -0.5);
@@ -55,6 +58,8 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
             {
                 damageComp.DamageCap = originalCap;
                 _originalDamageCaps.Remove(args.Implanted);
+
+                damageComp.Damage = _originalDamageSpecifier;
             }
         }
 
