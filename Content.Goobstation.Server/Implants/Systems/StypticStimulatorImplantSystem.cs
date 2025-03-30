@@ -1,9 +1,9 @@
 using Content.Goobstation.Server.Implants.Components;
-using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Implants;
+using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Server.Implants.Systems;
 
@@ -23,7 +23,7 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<StypticStimulatorImplantComponent, ImplantImplantedEvent>(OnImplant);
-        SubscribeLocalEvent<StypticStimulatorImplantComponent, ImplantRemovedFromEvent>(OnUnimplanted);
+        SubscribeLocalEvent<StypticStimulatorImplantComponent, EntGotRemovedFromContainerMessage>(OnUnimplanted);
     }
 
     private void OnImplant(Entity<StypticStimulatorImplantComponent> ent, ref ImplantImplantedEvent args)
@@ -58,26 +58,27 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
         Dirty(user, damageComp);
     }
 
-    private void OnUnimplanted(Entity<StypticStimulatorImplantComponent> ent, ref ImplantRemovedFromEvent args)
+    private void OnUnimplanted(Entity<StypticStimulatorImplantComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
-        if (TryComp<PassiveDamageComponent>(args.Implanted, out var damageComp))
+        var implanted = args.Container.Owner;
+        if (TryComp<PassiveDamageComponent>(implanted, out var damageComp))
         {
             // Restore original damage cap
-            if (_originalDamageCaps.TryGetValue(args.Implanted, out var originalCap))
+            if (_originalDamageCaps.TryGetValue(implanted, out var originalCap))
             {
                 damageComp.DamageCap = originalCap;
-                _originalDamageCaps.Remove(args.Implanted);
+                _originalDamageCaps.Remove(implanted);
             }
 
             // Restore original damage specifiers
-            if (_originalDamageSpecifiers.TryGetValue(args.Implanted, out var originalSpecifiers))
+            if (_originalDamageSpecifiers.TryGetValue(implanted, out var originalSpecifiers))
             {
                 damageComp.Damage.DamageDict.Clear();
                 foreach (var kvp in originalSpecifiers)
                 {
                     damageComp.Damage.DamageDict[kvp.Key] = kvp.Value;
                 }
-                _originalDamageSpecifiers.Remove(args.Implanted);
+                _originalDamageSpecifiers.Remove(implanted);
             }
         }
     }
