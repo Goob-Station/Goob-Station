@@ -120,6 +120,9 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     {
         if(TryComp<CanPerformComboComponent>(ent, out var comboComponent))
             comboComponent.AllowedCombos.Clear();
+
+        EnsureComp<PullerComponent>(ent).StageChangeCooldown *= 2;
+        //returning time of grab to avoid abuse of judo belt and etc.
     }
 
     private void CheckGrabStageOverride<T>(EntityUid uid, T component, CheckGrabOverridesEvent args)
