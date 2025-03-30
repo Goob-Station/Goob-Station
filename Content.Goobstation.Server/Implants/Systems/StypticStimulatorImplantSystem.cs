@@ -1,4 +1,5 @@
 using Content.Goobstation.Server.Implants.Components;
+using Content.Server.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.FixedPoint;
@@ -26,7 +27,6 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
             return;
 
         var user = args.Implanted.Value;
-
         var damageComp = EnsureComp<PassiveDamageComponent>(user);
 
         // Store original damage cap.
@@ -51,6 +51,11 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
         damageComp.Damage.DamageDict.Add("Poison", -0.5);
         // Set the damage cap to zero
         damageComp.DamageCap = FixedPoint2.Zero;
+
+        // Stop any bleeding
+        if (TryComp<BloodstreamComponent>(user, out var bloodstream))
+            bloodstream.BleedAmount = 0;
+
         DirtyEntity(user);
 
     }
@@ -64,11 +69,10 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
                 // Set the damage cap to the original.
                 damageComp.DamageCap = originalCap;
                 _originalDamageCaps.Remove(args.Implanted);
-
-                // Clear the current damage dictionary, and set it to the original.
-                damageComp.Damage.DamageDict.Clear();
-                damageComp.Damage.DamageDict = _originalDamageSpecifier;
             }
+            // Clear the current damage dictionary, and set it to the original.
+            damageComp.Damage.DamageDict.Clear();
+            damageComp.Damage.DamageDict = _originalDamageSpecifier;
         }
 
         if (HasComp<StypticStimulatorImplantComponent>(args.Implant))
