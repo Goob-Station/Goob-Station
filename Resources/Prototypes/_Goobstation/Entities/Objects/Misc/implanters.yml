@@ -110,6 +110,14 @@
     implant: MindShieldImplant
 
 - type: entity
+  id: CentcommNutrimentImplanter
+  suffix: nutriment pump
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: NutrimentPumpImplant
+
+- type: entity
   parent: BaseImplantOnlyImplanter
   id: PacifismImplanter
   suffix: pacifism
