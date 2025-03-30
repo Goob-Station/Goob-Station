@@ -468,6 +468,16 @@
   categories:
     - UplinkImplants
 
+- type: listing
+  id: UplinkNutrimentImplanter
+  name: uplink-nutriment-implant-name
+  description: uplink-nutriment-implant-desc
+  icon: { sprite: Objects/Consumable/Food/burger.rsi, state: bacon }
+  productEntity: NutrimentImplanter
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkImplants
 
 - type: listing
   id: UplinkKravMagaImplanter

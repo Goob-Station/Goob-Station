@@ -48,6 +48,7 @@
       # Goob implants
       - MindcontrolImplant
       - KravMagaImplant
+      - NutrimentPumpImplant
       deimplantFailureDamage:
         types:
           Caustic: 5 # Goobstation - unnerf implanters (why was it 50 genetic??)

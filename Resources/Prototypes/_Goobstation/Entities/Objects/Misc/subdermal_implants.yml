@@ -68,6 +68,15 @@
   components:
   - type: NutrimentPumpImplant
 
+- type: entity
+  parent: BaseSubdermalImplant
+  id: SpaceProofImplant
+  name: space proofing implant
+  description: This implant allows the user to survive in space and without air.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpaceProofImplant
+
 # Admeme
 
 - type: entity

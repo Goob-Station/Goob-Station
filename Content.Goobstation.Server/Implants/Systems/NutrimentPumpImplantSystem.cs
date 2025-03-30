@@ -2,7 +2,7 @@ using Content.Goobstation.Server.Implants.Components;
 using Content.Shared.Implants;
 using Content.Shared.Nutrition.Components;
 
-namespace Content.Goobstation.Server.Implants;
+namespace Content.Goobstation.Server.Implants.Systems;
 
 public sealed class NutrimentPumpImplantSystem : EntitySystem
 {
@@ -46,6 +46,7 @@ public sealed class NutrimentPumpImplantSystem : EntitySystem
             EnsureComp<HungerComponent>(user);
         if (comp.HadThirst)
             EnsureComp<ThirstComponent>(user);
+
         if (HasComp<NutrimentPumpImplantComponent>(args.Implant))
             RemComp<NutrimentPumpImplantComponent>(ent);
     }
