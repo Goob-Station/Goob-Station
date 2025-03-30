@@ -35,12 +35,13 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
         if (!_originalDamageCaps.ContainsKey(user))
             _originalDamageCaps[user] = damageComp.DamageCap;
 
-        damageComp.Damage.DamageDict.TryAdd("Heat", -0.5);
-        damageComp.Damage.DamageDict.TryAdd("Cold", -0.5);
-        damageComp.Damage.DamageDict.TryAdd("Slash", -0.5);
-        damageComp.Damage.DamageDict.TryAdd("Blunt", -0.5);
-        damageComp.Damage.DamageDict.TryAdd("Piercing", -0.5);
-        damageComp.Damage.DamageDict.TryAdd("Poison", -0.5);
+        damageComp.Damage.DamageDict.Clear();
+        damageComp.Damage.DamageDict.Add("Heat", -0.5);
+        damageComp.Damage.DamageDict.Add("Cold", -0.5);
+        damageComp.Damage.DamageDict.Add("Slash", -0.5);
+        damageComp.Damage.DamageDict.Add("Blunt", -0.5);
+        damageComp.Damage.DamageDict.Add("Piercing", -0.5);
+        damageComp.Damage.DamageDict.Add("Poison", -0.5);
         damageComp.DamageCap = FixedPoint2.Zero;
         DirtyEntity(user);
 
