@@ -1,17 +1,17 @@
 - type: entity
-  id: BulletCaselessMagnum127
-  name: bullet (12.7mm caseless magnum)
+  id: BulletCaselessMagnum95
+  name: bullet (9.5mm caseless magnum)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
     damage:
       types:
-        Piercing: 30
+        Piercing: 25
 
 - type: entity
-  id: BulletCaselessMagnum127MinusP
-  name: bullet (12.7mm caseless magnum -P)
+  id: BulletCaselessMagnum95MinusP
+  name: bullet (9.5mm caseless magnum -P)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -23,8 +23,8 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: BaseBulletTrigger
-  id: BulletCaselessMagnum127SAPHE
-  name: bullet (12.7mm caseless magnup SAP-HE)
+  id: BulletCaselessMagnum95SAPHE
+  name: bullet (9.5mm caseless magnup SAP-HE)
   components:
   - type: Projectile
     damage:

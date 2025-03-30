@@ -1,13 +1,13 @@
 - type: entity
   id: BaseCartridgeCaselessMagnum
-  name: cartridge (.25 rifle)
+  name: cartridge (9.5mm caseless magnum)
   parent: [ BaseCartridge, BaseSecurityContraband ]
   abstract: true
   components:
   - type: Tag
     tags:
       - Cartridge
-      - CartridgeCaselessMagnum127
+      - CartridgeCaselessMagnum95
   - type: CartridgeAmmo
     deleteOnSpawn: true
   - type: Sprite
@@ -22,33 +22,33 @@
     price: 10
 
 - type: entity
-  id: CartridgeCaselessMagnum127
-  name: cartridge (12.7mm caseless magnum)
+  id: CartridgeCaselessMagnum95
+  name: cartridge (9.5mm caseless magnum)
   parent: BaseCartridgeCaselessMagnum
   components:
   - type: CartridgeAmmo
-    proto: BulletCaselessMagnum127
+    proto: BulletCaselessMagnum95
 
 - type: entity
-  id: CartridgeCaselessMagnum127MinusP
-  name: cartridge (12.7mm caseless magnum -P)
+  id: CartridgeCaselessMagnum95MinusP
+  name: cartridge (9.5mm caseless magnum -P)
   parent: BaseCartridgeCaselessMagnum
   components:
   - type: Tag
     tags:
       - Cartridge
-      - CartridgeCaselessMagnum127
+      - CartridgeCaselessMagnum95
   - type: CartridgeAmmo
-    proto: BulletCaselessMagnum127MinusP
+    proto: BulletCaselessMagnum95MinusP
 
 - type: entity
-  id: CartridgeCaselessMagnum127SAPHE
-  name: cartridge (12.7mm caseless magnum SAP-HE)
+  id: CartridgeCaselessMagnum95SAPHE
+  name: cartridge (9.5mm caseless magnum SAP-HE)
   parent: BaseCartridgeCaselessMagnum
   components:
   - type: Tag
     tags:
       - Cartridge
-      - CartridgeCaselessMagnum127
+      - CartridgeCaselessMagnum95
   - type: CartridgeAmmo
-    proto: BulletCaselessMagnum127SAPHE
+    proto: BulletCaselessMagnum95SAPHE

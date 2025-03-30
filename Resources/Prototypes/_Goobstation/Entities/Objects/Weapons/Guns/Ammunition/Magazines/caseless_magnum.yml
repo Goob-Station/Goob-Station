@@ -1,16 +1,16 @@
 - type: entity
   id: MagazinePistolCaselessMagnum
-  name: "pistol magazine (12.7mm caseless magnum)"
+  name: "pistol magazine (9.5mm caseless magnum)"
   parent: BaseMagazinePistolCaselessRifle
   components:
   - type: Tag
     tags:
-      - MagazineCaselessMagnum127
+      - MagazineCaselessMagnum95Pistol
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-        - CartridgeCaselessMagnum127
-    proto: CartridgeCaselessMagnum127
+        - CartridgeCaselessMagnum95
+    proto: CartridgeCaselessMagnum95
     capacity: 12
   - type: Sprite
     slayers:
@@ -18,25 +18,25 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-# - type: MagazineVisuals
-#   magState: mag
-#   steps: 6
-#   zeroVisible: false
-# - type: Appearance
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+  - type: Appearance
 
 - type: entity
   id: MagazinePistolCaselessMagnumMinusP
-  name: "pistol magazine (12.7mm caseless magnum -P)"
+  name: "pistol magazine (9.5mm caseless magnum -P)"
   parent: BaseMagazinePistolCaselessRifle
   components:
   - type: Tag
     tags:
-      - MagazineCaselessMagnum127
+      - MagazineCaselessMagnum95Pistol
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-        - CartridgeCaselessMagnum127
-    proto: CartridgeCaselessMagnum127MinusP
+        - CartridgeCaselessMagnum95
+    proto: CartridgeCaselessMagnum95MinusP
     capacity: 12
   - type: Sprite
     slayers:
@@ -44,25 +44,25 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-# - type: MagazineVisuals
-#   magState: mag
-#   steps: 6
-#   zeroVisible: false
-# - type: Appearance
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+  - type: Appearance
 
 - type: entity
   id: MagazinePistolCaselessMagnumSAPHE
-  name: "pistol magazine (12.7mm caseless magnum SAP-HE)"
+  name: "pistol magazine (9.5mm caseless magnum SAP-HE)"
   parent: BaseMagazinePistolCaselessRifle
   components:
   - type: Tag
     tags:
-      - MagazineCaselessMagnum127
+      - MagazineCaselessMagnum95Pistol
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-        - CartridgeCaselessMagnum127
-    proto: CartridgeCaselessMagnum127SAPHE
+        - CartridgeCaselessMagnum95
+    proto: CartridgeCaselessMagnum95SAPHE
     capacity: 12
   - type: Sprite
     slayers:
@@ -70,8 +70,35 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-# - type: MagazineVisuals
-#   magState: mag
-#   steps: 6
-#   zeroVisible: false
-# - type: Appearance
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: MagazineCaselessMagnum
+  name: "magazine (9.5mm caseless magnum)"
+  parent: BaseMagazineCaselessRifle
+  components:
+  - type: Tag
+    tags:
+      - MagazineCaselessMagnum95
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeCaselessMagnum95
+    proto: CartridgeCaselessMagnum95
+    capacity: 30
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_rifle_mag.rsi
+    slayers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
