@@ -51,7 +51,7 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
             // Damage them
             foreach (var allowedState in comp.AllowedStates.Where(allowedState => allowedState == mobState.CurrentState)) // IM LINQING IT!!
             {
-                _damageable.TryChangeDamage(uid, comp.Damage, true, false, damage);
+                _damageable.TryChangeDamage(comp.Owner, comp.Damage, true, false, damage);
             }
         }
     }
