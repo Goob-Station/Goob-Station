@@ -85,14 +85,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: StypticStimulatorImplant
-    allowedStates:
-    - Alive
-    damage:
-      types:
-        Poison: -0.5
-      groups:
-        Brute: -0.5
-        Burn: -0.5
 
 # Admeme
 
