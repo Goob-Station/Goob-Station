@@ -6862,3 +6862,9 @@ Entries:
       message: Bullet speeds have been doubled.
   id: 793
   time: '2025-03-30T19:18:33.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix heretic jaunt freaking out when admin ghost follows it.
+  id: 794
+  time: '2025-03-30T19:20:51.0000000+00:00'
