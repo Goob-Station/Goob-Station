@@ -3,14 +3,11 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Implants;
-using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Implants.Systems;
 
 public sealed class StypticStimulatorImplantSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
 
     private readonly Dictionary<EntityUid, FixedPoint2> _originalDamageCaps = new();
     private DamageSpecifier _originalDamageSpecifier = new();
@@ -29,7 +26,6 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
             return;
 
         var user = args.Implanted.Value;
-        var comp = ent.Comp;
 
         var damageComp = EnsureComp<PassiveDamageComponent>(user);
 
