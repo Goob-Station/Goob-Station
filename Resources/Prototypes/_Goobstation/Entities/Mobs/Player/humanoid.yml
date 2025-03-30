@@ -228,7 +228,7 @@
   randomizeName: false
   components:
   - type: AutoImplant
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, StypticStimulatorImplant]
   - type: GrantCqc
     isBlocked: false
   - type: GhostRole
@@ -268,7 +268,7 @@
   randomizeName: false
   components:
   - type: AutoImplant
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant ]
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant]
   - type: GrantCqc
     isBlocked: false
   - type: GhostRole
@@ -308,7 +308,7 @@
   randomizeName: false
   components:
   - type: AutoImplant
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant ]
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant]
   - type: GrantCqc
     isBlocked: false
   - type: GhostRole
@@ -348,7 +348,7 @@
   randomizeName: false
   components:
   - type: AutoImplant
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant ]
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant]
   - type: GrantCqc
     isBlocked: false
   - type: GhostRole
@@ -388,7 +388,7 @@
   randomizeName: false
   components:
   - type: AutoImplant
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant ]
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant]
   - type: GhostRole
     name: ghost-role-information-diplomat-name
     description: ghost-role-information-diplomat-description
@@ -426,7 +426,7 @@
   randomizeName: false
   components:
   - type: AutoImplant
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant ]
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant]
   - type: GhostRole
     name: ghost-role-information-inspector-name
     description: ghost-role-information-inspector-description

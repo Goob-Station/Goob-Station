@@ -126,6 +126,14 @@
     implant: SpaceProofImplant
 
 - type: entity
+  id: CentcommStypticStimulatorImplanter
+  suffix: styptic stimulator
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: StypticStimulatorImplant
+
+- type: entity
   parent: BaseImplantOnlyImplanter
   id: PacifismImplanter
   suffix: pacifism

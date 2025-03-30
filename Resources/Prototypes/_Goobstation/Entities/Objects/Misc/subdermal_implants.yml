@@ -77,6 +77,23 @@
   components:
   - type: SpaceProofImplant
 
+- type: entity
+  parent: BaseSubdermalImplant
+  id: StypticStimulatorImplant
+  name: styptic stimulator implant
+  description: This implant sends the users regeneration into overdrive.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StypticStimulatorImpplant
+    allowedStates:
+    - Alive
+    damage:
+      types:
+        Poison: -0.5
+      groups:
+        Brute: -0.5
+        Burn: -0.5
+
 # Admeme
 
 - type: entity

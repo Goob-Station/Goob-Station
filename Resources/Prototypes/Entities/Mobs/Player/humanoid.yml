@@ -60,7 +60,7 @@
   randomizeName: false
   components:
     - type: AutoImplant
-      implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ] # Goobstation
+      implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant] # Goobstation
     - type: GhostRole
       name: ghost-role-information-Death-Squad-name
       description: ghost-role-information-Death-Squad-description
@@ -122,6 +122,8 @@
     - type: Loadout
       prototypes: [ ERTLeaderGear ]
       roleLoadout: [ RoleSurvivalExtended ]
+    - type: AutoImplant
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitaryLeader
@@ -391,6 +393,8 @@
     - type: Loadout
       prototypes: [ ERTSecurityGear ]
       roleLoadout: [ RoleSurvivalExtended ]
+    - type: AutoImplant
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
 
 - type: entity
   id: RandomHumanoidSpawnerERTSecurityEVA
@@ -418,6 +422,8 @@
     - type: Loadout
       prototypes: [ ERTSecurityGearEVA ]
       roleLoadout: [ RoleSurvivalEVA ]
+    - type: AutoImplant
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
 
 # ERT Lecter is dead, and I have killed it. - Sol
 #- type: entity
@@ -479,6 +485,8 @@
     - type: Loadout
       prototypes: [ ERTMedicalGear ]
       roleLoadout: [ RoleSurvivalExtended ]
+    - type: AutoImplant
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
 
 - type: entity
   id: RandomHumanoidSpawnerERTMedicalEVA
@@ -513,6 +521,8 @@
     - type: Loadout
       prototypes: [ ERTMedicalGearEVA ]
       roleLoadout: [ RoleSurvivalEVA ]
+    - type: AutoImplant
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
 
 ## CBURN
 
@@ -532,7 +542,7 @@
   parent: EventHumanoidMindShielded
   components:
     - type: AutoImplant
-      implants: [ FreedomImplant, RadioImplantCentcomm ]
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
     - type: Loadout
       prototypes: [CBURNGear]
       roleLoadout: [ RoleSurvivalEVA ]
@@ -571,7 +581,7 @@
   parent: EventHumanoidMindShielded
   components:
     - type: AutoImplant
-      implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
     - type: GhostRole
       name: ghost-role-information-centcom-official-name
       description: ghost-role-information-centcom-official-description
