@@ -1,8 +1,8 @@
-using System.Linq;
 using Content.Goobstation.Server.Implants.Components;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.FixedPoint;
 using Content.Shared.Implants;
-using Content.Shared.Mobs.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Implants.Systems;
@@ -11,6 +11,8 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+
+    private readonly Dictionary<EntityUid, FixedPoint2> _originalDamageCaps = new();
 
     public override void Initialize()
     {
@@ -25,39 +27,32 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
         if (!args.Implanted.HasValue)
             return;
 
-        ent.Comp.NextDamage = _timing.CurTime + TimeSpan.FromSeconds(1f);
-    }
+        var user = args.Implanted.Value;
+        var comp = ent.Comp;
 
-    // Every tick, attempt to damage entities
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-        var curTime = _timing.CurTime;
+        var damageComp = EnsureComp<PassiveDamageComponent>(user);
 
-        // Go through every entity with the component
-        var query = EntityQueryEnumerator<StypticStimulatorImplantComponent, DamageableComponent, MobStateComponent>();
-        while (query.MoveNext(out var uid, out var comp, out var damage, out var mobState))
-        {
-            // Make sure they're up for a damage tick
-            if (comp.NextDamage > curTime)
-                continue;
+        if (!_originalDamageCaps.ContainsKey(user))
+            _originalDamageCaps[user] = damageComp.DamageCap;
 
-            if (comp.DamageCap != 0 && damage.TotalDamage >= comp.DamageCap)
-                continue;
+        damageComp.Damage.DamageDict.TryAdd("Brute", -0.5);
+        damageComp.Damage.DamageDict.TryAdd("Burn", -0.5);
+        damageComp.DamageCap = FixedPoint2.Zero;
+        DirtyEntity(user);
 
-            // Set the next time they can take damage
-            comp.NextDamage = curTime + TimeSpan.FromSeconds(1f);
-
-            // Damage them
-            foreach (var allowedState in comp.AllowedStates.Where(allowedState => allowedState == mobState.CurrentState)) // IM LINQING IT!!
-            {
-                _damageable.TryChangeDamage(comp.Owner, comp.Damage, true, false, damage);
-            }
-        }
     }
 
     private void OnUnimplanted(Entity<StypticStimulatorImplantComponent> ent, ref ImplantRemovedFromEvent args)
     {
+        if (TryComp<PassiveDamageComponent>(args.Implanted, out var damageComp))
+        {
+            if (_originalDamageCaps.TryGetValue(args.Implanted, out var originalCap))
+            {
+                damageComp.DamageCap = originalCap;
+                _originalDamageCaps.Remove(args.Implanted);
+            }
+        }
+
         if (HasComp<StypticStimulatorImplantComponent>(args.Implant))
             RemComp<StypticStimulatorImplantComponent>(ent);
     }
