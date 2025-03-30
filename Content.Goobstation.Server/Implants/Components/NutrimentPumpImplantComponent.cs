@@ -1,7 +1,7 @@
 namespace Content.Goobstation.Server.Implants.Components;
 
 [RegisterComponent]
-public sealed class NutrimentPumpImplantComponent : Component
+public sealed partial class NutrimentPumpImplantComponent : Component
 {
     /// <summary>
     /// Did the entity have thirst before being implanted?

@@ -1,7 +1,7 @@
 namespace Content.Goobstation.Server.Implants.Components;
 
 [RegisterComponent]
-public sealed class SpaceProofImplantComponent : Component
+public sealed partial class SpaceProofImplantComponent : Component
 {
     /// <summary>
     /// Was the entity immune to spacing before being implanted?
