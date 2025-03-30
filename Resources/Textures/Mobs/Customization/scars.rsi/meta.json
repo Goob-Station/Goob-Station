@@ -26,6 +26,10 @@
     {
         "name": "scar_chest",
         "directions": 4
+    },
+	{
+        "name": "buff",
+        "directions": 4
     }
   ]
 }
