@@ -50,8 +50,9 @@
       - KravMagaImplant
       deimplantFailureDamage:
         types:
-          Caustic: 5 # Goobstation - unnerf implanters (why was it 50 genetic??)
+          Cellural: 50
           Heat: 5
+          Ion: 100 # Goobstation - IPCs can't escape the wrath. More damage but easier to heal. Still does not instakill as they have 120 HP.
     - type: Sprite
       sprite: Objects/Specific/Medical/implanter.rsi
       state: implanter0
