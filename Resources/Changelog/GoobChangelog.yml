@@ -6868,3 +6868,11 @@ Entries:
       message: Fix heretic jaunt freaking out when admin ghost follows it.
   id: 794
   time: '2025-03-30T19:20:51.0000000+00:00'
+- author: Gallagin
+  changes:
+    - type: Add
+      message: Department Lathes to Leonid
+    - type: Fix
+      message: Fixed map markers and other minor things on Leonid
+  id: 795
+  time: '2025-03-30T21:30:22.0000000+00:00'
