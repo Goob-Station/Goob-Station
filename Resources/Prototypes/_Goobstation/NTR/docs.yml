@@ -55,3 +55,23 @@
   components:
     - type: RandomDocument
       dtype: Science
+
+- type: entity
+  id: SpamDocumentObvious
+  name: Corporate Document
+  suffix: spam, obvious
+  parent: Paper
+  description: An official NanoTrasen document. Looks like a ton of spam, as always.
+  components:
+    - type: SpamDocument
+      stype: Obvious
+
+- type: entity
+  id: SpamDocumentMimic
+  suffix: spam, mimic
+  name: Corporate Document
+  parent: Paper
+  description: An official NanoTrasen document. Looks like a ton of spam, as always.
+  components:
+    - type: SpamDocument
+      stype: Mimic
