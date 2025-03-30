@@ -38,6 +38,7 @@
     minAngle: -29
     maxAngle: -26
   - type: Gun
+    projectileSpeed: 20
     minAngle: 31
     maxAngle: 42
     shotsPerBurst: 5
@@ -45,7 +46,9 @@
     - Burst
     - FullAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/c-20r.ogg
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/bwuh.ogg # Add my own sound effect later
+      params:
+        volume: -14
   - type: ChamberMagazineAmmoProvider
     autoEject: false
   - type: MagazineVisuals
