@@ -205,6 +205,26 @@
 
 # Central Command!
 
+- type: randomHumanoidSettings
+  id: CentcommHumanoid
+  speciesBlacklist:
+  - Monkey
+  - Kobold
+  - Abductor
+  - Yowie
+  - IPC
+  - Diona
+  - Harpy
+  - Tajaran # Specism.
+  - Resomi # Sprites look shit on them.
+  - Oni # Same as above, plus it fucks over ERTs.
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: GhostTakeoverAvailable
+  - type: MindShield
+  - type: AntagImmune
+
 # Navy Officer
 
 - type: entity
@@ -224,11 +244,11 @@
 
 - type: randomHumanoidSettings
   id: NavyOfficer
-  parent: EventHumanoidMindShielded
+  parent: CentcommHumanoid
   randomizeName: false
   components:
   - type: AutoImplant
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, StypticStimulatorImplant]
+    implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, StypticStimulatorImplant]
   - type: GrantCqc
     isBlocked: false
   - type: GhostRole
@@ -264,11 +284,11 @@
 
 - type: randomHumanoidSettings
   id: NavyCaptain
-  parent: EventHumanoidMindShielded
+  parent: CentcommHumanoid
   randomizeName: false
   components:
   - type: AutoImplant
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant]
+    implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant]
   - type: GrantCqc
     isBlocked: false
   - type: GhostRole
@@ -304,11 +324,11 @@
 
 - type: randomHumanoidSettings
   id: NavyOfficerUndercover
-  parent: EventHumanoidMindShielded
+  parent: CentcommHumanoid
   randomizeName: false
   components:
   - type: AutoImplant
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant]
+    implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant]
   - type: GrantCqc
     isBlocked: false
   - type: GhostRole
@@ -344,11 +364,11 @@
 
 - type: randomHumanoidSettings
   id: SpecialOperationsOfficer
-  parent: EventHumanoidMindShielded
+  parent: CentcommHumanoid
   randomizeName: false
   components:
   - type: AutoImplant
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant]
+    implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant]
   - type: GrantCqc
     isBlocked: false
   - type: GhostRole
@@ -384,11 +404,11 @@
 
 - type: randomHumanoidSettings
   id: DiplomatGear
-  parent: EventHumanoidMindShielded
+  parent: CentcommHumanoid
   randomizeName: false
   components:
   - type: AutoImplant
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant]
+    implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant]
   - type: GhostRole
     name: ghost-role-information-diplomat-name
     description: ghost-role-information-diplomat-description
@@ -422,11 +442,11 @@
 
 - type: randomHumanoidSettings
   id: InspectorGear
-  parent: EventHumanoidMindShielded
+  parent: CentcommHumanoid
   randomizeName: false
   components:
   - type: AutoImplant
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant]
+    implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant]
   - type: GhostRole
     name: ghost-role-information-inspector-name
     description: ghost-role-information-inspector-description
