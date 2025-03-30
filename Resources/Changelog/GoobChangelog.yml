@@ -6856,3 +6856,9 @@ Entries:
         generation
   id: 792
   time: '2025-03-28T21:04:41.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: Bullet speeds have been doubled.
+  id: 793
+  time: '2025-03-30T19:18:33.0000000+00:00'
