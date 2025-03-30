@@ -2,7 +2,7 @@
   id: TattooHiveChest
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid
+  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid; EE- Oni
   coloring:
     default:
       type:
@@ -16,7 +16,7 @@
   id: TattooNightlingChest
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid
+  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid; EE- Oni
   coloring:
     default:
       type:
@@ -30,7 +30,7 @@
   id: TattooSilverburghLeftLeg
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid
+  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid; EE- Oni
   coloring:
     default:
       type:
@@ -44,7 +44,7 @@
   id: TattooSilverburghRightLeg
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid
+  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid; EE- Oni
   coloring:
     default:
       type:
@@ -58,7 +58,7 @@
   id: TattooCampbellLeftArm
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid
+  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid; EE- Oni
   coloring:
     default:
       type:
@@ -72,7 +72,7 @@
   id: TattooCampbellRightArm
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid
+  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid; EE- Oni
   coloring:
     default:
       type:
@@ -86,7 +86,7 @@
   id: TattooCampbellLeftLeg
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid
+  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid; EE- Oni
   coloring:
     default:
       type:
@@ -100,7 +100,7 @@
   id: TattooCampbellRightLeg
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid
+  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid; EE- Oni
   coloring:
     default:
       type:
@@ -114,7 +114,7 @@
   id: TattooEyeRight
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni ] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni ] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni
   coloring:
     default:
       type:
@@ -128,7 +128,7 @@
   id: TattooEyeLeft
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni ] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni ] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni
   coloring:
     default:
       type:
@@ -142,7 +142,7 @@
   id: TattooTribal1
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni ] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni ] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni
   coloring:
     default:
       type:
@@ -156,7 +156,7 @@
   id: TattooLoops
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni ] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni ] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni
   coloring:
     default:
       type:
@@ -170,7 +170,7 @@
   id: BuffChest
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Dwarf, Oni ]
+  speciesRestriction: [ Human, Dwarf, Oni ] # ; EE- Oni
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
