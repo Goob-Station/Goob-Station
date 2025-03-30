@@ -210,15 +210,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 Entries:
-- author: K-Dynamic
-  changes:
-  - message: Solar assembly crate now comes with 10 flatpacks and 20 glass to make
-      expansion and repairs easier, as well as increasing in price from 525 to 1250
-      spesos.
-    type: Tweak
-  id: 7617
-  time: '2024-11-16T04:30:48.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/33019
 - author: Aquif
   changes:
   - message: There is now a button to view your admin remarks in the character editor,
@@ -4098,3 +4089,10 @@ Entries:
   id: 8116
   time: '2025-03-29T20:09:34.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/35193
+- author: metalgearsloth
+  changes:
+  - message: Jetpacks emit particles more frequently.
+    type: Tweak
+  id: 8117
+  time: '2025-03-30T04:06:01.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/36093
