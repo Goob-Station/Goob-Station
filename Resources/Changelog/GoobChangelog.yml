@@ -6896,3 +6896,9 @@ Entries:
       message: Contraband detector got new wires and can be disassembled.
   id: 798
   time: '2025-03-31T00:56:33.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Tweak
+      message: Stealth now breaks on attacking or if you take damage
+  id: 799
+  time: '2025-03-31T04:37:35.0000000+00:00'
