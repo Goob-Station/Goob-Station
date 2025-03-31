@@ -13,6 +13,9 @@
   id: BindSoulAction
 
 - type: Tag
+  id: Blobbernaut
+
+- type: Tag
   id: BlockLightning
 
 - type: Tag
