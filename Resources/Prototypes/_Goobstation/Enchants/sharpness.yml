@@ -1,4 +1,4 @@
-# Linear % increase to damage
+# Linear bonus damage to melee attacks with this item
 - type: entity
   parent: BaseEnchant
   id: EnchantSharpness
@@ -9,4 +9,7 @@
       components:
       - MeleeWeapon
     maxLevel: 5
-  # TODO implement
+  - type: BonusDamage
+    damage:
+      types:
+        Slash: 5 # 25 extra damage at V
