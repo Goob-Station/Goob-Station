@@ -46,7 +46,7 @@
     - Burst
     - FullAuto
     soundGunshot:
-      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/bwuh.ogg # Add my own sound effect later
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/suppressed_smg.ogg
       params:
         volume: -14
   - type: ChamberMagazineAmmoProvider
