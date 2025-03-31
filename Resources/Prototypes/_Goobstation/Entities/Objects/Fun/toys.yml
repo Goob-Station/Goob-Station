@@ -327,3 +327,36 @@
     proto: GrenadeToy
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieSamantha
+  name: samantha plushie
+  description: A cute stuffed toy that resembles a certain blueshield officer. You feel a sudden urge for lollypops while holding it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_samantha
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+    soundNoDamage:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
