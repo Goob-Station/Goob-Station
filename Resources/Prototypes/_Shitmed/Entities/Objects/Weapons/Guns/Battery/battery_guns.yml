@@ -14,13 +14,13 @@
       shader: unshaded
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 50
+    fireCost: 25
   - type: BatteryWeaponFireModes
     fireModes:
     - proto: BulletDisabler
-      fireCost: 50
+      fireCost: 25
     - proto: BulletDeclone
-      fireCost: 100
+      fireCost: 62.5
   - type: Battery
     maxCharge: 500
     startingCharge: 500
@@ -48,4 +48,7 @@
       shader: unshaded
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDeclone
-    fireCost: 100
+    fireCost: 62.5
+  - type: Item
+    shape:
+    - 0,0,5,1
