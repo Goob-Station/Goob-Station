@@ -60,6 +60,11 @@
   - type: UseDelay
     delay: 0.1
   - type: UseDelayBlockShoot
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,4,1
+    storedRotation: 45
 
 #- type: entity inshallah i will figure out how to make a true pump action with a chamber
 #  name: combat shotgun
