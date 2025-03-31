@@ -498,3 +498,10 @@
         color: "#c60200"
   - type: ExplosionResistance
     damageCoefficient: 0.1
+  - type: Storage
+    grid:
+    - 0,0,8,0
+    - 0,2,8,3
+    - 0,5,8,5
+    - 0,0,0,5
+    - 8,0,8,5
