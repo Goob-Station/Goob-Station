@@ -6888,3 +6888,11 @@ Entries:
       message: You can now buy lavaland gateways at cargo for a high price.
   id: 797
   time: '2025-03-30T23:10:12.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: Contraband detector now more user friendly!
+    - type: Tweak
+      message: Contraband detector got new wires and can be disassembled.
+  id: 798
+  time: '2025-03-31T00:56:33.0000000+00:00'
