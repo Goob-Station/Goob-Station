@@ -6,10 +6,8 @@
   components:
   - type: Item
     sprite: _Shitmed/Objects/Weapons/Melee/wonderprod.rsi
-    size: Large
+    size: Huge
     storedRotation: -90
-    shape:
-    - 0,0,2,2
   - type: Clothing
     sprite: _Shitmed/Objects/Weapons/Melee/wonderprod.rsi
     quickEquip: false
