@@ -1,24 +1,26 @@
-namespace Content.Server.Movement;
+using Robust.Shared.GameStates;
 
-[RegisterComponent]
+namespace Content.Goobstation.Shared.RandomizeMovementSpeed;
+
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class RandomizeMovementspeedComponent : Component
 {
     /// <summary>
     /// The minimum limit of the modifier.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float Min { get; set; } = 0.6f;
 
     /// <summary>
     /// The max limit of the modifier.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float Max { get; set; } = 1.6f;
 
     /// <summary>
     /// The current modifier.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float CurrentModifier { get; set; } = 1f;
 
     /// <summary>

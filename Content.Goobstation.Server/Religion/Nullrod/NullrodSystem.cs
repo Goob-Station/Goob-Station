@@ -1,12 +1,11 @@
-using Content.Shared.Bible.Components;
+using Content.Goobstation.Shared.Bible;
 using Content.Shared.Damage;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
-using Robust.Shared.Audio.Systems;
-using Content.Server.Bible;
 using Content.Shared.Weapons.Ranged.Systems;
+using Robust.Shared.Audio.Systems;
 
-namespace Content.Server._Goobstation.Religion.Nullrod;
+namespace Content.Goobstation.Server.Religion.Nullrod;
 
 public sealed partial class NullRodSystem : EntitySystem
 {
@@ -49,4 +48,3 @@ public sealed partial class NullRodSystem : EntitySystem
         args.Cancelled = true;
     }
 }
-

@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Religion
+namespace Content.Goobstation.Shared.Religion
 {
     [RegisterComponent, NetworkedComponent]
     public sealed partial class WeakToHolyComponent : Component

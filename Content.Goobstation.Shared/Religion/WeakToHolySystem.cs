@@ -1,21 +1,14 @@
-using Content.Shared.Popups;
-using Content.Shared.Mobs;
-using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
-using Content.Shared.Damage.Prototypes;
-using System.Linq;
 using Content.Shared.Damage;
-using Robust.Shared.Audio.Systems;
-using Content.Shared.StepTrigger.Systems;
-using Content.Shared.Heretic;
-using Robust.Shared.Utility;
 using Content.Shared.Damage.Components;
-using Robust.Shared.Network;
-using Robust.Shared.Physics.Components;
-using Robust.Shared.Physics.Events;
 using Content.Shared.FixedPoint;
+using Content.Shared.Heretic;
+using Content.Shared.Popups;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Network;
+using Robust.Shared.Physics.Events;
+using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Religion;
+namespace Content.Goobstation.Shared.Religion;
 
 public sealed partial class WeakToHolySystem : EntitySystem
 {

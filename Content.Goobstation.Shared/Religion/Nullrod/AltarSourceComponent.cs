@@ -1,8 +1,7 @@
-using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Religion.Nullrod
+namespace Content.Goobstation.Shared.Religion.Nullrod
 {
     [RegisterComponent]
     public sealed partial class AltarSourceComponent : Component

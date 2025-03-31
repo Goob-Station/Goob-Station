@@ -1,13 +1,10 @@
-using Content.Server.Bible.Components;
-using Content.Server.Atmos.Components;
-using Content.Server.Atmos.EntitySystems;
-using Content.Shared.Bible.Components;
+using Content.Goobstation.Shared.Bible;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Popups;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Bible;
-using Content.Server.Bible;
+using Content.Shared.Bible.Components;
 using Content.Shared.Damage;
 using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.IdentityManagement;

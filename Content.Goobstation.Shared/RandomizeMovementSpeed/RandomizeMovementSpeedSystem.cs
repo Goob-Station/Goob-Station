@@ -1,10 +1,10 @@
-using Content.Server.Bible;
 using Content.Shared.Hands;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Goobstation.Shared.Bible;
 
-namespace Content.Server.Movement;
+namespace Content.Goobstation.Shared.RandomizeMovementSpeed;
 
 public sealed class RandomizeMovementSpeedSystem : EntitySystem
 {
@@ -54,12 +54,10 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
         return modifier;
 
     }
-    private static void OnRefreshMovementSpeedModifiers(EntityUid uid, RandomizeMovementspeedComponent  comp, ref HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
+    private void OnRefreshMovementSpeedModifiers(EntityUid uid, RandomizeMovementspeedComponent  comp, ref HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
-        // Set the variable modifier equal to the components current modifier field.
-        var modifier = comp.CurrentModifier;
-        // Modify the speed of the entity according to the modifier.
-        args.Args.ModifySpeed(modifier, modifier);
+        args.Args.ModifySpeed(comp.CurrentModifier);
+        Dirty(uid, comp);
     }
 
     #endregion

@@ -1,14 +1,12 @@
-using Content.Shared.Examine;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Interaction;
 using Content.Shared.Storage;
-using Robust.Shared.Prototypes;
 using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 
-namespace Content.Shared._Goobstation.Religion.Nullrod;
+namespace Content.Goobstation.Shared.Religion.Nullrod;
 
 public sealed class NullrodTransformSystem : EntitySystem
 {
@@ -32,7 +30,7 @@ public sealed class NullrodTransformSystem : EntitySystem
             || !_netManager.IsServer
             || HasComp<StorageComponent>(args.Target) // If it's a storage component like a bag, we ignore usage so it can be stored.
             || !_tagSystem.HasTag(args.Used, "Nullrod") // Checks used entity for the tag we need.
-            )
+           )
             return;
 
         Spawn(component.EffectProto, Transform(uid).Coordinates);
