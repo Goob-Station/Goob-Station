@@ -16,6 +16,18 @@
 		{
             "name": "plushie_samantha"
         },
+		{
+            "name": "plushiesamantha-equipped-HELMET",
+            "directions": 4
+        }
+		{
+            "name": "plushiesamantha-inhand-left",
+            "directions": 4
+        }
+		{
+            "name": "plushiesamantha-inhand-right",
+            "directions": 4
+        }
         {
             "name": "plushie_blackburn"
         },

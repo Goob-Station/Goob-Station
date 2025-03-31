@@ -337,6 +337,14 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
     state: plushie_samantha
+  - type: Item
+    heldPrefix: plushiesamantha
+  - type: Clothing
+    quickEquip: false
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    equippedPrefix: plushiesamantha
+    slots:
+    - HEAD
   - type: EmitSoundOnUse
     sound:
       path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
