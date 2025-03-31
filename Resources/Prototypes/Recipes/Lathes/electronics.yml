@@ -186,7 +186,7 @@
 
 - type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
-  icon: { sprite: Structures/Machines/cryogenics.rsi, state: pod-open } # Goobstation
+  icon: { sprite: Structures/Machines/Medical/cryopod.rsi, state: pod-open } # Goobstation
   id: CryoPodMachineCircuitboard
   result: CryoPodMachineCircuitboard
 
@@ -324,7 +324,7 @@
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
-  icon: { sprite: Structures/Machines/juicer.rsi, state: juicer0 } # Goobstation
+  icon: { sprite: Structures/Machines/grinder.rsi, state: grinder_empty } # Goobstation
   id: ReagentGrinderMachineCircuitboard
   result: ReagentGrinderMachineCircuitboard
 
