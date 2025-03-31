@@ -6902,3 +6902,9 @@ Entries:
       message: Stealth now breaks on attacking or if you take damage
   id: 799
   time: '2025-03-31T04:37:35.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Changed shapes of M90, Burner, WSPR, Chester and Annie.
+  id: 800
+  time: '2025-03-31T04:43:21.0000000+00:00'
