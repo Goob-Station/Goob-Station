@@ -72,3 +72,9 @@
       uiWindowPos: 0,1
       strippingWindowPos: 1,1
       displayName: Mask
+    - name: neck # Goobstation - For drip reasons.
+      slotTexture: neck
+      slotFlags: NECK
+      uiWindowPos: 0,2
+      strippingWindowPos: 0,1
+      displayName: Neck
