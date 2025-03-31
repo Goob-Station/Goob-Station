@@ -417,6 +417,9 @@
   - type: PhysicalComposition
     materialComposition:
       Diamond: 100
+  - type: Enchanter # Goobstation
+    enchants:
+    - EnchantFortune
 
 - type: entity
   parent: MaterialDiamond

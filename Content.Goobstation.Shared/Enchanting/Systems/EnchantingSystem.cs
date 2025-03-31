@@ -25,6 +25,7 @@ public sealed class EnchantingSystem : EntitySystem
     private EntityQuery<StackComponent> _stackQuery;
     private Dictionary<EntProtoId<EnchantComponent>, EnchantComponent> _enchants = new();
     private HashSet<Entity<EnchantingTableComponent>> _tables = new();
+    private HashSet<Entity<EnchanterComponent>> _enchanters = new();
 
     public override void Initialize()
     {
@@ -206,6 +207,24 @@ public sealed class EnchantingSystem : EntitySystem
         _tables.Clear();
         _lookup.GetEntitiesInRange<EnchantingTableComponent>(coords, range: 0.5f, _tables);
         return _tables.Count > 0 ? _tables.First() : null;
+    }
+
+    /// <summary>
+    /// Find an enchanter table near an item.
+    /// This won't return itself.
+    /// </summary>
+    public Entity<EnchanterComponent>? FindEnchanter(EntityUid item)
+    {
+        var coords = Transform(item).Coordinates;
+        _enchanters.Clear();
+        _lookup.GetEntitiesInRange<EnchanterComponent>(coords, range: 0.5f, _enchanters);
+        foreach (var ent in _enchanters)
+        {
+            if (ent.Owner != item)
+                return ent;
+        }
+
+        return null;
     }
 
     /// <summary>

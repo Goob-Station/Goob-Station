@@ -32,7 +32,9 @@ public sealed class EnchanterSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<EnchanterComponent, ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<EnchanterComponent, AfterInteractEvent>(OnInteract);
+
+        SubscribeLocalEvent<EnchantingToolComponent, ExaminedEvent>(OnToolExamined);
+        SubscribeLocalEvent<EnchantingToolComponent, BeforeRangedInteractEvent>(OnBeforeInteract);
     }
 
     private void OnExamined(Entity<EnchanterComponent> ent, ref ExaminedEvent args)
@@ -43,7 +45,15 @@ public sealed class EnchanterSystem : EntitySystem
         args.PushMarkup(Loc.GetString("enchanter-examine"));
     }
 
-    private void OnInteract(Entity<EnchanterComponent> ent, ref AfterInteractEvent args)
+    private void OnToolExamined(Entity<EnchantingToolComponent> ent, ref ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange)
+            return;
+
+        args.PushMarkup(Loc.GetString("enchanting-tool-examine"));
+    }
+
+    private void OnBeforeInteract(Entity<EnchantingToolComponent> ent, ref BeforeRangedInteractEvent args)
     {
         if (!args.CanReach || args.Target is not {} item)
             return;
@@ -53,7 +63,16 @@ public sealed class EnchanterSystem : EntitySystem
             return;
 
         args.Handled = true;
-        TryEnchant(ent, item, args.User);
+
+        // need an enchanter on the altar as well as the target
+        var user = args.User;
+        if (_enchanting.FindEnchanter(item) is not {} enchanter)
+        {
+            _popup.PopupClient(Loc.GetString("enchanting-tool-no-enchanter"), user, user);
+            return;
+        }
+
+        TryEnchant(enchanter, item, user);
     }
 
     private void GetPossibleEnchants(Entity<EnchanterComponent> ent, EntityUid item)
