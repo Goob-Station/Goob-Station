@@ -27,6 +27,7 @@
     capacity: 48
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/M7S_magazine.rsi
+    storedRotation: -90
   - type: MagazineVisuals
     magState: mag
     steps: 2
