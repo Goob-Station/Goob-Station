@@ -190,7 +190,7 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_yowie_male
+    - NamesYowieMale
 
 - type: entity
   parent: MobVox
