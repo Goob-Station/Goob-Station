@@ -952,5 +952,20 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", omniaccentName, Loc.GetString("admin-smite-omni-accent-description"))
         };
         args.Verbs.Add(omniaccent);
+
+        var carpName = Loc.GetString("admin-smite-become-carp-name").ToLowerInvariant();
+        Verb carp = new()
+        {
+            Text = carpName,
+            Category = VerbCategory.Smite,
+            Icon = new SpriteSpecifier.Rsi(new ("/Textures/Mobs/Aliens/Carps/space.rsi"), "icon"),
+            Act = () =>
+            {
+                _polymorphSystem.PolymorphEntity(args.Target, "ForcedCarpSentient");
+            },
+            Impact = LogImpact.Extreme,
+            Message = string.Join(": ", carpName, Loc.GetString("admin-smite-become-carp-description"))
+        };
+        args.Verbs.Add(carp);
     }
 }
