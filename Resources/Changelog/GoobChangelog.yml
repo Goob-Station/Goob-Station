@@ -6926,3 +6926,11 @@ Entries:
       message: Doorjack to maints loot pool, a limited use door opening device.
   id: 803
   time: '2025-03-31T04:46:10.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: >-
+        ipc no longer shows up in station and criminal records when filtering
+        for dna and fingerprints.
+  id: 804
+  time: '2025-03-31T04:47:40.0000000+00:00'
