@@ -3,6 +3,8 @@
   abstract: true
   parent: BaseItem
   components:
+  - type: Item
+    storedRotation: 90 # Required for the current horizontal sprites. If you make new sprites, just make them vertical and remove this.
   - type: Sprite
     sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_speedloader.rsi # We're awaiting new textures for this, and for the projectiles.
     layers:
