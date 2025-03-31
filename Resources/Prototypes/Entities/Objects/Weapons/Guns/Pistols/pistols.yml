@@ -257,3 +257,4 @@
           tags:
             - CartridgeMagnum
   - type: Multishot # Goobstation
+    spreadMultiplier: 1.5
