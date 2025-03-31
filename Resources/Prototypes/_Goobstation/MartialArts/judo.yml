@@ -30,7 +30,6 @@
   martialArtsForm: CorporateJudo
   attacks:
   - Disarm
-  - Disarm
   - Grab
   - Grab
   event: !type:JudoArmbarPerformedEvent
