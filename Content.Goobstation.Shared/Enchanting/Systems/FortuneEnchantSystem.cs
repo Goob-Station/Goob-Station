@@ -44,7 +44,6 @@ public sealed class FortuneEnchantSystem : EntitySystem
         var chance = ent.Comp.Chance;
         foreach (var hit in args.HitEntities)
         {
-            Log.Debug($"Hit {ToPrettyString(hit)} with {ent}");
             if (_oreQuery.TryComp(hit, out var ore))
                 ore.Modifier = chance;
         }
