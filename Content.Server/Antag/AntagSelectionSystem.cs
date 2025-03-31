@@ -159,8 +159,9 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         foreach (var (uid, antag) in rules)
         {
-            if (!RobustRandom.Prob(LateJoinRandomChance))
-                continue;
+            // Goob edit
+            // if (!RobustRandom.Prob(LateJoinRandomChance))
+            //    continue;
 
             if (!antag.Definitions.Any(p => p.LateJoinAdditional))
                 continue;
@@ -171,6 +172,12 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             var players = _playerManager.NetworkedSessions.Count(x => x.AttachedEntity != null);
 
             if (!TryGetNextAvailableDefinition((uid, antag), out var def, players))
+                continue;
+
+            // Goobstation
+            if (!RobustRandom.Prob(def.Value.PlayerRatio == 0
+                    ? LateJoinRandomChance
+                    : Math.Clamp(1f / def.Value.PlayerRatio, 0f, 1f)))
                 continue;
 
             var onlyPreSelect = (antag.SelectionTime == AntagSelectionTime.IntraPlayerSpawn && !antag.AssignmentComplete); // Don't wanna give them antag status if the rule hasn't assigned its existing ones yet
@@ -385,12 +392,15 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         if (antagEnt is not { } player)
         {
+            // Goob edit start
+            if (session == null)
+                return;
+
+            ent.Comp.AssignedSessions.Remove(session);
+            ent.Comp.PreSelectedSessions[def].Remove(session);
+
             Log.Error($"Attempted to make {session} antagonist in gamerule {ToPrettyString(ent)} but there was no valid entity for player.");
-            if (session != null)
-            {
-                ent.Comp.AssignedSessions.Remove(session);
-                ent.Comp.PreSelectedSessions[def].Remove(session);
-            }
+            // goob edit end
 
             return;
         }
