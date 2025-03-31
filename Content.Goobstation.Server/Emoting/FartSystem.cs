@@ -1,10 +1,10 @@
 using System.Numerics;
 using Content.Goobstation.Shared.Emoting;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Bible.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.Popups;
 using Content.Shared.Atmos;
+using Content.Shared.Bible.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Camera;
 using Robust.Server.Audio;

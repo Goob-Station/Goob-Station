@@ -20,7 +20,6 @@ using Content.Server.Revolutionary.Components;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Preferences;
 using Content.Shared.Random.Helpers;
-using Content.Shared._Goobstation.Religion;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Tag;
 using Robust.Shared.Player;
