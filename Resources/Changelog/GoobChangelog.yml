@@ -6848,3 +6848,95 @@ Entries:
         by dumping ore or not at that point in time.
   id: 791
   time: '2025-03-26T23:58:47.0000000+00:00'
+- author: Misandry, gusxyz
+  changes:
+    - type: Add
+      message: >-
+        Custom goobstation module for faster compile times and shitcod
+        generation
+  id: 792
+  time: '2025-03-28T21:04:41.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: Bullet speeds have been doubled.
+  id: 793
+  time: '2025-03-30T19:18:33.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix heretic jaunt freaking out when admin ghost follows it.
+  id: 794
+  time: '2025-03-30T19:20:51.0000000+00:00'
+- author: Gallagin
+  changes:
+    - type: Add
+      message: Department Lathes to Leonid
+    - type: Fix
+      message: Fixed map markers and other minor things on Leonid
+  id: 795
+  time: '2025-03-30T21:30:22.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Air alarms no longer go into danger state due to high oxygen amount.
+  id: 796
+  time: '2025-03-30T21:52:37.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: You can now buy lavaland gateways at cargo for a high price.
+  id: 797
+  time: '2025-03-30T23:10:12.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: Contraband detector now more user friendly!
+    - type: Tweak
+      message: Contraband detector got new wires and can be disassembled.
+  id: 798
+  time: '2025-03-31T00:56:33.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Tweak
+      message: Stealth now breaks on attacking or if you take damage
+  id: 799
+  time: '2025-03-31T04:37:35.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Changed shapes of M90, Burner, WSPR, Chester and Annie.
+  id: 800
+  time: '2025-03-31T04:43:21.0000000+00:00'
+- author: erhardsteinhauer, pheenty
+  changes:
+    - type: Add
+      message: Added new messenger bags, go check your loadout or the nearest vendor.
+  id: 801
+  time: '2025-03-31T04:44:03.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Laser rifles huge (4x4) -> large (4x2).
+  id: 802
+  time: '2025-03-31T04:44:58.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Doorjack to maints loot pool, a limited use door opening device.
+  id: 803
+  time: '2025-03-31T04:46:10.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: >-
+        ipc no longer shows up in station and criminal records when filtering
+        for dna and fingerprints.
+  id: 804
+  time: '2025-03-31T04:47:40.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Brizby beware, abductors can say the word "Bald" now.
+  id: 805
+  time: '2025-03-31T04:48:14.0000000+00:00'

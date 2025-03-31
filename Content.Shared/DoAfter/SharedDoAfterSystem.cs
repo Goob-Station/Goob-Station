@@ -1,6 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
-using Content.Shared._Goobstation.DoAfter;
+using Content.Shared._Shitmed.DoAfter;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
 using Content.Shared.Hands.Components;

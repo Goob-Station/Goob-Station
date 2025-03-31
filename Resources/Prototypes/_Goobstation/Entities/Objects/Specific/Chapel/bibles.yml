@@ -1,27 +1,3 @@
-## Public Domain YAML Begins
-- type: entity
-  parent: Bible
-  name: goobbit
-  description: "This weird book smells awful for some reason."
-  id: BibleAtheist
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Chapel/atheism.rsi
-  - type: Item
-    sprite: _Goobstation/Objects/Specific/Chapel/atheism.rsi
-
-- type: entity
-  parent: Bible
-  name: tripitaka
-  description: "This book is an ancient collection of Buddhist sacred scriptures."
-  id: BibleBhuddhist
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Chapel/tripitaka.rsi
-  - type: Item
-    sprite: _Goobstation/Objects/Specific/Chapel/tripitaka.rsi
-## Public Domain YAML Ends
-
 - type: entity
   parent: Bible
   name: Quaran
