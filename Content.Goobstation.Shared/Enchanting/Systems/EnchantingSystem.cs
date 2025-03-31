@@ -193,7 +193,7 @@ public sealed class EnchantingSystem : EntitySystem
             return false;
         }
 
-        AddEnchant(spawned.Value, item);
+        AddEnchant(spawned.Value, item, level);
         return true;
     }
 
@@ -218,10 +218,11 @@ public sealed class EnchantingSystem : EntitySystem
 
     #endregion
 
-    private void AddEnchant(EntityUid uid, EntityUid item)
+    private void AddEnchant(EntityUid uid, EntityUid item, int level)
     {
         var comp = _query.Comp(uid);
         comp.Enchanted = item;
+        comp.Level = Math.Min(level, comp.MaxLevel);
         Dirty(uid, comp);
 
         var ev = new EnchantAddedEvent(comp, item);

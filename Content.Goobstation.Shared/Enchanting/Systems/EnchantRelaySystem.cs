@@ -1,7 +1,9 @@
 using Content.Goobstation.Shared.Enchanting.Components;
+using Content.Shared.Atmos;
 using Content.Shared.Damage;
 using Content.Shared.Inventory;
 using Content.Shared.StepTrigger.Systems;
+using Content.Shared.Temperature;
 using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Goobstation.Shared.Enchanting.Components;
@@ -19,13 +21,19 @@ public sealed class EnchantRelaySystem : EntitySystem
 
         SubscribeLocalEvent<EnchantedComponent, DamageModifyEvent>(RelayEvent);
         SubscribeLocalEvent<EnchantedComponent, MeleeHitEvent>(RelayEvent);
-        SubscribeLocalEvent<EnchantedComponent, AttackedEvent>(RelayEvent); // so thorns applies if you punch the armor
-        SubscribeLocalEvent<EnchantedComponent, InventoryRelayedEvent<AttackedEvent>>(RelayInventoryEvent);
-        SubscribeLocalEvent<EnchantedComponent, StepTriggerAttemptEvent>(RelayEvent); // lava mouse
-        SubscribeLocalEvent<EnchantedComponent, InventoryRelayedEvent<StepTriggerAttemptEvent>>(RelayInventoryEvent);
+        SubInventory<AttackedEvent>(true);
+        SubInventory<StepTriggerAttemptEvent>(true);
+        SubInventory<GetFireProtectionEvent>();
+        SubInventory<ModifyChangedTemperatureEvent>();
+    }
 
-        SubscribeLocalEvent<InventoryComponent, AttackedEvent>(_inventory.RelayEvent);
-        SubscribeLocalEvent<InventoryComponent, StepTriggerAttemptEvent>(_inventory.RelayEvent);
+    private void SubInventory<T>(bool relayInventory = false) where T: IInventoryRelayEvent
+    {
+        SubscribeLocalEvent<EnchantedComponent, T>(RelayEvent);
+        SubscribeLocalEvent<EnchantedComponent, InventoryRelayedEvent<T>>(RelayInventoryEvent);
+        // only needed if the source system doesn't relay directly and inventory system doesn't relay for it
+        if (relayInventory)
+            SubscribeLocalEvent<InventoryComponent, T>(_inventory.RelayEvent);
     }
 
     private void RelayEvent<T>(Entity<EnchantedComponent> ent, ref T args)

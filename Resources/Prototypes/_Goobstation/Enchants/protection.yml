@@ -42,4 +42,4 @@
     incompatible:
     - EnchantProtection
     - EnchantProtBlast
-  # TODO implement
+  - type: FireProtEnchant
