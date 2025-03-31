@@ -39,6 +39,7 @@
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
+  - ClothingBackpackMessengerHolding # Frontier
 
 - type: latheRecipePack
   id: PowerCells

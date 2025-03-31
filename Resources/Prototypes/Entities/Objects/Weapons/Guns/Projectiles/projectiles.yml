@@ -70,7 +70,7 @@
       projectile:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.1,-0.1,0.1,0.1"
+          bounds: "-0.1,-0.10,0.1,0.30" # Goobstation - Fast Bullets
         hard: false
         mask:
         - Impassable
@@ -473,12 +473,12 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 30
-        Structural: 35
+        Blunt: 80 # Goobstation edit
+        # Structural: 35 # Goobstation edit
   - type: Ammo
     muzzleFlash: HitscanEffect
   - type: TimedDespawn
-    lifetime: 1.5
+    lifetime: 0.3 # Goobstation edit
   - type: PointLight
     radius: 2.5
     color: white
