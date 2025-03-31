@@ -6908,3 +6908,9 @@ Entries:
       message: Changed shapes of M90, Burner, WSPR, Chester and Annie.
   id: 800
   time: '2025-03-31T04:43:21.0000000+00:00'
+- author: erhardsteinhauer, pheenty
+  changes:
+    - type: Add
+      message: Added new messenger bags, go check your loadout or the nearest vendor.
+  id: 801
+  time: '2025-03-31T04:44:03.0000000+00:00'
