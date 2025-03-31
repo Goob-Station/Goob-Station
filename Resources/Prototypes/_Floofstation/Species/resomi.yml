@@ -8,8 +8,8 @@
   markingLimits: MobResomiMarkingLimits
   dollPrototype: MobResomiDummy
   skinColoration: Hues
-  maleFirstNames: names_resomi_male
-  femaleFirstNames: names_resomi_female
+  maleFirstNames: NamesResomiMale
+  femaleFirstNames: NamesResomiFemale
   naming: First
   sexes: # Goobstation - why bother having male/female names and soundCollections if they were only available unsexed?
   - Unsexed
