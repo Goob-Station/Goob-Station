@@ -163,6 +163,16 @@ public sealed class EnchantingSystem : EntitySystem
     }
 
     /// <summary>
+    /// Set the enchanting tier of an item, adding Enchanting if it doesn't have it.
+    /// </summary>
+    public void SetTier(EntityUid item, int tier)
+    {
+        var comp = EnsureComp<EnchantedComponent>(item);
+        comp.Tier = tier;
+        Dirty(item, comp);
+    }
+
+    /// <summary>
     /// Add or upgrade an enchant with a specific level.
     /// If an enchant would get over max level it gets clamped, wasting the excess.
     /// </summary>

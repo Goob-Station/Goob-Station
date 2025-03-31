@@ -361,3 +361,14 @@
     damage:
       types:
         Piercing: 5
+
+- type: entity
+  parent: MobMouse
+  id: MouseMenace
+  name: menace
+  components:
+  - type: EnchantFill
+    enchants:
+      EnchantInsulated: 1 # eat ALL the wires
+      EnchantUnbreaking: 3 # very hard to kill
+      EnchantSharpness: 5 # hit hard ye
