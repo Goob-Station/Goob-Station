@@ -34,11 +34,7 @@
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
     state: icon
   content:
-  - WeaponEnergyRevolver # One lethal speedloader inside.
-  - EnergySpeedloaderLethal
-  - EnergySpeedloaderLethal
-  - EnergySpeedloaderDisabler
-  - EnergySpeedloaderDisabler
+  - ClothingBeltHolsterFilledBlueshield
 
 - type: thiefBackpackSet
   id: BlueshieldSet

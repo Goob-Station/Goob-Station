@@ -572,6 +572,7 @@
       components:
         - BallisticAmmoProvider
         - CartridgeAmmo
+        - EnergySpeedloader # Goobstation
   - type: ContainerContainer
     containers:
       item: !type:ContainerSlot
