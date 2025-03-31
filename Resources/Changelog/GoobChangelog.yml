@@ -6934,3 +6934,9 @@ Entries:
         for dna and fingerprints.
   id: 804
   time: '2025-03-31T04:47:40.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Brizby beware, abductors can say the word "Bald" now.
+  id: 805
+  time: '2025-03-31T04:48:14.0000000+00:00'
