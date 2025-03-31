@@ -143,8 +143,8 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_rodentia_male
-    - names_rodentia_last
+    - NamesRodentiaMale
+    - NamesRodentiaLast
 
 - type: entity
   parent: MobReptilian
