@@ -38,7 +38,7 @@
     minAngle: -29
     maxAngle: -26
   - type: Gun
-    projectileSpeed: 20
+    projectileSpeed: 20 # half regular bullet speed
     minAngle: 31
     maxAngle: 42
     shotsPerBurst: 5

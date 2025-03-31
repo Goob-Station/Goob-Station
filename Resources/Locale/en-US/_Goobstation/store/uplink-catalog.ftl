@@ -86,6 +86,12 @@ uplink-bulk-mosin-desc = 10 WW4-era rifles to arm you, your friends, and your ca
 uplink-whimsy-bundle-name = Syndicate Joy & Whimsy Bundle
 uplink-whimsy-bundle-desc = Do YOU like spreading joy & whimsy? Well, Donk Co. has the solution for you! Contains a LIMITED EDITION axe and enough candy to kill a man.
 
+uplink-m7s-name = M7S
+uplink-m7s-desc = A high capacity but low velocity submachinegun that takes 48 round magazines.
+
+uplink-heavensgate-name = Heaven's gate
+uplink-heavensgate = An old anti tank rifle used by the syndicate's finest. Comes with two types of ammunition, armour piercing for use against infantry and anti-tank for use against structures.
+
 # Ammo
 
 uplink-blast-grenade-name = Blast Grenade
@@ -97,8 +103,8 @@ uplink-frag-grenade-desc = Lower damage, bigger radius. Compatible with the Chin
 uplink-rifle-mag-name = .20 Rifle Magazine
 uplink-rifle-mag-desc = A 25 round magazine containing .20 rifle bullets. Supports the Lecter and M-90.
 
-uplink-rifle-caseless-mag-name = .25 Caseless Rifle Magazine
-uplink-rifle-caseless-mag-desc = A 30 round rifle magazine filled with .25 caseless bullets. Compatible with the WSPR.
+uplink-rifle-caseless-mag-name = 9.5mm Caseless Magnum Magazine
+uplink-rifle-caseless-mag-desc = A 30 round rifle magazine filled with 9.5mm caseless bullets. Compatible with the WSPR.
 
 uplink-caseless-magnum-pistol-mag-minusp-name = 12.7mm Caseless Magnum -P Magazine (Pistol)
 uplink-caseless-magnum-pistol-mag-minusp-desc = 12 rounds of 12.7mm lowered pressure ammunition for better suppression. Compatible with the cobra.
@@ -126,6 +132,15 @@ uplink-high-caliber-box-desc = A box of 30 .50 caliber anti-materiel rounds.
 
 uplink-highcap-pistol-mag-name = High Capacity .35 Pistol Magazine
 uplink-highcap-pistol-mag-desc = High capacity pistol magazine holds 4 extra bullets for a total of 16 rounds.
+
+uplink-m7s-mag-name = M7S .25 magazine
+uplink-m7s-mag-desc = A 48 round .25 rifle magazine, side mounts on the M7S submachinegun
+
+uplink-92-AP-name = box of .92 armour piercing rounds
+uplink-92-AP-desc = 10 .92 armour Piercing rounds for the heaven's gate sniper rifle. effective for anti-infantry use.
+
+uplink-92-AT-name = box of .92 anti-tank rounds
+uplink-92-AT-desc = 10 .92 anti-tank rounds for the heaven's gate sniper rifle. effective for anti-structure use.
 
 # Grenades
 

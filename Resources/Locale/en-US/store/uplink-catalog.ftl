@@ -6,7 +6,7 @@ uplink-revolver-python-name = Python
 uplink-revolver-python-desc = A brutally simple, effective, and loud Syndicate revolver. Comes loaded with armor-piercing rounds. Uses .45 magnum.
 
 uplink-pistol-cobra-name = Cobra
-uplink-pistol-cobra-desc = A rugged, robust operator handgun with inbuilt silencer. Uses pistol magazines (12.7mm caseless magnum).
+uplink-pistol-cobra-desc = A rugged, robust operator handgun with inbuilt silencer. Uses pistol magazines (9.5mm caseless magnum).
 
 uplink-rifle-mosin-name = Surplus Rifle
 uplink-rifle-mosin-desc = A bolt action service rifle that has seen many wars. Not modern by any standard, hand loaded, and terrible recoil, but it is cheap.

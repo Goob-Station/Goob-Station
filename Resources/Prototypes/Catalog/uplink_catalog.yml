@@ -32,7 +32,7 @@
   description: uplink-pistol-cobra-desc
   productEntity: WeaponPistolCobra
   cost:
-    Telecrystal: 15 # goob - this +1 mag = 17 TC
+    Telecrystal: 15 # goob - this +1 mag = 18 TC
   categories:
   - UplinkWeaponry
 
