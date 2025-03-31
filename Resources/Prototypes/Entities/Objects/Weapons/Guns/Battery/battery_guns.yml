@@ -299,9 +299,8 @@
   - type: Battery
     maxCharge: 2000
     startingCharge: 2000
-  # Goobstation
-  - type: Multishot
-  - type: BatterySelfRecharger
+  - type: Multishot # Goobstation
+  - type: BatterySelfRecharger # Goobstation - CentComm Job Revamp
     autoRecharge: true
     autoRechargeRate: 40
 
