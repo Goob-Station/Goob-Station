@@ -14,6 +14,13 @@
     Glass: 500
 
 - type: latheRecipe
+  id: Cane
+  result: Cane
+  completetime: 3
+  materials:
+    Wood: 100
+
+- type: latheRecipe
   id: VehicleHoverchairSci
   result: VehicleHoverchair
   completetime: 5
