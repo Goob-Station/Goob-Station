@@ -18,6 +18,7 @@
   - NanotrasenRepresentativeSatchel
   - NanotrasenRepresentativeBackpack
   - NanotrasenRepresentativeDuffel
+  - NanotrasenRepresentativeMessenger
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeJumpsuit
@@ -59,6 +60,7 @@
   - BlueshieldOfficerBackpack
   - BlueshieldOfficerSatchel
   - BlueshieldOfficerDuffel
+  - BlueshieldOfficerMessenger
 
 - type: loadoutGroup
   id: BlueshieldOfficerJumpsuit

@@ -12,8 +12,30 @@
         type: GatewayBoundUserInterface
   - type: Gateway
     enabled: true
-    tagRestriction: LavalandGateway
+    tagRestriction: LavalandStationGateway
   - type: Tag
     tags:
     - Structure
     - LavalandGateway
+
+- type: entity
+  parent: BaseGateway
+  id: GatewayLavalandStation
+  name: Lavaland gateway
+  description: To hell you go.
+  suffix: Station
+  components:
+  - type: ActivatableUI
+    key: enum.GatewayUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.GatewayUiKey.Key:
+        type: GatewayBoundUserInterface
+  - type: Gateway
+    enabled: true
+    tagRestriction: LavalandGateway
+  - type: Tag
+    tags:
+    - Structure
+    - LavalandStationGateway
+  - type: Anchorable
