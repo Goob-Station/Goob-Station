@@ -1,4 +1,16 @@
 # station
+- type: listing
+  id: NTRExecutiveCrateEVA
+  name: EVA crate
+  description: A crate containing 3 pairs of EVA hardsuits, to keep you and your people alive in a catastrophic situation.
+  productEntity: CrateEvaKit
+  cost:
+    NTLoyaltyPoint: 5
+  categories:
+  - NTRstation
+  restockTime: 300 # if the station is fucked up in 5 minutes, thats unfortunate lol, 5min tho
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 900 # 15min
 
 - type: listing
   id: NTRExecutiveSpesosSmall
@@ -106,6 +118,31 @@
   restockAfterPurchase: 1800 # 30 mins, you dont need two softsuits as NTR, unless you fuck up real bad
 
 # personal
+- type: listing
+  id: NTRInternCall
+  name: Call intern squad
+  description: Calls in a lead intern with special summoning coins, that are calling more interns.
+  productEntity: RadioLeadIntern
+  cost:
+    NTLoyaltyPoint: 75
+  categories:
+  - NTRpersonal
+  #restockTime: 600
+  restockTime: 120 # placeholder
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1 # if ntr wants more intern, he should buy one-at-the-time
+
+- type: listing
+  id: NTRSingleIntern
+  name: Single Intern Coin
+  description: Summons one basic intern.
+  productEntity: InternCoin
+  cost:
+    NTLoyaltyPoint: 25
+  categories:
+  - NTRpersonal
+  restockTime: 300
 
 - type: listing
   id: NTRExecutiveBSDCall
@@ -116,8 +153,7 @@
     NTLoyaltyPoint: 75
   categories:
   - NTRpersonal
-  #restockTime: 1800 # 3o min
-  restockTime: 120 #2 mins
+  restockTime: 1800 # 3o min
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1 # we dont want NTR to buy 3 BSDs in one shift so
@@ -126,7 +162,7 @@
   id: NTRExecutiveHardsuit
   name: ntr-executive-hardsuit-name
   description: ntr-executive-hardsuit-desc
-  productEntity: ClothingOuterHardsuitCombatStandard # PLACEHOLDER, change this to NTR hardsuit
+  productEntity: ClothingOuterHardsuitNanorep
   cost:
     NTLoyaltyPoint: 35
   categories:
@@ -165,14 +201,14 @@
   id: NTRExecutiveGlasses
   name: ntr-executive-glasses-name
   description: ntr-executive-glasses-desc
-  productEntity: ClothingEyesGlassesCentComm
+  productEntity: ClothingEyesGlassesCentCommNoThermal
   cost:
     NTLoyaltyPoint: 1
   categories:
   - NTRpersonal
   restockTime: 120
   resetRestockOnPurchase: true
-  restockAfterPurchase: 120
+  restockAfterPurchase: 600
 
 - type: listing
   id: NTRExecutiveSavalin

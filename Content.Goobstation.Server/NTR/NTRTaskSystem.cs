@@ -23,11 +23,10 @@ using Content.Shared.Access.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Server.Radio.EntitySystems;
 using Content.Shared.Containers.ItemSlots;
-using Content.Goobstation.Shared.NTR;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
-
+// goidacore inside (ru)
 namespace Content.Goobstation.Server.NTR;
 
 public sealed class NTRTaskSystem : EntitySystem

@@ -130,3 +130,27 @@
   - type: FlashSoundSuppression
   - type: SpeechSoundsReplacer
     speechSounds: Chrono # why? its badass.
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitNanorep
+  name: nanorep hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: _Goobstation\Clothing\Head\Helmets\ntr_helmet.rsi
+  - type: Clothing
+    sprite: _Goobstation\Clothing\Head\Helmets\ntr_helmet.rsi
+  - type: PointLight
+    color: green
+  - type: PressureProtection
+    highPressureMultiplier: 0.525
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
