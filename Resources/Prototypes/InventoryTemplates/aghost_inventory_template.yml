@@ -63,7 +63,7 @@
     - name: head
       slotTexture: head
       slotFlags: HEAD
-      uiWindowPos: 0,3
+      uiWindowPos: 0,3 # Goobstation - Moved up slightly
       strippingWindowPos: 0,0
       displayName: Head
     - name: neck # Goobstation - For drip reasons.
