@@ -90,9 +90,6 @@
   description: A highly advanced energy revolver capable of firing various bolts depending on the power cell.
   components:
   - type: Item
-    shape:
-    - 0,0,1,0
-    - 0,1,0,1
     heldPrefix: lethal
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
