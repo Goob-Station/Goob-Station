@@ -1,0 +1,12 @@
+# Linear % increase to damage
+- type: entity
+  parent: BaseEnchant
+  id: EnchantSharpness
+  name: Sharpness
+  components:
+  - type: Enchant
+    whitelist:
+      components:
+      - MeleeWeapon
+    maxLevel: 5
+  # TODO implement

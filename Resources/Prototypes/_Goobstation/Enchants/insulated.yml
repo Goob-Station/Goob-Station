@@ -1,0 +1,31 @@
+# Makes any glove fully insulated
+- type: entity
+  parent: BaseEnchant
+  id: EnchantInsulated
+  name: Insulated
+  components:
+  - type: Enchant
+    whitelist:
+      components:
+      - MobState # insulated mice/hamlet
+      - FingerprintMask # magically insulated fingerless insuls
+    incompatible:
+    - EnchantBudgetInsulated
+  - type: ComponentsEnchant
+    added:
+    - type: Insulated
+    removed:
+    - type: RandomInsulation # make your budgets real
+
+- type: entity
+  parent: EnchantInsulated
+  id: EnchantBudgetInsulated
+  name: Insulated?
+  components:
+  - type: Enchant
+    incompatible:
+    - EnchantInsulated
+    maxLevel: 4
+  - type: ComponentsEnchant
+    removed: null
+  # TODO: change insulation after every shock

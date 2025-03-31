@@ -1,4 +1,5 @@
 using Content.Shared.Gravity;
+using Content.Shared.Inventory; // Goobstation
 using Content.Shared.StepTrigger.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Map.Components;
@@ -259,8 +260,9 @@ public sealed class StepTriggerSystem : EntitySystem
 }
 
 [ByRefEvent]
-public struct StepTriggerAttemptEvent
+public struct StepTriggerAttemptEvent : IInventoryRelayEvent // Goobstation
 {
+    SlotFlags IInventoryRelayEvent.TargetSlots => SlotFlags.FEET | SlotFlags.OUTERCLOTHING; // Goobstation
     public EntityUid Source;
     public EntityUid Tripper;
     public bool Continue;
