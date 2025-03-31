@@ -116,7 +116,7 @@
     burstCooldown: 0.8
     shotsPerBurst: 4
     fireRate: 6.5
-    projectileSpeed: 35
+    projectileSpeed: 40
     soundGunshot:
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/thock.ogg
   - type: ChamberMagazineAmmoProvider

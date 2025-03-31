@@ -87,8 +87,8 @@
     capacity: 5
     proto: CartridgeAntiMateriel
   - type: SpeedModifiedOnWield
-    walkModifier: 0.25
-    sprintModifier: 0.25
+    walkModifier: 0.9 # goob edit V
+    sprintModifier: 0.9 # goob edit ^
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
     maxOffset: 3

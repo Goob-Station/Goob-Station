@@ -2,7 +2,7 @@
   name: Chester
   parent: [ BaseWeaponRifle, BaseGunWieldable, BaseCentcommContraband ]
   id: WeaponLeverChester
-  description: An improved lever-action rifle designed to fire specialized .75 gauge ammunition for rapid threat removal.
+  description: An improved lever-action rifle designed to fire specialized 8 Gauge ammunition for rapid threat removal.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi
