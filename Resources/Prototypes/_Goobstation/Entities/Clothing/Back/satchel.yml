@@ -1,7 +1,7 @@
 - type: entity
-  parent: ClothingBackpackSatchel
-  id: ClothingBackpackSatchelNanorep
-  name: Nanotrasen Representative Satchel
+  parent: [ BaseCentcommContraband , ClothingBackpackSatchel ]
+  id: ClothingBackpackSatchelCentcomm
+  name: centcomm satchel
   description: An expensive dark green backpack. Smells like fax machines.
   components:
   - type: Sprite
