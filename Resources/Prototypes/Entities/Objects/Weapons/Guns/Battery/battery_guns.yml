@@ -703,9 +703,7 @@
   description: An experimental high-energy laser pistol with a self-charging nuclear battery.
   components:
   - type: Item
-    size: Normal  # Intentionally larger than other pistols
-    shape: # Goobstation
-    - 0,0,1,1
+    # size: Normal  # Intentionally larger than other pistols # Goobstation - no fuck you
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/advancedlasergun.rsi
     layers:
