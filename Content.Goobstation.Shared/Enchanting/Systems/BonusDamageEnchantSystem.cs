@@ -1,7 +1,6 @@
 using Content.Goobstation.Shared.Enchanting.Components;
-using Content.Shared.Atmos;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Temperature;
+using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Goobstation.Shared.Enchanting.Systems;
 

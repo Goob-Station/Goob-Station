@@ -17,6 +17,7 @@
     removed:
     - type: RandomInsulation # make your budgets real
 
+# Random insulation value for every time you get shocked
 - type: entity
   parent: EnchantInsulated
   id: EnchantBudgetInsulated
@@ -27,5 +28,8 @@
     - EnchantInsulated
     maxLevel: 4
   - type: ComponentsEnchant
-    removed: null
-  # TODO: change insulation after every shock
+    added: null
+    removed: # replaced by event
+    - type: Insulated
+    - type: RandomInsulation
+  - type: BudgetInsulatedEnchant

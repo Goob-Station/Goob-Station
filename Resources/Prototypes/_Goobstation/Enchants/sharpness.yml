@@ -9,7 +9,7 @@
       components:
       - MeleeWeapon
     maxLevel: 5
-  - type: BonusDamage
+  - type: BonusDamageEnchant
     damage:
       types:
         Slash: 5 # 25 extra damage at V

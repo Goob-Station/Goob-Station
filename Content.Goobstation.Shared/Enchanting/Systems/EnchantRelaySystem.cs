@@ -1,6 +1,7 @@
 using Content.Goobstation.Shared.Enchanting.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Damage;
+using Content.Shared.Electrocution;
 using Content.Shared.Inventory;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Temperature;
@@ -25,6 +26,7 @@ public sealed class EnchantRelaySystem : EntitySystem
         SubInventory<StepTriggerAttemptEvent>(true);
         SubInventory<GetFireProtectionEvent>();
         SubInventory<ModifyChangedTemperatureEvent>();
+        SubInventory<ElectrocutionAttemptEvent>();
     }
 
     private void SubInventory<T>(bool relayInventory = false) where T: IInventoryRelayEvent
