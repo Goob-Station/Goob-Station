@@ -360,3 +360,11 @@
       path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
     soundNoDamage:
       path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+  - type: GibThisGuy # Death to myself. It'd be funny.
+    requireBoth: false
+    icNames:
+    - Audrey White
+    - Aubrey White
+    ocNames:
+    - rosef
+    - SolsticeOfTheWinter
