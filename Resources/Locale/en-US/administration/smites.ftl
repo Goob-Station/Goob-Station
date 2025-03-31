@@ -38,6 +38,7 @@ admin-smite-reptilian-species-swap-name = Become Reptilian
 admin-smite-locker-stuff-name = Locker Stuff
 admin-smite-headstand-name = Headstand
 admin-smite-become-mouse-name = Become Mouse
+admin-smite-become-carp-name = Become Carp
 admin-smite-maid-name = Cat Maid
 admin-smite-zoom-in-name = Zoom In
 admin-smite-flip-eye-name = Flip Eye
@@ -101,6 +102,7 @@ admin-smite-super-bonk-lite-description= Slams them on every single table on the
 admin-smite-terminate-description = Creates a Terminator ghost role with the sole objective of killing them.
 admin-smite-super-slip-description = Slips them really, really hard.
 admin-smite-omni-accent-description = Makes the target speak with almost every accent available.
+admin-smite-become-carp-description = They become a carp! Damn you rosef...
 
 ## Tricks descriptions
 
