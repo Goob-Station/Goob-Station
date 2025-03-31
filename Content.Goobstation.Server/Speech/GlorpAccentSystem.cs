@@ -15,7 +15,7 @@ public sealed class GlorpAccentSystem : EntitySystem
     {
         "discrimination", "inferior", "surgery", "probing", "neanderthal", "animal",
         "tool", "heart", "zoo", "subject", "organ", "skill", "issue", "extract", "remove", "eyes",
-        "sleep", "bruh", "skibidi", "ohio", "brazil", "shitsec", "silly", "yippee"
+        "sleep", "bruh", "skibidi", "ohio", "brazil", "shitsec", "silly", "yippee", "bald"
     };
     private static readonly Regex WordRegex = new(@"\b\w+\b", RegexOptions.IgnoreCase);
 
