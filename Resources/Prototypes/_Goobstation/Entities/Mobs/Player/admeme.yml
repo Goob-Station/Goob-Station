@@ -352,6 +352,8 @@
     - BypassInteractionRangeChecks
     - BypassDropChecks
     - NoConsoleSound
+    - FootstepSound
+    - DoorBumpOpener
   - type: Puller
     needsHands: false
   - type: Thieving
