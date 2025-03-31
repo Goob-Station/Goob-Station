@@ -36,7 +36,7 @@ public sealed class FortuneEnchantSystem : EntitySystem
 
     private void SetChance(Entity<FortuneEnchantComponent> ent, int level)
     {
-        ent.Comp.Chance = 1f + ent.Comp.ChancePerLevel * (float) level;
+        ent.Comp.Chance = 1f + ent.Comp.BaseChance * (float) level;
     }
 
     private void OnMeleeHit(Entity<FortuneEnchantComponent> ent, ref MeleeHitEvent args)
