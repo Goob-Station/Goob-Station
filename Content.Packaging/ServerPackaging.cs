@@ -177,7 +177,7 @@ public static class ServerPackaging
         {
             var dirName = Path.GetFileName(dir);
 
-            if ((dirName.EndsWith(".Server") || dirName.EndsWith(".Shared")) &&
+            if ((dirName.EndsWith(".Server") || dirName.EndsWith(".Shared")) && dirName.EndsWith(".Common") &&
                 !modules.Contains(dirName))
             {
                 var projectPath = Path.Combine(dir, $"{dirName}.csproj");
