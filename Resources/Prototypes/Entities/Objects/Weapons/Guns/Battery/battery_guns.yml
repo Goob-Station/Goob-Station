@@ -253,7 +253,7 @@
   - type: Item
     size: Large
     shape:
-    - 0,0,4,1
+    - 0,0,2,1
 
 - type: entity
   name: laser rifle
@@ -348,7 +348,7 @@
   - type: Item
     size: Huge
     shape:
-    - 0,0,5,1
+    - 0,0,4,1
 
 - type: entity
   name: pulse rifle
@@ -388,7 +388,7 @@
   - type: Item
     size: Huge
     shape:
-    - 0,0,5,2
+    - 0,0,5,1
 
 - type: entity
   name: laser cannon
@@ -425,7 +425,7 @@
   - type: Item
     size: Huge
     shape:
-    - 0,0,5,1
+    - 0,0,4,1
 
 - type: entity
   name: portable particle decelerator
@@ -500,7 +500,7 @@
   - type: Item
     size: Huge
     shape:
-    - 0,0,5,1
+    - 0,0,4,1
 
 - type: entity
   name: practice disabler
