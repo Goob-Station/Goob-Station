@@ -69,6 +69,7 @@ public sealed class FishingOverlay : Overlay
         {
             // Skip if the entity is not on the current map, has invalid progress, or is not the local player
             if (xform.MapID != args.MapId ||
+                comp.TotalProgress == null ||
                 comp.TotalProgress < 0 ||
                 uid != localEnt)
                 continue;
@@ -94,7 +95,7 @@ public sealed class FishingOverlay : Overlay
             handle.DrawTextureRect(_barTexture, new Box2(position, position + scaledTextureSize));
 
             // Calculate progress and clamp it to [0, 1]
-            var progress = Math.Clamp(comp.TotalProgress, 0f, 1f);
+            var progress = Math.Clamp(comp.TotalProgress.Value, 0f, 1f);
 
             // Calculate the fill height based on progress
             var startYPixel = scaledTextureSize.Y * StartYFraction;

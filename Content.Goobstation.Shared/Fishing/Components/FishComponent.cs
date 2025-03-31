@@ -6,8 +6,8 @@
 [RegisterComponent]
 public sealed partial class FishComponent : Component
 {
-    public const float DefaultDifficulty = -0.06f;
-    public const float DefaultDifficultyVariety = 0.016f;
+    public const float DefaultDifficulty = 0.07f;
+    public const float DefaultDifficultyVariety = 0.02f;
 
     [DataField]
     public float FishDifficulty = DefaultDifficulty;

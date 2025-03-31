@@ -75,37 +75,15 @@ public abstract class SharedFishingSystem : EntitySystem
             var fishRod = fisherComp.FishingRod;
             var fishSpot = fishingFloatComp.AttachedEntity.Value;
 
-            if (fisherComp.StartTime == null || fisherComp.EndTime == null)
-            {
-                fisherComp.StartTime = currentTime;
-                fisherComp.EndTime = currentTime + TimeSpan.FromSeconds(1f / Math.Abs(activeSpotComp.FishDifficulty));
-            }
-
-            // Calculate progress
-            if (fisherComp.StartTime != null && fisherComp.EndTime != null)
-            {
-                var elapsedTime = currentTime - fisherComp.StartTime;
-                var totalDuration = fisherComp.EndTime - fisherComp.StartTime;
-
-                // TODO: Implement proper client/server synchronization
-                // This is a temporary solution to account for network latency
-                // P.S. Wow, coderabbit actually knows code better than me
-                if (Timing.InPrediction)
-                {
-                    // Add a small adjustment based on difficulty to compensate for network delay
-                    var compensationFactor = 0.5f;
-                    totalDuration += TimeSpan.FromSeconds(1f / Math.Max(0.01f, Math.Abs(activeSpotComp.FishDifficulty)) * compensationFactor * fishingRodComp.Efficiency);
-                }
-
-                fisherComp.TotalProgress = (float) (elapsedTime.Value.TotalSeconds / totalDuration.Value.TotalSeconds);
-            }
-
             if (!_hands.IsHolding(fisher, fishRod))
             {
-                _popup.PopupEntity(Loc.GetString("fishing-progress-lost-rod", ("ent", Name(fishRod))), fisher, fisher);
+                _popup.PopupPredicted(Loc.GetString("fishing-progress-lost-rod", ("ent", Name(fishRod))), fisher, fisher);
                 StopFishing((fishRod, fishingRodComp), fisher, fishSpot);
                 continue;
             }
+
+            fisherComp.TotalProgress ??= 0.5f;
+            fisherComp.NextStruggle ??= Timing.CurTime + TimeSpan.FromSeconds(0.5f);
 
             // Fish fighting logic
             CalculateFightingTimings(fisherComp, activeSpotComp);
@@ -155,6 +133,8 @@ public abstract class SharedFishingSystem : EntitySystem
             var activeFisher = EnsureComp<ActiveFisherComponent>(fisher);
             activeFisher.FishingRod = fishRod;
             activeFisher.ProgressPerUse *= fishRodComp.Efficiency;
+            activeFisher.TotalProgress = 0.5f;
+            activeFisher.NextStruggle = Timing.CurTime + TimeSpan.FromSeconds(0.5f);
 
             _popup.PopupPredicted(Loc.GetString("fishing-progress-start"), fisher, fisher);
             activeSpotComp.IsActive = true;
@@ -208,31 +188,22 @@ public abstract class SharedFishingSystem : EntitySystem
 
     private void CalculateFightingTimings(ActiveFisherComponent fisherComp, ActiveFishingSpotComponent activeSpotComp)
     {
-        if (!Timing.IsFirstTimePredicted)
+        var rand = new Random((int) Timing.CurTick.Value);
+
+        if (Timing.CurTime < fisherComp.NextStruggle)
             return;
 
-        // Dividing by zero is bad.
-        if (Math.Abs(activeSpotComp.FishDifficulty) == 0f)
-            return;
+        fisherComp.NextStruggle = Timing.CurTime + TimeSpan.FromSeconds(rand.NextFloat(0.2f, 0.6f));
 
-        var rand = new System.Random((int) Timing.CurTick.Value);
-
-        if (fisherComp.StartTime + TimeSpan.FromSeconds(1f) <= Timing.CurTime && fisherComp.NextStruggle == null)
-            fisherComp.NextStruggle = Timing.CurTime + TimeSpan.FromSeconds(rand.NextFloat(0.5f, 10) * activeSpotComp.FishDifficulty);
-
-        if (fisherComp.NextStruggle != null && fisherComp.NextStruggle <= Timing.CurTime)
-        {
-            fisherComp.EndTime += TimeSpan.FromSeconds(rand.NextFloat(0, 0.01f) / Math.Abs(activeSpotComp.FishDifficulty));
-            fisherComp.NextStruggle = Timing.CurTime + TimeSpan.FromSeconds(rand.NextFloat(0.1f, 1) * activeSpotComp.FishDifficulty);
-        }
+        fisherComp.TotalProgress -= activeSpotComp.FishDifficulty;
     }
 
     private void OnFishingInteract(EntityUid uid, FishingRodComponent component, UseInHandEvent args)
     {
-        if (!FisherQuery.TryComp(args.User, out var fisherComp) || fisherComp.EndTime == null || args.Handled || !Timing.IsFirstTimePredicted)
+        if (!FisherQuery.TryComp(args.User, out var fisherComp) || fisherComp.TotalProgress == null || args.Handled || !Timing.IsFirstTimePredicted)
             return;
 
-        fisherComp.EndTime -= TimeSpan.FromSeconds(fisherComp.ProgressPerUse * component.Efficiency);
+        fisherComp.TotalProgress += fisherComp.ProgressPerUse * component.Efficiency;
         args.Handled = true;
     }
 
@@ -292,7 +263,7 @@ public abstract class SharedFishingSystem : EntitySystem
             var attachedEnt = lureComp.AttachedEntity.Value;
             var targetCoords = Xform.GetMapCoordinates(Transform(attachedEnt));
             var playerCoords = Xform.GetMapCoordinates(Transform(player));
-            var rand = new System.Random((int) Timing.CurTick.Value); // evil random prediction hack
+            var rand = new Random((int) Timing.CurTick.Value); // evil random prediction hack
 
             // Calculate throw direction
             var direction = (playerCoords.Position - targetCoords.Position) * rand.NextFloat(0.2f, 0.85f);
