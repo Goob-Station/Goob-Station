@@ -118,6 +118,7 @@
       damageModifierSet: BlobMob
     - type: Tag
       tags:
+        - Blobbernaut
         - BlobMob
         - BlobMind
     - type: CollectiveMind
