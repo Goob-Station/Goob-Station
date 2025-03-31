@@ -1,7 +1,6 @@
 ﻿using Content.Goobstation.Shared.Fishing.Components;
 using Content.Goobstation.Shared.Fishing.Events;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Content.Shared.Throwing;
 using Robust.Shared.Player;
@@ -43,8 +42,6 @@ public abstract class SharedFishingSystem : EntitySystem
 
         SubscribeLocalEvent<FishingRodComponent, MapInitEvent>(OnFishingRodInit);
         SubscribeLocalEvent<FishingRodComponent, GetItemActionsEvent>(OnGetActions);
-
-        SubscribeLocalEvent<FishingRodComponent, UseInHandEvent>(OnFishingInteract);
         SubscribeLocalEvent<FishingRodComponent, ThrowFishingLureActionEvent>(OnThrowFloat);
         SubscribeLocalEvent<FishingRodComponent, PullFishingLureActionEvent>(OnPullFloat);
     }
@@ -77,7 +74,7 @@ public abstract class SharedFishingSystem : EntitySystem
 
             if (!_hands.IsHolding(fisher, fishRod))
             {
-                _popup.PopupPredicted(Loc.GetString("fishing-progress-lost-rod", ("ent", Name(fishRod))), fisher, fisher);
+                _popup.PopupEntity(Loc.GetString("fishing-progress-lost-rod", ("ent", Name(fishRod))), fisher, fisher);
                 StopFishing((fishRod, fishingRodComp), fisher, fishSpot);
                 continue;
             }
@@ -86,7 +83,7 @@ public abstract class SharedFishingSystem : EntitySystem
             fisherComp.NextStruggle ??= Timing.CurTime + TimeSpan.FromSeconds(0.5f);
 
             // Fish fighting logic
-            CalculateFightingTimings(fisherComp, activeSpotComp);
+            CalculateFightingTimings((fisher ,fisherComp), activeSpotComp);
 
             if (fisherComp.TotalProgress < 0f)
             {
@@ -101,7 +98,7 @@ public abstract class SharedFishingSystem : EntitySystem
                 if (activeSpotComp.Fish != null)
                 {
                     ThrowFishReward(activeSpotComp.Fish.Value, fishSpot, fisher);
-                    _popup.PopupPredicted(Loc.GetString("fishing-progress-success"), fisher, fisher);
+                    _popup.PopupEntity(Loc.GetString("fishing-progress-success"), fisher, fisher);
                 }
 
                 StopFishing((fishRod, fishingRodComp), fisher, fishSpot);
@@ -133,10 +130,10 @@ public abstract class SharedFishingSystem : EntitySystem
             var activeFisher = EnsureComp<ActiveFisherComponent>(fisher);
             activeFisher.FishingRod = fishRod;
             activeFisher.ProgressPerUse *= fishRodComp.Efficiency;
-            activeFisher.TotalProgress = 0.5f;
-            activeFisher.NextStruggle = Timing.CurTime + TimeSpan.FromSeconds(0.5f);
+            activeFisher.TotalProgress = fishRodComp.StartingProgress;
+            activeFisher.NextStruggle = Timing.CurTime + TimeSpan.FromSeconds(0.3f); // Compensate ping for 0.3 seconds
 
-            _popup.PopupPredicted(Loc.GetString("fishing-progress-start"), fisher, fisher);
+            _popup.PopupEntity(Loc.GetString("fishing-progress-start"), fisher, fisher);
             activeSpotComp.IsActive = true;
         }
 
@@ -186,26 +183,7 @@ public abstract class SharedFishingSystem : EntitySystem
         }
     }
 
-    private void CalculateFightingTimings(ActiveFisherComponent fisherComp, ActiveFishingSpotComponent activeSpotComp)
-    {
-        var rand = new Random((int) Timing.CurTick.Value);
-
-        if (Timing.CurTime < fisherComp.NextStruggle)
-            return;
-
-        fisherComp.NextStruggle = Timing.CurTime + TimeSpan.FromSeconds(rand.NextFloat(0.2f, 0.6f));
-
-        fisherComp.TotalProgress -= activeSpotComp.FishDifficulty;
-    }
-
-    private void OnFishingInteract(EntityUid uid, FishingRodComponent component, UseInHandEvent args)
-    {
-        if (!FisherQuery.TryComp(args.User, out var fisherComp) || fisherComp.TotalProgress == null || args.Handled || !Timing.IsFirstTimePredicted)
-            return;
-
-        fisherComp.TotalProgress += fisherComp.ProgressPerUse * component.Efficiency;
-        args.Handled = true;
-    }
+    protected abstract void CalculateFightingTimings(Entity<ActiveFisherComponent> fisher, ActiveFishingSpotComponent activeSpotComp);
 
     private void OnThrowFloat(Entity<FishingRodComponent> ent, ref ThrowFishingLureActionEvent args)
     {

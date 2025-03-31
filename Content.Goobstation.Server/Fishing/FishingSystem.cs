@@ -2,6 +2,7 @@
 using System.Numerics;
 using Content.Goobstation.Shared.Fishing.Components;
 using Content.Goobstation.Shared.Fishing.Systems;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Physics;
@@ -28,6 +29,18 @@ public sealed class FishingSystem : SharedFishingSystem
         base.Initialize();
 
         SubscribeLocalEvent<FishingLureComponent, StartCollideEvent>(OnFloatCollide);
+        SubscribeLocalEvent<FishingRodComponent, UseInHandEvent>(OnFishingInteract);
+    }
+
+    private void OnFishingInteract(EntityUid uid, FishingRodComponent component, UseInHandEvent args)
+    {
+        if (!FisherQuery.TryComp(args.User, out var fisherComp) || fisherComp.TotalProgress == null || args.Handled || !Timing.IsFirstTimePredicted)
+            return;
+
+        fisherComp.TotalProgress += fisherComp.ProgressPerUse * component.Efficiency;
+        Dirty(args.User, fisherComp); // That's a bit evil, but we want to keep numbers real.
+
+        args.Handled = true;
     }
 
     private void OnFloatCollide(Entity<FishingLureComponent> ent, ref StartCollideEvent args)
@@ -56,13 +69,11 @@ public sealed class FishingSystem : SharedFishingSystem
 
         // Get fish difficulty
         _proto.Index(fish).TryGetComponent(out FishComponent? fishComp, _compFactory);
-        var difficulty = fishComp?.FishDifficulty ?? FishComponent.DefaultDifficulty;
-        var variety = fishComp?.FishDifficultyVarirty ?? FishComponent.DefaultDifficultyVariety;
 
         // Assign things that depend on the fish
         var activeFishSpot = EnsureComp<ActiveFishingSpotComponent>(attachedEnt);
         activeFishSpot.Fish = fish;
-        activeFishSpot.FishDifficulty = difficulty + _random.NextFloat(-variety, variety);
+        activeFishSpot.FishDifficulty = fishComp?.FishDifficulty ?? FishComponent.DefaultDifficulty;
 
         // Assign things that depend on the spot
         var time = spotComp.FishDefaultTimer + _random.NextFloat(-spotComp.FishTimerVariety, spotComp.FishTimerVariety);
@@ -137,5 +148,15 @@ public sealed class FishingSystem : SharedFishingSystem
         direction *= distance / length;
 
         Throwing.TryThrow(fish, direction, 7f);
+    }
+
+    protected override void CalculateFightingTimings(Entity<ActiveFisherComponent> fisher, ActiveFishingSpotComponent activeSpotComp)
+    {
+        if (Timing.CurTime < fisher.Comp.NextStruggle)
+            return;
+
+        fisher.Comp.NextStruggle = Timing.CurTime + TimeSpan.FromSeconds(_random.NextFloat(0.06f, 0.18f));
+        fisher.Comp.TotalProgress -= activeSpotComp.FishDifficulty;
+        Dirty(fisher);
     }
 }

@@ -1,5 +1,4 @@
-﻿using Content.Client.DoAfter;
-using Content.Goobstation.Client.Fishing.Overlays;
+﻿using Content.Goobstation.Client.Fishing.Overlays;
 using Content.Goobstation.Shared.Fishing.Components;
 using Content.Goobstation.Shared.Fishing.Systems;
 using Robust.Client.Graphics;
@@ -31,4 +30,7 @@ public sealed class FishingSystem : SharedFishingSystem
 
     // Does nothing on client, because can't delete entities in prediction
     protected override void ThrowFishReward(EntProtoId fishId, EntityUid fishSpot, EntityUid target) {}
+
+    // Does nothing on client, because NUKE ALL PREDICTION!!!! (UseInHands event sometimes gets declined on Server side, and it desyncs, so we can't predict that sadly.
+    protected override void CalculateFightingTimings(Entity<ActiveFisherComponent> fisher, ActiveFishingSpotComponent activeSpotComp) {}
 }

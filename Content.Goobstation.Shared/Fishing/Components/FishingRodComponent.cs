@@ -15,6 +15,12 @@ public sealed partial class FishingRodComponent : Component
     public float Efficiency = 1f;
 
     /// <summary>
+    /// At what progress fishing starts.
+    /// </summary>
+    [DataField]
+    public float StartingProgress = 0.33f;
+
+    /// <summary>
     /// If lure moves bigger than this distance away from the rod,
     /// it will force it to reel instantly.
     /// </summary>
