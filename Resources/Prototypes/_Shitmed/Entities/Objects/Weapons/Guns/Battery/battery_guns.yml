@@ -49,3 +49,6 @@
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDeclone
     fireCost: 100
+  - type: Item
+    shape:
+    - 0,0,5,1

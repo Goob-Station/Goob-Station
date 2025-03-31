@@ -249,11 +249,8 @@
   - type: StaticPrice
     price: 300
   - type: PacifismAllowedGun
-  # Goobstation
-  - type: Item
+  - type: Item # Goobstation
     size: Large
-    shape:
-    - 0,0,2,1
 
 - type: entity
   name: laser rifle
