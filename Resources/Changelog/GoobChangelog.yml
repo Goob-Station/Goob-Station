@@ -6914,3 +6914,9 @@ Entries:
       message: Added new messenger bags, go check your loadout or the nearest vendor.
   id: 801
   time: '2025-03-31T04:44:03.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Laser rifles huge (4x4) -> large (4x2).
+  id: 802
+  time: '2025-03-31T04:44:58.0000000+00:00'
