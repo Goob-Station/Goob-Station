@@ -47,10 +47,10 @@
     id: HoSPDA
     gloves: ClothingHandsGlovesCombat
     ears: ClothingHeadsetAltSecurity
-    pocket1: WeaponPistolMk58
+    pocket1: WeaponPistolN1984 # Goobstation
   storage:
     back:
     - Flash
-    - MagazinePistol
+    - MagazineMagnum # Goobstation
     - SecHypo # Goobstation
     - ClothingMaskGasSecurity # Goobstation
