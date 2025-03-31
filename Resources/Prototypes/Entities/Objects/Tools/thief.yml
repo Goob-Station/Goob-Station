@@ -46,7 +46,7 @@
 
 - type: entity
   id: ToolboxThief
-  name: thief undetermined toolbox
+  name: undetermined thieving toolbox
   description: This is where your favorite thief's supplies lie. Try to remember which ones.
   parent: [ BaseItem, BaseSetSelector, BaseMinorContraband ] # Goobstation edit
   components:
@@ -88,14 +88,14 @@
   description: This is where your favorite thief's supplies lie. Folded for your convenience.
   parent: ToolboxThief
   components:
-    - type: Sprite
-      sprite:  Clothing/Back/Satchels/satchel.rsi # Clothing/Back/Satchels/smuggler.rsi # Goobstation - uncomment when this is merged from upstream
-      state: folded
-    - type: Item
-      storedRotation: 90
+  - type: Sprite
+    sprite: Clothing/Back/Satchels/smuggler.rsi
+    state: folded
+  - type: Item
+    storedRotation: 90
+  - type: SetSelector # Goobstation
+    spawnedStoragePrototype: ClothingBackpackSatchelSmugglerUnanchored
     # Goobstation
-    - type: SetSelector
-      spawnedStoragePrototype: ClothingSatchelSmuggler # ClothingBackpackSatchelSmugglerUnanchored
-      spawnedStorageContainer: storagebase
-      approveSound:
-        collection: storageRustle
+    spawnedStorageContainer: storagebase
+    approveSound:
+      collection: storageRustle

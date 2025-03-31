@@ -33,7 +33,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Thief.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Item;
+using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Thief;
 using Robust.Server.GameObjects;
 using Robust.Server.Audio;
@@ -51,6 +53,8 @@ public sealed class ThiefUndeterminedBackpackSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly SharedStorageSystem _storage = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
 
     public override void Initialize()
     {
@@ -71,6 +75,10 @@ public sealed class ThiefUndeterminedBackpackSystem : EntitySystem
         if (backpack.Comp.SelectedSets.Count != backpack.Comp.MaxSelectedSets)
             return;
 
+        EntityUid? spawnedStorage = null;
+        if (backpack.Comp.SpawnedStoragePrototype != null)
+            spawnedStorage = Spawn(backpack.Comp.SpawnedStoragePrototype, _transform.GetMapCoordinates(backpack.Owner));
+
         foreach (var i in backpack.Comp.SelectedSets)
         {
             var set = _proto.Index(backpack.Comp.PossibleSets[i]);
@@ -78,10 +86,20 @@ public sealed class ThiefUndeterminedBackpackSystem : EntitySystem
             {
                 var ent = Spawn(item, _transform.GetMapCoordinates(backpack.Owner));
                 if (TryComp<ItemComponent>(ent, out var itemComponent))
-                    _transform.DropNextTo(ent, backpack.Owner);
+                {
+                    if (spawnedStorage != null)
+                        _storage.Insert(spawnedStorage.Value, ent, out _, playSound: false);
+                    else
+                        _transform.DropNextTo(ent, backpack.Owner);
+                }
             }
         }
-        _audio.PlayPvs(backpack.Comp.ApproveSound, backpack.Owner);
+
+        if (spawnedStorage != null)
+            _hands.TryPickupAnyHand(args.Actor, spawnedStorage.Value);
+
+        // Play the sound on coordinates of the backpack/toolbox. The reason being, since we immediately delete it, the sound gets deleted alongside it.
+        _audio.PlayPvs(backpack.Comp.ApproveSound, Transform(backpack.Owner).Coordinates);
         QueueDel(backpack);
     }
     private void OnChangeSet(Entity<ThiefUndeterminedBackpackComponent> backpack, ref ThiefBackpackChangeSetMessage args)
