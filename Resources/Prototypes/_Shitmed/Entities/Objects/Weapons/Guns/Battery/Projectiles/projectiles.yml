@@ -59,7 +59,7 @@
   - type: Projectile
     damage:
       types:
-        Shock: 20
-        Cellular: 10
+        Shock: 25
+        Cellular: 5
     soundHit:
       collection: MeatLaserImpact
