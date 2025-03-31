@@ -62,11 +62,9 @@ public abstract class SharedFishingSystem : EntitySystem
         while (activeFishers.MoveNext(out var fisher, out var fisherComp))
         {
             // Get fishing rod, then float, then spot... ReCurse.
-            if (!FishRodQuery.TryComp(fisherComp.FishingRod, out var fishingRodComp))
-                continue;
-            if (!FishLureQuery.TryComp(fishingRodComp.FishingLure, out var fishingFloatComp))
-                continue;
-            if (!ActiveFishSpotQuery.TryComp(fishingFloatComp.AttachedEntity, out var activeSpotComp))
+            if (!FishRodQuery.TryComp(fisherComp.FishingRod, out var fishingRodComp) ||
+                !FishLureQuery.TryComp(fishingRodComp.FishingLure, out var fishingFloatComp) ||
+                !ActiveFishSpotQuery.TryComp(fishingFloatComp.AttachedEntity, out var activeSpotComp))
                 continue;
 
             var fishRod = fisherComp.FishingRod;
