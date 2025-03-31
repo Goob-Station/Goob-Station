@@ -40,6 +40,11 @@
   equipment:
     back: ClothingBackpackSatchelCentcomm
 
+- type: loadout
+  id: NanotrasenRepresentativeMessenger
+  equipment:
+    back: ClothingBackpackMessengerCentcomm
+
 # Jumpsuits
 - type: loadout
   id: NanotrasenRepresentativeJumpsuit
