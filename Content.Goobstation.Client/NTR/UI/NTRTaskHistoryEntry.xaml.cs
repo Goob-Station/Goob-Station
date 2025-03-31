@@ -24,7 +24,6 @@ public sealed partial class NtrTaskHistoryEntry : BoxContainer
         foreach (var entry in taskPrototype.Entries)
         {
             items.Add(Loc.GetString("bounty-console-manifest-entry",
-                ("amount", entry.Amount),
                 ("item", Loc.GetString(entry.Name))));
         }
 

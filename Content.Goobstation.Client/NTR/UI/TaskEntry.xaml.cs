@@ -38,7 +38,6 @@ public sealed partial class TaskEntry : BoxContainer
         foreach (var entry in taskPrototype.Entries)
         {
             items.Add(Loc.GetString("bounty-console-manifest-entry",
-                ("amount", entry.Amount),
                 ("item", Loc.GetString(entry.Name))));
         }
         ManifestLabel.SetMarkup(Loc.GetString("bounty-console-manifest-label", ("item", string.Join(", ", items))));

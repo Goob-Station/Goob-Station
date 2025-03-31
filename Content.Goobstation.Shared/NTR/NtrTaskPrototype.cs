@@ -11,6 +11,9 @@ namespace Content.Goobstation.Shared.NTR;
 [Prototype, Serializable, NetSerializable]
 public sealed class NtrTaskPrototype : IPrototype
 {
+    [DataField]
+    public string Proto { get; init; } = default!;
+
     /// <inheritdoc/>
     [IdDataField]
     public string ID { get; private set; } = default!;
@@ -43,6 +46,9 @@ public sealed class NtrTaskPrototype : IPrototype
 [DataDefinition, Serializable, NetSerializable]
 public readonly partial record struct NtrTaskItemEntry()
 {
+    [DataField]
+    public List<string> Stamps { get; init; } = default!;
+
     /// <summary>
     /// A whitelist for determining what items satisfy the entry.
     /// </summary>

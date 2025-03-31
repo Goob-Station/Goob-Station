@@ -1,4 +1,5 @@
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -6,7 +7,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 
 namespace Content.Goobstation.Shared.NTR;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class NtrTaskProviderComponent : Component
 {
     /// <summary>

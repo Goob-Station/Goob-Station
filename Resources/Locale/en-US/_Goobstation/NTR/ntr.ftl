@@ -78,3 +78,8 @@ ntr-executive-tier-1-name = Station
 ntr-executive-tier-2-name = Response teams
 ntr-executive-tier-3-name = Personal
 ntr-executive-tier-4-name = Evil
+
+# insert attempt in console
+ntr-console-insert-deny = Wrong!
+ntr-console-insert-accept = Correct!
+

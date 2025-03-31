@@ -3,6 +3,7 @@ using Content.Shared.Paper;    //ammount of times this whole system was re-done:
 using Content.Shared.StoryGen; //ammount of hours wasted trying to understand papersystem: 29
 using Robust.Shared.Random;    //skill issue.
 using System.Linq;
+using Content.Goobstation.Shared.NTR;
 using Robust.Shared.GameStates;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
@@ -41,39 +42,46 @@ namespace Content.Goobstation.Server.NTR.Documents
                 _ => "service-document-text" // if not specified, use service
             };
 
-            var curDate = DateTime.Now.AddYears(1000); //lore?
-            var dateString = curDate.ToString("dd.MM.yyyy");
             var args = type switch
             {
-                RandomDocumentComponent.DocumentType.Security => GetSecurityArgs(dateString),
-                RandomDocumentComponent.DocumentType.Cargo => GetCargoArgs(dateString),
-                RandomDocumentComponent.DocumentType.Medical => GetMedicalArgs(dateString),
-                RandomDocumentComponent.DocumentType.Engineering => GetEngineeringArgs(dateString),
-                RandomDocumentComponent.DocumentType.Science => GetScienceArgs(dateString),
-                _ => GetServiceArgs(dateString)
+                RandomDocumentComponent.DocumentType.Security => GetSecurityArgs(),
+                RandomDocumentComponent.DocumentType.Cargo => GetCargoArgs(),
+                RandomDocumentComponent.DocumentType.Medical => GetMedicalArgs(),
+                RandomDocumentComponent.DocumentType.Engineering => GetEngineeringArgs(),
+                RandomDocumentComponent.DocumentType.Science => GetScienceArgs(),
+                _ => GetServiceArgs()
             };
 
             var result = _loc.GetString(template, args);
             return result;
         }
-        private (string, object)[] GetServiceArgs(string date)
+
+        private (string, object)[] GetBaseArgs(string prefix)
         {
             return new (string, object)[]
             {
-                ("start", _loc.GetString("service-starting-text", ("date", date))),
+                ("start", _loc.GetString($"{prefix}-starting-text"))
+            };
+        }
+
+        private (string, object)[] GetServiceArgs()
+        {
+            var args = new List<(string, object)>
+            {
+                ("start", _loc.GetString("service-starting-text")),
                 ("text1", _loc.GetString($"funny-service1-{_random.Next(1, 16)}")),
                 ("text2", _loc.GetString($"funny-service2-{_random.Next(1, 16)}")),
                 ("text3", _loc.GetString($"funny-service3-{_random.Next(1, 16)}")),
                 ("text4", _loc.GetString($"funny-service4-{_random.Next(1, 16)}"))
             };
-            //return args.ToArray();
+            return args.ToArray();
         }
 
-        private (string, object)[] GetSecurityArgs(string date)
+        private (string, object)[] GetSecurityArgs()
         {
             return new (string, object)[]
             {
-                ("start", _loc.GetString("security-starting-text", ("date", date))),
+                ("start", _loc.GetString("security-starting-text")),
                 ("text1", _loc.GetString($"funny-sec1-{_random.Next(1, 16)}")),
                 ("text2", _loc.GetString($"funny-sec2-{_random.Next(1, 5)}")),
                 ("text3", _loc.GetString($"funny-sec3-{_random.Next(1, 3)}")),
@@ -81,22 +89,22 @@ namespace Content.Goobstation.Server.NTR.Documents
             };
         }
 
-        private (string, object)[] GetCargoArgs(string date)
+        private (string, object)[] GetCargoArgs()
         {
             return new (string, object)[]
             {
-                ("start", _loc.GetString("cargo-starting-text", ("date", date))),
+                ("start", _loc.GetString("cargo-starting-text")),
                 ("text1", _loc.GetString($"funny-cargo1-{_random.Next(1, 6)}")),
                 ("text2", _loc.GetString($"funny-cargo2-{_random.Next(1, 9)}")),
-                ("text3", _loc.GetString($"funny-cargo3-{_random.Next(1, 10)}"))
+                ("text3", _loc.GetString($"funny-cargo3-{_random.Next(1, 10)}")),
             };
         }
 
-        private (string, object)[] GetMedicalArgs(string date)
+        private (string, object)[] GetMedicalArgs()
         {
             return new (string, object)[]
             {
-                ("start", _loc.GetString("medical-starting-text", ("date", date))),
+                ("start", _loc.GetString("medical-starting-text")),
                 ("text1", _loc.GetString($"funny-med1-{_random.Next(1, 3)}")),
                 ("text2", _loc.GetString($"funny-med2-{_random.Next(1, 9)}")),
                 ("text3", _loc.GetString($"funny-med3-{_random.Next(1, 7)}")),
@@ -104,22 +112,22 @@ namespace Content.Goobstation.Server.NTR.Documents
             };
         }
 
-        private (string, object)[] GetEngineeringArgs(string date)
+        private (string, object)[] GetEngineeringArgs()
         {
             return new (string, object)[]
             {
-                ("start", _loc.GetString("engineering-starting-text", ("date", date))),
+                ("start", _loc.GetString("engineering-starting-text")),
                 ("text1", _loc.GetString($"funny-engi1-{_random.Next(1, 6)}")),
                 ("text2", _loc.GetString($"funny-engi2-{_random.Next(1, 11)}")),
                 ("text3", _loc.GetString($"funny-engi3-{_random.Next(1, 10)}")),
                 ("text4", _loc.GetString($"funny-engi4-{_random.Next(1, 11)}")),
             };
         }
-        private (string, object)[] GetScienceArgs(string date)
+        private (string, object)[] GetScienceArgs()
         {
             return new (string, object)[]
             {
-                ("start", _loc.GetString("science-starting-text", ("date", date))),
+                ("start", _loc.GetString("science-starting-text")),
                 ("text1", _loc.GetString($"funny-sci1-{_random.Next(1, 8)}")),
                 ("text2", _loc.GetString($"funny-sci2-{_random.Next(1, 10)}")),
                 ("text3", _loc.GetString($"funny-sci3-{_random.Next(1, 16)}")),

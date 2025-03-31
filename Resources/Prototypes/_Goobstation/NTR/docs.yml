@@ -1,77 +1,59 @@
 - type: entity
   name: Corporate Document
   id: CorporateDocument
-  abscract: true
+  abstract: true
   parent: Paper
   description: An official NanoTrasen document. Looks like a ton of spam, as always.
   components:
-    - type: RandomDocument
-      dtype: Service
+  - type: RandomDocument
+    dtype: Service
 
 - type: entity
   suffix: Service
   id: ServiceDocument
   parent: CorporateDocument
   components:
-    - type: RandomDocument
-      dtype: Service
+  - type: RandomDocument
+    dtype: Service
 
 - type: entity
   suffix: Security
   id: SecurityDocument
   parent: CorporateDocument
   components:
-    - type: RandomDocument
-      dtype: Security
+  - type: RandomDocument
+    tasks:
+    - TaskStampHos
+    dtype: Security
 
 - type: entity
   suffix: Cargo
   id: CargoDocument
   parent: CorporateDocument
   components:
-    - type: RandomDocument
-      dtype: Cargo
+  - type: RandomDocument
+    dtype: Cargo
 
 - type: entity
   suffix: Medical
   id: MedicalDocument
   parent: CorporateDocument
   components:
-    - type: RandomDocument
-      dtype: Medical
+  - type: RandomDocument
+    dtype: Medical
 
 - type: entity
   suffix: Engineering
   id: EngineeringDocument
   parent: CorporateDocument
   components:
-    - type: RandomDocument
-      dtype: Engineering
+  - type: RandomDocument
+    dtype: Engineering
 
 - type: entity
   suffix: Science
   id: ScienceDocument
   parent: CorporateDocument
   components:
-    - type: RandomDocument
-      dtype: Science
-
-- type: entity
-  id: SpamDocumentObvious
-  name: Corporate Document
-  suffix: spam, obvious
-  parent: Paper
-  description: An official NanoTrasen document. Looks like a ton of spam, as always.
-  components:
-    - type: SpamDocument
-      stype: Obvious
-
-- type: entity
-  id: SpamDocumentMimic
-  suffix: spam, mimic
-  name: Corporate Document
-  parent: Paper
-  description: An official NanoTrasen document. Looks like a ton of spam, as always.
-  components:
-    - type: SpamDocument
-      stype: Mimic
+  - type: RandomDocument
+    dtype: Science
