@@ -211,7 +211,7 @@ public sealed partial class AdminVerbSystem
         args.Verbs.Add(blobAntag);
 
         // Goobstation - Wizard
-        var wizardName = Loc.GetString("admin-verb-make-wizard");
+        var wizardName = Loc.GetString("admin-verb-text-make-wizard");
         Verb wizard = new()
         {
             Text = wizardName,
@@ -222,7 +222,7 @@ public sealed partial class AdminVerbSystem
                 _antag.ForceMakeAntag<WizardRuleComponent>(targetPlayer, "Wizard");
             },
             Impact = LogImpact.High,
-            Message = string.Join(": ", wizardName, Loc.GetString("admin-verb-text-make-wizard")),
+            Message = string.Join(": ", wizardName, Loc.GetString("admin-verb-make-wizard")),
         };
         args.Verbs.Add(wizard);
     }
