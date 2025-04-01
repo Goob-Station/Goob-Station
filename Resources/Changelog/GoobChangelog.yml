@@ -6954,3 +6954,13 @@ Entries:
         meat makes you a pitless bingle.
   id: 807
   time: '2025-04-01T19:01:13.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Roundstart nukeops can no longer spawn with revs, blob or zombies.
+    - type: Fix
+      message: >-
+        Fixed 2 roundstart nukie squads, 2 blobs or 2 wizards being selected
+        sometimes.
+  id: 808
+  time: '2025-04-01T23:00:49.0000000+00:00'
