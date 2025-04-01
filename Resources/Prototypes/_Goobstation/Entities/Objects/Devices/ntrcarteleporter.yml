@@ -15,7 +15,7 @@
   - type: EmitSoundOnUse
     sound: /Audio/_Goobstation/Animals/Car3.wav
   - type: Sprite
-    sprite: _Goobstation\Mobs\Pets\carmob.rsi
+    sprite: _Goobstation/Mobs/Pets/carmob.rsi
     state: car_key
   - type: UserInterface
     interfaces:
