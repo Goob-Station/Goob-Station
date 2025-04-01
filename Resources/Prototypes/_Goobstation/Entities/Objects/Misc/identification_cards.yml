@@ -117,7 +117,7 @@
   parent: IDCardStandard
   id: ExecutiveIDCard
   name: executive access card
-  description: Flash this, and any Nanotrasen employee is legally obligated to listen to you.
+  description: Nanotrasen employees are legally obligated to listen to someone with one of these. It's also capable of overriding access locks on most devices.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/executive.rsi
@@ -134,6 +134,10 @@
   - type: IdCard
     jobTitle: job-name-exec
     jobIcon: JobIconNanotrasen
+  - type: Emag
+    emagType: Access
+    emagSound: /Audio/_Goobstation/Items/card_swipe.ogg
+    successText: executive-card-success
   - type: Access
     groups:
     - AllAccess
@@ -146,7 +150,7 @@
   parent: ExecutiveIDCard
   id: ExecutiveIDCardChameleon
   name: executive access card
-  description: Flash this, and any Nanotrasen employee is legally obligated to listen to you. Capable of changing appearance if you want to go incognito.
+  description: Same features as the original version, but can change appearance.
   components:
   - type: AgentIDCard
   - type: ActivatableUI

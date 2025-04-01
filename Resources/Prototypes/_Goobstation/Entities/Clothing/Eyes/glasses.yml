@@ -137,7 +137,7 @@
     coverage: EYES
   - type: ThermalVision
     isEquipment: true
-    color: "#2E6F40"
+    color: "#2ebf40"
     lightRadius: 15
 
 - type: entity

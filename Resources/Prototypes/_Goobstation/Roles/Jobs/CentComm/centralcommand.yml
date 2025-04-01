@@ -36,8 +36,6 @@
     id: NavyOfficerPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSheathFilledNavyOfficer
-    pocket1: HyperFlash
-    pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
 
 # Navy Captain
 
@@ -79,7 +77,6 @@
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSheathFilledNavyOfficer
     pocket1: NukeOverride
-    pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
 
 # Undercover Officer
 
@@ -121,7 +118,6 @@
     id: ChameleonPDA
     ears: ClothingHeadsetChameleon
     pocket1: WeaponPistolCentcommAgent
-    pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
 
 
 # Special Operations Officer
@@ -165,7 +161,6 @@
     belt: ClothingBeltHolsterFilledCentComm
     suitstorage: WeaponRifleAnnie
     pocket1: WeaponRevolverMateba
-    pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
 
 # Diplomat
 
@@ -204,9 +199,6 @@
     neck: ExecutiveIDCard
     id: DiplomatPDA
     ears: ClothingHeadsetAltCentCom
-    # belt: ClothingBeltHolsterFilledCentComm - SOMEONE wouldn't stop bitching until i removed this
-    pocket1: TelescopicBatonAdvanced
-    pocket2: AmnestizineHypospray # Really LEAN into that neutral evil nanotrasen scp shit.
 
 # Inspector
 
@@ -246,7 +238,6 @@
     id: InspectorPDA
     ears: ClothingHeadsetAltCentCom
     belt: BoxFolderCentComClipboard
-    pocket1: AmnestizineHypospray
 
 ## Half-life stolen roles
 
@@ -287,6 +278,8 @@
     id: GmanPDA
     ears: ClothingHeadsetChronolegioneer
     pocket1: SonicScrewdriver
-    pocket2: AmnestizineHypospray
   inhand:
   - BriefcaseCentcomm
+  storage:
+    back:
+    - DeterrentCaseFilled

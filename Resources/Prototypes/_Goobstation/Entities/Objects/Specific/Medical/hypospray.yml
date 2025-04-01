@@ -222,6 +222,23 @@
       - ReagentId: DexalinPlus
         Quantity: 3
 
+- type: entity
+  name: amnestic autoinjector cartridge
+  parent: BaseCartridgeAutoinjector
+  description: Contains 10u of dimtremethic-neuramincyl acid, used in a cartridge autoinjector.
+  id: CartridgeAmnestic
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
+    state: cartridge-amnestic
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Amnestizine
+        Quantity: 10
+
 # Medipens
 
 - type: entity
@@ -252,7 +269,6 @@
           Quantity: 10
   - type: Tag
     tags: []
-
 
 - type: entity
   name: centcomm advanced stimulant
@@ -292,7 +308,7 @@
   parent: [SecHypo, BaseCentcommContraband]
   id: AmnestizineHypospray
   suffix: DO NOT MAP
-  description: Injects a substance capable of causing complete and total amnesia. Caution:/ Overuse may lead to permanent effects. # Adding a warning, since I saw so many mins just perma blind people lmfao.
+  description: "Injects a substance capable of causing complete and total amnesia. Caution: Overuse may lead to permanent effects." # Adding a warning, since I saw so many mins just perma blind people lmfao.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/amnestic_hypo.rsi
@@ -301,10 +317,10 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 150
+        maxVol: 10
         reagents:
         - ReagentId: Amnestizine
-          Quantity: 150
+          Quantity: 10
   - type: ExaminableSolution
     solution: hypospray
   - type: Hypospray
@@ -314,9 +330,11 @@
     injectOnly: true
   - type: HyposprayBlockNonMobInjection
   - type: UseDelay
-    delay: 0.1 # UseDelays are for LOSERs
+    delay: 0.5
   - type: Tag
     tags: []
+  - type: SolutionCartridgeReceiver
+    tag: AutoinjectorCartridge
 
 - type: entity
   name: biohazard medipen
