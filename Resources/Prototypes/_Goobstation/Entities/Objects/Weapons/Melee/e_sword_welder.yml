@@ -8,7 +8,7 @@
     sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi
     layers:
     - state: welder_sword
-    - state: welder_sword_blade
+    - state: welder_sword_blade_simple
       visible: false
       shader: unshaded
       map: [ "blade" ]
@@ -30,6 +30,7 @@
         variation: 0.125
     activatedDamage:
         types:
+            Slash: 4
             Heat: 11
   - type: ItemToggle
     predictable: false
@@ -53,8 +54,6 @@
     reflects:
       - Energy
     soundOnReflect: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
-    params:
-      variation: 0.125
   - type: Welder
     fuelConsumption: 3
   - type: SolutionContainerManager
@@ -64,6 +63,9 @@
         - ReagentId: WeldingFuel
           Quantity: 100
         maxVol: 100
+  - type: EnergySword
+    activatedColor: LightSalmon
+    colorOptions: []
   - type: Tag # WD EDIT
     tags:
     - EnergySword
@@ -90,7 +92,7 @@
     state: icon_industrial
     layers:
     - state: welder_sword_industrial
-    - state: welder_sword_blade
+    - state: welder_sword_blade_industrial
       visible: false
       shader: unshaded
       map: [ "blade" ]
@@ -117,10 +119,12 @@
     state: icon_experimental
     layers:
     - state: welder_sword_experimental
-    - state: welder_sword_blade
+    - state: welder_sword_blade_experimental
       visible: false
       shader: unshaded
       map: [ "blade" ]
+  - type: EnergySword
+    activatedColor: LightBlue
   - type: SolutionContainerManager
     solutions:
       Welder:
