@@ -240,8 +240,8 @@
     state: icon
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitaryLeader
-    - NamesLastMilitary
+    - NamesMilitaryFirstLeader
+    - NamesMilitaryLast
   - type: RandomHumanoidSpawner
     settings: NavyOfficer
 
@@ -265,8 +265,8 @@
     roleLoadout: [ RoleSurvivalEVA ]
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitaryLeader
-    - NamesLastMilitary
+    - NamesMilitaryFirstLeader
+    - NamesMilitaryLast
 
 # Navy Captain
 
@@ -280,8 +280,8 @@
     state: icon
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitaryHighRank
-    - NamesLastMilitary
+    - NamesMilitaryFirstHighRank
+    - NamesMilitaryLast
   - type: RandomHumanoidSpawner
     settings: NavyCaptain
 
@@ -305,8 +305,8 @@
     roleLoadout: [ RoleSurvivalEVA ]
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitaryHighRank
-    - NamesLastMilitary
+    - NamesMilitaryFirstHighRank
+    - NamesMilitaryLast
 
 # Navy Undercover Officer
 
@@ -320,8 +320,8 @@
     state: icon
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitaryLeader
-    - NamesLastMilitary
+    - NamesMilitaryFirstLeader
+    - NamesMilitaryLast
   - type: RandomHumanoidSpawner
     settings: NavyOfficerUndercover
 
@@ -345,8 +345,8 @@
     roleLoadout: [ RoleSurvivalEVA ]
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitaryLeader
-    - NamesLastMilitary
+    - NamesMilitaryFirstLeader
+    - NamesMilitaryLast
 
 # Special Operations Officer
 
@@ -360,8 +360,8 @@
     state: icon
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitaryHighRank
-    - NamesLastMilitary
+    - NamesMilitaryFirstHighRank
+    - NamesMilitaryLast
   - type: RandomHumanoidSpawner
     settings: SpecialOperationsOfficer
 
@@ -385,8 +385,8 @@
     roleLoadout: [ RoleSurvivalEVA ]
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitaryHighRank
-    - NamesLastMilitary
+    - NamesMilitaryFirstHighRank
+    - NamesMilitaryLast
 
 # Diplomat
 
@@ -400,8 +400,8 @@
     state: icon
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitaryPolitical
-    - names_last
+    - NamesMilitaryFirstPolitical
+    - NamesLast
   - type: RandomHumanoidSpawner
     settings: DiplomatGear
 
@@ -423,5 +423,5 @@
     roleLoadout: [ RoleSurvivalEVA ]
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitaryPolitical
-    - names_last
+    - NamesMilitaryFirstPolitical
+    - NamesLast
