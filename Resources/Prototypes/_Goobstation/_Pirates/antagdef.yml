@@ -12,4 +12,5 @@
   - type: MindRole
     antagPrototype: Pirate
     exclusiveAntag: true
+    roleType: TeamAntagonist
   - type: PirateRole

@@ -6,6 +6,7 @@
   - type: MindRole
     antagPrototype: Wizard
     exclusiveAntag: true
+    roleType: FreeAgent
   - type: WizardRole
 
 - type: entity
@@ -16,6 +17,7 @@
   - type: MindRole
     antagPrototype: Apprentice
     exclusiveAntag: true
+    roleType: Familiar
   - type: ApprenticeRole
 
 - type: antag
