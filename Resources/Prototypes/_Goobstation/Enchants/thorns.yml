@@ -1,0 +1,16 @@
+# Deals damage to melee attackers, scaling linearly with level
+- type: entity
+  parent: BaseEnchant
+  id: EnchantThorns
+  name: Thorns
+  components:
+  - type: Enchant
+    whitelist:
+      components:
+      - Armor # have to use it on real armour not a scarf
+    maxLevel: 3
+  - type: ThornsEnchant
+  - type: DamageOnAttacked
+    damage:
+      types:
+        Slash: 5

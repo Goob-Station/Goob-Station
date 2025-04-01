@@ -1,0 +1,15 @@
+# Linear bonus damage to melee attacks with this item
+- type: entity
+  parent: BaseEnchant
+  id: EnchantSharpness
+  name: Sharpness
+  components:
+  - type: Enchant
+    whitelist:
+      components:
+      - MeleeWeapon
+    maxLevel: 5
+  - type: BonusDamageEnchant
+    damage:
+      types:
+        Slash: 5 # 25 extra damage at V

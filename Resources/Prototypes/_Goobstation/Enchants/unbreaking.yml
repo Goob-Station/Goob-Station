@@ -1,0 +1,13 @@
+# Reduces incoming damage to this item
+- type: entity
+  parent: BaseEnchant
+  id: EnchantUnbreaking
+  name: Unbreaking
+  components:
+  - type: Enchant
+    whitelist:
+      components:
+      - Damageable
+    maxLevel: 3
+  - type: DamageModifyEnchant
+    factor: 0.5 # 87.5% resistance at III

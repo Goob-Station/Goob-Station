@@ -29,6 +29,9 @@
     tags:
     - Kangaroo
     - WhitelistChameleon
+  - type: Enchanter # Goobstation
+    enchants:
+    - EnchantKnockback
 
 - type: entity
   parent: ClothingHandsGlovesBoxingRed

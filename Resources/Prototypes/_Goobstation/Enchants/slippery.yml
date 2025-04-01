@@ -1,0 +1,30 @@
+# Makes anything slippery, multiplies how slippery things are. Scales linearly with level.
+- type: entity
+  parent: BaseEnchant
+  id: EnchantSlippery
+  name: Slippery
+  components:
+  - type: Enchant
+    maxLevel: 4
+  - type: SlipperyEnchant
+  - type: ComponentsEnchant
+    added:
+    # Slippery is added via EnsureComp, don't bulldoze old values for e.g. omega soap
+    - type: StepTrigger
+      intersectRatio: 0.2
+      triggerGroups: # Goobstation
+        types:
+        - SlipEntity
+    - type: CollisionWake
+      enabled: false
+    - type: Physics
+      bodyType: Dynamic
+    - type: FixturesChange
+      fixtures:
+        slips:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.4,-0.3,0.4,0.3"
+          layer:
+          - SlipLayer
+          hard: false
