@@ -10,7 +10,7 @@
         energyLoss: 30
       CabinOnFire: !type:CabinOnFireEvent
       EngineBroken: !type:EngineBrokenEvent
-      CabinBreach: !tyoe:CabinBreachEvent
+      CabinBreach: !type:CabinBreachEvent
       EquipmentLoss: !type:EquipmentLossEvent
         range: 3
   - type: MechAir
