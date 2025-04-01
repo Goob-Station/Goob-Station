@@ -112,13 +112,25 @@ namespace Content.Client.Options.UI.Tabs
             }
         }
 
-        private void HandleToggleWalk(BaseButton.ButtonToggledEventArgs args)
+        private void InitToggleSprint()
+        {
+            if (_cfg.GetCVar(GoobCVars.ToggleSprint))
+            {
+                ToggleFunctions.Add(ContentKeyFunctions.Sprint);
+            }
+            else
+            {
+                ToggleFunctions.Remove(ContentKeyFunctions.Sprint);
+            }
+        }
+
+        private void HandleToggle(BaseButton.ButtonToggledEventArgs args, BoundKeyFunction key)
         {
             _cfg.SetCVar(CCVars.ToggleWalk, args.Pressed);
             _cfg.SaveToFile();
             InitToggleWalk();
 
-            if (!_keyControls.TryGetValue(EngineKeyFunctions.Walk, out var keyControl))
+            if (!_keyControls.TryGetValue(key, out var keyControl))
             {
                 return;
             }
@@ -134,7 +146,7 @@ namespace Content.Client.Options.UI.Tabs
 
                 var registration = new KeyBindingRegistration
                 {
-                    Function = EngineKeyFunctions.Walk,
+                    Function = key,
                     BaseKey = binding.BaseKey,
                     Mod1 = binding.Mod1,
                     Mod2 = binding.Mod2,
@@ -224,7 +236,9 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(EngineKeyFunctions.MoveDown);
             AddButton(EngineKeyFunctions.MoveRight);
             AddButton(EngineKeyFunctions.Walk);
-            AddCheckBox("ui-options-hotkey-toggle-walk", _cfg.GetCVar(CCVars.ToggleWalk), HandleToggleWalk);
+            AddCheckBox("ui-options-hotkey-toggle-walk", _cfg.GetCVar(CCVars.ToggleWalk), (args) => HandleToggle(args, EngineKeyFunctions.Walk));
+            AddButton(ContentKeyFunctions.Sprint);
+            AddCheckBox("ui-options-hotkey-toggle-sprint", _cfg.GetCVar(GoobCVars.ToggleSprint), (args) => HandleToggle(args, ContentKeyFunctions.Sprint));
             AddButton(ContentKeyFunctions.ToggleStanding);
             AddCheckBox("ui-options-function-auto-get-up", _cfg.GetCVar(GoobCVars.AutoGetUp), HandleToggleAutoGetUp); // WD EDIT
             InitToggleWalk();
