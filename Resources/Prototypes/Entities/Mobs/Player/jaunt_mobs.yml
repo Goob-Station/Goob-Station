@@ -18,6 +18,8 @@
   - type: Visibility
     layer: 2
   - type: Spectral
+  - type: IsDeadIC # Goobstation
+    dead: false
 
 # Should be slow, for balance
 - type: entity
@@ -40,5 +42,3 @@
     baseSprintSpeed: 3 # Goob edit
     baseWalkSpeed: 3 # Goob edit
   - type: WizardJaunt # Goobstation
-  - type: IsDeadIC # Goobstation
-    dead: false

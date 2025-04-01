@@ -1,0 +1,74 @@
+- type: loadout
+  id: CommonMessenger
+  equipment:
+    back: ClothingBackpackMessenger
+
+- type: loadout
+  id: CaptainMessenger
+  equipment:
+    back: ClothingBackpackMessengerCaptain
+
+- type: loadout
+  id: BotanistMessenger
+  equipment:
+    back: ClothingBackpackMessengerHydroponics
+
+- type: loadout
+  id: ClownMessenger
+  equipment:
+    back: ClothingBackpackMessengerClown
+
+- type: loadout
+  id: MimeMessenger
+  equipment:
+    back: ClothingBackpackMessengerMime
+
+- type: loadout
+  id: CargoTechnicianMessenger
+  equipment:
+    back: ClothingBackpackMessengerCargo
+
+- type: loadout
+  id: SalvageSpecialistMessenger
+  equipment:
+    back: ClothingBackpackMessengerSalvage
+
+- type: loadout
+  id: StationEngineerMessenger
+  equipment:
+    back: ClothingBackpackMessengerEngineering
+
+- type: loadout
+  id: AtmosphericTechnicianMessenger
+  equipment:
+    back: ClothingBackpackMessengerAtmospherics
+
+- type: loadout
+  id: ScientistMessenger
+  equipment:
+    back: ClothingBackpackMessengerScience
+
+- type: loadout
+  id: SecurityMessenger
+  equipment:
+    back: ClothingBackpackMessengerSecurity
+
+- type: loadout
+  id: MedicalDoctorMessenger
+  equipment:
+    back: ClothingBackpackMessengerMedical
+
+- type: loadout
+  id: ChemistMessenger
+  equipment:
+    back: ClothingBackpackMessengerChemistry
+
+- type: loadout
+  id: NanotrasenRepresentativeMessenger
+  equipment:
+    back: ClothingBackpackMessengerCentcomm
+
+- type: loadout
+  id: BlueshieldOfficerMessenger
+  equipment:
+    back: ClothingBackpackMessengerBlueshield
