@@ -264,6 +264,20 @@
     node: headofsecurity
 
 - type: entity
+  parent: ClothingModsuitHeadOfSecurity
+  id: ClothingModsuitHeadOfSecurityPowerCell
+  suffix: High-Capacity Battery
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
+        whitelist:
+          components:
+            - PowerCell
+
+- type: entity
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitParamedic
   name: sanitater hardsuit control unit
@@ -347,20 +361,6 @@
 - type: entity
   parent: ClothingModsuitParamedic
   id: ClothingModsuitParamedicPowerCell
-  suffix: High-Capacity Battery
-  components:
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHigh
-        whitelist:
-          components:
-            - PowerCell
-
-- type: entity
-  parent: ClothingModsuitHeadOfSecurity
-  id: ClothingModsuitHeadOfSecurityPowerCell
   suffix: High-Capacity Battery
   components:
   - type: ItemSlots
