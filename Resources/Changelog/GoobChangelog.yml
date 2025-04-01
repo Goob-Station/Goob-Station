@@ -6946,3 +6946,11 @@ Entries:
       message: Blobbernauts can now flex their muscles.
   id: 806
   time: '2025-03-31T06:05:17.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: >-
+        Bingles can be butchered, cooked, and eaten. Eating too munch bingle
+        meat makes you a pitless bingle.
+  id: 807
+  time: '2025-04-01T19:01:13.0000000+00:00'
