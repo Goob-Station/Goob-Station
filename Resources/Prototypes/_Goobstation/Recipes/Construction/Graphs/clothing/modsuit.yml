@@ -109,6 +109,9 @@
         - tool: Anchoring
           doAfter: 1
 
+  - node: standard
+    entity: ClothingModsuitStandard
+
   - node: security
     entity: ClothingModsuitSecurity
 
