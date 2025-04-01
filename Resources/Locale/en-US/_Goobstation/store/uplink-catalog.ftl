@@ -106,11 +106,11 @@ uplink-rifle-mag-desc = A 25 round magazine containing .20 rifle bullets. Suppor
 uplink-rifle-caseless-mag-name = 9.5mm Caseless Magnum Magazine
 uplink-rifle-caseless-mag-desc = A 30 round rifle magazine filled with 9.5mm caseless bullets. Compatible with the WSPR.
 
-uplink-caseless-magnum-pistol-mag-minusp-name = 12.7mm Caseless Magnum -P Magazine (Pistol)
-uplink-caseless-magnum-pistol-mag-minusp-desc = 12 rounds of 12.7mm lowered pressure ammunition for better suppression. Compatible with the cobra.
+uplink-caseless-magnum-pistol-mag-minusp-name = 9.5mm Caseless Magnum -P Magazine (Pistol)
+uplink-caseless-magnum-pistol-mag-minusp-desc = 12 rounds of 9.5mm lowered pressure ammunition for better suppression. Compatible with the cobra.
 
-uplink-caseless-magnum-pistol-mag-saphe-name = 12.7mm Caseless Magnum SAP-HE Magazine (Pistol)
-uplink-caseless-magnum-pistol-mag-saphe-desc = 12 rounds of 12.7mm Semi Armor Piercing High Explosive ammunition, splits its damage between 13 direct damage and 10 explosive damage on one tile. Compatible with the cobra. WARNING: ammunition is volatile and explosion may trigger infront of instead of on the target
+uplink-caseless-magnum-pistol-mag-saphe-name = 9.5mm Caseless Magnum SAP-HE Magazine (Pistol)
+uplink-caseless-magnum-pistol-mag-saphe-desc = 12 rounds of 9.5mm Semi Armor Piercing High Explosive ammunition, splits its damage between 13 direct damage and 10 explosive damage on one tile. Compatible with the cobra. WARNING: ammunition is volatile and explosion may trigger infront of instead of on the target
 
 uplink-l6-box-name = Magazine Box (.30 rifle)
 uplink-l6-box-desc = Magazine box with 100 catridges. Compatible with the L6 SAW.
