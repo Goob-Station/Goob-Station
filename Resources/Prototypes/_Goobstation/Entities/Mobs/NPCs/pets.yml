@@ -41,7 +41,7 @@
     interactFailureString: petting-failure-generic
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
-      path: Audio/_Goobstation/Animals/Car3.ogg
+      path: /Audio/_Goobstation/Animals/Car3.ogg
   - type: Tag
     tags:
     - CannotSuicide
