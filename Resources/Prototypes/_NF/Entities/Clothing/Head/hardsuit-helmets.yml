@@ -15,7 +15,7 @@
   - type: Sprite
     sprite: _NF/Clothing/Head/Hardsuits/mercenary.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Head/Hardsuits/mercenary.rsi
+    sprite: _NF/Clothing/Head\Hardsuits/mercenary.rsi
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection

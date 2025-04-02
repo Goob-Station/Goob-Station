@@ -1,0 +1,35 @@
+##########################################################
+- type: entity
+  parent: [ClothingOuterArmorHoS, ClothingOuterWinterCoatToggleable, BaseSecurityCommandContraband]
+  id: ClothingOuterWinterCapArmor
+  name: captain's armored winter coat
+  description: In response to the wide-spread approval of the design of the HoS's winter coat, Nanotrasen had this coat designed to mimic it's style. Now with regal blue, gold-trim, and a recolored armor vest.
+  components:
+  - type: Sprite
+    sprite: _RA/Clothing/OuterClothing/WinterCoats/coatcaparmored.rsi
+  - type: Clothing
+    sprite: _RA/Clothing/OuterClothing/WinterCoats/coatcaparmored.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.6
+        Heat: 0.5
+        Caustic: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1
+    knockdownTimeDelta: -1
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes:
+      head: ClothingHeadHatHoodWinterCaptainArmor
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Cloth: 250
+      Durathread: 312
+      Plasteel: 187
+  - type: StaticPrice #Goobstation - Recycle update
+    price: 220
+##########################################################
