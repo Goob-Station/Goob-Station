@@ -83,6 +83,7 @@
   parent: [BaseItem, BaseSecurityMedicalContraband]
   description: Used in a cartridge autoinjector.
   id: BaseCartridgeAutoinjector
+  abstract: true
   components:
   - type: Item
     size: Tiny
