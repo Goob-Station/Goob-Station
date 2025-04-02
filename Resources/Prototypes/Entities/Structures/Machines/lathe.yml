@@ -283,7 +283,7 @@
     - ServiceBoards
     #- ScienceBoards - Goobstation - Moved to Scifab
     - CameraBoards
-    - MechBoards
+    #- MechBoards - Goobstation - split between departmental lathes
     - ShuttleBoards
     # Goobstation Packs
     - SharedBoards
