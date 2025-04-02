@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/27/2025 21:17:36
-  entityCount: 2279
+  time: 04/02/2025 02:26:43
+  entityCount: 2335
 maps:
 - 1
 grids:
@@ -1027,7 +1027,7 @@ entities:
       pos: -15.5,9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -19718.701
+      secondsUntilStateChange: -19909.11
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -6119,46 +6119,31 @@ entities:
       parent: 2
 - proto: DionaCube
   entities:
-  - uid: 297
+  - uid: 2316
     components:
     - type: Transform
-      parent: 296
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 307
+      pos: 3.7431488,-11.0225115
+      parent: 2
+  - uid: 2317
     components:
     - type: Transform
-      parent: 306
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 378
+      pos: 3.7431488,-11.0225115
+      parent: 2
+  - uid: 2318
     components:
     - type: Transform
-      parent: 377
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 388
+      pos: 3.7431488,-11.0225115
+      parent: 2
+  - uid: 2319
     components:
     - type: Transform
-      parent: 387
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 398
+      pos: 3.7431488,-11.0225115
+      parent: 2
+  - uid: 2320
     components:
     - type: Transform
-      parent: 397
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
+      pos: 3.7431488,-11.0225115
+      parent: 2
 - proto: DrinkGreenTeaGlass
   entities:
   - uid: 666
@@ -6245,46 +6230,56 @@ entities:
       parent: 2
 - proto: DwarfCube
   entities:
-  - uid: 298
+  - uid: 309
     components:
     - type: Transform
-      parent: 296
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 308
+      pos: -9.781113,-11.5225115
+      parent: 2
+  - uid: 310
     components:
     - type: Transform
-      parent: 306
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 379
+      pos: -9.781113,-11.5225115
+      parent: 2
+  - uid: 311
     components:
     - type: Transform
-      parent: 377
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 389
+      pos: -9.781113,-11.5225115
+      parent: 2
+  - uid: 312
     components:
     - type: Transform
-      parent: 387
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 399
+      pos: -9.781113,-11.5225115
+      parent: 2
+  - uid: 313
     components:
     - type: Transform
-      parent: 397
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
+      pos: -9.781113,-11.5225115
+      parent: 2
+  - uid: 2321
+    components:
+    - type: Transform
+      pos: 3.7639818,-11.3766775
+      parent: 2
+  - uid: 2322
+    components:
+    - type: Transform
+      pos: 3.7639818,-11.3766775
+      parent: 2
+  - uid: 2323
+    components:
+    - type: Transform
+      pos: 3.7639818,-11.3766775
+      parent: 2
+  - uid: 2324
+    components:
+    - type: Transform
+      pos: 3.7639818,-11.3766775
+      parent: 2
+  - uid: 2325
+    components:
+    - type: Transform
+      pos: 3.7639818,-11.3766775
+      parent: 2
 - proto: EldritchInfluence
   entities:
   - uid: 144
@@ -7177,46 +7172,106 @@ entities:
       parent: 2
 - proto: FelinidCube
   entities:
-  - uid: 299
+  - uid: 314
     components:
     - type: Transform
-      parent: 296
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 309
+      pos: -9.489447,-11.5225115
+      parent: 2
+  - uid: 377
     components:
     - type: Transform
-      parent: 306
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
+      pos: -9.489447,-11.5225115
+      parent: 2
+  - uid: 378
+    components:
+    - type: Transform
+      pos: -9.489447,-11.5225115
+      parent: 2
+  - uid: 379
+    components:
+    - type: Transform
+      pos: -9.489447,-11.5225115
+      parent: 2
   - uid: 380
     components:
     - type: Transform
-      parent: 377
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 390
+      pos: -9.489447,-11.5225115
+      parent: 2
+  - uid: 381
     components:
     - type: Transform
-      parent: 387
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 400
+      pos: -9.489447,-11.5225115
+      parent: 2
+  - uid: 382
     components:
     - type: Transform
-      parent: 397
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
+      pos: -9.489447,-11.5225115
+      parent: 2
+  - uid: 383
+    components:
+    - type: Transform
+      pos: -9.489447,-11.5225115
+      parent: 2
+  - uid: 384
+    components:
+    - type: Transform
+      pos: -9.489447,-11.5225115
+      parent: 2
+  - uid: 385
+    components:
+    - type: Transform
+      pos: -9.489447,-11.5225115
+      parent: 2
+  - uid: 2306
+    components:
+    - type: Transform
+      pos: 3.3889818,-11.3141775
+      parent: 2
+  - uid: 2307
+    components:
+    - type: Transform
+      pos: 3.3889818,-11.3141775
+      parent: 2
+  - uid: 2308
+    components:
+    - type: Transform
+      pos: 3.3889818,-11.3141775
+      parent: 2
+  - uid: 2309
+    components:
+    - type: Transform
+      pos: 3.3889818,-11.3141775
+      parent: 2
+  - uid: 2310
+    components:
+    - type: Transform
+      pos: 3.3889818,-11.3141775
+      parent: 2
+  - uid: 2311
+    components:
+    - type: Transform
+      pos: 3.3889818,-11.3141775
+      parent: 2
+  - uid: 2312
+    components:
+    - type: Transform
+      pos: 3.3889818,-11.3141775
+      parent: 2
+  - uid: 2313
+    components:
+    - type: Transform
+      pos: 3.3889818,-11.3141775
+      parent: 2
+  - uid: 2314
+    components:
+    - type: Transform
+      pos: 3.3889818,-11.3141775
+      parent: 2
+  - uid: 2315
+    components:
+    - type: Transform
+      pos: 3.3889818,-11.3141775
+      parent: 2
 - proto: FireAxe
   entities:
   - uid: 801
@@ -9658,46 +9713,56 @@ entities:
       parent: 2
 - proto: GingerbreadCube
   entities:
-  - uid: 300
+  - uid: 386
     components:
     - type: Transform
-      parent: 296
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 310
+      pos: -9.19778,-11.6058445
+      parent: 2
+  - uid: 387
     components:
     - type: Transform
-      parent: 306
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 381
+      pos: -9.19778,-11.6058445
+      parent: 2
+  - uid: 388
     components:
     - type: Transform
-      parent: 377
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 391
+      pos: -9.19778,-11.6058445
+      parent: 2
+  - uid: 389
     components:
     - type: Transform
-      parent: 387
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 401
+      pos: -9.19778,-11.6058445
+      parent: 2
+  - uid: 390
     components:
     - type: Transform
-      parent: 397
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
+      pos: -9.19778,-11.6058445
+      parent: 2
+  - uid: 2301
+    components:
+    - type: Transform
+      pos: 3.3681488,-11.0225115
+      parent: 2
+  - uid: 2302
+    components:
+    - type: Transform
+      pos: 3.3681488,-11.0225115
+      parent: 2
+  - uid: 2303
+    components:
+    - type: Transform
+      pos: 3.3681488,-11.0225115
+      parent: 2
+  - uid: 2304
+    components:
+    - type: Transform
+      pos: 3.3681488,-11.0225115
+      parent: 2
+  - uid: 2305
+    components:
+    - type: Transform
+      pos: 3.3681488,-11.0225115
+      parent: 2
 - proto: Grille
   entities:
   - uid: 181
@@ -9772,22 +9837,56 @@ entities:
       parent: 2
 - proto: HarpyCube
   entities:
-  - uid: 301
+  - uid: 304
     components:
     - type: Transform
-      parent: 296
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 311
+      pos: -9.531113,-11.2308445
+      parent: 2
+  - uid: 305
     components:
     - type: Transform
-      parent: 306
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
+      pos: -9.531113,-11.2308445
+      parent: 2
+  - uid: 306
+    components:
+    - type: Transform
+      pos: -9.531113,-11.2308445
+      parent: 2
+  - uid: 307
+    components:
+    - type: Transform
+      pos: -9.531113,-11.2308445
+      parent: 2
+  - uid: 308
+    components:
+    - type: Transform
+      pos: -9.531113,-11.2308445
+      parent: 2
+  - uid: 2296
+    components:
+    - type: Transform
+      pos: 3.3264818,-10.6683445
+      parent: 2
+  - uid: 2297
+    components:
+    - type: Transform
+      pos: 3.3264818,-10.6683445
+      parent: 2
+  - uid: 2298
+    components:
+    - type: Transform
+      pos: 3.3264818,-10.6683445
+      parent: 2
+  - uid: 2299
+    components:
+    - type: Transform
+      pos: 3.3264818,-10.6683445
+      parent: 2
+  - uid: 2300
+    components:
+    - type: Transform
+      pos: 3.3264818,-10.6683445
+      parent: 2
 - proto: HealingToolbox
   entities:
   - uid: 1936
@@ -9853,46 +9952,206 @@ entities:
       parent: 2
 - proto: HumanCube
   entities:
+  - uid: 296
+    components:
+    - type: Transform
+      pos: -9.76028,-11.2100115
+      parent: 2
+  - uid: 297
+    components:
+    - type: Transform
+      pos: -9.76028,-11.2100115
+      parent: 2
+  - uid: 298
+    components:
+    - type: Transform
+      pos: 3.3056488,-10.2933445
+      parent: 2
+  - uid: 299
+    components:
+    - type: Transform
+      pos: 3.3056488,-10.2933445
+      parent: 2
+  - uid: 300
+    components:
+    - type: Transform
+      pos: 3.3056488,-10.2933445
+      parent: 2
+  - uid: 301
+    components:
+    - type: Transform
+      pos: -9.76028,-11.2100115
+      parent: 2
   - uid: 302
     components:
     - type: Transform
-      parent: 296
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 312
+      pos: -9.76028,-11.2100115
+      parent: 2
+  - uid: 303
     components:
     - type: Transform
-      parent: 306
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 382
+      pos: -9.76028,-11.2100115
+      parent: 2
+  - uid: 391
     components:
     - type: Transform
-      parent: 377
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
+      pos: -9.761795,-11.2100115
+      parent: 2
   - uid: 392
     components:
     - type: Transform
-      parent: 387
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
+      pos: -9.761795,-11.2100115
+      parent: 2
+  - uid: 393
+    components:
+    - type: Transform
+      pos: -9.761795,-11.2100115
+      parent: 2
+  - uid: 394
+    components:
+    - type: Transform
+      pos: -9.761795,-11.2100115
+      parent: 2
+  - uid: 395
+    components:
+    - type: Transform
+      pos: -9.761795,-11.2100115
+      parent: 2
+  - uid: 396
+    components:
+    - type: Transform
+      pos: -9.761795,-11.2100115
+      parent: 2
+  - uid: 397
+    components:
+    - type: Transform
+      pos: -9.761795,-11.2100115
+      parent: 2
+  - uid: 398
+    components:
+    - type: Transform
+      pos: -9.761795,-11.2100115
+      parent: 2
+  - uid: 399
+    components:
+    - type: Transform
+      pos: -9.761795,-11.2100115
+      parent: 2
+  - uid: 400
+    components:
+    - type: Transform
+      pos: -9.761795,-11.2100115
+      parent: 2
+  - uid: 401
+    components:
+    - type: Transform
+      pos: -9.761795,-11.2100115
+      parent: 2
   - uid: 402
     components:
     - type: Transform
-      parent: 397
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
+      pos: -9.761795,-11.2100115
+      parent: 2
+  - uid: 403
+    components:
+    - type: Transform
+      pos: -9.761795,-11.2100115
+      parent: 2
+  - uid: 404
+    components:
+    - type: Transform
+      pos: -9.761795,-11.2100115
+      parent: 2
+  - uid: 405
+    components:
+    - type: Transform
+      pos: -9.761795,-11.2100115
+      parent: 2
+  - uid: 406
+    components:
+    - type: Transform
+      pos: 3.3056488,-10.2933445
+      parent: 2
+  - uid: 2280
+    components:
+    - type: Transform
+      pos: 3.3056488,-10.2933445
+      parent: 2
+  - uid: 2281
+    components:
+    - type: Transform
+      pos: 3.3056488,-10.2933445
+      parent: 2
+  - uid: 2282
+    components:
+    - type: Transform
+      pos: 3.3056488,-10.2933445
+      parent: 2
+  - uid: 2283
+    components:
+    - type: Transform
+      pos: 3.3056488,-10.2933445
+      parent: 2
+  - uid: 2284
+    components:
+    - type: Transform
+      pos: 3.3056488,-10.2933445
+      parent: 2
+  - uid: 2285
+    components:
+    - type: Transform
+      pos: 3.3056488,-10.2933445
+      parent: 2
+  - uid: 2286
+    components:
+    - type: Transform
+      pos: 3.3056488,-10.2933445
+      parent: 2
+  - uid: 2287
+    components:
+    - type: Transform
+      pos: 3.3056488,-10.2933445
+      parent: 2
+  - uid: 2288
+    components:
+    - type: Transform
+      pos: 3.3056488,-10.2933445
+      parent: 2
+  - uid: 2289
+    components:
+    - type: Transform
+      pos: 3.3056488,-10.2933445
+      parent: 2
+  - uid: 2290
+    components:
+    - type: Transform
+      pos: 3.3056488,-10.2933445
+      parent: 2
+  - uid: 2291
+    components:
+    - type: Transform
+      pos: 3.3056488,-10.2933445
+      parent: 2
+  - uid: 2292
+    components:
+    - type: Transform
+      pos: 3.3056488,-10.2933445
+      parent: 2
+  - uid: 2293
+    components:
+    - type: Transform
+      pos: 3.3056488,-10.2933445
+      parent: 2
+  - uid: 2294
+    components:
+    - type: Transform
+      pos: 3.3056488,-10.2933445
+      parent: 2
+  - uid: 2295
+    components:
+    - type: Transform
+      pos: 3.3056488,-10.2933445
+      parent: 2
 - proto: Mannequin
   entities:
   - uid: 31
@@ -10137,48 +10396,6 @@ entities:
     - type: Transform
       pos: 3.7773745,-10.54699
       parent: 2
-- proto: MothCube
-  entities:
-  - uid: 303
-    components:
-    - type: Transform
-      parent: 296
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 313
-    components:
-    - type: Transform
-      parent: 306
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 383
-    components:
-    - type: Transform
-      parent: 377
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 393
-    components:
-    - type: Transform
-      parent: 387
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 403
-    components:
-    - type: Transform
-      parent: 397
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
 - proto: PaperDoor
   entities:
   - uid: 427
@@ -11267,82 +11484,33 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 16.5,-0.5
       parent: 2
-- proto: ReptilianCube
-  entities:
-  - uid: 304
-    components:
-    - type: Transform
-      parent: 296
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 384
-    components:
-    - type: Transform
-      parent: 377
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 394
-    components:
-    - type: Transform
-      parent: 387
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 404
-    components:
-    - type: Transform
-      parent: 397
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
 - proto: RodentiaCube
   entities:
-  - uid: 305
+  - uid: 2331
     components:
     - type: Transform
-      parent: 296
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 314
+      pos: 3.3889818,-11.690099
+      parent: 2
+  - uid: 2332
     components:
     - type: Transform
-      parent: 306
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 385
+      pos: 3.3889818,-11.690099
+      parent: 2
+  - uid: 2333
     components:
     - type: Transform
-      parent: 377
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 395
+      pos: 3.3889818,-11.690099
+      parent: 2
+  - uid: 2334
     components:
     - type: Transform
-      parent: 387
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 405
+      pos: 3.3889818,-11.690099
+      parent: 2
+  - uid: 2335
     components:
     - type: Transform
-      parent: 397
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
+      pos: 3.3889818,-11.690099
+      parent: 2
 - proto: SignalButtonExt3
   entities:
   - uid: 93
@@ -11407,30 +11575,31 @@ entities:
       parent: 2
 - proto: SlimePersonCube
   entities:
-  - uid: 386
+  - uid: 2326
     components:
     - type: Transform
-      parent: 377
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 396
+      pos: 3.7639818,-11.690099
+      parent: 2
+  - uid: 2327
     components:
     - type: Transform
-      parent: 387
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 406
+      pos: 3.7639818,-11.690099
+      parent: 2
+  - uid: 2328
     components:
     - type: Transform
-      parent: 397
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
+      pos: 3.7639818,-11.690099
+      parent: 2
+  - uid: 2329
+    components:
+    - type: Transform
+      pos: 3.7639818,-11.690099
+      parent: 2
+  - uid: 2330
+    components:
+    - type: Transform
+      pos: 3.7639818,-11.690099
+      parent: 2
 - proto: SMESAdvanced
   entities:
   - uid: 990
@@ -12174,252 +12343,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 16.5,-0.5
       parent: 2
-- proto: VariantCubeBox
-  entities:
-  - uid: 296
-    components:
-    - type: Transform
-      pos: -9.700525,-11.253089
-      parent: 2
-    - type: Storage
-      storedItems:
-        297:
-          position: 0,0
-          _rotation: South
-        298:
-          position: 1,0
-          _rotation: South
-        299:
-          position: 2,0
-          _rotation: South
-        300:
-          position: 0,1
-          _rotation: South
-        301:
-          position: 1,1
-          _rotation: South
-        302:
-          position: 2,1
-          _rotation: South
-        303:
-          position: 0,2
-          _rotation: South
-        304:
-          position: 1,2
-          _rotation: South
-        305:
-          position: 2,2
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 297
-          - 298
-          - 299
-          - 300
-          - 301
-          - 302
-          - 303
-          - 304
-          - 305
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-  - uid: 306
-    components:
-    - type: Transform
-      pos: -9.311359,-11.586591
-      parent: 2
-    - type: Storage
-      storedItems:
-        307:
-          position: 0,0
-          _rotation: South
-        308:
-          position: 1,0
-          _rotation: South
-        309:
-          position: 2,0
-          _rotation: South
-        310:
-          position: 0,1
-          _rotation: South
-        311:
-          position: 1,1
-          _rotation: South
-        312:
-          position: 2,1
-          _rotation: South
-        313:
-          position: 0,2
-          _rotation: South
-        314:
-          position: 1,2
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 307
-          - 308
-          - 309
-          - 310
-          - 311
-          - 312
-          - 313
-          - 314
-  - uid: 377
-    components:
-    - type: Transform
-      pos: 3.4723582,-10.406817
-      parent: 2
-    - type: Storage
-      storedItems:
-        378:
-          position: 0,0
-          _rotation: South
-        379:
-          position: 1,0
-          _rotation: South
-        380:
-          position: 2,0
-          _rotation: South
-        381:
-          position: 0,1
-          _rotation: South
-        382:
-          position: 1,1
-          _rotation: South
-        383:
-          position: 2,1
-          _rotation: South
-        384:
-          position: 0,2
-          _rotation: South
-        385:
-          position: 1,2
-          _rotation: South
-        386:
-          position: 2,2
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 378
-          - 379
-          - 380
-          - 381
-          - 382
-          - 383
-          - 384
-          - 385
-          - 386
-  - uid: 387
-    components:
-    - type: Transform
-      pos: 3.5022945,-10.975679
-      parent: 2
-    - type: Storage
-      storedItems:
-        388:
-          position: 0,0
-          _rotation: South
-        389:
-          position: 1,0
-          _rotation: South
-        390:
-          position: 2,0
-          _rotation: South
-        391:
-          position: 0,1
-          _rotation: South
-        392:
-          position: 1,1
-          _rotation: South
-        393:
-          position: 2,1
-          _rotation: South
-        394:
-          position: 0,2
-          _rotation: South
-        395:
-          position: 1,2
-          _rotation: South
-        396:
-          position: 2,2
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 388
-          - 389
-          - 390
-          - 391
-          - 392
-          - 393
-          - 394
-          - 395
-          - 396
-  - uid: 397
-    components:
-    - type: Transform
-      pos: 3.5172622,-11.514602
-      parent: 2
-    - type: Storage
-      storedItems:
-        398:
-          position: 0,0
-          _rotation: South
-        399:
-          position: 1,0
-          _rotation: South
-        400:
-          position: 2,0
-          _rotation: South
-        401:
-          position: 0,1
-          _rotation: South
-        402:
-          position: 1,1
-          _rotation: South
-        403:
-          position: 2,1
-          _rotation: South
-        404:
-          position: 0,2
-          _rotation: South
-        405:
-          position: 1,2
-          _rotation: South
-        406:
-          position: 2,2
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 398
-          - 399
-          - 400
-          - 401
-          - 402
-          - 403
-          - 404
-          - 405
-          - 406
 - proto: VendingMachineEngivend
   entities:
   - uid: 1977
