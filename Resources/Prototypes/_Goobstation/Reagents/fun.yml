@@ -33,6 +33,28 @@
           min: 25
 
 - type: reagent
+  id: BingleJuice
+  name: reagent-name-binglejuice
+  group: Toxins
+  desc: reagent-desc-binglejuice
+  physicalDesc: reagent-physical-desc-calming
+  flavor: bitter
+  color: "#1a6ac1"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.05
+      effects:
+      - !type:PopupMessage
+          type: Local
+          messages: [ "reagent-popup-binglejuice" ]
+          probability: 0.2
+      - !type:Polymorph
+        prototype: Bingle
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+
+- type: reagent
   id: Carpolin
   name: reagent-name-carpolin
   group: Toxins
