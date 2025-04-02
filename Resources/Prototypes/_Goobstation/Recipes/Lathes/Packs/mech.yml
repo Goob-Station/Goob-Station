@@ -6,21 +6,25 @@
   - MechThruster
 
 - type: latheRecipePack
-  id: MechWeaponsStatic
+  id: MechWeaponsSecurityStatic
   recipes:
   - WeaponMechCombatFlashbangLauncher
 
 ## Dynamic
 - type: latheRecipePack
-  id: MechWeapons
+  id: MechWeaponsSecurityLight
+  recipes:
+  - WeaponMechCombatFiredartLaser
+  - WeaponMechCombatShotgunIncendiary
+  - WeaponMechCombatDisabler
+
+- type: latheRecipePack
+  id: MechWeaponsSecurityHeavy
   recipes:
   - WeaponMechCombatImmolationGun
   - WeaponMechCombatSolarisLaser
-  - WeaponMechCombatFiredartLaser
   - WeaponMechCombatUltraRifle
   - WeaponMechCombatShotgun
-  - WeaponMechCombatShotgunIncendiary
-  - WeaponMechCombatDisabler
   - WeaponMechCombatMissileRack8
 
 - type: latheRecipePack
