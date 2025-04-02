@@ -6988,3 +6988,9 @@ Entries:
       message: Proto-kinetic weapons (except for accelerator) got slightly nerfed.
   id: 812
   time: '2025-04-02T18:13:18.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Syringe guns now inject their contents more smoothly.
+  id: 813
+  time: '2025-04-02T18:14:08.0000000+00:00'
