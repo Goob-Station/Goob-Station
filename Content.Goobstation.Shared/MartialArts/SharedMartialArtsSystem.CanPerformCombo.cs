@@ -47,9 +47,12 @@ public partial class SharedMartialArtsSystem
             component.LastAttacks.Clear();
         }
 
+        var afterEv = new AfterComboCheckEvent(uid, args.Target, args.Weapon, args.Type);
+
         if (args.Weapon != uid)
         {
             component.LastAttacks.Clear();
+            RaiseLocalEvent(uid, ref afterEv);
             return;
         }
 
@@ -57,6 +60,7 @@ public partial class SharedMartialArtsSystem
         component.ResetTime = _timing.CurTime + TimeSpan.FromSeconds(4);
         component.LastAttacks.Add(args.Type);
         CheckCombo(uid, component);
+        RaiseLocalEvent(uid, ref afterEv);
     }
 
     private void CheckCombo(EntityUid uid, CanPerformComboComponent comp)

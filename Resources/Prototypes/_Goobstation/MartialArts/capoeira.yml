@@ -38,8 +38,7 @@
   event: !type:CircleKickPerformedEvent
     sound:
       path: /Audio/Weapons/genhit2.ogg
-  staminaDamage: 15
-  extraDamage: 10
+  extraDamage: 15
   canDoWhileProne: false
 
 - type: combo
@@ -51,13 +50,14 @@
   - Harm
   - Disarm
   event: !type:SweepKickPerformedEvent
-    attackSpeedMultiplier: 0.75
+    attackSpeedMultiplier: 1.5
     attackSpeedMultiplierTime: 5
     minVelocity: 2
     sound:
       path: /Audio/Weapons/genhit1.ogg
   extraDamage: 10
   paralyzeTime: 2
+  staminaDamage: 5
   dropHeldItemsBehavior: NoDrop
   canDoWhileProne: false
 
@@ -71,11 +71,12 @@
   - Disarm
   - Harm
   event: !type:SpinKickPerformedEvent
-    attackSpeedMultiplier: 0.75
+    attackSpeedMultiplier: 1.5
     attackSpeedMultiplierTime: 5
     minVelocity: 2
     sound:
       path: /Audio/Weapons/genhit1.ogg
   paralyzeTime: 2
-  extraDamage: 15
+  staminaDamage: 15
+  extraDamage: 20
   canDoWhileProne: false

@@ -100,8 +100,9 @@ public abstract class SharedNinjaSuitSystem : EntitySystem
 
     private void OnCreateStarAttempt(Entity<NinjaSuitComponent> ent, ref CreateItemAttemptEvent args)
     {
-        if (CheckDisabled(ent, args.User))
-            args.Cancelled = true;
+        // Goob edit
+        // if (CheckDisabled(ent, args.User))
+        //    args.Cancelled = true;
     }
 
     /// <summary>

@@ -33,7 +33,6 @@ public partial class SharedMartialArtsSystem
         SubscribeLocalEvent<CanPerformComboComponent, CqcRestrainPerformedEvent>(OnCQCRestrain);
         SubscribeLocalEvent<CanPerformComboComponent, CqcPressurePerformedEvent>(OnCQCPressure);
         SubscribeLocalEvent<CanPerformComboComponent, CqcConsecutivePerformedEvent>(OnCQCConsecutive);
-        SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComboAttackPerformedEvent>(OnCQCAttackPerformed);
 
         SubscribeLocalEvent<GrantCqcComponent, UseInHandEvent>(OnGrantCQCUse);
         SubscribeLocalEvent<GrantCqcComponent, MapInitEvent>(OnMapInitEvent);
@@ -82,13 +81,7 @@ public partial class SharedMartialArtsSystem
 
     private void OnCQCAttackPerformed(Entity<MartialArtsKnowledgeComponent> ent, ref ComboAttackPerformedEvent args)
     {
-        if (!TryComp<MartialArtsKnowledgeComponent>(ent, out var knowledgeComponent))
-            return;
-
-        if (knowledgeComponent.MartialArtsForm != MartialArtsForms.CloseQuartersCombat)
-            return;
-
-        if(knowledgeComponent.Blocked)
+        if (args.Weapon != args.Performer)
             return;
 
         switch (args.Type)
@@ -98,7 +91,9 @@ public partial class SharedMartialArtsSystem
                 break;
             case ComboAttackType.Harm:
                 if (!TryComp<StandingStateComponent>(ent, out var standing)
-                    || standing.CurrentState == StandingState.Standing)
+                    || standing.CurrentState == StandingState.Standing ||
+                    !TryComp(args.Target, out StandingStateComponent? targetStanding) ||
+                    targetStanding.CurrentState != StandingState.Standing)
                     return;
                 _stun.TryKnockdown(args.Target, TimeSpan.FromSeconds(5), true);
                 _standingState.Stand(ent);

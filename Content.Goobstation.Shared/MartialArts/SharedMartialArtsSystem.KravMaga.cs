@@ -59,8 +59,11 @@ public abstract partial class SharedMartialArtsSystem
             case KravMagaMoves.LegSweep:
                 if(_netManager.IsClient)
                     return;
-                _stun.TryKnockdown(hitEntity, TimeSpan.FromSeconds(4), true, DropHeldItemsBehavior.NoDrop); // okay buddy
-                _stamina.TakeStaminaDamage(hitEntity, 25f, applyResistances: true);
+
+                if (_standingState.IsDown(hitEntity))
+                    break;
+                _stun.TryKnockdown(hitEntity, TimeSpan.FromSeconds(4), true); // okay buddy
+                // _stamina.TakeStaminaDamage(hitEntity, moveComp.StaminaDamage, applyResistances: true);
                 break;
             case KravMagaMoves.NeckChop:
                 var comp = EnsureComp<KravMagaSilencedComponent>(hitEntity);

@@ -129,6 +129,7 @@ using Content.Shared.Popups;
 using Content.Shared.Pulling.Events;
 using Content.Shared.Speech; // Goobstation
 using Content.Shared.Standing;
+using Content.Shared.StatusEffect;
 using Content.Shared.Throwing; // Goobstation
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee.Events;
@@ -175,7 +176,7 @@ public sealed class PullingSystem : EntitySystem
     [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly ContestsSystem _contests = default!; // Goobstation - Grab Intent
-    [Dependency] private readonly SharedMeleeWeaponSystem _meleeWeapon = default!; // Goobstation - Grab Intent
+    [Dependency] private readonly MobStateSystem _mobState = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -193,6 +194,7 @@ public sealed class PullingSystem : EntitySystem
         SubscribeLocalEvent<PullableComponent, StopBeingPulledAlertEvent>(OnStopBeingPulledAlert);
         SubscribeLocalEvent<PullableComponent, UpdateCanMoveEvent>(OnGrabbedMoveAttempt); // Goobstation
         SubscribeLocalEvent<PullableComponent, SpeakAttemptEvent>(OnGrabbedSpeakAttempt); // Goobstation
+        SubscribeLocalEvent<PullableComponent, StatusEffectEndedEvent>(OnStatusEffectEnded); // Goobstation
 
         SubscribeLocalEvent<PullerComponent, UpdateMobStateEvent>(OnStateChanged);
         SubscribeLocalEvent<PullerComponent, AfterAutoHandleStateEvent>(OnAfterState);
@@ -215,6 +217,16 @@ public sealed class PullingSystem : EntitySystem
     }
 
     // Goobstation - Grab Intent
+    private void OnStatusEffectEnded(Entity<PullableComponent> ent, ref StatusEffectEndedEvent args)
+    {
+        if (ent.Comp.GrabStage < GrabStage.Soft || !_blocker.CanInteract(ent.Owner, null) ||
+            _mobState.IsIncapacitated(ent) || !TryComp(ent.Comp.Puller, out PullerComponent? puller))
+            return;
+
+        if (args.Key == "Stun")
+            TrySetGrabStages((ent.Comp.Puller.Value, puller), ent, GrabStage.No);
+    }
+
     private void OnAttacked(Entity<PullerComponent> ent, ref AttackedEvent args)
     {
         if (ent.Comp.Pulling != args.User)

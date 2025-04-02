@@ -1,0 +1,30 @@
+using Robust.Shared.Audio;
+using Robust.Shared.Serialization;
+
+namespace Content.Goobstation.Shared.MartialArts.Events;
+
+[Serializable, NetSerializable, ImplicitDataDefinitionForInheritors]
+public abstract partial class BaseKungFuDragonEvent : EntityEventArgs
+{
+    [DataField]
+    public virtual SoundSpecifier Sound { get; set; } = new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg");
+}
+
+[DataDefinition]
+public sealed partial class DragonClawPerformedEvent : BaseKungFuDragonEvent
+{
+    [DataField]
+    public TimeSpan SlowdownTime = TimeSpan.FromSeconds(2);
+
+    [DataField]
+    public float WalkSpeedModifier = 0.6f;
+
+    [DataField]
+    public float SprintSpeedModifier = 0.6f;
+}
+
+[DataDefinition]
+public sealed partial class DragonTailPerformedEvent : BaseKungFuDragonEvent;
+
+[DataDefinition]
+public sealed partial class DragonStrikePerformedEvent : BaseKungFuDragonEvent;

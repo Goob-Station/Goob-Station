@@ -6,7 +6,7 @@ using Robust.Shared.Serialization;
 namespace Content.Goobstation.Shared.MartialArts.Events;
 
 [Serializable, NetSerializable, ImplicitDataDefinitionForInheritors]
-public abstract partial class BaseCapoeiraEvent
+public abstract partial class BaseCapoeiraEvent : EntityEventArgs
 {
     [DataField]
     public virtual float VelocityPowerMultiplier { get; set; } = 0.9f;
@@ -33,7 +33,7 @@ public abstract partial class BaseCapoeiraEvent
 public sealed partial class PushKickPerformedEvent : BaseCapoeiraEvent
 {
     [DataField]
-    public float ThrowRange = 2f;
+    public float ThrowRange = 1f;
 }
 
 public sealed partial class  SweepKickPerformedEvent : BaseCapoeiraEvent;

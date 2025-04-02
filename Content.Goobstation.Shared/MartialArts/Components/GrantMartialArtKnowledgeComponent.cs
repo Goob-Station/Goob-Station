@@ -50,6 +50,24 @@ public sealed partial class GrantCapoeiraComponent : GrantMartialArtKnowledgeCom
 }
 
 [RegisterComponent]
+public sealed partial class GrantKungFuDragonComponent : GrantMartialArtKnowledgeComponent
+{
+    [DataField]
+    public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.KungFuDragon;
+
+    public override LocId LearnMessage { get; set; } = "dragon-success-learned";
+}
+
+[RegisterComponent]
+public sealed partial class GrantNinjutsuComponent : GrantMartialArtKnowledgeComponent
+{
+    [DataField]
+    public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.Ninjutsu;
+
+    public override LocId LearnMessage { get; set; } = "ninjutsu-success-learned";
+}
+
+[RegisterComponent]
 public sealed partial class GrantSleepingCarpComponent : GrantMartialArtKnowledgeComponent
 {
     [DataField]

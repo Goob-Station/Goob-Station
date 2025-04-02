@@ -51,3 +51,13 @@
 - type: statusEffect
   id: BlockProtectiveBladeShoot
   alwaysAllowed: true
+
+- type: statusEffect
+  id: DragonPower
+  alert: DragonPower
+  alwaysAllowed: true
+
+- type: statusEffect
+  id: LossOfSurprise
+  alert: LossOfSurprise
+  alwaysAllowed: true

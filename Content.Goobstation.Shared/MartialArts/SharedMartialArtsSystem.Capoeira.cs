@@ -1,5 +1,7 @@
+using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Shared.Emoting;
 using Content.Goobstation.Shared.MartialArts.Components;
+using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
@@ -12,20 +14,43 @@ public abstract partial class SharedMartialArtsSystem
 {
     private void InitializeCapoeira()
     {
-        SubscribeLocalEvent<CanPerformComboComponent, Events.PushKickPerformedEvent>(OnPushKick);
-        SubscribeLocalEvent<CanPerformComboComponent, Events.CircleKickPerformedEvent>(OnCircleKick);
-        SubscribeLocalEvent<CanPerformComboComponent, Events.SweepKickPerformedEvent>(OnSweepKick);
-        SubscribeLocalEvent<CanPerformComboComponent, Events.SpinKickPerformedEvent>(OnSpinKick);
+        SubscribeLocalEvent<CanPerformComboComponent, PushKickPerformedEvent>(OnPushKick);
+        SubscribeLocalEvent<CanPerformComboComponent, CircleKickPerformedEvent>(OnCircleKick);
+        SubscribeLocalEvent<CanPerformComboComponent, SweepKickPerformedEvent>(OnSweepKick);
+        SubscribeLocalEvent<CanPerformComboComponent, SpinKickPerformedEvent>(OnSpinKick);
 
         SubscribeLocalEvent<GrantCapoeiraComponent, UseInHandEvent>(OnGrantCQCUse);
         SubscribeLocalEvent<GrantCapoeiraComponent, ExaminedEvent>(OnGrantCQCExamine);
     }
 
-    private void OnSpinKick(Entity<CanPerformComboComponent> ent, ref Events.SpinKickPerformedEvent args)
+    private void OnCapoeiraAttackPerformed(Entity<MartialArtsKnowledgeComponent> ent, ref ComboAttackPerformedEvent args)
+    {
+        if (args.Type == ComboAttackType.Grab)
+        {
+            ApplyMultiplier(ent, 1.2f, TimeSpan.FromSeconds(4), MartialArtModifierType.MoveSpeed);
+            _modifier.RefreshMovementSpeedModifiers(ent);
+            return;
+        }
+
+        if (args.Weapon != args.Performer || args.Type is not (ComboAttackType.Disarm or ComboAttackType.Harm))
+            return;
+
+        var velocity = GetVelocity(ent);
+        var multiplier = Math.Clamp(MathF.Pow(velocity, 0.2f), 1f, 1.5f);
+        ApplyMultiplier(ent, multiplier, TimeSpan.FromSeconds(3));
+    }
+
+    private void OnSpinKick(Entity<CanPerformComboComponent> ent, ref SpinKickPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto, out var target, out _))
+            || !TryUseMartialArt(ent, proto, out var target, out var downed))
             return;
+
+        if (downed)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("martial-arts-fail-target-down"), ent, ent);
+            return;
+        }
 
         var velocity = GetVelocity(ent);
         if (!TryPerformCapoeiraMove(ent, args, velocity))
@@ -43,7 +68,7 @@ public abstract partial class SharedMartialArtsSystem
 
         _audio.PlayPvs(args.Sound, target);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _, TargetBodyPart.Head);
-        SpeedUpAttacks(ent, args.AttackSpeedMultiplier, args.AttackSpeedMultiplierTime);
+        ApplyMultiplier(ent, args.AttackSpeedMultiplier, args.AttackSpeedMultiplierTime);
 
         if (args.Emote != null && TryComp(ent, out AnimatedEmotesComponent? emotes))
         {
@@ -73,7 +98,7 @@ public abstract partial class SharedMartialArtsSystem
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _, TargetBodyPart.Torso);
         _audio.PlayPvs(args.Sound, target);
-        SpeedUpAttacks(ent, args.AttackSpeedMultiplier, args.AttackSpeedMultiplierTime);
+        ApplyMultiplier(ent, args.AttackSpeedMultiplier, args.AttackSpeedMultiplierTime);
         ComboPopup(ent, target, proto.Name);
     }
 
@@ -124,11 +149,18 @@ public abstract partial class SharedMartialArtsSystem
         ComboPopup(ent, target, proto.Name);
     }
 
-    private void SpeedUpAttacks(EntityUid uid, float multiplier, TimeSpan time)
+    private void ApplyMultiplier(EntityUid uid,
+        float multiplier,
+        TimeSpan time,
+        MartialArtModifierType type = MartialArtModifierType.AttackRate)
     {
-        var multComp = EnsureComp<Components.MeleeAttackRateMultiplierComponent>(uid);
-        multComp.Data.Add(new MeleeAttackRateMultiplierData
+        if (Math.Abs(multiplier - 1f) < 0.001f || time <= TimeSpan.Zero)
+            return;
+
+        var multComp = EnsureComp<MartialArtModifiersComponent>(uid);
+        multComp.Data.Add(new MartialArtModifierData
         {
+            Type = type,
             Multiplier = multiplier,
             EndTime = _timing.CurTime + time,
         });

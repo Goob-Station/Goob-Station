@@ -6,10 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Robust.Shared.Analyzers;
-using Robust.Shared.GameObjects;
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization.Manager.Attributes;
 
 namespace Content.Goobstation.Common.MartialArts;
 
@@ -52,4 +49,6 @@ public enum MartialArtsForms
     CloseQuartersCombat,
     SleepingCarp,
     Capoeira,
+    KungFuDragon,
+    Ninjutsu,
 }
