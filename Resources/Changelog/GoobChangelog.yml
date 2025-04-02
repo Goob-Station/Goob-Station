@@ -7011,3 +7011,9 @@ Entries:
         magazine types to go along with it.
   id: 815
   time: '2025-04-02T18:17:55.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: Internals alert is hidden when not wearing a breath mask now.
+  id: 816
+  time: '2025-04-02T18:27:39.0000000+00:00'
