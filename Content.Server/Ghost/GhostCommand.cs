@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.BlockSuicide;
 using Content.Server.Popups;
 using Content.Shared.Administration;
 using Content.Shared.GameTicking;
@@ -40,6 +41,16 @@ namespace Content.Server.Ghost
                 shell.WriteLine(deniedMessage);
                 _entities.System<PopupSystem>()
                     .PopupEntity(deniedMessage, frozen, frozen);
+                return;
+            }
+
+            if (player.AttachedEntity is { Valid: true } suicideblock && // Goobstation
+                _entities.HasComponent<BlockSuicideComponent>(suicideblock))
+            {
+                var deniedMessage = Loc.GetString("ghost-command-denied");
+                shell.WriteLine(deniedMessage);
+                _entities.System<PopupSystem>()
+                    .PopupEntity(deniedMessage, suicideblock, suicideblock);
                 return;
             }
 

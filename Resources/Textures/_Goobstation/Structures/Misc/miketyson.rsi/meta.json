@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "size": {
+        "x": 80,
+        "y": 110
+    },
+    "license": "GFDL",
+    "copyright": "Taken from Punchout",
+    "states": [
+        {
+            "name": "icon"
+        }
+    ]
+}

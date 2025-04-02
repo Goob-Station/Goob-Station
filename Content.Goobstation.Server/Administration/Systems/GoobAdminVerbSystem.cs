@@ -1,9 +1,11 @@
-﻿using Content.Shared.Verbs;
+﻿using Content.Server.Administration.Managers;
+using Content.Shared.Verbs;
 
 namespace Content.Goobstation.Server.Administration.Systems;
 
 public sealed partial class GoobAdminVerbSystem : EntitySystem
 {
+    [Dependency] private readonly IAdminManager _adminManager = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -14,5 +16,6 @@ public sealed partial class GoobAdminVerbSystem : EntitySystem
     private void GetVerbs(GetVerbsEvent<Verb> args)
     {
         AddAntagVerbs(args);
+        AddSmiteVerbs(args);
     }
 }

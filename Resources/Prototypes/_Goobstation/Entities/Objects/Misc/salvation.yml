@@ -1,0 +1,16 @@
+- type: entity
+  name: salvation
+  parent: BaseItem
+  id: Salvation
+  description: Releases your soul from its shackles, allowing you to finally leave this place.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Chapel/bible.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: Objects/Specific/Chapel/bible.rsi
+  - type: RemoveCompOnUse
+    components:
+    - type: Cursed
+  - type: Prayable
