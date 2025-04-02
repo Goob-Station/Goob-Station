@@ -71,12 +71,6 @@ public sealed partial class ChangelingIdentityComponent : Component
     public float MaxBiomass = 30f;
 
     /// <summary>
-    ///     How much biomass should be removed per cycle.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float BiomassDrain = 0f; // drain removed
-
-    /// <summary>
     ///     Current amount of chemicals changeling currently has.
     /// </summary>
     [DataField, AutoNetworkedField]
