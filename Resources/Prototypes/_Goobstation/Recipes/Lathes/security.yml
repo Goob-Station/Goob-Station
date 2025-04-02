@@ -72,8 +72,8 @@
     Plasma: 200
 
 - type: latheRecipe
-  id: CartidgeChloralHydrate
-  result: CartidgeChloralHydrate
+  id: CartridgeChloralHydrate
+  result: CartridgeChloralHydrate
   completetime: 1
   materials:
     Steel: 200

@@ -224,7 +224,7 @@
   name: chloral hydrate autoinjector cartridge
   parent: [ BaseSyndicateContraband , BaseCartridgeAutoinjector ]
   description: Contains 10u of chloral hydrate, used in a cartridge autoinjector.
-  id: CartidgeChloralHydrate
+  id: CartridgeChloralHydrate
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
