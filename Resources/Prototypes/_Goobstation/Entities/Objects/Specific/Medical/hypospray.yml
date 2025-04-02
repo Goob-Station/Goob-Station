@@ -155,7 +155,7 @@
         Quantity: 2
       - ReagentId: TranexamicAcid
         Quantity: 1 # Stops 30% of maximum bleeding
-  # Heals from 62 to 98 total brute (2.07 to 3.27 brute packs)
+  # Heals from 62 to 98 total brute split between 3 types (2.07 to 3.27 brute packs)
 
 - type: entity
   name: burn autoinjector cartridge
@@ -165,7 +165,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
-    state: cartridge-dermaline
+    state: cartridge-burn
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
@@ -179,7 +179,7 @@
         Quantity: 2
       - ReagentId: Sigynate
         Quantity: 1
-  # Heals from 70 to 114 total burn (2 to 3.25 ointments)
+  # Heals from 70 to 114 total burn split between 4 types, twice as good for heat/cold/shock than for caustic (2 to 3.25 ointments)
 
 - type: entity
   name: airloss autoinjector cartridge
@@ -235,14 +235,14 @@
         Quantity: 10
 
 - type: entity
-  name: exhausting autoinjector cartridge
+  name: sedative autoinjector cartridge
   parent: [ BaseSyndicateContraband , BaseCartridgeAutoinjector ]
   description: Contains 5u of chloral hydrate and 5u of tirizene, used in a cartridge autoinjector.
   id: CartridgeChloralHydrate
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
-    state: cartridge-chloral
+    state: cartridge-sedative
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
