@@ -15,8 +15,8 @@
   id: NanotrasenRepresentativeBackpack
   name: loadout-group-ntr-backpack
   loadouts:
-  - NanotrasenRepresentativeBackpack
   - NanotrasenRepresentativeSatchel
+  - NanotrasenRepresentativeBackpack
   - NanotrasenRepresentativeDuffel
   - NanotrasenRepresentativeMessenger
 

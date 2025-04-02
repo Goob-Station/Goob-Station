@@ -28,7 +28,7 @@
 - type: loadout
   id: NanotrasenRepresentativeBackpack
   equipment:
-    back: ClothingBackpackCentcomm
+    back: ClothingBackpack
 
 - type: loadout
   id: NanotrasenRepresentativeDuffel
@@ -38,12 +38,7 @@
 - type: loadout
   id: NanotrasenRepresentativeSatchel
   equipment:
-    back: ClothingBackpackSatchelCentcomm
-
-- type: loadout
-  id: NanotrasenRepresentativeMessenger
-  equipment:
-    back: ClothingBackpackMessengerCentcomm
+    back: ClothingBackpackSatchelLeather
 
 # Jumpsuits
 - type: loadout
