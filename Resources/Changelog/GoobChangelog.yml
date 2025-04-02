@@ -7002,3 +7002,12 @@ Entries:
         time
   id: 814
   time: '2025-04-02T18:15:59.0000000+00:00'
+- author: CreatorBot01
+  changes:
+    - type: Add
+      message: >-
+        Added new tier 2 arsenal research for energy bolt weapon and also our
+        first printable energy bolt weapon that is magazine swapable and 3
+        magazine types to go along with it.
+  id: 815
+  time: '2025-04-02T18:17:55.0000000+00:00'
