@@ -39,6 +39,7 @@
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
+  - ClothingBackpackMessengerHolding # Frontier
 
 - type: latheRecipePack
   id: PowerCells
@@ -81,7 +82,7 @@
   recipes:
   #- TurboItemRechargerCircuitboard - Goobstation - Moved to SharedBoards
   #- AutolatheHyperConvectionMachineCircuitboard - Moved to SharedBoards
-  #- ProtolatheHyperConvectionMachineCircuitboard - Moved to SharedBoards 
+  #- ProtolatheHyperConvectionMachineCircuitboard - Moved to SharedBoards
   #- CircuitImprinterHyperConvectionMachineCircuitboard - Moved to SharedBoards
   - TechDiskComputerCircuitboard
   #- FlatpackerMachineCircuitboard - Moved to SharedBoards
