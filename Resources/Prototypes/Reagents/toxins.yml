@@ -1,55 +1,3 @@
-# SPDX-FileCopyrightText: 2022 CrudeWax <75271456+CrudeWax@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Jessica M <jessica@jessicamaybe.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Sam Weaver <weaversam8@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 lapatison <100279397+lapatison@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2023 CrigCrag <137215465+CrigCrag@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Maxtone <124747282+MagnusCrowe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 ProPandaBear <propandabear@gmail.com>
-# SPDX-FileCopyrightText: 2023 QuantumSeanyGlass <quantum1002@gmail.com>
-# SPDX-FileCopyrightText: 2023 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Ashley Woodiss-Field <ash@DESKTOP-H64M4AI.localdomain>
-# SPDX-FileCopyrightText: 2024 Avalon <148660190+BYONDFuckery@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 ColesMagnum <98577947+AW-FulCode@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 EdenTheLiznerd <138748328+EdenTheLiznerd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MissKay1994 <15877268+MissKay1994@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 Token <esil.bektay@yandex.com>
-# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2024 potato1234_x <79580518+potato1234x@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 BeeRobynn <166929042+BeeRobynn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: reagent
   id: Toxin
   name: reagent-name-toxin
@@ -58,7 +6,6 @@
   flavor: bitter
   color: "#cf3600"
   physicalDesc: reagent-physical-desc-opaque
-  contrabandSeverity: Minor
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: 10
@@ -68,10 +15,6 @@
     Poison:
       effects:
       - !type:HealthChange
-        conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [Yowie]
-          inverted: true
         damage:
           types:
             Poison: 4
@@ -84,8 +27,6 @@
   flavor: bitter
   color: "#e2a38c"
   physicalDesc: reagent-physical-desc-exotic-smelling
-  allowedDepartments:
-  - Medical
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: 10
@@ -95,18 +36,18 @@
     Poison:
       effects:
       - !type:HealthChange
-        conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
+        conditions: #imp, thaven are immune to carpotoxin because it's naturally in their bodies
+        - !type:OrganType
+          type: Thaven
+          shouldHave: false
         damage:
           types:
             Poison: 4
       - !type:PopupMessage
-        conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
+        conditions: #imp, thaven are immune to carpotoxin because it's naturally in their bodies
+        - !type:OrganType
+          type: Thaven
+          shouldHave: false
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-burning-insides" ]
@@ -120,8 +61,6 @@
   flavor: bitter
   color: "#000067"
   physicalDesc: reagent-physical-desc-nondescript
-  allowedDepartments:
-  - Medical
   metabolisms:
     Poison:
       effects:
@@ -129,29 +68,20 @@
         emote: Yawn
         showInChat: true
         probability: 0.1
-      - !type:MovementSpeedModifier
-        conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
+      - !type:MovespeedModifier
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
-      - !type:ModifyStatusEffect
-        conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
-        effectProto: StatusEffectDrowsiness
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        component: Drowsiness
         time: 4
-        type: Update
+        type: Add
+        refresh: false
       - !type:HealthChange
         conditions:
-        - !type:ReagentCondition
+        - !type:ReagentThreshold
           reagent: ChloralHydrate
           min: 20
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
         damage:
           types:
             Poison: 1.5
@@ -168,21 +98,13 @@
     Poison:
       effects:
         - !type:HealthChange
-          conditions:
-          - !type:MetabolizerTypeCondition # Goobstation - Yowie
-            type: [ Yowie ]
-            inverted: true
           damage:
             types:
               Poison: 2
-        - !type:Vomit
+        - !type:ChemVomit
           conditions:
-          - !type:ReagentCondition
-            reagent: GastroToxin
+          - !type:ReagentThreshold
             min: 2
-          - !type:MetabolizerTypeCondition # Goobstation - Yowie
-            type: [ Yowie ]
-            inverted: true
           probability: 0.2
 
 - type: reagent
@@ -198,10 +120,6 @@
     Poison:
       effects:
       - !type:HealthChange
-        conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
         damage:
           types:
             Poison: 1
@@ -212,7 +130,6 @@
   group: Toxins
   desc: reagent-desc-polytrinic-acid
   physicalDesc: reagent-physical-desc-strong-smelling
-  contrabandSeverity: Major
   flavor: acid
   color: "#a1000b"
   boilingPoint: 78.2 # This isn't a real chemical...
@@ -229,6 +146,7 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
+        scaleByQuantity: true
         ignoreResistances: false
         damage:
           types:
@@ -261,12 +179,14 @@
   flavor: sour
   color: "#48b3b8"
   physicalDesc: reagent-physical-desc-ferrous
+  slippery: false
   metabolisms:
     Drink:
       effects:
       - !type:SatiateThirst
         factor: -1.5
       - !type:HealthChange
+        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
@@ -279,7 +199,6 @@
   group: Toxins
   desc: reagent-desc-fluorosulfuric-acid
   physicalDesc: reagent-physical-desc-strong-smelling
-  contrabandSeverity: Minor
   flavor: acid
   color: "#5050ff"
   boilingPoint: 165
@@ -289,6 +208,7 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
+        scaleByQuantity: true
         ignoreResistances: false
         damage:
           types:
@@ -319,8 +239,6 @@
   group: Toxins
   desc: reagent-desc-sulfuric-acid
   physicalDesc: reagent-physical-desc-oily
-  allowedJobs:
-  - Chemist
   flavor: acid
   color: "#BF8C00"
   recognizable: true
@@ -338,6 +256,7 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
+        scaleByQuantity: true
         ignoreResistances: false
         damage:
           types:
@@ -368,9 +287,6 @@
   group: Toxins
   desc: reagent-desc-unstable-mutagen
   physicalDesc: reagent-physical-desc-glowing
-  allowedJobs:
-  - Chemist
-  - Botanist
   flavor: bitter
   color: "#00ff5f"
   boilingPoint: 340282300000000000000000000000000000000 # Ethidium bromide, which doesn't boil.
@@ -385,10 +301,6 @@
         damage:
           types:
             Radiation: 3
-    Narcotic:
-      effects:
-      - !type:MutateDiseases
-        mutationRate: 0.08 # 5u equivalent to one normal disease hop
 
 - type: reagent
   id: HeartbreakerToxin
@@ -396,16 +308,12 @@
   group: Toxins
   desc: reagent-desc-heartbreaker-toxin
   physicalDesc: reagent-physical-desc-strong-smelling
-  contrabandSeverity: Major
   color: "#5f959c"
+  contraband: Major # imp
   metabolisms:
     Poison:
       effects:
       - !type:HealthChange
-        conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
         damage:
           types:
             Asphyxiation: 5
@@ -419,8 +327,8 @@
   group: Toxins
   desc: reagent-desc-lexorin
   physicalDesc: reagent-physical-desc-pungent
-  contrabandSeverity: Syndicate
   color: "#6b0007"
+  contraband: Tier3Contraband # imp
   metabolisms:
     Poison:
       effects:
@@ -437,16 +345,19 @@
   physicalDesc: reagent-physical-desc-opaque
   flavor: bitter
   color: "#77b58e"
+  contraband: Minor # imp
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: 10
   metabolisms:
     Poison:
       effects:
-      - !type:ModifyStatusEffect
-        effectProto: StatusEffectSeeingRainbow
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        component: SeeingRainbows
         type: Add
         time: 10
+        refresh: false
   # TODO: PROPER hallucinations
 
 - type: reagent
@@ -467,26 +378,20 @@
       # todo: cough, sneeze
       - !type:HealthChange
         conditions:
-        - !type:ReagentCondition
-          reagent: Histamine
+        - !type:ReagentThreshold
           min: 45
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
         damage:
           groups:
             Brute: 2
+            Toxin: 2
             Airloss: 2
-          types:
-            Poison: 2
       - !type:PopupMessage
         type: Local
         messages: [ "histamine-effect-light-itchiness" ]
         probability: 0.1
       - !type:PopupMessage
         conditions:
-        - !type:ReagentCondition
-          reagent: Histamine
+        - !type:ReagentThreshold
           min: 45
         type: Local
         visualType: Medium
@@ -504,20 +409,22 @@
   boilingPoint: 554 # I'm not a chemist, but it boils at 295, lower than melting point, idk how it works so I gave it higher value
   metabolisms:
     Poison:
-      metabolismRate: 0.05
+      metabolismRate: 0.045 #changed on impstation so that it can build up slightly
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [Animal] # Applying damage to the mobs with lower metabolism capabilities
+        - !type:OrganType
+          type: Animal # Applying damage to the mobs with lower metabolism capabilities
         damage:
           types:
             Poison: 0.4
-      - !type:Vomit
+      - !type:ChemVomit
         probability: 0.04 #Scaled for time, not metabolismrate.
         conditions:
-          - !type:MetabolizerTypeCondition
-            type: [Animal]
+          - !type:OrganType
+            type: Animal
+          - !type:ReagentThreshold
+            min: 0.12
 
 - type: reagent
   id: Amatoxin
@@ -525,17 +432,13 @@
   group: Toxins
   desc: reagent-desc-amatoxin
   physicalDesc: reagent-physical-desc-nondescript
-  contrabandSeverity: Major
   color: "#D6CE7B"
+  contraband: Major
   metabolisms:
     Poison:
       metabolismRate: 0.2
       effects:
       - !type:HealthChange
-        conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
         damage:
           types:
             Poison: 3
@@ -553,21 +456,14 @@
       effects:
         - !type:HealthChange
           conditions:
-          - !type:MetabolizerTypeCondition
-            type:
-            - Yowie # Goobstation - Yowie
-            - Vox # Goob, Vox are stinky
-            inverted: true
+          - !type:HasTag
+            tag: BROS
+            invert: true
           damage:
             types:
               Poison: 2
-    Food:
-     effects:
-      - !type:SatiateHunger
-        conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Vox
-          type: [ Vox ]
-          inverted: true
+  tileReactions:
+    - !type:SpillTileReaction
 
 - type: reagent
   id: Romerol
@@ -575,17 +471,16 @@
   group: Toxins
   desc: reagent-desc-romerol
   physicalDesc: reagent-physical-desc-necrotic
-  contrabandSeverity: Syndicate
   flavor: bitter
   color: "#7e916e"
+  contraband: Tier3Contraband
   worksOnTheDead: true
   metabolisms:
     Medicine:
       effects:
         - !type:CauseZombieInfection
           conditions:
-            - !type:ReagentCondition
-              reagent: Romerol
+            - !type:ReagentThreshold
               min: 5
 
 - type: reagent
@@ -601,76 +496,54 @@
       effects:
       - !type:PopupMessage
         conditions:
-        - !type:MetabolizerTypeCondition
-          type:
-          - Animal
-          - Vox
-          - Yowie # Goobstation - Yowie
-          - XenobioSlime # Goobstation - XenobioSlime
-          - Hydrakin # Fuck you
-          inverted: true
+          - !type:OrganType
+            type: Animal
+            shouldHave: false
+          - !type:OrganType # imp
+            type: Kodepiia
+            shouldHave: false
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
         probability: 0.5
-      - !type:Vomit
+      - !type:ChemVomit
         probability: 0.1
         conditions:
-        - !type:MetabolizerTypeCondition
-          type:
-          - Animal
-          - Vox
-          - Plant
-          - Yowie # Goobstation - Yowie
-          - XenobioSlime # Goobstation - XenobioSlime
-          - Hydrakin # Fuck you
-          inverted: true
+          - !type:OrganType
+            type: Animal
+            shouldHave: false
+          - !type:OrganType # imp
+            type: Kodepiia
+            shouldHave: false
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition
-          type:
-          - Animal
-          - Vox
-          - Plant
-          - Yowie # Goobstation - Yowie
-          - XenobioSlime # Goobstation - XenobioSlime
-          - Hydrakin # Fuck you
-          inverted: true
+        - !type:OrganType
+          type: Animal
+          shouldHave: false
+        - !type:OrganType # imp
+          type: Kodepiia
+          shouldHave: false
         damage:
           types:
             Poison: 1
-      - !type:HealthChange
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Plant ]
-        damage:
-          types:
-            Poison: .25
       - !type:AdjustReagent
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Animal ]
+        - !type:OrganType
+          type: Animal
+          shouldHave: true
         reagent: Protein
         amount: 0.5
-      - !type:AdjustReagent # Goobstation - XenobioSlime
+      - !type:AdjustReagent # Frontier
         conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - XenobioSlime
-          type: [ XenobioSlime ]
+        - !type:OrganType
+          type: Goblin
         reagent: Protein
         amount: 0.5
-      - !type:AdjustReagent # Mono - Hydrakin
+      - !type:SatiateHunger # imp
         conditions:
-        - !type:MetabolizerTypeCondition
-          type:
-          - Hydrakin # Go fuck yourself
-        reagent: Protein
-        amount: 0.5
-      - !type:AdjustReagent
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Vox ]
-        reagent: Protein
-        amount: 0.25
+        - !type:OrganType
+          type: Kodepiia
+          shouldHave: true
 
 - type: reagent
   id: Allicin
@@ -681,25 +554,18 @@
   flavor: bitter
   color: "#F2E9D2"
   metabolisms:
-    Medicine: #Goobstation start
-      metabolismRate: 0.25
+    Poison:
+      metabolismRate: 0.05
       effects:
-      - !type:DiseaseProgressChange
-        affectedType: Bacterial
-        progressModifier: -0.01 #1/10th of spacalin
-#    Poison:
-#      metabolismRate: 0.05
-#      effects: Goobstation end
       - !type:HealthChange
         conditions:
-        - !type:ReagentCondition
-          reagent: Allicin
+        - !type:ReagentThreshold
           min: 1
-        - !type:MetabolizerTypeCondition
-          type: [Animal]
+        - !type:OrganType
+          type: Animal
         damage:
           types:
-            Poison: 0.1 #goobstation, was 0.06
+            Poison: 0.06
 
 - type: reagent
   id: Pax
@@ -707,9 +573,6 @@
   group: Narcotics
   desc: reagent-desc-pax
   physicalDesc: reagent-physical-desc-soothing
-  allowedDepartments:
-  - Security
-  - Medical
   color: "#AAAAAA"
   metabolisms:
     Poison:
@@ -717,11 +580,8 @@
       - !type:GenericStatusEffect
         key: Pacified
         component: Pacified
+        type: Add
         time: 4
-      - !type:ImmunityModifier #Goobstation
-        gainRateModifier: -0.00111111111111 #double spaceacilin penalty
-        strengthModifier: -0.0088888888888 #ditto
-        statusLifetime: 1.5 # 1.5s per 1u
 
 - type: reagent
   id: Honk
@@ -735,25 +595,17 @@
     Poison:
       metabolismRate: 0.05
       effects:
-      - !type:SpeciesChange
-        newSpecies: BananaMen
-        conditions:
-        - !type:ReagentCondition
-          reagent: Honk
-          min: 30
       - !type:Emote
         emote: Honk
         showInChat: true
-        showInGuidebook: true
         force: true
         probability: 0.2
       - !type:HealthChange
         conditions:
-        - !type:ReagentCondition
-          reagent: Honk
+        - !type:ReagentThreshold
           min: 1
-        - !type:MetabolizerTypeCondition
-          type: [ Animal ]
+        - !type:OrganType
+          type: Animal
         damage:
           types:
             Poison: 0.06
@@ -765,17 +617,12 @@
   group: Toxins
   desc: reagent-desc-lead
   physicalDesc: reagent-physical-desc-metallic
-  contrabandSeverity: Major
   color: "#5C6274"
   metabolisms:
     Poison:
       metabolismRate: 0.03 # Effectively once every 30 seconds.
       effects:
       - !type:HealthChange
-        conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
         damage:
           types:
             Poison: 0.6 # Makes it 20 damage per unit.
@@ -786,17 +633,12 @@
   group: Toxins
   desc: reagent-desc-bungotoxin
   physicalDesc: reagent-physical-desc-nondescript
-  contrabandSeverity: Major
   color: "#EBFF8E"
   metabolisms:
     Poison:
       metabolismRate: 0.2
       effects:
       - !type:HealthChange
-        conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
         damage:
           types:
             Poison: 1.8
@@ -807,30 +649,20 @@
   group: Toxins
   desc: reagent-desc-vestine
   physicalDesc: reagent-physical-desc-shiny
-  contrabandSeverity: Syndicate
   flavor: medicine
   color: "#435166"
-  plantMetabolism:
-  - !type:PlantMutateChemicals
-    randomPickBotanyReagent: EvilRandomFillSolution
-  - !type:PlantAdjustToxins
-    amount: 10
+  contraband: Tier2Contraband # imp
   metabolisms:
     Poison:
       effects:
       - !type:Jitter
         conditions:
-        - !type:ReagentCondition
-          reagent: Vestine
+        - !type:ReagentThreshold
           min: 5
-      - !type:MovementSpeedModifier
+      - !type:MovespeedModifier
         walkSpeedModifier: 0.8
         sprintSpeedModifier: 0.8
       - !type:HealthChange
-        conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
         damage:
           groups:
             Airloss: 2
@@ -841,14 +673,14 @@
   group: Toxins
   desc: reagent-desc-tazinide
   physicalDesc: reagent-physical-desc-metallic
-  contrabandSeverity: Syndicate
   flavor: shocking
   color: "#FDD023"
+  contraband: Tier3Contraband
   metabolisms:
     Poison:
       effects:
       - !type:Electrocute
-        probability: 0.5 #goob edit
+        probability: 0.8
 
 - type: reagent
   id: Lipolicide
@@ -856,8 +688,6 @@
   group: Toxins
   desc: reagent-desc-lipolicide
   physicalDesc: reagent-physical-desc-strong-smelling
-  allowedDepartments:
-  - Medical
   flavor: mothballs #why does weightloss juice taste like mothballs
   color: "#F0FFF0"
   metabolisms:
@@ -865,11 +695,8 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:HungerCondition
+        - !type:Hunger
           max: 50
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
         damage:
           types:
             Poison: 2
@@ -892,70 +719,29 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition
-          type:
-          - Arachnid
-          - Yowie # Goobstation - Yowie
-          inverted: true
+        - !type:OrganType
+          type: Arachnid
+          shouldHave: false
         damage:
           types:
             Poison: 1.6
-      - !type:MovementSpeedModifier
+      - !type:MovespeedModifier
         conditions:
-        - !type:ReagentCondition
+        - !type:ReagentThreshold
           reagent: Mechanotoxin
           min: 2
-        - !type:MetabolizerTypeCondition
-          type:
-          - Arachnid
-          - Yowie # Goobstation - Yowie
-          inverted: true
+        - !type:OrganType
+          type: Arachnid
+          shouldHave: false
         walkSpeedModifier: 0.8
         sprintSpeedModifier: 0.8
-      - !type:MovementSpeedModifier
+      - !type:MovespeedModifier
         conditions:
-        - !type:ReagentCondition
+        - !type:ReagentThreshold
           reagent: Mechanotoxin
           min: 4
-        - !type:MetabolizerTypeCondition
-          type:
-          - Arachnid
-          - Yowie # Goobstation - Yowie
-          inverted: true
+        - !type:OrganType
+          type: Arachnid
+          shouldHave: false
         walkSpeedModifier: 0.4
         sprintSpeedModifier: 0.4
-
-- type: reagent
-  id: ToxinTrash
-  name: reagent-name-toxintrash
-  group: Toxins
-  desc: reagent-desc-toxintrash
-  flavor: trashy
-  physicalDesc: reagent-physical-desc-nondescript
-  metabolisms:
-    Food:
-      effects:
-      - !type:SatiateHunger
-        factor: 1
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [Vox]
-
-- type: reagent
-  id: Hemorrhinol
-  name: reagent-name-hemorrhinol
-  group: Toxins
-  desc: reagent-desc-hemorrhinol
-  physicalDesc: reagent-physical-desc-thin
-  contrabandSeverity: Major
-  flavor: sharp
-  color: "#96424f"
-  metabolisms:
-    Poison:
-      effects:
-      - !type:ModifyStatusEffect
-        effectProto: StatusEffectHemorrhage
-        time: 21 # 7 bleed ticks, you bleed every 3 seconds by default.
-        type: Update
-      - !type:ModifyBleed
-        amount: 0.5

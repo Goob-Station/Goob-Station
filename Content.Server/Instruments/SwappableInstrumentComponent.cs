@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
-
 namespace Content.Server.Instruments;
 
 [RegisterComponent]
@@ -17,4 +11,11 @@ public sealed partial class SwappableInstrumentComponent : Component
     /// </summary>
     [DataField("instrumentList", required: true)]
     public Dictionary<string, (byte, byte)> InstrumentList = new();
+
+    // Frontier: harpy instruments
+    /// <summary>
+    /// When true, only the instrument entity itself can swap its sound.
+    /// </summary>
+    [DataField]
+    public bool OnlySetBySelf;
 }

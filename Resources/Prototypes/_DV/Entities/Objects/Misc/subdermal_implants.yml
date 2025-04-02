@@ -1,25 +1,12 @@
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-#- type: entity
-#  parent: BaseSubdermalImplant
-#  id: BionicSyrinxImplant
-#  name: bionic syrinx implant
-#  description: This implant lets a harpy adjust their voice to whoever they can think of.
-#  categories: [ HideSpawnMenu ]
-#  components:
-#    - type: SubdermalImplant
-#      implantAction: ActionSyrinxChangeVoiceMask
-#      whitelist:
-#        components:
-#        - HarpySinger
-#    - type: VoiceMasker
-#    - type: Tag
-#      tags:
-#        - SubdermalImplant
-#        - BionicSyrinxImplant
+﻿- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BionicVoiceMaskImplant
+  id: BionicSyrinxImplant
+  name: bionic syrinx implant
+  description: This implant lets a kodepiia adjust their voice to whoever they can think of.
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionSyrinxChangeVoiceMask
+    whitelist:
+      components:
+      - HarpySinger # Ensure this is only for harpies and if this component gets renamed, CHANGE IT TO THE NEW VALUE!!!

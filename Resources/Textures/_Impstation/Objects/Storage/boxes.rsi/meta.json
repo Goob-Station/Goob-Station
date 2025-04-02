@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Chef boxes modified from tgstation, overlay sprites by Darkmajia, tiny security box edited from tgstation. box2, boxofyuckyhugs and label by Carousel.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+    "states": [
+        {
+            "name": "america"
+        },
+        {
+            "name": "box2"
+        },
+        {
+            "name": "box_chef"
+        },
+        {
+            "name": "box_security_tiny"
+        },
+        {
+            "name": "boxofyuckyhugs"
+        },
+        {
+            "name": "carnivore"
+        },
+        {
+            "name": "evidence_markers"
+        },
+        {
+            "name": "fiesta"
+        },
+        {
+            "name": "fruity"
+        },
+        {
+            "name": "grains"
+        },
+        {
+            "name": "italy"
+        },
+        {
+            "name": "label"
+        },
+        {
+            "name": "sweets"
+        },
+        {
+            "name": "vegetarian"
+        }
+    ]
+}

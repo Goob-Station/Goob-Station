@@ -1,15 +1,30 @@
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-#- type: entity
-#  id: BionicSyrinxImplanter
-#  name: bionic syrinx implanter
-#  parent: BaseImplantOnlyImplanterSyndi
-#  components:
-#    - type: Implanter
-#      implant: BionicSyrinxImplant
+﻿- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseSubdermalImplant
+  id: BionicVoiceMaskImplant
+  name: bionic voice mask implant
+  description: This implant lets its user adjust their voice to whoever they can think of.
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionChangeVoiceMask
+  - type: VoiceMask
+  - type: UserInterface
+    interfaces:
+      enum.VoiceMaskUIKey.Key:
+        type: VoiceMaskBoundUserInterface
+
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: BionicVoiceMaskImplanter
+  suffix: bionic voice mask
+  components:
+  - type: Implanter
+    implant: BionicVoiceMaskImplant
+
+- type: entity
+  parent: BionicVoiceMaskImplanter
+  id: BionicSyrinxImplanter
+  suffix: bionic syrinx
+  components:
+  - type: Implanter
+    implant: BionicSyrinxImplant

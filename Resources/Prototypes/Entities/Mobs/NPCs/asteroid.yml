@@ -1,32 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Shaddap1 <106589956+Shaddap1@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lanse12 <cloudability.ez@gmail.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
-# SPDX-FileCopyrightText: 2025 August Sun <45527070+august-sun@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ExponentialWizard <38435756+ExponentialWizard@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
-# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 august-sun <45527070+august.sun@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-# SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
-# SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: BaseMobAsteroid
   parent:
@@ -48,29 +19,31 @@
     group: GenericNumber
   - type: StatusEffects
     allowed:
+    - SlowedDown
+    - Stutter
+    - Stun
     - Electrocution
     - TemporaryBlindness
     - RadiationProtection
+    - Drowsiness
     - Adrenaline
   - type: StandingState
   - type: Tag
     tags:
     - DoorBumpOpener
-  - type: WeatherImmune # Lavaland Change
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   id: MobGoliath
-  parent: [ BaseMobAsteroid, MobBloodstream ]
+  parent: BaseMobAsteroid
   name: goliath
   description: A massive beast that uses long tentacles to ensnare its prey, threatening them is not advised under any conditions.
   components:
-  - type: Body # Shitmed Change
-    prototype: Goliath
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: Sprite
     sprite: Mobs/Aliens/Asteroid/goliath.rsi
     layers:
@@ -83,42 +56,33 @@
       Dead:
         Base: goliath_dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 1.5 # Goob - accounts for decreased range, more likely to catch up to you when stunned by tendrils
-    baseSprintSpeed : 1.5
-  - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 350
+    baseWalkSpeed : 2.00
+    baseSprintSpeed : 2.00
   - type: MobThresholds
     thresholds:
       0: Alive
-      350: Dead # Goob - 9 PKA shots, 4 crusher destabilised hits
+      250: Dead
   - type: MeleeWeapon
-    range: 1.3 # Lavaland Change
     soundHit:
-      path: "/Audio/Weapons/smash.ogg"
+      path: "/Audio/_Impstation/Weapons/strong_hit_slash_pierce.ogg" # imp
     angle: 0
-    attackRate: 0.40
+    attackRate: 0.75
     animation: WeaponArcPunch
     damage:
       types:
-        Blunt: 10 # Lavaland Change 35 -> 10
-        Slash: 15
+        Slash: 10
+        Piercing: 10
   - type: NpcFactionMember
     factions:
-    - Lavafauna
+    - SimpleHostile
   - type: HTN
-    constantlyReplan: true # Lavaland Change
     rootTask:
       task: GoliathCompound
     blackboard:
       VisionRadius: !type:Single
         6
       AggroVisionRadius: !type:Single
-        7
-      NavSmash: !type:Bool
-        true
+        10
   - type: NPCUseActionOnTarget
     actionId: ActionGoliathTentacle
   - type: Tag
@@ -132,29 +96,14 @@
     - id: FoodMeatGoliath
       amount: 3
     - id: MaterialGoliathHide1
-      amount: 1
-    - id: MaterialBones1 # Lavaland Change
-      maxAmount: 2
-  - type: Fauna # Lavaland Change
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.45
-        density: 50
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
+      amount: 3
 
 - type: entity
-  parent: BaseAction
   id: ActionGoliathTentacle
   name: "[color=red]Tentacle Slam[/color]"
   description: Use your tentacles to grab and stun a target player!
   components:
-  - type: Action
+  - type: EntityWorldTargetAction
     raiseOnUser: true
     icon:
       sprite: Mobs/Aliens/Asteroid/goliath.rsi
@@ -164,11 +113,9 @@
       state: goliath_tentacle_wiggle
     sound:
       path: "/Audio/Weapons/slash.ogg"
-    useDelay: 8
-  - type: TargetAction
-    range: 10
-  - type: WorldTargetAction
     event: !type:GoliathSummonTentacleAction
+    useDelay: 8
+    range: 10
 
 - type: entity
   id: GoliathTentacle
@@ -260,8 +207,8 @@
       Dead:
         Base: hivelord_dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2.75
-    baseSprintSpeed : 3.0
+    baseWalkSpeed : 3.5
+    baseSprintSpeed : 4.0
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -287,7 +234,7 @@
     count: 1
   - type: NpcFactionMember
     factions:
-    - Lavafauna # Goobedit - Lavaland
+    - SimpleHostile
   - type: HTN
     rootTask:
       task: SimpleRangedHostileCompound
@@ -295,13 +242,10 @@
       VisionRadius: !type:Single
         4
       AggroVisionRadius: !type:Single
-        7
-      NavSmash: !type:Bool
-        true
+        9
   - type: Butcherable
     spawned:
     - id: FoodHivelordRemains
-  - type: Fauna # Lavaland Change
 
 - type: entity
   id: MobHivelordBrood
@@ -325,11 +269,11 @@
       path: /Audio/Weapons/bladeslice.ogg
     angle: 0
     attackRate: 1.0
-    range: 0.50
+    range: 0.75
     animation: WeaponArcPunch
     damage:
       types:
-        Slash: 6
+        Slash: 7
   - type: Ammo
     muzzleFlash: null
   - type: Destructible
@@ -342,7 +286,7 @@
         acts: [ "Destruction" ]
   - type: NpcFactionMember
     factions:
-    - Lavafauna
+    - SimpleHostile
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -351,10 +295,8 @@
         15
       AggroVisionRadius: !type:Single
         15
-      NavSmash: !type:Bool
-        true
   - type: TimedDespawn
-    lifetime: 45
+    lifetime: 100
 
 - type: entity
   id: FoodHivelordRemains
@@ -375,7 +317,7 @@
   - type: Item
     size: Normal
   - type: Perishable
-    rotAfter: 360 # rot after 6 minutes
+    rotAfter: 120 # rot after 2 minutes
     molsPerSecondPerUnitMass: 0
     forceRotProgression: true
   - type: RotInto
@@ -383,11 +325,6 @@
     stage: 1
   - type: StaticPrice
     price: 5000
-  - type: Tag
-    tags:
-    - HivelordRemains
-    - Meat
-    - Raw
 
 - type: entity
   id: FoodHivelordRemainsInert
@@ -403,85 +340,4 @@
   - type: Item
     size: Normal
   - type: StaticPrice
-    price: 1000
-  - type: Tag
-    tags:
-    - HivelordRemains
-    - Meat
-    - Raw
-
-- type: entity
-  id: MobBasilisk
-  parent: [ BaseMobAsteroid, MobBloodstream ]
-  name: basilisk
-  description: A territorial beast, covered in a thick shell that absorbs energy. Its stare causes victims to freeze from the inside.
-  components:
-  - type: Sprite
-    sprite: Mobs/Aliens/Asteroid/basilisk.rsi
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: basilisk
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: basilisk
-      Dead:
-        Base: basilisk_dead
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 2
-    baseSprintSpeed : 3
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      45: Dead
-  - type: MeleeWeapon
-    angle: 0
-    animation: WeaponArcBite
-    soundHit:
-      path: /Audio/Effects/bite.ogg
-    damage:
-      types:
-        Slash: 7
-        Piercing: 5
-  - type: Gun
-    fireRate: 0.75
-    projectileSpeed: 10.0 # When we get predicted guns and projectiles this should be raised to like 15, 15 mis-predicts too much right now unfortunately.
-    selectedMode: SemiAuto
-    showExamineText: false
-    availableModes: [ SemiAuto ]
-    soundGunshot: /Audio/Weapons/Guns/Gunshots/syringe_gun.ogg
-  - type: RechargeBasicEntityAmmo
-    showExamineText: false
-    rechargeCooldown: 0
-    rechargeSound: null
-  - type: BasicEntityAmmoProvider
-    proto: BasiliskRay
-    capacity: 1
-    count: 1
-  - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 200
-  - type: NpcFactionMember
-    factions:
-    - SimpleHostile
-  - type: HTN
-    rootTask:
-      task: BasiliskCompound
-    blackboard:
-      VisionRadius: !type:Single
-        7
-      AggroVisionRadius: !type:Single
-        12
-      NavSmash: !type:Bool
-        true
-  - type: Reflect
-    reflectProb: 1
-    reflects:
-    - Energy
-  - type: Butcherable
-    spawned:
-    - id: DiamondOre1
-      amount: 1
-      maxAmount: 3
+    price: 500

@@ -1,249 +1,80 @@
-# SPDX-FileCopyrightText: 2024 AJCM <AJCM@tutanota.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2024 Alex Pavlenko <diraven@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin <30327355+arimah@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 ArkiveDev <95712736+ArkiveDev@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 BeeRobynn <robynthewarcrime@proton.me>
-# SPDX-FileCopyrightText: 2024 Bellwether <157836624+BellwetherLogic@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DieselMohawk <gavin.drinka@gmail.com>
-# SPDX-FileCopyrightText: 2024 Doctor-Cpu <77215380+Doctor-Cpu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Doomsdrayk <robotdoughnut@comcast.net>
-# SPDX-FileCopyrightText: 2024 DrEnzyme <DrEnzyme@gmail.com>
-# SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Elysium206 <151651971+Elysium206@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
-# SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Firewatch <54725557+musicmanvr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Floofi <126319569+Shadowtheprotogen546@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ghagliiarghii <68826635+Ghagliiarghii@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Hanz <41141796+Hanzdegloker@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kevin Zheng <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 LittleNorthStar <vorriasam@gmail.com>
-# SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-# SPDX-FileCopyrightText: 2024 MetalSage <74924875+MetalSage@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MetalSage <metalsage.official@gmail.com>
-# SPDX-FileCopyrightText: 2024 Michael Krebs <michael@krb.io>
-# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <koolthunder019@gmail.com>
-# SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
-# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-# SPDX-FileCopyrightText: 2024 Pancake <Pangogie@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Partmedia <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 PoorMansDreams <150595537+PoorMansDreams@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 PopGamer46 <yt1popgamer@gmail.com>
-# SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Redfire1331 <125223432+Redfire1331@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 SpeltIncorrectyl <66873282+SpeltIncorrectyl@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Spessmann <156740760+Spessmann@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Truoizys <153248924+Truoizys@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
-# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 WarMechanic <69510347+WarMechanic@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Weide <64257676+Lyacs@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 cool dolphin <36332236+Afrokada@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 coolboy911 <85909253+coolboy911@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
-# SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
-# SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 joshepvodka <86210200+joshepvodka@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lunarcomets <140772713+lunarcomets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 marbow <152051971+marboww@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2024 mhamster <81412348+mhamsterr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 neutrino <67447925+neutrino-laser@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 pigeonpeas <147350443+pigeonpeas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-# SPDX-FileCopyrightText: 2024 redfire1331 <Redfire1331@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
-# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Avalon <jfbentley1@gmail.com>
-# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 Brassica Prime <114382089+Pumkin69@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Cass <45694413+CubixThree@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
-# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Julian Giebel <juliangiebel@live.de>
-# SPDX-FileCopyrightText: 2025 KingFroozy <140668342+KingFroozy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Momo <Rsnesrud@gmail.com>
-# SPDX-FileCopyrightText: 2025 Phooooooooooooooooooooooooooooooosphate <184853112+Phooooooooooooooooooooooooooooooosphate@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Pumkin69 <judeb@DESKTOP-M4B8G5D>
-# SPDX-FileCopyrightText: 2025 RadsammyT <32146976+RadsammyT@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 T <theo75cg@gmail.com>
-# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 centcomofficer24 <theo75cg@gmail.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
-# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-# SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
-# SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 paige404 <59348003+paige404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 starch <starchpersonal@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
 # Miscellaneous
 - type: loadoutGroup
   id: Trinkets
   name: loadout-group-trinkets
   minLimit: 0
-  maxLimit: 3
+  maxLimit: 4 #imp
   loadouts:
-  - FlowerWreath
-  - Hairflower
-  - Headphones
-  - PlushieLizard
-  - PlushieSpaceLizard
-  - PersonalAI # Goobstation
-  - GoldenPersonalAI # Goobstation
-  - CrewCassette # Goobstation
+  - BarFlask
+  - CardBoxBlack
+  - CDDogtags #_CD
   - ThreeCandles
-  - Lighter
-  - CigPackGreen
-  - CigPackRed
-  - CigPackBlue
-  - CigPackBlack
   - CigarCase
   - CigarGold
-  - BoxFolderBaseThreePapers
-  - BoxFolderPlasticClipboardThreePapers
-  - BoxFolderClipboardThreePapers
+  - CigPackBlack
+  - CigPackBlue
+  - CigPackGreen
+  - CigPackNewport #imp
+  - CigPackRed
+  - CigPackSpirits #imp
+  - ClothingHeadHatKippahBlueAndGold #imp
+  - ClothingHeadHatKippahSimple #imp
+  - ClothingHeadHatKippahWhiteAndBlue #imp
+  - ClothingHeadPaperSack #imp
+  - ClothingHeadPaperSackSmile #imp
   - ClothingNeckLGBTPin
-  - ClothingNeckAllyPin
   - ClothingNeckAromanticPin
   - ClothingNeckAsexualPin
+  - ClothingNeckAutismPin
   - ClothingNeckAroacePin
   - ClothingNeckBisexualPin
   - ClothingNeckGayPin
+  - ClothingNeckGoldAutismPin
   - ClothingNeckIntersexPin
   - ClothingNeckLesbianPin
+  - ClothingNeckLGBTPin
   - ClothingNeckNonBinaryPin
   - ClothingNeckPansexualPin
-  - ClothingNeckPluralPin
   - ClothingNeckOmnisexualPin
   - ClothingNeckGenderqueerPin
-  - ClothingNeckGenderfluidPin
   - ClothingNeckTransPin
-  - ClothingNeckAutismPin
-  - ClothingNeckGoldAutismPin
-  - OffsetCane
-  - OffsetCaneWood
-  - OffsetCaneClown
-  - OffsetCaneMime
-  - OffsetCaneNT
-  - Cane
-  - TowelColorWhite
-  - TowelColorGray
-  # GoobStation Start
-  - CardBoxBlack
-  - CardBoxNanotrasen
-  - FoodSnackLollypopWrapped
-  - FoodSnackLollypopWrappedRainbow
-  - FoodSnackLollypopWrappedCarp
-  # Goobstation End
+  - FlippoLighter #imp
+  - FlowerWreath
+  - FolderBlack #imp
+  - FolderHamster #imp
+  - FolderMime #imp
+  - FolderPun #imp
+  - Hairflower
+  - HarmonicaInstrument #imp
+  - Headphones
+  - HeartLocket #imp
+  - HeartLocketSilver #imp
+  - Lighter
+  - NewtonCradle #imp
+  - PlushieDoll #imp
+  - PlushieDollHair #imp
+  - PlushieLizard
+  - PlushieSpaceLizard
+  - GoldRingTrinket #imp
+  - SilverRingTrinket #imp
   - TowelColorBlack
-  - TowelColorRed
-  - TowelColorOrange
-  - TowelColorLightBrown
-  - TowelColorYellow
+  - TowelColorDarkBlue
   - TowelColorDarkGreen
+  - TowelColorGold
+  - TowelColorGray
   - TowelColorGreen
   - TowelColorLightBlue
-  - TowelColorDarkBlue
-  - TowelColorPurple
+  - TowelColorLightBrown
   - TowelColorMaroon
   - TowelColorMime
+  - TowelColorOrange
+  - TowelColorPurple
+  - TowelColorRed
   - TowelColorSilver
-  - TowelColorGold
-  # Begin DeltaV Additions
-  - GoldRing
-  - SilverRing
-  - Cane
-  - WhiteCane
-  - TapeRecorder
-  - DrinkOniGourd
-  # End DeltaV Additions
+  - TowelColorWhite
+  - TowelColorYellow
+  - TutorialAI_Newcomer #imp <15 hours
+  - WalkingCane #imp
 
 - type: loadoutGroup
   id: Glasses
@@ -251,21 +82,19 @@
   minLimit: 0
   loadouts:
   - Glasses
+  # imp edit start - its in the middle for alphabetizing reasons sorry
+  - GlassesCheapSunglasses
+  - GlassesColorfulPink
+  - GlassesColorfulRed
+  - GlassesColorfulBlue
+  - GlassesColorfulGreen
+  - GlassesColorfulPurple
+  - GlassesColorfulYellow
+  # imp edit end
   - GlassesJamjar
   - GlassesJensen
-  - CheapSunglasses # Goobstation
 
-- type: loadoutGroup
-  id: Animals  # Goobstation
-  name: loadout-group-animals
-  minLimit: 0
-  maxLimit: 1
-  loadouts:
-  - Squackroach
-  - Mouse
-  - Mothroach
-  - Goldfish
-
+# The usual loadouts of the vox harness that spawn in your chest slot for jobs that don't have outerwear in their loadout
 - type: loadoutGroup
   id: GroupTankHarness
   name: loadout-group-tank-harness
@@ -282,29 +111,19 @@
   loadouts:
   - EmergencyNitrogen
   - EmergencyOxygen
-  - EmergencyPlasma
+  - EmergencyMeat # imp
+  - LoadoutSpeciesAquaticFullTank # Imp
   - LoadoutSpeciesVoxNitrogen
-  - LoadoutSpeciesPlasma # Goobstation
-  - EmergencyWaterVapor # Delta-V
-  - EmergencySilicon
 
-# nitrogen or oxygen tank, depending on what your species needs
 - type: loadoutGroup
   id: GroupEVATank
   name: loadout-group-EVA-tank
   hidden: true
   loadouts:
+  - LoadoutSpeciesAquaticFullTank # Imp
   - LoadoutSpeciesEVANitrogen
   - LoadoutSpeciesEVAOxygen
-  - LoadoutSpeciesEVAWaterVapor
-
-# vox get a nitrogen tank, other species get nothing
-- type: loadoutGroup
-  id: GroupEVATankVox
-  name: loadout-group-vox-tank
-  hidden: true
-  loadouts:
-  - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesEVAKodepiia # imp
 
 - type: loadoutGroup
   id: GroupPocketTankDouble
@@ -313,7 +132,7 @@
   loadouts:
   - LoadoutSpeciesPocketDoubleNitrogen
   - LoadoutSpeciesPocketDoubleOxygen
-  - LoadoutSpeciesPocketDoubleWaterVapor
+  - LoadoutSpeciesPocketDoubleOxygenKodepiia # imp
 
 # Command
 - type: loadoutGroup
@@ -323,7 +142,9 @@
   loadouts:
   - CaptainHead
   - CaptainCap
-  - CaptainCapcapSenior # goob
+  - CaptainBeret # imp
+  - CaptainCrusherCap #imp
+  - CaptainTricorne # imp
 
 - type: loadoutGroup
   id: CaptainJumpsuit
@@ -333,8 +154,7 @@
   - CaptainJumpskirt
   - CaptainFormalSuit
   - CaptainFormalSkirt
-  - CaptainJumpsuitMilitary # goob
-  - CaptainSummerShirt # also goob
+  - CaptainEveningAttire #imp
 
 - type: loadoutGroup
   id: CaptainNeck
@@ -344,8 +164,9 @@
   - CaptainCloak
   - CaptainCloakFormal
   - CaptainMantle
-  - VeteranCaptainCloak # goob
-  - CaptainEnsemble # goob
+  - CaptainGreatcoat # imp
+  - ScarfBlue # imp
+  - CaptainAdmiralCloak # imp
 
 - type: loadoutGroup
   id: CaptainBackpack
@@ -354,7 +175,9 @@
   - CaptainBackpack
   - CaptainSatchel
   - CaptainDuffel
-  - CaptainMessenger # Frontier
+  - CommandVeteranBackpack #imp
+  - CommandVeteranSatchel #imp
+  - CommandVeteranDuffel #imp
 
 - type: loadoutGroup
   id: CaptainOuterClothing
@@ -362,14 +185,7 @@
   loadouts:
   - CaptainOuterClothing
   - CaptainWintercoat
-  - CaptainJacket # Goobstation
-
-- type: loadoutGroup
-  id: CaptainJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieCaptain
+  - CaptainRepeller #imp
 
 - type: loadoutGroup
   id: HoPHead
@@ -384,8 +200,7 @@
   loadouts:
   - HoPJumpsuit
   - HoPJumpskirt
-  - HoPJumpsuitMilitary # goob
-  - HoPSummerShirt # goob
+  - HoPBoatswain # DeltaV
 
 - type: loadoutGroup
   id: HoPNeck
@@ -394,7 +209,7 @@
   loadouts:
   - HoPCloak
   - HoPMantle
-  - HeadOfPersonnelEnsemble # goob
+  - ScarfBlue #imp
 
 - type: loadoutGroup
   id: HoPBackpack
@@ -403,8 +218,10 @@
   - CommonBackpack
   - CommonSatchel
   - CommonDuffel
-  - CommonMessenger # Frontier
   - HoPBackpackIan
+  - CommandVeteranBackpack #imp
+  - CommandVeteranSatchel #imp
+  - CommandVeteranDuffel #imp
 
 - type: loadoutGroup
   id: HoPOuterClothing
@@ -412,14 +229,6 @@
   minLimit: 0
   loadouts:
   - HoPWintercoat
-  - HoPLongcoat #goob
-
-- type: loadoutGroup
-  id: HoPJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieHeadOfPersonnel
 
 # Civilian
 - type: loadoutGroup
@@ -430,26 +239,7 @@
   - GreyJumpskirt
   - AncientJumpsuit
   - RainbowJumpsuit
-  - RainbowJumpskirt
-  - OverallsJumpsuit
- # goob changes start
-  - GreyMJ
-  - BlackMJ
-  - BlueMJ
-  - DarkBlueMJ
-  - TealMJ
-  - GreenMJ
-  - DarkGreenMJ
-  - OrangeMJ
-  - PinkMJ
-  - RedMJ
-  - YellowMJ
-  - PurpleMJ
-  - LightBrownMJ
-  - BrownMJ
-  - MaroonMJ
-  - QuarterzipJumpsuit
- # goob changes end
+  - GraytiderSpaceJumpsuit #imp
 
 - type: loadoutGroup
   id: PassengerFace
@@ -472,15 +262,16 @@
   - CommonBackpack
   - CommonSatchel
   - CommonDuffel
-  - CommonMessenger # Frontier
 
 - type: loadoutGroup
   id: PassengerNeck
   name: loadout-group-passenger-neck
   minLimit: 0
   loadouts:
+  - WrappedScarfBlack #imp
+  - WrappedScarfWhite #imp
   - Mantle
-  - OldNeckWrap # EE
+  - GreyCloak #imp
 
 - type: loadoutGroup
   id: PassengerOuterClothing
@@ -488,6 +279,8 @@
   minLimit: 0
   loadouts:
   - PassengerWintercoat
+  - BomberBlack #imp
+  - BomberWhite #imp
 
 - type: loadoutGroup
   id: PassengerShoes
@@ -495,13 +288,6 @@
   loadouts:
   - BlackShoes
   - WinterBoots
-
-- type: loadoutGroup
-  id: PassengerJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushiePassenger
 
 - type: loadoutGroup
   id: BartenderHead
@@ -518,7 +304,10 @@
   - BartenderJumpsuit
   - BartenderJumpskirt
   - BartenderJumpsuitPurple
-  - ServiceMJ # goob
+  - ClothingUniformNightclubSuit #imp
+  - ClothingUniformNightclubSuitSkirt #imp
+  - ClothingUniformSeniorBartender #imp
+  - ClothingUniformSeniorBartenderSkirt #imp
 
 - type: loadoutGroup
   id: BartenderOuterClothing
@@ -528,21 +317,8 @@
   - BartenderVest
   - BartenderApron
   - BartenderWintercoat
-
-- type: loadoutGroup
-  id: BartenderJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieBartender
-  - BartenderGoldenShaker
-
-- type: loadoutGroup
-  id: ServiceWorkerJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieServiceWorker
+  - ServiceClownApron # imp
+  - BartenderCuteApron # imp
 
 - type: loadoutGroup
   id: ChefHead
@@ -557,6 +333,7 @@
   minLimit: 0
   loadouts:
   - ChefMask
+  - ServiceClown # imp
 
 - type: loadoutGroup
   id: ChefJumpsuit
@@ -564,7 +341,6 @@
   loadouts:
   - ChefJumpsuit
   - ChefJumpskirt
-  - ServiceMJ # goob
 
 - type: loadoutGroup
   id: ChefOuterClothing
@@ -574,13 +350,8 @@
   - ChefApron
   - ChefJacket
   - ChefWintercoat
-
-- type: loadoutGroup
-  id: ChefJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieChef
+  - ServiceClownApron # imp
+  - ChefCuteApron # imp
 
 - type: loadoutGroup
   id: LibrarianJumpsuit
@@ -590,14 +361,8 @@
   - LibrarianJumpskirt
   - CuratorJumpsuit
   - CuratorJumpskirt
-  - ServiceMJ # goob
-
-- type: loadoutGroup
-  id: LibrarianJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieLibrarian
+  - ClothingUniformBrownSuit #imp
+  - ClothingUniformBrownSuitSkirt #imp
 
 - type: loadoutGroup
   id: LawyerJumpsuit
@@ -613,7 +378,12 @@
   - LawyerJumpskirtRed
   - LawyerJumpsuitGood
   - LawyerJumpskirtGood
-  - ServiceMJ # goob
+  - ClerkJumpsuit # DeltaV
+  - ClerkJumpskirt # DeltaV
+  - ClothingUniformCreamSuit #imp
+  - ClothingUniformCreamSuitSkirt #imp
+  - ProsecutorJumpsuit # DeltaV
+  - ProsecutorJumpskirt # DeltaV
 
 - type: loadoutGroup
   id: LawyerNeck
@@ -621,13 +391,7 @@
   minLimit: 0
   loadouts:
   - LawyerNeck
-
-- type: loadoutGroup
-  id: LawyerJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieLawyer
+  - ProsecutorNeck # DeltaV
 
 - type: loadoutGroup
   id: ChaplainHead
@@ -635,6 +399,11 @@
   minLimit: 0
   loadouts:
   - ChaplainHead
+  - ChaplainHeadDruid # imp
+  - ChaplainHeadMoon # imp
+  - ChaplainHeadSun # imp
+  - ChaplainHeadTidal # imp
+  - ChaplainHeadVeil # imp
   - ChaplainNunHood
   - ChaplainPlagueHat
   - ChaplainWitchHat
@@ -646,16 +415,26 @@
   minLimit: 0
   loadouts:
   - ChaplainMask
+  - ChaplainMaskClayshaper # imp
+  - ChaplainMaskFire # imp
+  - ChaplainClown # imp
 
 - type: loadoutGroup
   id: ChaplainJumpsuit
   name: loadout-group-chaplain-jumpsuit
   loadouts:
-  - ChaplainJumpsuit
   - ChaplainJumpskirt
-  - ChaplainRobesLight
+  - ChaplainJumpsuit
   - ChaplainRobesDark
-  - ServiceMJ # goob
+  - ChaplainRobesLight
+  - ChaplainSkirtClayshaper # imp
+  - ChaplainSkirtDruid # imp
+  - ChaplainSkirtMoon # imp
+  - ChaplainUniformSkirtTidal # imp
+  - ChaplainUniformSun # imp
+  - ChaplainUniformTech # imp
+  - ClothingUniformFuneralSuit #imp
+  - ClothingUniformFuneralSuitSkirt #imp
 
 - type: loadoutGroup
   id: ChaplainOuterClothing
@@ -666,6 +445,8 @@
   - ChaplainNunRobe
   - ChaplainBlackHoodie
   - ChaplainHoodie
+  - ChaplainOuterMoon # imp
+  - ChaplainHonkrobes # imp
 
 - type: loadoutGroup
   id: ChaplainNeck
@@ -673,28 +454,13 @@
   minLimit: 0
   loadouts:
   - ChaplainNeck
-
-- type: loadoutGroup
-  id: ChaplainJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieChaplain
-
-- type: loadoutGroup
-  id: ChaplainBible
-  name: loadout-group-chaplain-bible
-  minLimit: 1
-  loadouts:
-  - Bible
-  - BibleNanoTrasen
-  - BibleDruid
-  - BibleSatanic
-  - BibleTanakh
-  - BibleQuran
-  - BibleHonk
-  - BibleRatvar
-  - BibleNarsie
+  - ChaplainNeckClayshaper # imp
+  - ChaplainNeckDragon # imp
+  - ChaplainNeckDruid # imp
+  - ChaplainNeckDruidMantle # imp
+  - ChaplainNeckSun # imp
+  - ChaplainNeckTidal # imp
+  - ScarfBlack # imp
 
 - type: loadoutGroup
   id: JanitorHead
@@ -702,7 +468,6 @@
   minLimit: 0
   loadouts:
   - JanitorHead
-  - JanitorHeadSenior # Goobstation
 
 - type: loadoutGroup
   id: JanitorJumpsuit
@@ -710,7 +475,6 @@
   loadouts:
   - JanitorJumpsuit
   - JanitorJumpskirt
-  - ServiceMJ # goob
 
 - type: loadoutGroup
   id: JanitorGloves
@@ -729,11 +493,10 @@
   - JanitorWintercoat
 
 - type: loadoutGroup
-  id: JanitorJobTrinkets
-  name: loadout-group-jobtrinkets
+  id: JanitorPlunger
+  name: loadout-group-janitor-plunger
   minLimit: 0
   loadouts:
-  - LizardPlushieJanitor
   - JanitorGoldenPlunger
 
 - type: loadoutGroup
@@ -743,7 +506,6 @@
   loadouts:
   - BotanistHead
   - BotanistBandana
-  - BotanistBeret # Goobstation
 
 - type: loadoutGroup
   id: BotanistJumpsuit
@@ -752,8 +514,6 @@
   - BotanistJumpsuit
   - BotanistJumpskirt
   - BotanistOveralls
-  - ServiceMJ # goob
-  - HydroMJ # goob
 
 - type: loadoutGroup
   id: BotanistBackpack
@@ -762,7 +522,6 @@
   - BotanistBackpack
   - BotanistSatchel
   - BotanistDuffel
-  - BotanistMessenger # Frontier
 
 - type: loadoutGroup
   id: BotanistOuterClothing
@@ -771,13 +530,7 @@
   loadouts:
   - BotanistApron
   - BotanistWintercoat
-
-- type: loadoutGroup
-  id: BotanistJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieBotanist
+  - ServiceClownApron # imp
 
 - type: loadoutGroup
   id: ClownHead
@@ -786,6 +539,7 @@
   loadouts:
   - JesterHat
   - JesterAltHat
+  - CircusClownHat #imp
 
 - type: loadoutGroup
   id: ClownJumpsuit
@@ -795,6 +549,8 @@
   - ClownSkirt
   - JesterSuit
   - JesterAltSuit
+  - CircusClownSuit #imp
+  - JokesterSuit #imp
 
 - type: loadoutGroup
   id: ClownBackpack
@@ -803,7 +559,6 @@
   - ClownBackpack
   - ClownSatchel
   - ClownDuffel
-  - ClownMessenger # Frontier
 
 - type: loadoutGroup
   id: ClownOuterClothing
@@ -812,6 +567,7 @@
   loadouts:
   - ClownRobes
   - ClownWintercoat
+  - JokesterOuterCoat # imp
 
 - type: loadoutGroup
   id: ClownShoes
@@ -819,6 +575,8 @@
   loadouts:
   - ClownShoes
   - JesterShoes
+  - CircusClownShoes # imp
+  - JokesterShoes # imp
 
 - type: loadoutGroup
   id: SurvivalClown
@@ -828,19 +586,9 @@
   loadouts:
   - EmergencyNitrogenClown
   - EmergencyOxygenClown
-  - EmergencyPlasmaClown
+  - EmergencyMeatClown # imp
+  - LoadoutSpeciesAquaticFullTank # Imp
   - LoadoutSpeciesVoxNitrogen
-  - LoadoutSpeciesPlasma # Goobstation
-  - EmergencyWaterVaporClown # Delta-V
-  - EmergencySilicon
-
-- type: loadoutGroup
-  id: ClownJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieClown
-  - FlowerWaterClown
 
 - type: loadoutGroup
   id: MimeHead
@@ -864,7 +612,9 @@
   name: loadout-group-mime-jumpsuit
   loadouts:
   - MimeJumpsuit
+  - MimeJumpsuitCropped #imp
   - MimeJumpskirt
+  - MimeJumpskirtCropped #imp
 
 - type: loadoutGroup
   id: MimeBackpack
@@ -873,7 +623,6 @@
   - MimeBackpack
   - MimeSatchel
   - MimeDuffel
-  - MimeMessenger # Frontier
 
 - type: loadoutGroup
   id: MimeOuterClothing
@@ -881,6 +630,7 @@
   minLimit: 0
   loadouts:
   - MimeWintercoat
+  - MimePufferCoat #imp
 
 - type: loadoutGroup
   id: MimeBelt
@@ -888,6 +638,7 @@
   loadouts:
   - MimeSuspendersRed
   - MimeSuspendersBlack
+  - FoamSabre # DeltaV - Add foam sabre to the mime's loadout.
 
 - type: loadoutGroup
   id: SurvivalMime
@@ -897,19 +648,9 @@
   loadouts:
   - EmergencyNitrogenMime
   - EmergencyOxygenMime
-  - EmergencySpeciesMothMime
-  - EmergencyPlasmaMime
+  - EmergencyMeatMime # imp
+  - LoadoutSpeciesAquaticFullTank # Imp
   - LoadoutSpeciesVoxNitrogen
-  - LoadoutSpeciesPlasma # Goobstation
-  - EmergencyWaterVaporMime # Delta-V
-  - EmergencySilicon
-
-- type: loadoutGroup
-  id: MimeJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieMime
 
 - type: loadoutGroup
   id: MusicianJumpsuit
@@ -917,7 +658,8 @@
   loadouts:
   - MusicianJumpsuit
   - MusicianJumpskirt
-  - ServiceMJ # goob
+  - ClothingUniformMrSpaceWide #imp
+  - ClothingUniformMrSpaceWideSkirt #imp
 
 - type: loadoutGroup
   id: MusicianOuterClothing
@@ -961,14 +703,8 @@
   - Ocarina
   - Bagpipe
 
-- type: loadoutGroup
-  id: MusicianJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieMusician
-
 # Cargo
+
 - type: loadoutGroup
   id: QuartermasterHead
   name: loadout-group-quartermaster-head
@@ -986,8 +722,6 @@
   - QuartermasterTurtleneck
   - QuartermasterTurtleneckSkirt
   - QuartermasterFormalSuit
-  - QuartermasterMJ # goob
-  - QMSummerShirt # goob
 
 - type: loadoutGroup
   id: QuartermasterNeck
@@ -996,7 +730,8 @@
   loadouts:
   - QuartermasterCloak
   - QuartermasterMantle
-  - QuartermasterEnsemble # goob
+  - QuartermasterGreatcoat # imp
+  - ScarfBrown # imp
 
 - type: loadoutGroup
   id: QuartermasterOuterClothing
@@ -1004,6 +739,8 @@
   minLimit: 0
   loadouts:
   - QuartermasterWintercoat
+  - QuartermasterWintercoatXXXL #imp
+  - QuartermasterPoncho #imp
 
 - type: loadoutGroup
   id: QuartermasterShoes
@@ -1011,13 +748,7 @@
   loadouts:
   - BrownShoes
   - CargoWinterBoots
-
-- type: loadoutGroup
-  id: QuartermasterJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieQuartermaster
+  - SalvageBoots #imp
 
 - type: loadoutGroup
   id: CargoTechnicianHead
@@ -1025,18 +756,15 @@
   minLimit: 0
   loadouts:
   - CargoTechnicianHead
-  - CargoTechnicianHeadMail # Goob/DeltaV - Mail # fixmail
 
 - type: loadoutGroup
   id: CargoTechnicianJumpsuit
   name: loadout-group-cargo-technician-jumpsuit
   loadouts:
   - CargoTechnicianJumpsuit
+  - LongCargoTechnicianJumpsuit #imp
   - CargoTechnicianJumpskirt
-  - CargoTechnicianOveralls #Goob
-  - CargoTechnicianJumpsuitMail # Goob/DeltaV - Mail # Fixmail
-  - CargoTechnicianJumpskirtMail # Goob/DeltaV - Mail
-  - CargoTechMJ # goob
+  - SeniorCargoTechnicianJumpsuit #imp
 
 - type: loadoutGroup
   id: CargoTechnicianBackpack
@@ -1045,7 +773,6 @@
   - CargoTechnicianBackpack
   - CargoTechnicianSatchel
   - CargoTechnicianDuffel
-  - CargoTechnicianMessenger # Frontier
 
 - type: loadoutGroup
   id: CargoTechnicianOuterClothing
@@ -1053,7 +780,7 @@
   minLimit: 0
   loadouts:
   - CargoTechnicianWintercoat
-  - CargoTechnicianWintercoatMail # Goob/DeltaV - Mail # todo marty fixmail
+  - BomberCargo #imp
 
 - type: loadoutGroup
   id: CargoTechnicianShoes
@@ -1061,20 +788,7 @@
   loadouts:
   - BlackShoes
   - CargoWinterBoots
-
-- type: loadoutGroup
-  id: CargoTechnicianID
-  name: loadout-group-cargo-technician-id
-  loadouts:
-  - CargoTechnicianPDA
-  - SeniorCourierPDA
-
-- type: loadoutGroup
-  id: CargoTechnicianJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieCargoTechnician
+  - CargoClownShoes # imp
 
 - type: loadoutGroup
   id: SalvageSpecialistBackpack
@@ -1083,7 +797,6 @@
   - SalvageSpecialistBackpack
   - SalvageSpecialistSatchel
   - SalvageSpecialistDuffel
-  - SalvageSpecialistMessenger # Frontier
 
 - type: loadoutGroup
   id: SalvageSpecialistOuterClothing
@@ -1091,6 +804,8 @@
   minLimit: 0
   loadouts:
   - SalvageSpecialistWintercoat
+  - BomberCargo #imp
+  - SalvageSpecialistDecapoidCoat #imp
 
 - type: loadoutGroup
   id: SalvageSpecialistShoes
@@ -1099,14 +814,8 @@
   - SalvageBoots
   - CargoWinterBoots
 
-- type: loadoutGroup
-  id: SalvageSpecialistJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieSalvageSpecialist
-
 # Engineering
+
 - type: loadoutGroup
   id: ChiefEngineerHead
   name: loadout-group-chief-engineer-head
@@ -1123,20 +832,15 @@
   - ChiefEngineerJumpskirt
   - ChiefEngineerTurtleneck
   - ChiefEngineerTurtleneckSkirt
-  - ChiefEngineerMJ # goob
-  - CESummerShirt # goob
 
 - type: loadoutGroup
   id: ChiefEngineerNeck
   name: loadout-group-chief-engineer-neck
   minLimit: 0
   loadouts:
-  - ClothingNeckCloakWhiteCe # goob
-  - ClothingNeckCloakGreenCe # goob
-  - ClothingNeckMantleWhiteCE # goob
-  - ClothingNeckMantleOrangeCE # goob
-  - ClothingNeckEnsembleChiefEngineerWhite # goob
-  - ClothingNeckEnsembleChiefEngineerGreen # goob
+  - ChiefEngineerCloak
+  - ChiefEngineerMantle
+  - ScarfOrange # imp
 
 - type: loadoutGroup
   id: ChiefEngineerOuterClothing
@@ -1151,13 +855,7 @@
   loadouts:
   - BrownShoes
   - EngineeringWinterBoots
-
-- type: loadoutGroup
-  id: ChiefEngineerJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieChiefEngineer
+  - WorkBoots # imp
 
 - type: loadoutGroup
   id: TechnicalAssistantJumpsuit
@@ -1165,14 +863,6 @@
   loadouts:
   - YellowJumpsuit
   - YellowJumpskirt
-  - EngiMJ # goob
-
-- type: loadoutGroup
-  id: TechnicalAssistantJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieTechnicalAssistant
 
 - type: loadoutGroup
   id: StationEngineerHead
@@ -1191,9 +881,9 @@
   - StationEngineerJumpsuit
   - StationEngineerJumpskirt
   - StationEngineerHazardsuit
+  - SpaceEngineerJumpsuit # imp
   - SeniorEngineerJumpsuit
   - SeniorEngineerJumpskirt
-  - EngiMJ # goob
 
 - type: loadoutGroup
   id: StationEngineerBackpack
@@ -1202,7 +892,6 @@
   - StationEngineerBackpack
   - StationEngineerSatchel
   - StationEngineerDuffel
-  - StationEngineerMessenger # Frontier
 
 - type: loadoutGroup
   id: StationEngineerOuterClothing
@@ -1211,6 +900,7 @@
   loadouts:
   - StationEngineerOuterVest
   - StationEngineerWintercoat
+  - BomberEngineering #imp
 
 - type: loadoutGroup
   id: StationEngineerShoes
@@ -1218,6 +908,7 @@
   loadouts:
   - WorkBoots
   - EngineeringWinterBoots
+  - EngineerClownShoes # imp
 
 - type: loadoutGroup
   id: StationEngineerID
@@ -1227,29 +918,12 @@
   - SeniorEngineerPDA
 
 - type: loadoutGroup
-  id: StationEngineerJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieStationEngineer
-
-- type: loadoutGroup
-  id: AtmosphericTechnicianHead
-  name: loadout-group-atmospheric-technician-head
-  minLimit: 0
-  loadouts:
-  - SeniorEngineerBeret   # Goobstation
-
-- type: loadoutGroup
   id: AtmosphericTechnicianJumpsuit
   name: loadout-group-atmospheric-technician-jumpsuit
   loadouts:
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianJumpskirt
   - AtmosphericTechnicianJumpsuitCasual
-  - SeniorEngineerJumpskirt  # Goobstation
-  - SeniorEngineerJumpsuit   # Goobstation
-  - AtmosMJ # goob
 
 - type: loadoutGroup
   id: AtmosphericTechnicianOuterClothing
@@ -1257,6 +931,7 @@
   minLimit: 0
   loadouts:
   - AtmosphericTechnicianWintercoat
+  - BomberEngineering #imp
 
 - type: loadoutGroup
   id: AtmosphericTechnicianBackpack
@@ -1265,7 +940,6 @@
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianSatchel
   - AtmosphericTechnicianDuffel
-  - AtmosphericTechnicianMessenger # Frontier
 
 - type: loadoutGroup
   id: AtmosphericTechnicianShoes
@@ -1275,13 +949,6 @@
   - EngineeringWinterBoots
 
 - type: loadoutGroup
-  id: AtmosphericTechnicianJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieAtmosphericTechnician
-
-- type: loadoutGroup
   id: SurvivalExtended
   name: loadout-group-survival-extended
   minLimit: 2
@@ -1289,19 +956,19 @@
   loadouts:
   - EmergencyNitrogenExtended
   - EmergencyOxygenExtended
-  - EmergencyPlasmaExtended
+  - EmergencyMeatExtended # imp
+  - LoadoutSpeciesAquaticFullTank # Imp
   - LoadoutSpeciesVoxNitrogen
-  - LoadoutSpeciesPlasma # Goobstation
-  - EmergencyWaterVaporExtended # Delta-V
-  - EmergencySilicon
 
 # Science
+
 - type: loadoutGroup
   id: ResearchDirectorHead
   name: loadout-group-research-director-head
   minLimit: 0
   loadouts:
   - ResearchDirectorBeret
+  - ResearchDirectorHood # DeltaV
 
 - type: loadoutGroup
   id: ResearchDirectorNeck
@@ -1310,18 +977,15 @@
   loadouts:
   - ResearchDirectorMantle
   - ResearchDirectorCloak
-  - ResearchDirectorEnsemble # goob
+  - MystagogueCloak # DeltaV
+  - ScarfPurple # imp
 
 - type: loadoutGroup
   id: ResearchDirectorJumpsuit
   name: loadout-group-research-director-jumpsuit
   loadouts:
   - ResearchDirectorJumpsuit
-  - ResearchDirectorJumpsuitAlt # goob
   - ResearchDirectorJumpskirt
-  - ResearchDirectorJumpskirtAlt # goob
-  - ResearchDirectorMJ # goob
-  - RDSummerShirt # goob
 
 - type: loadoutGroup
   id: ResearchDirectorOuterClothing
@@ -1329,30 +993,28 @@
   minLimit: 0
   loadouts:
   - ResearchDirectorLabCoat
+  - MystaLabCoat # DeltaV
   - ResearchDirectorWintercoat
-  - ResearchDirectorLabCoatPurple #goob
 
 - type: loadoutGroup
   id: ResearchDirectorShoes
   name: loadout-group-research-director-shoes
   loadouts:
   - BrownShoes
+  - WhiteShoes # imp
+  - LacedShoes #imp
+  - LeatherShoes
+  - WhiteDressShoes #imp
   - ScienceWinterBoots
-
-- type: loadoutGroup
-  id: ResearchDirectorJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieResearchDirector
+  - RoboticistWinterBoots # imp
 
 - type: loadoutGroup
   id: ScientistHead
   name: loadout-group-scientist-head
   minLimit: 0
   loadouts:
-  #- RoboticistCap
-  #- SkullBandana
+  - RoboticistCap
+  - SkullBandana
   - ScientificBeret
 
 - type: loadoutGroup
@@ -1361,6 +1023,8 @@
   minLimit: 0
   loadouts:
   - ScientistTie
+  - ScarfPurple # imp
+  - ScarfBlack # imp
 
 - type: loadoutGroup
   id: ScientistJumpsuit
@@ -1368,11 +1032,12 @@
   loadouts:
   - ScientistJumpsuit
   - ScientistJumpskirt
-  #- RoboticistJumpsuit
-  #- RoboticistJumpskirt
+  - SpaceScienceJumpsuit # imp
+  - RoboticistJumpsuit
+  - RoboticistJumpskirt
+  - ScientistJumpsuitFormal # imp
   - SeniorResearcherJumpsuit
   - SeniorResearcherJumpskirt
-  - ResearchMJ # goob
 
 - type: loadoutGroup
   id: ScientistBackpack
@@ -1381,7 +1046,6 @@
   - ScientistBackpack
   - ScientistSatchel
   - ScientistDuffel
-  - ScientistMessenger # Frontier
 
 - type: loadoutGroup
   id: ScientistOuterClothing
@@ -1394,6 +1058,7 @@
   - RoboticistLabCoat
   - RoboticistWintercoat
   - SeniorResearcherLabCoat
+  - BomberScience #imp
 
 - type: loadoutGroup
   id: ScientistShoes
@@ -1402,6 +1067,8 @@
   - WhiteShoes
   - BlackShoes
   - ScienceWinterBoots
+  - RoboticistWinterBoots # imp
+  - ScientistClownShoes # imp
 
 - type: loadoutGroup
   id: ScientistGloves
@@ -1417,14 +1084,8 @@
   name: loadout-group-scientist-id
   loadouts:
   - ScientistPDA
+  - RoboticistPDA # imp
   - SeniorResearcherPDA
-
-- type: loadoutGroup
-  id: ScientistJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieScientist
 
 - type: loadoutGroup
   id: ResearchAssistantJumpsuit
@@ -1432,24 +1093,18 @@
   loadouts:
   - WhiteJumpsuit
   - WhiteJumpskirt
-  - ResearchMJ # goob
-
-- type: loadoutGroup
-  id: ResearchAssistantJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieResearchAssistant
 
 # Security
+
 - type: loadoutGroup
   id: HeadofSecurityHead
   name: loadout-group-head-of-security-head
   minLimit: 0
   loadouts:
   - HeadofSecurityHead
+  - HeadofSecurityHeadDV # DeltaV
   - HeadofSecurityBeret
-  - HeadofSecuritySpecialBeret # Goobstation
+  - HeadofSecurityPatrolCap # imp
 
 - type: loadoutGroup
   id: HeadofSecurityJumpsuit
@@ -1457,11 +1112,14 @@
   loadouts:
   - HeadofSecurityJumpsuit
   - HeadofSecurityJumpskirt
+  - HeadofSecurityJumpsuitGrey #imp
+  - HeadofSecurityJumpskirtGrey #imp
   - HeadofSecurityTurtleneck
   - HeadofSecurityTurtleneckSkirt
+  - HeadofSecurityProfessionalJumpsuit # imp
+  - HeadofSecurityProfessionalJumpskirt # imp
   - HeadofSecurityFormalSuit
   - HeadofSecurityFormalSkirt
-  - HoSSummerShirt # goob
 
 - type: loadoutGroup
   id: HeadofSecurityNeck
@@ -1470,8 +1128,9 @@
   loadouts:
   - HeadofSecurityCloak
   - HeadofSecurityMantle
-  - Bodycam # Goobstation - Body cameras
-  - HeadOfSecurityEnsemble # goob
+  - HeadofSecurityGreatcoat #imp
+  - ScarfBlack # imp
+  - ScarfRed # imp
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing
@@ -1479,16 +1138,13 @@
   loadouts:
   - HeadofSecurityCoat
   - HeadofSecurityWinterCoat
-  - HeadofSecurityGreatCoat # Goobstation
-  - HeadofSecurityVestWeb # Goobstation
-
-- type: loadoutGroup
-  id: HeadofSecurityJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieHeadofSecurity
-  - SecStar
+  - HeadofSecurityWinterCoatUnarmored # imp
+  - ArmorVest #imp
+  - ArmorVestSlim #imp
+  - ArmorVestCompact #imp
+  - DuraVest # DeltaV
+  - PlateCarrier # DeltaV
+  - HeadofSecurityEliteArmor #imp
 
 - type: loadoutGroup
   id: WardenHead
@@ -1504,6 +1160,12 @@
   loadouts:
   - WardenJumpsuit
   - WardenJumpskirt
+  - WardenTurtleskirt # DeltaV
+  - WardenTurtlesuit # DeltaV
+  - SecurityJumpsuitBlue # imp
+  - ChiefJusticeFormalJumpsuit # DeltaV
+  - ChiefJusticeFormalJumpskirt # DeltaV
+  - ChiefJusticeWhiteJumpsuit # DeltaV
 
 - type: loadoutGroup
   id: WardenOuterClothing
@@ -1511,15 +1173,13 @@
   loadouts:
   - WardenCoat
   - WardenArmoredWinterCoat
-  - WardenCoatBlue #goob
-
-- type: loadoutGroup
-  id: WardenJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieWarden
-  - SecStar
+  - ArmorVest #imp
+  - ArmorVestSlim #imp
+  - ArmorVestCompact #imp
+  - DuraVest # DeltaV
+  - PlateCarrier # DeltaV
+  - WardenWinterCoatUnarmored # imp
+  - BomberSecurity #imp
 
 - type: loadoutGroup
   id: SecurityHead
@@ -1527,7 +1187,6 @@
   minLimit: 0
   loadouts:
   - SecurityHelmet
-  - SecurityHelmetAlt # Goobstation
   - SecurityBeret
   - SecurityHat
   - TrooperHat
@@ -1540,10 +1199,10 @@
   - SecurityJumpskirt
   - SecurityJumpsuitGrey
   - SecurityJumpskirtGrey
+  - TrooperUniform # imp
+  - SecurityJumpsuitBlue # imp
   - SeniorOfficerJumpsuit
   - SeniorOfficerJumpskirt
-  - TrooperUniform
-  - VeteranOfficerBlackJumpsuit # Goobstation
 
 - type: loadoutGroup
   id: SecurityBackpack
@@ -1552,7 +1211,6 @@
   - SecurityBackpack
   - SecuritySatchel
   - SecurityDuffel
-  - SecurityMessenger # Frontier
 
 - type: loadoutGroup
   id: SecurityBelt
@@ -1560,7 +1218,6 @@
   loadouts:
   - SecurityBelt
   - SecurityWebbing
-  - SecurityJudoBelt # Goobstation - Martial Arts
 
 - type: loadoutGroup
   id: SecurityOuterClothing
@@ -1568,17 +1225,20 @@
   loadouts:
   - ArmorVest
   - ArmorVestSlim
+  - ArmorVestCompact #imp
+  - DuraVest # DeltaV
+  - PlateCarrier # DeltaV
   - SecurityOfficerWintercoat
-  - WinterCoatSeniorSecArmored # Goobstation
-  - VeteranOfficerArmor # Goobstation
+  - StasecSweater # DeltaV
+  - BomberSecurity #imp
 
 - type: loadoutGroup
   id: SecurityShoes
   name: loadout-group-security-shoes
   loadouts:
   - JackBoots
-  - CombatBoots # Goobstation
   - SecurityWinterBoots
+  - SecurityClownShoes # imp
 
 - type: loadoutGroup
   id: SecurityPDA
@@ -1586,14 +1246,6 @@
   loadouts:
   - SecurityPDA
   - SeniorOfficerPDA
-
-- type: loadoutGroup
-  id: SecurityJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieSecurity
-  - SecStar
 
 - type: loadoutGroup
   id: DetectiveHead
@@ -1609,7 +1261,7 @@
   minLimit: 0
   loadouts:
   - DetectiveTie
-  - Bodycam # Goobstation - Body cameras
+  - ScarfBlack # imp
 
 - type: loadoutGroup
   id: DetectiveJumpsuit
@@ -1617,24 +1269,29 @@
   loadouts:
   - DetectiveJumpsuit
   - DetectiveJumpskirt
+  - ForensicSpecTurtleskirt # DeltaV
+  - ForensicSpecTurtlesuit # DeltaV
   - NoirJumpsuit
   - NoirJumpskirt
+  - ClothingUniformMiamiVice #imp
+  - ClothingUniformMiamiViceSkirt #imp
+  - ClothingUniformDetectiveSuit #imp
+  - ClothingUniformDetectiveSuitSkirt #imp
 
 - type: loadoutGroup
   id: DetectiveOuterClothing
   name: loadout-group-detective-outerclothing
   loadouts:
   - DetectiveArmorVest
-  - DetectiveCoat
   - DetectiveCoatGrey
-
-- type: loadoutGroup
-  id: DetectiveJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieDetective
-  - SecStar
+  - DetectiveCoat
+  - ArmorVest #imp
+  - ArmorVestSlim #imp
+  - ArmorVestCompact #imp
+  - DuraVest # DeltaV
+  - PlateCarrier # DeltaV
+  - BomberSecurity #imp
+  - ClothingOuterCoatFieldJacket #imp
 
 - type: loadoutGroup
   id: SecurityCadetJumpsuit
@@ -1644,13 +1301,6 @@
   - RedJumpskirt
 
 - type: loadoutGroup
-  id: SecurityCadetJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieSecurityCadet
-
-- type: loadoutGroup
   id: SurvivalSecurity
   name: loadout-group-survival-security
   minLimit: 2
@@ -1658,13 +1308,19 @@
   loadouts:
   - EmergencyNitrogenSecurity
   - EmergencyOxygenSecurity
-  - EmergencyPlasmaSecurity
+  - EmergencyMeatSecurity # imp
+  - LoadoutSpeciesAquaticFullTank # Imp
   - LoadoutSpeciesVoxNitrogen
-  - LoadoutSpeciesPlasma # Goobstation
-  - EmergencyWaterVaporSecurity # Delta-V
-  - EmergencySilicon
+
+- type: loadoutGroup
+  id: SecurityStar
+  name: loadout-group-security-star
+  minLimit: 0
+  loadouts:
+  - SecStar
 
 # Medical
+
 - type: loadoutGroup
   id: ChiefMedicalOfficerHead
   name: loadout-group-chief-medical-officer-head
@@ -1672,7 +1328,6 @@
   loadouts:
   - ChiefMedicalOfficerBeret
   - CMOMedicalHeadMirror
-  - ChemistUshanka # Goobstation
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerJumpsuit
@@ -1682,7 +1337,6 @@
   - ChiefMedicalOfficerJumpskirt
   - ChiefMedicalOfficerTurtleneckJumpsuit
   - ChiefMedicalOfficerTurtleneckJumpskirt
-  - CMOMJ # goob
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerOuterClothing
@@ -1691,6 +1345,7 @@
   loadouts:
   - ChiefMedicalOfficerLabCoat
   - ChiefMedicalOfficerWintercoat
+  - CMOPrestigeLabcoat #IMP
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerNeck
@@ -1699,21 +1354,18 @@
   loadouts:
   - ChiefMedicalOfficerCloak
   - ChiefMedicalOfficerMantle
-  - ChiefMedicalOfficerEnsemble # goob
+  - CMOGreatCloak #IMP
+  - ScarfLightBlue # imp
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerShoes
   name: loadout-group-chief-medical-officer-shoes
   loadouts:
   - BrownShoes
+  - WhiteShoes # imp
+  - LacedShoes #imp
+  - LeatherShoes
   - MedicalWinterBoots
-
-- type: loadoutGroup
-  id: ChiefMedicalOfficerJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieChiefMedicalOfficer
 
 - type: loadoutGroup
   id: MedicalDoctorHead
@@ -1734,13 +1386,17 @@
   loadouts:
   - MedicalDoctorJumpsuit
   - MedicalDoctorJumpskirt
+  - SpaceMedicalJumpsuit # imp
   - SeniorPhysicianJumpsuit
   - SeniorPhysicianJumpskirt
+  - VirologyJumpsuit # imp
+  - VirologyJumpskirt # imp
+  - GeneticsJumpsuit # imp
+  - GeneticsJumpskirt # imp
   - MedicalBlueScrubs
   - MedicalGreenScrubs
   - MedicalPurpleScrubs
-  - MedicMJ # goob
-
+  
 - type: loadoutGroup
   id: MedicalDoctorOuterClothing
   name: loadout-group-medical-doctor-outerclothing
@@ -1748,7 +1404,10 @@
   loadouts:
   - RegularLabCoat
   - MedicalDoctorWintercoat
+  - GeneticsWinterCoat # imp
+  - VirologyWinterCoat # imp
   - SeniorPhysicianLabCoat
+  - BomberMedical #imp
 
 - type: loadoutGroup
   id: MedicalBackpack
@@ -1757,14 +1416,14 @@
   - MedicalDoctorBackpack
   - MedicalDoctorSatchel
   - MedicalDoctorDuffel
-  - MedicalDoctorMessenger # Frontier
 
 - type: loadoutGroup
-  id: MedicalShoes
+  id: MedicalDoctorShoes
   name: loadout-group-medical-doctor-shoes
   loadouts:
   - WhiteShoes
   - MedicalWinterBoots
+  - DoctorClownShoes # imp
 
 - type: loadoutGroup
   id: MedicalDoctorPDA
@@ -1787,13 +1446,7 @@
   minLimit: 0
   loadouts:
   - SterileMask
-
-- type: loadoutGroup
-  id: MedicalDoctorJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieMedicalDoctor
+  - DoctorClown # imp
 
 - type: loadoutGroup
   id: MedicalInternJumpsuit
@@ -1801,14 +1454,6 @@
   loadouts:
   - WhiteJumpsuit
   - WhiteJumpskirt
-  - MedicMJ # goob
-
-- type: loadoutGroup
-  id: MedicalInternJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieMedicalIntern
 
 - type: loadoutGroup
   id: ChemistJumpsuit
@@ -1816,9 +1461,8 @@
   loadouts:
   - ChemistJumpsuit
   - ChemistJumpskirt
-  - SeniorPhysicianJumpsuit # Goobstation
-  - SeniorPhysicianJumpskirt # Goobstation
-  - ChemistMJ # goob
+  - SpaceChemistJumpsuit # imp
+  - ChemistFormalSuit # imp
 
 - type: loadoutGroup
   id: ChemistOuterClothing
@@ -1827,8 +1471,10 @@
   loadouts:
   - RegularLabCoat
   - ChemistLabCoat
+  - SeniorPhysicianLabCoat # imp
   - ChemistWintercoat
-  - SeniorPhysicianLabCoat # Goobstation
+  - ChemistryApron # imp
+  - BomberMedical #imp
 
 - type: loadoutGroup
   id: ChemistBackpack
@@ -1837,14 +1483,6 @@
   - ChemistBackpack
   - ChemistSatchel
   - ChemistDuffel
-  - ChemistMessenger # Frontier
-
-- type: loadoutGroup
-  id: ChemistJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieChemist
 
 - type: loadoutGroup
   id: ParamedicHead
@@ -1852,7 +1490,6 @@
   minLimit: 0
   loadouts:
   - ParamedicHead
-  - SeniorPhysicianBeret # Goobstation
 
 - type: loadoutGroup
   id: ParamedicJumpsuit
@@ -1860,9 +1497,6 @@
   loadouts:
   - ParamedicJumpsuit
   - ParamedicJumpskirt
-  - SeniorPhysicianJumpsuit # Goobstation
-  - SeniorPhysicianJumpskirt # Goobstation
-  - ParamedMJ # goob
 
 - type: loadoutGroup
   id: ParamedicOuterClothing
@@ -1871,34 +1505,15 @@
   loadouts:
   - ParamedicWindbreaker
   - ParamedicWintercoat
-  - ParamedicDavidsJacket # Goobstation
-  - SeniorPhysicianLabCoat # Goobstation
+  - BomberMedical #imp
 
 - type: loadoutGroup
   id: ParamedicShoes
   name: loadout-group-paramedic-shoes
   loadouts:
   - BlueShoes
-  - WhiteShoes
+  - WhiteShoes # imp
   - MedicalWinterBoots
-
-- type: loadoutGroup
-  id: ParamedicJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieParamedic
-
-- type: loadoutGroup
-  id: MedicalEyewear
-  name: loadout-group-medical-glasses
-  minLimit: 0
-  loadouts:
-  - MedicalHud
-  - MedicalEyePatchHud
-  - Glasses
-  - GlassesJamjar
-  - GlassesJensen
 
 - type: loadoutGroup
   id: SurvivalMedical
@@ -1908,27 +1523,11 @@
   loadouts:
   - EmergencyNitrogenMedical
   - EmergencyOxygenMedical
-  - EmergencyPlasmaMedical
+  - EmergencyMeatMedical # imp
+  - LoadoutSpeciesAquaticFullTank # Imp
   - LoadoutSpeciesVoxNitrogen
-  - LoadoutSpeciesPlasma # Goobstation
-  - EmergencyWaterVaporMedical # Delta-V
-  - EmergencySilicon
 
 # Wildcards
-- type: loadoutGroup
-  id: ReporterJumpsuit
-  name: loadout-group-reporter-jumpsuit
-  loadouts:
-  - ReporterJumpsuit
-  - JournalistJumpsuit
-  - ReporterDress
-
-- type: loadoutGroup
-  id: ReporterJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieReporter
 
 - type: loadoutGroup
   id: PsychologistJumpsuit
@@ -1938,11 +1537,20 @@
   - PsychologistJumpskirt
 
 - type: loadoutGroup
-  id: PsychologistJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
+  id: BoxerJumpsuit
+  name: loadout-group-boxer-jumpsuit
   loadouts:
-  - LizardPlushiePsychologist
+  - BoxerShorts
+  - BoxerShortsWithTop
+
+- type: loadoutGroup
+  id: BoxerGloves
+  name: loadout-group-boxer-gloves
+  loadouts:
+  - RedBoxingGloves
+  - BlueBoxingGloves
+  - GreenBoxingGloves
+  - YellowBoxingGloves
 
 # Other
 - type: loadoutGroup
@@ -1953,20 +1561,9 @@
   loadouts:
   - EmergencyNitrogenSyndicate
   - EmergencyOxygenSyndicate
-  - EmergencyPlasmaSyndicate
+  - EmergencyMeatSyndicate # imp
+  - LoadoutSpeciesAquaticFullTank # Imp
   - LoadoutSpeciesVoxNitrogen
-  - LoadoutSpeciesPlasma # Goobstation
-  - EmergencyWaterVaporSyndicate # Delta-V
-  - EmergencySilicon
-
-- type: loadoutGroup
-  id: SurvivalMilitaryDouble
-  name: loadout-group-survival-military
-  minLimit: 2
-  hidden: true
-  loadouts:
-  - EmergencyNitrogenMilitaryDouble
-  - EmergencyOxygenMilitaryDouble
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool

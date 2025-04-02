@@ -1,7 +1,587 @@
-# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
+- type: emoteSounds
+  id: UnisexHuman
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: UnisexScreams
+    Laugh:
+      collection: UnisexLaugh
+    Sneeze:
+      collection: UnisexSneezes
+    Cough:
+      collection: UnisexCoughs
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: UnisexYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: CluwneHorn
+    Sigh:
+      collection: UnisexSigh
+    Crying:
+      collection: UnisexCry
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    Gasp:
+      collection: UnisexGasp
+    DefaultDeathgasp:
+      collection: UnisexDeathGasp
+
+- type: emoteSounds
+  id: UnisexReptilian
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+    Laugh:
+      path: /Audio/Animals/lizard_happy.ogg
+    Hiss:
+      collection: ReptilianHiss
+    Sneeze:
+      collection: UnisexSneezes #placeholder
+    Cough:
+      collection: UnisexCoughs #placeholder
+    Yawn:
+      collection: UnisexYawn #placeholder
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: UnisexSigh #placeholder
+    Whistle:
+      collection: Whistles
+    Crying:
+      collection: UnisexCry
+    Weh:
+      collection: Weh
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    Gasp:
+      collection: UnisexGasp
+    DefaultDeathgasp:
+      collection: DeathGasp
+
+- type: emoteSounds
+  id: UnisexSlime
+  sounds:
+    Squish:
+      collection: Squishes
+    Bubble:
+      collection: Bubbles
+    Pop:
+      collection: Pops
+    Scream:
+      collection: UnisexSlimeScreams
+    Laugh:
+      collection: UnisexSlimeLaugh
+    Sneeze:
+      collection: UnisexSlimeSneezes
+    Cough:
+      collection: UnisexSlimeCoughs
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: UnisexSlimeYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: UnisexSlimeSigh
+    Crying:
+      collection: UnisexSlimeCry
+    Whistle:
+      collection: SlimeWhistles
+    Weh:
+      collection: Weh
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    Gasp:
+      collection: UnisexSlimeGasp
+    DefaultDeathgasp:
+      collection: UnisexSlimeDeathGasp
+  params:
+    variation: 0.125
+
+- type: emoteSounds
+  id: MaleVox
+  sounds:
+    Scream:
+      path: /Audio/Voice/Vox/shriek1.ogg
+    Laugh:
+      path: /Audio/Voice/Vox/vox_laugh.ogg
+    Sneeze:
+      collection: MaleSneezes #placeholder
+    Cough:
+      collection: MaleCoughs #placeholder
+    Yawn:
+      collection: MaleYawn #placeholder
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh #placeholder
+    Crying:
+      collection: VoxCry
+      params:
+        volume: -7
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    Gasp:
+      collection: VoxGasp
+      params:
+        volume: 10
+    DefaultDeathgasp:
+      collection: MaleDeathGasp #placeholder
+    Chitter:
+      collection: VoxChitter
+      params:
+        volume: -5
+    Coo:
+      collection: VoxCoo
+      params:
+        volume: -7
+    Hiss:
+      collection: VoxHiss
+      params:
+        volume: -5
+    Caw:
+      collection: KodepiiaCaws
+  params:
+    variation: 0.125
+
+- type: emoteSounds
+  id: FemaleVox
+  sounds:
+    Scream:
+      path: /Audio/Voice/Vox/shriek1.ogg
+    Laugh:
+      path: /Audio/Voice/Vox/vox_laugh.ogg
+    Sneeze:
+      collection: FemaleSneezes #placeholder
+    Cough:
+      collection: FemaleCoughs #placeholder
+    Yawn:
+      collection: FemaleYawn #placeholder
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: FemaleSigh #placeholder
+    Crying:
+      collection: VoxCry
+      params:
+        volume: -7
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    Gasp:
+      collection: VoxGasp
+      params:
+        volume: 10
+    DefaultDeathgasp:
+      collection: FemaleDeathGasp #placeholder
+    Chitter:
+      collection: VoxChitter
+      params:
+        volume: -5
+    Coo:
+      collection: VoxCoo
+      params:
+        volume: -7
+    Hiss:
+      collection: VoxHiss
+      params:
+        volume: -5
+    Caw:
+      collection: KodepiiaCaws
+  params:
+    variation: 0.125
+
+- type: emoteSounds
+  id: MaleDiona
+  sounds:
+    Scream:
+      path: /Audio/Voice/Diona/diona_scream.ogg
+    Laugh:
+      collection: DionaLaugh
+    Chirp:
+      path: /Audio/Animals/nymph_chirp.ogg
+    Sneeze:
+      collection: MaleSneezes #placeholder
+    Cough:
+      collection: MaleCoughs #placeholder
+    Yawn:
+      collection: MaleYawn #placeholder
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh #placeholder
+    Crying:
+      collection: MaleCry #placeholder
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: DeathGasp
+  params:
+    variation: 0.125
+
+- type: emoteSounds
+  id: FemaleDiona
+  sounds:
+    Scream:
+      path: /Audio/Voice/Diona/diona_scream.ogg
+    Laugh:
+      collection: DionaLaugh
+    Chirp:
+      path: /Audio/Animals/nymph_chirp.ogg
+    Sneeze:
+      collection: FemaleSneezes #placeholder
+    Cough:
+      collection: FemaleCoughs #placeholder
+    Yawn:
+      collection: FemaleYawn #placeholder
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: FemaleSigh #placeholder
+    Crying:
+      collection: FemaleCry #placeholder
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    Gasp:
+      collection: FemaleGasp
+    DefaultDeathgasp:
+      collection: FemaleDeathGasp
+  params:
+    variation: 0.125
+
+- type: emoteSounds
+  id: MaleArachnid
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/Voice/Arachnid/arachnid_scream.ogg
+    Laugh:
+      path: /Audio/Voice/Arachnid/arachnid_laugh.ogg
+    Chitter:
+      path: /Audio/Voice/Arachnid/arachnid_chitter.ogg
+    Click:
+      path: /Audio/Voice/Arachnid/arachnid_click.ogg
+    Sneeze:
+      collection: MaleSneezes #placeholder
+    Cough:
+      collection: MaleCoughs #placeholder
+    Yawn:
+      collection: MaleYawn #placeholder
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh #placeholder
+    Crying:
+      collection: MaleCry #placeholder
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: DeathGasp
+
+- type: emoteSounds
+  id: FemaleArachnid
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/Voice/Arachnid/arachnid_scream.ogg
+    Laugh:
+      path: /Audio/Voice/Arachnid/arachnid_laugh.ogg
+    Chitter:
+      path: /Audio/Voice/Arachnid/arachnid_chitter.ogg
+    Click:
+      path: /Audio/Voice/Arachnid/arachnid_click.ogg
+    Sneeze:
+      collection: FemaleSneezes #placeholder
+    Cough:
+      collection: FemaleCoughs #placeholder
+    Yawn:
+      collection: FemaleYawn #placeholder
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: FemaleSigh #placeholder
+    Crying:
+      collection: FemaleCry #placeholder
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    Gasp:
+      collection: FemaleGasp
+    DefaultDeathgasp:
+      collection: DeathGasp
+
+- type: emoteSounds
+  id: MaleDwarf
+  sounds:
+    Scream:
+      collection: MaleScreams
+    Laugh:
+      collection: MaleLaugh
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Sigh:
+      collection: MaleSigh
+    Honk:
+      collection: BikeHorn
+    Crying:
+      collection: MaleCry
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: MaleDeathGasp
+  params:
+    variation: 0.125
+    pitch: 0.75
+
+- type: emoteSounds
+  id: MaleMoth
+  params:
+    variation: 0.125
+  sounds:
+    Buzz:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+    Scream:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+    Laugh:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+    Chitter:
+      path: /Audio/Voice/Moth/moth_chitter.ogg
+    Squeak:
+      path: /Audio/Voice/Moth/moth_squeak.ogg
+    Sneeze:
+      collection: MaleSneezes #placeholder
+    Cough:
+      collection: MaleCoughs #placeholder
+    Yawn:
+      collection: MaleYawn #placeholder
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh #placeholder
+    Crying:
+      collection: MaleCry #placeholder
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: MothDeathGasp
+
+- type: emoteSounds
+  id: FemaleMoth
+  params:
+    variation: 0.125
+  sounds:
+    Buzz:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+    Scream:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+    Laugh:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+    Chitter:
+      path: /Audio/Voice/Moth/moth_chitter.ogg
+    Squeak:
+      path: /Audio/Voice/Moth/moth_squeak.ogg
+    Sneeze:
+      collection: FemaleSneezes #placeholder
+    Cough:
+      collection: FemaleCoughs #placeholder
+    Yawn:
+      collection: FemaleYawn #placeholder
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: FemaleSigh #placeholder
+    Crying:
+      collection: FemaleCry #placeholder
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    Gasp:
+      collection: FemaleGasp
+    DefaultDeathgasp:
+      collection: MothDeathGasp
+
+- type: emoteSounds
+  id: Raccoon
+  sound:
+    path: /Audio/Animals/raccoon_chatter.ogg
+    params:
+      variation: 0.125
+
+- type: emoteSounds
+  id: Possum
+  sound:
+    path: /Audio/Animals/cat_hiss.ogg
+    params:
+      variation: 0.125
+
+- type: emoteSounds
+  id: Gorilla
+  sounds:
+    Scream:
+      path: /Audio/_Impstation/Animals/Gorilla_Scream.ogg
+      params:
+        variation: 0.125
+        pitch: 0.75
+    Laugh:
+      path: /Audio/_Impstation/Animals/Gorilla_Laugh.ogg
+    Gasp:
+      path: /Audio/_Impstation/Animals/Gorilla_Gasp.ogg
+    DefaultDeathgasp:
+      path: /Audio/_Impstation/Animals/Gorilla_Scream.ogg
+
+- type: emoteSounds
+  id: Bros
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: Ungh
+    Laugh:
+      collection: Ungh
+    Sneeze:
+      collection: Ungh
+    Cough:
+      collection: Ungh
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: Ungh
+    Snore:
+      collection: Ungh
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: Ungh
+    Crying:
+      collection: Ungh
+    Whistle:
+      collection: Ungh
+    Weh:
+      collection: Weh
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      path: /Audio/_Impstation/Animals/bros_hurt.ogg
+
 
 - type: emoteSounds
   id: AnimalSlime
@@ -24,5 +604,263 @@
       collection: BikeHorn
     Weh:
       collection: Weh
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    DefaultDeathgasp:
+      collection: MaleSlimeDeathGasp
   params:
     variation: 0.125
+
+- type: emoteSounds
+  id: Monkey
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/Animals/monkey_scream.ogg
+      params:
+        variation: 0.125
+        pitch: 0.90
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    DefaultDeathgasp:
+      path: /Audio/_Impstation/Animals/bros_hurt.ogg
+
+- type: emoteSounds
+  id: Kodepiia
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: KodepiiaScreams
+    Laugh:
+      collection: KodepiiaLaugh
+    Sneeze:
+      collection: KodepiiaSneezes
+    Cough:
+      collection: KodepiiaCoughs
+    Sigh:
+      collection: KodepiiaSigh
+    Crying:
+      collection: KodepiiaCry
+    Whistle:
+      collection: KodepiiaWhistles
+    CatHisses:
+      collection: KodepiiaHisses
+    Hiss:
+      collection: KodepiiaHisses
+    CatMeow:
+      collection: KodepiiaMeows
+    Boom:
+      collection: KodepiiaBooms
+    KodeRing:
+      collection: KodepiiaRings
+    KodeHonk:
+      collection: KodepiiaHonks
+      params: # Frontier
+        volume: -5 # Frontier
+    KodePew:
+      collection: KodepiiaPews
+    KodeBang:
+      collection: KodepiiaBangs
+      params: # Frontier
+        volume: -5 # Frontier
+    KodeBeep:
+      collection: KodepiiaBeeps
+    Yawn:
+      collection: KodepiiaYawn
+    Snore:
+      collection: KodepiiaSnores
+    KodeRev:
+      collection: KodepiiaRevs
+      params: # Frontier
+        volume: -5 # Frontier
+    Click:
+      collection: KodepiiaClicks
+    Chitter:
+      collection: KodepiiaChitter
+    Squeak:
+      collection: KodepiiaSqueak
+    Caw:
+      collection: KodepiiaCaws
+    Chirp:
+      collection: KodepiiaChirps
+    Snarl:
+      collection: KodepiiaSnarls
+    Honk:
+      collection: KodepiiaHonks
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Gasp:
+      collection: KodepiiaGasp
+    DefaultDeathgasp:
+      collection: KodepiiaDeathgasp
+    Squish:
+      collection: Squishes
+    Bubble:
+      collection: Bubbles
+    Pop:
+      collection: Pops
+    Coo:
+      collection: VoxCoo
+      params:
+        volume: -7
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+
+- type: emoteSounds
+  id: YoungKodepiia
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/_Impstation/Kodepiia/kodeexclaim.ogg # you can imitate the supermatter when you grow up
+    Laugh:
+      collection: KodepiiaLaugh
+    Sneeze:
+      collection: KodepiiaSneezes
+    Cough:
+      collection: KodepiiaCoughs
+    Sigh:
+      collection: KodepiiaSigh
+    Crying:
+      collection: KodepiiaCry
+    Whistle:
+      collection: KodepiiaWhistles
+    CatHisses:
+      collection: KodepiiaHisses
+    Hiss:
+      collection: KodepiiaHisses
+    CatMeow:
+      collection: KodepiiaMeows
+    Boom:
+      collection: KodepiiaBooms
+    KodeRing:
+      collection: KodepiiaRings
+    KodeHonk:
+      collection: KodepiiaHonks
+      params:
+        volume: -5
+    KodePew:
+      collection: KodepiiaPews
+      params:
+        volume: -5
+    KodeBeep:
+      collection: KodepiiaBeeps
+    Yawn:
+      collection: KodepiiaYawn
+    Snore:
+      collection: KodepiiaSnores
+    KodeRev:
+      collection: KodepiiaRevs
+      params:
+        volume: -5
+    Click:
+      collection: KodepiiaClicks
+    Chitter:
+      collection: KodepiiaChitter
+    Squeak:
+      collection: KodepiiaSqueak
+    Caw:
+      collection: KodepiiaCaws
+    Chirp:
+      collection: KodepiiaChirps
+    Snarl:
+      collection: KodepiiaSnarls
+    Honk:
+      collection: KodepiiaHonks
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Gasp:
+      collection: KodepiiaGasp
+    DefaultDeathgasp:
+      collection: KodepiiaDeathgasp
+    Squish:
+      collection: Squishes
+    Bubble:
+      collection: Bubbles
+    Pop:
+      collection: Pops
+    Coo:
+      collection: VoxCoo
+      params:
+        volume: -7
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+
+- type: emoteSounds
+  id: TckTck
+  params:
+    variation: 0.05
+  sounds:
+    Beep:
+      path: /Audio/Machines/twobeep.ogg
+    Chime:
+      path: /Audio/Machines/chime.ogg
+    Buzz:
+      path: /Audio/Machines/buzz-sigh.ogg
+    Buzz-Two:
+      path: /Audio/Machines/buzz-two.ogg
+    Honk:
+      path: /Audio/Items/bikehorn.ogg
+    Ping:
+      path: /Audio/Effects/Cargo/ping.ogg
+
+- type: emoteSounds
+  id: Suppy
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/_EE/Supermatter/status/engine_alert2.ogg
+    Laugh:
+      path: /Audio/_EE/Supermatter/status/terminal_alert.ogg
+    Sneeze:
+      path: /Audio/_EE/Supermatter/emitter2.ogg
+    Cough:
+      path: /Audio/_EE/Supermatter/accent/delam/2.ogg
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      path: /Audio/_EE/Supermatter/charge.ogg
+    Snore:
+      path: /Audio/_EE/Supermatter/accent/delam/2.ogg
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      path: /Audio/_EE/Supermatter/charge.ogg
+    Crying:
+      path: /Audio/_EE/Supermatter/accent/delam/10.ogg
+    Whistle:
+      path: /Audio/_EE/Supermatter/marauder.ogg
+    Weh:
+      collection: Weh
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    Blink:
+      collection: Blinks
+      params:
+        volume: -3
+        variation: 0
+    Gasp:
+      path: /Audio/_EE/Supermatter/charge.ogg
+    DefaultDeathgasp:
+      path: /Audio/_EE/Supermatter/status/ohfuck.ogg
