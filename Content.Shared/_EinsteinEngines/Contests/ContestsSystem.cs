@@ -12,11 +12,31 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
 
+        public override void Initialize()
+        {
+            base.Initialize();
+            Subs.CVar(_cfg, GoobCVars.DoContestsSystem, (val) => _doContestSystem = val);
+            Subs.CVar(_cfg, GoobCVars.DoMassContests, (val) => _doMassContests = val);
+            Subs.CVar(_cfg, GoobCVars.AllowClampOverride, (val) => _allowClampOverride = val);
+            Subs.CVar(_cfg, GoobCVars.MassContestsMaxPercentage, (val) => _massContestsMaxPercentage = val);
+            Subs.CVar(_cfg, GoobCVars.DoStaminaContests, (val) => _doStaminaContests = val);
+            Subs.CVar(_cfg, GoobCVars.DoHealthContests, (val) => _doHealthContests = val);
+            Subs.CVar(_cfg, GoobCVars.DoMindContests, (val) => _doMindContests = val);
+
+        }
+
         /// <summary>
         ///     The presumed average mass of a player entity
         ///     Defaulted to the average mass of an adult human
         /// </summary>
         private const float AverageMass = 71f;
+        private bool _doContestSystem;
+        private bool _doMassContests;
+        private bool _allowClampOverride;
+        private float _massContestsMaxPercentage;
+        private bool _doStaminaContests;
+        private bool _doHealthContests;
+        private bool _doMindContests;
 
         #region Mass Contests
         /// <summary>
@@ -25,17 +45,17 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
         /// <param name="performerUid">Uid of Performer</param>
         public float MassContest(EntityUid performerUid, bool bypassClamp = false, float rangeFactor = 1f, float otherMass = AverageMass)
         {
-            if (!_cfg.GetCVar(GoobCVars.DoContestsSystem)
-                || !_cfg.GetCVar(GoobCVars.DoMassContests)
+            if (_doContestSystem
+                || _doMassContests
                 || !TryComp<PhysicsComponent>(performerUid, out var performerPhysics)
                 || performerPhysics.Mass == 0)
                 return 1f;
 
-            return _cfg.GetCVar(GoobCVars.AllowClampOverride) && bypassClamp
+            return _allowClampOverride && bypassClamp
                 ? performerPhysics.Mass / otherMass
                 : Math.Clamp(performerPhysics.Mass / otherMass,
-                    1 - _cfg.GetCVar(GoobCVars.MassContestsMaxPercentage) * rangeFactor,
-                    1 + _cfg.GetCVar(GoobCVars.MassContestsMaxPercentage) * rangeFactor);
+                    1 - _massContestsMaxPercentage * rangeFactor,
+                    1 + _massContestsMaxPercentage * rangeFactor);
         }
 
         /// <inheritdoc cref="MassContest(EntityUid, bool, float, float)"/>
@@ -44,8 +64,8 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
         /// </remarks>
         public float MassContest(EntityUid? performerUid, bool bypassClamp = false, float rangeFactor = 1f, float otherMass = AverageMass)
         {
-            if (!_cfg.GetCVar(GoobCVars.DoContestsSystem)
-                || !_cfg.GetCVar(GoobCVars.DoMassContests)
+            if (_doContestSystem
+                || _doMassContests
                 || performerUid is null)
                 return 1f;
 
@@ -59,16 +79,16 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
         /// <param name="performerPhysics"></param>
         public float MassContest(PhysicsComponent performerPhysics, bool bypassClamp = false, float rangeFactor = 1f, float otherMass = AverageMass)
         {
-            if (!_cfg.GetCVar(GoobCVars.DoContestsSystem)
-                || !_cfg.GetCVar(GoobCVars.DoMassContests)
+            if (_doContestSystem
+                || _doMassContests
                 || performerPhysics.Mass == 0)
                 return 1f;
 
-            return _cfg.GetCVar(GoobCVars.AllowClampOverride) && bypassClamp
+            return _allowClampOverride && bypassClamp
                 ? performerPhysics.Mass / otherMass
                 : Math.Clamp(performerPhysics.Mass / otherMass,
-                    1 - _cfg.GetCVar(GoobCVars.MassContestsMaxPercentage) * rangeFactor,
-                    1 + _cfg.GetCVar(GoobCVars.MassContestsMaxPercentage) * rangeFactor);
+                    1 - _massContestsMaxPercentage * rangeFactor,
+                    1 + _massContestsMaxPercentage * rangeFactor);
         }
 
         /// <summary>
@@ -79,69 +99,69 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
         /// <param name="targetUid"></param>
         public float MassContest(EntityUid performerUid, EntityUid targetUid, bool bypassClamp = false, float rangeFactor = 1f)
         {
-            if (!_cfg.GetCVar(GoobCVars.DoContestsSystem)
-                || !_cfg.GetCVar(GoobCVars.DoMassContests)
+            if (_doContestSystem
+                || _doMassContests
                 || !TryComp<PhysicsComponent>(performerUid, out var performerPhysics)
                 || !TryComp<PhysicsComponent>(targetUid, out var targetPhysics)
                 || performerPhysics.Mass == 0
                 || targetPhysics.InvMass == 0)
                 return 1f;
 
-            return _cfg.GetCVar(GoobCVars.AllowClampOverride) && bypassClamp
+            return _allowClampOverride && bypassClamp
                 ? performerPhysics.Mass * targetPhysics.InvMass
                 : Math.Clamp(performerPhysics.Mass * targetPhysics.InvMass,
-                    1 - _cfg.GetCVar(GoobCVars.MassContestsMaxPercentage) * rangeFactor,
-                    1 + _cfg.GetCVar(GoobCVars.MassContestsMaxPercentage) * rangeFactor);
+                    1 - _massContestsMaxPercentage * rangeFactor,
+                    1 + _massContestsMaxPercentage * rangeFactor);
         }
 
         /// <inheritdoc cref="MassContest(EntityUid, EntityUid, bool, float)"/>
         public float MassContest(EntityUid performerUid, PhysicsComponent targetPhysics, bool bypassClamp = false, float rangeFactor = 1f)
         {
-            if (!_cfg.GetCVar(GoobCVars.DoContestsSystem)
-                || !_cfg.GetCVar(GoobCVars.DoMassContests)
+            if (_doContestSystem
+                || _doMassContests
                 || !TryComp<PhysicsComponent>(performerUid, out var performerPhysics)
                 || performerPhysics.Mass == 0
                 || targetPhysics.InvMass == 0)
                 return 1f;
 
-            return _cfg.GetCVar(GoobCVars.AllowClampOverride) && bypassClamp
+            return _allowClampOverride && bypassClamp
                 ? performerPhysics.Mass * targetPhysics.InvMass
                 : Math.Clamp(performerPhysics.Mass * targetPhysics.InvMass,
-                    1 - _cfg.GetCVar(GoobCVars.MassContestsMaxPercentage) * rangeFactor,
-                    1 + _cfg.GetCVar(GoobCVars.MassContestsMaxPercentage) * rangeFactor);
+                    1 - _massContestsMaxPercentage * rangeFactor,
+                    1 + _massContestsMaxPercentage * rangeFactor);
         }
 
         /// <inheritdoc cref="MassContest(EntityUid, EntityUid, bool, float)"/>
         public float MassContest(PhysicsComponent performerPhysics, EntityUid targetUid, bool bypassClamp = false, float rangeFactor = 1f)
         {
-            if (!_cfg.GetCVar(GoobCVars.DoContestsSystem)
-                || !_cfg.GetCVar(GoobCVars.DoMassContests)
+            if (_doContestSystem
+                || _doMassContests
                 || !TryComp<PhysicsComponent>(targetUid, out var targetPhysics)
                 || performerPhysics.Mass == 0
                 || targetPhysics.InvMass == 0)
                 return 1f;
 
-            return _cfg.GetCVar(GoobCVars.AllowClampOverride) && bypassClamp
+            return _allowClampOverride && bypassClamp
                 ? performerPhysics.Mass * targetPhysics.InvMass
                 : Math.Clamp(performerPhysics.Mass * targetPhysics.InvMass,
-                    1 - _cfg.GetCVar(GoobCVars.MassContestsMaxPercentage) * rangeFactor,
-                    1 + _cfg.GetCVar(GoobCVars.MassContestsMaxPercentage) * rangeFactor);
+                    1 - _massContestsMaxPercentage * rangeFactor,
+                    1 + _massContestsMaxPercentage * rangeFactor);
         }
 
         /// <inheritdoc cref="MassContest(EntityUid, EntityUid, bool, float)"/>
         public float MassContest(PhysicsComponent performerPhysics, PhysicsComponent targetPhysics, bool bypassClamp = false, float rangeFactor = 1f)
         {
-            if (!_cfg.GetCVar(GoobCVars.DoContestsSystem)
-                || !_cfg.GetCVar(GoobCVars.DoMassContests)
+            if (_doContestSystem
+                || _doMassContests
                 || performerPhysics.Mass == 0
                 || targetPhysics.InvMass == 0)
                 return 1f;
 
-            return _cfg.GetCVar(GoobCVars.AllowClampOverride) && bypassClamp
+            return _allowClampOverride && bypassClamp
                 ? performerPhysics.Mass * targetPhysics.InvMass
                 : Math.Clamp(performerPhysics.Mass * targetPhysics.InvMass,
-                    1 - _cfg.GetCVar(GoobCVars.MassContestsMaxPercentage) * rangeFactor,
-                    1 + _cfg.GetCVar(GoobCVars.MassContestsMaxPercentage) * rangeFactor);
+                    1 - _massContestsMaxPercentage * rangeFactor,
+                    1 + _massContestsMaxPercentage * rangeFactor);
         }
 
         #endregion
@@ -149,37 +169,37 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
 
         public float StaminaContest(EntityUid performer, bool bypassClamp = false, float rangeFactor = 1f)
         {
-            if (!_cfg.GetCVar(GoobCVars.DoContestsSystem)
-                || !_cfg.GetCVar(GoobCVars.DoStaminaContests)
+            if (_doContestSystem
+                || _doStaminaContests
                 || !TryComp<StaminaComponent>(performer, out var perfStamina)
                 || perfStamina.StaminaDamage == 0)
                 return 1f;
 
-            return _cfg.GetCVar(GoobCVars.AllowClampOverride) && bypassClamp
+            return _allowClampOverride && bypassClamp
                 ? 1 - perfStamina.StaminaDamage / perfStamina.CritThreshold
                 : 1 - Math.Clamp(perfStamina.StaminaDamage / perfStamina.CritThreshold, 0, 0.25f * rangeFactor);
         }
 
         public float StaminaContest(StaminaComponent perfStamina, bool bypassClamp = false, float rangeFactor = 1f)
         {
-            if (!_cfg.GetCVar(GoobCVars.DoContestsSystem)
-                || !_cfg.GetCVar(GoobCVars.DoStaminaContests))
+            if (_doContestSystem
+                || _doStaminaContests)
                 return 1f;
 
-            return _cfg.GetCVar(GoobCVars.AllowClampOverride) && bypassClamp
+            return _allowClampOverride && bypassClamp
                 ? 1 - perfStamina.StaminaDamage / perfStamina.CritThreshold
                 : 1 - Math.Clamp(perfStamina.StaminaDamage / perfStamina.CritThreshold, 0, 0.25f * rangeFactor);
         }
 
         public float StaminaContest(EntityUid performer, EntityUid target, bool bypassClamp = false, float rangeFactor = 1f)
         {
-            if (!_cfg.GetCVar(GoobCVars.DoContestsSystem)
-                || !_cfg.GetCVar(GoobCVars.DoStaminaContests)
+            if (_doContestSystem
+                || _doStaminaContests
                 || !TryComp<StaminaComponent>(performer, out var perfStamina)
                 || !TryComp<StaminaComponent>(target, out var targetStamina))
                 return 1f;
 
-            return _cfg.GetCVar(GoobCVars.AllowClampOverride) && bypassClamp
+            return _allowClampOverride && bypassClamp
                 ? (1 - perfStamina.StaminaDamage / perfStamina.CritThreshold)
                     / (1 - targetStamina.StaminaDamage / targetStamina.CritThreshold)
                 : (1 - Math.Clamp(perfStamina.StaminaDamage / perfStamina.CritThreshold, 0, 0.25f * rangeFactor))
@@ -192,28 +212,28 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
 
         public float HealthContest(EntityUid performer, bool bypassClamp = false, float rangeFactor = 1f)
         {
-            if (!_cfg.GetCVar(GoobCVars.DoContestsSystem)
-                || !_cfg.GetCVar(GoobCVars.DoHealthContests)
+            if (_doContestSystem
+                || _doHealthContests
                 || !TryComp<DamageableComponent>(performer, out var damage)
                 || !_mobThreshold.TryGetThresholdForState(performer, Mobs.MobState.Critical, out var threshold))
                 return 1f;
 
-            return _cfg.GetCVar(GoobCVars.AllowClampOverride) && bypassClamp
+            return _allowClampOverride && bypassClamp
                 ? 1 - damage.TotalDamage.Float() / threshold.Value.Float()
                 : 1 - Math.Clamp(damage.TotalDamage.Float() / threshold.Value.Float(), 0, 0.25f * rangeFactor);
         }
 
         public float HealthContest(EntityUid performer, EntityUid target, bool bypassClamp = false, float rangeFactor = 1f)
         {
-            if (!_cfg.GetCVar(GoobCVars.DoContestsSystem)
-                || !_cfg.GetCVar(GoobCVars.DoHealthContests)
+            if (_doContestSystem
+                || _doHealthContests
                 || !TryComp<DamageableComponent>(performer, out var perfDamage)
                 || !TryComp<DamageableComponent>(target, out var targetDamage)
                 || !_mobThreshold.TryGetThresholdForState(performer, Mobs.MobState.Critical, out var perfThreshold)
                 || !_mobThreshold.TryGetThresholdForState(target, Mobs.MobState.Critical, out var targetThreshold))
                 return 1f;
 
-            return _cfg.GetCVar(GoobCVars.AllowClampOverride) && bypassClamp
+            return _allowClampOverride && bypassClamp
                 ? (1 - perfDamage.TotalDamage.Float() / perfThreshold.Value.Float())
                     / (1 - targetDamage.TotalDamage.Float() / targetThreshold.Value.Float())
                 : (1 - Math.Clamp(perfDamage.TotalDamage.Float() / perfThreshold.Value.Float(), 0, 0.25f * rangeFactor))
@@ -233,8 +253,8 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
         /// <returns></returns>
         public float MindContest(EntityUid performer, bool bypassClamp = false, float rangeFactor = 1f)
         {
-            if (!_cfg.GetCVar(GoobCVars.DoContestsSystem)
-                || !_cfg.GetCVar(GoobCVars.DoMindContests))
+            if (_doContestSystem
+                || _doMindContests)
                 return 1f;
 
             return 1f;
@@ -242,8 +262,8 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
 
         public float MindContest(EntityUid performer, EntityUid target, bool bypassClamp = false, float rangeFactor = 1f)
         {
-            if (!_cfg.GetCVar(GoobCVars.DoContestsSystem)
-                || !_cfg.GetCVar(GoobCVars.DoMindContests))
+            if (_doContestSystem
+                || _doMindContests)
                 return 1f;
 
             return 1f;
@@ -269,7 +289,7 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
             float weightMind = 1f,
             bool sumOrMultiply = false)
         {
-            if (!_cfg.GetCVar(GoobCVars.DoContestsSystem))
+            if (_doContestSystem)
                 return 1f;
 
             var weightTotal = weightMass + weightStamina + weightHealth + weightMind;
@@ -306,7 +326,7 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
             float weightMind = 1f,
             bool sumOrMultiply = false)
         {
-            if (!_cfg.GetCVar(GoobCVars.DoContestsSystem))
+            if (_doContestSystem)
                 return 1f;
 
             var weightTotal = weightMass + weightStamina + weightHealth + weightMind;
