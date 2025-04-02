@@ -1,2 +1,2 @@
-cursed-component-examined = [color=gold]{CAPITALIZE(POSS-ADJ($target))} eyes appear dull and lifeless. Poor them.[/color]
+cursed-component-examined = [color=gold]{CAPITALIZE(POSS-ADJ($target))} eyes appear dull and lifeless. Poor {POSS-ADJ($target)}[/color]
 cursed-comp-flavor = Your vision widens and your mind goes blank as you struggle to bear the weight of the curse...

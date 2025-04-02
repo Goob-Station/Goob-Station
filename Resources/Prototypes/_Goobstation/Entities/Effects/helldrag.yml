@@ -36,6 +36,9 @@
     radius: 3
     energy: 2
     netsync: false
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Goobstation/Effects/earth_quake.ogg
 
 - type: entity
   id: PentagramHellHand
