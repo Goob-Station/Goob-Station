@@ -226,7 +226,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (comp.BiomassUpdateTimer >= comp.BiomassUpdateCooldown)
         {
             comp.BiomassUpdateTimer = 0;
-            UpdateBiomass(uid, comp, comp.BiomassDrain);
         }
 
         UpdateAbilities(uid, comp);
@@ -241,6 +240,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         Dirty(uid, comp);
         _alerts.ShowAlert(uid, "ChangelingChemicals");
     }
+    // note: unused, will cause the biomass alert to show up if used
     private void UpdateBiomass(EntityUid uid, ChangelingIdentityComponent comp, float amount)
     {
         float amt = amount;
@@ -407,7 +407,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         }
 
         UpdateChemicals(uid, comp, -chemCost);
-        UpdateBiomass(uid, comp, -lingAction.BiomassCost);
 
         action.Handled = true;
 
@@ -761,7 +760,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         // show alerts
         UpdateChemicals(uid, comp, 0);
-        UpdateBiomass(uid, comp, 0);
         // make their blood unreal
         _blood.ChangeBloodReagent(uid, "BloodChangeling");
 
