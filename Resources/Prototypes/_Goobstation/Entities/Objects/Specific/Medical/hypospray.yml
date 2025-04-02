@@ -16,7 +16,7 @@
       hypospray:
         maxVol: 10
         reagents:
-        - ReagentId: Bicaridine
+        - ReagentId: Epinephrine
           Quantity: 7
         - ReagentId: TranexamicAcid
           Quantity: 3
