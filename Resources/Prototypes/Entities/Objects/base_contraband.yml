@@ -5,6 +5,8 @@
   components:
   - type: Contraband
     severity: Syndicate
+  - type: ScannableForPoints # Goobstation - NTR update
+    points: 5  
 
 # minor contraband not departmentally restricted -- improvised weapons etc
 - type: entity

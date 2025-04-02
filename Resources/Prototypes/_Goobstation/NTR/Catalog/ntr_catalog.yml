@@ -251,72 +251,74 @@
 
 # Response teams
 
-- type: listing
-  id: NTRExecutiveERTSec
-  name: ntr-executive-ert-sec-name
-  description: ntr-executive-ert-sec-desc
-  productEntity: NTRgameruleERTsec
-  cost:
-    NTLoyaltyPoint: 250 # 4 times the amount of BSD
-  categories:
-  - NTRresponse
-  restockTime: 2700 # 45 mins, should be enough for the warops
-  resetRestockOnPurchase: true
-  restockAfterPurchase: 14400 # 4h, in case of 10h goob round being real
-  conditions:
-  #- !type:ListingCrewDeathCondition
-  #  RequiredDeathPercentage: 0.35 # you can only call ERT if there is 35% of crew dead, well, at least you supposed to
-  - !type:ListingLimitedStockCondition
-    stock: 2 # well if 2 ERTs are dead then let god help you bruv
+# admins are against NTR being able to call ERT, so... yeah.
 
-- type: listing
-  id: NTRExecutiveERTmed
-  name: ntr-executive-ert-med-name
-  description: ntr-executive-ert-med-desc
-  productEntity: NTRgameruleERTmed
-  cost:
-    NTLoyaltyPoint: 175 # should be enough to patch the stations up in case of some shittery
-  categories:
-  - NTRresponse
-  restockTime: 1800 # 30 mins
-  resetRestockOnPurchase: true
-  restockAfterPurchase: 7200 # 2h, in case of 10h goob round being real
+#- type: listing
+#  id: NTRExecutiveERTSec
+#  name: ntr-executive-ert-sec-name
+#  description: ntr-executive-ert-sec-desc
+#  productEntity: NTRgameruleERTsec
+#  cost:
+#    NTLoyaltyPoint: 500 # 4 times the amount of BSD
+#  categories:
+#  - NTRresponse
+#  restockTime: 2700 # 45 mins, should be enough for the warops
+#  resetRestockOnPurchase: true
+#  restockAfterPurchase: 14400 # 4h, in case of 10h goob round being real
+#  conditions:
+#  #- !type:ListingCrewDeathCondition
+#  #  RequiredDeathPercentage: 0.35 # you can only call ERT if there is 35% of crew dead, well, at least you supposed to
+#  - !type:ListingLimitedStockCondition
+#    stock: 2 # well if 2 ERTs are dead then let god help you bruv
 
-- type: listing
-  id: NTRExecutiveERTengi
-  name: ntr-executive-ert-engi-name
-  description: ntr-executive-ert-engi-desc
-  productEntity: NTRgameruleERTengi
-  cost:
-    NTLoyaltyPoint: 175
-  categories:
-  - NTRresponse
-  restockTime: 1800 # 30 mins
-  resetRestockOnPurchase: true
-  restockAfterPurchase: 7200 # 2h
+#- type: listing
+#  id: NTRExecutiveERTmed
+#  name: ntr-executive-ert-med-name
+#  description: ntr-executive-ert-med-desc
+#  productEntity: NTRgameruleERTmed
+#  cost:
+#    NTLoyaltyPoint: 350 # should be enough to patch the stations up in case of some shittery
+#  categories:
+#  - NTRresponse
+#  restockTime: 1800 # 30 mins
+#  resetRestockOnPurchase: true
+#  restockAfterPurchase: 7200 # 2h, in case of 10h goob round being real
 
-- type: listing
-  id: NTRExecutiveERTjani
-  name: ntr-executive-ert-jani-name
-  description: ntr-executive-ert-jani-desc
-  productEntity: NTRgameruleERTjani
-  cost:
-    NTLoyaltyPoint: 175
-  categories:
-  - NTRresponse
-  restockTime: 1800 # 30 mins
-  resetRestockOnPurchase: true
-  restockAfterPurchase: 7200 # 2h
+#- type: listing
+#  id: NTRExecutiveERTengi
+#  name: ntr-executive-ert-engi-name
+#  description: ntr-executive-ert-engi-desc
+#  productEntity: NTRgameruleERTengi
+#  cost:
+#    NTLoyaltyPoint: 350
+#  categories:
+#  - NTRresponse
+#  restockTime: 1800 # 30 mins
+#  resetRestockOnPurchase: true
+#  restockAfterPurchase: 7200 # 2h
 
-- type: listing
-  id: NTRExecutiveCBURN
-  name: ntr-executive-cburn-name
-  description: ntr-executive-cburn-desc
-  productEntity: NTRgameruleCBURN
-  cost:
-    NTLoyaltyPoint: 150 # idealy, the crew should call this one pretty fast if things got bad
-  categories:
-  - NTRresponse
-  restockTime: 1200 # 20 mins
-  resetRestockOnPurchase: true
-  restockAfterPurchase: 3600 # 1h, in case CBURN would suck ass
+#- type: listing
+#  id: NTRExecutiveERTjani
+#  name: ntr-executive-ert-jani-name
+#  description: ntr-executive-ert-jani-desc
+#  productEntity: NTRgameruleERTjani
+#  cost:
+#    NTLoyaltyPoint: 350
+#  categories:
+#  - NTRresponse
+#  restockTime: 1800 # 30 mins
+#  resetRestockOnPurchase: true
+#  restockAfterPurchase: 7200 # 2h
+
+#- type: listing
+#  id: NTRExecutiveCBURN
+#  name: ntr-executive-cburn-name
+#  description: ntr-executive-cburn-desc
+#  productEntity: NTRgameruleCBURN
+#  cost:
+#    NTLoyaltyPoint: 300 # idealy, the crew should call this one pretty fast if things got bad
+#  categories:
+#  - NTRresponse
+#  restockTime: 1200 # 20 mins
+#  resetRestockOnPurchase: true
+#  restockAfterPurchase: 3600 # 1h, in case CBURN would suck ass

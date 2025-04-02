@@ -20,6 +20,8 @@
   - type: Store
     balance:
       NTLoyaltyPoint: 999 # change this to 0 before pr-ing
+  - type: BriefcaseScanner
+    scanDuration: 7.5
 
 # Executive briefcase store
 # i dont want to make a bunch of new files for 1 prototype so....
@@ -37,6 +39,7 @@
     - NTLoyaltyPoint
     sales:
       enabled: false
+    ownerOnly: true
 
 - type: storeCategory
   id: NTRstation
