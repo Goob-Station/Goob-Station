@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Shared._Goobstation.Materials;
+using Content.Goobstation.Common.Materials;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Audio;
 using Content.Shared.Body.Components;

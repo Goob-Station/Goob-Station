@@ -2,6 +2,10 @@ reagent-name-tranquility = tranquility
 reagent-desc-tranquility = You feel oddly calm...
 reagent-popup-tranquility = You feel oddly calm...
 
+reagent-name-binglejuice = bingle juice
+reagent-desc-binglejuice = Bing bong.
+reagent-popup-binglejuice = The thought must have crossed your mind at some point. The thought that you delved too deep. The thought that this would be a one-way trip. So instead of fighting the inevitable, why not embrace it? Just lay down and rest. There is beauty in this darkness that can be harnessed and used to usher something new.
+
 reagent-name-carpolin = carpolin
 reagent-desc-carpolin = Causes the metabolizer to transform into a superior lifeform.
 reagent-popup-carpolin = You feel... strange.
@@ -32,3 +36,8 @@ reagent-popup-copium-12 = You could take him.
 reagent-name-cat-drugs = cat drugs
 reagent-desc-cat-drugs = Cat drugs? Drugs for cats? Drugs from cats? Better not to ask.
 
+reagent-name-nostalgia = nostalgia
+reagent-desc-nostalgia = Why is this here?
+
+reagent-name-tilenol = tilenol
+reagent-desc-tilenol = You can feel yourself becoming more robust just by holding this.

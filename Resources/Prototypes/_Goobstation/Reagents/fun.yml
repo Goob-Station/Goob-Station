@@ -33,6 +33,28 @@
           min: 25
 
 - type: reagent
+  id: BingleJuice
+  name: reagent-name-binglejuice
+  group: Toxins
+  desc: reagent-desc-binglejuice
+  physicalDesc: reagent-physical-desc-calming
+  flavor: bitter
+  color: "#1a6ac1"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.05
+      effects:
+      - !type:PopupMessage
+          type: Local
+          messages: [ "reagent-popup-binglejuice" ]
+          probability: 0.2
+      - !type:Polymorph
+        prototype: Bingle
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+
+- type: reagent
   id: Carpolin
   name: reagent-name-carpolin
   group: Toxins
@@ -133,3 +155,29 @@
         conditions:
         - !type:ReagentThreshold
           min: 50
+
+- type: reagent
+  id: Nostalgia
+  name: reagent-name-nostalgia
+  group: Special
+  desc: reagent-desc-nostalgia
+  physicalDesc: reagent-physical-desc-chalky
+  flavor: old
+  color: "#375dcf"
+
+- type: reagent
+  id: Tilenol
+  name: reagent-name-tilenol
+  group: Special
+  desc: reagent-desc-tilenol
+  physicalDesc: reagent-physical-desc-robust
+  flavor: robust
+  color: "#ffd648"
+  metabolisms:
+    Drink:
+      metabolismRate: 0.1
+      effects:
+      - !type:GenericStatusEffect
+        key: Centered
+        time: 10
+        component: TileMovement
