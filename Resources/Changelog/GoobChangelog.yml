@@ -6976,3 +6976,9 @@ Entries:
       message: Add the homunculus - add 5U mutagen to an egg to summon one
   id: 810
   time: '2025-04-02T03:16:32.0000000+00:00'
+- author: JoeHammad, mrjajkes
+  changes:
+    - type: Add
+      message: Added new nuke music, "Sponsored by Syndicate".
+  id: 811
+  time: '2025-04-02T03:17:33.0000000+00:00'
