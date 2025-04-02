@@ -146,7 +146,6 @@ public sealed partial class ChangelingSystem
         {
             bonusChemicals += targetComp.MaxChemicals / 2;
             bonusEvolutionPoints += 10;
-            comp.MaxBiomass += targetComp.MaxBiomass / 2;
         }
         else
         {
