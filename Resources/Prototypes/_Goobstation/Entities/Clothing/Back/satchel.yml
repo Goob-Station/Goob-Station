@@ -1,5 +1,5 @@
 - type: entity
-  parent: Nanotrasen Representative Satchel
+  parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelNanorep
   name: Nanotrasen Representative Satchel
   description: An expensive dark green backpack. Smells like fax machines.
