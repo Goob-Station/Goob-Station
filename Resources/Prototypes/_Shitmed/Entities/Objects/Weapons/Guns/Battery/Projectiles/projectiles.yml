@@ -59,8 +59,7 @@
   - type: Projectile
     damage:
       types:
-        Radiation: 10
-        Cellular: 20
-        Ion: 30
+        Radiation: 20
+    ignoreResistances: true
     soundHit:
       collection: MeatLaserImpact

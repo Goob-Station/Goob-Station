@@ -20,10 +20,7 @@
     - proto: BulletDisabler
       fireCost: 50
     - proto: BulletDeclone
-      fireCost: 100
-  - type: Battery
-    maxCharge: 500
-    startingCharge: 500
+      fireCost: 125
   - type: Appearance
   - type: MagazineVisuals
     magState: mag
@@ -48,4 +45,7 @@
       shader: unshaded
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDeclone
-    fireCost: 100
+    fireCost: 125
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
