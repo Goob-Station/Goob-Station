@@ -98,9 +98,9 @@
       - AutoinjectorCartridge
 
 - type: entity
-  name: epinephrine autoinjector cartridge
+  name: adrenaline autoinjector cartridge
   parent: BaseCartridgeAutoinjector
-  description: Contains 10u of epinephrine, used in a cartridge autoinjector.
+  description: Contains 8u of epinephrine and 2u of tranexamic acid, used in a cartridge autoinjector.
   id: CartridgeEpinephrine
   components:
   - type: Sprite
@@ -112,10 +112,12 @@
       maxVol: 10
       reagents:
       - ReagentId: Epinephrine
-        Quantity: 10
+        Quantity: 8
+      - ReagentId: TranexamicAcid
+        Quantity: 2
 
 - type: entity
-  name: atropine autoinjector cartridge
+  name: emergency autoinjector cartridge
   parent: BaseCartridgeAutoinjector
   description: Contains 10u of atropine, used in a cartridge autoinjector.
   id: CartridgeAtropine
@@ -134,7 +136,7 @@
 - type: entity
   name: brute autoinjector cartridge
   parent: BaseCartridgeAutoinjector
-  description: Contains 7u of bicaridine and 3u of tranexamic acid, used in a cartridge autoinjector.
+  description: Contains 8.5u of bicaridine and 1.5u of salicylic acid, used in a cartridge autoinjector.
   id: CartridgeBicaridine
   components:
   - type: Sprite
@@ -146,14 +148,14 @@
       maxVol: 10
       reagents:
       - ReagentId: Bicaridine
-        Quantity: 7
-      - ReagentId: TranexamicAcid
-        Quantity: 3
+        Quantity: 8.5
+      - ReagentId: SalicylicAcid
+        Quantity: 1.5
 
 - type: entity
   name: burn autoinjector cartridge
   parent: BaseCartridgeAutoinjector
-  description: Contains 10u of dermaline, used in a cartridge autoinjector.
+  description: Contains 6u of dermaline, 2.5u of sigynate and 1.5u of oxandrolone, used in a cartridge autoinjector.
   id: CartridgeDermaline
   components:
   - type: Sprite
@@ -165,7 +167,11 @@
       maxVol: 10
       reagents:
       - ReagentId: Dermaline
-        Quantity: 10
+        Quantity: 6
+      - ReagentId: Sigynate
+        Quantity: 2.5
+      - ReagentId: Oxandrolone
+        Quantity: 1.5
 
 - type: entity
   name: airloss autoinjector cartridge
@@ -187,7 +193,7 @@
         Quantity: 3
 
 - type: entity
-  name: ephedrine autoinjector cartridge
+  name: stimulant autoinjector cartridge
   parent: [ BaseSyndicateContraband , BaseCartridgeAutoinjector ]
   description: Contains 10u of ephedrine, used in a cartridge autoinjector.
   id: CartridgeEphedrine
@@ -204,7 +210,7 @@
         Quantity: 10
 
 - type: entity
-  name: puncturase autoinjector cartridge
+  name: gunshot autoinjector cartridge
   parent: [ BaseSyndicateContraband , BaseCartridgeAutoinjector ]
   description: Contains 10u of puncturase, used in a cartridge autoinjector.
   id: CartridgePuncturase
@@ -221,9 +227,9 @@
         Quantity: 10
 
 - type: entity
-  name: chloral hydrate autoinjector cartridge
+  name: exhausting autoinjector cartridge
   parent: [ BaseSyndicateContraband , BaseCartridgeAutoinjector ]
-  description: Contains 10u of chloral hydrate, used in a cartridge autoinjector.
+  description: Contains 5u of chloral hydrate and 5u of tirizene, used in a cartridge autoinjector.
   id: CartridgeChloralHydrate
   components:
   - type: Sprite
@@ -235,7 +241,9 @@
       maxVol: 10
       reagents:
       - ReagentId: ChloralHydrate
-        Quantity: 10
+        Quantity: 5
+      - ReagentId: Tirizene
+        Quantity: 5
 
 # Medipens
 
