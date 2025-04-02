@@ -52,7 +52,7 @@
   abstract: false
   components:
   - type: Store
-    name: Ghostly Spellshop
+    name: store-preset-name-spellbook-ghost
     categories:
     - SpellbookOffensiveGhost   #Fireball, Rod Form
     - SpellbookDefensive    #Magic Missile, Wall of Force
@@ -68,7 +68,7 @@
   abstract: false
   components:
   - type: Store
-    name: Contravend Uplink
+    name: store-preset-name-uplink-ghost
     categories:
     - UplinkWeaponry
     - UplinkAmmo
