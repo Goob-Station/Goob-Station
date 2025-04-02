@@ -1,5 +1,3 @@
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: BaseItem
   id: BaseBeaker
@@ -790,6 +788,10 @@
   - type: Tag
     tags:
     - Pill
+    - KodeEdible # imp
+  - type: FoodSequenceElement # imp
+    entries:
+      Burger: PillBurger
 
 - type: entity
   name: pill canister

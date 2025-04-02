@@ -21,5 +21,85 @@
       collection: BikeHorn
     Weh:
       collection: Weh
-  params:
+   params:
     variation: 0.125
+
+    - type: emoteSounds
+      id: Kodepiia
+      params:
+        variation: 0.125
+      sounds:
+        Scream:
+          collection: KodepiiaScreams
+        Laugh:
+          collection: KodepiiaLaugh
+        Sneeze:
+          collection: KodepiiaSneezes
+        Cough:
+          collection: KodepiiaCoughs
+        Sigh:
+          collection: KodepiiaSigh
+        Crying:
+          collection: KodepiiaCry
+        Whistle:
+          collection: KodepiiaWhistles
+        CatHisses:
+          collection: KodepiiaHisses
+        Hiss:
+          collection: KodepiiaHisses
+        CatMeow:
+          collection: KodepiiaMeows
+        Boom:
+          collection: KodepiiaBooms
+        KodeRing:
+          collection: KodepiiaRings
+        KodeHonk:
+          collection: KodepiiaHonks
+          params: # Frontier
+            volume: -5 # Frontier
+        KodePew:
+          collection: KodepiiaPews
+        KodeBang:
+          collection: KodepiiaBangs
+          params: # Frontier
+            volume: -5 # Frontier
+        KodeBeep:
+          collection: KodepiiaBeeps
+        Yawn:
+          collection: KodepiiaYawn
+        Snore:
+          collection: KodepiiaSnores
+        KodeRev:
+          collection: KodepiiaRevs
+          params: # Frontier
+            volume: -5 # Frontier
+        Click:
+          collection: KodepiiaClicks
+        Chitter:
+          collection: KodepiiaChitter
+        Squeak:
+          collection: KodepiiaSqueak
+        Caw:
+          collection: KodepiiaCaws
+        Chirp:
+          collection: KodepiiaChirps
+        Snarl:
+          collection: KodepiiaSnarls
+        Honk:
+          collection: KodepiiaHonks
+        Weh:
+          collection: Weh
+        Hew:
+          collection: Hew
+        Gasp:
+          collection: KodepiiaGasp
+        DefaultDeathgasp:
+          collection: KodepiiaDeathgasp
+        Squish:
+          collection: Squishes
+        Bubble:
+          collection: Bubbles
+        Pop:
+          collection: Pops
+      params:
+        variation: 0.125

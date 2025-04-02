@@ -63,6 +63,8 @@ namespace Content.Shared.Humanoid.Markings
                 HumanoidVisualLayers.RFoot => MarkingCategories.RightFoot, // Goobstation
                 HumanoidVisualLayers.Wings => MarkingCategories.Wings, // Goobstation
                 HumanoidVisualLayers.Tail => MarkingCategories.Tail,
+                HumanoidVisualLayers.RArmExtension => MarkingCategories.Arms, // Frontier: species-specific layer
+                HumanoidVisualLayers.LArmExtension => MarkingCategories.Arms, // Frontier: species-specific layer
                 _ => MarkingCategories.Overlay
             };
         }

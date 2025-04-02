@@ -226,6 +226,13 @@
     collection: FootstepBlood
     params:
       volume: 6
+  metabolisms: # imp
+    Food:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+        - !type:OrganType
+          type: Kodepiia
 
 - type: reagent
   id: Vomit
@@ -270,3 +277,7 @@
         damage:
           types:
             Cellular: 2
+        conditions: # imp
+        - !type:OrganType
+          type: Kodepiia
+          shouldHave: false

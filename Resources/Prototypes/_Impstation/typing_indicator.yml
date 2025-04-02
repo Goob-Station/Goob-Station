@@ -1,0 +1,5 @@
+- type: typingIndicator
+  id: kodepiia
+  spritePath: /Textures/_Impstation/Effects/speech.rsi
+  typingState: kode
+  offset: -0.45, 0.35
