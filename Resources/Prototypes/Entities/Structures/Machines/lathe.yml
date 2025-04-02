@@ -350,12 +350,9 @@
     - BorgModulesGoob
     - Cybernetics
     - PowerCells
-  - type: EmagLatheRecipes # Goobstation
-    emagStaticPacks:
-    - MechWeaponsStatic
+  - type: EmagLatheRecipes # Goobstation - and intentionally no real mech weapons
     emagDynamicPacks:
     - MechWeaponsSalvage
-    - MechWeapons
   - type: MaterialStorage
     whitelist:
       tags:
