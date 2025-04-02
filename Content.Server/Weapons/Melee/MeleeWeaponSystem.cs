@@ -298,7 +298,6 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (TryComp<ShovingComponent>(disarmer, out var shoving))
             chance *= 1 + shoving.DisarmBonus; // WWDP edit
 
-        Log.Info(chance.ToString());
         return chance;
 
     }
