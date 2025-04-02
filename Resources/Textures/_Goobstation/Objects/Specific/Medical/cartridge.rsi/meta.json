@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by ReggieTheRat/a_person5660, cartridge-saline state by pheenty",
+  "copyright": "Made by ReggieTheRat/a_person5660; saline, atropine and chloral states by pheenty",
   "size": {
     "x": 32,
     "y": 32
@@ -27,6 +27,12 @@
     },
     {
       "name": "cartridge-saline"
+    },
+    {
+      "name": "cartridge-atropine"
+    },
+    {
+      "name": "cartridge-chloral"
     }
   ]
 }

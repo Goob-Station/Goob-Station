@@ -80,7 +80,7 @@
 
 - type: entity
   name: autoinjector cartridge
-  parent: [BaseItem, BaseSecurityContraband]
+  parent: [BaseItem, BaseSecurityMedicalContraband]
   description: Used in a cartridge autoinjector.
   id: BaseCartridgeAutoinjector
   components:
@@ -122,7 +122,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
-    state: cartridge-epinephrine
+    state: cartridge-atropine
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
@@ -168,42 +168,6 @@
         Quantity: 10
 
 - type: entity
-  name: ephedrine autoinjector cartridge
-  parent: BaseCartridgeAutoinjector
-  description: Contains 10u of ephedrine, used in a cartridge autoinjector.
-  id: CartridgeEphedrine
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
-    state: cartridge-ephedrine
-  - type: SolutionCartridge
-    targetSolution: hypospray
-    solution:
-      maxVol: 10
-      reagents:
-      - ReagentId: Ephedrine
-        Quantity: 10
-
-- type: entity
-  name: puncturase autoinjector cartridge
-  parent: BaseCartridgeAutoinjector
-  description: Contains 7u of puncturase and 3u of tranexamic acid, used in a cartridge autoinjector.
-  id: CartridgePuncturase
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
-    state: cartridge-ichor # not bothering to make a sprite for it
-  - type: SolutionCartridge
-    targetSolution: hypospray
-    solution:
-      maxVol: 10
-      reagents:
-      - ReagentId: Puncturase
-        Quantity: 7
-      - ReagentId: TranexamicAcid
-        Quantity: 3
-
-- type: entity
   name: airloss autoinjector cartridge
   parent: BaseCartridgeAutoinjector
   description: Contains 7u of saline and 3u of dexalin plus, used in a cartridge autoinjector.
@@ -221,6 +185,57 @@
         Quantity: 7
       - ReagentId: DexalinPlus
         Quantity: 3
+
+- type: entity
+  name: ephedrine autoinjector cartridge
+  parent: [ BaseSyndicateContraband , BaseCartridgeAutoinjector ]
+  description: Contains 10u of ephedrine, used in a cartridge autoinjector.
+  id: CartridgeEphedrine
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
+    state: cartridge-ephedrine
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Ephedrine
+        Quantity: 10
+
+- type: entity
+  name: puncturase autoinjector cartridge
+  parent: [ BaseSyndicateContraband , BaseCartridgeAutoinjector ]
+  description: Contains 10u of puncturase, used in a cartridge autoinjector.
+  id: CartridgePuncturase
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
+    state: cartridge-ichor # not bothering to make a sprite for it
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Puncturase
+        Quantity: 10
+
+- type: entity
+  name: chloral hydrate autoinjector cartridge
+  parent: [ BaseSyndicateContraband , BaseCartridgeAutoinjector ]
+  description: Contains 10u of chloral hydrate, used in a cartridge autoinjector.
+  id: CartidgeChloralHydrate
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
+    state: cartridge-chloral
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: ChloralHydrate
+        Quantity: 10
 
 # Medipens
 

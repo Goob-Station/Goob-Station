@@ -59,9 +59,8 @@
   completetime: 1
   materials:
     Steel: 200
-    Glass: 500
+    Glass: 400
     Plasma: 200
-    Gold: 200
 
 - type: latheRecipe
   id: CartridgePuncturase
@@ -69,9 +68,17 @@
   completetime: 1
   materials:
     Steel: 200
-    Glass: 500
-    Plasma: 500
-    Gold: 200
+    Glass: 400
+    Plasma: 200
+
+- type: latheRecipe
+  id: CartidgeChloralHydrate
+  result: CartidgeChloralHydrate
+  completetime: 1
+  materials:
+    Steel: 200
+    Glass: 400
+    Plasma: 200
 
 - type: latheRecipe
   id: SecHypo
@@ -94,6 +101,15 @@
     Glass: 800
     Plastic: 500
     Plasma: 500
+
+- type: latheRecipe
+  id: Terminus
+  result: Terminus # Einstein Engines
+  completetime: 6
+  materials:
+    Steel: 1250
+    Plastic: 750
+    Gold: 500
 
 # Smartgun
 
@@ -306,13 +322,6 @@
     Steel: 240
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
-  icon: { sprite: _Goobstation/Structures/Machines/contraband_detector.rsi, state: icon }
-  id: ContrabandDetectorCircuitboard
-  result: ContrabandDetectorCircuitboard
-  completetime: 4
-
-- type: latheRecipe
   parent: BaseAmmoRecipe
   id: MagazineBoxShotgunHighCaliber
   result: MagazineBoxShotgunHighCaliber
@@ -385,3 +394,26 @@
   result: MagazineBoxAntiMateriel
   materials:
     Steel: 1500
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolHighCapacityEmpty
+  result: MagazinePistolHighCapacityEmpty
+  materials:
+    Steel: 25
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolHighCapacity
+  result: MagazinePistolHighCapacity
+  materials:
+    Steel: 285
+
+# Circuitboards
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  icon: { sprite: _Goobstation/Structures/Machines/contraband_detector.rsi, state: icon }
+  id: ContrabandDetectorCircuitboard
+  result: ContrabandDetectorCircuitboard
+  completetime: 4
