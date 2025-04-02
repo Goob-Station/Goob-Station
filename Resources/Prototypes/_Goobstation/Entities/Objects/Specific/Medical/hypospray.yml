@@ -16,7 +16,7 @@
       hypospray:
         maxVol: 10
         reagents:
-        - ReagentId: Epinephrine
+        - ReagentId: Bicaridine
           Quantity: 7
         - ReagentId: TranexamicAcid
           Quantity: 3
@@ -80,10 +80,9 @@
 
 - type: entity
   name: autoinjector cartridge
-  parent: [BaseItem, BaseSecurityMedicalContraband]
+  parent: [BaseItem, BaseSecurityContraband]
   description: Used in a cartridge autoinjector.
   id: BaseCartridgeAutoinjector
-  abstract: true
   components:
   - type: Item
     size: Tiny
@@ -99,9 +98,9 @@
       - AutoinjectorCartridge
 
 - type: entity
-  name: adrenaline autoinjector cartridge
+  name: epinephrine autoinjector cartridge
   parent: BaseCartridgeAutoinjector
-  description: Contains 7u of epinephrine and 3u of tranexamic acid, used in a cartridge autoinjector.
+  description: Contains 10u of epinephrine, used in a cartridge autoinjector.
   id: CartridgeEpinephrine
   components:
   - type: Sprite
@@ -113,19 +112,17 @@
       maxVol: 10
       reagents:
       - ReagentId: Epinephrine
-        Quantity: 7
-      - ReagentId: TranexamicAcid
-        Quantity: 3 # Fully stops bleeding
+        Quantity: 10
 
 - type: entity
-  name: emergency autoinjector cartridge
+  name: atropine autoinjector cartridge
   parent: BaseCartridgeAutoinjector
   description: Contains 10u of atropine, used in a cartridge autoinjector.
   id: CartridgeAtropine
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
-    state: cartridge-atropine
+    state: cartridge-epinephrine
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
@@ -137,7 +134,7 @@
 - type: entity
   name: brute autoinjector cartridge
   parent: BaseCartridgeAutoinjector
-  description: Contains 4u of bicaridine, 3u of bozaide, 2u of salicylic acid and 1u of tranexamic acid, used in a cartridge autoinjector.
+  description: Contains 7u of bicaridine and 3u of tranexamic acid, used in a cartridge autoinjector.
   id: CartridgeBicaridine
   components:
   - type: Sprite
@@ -149,38 +146,62 @@
       maxVol: 10
       reagents:
       - ReagentId: Bicaridine
-        Quantity: 4
-      - ReagentId: Bozaide
-        Quantity: 3
-      - ReagentId: SalicylicAcid
-        Quantity: 2
+        Quantity: 7
       - ReagentId: TranexamicAcid
-        Quantity: 1 # Stops 30% of maximum bleeding
-  # Heals from 62 to 98 total brute split between 3 types (2.07 to 3.27 brute packs)
+        Quantity: 3
 
 - type: entity
   name: burn autoinjector cartridge
   parent: BaseCartridgeAutoinjector
-  description: Contains 4u of kelotane, 3u of dermaline, 2u of oxandrolone and 1u of sigynate, used in a cartridge autoinjector.
+  description: Contains 10u of dermaline, used in a cartridge autoinjector.
   id: CartridgeDermaline
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
-    state: cartridge-burn
+    state: cartridge-dermaline
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
       maxVol: 10
       reagents:
-      - ReagentId: Kelotane
-        Quantity: 4
       - ReagentId: Dermaline
+        Quantity: 10
+
+- type: entity
+  name: ephedrine autoinjector cartridge
+  parent: BaseCartridgeAutoinjector
+  description: Contains 10u of ephedrine, used in a cartridge autoinjector.
+  id: CartridgeEphedrine
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
+    state: cartridge-ephedrine
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Ephedrine
+        Quantity: 10
+
+- type: entity
+  name: puncturase autoinjector cartridge
+  parent: BaseCartridgeAutoinjector
+  description: Contains 7u of puncturase and 3u of tranexamic acid, used in a cartridge autoinjector.
+  id: CartridgePuncturase
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
+    state: cartridge-ichor # not bothering to make a sprite for it
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Puncturase
+        Quantity: 7
+      - ReagentId: TranexamicAcid
         Quantity: 3
-      - ReagentId: Oxandrolone
-        Quantity: 2
-      - ReagentId: Sigynate
-        Quantity: 1
-  # Heals from 70 to 114 total burn split between 4 types, twice as good for heat/cold/shock than for caustic (2 to 3.25 ointments)
 
 - type: entity
   name: airloss autoinjector cartridge
@@ -200,59 +221,6 @@
         Quantity: 7
       - ReagentId: DexalinPlus
         Quantity: 3
-
-- type: entity
-  name: stimulant autoinjector cartridge
-  parent: [ BaseSyndicateContraband , BaseCartridgeAutoinjector ]
-  description: Contains 10u of ephedrine, used in a cartridge autoinjector.
-  id: CartridgeEphedrine
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
-    state: cartridge-ephedrine
-  - type: SolutionCartridge
-    targetSolution: hypospray
-    solution:
-      maxVol: 10
-      reagents:
-      - ReagentId: Ephedrine
-        Quantity: 10
-
-- type: entity
-  name: gunshot autoinjector cartridge
-  parent: [ BaseSyndicateContraband , BaseCartridgeAutoinjector ]
-  description: Contains 10u of puncturase, used in a cartridge autoinjector.
-  id: CartridgePuncturase
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
-    state: cartridge-ichor # not bothering to make a sprite for it
-  - type: SolutionCartridge
-    targetSolution: hypospray
-    solution:
-      maxVol: 10
-      reagents:
-      - ReagentId: Puncturase
-        Quantity: 10
-
-- type: entity
-  name: sedative autoinjector cartridge
-  parent: [ BaseSyndicateContraband , BaseCartridgeAutoinjector ]
-  description: Contains 5u of chloral hydrate and 5u of tirizene, used in a cartridge autoinjector.
-  id: CartridgeChloralHydrate
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
-    state: cartridge-sedative
-  - type: SolutionCartridge
-    targetSolution: hypospray
-    solution:
-      maxVol: 10
-      reagents:
-      - ReagentId: ChloralHydrate
-        Quantity: 5
-      - ReagentId: Tirizene
-        Quantity: 5
 
 # Medipens
 

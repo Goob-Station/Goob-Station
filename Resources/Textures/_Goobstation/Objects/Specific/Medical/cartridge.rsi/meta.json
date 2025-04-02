@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by ReggieTheRat/a_person5660; burn, saline, atropine and sedative states by pheenty",
+  "copyright": "Made by ReggieTheRat/a_person5660, cartridge-saline state by pheenty",
   "size": {
     "x": 32,
     "y": 32
@@ -14,6 +14,9 @@
       "name": "cartridge-bicaridine"
     },
     {
+        "name": "cartridge-dermaline"
+    },
+    {
       "name": "cartridge-epinephrine"
     },
     {
@@ -23,16 +26,7 @@
       "name": "cartridge-ichor"
     },
     {
-      "name": "cartridge-burn"
-    },
-    {
       "name": "cartridge-saline"
-    },
-    {
-      "name": "cartridge-atropine"
-    },
-    {
-      "name": "cartridge-sedative"
     }
   ]
 }

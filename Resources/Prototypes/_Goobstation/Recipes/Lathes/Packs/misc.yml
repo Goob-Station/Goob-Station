@@ -31,7 +31,6 @@
   recipes:
   - CartridgeEphedrine
   - CartridgePuncturase
-  - CartridgeChloralHydrate
 
 - type: latheRecipePack
   id: ProtoLatheMiscStatic
