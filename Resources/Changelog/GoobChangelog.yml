@@ -6994,3 +6994,11 @@ Entries:
       message: Syringe guns now inject their contents more smoothly.
   id: 813
   time: '2025-04-02T18:14:08.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the ammounts of ui inventory windows you can have open at one
+        time
+  id: 814
+  time: '2025-04-02T18:15:59.0000000+00:00'
