@@ -151,7 +151,7 @@
         Quantity: 7
       - ReagentId: SalicylicAcid
         Quantity: 3
-  # Heals up to 107 total brute (3.5 brute packs)
+  # Heals up to 107 total brute (3.56 brute packs)
 
 - type: entity
   name: burn autoinjector cartridge
