@@ -121,32 +121,32 @@
 
 - type: storeCategory
   id: UplinkDeceptionContravend
-  name: ContraDeception
+  name: store-category-deception
   priority: 5
 
 - type: storeCategory
   id: UplinkImplantsContravend
-  name: ContraImplants
+  name: store-category-implants
   priority: 7
 
 - type: storeCategory
   id: UplinkAlliesContravend
-  name: ContraAllies
+  name: store-category-allies
   priority: 8
 
 #antag planet spellbook
 
 - type: storeCategory
   id: SpellbookOffensiveGhost
-  name: Ghostly Offensives
+  name: store-caregory-spellbook-offensive
   priority: 0
 
 - type: storeCategory
   id: SpellbookUtilityGhost
-  name: Ghostly Utilities
+  name: store-caregory-spellbook-utility
   priority: 2
 
 - type: storeCategory
   id: SpellbookSummonsGhost
-  name: Ghostly Summons
+  name: store-caregory-spellbook-summons
   priority: 5
