@@ -95,6 +95,46 @@
     Plastic: 500
     Plasma: 500
 
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: MagazineBluespacePistol
+  result: BluespaceMagazinePistol
+  materials:
+    Steel: 25
+    BSCrystal: 200
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: MagazineBluespaceSMG
+  result: BluespaceMagazinePistolSubMachineGunEmpty
+  materials:
+    Steel: 30
+    BSCrystal: 200
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: MagazineBluespaceWT550
+  result: BluespaceMagazinePistolSubMachineGunTopMountedEmpty
+  materials:
+    Steel: 30
+    BSCrystal: 200
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: MagazineBluespaceRifle
+  result: BluespaceMagazineRifleEmpty
+  materials:
+    Steel: 25
+    BSCrystal: 200
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: MagazineBluespaceShotgun
+  result: BluespaceMagazineShotgun
+  materials:
+    Steel: 50
+    BSCrystal: 200
+
 # Smartgun
 
 - type: latheRecipe
