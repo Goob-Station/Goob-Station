@@ -100,7 +100,7 @@
 - type: entity
   name: adrenaline autoinjector cartridge
   parent: BaseCartridgeAutoinjector
-  description: Contains 8u of epinephrine and 2u of tranexamic acid, used in a cartridge autoinjector.
+  description: Contains 7u of epinephrine and 3u of tranexamic acid, used in a cartridge autoinjector.
   id: CartridgeEpinephrine
   components:
   - type: Sprite
@@ -112,9 +112,9 @@
       maxVol: 10
       reagents:
       - ReagentId: Epinephrine
-        Quantity: 8
+        Quantity: 7
       - ReagentId: TranexamicAcid
-        Quantity: 2
+        Quantity: 3 # Fully stops bleeding
 
 - type: entity
   name: emergency autoinjector cartridge
@@ -136,7 +136,7 @@
 - type: entity
   name: brute autoinjector cartridge
   parent: BaseCartridgeAutoinjector
-  description: Contains 8.5u of bicaridine and 1.5u of salicylic acid, used in a cartridge autoinjector.
+  description: Contains 7u of bicaridine and 3u of salicylic acid, used in a cartridge autoinjector.
   id: CartridgeBicaridine
   components:
   - type: Sprite
@@ -148,14 +148,15 @@
       maxVol: 10
       reagents:
       - ReagentId: Bicaridine
-        Quantity: 8.5
+        Quantity: 7
       - ReagentId: SalicylicAcid
-        Quantity: 1.5
+        Quantity: 3
+  # Heals up to 107 total brute (3.5 brute packs)
 
 - type: entity
   name: burn autoinjector cartridge
   parent: BaseCartridgeAutoinjector
-  description: Contains 6u of dermaline, 2.5u of sigynate and 1.5u of oxandrolone, used in a cartridge autoinjector.
+  description: Contains 7u of dermaline, 1.5u of sigynate and 1.5u of oxandrolone, used in a cartridge autoinjector.
   id: CartridgeDermaline
   components:
   - type: Sprite
@@ -167,11 +168,12 @@
       maxVol: 10
       reagents:
       - ReagentId: Dermaline
-        Quantity: 6
+        Quantity: 7
       - ReagentId: Sigynate
-        Quantity: 2.5
+        Quantity: 1.5
       - ReagentId: Oxandrolone
         Quantity: 1.5
+  # Heals up to 140 total burn (4 ointments)
 
 - type: entity
   name: airloss autoinjector cartridge
