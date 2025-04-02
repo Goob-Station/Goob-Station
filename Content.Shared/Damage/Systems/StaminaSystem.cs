@@ -40,7 +40,6 @@ public sealed partial class StaminaSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!; // goob edit
     [Dependency] private readonly SharedStutteringSystem _stutter = default!; // goob edit
     [Dependency] private readonly SharedJitteringSystem _jitter = default!; // goob edit
-    [Dependency] private readonly ClothingModifyStunTimeSystem _modify = default!; // goob edit
     [Dependency] private readonly IRobustRandom _random = default!; // Goob - Shove
 
 
