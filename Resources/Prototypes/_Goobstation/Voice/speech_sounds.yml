@@ -1,0 +1,8 @@
+- type: speechSounds
+  id: Shrimp
+  saySound:
+    path: /Audio/_Goobstation/Animals/happyshrimp.ogg
+  askSound:
+    path: /Audio/_Goobstation/Animals/happyshrimp.ogg
+  exclaimSound:
+    path: /Audio/_Goobstation/Animals/happyshrimp.ogg

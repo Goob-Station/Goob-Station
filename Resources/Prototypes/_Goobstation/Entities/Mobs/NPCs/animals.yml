@@ -361,3 +361,114 @@
     damage:
       types:
         Piercing: 5
+
+- type: entity
+  name: shrimp
+  parent: [ SimpleMobBase, FlyingMobBase, EdibleBase ]
+  id: MobShrimp
+  description: Kill the beast.
+  components:
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3
+    baseSprintSpeed : 6
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: shrimp
+      sprite: _Goobstation/Mobs/Animals/shrimp.rsi
+  - type: Speech
+    speechSounds: Shrimp
+    speechVerb: SmallMob
+  - type: Bloodstream
+    bloodMaxVolume: 50
+  - type: Tag
+    tags:
+    - VimPilot
+    - DoorBumpOpener
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      10: Critical
+      20: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: shrimp
+      Critical:
+        Base: icon
+      Dead:
+        Base: dead
+  - type: Item
+    size: Tiny
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+  - type: FlavorProfile
+    flavors:
+    - meaty
+  - type: GhostRole
+    prob: 1
+    name: "shrimp"
+    allowMovement: true
+    description: "shrimp around"
+    rules: "get shrimpy with it"
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: CanEscapeInventory
+    baseResistTime: 2
+  - type: VentCrawler
+  - type: HitscanBatteryAmmoProvider
+    proto: ShrimpLaser
+    fireCost: 50
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 50
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot: /Audio/_Goobstation/Animals/shrimp.ogg
+  - type: Hands
+  - type: ComplexInteraction
+  - type: Stripping
+  - type: Puller
+    needsHands: false
+  - type: Targeting
+  - type: Body # Shitmed Change
+    prototype: Monkey
+    requiredLegs: 0
+
+- type: entity
+  name: shrimp
+  parent: MobShrimp
+  id: MobMeleeShrimp
+  suffix: melee
+  components:
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/_Goobstation/Animals/shrimp.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Slash: 1
+        Ion: 1
+        Structural: 11

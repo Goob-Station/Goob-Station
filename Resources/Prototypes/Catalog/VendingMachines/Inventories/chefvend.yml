@@ -25,4 +25,6 @@
     FoodBoxDonkpocket: 1
     FoodFrozenSandwich: 2
     FoodFrozenSandwichStrawberry: 2
-    
+    ShrimpBag: 1 #Goob
+  emaggedInventory:
+    ShrimpBag: 5
